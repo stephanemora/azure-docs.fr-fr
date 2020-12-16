@@ -6,13 +6,13 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 5/11/2020
-ms.openlocfilehash: 3a08b73a74d30a99ba3c360f012d5917f1d0c8bf
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.date: 12/2/2020
+ms.openlocfilehash: 2cfd391daa13a100a56bb10b79b27eda80902374
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129726"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533603"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Utiliser des données de référence pour effectuer des recherches dans Stream Analytics
 
@@ -111,13 +111,13 @@ Vous pouvez utiliser [Azure SQL Managed Instance](../azure-sql/managed-instance/
 
 ## <a name="size-limitation"></a>Limite de taille
 
-Nous vous recommandons d’utiliser des jeux de données de référence qui sont inférieurs à 300 Mo pour des performances optimales. L’utilisation de données de référence supérieures à 300 Mo est prise en charge dans les travaux avec 6 SU ou plus. Cette fonctionnalité est en version préliminaire et ne doit pas être utilisée en production. L’utilisation de données de référence très volumineuses peut avoir un impact sur les performances de votre travail. À mesure que la complexité des requêtes augmente pour inclure un traitement avec état comme les agrégations fenêtrées, les jointures temporelles et les fonctions analytiques temporelles, il est probable que la taille maximale prise en charge pour les données de référence diminue. Si Azure Stream Analytics ne peut pas charger les données de référence et effectuer des opérations complexes, le travail manque de mémoire et échoue. Dans ce cas, la métrique d’utilisation SU % atteindra 100 %.    
+Nous vous recommandons d’utiliser des jeux de données de référence qui sont inférieurs à 300 Mo pour des performances optimales. Les jeux de données de référence de 5 Go ou moins sont pris en charge dans les travaux avec 6 unités de diffusion en continu (SU) ou plus. L’utilisation de données de référence très volumineuses peut affecter la latence de bout en bout de votre travail. À mesure que la complexité des requêtes augmente pour inclure un traitement avec état comme les agrégations fenêtrées, les jointures temporelles et les fonctions analytiques temporelles, il est probable que la taille maximale prise en charge pour les données de référence diminue. Si Azure Stream Analytics ne peut pas charger les données de référence et effectuer des opérations complexes, le travail manque de mémoire et échoue. Dans ce cas, la métrique d’utilisation SU % atteindra 100 %.    
 
 |**Nombre d’unités de streaming**  |**Taille recommandée**  |
 |---------|---------|
 |1   |50 Mo ou moins   |
 |3   |150 Mo ou moins   |
-|6 et au-delà   |300 Mo ou moins. L’utilisation de données de référence supérieures à 300 Mo est prise en charge en version préliminaire et peut avoir un impact sur les performances de votre travail.    |
+|6 et au-delà   |5 Go ou moins.    |
 
 La prise en charge de la compression n’est pas disponible pour les données de référence.
 

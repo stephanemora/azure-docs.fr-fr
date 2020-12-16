@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/20/2018
 ms.author: genli
-ms.openlocfilehash: 063ebc40fd845fe6300b008e7ca048357a2fce49
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: d2e5996da5a1fe3f5b154d57ee509f25e54e30ac
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95806665"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862358"
 ---
 # <a name="troubleshoot-outbound-smtp-connectivity-issues-in-azure"></a>Résoudre les problèmes de connectivité SMTP sortante dans Azure
 
@@ -39,7 +39,7 @@ Pour les utilisateurs Contrat Entreprise Azure, il n’y a aucune modification d
 
 Si vous vous êtes inscrit avant le 15 novembre 2017 à l’abonnement Paiement à l’utilisation, il n’y aura aucune modification de la capacité technique à essayer la remise d’e-mails sortants. Vous pourrez toujours essayer la remise d’e-mails sortants à partir de machines virtuelles Azure directement depuis ces abonnements à des fournisseurs de messagerie externes sans aucune restriction de la plateforme Azure. Là encore, il n’est pas garanti que les fournisseurs de messagerie accepteront les e-mails entrants de n’importe quel utilisateur donné, et les utilisateurs devront travailler directement avec les fournisseurs de messagerie pour résoudre les problèmes de remise de message ou de filtrage du courrier indésirable qui impliquent des fournisseurs spécifiques.
 
-Pour les abonnements Paiement à l’utilisation créés après le 15 novembre 2017, des restrictions techniques bloquent les e-mails envoyés directement à partir de machines virtuelles se trouvant dans ces abonnements. Si vous souhaitez pouvoir envoyer des e-mails à partir de machines virtuelles Azure directement à des fournisseurs de messagerie externes (sans utiliser de relais SMTP authentifié), vous pouvez effectuer une demande de suppression de la restriction dans la section **Connectivité** du panneau **Diagnostiquer et résoudre** pour une ressource Réseau virtuel Microsoft Azure dans le portail Azure. S’il remplit les conditions requises, votre abonnement sera activé ou vous recevrez des instructions sur les étapes suivantes.
+Pour les abonnements Paiement à l’utilisation créés après le 15 novembre 2017, des restrictions techniques bloquent les e-mails envoyés directement à partir de machines virtuelles se trouvant dans ces abonnements. Si vous souhaitez pouvoir envoyer des e-mails à partir de machines virtuelles Azure directement à des fournisseurs de messagerie externes (sans utiliser de relais SMTP authentifié), et que vous avez un compte valide et conforme avec un historique des paiements, vous pouvez effectuer une demande de suppression de la restriction dans la section **Connectivité** du panneau **Diagnostiquer et résoudre** pour une ressource Réseau virtuel Microsoft Azure dans le portail Azure. S’il remplit les conditions requises, votre abonnement sera activé ou vous recevrez des instructions sur les étapes suivantes. 
 
 Lorsqu’un abonnement Paiement à l’utilisation est exempté et que les machines virtuelles ont été arrêtées et démarrées dans le portail Azure, toutes les machines virtuelles de cet abonnement sont exemptées. L’exemption s’applique uniquement à l’abonnement demandé et au trafic de machine virtuelle acheminé directement vers Internet.
 
@@ -54,13 +54,13 @@ Si vous utilisez ces types d’abonnements, vous êtes invité à utiliser des s
 
 ## <a name="cloud-service-provider-csp"></a>Fournisseur de services cloud (CSP)
 
-Si vous utilisez des ressources Azure par le biais d’un CSP, vous pouvez effectuer une demande de suppression de la restriction dans la section « Connectivité » du panneau « Diagnostiquer et résoudre » pour une ressource Réseau virtuel Microsoft Azure dans le portail Azure. S’il remplit les conditions requises, votre abonnement sera activé ou vous recevrez des instructions sur les étapes suivantes.
+Si vous utilisez des ressources Azure par le biais d’un CSP, vous pouvez effectuer une demande de suppression de la restriction dans la section **Connectivité** du panneau **Diagnostiquer et résoudre** pour une ressource Réseau virtuel Microsoft Azure dans le portail Azure. S’il remplit les conditions requises, votre abonnement sera activé ou vous recevrez des instructions sur les étapes suivantes.
 
 ## <a name="microsoft-partner-network-mpn-bizspark-plus-or-azure-sponsorship"></a>Microsoft Partner Network (MPN), BizSpark Plus ou Azure Sponsorship
 
 Pour les abonnements Microsoft Partner Network (MPN), BizSpark Plus ou Azure Sponsorship créés après le 15 novembre 2017, des restrictions techniques bloquent les e-mails envoyés directement à partir de machines virtuelles dans le cadre de ces abonnements. Si vous souhaitez pouvoir envoyer des e-mails à partir de machines virtuelles Azure directement à des fournisseurs de messagerie externes (sans utiliser de relais SMTP authentifié), vous pouvez en faire la demande en ouvrant une demande de support en utilisant le type de problème suivant : **Technique** > **Réseau virtuel** > **Connectivité** > **Impossible d’envoyer un e-mail (SMTP/Port 25)** . N’oubliez pas d’ajouter plus d’informations sur la raison pour laquelle votre déploiement doit envoyer des e-mails directement aux fournisseurs de messagerie au lieu d’utiliser un relais authentifié. Les demandes seront revues et approuvées à la discrétion de Microsoft. Les demandes peuvent être accordées uniquement après l’exécution de contrôles anti-fraude supplémentaires. 
 
-Lorsqu’un abonnement Paiement à l’utilisation est exempté et que les machines virtuelles ont été arrêtées et démarrées dans le portail Azure, toutes les machines virtuelles de cet abonnement sont exemptées. L’exemption s’applique uniquement à l’abonnement demandé et au trafic de machine virtuelle acheminé directement vers Internet.
+Lorsqu’un abonnement est exempté et que les machines virtuelles ont été arrêtées et démarrées dans le portail Azure, toutes les machines virtuelles de cet abonnement sont exemptées. L’exemption s’applique uniquement à l’abonnement demandé et au trafic de machine virtuelle acheminé directement vers Internet.
 
 ## <a name="restrictions-and-limitations"></a>Limitations et restrictions
 
@@ -68,4 +68,4 @@ Lorsqu’un abonnement Paiement à l’utilisation est exempté et que les machi
 
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contacter le support technique
 
-Si vous avez besoin d’aide, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème en utilisant le type de problème suivant : **Gestion des abonnements** Type de problème : **Requête d’activation du port 25 de flux d’e-mails**.
+Si vous avez besoin d’aide, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème en utilisant le type de problème suivant : **Technique** > **Réseau virtuel** > **Connectivité** > **Impossible d’envoyer un e-mail (SMTP/Port 25)** .

@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/17/2020
-ms.openlocfilehash: 63be912986542741359cd5e88227f06905d42647
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: da89d4fbc3f9e03e76d901c2215e4f16c5273013
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350872"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621108"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Transformation du récepteur dans le flux de données de mappage
 
@@ -103,6 +103,10 @@ Par défaut, les données sont écrites dans plusieurs récepteurs selon un ordr
 > Lors de l’utilisation de [recherches mises en cache](./concepts-data-flow-expression-builder.md#cached-lookup), assurez-vous que l’ordre des récepteurs mis en cache est défini sur 1, le plus bas (ou le premier) dans le classement.
 
 ![Ordre des récepteurs personnalisé](media/data-flow/cache-2.png "Ordre des récepteurs personnalisé")
+
+### <a name="sink-groups"></a>Groupes de récepteurs
+
+Vous pouvez regrouper les récepteurs en appliquant le même numéro d’ordre pour une série de récepteurs. ADF traitera ces récepteurs comme des groupes qui peuvent s’exécuter en parallèle. Les options d’exécution en parallèle s’affichent dans l’activité de flux de données du pipeline.
 
 ## <a name="error-row-handling"></a>Gestion des lignes d’erreur
 

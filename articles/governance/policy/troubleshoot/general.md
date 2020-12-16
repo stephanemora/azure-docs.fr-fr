@@ -1,14 +1,14 @@
 ---
 title: Résolution des erreurs courantes
 description: Découvrez comment résoudre les problèmes liés à la création de définitions de stratégie, aux divers Kits de développement logiciel (SDK) et au module complémentaire pour Kubernetes.
-ms.date: 10/30/2020
+ms.date: 12/01/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 74b622dd41fb28e845a35780e5d06588189ec029
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: f3667988d527100507d308887338278e1200d454
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146277"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96510996"
 ---
 # <a name="troubleshoot-errors-using-azure-policy"></a>Résoudre les erreurs à l’aide d’Azure Policy
 
@@ -56,7 +56,7 @@ Tout d’abord, attendez la durée appropriée pour que l’évaluation se termi
 
 #### <a name="issue"></a>Problème
 
-Une ressource n’a pas l’état d’évaluation, _conforme_ ou _non conforme_ , qui est attendu pour cette ressource.
+Une ressource n’a pas l’état d’évaluation, _conforme_ ou _non conforme_, qui est attendu pour cette ressource.
 
 #### <a name="cause"></a>Cause
 
@@ -95,7 +95,7 @@ L’attribution de stratégie a été configurée pour [enforcementMode](../conc
 Suivez ces étapes pour résoudre les problèmes liés à l’application de l’attribution de votre stratégie :
 
 1. Tout d’abord, attendez la durée appropriée pour que l’évaluation se termine et que les résultats de conformité soient disponibles dans le portail Azure ou le Kit de développement logiciel (SDK). Pour démarrer une nouvelle analyse d’évaluation avec Azure PowerShell ou l’API REST, consultez [Analyse d’évaluation à la demande](../how-to/get-compliance-data.md#on-demand-evaluation-scan).
-1. Vérifiez que les paramètres d’attribution et l’étendue d’attribution sont correctement définis et que **enforcementMode** est défini sur _Enabled_. 
+1. Vérifiez que les paramètres d’attribution et l’étendue d’attribution sont correctement définis et que **enforcementMode** est défini sur _Enabled_.
 1. Vérifiez le [mode de définition de la stratégie](../concepts/definition-structure.md#mode) :
    - Mode 'all' (Tous) pour tous les types de ressources.
    - Mode 'indexed' (indexé) si la définition de la stratégie recherche des balises ou un emplacement.
@@ -190,24 +190,6 @@ Pour obtenir une description détaillée, consultez le billet de blog suivant :
 
 ## <a name="add-on-for-kubernetes-general-errors"></a>Module complémentaire pour les erreurs générales de Kubernetes
 
-### <a name="scenario-add-on-doesnt-work-with-aks-clusters-on-version-119-preview"></a>Scénario : Le module complémentaire ne fonctionne pas avec les clusters AKS sur la version 1.19 (préversion)
-
-#### <a name="issue"></a>Problème
-
-Les clusters de la version 1.19 retournent cette erreur via le contrôleur Gatekeeper et les pods de webhook de la stratégie :
-
-```
-2020/09/22 20:06:55 http: TLS handshake error from 10.244.1.14:44282: remote error: tls: bad certificate
-```
-
-#### <a name="cause"></a>Cause
-
-Les clusters AKS sur la version 1.19 (préversion) ne sont pas encore compatibles avec le module complémentaire Azure Policy.
-
-#### <a name="resolution"></a>Résolution
-
-Évitez d’utiliser Kubernetes 1.19 (préversion) avec le module complémentaire Azure Policy. Le module complémentaire peut être utilisé avec toutes les versions en disponibilité générale prises en charge, telles que 1.16, 1.17 ou 1.18.
-
 ### <a name="scenario-add-on-is-unable-to-reach-the-azure-policy-service-endpoint-due-to-egress-restrictions"></a>Scénario : Le module complémentaire ne peut pas joindre le point de terminaison du service Azure Policy en raison de restrictions de sortie
 
 #### <a name="issue"></a>Problème
@@ -277,10 +259,19 @@ spec:
 
 #### <a name="issue"></a>Problème
 
-Le module complémentaire peut joindre le point de terminaison du service Azure Policy, mais affiche l’erreur suivante :
+Le module complémentaire peut joindre le point de terminaison du service Azure Policy, mais l’une des erreurs suivantes s’affiche dans les journaux du module complémentaire :
 
 ```
-The resource provider 'Microsoft.PolicyInsights' is not registered in subscription '{subId}'. See https://aka.ms/policy-register-subscription for how to register subscriptions.
+The resource provider 'Microsoft.PolicyInsights' is not registered in subscription '{subId}'. See
+https://aka.ms/policy-register-subscription for how to register subscriptions.
+```
+
+ou
+
+```
+policyinsightsdataplane.BaseClient#CheckDataPolicyCompliance: Failure responding to request:
+StatusCode=500 -- Original Error: autorest/azure: Service returned an error. Status=500
+Code="InternalServerError" Message="Encountered an internal server error."
 ```
 
 #### <a name="cause"></a>Cause
@@ -289,9 +280,9 @@ Le fournisseur de ressources `Microsoft.PolicyInsights` n’est pas inscrit et i
 
 #### <a name="resolution"></a>Résolution
 
-Inscrivez le fournisseur de ressources `Microsoft.PolicyInsights`. Pour obtenir des instructions, consultez [Inscrire un fournisseur de ressources](../../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
+Inscrivez le fournisseur de ressources `Microsoft.PolicyInsights` dans l’abonnement du cluster. Pour obtenir des instructions, consultez [Inscrire un fournisseur de ressources](../../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 
-### <a name="scenario-the-subscript-is-disabled"></a>Scénario : L’indice est désactivé
+### <a name="scenario-the-subscription-is-disabled"></a>Scénario : L'abonnement est désactivé
 
 #### <a name="issue"></a>Problème
 
@@ -307,7 +298,7 @@ Cette erreur signifie que l’abonnement a été identifié comme problématique
 
 #### <a name="resolution"></a>Résolution
 
-Contactez l’équipe des fonctionnalités `azuredg@microsoft.com` pour examiner et résoudre ce problème. 
+Contactez l’équipe des fonctionnalités `azuredg@microsoft.com` pour examiner et résoudre ce problème.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

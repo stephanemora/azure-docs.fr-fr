@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 56a9861f0e25e1dcdf741cfdf5c8830dd9b6fc1f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b9fc465b5e5f132264fd36e004fa3ee7623b87a5
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325808"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96854986"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Performances et mise à l’échelle dans Fonctions durables (Azure Functions)
 
@@ -20,13 +20,13 @@ Pour comprendre le comportement lié à la mise à l’échelle, vous devez éga
 
 ## <a name="history-table"></a>Table d’historique
 
-La table d’**historique** est une table de stockage Azure qui contient les événements d’historique de toutes les instances d’orchestration au sein d’un hub de tâches. Le nom de la table apparaît sous la forme *TaskHubName*History. Au fur et à mesure que des instances sont exécutées, de nouvelles lignes sont ajoutées à cette table. La clé de partition de la table provient de l’ID d’instance de l’orchestration. Un identifiant d’instance est aléatoire dans la plupart des cas, ce qui garantit une distribution optimale des partitions internes dans le stockage Azure.
+La table d’**historique** est une table de stockage Azure qui contient les événements d’historique de toutes les instances d’orchestration au sein d’un hub de tâches. Le nom de la table apparaît sous la forme *TaskHubName* History. Au fur et à mesure que des instances sont exécutées, de nouvelles lignes sont ajoutées à cette table. La clé de partition de la table provient de l’ID d’instance de l’orchestration. Un identifiant d’instance est aléatoire dans la plupart des cas, ce qui garantit une distribution optimale des partitions internes dans le stockage Azure.
 
 Lorsqu’une instance d’orchestration doit s’exécuter, les lignes appropriées de la table d’historique sont chargées en mémoire. Ces *événements d’historique* sont ensuite relus dans le code de fonction d’orchestrateur pour revenir à l’état contrôlé précédemment. L’utilisation de l’historique d’exécution permettant de régénérer l’état de cette façon est influencée par le [modèle d’approvisionnement en événements](/azure/architecture/patterns/event-sourcing).
 
 ## <a name="instances-table"></a>Table d’instances
 
-La table d’**instances** est une autre table de stockage Azure qui contient les états de toutes les instances d’orchestration et d’entité au sein d’un hub de tâches. Au fur et à mesure que des instances sont créées, des lignes sont ajoutées à cette table. La clé de partition de cette table est l’ID d’instance de l’orchestration ou la clé d’entité, tandis que la clé de ligne est une constante fixe. Il y a une ligne par instance d’orchestration ou d’entité.
+La table d’**instances** est une autre table de stockage Azure qui contient les états de toutes les instances d’orchestration et d’entité au sein d’un hub de tâches. Au fur et à mesure que des instances sont créées, des lignes sont ajoutées à cette table. La clé de partition de cette table est l’ID d’instance de l’orchestration ou la clé d’entité, et la clé de ligne est une chaîne vide. Il y a une ligne par instance d’orchestration ou d’entité.
 
 Cette table est utilisée pour répondre aux demandes de requête d’instance provenant des API `GetStatusAsync` (.NET) et `getStatus` (JavaScript) et de l’API [HTTP de requête d’état](durable-functions-http-api.md#get-instance-status). Sa cohérence avec le contenu de la table d’**historique** mentionnée précédemment est conservée. L’utilisation d’une table de stockage Azure distincte pour satisfaire les opérations de requête d’instance de cette façon est influencée par le [modèle de séparation des responsabilités en matière de commande et de requête (CQRS)](/azure/architecture/patterns/cqrs).
 

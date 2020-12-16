@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/21/2020
+ms.date: 12/07/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6dacb1cd910c6569d94f365b34a15494dde70a4c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 6d6a152096ce4e16849542c26d1c7a675a972b89
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787684"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779071"
 ---
 # <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>Obtenir un jeton à partir d’Azure AD pour autoriser les requêtes à partir d’une application cliente
 
@@ -35,18 +35,18 @@ Pour authentifier un principal de sécurité à partir de votre application Stoc
 
 ## <a name="register-your-application-with-an-azure-ad-tenant"></a>Inscrire votre application à un locataire Azure AD
 
-La première étape d’utilisation d’Azure AD pour autoriser l’accès aux ressources de stockage est d’inscrire votre application cliente avec un locataire Azure AD à partir du [Portail Microsoft Azure](https://portal.azure.com). Lorsque vous inscrivez votre application cliente, vous fournissez des informations sur l’application à Azure AD. Azure AD fournit ensuite un ID de client (appelé aussi *ID d’application* ) que vous utilisez pour associer votre application à Azure AD au moment de l’exécution. Pour en savoir plus sur l’ID de client, consultez [Objets application et principal du service dans Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md). Pour inscrire votre application de Stockage Microsoft Azure, veuillez suivre les étapes indiquées dans le [Guide de démarrage rapide : Inscrire une application avec la plateforme des identités Microsoft](../../active-directory/develop/quickstart-configure-app-access-web-apis.md). 
+La première étape d’utilisation d’Azure AD pour autoriser l’accès aux ressources de stockage est d’inscrire votre application cliente avec un locataire Azure AD à partir du [Portail Microsoft Azure](https://portal.azure.com). Lorsque vous inscrivez votre application cliente, vous fournissez des informations sur l’application à Azure AD. Azure AD fournit ensuite un ID de client (appelé aussi *ID d’application*) que vous utilisez pour associer votre application à Azure AD au moment de l’exécution. Pour en savoir plus sur l’ID de client, consultez [Objets application et principal du service dans Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md). Pour inscrire votre application de Stockage Microsoft Azure, veuillez suivre les étapes indiquées dans le [Guide de démarrage rapide : Inscrire une application avec la plateforme des identités Microsoft](../../active-directory/develop/quickstart-configure-app-access-web-apis.md). 
 
 L’illustration suivante montre les paramètres courants d’inscription d’une application web. À savoir : dans cet exemple, l’URI de redirection est défini sur `http://localhost:5000/signin-oidc` pour tester l’exemple d’application dans l’environnement de développement. Vous pourrez par la suite modifier ce paramètre sous le paramètre **Authentification** de votre application inscrite sur le Portail Azure :
 
 :::image type="content" source="media/storage-auth-aad-app/app-registration.png" alt-text="Capture d’écran montrant comment inscrire votre application de stockage dans Azure AD":::
 
 > [!NOTE]
-> Si vous inscrivez votre application comme une application native, vous pouvez spécifier n’importe quel URI valide pour **l’URI de redirection** . Pour les applications natives, cette valeur ne devra pas être une URL réelle. Pour les applications web, l’URI de redirection doit être un URI valide, car il spécifie l’URL à laquelle les jetons sont fournis.
+> Si vous inscrivez votre application comme une application native, vous pouvez spécifier n’importe quel URI valide pour **l’URI de redirection**. Pour les applications natives, cette valeur ne devra pas être une URL réelle. Pour les applications web, l’URI de redirection doit être un URI valide, car il spécifie l’URL à laquelle les jetons sont fournis.
 
 Une fois votre application inscrite, l’ID d’application (ou ID de client) se trouve sous **Paramètres** :
 
-:::image type="content" source="media/storage-auth-aad-app/app-registration-client-id.png" alt-text="Capture d’écran montrant comment inscrire votre application de stockage dans Azure AD":::
+:::image type="content" source="media/storage-auth-aad-app/app-registration-client-id.png" alt-text="Capture d’écran montrant l’ID de client":::
 
 Pour plus d’informations sur l’inscription d’une application dans Azure AD, consultez [Intégration d’applications à Azure Active Directory](../../active-directory/develop/quickstart-register-app.md).
 
@@ -54,26 +54,26 @@ Pour plus d’informations sur l’inscription d’une application dans Azure AD
 
 Ensuite, accordez à votre application l’autorisation d’appeler les API de Stockage Azure. Cette étape permet à votre application d’autoriser les requêtes vers le Stockage Azure avec Azure AD.
 
-1. Sur la page **Autorisations d’API** de votre application inscrite, sélectionnez **Ajouter une autorisation** .
-1. Sous l’onglet **API Microsoft** , sélectionnez **Stockage Azure** .
-1. Comme vous pouvez le constater sous **De quel type d’autorisations votre application a-t-elle besoin ?** dans le volet **Demander des autorisations d’API** , le type d’autorisation disponible est **Autorisations déléguées** . Cette option est sélectionnée pour vous par défaut.
-1. Sous **Autorisations** , cochez la case à côté de **user_impersonation** , puis sélectionnez le bouton **Ajouter des autorisations** .
+1. Sur la page **Autorisations d’API** de votre application inscrite, sélectionnez **Ajouter une autorisation**.
+1. Sous l’onglet **API Microsoft**, sélectionnez **Stockage Azure**.
+1. Comme vous pouvez le constater sous **De quel type d’autorisations votre application a-t-elle besoin ?** dans le volet **Demander des autorisations d’API**, le type d’autorisation disponible est **Autorisations déléguées**. Cette option est sélectionnée pour vous par défaut.
+1. Sous **Autorisations**, cochez la case à côté de **user_impersonation**, puis sélectionnez le bouton **Ajouter des autorisations**.
 
-    :::image type="content" source="media/storage-auth-aad-app/registered-app-permissions-1.png" alt-text="Capture d’écran montrant comment inscrire votre application de stockage dans Azure AD":::
+    :::image type="content" source="media/storage-auth-aad-app/registered-app-permissions-1.png" alt-text="Capture d’écran montrant les autorisations relatives à l’API de stockage":::
 
-1. Accordez ensuite le consentement administrateur pour ces autorisations en cliquant sur **Accorder le consentement administrateur pour le répertoire par défaut** .
+1. Accordez ensuite le consentement administrateur pour ces autorisations en cliquant sur **Accorder le consentement administrateur pour le répertoire par défaut**.
 
 Le volet **Autorisations d’API** indique à présent que votre application Azure AD inscrite a accès aux API Microsoft Graph et Stockage Azure. Par ailleurs, le consentement est accordé pour le répertoire par défaut. Les autorisations sont accordées à Microsoft Graph automatiquement quand vous inscrivez votre application pour la première fois dans Azure AD.
 
-:::image type="content" source="media/storage-auth-aad-app/registered-app-permissions-2.png" alt-text="Capture d’écran montrant comment inscrire votre application de stockage dans Azure AD":::
+:::image type="content" source="media/storage-auth-aad-app/registered-app-permissions-2.png" alt-text="Capture d’écran montrant les autorisations d’API de l’application inscrite":::
 
 ### <a name="create-a-client-secret"></a>Créer une clé secrète client
 
 L’application a besoin d’une clé secrète client pour prouver son identité lors de la requête de jeton. Pour ajouter une clé secrète client, procédez comme suit :
 
 1. Accédez à votre inscription d’application dans le Portail Microsoft Azure.
-1. Sélectionnez le paramètre **Certificats et clés secrètes** .
-1. Sous **Clés secrètes client** , cliquez sur **Nouvelle clé secrète client** pour créer une clé secrète.
+1. Sélectionnez le paramètre **Certificats et clés secrètes**.
+1. Sous **Clés secrètes client**, cliquez sur **Nouvelle clé secrète client** pour créer une clé secrète.
 1. Fournissez une description pour la clé secrète, puis choisissez une intervalle d’expiration.
 1. Copiez immédiatement la valeur de la nouvelle clé secrète dans un emplacement sécurisé. La valeur complète s’affiche pour vous une seule fois.
 
@@ -84,10 +84,10 @@ L’application a besoin d’une clé secrète client pour prouver son identité
 Configurez maintenant le processus d’octroi implicite de votre application. Procédez comme suit :
 
 1. Accédez à votre inscription d’application dans le Portail Microsoft Azure.
-1. Dans la section **Gérer** , sélectionnez le paramètre **authentification** .
-1. Dans la section **Octroi implicite** , activez la case des jetons d’ID, comme illustré dans l’image suivante :
+1. Dans la section **Gérer**, sélectionnez le paramètre **authentification**.
+1. Dans la section **Octroi implicite**, activez la case des jetons d’ID, comme illustré dans l’image suivante :
 
-    :::image type="content" source="media/storage-auth-aad-app/enable-implicit-grant-flow.png" alt-text="Capture d’écran montrant comment inscrire votre application de stockage dans Azure AD":::
+    :::image type="content" source="media/storage-auth-aad-app/enable-implicit-grant-flow.png" alt-text="Capture d’écran montrant comment activer les paramètres pour le flux d’octroi implicite":::
 
 ## <a name="client-libraries-for-token-acquisition"></a>Bibliothèques clientes pour l’acquisition de jeton
 
@@ -131,6 +131,8 @@ Ensuite, affectez explicitement le rôle **Contributeur aux données Blob du sto
 
 > [!NOTE]
 > Lorsque vous créez un compte de stockage Azure, aucune autorisation d’accès aux données ne vous est automatiquement attribuée via Azure AD. Vous devez vous attribuer explicitement un rôle Azure pour le Stockage Azure. Vous pouvez l’attribuer au niveau de votre abonnement, groupe de ressources, compte de stockage, conteneur ou file d’attente.
+>
+> Avant de vous attribuer un rôle pour l’accès aux données, vous pouvez accéder aux données de votre compte de stockage via le portail Azure, car ce dernier peut également utiliser la clé de compte pour l’accès aux données. Pour plus d’informations, consultez [Choisir comment autoriser l’accès à des données blobs dans le portail Azure](../blobs/authorize-data-operations-portal.md).
 
 ### <a name="create-a-web-application-that-authorizes-access-to-blob-storage-with-azure-ad"></a>Créer une application web qui autorise l’accès au Stockage Blob avec Azure AD
 
@@ -140,7 +142,7 @@ Un exemple d’application web complet qui acquiert un jeton et l’utilise pour
 
 #### <a name="add-references-and-using-statements"></a>Ajouter des références et des instructions using  
 
-Dans Visual Studio, installez la bibliothèque de client du Stockage Azure. Dans le menu **Outils** , sélectionnez **Gestionnaire de package NuGet** , puis **Console du gestionnaire de package** . Tapez les commandes suivantes dans la fenêtre de la console pour installer les packages nécessaires à partir de la bibliothèque de client du Stockage Azure pour .NET :
+Dans Visual Studio, installez la bibliothèque de client du Stockage Azure. Dans le menu **Outils**, sélectionnez **Gestionnaire de package NuGet**, puis **Console du gestionnaire de package**. Tapez les commandes suivantes dans la fenêtre de la console pour installer les packages nécessaires à partir de la bibliothèque de client du Stockage Azure pour .NET :
 
 # <a name="net-v12-sdk"></a>[Kit de développement logiciel (SDK) .NET v12](#tab/dotnet)
 
@@ -282,7 +284,7 @@ Mettez à jour le fichier *appsettings.json* avec vos propres valeurs :
 
 ### <a name="update-the-storage-account-and-container-name"></a>Mettre à jour le conteneur et le nom du compte de stockage
 
-Dans le fichier *HomeController.cs* , mettez à jour l’URI qui fait référence à l’objet blob de blocs pour utiliser votre conteneur et le nom de votre compte de stockage, en remplaçant les valeurs entre crochets par vos propres valeurs :
+Dans le fichier *HomeController.cs*, mettez à jour l’URI qui fait référence à l’objet blob de blocs pour utiliser votre conteneur et le nom de votre compte de stockage, en remplaçant les valeurs entre crochets par vos propres valeurs :
 
 ```html
 https://<storage-account>.blob.core.windows.net/<container>/Blob1.txt

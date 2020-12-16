@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, contperfq1, automl
 ms.date: 08/20/2020
-ms.openlocfilehash: 0bbb18a82de508f79cd2fd5dde58c1cf33520950
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 605e8cd57ab5863c1011082f0f2dbd93d078980b
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94887397"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518938"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Entraîner automatiquement un modèle de prévision de série chronologique
 
@@ -146,6 +146,7 @@ Ces paramètres supplémentaires sont résumés dans le tableau suivant. Consult
 |`forecast_horizon`|Définit le nombre de périodes à venir que vous souhaitez prévoir. L’horizon est exprimé en unités de fréquence de série chronologique. Les unités sont basées sur l’intervalle de temps de vos données d’apprentissage (par exemple mensuelles ou hebdomadaires) que l’analyste doit prévoir.|✓|
 |`enable_dnn`|[Activez les DNN de prévisions]().||
 |`time_series_id_column_names`|La ou les noms de colonne utilisés pour identifier de manière unique la série chronologique dans des données qui ont plusieurs lignes avec le même horodatage. Si les identificateurs de série chronologique ne sont pas définis, le jeu de données est supposé être une série chronologique. Pour en savoir plus sur les séries chronologiques uniques, consultez [energy_demand_notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand).||
+|`freq`| Fréquence du jeu de données de série chronologique. Ce paramètre représente la fréquence attendue des événements, par exemple tous les jours, toutes les semaines, tous les ans, etc. Elle doit constituer un [alias de décalage Pandas](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects).||
 |`target_lags`|Nombre de lignes selon lequel décaler les valeurs cibles en fonction de la fréquence des données. Le décalage est représenté sous la forme d’une liste ou d’un entier unique. Un décalage est nécessaire en l’absence de correspondance ou de corrélation par défaut des relations entre les variables indépendantes et la variable dépendante. ||
 |`feature_lags`| Les fonctionnalités à décaler seront automatiquement déterminées par Machine Learning automatisé lorsque `target_lags` sont définis et `feature_lags` est défini sur `auto`. L’activation des décalages de fonctionnalités peut contribuer à améliorer l’exactitude. Les décalages de fonctionnalités sont désactivés par défaut. ||
 |`target_rolling_window_size`|*n* périodes historiques à utiliser pour générer des valeurs prédites, < = taille du jeu d’apprentissage. En cas d’omission, *n* est la taille du jeu d’apprentissage complet. Spécifiez ce paramètre si vous souhaitez prendre en compte seulement une partie des données historiques pour l’entraînement du modèle. En savoir plus sur l’[agrégation de fenêtres dynamiques cibles](#target-rolling-window-aggregation).||
@@ -153,7 +154,7 @@ Ces paramètres supplémentaires sont résumés dans le tableau suivant. Consult
 
 
 Le code suivant, 
-* Tire parti de la classe [`ForecastingParameters`](https://docs.microsoft.com/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters?preserve-view=true&view=azure-ml-py) pour définir les paramètres de prévisions associés à l'apprentissage de l'expérience.
+* Tire parti de la classe [`ForecastingParameters`](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters?preserve-view=true&view=azure-ml-py) pour définir les paramètres de prévisions associés à l'apprentissage de l'expérience.
 * Définit le `time_column_name` sur le champ `day_datetime` dans le jeu de données. 
 * Définit le paramètre `time_series_id_column_names` sur `"store"`. Cela permet de s’assurer que **deux groupes de séries chronologiques distincts** sont créés pour les données ; une pour les banques A et B.
 * Définit le `forecast_horizon` sur 50 afin de prédire pour l’ensemble du jeu de tests. 
@@ -285,19 +286,19 @@ Consultez un exemple de code Python tirant parti de la [caractéristique d’agr
 
 ### <a name="short-series-handling"></a>Gestion des séries courtes
 
-Le ML automatisé considère une série chronologique comme une **série courte** si le nombre de points de données est insuffisant pour mener les phases d'apprentissage et de validation du développement du modèle. Le nombre de points de données varie d'une expérience à l'autre et dépend du paramètre max_horizon, du nombre de divisions pour la validation croisée et de la longueur de la recherche arrière du modèle, c'est-à-dire le maximum d'historique nécessaire pour construire les caractéristiques de la série chronologique. Pour connaître le calcul exact, consultez la [documentation de référence de short_series_handling_config](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters?preserve-view=true&view=azure-ml-py#short-series-handling-configuration).
+Le ML automatisé considère une série chronologique comme une **série courte** si le nombre de points de données est insuffisant pour mener les phases d'apprentissage et de validation du développement du modèle. Le nombre de points de données varie d'une expérience à l'autre et dépend du paramètre max_horizon, du nombre de divisions pour la validation croisée et de la longueur de la recherche arrière du modèle, c'est-à-dire le maximum d'historique nécessaire pour construire les caractéristiques de la série chronologique. Pour connaître le calcul exact, consultez la [documentation de référence de short_series_handling_configuration](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters?preserve-view=true&view=azure-ml-py#short-series-handling-configuration).
 
-Le ML automatisé permet par défaut une gestion des séries courtes avec le paramètre `short_series_handling_config` de l'objet `ForecastingParameters`. 
+Le ML automatisé permet par défaut une gestion des séries courtes avec le paramètre `short_series_handling_configuration` de l'objet `ForecastingParameters`. 
 
-Pour activer la gestion des séries courtes, le paramètre `freq` doit également être défini. Pour modifier le comportement par défaut, `short_series_handling_config = auto`, mettez à jour le paramètre `short_series_handling_config` dans votre objet `ForecastingParameter`.  
+Pour activer la gestion des séries courtes, le paramètre `freq` doit également être défini. Pour définir une fréquence horaire, nous allons définir `freq='H'`. Consultez les options de chaîne de fréquence [ici](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects). Pour modifier le comportement par défaut, `short_series_handling_configuration = 'auto'`, mettez à jour le paramètre `short_series_handling_configuration` dans votre objet `ForecastingParameter`.  
 
 ```python
 from azureml.automl.core.forecasting_parameters import ForecastingParameters
 
 forecast_parameters = ForecastingParameters(time_column_name='day_datetime', 
                                             forecast_horizon=50,
-                                            short_series_handling_config='auto',
-                                            freq = 50
+                                            short_series_handling_configuration='auto',
+                                            freq = 'H',
                                             target_lags='auto')
 ```
 Le tableau suivant récapitule les paramètres disponibles pour `short_series_handling_config`.
@@ -305,7 +306,7 @@ Le tableau suivant récapitule les paramètres disponibles pour `short_series_ha
 |Paramètre|Description
 |---|---
 |`auto`| Le comportement par défaut en matière de gestion des séries courtes est le suivant : <li> *Si toutes les séries sont courtes*, remplissez les données. <br> <li> *Si toutes les séries ne sont pas courtes*, supprimez-les. 
-|`pad`| Si `short_series_handling_config = pad`, le ML automatisé ajoute des valeurs factices à chaque série courte trouvée. Vous trouverez ci-dessous la liste des types de colonnes et de leur contenu : <li>Colonnes d'objets avec « n'est pas un nombre » (NAN) <li> Colonnes numériques avec 0 <li> Colonnes booléennes/logiques avec False <li> La colonne cible est remplie avec des valeurs aléatoires, avec une moyenne de zéro et un écart type de 1. 
+|`pad`| Si `short_series_handling_config = pad`, le ML automatisé ajoute des valeurs aléatoires à chaque série courte trouvée. Vous trouverez ci-dessous la liste des types de colonnes et de leur contenu : <li>Colonnes d'objets avec « n'est pas un nombre » (NAN) <li> Colonnes numériques avec 0 <li> Colonnes booléennes/logiques avec False <li> La colonne cible est remplie avec des valeurs aléatoires, avec une moyenne de zéro et un écart type de 1. 
 |`drop`| Si `short_series_handling_config = drop`, le ML automatisé supprime la série courte ; celle-ci ne sera donc pas utilisée pour l'apprentissage ou la prédiction. Les prédictions de ces séries renverront NAN.
 |`None`| Aucune série n'est remplie ou supprimée
 

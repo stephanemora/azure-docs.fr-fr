@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/16/2020
-ms.openlocfilehash: 09f5d61984d5802184d70867f94815fac8fe2b7d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a3d0ef3c112da87e73f83c6c87de8f3fce1fea0
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86103566"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621363"
 ---
 # <a name="how-to-get-featured-in-appsource-and-azure-marketplace"></a>Guide pratique pour apparaître dans AppSource et dans la Place de marché Microsoft Azure
 
@@ -29,8 +29,8 @@ Vous pouvez effectuer les actions suivantes pour améliorer votre score :
 
 1. *Assurez-vous que votre application ou service est correctement classé* : choisissez trois catégories qui représentent les fonctionnalités de votre application ou service.
 2. *Applications de la Place de marché Microsoft Azure : augmentez votre consommation d’Azure mois après mois.* Si vous êtes en mesure d’atteindre 1 000 heures d’utilisation d’Azure par mois, vous augmentez considérablement vos chances de gagner votre place.
-3. *Applications d’AppSource : augmentez les acquisitions de votre offre.* Si vous êtes en mesure d’atteindre 10 acquisitions par mois, vous augmentez considérablement vos chances de gagner votre place. 
-4. *Obtenez le statut Co-Sell Ready* : remplissez les conditions pour être éligible au programme Co-Sell Ready.
+3. *Applications d’AppSource : augmentez les acquisitions de votre offre.* Si vous êtes en mesure d’atteindre 10 acquisitions par mois, vous augmentez considérablement vos chances de gagner votre place.
+4. *Obtenez l’état Prêt pour la co-vente* : remplissez les [conditions requises pour être prêt pour la co-vente ](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status).
 5. *Améliorez la qualité de votre offre* : consultez [Instructions relatives aux annonces de contenu](marketplace-criteria-content-validation.md) pour plus d’informations sur la façon de modifier votre offre
 6. Publiez plusieurs offres sur la Place de marché : tous vos principaux services et applications sont-ils listés ? Avez-vous une expérience d’essai ?
 7. Encouragez vos clients à rédiger des avis.

@@ -4,16 +4,16 @@ description: Apprenez à monter un partage NFS (Network File System).
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/15/2020
+ms.date: 12/04/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 530ae82720e6b4eb6a3e4d1021c0b37b9f4dbf5c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a993d9c1de35132198de5e3becc4f16d6a2a437
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90707439"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621295"
 ---
 # <a name="how-to-mount-an-nfs-file-share"></a>Monter un partage de fichiers NFS
 
@@ -55,9 +55,13 @@ ms.locfileid: "90707439"
 1. Entrez le chemin de montage que vous souhaitez utiliser, puis copiez le script.
 1. Connectez-vous à votre client et utilisez le script de montage fourni.
 
-    :::image type="content" source="media/storage-files-how-to-create-mount-nfs-shares/mount-nfs-file-share-script.png" alt-text="Capture de l'écran de configuration du compte de stockage, sur lequel le transfert sécurisé est désactivé. ":::
+    :::image type="content" source="media/storage-files-how-to-create-mount-nfs-shares/mount-nfs-file-share-script.png" alt-text="Capture d'écran du panneau de connexion du partage de fichiers":::
 
 Votre partage NFS est désormais monté.
+
+### <a name="validate-connectivity"></a>Valider la connectivité
+
+En cas d’échec de votre montage, il est possible que votre point de terminaison privé n’ait pas été correctement configuré ou qu’il soit inaccessible. Pour plus d’informations sur la vérification de la connectivité, consultez la section [Vérifier la connectivité](storage-files-networking-endpoints.md#verify-connectivity) de l’article relatif aux points de terminaison de mise en réseau.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -2,14 +2,14 @@
 title: Chiffrer un registre avec une clé gérée par le client
 description: Apprenez-en davantage sur le chiffrement au repos de votre registre de conteneurs Azure et sur la façon de chiffrer votre registre Premium avec une clé gérée par le client, stockée dans Azure Key Vault
 ms.topic: article
-ms.date: 11/17/2020
+ms.date: 12/03/2020
 ms.custom: ''
-ms.openlocfilehash: 6dac2239f223b5dee6ec728833caa01562873210
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 708a42a4f965f484060d42d89ea4f535c4365a10
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95255018"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620436"
 ---
 # <a name="encrypt-registry-using-a-customer-managed-key"></a>Chiffrer un registre à l’aide d’une clé gérée par le client
 
@@ -45,9 +45,6 @@ Quand vous configurez le chiffrement du Registre avec une clé gérée par le cl
 * **Mettre à jour automatiquement la version de la clé** : pour mettre à jour automatiquement une clé gérée par le client quand une nouvelle version est disponible dans Azure Key Vault, omettez la version de la clé quand vous activez le chiffrement du Registre avec une clé gérée par le client. Quand un registre est chiffré avec une clé sans version, Azure Container Registry vérifie régulièrement la nouvelle version de clé dans le coffre de clés et met à jour la clé gérée par le client dans un délai d’1 heure. Azure Container Registry utilise automatiquement la dernière version de la clé.
 
 * **Mettre à jour manuellement la version de la clé** : pour utiliser une version spécifique d’une clé pour le chiffrement du Registre, spécifiez cette version de clé quand vous activez le chiffrement du Registre avec une clé gérée par le client. Quand un registre est chiffré avec une version de clé spécifique, Azure Container Registry utilise cette version pour le chiffrement tant que vous n’avez pas manuellement permuté la clé gérée par le client.
-
-> [!NOTE]
-> Actuellement, vous pouvez uniquement utiliser l’interface Azure CLI pour configurer le Registre afin de mettre à jour automatiquement la version de la clé gérée par le client. Quand vous utilisez le portail pour activer le chiffrement, vous devez mettre à jour manuellement la version de la clé.
 
 Pour plus d’informations, consultez [Choisir un ID de clé avec ou sans version de clé](#choose-key-id-with-or-without-key-version) et [Mettre à jour la version de la clé](#update-key-version), plus loin dans cet article.
 
@@ -252,7 +249,7 @@ Vous utilisez le nom de l’identité dans des étapes ultérieures.
 
 ### <a name="create-a-key-vault"></a>Création d’un coffre de clés
 
-Pour connaître la procédure de création d’un coffre de clés, consultez [Démarrage rapide : Créer un coffre de clés Azure avec le portail Azure](../key-vault/general/quick-create-portal.md).
+Pour connaître la procédure de création d’un coffre de clés, consultez [Démarrage rapide : Créer un coffre de clés avec le portail Azure](../key-vault/general/quick-create-portal.md).
 
 Quand vous créez un coffre de clés pour une clé gérée par le client, sous l’onglet **Informations de base**, activez le paramètre **Protection contre la suppression définitive**. Ce paramètre permet d’éviter toute perte de données provoquée par la suppression accidentelle d’une clé ou d’un coffre de clés.
 
@@ -279,13 +276,15 @@ Vous pouvez également utiliser [Azure RBAC for Key Vault](../key-vault/general/
     1. Accordez l’accès à **Identité managée affectée par l’utilisateur**.
     1. Sélectionnez le nom de ressource de votre identité managée affectée par l’utilisateur, puis sélectionnez **Enregistrer**.
 
-### <a name="create-key"></a>Créer une clé
+### <a name="create-key-optional"></a>Créer une clé (facultatif)
+
+Vous pouvez éventuellement créer une clé dans le coffre de clés pour chiffrer le registre. Procédez comme suit si vous souhaitez sélectionner une version de clé spécifique comme clé gérée par le client. 
 
 1. Accédez à votre coffre de clés.
 1. Sélectionnez **Paramètres** > **Clés**.
 1. Sélectionnez **+Générer/Importer** et entrez un nom unique pour la clé.
 1. Acceptez les valeurs par défaut restantes et sélectionnez **Créer**.
-1. Après la création, sélectionnez la clé et notez la version actuelle de la clé.
+1. Après la création, sélectionnez la clé, puis sélectionnez la version actuelle. Copiez l’**identificateur de clé** pour la version de clé.
 
 ### <a name="create-azure-container-registry"></a>Créer un registre de conteneurs Azure
 
@@ -293,10 +292,11 @@ Vous pouvez également utiliser [Azure RBAC for Key Vault](../key-vault/general/
 1. Sous l’onglet **Informations de base**, sélectionnez ou créez un groupe de ressources, puis entrez un nom de registre. Dans **Référence (SKU)** , sélectionnez **Premium**.
 1. Sous l’onglet **Chiffrement**, dans **Clé gérée par le client**, sélectionnez **Activée**.
 1. Dans **Identité**, sélectionnez l’identité managée que vous avez créée.
-1. Dans **Chiffrement**, sélectionnez **Sélectionner dans le coffre de clés**.
-1. Dans la fenêtre **Sélectionner une clé à partir d’Azure Key Vault**, sélectionnez le coffre de clés, la clé et la version que vous avez créés dans la section précédente.
+1. Dans **Chiffrement**, choisissez l’une des options suivantes :
+    * Sélectionnez **Sélectionner dans Key Vault**, puis sélectionnez un coffre de clés et une clé existants, ou **créez-en**. La clé que vous sélectionnez est sans version et active la rotation automatique des clés.
+    * Sélectionnez **Entrer l’URI de la clé** et fournissez directement un identificateur de clé. Vous pouvez fournir un URI de clé avec version (pour une clé qui doit être renouvelée manuellement) ou un URI de clé sans version (qui active la rotation automatique des clés). 
 1. Sous l’onglet **Chiffrement**, sélectionnez **Vérifier + créer**.
-1. Sélectionnez **Créer** pour créer l’instance du Registre.
+1. Sélectionnez **Créer** pour déployer l’instance du registre.
 
 :::image type="content" source="media/container-registry-customer-managed-keys/create-encrypted-registry.png" alt-text="Créer un registre chiffré dans le portail Azure":::
 
@@ -498,11 +498,11 @@ Par exemple, pour configurer une nouvelle clé :
 
 1. Dans le portail, accédez à votre registre.
 1. Sous **Paramètres**, sélectionnez **Chiffrement** > **Modifier la clé**.
-1. Sélectionnez **Sélectionner une clé**.
 
     :::image type="content" source="media/container-registry-customer-managed-keys/rotate-key.png" alt-text="Faites pivoter la clé dans le portail Azure.":::
-1. Dans la fenêtre **Sélectionner une clé dans Azure Key Vault**, sélectionnez le coffre de clés et la clé que vous avez configurés précédemment, et dans **Version**, sélectionnez **Créer nouveau**.
-1. Dans la fenêtre **Créer une clé**, sélectionnez **Générer**, puis **Créer**.
+1. Dans **Chiffrement**, choisissez l’une des options suivantes :
+    * Sélectionnez **Sélectionner dans Key Vault**, puis sélectionnez un coffre de clés et une clé existants, ou **créez-en**. La clé que vous sélectionnez est sans version et active la rotation automatique des clés.
+    * Sélectionnez **Entrer l’URI de la clé** et fournissez directement un identificateur de clé. Vous pouvez fournir un URI de clé avec version (pour une clé qui doit être renouvelée manuellement) ou un URI de clé sans version (qui active la rotation automatique des clés).
 1. Terminez la sélection de la clé et sélectionnez **Enregistrer**.
 
 ## <a name="revoke-key"></a>Révoquer la clé

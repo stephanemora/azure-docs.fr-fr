@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8dfc34699bb973dc1f5b74807043e9f208d64f4c
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 00670746c1686bca354adc989ddce6c9dd336491
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242145"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96519057"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-portal"></a>Chiffrement des données pour Azure Database pour MySQL à l’aide du Portail Azure
 
@@ -34,11 +34,24 @@ Découvrez comment utiliser le Portail Azure pour configurer et gérer le chiffr
     ```azurecli-interactive
     az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --enable-purge-protection true
     ```
+  * Jours de rétention définis sur 90 jours :
+  
+    ```azurecli-interactive
+    az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --retention-days 90
+    ```
 
 * La clé doit avoir les attributs suivants à utiliser en tant que clé gérée par le client :
   * Aucune date d’expiration
   * Non activée
-  * En mesure d’effectuer des opérations get, wrap key et unwrap key
+  * Effectuer les opérations **get**, **wrap** et **unwrap**
+  * Attribut recoverylevel défini sur **Récupérable** (cela nécessite l’activation de la suppression réversible avec la période de conservation définie sur 90 jours)
+  * Protection contre le vidage activée
+
+Vous pouvez vérifier les attributs de la clé ci-dessus avec la commande suivante :
+
+```azurecli-interactive
+az keyvault key show --vault-name <key_vault_name> -n <key_name>
+```
 
 ## <a name="set-the-right-permissions-for-key-operations"></a>Définir les permissions appropriées pour les opérations sur les clés
 
@@ -46,7 +59,7 @@ Découvrez comment utiliser le Portail Azure pour configurer et gérer le chiffr
 
    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/show-access-policy-overview.png" alt-text="Capture d’écran de Key Vault, avec mise en évidence des éléments Stratégies d’accès et Ajouter une stratégie d’accès":::
 
-2. Sélectionnez **Autorisations de clé** , puis **Get** , **Wrap** , **Unwrap** et **Principal** , qui est le nom du serveur MySQL. Si votre principal de serveur est introuvable dans la liste des principaux existants, vous devez l’inscrire. Vous êtes invité à inscrire votre principal de serveur quand vous tentez de configurer le chiffrement des données pour la première fois et que l’opération échoue.
+2. Sélectionnez **Autorisations de clé**, puis **Get**, **Wrap**, **Unwrap** et **Principal**, qui est le nom du serveur MySQL. Si votre principal de serveur est introuvable dans la liste des principaux existants, vous devez l’inscrire. Vous êtes invité à inscrire votre principal de serveur quand vous tentez de configurer le chiffrement des données pour la première fois et que l’opération échoue.
 
    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/access-policy-wrap-unwrap.png" alt-text="Vue d’ensemble de la stratégie d’accès":::
 
@@ -74,7 +87,7 @@ Une fois Azure Database pour MySQL chiffré à l'aide d'une clé gérée par le 
 
    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/show-restore.png" alt-text="Capture d’écran d’Azure Database pour MySQL, avec mise en évidence des éléments Vue d’ensemble et Restaurer":::
 
-   Autrement, pour un serveur compatible avec la réplication, sous le titre **Paramètres** , sélectionnez **Réplication**.
+   Autrement, pour un serveur compatible avec la réplication, sous le titre **Paramètres**, sélectionnez **Réplication**.
 
    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/mysql-replica.png" alt-text="Capture d’écran d’Azure Database pour MySQL, avec mise en évidence de Réplication":::
 

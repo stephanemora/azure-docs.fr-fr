@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 11/03/2020
+ms.date: 12/07/2020
 ms.author: tisande
-ms.openlocfilehash: 9e62d6c475a4aeb366d034af1c80fc728f1a9211
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 2d99e0e2b65f7131e564e6ab64e454d2947c58a6
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93335804"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903018"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Stratégies d’indexation dans Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -29,7 +29,7 @@ Dans certaines situations, vous souhaiterez peut-être remplacer ce comportement
 Azure Cosmos DB prend en charge deux modes d’indexation :
 
 - **Cohérent** : L’index est mis à jour de manière synchrone quand vous créez, mettez à jour ou supprimez des éléments. Cela signifie que la cohérence de vos requêtes de lecture sera la [cohérence configurée pour le compte](consistency-levels.md).
-- **Aucun**  : L’indexation est désactivée sur le conteneur. C’est courant lorsqu’un conteneur est exclusivement utilisé comme magasin clé-valeur sans que des index secondaires soient nécessaires. Vous pouvez également l’utiliser pour améliorer les performances des opérations en bloc. Une fois les opérations en bloc effectuées, vous pouvez définir le mode d’indexation Consistent (Cohérent), puis le superviser à l’aide de [IndexTransformationProgress](how-to-manage-indexing-policy.md#dotnet-sdk) jusqu’à la fin du processus.
+- **Aucun** : L’indexation est désactivée sur le conteneur. C’est courant lorsqu’un conteneur est exclusivement utilisé comme magasin clé-valeur sans que des index secondaires soient nécessaires. Vous pouvez également l’utiliser pour améliorer les performances des opérations en bloc. Une fois les opérations en bloc effectuées, vous pouvez définir le mode d’indexation Consistent (Cohérent), puis le superviser à l’aide de [IndexTransformationProgress](how-to-manage-indexing-policy.md#dotnet-sdk) jusqu’à la fin du processus.
 
 > [!NOTE]
 > Azure Cosmos DB prend également en charge un mode d’indexation différée. L’indexation différée effectue des mises à jour de l’index à un niveau de priorité nettement inférieur quand le moteur ne fait aucun autre travail. Cela peut entraîner des résultats de requête **incohérents ou incomplets**. Si vous prévoyez d’interroger un conteneur Cosmos, vous ne devez pas sélectionner l’indexation différée. Les nouveaux conteneurs ne peuvent pas sélectionner l’indexation différée. Vous pouvez demander une exemption en contactant le [support Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) (sauf si vous utilisez un compte Azure Cosmos en mode [serverless](serverless.md), qui ne prend pas en charge l’indexation différée).
@@ -79,7 +79,7 @@ Toute stratégie d’indexation doit inclure le chemin racine `/*` comme chemin 
 
 - La propriété système `_etag` est exclue de l’indexation par défaut, sauf si l’etag est ajouté au chemin inclus pour l’indexation.
 
-- Si le mode d’indexation est défini sur **cohérent** , les propriétés système `id` et `_ts` sont automatiquement indexées.
+- Si le mode d’indexation est défini sur **cohérent**, les propriétés système `id` et `_ts` sont automatiquement indexées.
 
 Lorsque vous incluez et excluez des chemins d’accès, vous pouvez rencontrer les attributs suivants :
 
@@ -105,9 +105,9 @@ Si les chemins inclus et les chemins exclus présentent un conflit, le chemin pl
 
 Voici un exemple :
 
-**Chemin inclus**  : `/food/ingredients/nutrition/*`
+**Chemin inclus** : `/food/ingredients/nutrition/*`
 
-**Chemin exclu**  : `/food/ingredients/*`
+**Chemin exclu** : `/food/ingredients/*`
 
 Dans ce cas, le chemin inclus est prioritaire sur le chemin exclu, car il est plus précis. Sur la base de ces chemins, toutes les données du chemin `food/ingredients` ou imbriquées dans celui-ci sont exclues de l’index. Il en va différemment des données du chemin inclus `/food/ingredients/nutrition/*`, qui est indexé.
 
@@ -201,6 +201,7 @@ Les considérations suivantes sont utilisées lors de la création d’index com
 - Lors de la création d’un index composite pour optimiser des requêtes avec plusieurs filtres, `ORDER` de l’index composite n’aura aucun impact sur les résultats. Cette propriété est facultative.
 - Si vous ne définissez pas d’index composite pour une requête avec des filtres sur plusieurs propriétés, la requête réussit quand même. Toutefois, le coût RU de la requête peut être réduit à l’aide d’un index composite.
 - Les index composites se révèlent également avantageux pour les requêtes qui comportent à la fois des agrégations (par exemple, COUNT ou SUM) et des filtres.
+- Les expressions de filtre peuvent utiliser plusieurs index composites.
 
 Prenons les exemples suivants, où un index composite est défini sur des propriétés name, age et timestamp :
 
@@ -213,6 +214,7 @@ Prenons les exemples suivants, où un index composite est défini sur des propri
 | ```(name ASC, age ASC)```     | ```SELECT * FROM c WHERE c.name != "John" AND c.age > 18``` | ```No```             |
 | ```(name ASC, age ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.name = "John" AND c.age = 18 AND c.timestamp > 123049923``` | ```Yes```            |
 | ```(name ASC, age ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.name = "John" AND c.age < 18 AND c.timestamp = 123049923``` | ```No```            |
+| ```(name ASC, age ASC) and (name ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.name = "John" AND c.age < 18 AND c.timestamp > 123049923``` | ```Yes```            |
 
 ### <a name="queries-with-a-filter-as-well-as-an-order-by-clause"></a>Requêtes avec un filtre et une clause ORDER BY
 

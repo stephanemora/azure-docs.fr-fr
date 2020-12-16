@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/13/2019
 ms.author: allensu
-ms.openlocfilehash: 90fc35249daea51a08cb83143c6be024e78964a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b86f9bcbc863a78fd5f8f748e973a20ea709636
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91804008"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573168"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Créer, changer ou supprimer un préfixe d’adresse IP publique
 
@@ -60,6 +60,9 @@ Les préfixes d’adresse IP publique ont un coût. Pour en savoir plus, consult
 |---|---|
 |Interface de ligne de commande|[az network public-ip prefix create](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-create)|
 |PowerShell|[New-AzPublicIpPrefix](/powershell/module/az.network/new-azpublicipprefix)|
+
+>[!NOTE]
+>Dans les régions avec des zones de disponibilité, vous pouvez utiliser des commandes PowerShell ou CLI pour créer un préfixe d’adresse IP publique comme suit : non zonal, associé à une zone spécifique ou pour utiliser la redondance de zone.  Pour l’API version 2020-08-01 ou ultérieure, si un paramètre de zone n’est pas fourni, un préfixe d’adresse IP publique non zonal est créé. Pour les versions d’API antérieures à 2020-08-01, un préfixe d’adresse IP publique redondant interzone est créé. 
 
 ## <a name="create-a-static-public-ip-address-from-a-prefix"></a>Créer une adresse IP publique statique à partir d’un préfixe
 Une fois que vous avez créé un préfixe, vous devez créer des adresses IP statiques à partir du préfixe. Pour ce faire, effectuez les étapes ci-dessous.

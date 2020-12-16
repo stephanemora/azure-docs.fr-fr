@@ -2,18 +2,18 @@
 title: Fichier include
 description: Fichier include
 services: active-directory
-author: rolyon
+author: barclayn
 ms.service: active-directory
 ms.topic: include
-ms.date: 05/26/2020
+ms.date: 12/07/2020
 ms.author: barclayn
 ms.custom: include file
-ms.openlocfilehash: ee02200f1fb32d430a858d218e27534561ebc24a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cbcd4b459faa3bf67f591cc7afab0bf0027062e1
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83868069"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96842303"
 ---
 ## <a name="create-one-or-more-access-reviews"></a>Créer une ou plusieurs révisions d’accès
 
@@ -53,6 +53,7 @@ ms.locfileid: "83868069"
 
     - **Utilisateurs sélectionnés** : utilisez cette option lorsque vous ne savez pas qui a besoin de l’accès. Avec cette option, vous pouvez affecter la révision à un propriétaire de ressource ou un responsable de groupe.
     - **Membres (auto)** : utilisez cette option pour demander aux utilisateurs de réviser leurs propres attributions de rôles.
+    - **Manager (préversion)**  : utilisez cette option pour que le manager de l’utilisateur révise son attribution de rôle. En sélectionnant Manager (préversion), vous aurez également la possibilité de spécifier un réviseur de secours. Les réviseurs de secours sont invités à réviser un utilisateur lorsque celui-ci n’a aucun manager spécifié dans le répertoire.
 
 ### <a name="upon-completion-settings"></a>Paramètres de saisie semi-automatique
 
@@ -82,3 +83,6 @@ ms.locfileid: "83868069"
 1. Définissez **Notifications par e-mail** sur **Activer** pour qu’Azure AD envoie des notifications par e-mail aux réviseurs quand une révision d’accès commence et aux administrateurs quand une révision se termine.
 
 1. Définissez **Rappels** sur **Activer** pour qu’Azure AD envoie des rappels concernant les révisions d’accès en cours aux réviseurs qui n’ont pas terminé leur révision.
+1. Le contenu de l’e-mail envoyé aux réviseurs est généré automatiquement en fonction des détails de la révision, comme le nom de la révision, le nom de la ressource, la date d’échéance, etc. Si vous souhaitez communiquer des informations supplémentaires telles que des instructions ou des coordonnées, vous pouvez les ajouter dans l’**e-mail Contenu supplémentaire pour le réviseur** qui sera inclus dans les e-mails d’invitation et de rappel envoyés aux réviseurs désignés. Ces informations seront affichées dans la section en surbrillance ci-dessous.
+
+    ![Contenu de l’e-mail envoyé aux réviseurs avec mise en évidence des points importants](./media/active-directory-privileged-identity-management-access-reviews/email-info.png)

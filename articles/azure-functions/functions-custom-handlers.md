@@ -1,18 +1,18 @@
 ---
-title: Gestionnaires personnalisés Azure Functions (préversion)
+title: Gestionnaires personnalisés Azure Functions
 description: Apprenez à utiliser Azure Functions avec n’importe quel langage ou version de runtime.
 author: anthonychu
 ms.author: antchu
-ms.date: 8/18/2020
+ms.date: 12/1/2020
 ms.topic: article
-ms.openlocfilehash: 402ce1e9e92ab87689abe9c18a503a479d7421f9
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 099f90ba8c5d9dabb6c4c505e50d8c077e3eaf0f
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164548"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746027"
 ---
-# <a name="azure-functions-custom-handlers-preview"></a>Gestionnaires personnalisés Azure Functions (préversion)
+# <a name="azure-functions-custom-handlers"></a>Gestionnaires personnalisés Azure Functions
 
 Chaque application Functions est exécutée par un gestionnaire propre au langage. Même si Azure Functions prend en charge un grand nombre de [gestionnaires de langage](./supported-languages.md) par défaut, dans certains cas, vous souhaiterez peut-être utiliser d’autres langages ou runtimes.
 
@@ -20,10 +20,12 @@ Les gestionnaires personnalisés sont des serveurs web légers qui reçoivent de
 
 Les gestionnaires personnalisés sont particulièrement adaptés dans les cas où vous voulez :
 
-- Implémenter une application de fonction dans un langage qui n’est pas actuellement pris en charge, comme Go et Rust.
+- Implémenter une application de fonction dans un langage qui n’est pas actuellement pris en charge, comme Go ou Rust.
 - Implémenter une application de fonction dans un langage qui n’est pas actuellement pris en charge, comme Deno.
 
 Avec les gestionnaires personnalisés, vous pouvez utiliser des [déclencheurs et des liaisons d’entrée et de sortie](./functions-triggers-bindings.md) via des [bundles d’extension](./functions-bindings-register.md).
+
+Démarrez avec les gestionnaires personnalisés Azure Functions avec [les démarrages rapides en Go et Rust](create-first-function-vs-code-other.md).
 
 ## <a name="overview"></a>Vue d’ensemble
 
@@ -583,3 +585,7 @@ Les gestionnaires personnalisés s’exécutent dans le même environnement qu�
 Si vous avez besoin d’aide sur une application de fonction assortie de gestionnaires personnalisés, vous pouvez envoyer une demande via les canaux de support standard. Cependant, compte tenu de la grande diversité des langages pouvant être utilisés pour créer des applications de gestionnaire personnalisé, le support n’est pas illimité.
 
 Un support est fourni si l’hôte Functions rencontre des problèmes de démarrage ou de communication avec le processus du gestionnaire personnalisé. Pour les problèmes propres au fonctionnement interne du processus de votre gestionnaire personnalisé, comme ceux liés au langage ou à l’infrastructure choisis, notre équipe de support ne peut pas proposer d’assistance dans ce contexte.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Commencez à créer une application Azure Functions en Go ou Rust à l’aide du [démarrage rapide des gestionnaires personnalisés](create-first-function-vs-code-other.md).

@@ -1,37 +1,37 @@
 ---
 title: Concevoir un processus ELT au lieu d’un processus ETL
-description: Implémenter des stratégies flexibles de chargement de données pour le pool SQL Synapse au sein d’Azure Synapse Analytics
+description: Implémentez des stratégies flexibles de chargement de données pour les pools SQL dédiés au sein d’Azure Synapse Analytics.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 05/13/2020
+ms.date: 11/20/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 0533e76863d01675cee7aaca79e32821e5efc749
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 64ba24eb0eab581310122908fc05d1d671ac1d40
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92507801"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96531571"
 ---
-# <a name="data-loading-strategies-for-synapse-sql-pool"></a>Stratégies de chargement des données pour le pool SQL Synapse
+# <a name="data-loading-strategies-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Stratégies de chargement de données pour un pool SQL dédié dans Azure Synapse Analytics
 
-Les pools SQL SMP traditionnels utilisent un processus ELT (Extract, Load, and Transform – Extraire, charger et transformer) pour le chargement des données. Synapse SQL, au sein d’Azure Synapse Analytics, utilise une architecture de traitement de requêtes distribuées qui tire parti de la scalabilité et de la flexibilité des ressources de calcul et de stockage.
+Les pools SQL dédiés SMP traditionnels utilisent un processus ELT (Extract, Load, and Transform – Extraire, charger et transformer) pour le chargement des données. Synapse SQL, au sein d’Azure Synapse Analytics, utilise une architecture de traitement de requêtes distribuées qui tire parti de la scalabilité et de la flexibilité des ressources de calcul et de stockage.
 
 L’utilisation d’un processus ELT s’appuie sur ses capacités de traitement de requêtes distribuées intégrées et d’éliminer les ressources nécessaires à la transformation des données avant le chargement.
 
-Bien que les pools SQL prennent en charge de nombreuses méthodes de chargement, notamment des options SQL Server bien connues, comme [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) et l’[API SqlBulkCopy](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json), le moyen le plus rapide et le plus évolutif pour charger des données est d’utiliser des tables externes PolyBase et l’[instruction COPY](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+Bien que les pools SQL dédiés prennent en charge de nombreuses méthodes de chargement, notamment des options SQL Server bien connues, comme [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) et l’[API SqlBulkCopy](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json), le moyen le plus rapide et le plus scalable pour charger des données est d’utiliser des tables externes PolyBase et l’[instruction COPY](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 Avec PolyBase et l’instruction COPY, vous pouvez accéder à des données externes stockées dans Stockage Blob Azure ou dans Azure Data Lake Store via le langage T-SQL. Pour une plus grande flexibilité lors du chargement, nous vous recommandons d’utiliser l’instruction COPY.
 
 
 ## <a name="what-is-elt"></a>ELT, qu’est-ce que ça veut dire ?
 
-ELT (Extract, Load, and Transform – Extraire, charger et transformer) est un processus par lequel des données sont extraites d’un système source, chargées dans un pool SQL, puis transformées.
+ELT (Extract, Load, and Transform – Extraire, charger et transformer) est un processus par lequel des données sont extraites d’un système source, chargées dans un pool SQL dédié, puis transformées.
 
 Les étapes de base pour implémenter ELT sont les suivantes :
 
@@ -62,7 +62,7 @@ Voici des outils et services que vous pouvez utiliser pour déplacer des donnée
 
 - Le service [Azure ExpressRoute](../../expressroute/expressroute-introduction.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) améliore le débit, les performances et la prévisibilité du réseau. ExpressRoute est un service qui achemine vos données via une connexion privée dédiée vers Azure. Les connexions ExpressRoute n’acheminent pas vos données via le réseau Internet public. Elles offrent davantage de fiabilité, des vitesses supérieures, des latences inférieures et une sécurité renforcée par rapport aux connexions publiques sur Internet.
 - L’[utilitaire AZCopy](../../storage/common/storage-choose-data-transfer-solution.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) déplace les données vers le stockage Azure via l’Internet public. Il fonctionne si la taille de vos données ne dépasse pas les 10 To. Pour effectuer des chargements réguliers avec AZCopy, testez la vitesse du réseau pour voir si elle est acceptable.
-- [Azure Data Factory (ADF)](../../data-factory/introduction.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) dispose d’une passerelle que vous pouvez installer sur votre serveur local. Ensuite, vous pouvez créer un pipeline pour déplacer des données à partir de votre serveur local vers le stockage Azure. Pour utiliser Data Factory avec le pool SQL, consultez [Charger des données pour un pool SQL](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+- [Azure Data Factory (ADF)](../../data-factory/introduction.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) dispose d’une passerelle que vous pouvez installer sur votre serveur local. Ensuite, vous pouvez créer un pipeline pour déplacer des données à partir de votre serveur local vers le stockage Azure. Pour utiliser Data Factory avec des pools SQL dédiés, consultez [Chargement de données pour des pools SQL dédiés](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ## <a name="3-prepare-the-data-for-loading"></a>3. Préparer les données pour le chargement
 
@@ -70,9 +70,9 @@ Avant de pouvoir charger les données de votre compte de stockage, vous devrez p
 
 ### <a name="define-the-tables"></a>Définir les tables
 
-Vous devez d’abord définir la ou les tables que vous chargez dans votre pool SQL lors de l’utilisation de l’instruction COPY.
+Vous devez d’abord définir la ou les tables que vous chargez dans votre pool SQL dédié lors de l’utilisation de l’instruction COPY.
 
-Si vous utilisez PolyBase, vous devez définir des tables externes dans votre pool SQL avant le chargement. PolyBase utilise des tables externes pour définir les données dans le stockage Azure et y accéder. Une table externe est similaire à une vue de base de données. La table externe contient le schéma de table et pointe vers les données stockées en dehors du pool SQL.
+Si vous utilisez PolyBase, vous devez définir des tables externes dans votre pool SQL dédié avant le chargement. PolyBase utilise des tables externes pour définir les données dans le stockage Azure et y accéder. Une table externe est similaire à une vue de base de données. La table externe contient le schéma de table et pointe vers les données stockées en dehors du pool SQL dédié.
 
 La définition des tables externes implique de spécifier la source des données, le format des fichiers texte et les définitions de la table. Les articles de référence sur la syntaxe T-SQL dont vous aurez besoin sont les suivants :
 
@@ -119,8 +119,9 @@ Utilisez le mappage de type de données SQL suivant lors du chargement des fichi
 | [Type complexe](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgithub.com%2Fapache%2Fparquet-format%2Fblob%2Fmaster%2FLogicalTypes.md%23maps&data=02\|01\|kevin%40microsoft.com\|19f74d93f5ca45a6b73c08d7d7f5f111\|72f988bf86f141af91ab2d7cd011db47\|1\|0\|637215323617803168&sdata=FiThqXxjgmZBVRyigHzfh5V7Z%2BPZHjud2IkUUM43I7o%3D&reserved=0) |                  MAP                  |   varchar(max)   |
 
 >[!IMPORTANT] 
-> - Les pools dédiés SQL ne prennent actuellement pas en charge les types de données Parquet avec précision MICROS ou NANOS. 
-> - Vous pouvez rencontrer l’erreur suivante si les types ne correspondent pas entre Parquet et SQL ou si vous avez des types de données Parquet non pris en charge :  **« HdfsBridge::recordReaderFillBuffer - Unexpected error encountered filling record reader buffer: ClassCastException: ... »**
+>- Les pools dédiés SQL ne prennent actuellement pas en charge les types de données Parquet avec précision MICROS ou NANOS. 
+>- Vous pouvez rencontrer l’erreur suivante si les types ne correspondent pas entre Parquet et SQL ou si vous avez des types de données Parquet non pris en charge : **« HdfsBridge::recordReaderFillBuffer - Unexpected error encountered filling record reader buffer: ClassCastException: ... »**
+>- Le chargement d’une valeur en dehors de la plage 0-127 dans une colonne tinyint pour le format de fichier ORC et Parquet n’est pas pris en charge.
 
 Pour un exemple de création d’objets externes, consultez[Créer des tables externes](https://docs.microsoft.com/azure/synapse-analytics/sql/develop-tables-external-tables?tabs=sql-pool).
 
@@ -130,12 +131,12 @@ Si vous utilisez PolyBase, les objets externes définis doivent aligner les lign
 Pour formater les fichiers texte :
 
 - Si vos données proviennent d’une source non relationnelle, vous devez les transformer en lignes et en colonnes. Que les données proviennent d’une source relationnelle ou non relationnelle, elles doivent être transformées pour être alignées avec les définitions des colonnes pour la table dans laquelle vous souhaitez les charger.
-- Formatez les données dans le fichier texte pour les aligner avec les types de colonnes et de données dans la table de destination. Un décalage entre les types de données dans les fichiers texte externes et la table du pool SQL cause le rejet des lignes lors du chargement.
+- Formatez les données dans le fichier texte pour les aligner avec les types de colonnes et de données dans la table de destination. Un décalage entre les types de données dans les fichiers texte externes et la table du pool SQL dédié cause le rejet des lignes lors du chargement.
 - Séparez les champs dans le fichier texte à l’aide d’une marque de fin.  Assurez-vous d’utiliser un caractère ou une séquence de caractères qui ne se trouve pas dans votre source de données. Utilisez la marque de fin que vous avez spécifiée avec l’instruction [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ## <a name="4-load-the-data-using-polybase-or-the-copy-statement"></a>4. Charger les données à l’aide de PolyBase ou de l’instruction COPY
 
-Il est recommandé de charger des données dans une table de mise en lots. Les tables de mise en lots vous permettent de gérer les erreurs sans interférer avec les tables de production. Une table de mise en lots vous donne également la possibilité d’utiliser l’architecture de traitement parallèle de pool SQL pour transformer les données avant de les insérer dans des tables de production.
+Il est recommandé de charger des données dans une table de mise en lots. Les tables de mise en lots vous permettent de gérer les erreurs sans interférer avec les tables de production. Une table de mise en lots vous donne également la possibilité d’utiliser l’architecture de traitement parallèle de pool SQL dédié pour transformer les données avant de les insérer dans des tables de production.
 
 ### <a name="options-for-loading"></a>Options de chargement
 

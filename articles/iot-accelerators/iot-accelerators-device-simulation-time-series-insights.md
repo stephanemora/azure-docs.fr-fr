@@ -8,12 +8,12 @@ ms.date: 08/20/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: db9ba3efe60af830c0e15310b6127c18130f00b9
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: e1409b43f0ce1fc0d8c622dda79e857ac6abdd33
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076247"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96854561"
 ---
 # <a name="use-time-series-insights-to-visualize-telemetry-sent-from-the-device-simulation-solution-accelerator"></a>Time Series Insights permet de visualiser la télémétrie envoyée par l’accélérateur de solution Simulation d’appareil
 
@@ -23,7 +23,7 @@ L’accélérateur de solution Simulation d’appareil vous permet de générer 
 
 Pour suivre les étapes décrites dans ce guide, vous avez besoin d’un abonnement Azure actif. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-Les étapes décrites dans ce guide partent du principe que vous avez déployé l’accélérateur de solution Simulation d’appareil dans votre abonnement Azure. Si vous n’avez pas déployé l’accélérateur de solution, suivez les étapes décrites dans le guide de démarrage rapide [Déployer et exécuter une solution de simulation d’appareil basée sur le cloud](quickstart-device-simulation-deploy.md).
+Les étapes décrites dans ce guide partent du principe que vous avez déployé l’accélérateur de solution Simulation d’appareil dans votre abonnement Azure. Si vous n’avez pas encore déployé la simulation d’appareil, consultez [Déploiement de la simulation d’appareil](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) sur GitHub.
 
 Cet article part du principe que le nom de votre accélérateur de solution est **contoso-simulation**. Dans les étapes suivantes, remplacez **contoso-simulation** par le nom de votre accélérateur de solution.
 

@@ -8,19 +8,19 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: 63629f32c97611fa8bc57ecdac968552375125f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 238ef9ec80b01470e28535d0eb42dbb3a377b005
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89380404"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746435"
 ---
 # <a name="how-to-create-plans-for-your-saas-offer"></a>Comment créer des plans pour votre offre SaaS
 
 Les offres vendues par le biais de la Place de marché commerciale Microsoft doivent avoir au moins un plan. Vous pouvez créer divers plans avec différentes options dans la même offre. Ces plans (parfois appelés références SKU) peuvent différer en termes de version, de monétisation ou de niveaux de service. Pour obtenir des conseils détaillés sur les plans, consultez [Plans et tarification des offres de la Place de marché commerciale](plans-pricing.md).
 
 > [!NOTE]
-> Si vous choisissez de traiter les transactions indépendamment, vous ne verrez pas cette option. Au lieu de cela, passez à [Comment commercialiser votre offre SaaS](create-new-saas-offer-marketing.md).
+> Si vous choisissez de traiter les transactions indépendamment, vous ne verrez pas cette option. Au lieu de cela, passez à [Comment vendre votre offre SaaS](create-new-saas-offer-marketing.md).
 
 ## <a name="create-a-plan"></a>Créer un plan
 
@@ -152,5 +152,5 @@ Les actions disponibles dans la colonne **Action** de l’onglet **Vue d’ensem
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez [Comment commercialiser votre offre SaaS](create-new-saas-offer-marketing.md) par le biais des programmes de **Covente avec Microsoft** et de **Revente via des fournisseurs de solutions cloud**.
+- Découvrez le [guide pratique pour vendre votre offre SaaS](create-new-saas-offer-marketing.md) par le biais des programmes **Co-vente avec Microsoft** et **Revente via des fournisseurs de solutions Cloud**.
 - [Comment tester et publier une offre SaaS sur la Place de marché commerciale](test-publish-saas-offer.md).

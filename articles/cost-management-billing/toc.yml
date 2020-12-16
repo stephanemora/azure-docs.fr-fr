@@ -384,6 +384,8 @@
       href: /azure/templates/microsoft.consumption/budgets
     - name: Exemples d’API REST Cost Management
       href: 'https://github.com/Azure-Samples/Cost-Management-Samples'
+    - name: Cost Management - Azure PowerShell
+      href: /powershell/module/Az.CostManagement
     - name: Scénarios relatifs à l’automatisation de la facturation
       href: manage/cost-management-automation-scenarios.md
     - name: Présentation de l’API Facturation Azure

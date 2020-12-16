@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: jmartens
 author: nishankgu
 ms.author: nigup
-ms.date: 10/13/2020
+ms.date: 12/1/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4, contperfq2
-ms.openlocfilehash: d82cbafbbdeb379c8eb97494ca8d3243f356b7a1
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 30859593e240c4143dc298cff446ce8bc116a993
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542114"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780584"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-machine-learning"></a>Gérer et augmenter les quotas pour les ressources avec Azure Machine Learning
 
@@ -45,28 +45,32 @@ En plus de la gestion des quotas, vous pouvez également apprendre à [planifier
 
 Cette section porte sur les limites de quota par défaut et maximale pour les ressources suivantes :
 
++ Ressources Azure Machine Learning
+  + Capacité de calcul Azure Machine Learning
+  + Pipelines Azure Machine Learning
 + Machines virtuelles
-+ Capacité de calcul Azure Machine Learning
-+ Pipelines Azure Machine Learning
 + Azure Container Instances
 + Stockage Azure
 
 > [!IMPORTANT]
 > Les limites sont susceptibles d’être modifiées. Pour obtenir les informations les plus récentes, consultez [Abonnement Azure et limites, quotas et contraintes de service](../azure-resource-manager/management/azure-subscription-service-limits.md) pour tous les services Azure.
 
-### <a name="virtual-machines"></a>Machines virtuelles
-Chaque abonnement Azure est limité quant au nombre de machines virtuelles entre tous les services. Une limite totale régionale et une limite régionale par gamme de taille s’appliquent aux cœurs de machine virtuelle. Les deux limites sont appliquées séparément.
+### <a name="azure-machine-learning-assets"></a>Ressources Azure Machine Learning
+Les limites suivantes s’appliquent aux ressources pour chaque espace de travail. 
 
-Par exemple, considérons un abonnement dont le nombre total limite de cœurs de machine virtuelle est de 30 pour la région USA Est, de 30 pour la gamme A et de 30 pour la gamme D. Cet abonnement serait autorisé à déployer 30 machines virtuelles A1, ou 30 machines virtuelles D1, ou encore une combinaison de ces deux types de machines dans la limite de 30 cœurs au total.
+| **Ressource** | **Limite maximale** |
+| --- | --- |
+| Groupes de données | 10 millions |
+| Exécutions | 10 millions |
+| Modèles | 10 millions|
+| Artifacts | 10 millions |
 
-Vous ne pouvez pas augmenter les limites des machines virtuelles au-delà des valeurs indiquées dans le tableau suivant.
-
-[!INCLUDE [azure-subscription-limits-azure-resource-manager](../../includes/azure-subscription-limits-azure-resource-manager.md)]
+En outre, la **durée d’exécution** maximale est de 30 jours, et le nombre de **métriques journalisées par exécution** maximal est de 1 million.
 
 ### <a name="azure-machine-learning-compute"></a>Capacité de calcul Azure Machine Learning
-La [capacité de calcul Azure Machine Learning](concept-compute-target.md#azure-machine-learning-compute-managed) a une limite de quota par défaut sur le nombre de cœurs et le nombre de ressources de calcul autorisées par région dans un abonnement. Ce quota est distinct du quota de cœurs de machines virtuelles de la section précédente.
+La [Capacité de calcul Azure Machine Learning](concept-compute-target.md#azure-machine-learning-compute-managed) a une limite de quota par défaut sur le nombre de cœurs (par famille de machines virtuelles et en nombre total cumulé de cœurs) et le nombre de ressources de calcul autorisées par région dans un abonnement. Ce quota est distinct du quota de cœurs de machines virtuelles mentionné dans la section précédente, car il s’applique uniquement aux ressources de calcul managées d’Azure Machine Learning.
 
-[Demandez une augmentation du quota](#request-quota-increases) pour augmenter les limites de cette section jusqu’à la limite maximale indiquée dans le tableau.
+[Demandez une augmentation du quota](#request-quota-increases) pour augmenter les limites des différents quotas de cœurs par famille de machines virtuelles, total des quotas de cœurs de l’abonnement et ressources dans cette section.
 
 Ressources disponibles :
 + Les **cœurs dédiés par région** ont une limite par défaut comprise entre 24 et 300 ressources en fonction du type de votre offre d’abonnement. Vous pouvez augmenter le nombre de cœurs dédiés par abonnement pour chaque famille de machines virtuelles. Les familles de machines virtuelles spécialisées comme NCv2, NCv3 ou ND ont une valeur initiale par défaut de zéro cœur.
@@ -75,12 +79,19 @@ Ressources disponibles :
 
 + Les **clusters par région** ont une limite par défaut de 200. Elles sont partagées entre un cluster de formation et une instance de calcul. (Une instance de calcul est considérée comme un cluster à nœud unique à des fins de quota.)
 
-Le tableau suivant présente des limites supplémentaires que vous ne pouvez pas dépasser.
+> [!TIP]
+> Pour en savoir plus sur la famille de machines virtuelles pour laquelle demander une augmentation de quota, consultez [Tailles de machines virtuelles dans Azure](https://docs.microsoft.com/azure/virtual-machines/sizes). Par exemple, le nom des familles de machines virtuelles GPU commence par un « N » (exemple : série NCv3).
 
-| **Ressource** | **Limite maximale** |
+Le tableau suivant présente des limites supplémentaires dans la plateforme. Pour demander une exception, contactez l’équipe produit AzureML par le biais d’un ticket de support **technique**.
+
+| **Ressource ou action** | **Limite maximale** |
 | --- | --- |
 | Espaces de travail par groupe de ressources | 800 |
-| Nœuds dans une seule ressource de calcul Azure Machine Learning (AmlCompute) | 100 nœuds |
+| Nœuds d’un **cluster** de Capacité de calcul Azure Machine Learning (AmlCompute) unique configurés en tant que pool qui n’est pas compatible avec la communication (c’est-à-dire qui ne peut pas exécuter de travaux MPI) | 100 nœuds, mais configurable jusqu’à 65 000 nœuds |
+| Nœuds dans une **exécution** d’étape d’exécution parallèle unique sur un cluster de Capacité de calcul Azure Machine Learning (AmlCompute) | 100 nœuds, mais configurable jusqu’à 65 000 nœuds si votre cluster est configuré pour une mise à l’échelle conformément aux indications ci-dessus |
+| Nœuds d’un **cluster** de Capacité de calcul Azure Machine Learning (AmlCompute) unique configurés en tant que pool compatible avec la communication | 300 nœuds, mais configurable jusqu’à 4000 nœuds |
+| Nœuds d’un **cluster** de Capacité de calcul Azure Machine Learning (AmlCompute) unique configurés en tant que pool compatible avec la communication sur une famille de machines virtuelles compatible RDMA | 100 nœuds |
+| Nœuds dans une **exécution** MPI unique sur un cluster de Capacité de calcul Azure Machine Learning (AmlCompute) | 100 nœuds, mais peut être augmenté jusqu’à 300 nœuds |
 | Processus MPI GPU par nœud | 1-4 |
 | Workers GPU par nœud | 1-4 |
 | Durée de vie du travail | 21 jours<sup>1</sup> |
@@ -90,13 +101,22 @@ Le tableau suivant présente des limites supplémentaires que vous ne pouvez pas
 <sup>1</sup> La durée de vie maximale est la durée entre le début et la fin d’une exécution. Les exécutions terminées sont conservées indéfiniment. Les données des exécutions non terminées pendant la durée de vie maximale ne sont pas accessibles.
 <sup>2</sup> Les travaux sur un nœud basse priorité doivent être vidés au préalable chaque fois qu’il existe une contrainte de capacité. Nous vous recommandons d’implémenter des points de contrôle dans votre travail.
 
-### <a name="azure-machine-learning-pipelines"></a>Pipelines Azure Machine Learning
+#### <a name="azure-machine-learning-pipelines"></a>Pipelines Azure Machine Learning
 Les [pipelines Azure Machine Learning](concept-ml-pipelines.md) ont les limites suivantes.
 
 | **Ressource** | **Limite** |
 | --- | --- |
 | Étapes d’un pipeline | 30,000 |
 | Espaces de travail par groupe de ressources | 800 |
+
+### <a name="virtual-machines"></a>Machines virtuelles
+Chaque abonnement Azure est limité quant au nombre de machines virtuelles entre tous les services. Une limite totale régionale et une limite régionale par gamme de taille s’appliquent aux cœurs de machine virtuelle. Les deux limites sont appliquées séparément.
+
+Par exemple, considérons un abonnement dont le nombre total limite de cœurs de machine virtuelle est de 30 pour la région USA Est, de 30 pour la gamme A et de 30 pour la gamme D. Cet abonnement serait autorisé à déployer 30 machines virtuelles A1, ou 30 machines virtuelles D1, ou encore une combinaison de ces deux types de machines dans la limite de 30 cœurs au total.
+
+Vous ne pouvez pas augmenter les limites des machines virtuelles au-delà des valeurs indiquées dans le tableau suivant.
+
+[!INCLUDE [azure-subscription-limits-azure-resource-manager](../../includes/azure-subscription-limits-azure-resource-manager.md)]
 
 ### <a name="container-instances"></a>Container Instances
 

@@ -12,12 +12,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
 - devx-track-azurecli
-ms.openlocfilehash: 8f7baca94d653d9851c506068ccf7ecf84063641
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 3218df4601ef7a5e1b1e04c20c89eefc367b720b
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832175"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746452"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-in-a-web-application"></a>Visualiser les données de capteur en temps réel depuis votre hub Azure IoT dans une application web
 
@@ -184,7 +184,7 @@ Dans cette section, vous provisionnez une application web dans App Service et y 
 
 5. Pour déployer le code sur App Service, vous allez utiliser vos [informations d’identification de déploiement au niveau utilisateur](../app-service/deploy-configure-credentials.md). Vos informations d’identification de déploiement au niveau de l’utilisateur sont différentes de vos informations d’identification Azure ; elles sont utilisées pour les déploiements FTP et Git local vers une application web. Une fois définies, elles sont valides sur l’ensemble de vos applications App Service, dans tous les abonnements de votre compte Azure. Si vous avez précédemment configuré des informations d’identification de déploiement au niveau utilisateur, vous pouvez les utiliser.
 
-   Si vous ne l’avez pas fait, ou si vous avez oublié votre mot de passe, exécutez la commande suivante. Le nom d’utilisateur de déploiement doit être unique dans Azure, et il ne doit pas contenir le symbole « @ » pour les push Git locaux. Lorsque vous y êtes invité, entrez et confirmez votre nouveau mot de passe. Le mot de passe doit comporter au moins huit caractères et inclure deux des trois éléments suivants : lettres, chiffres et symboles.
+   Si vous ne l’avez pas fait, ou si vous avez oublié votre mot de passe, exécutez la commande suivante. Le nom d’utilisateur de déploiement doit être unique dans Azure, et il ne doit pas contenir le symbole « \@ » pour les push Git locaux. Lorsque vous y êtes invité, entrez et confirmez votre nouveau mot de passe. Le mot de passe doit comporter au moins huit caractères et inclure deux des trois éléments suivants : lettres, chiffres et symboles.
 
    ```azurecli-interactive
    az webapp deployment user set --user-name <your deployment user name>

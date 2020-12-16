@@ -1,17 +1,17 @@
 ---
 title: Utiliser Azure Private Link pour connecter en toute sécurité des réseaux à Azure Monitor
 description: Utiliser Azure Private Link pour connecter en toute sécurité des réseaux à Azure Monitor
-author: nkiest
-ms.author: nikiest
+author: noakup
+ms.author: noakuper
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.subservice: ''
-ms.openlocfilehash: 61073ce7e8d3abc43d1db031608da72e6d3e0791
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: a85619b4947808ba1c13df3c1543102eea7273fd
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92926799"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96853921"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Utiliser Azure Private Link pour connecter en toute sécurité des réseaux à Azure Monitor
 
@@ -79,12 +79,17 @@ Il existe un certain nombre de limites à prendre en compte lorsque vous planifi
 * Un objet AMPLS peut se connecter à 10 points de terminaison privés au maximum.
 
 Dans la topologie ci-dessous :
-* Chaque réseau virtuel se connecte à un objet AMPLS, de sorte qu’il ne peut pas se connecter à d’autres AMPLS.
-* AMPLS B se connecte à deux réseaux virtuels : il utilise deux de ses dix connexions possibles à des points de terminaison privés.
-* AMPLS A se connecte à 2 espaces de travail et à 1 composant Application Insights : il utilise 3 de ses 50 ressources Azure Monitor possibles.
-* L’espace de travail 2 se connecte à AMPLS A et AMPLS B : il utilise 2 de ses 5 connexions AMPLS possibles.
+* Chaque réseau virtuel se connecte uniquement à **1** objet AMPLS.
+* AMPLS B est connecté aux points de terminaison privés de deux réseaux virtuels (VNet2 et VNet3) en utilisant 2 de ses 10 connexions (20 %) de ses points de terminaison privés possibles.
+* AMPLS A se connecte à deux espaces de travail et à un composant Application Insights en utilisant 3 de ses 50 connexions (6 %) de ses connexions de ressources Azure Monitor possibles.
+* Workspace2 se connecte à AMPLS A et AMPLS B : il utilise 2 de ses 5 connexions AMPLS possibles, soit 40 %.
 
 ![Diagramme des limites d’AMPLS](./media/private-link-security/ampls-limits.png)
+
+> [!NOTE]
+> Dans certaines topologies de réseau (principalement hub-and-spoke), vous pouvez atteindre rapidement la limite de 10 réseaux virtuels pour un même AMPLS. Dans ce cas, il est recommandé d’utiliser une connexion de liaison privée partagée plutôt que des connexions séparées. Créez un point de terminaison privé sur le réseau hub, liez-le à votre AMPLS, puis appairez les réseaux nécessaires au réseau hub.
+
+![Point de terminaison privé hub-and-spoke](./media/private-link-security/hub-and-spoke-with-single-private-endpoint.png)
 
 ## <a name="example-connection"></a>Exemple de connexion
 
@@ -103,9 +108,9 @@ Commencez par créer une ressource d’étendue de liaison privée Azure Monitor
 
 6. Laissez le processus de validation se terminer, puis cliquez sur **Créer**.
 
-## <a name="connect-azure-monitor-resources"></a>Connecter des ressources Azure Monitor
+### <a name="connect-azure-monitor-resources"></a>Connecter des ressources Azure Monitor
 
-Vous pouvez connecter votre AMPLS d’abord à des points de terminaison privés, puis à des ressources Azure Monitor, ou vice versa, mais le processus de connexion est plus rapide si vous commencez par vos ressources Azure Monitor. Voici comment connecter des espaces de travail Log Analytics Azure Monitor et des composants Application Insights à une AMPLS.
+Connectez des ressources Azure Monitor (espaces de travail Log Analytics et composants Application Insights) à votre AMPLS.
 
 1. Dans votre étendue de liaison privée Azure Monitor, cliquez sur **Ressources Azure Monitor** dans le menu de gauche. Cliquez sur le bouton **Add** .
 2. Ajoutez l’espace de travail ou le composant. Le fait de cliquer sur le bouton **Ajouter** affiche une boîte de dialogue dans laquelle vous pouvez sélectionner des ressources Azure Monitor. Vous pouvez parcourir vos abonnements et groupes de ressources, ou vous pouvez saisir leur nom pour les filtrer. Sélectionnez l’espace de travail ou le composant, puis cliquez sur **Appliquer** pour les ajouter à votre étendue.
@@ -129,11 +134,11 @@ Maintenant que vous disposez de ressources connectées à votre AMPLS, créez un
 
 4. Dans l’écran Ressource :
 
-   a. Sélectionnez l’ **abonnement** qui contient votre ressource d’étendue de liaison privée Azure Monitor. 
+   a. Sélectionnez l’**abonnement** qui contient votre ressource d’étendue de liaison privée Azure Monitor. 
 
-   b. Pour le **type de ressource** , choisissez **Microsoft.insights/privateLinkScopes**. 
+   b. Pour le **type de ressource**, choisissez **Microsoft.insights/privateLinkScopes**. 
 
-   c. Dans la liste déroulante des **ressources** , choisissez l’étendue de liaison privée que vous avez créée précédemment. 
+   c. Dans la liste déroulante des **ressources**, choisissez l’étendue de liaison privée que vous avez créée précédemment. 
 
    d. Cliquez sur **Suivant : Configuration >** .
       ![Screenshot of select Create Private Endpoint](./media/private-link-security/ampls-select-private-endpoint-create-4.png)
@@ -142,9 +147,9 @@ Maintenant que vous disposez de ressources connectées à votre AMPLS, créez un
 
    a.    Choisissez le **réseau virtuel** et le **sous-réseau** que vous souhaitez connecter à vos ressources Azure Monitor. 
  
-   b.    Choisissez **Oui** pour **Intégrer à une zone DNS privée** , et laissez-le créer automatiquement une nouvelle zone DNS privée. Les zones DNS réelles peuvent différer de ce que montre la capture d’écran ci-dessous. 
+   b.    Choisissez **Oui** pour **Intégrer à une zone DNS privée**, et laissez-le créer automatiquement une nouvelle zone DNS privée. Les zones DNS réelles peuvent différer de ce que montre la capture d’écran ci-dessous. 
    > [!NOTE]
-   > Si vous choisissez **Non** et préférez gérer les enregistrements DNS manuellement, commencez par configurer votre liaison privée, y compris ce point de terminaison privé et la configuration AMPLS. Ensuite, configurez votre DNS conformément aux instructions de la rubrique [Configuration DNS des points de terminaison privés Azure](https://docs.microsoft.com/azure/private-link/private-endpoint-dns). Veillez à ne pas créer d’enregistrements vides en préparation de votre configuration de liaison privée. Les enregistrements DNS que vous créez peuvent remplacer les paramètres existants et affecter votre connectivité avec Azure Monitor.
+   > Si vous choisissez **Non** et préférez gérer les enregistrements DNS manuellement, commencez par configurer votre liaison privée, y compris ce point de terminaison privé et la configuration AMPLS. Ensuite, configurez votre DNS conformément aux instructions de la rubrique [Configuration DNS des points de terminaison privés Azure](../../private-link/private-endpoint-dns.md). Veillez à ne pas créer d’enregistrements vides en préparation de votre configuration de liaison privée. Les enregistrements DNS que vous créez peuvent remplacer les paramètres existants et affecter votre connectivité avec Azure Monitor.
  
    c.    Cliquez sur **Vérifier + créer**.
  
@@ -158,16 +163,19 @@ Vous avez maintenant créé un nouveau point de terminaison privé qui est conne
 
 ## <a name="configure-log-analytics"></a>Configurer Log Analytics
 
-Accédez au portail Azure. Dans votre ressource d’espace de travail Log Analytics se trouve un élément de menu **Isolement réseau** sur le côté gauche. Vous pouvez contrôler deux états différents à partir de ce menu. 
+Accédez au portail Azure. Dans votre ressource d’espace de travail Log Analytics se trouve un élément de menu **Isolement réseau** sur le côté gauche. Vous pouvez contrôler deux états différents à partir de ce menu.
 
 ![Isolement réseau LA](./media/private-link-security/ampls-log-analytics-lan-network-isolation-6.png)
 
-Tout d’abord, vous pouvez connecter cette ressource Log Analytics à toutes les étendues de liaison privée Azure Monitor auxquelles vous avez accès. Cliquez sur **Ajouter** et sélectionnez l’étendue de liaison privée Azure Monitor.  Cliquez sur **Appliquer** pour la connecter. Toutes les étendues connectées s’affichent dans cet écran. Cette connexion permet au trafic des réseaux virtuels connectés d’atteindre cet espace de travail. Elle a le même effet si la connexion partait de l’étendue, comme c’est la cas dans la section [Connecter des ressources Azure Monitor](#connect-azure-monitor-resources).  
+### <a name="connected-azure-monitor-private-link-scopes"></a>Étendues de liaison privée Azure Monitor connectées
+Toutes les étendues connectées à cet espace de travail apparaissent dans cet écran. La connexion aux étendues (AMPLS) autorise le trafic réseau à partir du réseau virtuel connecté à chaque AMPLS pour atteindre cet espace de travail. La création d’une connexion de cette manière a le même effet que si la connexion partait de l’étendue, comme c’est la cas dans la section [Connecter des ressources Azure Monitor](#connect-azure-monitor-resources). Pour ajouter une nouvelle connexion, connecterCliquez sur **Ajouter** et sélectionnez l’étendue de liaison privée Azure Monitor. Cliquez sur **Appliquer** pour la connecter. Notez qu’un espace de travail peut se connecter à 5 objets AMPLS, comme expliqué dans [Tenir compte des limites](#consider-limits). 
 
-Ensuite, vous pouvez contrôler la façon dont cette ressource peut être atteinte en dehors des étendues de liaison privée mentionnées ci-dessus. Si vous définissez **Autoriser l’accès au réseau public pour l’ingestion** sur **Non** , les machines en dehors des étendues connectées ne peuvent pas charger de données dans cet espace de travail. Si vous définissez **Autoriser l’accès au réseau public pour les requêtes** sur **Non** , les machines en dehors des étendues ne peuvent pas accéder aux données de cet espace de travail. Ces données incluent l’accès aux classeurs, aux tableaux de bord, aux expériences client basées sur l’API de requête, aux informations sur le portail Azure et bien plus encore. Les expériences qui s’exécutent en dehors du portail Azure et qui interrogent des données Log Analytics doivent également être exécutées au sein du réseau virtuel connecté par liaison privée.
+### <a name="access-from-outside-of-private-links-scopes"></a>Accès depuis l’extérieur des étendues de liaisons privées
+Les paramètres dans la partie inférieure de cette page contrôlent l’accès à partir de réseaux publics, ce qui signifie que les réseaux ne sont pas connectés via les étendues répertoriées ci-dessus. Si vous définissez **Autoriser l’accès au réseau public pour l’ingestion** sur **Non**, les machines en dehors des étendues connectées ne peuvent pas charger de données dans cet espace de travail. Si vous définissez **Autoriser l’accès au réseau public pour les requêtes** sur **Non**, les machines en dehors des étendues ne peuvent pas accéder aux données de cet espace de travail, ce qui signifie qu’elles ne peuvent pas interroger ces données. Cela inclut les requêtes des classeurs, les tableaux de bord, les expériences client basées sur l’API, les informations sur le portail Azure et bien plus encore. Les expériences qui s’exécutent en dehors du portail Azure et qui interrogent des données Log Analytics doivent également être exécutées au sein du réseau virtuel connecté par liaison privée.
 
-La restriction de l’accès de cette manière ne s’applique pas à Azure Resource Manager et présente donc les limitations suivantes :
-* Accès aux données : si des requêtes de blocage à partir de réseaux publics s’appliquent à la plupart des expériences Log Analytics, certaines expériences interrogent les données via Azure Resource Manager et ne peuvent donc pas interroger les données, sauf si les paramètres de liaison privée sont également appliqués au gestionnaire des ressources (fonctionnalité disponible prochainement). Cela comprend, par exemple, les solutions Azure Monitor, les classeurs et les Insights, ainsi que le connecteur LogicApp.
+### <a name="exceptions"></a>Exceptions
+La restriction de l’accès comme expliqué ci-dessus ne s’applique pas à Azure Resource Manager et présente donc les limitations suivantes :
+* Accès aux données : si des requêtes de blocage/d’autorisation à partir de réseaux publics s’appliquent à la plupart des expériences Log Analytics, certaines expériences interrogent les données via Azure Resource Manager et ne peuvent donc pas interroger les données, sauf si les paramètres de liaison privée sont également appliqués au gestionnaire des ressources (fonctionnalité disponible prochainement). Cela comprend, par exemple, les solutions Azure Monitor, les classeurs et les Insights, ainsi que le connecteur LogicApp.
 * Gestion de l’espace de travail : les modifications de paramètre et de configuration, (notamment l’activation ou la désactivation de ces paramètres d’accès), sont gérées par Azure Resource Manager. Limitez l’accès à la gestion de l’espace de travail à l’aide des rôles, autorisations, contrôles réseau et audits appropriés. Pour plus d’informations, consultez [Rôles, autorisations et sécurité Azure Monitor](roles-permissions-security.md).
 
 > [!NOTE]
@@ -190,9 +198,9 @@ Accédez au portail Azure. Dans votre ressource de composant Application Insight
 
 ![Isolement réseau AI](./media/private-link-security/ampls-application-insights-lan-network-isolation-6.png)
 
-Tout d’abord, vous pouvez connecter cette ressource Application Insights aux étendues de liaison privée Azure Monitor auxquelles vous avez accès. Cliquez sur **Ajouter** et sélectionnez l’ **étendue de liaison privée Azure Monitor**. Cliquez sur Appliquer pour la connecter. Toutes les étendues connectées s’affichent dans cet écran. Cette connexion permet au trafic des réseaux virtuels connectés d’atteindre ce composant. Elle a le même effet si la connexion partait de l’étendue, comme c’est la cas dans la section [Connecter des ressources Azure Monitor](#connect-azure-monitor-resources). 
+Tout d’abord, vous pouvez connecter cette ressource Application Insights aux étendues de liaison privée Azure Monitor auxquelles vous avez accès. Cliquez sur **Ajouter** et sélectionnez l’**étendue de liaison privée Azure Monitor**. Cliquez sur Appliquer pour la connecter. Toutes les étendues connectées s’affichent dans cet écran. Cette connexion permet au trafic des réseaux virtuels connectés d’atteindre ce composant. Elle a le même effet si la connexion partait de l’étendue, comme c’est la cas dans la section [Connecter des ressources Azure Monitor](#connect-azure-monitor-resources). 
 
-Ensuite, vous pouvez contrôler la façon dont cette ressource peut être atteinte en dehors des étendues de liaison privée mentionnées précédemment. Si vous définissez **Autoriser l’accès au réseau public pour l’ingestion** sur **Non** , les machines ou les Kits de développement logiciel (SDK) en dehors des étendues connectées ne peuvent pas charger de données dans ce composant. Si vous définissez **Autoriser l’accès au réseau public pour les requêtes** sur **Non** , les machines en dehors des étendues ne peuvent pas accéder aux données de cette ressource Application Insights. Ces données incluent l’accès aux journaux APM, aux métriques et au flux de métriques en temps réel, ainsi que des expériences basées sur des classeurs, des tableaux de bord, des expériences client basées sur l’API de requête, des informations sur le portail Azure et bien plus encore. 
+Ensuite, vous pouvez contrôler la façon dont cette ressource peut être atteinte en dehors des étendues de liaison privée mentionnées précédemment. Si vous définissez **Autoriser l’accès au réseau public pour l’ingestion** sur **Non**, les machines ou les Kits de développement logiciel (SDK) en dehors des étendues connectées ne peuvent pas charger de données dans ce composant. Si vous définissez **Autoriser l’accès au réseau public pour les requêtes** sur **Non**, les machines en dehors des étendues ne peuvent pas accéder aux données de cette ressource Application Insights. Ces données incluent l’accès aux journaux APM, aux métriques et au flux de métriques en temps réel, ainsi que des expériences basées sur des classeurs, des tableaux de bord, des expériences client basées sur l’API de requête, des informations sur le portail Azure et bien plus encore. 
 
 Notez que les expériences de consommation hors portail doivent également être exécutées dans le réseau virtuel connecté par liaison privée qui comprend les charges de travail surveillées. 
 
@@ -240,7 +248,7 @@ $ sudo /opt/microsoft/omsagent/bin/omsadmin.sh -w <workspace id> -s <workspace k
 
 ### <a name="azure-portal"></a>Portail Azure
 
-Pour utiliser les expérience du portail Azure Monitor, comme Application Insights et Log Analytics, vous devez autoriser l’accès au portail Azure et aux extensions Azure Monitor sur les réseaux privés. Ajoutez les [étiquettes de service](../../firewall/service-tags.md) **AzureActiveDirectory** , **AzureResourceManager** , **AzureFrontDoor.FirstParty** et **AzureFrontdoor.Frontend** à votre groupe de sécurité réseau.
+Pour utiliser les expérience du portail Azure Monitor, comme Application Insights et Log Analytics, vous devez autoriser l’accès au portail Azure et aux extensions Azure Monitor sur les réseaux privés. Ajoutez les [étiquettes de service](../../firewall/service-tags.md) **AzureActiveDirectory**, **AzureResourceManager**, **AzureFrontDoor.FirstParty** et **AzureFrontdoor.Frontend** à votre groupe de sécurité réseau.
 
 ### <a name="programmatic-access"></a>Accès par programme
 

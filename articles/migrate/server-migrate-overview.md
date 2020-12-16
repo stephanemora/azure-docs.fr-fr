@@ -1,14 +1,17 @@
 ---
-title: Sélectionner une option de migration VMware avec la migration de serveur Azure Migrate | Microsoft Docs
+title: Sélectionner une option de migration VMware avec la migration de serveur Azure Migrate
 description: Fournit une vue d’ensemble des options de migration de machines virtuelles VMware vers Azure avec la migration de serveur Azure Migrate
+author: anvar-ms
+ms.author: anvar
+ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: ac08075212d885a1aca755f94906b50754e23b9d
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 5e4aaea5b565e126f633b04215bbc3a24faf2cde
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92534105"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753601"
 ---
 # <a name="select-a-vmware-migration-option"></a>Sélectionnez une option de migration VMware
 
@@ -45,7 +48,7 @@ Après avoir examiné les limitations, la compréhension des étapes impliquées
 **Préparer VMware pour la migration** | Configurez les paramètres sur les serveurs VMware et les machines virtuelles. | Obligatoire | Obligatoire
 **Installez le service Mobilité sur des machines virtuelles** | Le service Mobilité s’exécute sur chaque machine virtuelle que vous souhaitez répliquer | Non requis | Obligatoire
 **Déployer l’appliance de réplication** | [L’appliance de réplication](migrate-replication-appliance.md) est utilisée pour la migration basée sur les agents. Il se connecte entre le service Mobilité en cours d’exécution sur les machines virtuelles et Server Migration. | Non requis | Obligatoire
-**Répliquez les machines virtuelles** . Activez la réplication de machines virtuelles. | Configurez les paramètres de réplication et sélectionner les machines virtuelles à répliquer | Obligatoire | Obligatoire
+**Répliquez les machines virtuelles**. Activez la réplication de machines virtuelles. | Configurez les paramètres de réplication et sélectionner les machines virtuelles à répliquer | Obligatoire | Obligatoire
 **Exécutez un test de migration** | Exécuter une migration de test pour vérifier que tout fonctionne comme prévu. | Obligatoire | Obligatoire
 **Exécutez une migration complète** | Migrez les machines virtuelles. | Obligatoire | Obligatoire
 

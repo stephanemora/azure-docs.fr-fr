@@ -4,12 +4,12 @@ description: Utilisez le connecteur Ethereum Blockchain avec Azure Logic Apps po
 ms.date: 08/31/2020
 ms.topic: how-to
 ms.reviewer: caleteet
-ms.openlocfilehash: 4364d2f616c8eaadedf12baf4bf77810eec69fdb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 411337908553e58c252a0ed1a42d17f76195c720
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89230532"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763789"
 ---
 # <a name="use-the-ethereum-blockchain-connector-with-azure-logic-apps"></a>Utiliser le connecteur Ethereum Blockchain avec Azure Logic Apps
 
@@ -194,7 +194,7 @@ L’adresse du point de terminaison RPC Azure Blockchain Service est nécessaire
 Vous pouvez utiliser la clé privée du compte Ethereum pour l’authentification lors de l’envoi d’une transaction à la blockchain. Les clés publiques et privées de votre compte Ethereum sont générées à partir d’un mnémonique de 12 mots. Azure Blockchain Development Kit for Ethereum génère un mnémonique quand vous vous connectez à un membre du consortium Azure Blockchain Service. Vous pouvez obtenir l’adresse du point de terminaison à l’aide de l’extension du kit de développement.
 
 1. Dans Visual Studio Code, ouvrez la palette de commandes (F1).
-1. Sélectionnez **Azure Blockchain : Retrieve private key** (Récupérer la clé privée).
+1. Sélectionnez **Blockchain : Retrieve private key** (Récupérer la clé privée).
 1. Sélectionnez le mnémonique que vous avez enregistré lors de la connexion au membre du consortium.
 
     ![Palette de commandes avec une option pour sélectionner le mnémonique](./media/ethereum-logic-app/private-key.png)

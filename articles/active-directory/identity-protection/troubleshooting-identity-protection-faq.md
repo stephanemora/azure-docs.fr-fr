@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba22745923f1b157c477dce0b5704c7e278e748e
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 6eb63a4a0b7b7fdefd636d3460b182f8d907dd36
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96175999"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558927"
 ---
 # <a name="frequently-asked-questions-identity-protection-in-azure-active-directory"></a>Forum aux questions sur Identity Protection dans Azure Active Directory
 
@@ -82,9 +82,11 @@ Toutes les détections de risques sont documentées dans l’article [Qu’est-c
 
 - Lors de la réception de ces commentaires, nous définissons le risque de connexion (et non de l’utilisateur) à l’état **Sécurité confirmée** et le niveau de risques sur **-** .
 
-- Nous fournissons également les informations à nos systèmes de Machine Learning dans le but d’améliorations futures de l’évaluation des risques.
+- Nous fournissons également les informations à nos systèmes de Machine Learning dans le but d’améliorations futures de l’évaluation des risques. 
 
     > [!NOTE]
+    >Aujourd’hui, le fait de confirmer qu’une sélection est sécurisée n’empêche pas en soi que les connexions futures avec les mêmes propriétés soient marquées comme étant risquées. La meilleure façon d’effectuer l’apprentissage du système pour qu’il apprenne les propriétés d’un utilisateur consiste à utiliser la stratégie de connexion risquée avec MFA. Lorsque la fonctionnalité MFA est demandée pour une connexion risquée et que l’utilisateur répond correctement à la demande, la connexion peut réussir et aider à former le système sur le comportement de l’utilisateur légitime.
+    >
     > Si vous pensez que l’utilisateur n’est pas compromis, utilisez **Ignorer le risque lié à l’utilisateur** au niveau de l’utilisateur plutôt que d’utiliser **Sécurité confirmée** au niveau de la connexion. **Ignorer le risque lié à l’utilisateur** au niveau de l’utilisateur ferme le risque de l’utilisateur, ainsi que toutes les connexions à risque et toutes les détections de risque antérieures.
 
 ### <a name="why-am-i-seeing-a-user-with-a-low-or-above-risk-score-even-if-no-risky-sign-ins-or-risk-detections-are-shown-in-identity-protection"></a>Pourquoi un utilisateur avec un faible indice de risque (ou supérieur) s’affiche-t-il même si aucune connexion à risque ni aucune détection de risque n’apparaît dans Identity Protection ?

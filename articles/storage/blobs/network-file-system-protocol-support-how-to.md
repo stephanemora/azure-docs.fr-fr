@@ -9,19 +9,16 @@ ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: 7419e8667f07eec03e860634c7b3fddcac0e186b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 97b52159684eca9be59ccc711f6d2f19b5eb8d49
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95901551"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906112"
 ---
 # <a name="mount-blob-storage-by-using-the-network-file-system-nfs-30-protocol-preview"></a>Monter le stockage Blob à l’aide du protocole NFS (Network File System) 3.0 (préversion)
 
 Vous pouvez monter un conteneur dans le stockage Blob à partir d’une machine virtuelle Azure basée sur Linux ou Windows ou d’un système Linux ou Windows qui s’exécute localement à l’aide du protocole NFS 3.0. Cet article fournit un guide pas à pas. Pour en savoir plus sur la prise en charge du protocole NFS 3.0 dans le stockage Blob, consultez [Prise en charge du protocole NFS (Network File System) 3.0 dans le stockage Blob Azure (préversion)](network-file-system-protocol-support.md).
-
-> [!NOTE]
-> La prise en charge du protocole NFS 3.0 dans Stockage blob Azure est en préversion publique et disponible dans les régions suivantes : Est des États-Unis, Centre des États-Unis, Centre-Ouest des États-Unis, Sud-Est de l’Australie, Europe du Nord, Ouest du Royaume-Uni, Centre de Corée, Sud de la Corée et Centre du Canada.
 
 ## <a name="step-1-register-the-nfs-30-protocol-feature-with-your-subscription"></a>Étape 1 : Inscrivez la fonctionnalité de protocole NFS 3.0 avec votre abonnement
 
@@ -48,13 +45,7 @@ Vous pouvez monter un conteneur dans le stockage Blob à partir d’une machine 
    Register-AzProviderFeature -FeatureName AllowNFSV3 -ProviderNamespace Microsoft.Storage 
    ```
 
-5. Enregistrez également la fonctionnalité `PremiumHns` à l’aide de la commande suivante.
-
-   ```powershell
-   Register-AzProviderFeature -FeatureName PremiumHns -ProviderNamespace Microsoft.Storage  
-   ```
-
-6. Inscrivez le fournisseur de ressources en utilisant la commande suivante :
+5. Inscrivez le fournisseur de ressources en utilisant la commande suivante :
     
    ```powershell
    Register-AzResourceProvider -ProviderNamespace Microsoft.Storage   
@@ -66,7 +57,6 @@ L’approbation d’inscription peut prendre jusqu’à une heure. Pour vérifie
 
 ```powershell
 Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName AllowNFSV3
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName PremiumHns  
 ```
 
 ## <a name="step-3-create-an-azure-virtual-network-vnet"></a>Étape 3 : Créez un réseau virtuel Azure (Vnet)
@@ -86,20 +76,20 @@ Pour sécuriser les données dans votre compte, consultez les recommandations su
 
 Pour monter un conteneur à l’aide de NFS 3.0, vous devez créer un compte de stockage **après** avoir inscrit la fonctionnalité avec votre abonnement. Vous ne pouvez pas activer les comptes qui existaient avant l’inscription de la fonctionnalité. 
 
-Dans la préversion de cette fonctionnalité, le protocole NFS 3.0 est pris en charge uniquement dans les comptes [BlockBlobStorage](../blobs/storage-blob-create-account-block-blob.md).
+Dans la préversion de cette fonctionnalité, le protocole NFS 3.0 est pris en charge dans les comptes [BlockBlobStorage](../blobs/storage-blob-create-account-block-blob.md) et [universels V2](../common/storage-account-overview.md#general-purpose-v2-accounts).
 
 Au fur et à mesure que vous configurez le compte, choisissez les valeurs suivantes :
 
-|Paramètre | Valeur|
-|----|---|
-|Emplacement|L’une des régions suivantes : Est des États-Unis, Centre des États-Unis, Centre-Ouest des États-Unis, Sud-Est de l’Australie, Europe du Nord, Ouest du Royaume-Uni, Centre de Corée, Sud de la Corée et Centre du Canada |
-|Performances|Premium|
-|Type de compte|BlockBlobStorage|
-|Réplication|Stockage localement redondant (LRS)|
-|Méthode de connectivité|Point de terminaison public (réseaux sélectionnés) pour point de terminaison privé|
-|Transfert sécurisé requis|Désactivé|
-|Espace de noms hiérarchique|activé|
-|NFS V3|activé|
+|Paramètre | Niveau de performance Premium | Niveau de performance Standard  
+|----|---|---|
+|Emplacement|Toutes les régions disponibles |L’une des régions suivantes : Australie Est, Corée Centre et USA Centre Sud   
+|Performances|Premium| Standard
+|Type de compte|BlockBlobStorage| Universel v2
+|Réplication|Stockage localement redondant (LRS)| Stockage localement redondant (LRS)
+|Méthode de connectivité|Point de terminaison public (réseaux sélectionnés) pour point de terminaison privé |Point de terminaison public (réseaux sélectionnés) pour point de terminaison privé
+|Transfert sécurisé requis|Désactivé|Désactivé
+|Espace de noms hiérarchique|activé|activé
+|NFS V3|activé |activé 
 
 Vous pouvez accepter les valeurs par défaut pour tous les autres paramètres. 
 

@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: 0fda0b659dd2500e811fac1f53c99a9987276185
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: ef284661d44f700cf0b5282efcd2e6f7b94fa3b6
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92537471"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621516"
 ---
 # <a name="azure-cache-for-redis-network-isolation-options"></a>Options d’isolement réseau d’Azure Cache pour Redis 
 Dans cet article, vous allez apprendre à déterminer la meilleure solution d’isolement réseau pour vos besoins. Nous allons passer en revue les concepts de base d’Azure Private Link, l’injection Azure Virtual Network et des règles de pare-feu Azure avec leurs avantages et leurs limites.  
@@ -22,7 +22,7 @@ Azure Private Link fournit une connectivité privée entre un réseau virtuel et
 ### <a name="advantages"></a>Avantages
 * Prise en charge des instances Azure Cache pour Redis De base, Standard et Premium. 
 * En utilisant [Azure Private Link](../private-link/private-link-overview.md), vous pouvez vous connecter à une instance Azure Cache depuis votre réseau virtuel via un point de terminaison privé, auquel est attribuée une adresse IP privée dans un sous-réseau du réseau virtuel. Ainsi, les instances de cache sont disponibles à partir du réseau virtuel et publiquement.  
-* Une fois qu’un point de terminaison privé est créé, l’accès au réseau public peut être limité à l’aide de l’indicateur `publicNetworkAccess`. Cet indicateur est défini sur `Enabled` par défaut, ce qui vous donne la possibilité d’autoriser à la fois l’accès public et via liaison privée au cache. S’il est défini sur `Disabled`, il autorise uniquement l’accès via liaison privée. Vous pouvez définir la valeur sur `Disabled` avec une requête PATCH. Pour plus d’informations, consultez [Azure Cache pour Redis avec Azure Private Link (préversion)](cache-private-link.md). 
+* Une fois qu’un point de terminaison privé est créé, l’accès au réseau public peut être limité à l’aide de l’indicateur `publicNetworkAccess`. Cet indicateur est défini sur `Disabled` par défaut, ce qui autorise uniquement l’accès aux liaisons privées. Vous pouvez définir la valeur sur `Enabled` ou `Disabled` avec une requête PATCH. Pour plus d’informations, consultez [Azure Cache pour Redis avec Azure Private Link (préversion)](cache-private-link.md). 
 * Toutes les dépendances de cache externes seront sans effet sur les règles NSG du réseau virtuel.
 
 ### <a name="limitations"></a>Limites 

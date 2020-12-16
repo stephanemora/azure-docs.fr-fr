@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/29/2020
+ms.date: 12/08/2020
 ms.author: jingwang
-ms.openlocfilehash: b1f95cf0a62aa68fe86f37cea137251553458a1d
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 8f19ccc90c44ef90cee7bb1ae881086321e863b6
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348872"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96902032"
 ---
 # <a name="excel-format-in-azure-data-factory"></a>Format Excel dans Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -33,7 +33,8 @@ Pour obtenir la liste complète des sections et propriétés disponibles pour la
 | ---------------- | ------------------------------------------------------------ | -------- |
 | type             | La propriété type du jeu de données doit être définie sur **Excel**.   | Oui      |
 | location         | Paramètres d’emplacement du ou des fichiers. Chaque connecteur basé sur un fichier possède ses propres type d’emplacement et propriétés prises en charge sous `location`. | Oui      |
-| sheetName        | Nom de la feuille de calcul Excel pour lire les données.                       | Oui      |
+| sheetName        | Nom de la feuille de calcul Excel pour lire les données.                       | Spécifiez `sheetName` ou `sheetIndex`. |
+| sheetIndex | Index de feuille de calcul Excel pour lire les données, à partir de 0. | Spécifiez `sheetName` ou `sheetIndex`. |
 | range            | Plage de cellules dans la feuille de calcul donnée pour localiser les données sélectives, par exemple :<br>- Non spécifiée : lit l’intégralité de la feuille de calcul en tant que table à partir des premières ligne et colonne non vides<br>- `A3` : lit une table en commençant à la cellule donnée, détecte de façon dynamique toutes les lignes situées en dessous et toutes les colonnes à droite<br>- `A3:H5` : lit cette plage fixe en tant que table<br>- `A3:A3` : lit cette cellule unique | Non       |
 | firstRowAsHeader | Spécifie s’il faut considérer la première ligne dans la feuille de calcul/plage donnée comme une ligne d’en-tête avec les noms des colonnes.<br>Les valeurs autorisées sont **True** et **False** (par défaut). | Non       |
 | nullValue        | Spécifie la représentation sous forme de chaîne de la valeur null. <br>La valeur par défaut est une **chaîne vide**. | Non       |
@@ -115,7 +116,7 @@ Le tableau ci-dessous répertorie les propriétés prises en charge par une sour
 | Liste de fichiers             | Si votre source pointe ou non vers un fichier texte qui liste les fichiers à traiter | non       | `true` ou `false`                                         | fileList                          |
 | Colonne où stocker le nom du fichier | Crée une colonne avec le nom et le chemin du fichier source       | non       | String                                                    | rowUrlColumn                      |
 | Après l’exécution          | Supprime ou déplace les fichiers après le traitement. Le chemin du fichier commence à la racine du conteneur | non       | Supprimer : `true` ou `false` <br> Déplacer : `['<from>', '<to>']` | purgeFiles <br> moveFiles         |
-| Filtrer par date de dernière modification   | Pour filtrer les fichiers en fonction de leur date de dernière modification | non       | Timestamp                                                 | modifiedAfter <br> modifiedBefore |
+| Filtrer par date de dernière modification   | Choisir pour filtrer les fichiers en fonction de leur date de dernière modification | non       | Timestamp                                                 | modifiedAfter <br> modifiedBefore |
 | N’autoriser aucun fichier trouvé | Si la valeur est true, aucune erreur n’est levée si aucun fichier n’est trouvé | non | `true` ou `false` | ignoreNoFilesFound |
 
 ### <a name="source-example"></a>Exemple de source

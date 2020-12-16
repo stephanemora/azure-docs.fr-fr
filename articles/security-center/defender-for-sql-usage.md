@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2020
+ms.date: 11/30/2020
 ms.author: memildin
-ms.openlocfilehash: 236a604c2c1cecfb18a2d82c3796a88cc4341a34
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 07a94685fb3655aa5aa21a8658b9d975c764daff
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636382"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512276"
 ---
 # <a name="azure-defender-for-sql-servers-on-machines"></a>Azure Defender pour les serveurs SQL sur les machines 
 
@@ -30,7 +30,7 @@ Vous voyez s’afficher des alertes en cas d’activités de base de données su
 
 |Aspect|Détails|
 |----|:----|
-|État de sortie :|PRÉVERSION<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
+|État de sortie :|Disponibilité générale (GA)|
 |Prix :|**Azure Defender pour les serveurs SQL Server sur les machines** est facturé comme indiqué sur [la page de tarification](security-center-pricing.md)|
 |Versions de SQL protégées :|Azure SQL Server (toutes les versions couvertes par le support Microsoft)|
 |Clouds :|![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Oui](./media/icons/yes-icon.png) Gouvernement des États-Unis<br>![Non](./media/icons/no-icon.png) Chine Gov, autres Gov|
@@ -48,7 +48,7 @@ Ces deux étapes sont décrites ci-dessous.
 
 ### <a name="step-1-provision-the-log-analytics-agent-on-your-sql-servers-host"></a>Étape 1. Provisionnez l’agent Log Analytics sur l’hôte du serveur SQL :
 
-- **SQL Server sur une machine virtuelle Azure** : si votre ordinateur SQL est hébergé sur une machine virtuelle Azure, vous pouvez [provisionner automatiquement l'agent de Log Analytics<a name="auto-provision-mma"></a>](security-center-enable-data-collection.md#auto-provision-mma). Vous pouvez également suivre la procédure manuelle pour [intégrer vos machines virtuelles Azure Stack](quickstart-onboard-machines.md#onboard-your-azure-stack-vms).
+- **SQL Server sur une machine virtuelle Azure** : si votre ordinateur SQL est hébergé sur une machine virtuelle Azure, vous pouvez [provisionner automatiquement l'agent de Log Analytics <a name="auto-provision-mma"></a>](security-center-enable-data-collection.md#auto-provision-mma). Vous pouvez également suivre la procédure manuelle pour [intégrer vos machines virtuelles Azure Stack](quickstart-onboard-machines.md#onboard-your-azure-stack-vms).
 - **SQL Server sur Azure Arc** : si votre serveur SQL Server est géré par des serveurs avec [Azure Arc](../azure-arc/index.yml), vous pouvez déployer l’agent Log Analytics en suivant la recommandation Security Center « L’agent Log Analytics doit être installé sur vos machines Azure Arc Windows (préversion) ». Vous pouvez également suivre les méthodes d’installation décrites dans la [Documentation Azure Arc](../azure-arc/servers/manage-vm-extensions.md).
 
 - **SQL Server local** : si votre serveur SQL Server est hébergé sur une machine Windows locale sans Azure Arc, vous disposez de deux options pour la connecter à Azure :
@@ -68,7 +68,7 @@ Ces deux étapes sont décrites ci-dessous.
 
         ![Recherche de votre espace de travail non défini par défaut par titre](./media/security-center-advanced-iaas-data/pricing-and-settings-workspaces.png)
 
-1. Définissez l’option pour le plan **Azure Defender pour les serveurs SQL Server sur les machines (préversion)** à  **sur**. 
+1. Définissez l’option pour le plan **Azure Defender pour les serveurs SQL Server sur les machines** à  **sur**. 
 
     ![Page de tarification Security Center avec des plans facultatifs](media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-small.png)
 
@@ -108,11 +108,11 @@ Vous pouvez consulter les résultats de l’évaluation des vulnérabilités dir
     Dans chaque affichage, les vérifications de sécurité sont triées par **Gravité**. Cliquez sur une vérification de sécurité spécifique pour afficher un volet d’informations contenant une **Description**, une méthode de **Correction** ainsi que d’autres informations associées, telles que l’**Impact** ou les **Références**.
 
 ## <a name="azure-defender-for-sql-alerts"></a>Azure Defender pour les alertes SQL
-Les alertes sont générées en cas de détection de tentatives d’accès ou d’exploitation inhabituelles et potentiellement dangereuses des machines SQL. Ces événements peuvent déclencher des alertes affichées dans la [section des alertes pour SQL Database et Azure Synapse Analytics (anciennement SQL Data Warehouse) de la page de référence des alertes](alerts-reference.md#alerts-sql-db-and-warehouse).
+Les alertes sont générées en cas de détection de tentatives d’accès ou d’exploitation inhabituelles et potentiellement dangereuses des machines SQL. Ces événements peuvent déclencher des alertes affichées dans la [section des alertes pour SQL Database et Azure Synapse Analytics de la page de référence des alertes](alerts-reference.md#alerts-sql-db-and-warehouse).
 
 ## <a name="explore-and-investigate-security-alerts"></a>Explorer et examiner les alertes de sécurité
 
-Les alertes Azure Defender sont disponibles dans la page alertes de Security Center, dans l’onglet sécurité de la ressource, dans le [tableau de bord Azure Defender](azure-defender-dashboard.md) ou via le lien direct des messages d’alerte.
+Les alertes Azure Defender pour SQL sont disponibles sur la page des alertes de Security Center, sous l'onglet Sécurité de la ressource, dans le [tableau de bord Azure Defender](azure-defender-dashboard.md) ou via le lien direct des messages d'alerte.
 
 1. Pour afficher les alertes, sélectionnez **Alertes de sécurité** dans le menu de Security Center et sélectionnez une alerte.
 
@@ -128,7 +128,7 @@ Les alertes Azure Defender sont disponibles dans la page alertes de Security Cen
 
 Pour des informations connexes, consultez l’article suivant :
 
-- [Alertes de sécurité pour SQL Database et Azure Synapse Analytics (anciennement SQL Data Warehouse)](alerts-reference.md#alerts-sql-db-and-warehouse)
+- [Alertes de sécurité pour SQL Database et Azure Synapse Analytics](alerts-reference.md#alerts-sql-db-and-warehouse)
 - [Configurer des notifications par e-mail pour les alertes de sécurité](security-center-provide-security-contact-details.md)
 - [En savoir plus sur Azure Sentinel](../sentinel/index.yml)
 - [Package de sécurité des données de Azure Security Center](../azure-sql/database/azure-defender-for-sql.md)

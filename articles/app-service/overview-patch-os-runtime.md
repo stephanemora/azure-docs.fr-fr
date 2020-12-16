@@ -4,12 +4,12 @@ description: Découvrez comment Azure App Service met à jour le système d’ex
 ms.topic: article
 ms.date: 02/02/2018
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 31b2d39f5d0d125d2bf23ac72718d9b386b48923
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 8b52223aea0f0bdfecf58906ac192e893da3b47d
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94833484"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558485"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Système d’exploitation et mise à jour corrective du runtime dans Azure App Service
 
@@ -51,7 +51,7 @@ Les mises à jour et les désapprobations de runtime sont annoncées ici :
 
 ### <a name="new-patch-updates"></a>Nouvelles mises à jour correctives
 
-Les mises à jour correctives pour la version .NET, PHP, Java SDK ou Tomcat/Jetty sont appliquées automatiquement en remplaçant l’installation existante par la nouvelle version. Les mises à jour correctives Node.js sont installées côte à côte avec les versions existantes (comme pour les versions majeures et mineures à la section suivante). Les nouvelles versions du correctif Python peuvent être installées manuellement par le biais des [extensions de site](https://azure.microsoft.com/blog/azure-web-sites-extensions/), côte à côte avec les installations Python intégrées.
+Les mises à jour correctives de la version .NET, PHP, Java SDK ou Tomcat sont appliquées automatiquement en remplaçant l’installation existante par la dernière version. Les mises à jour correctives Node.js sont installées côte à côte avec les versions existantes (comme pour les versions majeures et mineures à la section suivante). Les nouvelles versions du correctif Python peuvent être installées manuellement par le biais des [extensions de site](https://azure.microsoft.com/blog/azure-web-sites-extensions/), côte à côte avec les installations Python intégrées.
 
 ### <a name="new-major-and-minor-versions"></a>Nouvelles versions majeures et mineures
 

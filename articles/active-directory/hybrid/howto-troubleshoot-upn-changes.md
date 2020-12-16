@@ -11,16 +11,16 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46ecc2cba96b07d9105020e69ae3198a3765be7c
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 19e40d135316c1c7cd270d2804fff1f487937685
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96172229"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96858533"
 ---
 # <a name="plan-and-troubleshoot-user-principal-name-changes-in-azure-active-directory"></a>Planifier les modifications de nom d’utilisateur principal et résoudre les problèmes associés dans Azure Active Directory
 
-Un nom d’utilisateur principal (UPN) est un attribut constituant une norme de communication Internet pour les comptes d’utilisateur. Un UPN se compose d’un préfixe UPN (nom de compte d’utilisateur) et d’un suffixe UPN (nom de domaine DNS). Le préfixe et le suffixe sont accolés par le symbole « @ ». Par exemple : someone@example.com. Un UPN doit être unique parmi tous les objets principaux de sécurité d’une forêt de répertoires. 
+Un nom d’utilisateur principal (UPN) est un attribut constituant une norme de communication Internet pour les comptes d’utilisateur. Un UPN se compose d’un préfixe UPN (nom de compte d’utilisateur) et d’un suffixe UPN (nom de domaine DNS). Le préfixe et le suffixe sont accolés par le symbole « \@ ». Par exemple : someone@example.com. Un UPN doit être unique parmi tous les objets principaux de sécurité d’une forêt de répertoires. 
 
 **Cet article suppose que vous utilisez l’UPN comme identificateur d’utilisateur. Il traite de la planification des modifications d’UPN, et de la résolution de problèmes pouvant en découler.**
 
@@ -135,7 +135,7 @@ Les utilisateurs peuvent rencontrer des problèmes d’authentification unique a
 Les problèmes mentionnés dans cette section ont été résolus sur la mise à jour de Windows 10 mai 2020 (2004).
 
 **Solution de contournement** <br>
-Laissez suffisamment de temps pour que le changement d’UPN soit synchronisé sur Azure AD. Une fois que vous avez vérifié la prise en compte du nouvel UPN sur le portail Azure AD, demandez à l’utilisateur de sélectionner la vignette « Autre utilisateur » afin qu’il se connecte avec son nouvel UPN. Vous pouvez également procéder à la vérification à l'aide de [PowerShell](/powershell/module/azuread/get-azureaduser?view=azureadps-2.0). Une fois l'utilisateur connecté avec son nouvel UPN, des références à l'ancien UPN peuvent encore apparaître sur le paramètre Windows « Accès professionnel ou scolaire ».
+Laissez suffisamment de temps pour que le changement d’UPN soit synchronisé sur Azure AD. Une fois que vous avez vérifié la prise en compte du nouvel UPN sur le portail Azure AD, demandez à l’utilisateur de sélectionner la vignette « Autre utilisateur » afin qu’il se connecte avec son nouvel UPN. Vous pouvez également procéder à la vérification à l'aide de [PowerShell](/powershell/module/azuread/get-azureaduser). Une fois l'utilisateur connecté avec son nouvel UPN, des références à l'ancien UPN peuvent encore apparaître sur le paramètre Windows « Accès professionnel ou scolaire ».
 
 ![Capture d’écran des domaines vérifiés](./media/howto-troubleshoot-upn-changes/other-user.png)
 

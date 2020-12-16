@@ -2,7 +2,7 @@
 title: Fonctionnement de la synchronisation dans Azure AD Domain Services | Microsoft Docs
 description: Découvrez le fonctionnement du processus de synchronisation pour les objets et les informations d’identification d’un client Azure AD ou d’un environnement Active Directory Domain Services local à un domaine managé Azure Active Directory Domain Services.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: 57cbf436-fc1d-4bab-b991-7d25b6e987ef
 ms.service: active-directory
@@ -10,19 +10,21 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: 683a6c9f31947355a5415a5b8b57b621f717af91
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 41ba337765b4a0a93be52f08ae6656707cf7aa73
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967662"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618805"
 ---
 # <a name="how-objects-and-credentials-are-synchronized-in-an-azure-active-directory-domain-services-managed-domain"></a>Synchronisation des objets et des informations d’identification dans un domaine managé Azure Active Directory Domain Services
 
 Les objets et les informations d’identification d’un domaine managé Azure Active Directory Domain Services (Azure AD DS) peuvent être créés localement dans le domaine ou synchronisés à partir d’un locataire Azure Active Directory (Azure AD). Lorsque vous déployez Azure AD DS pour la première fois, une synchronisation automatique à sens unique est configurée et démarrée pour répliquer les objets à partir d’Azure AD. Cette synchronisation unidirectionnelle continue à s’exécuter en arrière-plan pour maintenir à jour le domaine managé Azure AD DS avec les modifications apportées par Azure AD. Aucune synchronisation n’est effectuée à partir d’Azure AD DS vers Azure AD.
 
 Dans un environnement hybride, les objets et les informations d’identification d’un domaine AD DS local peuvent être synchronisés avec Azure AD à l’aide d’Azure AD Connect. Une fois que ces objets sont synchronisés avec succès sur Azure AD, la synchronisation en arrière-plan automatique rend ces objets et informations d’identification disponibles pour les applications utilisant le domaine managé.
+
+Si l’environnement local AD DS et Azure AD sont configurés pour l’authentification fédérée avec ADFS, aucun hachage de mot de passe (actuel/valide) n’est disponible dans Azure DS. Il est possible que les comptes d’utilisateurs Azure AD créés avant l’implémentation de l’authentification fédérée disposent d’un ancien hachage de mot de passe, mais il est peu probable que celui-ci corresponde à un hachage de leur mot de passe local. De ce fait, Azure AD DS ne pourra pas valider les informations d’identification des utilisateurs.
 
 Le diagramme suivant illustre le fonctionnement de la synchronisation entre Azure AD DS, Azure AD et un environnement AD DS local facultatif :
 

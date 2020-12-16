@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/14/2020
+ms.date: 12/01/2020
 ms.author: b-juche
-ms.openlocfilehash: 6963a1f39534573bca39431febe391e89d462875
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: aaffc63690894f43329763064ae89a105274953c
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072779"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96511931"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Limites des ressources pour Azure NetApp Files
 
@@ -31,7 +31,7 @@ Le tableau suivant décrit les limites des ressources pour Azure NetApp Files :
 
 |  Ressource  |  Limite par défaut  |  Ajustable via une demande de support  |
 |----------------|---------------------|--------------------------------------|
-|  Nombre de comptes NetApp par région Azure   |  10    |  Oui   |
+|  Nombre de comptes NetApp par région Azure par abonnement  |  10    |  Oui   |
 |  Nombre de pools de capacités par compte NetApp   |    25     |   Oui   |
 |  Nombre de volumes par abonnement   |    500     |   Oui   |
 |  Nombre de volumes par pool de capacités     |    500   |    Oui     |
@@ -89,7 +89,7 @@ Vous pouvez créer une demande de support Azure pour augmenter les limites ajust
         |  pool    |  *ID d’abonnement, URI de compte NetApp*  |  *Nouveau nombre maximal de **pools** demandé*   |  *Quel scénario ou cas d’utilisation a motivé la demande ?*  |
         |  Volume  |  *ID d’abonnement, URI de compte NetApp, URI de pool de capacité*   |  *Nouveau **volume** maximal demandé*     |  *Quel scénario ou cas d’utilisation a motivé la demande ?*  |
         |  Maxfiles  |  *ID d’abonnement, URI de compte NetApp, URI de pool de capacité, URI de volume*   |  *Nouveau nombre maximal **maxfiles** demandé*     |  *Quel scénario ou cas d’utilisation a motivé la demande ?*  |    
-        |  Volumes de protection des données de réplication inter-région  |  *ID d’abonnement, URI de compte NetApp de destination, URI de pool de capacité de destination, URI de compte NetApp source, URI de pool de capacité source, URI de volume source*   |  *Nouveau nombre maximal de **volumes de protection des données de réplication inter-région (volumes de destination)***     |  *Quel scénario ou cas d’utilisation a motivé la demande ?*  |    
+        |  Volumes de protection des données de réplication inter-région  |  *ID d’abonnement, URI de compte NetApp de destination, URI de pool de capacité de destination, URI de compte NetApp source, URI de pool de capacité source, URI de volume source*   |  *Nouveau nombre maximal de **volumes de protection des données de réplication inter-région (volumes de destination)** _     |  _Quel scénario ou cas d’utilisation a motivé la demande ?*  |    
 
     2. Spécifiez la méthode de support appropriée et fournissez les informations relatives à votre contrat.
 

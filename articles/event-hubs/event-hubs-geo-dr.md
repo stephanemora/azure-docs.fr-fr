@@ -3,15 +3,15 @@ title: Géorécupération d’urgence - Azure Event Hubs | Microsoft Docs
 description: Découvrez comment utiliser les régions géographiques pour le basculement et la récupération d’urgence dans Azure Event Hubs.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 1807c22645c3246f4cf18d723fc19da475e4d4f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6dd2385a6f6e61136a1284171532aedd70a9cc96
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88934070"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608348"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs - Géorécupération d’urgence 
-Quand un centre de données ou une région Azure tout entiers (et qu’aucune [zone de disponibilité](../availability-zones/az-overview.md) n’est utilisée) connaissent un temps d’arrêt, il est essentiel que le traitement des données continue dans un autre centre de données ou une autre région. Pour cette raison, la *géorécupération d’urgence* et la *géoréplication* sont des fonctionnalités importantes pour les entreprises. Azure Event Hubs prend en charge la géorécupération d’urgence et la géoréplication au niveau de l’espace de noms. 
+Quand un centre de données ou une région Azure tout entiers (et qu’aucune [zone de disponibilité](../availability-zones/az-overview.md) n’est utilisée) connaissent un temps d’arrêt, il est essentiel que le traitement des données continue dans un autre centre de données ou une autre région. Pour cette raison, la *géorécupération d’urgence* et la *géoréplication* sont des fonctionnalités importantes pour les entreprises. Azure Event Hubs prend en charge la géorécupération d’urgence et la géoréplication au niveau de l’espace de noms. 
 
 > [!NOTE]
 > La fonctionnalité de géorécupération d’urgence est disponible uniquement pour les [références SKU standard et dédiées](https://azure.microsoft.com/pricing/details/event-hubs/).  
@@ -96,7 +96,7 @@ L’[exemple sur GitHub](https://github.com/Azure/azure-event-hubs/tree/master/s
 
 ## <a name="considerations"></a>Considérations
 
-Notez les points suivants pour cette version :
+Tenez compte des points suivants :
 
 1. De par sa conception, la géo-reprise d'activité après sinistre Event Hubs ne réplique pas les données, et vous ne pouvez donc pas réutiliser l'ancienne valeur de décalage de votre hub d'événements principal sur votre hub d'événements secondaire. Nous vous recommandons de redémarrer votre récepteur d’événements avec l’une des méthodes suivantes :
 
@@ -106,7 +106,7 @@ Notez les points suivants pour cette version :
 
 2. Dans votre planification de basculement, vous devez également tenir compte du facteur temps. Par exemple, si vous perdez la connectivité pendant plus de 15 à 20 minutes, vous pouvez décider de lancer le basculement. 
  
-3. Le fait qu’aucune donnée ne soit répliquée signifie que les sessions actuellement actives ne sont pas répliquées. En outre, la détection des doublons et les messages planifiés peuvent ne pas fonctionner. Les nouvelles sessions, les messages planifiés et les nouveaux doublons fonctionneront. 
+3. Le fait qu’aucune donnée ne soit répliquée signifie que les sessions actives actuelles ne sont pas répliquées. En outre, la détection des doublons et les messages planifiés peuvent ne pas fonctionner. Les nouvelles sessions, les messages planifiés et les nouveaux doublons fonctionneront. 
 
 4. Le basculement d’une infrastructure distribuée complexe doit être [répétée](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan) au moins une fois. 
 

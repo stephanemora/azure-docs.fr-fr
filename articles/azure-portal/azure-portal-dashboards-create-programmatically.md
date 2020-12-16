@@ -1,23 +1,14 @@
 ---
 title: Créer par programmation des tableaux de bord Azure
 description: Utilisez un tableau de bord du portail Azure comme modèle pour créer par programmation des tableaux de bord Azure. Comprend une référence JSON.
-services: azure-portal
-documentationcenter: ''
-author: adamabmsft
-manager: mtillman
-ms.service: azure-portal
-ms.devlang: NA
 ms.topic: how-to
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 03/23/2020
-ms.author: mblythe
-ms.openlocfilehash: 7f52bd94a0286ea50d09ab7c77dce339e8a3ebf3
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.date: 12/4/2020
+ms.openlocfilehash: e69d3f3cea0ff63f94e797047eb10b9583678b1b
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089364"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745806"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Créer par programmation des tableaux de bord Azure
 
@@ -658,3 +649,49 @@ Cet exemple déploie un tableau de bord par lui-même, mais le langage de modèl
 ```
 
 Maintenant que vous avez vu un exemple d’utilisation d’un modèle paramétrable pour déployer un tableau de bord, vous pouvez essayer de déployer le modèle en utilisant les [API REST Azure Resource Manager](/rest/api/), [Azure CLI](/cli/azure) ou les [commandes Azure PowerShell](/powershell/azure/get-started-azureps).
+
+## <a name="programmatically-create-a-dashboard-by-using-azure-cli"></a>Créer par programmation un tableau de bord à l’aide d’Azure CLI
+
+Préparez votre environnement pour l’interface Azure CLI.
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+- Ces exemples utilisent le tableau de bord suivant : [portal-dashboard-template-testvm.json](https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/azure-portal/portal-dashboard-template-testvm.json). Remplacez le contenu entre crochets par vos valeurs.
+
+Exécutez la commande [az portal dashboard create](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_create) pour créer un tableau de bord :
+
+```azurecli
+az portal dashboard create --resource-group myResourceGroup --name 'Simple VM Dashboard' \
+   --input-path portal-dashboard-template-testvm.json --location centralus
+```
+
+Vous pouvez mettre à jour un tableau de bord à l’aide de la commande [az portal dashboard update](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_update) :
+
+```azurecli
+az portal dashboard update --resource-group myResourceGroup --name 'Simple VM Dashboard' \
+--input-path portal-dashboard-template-testvm.json --location centralus
+```
+
+Pour afficher les détails d’un tableau de bord, exécutez la commande [az portal dashboard show](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_show) :
+
+```azurecli
+az portal dashboard show --resource-group myResourceGroup --name 'Simple VM Dashboard'
+```
+
+Pour voir tous les tableaux de bord de l’abonnement actif, utilisez [az portal dashboard list](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_list) :
+
+```azurecli
+az portal dashboard list
+```
+
+Vous pouvez aussi voir tous les tableaux de bord d’un groupe de ressources :
+
+```azurecli
+az portal dashboard list --resource-group myResourceGroup
+```
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Pour plus d’informations sur les appareils de bureau, consultez [Gérer les paramètres et les préférences du portail Azure](set-preferences.md).
+
+Pour plus d’informations sur la prise en charge d’Azure CLI pour les tableaux de bord, consultez [az portal dashboard](/cli/azure/ext/portal/portal/dashboard).

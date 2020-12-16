@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: damendo
-ms.openlocfilehash: 25f4ae0dbfd7827a36dede6a889c342ea490e273
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: f27f2a6319bf2648546a62c2566d938db657738f
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94948474"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518462"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Forum aux questions pour Traffic Analytics
 
@@ -401,3 +401,6 @@ La page de la topologie des sous-réseaux virtuels contient deux sections princi
 - Pour passer à d’autres nœuds en surbrillance dans la vue de la topologie, utilisez la touche `Shift+Right arrow` pour vous déplacer vers l’avant. 
 - Sur les nœuds en surbrillance, le focus passe à la **boîte à outils Informations** du nœud. Par défaut, le focus passe au bouton **Plus de détails** de la **boîte à outils Informations**. Pour vous déplacer davantage dans la vue de la **boîte**, utilisez les touches `Right arrow` et `Left arrow` pour vous déplacer vers l’avant et vers l’arrière, respectivement. Appuyer sur `Enter` a le même effet que cliquer sur le bouton actif dans la **boîte à outils Informations**.
 - Si vous sélectionnez l’un de ces nœuds, vous pouvez appuyer sur la touche `Shift+Left arrow` pour visiter chacune de ses connexions. Le focus passe à la **boîte à outils Informations** de cette connexion. Vous pouvez à tout moment réappuyer sur `Shift+Right arrow` pour faire revenir le focus sur le nœud.
+
+## <a name="are-classic-nsgs-supported"></a>Les groupes de sécurité réseau classiques sont-ils pris en charge ?
+Non, Traffic Analytics ne prend pas en charge les groupes de sécurité réseau classiques. Nous vous recommandons de migrer les ressources IaaS du niveau classique à Azure Resource Manager en tant que ressources classiques [déconseillées](https://docs.microsoft.com/azure/virtual-machines/classic-vm-deprecation). Consultez cet article pour en savoir plus sur la [migration](https://docs.microsoft.com/azure/virtual-machines/migration-classic-resource-manager-overview).

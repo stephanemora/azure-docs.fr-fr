@@ -1,5 +1,5 @@
 ---
-title: Commercialiser votre offre SaaS dans l’Espace partenaires Microsoft
+title: Guide pratique pour vendre votre offre SaaS sur Espace partenaires Microsoft
 description: Apprenez-en davantage sur la co-vente avec Microsoft et la revente via des options du Programme des fournisseurs de solutions cloud (CSP) pour votre offre SaaS (Software as a Service) sur la place de marché commerciale de Microsoft.
 author: mingshen-ms
 ms.author: mingshen
@@ -8,22 +8,22 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: c8fa2efe708823ff4154edfd58f1b18e0176a990
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e61d85b5f02cb73d078888badc2fa24c4506fe64
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89380406"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620882"
 ---
-# <a name="how-to-market-your-saas-offer"></a>Commercialiser votre offre SaaS
+# <a name="how-to-sell-your-saas-offer"></a>Guide pratique pour vendre votre offre SaaS
 
-Cet article décrit les options de marketing supplémentaires à votre disposition si vous vendez votre offre SaaS par le biais de Microsoft. Vous pouvez co-vendre votre offre avec Microsoft, la revendre par le biais du [Programme des fournisseurs de solutions cloud (CSP)](cloud-solution-providers.md), ou les deux.
+Cet article décrit les options supplémentaires à votre disposition si vous vendez votre offre SaaS par le biais de Microsoft. Vous pouvez co-vendre votre offre avec Microsoft, la revendre par le biais du [Programme des fournisseurs de solutions cloud (CSP)](cloud-solution-providers.md), ou les deux.
 
 ## <a name="co-sell-with-microsoft"></a>Co-vendre avec Microsoft
 
 La fourniture d’informations sur la page **Co-vendre avec Microsoft** est entièrement facultative. Elles sont cependant nécessaires pour atteindre l’état _Prêt pour la co-vente_ et _Prêt pour la co-vente IP_. Les équipes commerciales de Microsoft utilisent ces informations pour en savoir plus sur votre solution lors de l’évaluation de son adéquation avec les besoins des clients. Les informations que vous fournissez sous cet onglet ne sont pas directement disponibles pour les clients.
 
-Pour plus de détails et des instructions sur la configuration de l’onglet **Co-vente avec Microsoft**, consultez [Option Co-vente de l’Espace partenaires](partner-center-portal/commercial-marketplace-co-sell.md).
+Pour plus de détails et des instructions sur la configuration de l’onglet **Co-vente avec Microsoft**, consultez [Option de co-vente sur le marketplace commercial](commercial-marketplace-co-sell.md).
 
 ## <a name="resell-through-csps"></a>Revendre via des fournisseurs de solutions cloud
 

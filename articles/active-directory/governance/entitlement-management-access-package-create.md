@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6c30dffbc8f97273ee59ce33ae3fe75ed730763
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: b2ce3b362d02e7acb0a11e6d93b8e94ca8e4d04e
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356635"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903528"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management"></a>Créer un package d’accès dans la gestion des droits d’utilisation Azure AD
 
@@ -106,6 +106,9 @@ Sous l’onglet **Rôles de ressources**, sélectionnez les ressources à inclur
     ![Package d’accès - Sélection du rôle des ressources](./media/entitlement-management-access-package-create/resource-roles-role.png)
 
 1. Cliquez sur **Suivant**.
+
+>[!NOTE]
+>Vous pouvez ajouter des groupes dynamiques à un catalogue et à un package d’accès. Toutefois, si vous gérez une ressource de groupe dynamique dans un package d’accès, vous ne pourrez sélectionner que le rôle Propriétaire.
 
 ## <a name="requests"></a>Demandes
 

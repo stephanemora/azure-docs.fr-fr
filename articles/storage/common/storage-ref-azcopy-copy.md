@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: a5c0d8bb47b337b0415565a0b6dad5c6822d0b94
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: fd71f4eb56974b93637c23eddc81e5f33ce788b8
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92781734"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512152"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -107,6 +107,14 @@ Charger des fichiers et des répertoires à l’aide d’un jeton SAS et de cara
 ```azcopy
 azcopy cp "/path/*foo/*bar*" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive
 ```
+
+Charger des fichiers et des répertoires dans le compte de stockage Azure et définir les balises encodées de chaîne de requête sur l’objet blob. 
+
+- Pour définir les balises {key = "bla bla", val = "foo"} and {key = "bla bla 2", val = "bar"}, utilisez la syntaxe suivante : `azcopy cp "/path/*foo/*bar*" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --blob-tags="bla%20bla=foo&bla%20bla%202=bar"`
+    
+- Les clés et les valeurs sont encodées en URL et les paires clé-valeur sont séparées par une esperluette ('&')
+
+- Lors de la définition des balises sur les objets blob, il existe des autorisations supplémentaires (« t ») dans SAS, sans lesquelles le service renvoie une erreur d’autorisation.
 
 Télécharger un seul fichier à l’aide de l’authentification OAuth. Si vous ne vous êtes pas encore connecté à AzCopy, exécutez la commande `azcopy login` avant d’exécuter la commande suivante.
 
@@ -214,9 +222,19 @@ Copier un sous-ensemble de compartiments en utilisant un caractère générique 
 - azcopy cp "https://s3.amazonaws.com/[bucket*name]/" "https://[destaccount].blob.core.windows.net?[SAS]" --recursive
 ```
 
+Transférez des fichiers et des répertoires dans le compte de stockage Azure et définir les balises encodées de chaîne de requête données sur l’objet blob. 
+
+- Pour définir les balises {key = "bla bla", val = "foo"} and {key = "bla bla 2", val = "bar"}, utilisez la syntaxe suivante : `azcopy cp "https://[account].blob.core.windows.net/[source_container]/[path/to/directory]?[SAS]" "https://[account].blob.core.windows.net/[destination_container]/[path/to/directory]?[SAS]" --blob-tags="bla%20bla=foo&bla%20bla%202=bar"`
+        
+- Les clés et les valeurs sont encodées en URL et les paires clé-valeur sont séparées par une esperluette ('&')
+    
+- Lors de la définition des balises sur les objets blob, il existe des autorisations supplémentaires (« t ») dans SAS, sans lesquelles le service renvoie une erreur d’autorisation.
+
 ## <a name="options"></a>Options
 
 **--backup** Active le privilège SeBackupPrivilege de Windows pour les chargements, ou SeRestorePrivilege pour les téléchargements, afin de permettre à AzCopy de voir et lire tous les fichiers, indépendamment de leurs autorisations de système de fichiers, et de restaurer toutes les autorisations. Nécessite que le compte qui exécute AzCopy dispose déjà de ces autorisations (par exemple, dispose de droits d’administrateur ou est membre du groupe `Backup Operators`). Cet indicateur active les privilèges que le compte a déjà.
+
+**--blob-tags** string   Définir des balises sur les objets blob pour catégoriser les données de votre compte de stockage.
 
 **--blob-type** string  Définit le type d’objet blob au niveau de la destination. Utilisé pour charger des objets blob et lors de la copie de données d’un compte à l’autre (par défaut `Detect`). Les valeurs valides sont `Detect`, `BlockBlob`, `PageBlob` et `AppendBlob`. Lors de la copie entre comptes, la valeur `Detect` contraint AzCopy à utiliser le type de l’objet blob source pour déterminer le type de l’objet blob de destination. Lors du chargement d’un fichier, `Detect` détermine s’il s’agit d’un fichier VHD ou VHDX en fonction de l’extension de fichier. S’il s’agit d’un fichier VHD ou VHDX, AzCopy traite le fichier comme un objet blob de pages. (par défaut : « Detect »)
 

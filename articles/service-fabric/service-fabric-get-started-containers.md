@@ -4,12 +4,12 @@ description: Créez votre première application de conteneur Windows sur Microso
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 96a9eda23268bc06029292c3c5f10502216e3658
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 197423670ffe05f15fdc5bfd351efdfba33b53cd
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93087058"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533772"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Créer votre première application de conteneur Service Fabric sur Windows
 
@@ -36,20 +36,15 @@ L’exécution d’une application existante dans un conteneur Windows sur un cl
 
   Pour cet article, la version (build) de Windows Server avec conteneurs en cours d’exécution sur vos nœuds de cluster doit correspondre à celle installée sur votre ordinateur de développement. En effet, vous générez l’image Docker sur votre ordinateur de développement et il existe des contraintes de compatibilité entre les versions du système d’exploitation de conteneur et le système d’exploitation hôte sur lequel elle est déployée. Pour plus d’informations, consultez [Système d’exploitation de conteneur Windows Server et compatibilité avec le système d’exploitation hôte](#windows-server-container-os-and-host-os-compatibility). 
   
-Pour déterminer la version de Windows Server avec conteneurs dont vous avez besoin pour votre cluster, exécutez la commande `ver` à partir d’une invite de commandes Windows sur votre ordinateur de développement :
-
-* Si la version contient *x.x.14323.x* , sélectionnez *WindowsServer 2016-Datacenter-with-Containers* comme système d’exploitation lors de la [création du cluster](service-fabric-cluster-creation-via-portal.md).
-  * Si la version contient *x.x.16299.x* , sélectionnez *WindowsServerSemiAnnual Datacenter-Core-1709-with-Containers* comme système d’exploitation lors de la [création d’un cluster](service-fabric-cluster-creation-via-portal.md).
+    Pour déterminer la version de Windows Server avec conteneurs dont vous avez besoin pour votre cluster, exécutez la commande `ver` à partir d’une invite de commandes Windows sur votre ordinateur de développement. Consultez [Système d’exploitation de conteneur Windows Server et compatibilité avec le système d’exploitation hôte](#windows-server-container-os-and-host-os-compatibility) avant de [créer un cluster](service-fabric-cluster-creation-via-portal.md).
 
 * Un registre dans Azure Container Registry. [Créez un registre de conteneurs](../container-registry/container-registry-get-started-portal.md) dans votre abonnement Azure.
 
 > [!NOTE]
 > Le déploiement de conteneurs sur un cluster Service Fabric sous Windows 10 est pris en charge.  Consultez [cet article](service-fabric-how-to-debug-windows-containers.md) pour plus d’informations sur la configuration de Windows 10 pour exécuter des conteneurs Windows.
->   
 
 > [!NOTE]
-> La version 6.2 de Service Fabric et les versions ultérieures prennent en charge le déploiement de conteneurs pour les clusters exécutant Windows Server version 1709.  
-> 
+> La version 6.2 de Service Fabric et les versions ultérieures prennent en charge le déploiement de conteneurs pour les clusters exécutant Windows Server version 1709.
 
 ## <a name="define-the-docker-container"></a>Définir le conteneur Docker
 
@@ -109,10 +104,18 @@ if __name__ == "__main__":
 ```
 
 <a id="Build-Containers"></a>
-## <a name="build-the-image"></a>Créer l’image
-Exécutez la commande `docker build` pour créer l’image qui exécute votre application web. Ouvrez une fenêtre PowerShell et accédez au répertoire contenant le fichier Dockerfile. Exécutez la commande suivante :
+
+## <a name="login-to-docker-and-build-the-image"></a>Connexion à Docker et génération de l’image
+
+Nous allons maintenant créer l’image qui exécute votre application web. Lorsque vous extrayez des images publiques de Docker (comme `python:2.7-windowsservercore` dans notre fichier Dockerfile), il est recommandé de s’authentifier auprès de votre compte Docker Hub au lieu de créer une demande de tirage anonyme.
+
+> [!NOTE]
+> Lorsque vous effectuez des demande de tirage (pull request) anonymes fréquentes, vous pouvez voir des erreurs Docker similaires à `ERROR: toomanyrequests: Too Many Requests.` ou `You have reached your pull rate limit.` Authentifiez-vous auprès de Docker Hub pour éviter ces erreurs. Consultez [Gérer le contenu public à l’aide d’Azure Container Registry](../container-registry/buffer-gate-public-content.md) pour plus d’informations.
+
+Ouvrez une fenêtre PowerShell et accédez au répertoire contenant le fichier Dockerfile. Exécutez ensuite les commande suivantes :
 
 ```
+docker login
 docker build -t helloworldapp .
 ```
 
@@ -193,7 +196,7 @@ Le kit de développement logiciel Service Fabric fournit un modèle de service p
 1. Démarrez Visual Studio. Sélectionnez **Fichier** > **Nouveau** > **Projet**.
 2. Sélectionnez **Service Fabric application** (Application Service Fabric), nommez-la « MyFirstContainer », puis cliquez sur **OK**.
 3. Sélectionnez **Container** (Conteneur) dans la liste des **modèles de service**.
-4. Sous **Nom de l’image** , entrez « myregistry.azurecr.io/samples/helloworldapp », c’est-à-dire l’image que vous avez envoyée à votre référentiel de conteneurs.
+4. Sous **Nom de l’image**, entrez « myregistry.azurecr.io/samples/helloworldapp », c’est-à-dire l’image que vous avez envoyée à votre référentiel de conteneurs.
 5. Donnez un nom à votre service et cliquez sur **OK**.
 
 ## <a name="configure-communication"></a>Configurer la communication
@@ -271,7 +274,7 @@ Windows prend en charge deux modes d’isolation pour les conteneurs : Processu
    >
 
 ## <a name="configure-resource-governance"></a>Configurer la gouvernance des ressources
-La [gouvernance des ressources](service-fabric-resource-governance.md) limite les ressources que le conteneur peut utiliser sur l’hôte. L’élément `ResourceGovernancePolicy`, spécifié dans le manifeste de l’application, est utilisé pour déclarer des limites relatives aux ressources pour un package de code de service. Des limites de ressources peuvent être définies pour les ressources suivantes : mémoire, MemorySwap, CpuShares (poids relatif du processeur), MemoryReservationInMB, BlkioWeight (poids relatif de l’élément BlockIO). Dans cet exemple, le package de service Guest1Pkg obtient un cœur sur les nœuds de cluster où il est placé. Les limites de mémoire sont absolues, ce qui signifie que le package de code est limité à 1024 Mo de mémoire (avec une garantie de réservation identique). Les packages de code (conteneurs ou processus) ne sont pas en mesure d’allouer plus de mémoire que cette limite. Toute tentative en ce sens conduit à une exception de mémoire insuffisante. Pour pouvoir appliquer la limite de ressources, des limites de mémoire doivent être spécifiées pour tous les packages de code au sein d’un package de service.
+La [gouvernance des ressources](service-fabric-resource-governance.md) limite les ressources que le conteneur peut utiliser sur l’hôte. L’élément `ResourceGovernancePolicy`, spécifié dans le manifeste de l’application, est utilisé pour déclarer des limites relatives aux ressources pour un package de code de service. Des limites de ressources peuvent être définies pour les ressources suivantes : Memory, MemorySwap, CpuShares (poids relatif du processeur), MemoryReservationInMB, BlkioWeight (poids relatif de l’élément BlockIO). Dans cet exemple, le package de service Guest1Pkg obtient un cœur sur les nœuds de cluster où il est placé. Les limites de mémoire sont absolues, ce qui signifie que le package de code est limité à 1024 Mo de mémoire (avec une garantie de réservation identique). Les packages de code (conteneurs ou processus) ne sont pas en mesure d’allouer plus de mémoire que cette limite. Toute tentative en ce sens conduit à une exception de mémoire insuffisante. Pour pouvoir appliquer la limite de ressources, des limites de mémoire doivent être spécifiées pour tous les packages de code au sein d’un package de service.
 
 ```xml
 <ServiceManifestImport>
@@ -290,7 +293,7 @@ En démarrant la version 6.1, Service Fabric intègre automatiquement les évén
 
 L’instruction **HEALTHCHECK** qui pointe vers la vérification réalisée pour surveiller l’intégrité du conteneur doit être présente dans le fichier Dockerfile utilisé lors de la génération de l’image conteneur.
 
-![Capture d’écran montrant les détails du package de services déployé NodeServicePackage.][3]
+![La capture d’écran montre les détails du package de services déployé NodeServicePackage.][3]
 
 ![HealthCheckUnhealthyApp][4]
 
@@ -310,18 +313,18 @@ Vous pouvez configurer un comportement **HEALTHCHECK** pour chaque conteneur en 
     </Policies>
 </ServiceManifestImport>
 ```
-Par défaut, *IncludeDockerHealthStatusInSystemHealthReport* est défini sur **true** , *RestartContainerOnUnhealthyDockerHealthStatus* est défini sur **false** et *TreatContainerUnhealthyStatusAsError* est défini sur **false**. 
+Par défaut, *IncludeDockerHealthStatusInSystemHealthReport* est défini sur **true**, *RestartContainerOnUnhealthyDockerHealthStatus* est défini sur **false** et *TreatContainerUnhealthyStatusAsError* est défini sur **false**. 
 
-Si *RestartContainerOnUnhealthyDockerHealthStatus* est défini sur **true** , un conteneur déclaré défectueux à plusieurs reprises est redémarré (éventuellement sur d’autres nœuds).
+Si *RestartContainerOnUnhealthyDockerHealthStatus* est défini sur **true**, un conteneur déclaré défectueux à plusieurs reprises est redémarré (éventuellement sur d’autres nœuds).
 
-Si *TreatContainerUnhealthyStatusAsError* est défini sur **true** , des rapports d’intégrité **ERROR** s’affichent quand *health_status* indique *non sain* pour le conteneur.
+Si *TreatContainerUnhealthyStatusAsError* est défini sur **true**, des rapports d’intégrité **ERROR** s’affichent quand *health_status* indique *non sain* pour le conteneur.
 
 Si vous souhaitez désactiver l’intégration **HEALTHCHECK** pour l’ensemble du cluster Service Fabric, vous devez définir [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) sur **false**.
 
 ## <a name="deploy-the-container-application"></a>Déployer l’application de conteneur
 Enregistrez toutes les modifications et générez l’application. Pour publier votre application, cliquez avec le bouton droit de la souris sur **MyFirstContainer** dans l’Explorateur de solutions, puis sélectionnez **Publier**.
 
-Dans **Point de terminaison de connexion** , entrez le point de terminaison de gestion pour le cluster. Par exemple : `containercluster.westus2.cloudapp.azure.com:19000`. Vous trouverez le point de terminaison de connexion client dans l’onglet Vue d’ensemble de votre cluster dans le [portail Azure](https://portal.azure.com).
+Dans **Point de terminaison de connexion**, entrez le point de terminaison de gestion pour le cluster. Par exemple : `containercluster.westus2.cloudapp.azure.com:19000`. Vous trouverez le point de terminaison de connexion client dans l’onglet Vue d’ensemble de votre cluster dans le [portail Azure](https://portal.azure.com).
 
 Cliquez sur **Publier**.
 
@@ -578,7 +581,7 @@ Le paramètre **ContainersRetentionCount** spécifie le nombre de conteneurs à 
 
 ## <a name="start-the-docker-daemon-with-custom-arguments"></a>Démarrer le démon Docker avec des arguments personnalisés
 
-Avec la version 6.2 du runtime Service Fabric et versions supérieures, vous pouvez démarrer le démon Docker avec des arguments personnalisés. Lorsque des arguments personnalisés sont spécifiés, Service Fabric ne transmet pas d’autres arguments au moteur Docker, à l’exception de l’argument `--pidfile`. Par conséquent, `--pidfile` ne doit pas être transmis en tant qu’argument. En outre, le démon Docker de l’argument doit continuer à écouter le canal de nom par défaut sur Windows (ou le socket de domaine Unix sur Linux) pour que Service Fabric communique avec le démon. Les arguments personnalisés sont transmis dans le manifeste de cluster, dans la section **Hébergement** sous **ContainerServiceArguments** , comme indiqué dans l’extrait de code suivant : 
+Avec la version 6.2 du runtime Service Fabric et versions supérieures, vous pouvez démarrer le démon Docker avec des arguments personnalisés. Lorsque des arguments personnalisés sont spécifiés, Service Fabric ne transmet pas d’autres arguments au moteur Docker, à l’exception de l’argument `--pidfile`. Par conséquent, `--pidfile` ne doit pas être transmis en tant qu’argument. En outre, le démon Docker de l’argument doit continuer à écouter le canal de nom par défaut sur Windows (ou le socket de domaine Unix sur Linux) pour que Service Fabric communique avec le démon. Les arguments personnalisés sont transmis dans le manifeste de cluster, dans la section **Hébergement** sous **ContainerServiceArguments**, comme indiqué dans l’extrait de code suivant : 
  
 
 ```json

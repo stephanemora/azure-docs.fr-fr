@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: e82a377d62184c8ae1d2e8f076b228e36005887a
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 1a352849cb5bb8563a7e09500f081139a24e97ea
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94992673"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96750694"
 ---
 # <a name="what-are-device-templates"></a>Que sont les modèles d’appareils ?
 
@@ -225,7 +225,7 @@ Cet exemple montre deux propriétés (une en lecture seule et une autre accessib
 
 - `@type` pour spécifier le type de fonctionnalité : `Telemetry`, `Property` ou `Command`.  Dans certains cas, le type comprend un type sémantique pour permettre à IoT Central de faire des hypothèses sur la façon de gérer la valeur.
 - `name` pour la valeur de télémétrie.
-- `schema` pour spécifier le type de données pour la télémétrie ou la propriété. Cette valeur peut être un type primitif, tel que double, entier, valeur booléenne ou chaîne. Les types d’objets complexes, les tableaux et les mappages sont également pris en charge.
+- `schema` pour spécifier le type de données pour la télémétrie ou la propriété. Cette valeur peut être un type primitif, tel que double, entier, valeur booléenne ou chaîne. Les types d’objets complexes et les mappages sont également pris en charge.
 
 Des champs facultatifs, tels que le nom d’affichage et la description, vous permettent d’ajouter des détails à l’interface et aux fonctionnalités.
 

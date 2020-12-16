@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: c56d83e551265f3fb4de106cb8fa77efd6dcbabc
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 7f56ff94c4dcf276accc56e8d1076266099d635d
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452114"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780703"
 ---
 # <a name="how-to-plan-a-consulting-service-offer-in-the-commercial-marketplace"></a>Comment planifier une offre de services de conseil dans le marketplace commercial
 
@@ -27,7 +27,21 @@ Les offres de service de conseil sont publiées sous la forme de publications **
 
 ## <a name="primary-products-and-online-stores"></a>Produits principaux et magasins en ligne
 
-Chaque offre de service de conseil doit se concentrer sur un produit Microsoft, appelé **produit principal**. Le produit principal que vous sélectionnez dans Espace partenaires détermine si votre offre sera publiée sur Microsoft AppSource ou sur Place de marché Azure.
+Chaque service de conseil doit se concentrer sur l’un de ces produits Microsoft, appelé le **produit principal** de l’offre :
+
+|Produit principal                               |                   |
+|-------------------------------|-------------------|
+|Azure                          |Dynamics 365 Project Service Automation |
+|Dynamics 365 Business Central  |Dynamics 365 Sales |
+|Dynamics 365 Commerce          |Dynamics 365 Supply Chain Management |
+|Dynamics 365 Customer Insights |Microsoft 365 |
+|Dynamics 365 Customer Service  |Power Apps |
+|Dynamics 365 Field Service     |Power Automate |
+|Dynamics 365 Finance           |Power BI |
+|Dynamics 365 Marketing         |Power Virtual Agents |
+|    |    |
+
+Le produit principal que vous sélectionnez dans Espace partenaires détermine si votre offre sera publiée sur Microsoft AppSource ou sur Place de marché Azure.
 
 * Si le produit principal de votre service de conseil est Azure, l’offre est publiée sur Place de marché Azure.
 * Si le produit principal n’est pas Azure, l’offre est publiée sur AppSource.
@@ -91,6 +105,7 @@ Pour faciliter la création de votre offre, préparez certains de ces éléments
 |Prise en main d’Azure IoT pour la fabrication |Fabrication IoT : Évaluation de 2 jours |
 |Atelier portant sur les grille-pain intelligents |Grille-pain intelligents : Atelier d’une semaine |
 |POC sur la migration de SQL Server par Contoso |Migration SQL : Preuve de concept de 3 semaines |
+| | |
 
 **Résultats de recherche récapitulatifs** : Décrivez l’objectif ou le but de votre offre en 200 caractères maximum. Ce résumé est utilisé dans les résultats de recherche de la publication sur le marketplace commercial. Il ne doit pas être identique au titre. Pensez à inclure vos principaux mots clés de SEO.
 
@@ -105,6 +120,7 @@ Lors de la rédaction de la description, suivez ces critères, en fonction de vo
 |Implémentation |Incluez un calendrier détaillé des implémentations d’une durée supérieure à une journée et décrivez les modifications d’ingénierie, les artefacts techniques ou les autres artefacts que vous vous engagez à fournir à un client. |
 |Preuve de concept |Décrivez les modifications d’ingénierie, les artefacts techniques ou les autres artefacts que vous vous engagez à fournir à un client. |
 |Atelier |Incluez un calendrier détaillé quotidien, hebdomadaire ou mensuel, selon la durée de votre offre. Formulez les objectifs d’apprentissage ou d’autres livrables de votre atelier. |
+| | |
 
 Voici quelques conseils pour rédiger votre description :
 
@@ -142,6 +158,11 @@ Suivez ces instructions pour vos logos:
 **Médias de marketplace – captures d’écran** : Ajoutez entre une et cinq images qui illustrent votre offre. Chacune image doit avoir une taille de 1280 x 720 pixels et être au format .PNG.
 
 **Médias de marketplace – vidéos** (facultatif) : Vous pouvez ajouter jusqu’à quatre vidéos qui illustrent votre offre. Les vidéos doivent être hébergées sur YouTube ou Vimeo et avoir une miniature (fichier PNG 1280 x 720).
+
+## <a name="pricing-and-availability"></a>Tarification et disponibilité
+
+Votre offre de service de conseil peut être mise à disposition dans un ou plusieurs pays ou régions. Dans Espace partenaires, vous pouvez décider du prix pour chaque marché que vous sélectionnez. Pour obtenir la liste complète des marchés et devises pris en charge, consultez [Disponibilité géographique et prise en charge des devises pour le marketplace commercial](./marketplace-geo-availability-currencies.md).
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

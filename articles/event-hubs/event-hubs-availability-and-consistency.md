@@ -4,12 +4,12 @@ description: Découvrez comment obtenir la quantité maximale de disponibilité 
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 774332b8f2d5c336f1a22d717516ae35a62b341f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 81bacd5507396352bb814310979498234ee35347
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89000632"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96902899"
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>Disponibilité et cohérence dans Event Hubs
 
@@ -40,7 +40,9 @@ Si vous créez un objet **[EventHubClient](/dotnet/api/microsoft.azure.eventhubs
 Pour les cas d’utilisation qui exigent un temps d’activité maximum, ce modèle est conseillé.
 
 ## <a name="consistency"></a>Cohérence
-Dans certains scénarios, l’ordre des événements peut être important. Par exemple, vous souhaiterez peut-être que votre système principal traite une commande de mise à jour avant une commande de suppression. Dans ce cas, vous pouvez définir la clé de partition sur un événement, ou utiliser un objet `PartitionSender` (si vous utilisez l’ancienne bibliothèque Microsoft.Azure.Messaging) pour envoyer uniquement les événements à une certaine partition. Cela garantit que ces événements sont lus dans l’ordre lorsqu’ils sont lus à partir de la partition. Si vous utilisez la bibliothèque **Azure.Messaging.EventHubs** et pour obtenir plus d’informations, consultez [Migration du code de PartitionSender vers EventHubProducerClient pour la publication d’événements sur une partition](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md#migrating-code-from-partitionsender-to-eventhubproducerclient-for-publishing-events-to-a-partition).
+Dans certains scénarios, l’ordre des événements peut être important. Par exemple, vous souhaiterez peut-être que votre système principal traite une commande de mise à jour avant une commande de suppression. Dans ce cas, vous pouvez définir la clé de partition sur un événement, ou utiliser un objet `PartitionSender` (si vous utilisez l’ancienne bibliothèque Microsoft.Azure.Messaging) pour envoyer uniquement les événements à une certaine partition. Cela garantit que ces événements sont lus dans l’ordre lorsqu’ils sont lus à partir de la partition. 
+
+Si vous utilisez la bibliothèque **Azure.Messaging.EventHubs** la plus récente, consultez [Migration du code de PartitionSender vers EventHubProducerClient pour la publication d’événements sur une partition](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md#migrating-code-from-partitionsender-to-eventhubproducerclient-for-publishing-events-to-a-partition).
 
 #### <a name="azuremessagingeventhubs-500-or-later"></a>[Azure.Messaging.EventHubs (version 5.0.0 ou ultérieure)](#tab/latest)
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2018
-ms.openlocfilehash: 4dc5b84ff127aef173deecfd2be705004d92ee0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7df04bd75f3fd11b1caa702655cbd204fc2b4fda
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449930"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96854837"
 ---
 # <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Solutions de supervision réseau Azure dans Azure Monitor
 
@@ -37,14 +37,20 @@ La solution de gestion [Analyseur de performances réseau](../../networking/netw
 
 Pour plus d’informations, consultez l’[Analyseur de performances réseau](../../networking/network-monitoring-overview.md).
 
-## <a name="azure-application-gateway-and-network-security-group-analytics"></a>Azure Application Gateway et Network Security Group Analytics
-Pour utiliser les solutions :
+## <a name="network-security-group-analytics"></a>Analyse du groupe de sécurité réseau
+
 1. Ajoutez la solution de gestion dans Azure Monitor, et
 2. Activez les diagnostics pour les orienter vers un espace de travail Log Analytics dans Azure Monitor. Il n’est pas nécessaire d’écrire les journaux d’activité dans le stockage Blob Azure.
 
-Vous pouvez activer les diagnostics et la solution correspondante pour Application Gateway, Networking Security Groups ou les deux.
+Si les journaux de diagnostic ne sont pas activés, les panneaux du tableau de bord pour cette ressource sont vides et affichent un message d’erreur.
 
-Si vous n’activez pas la journalisation des ressources pour un type de ressource en particulier, mais que vous installez la solution, les panneaux du tableau de bord de cette ressource sont vides et affichent un message d’erreur.
+## <a name="azure-application-gateway-analytics"></a>Azure Application Gateway Analytics
+
+1. Activez les diagnostics pour les orienter vers un espace de travail Log Analytics dans Azure Monitor.
+2. Utilisez le résumé détaillé de votre ressource à l’aide du modèle de classeur pour Application Gateway.
+
+Si les journaux de diagnostic ne sont pas activés pour Application Gateway, seules les données de métriques par défaut sont remplies dans le classeur.
+
 
 > [!NOTE]
 > En janvier 2017, la méthode prise en charge pour envoyer des journaux d’activité dans un espace de travail Log Analytics à partir d’Application Gateways et de Network Security Groups a été modifiée. Si vous voyez la solution **Azure Networking Analytics (déconseillée)** , consultez [Migration à partir de l’ancienne solution Azure Networking](#migrating-from-the-old-networking-analytics-solution) pour connaître les étapes à suivre.
@@ -61,37 +67,15 @@ Le tableau suivant présente les méthodes de collecte des données et d’autre
 | Azure |  |  |&#8226; |  |  |si connecté |
 
 
-## <a name="azure-application-gateway-analytics-solution-in-azure-monitor"></a>Solution d’analytique Azure Application Gateway dans Azure Monitor
-
-![Symbole d’Azure Application Gateway Analytics](media/azure-networking-analytics/azure-analytics-symbol.png)
-
-Les journaux d’activité pris en charge pour les passerelles d’application sont les suivants :
-
-* ApplicationGatewayAccessLog
-* ApplicationGatewayPerformanceLog
-* ApplicationGatewayFirewallLog
-
-Les métriques prises en charge pour les passerelles d’application sont les suivantes :
-
-
-* Débit de 5 minutes
-
-### <a name="install-and-configure-the-solution"></a>Installer et configurer la solution
-Pour installer et configurer la solution d’analytique Azure Application Gateway, suivez les instructions suivantes :
-
-1. Activez la solution Azure Application Gateway Analytics depuis la [Place de marché Microsoft Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureAppGatewayAnalyticsOMS?tab=Overview) ou en procédant de la manière décrite dans [Ajouter des solutions Azure Monitor à partir de la galerie de solutions](./solutions.md).
-2. Activez la journalisation des diagnostics pour les [Application Gateways](../../application-gateway/application-gateway-diagnostics.md) que vous voulez surveiller.
-
-#### <a name="enable-azure-application-gateway-diagnostics-in-the-portal"></a>Activer les diagnostics Azure Application Gateway dans le portail
+### <a name="enable-azure-application-gateway-diagnostics-in-the-portal"></a>Activer les diagnostics Azure Application Gateway dans le portail
 
 1. Dans le Portail Azure, accédez à la ressource Application Gateway à surveiller.
-2. Sélectionnez *Journaux de diagnostic* pour ouvrir la page suivante.
+2. Sélectionnez *Paramètres de diagnostic* pour ouvrir la page suivante.
 
-   ![Capture d’écran de la page Journaux de diagnostics pour une ressource Application Gateway montrant l’option permettant d’activer les diagnostics.](media/azure-networking-analytics/log-analytics-appgateway-enable-diagnostics01.png)
-3. Cliquez sur *Activer les diagnostics* pour ouvrir la page suivante.
+   ![Capture d’écran de la configuration des paramètres de diagnostic pour la ressource Application Gateway.](media/azure-networking-analytics/diagnostic-settings-1.png)
 
-   ![Capture d’écran de la page de configuration des paramètres de Diagnostics. L’option Envoyer à Log Analytics est sélectionnée, ainsi que trois types de journaux et une métrique.](media/azure-networking-analytics/log-analytics-appgateway-enable-diagnostics02.png)
-4. Pour activer les diagnostics, cliquez sur *Activé* sous *État*.
+   [ ![Capture d’écran de la page de configuration des paramètres de Diagnostics.](media/azure-networking-analytics/diagnostic-settings-2.png)](media/azure-networking-analytics/application-gateway-diagnostics-2.png#lightbox)
+
 5. Cochez la case à côté de l’option *Envoyer à Log Analytics*.
 6. Sélectionnez un espace de travail Log Analytics existant ou créez-en un.
 7. Cochez la case sous **Journal** pour chacun des types de journaux à collecter.
@@ -109,28 +93,33 @@ $gateway = Get-AzApplicationGateway -Name 'ContosoGateway'
 Set-AzDiagnosticSetting -ResourceId $gateway.ResourceId  -WorkspaceId $workspaceId -Enabled $true
 ```
 
-### <a name="use-azure-application-gateway-analytics"></a>Utiliser l’analytique Azure Application Gateway
-![Image de la mosaïque d’analytique Azure Application Gateway](media/azure-networking-analytics/log-analytics-appgateway-tile.png)
+#### <a name="accessing-azure-application-gateway-analytics-via-azure-monitor-network-insights"></a>Accès à l’analytique Azure Application Gateway via les insights Azure Monitor Network
 
-Une fois que vous avez cliqué sur la mosaïque **d’analytique Azure Application Gateway** dans la Vue d’ensemble, vous pouvez consulter les résumés de vos journaux d’activité et entrer dans les détails des catégories suivantes :
+Application Insights est accessible via l’onglet Insights de votre ressource Application Gateway.
 
-* Journaux d’activité d’accès à la passerelle d’application
-  * Erreurs client et serveur pour les journaux d’activité d’accès à la passerelle d’application
-  * Nombre de demandes par heure pour chaque passerelle d’application
-  * Nombre d’échecs de demande par heure pour chaque passerelle d’application
-  * Erreurs de l’agent utilisateur pour les passerelles d’application
-* Performances de la passerelle d’application
-  * Intégrité de l’hôte pour la passerelle d’application
-  * Nombre maximal et 95e centile pour les échecs de demande de passerelle d’application
+![Capture d’écran des insights Application Gateway ](media/azure-networking-analytics/azure-appgw-insights.png
+)
 
-![Capture d’écran du tableau de bord des journaux d’accès à Application Gateway montrant des vignettes contenant des données pour les erreurs de passerelle, les demandes et les échecs de demandes.](media/azure-networking-analytics/log-analytics-appgateway01.png)
+L’onglet « Afficher les métriques détaillées » ouvre le classeur pré-rempli qui résume les données de votre passerelle applicative.
 
-![Capture d’écran du tableau de bord des journaux d’accès à Application Gateway montrant des vignettes contenant des données pour les erreurs d’agent utilisateur, l’intégrité de l’ordinateur hôte et les échecs de demandes.](media/azure-networking-analytics/log-analytics-appgateway02.png)
+[ ![Capture d’écran du classeur Application Gateway](media/azure-networking-analytics/azure-appgw-workbook.png)](media/azure-networking-analytics/application-gateway-workbook.png#lightbox)
 
-Sur le tableau de bord **d’analytique Azure Application Gateway**, consultez les informations du résumé dans l’un des panneaux, puis cliquez sur l’un d’entre eux pour afficher des informations détaillées sur la page de recherche dans les journaux.
+## <a name="migrating-from-azure-gateway-analytics-solution-to-azure-monitor-workbooks"></a>Migration de la solution d’analyse Azure Gateway vers des classeurs Azure Monitor
 
-Sur l’une des pages de recherche de journal, vous pouvez afficher les résultats par date, les résultats détaillés et votre historique de recherches de journaux. Vous pouvez également filtrer par facettes pour affiner les résultats.
+> [!NOTE]
+> La solution d’analytique d’Azure Application Gateway est obsolète et la méthode recommandée pour utiliser l’analytique consiste à utiliser des classeurs exposés à travers les insights Azure Monitor Network pour la ressource Application Gateway.
 
+* Si le paramètre de diagnostics est déjà activé pour stocker les journaux dans un espace de travail Log Analytics, le classeur des insights Azure Monitor Network peut consommer des données à partir du même emplacement. Aucune nouvelle configuration n’est requise.
+
+* Toutes les données passées sont déjà disponibles dans le classeur à partir du moment où les paramètres de diagnostic ont été activés. Aucun transfert de données n’est nécessaire.
+
+* Aucun bouton bascule actif n’est requis pour basculer vers les classeurs. La solution d’analytique et le classeur des insights Network peuvent fonctionner en parallèle.
+
+* Il n’y a aucun coût supplémentaire associé aux classeurs Azure Monitor. L’espace de travail Log Analytics continuera à être facturé en fonction de l’utilisation.
+
+* Pour nettoyer la solution d’analyse Azure Gateway à partir de votre espace de travail, vous pouvez supprimer la solution sur la page des ressources de la solution.
+
+[ ![Capture d’écran de l’option de suppression pour la solution d’analyse Azure Application Gateway.](media/azure-networking-analytics/azure-appgw-analytics-delete.png)](media/azure-networking-analytics/application-gateway-analytics-delete.png#lightbox)
 
 ## <a name="azure-network-security-group-analytics-solution-in-azure-monitor"></a>Solution d’analytique Azure Network Security Group dans Azure Monitor
 

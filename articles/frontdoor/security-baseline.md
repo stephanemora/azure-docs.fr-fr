@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 2a4d4df1e9387f78c5140a3beac6767faafc4853
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 53324709e2d3dd11160ee0b7837d86d9e9594571
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351739"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763925"
 ---
 # <a name="azure-security-baseline-for-azure-front-door"></a>Base de référence de sécurité Azure pour Azure Front Door Service
 
@@ -206,7 +206,7 @@ Il est recommandé que le client crée un processus pour capturer les modificati
 
 ### <a name="lt-3-enable-logging-for-azure-network-activities"></a>LT-3 : Activer la journalisation pour les activités réseau Azure
 
-**Conseils** : Azure Front Door n’est pas destiné à être déployé dans des réseaux virtuels. Pour cette raison, les clients ne peuvent pas activer la journalisation des flux de groupe de sécurité réseau, acheminer le trafic via un pare-feu ou effectuer des captures de paquets.
+**Conseils** : Azure Front Door n’est pas destiné à être déployé sur des réseaux virtuels. Pour cette raison, les clients ne peuvent pas activer la journalisation des flux de groupe de sécurité réseau, acheminer le trafic via un pare-feu ou effectuer des captures de paquets.
 
 Azure Front Door consigne tout le trafic réseau qu’il traite pour l’accès client. Activez la fonctionnalité des journaux de workflow réseau et configurez ces journaux à envoyer à un compte de stockage pour la rétention à long terme et l’audit.
 
@@ -405,7 +405,7 @@ Cette stratégie doit inclure les recommandations, stratégies et normes documen
 
 Pour plus d’informations, consultez les liens référencés.
 
-- [Recommandation d’architecture de sécurité Azure - Stockage, données et chiffrement](/azure/architecture/framework/security/storage-data-encryption?amp;bc=%2fsecurity%2fcompass%2fbreadcrumb%2ftoc.json&toc=%2fsecurity%2fcompass%2ftoc.json)
+- [Recommandation d’architecture de sécurité Azure - Stockage, données et chiffrement](/azure/architecture/framework/security/storage-data-encryption?bc=%2fsecurity%2fcompass%2fbreadcrumb%2ftoc.json&toc=%2fsecurity%2fcompass%2ftoc.json)
 
 - [Notions de base de la sécurité Azure - Sécurité, chiffrement et stockage des données Azure](../security/fundamentals/encryption-overview.md)
 

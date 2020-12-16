@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/24/2020
-ms.openlocfilehash: 99253aa2e7e2e1f3f58f2ab7d5c40a695c2b9690
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 27b0485fdd7b3c352a85fe7eb39fba33c53bf727
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88654852"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96519210"
 ---
 # <a name="azure-hdinsight-accelerated-writes-for-apache-hbase"></a>Écritures accélérées pour Apache HBase dans Azure HDInsight
 
@@ -36,9 +36,9 @@ La fonctionnalité Écritures accélérées résout le problème des latences en
 
 ## <a name="how-to-enable-accelerated-writes-for-hbase-in-hdinsight"></a>Comment activer la fonctionnalité Écritures accélérées pour HBase dans HDInsight
 
-Pour créer un nouveau cluster HBase avec la fonctionnalité Écritures accélérées, suivez les étapes de [Configurer des clusters dans HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) jusqu’à l’**étape 3 relative au stockage**. Sous **Paramètres de metastore**, activez la case à cocher située en regard de **Activer les écritures accélérées HBase**. Puis, passez aux étapes restantes pour la création du cluster.
+Pour créer un nouveau cluster HBase avec la fonctionnalité Écritures accélérées, suivez les étapes de [Configurer des clusters dans HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). Sous l’onglet **De base**, sélectionnez le type de cluster HBase, spécifiez une version du composant, puis cliquez sur la case à cocher en regard de **Activer les écritures accélérées HBase**. Puis, passez aux étapes restantes pour la création du cluster.
 
-![Activez l’option Écritures accélérées pour HDInsight Apache HBase](./media/apache-hbase-accelerated-writes/azure-portal-cluster-storage-hbase.png)
+![Activez l’option Écritures accélérées pour HDInsight Apache HBase](./media/apache-hbase-accelerated-writes/azure-portal-create-hbase-wals.png)
 
 ## <a name="other-considerations"></a>Autres considérations
 

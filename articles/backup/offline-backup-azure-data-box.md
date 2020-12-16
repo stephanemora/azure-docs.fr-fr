@@ -3,12 +3,12 @@ title: Sauvegarde hors connexion avec Azure Data Box
 description: Découvrez comment vous pouvez utiliser Azure Data Box pour amorcer des données de sauvegarde initiales volumineuses hors connexion à partir de l’agent MARS dans un coffre Recovery Services.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: 5a4aeebeddcca4adcac511c7c225c8809dd29c93
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e789b6c9f4ff2e8cd168e6b5c138d423911d4743
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89180930"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752581"
 ---
 # <a name="azure-backup-offline-backup-by-using-azure-data-box"></a>Sauvegarde hors connexion Sauvegarde Microsoft Azure avec Azure Data Box
 
@@ -277,7 +277,7 @@ Pour résoudre ce problème, effectuez les étapes suivantes et réessayez de co
 
 #### <a name="step-1-of-workaround"></a>Étape 1 de la solution de contournement
 
-Connectez-vous à PowerShell qui apparaît dans l’interface utilisateur de Sauvegarde Microsoft Azure avec un autre compte doté d’un accès administrateur à l’abonnement pour lequel le travail d’importation ou d’exportation est créé.
+Connectez-vous à PowerShell qui apparaît dans l’interface utilisateur de Sauvegarde Microsoft Azure avec un autre compte doté d’un accès administrateur à l’abonnement pour lequel le travail Data Box est créé.
 
 #### <a name="step-2-of-workaround"></a>Étape 2 de la solution de contournement
 

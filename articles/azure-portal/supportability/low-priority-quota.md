@@ -1,18 +1,17 @@
 ---
-title: Quota de machines virtuelles Spot - Azure
+title: Quota de machines virtuelles Spot
 description: Augmentez les limites de quota pour les machines virtuelles Spot, qui fournissent un modèle d’utilisation d’Azure vous permettant de réduire les coûts dans Exchange afin qu’Azure puisse supprimer des machines virtuelles si nécessaire.
 author: sowmyavenkat86
 ms.author: svenkat
 ms.date: 01/27/2020
 ms.topic: how-to
-ms.service: azure
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 513bde930f9c7c8892164c50c3866ff6e948ed4e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8b9a2251d7923fe1919b7b934f6c97877cd5b37
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84763871"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745483"
 ---
 # <a name="spot-quota-increase-limits-for-all-vm-series"></a>Quota Spot : augmenter les limites de toutes les séries de machines virtuelles
 

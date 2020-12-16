@@ -1,20 +1,20 @@
 ---
 title: Déployer un modèle - IntelliJ IDEA
-description: Découvrez comment créer votre premier modèle Azure Resource Manager à l’aide d’IntelliJ IDEA et comment le déployer.
+description: Découvrez comment créer votre premier modèle Azure Resource Manager (modèle ARM) avec IntelliJ IDEA et comment le déployer.
 ms.devlang: java
 ms.date: 08/01/2019
 ms.topic: conceptual
 ms.custom: devx-track-java
-ms.openlocfilehash: 6a596eff70bfc20b5a6752ef47398bd14d527c97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f0e007fe8930b30cee1c95159d7e964e3792449f
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90973329"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905959"
 ---
 # <a name="create-and-deploy-arm-templates-by-using-the-intellij-idea"></a>Créer et déployer des modèles Resource Manager à l’aide d’IntelliJ IDEA
 
-Découvrez comment déployer un modèle Resource Manager sur Azure à l’aide d’IntelliJ IDEA, ainsi que le modifier et le mettre à jour directement à partir de l’environnement de développement intégré (IDE). Les modèles Resource Manager sont des fichiers JSON qui définissent les ressources nécessaires pour déployer votre solution. Pour comprendre les concepts associés au déploiement et à la gestion de vos solutions Azure, consultez [Vue d’ensemble du déploiement de modèles](overview.md).
+Découvrez comment déployer un modèle Azure Resource Manager (modèle ARM) sur Azure avec IntelliJ IDEA, comment le modifier et comment le mettre à jour directement dans l’environnement de développement intégré (IDE). Les modèles Resource Manager sont des fichiers JSON qui définissent les ressources nécessaires pour déployer votre solution. Pour comprendre les concepts associés au déploiement et à la gestion de vos solutions Azure, consultez [Vue d’ensemble du déploiement de modèles](overview.md).
 
 ![Schéma du portail de modèle Resource Manager](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-export-deploy-template-portal.png)
 

@@ -1,21 +1,26 @@
 ---
-title: Exigences du package de dessin dans le Créateur Azure Maps
+title: Conditions du package de dessin dans Microsoft Azure Maps Creator (préversion)
 description: Découvrez les exigences du package de dessin pour convertir les fichiers de conception de votre bâtiment en données cartographiques.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 6/12/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: 2c3e46bf386e70cbe35d96728ede896d6bf0dc7d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 26b6273b4dd2371790025515e35b71d1fc863ebe
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013120"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903460"
 ---
 # <a name="drawing-package-requirements"></a>Exigences du package de dessin
+
+
+> [!IMPORTANT]
+> Les services Azure Maps Creator sont disponibles en préversion publique.
+> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Vous pouvez convertir les packages de dessin chargés en données cartographiques à l’aide du [service de conversion d’Azure Maps](/rest/api/maps/conversion). Cet article décrit les exigences du package de dessin pour l’API de conversion. Pour voir un exemple de package, vous pouvez télécharger l’exemple [Package de dessin](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 
@@ -58,8 +63,8 @@ Un fichier DWG unique est requis pour chaque niveau du bâtiment. Les données d
 
 Le [service de conversion d’Azure Maps](/rest/api/maps/conversion) peut extraire d’un fichier DWG les classes de caractéristiques suivantes :
 
-* Levels
-* Units
+* Niveaux
+* Unités
 * Zones
 * Ouvertures
 * Murs
@@ -81,7 +86,7 @@ Le tableau suivant présente les types d’entités et les caractéristiques pri
 
 | Couche | Types d’entités | Fonctionnalités |
 | :----- | :-------------------| :-------
-| [Extérieur](#exterior-layer) | Polygone, Polyligne (fermée), Cercle | Levels
+| [Extérieur](#exterior-layer) | Polygone, Polyligne (fermée), Cercle | Niveaux
 | [Unité](#unit-layer) |  Polygone, Polyligne (fermée), Cercle | Pénétrations verticales, Unités
 | [Mur](#wall-layer)  | Polygone, Polyligne (fermée), Cercle | Non applicable. Pour plus d’informations, consultez [Calque Mur](#wall-layer).
 | [Porte](#door-layer) | Polygone, Polyligne, Ligne, Arc circulaire, Cercle | Ouvertures
@@ -407,10 +412,10 @@ Vous trouverez ci-dessous un exemple de fichier manifeste pour l’exemple du pa
 Lorsque votre package de dessin répond aux exigences, vous pouvez utiliser le [service de conversion d’Azure Maps](/rest/api/maps/conversion) pour convertir le package en un jeu de données cartographiques. Ensuite, vous pouvez utiliser le jeu de données pour générer une carte d’intérieur à l’aide du module de cartes d’intérieur.
 
 > [!div class="nextstepaction"]
->[Créateur pour cartes d’intérieur](creator-indoor-maps.md)
+>[Creator (préversion) pour cartes d’intérieur](creator-indoor-maps.md)
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Création d’une carte d’intérieur du Créateur](tutorial-creator-indoor-maps.md)
+> [Tutoriel : Création d’une carte d’intérieur Creator (préversion)](tutorial-creator-indoor-maps.md)
 
 > [!div class="nextstepaction"]
 > [Application de style dynamique de cartes d’intérieur](indoor-map-dynamic-styling.md)

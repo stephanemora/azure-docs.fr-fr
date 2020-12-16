@@ -9,13 +9,13 @@ ms.topic: reference
 ms.custom: troubleshooting
 author: likebupt
 ms.author: keli19
-ms.date: 04/16/2020
-ms.openlocfilehash: 569cf130b464d97e0ac10904ffd86365b57610a5
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.date: 11/25/2020
+ms.openlocfilehash: 846c5519dced06ed16f5a0d12b0bb25443961f93
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420833"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753907"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer"></a>Exceptions et codes d’erreur pour le concepteur
 
@@ -279,13 +279,22 @@ Si le modèle a été formé à l’aide de l’un des modules de formation spé
 ## <a name="error-0014"></a>Erreur 0014  
  Une exception se produit si le nombre de valeurs uniques de colonne est supérieur au nombre autorisé.  
 
- Cette erreur se produit lorsqu’une colonne contient trop de valeurs uniques.  Par exemple, cette erreur peut s’afficher si vous spécifiez qu’une colonne doit être gérée comme données catégorielles, mais qu’il existe trop de valeurs uniques dans la colonne pour permettre la fin du traitement. Vous pouvez également voir cette erreur s’il existe une incompatibilité entre le nombre de valeurs uniques dans les deux entrées.   
+ Cette erreur se produit lorsqu’une colonne contient trop de valeurs uniques, telles qu’une colonne d’ID ou une colonne de texte. Cette erreur peut s’afficher si vous spécifiez qu’une colonne doit être gérée comme données catégorielles, mais qu’il existe trop de valeurs uniques dans la colonne pour permettre la fin du traitement. Vous pouvez également voir cette erreur s’il existe une incompatibilité entre le nombre de valeurs uniques dans les deux entrées.   
+
+L’erreur du nombre de valeurs uniques supérieur au nombre autorisé se produit si les **deux** conditions suivantes sont réunies :
+
+- Plus de 97 % des instances d’une colonne sont des valeurs uniques, ce qui signifie que presque toutes les catégories sont différentes les unes des autres.
+- Une colonne a plus de 1 000 valeurs uniques.
 
 **Résolution :**
 
 Ouvrez le module qui a généré l’erreur et identifiez les colonnes utilisées comme entrées. Pour certains modules, vous pouvez cliquer sur le jeu de données d’entrée et sélectionnez **Visualiser** pour obtenir des statistiques sur des colonnes individuelles, y compris le nombre de valeurs uniques et leur distribution.
 
 Pour les colonnes que vous souhaitez utiliser pour le regroupement ou la catégorisation, prenez les mesures nécessaires pour réduire le nombre de valeurs uniques dans les colonnes. Vous pouvez réduire de différentes manières, selon le type de données de la colonne. 
+
+Pour les colonnes d’ID qui ne sont pas des caractéristiques significatives pendant l’entraînement d’un modèle, vous pouvez donc utiliser [Modifier les métadonnées](../algorithm-module-reference/edit-metadata.md) pour marquer cette colonne comme **Effacer la caractéristique** afin qu’elle ne soit pas utilisée durant l’entraînement d’un modèle. 
+
+Pour les colonnes de texte, vous pouvez utiliser le [Hachage des caractéristiques](../algorithm-module-reference/feature-hashing.md) ou le [module d’extraction des caractéristiques de N-grammes du texte](../algorithm-module-reference/extract-n-gram-features-from-text.md) pour prétraiter les colonnes de texte.
 <!--
 + For text data, you might be able to use [Preprocess Text](preprocess-text.md) to collapse similar entries. 
 + For numeric data, you can create a smaller number of bins using [Group Data into Bins](group-data-into-bins.md), remove or truncate values using [Clip Values](clip-values.md), or use machine learning methods such as [Principal Component Analysis](principal-component-analysis.md) or [Learning with Counts](data-transformation-learning-with-counts.md) to reduce the dimensionality of the data.  

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: 8df24b44d648343c46532eed443717f444bd0058
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d46c1d8efb5234d47c80ca4256c2f56d56ccf805
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95975630"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862171"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Forum aux questions sur Application Gateway
 
@@ -133,7 +133,7 @@ Oui. Le support de la référence SKU Application Gateway v1 continue d’être
 
 ### <a name="does-application-gateway-v2-support-proxying-requests-with-ntlm-authentication"></a>Application Gateway v2 prend-il en charge les demandes de proxy avec l’authentification NTLM ?
 
-Non. Application Gateway v2 ne prend pas encore en charge les demandes de proxy avec l’authentification NTLM.
+Non. Application Gateway v2 ne prend pas en charge les demandes de proxy avec l’authentification NTLM.
 
 ### <a name="does-application-gateway-affinity-cookie-support-samesite-attribute"></a>Le cookie d’affinité d’Application Gateway prend-il en charge l’attribut SameSite ?
 Oui, la [mise à jour v80](https://chromiumdash.appspot.com/schedule) du [navigateur Chromium](https://www.chromium.org/Home) a permis que les cookies HTTP sans attribut SameSite soient traités comme SameSite=Lax. Cela signifie que le cookie d’affinité d’Application Gateway ne sera pas envoyé par le navigateur dans un contexte tiers. 
@@ -466,12 +466,9 @@ Vous pouvez également utiliser un modèle Resource Manager qui installe et exé
 
 En règle générale, vous constatez un état inconnu lorsque l'accès au serveur principal est bloqué par un groupe de sécurité réseau (NSG), un DNS personnalisé ou un routage défini par l'utilisateur (UDR) sur le sous-réseau d'Application Gateway. Pour plus d’informations, consultez [Intégrité du serveur principal, journalisation des diagnostics et métriques pour Application Gateway](application-gateway-diagnostics.md).
 
-### <a name="is-there-any-case-where-nsg-flow-logs-wont-show-allowed-traffic"></a>Existe-t-il un cas où les journaux de flux NSG n’affichent pas le trafic autorisé ?
+### <a name="are-nsg-flow-logs-supported-on-nsgs-associated-to-application-gateway-v2-subnet"></a>Les journaux de flux NSG sont-ils pris en charge sur les NSG associés au sous-réseau d’Application Gateway v2 ?
 
-Oui. Si votre configuration correspond au scénario suivant, vous ne verrez pas le trafic autorisé dans vos journaux de flux NSG :
-- Vous avez déployé Application Gateway v2
-- Vous avez un NSG sur le sous-réseau Application Gateway
-- Vous avez activé les journaux de flux NSG sur ce groupe de sécurité réseau
+En raison des limitations actuelles de la plateforme, si vous avez un groupe de sécurité réseau sur le sous-réseau d’Application Gateway v2 (Standard_v2, WAF_v2) et si vous avez activé les journaux de flux NSG sur celui-ci, vous verrez un comportement non déterministe et ce scénario n’est actuellement pas pris en charge.
 
 ### <a name="does-application-gateway-store-customer-data"></a>Application Gateway stocke-t-il des données client ?
 

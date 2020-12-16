@@ -14,12 +14,12 @@ ms.date: 04/01/2020
 ms.author: kenwith
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab3b655d59e2cb8c6773fa1a34a08638e6926475
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: e15009dd935d91971ce4212ff44b67a1ca6fa363
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96180657"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745375"
 ---
 # <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Déplacement de l’authentification d’application des services de fédération Active Directory (AD FS) vers Azure Active Directory
 
@@ -293,7 +293,7 @@ Dans le [portail Azure](https://portal.azure.com/), vous devez d’abord [créer
 
 Autorisation explicite d’un utilisateur dans AD FS :
 
-![Capture d’écran montrant la boîte de dialogue Modifier la règle pour la règle de revendication pour autoriser les administrateurs du domaine avec le type de revendication entrante « SID principal ».](media/migrate-adfs-apps-to-azure/authorize-a-specific-user-1.png)
+![Capture d’écran montrant la boîte de dialogue Modifier la règle pour la règle de revendication Autoriser un utilisateur spécifique avec le type de revendication entrante « SID principal ».](media/migrate-adfs-apps-to-azure/authorize-a-specific-user-1.png)
 
 Voici comment la règle est mappée sur Azure AD :
 

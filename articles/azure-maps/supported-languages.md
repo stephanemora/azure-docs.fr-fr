@@ -1,19 +1,19 @@
 ---
-title: Prise en charge de la traduction | Microsoft Azure Maps
+title: Prise en charge de la localisation avec Microsoft Azure Maps
 description: Découvrez les régions prises en charge par Azure Maps avec les services tels que les cartes, la recherche, le routage, la météo et les incidents de trafic. Découvrez comment configurer le paramètre Affichage.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 11/20/2019
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: a6664b5a2c0c6b4de2435ee5c8bb29f63560c342
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50e5d0721eb14d1fcdfad26aaf081bfa370e954e
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88037692"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904514"
 ---
 # <a name="localization-support-in-azure-maps"></a>Prise en charge de la localisation dans Azure Maps
 
@@ -22,7 +22,7 @@ Azure Maps prend en charge différentes langues et différents affichages basés
 
 ## <a name="azure-maps-supported-languages"></a>Langues prises en charge dans Azure Maps
 
-Les services Azure Maps ont été localisés en différentes langues. Le tableau suivant indique les codes des langues prises en charge pour chaque service.  
+Les services Azure Maps ont été localisés en différentes langues. Le tableau suivant indique les codes des langues prises en charge pour chaque service.  
   
 
 | id         | Nom                   |  Cartes | Recherche | Routage | Météo | Incidents de trafic | Commandes de la carte JS |
@@ -129,10 +129,10 @@ API REST Azure Maps concernées :
  * Get Search Address Reverse
  * Get Search Address Reverse Cross Street
  * Post Search Inside Geometry
- * Post Search Address Batch Preview
- * Post Search Address Reverse Batch Preview
+ * Post Search Address Batch
+ * Post Search Address Reverse Batch
  * Post Search Along Route
- * Post Search Fuzzy Batch Preview
+ * Post Search Fuzzy Batch
 
  
 ### <a name="sdks"></a>Kits SDK

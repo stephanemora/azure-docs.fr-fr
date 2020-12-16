@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/30/2020
+ms.date: 12/3/2020
 ms.author: hirsin
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 77e34e4a18012f15b9e907e3b9efc1965b98f824
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f3222c790ccd0cee936b246253a16b5c434c61c8
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91612118"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602204"
 ---
 # <a name="microsoft-identity-platform-application-authentication-certificate-credentials"></a>Informations d’identification de certificat d’authentification d’application de la Plateforme d’identités Microsoft
 
@@ -36,7 +36,7 @@ Pour calculer l’assertion, vous pouvez utiliser l’une des nombreuses bibliot
 | --- | --- |
 | `alg` | Doit être **RS256** |
 | `typ` | Doit être **JWT** |
-| `x5t` | Le code de hachage du certificat X.509 (également connu sous le nom d’*empreinte* de certificat SHA-1) est une représentation hexadécimale encodée en tant que valeur de chaîne base64. Par exemple, avec un hachage de certificat X.509 de `84E05C1D98BCE3A5421D225B140B36E86A3D5534` (hexadécimal), la revendication `x5t` serait `hOBcHZi846VCHSJbFAs26Go9VTQ=` (Base64). |
+| `x5t` | Le code de hachage du certificat X.509 (également connu sous le nom d’*empreinte* de certificat SHA-1) est une représentation hexadécimale encodée en tant que valeur de chaîne Base64url. Par exemple, avec un hachage de certificat X.509 de `84E05C1D98BCE3A5421D225B140B36E86A3D5534` (hexadécimal), la revendication `x5t` serait `hOBcHZi846VCHSJbFAs26Go9VTQ=` (Base64url). |
 
 ### <a name="claims-payload"></a>Revendications (charge utile)
 

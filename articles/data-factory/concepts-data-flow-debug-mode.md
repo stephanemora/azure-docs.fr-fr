@@ -7,13 +7,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/11/2020
-ms.openlocfilehash: 2cfd498f73646b0021d5fbb3e982dc82871ef35c
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.date: 12/04/2020
+ms.openlocfilehash: 87465ff381c62343a11c54130378b48580ca40e2
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93026987"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621640"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Mode de débogage du mappage de flux de données
 
@@ -25,9 +25,9 @@ Le mode de débogage du flux de données de mappage d’Azure Data Factory perme
 
 ![Curseur de débogage](media/data-flow/debugbutton.png "Curseur de débogage")
 
-Quand vous activez le curseur, vous êtes invité à sélectionner la configuration de runtime d’intégration à utiliser. Si vous choisissez AutoResolveIntegrationRuntime, un cluster comprenant huit cœurs de calcul général avec une durée de vie de 60 minutes est lancé. Pour plus d’informations sur les runtimes d’intégration de flux de données, consultez [Performances de flux de données](concepts-data-flow-performance.md#ir).
+Quand vous activez le curseur, vous êtes invité à sélectionner la configuration de runtime d’intégration à utiliser. Si vous choisissez AutoResolveIntegrationRuntime, un cluster comprenant 8 cœurs de calcul général avec une durée de vie par défaut de 60 minutes est lancé. Si vous souhaitez autoriser un plus grand nombre d’équipes inactives avant l’expiration de votre session, vous pouvez choisir un paramètre TTL plus élevé. Pour plus d’informations sur les runtimes d’intégration de flux de données, consultez [Performances de flux de données](concepts-data-flow-performance.md#ir).
 
-![Déboguer la sélection IR](media/data-flow/debugbutton2.png "Déboguer la sélection IR")
+![Déboguer la sélection IR](media/data-flow/debug-new-1.png "Déboguer la sélection IR")
 
 Lorsque le mode débogage est activé, vous allez générer de manière interactive votre flux de données avec un cluster Spark actif. La session se ferme dès que vous désactivez le débogage dans Azure Data Factory. Prenez connaissance des frais horaires engendrés par Azure Databricks pendant la durée d’activation de la session de débogage.
 
@@ -36,7 +36,7 @@ Dans la plupart des cas, nous vous recommandons de créer vos flux de données e
 ![Afficher les sessions de débogage du flux de données](media/iterative-development-debugging/view-dataflow-debug-sessions.png)
 
 > [!NOTE]
-> Chaque session de débogage qu’un utilisateur démarre à partir de l’interface utilisateur de son navigateur ADF est une nouvelle session avec son propre cluster Spark. Vous pouvez utiliser la vue de supervision pour les sessions de débogage ci-dessus pour afficher et gérer les sessions de débogage par fabrique.
+> Chaque session de débogage qu’un utilisateur démarre à partir de l’interface utilisateur de son navigateur ADF est une nouvelle session avec son propre cluster Spark. Vous pouvez utiliser la vue de supervision pour les sessions de débogage ci-dessus pour afficher et gérer les sessions de débogage par fabrique. Vous êtes facturé pour chaque heure d’exécution de chaque session de débogage, y compris la durée de vie.
 
 ## <a name="cluster-status"></a>État du cluster
 

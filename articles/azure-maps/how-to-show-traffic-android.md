@@ -3,17 +3,17 @@ title: Afficher des données de trafic sur une carte Android | Microsoft Azure M
 description: Dans cet article, vous allez apprendre à afficher des données de trafic sur une carte en utilisant le kit SDK Android Microsoft Azure Maps.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 02/27/2020
+ms.date: 11/25/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: bc37f2b3f603262f67a46746187df6e4b5a494b5
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 5f7e67d159c2b7dea3ebac7fd4d0856f508cb298
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895526"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532752"
 ---
 # <a name="show-traffic-data-on-the-map-using-azure-maps-android-sdk"></a>Afficher des données de trafic sur la carte à l’aide du kit SDK Android Azure Maps
 
@@ -21,7 +21,9 @@ Les données de flux et d’incidents sont deux types de données de trafic qui 
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
-Avant de pouvoir afficher le trafic sur la carte, vous devez [créer un compte Azure](quick-demo-map-app.md#create-an-azure-maps-account)et [obtenir une clé d’abonnement](quick-demo-map-app.md#get-the-primary-key-for-your-account). Vous devez ensuite installer le kit [SDK Android Azure Maps](./how-to-use-android-map-control-library.md) et charger une carte.
+1. [Créer un compte Azure Maps](quick-demo-map-app.md#create-an-azure-maps-account)
+2. [Obtenir une clé d’abonnement principale](quick-demo-map-app.md#get-the-primary-key-for-your-account), également appelée clé primaire ou clé d’abonnement.
+3. Télécharger et installer le [SDK Azure Maps Android](./how-to-use-android-map-control-library.md).
 
 ## <a name="incidents-traffic-data"></a>Données d’incidents de trafic
 
@@ -73,7 +75,7 @@ protected void onCreate(Bundle savedInstanceState) {
 
 Pour obtenir les données d’incidents pour une fonctionnalité déterminée, vous pouvez utiliser le code ci-dessous. Quand l’utilisateur clique sur une fonctionnalité, la logique du code effectue une recherche sur les incidents et génère un message sur l’incident. Un message s’affiche au bas de l’écran avec les détails.
 
-1. Tout d’abord, vous devez modifier **res > layout > activity_main.xml** à la manière de l’exemple ci-dessous. Vous pouvez remplacer `mapcontrol_centerLat`, `mapcontrol_centerLng` et `mapcontrol_zoom` par les valeurs souhaitées. Pour rappel, le niveau de zoom est une valeur comprise entre 0 et 22. Au niveau de zoom 0, le monde entier tient dans une seule mosaïque.
+1. Tout d’abord, vous devez modifier `res > layout > activity_main.xml` à la manière de l’exemple ci-dessous. Vous pouvez remplacer `mapcontrol_centerLat`, `mapcontrol_centerLng` et `mapcontrol_zoom` par les valeurs souhaitées. Pour rappel, le niveau de zoom est une valeur comprise entre 0 et 22. Au niveau de zoom 0, le monde entier tient dans une seule mosaïque.
 
    ```XML
    <?xml version="1.0" encoding="utf-8"?>
@@ -96,7 +98,7 @@ Pour obtenir les données d’incidents pour une fonctionnalité déterminée, v
    </FrameLayout>
    ```
 
-2. Ajoutez le code suivant à votre fichier **MainActivity.java** . Le package étant inclus par défaut, veillez à laisser votre package en haut.
+2. Ajoutez le code suivant à votre fichier **MainActivity.java**. Le package étant inclus par défaut, veillez à laisser votre package en haut.
 
    ```java
    package <yourpackagename>;
@@ -221,13 +223,11 @@ Pour obtenir les données d’incidents pour une fonctionnalité déterminée, v
    }
    ```
 
-3. Une fois que vous avez incorporé le code ci-dessus dans votre application, vous pouvez cliquer sur une fonctionnalité pour voir les détails des incidents de trafic. Selon les valeurs de latitude, de longitude et de niveau de zoom que vous avez utilisées dans votre fichier **activity_main.xml** , vous obtenez des résultats similaires à l’image suivante :
+3. Une fois que vous avez incorporé le code ci-dessus dans votre application, vous pouvez cliquer sur une fonctionnalité pour voir les détails des incidents de trafic. Selon les valeurs de latitude, de longitude et de niveau de zoom que vous avez utilisées dans votre fichier **activity_main.xml**, vous obtenez des résultats similaires à l’image suivante :
 
-   <center>
 
-   ![Incidents-trafic-sur-la-carte](./media/how-to-show-traffic-android/android-traffic.png)
+    ![Incidents-trafic-sur-la-carte](./media/how-to-show-traffic-android/android-traffic.png)
 
-   </center>
 
 ## <a name="next-steps"></a>Étapes suivantes
 

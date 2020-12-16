@@ -1,18 +1,18 @@
 ---
 title: Déploiement conditionnel avec des modèles
-description: Décrit comment déployer une ressource de manière conditionnelle dans un modèle Azure Resource Manager.
+description: Explique comment déployer une ressource de manière conditionnelle dans un modèle Azure Resource Manager (modèle ARM).
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: effa7fe6ee1393e44a124bc087609da5d4898210
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a31bd1fbf755046f331542b4d5952b27a793360
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84259318"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905993"
 ---
 # <a name="conditional-deployment-in-arm-templates"></a>Déploiement conditionnel dans des modèles ARM
 
-Parfois, vous devez déployer une ressource de manière conditionnelle dans un modèle Azure Resource Manager (ARM). Pour spécifier si la ressource est déployée, utilisez l’élément `condition`. La valeur de cet élément est résolue en true ou false. Lorsque la valeur est true, la ressource est créée. Lorsque la valeur est false, la ressource n’est pas créée. La valeur ne peut être appliquée qu’à l’ensemble de la ressource.
+Parfois, vous devez déployer une ressource de manière conditionnelle dans un modèle Azure Resource Manager (modèle ARM). Pour spécifier si la ressource est déployée, utilisez l’élément `condition`. La valeur de cet élément est résolue en true ou false. Lorsque la valeur est true, la ressource est créée. Lorsque la valeur est false, la ressource n’est pas créée. La valeur ne peut être appliquée qu’à l’ensemble de la ressource.
 
 > [!NOTE]
 > L’exécution du déploiement conditionnel n’inclut pas les [ressources enfants](child-resource-name-type.md). Si vous souhaitez déployer une ressource et ses ressources enfants de manière conditionnelle, vous devez appliquer la même condition à chaque type de ressource.

@@ -1,14 +1,14 @@
 ---
 title: Découvrir Azure Policy pour Kubernetes
 description: Découvrez comment Azure Policy utilise Rego et Open Policy Agent pour gérer des clusters exécutant Kubernetes dans Azure ou localement.
-ms.date: 09/29/2020
+ms.date: 12/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1e85d7af26e52ea38c09ec0c052b5c6a2787bb80
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: e2b9253d8ce60d5dc77d406e3c9d0469539f2c77
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146294"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96511329"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Comprendre Azure Policy pour les clusters Kubernetes
 
@@ -25,7 +25,7 @@ Azure Policy pour Kubernetes prend en charge les environnements de cluster suiva
 - [Moteur AKS](https://github.com/Azure/aks-engine/blob/master/docs/README.md)
 
 > [!IMPORTANT]
-> Les modules complémentaires pour le moteur AKS et les instances Kubernetes compatibles avec Arc sont en **préversion**. Azure Policy pour Kubernetes prend uniquement en charge les pools de nœuds Linux et les définitions de stratégie intégrées. Les définitions de stratégie intégrée se trouvent dans la catégorie **Kubernetes**. Les définitions de stratégie limitées en version préversion avec les effets **EnforceOPAConstraint** et **EnforceRegoPolicy** , ainsi que la catégorie **Service Kubernetes** associée sont _déconseillées_. À la place, utilisez les effets _audit_ et _deny_ avec le mode Fournisseur de ressources `Microsoft.Kubernetes.Data`.
+> Les modules complémentaires pour le moteur AKS et les instances Kubernetes compatibles avec Arc sont en **préversion**. Azure Policy pour Kubernetes prend uniquement en charge les pools de nœuds Linux et les définitions de stratégie intégrées. Les définitions de stratégie intégrée se trouvent dans la catégorie **Kubernetes**. Les définitions de stratégie limitées en version préversion avec les effets **EnforceOPAConstraint** et **EnforceRegoPolicy**, ainsi que la catégorie **Service Kubernetes** associée sont _déconseillées_. À la place, utilisez les effets _audit_ et _deny_ avec le mode Fournisseur de ressources `Microsoft.Kubernetes.Data`.
 
 ## <a name="overview"></a>Vue d’ensemble
 
@@ -62,7 +62,7 @@ Les limitations générales suivantes s’appliquent au module complémentaire A
 Les limitations suivantes s’appliquent uniquement au module complémentaire Azure Policy pour AKS :
 
 - La [stratégie de sécurité des pods AKS](../../../aks/use-pod-security-policies.md) et le module complémentaire Azure Policy pour AKS ne peuvent pas être activés simultanément. Pour plus d’informations, consultez [Limitation de la sécurité des pods AKS](../../../aks/use-pod-security-on-azure-policy.md#limitations).
-- Espaces de noms automatiquement exclus par le module complémentaire Azure Policy à des fins d’évaluation : _kube-system_ , _gatekeeper-system_ et _aks-periscope_.
+- Espaces de noms automatiquement exclus par le module complémentaire Azure Policy à des fins d’évaluation : _kube-system_, _gatekeeper-system_ et _aks-periscope_.
 
 ## <a name="recommendations"></a>Recommandations
 
@@ -109,7 +109,7 @@ Avant d’installer le module complémentaire Azure Policy ou d’activer des fo
 
 1. Si des définitions de stratégies en préversion étaient installées, supprimez le module complémentaire à l’aide du bouton **Désactiver** sur votre cluster AKS dans la page **Stratégies**.
 
-1. Le cluster AKS doit être de version  _1.14_ ou ultérieure. Utilisez le script suivant pour valider la version de votre cluster AKS :
+1. Le cluster AKS doit être de version _1.14_ ou ultérieure. Utilisez le script suivant pour valider la version de votre cluster AKS :
 
    ```azurecli-interactive
    # Log in first with az login if you're not using Cloud Shell
@@ -124,7 +124,7 @@ Une fois les étapes préalables ci-dessus accomplies, installez le module compl
 
 - Portail Azure
 
-  1. Lancez le service AKS dans le portail Azure en sélectionnant **Tous les services** , puis en recherchant et en sélectionnant **Services Kubernetes**.
+  1. Lancez le service AKS dans le portail Azure en sélectionnant **Tous les services**, puis en recherchant et en sélectionnant **Services Kubernetes**.
 
   1. Sélectionnez l’un de vos clusters AKS.
 
@@ -200,7 +200,7 @@ Avant d’installer le module complémentaire Azure Policy ou d’activer des fo
      Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
      ```
 
-1. Le cluster Kubernetes doit être de la version  _1.14_ ou ultérieure.
+1. Le cluster Kubernetes doit être de la version _1.14_ ou ultérieure.
 
 1. Installez [Helm 3](https://v3.helm.sh/docs/intro/install/).
 
@@ -217,7 +217,7 @@ Avant d’installer le module complémentaire Azure Policy ou d’activer des fo
    |`login.windows.net` |`443` |
    |`dc.services.visualstudio.com` |`443` |
 
-1. Attribuez le rôle « Policy Insights Data Writer (préversion) » au cluster Kubernetes compatible avec Azure Arc. Remplacez `<subscriptionId>` par votre ID d’abonnement, `<rg>` par le groupe de ressources du cluster Kubernetes compatible avec Azure Arc, et `<clusterName>` par le nom du cluster Kubernetes compatible avec Azure Arc. Effectuez le suivi des valeurs retournées pour _appId_ , _password_ et _tenant_ pour les étapes d’installation.
+1. Attribuez le rôle « Policy Insights Data Writer (préversion) » au cluster Kubernetes compatible avec Azure Arc. Remplacez `<subscriptionId>` par votre ID d’abonnement, `<rg>` par le groupe de ressources du cluster Kubernetes compatible avec Azure Arc, et `<clusterName>` par le nom du cluster Kubernetes compatible avec Azure Arc. Effectuez le suivi des valeurs retournées pour _appId_, _password_ et _tenant_ pour les étapes d’installation.
 
    - Azure CLI
 
@@ -374,7 +374,7 @@ kubectl get pods -n gatekeeper-system
 
 ## <a name="policy-language"></a>Langage de stratégie
 
-La structure du langage Azure Policy pour la gestion de Kubernetes suit celle des définitions de stratégies existantes. Avec un [mode Fournisseur de ressources](./definition-structure.md#resource-provider-modes) de `Microsoft.Kubernetes.Data`, les effets [audit](./effects.md#audit) et [deny](./effects.md#deny) sont utilisés pour gérer vos clusters Kubernetes. Les effets _audit_ et _deny_ doivent fournir des **informations** sur les propriétés spécifiques à l’utilisation d’ [OPA Constraint Framework](https://github.com/open-policy-agent/frameworks/tree/master/constraint) et de Gatekeeper v3.
+La structure du langage Azure Policy pour la gestion de Kubernetes suit celle des définitions de stratégies existantes. Avec un [mode Fournisseur de ressources](./definition-structure.md#resource-provider-modes) de `Microsoft.Kubernetes.Data`, les effets [audit](./effects.md#audit) et [deny](./effects.md#deny) sont utilisés pour gérer vos clusters Kubernetes. Les effets _audit_ et _deny_ doivent fournir des **informations** sur les propriétés spécifiques à l’utilisation d’[OPA Constraint Framework](https://github.com/open-policy-agent/frameworks/tree/master/constraint) et de Gatekeeper v3.
 
 Au sein des propriétés _details.constraintTemplate_ et _details.constraint_ de la définition de stratégie, Azure Policy transmet les URI de ces [CustomResourceDefinitions](https://github.com/open-policy-agent/gatekeeper#constraint-templates) (CRD) au module complémentaire. Rego est le langage pris en charge par OPA et Gatekeeper pour valider une requête au cluster Kubernetes. Grâce à la prise en charge d’une norme existante pour la gestion de Kubernetes, Azure Policy permet de réutiliser des règles existantes et de les jumeler avec Azure Policy afin de bénéficier d’une expérience de rapports de conformité du cloud unifiée. Pour plus d’informations, consultez [What is Rego?](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego).
 
@@ -395,7 +395,7 @@ Recherchez les définitions de stratégie intégrées pour la gestion de votre c
 1. Définissez **Étendue** sur le groupe de gestion, l’abonnement ou le groupe de ressources du cluster Kubernetes auquel s’appliquera l’affectation de stratégie.
 
    > [!NOTE]
-   > Lors de l’affectation de la définition d’Azure Policy pour Kubernetes, l’ **Étendue** doit inclure la ressource de cluster. Pour un cluster de moteur AKS, l’ **Étendue** doit être le groupe de ressources du cluster.
+   > Lors de l’affectation de la définition d’Azure Policy pour Kubernetes, l’**Étendue** doit inclure la ressource de cluster. Pour un cluster de moteur AKS, l’**Étendue** doit être le groupe de ressources du cluster.
 
 1. Donnez un **Nom** et une **Description** à l’affectation de stratégie, qui permettront de l’identifier facilement.
 
@@ -409,7 +409,7 @@ Recherchez les définitions de stratégie intégrées pour la gestion de votre c
 
 1. Définir les **valeurs de paramètres**
 
-   - Pour exclure les espaces de noms Kubernetes de l’évaluation de stratégie, répertoriez les espaces de noms dans le paramètre **Exclusions d’espaces de noms**. Il est recommandé d’exclure _Kube-System_ , _Gatekeeper-System_ et _Azure-arc_.
+   - Pour exclure les espaces de noms Kubernetes de l’évaluation de stratégie, répertoriez les espaces de noms dans le paramètre **Exclusions d’espaces de noms**. Il est recommandé d’exclure _Kube-System_, _Gatekeeper-System_ et _Azure-arc_.
 
 1. Sélectionnez **Revoir + créer**.
 
@@ -431,10 +431,18 @@ Dans un cluster Kubernetes, si un espace de noms a l’une des étiquettes suiva
 > [!NOTE]
 > Un administrateur de cluster peut être autorisé à créer et mettre à jour des modèles et ressources de contrainte installés par le module complémentaire Azure Policy, ces scénarios ne sont pas pris en charge, car les mises à jour manuelles sont remplacées. Gatekeeper continue d’évaluer les stratégies qui existaient avant l’installation du module complémentaire et l’affectation de définitions de stratégie Azure Policy.
 
-Toutes les quinze minutes, le module complémentaire demande une analyse complète du cluster. Après la collecte des détails de l’analyse complète et les évaluations en temps réel faites par Gatekeeper des tentatives de modification du cluster, le module complémentaire renvoie les résultats à Azure Policy pour les inclure dans les [détails de conformité](../how-to/get-compliance-data.md) comme toute affectation Azure Policy. Seuls les résultats des affectations de stratégie actives sont renvoyés au cours du cycle d’audit. Les résultats d’audit peuvent également être considérés comme des [violations](https://github.com/open-policy-agent/gatekeeper#audit) indiquées dans le champ d’état de la contrainte non réussie. Pour plus d’informations sur les ressources _Non conformes_ , consultez [Détails du composant pour les modes Fournisseur de ressources](../how-to/determine-non-compliance.md#component-details-for-resource-provider-modes).
+Toutes les quinze minutes, le module complémentaire demande une analyse complète du cluster. Après la collecte des détails de l’analyse complète et les évaluations en temps réel faites par Gatekeeper des tentatives de modification du cluster, le module complémentaire renvoie les résultats à Azure Policy pour les inclure dans les [détails de conformité](../how-to/get-compliance-data.md) comme toute affectation Azure Policy. Seuls les résultats des affectations de stratégie actives sont renvoyés au cours du cycle d’audit. Les résultats d’audit peuvent également être considérés comme des [violations](https://github.com/open-policy-agent/gatekeeper#audit) indiquées dans le champ d’état de la contrainte non réussie. Pour plus d’informations sur les ressources _Non conformes_, consultez [Détails du composant pour les modes Fournisseur de ressources](../how-to/determine-non-compliance.md#component-details-for-resource-provider-modes).
 
 > [!NOTE]
 > Chaque rapport de conformité dans Azure Policy pour vos clusters Kubernetes inclut toutes les violations des 45 dernières minutes. L’horodateur indique quand une violation s’est produite.
+
+Quelques autres considérations :
+
+- Si l’abonnement au cluster est inscrit auprès d’Azure Security Center, les stratégies Kubernetes Azure Security Center sont automatiquement appliquées au cluster.
+
+- Lorsqu’une stratégie de refus est appliquée sur un cluster avec des ressources Kubernetes existantes, toute ressource préexistante non conforme à la nouvelle stratégie continue de s’exécuter. Si la ressource non conforme est replanifiée sur un autre nœud, Gatekeeperbloque la création de la ressource.
+
+- Si un cluster comporte une stratégie de refus qui valide les ressources, l’utilisateur ne verra pas de message de refus lors de la création d’un déploiement. Prenons l’exemple d’un déploiement Kubernetes contenant des jeux de réplicas et des pods. Lorsqu’un utilisateur exécute `kubectl describe deployment $MY_DEPLOYMENT`, il ne renvoie pas de message de refus dans le cadre des événements. Toutefois, `kubectl describe replicasets.apps $MY_DEPLOYMENT` retourne les événements associés au rejet.
 
 ## <a name="logging"></a>Journalisation
 
@@ -453,6 +461,10 @@ kubectl logs <gatekeeper pod name> -n gatekeeper-system
 
 Pour plus d’informations, consultez [Déboguer Gatekeeper](https://github.com/open-policy-agent/gatekeeper#debugging) dans la documentation de Gatekeeper.
 
+## <a name="troubleshooting-the-add-on"></a>Résolution des problèmes liés au module complémentaire
+
+Pour plus d’informations sur la résolution des problèmes liés au module complémentaire pour Kubernetes, consultez la section [Kubernetes](/azure/governance/policy/troubleshoot/general#add-on-for-kubernetes-general-errors) de l’article sur la résolution des problèmes liés à Azure Policy.
+
 ## <a name="remove-the-add-on"></a>Supprimer le module complémentaire
 
 ### <a name="remove-the-add-on-from-aks"></a>Supprimer le module complémentaire d’AKS
@@ -461,7 +473,7 @@ Pour supprimer le module complémentaire Azure Policy de votre cluster AKS, uti
 
 - Portail Azure
 
-  1. Lancez le service AKS dans le portail Azure en sélectionnant **Tous les services** , puis en recherchant et en sélectionnant **Services Kubernetes**.
+  1. Lancez le service AKS dans le portail Azure en sélectionnant **Tous les services**, puis en recherchant et en sélectionnant **Services Kubernetes**.
 
   1. Sélectionnez le cluster AKS dans lequel vous souhaitez désactiver le module complémentaire Azure Policy.
 

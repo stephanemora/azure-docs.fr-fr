@@ -14,19 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: c1873e21db1c586453dc9e9fe890268d8797303a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: aa9160f01ed0040123bd8ac932cfd2443f557bb6
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367004"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96511727"
 ---
 # <a name="tutorial-investigate-incidents-with-azure-sentinel"></a>Tutoriel : Examiner les incidents avec Azure Sentinel
 
 > [!IMPORTANT]
-> Le graphique d’examen est actuellement en préversion publique.
-> Cette fonctionnalité est fournie sans contrat de niveau de service et est déconseillée pour les charges de travail de production.
-> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Le graphique d’examen est actuellement en **PRÉVERSION**. Consultez l’[Avenant aux conditions d’utilisation pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) pour connaître les conditions juridiques supplémentaires s’appliquant aux fonctionnalités Azure sont en version bêta, en préversion ou non encore en disponibilité générale.
 
 
 Ce tutoriel vous permet d’apprendre à examiner les alertes avec Azure Sentinel. Après avoir connecté vos sources de données à Azure Sentinel, vous souhaitez être averti en cas d’activité suspecte. Pour vous permettre de l’être, Azure Sentinel vous permet de créer des règles d’alerte avancées, qui génèrent des incidents que vous pouvez attribuer et examiner.
@@ -37,7 +35,7 @@ Cet article couvre les points suivants :
 > * Utiliser le graphique d’examen
 > * Répondre aux menaces
 
-Un incident peut inclure plusieurs alertes. C’est une agrégation de toutes les preuves pertinentes pour une investigation spécifique. Un incident est créé en fonction des règles d’analytique que vous avez créées sur la page **Analytics** . Les propriétés relatives aux alertes, telles que l’état et la gravité, sont définies au niveau de l’incident. Après avoir informé Azure Sentinel des types de menaces que vous recherchez et de comment les trouver, vous pouvez surveiller les menaces détectées en étudiant des incidents.
+Un incident peut inclure plusieurs alertes. C’est une agrégation de toutes les preuves pertinentes pour une investigation spécifique. Un incident est créé en fonction des règles d’analytique que vous avez créées sur la page **Analytics**. Les propriétés relatives aux alertes, telles que l’état et la gravité, sont définies au niveau de l’incident. Après avoir informé Azure Sentinel des types de menaces que vous recherchez et de comment les trouver, vous pouvez surveiller les menaces détectées en étudiant des incidents.
 
 ## <a name="prerequisites"></a>Prérequis
 - Vous ne pourrez examiner l’incident que si vous avez utilisé les champs de mappage d’entité lorsque vous avez configuré votre règle d’analytique. Le graphique d’examen requiert que votre incident d’origine comprenne des entités.
@@ -46,7 +44,7 @@ Un incident peut inclure plusieurs alertes. C’est une agrégation de toutes le
 
 ## <a name="how-to-investigate-incidents"></a>Comment examiner les incidents
 
-1. Sélectionnez **Incidents** . La page **Incidents** vous permet de connaître le nombre d’incidents, le nombre d’incidents ouverts, le nombre d’incidents définis sur **En cours** et le nombre d’incidents clos. Pour chaque incident, vous pouvez voir l’heure à laquelle il s’est produit et son état. Examinez la gravité de décider quels incidents gérer en premier.
+1. Sélectionnez **Incidents**. La page **Incidents** vous permet de connaître le nombre d’incidents, le nombre d’incidents ouverts, le nombre d’incidents définis sur **En cours** et le nombre d’incidents clos. Pour chaque incident, vous pouvez voir l’heure à laquelle il s’est produit et son état. Examinez la gravité de décider quels incidents gérer en premier.
 
     ![Afficher la gravité de l’incident](media/tutorial-investigate-cases/incident-severity.png)
 
@@ -54,7 +52,7 @@ Un incident peut inclure plusieurs alertes. C’est une agrégation de toutes le
 
 1. Pour commencer un examen, sélectionnez un incident spécifique. Sur la droite, vous pouvez voir des informations détaillées sur l’incident, notamment sa gravité, le résumé du nombre d’entités impliquées, les événements bruts qui ont déclenché cet incident et l’ID unique de l’incident.
 
-1. Pour afficher plus de détails sur les alertes et les entités de l’incident, sélectionnez **Afficher tous les détails** dans la page incident et passez en revue les onglets pertinents qui résument les informations sur l’incident. Dans l’onglet **Alertes** , examinez l’alerte elle-même. Vous pouvez voir toutes les informations pertinentes sur l’alerte : la requête ayant déclenché l’alerte, le nombre de résultats retournés par la requête et la capacité d’exécuter des playbooks sur les alertes. Pour aller encore plus en détail dans l’incident, sélectionnez le nombre d’ **Événements** . Cela ouvre la requête ayant généré les résultats et les événements ayant déclenché l’alerte dans Log Analytics. Dans l’onglet **Entités** , vous pouvez voir toutes les entités mappées comme faisant partie de la définition d’une règle d’alerte.
+1. Pour afficher plus de détails sur les alertes et les entités de l’incident, sélectionnez **Afficher tous les détails** dans la page incident et passez en revue les onglets pertinents qui résument les informations sur l’incident. Dans l’onglet **Alertes**, examinez l’alerte elle-même. Vous pouvez voir toutes les informations pertinentes sur l’alerte : la requête ayant déclenché l’alerte, le nombre de résultats retournés par la requête et la capacité d’exécuter des playbooks sur les alertes. Pour aller encore plus en détail dans l’incident, sélectionnez le nombre d’**Événements**. Cela ouvre la requête ayant généré les résultats et les événements ayant déclenché l’alerte dans Log Analytics. Dans l’onglet **Entités**, vous pouvez voir toutes les entités mappées comme faisant partie de la définition d’une règle d’alerte.
 
     ![Afficher les détails de l’alerte](media/tutorial-investigate-cases/alert-details.png)
 
@@ -72,18 +70,20 @@ Le graphique d’examen permet aux analystes de poser les bonnes questions pour 
   
 Le graphique d’examen vous fournit les éléments suivants :
 
-- **Contexte visuel des données brutes**  : Le graphique visuel en direct affiche les relations entre les entités extraites automatiquement des données brutes. Cela vous permet de visualiser aisément les connexions entre les différentes sources de données.
+- **Contexte visuel des données brutes** : Le graphique visuel en direct affiche les relations entre les entités extraites automatiquement des données brutes. Cela vous permet de visualiser aisément les connexions entre les différentes sources de données.
 
-- **Découverte de l’étendue d’examen complète**  : Étendez la portée de votre examen à l’aide de requêtes d’exploration intégrées pour découvrir toute la portée d’une violation de la sécurité.
+- **Découverte de l’étendue d’examen complète** : Étendez la portée de votre examen à l’aide de requêtes d’exploration intégrées pour découvrir toute la portée d’une violation de la sécurité.
 
-- **Étapes d’examen intégrées**  : Utilisez les options d’exploration prédéfinies pour vous assurer que vous posez les bonnes questions en face à une menace.
+- **Étapes d’examen intégrées** : Utilisez les options d’exploration prédéfinies pour vous assurer que vous posez les bonnes questions en face à une menace.
 
 Pour utiliser le graphique d’examen :
 
-1. Sélectionnez un incident, puis **Examiner** . Vous accédez au graphique d’examen. Le graphique fournit une carte illustrant les entités directement connectées à l’alerte et à chaque ressource connectée.
+1. Sélectionnez un incident, puis **Examiner**. Vous accédez au graphique d’examen. Le graphique fournit une carte illustrant les entités directement connectées à l’alerte et à chaque ressource connectée.
 
    > [!IMPORTANT] 
-   > Vous ne pourrez examiner l’incident que si vous avez utilisé les champs de mappage d’entité lorsque vous avez configuré votre règle d’analytique. Le graphique d’examen requiert que votre incident d’origine comprenne des entités.
+   > - Vous ne pourrez examiner l’incident que si vous avez utilisé les champs de mappage d’entité lorsque vous avez configuré votre règle d’analytique. Le graphique d’examen requiert que votre incident d’origine comprenne des entités.
+   >
+   > - Azure Sentinel prend actuellement en charge l’examen des **incidents survenus au cours des 30 derniers jours**.
 
    ![Afficher la carte](media/tutorial-investigate-cases/map1.png)
 
@@ -91,11 +91,11 @@ Pour utiliser le graphique d’examen :
 
     ![Afficher les entités dans la carte](media/tutorial-investigate-cases/map-entities.png)
   
-1. Élargissez votre examen en survolant chaque entité pour afficher une liste de questions conçues par nos experts et analystes en sécurité par type d’entité afin d’approfondir votre examen. Nous appelons ces options des **requêtes d’exploration** .
+1. Élargissez votre examen en survolant chaque entité pour afficher une liste de questions conçues par nos experts et analystes en sécurité par type d’entité afin d’approfondir votre examen. Nous appelons ces options des **requêtes d’exploration**.
 
     ![Découvrir plus de détails](media/tutorial-investigate-cases/exploration-cases.png)
 
-   Par exemple, sur un ordinateur, vous pouvez demander des alertes associées. Si vous sélectionnez une requête d’exploration, les droits résultants sont rajoutés au graphique. Dans cet exemple, la sélection d’ **Alertes associées** a renvoyé les alertes suivantes dans le graphique :
+   Par exemple, sur un ordinateur, vous pouvez demander des alertes associées. Si vous sélectionnez une requête d’exploration, les droits résultants sont rajoutés au graphique. Dans cet exemple, la sélection d’**Alertes associées** a renvoyé les alertes suivantes dans le graphique :
 
     ![Afficher les alertes associées](media/tutorial-investigate-cases/related-alerts.png)
 
@@ -111,7 +111,7 @@ Pour utiliser le graphique d’examen :
 
 ## <a name="closing-an-incident"></a>Clôture d’un incident
 
-Une fois que vous avez résolu un incident particulier (par exemple, lorsque votre investigation a atteint sa conclusion), vous devez définir son état sur **Clôturé** . Dans ce cas, vous êtes invité à classer l’incident en spécifiant la raison pour laquelle vous le clôturez. Cette étape est obligatoire. Cliquez sur **Sélectionner la classification** , puis choisissez l’une des options suivantes dans la liste déroulante :
+Une fois que vous avez résolu un incident particulier (par exemple, lorsque votre investigation a atteint sa conclusion), vous devez définir son état sur **Clôturé**. Dans ce cas, vous êtes invité à classer l’incident en spécifiant la raison pour laquelle vous le clôturez. Cette étape est obligatoire. Cliquez sur **Sélectionner la classification**, puis choisissez l’une des options suivantes dans la liste déroulante :
 
 - Vrai positif – activité suspecte
 - Positif bénin – suspect, mais attendu
@@ -121,9 +121,9 @@ Une fois que vous avez résolu un incident particulier (par exemple, lorsque vot
 
 :::image type="content" source="media/tutorial-investigate-cases/closing-reasons-dropdown.png" alt-text="Capture d’écran qui met en évidence les classifications disponibles dans la liste Sélectionner le classification.":::
 
-Après avoir choisi la classification appropriée, ajoutez un texte descriptif dans le champ **Commentaire** . Cela vous sera utile dans l’éventualité où vous devriez revenir à cet incident. Lorsque vous avez terminé, cliquez sur **Appliquer** pour clôturer l’incident.
+Après avoir choisi la classification appropriée, ajoutez un texte descriptif dans le champ **Commentaire**. Cela vous sera utile dans l’éventualité où vous devriez revenir à cet incident. Lorsque vous avez terminé, cliquez sur **Appliquer** pour clôturer l’incident.
 
-:::image type="content" source="media/tutorial-investigate-cases/closing-reasons-comment-apply.png" alt-text="Capture d’écran qui met en évidence les classifications disponibles dans la liste Sélectionner le classification.":::
+:::image type="content" source="media/tutorial-investigate-cases/closing-reasons-comment-apply.png" alt-text="{alt-text}":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans ce didacticiel, vous avez appris à commencer à examiner les incidents à l’aide d’Azure Sentinel. Passez au didacticiel vous apprenant [comment répondre aux menaces à l’aide de playbooks automatisés](tutorial-respond-threats-playbook.md).

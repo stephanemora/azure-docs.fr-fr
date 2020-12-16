@@ -3,12 +3,12 @@ title: Informations de référence sur le fichier host.json pour Azure Functions
 description: Documentation de référence pour le fichier host.json d’Azure Functions avec le runtime v2.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: c12a9244cdc1a76f678578e281532c73bc9385ba
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 96d6b884e9e2c835316af01140c6fc7208ee5ab9
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917237"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746078"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Informations de référence sur le fichier host.json pour Azure Functions 2.x et ultérieur 
 
@@ -218,6 +218,28 @@ Pour plus d’informations sur les instantanés, consultez [Captures instantané
 ## <a name="cosmosdb"></a>cosmosDb
 
 Le paramètre de configuration se trouve dans les [déclencheurs et liaisons Cosmos DB](functions-bindings-cosmosdb-v2-output.md#host-json).
+
+## <a name="customhandler"></a>customHandler
+
+Paramètres de configuration d’un gestionnaire personnalisé. Pour plus d’informations, consultez [Gestionnaires personnalisés Azure Functions](functions-custom-handlers.md#configuration).
+
+```json
+"customHandler": {
+  "description": {
+    "defaultExecutablePath": "server",
+    "workingDirectory": "handler",
+    "arguments": [ "--port", "%FUNCTIONS_CUSTOMHANDLER_PORT%" ]
+  },
+  "enableForwardingHttpRequest": false
+}
+```
+
+|Propriété | Default | Description |
+| --------- | --------- | --------- |
+| defaultExecutablePath | n/a | Exécutable à démarrer en tant que processus de gestionnaire personnalisé. Il s’agit d’un paramètre obligatoire lorsque vous utilisez des gestionnaires personnalisés et dont la valeur est relative à la racine de l’application de fonction. |
+| workingDirectory | *racine de l’application de fonction* | Répertoire de travail dans lequel démarrer le processus de gestionnaire personnalisé. Il s’agit d’un paramètre facultatif dont la valeur est relative à la racine de l’application de fonction. |
+| arguments | n/a | Tableau d’arguments de ligne de commande à transmettre au processus de gestionnaire personnalisé. |
+| enableForwardingHttpRequest | false | Si cette valeur est définie, toutes les fonctions qui se composent uniquement d’un déclencheur HTTP et d’une sortie HTTP sont transférées à la requête HTTP d’origine au lieu de la [charge utile de demande](functions-custom-handlers.md#request-payload) du gestionnaire personnalisé. |
 
 ## <a name="durabletask"></a>durableTask
 

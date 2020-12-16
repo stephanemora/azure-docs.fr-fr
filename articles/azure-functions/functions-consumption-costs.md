@@ -28,7 +28,7 @@ Durable Functions peut également s’exécuter dans un plan Consommation. Pour 
 
 ## <a name="consumption-plan-costs"></a>Coûts d’un plan de consommation
 
-Le *coût* de l’exécution d’une fonction unique se mesure en *Go-secondes* . Le coût d’exécution est calculé en combinant l’utilisation de sa mémoire et sa durée d’exécution. Une fonction qui s’exécute plus longtemps coûte plus cher, tout comme une fonction qui consomme plus de mémoire. 
+Le *coût* de l’exécution d’une fonction unique se mesure en *Go-secondes*. Le coût d’exécution est calculé en combinant l’utilisation de sa mémoire et sa durée d’exécution. Une fonction qui s’exécute plus longtemps coûte plus cher, tout comme une fonction qui consomme plus de mémoire. 
 
 Imaginez le cas où la quantité de mémoire utilisée par la fonction reste constante. Dans ce cas, le calcul du coût est une simple multiplication. Par exemple, supposons que votre fonction a consommé 0,5 Go pendant 3 secondes. Ainsi, le coût d’exécution s’élève à `0.5GB * 3s = 1.5 GB-seconds`. 
 
@@ -57,25 +57,25 @@ Lorsque vous estimez les coûts globaux de votre application de fonction et des 
 
 Les comportements suivants de vos fonctions peuvent exercer un impact sur la durée d’exécution :
 
-+ **Déclencheurs et liaisons**  : Le temps nécessaire pour lire l’entrée à partir de vos [liaisons de fonction](functions-triggers-bindings.md) et y écrire la sortie est compté dans la durée d’exécution. Par exemple, quand votre fonction utilise une liaison de sortie pour écrire un message dans une file d’attente de stockage Azure, votre durée d’exécution inclut le temps nécessaire à l’écriture du message dans la file d’attente, lequel est inclus dans le calcul du coût de la fonction. 
++ **Déclencheurs et liaisons** : Le temps nécessaire pour lire l’entrée à partir de vos [liaisons de fonction](functions-triggers-bindings.md) et y écrire la sortie est compté dans la durée d’exécution. Par exemple, quand votre fonction utilise une liaison de sortie pour écrire un message dans une file d’attente de stockage Azure, votre durée d’exécution inclut le temps nécessaire à l’écriture du message dans la file d’attente, lequel est inclus dans le calcul du coût de la fonction. 
 
-+ **Exécution asynchrone**  : La durée pendant laquelle votre fonction attend les résultats d’une requête asynchrone (`await` en C#) est comptée dans la durée d’exécution. Le calcul des Go-secondes se base sur l’heure de début et de fin de la fonction, ainsi que sur l’utilisation de la mémoire pendant cette période. Ce qui se produit au cours de cette période en termes d’activité du processeur n’est pas pris en compte dans le calcul. Vous pouvez éventuellement réduire les coûts pendant les opérations asynchrones à l’aide de [Durable Functions](durable/durable-functions-overview.md). Vous n’êtes pas facturé pour le temps d’attente passé dans les fonctions d’orchestrateur.
++ **Exécution asynchrone** : La durée pendant laquelle votre fonction attend les résultats d’une requête asynchrone (`await` en C#) est comptée dans la durée d’exécution. Le calcul des Go-secondes se base sur l’heure de début et de fin de la fonction, ainsi que sur l’utilisation de la mémoire pendant cette période. Ce qui se produit au cours de cette période en termes d’activité du processeur n’est pas pris en compte dans le calcul. Vous pouvez éventuellement réduire les coûts pendant les opérations asynchrones à l’aide de [Durable Functions](durable/durable-functions-overview.md). Vous n’êtes pas facturé pour le temps d’attente passé dans les fonctions d’orchestrateur.
 
 ## <a name="viewing-cost-related-data"></a>Affichage des données relatives aux coûts
 
-Dans [votre facture](../cost-management-billing/understand/download-azure-invoice.md), vous pouvez voir les données relatives aux coûts **Nombre total d’exécutions - Fonctions** et **Durée d’exécution - Fonctions** , ainsi que les coûts réels facturés. En revanche, ces données de facture sont un agrégat mensuel correspondant à une période de facturation passée. 
+Dans [votre facture](../cost-management-billing/understand/download-azure-invoice.md), vous pouvez voir les données relatives aux coûts **Nombre total d’exécutions - Fonctions** et **Durée d’exécution - Fonctions**, ainsi que les coûts réels facturés. En revanche, ces données de facture sont un agrégat mensuel correspondant à une période de facturation passée. 
 
 ### <a name="function-app-level-metrics"></a>Métriques au niveau de l’application de fonction
 
-Pour mieux comprendre l’impact sur les coûts de vos fonctions, vous pouvez utiliser Azure Monitor pour voir les métriques relatives aux coûts en cours de génération par vos applications de fonction. Vous pouvez utiliser [Azure Monitor Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md) dans le [portail Azure] ou les API REST pour obtenir ces données.
+Pour mieux comprendre l’impact sur les coûts de vos fonctions, vous pouvez utiliser Azure Monitor pour voir les métriques relatives aux coûts en cours de génération par vos applications de fonction. Vous pouvez utiliser [Azure Monitor Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md) dans le [Azure portal] ou les API REST pour obtenir ces données.
 
 #### <a name="monitor-metrics-explorer"></a>Monitor Metrics Explorer
 
 Utilisez [Azure Monitor Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md) pour voir dans un format graphique les données relatives aux coûts de vos applications de fonction relevant du plan Consommation. 
 
-1. En haut du [portail Azure], dans la zone de **recherche dans les services, ressources et documents** , recherchez `monitor` et sélectionnez **Monitor** sous **Services** .
+1. En haut du [Azure portal], dans la zone de **recherche dans les services, ressources et documents**, recherchez `monitor` et sélectionnez **Monitor** sous **Services**.
 
-1. Sur la gauche, sélectionnez **Metrics** > **Sélectionner une ressource** , puis utilisez les paramètres situés sous l’image pour choisir votre application de fonction.
+1. Sur la gauche, sélectionnez **Metrics** > **Sélectionner une ressource**, puis utilisez les paramètres situés sous l’image pour choisir votre application de fonction.
 
     ![Sélectionner votre ressource d’application de fonction](media/functions-consumption-costing/select-a-resource.png)
 
@@ -89,7 +89,7 @@ Utilisez [Azure Monitor Metrics Explorer](../azure-monitor/platform/metrics-gett
 
 1. Sélectionnez **Appliquer** pour choisir votre application de fonction comme ressource à superviser.
 
-1. À partir de **Métrique** , choisissez **Nombre d’exécutions de la fonction** et **Somme** pour **Agrégation** . Ainsi, la somme du nombre d’exécutions pendant la période choisie est ajoutée au graphique.
+1. À partir de **Métrique**, choisissez **Nombre d’exécutions de la fonction** et **Somme** pour **Agrégation**. Ainsi, la somme du nombre d’exécutions pendant la période choisie est ajoutée au graphique.
 
     ![Définir une métrique d’application de fonction à ajouter au graphique](media/functions-consumption-costing/monitor-metrics-add-metric.png)
 

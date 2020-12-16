@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 87dff3bbb4a7ff5e40a06d1b63bdc38987d727fe
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: f9b9681b08f5864dc34bbf1c35dc6919129c24cb
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492690"
+ms.locfileid: "96518802"
 ---
 # <a name="azure-database-for-mysql-data-encryption-with-a-customer-managed-key"></a>Chiffrement des données d'Azure Database pour MySQL à l'aide d'une clé gérée par le client
 
@@ -61,7 +61,7 @@ Lorsque le serveur est configuré pour utiliser la clé gérée par le client st
 Les exigences suivantes s'appliquent à la configuration de Key Vault :
 
 * Key Vault et Azure Database pour MySQL doivent appartenir au même locataire Azure Active Directory (Azure AD). Les interactions entre un serveur et une instance inter-locataires de Key Vault ne sont pas prises en charge. Pour déplacer des ressources Key Vault par la suite, vous devez reconfigurer le chiffrement des données.
-* Activez la fonctionnalité [soft-delete] ((../key-vault/general/soft-delete-overview.md) sur le coffre de clés avec une période de rétention définie à **90 jours**, afin de protéger contre la perte de données en cas de suppression d’une clé accidentelle (ou Key Vault). Les ressources supprimées de manière réversible sont conservées par défaut pendant 90 jours, sauf si la période de rétention est explicitement définie sur <=90 jours. Les actions de récupération et de vidage ont leurs propres autorisations associées dans une stratégie d’accès Key Vault. Par défaut, la fonctionnalité de suppression réversible est désactivée, mais vous pouvez l'activer via PowerShell ou Azure CLI (notez que vous ne pouvez pas l'activer via le portail Azure).
+* Activez la fonctionnalité [soft-delete](../key-vault/general/soft-delete-overview.md) sur le coffre de clés avec une période de rétention définie à **90 jours**, afin de protéger contre la perte de données en cas de suppression d’une clé accidentelle (ou Key Vault). Les ressources supprimées de manière réversible sont conservées par défaut pendant 90 jours, sauf si la période de rétention est explicitement définie sur <=90 jours. Les actions de récupération et de vidage ont leurs propres autorisations associées dans une stratégie d’accès Key Vault. Par défaut, la fonctionnalité de suppression réversible est désactivée, mais vous pouvez l'activer via PowerShell ou Azure CLI (notez que vous ne pouvez pas l'activer via le portail Azure).
 * Activez la fonctionnalité de [protection contre le vidage](../key-vault/general/soft-delete-overview.md#purge-protection) sur le coffre de clés avec la période de rétention définie sur **90 jours**. La protection contre le vidage ne peut être activée qu’une fois que la suppression réversible est activée. Elle peut être activée via Azure CLI ou PowerShell. Lorsque la protection contre le vidage est activée, il n’est pas possible de purger un coffre ou un objet à l’état supprimé avant la fin de la période de rétention de 90 jours. Après une suppression réversible, les coffres et objets restent récupérables pour garantir le respect de la stratégie de rétention. 
 * Accordez l'accès au coffre de clés à Azure Database pour MySQL avec les autorisations get, wrapKey, unwrapKey en utilisant son identité managée unique. Sur le portail Azure, l’identité « Service » unique est automatiquement créée lorsque le chiffrement des données est activé sur MySQL. Consultez [Configurer le chiffrement des données pour MySQL](howto-data-encryption-portal.md) pour obtenir des instructions pas à pas détaillées lorsque vous utilisez le portail Azure.
 
@@ -70,7 +70,7 @@ Les exigences suivantes s'appliquent à la configuration de la clé gérée par 
 * La clé gérée par le client à utiliser pour chiffrer la clé de chiffrement de données ne peut être qu’asymétrique, RSA 2048.
 * La date d’activation de la clé (si définie) doit être une date et une heure passées. La date d’expiration n’est pas définie.
 * La clé doit être dans l’état *activé*.
-* La clé doit avoir une [suppression réversible](../key-vault/general/soft-delete-overview.md) avec la période de rétention définie sur **90 jours**.
+* La clé doit avoir une [suppression réversible](../key-vault/general/soft-delete-overview.md) avec la période de rétention définie sur **90 jours**. Cela définit implicitement l’attribut de clé requis recoveryLevel : « Recoverable ». Si la rétention est définie sur < 90 jours, l’attribut recoveryLevel: « CustomizedRecoverable », n’est pas obligatoire et vous devez définir la période de rétention sur **90 jours**.
 * La clé doit avec la [protection contre le vidage activée](../key-vault/general/soft-delete-overview.md#purge-protection).
 * Si vous [importez une clé existante](/rest/api/keyvault/ImportKey/ImportKey) dans le coffre de clés, veillez à ce qu’elle respecte les formats de fichiers pris en charge (`.pfx`, `.byok`, `.backup`).
 

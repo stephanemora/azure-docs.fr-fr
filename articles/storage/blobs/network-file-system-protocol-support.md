@@ -9,19 +9,19 @@ ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: 78455659d76d259c626745c93770428c25042b2d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b4146f11804dd11f7dd0f5536bc040cb30e25b03
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95908810"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96902729"
 ---
 # <a name="network-file-system-nfs-30-protocol-support-in-azure-blob-storage-preview"></a>Prise en charge du protocole NFS (Network File System) 3.0 dans le stockage Blob Azure (préversion)
 
 Le stockage Blob Azure prend désormais en charge le protocole NFS (Network File System) 3.0. Cette prise en charge permet aux clients Windows ou Linux de monter un conteneur dans le stockage Blob à partir d’une machine virtuelle Azure ou d’un ordinateur local. 
 
 > [!NOTE]
-> La prise en charge du protocole NFS 3.0 dans Stockage blob Azure est en préversion publique et disponible dans les régions suivantes : USA Est, USA Centre, USA Centre-Ouest, Australie Sud-Est, Europe Nord, Royaume-Uni Ouest, Corée Centre, Corée Sud et Canada Centre.
+> La prise en charge du protocole NFS 3.0 dans Stockage Blob Azure est en préversion publique. Les comptes de stockage GPV2 avec performances de niveau Standard sont pris en charge dans les régions suivantes : Australie Est, Corée Centre et USA Centre Sud. La préversion prend également en charge les objets blobs de blocs avec niveau de performances Premium dans toutes les régions publiques.
 
 ## <a name="general-workflow-mounting-a-storage-account-container"></a>Workflow général : Monter un conteneur de compte de stockage
 

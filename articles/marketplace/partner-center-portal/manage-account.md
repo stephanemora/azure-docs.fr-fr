@@ -7,12 +7,12 @@ ms.topic: article
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 11/02/2020
-ms.openlocfilehash: 8b372cc0fc19c6bf163d9d4e61cde6ce74cb3f28
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: cc853285e193dd3ac4e348525b8bf0db9f8cb023
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95538379"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533942"
 ---
 # <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>Gérer votre compte Place de marché commerciale dans l’Espace partenaires
 
@@ -293,7 +293,7 @@ Si votre application Azure AD lit et écrit des données dans Microsoft Azure AD
 Les rôles et autorisations suivants peuvent être attribués aux utilisateurs de votre entreprise pour le programme Place de marché commerciale dans l’Espace partenaires :
 
 - **Propriétaire**
-  - « Il s’agit de la personne qui a créé le compte et qui dispose d’un accès complet à celui-ci, incluant la possibilité de créer et modifier tous les utilisateurs du compte, ainsi que de changer tous les paramètres financiers et de compte. Un compte n’a généralement qu’un seul propriétaire. »
+  - Il s’agit de la personne qui a créé le compte et qui dispose d’un accès complet à celui-ci, incluant la possibilité de créer et modifier tous les utilisateurs du compte, ainsi que de changer tous les paramètres financiers et de compte. Un compte n’a généralement qu’un seul propriétaire.
 - **Manager**
   - Peut accéder à toutes les fonctionnalités du compte Microsoft, à l'exception des paramètres fiscaux et de paiement
   - Peut gérer les utilisateurs, les rôles et les comptes professionnels (locataires)

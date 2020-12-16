@@ -3,12 +3,12 @@ title: Préparation à la production et bonnes pratiques - Azure
 description: Cet article fournit des conseils sur la configuration et le déploiement du module Live Video Analytics sur IoT Edge dans des environnements de production.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: c34e05e184cfa6f0933701a76177fae3eed70c0a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 215427e3524861a842349b197668d92167960e5c
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87071939"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906333"
 ---
 # <a name="production-readiness-and-best-practices"></a>Préparation à la production et bonnes pratiques
 
@@ -62,9 +62,9 @@ Ensuite, dans le manifeste de déploiement, vous pouvez définir les variables d
 
 Le module Live Video Analytics sur IoT Edge doit avoir la possibilité d'écrire des fichiers dans le système de fichiers local dans les cas suivants :
 
-* Utilisation d'une propriété de jumeau de module [[ applicationDataDirectory ](module-twin-configuration-schema.md#module-twin-properties)], sachant que vous devez spécifier un répertoire du système de fichiers local pour le stockage des données de configuration
+* Utilisation d’une propriété de jumeau de module [`applicationDataDirectory`](module-twin-configuration-schema.md#module-twin-properties), sachant que vous devez spécifier un répertoire du système de fichiers local pour le stockage des données de configuration
 * Utilisation d'un graphique multimédia pour l'enregistrement de vidéo dans le cloud, sachant que le module requiert l'utilisation d'un répertoire du périphérique comme cache (voir l'article [Enregistrement vidéo continu](continuous-video-recording-concept.md) pour plus d'informations)
-* [Enregistrement dans un fichier local](event-based-video-recording-concept.md#video-recording-based-on-events-from-other-sources), sachant que vous devez spécifier le chemin d'accès à la vidéo enregistrée
+* [Enregistrement dans un fichier local](event-based-video-recording-concept.md#video-recording-based-on-events-from-other-sources), sachant que vous devez spécifier le chemin de la vidéo enregistrée.
 
 Dans tous les cas, vous devez vous assurer que le compte d'utilisateur ci-dessus a accès au répertoire qui convient. Prenons l'exemple de applicationDataDirectory. Vous pouvez créer un répertoire sur le périphérique et lier le stockage du périphérique au stockage du module. 
 
@@ -115,7 +115,7 @@ Les graphiques multimédias permettent de créer des ressources dans le cloud ou
 "assetNamePattern": "sampleAsset-${System.GraphTopologyName}-${System.GraphInstanceName}
 ```
 
-Pour les ressources générées par enregistrement vidéo basé sur des événements, le modèle d'attribution de nom recommandé est « &lt;texte&gt;-${System.DateTime} ». La variable système garantit que les ressources ne seront pas écrasées si des événements se produisent en même temps. Par exemple, vous pouvez définir assetNamePattern sur le récepteur de ressources comme suit :
+Pour les ressources générées par enregistrement vidéo basé sur des événements, le modèle d'attribution de nom recommandé est « &lt;texte&gt;-${System.DateTime} ». La variable système garantit que les ressources ne seront pas remplacées si des événements se produisent en même temps. Par exemple, vous pouvez définir assetNamePattern sur le récepteur de ressources comme suit :
 
 ```
 "assetNamePattern": "sampleAssetFromEVR-LVAEdge-${System.DateTime}"
@@ -124,7 +124,7 @@ Pour les ressources générées par enregistrement vidéo basé sur des événem
 Si vous exécutez plusieurs instances du même graphique, vous pouvez utiliser le nom de la topologie du graphique et le nom de l'instance pour les différencier. Par exemple, vous pouvez définir assetNamePattern sur le récepteur de ressources comme suit :
 
 ```
-"assetNamePattern": "sampleAssetFromEVR-${System.GraphTopologyName}-${System.GraphInstanceName} -${System.DateTime}"
+"assetNamePattern": "sampleAssetFromEVR-${System.GraphTopologyName}-${System.GraphInstanceName}-${System.DateTime}"
 ```
 
 Pour les clips vidéo mp4 générés en périphérie par enregistrement vidéo basé sur des événements, le modèle d'attribution de nom recommandé doit inclure DateHeure et, en présence de plusieurs instances du même graphique, il est recommandé d'utiliser les variables système GraphTopologyName et GraphInstanceName. Par exemple, vous pouvez définir filePathPattern sur le récepteur de fichiers comme suit : 

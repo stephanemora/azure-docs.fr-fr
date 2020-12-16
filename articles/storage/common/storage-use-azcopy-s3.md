@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 022b6eb6595f25af4189d783a6a91031f95c7216
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 07a8d2b394e8ca690925c677af676643064a9ba8
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92479355"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96901828"
 ---
 # <a name="copy-data-from-amazon-s3-to-azure-storage-by-using-azcopy"></a>Copier des données depuis Amazon S3 vers le Stockage Azure avec AzCopy
 
@@ -38,13 +38,13 @@ Consultez l’article [Prise en main d’AzCopy](storage-use-azcopy-v10.md) pour
 
 ### <a name="authorize-with-aws-s3"></a>Autoriser avec AWS S3
 
-Récupérez votre clé d’accès AWS et votre clé d’accès secrète, puis définissez ces variables d’environnement :
+Récupérez votre clé d’accès AWS et votre clé d’accès secrète, puis définissez ces variables d’environnement :
 
 | Système d’exploitation | Commande  |
 |--------|-----------|
 | **Windows** | `set AWS_ACCESS_KEY_ID=<access-key>`<br>`set AWS_SECRET_ACCESS_KEY=<secret-access-key>` |
 | **Linux** | `export AWS_ACCESS_KEY_ID=<access-key>`<br>`export AWS_SECRET_ACCESS_KEY=<secret-access-key>` |
-| **MacOS** | `export AWS_ACCESS_KEY_ID=<access-key>`<br>`export AWS_SECRET_ACCESS_KEY=<secret-access-key>`|
+| **macOS** | `export AWS_ACCESS_KEY_ID=<access-key>`<br>`export AWS_SECRET_ACCESS_KEY=<secret-access-key>`|
 
 ## <a name="copy-objects-directories-and-buckets"></a>Copier des objets, des répertoires et des compartiments
 
@@ -159,7 +159,7 @@ AzCopy suit cette procédure :
 
 3. Ajoute la chaîne `rename_key_` au début d’une nouvelle clé valide.
    Cette clé doit être utilisée pour enregistrer la **clé** invalide d’origine des métadonnées.
-   Vous pouvez utiliser cette clé pour essayer de récupérer les métadonnées dans Azure, comme la clé des métadonnées est conservée comme valeur sur le service de stockage d’objets blob.
+   Vous pouvez utiliser cette clé pour essayer de récupérer les métadonnées dans Azure, puisque la clé des métadonnées est conservée comme valeur dans le service de stockage d’objets blob.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -167,7 +167,7 @@ Plus d’exemples dans ces articles :
 
 - [Bien démarrer avec AzCopy](storage-use-azcopy-v10.md)
 
-- [Transférer des données avec AzCopy et le Stockage Blob](storage-use-azcopy-blobs.md)
+- [Transfert de données](storage-use-azcopy-v10.md#transfer-data)
 
 - [Transférer des données avec AzCopy et le stockage de fichiers](storage-use-azcopy-files.md)
 

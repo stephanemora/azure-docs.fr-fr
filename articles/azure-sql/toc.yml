@@ -69,6 +69,8 @@
                   href: database/sql-vulnerability-assessment.md
                 - name: Règles d’évaluation des vulnérabilités
                   href: database/sql-database-vulnerability-assessment-rules.md
+                - name: Journal de changements des règles d’évaluation des vulnérabilités
+                  href: database/sql-database-vulnerability-assessment-rules-changelog.md
                 - name: Stocker les analyses de vulnérabilités dans le stockage
                   href: database/sql-database-vulnerability-assessment-storage.md
             - name: 'Connexions, comptes d’utilisateur, rôles et autorisations'

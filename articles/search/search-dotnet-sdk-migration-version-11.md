@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 11/10/2020
+ms.date: 12/02/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 90fc356929a9ea5713a8d359dfaa83286017b8f8
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 260df85f3e380e40d153fc17ce77bd56ca068982
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445436"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532820"
 ---
 # <a name="upgrade-to-azure-cognitive-search-net-sdk-version-11"></a>Mettre à niveau vers la version 11 du Kit de développement logiciel (SDK) .NET Recherche cognitive Azure
 
-Si vous utilisez la version 10.0 ou une version antérieure du [Kit de développement logiciel (SDK) .NET](/dotnet/api/overview/azure/search), cet article vous aidera à le mettre à niveau vers la version 11.
+Si vous utilisez la version 10.0 ou une version antérieure du [Kit SDK .NET](/dotnet/api/overview/azure/search), cet article vous aidera à effectuer une mise à niveau pour utiliser la version 11 et la bibliothèque de client **Azure.Search.Documents**.
 
 La version 11 est une bibliothèque de client entièrement repensée, publiée par l’équipe de développement de Kits de développement logiciel (SDK) d’Azure (les versions précédentes ont été produites par l’équipe de développement de Recherche cognitive Azure). La bibliothèque a été repensée pour une plus grande cohérence avec les autres bibliothèques de client Azure, en dépendant d’[Azure.Core](/dotnet/api/azure.core) et de [System.Text.Json](/dotnet/api/system.text.json) et en implémentant des approches familières pour les tâches courantes.
 
@@ -170,7 +170,7 @@ Les étapes suivantes vous permettent de commencer une migration de code en parc
 
 1. Ajoutez de nouvelles références de client pour les objets liés à l’indexeur. Si vous utilisez des indexeurs, des sources de source ou des ensembles de compétences, modifiez les références de client en [SearchIndexerClient](/dotnet/api/azure.search.documents.indexes.searchindexerclient). Ce client est nouveau dans la version 11 et n’a pas d’antécédent.
 
-1. Réexaminez les collections. Dans le nouveau Kit de développement logiciel (SDK), toutes les listes sont en lecture seule afin d’éviter les problèmes en aval si la liste contient des valeurs NULL. La modification du code consiste à ajouter des éléments à une liste. Par exemple, au lieu d’assigner des chaînes à une propriété Select, vous devez les ajouter comme suit :
+1. Révisez les collections et les listes. Dans le nouveau Kit de développement logiciel (SDK), toutes les listes sont en lecture seule afin d’éviter les problèmes en aval si la liste contient des valeurs NULL. La modification du code consiste à ajouter des éléments à une liste. Par exemple, au lieu d’assigner des chaînes à une propriété Select, vous devez les ajouter comme suit :
 
    ```csharp
    var options = new SearchOptions
@@ -188,11 +188,13 @@ Les étapes suivantes vous permettent de commencer une migration de code en parc
     options.Select.Add("LastRenovationDate");
    ```
 
+   Select, Facets, SearchFields, SourceFields, ScoringParameters et OrderBy sont toutes des listes qui doivent maintenant être reconstruites.
+
 1. Mettez à jour les références de client pour les requêtes et l’importation de données. Les instances de [SearchIndexClient](/dotnet/api/microsoft.azure.search.searchindexclient) doivent être remplacées par [SearchClient](/dotnet/api/azure.search.documents.searchclient). Pour éviter toute confusion dans les noms, veillez à intercepter toutes les instances avant de passer à l’étape suivante.
 
-1. Mettez à jour les références de client pour les objets index, indexeur, mappage de synonymes et analyseur. Les instances de [SearchServiceClient](/dotnet/api/microsoft.azure.search.searchserviceclient) doivent être remplacées par [SearchIndexClient](/dotnet/api/microsoft.azure.search.searchindexclient). 
+1. Mettez à jour les références de client pour les objets index, mappage de synonymes et analyseur. Les instances de [SearchServiceClient](/dotnet/api/microsoft.azure.search.searchserviceclient) doivent être remplacées par [SearchIndexClient](/dotnet/api/microsoft.azure.search.searchindexclient). 
 
-1. Autant que possible, mettez à jour les classes, les méthodes et les propriétés pour utiliser les API de la nouvelle bibliothèque. La section relative aux [différences d’affectation de noms](#naming-differences) est un point de départ, mais vous pouvez également consulter le [journal des modifications](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md).
+1. Pour le reste de votre code, mettez à jour les classes, les méthodes et les propriétés pour utiliser les API de la nouvelle bibliothèque. La section relative aux [différences d’affectation de noms](#naming-differences) est un point de départ, mais vous pouvez également consulter le [journal des modifications](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md).
 
    Si vous avez des difficultés à trouver des API équivalentes, nous vous suggérons de signaler le problème sur [https://github.com/MicrosoftDocs/azure-docs/issues](https://github.com/MicrosoftDocs/azure-docs/issues) afin que nous puissions améliorer la documentation ou examiner le problème.
 

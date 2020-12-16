@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 07/22/2020
 ms.author: apimpm
 ms.custom: references_regions
-ms.openlocfilehash: 9714dd49e06dabf9fb4669475f96089fcfc97d73
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 7af15552a489f36d87204bfefe47e579cc19f6dc
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146737"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96778764"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Utilisation de la gestion des API Azure avec des réseaux virtuels
 Les réseaux virtuels Azure vous permettent de placer vos ressources Azure dans un réseau routable non-Internet dont vous contrôlez l’accès. Ces réseaux peuvent ensuite être connectés à vos réseaux locaux à l’aide de différentes technologies VPN. Pour en savoir plus sur les réseaux virtuels Azure, commencez par consulter la page [Présentation du réseau virtuel Azure](../virtual-network/virtual-networks-overview.md).
@@ -53,7 +53,8 @@ Pour effectuer les étapes décrites dans cet article, vous devez disposer des �
 3. Sélectionnez **Réseau virtuel**.
 4. Configurez l’instance du service Gestion des API à déployer à l’intérieur d’un réseau virtuel.
 
-    ![Menu Réseau virtuel du service Gestion des API][api-management-using-vnet-menu]
+    :::image type="content" source="media/api-management-using-with-vnet/api-management-menu-vnet.png" alt-text="Sélectionnez un réseau virtuel dans Portail Azure.":::
+    
 5. Sélectionnez le type d’accès souhaité :
 
     * **Off** : Il s’agit de la valeur par défaut. Gestion des API n’est pas déployé dans un réseau virtuel.
@@ -73,7 +74,7 @@ Pour effectuer les étapes décrites dans cet article, vous devez disposer des �
 
     Sélectionnez ensuite **Appliquer**. La page **Réseau virtuel** de votre instance Gestion des API est mise à jour avec vos nouveaux choix de réseau virtuel et de sous-réseau.
 
-    ![Sélectionner le VPN][api-management-setup-vpn-select]
+    :::image type="content" source="media/api-management-using-with-vnet/api-management-using-vnet-select.png" alt-text="Paramètres de réseau virtuel dans le portail.":::
 
 7. Dans la barre de navigation supérieure, sélectionnez **Enregistrer**, puis **Appliquer la configuration réseau**.
 
@@ -176,6 +177,15 @@ Voici une liste des problèmes courants de configuration incorrecte qui peuvent 
 
   > [!IMPORTANT]
   > Après avoir validé la connectivité, veillez à supprimer toutes les ressources déployées sur le sous-réseau avant d’y déployer le service Gestion des API.
+
+* **Vérification de l’état de la connectivité réseau** : après avoir déployé Gestion des API dans le sous-réseau, utilisez le portail pour vérifier la connectivité de votre instance aux dépendances telles que Stockage Azure. Dans le menu de gauche du portail, sous **Déploiement et infrastructure**, sélectionnez **État de la connectivité réseau**.
+
+   :::image type="content" source="media/api-management-using-with-vnet/verify-network-connectivity-status.png" alt-text="Vérifier l’état de la connectivité réseau dans le portail":::
+
+    * Sélectionnez **Obligatoire** pour vérifier la connectivité aux services Azure requis pour Gestion des API. Un échec indique que l’instance n’est pas en mesure d’effectuer des opérations de base pour gérer les API.
+    * Sélectionnez **Facultatif** pour vérifier la connectivité aux services facultatifs. Tout échec indique uniquement que la fonctionnalité spécifique ne fonctionnera pas (par exemple, SMTP). Un échec peut entraîner une dégradation de la capacité à utiliser et à surveiller l’instance Gestion des API et à fournir le contrat SLA validé.
+
+Pour résoudre les problèmes de connectivité, consultez [Problèmes courants de configuration du réseau](#network-configuration-issues) et corrigez les paramètres réseau requis.
 
 * **Mises à jour incrémentielles** : quand vous changez votre réseau, consultez [NetworkStatus API](/rest/api/apimanagement/2019-12-01/networkstatus) pour vérifier que le service de la gestion de l’API n’a pas perdu l’accès aux ressources critiques dont il dépend. L’état de connectivité doit être mis à jour toutes les 15 minutes.
 

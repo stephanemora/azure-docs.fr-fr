@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 18979ba8cbc4e68bf79275059c6c1c976578c407
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 3e3245053fcc9943814268835fa5ac0f40a6f94c
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94953370"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96750507"
 ---
 # <a name="secure-your-restful-services"></a>Sécuriser vos services API RESTful 
 
@@ -358,6 +358,69 @@ Voici un exemple de profil technique RESTful configuré avec l’authentificatio
       </Metadata>
       <CryptographicKeys>
         <Key Id="BearerAuthenticationToken" StorageReferenceId="B2C_1A_RestApiBearerToken" />
+      </CryptographicKeys>
+      ...
+    </TechnicalProfile>
+  </TechnicalProfiles>
+</ClaimsProvider>
+```
+
+## <a name="api-key-authentication"></a>Authentification par clé API
+
+La clé API est un identificateur unique utilisé pour authentifier un utilisateur afin d’accéder à un point de terminaison d’API REST. La clé est envoyée dans un en-tête HTTP personnalisé. Par exemple, le [déclencheur HTTP Azure Functions](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) utilise l’en-tête HTTP `x-functions-key` pour identifier le demandeur.  
+
+### <a name="add-api-key-policy-keys"></a>Ajouter des clés de stratégie de clé API
+
+Pour configurer un profil technique d’API REST avec l’authentification par clé API, créez la clé de chiffrement suivante pour stocker la clé API :
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
+1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez le filtre **Annuaire + abonnement** dans le menu du haut, puis choisissez votre annuaire Azure AD B2C.
+1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
+1. Dans la page de vue d’ensemble, sélectionnez **Infrastructure d’expérience d’identité**.
+1. Sélectionnez **Clés de stratégie**, puis **Ajouter**.
+1. Pour **Options**, sélectionnez **Manuel**.
+1. Dans **Nom**, indiquez **RestApiKey**.
+    Il est possible que le préfixe *B2C_1A_* soit ajouté automatiquement.
+1. Dans la zone **Secret**, entrez la clé de l’API REST.
+1. Pour **Utilisation de la clé**, sélectionnez **Chiffrement**.
+1. Sélectionnez **Create** (Créer).
+
+
+### <a name="configure-your-rest-api-technical-profile-to-use-api-key-authentication"></a>Configurer votre profil technique d’API REST afin d’utiliser l’authentification par clé API
+
+Après avoir créé la clé nécessaire, configurez les métadonnées du profil technique de votre API REST pour référencer les informations d’identification.
+
+1. Dans votre répertoire de travail, ouvrez le fichier de stratégie d’extension (TrustFrameworkExtensions.xml).
+1. Recherchez le profil technique API REST. Par exemple, `REST-ValidateProfile` ou `REST-GetProfile`.
+1. Recherchez l’élément `<Metadata>`.
+1. Définissez *AuthenticationType* sur `ApiKeyHeader`.
+1. Définissez *AllowInsecureAuthInProduction* sur `false`.
+1. Immédiatement après l’élément `</Metadata>` fermant, ajoutez l’extrait de code XML suivant :
+    ```xml
+    <CryptographicKeys>
+        <Key Id="x-functions-key" StorageReferenceId="B2C_1A_RestApiKey" />
+    </CryptographicKeys>
+    ```
+
+L’**ID** de la clé de chiffrement définit l’en-tête HTTP. Dans cet exemple, la clé API est envoyée sous la forme **x-functions-key**.
+
+Voici un exemple de profil technique RESTful configuré pour appeler une application de fonction avec une authentification par clé API :
+
+```xml
+<ClaimsProvider>
+  <DisplayName>REST APIs</DisplayName>
+  <TechnicalProfiles>
+    <TechnicalProfile Id="REST-GetProfile">
+      <DisplayName>Get user extended profile Azure Function web hook</DisplayName>
+      <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+      <Metadata>
+        <Item Key="ServiceUrl">https://your-account.azurewebsites.net/api/GetProfile?code=your-code</Item>
+        <Item Key="SendClaimsIn">Body</Item>
+        <Item Key="AuthenticationType">ApiKeyHeader</Item>
+        <Item Key="AllowInsecureAuthInProduction">false</Item>
+      </Metadata>
+      <CryptographicKeys>
+        <Key Id="x-functions-key" StorageReferenceId="B2C_1A_RestApiKey" />
       </CryptographicKeys>
       ...
     </TechnicalProfile>

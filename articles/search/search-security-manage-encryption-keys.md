@@ -9,18 +9,18 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/02/2020
 ms.custom: references_regions
-ms.openlocfilehash: 4fb20b221858c4717d67e0777afbe5c067c00a69
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 8295e619cfda0d4b83a7356d5fd21d4b80f83849
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499609"
+ms.locfileid: "96530882"
 ---
 # <a name="configure-customer-managed-keys-for-data-encryption-in-azure-cognitive-search"></a>Configurer des clés gérées par le client pour le chiffrement des données dans le service Recherche cognitive Azure
 
 Par défaut, le service Recherche cognitive Azure chiffre automatiquement le contenu indexé au repos avec des [clés gérées par le service](../security/fundamentals/encryption-atrest.md#azure-encryption-at-rest-components). Si vous avez besoin de davantage de protection, vous pouvez compléter le chiffrement par défaut avec une couche de chiffrement supplémentaire à l’aide de clés que vous créez et gérez dans Azure Key Vault. Cet article vous guide tout au long des étapes de configuration du chiffrement à l’aide de clés gérées par le client (CMK).
 
-Le chiffrement CMK dépend d’[Azure Key Vault](../key-vault/general/overview.md). Vous pouvez créer vos propres clés de chiffrement et les stocker dans un coffre de clés, ou utiliser les API d’Azure Key Vault pour générer des clés de chiffrement. Azure Key Vault vous permet également d’auditer l’utilisation des clés si vous [activez la journalisation](../key-vault/general/logging.md).  
+Le chiffrement à l’aide de clés gérées par le client dépend d’[Azure Key Vault](../key-vault/general/overview.md). Vous pouvez créer vos propres clés de chiffrement et les stocker dans un coffre de clés, ou utiliser les API d’Azure Key Vault pour générer des clés de chiffrement. Azure Key Vault vous permet également d’auditer l’utilisation des clés si vous [activez la journalisation](../key-vault/general/logging.md).  
 
 Le chiffrement avec des clés gérées par le client est appliqué à des index individuels ou à des mappages de synonymes lors de la création de ces objets, et n’est pas spécifié au niveau du service de recherche lui-même. Seuls de nouveaux objets peuvent être chiffrés. Vous ne pouvez pas chiffrer un contenu existant.
 
@@ -31,7 +31,7 @@ Toutes les clés ne doivent pas nécessairement se trouver dans le même coffre 
 
 ## <a name="double-encryption"></a>Double chiffrement
 
-Pour les services créés après le 1er août 2020 et dans certaines régions, l’étendue du chiffrement CMK inclut des disques temporaires, ce qui permet un [double chiffrement complet](search-security-overview.md#double-encryption) actuellement disponible dans les régions suivantes : 
+Pour les services créés après le 1er août 2020 et dans certaines régions, l’étendue du chiffrement à l’aide de clés gérées par le client inclut des disques temporaires, ce qui permet un [double chiffrement complet](search-security-overview.md#double-encryption) actuellement disponible dans les régions suivantes : 
 
 + USA Ouest 2
 + USA Est
@@ -39,13 +39,13 @@ Pour les services créés après le 1er août 2020 et dans certaines régions,
 + Gouvernement américain - Virginie
 + Gouvernement des États-Unis – Arizona
 
-Si vous utilisez une autre région ou un service créé avant le 1er août, votre chiffrement CMK est limité uniquement au disque de données, à l’exclusion des disques temporaires que le service utilise.
+Si vous utilisez une autre région ou un service créé avant le 1er août, votre chiffrement à l’aide de clés gérées par le client est limité uniquement au disque de données, à l’exclusion des disques temporaires que le service utilise.
 
 ## <a name="prerequisites"></a>Prérequis
 
 Les outils et services suivants sont utilisés dans ce scénario.
 
-+ [Recherche cognitive Azure](search-create-service-portal.md) sur un [niveau facturable](search-sku-tier.md#tiers) (de base ou version ultérieure, dans n’importe quelle région).
++ [Recherche cognitive Azure](search-create-service-portal.md) sur un [niveau facturable](search-sku-tier.md#tier-descriptions) (de base ou version ultérieure, dans n’importe quelle région).
 + [Azure Key Vault](../key-vault/general/overview.md), vous pouvez créer un coffre de clés Azure à l’aide du [portail Azure](../key-vault//general/quick-create-portal.md), d’[Azure CLI](../key-vault//general/quick-create-cli.md) ou d’[Azure PowerShell](../key-vault//general/quick-create-powershell.md). dans le même abonnement que Recherche cognitive Azure. La **suppression réversible** et la **protection contre le vidage** doivent été activées pour le coffre de clés.
 + [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md). Si vous n’en avez pas, [configurez un nouveau locataire](../active-directory/develop/quickstart-create-new-tenant.md).
 
@@ -56,7 +56,7 @@ Vous devez disposer d’une application de recherche capable de créer l’objet
 
 ## <a name="1---enable-key-recovery"></a>1 - Activer la récupération de clé
 
-En raison de la nature du chiffrement avec des clés gérées par le client, personne ne peut récupérer vos données en cas de suppression de votre clé Azure Key Vault. Pour éviter la perte de données résultant de suppressions accidentelles d’Azure Key Vault, vous devez activer la suppression réversible et la protection contre le vidage sur le coffre de clés. La suppression réversible étant activée par défaut, vous ne rencontrerez des problèmes que si vous l’avez désactivée intentionnellement. La par défaut n’est pas activée par défaut, mais elle est requise pour le chiffrement CMK du service Recherche cognitive Azure. Pour plus d’informations, consultez les vues d’ensemble de la [suppression réversible](../key-vault/general/soft-delete-overview.md) et de la [protection contre le vidage](../key-vault/general/soft-delete-overview.md#purge-protection) .
+En raison de la nature du chiffrement avec des clés gérées par le client, personne ne peut récupérer vos données en cas de suppression de votre clé Azure Key Vault. Pour éviter la perte de données résultant de suppressions accidentelles d’Azure Key Vault, vous devez activer la suppression réversible et la protection contre le vidage sur le coffre de clés. La suppression réversible étant activée par défaut, vous ne rencontrerez des problèmes que si vous l’avez désactivée intentionnellement. Par défaut, la protection contre le vidage n’est pas activée, mais elle est requise pour le chiffrement à clé gérée par le client dans Recherche cognitive. Pour plus d’informations, consultez les vues d’ensemble de la [suppression réversible](../key-vault/general/soft-delete-overview.md) et de la [protection contre le vidage](../key-vault/general/soft-delete-overview.md#purge-protection) .
 
 Vous pouvez définir les deux propriétés à l’aide du portail ou en utilisant des commandes PowerShell ou Azure CLI.
 
@@ -377,7 +377,7 @@ Les conditions qui vous empêchent d’adopter cette approche simplifiée sont l
 
 ## <a name="work-with-encrypted-content"></a>Utiliser des colonnes chiffrées
 
-Avec le chiffrement CMK, vous remarquerez une latence pour l’indexation et les requêtes en raison du travail de chiffrement/déchiffrement supplémentaire. Le service Recherche cognitive Azure ne journalise pas l’activité de chiffrement, mais vous pouvez surveiller l’accès aux clés par le biais de la journalisation du coffre de clés. Nous vous recommandons d’[activer la journalisation](../key-vault/general/logging.md) dans le cadre de la configuration du coffre de clés.
+Avec le chiffrement à l’aide de clés gérées par le client, vous remarquerez une latence pour l’indexation et les requêtes en raison du travail de chiffrement/déchiffrement supplémentaire. Le service Recherche cognitive Azure ne journalise pas l’activité de chiffrement, mais vous pouvez surveiller l’accès aux clés par le biais de la journalisation du coffre de clés. Nous vous recommandons d’[activer la journalisation](../key-vault/general/logging.md) dans le cadre de la configuration du coffre de clés.
 
 Une rotation de clés est supposée se produire au fil du temps. Chaque fois que vous voulez opérer une rotation de clés, il est important de suivre cette séquence :
 

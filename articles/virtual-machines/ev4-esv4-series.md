@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 6/8/2020
-ms.openlocfilehash: b8f6768ebf988ff568739c86303b52ea5b0a9234
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 38020b38ebd879bf19c243c2055e73198e9fcc7c
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018710"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96606920"
 ---
 # <a name="ev4-and-esv4-series"></a>Séries Ev4 et Esv4
 
@@ -31,10 +31,10 @@ Le stockage sur disque de données à distance est facturé séparément des mac
 
 [ACU](acu.md) : 195 - 210<br>
 [Stockage Premium](premium-storage-performance.md) : Non pris en charge<br>
-[Mise en cache du Stockage Premium](premium-storage-performance.md) : Non pris en charge<br>
+[Mise en cache du Stockage Premium](premium-storage-performance.md) : Non pris en charge<br>
 [Migration dynamique](maintenance-and-updates.md) : Pris(e) en charge<br>
 [Mises à jour avec préservation de la mémoire](maintenance-and-updates.md) : Pris(e) en charge<br>
-[Génération de machine virtuelle prise en charge](generation-2.md) : Génération 1<br>
+[Prise en charge de la génération de machine virtuelle](generation-2.md) : Génération 1<br>
 <br>
 
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Nombre max de cartes réseau|Bande passante réseau attendue (Mbits/s) |
@@ -55,10 +55,10 @@ Les tailles de la série Esv4 s’exécutent sur Intel&reg; Xeon&reg; Platinum 
 
 [ACU](acu.md) : 195-210<br>
 [Stockage Premium](premium-storage-performance.md) : Pris(e) en charge<br>
-[Mise en cache du Stockage Premium](premium-storage-performance.md) : Pris(e) en charge<br>
+[Mise en cache du Stockage Premium](premium-storage-performance.md) : Pris(e) en charge<br>
 [Migration dynamique](maintenance-and-updates.md) : Pris(e) en charge<br>
 [Mises à jour avec préservation de la mémoire](maintenance-and-updates.md) : Pris(e) en charge<br>
-[Génération de machine virtuelle prise en charge](generation-2.md) : Génération 1<br>
+[Prise en charge de la génération de machine virtuelle](generation-2.md) : Générations 1 et 2<br>
 <br>
 
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit du disque non mis en cache max. : IOPS/Mbits/s | Nombre max de cartes réseau|Bande passante réseau attendue (Mbits/s) |
@@ -71,8 +71,11 @@ Les tailles de la série Esv4 s’exécutent sur Intel&reg; Xeon&reg; Platinum 
 | Standard_E32s_v4 | 32 | 256 | Stockage distant uniquement | 32 | 51 200/768  | 8|16000 |
 | Standard_E48s_v4 | 48 | 384 | Stockage distant uniquement | 32 | 76 800/1152 | 8|24 000 |
 | Standard_E64s_v4<sup>1</sup> | 64 | 504| Stockage distant uniquement | 32 | 80 000/1 200 | 8|30000 |
+| Standard_E80is_v4 <sup>2</sup> | 80 | 504 | Stockage distant uniquement | 32 | 80 000/1 200 | 8|30000 |
 
-<sup>1</sup> [Tailles avec contraintes de cœurs disponibles](./constrained-vcpu.md).
+<sup>1</sup> [Tailles avec nombre de cœurs limité disponibles](./constrained-vcpu.md).
+
+<sup>2</sup> L’instance est isolée sur un matériel dédié à un client unique.
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

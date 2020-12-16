@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/15/2020
 ms.author: radeltch
-ms.openlocfilehash: f4693af9c29a36aad60b7b525fec024509a4d586
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: d2cc8487f9864a27c1a2b02ef6e846bc43727e27
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94958743"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608535"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-red-hat-enterprise-linux"></a>Déployer un système Scale-out SAP HANA avec le nœud de secours sur des machines virtuelles Azure à l’aide d’Azure NetApp Files sur Red Hat Enterprise Linux 
 
@@ -59,6 +59,10 @@ ms.locfileid: "94958743"
 Cet article explique comment déployer un système SAP HANA à haut niveau de disponibilité dans une configuration Scale-out avec nœud de secours sur des machines virtuelles Azure Red Hat Enterprise Linux en utilisant [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md) pour les volumes de stockage partagés.  
 
 Dans les exemples de configuration, de commandes d’installation, etc., l’instance HANA est **03** et l’ID de système HANA est **HN1**. Les exemples sont basés sur HANA 2.0 SP4 et Red Hat Enterprise Linux pour SAP 7.6. 
+
+> [!NOTE]
+> Cet article contient des références aux termes *maître* et *esclave*, termes que Microsoft n’utilise plus. Lorsque ces termes seront supprimés du logiciel, nous les supprimerons de cet article.
+
 
 Avant de commencer, reportez-vous aux notes et documents SAP suivants :
 

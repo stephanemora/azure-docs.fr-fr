@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
-ms.openlocfilehash: 7cf18e2d375d7a45c3641876b8a3ed5974882927
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 87758100299eb170a7950a1a7a2c6bd2029b27fb
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010025"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621550"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>Vérifier et corriger la configuration SAP HANA scale-out à haute disponibilité sur SLES 12 SP3 
 
@@ -45,6 +45,9 @@ Tous les tests pour SAP HANA scale-out en association avec SAP HANA System Repli
 SUSE a publié une [description détaillée de cette configuration optimisée pour les performances][sles-hana-scale-out-ha-paper].
 
 Pour connaître les types de machine virtuelle pris en charge pour SAP HANA scale-out, consultez [l’annuaire des plateformes IaaS certifiées SAP HANA][sap-hana-iaas-list].
+
+> [!NOTE]
+> Cet article contient des références aux termes *maître* et *esclave*, termes que Microsoft n’utilise plus. Lorsque ces termes seront supprimés du logiciel, nous les supprimerons de cet article.
 
 Nous avons rencontré un problème technique en associant SAP HANA scale-out à plusieurs sous-réseaux et cartes réseau virtuelles, et pendant la configuration de HSR. Vous devez obligatoirement utiliser les derniers correctifs de SAP HANA 2.0 qui corrigent ce problème. Les versions suivantes de SAP HANA sont prises en charge : 
 

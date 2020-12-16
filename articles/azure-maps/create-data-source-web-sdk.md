@@ -1,27 +1,27 @@
 ---
-title: Créer une source de données pour une carte | Microsoft Azure Maps
+title: Créer une source de données pour une carte dans Microsoft Azure Maps
 description: 'Découvrez comment créer une source de données pour une carte. En savoir plus sur les sources de données utilisées par le Kit de développement logiciel (SDK) web Azure Maps : Sources GeoJSON et mosaïques vectorielles.'
 author: rbrundritt
 ms.author: richbrun
-ms.date: 08/08/2019
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 9c82b74ffdc8672dc3d84a98a036c6083bc6c309
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: d09dddbceed773cd723897cc9730198b68be0ff7
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895917"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903613"
 ---
 # <a name="create-a-data-source"></a>Création d'une source de données
 
 Le SDK web Azure Maps stocke les données dans des sources de données. L’utilisation de sources de données optimise les opérations sur les données pour l’interrogation et le rendu. Il existe actuellement deux types de sources de données :
 
-- **Source GeoJSON**  : gère les données d’emplacement brutes au format GeoJSON localement. Convient aux petits et moyens jeux de données (jusqu’à des centaines de milliers de formes).
-- **Source de mosaïque vectorielle**  : charge des données formatées sous forme de mosaïques vectorielles pour la vue actuelle de la carte, en fonction du système de mosaïque des cartes. Convient aux jeux de données volumineux ou énormes (des millions ou milliards de formes).
+- **Source GeoJSON** : gère les données d’emplacement brutes au format GeoJSON localement. Convient aux petits et moyens jeux de données (jusqu’à des centaines de milliers de formes).
+- **Source de mosaïque vectorielle** : charge des données formatées sous forme de mosaïques vectorielles pour la vue actuelle de la carte, en fonction du système de mosaïque des cartes. Convient aux jeux de données volumineux ou énormes (des millions ou milliards de formes).
 
 ## <a name="geojson-data-source"></a>Source de données GeoJSON
 
@@ -74,7 +74,7 @@ dataSource.setShapes(geoJsonData);
 
 ## <a name="vector-tile-source"></a>Source de mosaïque vectorielle
 
-Une source de vignettes vectorielles décrit comment accéder à un calque de vignettes vectorielles. Utilisez la classe [VectorTileSource](/javascript/api/azure-maps-control/atlas.source.vectortilesource) pour instancier une source de vignettes vectorielles. Les calques de vignettes vectorielles sont similaires aux calques de vignettes, mais ils ne sont pas identiques. Un calque de vignettes est une image raster. Une couche de vignette vectorielle est un fichier compressé au format **PBF** . Ce fichier compressé contient les données d’une carte vectorielle et un ou plusieurs calques. Le fichier peut être rendu et stylisé sur le client, en fonction du style de chaque calque. Les données d’une mosaïque vectorielle contiennent des caractéristiques géographiques sous forme de points, de lignes et de polygones. Il y a plusieurs avantages à utiliser les calques de vignettes vectorielles au lieu des calques de vignettes raster :
+Une source de vignettes vectorielles décrit comment accéder à un calque de vignettes vectorielles. Utilisez la classe [VectorTileSource](/javascript/api/azure-maps-control/atlas.source.vectortilesource) pour instancier une source de vignettes vectorielles. Les calques de vignettes vectorielles sont similaires aux calques de vignettes, mais ils ne sont pas identiques. Un calque de vignettes est une image raster. Une couche de vignette vectorielle est un fichier compressé au format **PBF**. Ce fichier compressé contient les données d’une carte vectorielle et un ou plusieurs calques. Le fichier peut être rendu et stylisé sur le client, en fonction du style de chaque calque. Les données d’une mosaïque vectorielle contiennent des caractéristiques géographiques sous forme de points, de lignes et de polygones. Il y a plusieurs avantages à utiliser les calques de vignettes vectorielles au lieu des calques de vignettes raster :
 
  - La taille de fichier d’une mosaïque vectorielle est généralement nettement inférieure à celle d’une mosaïque raster équivalente. Ainsi, la bande passante utilisée est inférieure. Cela signifie une latence plus faible, une carte plus rapide et une meilleure expérience utilisateur.
  - Les vignettes vectorielles étant rendues sur le client, elles peuvent s’adapter à la résolution de l’appareil où elles sont affichées. Par conséquent, les cartes rendues apparaissent mieux définies, avec des étiquettes bien nettes.
@@ -86,7 +86,7 @@ Azure Maps est conforme à la [spécification Mapbox Vector Tile](https://github
 - Vignettes routières : [Documentation](/rest/api/maps/renderv2/getmaptilepreview) | [Détail du format de données](https://developer.tomtom.com/maps-api/maps-api-documentation-vector/tile)
 - Incidents de circulation : [Documentation](/rest/api/maps/traffic/gettrafficincidenttile) | [Détail du format de données](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-incidents/vector-incident-tiles)
 - Débit de circulation : [Documentation](/rest/api/maps/traffic/gettrafficflowtile) | [Détail du format de données](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-flow/vector-flow-tiles)
-- Azure Maps Creator permet également de créer des vignettes vectorielles personnalisées et d’y accéder par le biais du [Rendu de vignette v2](/rest/api/maps/renderv2/getmaptilepreview).
+- Azure Maps Creator (préversion) permet également de créer des vignettes vectorielles personnalisées et d’y accéder par le biais de [Get Tile Render V2](/rest/api/maps/renderv2/getmaptilepreview).
 
 > [!TIP]
 > Si vous utilisez des vignettes d’images vectorielles ou raster issues du service de rendu Azure Maps avec le kit SDK web, vous pouvez remplacer `atlas.microsoft.com` par l’espace réservé `{azMapsDomain}`. Cet espace réservé sera remplacé par le domaine de la carte et ajoutera automatiquement les mêmes informations d’authentification. L’authentification auprès du service de rendu avec Azure Active Directory s’en trouve grandement simplifiée.

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 10/22/2020
 ms.author: bwren
-ms.openlocfilehash: 3c3a20d8401affc519e118c7f2295339990e7dee
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 69fda41249ced8518e430af8305c0cb10822b214
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186505"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96559063"
 ---
 # <a name="azure-monitor-logs-overview"></a>Vue d’ensemble de Journaux d’activité Azure Monitor
 Les journaux Azure Monitor sont une fonctionnalité Azure Monitor qui collecte et organise les données de performances et de journal issues de [ressources supervisées](../monitor-reference.md). Les données provenant de différentes sources, telles que les [journaux de plateforme](platform-logs-overview.md) issus des services Azure, les données de journal et de performances issues des [agents de machines virtuelles](agents-overview.md) et les données d’utilisation et de performances issues des [applications](../app/app-insights-overview.md) peuvent être regroupées dans un espace de travail unique pour pouvoir être analysées ensemble à l’aide d’un langage de requête sophistiqué à même d’analyser rapidement des millions d’enregistrements. Vous pouvez effectuer une requête simple qui récupère simplement un ensemble spécifique d’enregistrements ou effectuer une analyse de données sophistiquée pour identifier les modèles critiques dans vos données de supervision. Utilisez les requêtes de journal et leurs résultats de manière interactive avec Log Analytics, utilisez-les dans des règles d’alerte pour être notifié des problèmes de manière proactive ou visualisez leurs résultats dans un classeur ou un tableau de bord.

@@ -5,13 +5,13 @@ ms.service: data-share
 author: jifems
 ms.author: jife
 ms.topic: conceptual
-ms.date: 11/12/2020
-ms.openlocfilehash: 6289395b5d508de8da3e5c8c89caebb4b0e9b817
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.date: 12/7/2020
+ms.openlocfilehash: 566fd2c9c31933420769f7200a0434cc53f8c2f3
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592428"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96853138"
 ---
 # <a name="supported-data-stores-in-azure-data-share"></a>Magasins de données pris en charge dans Azure Data Share
 
@@ -30,7 +30,7 @@ Le tableau ci-dessous détaille les sources de données prises en charge pour Az
 | Azure Data Lake Storage Gen2 |✓ |✓ ||
 | Azure SQL Database |✓ | | |
 | Azure Synapse Analytics (anciennement Azure SQL DW) |✓ | | |
-| Pool SQL Azure Synapse Analytics (espace de travail) | Version préliminaire publique | | |
+| Pool SQL dédié Azure Synapse Analytics (espace de travail) |✓ | | |
 | Explorateur de données Azure | | |✓ |
 
 ## <a name="data-store-support-matrix"></a>Matrice de prise en charge des magasins de données
@@ -39,14 +39,14 @@ Azure Data Share offre une flexibilité aux consommateurs de données lorsqu’i
 
 Le tableau ci-dessous détaille les différentes combinaisons et choix à la disposition des consommateurs de données, lors de l’acceptation et de la configuration de leur partage de données. Pour plus d’informations sur la configuration des mappages de jeu de données, consultez le [Guide pratique pour configurer les mappages de jeu de données](how-to-configure-mapping.md).
 
-| Banque de données | Stockage Blob Azure | Azure Data Lake Storage Gen1 | Azure Data Lake Storage Gen2 | Azure SQL Database | Azure Synapse Analytics (anciennement Azure SQL DW) | Pool SQL Azure Synapse Analytics (espace de travail) | Explorateur de données Azure
+| Banque de données | Stockage Blob Azure | Azure Data Lake Storage Gen1 | Azure Data Lake Storage Gen2 | Azure SQL Database | Azure Synapse Analytics (anciennement Azure SQL DW) | Pool SQL dédié Azure Synapse Analytics (espace de travail) | Explorateur de données Azure
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- | :--- |
 | Stockage Blob Azure | ✓ || ✓ |||
 | Azure Data Lake Storage Gen1 | ✓ | | ✓ |||
 | Azure Data Lake Storage Gen2 | ✓ | | ✓ |||
 | Azure SQL Database | ✓ | | ✓ | ✓ | ✓ | ✓ ||
 | Azure Synapse Analytics (anciennement Azure SQL DW) | ✓ | | ✓ | ✓ | ✓ | ✓ ||
-| Pool SQL Azure Synapse Analytics (espace de travail) | ✓ | | ✓ | ✓ | ✓ | ✓ ||
+| Pool SQL dédié Azure Synapse Analytics (espace de travail) | ✓ | | ✓ | ✓ | ✓ | ✓ ||
 | Explorateur de données Azure ||||||| ✓ |
 
 ## <a name="share-from-a-storage-account"></a>Partager à partir d’un compte de stockage

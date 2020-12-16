@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: a8180088e5a0db613d5f04106fe102f58594bf72
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 99246ecee27f7ded693e2a797f8e98480e350983
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94655049"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96854527"
 ---
 # <a name="azure-spring-cloud-faq"></a>Questions fréquentes sur Azure Spring Cloud
 
@@ -37,7 +37,7 @@ La sécurité et la confidentialité figurent parmi les principales priorités p
 
 ### <a name="in-which-regions-is-azure-spring-cloud-available"></a>Dans quelles régions Azure Spring Cloud est-il disponible ?
 
-USA Est, USA Est 2, USA Centre, USA Centre Sud, USA Ouest 2, Europe Ouest, Europe Nord, Royaume-Uni Sud, Asie Sud-Est et Australie Est.
+USA Est, USA Est 2, USA Centre, USA Centre Sud, USA Centre Nord, USA Ouest, USA Ouest 2, Europe Ouest, Europe Nord, Royaume-Uni Sud, Asie Sud-Est, Australie Est, Canada Centre et Émirats arabes unis Nord.
 
 ### <a name="is-any-customer-data-stored-outside-of-the-specified-region"></a>Les données client sont-elles stockées en dehors de la région spécifiée ?
 
@@ -69,6 +69,23 @@ Pour connaître le moyen le plus rapide de se lancer avec Azure Spring Cloud, su
 ### <a name="what-java-runtime-does-azure-spring-cloud-support"></a>Quel runtime Java est pris en charge par Azure Spring Cloud ?
 
 Azure Spring Cloud prend en charge Java 8 et 11. Voir [Runtime Java et versions de système d’exploitation](#java-runtime-and-os-versions)
+
+### <a name="is-spring-boot-24x-supported"></a>Spring Boot 2.4.x est-il pris en charge ?
+Nous avons identifié un problème avec Spring Boot 2.4 ; nous travaillons actuellement à sa résolution avec la communauté Spring. En attendant, veuillez inclure ces deux dépendances pour activer l’authentification TLS entre vos applications et Eureka.
+
+```xml
+<dependency> 
+    <groupId>com.sun.jersey</groupId>
+    <artifactId>jersey-client</artifactId>
+    <version>1.19.4</version>
+</dependency>
+<dependency>
+    <groupId>com.sun.jersey.contribs</groupId>
+    <artifactId>jersey-apache-client4</artifactId>
+    <version>1.19.4</version>
+</dependency>
+```
+
 ::: zone-end
 
 ### <a name="where-can-i-view-my-spring-cloud-application-logs-and-metrics"></a>Où puis-je voir les journaux et les métriques de mon application Spring Cloud ?

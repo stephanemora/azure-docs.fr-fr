@@ -1,22 +1,27 @@
 ---
-title: Couverture météo dans Microsoft Azure Maps
-description: Découvrez la couverture météo dans Microsoft Azure Maps.
+title: Couverture du service Météo (préversion) de Microsoft Azure Maps
+description: Découvrez le concept de couverture dans le service Météo (préversion) de Microsoft Azure Maps.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 09/17/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 ms.custom: references_regions
 manager: philmea
-ms.openlocfilehash: 61e529e44f48343027457f18ba503e4bbb5930f1
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 6c4e9eb765a72b7a0b495f81a954b484ef6aa2b7
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896614"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905483"
 ---
-# <a name="azure-maps-weather-coverage"></a>Couverture météo Azure Maps
+# <a name="azure-maps-weather-services-preview-coverage"></a>Couverture du service Météo Azure Maps (préversion)
+
+> [!IMPORTANT]
+> Le service Météo d’Azure Maps est disponible en préversion publique.
+> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 Cet article fournit des informations sur les [services météo](/rest/api/maps/weather) Azure Maps. Les services de données météorologiques Azure Maps retournent des détails tels que les vignettes radar, les conditions météorologiques actuelles, les prévisions météorologiques et la météo le long d’un itinéraire.
 

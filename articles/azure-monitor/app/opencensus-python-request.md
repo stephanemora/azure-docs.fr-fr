@@ -6,18 +6,21 @@ author: lzchen
 ms.author: lechen
 ms.date: 10/15/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 6cf0998eb4d769f2d1a7891892a5a462cd907e32
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 4b88550ad489607bb66eb737067190d45a466a43
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422499"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96607073"
 ---
 # <a name="track-incoming-requests-with-opencensus-python"></a>Suivre les requêtes entrantes avec OpenCensus Python
 
 Les données de requêtes entrantes sont collectées à l’aide d’OpenCensus Python et de ses diverses intégrations. Suivez les données des requêtes entrantes envoyées à vos applications Web basées sur les infrastructures Web populaires `django`, `flask` et `pyramid`. Ces données sont ensuite envoyées à Application Insights dans Azure Monitor, en tant que télémétrie de `requests`.
 
 Commencez par instrumenter votre application Python avec le dernier [kit SDK OpenCensus Python](./opencensus-python.md).
+
+> [!NOTE]
+> Cet article contient des références au terme *liste noire*, un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.
 
 ## <a name="tracking-django-applications"></a>Suivi des applications Django
 

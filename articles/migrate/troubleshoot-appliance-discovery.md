@@ -1,17 +1,17 @@
 ---
 title: Résoudre les problèmes de déploiement et de découverte d’appliance Azure Migrate
-description: Obtenir de l’aide pour le déploiement de l’appliance Azure Migrate et la découverte des machines.
-author: musa-57
+description: Obtenir de l’aide sur le déploiement d’appliance et la découverte d’ordinateurs.
+author: vineetvikram
+ms.author: vivikram
 ms.manager: abhemraj
-ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 0d4630cad94a30e0dd53785c512e452d7b4a7d38
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 26bb61e0c5a473a56c57391b53009419453956fd
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96494441"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753414"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Résoudre les problèmes d’appliance et de découverte Azure Migrate
 

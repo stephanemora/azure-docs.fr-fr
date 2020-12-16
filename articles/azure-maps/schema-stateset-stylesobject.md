@@ -3,21 +3,25 @@ title: Guide de référence du schéma StylesObject pour les cartes Azure dynami
 description: Guide de référence du schéma et de la syntaxe StylesObject pour les cartes Azure dynamiques.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 11/20/2020
+ms.date: 12/07/2020
 ms.topic: reference
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: f6bc4c62febf24dee790ac6136b1661426d4d619
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 08379e66c97d34eea53410190475e90e156a58e2
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95536946"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903341"
 ---
 # <a name="stylesobject-schema-reference-guide-for-dynamic-maps"></a>Guide de référence du schéma StylesObject pour les cartes dynamiques
 
- `StylesObject` est un tableau de `StyleObject` représentant des styles de stateset. Utilisez le [service État de la fonctionnalité](/rest/api/maps/featurestate) d’Azure Maps Creator pour appliquer vos styles de stateset à des caractéristiques de données de cartes d’intérieur. Une fois que vous avez créé vos styles de stateset et que vous les avez associés à des caractéristiques de cartes d’intérieur, vous pouvez les utiliser pour créer des cartes d’intérieur dynamiques. Pour plus d’informations sur la création de cartes d’intérieur dynamiques, consultez [Implémenter des styles dynamiques pour les cartes d’intérieur du Créateur](indoor-map-dynamic-styling.md).
+> [!IMPORTANT]
+> Les services Azure Maps Creator sont disponibles en préversion publique.
+> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+ `StylesObject` est un tableau de `StyleObject` représentant des styles de stateset. Utilisez le [service État de la fonctionnalité](/rest/api/maps/featurestate) d’Azure Maps Creator (préversion) pour appliquer vos styles StateSet à des caractéristiques de données de cartes d’intérieur. Une fois que vous avez créé vos styles de stateset et que vous les avez associés à des caractéristiques de cartes d’intérieur, vous pouvez les utiliser pour créer des cartes d’intérieur dynamiques. Pour plus d’informations sur la création de cartes d’intérieur dynamiques, consultez [Implémenter des styles dynamiques pour les cartes d’intérieur Creator](indoor-map-dynamic-styling.md).
 
 ## <a name="styleobject"></a>StyleObject
 

@@ -1,14 +1,17 @@
 ---
 title: Questions sur la découverte, l’évaluation et l’analyse des dépendances dans Azure Migrate
 description: Obtenez des réponses aux questions courantes sur la découverte, l’évaluation et l’analyse des dépendances dans Azure Migrate.
+author: vineetvikram
+ms.author: vivikram
+ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: cb1696c521f436280177f0263abd66aa2bfed7dc
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 4531d68c2fbd0698c33d70a75bb82ac9c7f52f49
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92312933"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752241"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Découverte, évaluation et analyse des dépendances - Questions courantes
 
@@ -54,7 +57,7 @@ La note de confiance pour les évaluations « En fonction des performances » 
 
 - Vous n’avez pas profilé votre environnement pour la durée pour laquelle vous créez l’évaluation. Par exemple, si vous créez une évaluation avec une durée des performances définie sur une semaine, vous devez attendre au moins une semaine après le démarrage de la découverte pour que tous les points de données soient recueillis. Si vous ne pouvez pas attendre pendant cette durée, définissez la durée des performances sur une période plus courte et « recalculez » l’évaluation.
  
-- Server Assessment ne peut pas collecter les données de performances pour une partie ou la totalité des machines virtuelles dans la période d’évaluation. Vérifiez que les machines virtuelles étaient sous tension pendant la durée de l’évaluation et que les connexions sortantes sur les ports 443 sont autorisées. Pour les machines virtuelles Hyper-V, si la mémoire dynamique est activée, des compteurs de mémoire font défaut, aboutissant à une note de confiance faible. « Recalculez » l’évaluation pour qu’elle reflète l’évolution récente de la note de confiance. 
+- Server Assessment ne peut pas collecter les données de performances pour une partie ou la totalité des machines virtuelles pendant la période d’évaluation. Vérifiez que les machines virtuelles étaient sous tension pendant la durée de l’évaluation et que les connexions sortantes sur les ports 443 sont autorisées. Pour les machines virtuelles Hyper-V, si la mémoire dynamique est activée, des compteurs de mémoire font défaut, aboutissant à une note de confiance faible. « Recalculez » l’évaluation pour qu’elle reflète l’évolution récente de la note de confiance. 
 
 - Peu de machines virtuelles ont été créées après que la découverte dans Évaluation de serveur a commencé. Par exemple, si vous créez une évaluation de l’historique des performances du mois dernier, mais si la création de quelques machines virtuelles dans l’environnement ne remonte qu’à une semaine. Dans ce cas, les données de performances pour les nouvelles machines virtuelles ne seront pas disponibles pour toute la durée et la note de confiance sera faible.
 

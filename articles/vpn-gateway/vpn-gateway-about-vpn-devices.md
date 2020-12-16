@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 09/01/2020
+ms.date: 12/02/2020
 ms.author: yushwang
-ms.openlocfilehash: 92f589e6a587febc10a4b407fe3616aca42d27d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae498b39a421db19f0d4e0a8daca58730321b58c
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89318945"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546809"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>À propos des périphériques VPN et des paramètres IPsec/IKE pour les connexions de passerelle VPN site à site
 
@@ -112,13 +112,11 @@ Après avoir téléchargé l’exemple de configuration de périphérique VPN fo
 | &lt;SP_AzureGatewayIpAddress&gt; |Ces informations sont propres à votre réseau virtuel et figurent dans le portail de gestion sous l’intitulé **Adresse IP de la passerelle**. |
 | &lt;SP_PresharedKey&gt; |Ces informations sont propres à votre réseau virtuel et figurent dans le Portail de gestion sous l’intitulé Gérer la clé. |
 
-## <a name="ipsecike-parameters"></a><a name="ipsec"></a>Paramètres IPsec/IKE
+## <a name="default-ipsecike-parameters"></a><a name="ipsec"></a>Paramètres IPsec/IKE par défaut
 
-> [!IMPORTANT]
-> 1. Les tableaux ci-dessous répertorient les combinaisons d’algorithmes et de paramètres utilisées par les passerelles VPN Azure dans la configuration par défaut. Pour les passerelles VPN basées sur le routage créées à l’aide du modèle de déploiement Resource Manager, vous pouvez spécifier une stratégie personnalisée sur chaque connexion. Reportez-vous à [Configurer une stratégie IPsec/IKE](vpn-gateway-ipsecikepolicy-rm-powershell.md) pour obtenir des instructions détaillées.
->
-> 2. En outre, vous devez fixer la **taille maximale de segment** du protocole TCP à **1350**. Dans le cas où vos appareils VPN ne prendraient pas en charge le réglage de la taille maximale de segment, vous pouvez à la place définir l’**unité de transmission maximale** dans l’interface de tunnel sur **1400** octets.
->
+Les tableaux ci-dessous répertorient les combinaisons d’algorithmes et de paramètres utilisées par les passerelles VPN Azure dans la configuration par défaut (**stratégies par défaut**). Pour les passerelles VPN basées sur le routage créées à l’aide du modèle de déploiement Resource Manager, vous pouvez spécifier une stratégie personnalisée sur chaque connexion. Reportez-vous à [Configurer une stratégie IPsec/IKE](vpn-gateway-ipsecikepolicy-rm-powershell.md) pour obtenir des instructions détaillées.
+
+En outre, vous devez fixer la **taille maximale de segment** du protocole TCP à **1350**. Dans le cas où vos appareils VPN ne prendraient pas en charge le réglage de la taille maximale de segment, vous pouvez à la place définir l’**unité de transmission maximale** dans l’interface de tunnel sur **1400** octets.
 
 Dans les tableaux suivants :
 

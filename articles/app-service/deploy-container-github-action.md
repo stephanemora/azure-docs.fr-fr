@@ -3,16 +3,16 @@ title: Intégration continue/Déploiement continu d’un conteneur personnalisé
 description: Découvrez comment utiliser GitHub Actions pour déployer votre conteneur Linux personnalisé sur App Service à partir d’un pipeline CI/CD.
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2020
+ms.date: 12/04/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: github-actions-azure
-ms.openlocfilehash: 068fc9dcb9a4f4a62c2dd879bf8144097452f1e0
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 76d82695f0f43638e840589c52d6713ae36c1608
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099026"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96607804"
 ---
 # <a name="deploy-a-custom-container-to-app-service-using-github-actions"></a>Déployer un conteneur personnalisé sur App Service à l’aide de GitHub Actions
 
@@ -31,10 +31,10 @@ Pour un workflow de conteneur Azure App Service, le fichier comporte trois secti
 ## <a name="prerequisites"></a>Prérequis
 
 - Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Un compte GitHub. Si vous n’en avez pas, inscrivez-vous [gratuitement](https://github.com/join).  
-- Un registre de conteneurs fonctionnel et l’application Azure App Service pour les conteneurs. Cet exemple utilise Azure Container Registry. 
+- Un compte GitHub. Si vous n’en avez pas, inscrivez-vous [gratuitement](https://github.com/join). Vous devez disposer du code dans un référentiel GitHub pour le déployer sur Azure App Service. 
+- Un registre de conteneurs fonctionnel et l’application Azure App Service pour les conteneurs. Cet exemple utilise Azure Container Registry. Veillez à effectuer le déploiement complet sur Azure App Service pour les conteneurs. Contrairement aux applications web standard, les applications web pour conteneurs n’ont pas de page d’arrivée par défaut. Publiez le conteneur pour avoir un exemple fonctionnel.
     - [Découvrez comment créer une application Node.js conteneurisée avec Docker, envoyer (push) l’image conteneur à un registre, puis déployer l’image sur Azure App Service.](/azure/developer/javascript/tutorial-vscode-docker-node-01)
-
+        
 ## <a name="generate-deployment-credentials"></a>Générer les informations d’identification du déploiement
 
 La méthode recommandée pour l’authentification auprès d’Azure App Service pour GitHub Actions consiste à utiliser un profil de publication. Vous pouvez également vous authentifier avec un principal de service, mais le processus requiert des étapes supplémentaires. 
@@ -47,10 +47,10 @@ Un profil de publication est une information d’identification au niveau de l�
 
 1. Accédez à votre service d’application dans le portail Azure. 
 
-1. Dans la page **Vue d’ensemble** , sélectionnez **Obtenir le profil de publication**.
+1. Dans la page **Vue d’ensemble**, sélectionnez **Obtenir le profil de publication**.
 
     > [!NOTE]
-    > À compter d’octobre 2020, les applications web Linux ont besoin que le paramètre d’application `WEBSITE_WEBDEPLOY_USE_SCM` soit défini sur `true` **avant de télécharger le fichier**. Cette condition sera supprimée ultérieurement.
+    > À compter d’octobre 2020, les applications web Linux ont besoin que le paramètre d’application `WEBSITE_WEBDEPLOY_USE_SCM` soit défini sur `true` **avant de télécharger le fichier**. Cette condition sera supprimée ultérieurement. Pour savoir comment configurer les paramètres courants d’une application web, consultez [Configurer une application App Service dans le portail Azure](/azure/app-service/configure-common).  
 
 1. Enregistrez le fichier téléchargé. Vous utiliserez le contenu du fichier pour créer un secret GitHub.
 
@@ -80,21 +80,6 @@ Dans l’exemple, remplacez les espaces réservés par votre ID d’abonnement, 
 > Il est toujours conseillé d’accorder un accès minimal. L’étendue dans l’exemple précédent est limitée à l’application App Service spécifique, et non à l’ensemble du groupe de ressources.
 
 ---
-
-## <a name="configure-the-github-secret"></a>Configurer le secret GitHub
-
-Dans [GitHub](https://github.com/), parcourez votre référentiel, sélectionnez **Paramètres > Secrets > Ajouter un nouveau secret**.
-
-Collez le contenu de la sortie JSON comme valeur de la variable secrète. Nommez le secret comme `AZURE_CREDENTIALS`.
-
-Quand vous configurez le fichier de flux de travail ultérieurement, vous utilisez le secret pour l’entrée `creds` de l’action de connexion Azure. Par exemple :
-
-```yaml
-- uses: azure/login@v1
-  with:
-    creds: ${{ secrets.AZURE_CREDENTIALS }}
-```
-
 ## <a name="configure-the-github-secret-for-authentication"></a>Configurer le secret GitHub pour l’authentification
 
 # <a name="publish-profile"></a>[Profil de publication](#tab/publish-profile)
@@ -129,9 +114,9 @@ Quand vous configurez le fichier de flux de travail ultérieurement, vous utilis
 
 ## <a name="configure-github-secrets-for-your-registry"></a>Configurer des secrets GitHub pour votre registre
 
-Définissez les secrets à utiliser grâce à l’action Docker Login. 
+Définissez les secrets à utiliser grâce à l’action Docker Login. L’exemple de ce document utilise Azure Container Registry pour le registre de conteneurs. 
 
-1. Accédez à votre conteneur dans le portail Azure ou dans Docker et copiez le nom d’utilisateur et le mot de passe. 
+1. Accédez à votre conteneur dans le portail Azure ou dans Docker et copiez le nom d’utilisateur et le mot de passe. Vous pouvez trouver le nom d’utilisateur et le mot de passe d’Azure Container Registry sur le portail Azure sous **Paramètres** > **Clés d’accès** pour votre registre. 
 
 2. Définissez un nouveau secret pour le nom d’utilisateur du registre nommé `REGISTRY_USERNAME`. 
 
@@ -163,7 +148,7 @@ jobs:
         docker push mycontainer.azurecr.io/myapp:${{ github.sha }}     
 ```
 
-Vous pouvez également utiliser [Docker Login](https://github.com/azure/docker-login) pour vous connecter à plusieurs registres de conteneurs en même temps. Cet exemple comprend deux nouveaux secrets GitHub pour l’authentification avec docker.io.
+Vous pouvez également utiliser [Docker Login](https://github.com/azure/docker-login) pour vous connecter à plusieurs registres de conteneurs en même temps. Cet exemple comprend deux nouveaux secrets GitHub pour l’authentification avec docker.io. L’exemple suppose qu’il existe un Dockerfile au niveau racine du registre. 
 
 ```yml
 name: Linux Container Node Workflow
@@ -248,7 +233,7 @@ jobs:
     steps:
     # checkout the repo
     - name: 'Checkout GitHub Action' 
-      uses: actions/checkout@master
+      uses: actions/checkout@main
     
     - name: 'Login via Azure CLI'
       uses: azure/login@v1

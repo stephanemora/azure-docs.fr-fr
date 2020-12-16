@@ -1,20 +1,20 @@
 ---
 title: Définir plusieurs instances d’une propriété
-description: Utilisez l’opération de copie dans un modèle Azure Resource Manager pour effectuer une itération à plusieurs reprises lors de la création d’une propriété sur une ressource.
+description: Utilisez l’opération de copie dans un modèle Azure Resource Manager (modèle ARM) pour effectuer une itération à plusieurs reprises lors de la création d’une propriété sur une ressource.
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.openlocfilehash: f199872d5bb8a0333bf7bedb9501a6ca1b884691
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 446a303104e6b538129cd22d1f1fbbba6282b2ee
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90605241"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905925"
 ---
 # <a name="property-iteration-in-arm-templates"></a>Itération de propriété dans les modèles ARM
 
-Cet article explique comment créer plusieurs instances d’une propriété dans votre modèle Azure Resource Manager (modèle ARM). En ajoutant l’élément **copier** dans la section Propriétés d’une ressource de votre modèle, vous pouvez définir dynamiquement le nombre d’éléments pour une propriété pendant le déploiement. Cela vous évite également de répéter la syntaxe du modèle.
+Cet article explique comment créer plusieurs instances d’une propriété dans votre modèle Azure Resource Manager (modèle ARM). En ajoutant l’élément `copy` dans la section Propriétés d’une ressource de votre modèle, vous pouvez définir dynamiquement le nombre d’éléments pour une propriété pendant le déploiement. Cela vous évite également de répéter la syntaxe du modèle.
 
-Vous pouvez utiliser la copie seulement avec des ressources de plus haut niveau, même lors de l’application de la copie à une propriété. Pour plus d’informations sur le remplacement d’une ressource enfant par une ressource de plus haut niveau, consultez [Itération pour une ressource enfant](copy-resources.md#iteration-for-a-child-resource).
+Vous pouvez utiliser `copy` uniquement avec des ressources de plus haut niveau, même quand vous appliquez `copy` à une propriété. Pour plus d’informations sur le remplacement d’une ressource enfant par une ressource de plus haut niveau, consultez [Itération pour une ressource enfant](copy-resources.md#iteration-for-a-child-resource).
 
 Vous pouvez également utiliser l’élément copy avec les éléments [resources](copy-resources.md), [variables](copy-variables.md) et [outputs](copy-outputs.md).
 
@@ -32,11 +32,11 @@ L’élément copier utilise le format général suivant :
 ]
 ```
 
-Pour **name**, indiquez le nom de la propriété de ressource que vous souhaitez créer.
+Pour `name`, indiquez le nom de la propriété de ressource que vous souhaitez créer.
 
-La propriété **count** spécifie le nombre d’itérations que vous souhaitez pour la propriété.
+La propriété `count` spécifie le nombre d’itérations que vous souhaitez pour la propriété.
 
-La propriété **input** spécifie les propriétés que vous souhaitez répéter. Vous créez un tableau d’éléments construits à partir de la valeur de la propriété **input**.
+La propriété `input` spécifie les propriétés que vous souhaitez répéter. Vous créez un tableau d’éléments construits à partir de la valeur de la propriété `input`.
 
 ## <a name="copy-limits"></a>Limites de copie
 
@@ -53,7 +53,7 @@ Les versions antérieures de PowerShell, de l’interface CLI et de l’API REST
 
 ## <a name="property-iteration"></a>Itération de propriété
 
-L’exemple suivant montre comment appliquer `copy` à la propriété dataDisks sur une machine virtuelle :
+L’exemple suivant montre comment appliquer `copy` à la propriété `dataDisks` sur une machine virtuelle :
 
 ```json
 {
@@ -97,7 +97,7 @@ L’exemple suivant montre comment appliquer `copy` à la propriété dataDisks 
 }
 ```
 
-Notez que, lorsque vous utilisez `copyIndex` à l’intérieur d’une itération de propriété, vous devez fournir le nom de l’itération. L’itération de propriété prend également en charge un argument de contrepartie. La contrepartie doit venir après le nom de l’itération, par exemple copyIndex('dataDisks', 1).
+Notez que, lorsque vous utilisez `copyIndex` à l’intérieur d’une itération de propriété, vous devez fournir le nom de l’itération. L’itération de propriété prend également en charge un argument de contrepartie. L’argument offset doit venir après le nom de l’itération, par exemple `copyIndex('dataDisks', 1)`.
 
 Le Gestionnaire des ressources développe le tableau `copy` durant le déploiement. Le nom du tableau devient celui de la propriété. Les valeurs d’entrée deviennent les propriétés de l’objet. Le modèle déployé devient :
 
@@ -188,7 +188,7 @@ L’exemple de modèle suivant crée un groupe de basculement pour les bases de 
 }
 ```
 
-L'élément copy est un tableau. Vous pouvez donc spécifier plusieurs propriétés pour la ressource.
+L’élément `copy` est un tableau. Vous pouvez donc spécifier plusieurs propriétés pour la ressource.
 
 ```json
 {
@@ -260,11 +260,10 @@ L’exemple suivant montre un scénario courant pour la création de plusieurs v
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour suivre un tutoriel, consultez [Tutoriel : Créer plusieurs instances de ressource à l’aide de modèles ARM](template-tutorial-create-multiple-instances.md).
+* Pour suivre un tutoriel, consultez [Tutoriel : Créer plusieurs instances de ressources grâce à des modèles ARM](template-tutorial-create-multiple-instances.md).
 * Pour connaître les autres utilisations de l’élément copy, consultez :
   * [Itération de ressource dans les modèles ARM](copy-resources.md)
   * [Itération de variable dans les modèles ARM](copy-variables.md)
   * [Itération de sortie dans les modèles ARM](copy-outputs.md)
-* Pour en savoir plus sur les sections d’un modèle, consultez [Création de modèles ARM](template-syntax.md).
-* Pour savoir comment déployer votre modèle, consultez [Déployer une application avec un modèle ARM](deploy-powershell.md).
-
+* Pour plus d’informations sur les différentes sections d’un modèle, consultez [Présentation de la structure et de la syntaxe des modèles ARM](template-syntax.md).
+* Pour savoir comment déployer votre modèle, consultez [Déployer des ressources avec des modèles ARM et Azure PowerShell](deploy-powershell.md).

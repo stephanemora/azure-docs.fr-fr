@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 10/20/2020
+ms.date: 12/01/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 65bd5a89d132a575817480d0609109a3f379e969
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: f0cb7d4ebe428da4a370433b3e90a829f30489db
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94833960"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512203"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Forum aux questions (FAQ) sur l’application Microsoft Authenticator
 
@@ -32,6 +32,14 @@ L’application Microsoft Authenticator a remplacé l’application Azure Authen
 **Q** : Le fait d’inscrire un appareil signifie-t-il que l’entreprise ou le service obtiennent l’accès à cet appareil ?
 
 **R** : L’inscription d’un appareil permet à celui-ci d’accéder aux services de votre organisation, mais ne permet pas à votre organisation d’accéder à l’appareil.
+
+## <a name="too-many-app-permissions"></a>Trop d’autorisations d’application
+
+**Q** : Pourquoi l’application demande-t-elle autant d’autorisations ?
+
+**R** : Voici la liste complète des autorisations qui peuvent être demandées ainsi que la façon dont elles sont utilisées par l’application. Les autorisations présentées dépendent du type de téléphone que vous utilisez.
+
+- **Emplacement**. Parfois, votre organisation souhaite connaître votre emplacement avant de vous permettre d’accéder à certaines ressources. L’application demande cette autorisation uniquement si votre organisation a mis en place une stratégie nécessitant un emplacement. 
 
 ### <a name="legacy-apns-support-deprecated"></a>Prise en charge héritée d’APNs déconseillée
 

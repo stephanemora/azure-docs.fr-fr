@@ -6,22 +6,22 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/24/2020
+ms.date: 12/02/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: fbc24db21ee43e3c2aef3d0164e8510a79508fd2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57cde2c5c0a1caf7ad5182cad8db72ab8aa7c908
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89658573"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96531781"
 ---
 # <a name="azure-storage-redundancy"></a>Redondance de Stockage Azure
 
-Le service Stockage Azure stocke toujours plusieurs copies de vos données afin qu’elles soient protégées contre des événements planifiés ou non, notamment des défaillances matérielles temporaires, des pannes de réseau ou de courant et des catastrophes naturelles majeures. La redondance garantit que votre compte de stockage répond aux exigences du [Contrat de niveau de service (SLA) pour Stockage Azure](https://azure.microsoft.com/support/legal/sla/storage/), même en cas de panne.
+Le service Stockage Azure stocke toujours plusieurs copies de vos données afin qu’elles soient protégées contre des événements planifiés ou non, notamment des défaillances matérielles temporaires, des pannes de réseau ou de courant et des catastrophes naturelles majeures. La redondance garantit que votre compte de stockage répond à ses objectifs de disponibilité et de durabilité, même en cas de défaillance.
 
-Lorsque vous choisissez l’option de redondance la mieux adaptée à votre scénario, réfléchissez aux compromis possibles entre, d’une part, des coûts réduits et, de l’autre, une disponibilité et une durabilité accrues. Les facteurs déterminant le choix de l’option de redondance sont les suivants :  
+Lorsque vous choisissez l’option de redondance la mieux adaptée à votre scénario, réfléchissez aux compromis possibles entre, d’une part, des coûts réduits et, de l’autre, une disponibilité accrue. Les facteurs déterminant le choix de l’option de redondance sont les suivants :  
 
 - Mode de réplication de vos données dans la région primaire
 - Réplication éventuelle de vos données vers une deuxième région géographiquement éloignée de la région primaire, afin d’offrir une protection contre des catastrophes régionales
@@ -51,7 +51,7 @@ L’option LRS est un bon choix pour les scénarios suivants :
 
 Un stockage redondant interzone (ZRS) réplique vos données de Stockage Azure de façon synchrone dans trois zones de disponibilité Azure au sein de la région primaire. Chaque zone de disponibilité est un emplacement physique distinct avec une alimentation, un refroidissement et une mise en réseau indépendants. Une réplication ZRS offre une durabilité des objets de données de Stockage Azure d’au moins 99,9999999999 % (12 neuf) sur une année donnée.
 
-Avec l’option ZRS, vos données restent accessibles pour des opérations de lecture et d’écriture, même si une zone devient indisponible. Si une zone devient indisponible, Azure procède à des mises à jour du réseau, telles que le repointage DNS. Ces mises à jour peuvent affecter votre application si vous accédez aux données avant qu’elles soient terminées. Lors de la conception d’applications pour un stockage redondant interzone, suivez les pratiques de gestion des erreurs temporaires, dont l’implémentation de stratégies de nouvelle tentative avec backoff exponentiel.
+Avec l’option ZRS, vos données restent accessibles pour des opérations de lecture et d’écriture, même si une zone devient indisponible. Si une zone devient indisponible, Azure apporte des mises à jour à la mise en réseau, telles qu’un re-pointage DNS. Ces mises à jour peuvent affecter votre application si vous accédez aux données avant qu’elles soient terminées. Lors de la conception d’applications pour un stockage redondant interzone, suivez les pratiques de gestion des erreurs temporaires, dont l’implémentation de stratégies de nouvelle tentative avec backoff exponentiel.
 
 Une demande d’écriture dans un compte de stockage utilisant une réplication ZRS se produit de façon synchrone. L’opération d’écriture ne retourne un indicateur de réussite que lorsque les données ont été écrites sur tous les réplicas dans les trois zones de disponibilité.
 
@@ -153,11 +153,9 @@ Le tableau suivant décrit les principaux paramètres pour chaque option de redo
 
 | Paramètre | LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
 |:-|:-|:-|:-|:-|
-| Pourcentage de durabilité des objets sur une année donnée<sup>1</sup> | Au moins 99,999999999 % (11 chiffres 9) | Au moins 99,9999999999 % (12 chiffres 9) | Au moins 99,99999999999999 % (16 chiffres 9) | Au moins 99,99999999999999 % (16 chiffres 9) |
-| Contrat SLA de disponibilité pour les demandes de lecture<sup>1</sup> | Au moins 99,9 % (99 % pour le niveau d’accès froid) | Au moins 99,9 % (99 % pour le niveau d’accès froid) | Au moins 99,9 % (99 % pour le niveau d’accès froid) pour GRS<br /><br />Au moins 99,99 % (99,9 % pour le niveau d’accès froid) pour RA-GRS | Au moins 99,9 % (99 % pour le niveau d’accès froid) pour GZRS<br /><br />Au moins 99,99 % (99,9 % pour le niveau d’accès froid) pour RA-GZRS |
-| Contrat SLA de disponibilité pour les demandes d’écriture<sup>1</sup> | Au moins 99,9 % (99 % pour le niveau d’accès froid) | Au moins 99,9 % (99 % pour le niveau d’accès froid) | Au moins 99,9 % (99 % pour le niveau d’accès froid) | Au moins 99,9 % (99 % pour le niveau d’accès froid) |
-
-<sup>1</sup> Pour obtenir des informations sur les garanties du Stockage Azure en matière de durabilité et de disponibilité, consultez le [contrat de niveau de service (SLA) du Stockage Azure](https://azure.microsoft.com/support/legal/sla/storage/).
+| Pourcentage de durabilité des objets sur une année donnée | Au moins 99,999999999 % (11 chiffres 9) | Au moins 99,9999999999 % (12 chiffres 9) | Au moins 99,99999999999999 % (16 chiffres 9) | Au moins 99,99999999999999 % (16 chiffres 9) |
+| Disponibilité pour les requêtes de lecture | Au moins 99,9 % (99 % pour le niveau d’accès froid) | Au moins 99,9 % (99 % pour le niveau d’accès froid) | Au moins 99,9 % (99 % pour le niveau d’accès froid) pour GRS<br /><br />Au moins 99,99 % (99,9 % pour le niveau d’accès froid) pour RA-GRS | Au moins 99,9 % (99 % pour le niveau d’accès froid) pour GZRS<br /><br />Au moins 99,99 % (99,9 % pour le niveau d’accès froid) pour RA-GZRS |
+| Disponibilité pour les requêtes d’écriture | Au moins 99,9 % (99 % pour le niveau d’accès froid) | Au moins 99,9 % (99 % pour le niveau d’accès froid) | Au moins 99,9 % (99 % pour le niveau d’accès froid) | Au moins 99,9 % (99 % pour le niveau d’accès froid) |
 
 ### <a name="durability-and-availability-by-outage-scenario"></a>Durabilité et disponibilité par scénario de panne
 

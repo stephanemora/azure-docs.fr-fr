@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 48f223a55e4a1e4db4ac7057065d67ae64fa0f2c
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 58616b647affd33e96357e556ab61f85d1c62129
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288476"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752275"
 ---
 # <a name="authentication-requests-and-responses"></a>Authentification, requêtes et réponses
 
@@ -134,3 +134,6 @@ WWW-Authenticate: Bearer authorization="…", resource="…"
 -   authorization : adresse du service d’autorisation OAuth2 qui peut être utilisé afin d’obtenir un jeton d’accès pour la requête.  
 
 -   resource : nom de la ressource (`https://vault.azure.net`) à utiliser dans la requête d'autorisation.
+
+> [!NOTE]
+> Les clients du Kit de développement logiciel (SDK) Key Vault pour les secrets, les certificats et les clés dans le premier appel à Key Vault ne fournissent pas de jeton d’accès pour récupérer les informations du locataire. Cet appel est supposé recevoir une réponse HTTP 401 utilisant le client du SDK Key Vault où le coffre de clés montre à l’application l’en-tête WWW-Authenticate contenant la ressource et le locataire auquel il doit accéder et demander le jeton. Si tout est correctement configuré, le deuxième appel de l’application à Key Vault contiendra un jeton valide et réussira. 

@@ -3,12 +3,12 @@ title: Coût de l’analyse via Azure Monitor pour conteneurs | Microsoft Docs
 description: Cet article décrit le coût d’analyse des métriques et données d’inventaire collectées par Azure Monitor pour conteneurs, afin d’aider les clients à gérer leur utilisation et les frais associés.
 ms.topic: conceptual
 ms.date: 05/29/2020
-ms.openlocfilehash: a03e94fa7650c56a4d3b3beda3c27283329aebbe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 81a20f564af68c3da6d63394e4cffe7caed91b46
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84204648"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903215"
 ---
 # <a name="understand-monitoring-costs-for-azure-monitor-for-containers"></a>Compréhension des coûts d’analyse via Azure Monitor pour conteneurs
 
@@ -127,19 +127,21 @@ Total = 31 Mo/heure = 23,1 Go/mois (un mois = 31 jours)
 
 ## <a name="controlling-ingestion-to-reduce-cost"></a>Contrôle de l’ingestion pour réduire les coûts
 
-Envisageons un scénario dans lequel les différentes divisions de l’organisation partagent l’infrastructure Kubernetes et un espace de travail Log Analytics. Chaque division est séparée des autres par un espace de noms Kubernetes. Vous pouvez visualiser la quantité de données ingérée dans chaque espace de travail à l’aide d’un classeur récemment publié. Le classeur **Container Insights Usage**, qui se trouve dans la [galerie des classeurs](../platform/workbooks-overview.md#getting-started), vous aide à visualiser la source de vos données sans avoir à créer votre propre bibliothèque de requêtes à partir des informations partagées dans notre documentation. Ce classeur inclut des graphiques avec lesquels vous pouvez afficher des données facturables depuis les perspectives suivantes :
+Envisageons un scénario dans lequel les différentes divisions de l’organisation partagent l’infrastructure Kubernetes et un espace de travail Log Analytics. Chaque division est séparée des autres par un espace de noms Kubernetes. Vous pouvez visualiser la quantité de données qui sont ingérées dans chaque espace de travail à l’aide du runbook **Utilisation des données**, qui est accessible à partir de la liste déroulante **Voir les classeurs** .
+
+[![Liste déroulante Voir les classeurs](media/container-insights-cost/workbooks-dropdown.png)](media/container-insights-cost/workbooks-dropdown.png#lightbox)
+
+
+Ce classeur permet de visualiser la source de vos données sans avoir à créer votre propre bibliothèque de requêtes à partir des informations de notre documentation. Ce classeur inclut des graphiques avec lesquels vous pouvez afficher des données facturables depuis les perspectives suivantes :
 
 - Total des données facturables ingérées par chaque solution, en Go
-
 - Données facturables ingérées par chaque journal de conteneur (journal des applications)
-
 - Données des journaux de conteneurs facturables ingérées par chaque espace de noms Kubernetes
-
 - Données des journaux de conteneurs facturables ingérées, par nom de cluster
-
 - Données des journaux de conteneurs facturables ingérées, par entrée logsource
-
 - Données de diagnostic facturables ingérées, par journal de diagnostic de nœud maître
+
+[![Classeur Utilisation des données](media/container-insights-cost/data-usage-workbook.png)](media/container-insights-cost/data-usage-workbook.png#lightbox)
 
 Pour en savoir plus sur la gestion des droits et des autorisations d’accès aux classeurs, voir [Contrôle d’accès](../platform/workbooks-access-control.md).
 

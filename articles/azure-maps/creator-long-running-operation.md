@@ -3,22 +3,26 @@ title: API d’opération de longue durée Azure Maps
 description: Découvrez le traitement en arrière-plan asynchrone de longue durée dans Azure Maps
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 05/18/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 69c5b9d15c0ba3c7c8b6b01643beac1905c404ad
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: f5fb7c8059c8b98e8ec514a4159e96f48db7b1ad
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895866"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906197"
 ---
-# <a name="creator-long-running-operation-api"></a>API d’opération de longue durée du Créateur
+# <a name="creator-preview-long-running-operation-api"></a>API d’opérations de longue durée Creator (préversion)
 
-Certaines API dans Azure Maps utilisent un [modèle de demande-réponse asynchrone](/azure/architecture/patterns/async-request-reply). Ce modèle permet à Azure Maps de fournir des services hautement disponibles et réactifs. Cet article explique l’implémentation spécifique d’Azure Map du traitement en arrière-plan asynchrone de longue durée.
+> [!IMPORTANT]
+> Les services Azure Maps Creator sont disponibles en préversion publique.
+> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Certaines API Azure Maps utilisent un [modèle de demande-réponse asynchrone](/azure/architecture/patterns/async-request-reply). Ce modèle permet à Azure Maps de fournir des services hautement disponibles et réactifs. Cet article explique l’implémentation spécifique d’Azure Map du traitement en arrière-plan asynchrone de longue durée.
 
 ## <a name="submitting-a-request"></a>Envoi d’une demande
 

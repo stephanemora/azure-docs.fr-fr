@@ -5,16 +5,16 @@ services: storage
 author: santoshc
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/08/2020
+ms.date: 12/08/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 2eed5a8ad783d325ef040b3a358e80a6517f08e8
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 07ad0714d0294ad90150acb9df14f17bfc1f5f0d
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92783638"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905364"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurer des pare-feux et des réseaux virtuels dans Stockage Azure
 
@@ -152,7 +152,7 @@ Vous pouvez gérer les règles de réseau virtuel pour les comptes de stockage v
 
 1. Vérifiez que vous avez choisi d’autoriser l’accès à partir des **Réseaux sélectionnés**.
 
-1. Pour accorder l’accès à un réseau virtuel avec une nouvelle règle de réseau, sous **Réseaux virtuels** , cliquez sur **Ajouter un réseau virtuel existant** , sélectionnez les options **Réseaux virtuels** et **Sous-réseaux** , puis cliquez sur **Ajouter**. Pour créer un réseau virtuel et lui accorder l’accès, cliquez sur **Ajouter un nouveau réseau virtuel**. Fournissez les informations nécessaires pour créer le nouveau réseau virtuel, puis cliquez sur **Créer**.
+1. Pour accorder l’accès à un réseau virtuel avec une nouvelle règle de réseau, sous **Réseaux virtuels**, cliquez sur **Ajouter un réseau virtuel existant**, sélectionnez les options **Réseaux virtuels** et **Sous-réseaux**, puis cliquez sur **Ajouter**. Pour créer un réseau virtuel et lui accorder l’accès, cliquez sur **Ajouter un nouveau réseau virtuel**. Fournissez les informations nécessaires pour créer le nouveau réseau virtuel, puis cliquez sur **Créer**.
 
     > [!NOTE]
     > Si un point de terminaison de service pour le stockage Azure n’a pas déjà été configuré pour le réseau virtuel et les sous-réseaux sélectionnés, vous pouvez le configurer dans le cadre de cette opération.
@@ -197,7 +197,7 @@ Vous pouvez gérer les règles de réseau virtuel pour les comptes de stockage v
     ```
 
 > [!IMPORTANT]
-> [Définissez la règle par défaut](#change-the-default-network-access-rule) sur **Refuser** , sinon les règles de réseau n’ont aucun effet.
+> [Définissez la règle par défaut](#change-the-default-network-access-rule) sur **Refuser**, sinon les règles de réseau n’ont aucun effet.
 
 #### <a name="cliv2"></a>CLIv2
 
@@ -235,7 +235,7 @@ Vous pouvez gérer les règles de réseau virtuel pour les comptes de stockage v
     ```
 
 > [!IMPORTANT]
-> [Définissez la règle par défaut](#change-the-default-network-access-rule) sur **Refuser** , sinon les règles de réseau n’ont aucun effet.
+> [Définissez la règle par défaut](#change-the-default-network-access-rule) sur **Refuser**, sinon les règles de réseau n’ont aucun effet.
 
 ## <a name="grant-access-from-an-internet-ip-range"></a>Accorder l’accès à partir d’une plage d’adresses IP Internet
 
@@ -317,7 +317,7 @@ Vous pouvez gérer les règles de réseau IP pour les comptes de stockage via le
     ```
 
 > [!IMPORTANT]
-> [Définissez la règle par défaut](#change-the-default-network-access-rule) sur **Refuser** , sinon les règles de réseau n’ont aucun effet.
+> [Définissez la règle par défaut](#change-the-default-network-access-rule) sur **Refuser**, sinon les règles de réseau n’ont aucun effet.
 
 #### <a name="cliv2"></a>CLIv2
 
@@ -354,11 +354,11 @@ Vous pouvez gérer les règles de réseau IP pour les comptes de stockage via le
     ```
 
 > [!IMPORTANT]
-> [Définissez la règle par défaut](#change-the-default-network-access-rule) sur **Refuser** , sinon les règles de réseau n’ont aucun effet.
+> [Définissez la règle par défaut](#change-the-default-network-access-rule) sur **Refuser**, sinon les règles de réseau n’ont aucun effet.
 
 ## <a name="exceptions"></a>Exceptions
 
-Les règles de réseau vous aident à créer un environnement sécurisé pour les connexions entre vos applications et vos données dans la plupart des scénarios. Toutefois, certaines applications font appel à des services Azure qui ne peuvent pas être isolés individuellement par le biais de règles de réseau virtuel ou d’adresses IP. Pour autant, ces services doivent avoir accès au stockage afin d’activer toutes les fonctionnalités des applications. Dans ces cas de figure, vous pouvez utiliser le paramètre * *_Autoriser les services Microsoft approuvés…_* _ pour activer de tels services afin d’accéder à vos données, journaux ou analyses.
+Les règles de réseau vous aident à créer un environnement sécurisé pour les connexions entre vos applications et vos données dans la plupart des scénarios. Toutefois, certaines applications font appel à des services Azure qui ne peuvent pas être isolés individuellement par le biais de règles de réseau virtuel ou d’adresses IP. Pour autant, ces services doivent avoir accès au stockage afin d’activer toutes les fonctionnalités des applications. Dans ces cas de figure, vous pouvez utiliser le paramètre **_Autoriser les services Microsoft approuvés…_* _ pour activer de tels services afin d’accéder à vos données, journaux ou analyses.
 
 ### <a name="trusted-microsoft-services"></a>Services Microsoft approuvés
 
@@ -384,22 +384,23 @@ Quand vous activez le paramètre **Autoriser les services Microsoft approuvés..
 | Mise en réseau Azure         | Microsoft.Network          | Stockez et analysez les journaux du trafic réseau, notamment celui qui transite par les services Network Watcher et Traffic Analytics. [Plus d’informations](../../network-watcher/network-watcher-nsg-flow-logging-overview.md) |
 | Azure Site Recovery      | Microsoft.SiteRecovery     | Activez la réplication pour la reprise d’activité des machines virtuelles Azure IaaS lors de l’utilisation de comptes de stockage de cache avec pare-feu activé, de stockage source ou de stockage cible.  [Plus d’informations](../../site-recovery/azure-to-azure-tutorial-enable-replication.md) |
 
-Le paramètre **Autoriser les services Microsoft approuvés...** permet à une instance particulière des services ci-dessous d’accéder au compte de stockage, si vous [attribuez explicitement un rôle Azure](storage-auth-aad.md#assign-azure-roles-for-access-rights) à l’ [identité managée attribuée par le système](../../active-directory/managed-identities-azure-resources/overview.md) pour cette instance de ressource. Dans ce cas, l’étendue de l’accès pour l’instance correspond au rôle Azure affecté à l’identité managée.
+Le paramètre **Autoriser les services Microsoft approuvés...** permet à une instance particulière des services ci-dessous d’accéder au compte de stockage, si vous [attribuez explicitement un rôle Azure](storage-auth-aad.md#assign-azure-roles-for-access-rights) à l’[identité managée attribuée par le système](../../active-directory/managed-identities-azure-resources/overview.md) pour cette instance de ressource. Dans ce cas, l’étendue de l’accès pour l’instance correspond au rôle Azure affecté à l’identité managée.
 
 | Service                        | Nom du fournisseur de ressources                 | Objectif            |
 | :----------------------------- | :------------------------------------- | :----------------- |
 | Gestion des API Azure           | Microsoft.ApiManagement/service        | Active l’accès au service Gestion des API pour les comptes de stockage derrière un pare-feu à l’aide de stratégies. [Plus d’informations](../../api-management/api-management-authentication-policies.md#use-managed-identity-in-send-request-policy) |
 | Recherche cognitive Azure         | Microsoft.Search/searchServices        | Permet aux services Recherche cognitive d’accéder aux comptes de stockage pour l’indexation, le traitement et l’interrogation. |
+| Azure Cognitive Services       | Microsoft.CognitiveService             | Permet à Cognitive Services d’accéder à des comptes de stockage. |
 | Tâches Azure Container Registry | Microsoft.ContainerRegistry/registries | ACR Tasks peut accéder aux comptes de stockage lors de la génération d’images conteneur. |
 | Azure Data Factory             | Microsoft.DataFactory/factories        | Autorise l’accès aux comptes de stockage par le biais du Runtime ADF. |
 | Azure Data Share               | Microsoft.DataShare/accounts           | Autorise l’accès aux comptes de stockage par le biais de Data Share. |
 | Azure IoT Hub                  | Microsoft.Devices/IotHubs              | Autorise l’écriture des données d’un IoT Hub dans le stockage d’objets blob. [En savoir plus](../../iot-hub/virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing) |
 | Azure Logic Apps               | Microsoft.Logic/workflows              | Permet aux applications logiques d’accéder aux comptes de stockage. [Plus d’informations](../../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) |
 | Service Azure Machine Learning | Microsoft.MachineLearningServices      | Les espaces de travail Azure Machine Learning autorisés écrivent des sorties, des modèles et des journaux expérimentaux dans le stockage d’objets blob et lisent les données. [Plus d’informations](../../machine-learning/how-to-network-security-overview.md#secure-the-workspace-and-associated-resources) | 
-| Azure Synapse Analytics (anciennement SQL Data Warehouse)       | Microsoft.Sql                          | Permet l'importation et l'exportation de données à partir de bases de données SQL spécifiques à l'aide de l'instruction COPY ou de PolyBase. [Plus d’informations](../../azure-sql/database/vnet-service-endpoint-rule-overview.md) |
+| Azure Synapse Analytics       | Microsoft.Sql                          | Permet l'importation et l'exportation de données à partir de bases de données SQL spécifiques à l'aide de l'instruction COPY ou de PolyBase. [Plus d’informations](../../azure-sql/database/vnet-service-endpoint-rule-overview.md) |
 | Azure SQL Database       | Microsoft.Sql                          | Permet d'[importer](/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) des données à partir de comptes de stockage et d'[écrire](../../azure-sql/database/audit-write-storage-account-behind-vnet-firewall.md) des données d'audit sur des comptes de stockage situés derrière un pare-feu. |
 | Azure Stream Analytics         | Microsoft.StreamAnalytics             | Autorise l’écriture des données d’une tâche de streaming dans le stockage d’objets blob. [Plus d’informations](../../stream-analytics/blob-output-managed-identity.md) |
-| Azure Synapse Analytics        | Microsoft.Synapse/workspaces          | Permet l’accès aux données dans Stockage Azure à partir de Synapse Analytics. |
+| Azure Synapse Analytics        | Microsoft.Synapse/workspaces          | Permet l’accès aux données dans Stockage Azure à partir d’Azure Synapse Analytics. |
 
 
 ### <a name="storage-analytics-data-access"></a>Accès aux données Storage Analytics
@@ -418,7 +419,7 @@ Vous pouvez gérer les exceptions de règle de réseau dans le portail Azure, Po
 
 1. Vérifiez que vous avez choisi d’autoriser l’accès à partir des **Réseaux sélectionnés**.
 
-1. Sous **Exceptions** , sélectionnez les exceptions que vous voulez accorder.
+1. Sous **Exceptions**, sélectionnez les exceptions que vous voulez accorder.
 
 1. Cliquez sur **Enregistrer** pour enregistrer les changements.
 
@@ -445,7 +446,7 @@ Vous pouvez gérer les exceptions de règle de réseau dans le portail Azure, Po
     ```
 
 > [!IMPORTANT]
-> [Définissez la règle par défaut](#change-the-default-network-access-rule) sur **Refuser** , sinon la suppression des exceptions n’a aucun effet.
+> [Définissez la règle par défaut](#change-the-default-network-access-rule) sur **Refuser**, sinon la suppression des exceptions n’a aucun effet.
 
 #### <a name="cliv2"></a>CLIv2
 
@@ -470,7 +471,7 @@ Vous pouvez gérer les exceptions de règle de réseau dans le portail Azure, Po
     ```
 
 > [!IMPORTANT]
-> [Définissez la règle par défaut](#change-the-default-network-access-rule) sur **Refuser** , sinon la suppression des exceptions n’a aucun effet.
+> [Définissez la règle par défaut](#change-the-default-network-access-rule) sur **Refuser**, sinon la suppression des exceptions n’a aucun effet.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

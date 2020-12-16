@@ -3,12 +3,12 @@ title: Sauvegarde hors connexion avec Azure Data Box pour DPM et MABS
 description: Vous pouvez utiliser Azure Data Box pour amorcer des données de sauvegarde initiales hors connexion à partir de DPM et MABS.
 ms.topic: conceptual
 ms.date: 08/12/2020
-ms.openlocfilehash: 80b3977a9fb886b90c3d48d54f4cda1abfd77df9
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 1cfd9131099ad6a8ccd3d43e93f3d97641514f03
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172215"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96752547"
 ---
 # <a name="offline-seeding-using-azure-data-box-for-dpm-and-mabs-preview"></a>Amorçage hors connexion à l’aide d’Azure Data Box pour DPM et MABS (préversion)
 
@@ -230,7 +230,7 @@ Vérifiez si vous voyez le message d’erreur suivant dans la console DPM/MABS a
 
 Pour résoudre ce problème, effectuez les étapes suivantes et réessayez de configurer la stratégie.
 
-1. Connectez-vous sur la page de connexion qui apparaît dans l’interface utilisateur du serveur DPM/MABS avec un autre compte doté d’un accès administrateur à l’abonnement pour lequel le travail d’importation/exportation est créé.
+1. Connectez-vous sur la page de connexion Azure qui apparaît dans l’interface utilisateur DPM/MABS avec un autre compte doté d’un accès administrateur à l’abonnement pour lequel le travail Data Box est créé.
 2. Si aucun autre serveur n’a d’amorçage hors connexion configuré et ne dépend de l’application `AzureOfflineBackup_<Azure User Id>`, supprimez cette application depuis **Portail Azure > Azure Active Directory > Inscriptions d’applications**.
 
    > [!NOTE]

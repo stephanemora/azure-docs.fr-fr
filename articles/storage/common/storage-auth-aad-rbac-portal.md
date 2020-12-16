@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/23/2020
+ms.date: 12/07/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: e2d577261a1cea0bad9aab549b3669f8fdef5751
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 40003db9c3bd2c736f9cedd73b8b7a31a77f625f
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91715851"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96854578"
 ---
 # <a name="use-the-azure-portal-to-assign-an-azure-role-for-access-to-blob-and-queue-data"></a>Utiliser le portail Azure afin d’attribuer un rôle Azure pour l’accès aux données de blob et de file d’attente
 
@@ -39,14 +39,14 @@ Après avoir déterminé l’étendue appropriée pour une attribution de rôle,
 
 1. Attribuez le rôle Azure Stockage Azure approprié pour accorder l’accès à un principal de sécurité Azure AD.
 
-1. Attribuez le rôle [Lecteur](../../role-based-access-control/built-in-roles.md#reader) Azure Resource Manager aux utilisateurs qui ont besoin d’accéder aux conteneurs ou files d’attente via le portail Azure à l’aide de leurs informations d’identification Azure AD. 
+1. Attribuez le rôle [Lecteur](../../role-based-access-control/built-in-roles.md#reader) Azure Resource Manager aux utilisateurs qui ont besoin d’accéder aux conteneurs ou files d’attente via le portail Azure à l’aide de leurs informations d’identification Azure AD.
 
 Les sections suivantes décrivent chacune de ces étapes plus en détail.
 
 > [!NOTE]
-> En tant que propriétaire de votre compte de stockage Azure, aucune autorisation d’accès aux données ne vous est automatiquement attribuée. Vous devez vous attribuer explicitement un rôle Azure pour le Stockage Azure. Vous pouvez l’attribuer au niveau de votre abonnement, votre groupe de ressources ou votre compte de stockage, ou au niveau d’un conteneur ou d’une file d’attente.
+> Lorsque vous créez un compte de stockage Azure, aucune autorisation d’accès aux données ne vous est automatiquement attribuée via Azure AD. Vous devez vous attribuer explicitement un rôle Azure pour le Stockage Azure. Vous pouvez l’attribuer au niveau de votre abonnement, groupe de ressources, compte de stockage, conteneur ou file d’attente.
 >
-> Vous ne pouvez pas attribuer de rôle dans l’étendue d’un conteneur ou d’une file d’attente d’attente si votre compte de stockage a un espace de noms hiérarchique activé.
+> Avant de vous attribuer un rôle pour l’accès aux données, vous pouvez accéder aux données de votre compte de stockage via le portail Azure, car ce dernier peut également utiliser la clé de compte pour l’accès aux données. Pour plus d’informations, consultez [Choisir comment autoriser l’accès à des données blobs dans le portail Azure](../blobs/authorize-data-operations-portal.md).
 
 ### <a name="assign-an-azure-built-in-role"></a>Attribuer un rôle intégré Azure
 
@@ -64,11 +64,11 @@ La procédure illustrée ici attribue un rôle limité à un conteneur, mais vou
 1. Cliquez sur le bouton **Ajouter une attribution de rôle** pour ajouter un nouveau rôle.
 1. Dans la fenêtre **Ajouter une attribution de rôle**, sélectionnez le rôle Stockage Azure que vous souhaitez attribuer. Recherchez ensuite le principal de sécurité auquel vous souhaitez attribuer ce rôle.
 
-    :::image type="content" source="media/storage-auth-aad-rbac-portal/add-rbac-role.png" alt-text="Capture d’écran montrant les paramètres de contrôle d’accès du conteneur":::
+    :::image type="content" source="media/storage-auth-aad-rbac-portal/add-rbac-role.png" alt-text="Capture d’écran montrant comment attribuer un rôle Azure":::
 
 1. Cliquez sur **Enregistrer**. L’identité à laquelle vous avez attribué le rôle apparaît sous ce dernier. Par exemple, l’image suivante montre que l’utilisateur ajouté a désormais des autorisations d’accès en lecture pour toutes les données du conteneur nommé *sample-container*.
 
-    :::image type="content" source="media/storage-auth-aad-rbac-portal/container-scoped-role.png" alt-text="Capture d’écran montrant les paramètres de contrôle d’accès du conteneur":::
+    :::image type="content" source="media/storage-auth-aad-rbac-portal/container-scoped-role.png" alt-text="Capture d’écran montrant la liste des utilisateurs auxquels un rôle a été attribué":::
 
 Vous pouvez suivre des étapes similaires pour attribuer un rôle dans l’étendue du compte de stockage, du groupe de ressources ou de l’abonnement.
 

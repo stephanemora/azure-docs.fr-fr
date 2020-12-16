@@ -95,8 +95,6 @@
       href: user-overview.md
     - name: Attributs de profil utilisateur
       href: user-profile-attributes.md
-    - name: Sessions SSO
-      href: session-overview.md
     - name: Protection des identités et accès conditionnel
       href: conditional-access-identity-protection-overview.md
 - name: Guides pratiques
@@ -155,6 +153,8 @@
           href: identity-provider-wechat.md
         - name: Weibo
           href: identity-provider-weibo.md
+        - name: Passer par le jeton du fournisseur d’identité
+          href: idp-pass-through-user-flow.md
     - name: Personnalisation de l’expérience utilisateur
       items:
         - name: Configurer des entrées d’utilisateur
@@ -174,6 +174,24 @@
         - name: "Activer la\_MFA"
           href: multi-factor-authentication.md
           displayName: multi-factor auth
+        - name: Configurer la connexion directe
+          href: direct-signin.md
+    - name: Gestion des jetons et des sessions
+      items:
+        - name: Configurer le comportement de la session
+          href: session-behavior.md
+        - name: Configurer des jetons
+          href: configure-tokens.md
+    - name: Définir des attributs personnalisés
+      href: user-flow-custom-attributes.md
+    - name: Protection des identités et accès conditionnel
+      items:
+        - name: Configurer la protection des identités et l’accès conditionnel
+          href: conditional-access-identity-protection-setup.md
+        - name: Ajouter un accès conditionnel
+          href: conditional-access-user-flow.md
+    - name: Configurer la vérification de l’âge
+      href: basic-age-gating.md
     - name: Flux utilisateur
       items:
         - name: Créer un flux
@@ -184,40 +202,23 @@
               href: configure-ropc.md
             - name: Configurer la réinitialisation de mot de passe en libre-service
               href: user-flow-self-service-password-reset.md
-        - name: Ajouter un accès conditionnel
-          href: conditional-access-user-flow.md
-        - name: Gestion des jetons et des sessions
-          items:
-            - name: Configurer des jetons
-              href: configure-tokens.md
-            - name: Configurer le comportement de la session
-              href: session-behavior.md
-        - name: Configurer la vérification de l’âge
-          href: basic-age-gating.md
-        - name: Définir des attributs personnalisés
-          href: user-flow-custom-attributes.md
         - name: Connecteurs d’API (préversion)
           items:
             - name: Vue d’ensemble
               href: api-connectors-overview.md
             - name: Ajouter un connecteur d'API
               href: add-api-connector.md
-        - name: Jeton IdP externe à transfert direct
-          href: idp-pass-through-user-flow.md
-    - name: Protection des identités et accès conditionnel
-      href: conditional-access-identity-protection-setup.md
     - name: Stratégie personnalisée
       items:
+        - name: Vue d’ensemble des stratégies personnalisées
+          href: custom-policy-trust-frameworks.md
+        - name: Bien démarrer avec les stratégies personnalisées
+          href: custom-policy-get-started.md
         - name: Créer une stratégie
           items:
-            - name: Bien démarrer avec les stratégies personnalisées
-              href: custom-policy-get-started.md
             - name: Informations d’identification de mot de passe du propriétaire de ressource
               href: ropc-custom.md
               displayName: ropc
-            - name: Activer le maintien de la connexion
-              href: custom-policy-keep-me-signed-in.md
-              displayName: kmsi
             - name: Modification de mot de passe
               href: custom-policy-password-change.md
             - name: Inscription et connexion par téléphone
@@ -230,18 +231,6 @@
             - name: SendGrid
               href: custom-email-sendgrid.md
           displayName: verification
-        - name: Gestion des jetons et des sessions
-          items:
-            - name: Personnaliser les jetons
-              href: configure-tokens-custom-policy.md
-            - name: Configurer le comportement de la session
-              href: session-behavior-custom-policy.md
-        - name: Jeton IdP externe à transfert direct
-          href: idp-pass-through-custom.md
-        - name: Expérience adaptative
-          items:
-            - name: Configurer la connexion directe
-              href: direct-signin.md
         - name: Ajouter votre propre logique métier
           items:
             - name: Intégrer l’API REST
@@ -254,8 +243,6 @@
               displayName: rest claims exchange
             - name: Sécuriser l’API REST
               href: secure-rest-api.md
-        - name: Définir des attributs personnalisés
-          href: custom-policy-custom-attributes.md
         - name: Dépannage
           items:
             - name: Collecter les journaux d’activité à l’aide d’Application Insights
@@ -268,8 +255,6 @@
           href: analytics-with-application-insights.md
         - name: Informations de référence
           items:
-            - name: Définition de l’infrastructure de confiance
-              href: custom-policy-trust-frameworks.md
             - name: TrustFrameworkPolicy
               href: trustframeworkpolicy.md
             - name: BuildingBlocks
@@ -315,11 +300,9 @@
             - name: ClaimsProviders
               href: claimsproviders.md
               items:
-                - name: TechnicalProfiles
+                - name: Profils techniques
                   href: technicalprofiles.md
                   items:
-                    - name: À propos des profils techniques
-                      href: technical-profiles-overview.md
                     - name: À propos des profils techniques de validation
                       href: validation-technical-profile.md
                     - name: Application Insights
@@ -370,6 +353,8 @@
               href: relyingparty.md
             - name: Programmes de résolution de revendication
               href: claim-resolver-overview.md
+    - name: Point de terminaison UserInfo
+      href: userinfo-endpoint.md
     - name: Intégration des partenaires
       items:
         - name: Galerie de partenaires Azure AD B2C

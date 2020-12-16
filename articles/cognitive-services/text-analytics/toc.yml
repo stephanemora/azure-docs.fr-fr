@@ -31,24 +31,8 @@
 - name: Démarrages rapides
   expanded: true
   items:
-    - name: Bibliothèque cliente
-      items:
-        - name: Analyser du texte avec la bibliothèque cliente
-          href: quickstarts/text-analytics-sdk.md
-    - name: API REST
-      items:
-        - name: Utilisation de Java
-          href: quickstarts/java.md
-        - name: Utilisation de Python
-          href: quickstarts/python.md
-        - name: Utilisation de Node.js
-          href: quickstarts/nodejs.md
-        - name: Utilisation de PHP
-          href: quickstarts/php.md
-        - name: Utilisation de Go
-          href: quickstarts/go.md
-        - name: Utilisation de Ruby
-          href: quickstarts/ruby.md
+    - name: Utiliser la bibliothèque de client et l’API REST
+      href: quickstarts/client-libraries-rest-api.md
 - name: Tutoriels
   items:
     - name: Intégrer Power BI pour analyser les commentaires des clients

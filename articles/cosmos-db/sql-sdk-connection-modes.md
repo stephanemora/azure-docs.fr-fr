@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: maquaran
 ms.custom: devx-track-dotnet, contperfq2
-ms.openlocfilehash: 892d73c2b23a9806cd38b188f594f129fda9303d
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 7901ad4f67f6f3243a2d3b8dc25733ac68b612db
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340717"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608365"
 ---
 # <a name="azure-cosmos-db-sql-sdk-connectivity-modes"></a>Modes de connectivité du SDK SQL Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -36,7 +36,7 @@ Les deux modes de connexion disponibles sont les suivants :
      
 :::image type="content" source="./media/performance-tips/connection-policy.png" alt-text="Modes de connectivité Azure Cosmos DB" border="false":::
 
-Ces modes de connectivité conditionnent essentiellement l’itinéraire que le plan de données demande (lectures et écritures de documents) pris de votre ordinateur client vers des partitions dans le serveur principal Azure Cosmos DB. Le mode direct est l’option la plus appropriés pour optimiser les performances. Il permet à votre client d’ouvrir des connexions TCP directement aux partitions dans le back-end Azure Cosmos DB et d’envoyer des demandes *directement* , sans intermédiaire. En revanche, en mode passerelle, les demandes effectuées par votre client sont acheminées vers un serveur « passerelle » dans le Azure Cosmos DB frontal, qui à son tour répartit vos demandes vers les partitions appropriées dans le serveur principal Azure Cosmos DB.
+Ces modes de connectivité conditionnent essentiellement l’itinéraire que le plan de données demande (lectures et écritures de documents) pris de votre ordinateur client vers des partitions dans le serveur principal Azure Cosmos DB. Le mode direct est l’option la plus appropriés pour optimiser les performances. Il permet à votre client d’ouvrir des connexions TCP directement aux partitions dans le back-end Azure Cosmos DB et d’envoyer des demandes *directement*, sans intermédiaire. En revanche, en mode passerelle, les demandes effectuées par votre client sont acheminées vers un serveur « passerelle » dans le Azure Cosmos DB frontal, qui à son tour répartit vos demandes vers les partitions appropriées dans le serveur principal Azure Cosmos DB.
 
 ## <a name="service-port-ranges"></a>Plages de ports de service
 
@@ -47,7 +47,7 @@ Le tableau suivant présente un résumé des modes de connectivité disponibles 
 |Mode de connexion  |Protocole pris en charge  |Kits SDK pris en charge  |API/Port de service  |
 |---------|---------|---------|---------|
 |Passerelle  |   HTTPS    |  Tous les kits SDK    |   SQL (443), MongoDB (10250, 10255, 10256), Table (443), Cassandra (10350), Graph (443) <br> Le port 10250 mappe à une API Azure Cosmos DB par défaut pour l’instance MongoDB sans géoréplication. Les ports 10255 et 10256 mappent à l’instance avec géoréplication.   |
-|Direct    |     TCP    |  Kit de développement logiciel (SDK) .NET    | Lors de l’utilisation de points de terminaison publics/de service : les ports de la plage 10000 à 20000<br>Lors de l’utilisation de points de terminaison privés : les ports compris entre 0 et 65535 |
+|Direct    |     TCP    |  Kits SDK .NET Kits SDK Java    | Lors de l’utilisation de points de terminaison publics/de service : les ports de la plage 10000 à 20000<br>Lors de l’utilisation de points de terminaison privés : les ports compris entre 0 et 65535 |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

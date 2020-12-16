@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/11/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 86f687bd4fd8be93efbf77c883c723046c2c96d8
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5bfe077a99a3e89efe5fe4257a646484fb3810da
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016123"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96537021"
 ---
 ## <a name="supported-distributions-and-drivers"></a>Distributions et pilotes pris en charge
 
@@ -31,9 +31,11 @@ Microsoft redistribue les programmes d’installation du pilote GRID NVIDIA pour
 
 Les pilotes GRID redistribués par Azure ne fonctionnent pas sur les machines virtuelles de série autre que NV, comme les machines virtuelles de série NC, NCv2, NCv3, ND et NDv2.
 
-| Distribution | Pilote |
+|Distribution|Pilote|
 | --- | -- |
-|Ubuntu 18.04 LTS<br/><br/>Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.6 à 7.8, 8.0, 8.1<br/><br/>CentOS 7.6, 7.7, 8.0, 8(1911)<br/><br/>SUSE Linux Enterprise Server 12 SP2 | NVIDIA GRID 11.1, branche pilote [R450](https://go.microsoft.com/fwlink/?linkid=874272) (.exe)|
+|Ubuntu 18.04 LTS<br/><br/>Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.6 à 7.8, 8.0, 8.1<br/><br/>CentOS 7.6, 7.7, 8.0, 8(1911)<br/><br/>SUSE Linux Enterprise Server 12 SP2 | NVIDIA GRID 11.2, branche pilote [R450](https://go.microsoft.com/fwlink/?linkid=874272) (.exe)|
+
+Visitez [GitHub](https://github.com/Azure/azhpc-extensions/blob/master/NvidiaGPU/resources.json) pour obtenir la liste complète de tous les liens précédents du pilote Nvidia GRID.
 
 > [!WARNING] 
 > L’installation de logiciels tiers sur des produits Red Hat peut affecter les conditions de prise en charge de Red Hat. Consultez l’[article de la Base de connaissances Red Hat](https://access.redhat.com/articles/1067).

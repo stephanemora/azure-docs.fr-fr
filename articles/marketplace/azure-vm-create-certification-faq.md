@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: eb290b8c154c40388bfb3e7f9cbac7b645aa9609
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: bc1ae4bc2cf64c3e2f996709c086eb23cb8b8385
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452683"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602595"
 ---
 # <a name="troubleshoot-virtual-machine-certification"></a>Résoudre les problèmes de certification des machines virtuelles
 
@@ -203,7 +203,7 @@ Pour plus d’informations sur les limitations relatives à la taille du disque 
 
 |Système d''exploitation|Taille de disque dur virtuel recommandée|
 |---|---|
-|Linux|30 à 1023 Go|
+|Linux|1 à 1023 Go|
 |Windows|30 à 250 Go|
 
 Comme les machines virtuelles autorisent l’accès au système d’exploitation sous-jacent, assurez-vous que la taille du disque dur virtuel est suffisamment grande pour le disque dur virtuel. Les disques ne sont pas extensibles sans temps d’arrêt. Utilisez une taille de disque comprise entre 30 Go et 50 Go.

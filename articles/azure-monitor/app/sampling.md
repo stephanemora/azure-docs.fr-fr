@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 87e33940d927fc9116c03345011e21398384d484
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: e9334d222d443679362514481ecd83b90bbda0ac
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024413"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96855071"
 ---
 # <a name="sampling-in-application-insights"></a>Échantillonnage dans Application Insights
 
@@ -54,7 +54,7 @@ Il existe trois méthodes d’échantillonnage différentes :
 * L’**échantillonnage d’ingestion** est effectué sur le point de terminaison de service Application Insights. Il ignore certaines données de télémétrie provenant de votre application, à une fréquence d’échantillonnage que vous définissez. Le trafic des données de télémétrie reçu de votre application n’est pas réduit, mais cela vous permet de respecter votre quota mensuel. L’avantage principal de l’échantillonnage d’ingestion est que vous pouvez définir la fréquence d’échantillonnage sans avoir à redéployer votre application. L’échantillonnage d’ingestion fonctionne uniformément pour tous les serveurs et tous les clients, mais il ne s’applique pas quand d’autres types d’échantillonnage sont utilisés.
 
 > [!IMPORTANT]
-> Si un échantillonnage adaptatif ou à débit fixe est en cours d’utilisation, l’échantillonnage d’ingestion est désactivé.
+> Si les méthodes d’échantillonnage à taux adaptatif ou fixe sont activées pour un type de données de télémétrie, l’échantillonnage d’ingestion sera désactivé pour ces données de télémétrie. Toutefois, les types de télémétrie qui sont exclus de l’échantillonnage au niveau du SDK seront toujours soumis à un échantillonnage d’ingestion au taux défini dans le portail.
 
 ## <a name="adaptive-sampling"></a>échantillonnage adaptatif
 
@@ -315,18 +315,12 @@ Par défaut, aucun échantillonnage n’est activé dans l’agent et le SDK Jav
 
 1. Télécharger [applicationinsights-agent-3.0.0-PREVIEW.5.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.5/applicationinsights-agent-3.0.0-PREVIEW.5.jar)
 
-1. Pour activer l’échantillonnage, ajoutez ceci à votre fichier `ApplicationInsights.json` :
+1. Pour activer l’échantillonnage, ajoutez ceci à votre fichier `applicationinsights.json` :
 
 ```json
 {
-  "instrumentationSettings": {
-    "preview": {
-      "sampling": {
-        "fixedRate": {
-          "percentage": 10 //this is just an example that shows you how to enable only only 10% of transaction 
-        }
-      }
-    }
+  "sampling": {
+    "percentage": 10 //this is just an example that shows you how to enable only only 10% of transaction 
   }
 }
 ```
@@ -559,7 +553,7 @@ La précision de l’approximation dépend en grande partie du pourcentage d’�
 
 * L’échantillonnage d’ingestion peut se produire automatiquement pour toute télémétrie au-dessus d’un certain volume, si le Kit de développement logiciel (SDK)n’effectue pas d’échantillonnage. Cette configuration fonctionne par exemple si vous utilisez une version antérieure du SDK ASP.NET ou du SDK Java.
 * Si vous utilisez les kits SDK ASP.NET ASP.NET Core (hébergés dans Azure ou sur votre propre serveur), vous obtenez l’échantillonnage adaptatif par défaut, mais vous pouvez passer à l’échantillonnage à fréquence fixe comme décrit ci-dessus. Avec l’échantillonnage à taux fixe, le Kit de développement logiciel (SDK) du navigateur se synchronise automatiquement pour échantillonner les événements connexes. 
-* Si vous utilisez l’agent Java actuel, vous pouvez configurer `ApplicationInsights.json` (pour le SDK Java, configurez `ApplicationInsights.xml`) pour activer l’échantillonnage à fréquence fixe. L’échantillonnage est désactivé par défaut. Avec l’échantillonnage à fréquence fixe, le SDK du navigateur et le serveur se synchronisent automatiquement pour échantillonner les événements associés.
+* Si vous utilisez l’agent Java actuel, vous pouvez configurer `applicationinsights.json` (pour le SDK Java, configurez `ApplicationInsights.xml`) pour activer l’échantillonnage à fréquence fixe. L’échantillonnage est désactivé par défaut. Avec l’échantillonnage à fréquence fixe, le SDK du navigateur et le serveur se synchronisent automatiquement pour échantillonner les événements associés.
 
 *Je souhaite que certains événements rares soient toujours affichés. Comment faire en sorte qu’ils soient disponibles hors du module d’échantillonnage ?*
 

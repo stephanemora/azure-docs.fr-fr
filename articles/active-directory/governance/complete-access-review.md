@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/18/2020
+ms.date: 12/07/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23266043d5efd65a4e6e79dd515a54a2c321b077
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e6491de18e65c5071ac0972e7ff49d1253cbd402
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87798832"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779540"
 ---
 # <a name="complete-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Effectuer une révision d’accès des groupes et applications dans les révisions d’accès Azure AD
 
@@ -46,11 +46,19 @@ Vous pouvez suivre la progression des révisions effectuées par les réviseurs.
 
 1. Dans la liste, cliquez sur une révision d’accès.
 
-    Pour consulter une série de révisions d’accès, accédez à la révision d’accès et vous y verrez les occurrences à venir dans les révisions planifiées.
+    Pour afficher les futures instances d’une révision d’accès, accédez à la révision d’accès et sélectionnez Révisions planifiées.
 
     Dans la page **Vue d’ensemble**, vous pouvez voir la progression. Aucun droit d’accès n’est modifié dans le répertoire avant que la révision ne soit terminée.
 
     ![Progression des révisions d’accès](./media/complete-access-review/overview-progress.png)
+    
+    Si vous affichez une révision d’accès qui révise l’accès invité dans les groupes Microsoft 365 (préversion), le panneau Vue d’ensemble répertorie chaque groupe dans la révision.  
+
+   ![Réviser l’accès invité dans les groupes Microsoft 365](./media/complete-access-review/review-guest-access-across-365-groups.png)
+
+    Cliquez sur un groupe pour connaître l’état d’avancement de la révision sur ce groupe.
+
+   ![Réviser l’accès invité dans les groupes Microsoft 365 en détail](./media/complete-access-review/progress-group-review.png)
 
 1. Si vous souhaitez arrêter une révision d’accès avant qu’elle ait atteint la date de fin planifiée, cliquez sur le bouton **Arrêter**.
 
@@ -74,7 +82,7 @@ Lorsque l’application automatique est configurée, l’option **Appliquer** n�
 
 Pour voir les résultats d’une révision d’accès ponctuelle, cliquez sur la page **Résultats**. Pour voir uniquement l’accès d’un utilisateur, dans la zone de recherche, tapez le nom d’affichage ou le nom d’utilisateur principal d’un utilisateur dont l’accès a été refusé.
 
-![Récupérer les résultats d’une révision d’accès](./media/complete-access-review/retrieve-results.png)
+![Récupérer les résultats d’une révision d’accès](./media/complete-access-review/retrieve-results.png) 
 
 Pour visualiser la progression d’une révision d’accès active récurrente, cliquez sur la page **Résultats**.
 
@@ -89,6 +97,6 @@ Pour récupérer tous les résultats d’une révision d’accès, cliquez sur l
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Manage user access with Azure AD access reviews](manage-user-access-with-access-reviews.md) (Gérer l’accès des utilisateurs avec les révisions d’accès Azure AD)
-- [Manage guest access with Azure AD access reviews](manage-guest-access-with-access-reviews.md) (Gérer l’accès des invités avec les révisions d’accès Azure AD)
+- [Gérer l’accès invité avec les révisions d’accès Azure AD](manage-guest-access-with-access-reviews.md)
 - [Créer une révision d’accès de groupes ou d’applications](create-access-review.md)
 - [Create an access review of users in an Azure AD administrative role](../privileged-identity-management/pim-how-to-start-security-review.md) (Créer une révision d’accès pour les utilisateurs dans un rôle administratif d’Azure AD)

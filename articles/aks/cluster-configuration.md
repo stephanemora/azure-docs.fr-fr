@@ -2,16 +2,16 @@
 title: Configuration de clusters dans Azure Kubernetes Service (AKS)
 description: Découvrez comment configurer un cluster dans Azure Kubernetes Service (AKS).
 services: container-service
-ms.topic: conceptual
+ms.topic: article
 ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 88774450fb196da5de24bcad047ecdb8c424f653
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: dcd9ec52992da8037bb498dc09701879c4c94667
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95736528"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96572573"
 ---
 # <a name="configure-an-aks-cluster"></a>Configurer un cluster AKS
 
@@ -19,7 +19,7 @@ Dans le cadre de la création d’un cluster AKS, vous devrez peut-être person
 
 ## <a name="os-configuration"></a>Configuration du système d’exploitation
 
-AKS prend désormais en charge Ubuntu 18.04 comme système d’exploitation du nœud en disponibilité générale pour les clusters dans les versions de Kubernetes supérieures à 1.18.8. Pour des versions inférieures à 1.18.x, AKS Ubuntu 16.04 est toujours l’image de base par défaut. À partir de Kubernetes v1.18.x, la base par défaut est AKS Ubuntu 18.04.
+AKS prend désormais en charge Ubuntu 18.04 comme système d’exploitation du nœud en disponibilité générale pour les clusters dans les versions de Kubernetes supérieures à 1.18.8. Pour des versions antérieures à 1.18.x, AKS Ubuntu 16.04 est toujours l’image de base par défaut. À partir de Kubernetes v1.18.x, la base par défaut est AKS Ubuntu 18.04.
 
 > [!IMPORTANT]
 > Les pools de nœuds créés sur Kubernetes v1.18 ou version ultérieure ont par défaut une image de nœud `AKS Ubuntu 18.04`. Les pools de nœuds sur une version de Kubernetes prise en charge antérieure à 1.18 reçoivent une image de nœud `AKS Ubuntu 16.04`, mais seront mis à jour vers `AKS Ubuntu 18.04` une fois la version de Kubernetes du pool de nœuds mise à jour vers la version 1.18 ou ultérieure.
@@ -302,7 +302,7 @@ Lorsque vous travaillez avec le groupe de ressources de nœud, n’oubliez pas q
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez comment utiliser `Kured` pour [appliquer des mises à jour de sécurité et de noyau aux nœuds Linux](node-updates-kured.md) de votre cluster.
+- Découvrez comment [mettre à niveau les images de nœud](node-image-upgrade.md) dans votre cluster.
 - Pour plus d’informations sur la mise à niveau de votre cluster vers la dernière version de Kubernetes, consultez [Mettre à niveau un cluster Azure Kubernetes Service (AKS)](upgrade-cluster.md).
 - En savoir plus sur [`containerd` et Kubernetes](https://kubernetes.io/blog/2018/05/24/kubernetes-containerd-integration-goes-ga/)
 - Consultez la liste des [questions fréquentes sur AKS](faq.md) pour trouver des réponses à certaines questions courantes concernant AKS.

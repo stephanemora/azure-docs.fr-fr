@@ -5,16 +5,16 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 09/10/2020
+ms.date: 12/02/2020
 ms.author: jingwang
 ms.reviewer: craigg
 ms.custom: has-adal-ref
-ms.openlocfilehash: 2e54c0b09c3dbe398b0522d0ad9ad2314e29ed26
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c90b7ce86e06669696a4b9f7e0b2f5287e9dd97e
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023838"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533194"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>Résoudre les problèmes liés aux connecteurs dans Azure Data Factory
 
@@ -205,7 +205,7 @@ Cet article présente des méthodes couramment employées pour résoudre les pro
 - **Résolution** : Réexécutez l’activité de copie au bout de quelques minutes.
                   
 
-## <a name="azure-synapse-analytics-formerly-sql-data-warehouseazure-sql-databasesql-server"></a>Azure Synapse Analytics (anciennement SQL Data Warehouse)/Azure SQL Database/SQL Server
+## <a name="azure-synapse-analyticsazure-sql-databasesql-server"></a>Azure Synapse Analytics/Azure SQL Database/SQL Server
 
 ### <a name="error-code--sqlfailedtoconnect"></a>Code d’erreur :  SqlFailedToConnect
 
@@ -440,7 +440,7 @@ Cet article présente des méthodes couramment employées pour résoudre les pro
 
 - **Message** : `The name of column index %index; is empty. Make sure column name is properly specified in the header row.`
 
-- **Cause** : Quand vous définissez « firstRowAsHeader » dans l’activité, la première ligne est utilisée comme nom de colonne. Cette erreur signifie que la première ligne contient une valeur vide. Par exemple : « ColonneA,, ColonneB ».
+- **Cause** : Quand vous définissez « firstRowAsHeader » dans l’activité, la première ligne est utilisée comme nom de colonne. Cette erreur signifie que la première ligne contient une valeur vide. Exemple : « ColonneA, ColonneB ».
 
 - **Recommandation** :  Vérifiez la première ligne et corrigez la valeur s’il s’agit d’une valeur vide.
 
@@ -488,7 +488,28 @@ Cet article présente des méthodes couramment employées pour résoudre les pro
 
 - **Recommandation** :  Exécutez à nouveau le pipeline. Si l’échec persiste, essayez de réduire le parallélisme. Si le problème n’est toujours pas résolu, contactez le support Dynamics.
 
+## <a name="excel-format"></a>Format Excel
 
+### <a name="timeout-or-slow-performance-when-parsing-large-excel-file"></a>Expiration du délai ou baisse du niveau de performance lors de l’analyse d’un fichier Excel volumineux
+
+- **Symptômes** :
+
+    1. Lorsque vous créez un jeu de données Excel et importez un schéma à partir de feuilles de calcul de connexion/du magasin, d’aperçu de données, de liste ou d’actualisation, le délai d’attente peut expirer si la taille du fichier Excel est importante.
+    2. Lorsque vous utilisez l’activité de copie pour copier des données à partir d’un fichier Excel volumineux (> = 100 Mo) dans un autre magasin de données, vous pouvez rencontrer une baisse du niveau de performance ou une erreur de type OOM (mémoire insuffisante).
+
+- **Cause** : 
+
+    1. Pour les opérations comme l’importation de feuilles de calcul de schéma, d’aperçu de données et de liste dans un jeu de données Excel, le délai d’expiration est statique et fixé à 100 secondes. Pour un fichier Excel volumineux, ces opérations peuvent ne pas se terminer dans ce délai.
+
+    2. L’activité de copie ADF lit l’intégralité du fichier Excel en mémoire, puis localise la feuille de calcul et les cellules spécifiées pour lire les données. Ce comportement est dû à l’utilisation du Kit de développement logiciel (SDK) sous-jacent.
+
+- **Résolution** : 
+
+    1. Pour importer un schéma, vous pouvez générer un exemple de fichier plus petit représentant un sous-ensemble du fichier d’origine, puis choisir « import schema from sample file » (importer le schéma à partir d’un exemple de fichier) au lieu de « import schema from connection/store » (importer le schéma à partir d’une connexion/d’un magasin).
+
+    2. Pour répertorier une feuille de calcul, dans la liste déroulante de la feuille de calcul, vous pouvez cliquer sur « Modifier » et entrer à la place le nom/l’index de la feuille.
+
+    3. Pour copier un fichier Excel volumineux (> 100 Mo) dans un autre magasin, vous pouvez utiliser le flux de données source Excel qui prend en charge diffusion en continu et offre de meilleures performances.
 
 ## <a name="json-format"></a>Format JSON
 
@@ -645,6 +666,29 @@ Cet article présente des méthodes couramment employées pour résoudre les pro
 
 - **Recommandation** :  Supprimez « CompressionType » dans la charge utile.
 
+
+## <a name="rest"></a>REST
+
+### <a name="unexpected-network-response-from-rest-connector"></a>Réponse réseau inattendue du connecteur REST
+
+- **Symptômes** : Le point de terminaison reçoit parfois une réponse inattendue (400/401/403/500) du connecteur REST.
+
+- **Cause** : Le connecteur source REST utilise l’URL et la méthode/l’en-tête/le corps HTTP du service/du jeu de données/de la copie source comme paramètres lors de la construction d’une requête HTTP. Le problème est probablement dû à des erreurs dans un ou plusieurs paramètres spécifiés.
+
+- **Résolution** : 
+    - Utilisez 'curl' dans la fenêtre cmd pour vérifier si le paramètre est la cause ou non (les en-têtes **Accept** et **User-Agent** doivent toujours être inclus) :
+        ```
+        curl -i -X <HTTP method> -H <HTTP header1> -H <HTTP header2> -H "Accept: application/json" -H "User-Agent: azure-data-factory/2.0" -d '<HTTP body>' <URL>
+        ```
+      Si la commande retourne la même réponse inattendue, corrigez les paramètres ci-dessus en utilisant 'curl' jusqu’à obtenir la réponse attendue. 
+
+      Vous pouvez également utiliser 'curl --help' pour exécuter des options plus avancées de la commande.
+
+    - Si seul le connecteur REST ADF renvoie une réponse inattendue, contactez le support technique de Microsoft pour poursuivre la résolution des problèmes.
+    
+    - Notez que 'curl' peut ne pas convenir pour reproduire le problème de validation du certificat SSL. Dans certains scénarios, la commande 'curl' a été exécutée avec succès sans rencontrer de problème de validation de certificat SSL. Toutefois, lorsque la même URL est exécutée dans le navigateur, aucun certificat SSL n’est réellement renvoyé dans le premier emplacement pour permettre au client d’établir une relation de confiance avec le serveur.
+
+      Les outils comme **Postman** et **Fiddler** sont recommandés dans le cas ci-dessus.
 
 
 ## <a name="general-copy-activity-error"></a>Erreur générale de l’activité de copie

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 04/16/2020
-ms.openlocfilehash: 705b0f02682b6aa41cb5c8e77d8da39faa5edb1f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 70dfccb32389d2f1fb492669c9f84a3e6ae77bbb
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96450119"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621346"
 ---
 # <a name="publish-an-integrated-solution"></a>Publier une solution intégrée
 
@@ -32,18 +32,17 @@ Pour obtenir une vue d’ensemble du programme Solutions intégrées, regardez l
 ## <a name="eligibility-criteria"></a>Critères d’éligibilité
 
 * Les partenaires participants doivent disposer d’un ID MPN.
-* Les fournisseurs de services participants doivent être prêts pour la co-vente.
-* Les fournisseurs de logiciels participants doivent être prêts pour la co-vente PI.
+* Les fournisseurs de services participants doivent être [prêts pour la co-vente](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status).
+* Les fournisseurs de logiciels participants doivent être [prêts pour la co-vente IP](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status).
 * Au moins un des partenaires participants doit avoir une compétence Gold dans l’un des domaines suivants :
-
-    * Développement d'applications
-    * Intégration des applications
-    * Gestion du cycle de vie des applications
-    * Plateforme cloud
-    * Analytique des données
-    * Centre de données
-    * Plateforme de données
-    * DevOps
+    - Développement d'applications
+    - Intégration des applications
+    - Gestion du cycle de vie des applications
+    - Plateforme cloud
+    - Analytique des données
+    - Centre de données
+    - Plateforme de données
+    - DevOps
 
 * La solution doit inclure au moins deux organisations partenaires, rassemblant l’ensemble la PI et les services pour une solution et une expérience client complètes.
 * La PI du partenaire doit être basée sur Azure, Dynamics 365 ou Power Platform.

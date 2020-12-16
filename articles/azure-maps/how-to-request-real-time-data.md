@@ -1,22 +1,27 @@
 ---
-title: Demander des données de transport public en temps réel | Microsoft Azure Maps
-description: Apprenez à demander des données de transport public en temps réel, telles que des arrivées à un arrêt spécifique. Pour ce faire, découvrez comment utiliser le service Mobility d’Azure Maps.
+title: Demander des données de transport public en temps réel avec le service Mobility (préversion) de Microsoft Azure Maps
+description: Apprenez à demander des données de transport public en temps réel, telles que des arrivées à un arrêt spécifique. Pour ce faire, découvrez comment utiliser le service Mobility (préversion) d’Azure Maps.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 09/06/2019
+ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: e6f6d0738cb1673b752e35761a112f2ca22a409e
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: d3e3dc4b0e3bc64a38856da8344583b744ea62b6
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895713"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906044"
 ---
-# <a name="request-real-time-public-transit-data-using-the-azure-maps-mobility-service"></a>Demander des données de transport public en temps réel avec le service Mobility d’Azure Maps
+# <a name="request-real-time-public-transit-data-using-the-azure-maps-mobility-services-preview"></a>Demander des données de transport public en temps réel avec le service Mobility (préversion) d’Azure Maps 
+
+> [!IMPORTANT]
+> Le service Mobility d’Azure Maps est disponible en préversion publique.
+> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 Cet article vous montre comment utiliser le [service Mobility](/rest/api/maps/mobility) d’Azure Maps pour demander des données de transport public en temps réel.
 
@@ -30,13 +35,13 @@ Cet article utilise [l’application Postman](https://www.getpostman.com/apps) p
 
 ## <a name="request-real-time-arrivals-for-a-stop"></a>Demander les horaires d’arrivée en temps réel à un arrêt donné
 
-Pour demander les horaires d’arrivée en temps réel à un arrêt de transport public particulier, vous devez envoyer une demande à l’[API Real-time Arrivals](/rest/api/maps/mobility/getrealtimearrivalspreview) du [service Mobility](/rest/api/maps/mobility) d’Azure Maps. Vous devez indiquer les paramètres **metroID** et **stopID** dans la demande. Pour en savoir plus sur l’obtention de ces paramètres, consultez notre guide sur la façon de [demander des itinéraires des transports publics](./how-to-request-transit-data.md).
+Pour demander les horaires d’arrivée en temps réel à un arrêt de transport public particulier, vous devez envoyer une demande à l’[API Real-time Arrivals](/rest/api/maps/mobility/getrealtimearrivalspreview) du [service Mobility](/rest/api/maps/mobility) (préversion) d’Azure Maps. Vous devez indiquer les paramètres **metroID** et **stopID** dans la demande. Pour en savoir plus sur l’obtention de ces paramètres, consultez notre guide sur la façon de [demander des itinéraires des transports publics](./how-to-request-transit-data.md).
 
 Utilisons « 522 » comme numéro de zone urbaine, qui est le numéro de la zone « Seattle–Tacoma–Bellevue, WA ». Utilisons « 522---2060603 » comme numéro d’arrêt ; cet arrêt de bus se trouve à « Ne 24th St & 162nd Ave Ne, Bellevue WA ». Pour demander les horaires d’arrivée en temps réel des cinq prochains passages de bus à cet arrêt, effectuez les étapes suivantes :
 
-1. Ouvrez l’application Postman, puis créez une collection destinée au stockage des demandes. En haut de l'application Postman, sélectionnez **New** (Nouveau). Dans la fenêtre **Create New** (Créer nouveau), sélectionnez **Collection** .  Nommez la collection puis sélectionnez le bouton **Create** (Créer).
+1. Ouvrez l’application Postman, puis créez une collection destinée au stockage des demandes. En haut de l'application Postman, sélectionnez **New** (Nouveau). Dans la fenêtre **Create New** (Créer nouveau), sélectionnez **Collection**.  Nommez la collection puis sélectionnez le bouton **Create** (Créer).
 
-2. Pour créer la demande, sélectionnez **New** à nouveau. Dans la fenêtre **Create New** (Créer nouveau), sélectionnez **Request** (Demande). Entrez un **Request name** (Nom de demande) pour la demande. Sélectionnez la collection que vous avez créée à l’étape précédente comme emplacement dans lequel enregistrer la demande. Sélectionnez ensuite **Enregistrer** .
+2. Pour créer la demande, sélectionnez **New** à nouveau. Dans la fenêtre **Create New** (Créer nouveau), sélectionnez **Request** (Demande). Entrez un **Request name** (Nom de demande) pour la demande. Sélectionnez la collection que vous avez créée à l’étape précédente comme emplacement dans lequel enregistrer la demande. Sélectionnez ensuite **Enregistrer**.
 
     ![Créer une demande dans Postman](./media/how-to-request-transit-data/postman-new.png)
 
@@ -113,12 +118,12 @@ Utilisons « 522 » comme numéro de zone urbaine, qui est le numéro de la zo
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez comment demander des données de transit à l’aide de Mobility Service :
+Découvrez comment demander des données de transport public à l’aide du service Mobility (préversion) :
 
 > [!div class="nextstepaction"]
 > [Comment demander des données de transit](how-to-request-transit-data.md)
 
-Explorer la documentation de l’API Mobility Service d’Azure Maps :
+Explorez la documentation relative à l’API du service Mobility Azure Maps (préversion) :
 
 > [!div class="nextstepaction"]
-> [Documentation de l’API Mobility Service](/rest/api/maps/mobility)
+> [Documentation sur l’API du service Mobility](/rest/api/maps/mobility)

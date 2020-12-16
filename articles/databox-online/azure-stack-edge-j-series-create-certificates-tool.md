@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/17/2020
+ms.date: 11/24/2020
 ms.author: alkohli
-ms.openlocfilehash: 5e5cb077868a224620d1a23e1ff1aac9c8d9f095
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: ab9559e1e8265b3adf08b36d1a8097a00297c61a
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94874472"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96606988"
 ---
 # <a name="create-certificates-for-your-azure-stack-edge-pro-using-azure-stack-hub-readiness-checker-tool"></a>Créer des certificats pour votre instance Azure Stack Edge Pro avec l’outil Azure Stack Hub Readiness Checker 
 
@@ -23,7 +23,7 @@ Cet article explique comment créer des certificats pour votre instance Azure St
 
 ## <a name="using-azure-stack-hub-readiness-checker-tool"></a>Utilisation de l’outil Azure Stack Hub Readiness Checker
 
-Utilisez l’outil Azure Stack Hub Readiness Checker pour créer des demandes de signature de certificat (CSR) destinées au déploiement d’un appareil Azure Stack Edge Pro. Vous pouvez créer ces demandes après avoir passé commande de l’appareil Azure Stack Edge Pro, en attendant son arrivée. 
+Utilisez l’outil Azure Stack Hub Readiness Checker pour créer des demandes de signature de certificat (CSR) destinées au déploiement d’un appareil Azure Stack Edge Pro. Vous pouvez créer ces demandes après avoir passé commande de l’appareil Azure Stack Edge Pro, en attendant son arrivée.
 
 > [!NOTE]
 > Utilisez cet outil uniquement à des fins de test ou de développement, mais pas pour des appareils de production. 
@@ -59,19 +59,19 @@ Suivez ces étapes pour préparer les certificats de l’appareil Azure Stack Ed
     Install-Module -Name Microsoft.AzureStack.ReadinessChecker
     ```
 
-    Pour vérifier la version installée, tapez :  
+    Pour obtenir la version installée, saisissez :  
 
     ```azurepowershell
     Get-InstalledModule -Name Microsoft.AzureStack.ReadinessChecker  | ft Name, Version 
     ```
 
-3. Créez un répertoire pour tous les certificats, s’il n’existe pas. Tapez : 
+3. Créez un répertoire pour tous les certificats si vous n’en avez pas déjà un. Tapez : 
     
     ```azurepowershell
     New-Item "C:\certrequest" -ItemType Directory
     ``` 
     
-4. Pour créer une demande de certificat, fournissez les informations suivantes. Si vous générez un certificat VPN, certaines de ces entrées ne s’appliquent pas. 
+4. Pour créer une demande de certificat, fournissez les informations suivantes. Si vous générez un certificat VPN, certaines de ces entrées ne s’appliquent pas.
     
     |Entrée |Description  |
     |---------|---------|
@@ -107,7 +107,7 @@ Suivez ces étapes pour préparer les certificats de l’appareil Azure Stack Ed
     ```
 
     
-5. Les fichiers de demande de certificat se trouvent dans le répertoire que vous avez spécifié au niveau du paramètre OutputRequestPath ci-dessus. Quand vous utilisez le paramètre `MultipleCSR`, vous devez compter 4 fichiers avec l’extension `.req`. Les fichiers se présentent de la façon suivante :
+5. Les fichiers de demande de certificat se trouvent dans le répertoire que vous avez spécifié dans le paramètre OutputRequestPath ci-dessus. Quand vous utilisez le paramètre `MultipleCSR`, vous devez compter les quatre fichiers suivants avec l’extension `.req` :
 
     
     |Noms de fichiers  |Type de demande de certificat  |
@@ -115,10 +115,10 @@ Suivez ces étapes pour préparer les certificats de l’appareil Azure Stack Ed
     |Commençant par votre `DeviceName`     |Demande de certificat de l’interface utilisateur web locale      |
     |Commençant par votre `NodeSerialNumber`     |Demande de certificat de nœud         |
     |À compter de `login`     |Demande de certificat de point de terminaison Azure Resource Manager       |
-    |À compter de `wildcard`     |Demande de certificat de stockage d’objets blob ; elle contient un caractère générique, car elle couvre tous les comptes de stockage que vous pouvez créer sur l’appareil.          |
+    |À compter de `wildcard`     |Demande de certificat de stockage de blobs Elle contient un caractère générique, car elle couvre tous les comptes de stockage que vous pouvez créer sur l’appareil.          |
     |À compter de `AzureStackEdgeVPNCertificate`     |Demande de certificat client VPN.         |
 
-    Vous voyez également un dossier INF. Celui-ci contient un fichier d’informations management.<nomdel’appareil-edge> en texte clair expliquant les détails du certificat.  
+    Vous verrez également un dossier INF. Celui-ci contient un fichier d’informations management.<nomdel’appareil-edge> en texte clair expliquant les détails du certificat.  
 
 
 6. Envoyez ces fichiers à votre autorité de certification (interne ou publique). Assurez-vous que votre autorité de certification crée des certificats en utilisant votre demande générée qui est conforme aux exigences de certificat Azure Stack Edge Pro pour les [certificats de nœud](azure-stack-edge-j-series-manage-certificates.md#node-certificates), les [certificats de point de terminaison](azure-stack-edge-j-series-manage-certificates.md#endpoint-certificates) et les [certificats d’interface utilisateur locale](azure-stack-edge-j-series-manage-certificates.md#local-ui-certificates).

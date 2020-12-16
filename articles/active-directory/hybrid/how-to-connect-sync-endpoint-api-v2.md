@@ -1,5 +1,5 @@
 ---
-title: Préversion publique du point de terminaison v2 pour la synchronisation Azure AD Connect | Microsoft Docs
+title: Point de terminaison V2 pour la synchronisation d’Azure AD Connect | Microsoft Docs
 description: Ce document traite des mises à jour de l’API des points de terminaison v2 pour la synchronisation Azure AD Connect.
 services: active-directory
 author: billmath
@@ -8,38 +8,28 @@ editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/20/2020
+ms.date: 12/04/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 779b29c8d31dffa495926a7f2ca5e1f77870078c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 07acd71eb1a77592c82b80aa574d79b98c48f60e
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91319909"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608297"
 ---
-# <a name="azure-ad-connect-sync-v2-endpoint-api-public-preview"></a>API du point de terminaison v2 pour la synchronisation Azure AD Connect (préversion publique) 
+# <a name="azure-ad-connect-sync-v2-endpoint-api"></a>API de point de terminaison V2 pour la synchronisation d’Azure AD Connect 
 Microsoft a déployé un nouveau point de terminaison (API) pour Azure AD Connect qui améliore les performances des opérations des services de synchronisation pour Azure Active Directory. En utilisant le nouveau point de terminaison v2, vous constaterez des gains de performances perceptibles lors de l’exportation et de l’importation vers Azure AD. Ce nouveau point de terminaison prend en charge les éléments suivants :
     
- -  synchronisation des groupes avec jusqu’à 250 000 membres
+ - synchronisation des groupes avec jusqu’à 250 000 membres
  - gains de performances lors de l’exportation et de l’importation vers Azure AD
  
 > [!NOTE]
 > Actuellement, le nouveau point de terminaison n’a pas de limite de taille de groupe configurée pour les groupes Microsoft 365 réécrits. Cela peut avoir un effet sur vos latences Active Directory et du cycle de synchronisation. Il est recommandé d’augmenter la taille des groupes de façon incrémentielle.  
 
-
 ## <a name="pre-requisites"></a>Conditions préalables  
 Pour utiliser le nouveau point de terminaison v2, vous devez utiliser [version Azure AD Connect 1.5.30.0](https://www.microsoft.com/download/details.aspx?id=47594) ou version ultérieure et suivre les étapes de déploiement fournies ci-dessous pour activer le point de terminaison v2 pour votre serveur Azure AD Connect.   
-
->[!NOTE]
->Actuellement, cette version préliminaire publique est uniquement disponible dans le cloud global Azure et n’est pas disponible sur les [clouds nationaux](../develop/authentication-national-cloud.md).
-
-### <a name="public-preview-limitations"></a>Limitations de la version préliminaire publique  
-Bien que cette version ait subi des tests intensifs, vous pouvez toujours rencontrer des problèmes. L’un des objectifs de cette version préliminaire publique est de trouver et de résoudre ces problèmes.  
-
->[!IMPORTANT]
-> Alors que la prise en charge est fournie pour cette version préliminaire publique, Microsoft peut ne pas toujours être en mesure de résoudre tous les problèmes que vous pouvez rencontrer immédiatement. Pour cette raison, nous vous recommandons de faire preuve de discernement avant de déployer cette version dans votre environnement de production. 
 
 ## <a name="deployment-guidance"></a>Conseils pour le déploiement 
 Vous devez déployer la [version Azure AD Connect 1.5.30.0](https://www.microsoft.com/download/details.aspx?id=47594) ou version ultérieure pour utiliser le point de terminaison v2. Utilisez le lien fourni pour le téléchargement. 
@@ -184,17 +174,9 @@ Si vous avez activé le point de terminaison v2 et que vous devez effectuer une 
 > Lorsque vous basculez de nouveau du point de terminaison v2 vers v1, les groupes synchronisés avec plus de 50 000 membres seront supprimés après l’exécution d’une synchronisation complète, à la fois pour les groupes AD provisionnés dans Azure AD et les groupes unifiés Microsoft 365 provisionnés dans AD. 
 
 ## <a name="frequently-asked-questions"></a>Forum aux questions  
-**Q : Un client peut-il utiliser cette fonctionnalité en production ?**   
-</br>Oui, cela peut être utilisé dans des environnements de production, avec l’inconvénient cité précédemment.
  
-**Q : Qui le client peut-il contacter en cas de problème ?**   
-</br>Si vous avez besoin d’aide lors de l’utilisation de cette fonctionnalité, vous devez ouvrir un cas de support. 
- 
-**Q : Puis-je attendre des mises à jour fréquentes de la version préliminaire publique ?**   
-</br>Il existe un degré limité de modifications en cours pendant une Préversion publique. Vous devez évaluer ce risque lors du déploiement des fonctionnalités Préversion publique en production.  
- 
-**Q : Délai jusqu’au jalon suivant ?**   
-</br>Les fonctionnalités de la Préversion publique peuvent être retirées et éventuellement repensées avant d’atteindre d’autres étapes majeures.  
+**Quand le nouveau point de terminaison deviendra-t-il le point par défaut pour les mises à niveau et les nouvelles installations ?**   
+</br>Nous envisageons de publier une nouvelle version d’AADConnect qui sera disponible au téléchargement en janvier 2021. Cette version utilisera le point de terminaison v2 par défaut et permettra la synchronisation des groupes de plus de 50 000 membres, sans nécessiter de configuration supplémentaire. Cette version sera publiée par la suite dans le cadre de la mise à niveau automatique vers les serveurs éligibles.
  
 ## <a name="next-steps"></a>Étapes suivantes
 

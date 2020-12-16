@@ -9,37 +9,47 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/26/2020
+ms.date: 10/27/2020
 ms.author: hirsin
 ms.reviewer: mmacy, hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: b60be1b3d30ab462f89dd4d72ab67d43393740b8
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 909c8910a86734b0a34787f75c233975cd3503c3
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93393368"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518241"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Jetons d’accès de la plateforme d’identités Microsoft
 
-Les jetons d’accès permettent aux clients d’appeler en toute sécurité des API protégées. Les jetons d’accès de la plateforme d’identité Microsoft sont des [JWT](https://tools.ietf.org/html/rfc7519), c’est-à-dire des objets JSON encodés en Base64 signés par la plateforme d’identité Azure. Les clients doivent traiter les jetons d’accès comme des chaînes opaques, car leur contenu n’est destiné qu’à la ressource. Pour la validation et le débogage, les développeurs peuvent décoder les jetons web JSON (JWT, JSON Web Tokens) via un site tel que [jwt.ms](https://jwt.ms). Votre client peut obtenir un jeton d’accès à partir de n’importe quel point de terminaison v1.0 ou v2.0 par le biais de plusieurs protocoles.
+Les jetons d’accès permettent aux clients d’appeler de manière sécurisée des API web protégées et sont utilisés par les API web pour effectuer l’authentification et l’autorisation. Conformément à la spécification OAuth, les jetons d’accès sont des chaînes opaques sans format défini ; certains fournisseurs d’identité (IDP) utilisent des GUID, d’autres utilisent des objets blob chiffrés. La plateforme d’identités Microsoft utilise un large éventail de formats de jeton d’accès en fonction de la configuration de l’API qui accepte le jeton. Les [API personnalisées inscrites par les développeurs](quickstart-configure-app-expose-web-apis.md) sur la plateforme d’identités Microsoft peuvent choisir parmi deux formats différents de jetons web JSON (jetons JWT), appelés « v1 » et « v2 », et les API développées par Microsoft comme Microsoft Graph ou les API dans Azure ont des formats de jetons propriétaires supplémentaires. Ces formats propriétaires peuvent être des jetons chiffrés, des jetons JWT ou des jetons de type JWT spéciaux qui ne sont pas validés.
 
-Quand votre client demande un jeton d’accès, la plateforme d’identité Microsoft retourne également des métadonnées sur le jeton d’accès que votre application peut utiliser. Ces informations incluent le délai d’expiration du jeton d’accès et les étendues dans lesquelles il est valide. Ces données permettent à votre application d’effectuer une mise en cache intelligente des jetons d’accès sans avoir à les analyser eux-mêmes.
+Les clients doivent traiter les jetons d’accès comme des chaînes opaques, car leur contenu n’est destiné qu’à la ressource (l’API). À des fins de validation et le débogage *uniquement*, les développeurs peuvent décoder les jetons JWT via un site comme [jwt.ms](https://jwt.ms). Gardez toutefois à l’esprit que les jetons que vous recevez pour une API Microsoft peuvent ne pas être un jeton JWT et qu’il est possible que vous ne puissiez pas les décoder.
 
-Si votre application est une ressource (API Web) à laquelle les clients peuvent demander l’accès, les jetons d’accès fournissent des informations utiles pour l’authentification et l’autorisation, comme l’utilisateur, le client, l’émetteur, les autorisations, etc.
+Pour plus d’informations sur le contenu du jeton d’accès, les clients doivent utiliser les données de réponse de jeton retournées avec le jeton d’accès à votre client. Quand votre client demande un jeton d’accès, la plateforme d’identités Microsoft retourne également des métadonnées sur le jeton d’accès que votre application peut utiliser. Ces informations incluent le délai d’expiration du jeton d’accès et les étendues dans lesquelles il est valide. Ces données permettent à votre application d’effectuer une mise en cache intelligente des jetons d’accès sans avoir à les analyser eux-mêmes.
 
-Consultez les sections suivantes pour savoir comment une ressource peut valider et utiliser les revendications dans un jeton d’accès.
+Consultez les sections suivantes pour savoir comment votre API peut valider et utiliser les revendications dans un jeton d’accès.  
 
-> [!IMPORTANT]
-> Les jetons d’accès sont créés en fonction de l’ *audience* du jeton, autrement dit l’application qui possède les étendues dans le jeton.  C’est ainsi qu’une ressource qui définit `accessTokenAcceptedVersion` dans le [manifeste de l’application](reference-app-manifest.md#manifest-reference) sur `2` autorise un client qui appelle le point de terminaison v1.0 pour recevoir un jeton d’accès v2.0.  De même, c’est pourquoi changer les [revendications facultatives](active-directory-optional-claims.md) de jeton d’accès pour le client ne permet pas de changer le jeton d’accès reçu lorsqu’un jeton est demandé pour `user.read`, possédé par la ressource.
->
-> Pour cette même raison, lorsque vous testez votre application client avec une API Microsoft qui prend en charge un compte personnel (par exemple hotmail.com ou outlook.com), vous pouvez constater que le jeton d’accès reçu par votre client est une chaîne opaque. Cela est dû au fait que la ressource consultée utilise des jetons chiffrés et qu’elle ne peut pas être comprise par le client.  Cela est normal et ne doit pas être considéré comme un problème pour votre application. Les applications clientes ne doivent jamais avoir de dépendance sur le format du jeton d’accès.
+> [!NOTE]
+> Toute la documentation de cette page, sauf indication contraire, s’applique uniquement aux jetons émis pour les API que vous avez inscrites.  Elle ne s’applique pas aux jetons émis pour les API appartenant à Microsoft, et ces jetons ne peuvent pas être utilisés pour valider la manière dont la plateforme d’identités Microsoft émet des jetons pour une API que vous créez.  
 
-## <a name="sample-tokens"></a>Exemples de jeton
+## <a name="token-formats-and-ownership"></a>Propriété et formats des jetons
 
-Les jetons v1.0 et v2.0 se ressemblent et un grand nombre de leurs revendications sont identiques. Vous trouverez ici un exemple de chacun d’eux.
+### <a name="v10-and-v20"></a>v1.0 et v2.0 
 
-### <a name="v10"></a>v1.0
+Deux versions de jetons d’accès sont disponibles dans la plateforme d’identités Microsoft : v1.0 et v2.0.  Ces versions régissent les revendications qui se trouvent dans le jeton, garantissant ainsi qu’une API web peut contrôler l’aspect de ses jetons. Les API web ont l’une de ces options sélectionnée par défaut lors de l’inscription : v1.0 pour les applications Azure AD uniquement et v2.0 pour les applications qui prennent en charge les comptes de consommateurs.  Cela est contrôlable par les applications avec le paramètre `accessTokenAcceptedVersion` dans le [manifeste de l’application](reference-app-manifest.md#manifest-reference), où `null` et `1` génèrent des jetons v1.0, et `2` génère des jetons v2.0.
+
+### <a name="what-app-is-a-token-for"></a>Quelle application pour quel jeton ?
+
+Deux parties sont impliquées dans une demande de jeton d’accès : le client qui demande le jeton et la ressource (l’API) qui accepte le jeton quand l’API est appelée. La revendication `aud` dans un jeton indique la ressource à laquelle le jeton est destiné (son *participant*). Les clients utilisent le jeton, mais ne doivent pas le comprendre ni tenter de l’analyser. Les ressources acceptent le jeton.  
+
+La plateforme d’identités Microsoft prend en charge l’émission de toute version de jeton à partir de n’importe quel point de terminaison de version : ils ne sont pas liés. C’est la raison pour laquelle une ressource qui affecte à `accessTokenAcceptedVersion` la valeur `2` indique qu’un client qui appelle le point de terminaison v1.0 pour obtenir un jeton pour cette API recevra un jeton d’accès v2.0.  Les ressources détiennent toujours leurs jetons (avec leur revendication `aud`) et sont les seules applications qui peuvent en modifier les détails. C’est pourquoi la modification des [revendications facultatives](active-directory-optional-claims.md) du jeton d’accès pour votre *client* ne permet pas de changer le jeton d’accès reçu quand un jeton est demandé pour `user.read`, qui appartient à la ressource Microsoft Graph.
+
+### <a name="sample-tokens"></a>Exemples de jeton
+
+Les jetons v1.0 et v2.0 se ressemblent et un grand nombre de leurs revendications sont identiques. Vous trouverez ici un exemple de chacun d’eux. Ces exemples de jetons ne sont toutefois pas [validés](#validating-tokens), car les clés ont été permutées avant la publication et des informations personnelles en ont été supprimées.
+
+#### <a name="v10"></a>v1.0
 
 ```
 eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Imk2bEdrM0ZaenhSY1ViMkMzbkVRN3N5SEpsWSIsImtpZCI6Imk2bEdrM0ZaenhSY1ViMkMzbkVRN3N5SEpsWSJ9.eyJhdWQiOiJlZjFkYTlkNC1mZjc3LTRjM2UtYTAwNS04NDBjM2Y4MzA3NDUiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC9mYTE1ZDY5Mi1lOWM3LTQ0NjAtYTc0My0yOWYyOTUyMjIyOS8iLCJpYXQiOjE1MzcyMzMxMDYsIm5iZiI6MTUzNzIzMzEwNiwiZXhwIjoxNTM3MjM3MDA2LCJhY3IiOiIxIiwiYWlvIjoiQVhRQWkvOElBQUFBRm0rRS9RVEcrZ0ZuVnhMaldkdzhLKzYxQUdyU091TU1GNmViYU1qN1hPM0libUQzZkdtck95RCtOdlp5R24yVmFUL2tES1h3NE1JaHJnR1ZxNkJuOHdMWG9UMUxrSVorRnpRVmtKUFBMUU9WNEtjWHFTbENWUERTL0RpQ0RnRTIyMlRJbU12V05hRU1hVU9Uc0lHdlRRPT0iLCJhbXIiOlsid2lhIl0sImFwcGlkIjoiNzVkYmU3N2YtMTBhMy00ZTU5LTg1ZmQtOGMxMjc1NDRmMTdjIiwiYXBwaWRhY3IiOiIwIiwiZW1haWwiOiJBYmVMaUBtaWNyb3NvZnQuY29tIiwiZmFtaWx5X25hbWUiOiJMaW5jb2xuIiwiZ2l2ZW5fbmFtZSI6IkFiZSAoTVNGVCkiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83MmY5ODhiZi04NmYxLTQxYWYtOTFhYi0yZDdjZDAxMjIyNDcvIiwiaXBhZGRyIjoiMjIyLjIyMi4yMjIuMjIiLCJuYW1lIjoiYWJlbGkiLCJvaWQiOiIwMjIyM2I2Yi1hYTFkLTQyZDQtOWVjMC0xYjJiYjkxOTQ0MzgiLCJyaCI6IkkiLCJzY3AiOiJ1c2VyX2ltcGVyc29uYXRpb24iLCJzdWIiOiJsM19yb0lTUVUyMjJiVUxTOXlpMmswWHBxcE9pTXo1SDNaQUNvMUdlWEEiLCJ0aWQiOiJmYTE1ZDY5Mi1lOWM3LTQ0NjAtYTc0My0yOWYyOTU2ZmQ0MjkiLCJ1bmlxdWVfbmFtZSI6ImFiZWxpQG1pY3Jvc29mdC5jb20iLCJ1dGkiOiJGVnNHeFlYSTMwLVR1aWt1dVVvRkFBIiwidmVyIjoiMS4wIn0.D3H6pMUtQnoJAGq6AHd
@@ -47,7 +57,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Imk2bEdrM0ZaenhSY1ViMkMzbkVRN3N5SEps
 
 Afficher ce jeton v1.0 dans [JWT.ms](https://jwt.ms/#access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Imk2bEdrM0ZaenhSY1ViMkMzbkVRN3N5SEpsWSIsImtpZCI6Imk2bEdrM0ZaenhSY1ViMkMzbkVRN3N5SEpsWSJ9.eyJhdWQiOiJlZjFkYTlkNC1mZjc3LTRjM2UtYTAwNS04NDBjM2Y4MzA3NDUiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC9mYTE1ZDY5Mi1lOWM3LTQ0NjAtYTc0My0yOWYyOTUyMjIyOS8iLCJpYXQiOjE1MzcyMzMxMDYsIm5iZiI6MTUzNzIzMzEwNiwiZXhwIjoxNTM3MjM3MDA2LCJhY3IiOiIxIiwiYWlvIjoiQVhRQWkvOElBQUFBRm0rRS9RVEcrZ0ZuVnhMaldkdzhLKzYxQUdyU091TU1GNmViYU1qN1hPM0libUQzZkdtck95RCtOdlp5R24yVmFUL2tES1h3NE1JaHJnR1ZxNkJuOHdMWG9UMUxrSVorRnpRVmtKUFBMUU9WNEtjWHFTbENWUERTL0RpQ0RnRTIyMlRJbU12V05hRU1hVU9Uc0lHdlRRPT0iLCJhbXIiOlsid2lhIl0sImFwcGlkIjoiNzVkYmU3N2YtMTBhMy00ZTU5LTg1ZmQtOGMxMjc1NDRmMTdjIiwiYXBwaWRhY3IiOiIwIiwiZW1haWwiOiJBYmVMaUBtaWNyb3NvZnQuY29tIiwiZmFtaWx5X25hbWUiOiJMaW5jb2xuIiwiZ2l2ZW5fbmFtZSI6IkFiZSAoTVNGVCkiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83MmY5ODhiZi04NmYxLTQxYWYtOTFhYi0yZDdjZDAxMjIyNDcvIiwiaXBhZGRyIjoiMjIyLjIyMi4yMjIuMjIiLCJuYW1lIjoiYWJlbGkiLCJvaWQiOiIwMjIyM2I2Yi1hYTFkLTQyZDQtOWVjMC0xYjJiYjkxOTQ0MzgiLCJyaCI6IkkiLCJzY3AiOiJ1c2VyX2ltcGVyc29uYXRpb24iLCJzdWIiOiJsM19yb0lTUVUyMjJiVUxTOXlpMmswWHBxcE9pTXo1SDNaQUNvMUdlWEEiLCJ0aWQiOiJmYTE1ZDY5Mi1lOWM3LTQ0NjAtYTc0My0yOWYyOTU2ZmQ0MjkiLCJ1bmlxdWVfbmFtZSI6ImFiZWxpQG1pY3Jvc29mdC5jb20iLCJ1dGkiOiJGVnNHeFlYSTMwLVR1aWt1dVVvRkFBIiwidmVyIjoiMS4wIn0.D3H6pMUtQnoJAGq6AHd).
 
-### <a name="v20"></a>v2.0
+#### <a name="v20"></a>v2.0
 
 ```
 eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Imk2bEdrM0ZaenhSY1ViMkMzbkVRN3N5SEpsWSJ9.eyJhdWQiOiI2ZTc0MTcyYi1iZTU2LTQ4NDMtOWZmNC1lNjZhMzliYjEyZTMiLCJpc3MiOiJodHRwczovL2xvZ2luLm1pY3Jvc29mdG9ubGluZS5jb20vNzJmOTg4YmYtODZmMS00MWFmLTkxYWItMmQ3Y2QwMTFkYjQ3L3YyLjAiLCJpYXQiOjE1MzcyMzEwNDgsIm5iZiI6MTUzNzIzMTA0OCwiZXhwIjoxNTM3MjM0OTQ4LCJhaW8iOiJBWFFBaS84SUFBQUF0QWFaTG8zQ2hNaWY2S09udHRSQjdlQnE0L0RjY1F6amNKR3hQWXkvQzNqRGFOR3hYZDZ3TklJVkdSZ2hOUm53SjFsT2NBbk5aY2p2a295ckZ4Q3R0djMzMTQwUmlvT0ZKNGJDQ0dWdW9DYWcxdU9UVDIyMjIyZ0h3TFBZUS91Zjc5UVgrMEtJaWpkcm1wNjlSY3R6bVE9PSIsImF6cCI6IjZlNzQxNzJiLWJlNTYtNDg0My05ZmY0LWU2NmEzOWJiMTJlMyIsImF6cGFjciI6IjAiLCJuYW1lIjoiQWJlIExpbmNvbG4iLCJvaWQiOiI2OTAyMjJiZS1mZjFhLTRkNTYtYWJkMS03ZTRmN2QzOGU0NzQiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhYmVsaUBtaWNyb3NvZnQuY29tIiwicmgiOiJJIiwic2NwIjoiYWNjZXNzX2FzX3VzZXIiLCJzdWIiOiJIS1pwZmFIeVdhZGVPb3VZbGl0anJJLUtmZlRtMjIyWDVyclYzeERxZktRIiwidGlkIjoiNzJmOTg4YmYtODZmMS00MWFmLTkxYWItMmQ3Y2QwMTFkYjQ3IiwidXRpIjoiZnFpQnFYTFBqMGVRYTgyUy1JWUZBQSIsInZlciI6IjIuMCJ9.pj4N-w_3Us9DrBLfpCt
@@ -65,10 +75,9 @@ Les jetons JWT (jetons web JSON) comprennent trois parties :
 
 Chaque partie est séparée par un point (`.`) et encodée séparément en base64.
 
-Les revendications ne sont présentes que lorsqu’elles sont renseignées par une valeur. Votre application ne doit donc pas dépendre de la présence d’une revendication. Exemples : `pwd_exp` (tous les clients n’ont pas besoin de mots de passe pour expirer) ou `family_name` (les flux d’informations d’identification client [[v1.0](../azuread-dev/v1-oauth2-client-creds-grant-flow.md), [v2.0](v2-oauth2-client-creds-grant-flow.md)] sont au nom d’applications qui ne portent pas de noms). Les revendications utilisées pour la validation des jetons d’accès seront toujours présentes.
+Les revendications ne sont présentes que lorsqu’elles sont renseignées par une valeur. Votre application ne doit pas dépendre de la présence d’une revendication. Exemples : `pwd_exp` (tous les locataires n’ont pas besoin que leur mot de passe expire) ou `family_name` (les flux d’[ informations d’identification client](v2-oauth2-client-creds-grant-flow.md) se font au nom d’applications qui ne portent pas de noms). Les revendications utilisées pour la validation des jetons d’accès seront toujours présentes.
 
-> [!NOTE]
-> Certaines revendications permettent à Azure AD de sécuriser les jetons en cas de réutilisation. Celles-ci portent la mention « Opaque » dans la description pour indiquer qu’elles ne sont pas destinées à l’utilisation publique. Ces revendications peuvent apparaître ou non dans un jeton, et de nouvelles revendications peuvent être ajoutées sans préavis.
+Certaines revendications permettent à Azure AD de sécuriser les jetons en cas de réutilisation. Celles-ci portent la mention « Opaque » dans la description pour indiquer qu’elles ne sont pas destinées à l’utilisation publique. Ces revendications peuvent apparaître ou non dans un jeton, et de nouvelles revendications peuvent être ajoutées sans préavis.
 
 ### <a name="header-claims"></a>Revendications de l’en-tête
 
@@ -84,8 +93,8 @@ Les revendications ne sont présentes que lorsqu’elles sont renseignées par u
 
 | Revendication | Format | Description |
 |-----|--------|-------------|
-| `aud` | Chaîne, URI ID d’application | Identifie le destinataire du jeton. Dans les jetons d’ID, l’audience est l’ID attribué à votre application dans le portail Azure. Votre application doit valider cette valeur et rejeter le jeton si la valeur ne correspond pas. |
-| `iss` | Chaîne, URI STS | Identifie le service d’émission de jeton de sécurité (STS) qui construit et retourne le jeton, ainsi que le client Azure AD dans lequel l’utilisateur a été authentifié. Si le jeton émis est un jeton v2.0 (voir la revendication `ver`), l’URI se termine dans `/v2.0`. La partie GUID qui indique que l’utilisateur est un utilisateur consommateur d’un compte Microsoft est `9188040d-6c67-4c5b-b112-36a304b66dad`. Votre application doit utiliser la partie GUID de la revendication pour restreindre l’ensemble des clients qui peuvent se connecter à l’application, le cas échéant. |
+| `aud` | Chaîne, URI ID d’application ou GUID | Identifie le destinataire du jeton, son participant.  Votre API doit valider cette valeur et rejeter le jeton si la valeur ne correspond pas. Dans les jetons v2.0, il s’agit toujours de l’ID client de l’API, tandis que dans les jetons v1.0, il peut s’agir de l’ID client ou de l’URI de ressource utilisé dans la demande, en fonction de la façon dont le client a demandé le jeton.|
+| `iss` | Chaîne, URI STS | Identifie le service d’émission de jeton de sécurité (STS) qui construit et retourne le jeton, ainsi que le client Azure AD dans lequel l’utilisateur a été authentifié. Si le jeton émis est un jeton v2.0 (voir la revendication `ver`), l’URI se termine dans `/v2.0`. La partie GUID qui indique que l’utilisateur est un utilisateur consommateur d’un compte Microsoft est `9188040d-6c67-4c5b-b112-36a304b66dad`. Votre application peut utiliser la partie GUID de la revendication pour restreindre l’ensemble des locataires qui peuvent se connecter à l’application, le cas échéant. |
 |`idp`| Chaîne, généralement un URI STS | Enregistre le fournisseur d’identité qui a authentifié le sujet du jeton. Cette valeur est identique à la valeur de la revendication de l’émetteur sauf si le compte d’utilisateur n’est pas dans le même locataire que l’émetteur (invités par exemple). Si la revendication n’est pas présente, cela signifie que la valeur `iss` peut être utilisée à la place.  Pour les comptes personnels utilisés dans un contexte organisationnel (par exemple, un compte personnel invité dans un locataire Azure AD), la revendication `idp` peut être « live.com » ou un URI STS contenant le locataire de compte Microsoft `9188040d-6c67-4c5b-b112-36a304b66dad`. |
 | `iat` | int, horodatage UNIX | « Issued At » (Délivré le) indique quand l'authentification de ce jeton a eu lieu. |
 | `nbf` | int, horodatage UNIX | La revendication « nbf » (pas avant) indique le délai avant lequel le JWT ne doit pas être accepté pour être traité. |
@@ -94,10 +103,10 @@ Les revendications ne sont présentes que lorsqu’elles sont renseignées par u
 | `acr` | Chaîne, « 0 » ou « 1 » | Uniquement dans les jetons v1.0. Revendication « Classe du contexte d’authentification ». La valeur « 0 » indique que l'authentification de l'utilisateur final ne répondait pas aux exigences de la norme ISO/IEC 29115. |
 | `amr` | Tableau de chaînes JSON | Uniquement dans les jetons v1.0. Identifie comment le sujet du jeton a été authentifié. Pour en savoir plus, consultez [la section sur les revendications amr](#the-amr-claim). |
 | `appid` | Chaîne, GUID | Uniquement dans les jetons v1.0. ID de l’application du client utilisant le jeton. L'application peut agir pour elle-même ou pour le compte d'un utilisateur. L'ID d'application représente généralement un objet d’application, mais elle peut également représenter un objet du principal du service dans Azure AD. |
-| `appidacr` | « 0 », « 1 » ou « 2 » | Uniquement dans les jetons v1.0. Indique comment le client a été authentifié. Pour un client public, la valeur est « 0 ». Si l’ID client et la clé secrète client sont utilisés, la valeur est « 1 ». Si un certificat client a été utilisé pour l’authentification, la valeur est « 2 ». |
 | `azp` | Chaîne, GUID | Seulement présent dans les jetons v2.0, un remplacement pour `appid`. ID de l’application du client utilisant le jeton. L'application peut agir pour elle-même ou pour le compte d'un utilisateur. L'ID d'application représente généralement un objet d’application, mais elle peut également représenter un objet du principal du service dans Azure AD. |
+| `appidacr` | « 0 », « 1 » ou « 2 » | Uniquement dans les jetons v1.0. Indique comment le client a été authentifié. Pour un client public, la valeur est « 0 ». Si l’ID client et la clé secrète client sont utilisés, la valeur est « 1 ». Si un certificat client a été utilisé pour l’authentification, la valeur est « 2 ». |
 | `azpacr` | « 0 », « 1 » ou « 2 » | Seulement présent dans les jetons v2.0, un remplacement pour `appidacr`. Indique comment le client a été authentifié. Pour un client public, la valeur est « 0 ». Si l’ID client et la clé secrète client sont utilisés, la valeur est « 1 ». Si un certificat client a été utilisé pour l’authentification, la valeur est « 2 ». |
-| `preferred_username` | String | Nom d’utilisateur principal qui représente l’utilisateur. Il peut s’agir d’une adresse e-mail, d’un numéro de téléphone ou d’un nom d’utilisateur générique sans format spécifié. Sa valeur est mutable et peut changer au fil du temps. Dans la mesure où elle est mutable, cette valeur ne doit pas utilisée pour prendre des décisions d’autorisation.  Elle peut cependant être utilisée pour les conseils relatifs au nom d’utilisateur. L’étendue `profile` est requise afin de recevoir cette revendication. |
+| `preferred_username` | String | Nom d’utilisateur principal qui représente l’utilisateur. Il peut s’agir d’une adresse e-mail, d’un numéro de téléphone ou d’un nom d’utilisateur générique sans format spécifié. Sa valeur est mutable et peut changer au fil du temps. Dans la mesure où elle est mutable, cette valeur ne doit pas utilisée pour prendre des décisions d’autorisation.  Elle peut toutefois être utilisée pour les indications sur le nom d’utilisateur et dans une interface utilisateur explicite en tant que nom d’utilisateur. L’étendue `profile` est requise afin de recevoir cette revendication. Présente uniquement dans les jetons v2.0. |
 | `name` | String | Fournit une valeur contrôlable de visu qui identifie le sujet du jeton. Il n’est pas certain que cette valeur soit unique. Elle est mutable et conçue pour être utilisée uniquement à des fins d’affichage. L’étendue `profile` est requise afin de recevoir cette revendication. |
 | `scp` | Chaîne, liste d’étendues séparées par des espaces | Ensemble des étendues exposées par votre application pour lesquelles l’application client a requis (et reçu) un consentement. Votre application doit vérifier la validité de ces étendues et prendre des décisions d’autorisation en fonction de leur valeur. Uniquement inclus pour les [jetons utilisateur](#user-and-application-tokens). |
 | `roles` | Tableau de chaînes, une liste d’autorisations | Ensemble des autorisations exposées par votre application que l’application ou l’utilisateur requérant est autorisé à appeler. Pour les [jetons d’applications](#user-and-application-tokens), cela est utilisé durant le flux d’informations client ([v1.0](../azuread-dev/v1-oauth2-client-creds-grant-flow.md), [v2.0](v2-oauth2-client-creds-grant-flow.md)) à la place des étendues utilisateur.  Pour les [jetons d’utilisateurs](#user-and-application-tokens), cela est renseigné avec les rôles de l’utilisateur sur l’application cible. |
@@ -115,7 +124,7 @@ Les revendications ne sont présentes que lorsqu’elles sont renseignées par u
 
 **Revendication de dépassement des groupes**
 
-Pour s’assurer que la taille du jeton ne dépasse pas les limites de taille d’en-tête HTTP, Azure AD limite le nombre d’ID d’objets inclus dans la revendication des groupes. Si un utilisateur est membre d’un nombre de groupes supérieur à la limite de dépassement (150 pour les jetons SAML, 200 pour les jetons JWT), Azure AD n’émet pas la revendication des groupes dans le jeton. Au lieu de cela, il inclut une revendication de dépassement dans le jeton qui indique à l’application d’interroger l’API Microsoft Graph pour récupérer l’appartenance de groupe de l’utilisateur.
+Pour s’assurer que la taille du jeton ne dépasse pas les limites de taille d’en-tête HTTP, Azure AD limite le nombre d’ID d’objets inclus dans la revendication des groupes. Si un utilisateur est membre d’un nombre de groupes supérieur à la limite de dépassement (150 pour les jetons SAML, 200 pour les jetons JWT et uniquement 6 en cas d’émission via le flux implicite), Azure AD n’émet pas la revendication des groupes dans le jeton. Au lieu de cela, il inclut une revendication de dépassement dans le jeton qui indique à l’application d’interroger l’API Microsoft Graph pour récupérer l’appartenance de groupe de l’utilisateur.
 
 ```JSON
 {
@@ -170,15 +179,22 @@ Les identités Microsoft peuvent s’authentifier de différentes manières appr
 
 ## <a name="validating-tokens"></a>Validation des jetons
 
-Pour valider un jeton id_token ou access_token, votre application doit valider à la fois la signature du jeton et les revendications. Afin de valider les jetons d’accès, votre application doit également valider l’émetteur, l’audience et les jetons de signature. Ces éléments doivent être validés d’après les valeurs du document de découverte OpenID. Par exemple, la version indépendante du client du document se trouve à l’adresse [https://login.microsoftonline.com/common/.well-known/openid-configuration](https://login.microsoftonline.com/common/.well-known/openid-configuration).
+Les applications ne doivent pas toutes valider des jetons. Dans des scénarios spécifiques uniquement, les applications doivent valider un jeton :
 
-Le middleware Azure AD intègre des fonctionnalités de validation des jetons d’accès, et vous pouvez parcourir nos [exemples](../azuread-dev/sample-v1-code.md) pour en trouver un dans la langue de votre choix.
+* Les [API web](quickstart-configure-app-expose-web-apis.md) doivent valider les jetons d’accès qui leur sont envoyés par un client.  Elles doivent uniquement accepter les jetons contenant leur revendication `aud`.
+* Les applications web confidentielles comme ASP.NET Core doivent valider les jetons d’ID qui leur sont envoyés via le navigateur de l’utilisateur dans le flux hybride, avant d’autoriser l’accès aux données d’un utilisateur ou d’établir une session.
 
-Nous fournissons des bibliothèques et des exemples de code qui montrent comment gérer la validation des jetons. Les informations ci-dessous sont fournies pour ceux qui souhaitent comprendre le processus sous-jacent. Il existe également de nombreuses bibliothèques open source tierces qui permettent de valider les jetons JWT. Quels que soient la plateforme et le langage que vous utilisez, vous avez la quasi-certitude de trouver au moins une option. Pour plus d’informations sur les exemples de code et les bibliothèques d’authentification Azure AD, reportez-vous aux sections [Bibliothèques d’authentification v1.0](../azuread-dev/active-directory-authentication-libraries.md) et [Bibliothèques d’authentification v2.0](reference-v2-libraries.md).
+Si aucun des scénarios ci-dessus ne s’applique, votre application ne tire pas parti de la validation du jeton et peut présenter un risque de sécurité et de fiabilité si des décisions sont prises en fonction de la validité du jeton.  Les clients publics, comme les applications natives ou monopages, ne bénéficient pas de la validation des jetons. L’application communique directement avec le fournisseur d’identité, de sorte que la protection SSL garantit que les jetons sont valides.
+
+ Les API et les applications web doivent uniquement valider les jetons avec une revendication `aud` qui correspond à leur application ; d’autres ressources peuvent avoir des règles de validation de jeton personnalisées. Par exemple, les jetons de Microsoft Graph ne sont pas validés en fonction de ces règles en raison de leur format propriétaire. La validation et l’acceptation de jetons destinés à une autre ressource constituent un exemple du problème d’[adjoint confus](https://cwe.mitre.org/data/definitions/441.html).
+
+Si votre application doit valider un jeton id_token ou access_token conformément à ce qui précède, elle doit d’abord valider la signature et l’émetteur du jeton par rapport aux valeurs figurant dans le document de découverte OpenID. Par exemple, la version indépendante du client du document se trouve à l’adresse [https://login.microsoftonline.com/common/.well-known/openid-configuration](https://login.microsoftonline.com/common/.well-known/openid-configuration).
+
+Les informations suivantes sont fournies pour ceux qui souhaitent comprendre le processus sous-jacent. Le middleware Azure AD intègre des fonctionnalités de validation des jetons d’accès, et vous pouvez parcourir nos [exemples](sample-v2-code.md) pour en trouver un dans la langue de votre choix. Il existe également plusieurs bibliothèques open source tierces qui permettent de valider les jetons JWT. Quels que soient la plateforme et le langage que vous utilisez, vous avez la quasi-certitude de trouver au moins une option. Pour plus d’informations sur les exemples de code et les bibliothèques d’authentification Azure AD, consultez [Bibliothèques d’authentification](reference-v2-libraries.md).
 
 ### <a name="validating-the-signature"></a>Validation de la signature
 
-Un jeton JWT contient trois segments séparés par le caractère `.` . Le premier segment est appelé **l’en-tête** , le second le **corps** et le troisième la **signature**. Le segment de signature peut être utilisé pour valider l’authenticité du jeton afin qu’il soit approuvé par votre application.
+Un jeton JWT contient trois segments séparés par le caractère `.` . Le premier segment est appelé **l’en-tête**, le second le **corps** et le troisième la **signature**. Le segment de signature peut être utilisé pour valider l’authenticité du jeton afin qu’il soit approuvé par votre application.
 
 Les jetons émis par Azure AD sont signés à l’aide d’algorithmes de chiffrement asymétrique standard, tels que RS256. L’en-tête du JWT contient des informations sur la clé et la méthode de chiffrement utilisées pour signer le jeton :
 
@@ -210,9 +226,9 @@ Ce document de métadonnées :
 * Comprend également un `jwks_uri` qui indique l’emplacement de l’ensemble des clés publiques utilisées pour signer les jetons. La clé web JSON (JWK) située sous `jwks_uri` contient toutes les informations sur les clés publiques utilisées à cet instant donné.  Le format JWK est décrit dans la [RFC 7517](https://tools.ietf.org/html/rfc7517).  Votre application peut utiliser la revendication `kid` dans l’en-tête JWT pour sélectionner la clé publique utilisée dans ce document pour signer un jeton donné. Elle peut ensuite procéder à la validation des signatures à l’aide de la clé publique correcte et de l’algorithme indiqué.
 
 > [!NOTE]
-> Le point de terminaison v1.0 retourne à la fois les revendications `x5t` et `kid`, tandis que le point de terminaison v2.0 répond avec uniquement la revendication `kid`. Nous vous recommandons, à l’avenir, d’utiliser la revendication `kid` pour valider votre jeton.
+> Nous vous recommandons d’utiliser la revendication `kid` pour valider votre jeton. Alors que les jetons v1.0 contiennent à la fois les revendications `x5t` et `kid`, les jetons v2.0 contiennent uniquement la revendication `kid`.
 
-La validation des signatures dépasse le cadre de ce document. Si vous avez besoin d’aide, de nombreuses bibliothèques open source sont disponibles.  Toutefois, la plateforme d’identités Microsoft dispose d’un jeton pour la signature de l’extension pour les normes : des clés de signature personnalisées.
+La validation des signatures dépasse le cadre de ce document. Si vous avez besoin d’aide, de nombreuses bibliothèques open source sont disponibles.  Toutefois, la plateforme d’identités Microsoft dispose d’une extension de signature de jeton pour les normes : des clés de signature personnalisées.
 
 Si votre application dispose de clés de signature personnalisées après avoir utilisé la fonctionnalité [claims-mapping](active-directory-claims-mapping.md), vous devez ajouter un paramètre de requête `appid` contenant l’ID de l’application afin d’obtenir un `jwks_uri` qui redirige vers l’information de clé de signature de votre application qui doit être utilisée pour la validation. Par exemple : `https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration?appid=6731de76-14a6-49ae-97bc-6eba6914391e` contient un `jwks_uri` de `https://login.microsoftonline.com/{tenant}/discovery/keys?appid=6731de76-14a6-49ae-97bc-6eba6914391e`.
 
@@ -233,11 +249,10 @@ Cette étape est déterminée par la logique métier de votre application, certa
 
 Votre application peut recevoir des jetons pour utilisateur (le flux généralement décrit) ou directement d’une application (via le [flux des informations d’identification du client](../azuread-dev/v1-oauth2-client-creds-grant-flow.md)). Ces jetons réservés aux applications indiquent que l’appel provient d’une application et qu’aucun utilisateur ne lui est associé. Ces jetons sont traités en grande partie de la même façon :
 
-* Utilisez `roles` pour afficher les autorisations qui ont été accordées au sujet du jeton (le principal de service, plutôt qu’un utilisateur dans ce cas).
+* Utilisez `roles` pour afficher les autorisations qui ont été accordées au sujet du jeton.
 * Utilisez `oid` ou `sub` pour vérifier que le principal de service appelant est celui attendu.
 
 Si votre application doit faire la distinction entre les jetons d’accès pour l’application uniquement et les jetons d’accès pour les utilisateurs, utilisez la [revendication facultative](active-directory-optional-claims.md) `idtyp`.  En ajoutant la revendication `idtyp` au champ `accessToken` et en recherchant la valeur `app`, vous pouvez détecter les jetons d’accès pour l’application uniquement.  Les jetons d’ID et les jetons d’accès pour les utilisateurs ne contiennent pas la revendication `idtyp`.
-
 
 ## <a name="token-revocation"></a>Révocation de jetons
 

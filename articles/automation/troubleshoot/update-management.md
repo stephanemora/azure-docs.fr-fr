@@ -2,15 +2,15 @@
 title: Résolution des problèmes Azure Automation Update Management
 description: Cet article explique comment dépanner et résoudre les problèmes liés à Azure Automation Update Management.
 services: automation
-ms.date: 10/14/2020
+ms.date: 12/04/2020
 ms.topic: conceptual
 ms.service: automation
-ms.openlocfilehash: 8818047dd4fef9c495c46b353e68841f83e9677c
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: e8fc2a840ce019282625f286a6d54b132a1806c8
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217216"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751255"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Résoudre les problèmes liés à Update Management
 
@@ -18,6 +18,40 @@ Cet article décrit les problèmes que vous pouvez rencontrer lors du déploieme
 
 >[!NOTE]
 >Si vous rencontrez des problèmes lors du déploiement d’Update Management sur un ordinateur Windows, ouvrez l’observateur d’événements Windows et examinez le journal **Operations Manager** sous **Journaux des applications et des services** sur l’ordinateur local. Recherchez les événements présentant l’ID d’événement 4502 et les détails d’événement qui contiennent `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent`.
+
+## <a name="scenario-linux-updates-shown-as-pending-and-those-installed-vary"></a>Scénario : Les mises à jour Linux indiquées comme étant en attente et celles qui sont installées varient
+
+### <a name="issue"></a>Problème
+
+Pour votre machine Linux, Update Management affiche des mises à jour spécifiques disponibles sous les classification **Sécurité** et **Autres**. Toutefois, lorsqu’une planification de mise à jour est exécutée sur l’ordinateur, par exemple pour installer uniquement les mises à jour correspondant à la classification **Sécurité**, les mises à jour installées sont différentes ou constituent un sous-ensemble des mises à jour indiquées précédemment correspondant à cette classification.
+
+### <a name="cause"></a>Cause
+
+Lorsqu’une évaluation des mises à jour du système d’exploitation en attente pour votre ordinateur Linux est terminée, les fichiers [OVAL](https://oval.mitre.org/) (Open Vulnerability and Assessment Language) fournis par le fournisseur de distribution Linux sont utilisés par Update Management pour la classification. La catégorisation est effectuée pour les mises à jour Linux en tant que **Sécurité** ou **Autres**, en fonction des fichiers OVAL qui signalent les mises à jour traitant des problèmes de sécurité ou des vulnérabilités. Toutefois, lorsque la planification des mises à jour est exécutée, elle s’exécute sur l’ordinateur Linux à l’aide du gestionnaire de package approprié pour les installer (p. ex., YUM, APT ou ZYPPER). Le gestionnaire de package pour la distribution Linux peut avoir un mécanisme différent pour classifier les mises à jour, où les résultats peuvent différer de ceux obtenus à partir des fichiers OVAL par Update Management.
+
+### <a name="resolution"></a>Résolution
+
+Vous pouvez vérifier manuellement l’ordinateur Linux, les mises à jour applicables et leur classification selon le gestionnaire de package de la distribution. Pour comprendre quelles mises à jour sont classées sous **Sécurité** par votre gestionnaire de package, exécutez les commandes suivantes.
+
+Pour YUM, la commande suivante renvoie une liste non nulle des mises à jour classées sous **Sécurité** par Red Hat. Notez que, dans le cas de CentOS, elle renvoie toujours une liste vide et aucune classification de sécurité ne se produit.
+
+```bash
+sudo yum -q --security check-update
+```
+
+Pour ZYPPER, la commande suivante renvoie une liste non nulle des mises à jour classées sous **Sécurité** par SUSE.
+
+```bash
+sudo LANG=en_US.UTF8 zypper --non-interactive patch --category security --dry-run
+```
+
+Pour APT, la commande suivante renvoie une liste non nulle des mises à jour classées sous **Sécurité** par les distributions Canonical pour Ubuntu Linux.
+
+```bash
+sudo grep security /etc/apt/sources.list > /tmp/oms-update-security.list LANG=en_US.UTF8 sudo apt-get -s dist-upgrade -oDir::Etc::Sourcelist=/tmp/oms-update-security.list
+```
+
+À partir de cette liste, vous exécutez ensuite la commande `grep ^Inst` pour récupérer tous les correctifs de sécurité en attente.
 
 ## <a name="scenario-you-receive-the-error-failed-to-enable-the-update-solution"></a><a name="failed-to-enable-error"></a>Scénario : Vous recevez l’erreur « Échec de l’activation de la solution Update »
 

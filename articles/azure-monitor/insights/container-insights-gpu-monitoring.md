@@ -3,12 +3,12 @@ title: Configurer la supervision de GPU avec Azure Monitor pour conteneurs | Mic
 description: Cet article explique comment configurer la supervision de clusters Kubernetes constitués de nœuds équipés de GPU NVIDIA et AMD à l’aide d’Azure Monitor pour conteneurs.
 ms.topic: conceptual
 ms.date: 03/27/2020
-ms.openlocfilehash: 4c6044d407dc4abd0e69bac0190cc19c901022c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e391117ab57211aa5d178d11c27b934b4ccd37f8
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89569694"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905585"
 ---
 # <a name="configure-gpu-monitoring-with-azure-monitor-for-containers"></a>Configurer la supervision de GPU avec Azure Monitor pour conteneurs
 
@@ -39,7 +39,7 @@ Azure Monitor pour conteneurs lance automatiquement la supervision de l’utilis
 
 ## <a name="gpu-performance-charts"></a>Graphiques de performances de GPU 
 
-Azure Monitor pour conteneurs inclut des graphiques préconfigurés pour les métriques listées dans le tableau précédent sous la forme d’un classeur de GPU pour chaque cluster. Vous pouvez trouver le classeur de GPU **GPU de nœud** directement à partir d’un cluster AKS en sélectionnant **Classeurs** dans le volet de gauche, puis à partir de la liste déroulante **Voir les classeurs** dans Insight.
+Azure Monitor pour conteneurs inclut des graphiques préconfigurés pour les métriques listées dans le tableau précédent sous la forme d’un classeur de GPU pour chaque cluster. Si vous souhaitez obtenir une description des classeurs Azure Monitor pour conteneurs, consultez [Classeurs Azure Monitor pour conteneurs](container-insights-reports.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

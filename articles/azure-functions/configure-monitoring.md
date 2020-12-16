@@ -4,12 +4,12 @@ description: Découvrez comment connecter votre application de fonction à Appli
 ms.date: 8/31/2020
 ms.topic: how-to
 ms.custom: contperfq2, devx-track-azurecli
-ms.openlocfilehash: 0b8aae707f0fb055677af111f1e88c0a2e19b227
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 02d5ad2e9697c14818a985325267d7caea80f65e
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96175744"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96607124"
 ---
 # <a name="how-to-configure-monitoring-for-azure-functions"></a>Comment configurer l’analyse pour Azure Functions
 
@@ -38,6 +38,9 @@ L’enregistreur d’événements d’Azure Functions inclut une *catégorie* pa
 | **`Host.Results`** | **requests** | Ces journaux générés par le runtime indiquent la réussite ou l’échec d’une fonction. Tous ces journaux sont écrits au niveau `Information`. Si vous filtrez sur le niveau `Warning` ou supérieur, vous ne pouvez pas visualiser ces données. |
 | **`Microsoft`** | **traces** | Catégorie de journal complète qui reflète un composant du runtime .NET appelé par l’hôte.  |
 | **`Worker`** | **traces** | Journaux générés par le processus de traitement des langages pour les langages autres que .NET. Les journaux de processus de traitement des langages peuvent également être journalisés dans une catégorie `Microsoft.*`, telle que `Microsoft.Azure.WebJobs.Script.Workers.Rpc.RpcFunctionInvocationDispatcher`. Ces journaux sont écrits au niveau `Information`.|
+
+> [!NOTE]
+> Pour les fonctions de la bibliothèque de classes .NET, ces catégories partent du principe que vous utilisez `ILogger` et non `ILogger<T>`. Pour plus d’informations, consultez la [documentation relative à Functions ILogger](functions-dotnet-class-library.md#ilogger). 
 
 # <a name="v1x"></a>[v1.x](#tab/v1)
 

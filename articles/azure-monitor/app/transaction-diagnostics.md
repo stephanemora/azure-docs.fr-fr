@@ -4,12 +4,12 @@ description: Diagnostics de transaction de bout en bout Application Insights
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.reviewer: sdash
-ms.openlocfilehash: 552e80d6c90a18180ab41dce72e995b6804a91bc
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7623b7131e6344a67c468d0436884ebfef9b0058
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96002049"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746095"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Diagnostics de transaction entre composants unifiés
 
@@ -80,9 +80,7 @@ Raisons possibles :
 
 * Les autres composants sont-ils instrumentés avec Application Insights ?
 * Utilisent-ils le dernier Kit de développement logiciel (SDK) d’Application Insights stable ?
-* Si ces composants sont des ressources Application Insights distinctes, disposez-vous de l’accès requis à leur télémétrie ?
-
-Si vous n’avez pas accès et si les composants sont instrumentés avec le dernier Kit de développement logiciel (SDK) Application Insights, prévenez-nous via le canal de commentaires en haut à droite.
+* Si ces composants sont des ressources Application Insights distinctes, avez-vous l’[accès](resources-roles-access-control.md) requis ? Si vous avez accès et que les composants sont instrumentés avec les derniers Kits de développement logiciel (SDK) Application Insights, faites-le nous savoir via le canal de commentaires en haut à droite.
 
 *Je vois des lignes en double pour les dépendances. Est-ce normal ?*
 

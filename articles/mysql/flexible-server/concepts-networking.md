@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/23/2020
-ms.openlocfilehash: eaccd0559439ce228325205f5845151f0e76bcae
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a8e2d77ff3c7cb2e4352b21cd87d630331e28660
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92484523"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906146"
 ---
 # <a name="connectivity-and-networking-concepts-for-azure-database-for-mysql---flexible-server-preview"></a>Concepts de connectivité et de réseau pour Azure Database pour MySQL - Serveur flexible (préversion)
 
@@ -21,7 +21,7 @@ Cet article décrit les options de connectivité publique et privée disponibles
 > Azure Database pour MySQL - Serveur flexible est en préversion.
 
 ## <a name="choosing-a-networking-option"></a>Choix d’une option réseau
-Vous avez deux possibilités de réseau pour votre serveur flexible Azure Database pour MySQL. Vous avez le choix entre l’ **accès privé (intégration au réseau virtuel)** et l’ **accès public (adresses IP autorisées)** . Lors de la création du serveur, vous devez choisir une seule option. 
+Vous avez deux possibilités de réseau pour votre serveur flexible Azure Database pour MySQL. Vous avez le choix entre l’**accès privé (intégration au réseau virtuel)** et l’**accès public (adresses IP autorisées)** . Lors de la création du serveur, vous devez choisir une seule option. 
 
 > [!NOTE]
 > Vous ne pourrez pas changer votre option réseau une fois le serveur créé. 
@@ -53,12 +53,12 @@ L’accès privé avec intégration au réseau virtuel offre des communications 
 ### <a name="virtual-network-concepts"></a>Concepts de réseau virtuel
 Voici quelques concepts à connaître quand vous utilisez des réseaux virtuels avec des serveurs flexibles MySQL.
 
-* **Réseau virtuel**  : Un réseau virtuel Azure contient un espace d’adressage IP privé configuré pour votre utilisation. Pour plus d’informations sur les réseaux virtuels Azure, consultez [Vue d’ensemble de Réseau virtuel Azure](../../virtual-network/virtual-networks-overview.md).
+* **Réseau virtuel** : Un réseau virtuel Azure contient un espace d’adressage IP privé configuré pour votre utilisation. Pour plus d’informations sur les réseaux virtuels Azure, consultez [Vue d’ensemble de Réseau virtuel Azure](../../virtual-network/virtual-networks-overview.md).
 
     Votre réseau virtuel doit se trouver dans la même région Azure que votre serveur flexible.
 
 
-* **Sous-réseau délégué**  : un réseau virtuel contient des sous-réseaux. Les sous-réseaux vous permettent de segmenter votre réseau virtuel en espaces d’adressage plus petits. Les ressources Azure sont déployées sur des sous-réseaux spécifiques au sein d’un réseau virtuel. 
+* **Sous-réseau délégué** : un réseau virtuel contient des sous-réseaux. Les sous-réseaux vous permettent de segmenter votre réseau virtuel en espaces d’adressage plus petits. Les ressources Azure sont déployées sur des sous-réseaux spécifiques au sein d’un réseau virtuel. 
 
    Votre serveur flexible MySQL doit se trouver dans un sous-réseau **délégué** à l’usage de serveur flexible MySQL uniquement. Cette délégation spécifie que seuls les serveurs flexibles Azure Database pour MySQL peuvent utiliser ce sous-réseau. Aucun autre type de ressource Azure ne peut se trouver dans le sous-réseau délégué. Pour déléguer un sous-réseau, affectez à sa propriété de délégation la valeur Microsoft.DBforMySQL/flexibleServers.
 
@@ -107,6 +107,8 @@ Considérez les points suivants quand l’accès au service de serveur Microsoft
 
    * Demandez à votre fournisseur de services Internet (ISP) la plage d’adresses IP affectée à vos ordinateurs clients qui accèdent au serveur Azure Database pour MySQL, puis ajoutez cette plage à une règle de pare-feu.
    * Obtenez un adressage IP statique à la place pour vos ordinateurs clients, puis ajoutez l’adresse IP statique en tant que règle de pare-feu.
+  
+* **La règle de pare-feu n’est pas disponible pour le format IPv6 :** Les règles de pare-feu doivent être au format IPv4. Si vous spécifiez des règles de pare-feu au format IPv6, l’erreur de validation s’affiche.
 
 
 ## <a name="hostname"></a>Nom d’hôte

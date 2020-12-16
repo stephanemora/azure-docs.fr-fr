@@ -1,21 +1,27 @@
 ---
-title: Utiliser des cartes d’intérieur dans le Créateur Azure Maps
-description: Cet article présente les concepts qui s’appliquent aux services d’Azure Maps Creator.
+title: Utiliser des cartes d’intérieur dans Azure Maps Creator (préversion)
+description: Cet article présente les concepts qui s’appliquent au service Creator (préversion) d’Azure Maps.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 05/18/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 558903ead572363c5545a4a3121f7cf61f549df6
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 4ab00317e71f832bb677c4c7587e2356a37cb7a1
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895900"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903562"
 ---
-# <a name="creator-for-indoor-maps"></a>Créateur pour cartes d’intérieur
+# <a name="creator-preview-for-indoor-maps"></a>Creator (préversion) pour cartes d’intérieur
+
+
+> [!IMPORTANT]
+> Les services Azure Maps Creator sont disponibles en préversion publique.
+> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 Cet article présente les concepts et outils qui s’appliquent au Créateur Azure Maps. Nous vous recommandons de lire cet article avant de commencer à utiliser l’API Créateur Azure Maps et le Kit de développement logiciel (SDK).
 
@@ -23,15 +29,15 @@ Vous pouvez utiliser le Créateur pour développer des applications avec des car
 
 ![Flux de travail des données cartographiques du Créateur](./media/creator-indoor-maps/workflow.png)
 
-## <a name="create-azure-maps-creator"></a>Créer un Créateur Azure Maps
+## <a name="create-azure-maps-creator-preview"></a>Créer avec Azure Maps Creator (préversion) 
 
-Pour utiliser les services d’un Créateur, vous devez créer un Créateur Azure Maps dans un compte Azure Maps. Pour plus d’informations sur la création d’un Créateur Azure Maps dans Azure Maps, consultez [Gérer un Créateur Azure Maps](how-to-manage-creator.md).
+Pour utiliser le service Creator (préversion), Azure Maps Creator doit se trouver dans un compte Azure Maps. Pour plus d’informations sur la création d’un Créateur Azure Maps dans Azure Maps, consultez [Gérer un Créateur Azure Maps](how-to-manage-creator.md).
 
 ## <a name="upload-a-drawing-package"></a>Charger un package de dessin
 
-Le créateur collecte des données de carte d’intérieur en convertissant un package de dessin chargé. Le package de dessin représente un bâtiment construit ou rénové. Pour plus d’informations sur les exigences du package de dessin, consultez [Exigences du package de dessin](drawing-requirements.md).
+Creator (préversion) collecte des données de carte d’intérieur en convertissant un package de dessin chargé. Le package de dessin représente un bâtiment construit ou rénové. Pour plus d’informations sur les exigences du package de dessin, consultez [Exigences du package de dessin](drawing-requirements.md).
 
-Utilisez l’[API de chargement de données Azure Maps](/rest/api/maps/data/uploadpreview) pour charger un package de dessin.  En cas de réussite du chargement, l’API de chargement de données retourne un identificateur de données utilisateur (`udid`). L’`udid` sera utilisé à l’étape suivante pour convertir le package chargé en données cartographiques d’intérieur.
+Utilisez l’[API de chargement de données (préversion) Azure Maps](/rest/api/maps/data/uploadpreview) pour charger un package de dessin.  En cas de réussite du chargement, l’API de chargement de données retourne un identificateur de données utilisateur (`udid`). L’`udid` sera utilisé à l’étape suivante pour convertir le package chargé en données cartographiques d’intérieur.
 
 ## <a name="convert-a-drawing-package"></a>Convertir un package de dessin
 
@@ -41,7 +47,7 @@ Quand une erreur se produit, le service de conversion fournit un lien vers l’a
 
 ## <a name="create-indoor-map-data"></a>Créer des données cartographiques d’intérieur
 
-Le Créateur Azure Maps fournit trois services :
+Azure Maps Creator (préversion) fournit trois services :
 
 * [Service Jeu de données](/rest/api/maps/dataset/createpreview).
 Utilisez le service DataSet pour créer un jeu de données à partir de données d’un package de dessin converti.
@@ -72,9 +78,9 @@ Si un tileset devient obsolète et n’est plus utile, vous pouvez le supprimer.
 
 ### <a name="feature-statesets"></a>Stateset de caractéristique
 
-Un stateset de caractéristique est une collections de propriétés dynamiques (états ou *states* en anglais) affectées à des caractéristiques de jeu de données, telles que des salles ou des équipements. Un exemple d’état ( *state* ) peut être une température ou une occupation. Chaque *état* est une paire clé/valeur contenant le nom de la propriété, la valeur et l’horodateur de la dernière mise à jour.
+Un stateset de caractéristique est une collections de propriétés dynamiques (états ou *states* en anglais) affectées à des caractéristiques de jeu de données, telles que des salles ou des équipements. Un exemple d’état (*state*) peut être une température ou une occupation. Chaque *état* est une paire clé/valeur contenant le nom de la propriété, la valeur et l’horodateur de la dernière mise à jour.
 
-Le [service État de caractéristique](/rest/api/maps/featurestate/createstatesetpreview) vous permet de créer et gérer un stateset de caractéristique pour un jeu de données. Le stateset est défini par un ou plusieurs *états* . Chaque caractéristique, telle une salle, peut avoir un *état* associé.
+Le [service État de caractéristique](/rest/api/maps/featurestate/createstatesetpreview) vous permet de créer et gérer un stateset de caractéristique pour un jeu de données. Le stateset est défini par un ou plusieurs *états*. Chaque caractéristique, telle une salle, peut avoir un *état* associé.
 
 La valeur de chaque *état* dans un stateset peut être mise à jour ou récupérée par des appareils IoT ou d’autres applications.  Par exemple, à l’aide de l’[API de mise à jour d’état de caractéristique](/rest/api/maps/featurestate/updatestatespreview), des appareils mesurant l’occupation de l’espace peuvent publier systématiquement le changement d’état d’une salle.
 
@@ -87,9 +93,9 @@ Une application peut utiliser un stateset de caractéristique pour restituer de 
 
 ### <a name="render-v2-service"></a>Service Render v2
 
-L’[API Get Map Tile du service Render v2](/rest/api/maps/renderv2/getmaptilepreview) a été étendue pour prendre en charge les tilesets du Créateur.
+L’[API Render V2 Service - Get Map Tile (préversion)](/rest/api/maps/renderv2/getmaptilepreview) d’Azure Maps a été étendue pour prendre en charge les tilesets de Creator (préversion).
 
-L’[API Get Map State Tile du service Render v2](/rest/api/maps/renderv2/getmaptilepreview) permet aux applications de demander des tilesets. Les tilesets peut ensuite être intégré dans un contrôle de carte ou un Kit de développement logiciel (SDK). Pour obtenir un exemple de contrôle de carte utilisant le service Render v2, consultez [Module Cartes d’intérieur](#indoor-maps-module).
+L’API Get Map State Tile du service Render v2 permet aux applications de demander des tilesets. Les tilesets peut ensuite être intégré dans un contrôle de carte ou un Kit de développement logiciel (SDK). Pour obtenir un exemple de contrôle de carte utilisant le service Render v2, consultez [Module Cartes d’intérieur](#indoor-maps-module).
 
 ### <a name="web-feature-service-api"></a>API de service de caractéristique web
 
@@ -97,7 +103,7 @@ Des jeux de données peuvent être interrogés à l’aide de l’[API de servic
 
 ### <a name="indoor-maps-module"></a>Module Cartes d’intérieur
 
-Le [Kit de développement logiciel (SDK) web Azure Maps](./index.yml) comprend le module Cartes d’intérieur. Ce module offre des fonctionnalités étendues à la bibliothèque *Map Control* d’Azure Maps. Le module Cartes d’intérieur affiche des cartes d’intérieur créées dans le Créateur. Il intègre des widgets tels qu’un *sélecteur d’étage* , qui aide les utilisateurs à visualiser les différents étages.
+Le [Kit de développement logiciel (SDK) web Azure Maps](./index.yml) comprend le module Cartes d’intérieur. Ce module offre des fonctionnalités étendues à la bibliothèque *Map Control* d’Azure Maps. Le module Cartes d’intérieur affiche des cartes d’intérieur créées dans Creator (préversion). Il intègre des widgets tels qu’un *sélecteur d’étage*, qui aide les utilisateurs à visualiser les différents étages.
 
 Le module Cartes d’intérieur vous permet de créer des applications web qui intègrent des données cartographiques d’intérieur avec d’autres [services Azure Maps](./index.yml). Les configurations d’applications les plus courantes peuvent inclure l’ajout à des cartes d’intérieur de connaissances provenant d’autres cartes, telles que la route, l’imagerie, la météo et le transit.
 
@@ -109,7 +115,7 @@ Lorsque vous commencez à développer des solutions pour des cartes d’intérie
 
 ### <a name="data-maintenance"></a>Maintenance des données
 
- Les API Liste, Mettre à jour et Supprimer du Créateur Azure Maps vous permettent respectivement de répertorier, mettre à jour et supprimer vos jeux de données, tilesets et statesets de caractéristiques.
+ Les API Liste, Mettre à jour et Supprimer d’Azure Maps Creator (préversion) vous permettent respectivement de lister, mettre à jour et supprimer vos jeux de données, tilesets et statesets de caractéristiques.
 
 >[!NOTE]
 >Chaque fois que vous examinez une liste d’éléments et décidez de les supprimer, vous devez prendre en compte l’impact de cette suppression sur l’ensemble des applications ou API dépendantes. Par exemple, si vous deviez supprimer un tileset actuellement utilisé par une application au moyen de l’[API Get Map Tile de Render v2](/rest/api/maps/renderv2/getmaptilepreview), la suppression de ce tileset aurait pour effet que l’application échouerait à rendre celui-ci.
@@ -129,4 +135,4 @@ L’exemple suivant montre comment mettre à jour un jeu de données, créer un 
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Création d’un carte d’intérieur du Créateur](tutorial-creator-indoor-maps.md)
+> [Tutoriel : Création d’une carte d’intérieur Creator (préversion)](tutorial-creator-indoor-maps.md)

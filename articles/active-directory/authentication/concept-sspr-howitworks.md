@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/14/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.date: 12/07/2020
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fae9872593b48355d4ad3711e8e5092481b16213
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: e5bcc6503af5f5f685ee589ed7671b4715834fef
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96174528"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779360"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Fonctionnement : Réinitialisation de mot de passe en libre-service Azure AD
 
@@ -69,11 +69,8 @@ Pour bien démarrer avec SSPR, suivez le tutoriel suivant :
 > [!div class="nextstepaction"]
 > [Tutoriel : Activer SSPR (réinitialisation de mot de passe en libre-service)](tutorial-enable-sspr.md)
 
-## <a name="registration-options"></a>Options d’inscription
 
-Pour que les utilisateurs puissent réinitialiser ou changer leur mot de passe à l’aide de SSPR, ils doivent s’inscrire et inscrire également les méthodes d’authentification à employer. Comme indiqué dans la section précédente, l’utilisateur doit être inscrit à SSPR et disposer d’une licence appropriée.
-
-### <a name="require-users-to-register-when-they-sign-in"></a>Obliger les utilisateurs à s’inscrire durant la connexion
+## <a name="require-users-to-register-when-they-sign-in"></a>Obliger les utilisateurs à s’inscrire durant la connexion
 
 Vous pouvez activer l’option qui permet d’obliger un utilisateur à s’inscrire à SSPR, s’il se connecte à des applications via Azure AD. Ce workflow inclut les applications suivantes :
 
@@ -92,7 +89,7 @@ Quand vous ne rendez pas l’inscription obligatoire, les utilisateurs ne sont p
 >
 > L’interruption de l’inscription à SSPR ne rompt pas la connexion de l’utilisateur, s’il est déjà connecté.
 
-### <a name="set-the-number-of-days-before-users-are-asked-to-reconfirm-their-authentication-information"></a>Définir le nombre de jours avant que les utilisateurs ne soient invités à reconfirmer leurs informations d’authentification
+## <a name="reconfirm-authentication-information"></a>Reconfirmer les informations d’authentification
 
 Si vous souhaitez vérifier que les méthodes d’authentification sont correctes quand elles sont nécessaires pour réinitialiser ou changer un mot de passe, vous pouvez demander aux utilisateurs de confirmer leurs informations inscrites après un certain temps. Cette option est disponible uniquement si vous activez l’option **Obliger les utilisateurs à s’inscrire durant la connexion**.
 

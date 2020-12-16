@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 06/22/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 186b1c46303be59e191a1754361e07a2003b997a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cfeb040893ae2be5842959ed8458bd713bebe6ee
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87036180"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512135"
 ---
 # <a name="os-start-up--computer-restarted-unexpectedly-or-encountered-an-unexpected-error"></a>Démarrage du système d’exploitation – L’ordinateur a redémarré de manière inattendue ou a rencontré une erreur inattendue
 
@@ -37,31 +37,27 @@ Quand vous utilisez les [Diagnostics de démarrage](./boot-diagnostics.md) pour 
 
 ## <a name="cause"></a>Cause
 
-L’ordinateur tente d’effectuer un démarrage initial d’une [image généralisée](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation), mais rencontre des problèmes dus au traitement d’un fichier de réponses personnalisé (Unattend.Xml). Les fichiers de réponses personnalisés ne sont pas pris en charge dans Azure. 
+L’ordinateur tente d’effectuer un démarrage initial d’une [image généralisée](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation), mais rencontre des problèmes dus au traitement d’un fichier de réponses personnalisé (Unattend.Xml). **Les fichiers de réponses personnalisés ne sont pas pris en charge dans Azure**. 
 
 Le fichier de réponses est un fichier XML spécial contenant des définitions et des valeurs pour les paramètres de configuration que vous souhaitez automatiser lors de l’installation du système d’exploitation Windows Server. Les options de configuration incluent des instructions sur la façon de partitionner des disques, l’emplacement où trouver l’image Windows à installer, les clés de produit à appliquer et d’autres commandes à exécuter.
 
-Dans Azure, les fichiers de réponses personnalisés ne sont pas pris en charge. Cette erreur peut se produire, si vous avez spécifié un fichier **Unattend.xml** personnalisé à l’aide de l’option `sysprep /unattend:<your file’s name>`.
+Ici aussi, les fichiers de réponses personnalisés ne sont pas pris en charge dans Azure. Par conséquent, cette situation se produit quand une image a été préparée pour une utilisation dans Azure, mais que vous avez spécifié un fichier Unattend.xml personnalisé en utilisant **SYSPREP** avec un indicateur similaire à la commande suivante :
 
-Dans Azure, utilisez l’option **Entrer en mode OOBE (Out-of-Box Experience)** dans **Sysprep.exe**, ou utilisez `sysprep /oobe` au lieu du fichier Unattend.xml.
+`sysprep /oobe /generalize /unattend:<your file’s name> /shutdown`
 
-Ce problème se produit le plus souvent quand vous utilisez **Sysprep.exe** avec une machine virtuelle locale pour charger une machine virtuelle généralisée sur Azure. Dans ce cas, vous pouvez également vous intéresser à la manière de charger correctement une machine virtuelle généralisée.
+Dans Azure, utilisez l’option **Entrer en mode OOBE (Out-of-Box Experience)** dans l’**interface graphique utilisateur de l’outil de préparation du système**, ou utilisez `sysprep /oobe` au lieu du fichier Unattend.xml.
+
+Ce problème se produit le plus souvent quand vous utilisez sysprep avec une machine virtuelle locale pour charger une machine virtuelle généralisée sur Azure. Dans ce cas, vous pouvez également vous intéresser à la manière de charger correctement une machine virtuelle généralisée.
 
 ## <a name="solution"></a>Solution
 
-### <a name="replace-unattended-answer-file-option"></a>Remplacer l’option de fichier réponse sans assistance
+### <a name="do-not-use-unattendxml"></a>Ne pas utiliser Unattend.xml
 
-Cette situation se produit quand une image a été préparée pour une utilisation dans Azure, basée sur un fichier de réponses personnalisé qu’Azure ne prend pas en charge, et quand vous avez utilisé **SYSPREP** avec un indicateur similaire à la commande suivante :
-
-`sysprep /oobe /generalize /unattend:<NameOfYourAnswerFile.XML> /shutdown`
-
-- Dans la commande précédente, remplacez `<NameOfYourAnswerFile.XML>` par le nom de votre fichier.
-
-Pour résoudre ce problème, suivez les [conseils d’Azure sur la préparation/capture d’image](../windows/upload-generalized-managed.md) et préparez une nouvelle image généralisée. Pendant l’exécution de sysprep, n’utilisez pas l’indicateur `/unattend:<answerfile>`. À la place, utilisez uniquement les indicateurs ci-dessous :
+Pour résoudre ce problème, suivez les [conseils d’Azure sur la préparation/capture d’image](../windows/upload-generalized-managed.md) et préparez une nouvelle image généralisée. Pendant l’exécution de sysprep, **n’utilisez pas l’indicateur `/unattend:<your file’s name>`** . À la place, utilisez uniquement les indicateurs ci-dessous :
 
 `sysprep /oobe /generalize /shutdown`
 
-- **Out-of-box-experience** (OOBE) est le paramètre pris en charge pour les machines virtuelles Azure.
+- Out-of-box-experience (OOBE) est le paramètre pris en charge pour les machines virtuelles Azure.
 
 Vous pouvez également utiliser l’**interface graphique utilisateur de l’outil de préparation du système** pour accomplir la même tâche que la commande ci-dessus en sélectionnant les options ci-dessous :
 

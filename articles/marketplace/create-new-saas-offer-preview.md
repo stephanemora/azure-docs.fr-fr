@@ -8,19 +8,19 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: ed0c7ef98e70774350c9a3ff12b0cc3f4186e1bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 041df9b77e85f09d2cf680773edc995c6288acaa
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89380401"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746418"
 ---
 # <a name="how-to-add-a-preview-audience-for-your-saas-offer"></a>Comment ajouter un public de préversion pour votre offre SaaS
 
 Lorsque vous créez votre offre SaaS dans l’Espace partenaires, vous devez définir un public de préversion qui peut consulter le référencement de l’offre avant sa mise en ligne. Cet article explique comment configurer un public de préversion.
 
 > [!NOTE]
-> Si vous décidez de traiter les transactions de façon indépendante, vous ne verrez pas cette option. Au lieu de cela, passez à [Comment commercialiser votre offre SaaS](create-new-saas-offer-marketing.md).
+> Si vous décidez de traiter les transactions de façon indépendante, vous ne verrez pas cette option. Au lieu de cela, passez à [Comment vendre votre offre SaaS](create-new-saas-offer-marketing.md).
 
 ## <a name="define-a-preview-audience"></a>Définir un public de préversion
 

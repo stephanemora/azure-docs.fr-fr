@@ -4,12 +4,12 @@ description: Découvrez comment développer sur Azure Functions à l’aide de C
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 07/24/2020
-ms.openlocfilehash: 3c363d13933e6554a6eefbeaf02d87dc6b382628
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: dc08e378d68743ed7906f4dec7c8f31202959880
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96002384"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608280"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Informations de référence pour les développeurs C# sur Azure Functions
 
@@ -327,6 +327,8 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogge
 {
     logger.LogInformation("Request for item with key={itemKey}.", id);
 ```
+
+Pour en savoir plus sur la façon dont Functions implémente `ILogger`, consultez [Collecte de données de télémétrie](functions-monitoring.md#collecting-telemetry-data). Les catégories dotées du préfixe `Function` supposent que vous utilisez une instance `ILogger`. Si vous choisissez d’utiliser à la place un `ILogger<T>`, le nom de la catégorie peut être basé sur `T`.  
 
 ### <a name="structured-logging"></a>Journalisation structurée
 

@@ -1,6 +1,6 @@
 ---
-title: Concepts relatifs aux services météo dans Microsoft Azure Maps
-description: Découvrez les concepts qui s’appliquent aux services météo de Microsoft Azure Maps.
+title: Concepts relatifs au service Météo (préversion) de Microsoft Azure Maps
+description: Découvrez les concepts qui s’appliquent au service Météo (préversion) de Microsoft Azure Maps.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 09/10/2020
@@ -8,20 +8,24 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: ea8698b7bf402850e506ec126cd2a7bb6ce05823
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 657cb6a86122d267b86e82b6f02eb58e968cddd3
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896725"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904735"
 ---
-# <a name="weather-services-in-azure-maps"></a>Services météo dans Azure Maps
+# <a name="weather-services-preview-in-azure-maps"></a>Service Météo (préversion) d’Azure Maps
 
-Cet article présente les concepts qui s’appliquent aux [Services météo d’Azure Maps](/rest/api/maps/weather). Nous vous recommandons de consulter cet article avant de commencer à utiliser les API météo.
+> [!IMPORTANT]
+> Le service Météo d’Azure Maps est disponible en préversion publique.
+> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Cet article présente les concepts qui s’appliquent au [service Météo](/rest/api/maps/weather) d’Azure Maps. Nous vous recommandons de consulter cet article avant de commencer à utiliser les API météo.
 
 ## <a name="unit-types"></a>Types d’unités
 
-Certaines API du service météo permettent à l’utilisateur de spécifier si les données sont retournées soit en unités métriques, soit en unités impériales. Les réponses renvoyées pour ces API comprennent unitType et une valeur numérique qui peut être utilisée pour les conversions d’unités. Pour interpréter ces valeurs, consultez le tableau ci-dessous.
+Certaines API du service Météo (préversion) permettent à l’utilisateur de spécifier si les données doivent être retournées en unités métriques ou en unités impériales. Les réponses renvoyées pour ces API comprennent unitType et une valeur numérique qui peut être utilisée pour les conversions d’unités. Pour interpréter ces valeurs, consultez le tableau ci-dessous.
 
 |unitType|Description         |
 |--------|--------------------|
@@ -52,7 +56,7 @@ Certaines API du service météo permettent à l’utilisateur de spécifier si 
 
 ## <a name="weather-icons"></a>Icônes météo
 
-Certaines API de service Météo retournent `iconCode` dans la réponse. `iconCode` est une valeur numérique utilisée pour définir l’icône. Ne créez pas de lien direct avec ces images à partir de vos applications, les URL peuvent changer et changeront.
+Certaines API du service Météo retournent `iconCode` dans la réponse. `iconCode` est une valeur numérique utilisée pour définir l’icône. Ne créez pas de lien direct avec ces images à partir de vos applications, les URL peuvent changer et changeront.
 
 | Numéro d’icône |Icône| jour | Nuit | Texte |
 |-------------|:----:|-----|-------|------|

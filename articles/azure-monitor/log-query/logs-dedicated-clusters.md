@@ -6,24 +6,23 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: d261640dfdb59b2b06cfe3066fca26640a0bed54
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: d2446e866c0e12d50a0759373682f4f62bc4bba0
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94874642"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512220"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Clusters dédiés pour les journaux Azure Monitor
 
-Les clusters dédiés pour les journaux Azure Monitor sont une option de déploiement qui est disponible pour mieux servir les clients à volume élevé. Les clients qui ingèrent plus de 4 To de données par jour utilisent des clusters dédiés. Les clients ayant des clusters dédiés peuvent choisir les espaces de travail à héberger sur ces clusters.
+Les Clusters dédiés pour les journaux Azure Monitor sont une option de déploiement qui permet de bénéficier de fonctionnalités avancées pour les clients des journaux Azure Monitor. Les clients ayant des clusters dédiés peuvent choisir les espaces de travail à héberger sur ces clusters.
 
-Outre la prise en charge d’un volume élevé, l’utilisation de clusters dédiés présente d’autres avantages :
+Les fonctionnalités qui nécessitent des clusters dédiés sont les suivantes :
 
-- **Limite de débit** : Un client peut avoir des [limites de taux d’ingestion](../service-limits.md#data-ingestion-volume-rate) supérieures uniquement sur un cluster dédié.
-- **Fonctionnalités** : Certaines fonctionnalités d’entreprise sont uniquement disponibles sur les clusters dédiés, notamment les clés gérées par le client (CMK) et la prise en charge de LockBox. 
-- **Cohérence** : Les clients disposent de leurs propres ressources dédiées. Par conséquent, il n’y a aucune influence des autres clients qui utilisent la même infrastructure partagée.
-- **Rentabilité** : Il peut être plus rentable d’utiliser un cluster dédié, car les niveaux de réservation de capacité affectés prennent en compte toutes les ingestions de cluster et s’appliquent à tous ses espaces de travail, même si certains d’entre eux sont petits et ne peuvent bénéficier de la remise de réservation de capacité.
-- Les requêtes **entre espaces de travail** s’exécutent plus rapidement si tous les espaces de travail se trouvent sur le même cluster.
+- **[Clés gérées par le client](../platform/customer-managed-keys.md)**  : chiffrez les données du cluster à l’aide de clés fournies et contrôlées par le client.
+- **[Lockbox](../platform/customer-managed-keys.md#customer-lockbox-preview)**  : les clients peuvent contrôler les demandes d’accès aux données par les ingénieurs du support technique Microsoft.
+- Le **[double chiffrement](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption)** permet d’éviter un scénario impliquant une possible compromission d’un algorithme ou d’une clé de chiffrement. Dans ce cas, la couche de chiffrement supplémentaire continue de protéger vos données.
+- **[Espaces de travail multiples](../log-query/cross-workspace-query.md)**  : si un client utilise plusieurs espaces de travail pour la production, il peut être judicieux d’utiliser un cluster dédié. Les requêtes entre espaces de travail s’exécuteront plus rapidement si tous les espaces de travail se trouvent sur le même cluster. Il peut être plus rentable d’utiliser un cluster dédié, car les niveaux de réservation de capacité affectés prennent en compte toutes les ingestions de cluster et s’appliquent à tous ses espaces de travail, même si certains d’entre eux sont petits et ne peuvent bénéficier de la remise de réservation de capacité.
 
 Les clusters dédiés exigent des clients qu’ils s’engagent à utiliser une capacité d’au moins 1 To d’ingestion des données par jour. La migration vers un cluster dédié est simple. Il n’y a pas de perte de données ni d’interruption de service. 
 
@@ -53,7 +52,7 @@ Il existe deux modes de facturation pour l’utilisation sur un cluster. Ils peu
 
 2. **Espaces de travail** : les coûts de réservation de capacité pour votre cluster sont attribués proportionnellement aux espaces de travail du cluster (après prise en compte des allocations par nœud depuis [Azure Security Center](../../security-center/index.yml) pour chaque espace de travail).
 
-Notez que si votre espace de travail utilise le niveau tarifaire Par nœud hérité, lorsqu’il est lié à un cluster, il sera facturé en fonction des données ingérées par rapport à la réservation de capacité du cluster, et non plus par nœud. Les allocations de données par nœud d’Azure Security Center continuent à être appliquées.
+Si votre espace de travail utilise le niveau tarifaire Par nœud hérité, lorsqu’il est lié à un cluster, il sera facturé en fonction des données ingérées par rapport à la réservation de capacité du cluster, et non plus par nœud. Les allocations de données par nœud d’Azure Security Center continuent à être appliquées.
 
 Vous trouverez plus d’informations sur la facturation des clusters dédiés Log Analytics [ici]( https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-dedicated-clusters).
 

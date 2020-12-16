@@ -13,12 +13,12 @@ ms.date: 10/27/2020
 ms.author: ryanwi
 ms.reviewer: marsma, jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: 0c5b06fd14f526ca90b1b922be281af55ba00116
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 22d6cacc36363b17f9bc32d354982eb71974b31d
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995214"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779751"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Procédure : Connecter un utilisateur Azure Active Directory à l’aide du modèle d’application multilocataire
 
@@ -116,6 +116,8 @@ Ce processus de consentement dépend des autorisations demandées par l’applic
 * Une autorisation d’application seule est directement accordée à l’identité de l’application. Par exemple, vous pouvez accorder à une application une autorisation application seule pour lire la liste des utilisateurs d’un client, quels que soient les clients connectés à l’application.
 
 Certaines autorisations peuvent être accordées par un utilisateur standard, tandis que d’autres nécessitent le consentement de l’administrateur d’un client.
+
+Pour en savoir plus sur le consentement de l’utilisateur et de l’administrateur, consultez [Configurer le workflow du consentement administrateur](../manage-apps/configure-admin-consent-workflow.md).
 
 ### <a name="admin-consent"></a>Consentement de l’administrateur
 

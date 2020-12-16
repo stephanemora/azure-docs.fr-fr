@@ -1,14 +1,14 @@
 ---
 title: Supprimer l’accès à une délégation
 description: Découvrez comment supprimer l’accès aux ressources qui ont été déléguées à un fournisseur de services pour Azure Lighthouse.
-ms.date: 08/12/2020
+ms.date: 12/03/2020
 ms.topic: how-to
-ms.openlocfilehash: 72a2c49dde8cccfcc298d4128384a10bb7e8840f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d3442bb9fd2f6e7423fd4bf28cace1f7fd91ad80
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88167223"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608450"
 ---
 # <a name="remove-access-to-a-delegation"></a>Supprimer l’accès à une délégation
 
@@ -29,7 +29,7 @@ Une fois la suppression confirmée, aucun utilisateur du locataire du fournisseu
 
 Les utilisateurs d’un locataire gérant peuvent supprimer l’accès aux ressources déléguées s’ils ont reçu le [rôle Supprimer l’attribution de l’inscription des services gérés](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) pour les ressources du client. Si ce rôle n’a été attribué à aucun utilisateur du fournisseur de services, la délégation peut être supprimée uniquement par un utilisateur du locataire du client.
 
-L’exemple ci-dessous montre une affectation octroyant le **rôle Supprimer l’attribution de l’inscription des services gérés** pouvant être inclus dans un fichier de paramètres pendant le [processus d’intégration ](onboard-customer.md) :
+L’exemple ci-dessous montre une affectation octroyant le **rôle Supprimer l’attribution de l’inscription des services gérés** pouvant être inclus dans un fichier de paramètres pendant le [processus d’intégration](onboard-customer.md) :
 
 ```json
     "authorizations": [ 
@@ -99,3 +99,4 @@ az managedservices assignment delete --assignment <id or full resourceId>
 
 - Découvrez [Gestion des ressources déléguées Azure](../concepts/azure-delegated-resource-management.md).
 - [Affichez et gérez les clients](view-manage-customers.md) en accédant à **Mes clients** sur le portail Azure.
+- Apprenez à [mettre à jour une délégation précédente](update-delegation.md).

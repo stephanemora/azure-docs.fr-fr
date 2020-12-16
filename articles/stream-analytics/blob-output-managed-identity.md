@@ -6,16 +6,16 @@ ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/11/2020
-ms.openlocfilehash: f14ded89ad294abbfaf9861e5f4caf17dd82fb98
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: f1aad2464e4979ecbf35deceaad4de70e05b3004
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490710"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573661"
 ---
-# <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage-output"></a>Utiliser des identités managées pour authentifier votre travail Azure Stream Analytics dans la sortie du stockage Blob Azure
+# <a name="use-managed-identity-preview-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage-output"></a>Utiliser Identité managée (préversion) pour authentifier votre travail Azure Stream Analytics avec la sortie Stockage Blob Azure
 
-L’[authentification par identité managée](../active-directory/managed-identities-azure-resources/overview.md) pour la sortie du stockage Blob Azure donne aux travaux Stream Analytics un accès direct à un compte de stockage au lieu d’utiliser une chaîne de connexion. Outre la sécurité améliorée, cette fonctionnalité vous permet également d’écrire des données dans un compte de stockage dans un réseau virtuel (VNET) au sein d’Azure.
+L’[authentification par identité managée](../active-directory/managed-identities-azure-resources/overview.md) (préversion) pour la sortie Stockage Blob Azure donne aux travaux Stream Analytics un accès direct à un compte de stockage au lieu d’utiliser une chaîne de connexion. Outre la sécurité améliorée, cette fonctionnalité vous permet également d’écrire des données dans un compte de stockage dans un réseau virtuel (VNET) au sein d’Azure.
 
 Cet article vous montre comment activer une identité managée pour une ou des sorties Blob d’un travail Azure Stream Analytics via le portail Azure et un déploiement d’Azure Resource Manager.
 

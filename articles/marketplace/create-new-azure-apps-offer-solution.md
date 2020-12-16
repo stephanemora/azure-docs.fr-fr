@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 11/06/2020
-ms.openlocfilehash: 8a8b04501bf81f41fb87de8fc0ce42eb4e7fda93
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 8469cad02009d054bd8ba97fb4aabfdae84ef842
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369738"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96744616"
 ---
 # <a name="configure-a-solution-template-plan"></a>Configurer un plan de modèle de solution
 
@@ -96,4 +96,4 @@ Les actions disponibles dans la colonne **Action** de l’onglet **Vue d’ensem
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Comment tester et publier votre offre Azure Application](create-new-azure-apps-offer-test-publish.md).
-- Découvrez [Comment commercialiser votre offre Azure Application](create-new-azure-apps-offer-marketing.md) par le biais des programmes de Co-vente avec Microsoft et de Revente via des fournisseurs de solutions cloud.
+- Découvrez [comment vendre votre offre Azure Application](create-new-azure-apps-offer-marketing.md) par le biais des programmes de Co-vente avec Microsoft et de Revente via des fournisseurs de solutions Cloud.

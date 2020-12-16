@@ -6,12 +6,12 @@ ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
 ms.topic: article
 ms.date: 03/04/2016
 ms.custom: seodec18
-ms.openlocfilehash: b9e43cb9188df8274d5bafa7fd9bc90c24339237
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 81782f63199a9fe8f43f56aeefcd1c68951d57a4
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286841"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852250"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Présentation du cache local d’Azure App Service
 
@@ -36,7 +36,7 @@ La fonctionnalité de cache local d’Azure App Service fournit une vue de rôle
 
 ## <a name="how-the-local-cache-changes-the-behavior-of-app-service"></a>Comment le cache local change le comportement d’App Service
 * _D:\home_ pointe vers le cache local, qui est créé sur l’instance de machine virtuelle au démarrage de l’application. _D:\local_ continue de pointer vers le stockage propre à la machine virtuelle temporaire.
-* Le cache local contient une copie unique des dossiers _/site_ et _/siteextensions_ du magasin de contenu partagé dans _D:\home\site_ et _D:\home\siteextensions_ , respectivement. Les fichiers sont copiés dans le cache local, au démarrage de l’application. La taille des deux dossiers pour chaque application est limitée à 1 Go par défaut, mais vous pouvez l’augmenter à 2 Go. Notez que le temps de chargement du cache s’allonge proportionnellement à l’augmentation de la taille du cache. Si vous avez augmenté la limite du cache local à 2 Go et que les fichiers copiés dépassent la taille maximale de 2 Go, App Service ignore silencieusement le cache local et lit à partir du partage de fichiers distant. Si aucune limite n’est définie ou si la limite est définie sur une valeur inférieure à 2 Go et que les fichiers copiés dépassent la limite, le déploiement ou l’échange peut échouer avec une erreur.
+* Le cache local contient une copie unique des dossiers _/site_ et _/siteextensions_ du magasin de contenu partagé dans _D:\home\site_ et _D:\home\siteextensions_, respectivement. Les fichiers sont copiés dans le cache local, au démarrage de l’application. La taille des deux dossiers pour chaque application est limitée à 1 Go par défaut, mais vous pouvez l’augmenter à 2 Go. Notez que le temps de chargement du cache s’allonge proportionnellement à l’augmentation de la taille du cache. Si vous avez augmenté la limite du cache local à 2 Go et que les fichiers copiés dépassent la taille maximale de 2 Go, App Service ignore silencieusement le cache local et lit à partir du partage de fichiers distant. Si aucune limite n’est définie ou si la limite est définie sur une valeur inférieure à 2 Go et que les fichiers copiés dépassent la limite, le déploiement ou l’échange peut échouer avec une erreur.
 * Le cache local est en lecture-écriture. Toutefois, toute modification est ignorée quand l’application change de machine virtuelle ou est redémarrée. N’utilisez pas le cache local pour des applications qui stockent des données stratégiques dans le magasin de contenu.
 * _D:\home\LogFiles_ et _D:\home\Data_ contiennent des fichiers journaux et des données d’application. Les deux sous-dossiers sont stockés localement sur l’instance de machine virtuelle et sont copiés régulièrement dans le magasin de contenu partagé. Les applications peuvent conserver des fichiers journaux et des données en les écrivant dans ces dossiers. Toutefois, la copie dans le magasin de contenu partagé est une technique de « meilleur effort », vous n’êtes donc pas à l’abri d’une perte des fichiers journaux et des données en cas d’incident soudain sur une instance de machine virtuelle.
 * Le [streaming des journaux](troubleshoot-diagnostic-logs.md#stream-logs) est affecté par la copie de « meilleur effort ». Vous pouvez observer jusqu’à une minute de délai dans les journaux d’activité diffusés en continu.
@@ -120,3 +120,6 @@ En effet, le cache local contribue à limiter les redémarrages d’application 
 
 ### <a name="does-local-cache-exclude-any-directories-from-being-copied-to-the-faster-local-drive"></a>Le cache local exclut-il des répertoires de la copie vers le disque local plus rapide ?
 Durant l’étape de copie du contenu du stockage, tous les dossiers étant des référentiels nommés sont exclus. Cela est utile pour les scénarios où le contenu de votre site peut contenir un dépôt de contrôle de code source qui n’est pas nécessaire dans une utilisation quotidienne de l’application. 
+
+### <a name="how-to-flush-the-local-cache-logs-after-a-site-management-operation"></a>Comment vider les journaux du cache local après une opération de gestion de site ?
+Pour vider les journaux du cache local, arrêtez et redémarrez l’application. Cette action efface l’ancien cache. 

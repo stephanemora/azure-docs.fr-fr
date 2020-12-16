@@ -8,16 +8,19 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 37e09612491d41887c5945920488569d3620bf0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 890e2b972818cf9805623d94709ce5631b50aaf5
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85052026"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608603"
 ---
 # <a name="web-application-firewall-crs-rule-groups-and-rules"></a>Règles et groupes de règles CRS de pare-feu d’applications web
 
 Le pare-feu d’applications web Application Gateway protège les applications web contre les vulnérabilités et failles de sécurité. Cette protection s’effectue par le biais de règles définies à partir des ensembles de règles de base OWASP 3.1, 3.0 ou 2.2.9. Ces règles peuvent être désactivées une par une. Cet article contient les règles et ensembles de règles actuellement proposées.
+
+> [!NOTE]
+> Cet article contient des références au terme *liste noire*, un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.
 
 ## <a name="core-rule-sets"></a>Ensembles de règles de base
 
@@ -33,7 +36,7 @@ Le WAF protège contre les vulnérabilités web suivantes :
 - Autres attaques courantes comme l’injection de commande, les dissimulations de requêtes HTTP, la séparation de réponse HTTP et les attaques RFI (Remote File Inclusion)
 - Violations de protocole HTTP
 - Anomalies de protocole HTTP comme un agent utilisateur hôte manquant et les en-têtes Accept
-- Bots, robots d’indexation et scanneurs
+- Bots, robots de recherche et scanneurs
 - Erreurs de configuration d’application courantes (par exemple, Apache et IIS)
 
 ### <a name="owasp-crs-31"></a>OWASP CRS 3.1

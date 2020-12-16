@@ -10,12 +10,12 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
-ms.openlocfilehash: 1823de88597756ba3db9aee0dc29501b1ba914a4
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: d122cedbad41d6984614a0edccb2fd98269710f2
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94646234"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96618074"
 ---
 # <a name="troubleshoot-password-based-single-sign-on-in-azure-ad"></a>Résoudre les problèmes d’authentification unique par mot de passe dans Azure AD
 
@@ -150,6 +150,13 @@ Si vous rencontrez l’un quelconque de ces problèmes, procédez comme suit :
 - Assurez-vous que vos utilisateurs ne tentent pas de se connecter à l’application à partir de Mes applications alors qu’ils sont en *mode Incognito*, *InPrivate* ou *Privé*.
 - Essayez à nouveau le processus de capture manuelle. Assurez-vous que les marqueurs rouges sont au-dessus des champs appropriés.
 - Si le processus de capture manuelle semble cesser de répondre ou que la page de connexion ne réagit pas, tentez de réexécuter le processus de capture manuelle. Mais cette fois, à la fin du processus, appuyez sur la touche F12 pour ouvrir la console de développement de votre navigateur. Sélectionnez l’onglet **Console**. Tapez **window.location=" *&lt;URL de connexion que vous avez spécifiée lors de la configuration de l’application&gt;* "** , puis appuyez sur Entrée. Cette manipulation force une redirection de page qui met fin au processus de capture et stocke les champs qui ont été capturés.
+
+### <a name="i-cant-add-another-user-to-my-password-based-sso-app"></a>Impossible d’ajouter un autre utilisateur à mon application d’authentification unique par mot de passe
+
+L’application d’authentification unique par mot de passe a une limite de 48 utilisateurs. Par conséquent, elle est limitée à 48 clés pour les paires nom d’utilisateur/mot de passe par application.
+Si vous souhaitez ajouter des utilisateurs supplémentaires, vous pouvez :
+-   ajouter une instance supplémentaire de l’application ;
+-   supprimer d’abord les utilisateurs qui n’utilisent plus l’application.
 
 ## <a name="request-support"></a>Demande d'assistance 
 Si vous obtenez un message d’erreur lorsque vous configurez l’authentification unique et que vous assignez des utilisateurs, ouvrez un ticket de support. Veillez à fournir autant d’informations que possible :

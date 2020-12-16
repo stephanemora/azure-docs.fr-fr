@@ -8,12 +8,12 @@ ms.date: 10/12/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 012e155737b9251827c668b3a9cacbbe8d59ae77
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 42f01b140a44d7aa6d75dece9a4398fd7b41bf5a
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94411352"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905109"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Résoudre des problèmes de requête lors de l’utilisation d’Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -196,9 +196,7 @@ Vous pouvez ajouter des propriétés à la stratégie d’indexation à tout mom
 
 ### <a name="understand-which-system-functions-use-the-index"></a>Comprendre quelles fonctions système utilisent l’index
 
-Si une expression peut être convertie en une plage de valeurs de chaîne, elle peut utiliser l’index. Dans le cas contraire, elle ne peut pas le faire.
-
-Voici la liste de certaines fonctions de chaîne courantes qui peuvent utiliser l’index :
+La plupart des fonctions système utilisent des index. Voici une liste de certaines fonctions de chaîne courantes qui utilisent des index :
 
 - STARTSWITH(str_expr1, str_expr2, bool_expr)  
 - CONTAINS(str_expr, str_expr, bool_expr)
@@ -214,7 +212,26 @@ Voici quelques fonctions système courantes qui n’utilisent pas l’index et d
 
 ------
 
-D’autres parties de la requête peuvent toujours utiliser l’index même si les fonctions système ne le peuvent pas.
+Si une fonction système utilise des index et qu’elle a toujours des frais en RU (unités de requête) élevés, vous pouvez essayer d’ajouter `ORDER BY` à la requête. Dans certains cas, l’ajout de `ORDER BY` peut améliorer l’utilisation d’index de fonction système, en particulier si la requête est à exécution longue ou s’étend sur plusieurs pages.
+
+Prenons l’exemple de la requête ci-dessous avec `CONTAINS`. `CONTAINS` doit utiliser un index, mais supposons qu’après avoir ajouté l’index approprié, vous observez toujours des frais en RU (unités de requête) très élevés lors de l’exécution de la requête ci-dessous :
+
+Requête d’origine :
+
+```sql
+SELECT *
+FROM c
+WHERE CONTAINS(c.town, "Sea")
+```
+
+Requête mise à jour avec `ORDER BY` :
+
+```sql
+SELECT *
+FROM c
+WHERE CONTAINS(c.town, "Sea")
+ORDER BY c.town
+```
 
 ### <a name="understand-which-aggregate-queries-use-the-index"></a>Identifier les requêtes d’agrégation qui utilisent l’index
 

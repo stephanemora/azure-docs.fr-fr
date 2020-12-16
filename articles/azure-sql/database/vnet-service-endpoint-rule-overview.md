@@ -11,17 +11,17 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: 97be3bf0ecec20c4bf2e1633f893c9aa0d9ba49d
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: c5839589c35ea5a9c52303801a8767fc598434fc
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95020280"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905874"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Utiliser des points de terminaison de service de réseau virtuel et des règles pour serveurs dans Azure SQL Database
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-Les *règles de réseau virtuel* constituent une fonctionnalité de sécurité du pare-feu. Elles permettent de déterminer si le serveur de vos bases de données et pools élastiques Azure [SQL Database](sql-database-paas-overview.md), ou de vos bases de données [Azure Synapse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md), doit accepter les communications provenant de sous-réseaux spécifiques de réseaux virtuels. Cet article explique pourquoi la fonctionnalité de règle de réseau virtuel est parfois la meilleure solution qui s’offre à vous pour autoriser en toute sécurité les communications à destination de votre base de données dans Azure SQL Database et Azure Synapse Analytics (anciennement SQL Data Warehouse).
+Les *règles de réseau virtuel* constituent une fonctionnalité de sécurité du pare-feu. Elles permettent de déterminer si le serveur de vos bases de données et pools élastiques Azure [SQL Database](sql-database-paas-overview.md), ou de vos bases de données [Azure Synapse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md), doit accepter les communications provenant de sous-réseaux spécifiques de réseaux virtuels. Cet article explique pourquoi la fonctionnalité de règle de réseau virtuel est parfois la meilleure solution qui s’offre à vous pour autoriser en toute sécurité les communications à destination de votre base de données dans Azure SQL Database et Azure Synapse Analytics.
 
 > [!NOTE]
 > Cet article s’applique à la fois à Azure SQL Database et à Azure Synapse Analytics. Pour simplifier, le terme « base de données » fait référence aux bases de données dans Azure SQL Database et Azure Synapse Analytics. De même, toutes les références à « serveur » désignent le [serveur SQL logique](logical-servers.md) qui héberge Azure SQL Database et Azure Synapse Analytics.
@@ -95,7 +95,7 @@ Lorsque vous utilisez des points de terminaison de service pour Azure SQL Databa
 ### <a name="expressroute"></a>ExpressRoute
 
 Si vous utilisez [ExpressRoute](../../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) localement, pour le Peering public ou Microsoft, vous devez identifier les adresses IP NAT (traduction d’adresses réseau) utilisées. Pour le peering public, chaque circuit ExpressRoute utilise par défaut deux adresses IP NAT qui sont appliquées au trafic de service Azure lorsque le trafic entre dans le réseau principal de Microsoft Azure. Pour le peering Microsoft, les adresses IP NAT qui sont utilisées sont fournies par le client ou par le fournisseur de services. Pour autoriser l’accès à vos ressources de votre service, vous devez autoriser ces adresses IP publiques dans le paramètre de pare-feu IP de ressource. Pour trouver les adresses IP de votre circuit ExpressRoute de peering public, [ouvrez un ticket de support avec ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) via le portail Azure. Découvrez d’autres informations sur le [peering public et Microsoft NAT pour ExpressRoute.](../../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering)
-  
+
 Pour permettre la communication entre votre circuit et Azure SQL Database, vous devez créer des règles de réseau IP pour les adresses IP publiques de votre processus NAT.
 
 <!--
@@ -122,7 +122,7 @@ La technologie PolyBase et l’instruction COPY sont couramment utilisées pour 
 
 #### <a name="steps"></a>Étapes
 
-1. Dans PowerShell, **inscrivez votre serveur** hébergeant Azure Synapse auprès d’Azure Active Directory (AAD) :
+1. Si vous disposez d’un pool SQL dédié autonome, inscrivez votre serveur SQL Server auprès d’Azure Active Directory (AAD) à l’aide de PowerShell : 
 
    ```powershell
    Connect-AzAccount
@@ -130,6 +130,14 @@ La technologie PolyBase et l’instruction COPY sont couramment utilisées pour 
    Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-SQL-servername -AssignIdentity
    ```
 
+   Cette étape n’est pas nécessaire pour les pools SQL dédiés qui se trouvent dans un espace de travail Synapse.
+
+1. Si vous disposez d’un espace de travail Synapse, inscrivez l’identité gérée par le système de votre espace de travail :
+
+   1. Accédez à votre espace de travail Synapse sur le portail Azure
+   2. Accédez au panneau Identités managées 
+   3. Vérifiez que l’option « Autoriser les pipelines » est activée
+   
 1. Créez un **compte de stockage v2 universel** en vous aidant de ce [guide](../../storage/common/storage-account-create.md).
 
    > [!NOTE]
@@ -137,7 +145,7 @@ La technologie PolyBase et l’instruction COPY sont couramment utilisées pour 
    > - Si vous disposez d’un compte de stockage d’objets blob ou v1 universel, vous devez **d’abord le mettre à niveau avec v2** en vous aidant de ce [guide](../../storage/common/storage-account-upgrade.md).
    > - Pour examiner les problèmes connus liés à Azure Data Lake Storage Gen2, consultez ce [guide](../../storage/blobs/data-lake-storage-known-issues.md).
 
-1. Sous votre compte de stockage, accédez à **Contrôle d’accès (IAM)** , puis sélectionnez **Ajouter une attribution de rôle**. Attribuez le rôle Azure de **Contributeur aux données blob du stockage** au serveur qui héberge l’instance Azure Synapse Analytics que vous avez enregistrée auprès d'Azure Active Directory (AAD), comme à l'étape 1.
+1. Sous votre compte de stockage, accédez à **Contrôle d’accès (IAM)** , puis sélectionnez **Ajouter une attribution de rôle**. Attribuez le rôle Azure de **Contributeur aux données blob du stockage** au serveur ou à l’espace de travail hébergeant votre pool SQL dédié que vous avez inscrit auprès d’Azure Active Directory (AAD).
 
    > [!NOTE]
    > Seuls les membres dotés du privilège Propriétaire sur le compte de stockage peuvent effectuer cette étape. Pour découvrir les divers rôles intégrés Azure, consultez ce [guide](../../role-based-access-control/built-in-roles.md).

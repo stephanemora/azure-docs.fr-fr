@@ -9,19 +9,19 @@ ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 7918361826eac10822b8b155d6b47dd89011f683
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b73146302c740dfd8d97d275bad003a6d8a9a23c
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95908929"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852776"
 ---
 # <a name="monitoring-azure-blob-storage"></a>Supervision du Stockage Blob Azure
 
 Lorsque vous avez des applications critiques et des processus métier basés sur des ressources Azure, vous voulez superviser ces ressources pour connaître leur disponibilité, leurs performances et leur fonctionnement. Cet article décrit les données de supervision générées par le Stockage Blob Azure et comment vous pouvez utiliser les fonctionnalités d’Azure Monitor pour analyser les alertes sur ces données.
 
 > [!NOTE]
-> Les journaux de stockage Azure dans Azure Monitor sont en préversion publique et sont disponibles pour le test en préversion dans toutes les régions de cloud public. Pour vous inscrire dans la préversion, consultez [cette page](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u). Cette préversion active les journaux des objets blob (qui incluent Azure Data Lake Storage Gen2), les fichiers, les files d’attente et les tables. Cette fonctionnalité est disponible pour tous les comptes de stockage créés avec le modèle de déploiement Resource Manager. Voir [Vue d’ensemble des comptes de stockage](../common/storage-account-overview.md).
+> Les journaux de stockage Azure dans Azure Monitor sont en préversion publique et sont disponibles pour le test en préversion dans toutes les régions de cloud public. Cette préversion active les journaux des objets blob (qui incluent Azure Data Lake Storage Gen2), les fichiers, les files d’attente et les tables. Cette fonctionnalité est disponible pour tous les comptes de stockage créés avec le modèle de déploiement Resource Manager. Voir [Vue d’ensemble des comptes de stockage](../common/storage-account-overview.md).
 
 ## <a name="monitor-overview"></a>Présentation de Monitor
 
@@ -52,7 +52,7 @@ Vous pouvez continuer à utiliser les métriques et les journaux classiques si v
 
 ## <a name="collection-and-routing"></a>Collecte et routage
 
-Les métriques de plateforme et le journal d’activité sont collectés automatiquement, mais ils peuvent être routés vers d’autres emplacements à l’aide d’un paramètre de diagnostic. 
+Les métriques de plateforme et le journal d'activité sont collectés automatiquement, mais ils peuvent être acheminés vers d'autres emplacements à l'aide d'un paramètre de diagnostic. 
 
 Pour collecter des journaux de ressources, vous devez créer un paramètre de diagnostic. Lorsque vous créez le paramètre, choisissez **Blob** comme type de stockage pour lequel vous souhaitez activer les journaux. Ensuite, spécifiez l’une des catégories d’opérations suivantes pour laquelle vous souhaitez collecter les journaux. 
 
@@ -72,7 +72,7 @@ Vous pouvez créer un paramètre de diagnostic en utilisant le portail Azure, Po
 Pour obtenir des instructions générales, consultez [Créer un paramètre de diagnostic pour collecter des journaux et métriques de plateforme dans Azure](../../azure-monitor/platform/diagnostic-settings.md).
 
 > [!NOTE]
-> Les journaux de stockage Azure dans Azure Monitor sont en préversion publique et sont disponibles pour le test en préversion dans toutes les régions de cloud public. Pour vous inscrire dans la préversion, consultez [cette page](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u). Cette préversion active les journaux des objets blob (qui incluent Azure Data Lake Storage Gen2), les fichiers, les files d’attente et les tables. Cette fonctionnalité est disponible pour tous les comptes de stockage créés avec le modèle de déploiement Resource Manager. Voir [Vue d’ensemble des comptes de stockage](../common/storage-account-overview.md).
+> Les journaux de stockage Azure dans Azure Monitor sont en préversion publique et sont disponibles pour le test en préversion dans toutes les régions de cloud public. Cette préversion active les journaux des objets blob (qui incluent Azure Data Lake Storage Gen2), les fichiers, les files d’attente et les tables. Cette fonctionnalité est disponible pour tous les comptes de stockage créés avec le modèle de déploiement Resource Manager. Voir [Vue d’ensemble des comptes de stockage](../common/storage-account-overview.md).
 
 ### <a name="azure-portal"></a>[Azure portal](#tab/azure-portal)
 
@@ -90,21 +90,23 @@ Pour obtenir des instructions générales, consultez [Créer un paramètre de di
 5. Cliquez sur **Ajouter le paramètre de diagnostic**.
 
    > [!div class="mx-imgBorder"]
-   > ![portail - Journaux de ressources - ajouter un paramètre de diagnostic](media/monitor-blob-storage/diagnostic-logs-settings-pane-2.png)
+   > ![portail – Journaux de ressources – ajouter un paramètre de diagnostic](media/monitor-blob-storage/diagnostic-logs-settings-pane-2.png)
 
    La page **Paramètres de diagnostic** s’affiche.
 
    > [!div class="mx-imgBorder"]
    > ![Page Journaux de ressources](media/monitor-blob-storage/diagnostic-logs-page.png)
 
-6. Dans le champ **Nom** de la page, entrez un nom pour ce paramètre Journal de ressources. Sélectionnez ensuite les opérations que vous souhaitez consigner (opérations de lecture, d’écriture et de suppression), ainsi que l’emplacement où vous souhaitez que les journaux soient envoyés.
+6. Dans le champ **Nom** de la page, entrez un nom pour ce paramètre de journal des ressources. Sélectionnez ensuite les opérations que vous souhaitez consigner (opérations de lecture, d’écriture et de suppression), ainsi que l’emplacement où vous souhaitez que les journaux soient envoyés.
 
 #### <a name="archive-logs-to-a-storage-account"></a>Archiver les journaux dans un compte de stockage
+
+Si vous choisissez d’archiver vos journaux dans un compte de stockage, vous paierez pour le volume des journaux qui sont envoyés au compte de stockage. Pour connaître les tarifs spécifiques, consultez la section **Journaux de la plateforme** de la page [Tarification Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/#platform-logs).
 
 1. Cochez la case **Archiver dans un compte de stockage**, puis cliquez sur le bouton **Configurer**.
 
    > [!div class="mx-imgBorder"]   
-   > ![Stockage d’archive de la page Paramètres de diagnostic](media/monitor-blob-storage/diagnostic-logs-settings-pane-archive-storage.png)
+   > ![Page Paramètres de diagnostic – Stockage d’archive](media/monitor-blob-storage/diagnostic-logs-settings-pane-archive-storage.png)
 
 2. Dans la liste déroulante **Compte de stockage**, sélectionnez le compte de stockage dans lequel vous souhaitez archiver vos journaux, cliquez sur le bouton **OK**, puis cliquez sur le bouton **Enregistrer**.
 
@@ -113,12 +115,14 @@ Pour obtenir des instructions générales, consultez [Créer un paramètre de di
 
 #### <a name="stream-logs-to-azure-event-hubs"></a>Diffuser les journaux en continu vers Azure Event Hubs
 
+Si vous choisissez de diffuser vos journaux vers un Event Hub, vous paierez pour le volume des journaux envoyés à l’Event Hub. Pour connaître les tarifs spécifiques, consultez la section **Journaux de la plateforme** de la page [Tarification Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/#platform-logs).
+
 1. Cochez la case **Diffuser sur un Event Hub**, puis cliquez sur le bouton **Configurer**.
 
 2. Dans le volet **Sélectionner un Event Hub**, choisissez l’espace de noms, le nom et le nom de la stratégie de l’Event Hub vers lequel vous souhaitez diffuser vos journaux en continu. 
 
    > [!div class="mx-imgBorder"]
-   > ![Event Hub de la page Paramètres de diagnostic](media/monitor-blob-storage/diagnostic-logs-settings-pane-event-hub.png)
+   > ![Page Paramètres de diagnostic – Event Hub](media/monitor-blob-storage/diagnostic-logs-settings-pane-event-hub.png)
 
 3. Cliquez sur le bouton **OK**, puis cliquez sur le bouton **Enregistrer**.
 
@@ -127,7 +131,7 @@ Pour obtenir des instructions générales, consultez [Créer un paramètre de di
 1. Cochez la case **Envoyer à Log Analytics**, sélectionnez un espace de travail Log Analytics, puis cliquez sur le bouton **Enregistrer**.
 
    > [!div class="mx-imgBorder"]   
-   > ![Analytique des journaux d'activité de la page Paramètres de diagnostic](media/monitor-blob-storage/diagnostic-logs-settings-pane-log-analytics.png)
+   > ![Page Paramètres de diagnostic – Log Analytics](media/monitor-blob-storage/diagnostic-logs-settings-pane-log-analytics.png)
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -137,13 +141,15 @@ Pour obtenir des instructions générales, consultez [Créer un paramètre de di
    Connect-AzAccount
    ```
 
-2. Définissez votre abonnement actif sur l’abonnement du compte de stockage pour lequel vous souhaitez activer la journalisation.
+2. Définissez votre abonnement actif sur abonnement du compte de stockage pour lequel vous souhaitez activer la journalisation.
 
    ```powershell
    Set-AzContext -SubscriptionId <subscription-id>
    ```
 
 #### <a name="archive-logs-to-a-storage-account"></a>Archiver les journaux dans un compte de stockage
+
+Si vous choisissez d’archiver vos journaux dans un compte de stockage, vous paierez pour le volume des journaux qui sont envoyés au compte de stockage. Pour connaître les tarifs spécifiques, consultez la section **Journaux de la plateforme** de la page [Tarification Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/#platform-logs).
 
 Activez les journaux à l’aide de la cmdlet PowerShell [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) avec le paramètre `StorageAccountId`.
 
@@ -162,6 +168,8 @@ Voici un exemple :
 Pour obtenir une description de chaque paramètre, consultez [Archiver des journaux de ressources Azure via Azure PowerShell](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage).
 
 #### <a name="stream-logs-to-an-event-hub"></a>Transmettre en continu des journaux d’activité vers un hub d’événements
+
+Si vous choisissez de diffuser vos journaux vers un Event Hub, vous paierez pour le volume des journaux envoyés à l’Event Hub. Pour connaître les tarifs spécifiques, consultez la section **Journaux de la plateforme** de la page [Tarification Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/#platform-logs).
 
 Activez les journaux à l’aide de la cmdlet PowerShell [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) avec le paramètre `EventHubAuthorizationRuleId`.
 
@@ -203,13 +211,15 @@ Pour plus d’informations, consultez [Diffuser des journaux de ressources Azure
 
 #### <a name="archive-logs-to-a-storage-account"></a>Archiver les journaux dans un compte de stockage
 
+Si vous choisissez d’archiver vos journaux dans un compte de stockage, vous paierez pour le volume des journaux qui sont envoyés au compte de stockage. Pour connaître les tarifs spécifiques, consultez la section **Journaux de la plateforme** de la page [Tarification Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/#platform-logs).
+
 Activez les journaux à l’aide de la commande [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --name <setting-name> --storage-account <storage-account-name> --resource <storage-service-resource-id> --resource-group <resource-group> --logs '[{"category": <operations>, "enabled": true "retentionPolicy": {"days": <number-days>, "enabled": <retention-bool}}]'
 ```
 
-Remplacez l’espace réservé `<storage-service-resource--id>` de cet extrait par l’ID de ressource du service de stockage Blob. Vous pouvez trouver l’ID de ressource dans le portail Azure en ouvrant la page **Propriétés** de votre compte de stockage.
+Remplacez l’espace réservé `<storage-service-resource--id>` dans cet extrait de code par le service Stockage Blob de l’ID de ressource. Vous pouvez trouver l’ID de ressource dans le portail Azure en ouvrant la page **Propriétés** de votre compte de stockage.
 
 Vous pouvez utiliser `StorageRead`, `StorageWrite` et `StorageDelete` comme valeur du paramètre **Category**.
 
@@ -220,6 +230,8 @@ Voici un exemple :
 Pour obtenir une description de chaque paramètre, consultez [Archiver des journaux de ressources via l’interface de ligne de commande Azure](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage).
 
 #### <a name="stream-logs-to-an-event-hub"></a>Transmettre en continu des journaux d’activité vers un hub d’événements
+
+Si vous choisissez de diffuser vos journaux vers un Event Hub, vous paierez pour le volume des journaux envoyés à l’Event Hub. Pour connaître les tarifs spécifiques, consultez la section **Journaux de la plateforme** de la page [Tarification Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/#platform-logs).
 
 Activez les journaux à l’aide de la commande [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
 
@@ -474,7 +486,7 @@ Vous pouvez accéder aux journaux des ressources en tant qu’objet blob dans un
 Pour obtenir des informations de référence détaillées sur les champs qui apparaissent dans ces journaux, consultez [Informations de référence sur les données de supervision du Stockage Blob Azure](monitor-blob-storage-reference.md).
 
 > [!NOTE]
-> Les journaux de stockage Azure dans Azure Monitor sont en préversion publique et sont disponibles pour le test en préversion dans toutes les régions de cloud public. Pour vous inscrire dans la préversion, consultez [cette page](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u). Cette préversion active les journaux pour les objets blob (qui comprennent Azure Data Lake Storage Gen2), les fichiers, les files d’attente, les tables, les comptes de stockage Premium dans les comptes de stockage à usage général v1 et à usage général v2. Les comptes de stockage classiques ne sont pas pris en charge.
+> Les journaux de stockage Azure dans Azure Monitor sont en préversion publique et sont disponibles pour le test en préversion dans toutes les régions de cloud public. Cette préversion active les journaux pour les objets blob (qui comprennent Azure Data Lake Storage Gen2), les fichiers, les files d’attente, les tables, les comptes de stockage Premium dans les comptes de stockage à usage général v1 et à usage général v2. Les comptes de stockage classiques ne sont pas pris en charge.
 
 Les entrées de journal sont créées uniquement si des demandes sont effectuées sur le point de terminaison de service. Par exemple, si un compte de stockage a une activité dans son point de terminaison de blob, mais pas dans ses points de terminaison de table ou de file d’attente, seuls les journaux d’activité qui appartiennent au service Blob sont créés. Les journaux de stockage Azure contiennent des informations détaillées sur les demandes ayant réussi ou échoué pour un service de stockage. Ces informations peuvent servir à analyser des demandes individuelles et à diagnostiquer les problèmes au niveau d'un service de stockage. Les demandes sont enregistrées sur la base du meilleur effort.
 

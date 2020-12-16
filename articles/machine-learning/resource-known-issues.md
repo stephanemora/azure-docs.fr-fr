@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: troubleshooting
 ms.custom: troubleshooting, contperfq4
 ms.date: 11/09/2020
-ms.openlocfilehash: 46763bddd0f173ccf73edc54e5f2688d3bf6efc0
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 55ac11b7888a8e351b52554f76fb44af35633c16
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445389"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780975"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Problèmes connus et résolution des problèmes dans Azure Machine Learning
 
@@ -211,7 +211,10 @@ Si vous utilisez le partage de fichiers pour d’autres charges de travail, tell
     Si vous n’incluez pas la barre oblique « / » de début, vous devez préfixer le répertoire de travail, par exemple `/mnt/batch/.../tmp/dataset`, sur la cible de calcul pour indiquer l’emplacement où vous souhaitez monter le jeu de données.
 
 ### <a name="mount-dataset"></a>Monter un jeu de données
-* **Échec de l'initialisation du jeu de données :  le délai d'attente lié à la préparation du point de montage a expiré** : Une logique de nouvelle tentative a été ajoutée dans `azureml-sdk >=1.12.0` pour atténuer le problème. Si vous utilisez des versions antérieures d'azureml-sdk, veuillez procéder à une mise à niveau vers la dernière version. Si vous utilisez déjà `azureml-sdk>=1.12.0`, veuillez recréer votre environnement afin de disposer du dernier patch avec le correctif.
+* **Échec de l'initialisation du jeu de données :  le délai d'attente lié à la préparation du point de montage a expiré** : 
+  * Si vous n’avez pas de règles de trafic sortant pour le [groupe de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview) et que vous utilisez `azureml-sdk>=1.12.0`, mettez à jour `azureml-dataset-runtime` et ses dépendances pour qu’ils disposent des améliorations les plus récentes de la version mineure spécifique ou, si vous l’utilisez dans une exécution, recréez votre environnement pour qu’il puisse disposer du patch le plus récent avec le correctif. 
+  * Si vous utilisez `azureml-sdk<1.12.0`, effectuez une mise à niveau vers la version la plus récente.
+  * Si vous avez des règles de trafic sortant NSG, assurez-vous qu’il existe une règle de trafic sortant qui autorise tout le trafic pour l’étiquette de service `AzureResourceMonitor`.
 
 ### <a name="data-labeling-projects"></a>Projets d'étiquetage de données
 

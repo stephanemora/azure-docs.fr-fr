@@ -423,6 +423,8 @@
       items:
         - name: Azure VM
           href: backup-azure-vms-troubleshoot.md
+        - name: Récupération de fichiers d’une machine virtuelle Azure
+          href: backup-azure-vm-file-recovery-troubleshoot.md
         - name: L’agent de Sauvegarde Azure ou l’extension de machine virtuelle a expiré
           href: backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md
         - name: Agent Azure Backup

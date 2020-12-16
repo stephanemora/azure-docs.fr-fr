@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 11/06/2020
-ms.openlocfilehash: b54e965188be51ec54110bb85d8cda8f01256836
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 461f9354bb3a6eae0af186de8fe9f39c6b5fff2c
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369736"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620917"
 ---
 # <a name="how-to-test-and-publish-an-azure-application-offer"></a>Comment tester et publier une offre Azure Application
 
@@ -72,4 +72,4 @@ Si vous rencontrez des erreurs durant une ou plusieurs des étapes de publicatio
 ## <a name="next-step"></a>Étape suivante
 
 - [Accéder aux rapports analytiques de la Place de marché commerciale dans l’Espace partenaires](partner-center-portal/analytics.md)
-- Découvrez [Comment commercialiser votre offre Azure Application](create-new-azure-apps-offer-marketing.md) par le biais des programmes de Co-vente avec Microsoft et de Revente via des fournisseurs de solutions cloud.
+- Découvrez [comment vendre votre offre Azure Application](create-new-azure-apps-offer-marketing.md) par le biais des programmes de Co-vente avec Microsoft et de Revente via des fournisseurs de solutions Cloud.

@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 07d2e9fa98c24695a119c651539d4003ecd8524a
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 6d9abc67035b4581a028d8e59ef080b4f1ffa5b9
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242090"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96519040"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-cli"></a>Chiffrement des données pour Azure Database pour MySQL avec Azure CLI
 
@@ -24,7 +24,7 @@ Découvrez comment utiliser Azure CLI pour configurer et gérer le chiffrement d
 * Créez un coffre de clés et une clé à utiliser pour une clé gérée par le client. Activez également la protection de purge et la suppression réversible sur le coffre de clés.
 
   ```azurecli-interactive
-  az keyvault create -g <resource_group> -n <vault_name> --enable-soft-delete true -enable-purge-protection true
+  az keyvault create -g <resource_group> -n <vault_name> --enable-soft-delete true --enable-purge-protection true
   ```
 
 * Dans le coffre de clés Azure créé, créez la clé qui sera utilisée pour le chiffrement des données du serveur Azure Database pour MySQL.
@@ -46,11 +46,23 @@ Découvrez comment utiliser Azure CLI pour configurer et gérer le chiffrement d
     ```azurecli-interactive
     az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --enable-purge-protection true
     ```
+  * Durée de conservation définie sur 90 jours
+  ```azurecli-interactive
+    az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --retention-days 90
+    ```
 
 * La clé doit avoir les attributs suivants à utiliser en tant que clé gérée par le client :
   * Aucune date d’expiration
   * Non activée
-  * Effectuer les opérations **get** , **wrap** et **unwrap**
+  * Effectuer les opérations **get**, **wrap** et **unwrap**
+  * Attribut recoverylevel défini sur **Récupérable** (cela nécessite l’activation de la suppression réversible avec la période de conservation définie sur 90 jours)
+  * Protection contre le vidage activée
+
+Vous pouvez vérifier les attributs de la clé ci-dessus avec la commande suivante :
+
+```azurecli-interactive
+az keyvault key show --vault-name <key_vault_name> -n <key_name>
+```
 
 ## <a name="set-the-right-permissions-for-key-operations"></a>Définir les permissions appropriées pour les opérations sur les clés
 
@@ -68,7 +80,7 @@ Découvrez comment utiliser Azure CLI pour configurer et gérer le chiffrement d
    az mysql server update --name  <server name>  -g <resource_group> --assign-identity
    ```
 
-2. Définissez les **Autorisations de clé** ( **Get** , **Wrap** , **Unwrap** ) pour le **Principal** (nom du serveur MySQL).
+2. Définissez les **Autorisations de clé** (**Get**, **Wrap**, **Unwrap**) pour le **Principal** (nom du serveur MySQL).
 
     ```azurecli-interactive
     az keyvault set-policy --name -g <resource_group> --key-permissions get unwrapKey wrapKey --object-id <principal id of the server>

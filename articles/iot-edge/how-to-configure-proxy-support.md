@@ -10,12 +10,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - contperfq1
-ms.openlocfilehash: ae0c4c69cf500fb352cc889e068888084d1d8f8b
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: c39ce2bed63b6efb6224e0e27fdb1104ef7a5ec8
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045956"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862392"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>Configurer un appareil IoT Edge pour communiquer via un serveur proxy
 
@@ -270,6 +270,12 @@ Si vous avez inclus la variable d’environnement **UpstreamProtocol** dans le f
     }
 }
 ```
+
+## <a name="working-with-traffic-inspecting-proxies"></a>Utilisation de proxys d’inspection du trafic
+
+Si le proxy que vous essayez d’utiliser effectue l’inspection du trafic sur les connexions sécurisées par TLS, il est important de noter que l’authentification par certificats X.509 ne fonctionne pas. IoT Edge établit un canal TLS chiffré de bout en bout avec le certificat et la clé fournis. Si ce canal est interrompu pour l’inspection du trafic, le proxy ne peut pas rétablir le canal avec les informations d’identification appropriées, et IoT Hub et le service de provisionnement des appareils IoT Hub retournent une erreur `Unauthorized`.
+
+Pour utiliser un proxy qui effectue l’inspection du trafic, vous devez utiliser l’authentification par signature d’accès partagé ou faire ajouter IoT Hub et le service de provisionnement d’appareils IoT Hub à une liste d’autorisation pour éviter l’inspection.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

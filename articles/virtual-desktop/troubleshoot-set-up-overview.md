@@ -3,15 +3,15 @@ title: 'Vue d’ensemble du dépannage de Windows Virtual Desktop : Azure'
 description: Vue d’ensemble de la résolution des problèmes lors de la configuration d’un environnement Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 06/05/2020
+ms.date: 12/04/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 171322fbec099aa9fafc36c4f951213b33007976
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d051594572f742b290867d12e0fb148f2abbf370
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88009356"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621312"
 ---
 # <a name="troubleshooting-overview-feedback-and-support-for-windows-virtual-desktop"></a>Vue d’ensemble de la résolution des problèmes, commentaires et support pour Windows Virtual Desktop
 
@@ -45,7 +45,7 @@ Référez-vous au tableau suivant pour identifier et résoudre les problèmes qu
 | Connexion des clients                                                                    | Consultez [Connexions au service Windows Virtual Desktop](troubleshoot-service-connection.md) et, si cela ne résout pas votre problème, consultez [Configuration d’une machine virtuelle hôte de sessions](troubleshoot-vm-configuration.md). |
 | Réactivité des applications ou du Bureau à distance                                      | Si les problèmes sont liés à une application ou un produit spécifique, contactez l’équipe responsable de ce produit. |
 | Messages ou erreurs concernant les licences                                                          | Si les problèmes sont liés à une application ou un produit spécifique, contactez l’équipe responsable de ce produit. |
-| Problèmes liés aux méthodes d’authentification tierces | Vérifiez que votre fournisseur tiers prend en charge les scénarios Windows Virtual Desktop en tenant compte des problèmes connus. |
+| Problèmes liés aux méthodes d’authentification ou aux outils de tiers | Vérifiez que votre fournisseur tiers prend en charge les scénarios Windows Virtual Desktop en tenant compte des problèmes connus. |
 | Problèmes lors de l’utilisation de Log Analytics pour Windows Virtual Desktop | Pour les problèmes liés au schéma de diagnostics, [ouvrez une demande de support Azure](https://azure.microsoft.com/support/create-ticket/).<br><br>Pour les requêtes, la visualisation ou d’autres problèmes dans Log Analytics, sélectionnez le type de problème approprié sous Log Analytics. |
 | Problèmes liés à l’utilisation des applications M365 | Contactez le centre d’administration M365 grâce à l’une des [options d’aide du centre d’administration M365](/microsoft-365/admin/contact-support-for-business-products/). |
 

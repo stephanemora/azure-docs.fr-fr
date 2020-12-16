@@ -11,12 +11,12 @@ ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: ce068f1b43fcd6611d4abf65029cbcc5de3b7d30
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c9ee57baf63867e4dca4236d484321586cfb3b17
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311604"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862341"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python-preview"></a>Utiliser le package d’interprétabilité pour expliquer les modèles ML et les prédictions dans Python (préversion)
 
@@ -275,7 +275,7 @@ L’exemple suivant montre comment vous pouvez utiliser la classe `ExplanationCl
 
 1. Configurez une capacité de calcul Machine Learning comme cible de calcul et envoyez votre exécution d’apprentissage. Pour obtenir des instructions, consultez [Créer et gérer des clusters de calcul Azure Machine Learning](how-to-create-attach-compute-cluster.md). Vous pourriez également trouver les [exemples de notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/azure-integration/remote-explanation) utiles.
 
-1. Téléchargez l’explication dans votre Jupyter Notebook local.
+1. Téléchargez l’explication dans votre notebook Jupyter local.
 
     ```python
     from azureml.interpret import ExplanationClient

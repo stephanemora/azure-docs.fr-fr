@@ -7,12 +7,12 @@ ms.date: 09/14/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: devx-track-python, github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: e2432ca4cecb3c36d2fae19907c1ad17d9ef2505
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 16a21acabfd199ba16068e507919b564f01a76d5
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94833501"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763908"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>Déployer sur App Service à l’aide de GitHub Actions
 
@@ -55,7 +55,7 @@ Vous pouvez rapidement commencer à utiliser GitHub Actions à l’aide du centr
 
 Cette action validera le fichier de workflow dans le référentiel. Le workflow de génération et de déploiement de votre application démarrera immédiatement.
 
-## <a name="set-up-a-work-manually"></a>Configurer un travail manuellement
+## <a name="set-up-a-workflow-manually"></a>Configurer un workflow manuellement
 
 Vous pouvez également déployer un workflow sans utiliser le centre de déploiement. Pour ce faire, vous devez d’abord générer des informations d’identification de déploiement. 
 

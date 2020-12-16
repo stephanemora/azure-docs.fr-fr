@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7079f0b1060be1a260b41e07b9d9299bab57127f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 91ef5ca35cc96aa2028522d370ffbade45ecc2de
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016299"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779768"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Azure Disk Encryption pour les machines virtuelles Linux 
 
@@ -38,7 +38,7 @@ Les machines virtuelles Linux sont disponibles dans une [gamme de tailles](../si
 
 | Machine virtuelle | Mémoire minimale requise |
 |--|--|
-| Machines virtuelles Linux lors du chiffrement des volumes de données uniquement| 2 Go |
+| Machines virtuelles Linux lors du chiffrement des volumes de données uniquement| 2 Go |
 | Machines virtuelles Linux lors du chiffrement des volumes de système d’exploitation et de données, et où l’utilisation du système de fichiers racine (/) est de 4 Go ou moins | 8 Go |
 | Machines virtuelles Linux lors du chiffrement des volumes de système d’exploitation et de données, et où l’utilisation du système de fichiers racine (/) est supérieure à 4 Go | L’utilisation du système de fichiers racine * 2. Par exemple, une utilisation du système de fichiers racine de 16 Go nécessite au moins 32 Go de RAM |
 
@@ -67,7 +67,7 @@ Les distributions de serveur Linux qui ne sont pas approuvées par Azure ne pren
 | Canonical | Ubuntu 14.04.5</br>[avec le noyau Azure mis à jour vers la version 4.15 ou ultérieure](disk-encryption-troubleshooting.md) | 14.04.5-DAILY-LTS | Canonical:UbuntuServer:14.04.5-DAILY-LTS:latest | Disque de système d’exploitation et de données |
 | Red Hat | RHEL 7.8 | 7.8 | RedHat:RHEL:7.8:latest | Disque de système d’exploitation et de données (voir la remarque ci-dessous) |
 | Red Hat | RHEL 7.7 | 7,7 | RedHat:RHEL:7.7:latest | Disque de système d’exploitation et de données (voir la remarque ci-dessous) |
-| Red Hat | RHEL 7.7 | 7-LVM | RedHat:RHEL:7-LVM:latest | Disque de système d’exploitation et de données (voir la remarque ci-dessous) |
+| Red Hat | RHEL 7-LVM | 7-LVM | RedHat:RHEL:7-LVM: 7.8.2020111201 | Disque de système d’exploitation et de données (voir la remarque ci-dessous) |
 | Red Hat | RHEL 7.6 | 7.6 | RedHat:RHEL:7.6:latest | Disque de système d’exploitation et de données (voir la remarque ci-dessous) |
 | Red Hat | RHEL 7.5 | 7.5 | RedHat:RHEL:7.5:latest | Disque de système d’exploitation et de données (voir la remarque ci-dessous) |
 | Red Hat | RHEL 7.4 | 7.4 | RedHat:RHEL:7.4:latest | Disque de système d’exploitation et de données (voir la remarque ci-dessous) |
@@ -77,7 +77,7 @@ Les distributions de serveur Linux qui ne sont pas approuvées par Azure ne pren
 | Red Hat | RHEL 6.7 | 6.7 | RedHat:RHEL:6.7:latest | Disque de données (voir la remarque ci-dessous) |
 | OpenLogic | CentOS 7.8 | 7.8 | OpenLogic:CentOS:7_8:latest | Disque de système d’exploitation et de données |
 | OpenLogic | CentOS 7.7 | 7,7 | OpenLogic:CentOS:7.7:latest | Disque de système d’exploitation et de données |
-| OpenLogic | CentOS 7.7 | 7-LVM | OpenLogic:CentOS:7-LVM:latest | Disque de système d’exploitation et de données |
+| OpenLogic | CentOS 7-LVM | 7-LVM | OpenLogic:CentOS-LVM:7-LVM:7.8.2020111100 | Disque de système d’exploitation et de données |
 | OpenLogic | CentOS 7.6 | 7.6 | OpenLogic:CentOS:7.6:latest | Disque de système d’exploitation et de données |
 | OpenLogic | CentOS 7.5 | 7.5 | OpenLogic:CentOS:7.5:latest | Disque de système d’exploitation et de données |
 | OpenLogic | CentOS 7.4 | 7.4 | OpenLogic:CentOS:7.4:latest | Disque de système d’exploitation et de données |

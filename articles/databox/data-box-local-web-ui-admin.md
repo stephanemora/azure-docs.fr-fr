@@ -6,58 +6,77 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 09/23/2020
+ms.date: 12/07/2020
 ms.author: alkohli
-ms.openlocfilehash: f5bcb5c42661c375372d4d0b17571d784152dd5f
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 859eb6abd138f0660407618bba4550daf9158ab9
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337285"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96855003"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Utiliser l’interface utilisateur web locale pour gérer vos appareils Data Box et Data Box Heavy
 
 Cet article décrit certaines des tâches de configuration et de gestion qui effectuées sur des appareils Data Box et Data Box Heavy. Vous pouvez gérer les appareils Data Box et Data Box Heavy via l’interface utilisateur du portail Azure et l’interface utilisateur web locale de l’appareil. Cet article se concentre sur les tâches effectuées à l’aide de l’interface utilisateur web locale.
 
-L’interface utilisateur web locale de Data Box et Data Box Heavy est utilisée pour la configuration initiale de l’appareil. Vous pouvez également utiliser l’interface utilisateur web locale pour arrêter ou redémarrer l’appareil, exécuter des tests de diagnostic, mettre à jour les logiciels, afficher les journaux d’activité de copie et générer un package de journaux d’activité destiné au support Microsoft. Sur un appareil Data Box Heavy avec deux nœuds indépendants, vous pouvez accéder à deux interfaces utilisateur web locales distinctes correspondant aux deux différents nœuds de l’appareil.
-
-Cet article inclut les didacticiels suivants :
-
-- Générer un package de support
-- Arrêter ou redémarrer votre appareil
-- Télécharger les fichiers manifeste ou de nomenclature (BOM)
-- Afficher la capacité disponible sur l’appareil
-- Ignorer la validation de la somme de contrôle
+L’interface utilisateur web locale de Data Box et Data Box Heavy est utilisée pour la configuration initiale de l’appareil. Vous pouvez également utiliser l’interface utilisateur web locale pour arrêter ou redémarrer l’appareil, exécuter des tests de diagnostic, mettre à jour les logiciels, afficher les journaux de copie, effacer des données locales de l’appareil et générer un package de support destiné à Support Microsoft. Sur un appareil Data Box Heavy avec deux nœuds indépendants, vous pouvez accéder à deux interfaces utilisateur web locales distinctes correspondant aux deux différents nœuds de l’appareil.
 
 [!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
 
 ## <a name="generate-support-package"></a>Générer un package de support
 
-Si vous rencontrez des problèmes avec l’appareil, vous pouvez créer un package de support dans les journaux d’activité système. Le support Microsoft utilise ce package pour résoudre le problème. Pour générer un package de support, suivez les étapes ci-dessous :
+Si vous rencontrez des problèmes avec l’appareil, vous pouvez créer un package de support dans les journaux d’activité système. Le support Microsoft utilise ce package pour résoudre le problème.
 
-1. Dans l’interface utilisateur web locale, accédez à **Contacter le support**, puis sélectionnez **Créer un package de support**.
+Pour générer un package de support, suivez les étapes ci-dessous :
+
+1. Dans l’interface utilisateur web locale, accédez à **Contacter Support Microsoft**. Si vous le souhaitez, sélectionnez **Inclure des images mémoire**. Sélectionnez ensuite **Créer un package de support**.
+
+    Une image mémoire désigne le contenu de la mémoire de votre appareil, enregistré après une défaillance du système.
+
+    Vous ne devez pas sélectionner l’option **Inclure des images mémoire**, sauf si Support Microsoft vous en demande une. Il faut beaucoup de temps pour constituer un package de support comprenant des images mémoire, et des données sensibles sont incluses.
 
     ![Créer un package de support 1](media/data-box-local-web-ui-admin/create-support-package-1.png)
 
-2. Un package de support est collecté. Cette opération prend quelques minutes.
+    Un package de support est collecté. Cette opération prend quelques minutes si vous incluez uniquement les journaux système. Si vous incluez des images mémoire, cela prend beaucoup plus de temps.
 
     ![Créer un package de support 2](media/data-box-local-web-ui-admin/create-support-package-2.png)
 
-3. Une fois la création du package de support effectuée, sélectionnez **Télécharger le package de support**.
+2. Une fois la création du package de support terminée, sélectionnez **Télécharger le package de support**.
+
+    ![Créer un package de support 3](media/data-box-local-web-ui-admin/create-support-package-3.png)
+
+3. Recherchez puis choisissez le dossier de téléchargement. Ouvrez le dossier pour afficher le contenu.
 
     ![Créer un package de support 4](media/data-box-local-web-ui-admin/create-support-package-4.png)
 
-4. Recherchez puis choisissez le dossier de téléchargement. Ouvrez le dossier pour afficher le contenu.
+## <a name="erase-local-data-from-your-device"></a>Effacer des données locales de votre appareil
 
-    ![Créer un package de support 5](media/data-box-local-web-ui-admin/create-support-package-5.png)
+Vous pouvez utiliser l’interface utilisateur web locale pour effacer des données locales de votre appareil avant de retourner ce dernier au centre de données Azure.
+
+> [!IMPORTANT]
+> Il est impossible d’annuler un effacement des données. Avant d’effacer les données locales de votre appareil, veillez à sauvegarder les fichiers.
+
+Pour effacer les données locales de votre appareil, procédez comme suit :
+
+1. Dans l’interface utilisateur web locale, accédez à **Effacement des données**.
+2. Entrez le mot de passe de l’appareil, puis sélectionnez **Effacer les données**.
+
+    ![Option d’effacement des données pour un appareil](media/data-box-local-web-ui-admin/erase-local-data-1.png)
+
+3. À l’invite de confirmation, sélectionnez **Oui** pour continuer. L’effacement des données peut prendre jusqu’à 50 minutes.
+
+   Veillez à sauvegarder vos données locales avant de les effacer de l’appareil. Il est impossible d’annuler un effacement des données.
+
+    ![Invite de confirmation de l’effacement des données](media/data-box-local-web-ui-admin/erase-local-data-2.png)
 
 ## <a name="shut-down-or-restart-your-device"></a>Arrêter ou redémarrer votre appareil
 
-Vous pouvez arrêter ou redémarrer votre appareil à l'aide de l'interface utilisateur web locale. Avant de redémarrer, nous vous recommandons de mettre les partages hors connexion sur l’ordinateur hôte. Vous réduisez ainsi toute possibilité d’altération des données. Lorsque vous arrêtez l’appareil, vérifiez qu’aucune copie de données n’est en cours.
+Vous pouvez arrêter ou redémarrer votre appareil à l'aide de l'interface utilisateur web locale. Avant de redémarrer, nous vous recommandons de mettre les partages hors connexion sur l’hôte, puis sur l’appareil. Vous réduisez ainsi toute possibilité d’altération des données. Lorsque vous arrêtez l’appareil, vérifiez qu’aucune copie de données n’est en cours.
 
 Pour arrêter votre appareil, effectuez les étapes suivantes.
 
 1. Dans l’interface utilisateur web locale, accédez à **Arrêter ou redémarrer**.
+
 2. Sélectionnez **Arrêter**.
 
     ![Arrêter Data Box 1](media/data-box-local-web-ui-admin/shut-down-local-web-ui-1.png)
@@ -93,7 +112,7 @@ Avant de commencer, effectuez ces étapes pour télécharger les fichiers manife
 
     <!-- ![Select Download list of files](media/data-box-portal-admin/download-list-of-files.png) -->
 
-3. Dans l’Explorateur de fichiers, vous pouvez voir que des listes distinctes de fichiers sont générées en fonction du protocole utilisé pour se connecter à l’appareil et du type de stockage Azure utilisé.
+3. Dans l’Explorateur de fichiers, des listes distinctes de fichiers sont générées en fonction du protocole utilisé pour se connecter à l’appareil et du type de stockage Azure utilisé.
 
     <!-- ![Files for storage type and connection protocol](media/data-box-portal-admin/files-storage-connection-type.png) -->
     ![Fichiers pour le type de stockage et le protocole de connexion](media/data-box-local-web-ui-admin/prepare-to-ship-5.png)
@@ -168,9 +187,9 @@ Vous pouvez utiliser le tableau de bord de l’appareil pour afficher la capacit
 
 Par défaut, des sommes de contrôle sont générées pour vos données quand vous préparez l’expédition. Dans de rares cas, selon le type de données (fichiers de petite taille), les performances peuvent diminuer. Dans ces cas, vous pouvez ignorer la somme de contrôle.
 
-Le calcul de la somme de contrôle pendant la préparation de l’expédition est effectué uniquement pour les commandes d’importation, et non pour les ordres d’exportation. 
+Le calcul de la somme de contrôle pendant la préparation de l’expédition est effectué uniquement pour les commandes d’importation, et non pour les ordres d’exportation.
 
-Nous vous recommandons vivement de ne pas désactiver la somme de contrôle, sauf si les performances sont fortement affectées.
+Nous vous recommandons vivement de ne pas désactiver la somme de contrôle, sauf si les performances sont fortement perturbées.
 
 1. En haut à droite de l’interface utilisateur web locale de votre appareil, accédez à **Paramètres**.
 
@@ -247,9 +266,9 @@ Pour activer le transfert des ACL pour Azure Files :
 
 ## <a name="enable-tls-11"></a>Activation du protocole TLS 1.1
 
-Par défaut, Azure Data Box utilise pour le chiffrement la version 1.2 du protocole TLS (Transport Layer Security), plus sécurisée que la version 1.1. Toutefois, si vos clients ou vous-même utilisez pour accéder aux données un navigateur qui ne prend pas en charge le protocole TLS 1.2, vous pouvez activer le protocole TLS 1.1.
+Par défaut, Azure Data Box utilise pour le protocole TLS (Transport Layer Security) 1.2 pour le chiffrement, car il plus sécurisé que la version 1.1. Toutefois, si vos clients ou vous-même utilisez pour accéder aux données un navigateur qui ne prend pas en charge le protocole TLS 1.2, vous pouvez activer le protocole TLS 1.1.
 
-Pour plus d’informations sur le protocole TLS, consultez [Sécurité d’Azure Data Box Gateway](../databox-online/data-box-gateway-security.md).
+Pour plus d’informations sur le protocole TLS, consultez [Sécurité d’Azure Data Box Gateway](../databox-gateway/data-box-gateway-security.md).
 
 Pour activer le protocole TLS 1.1 sur votre appareil Azure :
 

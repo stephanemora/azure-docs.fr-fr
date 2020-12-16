@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 4280932787cfb2220dab1da84dca41ca0c40e302
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: cf7c5fa8563544add55a7fad5075848eb5116fe1
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92485254"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96901930"
 ---
 # <a name="networking-overview---azure-database-for-postgresql---flexible-server"></a>Vue d’ensemble des réseaux - Azure Database pour PostgreSQL - Serveur flexible
 
@@ -21,7 +21,7 @@ ms.locfileid: "92485254"
 Cet article décrit les concepts de connectivité et de réseau pour Azure Database pour PostgreSQL - Serveur flexible. 
 
 ## <a name="choosing-a-networking-option"></a>Choix d’une option réseau
-Vous disposez de deux options réseau pour votre serveur flexible Azure Database pour PostgreSQL. Il s’agit de l’ **accès privé (intégration au réseau virtuel)** et de l’ **accès public (adresses IP autorisées)** . Lors de la création du serveur, vous devez choisir une seule option. 
+Vous disposez de deux options réseau pour votre serveur flexible Azure Database pour PostgreSQL. Il s’agit de l’**accès privé (intégration au réseau virtuel)** et de l’**accès public (adresses IP autorisées)** . Lors de la création du serveur, vous devez choisir une seule option. 
 
 > [!NOTE]
 > Vous ne pourrez pas changer votre option réseau une fois le serveur créé. 
@@ -33,7 +33,7 @@ Vous disposez de deux options réseau pour votre serveur flexible Azure Database
    * Utilisation d’un VPN ou du service ExpressRoute pour vous connecter à partir de ressources non-Azure à votre serveur flexible
    * Le serveur flexible n’a pas de point de terminaison public.
 
-* **Accès public (adresses IP autorisées)**  : votre serveur flexible est accessible par le biais d’un point de terminaison public. Le point de terminaison public est une adresse DNS résolvable publiquement. L’expression « adresses IP autorisées » fait référence à une plage d’adresses IP que vous choisissez d’autoriser à accéder à votre serveur. Ces autorisations sont appelées **règles de pare-feu** . 
+* **Accès public (adresses IP autorisées)**  : votre serveur flexible est accessible par le biais d’un point de terminaison public. Le point de terminaison public est une adresse DNS résolvable publiquement. L’expression « adresses IP autorisées » fait référence à une plage d’adresses IP que vous choisissez d’autoriser à accéder à votre serveur. Ces autorisations sont appelées **règles de pare-feu**. 
 
    Choisissez la méthode d’accès public si vous voulez avoir les capacités suivantes :
    * Connexion à partir de ressources Azure qui ne prennent pas en charge les réseaux virtuels
@@ -53,12 +53,12 @@ L’accès privé avec intégration au réseau virtuel offre des communications 
 ### <a name="virtual-network-concepts"></a>Concepts de réseau virtuel
 Voici quelques concepts à connaître quand vous utilisez des réseaux virtuels avec des serveurs flexibles PostgreSQL.
 
-* **Réseau virtuel**  : un réseau virtuel Azure contient un espace d’adressage IP privé configuré pour votre utilisation. Pour plus d’informations sur les réseaux virtuels Azure, consultez [Vue d’ensemble de Réseau virtuel Azure](../../virtual-network/virtual-networks-overview.md).
+* **Réseau virtuel** : un réseau virtuel Azure contient un espace d’adressage IP privé configuré pour votre utilisation. Pour plus d’informations sur les réseaux virtuels Azure, consultez [Vue d’ensemble de Réseau virtuel Azure](../../virtual-network/virtual-networks-overview.md).
 
     Votre réseau virtuel doit se trouver dans la même région Azure que votre serveur flexible.
 
 
-* **Sous-réseau délégué**  : un réseau virtuel contient des sous-réseaux. Les sous-réseaux vous permettent de segmenter votre réseau virtuel en espaces d’adressage plus petits. Les ressources Azure sont déployées sur des sous-réseaux spécifiques au sein d’un réseau virtuel. 
+* **Sous-réseau délégué** : un réseau virtuel contient des sous-réseaux. Les sous-réseaux vous permettent de segmenter votre réseau virtuel en espaces d’adressage plus petits. Les ressources Azure sont déployées sur des sous-réseaux spécifiques au sein d’un réseau virtuel. 
 
    Votre serveur flexible PostgreSQL doit se trouver sur un sous-réseau **délégué** réservé à l’usage de serveur flexible PostgreSQL. Cette délégation spécifie que seuls les serveurs flexibles Azure Database pour PostgreSQL peuvent utiliser ce sous-réseau. Aucun autre type de ressource Azure ne peut se trouver sur le sous-réseau délégué. Pour déléguer un sous-réseau, affectez à sa propriété de délégation la valeur Microsoft.DBforPostgreSQL/flexibleServers.
 
@@ -107,6 +107,7 @@ Considérez les points suivants quand l’accès au service de serveur de base d
    * Demandez à votre fournisseur de services Internet (ISP) la plage d’adresses IP affectée à vos ordinateurs clients qui accèdent au serveur de base de données Azure pour PostgreSQL, puis ajoutez cette plage dans une règle de pare-feu.
    * Obtenez un adressage IP statique à la place pour vos ordinateurs clients, puis ajoutez l’adresse IP statique en tant que règle de pare-feu.
 
+* **La règle de pare-feu n’est pas disponible pour le format IPv6 :** Les règles de pare-feu doivent être au format IPv4. Si vous spécifiez des règles de pare-feu au format IPv6, l’erreur de validation s’affiche.
 
 ## <a name="hostname"></a>Nom d’hôte
 Quelle que soit l’option réseau choisie, nous vous recommandons de toujours utiliser un nom de domaine complet (FQDN) comme nom d’hôte lors de la connexion à votre serveur flexible. Il n’est pas garanti que l’adresse IP du serveur reste statique. L’utilisation du nom de domaine complet vous permet d’éviter d’apporter des modifications à votre chaîne de connexion. 

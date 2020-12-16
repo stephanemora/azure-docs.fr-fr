@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein
-ms.date: 9/17/2020
-ms.openlocfilehash: 1a51d2140528e3f6ed6da0ca699d7b71b91638ec
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.date: 12/8/2020
+ms.openlocfilehash: bd8f5a28b709a45e99e846fb4e242f774aca80c5
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92743163"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96902508"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database serverless
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -67,9 +67,9 @@ Le tableau suivant résume les différences entre le niveau de calcul serverless
 | | **Calcul serverless** | **Calcul provisionné** |
 |:---|:---|:---|
 |**Modèle d’utilisation des bases de données**| Utilisation intermittente et imprévisible avec une utilisation moyenne du calcul moins élevée dans le temps. | Modèles d’utilisation plus régulière avec une utilisation moyenne du calcul plus élevée dans le temps, ou plusieurs bases de données regroupées dans des pools élastiques.|
-| **Effort pour gérer les performances**  : |Moins grand|Plus grand|
+| **Effort pour gérer les performances** : |Moins grand|Plus grand|
 |**Mise à l’échelle du calcul**|Automatique|Manuel|
-|**Réactivité du calcul** .|Moins rapide après les périodes d’inactivité|Immédiat|
+|**Réactivité du calcul**.|Moins rapide après les périodes d’inactivité|Immédiat|
 |**Mode de facturation**|À la seconde|À l’heure|
 
 ## <a name="purchasing-model-and-service-tier"></a>Modèle d’achat et niveau de service
@@ -135,9 +135,10 @@ La reprise automatique est déclenchée si l’une des conditions suivantes est 
 |Découverte et classification des données|Ajout, modification, suppression ou affichage des étiquettes de sensibilité|
 |Audit|Affichage des enregistrements d’audit.<br>Mise à jour ou affichage de la stratégie d’audit.|
 |Masquage de données|Ajout, modification, suppression ou affichage des règles de masquage des données|
-|Chiffrement transparent des données|État ou statut d’affichage du chiffrement transparent des données|
+|Chiffrement transparent des données|État d’affichage ou état du chiffrement transparent des données|
 |Évaluation des vulnérabilités|Analyses ad hoc et analyses périodiques si elles sont activées|
 |Magasin de données des requêtes (performances)|Modification ou affichage des paramètres du magasin des requêtes|
+|Recommandations sur les performances|Affichage ou application des recommandations en matière de performances|
 |Réglage automatique|Application et vérification des recommandations de réglage automatique telles que l’indexation automatique|
 |Copie de base de données|Création d’une base de données comme copie.<br>Exportation vers un fichier BACPAC.|
 |SQL Data Sync|Synchronisation entre les bases de données hub et membre qui s’exécutent selon une planification configurable ou qui sont exécutées manuellement|
@@ -314,17 +315,17 @@ Pour connaître les limites de ressources, consultez [Niveau de calcul serverles
 
 Le volume de calcul facturé correspond à la quantité maximale de processeur et de mémoire utilisée par seconde. Si la quantité de processeur et de mémoire utilisée est inférieure à la quantité minimale provisionnée pour chaque, la quantité provisionnée est facturée. Pour comparer le processeur à la mémoire à des fins de facturation, la mémoire est normalisée en unités de vCores en remettant à l’échelle la quantité de mémoire en Go à 3 Go par vCore.
 
-- **Ressource facturée**  : Processeur et mémoire
+- **Ressource facturée** : Processeur et mémoire
 - **Montant facturé**  : prix unitaire d’un vCore * max (vCores min, vCores utilisés, mémoire min Go * 1/3, mémoire Go utilisée * 1/3) 
-- **Fréquence de facturation**  : À la seconde
+- **Fréquence de facturation** : À la seconde
 
 Prix unitaire d’un vCore est le coût par vCore par seconde. Reportez-vous à la [page des prix Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/) pour connaître les prix à l’unité d’une région donnée.
 
 Le volume de calcul facturé est exposé par les métriques suivantes :
 
-- **Métrique**  : app_cpu_billed (secondes de vCore)
-- **Définition**  : max (vCores min, vCores utilisés, mémoire min Go * 1/3, mémoire Go utilisée * 1/3)
-- **Fréquence de reporting**  : Par minute
+- **Métrique** : app_cpu_billed (secondes de vCore)
+- **Définition** : max (vCores min, vCores utilisés, mémoire min Go * 1/3, mémoire Go utilisée * 1/3)
+- **Fréquence de reporting** : Par minute
 
 Cette quantité est calculée chaque seconde et agrégée sur 1 minute.
 

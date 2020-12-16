@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.custom: mvc, amqp, devx-track-csharp
 ms.date: 11/06/2018
 ms.author: dobett
-ms.openlocfilehash: 12aa18c966745b450b3c9aa55e87e576b0c3f99b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 77a795b8f704084b612a2dcbd364b8d5be0a3333
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96018526"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852147"
 ---
 # <a name="serialize-telemetry-using-protocol-buffers"></a>Sérialiser des données de télémétrie à l'aide de Protocol Buffers
 
@@ -277,4 +277,4 @@ Rares sont les fonctionnalités IoT Hub qui prennent nativement en charge Protob
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez appris à personnaliser Device Simulation afin d'utiliser Protobuf pour l'envoi de données de télémétrie, l'étape suivante consiste à apprendre à [déployer une image personnalisée dans le cloud](iot-accelerators-device-simulation-deploy-image.md).
+Maintenant que vous avez appris à personnaliser la simulation d’appareil afin d’utiliser Protobuf pour l’envoi de données de télémétrie, l’étape suivante consiste à visiter le dépôt GitHub pour en savoir plus sur la [simulation d’appareil](https://github.com/Azure/device-simulation-dotnet).

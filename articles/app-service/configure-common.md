@@ -6,12 +6,12 @@ ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 08/13/2019
 ms.custom: devx-track-csharp, seodec18, devx-track-azurecli
-ms.openlocfilehash: 1ab6f5e9c7b602ce124116c02584c5a48a3f597f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 76cfefa3f104ecef69e28fecd1c37fc336b0ce8c
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95999975"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96854646"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Configurer une app App Service dans le portail Azure
 
@@ -29,7 +29,7 @@ Dans le menu de gauche de l'application, sélectionnez **Configuration** > **Par
 
 ![Paramètres de l’application](./media/configure-common/open-ui.png)
 
-Les développeurs ASP.NET et ASP.NET Core définissent les paramètres de l'application dans App Service comme ils le font avec `<appSettings>` dans *Web.config* ou *appsettings.json*, mais les valeurs dans App Service remplacent celles du fichier *Web.config* ou *appsettings.json*. Vous pouvez conserver les paramètres de développement (par exemple le mot de passe MySQL local) dans *Web.config* ou *appsettings.json*, mais garder les secrets de production (par exemple le mot de passe de la base de données MySQL Azure) en sécurité dans App Service. Le même code utilise vos paramètres de développement lorsque vous déboguez localement, et utilise vos secrets de production lorsque vous les déployez sur Azure.
+Les développeurs ASP.NET et ASP.NET Core définissent les paramètres de l'application dans App Service comme ils le font avec `<appSettings>` dans *Web.config* ou *appsettings.json*, mais les valeurs dans App Service remplacent celles du fichier *Web.config* ou *appsettings.json*. Vous pouvez conserver de façon sécurisée les paramètres de développement (par exemple, le mot de passe MySQL local) dans *Web.config* ou *appsettings.json*, ainsi que les secrets de production (par exemple le mot de passe de la base de données MySQL Azure) dans App Service. Le même code utilise vos paramètres de développement lorsque vous déboguez localement, et utilise vos secrets de production lorsque vous les déployez sur Azure.
 
 De la même façon, d'autres piles de langage récupèrent les paramètres de l'application en tant que variables d'environnement lors de l'exécution. Pour les étapes spécifiques à la pile de langage, voir :
 

@@ -10,12 +10,12 @@ ms.date: 11/03/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: a808a6bb0d4dc75f02147bbfdd74d17b34e96f6e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: feac7b890c973b1541c5362f860432687082953f
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93313975"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533874"
 ---
 # <a name="configure-anonymous-public-read-access-for-containers-and-blobs"></a>Configurer l’accès en lecture public anonyme pour les conteneurs et les objets blob
 
@@ -53,7 +53,7 @@ Le fait d’interdire l’accès public pour le compte de stockage empêche l’
 
 Pour autoriser ou interdire l’accès public pour un compte de stockage, configurez la propriété **AllowBlobPublicAccess** du compte. Cette propriété est disponible pour tous les comptes de stockage créés avec le modèle de déploiement Azure Resource Manager. Pour plus d’informations, consultez [Vue d’ensemble des comptes de stockage](../common/storage-account-overview.md).
 
-La propriété **AllowBlobPublicAccess** n’est pas définie par défaut et ne retourne pas de valeur tant que vous ne la définissez pas explicitement. Le compte de stockage autorise l’accès public quand la valeur de la propriété est **Null** ou **True**.
+La propriété **AllowBlobPublicAccess** n’est pas définie par défaut pour un compte de stockage et ne retourne pas de valeur tant que vous ne la définissez pas explicitement. Le compte de stockage autorise l’accès public quand la valeur de la propriété est **Null** ou **True**.
 
 # <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
@@ -132,8 +132,8 @@ az storage account show \
 Pour autoriser ou interdire l’accès public pour un compte de stockage à l’aide d’un modèle, créez un modèle avec la propriété **AllowBlobPublicAccess** définie sur **true** ou **false**. Les étapes suivantes montrent comment créer un modèle dans le Portail Azure.
 
 1. Dans le Portail Azure, choisissez **Créer une ressource**.
-1. Dans **Rechercher sur la Place de marché** , tapez **déploiement de modèle** , puis appuyez sur **Entrée**.
-1. Choisissez **Template deployment (déployer avec des modèles personnalisés) [préversion]** , **Créer** , puis **Créer votre propre modèle dans l’éditeur**.
+1. Dans **Rechercher sur la Place de marché**, tapez **déploiement de modèle**, puis appuyez sur **Entrée**.
+1. Choisissez **Template deployment (déployer avec des modèles personnalisés) [préversion]** , **Créer**, puis **Créer votre propre modèle dans l’éditeur**.
 1. Dans l’éditeur de modèle, collez le code JSON suivant pour créer un nouveau compte et définissez la propriété **AllowBlobPublicAccess** sur **true** ou **false**. N’oubliez pas de remplacer les espaces réservés entre crochets par vos propres valeurs.
 
     ```json

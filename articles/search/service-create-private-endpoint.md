@@ -8,12 +8,12 @@ ms.author: mcarter
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/19/2020
-ms.openlocfilehash: 043020abd44bc1f8e671cf386149d6a818136de9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6ee72a25fc8435159ae75ac3296742eda58617b6
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96014361"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779938"
 ---
 # <a name="create-a-private-endpoint-for-a-secure-connection-to-azure-cognitive-search"></a>Créer un point de terminaison privé pour une connexion sécurisée à Recherche cognitive Azure
 
@@ -22,7 +22,7 @@ Dans cet article, vous allez utiliser le Portail Microsoft Azure pour créer une
 Les points de terminaison privés sont fournis par [Azure Private Link](../private-link/private-link-overview.md), en tant que service distinct. Pour plus d’informations sur les coûts, consultez la page [Tarification](https://azure.microsoft.com/pricing/details/private-link/).
 
 > [!Important]
-> La prise en charge des points de terminaison privés pour Recherche cognitive Azure peut être configurée à l’aide du Portail Azure ou de l’[API REST de gestion version 2020-03-13](/rest/api/searchmanagement/). Lorsque le point de terminaison de service est privé, certaines fonctionnalités du portail sont désactivées. Vous pouvez voir et gérer les informations au niveau du service, mais l'accès du portail aux données d'index et aux divers composants de ce service, comme les définitions d'index, d'indexeur et d'ensemble de compétences, est limité pour des raisons de sécurité.
+> La prise en charge des points de terminaison privés pour Recherche cognitive Azure peut être configurée à l’aide du Portail Azure ou de l’[API REST de gestion version 2020-03-13](/rest/api/searchmanagement/). Lorsque le point de terminaison de service est privé, certaines fonctionnalités du portail sont désactivées. Vous pouvez voir et gérer les informations au niveau du service, mais l'accès du portail aux données d'index et aux divers composants de ce service, comme les définitions d'index, d'indexeur et d'ensemble de compétences, est limité pour des raisons de sécurité. Comme alternative au portail, vous pouvez utiliser l’[extension VS Code](https://aka.ms/vscode-search) pour interagir avec les différents composants du service.
 
 ## <a name="why-use-a-private-endpoint-for-secure-access"></a>Pourquoi utiliser un point de terminaison privé pour sécuriser l’accès ?
 

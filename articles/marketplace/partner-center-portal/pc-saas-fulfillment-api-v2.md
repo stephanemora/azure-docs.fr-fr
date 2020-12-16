@@ -7,71 +7,71 @@ ms.topic: reference
 ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: c2679be2ca1db9017cbc37219402fa4e1c0666a5
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: 1ea326cc4537176c0ddcff070f4dc3b3f77f4b58
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94874421"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96512033"
 ---
 # <a name="saas-fulfillment-apis-version-2-in-the-commercial-marketplace"></a>API de traitement SaaS version 2 sur la Place de marché commerciale
 
-Cet article décrit les API qui permettent aux partenaires de vendre leurs offres SaaS dans la Microsoft AppSource et la Place de marché Azure. Un éditeur doit implémenter l’intégration avec ces API pour publier une offre SaaS négociable dans l’Espace partenaires.
+Cet article décrit les API qui permettent aux partenaires de vendre leurs offres SaaS (software as a service) dans Microsoft AppSource et sur la Place de marché Azure. Un éditeur doit implémenter l’intégration avec ces API pour publier une offre SaaS négociable dans l’Espace partenaires.
 
 ## <a name="managing-the-saas-subscription-life-cycle"></a>Gestion du cycle de vie des abonnements SaaS
 
-La Place de marché commerciale gère l’ensemble du cycle de vie d’un abonnement SaaS suite à son achat par le client final.  Elle utilise la page d’accueil, les API de traitement, les API d’opérations et le webhook comme mécanisme pour piloter l’activation et l’utilisation de l’abonnement SaaS, ainsi que les mises à jour et l’annulation de l’abonnement.  La facture du client final se base sur l’état de l’abonnement SaaS managé par Microsoft. 
+La Place de marché commerciale gère l’ensemble du cycle de vie d’un abonnement SaaS après son achat par le client final. Elle utilise la page d’arrivée, les API de traitement, les API d’opérations et le webhook comme mécanisme pour piloter l’activation, l’utilisation, les mises à jour et l’annulation de l’abonnement SaaS. La facture de l’utilisateur final est basée sur l’état de l’abonnement SaaS managé par Microsoft. 
 
 ### <a name="states-of-a-saas-subscription"></a>États d’un abonnement SaaS
 
-Les états d’un abonnement SaaS et les actions applicables s’affichent.
+Le diagramme suivant montre les états d’un abonnement SaaS et les actions applicables.
 
-![Cycle de vie d’un abonnement SaaS dans la Place de marché](./media/saas-subscription-lifecycle-api-v2.png)
+![Diagramme montrant le cycle de vie d’un abonnement software as a service sur la Place de marché.](./media/saas-subscription-lifecycle-api-v2.png)
 
 #### <a name="purchased-but-not-yet-activated-pendingfulfillmentstart"></a>Acheté mais pas encore activé (*PendingFulfillmentStart*)
 
-Lorsqu’un client final (ou CSP) a acheté une offre SaaS sur la Place de marché, l’éditeur doit être informé de l’achat afin de pouvoir créer et configurer un nouveau compte SaaS pour le client final côté éditeur.
+Une fois qu’un utilisateur final (ou CSP) a acheté une offre SaaS sur la Place de marché commerciale, l’éditeur doit être informé de l’achat. L’éditeur peut ensuite créer et configurer un nouveau compte SaaS côté éditeur pour l’utilisateur final.
 
 Pour la création du compte :
 
-1. Le client doit cliquer sur le bouton **Configurer** disponible pour une offre SaaS après son achat dans Microsoft AppSource ou sur le portail Azure. Ou dans l’e-mail que le client recevra peu après l’achat.
-2. Microsoft avertit ensuite le partenaire de l’achat en ouvrant, dans le nouvel onglet de navigateur, l’URL de la page d’accueil avec le paramètre de jeton (le jeton d’identification d’achat de la Place de marché commerciale).
+1. Le client sélectionne le bouton **Configurer** disponible pour une offre SaaS après son achat dans Microsoft AppSource ou le portail Azure. Il peut également utiliser le bouton **Configurer** dans l’e-mail qu’il reçoit peu après l’achat.
+2. Microsoft avertit ensuite le partenaire de l’achat en ouvrant, dans le nouvel onglet de navigateur, l’URL de la page d’arrivée avec le paramètre de jeton (le jeton d’identification d’achat de la Place de marché commerciale).
 
-Un exemple de ce type d’appel est `https://contoso.com/signup?token=<blob>`, tandis que l’URL de la page d’accueil de cette offre SaaS dans l’Espace partenaires est configurée comme `https://contoso.com/signup`. Ce jeton fournit à l’éditeur un ID qui identifie de façon unique l’achat SaaS et le client.
+Un exemple de ce type d’appel est `https://contoso.com/signup?token=<blob>`, tandis que l’URL de la page d’arrivée de cette offre SaaS dans l’Espace partenaires est configurée comme `https://contoso.com/signup`. Ce jeton fournit à l’éditeur un ID qui identifie de façon unique l’achat SaaS et le client.
 
 >[!NOTE]
->L’éditeur n’est pas informé de l’achat SaaS tant que le client n’a pas initié le processus de configuration côté Microsoft.
+>L’éditeur n’est pas informé de l’achat SaaS tant que le client n’a pas lancé le processus de configuration côté Microsoft.
 
-L’URL de la page d’accueil doit être disponible 24 h/24 et 7 j/7 et prête à recevoir à tout moment de nouveaux appels de Microsoft. Si la page d’accueil n’est plus disponible, les clients ne pourront pas s’inscrire au service SaaS et commencer à l’utiliser.
+L’URL de la page d’arrivée doit être disponible 24 h/24 et 7 j/7, et prête à recevoir à tout moment de nouveaux appels de Microsoft. Si la page d’accueil n’est plus disponible, les clients ne pourront pas s’inscrire au service SaaS et commencer à l’utiliser.
 
-Le *jeton* doit ensuite être renvoyé à Microsoft à partir de l’éditeur en appelant l’[API de résolution SaaS](#resolve-a-purchased-subscription), en tant que valeur du paramètre d’en-tête `x-ms-marketplace-token header`.  Après l’appel de l’API de résolution, le jeton est échangé pour recevoir les détails de l’achat SaaS, notamment l’ID unique de l’achat, l’ID de l’offre achetée, l’ID du plan acheté, etc.
+Ensuite, l’éditeur doit renvoyer le *jeton* à Microsoft en appelant l’[API Résolution SaaS](#resolve-a-purchased-subscription) et en entrant le jeton comme valeur du paramètre d’en-tête `x-ms-marketplace-token header`. Suite à l’appel de l’API Résolution, le jeton est échangé contre les détails de l’achat SaaS, notamment l’ID unique de l’achat, l’ID de l’offre achetée et l’ID du plan acheté.
 
-Dans la page d’accueil, le client doit être connecté au compte SaaS nouveau ou existant par le biais de l’authentification unique Azure Active Directory (Azure AD).
+Dans la page d’arrivée, le client doit être connecté au compte SaaS nouveau ou existant par le biais de l’authentification unique Azure AD (Azure Active Directory).
 
-L’éditeur doit implémenter la connexion SSO pour fournir l’expérience utilisateur requise par Microsoft pour ce processus.  Veillez à utiliser l’application Azure AD mutualisée et à autoriser les comptes professionnels et scolaires ou les comptes Microsoft personnels lors de la configuration de l’authentification unique.  Cette exigence s’applique uniquement à la page d’accueil et aux utilisateurs redirigés vers le service SaaS lorsqu’ils sont déjà connectés avec des informations d’identification Microsoft. Elle ne s’applique pas à toutes les connexions au service SaaS.
+L’éditeur doit implémenter l’authentification unique pour fournir l’expérience utilisateur requise par Microsoft pour ce flux. Veillez à utiliser l’application Azure AD multilocataire et à autoriser les comptes professionnels et scolaires ou les comptes Microsoft personnels lors de la configuration de l’authentification unique. Cette exigence s’applique uniquement à la page d’arrivée et aux utilisateurs redirigés vers le service SaaS lorsqu’ils sont déjà connectés avec des informations d’identification Microsoft. L’authentification unique n’est pas nécessaire pour toutes les connexions au service SaaS.
 
 > [!NOTE]
->Si la connexion SSO requiert qu’un administrateur accorde une autorisation à une application, la description de l’offre dans l’Espace partenaires doit autoriser cet accès requis au niveau de l’administrateur. Cette procédure est nécessaire pour se conformer aux [stratégies de certification de Place de marché commerciale](/legal/marketplace/certification-policies#10003-authentication-options).
+>Si l’authentification unique exige qu’un administrateur accorde une autorisation à une application, la description de l’offre dans l’Espace partenaires doit indiquer que l’accès au niveau de l’administrateur est requis. Cette indication est nécessaire pour se conformer aux [stratégies de certification de la Place de marché commerciale](/legal/marketplace/certification-policies#10003-authentication-options).
 
-Une fois connecté, le client doit effectuer la configuration SaaS côté éditeur. L’éditeur doit ensuite appeler [Activer l’API d’abonnement](#activate-a-subscription) pour envoyer un signal à Place de marché indiquant que le provisionnement du compte SaaS est terminé.
-Cette étape démarre le cycle de facturation du client. Si l’appel de l’API Activer l’abonnement échoue, le client n’est pas facturé pour l’achat.
+Une fois connecté, le client doit effectuer la configuration SaaS côté éditeur. L’éditeur doit ensuite appeler l’[API Activer l’abonnement](#activate-a-subscription) pour envoyer un signal à la Place de marché Azure indiquant que le provisionnement du compte SaaS est terminé.
+Cette action démarre le cycle de facturation du client. Si l’appel de l’API Activer l’abonnement échoue, le client n’est pas facturé pour l’achat.
 
 
-![Appels d’API pour un scénario de provisionnement](./media/saas-update-api-v2-calls-from-saas-service-a.png) 
+![Diagramme montrant les appels d’API pour un scénario de provisionnement.](./media/saas-update-api-v2-calls-from-saas-service-a.png) 
 
-#### <a name="active-subscribed"></a>Actif (abonné)
+#### <a name="active-subscribed"></a>Actif (*Subscribed*)
 
-Cet état est l’état stable d’un abonnement SaaS provisionné. Une fois l'appel de l’[API Activer l’abonnement](#activate-a-subscription) traité côté Microsoft, l’abonnement SaaS est marqué comme étant Abonné. Le service SaaS est maintenant prêt à être utilisé par le client côté éditeur, et le client est alors facturé.
+Actif (*Subscribed*) est l’état stable d’un abonnement SaaS provisionné. Une fois que le côté Microsoft a traité l’appel de l’[API d’activation d’abonnement](#activate-a-subscription), l’abonnement SaaS est marqué comme *Abonné*. Le client peut maintenant utiliser le service SaaS du côté éditeur, et sera facturé.
 
-Si l’abonnement SaaS est déjà actif et que le client choisit de **gérer** l’expérience SaaS à partir du portail Azure ou du centre d’administration M365, l’**URL de la page d’accueil** est de nouveau appelée par Microsoft avec le paramètre de *jeton*, comme dans le processus d’activation.  L’éditeur doit faire la distinction entre les nouveaux achats et la gestion de comptes SaaS existants, et gérer cet appel d’URL de page d’accueil en conséquence.
+Lorsqu’un abonnement SaaS est déjà actif, le client peut sélectionner **Gérer l’expérience SaaS** à partir du portail Azure ou du Centre d’administration Microsoft 365. Cette action provoque également l’appel, par Microsoft, de l’**URL de la page d’arrivée** avec le paramètre *token*, comme c’est le cas dans le flux d’activation. L’éditeur doit faire la distinction entre les nouveaux achats et la gestion de comptes SaaS existants, et gérer cet appel d’URL de page d’arrivée en conséquence.
 
-#### <a name="being-updated-subscribed"></a>En cours de mise à jour (abonné)
+#### <a name="being-updated-subscribed"></a>En cours de mise à jour (*Subscribed*)
 
 Cette action signifie qu’une mise à jour d’un abonnement SaaS actif existant est traitée à la fois par Microsoft et par l’éditeur. Une telle mise à jour peut être lancée par :
 
-- le client à partir de la Place de marché commerciale.
-- le fournisseur de solutions Cloud à partir de la Place de marché commerciale.
-- le client à partir du site SaaS de l’éditeur (ne s’applique pas aux achats CSP).
+- Le client à partir de la Place de marché commerciale.
+- Le CSP à partir de la Place de marché commerciale.
+- Le client à partir du site SaaS de l’éditeur (mais pas pour les achats effectués par le CSP).
 
 Deux types de mises à jour sont disponibles pour un abonnement SaaS :
 
@@ -80,20 +80,20 @@ Deux types de mises à jour sont disponibles pour un abonnement SaaS :
 
 Un seul abonnement actif peut être mis à jour. Pendant la mise à jour de l’abonnement, son état reste actif côté Microsoft.
 
-##### <a name="update-initiated-from-the-marketplace"></a>Mise à jour lancée à partir de la Place de marché
+##### <a name="update-initiated-from-the-commercial-marketplace"></a>Mise à jour lancée à partir de la Place de marché commerciale
 
-Dans ce processus, le client modifie le plan d'abonnement ou le nombre de postes à partir du portail Azure ou du centre d'administration M365.  
+Dans ce flux, le client modifie le plan d’abonnement ou le nombre de postes à partir du portail Azure ou du Centre d’administration Microsoft 365.
 
-1. Lorsqu’une mise à jour est entrée, Microsoft appelle l’URL du webhook de l’éditeur, configurée dans le champ **Webhook de connexion** de l’Espace partenaires, avec une valeur appropriée pour l’*action* et d’autres paramètres pertinents.  
-1. Le côté éditeur doit apporter les modifications requises au service SaaS et notifier Microsoft lorsque la modification est terminée en appelant l’[API Mettre à jour l’état de l’opération](#update-the-status-of-an-operation).
-1. Si le correctif est envoyé avec l’état d’échec, le processus de mise à jour ne sera pas effectué côté Microsoft.  L’abonnement SaaS conservera le plan et la quantité de postes existants.
+1. Après qu’une mise à jour est entrée, Microsoft appelle l’URL du webhook de l’éditeur, configurée dans le champ **Webhook de connexion** de l’Espace partenaires, avec une valeur appropriée pour l’*action* et d’autres paramètres pertinents. 
+1. Le côté éditeur doit apporter les modifications requises au service SaaS et notifier Microsoft lorsqu’il a terminé en appelant l’[API Mettre à jour l’état de l’opération](#update-the-status-of-an-operation).
+1. Si le correctif est envoyé avec l’état *fail*, le processus de mise à jour ne se terminera pas côté Microsoft. L’abonnement SaaS conservera le plan et la quantité de postes existants.
 
 > [!NOTE]
-> L'éditeur doit appeler le correctif PATCH pour [mettre à jour l'état de l'opération](#update-the-status-of-an-operation) avec une réponse Échec/Réussite *dans un délai de 10 secondes* après la réception de la notification du webhook. Si le correctif PATCH de l'état de l'opération n'est pas reçu dans les 10 secondes, une réponse *Réussite est automatiquement appliquée*. 
+> L’éditeur doit appeler PATCH pour [mettre à jour l’API État de l’opération](#update-the-status-of-an-operation) avec une réponse Échec/Réussite *dans un délai de 10 secondes* après la réception de la notification de webhook. Si le correctif PATCH de l'état de l'opération n'est pas reçu dans les 10 secondes, une réponse *Réussite est automatiquement appliquée*. 
 
-La séquence d’appels d’API pour un scénario de mise à jour initié par la Place de marché est illustrée ci-dessous.
+La séquence d’appels d’API pour un scénario de mise à jour lancé à partir de la Place de marché commerciale est présentée dans le diagramme suivant.
 
-![Appels d’API pour une mise à jour lancée par la Place de marché](./media/saas-update-status-api-v2-calls-marketplace-side.png)
+![Diagramme montrant les appels d’API pour une mise à jour lancée par la Place de marché.](./media/saas-update-status-api-v2-calls-marketplace-side.png)
 
 ##### <a name="update-initiated-from-the-publisher"></a>Mise à jour lancée à partir de l’éditeur
 
@@ -101,58 +101,55 @@ Dans ce processus, le client modifie le plan d’abonnement ou le nombre de post
 
 1. Le code de l’éditeur doit appeler l’[API Modifier le plan](#change-the-plan-on-the-subscription) et/ou l’[API Modifier la quantité](#change-the-quantity-of-seats-on-the-saas-subscription) avant d’effectuer la modification demandée côté éditeur. 
 
-1. Microsoft appliquera la modification à l’abonnement, puis notifiera l’éditeur via **Webhook de connexion** pour appliquer la même modification.  
+1. Microsoft appliquera la modification à l’abonnement, puis notifiera l’éditeur via **Webhook de connexion** pour appliquer la même modification.
 
-1. Seul l’éditeur doit apporter la modification requise à l’abonnement SaaS, puis notifier Microsoft lorsque la modification est terminée en appelant l’[API Mettre à jour l’état de l’opération](#update-the-status-of-an-operation).
+1. Ce n’est qu’à ce moment-là que l’éditeur doit apporter la modification requise à l’abonnement SaaS, et notifier Microsoft lorsque la modification est effectuée en appelant l’[API Mettre à jour l’état de l’opération](#update-the-status-of-an-operation).
 
-Séquence des appels d’API pour le scénario de mise à jour initié côté éditeur.
+La séquence d’appels d’API pour un scénario de mise à jour lancée du côté éditeur est présentée dans le diagramme suivant.
 
-![Appels d’API pour une mise à jour initiée par l’éditeur](./media/saas-update-status-api-v2-calls-publisher-side.png)
+![Diagramme montrant les appels d’API pour une mise à jour lancée du côté éditeur.](./media/saas-update-status-api-v2-calls-publisher-side.png)
 
 #### <a name="suspended-suspended"></a>Interrompu (*Interrompu*)
 
-Cet état indique que le paiement d’un client n’a pas été reçu pour le service SaaS. L’éditeur sera informé du changement de l’état de l’abonnement SaaS par Microsoft. La notification est effectuée via un appel au webhook avec le paramètre *action* défini sur *Interrompu*.
+Cet état indique que le paiement d’un client n’a pas été reçu pour le service SaaS. L’éditeur sera informé du changement de l’état de l’abonnement SaaS par Microsoft. La notification est effectuée via un appel au webhook avec le paramètre *action* défini sur *Suspended*.
 
-L’éditeur peut choisir d’apporter ou non des modifications au service SaaS côté éditeur. Nous recommandons que l’éditeur mette ces informations à la disposition du client suspendu et limite ou bloque l’accès du client au service SaaS.  Il existe une probabilité que le paiement ne soit jamais reçu.
+L’éditeur peut choisir d’apporter ou non des modifications au service SaaS du côté éditeur. Nous recommandons à l’éditeur de mettre ces informations à la disposition du client suspendu et de limiter ou bloquer l’accès du client au service SaaS. Il existe une probabilité que le paiement ne soit jamais reçu.
 
-Microsoft accorde au client une période de grâce de 30 jours avant l’annulation automatique de l’abonnement. Quand un abonnement affiche l’état Interrompu :
+Microsoft accorde au client une période de grâce de 30 jours avant l’annulation automatique de l’abonnement. Quand un abonnement est à l’état *Suspended* :
 
-* Le compte SaaS doit être conservé dans un état récupérable par l’éditeur de logiciels indépendant (ISV). La fonctionnalité complète peut être restaurée sans aucune perte de données ou de paramètres.
-* Attendez-vous à recevoir une demande de réactivation de cet abonnement si le paiement est reçu au cours de la période de grâce, ou une demande de déprovisionnement à la fin de la période de grâce, chaque fois via le mécanisme webhook.
+* Le partenaire ou l’éditeur de logiciels indépendant doit conserver le compte SaaS dans un état récupérable, afin que toutes les fonctionnalités puissent être restaurées sans perte de données ou de paramètres.
+* Le partenaire ou l’éditeur de logiciels indépendant doit s’attendre à une demande de réactivation de l’abonnement, si le paiement est reçu au cours de la période de grâce, ou à une demande de déprovisionnement de l’abonnement à la fin de la période de grâce. Les deux demandes seront envoyées par le biais du mécanisme de webhook.
 
 L’état de l’abonnement affiche Interrompu côté Microsoft tant que l’éditeur n’a pas effectué une action. Seuls les abonnements actifs peuvent être interrompus.
 
 #### <a name="reinstated-suspended"></a>Réactivé (*Interrompu*)
 
-L’abonnement est en cours de réactivation.
+Cette action indique que l’instrument de paiement du client est de nouveau valide, qu’un paiement a été effectué pour l’abonnement SaaS et que l’abonnement est en cours de réactivation. Dans ce cas : 
 
-Cette action indique que l’instrument de paiement du client est redevenu valide et qu’un paiement est effectué pour l’abonnement SaaS.  L’abonnement est en cours de réactivation. Dans ce cas : 
+1. Microsoft appelle webhook avec un paramètre *action* défini sur la valeur *Reinstate* (Réactiver).
+1. L’éditeur s’assure que l’abonnement est entièrement opérationnel de son côté.
+1. L’éditeur appelle l’[API Opération Patch](#update-the-status-of-an-operation) avec un état de réussite.
+1. Le processus de réactivation réussit et le client est de nouveau facturé pour l’abonnement SaaS. 
 
-1. Microsoft appelle webhook avec un paramètre *action* défini sur la valeur *Reinstate* (Réactiver).  
-1. L’éditeur s’assure que cet abonnement est entièrement opérationnel de son côté.
-1. L’éditeur appelle l’[API Opération Patch](#update-the-status-of-an-operation) avec un état de réussite.  
-1. La réactivation sera réussie et le client sera de nouveau facturé pour l’abonnement SaaS. 
-1. Si le correctif est envoyé avec l’état d’échec, le processus de réactivation ne sera pas effectué côté Microsoft. L’abonnement restera à l’état Interrompu.
+Si le correctif est envoyé avec un état *fail*, le processus de réactivation ne se terminera pas du côté Microsoft et l’abonnement restera à l’état *Suspended*.
 
-Si le correctif est envoyé avec l’état d’échec, le processus de réactivation ne sera pas effectué côté Microsoft.  L’abonnement restera à l’état Interrompu.
-
-Seul un abonnement Interrompu peut être réactivé.  Lorsqu’un abonnement SaaS est réactivé, son état affiche toujours Interrompu.  Une fois cette opération terminée, l’état de l’abonnement affiche Active.
+Seul un abonnement Interrompu peut être réactivé. L’abonnement SaaS suspendu reste dans un état *Suspended* pendant sa réactivation. Une fois cette opération terminée, l’état de l’abonnement devient *Active*.
 
 #### <a name="renewed-subscribed"></a>Renouvelé (*Abonné*)
 
-À la fin de la période d’abonnement (après un mois ou une année), l’abonnement SaaS est automatiquement renouvelé par Microsoft.  La valeur par défaut du paramètre de renouvellement automatique est *true* pour tous les abonnements SaaS. Les abonnements SaaS actifs continuent d’être renouvelés à un rythme régulier. Microsoft n’informe pas l’éditeur lorsqu’un abonnement est en cours de renouvellement. Un client peut désactiver le renouvellement automatique d’un abonnement SaaS via le portail d’administration M365 ou le portail Azure.  Dans ce cas, l’abonnement SaaS sera automatiquement annulé à la fin de la période de facturation actuelle.  Les clients peuvent également annuler l’abonnement SaaS à tout moment.
+L’abonnement SaaS est renouvelé automatiquement par Microsoft à la fin de la période d’abonnement d’un mois ou d’une année. La valeur par défaut du paramètre de renouvellement automatique est *true* pour tous les abonnements SaaS. Les abonnements SaaS actifs continuent d’être renouvelés à un rythme régulier. Microsoft n’informe pas l’éditeur lorsqu’un abonnement est en cours de renouvellement. Un client peut désactiver le renouvellement automatique d’un abonnement SaaS par le biais du portail d’administration Microsoft 365. Dans ce cas, l’abonnement SaaS sera automatiquement annulé à la fin de la période de facturation actuelle. Les clients peuvent également annuler l’abonnement SaaS à tout moment.
 
-Seuls les abonnements actifs sont automatiquement renouvelés.  Les abonnements restent actifs pendant le processus de renouvellement et si le renouvellement automatique a échoué.  Après le renouvellement, les dates de début et de fin de la période d’abonnement seront mises à jour selon les dates du nouveau terme.
+Seuls les abonnements actifs sont automatiquement renouvelés. Les abonnements restent actifs pendant le processus de renouvellement et si le renouvellement automatique a échoué. Après le renouvellement, les dates de début et de fin de la période d’abonnement sont mises à jour avec les dates du nouveau terme.
 
-Si un renouvellement automatique échoue en raison d’un problème de paiement, l’abonnement affiche l’état Interrompu.  L’éditeur en sera averti.
+Si un renouvellement automatique échoue en raison d’un problème de paiement, l’abonnement devient *Suspended* et l’éditeur est informé.
 
 #### <a name="canceled-unsubscribed"></a>Annulé (*Désabonné*) 
 
-Les abonnements atteignent cet état en réponse à une action explicite de la part du client ou CSP par annulation d’un abonnement depuis le site de l’éditeur, le portail Azure ou le centre d’administration M365.  Un abonnement peut également être annulé implicitement en raison d’un défaut de paiement de la cotisation, après avoir été à l’état Interrompu pendant 30 jours.
+Les abonnements atteignent cet état en réponse à une action explicite de la part du client ou du CSP par annulation d’un abonnement à partir du site de l’éditeur, du portail Azure ou du Centre d’administration Microsoft 365. Un abonnement peut également être annulé implicitement en raison d’un défaut de paiement de la cotisation, après avoir été à l’état *Suspended* pendant 30 jours.
 
-Lors de la réception d’un appel webhook d’annulation, l’éditeur doit conserver les données client pour la récupération à la demande pendant au moins sept jours. Les données client pourront uniquement être supprimées après ce délai.
+Après la réception d’un appel webhook d’annulation, l’éditeur doit conserver les données client à des fins de récupération à la demande pendant au moins sept jours. Les données client pourront uniquement être supprimées après ce délai.
 
-Un abonnement SaaS peut être annulé à tout moment durant son cycle de vie. Une fois annulé, un abonnement ne peut pas être réactivé.
+Un abonnement SaaS peut être annulé à tout moment durant son cycle de vie. Une fois qu’un abonnement a été annulé, il ne plus pas être réactivé.
 
 ## <a name="api-reference"></a>Informations de référence sur l'API
 
@@ -162,26 +159,25 @@ Les **API d’abonnement** doivent être utilisées pour gérer le cycle de vie 
 
 Les **API d’opérations** doivent être utilisées pour :
 
-* vérifier et accuser réception des appels webhook traités
-* obtenir la liste des applications comportant des opérations en attente d’accusé de réception par l’éditeur
+* Vérifier et accuser réception des appels webhook traités.
+* Obtenir la liste des applications comportant des opérations en attente d’accusé de réception par l’éditeur.
 
-### <a name="enforcing-tls-12-note"></a>Note concernant la mise en œuvre de TLS 1.2
-
-La version 1.2 de TLS sera bientôt mise en œuvre en tant que version minimale pour les communications HTTPS. Veillez à utiliser cette version de TLS dans votre code.  Les versions 1.0 et 1.1 de TLS seront bientôt obsolètes.
+> [!NOTE]
+> La version 1.2 de TLS sera bientôt mise en œuvre en tant que version minimale pour les communications HTTPS. Veillez à utiliser cette version de TLS dans votre code. Les versions 1.0 et 1.1 de TLS seront bientôt obsolètes.
 
 ### <a name="subscription-apis"></a>API d’abonnement
 
 #### <a name="resolve-a-purchased-subscription"></a>Résoudre un abonnement acheté
 
-Le point de terminaison de résolution permet à l’éditeur d’échanger le jeton d’identification d’achat de la Place de marché (appelé *jeton* dans [Acheté mais pas encore activé](#purchased-but-not-yet-activated-pendingfulfillmentstart)) à un ID d’abonnement SaaS acheté de manière permanente et ses détails.
+Le point de terminaison de résolution permet à l’éditeur d’échanger le jeton d’identification d’achat de la Place de marché commerciale (appelé *token* dans [Acheté mais pas encore activé](#purchased-but-not-yet-activated-pendingfulfillmentstart)) contre un ID d’abonnement SaaS acheté de manière permanente et ses détails.
 
-Lorsqu’un client est redirigé vers l’URL de la page d’accueil du partenaire, le jeton d’identification du client est transmis comme paramètre *jeton* dans cet appel d’URL. Le partenaire doit utiliser ce jeton et effectuer une requête pour le résoudre. La réponse de l’API de résolution contient l’ID d’abonnement SaaS et d’autres détails permettant d’identifier l’achat de manière unique. Le *jeton* fourni avec l’appel d’URL de la page d’accueil est généralement valide 24 heures. Si le *jeton* que vous recevez a déjà expiré, nous vous recommandons de fournir les instructions suivantes au client final :
+Lorsqu’un client est redirigé vers l’URL de la page d’arrivée du partenaire, le jeton d’identification du client est transmis comme paramètre *token* dans cet appel d’URL. Le partenaire doit utiliser ce jeton et effectuer une requête pour le résoudre. La réponse de l’API Résolution contient l’ID d’abonnement SaaS et d’autres détails permettant d’identifier l’achat de manière unique. Le *token* fourni avec l’appel d’URL de la page d’arrivée est généralement valide 24 heures. Si le *token* que vous recevez a déjà expiré, nous vous recommandons de fournir les instructions suivantes à l’utilisateur final :
 
-« Nous n’avons pas pu identifier cet achat. Veuillez rouvrir cet abonnement SaaS dans le portail Azure ou dans le Centre d’administration M365, puis cliquer à nouveau sur le bouton « Configurer un compte » ou « Gérer un compte ». »
+« Nous n’avons pas pu identifier cet achat. Veuillez rouvrir cet abonnement SaaS dans le portail Azure ou dans le Centre d’administration Microsoft 365, puis resélectionner « Configurer le compte » ou « Gérer le compte ».
 
-L’appel de l’API de résolution renverra les détails de l’abonnement et l’état des abonnements SaaS dans tous les états pris en charge.
+L’appel de l’API Résolution renverra les détails de l’abonnement et l’état des abonnements SaaS dans tous les états pris en charge.
 
-##### <a name="posthttpsmarketplaceapimicrosoftcomapisaassubscriptionsresolveapi-versionapiversion"></a>Post`https://marketplaceapi.microsoft.com/api/saas/subscriptions/resolve?api-version=<ApiVersion>`
+##### <a name="post-httpsmarketplaceapimicrosoftcomapisaassubscriptionsresolveapi-versionapiversion"></a>Post `https://marketplaceapi.microsoft.com/api/saas/subscriptions/resolve?api-version=<ApiVersion>`
 
 *Paramètres de requête :*
 
@@ -197,7 +193,7 @@ L’appel de l’API de résolution renverra les détails de l’abonnement et l
 |  `x-ms-requestid`    |  Valeur de chaîne unique pour le suivi de la requête du client, de préférence un GUID. Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse. |
 |  `x-ms-correlationid` |  Valeur de chaîne unique pour l’opération sur le client. Ce paramètre sert à corréler tous les événements de l’opération client avec les événements côté serveur. Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse.  |
 |  `authorization`     |  Jeton d’accès unique qui identifie le serveur de publication qui effectue cet appel d’API. Le format est `"Bearer <accessaccess_token>"` lorsque la valeur de jeton est récupérée par le serveur de publication, comme expliqué dans [Obtenir un jeton basé sur l’application Azure AD](./pc-saas-registration.md#get-the-token-with-an-http-post). |
-|  `x-ms-marketplace-token`  | Le paramètre *jeton* d’identification d’achat de la Place de marché à résoudre.  Le jeton est transmis dans l’appel de l’URL de la page d’accueil lorsque le client est redirigé vers le site Web du partenaire SaaS (par exemple : `https://contoso.com/signup?token=<token><authorization_token>`). <br> <br>  *Remarque :* La valeur codée du *jeton*  fait partie de l’URL de la page d’accueil et doit donc être décodée avant d’être utilisée en tant que paramètre dans cet appel d’API.  <br> <br> L’exemple d’une chaîne codée dans l’URL ressemble à ceci : `contoso.com/signup?token=ab%2Bcd%2Fef`, où le jeton est `ab%2Bcd%2Fef`.  Le même jeton décodé sera : `Ab+cd/ef` |
+|  `x-ms-marketplace-token`  | Paramètre *token* d’identification d’achat de la Place de marché à résoudre.  Le jeton est transmis dans l’appel de l’URL de la page d’arrivée lorsque le client est redirigé vers le site web du partenaire SaaS (par exemple : `https://contoso.com/signup?token=<token><authorization_token>`). <br> <br>  La valeur codée de *token* fait partie de l’URL de la page d’arrivée et doit donc être décodée avant d’être utilisée en tant que paramètre dans cet appel d’API.  <br> <br> Voici un exemple de chaîne codée dans l’URL : `contoso.com/signup?token=ab%2Bcd%2Fef`, où *token* est `ab%2Bcd%2Fef`.  Le même jeton décodé sera : `Ab+cd/ef` |
 | | |
 
 *Codes de réponse :*
@@ -249,7 +245,7 @@ Exemple de corps de réponse :
 
 Code : 400 Requête incorrecte. `x-ms-marketplace-token` est manquant, incorrect, non valide ou arrivé à expiration.
 
-Code : 403 Interdit. Le jeton d’autorisation n’est pas valide, a expiré ou n’est pas fourni.  La demande tente d’accéder à un abonnement SaaS pour une offre publiée avec un ID d’application Azure AD différent de celui utilisé pour créer le jeton d’autorisation.
+Code : 403 Interdit. Le jeton d’autorisation n’est pas valide, a expiré ou n’a pas été fourni.  La demande tente d’accéder à un abonnement SaaS pour une offre publiée avec un ID d’application Azure AD différent de celui utilisé pour créer le jeton d’autorisation.
 
 Cette erreur est souvent le symptôme de l’absence d’une inscription [SaaS](pc-saas-registration.md) correcte.
 
@@ -257,16 +253,16 @@ Code : 500 Erreur interne du serveur.  Renouvelez l’appel d’API.  Si l’er
 
 #### <a name="activate-a-subscription"></a>Activer un abonnement
 
-Une fois le compte SaaS configuré pour un client final, l’éditeur doit appeler l’API Activer l’abonnement côté Microsoft.  Le client ne sera facturé que si cet appel d’API réussit.
+Une fois le compte SaaS configuré pour un utilisateur final, l’éditeur doit appeler l’API Activer l’abonnement côté Microsoft.  Le client ne sera facturé que si cet appel d’API réussit.
 
-##### <a name="posthttpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidactivateapi-versionapiversion"></a>Post`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/activate?api-version=<ApiVersion>`
+##### <a name="post-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidactivateapi-versionapiversion"></a>Post `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/activate?api-version=<ApiVersion>`
 
 *Paramètres de requête :*
 
 |  Paramètre         | Valeur             |
 |  --------   |  ---------------  |
 | `ApiVersion`  |  Utilisez 2018-08-31.   |
-| `subscriptionId` | Identificateur unique de l’abonnement SaaS acheté.  Cet ID est obtenu après résolution du jeton d’autorisation de la Place de marché à l’aide de l’[API de résolution](#resolve-a-purchased-subscription).
+| `subscriptionId` | Identificateur unique de l’abonnement SaaS acheté.  Cet ID est obtenu après résolution du jeton d’autorisation de la Place de marché commerciale à l’aide de l’[API Résolution](#resolve-a-purchased-subscription).
  |
 
 *En-têtes de requête :*
@@ -289,7 +285,7 @@ Une fois le compte SaaS configuré pour un client final, l’éditeur doit appel
 
 *Codes de réponse :*
 
-Code : 200 L’abonnement a été marqué comme Abonné côté Microsoft.
+Code : 200 L’abonnement a été marqué comme Subscribed du côté Microsoft.
 
 Il n’y a aucun corps de réponse pour cet appel.
 
@@ -297,24 +293,24 @@ Code : 400 Demande incorrecte : échec de la validation.
 
 * `planId` n’existe pas dans la charge utile de la demande.
 * `planId` dans la charge utile de la demande ne correspond pas à l’achat effectué.
-* `quantity` dans la charge utile de la demande ne correspond pas à l’achat effectué
-* L’abonnement SaaS affiche l’état Abonné ou Interrompu.
+* `quantity` dans la charge utile de la demande ne correspond pas à l’achat effectué.
+* L’abonnement SaaS est à l’état *Subscribed* ou *Suspended*.
 
-Code : 403 Interdit. Le jeton d’autorisation n’est pas valide, a expiré ou n’est pas fourni. La demande tente d’accéder à un abonnement SaaS pour une offre publiée avec un ID d’application Azure AD différent de celui utilisé pour créer le jeton d’autorisation.
+Code : 403 Interdit. Le jeton d’autorisation n’est pas valide, a expiré ou n’a pas été fourni. La demande tente d’accéder à un abonnement SaaS pour une offre publiée avec un ID d’application Azure AD différent de celui utilisé pour créer le jeton d’autorisation.
 
 Cette erreur est souvent le symptôme de l’absence d’une inscription [SaaS](pc-saas-registration.md) correcte.
 
-Code : 404 Introuvable. L’abonnement SaaS affiche l’état Désabonné.
+Code : 404 Introuvable. L’abonnement SaaS est à l’état *Unsubscribed*.
 
 Code : 500 Erreur interne du serveur.  Renouvelez l’appel d’API.  Si l’erreur persiste, contactez le [support technique Microsoft](https://partner.microsoft.com/support/v2/?stage=1).
 
 #### <a name="get-list-of-all-subscriptions"></a>Obtenir la liste de tous les abonnements
 
-Récupère la liste de tous les abonnements SaaS achetés pour toutes les offres publiées par l’éditeur dans la Place de marché.  Les abonnements SaaS avec tous les états possibles sont retournés. Les abonnements SaaS désabonnés sont également retournés car ces informations ne sont pas supprimées côté Microsoft.
+Cette API récupère une liste de tous les abonnements SaaS achetés pour toutes les offres publiées par l’éditeur sur la Place de marché commerciale.  Les abonnements SaaS avec tous les états possibles sont retournés. Les abonnements SaaS à l’état « Unsubscribed » sont également retournés car ces informations ne sont pas supprimées du côté Microsoft.
 
-Cette API renvoie des résultats paginés. La taille de la page est 100.
+L’API retourne des résultats paginés (100 par page).
 
-##### <a name="gethttpsmarketplaceapimicrosoftcomapisaassubscriptionsapi-versionapiversion"></a>Get`https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=<ApiVersion>`
+##### <a name="get-httpsmarketplaceapimicrosoftcomapisaassubscriptionsapi-versionapiversion"></a>Get `https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=<ApiVersion>`
 
 *Paramètres de requête :*
 
@@ -330,11 +326,11 @@ Cette API renvoie des résultats paginés. La taille de la page est 100.
 | `content-type`       |  `application/json`  |
 | `x-ms-requestid`     |  Valeur de chaîne unique pour le suivi de la requête du client, de préférence un GUID. Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse. |
 | `x-ms-correlationid` |  Valeur de chaîne unique pour l’opération sur le client.  Ce paramètre sert à corréler tous les événements de l’opération client avec les événements côté serveur.  Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse. |
-| `authorization`      |  Jeton d’accès unique qui identifie le serveur de publication qui effectue cet appel d’API.  Le format est `"Bearer <access_token>"` lorsque la valeur de jeton est récupérée par le serveur de publication, comme expliqué dans [Obtenir un jeton basé sur l’application Azure AD](./pc-saas-registration.md#get-the-token-with-an-http-post). |
+| `authorization`      |  Jeton d’accès unique qui identifie l’éditeur effectuant cet appel d’API.  Le format est `"Bearer <access_token>"` lorsque la valeur de jeton est récupérée par le serveur de publication, comme expliqué dans [Obtenir un jeton basé sur l’application Azure AD](./pc-saas-registration.md#get-the-token-with-an-http-post). |
 
 *Codes de réponse :*
 
-Code : 200 Retourne la liste de tous les abonnements existants pour toutes les offres de cet éditeur, en fonction du jeton d’autorisation de l’éditeur.
+Code : 200 Retourne la liste de tous les abonnements existants pour toutes les offres proposées par cet éditeur, en fonction du jeton d’autorisation de l’éditeur.
 
 *Exemple de corps de réponse :*
 
@@ -419,7 +415,7 @@ Code : 500 Erreur interne du serveur. Renouvelez l’appel d’API.  Si l’err
 
 #### <a name="get-subscription"></a>Obtenir un abonnement
 
-Récupère un abonnement SaaS acheté spécifié pour une offre SaaS publiée sur la Place de marché par l’éditeur. Utilisez cet appel pour obtenir toutes les informations disponibles pour un abonnement SaaS spécifique par son ID au lieu d’appeler l’API pour obtenir la liste de tous les abonnements.
+Cette API récupère un abonnement SaaS acheté spécifié pour une offre SaaS publiée par l’éditeur sur la Place de marché commerciale. Utilisez cet appel afin d’obtenir toutes les informations disponibles pour un abonnement SaaS spécifique par son ID, au lieu d’appeler l’API utilisée pour obtenir la liste de tous les abonnements.
 
 ##### <a name="get-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>Get `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
 
@@ -428,7 +424,7 @@ Récupère un abonnement SaaS acheté spécifié pour une offre SaaS publiée su
 |  Paramètre         | Valeur             |
 |  ---------------   |  ---------------  |
 | `ApiVersion`        |   Utilisez 2018-08-31. |
-| `subscriptionId`     |  Identificateur unique de l’abonnement SaaS acheté.  Cet ID est obtenu après résolution du jeton d’autorisation de la Place de marché à l’aide de l’API de résolution. |
+| `subscriptionId`     |  Identificateur unique de l’abonnement SaaS acheté.  Cet ID est obtenu après résolution du jeton d’autorisation de la Place de marché à l’aide de l’API Résolution. |
 
 *En-têtes de requête :*
 
@@ -437,7 +433,7 @@ Récupère un abonnement SaaS acheté spécifié pour une offre SaaS publiée su
 |  `content-type`      |  `application/json`  |
 |  `x-ms-requestid`    |  Valeur de chaîne unique pour le suivi de la requête du client, de préférence un GUID. Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse. |
 |  `x-ms-correlationid` |  Valeur de chaîne unique pour l’opération sur le client.  Ce paramètre sert à corréler tous les événements de l’opération client avec les événements côté serveur.  Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse. |
-|  `authorization`     | Jeton d’accès unique qui identifie le serveur de publication qui effectue cet appel d’API. Le format est `"Bearer <access_token>"` lorsque la valeur de jeton est récupérée par le serveur de publication, comme expliqué dans [Obtenir un jeton basé sur l’application Azure AD](./pc-saas-registration.md#get-the-token-with-an-http-post).  |
+|  `authorization`     | Jeton d’accès unique qui identifie l’éditeur effectuant cet appel d’API. Le format est `"Bearer <access_token>"` lorsque la valeur de jeton est récupérée par le serveur de publication, comme expliqué dans [Obtenir un jeton basé sur l’application Azure AD](./pc-saas-registration.md#get-the-token-with-an-http-post).  |
 
 *Codes de réponse :*
 
@@ -479,7 +475,7 @@ Code : 200 Retourne les détails d’un abonnement SaaS basé sur la valeur `su
 }
 ```
 
-Code : 403 Interdit. Le jeton d’autorisation n’est pas valide, a expiré et n’est pas fourni. La demande tente d’accéder à un abonnement SaaS pour une offre publiée avec un ID d’application Azure AD différent de celui utilisé pour créer le jeton d’autorisation.
+Code : 403 Interdit. Le jeton d’autorisation n’est pas valide, a expiré ou n’a pas été fourni. La demande tente d’accéder à un abonnement SaaS pour une offre publiée avec un ID d’application Azure AD différent de celui utilisé pour créer le jeton d’autorisation.
 
 Cette erreur est souvent le symptôme de l’absence d’une inscription [SaaS](pc-saas-registration.md) correcte. 
 
@@ -489,9 +485,9 @@ Code : 500 Erreur interne du serveur.  Renouvelez l’appel d’API.  Si l’er
 
 #### <a name="list-available-plans"></a>Liste des plans disponibles
 
-Récupère tous les plans pour une offre SaaS identifiée par la valeur `subscriptionId` d’un achat spécifique de cette offre.  Utilisez cet appel pour obtenir une liste de tous les plans privés et publics que le bénéficiaire d’un abonnement SaaS peut mettre à jour pour l’abonnement.  Les plans retournés seront disponibles dans la même zone géographique que le plan déjà acheté.
+Cette API récupère tous les plans pour une offre SaaS identifiée par la valeur `subscriptionId` d’un achat spécifique de cette offre.  Utilisez cet appel pour obtenir une liste de tous les plans privés et publics que le bénéficiaire d’un abonnement SaaS peut mettre à jour pour l’abonnement.  Les plans retournés seront disponibles dans la même zone géographique que le plan déjà acheté.
 
-Cet appel renvoie une liste des plans disponibles pour ce client en plus de celui que vous avez déjà acheté.  La liste peut être présentée à un client final sur le site de l’éditeur.  Un client final peut modifier le plan d’abonnement au profit d’un des plans de la liste renvoyée.  La modification du plan au profit d’un plan qui n’est pas répertorié dans la liste échoue.
+Cet appel renvoie une liste des plans disponibles pour ce client en plus de celui que vous avez déjà acheté.  La liste peut être présentée à un utilisateur final sur le site de l’éditeur.  Un utilisateur final peut modifier le plan d’abonnement au profit d’un des plans de la liste retournée.  La modification du plan au profit d’un plan qui ne figure pas dans la liste échoue.
 
 ##### <a name="get-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidlistavailableplansapi-versionapiversion"></a>Get `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/listAvailablePlans?api-version=<ApiVersion>`
 
@@ -500,7 +496,7 @@ Cet appel renvoie une liste des plans disponibles pour ce client en plus de celu
 |  Paramètre         | Valeur             |
 |  ---------------   |  ---------------  |
 |  `ApiVersion`        |  Utilisez 2018-08-31.  |
-|  `subscriptionId`    |  Identificateur unique de l’abonnement SaaS acheté.  Cet ID est obtenu après résolution du jeton d’autorisation de la Place de marché à l’aide de l’API de résolution. |
+|  `subscriptionId`    |  Identificateur unique de l’abonnement SaaS acheté.  Cet ID est obtenu après résolution du jeton d’autorisation de la Place de marché à l’aide de l’API Résolution. |
 
 *En-têtes de requête :*
 
@@ -509,7 +505,7 @@ Cet appel renvoie une liste des plans disponibles pour ce client en plus de celu
 |   `content-type`     |  `application/json` |
 |   `x-ms-requestid`   |  Valeur de chaîne unique pour le suivi de la requête du client, de préférence un GUID.  Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse. |
 |  `x-ms-correlationid`  |  Valeur de chaîne unique pour l’opération sur le client.  Ce paramètre sert à corréler tous les événements de l’opération client avec les événements côté serveur.  Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse. |
-|  `authorization`     |  Jeton d’accès unique qui identifie le serveur de publication qui effectue cet appel d’API.  Le format est `"Bearer <access_token>"` lorsque la valeur de jeton est récupérée par le serveur de publication, comme expliqué dans [Obtenir un jeton basé sur l’application Azure AD](./pc-saas-registration.md#get-the-token-with-an-http-post).  |
+|  `authorization`     |  Jeton d’accès unique qui identifie l’éditeur effectuant cet appel d’API.  Le format est `"Bearer <access_token>"` lorsque la valeur de jeton est récupérée par le serveur de publication, comme expliqué dans [Obtenir un jeton basé sur l’application Azure AD](./pc-saas-registration.md#get-the-token-with-an-http-post).  |
 
 *Codes de réponse :*
 
@@ -536,7 +532,7 @@ Exemple de corps de réponse :
 
 Si `subscriptionId` est introuvable, un corps de réponse vide est retourné.
 
-Code : 403 Interdit. Le jeton d’autorisation n’est pas valide, a expiré ou n’est pas fourni.  La demande tente peut-être d’accéder à un abonnement SaaS pour une offre qui est publiée avec un ID Azure AD App différent de celui utilisé pour créer le jeton d’autorisation.
+Code : 403 Interdit. Le jeton d’autorisation n’est pas valide, a expiré ou n’a pas été fourni.  La demande tente peut-être d’accéder à un abonnement SaaS pour une offre qui est publiée avec un ID d’application Azure AD différent de celui utilisé pour créer le jeton d’autorisation.
 
 Cette erreur est souvent le symptôme de l’absence d’une inscription [SaaS](pc-saas-registration.md) correcte. 
 
@@ -544,9 +540,9 @@ Code : 500 Erreur interne du serveur.  Renouvelez l’appel d’API.  Si l’er
 
 #### <a name="change-the-plan-on-the-subscription"></a>Modifier le plan de l’abonnement
 
-Mettez à jour le plan existant acheté pour un abonnement SaaS avec un nouveau plan (public ou privé).  L’éditeur doit appeler cette API lorsqu’un plan est modifié côté éditeur pour un abonnement SaaS acheté sur la Place de marché.
+Utilisez cette API pour mettre à jour le plan existant acheté pour un abonnement SaaS avec un nouveau plan (public ou privé).  L’éditeur doit appeler cette API lorsqu’un plan est modifié côté éditeur pour un abonnement SaaS acheté sur la Place de marché commerciale.
 
-Cette API peut être uniquement appelée pour des abonnements à l’état Actif.  Tout plan peut être remplacé par un autre plan existant (public ou privé), mais pas par lui-même.  Pour les plans privés, le locataire du client doit être défini dans le cadre de l’audience du plan dans l’Espace partenaires.
+Cette API peut être appelée uniquement pour des abonnements à l’état *Active*.  Tout plan peut être remplacé par un autre plan existant (public ou privé), mais pas par lui-même.  Pour les plans privés, le locataire du client doit être défini dans le cadre de l’audience du plan dans l’Espace partenaires.
 
 ##### <a name="patch-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>Patch `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
 
@@ -555,7 +551,7 @@ Cette API peut être uniquement appelée pour des abonnements à l’état Actif
 |  Paramètre         | Valeur             |
 |  ---------------   |  ---------------  |
 |  `ApiVersion`        |  Utilisez 2018-08-31.  |
-| `subscriptionId`     | Identificateur unique de l’abonnement SaaS acheté.  Cet ID est obtenu après résolution du jeton d’autorisation de la Place de marché à l’aide de l’API de résolution. |
+| `subscriptionId`     | Identificateur unique de l’abonnement SaaS acheté.  Cet ID est obtenu après résolution du jeton d’autorisation de la Place de marché à l’aide de l’API Résolution. |
 
 *En-têtes de requête :*
  
@@ -564,7 +560,7 @@ Cette API peut être uniquement appelée pour des abonnements à l’état Actif
 |  `content-type`      | `application/json`  |
 |  `x-ms-requestid`    | Valeur de chaîne unique pour le suivi de la requête du client, de préférence un GUID. Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse.  |
 |  `x-ms-correlationid`  | Valeur de chaîne unique pour l’opération sur le client.  Ce paramètre sert à corréler tous les événements de l’opération client avec les événements côté serveur.  Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse.  |
-|  `authorization`     |  Jeton d’accès unique qui identifie le serveur de publication qui effectue cet appel d’API.  Le format est `"Bearer <access_token>"` lorsque la valeur de jeton est récupérée par le serveur de publication, comme expliqué dans [Obtenir un jeton basé sur l’application Azure AD](./pc-saas-registration.md#get-the-token-with-an-http-post). |
+|  `authorization`     |  Jeton d’accès unique qui identifie l’éditeur effectuant cet appel d’API.  Le format est `"Bearer <access_token>"` lorsque la valeur de jeton est récupérée par le serveur de publication, comme expliqué dans [Obtenir un jeton basé sur l’application Azure AD](./pc-saas-registration.md#get-the-token-with-an-http-post). |
 
 *Exemple de demande de charge utile :*
 
@@ -576,9 +572,9 @@ Cette API peut être uniquement appelée pour des abonnements à l’état Actif
 
 *Codes de réponse :*
 
-Code : 202 La demande de modification du plan a été acceptée et traitée de façon asynchrone.  Le partenaire doit interroger l’**URL Operation-Location** pour déterminer la réussite ou l’échec de la demande de changement de plan.  L’interrogation doit être effectuée à intervalles réguliers (quelques secondes) jusqu’à ce que l’état final d’échec, de réussite ou de conflit s’affiche pour l’opération.  L’état final de l’opération doit être retourné rapidement, mais peut prendre plusieurs minutes dans certains cas.
+Code : 202 La demande de modification du plan a été acceptée et traitée de façon asynchrone.  Le partenaire doit interroger l’**URL Operation-Location** pour déterminer la réussite ou l’échec de la demande de changement de plan.  L’interrogation doit être effectuée à intervalles réguliers (quelques secondes) jusqu’à ce que l’état final *Failed*, *Succeed* ou *Conflict* s’affiche pour l’opération.  L’état final de l’opération doit être retourné rapidement, mais peut prendre plusieurs minutes dans certains cas.
 
-Le partenaire recevra également une notification de webhook lorsque l’action sera prête à se terminer sur la Place de marché.  Et ce n’est qu’après avoir reçu cette notification que l’éditeur devra modifier le plan côté éditeur.
+Le partenaire recevra également une notification de webhook lorsque l’action sera prête à se terminer sur la Place de marché commerciale.  Ce n’est qu’après avoir reçu cette notification que l’éditeur devra modifier le plan côté éditeur.
 
 *En-têtes de réponse :*
 
@@ -589,11 +585,11 @@ Le partenaire recevra également une notification de webhook lorsque l’action 
 Code : 400 Demande incorrecte : échecs de validation.
 
 * Le nouveau plan n’existe pas ou n’est pas disponible pour cet abonnement SaaS spécifique.
-* Tentative de modification du même plan.
-* L’état de l’abonnement SaaS n’est pas Abonné.
+* Le nouveau plan est identique au plan actuel.
+* L’état de l’abonnement SaaS n’est pas *Subscribed*.
 * L’opération de mise à jour pour un abonnement SaaS n’est pas incluse dans `allowedCustomerOperations`.
 
-Code : 403 Interdit. Le jeton d’autorisation n’est pas valide, a expiré ou n’est pas fourni.  La demande tente d’accéder à un abonnement SaaS pour une offre publiée avec un ID d’application Azure AD différent de celui utilisé pour créer le jeton d’autorisation.
+Code : 403 Interdit. Le jeton d’autorisation n’est pas valide, a expiré ou n’a pas été fourni.  La demande tente d’accéder à un abonnement SaaS pour une offre publiée avec un ID d’application Azure AD différent de celui utilisé pour créer le jeton d’autorisation.
 
 Cette erreur est souvent le symptôme de l’absence d’une inscription [SaaS](pc-saas-registration.md) correcte.
 
@@ -605,22 +601,22 @@ Code : 500 Erreur interne du serveur.  Renouvelez l’appel d’API.  Si l’er
 >Le plan ou la quantité de postes peut être modifié(e), mais pas simultanément.
 
 >[!Note]
->Cette API peut être appelée uniquement après avoir obtenu l’approbation explicite du client final pour la modification.
+>Cette API peut être appelée uniquement après avoir obtenu l’approbation explicite de l’utilisateur final pour la modification.
 
 #### <a name="change-the-quantity-of-seats-on-the-saas-subscription"></a>Modifier la quantité de postes de l’abonnement SaaS
 
-Mettez à jour (augmentez ou diminuez) la quantité de postes achetés pour un abonnement SaaS.  L’éditeur doit appeler cette API lorsque le nombre de postes est modifié côté éditeur pour un abonnement SaaS créé dans la Place de marché.
+Utilisez cette API pour mettre à jour (augmenter ou diminuer) la quantité de postes achetés pour un abonnement SaaS.  L’éditeur doit appeler cette API lorsque le nombre de postes est modifié côté éditeur pour un abonnement SaaS créé sur la Place de marché commerciale.
 
-La quantité de postes ne peut pas être supérieure à ce qui est autorisé dans le plan actuel.  Dans ce cas, le plan doit être modifié avant la modification de la quantité.
+La quantité de postes ne peut pas être supérieure à celle autorisée dans le plan actuel.  Dans ce cas, l’éditeur doit changer le plan avant de modifier la quantité de postes.
 
-##### <a name="patchhttpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>Patch`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
+##### <a name="patch-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>Patch `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
 
 *Paramètres de requête :*
 
 |  Paramètre         | Valeur             |
 |  ---------------   |  ---------------  |
 |  `ApiVersion`        |  Utilisez 2018-08-31.  |
-|  `subscriptionId`     | Identificateur unique de l’abonnement SaaS acheté.  Cet ID est obtenu après résolution du jeton d’autorisation de la Place de marché à l’aide de l’API de résolution.  |
+|  `subscriptionId`     | Identificateur unique de l’abonnement SaaS acheté.  Cet ID est obtenu après résolution du jeton d’autorisation de la Place de marché à l’aide de l’API Résolution.  |
 
 *En-têtes de requête :*
  
@@ -629,7 +625,7 @@ La quantité de postes ne peut pas être supérieure à ce qui est autorisé dan
 |  `content-type`      | `application/json`  |
 |  `x-ms-requestid`    | Valeur de chaîne unique pour le suivi de la requête du client, de préférence un GUID.  Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse.  |
 |  `x-ms-correlationid`  | Valeur de chaîne unique pour l’opération sur le client.  Ce paramètre sert à corréler tous les événements de l’opération client avec les événements côté serveur.  Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse.  |
-|  `authorization`     | Jeton d’accès unique qui identifie le serveur de publication qui effectue cet appel d’API.  Le format est `"Bearer <access_token>"` lorsque la valeur de jeton est récupérée par le serveur de publication, comme expliqué dans [Obtenir un jeton basé sur l’application Azure AD](./pc-saas-registration.md#get-the-token-with-an-http-post).  |
+|  `authorization`     | Jeton d’accès unique qui identifie l’éditeur effectuant cet appel d’API.  Le format est `"Bearer <access_token>"` lorsque la valeur de jeton est récupérée par le serveur de publication, comme expliqué dans [Obtenir un jeton basé sur l’application Azure AD](./pc-saas-registration.md#get-the-token-with-an-http-post).  |
 
 *Exemple de demande de charge utile :*
 
@@ -641,9 +637,9 @@ La quantité de postes ne peut pas être supérieure à ce qui est autorisé dan
 
 *Codes de réponse :*
 
-Code : 202 La demande de modification de la quantité a été acceptée et traitée de façon asynchrone. Le partenaire doit interroger l’**URL Operation-Location** pour déterminer la réussite ou l’échec de la demande de changement de quantité.  L’interrogation doit être effectuée à intervalles réguliers (quelques secondes) jusqu’à ce que l’état final d’échec, de réussite ou de conflit s’affiche pour l’opération.  L’état final de l’opération doit être retourné rapidement, mais peut prendre plusieurs minutes dans certains cas.
+Code : 202 La demande de modification de la quantité a été acceptée et traitée de façon asynchrone. Le partenaire doit interroger l’**URL Operation-Location** pour déterminer la réussite ou l’échec de la demande de changement de quantité.  L’interrogation doit être effectuée à intervalles réguliers (quelques secondes) jusqu’à ce que l’état final *Failed*, *Succeed* ou *Conflict* s’affiche pour l’opération.  L’état final de l’opération doit être retourné rapidement, mais peut prendre plusieurs minutes dans certains cas.
 
-Le partenaire recevra également une notification de webhook lorsque l’action sera prête à se terminer sur la Place de marché.  Et ce n’est qu’après avoir reçu cette notification que l’éditeur devra modifier la quantité côté éditeur.
+Le partenaire recevra également une notification de webhook lorsque l’action sera prête à se terminer sur la Place de marché commerciale.  Ce n’est qu’après avoir reçu cette notification que l’éditeur devra modifier la quantité côté éditeur.
 
 *En-têtes de réponse :*
 
@@ -655,11 +651,11 @@ Code : 400 Demande incorrecte : échecs de validation.
 
 * La nouvelle quantité est supérieure ou inférieure à la limite actuelle du plan.
 * La nouvelle quantité est manquante.
-* Tentative de modification de la même quantité.
+* La nouvelle quantité est identique à la quantité actuelle.
 * L’état de l’abonnement SaaS n’est pas Abonné.
 * L’opération de mise à jour pour un abonnement SaaS n’est pas incluse dans `allowedCustomerOperations`.
 
-Code : 403 Interdit.  Le jeton d’autorisation n’est pas valide, a expiré ou n’est pas fourni.  La demande tente d’accéder à un abonnement qui n’appartient pas à l’éditeur actuel.
+Code : 403 Interdit.  Le jeton d’autorisation n’est pas valide, a expiré ou n’a pas été fourni.  La demande tente d’accéder à un abonnement qui n’appartient pas à l’éditeur actuel.
 
 Cette erreur est souvent le symptôme de l’absence d’une inscription [SaaS](pc-saas-registration.md) correcte. 
 
@@ -671,29 +667,29 @@ Code : 500 Erreur interne du serveur.  Renouvelez l’appel d’API.  Si l’er
 >Un plan ou une quantité peut être modifié(e), mais pas les deux simultanément.
 
 >[!Note]
->Cette API peut être appelée uniquement après avoir obtenu l’approbation explicite du client final pour la modification.
+>Cette API peut être appelée uniquement après avoir obtenu l’approbation explicite de l’utilisateur final pour la modification.
 
 #### <a name="cancel-a-subscription"></a>Annuler un abonnement
 
-Désabonnez-vous d’un abonnement SaaS spécifié.  L’éditeur n’a pas besoin d’utiliser cette API et nous vous recommandons de diriger les clients vers la Place de marché afin d’annuler les abonnements SaaS.
+Utilisez cette API pour annuler un abonnement SaaS spécifié.  L’éditeur n’a pas besoin d’utiliser cette API, et nous vous recommandons de diriger les clients vers la Place de marché commerciale afin d’annuler les abonnements SaaS.
 
-Si l’éditeur décide d’implémenter l’annulation de l’abonnement SaaS acheté dans la Place de marché côté éditeur, il doit appeler cette API.  Une fois cet appel terminé, l’état de l’abonnement passe à *Désabonné* côté Microsoft.
+Si l’éditeur décide d’implémenter l’annulation de l’abonnement SaaS acheté sur la Place de marché commerciale côté éditeur, il doit appeler cette API.  Une fois cet appel terminé, l’état de l’abonnement devient *Unsubscribed* côté Microsoft.
 
-Si un abonnement est annulé dans les périodes de grâce suivantes, le client ne sera pas facturé :
+Le client ne sera pas facturé si un abonnement est annulé durant les périodes de grâce suivantes :
 
 * 24 heures pour un abonnement mensuel après activation.
 * 14 jours pour un abonnement annuel après activation.
 
-Le client est facturé si un abonnement est annulé après les périodes de grâce indiquées ci-dessus.  Une fois l’annulation effectuée, le client perd immédiatement l’accès à l’abonnement SaaS côté Microsoft.
+Le client sera facturé si un abonnement est annulé après les périodes de grâce indiquées ci-dessus.  Le client perdra l’accès à l’abonnement SaaS côté Microsoft immédiatement après l’annulation. 
 
-##### <a name="deletehttpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>Delete`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
+##### <a name="delete-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>Delete `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
 
 *Paramètres de requête :*
 
 |  Paramètre         | Valeur             |
 |  ---------------   |  ---------------  |
 |  `ApiVersion`        |  Utilisez 2018-08-31.  |
-|  `subscriptionId`     | Identificateur unique de l’abonnement SaaS acheté.  Cet ID est obtenu après résolution du jeton d’autorisation de la Place de marché à l’aide de l’API de résolution.  |
+|  `subscriptionId`     | Identificateur unique de l’abonnement SaaS acheté.  Cet ID est obtenu après résolution du jeton d’autorisation de la Place de marché à l’aide de l’API Résolution.  |
 
 *En-têtes de requête :*
  
@@ -706,9 +702,9 @@ Le client est facturé si un abonnement est annulé après les périodes de grâ
 
 *Codes de réponse :*
 
-Code : 202 La demande de désabonnement a été acceptée et traitée de façon asynchrone.  Le partenaire doit interroger l’**URL Operation-Location** pour déterminer la réussite ou l’échec de cette demande.  L’interrogation doit être effectuée à intervalles réguliers (quelques secondes) jusqu’à ce que l’état final d’échec, de réussite ou de conflit s’affiche pour l’opération.  L’état final de l’opération doit être retourné rapidement, mais peut prendre plusieurs minutes dans certains cas.
+Code : 202 La demande de désabonnement a été acceptée et traitée de façon asynchrone.  Le partenaire doit interroger l’**URL Operation-Location** pour déterminer la réussite ou l’échec de cette demande.  L’interrogation doit être effectuée à intervalles réguliers (quelques secondes) jusqu’à ce que l’état final *Failed*, *Succeed* ou *Conflict* s’affiche pour l’opération.  L’état final de l’opération doit être retourné rapidement, mais peut prendre plusieurs minutes dans certains cas.
 
-Le partenaire recevra également une notification de webhook lorsque l’action sera terminée sur la Place de marché.  Et ce n’est qu’après avoir reçu cette notification que l’éditeur devra annuler l’abonnement côté éditeur.
+Le partenaire recevra également une notification de webhook lorsque l’action sera terminée sur la Place de marché commerciale.  Ce n’est qu’après avoir reçu cette notification que l’éditeur devra annuler l’abonnement côté éditeur.
 
 *En-têtes de réponse :*
 
@@ -730,7 +726,7 @@ Code : 500 Erreur interne du serveur. Renouvelez l’appel d’API.  Si l’err
 
 #### <a name="list-outstanding-operations"></a>Liste des opérations en attente 
 
-Obtenir la liste des opérations en attente pour l’abonnement SaaS spécifié.  Les opérations retournées doivent être acceptées par l’éditeur en appelant l’[API d’opérations Patch](#update-the-status-of-an-operation).
+Obtenir la liste des opérations en attente pour l’abonnement SaaS spécifié.  L’éditeur doit accuser réception des opérations retournées en appelant l’[API Patch d’opérations](#update-the-status-of-an-operation).
 
 Actuellement, seules les **opérations de réactivation** sont retournées comme réponse pour cet appel d’API.
 
@@ -741,7 +737,7 @@ Actuellement, seules les **opérations de réactivation** sont retournées comme
 |  Paramètre         | Valeur             |
 |  ---------------   |  ---------------  |
 |    `ApiVersion`    |  Utilisez 2018-08-31.         |
-|    `subscriptionId` | Identificateur unique de l’abonnement SaaS acheté.  Cet ID est obtenu après résolution du jeton d’autorisation de la Place de marché à l’aide de l’API de résolution.  |
+|    `subscriptionId` | Identificateur unique de l’abonnement SaaS acheté.  Cet ID est obtenu après résolution du jeton d’autorisation de la Place de marché à l’aide de l’API Résolution.  |
 
 *En-têtes de requête :*
  
@@ -781,7 +777,7 @@ Retourne un objet json vide si aucune opération de réactivation n’est en att
 
 Code : 400 Demande incorrecte : échecs de validation.
 
-Code : 403 Interdit. Le jeton d’autorisation n’est pas valide, a expiré ou n’est pas fourni.  La demande tente d’accéder à un abonnement SaaS pour une offre publiée avec un ID d’application Azure AD différent de celui utilisé pour créer le jeton d’autorisation.
+Code : 403 Interdit. Le jeton d’autorisation n’est pas valide, a expiré ou n’a pas été fourni.  La demande tente d’accéder à un abonnement SaaS pour une offre publiée avec un ID d’application Azure AD différent de celui utilisé pour créer le jeton d’autorisation.
 
 Cette erreur est souvent le symptôme de l’absence d’une inscription [SaaS](pc-saas-registration.md) correcte. 
 
@@ -791,7 +787,7 @@ Code : 500 Erreur interne du serveur. Renouvelez l’appel d’API.  Si l’err
 
 #### <a name="get-operation-status"></a>Obtenir l’état d’une opération
 
-Permet à l’éditeur de suivre l’état de l’opération asynchrone spécifiée :  **Unsubscribe**, **ChangePlan** ou **ChangeQuantity**.
+Cette API permet à l’éditeur de suivre l’état de l’opération asynchrone spécifiée :  **Unsubscribe**, **ChangePlan** ou **ChangeQuantity**.
 
 La valeur `operationId` pour cet appel d’API peut être récupérée à partir de la valeur retournée par **Operation-Location**, l’appel d’API pour obtenir les opérations en attente, ou la valeur de paramètre `<id>` reçue dans un appel webhook.
 
@@ -802,7 +798,7 @@ La valeur `operationId` pour cet appel d’API peut être récupérée à partir
 |  Paramètre         | Valeur             |
 |  ---------------   |  ---------------  |
 |  `ApiVersion`        |  Utilisez 2018-08-31.  |
-|  `subscriptionId`    |  Identificateur unique de l’abonnement SaaS acheté.  Cet ID est obtenu après résolution du jeton d’autorisation de la Place de marché à l’aide de l’API de résolution. |
+|  `subscriptionId`    |  Identificateur unique de l’abonnement SaaS acheté.  Cet ID est obtenu après résolution du jeton d’autorisation de la Place de marché à l’aide de l’API Résolution. |
 |  `operationId`       |  Identificateur unique de l'opération en cours de récupération. |
 
 *En-têtes de requête :*
@@ -838,7 +834,7 @@ Response body:
 }
 ```
 
-Code : 403 Interdit. Le jeton d’autorisation n’est pas valide, a expiré ou n’est pas fourni.  La demande tente d’accéder à un abonnement SaaS pour une offre publiée avec un ID d’application Azure AD différent de celui utilisé pour créer le jeton d’autorisation.
+Code : 403 Interdit. Le jeton d’autorisation n’est pas valide, a expiré ou n’a pas été fourni.  La demande tente d’accéder à un abonnement SaaS pour une offre publiée avec un ID d’application Azure AD différent de celui utilisé pour créer le jeton d’autorisation.
 
 Cette erreur est souvent le symptôme de l’absence d’une inscription [SaaS](pc-saas-registration.md) correcte. 
 
@@ -851,7 +847,7 @@ Code : 500 Erreur interne du serveur.  Renouvelez l’appel d’API.  Si l’er
 
 #### <a name="update-the-status-of-an-operation"></a>Mettre à jour l’état d’une opération
 
-Mettre à jour l’état d’une opération en attente pour indiquer la réussite ou l’échec de l’opération côté éditeur.
+Utilisez cette API afin de mettre à jour l’état d’une opération en attente pour indiquer la réussite ou l’échec de l’opération côté éditeur.
 
 La valeur `operationId` pour cet appel d’API peut être récupérée à partir de la valeur retournée par **Operation-Location**, l’appel d’API pour obtenir les opérations en attente, ou la valeur de paramètre `<id>` reçue dans un appel webhook.
 
@@ -862,7 +858,7 @@ La valeur `operationId` pour cet appel d’API peut être récupérée à partir
 |  Paramètre         | Valeur             |
 |  ---------------   |  ---------------  |
 |   `ApiVersion`       |  Utilisez 2018-08-31.  |
-|   `subscriptionId`   |  Identificateur unique de l’abonnement SaaS acheté.  Cet ID est obtenu après résolution du jeton d’autorisation de la Place de marché à l’aide de l’API de résolution.  |
+|   `subscriptionId`   |  Identificateur unique de l’abonnement SaaS acheté.  Cet ID est obtenu après résolution du jeton d’autorisation de la Place de marché à l’aide de l’API Résolution.  |
 |   `operationId`      |  Identificateur unique de l’opération terminée. |
 
 *En-têtes de requête :*
@@ -872,7 +868,7 @@ La valeur `operationId` pour cet appel d’API peut être récupérée à partir
 |   `content-type`   | `application/json`   |
 |   `x-ms-requestid`   |  Valeur de chaîne unique pour le suivi de la requête du client, de préférence un GUID.  Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse. |
 |   `x-ms-correlationid` |  Valeur de chaîne unique pour l’opération sur le client.  Ce paramètre sert à corréler tous les événements de l’opération client avec les événements côté serveur.  Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse. |
-|  `authorization`     |  Jeton d’accès unique qui identifie le serveur de publication qui effectue cet appel d’API.  Le format est `"Bearer <access_token>"` lorsque la valeur de jeton est récupérée par le serveur de publication, comme expliqué dans [Obtenir un jeton basé sur l’application Azure AD](./pc-saas-registration.md#get-the-token-with-an-http-post). |
+|  `authorization`     |  Jeton d’accès unique qui identifie l’éditeur effectuant cet appel d’API.  Le format est `"Bearer <access_token>"` lorsque la valeur de jeton est récupérée par le serveur de publication, comme expliqué dans [Obtenir un jeton basé sur l’application Azure AD](./pc-saas-registration.md#get-the-token-with-an-http-post). |
 
 *Exemple de demande de charge utile :*
 
@@ -886,8 +882,9 @@ La valeur `operationId` pour cet appel d’API peut être récupérée à partir
 
 Code : 200 Appel pour informer de la fin d’une opération côté partenaire.  Par exemple, cette réponse peut signaler la fin de la modification de postes ou de plans côté éditeur.
 
-Code : 403 Interdit.  Le jeton d'autorisation n'est pas disponible, n’est pas valide ou a expiré. La demande tente peut-être d’accéder à un abonnement qui n’appartient pas à l’éditeur actuel.
-Interdit.  Le jeton d’autorisation n’est pas valide, a expiré ou n’est pas fourni.  La demande tente d’accéder à un abonnement SaaS pour une offre publiée avec un ID d’application Azure AD différent de celui utilisé pour créer le jeton d’autorisation.
+Code : 403
+- Interdit.  Le jeton d’autorisation n’est pas disponible, n’est pas valide ou a expiré. La demande tente peut-être d’accéder à un abonnement qui n’appartient pas à l’éditeur actuel.
+- Interdit.  Le jeton d’autorisation n’est pas valide, a expiré ou n’a pas été fourni.  La demande tente d’accéder à un abonnement SaaS pour une offre publiée avec un ID d’application Azure AD différent de celui utilisé pour créer le jeton d’autorisation.
 
 Cette erreur est souvent le symptôme de l’absence d’une inscription [SaaS](pc-saas-registration.md) correcte.
 
@@ -904,24 +901,24 @@ Code : 500 Erreur interne du serveur.  Renouvelez l’appel d’API.  Si l’er
 
 Lors de la création d’une offre SaaS qui peut être utilisée dans l’Espace partenaires, le partenaire fournit l’URL **Connexion webhook** à utiliser comme point de terminaison HTTP.  Ce webhook est appelé par Microsoft à l’aide de l’appel POST HTTP pour notifier le côté éditeur des événements suivants qui se produisent côté Microsoft :
 
-* Lorsque l’abonnement SaaS affiche l’état Abonné :
+* Lorsque l’abonnement SaaS est à l’état *Subscribed* :
     * ChangePlan 
     * ChangeQuantity
     * Interrompre
     * Se désabonner
-* Quand un abonnement SaaS affiche l’état Interrompu :
+* Lorsque l’abonnement SaaS est à l’état *Suspended* :
     * Reinstate
     * Se désabonner
 
-L’éditeur doit implémenter un webhook dans le service SaaS pour garantir la cohérence de l’état de l’abonnement SaaS avec le côté Microsoft.  Le service SaaS doit appeler l’API d’opération GET pour valider et autoriser l’appel du webhook et les données de la charge utile avant de prendre des mesures en fonction de la notification du webhook.  L’éditeur doit retourner HTTP 200 à Microsoft dès que l’appel de webhook est traité.  Cette valeur confirme que l’éditeur a bien reçu l’appel du webhook.
+L’éditeur doit implémenter un webhook dans le service SaaS pour garantir la cohérence de l’état de l’abonnement SaaS avec le côté Microsoft.  Le service SaaS doit appeler l’API Obtenir l’opération pour valider et autoriser l’appel du webhook et les données de la charge utile avant de prendre des mesures basées sur la notification de webhook.  L’éditeur doit retourner HTTP 200 à Microsoft dès que l’appel de webhook est traité.  Cette valeur confirme que l’éditeur a bien reçu l’appel du webhook.
 
 >[!Note]
->Le service de l’URL du webhook doit être disponible 24 h/24 et 7 j/7 et prêt à recevoir à tout moment de nouveaux appels de Microsoft.  Microsoft ne propose aucune stratégie de nouvelle tentative pour l’appel du webhook (500 nouvelles tentatives sur 8 heures), mais si l’éditeur n’accepte pas l’appel et renvoie une réponse, l’opération notifiée par le webhook finira par échouer côté Microsoft.
+>Le service de l’URL du webhook doit être disponible 24 h/24 et 7 j/7 et prêt à recevoir à tout moment de nouveaux appels de Microsoft.  Microsoft ne propose aucune stratégie de nouvelle tentative pour l’appel du webhook (500 nouvelles tentatives sur huit heures), mais si l’éditeur n’accepte pas l’appel et retourne une réponse, l’opération notifiée par le webhook finira par échouer côté Microsoft.
 
 *Exemples de charge utile webhook :*
 
 ```json
-// end customer changed a quantity of purchased seats for a plan on Microsoft side
+// end user changed a quantity of purchased seats for a plan on Microsoft side
 {
   "id": "<guid>", // this is the operation ID to call with get operation API
   "activityId": "<guid>", // do not use
@@ -937,7 +934,7 @@ L’éditeur doit implémenter un webhook dans le service SaaS pour garantir la 
 ```
 
 ```json
-// end customer's payment instrument became valid again, after being suspended, and the SaaS subscription is being reinstated
+// end user's payment instrument became valid again, after being suspended, and the SaaS subscription is being reinstated
 {
   "id": "<guid>",
   "activityId": "<guid>",
@@ -954,18 +951,18 @@ L’éditeur doit implémenter un webhook dans le service SaaS pour garantir la 
 
 ## <a name="development-and-testing"></a>Développement et test
 
-Pour démarrer le processus de développement, nous vous recommandons de créer des réponses d’API factices côté éditeur.  Ces réponses peuvent reposer sur des exemples de réponses fournis dans ce document.
+Pour démarrer le processus de développement, nous vous recommandons de créer des réponses d’API factices côté éditeur.  Ces réponses peuvent reposer sur des exemples de réponses fournis dans cet article.
 
 Lorsque l’éditeur est prêt pour le test de bout en bout :
 
 * Publiez une offre SaaS sur une audience en préversion limitée et conservez-la en phase de préversion.
-* Cette offre doit inclure un plan à un tarif de 0 pour éviter toute facturation de frais réels lors des tests.  Une autre solution consiste à définir un prix différent de 0 et à annuler tous les achats de test pendant 24 heures.
-* Vérifiez que tous les flux sont appelés de bout en bout, exactement comme si un client achetait l’offre.
-* Si le partenaire souhaite tester le flux complet d’achat et de facturation, utilisez une offre dont le prix est supérieur à 0.  L’achat sera facturé et une facture sera établie.
+* Définissez le prix du plan sur 0 pour éviter de déclencher des frais de facturation réels lors des tests.  Une autre solution consiste à définir un prix différent de 0 et à annuler tous les achats de test pendant 24 heures.
+* Veillez à ce que tous les flux soient appelés de bout en bout, afin de simuler un scénario client réel.
+* Si le partenaire souhaite tester le flux complet d’achat et de facturation, utilisez une offre dont le prix est supérieur à $0.  L’achat sera facturé et une facture sera établie.
 
 Un flux d’achat peut être déclenché à partir du portail Azure ou de Microsoft AppSource, selon l’endroit où l’offre est publiée.
 
-Les actions de *modification du plan*, *modification de quantité* et de *désabonnement* sont testées côté éditeur.  Côté Microsoft, l’opération de *désabonnement* peut être déclenchée à partir du portail Azure ou centre d’administration (le portail où les achats Microsoft AppSource sont gérés).  Les opérations de *modification de quantité et de plan* peuvent uniquement être déclenchées à partir du centre d’administration.
+Les actions de *modification du plan*, *modification de quantité* et de *désabonnement* sont testées côté éditeur.  Côté Microsoft, l’opération de *désabonnement* peut être déclenchée à partir du portail Azure ou du Centre d’administration (le portail où les achats Microsoft AppSource sont gérés).  Les opérations de *modification de quantité et de plan* peuvent être déclenchées uniquement à partir du Centre d’administration.
 
 ## <a name="get-support"></a>Obtenir de l’aide
 

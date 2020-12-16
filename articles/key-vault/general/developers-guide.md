@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 6fa9f5d86d3640bf3ae0233e7d6d8a00752f5b6d
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 895b8441f340d085932cade513c9f8929491b374
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460799"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904259"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guide du développeur de coffre de clés Azure
 
@@ -22,7 +22,7 @@ Key Vault vous permet d’accéder en toute sécurité aux informations sensible
 - Les clés, secrets et certificats sont protégés sans que vous deviez écrire de code et vous pouvez facilement les utiliser dans vos applications.
 - Vous pouvez autoriser les clients à posséder et gérer leurs propres clés, secrets et certificats afin que vous puissiez vous concentrer sur la fourniture des principales fonctionnalités du logiciel. Ainsi, vos applications ne vous exposent à aucune responsabilité en relation avec les clés, secrets et certificats de vos clients.
 - Votre application peut utiliser des clés pour la signature et le chiffrement, tandis que la gestion des clés s’effectue à l’extérieur de votre application. Pour plus d'informations sur les clés, consultez [À propos des clés](../keys/about-keys.md)
-- Vous pouvez gérer les informations d’identification telles que les mots de passe, les clés d’accès, les jetons SAS en les stockant dans Key Vault en tant que secrets, consultez [À propos des secrets](../secrets/about-secrets.md)
+- Vous pouvez gérer les informations d’identification comme les mots de passe, les clés d’accès et les jetons SAS en les stockant dans Key Vault sous forme de secrets, consultez [À propos des secrets](../secrets/about-secrets.md)
 - Gérer des certificats. Pour plus d’informations, consultez [À propos des certificats](../certificates/about-certificates.md)
 
 Pour des informations plus générales sur le coffre de clés Azure Key Vault, voir [Qu’est-ce qu’Azure Key Vault ?](overview.md).

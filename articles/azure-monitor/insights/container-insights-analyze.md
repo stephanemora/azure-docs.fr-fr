@@ -3,12 +3,12 @@ title: Supervision de Kubernetes avec Azure Monitor pour conteneurs | Microsoft 
 description: Cet article décrit comment voir et analyser les performances d’un cluster Kubernetes avec Azure Monitor pour conteneurs.
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: de61e8e5b2716a3ca212a0a830a4d48b8bd2c3ef
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a1f661089b3a6357abb3eed584401e6a8ae2e2fb
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011079"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905704"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Superviser les performances de votre cluster Kubernetes avec Azure Monitor pour conteneurs
 
@@ -228,7 +228,7 @@ La hiérarchie de ligne commence par un contrôleur. Développer un contrôleur 
 
 Sélectionnez la valeur sous la colonne **Nœud** du contrôleur spécifique.
 
-![Exemple de zoom depuis le nœud jusqu’au contrôleur dans l’affichage des performances](./media/container-insights-analyze/drill-down-controller-node.png)
+![Exemple de zoom jusqu’aux nœuds du contrôleur dans la vue des performances](./media/container-insights-analyze/drill-down-controller-node.png)
 
 Les informations qui sont affichées dans les contrôleurs sont décrites dans le tableau suivant.
 
@@ -297,31 +297,8 @@ Azure Network Policy Manager comprend des métriques Prometheus informatives qui
 
 ## <a name="workbooks"></a>Workbooks
 
-Les classeurs regroupent du texte, des  [requêtes de journal](/azure/data-explorer/kusto/query/), des [métriques](../platform/data-platform-metrics.md) et des paramètres sous la forme de rapports interactifs complets. Les classeurs sont modifiables par tous les membres de l’équipe ayant accès aux mêmes ressources Azure.
+Les classeurs regroupent du texte, des requêtes de journal, des métriques et des paramètres au sein de rapports interactifs complets qui vous permettent d’analyser les performances des clusters. Si vous souhaitez obtenir une description des classeurs Azure Monitor pour conteneurs, consultez [Classeurs Azure Monitor pour conteneurs](container-insights-reports.md).
 
-Azure Monitor pour les conteneurs inclut quatre classeurs pour vous aider à démarrer :
-
-- **Capacité du disque** : Présente des graphiques interactifs d’utilisation du disque pour chaque disque présenté au nœud au sein d’un conteneur selon les perspectives suivantes :
-
-    - Pourcentage d’utilisation de disque pour tous les disques.
-    - Espace disque disponible pour tous les disques.
-    - Grille qui indique pour chaque disque des nœuds, son pourcentage d’espace utilisé, sa tendance du pourcentage d’espace utilisé, l’espace disque disponible (Gio) et la tendance de l’espace disque disponible (Gio). Lorsqu’une ligne est sélectionnée dans la table, le pourcentage d’espace utilisé et l’espace disque disponible (Gio) sont indiqués sous la ligne.
-
-- **E/S disque** : Présente des graphiques interactifs d’utilisation du disque pour chaque disque présenté au nœud au sein d’un conteneur selon les perspectives suivantes :
-
-    - E/S disque totalisées pour tous les disques par octets lus/s, octets écrits/s, et octets lus et écrits/s.
-    - Les huit graphiques de performances montrent des indicateurs de performance clés pour aider à mesurer et à identifier les goulots d’étranglement des E/S disque.
-
-- **Kubelet** : Comprend deux grilles qui montrent les statistiques clés de fonctionnement des nœuds :
-
-    - Grille de vue d’ensemble par nœud indiquant le nombre total d’opérations, le nombre total d’erreurs et les opérations réussies en pourcentage et en tendance pour chaque nœud.
-    - Vue d’ensemble par type d’opération montrant pour chaque opération le nombre total d’opérations, le nombre total d’erreurs et les opérations réussies en pourcentage et en tendance.
-
-- **Réseau** : Présente des graphiques interactifs d’utilisation du réseau pour chaque carte réseau des nœuds, et une grille qui présente les indicateurs de performance clés pour vous aider à mesurer les performances de vos cartes réseau.
-
-Vous accédez à ces classeurs en les sélectionnant dans la liste déroulante **Voir les classeurs**.
-
-![Liste déroulante Voir les classeurs](./media/container-insights-analyze/view-workbooks-dropdown-list.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

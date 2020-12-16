@@ -3,17 +3,17 @@ title: Erreurs et avertissements liés à la conversion de dessin d’Azure Maps
 description: Découvrez les erreurs et avertissements liés à la conversion que vous pouvez rencontrer quand vous utilisez le service de conversion d’Azure Maps. Lisez les recommandations relatives à la résolution des erreurs et avertissements, avec quelques exemples.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 05/18/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: 04a43e3e2fa9ad77e11f82ff38a144a1de3add78
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: cecc19f0984ce1801d50e5cbda73e98a01e2825b
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895934"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906214"
 ---
 # <a name="drawing-conversion-errors-and-warnings"></a>Erreurs et avertissements liés à la conversion de dessin
 
@@ -51,7 +51,7 @@ Inspectez l’avertissement **geometryWarning** pour chaque entité afin de vér
 
 #### <a name="description-for-unexpectedgeometryinlayer"></a>*Description de l’avertissement unexpectedGeometryInLayer*
 
-Un avertissement **unexpectedGeometryInLayer** se produit quand le dessin contient une géométrie incompatible avec le type de géométrie attendu pour un calque donné. Quand le service de conversion retourne un avertissement **unexpectedGeometryInLayer** , il ignore cette géométrie.
+Un avertissement **unexpectedGeometryInLayer** se produit quand le dessin contient une géométrie incompatible avec le type de géométrie attendu pour un calque donné. Quand le service de conversion retourne un avertissement **unexpectedGeometryInLayer**, il ignore cette géométrie.
 
 #### <a name="example-for-unexpectedgeometryinlayer"></a>*Exemple d’avertissement unexpectedGeometryInLayer*
 
@@ -101,7 +101,7 @@ L’avertissement **automaticRepairPerformed** se produit quand le service de co
 
 #### <a name="how-to-fix-automaticrepairperformed"></a>*Comment corriger un avertissement automaticRepairPerformed*
 
-Pour corriger un avertissement **automaticRepairPerformed** , effectuez les actions suivantes :
+Pour corriger un avertissement **automaticRepairPerformed**, effectuez les actions suivantes :
 
 1. Inspectez la géométrie de chaque avertissement et le texte d’avertissement spécifique.
 2. Déterminez si la réparation automatisée est correcte.
@@ -159,7 +159,7 @@ L’avertissement **redundantAttribution** se produit quand le manifeste contien
 
 #### <a name="how-to-fix-redundantattribution"></a>*Comment corriger un avertissement redundantAttribution*
 
-Pour corriger un avertissement * *redundantAttribution* , supprimez les propriétés d’objet redondantes ou conflictuelles.
+Pour corriger un avertissement **redundantAttribution*, supprimez les propriétés d’objet redondantes ou conflictuelles.
 
 ### <a name="manifestwarning"></a>**Avertissement manifestWarning**
 
@@ -175,7 +175,7 @@ Un avertissement **manifestWarning** se produit quand le manifeste contient des 
 
 #### <a name="how-to-fix-manifestwarning"></a>*Comment corriger un avertissement manifestWarning*
 
-Pour corriger un avertissement **manifestWarning** , supprimez l’objet `unitProperties` ou `zoneProperties` inutilisé du manifeste, ou ajoutez une étiquette d’unité/de zone au dessin afin que l’objet propriétés soit utilisé lors de la conversion.
+Pour corriger un avertissement **manifestWarning**, supprimez l’objet `unitProperties` ou `zoneProperties` inutilisé du manifeste, ou ajoutez une étiquette d’unité/de zone au dessin afin que l’objet propriétés soit utilisé lors de la conversion.
 
 ## <a name="wall-warnings"></a>Avertissements de mur
 
@@ -197,7 +197,7 @@ L’avertissement **wallOutsideLevel** se produit quand le dessin contient une g
 
 #### <a name="how-to-fix-walloutsidelevel"></a>*Comment corriger un avertissement wallOutsideLevel*
 
-Pour corriger un avertissement **wallOutsideLevel** , développez la géométrie du niveau pour inclure tous les murs. Ou modifiez les limites de mur pour qu’elles s’inscrivent à l’intérieur de la limite de niveau.
+Pour corriger un avertissement **wallOutsideLevel**, développez la géométrie du niveau pour inclure tous les murs. Ou modifiez les limites de mur pour qu’elles s’inscrivent à l’intérieur de la limite de niveau.
 
 ## <a name="unit-warnings"></a>Avertissements d’unité
 
@@ -215,7 +215,7 @@ Un avertissement **unitOutsideLevel** se produit quand le dessin contient une g�
 
 #### <a name="how-to-fix-unitoutsidelevel"></a>*Comment corriger un avertissement unitOutsideLevel*
 
-Pour corriger un avertissement **unitOutsideLevel** , développez la limite du niveau pour inclure toutes les unités. Ou modifiez la géométrie d’unité pour qu’elle s’inscrive à l’intérieur de la limite de niveau.
+Pour corriger un avertissement **unitOutsideLevel**, développez la limite du niveau pour inclure toutes les unités. Ou modifiez la géométrie d’unité pour qu’elle s’inscrive à l’intérieur de la limite de niveau.
 
 ### <a name="partiallyoverlappingunit"></a>**Avertissement partiallyOverlappingUnit**
 
@@ -231,7 +231,7 @@ Dans l’image suivante, l’unité qui chevauche est en surbrillance en rouge. 
 
 #### <a name="how-to-fix-partiallyoverlappingunit"></a>*Comment corriger un avertissement partiallyOverlappingUnit*
 
-Pour corriger un avertissement **partiallyOverlappingUnit** , redessinez chaque unité qui chevauche partiellement afin qu’elle ne chevauche aucune autre unité.
+Pour corriger un avertissement **partiallyOverlappingUnit**, redessinez chaque unité qui chevauche partiellement afin qu’elle ne chevauche aucune autre unité.
 
 ## <a name="door-warnings"></a>Avertissements de porte
 
@@ -249,7 +249,7 @@ Dans l’image suivante, la géométrie de porte, en surbrillance en rouge, chev
 
 #### <a name="how-to-fix-dooroutsidelevel"></a>*Comment corriger un avertissement doorOutsideLevel*
 
-Pour corriger un avertissement **doorOutsideLevel** , redessinez la géométrie de porte afin qu’elle se trouve à l’intérieur des limites du niveau.
+Pour corriger un avertissement **doorOutsideLevel**, redessinez la géométrie de porte afin qu’elle se trouve à l’intérieur des limites du niveau.
 
 ## <a name="zone-warnings"></a>Avertissements de zone
 
@@ -267,7 +267,7 @@ L’image suivante montre une zone qui ne contient pas d’étiquette.
 
 #### <a name="how-to-fix-zonewarning"></a>*Comment corriger un avertissement zoneWarning*
 
-Pour corriger un avertissement **zoneWarning** , vérifiez que chaque zone n’a qu’une seule étiquette.
+Pour corriger un avertissement **zoneWarning**, vérifiez que chaque zone n’a qu’une seule étiquette.
 
 ## <a name="label-warnings"></a>Avertissements d’étiquette
 
@@ -291,7 +291,7 @@ L’image suivante montre une étiquette se trouvant dans deux zones.
 
 #### <a name="how-to-fix-labelwarning"></a>*Comment corriger un avertissement labelWarning*
 
-Pour corriger un avertissement **labelWarning** , vérifiez les points suivants :
+Pour corriger un avertissement **labelWarning**, vérifiez les points suivants :
 
 * Toutes les étiquettes d’unité se trouvent dans des unités.
 * Toutes les étiquettes de zone se trouvent dans des zones.
@@ -309,9 +309,9 @@ Une erreur **invalidArchiveFormat** se produit également si l’archive ZIP est
 
 #### <a name="how-to-fix-invalidarchiveformat"></a>*Comment corriger une erreur invalidArchiveFormat*
 
-Pour corriger une erreur **invalidArchiveFormat** , vérifiez les points suivants :
+Pour corriger une erreur **invalidArchiveFormat**, vérifiez les points suivants :
 
-* Le nom de votre fichier d’archive se termine par _.zip_ .
+* Le nom de votre fichier d’archive se termine par _.zip_.
 * Votre archive ZIP contient des données.
 * Vous pouvez ouvrir votre archive ZIP.
 
@@ -327,10 +327,10 @@ Vous avez tenté de charger un package de dessin avec un paramètre `udid` incor
 
 #### <a name="how-to-fix-invaliduserdata"></a>*Comment corriger une erreur invalidUserData*
 
-Pour corriger une erreur **invalidUserData** , vérifiez les points suivants :
+Pour corriger une erreur **invalidUserData**, vérifiez les points suivants :
 
 * Vous avez fourni un `udid` correct pour le package chargé.
-* Le Créateur Azure Maps a été activé pour le compte Azure Maps que vous avez utilisé pour charger le package de dessin.
+* Azure Maps Creator (préversion) a été activé pour le compte Azure Maps que vous avez utilisé dans le but de charger le package de dessin.
 * La demande d’API adressée au service de conversion contient la clé d’abonnement au compte Azure Maps que vous avez utilisé pour charger le package de dessin.
 
 ### <a name="dwgerror"></a>**Erreur dwgError**
@@ -347,7 +347,7 @@ L’erreur **dwgError** se quand le package de dessin contient un fichier DWG qu
 
 #### <a name="how-to-fix-dwgerror"></a>*Comment corriger une erreur dwgError*
 
-Pour corriger une erreur **dwgError** , inspectez votre fichier _manifest.json_ pour vérifier les points suivants :
+Pour corriger une erreur **dwgError**, inspectez votre fichier _manifest.json_ pour vérifier les points suivants :
 
 * Tous les fichiers DWG dans votre archive ZIP sont des dessins au format DWG AutoCAD valides. Ouvrez-les dans AutoCAD. Supprimez ou corrigez tous les dessins non valides.
 * La liste des fichiers DWG dans le fichier _manifest.json_ correspond aux fichiers DWG dans l’archive ZIP.
@@ -364,17 +364,17 @@ Le fichier _manifest.json_ n’est pas lisible en raison d’erreurs de syntaxe 
 
 #### <a name="how-to-fix-invalidjsonformat"></a>*Comment corriger une erreur invalidJsonFormat*
 
-Pour corriger une erreur **invalidJsonFormat** , utilisez un linter JSON pour détecter et résoudre toute erreur JSON.
+Pour corriger une erreur **invalidJsonFormat**, utilisez un linter JSON pour détecter et résoudre toute erreur JSON.
 
 ### <a name="missingrequiredfield"></a>**Erreur missingRequiredField**
 
 #### <a name="description-for-missingrequiredfield"></a>*Description de l’erreur missingRequiredField*
 
-Une erreur **missingRequiredField** se produit quand des données obligatoires sont absentes du fichier _manifest.json_ .
+Une erreur **missingRequiredField** se produit quand des données obligatoires sont absentes du fichier _manifest.json_.
 
 #### <a name="how-to-fix-missingrequiredfield"></a>*Comment corriger une erreur missingRequiredField*
 
-Pour corriger une erreur **missingRequiredField** , vérifiez que le manifeste contient toutes les propriétés requises. Pour obtenir la liste complète des objets de manifeste requis, consultez la [section de manifeste dans les exigences du package de dessin](drawing-requirements.md#manifest-file-requirements)  
+Pour corriger une erreur **missingRequiredField**, vérifiez que le manifeste contient toutes les propriétés requises. Pour obtenir la liste complète des objets de manifeste requis, consultez la [section de manifeste dans les exigences du package de dessin](drawing-requirements.md#manifest-file-requirements)  
 
 ### <a name="missingmanifest"></a>**Erreur missingManifest**
 
@@ -390,7 +390,7 @@ L’erreur **missingManifest** se produit pour une ou plusieurs des raisons suiv
 
 #### <a name="how-to-fix-missingmanifest"></a>*Comment corriger l’erreur missingManifest*
 
-Pour corriger une erreur **missingManifest** , vérifiez que l’archive ZIP contient un fichier nommé _manifest.json_ au niveau racine.
+Pour corriger une erreur **missingManifest**, vérifiez que l’archive ZIP contient un fichier nommé _manifest.json_ au niveau racine.
 
 ### <a name="conflict"></a>**Erreur conflict**
 
@@ -422,7 +422,7 @@ Le service de conversion retourne une erreur **conflict** quand plusieurs niveau
 
 #### <a name="how-to-fix-conflict"></a>*Comment corriger une erreur conflict*
 
-Pour corriger une erreur **conflict** , inspectez votre fichier _manifest.json_ pour en supprimer toutes les informations conflictuelles.
+Pour corriger une erreur **conflict**, inspectez votre fichier _manifest.json_ pour en supprimer toutes les informations conflictuelles.
 
 ### <a name="invalidgeoreference"></a>**Erreur invalidGeoreference**
 
@@ -450,7 +450,7 @@ Dans l’extrait de code JSON ci-dessous, la latitude est supérieure à la limi
 
 #### <a name="how-to-fix-invalidgeoreference"></a>*Comment corriger une erreur invalidGeoreference*
 
-Pour corriger une erreur **invalidGeoreference** , vérifiez que les valeurs géoréférencées s’inscrivent dans la plage.
+Pour corriger une erreur **invalidGeoreference**, vérifiez que les valeurs géoréférencées s’inscrivent dans la plage.
 
 >[!IMPORTANT]
 >Dans géoJSON, l’ordre des coordonnées est longitude et latitude. Si vous n’utilisez pas le bon ordre, vous pouvez faire référence accidentellement à une valeur de latitude ou de longitude hors limites.
@@ -471,7 +471,7 @@ L’image suivante montre une caractéristique de mur qui ne chevauche aucune un
 
 #### <a name="how-to-fix-wallerror"></a>*Comment corriger une erreur wallError*
 
-Pour corriger une erreur **wallError** , redessinez le mur afin qu’il chevauche au moins une unité. Vous pouvez aussi créer une unité qui chevauche le mur.
+Pour corriger une erreur **wallError**, redessinez le mur afin qu’il chevauche au moins une unité. Vous pouvez aussi créer une unité qui chevauche le mur.
 
 ## <a name="vertical-penetration-errors"></a>Erreurs de pénétration verticale
 
@@ -498,7 +498,7 @@ L’illustration suivante montre une zone de pénétration verticale qui chevauc
 
 #### <a name="how-to-fix-verticalpenetrationerror"></a>Comment corriger une erreur verticalPenetrationError
 
-Pour corriger une erreur **verticalPenetrationError** , lisez l’article [Exigences du package de dessin](drawing-requirements.md) pour savoir comment utiliser une caractéristique de pénétration verticale.
+Pour corriger une erreur **verticalPenetrationError**, lisez l’article [Exigences du package de dessin](drawing-requirements.md) pour savoir comment utiliser une caractéristique de pénétration verticale.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -506,4 +506,4 @@ Pour corriger une erreur **verticalPenetrationError** , lisez l’article [Exige
 > [Comment utiliser le visualiseur d’erreurs de dessin Azure Maps](drawing-error-visualizer.md)
 
 > [!div class="nextstepaction"]
-> [Créateur pour cartes d’intérieur](creator-indoor-maps.md)
+> [Creator (préversion) pour cartes d’intérieur](creator-indoor-maps.md)

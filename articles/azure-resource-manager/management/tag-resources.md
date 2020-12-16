@@ -2,14 +2,14 @@
 title: Baliser les ressources, les groupes de ressources et les abonnements pour l’organisation logique
 description: Indique comment appliquer des étiquettes afin d'organiser des ressources Azure dédiées à la facturation et à la gestion.
 ms.topic: conceptual
-ms.date: 11/20/2020
+ms.date: 12/03/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9e9ef96a712e5ac2ba483170fb8ef9c89115b4f8
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: e47d3acf15ce5e4f5cb70444419b76beb21ae98b
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95972558"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558145"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Utiliser des étiquettes pour organiser vos ressources Azure et votre hiérarchie de gestion
 
@@ -26,9 +26,11 @@ Pour obtenir des recommandations sur la façon d’implémenter une stratégie d
 
 ## <a name="required-access"></a>Accès requis
 
-Pour appliquer des étiquettes à une ressource, vous devez disposer d’un accès en écriture au type de ressource **Microsoft.Resources/tags**. Le rôle [Contributeur d’étiquette](../../role-based-access-control/built-in-roles.md#tag-contributor) vous permet d’appliquer des étiquettes à une entité sans avoir accès à l’entité elle-même. Actuellement, le rôle Contributeur d’étiquette ne peut pas appliquer d’étiquettes aux ressources ou groupes de ressources via le portail. Il peut appliquer des étiquettes aux abonnements via le portail. Il prend en charge toutes les opérations d’étiquettes via PowerShell et l’API REST.  
+Il existe deux façons d’obtenir l’accès requis aux ressources de balises.
 
-Le rôle [Contributeur](../../role-based-access-control/built-in-roles.md#contributor) accorde également l’accès requis pour appliquer des étiquettes à n’importe quelle entité. Pour appliquer des étiquettes à un seul type de ressource, utilisez le rôle Contributeur correspondant à cette ressource. Par exemple, pour appliquer des étiquettes aux machines virtuelles, utilisez le rôle [Contributeur de machines virtuelles](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
+- Vous pouvez disposer d’un accès en écriture au type de ressource **Microsoft.Resources/tags**. Cet accès vous permet d’étiqueter n’importe quelle ressource, même si vous n’avez pas accès à la ressource elle-même. Le rôle [Contributeur de balise](../../role-based-access-control/built-in-roles.md#tag-contributor) accorde cet accès. Actuellement, le rôle Contributeur d’étiquette ne peut pas appliquer d’étiquettes aux ressources ou groupes de ressources via le portail. Il peut appliquer des étiquettes aux abonnements via le portail. Il prend en charge toutes les opérations d’étiquettes via PowerShell et l’API REST.  
+
+- Vous pouvez disposer d’un accès en écriture à la ressource elle-même. Le rôle [Contributeur](../../role-based-access-control/built-in-roles.md#contributor) accorde l’accès requis pour appliquer des étiquettes à n’importe quelle entité. Pour appliquer des étiquettes à un seul type de ressource, utilisez le rôle Contributeur correspondant à cette ressource. Par exemple, pour appliquer des étiquettes aux machines virtuelles, utilisez le rôle [Contributeur de machines virtuelles](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
 
 ## <a name="powershell"></a>PowerShell
 
@@ -277,7 +279,7 @@ az tag create --resource-id $resource --tags Team=Compliance Environment=Product
 },
 ```
 
-Pour ajouter des étiquettes à une ressource qui a déjà des étiquettes, utilisez **az tag update**. Définissez le paramètre **--operation** sur **Fusionner**.
+Pour ajouter des étiquettes à une ressource qui a déjà des étiquettes, utilisez `az tag update`. Définissez le paramètre `--operation` sur `Merge`.
 
 ```azurecli-interactive
 az tag update --resource-id $resource --operation Merge --tags Dept=Finance Status=Normal
@@ -313,7 +315,7 @@ az tag update --resource-id $resource --operation Merge --tags Status=Green
 },
 ```
 
-Lorsque vous définissez le paramètre **--operation** sur **Remplacer**, les étiquettes existantes sont remplacées par le nouvel ensemble d’étiquettes.
+Lorsque vous définissez le paramètre `--operation` sur `Replace`, les étiquettes existantes sont remplacées par le nouvel ensemble d’étiquettes.
 
 ```azurecli-interactive
 az tag update --resource-id $resource --operation Replace --tags Project=ECommerce CostCenter=00123 Team=Web
@@ -406,7 +408,7 @@ az group list --tag Dept=Finance
 
 ### <a name="remove-tags"></a>Supprimer des étiquettes
 
-Pour supprimer des étiquette spécifiques, utilisez **az tag update** et définissez **--operation** sur **Supprimer**. Transmettez les étiquettes que vous souhaitez supprimer.
+Pour supprimer des étiquette spécifiques, utilisez `az tag update` et définissez `--operation` sur `Delete`. Transmettez les étiquettes que vous souhaitez supprimer.
 
 ```azurecli-interactive
 az tag update --resource-id $resource --operation Delete --tags Project=ECommerce Team=Web

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/03/2020
+ms.date: 12/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8273d4bbb0b58a256521cf11cacf6d1fed67e10d
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 2010f55a28d393086aad544cbec3f5c009801872
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96345114"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96750490"
 ---
 # <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique OpenID Connect dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -80,6 +80,7 @@ Le profil technique retourne également des revendications qui ne sont pas retou
 | IdTokenAudience | Non | Audience du jeton id_token. Si la valeur est spécifiée, Azure AD B2C vérifie si la revendication `aud` dans un jeton retourné par le fournisseur d’identité est identique à celle indiquée dans les métadonnées IdTokenAudience.  |
 | METADATA | Oui | URL qui pointe vers un document de configuration de fournisseur d’identité OpenID Connect, également appelé point de terminaison de configuration OpenID connu. L’URL peut contenir l’expression `{tenant}`, qui est remplacée par le nom du locataire.  |
 | authorization_endpoint | Non | URL qui pointe vers un point de terminaison d’autorisation de configuration de fournisseur d’identité OpenID Connect. La valeur des métadonnées authorization_endpoint est prioritaire sur celle de `authorization_endpoint` spécifiée dans le point de terminaison de configuration OpenID connu. L’URL peut contenir l’expression `{tenant}`, qui est remplacée par le nom du locataire. |
+| end_session_endpoint | Non | URL du point de terminaison de la session de fin. La valeur des métadonnées authorization_endpoint est prioritaire sur celle de `end_session_endpoint` spécifiée dans le point de terminaison de configuration OpenID connu. |
 | émetteur | Non | Identificateur unique d’un fournisseur d’identité OpenID Connect. La valeur des métadonnées de l’émetteur est prioritaire sur celle de `issuer` spécifiée dans le point de terminaison de configuration OpenID connu.  Si la valeur est spécifiée, Azure AD B2C vérifie si la revendication `iss` dans un jeton retourné par le fournisseur d’identité est identique à celle indiquée dans les métadonnées de l’émetteur. |
 | ProviderName | Non | Nom du fournisseur d'identité.  |
 | response_types | Non | Type de réponse conformément à la spécification OpenID Connect Core 1.0. Valeurs possibles : `id_token`, `code` ou `token`. |
@@ -91,8 +92,8 @@ Le profil technique retourne également des revendications qui ne sont pas retou
 | MarkAsFailureOnStatusCode5xx | Non | Indique si une demande adressée à un service externe doit être marquée comme un échec si le code d’état HTTP s’inscrit dans la plage 5xx. Par défaut, il s’agit de `false`. |
 | DiscoverMetadataByTokenIssuer | Non | Indique si les métadonnées OIDC doivent être découvertes à l’aide de l’émetteur dans le jeton JSON Web Token. |
 | IncludeClaimResolvingInClaimsHandling  | Non | Pour les revendications d’entrée et de sortie, spécifie si la [résolution des revendications](claim-resolver-overview.md) est incluse dans le profil technique. Valeurs possibles : `true` ou `false` (par défaut). Si vous souhaitez utiliser un programme de résolution des revendications dans le profil technique, définissez cette valeur sur `true`. |
-|token_endpoint_auth_method| Non| Indique comment Azure AD B2C envoie l'en-tête d'authentification au point de terminaison du jeton. Valeurs possibles : `client_secret_post` (par défaut) et `client_secret_basic` (préversion publique). Pour plus d'informations, consultez [Section d'authentification du client OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication). |
-
+|token_endpoint_auth_method| Non| Indique comment Azure AD B2C envoie l’en-tête d’authentification au point de terminaison du jeton. Valeurs possibles : `client_secret_post` (par défaut) et `client_secret_basic` (préversion publique). Pour plus d’informations, consultez [Section d’authentification du client OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication). |
+|SingleLogoutEnabled| No| Indique si, lors de la connexion, le profil technique tente de se déconnecter des fournisseurs d’identité fédérés. Pour plus d’informations, consultez [Déconnexion d’une session Azure AD B2C](session-overview.md#sign-out).  Valeurs possibles : `true` (par défaut) ou `false`.|
 
 ```xml
 <Metadata>

@@ -3,12 +3,12 @@ title: Découvrez comment auditer le contenu des machines virtuelles
 description: Découvrez comment Azure Policy utilise l’agent Configuration d’invité pour auditer les paramètres à l’intérieur des machines virtuelles.
 ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: e941938fce09e8729856322a5b6572b46a3714be
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: a956d5e8dcfa82f85020928e1427a08ac8fe7a69
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075482"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906248"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Comprendre la configuration d’invité d’Azure Policy
 
@@ -62,7 +62,7 @@ Les définitions de stratégie Guest Configuration sont incluses dans les nouvel
 
 |Serveur de publication|Nom|Versions|
 |-|-|-|
-|Canonical|Serveur Ubuntu|14.04 ou version ultérieure|
+|Canonical|Serveur Ubuntu|14.04 - 18.04|
 |Credativ|Debian|8 ou version ultérieure|
 |Microsoft|Windows Server|2012 ou version ultérieure|
 |Microsoft|Client Windows|Windows 10|

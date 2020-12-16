@@ -2,14 +2,14 @@
 title: Fournisseurs et types de ressources
 description: Décrit les fournisseurs de ressources qui prennent en charge Azure Resource Manager. Il décrit leurs schémas, les versions d’API disponibles et les régions qui peuvent héberger les ressources.
 ms.topic: conceptual
-ms.date: 11/09/2020
+ms.date: 12/04/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 702836e0dc98b06ccf6e0eeb0d0f373374c4e783
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6d114fdfae12dd9ee96a23e4dafc3847c6429d0c
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95972536"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745112"
 ---
 # <a name="azure-resource-providers-and-types"></a>Fournisseurs et types de ressources Azure
 
@@ -32,9 +32,12 @@ Pour obtenir la liste qui mappe les fournisseurs de ressources aux services Azur
 
 ## <a name="register-resource-provider"></a>S’inscrire auprès du fournisseur de ressources
 
-Pour pouvoir utiliser un fournisseur de ressources, votre abonnement Azure doit être inscrit pour le fournisseur de ressources. L’inscription permet de configurer votre abonnement pour qu’il fonctionne avec le fournisseur de ressources. Certains fournisseurs de ressources sont inscrits par défaut. D’autres fournisseurs de ressources sont inscrits automatiquement lorsque vous effectuez certaines actions. Par exemple, lorsque vous créez une ressource via le portail, le fournisseur de ressources est généralement inscrit pour vous. Pour d’autres scénarios, il se peut que vous deviez inscrire manuellement un fournisseur de ressources.
+Pour pouvoir utiliser un fournisseur de ressources, votre abonnement Azure doit être inscrit pour le fournisseur de ressources. L’inscription permet de configurer votre abonnement pour qu’il fonctionne avec le fournisseur de ressources. Certains fournisseurs de ressources sont inscrits par défaut. D’autres fournisseurs de ressources sont inscrits automatiquement lorsque vous effectuez certaines actions. Par exemple, lorsque vous créez une ressource via le portail, le fournisseur de ressources est généralement inscrit pour vous. Pour d’autres scénarios, il se peut que vous deviez inscrire manuellement un fournisseur de ressources. Pour obtenir la liste des fournisseurs de ressources inscrits par défaut, consultez [Fournisseurs de ressources pour les services Azure](azure-services-resource-providers.md).
 
 Cet article vous montre comment vérifier l’état d’inscription d’un fournisseur de ressources et comment l’inscrire si nécessaire. Vous devez être autorisé à effectuer l’opération `/register/action` pour le fournisseur de ressources. Cette autorisation est incluse dans les rôles Contributeur et Propriétaire.
+
+> [!IMPORTANT]
+> Inscrivez un fournisseur de ressources uniquement au moment où vous êtes prêt à l’utiliser. L’étape d’inscription vous permet de conserver les privilèges minimaux dans votre abonnement. Un utilisateur malveillant ne peut pas utiliser de fournisseurs de ressources qui ne sont pas inscrits.
 
 Votre code d’application ne doit pas bloquer la création de ressources pour un fournisseur de ressources qui est **en cours d’inscription**. Lorsque vous inscrivez le fournisseur de ressources, l’opération est effectuée individuellement pour chaque région prise en charge. Pour créer des ressources dans une région, l’inscription doit uniquement être effectuée dans cette région. En ne bloquant pas le fournisseur de ressources à l’état d’inscription en cours, votre application peut poursuivre beaucoup plus tôt qu’en attendant la fin de l’inscription pour toutes les régions.
 
@@ -42,20 +45,28 @@ Vous ne pouvez pas annuler l’inscription d’un fournisseur de ressources quan
 
 ## <a name="azure-portal"></a>Portail Azure
 
+### <a name="register-resource-provider"></a>S’inscrire auprès du fournisseur de ressources
+
 Pour afficher tous les fournisseurs de ressources et l'état d'inscription de votre abonnement :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-2. Dans le menu du portail Azure, sélectionnez **Tous les services**.
+1. Dans le menu du portail Azure, recherchez **Abonnements**. Sélectionnez-le parmi les options disponibles.
 
-    ![sélectionner les abonnements](./media/resource-providers-and-types/select-all-services.png)
+   :::image type="content" source="./media/resource-providers-and-types/search-subscriptions.png" alt-text="Recherche des abonnements":::
 
-3. Dans la zone **Tous les services**, entrez **Abonnement**, puis sélectionnez **Abonnements**.
-4. Sélectionnez l'abonnement dans la liste.
-5. Sélectionnez **Fournisseurs de ressources** et affichez la liste des fournisseurs de ressources disponibles.
+1. Sélectionnez l’abonnement que vous souhaitez afficher.
 
-    ![afficher les fournisseurs de ressources](./media/resource-providers-and-types/show-resource-providers.png)
+   :::image type="content" source="./media/resource-providers-and-types/select-subscription.png" alt-text="sélectionner les abonnements":::
 
-6. Pour inscrire un fournisseur de ressources, sélectionnez **Inscrire**. Dans la capture d'écran précédente, le lien **Inscrire** est mis en surbrillance pour **Microsoft.Blueprint**.
+1. Dans le menu de gauche, sous **Paramètres**, sélectionnez **Fournisseurs de ressources**.
+
+   :::image type="content" source="./media/resource-providers-and-types/select-resource-providers.png" alt-text="Sélection des fournisseurs de ressources":::
+
+6. Recherchez le fournisseur de ressources que vous souhaitez inscrire, puis sélectionnez **Inscrire**. Pour conserver les privilèges minimaux dans votre abonnement, inscrivez uniquement les fournisseurs de ressources que vous êtes prêt à utiliser.
+
+   :::image type="content" source="./media/resource-providers-and-types/register-resource-provider.png" alt-text="Inscription des fournisseurs de ressources":::
+
+### <a name="view-resource-provider"></a>Afficher un fournisseur de ressources
 
 Pour afficher des informations pour un fournisseur de ressources particulier :
 
@@ -107,7 +118,7 @@ Pour afficher tous les fournisseurs de ressources inscrits pour votre abonnement
  Get-AzResourceProvider -ListAvailable | Where-Object RegistrationState -eq "Registered" | Select-Object ProviderNamespace, RegistrationState | Sort-Object ProviderNamespace
 ```
 
-Pour inscrire un fournisseur de ressources, utilisez :
+Pour conserver les privilèges minimaux dans votre abonnement, inscrivez uniquement les fournisseurs de ressources que vous êtes prêt à utiliser. Pour inscrire un fournisseur de ressources, utilisez :
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
@@ -216,7 +227,7 @@ Pour afficher tous les fournisseurs de ressources inscrits pour votre abonnement
 az provider list --query "sort_by([?registrationState=='Registered'].{Provider:namespace, Status:registrationState}, &Provider)" --out table
 ```
 
-Pour inscrire un fournisseur de ressources, utilisez :
+Pour conserver les privilèges minimaux dans votre abonnement, inscrivez uniquement les fournisseurs de ressources que vous êtes prêt à utiliser. Pour inscrire un fournisseur de ressources, utilisez :
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.Batch

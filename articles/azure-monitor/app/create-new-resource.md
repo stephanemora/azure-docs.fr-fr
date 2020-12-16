@@ -3,12 +3,12 @@ title: Créer une ressource Azure Application Insights | Microsoft Docs
 description: Configurez manuellement la surveillance d’Application Insights pour une nouvelle application en direct.
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: d2e367e84aed7abac70d803f28d26070f7b0a85e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3fd05e6bd68be89b964fe1ad32029bf44f3352ea
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87323126"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906367"
 ---
 # <a name="create-an-application-insights-resource"></a>Création d’une ressource Application Insights dans Azure
 
@@ -44,7 +44,8 @@ Une fois votre application créée, un nouveau volet s’ouvre. Dans ce volet, v
 
 La clé d’instrumentation identifie la ressource à laquelle vous souhaitez associer vos données de télémétrie. Vous devez copier la clé d’instrumentation et l’ajouter au code de votre application.
 
-![Cliquer sur et copier la clé d’instrumentation](./media/create-new-resource/instrumentation-key.png)
+> [!IMPORTANT]
+> Les nouvelles régions Azure **exigent** l’utilisation de chaînes de connexion au lieu de clés d’instrumentation. Une [chaîne de connexion](./sdk-connection-string.md?tabs=net) identifie la ressource à laquelle vous souhaitez associer vos données de télémétrie. Elle vous permet également de modifier les points de terminaison que votre ressource utilisera comme destination pour votre télémétrie. Vous devrez copier la chaîne de connexion et l’ajouter au code de votre application ou à une variable d’environnement.
 
 ## <a name="install-the-sdk-in-your-app"></a>Installation du Kit SDK dans votre application
 
@@ -103,7 +104,7 @@ Pour accéder à la préversion des commandes Azure CLI pour Application Insight
  az extension add -n application-insights
 ```
 
-Si vous n’exécutez pas la commande `az extension add`, vous verrez un message d’erreur indiquant : `az : ERROR: az monitor: 'app-insights' is not in the 'az monitor' command group. See 'az monitor --help'.`
+Si vous n’exécutez pas la commande `az extension add`, vous verrez un message d’erreur qui indique : `az : ERROR: az monitor: 'app-insights' is not in the 'az monitor' command group. See 'az monitor --help'.`.
 
 Vous pouvez maintenant exécuter la commande suivante pour créer votre ressource Application Insights :
 

@@ -3,18 +3,18 @@ title: Afficher des données personnalisées sur une carte raster | Microsoft Az
 description: Découvrez comment ajouter des clics-infos, des étiquettes et des formes géométriques à une carte raster. Pour ce faire, découvrez comment utiliser le service d’images statiques dans Azure Maps.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 01/23/2020
+ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 88afb380f1aabf0c91e9d5abb0430972743eb6c2
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 5c70835c11bafb3fd06645ba51099b33d1eb6149
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895747"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906078"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>Afficher des données personnalisées sur une carte raster
 
@@ -41,9 +41,9 @@ Le compte Azure Maps au niveau S0 prend en charge une seule instance du paramèt
 
 Pour afficher les repères avec les étiquettes et une image personnalisée, effectuez ces étapes :
 
-1. Créez une collection dans laquelle stocker les demandes. Dans l’application Postman, sélectionnez **New** (Nouveau). Dans la fenêtre **Create New** (Créer nouveau), sélectionnez **Collection** . Nommez la collection puis sélectionnez le bouton **Create** (Créer). 
+1. Créez une collection dans laquelle stocker les demandes. Dans l’application Postman, sélectionnez **New** (Nouveau). Dans la fenêtre **Create New** (Créer nouveau), sélectionnez **Collection**. Nommez la collection puis sélectionnez le bouton **Create** (Créer). 
 
-2. Pour créer la demande, sélectionnez **New** à nouveau. Dans la fenêtre **Create New** (Créer nouveau), sélectionnez **Request** (Demande). Entrez un **Request name** (Nom de demande) pour les clics-infos. Sélectionnez la collection que vous avez créée à l’étape précédente comme emplacement dans lequel enregistrer la demande. Sélectionnez ensuite **Enregistrer** .
+2. Pour créer la demande, sélectionnez **New** à nouveau. Dans la fenêtre **Create New** (Créer nouveau), sélectionnez **Request** (Demande). Entrez un **Request name** (Nom de demande) pour les clics-infos. Sélectionnez la collection que vous avez créée à l’étape précédente comme emplacement dans lequel enregistrer la demande. Sélectionnez ensuite **Enregistrer**.
     
     ![Créer une demande dans Postman](./media/how-to-render-custom-data/postman-new.png)
 
@@ -70,7 +70,7 @@ Vous pouvez aussi obtenir les informations sur le chemin et l’emplacement du r
     https://atlas.microsoft.com/mapData/upload?subscription-key={subscription-key}&api-version=1.0&dataFormat=geojson
     ```
 
-2. Sur l’onglet **Params** , entrez les paires clé/valeur suivantes, utilisées pour l’URL de la requête POST. Remplacez la valeur `subscription-key` par votre clé d’abonnement Azure Maps.
+2. Sur l’onglet **Params**, entrez les paires clé/valeur suivantes, utilisées pour l’URL de la requête POST. Remplacez la valeur `subscription-key` par votre clé d’abonnement Azure Maps.
     
     ![Paramètres clé/valeur dans Postman](./media/how-to-render-custom-data/postman-key-vals.png)
 
@@ -223,4 +223,4 @@ De même, vous pouvez modifier, ajouter et supprimer d’autres modificateurs de
 
 
 * Explorez la documentation de l’[API Azure Maps Get Map Image](/rest/api/maps/render/getmapimage).
-* Pour en savoir plus sur le service de données Azure Maps, consultez la [documentation du service](/rest/api/maps/data).
+* Pour plus d’informations sur le service Data Azure Maps (préversion), consultez la [documentation du service](/rest/api/maps/data).

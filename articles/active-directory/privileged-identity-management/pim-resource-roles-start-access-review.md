@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: pim
-ms.date: 11/08/2019
+ms.date: 12/08/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0b67761b3c765e202505d442647b3ba034ef15a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 2a618da7c9a66b8f687c1b75914530080ed56bea
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372495"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905823"
 ---
 # <a name="create-an-access-review-of-azure-resource-roles-in-privileged-identity-management"></a>Créer une révision d’accès des rôles de ressources Azure dans Privileged Identity Management
 
@@ -36,13 +36,13 @@ Cet article explique comment créer une ou plusieurs révisions d’accès pour 
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) à l’aide d’un nom d’utilisateur qui est membre du rôle Administrateur de rôle privilégié.
 
-1. Ouvrez **Azure AD Privileged Identity Management** .
+1. Ouvrez **Azure AD Privileged Identity Management**.
 
-1. Dans le menu de gauche, sélectionnez **Ressources Azure** .
+1. Dans le menu de gauche, sélectionnez **Ressources Azure**.
 
-1. Sélectionnez la ressource que vous souhaitez gérer, telle qu’un abonnement ou un groupe d’administration.
+1. Sélectionnez la ressource que vous souhaitez gérer, par exemple, un abonnement.
 
-1. Sous Gérer, sélectionnez **Révisions d’accès** .
+1. Sous Gérer, sélectionnez **Révisions d’accès**.
 
     ![Ressources Azure : liste des révisions d’accès indiquant l’état de toutes les révisions](./media/pim-resource-roles-start-access-review/access-reviews.png)
 
@@ -50,7 +50,7 @@ Cet article explique comment créer une ou plusieurs révisions d’accès pour 
 
 ## <a name="start-the-access-review"></a>Démarrer la révision d’accès
 
-Une fois que vous avez spécifié les paramètres pour une révision d’accès, cliquez sur **Démarrer** . La révision d’accès s’affiche dans votre liste, avec un indicateur de son état.
+Une fois que vous avez spécifié les paramètres pour une révision d’accès, cliquez sur **Démarrer**. La révision d’accès s’affiche dans votre liste, avec un indicateur de son état.
 
 ![Liste des révisions d’accès indiquant l’état des révisions démarrées](./media/pim-resource-roles-start-access-review/access-reviews-list.png)
 
@@ -66,7 +66,7 @@ S’il s’agit d’une révision unique, une fois la période de révision d’
 
 Pour gérer une série de révisions d’accès, accédez à la révision d’accès et vous y voyez les occurrences à venir dans les révisions planifiées, pour lesquelles vous pouvez modifier la date de fin, ou ajouter/supprimer des réviseurs en conséquence.
 
-En fonction de vos sélections dans **Paramètres de saisie semi-automatique** , l’application automatique est exécutée après la date de fin de la révision ou lorsque vous arrêtez manuellement la révision. La révision passe alors de l’état **Terminé** à divers états intermédiaires, comme **Application en cours** , pour arriver enfin à l’état **Appliqué** . Les utilisateurs dont l’accès est refusé doivent perdre leurs rôles au bout de quelques minutes.
+En fonction de vos sélections dans **Paramètres de saisie semi-automatique**, l’application automatique est exécutée après la date de fin de la révision ou lorsque vous arrêtez manuellement la révision. La révision passe alors de l’état **Terminé** à divers états intermédiaires, comme **Application en cours**, pour arriver enfin à l’état **Appliqué**. Les utilisateurs dont l’accès est refusé doivent perdre leurs rôles au bout de quelques minutes.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

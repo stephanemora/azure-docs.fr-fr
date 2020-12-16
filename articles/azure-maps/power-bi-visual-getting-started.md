@@ -3,22 +3,22 @@ title: Prise en main du visuel Power BI Azure Maps | Microsoft Azure Maps
 description: Dans cet article, vous allez apprendre à utiliser le visuel Microsoft Azure Maps pour Power BI.
 author: rbrundritt
 ms.author: richbrun
-ms.date: 06/26/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 5c89922aef1ba802ee694aaed9bae2ac2dd273ee
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: a563a7776e84289e38743057778e8fe10fd17503
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896240"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904701"
 ---
 # <a name="getting-started-with-the-azure-maps-power-bi-visual"></a>Prise en main du visuel Power BI Azure Maps
 
-<Token>**S’APPLIQUE À :** ![Coche verte.](media/power-bi-visual/yes.png) Service Power BI pour les *_consommateurs_* _ ![Green check mark.](media/power-bi-visual/yes.png) Service Power BI pour les concepteurs et les développeurs ![Coche verte.](media/power-bi-visual/yes.png) Power BI Desktop ![X signifiant Non.](media/power-bi-visual/no.png) Nécessite une licence Pro ou Premium </Token>
+<Token>**S’APPLIQUE À :** ![Coche verte.](media/power-bi-visual/yes.png) Service Power BI pour les *_consommateurs_* _ ![Green check mark.](media/power-bi-visual/yes.png) Service Power BI pour les concepteurs et les développeurs ![Coche verte.](media/power-bi-visual/yes.png) Power BI Desktop ![X signifiant Non.](media/power-bi-visual/no.png) Nécessite une licence Pro ou Premium</Token>
 
 Cet article explique comment utiliser le visuel Microsoft Azure Maps pour Power BI.
 
@@ -45,15 +45,15 @@ Vous, ou votre administrateur, devrez peut-être mettre à jour votre pare-feu p
 
 Pour en savoir plus à propos de la confidentialité et des conditions d’utilisation associées au visuel Azure Maps, consultez [Mentions légales Microsoft Azure](https://azure.microsoft.com/support/legal/).
 
-## <a name="preview-behavior-and-requirements"></a>Comportement et configuration requise de la préversion
+## <a name="azure-maps-visual-preview-behavior-and-requirements"></a>Comportement et configuration requise du visuel Azure Maps (préversion)
 
-Cette préversion d’_*Azure Maps** est soumise à quelques considérations et exigences :
+Voici quelques considérations et exigences concernant le visuel _ *Azure Maps** :
 
--   Le visuel **Azure Maps** est en préversion et doit être activé dans Power BI Desktop. Pour activer **Azure Maps** , sélectionnez **Fichier** &gt; **Options et paramètres** &gt; **Options** &gt; **Fonctionnalités en préversion** , puis activez la case à cocher **Visuel Azure Maps**. Si le visuel Azure Maps n’est pas disponible après cela, cela signifie sans doute qu’un commutateur administrateur de locataire dans le Portail d’administration doit être activé.
+-   Le visuel **Azure Maps** (préversion) doit être activé dans Power BI Desktop. Pour activer le visuel **Azure Maps**, sélectionnez **Fichier** &gt; **Options et paramètres** &gt; **Options** &gt; **Fonctionnalités en préversion**, puis cochez la case **Visuel Azure Maps**. Si le visuel Azure Maps n’est pas disponible après cela, cela signifie sans doute qu’un commutateur administrateur de locataire dans le Portail d’administration doit être activé.
 -   Le jeu de données doit inclure des champs qui contiennent des informations sur la **latitude** et la **longitude**. Le géocodage des champs d’emplacement sera ajouté dans une prochaine mise à jour.
 -   Le contrôle de légende intégré pour Power BI n’apparaît pas dans cette préversion. Il sera ajouté dans une prochaine mise à jour.
 
-## <a name="use-the-azure-maps-visual"></a>Utiliser le visuel Azure Maps
+## <a name="use-the-azure-maps-visual-preview"></a>Utiliser le visuel Azure Maps (préversion)
 
 Une fois que le visuel **Azure Maps** est activé, sélectionnez l’icône **Azure Maps** dans le volet **Visualisations**.
 
@@ -65,7 +65,7 @@ Power BI crée un canevas de conception de visuel Azure Maps vide. Dans la prév
 
 Procédez comme suit pour charger le visuel Azure Maps :
 
-1.  Dans le volet **Champs** , faites glisser les champs de données qui contiennent des informations sur les coordonnées de latitude et de longitude vers les compartiments **Latitude** et/ou **Longitude**. Il s’agit des données minimales nécessaires au chargement du visuel Azure Maps.
+1.  Dans le volet **Champs**, faites glisser les champs de données qui contiennent des informations sur les coordonnées de latitude et de longitude vers les compartiments **Latitude** et/ou **Longitude**. Il s’agit des données minimales nécessaires au chargement du visuel Azure Maps.
     
     > [!div class="mx-imgBorder"]
     > ![Visuel Azure Maps affichant des points en tant que bulles sur la carte une fois les champs de latitude et de longitude renseignés](media/power-bi-visual/bubble-layer.png)

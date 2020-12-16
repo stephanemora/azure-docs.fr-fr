@@ -10,12 +10,12 @@ ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 09/22/2020
 ms.custom: contperfq1
-ms.openlocfilehash: 43b03abb2aac13358a2187a0a5dc570c1e45934e
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: c612e2a95e2596b2732ed8282037c8ded908a0a0
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96458492"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571383"
 ---
 # <a name="deep-learning-vs-machine-learning-in-azure-machine-learning"></a>Apprentissage profond et apprentissage automatique dans Azure Machine Learning
 
@@ -93,8 +93,6 @@ L’analyse de texte basée sur des méthodes de deep learning implique l’anal
 
 Les entreprises utilisent le deep learning pour analyser le texte et détecter le délit d’initié et la conformité aux réglementations gouvernementales. Un autre exemple courant concerne la fraude aux assurances : l’analyse de texte a souvent été utilisée pour analyser de grandes quantités de documents dans le but de reconnaître d’éventuelles fraudes dans les déclarations de sinistres. 
 
-Découvrez comment utiliser un modèle TensorFlow dans Azure Machine Learning : [Classifier des chiffres manuscrits à l’aide d’un modèle TensorFlow](./how-to-train-tensorflow.md?WT.mc_id=docs-article-lazzeri)
-
 ## <a name="artificial-neural-networks"></a>Réseaux neuronaux artificiels
 
 Les réseaux neuronaux artificiels sont formés par couches de nœuds connectés. Les modèles de Deep Learning utilisent des réseaux neuronaux comportant grand nombre de couches. 
@@ -118,6 +116,9 @@ Des réseaux neuronaux convolutifs sont utilisés dans des domaines tels que la 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Les articles suivants présentent des options supplémentaires pour l’utilisation de modèles d’apprentissage profond open source dans [Azure Machine Learning](./index.yml?WT.mc_id=docs-article-lazzeri) :
+
+
+- [Classifier des chiffres manuscrits à l’aide d’un modèle TensorFlow](./how-to-train-tensorflow.md?WT.mc_id=docs-article-lazzeri) 
 
 - [Classifier des chiffres manuscrits à l’aide d’un estimateur TensorFlow et de Keras](./how-to-train-keras.md?WT.mc_id=docs-article-lazzeri)
 

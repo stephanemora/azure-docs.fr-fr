@@ -4,12 +4,12 @@ description: Découvrez comment mettre à niveau un cluster Azure Kubernetes ser
 services: container-service
 ms.topic: article
 ms.date: 11/17/2020
-ms.openlocfilehash: 262905c9f840850795ba9555912e81eca61369d1
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: c5de1a02a077ccb5f46b685572c6c43f5951b224
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94683231"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96751493"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Mise à jour d’un cluster Azure Kubernetes Service (AKS)
 
@@ -93,7 +93,7 @@ az aks nodepool update -n mynodepool -g MyResourceGroup --cluster-name MyManaged
 
 ## <a name="upgrade-an-aks-cluster"></a>Mettre à niveau un cluster AKS
 
-Avec une liste des versions disponibles pour votre cluster AKS, utilisez la commande [az aks upgrade][az-aks-upgrade] pour opérer la mise à niveau. Pendant le processus de mise à niveau, AKS ajoute un nouveau nœud de tampon (ou autant de nœuds que ceux configurés dans [max-surge](#customize-node-surge-upgrade)) au cluster qui exécute la version de Kubernetes spécifiée. Ensuite, il effectue l’[isolation et le drainage][kubernetes-drain] d’un des anciens nœuds pour minimiser l’interruption des applications en cours d’exécution (si vous utilisez max-surge, l’[isolation et le drainage][kubernetes-drain] seront effectués sur autant de nœuds que le nombre de nœuds de mémoire tampon spécifiés). Lorsque l’ancien nœud est entièrement drainé, il est réinitialisé pour recevoir la nouvelle version et devient le nœud de mémoire tampon pour le nœud suivant à mettre à niveau. Ce processus se répète jusqu’à ce que tous les nœuds du cluster soient mis à niveau. À la fin du processus, le dernier nœud drainé est supprimé, ce qui a pour effet de maintenir le nombre de nœuds d’agent existants.
+Avec une liste des versions disponibles pour votre cluster AKS, utilisez la commande [az aks upgrade][az-aks-upgrade] pour opérer la mise à niveau. Pendant le processus de mise à niveau, AKS ajoute un nouveau nœud de tampon (ou autant de nœuds que ceux configurés dans [max-surge](#customize-node-surge-upgrade)) au cluster qui exécute la version de Kubernetes spécifiée. Ensuite, il effectue l’[isolation et le drainage][kubernetes-drain] d’un des anciens nœuds pour minimiser l’interruption des applications en cours d’exécution (si vous utilisez max-surge, l’[isolation et le drainage][kubernetes-drain] seront effectués sur autant de nœuds que le nombre de nœuds de mémoire tampon spécifiés). Lorsque l’ancien nœud est entièrement drainé, il est réinitialisé pour recevoir la nouvelle version et devient le nœud de mémoire tampon pour le nœud suivant à mettre à niveau. Ce processus se répète jusqu’à ce que tous les nœuds du cluster soient mis à niveau. À la fin du processus, le dernier nœud tampon est supprimé, ce qui a pour effet de maintenir le nombre de nœuds d’agent existants et l’équilibre de la zone.
 
 ```azurecli-interactive
 az aks upgrade \
@@ -104,8 +104,9 @@ az aks upgrade \
 
 Quelques minutes suffisent pour mettre à niveau le cluster. Le temps nécessaire varie en fonction du nombre de nœuds.
 
-> [!NOTE]
-> Il existe un temps total alloué à la mise à niveau de cluster. Cette durée est calculée en prenant le produit de l’opération `10 minutes * total number of nodes in the cluster`. Par exemple, dans un cluster de 20 nœuds, les opérations de mise à niveau doivent réussir en 200 minutes. Dans le cas contraire, AKS fait échouer l’opération pour éviter un état de cluster irrécupérable. Pour effectuer une récupération en cas d’échec de mise à niveau, retentez l’opération de mise à niveau une fois le délai d’expiration atteint.
+> [!IMPORTANT]
+> Assurez-vous que les `PodDisruptionBudgets` (PDB) permettent de déplacer au moins un réplica de pod à la fois, sinon l’opération de drainage/d’exclusion échouera.
+> Si l’opération de drainage échoue, l’opération de mise à niveau échouera de par sa conception afin de garantir que les applications ne soient pas interrompues. Corrigez ce qui a provoqué l’arrêt de l’opération (PDB incorrects, manque de quota, etc.), puis recommencez l’opération.
 
 Pour vérifier si la mise à niveau a réussi, utilisez la commande [az aks show][az-aks-show] :
 
@@ -119,6 +120,64 @@ L’exemple de sortie suivant montre que le cluster exécute à présent *1.13.1
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn
 ------------  ----------  ---------------  -------------------  -------------------  ---------------------------------------------------------------
 myAKSCluster  eastus      myResourceGroup  1.13.10               Succeeded            myaksclust-myresourcegroup-19da35-90efab95.hcp.eastus.azmk8s.io
+```
+
+## <a name="set-auto-upgrade-channel-preview"></a>Définir un canal de mise à niveau automatique (préversion)
+
+En plus de mettre à niveau manuellement un cluster, vous pouvez définir un canal de mise à niveau automatique sur votre cluster. Les canaux de mise à niveau suivants sont disponibles :
+
+* *aucun*, qui désactive les mises à niveau automatiques et conserve le cluster dans sa version actuelle de Kubernetes. Il s’agit de la valeur par défaut, qui est utilisée si aucune option n’est spécifiée.
+* *patch*, qui mettra automatiquement à niveau le cluster vers la dernière version de patch prise en charge lorsqu’elle sera disponible tout en conservant la version mineure. Par exemple, si un cluster exécute la version *1.17.7* et que les versions *1.17.9*, *1.18.4*, *1.18.6* et *1.19.1* sont disponibles, votre cluster est mis à niveau vers la version *1.17.9*.
+* *stable*, qui mettra automatiquement à niveau le cluster vers la dernière version de patch prise en charge sur la version mineure *N-1*, où *N* désigne la dernière version mineure prise en charge. Par exemple, si un cluster exécute la version *1.17.7* et que les versions *1.17.9*, *1.18.4*, *1.18.6* et *1.19.1* sont disponibles, votre cluster est mis à niveau vers la version *1.18.6*.
+* *rapide*, qui mettra automatiquement à niveau le cluster vers la dernière version de patch prise en charge sur la dernière version mineure prise en charge. Dans les cas où le cluster a une version de Kubernetes qui est une version mineure *N-2* où *N* est la dernière version mineure prise en charge, le cluster se met d’abord à niveau vers la dernière version de patch prise en charge sur la version mineure *N-1*. Par exemple, si un cluster exécute la version *1.17.7* et que les versions *1.17.9*, *1.18.4*, *1.18.6* et *1.19.1* sont disponibles, votre cluster se met d’abord à niveau vers la version *1.18.6*, puis se met à niveau vers la version *1.19.1*.
+
+> [!NOTE]
+> La mise à jour automatique du cluster ne concerne que les versions GA de Kubernetes et non les versions en préversion.
+
+La mise à niveau automatique d’un cluster suit le même processus que la mise à niveau manuelle d’un cluster. Pour plus d’informations, consultez [Mettre à niveau un cluster AKS][upgrade-cluster].
+
+La mise à niveau automatique de cluster pour les clusters AKS est une fonctionnalité d’évaluation.
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
+Inscrivez l’indicateur de fonctionnalité `AutoUpgradePreview` à l’aide de la commande [az feature register][az-feature-register], comme indiqué dans l’exemple suivant :
+
+```azurecli-interactive
+az feature register --namespace Microsoft.ContainerService -n AutoUpgradePreview
+```
+
+Quelques minutes sont nécessaires pour que l’état s’affiche *Registered* (Inscrit). Vérifiez l’état de l’inscription à l’aide de la commande [az feature list][az-feature-list] :
+
+```azurecli-interactive
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AutoUpgradePreview')].{Name:name,State:properties.state}"
+```
+
+Lorsque vous êtes prêt, actualisez l’inscription du fournisseur de ressources *Microsoft.ContainerService* à l’aide de la commande [az provider register][az-provider-register] :
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+
+Utilisez la commande [az extension add][az-extension-add] pour installer l’extension *aks-preview*, puis recherchez toutes les mises à jour disponibles à l’aide de la commande [az extension update][az-extension-update] :
+
+```azurecli-interactive
+# Install the aks-preview extension
+az extension add --name aks-preview
+
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
+
+Pour définir le canal de mise à niveau automatique lors de la création d’un cluster, utilisez le paramètre *auto-upgrade-channel*, comme dans l’exemple suivant.
+
+```azurecli-interactive
+az aks create --resource-group myResourceGroup --name myAKSCluster --auto-upgrade-channel stable --generate-ssh-keys
+```
+
+Pour définir le canal de mise à niveau automatique sur un cluster existant, mettez à jour le paramètre *auto-upgrade-channel*, comme dans l’exemple suivant.
+
+```azurecli-interactive
+az aks update --resource-group myResourceGroup --name myAKSCluster --auto-upgrade-channel stable
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -137,6 +196,10 @@ Cet article vous a montré comment mettre à niveau un cluster AKS existant. Pou
 [az-aks-get-upgrades]: /cli/azure/aks#az-aks-get-upgrades
 [az-aks-upgrade]: /cli/azure/aks#az-aks-upgrade
 [az-aks-show]: /cli/azure/aks#az-aks-show
-[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
+[az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register&preserve-view=true
+[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
+[upgrade-cluster]:  #upgrade-an-aks-cluster

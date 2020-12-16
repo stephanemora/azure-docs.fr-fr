@@ -10,12 +10,12 @@ ms.date: 08/11/2020
 author: dcstwh
 ms.author: weetok
 manager: anandsub
-ms.openlocfilehash: 4eb9b0077d1d0591953a40d98a220d7aa0683de7
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: fa71dc1e6b3a09827f2ad3d9f714622da5a36222
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96497943"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862443"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Surveiller un runtime d’intégration dans Azure Data Factory
 
@@ -104,7 +104,7 @@ Le tableau suivant indique les états possibles d’un nœud de runtime d’int�
 | En ligne | Le nœud est connecté au service Data Factory. |
 | Hors connexion | Le nœud est hors connexion. |
 | Mise à niveau | Le nœud est en cours de mise à jour automatique. |
-| Limité | En raison d’un problème de connectivité. Éventuellement dû à un problème de port HTTP 8050, à un problème de connectivité du bus de service ou à un problème de synchronisation des informations d’identification. |
+| Limité | En raison d’un problème de connectivité. Éventuellement dû à un problème de port HTTP 8060, à un problème de connectivité du bus de service ou à un problème de synchronisation des informations d’identification. |
 | Inactif | La configuration du nœud est différente de celle de la majorité des autres nœuds. |
 
 Un nœud peut être inactif quand il ne parvient pas à se connecter à d’autres nœuds.

@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 1a9d5fe69cd9d853d0bf8ec971f31518bbf47c9a
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 31ae4605b6cc9e26c89beea692fe61fcbda49c4c
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94504694"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96621499"
 ---
 # <a name="azure-cache-for-redis-with-azure-private-link-public-preview"></a>Azure Cache pour Redis avec Azure Private Link (Préversion publique)
 Dans cet article, vous allez apprendre à créer un réseau virtuel et une instance Azure Cache pour Redis avec un point de terminaison privé à l’aide du portail Azure. Vous apprendrez également à ajouter un point de terminaison privé à une instance Azure Cache pour Redis existante.
@@ -111,8 +111,8 @@ La création du cache prend un certain temps. Vous pouvez surveiller la progress
     
 > [!IMPORTANT]
 > 
-> Il existe un indicateur `publicNetworkAccess` qui est `Enabled` par défaut. 
-> Cet indicateur est destiné à vous permettre d’autoriser l’accès de points de terminaison public et privé au cache s’il est défini sur `Enabled`. Si la valeur est `Disabled`, il autorise uniquement l’accès de point de terminaison privé. Vous pouvez définir la valeur sur `Disabled` avec la requête PATCH suivante.
+> Il existe un indicateur `publicNetworkAccess` qui est `Disabled` par défaut. 
+> Cet indicateur est destiné à vous permettre d’autoriser l’accès de points de terminaison public et privé au cache s’il est défini sur `Enabled`. Si la valeur est `Disabled`, il autorise uniquement l’accès de point de terminaison privé. Vous pouvez définir la valeur sur `Disabled` ou `Enabled` avec la requête PATCH suivante. Modifiez la valeur pour refléter l’indicateur que vous souhaitez appliquer à votre cache.
 > ```http
 > PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/{resourcegroup}/providers/Microsoft.Cache/Redis/{cache}?api-version=2020-06-01
 > {    "properties": {
@@ -212,8 +212,9 @@ Si votre cache est déjà un cache injecté sur un réseau virtuel, les points d
 ### <a name="what-features-are-not-supported-with-private-endpoints"></a>Quelles fonctionnalités ne sont pas prises en charge avec les points de terminaison privés ?
 La géoréplication, les règles de pare-feu, la prise en charge de la console du portail, la multiplicité des points de terminaison par cache en cluster, la persistance aux règles de pare-feu et la redondance de zone. 
 
-### <a name="how-can-i-change-my-private-endpoint-to-be-disabled-from-public-network-access"></a>Comment puis-je modifier mon point de terminaison privé pour qu’il soit désactivé de l’accès au réseau public ?
-Il existe un indicateur `publicNetworkAccess` qui est `Enabled` par défaut. Cet indicateur est destiné à vous permettre d’autoriser l’accès de points de terminaison public et privé au cache s’il est défini sur `Enabled`. Si la valeur est `Disabled`, il autorise uniquement l’accès de point de terminaison privé. Vous pouvez définir la valeur sur `Disabled` avec la requête PATCH suivante.
+### <a name="how-can-i-change-my-private-endpoint-to-be-disabled-or-enabled-from-public-network-access"></a>Comment puis-je modifier mon point de terminaison privé pour qu’il soit désactivé ou activé à partir de l’accès au réseau public ?
+Il existe un indicateur `publicNetworkAccess` qui est `Disabled` par défaut. Cet indicateur est destiné à vous permettre d’autoriser l’accès de points de terminaison public et privé au cache s’il est défini sur `Enabled`. Si la valeur est `Disabled`, il autorise uniquement l’accès de point de terminaison privé. Vous pouvez définir la valeur sur `Disabled` ou `Enabled` avec la requête PATCH suivante. Modifiez la valeur pour refléter l’indicateur que vous souhaitez appliquer à votre cache.
+
 ```http
 PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/{resourcegroup}/providers/Microsoft.Cache/Redis/{cache}?api-version=2020-06-01
 {    "properties": {
