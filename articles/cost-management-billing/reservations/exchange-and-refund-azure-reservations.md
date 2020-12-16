@@ -5,14 +5,14 @@ author: yashesvi
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 12/15/2020
 ms.author: banders
-ms.openlocfilehash: 89b01205c08216b3ce1ec2d36cce48335b49eb47
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: b0f17149eb646b6108dc6a81922e6e5b00f143d6
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96344281"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97560540"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Échanges et remboursements en libre-service de réservations Azure
 
@@ -21,7 +21,7 @@ Les réservations Azure offrent la flexibilité nécessaire pour répondre à vo
 L’échange en libre service et la fonctionnalité d’annulation n’est pas disponible pour les clients Contrat Entreprise de l’administration américaine. Les autres types d’abonnements US Government, notamment les abonnements avec paiement à l’utilisation et les abonnements de fournisseur de solutions cloud sont pris en charge.
 
 > [!NOTE]
-> - **Vous devez disposer d’un accès propriétaire à l’ordre de réservation pour échanger une réservation existante ou en obtenir le remboursement.** . Vous pouvez [ajouter ou changer les utilisateurs qui peuvent gérer une réservation](./manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
+> - **Vous devez disposer d’un accès propriétaire à l’ordre de réservation pour échanger une réservation existante ou en obtenir le remboursement.** . Vous pouvez [ajouter ou changer les utilisateurs qui peuvent gérer une réservation](./manage-reserved-vm-instance.md#who-can-manage-a-reservation-by-default).
 > - Microsoft ne facture actuellement aucun frais de résiliation anticipée pour les remboursements de réservations. Il est possible que nous facturions les frais pour les remboursements effectués à l’avenir. Nous n’avons actuellement aucune date concernant l’activation des frais.
 
 ## <a name="how-to-exchange-or-refund-an-existing-reservation"></a>Comment échanger ou rembourser une réservation existante
@@ -66,7 +66,7 @@ Azure dispose des stratégies suivantes pour les annulations, les échanges et l
 **Stratégies d’échange**
 
 - Vous pouvez retourner plusieurs réservations existantes pour acheter une seule nouvelle réservation du même type. Vous ne pouvez pas échanger une réservation d’un type contre une réservation d’un autre type. Par exemple, vous ne pouvez pas retourner une réservation de machine virtuelle pour acheter une réservation SQL. Vous pouvez modifier une propriété d’une réservation telle que la famille, la série, la version, la référence SKU, la région, la quantité et la période avec un échange.
-- Seuls les propriétaires de réservation peuvent traiter un échange. [Découvrez comment ajouter ou changer les utilisateurs qui peuvent gérer une réservation](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
+- Seuls les propriétaires de réservation peuvent traiter un échange. [Découvrez comment ajouter ou changer les utilisateurs qui peuvent gérer une réservation](manage-reserved-vm-instance.md#who-can-manage-a-reservation-by-default).
 - Un échange est traité comme un remboursement et un rachat : différentes transactions sont créées pour l’annulation et le nouvel achat de réservation. Le montant de la réservation au prorata est remboursé pour les réservations qui sont échangées. Vous êtes facturé entièrement pour le nouvel achat. Le montant de la réservation au prorata est la valeur résiduelle au prorata quotidienne de la réservation qui fait l’objet d’un retour.
 - Vous pouvez échanger une réservation ou en obtenir le remboursement même si le contrat entreprise utilisé pour son achat a expiré et a été renouvelé sous la forme d’un nouveau contrat.
 - L’engagement de durée de vie de la nouvelle réservation doit être égal ou supérieur à l’engagement restant de la réservation retournée. Exemple : Pour une réservation de trois ans à 100 $ par mois et échangée après le 18ème paiement, l’engagement de durée de vie de la nouvelle réservation doit être de 1 800 $ ou plus (payés mensuellement ou d’avance).
@@ -79,7 +79,7 @@ Azure dispose des stratégies suivantes pour les annulations, les échanges et l
 - L’engagement total annulé ne peut pas dépasser 50 000 USD dans une période de 12 mois pour un profil de facturation ou une inscription unique. Par exemple, pour une réservation d’une durée de trois ans à 100 USD par mois et qui est remboursée le 18ème mois, l’engagement annulé est de 1 800 USD. Après le remboursement, votre nouvelle limite disponible pour le remboursement est de 48 200 USD. 365 jours à compter du remboursement, la limite de 48 200 USD sera augmentée de 1 800 USD et votre nouvelle réserve sera de 50 000 USD. Toute autre annulation de réservation pour le profil de facturation ou l’inscription à un Contrat Entreprise épuisera cette même réserve, et la même logique de réapprovisionnement s’appliquera.
 - Azure ne traite pas les remboursements qui dépassent la limite de 50 000 USD dans une période de 12 mois pour un profil de facturation ou une inscription à un Contrat Entreprise.
 - Les remboursements sont calculés en fonction du prix le plus bas de votre prix d’achat ou du prix actuel de la réservation.
-- Seuls les propriétaires d’ordres de réservation peuvent traiter un remboursement. [Découvrez comment ajouter ou changer les utilisateurs qui peuvent gérer une réservation](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
+- Seuls les propriétaires d’ordres de réservation peuvent traiter un remboursement. [Découvrez comment ajouter ou changer les utilisateurs qui peuvent gérer une réservation](manage-reserved-vm-instance.md#who-can-manage-a-reservation-by-default).
 
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
 

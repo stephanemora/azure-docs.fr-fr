@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 6741d48490cb186b986317f584a4c7b2a11b865c
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 8a1baa34565e9939db54b44f3d196c927b35385e
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91828813"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97532160"
 ---
 ### <a name="examine-and-edit-the-sample-files"></a>Examiner et modifier les exemples de fichiers
 
@@ -25,7 +25,7 @@ Dans le cadre des prérequis, vous avez téléchargé l’exemple de code dans u
 1. Modifiez le fichier *operations.json* :
  
     * Changez le lien vers la topologie de graphe :
-    * `"topologyUrl"` : `"https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/grpcExtension/topology.json"`
+    * `"topologyUrl"` : `"https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/grpcExtension/2.0/topology.json"`
     * Sous GraphInstanceSet, modifiez le nom de la topologie de graphe pour qu’il corresponde à la valeur dans le lien précédent :
     * `"topologyName"` : `"InferencingWithGrpcExtension"`
     * Sous GraphTopologyDelete, modifiez le nom :
@@ -118,7 +118,7 @@ Dans le cadre des prérequis, vous avez téléchargé l’exemple de code dans u
 1. Recherchez et activez « Afficher le message détaillé ».
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="../../../media/run-program/show-verbose-message.png" alt-text="Paramètres d’extension":::
+    > :::image type="content" source="../../../media/run-program/show-verbose-message.png" alt-text="Afficher le message détaillé":::
 1. Cliquez avec le bouton droit sur l’appareil Live Video Analytics, puis sélectionnez sur **Démarrer la supervision du point de terminaison d’événement intégré**. Vous devez effectuer cette étape pour superviser les événements IoT Hub dans la fenêtre **SORTIE** de Visual Studio Code.
 
    ![Démarrer la surveillance](../../../media/quickstarts/start-monitoring-built-event-endpoint-grpc.png)
@@ -132,7 +132,7 @@ Dans le cadre des prérequis, vous avez téléchargé l’exemple de code dans u
     -------------------------------Executing operation GraphTopologyList-----------------------  
     Request: GraphTopologyList  --------------------------------------------------
     {
-    "@apiVersion": "1.0"
+    "@apiVersion": "2.0"
     }
     ---------------  
     Response: GraphTopologyList - Status: 200  ---------------
@@ -151,7 +151,7 @@ Dans le cadre des prérequis, vous avez téléchargé l’exemple de code dans u
     
     ```
     {
-      "@apiVersion": "1.0",
+      "@apiVersion": "2.0",
       "name": "Sample-Graph-1",
       "properties": {
         "topologyName": "InferencingWithGrpcExtension",

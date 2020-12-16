@@ -3,12 +3,12 @@ title: Détecter les mouvements et enregistrer des vidéos sur Azure Media Servi
 description: Ce guide de démarrage rapide illustre l’utilisation de Live Video Analytics sur IoT Edge en vue de détecter des mouvements dans un flux vidéo en direct et d’enregistrer des extraits vidéo sur Azure Media Services.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 861351e16120c3f46612ba35518135fbfaf4c81b
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 8872c9aefa0ed748cbed93d0f7376586859be9df
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91776474"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511890"
 ---
 # <a name="quickstart-detect-motion-record-video-to-media-services"></a>Démarrage rapide : Détecter les mouvements et enregistrer des vidéos sur Media Services
 
@@ -44,11 +44,11 @@ Vous pouvez utiliser le module pour analyser des flux vidéo en direct en invoqu
 1. Cliquez avec le bouton droit et sélectionnez **Paramètres d’extension**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Vidéo basée sur les événements enregistrée dans les ressources basées sur des événements de mouvement":::
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Paramètres d’extension":::
 1. Recherchez et activez « Afficher le message détaillé ».
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Vidéo basée sur les événements enregistrée dans les ressources basées sur des événements de mouvement":::
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Afficher le message détaillé":::
 
 ### <a name="invoke-graphtopologylist"></a>Invoquer GraphTopologyList
 Cette étape énumère toutes les [topologies de graphes](media-graph-concept.md#media-graph-topologies-and-instances) du module.
@@ -59,7 +59,7 @@ Cette étape énumère toutes les [topologies de graphes](media-graph-concept.md
     
 ```
 {
-    "@apiVersion" : "1.0"
+    "@apiVersion" : "2.0"
 }
 ```
 
@@ -84,7 +84,7 @@ La réponse ci-dessus est attendue, car aucune topologie de graphe n’a été c
 
 ```
 {
-    "@apiVersion": "1.0",
+    "@apiVersion": "2.0",
     "name": "EVRtoAssetsOnMotionDetection",
     "properties": {
       "description": "Event-based video recording to Assets based on motion events",
@@ -331,7 +331,7 @@ Invoquez maintenant GraphTopologyGet avec la charge utile suivante
 ```
 
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "EVRtoAssetsOnMotionDetection"
 }
 ```
@@ -474,7 +474,7 @@ Invoquez maintenant la méthode directe GraphInstanceSet avec la charge utile su
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "Sample-Graph-2",
     "properties" : {
         "topologyName" : "EVRtoAssetsOnMotionDetection",
@@ -556,7 +556,7 @@ Activez maintenant l’instance de graphe, qui démarre le flux de vidéos en di
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "Sample-Graph-2"
 }
 ```
@@ -580,7 +580,7 @@ Invoquez maintenant la méthode directe GraphInstanceGet avec la charge utile su
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "Sample-Graph-2"
 }
 ```
@@ -759,7 +759,7 @@ Invoquez la méthode directe GraphInstanceDeactivate avec la charge utile suivan
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "Sample-Graph-2"
 }
 ```
@@ -787,7 +787,7 @@ Invoquez la méthode directe GraphInstanceDelete avec la charge utile suivante
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "Sample-Graph-2"
 }
 ```
@@ -811,7 +811,7 @@ Invoquez maintenant la méthode directe GraphTopologyDelete avec la charge utile
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "EVRtoAssetsOnMotionDetection"
 }
 ```

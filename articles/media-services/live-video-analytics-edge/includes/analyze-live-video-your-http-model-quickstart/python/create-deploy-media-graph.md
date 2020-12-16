@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 99f2c690360167626566b2ea45aef172e1e832ab
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 6aeded077c20e59b3f9b3863a9956596382d3a82
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91828843"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97531849"
 ---
 ### <a name="examine-and-edit-the-sample-files"></a>Examiner et modifier les exemples de fichiers
 
@@ -16,11 +16,11 @@ Dans le cadre des prérequis, vous avez téléchargé l’exemple de code dans u
 
 1. Accédez au dossier *src/cloud-to-device-console-app*. Ce dernier contient votre fichier *appsettings.json* et quelques autres fichiers :
 
-    * ***c2d-console-app.csproj*** : fichier projet pour Visual Studio Code.
-    * ***operations.json*** : liste des opérations que vous voulez que le programme exécute.
-    * ***Program.cs*** : exemple de code de programme. Ce code :
+    * ***c2d-console-app.csproj** _ : fichier projet pour Visual Studio Code.
+    _ ***operations.json** _ : liste des opérations que vous voulez que le programme exécute.
+    _ ***Program.cs** _ : exemple de code de programme. Ce code :
 
-        * Il charge les paramètres de l’application.
+        _ Charge les paramètres de l’application.
         * Invoque les méthodes directes exposées par le module Live Video Analytics sur IoT Edge. Vous pouvez utiliser le module pour analyser des flux vidéo en direct en invoquant ses [méthodes directes](../../../direct-methods.md).
         * S’interrompt pour vous permettre d’examiner la sortie du programme dans la fenêtre **TERMINAL** et d’examiner les événements qui ont été générés par le module dans la fenêtre **SORTIE**.
         * Invoque des méthodes directes pour nettoyer des ressources.
@@ -29,7 +29,7 @@ Dans le cadre des prérequis, vous avez téléchargé l’exemple de code dans u
 1. Modifiez le fichier *operations.json* :
     * Changez le lien vers la topologie de graphe :
 
-        `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/httpExtension/topology.json"`
+        `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/httpExtension/2.0/topology.json"`
 
     * Sous `GraphInstanceSet`, modifiez le nom de la topologie de graphe de manière à ce qu’il corresponde à la valeur figurant dans le lien ci-dessus précédent :
 
@@ -76,7 +76,7 @@ Dans le cadre des prérequis, vous avez téléchargé l’exemple de code dans u
 1. Recherchez et activez « Afficher le message détaillé ».
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="../../../media/run-program/show-verbose-message.png" alt-text="Paramètres d’extension":::
+    > :::image type="content" source="../../../media/run-program/show-verbose-message.png" alt-text="Afficher le message détaillé":::
 1. Cliquez avec le bouton droit sur l’appareil Live Video Analytics, puis sélectionnez sur **Démarrer la supervision du point de terminaison d’événement intégré**. Vous devez effectuer cette étape pour superviser les événements IoT Hub dans la fenêtre **SORTIE** de Visual Studio Code. 
 
    ![Démarrer la surveillance](../../../media/quickstarts/start-monitoring-iothub-events.png) 
@@ -91,7 +91,7 @@ Dans le cadre des prérequis, vous avez téléchargé l’exemple de code dans u
    Executing operation GraphTopologyList
    -----------------------  Request: GraphTopologyList  --------------------------------------------------
    {
-   "@apiVersion": "1.0"
+   "@apiVersion": "2.0"
    }
    ---------------  Response: GraphTopologyList - Status: 200  ---------------
    {
@@ -109,7 +109,7 @@ Dans le cadre des prérequis, vous avez téléchargé l’exemple de code dans u
 
          ```
          {
-           "@apiVersion": "1.0",
+           "@apiVersion": "2.0",
            "name": "Sample-Graph-1",
            "properties": {
              "topologyName": "InferencingWithHttpExtension",

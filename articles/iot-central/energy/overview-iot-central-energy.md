@@ -3,22 +3,19 @@ title: Créer des solutions énergétiques avec IoT Central | Microsoft Docs
 description: Apprenez à créer des solutions énergétiques à l'aide de modèles d'application Azure IoT Central.
 author: op-ravi
 ms.author: omravi
-ms.date: 10/23/2019
+ms.date: 12/11/2020
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 0cc9fd5836371a925be531de773ea9c2e276c0eb
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: ff7b98908296714a59aa9a24767e80e212e00e68
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127350"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516654"
 ---
 # <a name="build-energy-solutions-with-iot-central"></a>Créer des solutions énergétiques avec IoT Central 
-
-
-
 
 Les compteurs intelligents et les panneaux solaires jouent un rôle important dans la transformation du secteur de l'énergie. Les compteurs intelligents offrent davantage de contrôles et d'insights en temps réel sur la consommation d'énergie, et la croissance des panneaux solaires stimule la production d'énergies renouvelables. Les applications de suivi des compteurs intelligents et des panneaux solaires sont des exemples de modèles permettant d'illustrer les différentes fonctionnalités. Les partenaires peuvent utiliser ces modèles pour créer des solutions énergétiques avec IoT Central afin de répondre à leurs besoins spécifiques. Le déploiement et l'utilisation de ces applications ne requièrent aucun nouveau code et n'entraînent aucun coût supplémentaire. Découvrez-en plus sur les modèles d'applications énergétiques et leurs fonctionnalités.
 
