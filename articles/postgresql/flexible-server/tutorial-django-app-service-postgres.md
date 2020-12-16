@@ -57,11 +57,11 @@ cd djangoapp
 
 # <a name="download"></a>[Télécharger](#tab/download)
 
-Accédez à [https://github.com/Azure-Samples/djangoapp](https://github.com/Azure-Samples/djangoapp), sélectionnez **Cloner** , puis sélectionnez **Télécharger le fichier ZIP** .
+Accédez à [https://github.com/Azure-Samples/djangoapp](https://github.com/Azure-Samples/djangoapp), sélectionnez **Cloner**, puis sélectionnez **Télécharger le fichier ZIP**.
 
-Décompressez le fichier ZIP dans un dossier nommé *djangoapp* .
+Décompressez le fichier ZIP dans un dossier nommé *djangoapp*.
 
-Ouvrez ensuite une fenêtre de terminal dans ce dossier *djangoapp* .
+Ouvrez ensuite une fenêtre de terminal dans ce dossier *djangoapp*.
 
 ---
 
@@ -69,7 +69,7 @@ L’exemple de dossier djangoapp contient l’application de sondage Django pilo
 
 L’exemple est également modifié pour s’exécuter dans un environnement de production tel qu’App Service :
 
-- Les paramètres de production se trouvent dans le fichier *azuresite/production.py* . Les détails du développement se trouvent dans *azuresite/Settings.py* .
+- Les paramètres de production se trouvent dans le fichier *azuresite/production.py*. Les détails du développement se trouvent dans *azuresite/Settings.py*.
 - L’application utilise les paramètres de production lorsque la variable d’environnement `DJANGO_ENV` est définie sur « production ». Vous allez créer cette variable d’environnement ultérieurement dans le tutoriel, ainsi que d’autres éléments utilisés pour la configuration de la base de données PostgreSQL.
 
 Ces modifications sont spécifiques de la configuration de Django pour s’exécuter dans n’importe quel environnement de production. Elles ne sont pas propres à App Service. Pour plus d’informations, consultez la [liste de contrôle du déploiement de Django](https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/).
@@ -132,15 +132,15 @@ az webapp config appsettings set --settings DJANGO_ENV="production" DBHOST="<pos
 - Le code de l’application s’attend à trouver des informations sur la base de données dans plusieurs variables d’environnement. Pour définir des variables d’environnement dans App Service, vous créez des « paramètres d’application » à l’aide de la commande [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set).
 
 > [!TIP]
-> De nombreuses commandes Azure CLI mettent en cache des paramètres communs, tels que le nom du groupe de ressources et le plan App Service, dans le fichier *.azure/config* . Par conséquent, vous n’avez pas besoin de spécifier le même paramètre avec les commandes ultérieures. Par exemple, pour redéployer l’application après avoir apporté des modifications, vous pouvez simplement exécuter `az webapp up` sans paramètre.
+> De nombreuses commandes Azure CLI mettent en cache des paramètres communs, tels que le nom du groupe de ressources et le plan App Service, dans le fichier *.azure/config*. Par conséquent, vous n’avez pas besoin de spécifier le même paramètre avec les commandes ultérieures. Par exemple, pour redéployer l’application après avoir apporté des modifications, vous pouvez simplement exécuter `az webapp up` sans paramètre.
 
 ### <a name="run-django-database-migrations"></a>Exécuter des migrations de base de données Django
 
 Les migrations de base de données Django garantissent que le schéma de la base de données PostgreSQL sur Azure correspond à ceux décrits dans votre code.
 
-1. Ouvrez une session SSH dans le navigateur en accédant à *https://\<app-name>.scm.azurewebsites.net/webssh/host* , puis connectez-vous avec vos informations d’identification de compte Azure (et non les informations d’identification du serveur de base de données).
+1. Ouvrez une session SSH dans le navigateur en accédant à *https://\<app-name>.scm.azurewebsites.net/webssh/host*, puis connectez-vous avec vos informations d’identification de compte Azure (et non les informations d’identification du serveur de base de données).
 
-1. Dans la session SSH, exécutez les commandes suivantes (vous pouvez coller des commandes en utilisant la combinaison de touches **Ctrl**+**Maj**+**V** ) :
+1. Dans la session SSH, exécutez les commandes suivantes (vous pouvez coller des commandes en utilisant la combinaison de touches **Ctrl**+**Maj**+**V**) :
 
     ```bash
     cd site/wwwroot
@@ -159,9 +159,9 @@ Les migrations de base de données Django garantissent que le schéma de la base
 
 ### <a name="create-a-poll-question-in-the-app"></a>Créer une question de sondage dans l’application
 
-1. Dans un navigateur, ouvrez l’URL *http:\//\<app-name>.azurewebsites.net* . L’application doit afficher le message « No polls are available » (Aucun sondage n’est disponible), car il n’existe pas encore de sondages spécifiques dans la base de données.
+1. Dans un navigateur, ouvrez l’URL *http:\//\<app-name>.azurewebsites.net*. L’application doit afficher le message « No polls are available » (Aucun sondage n’est disponible), car il n’existe pas encore de sondages spécifiques dans la base de données.
 
-1. Accédez à *http:\//\<app-name>.azurewebsites.net/admin* . Connectez-vous à l’aide des informations d’identification de superutilisateur de la section précédente (`root` et `postgres1`). Sous **Sondages** , sélectionnez **Ajouter** en regard de **Questions** , puis créez une question de sondage avec quelques options.
+1. Accédez à *http:\//\<app-name>.azurewebsites.net/admin*. Connectez-vous à l’aide des informations d’identification de superutilisateur de la section précédente (`root` et `postgres1`). Sous **Sondages**, sélectionnez **Ajouter** en regard de **Questions**, puis créez une question de sondage avec quelques options.
 
 1. Accédez à nouveau à *http:\//\<app-name>.azurewebsites.net/* pour confirmer que les questions sont à présent présentées à l’utilisateur. Répondez aux questions en fonction de la manière dont vous voulez générer des données dans la base de données.
 
@@ -200,11 +200,11 @@ Testez l’application localement en procédant comme suit :
 
 1. Accédez à l’URL *http:\//localhost:8000* dans un navigateur qui doit afficher le message « No polls are available » (Aucun sondage n’est disponible).
 
-1. Accédez à l’URL *http:\//localhost:8000/admin* et connectez-vous à l’aide de l’ID d’utilisateur administrateur que vous avez créé précédemment. Sous **Sondages** , sélectionnez de nouveau **Ajouter** en regard de **Questions** , puis créez une question de sondage avec quelques options.
+1. Accédez à l’URL *http:\//localhost:8000/admin* et connectez-vous à l’aide de l’ID d’utilisateur administrateur que vous avez créé précédemment. Sous **Sondages**, sélectionnez de nouveau **Ajouter** en regard de **Questions**, puis créez une question de sondage avec quelques options.
 
 1. Accédez de nouveau à l’URL *http:\//localhost:8000* et répondez à la question pour tester l’application.
 
-1. Arrêtez le serveur Django en appuyant sur **Ctrl**+**C** .
+1. Arrêtez le serveur Django en appuyant sur **Ctrl**+**C**.
 
 Lors d’une exécution locale, l’application utilise une base de données sqlite3 locale et n’interfère pas avec votre base de données de production. Vous pouvez également utiliser une base de données PostgreSQL locale, si vous le souhaitez, pour mieux simuler votre environnement de production.
 
@@ -226,9 +226,9 @@ python manage.py makemigrations
 python manage.py migrate
 ```
 
-Réexécutez le serveur de développement avec la commande `python manage.py runserver`, puis testez l’application à l’URL *http:\//localhost:8000/admin* :
+Réexécutez le serveur de développement avec la commande `python manage.py runserver`, puis testez l’application à l’URL *http:\//localhost:8000/admin*:
 
-Arrêtez de nouveau le serveur web Django en appuyant sur **Ctrl**+**C** .
+Arrêtez de nouveau le serveur web Django en appuyant sur **Ctrl**+**C**.
 
 
 ### <a name="redeploy-the-code-to-azure"></a>Redéployer le code dans Azure
@@ -239,7 +239,7 @@ Exécutez la commande suivante dans la racine du dépôt :
 az webapp up
 ```
 
-Cette commande utilise les paramètres mis en cache dans le fichier *.azure/config* . Étant donné qu’App Service détecte que l’application existe déjà, le service redéploie simplement le code.
+Cette commande utilise les paramètres mis en cache dans le fichier *.azure/config*. Étant donné qu’App Service détecte que l’application existe déjà, le service redéploie simplement le code.
 
 
 
@@ -247,7 +247,7 @@ Cette commande utilise les paramètres mis en cache dans le fichier *.azure/conf
 
 Étant donné que vous avez apporté des changements au modèle de données, vous devez réexécuter les migrations de base de données dans App Service.
 
-Ouvrez de nouveau une session SSH dans le navigateur en accédant à *https://\<app-name>.scm.azurewebsites.net/webssh/host* . Exécutez ensuite les commande suivantes :
+Ouvrez de nouveau une session SSH dans le navigateur en accédant à *https://\<app-name>.scm.azurewebsites.net/webssh/host*. Exécutez ensuite les commande suivantes :
 
 ```
 cd site/wwwroot
@@ -270,11 +270,11 @@ Accédez à *http:\//\<app-name>.azurewebsites.net* et testez à nouveau l’app
 
 Dans le [portail Azure](https://portal.azure.com), recherchez le nom de l’application et sélectionnez celle-ci dans les résultats.
 
-:::image type="content" source="./media/tutorial-django-app-service-postgres/navigate-to-django-app-in-app-services-in-the-azure-portal.png" alt-text="Exemple de sortie du serveur de développement Django":::
+:::image type="content" source="./media/tutorial-django-app-service-postgres/navigate-to-django-app-in-app-services-in-the-azure-portal.png" alt-text="Accéder à votre application Python Django dans le portail Azure":::
 
 Par défaut, le portail affiche la page **Vue d’ensemble** de votre application, qui présente une vue générale des performances. Elle vous permet d’exécuter des tâches de gestion de base telles que parcourir, arrêter, redémarrer et supprimer. Les onglets sur le côté gauche de la page affichent les différentes pages de configuration que vous pouvez ouvrir.
 
-:::image type="content" source="./media/tutorial-django-app-service-postgres/manage-django-app-in-app-services-in-the-azure-portal.png" alt-text="Exemple de sortie du serveur de développement Django":::
+:::image type="content" source="./media/tutorial-django-app-service-postgres/manage-django-app-in-app-services-in-the-azure-portal.png" alt-text="Gérer votre application Python Django dans la page Vue d’ensemble du portail Azure":::
 
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
@@ -285,7 +285,7 @@ Si vous souhaitez conserver l’application ou passer au tutoriel suivant, allez
 az group delete -g myresourcegroup
 ```
 
-La commande utilise le nom du groupe de ressources mis en cache dans le fichier *.azure/config* . En supprimant le groupe de ressources, vous désallouez et supprimez également toutes les ressources qu’il contient.
+La commande utilise le nom du groupe de ressources mis en cache dans le fichier *.azure/config*. En supprimant le groupe de ressources, vous désallouez et supprimez également toutes les ressources qu’il contient.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

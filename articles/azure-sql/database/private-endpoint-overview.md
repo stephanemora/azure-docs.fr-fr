@@ -9,12 +9,12 @@ ms.topic: overview
 ms.custom: sqldbrb=1
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 5109139c7168026c74a475128832fbb0733ce832
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 7bc15b369bfa4964384d4f7910d6953bdfeaa664
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96447129"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97094163"
 ---
 # <a name="azure-private-link-for-azure-sql-database-and-azure-synapse-analytics"></a>Azure Private Link pour Azure SQL Database et Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -177,7 +177,7 @@ Pour établir la connectivité entre un environnement local et la base de donné
 
 ## <a name="connecting-from-azure-synapse-analytics-to-azure-storage-using-polybase-and-the-copy-statement"></a>Connexion d’Azure Synapse Analytics à Stockage Azure à l’aide de Polybase et de l’instruction COPY
 
-La technologie PolyBase et l’instruction COPY sont couramment utilisées pour charger des données dans Azure Synapse Analytics à partir de comptes Stockage Azure. Si le compte de stockage Azure à partir duquel vous chargez des données limite l’accès uniquement à un ensemble de sous-réseaux de réseau virtuel par le biais de points de terminaison privés, de points de terminaison de service ou de pare-feu IP, la connectivité de PolyBase et l’instruction COPY au compte sera interrompue. Pour autoriser les scénarios d’importation et d’exportation dans lesquels Azure Synapse Analytics se connecte de manière sécurisée au stockage Azure sur un réseau virtuel, suivez les étapes indiquées [ici](vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). 
+La technologie PolyBase et l’instruction COPY sont couramment utilisées pour charger des données dans Azure Synapse Analytics à partir de comptes Stockage Azure. Si le compte de stockage Azure à partir duquel vous chargez des données limite l’accès uniquement à un ensemble de sous-réseaux de réseau virtuel par le biais de points de terminaison privés, de points de terminaison de service ou de pare-feu IP, la connectivité de PolyBase et l’instruction COPY au compte sera interrompue. Pour autoriser les scénarios d’importation et d’exportation dans lesquels Azure Synapse Analytics se connecte de manière sécurisée au stockage Azure sur un réseau virtuel, suivez les étapes indiquées [ici](vnet-service-endpoint-rule-overview.md#impact-of-using-virtual-network-service-endpoints-with-azure-storage). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

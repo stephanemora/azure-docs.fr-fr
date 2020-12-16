@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 ms.custom: devx-track-csharp
 ms.reviewer: lmolkova
-ms.openlocfilehash: 98f1ea8a4994515b437841174ae95563ea53ed88
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa39a1eca04621fc4db75f755402d3679403e814
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88933339"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920597"
 ---
 # <a name="application-insights-for-net-console-applications"></a>Application Insights pour les applications console .NET
 
@@ -22,6 +22,9 @@ Vous avez besoin d’un abonnement à [Microsoft Azure](https://azure.com). Conn
 > Il est *vivement recommandé* d’utiliser le package de [Microsoft. ApplicationInsights. WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) et les instructions associées de [ici](./worker-service.md) pour toutes les applications console. Ce package cible [`NetStandard2.0`](/dotnet/standard/net-standard) et peut donc être utilisé dans .NET Core 2.1 ou version ultérieure, et dans .NET Framework 4.7.2 ou version ultérieure.
 
 ## <a name="getting-started"></a>Prise en main
+
+> [!IMPORTANT]
+> Les nouvelles régions Azure **exigent** l’utilisation de chaînes de connexion au lieu de clés d’instrumentation. Une [chaîne de connexion](./sdk-connection-string.md?tabs=net) identifie la ressource à laquelle vous souhaitez associer vos données de télémétrie. Elle vous permet également de modifier les points de terminaison que votre ressource utilisera comme destination pour votre télémétrie. Vous devrez copier la chaîne de connexion et l’ajouter au code de votre application ou à une variable d’environnement.
 
 * Dans le [portail Azure](https://portal.azure.com), [créez une ressource Application Insights](./create-new-resource.md). Choisissez **Général** comme type d’application.
 * Copiez la clé d'instrumentation. Recherchez la clé dans la liste déroulante **Essentials** de la ressource créée.

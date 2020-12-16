@@ -3,13 +3,13 @@ title: 'Démarrage rapide : créer une image conteneur à la demande dans Azure
 description: Utilisez les commandes Azure Container Registry pour générer, envoyer (push) et exécuter rapidement une image conteneur Docker à la demande, dans le cloud Azure.
 ms.topic: quickstart
 ms.date: 09/25/2020
-ms.custom: contperfq1, devx-track-azurecli
-ms.openlocfilehash: adb63b716172c979ca31f1ef70bf1523ff1ad5cc
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.custom: contperf-fy21q1, devx-track-azurecli
+ms.openlocfilehash: c6fe1fc246d112218b492072155175b2db99c8c9
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94845048"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032947"
 ---
 # <a name="quickstart-build-and-run-a-container-image-using-azure-container-registry-tasks"></a>Démarrage rapide : générer et exécuter une image conteneur avec Azure Container Registry Tasks
 

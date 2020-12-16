@@ -4,12 +4,12 @@ description: Analysez les performances et diagnostiquez les problèmes dans les 
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 4c350cbfdf92d19a084940941351cf1f028c93d2
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 7aea6c03b0ce35fa0e74c39ff5f94f714447ad6f
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186277"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920588"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Surveiller vos services et applications Node.js avec Application Insights
 
@@ -40,6 +40,9 @@ Avant de commencer, vérifiez que vous disposez d’un abonnement Azure ou [obte
 ### <a name="set-up-the-nodejs-sdk"></a><a name="sdk"></a> Configurer le kit de développement logiciel (SDK) Node.js
 
 Incluez le kit de développement logiciel dans votre application afin qu’il collecte des données.
+
+> [!IMPORTANT]
+> Les nouvelles régions Azure **exigent** l’utilisation de chaînes de connexion au lieu de clés d’instrumentation. Une [chaîne de connexion](./sdk-connection-string.md?tabs=nodejs) identifie la ressource à laquelle vous souhaitez associer vos données de télémétrie. Elle vous permet également de modifier les points de terminaison que votre ressource utilisera comme destination pour votre télémétrie. Vous devrez copier la chaîne de connexion et l’ajouter au code de votre application ou à une variable d’environnement.
 
 1. Copiez la clé d’instrumentation de votre ressource (aussi appelée *iClé*) à partir de votre ressource nouvellement créée. Application Insights utilise l’iClé pour mapper les données à votre ressource Azure. Avant que le kit de développement logiciel (SDK) ne puisse utiliser votre iClé, vous devez la spécifier dans une variable d’environnement ou dans votre code.  
 

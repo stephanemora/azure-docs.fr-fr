@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 09/03/2020
 ms.author: marsma
-ms.custom: aaddev, contperfq1
+ms.custom: aaddev, contperf-fy21q1
 ms.reviewer: lenalepa, aragra, sureshja
-ms.openlocfilehash: fc2f3202ac88e3ee6c24db21dd9072a13a8deef9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2630984d54134ca8fca94fdc1960265ba71935a6
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89442267"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97031298"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-a-web-api"></a>Démarrage rapide : Configurer une application cliente pour accéder à une API web
 
@@ -59,7 +59,7 @@ Une fois que vous avez inscrit votre application cliente et votre API web et que
 
 Une fois les autorisations ajoutées à votre API, vous devez voir les autorisations sélectionnées sous **Autorisations configurées**. L’image suivante montre l’exemple d’autorisation déléguée *Employees.Read.All* ajoutée à l’inscription de l’application cliente.
 
-:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-02-configured-permissions-pane.png" alt-text="Diagramme linéaire montrant une API web avec, à droite, des étendues exposées et, à gauche, une application cliente où ces étendues sont sélectionnées comme autorisations":::
+:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-02-configured-permissions-pane.png" alt-text="Volet Autorisations configurées du portail Azure présentant l’autorisation nouvellement ajoutée":::
 
 Vous pouvez également remarquer l’autorisation *User.Read* pour l’API Microsoft Graph. Cette autorisation est automatiquement ajoutée quand vous inscrivez une application dans le portail Azure.
 
@@ -136,11 +136,11 @@ Vous pouvez ajouter l’ensemble complet des autorisations d’une API ou des au
 
 Le bouton **Accorder un consentement d’administrateur pour {votre locataire}** permet à un administrateur d’accorder le consentement administrateur aux autorisations configurées pour l’application. Quand vous sélectionnez ce bouton, une boîte de dialogue s’affiche pour vous demander de confirmer l’action de consentement.
 
-:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-03-grant-admin-consent-button.png" alt-text="Diagramme linéaire montrant une API web avec, à droite, des étendues exposées et, à gauche, une application cliente où ces étendues sont sélectionnées comme autorisations":::
+:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-03-grant-admin-consent-button.png" alt-text="Bouton Accorder un consentement d’administrateur mis en évidence dans le volet Autorisations configurées du portail Azure":::
 
 Une fois le consentement accordé, les autorisations exigées par le consentement administrateur sont indiquées comme ayant reçu le consentement :
 
-:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-04-admin-consent-granted.png" alt-text="Diagramme linéaire montrant une API web avec, à droite, des étendues exposées et, à gauche, une application cliente où ces étendues sont sélectionnées comme autorisations":::
+:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-04-admin-consent-granted.png" alt-text="Tableau Configurer les autorisations du portail Azure, montrant le consentement administrateur accordé pour l’autorisation Files.Read.All":::
 
 Le bouton **Accorder un consentement administrateur** est *désactivé* si vous n’êtes pas administrateur ou si aucune autorisation n’a été configurée pour l’application. Si vous disposez d’autorisations qui ont été accordées mais qui n’ont pas encore été configurées, le bouton de consentement administrateur vous invite à gérer ces autorisations. Vous pouvez les ajouter aux autorisations configurées ou les supprimer.
 

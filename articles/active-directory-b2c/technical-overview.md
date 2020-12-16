@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 05/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 519e2da902e1121220bcbb28c4cb18a68001293b
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: fef192ab273a0e53958cda315932f91b427a5d7d
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94840549"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108381"
 ---
 # <a name="technical-and-feature-overview-of-azure-active-directory-b2c"></a>Vue d’ensemble technique et fonctionnelle d’Azure Active Directory B2C
 
@@ -162,7 +162,7 @@ Dans Azure AD B2C, vous pouvez concevoir les expériences d’identité de vos u
 
 ![Captures d’écran de la page d’inscription et de connexion personnalisée associant la marque](media/technical-overview/seamless-ux.png)
 
-Pour plus d’informations sur la personnalisation de l’interface utilisateur, consultez [À propos de la personnalisation de l’interface utilisateur dans Azure Active Directory B2C](customize-ui-overview.md).
+Pour plus d’informations sur la personnalisation de l’interface utilisateur, consultez [À propos de la personnalisation de l’interface utilisateur dans Azure Active Directory B2C](customize-ui-with-html.md).
 
 ## <a name="localization"></a>Localisation
 
@@ -170,7 +170,7 @@ La personnalisation de la langue dans Azure AD B2C vous permet de prendre en cha
 
 ![Trois pages d’inscription et de connexion montrant le texte de l’interface utilisateur dans différentes langues](media/technical-overview/localization.png)
 
-Découvrez comment fonctionne la localisation dans [Personnalisation de la langue dans Azure Active Directory B2C](user-flow-language-customization.md).
+Découvrez comment fonctionne la localisation dans [Personnalisation de la langue dans Azure Active Directory B2C](language-customization.md).
 
 ## <a name="add-your-own-business-logic"></a>Ajouter votre propre logique métier
 
@@ -221,7 +221,7 @@ Pour plus d’informations sur les rôles Azure AD, notamment la prise en charge
 
 L’authentification multifacteur (MFA) AD B2C participe à la sécurisation de l’accès aux données et aux applications tout en maintenant une simplicité de gestion pour vos utilisateurs. MFA fournit une sécurité supplémentaire en exigeant une deuxième forme d’authentification, et procure une authentification renforcée en proposant toute une palette de méthodes d’authentification faciles à utiliser. Vos utilisateurs peuvent être amenés à s’authentifier par l’intermédiaire de MFA, selon les choix de configuration que vous avez faits en tant qu’administrateur.
 
-Découvrez comment activer MFA dans les flux d’utilisateurs en consultant [Activer l’authentification multifacteur dans Azure Active Directory B2C](custom-policy-multi-factor-authentication.md).
+Découvrez comment activer MFA dans les flux d’utilisateurs en consultant [Activer l’authentification multifacteur dans Azure Active Directory B2C](multi-factor-authentication.md).
 
 ### <a name="smart-account-lockout"></a>Verrouillage intelligent de compte
 
@@ -235,7 +235,7 @@ Pour plus d’informations sur la gestion des paramètres de protection de mot d
 
 Lors de l’inscription ou de la réinitialisation de mot de passe, vos utilisateurs doivent fournir un mot de passe qui respecte des règles de complexité. Par défaut, Azure AD B2C applique une stratégie de mot de passe fort. Azure AD B2C fournit également des options de configuration permettant de spécifier les exigences en matière de complexité pour les mots de passe utilisés par vos clients.
 
-Vous pouvez configurer les exigences en matière de complexité de mot de passe dans les [flux utilisateur](user-flow-password-complexity.md) et dans les [stratégies personnalisées](custom-policy-password-complexity.md).
+Vous pouvez configurer les exigences en matière de complexité de mot de passe dans les [flux utilisateur](password-complexity.md) et dans les [stratégies personnalisées](password-complexity.md).
 
 ## <a name="auditing-and-logs"></a>Audit et journaux
 

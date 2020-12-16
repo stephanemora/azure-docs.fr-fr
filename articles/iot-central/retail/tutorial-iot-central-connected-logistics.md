@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 10/20/2019
-ms.openlocfilehash: 0206c111be7cd6441d9de32af498e961833d214f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 398441123d5ad309d9c2d506a75b80b58a6d56d0
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90980685"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97346212"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-connected-logistics-application-template"></a>Tutoriel : Déployer et découvrir un modèle d’application logistique connectée
 
@@ -41,9 +41,9 @@ Créez une application à l’aide de la procédure suivante :
 
     :::image type="content" source="media/tutorial-iot-central-connected-logistics/iotc-retail-homepage.png" alt-text="Modèle de logistique connectée":::
 
-2. Sélectionnez **Créer une application** sous **Application de logistique connectée**.
+1. Sélectionnez **Créer une application** sous **Application de logistique connectée**.
 
-3. La commande **Créer une application** ouvre le formulaire **Nouvelle application**. Entrez les informations suivantes :
+1. La commande **Créer une application** ouvre le formulaire **Nouvelle application**. Entrez les informations suivantes :
 
 
     * **Nom de l’application** : vous pouvez utiliser le nom suggéré par défaut ou entrer le nom convivial de l’application.
@@ -51,9 +51,9 @@ Créez une application à l’aide de la procédure suivante :
     * **Informations de facturation** : Les informations sur l’annuaire, l’abonnement Azure et la région sont nécessaires pour provisionner les ressources.
     * **Créer** : Sélectionnez Créer en bas de la page pour déployer votre application.
 
-    :::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-app-create.png" alt-text="Modèle de logistique connectée":::
+    :::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-app-create.png" alt-text="Modèle d’application de logistique connectée":::
 
-    :::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-app-create-billinginfo.png" alt-text="Modèle de logistique connectée":::
+    :::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-app-create-billinginfo.png" alt-text="Informations de facturation concernant la logistique connectée":::
 
 ## <a name="walk-through-the-application"></a>examiner l’application
 
@@ -81,13 +81,13 @@ Le tableau de bord permet d’effectuer deux opérations de gestion des appareil
 * Afficher les itinéraires des expéditions par camion, ainsi que l’emplacement précis lors des expéditions par voie maritime
 * Afficher l’état de la passerelle et d’autres informations pertinentes
 
-:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-dashboard1.png" alt-text="Modèle de logistique connectée":::
+:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-dashboard1.png" alt-text="Tableau de bord de logistique connectée":::
 
 * Vous pouvez effectuer le suivi du nombre total de passerelles, ainsi que des balises actives et inconnues.
 * Vous pouvez effectuer des opérations de gestion des appareils telles que la mise à jour des microprogrammes, la désactivation et l’activation des capteurs, la modification du seuil des capteurs, la modification des intervalles de télémétrie ou la modification des contrats de service des appareils.
 * Consultez la consommation de la batterie des appareils.
 
-:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-dashboard2.png" alt-text="Modèle de logistique connectée":::
+:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-dashboard2.png" alt-text="État du tableau de bord de logistique connectée":::
 
 #### <a name="device-template"></a>Modèle d'appareil
 
@@ -95,11 +95,11 @@ Sélectionnez **Modèles d’appareils** pour voir le modèle de fonctions de la
 
 **Propriétés et télémétrie de la passerelle** : cette interface définit toutes les données de télémétrie relatives aux capteurs, à l’emplacement et aux informations sur l’appareil. L’interface définit également les fonctionnalités des propriétés des jumeaux d’appareil, telles que les seuils de capteur et les intervalles de mise à jour.
 
-:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-devicetemplate1.png" alt-text="Modèle de logistique connectée":::
+:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-devicetemplate1.png" alt-text="Interface Propriétés et télémétrie":::
 
 **Commandes de la passerelle** - Cette interface organise toutes les fonctionnalités de commande de la passerelle :
 
-:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-devicetemplate2.png" alt-text="Modèle de logistique connectée":::
+:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-devicetemplate2.png" alt-text="Interface des commandes de la passerelle":::
 
 ### <a name="rules"></a>Règles
 
@@ -109,13 +109,13 @@ Sélectionnez l’onglet **Règles** pour les règles de ce modèle d’applicat
 
 **Aucune réponse de la passerelle** : Cette règle se déclenche si la passerelle ne se signale pas au cloud pendant une période prolongée. L’absence de réponse de la passerelle peut être due à une batterie faible, à une perte de la connectivité ou encore à un appareil endommagé.
 
-:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-rules.png" alt-text="Modèle de logistique connectée":::
+:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-rules.png" alt-text="Définitions des règles":::
 
 ### <a name="jobs"></a>travaux
 
 Sélectionnez l’onglet **Travaux** pour afficher les travaux de cette application :
 
-:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-jobs.png" alt-text="Modèle de logistique connectée":::
+:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-jobs.png" alt-text="Travaux à exécuter":::
 
 Vous pouvez utiliser les travaux pour effectuer des opérations à l’échelle de l’application. Les travaux de cette application utilisent les commandes de l’appareil ainsi que des fonctionnalités de jumeau pour notamment désactiver des capteurs spécifiques sur l’ensemble de la passerelle ou modifier le seuil des capteurs en fonction de l’itinéraire et du mode de transport :
 
@@ -127,7 +127,7 @@ Vous pouvez utiliser les travaux pour effectuer des opérations à l’échelle 
 
 Si vous n’envisagez pas de continuer à utiliser cette application, supprimez le modèle d’application en accédant à **Administration** > **Paramètres de l’application**, puis sélectionnez **Supprimer**.
 
-:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-cleanup.png" alt-text="Modèle de logistique connectée":::
+:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-cleanup.png" alt-text="Nettoyage du modèle":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur 
