@@ -9,13 +9,13 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 10/26/2020
 ms.author: banders
-ms.custom: contentperfq2
-ms.openlocfilehash: c9f344ec6eae40db2c76f3712df6f1f9d8cead37
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: bd46e7b2f0713da67842def47dfeadc837027d8f
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92668866"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97027966"
 ---
 # <a name="account-administrator-tasks-in-the-azure-portal"></a>Tâches d’administrateur de compte dans le portail Azure
 
@@ -30,18 +30,18 @@ Vous devez être l’administrateur de compte pour effectuer l’une de ces tâc
 
 1. Connectez-vous au portail Azure en tant qu’administrateur de compte.
 
-1. Recherchez **Gestion des coûts + facturation** .
+1. Recherchez **Gestion des coûts + facturation**.
 
     ![Capture d’écran montrant une recherche relative à la gestion des coûts et à la facturation ](./media/account-admin-tasks/search-bar.png)
 
-1. Dans la liste **Mes abonnements** , sélectionnez l’abonnement auquel vous voulez ajouter la carte de crédit.
+1. Dans la liste **Mes abonnements**, sélectionnez l’abonnement auquel vous voulez ajouter la carte de crédit.
 
    ![Capture d’écran montrant la page Cost Management + Billing dans laquelle vous pouvez sélectionner un abonnement.](./media/account-admin-tasks/cost-management-billing-overview-x.png)
 
    > [!NOTE]
    > Si certains de vos abonnements ne s’affichent pas ici, c’est peut-être parce que vous avez modifié le répertoire de l’abonnement à un moment donné. Pour ces abonnements, vous devez faire basculer le répertoire vers le répertoire d’origine (le répertoire dans lequel vous vous êtes inscrit initialement). Ensuite, répétez l’étape 2.
 
-1. Sélectionnez **Modes de paiement** .
+1. Sélectionnez **Modes de paiement**.
 
     ![Capture d’écran montrant la page des modes de paiement dans laquelle vous pouvez ajouter un mode de paiement.](./media/account-admin-tasks/subscription-payment-methods-blade.png)
 
@@ -63,7 +63,7 @@ Vous pouvez modifier le mode de paiement actif en ajoutant une nouvelle carte de
 
     ![Capture d’écran montrant la case à cocher de définition du mode de paiement actif par carte.](./media/account-admin-tasks/subscription-make-active-payment-method-x.png)
 
-1. Sélectionnez **Suivant** .
+1. Sélectionnez **Suivant**.
 
 Pour modifier le mode de paiement actif par une carte de crédit qui est déjà enregistrée :
 
@@ -81,7 +81,7 @@ Pour modifier les détails de la carte de crédit, tels que la date d’expirati
 
 ![Capture d’écran montrant la carte de crédit sélectionnée](./media/account-admin-tasks/subscription-edit-payment-method-x.png)
 
-Mettez à jour les détails de la carte de crédit et cliquez sur **Enregistrer** .
+Mettez à jour les détails de la carte de crédit et cliquez sur **Enregistrer**.
 
 ### <a name="remove-a-credit-card-from-the-account"></a>Suppression d’une carte de crédit à partir du compte
 
@@ -104,7 +104,7 @@ Si vous êtes éligible au paiement par facture (chèque/virement bancaire), vou
     ![Capture d’écran montrant la page des modes de paiement avec le mode de paiement par facture sélectionné.](./media/account-admin-tasks/subscription-payment-methods-pay-by-invoice.png)
 
 1. Entrez l’adresse du mode de paiement de la facture.
-1. Cliquez sur **Suivant** .
+1. Cliquez sur **Suivant**.
 
 Si vous souhaitez être approuvé pour payer par facture, [découvrez comment payer par facture](pay-by-invoice.md).
 
@@ -119,11 +119,11 @@ La limite de dépense dans Azure vous empêche de dépasser la quantité de vos 
 La limite de dépense n’est pas disponible pour les abonnements impliquant un plan d’engagement ou un paiement à l’utilisation.
 
 1. Connectez-vous au portail Azure en tant qu’administrateur de compte.
-1. Recherchez **Gestion des coûts + facturation** .
+1. Recherchez **Gestion des coûts + facturation**.
 
     ![Capture d’écran montrant une recherche relative à la gestion des coûts et à la facturation ](./media/account-admin-tasks/search-bar.png)
 
-1. Dans la liste **Mes abonnements** , sélectionnez votre abonnement Visual Studio Enterprise.
+1. Dans la liste **Mes abonnements**, sélectionnez votre abonnement Visual Studio Enterprise.
 
    ![Capture d’écran montrant la zone Mes abonnements, où vous pouvez sélectionner votre abonnement Visual Studio Enterprise.](./media/account-admin-tasks/cost-management-overview-msdn-x.png)
 
@@ -140,25 +140,25 @@ La limite de dépense n’est pas disponible pour les abonnements impliquant un 
 
 1. Cliquez sur **Sélectionner le mode de paiement** pour choisir un mode de paiement pour votre abonnement. Celui-ci devient le mode de paiement actif pour votre abonnement.
 
-1. Cliquez sur **Terminer** .
+1. Cliquez sur **Terminer**.
 
 ## <a name="add-credits-to-azure-in-open-subscription"></a>Ajouter des crédits à votre abonnement Azure dans Open
 
 Si vous disposez d’un abonnement Azure en licence Open, vous pouvez ajouter des crédits à votre abonnement dans le portail Azure en échangeant une clé de produit ou en achetant des crédits avec une carte de crédit.
 
 1. Connectez-vous au portail Azure en tant qu’administrateur de compte.
-1. Recherchez **Gestion des coûts + facturation** .
+1. Recherchez **Gestion des coûts + facturation**.
 
     ![Capture d’écran montrant une recherche relative à la gestion des coûts et à la facturation ](./media/account-admin-tasks/search-bar.png)
 
-1. Dans la liste **Mes abonnements** , sélectionnez l’abonnement Azure dans Open.
+1. Dans la liste **Mes abonnements**, sélectionnez l’abonnement Azure dans Open.
 
     ![Capture d’écran montrant la zone Mes abonnements, où vous pouvez sélectionner votre abonnement Azure dans Open.](./media/account-admin-tasks/cost-management-overview-aio-x.png)
 
    > [!NOTE]
    > Si votre abonnement ne s’affiche pas ici, c’est peut-être parce que vous en avez modifié le répertoire à un moment donné. Vous devez faire basculer le répertoire de l’abonnement vers le répertoire d’origine (le répertoire dans lequel vous vous êtes inscrit initialement). Ensuite, répétez l’étape 2.
 
-1. Sélectionnez **Historique de crédit** .
+1. Sélectionnez **Historique de crédit**.
 
     ![Capture d’écran montrant l’historique de crédit](./media/account-admin-tasks/aio-credit-history-blade.png)
 

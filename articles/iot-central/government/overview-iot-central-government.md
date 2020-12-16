@@ -3,20 +3,18 @@ title: Création de solutions pour le secteur public avec Azure IoT Central
 description: Apprenez à créer des solutions de ville intelligente à l’aide de modèles d’application Azure IoT Central.
 author: miriambrus
 ms.author: miriamb
-ms.date: 10/23/2019
+ms.date: 12/11/2020
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 5f92750217dd0bcf5d7a5074a6187d994f19722a
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 72b0e3c3cee0ed9131fe6ee1f50cee10ec03a7b7
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126564"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590815"
 ---
 # <a name="building-government-solutions-with-azure-iot-central"></a>Création de solutions pour le secteur public avec Azure IoT Central
-
-
 
 Lancez-vous dans la génération de solutions de ville intelligente à l’aide de modèles d’application Azure IoT Central. Commencez dès maintenant avec les modèles **Suivi de la qualité de l’eau**, **Suivi de la consommation d’eau** et **Gestion connectée des déchets**.
 
@@ -41,7 +39,6 @@ Prise en main avec le [didacticiel d’application Suivi de la qualité de l’e
 ## <a name="what-is-water-consumption-monitoring-application-template"></a>Qu’est-ce que le modèle d’application Suivi de la consommation d’eau ? 
 
 Le suivi traditionnel de la consommation d’eau repose sur les distributeurs d’eau qui relèvent manuellement les compteurs de consommation d’eau sur le terrain. De plus en plus de villes remplacent les compteurs traditionnels par des compteurs intelligents avancés permettant une supervision à distance de la consommation, ainsi qu’un contrôle à distance des vannes pour maîtriser le débit d’eau. Le suivi de la consommation d’eau combiné avec un message de commentaire numérique adressé au consommateur peut contribuer à sensibiliser à la consommation d’eau et à la réduction de celle-ci. 
-
 
 L’application Suivi de la consommation d’eau est un modèle d’application IoT Central destiné à vous aider à démarrer rapidement le développement de votre solution IoT et à permettre aux distributeurs d’eau et aux villes de surveiller et contrôler à distance le début d’eau afin de réduire la consommation. 
 
