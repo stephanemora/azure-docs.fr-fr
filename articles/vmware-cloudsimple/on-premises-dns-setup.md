@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 8d982d06bd100313d643033294b6d14e6383d5df
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 7a2b2344bbb110cd4b35cc1f6428f61e48552b01
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424711"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563005"
 ---
 # <a name="configure-dns-for-name-resolution-for-private-cloud-vcenter-access-from-on-premises-workstations"></a>Configurer DNS pour la résolution de noms pour l’accès à vCenter sur cloud privé à partir de stations de travail locales
 
@@ -23,9 +23,9 @@ Pour accéder au serveur vCenter sur un cloud privé CloudSimple à partir de st
 
 1. Connectez-vous au [portail CloudSimple](access-cloudsimple-portal.md).
 
-2. Accédez à **Ressources** > **Clouds privés** , puis sélectionnez le cloud privé auquel vous souhaitez vous connecter.
+2. Accédez à **Ressources** > **Clouds privés**, puis sélectionnez le cloud privé auquel vous souhaitez vous connecter.
 
-3. Sur la page **Résumé** du cloud privé sous **Informations de base** , copiez l’adresse IP du serveur DNS du cloud privé.
+3. Sur la page **Résumé** du cloud privé sous **Informations de base**, copiez l’adresse IP du serveur DNS du cloud privé.
 
     ![Serveurs DNS de cloud privé](media/private-cloud-dns-server.png)
 
@@ -45,6 +45,9 @@ Le fichier et les paramètres spécifiques à configurer peuvent varier en fonct
 
 Par exemple, pour la configuration de serveur BIND par défaut, modifiez le fichier /etc/named.conf sur votre serveur DNS et ajoutez les informations de zone suivantes.
 
+> [!NOTE]
+>Cet article contient des références au terme esclave, un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.
+
 ```
 zone "az.cloudsimple.io"
 {
@@ -59,13 +62,13 @@ zone "az.cloudsimple.io"
 1. Cliquez avec le bouton droit sur le serveur DNS et sélectionnez **Nouvelle zone**. 
   
     ![Capture d'écran mettant en évidence l'option de menu Nouvelle zone.](media/DNS01.png)
-2. Sélectionnez **Zone de stub** , puis cliquez sur **Suivant**.
+2. Sélectionnez **Zone de stub**, puis cliquez sur **Suivant**.
 
     ![Capture d'écran mettant en évidence l'option Zone de stub.](media/DNS02.png)
 3. Sélectionnez l’option appropriée en fonction de votre environnement, puis cliquez sur **Suivant**.
 
     ![Capture d'écran illustrant les options de réplication des données de zone.](media/DNS03.png)
-4. Sélectionnez **Zone de recherche directe** , puis cliquez sur **Suivant**.
+4. Sélectionnez **Zone de recherche directe**, puis cliquez sur **Suivant**.
 
     ![Capture d'écran mettant en évidence l'option Zone de recherche directe.](media/DNS01.png)
 5. Entrez le nom de la zone, puis cliquez sur **Suivant**.

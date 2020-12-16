@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ffb1d5eb756c7bc316a6d8e1de30a95eb1ac5194
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f76f4a3e5fc87420c242c693e3c48a91244641e0
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91287047"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97560031"
 ---
 # <a name="add-a-self-service-sign-up-user-flow-to-an-app-preview"></a>Ajouter un flux utilisateur d’inscription en libre-service à une application (préversion)
 > [!NOTE]
@@ -53,7 +53,7 @@ Avant de pouvoir ajouter un flux utilisateur d’inscription en libre-service à
 4. Positionnez le bouton bascule **Activer l’inscription en libre-service d’invité via des flux utilisateur (préversion)** sur **Oui**.
 
    ![Activer l’inscription en libre-service d’invité](media/self-service-sign-up-user-flow/enable-self-service-sign-up.png)
-
+5. Sélectionnez **Enregistrer**.
 ## <a name="create-the-user-flow-for-self-service-sign-up"></a>Créer le flux utilisateur pour l’inscription en libre-service
 
 Ensuite, vous allez créer le flux utilisateur pour l’inscription en libre-service et l’ajouter à une application.

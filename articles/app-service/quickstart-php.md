@@ -5,12 +5,12 @@ ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
 ms.topic: quickstart
 ms.date: 08/01/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 152a000939f74b1852073742e501ac66246389a5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f6876d0aef0d3d87e038b623c395f8368a14e90c
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96015893"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97561849"
 ---
 # <a name="create-a-php-web-app-in-azure-app-service"></a>Créer une application web PHP dans Azure App Service
 
@@ -78,9 +78,9 @@ Dans la fenêtre de terminal, appuyez sur **Ctrl + C** pour quitter le serveur
 
 ## <a name="create-a-web-app"></a>Créer une application web
 
-Dans Cloud Shell, créez une application web dans le plan App Service `myAppServicePlan` avec la commande [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). 
+Dans Cloud Shell, créez une application web dans le plan App Service `myAppServicePlan` avec la commande [`az webapp create`](/cli/azure/webapp#az-webapp-create). 
 
-Dans l’exemple suivant, remplacez `<app-name>` par un nom d’application unique (les caractères autorisés sont `a-z`, `0-9` et `-`). Le runtime est défini sur `PHP|7.4`. Pour voir tous les runtimes, exécutez [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes). 
+Dans l’exemple suivant, remplacez `<app-name>` par un nom d’application unique (les caractères autorisés sont `a-z`, `0-9` et `-`). Le runtime est défini sur `PHP|7.4`. Pour voir tous les runtimes, exécutez [`az webapp list-runtimes`](/cli/azure/webapp#az-webapp-list-runtimes). 
 
 ```azurecli-interactive
 # Bash
@@ -134,7 +134,7 @@ Delta compression using up to 4 threads.
 Compressing objects: 100% (2/2), done.
 Writing objects: 100% (2/2), 352 bytes | 0 bytes/s, done.
 Total 2 (delta 1), reused 0 (delta 0)
-remote: Updating branch 'master'.
+remote: Updating branch 'main'.
 remote: Updating submodules.
 remote: Preparing deployment for commit id '25f18051e9'.
 remote: Generating deployment script.
@@ -150,7 +150,7 @@ remote: Finished successfully.
 remote: Running post deployment command(s)...
 remote: Deployment successful.
 To https://&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git
-   cc39b1e..25f1805  master -> master
+   cc39b1e..25f1805  main -> main
 </pre>
 
 ## <a name="browse-to-the-app"></a>Accéder à l’application
@@ -179,7 +179,7 @@ Dans la fenêtre du terminal local, validez vos modifications dans Git, puis env
 
 ```bash
 git commit -am "updated output"
-git push azure master
+git push azure main
 ```
 
 Une fois le déploiement terminé, revenez à la fenêtre du navigateur que vous avez ouverte à l’étape **Accéder à l’application**, puis actualisez la page.
