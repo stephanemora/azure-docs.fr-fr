@@ -5,18 +5,21 @@ ms.topic: how-to
 author: abhirockzz
 ms.author: abhishgu
 ms.date: 08/11/2020
-ms.openlocfilehash: a13713f01a6bdb0ffcd787ef9c1d2f9a0336f63c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: ae3ef2e1f35be432558769c512845543867ef27a
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369554"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505407"
 ---
 # <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview-with-debezium-for-change-data-capture"></a>Intégrer la prise en charge d’Apache Kafka Connect sur Azure Event Hubs (version préliminaire) avec Debezium pour la capture des changements de données
 
 **La capture des changements de données (CDC)** est une technique utilisée pour effectuer le suivi des modifications au niveau des lignes dans les tables de base de données en réponse à des opérations de création, de mise à jour et de suppression. [Debezium](https://debezium.io/) est une plateforme distribuée qui s’appuie sur les fonctionnalités de capture des changements de données disponibles dans différentes bases de données (par exemple, le [décodage logique dans PostgreSQL](https://www.postgresql.org/docs/current/static/logicaldecoding-explanation.html)). Il fournit un ensemble de [connecteurs Kafka Connect](https://debezium.io/documentation/reference/1.2/connectors/index.html) qui utilisent les modifications au niveau des lignes dans la ou les tables de base de données et les convertissent en flux d’événements qui sont ensuite envoyés à [Apache Kafka](https://kafka.apache.org/).
 
 Ce didacticiel vous guide tout au long de la configuration d’un système basé sur la capture des changements de données sur Azure à l’aide d' [Azure Event Hubs](./event-hubs-about.md?WT.mc_id=devto-blog-abhishgu) (pour Kafka), d’[Azure DB pour PostgreSQL](../postgresql/overview.md) et de Debezium. Il utilise le [connecteur Debezium PostgreSQL](https://debezium.io/documentation/reference/1.2/connectors/postgresql.html) pour diffuser en continu les modifications de base de données de PostgreSQL vers les rubriques Kafka dans Azure Event Hubs
+
+> [!NOTE]
+> Cet article contient des références au terme *liste verte*, un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.
 
 Dans ce tutoriel, vous effectuez les étapes suivantes :
 

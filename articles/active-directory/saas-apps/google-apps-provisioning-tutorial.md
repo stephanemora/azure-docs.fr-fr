@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/06/2020
 ms.author: Zhchia
-ms.openlocfilehash: 2ce5ac43af57b82f912b10eeacf285a688888e9d
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 4851dfb4a96ab2ca19ba6ea67139772f9c091a69
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96180878"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504574"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Tutoriel : Configurer G Suite pour l’attribution automatique d’utilisateurs
 
@@ -31,6 +31,9 @@ Ce tutoriel décrit les étapes à suivre dans G Suite et Azure Active Directory
 > * Ajout de la prise en charge d’autres attributs d’utilisateur et de groupe G Suite.
 > * Les noms d’attributs cibles G Suite mis à jour correspondent à ce qui est défini [ici](https://developers.google.com/admin-sdk/directory).
 > * Mappages d’attributs par défaut mis à jour.
+
+> [!NOTE]
+> Cet article contient des références au terme *liste verte*, un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.
 
 ## <a name="capabilities-supported"></a>Fonctionnalités prises en charge
 > [!div class="checklist"]

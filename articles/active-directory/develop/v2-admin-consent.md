@@ -12,12 +12,12 @@ ms.date: 12/3/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: cb629b80958ed2897f76eb099f738c33b48c3696
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7de97fd775853f64803ab62ac397e754d065e4df
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88119604"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509323"
 ---
 # <a name="admin-consent-on-the-microsoft-identity-platform"></a>Consentement administrateur sur la plateforme d’identités Microsoft
 
@@ -44,14 +44,13 @@ https://graph.microsoft.com/calendars.read
 https://graph.microsoft.com/mail.send
 ```
 
-
-| Paramètre     | Condition     | Description                                                                               |
-|--------------:|--------------:|:-----------------------------------------------------------------------------------------:|
+| Paramètre | Condition | Description |
+| ---: | ---: | :---: |
 | `tenant` | Obligatoire | Le client d’annuaire auquel vous souhaitez demander l’autorisation. Peut être fourni au format GUID ou sous forme de nom convivial OU référencé de manière générique avec `organizations` comme indiqué dans l’exemple. N’utilisez pas « common », car les comptes personnels ne peuvent pas fournir le consentement de l’administrateur, sauf dans le contexte d’un locataire. Pour garantir une meilleure compatibilité avec les comptes personnels qui gèrent les locataires, utilisez l’ID de locataire, dans la mesure du possible. |
 | `client_id` | Obligatoire | L’**ID (client) d’application** attribué à votre application par l’environnement [Inscriptions d’applications du portail Azure](https://go.microsoft.com/fwlink/?linkid=2083908). |
 | `redirect_uri` | Obligatoire |L'URI de redirection où vous souhaitez que la réponse soit envoyée pour être gérée par votre application. Il doit correspondre exactement à l’un des URI de redirection que vous avez inscrits dans le portail d’inscription des applications. |
 | `state` | Recommandé | Une valeur incluse dans la requête, qui sera également renvoyée dans la réponse de jeton. Il peut s’agir d’une chaîne du contenu de votre choix. Utilisez l’état pour encoder les informations sur l’état de l’utilisateur dans l’application avant la requête d’authentification, comme la page ou la vue sur laquelle ou laquelle il était positionné. |
-|`scope`        | Obligatoire      | Définit l’ensemble des autorisations demandées par l’application. Il peut s’agir d’étendues statiques (utilisant /.default) ou dynamiques.  Cela peut inclure les étendues OIDC (`openid`, `profile`, `email`). |
+|`scope` | Obligatoire | Définit l’ensemble des autorisations demandées par l’application. Il peut s’agir d’étendues statiques (utilisant /.default) ou dynamiques. Cela peut inclure les étendues OIDC (`openid`, `profile`, `email`). |
 
 
 À ce stade, Azure AD nécessite qu’un administrateur client se connecte pour terminer la demande. L’administrateur est invité à approuver toutes les autorisations que vous avez demandées dans le paramètre `scope`.  Si vous avez utilisé une valeur (`/.default`) statique, celle-ci fonctionne comme le point de terminaison de consentement administrateur v 1.0 et demande un consentement pour toutes les étendues trouvées dans les autorisations requises pour l’application.
@@ -64,12 +63,12 @@ Si l’administrateur approuve les autorisations pour votre application, la rép
 http://localhost/myapp/permissions?admin_consent=True&tenant=fa00d692-e9c7-4460-a743-29f2956fd429&state=12345&scope=https%3a%2f%2fgraph.microsoft.com%2fCalendars.Read+https%3a%2f%2fgraph.microsoft.com%2fMail.Send
 ```
 
-| Paramètre         | Description                                                                                       |
-|------------------:|:-------------------------------------------------------------------------------------------------:|
+| Paramètre | Description |
+| ---: | :---: |
 | `tenant`| Client d’annuaire ayant accordé à votre application les autorisations demandées au format GUID.|
-| `state`           | Une valeur incluse dans la requête qui sera également renvoyée dans la réponse de jeton. Il peut s’agir d’une chaîne du contenu de votre choix. La valeur d’état est utilisée pour coder les informations sur l’état de l’utilisateur dans l’application avant la requête d’authentification, comme la page ou l’écran sur lequel ou laquelle il était positionné.|
-| `scope`          | Ensemble d’autorisations auquel l’accès a été accordé pour l’application.|
-| `admin_consent`   | Sera défini sur `True`.|
+| `state` | Une valeur incluse dans la requête qui sera également renvoyée dans la réponse de jeton. Il peut s’agir d’une chaîne du contenu de votre choix. La valeur d’état est utilisée pour coder les informations sur l’état de l’utilisateur dans l’application avant la requête d’authentification, comme la page ou l’écran sur lequel ou laquelle il était positionné.|
+| `scope` | Ensemble d’autorisations auquel l’accès a été accordé pour l’application.|
+| `admin_consent` | Sera défini sur `True`.|
 
 ### <a name="error-response"></a>Réponse d’erreur
 
@@ -77,13 +76,13 @@ http://localhost/myapp/permissions?admin_consent=True&tenant=fa00d692-e9c7-4460-
 
 Ajout aux paramètres affichés dans une réponse correcte. Les paramètres d’erreur s’affichent comme ci-dessous.
 
-| Paramètre          | Description                                                                                      |
+| Paramètre | Description |
 |-------------------:|:-------------------------------------------------------------------------------------------------:|
-| `error`            | Une chaîne de code d’erreur pouvant être utilisée pour classer les types d’erreurs se produisant, et pouvant être utilisée pour intervenir face aux erreurs.|
-| `error_description`| Un message d’erreur spécifique qui peut aider un développeur à identifier la cause principale d’une erreur.|
+| `error` | Une chaîne de code d’erreur pouvant être utilisée pour classer les types d’erreurs se produisant, et pouvant être utilisée pour intervenir face aux erreurs.|
+| `error_description` | Un message d’erreur spécifique qui peut aider un développeur à identifier la cause principale d’une erreur.|
 | `tenant`| Client d’annuaire ayant accordé à votre application les autorisations demandées au format GUID.|
-| `state`           | Une valeur incluse dans la requête qui sera également renvoyée dans la réponse de jeton. Il peut s’agir d’une chaîne du contenu de votre choix. La valeur d’état est utilisée pour coder les informations sur l’état de l’utilisateur dans l’application avant la requête d’authentification, comme la page ou l’écran sur lequel ou laquelle il était positionné.|
-| `admin_consent`   | Aura la valeur `True` pour indiquer que cette réponse s’est produite sur un flux de consentement administrateur.|
+| `state` | Une valeur incluse dans la requête qui sera également renvoyée dans la réponse de jeton. Il peut s’agir d’une chaîne du contenu de votre choix. La valeur d’état est utilisée pour coder les informations sur l’état de l’utilisateur dans l’application avant la requête d’authentification, comme la page ou l’écran sur lequel ou laquelle il était positionné.|
+| `admin_consent` | Aura la valeur `True` pour indiquer que cette réponse s’est produite sur un flux de consentement administrateur.|
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Consultez [comment convertir une application multi-locataire](howto-convert-app-to-be-multi-tenant.md)

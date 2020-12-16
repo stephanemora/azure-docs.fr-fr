@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 06/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 8fa77f13b99564246c048e7b7a8129f9fc141c47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31dabcf77f0db76047919fa76d00f1c5ed3c96d6
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84984170"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97369138"
 ---
 # <a name="create-or-update-azure-custom-roles-using-azure-cli"></a>Créer ou mettre à jour des rôles personnalisés Azure à l’aide d’Azure CLI
 
@@ -244,4 +244,4 @@ az role definition delete --name "Virtual Machine Operator"
 
 - [Tutoriel : Créer un rôle personnalisé Azure à l’aide d’Azure CLI](tutorial-custom-role-cli.md)
 - [Rôle personnalisés Azure](custom-roles.md)
-- [Opérations du fournisseur de ressources Azure Resource Manager](resource-provider-operations.md)
+- [Opérations de fournisseur de ressources Azure](resource-provider-operations.md)

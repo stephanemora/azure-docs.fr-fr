@@ -11,16 +11,19 @@ author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bdadc02c8bb1c3f9450ff34ac935547343989cf6
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 6d436414393d77c83acc835110f17e55e491dce1
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96742967"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97503487"
 ---
 # <a name="advanced-configuration-options-for-the-nps-extension-for-multi-factor-authentication"></a>Options de configuration avancée de l’extension de serveur NPS pour l’authentification multifacteur
 
-L’extension de serveur NPS (Network Policy Server) étend vos fonctionnalités Azure AD Multi-Factor Authentication basées sur le cloud à votre infrastructure locale. Cet article suppose que l’extension est déjà installée et que vous souhaitez maintenant savoir comment personnaliser l’extension en fonction de vos propres besoins. 
+L’extension de serveur NPS (Network Policy Server) étend vos fonctionnalités Azure AD Multi-Factor Authentication basées sur le cloud à votre infrastructure locale. Cet article suppose que l’extension est déjà installée et que vous souhaitez maintenant savoir comment personnaliser l’extension en fonction de vos propres besoins.
+
+> [!NOTE]
+> Cet article contient des références au terme *liste verte*, un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.
 
 ## <a name="alternate-login-id"></a>ID de connexion de substitution
 

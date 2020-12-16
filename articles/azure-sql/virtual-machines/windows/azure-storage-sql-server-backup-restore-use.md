@@ -7,17 +7,18 @@ author: MikeRayMSFT
 tags: azure-service-management
 ms.assetid: 0db7667d-ef63-4e2b-bd4d-574802090f8b
 ms.service: virtual-machines-sql
+ms.subservice: backup
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: mathoma
-ms.openlocfilehash: a1ddd0ec44c9aa8fe0e00b75ff8afd986dc1007b
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: b4100800385792557358d3fb6438f52650483f89
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789894"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359788"
 ---
 # <a name="use-azure-storage-for-sql-server-backup-and-restore"></a>Utiliser le Stockage Azure pour la sauvegarde et la restauration de SQL Server
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -32,13 +33,13 @@ Cette rubrique explique pourquoi vous pourriez préférer utiliser le Stockage A
 ## <a name="benefits-of-using-azure-blob-storage-for-sql-server-backups"></a>Avantages de l’utilisation du stockage Blob Azure pour les sauvegardes SQL Server
 La sauvegarde de SQL Server pose diverses difficultés. Ces défis comprennent la gestion du stockage, le risque de défaillance du stockage, l’accès à un stockage hors site et la configuration matérielle. La plupart de ces difficultés peuvent être résolues avec le stockage Blob Azure pour les sauvegardes SQL Server. Considérez les avantages suivants :
 
-* **Simplicité d’utilisation**  : Le stockage de vos sauvegardes dans des objets blob Azure peut représenter une option hors site pratique, flexible et facile d’accès. La création d’un stockage hors site pour vos sauvegardes SQL Server peut être aussi facile que la modification de vos scripts/tâches existants pour utiliser la syntaxe **BACKUP TO URL** . En principe, le stockage hors site doit être suffisamment éloigné de l'emplacement de la base de données de production pour empêcher qu'un éventuel sinistre n'affecte tous les emplacements (bases de données hors site et de production). En choisissant de [répliquer géographiquement vos objets blob Azure](../../../storage/common/storage-redundancy.md), vous obtenez une couche de protection supplémentaire en cas de sinistre susceptible d’affecter l’ensemble de la région.
-* **Archive de sauvegarde**  : Le stockage Blob Azure offre une meilleure alternative à l’option sur bande souvent utilisée pour archiver les sauvegardes. Le stockage sur bande peut nécessiter le transport physique vers un emplacement hors site, ainsi que des mesures de protection des supports. Le stockage de vos sauvegardes dans le stockage Blob Azure offre une option d’archivage instantané, hautement disponible et durable.
-* **Matériel géré**  : Il n’y a aucun frais supplémentaires de gestion du matériel avec les services Azure. Ces derniers gèrent le matériel et fournissent une géo-réplication à des fins de redondance et de protection contre les défaillances matérielles.
-* **Stockage illimité**  : En activant une sauvegarde directe dans des objets blob Azure, vous avez accès à un stockage quasi illimité. De façon alternative, la sauvegarde sur un disque de machine virtuelle Azure présente des limites basées sur la taille de la machine. Le nombre de disques que vous pouvez attacher à une machine virtuelle Azure est limité pour les sauvegardes. Cette limite est de 16 disques pour une instance extra-large et inférieure pour les instances plus petites.
-* **Disponibilité des sauvegardes**  : Les sauvegardes stockées dans des objets blob Azure sont disponibles à partir de n’importe quel endroit, à tout moment et sont facilement accessibles pour les restaurations sur une instance SQL Server, sans avoir à attacher/détacher la base de données ni télécharger et attacher le disque dur virtuel.
+* **Simplicité d’utilisation** : Le stockage de vos sauvegardes dans des objets blob Azure peut représenter une option hors site pratique, flexible et facile d’accès. La création d’un stockage hors site pour vos sauvegardes SQL Server peut être aussi facile que la modification de vos scripts/tâches existants pour utiliser la syntaxe **BACKUP TO URL** . En principe, le stockage hors site doit être suffisamment éloigné de l'emplacement de la base de données de production pour empêcher qu'un éventuel sinistre n'affecte tous les emplacements (bases de données hors site et de production). En choisissant de [répliquer géographiquement vos objets blob Azure](../../../storage/common/storage-redundancy.md), vous obtenez une couche de protection supplémentaire en cas de sinistre susceptible d’affecter l’ensemble de la région.
+* **Archive de sauvegarde** : Le stockage Blob Azure offre une meilleure alternative à l’option sur bande souvent utilisée pour archiver les sauvegardes. Le stockage sur bande peut nécessiter le transport physique vers un emplacement hors site, ainsi que des mesures de protection des supports. Le stockage de vos sauvegardes dans le stockage Blob Azure offre une option d’archivage instantané, hautement disponible et durable.
+* **Matériel géré** : Il n’y a aucun frais supplémentaires de gestion du matériel avec les services Azure. Ces derniers gèrent le matériel et fournissent une géo-réplication à des fins de redondance et de protection contre les défaillances matérielles.
+* **Stockage illimité** : En activant une sauvegarde directe dans des objets blob Azure, vous avez accès à un stockage quasi illimité. De façon alternative, la sauvegarde sur un disque de machine virtuelle Azure présente des limites basées sur la taille de la machine. Le nombre de disques que vous pouvez attacher à une machine virtuelle Azure est limité pour les sauvegardes. Cette limite est de 16 disques pour une instance extra-large et inférieure pour les instances plus petites.
+* **Disponibilité des sauvegardes** : Les sauvegardes stockées dans des objets blob Azure sont disponibles à partir de n’importe quel endroit, à tout moment et sont facilement accessibles pour les restaurations sur une instance SQL Server, sans avoir à attacher/détacher la base de données ni télécharger et attacher le disque dur virtuel.
 * **Coût** : payez uniquement pour le service utilisé. Peut être économique comme option de sauvegarde et d'archivage hors site. Pour plus d’informations, consultez les pages [Calculatrice de prix Azure](https://go.microsoft.com/fwlink/?LinkId=277060 "Calculatrice de prix") et l’[article sur les prix Azure](https://go.microsoft.com/fwlink/?LinkId=277059 "Article sur les prix").
-* **Captures instantanées du stockage**  : Quand les fichiers de base de données sont stockés dans un objet blob Azure et que vous utilisez SQL Server 2016, vous pouvez utiliser la [sauvegarde d’instantanés de fichier](/sql/relational-databases/backup-restore/file-snapshot-backups-for-database-files-in-azure) pour effectuer des sauvegardes quasi instantanées et des restaurations extrêmement rapides.
+* **Captures instantanées du stockage** : Quand les fichiers de base de données sont stockés dans un objet blob Azure et que vous utilisez SQL Server 2016, vous pouvez utiliser la [sauvegarde d’instantanés de fichier](/sql/relational-databases/backup-restore/file-snapshot-backups-for-database-files-in-azure) pour effectuer des sauvegardes quasi instantanées et des restaurations extrêmement rapides.
 
 Pour plus d’informations, consultez [Sauvegarde et restauration SQL Server avec le stockage Blob Azure](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service).
 
@@ -70,8 +71,8 @@ Les composants SQL Server suivants sont utilisés pour les sauvegardes sur le st
 1. Création d’un compte Azure si vous n’en avez pas encore. Si vous évaluez Azure, envisagez l’ [essai gratuit](https://azure.microsoft.com/free/).
 2. Consultez ensuite un des didacticiels suivants pour créer un compte de stockage et effectuez une restauration.
    
-   * **SQL Server 2014**  : [Tutoriel : Sauvegarde et restauration SQL Server 2014 sur le stockage Blob Microsoft Azure](https://msdn.microsoft.com/library/jj720558\(v=sql.120\).aspx).
-   * **SQL Server 2016**  : [Tutoriel : Utilisation du stockage Blob Microsoft Azure avec des bases de données SQL Server 2016](/sql/relational-databases/tutorial-use-azure-blob-storage-service-with-sql-server-2016)
+   * **SQL Server 2014** : [Tutoriel : Sauvegarde et restauration SQL Server 2014 sur le stockage Blob Microsoft Azure](https://msdn.microsoft.com/library/jj720558\(v=sql.120\).aspx).
+   * **SQL Server 2016** : [Tutoriel : Utilisation du stockage Blob Microsoft Azure avec des bases de données SQL Server 2016](/sql/relational-databases/tutorial-use-azure-blob-storage-service-with-sql-server-2016)
 3. Continuez à consulter la documentation en commençant avec [Sauvegarde et restauration SQL Server avec le stockage Blob Microsoft Azure](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service).
 
 Si vous rencontrez des problèmes, consultez la rubrique [Meilleures pratiques et résolution des problèmes pour la sauvegarde de SQL Server vers une URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url-best-practices-and-troubleshooting).

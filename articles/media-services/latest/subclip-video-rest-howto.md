@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: how-to
 ms.date: 06/10/2019
 ms.author: inhenkel
-ms.openlocfilehash: 2a78e8c8c204e5cedeb8bdd2a25cff40a3e5cc44
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 524da91d55bad29a5f7c6dcec0eecc245b9954fd
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89296547"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511907"
 ---
 # <a name="subclip-a-video-when-encoding-with-media-services---rest"></a>Sous-découper une vidéo lors de l’encodage avec Media Services - REST
 
@@ -49,7 +49,7 @@ Pour suivre les étapes décrites dans cette rubrique, vous devez :
 1. Mettez à jour la valeur de variable d’environnement « transformName » avec le nom de votre transformation. 
 1. Sélectionnez l’onglet **Corps** onglet et mettez à jour « myOutputAsset » avec le nom de votre élément multimédia de sortie.
 
-    ```
+    ```json
     {
       "properties": {
         "description": "A Job with transform cb9599fb-03b3-40eb-a2ff-7ea909f53735 and single clip.",
@@ -58,8 +58,8 @@ Pour suivre les étapes décrites dans cette rubrique, vous devez :
           "@odata.type": "#Microsoft.Media.JobInputHttp",
           "baseUri": "https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/",
           "files": [
-                "Ignite-short.mp4"
-            ],
+            "Ignite-short.mp4"
+          ],
           "start": {
             "@odata.type": "#Microsoft.Media.AbsoluteClipTime",
             "time": "PT10S"

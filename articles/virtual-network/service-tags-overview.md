@@ -7,18 +7,18 @@ documentationcenter: na
 author: allegradomel
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/30/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: d99ed9304612d5c1d3cbdc56a76cee751f2a4d3f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d01136ea4377bd7d35a2e11b4bcf654bcf677fbe
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96017931"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97401557"
 ---
 # <a name="virtual-network-service-tags"></a>Balises de service du réseau virtuel
 <a name="network-service-tags"></a>
@@ -43,7 +43,7 @@ Les colonnes indiquent si la balise :
 Par défaut, les balises de service reflètent les plages pour l’ensemble du Cloud. Certaines balises de service permettent également d’obtenir un contrôle plus précis en limitant les plages d’adresses IP correspondantes à une région spécifiée. Par exemple, la balise de service **Storage** représente le Stockage Azure pour l’ensemble du cloud, alors que **Storage.WestUS** limite la sélection aux plages d’adresses IP de stockage de la région WestUS. Le tableau suivant indique si chaque balise de service prend en charge cette étendue régionale.  
 
 | Tag | Objectif | Peut-elle utiliser le trafic entrant ou sortant ? | Peut-elle être étendue à une zone régionale ? | Peut-elle être utilisée avec le Pare-feu Azure ? |
-| --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| --- | -------- |:---:|:---:|:---:|
 | **ActionGroup** | Groupe d’actions. | Trafic entrant | Non | Non |
 | **ApiManagement** | Trafic de gestion pour les déploiements dédiés de Gestion des API. <br/><br/>*Remarque :* Cette balise représente le point de terminaison du service Azure Gestion des API pour le plan de contrôle par région. Ceci permet aux clients d’effectuer des opérations de gestion sur les API, les opérations, les stratégies et les valeurs nommées configurées sur le service Gestion des API.  | Trafic entrant | Oui | Oui |
 | **ApplicationInsightsAvailability** | Disponibilité d’Application Insights. | Trafic entrant | Non | Non |

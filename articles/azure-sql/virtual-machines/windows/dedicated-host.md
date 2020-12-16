@@ -6,6 +6,7 @@ documentationcenter: na
 author: MashaMSFT
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
+ms.subservice: management
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
@@ -13,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/12/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: bb80abc35aedcdf0b46cefa279e477739cf1df6b
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 957e458bf21eb4a95b1faba1daf0459271648310
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789792"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358688"
 ---
 # <a name="run-sql-server-vm-on-an-azure-dedicated-host"></a>Exécuter une machine virtuelle SQL Server sur un hôte Azure Dedicated Host 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -36,8 +37,8 @@ Un [hôte dédié Azure](../../../virtual-machines/dedicated-hosts.md) est un se
 
 Vous avez le choix entre deux options de licence quand vous installez votre machine virtuelle SQL Server sur un hôte Azure Dedicated Host. 
 
-  - **Gestion des licences de machines virtuelles SQL**  : Il s’agit de l’option existante de gestion des licences, où vous payez pour chaque licence de machine virtuelle SQL Server. 
-  - **Gestion des licences d’hôtes dédiés**  : Nouveau modèle de licence disponible pour l’hôte dédié Azure, où les licences SQL Server sont regroupées en bundle et payées au niveau de l’hôte. 
+  - **Gestion des licences de machines virtuelles SQL** : Il s’agit de l’option existante de gestion des licences, où vous payez pour chaque licence de machine virtuelle SQL Server. 
+  - **Gestion des licences d’hôtes dédiés** : Nouveau modèle de licence disponible pour l’hôte dédié Azure, où les licences SQL Server sont regroupées en bundle et payées au niveau de l’hôte. 
 
 
 Options au niveau de l’hôte pour l’utilisation des licences SQL Server existantes : 

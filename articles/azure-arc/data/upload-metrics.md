@@ -10,12 +10,12 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 zone_pivot_groups: client-operating-system-macos-and-linux-windows-powershell
-ms.openlocfilehash: f31cf22ae8814975dcee92c33026d223275cf121
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: f319f912520a69a0c68f89a3d4178f63cc45ca1f
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92373418"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97356546"
 ---
 # <a name="upload-metrics-to-azure-monitor"></a>Charger les métriques sur le Azure Monitor
 
@@ -47,7 +47,7 @@ Définissez l’URL de l’autorité du SPN dans une variable d’environnement�
 ::: zone pivot="client-operating-system-windows-command"
 
 ```console
-SET SPN_AUTHORITY='https://login.microsoftonline.com'
+SET SPN_AUTHORITY=https://login.microsoftonline.com
 ```
 
 ::: zone-end

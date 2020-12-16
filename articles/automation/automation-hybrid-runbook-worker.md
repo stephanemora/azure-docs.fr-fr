@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 11/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7bd9560399a2b2b377cb543a4f829883bcbdf7c8
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 7feac3ccb94cd8b4b0fab509477d4dbf772df2ae
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183768"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505526"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>Vue d’ensemble des Runbook Worker hybrides
 
@@ -92,7 +92,7 @@ Le Runbook Worker hybride d’Azure Automation peut être utilisé dans Azure Go
 
 * [Machine virtuelle isolée](../azure-government/documentation-government-impact-level-5.md#isolated-virtual-machines). Une fois déployées, elles consomment la totalité de l’hôte physique pour cette machine, fournissant ainsi le niveau d’isolation nécessaire pour prendre en charge les charges de travail IL5.
 
-* Les [hôtes dédiés Azure](../azure-government/documentation-government-impact-level-5.md#azure-dedicated-hosts), qui fournissent des serveurs physiques capables d’héberger une ou plusieurs machines virtuelles et dédiés à un abonnement Azure.
+* Les [hôtes dédiés Azure](../azure-government/documentation-government-impact-level-5.md#azure-dedicated-host), qui fournissent des serveurs physiques capables d’héberger une ou plusieurs machines virtuelles et dédiés à un abonnement Azure.
 
 >[!NOTE]
 >L’isolation de calcul via le rôle Runbook Worker hybride est disponible pour les clouds commerciaux Azure et le cloud US Government. 

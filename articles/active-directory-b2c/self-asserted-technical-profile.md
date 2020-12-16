@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e17c390dddcb2af9fdc83b45ae812ef1fff7f1c3
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 14195ad4638c724cf0c8dd46945a0da79ec0e4ec
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96345080"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509698"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique autodéclaré dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -209,7 +209,7 @@ Vous pouvez également appeler un profil technique d’API REST avec votre logiq
 | setting.showContinueButton | Non | Affiche le bouton Continuer. Les valeurs possibles sont `true` (par défaut) ou `false` |
 | setting.showSignupLink <sup>2</sup>| Non | Affiche le bouton d’inscription. Les valeurs possibles sont `true` (par défaut) ou `false` |
 | setting.forgotPasswordLinkLocation <sup>2</sup>| Non| Affiche le lien du mot de passe oublié. Valeurs possibles : `AfterInput` (par défaut) où le lien est affiché en bas de la page ou `None` supprime le lien du mot de passe oublié.|
-| setting.enableRememberMe <sup>2</sup>| Non| Affiche la case à cocher [Rester connecté](custom-policy-keep-me-signed-in.md). Valeurs possibles : `true` ou `false` (par défaut). |
+| setting.enableRememberMe <sup>2</sup>| Non| Affiche la case à cocher [Rester connecté](session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi). Valeurs possibles : `true` ou `false` (par défaut). |
 | setting.inputVerificationDelayTimeInMilliseconds <sup>3</sup>| Non| Améliore l’expérience utilisateur en attendant que l’utilisateur arrête sa saisie puis en validant la valeur. La valeur par défaut est de 2000 millisecondes. |
 | IncludeClaimResolvingInClaimsHandling  | Non | Pour les revendications d’entrée et de sortie, spécifie si la [résolution des revendications](claim-resolver-overview.md) est incluse dans le profil technique. Valeurs possibles : `true` ou `false` (par défaut). Si vous souhaitez utiliser un programme de résolution des revendications dans le profil technique, définissez cette valeur sur `true`. |
 

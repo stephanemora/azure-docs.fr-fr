@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/15/2020
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 615ce7da3ec480b766ceaeb307c50f7cb759fd4a
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 52904296df77d9097a6180345388e8e702e2bca0
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100114"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97357620"
 ---
 # <a name="provision-autoscale-throughput-on-database-or-container-in-azure-cosmos-db---sql-api"></a>Approvisionner le débit avec mise à l’échelle automatique sur une base de données ou un conteneur dans Azure Cosmos DB - API SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -30,7 +30,7 @@ Si vous utilisez une autre API, consultez les articles [API pour MongoDB](how-to
 
 1. Accédez à votre compte Azure Cosmos DB et ouvrez l’onglet **Explorateur de données**.
 
-1. Sélectionnez **Nouveau conteneur**. Entrez un nom pour votre base de données, conteneur, ainsi qu'une clé de partition. Sous **Débit** , sélectionnez l’option **Mise à l’échelle automatique** et définissez le [débit maximal (RU/s)](provision-throughput-autoscale.md#how-autoscale-provisioned-throughput-works) auquel vous souhaitez que la base de données ou le conteneur soit mis à l’échelle.
+1. Sélectionnez **Nouveau conteneur**. Entrez un nom pour votre base de données, conteneur, ainsi qu'une clé de partition. Sous **Débit**, sélectionnez l’option **Mise à l’échelle automatique** et définissez le [débit maximal (RU/s)](provision-throughput-autoscale.md#how-autoscale-provisioned-throughput-works) auquel vous souhaitez que la base de données ou le conteneur soit mis à l’échelle.
 
    :::image type="content" source="./media/how-to-provision-autoscale-throughput/create-new-autoscale-container.png" alt-text="Création d’un conteneur et configuration du débit provisionné en mode de mise à l’échelle automatique":::
 
@@ -49,7 +49,7 @@ Pour configurer la mise à l’échelle automatique sur une base de données à 
 
 1. Sélectionnez **Mise à l’échelle et paramètres** pour votre conteneur ou **Mise à l’échelle** pour votre base de données.
 
-1. Sous **Mise à l’échelle** , sélectionnez l’option **Mise à l’échelle automatique** , puis **Enregistrer**.
+1. Sous **Mise à l’échelle**, sélectionnez l’option **Mise à l’échelle automatique**, puis **Enregistrer**.
 
    :::image type="content" source="./media/how-to-provision-autoscale-throughput/autoscale-scale-and-settings.png" alt-text="Activation de la mise à l’échelle automatique sur un conteneur existant":::
 
@@ -128,7 +128,7 @@ Vous pouvez utiliser la [version 4.0 ou ultérieure](https://mvnrepository.com/
 // Create instance of CosmosClient
 CosmosAsyncClient client = new CosmosClientBuilder()
     .setEndpoint(HOST)
-    .setKey(MASTER)
+    .setKey(PRIMARYKEY)
     .setConnectionPolicy(CONNECTIONPOLICY)
     .buildAsyncClient();
 
@@ -145,7 +145,7 @@ CosmosAsyncDatabase database = client.createDatabase(databaseName, autoscaleThro
 // Create instance of CosmosClient
 CosmosClient client = new CosmosClientBuilder()
     .setEndpoint(HOST)
-    .setKey(MASTER)
+    .setKey(PRIMARYKEY)
     .setConnectionPolicy(CONNECTIONPOLICY)
     .buildClient();
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/23/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: f915652110524aac06d641d636155bc6a5fcd256
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 52071b964412071d820745b173e8835c6f9e7d0e
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927921"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97510989"
 ---
 # <a name="ephemeral-os-disks-for-azure-vms"></a>Disques de système d’exploitation éphémères pour les machines virtuelles Azure
 
@@ -34,7 +34,7 @@ Différences clés entre les disques de système d’exploitation persistants et
 
 |                             | Disque de système d’exploitation persistant                          | Disque de système d’exploitation éphémère                              |
 |-----------------------------|---------------------------------------------|------------------------------------------------|
-| **Limite de taille du disque de système d’exploitation**      | 2 Tio                                                                                        | Taille du cache pour la taille de la machine virtuelle ou 2 Tio, la valeur la plus faible étant retenue. Pour la **taille du cache en Gio** , consultez [DS](sizes-general.md), [ES](sizes-memory.md), [M](sizes-memory.md), [FS](sizes-compute.md), and [GS](sizes-previous-gen.md#gs-series)              |
+| **Limite de taille du disque de système d’exploitation**      | 2 Tio                                                                                        | Taille du cache pour la taille de la machine virtuelle ou 2 Tio, la valeur la plus faible étant retenue. Pour la **taille du cache en Gio**, consultez [DS](sizes-general.md), [ES](sizes-memory.md), [M](sizes-memory.md), [FS](sizes-compute.md), and [GS](sizes-previous-gen.md#gs-series)              |
 | **Tailles de machines virtuelles prises en charge**          | Tous                                                                                          | Tailles de machine virtuelle prenant en charge le stockage Premium, par exemple, DSv1, DSv2, DSv3, Esv3, Fs, FsV2, GS ou M                                               |
 | **Prise en charge du type de disque**           | Disque de système d’exploitation managé et non managé                                                                | Disque de système d’exploitation managé uniquement                                                               |
 | **Prise en charge des régions**              | Toutes les régions                                                                                  | Toutes les régions                              |
@@ -86,7 +86,7 @@ az vm create \
 
 Pour les groupes identiques, vous utilisez le même paramètre `--ephemeral-os-disk true` pour [az-vmss-create](/cli/azure/vmss#az-vmss-create) et définissez le paramètre `--os-disk-caching` sur `ReadOnly`.
 
-## <a name="portal"></a>Portail   
+## <a name="portal"></a>Portail
 
 Dans le portail Azure, vous pouvez choisir d’utiliser des disques éphémères lors du déploiement d’une machine virtuelle en ouvrant la section **Avancé** de l’onglet **Disques**. Pour **Utiliser un disque de système d’exploitation éphémère** sélectionnez **Oui**.
 
@@ -94,7 +94,7 @@ Dans le portail Azure, vous pouvez choisir d’utiliser des disques éphémères
 
 Si l’option pour l’utilisation d’un disque éphémère est grisée, vous avez peut-être sélectionné une taille de machine virtuelle qui n’a pas une taille de cache supérieure à l’image du système d’exploitation ou qui ne prend pas en charge le stockage Premium. Revenez à la page **Notions de base** et essayez de choisir une autre taille de machine virtuelle.
 
-Vous pouvez également créer des groupes identiques avec des disques de système d’exploitation éphémères en utilisant le portail. Veillez simplement à sélectionner une taille de machine virtuelle avec une taille de cache suffisamment grande, puis dans **Utiliser un disque du système d’exploitation éphémère** , sélectionnez **Oui**.
+Vous pouvez également créer des groupes identiques avec des disques de système d’exploitation éphémères en utilisant le portail. Veillez simplement à sélectionner une taille de machine virtuelle avec une taille de cache suffisamment grande, puis dans **Utiliser un disque du système d’exploitation éphémère**, sélectionnez **Oui**.
 
 ![Capture d’écran montrant le bouton radio pour choisir d’utiliser un disque de système d’exploitation éphémère pour votre groupe identique](./media/virtual-machines-common-ephemeral/scale-set.png)
 
@@ -120,7 +120,7 @@ Le processus de création d’un groupe identique utilisant un disque de systèm
        "storageProfile": { 
         "osDisk": { 
           "diffDiskSettings": { 
-                "option": "Local" 
+            "option": "Local" 
           }, 
           "caching": "ReadOnly", 
           "createOption": "FromImage" 

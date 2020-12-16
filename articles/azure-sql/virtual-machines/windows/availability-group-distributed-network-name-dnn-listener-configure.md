@@ -7,6 +7,7 @@ author: MashaMSFT
 manager: jroth
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
@@ -14,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: abfcd6a13bc5e8ad262fe47111eb680ad00a34df
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 07ce01304f27ded4e0a566777fcf7027f7a15e4b
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168704"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359436"
 ---
 # <a name="configure-a-dnn-listener-for-an-availability-group"></a>Configurer un écouteur DNN pour un groupe de disponibilité
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -136,7 +137,7 @@ SELECT * FROM SYS.AVAILABILITY_GROUP_LISTENERS
 
 La valeur `1` pour `is_distributed_network_name` indique que l’écouteur est un écouteur DNN (Distributed Network Name) : 
 
-:::image type="content" source="media/availability-group-distributed-network-name-dnn-listener-configure/dnn-listener-tsql.png" alt-text="Affichez l’écouteur DNN sous les écouteurs de groupe de disponibilité dans SQL Server Management Studio (SSMS)":::
+:::image type="content" source="media/availability-group-distributed-network-name-dnn-listener-configure/dnn-listener-tsql.png" alt-text="Utilisez sys.availability_group_listeners pour identifier les écouteurs DNN qui ont une valeur de 1 dans is_distributed_network_name":::
 
 
 ## <a name="update-connection-string"></a>Mettre à jour une chaîne de connexion
@@ -150,8 +151,8 @@ Testez le basculement du groupe de disponibilité pour garantir la fonctionnalit
 Pour tester le basculement, procédez comme suit : 
 
 1. Connectez-vous à l’écouteur DNN ou à l’un des réplicas à l’aide de [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms). 
-1. Développez **Groupe de disponibilité Always On** dans **Explorateur d’objets** . 
-1. Cliquez avec le bouton droit sur le groupe de disponibilité, puis choisissez **Type de basculement** pour ouvrir l’ **Assistant basculement** . 
+1. Développez **Groupe de disponibilité Always On** dans **Explorateur d’objets**. 
+1. Cliquez avec le bouton droit sur le groupe de disponibilité, puis choisissez **Type de basculement** pour ouvrir l’**Assistant basculement**. 
 1. Suivez les invites pour choisir une cible de basculement et faire basculer le groupe de disponibilité sur un réplica secondaire. 
 1. Vérifiez que la base de données est dans un état synchronisé sur le nouveau réplica principal. 
 1. (Facultatif) Effectuez une restauration automatique vers le réplica principal d’origine ou un autre réplica secondaire. 

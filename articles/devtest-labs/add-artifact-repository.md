@@ -3,12 +3,12 @@ title: Ajouter un référentiel d’artefacts à votre laboratoire dans Azure De
 description: Découvrez comment spécifier votre propre dépôt d’artefacts pour votre laboratoire dans Azure DevTest Labs afin de stocker des outils non disponibles dans le dépôt d’artefacts public.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 7553f6b1afa416a5428577a8313bdadb669e32c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5dd7d89020bf077e29b177f6871f43b52467b0d8
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88270969"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97512009"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>Ajouter un référentiel d’artefacts à votre laboratoire dans Azure DevTest Labs.
 Azure DevTest Labs vous permet de spécifier l’ajout d’un artefact à une machine virtuelle pendant ou après la création de cette dernière. Cet artefact peut être un outil ou une application que vous souhaitez installer sur la machine virtuelle. Les artefacts sont définis dans un fichier JSON chargé à partir d’un référentiel Git Azure DevOps ou GitHub.
@@ -45,11 +45,11 @@ Pour ajouter un dépôt à votre laboratoire, obtenez d’abord des informations
 7. Dans l’onglet **Sécurité > Jetons d’accès personnels**, sélectionnez **+ Nouveau jeton**.
 8. Sur la page **Créer un jeton d’accès personnel** :
    1. Entrez un **nom** pour le jeton.
-   2. Dans la liste**Organisation**, sélectionnez **Toutes les organisations accessibles**.
+   2. Dans la liste **Organisation**, sélectionnez **Toutes les organisations accessibles**.
    3. Dans la liste **Expiration (UTC)** , sélectionnez **90 jours** ou une période d’expiration personnalisée.
    4. Sélectionnez l’option **Accès complet** pour les étendues.
    5. Sélectionnez **Create** (Créer).
-9. Le nouveau jeton apparaît dans la liste **Jetons d’accès personnels**. Sélectionnez **Copier le jeton**puis enregistrez la valeur du jeton pour utilisation ultérieure.
+9. Le nouveau jeton apparaît dans la liste **Jetons d’accès personnels**. Sélectionnez **Copier le jeton** puis enregistrez la valeur du jeton pour utilisation ultérieure.
 10. Passez à la section Connecter votre laboratoire au référentiel.
 
 ## <a name="use-azure-portal"></a>Utiliser le portail Azure

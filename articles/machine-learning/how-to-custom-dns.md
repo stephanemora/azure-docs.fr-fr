@@ -11,12 +11,12 @@ author: jhirono
 ms.date: 11/20/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: c67dcbbe2ca6dea533260f59831556c4338374ba
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 07ff656c5eacbbcdc16c6c7cf098478ca6baf745
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95012997"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509289"
 ---
 # <a name="how-to-use-your-workspace-with-a-custom-dns-server"></a>Utilisation de votre espace de travail avec un serveur DNS personnalisé
 
@@ -41,6 +41,7 @@ Lorsque vous utilisez un espace de travail Azure Machine Learning avec un point
 
 La liste suivante contient les noms de domaine complets (FQDN) utilisés par votre espace de travail et le point de terminaison privé :
 
+* `<workspace-GUID>.workspace.<region>.cert.api.azureml.ms`
 * `<workspace-GUID>.workspace.<region>.api.azureml.ms`
 * `<workspace-GUID>.workspace.<region>.experiments.azureml.net`
 * `<workspace-GUID>.workspace.<region>.modelmanagement.azureml.net`
@@ -90,6 +91,7 @@ Les informations retournées par toutes les méthodes sont les mêmes : une lis
 > [!IMPORTANT]
 > Certains noms de domaine complets ne sont pas affichés dans la liste par le point de terminaison privé, mais ils sont requis par l’espace de travail. Ces noms de domaine complets sont répertoriés dans le tableau suivant et doivent également être ajoutés à votre serveur DNS :
 >
+> * `<workspace-GUID>.workspace.<region>.cert.api.azureml.ms`
 > * `<workspace-GUID>.workspace.<region>.experiments.azureml.net`
 > * `<workspace-GUID>.workspace.<region>.modelmanagement.azureml.net`
 > * `<workspace-GUID>.workspace.<region>.aether.ms`

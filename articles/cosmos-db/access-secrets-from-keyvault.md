@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: how-to
 ms.date: 05/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 6c5ef4f0ee0d68e2eae755f000423db4620b834d
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: a9bea0664f99a21ac734de666c802e9875ff00b5
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341380"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359318"
 ---
 # <a name="secure-azure-cosmos-keys-using-azure-key-vault"></a>Sécuriser les clés Azure Cosmos à l’aide d’Azure Key Vault 
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -35,17 +35,17 @@ Les étapes suivantes sont nécessaires pour stocker et lire les clés d’accè
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).  
 2. Sélectionnez **Créer une ressource > Sécurité > Coffre de clés**.  
-3. Dans la section **Créer un coffre de clés** , renseignez les informations suivantes :  
+3. Dans la section **Créer un coffre de clés**, renseignez les informations suivantes :  
    * **Nom :** fournissez un nom unique pour votre coffre de clés.  
    * **Abonnement :** choisissez l’abonnement à utiliser.  
-   * Sous **Groupe de ressources** , choisissez **Créer** et entrez le nom du groupe de ressources.  
+   * Sous **Groupe de ressources**, choisissez **Créer** et entrez le nom du groupe de ressources.  
    * Dans le menu déroulant Emplacement, choisissez un emplacement.  
    * Conservez les valeurs par défaut des autres options.  
 4. Après avoir renseigné les informations ci-dessus, sélectionnez **Créer**.  
 
 ## <a name="add-azure-cosmos-db-access-keys-to-the-key-vault"></a>Ajouter des clés d’accès Azure Cosmos DB au coffre de clés
 1. Accédez au coffre de clés que vous avez créé à l’étape précédente, puis ouvrez l’onglet **Secrets**.  
-2. Sélectionnez **+Générer/importer** , 
+2. Sélectionnez **+Générer/importer**, 
 
    * Sélectionnez **Manuel** pour voir les **Options de chargement**.
    * Entrez un **nom** pour votre secret.
@@ -59,7 +59,7 @@ Les étapes suivantes sont nécessaires pour stocker et lire les clés d’accè
 
 ## <a name="create-an-azure-web-application"></a>Créer une application web Azure
 
-1. Créez une application web Azure ou bien téléchargez l’application à partir du [dépôt GitHub](https://github.com/Azure/azure-cosmosdb-dotnet/tree/master/Demo/keyvaultdemo). Il s’agit d’une application MVC simple.  
+1. Créez une application web Azure ou bien téléchargez l’application à partir du [dépôt GitHub](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/Demo/keyvaultdemo). Il s’agit d’une application MVC simple.  
 
 2. Décompressez l’application téléchargée et ouvrez le fichier **HomeController.cs**. Mettez à jour l’ID de secret dans la ligne suivante :
 
@@ -82,7 +82,7 @@ Dans cette section, vous inscrivez l’application auprès d’Azure Active Dire
 
 1. Accédez au portail Azure, puis ouvrez le **coffre de clés** que vous avez créé à la section précédente.  
 
-2. Ouvrez **Stratégies d’accès** , sélectionnez **+Ajouter un nouveau** , recherchez l’application web que vous avez déployée, sélectionnez les autorisations et sélectionnez **OK**.  
+2. Ouvrez **Stratégies d’accès**, sélectionnez **+Ajouter un nouveau**, recherchez l’application web que vous avez déployée, sélectionnez les autorisations et sélectionnez **OK**.  
 
    :::image type="content" source="./media/access-secrets-from-keyvault/add-access-policy.png" alt-text="Ajouter une stratégie d’accès":::
 
@@ -90,7 +90,7 @@ Maintenant, si vous exécutez l’application, vous pouvez lire le secret dans l
 
 :::image type="content" source="./media/access-secrets-from-keyvault/app-deployed-with-access.png" alt-text="Application déployée avec un secret":::
  
-De même, vous pouvez ajouter un utilisateur pour qu’il accède au coffre de clés. Vous devez vous ajouter vous-même au coffre de clés sélectionnant **Stratégies d’accès** , puis accorder toutes les autorisations dont vous avez besoin pour exécuter l’application à partir de Visual studio. Quand cette application s’exécute à partir de votre bureau, elle prend votre identité.
+De même, vous pouvez ajouter un utilisateur pour qu’il accède au coffre de clés. Vous devez vous ajouter vous-même au coffre de clés sélectionnant **Stratégies d’accès**, puis accorder toutes les autorisations dont vous avez besoin pour exécuter l’application à partir de Visual studio. Quand cette application s’exécute à partir de votre bureau, elle prend votre identité.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

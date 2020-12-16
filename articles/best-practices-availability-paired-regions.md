@@ -1,19 +1,19 @@
 ---
 title: Assurer la continuité des activités et la récupération d’urgence à l’aide des régions jumelées Azure
 description: Garantir la résilience des applications à l’aide du jumelage régional Azure
-author: barbkess
-manager: barbkess
+author: martinekuan
+manager: martinekuan
 ms.service: multiple
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.author: barbkess
+ms.author: martinek
 ms.custom: references_regions
-ms.openlocfilehash: d42eabe3afeb738b0cbb011881678839fe0ba2d7
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 3310d4a7d86db9dee7d5f71fc9410545817886f3
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95539054"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511227"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuité et reprise d’activité : Régions jumelées Azure
 

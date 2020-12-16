@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 09/24/2018
-ms.openlocfilehash: cee5181bf3dda3f0fb609d5aa344697e989ae6c3
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: e09ac39037024b5c360af4bb6ada26590b142924
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098890"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359589"
 ---
 # <a name="access-azure-cosmos-db-cassandra-api-from-spark-on-yarn-with-hdinsight"></a>Accéder à l’API Cassandra Azure Cosmos DB à partir de Spark sur YARN avec HDInsight
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -32,7 +32,7 @@ Cet article explique comment accéder à l’API Cassandra Azure Cosmos DB à pa
 
 * [Utiliser cqlsh pour la validation si vous le souhaitez](cassandra-spark-generic.md#connecting-to-azure-cosmos-db-cassandra-api-from-spark)
 
-* **Configuration de l’API Cassandra dans Spark2**  : le connecteur Spark pour Cassandra nécessite que les informations de la connexion Cassandra soient initialisées dans le cadre du contexte Spark. Quand vous lancez un bloc-notes Jupyter, la session et le contexte spark sont déjà initialisés ; nous vous déconseillons d’arrêter et de réinitialiser le contexte Spark tant qu’il n’est pas doté de la configuration complète définie dans le cadre du démarrage de bloc-notes Jupyter HDInsight par défaut. Une solution de contournement consiste à ajouter les détails de l’instance Cassandra à la configuration du service Spark2 Ambari. Cette opération est nécessaire une seule fois par cluster qui requiert un redémarrage du service Spark2.
+* **Configuration de l’API Cassandra dans Spark2** : le connecteur Spark pour Cassandra nécessite que les informations de la connexion Cassandra soient initialisées dans le cadre du contexte Spark. Quand vous lancez un bloc-notes Jupyter, la session et le contexte spark sont déjà initialisés ; nous vous déconseillons d’arrêter et de réinitialiser le contexte Spark tant qu’il n’est pas doté de la configuration complète définie dans le cadre du démarrage de bloc-notes Jupyter HDInsight par défaut. Une solution de contournement consiste à ajouter les détails de l’instance Cassandra à la configuration du service Spark2 Ambari. Cette opération est nécessaire une seule fois par cluster qui requiert un redémarrage du service Spark2.
  
   1. Accédez au service Spark2 Ambari, puis sélectionnez les configurations.
 
@@ -119,7 +119,7 @@ HDInsight-Spark est fourni avec les services de bloc-notes Zeppelin et Jupyter. 
 
 Les blocs-notes Jupyter suivants peuvent être chargés dans votre cluster HDInsight Spark et fournissent des exemples d’utilisation de l’API Cassandra Azure Cosmos DB immédiatement exploitables. Veillez à consulter le premier bloc-notes `1.0-ReadMe.ipynb`, qui contient la configuration du service Spark requise pour la connexion à l’API Cassandra Azure Cosmos DB.
 
-Téléchargez ces blocs-notes sous [azure-cosmos-db-cassandra-api-spark-notebooks-jupyter](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-notebooks-jupyter/blob/master/scala/) sur votre machine.
+Téléchargez ces blocs-notes sous [azure-cosmos-db-cassandra-api-spark-notebooks-jupyter](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-notebooks-jupyter/blob/main/scala/) sur votre machine.
   
 ### <a name="how-to-upload"></a>Procédure à suivre pour le chargement :
 Quand vous lancez Jupyter, accédez à Scala. Créez un répertoire, puis chargez-y les blocs-notes. Le bouton de chargement est situé en haut, à droite.  
@@ -135,6 +135,6 @@ Pour les processus automatisés dans l’environnement de production, les progra
 
 * [Guide pratique pour créer un programme Scala Spark dans un IDE et l’envoyer au cluster HDInsight Spark via Livy en vue de son exécution](../hdinsight/spark/apache-spark-create-standalone-application.md)
 
-* [Guide pratique pour se connecter à l’API Cassandra Azure Cosmos DB à partir d’un programme Scala Spark](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-connector-sample/blob/master/src/main/scala/com/microsoft/azure/cosmosdb/cassandra/SampleCosmosDBApp.scala)
+* [Guide pratique pour se connecter à l’API Cassandra Azure Cosmos DB à partir d’un programme Scala Spark](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-connector-sample/blob/main/src/main/scala/com/microsoft/azure/cosmosdb/cassandra/SampleCosmosDBApp.scala)
 
 * [Liste complète d’exemples de code illustrant l’utilisation de l’API Cassandra](cassandra-spark-generic.md)

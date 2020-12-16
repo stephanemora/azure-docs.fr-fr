@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 39b61815c33f933e0cdf08bd46382e74eea2f806
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 682b83d7016a89b27b5c936853abda1438f59c28
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93040462"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97508014"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>À propos des résolveurs de revendication dans les stratégies personnalisées d’Azure Active Directory B2C
 
@@ -88,7 +88,7 @@ Les sections suivantes répertorient les résolveurs de revendication disponible
 | {Context:DateTimeInUtc} |Date et heure UTC.  | 10/10/2018 12:00:00 |
 | {Context:DeploymentMode} |Mode de déploiement de la stratégie.  | Production |
 | {Context:IPAddress} | Adresse IP utilisateur. | 11.111.111.11 |
-| {Context:KMSI} | Indique si la case [Maintenir la connexion](custom-policy-keep-me-signed-in.md) est cochée. |  true |
+| {Context:KMSI} | Indique si la case [Maintenir la connexion](session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi) est cochée. |  true |
 
 ### <a name="claims"></a>Revendications 
 
@@ -185,7 +185,7 @@ L'exemple suivant illustre un profil technique RESTful en lien avec ce scénario
 
 ### <a name="dynamic-ui-customization"></a>Personnalisation dynamique de l’interface utilisateur
 
-Azure AD B2C vous permet de transmettre des paramètres de chaîne de requête à vos points de terminaison de définition de contenu HTML afin d'afficher dynamiquement le contenu de la page. Par exemple, cette fonctionnalité permet de changer l’image d’arrière-plan sur la page de connexion ou d’inscription Azure AD B2C en fonction d’un paramètre personnalisé que vous transmettez depuis votre application web ou mobile. Pour plus d’informations, consultez [Configurer dynamiquement l’interface utilisateur à l’aide de stratégies personnalisées dans Azure Active Directory B2C](custom-policy-ui-customization.md#configure-dynamic-custom-page-content-uri). Vous pouvez également localiser votre page HTML en fonction d’un paramètre de langue ou changer le contenu selon l’ID client.
+Azure AD B2C vous permet de transmettre des paramètres de chaîne de requête à vos points de terminaison de définition de contenu HTML afin d'afficher dynamiquement le contenu de la page. Par exemple, cette fonctionnalité permet de changer l’image d’arrière-plan sur la page de connexion ou d’inscription Azure AD B2C en fonction d’un paramètre personnalisé que vous transmettez depuis votre application web ou mobile. Pour plus d’informations, consultez [Configurer dynamiquement l’interface utilisateur à l’aide de stratégies personnalisées dans Azure Active Directory B2C](customize-ui-with-html.md#configure-dynamic-custom-page-content-uri). Vous pouvez également localiser votre page HTML en fonction d’un paramètre de langue ou changer le contenu selon l’ID client.
 
 L'exemple suivant transmet dans la chaîne de requête les paramètres **campaignId** (valeur `Hawaii`), **language** (valeur `en-US`), et **app** (représentant l'ID client) :
 

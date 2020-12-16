@@ -7,18 +7,19 @@ author: MashaMSFT
 tags: azure-resource-manager
 ms.assetid: aa5bf144-37a3-4781-892d-e0e300913d03
 ms.service: virtual-machines-sql
+ms.subservice: management
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/12/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: f8bee990074debf09cc9bfd19f96470a029b50c9
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 28b68178b98e53b7a7d4192ad20c05a667344969
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92793124"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97356715"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>Se connecter à une machine virtuelle SQL Server sur Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -33,7 +34,7 @@ Si vous préférez suivre une procédure pas à pas complète d’approvisionnem
 
 La méthode utilisée par un client pour se connecter à une machine virtuelle SQL Server diffère selon l’emplacement du client et la configuration du réseau.
 
-Si vous configurez un ordinateur virtuel SQL Server dans le portail Azure, vous avez la possibilité de spécifier le type de **connectivité SQL** .
+Si vous configurez un ordinateur virtuel SQL Server dans le portail Azure, vous avez la possibilité de spécifier le type de **connectivité SQL**.
 
 ![Option de connectivité SQL publique lors de l’approvisionnement](./media/ways-to-connect-to-sql/sql-vm-portal-connectivity.png)
 
@@ -65,7 +66,7 @@ Tout client disposant d’un accès à Internet peut se connecter à l’instanc
 Server=sqlvmlabel.eastus.cloudapp.azure.com;Integrated Security=false;User ID=<login_name>;Password=<your_password>
 ```
 
-Même si cette chaîne permet aux clients de se connecter via Internet, cela ne signifie pas que tout le monde peut se connecter à votre instance SQL Server. Les clients externes doivent utiliser les nom d’utilisateur et mot de passe corrects. Toutefois, pour renforcer la sécurité, vous pouvez éviter d’utiliser le port 1433 bien connu. Par exemple, si vous deviez configurer SQL Server pour écouter sur le port 1500 et établir des règles appropriées de pare-feu et de groupe de sécurité réseau, vous pourriez vous connecter en ajoutant le numéro de port au nom du serveur. L’exemple suivant modifie le précédent en ajoutant un numéro de port personnalisé, **1500** , au nom du serveur :
+Même si cette chaîne permet aux clients de se connecter via Internet, cela ne signifie pas que tout le monde peut se connecter à votre instance SQL Server. Les clients externes doivent utiliser les nom d’utilisateur et mot de passe corrects. Toutefois, pour renforcer la sécurité, vous pouvez éviter d’utiliser le port 1433 bien connu. Par exemple, si vous deviez configurer SQL Server pour écouter sur le port 1500 et établir des règles appropriées de pare-feu et de groupe de sécurité réseau, vous pourriez vous connecter en ajoutant le numéro de port au nom du serveur. L’exemple suivant modifie le précédent en ajoutant un numéro de port personnalisé, **1500**, au nom du serveur :
 
 ```
 Server=sqlvmlabel.eastus.cloudapp.azure.com,1500;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
@@ -97,11 +98,11 @@ Server=mysqlvm;Integrated Security=true
 
 Vous pouvez modifier les paramètres de connectivité pour votre machine virtuelle de SQL Server dans le portail Azure.
 
-1. Dans le portail Azure, sélectionnez **Machines virtuelles SQL** .
+1. Dans le portail Azure, sélectionnez **Machines virtuelles SQL**.
 
 2. Sélectionnez votre machine virtuelle SQL Server.
 
-3. Sous **Paramètres** , sélectionnez **Sécurité** .
+3. Sous **Paramètres**, sélectionnez **Sécurité**.
 
 4. Modifiez le **niveau de connectivité SQL** suivant le paramètre requis. Vous pouvez éventuellement utiliser cette zone pour modifier le port SQL Server ou les paramètres d’authentification SQL.
 
@@ -119,7 +120,7 @@ Connectez-vous d’abord à la machine virtuelle SQL Server à l’aide du Burea
 
 [!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-remote-desktop-connect.md)]
 
-Ensuite, activez le protocole TCP/IP avec le **gestionnaire de configuration SQL Server** .
+Ensuite, activez le protocole TCP/IP avec le **gestionnaire de configuration SQL Server**.
 
 [!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-connection-tcp-protocol.md)]
 

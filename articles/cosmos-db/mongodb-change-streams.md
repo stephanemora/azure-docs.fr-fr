@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/04/2020
 ms.author: rosouz
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 46164a5cd96941609c8a6484470fff863680f9d3
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 9a4e35a235fe6ee6950bd1b4c35cbf9e72ac2893
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096595"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359232"
 ---
 # <a name="change-streams-in-azure-cosmos-dbs-api-for-mongodb"></a>Flux de modification dans l’API pour MongoDB d’Azure Cosmos DB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -67,7 +67,7 @@ enumerator.Dispose();
 
 # <a name="java"></a>[Java](#tab/java)
 
-L’exemple suivant montre comment utiliser la fonctionnalité de flux de modifications dans Java. Pour obtenir un exemple complet, consultez ce [Dépôt GitHub](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-java-changestream/blob/master/mongostream/src/main/java/com/azure/cosmos/mongostream/App.java). Cet exemple montre également comment utiliser la méthode `resumeAfter` pour rechercher toutes les modifications de la dernière lecture. 
+L’exemple suivant montre comment utiliser la fonctionnalité de flux de modifications dans Java. Pour obtenir un exemple complet, consultez ce [Dépôt GitHub](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-java-changestream/blob/main/mongostream/src/main/java/com/azure/cosmos/mongostream/App.java). Cet exemple montre également comment utiliser la méthode `resumeAfter` pour rechercher toutes les modifications de la dernière lecture. 
 
 ```java
 Bson match = Aggregates.match(Filters.in("operationType", asList("update", "replace", "insert")));
@@ -147,7 +147,7 @@ Contrairement au flux de modification dans l’API SQL d’Azure Cosmos DB, il n
 
 Les codes d’erreur et messages suivants sont pris en charge lorsque des flux de modification sont utilisés :
 
-* **Code d’erreur HTTP 16500**  : lorsque le flux de modification est limité, il retourne une page vide.
+* **Code d’erreur HTTP 16500** : lorsque le flux de modification est limité, il retourne une page vide.
 
 * **NamespaceNotFound (OperationType Invalidate)**  : si vous exécutez le flux de modification sur une collection qui n’existe pas ou si la collection est supprimée, une erreur `NamespaceNotFound` est retournée. Étant donné que la propriété `operationType` ne peut pas être retournée dans le document de sortie, au lieu de l’erreur `operationType Invalidate`, l’erreur `NamespaceNotFound` est retournée.
 

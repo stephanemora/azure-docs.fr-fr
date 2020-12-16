@@ -7,6 +7,7 @@ author: MashaMSFT
 manager: jroth
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
@@ -14,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: dff6d69a107091a0ce030065da0f70a3d68c5841
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 8549592ace00e712929ebc76045a32531b9db659
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168694"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358314"
 ---
 # <a name="configure-a-dnn-for-failover-cluster-instance"></a>Configurer un DNN pour une instance de cluster de basculement
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -125,13 +126,13 @@ Par défaut, le cluster lie le nom DNS de la ressource DNN à tous les nœuds du
 Pour mettre à jour les propriétaires possibles, procédez comme suit :
 
 1. Accédez à votre ressource DNN dans le gestionnaire du cluster de basculement. 
-1. Cliquez avec le bouton droit sur la ressource DNN et sélectionnez **Propriétés** . 
+1. Cliquez avec le bouton droit sur la ressource DNN et sélectionnez **Propriétés**. 
 
    :::image type="content" source="media/hadr-distributed-network-name-dnn-configure/fci-dnn-properties.png" alt-text="Menu contextuel de la ressource DNN avec la commande Propriétés mise en surbrillance.":::
 
 1. Désactivez la case à cocher pour les nœuds qui ne font pas partie de l’instance du cluster de basculement. La liste des propriétaires possibles de la ressource DNN doit correspondre à la liste des propriétaires possibles de la ressource d’instance SQL Server. Par exemple, en supposant que Data3 ne participe pas à l’instance FCI, l’image suivante est un exemple de suppression de Data3 de la liste des propriétaires possibles de la ressource DNN : 
 
-   :::image type="content" source="media/hadr-distributed-network-name-dnn-configure/clear-check-for-nodes-not-in-fci.png" alt-text="Menu contextuel de la ressource DNN avec la commande Propriétés mise en surbrillance.":::
+   :::image type="content" source="media/hadr-distributed-network-name-dnn-configure/clear-check-for-nodes-not-in-fci.png" alt-text="Désactivez la case à cocher en regard des nœuds qui ne participent pas à l’instance FCI pour les propriétaires possibles de la ressource DNN":::
 
 1. Sélectionnez **OK** pour enregistrer vos paramètres. 
 
@@ -159,9 +160,9 @@ Testez le basculement de la ressource en cluster pour valider les fonctionnalit�
 Pour tester le basculement, procédez comme suit : 
 
 1. Connectez-vous à l’un des nœuds de cluster SQL Server avec RDP.
-1. Ouvrez le **Gestionnaire du cluster de basculement** . Sélectionnez **Rôles** . Notez le nœud qui possède le rôle de l’instance de cluster de basculement SQL Server.
+1. Ouvrez le **Gestionnaire du cluster de basculement**. Sélectionnez **Rôles**. Notez le nœud qui possède le rôle de l’instance de cluster de basculement SQL Server.
 1. Cliquez avec le bouton droit sur le rôle de l’instance de cluster de basculement SQL Server. 
-1. Sélectionnez **Déplacer** , puis sélectionnez **Meilleur nœud possible** .
+1. Sélectionnez **Déplacer**, puis sélectionnez **Meilleur nœud possible**.
 
 Le **Gestionnaire du cluster de basculement** présente le rôle et ses ressources hors connexion. Ensuite, les ressources sont déplacées et remises en ligne sur l’autre nœud.
 

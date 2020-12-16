@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/12/2020
+ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 950c159ed4d2c57796f33b9505e6931dbec983ba
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 441a77823c77305e567e9e1436715bc51ca48c11
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94532373"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387052"
 ---
 # <a name="display-controls"></a>Contrôles d’affichage
 
@@ -53,9 +53,9 @@ L’élément **DisplayControl** contient les éléments suivants :
 
 | Élément | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| InputClaims | 0:1 | Les **InputClaims** sont utilisés pour préremplir la valeur des revendications à collecter auprès de l’utilisateur. Pour plus d’informations, consultez l’élément [InputClaims](technicalprofiles.md#inputclaims). |
+| InputClaims | 0:1 | Les **InputClaims** sont utilisés pour préremplir la valeur des revendications à collecter auprès de l’utilisateur. Pour plus d’informations, consultez l’élément [InputClaims](technicalprofiles.md#input-claims). |
 | DisplayClaims | 0:1 | Les **DisplayClaims** sont utilisés pour représenter les revendications à collecter auprès de l’utilisateur. Pour plus d’informations, consultez l’élément [DisplayClaim](technicalprofiles.md#displayclaim).|
-| OutputClaims | 0:1 | Les **OutputClaims** sont utilisés pour représenter les revendications à enregistrer temporairement pour ce **DisplayControl**. Pour plus d’informations, consultez l’élément [OutputClaims](technicalprofiles.md#outputclaims).|
+| OutputClaims | 0:1 | Les **OutputClaims** sont utilisés pour représenter les revendications à enregistrer temporairement pour ce **DisplayControl**. Pour plus d’informations, consultez l’élément [OutputClaims](technicalprofiles.md#output-claims).|
 | Actions | 0:1 | Les **Actions** sont utilisées pour répertorier les profils techniques de validation à appeler pour les actions de l’utilisateur qui se produisent au niveau du serveur frontal. |
 
 ### <a name="input-claims"></a>Revendications d’entrée

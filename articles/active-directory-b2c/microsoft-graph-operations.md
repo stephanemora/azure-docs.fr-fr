@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cd4c70354920655507f987f43a542e4b474803e1
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: e4463b932c95e224981b74093effbb355de24f6b
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96170937"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509816"
 ---
 # <a name="microsoft-graph-operations-available-for-azure-ad-b2c"></a>Opérations Microsoft Graph disponibles pour Azure AD B2C
 
@@ -107,7 +107,7 @@ La ressource de niveau supérieur pour les clés de stratégies dans l’API Mic
 
 - [Répertorier des propriétés d’extension](/graph/api/application-list-extensionproperty)
 
-Azure AD B2C fournit un annuaire pouvant contenir 100 attributs personnalisés par utilisateur. Pour des flux d’utilisateurs, ces propriétés d’extension sont [gérées à l’aide du portail Azure](custom-policy-custom-attributes.md). Pour des stratégies personnalisées, Azure AD B2C crée la propriété pour vous la première fois que la stratégie écrit une valeur dans la propriété d’extension.
+Azure AD B2C fournit un annuaire pouvant contenir 100 attributs personnalisés par utilisateur. Pour des flux d’utilisateurs, ces propriétés d’extension sont [gérées à l’aide du portail Azure](user-flow-custom-attributes.md). Pour des stratégies personnalisées, Azure AD B2C crée la propriété pour vous la première fois que la stratégie écrit une valeur dans la propriété d’extension.
 
 ## <a name="audit-logs"></a>Journaux d’audit
 

@@ -8,18 +8,19 @@ editor: monicar
 tags: azure-service-management
 ms.assetid: 388c464e-a16e-4c9d-a0d5-bb7cf5974689
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 335cc707cb1192d3dbf08f51e78d4e82441dd05a
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 60bb5ac652a80b5ae52c91f91fa0c80440e9cc82
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93094453"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359079"
 ---
 # <a name="configure-a-sql-server-always-on-availability-group-across-different-azure-regions"></a>Configurer un groupe de disponibilité SQL Server Always On dans différentes régions Azure
 
@@ -96,11 +97,11 @@ Pour créer un réplica dans un centre de données distant, procédez comme suit
 
 1. Ajoutez une ressource d’adresse IP au cluster.
 
-   Vous pouvez créer la ressource à adresse IP dans le Gestionnaire du cluster de basculement. Sélectionnez le nom du cluster, cliquez dessus avec le bouton droit sous **Principales ressources du cluster** , puis sélectionnez **Propriétés**  : 
+   Vous pouvez créer la ressource à adresse IP dans le Gestionnaire du cluster de basculement. Sélectionnez le nom du cluster, cliquez dessus avec le bouton droit sous **Principales ressources du cluster**, puis sélectionnez **Propriétés** : 
 
    ![Capture d’écran montrant le « Gestionnaire du cluster de basculement » avec un nom de cluster, « Nom du serveur » et « Propriétés » sélectionnés.](./media/availability-group-manually-configure-multiple-regions/cluster-name-properties.png)
 
-   Dans la boîte de dialogue **Propriétés** , sous **Adresse IP** , sélectionnez **Ajouter** , puis ajoutez l’adresse IP correspondant au nom du cluster à partir de la région du réseau distant. Sélectionnez **OK** dans la boîte de dialogue **Adresse IP** , puis de nouveau **OK** dans la boîte de dialogue **Propriétés du cluster** pour enregistrer la nouvelle adresse IP. 
+   Dans la boîte de dialogue **Propriétés**, sous **Adresse IP**, sélectionnez **Ajouter**, puis ajoutez l’adresse IP correspondant au nom du cluster à partir de la région du réseau distant. Sélectionnez **OK** dans la boîte de dialogue **Adresse IP**, puis de nouveau **OK** dans la boîte de dialogue **Propriétés du cluster** pour enregistrer la nouvelle adresse IP. 
 
    ![Ajouter l’adresse IP du cluster](./media/availability-group-manually-configure-multiple-regions/add-cluster-ip-address.png)
 
@@ -113,7 +114,7 @@ Pour créer un réplica dans un centre de données distant, procédez comme suit
 
 1. Ajoutez une ressource d’adresse IP au rôle du groupe de disponibilité dans le cluster. 
 
-   Dans Gestionnaire du cluster de basculement, cliquez avec le bouton droit sur le rôle du groupe de disponibilité, choisissez **Ajouter une ressource** , **Autres ressources** , puis **Adresse IP**.
+   Dans Gestionnaire du cluster de basculement, cliquez avec le bouton droit sur le rôle du groupe de disponibilité, choisissez **Ajouter une ressource**, **Autres ressources**, puis **Adresse IP**.
 
    ![Création d’une adresse IP](./media/availability-group-manually-configure-multiple-regions/20-add-ip-resource.png)
 
@@ -169,17 +170,17 @@ Si vous ne pouvez pas modifier les chaînes de connexion, vous pouvez configurer
 
 Pour tester la connectivité de l’écouteur à la région distante, vous pouvez basculer le réplica vers la région distante. Si le réplica est asynchrone, le basculement est vulnérable à la perte potentielle de données. Pour effectuer un basculement sans perte de données, modifiez le mode de disponibilité en synchrone et définissez le mode de basculement automatique. Utiliser les étapes suivantes :
 
-1. Dans l’ **Explorateur d’objets** , connectez-vous à l’instance de SQL Server qui héberge le réplica principal.
-1. Sous **Groupes de disponibilité AlwaysOn** , **Groupes de disponibilité** , cliquez avec le bouton droit sur votre groupe de disponibilité, puis sélectionnez **Propriétés**.
-1. Dans la page **Général** , sous **Réplicas de disponibilité** , configurez le réplica secondaire dans le site de récupération d’urgence pour qu’il utilise le mode de disponibilité **Validation synchrone** et le mode de basculement **Automatique**.
+1. Dans l’**Explorateur d’objets**, connectez-vous à l’instance de SQL Server qui héberge le réplica principal.
+1. Sous **Groupes de disponibilité AlwaysOn**, **Groupes de disponibilité**, cliquez avec le bouton droit sur votre groupe de disponibilité, puis sélectionnez **Propriétés**.
+1. Dans la page **Général**, sous **Réplicas de disponibilité**, configurez le réplica secondaire dans le site de récupération d’urgence pour qu’il utilise le mode de disponibilité **Validation synchrone** et le mode de basculement **Automatique**.
 1. Si vous avez un réplica secondaire dans le même site que le réplica principal pour la haute disponibilité, configurez ce réplica en **Validation asynchrone** et **Manuel**.
 1. Sélectionnez OK.
-1. Dans l’ **Explorateur d’objets** , cliquez avec le bouton droit sur le groupe de disponibilité, puis sélectionnez **Afficher le tableau de bord**.
+1. Dans l’**Explorateur d’objets**, cliquez avec le bouton droit sur le groupe de disponibilité, puis sélectionnez **Afficher le tableau de bord**.
 1. Dans le tableau de bord, vérifiez que le réplica sur le site de récupération d’urgence est synchronisé.
-1. Dans l’ **Explorateur d’objets** , cliquez avec le bouton droit sur le groupe de disponibilité, puis sélectionnez **Basculer...** . SQL Server Management Studio ouvre un assistant pour effectuer le basculement vers SQL Server.  
+1. Dans l’**Explorateur d’objets**, cliquez avec le bouton droit sur le groupe de disponibilité, puis sélectionnez **Basculer...** . SQL Server Management Studio ouvre un assistant pour effectuer le basculement vers SQL Server.  
 1. Sélectionnez **Suivant** et sélectionnez l’instance de SQL Server sur le site de reprise d’activité. Sélectionnez **Suivant** de nouveau.
 1. Connectez-vous à l’instance de SQL Server sur le site de reprise d’activité et sélectionnez **Suivant**.
-1. Dans la page **Synthèse** , vérifiez les paramètres et sélectionnez **Terminer**.
+1. Dans la page **Synthèse**, vérifiez les paramètres et sélectionnez **Terminer**.
 
 Après avoir testé la connectivité, replacez le réplica principal dans votre centre de données principal et rétablissez les paramètres de fonctionnement normaux du mode de disponibilité. Le tableau suivant présente les paramètres de fonctionnement normaux de l’architecture décrite dans ce document :
 

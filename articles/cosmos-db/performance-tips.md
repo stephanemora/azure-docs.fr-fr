@@ -7,13 +7,13 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: sngun
-ms.custom: devx-track-dotnet, contperfq2
-ms.openlocfilehash: f2da2047469f342814ff349cfa059ed61e3adc25
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.custom: devx-track-dotnet, contperf-fy21q2
+ms.openlocfilehash: 47e20e89c8eaef59b9acd6cf7e31244afd4bcf60
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339680"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359045"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net-sdk-v2"></a>Conseils sur les performances pour Azure Cosmos DB et le kit SDK .NET v2
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -44,11 +44,11 @@ Le kit SDK [.NET v3](https://github.com/Azure/azure-cosmos-dotnet-v3) est sorti.
 
 Nous recommandons les processus hôte Windows 64 bits pour améliorer les performances. Le Kit de développement logiciel (SDK) SQL intègre un fichier ServiceInterop.dll natif pour analyser et optimiser les requêtes localement. ServiceInterop.dll est uniquement pris en charge sur la plateforme Windows x64. Pour Linux et les autres plateformes non prises en charge où ServiceInterop.dll n’est pas disponible, il procède à un appel réseau supplémentaire à destination de la passerelle afin d'obtenir la requête optimisée. Les types d’applications suivants utilisent les processus hôte 32 bits par défaut. Pour modifier les processus hôte en traitement 64 bits, procédez comme suit, selon le type de votre application :
 
-- Pour les applications exécutables, vous pouvez modifier les processus hôte en définissant la [plateforme cible](/visualstudio/ide/how-to-configure-projects-to-target-platforms?preserve-view=true&view=vs-2019) sur **x64** dans la fenêtre **Propriétés du projet** , sous l’onglet **Générer**.
+- Pour les applications exécutables, vous pouvez modifier les processus hôte en définissant la [plateforme cible](/visualstudio/ide/how-to-configure-projects-to-target-platforms?preserve-view=true&view=vs-2019) sur **x64** dans la fenêtre **Propriétés du projet**, sous l’onglet **Générer**.
 
 - Pour les projets basés sur VSTest, vous pouvez modifier les processus hôte en sélectionnant **Test** > **Paramètres de test** > **Default Processor Architecture as X64** (Définir l’architecture de processeur par défaut sur X64), à partir du menu **Visual Studio Test**.
 
-- Pour les applications web ASP.NET déployées localement, vous pouvez modifier les processus hôte en sélectionnant **Utiliser la version 64 bits d’IIS Express pour les sites et les projets Web** , sous **Outils** > **Options** > **Projects and Solutions (Projets et solutions)**  > **Projets Web**.
+- Pour les applications web ASP.NET déployées localement, vous pouvez modifier les processus hôte en sélectionnant **Utiliser la version 64 bits d’IIS Express pour les sites et les projets Web**, sous **Outils** > **Options** > **Projects and Solutions (Projets et solutions)**  > **Projets Web**.
 
 - Pour les applications Web ASP.NET déployées sur Azure, vous pouvez modifier les processus hôte en sélectionnant la plateforme **64 bits** dans les **paramètres d’application** dans le Portail Azure.
 
@@ -133,7 +133,7 @@ Les requêtes d’Azure Cosmos DB sont effectuées via le protocole HTTPS/REST l
 
 **Paramétrer des requêtes parallèles pour les collections partitionnées**
 
-Le Kit de développement logiciel (SDK) SQL .NET version 1.9.0 et ultérieure prend en charge les requêtes parallèles, qui permettent d’interroger une collection partitionnée en parallèle. Pour plus d’informations, voir les [exemples de code](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) concernant l’utilisation des kits SDK. Les requêtes parallèles sont conçues pour améliorer la latence et le débit des requêtes par rapport à leur équivalent série. Les requêtes parallèles fournissent deux paramètres que vous pouvez paramétrer en fonction de vos besoins : 
+Le Kit de développement logiciel (SDK) SQL .NET version 1.9.0 et ultérieure prend en charge les requêtes parallèles, qui permettent d’interroger une collection partitionnée en parallèle. Pour plus d’informations, voir les [exemples de code](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/samples/code-samples/Queries/Program.cs) concernant l’utilisation des kits SDK. Les requêtes parallèles sont conçues pour améliorer la latence et le débit des requêtes par rapport à leur équivalent série. Les requêtes parallèles fournissent deux paramètres que vous pouvez paramétrer en fonction de vos besoins : 
 - `MaxDegreeOfParallelism` contrôle le nombre maximal de partitions qui peuvent être interrogées en parallèle. 
 - `MaxBufferedItemCount` contrôle le nombre de résultats pré-récupérés.
 

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 60dff717fbd86fa83821575ac90c9dac36dbc4d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d680da7a5f09a55bec5d791642b80fd76c6088e
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85383969"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509612"
 ---
 # <a name="migrate-users-to-azure-ad-b2c"></a>Migrer des utilisateurs vers Azure AD B2C
 
@@ -90,7 +90,7 @@ Toutes les informations du fournisseur d’identité précédent ne doivent pas 
 
 Avant de commencer le processus de migration, vous pouvez en profiter pour nettoyer votre annuaire.
 
-- Identifiez l’ensemble des attributs utilisateur à stocker dans Azure AD B2C et migrez seulement ce dont vous avez besoin. Si nécessaire, vous pouvez créer des [attributs personnalisés](custom-policy-custom-attributes.md) pour stocker davantage de données sur un utilisateur.
+- Identifiez l’ensemble des attributs utilisateur à stocker dans Azure AD B2C et migrez seulement ce dont vous avez besoin. Si nécessaire, vous pouvez créer des [attributs personnalisés](user-flow-custom-attributes.md) pour stocker davantage de données sur un utilisateur.
 - Si vous effectuez une migration à partir d’un environnement avec plusieurs sources d’authentification (par exemple chaque application a son propre annuaire d’utilisateurs), migrez vers un compte unifié dans Azure AD B2C.
 - Si plusieurs applications ont des noms d’utilisateur différents, vous pouvez les stocker dans un compte d’utilisateur Azure AD B2C en utilisant la collection d’identités. En ce qui concerne le mot de passe, laissez l’utilisateur en choisir un et définissez-le dans l’annuaire. Par exemple, avec la migration fluide, seul le mot de passe choisi doit être stocké dans le compte Azure AD B2C.
 - Supprimez les comptes d’utilisateur inutilisés avant la migration ou ne migrez pas les comptes obsolètes.

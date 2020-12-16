@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: amqp, mqtt, devx-track-csharp
-ms.openlocfilehash: 133be436853ee8c2b04df2f943368513108b226b
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: c0c3a452c93b88483ac7027405665c26ceab8183
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444282"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368502"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Présentation du runtime Azure IoT Edge et de son architecture
 
@@ -81,7 +81,7 @@ Le hub IoT Edge n’est pas une version complète d’IoT Hub s’exécutant loc
 
 Pour réduire la bande passante qu’utilise votre solution IoT Edge, le hub IoT Edge optimise le nombre de connexions au cloud. Le hub IoT Edge accepte des connexions logiques de modules ou d’appareils en aval, et les combine pour établir une connexion physique unique au cloud. Les détails de ce processus sont transparents pour le reste de la solution. Les clients pensent avoir leur propre connexion au cloud, alors qu’ils passent tous par la même connexion. Le hub IoT Edge peut utiliser le protocole AMQP ou MQTT pour communiquer en amont avec le cloud, indépendamment des protocoles utilisés par les appareils en aval. Toutefois, le hub IoT Edge ne permet actuellement que de combiner des connexions logiques en une seule connexion physique en utilisant AMQP comme protocole en amont et ses capacités de multiplexage. AMQP est le protocole en amont par défaut.
 
-![Le hub IoT Edge est une passerelle entre les appareils physiques et IoT Hub](./media/iot-edge-runtime/Gateway.png)
+![Le hub IoT Edge est une passerelle entre les appareils physiques et IoT Hub](./media/iot-edge-runtime/gateway-communication.png)
 
 Le hub IoT Edge peut déterminer s’il est connecté à IoT Hub. Si la connexion est perdue, le hub IoT Edge enregistre localement les messages ou les mises à jour de jumeau. Une fois la connexion rétablie, il synchronise toutes les données. L’emplacement utilisé pour ce cache temporaire est déterminé par une propriété du jumeau de module du hub IoT Edge. La taille du cache n’est pas limitée et augmente tant que l’appareil a une capacité de stockage.  Pour plus d’informations, voir [Fonctionnalités hors connexion](offline-capabilities.md).
 
@@ -112,7 +112,7 @@ Pour plus d’informations sur la classe ModuleClient et ses méthodes de commun
 
 Le développeur de solution doit spécifier les règles qui déterminent la façon dont le hub IoT Edge transmet les messages d’un module à l’autre. Les règles d’acheminement sont définies dans le cloud et envoyées (push) vers le hub IoT Edge dans son jumeau de module. La même syntaxe pour les itinéraires IoT Hub est utilisée pour définir les itinéraires entre les modules dans Azure IoT Edge. Pour plus d’informations, consultez [Déployer des modules et établir des routes dans IoT Edge](module-composition.md).
 
-![Les routes entre modules passent par le hub IoT Edge](./media/iot-edge-runtime/module-endpoints-with-routes.png)
+![Les routes entre modules passent par le hub IoT Edge](./media/iot-edge-runtime/module-endpoints-routing.png)
 ::: moniker-end
 
 <!-- <1.2> -->
@@ -134,7 +134,7 @@ Le hub IoT Edge prend en charge deux mécanismes de répartition :
 
 Le premier mécanisme de répartition utilise les mêmes fonctionnalités de routage qu’IoT Hub pour spécifier la façon dont les messages sont transmis entre les appareils ou les modules. Les premiers appareils ou modules spécifient les entrées sur lesquelles ils acceptent des messages et les sorties vers lesquelles ils écrivent des messages. Un développeur de solutions peut ensuite acheminer des messages entre une source (par exemple, des sorties) et une destination (par exemple, des entrées) avec des filtres potentiels.
 
-![Les routes entre modules passent par le hub IoT Edge](./media/iot-edge-runtime/module-endpoints-with-routes.png)
+![Les routes entre modules passent par le hub IoT Edge](./media/iot-edge-runtime/module-endpoints-routing.png)
 
 Le routage peut être utilisé par des appareils ou des modules créés avec les kits Azure IoT device SDK via le protocole AMQP ou MQTT. Toutes les primitives IoT Hub de messagerie (par exemple : la télémétrie, les méthodes directes, C2D, les jumeaux) sont prises en charge, mais la communication sur les rubriques définies par l’utilisateur n’est pas prise en charge.
 

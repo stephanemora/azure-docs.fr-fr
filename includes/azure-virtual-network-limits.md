@@ -8,15 +8,15 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 0d5c9c4a0191c6d5effd8f6067cb6602ed239125
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 9751bd082947e66b3fc5ea47448857558301a1e7
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94329491"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97366382"
 ---
 ### <a name="networking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>Limites de mise en réseau - Azure Resource Manager
-Les limites suivantes s’appliquent uniquement aux ressources de réseau gérées par le biais d’ **Azure Resource Manager** par région et par abonnement. Découvrez comment [afficher l’utilisation actuelle de vos ressources par rapport aux limites de votre abonnement](../articles/networking/check-usage-against-limits.md).
+Les limites suivantes s’appliquent uniquement aux ressources de réseau gérées par le biais d’**Azure Resource Manager** par région et par abonnement. Découvrez comment [afficher l’utilisation actuelle de vos ressources par rapport aux limites de votre abonnement](../articles/networking/check-usage-against-limits.md).
 
 > [!NOTE]
 > Récemment, nous avons augmenté toutes les limites par défaut à leur niveau maximal. Si aucune colonne de limite maximale n’est présente, la ressource spécifiée ne possède pas de limites ajustables. Si ces limites ont été augmentées par le support dans le passé et si vous ne voyez pas les limites mises à jour dans les tables suivantes, vous pouvez [ouvrir une demande de support clientèle en ligne sans frais](../articles/azure-resource-manager/templates/error-resource-quota.md)
@@ -73,7 +73,7 @@ Les limites suivantes s’appliquent uniquement aux ressources de réseau géré
 | Règles par groupe de sécurité réseau (sur l’ensemble des adresses IP sur une carte réseau) | 300                           |
 | Configurations d’adresses IP frontales              | 600                           |
 | Taille de pool de serveur principal                       | 1 000 configurations d’adresses IP, réseau virtuel unique |
-| Ressources back-end par équilibreur de charge <sup>1<sup> | 150                   |
+| Ressources back-end par équilibreur de charge <sup>1<sup> | 250                   |
 | Ports de haute disponibilité                 | 1 par serveur frontal interne       |
 | Règles de trafic sortant par Load Balancer        | 600                           |
 | Équilibreurs de charge par machine virtuelle                   | 2 (1 public et 1 interne)   |

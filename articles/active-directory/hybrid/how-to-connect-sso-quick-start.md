@@ -16,18 +16,21 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40d77f4ebb897884f03377e6d9f1243a6d436766
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: eadb20bc570545356508d82c05e1746424a14b71
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500204"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504387"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>Authentification unique transparente Azure Active Directory : Démarrage rapide
 
 ## <a name="deploy-seamless-single-sign-on"></a>Déploiement de l'authentification unique transparente
 
 L’authentification unique transparente (Seamless SSO) Azure Active Directory (Azure AD) connecte automatiquement les utilisateurs lorsque leurs ordinateurs d’entreprise sont connectés au réseau de l’entreprise. Seamless SSO offre à vos utilisateurs un accès facilité à vos applications dans le cloud sans nécessiter de composants sur site supplémentaires.
+
+> [!NOTE]
+> Cet article contient des références au terme *liste verte*, un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.
 
 Pour déployer l’authentification unique transparente, procédez comme suit.
 

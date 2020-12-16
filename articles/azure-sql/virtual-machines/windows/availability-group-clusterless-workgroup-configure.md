@@ -8,17 +8,18 @@ editor: ''
 tags: azure-service-management
 ms.assetid: 53981f7e-8370-4979-b26a-93a5988d905f
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/29/2020
 ms.author: mathoma
-ms.openlocfilehash: 5714a2fd79d01f4cbc445c1ec1a726209ab6d427
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 0f194101720481f71434709c467d0e3130a0f1f9
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124932"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359453"
 ---
 # <a name="configure-a-workgroup-availability-group"></a>Configurer un groupe de disponibilité pour un groupe de travail 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -53,14 +54,14 @@ Au cours de cette étape, vous allez configurer le suffixe DNS des deux serveurs
 Pour configurer le suffixe DNS, procédez comme suit :
 
 1. Connectez-vous à distance (via RDP) à votre premier nœud et ouvrez Gestionnaire de serveur. 
-1. Sélectionnez **Serveur local** , puis sélectionnez le nom de votre machine virtuelle sous **Nom de l'ordinateur**. 
+1. Sélectionnez **Serveur local**, puis sélectionnez le nom de votre machine virtuelle sous **Nom de l'ordinateur**. 
 1. Sélectionnez **Modifier...** sous **Pour renommer cet ordinateur...** . 
 1. Renommez le groupe de travail afin de lui donner un nom significatif, par exemple `AGWORKGROUP` : 
 
    ![Changer le nom du groupe de travail](./media/availability-group-clusterless-workgroup-configure/1-change-workgroup-name.png)
 
 1. Sélectionnez **Autres...** pour ouvrir la boîte de dialogue **Nom d'ordinateur NetBIOS et suffixe DNS**. 
-1. Entrez le nom de votre suffixe DNS sous **Suffixe DNS principal de cet ordinateur** , par exemple `ag.wgcluster.example.com`, puis sélectionnez **OK**  : 
+1. Entrez le nom de votre suffixe DNS sous **Suffixe DNS principal de cet ordinateur**, par exemple `ag.wgcluster.example.com`, puis sélectionnez **OK** : 
 
    ![Capture d’écran montrant le suffixe D N S et la boîte de dialogue Nom de l’ordinateur NetBIOS dans laquelle vous pouvez entrer la valeur.](./media/availability-group-clusterless-workgroup-configure/2-add-dns-suffix.png)
 
@@ -78,7 +79,7 @@ En l'absence de répertoire actif, il n'y a aucun moyen d'authentifier les conne
 Pour modifier le fichier hosts, procédez comme suit :
 
 1. Connectez-vous à distance (via RDP) à votre machine virtuelle. 
-1. Utilisez l' **Explorateur de fichiers** pour accéder à `c:\windows\system32\drivers\etc`. 
+1. Utilisez l'**Explorateur de fichiers** pour accéder à `c:\windows\system32\drivers\etc`. 
 1. Cliquez avec le bouton droit sur le fichier **hosts** et ouvrez-le dans le **Bloc-notes** (ou dans un autre éditeur de texte).
 1. À la fin du fichier, ajoutez une entrée pour chaque nœud, ainsi que le groupe de disponibilité et l'écouteur sous la forme `IP Address, DNS Suffix #comment`, par exemple : 
 
@@ -115,12 +116,12 @@ Différences notables entre le tutoriel et ce qui doit être fait pour un cluste
 
 Une fois le cluster créé, attribuez une adresse IP de cluster statique. Pour ce faire, procédez comme suit :
 
-1. Sur un des nœuds, ouvrez **Gestionnaire du cluster de basculement** , sélectionnez le cluster, cliquez avec le bouton droit sur **Nom : \<ClusterNam>** sous **Principales ressources du cluster** , puis sélectionnez **Propriétés**. 
+1. Sur un des nœuds, ouvrez **Gestionnaire du cluster de basculement**, sélectionnez le cluster, cliquez avec le bouton droit sur **Nom : \<ClusterNam>** sous **Principales ressources du cluster**, puis sélectionnez **Propriétés**. 
 
    ![Lancer les propriétés du nom de cluster](./media/availability-group-clusterless-workgroup-configure/5-launch-cluster-name-properties.png)
 
-1. Sélectionnez l'adresse IP sous **Adresses IP** , puis choisissez **Modifier**. 
-1. Sélectionnez **Utiliser une adresse statique** , fournissez l'adresse IP du cluster, puis sélectionnez **OK**  : 
+1. Sélectionnez l'adresse IP sous **Adresses IP**, puis choisissez **Modifier**. 
+1. Sélectionnez **Utiliser une adresse statique**, fournissez l'adresse IP du cluster, puis sélectionnez **OK** : 
 
    ![Fournir une adresse IP statique pour le cluster](./media/availability-group-clusterless-workgroup-configure/6-provide-static-ip-for-cluster.png)
 
@@ -142,7 +143,7 @@ Au cours de cette étape, vous allez créer les certificats utilisés par la con
 
 Pour configurer le premier nœud, procédez comme suit : 
 
-1. Ouvrez **SQL Server Management Studio** , puis connectez-vous à votre premier nœud, par exemple `AGNode1`. 
+1. Ouvrez **SQL Server Management Studio**, puis connectez-vous à votre premier nœud, par exemple `AGNode1`. 
 1. Ouvrez une fenêtre **Nouvelle requête** et exécutez l'instruction Transact-SQL (T-SQL) suivante après la mise à jour vers un mot de passe complexe et sécurisé :
 
    ```sql
@@ -179,13 +180,13 @@ Pour configurer le premier nœud, procédez comme suit :
    GO  
    ```
 
-1. Utilisez l' **Explorateur de fichiers** pour accéder à l'emplacement de votre certificat, par exemple `c:\certs`. 
+1. Utilisez l'**Explorateur de fichiers** pour accéder à l'emplacement de votre certificat, par exemple `c:\certs`. 
 1. Procédez manuellement à une copie du certificat, par exemple `AGNode1Cert.crt`, à partir du premier nœud, puis transférez-la au même emplacement sur le deuxième nœud. 
 
 Pour configurer le deuxième nœud, procédez comme suit : 
 
 1. Connectez-vous au deuxième nœud avec **SQL Server Management Studio** (SSMS), par exemple `AGNode2`. 
-1. Dans une fenêtre **Nouvelle requête** , exécutez l'instruction Transact-SQL (T-SQL) suivante après la mise à jour vers un mot de passe complexe et sécurisé : 
+1. Dans une fenêtre **Nouvelle requête**, exécutez l'instruction Transact-SQL (T-SQL) suivante après la mise à jour vers un mot de passe complexe et sécurisé : 
 
    ```sql
    USE master;  
@@ -220,7 +221,7 @@ Pour configurer le deuxième nœud, procédez comme suit :
    GO  
    ```
 
-1. Utilisez l' **Explorateur de fichiers** pour accéder à l'emplacement de votre certificat, par exemple `c:\certs`. 
+1. Utilisez l'**Explorateur de fichiers** pour accéder à l'emplacement de votre certificat, par exemple `c:\certs`. 
 1. Procédez manuellement à une copie du certificat, par exemple `AGNode2Cert.crt`, à partir du deuxième nœud, puis transférez-la au même emplacement sur le premier nœud. 
 
 Si le cluster comprend d'autres nœuds, répétez-y ces étapes, en modifiant les noms des certificats correspondants. 

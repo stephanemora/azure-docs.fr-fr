@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/21/2019
 ms.author: sngun
-ms.openlocfilehash: 3b47c7e8f31b51d51f5fad20cc068debb1dc2927
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: b27bab9ea3029264143caaacf094f0a799894356
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339731"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359861"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>Visualiser les données Azure Cosmos DB à l’aide du connecteur Power BI
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -32,7 +32,7 @@ Avant de suivre les instructions de ce didacticiel Power BI, assurez-vous de dis
 
 * [Télécharger la dernière version de Power BI Desktop](https://powerbi.microsoft.com/desktop).
 
-* Téléchargez les [exemples de données de volcan](https://github.com/Azure-Samples/azure-cosmos-db-sample-data/blob/master/SampleData/VolcanoData.json) à partir de GitHub.
+* Téléchargez les [exemples de données de volcan](https://github.com/Azure-Samples/azure-cosmos-db-sample-data/blob/main/SampleData/VolcanoData.json) à partir de GitHub.
 
 * [Créer un compte de base de données Azure Cosmos](create-cosmosdb-resources-portal.md#create-an-azure-cosmos-db-account) et importer les données de volcan à l’aide de l’[outil de migration de données Azure Cosmos DB](import-data.md). Lorsque vous importez des données, prenez en compte les paramètres suivants pour la source et les destinations dans l’outil de migration de données :
 
@@ -76,17 +76,17 @@ Vous souhaitez récupérer les données relatives aux volcans du compte Azure Co
 
 1. Démarrez Power BI Desktop.
 
-2. Vous pouvez **obtenir des données** , consulter les **Sources récentes** ou **Ouvrir d’autres rapports** directement à partir de cet écran d’accueil. Cliquez sur le symbole X en haut à droite pour fermer l’écran. La vue **Rapport** de Power BI Desktop s’affiche.
+2. Vous pouvez **obtenir des données**, consulter les **Sources récentes** ou **Ouvrir d’autres rapports** directement à partir de cet écran d’accueil. Cliquez sur le symbole X en haut à droite pour fermer l’écran. La vue **Rapport** de Power BI Desktop s’affiche.
    
    :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbireportview.png" alt-text="Power BI Desktop - Vue Rapport - Connecteur Power BI":::
 
-3. Sélectionnez le ruban **Accueil** , puis cliquez sur **Obtenir des données**.  La fenêtre **Obtenir des données** doit alors s’afficher.
+3. Sélectionnez le ruban **Accueil**, puis cliquez sur **Obtenir des données**.  La fenêtre **Obtenir des données** doit alors s’afficher.
 
-4. Cliquez sur **Azure** , sélectionnez **Azure Cosmos DB (bêta)** puis cliquez sur **Se connecter**. 
+4. Cliquez sur **Azure**, sélectionnez **Azure Cosmos DB (bêta)** puis cliquez sur **Se connecter**. 
 
    :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbigetdata.png" alt-text="Power BI Desktop - Obtenir des données - Connecteur Power BI":::
 
-5. Sur la page **Aperçu connecteur** , cliquez sur **Continuer**. La fenêtre **Azure Cosmos DB** s’affiche.
+5. Sur la page **Aperçu connecteur**, cliquez sur **Continuer**. La fenêtre **Azure Cosmos DB** s’affiche.
 
 6. Spécifiez l’URL du point de terminaison du compte Azure Cosmos DB dont vous souhaitez récupérer les données, comme indiqué ci-dessous, puis cliquez sur **OK**. Vous pouvez récupérer l’URL dans la zone URI du panneau **Clés** du portail Azure pour utiliser votre propre compte. Vous pouvez, de manière facultative, fournir un nom de base données, un nom de collection ou utiliser le Navigateur pour sélectionner la base de données et la collection afin d’identifier la provenance des données.
    
@@ -111,7 +111,7 @@ Vous souhaitez récupérer les données relatives aux volcans du compte Azure Co
 
    :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbiqueryeditor.png" alt-text="Power BI Desktop - Éditeur de requête":::
 
-1. Cliquez sur l’icône de développement à droite de l’en-tête de colonne **Document** .  Un menu contextuel s’affiche avec une liste de champs.  Sélectionnez les champs dont vous avez besoin pour votre rapport (par exemple, nom du volcan, pays, région, emplacement, altitude, type, état et dernière éruption connue). Désactivez la case à cocher **Utiliser le nom de la colonne d’origine comme préfixe** , puis cliquez sur **OK**.
+1. Cliquez sur l’icône de développement à droite de l’en-tête de colonne **Document** .  Un menu contextuel s’affiche avec une liste de champs.  Sélectionnez les champs dont vous avez besoin pour votre rapport (par exemple, nom du volcan, pays, région, emplacement, altitude, type, état et dernière éruption connue). Désactivez la case à cocher **Utiliser le nom de la colonne d’origine comme préfixe**, puis cliquez sur **OK**.
    
    :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbiqueryeditorexpander.png" alt-text="Didacticiel Power BI pour Azure Cosmos DB - Connecteur Power BI - Développement des documents":::
 
@@ -131,7 +131,7 @@ Vous souhaitez récupérer les données relatives aux volcans du compte Azure Co
 
    :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbiresultflattenlist.png" alt-text="Didacticiel Power BI pour le connecteur Microsoft Azure Cosmos DB et Power BI - Liste des coordonnées":::
 
-1. Pour mettre à plat le tableau de coordonnées, créez une **colonne personnalisée** appelée LatLong.  Sélectionnez le ruban **Ajouter une colonne** , puis cliquez sur **Colonne personnalisée**.  La fenêtre **Colonne personnalisée** s’affiche.
+1. Pour mettre à plat le tableau de coordonnées, créez une **colonne personnalisée** appelée LatLong.  Sélectionnez le ruban **Ajouter une colonne**, puis cliquez sur **Colonne personnalisée**.  La fenêtre **Colonne personnalisée** s’affiche.
 
 1. Indiquez un nom pour la nouvelle colonne, par exemple LatLong.
 
@@ -164,9 +164,9 @@ La vue Rapport de Power BI Desktop vous permet de créer des rapports pour vis
 
 Dans la vue Rapport, vous devriez trouver les éléments suivants :
 
-1. Le volet **Champs** , qui contient une liste de modèles de données avec des champs que vous pouvez utiliser pour vos rapports.
+1. Le volet **Champs**, qui contient une liste de modèles de données avec des champs que vous pouvez utiliser pour vos rapports.
 1. Le volet **Visualisations** . Un rapport peut contenir une ou plusieurs visualisations.  Dans le volet **Visualisations** , sélectionnez les types visuels adaptés à vos besoins.
-1. La zone de dessin **Rapport** , où vous créez les éléments visuels de votre rapport.
+1. La zone de dessin **Rapport**, où vous créez les éléments visuels de votre rapport.
 1. La page **Rapport** . Vous pouvez ajouter plusieurs pages de rapport dans Power BI Desktop.
 
 Vous trouverez ci-dessous les principales étapes de création d’un rapport de vue cartographique interactif simple.
