@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperfq1
-ms.openlocfilehash: fdfaef554e4e641656abd3fd2b4a5d3bbc519ccd
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 6398d23aeb0e26fbc336c0c1066078f327fa2f73
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325430"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576568"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Vue d’ensemble de l’isolement et de la confidentialité des réseaux virtuels
 
@@ -58,9 +58,9 @@ Le tableau suivant compare l’accès des services aux différentes parties d’
 
 Les cinq sections suivantes vous montrent comment sécuriser le scénario réseau décrit ci-dessus. Pour sécuriser votre réseau, vous devez :
 
-1. Sécuriser l’ [**espace de travail et les ressources associées**](#secure-the-workspace-and-associated-resources).
-1. Sécuriser l’ [**environnement d’entraînement**](#secure-the-training-environment).
-1. Sécuriser l’ [**environnement d’inférence**](#secure-the-inferencing-environment).
+1. Sécuriser l’[**espace de travail et les ressources associées**](#secure-the-workspace-and-associated-resources).
+1. Sécuriser l’[**environnement d’entraînement**](#secure-the-training-environment).
+1. Sécuriser l’[**environnement d’inférence**](#secure-the-inferencing-environment).
 1. Facultatif : [**activer la fonctionnalité studio**](#optional-enable-studio-functionality).
 1. Configurer les [**paramètres de pare-feu**](#configure-firewall-settings)
 
@@ -145,10 +145,11 @@ Si votre stockage se trouve dans un réseau virtuel, vous devez d’abord effect
 
 * Aperçu des données dans Studio
 * Visualisation des données dans le concepteur
+* Déploiement d’un modèle dans le concepteur
 * Envoi d’une expérience AutoML
 * Démarrage d’un projet d’étiquetage
 
-Pour activer toute la fonctionnalité studio dans un réseau virtuel, consultez [Utiliser le studio Azure Machine Learning dans un réseau virtuel](how-to-enable-studio-virtual-network.md#access-data-using-the-studio). Le studio prend en charge les comptes de stockage à l’aide de points de terminaison de service ou de points de terminaison privés.
+Pour activer toute la fonctionnalité studio dans un réseau virtuel, consultez [Utiliser le studio Azure Machine Learning dans un réseau virtuel](how-to-enable-studio-virtual-network.md#configure-data-access-in-the-studio). Le studio prend en charge les comptes de stockage à l’aide de points de terminaison de service ou de points de terminaison privés.
 
 ### <a name="limitations"></a>Limites
 - [L’étiquetage des données assisté par ML](how-to-create-labeling-projects.md#use-ml-assisted-labeling) ne prend pas en charge les comptes de stockage par défaut sécurisés derrière un réseau virtuel. Vous devez utiliser un compte de stockage autre que celui par défaut pour l’étiquetage des données assisté par ML. Notez que le compte de stockage autre que celui par défaut peut être sécurisé derrière le réseau virtuel. 

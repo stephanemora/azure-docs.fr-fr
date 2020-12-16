@@ -7,13 +7,13 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: jawilley
-ms.custom: devx-track-dotnet, contperfq2
-ms.openlocfilehash: ab9fc4f08b96fc10a20125c30af2d6b8050c7606
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.custom: devx-track-dotnet, contperf-fy21q2
+ms.openlocfilehash: f503f132794f6d04b587a78b8f838acba26f9ac3
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341737"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032012"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Conseils sur les performances pour Azure Cosmos DB et .NET
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -41,13 +41,13 @@ Pour Linux et les autres plateformes non prises en charge où ServiceInterop.dll
 
 Les quatre types d’application listés ici utilisent un traitement 32 bits des processus hôte par défaut. Pour passer à un traitement 64 bits des processus hôte pour votre type d’application, procédez comme suit :
 
-- **Pour les applications exécutables**  : Dans la fenêtre **Propriétés du projet** , dans le volet **Build** , définissez la [plateforme cible](/visualstudio/ide/how-to-configure-projects-to-target-platforms?preserve-view=true&view=vs-2019) sur **x64**.
+- **Pour les applications exécutables** : Dans la fenêtre **Propriétés du projet**, dans le volet **Build**, définissez la [plateforme cible](/visualstudio/ide/how-to-configure-projects-to-target-platforms?preserve-view=true&view=vs-2019) sur **x64**.
 
-- **Pour les projets de test basés sur VSTest**  : Dans le menu Visual Studio **Test** , sélectionnez **Test** > **Paramètres de test** , puis définissez **Architecture de processeur par défaut** sur **X64**.
+- **Pour les projets de test basés sur VSTest** : Dans le menu Visual Studio **Test**, sélectionnez **Test** > **Paramètres de test**, puis définissez **Architecture de processeur par défaut** sur **X64**.
 
-- **Pour les applications web ASP.NET déployées localement**  : Sélectionnez **Outils** > **Options** > **Projets et solutions** > **Projets web** , puis sélectionnez **Utiliser la version 64 bits d’IIS Express pour les sites et les projets web**.
+- **Pour les applications web ASP.NET déployées localement** : Sélectionnez **Outils** > **Options** > **Projets et solutions** > **Projets web**, puis sélectionnez **Utiliser la version 64 bits d’IIS Express pour les sites et les projets web**.
 
-- **Pour les applications web ASP.NET déployées sur Azure**  : Dans le portail Azure, dans **Paramètres de l’application** , sélectionnez la plateforme **64 bits**.
+- **Pour les applications web ASP.NET déployées sur Azure** : Dans le portail Azure, dans **Paramètres de l’application**, sélectionnez la plateforme **64 bits**.
 
 > [!NOTE] 
 > Par défaut, les nouveaux projets Visual Studio sont définis sur **Any CPU**. Nous vous recommandons de définir votre projet sur **x64** afin qu’il ne passe pas à **x86**. Un projet défini sur **N’importe quelle UC** peut facilement basculer vers **x86** si une dépendance x86 exclusive est ajoutée.<br/>
@@ -144,7 +144,7 @@ itemResponse.Resource
 
 **Activer l’exécution en bloc pour optimiser le débit plutôt que la latence**
 
-Activez l’ *exécution en bloc* pour les scénarios où la charge de travail requiert un débit très élevé et où la latence n’est pas aussi importante. Pour plus d’informations sur l’activation de l’exécution en bloc et sur les scénarios où elle devrait être utilisée, consultez [Introduction à la prise en charge de l’exécution en bloc](https://devblogs.microsoft.com/cosmosdb/introducing-bulk-support-in-the-net-sdk).
+Activez l’*exécution en bloc* pour les scénarios où la charge de travail requiert un débit très élevé et où la latence n’est pas aussi importante. Pour plus d’informations sur l’activation de l’exécution en bloc et sur les scénarios où elle devrait être utilisée, consultez [Introduction à la prise en charge de l’exécution en bloc](https://devblogs.microsoft.com/cosmosdb/introducing-bulk-support-in-the-net-sdk).
 
 **Augmenter System.Net MaxConnections par hôte lors de l’utilisation du mode passerelle**
 
@@ -162,7 +162,7 @@ Les requêtes parallèles fournissent deux paramètres que vous pouvez paramétr
 
     Les requêtes parallèles produisent de meilleurs résultats si les données sont réparties de manière homogène entre toutes les partitions. Si la collection est partitionnée de sorte que toutes les données retournées par une requête, ou une grande partie d’entre elles, sont concentrées sur quelques partitions (une partition dans le pire des cas), ces partitions vont limiter les performances de la requête.
    
-- **MaxBufferedItemCount**  : Contrôle le nombre de résultats prérécupérés.
+- **MaxBufferedItemCount** : Contrôle le nombre de résultats prérécupérés.
 
    Une requête parallèle est conçue pour pré-extraire les résultats pendant que le lot de résultats actuel est en cours de traitement par le client. Cette pré-récupération permet d’améliorer la latence globale d’une requête. Le paramètre `MaxBufferedItemCount` limite le nombre de résultats pré-récupérés (fetch). Définissez `MaxBufferedItemCount` sur le nombre attendu de résultats retournés (ou un nombre plus élevé) pour permettre à la requête de recevoir le maximum d’avantages de la pré-récupération (fetch).
 

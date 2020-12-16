@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1c942d52bbcdad711115d81a78395979c507784b
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: a471f510f60eeb6428c5c4e8ec7cccd1e0804d10
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131749"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108856"
 ---
 # <a name="configure-password-change-using-custom-policies-in-azure-active-directory-b2c"></a>Configurer la modification du mot de passe avec des stratégies personnalisées dans Azure Active Directory B2C
 
@@ -45,7 +45,7 @@ Suivez les étapes dans [Prise en main des stratégies personnalisées dans Azur
     </BuildingBlocks>
     ```
 
-2. Un élément [ClaimsProvider](claimsproviders.md) contient le profil technique qui authentifie l’utilisateur. Ajoutez les fournisseurs de revendications suivants à l’élément **ClaimsProviders**  :
+2. Un élément [ClaimsProvider](claimsproviders.md) contient le profil technique qui authentifie l’utilisateur. Ajoutez les fournisseurs de revendications suivants à l’élément **ClaimsProviders** :
 
     ```xml
     <ClaimsProviders>
@@ -152,10 +152,10 @@ Suivez les étapes dans [Prise en main des stratégies personnalisées dans Azur
     </UserJourneys>
     ```
 
-4. Enregistrez le fichier de stratégie *TrustframeworkExtensions.xml* .
-5. Copiez le fichier *ProfileEdit.xml* que vous avez téléchargé avec le pack de démarrage et nommez-le *ProfileEditPasswordChange.xml* .
-6. Ouvrez le nouveau fichier, puis mettez à jour l’attribut **PolicyId** avec une valeur unique. Cette valeur est le nom de votre stratégie. Par exemple, *B2C_1A_profile_edit_password_change* .
-7. Modifiez l’attribut **ReferenceId** dans `<DefaultUserJourney>` pour qu’il corresponde à l’ID du parcours utilisateur que vous avez créé. Par exemple, *PasswordChange* .
+4. Enregistrez le fichier de stratégie *TrustframeworkExtensions.xml*.
+5. Copiez le fichier *ProfileEdit.xml* que vous avez téléchargé avec le pack de démarrage et nommez-le *ProfileEditPasswordChange.xml*.
+6. Ouvrez le nouveau fichier, puis mettez à jour l’attribut **PolicyId** avec une valeur unique. Cette valeur est le nom de votre stratégie. Par exemple, *B2C_1A_profile_edit_password_change*.
+7. Modifiez l’attribut **ReferenceId** dans `<DefaultUserJourney>` pour qu’il corresponde à l’ID du parcours utilisateur que vous avez créé. Par exemple, *PasswordChange*.
 8. Enregistrez vos modifications.
 
 Vous pouvez trouver l’exemple de stratégie [ici](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/password-change).
@@ -168,19 +168,19 @@ Quand vous testez vos applications dans Azure AD B2C, il peut être utile de re
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en sélectionnant le filtre **Annuaire + abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
-3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C** .
-4. Sélectionnez **Infrastructure d’expérience d’identité** .
-5. Dans la page Stratégies personnalisées, cliquez sur **Charger une stratégie** .
-6. Activez **Remplacer la stratégie si elle existe** , puis recherchez et sélectionnez le fichier *TrustframeworkExtensions.xml* .
-7. Cliquez sur **Télécharger** .
-8. Répétez les étapes 5 à 7 pour le fichier de la partie de confiance (par exemple, *ProfileEditPasswordChange.xml* ).
+3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
+4. Sélectionnez **Infrastructure d’expérience d’identité**.
+5. Dans la page Stratégies personnalisées, cliquez sur **Charger une stratégie**.
+6. Activez **Remplacer la stratégie si elle existe**, puis recherchez et sélectionnez le fichier *TrustframeworkExtensions.xml*.
+7. Cliquez sur **Télécharger**.
+8. Répétez les étapes 5 à 7 pour le fichier de la partie de confiance (par exemple, *ProfileEditPasswordChange.xml*).
 
 ### <a name="run-the-policy"></a>Exécuter la stratégie
 
-1. Ouvrez la stratégie que vous avez changée. Par exemple, *B2C_1A_profile_edit_password_change* .
-2. Pour **Application** , sélectionnez l’application que vous avez précédemment inscrite. Pour voir le jeton, l’ **URL de réponse** doit indiquer `https://jwt.ms`.
-3. Cliquez sur **Exécuter maintenant** . Connectez-vous avec le compte que vous avez créé précédemment. Vous devez à présent avoir la possibilité de modifier le mot de passe.
+1. Ouvrez la stratégie que vous avez changée. Par exemple, *B2C_1A_profile_edit_password_change*.
+2. Pour **Application**, sélectionnez l’application que vous avez précédemment inscrite. Pour voir le jeton, l’**URL de réponse** doit indiquer `https://jwt.ms`.
+3. Cliquez sur **Exécuter maintenant**. Connectez-vous avec le compte que vous avez créé précédemment. Vous devez à présent avoir la possibilité de modifier le mot de passe.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez comment [configurer la complexité du mot de passe avec des stratégies personnalisées dans Azure Active Directory B2C](custom-policy-password-complexity.md).
+- Découvrez comment [configurer la complexité du mot de passe avec des stratégies personnalisées dans Azure Active Directory B2C](password-complexity.md).

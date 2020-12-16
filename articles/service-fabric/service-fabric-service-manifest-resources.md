@@ -3,13 +3,13 @@ title: Spécification de points de terminaison du service Service Fabric
 description: Comment décrire les ressources du point de terminaison dans un manifeste de service, y compris comment configurer des points de terminaison HTTPS
 ms.topic: conceptual
 ms.date: 09/16/2020
-ms.custom: contperfq1
-ms.openlocfilehash: 5e8f39fe25011d02b989614fdc6538cd92c12d4e
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: 0ed5a4aa8993f52d42b97288cd143e6114ff36ff
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92313567"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033304"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Spécifier des ressources dans un manifeste de service
 ## <a name="overview"></a>Vue d’ensemble

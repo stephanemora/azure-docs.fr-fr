@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 10/28/2020
-ms.custom: contperfq1, contperfq2
-ms.openlocfilehash: 756c87299db85e426b4793d51bea833aa694a830
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.custom: contperf-fy21q1, contperf-fy21q2
+ms.openlocfilehash: 70fbbdfc5d8f1bac5fa27175ea25be1503a77594
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145954"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97031893"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Utiliser le client Apache Beeline avec Apache Hive
 
@@ -113,7 +113,7 @@ Cet exemple est basé sur l’utilisation du client Beeline à partir d’une co
     |CREATE EXTERNAL TABLE|Crée une table **externe** dans Hive. Les tables externes stockent uniquement la définition de table dans Hive. Les données restent à l'emplacement d'origine.|
     |ROW FORMAT|Formatage des données. Dans ce cas, les champs de chaque journal sont séparés par un espace.|
     |STORED AS TEXTFILE LOCATION|Emplacement de stockage des données et format de fichier.|
-    |SELECT|sélectionne toutes les lignes où la colonne **t4** contient la valeur **[ERROR]** . Cette requête renvoie la valeur **3** , car trois lignes contiennent cette valeur.|
+    |SELECT|sélectionne toutes les lignes où la colonne **t4** contient la valeur **[ERROR]** . Cette requête renvoie la valeur **3**, car trois lignes contiennent cette valeur.|
     |INPUT__FILE__NAME LIKE '%.log'|Hive tente d’appliquer le schéma à tous les fichiers dans le répertoire. Dans ce cas, le répertoire contient des fichiers qui ne correspondent pas au schéma. Pour éviter que des données incorrectes n’apparaissent dans les résultats, cette instruction indique à Hive de retourner uniquement des données provenant de fichiers se terminant par .log.|
 
    > [!NOTE]  
@@ -157,7 +157,7 @@ Cet exemple est basé sur l’utilisation du client Beeline à partir d’une co
 
 Cet exemple constitue la suite du précédent. Utilisez les étapes suivantes pour créer un fichier, puis exécutez-le à l’aide de Beeline.
 
-1. Utilisez la commande suivante pour créer un fichier nommé **query.hql** :
+1. Utilisez la commande suivante pour créer un fichier nommé **query.hql**:
 
     ```bash
     nano query.hql
@@ -181,7 +181,7 @@ Cet exemple constitue la suite du précédent. Utilisez les étapes suivantes po
     > [!NOTE]  
     > Contrairement aux tables externes, la suppression d’une table interne entraîne également la suppression des données sous-jacentes.
 
-1. Pour enregistrer le fichier, utilisez **Ctrl**+**X** , puis, entrez **Y** et enfin appuyez sur **Entrée**.
+1. Pour enregistrer le fichier, utilisez **Ctrl**+**X**, puis, entrez **Y** et enfin appuyez sur **Entrée**.
 
 1. Pour exécuter le fichier à l’aide de Beeline, utilisez les éléments suivants :
 

@@ -13,12 +13,12 @@ ms.date: 06/05/2020
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev devx-track-js
-ms.openlocfilehash: 327280c193c3c2fb829e468bccfc352f35edfdb5
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: ef1c0003978251dd2637915e56dc396e85f4438f
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92673506"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107870"
 ---
 # <a name="use-microsoft-authentication-library-for-javascript-to-work-with-azure-ad-b2c"></a>Utiliser la bibliothèque d’authentification Microsoft pour JavaScript pour travailler avec Azure AD B2C
 
@@ -169,7 +169,7 @@ Les étapes suivantes supposent que vous avez déjà suivi les étapes de la sec
 
 ### <a name="step-2-catch-and-handle-authentication-errors-in-your-login-method"></a>Étape 2 : Intercepter et gérer les erreurs d’authentification dans votre méthode de connexion
 
-Lorsqu’un utilisateur sélectionne **Mot de passe oublié** , votre application génère une erreur que vous devez intercepter dans votre code, puis gérer en présentant le flux d’utilisateur approprié. Dans ce cas, le flux réinitialisation du mot de passe `b2c_1_reset`.
+Lorsqu’un utilisateur sélectionne **Mot de passe oublié**, votre application génère une erreur que vous devez intercepter dans votre code, puis gérer en présentant le flux d’utilisateur approprié. Dans ce cas, le flux réinitialisation du mot de passe `b2c_1_reset`.
 
 1. Étendez votre méthode de connexion comme suit :
 
@@ -209,7 +209,7 @@ Lorsqu’un utilisateur sélectionne **Mot de passe oublié** , votre applicatio
 
     :::image type="content" source="media/msal-b2c-overview/user-journey-02-password-reset.png" alt-text="Écrans du flux de réinitialisation du mot de passe affichés par Azure AD B2C" border="false":::
 
-    Pour plus d’informations sur les codes d’erreur et la gestion des exceptions, consultez [Codes d’erreur et d’exception MSAL](msal-handling-exceptions.md).
+    Pour plus d’informations sur les codes d’erreur et la gestion des exceptions, consultez [Codes d’erreur et d’exception MSAL](msal-error-handling-js.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -217,4 +217,4 @@ En savoir plus sur ces concepts Azure AD B2C :
 
 - [Flux d’utilisateurs](../../active-directory-b2c/tutorial-create-user-flows.md)
 - [Stratégies personnalisées](../../active-directory-b2c/custom-policy-get-started.md)
-- [Personnalisation de l’expérience utilisateur](../../active-directory-b2c/custom-policy-configure-user-input.md)
+- [Personnalisation de l’expérience utilisateur](../../active-directory-b2c/configure-user-input.md)

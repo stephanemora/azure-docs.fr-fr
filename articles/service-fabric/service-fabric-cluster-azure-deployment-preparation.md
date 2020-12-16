@@ -3,12 +3,12 @@ title: Planifier un déploiement de cluster Azure Service Fabric
 description: Découvrez-en plus sur la planification et la préparation d'un déploiement de cluster de production Service Fabric sur Azure.
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: 1064e59491b7144aafade24bd50131478fe025eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9de59811397eb47809c6d71f608e43beae5bfadb
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87281325"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109621"
 ---
 # <a name="plan-and-prepare-for-a-cluster-deployment"></a>Planifier et préparer un déploiement de cluster
 
@@ -89,8 +89,6 @@ Les disques de système d’exploitation éphémères ne sont pas spécifiques d
 
 > [!NOTE]
 > Les applications d’utilisateurs ne doivent pas avoir de dépendance/fichier/artefact sur le disque du système d’exploitation, car le disque du système d’exploitation serait perdu en cas de mise à niveau du système d’exploitation.
-> Par conséquent, il n’est pas recommandé d’utiliser [PatchOrchestrationApplication](https://github.com/microsoft/Service-Fabric-POA) avec des disques éphémères.
->
 
 > [!NOTE]
 > Les VMSS non éphémères existants ne peuvent pas être mis à niveau sur place pour utiliser des disques éphémères.

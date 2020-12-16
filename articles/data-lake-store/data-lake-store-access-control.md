@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: d889c82142cda60b920f7b29bd91755cbc34f525
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 48ff32655b107958a3e8e42dbd7de0f405a6fffa
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701447"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97094860"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Contrôle d’accès dans Azure Data Lake Storage Gen1
 
@@ -33,8 +33,6 @@ Il existe deux types de listes de contrôle d’accès (ACL) : les **ACL d’acc
 
 
 Les ACL d’accès et les ACL par défaut ont la même structure.
-
-
 
 > [!NOTE]
 > La modification de l’ACL par défaut d’un parent n’affecte pas l’ACL d’accès ni l’ACL par défaut des éléments enfants qui existent déjà.
@@ -74,7 +72,7 @@ Voici quelques scénarios courants pour vous aider à comprendre les autorisatio
 | Opération | Object              |    /      | Seattle/   | Portland/   | Data.txt       |
 |-----------|---------------------|-----------|------------|-------------|----------------|
 | Lire      | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
-| Ajouter à | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
+| Ajouter à | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `-W-`          |
 | DELETE    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
 | Créer    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
 | List      | /                   |   `R-X`   |   `---`    |  `---`      | `---`          |

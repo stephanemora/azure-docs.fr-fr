@@ -7,13 +7,13 @@ ms.topic: article
 author: emuench
 ms.author: mingshen
 ms.date: 10/15/2020
-ms.custom: contperfq2
-ms.openlocfilehash: c4fdf8e986b9c98588689a57bde8ca9464667abe
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: aeee13152364c31d82f674df784a27114035a041
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129539"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97028544"
 ---
 # <a name="azure-consumption-commitment-benefit"></a>Avantage d’Azure Consumption Commitment
 
@@ -31,19 +31,19 @@ Pour profiter de cet avantage, il vous suffit d’acheter une offre éligible su
 
 ## <a name="determine-if-your-organization-has-an-azure-consumption-commitment-maccctc"></a>Déterminer si votre organisation dispose d’un engagement de consommation Azure (MACC/CtC)
 
-Si vous n’êtes pas certain que votre organisation dispose d’un contrat éligible, connectez-vous à l’expérience Place de marché du [portail Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home) sous un locataire associé à votre organisation. Si vous voyez l’option d’ **éligibilité à l’avantage Azure** dans le filtre Tarification, vous bénéficiez d’un engagement de consommation Azure éligible. Répondre aux critères relatifs aux achats sur la Place de marché Azure contribue à l’engagement de consommation Azure en cas d’achat direct sur la Place de marché Azure.
+Si vous n’êtes pas certain que votre organisation dispose d’un contrat éligible, connectez-vous à l’expérience Place de marché du [portail Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home) sous un locataire associé à votre organisation. Si vous voyez l’option d’**éligibilité à l’avantage Azure** dans le filtre Tarification, vous bénéficiez d’un engagement de consommation Azure éligible. Répondre aux critères relatifs aux achats sur la Place de marché Azure contribue à l’engagement de consommation Azure en cas d’achat direct sur la Place de marché Azure.
 
 [![Option de menu d’éligibilité à l’avantage Azure.](media/azure-benefit/azure-benefit-eligible.png)](media/azure-benefit/azure-benefit-eligible.png#lightbox)
 
 ## <a name="determine-which-offers-are-eligible-for-azure-consumption-commitments-maccctc"></a>Déterminer les offres éligibles aux engagements de consommation Azure (MACC/CtC)
 
 1. Connectez-vous à l’expérience Place de marché du [portail Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home) sous un locataire associé à votre organisation.
-2. Appliquez le filtre d’ **éligibilité à l’avantage Azure** (image ci-dessus) pour découvrir les offres susceptibles de contribuer à l’engagement de consommation Azure de votre organisation.
+2. Appliquez le filtre d’**éligibilité à l’avantage Azure** (image ci-dessus) pour découvrir les offres susceptibles de contribuer à l’engagement de consommation Azure de votre organisation.
 
    > [!NOTE]
    > Si vous n’avez pas ce filtre, votre organisation n’a pas d’engagement éligible. Si vous pensez que ce n’est pas normal, contactez le responsable de compte Microsoft.
  
-3. Les offres sont accompagnées d’un badge d’ **éligibilité à l’avantage Azure** pour indiquer que les coûts logiciels/d’adresses IP associés à cette offre contribuent à l’engagement de consommation Azure de votre organisation en plus des services Azure facturés à votre organisation.
+3. Les offres sont accompagnées d’un badge d’**éligibilité à l’avantage Azure** pour indiquer que les coûts logiciels/d’adresses IP associés à cette offre contribuent à l’engagement de consommation Azure de votre organisation en plus des services Azure facturés à votre organisation.
 
     :::image type="content" source="media/azure-benefit/azure-benefit-eligible-badge.png" alt-text="Badge d’éligibilité à l’avantage Azure.":::
 

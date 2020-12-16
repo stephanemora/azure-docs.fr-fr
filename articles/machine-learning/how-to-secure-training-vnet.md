@@ -10,13 +10,13 @@ ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
 ms.date: 07/16/2020
-ms.custom: contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: 2b0a56bac1652881e9d1733bcb52b02610e27e9e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1
+ms.openlocfilehash: 131feaf6ff01659b7d126604a5d081275e64508f
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93314163"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97029564"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>Sécuriser un environnement d’entraînement Azure Machine Learning à l’aide de réseaux virtuels
 
@@ -42,7 +42,7 @@ Dans cet article, vous découvrirez comment sécuriser les ressources de calcul 
 
 + Un réseau virtuel et un sous-réseau existants à utiliser avec vos ressources de calcul.
 
-+ Pour déployer des ressources dans un réseau virtuel ou un sous-réseau virtuel, votre compte d’utilisateur doit disposer d’autorisations pour les actions suivantes dans les contrôles d’accès en fonction du rôle Azure (Azure RBAC) :
++ Pour déployer des ressources dans un réseau virtuel ou un sous-réseau, votre compte d’utilisateur doit disposer d’autorisations pour les actions suivantes dans le contrôle d’accès en fonction du rôle Azure (Azure RBAC) :
 
     - « Microsoft.Network/virtualNetworks/join/action » sur la ressource de réseau virtuel.
     - « Microsoft.Network/virtualNetworks/subnet/join/action » sur la ressource de sous-réseau virtuel.
@@ -111,7 +111,7 @@ Si vous ne souhaitez pas utiliser les règles de trafic sortant par défaut et s
 
 - Refusez la connexion internet sortante à l’aide des règles NSG.
 
-- Pour une __instance de calcul__ ou un __cluster de calcul__ , limitez le trafic sortant aux éléments suivants :
+- Pour une __instance de calcul__ ou un __cluster de calcul__, limitez le trafic sortant aux éléments suivants :
    - Stockage Azure, en utilisant la __balise de service__ __Storage.RegionName__. Où `{RegionName}` est le nom d’une région Azure.
    - Azure Container Registry, en utilisant la __balise de service__ __AzureContainerRegistry.RegionName__. Où `{RegionName}` est le nom d’une région Azure.
    - Azure Machine Learning, à l’aide de la __balise du service__ de __AzureMachineLearning__
@@ -199,13 +199,13 @@ Pour créer un cluster Capacité de calcul Machine Learning, effectuez les étap
 
 1. Sélectionnez __Clusters d'entraînement__ à partir du centre, puis sélectionnez __+__ .
 
-1. Dans la boîte de dialogue __Nouveau cluster d'entraînement__ , développez la section __Paramètres avancés__.
+1. Dans la boîte de dialogue __Nouveau cluster d'entraînement__, développez la section __Paramètres avancés__.
 
-1. Pour configurer cette ressource de calcul afin d'utiliser un réseau virtuel, effectuez les actions suivantes dans la section __Configurer le réseau virtuel__  :
+1. Pour configurer cette ressource de calcul afin d'utiliser un réseau virtuel, effectuez les actions suivantes dans la section __Configurer le réseau virtuel__ :
 
-    1. Dans la liste déroulante __Groupe de ressources__ , sélectionnez le groupe de ressources qui contient le réseau virtuel.
-    1. Dans la liste déroulante __Réseau virtuel__ , sélectionnez le réseau virtuel qui contient le sous-réseau.
-    1. Dans la liste déroulante __Sous-réseau__ , sélectionnez le sous-réseau à utiliser.
+    1. Dans la liste déroulante __Groupe de ressources__, sélectionnez le groupe de ressources qui contient le réseau virtuel.
+    1. Dans la liste déroulante __Réseau virtuel__, sélectionnez le réseau virtuel qui contient le sous-réseau.
+    1. Dans la liste déroulante __Sous-réseau__, sélectionnez le sous-réseau à utiliser.
 
    ![Les paramètres de réseau virtuel Capacité de calcul Machine Learning](./media/how-to-enable-virtual-network/amlcompute-virtual-network-screen.png)
 
@@ -286,21 +286,21 @@ Créez une machine virtuelle ou un cluster HDInsight à l’aide du portail Azur
 
 Autorisez Azure Machine Learning à communiquer avec le port SSH sur la machine virtuelle ou le cluster, configurez une entrée source pour le groupe de sécurité réseau. Le port SSH est généralement le port 22. Pour autoriser le trafic provenant de cette source, effectuez les actions suivantes :
 
-1. Dans la liste déroulante __Source__ , sélectionnez __Balise de service__.
+1. Dans la liste déroulante __Source__, sélectionnez __Balise de service__.
 
-1. Dans la liste déroulante __Balise de service source__ , sélectionnez __AzureMachineLearning__.
+1. Dans la liste déroulante __Balise de service source__, sélectionnez __AzureMachineLearning__.
 
     ![Règles de trafic entrant pour effectuer des expériences sur une machine virtuelle ou un cluster HDInsight à l’intérieur d’un réseau virtuel](./media/how-to-enable-virtual-network/experimentation-virtual-network-inbound.png)
 
-1. Dans la liste déroulante __Plages de port source__ , sélectionnez __*__ .
+1. Dans la liste déroulante __Plages de port source__, sélectionnez __*__ .
 
-1. Dans la liste déroulante __Destination__ , sélectionnez __Tous__.
+1. Dans la liste déroulante __Destination__, sélectionnez __Tous__.
 
-1. Dans la liste déroulante __Plages de port de destination__ , sélectionnez __22__.
+1. Dans la liste déroulante __Plages de port de destination__, sélectionnez __22__.
 
-1. Sous __Protocole__ , sélectionnez __Tous__.
+1. Sous __Protocole__, sélectionnez __Tous__.
 
-1. Sous __Action__ , sélectionnez __Autoriser__.
+1. Sous __Action__, sélectionnez __Autoriser__.
 
 Conservez les règles de trafic sortant par défaut pour le groupe de sécurité réseau. Pour plus d’informations, consultez les règles de sécurité par défaut dans [Groupes de sécurité](../virtual-network/network-security-groups-overview.md#default-security-rules).
 

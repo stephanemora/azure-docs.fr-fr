@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/27/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b82edf39185067e4c761c7598b159a655dfc370c
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 20df5fc3a4d7c392be62df2b7778854d1e2e1cba
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735401"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109060"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>Paramétrer les URL de redirection sur b2clogin.com pour Azure Active Directory B2C
 
@@ -26,7 +26,7 @@ Quand vous configurez un fournisseur d’identité pour l’inscription et la co
 
 **Mise à jour d’octobre 2020 :** Nous accordons une période de grâce pour les locataires qui ne sont pas en mesure de respecter la date de dépréciation initialement annoncée du 4 décembre 2020. La mise hors service de login.microsoftonline.com interviendra désormais au plus tôt le **14 janvier 2021**.
 
-**Contexte**  : Le 4 décembre 2019, nous avions initialement [annoncé](https://azure.microsoft.com/updates/b2c-deprecate-msol/) la mise hors service de la prise en charge de login.microsoftonline.com dans Azure AD B2C prévue pour le 4 décembre 2020. Cela a donné un (1) an aux locataires existants pour migrer vers b2clogin.com. Les nouveaux locataires créés après le 4 décembre 2019 n’accepteront pas les demandes de login.microsoftonline.com. Toutes les fonctionnalités restent les mêmes sur le point de terminaison b2clogin.com.
+**Contexte** : Le 4 décembre 2019, nous avions initialement [annoncé](https://azure.microsoft.com/updates/b2c-deprecate-msol/) la mise hors service de la prise en charge de login.microsoftonline.com dans Azure AD B2C prévue pour le 4 décembre 2020. Cela a donné un (1) an aux locataires existants pour migrer vers b2clogin.com. Les nouveaux locataires créés après le 4 décembre 2019 n’accepteront pas les demandes de login.microsoftonline.com. Toutes les fonctionnalités restent les mêmes sur le point de terminaison b2clogin.com.
 
 La dépréciation de login.microsoftonline.com n’a aucun impact sur les locataires Azure Active Directory. Seuls les locataires Azure Active Directory B2C sont concernés par cette modification.
 
@@ -53,15 +53,15 @@ Quand vous utilisez *b2clogin.com* comme URL de redirection :
 
 * L’espace utilisé dans l’en-tête de cookie par les services Microsoft est réduit.
 * Vos URL de redirection n’ont plus besoin de contenir de référence à Microsoft.
-* Le code côté client JavaScript est pris en charge (actuellement en [préversion](user-flow-javascript-overview.md)) dans les pages personnalisées. En raison de restrictions de sécurité, le code JavaScript et les éléments de formulaire HTML sont supprimés des pages personnalisées si vous utilisez *login.microsoftonline.com*.
+* Le code côté client JavaScript est pris en charge (actuellement en [préversion](javascript-and-page-layout.md)) dans les pages personnalisées. En raison de restrictions de sécurité, le code JavaScript et les éléments de formulaire HTML sont supprimés des pages personnalisées si vous utilisez *login.microsoftonline.com*.
 
 ## <a name="overview-of-required-changes"></a>Vue d’ensemble des modifications nécessaires
 
-Vous pouvez être amené à apporter plusieurs modifications avant de migrer vos applications vers *b2clogin.com*  :
+Vous pouvez être amené à apporter plusieurs modifications avant de migrer vos applications vers *b2clogin.com* :
 
 * Modifiez l’URL de redirection dans les applications de votre fournisseur d’identité pour faire référence à *b2clogin.com*.
 * Mettez à jour vos applications Azure AD B2C pour qu’elles utilisent *b2clogin.com* dans leurs références de flux utilisateur et de point de terminaison de jeton. Cela peut inclure la mise à jour de votre utilisation d’une bibliothèque d’authentification, par exemple la bibliothèque d’authentification Microsoft (MSAL).
-* Mettez à jour les **origines autorisées** que vous avez définies dans les paramètres CORS de [personnalisation de l’interface utilisateur](custom-policy-ui-customization.md).
+* Mettez à jour les **origines autorisées** que vous avez définies dans les paramètres CORS de [personnalisation de l’interface utilisateur](customize-ui-with-html.md).
 
 Un ancien point de terminaison peut ressembler à ceci :
 - <b><code>https://login.microsoft.com/</b>\<tenant-name\>.onmicrosoft.com/\<policy-name\>/oauth2/v2.0/authorize</code>

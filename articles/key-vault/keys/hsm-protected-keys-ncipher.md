@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: tutorial
 ms.date: 05/29/2020
 ms.author: ambapat
-ms.openlocfilehash: f5d58f89aa87a39d12b2d6f6a3a91254a653a088
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 8a1f3b5e80152fb0fb9458aef0d3524dd2d6f5eb
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92784658"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97092327"
 ---
 # <a name="import-hsm-protected-keys-for-key-vault-ncipher"></a>Importer des clés protégées par HSM pour Key Vault (nCipher)
 
@@ -61,8 +61,8 @@ Consultez le tableau qui suit pour connaître les conditions requises pour appor
 | --- | --- |
 | Abonnement à Azure |Pour créer un coffre de clés Azure, vous avez besoin d’un abonnement Azure : [Inscrivez-vous pour un essai gratuit](https://azure.microsoft.com/pricing/free-trial/) |
 | Niveau de service Premium d’Azure Key Vault pour prendre en charge les clés protégées par HSM |Pour plus d’informations sur les niveaux de service et les capacités du coffre de clés Azure, consultez le site web [Tarifs Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/). |
-| Modules HSM nShield, cartes à puces et logiciel de support de nCipher |Vous devez disposer d’un accès au module de sécurité matérielle nCipher et de quelques connaissances de bases concernant les modules de sécurité matérielle nShield de nCipher. Consultez [Modules de sécurité matérielle nShield de nCipher](https://www.ncipher.com/products/key-management/cloud-microsoft-azure/how-to-buy) pour obtenir une liste des modèles compatibles ou pour acheter un module de sécurité matérielle si vous n’en avez pas déjà. |
-| Les matériels et le logiciel suivants :<ol><li>Une station de travail x64 hors connexion avec le système d’exploitation Windows 7 ou version ultérieure, et le logiciel nCipher nShield version 11.50 ou ultérieure.<br/><br/>Si cette station de travail exécute Windows 7, vous devez [installer Microsoft .NET Framework 4.5](https://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>Une station de travail connectée à Internet et dotée du système d’exploitation minimal Windows 7 et d’ [Azure PowerShell](/powershell/azure/?view=azps-1.2.0)**version 1.1.0 ou ultérieure** .</li><li>Un lecteur USB ou tout autre appareil de stockage portable offrant au moins 16 Mo d’espace libre.</li></ol> |Pour des raisons sécurité, nous conseillons de faire en sorte que la première station de travail ne soit pas connectée à un réseau. Toutefois, cette recommandation n’est pas appliquée par programmation.<br/><br/>Dans les instructions qui suivent, cette station de travail est désignée en tant que station de travail déconnectée.</p></blockquote><br/>De plus, si votre clé de locataire est destinée à un réseau de production, nous vous recommandons d’utiliser un poste de travail distinct pour télécharger l’ensemble d’outils et charger la clé de locataire. À des fins de test, vous pouvez utiliser la même station de travail que la précédente.<br/><br/>Dans les instructions qui suivent, cette deuxième station de travail est désignée en tant que station de travail connectée à Internet.</p></blockquote><br/> |
+| Modules HSM nShield, cartes à puces et logiciel de support de nCipher |Vous devez disposer d’un accès au module de sécurité matérielle nCipher et de quelques connaissances de bases concernant les modules de sécurité matérielle nShield de nCipher. Consultez [Modules de sécurité matérielle nShield de nCipher](https://go.ncipher.com/rs/104-QOX-775/images/nCipher_nShield_Family_Brochure.pdf?_ga=2.106120835.1607422418.1590478092-577009923.1587131206) pour obtenir une liste des modèles compatibles ou pour acheter un module de sécurité matérielle si vous n’en avez pas déjà. |
+| Les matériels et le logiciel suivants :<ol><li>Une station de travail x64 hors connexion avec le système d’exploitation Windows 7 ou version ultérieure, et le logiciel nCipher nShield version 11.50 ou ultérieure.<br/><br/>Si cette station de travail exécute Windows 7, vous devez [installer Microsoft .NET Framework 4.5](https://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>Une station de travail connectée à Internet et dotée du système d’exploitation minimal Windows 7 et d’[Azure PowerShell](/powershell/azure/?view=azps-1.2.0)**version 1.1.0 ou ultérieure**.</li><li>Un lecteur USB ou tout autre appareil de stockage portable offrant au moins 16 Mo d’espace libre.</li></ol> |Pour des raisons sécurité, nous conseillons de faire en sorte que la première station de travail ne soit pas connectée à un réseau. Toutefois, cette recommandation n’est pas appliquée par programmation.<br/><br/>Dans les instructions qui suivent, cette station de travail est désignée en tant que station de travail déconnectée.</p></blockquote><br/>De plus, si votre clé de locataire est destinée à un réseau de production, nous vous recommandons d’utiliser un poste de travail distinct pour télécharger l’ensemble d’outils et charger la clé de locataire. À des fins de test, vous pouvez utiliser la même station de travail que la précédente.<br/><br/>Dans les instructions qui suivent, cette deuxième station de travail est désignée en tant que station de travail connectée à Internet.</p></blockquote><br/> |
 
 ## <a name="generate-and-transfer-your-key-to-azure-key-vault-hsm"></a>Générez et transférez votre clé sur le module de sécurité matériel du coffre de clés Azure
 
@@ -241,9 +241,9 @@ L’ensemble d’outils inclut :
 
 * Un package Key Exchange Key (KEK) dont le nom commence par **BYOK-KEK-pkg-**
 * Un package Security World dont le nom commence par **BYOK-SecurityWorld-pkg-**
-* Un script python nommé **verifykeypackage.py** .
+* Un script python nommé **verifykeypackage.py**.
 * Un fichier exécutable de ligne de commande nommé **KeyTransferRemote.exe** et les DLL associées.
-* Un package redistribuable Visual C++ nommé **vcredist_x64.exe** .
+* Un package redistribuable Visual C++ nommé **vcredist_x64.exe**.
 
 Copiez le package sur un lecteur USB ou autre support de stockage portable.
 
@@ -255,7 +255,7 @@ Pour cette deuxième étape, procédez comme suit sur la station de travail non 
 
 Installer le logiciel de support nCipher sur un ordinateur Windows, puis rattachez un module de sécurité matériel nShield de nCipher à cet ordinateur.
 
-Assurez-vous que les outils nCipher se trouvent dans votre chemin d’accès ( **%nfast_home%\bin** ). Tapez ensuite la commande suivante :
+Assurez-vous que les outils nCipher se trouvent dans votre chemin d’accès ( **%nfast_home%\bin**). Tapez ensuite la commande suivante :
 
   ```cmd
   set PATH=%PATH%;"%nfast_home%\bin"
@@ -416,7 +416,7 @@ Pour valider le package téléchargé :
      >
 2. Vérifiez que vous voyez bien ce qui suit, ce qui indique que la validation est réussie : **Résultat : RÉUSSITE**
 
-Ce script valide la chaîne de signataire jusqu’à la clé racine nShield. Le hachage de cette clé racine est incorporé dans le script et sa valeur doit être **59178a47 de508c3f 291277ee 184f46c4 f1d9c639** . Vous pouvez aussi confirmer cette valeur séparément en vous rendant sur le [site web de nCipher](https://www.ncipher.com/products/key-management/cloud-microsoft-azure/validation).
+Ce script valide la chaîne de signataire jusqu’à la clé racine nShield. Le hachage de cette clé racine est incorporé dans le script et sa valeur doit être **59178a47 de508c3f 291277ee 184f46c4 f1d9c639**. Vous pouvez aussi confirmer cette valeur séparément en vous rendant sur le [site web de nCipher](https://www.ncipher.com).
 
 Vous êtes maintenant prêt à créer une clé.
 
@@ -432,11 +432,11 @@ generatekey --generate simple type=RSA size=2048 protect=module ident=contosokey
 
 Lorsque vous exécutez cette commande, utilisez ces instructions :
 
-* Le paramètre *protect* doit être défini sur la valeur **module** , comme indiqué. Ce paramétrage crée une clé protégée par module. Le package d’outils BYOK ne prend pas en charge les clés protégées par OCS.
-* Remplacez la valeur *contosokey* d’ **ident** et de **plainname** par n’importe quelle valeur de chaîne. Pour réduire la charge administrative et réduire le risque d’erreurs, nous vous recommandons d’utiliser la même valeur pour les deux. La valeur **ident** doit contenir uniquement des chiffres, des tirets et des lettres minuscules.
-* Le pubexp est laissé vide (par défaut) dans cet exemple, mais vous pouvez définir des valeurs spécifiques. Pour plus d’informations, consultez la [documentation nCipher](https://www.ncipher.com/resources/solution-briefs/protect-sensitive-data-rest-and-use-across-premises-and-azure-based).
+* Le paramètre *protect* doit être défini sur la valeur **module**, comme indiqué. Ce paramétrage crée une clé protégée par module. Le package d’outils BYOK ne prend pas en charge les clés protégées par OCS.
+* Remplacez la valeur *contosokey* d’**ident** et de **plainname** par n’importe quelle valeur de chaîne. Pour réduire la charge administrative et réduire le risque d’erreurs, nous vous recommandons d’utiliser la même valeur pour les deux. La valeur **ident** doit contenir uniquement des chiffres, des tirets et des lettres minuscules.
+* Le pubexp est laissé vide (par défaut) dans cet exemple, mais vous pouvez définir des valeurs spécifiques. Pour plus d’informations, consultez la [documentation nCipher](https://www.entrust.com/-/media/documentation/brochures/entrust-nshield-general-purpose-hsms-br-a4.pdf).
 
-Cette commande crée un fichier de clé tokenisée dans le dossier %NFAST_KMDATA%\local avec un nom commençant par **key_simple_** suivi de l’ **ident** spécifié dans la commande. Par exemple : **key_simple_contosokey** . Ce fichier contient une clé chiffrée.
+Cette commande crée un fichier de clé tokenisée dans le dossier %NFAST_KMDATA%\local avec un nom commençant par **key_simple_** suivi de l’**ident** spécifié dans la commande. Par exemple : **key_simple_contosokey**. Ce fichier contient une clé chiffrée.
 
 Sauvegardez ce fichier de clé à jeton dans un emplacement sûr.
 
@@ -546,11 +546,11 @@ Ouvrez une nouvelle invite de commandes et remplacez le répertoire actuel par l
    KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-SUI-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-SUI-1
    ```
 
-Quand vous exécutez cette commande, remplacez *contosokey* par la valeur spécifiée à l’ **Étape 3.5 : Créer une clé** de l’étape [Générer votre clé](#step-3-generate-your-key).
+Quand vous exécutez cette commande, remplacez *contosokey* par la valeur spécifiée à l’**Étape 3.5 : Créer une clé** de l’étape [Générer votre clé](#step-3-generate-your-key).
 
 Vous êtes invité à connecter vos cartes d’administrateur du monde de sécurité.
 
-Une fois la commande exécutée, vous voyez **Résultat : RÉUSSITE** . La copie de votre clé et des autorisations réduites figurent dans le fichier nommé key_xferacId_\<contosokey>.
+Une fois la commande exécutée, vous voyez **Résultat : RÉUSSITE**. La copie de votre clé et des autorisations réduites figurent dans le fichier nommé key_xferacId_\<contosokey>.
 
 Vous pouvez inspecter les listes de contrôle d’accès en utilisant les commandes suivantes dans les services nCipher nShield :
 
@@ -564,7 +564,7 @@ Vous pouvez inspecter les listes de contrôle d’accès en utilisant les comman
    ```cmd
    "%nfast_home%\bin\kmfile-dump.exe" "%NFAST_KMDATA%\local\key_xferacld_contosokey"
    ```
-  Quand vous exécutez ces commandes, remplacez contosokey par la valeur spécifiée à l’ **Étape 3.5 : Créer une clé** de l’étape [Générer votre clé](#step-3-generate-your-key).
+  Quand vous exécutez ces commandes, remplacez contosokey par la valeur spécifiée à l’**Étape 3.5 : Créer une clé** de l’étape [Générer votre clé](#step-3-generate-your-key).
 
 ### <a name="step-42-encrypt-your-key-by-using-microsofts-key-exchange-key"></a>Étape 4.2 : Chiffrer votre clé à l’aide d’une clé KEK (Key Exchange Key) de Microsoft
 
@@ -664,11 +664,11 @@ Exécutez l’un des commandes suivantes, en fonction de votre région géograph
 
 Lorsque vous exécutez cette commande, utilisez ces instructions :
 
-* Remplacez *contosokey* par l’identificateur utilisé pour générer la clé à l’ **Étape 3.5 : Créer une clé** de l’étape [Générer votre clé](#step-3-generate-your-key).
-* Remplacezv *SubscriptionID* par l’ID d’abonnement Azure qui contient votre coffre de clés. Vous avez récupéré cette valeur précédemment, à l’ **Étape 1.2 : Obtenir votre ID d’abonnement Azure** de l’étape [Préparer votre station de travail connectée à Internet](#step-1-prepare-your-internet-connected-workstation).
+* Remplacez *contosokey* par l’identificateur utilisé pour générer la clé à l’**Étape 3.5 : Créer une clé** de l’étape [Générer votre clé](#step-3-generate-your-key).
+* Remplacezv *SubscriptionID* par l’ID d’abonnement Azure qui contient votre coffre de clés. Vous avez récupéré cette valeur précédemment, à l’**Étape 1.2 : Obtenir votre ID d’abonnement Azure** de l’étape [Préparer votre station de travail connectée à Internet](#step-1-prepare-your-internet-connected-workstation).
 * Remplacez *ContosoFirstHSMKey* par une étiquette à utiliser pour votre nom de fichier de sortie.
 
-Une fois cette opération accomplie, le message **Résultat : RÉUSSITE** . s’affiche et un nouveau fichier est ajouté au dossier actuel, dont le nom est : KeyTransferPackage- *ContosoFirstHSMkey* .byok
+Une fois cette opération accomplie, le message **Résultat : RÉUSSITE**. s’affiche et un nouveau fichier est ajouté au dossier actuel, dont le nom est : KeyTransferPackage-*ContosoFirstHSMkey*.byok
 
 ### <a name="step-43-copy-your-key-transfer-package-to-the-internet-connected-workstation"></a>Étape 4.3 : Copier votre package de transfert de clé sur la station de travail connectée à Internet
 

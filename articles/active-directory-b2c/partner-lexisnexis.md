@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 07/22/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 9bec7ffe28fbcdafd365f9867ebecaee5d2647e5
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 5f408699cae9580188a3780fc8f8654eaa97c26b
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94953681"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108431"
 ---
 # <a name="tutorial-for-configuring-lexisnexis-with-azure-active-directory-b2c"></a>Tutoriel pour configurer LexisNexis avec Azure Active Directory B2C
 
@@ -73,7 +73,7 @@ Une fois le compte créé, vous recevrez les informations dont vous avez besoin 
 
 ### <a name="part-1---deploy-the-api"></a>Partie 1 : Déploiement de l’API
 
-Déployez le [code d’API](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/Api) fourni sur un service Azure. Le code peut être publié à partir de Visual Studio, en suivant ces [instructions](/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+Déployez le [code d’API](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/Api) fourni sur un service Azure. Le code peut être publié à partir de Visual Studio, en suivant ces [instructions](/visualstudio/deployment/quickstart-deploy-to-azure).
 
 >[!NOTE]
 >Vous aurez besoin de l’URL du service déployé pour configurer Azure AD avec les paramètres requis.
@@ -95,7 +95,7 @@ Les paramètres d’application peuvent être [configurés dans le service d’a
 
 Cette solution utilise des modèles d’IU personnalisés chargés par Azure AD B2C. Ces modèles d’IU effectuent le profilage qui est envoyé directement au service ThreatMetrix.
 
-Reportez-vous à ces [instructions](./custom-policy-ui-customization.md#custom-page-content-walkthrough) pour déployer les [fichiers d’interface utilisateur](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/ui-template) inclus dans un compte de stockage Blob. Les instructions traitent notamment de la configuration d’un compte de stockage Blob, de la configuration de CORS et de l’activation de l’accès public.
+Reportez-vous à ces [instructions](./customize-ui-with-html.md#custom-page-content-walkthrough) pour déployer les [fichiers d’interface utilisateur](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/ui-template) inclus dans un compte de stockage Blob. Les instructions traitent notamment de la configuration d’un compte de stockage Blob, de la configuration de CORS et de l’activation de l’accès public.
 
 L’interface utilisateur est basée sur le [modèle Ocean Blue (Bleu océan)](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/ui-template/ocean_blue). Tous les liens de l’interface utilisateur doivent être mis à jour pour faire référence à l’emplacement de déploiement. Dans le dossier de l’interface utilisateur, recherchez l’URL https://yourblobstorage/blobcontainer et remplacez-la par l’emplacement de déploiement.
 

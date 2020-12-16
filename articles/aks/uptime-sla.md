@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 06/24/2020
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: dd1836220b5fd5a0af2d4ece3d9bc3932f1ae554
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 51430a37f34600d3191a646df7c1890b6d94f481
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748868"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033015"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>Contrat SLA de durée de fonctionnement Azure Kubernetes Service (AKS)
 
@@ -27,11 +27,7 @@ Les clients peuvent toujours créer un nombre illimité de clusters gratuits ave
 
 Le contrat SLA de durée de fonctionnement est disponible dans les régions publiques et dans les régions Azure Government où [AKS est pris en charge](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
 
-* Azure China 21Vianet n’est pas pris en charge.
-
 ## <a name="limitations"></a>Limites
-
-* Les clusters privés ne sont actuellement pas pris en charge.
 
 ## <a name="sla-terms-and-conditions"></a>Conditions générales des contrats SLA
 
@@ -39,7 +35,7 @@ Le contrat SLA de durée de fonctionnement est une fonctionnalité payante et ac
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-* Installez [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) version 2.8.0 ou ultérieure
+* Installez [Azure CLI](/cli/azure/install-azure-cli) version 2.8.0 ou ultérieure
 
 ## <a name="creating-a-new-cluster-with-uptime-sla"></a>Création d’un cluster avec un contrat SLA de durée de fonctionnement
 
@@ -54,7 +50,7 @@ L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l�
 # Create a resource group
 az group create --name myResourceGroup --location eastus
 ```
-Utilisez la commande [`az aks create`][az-aks-create] pour créer un cluster AKS. L’exemple suivant crée un cluster à un nœud nommé *myAKSCluster* . Cette opération prend plusieurs minutes :
+Utilisez la commande [`az aks create`][az-aks-create] pour créer un cluster AKS. L’exemple suivant crée un cluster à un nœud nommé *myAKSCluster*. Cette opération prend plusieurs minutes :
 
 ```azurecli-interactive
 # Create an AKS cluster with uptime SLA
@@ -136,9 +132,9 @@ Configurez votre cluster pour [limiter le trafic de sortie](limit-egress-traffic
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [faq]: ./faq.md
 [availability-zones]: ./availability-zones.md
-[az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
+[az-aks-create]: /cli/azure/aks?#az-aks-create
 [limit-egress-traffic]: ./limit-egress-traffic.md
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
-[az-aks-nodepool-update]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-update
+[az-aks-nodepool-update]: /cli/azure/aks/nodepool?#az-aks-nodepool-update
 [az-group-delete]: /cli/azure/group#az-group-delete

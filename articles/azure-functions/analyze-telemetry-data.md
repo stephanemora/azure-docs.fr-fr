@@ -3,13 +3,13 @@ title: Analyser la télémétrie d’Azure Functions dans Application Insights
 description: Découvrez comment afficher et interroger les données de télémétrie Azure Functions collectées par la fonctionnalité Azure Application Insights et stockées dans celle-ci.
 ms.topic: how-to
 ms.date: 10/14/2020
-ms.custom: contperfq2
-ms.openlocfilehash: 9091d59cbc3a4cf841e28505531c89c83e705c46
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: 1d8d9cc9a7a4111e98b1d9141957769d6f157d45
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217301"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97027728"
 ---
 # <a name="analyze-azure-functions-telemetry-in-application-insights"></a>Analyser la télémétrie d’Azure Functions dans Application Insights 
 
@@ -21,7 +21,7 @@ Pour en savoir plus sur la conservation des données et les coûts de stockage p
 
 ## <a name="viewing-telemetry-in-monitor-tab"></a>Affichage de la télémétrie dans l’onglet Surveiller
 
-Une fois l' [intégration d’Application Insights activée](configure-monitoring.md#enable-application-insights-integration), vous pouvez afficher des données de télémétrie dans l'onglet **Surveiller** .
+Une fois l'[intégration d’Application Insights activée](configure-monitoring.md#enable-application-insights-integration), vous pouvez afficher des données de télémétrie dans l'onglet **Surveiller**.
 
 1. Dans la page d’application de fonction, sélectionnez une fonction exécutée au moins une fois après la configuration d’Application Insights. Ensuite, sélectionnez **Surveiller** dans le volet gauche. Sélectionnez **Actualiser** régulièrement jusqu’à ce que la liste d’appels de fonction s’affiche.
 
@@ -50,7 +50,7 @@ Pour ouvrir Application Insights à partir d’une application de fonction dans 
 
 1. Sélectionnez **Application Insights** sous **Paramètres** dans la page de gauche. 
 
-1. Si c’est la première fois que vous utilisez Application Insights avec votre abonnement, vous êtes invité à l’activer. Pour ce faire, sélectionnez **Activer Application Insights** , puis **Appliquer** sur la page suivante.
+1. Si c’est la première fois que vous utilisez Application Insights avec votre abonnement, vous êtes invité à l’activer. Pour ce faire, sélectionnez **Activer Application Insights**, puis **Appliquer** sur la page suivante.
 
 ![Ouvrir Application Insights à partir de la page Vue d'ensemble de l'application de fonction](media/functions-monitoring/ai-link.png)
 
@@ -63,7 +63,7 @@ Les domaines d’Application Insights suivants peuvent s'avérer utiles lors de 
 | Examiner | Description |
 | ---- | ----------- |
 | **[Échecs](../azure-monitor/app/asp-net-exceptions.md)** |  Créez des graphiques et des alertes basés sur les échecs de fonction et les exceptions de serveur. Le **Nom de l’opération** est le nom de la fonction. Les échecs de dépendances ne sont pas affichés, sauf si vous implémentez des données de télémétrie personnalisées pour les dépendances. |
-| **[Niveau de performance](../azure-monitor/app/performance-counters.md)** | Analysez les problèmes de performances en consultant l’utilisation des ressources et le débit par **instances de rôle cloud** . Ces données de performances peuvent être utiles pour déboguer les scénarios où les fonctions ralentissent vos ressources sous-jacentes. |
+| **[Niveau de performance](../azure-monitor/app/performance-counters.md)** | Analysez les problèmes de performances en consultant l’utilisation des ressources et le débit par **instances de rôle cloud**. Ces données de performances peuvent être utiles pour déboguer les scénarios où les fonctions ralentissent vos ressources sous-jacentes. |
 | **[Métriques](../azure-monitor/platform/metrics-charts.md)** | Créez des graphiques et des alertes basés sur des métriques. Les métriques incluent le nombre d’appels de fonction, le délai d’exécution ainsi que les taux de réussite. |
 | **[Métriques temps réel](../azure-monitor/app/live-stream.md)** | Visualisez les données des métriques au fil de leur création en quasi-temps réel. |
 
@@ -108,7 +108,7 @@ Le runtime fournit les champs `customDimensions.LogLevel` et `customDimensions.C
 
 ## <a name="consumption-plan-specific-metrics"></a>Mesures spécifiques au plan Consommation
 
-Dans le cadre d’un [plan Consommation](functions-scale.md#consumption-plan), le *coût* d’exécution d’une fonction unique se mesure en *Go-secondes* . Le coût d’exécution est calculé en combinant l’utilisation de sa mémoire et sa durée d’exécution. Pour en savoir plus, consultez [Estimation des coûts d’un plan Consommation](functions-consumption-costs.md).
+Dans le cadre d’un [plan Consommation](functions-scale.md#consumption-plan), le *coût* d’exécution d’une fonction unique se mesure en *Go-secondes*. Le coût d’exécution est calculé en combinant l’utilisation de sa mémoire et sa durée d’exécution. Pour en savoir plus, consultez [Estimation des coûts d’un plan Consommation](functions-consumption-costs.md).
 
 Les requêtes de télémétrie suivantes sont spécifiques aux métriques qui ont un impact sur le coût d’exécution des fonctions dans le plan Consommation.
 

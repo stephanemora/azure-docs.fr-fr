@@ -5,16 +5,16 @@ services: container-service
 ms.topic: article
 ms.date: 06/02/2020
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 82745d4f86a440c671e73ac3c74702a4a0c56b2d
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 6cb083e823583105f04aaa59a99357b2b2b2426b
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348200"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97034052"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Utiliser la mise en réseau kubenet avec vos propres plages d’adresses IP dans Azure Kubernetes Service (AKS)
 
-Par défaut, les clusters AKS utilisent [kubenet][kubenet]. Par ailleurs, un réseau et un sous-réseau virtuels Azure sont automatiquement créés. Avec *kubenet* , les nœuds obtiennent une adresse IP du sous-réseau du réseau virtuel Azure. Les pods reçoivent une adresse IP du sous-réseau de réseau virtuel Azure des nœuds à partir d’un espace d’adressage logiquement différent. La traduction d’adresses réseau (NAT) est ensuite configurée afin que les pods puissent accéder aux ressources sur le réseau virtuel Azure. L’adresse IP source du trafic fait l’objet d’une opération NAT sur l’adresse IP principale du nœud. Cette approche réduit considérablement le nombre d’adresses IP que vous devez réserver dans votre espace réseau pour que les pods les utilisent.
+Par défaut, les clusters AKS utilisent [kubenet][kubenet]. Par ailleurs, un réseau et un sous-réseau virtuels Azure sont automatiquement créés. Avec *kubenet*, les nœuds obtiennent une adresse IP du sous-réseau du réseau virtuel Azure. Les pods reçoivent une adresse IP du sous-réseau de réseau virtuel Azure des nœuds à partir d’un espace d’adressage logiquement différent. La traduction d’adresses réseau (NAT) est ensuite configurée afin que les pods puissent accéder aux ressources sur le réseau virtuel Azure. L’adresse IP source du trafic fait l’objet d’une opération NAT sur l’adresse IP principale du nœud. Cette approche réduit considérablement le nombre d’adresses IP que vous devez réserver dans votre espace réseau pour que les pods les utilisent.
 
 Avec l’interface [Azure Container Networking Interface (CNI)][cni-networking], chaque pod reçoit une adresse IP du sous-réseau et est accessible directement. Ces adresses IP doivent être uniques dans votre espace réseau et doivent être planifiées à l’avance. Chaque nœud possède un paramètre de configuration pour le nombre maximal de pods qu’il prend en charge. Le nombre équivalent d’adresses IP par nœud est alors réservé à l’avance pour ce nœud. Cette approche nécessite davantage de planification. De plus, elle conduit souvent à l’épuisement des adresses IP ou à la nécessité de regénérer les clusters dans un sous-réseau plus vaste à mesure que vos demandes d’applications augmentent. Vous pouvez configurer le nombre maximal de modules pouvant être déployés sur un nœud au moment de la création du cluster ou lors de la création de pools de nœuds. Si vous ne spécifiez pas maxPods lors de la création de pools de nœuds, vous recevez la valeur par défaut de 110 pour kubenet.
 
@@ -38,15 +38,15 @@ Azure CLI version 2.0.65 ou ultérieure doit être installé et configuré. Ex�
 
 ## <a name="overview-of-kubenet-networking-with-your-own-subnet"></a>Vue d’ensemble de la mise en réseau kubenet avec votre propre sous-réseau
 
-Dans de nombreux environnements, vous avez défini des réseaux et des sous-réseaux virtuels avec des plages d’adresses IP allouées. Ces ressources de réseau virtuel sont utilisées pour prendre en charge plusieurs services et applications. Pour fournir une connectivité réseau, les clusters AKS peuvent utiliser *kubenet* (mise en réseau de base) ou Azure CNI ( *mise en réseau avancée* ).
+Dans de nombreux environnements, vous avez défini des réseaux et des sous-réseaux virtuels avec des plages d’adresses IP allouées. Ces ressources de réseau virtuel sont utilisées pour prendre en charge plusieurs services et applications. Pour fournir une connectivité réseau, les clusters AKS peuvent utiliser *kubenet* (mise en réseau de base) ou Azure CNI (*mise en réseau avancée*).
 
-Avec *kubenet* , seuls les nœuds reçoivent une adresse IP dans le sous-réseau de réseau virtuel. Les pods ne peuvent pas communiquer directement entre eux. Au lieu de cela, les routes définies par l’utilisateur (UDR) et le transfert IP sont utilisés pour la connectivité entre les pods sur les nœuds. Par défaut, la configuration des itinéraires définis par l’utilisateur et des transferts IP est créée et gérée par le service AKS, mais vous avez la possibilité d’[utiliser votre propre table de routage pour la gestion des itinéraires personnalisés][byo-subnet-route-table]. Vous pouvez également déployer des pods derrière un service qui reçoit une adresse IP attribuée et équilibre la charge du trafic pour l’application. Le diagramme suivant illustre la façon dont les nœuds AKS reçoivent une adresse IP dans le sous-réseau de réseau virtuel, mais pas les pods :
+Avec *kubenet*, seuls les nœuds reçoivent une adresse IP dans le sous-réseau de réseau virtuel. Les pods ne peuvent pas communiquer directement entre eux. Au lieu de cela, les routes définies par l’utilisateur (UDR) et le transfert IP sont utilisés pour la connectivité entre les pods sur les nœuds. Par défaut, la configuration des itinéraires définis par l’utilisateur et des transferts IP est créée et gérée par le service AKS, mais vous avez la possibilité d’[utiliser votre propre table de routage pour la gestion des itinéraires personnalisés][byo-subnet-route-table]. Vous pouvez également déployer des pods derrière un service qui reçoit une adresse IP attribuée et équilibre la charge du trafic pour l’application. Le diagramme suivant illustre la façon dont les nœuds AKS reçoivent une adresse IP dans le sous-réseau de réseau virtuel, mais pas les pods :
 
 ![Modèle de réseau kubenet avec un cluster AKS](media/use-kubenet/kubenet-overview.png)
 
 Azure prend en charge un maximum de 400 routes dans une route UDR. Vous ne pouvez donc pas avoir un cluster AKS comportant plus de 400 nœuds. Les [nœuds virtuels][virtual-nodes] AKS et les stratégies réseau Azure ne sont pas pris en charge avec *kubenet*.  Vous pouvez utiliser des [stratégies réseau Calico][calico-network-policies], car elles sont prises en charge avec kubenet.
 
-Avec *Azure CNI* , chaque pod reçoit une adresse IP dans le sous-réseau IP et peut communiquer directement avec d’autres pods et services. La taille de vos clusters peut être identique à la plage d’adresses IP que vous spécifiez. Toutefois, la plage d’adresses IP doit être planifiée à l’avance, et toutes les adresses IP sont consommées par les nœuds AKS en fonction du nombre maximal de pods qu’ils peuvent prendre en charge. Les scénarios et fonctionnalités réseau avancé comme les [nœuds virtuels][virtual-nodes] ou les stratégies réseau (Azure ou Calico) sont pris en charge avec *Azure CNI*.
+Avec *Azure CNI*, chaque pod reçoit une adresse IP dans le sous-réseau IP et peut communiquer directement avec d’autres pods et services. La taille de vos clusters peut être identique à la plage d’adresses IP que vous spécifiez. Toutefois, la plage d’adresses IP doit être planifiée à l’avance, et toutes les adresses IP sont consommées par les nœuds AKS en fonction du nombre maximal de pods qu’ils peuvent prendre en charge. Les scénarios et fonctionnalités réseau avancé comme les [nœuds virtuels][virtual-nodes] ou les stratégies réseau (Azure ou Calico) sont pris en charge avec *Azure CNI*.
 
 ### <a name="limitations--considerations-for-kubenet"></a>Limitations et considérations relatives à kubenet
 
@@ -61,25 +61,25 @@ Avec *Azure CNI* , chaque pod reçoit une adresse IP dans le sous-réseau IP e
 
 ### <a name="ip-address-availability-and-exhaustion"></a>Disponibilité et épuisement des adresses IP
 
-Avec *Azure CNI* , une plage d’adresses IP attribuée trop petite pour ensuite ajouter des nœuds supplémentaires quand vous mettez à l’échelle ou mettez à niveau un cluster constitue un problème courant. L’équipe réseau peut également ne pas être en mesure d’émettre une plage d’adresses IP suffisamment grande pour prendre en charge vos demandes d’applications attendues.
+Avec *Azure CNI*, une plage d’adresses IP attribuée trop petite pour ensuite ajouter des nœuds supplémentaires quand vous mettez à l’échelle ou mettez à niveau un cluster constitue un problème courant. L’équipe réseau peut également ne pas être en mesure d’émettre une plage d’adresses IP suffisamment grande pour prendre en charge vos demandes d’applications attendues.
 
 À titre de compromis, vous pouvez créer un cluster AKS qui utilise *kubenet* et vous connecter à un sous-réseau de réseau virtuel existant. Cette approche permet aux nœuds de recevoir des adresses IP définies sans avoir besoin de réserver un grand nombre d’adresses IP à l’avance pour tous les pods potentiels qui pourraient s’exécuter dans le cluster.
 
-Avec *kubenet* , vous pouvez utiliser une plage d’adresses IP beaucoup plus petite et prendre en charge de grands clusters et les demandes d’applications. Par exemple, même avec une plage d’adresses IP  */27* sur votre sous-réseau, vous pouvez exécuter un cluster de 20 à 25 nœuds avec suffisamment de place pour effectuer une mise à l’échelle ou une mise à niveau. Cette taille de cluster prend en charge jusqu’à *2 200 à 2 750*  pods (avec un maximum par défaut de 110 pods par nœud). Le nombre maximal de pods par nœud que vous pouvez configurer avec *kubenet* dans AKS est 110.
+Avec *kubenet*, vous pouvez utiliser une plage d’adresses IP beaucoup plus petite et prendre en charge de grands clusters et les demandes d’applications. Par exemple, même avec une plage d’adresses IP  */27* sur votre sous-réseau, vous pouvez exécuter un cluster de 20 à 25 nœuds avec suffisamment de place pour effectuer une mise à l’échelle ou une mise à niveau. Cette taille de cluster prend en charge jusqu’à *2 200 à 2 750* pods (avec un maximum par défaut de 110 pods par nœud). Le nombre maximal de pods par nœud que vous pouvez configurer avec *kubenet* dans AKS est 110.
 
 Les calculs de base suivants comparent la différence entre les modèles de réseaux :
 
-- **kubenet**  : une simple plage d’adresses IP  */24* peut prendre en charge jusqu’à *251*  nœuds dans le cluster (chaque sous-réseau de réseau virtuel Azure réserve les trois premières adresses IP pour les opérations de gestion)
-  - Ce nombre de nœuds peut prendre en charge jusqu’à *27 610*  pods (avec un maximum par défaut de 110 pods par nœud avec *kubenet* )
-- **Azure CNI**  : cette même plage de sous-réseau  */24* de base peut seulement prendre en charge un maximum de *8*  nœuds dans le cluster
-  - Ce nombre de nœuds peut seulement prendre en charge jusqu’à *240*  pods (avec un maximum par défaut de 30 pods par nœud avec *Azure CNI* )
+- **kubenet** : une simple plage d’adresses IP  */24* peut prendre en charge jusqu’à *251* nœuds dans le cluster (chaque sous-réseau de réseau virtuel Azure réserve les trois premières adresses IP pour les opérations de gestion)
+  - Ce nombre de nœuds peut prendre en charge jusqu’à *27 610* pods (avec un maximum par défaut de 110 pods par nœud avec *kubenet*)
+- **Azure CNI** : cette même plage de sous-réseau  */24* de base peut seulement prendre en charge un maximum de *8* nœuds dans le cluster
+  - Ce nombre de nœuds peut seulement prendre en charge jusqu’à *240* pods (avec un maximum par défaut de 30 pods par nœud avec *Azure CNI*)
 
 > [!NOTE]
 > Ces valeurs maximales ne prennent pas en compte les opérations de mise à niveau ou de mise à l’échelle. Dans la pratique, vous ne pouvez pas exécuter le nombre maximal de nœuds que la plage d’adresses IP de sous-réseau prend en charge. Vous devez laisser certaines adresses IP disponibles pour qu’elles puissent être utilisées pendant les opérations de mise à l’échelle ou de mise à niveau.
 
 ### <a name="virtual-network-peering-and-expressroute-connections"></a>Peering de réseau virtuel et connexions ExpressRoute
 
-Pour fournir une connectivité locale, les approches des réseaux *kubenet* et *Azure CNI* peuvent toutes les deux utiliser le [Peering de réseaux virtuels Azure][vnet-peering] ou les [connexions ExpressRoute][express-route]. Planifiez vos plages d’adresses IP avec soin pour éviter le chevauchement et un routage incorrect du trafic. Par exemple, de nombreux réseaux locaux utilisent une plage d’adresses  *10.0.0.0/8* qui est publiée sur la connexion ExpressRoute. Il est recommandé de créer vos clusters AKS dans des sous-réseaux de réseau virtuel Azure en dehors de cette plage d’adresses, comme *172.16.0.0/16*.
+Pour fournir une connectivité locale, les approches des réseaux *kubenet* et *Azure CNI* peuvent toutes les deux utiliser le [Peering de réseaux virtuels Azure][vnet-peering] ou les [connexions ExpressRoute][express-route]. Planifiez vos plages d’adresses IP avec soin pour éviter le chevauchement et un routage incorrect du trafic. Par exemple, de nombreux réseaux locaux utilisent une plage d’adresses *10.0.0.0/8* qui est publiée sur la connexion ExpressRoute. Il est recommandé de créer vos clusters AKS dans des sous-réseaux de réseau virtuel Azure en dehors de cette plage d’adresses, comme *172.16.0.0/16*.
 
 ### <a name="choose-a-network-model-to-use"></a>Choisir un modèle de réseau à utiliser
 
@@ -168,7 +168,7 @@ Les plages d’adresses IP suivantes sont également définies dans le cadre du
 
 * *--pod-cidr* doit être un grand espace d’adressage qui n’est pas utilisé ailleurs dans votre environnement réseau. Cette plage inclut les plages de réseau local si vous connectez ou envisagez de connecter vos réseaux virtuels Azure à l’aide d’Express Route ou d’une connexion VPN de site à site.
     * Cette plage d’adresses doit être suffisamment grande pour contenir le nombre de nœuds que vous prévoyez d’obtenir par le biais d’un scale-up. Vous ne pouvez pas changer cette plage d’adresses une fois le cluster déployé si vous avez besoin de davantage d’adresses pour des nœuds supplémentaires.
-    * La plage d’adresses IP de pod est utilisée pour attribuer un espace d’adressage  */24* pour chaque nœud du cluster. Dans l’exemple suivant, l’adresse *--pod-cidr* *10.244.0.0/16* attribue le premier nœud *10.244.0.0/24* , le deuxième nœud *10.244.1.0/24* et le troisième nœud *10.244.2.0/24*.
+    * La plage d’adresses IP de pod est utilisée pour attribuer un espace d’adressage  */24* pour chaque nœud du cluster. Dans l’exemple suivant, l’adresse *--pod-cidr* *10.244.0.0/16* attribue le premier nœud *10.244.0.0/24*, le deuxième nœud *10.244.1.0/24* et le troisième nœud *10.244.2.0/24*.
     * À mesure que le cluster est mis à l’échelle ou à niveau, la plateforme Azure continue d’attribuer une plage d’adresses IP de pod à chaque nouveau nœud.
     
 * Le pont *--docker-bridge-address* permet aux nœuds AKS de communiquer avec la plateforme de gestion sous-jacente. Cette adresse IP ne doit pas être dans la plage d’adresses IP du réseau virtuel de votre cluster, ni chevaucher d’autres plages d’adresses actuellement utilisées sur votre réseau.
@@ -224,7 +224,6 @@ La mise en réseau Kubenet nécessite que les règles de la table de route soien
 Limites :
 
 * Les autorisations doivent être attribuées avant la création du cluster. Veillez à utiliser un principal de service doté d'autorisations d'écriture sur votre sous-réseau et votre table de route personnalisés.
-* Les identités managées ne sont actuellement pas prises en charge avec les tables de route personnalisées dans kubenet.
 * Une table de route personnalisée doit être associée au sous-réseau avant de créer le cluster AKS.
 * La ressource de table de route associée ne peut pas être mise à jour après la création du cluster. Même si la ressource de table de route ne peut pas être mise à jour, les règles personnalisées peuvent être modifiées dans la table de route.
 * Chaque cluster AKS doit utiliser une table de route unique pour tous les sous-réseaux associés au cluster. Vous ne pouvez pas réutiliser une table de route avec plusieurs clusters en raison du risque de chevauchement des CIDR de pods et de règles d’acheminement contradictoires.

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 27a00c69a4423e45b46b9c3d0340bb7cd1a35d65
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 88244ec3ba4bbebe7d6096fa3ac49bd4f1b8f661
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92095897"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108618"
 ---
 # <a name="localization-element"></a>Élément de localisation
 
@@ -114,7 +114,7 @@ L’élément **Item** contient les attributs suivants :
 | Valeur | Oui | Valeur de revendication chaîne associée à la sélection de cette option. |
 | SelectByDefault | Non | Indique si cette option doit être sélectionnée par défaut dans l’interface utilisateur. Valeurs possibles : True ou False. |
 
-L’exemple suivant illustre l’utilisation de l’élément **LocalizedCollections** . Il contient deux éléments **LocalizedCollection** , l’un pour l’anglais et un autre pour l’espagnol. Tous deux définissent la collection **Restriction** de la revendication `Gender` avec une liste d’éléments pour l’anglais et l’espagnol.
+L’exemple suivant illustre l’utilisation de l’élément **LocalizedCollections**. Il contient deux éléments **LocalizedCollection**, l’un pour l’anglais et un autre pour l’espagnol. Tous deux définissent la collection **Restriction** de la revendication `Gender` avec une liste d’éléments pour l’anglais et l’espagnol.
 
 ```xml
 <LocalizedResources Id="api.selfasserted.en">
@@ -354,5 +354,5 @@ Dans la section Métadonnées d’un profil technique auto-déclaré, dans la pr
 
 Pour voir des exemples de localisation, consultez les articles suivants :
 
-- [Personnalisation de la langue avec la stratégie personnalisée dans Azure Active Directory B2C](custom-policy-localization.md)
-- [Personnalisation de la langue avec les flux d’utilisateurs dans Azure Active Directory B2C](user-flow-language-customization.md)
+- [Personnalisation de la langue avec la stratégie personnalisée dans Azure Active Directory B2C](language-customization.md)
+- [Personnalisation de la langue avec les flux d’utilisateurs dans Azure Active Directory B2C](language-customization.md)

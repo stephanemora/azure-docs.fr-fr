@@ -11,13 +11,13 @@ ms.topic: how-to
 ms.date: 06/01/2020
 ms.author: phsignor
 ms.reviewer: arvindh, luleon, phsignor
-ms.custom: contperfq2
-ms.openlocfilehash: b72530868b2b12e5f95e79be6ad5a2d7ce170b62
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: c1f46e3aed1309e51bf1ea8607a9db8a71550ce5
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94654675"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033202"
 ---
 # <a name="configure-permission-classifications"></a>Configurer des classifications d’autorisations
 
@@ -119,7 +119,7 @@ Vous pouvez utiliser le dernier module Azure AD PowerShell en préversion, [Azur
 
 Pour en savoir plus :
 
-* [Configurer les paramètres de consentement de l'utilisateur](configure-user-consent.md)
+* [Configurer les paramètres de consentement de l’utilisateur](configure-user-consent.md)
 * [Configurer le workflow du consentement administrateur](configure-admin-consent-workflow.md)
 * [Découvrez comment gérer le consentement pour les applications et évaluer les demandes de consentement](manage-consent-requests.md)
 * [Accorder le consentement de l’administrateur au niveau locataire à une application](grant-admin-consent.md)

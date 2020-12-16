@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/12/2020
 ms.author: gasinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7555a0b9d7b3336b1020e8f1d9c3445e09afc6f0
-ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
+ms.openlocfilehash: 6c03009b08dcf33bf4b84bc91232af96e7ba2c71
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96317615"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095183"
 ---
 # <a name="tutorial-to-deploy-f5-big-ip-virtual-edition-vm-in-azure-iaas-for-secure-hybrid-access"></a>Tutoriel pour déployer une machine virtuelle F5 BIG-IP Virtual Edition dans Azure IaaS pour un accès hybride sécurisé
 
@@ -44,7 +44,7 @@ Aucune expérience ni connaissance préalable de F5 BIG-IP n’est requise. Tout
 
 - Un certificat SAN (autre nom de sujet) ou générique pour publier des applications web via SSL (Secure Socket Layer). [Let’s Encrypt](https://letsencrypt.org/) offre un certificat gratuit de 90 jours à des fins de test.
 
-- Un certificat SSL pour la sécurisation de l’interface de gestion BIG-IP. Un certificat servant à publier des applications web peut être utilisé si son sujet correspond au nom de domaine complet (FQDN) du système BIG-IP. Par exemple, un certificat générique défini avec un sujet *.contoso.com convient pour https://big-ip-vm.contoso.com:8443
+- Un certificat SSL pour la sécurisation de l’interface de gestion BIG-IP. Un certificat servant à publier des applications web peut être utilisé si son sujet correspond au nom de domaine complet (FQDN) du système BIG-IP. Par exemple, un certificat générique défini avec un sujet *.contoso.com convient pour `https://big-ip-vm.contoso.com:8443`
 
 Les configurations du système de base et du déploiement de machine virtuelle prennent environ 30 minutes. À ce stade, votre plateforme BIG-IP est prête pour l’implémentation des différents scénarios SHA listés [ici](f5-aad-integration.md).
 

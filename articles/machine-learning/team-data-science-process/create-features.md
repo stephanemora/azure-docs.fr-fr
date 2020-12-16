@@ -10,22 +10,22 @@ ms.subservice: team-data-science-process
 ms.topic: conceptual
 ms.date: 05/14/2020
 ms.author: tdsp
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperfq4
-ms.openlocfilehash: 44b5baa074b62a072873d8097de184a2813b54ec
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperf-fy20q4
+ms.openlocfilehash: 7cf97edcb2f2f7a23d5c899194d497deade1f507
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322025"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97031859"
 ---
 # <a name="feature-engineering-in-data-science"></a>Ingénierie des caractéristiques dans la science des données
 
 Dans cet article, vous allez découvrir l’ingénierie de caractéristiques et son rôle dans l’amélioration des données d’apprentissage automatique. Découvrez à partir des exemples explicatifs tirés d’expériences [Azure Machine Learning Studio (classique)](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio). 
 
 * **Ingénierie des caractéristiques** : processus de création de nouvelles caractéristiques à partir de données brutes pour augmenter la puissance prédictive de l’algorithme d’apprentissage. Les caractéristiques conçues doivent capturer des informations supplémentaires qui ne sont pas facilement visibles dans l’ensemble de caractéristiques d’origine.
-* **Sélection de caractéristiques**  : Processus de sélection du sous-ensemble clé de caractéristiques pour réduire la dimensionnalité du problème d’apprentissage.
+* **Sélection de caractéristiques** : Processus de sélection du sous-ensemble clé de caractéristiques pour réduire la dimensionnalité du problème d’apprentissage.
 
-En général, l’ **ingénierie de caractéristiques** s’applique d’abord à la génération de caractéristiques supplémentaires. La **sélection de caractéristiques** est alors effectuée pour éliminer des caractéristiques non pertinentes, redondantes ou fortement corrélées.
+En général, l’**ingénierie de caractéristiques** s’applique d’abord à la génération de caractéristiques supplémentaires. La **sélection de caractéristiques** est alors effectuée pour éliminer des caractéristiques non pertinentes, redondantes ou fortement corrélées.
 
 L’ingénierie et la sélection de caractéristiques font partie de la [phase de modélisation](lifecycle-modeling.md) du processus TDSP (Team Data science process). Pour en savoir plus sur le processus TDSP et le cycle de vie de la science des données, consultez [Qu’est-ce que le processus TDSP ?](overview.md)
 

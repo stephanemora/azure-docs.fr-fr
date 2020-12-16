@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/08/2020
+ms.date: 11/13/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 4105698198e6fb7f4e3d3526ff9590ebca4898f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47a2aae39be93361e1e0e581efb56cc678b444cd
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91612164"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96549087"
 ---
 # <a name="object-replication-for-block-blobs"></a>Réplication d'objets blob de blocs
 
@@ -43,14 +43,36 @@ La réplication d'objets exige que les fonctionnalités de stockage Azure suivan
 
 L’activation de ces fonctionnalités peut entraîner des coûts supplémentaires. Pour plus d’informations, consultez la [page des tarifs du stockage Azure](https://azure.microsoft.com/pricing/details/storage/).
 
+## <a name="how-object-replication-works"></a>Fonctionnement de la réplication d’objets
+
+La réplication d’objets copie de façon asynchrone les objets blob de blocs dans un conteneur selon les règles que vous configurez. Le contenu de l’objet blob, toutes les versions associées à l’objet blob, ainsi que les métadonnées et propriétés de l’objet blob sont copiés du conteneur source vers le conteneur de destination.
+
+> [!IMPORTANT]
+> Étant donné que les données d’objets blob de blocs sont répliquées de façon asynchrone, le compte source et le compte de destination ne sont pas immédiatement synchronisés. Il n’existe actuellement aucun contrat de niveau de service (SLA) sur le temps nécessaire à la réplication des données vers le compte de destination. Vous pouvez vérifier l’état de réplication sur l’objet blob source afin de déterminer si la réplication est terminée. Pour plus d’informations, consultez [Vérifier l’état de réplication d’un objet blob](object-replication-configure.md#check-the-replication-status-of-a-blob).
+
+### <a name="blob-versioning"></a>Contrôle de version des objets blob
+
+La réplication d’objets implique que le contrôle de version des objets blob soit activé sur les comptes source et de destination. Lorsqu’un objet blob répliqué dans le compte source est modifié, une nouvelle version de l’objet blob est créée dans le compte source et reflète l’état précédent de l’objet blob, avant modification. La version actuelle (ou objet blob de base) du compte source reflète les mises à jour les plus récentes. La version actuelle mise à jour et la nouvelle version précédente sont répliquées vers le compte de destination. Pour plus d’informations sur la façon dont les opérations d’écriture affectent les versions d’objets blob, consultez [Contrôle de version sur les opérations d’écriture](versioning-overview.md#versioning-on-write-operations).
+
+Lorsqu’un objet blob du compte source est supprimé, la version actuelle de l’objet blob est capturée dans une version antérieure, puis supprimée. Toutes les versions antérieures de l’objet blob sont conservées même après la suppression de la version actuelle. Cet état est répliqué dans le compte de destination. Pour plus d’informations sur la façon dont les opérations de suppression affectent les versions d’objets blob, consultez [Contrôle de version sur les opérations de suppression](versioning-overview.md#versioning-on-delete-operations).
+
+### <a name="snapshots"></a>Instantanés
+
+La réplication d’objets ne prend pas en charge les instantanés d’objet blob. Les instantanés d’un objet blob du compte source ne sont pas répliqués vers le compte de destination.
+
+### <a name="blob-tiering"></a>Hiérarchisation des objets blob
+
+La réplication d’objets est prise en charge lorsque les comptes source et de destination se trouvent au niveau chaud ou froid. Les comptes source et de destination peuvent se trouver dans des niveaux différents. Toutefois, la réplication d’objets échoue si un objet blob du compte source ou de destination a été déplacé vers le niveau archive. Pour plus d’informations sur les niveaux des objets blob, consultez [Niveaux d’accès pour Stockage Blob Azure : chaud, froid et archive](storage-blob-storage-tiers.md).
+
+### <a name="immutable-blobs"></a>Objets blob immuables
+
+La réplication d’objets ne prend pas en charge les objets blob immuables. Si un conteneur source ou de destination dispose d’une stratégie de rétention limitée dans le temps ou d’une conservation légale, la réplication d’objets échoue. Pour plus d’informations sur les objets blob immuables, consultez [Stocker des données blob critiques pour l’entreprise avec un stockage immuable](storage-blob-immutable-storage.md).
+
 ## <a name="object-replication-policies-and-rules"></a>Stratégies et règles de réplication d’objets
 
 Lorsque vous configurez la réplication d’objets, vous créez une stratégie de réplication qui spécifie le compte de stockage source et le compte de destination. Une stratégie de réplication comprend une ou plusieurs règles qui spécifient un conteneur source et un conteneur de destination et indiquent quels objets blob de blocs du conteneur source seront répliqués.
 
 Une fois que vous avez configuré la réplication d’objets, Stockage Azure vérifie régulièrement le flux de modification du compte source et réplique de manière asynchrone toutes les opérations d’écriture ou de suppression dans le compte de destination. La latence de la réplication dépend de la taille de l’objet blob de blocs en cours de réplication.
-
-> [!IMPORTANT]
-> Étant donné que les données d’objets blob de blocs sont répliquées de façon asynchrone, le compte source et le compte de destination ne sont pas immédiatement synchronisés. Il n’existe actuellement aucun contrat de niveau de service (SLA) sur le temps nécessaire à la réplication des données vers le compte de destination.
 
 ### <a name="replication-policies"></a>Stratégies de réplication
 

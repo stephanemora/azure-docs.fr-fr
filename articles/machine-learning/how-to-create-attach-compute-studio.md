@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 08/06/2020
 ms.topic: conceptual
-ms.custom: how-to, contperfq1
-ms.openlocfilehash: 6cb455880852295d7176e813208a93919a2c14bb
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, contperf-fy21q1
+ms.openlocfilehash: ab7a74166e85f2ba9fd73e7323cf9cd200cf32e4
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93318258"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97031026"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-in-azure-machine-learning-studio"></a>Créer des cibles de calcul pour l’entraînement et le déploiement de modèle dans Azure Machine Learning Studio
 
@@ -45,7 +45,7 @@ Pour afficher toutes les cibles de calcul de votre espace de travail, effectuez 
 
 1. Accédez à [Azure Machine Learning Studio](https://ml.azure.com).
  
-1. Sous __Gérer__ , sélectionnez __Calcul__.
+1. Sous __Gérer__, sélectionnez __Calcul__.
 
 1. Sélectionnez des onglets en haut pour afficher chaque type de cible de calcul.
 
@@ -93,7 +93,7 @@ Utilisez les [étapes ci-dessus](#portal-create) pour créer l’instance de cal
 |Type de machine virtuelle |  Choisissez UC ou GPU. Vous ne pouvez pas modifier ce type après la création.     |
 |Taille de la machine virtuelle     |  Il se peut que les tailles de machines virtuelles prises en charge soient restreintes dans votre région. Vérifier la [liste de disponibilité](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
 |Activer/désactiver l’accès SSH     |   L’accès SSH est désactivé par défaut.  Il n’est pas possible de modifier l’accès SSH après sa création. Veillez à activer l’accès si vous envisagez de déboguer de manière interactive avec [VS Code Remote](how-to-set-up-vs-code-remote.md)   |
-|Paramètres avancés     |  facultatif. Configurez un réseau virtuel. Pour créer l’instance de calcul à l’intérieur d’un réseau virtuel Azure (vnet), spécifiez le **Groupe de ressources** , le **Réseau virtuel** et le **Sous-réseau**. Pour plus d’informations, consultez la [configuration requise](./how-to-secure-training-vnet.md) pour le réseau virtuel.  |
+|Paramètres avancés     |  facultatif. Configurez un réseau virtuel. Pour créer l’instance de calcul à l’intérieur d’un réseau virtuel Azure (vnet), spécifiez le **Groupe de ressources**, le **Réseau virtuel** et le **Sous-réseau**. Pour plus d’informations, consultez la [configuration requise](./how-to-secure-training-vnet.md) pour le réseau virtuel.  |
 
 ### <a name="compute-clusters"></a><a name="amlcompute"></a> Clusters de calcul
 
@@ -108,13 +108,13 @@ Créez un cluster de calcul à un seul ou plusieurs nœuds pour vos charges de t
 |Taille de la machine virtuelle     |  Il se peut que les tailles de machines virtuelles prises en charge soient restreintes dans votre région. Vérifier la [liste de disponibilité](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
 |Nombre minimal de nœuds | Nombre minimal de nœuds que vous souhaitez provisionner. Si vous souhaitez un nombre dédié de nœuds, spécifiez-le ici. Faites des économies en affectant la valeur 0 comme minimum. Ainsi, vous ne paierez aucun nœud lorsque le cluster sera inactif. |
 |Nombre maximal de nœuds | Nombre maximal de nœuds que vous souhaitez provisionner. Le calcul sera automatiquement mis à l’échelle jusqu’à ce nombre maximal de nœuds lors de l’envoi d’un travail. |
-|Paramètres avancés     |  facultatif. Configurez un réseau virtuel. Pour créer l’instance de calcul à l’intérieur d’un réseau virtuel Azure (vnet), spécifiez le **Groupe de ressources** , le **Réseau virtuel** et le **Sous-réseau**. Pour plus d’informations, consultez la [configuration requise](./how-to-secure-training-vnet.md) pour le réseau virtuel.   Attachez également des [identités managées](#managed-identity) pour accorder l’accès aux ressources.     |
+|Paramètres avancés     |  facultatif. Configurez un réseau virtuel. Pour créer l’instance de calcul à l’intérieur d’un réseau virtuel Azure (vnet), spécifiez le **Groupe de ressources**, le **Réseau virtuel** et le **Sous-réseau**. Pour plus d’informations, consultez la [configuration requise](./how-to-secure-training-vnet.md) pour le réseau virtuel.   Attachez également des [identités managées](#managed-identity) pour accorder l’accès aux ressources.     |
 
 #### <a name="set-up-managed-identity"></a><a name="managed-identity"></a>Configurer une identité managée
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-managed-identity-intro.md)]
 
-Lors de la création du cluster de calcul ou de la modification de ses détails, dans les **Paramètres avancés** , activez **Attribuer une identité managée** et spécifiez une identité affectée par le système ou une identité affectée par l’utilisateur.
+Lors de la création du cluster de calcul ou de la modification de ses détails, dans les **Paramètres avancés**, activez **Attribuer une identité managée** et spécifiez une identité affectée par le système ou une identité affectée par l’utilisateur.
 
 #### <a name="managed-identity-usage"></a>Utilisation de l’identité managée
 
@@ -131,7 +131,7 @@ Créez ou attachez un cluster AKS (Azure Kubernetes service) pour l’inférence
 |Champ  |Description  |
 |---------|---------|
 |Nom du calcul     |  <li>Le nom est obligatoire. Le nom doit faire entre 2 et 16 caractères. </li><li>Les caractères valides sont les lettres majuscules et minuscules, les chiffres et le caractère **-** .</li><li>Le nom doit commencer par une lettre.</li><li>Le nom doit être unique parmi tous les calculs existants au sein d’une région Azure. Si le nom que vous choisissez n’est pas unique, une alerte s’affiche.</li><li>Si le caractère **-** est utilisé, il doit être suivi d’au moins une lettre plus loin dans le nom.</li>     |
-|Kubernetes Service | Sélectionnez **Créer** et remplissez le reste du formulaire.  Ou sélectionnez **Utiliser l’existant** , puis sélectionnez un cluster AKS existant dans votre abonnement.
+|Kubernetes Service | Sélectionnez **Créer** et remplissez le reste du formulaire.  Ou sélectionnez **Utiliser l’existant**, puis sélectionnez un cluster AKS existant dans votre abonnement.
 |Région |  Sélectionnez l’emplacement où sera créé le cluster. |
 |Taille de la machine virtuelle     |  Il se peut que les tailles de machines virtuelles prises en charge soient restreintes dans votre région. Vérifier la [liste de disponibilité](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
 |Objectif du cluster  | Sélectionnez **Production** ou **Dev-test**. |
@@ -141,7 +141,7 @@ Créez ou attachez un cluster AKS (Azure Kubernetes service) pour l’inférence
 
 ### <a name="attached-compute"></a>Calcul attaché
 
-Pour utiliser des cibles de calcul créées en dehors de l’espace de travail Azure Machine Learning, vous devez les joindre. Une fois la cible de calcul jointe, elle sera disponible dans votre espace de travail.  Utilisez **Calcul attaché** afin d’attacher une cible de calcul pour l’ **entraînement**.  Utilisez **Clusters d’inférence** afin d’attacher un cluster AKS pour l’ **inférence**.
+Pour utiliser des cibles de calcul créées en dehors de l’espace de travail Azure Machine Learning, vous devez les joindre. Une fois la cible de calcul jointe, elle sera disponible dans votre espace de travail.  Utilisez **Calcul attaché** afin d’attacher une cible de calcul pour l’**entraînement**.  Utilisez **Clusters d’inférence** afin d’attacher un cluster AKS pour l’**inférence**.
 
 Utilisez les [étapes ci-dessus](#portal-create) pour attacher un calcul.  Remplissez ensuite le formulaire comme suit :
 

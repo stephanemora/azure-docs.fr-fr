@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.custom: contperfq2
-ms.openlocfilehash: cbe3bedb188b563bb29ad1aa6e6e53e3039f1d51
-ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: 2f0b6feea5e586c87191b22f42e3ab86e85ba7b3
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170342"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032522"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Gérer les appareils dans votre application Azure IoT Central
 
@@ -48,9 +48,9 @@ Pour ajouter un appareil à votre application Azure IoT Central :
 
 1. Choisissez le modèle d’appareils à partir duquel vous souhaitez créer un appareil.
 
-1. Choisissez + **Nouveau** .
+1. Choisissez + **Nouveau**.
 
-1. Définissez la bascule **Simulé** sur **Activé** ou **Désactivé** . Un appareil réel correspond à un appareil physique que vous connectez à votre application Azure IoT Central. Un appareil simulé a des exemples de données générés par Azure IoT Central.
+1. Définissez la bascule **Simulé** sur **Activé** ou **Désactivé**. Un appareil réel correspond à un appareil physique que vous connectez à votre application Azure IoT Central. Un appareil simulé a des exemples de données générés par Azure IoT Central.
 
 1. Sélectionnez **Create** (Créer).
 
@@ -61,7 +61,7 @@ Pour ajouter un appareil à votre application Azure IoT Central :
 Pour connecter un grand nombre d’appareils à votre application, vous pouvez importer en bloc des appareils à partir d’un fichier CSV. Le fichier CSV doit disposer des colonnes et en-têtes suivants :
 
 * **IOTC_DeviceID** : l’ID d’appareil peut contenir des lettres, des chiffres et le caractère `-`.
-* **IOTC_DeviceName**  : cette colonne est facultative.
+* **IOTC_DeviceName** : cette colonne est facultative.
 
 Pour l’inscription en masse d’appareils :
 
@@ -72,7 +72,7 @@ Pour l’inscription en masse d’appareils :
     > [!NOTE]
     > Si vous n’avez pas encore de modèle d’appareil, vous pouvez importer les appareils sous **Tous les appareils** et les inscrire sans modèle. Une fois les appareils importés, vous pouvez les migrer vers un modèle.
 
-1. Sélectionnez **Importer** .
+1. Sélectionnez **Importer**.
 
     ![Action d’importation](./media/howto-manage-devices/bulkimport1a.png)
 
@@ -89,11 +89,11 @@ Si l’importation de l’appareil échoue, un message d’erreur s’affiche da
 
 ## <a name="migrate-devices-to-a-template"></a>Migrer des appareils vers un modèle
 
-Si vous inscrivez des appareils en démarrant l’importation sous **Tous les appareils** , les appareils sont créés sans association à un modèle d’appareil. Les appareils doivent être associés à un modèle pour explorer les données et les autres informations concernant l’appareil. Procédez comme suit pour associer les appareils à un modèle :
+Si vous inscrivez des appareils en démarrant l’importation sous **Tous les appareils**, les appareils sont créés sans association à un modèle d’appareil. Les appareils doivent être associés à un modèle pour explorer les données et les autres informations concernant l’appareil. Procédez comme suit pour associer les appareils à un modèle :
 
 1. Choisissez **Appareils** dans le volet gauche.
 
-1. Dans le volet gauche, choisissez **Tous les appareils**  :
+1. Dans le volet gauche, choisissez **Tous les appareils** :
 
     ![Appareils non associés](./media/howto-manage-devices/unassociateddevices1a.png)
 
@@ -101,11 +101,11 @@ Si vous inscrivez des appareils en démarrant l’importation sous **Tous les ap
 
 1. Sélectionnez les appareils que vous souhaitez associer à un modèle :
 
-1. Sélectionnez **Migrer**  :
+1. Sélectionnez **Migrer** :
 
     ![Associer des appareils](./media/howto-manage-devices/unassociateddevices2a.png)
 
-1. Choisissez le modèle dans la liste des modèles disponibles, puis sélectionnez **Migrer** .
+1. Choisissez le modèle dans la liste des modèles disponibles, puis sélectionnez **Migrer**.
 
 1. Les appareils sélectionnés sont associés au modèle d’appareil que vous avez choisi.
 
@@ -119,7 +119,7 @@ Pour exporter en bloc des appareils à partir de votre application :
 
 1. Dans le volet gauche, choisissez le modèle d’appareil à partir duquel vous souhaitez exporter les appareils.
 
-1. Sélectionnez les appareils que vous souhaitez exporter, puis l’action **Exporter** .
+1. Sélectionnez les appareils que vous souhaitez exporter, puis l’action **Exporter**.
 
     ![Exporter](./media/howto-manage-devices/export1a.png)
 
@@ -152,7 +152,7 @@ Pour supprimer un appareil réel ou simulé depuis votre application Azure IoT C
 
 1. Utilisez les outils de filtre pour filtrer et rechercher vos appareils. Cochez les cases en regard des appareils à supprimer.
 
-1. Choisissez **Supprimer** . Vous pouvez suivre l’état de la suppression dans le volet Opérations sur les appareils.
+1. Choisissez **Supprimer**. Vous pouvez suivre l’état de la suppression dans le volet Opérations sur les appareils.
 
 ## <a name="change-a-property"></a>Modifier une propriété
 
@@ -166,7 +166,7 @@ Les propriétés de cloud sont les métadonnées associées à l’appareil comm
 
 1. Modifiez les propriétés selon les valeurs souhaitées. Vous pouvez modifier plusieurs propriétés à la fois et les mettre à jour en même temps.
 
-1. Choisissez **Enregistrer** . Si vous avez enregistré des propriétés accessibles en écriture, les valeurs sont envoyées à votre appareil. Quand l’appareil confirme la modification de la propriété accessible en écriture, l’état revient à **synchronisé** . Si vous avez enregistré une propriété de cloud, la valeur est mise à jour.
+1. Choisissez **Enregistrer**. Si vous avez enregistré des propriétés accessibles en écriture, les valeurs sont envoyées à votre appareil. Quand l’appareil confirme la modification de la propriété accessible en écriture, l’état revient à **synchronisé**. Si vous avez enregistré une propriété de cloud, la valeur est mise à jour.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

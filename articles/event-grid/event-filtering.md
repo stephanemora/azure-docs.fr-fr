@@ -2,13 +2,13 @@
 title: Filtrage d’événements pour Azure Event Grid
 description: Explique comment filtrer des événements lors de la création d’un abonnement Azure Event Grid.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 837209d4197c271598155776b8d171a705e1f454
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/03/2020
+ms.openlocfilehash: bc3e84037693fcd909961ba409871d947ef1de7d
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86120090"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96574904"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Comprendre le filtrage d’événements pour les abonnements Event Grid
 
@@ -116,6 +116,23 @@ Les opérateurs disponibles pour les **chaînes** sont les suivants :
 * StringNotIn
 
 Les comparaisons de chaînes ne sont **pas toutes** sensibles à la casse.
+
+> [!NOTE]
+> Si le JSON de l’événement ne contient pas de clé de filtre avancé, le filtre est évalué comme **non correspondant** pour les opérateurs suivants : 
+> - NumberGreaterThan
+> - NumberGreaterThanOrEquals
+> - NumberLessThan
+> - NumberLessThanOrEquals
+> - NumberIn
+> - BoolEquals
+> - StringContains
+> - StringBeginsWith
+> - StringEndsWith
+> - StringIn
+> 
+>Le filtre est évalué comme **correspondant** pour les opérateurs suivants :
+> - NumberNotIn
+> - StringNotIn
 
 ### <a name="key"></a>Clé
 

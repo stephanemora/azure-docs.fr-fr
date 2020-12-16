@@ -7,17 +7,17 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/23/2020
-ms.openlocfilehash: 9f36502eb464f051cd50b51245db69fa76daa915
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 12/03/2020
+ms.openlocfilehash: 79ba186351cc145e012658abc30572e99b123dbb
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499541"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573984"
 ---
-# <a name="partial-term-search-and-patterns-with-special-characters-wildcard-regex-patterns"></a>Recherche de termes partiels et modèles avec des caractères spéciaux (caractère générique, expression régulière, modèles)
+# <a name="partial-term-search-and-patterns-with-special-characters-hyphens-wildcard-regex-patterns"></a>Recherche de termes partiels et modèles avec des caractères spéciaux (traits d’union, caractères génériques, expressions régulières, modèles)
 
-Une *recherche de terme partiel* fait référence à des requêtes composées de fragments de termes où, au lieu d’un terme entier, vous pouvez avoir juste le début, le milieu ou la fin du terme (elle est parfois appelée requête de préfixe, d’infixe ou de suffixe). Une recherche de terme partiel peut inclure une combinaison de fragments, souvent avec des caractères spéciaux comme des tirets ou des barres obliques qui font partie de la chaîne de requête. Les cas d’usage courants incluent les parties d’un numéro de téléphone, une URL, des codes ou des mots composés avec trait d’union.
+Une *recherche de terme partiel* fait référence à des requêtes composées de fragments de termes où, au lieu d’un terme entier, vous pouvez avoir juste le début, le milieu ou la fin du terme (elle est parfois appelée requête de préfixe, d’infixe ou de suffixe). Une recherche de terme partiel peut inclure une combinaison de fragments, souvent avec des caractères spéciaux comme des traits d’union, des tirets ou des barres obliques qui font partie de la chaîne de requête. Les cas d’usage courants incluent les parties d’un numéro de téléphone, une URL, des codes ou des mots composés avec trait d’union.
 
 La recherche de terme partiel et les chaînes de requête qui comprennent des caractères spéciaux peuvent être problématiques si l’index n’a pas de jetons au format attendu. Pendant la [phase d’analyse lexicale](search-lucene-query-architecture.md#stage-2-lexical-analysis) de l’indexation (en supposant une utilisation de l’analyseur standard par défaut), les caractères spéciaux sont ignorés, les mots composées sont fractionnés et l’espace blanc est supprimé ; ceci peut provoquer l’échec des requêtes quand aucune correspondance n’est trouvée. Par exemple, un numéro de téléphone comme `+1 (425) 703-6214` (segmenté en unités `"1"`, `"425"`, `"703"`, `"6214"`) n’apparaît pas dans une requête `"3-62"`, car ce contenu n’existe pas dans l’index en réalité. 
 
@@ -26,7 +26,7 @@ La solution consiste à appeler pendant l’indexation un analyseur qui conserve
 > [!TIP]
 > Si vous connaissez Postman et les API REST, [téléchargez la collection d’exemples de requêtes](https://github.com/Azure-Samples/azure-search-postman-samples/) pour interroger les termes partiels et les caractères spéciaux décrits dans cet article.
 
-## <a name="what-is-partial-term-search-in-azure-cognitive-search"></a>Qu’est-ce que la recherche de terme partiel dans Recherche cognitive Azure ?
+## <a name="about-partial-term-search"></a>À propos de la recherche de terme partiel
 
 Recherche cognitive Azure recherche des termes tokenisés entiers dans l’index, et ne trouvera pas de correspondance sur un terme partiel, sauf si vous incluez des opérateurs génériques d’espace réservé (`*` et `?`) ou que vous mettez en forme la requête en tant qu’expression régulière. Les termes partiels sont spécifiés à l’aide des techniques suivantes :
 
@@ -45,15 +45,15 @@ Pour la recherche de terme partiel ou de modèle, et quelques autres formes de r
 
 Quand vous devez effectuer une recherche sur des fragments, modèles ou caractères spéciaux, vous pouvez remplacer l’analyseur par défaut par un analyseur personnalisé qui fonctionne selon des règles de tokenisation plus simples, préservant la chaîne entière dans l’index. En prenant un peu de recul, l’approche ressemble à ceci :
 
-+ Définir un champ pour stocker une version intacte de la chaîne (en supposant que vous voulez du texte analysé et non analysé au moment de la requête)
-+ Évaluer et choisir parmi les différents analyseurs qui émettent des jetons au niveau de précision approprié
-+ Attribuer l’analyseur au champ
-+ Générer et tester l’index
+1. Définir un champ pour stocker une version intacte de la chaîne (en supposant que vous voulez du texte analysé et non analysé au moment de la requête)
+1. Évaluer et choisir parmi les différents analyseurs qui émettent des jetons au niveau de précision approprié
+1. Attribuer l’analyseur au champ
+1. Générer et tester l’index
 
 > [!TIP]
 > L’évaluation des analyseurs est un processus itératif qui nécessite de fréquentes regénérations de l’index. Vous pouvez faciliter cette étape en utilisant Postman, les API REST pour [créer un index](/rest/api/searchservice/create-index), [supprimer un index](/rest/api/searchservice/delete-index), [charger des documents](/rest/api/searchservice/addupdate-or-delete-documents) et [rechercher des documents](/rest/api/searchservice/search-documents). Pour charger des documents, le corps de la requête doit contenir un petit jeu de données représentatif que vous souhaitez tester (par exemple, un champ avec des numéros de téléphone ou des codes de produit). Ces API étant dans la même collection Postman, vous pouvez effectuer rapidement ces étapes.
 
-## <a name="duplicate-fields-for-different-scenarios"></a>Dupliquer des champs pour différents scénarios
+## <a name="1---create-a-dedicated-field"></a>1 - Créer un champ dédié
 
 Les analyseurs déterminent comment les termes sont tokenisés dans un index. Les analyseurs étant affectés par champ, vous pouvez créer des champs dans votre index pour optimiser les différents scénarios. Par exemple, vous pouvez définir « featureCode » et « featureCodeRegex » pour prendre en charge une recherche en texte intégral normale sur le premier et des critères spéciaux avancés sur le second. Les analyseurs affectés à chaque champ déterminent comment le contenu de chaque champ est tokenisé dans l’index.  
 
@@ -74,7 +74,9 @@ Les analyseurs déterminent comment les termes sont tokenisés dans un index. Le
 },
 ```
 
-## <a name="choose-an-analyzer"></a>Choisir un analyseur
+<a name="set-an-analyzer"></a>
+
+## <a name="2---set-an-analyzer"></a>2 - Définir un analyseur
 
 Lors du choix d’un analyseur qui produit des jetons à terme entier, les analyseurs suivants sont des choix courants :
 
@@ -98,7 +100,7 @@ Vous devez avoir un index rempli avec lequel travailler. À partir d’un index 
    }
     ```
 
-1. Évaluez la réponse pour voir comment le texte est segmenté en jetons dans l’index. Notez la manière dont chaque terme est en minuscules et segmenté. Seules les requêtes qui correspondent à ces jetons retourneront ce document dans les résultats. Une requête qui comprend « 10-NOR » échouera.
+1. Évaluez la réponse pour voir comment le texte est segmenté en jetons dans l’index. Notez que chaque terme est en minuscules, que les traits d’union ont été supprimés et les sous-chaînes divisées en jetons individuels. Seules les requêtes qui correspondent à ces jetons retourneront ce document dans les résultats. Une requête qui comprend « 10-NOR » échouera.
 
     ```json
     {
@@ -152,7 +154,7 @@ Vous devez avoir un index rempli avec lequel travailler. À partir d’un index 
 > [!Important]
 > N’oubliez pas que les analyseurs de requêtes mettent souvent les termes en minuscules dans une expression de recherche lors de la création de l’arborescence de requêtes. Si vous utilisez un analyseur qui ne met pas les entrées de texte en minuscules durant l’indexation, et que vous n’obtenez pas les résultats attendus, cela peut être la raison. La solution consiste à ajouter un filtre de jeton lowercase, comme décrit dans la section « Utiliser des analyseurs personnalisés », ci-dessous.
 
-## <a name="configure-an-analyzer"></a>Configurer un analyseur
+## <a name="3---configure-an-analyzer"></a>3 - Configurer un analyseur
  
 Que vous évaluiez des analyseurs ou que vous avanciez avec une configuration spécifique, vous devrez spécifier l’analyseur sur la définition de champ et éventuellement configurer l’analyseur lui-même si vous n’utilisez pas d’analyseur intégré. Lorsque vous changez d’analyseur, vous devez généralement reconstruire l’index (supprimer, recréer et recharger). 
 
@@ -216,7 +218,7 @@ L’exemple suivant illustre un analyseur personnalisé qui fournit le générat
 > [!NOTE]
 > Le générateur de jetons `keyword_v2` et le filtre de jeton `lowercase` sont connus du système et utilisent leurs configurations par défaut, c’est pourquoi vous pouvez les référencer par leur nom sans avoir à les définir au préalable.
 
-## <a name="build-and-test"></a>Générer et tester
+## <a name="4---build-and-test"></a>4 - Créer et tester
 
 Une fois que vous avez défini un index avec des analyseurs et des définitions de champ qui prennent en charge votre scénario, chargez des documents contenant des chaînes représentatives afin de pouvoir tester des requêtes de chaînes partielles. 
 
@@ -228,7 +230,7 @@ Les sections précédentes ont expliqué la logique. Cette section parcourt chaq
 
 + [Charger des documents](/rest/api/searchservice/addupdate-or-delete-documents) importe des documents ayant la même structure que votre index, ainsi que du contenu pouvant faire l’objet d’une recherche. Après cette étape, votre index est prêt à être interrogé ou testé.
 
-+ L’option [Tester l’analyseur](/rest/api/searchservice/test-analyzer) a été introduite dans [Choisir un analyseur](#choose-an-analyzer). Testez certaines chaînes de votre index à l’aide de divers analyseurs pour comprendre comment les termes sont tokenisés.
++ L’[analyseur de test](/rest/api/searchservice/test-analyzer) a été introduit dans [Définir un analyseur](#set-an-analyzer). Testez certaines chaînes de votre index à l’aide de divers analyseurs pour comprendre comment les termes sont tokenisés.
 
 + [Rechercher dans les documents](/rest/api/searchservice/search-documents) explique comment construire une demande de requête, en utilisant une [syntaxe simple](query-simple-syntax.md) ou la [syntaxe Lucene complète](query-lucene-syntax.md) pour les expressions génériques et les expressions régulières.
 

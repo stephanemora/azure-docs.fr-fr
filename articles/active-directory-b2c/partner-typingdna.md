@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 06/25/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 6f62675d27310a15c434baba8e3451a3cd81f058
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 68617d86fda940c5d3752f2389088a8c729aebec
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94953523"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108346"
 ---
 # <a name="tutorial-for-configuring-typingdna-with-azure-active-directory-b2c"></a>Didacticiel pour la configuration de TypingDNA avec Azure Active Directory B2C
 
@@ -36,7 +36,7 @@ Avec cette procédure, découvrez comment intégrer un exemple d’application d
 
 2. Lorsque l’utilisateur soumet la page, la bibliothèque TypingDNA calcule la caractéristique de saisie de l’utilisateur. Après cela, insérez les informations dans un champ de texte masqué qu’Azure AD B2C a rendu. Ce champ est masqué avec CSS.  
 
-    L’[exemple contient des fichiers HTML](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/TypingDNA/source-code/selfAssertedSignUp.cshtml) avec les modifications JavaScript et CSS, et est référencé par les définitions de contenu `api.selfasserted.tdnasignin` et `api.selfasserted.tdnasignup`. Reportez-vous à [hébergement du contenu de la page](./custom-policy-ui-customization.md#hosting-the-page-content) pour héberger vos fichiers HTML.
+    L’[exemple contient des fichiers HTML](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/TypingDNA/source-code/selfAssertedSignUp.cshtml) avec les modifications JavaScript et CSS, et est référencé par les définitions de contenu `api.selfasserted.tdnasignin` et `api.selfasserted.tdnasignup`. Reportez-vous à [hébergement du contenu de la page](./customize-ui-with-html.md#hosting-the-page-content) pour héberger vos fichiers HTML.
 
 3. Azure AD B2C compte maintenant le modèle de saisie dans le jeu de revendications lorsque l’utilisateur envoie ses informations d’identification. Il doit appeler une API (la vôtre) pour transmettre ces données au point de terminaison de l’API REST TypingDNA. Cette API est incluse dans l’[exemple (typingDNA-API-Interface)](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/TypingDNA/source-code/TypingDNA-API-Interface).
 4. L’API de couche intermédiaire transmet ensuite les données de modèle de saisie à l’API REST TypingDNA. Lors de l’inscription, le [point de terminaison de vérification de l’utilisateur](https://api.typingdna.com/index.html#api-API_Services-GetUser) est appelé pour confirmer que l’utilisateur n’existe pas, puis le point de terminaison du [modèle d’enregistrement](https://api.typingdna.com/index.html#api-API_Services-saveUserPattern) est appelé pour enregistrer le premier modèle de saisie de l’utilisateur.
@@ -160,7 +160,7 @@ Ces seuils doivent être ajustés selon votre cas d’utilisation.
 
 1. Hébergez le code [TypingDNA-API-Interface](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/TypingDNA/source-code/TypingDNA-API-Interface) auprès du fournisseur d’hébergement de votre choix.
 2. Remplacez toutes les instances de `apiKey` et `apiSecret` dans la solution [TypingDNA-API-Interface](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/TypingDNA/source-code/TypingDNA-API-Interface) par les informations d’identification provenant de votre tableau de bord TypingDNA.
-3. Hébergez les fichiers HTML auprès du fournisseur de votre choix en suivant les exigences CORS [ici](./custom-policy-ui-customization.md#3-configure-cors)
+3. Hébergez les fichiers HTML auprès du fournisseur de votre choix en suivant les exigences CORS [ici](./customize-ui-with-html.md#3-configure-cors)
 4. Remplacez les éléments LoadURI pour les définitions de contenu `api.selfasserted.tdnasignup` et `api.selfasserted.tdnasignin` dans le fichier `TrustFrameworkExtensions.xml` respectivement par l’URI de vos fichiers HTML hébergés.
 5. Créez une clé de stratégie B2C sous infrastructure d’expérience d’identité dans le panneau Azure AD du **Portail Azure**. Utilisez l’option `Generate` et nommez cette clé `tdnaHashedId`.
 6. Remplacer les TenantId dans les fichiers de stratégie

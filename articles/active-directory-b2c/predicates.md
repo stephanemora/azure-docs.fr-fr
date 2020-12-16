@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b01f1edd4305c09a874b177e4bca373991c9162e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46f04c55b40d4f1bdbbf5fd55eb648d1d3294056
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85203807"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108414"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicates et PredicateValidations
 
@@ -413,7 +413,7 @@ Ajoutez un **PredicateValidation** avec une référence au prédicat `DateRange`
 </PredicateValidations>
 ```
 
-Dans votre type de revendication, ajoutez un élément**PredicateValidationReference** et spécifiez l’identificateur en tant que `CustomDateRange`.
+Dans votre type de revendication, ajoutez un élément **PredicateValidationReference** et spécifiez l’identificateur en tant que `CustomDateRange`.
 
 ```xml
 <ClaimType Id="dateOfBirth">
@@ -428,4 +428,4 @@ Dans votre type de revendication, ajoutez un élément**PredicateValidationRefer
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez comment [configurer la complexité du mot de passe avec des stratégies personnalisées dans Azure Active Directory B2C](custom-policy-password-complexity.md) à l’aide de validations de prédicat.
+- Découvrez comment [configurer la complexité du mot de passe avec des stratégies personnalisées dans Azure Active Directory B2C](password-complexity.md) à l’aide de validations de prédicat.

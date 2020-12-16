@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 10/02/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 44f6d700ff25f0c2f2cb8bedc5c2d15ad2adcb83
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, devx-track-python, contperf-fy21q1
+ms.openlocfilehash: c25f3965775c6518629c92ccc371855d9178e648
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93320831"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033712"
 ---
 # <a name="set-up-compute-targets-for-model-training-and-deployment"></a>Configurer des cibles de calcul pour l'apprentissage et le déploiement de modèles
 
@@ -58,9 +58,9 @@ Azure Machine Learning vous permet de faire l’apprentissage de votre modèle s
 
 ## <a name="local-computer"></a><a id="local"></a>Ordinateur local
 
-Lorsque vous utilisez votre ordinateur local pour l’ **entraînement** , il n’est pas nécessaire de créer une cible de calcul.  Il vous suffit de [soumettre l’exécution d’entraînement](how-to-set-up-training-targets.md) à partir de votre ordinateur local.
+Lorsque vous utilisez votre ordinateur local pour l’**entraînement**, il n’est pas nécessaire de créer une cible de calcul.  Il vous suffit de [soumettre l’exécution d’entraînement](how-to-set-up-training-targets.md) à partir de votre ordinateur local.
 
-Lorsque vous utilisez votre ordinateur local pour l’ **inférence** , Docker doit être installé. Pour effectuer le déploiement, utilisez [LocalWebservice.deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.local.localwebservice?preserve-view=true&view=azure-ml-py#deploy-configuration-port-none-) pour définir le port que le service web devra utiliser. Utilisez ensuite la procédure de déploiement normale décrite dans [Déployer des modèles avec Azure Machine Learning](how-to-deploy-and-where.md).
+Lorsque vous utilisez votre ordinateur local pour l’**inférence**, Docker doit être installé. Pour effectuer le déploiement, utilisez [LocalWebservice.deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.local.localwebservice?preserve-view=true&view=azure-ml-py#deploy-configuration-port-none-) pour définir le port que le service web devra utiliser. Utilisez ensuite la procédure de déploiement normale décrite dans [Déployer des modèles avec Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## <a name="remote-virtual-machines"></a><a id="vm"></a>Machines virtuelles distantes
 
@@ -70,7 +70,7 @@ Vous pouvez utiliser un environnement Conda intégré au système, un environnem
 
 Pour ce scénario, utilisez Azure Data Science Virtual Machine (DSVM) en tant que machine virtuelle Azure. Cette machine virtuelle est un environnement de science des données et de développement d’intelligence artificielle préconfiguré dans Azure. La machine virtuelle offre un choix organisé d’outils et d’infrastructures pour le développement de l’apprentissage automatique en cycle de vie complet. Pour plus d’informations sur l’utilisation de la DSVM avec Azure Machine Learning, consultez [Configurer un environnement de développement](./how-to-configure-environment.md#dsvm).
 
-1. **Créer**  : Créez une Data Science Virtual Machine (DSVM) à utiliser pour former votre modèle. Pour savoir comment créer cette ressource, voir [Approvisionner une machine virtuelle pour la science des données pour Linux (Ubuntu)](./data-science-virtual-machine/dsvm-ubuntu-intro.md).
+1. **Créer** : Créez une Data Science Virtual Machine (DSVM) à utiliser pour former votre modèle. Pour savoir comment créer cette ressource, voir [Approvisionner une machine virtuelle pour la science des données pour Linux (Ubuntu)](./data-science-virtual-machine/dsvm-ubuntu-intro.md).
 
     > [!WARNING]
     > Azure Machine Learning prend uniquement en charge les machines virtuelles exécutant **Ubuntu**. Lorsque vous créez une machine virtuelle ou en choisissez une existante, celle-ci doit utiliser Ubuntu.
@@ -102,7 +102,7 @@ Pour ce scénario, utilisez Azure Data Science Virtual Machine (DSVM) en tant qu
     > [!WARNING]
     > Ne créez pas plusieurs attachements en même temps dans la même machine virtuelle DSVM depuis votre espace de travail. Chaque nouvel attachement va supprimer le ou les attachements précédents.
 
-1. **Configurer**  : Créez une configuration de série de tests pour la cible de calcul Data Science Virtual Machine (DSVM). Docker et Conda sont utilisés pour créer et configurer l’environnement d’entraînement sur la DSVM.
+1. **Configurer** : Créez une configuration de série de tests pour la cible de calcul Data Science Virtual Machine (DSVM). Docker et Conda sont utilisés pour créer et configurer l’environnement d’entraînement sur la DSVM.
 
    ```python
    from azureml.core import ScriptRunConfig
@@ -128,7 +128,7 @@ Pour ce scénario, utilisez Azure Data Science Virtual Machine (DSVM) en tant qu
 
 Azure HDInsight est une plateforme populaire pour l’analytique de Big Data. Elle fournit Apache Spark, que vous pouvez utiliser pour entraîner votre modèle.
 
-1. **Créer**  :  Créez le cluster HDInsight à utiliser pour former votre modèle. Pour créer un cluster Spark sur HDInsight, consultez [Créer un cluster Spark dans HDInsight](../hdinsight/spark/apache-spark-jupyter-spark-sql.md). 
+1. **Créer** :  Créez le cluster HDInsight à utiliser pour former votre modèle. Pour créer un cluster Spark sur HDInsight, consultez [Créer un cluster Spark dans HDInsight](../hdinsight/spark/apache-spark-jupyter-spark-sql.md). 
 
     > [!WARNING]
     > Azure Machine Learning nécessite également que le cluster HDInsight dispose d’une __adresse IP publique__.
@@ -165,7 +165,7 @@ Azure HDInsight est une plateforme populaire pour l’analytique de Big Data. El
     > [!WARNING]
     > Ne créez pas plusieurs attachements en même temps dans le même service HDInsight depuis votre espace de travail. Chaque nouvel attachement va supprimer le ou les attachements précédents.
 
-1. **Configurer**  : Créez une configuration de série de tests pour la cible de calcul HDI. 
+1. **Configurer** : Créez une configuration de série de tests pour la cible de calcul HDI. 
 
    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/hdi.py?name=run_hdi)]
 
@@ -223,11 +223,11 @@ Créez un espace de travail Azure Databricks avant de l’utiliser. Pour créer 
 
 Pour joindre Azure Databricks comme cible de calcul, fournissez les informations suivantes :
 
-* __Nom de la capacité de calcul Databricks__  : nom que vous voulez affecter à cette ressource de calcul.
-* __Nom de l’espace de travail Databricks__  : nom de l’espace de travail Azure Databricks.
-* __Jeton d’accès Databricks__  : jeton d’accès utilisé pour s’authentifier auprès d’Azure Databricks. Pour générer un jeton d’accès, consultez le document [Authentification](https://docs.azuredatabricks.net/dev-tools/api/latest/authentication.html).
+* __Nom de la capacité de calcul Databricks__ : nom que vous voulez affecter à cette ressource de calcul.
+* __Nom de l’espace de travail Databricks__ : nom de l’espace de travail Azure Databricks.
+* __Jeton d’accès Databricks__ : jeton d’accès utilisé pour s’authentifier auprès d’Azure Databricks. Pour générer un jeton d’accès, consultez le document [Authentification](https://docs.azuredatabricks.net/dev-tools/api/latest/authentication.html).
 
-Le code suivant montre comment joindre Azure Databricks en tant que cible de calcul avec le kit de développement logiciel (SDK) Azure Machine Learning ( __l’espace de travail Databricks doit être présent dans le même abonnement que votre espace de travail AML__ ) :
+Le code suivant montre comment joindre Azure Databricks en tant que cible de calcul avec le kit de développement logiciel (SDK) Azure Machine Learning (__l’espace de travail Databricks doit être présent dans le même abonnement que votre espace de travail AML__) :
 
 ```python
 import os
@@ -279,9 +279,9 @@ Créez un compte Azure Data Lake Analytics avant de l’utiliser. Pour créer ce
 
 Pour attacher Data Lake Analytics comme cible de calcul, vous devez utiliser le Kit de développement logiciel Azure Machine Learning et fournir les informations suivantes :
 
-* __Nom de la capacité de calcul__  : nom que vous voulez affecter à cette ressource de calcul.
+* __Nom de la capacité de calcul__ : nom que vous voulez affecter à cette ressource de calcul.
 * __Groupe de ressources__ : groupe de ressources contenant le compte Data Lake Analytics.
-* __Nom du compte__  : Le nom du compte Data Lake Analytics.
+* __Nom du compte__ : Le nom du compte Data Lake Analytics.
 
 Le code suivant montre comment attacher Data Lake Analytics comme cible de calcul :
 

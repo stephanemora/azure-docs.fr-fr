@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 03/30/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: b65553edf61d8e646e7238a5385656fe75a3156f
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, devx-track-python, contperf-fy21q1
+ms.openlocfilehash: a1a0b89dee5a6d57e6f317c5f6c8b61ffeda3c33
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311373"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97029071"
 ---
 # <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning"></a>Optimiser les hyperparamètres de votre modèle avec Azure Machine Learning
 
@@ -35,7 +35,7 @@ Automatisez une optimisation efficace des hyperparamètres à l’aide du [packa
 
 Les **hyperparamètres** sont des paramètres réglables qui vous permettent de contrôler le processus d’entraînement du modèle. Par exemple, avec des réseaux neuronaux, vous déterminez le nombre de couches masquées et le nombre de nœuds dans chaque couche. Les performances du modèle dépendent fortement des hyperparamètres.
 
- L’ **optimisation des hyperparamètres** est le processus de recherche de la configuration des hyperparamètres qui produit les meilleures performances. Le processus est généralement manuel et gourmand en ressources informatiques.
+ L’**optimisation des hyperparamètres** est le processus de recherche de la configuration des hyperparamètres qui produit les meilleures performances. Le processus est généralement manuel et gourmand en ressources informatiques.
 
 Azure Machine Learning vous permet d’automatiser l’optimisation des hyperparamètres et d’exécuter des expérimentations parallèles pour optimiser efficacement les hyperparamètres.
 
@@ -339,8 +339,8 @@ La recherche des meilleures valeurs d’hyperparamètres pour votre modèle peut
 
 
 Le démarrage à chaud est géré différemment en fonction de la méthode d’échantillonnage :
-- **Échantillonnage bayésien**  : Les essais de l’exécution précédente sont utilisés comme connaissance préalable pour choisir de nouveaux exemples et pour améliorer la métrique principale.
-- **Échantillonnage aléatoire** ou **échantillonnage de grille**  :  L’arrêt anticipé utilise les connaissances des précédentes exécutions pour déterminer les performances d’exécution médiocres. 
+- **Échantillonnage bayésien** : Les essais de l’exécution précédente sont utilisés comme connaissance préalable pour choisir de nouveaux exemples et pour améliorer la métrique principale.
+- **Échantillonnage aléatoire** ou **échantillonnage de grille** :  L’arrêt anticipé utilise les connaissances des précédentes exécutions pour déterminer les performances d’exécution médiocres. 
 
 Spécifiez la liste des exécutions parentes que vous souhaitez démarrer à chaud.
 

@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 11/05/2020
+ms.date: 12/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: ad3cf33dacffc8bcda9376857206784afedf7139
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 472261666c86b666efd09c7217d12e5a795a50d9
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94361958"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97094883"
 ---
 # <a name="vnet-peering-and-azure-bastion-preview"></a>Appairage de réseaux virtuels et architecture d’Azure Bastion (préversion)
 
@@ -44,7 +44,7 @@ Cette figure représente l’architecture d’un déploiement Azure Bastion dans
 1. Azure Bastion est détecté en toute transparence sur le réseau virtuel appairé.
 1. D’un simple clic, la session RDP/SSH s’ouvre dans le navigateur. Pour les limites de session RDP et SSH simultanées, consultez [Sessions RDP et SSH](bastion-faq.md#limits).
 
-   :::image type="content" source="../../includes/media/bastion-vm-rdp/connect-vm.png" alt-text="Connexion":::
+  :::image type="content" source="../../includes/media/bastion-vm-rdp/connect-vm.png" alt-text="Connexion":::
 
    Pour plus d’informations sur la connexion à une machine virtuelle via Azure Bastion, consultez :
 

@@ -3,12 +3,12 @@ title: Modifier les paramètres de cluster Azure Service Fabric
 description: Cet article décrit les paramètres de structure et les stratégies de mise à niveau de la structure que vous pouvez personnaliser.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: 1f16e89dd1131f6aea64e5e72a342b3b737f3728
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: c055ad1dad8b9574c8d811284a34619ee3648a10
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187219"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095268"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personnaliser les paramètres de cluster Service Fabric
 Cet article décrit les différents paramètres de structure personnalisables d’un cluster Service Fabric. Pour des clusters hébergés dans Azure, vous pouvez personnaliser les paramètres via le [portail Azure](https://portal.azure.com) ou en utilisant un modèle Azure Resource Manager. Pour plus d’informations, voir [Mettre à niveau la configuration d’un cluster Azure](service-fabric-cluster-config-upgrade-azure.md). Pour personnaliser les paramètres d’un cluster autonome, mettez à jour le fichier *ClusterConfig.json* et effectuez une mise à niveau de configuration sur le cluster. Pour plus d’informations, voir [Mettre à niveau la configuration d’un cluster autonome](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -877,7 +877,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 | --- | --- | --- | --- |
 |ConnectionOpenTimeout|TimeSpan, la valeur par défaut est Common::TimeSpan::FromSeconds(60)|statique|Spécifiez la durée en secondes. Délai d’expiration pour la configuration de la connexion côté entrant et acceptant (y compris la négociation de sécurité en mode sécurisé) |
 |FrameHeaderErrorCheckingEnabled|Valeur booléenne, valeur par défaut : TRUE|statique|Paramètre par défaut pour la vérification d’erreurs dans l’en-tête d’image en mode non sécurisé ; remplacé par le paramètre du composant. |
-|MessageErrorCheckingEnabled|valeur booléenne,valeur par défaut : FALSE|statique|Paramètre par défaut pour la vérification d’erreurs dans l’en-tête et le corps de message en mode non sécurisé ; remplacé par le paramètre du composant. |
+|MessageErrorCheckingEnabled|Valeur booléenne, valeur par défaut : TRUE|statique|Paramètre par défaut pour la vérification d’erreurs dans l’en-tête et le corps de message en mode non sécurisé ; remplacé par le paramètre du composant. |
 |ResolveOption|chaîne, valeur par défaut : « unspecified »|statique|Détermine la façon dont le nom de domaine complet est résolu.  Les valeurs valides sont "unspecified/ipv4/ipv6". |
 |SendTimeout|TimeSpan, la valeur par défaut est Common::TimeSpan::FromSeconds(300)|Dynamique|Spécifiez la durée en secondes. Envoyez un délai d'expiration pour détecter une connexion bloquée. Les rapports d’échec TCP ne sont pas fiables dans certains environnements. Cela peut être ajusté en fonction de la bande passante réseau disponible et de la taille des données sortantes (\*MaxMessageSize\/\*SendQueueSizeLimit). |
 

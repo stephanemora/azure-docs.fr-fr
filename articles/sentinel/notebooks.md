@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.custom: mvc
 ms.date: 09/06/2020
-ms.openlocfilehash: d5d182276cd77493be5184503a1afc47934bf8ea
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 43d7a697b3cb013a73a0b14db8ec1758244ae3b9
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96344191"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97092188"
 ---
 # <a name="use-jupyter-notebook-to-hunt-for-security-threats"></a>Utiliser Jupyter Notebook pour rechercher des menaces de sécurité
 
@@ -23,7 +23,7 @@ Azure Sentinel repose sur le magasin de données. Il associe des capacités d’
 
 ![exemple de notebook](./media/notebooks/sentinel-notebooks-map.png)
 
-Nous avons intégré l’expérience de Jupyter dans le portail Azure , pour que vous puissiez créer et exécuter facilement des notebooks pour analyser vos données. La bibliothèque *Kqlmagic* fournit le ciment qui vous permet d’extraire des requêtes d’Azure Sentinel et de les exécuter directement à l’intérieur d’un notebook. Les requêtes utilisent le [langage de requête Kusto](https://kusto.azurewebsites.net/docs/query/index.html). Plusieurs notebooks, développés par certains des analystes de sécurité de Microsoft, sont intégrés à Azure Sentinel. Quelques-uns d’entre eux sont conçus pour un scénario spécifique et peuvent être utilisés en tant que tel. D’autres sont des exemples pour illustrer les techniques et les fonctionnalités que vous pouvez copier ou adapter pour les utiliser dans vos propres notebooks. D’autres blocs-notes peuvent également être importés à partir du GitHub de la communauté Azure Sentinel.
+Nous avons intégré l’expérience de Jupyter dans le portail Azure , pour que vous puissiez créer et exécuter facilement des notebooks pour analyser vos données. La bibliothèque *Kqlmagic* fournit le ciment qui vous permet d’extraire des requêtes d’Azure Sentinel et de les exécuter directement à l’intérieur d’un notebook. Les requêtes utilisent le [langage de requête Kusto](https://kusto.azurewebsites.net/docs/kusto/query/index.html). Plusieurs notebooks, développés par certains des analystes de sécurité de Microsoft, sont intégrés à Azure Sentinel. Quelques-uns d’entre eux sont conçus pour un scénario spécifique et peuvent être utilisés en tant que tel. D’autres sont des exemples pour illustrer les techniques et les fonctionnalités que vous pouvez copier ou adapter pour les utiliser dans vos propres notebooks. D’autres blocs-notes peuvent également être importés à partir du GitHub de la communauté Azure Sentinel.
 
 L’expérience Jupyter intégrée utilise [Azure Notebooks](https://notebooks.azure.com/) pour stocker, partager et exécuter des notebooks. Vous pouvez également exécuter ces notebooks localement (si vous avez un environnement Python et Jupyter sur votre ordinateur) ou dans d’autres environnements JupterHub tels qu’Azure Databricks.
 

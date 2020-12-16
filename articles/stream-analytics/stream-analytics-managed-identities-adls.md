@@ -7,14 +7,14 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: b20391c4d856a5c52b6017ae892ec0b86873dbca
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 82c5a246dca69c0723394e41058c4fc123bbb84e
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491883"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96571944"
 ---
-# <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities"></a>Authentifier Stream Analytics pour Azure Data Lake Storage Gen1 à l’aide d’identités managées
+# <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities-preview"></a>Authentifier Stream Analytics pour Azure Data Lake Storage Gen1 à l’aide d’identités managées (préversion)
 
 Azure Stream Analytics prend en charge l’authentification des identités managées avec la sortie Azure Data Lake Storage (ADLS) Gen1. L’identité est une application managée inscrite auprès d’Azure Active Directory. Elle représente un travail Stream Analytics spécifique et peut servir à l’authentification auprès d’une ressource cible. Les identités managées n’ont pas les limitations des méthodes d’authentification basée sur l’utilisateur, comme la réauthentification obligatoire après un changement de mot de passe ou l’expiration du jeton d’utilisateur tous les 90 jours. De plus, les identités managées facilitent l’automatisation des déploiements de travaux Stream Analytics dont la sortie est générée dans Azure Data Lake Storage Gen1.
 
@@ -84,7 +84,7 @@ Cet article présente trois façons d'activer une identité managée pour un tra
 
    * Ils définissent automatiquement les autorisations **Écrire** et **Exécuter** pour le chemin de préfixe ADLS Gen1 utilisé dans le travail, et l’attribuent à ce dossier et à tous ses enfants.
 
-5. Vous pouvez générer les modèles Resource Manager avec la propriété suivante à l’aide du [package Nuget Stream Analytics CI.CD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/) version 1.5.0 ou ultérieure sur une machine de build (en dehors de Visual Studio). Suivez les étapes de déploiement du modèle Resource Manager dans la section suivante pour obtenir le principal de service et lui accorder l’accès via PowerShell.
+5. Vous pouvez générer les modèles Resource Manager avec la propriété suivante à l’aide du [package NuGet Stream Analytics CI.CD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/) version 1.5.0 ou ultérieure sur une machine de build (en dehors de Visual Studio). Suivez les étapes de déploiement du modèle Resource Manager dans la section suivante pour obtenir le principal de service et lui accorder l’accès via PowerShell.
 
 ## <a name="resource-manager-template-deployment"></a>Déploiement de modèle Resource Manager
 

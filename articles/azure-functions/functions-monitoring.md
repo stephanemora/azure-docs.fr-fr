@@ -4,13 +4,13 @@ description: Découvrez comment utiliser Azure Application Insights avec Azure F
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.custom: devx-track-csharp, fasttrack-edit, contperfq2, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: b27fb14341e07683d66418485158a94c18e7a997
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.custom: devx-track-csharp, fasttrack-edit, contperf-fy21q2, devx-track-js
+ms.openlocfilehash: 7dbaa8712e09de9084e2bcb66d43f2181af292a0
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748149"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033032"
 ---
 # <a name="monitor-azure-functions"></a>Surveiller l’exécution des fonctions Azure
 
@@ -33,7 +33,7 @@ La liste complète des fonctionnalités Application Insights disponibles pour vo
 
 ## <a name="application-insights-integration"></a>Intégration d’Application Insights
 
-En général, vous créez une instance d’Application Insights lorsque vous créez votre application de fonction. Dans ce cas, la clé d’instrumentation requise pour l’intégration est déjà définie en tant que paramètre d’application nommé *APPINSIGHTS_INSTRUMENTATIONKEY* . Si, pour une raison quelconque, votre application de fonction n’a pas de clé d’instrumentation définie, vous devez [activer l’intégration d’Application Insights](configure-monitoring.md#enable-application-insights-integration).  
+En général, vous créez une instance d’Application Insights lorsque vous créez votre application de fonction. Dans ce cas, la clé d’instrumentation requise pour l’intégration est déjà définie en tant que paramètre d’application nommé *APPINSIGHTS_INSTRUMENTATIONKEY*. Si, pour une raison quelconque, votre application de fonction n’a pas de clé d’instrumentation définie, vous devez [activer l’intégration d’Application Insights](configure-monitoring.md#enable-application-insights-integration).  
 
 ## <a name="collecting-telemetry-data"></a>Collecte des données de télémétrie
 
@@ -95,9 +95,9 @@ Quand vous développez une application, vous voulez souvent voir ce qui est écr
 
 Il existe deux façons d’afficher un flux des données de journal générées par vos exécutions de fonction.
 
-* **Streaming des journaux intégré**  : la plateforme App Service vous permet d’afficher un flux de vos fichiers journaux d’application. Ce flux équivaut à la sortie observée quand vous déboguez vos fonctions au cours du [développement local](functions-develop-local.md) et quand vous utilisez l’onglet **Test** dans le portail. Toutes les informations basées sur les journaux sont affichées. Pour plus d’informations, consultez [Diffuser les journaux d’activité en continu](../app-service/troubleshoot-diagnostic-logs.md#stream-logs). Cette méthode de streaming ne prend en charge qu’une seule instance et ne peut pas être utilisée avec une application exécutée sur Linux dans un plan Consommation.
+* **Streaming des journaux intégré** : la plateforme App Service vous permet d’afficher un flux de vos fichiers journaux d’application. Ce flux équivaut à la sortie observée quand vous déboguez vos fonctions au cours du [développement local](functions-develop-local.md) et quand vous utilisez l’onglet **Test** dans le portail. Toutes les informations basées sur les journaux sont affichées. Pour plus d’informations, consultez [Diffuser les journaux d’activité en continu](../app-service/troubleshoot-diagnostic-logs.md#stream-logs). Cette méthode de streaming ne prend en charge qu’une seule instance et ne peut pas être utilisée avec une application exécutée sur Linux dans un plan Consommation.
 
-* **Flux de métriques temps réel**  : quand votre application de fonction est [connectée à Application Insights](configure-monitoring.md#enable-application-insights-integration), vous pouvez voir les données des journaux et d’autres métriques en quasi temps réel dans le portail Azure avec [Flux de métriques temps réel](../azure-monitor/app/live-stream.md). Appliquez cette méthode lors de la supervision de fonctions s’exécutant sur plusieurs instances ou sur Linux dans un plan Consommation. Cette méthode utilise des [données échantillonnées](configure-monitoring.md#configure-sampling).
+* **Flux de métriques temps réel** : quand votre application de fonction est [connectée à Application Insights](configure-monitoring.md#enable-application-insights-integration), vous pouvez voir les données des journaux et d’autres métriques en quasi temps réel dans le portail Azure avec [Flux de métriques temps réel](../azure-monitor/app/live-stream.md). Appliquez cette méthode lors de la supervision de fonctions s’exécutant sur plusieurs instances ou sur Linux dans un plan Consommation. Cette méthode utilise des [données échantillonnées](configure-monitoring.md#configure-sampling).
 
 Les flux de journaux peuvent être affichés à la fois dans le portail et dans la plupart des environnements de développement locaux. Pour savoir comment activer les flux de journalisation, consultez [Activer les journaux d’exécution avec diffusion en continu dans Azure Functions](streaming-logs.md).
 

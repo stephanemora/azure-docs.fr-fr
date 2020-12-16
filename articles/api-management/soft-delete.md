@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vladvino
 ms.author: apimpm
 ms.date: 11/27/2020
-ms.openlocfilehash: fca98414a87f3b8a4f3c0969a28ee95c7ed47dc3
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 72e91715398b4920c62afae5f36aa09954a577f9
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96501293"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97092140"
 ---
 # <a name="api-management-soft-delete-preview"></a>Suppression réversible de Gestion des API (version préliminaire)
 
@@ -48,7 +48,7 @@ Si votre instance APIM n’est pas récupérée dans les 48 heures, elle sera s
 
 ## <a name="list-deleted-apim-instances"></a>Répertorier les instances APIM supprimées
 
-Vous pouvez vérifier qu’une instance APIM supprimée de manière réversible est disponible pour la restauration (annulation de suppression) à l’aide des opérations des services supprimés [Récupérer par nom](/rest/api/apimanagement/2020-06-01-preview/deletedservices/getbyname) ou [Lister par abonnement](/deletedservices/listbysubscription).
+Vous pouvez vérifier qu’une instance APIM supprimée de manière réversible est disponible pour la restauration (annulation de suppression) à l’aide des opérations des services supprimés [Récupérer par nom](/rest/api/apimanagement/2020-06-01-preview/deletedservices/getbyname) ou [Lister par abonnement](/rest/api/apimanagement/2020-06-01-preview/deletedservices/listbysubscription).
 
 ### <a name="get-a-soft-deleted-instance-by-name"></a>Récupérer une instance supprimée de manière réversible par nom
 
@@ -76,7 +76,7 @@ S’il est disponible pour l’annulation de la suppression, Azure renvoie un en
 
 ### <a name="list-all-soft-deleted-instances-for-a-given-subscription"></a>Répertorier toutes les instances supprimées de manière réversible pour un abonnement donné
 
-Utilisez l’opération [Lister par abonnement](/deletedservices/listbysubscription) de Gestion des API, en remplaçant `{subscriptionId}` par votre ID d’abonnement :
+Utilisez l’opération [Lister par abonnement](/rest/api/apimanagement/2020-06-01-preview/deletedservices/listbysubscription) de Gestion des API, en remplaçant `{subscriptionId}` par votre ID d’abonnement :
 
 ```rest
 GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.ApiManagement/deletedservices?api-version=2020-06-01-preview

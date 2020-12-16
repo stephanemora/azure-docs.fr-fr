@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 333bb42643539cedec04d37680749c749a003536
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: cf0437b985865248393e9f68da264fcae5af7f12
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994058"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108550"
 ---
 # <a name="tutorial-for-configuring-arkose-labs-with-azure-active-directory-b2c"></a>Tutoriel pour la configuration d’Arkose Labs avec Azure Active Directory B2C
 
@@ -147,7 +147,7 @@ Téléchargez Git Bash et procédez comme suit :
 
 1. Créez un flux utilisateur basé sur [ces](tutorial-create-user-flows.md) informations. Arrêtez quand vous atteignez la section **Tester le flux utilisateur**.
 
-2. Activez JavaScript dans votre [flux utilisateur](user-flow-javascript-overview.md).
+2. Activez JavaScript dans votre [flux utilisateur](javascript-and-page-layout.md).
 
 3. Dans la même page du flux utilisateur, activez l’URL de page personnalisée : Accédez à **Flux utilisateur** > **mise en page** > **utiliser un contenu de page personnalisée** = **oui** > **insérer une URL de page personnalisée**.
 Cette URL de page personnalisée est obtenue à partir de l’emplacement du fichier index.html dans le stockage Blob  

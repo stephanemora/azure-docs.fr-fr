@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - 'Role: IoT Device'
 - 'Role: Cloud Development'
-ms.openlocfilehash: 4e914b7b49393964f17cc6d9515cb2f4a3bebd2e
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 9921ed500f831f2a002335fe83eae8f1bb47ecd4
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499983"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095336"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>Comprendre et utiliser les kits Azure IoT Hub SDK
 
@@ -59,7 +59,7 @@ Azure IoT Hub device SDK pour Embedded C (ANSI C - C99) :
 * [Générer le kit SDK Embedded C](https://github.com/Azure/azure-sdk-for-c/tree/master/sdk/docs/iot#build)
 * [Code source](https://github.com/Azure/azure-sdk-for-c)
 * [Graphique des tailles](https://github.com/Azure/azure-sdk-for-c/tree/master/sdk/docs/iot#size-chart) pour des appareils avec contraintes.
-* [Informations de référence sur l'API](https://azuresdkdocs.blob.core.windows.net/$web/c/docs/1.0.0/index.html)
+* [Informations de référence sur l'API](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.Identity/1.0.0/api/index.html)
 
 
 Azure IoT Hub device SDK pour C (ANSI C - C99) :

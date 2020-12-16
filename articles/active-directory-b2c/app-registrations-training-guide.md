@@ -11,12 +11,12 @@ ms.date: 05/25/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 16b5814835ec5cad6b66087fee37676155196339
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 7c9e3344ed819f607feeab88ac43a9dc286a61e0
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94952078"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109094"
 ---
 # <a name="the-new-app-registrations-experience-for-azure-active-directory-b2c"></a>Nouvelle expérience d’inscriptions d’applications pour Azure Active Directory B2C
 
@@ -63,7 +63,7 @@ Dans l’expérience héritée, les applications étaient toujours créées en t
 > [!NOTE]
 > Cette option est requise pour pouvoir exécuter les flux d’utilisateurs Azure AD B2C afin d’authentifier les utilisateurs de cette application. Découvrez [comment inscrire une application pour l’utiliser avec des flux d’utilisateurs](tutorial-register-applications.md).
 
-Vous pouvez également recourir à cette option pour utiliser Azure AD B2C en tant que fournisseur de services SAML. [Plus d’informations](identity-provider-adfs2016-custom.md)
+Vous pouvez également recourir à cette option pour utiliser Azure AD B2C en tant que fournisseur de services SAML. [Plus d’informations](identity-provider-adfs.md)
 
 ## <a name="applications-for-devops-scenarios"></a>Applications pour les scénarios DevOps
 Vous pouvez utiliser les autres types de comptes pour créer une application permettant de gérer vos scénarios DevOps, par exemple en utilisant Microsoft Graph pour charger des stratégies Identity Experience Framework ou approvisionner des utilisateurs. Découvrez [comment inscrire une application Microsoft Graph pour gérer les ressources Azure AD B2C](microsoft-graph-get-started.md).
@@ -97,7 +97,7 @@ Dans la nouvelle expérience, au lieu du panneau **Clés**, vous utilisez le pan
 ## <a name="features-not-applicable-in-azure-ad-b2c-tenants"></a>Fonctionnalités non disponibles dans les locataires Azure AD B2C
 Les capacités d’inscriptions d’applications Azure AD suivantes ne s’appliquent pas aux locataires Azure AD B2C :
 - **Rôles et administrateurs** : non disponible actuellement pour Azure AD B2C.
-- **Personnalisation** : la personnalisation de l’interface utilisateur et de l’expérience utilisateur est configurée dans l’expérience **Personnalisation de l’entreprise** ou dans le cadre d’un flux d’utilisateurs. Apprenez à [personnaliser l’interface utilisateur dans Azure Active Directory B2C](customize-ui-overview.md).
+- **Personnalisation** : la personnalisation de l’interface utilisateur et de l’expérience utilisateur est configurée dans l’expérience **Personnalisation de l’entreprise** ou dans le cadre d’un flux d’utilisateurs. Apprenez à [personnaliser l’interface utilisateur dans Azure Active Directory B2C](customize-ui-with-html.md).
 - **Vérification du domaine de l’éditeur** : votre application est inscrite sur *.onmicrosoft.com*, qui n’est pas un domaine vérifié. En outre, le domaine de l’éditeur est principalement utilisé pour accorder le consentement de l’utilisateur, qui ne s’applique pas aux applications Azure AD B2C pour l’authentification des utilisateurs. [En savoir plus sur le domaine de l’éditeur](../active-directory/develop/howto-configure-publisher-domain.md).
 - **Configuration de jeton** : le jeton est configuré dans le cadre d’un flux d’utilisateurs plutôt que dans une application.
 - L’expérience **Démarrages rapides** n’est actuellement pas disponible pour les locataires Azure AD B2C.
@@ -116,5 +116,5 @@ Pour prendre en main la nouvelle expérience d’inscriptions d’applications 
 * Découvrez [comment inscrire une API web](add-web-api-application.md).
 * Découvrez [comment inscrire une application cliente native](add-native-application.md).
 * Découvrez [comment inscrire une application Microsoft Graph pour gérer les ressources Azure AD B2C](microsoft-graph-get-started.md).
-* Découvrez [comment utiliser Azure AD B2C en tant que fournisseur de services SAML](identity-provider-adfs2016-custom.md).
+* Découvrez [comment utiliser Azure AD B2C en tant que fournisseur de services SAML](identity-provider-adfs.md).
 * En savoir plus sur les [types d’applications](application-types.md).
