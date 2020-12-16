@@ -1,17 +1,17 @@
 ---
 title: API REST Azure App Configuration – Cohérence
 description: Pages de référence pour garantir la cohérence en temps réel à l’aide de l’API REST Azure App Configuration
-author: lisaguthrie
-ms.author: lcozzens
+author: AlexandraKemperMS
+ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: db9553c2c9c79a6beb9c66d0cb1a1a60435b2abd
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: b324d23ce9abc1eb3893f316365aff828de2063d
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95253335"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932623"
 ---
 # <a name="real-time-consistency"></a>Cohérence en temps réel
 

@@ -7,12 +7,12 @@ ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 11/19/2020
 tags: connectors
-ms.openlocfilehash: b8f95e7e173dd6d1ad43301aab8ff3ec7cf78018
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 4997853fea97d14491bd9e9101f79f324807a6a1
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94980998"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920822"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Recevoir des requêtes HTTPS entrantes et y répondre dans Azure Logic Apps
 
@@ -42,7 +42,7 @@ Pour plus d’informations sur la sécurité, l’autorisation et le chiffrement
 
 Ce déclencheur intégré crée un point de terminaison manuellement appelable qui peut gérer *uniquement* des requêtes entrantes sur HTTPS. Quand un appelant envoie une requête à ce point de terminaison, le [déclencheur de requête](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) déclenche et exécute l’application logique. Pour plus d’informations sur la manière d’appeler ce déclencheur, consultez [Appeler, déclencher ou imbriquer des workflows avec des points de terminaison HTTPS dans Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
 
-Votre application logique garde une requête entrante ouverte seulement pendant une [durée limitée](../logic-apps/logic-apps-limits-and-config.md#request-limits). En supposant que votre application logique inclue une [action de réponse](#add-response), si elle ne renvoie pas de réponse à l’appelant une fois ce délai écoulé, elle lui renvoie un état `504 GATEWAY TIMEOUT`. Si votre application logique n’inclut pas d’action Réponse, votre application logique renvoie immédiatement un état `202 ACCEPTED` à l’appelant.
+Votre application logique garde une requête entrante ouverte seulement pendant une [durée limitée](../logic-apps/logic-apps-limits-and-config.md#http-limits). En supposant que votre application logique inclue une [action de réponse](#add-response), si elle ne renvoie pas de réponse à l’appelant une fois ce délai écoulé, elle lui renvoie un état `504 GATEWAY TIMEOUT`. Si votre application logique n’inclut pas d’action Réponse, votre application logique renvoie immédiatement un état `202 ACCEPTED` à l’appelant.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com). Créez une application logique vide.
 
@@ -179,7 +179,7 @@ Votre application logique garde une requête entrante ouverte seulement pendant 
 
    Par exemple, vous pouvez répondre à la demande en [ajoutant une action Réponse](#add-response), que vous pouvez utiliser pour renvoyer une réponse personnalisée et qui est décrite plus loin dans cette rubrique.
 
-   Votre application logique garde la requête entrante ouverte seulement pendant une [durée limitée](../logic-apps/logic-apps-limits-and-config.md#request-limits). En supposant que votre flux de travail d’application logique inclue une action Réponse, si l’application logique ne renvoie pas de réponse une fois ce délai écoulé, votre application logique renvoie un `504 GATEWAY TIMEOUT` à l’appelant. Dans le cas contraire, si votre application logique n’inclut pas d’action Réponse, votre application logique renvoie immédiatement une réponse `202 ACCEPTED` à l’appelant.
+   Votre application logique garde la requête entrante ouverte seulement pendant une [durée limitée](../logic-apps/logic-apps-limits-and-config.md#http-limits). En supposant que votre flux de travail d’application logique inclue une action Réponse, si l’application logique ne renvoie pas de réponse une fois ce délai écoulé, votre application logique renvoie un `504 GATEWAY TIMEOUT` à l’appelant. Dans le cas contraire, si votre application logique n’inclut pas d’action Réponse, votre application logique renvoie immédiatement une réponse `202 ACCEPTED` à l’appelant.
 
 1. Lorsque vous avez terminé, enregistrez votre application logique. Dans la barre d’outils du Concepteur, sélectionnez **Enregistrer**.
 

@@ -11,22 +11,37 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 506f6a2025a61b4d9d16918b2a95de620171c46b
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 9f81d059c1a71bf6349d0ef9b4aae8f7a47c161f
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147852"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938781"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Configurer un appareil IoT Edge en tant que passerelle transparente
 
 Cet article donne des instructions détaillées pour configurer un appareil IoT Edge comme passerelle transparente permettant à d’autres appareils de communiquer avec IoT Hub. Cet article utilise le terme *passerelle ioT Edge* pour désigner un appareil IoT Edge configuré comme passerelle transparente. Pour plus d’informations, consultez [Guide pratique pour utiliser un appareil IoT Edge en tant que passerelle](./iot-edge-as-gateway.md).
+
+<!-- 1.0.10 -->
+::: moniker range="iotedge-2018-06"
 
 >[!NOTE]
 >Actuellement :
 >
 > * Les appareils Edge ne peuvent pas se connecter aux passerelles IoT Edge.
 > * Les appareils en aval ne peuvent pas utiliser le chargement de fichier.
+
+::: moniker-end
+
+<!-- 1.2.0 -->
+::: moniker range=">=iotedge-2020-11"
+
+>[!NOTE]
+>Actuellement :
+>
+> * Les appareils en aval ne peuvent pas utiliser le chargement de fichier.
+
+::: moniker-end
 
 La configuration d’une connexion de passerelle transparente s’effectue en trois grandes étapes. Cet article décrit la première étape :
 
@@ -86,9 +101,9 @@ Pour les scénarios de production, vous devez générer ces fichiers avec votre 
    * Linux : `/etc/iotedge/config.yaml`
 
 4. Recherchez la section **Paramètres de certificat** du fichier. Supprimez les quatre lignes démarrant avec **certificats:** et fournissez les URI de vos trois fichiers en tant que valeurs pour les propriétés suivantes :
-   * **device_ca_cert**  : certificat d’autorité de certification d’appareil
-   * **device_ca_pk**  : Clé privée d’autorité de certification d’appareil
-   * **trusted_ca_certs**  : certificat d’autorité de certification racine
+   * **device_ca_cert** : certificat d’autorité de certification d’appareil
+   * **device_ca_pk** : Clé privée d’autorité de certification d’appareil
+   * **trusted_ca_certs** : certificat d’autorité de certification racine
 
    Vérifiez que la ligne **certificates:** n’est pas précédée d’un espace et que les autres lignes sont mis en retrait de deux espaces.
 
@@ -116,13 +131,13 @@ Pour déployer le module IoT Edge Hub et le configurer avec des itinéraires pou
 
 2. Accédez à **IoT Edge** et sélectionnez l’appareil IoT Edge à utiliser comme passerelle.
 
-3. Sélectionnez **Définir modules** .
+3. Sélectionnez **Définir modules**.
 
-4. Sur la page **Modules** , vous pouvez ajouter tous les modules que vous souhaitez déployer sur l'appareil de passerelle. Pour les besoins de cet article, nous nous concentrons sur la configuration et le déploiement du module edgeHub, qui n'a pas besoin d'être défini explicitement sur cette page.
+4. Sur la page **Modules**, vous pouvez ajouter tous les modules que vous souhaitez déployer sur l'appareil de passerelle. Pour les besoins de cet article, nous nous concentrons sur la configuration et le déploiement du module edgeHub, qui n'a pas besoin d'être défini explicitement sur cette page.
 
-5. Sélectionnez **Suivant : Itinéraires** .
+5. Sélectionnez **Suivant : Itinéraires**.
 
-6. Sur la page **Itinéraires** , assurez-vous qu'il existe un itinéraire pour gérer les messages provenant d'appareils situés en aval. Par exemple :
+6. Sur la page **Itinéraires**, assurez-vous qu'il existe un itinéraire pour gérer les messages provenant d'appareils situés en aval. Par exemple :
 
    * Un itinéraire qui envoie à IoT Hub tous les messages provenant d'un module ou d'un appareil situé en aval :
        * **Nom** : `allMessagesToHub`
@@ -136,9 +151,9 @@ Pour déployer le module IoT Edge Hub et le configurer avec des itinéraires pou
 
       Pour plus d’informations sur le routage des messages, consultez [Déployer des modules et établir des itinéraires](./module-composition.md#declare-routes).
 
-7. Une fois votre ou vos itinéraires créés, sélectionnez **Vérifier + créer** .
+7. Une fois votre ou vos itinéraires créés, sélectionnez **Vérifier + créer**.
 
-8. Dans la page **Vérifier + créer** , sélectionnez **Créer** .
+8. Dans la page **Vérifier + créer**, sélectionnez **Créer**.
 
 ## <a name="open-ports-on-gateway-device"></a>Ouvrir des ports sur l’appareil de passerelle
 

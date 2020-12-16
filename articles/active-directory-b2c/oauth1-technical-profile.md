@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6b54cff85da02415bbc9dfa9ead037ced48cb58f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7a2cbca8c02dcbfc0e59d31040d1fca7a790cd35
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91259422"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96936656"
 ---
 # <a name="define-an-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique OAuth1 dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -92,4 +92,4 @@ Lorsque vous configurez l’URI de redirection de votre fournisseur d’identit�
 
 Exemples :
 
-- [Ajouter Twitter en tant que fournisseur d’identité OAuth1 à l’aide de stratégies personnalisées](identity-provider-twitter-custom.md)
+- [Ajouter Twitter en tant que fournisseur d’identité OAuth1 à l’aide de stratégies personnalisées](identity-provider-twitter.md)

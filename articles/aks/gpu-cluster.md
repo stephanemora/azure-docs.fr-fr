@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 08/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: f631f8ee022f501cb30af4aae5cf48294b9ca3c2
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: d7e312f049acc0b74aa0a253864bfce6100044bd
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93125833"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929138"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>Utiliser des GPU pour les charges de travail nécessitant beaucoup de ressources système sur Azure Kubernetes Service (AKS)
 
@@ -58,7 +58,7 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 
 Avant de pouvoir utiliser les GPU dans les nœuds, vous devez déployer un DaemonSet pour le plug-in d’appareil NVIDIA. Ce DaemonSet exécute un pod sur chaque nœud de façon à fournir les pilotes requis pour les GPU.
 
-Commencez par créer un espace de noms avec la commande [kubectl create namespace][kubectl-create], par exemple, *gpu-ressources*  :
+Commencez par créer un espace de noms avec la commande [kubectl create namespace][kubectl-create], par exemple, *gpu-ressources* :
 
 ```console
 kubectl create namespace gpu-resources
@@ -134,13 +134,13 @@ Inscrivez la fonctionnalité `GPUDedicatedVHDPreview` :
 az feature register --name GPUDedicatedVHDPreview --namespace Microsoft.ContainerService
 ```
 
-Quelques minutes peuvent être nécessaires pour que l’état **Inscrit** s’affiche. Vous pouvez vérifier l’état de l’inscription à l’aide de la commande [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list) :
+Quelques minutes peuvent être nécessaires pour que l’état **Inscrit** s’affiche. Vous pouvez vérifier l’état de l’inscription à l’aide de la commande [az feature list](/cli/azure/feature#az-feature-list) :
 
 ```azurecli
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/GPUDedicatedVHDPreview')].{Name:name,State:properties.state}"
 ```
 
-Quand l’état indique Inscrit, actualisez l’inscription du fournisseur de ressources `Microsoft.ContainerService` à l’aide de la commande [az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register) :
+Quand l’état indique Inscrit, actualisez l’inscription du fournisseur de ressources `Microsoft.ContainerService` à l’aide de la commande [az provider register](/cli/azure/provider#az-provider-register) :
 
 ```azurecli
 az provider register --namespace Microsoft.ContainerService
@@ -196,7 +196,7 @@ NAME                       STATUS   ROLES   AGE   VERSION
 aks-nodepool1-28993262-0   Ready    agent   13m   v1.12.7
 ```
 
-Utilisez maintenant la commande [kubectl describe node][kubectl-describe] pour vérifier que les GPU sont planifiables. Sous la section *Capacité* , le GPU doit apparaître ainsi : `nvidia.com/gpu:  1`.
+Utilisez maintenant la commande [kubectl describe node][kubectl-describe] pour vérifier que les GPU sont planifiables. Sous la section *Capacité*, le GPU doit apparaître ainsi : `nvidia.com/gpu:  1`.
 
 L’exemple condensé suivant montre qu’un GPU est disponible sur le nœud nommé *aks-nodepool1-18821093-0* :
 
@@ -289,7 +289,7 @@ kubectl apply -f samples-tf-mnist-demo.yaml
 
 ## <a name="view-the-status-and-output-of-the-gpu-enabled-workload"></a>Afficher l’état et la sortie de la charge de travail compatible GPU
 
-Surveillez la progression de la tâche avec la commande [kubectl get jobs][kubectl-get] et l’argument `--watch`. L’extraction de l’image, puis le traitement du jeu de données peuvent prendre quelques minutes. Lorsque la colonne *COMPLETIONS* affiche *1/1* , la tâche est terminée. Quitter la commande `kubetctl --watch` avec *Ctrl-C* :
+Surveillez la progression de la tâche avec la commande [kubectl get jobs][kubectl-get] et l’argument `--watch`. L’extraction de l’image, puis le traitement du jeu de données peuvent prendre quelques minutes. Lorsque la colonne *COMPLETIONS* affiche *1/1*, la tâche est terminée. Quitter la commande `kubetctl --watch` avec *Ctrl-C* :
 
 ```console
 $ kubectl get jobs samples-tf-mnist-demo --watch

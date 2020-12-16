@@ -2,17 +2,17 @@
 title: Azure App Configuration – Questions fréquentes (FAQ)
 description: Lisez les réponses à la foire aux questions (FAQ) sur Azure App Configuration, telles que la façon dont le service diffère d’Azure Key Vault.
 services: azure-app-configuration
-author: lisaguthrie
+author: AlexandraKemperMS
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/19/2020
-ms.author: lcozzens
-ms.openlocfilehash: 5d74b17bdd9c264a983bfdd2e374001dd4a0e2c0
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.author: alkemper
+ms.openlocfilehash: 4e19574e5848d1ee86d13aa02a9cf583b92eff02
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242107"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929563"
 ---
 # <a name="azure-app-configuration-faq"></a>Azure App Configuration – Questions fréquentes (FAQ)
 
@@ -86,15 +86,15 @@ Les deux niveaux App Configuration offrent des fonctionnalités de base, notamme
 
 Voici quelques considérations relatives au choix d'un niveau.
 
-- **Ressources par abonnement**  : Une ressource se compose d’un magasin de configuration unique. Au niveau Gratuit, chaque abonnement est limité à un magasin de configuration. Au niveau Standard, les abonnements ne sont pas limités en termes de magasins de configuration.
-- **Stockage par ressource**  : Au niveau Gratuit, chaque magasin de configuration est limité à 10 Mo de stockage. Au niveau Standard, chaque magasin de configuration peut utiliser jusqu’à 1 Go de stockage.
-- **Historique des révisions**  : App Configuration stocke l'historique des différentes modifications apportées aux clés. Au niveau Gratuit, cet historique est stocké pendant sept jours. Au niveau Standard, cet historique est stocké pendant 30 jours.
-- **Quota de requêtes**  : Au niveau Gratuit, les magasins sont limités à 1 000 requêtes par jour. Lorsqu’un magasin atteint 1 000 requêtes, il renvoie le code d’état HTTP 429 pour toutes les requêtes jusqu’à minuit UTC.
+- **Ressources par abonnement** : Une ressource se compose d’un magasin de configuration unique. Au niveau Gratuit, chaque abonnement est limité à un magasin de configuration. Au niveau Standard, les abonnements ne sont pas limités en termes de magasins de configuration.
+- **Stockage par ressource** : Au niveau Gratuit, chaque magasin de configuration est limité à 10 Mo de stockage. Au niveau Standard, chaque magasin de configuration peut utiliser jusqu’à 1 Go de stockage.
+- **Historique des révisions** : App Configuration stocke l'historique des différentes modifications apportées aux clés. Au niveau Gratuit, cet historique est stocké pendant sept jours. Au niveau Standard, cet historique est stocké pendant 30 jours.
+- **Quota de requêtes** : Au niveau Gratuit, les magasins sont limités à 1 000 requêtes par jour. Lorsqu’un magasin atteint 1 000 requêtes, il renvoie le code d’état HTTP 429 pour toutes les requêtes jusqu’à minuit UTC.
 
     Au niveau Standard, les magasins sont limités à 20 000 requêtes par heure. Lorsque le quota est épuisé, le code d’état HTTP 429 est renvoyé pour toutes les requêtes jusqu’à la fin de l’heure.
 
-- **Contrat de niveau de service**  : Le niveau Standard présente un contrat de niveau de service garantissant une disponibilité de 99,9 %. Le niveau Gratuit ne présente aucun contrat de niveau de service.
-- **Fonctionnalités de sécurité**  : Les deux niveaux incluent des fonctionnalités de sécurité de base, parmi lesquelles le chiffrement avec des clés gérées par Microsoft, l’authentification via HMAC ou Azure Active Directory, la prise en charge d’Azure RBAC, l’identité managée et les étiquettes de service. Le niveau Standard offre des fonctionnalités de sécurité plus avancées, notamment la prise en charge d'Azure Private Link et le chiffrement avec des clés managées par le client.
+- **Contrat de niveau de service** : Le niveau Standard présente un contrat de niveau de service garantissant une disponibilité de 99,9 %. Le niveau Gratuit ne présente aucun contrat de niveau de service.
+- **Fonctionnalités de sécurité** : Les deux niveaux incluent des fonctionnalités de sécurité de base, parmi lesquelles le chiffrement avec des clés gérées par Microsoft, l’authentification via HMAC ou Azure Active Directory, la prise en charge d’Azure RBAC, l’identité managée et les étiquettes de service. Le niveau Standard offre des fonctionnalités de sécurité plus avancées, notamment la prise en charge d'Azure Private Link et le chiffrement avec des clés managées par le client.
 - **Coût** : Au niveau Standard, les magasins génèrent des frais d’utilisation quotidiens. Chaque jour, les 200 000 premières requêtes sont comprises dans les frais quotidiens. Au-delà de l'allocation quotidienne, les requêtes génèrent aussi des frais de dépassement. Au niveau Gratuit, l'utilisation d'un magasin ne génère pas de frais.
 
 ## <a name="can-i-upgrade-a-store-from-the-free-tier-to-the-standard-tier-can-i-downgrade-a-store-from-the-standard-tier-to-the-free-tier"></a>Puis-je passer un magasin du niveau Gratuit au niveau Standard ? Puis-je passer un magasin du niveau Standard au niveau Gratuit ?

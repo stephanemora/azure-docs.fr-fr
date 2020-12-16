@@ -4,12 +4,12 @@ description: Configurez des tests web dans Application Insights. Recevez des ale
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 56644a4eb2f91dcce3bc2ee557542da75408ca83
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 82b433407906c09d38a46c842334153525fb3c17
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93075141"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007923"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>Superviser la disponibilité d’un site web
 
@@ -49,7 +49,7 @@ Pour créer votre première demande de disponibilité, ouvrez le volet Disponibi
 |**Analyser les demandes dépendantes**| Le test demande des images, des scripts, des fichiers de style et d’autres fichiers qui font partie de la page web de test. Le temps de réponse enregistré inclut le temps qui a été nécessaire pour obtenir ces fichiers. Le test échoue si l’une de ces ressources ne peut pas être téléchargée avec succès dans le délai imparti pour l’ensemble du test. Si l’option n’est pas cochée, le test ne demande que le fichier à l’URL spécifiée. L’activation de cette option donne lieu à une vérification plus stricte. Le test peut échouer pour les cas difficiles à remarquer en parcourant le site manuellement.
 |**Autoriser les nouvelles tentatives**|Une nouvelle tentative de test est effectuée peu de temps après l’échec du test. L’échec est signalé uniquement après trois tentatives infructueuses. Les tests suivants sont ensuite effectués selon la fréquence de test habituelle. La nouvelle tentative est temporairement suspendue jusqu’à la réussite de la tentative suivante. Cette règle est appliquée indépendamment à chaque emplacement de test. **Nous recommandons cette option.** En moyenne, environ 80 % des échecs disparaissent lors de la nouvelle tentative.|
 |**Fréquence de test**| définit la fréquence selon laquelle le test est exécuté à partir de chaque emplacement de test. Avec, par défaut, une fréquence de cinq minutes et cinq emplacements de test, votre site sera testé en moyenne une fois par minute.|
-|**Emplacements du test**| Ce sont les lieux d’où nos serveurs envoient des requêtes web à votre URL. **Nous recommandons d’utiliser au moins cinq emplacements de test** , afin de pouvoir faire la distinction entre les problèmes propres à votre site web et les problèmes de réseau. Vous pouvez sélectionner jusqu’à 16 emplacements.
+|**Emplacements du test**| Ce sont les lieux d’où nos serveurs envoient des requêtes web à votre URL. **Nous recommandons d’utiliser au moins cinq emplacements de test**, afin de pouvoir faire la distinction entre les problèmes propres à votre site web et les problèmes de réseau. Vous pouvez sélectionner jusqu’à 16 emplacements.
 
 **Si votre URL n’est pas visible à partir de l’Internet public, vous pouvez choisir une ouverture sélective de votre pare-feu pour autoriser uniquement les transactions entrantes à des fins de test**. Pour en savoir plus sur les exceptions de pare-feu applicables à nos agents de test de disponibilité, consultez le [guide des adresses IP](./ip-addresses.md#availability-tests).
 
@@ -60,7 +60,7 @@ Pour créer votre première demande de disponibilité, ouvrez le volet Disponibi
 
 |Paramètre| Explication
 |----|----|----|
-| **Délai d’expiration du test** |diminuez cette valeur pour être averti des réponses lentes. Le test est compté comme une erreur si des réponses de votre site n’ont pas été reçues pendant cette période. Si vous avez sélectionné **Analyser les demandes dépendantes** , l’ensemble des images, fichiers de style, scripts et autres ressources dépendantes ont dû être reçus pendant cette période.|
+| **Délai d’expiration du test** |diminuez cette valeur pour être averti des réponses lentes. Le test est compté comme une erreur si des réponses de votre site n’ont pas été reçues pendant cette période. Si vous avez sélectionné **Analyser les demandes dépendantes**, l’ensemble des images, fichiers de style, scripts et autres ressources dépendantes ont dû être reçus pendant cette période.|
 | **Réponse HTTP** | le code d’état retourné est comptabilisé comme un succès. 200 est le code qui indique qu’une page web normale a été retournée.|
 | **Correspondance du contenu** | Chaîne telle que « Bienvenue ! » Nous vérifions qu’une correspondance exacte respectant la casse est présente dans chaque réponse. Il doit s'agir d'une chaîne standard sans caractère générique. N'oubliez pas que si votre contenu change, vous devrez peut-être l'actualiser. **La correspondance de contenu est prise en charge uniquement pour les caractères anglais** |
 
@@ -85,20 +85,6 @@ Les étiquettes de remplissage suivantes peuvent être utilisées pour l’attri
 | Gouvernement des États-Unis - Texas    | usgov-tx-azr        |
 | USDoD Est     | usgov-ddeast-azr    |
 | US DoD - Centre  | usgov-ddcentral-azr |
-
-#### <a name="us-sec"></a>US Sec
-
-| Nom d’affichage | Nom du remplissage |
-|--------------|-----------------|
-| USSec Ouest   | ussec-west-azr  |
-| USSec Est   | ussec-east-azr  |
-
-#### <a name="us-nat"></a>US Nat
-
-| Nom d’affichage | Nom du remplissage |
-|--------------|-----------------|
-| USNat East   | usnat-east-azr  |
-| USNat West   | usnat-west-azr  |
 
 #### <a name="azure"></a>Azure
 

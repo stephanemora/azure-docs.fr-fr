@@ -3,11 +3,11 @@ title: File d’attente de stockage en tant que gestionnaire d’événements po
 description: Décrit comment utiliser des files d’attente de stockage Azure en tant que gestionnaires d’événements pour des événements Azure Event Grid.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: fdbc292f066a3eb06f17fd144d26d484d2a25f21
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 502b44f276253be69362424c9de0fd516d20ad9a
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 12/15/2020
 ms.locfileid: "91270183"
 ---
 # <a name="storage-queue-as-an-event-handler-for-azure-event-grid-events"></a>File d’attente de stockage en tant que gestionnaire d’événements pour des événements Azure Event Grid
@@ -136,9 +136,6 @@ Consultez le tutoriel suivant pour obtenir un exemple d’utilisation d’un Sto
     }
 }
 ```
-
-> [!NOTE]
-> La transmission d’événements à une file d’attente de Stockage Azure dans **un autre locataire** n’est pas prise en charge. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir la liste des gestionnaires d’événements pris en charge, consultez l’article [Gestionnaires d’événements](event-handlers.md). 

@@ -3,14 +3,14 @@ title: Guide pratique pour créer des déploiements de mises à jour pour Azure 
 description: Cet article explique comment planifier des déploiements de mises à jour et vérifier leur état.
 services: automation
 ms.subservice: update-management
-ms.date: 10/27/2020
+ms.date: 12/09/2020
 ms.topic: conceptual
-ms.openlocfilehash: 41ccecfb844f11a0d234271bcddc1851d3c02fda
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: ec0d6d618edad87b76861ea834adb2f29531e6f5
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742289"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929665"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>Guide pratique pour déployer des mises à jour et voir les résultats
 
@@ -20,7 +20,7 @@ Dans chaque scénario, le déploiement que vous créez cible l’ordinateur ou l
 
 * Le système d’exploitation est automatiquement présélectionné en fonction du système d’exploitation de l’ordinateur.
 * L’ordinateur cible à mettre à jour se définit automatiquement.
-* Lors de la configuration de la planification, vous pouvez spécifier **Mettre à jour maintenant** , Se produit une fois ou Utilise une planification récurrente.
+* Lors de la configuration de la planification, vous pouvez spécifier **Mettre à jour maintenant**, Se produit une fois ou Utilise une planification récurrente.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
@@ -28,7 +28,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com)
 
 ## <a name="schedule-an-update-deployment"></a>Planifier un déploiement de mises à jour
 
-La planification d’un déploiement de mises à jour entraîne la création d’une ressource de [planification](../shared-resources/schedules.md) liée au runbook **Patch-MicrosoftOMSComputers** , qui gère le déploiement des mises à jour sur les ordinateurs cibles. Vous devez planifier un déploiement qui suit votre fenêtre de maintenance et de planification de la mise en production pour installer les mises à jour. Vous pouvez choisir les types de mises à jour à inclure dans le déploiement. Par exemple, vous pouvez inclure des mises à jour critiques ou des correctifs de sécurité et exclure des correctifs cumulatifs.
+La planification d’un déploiement de mises à jour entraîne la création d’une ressource de [planification](../shared-resources/schedules.md) liée au runbook **Patch-MicrosoftOMSComputers**, qui gère le déploiement des mises à jour sur les ordinateurs cibles. Vous devez planifier un déploiement qui suit votre fenêtre de maintenance et de planification de la mise en production pour installer les mises à jour. Vous pouvez choisir les types de mises à jour à inclure dans le déploiement. Par exemple, vous pouvez inclure des mises à jour critiques ou des correctifs de sécurité et exclure des correctifs cumulatifs.
 
 >[!NOTE]
 >Si vous supprimez la ressource de planification dans le Portail Azure ou si vous utilisez PowerShell après la création du déploiement, l’opération de suppression arrête le déploiement de mises à jour planifié. De plus, une erreur est générée quand vous essayez de reconfigurer la ressource de planification à partir du Portail. Vous ne pouvez supprimer la ressource de planification qu’en supprimant la planification de déploiement correspondante.  
@@ -43,32 +43,32 @@ Pour planifier un nouveau déploiement de mises à jour, procédez comme suit. E
 
 2. En fonction de la ressource que vous avez sélectionnée, accédez à Update Management :
 
-   * Si vous avez sélectionné votre compte Automation, accédez à **Update Management** sous **Gestion des mises à jour** , puis sélectionnez **Planifier le déploiement de la mise à jour**.
-   * Si vous avez sélectionné une machine virtuelle Azure, accédez à **Mises à jour de l’hôte et de l’invité** , puis sélectionnez **Accéder à Update Management**.
-   * Si vous avez sélectionné un serveur Arc, accédez à **Update Management** , puis sélectionnez **Planifier le déploiement de la mise à jour**.
+   * Si vous avez sélectionné votre compte Automation, accédez à **Update Management** sous **Gestion des mises à jour**, puis sélectionnez **Planifier le déploiement de la mise à jour**.
+   * Si vous avez sélectionné une machine virtuelle Azure, accédez à **Mises à jour de l’hôte et de l’invité**, puis sélectionnez **Accéder à Update Management**.
+   * Si vous avez sélectionné un serveur Arc, accédez à **Update Management**, puis sélectionnez **Planifier le déploiement de la mise à jour**.
 
-3. Sous **Nouveau déploiement de mises à jour** , dans le champ **Nom** , entrez un nom unique pour votre déploiement.
+3. Sous **Nouveau déploiement de mises à jour**, dans le champ **Nom**, entrez un nom unique pour votre déploiement.
 
 4. Sélectionnez le système d’exploitation à cibler pour le déploiement de mises à jour.
 
     > [!NOTE]
     > Cette option n’est pas disponible si vous avez sélectionné une machine virtuelle Azure ou un serveur Azure Arc. Le système d’exploitation est automatiquement identifié.
 
-5. Dans la section **Groupes à mettre à jour** , définissez une requête qui combine un abonnement, des groupes de ressources, des emplacements et des balises pour créer un groupe dynamique de machines virtuelles Azure à inclure dans votre déploiement. Pour en savoir plus, consultez [Utiliser des groupes dynamiques avec Update Management](configure-groups.md).
+5. Dans la section **Groupes à mettre à jour**, définissez une requête qui combine un abonnement, des groupes de ressources, des emplacements et des balises pour créer un groupe dynamique de machines virtuelles Azure à inclure dans votre déploiement. Pour en savoir plus, consultez [Utiliser des groupes dynamiques avec Update Management](configure-groups.md).
 
     > [!NOTE]
     > Cette option n’est pas disponible si vous avez sélectionné une machine virtuelle Azure ou un serveur Azure Arc. La machine est automatiquement ciblée pour le déploiement planifié.
 
-6. Dans la section **Machines à mettre à jour** , sélectionnez une recherche enregistrée, un groupe importé, ou choisissez **Machines** dans la liste déroulante et sélectionnez des machines spécifiques. Avec cette option, vous pouvez voir la préparation de l’agent Log Analytics pour chaque machine. Pour en savoir plus sur les différentes méthodes de création de groupes d’ordinateurs dans les journaux Azure Monitor, consultez [Groupes d’ordinateurs dans les journaux Azure Monitor](../../azure-monitor/platform/computer-groups.md). Vous pouvez inclure jusqu’à 1000 machines dans un déploiement planifié de mises à jour.
+6. Dans la section **Machines à mettre à jour**, sélectionnez une recherche enregistrée, un groupe importé, ou choisissez **Machines** dans la liste déroulante et sélectionnez des machines spécifiques. Avec cette option, vous pouvez voir la préparation de l’agent Log Analytics pour chaque machine. Pour en savoir plus sur les différentes méthodes de création de groupes d’ordinateurs dans les journaux Azure Monitor, consultez [Groupes d’ordinateurs dans les journaux Azure Monitor](../../azure-monitor/platform/computer-groups.md). Vous pouvez inclure jusqu’à 1000 machines dans un déploiement planifié de mises à jour.
 
     > [!NOTE]
     > Cette option n’est pas disponible si vous avez sélectionné une machine virtuelle Azure ou un serveur Azure Arc. La machine est automatiquement ciblée pour le déploiement planifié.
 
 7. Utilisez la section **Classifications des mises à jour** pour spécifier des [classifications des mises à jour](view-update-assessments.md#work-with-update-classifications) pour les produits. Pour chaque produit, désélectionnez toutes les classifications de mises à jour prises en charge, à l’exception de celles que vous souhaitez inclure dans votre déploiement de mises à jour.
 
-    Si votre déploiement est censé appliquer uniquement un ensemble de mises à jour, il est nécessaire de désélectionner toutes les classifications de mise à jour présélectionnées lors de la configuration de l’option **Inclure/exclure des mises à jour** , comme décrit à l’étape suivante. Cela garantit que seules les mises à jour que vous avez spécifiées comme devant être *incluses* dans ce déploiement sont installées sur les ordinateurs cibles.
+    Si votre déploiement est censé appliquer uniquement un ensemble de mises à jour, il est nécessaire de désélectionner toutes les classifications de mise à jour présélectionnées lors de la configuration de l’option **Inclure/exclure des mises à jour**, comme décrit à l’étape suivante. Cela garantit que seules les mises à jour que vous avez spécifiées comme devant être *incluses* dans ce déploiement sont installées sur les ordinateurs cibles.
 
-8. Utilisez la région **Inclure/exclure des mises à jour** pour ajouter ou exclure des mises à jour sélectionnées du déploiement. Dans la page **Inclure/Exclure** , vous entrez les numéros d’identification des articles de la base de connaissances à inclure ou à exclure pour les mises à jour Windows. Pour les distributions Linux prises en charge, spécifiez le nom du package.
+8. Utilisez la région **Inclure/exclure des mises à jour** pour ajouter ou exclure des mises à jour sélectionnées du déploiement. Dans la page **Inclure/Exclure**, vous entrez les numéros d’identification des articles de la base de connaissances à inclure ou à exclure pour les mises à jour Windows. Pour les distributions Linux prises en charge, spécifiez le nom du package.
 
    > [!IMPORTANT]
    > N’oubliez pas que les exclusions sont prioritaires par rapport aux inclusions. Par exemple, si vous définissez une règle d’exclusion `*`, Update Management exclut tous les correctifs et packages de l’installation. Les correctifs exclus sont toujours affichés comme étant manquants sur les machines. Sur les machines Linux, si vous incluez un package qui a un package dépendant ayant été exclu, Update Management n’installe pas le package principal.
@@ -83,7 +83,7 @@ Pour planifier un nouveau déploiement de mises à jour, procédez comme suit. E
 
 10. Utilisez la **périodicité** pour spécifier si le déploiement se produit une seule fois ou utilise une planification récurrente, puis sélectionnez **OK**.
 
-11. Dans la section **Préscripts + postscripts** , sélectionnez les scripts à exécuter avant et après votre déploiement. Pour plus d’informations, consultez [Gérer des pré-scripts et des post-scripts](pre-post-scripts.md).
+11. Dans la section **Préscripts + postscripts**, sélectionnez les scripts à exécuter avant et après votre déploiement. Pour plus d’informations, consultez [Gérer des pré-scripts et des post-scripts](pre-post-scripts.md).
 
 12. Utilisez le champ **Fenêtre de maintenance (minutes)** afin de spécifier la durée autorisée pour l’installation des mises à jour. Tenez compte des détails suivants au moment de spécifier une fenêtre de maintenance :
 
@@ -129,14 +129,14 @@ Quand le déploiement est terminé, vous pouvez le sélectionner pour voir les r
 
 [ ![Tableau de bord des états de déploiement des mises à jour pour un déploiement spécifique](./media/deploy-updates/manageupdates-view-results.png)](./media/deploy-updates/manageupdates-view-results-expanded.png#lightbox)
 
-Sous **Résultats des mises à jour** , un récapitulatif indique le nombre total de mises à jour et de résultats du déploiement sur les machines virtuelles cibles. Le tableau de droite montre une répartition détaillée des mises à jour et les résultats de l’installation de chacune d’elles.
+Sous **Résultats des mises à jour**, un récapitulatif indique le nombre total de mises à jour et de résultats du déploiement sur les machines virtuelles cibles. Le tableau de droite montre une répartition détaillée des mises à jour et les résultats de l’installation de chacune d’elles.
 
 Les valeurs disponibles sont :
 
-* **Aucune tentative effectuée**  : la mise à jour n’a pas été installée car le temps disponible était insuffisant, d’après la durée de la fenêtre de maintenance définie.
-* **Non sélectionné**  : la mise à jour n’a pas été sélectionnée pour le déploiement.
-* **Réussi**  : la mise à jour a réussi.
-* **Échec**  : la mise à jour a échoué.
+* **Aucune tentative effectuée** : la mise à jour n’a pas été installée car le temps disponible était insuffisant, d’après la durée de la fenêtre de maintenance définie.
+* **Non sélectionné** : la mise à jour n’a pas été sélectionnée pour le déploiement.
+* **Réussi** : la mise à jour a réussi.
+* **Échec** : la mise à jour a échoué.
 
 Pour voir toutes les entrées de journal d’activité créées par le déploiement, sélectionnez **Tous les journaux d’activité**.
 

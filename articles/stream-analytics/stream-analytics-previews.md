@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 8/07/2020
-ms.openlocfilehash: 4179b06759802025f97bd32a355b788c96c9eddb
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: a32491453812d74d4bd93f3f97b7e6a32036f65f
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123318"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573372"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Fonctionnalités d’évaluation Azure Stream Analytics
 
@@ -22,7 +22,7 @@ Cet article résume toutes les fonctionnalités actuellement en préversion pour
 
 Les fonctionnalités suivantes sont disponibles en préversion publique. Vous pouvez tirer parti de ces fonctionnalités aujourd’hui, mais ne les utilisez pas dans votre environnement de production.
 
-### <a name="authenticate-to-sql-database-output-with-managed-identities"></a>S’authentifier auprès de la sortie SQL Database avec des identités managées
+### <a name="authenticate-to-sql-database-output-with-managed-identities-preview"></a>S’authentifier auprès de la sortie SQL Database avec des identités managées (préversion)
 
 Azure Stream Analytics prend en charge l’[authentification des identités managées](../active-directory/managed-identities-azure-resources/overview.md) pour les récepteurs de sortie Azure SQL Database. Les identités managées n’ont pas les limitations des méthodes d’authentification basée sur l’utilisateur, comme la réauthentification obligatoire après un changement de mot de passe. 
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/19/2020
-ms.openlocfilehash: ee9bcedea15b039982e73304a25073c85b496635
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 56c3475ae6a03600723e7a12b3f3809f003ce7c4
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92780051"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922272"
 ---
 # <a name="hyperscale-service-tier"></a>Niveau de service Hyperscale
 
@@ -67,7 +67,7 @@ Le niveau de service Hyperscale prend en charge un large éventail de charges de
 
 Le niveau de service Hyperscale est disponible uniquement dans le [modèle vCore](service-tiers-vcore.md). Pour s’aligner sur la nouvelle architecture, le modèle tarifaire est légèrement différent des niveaux de service Usage général ou Critique pour l’entreprise :
 
-- **Calcul**  :
+- **Calcul** :
 
   Le prix unitaire du calcul Hyperscale est par réplica. Le prix [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) est automatiquement appliqué aux réplicas avec échelle lecture. Par défaut, nous créons un réplica principal et un réplica en lecture seule par base de données Hyperscale.  Les utilisateurs peuvent ajuster le nombre total de réplicas, y compris de réplicas principaux de 1 à 5.
 
@@ -231,7 +231,6 @@ Voici les limitations actuelles du niveau de service Hyperscale depuis la dispon
 | Migration de bases de données avec des objets OLTP en mémoire | Hyperscale prend en charge une partie des objets OLTP en mémoire, notamment les types de tables à mémoire optimisée, les variables de table et les modules compilés en mode natif. Toutefois, lorsqu’un des types d’objets OLTP en mémoire est présent dans la base de données en cours de migration, la migration des niveaux de service Premium et Critique pour l’entreprise vers Hyperscale n’est pas prise en charge. Pour migrer une telle base de données vers Hyperscale, tous les objets OLTP en mémoire et leurs dépendances doivent être supprimés. Une fois la base de données migrée, ces objets peuvent être recréés. Les tables à mémoire optimisée durables et non durables ne sont actuellement pas prises en charge dans Hyperscale et doivent être recréées en tant que tables de disques.|
 | Géo-réplication  | Vous ne pouvez pas encore configurer la géo-réplication pour Azure SQL Database Hyperscale. |
 | Copie de base de données | La copie de base de données sur Hyperscale est désormais en préversion publique. |
-| Intégration du chiffrement transparent des données (TDE) avec Azure Key Vault | Le chiffrement TDE (Transparent Data Encryption) à l'aide d'Azure Key Vault (communément appelé Bring-Your-Own-Key ou BYOK) est actuellement disponible en préversion publique. |
 | Fonctionnalités de base de données intelligente | À l'exception de l'option « Forcer le plan », aucune option de réglage automatique n'est encore prise en charge sur Hyperscale : les options peuvent sembler activées, mais aucune recommandation ou action ne sera effectuée. |
 | Query Performance Insight | Query Performance Insights n’est actuellement pas pris en charge pour les bases de données Hyperscale. |
 | Réduire la base de données | DBCC SHRINKDATABASE ou DBCC SHRINKFILE n’est pas pris en charge actuellement pour les bases de données Hyperscale. |

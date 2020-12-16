@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 08/14/2019
 ms.reviewer: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 653110b953b6947254d5063a9e389505d45ea4cb
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: e5793d21f27128162095e2d86e13006c5b6e7b7c
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149028"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007991"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Configurer les informations d’identification de déploiement pour Azure App Service
 [Azure App Service](./overview.md) prend en charge deux types d’informations d’identification pour le [déploiement Git local](deploy-local-git.md) et le [déploiement FTP/S](deploy-ftp.md). Ces informations d’identification ne sont pas les mêmes que les informations d’identification de votre abonnement Azure.
@@ -23,7 +23,7 @@ Vous pouvez configurer vos informations d’identification au niveau de l’util
 
 ### <a name="in-the-cloud-shell"></a>Dans Cloud Shell
 
-Pour configurer l’utilisateur de déploiement dans [Cloud Shell](https://shell.azure.com), exécutez la commande [az webapp deployment user set](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set). Remplacez \<username> et \<password> par un nom d’utilisateur et un mot de passe de déploiement. 
+Pour configurer l’utilisateur de déploiement dans [Cloud Shell](https://shell.azure.com), exécutez la commande [az webapp deployment user set](/cli/azure/webapp/deployment/user#az-webapp-deployment-user-set). Remplacez \<username> et \<password> par un nom d’utilisateur et un mot de passe de déploiement. 
 
 - Le nom d’utilisateur doit être unique dans Azure et, pour les push Git locaux, ne doit pas contenir le symbole « @ ». 
 - Le mot de passe doit comporter au moins huit caractères et inclure deux des trois éléments suivants : lettres, chiffres et symboles. 
@@ -96,7 +96,7 @@ Pour désactiver l’accès d’authentification de base au port WebDeploy et au
 az resource update --resource-group <resource-group> --name scm --namespace Microsoft.Web --resource-type basicPublishingCredentialsPolicies --parent sites/<site-name> --set properties.allow=false
 ```
 
-Pour confirmer que les informations d’identification du profil de publication sont bloquées sur WebDeploy, essayez de [publier une application web à l’aide de Visual Studio 2019](/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+Pour confirmer que les informations d’identification du profil de publication sont bloquées sur WebDeploy, essayez de [publier une application web à l’aide de Visual Studio 2019](/visualstudio/deployment/quickstart-deploy-to-azure).
 
 ### <a name="disable-access-to-the-api"></a>Désactiver l’accès à l’API
 

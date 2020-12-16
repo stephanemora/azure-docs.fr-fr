@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf91c9e081bff9860153b342648fedc0990b68b9
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 1d634978333e2b833324228fb0908cfba61a786d
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96862055"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96919740"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorisations des rôles d’administrateur dans Azure Active Directory
 
@@ -1016,6 +1016,7 @@ Peut lire et écrire des informations d’annuaire de base. Pour accorder l’ac
 | microsoft.directory/users/appRoleAssignments/update | Mettez à jour la propriété users.appRoleAssignments dans Azure Active Directory. |
 | microsoft.directory/users/assignLicense | Gérez les licences sur des utilisateurs dans Azure Active Directory. |
 | microsoft.directory/users/basic/update | Mettez à jour des propriétés de base sur des utilisateurs dans Azure Active Directory. |
+| microsoft.directory/users/create | Créez des utilisateurs dans Azure Active Directory. |
 | microsoft.directory/users/disable | Désactivez un compte d’utilisateur dans Azure Active Directory. |
 | microsoft.directory/users/enable | Activez un compte d’utilisateur dans Azure Active Directory. |
 | microsoft.directory/users/invalidateAllRefreshTokens | Invalidez tous les jetons d’actualisation utilisateur dans Azure Active Directory, en demandant aux utilisateurs de s’authentifier à nouveau lors de leur prochaine connexion. |

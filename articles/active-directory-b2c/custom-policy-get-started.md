@@ -12,12 +12,12 @@ ms.date: 02/28/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 54d92da469625a3b81d0027558ec14166d916b80
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae3865c1ee5e656fc4feda48de9ab67995619593
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88163184"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96936367"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Bien démarrer avec les stratégies personnalisées dans Azure Active Directory B2C
 
@@ -213,6 +213,6 @@ Comme indiqué dans [Conditions préalables](#prerequisites), Facebook n’est *
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Ensuite, essayez d’ajouter Azure Active Directory (Azure AD) comme fournisseur d’identité. Le fichier de base utilisé dans ce guide de démarrage contient déjà une partie du contenu dont vous avez besoin pour ajouter d’autres fournisseurs d’identité comme Azure AD. Pour plus d’informations sur la configuration de Azure AD en tant que fournisseur d’identité, consultez [Configurer l’inscription et la connexion avec un compte Azure Active Directory à l’aide de stratégies personnalisées Active Directory B2C](identity-provider-azure-ad-single-tenant-custom.md). 
+Ensuite, essayez d’ajouter Azure Active Directory (Azure AD) comme fournisseur d’identité. Le fichier de base utilisé dans ce guide de démarrage contient déjà une partie du contenu dont vous avez besoin pour ajouter d’autres fournisseurs d’identité comme Azure AD. Pour plus d’informations sur la configuration de Azure AD en tant que fournisseur d’identité, consultez [Configurer l’inscription et la connexion avec un compte Azure Active Directory à l’aide de stratégies personnalisées Active Directory B2C](identity-provider-azure-ad-single-tenant.md). 
 
 Pour en savoir plus sur la façon d’implémenter l’intégration ISV à l’aide de stratégies personnalisées, visitez notre [Galerie partenaires](partner-gallery.md). 

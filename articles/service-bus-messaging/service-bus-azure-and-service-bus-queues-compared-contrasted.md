@@ -3,12 +3,12 @@ title: Comparer les files d’attente de stockage Azure et les files d’attente
 description: Analyse les différences et les similitudes entre les deux types de files d'attente proposés par Azure.
 ms.topic: article
 ms.date: 11/04/2020
-ms.openlocfilehash: 5c65cf5ef2d572417ea70d0e0259cf2c03ab590e
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 31992aa2012009c51cbeae78010ae8ced65fc872
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379568"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928305"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Files d’attente Azure et files d’attente Service Bus : comparaison et différences
 Cet article analyse les différences et les similitudes entre les deux types de files d’attente proposés par Microsoft Azure : Files d’attente de stockage et files d’attente Service Bus. À l’aide de ces informations, vous pouvez prendre une décision plus éclairée sur la solution qui répond le mieux à vos besoins.
@@ -131,7 +131,7 @@ Cette section compare les files d’attente de stockage et les files d’attente
 | Taille de message maximale |**64 Ko**<br/><br/>(48 Ko avec un codage en **Base64**)<br/><br/>Azure prend en charge les messages volumineux en combinant des files d’attente et des objets blob. Dans ce cas, vous pouvez placer jusqu’à 200 Go en file d’attente pour un seul élément. |**256 Ko** ou **1 Mo**<br/><br/>(y compris l’en-tête et le corps, taille maximale d’en-tête : 64 Ko).<br/><br/>Dépend du [niveau de service](service-bus-premium-messaging.md). |
 | Durée de vie maximale des messages |**Infinie** (version d’API 2017-07-27 ou ultérieure) |**TimeSpan.Max** |
 | Nombre maximal de files d'attente |**Illimité** |**10,000**<br/><br/>(par espace de noms de service) |
-| Nombre maximal de clients simultanés |**Illimité** |**Illimité**<br/><br/>(la limite de 100 connexions simultanées s’applique uniquement à la communication basée sur le protocole TCP) |
+| Nombre maximal de clients simultanés |**Illimité** |**5 000** |
 
 ### <a name="additional-information"></a>Informations supplémentaires
 * Service Bus applique les limites en termes de taille de file d'attente. La taille maximale de file d’attente est spécifiée lors de la création d’une file d’attente. Elle peut être comprise entre 1 Go et 80 Go. Si la taille de la file d’attente atteint cette limite, les messages entrants supplémentaires sont rejetés et l’appelant reçoit une exception. Pour plus d’informations sur les quotas dans Service Bus, consultez [Quotas Service Bus](service-bus-quotas.md).

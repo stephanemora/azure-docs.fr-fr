@@ -8,12 +8,12 @@ ms.author: deli
 ms.reviewer: klam, estfan, logicappspm
 ms.date: 01/11/2020
 ms.topic: article
-ms.openlocfilehash: 73b116117530e5a2103b604efbf757d691006508
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d4bff4ee7980002d911426ed46ffef6fc28c43e9
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96014735"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920750"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Gérer les erreurs et les exceptions dans Azure Logic Apps
 
@@ -35,7 +35,7 @@ Voici les types de stratégie de nouvelle tentative :
 | **Aucun**  | Ne renvoie pas la requête. |
 |||
 
-Pour plus d’informations sur les limitations de la stratégie de nouvelle tentative, consultez [Limites et configuration de Logic Apps](../logic-apps/logic-apps-limits-and-config.md#request-limits).
+Pour plus d’informations sur les limitations de la stratégie de nouvelle tentative, consultez [Limites et configuration de Logic Apps](../logic-apps/logic-apps-limits-and-config.md#http-limits).
 
 ### <a name="change-retry-policy"></a>Changer la stratégie de nouvelle tentative
 

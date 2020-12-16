@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 29db2214ddabeb6df2aa937c4ccd1f9938143969
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: fcc482e215e646fec20516f35641bd05398d2f2d
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94949443"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928713"
 ---
 # <a name="manage-azure-ad-b2c-custom-policies-with-azure-powershell"></a>Gérer les stratégies personnalisées Azure AD B2C avec Azure PowerShell
 
@@ -31,7 +31,7 @@ Azure PowerShell fournit différentes cmdlet pour la gestion basée sur ligne de
 
 * [Locataire Azure AD B2C](tutorial-create-tenant.md) et informations d'identification d'un utilisateur de l'annuaire disposant du rôle [Administrateur de stratégies B2C IEF](../active-directory/roles/permissions-reference.md#b2c-ief-policy-administrator)
 * [Stratégies personnalisées](custom-policy-get-started.md) téléchargées sur votre locataire
-* [Azure AD PowerShell pour Graph **- Module disponible en préversion**](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)
+* [Azure AD PowerShell pour Graph **- Module disponible en préversion**](/powershell/azure/active-directory/install-adv2)
 
 ## <a name="connect-powershell-session-to-b2c-tenant"></a>Connecter la session PowerShell au locataire B2C
 

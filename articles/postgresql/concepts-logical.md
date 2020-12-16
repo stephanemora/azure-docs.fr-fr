@@ -5,18 +5,15 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/05/2020
-ms.openlocfilehash: cda305ac705b728e0d2e129d7d42d53ea0251d86
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.date: 12/09/2020
+ms.openlocfilehash: 0ea58050c5dc952392df56b4fb556a0998eef165
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94591527"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938900"
 ---
 # <a name="logical-decoding"></a>Décodage logique
- 
-> [!NOTE]
-> Le décodage logique est en préversion publique sur Azure Database pour PostgreSQL – Serveur unique.
 
 Le [décodage logique dans PostgreSQL](https://www.postgresql.org/docs/current/logicaldecoding.html) vous permet de diffuser en continu des changements de données vers des contrôles serveur consommateurs externes. Le décodage logique est couramment utilisé pour la diffusion en continu d’événements et les scénarios de capture des changements de données.
 

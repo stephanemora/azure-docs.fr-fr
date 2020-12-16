@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: f3a8881b9fe44727caf07b3cc0d5ee19f0444e98
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 66ec0d4b09dc983eb898d63d45b3dd7cab291c4c
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94953659"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928662"
 ---
 # <a name="tutorial-for-configuring-jumio-with-azure-active-directory-b2c"></a>Tutoriel de configuration de Jumio avec Azure Active Directory B2C
 
@@ -65,7 +65,7 @@ Après avoir créé un compte Jumio, vous utilisez le compte pour configurer Azu
 
 ### <a name="deploy-the-api"></a>Déployer l’API
 
-Déployez le [code d’API](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Jumio/API/Jumio.Api) fourni sur un service Azure. Vous pouvez publier le code à partir de Visual Studio, en suivant [ces instructions](/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+Déployez le [code d’API](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Jumio/API/Jumio.Api) fourni sur un service Azure. Vous pouvez publier le code à partir de Visual Studio, en suivant [ces instructions](/visualstudio/deployment/quickstart-deploy-to-azure).
 
 >[!NOTE]
 >Vous aurez besoin de l’URL du service déployé pour configurer Azure AD avec les paramètres requis.

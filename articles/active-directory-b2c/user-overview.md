@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f7a4d0852edded516b7fbe42f15abfe160e44cd3
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 0a8e08d0045d0520241341cc08fb800468ed6897
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94952792"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928611"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Vue d’ensemble des comptes d’utilisateur dans Azure Active Directory B2C
 
@@ -50,21 +50,21 @@ Lorsque vous ajoutez un nouveau compte professionnel, vous devez prendre en comp
 Vous pouvez utiliser les informations suivantes pour créer un nouveau compte professionnel :
 
 - [Azure portal](../active-directory/fundamentals/add-users-azure-active-directory.md)
-- [Microsoft Graph](/graph/api/user-post-users?view=graph-rest-1.0)
+- [Microsoft Graph](/graph/api/user-post-users)
 
 ### <a name="update-a-user-profile"></a>Mettre à jour un profil utilisateur
 
 Vous pouvez utiliser les informations suivantes pour mettre à jour le profil d’un utilisateur :
 
 - [Azure portal](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md)
-- [Microsoft Graph](/graph/api/user-update?view=graph-rest-1.0)
+- [Microsoft Graph](/graph/api/user-update)
 
 ### <a name="reset-a-password-for-a-user"></a>Réinitialiser un mot de passe pour un utilisateur
 
 Vous pouvez utiliser les informations suivantes pour réinitialiser le mot de passe d’un utilisateur :
 
 - [Azure portal](../active-directory/fundamentals/active-directory-users-reset-password-azure-portal.md)
-- [Microsoft Graph](/graph/api/user-update?view=graph-rest-1.0)
+- [Microsoft Graph](/graph/api/user-update)
 
 ## <a name="guest-user"></a>Utilisateur invité
 

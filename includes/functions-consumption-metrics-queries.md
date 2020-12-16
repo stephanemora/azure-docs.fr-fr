@@ -8,7 +8,7 @@ ms.locfileid: "92168106"
 ---
 #### <a name="determine-memory-usage"></a>Déterminer l’utilisation de la mémoire 
 
-Sous **Supervision** , sélectionnez **Logs (Analytics)** , puis copiez la requête de télémétrie suivante et collez-la dans la fenêtre de requête, puis sélectionnez **Exécuter** . Cette requête retourne l’utilisation totale de la mémoire pour chaque durée échantillonnée.
+Sous **Supervision**, sélectionnez **Logs (Analytics)**, puis copiez la requête de télémétrie suivante et collez-la dans la fenêtre de requête, puis sélectionnez **Exécuter**. Cette requête retourne l’utilisation totale de la mémoire pour chaque durée échantillonnée.
 
 ```
 performanceCounters

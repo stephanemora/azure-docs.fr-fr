@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/22/2020
+ms.date: 12/10/2020
 ms.author: memildin
-ms.openlocfilehash: 68fa63bf42b7577402d8c58ebe22a0a16b5776fb
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 4254288a85b3b57afbdd6833242a6f4ad0eb0afc
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96751000"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97005135"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Alertes de sécurité - guide de référence
 
@@ -372,7 +372,7 @@ En bas de cette page, un tableau décrit la chaîne d’arrêt d’Azure Securit
 [Informations complémentaires et notes](defender-for-dns-introduction.md)
 
 | Alerte                                                                                                                | Description                                                                                                                                                                                                                                                                                                                                                                                      | Intentionnel<br>([En savoir plus](#intentions)) | Gravité |
-|----------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|---------------------------------------|
+|----------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------:|
 | **Utilisation d’un protocole réseau anormale (préversion)**<br>(AzureDNS_ProtocolAnomaly)                                         | L’analyse des transactions DNS de %{CompromisedEntity} a détecté une utilisation de protocole anormale. Ce trafic, bien qu’il puisse être bénin, peut indiquer un abus de ce protocole commun pour contourner le filtrage du trafic réseau. Les activités typiques consistent à copier les outils d’administration à distance sur un hôte compromis et à en exfiltrer les données utilisateur.                                          | Exfiltration                          | -        |
 | **Activité réseau anonyme (préversion)**<br>(AzureDNS_DarkWeb)                                                       | L’analyse des transactions DNS de %{CompromisedEntity} a détecté une activité réseau anonyme. Une telle activité, bien que pouvant être un comportement utilisateur légitime, est souvent utilisée par les attaquants pour échapper au suivi et à la prise d’empreinte des communications réseau. L’activité associée type des attaquants est susceptible d’inclure le téléchargement et l’exécution de logiciels malveillants ou d’outils d’administration distants. | Exfiltration                          | -        |
 | **Activité réseau anonyme utilisant un proxy web (préversion)**<br>(AzureDNS_DarkWebProxy)                                  | L’analyse des transactions DNS de %{CompromisedEntity} a détecté une activité réseau anonyme. Une telle activité, bien que pouvant être un comportement utilisateur légitime, est souvent utilisée par les attaquants pour échapper au suivi et à la prise d’empreinte des communications réseau. L’activité associée type des attaquants est susceptible d’inclure le téléchargement et l’exécution de logiciels malveillants ou d’outils d’administration distants. | Exfiltration                          | -        |

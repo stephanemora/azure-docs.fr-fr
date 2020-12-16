@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 6612e6982ae4826869134dfa46b35a3f202d4bbb
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 29bcf2fdd3e20b28b1f2cb014137cfba37ccaf2e
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183241"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931807"
 ---
 # <a name="azure-security-baseline-for-azure-kubernetes-service"></a>Base de référence de sécurité Azure pour Azure Kubernetes Service
 
@@ -178,7 +178,7 @@ Utilisez l’une des définitions en lien avec l’étiquetage Azure Policy int�
 
 Choisissez d’autoriser ou de refuser des chemins d’accès réseau spécifiques au sein du cluster en fonction des espaces de noms et des sélecteurs d’étiquettes avec des stratégies de réseau. Utilisez ces espaces de noms et étiquettes comme des descripteurs des règles de configuration du trafic. Utilisez Azure PowerShell ou l’interface de ligne de commande (CLI) Azure pour rechercher des ressources ou effectuer des actions sur des ressources en fonction de leurs étiquettes.
 
-- [Azure Policy avec CLI](/cli/azure/policy?view=azure-cli-latest)
+- [Azure Policy avec CLI](/cli/azure/policy)
 
 - [Guide pratique pour créer et utiliser des étiquettes](../azure-resource-manager/management/tag-resources.md)
 
@@ -382,7 +382,7 @@ Utilisez Azure CLI pour des opérations telles que « Obtenir les informations d
 
 - [Guide pratique pour intégrer AKS à Azure AD](./azure-ad-integration-cli.md)
 
-- [Guide pratique pour obtenir les membres d’un rôle d’annuaire dans Azure AD avec PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [Guide pratique pour obtenir les membres d’un rôle d’annuaire dans Azure AD avec PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 - [Comment superviser les identités et les accès avec Azure Security Center](../security-center/security-center-identity-access.md)
 
@@ -438,7 +438,7 @@ Activez l’authentification multifacteur (MFA) Azure AD et suivez les recommand
 
 - [Guide pratique pour superviser les identités et les accès dans Azure Security Center](../security-center/security-center-identity-access.md) 
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -735,7 +735,7 @@ Notez que le processus de conservation des nœuds Windows Server à jour est dif
 
 Utilisez la cmdlet PowerShell « Get-AzSecurityTask » pour automatiser la récupération des tâches de sécurité que Security Center vous recommande d’effectuer afin de votre posture de sécurité et les résultats de l’analyse des vulnérabilités de mise à jour.
 
-- [Procédure d’utilisation de PowerShell pour afficher les vulnérabilités découvertes par Azure Security Center](/powershell/module/az.security/get-azsecuritytask?view=azps-3.3.0)
+- [Procédure d’utilisation de PowerShell pour afficher les vulnérabilités découvertes par Azure Security Center](/powershell/module/az.security/get-azsecuritytask)
 
 **Supervision d’Azure Security Center** : Oui
 
@@ -763,7 +763,7 @@ Bien que les ressources Azure classiques puissent être découvertes via Resourc
 
 - [Guide pratique pour créer des requêtes avec Azure Graph](../governance/resource-graph/first-query-portal.md)
 
-- [Guide pratique pour afficher ses abonnements Azure](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [Guide pratique pour afficher ses abonnements Azure](/powershell/module/az.accounts/get-azsubscription)
 
 - [Présentation d’Azure RBAC](../role-based-access-control/overview.md)
 
@@ -927,15 +927,15 @@ Accordez aux utilisateurs ou aux groupes l’accès aux ressources Kubernetes da
 
 Utilisez le module Azure AD PowerShell pour effectuer des requêtes ad hoc afin de découvrir des comptes membres de vos groupes d’administration AKS, et rapprocher les accès à intervalles réguliers. Utilisez Azure CLI pour des opérations telles que l’obtention des informations d’identification d’accès pour un cluster Kubernetes managé. Implémentez les recommandations liées à la gestion des identités et des accès dans Security Center.
 
-- [Gérer AKS avec Azure CLI](/cli/azure/aks?view=azure-cli-latest)
+- [Gérer AKS avec Azure CLI](/cli/azure/aks)
 
 - [Présentation de l’intégration d’AKS et d’Azure AD](concepts-identity.md)
 
 - [Guide pratique pour intégrer AKS à Azure AD](./azure-ad-integration-cli.md)
 
-- [Guide pratique pour obtenir un rôle d’annuaire dans Azure AD avec PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [Guide pratique pour obtenir un rôle d’annuaire dans Azure AD avec PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
-- [Guide pratique pour obtenir les membres d’un rôle d’annuaire dans Azure AD avec PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [Guide pratique pour obtenir les membres d’un rôle d’annuaire dans Azure AD avec PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 - [Comment superviser les identités et les accès avec Azure Security Center](../security-center/security-center-identity-access.md)
 
@@ -1055,7 +1055,7 @@ Durcissement de la sécurité du système d’exploitation hôte du nœud de l�
 
 security-hardened-vm-host-image.md
 
-- [Stocker du code dans Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Stocker du code dans Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -1336,7 +1336,7 @@ Marquez clairement les abonnements (par exemple, production, non-production) et 
 
 - [Comment définir le contact de sécurité d’Azure Security Center](../security-center/security-center-provide-security-contact-details.md)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 

@@ -3,12 +3,12 @@ title: Prise en charge des opérations de déplacement par type de ressource
 description: Liste les types de ressources Azure qui peuvent être déplacés vers un nouveau groupe de ressources ou un nouvel abonnement.
 ms.topic: conceptual
 ms.date: 12/07/2020
-ms.openlocfilehash: 226686e51c8b59b6963609a95a2cb3c2cc03d621
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 0b1304b273523d42ad62f4e392fb803e1c174b69
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780992"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96937523"
 ---
 # <a name="move-operation-support-for-resources"></a>Prise en charge de l’opération de déplacement pour les ressources
 
@@ -1423,7 +1423,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | networkinterfaces | Oui | Oui |
 > | networkprofiles | Non | Non |
 > | networksecuritygroups | Oui | Oui |
-> | networkwatchers | Oui | Non |
+> | networkwatchers | Non | Non |
 > | networkwatchers / connectionmonitors | Oui | Non |
 > | networkwatchers / flowlogs | Oui | Non |
 > | networkwatchers / pingmeshes | Oui | Non |

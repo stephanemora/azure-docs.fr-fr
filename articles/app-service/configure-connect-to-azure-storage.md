@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 7/01/2019
 ms.author: msangapu
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 7f177a7801e18bcdb2c2d6ef737f0c790cf6b1d1
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: e75eef86a4a0c679a44a61267f94d337538daaa8
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93075787"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007617"
 ---
 # <a name="access-azure-storage-preview-as-a-network-share-from-a-container-in-app-service"></a>Accéder à Stockage Azure (préversion) en tant que partage réseau à partir d’un conteneur dans App Service
 
@@ -80,7 +80,7 @@ Ce guide montre comment attacher le Stockage Azure à un conteneur Linux dans Ap
 
 Une fois que vous avez créé [votre compte Stockage Azure, le partage de fichiers et l’annuaire](#prerequisites), vous pouvez configurer votre application avec Stockage Azure.
 
-Pour monter un partage Azure Files dans un répertoire de votre application App Service, utilisez la commande [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add). Le type de stockage doit être AzureFiles.
+Pour monter un partage Azure Files dans un répertoire de votre application App Service, utilisez la commande [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account#az-webapp-config-storage-account-add). Le type de stockage doit être AzureFiles.
 
 ```azurecli
 az webapp config storage-account add --resource-group <group-name> --name <app-name> --custom-id <custom-id> --storage-type AzureFiles --share-name <share-name> --account-name <storage-account-name> --access-key "<access-key>" --mount-path <mount-path-directory of form c:<directory name> >
@@ -94,7 +94,7 @@ Répétez cette opération pour tous les autres annuaires que vous souhaitez lie
 
 Une fois que vous avez créé [votre compte Stockage Azure, le partage de fichiers et l’annuaire](#prerequisites), vous pouvez configurer votre application avec Stockage Azure.
 
-Pour monter un compte de stockage dans un répertoire de votre application App Service, utilisez la commande [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add). Le type de stockage peut être AzureBlob ou AzureFiles. AzureFiles est utilisé dans cet exemple. Le paramètre de chemin de montage correspond au dossier à l’intérieur du conteneur que vous souhaitez monter sur Stockage Azure. Le définir sur « / » a pour effet de monter le conteneur entier sur Stockage Azure.
+Pour monter un compte de stockage dans un répertoire de votre application App Service, utilisez la commande [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account#az-webapp-config-storage-account-add). Le type de stockage peut être AzureBlob ou AzureFiles. AzureFiles est utilisé dans cet exemple. Le paramètre de chemin de montage correspond au dossier à l’intérieur du conteneur que vous souhaitez monter sur Stockage Azure. Le définir sur « / » a pour effet de monter le conteneur entier sur Stockage Azure.
 
 
 > [!CAUTION]

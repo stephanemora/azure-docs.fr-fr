@@ -10,12 +10,12 @@ ms.date: 11/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: acde6f401404596212b713f248bb6d11c25b4671
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 005830575ba7f45d30fed71a73e7a419e4d98220
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461419"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922583"
 ---
 # <a name="publish-and-subscribe-with-azure-iot-edge"></a>Publier et s’abonner avec Azure IoT Edge
 
@@ -177,7 +177,6 @@ Les rubriques d’autorisations pour le hub IoT sont traitées de manière lég�
 
 - Les appareils ou les modules Azure IoT ont besoin d’une règle d’autorisation explicite pour se connecter au répartiteur MQTT du hub IoT Edge. Une stratégie d’autorisation de connexion par défaut est fournie ci-dessous.
 - Les appareils ou les modules Azure IoT peuvent accéder à leurs propres rubriques de hub IoT par défaut sans règle d’autorisation explicite. Toutefois, les autorisations proviennent de relations parent/enfant dans ce cas, et ces relations doivent être définies. Les modules IoT Edge sont automatiquement définis comme enfants de leur appareil IoT Edge, mais les appareils doivent être explicitement définis comme enfants de leur passerelle IoT Edge.
-- Les appareils ou les modules Azure IoT peuvent accéder aux rubriques, y compris les rubriques du hub IoT, d’autres appareils ou modules à condition que des règles d’autorisation explicites soient définies.
 
 Voici une stratégie d’autorisation par défaut qui peut être utilisée pour permettre à tous les modules ou appareils Azure IoT de se **connecter** au répartiteur :
 
@@ -275,7 +274,7 @@ Pour autoriser le serveur de publication et l’abonné, modifiez le jumeau du h
                },
                {
                   "identities": [
-                     "sub_client"
+                     "<iot_hub_name>.azure-devices.net/sub_client"
                   ],
                   "allow":[
                      {
@@ -284,13 +283,13 @@ Pour autoriser le serveur de publication et l’abonné, modifiez le jumeau du h
                         ],
                         "resources":[
                            "test_topic"
-                        ],
+                        ]
                      }
                   ],
                },
                {
                   "identities": [
-                     "pub_client"
+                     "<iot_hub_name>.azure-devices.net/pub_client"
                   ],
                   "allow":[
                      {
@@ -299,9 +298,9 @@ Pour autoriser le serveur de publication et l’abonné, modifiez le jumeau du h
                         ],
                         "resources":[
                            "test_topic"
-                        ],
+                        ]
                      }
-                  ],
+                  ]
                }
             ]
          }
@@ -333,7 +332,7 @@ Notez que le port 1883 (MQTT), sans TLS, est utilisé dans ce premier exemple. U
 
 Le client MQTT **sub_client** est maintenant démarré et attend les messages entrants sur `test_topic`.
 
-#### <a name="publish"></a>Publier
+#### <a name="publish"></a>Publish
 
 Connectez votre client MQTT **pub_client** au répartiteur MQTT et publiez un message sur le même `test_topic` que ci-dessus en exécutant la commande suivante sur votre appareil IoT Edge à partir d’un autre terminal :
 

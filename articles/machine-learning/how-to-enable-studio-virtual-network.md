@@ -11,24 +11,25 @@ ms.author: aashishb
 author: aashishb
 ms.date: 10/21/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: df4d777ad78240b3ca84c51152b37861c4ccc486
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: a90b98e8be976da9ee2669ab3b5fed4a890f0fb2
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94960000"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576612"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Utiliser le studio Azure Machine Learning dans un réseau virtuel Azure
 
-Dans cet article, vous allez apprendre à utiliser le studio Azure Machine Learning dans un réseau virtuel. Vous allez apprendre à effectuer les actions suivantes :
+Dans cet article, vous allez apprendre à utiliser le studio Azure Machine Learning dans un réseau virtuel. Le studio inclut des fonctionnalités telles que AutoML, le concepteur et l’étiquetage des données. Pour pouvoir utiliser ces fonctionnalités dans un réseau virtuel, vous devez suivre les étapes décrites dans cet article.
+
+Dans cet article, vous apprendrez comment :
 
 > [!div class="checklist"]
-> - Accédez au studio à partir d’une ressource à l’intérieur d’un réseau virtuel.
-> - Configurez des points de terminaison privés pour les comptes de stockage.
 > - Accordez au studio l’accès aux données stockées au sein d’un réseau virtuel.
+> - Accédez au studio à partir d’une ressource à l’intérieur d’un réseau virtuel.
 > - Découvrez l'impact du studio sur la sécurité du stockage.
 
-Cet article est le cinquième d’une série de cinq qui vous guide à travers le processus de sécurisation d’un workflow Azure Machine Learning. Nous vous recommandons vivement de parcourir tout d’abord la [Première partie : Présentation du réseau virtuel](how-to-network-security-overview.md) pour en savoir plus sur l’architecture globale. 
+Cet article est le cinquième d’une série de cinq qui vous guide à travers le processus de sécurisation d’un workflow Azure Machine Learning. Nous vous recommandons vivement de lire les parties précédentes pour configurer un environnement de réseau virtuel.
 
 Consultez les autres articles de cette série :
 
@@ -41,7 +42,7 @@ Consultez les autres articles de cette série :
 
 ## <a name="prerequisites"></a>Prérequis
 
-+ Lisez [Vue d’ensemble de la sécurité réseau](how-to-network-security-overview.md) pour comprendre les scénarios courants des réseaux virtuels et l’architecture globale des réseaux virtuels.
++ Lisez [Vue d’ensemble de la sécurité réseau](how-to-network-security-overview.md) pour comprendre l’architecture des réseaux virtuels et les scénarios associés.
 
 + Un réseau virtuel et un sous-réseau préexistants à utiliser.
 
@@ -49,21 +50,16 @@ Consultez les autres articles de cette série :
 
 + Un [compte de stockage Azure existant a ajouté votre réseau virtuel](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints).
 
-## <a name="access-the-studio-from-a-resource-inside-the-vnet"></a>Accéder au studio à partir d’une ressource au sein d’un réseau virtuel
+## <a name="configure-data-access-in-the-studio"></a>Configurer l’accès aux données dans le studio
 
-Si vous accédez à Studio à partir d’une ressource au sein d’un réseau virtuel (par exemple une instance de calcul ou une machine virtuelle), vous devez autoriser le trafic sortant du réseau virtuel vers Studio. 
+Certaines des fonctionnalités du studio sont désactivées par défaut dans un réseau virtuel. Pour réactiver ces fonctionnalités, vous devez activer l’identité managée pour les comptes de stockage que vous prévoyez d’utiliser dans le studio. 
 
-Par exemple, si vous utilisez des groupes de sécurité réseau pour limiter le trafic sortant, ajoutez une règle à une destination d’__étiquette de service__ __AzureFrontDoor.Frontend__.
-
-## <a name="access-data-using-the-studio"></a>Accéder aux données à l’aide du studio
-
-Après avoir ajouté un compte de stockage Azure à votre réseau virtuel avec un [point de terminaison de service](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints) ou un [point de terminaison privé](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints), vous devez configurer votre compte de stockage afin d'utiliser une [identité managée](../active-directory/managed-identities-azure-resources/overview.md) pour autoriser le studio à accéder à vos données.
-
-Si vous n’activez pas l’identité managée, cette erreur s’affichera : `Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.`. En outre, les opérations suivantes seront désactivées :
+Les opérations suivantes sont désactivées par défaut dans un réseau virtuel :
 
 * Aperçu des données dans Studio
 * Visualisation des données dans le concepteur
-* Envoi d’une expérience AutoML
+* Déploiement d’un modèle dans le concepteur ([compte de stockage par défaut](#enable-managed-identity-authentication-for-default-storage-accounts))
+* Envoi d’une expérience AutoML ([compte de stockage par défaut](#enable-managed-identity-authentication-for-default-storage-accounts))
 * Démarrage d’un projet d’étiquetage
 
 Studio prend en charge la lecture de données à partir des types de magasins de données suivants sur un réseau virtuel :
@@ -73,34 +69,56 @@ Studio prend en charge la lecture de données à partir des types de magasins de
 * Azure Data Lake Storage Gen2
 * Azure SQL Database
 
-### <a name="grant-workspace-managed-identity-__reader__-access-to-storage-private-link"></a>Accorder à l’identité managée de l’espace de travail un accès __Lecteur__ à la liaison privée de stockage
-
-Cette étape est requise uniquement si vous avez ajouté le compte de stockage Azure à votre réseau virtuel avec un [point de terminaison privé](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints). Pour plus d’informations, voir le rôle intégré [Lecteur](../role-based-access-control/built-in-roles.md#reader).
-
 ### <a name="configure-datastores-to-use-workspace-managed-identity"></a>Configurer des magasins de données pour utiliser l’identité managée de l’espace de travail
 
-Azure Machine Learning utilise des [magasins de données](concept-data.md#datastores) pour se connecter aux comptes de stockage. Procédez comme suit pour configurer vos magasins de données afin d’utiliser l’identité managée. 
+Après avoir ajouté un compte de stockage Azure à votre réseau virtuel avec un [point de terminaison de service](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints) ou un [point de terminaison privé](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints), vous devez configurer votre magasin de données afin qu’il utilise l’authentification via une [identité managée](../active-directory/managed-identities-azure-resources/overview.md). Ainsi, le studio peut accéder aux données de votre compte de stockage.
+
+Azure Machine Learning utilise des [magasins de données](concept-data.md#datastores) pour se connecter aux comptes de stockage. Procédez comme suit pour configurer un magasin de données afin d’utiliser l’identité managée.
 
 1. Dans Studio, sélectionnez __Magasins de données__.
 
-1. Pour créer un magasin de données, sélectionnez __+ Nouveau magasin de données__.
+1. Pour mettre à jour un magasin de données existant, sélectionnez-le et sélectionnez __Mettre à jour les informations d’identification__.
 
-    Pour mettre à jour un magasin de données existant, sélectionnez-le et sélectionnez __Mettre à jour les informations d’identification__.
+    Pour créer un magasin de données, sélectionnez __+ Nouveau magasin de données__.
 
-1. Dans les paramètres du magasin de données, sélectionnez __Oui__ pour __Autoriser le service Azure Machine Learning à accéder au stockage en utilisant l’identité managée de l’espace de travail__.
+1. Dans les paramètres de magasin de données, sélectionnez __Oui__ pour __Utiliser l’identité managée d’espace de travail pour afficher un aperçu des données et les profiler dans Azure Machine Learning Studio__.
+
+    ![Capture d’écran montrant comment activer l’identité managée de l’espace de travail](./media/how-to-enable-studio-virtual-network/enable-managed-identity.png)
+
+Ces étapes ajoutent l’identité managée de l’espace de travail en tant que __Lecteur__ au service de stockage à l’aide du contrôle d’accès en fonction du rôle Azure (Azure RBAC). L’accès __Lecteur__ permet à l’espace de travail de récupérer les paramètres du pare-feu et de s’assurer que les données ne quittent pas le réseau virtuel. La prise en compte des modifications peut prendre jusqu’à 10 minutes.
+
+### <a name="enable-managed-identity-authentication-for-default-storage-accounts"></a>Activer l’authentification via une identité managée pour les comptes de stockage par défaut
+
+Chaque espace de travail Azure Machine Learning est fourni avec deux comptes de stockage par défaut, qui sont définis lors de la création de votre espace de travail. Le studio utilise les comptes de stockage par défaut pour stocker les artefacts d’expérimentation et de modèle, qui sont essentiels à certaines fonctionnalités du Studio.
+
+Le tableau suivant décrit les raisons pour lesquelles vous devez activer l’authentification via l’identité managée pour les comptes de stockage par défaut de votre espace de travail.
+
+|Compte de stockage  | Notes  |
+|---------|---------|
+|Stockage blob par défaut de l’espace de travail| Stocke les ressources de modèle à partir du concepteur. Vous devez activer l’authentification via une identité managée sur ce compte de stockage pour déployer des modèles dans le concepteur. <br> <br> Vous pouvez visualiser et exécuter un pipeline de concepteur s’il utilise un magasin de données non défini par défaut qui a été configuré pour utiliser l’identité managée. Toutefois, si vous essayez de déployer un modèle entraîné sans que l’identité managée soit activée sur le magasin de données par défaut, le déploiement échoue, quelles que soient les autres magasins de données en cours d’utilisation.|
+|Magasin de fichiers par défaut de l’espace de travail| Stocke les ressources d’expérimentation AutoML. Vous devez activer l’authentification via une identité managée sur ce compte de stockage pour soumettre des expériences AutoML. |
 
 
-Ces étapes ajoutent l’identité managée de l’espace de travail en tant que __Lecteur__ au service de stockage à l’aide du contrôle d’accès en fonction du rôle Azure (Azure RBAC). L’accès __Lecteur__ permet à l’espace de travail de récupérer les paramètres du pare-feu et de s’assurer que les données ne quittent pas le réseau virtuel.
+![Capture d’écran montrant où se trouvent les magasins de données par défaut](./media/how-to-enable-studio-virtual-network/default-datastores.png)
 
-> [!NOTE]
-> La prise en compte de ces modifications peut prendre jusqu’à 10 minutes.
+
+### <a name="grant-workspace-managed-identity-__reader__-access-to-storage-private-link"></a>Accorder à l’identité managée de l’espace de travail un accès __Lecteur__ à la liaison privée de stockage
+
+Si votre compte de stockage Azure utilise un point de terminaison privé, vous devez accorder à l’identité managée de l’espace de travail l’accès **Lecteur** à la liaison privée. Pour plus d’informations, voir le rôle intégré [Lecteur](../role-based-access-control/built-in-roles.md#reader). 
+
+Si votre compte de stockage utilise un point de terminaison de service, vous pouvez ignorer cette étape.
+
+## <a name="access-the-studio-from-a-resource-inside-the-vnet"></a>Accéder au studio à partir d’une ressource au sein d’un réseau virtuel
+
+Si vous accédez à Studio à partir d’une ressource au sein d’un réseau virtuel (par exemple une instance de calcul ou une machine virtuelle), vous devez autoriser le trafic sortant du réseau virtuel vers Studio. 
+
+Par exemple, si vous utilisez des groupes de sécurité réseau pour limiter le trafic sortant, ajoutez une règle à une destination d’__étiquette de service__ __AzureFrontDoor.Frontend__.
 
 ## <a name="technical-notes-for-managed-identity"></a>Notes techniques pour l’identité managée
 
-L’utilisation de l’identité managée pour accéder aux services de stockage a un impact sur certaines considérations en matière de sécurité. Cette section décrit les modifications pour chaque type de compte de stockage.
+L’utilisation de l’identité managée pour accéder aux services de stockage a un impact sur les considérations en matière de sécurité. Cette section décrit les modifications pour chaque type de compte de stockage. 
 
-> [!IMPORTANT]
-> Ces considérations sont propres au __type de compte de stockage__ auquel vous accédez.
+Ces considérations sont propres au __type de compte de stockage__ auquel vous accédez.
 
 ### <a name="azure-blob-storage"></a>Stockage Blob Azure
 
@@ -124,23 +142,17 @@ Pour accéder aux données stockées dans Azure SQL Database à l’aide d’une
 
 Après avoir créé un utilisateur autonome SQL, vous devez lui accorder des autorisations à l’aide de la [commande T-SQL GRANT](/sql/t-sql/statements/grant-object-permissions-transact-sql).
 
-### <a name="azure-machine-learning-designer-default-datastore"></a>Magasin de données par défaut du concepteur Azure Machine Learning
+### <a name="azure-machine-learning-designer-intermediate-module-output"></a>Sortie du module intermédiaire du concepteur Azure Machine Learning
 
-Le concepteur utilise le compte de stockage attaché à votre espace de travail pour stocker la sortie par défaut. Toutefois, vous pouvez le spécifier afin qu’il stocke la sortie vers un magasin de données auquel vous avez accès. Si votre environnement utilise des réseaux virtuels, vous pouvez utiliser ces contrôles pour vous assurer que les données restent accessibles et en sécurité.
-
-Pour définir un nouveau stockage par défaut pour un pipeline :
-
-1. Dans un brouillon de pipeline, sélectionnez l’**icône d’engrenage des Paramètres** située près du titre de votre pipeline.
-1. Sélectionnez l’option **Sélectionner le magasin de données par défaut**.
-1. Spécifiez un nouveau magasin de données.
-
-Vous pouvez également écraser le magasin de données par défaut sur une base par module. Cela vous donne le contrôle sur l’emplacement de stockage pour chaque module individuel.
+Vous pouvez spécifier l’emplacement de sortie de n’importe quel module dans le concepteur. Vous pouvez ainsi stocker les jeux de données intermédiaires dans un emplacement distinct à des fins de sécurité, de journalisation ou d’audit. Pour spécifier la sortie :
 
 1. Sélectionnez le module dont vous souhaitez spécifier la sortie.
-1. Développez la section **Paramètres de sortie**.
-1. Sélectionnez **Remplacer les paramètres de sortie par défaut**.
-1. Sélectionnez **Définir les paramètres de sortie**.
-1. Spécifiez un nouveau magasin de données.
+1. Dans le volet Paramètres du module qui s’affiche à droite, sélectionnez **Paramètres de sortie**.
+1. Spécifiez le magasin de données que vous souhaitez utiliser pour chaque sortie de module.
+ 
+Assurez-vous que vous avez accès aux comptes de stockage intermédiaires de votre réseau virtuel. Dans le cas contraire, le pipeline échoue.
+
+Vous devez également [activer l’authentification via une identité managée](#configure-datastores-to-use-workspace-managed-identity) pour les comptes de stockage intermédiaires afin de visualiser les données de sortie.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

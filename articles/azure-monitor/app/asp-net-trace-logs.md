@@ -4,19 +4,19 @@ description: Effectuer une recherche dans les journaux d’activité générés 
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/08/2019
-ms.openlocfilehash: ab3b12bf0401c4060823c6ed1d20dd6385cc397f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90777da4d0b67587afebaa7111e3503af2afcb9a
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90973846"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920335"
 ---
 # <a name="explore-netnet-core-and-python-trace-logs-in-application-insights"></a>Découvrir les journaux des traces .NET/.NET Core et Python dans Application Insights
 
 Envoyez des journaux de suivi de diagnostic pour votre application ASP.NET/ASP.NET Core à partir de ILogger, NLog, log4Net ou System.Diagnostics.Trace vers [Azure Application Insights][start]. Pour les applications Python, envoyez des journaux de traçage de diagnostics à l’aide d’AzureLogHandler dans OpenCensus Python pour Azure Monitor. Vous pourrez ensuite les explorer et y effectuer des recherches. Ces journaux d’activité sont fusionnés avec d’autres fichiers journaux provenant de votre application, ce qui vous permet d’identifier les traces associées à chaque demande d’utilisateur et les mettre en corrélation avec d’autres événements et des rapports d’exception.
 
 > [!NOTE]
-> Avez-vous besoin du module de collecte de journaux ? Il s’agit d’un adaptateur très utile pour les enregistreurs d’événements tiers. Cependant, si vous n’utilisez pas déjà NLog, log4Net ou System.Diagnostics.Trace, vous pouvez appeler [**Application Insights TrackTrace()** ](./api-custom-events-metrics.md#tracktrace) directement.
+> Avez-vous besoin du module de collecte de journaux ? Il s’agit d’un adaptateur très utile pour les enregistreurs d’événements tiers. Cependant, si vous n’utilisez pas déjà NLog, log4Net ou System.Diagnostics.Trace, vous pouvez appeler [**Application Insights TrackTrace()**](./api-custom-events-metrics.md#tracktrace) directement.
 >
 >
 ## <a name="install-logging-on-your-app"></a>Installation de la journalisation sur votre application
@@ -139,7 +139,8 @@ Vous pouvez appeler directement l’API de suivi d’Application Insights. Les a
 Par exemple :
 
 ```csharp
-var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
+TelemetryConfiguration configuration = TelemetryConfiguration.CreateDefault();
+var telemetryClient = new TelemetryClient(configuration);
 telemetry.TrackTrace("Slow response - database01");
 ```
 
@@ -148,10 +149,11 @@ l’un des avantages de TrackTrace est que vous pouvez insérer des données rel
 Vous pouvez également ajouter un niveau de gravité à votre message. Comme pour les autres données de télémétrie, vous pouvez ajouter des valeurs de propriété qui permettent de filtrer ou rechercher différents jeux de traces. Par exemple :
 
   ```csharp
-  var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
-  telemetry.TrackTrace("Slow database response",
-                 SeverityLevel.Warning,
-                 new Dictionary<string,string> { {"database", db.ID} });
+  TelemetryConfiguration configuration = TelemetryConfiguration.CreateDefault();
+  var telemetryClient = new TelemetryClient(configuration);
+  telemetryClient.TrackTrace("Slow database response",
+                              SeverityLevel.Warning,
+                              new Dictionary<string, string> { { "database", "db.ID" } });
   ```
 
 Cela vous permettrait, dans [Recherche][diagnostic], de filtrer facilement tous les messages d’un niveau de gravité particulier portant sur une certaine base de données.

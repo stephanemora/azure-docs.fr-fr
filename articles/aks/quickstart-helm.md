@@ -6,12 +6,12 @@ author: zr-msft
 ms.topic: article
 ms.date: 07/28/2020
 ms.author: zarhoads
-ms.openlocfilehash: 0ca2d7ccc863e2208db1212ef3d3f10fa709d069
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 2c4e39ae664c89e4f6d49f2941115e5a7d44cf7b
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96006642"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929171"
 ---
 # <a name="quickstart-develop-on-azure-kubernetes-service-aks-with-helm"></a>Démarrage rapide : Développer sur Azure Kubernetes Service (AKS) avec Helm
 
@@ -22,7 +22,7 @@ Cet article montre comment utiliser Helm pour empaqueter et exécuter une applic
 ## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/free).
-* [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
+* [Azure CLI](/cli/azure/install-azure-cli).
 * [Helm v3 installé][helm-install].
 
 ## <a name="create-an-azure-container-registry"></a>Création d’un Azure Container Registry

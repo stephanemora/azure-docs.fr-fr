@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 04/09/2020
-ms.openlocfilehash: 77b5b52153c552008406b4b85083bcba5542cebe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba85bda1e322d3efd467527b48bd4cd90eb7ce8c
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87012720"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922624"
 ---
 # <a name="prevent-overfitting-and-imbalanced-data-with-automated-machine-learning"></a>Empêcher le surajustement et les données déséquilibrées avec le Machine Learning automatisé
 
@@ -84,8 +84,8 @@ Par ailleurs, les exécutions du ML automatisé génèrent automatiquement les g
 Graphique| Description
 ---|---
 [Matrice de confusion](how-to-understand-automated-ml.md#confusion-matrix)| Évalue les étiquettes correctement classifiées par rapport aux étiquettes réelles des données. 
-[Rappel de précision](how-to-understand-automated-ml.md#precision-recall-chart)| Évalue le ratio d’étiquettes correctes par rapport au ratio d’instances d’étiquettes trouvées dans les données. 
-[Courbe ROC](how-to-understand-automated-ml.md#roc)| Évalue le ratio d’étiquettes correctes par rapport au ratio d’étiquettes considérées comme étant des faux positifs.
+[Rappel de précision](how-to-understand-automated-ml.md#precision-recall-curve)| Évalue le ratio d’étiquettes correctes par rapport au ratio d’instances d’étiquettes trouvées dans les données. 
+[Courbe ROC](how-to-understand-automated-ml.md#roc-curve)| Évalue le ratio d’étiquettes correctes par rapport au ratio d’étiquettes considérées comme étant des faux positifs.
 
 ## <a name="handle-imbalanced-data"></a>Traiter les données déséquilibrées 
 

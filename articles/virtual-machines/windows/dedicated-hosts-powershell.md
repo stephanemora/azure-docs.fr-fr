@@ -5,15 +5,15 @@ author: cynthn
 ms.service: virtual-machines-windows
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 08/01/2019
+ms.date: 11/12/2020
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: 884a9e82dacb2a0dfc6763809a2ccfd2b886df1a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 2f8f2d9eb14e1272af126c9a6d6663f41aaee33f
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974173"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97005084"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-azure-powershell"></a>Déployez des machines virtuelles sur des hôtes dédiés à l’aide d’Azure PowerShell
 
@@ -53,10 +53,6 @@ $hostGroup = New-AzHostGroup `
 
 Ajoutez le paramètre `-SupportAutomaticPlacement true` pour que vos machines virtuelles et vos instances de groupes identiques soient placées automatiquement sur les hôtes au sein d’un groupe hôte. Pour plus d’informations, consultez [Sélection élective manuelle ou automatique](../dedicated-hosts.md#manual-vs-automatic-placement).
 
-> [!IMPORTANT]
-> La fonctionnalité Sélection élective automatique est actuellement en préversion publique.
-> Pour participer à la préversion, répondez à l’enquête d’intégration à l’adresse suivante : [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview).
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="create-a-host"></a>Créer un hôte
 
@@ -173,12 +169,7 @@ Location               : eastus
 Tags                   : {}
 ```
 
-## <a name="create-a-scale-set-preview"></a>Créer un groupe identique (préversion)
-
-> [!IMPORTANT]
-> La fonctionnalité Groupes de machines virtuelles identiques sur Dedicated Host est actuellement en préversion publique.
-> Pour participer à la préversion, répondez à l’enquête d’intégration à l’adresse suivante : [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview).
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+## <a name="create-a-scale-set"></a>Créer un groupe identique 
 
 Lorsque vous déployez un groupe identique, vous spécifiez le groupe hôte.
 

@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 02/25/2020
 ms.custom: mvc
-ms.openlocfilehash: 9371feb527bbb2d94d43072bb8a44a6705b45055
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e73ca9e485e6926c30a73ba56b24bcd4dc9a836
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87280220"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929733"
 ---
 # <a name="migrate-to-azure-kubernetes-service-aks"></a>Migrer vers Azure Kubernetes Service (AKS)
 
@@ -132,7 +132,7 @@ Si votre application peut héberger plusieurs réplicas pointant vers le même p
 * Pointez votre trafic en direct vers votre nouveau cluster AKS.
 * Déconnectez l’ancien cluster.
 
-Si vous souhaitez commencer avec un partage vide et copier les données sources, vous pouvez utiliser les commandes [`az storage file copy`](/cli/azure/storage/file/copy?view=azure-cli-latest) pour migrer vos données.
+Si vous souhaitez commencer avec un partage vide et copier les données sources, vous pouvez utiliser les commandes [`az storage file copy`](/cli/azure/storage/file/copy) pour migrer vos données.
 
 
 #### <a name="migrating-persistent-volumes"></a>Migration des volumes persistants
@@ -159,7 +159,7 @@ Des outils open source vous aident à créer des disques managés et à migrer d
 
 ### <a name="deployment-of-your-cluster-configuration"></a>Déploiement de la configuration du cluster
 
-Nous vous recommandons d’utiliser votre pipeline d’intégration continue (CI) et de déploiement continu (CD) existant pour déployer une configuration éprouvée sur AKS. Vous pouvez utiliser Azure Pipelines pour [générer et déployer vos applications sur AKS](/azure/devops/pipelines/ecosystems/kubernetes/aks-template?view=azure-devops). Clonez vos tâches de déploiement existantes et vérifiez que `kubeconfig` pointe vers le nouveau cluster AKS.
+Nous vous recommandons d’utiliser votre pipeline d’intégration continue (CI) et de déploiement continu (CD) existant pour déployer une configuration éprouvée sur AKS. Vous pouvez utiliser Azure Pipelines pour [générer et déployer vos applications sur AKS](/azure/devops/pipelines/ecosystems/kubernetes/aks-template). Clonez vos tâches de déploiement existantes et vérifiez que `kubeconfig` pointe vers le nouveau cluster AKS.
 
 Si ce n’est pas possible, exportez les définitions de ressources depuis votre cluster Kubernetes existant, puis appliquez-les à AKS. Vous pouvez utiliser `kubectl` pour exporter des objets.
 
