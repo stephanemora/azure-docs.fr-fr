@@ -12,18 +12,18 @@ ms.date: 11/17/2020
 ms.author: aahi
 keywords: exploration de texte, analyse de sentiments, analyse de texte
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 0f5e6a2327f5d952f92009b0c9e408ab8188d6d7
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: 6cef9dc65a72134e0aa70db5f89f4934263c48b4
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96558774"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563226"
 ---
 # <a name="what-is-the-text-analytics-api"></a>Qu’est-ce que l’API Analyse de texte ?
 
 L’API Analyse de texte est un service cloud qui fournit des fonctionnalités de traitement en langage naturel pour l’exploration de texte et l’analyse de texte, notamment l’analyse des sentiments, l’exploration des opinions, l’extraction de phrases clés, la détection de la langue et la reconnaissance des entités nommées.
 
-L’API fait partie d’[Azure Cognitive Services](../index.yml), une collection d’algorithmes de machine learning et d’intelligence artificielle dans le cloud pour vos projets de développement. Vous pouvez utiliser ces fonctionnalités avec l’[API REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/) ou la [bibliothèque de client](quickstarts/text-analytics-sdk.md).
+L’API fait partie d’[Azure Cognitive Services](../index.yml), une collection d’algorithmes de machine learning et d’intelligence artificielle dans le cloud pour vos projets de développement. Vous pouvez utiliser ces fonctionnalités avec l’[API REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/) ou la [bibliothèque de client](quickstarts/client-libraries-rest-api.md).
 
 > [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Whats-New-in-Text-Analytics-Opinion-Mining-and-Async-API/player]
 
@@ -64,7 +64,7 @@ Le point de terminaison `/analyze` vous permet d’utiliser des fonctionnalités
 
 Le flux de travail est simple : vous envoyez des données pour analyse et traitez les résultats dans votre code. Les analyseurs sont utilisés tels quels, sans configuration ou personnalisation supplémentaires.
 
-1. [Créez une ressource Azure](../cognitive-services-apis-create-account.md) pour Text Analytics. Ensuite, [récupérez la clé](../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) générée pour authentifier vos demandes.
+1. [Créez une ressource Azure](how-tos/text-analytics-how-to-call-api.md) pour Text Analytics. Ensuite, [récupérez la clé](how-tos/text-analytics-how-to-call-api.md) générée pour authentifier vos demandes.
 
 2. [Formulez une demande](how-tos/text-analytics-how-to-call-api.md#json-schema) contenant vos données sous forme de texte brut non structuré en JSON.
 
@@ -109,7 +109,7 @@ L’API Text Analytics utilise un codage Unicode pour la représentation textuel
 
 + [Créez une ressource Azure](../cognitive-services-apis-create-account.md) pour Text Analytics afin d’obtenir une clé et un point de terminaison pour vos applications.
 
-+ Utilisez le [démarrage rapide](quickstarts/text-analytics-sdk.md) pour commencer à envoyer des appels d’API. Découvrez comment envoyer du texte, choisir une analyse et afficher les résultats avec un minimum de code.
++ Utilisez le [démarrage rapide](quickstarts/client-libraries-rest-api.md) pour commencer à envoyer des appels d’API. Découvrez comment envoyer du texte, choisir une analyse et afficher les résultats avec un minimum de code.
 
 + Pour plus d’informations sur les nouvelles mises en production et fonctionnalités, voir [Nouveautés de l’API Text Analytics](whats-new.md).
 

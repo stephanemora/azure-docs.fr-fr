@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 10/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 82b44c00b0ee4160a4baf6ad6cca7a97350d6239
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 0738e06fbd26526ed78991d5db18e7f8c5c58ea7
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970943"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505339"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>Démarrage rapide : Entraîner un modèle Form Recognizer et extraire des données à partir de formulaires au moyen d’une API REST avec cURL
 
@@ -45,7 +45,8 @@ Pour entraîner un modèle Form Recognizer à l’aide des documents de votre co
 
 1. Remplacez `<Endpoint>` par le point de terminaison que vous avez obtenu avec votre abonnement Form Recognizer.
 1. Remplacez `<subscription key>` par la clé d’abonnement que vous avez copiée à l’étape précédente.
-1. Remplacez `<SAS URL>` par l’URL de signature d’accès partagé (SAS) du conteur de stockage Azure Blob. Pour récupérer l’URL SAS, ouvrez l’Explorateur Stockage Microsoft Azure, cliquez avec le bouton droit sur votre conteneur, puis sélectionnez **Obtenir une signature d’accès partagé**. Assurez-vous que les autorisations de **Lecture** et **Écriture** sont cochées, puis cliquez sur **Créer**. Copiez alors la valeur dans la section **URL**. Il doit avoir le format : `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+1. Remplacez `<SAS URL>` par l’URL de signature d’accès partagé (SAS) du conteur de stockage Azure Blob. [!INCLUDE [get SAS URL](../includes/sas-instructions.md)]
+
 
     # <a name="v20"></a>[v2.0](#tab/v2-0)    
     ```bash
@@ -53,7 +54,7 @@ Pour entraîner un modèle Form Recognizer à l’aide des documents de votre co
     ```
     # <a name="v21-preview"></a>[v2.1 (préversion)](#tab/v2-1)    
     ```bash
-    curl -i -X POST "https://<Endpoint>/formrecognizer/v2.1-preview.1/custom/models" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{ \"source\": \""<SAS URL>"\"}"
+    curl -i -X POST "https://<Endpoint>/formrecognizer/v2.1-preview.2/custom/models" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{ \"source\": \""<SAS URL>"\"}"
     ```
     
     ---
@@ -78,7 +79,7 @@ curl -X GET "https://<Endpoint>/formrecognizer/v2.0/custom/models/<model ID>" -H
 ```
 # <a name="v21-preview"></a>[v2.1 (préversion)](#tab/v2-1)    
 ```bash
-curl -X GET "https://<Endpoint>/formrecognizer/v2.1-preview.1/custom/models/<model ID>" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>"
+curl -X GET "https://<Endpoint>/formrecognizer/v2.1-preview.2/custom/models/<model ID>" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>"
 ```ce\": \""<SAS URL>"\"}"
 ```
     
@@ -170,7 +171,7 @@ curl -v "https://<Endpoint>/formrecognizer/v2.0/custom/models/<model ID>/analyze
 # <a name="v21-preview"></a>[v2.1 (préversion)](#tab/v2-1)    
 ```bash
 ```bash
-curl -v "https://<Endpoint>/formrecognizer/v2.1-preview.1/custom/models/<model ID>/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" -d "{ \"source\": \""<SAS URL>"\" } "
+curl -v "https://<Endpoint>/formrecognizer/v2.1-preview.2/custom/models/<model ID>/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" -d "{ \"source\": \""<SAS URL>"\" } "
 ```
     
 ---

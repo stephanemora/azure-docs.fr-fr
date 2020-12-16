@@ -3,12 +3,12 @@ title: 'Démarrage rapide : Bibliothèque de client QnA Maker pour Python'
 description: Ce guide de démarrage rapide montre comment commencer à utiliser la bibliothèque de client QnA Maker pour Python.
 ms.topic: include
 ms.date: 06/18/2020
-ms.openlocfilehash: 8a9796b0378e6e0bfc04a6e54aafb3001637cac6
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 61c67b66e85e1d8d03cbe07b0c8d2053151e3513
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96615787"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97096397"
 ---
 Utilisez la bibliothèque de client QnA Maker pour Python afin de :
 
@@ -70,7 +70,7 @@ Créez des variables pour le point de terminaison et la clé Azure de votre ress
 
 Le client QnA Maker de création est un objet [QnAMakerClient](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker?view=azure-python) qui s’authentifie auprès d’Azure à l’aide de Microsoft.Rest.ServiceClientCredentials, qui contient votre clé.
 
-Une fois le client créé, utilisez la propriété [Knowledge base](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.authoring.operations.knowledgebaseoperations?view=azure-python) pour créer, gérer et publier votre base de connaissances.
+Une fois le client créé, utilisez la propriété [Knowledge base](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.operations.knowledgebaseoperations?view=azure-python) pour créer, gérer et publier votre base de connaissances.
 
 Gérez votre base de connaissances en envoyant un objet JSON. Pour les opérations immédiates, une méthode retourne généralement un objet JSON indiquant l’état. Pour les opérations de longue durée, la réponse est l’ID d’opération. Appelez la méthode [operations.get_details](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.operation(class)?view=azure-python#get-details-operation-id--custom-headers-none--raw-false----operation-config-) avec l’ID d’opération pour déterminer l’[état de la requête](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.operation(class)?view=azure-python).
 
@@ -121,7 +121,7 @@ Utilisez la méthode [download](https://docs.microsoft.com/python/api/azure-cogn
 
 ## <a name="publish-a-knowledge-base"></a>Publier une base de connaissances
 
-Publiez la base de connaissances à l’aide de la méthode [publish](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.authoring.operations.knowledgebase_operations.knowledgebaseoperations?view=azure-python#publish-kb-id--custom-headers-none--raw-false----operation-config-). Celle-ci prend le modèle actuel enregistré et entraîné, référencé par l’ID de base de connaissances, et le publie sur un point de terminaison.
+Publiez la base de connaissances à l’aide de la méthode [publish](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.operations.knowledgebase_operations.knowledgebaseoperations?view=azure-python). Celle-ci prend le modèle actuel enregistré et entraîné, référencé par l’ID de base de connaissances, et le publie sur un point de terminaison.
 
 [!code-python[Publish a knowledge base](~/cognitive-services-quickstart-code/python/QnAMaker/sdk/quickstart.py?name=PublishKB&highlight=2)]
 
@@ -154,7 +154,7 @@ Il s’agit d’un exemple simple d’interrogation de la base de connaissances.
 
 ## <a name="delete-a-knowledge-base"></a>Supprimer une base de connaissances
 
-Supprimez la base de connaissances à l’aide de la méthode [delete](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.authoring.operations.knowledgebase_operations.knowledgebaseoperations?view=azure-python#delete-kb-id--custom-headers-none--raw-false----operation-config-) avec comme paramètre l’ID de la base de connaissances.
+Supprimez la base de connaissances à l’aide de la méthode [delete](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.operations.knowledgebase_operations.knowledgebaseoperations?view=azure-python) avec comme paramètre l’ID de la base de connaissances.
 
 [!code-python[Delete a knowledge base](~/cognitive-services-quickstart-code/python/QnAMaker/sdk/quickstart.py?name=DeleteKB&highlight=2)]
 

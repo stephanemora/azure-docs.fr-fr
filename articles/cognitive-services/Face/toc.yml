@@ -5,6 +5,8 @@
   items:
     - name: "Qu’est ce que le service Visage\_?"
       href: Overview.md
+    - name: Nouveautés
+      href: releasenotes.md
 - name: Démarrages rapides
   items:
     - name: Utilisation de la bibliothèque de client ou de l’API REST
@@ -97,5 +99,3 @@
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Chiffrement
       href: face-encryption-of-data-at-rest.md
-    - name: Notes de publication
-      href: ReleaseNotes.md

@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: abc8cffa3d5b9dffb55beabc90cdaecb3adc647f
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 985f9e741a1491a812c1d2b20de96381f8af3fa4
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96852521"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359844"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>Déployer l’outil d’étiquetage des exemples
 
@@ -86,7 +86,7 @@ Suivez ces étapes pour créer une nouvelle ressource à partir du portail Azure
    * URL du serveur : définissez cette valeur sur `https://mcr.microsoft.com`
    * Nom d’utilisateur (facultatif) : créez un nom d’utilisateur. 
    * Mot de passe (facultatif) : créez un mot de passe sécurisé dont vous vous souviendrez.
-   * Image et étiquette : définissez cette valeur sur `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview`
+   * Image et étiquette : définissez cette valeur sur `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview`
    * Déploiement continu : définissez cette valeur sur **Activé** si vous souhaitez recevoir des mises à jour automatiques lorsque l’équipe de développement apporte des modifications à l’outil d’étiquetage des exemples.
    * Commande de démarrage : définissez cette option sur `./run.sh eula=accept`
     

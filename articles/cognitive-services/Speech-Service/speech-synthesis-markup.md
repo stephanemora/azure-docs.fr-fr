@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 6b522f234343cc6a50d76607d1629c46cd180b7d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: df6a4053eb70c02e27599bbd9086dfa32b0bcc65
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95894012"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97508830"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Améliorer la synthèse avec le langage de balisage de synthèse vocale (SSML, Speech Synthesis Markup Language)
 
@@ -200,6 +200,7 @@ Actuellement, des ajustements de style oral sont pris en charge pour ces voix ne
 * `en-US-GuyNeural`
 * `zh-CN-XiaoxiaoNeural`
 * `zh-CN-YunyangNeural`
+* `zh-CN-YunyeNeural`
 * `zh-CN-YunxiNeural` (version préliminaire)
 * `zh-CN-XiaohanNeural` (version préliminaire)
 * `zh-CN-XiaomoNeural` (version préliminaire)
@@ -271,7 +272,14 @@ Reportez-vous à ce tableau pour déterminer les styles oraux pris en charge pou
 |                         | `style="gentle"`          | Exprime un ton doux, poli et agréable, avec une hauteur de voix et une énergie vocale moins élevées         |   
 |                         | `style="lyrical"`         | Exprime les émotions d’une manière mélodique et sentimentale         |   
 | `zh-CN-YunyangNeural`   | `style="customerservice"` | Exprime un ton convivial et pragmatique pour le support technique  | 
-| `zh-CN-YunxiNeural`    | `style="cheerful"`        | Exprime un ton optimiste et enthousiaste, avec une plus grande hauteur de voix et énergie vocale.                         |
+| `zh-CN-YunyeNeural`     | `style="calm"`            | Exprime une attitude sympathique, calme et posée dans une conversation. Le ton, la hauteur de la voix, la prosodie sont bien plus uniformes par rapport aux autres types de voix.    | 
+|                         | `style="cheerful"`        | Exprime un ton optimiste et enthousiaste, avec une plus grande hauteur de voix et énergie vocale.                         |
+|                         | `style="sad"`             | Exprime un ton triste, avec une plus grande hauteur de voix, une intensité moindre et une énergie vocale plus faible. Les gémissements ou les pleurs pendant l’élocution indiquent généralement cette émotion.            |
+|                         | `style="angry"`           | Exprime un ton fâché et énervé, avec une hauteur de voix plus basse, une intensité plus grande et une énergie vocale plus élevée. L’orateur est en colère, mécontent et offensé.       |
+|                         | `style="fearful"`         | Exprime un ton effrayé et nerveux, avec une plus grande hauteur de voix, une plus grande énergie vocale et un débit plus rapide. L’orateur est dans un état de tension et de malaise.                          |
+|                         | `style="disgruntled"`     | Exprime un ton dédaigneux et plaintif. L’expression de cette émotion témoigne du mécontentement et du mépris.              |
+|                         | `style="serious"`         | Exprime un ton strict et autoritaire. L’orateur a souvent l’air sévère et peu détendu et sa cadence reste ferme.          |
+| `zh-CN-YunxiNeural`     | `style="cheerful"`        | Exprime un ton optimiste et enthousiaste, avec une plus grande hauteur de voix et énergie vocale.                         |
 |                         | `style="sad"`             | Exprime un ton triste, avec une plus grande hauteur de voix, une intensité moindre et une énergie vocale plus faible. Les gémissements ou les pleurs pendant l’élocution indiquent généralement cette émotion.            |
 |                         | `style="angry"`           | Exprime un ton fâché et énervé, avec une hauteur de voix plus basse, une intensité plus grande et une énergie vocale plus élevée. L’orateur est en colère, mécontent et offensé.       |
 |                         | `style="fearful"`         | Exprime un ton effrayé et nerveux, avec une plus grande hauteur de voix, une plus grande énergie vocale et un débit plus rapide. L’orateur est dans un état de tension et de malaise.                          |

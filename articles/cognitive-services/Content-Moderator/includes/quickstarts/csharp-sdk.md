@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 09/15/2020
 ms.author: pafarley
 ms.custom: devx-track-dotnet, cog-serv-seo-aug-2020
-ms.openlocfilehash: 793dc6d210751d0605ab756cd1c72b1dc5dd308f
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 8a715c23900ac0d5a16ff4a0a8ade5ea9458cfed
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92918705"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97561492"
 ---
 Commencez à utiliser la bibliothèque cliente Azure Content Moderator pour .NET. Suivez les étapes suivantes pour installer le package NuGet et essayer l’exemple de code pour les tâches de base. 
 
@@ -24,9 +24,9 @@ Content Moderator est un service d’IA qui vous permet de gérer le contenu pot
 
 Utilisez la bibliothèque de client Content Moderator pour .NET aux fins suivantes :
 
-* [Modérer du texte](#moderate-text)
-* [Modérer les images](#moderate-images)
-* [Créer une révision](#create-a-review)
+* Modérer du texte
+* Modérer des images
+* Créer une révision
 
 [Documentation de référence](/dotnet/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-dotnet) | [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.ContentModerator) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) | [Exemples](../../samples-dotnet.md)
 
@@ -48,7 +48,7 @@ Utilisez la bibliothèque de client Content Moderator pour .NET aux fins suivant
 
 ### <a name="install-the-client-library"></a>Installer la bibliothèque de client 
 
-Une fois que vous avez créé un projet, installez la bibliothèque de client en cliquant avec le bouton droit sur la solution de projet dans l’ **Explorateur de solutions** et en sélectionnant **Gérer les packages NuGet**. Dans le gestionnaire de package qui s’ouvre, sélectionnez **Parcourir** , cochez **Inclure la préversion** et recherchez `Microsoft.Azure.CognitiveServices.ContentModerator`. Sélectionnez la version `2.0.0`, puis **Installer**. 
+Une fois que vous avez créé un projet, installez la bibliothèque de client en cliquant avec le bouton droit sur la solution de projet dans l’**Explorateur de solutions** et en sélectionnant **Gérer les packages NuGet**. Dans le gestionnaire de package qui s’ouvre, sélectionnez **Parcourir**, cochez **Inclure la préversion** et recherchez `Microsoft.Azure.CognitiveServices.ContentModerator`. Sélectionnez la version `2.0.0`, puis **Installer**. 
 
 #### <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/cli)
 
@@ -91,7 +91,7 @@ dotnet add package Microsoft.Azure.CognitiveServices.ContentModerator --version 
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_using)]
 
-Dans la classe **Program** , créez des variables pour la clé et le point de terminaison de votre ressource.
+Dans la classe **Program**, créez des variables pour la clé et le point de terminaison de votre ressource.
 
 > [!IMPORTANT]
 > Accédez au portail Azure. Si la ressource Content Moderator que vous avez créée dans la section **Prérequis** a été déployée, cliquez sur le bouton **Accéder à la ressource** sous **Étapes suivantes**. La clé et le point de terminaison se trouvent dans la page **Clé et point de terminaison** de la ressource, sous **Gestion des ressources**. 
@@ -140,7 +140,7 @@ Dans une nouvelle méthode, instanciez les objets clients avec le point de termi
 
 ## <a name="moderate-text"></a>Modérer du texte
 
-Le code suivant utilise un client Content Moderator pour analyser un corps de texte et imprimer les résultats dans la console. À la racine de la classe **Program** , définissez les fichiers d’entrée et de sortie :
+Le code suivant utilise un client Content Moderator pour analyser un corps de texte et imprimer les résultats dans la console. À la racine de la classe **Program**, définissez les fichiers d’entrée et de sortie :
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_text_vars)]
 
@@ -152,7 +152,7 @@ Crap is the profanity here. Is this information PII? phone 4255550111
 ```
 
 
-Définissez ensuite la méthode de modération du texte dans votre classe **Program**  :
+Définissez ensuite la méthode de modération du texte dans votre classe **Program** :
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_textmod)]
 
@@ -165,11 +165,11 @@ Le code suivant utilise un client Content Moderator, ainsi qu’un objet [ImageM
 
 ### <a name="get-sample-images"></a>Obtenir des exemples d’images
 
-Définissez vos fichiers d’entrée et de sortie à la racine de votre classe **Program**  :
+Définissez vos fichiers d’entrée et de sortie à la racine de votre classe **Program** :
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_image_vars)]
 
-Créez ensuite le fichier d’entrée ( *ImageFiles.txt* ) à la racine de votre projet. Dans ce fichier, ajoutez les URL des images pour analyser&mdash;une URL sur chaque ligne. Vous pouvez utiliser les exemples d’image suivants :
+Créez ensuite le fichier d’entrée (*ImageFiles.txt*) à la racine de votre projet. Dans ce fichier, ajoutez les URL des images pour analyser&mdash;une URL sur chaque ligne. Vous pouvez utiliser les exemples d’image suivants :
 
 ```
 https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg
@@ -232,7 +232,7 @@ Ajoutez la méthode suivante à la classe **Program**. Cette méthode écrit les
 
 ### <a name="define-the-review-creation-method"></a>Définir la méthode de création de la révision
 
-Vous êtes maintenant prêt à définir la méthode qui va gérer la création et l’interrogation de la révision. Ajoutez une méthode ( **CreateReviews** ) et définissez les variables locales suivantes.
+Vous êtes maintenant prêt à définir la méthode qui va gérer la création et l’interrogation de la révision. Ajoutez une méthode (**CreateReviews**) et définissez les variables locales suivantes.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_createreview_fields)]
 

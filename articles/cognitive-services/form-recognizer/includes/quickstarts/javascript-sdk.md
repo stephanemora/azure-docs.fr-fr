@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 3bd3ce63339f7eecef520a5496e5c4a3a64efd18
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 9b6fc05cc2e97e8e0d74f7d19912afedb37c0fa5
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96356560"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97366531"
 ---
 > [!IMPORTANT]
 > * Le code indiqué dans cet article utilise des méthodes synchrones et un stockage d’informations d’identification non sécurisé pour des raisons de simplicité. Consultez la documentation de référence ci-dessous. 
@@ -120,7 +120,7 @@ Authentifiez un objet client à l’aide des variables d’abonnement que vous a
 ## <a name="get-assets-for-testing"></a>Obtenir des ressources à des fins de test
 
 Vous devrez aussi ajouter des références aux URL pour vos données d’entraînement et de test.
-* Pour récupérer l’URL SAS des données d’entraînement de votre modèle personnalisé, ouvrez l’Explorateur Stockage Microsoft Azure, cliquez avec le bouton droit sur votre conteneur, puis sélectionnez **Obtenir une signature d’accès partagé**. Assurez-vous que les autorisations de **Lecture** et **Écriture** sont cochées, puis cliquez sur **Créer**. Copiez alors la valeur dans la section **URL**. Il doit avoir le format : `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+* [!INCLUDE [get SAS URL](../../includes/sas-instructions.md)]
 * Utilisez les exemples de formulaires et d’images de tickets de caisse fournis avec les exemples ci-dessous (également disponibles sur [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/test-assets)) ou utilisez les étapes ci-dessus pour récupérer l’URL SAS d’un document individuel dans le stockage d’objets blob. 
 
 
