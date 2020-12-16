@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 09/17/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 5a23cf031b5d7cf40e2077f2e5287e10de563207
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 757dfa119649e21c6e1787671afa61ee18184300
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96903001"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97561900"
 ---
 # <a name="frequently-asked-questions-about-arm-templates"></a>Forum aux questions sur les modèles Resource Manager
 
@@ -154,7 +154,7 @@ Cet article répond aux questions fréquentes sur les modèles Azure Resource Ma
 
 * **Quand j’utilise What-if, je vois des modifications dans les propriétés qui ne sont pas dans mon modèle. Ce « parasite » est-:il prévu ?**
 
-  What-if est en préversion. Nous travaillons actuellement à la réduction des parasites. Aidez-nous à nous améliorer en nous signalant les problèmes dans notre référentiel GitHub ici : https://aka.ms/WhatIfIssues
+  Nous travaillons actuellement à la réduction des parasites. Aidez-nous à nous améliorer en nous signalant les problèmes dans notre référentiel GitHub ici : https://aka.ms/WhatIfIssues
 
 ## <a name="template-visualizer"></a>Visualiseur de modèle
 

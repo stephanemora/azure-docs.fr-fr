@@ -1,18 +1,18 @@
 ---
 title: Comment analyser un blob Stockage Azure
 description: Découvrez comment analyser Stockage Blob Azure dans votre catalogue de données Azure Purview.
-author: hophan
+author: hophanms
 ms.author: hophan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/25/2020
-ms.openlocfilehash: 6d2e2316525465c1ef9f58e7b83b8d0e99d46bd4
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 1bcd8390a298d7fc46f9c04633f610eb4492d33d
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96550317"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400707"
 ---
 # <a name="register-and-scan-azure-blob-storage"></a>Inscrire et analyser Stockage Blob Azure
 
@@ -25,7 +25,7 @@ Stockage Blob Azure prend en charge les analyses incrémentielles et complètes 
 ## <a name="prerequisites"></a>Prérequis
 
 - Avant d’inscrire des sources de données, créez un compte Azure Purview. Pour plus d’informations sur la création d’un compte Purview, consultez [Démarrage rapide : Créer un compte Azure Purview](create-catalog-portal.md).
-- Vous devez être un administrateur de source de données Azure Purview
+- Vous devez être administrateur de la source de données Azure Purview.
 
 ## <a name="setting-up-authentication-for-a-scan"></a>Configuration de l’authentification pour une analyse
 
@@ -41,8 +41,8 @@ Lorsque vous choisissez **Identité managée**, pour configurer la connexion, vo
 
 1. Accédez à votre compte de stockage.
 1. Dans le menu de navigation de gauche, sélectionnez **Contrôle d’accès (IAM)** . 
-1. Sélectionnez **Ajouter**.
-1. Définissez le **Rôle** sur **Lecteur de données blob de stockage**, puis entrez le nom de votre compte Azure Purview dans la zone d’entrée **Sélectionner**. Ensuite, sélectionnez **Enregistrer** pour attribuer cette attribution de rôle à votre compte Purview.
+1. Sélectionnez **+ Ajouter**.
+1. Définissez le **Rôle** sur **Lecteur de données blob de stockage**, puis entrez le nom de votre compte Azure Purview dans la zone d’entrée **Sélectionner**. Ensuite, sélectionnez **Enregistrer** pour fournir cette attribution de rôle à votre compte Purview.
 
 > [!Note]
 > Pour plus d’informations, consultez les étapes sous [Autoriser l’accès aux objets blob et files d’attente avec Azure Active Directory](https://docs.microsoft.com/azure/storage/common/storage-auth-aad)
@@ -55,15 +55,15 @@ Lorsque la méthode d’authentification sélectionnée est **Clé de compte**, 
 1. Sélectionnez **Paramètres > Clés d’accès**
 1. Copiez votre *clé* et enregistrez-la quelque part pour les étapes suivantes
 1. Accédez à votre coffre de clés.
-1. Sélectionnez **Paramètres > Secrets**
+1. Sélectionnez **Paramètres > Secrets**.
 1. Sélectionnez **+ Générer/importer** et entrez le **nom** et la **valeur** comme pour la *clé* de votre compte de stockage.
-1. Sélectionnez **Créer** pour terminer
-1. Si votre coffre de clés n’est pas encore connecté à Purview, vous devrez [créer une nouvelle connexion de coffre de clés](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
-1. Enfin, [créez des informations d’identification](manage-credentials.md#create-a-new-credential) à l’aide de la clé pour configurer votre analyse
+1. Sélectionnez **Créer** pour terminer.
+1. Si votre coffre de clés n’est pas encore connecté à Purview, vous devrez [créer une connexion de coffre de clés](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account).
+1. Enfin, [créez des informations d’identification](manage-credentials.md#create-a-new-credential) à l’aide de la clé pour configurer votre analyse.
 
 ### <a name="service-principal"></a>Principal du service
 
-Pour utiliser un principal de service, vous pouvez en utiliser un existant ou en créer un. 
+Vous pouvez utiliser un principal de service existant ou en créer un nouveau. 
 
 > [!Note]
 > Si vous devez créer un principal de service, procédez comme suit :
@@ -71,27 +71,27 @@ Pour utiliser un principal de service, vous pouvez en utiliser un existant ou en
 > 1. Dans le menu de gauche, sélectionnez **Azure Active Directory**.
 > 1. Sélectionnez **Inscriptions d’applications**.
 > 1. Sélectionnez **+ Nouvelle inscription d’application**.
-> 1. Entrez un nom pour **l’application** (nom du principal de service).
+> 1. Entrez un nom pour l’**application** (nom du principal de service).
 > 1. Sélectionnez **Comptes dans ce répertoire organisationnel uniquement**.
-> 1. Pour URI de redirection, sélectionnez **Web** et entrez l’URL de votre choix. Il n’est pas nécessaire qu’elle soit réelle ou qu’elle fonctionne.
+> 1. Pour l’URI de redirection, sélectionnez **Web** et entrez l’URL de votre choix. Il n’est pas nécessaire qu’elle soit réelle ni qu’elle fonctionne.
 > 1. Sélectionnez ensuite **Inscription**.
 
-Il est nécessaire de capturer l’ID d’application et le secret du principal de service :
+Il est nécessaire de récupérer l’ID d’application et le secret du principal de service :
 
-1. Accédez à votre principal de service dans le [portail Azure](https://portal.azure.com)
-1. Copiez les valeurs **ID d’application (client)** dans **Vue d’ensemble** et **Secret client** dans **Certificats & secrets**.
+1. Accédez à votre principal de service sur le [Portail Azure](https://portal.azure.com).
+1. Copiez les valeurs **ID d’application (client)** dans **Vue d’ensemble** et **Secret client** dans **Certificats et secrets**.
 1. Accédez à votre coffre de clés.
-1. Sélectionnez **Paramètres > Secrets**
-1. Sélectionnez **+ Générer/importer** et entrez le **nom** de votre choix et la **valeur** comme le **Secret client** de votre principal de service
-1. Sélectionnez **Créer** pour terminer
-1. Si votre coffre de clés n’est pas encore connecté à Purview, vous devrez [créer une nouvelle connexion de coffre de clés](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
-1. Enfin, [créez des informations d’identification](manage-credentials.md#create-a-new-credential) à l’aide du principal de service pour configurer votre analyse
+1. Sélectionnez **Paramètres > Secrets**.
+1. Sélectionnez **+ Générer/importer** et entrez le **nom** de votre choix et la **valeur** comme **secret client** de votre principal de service.
+1. Sélectionnez **Créer** pour terminer.
+1. Si votre coffre de clés n’est pas encore connecté à Purview, vous devrez [créer une connexion de coffre de clés](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account).
+1. Enfin, [créez de nouvelles informations d’identification](manage-credentials.md#create-a-new-credential) à l’aide du principal de service pour configurer votre analyse.
 
 #### <a name="granting-the-service-principal-access-to-your-blob-storage"></a>Accorder au principal de service l’accès à votre stockage blob
 
 1. Accédez à votre compte de stockage.
 1. Dans le menu de navigation de gauche, sélectionnez **Contrôle d’accès (IAM)** . 
-1. Sélectionnez **Ajouter**.
+1. Sélectionnez **+ Ajouter**.
 1. Définissez le **Rôle** sur **Lecteur de données blob de stockage**, puis entrez le nom ou ID d’objet de votre principal de service dans la zone d’entrée **Sélectionner**. Ensuite, sélectionnez **Enregistrer** pour fournir cette attribution de rôle à votre principal de service.
 
 ## <a name="firewall-settings"></a>Paramètres du pare-feu
@@ -110,25 +110,25 @@ Il est nécessaire de capturer l’ID d’application et le secret du principal 
 
 Pour inscrire un nouveau compte blob dans votre catalogue de données, procédez comme suit :
 
-1. Accédez à votre compte Purview
-1. Sélectionnez **Sources** dans la barre de navigation à gauche
+1. Accédez à votre compte Purview.
+1. Sélectionnez **Sources** dans le volet de navigation de gauche.
 1. Sélectionnez **Inscrire**.
 1. Sous **Inscrire des sources**, sélectionnez **Stockage Blob Azure**
 1. Sélectionnez **Continue** (Continuer)
 
 Dans l’écran **Inscrire des sources (Stockage Blob Azure)** , procédez comme suit :
 
-1. Entrez un **nom** avec lequel la source de données sera répertoriée dans le catalogue. 
+1. Entrez le **nom** avec lequel la source de données sera listée dans le catalogue. 
 1. Choisissez votre abonnement pour filtrer les comptes de stockage
 1. Sélectionner un compte de stockage
-1. Sélectionnez une collection ou créez-en une (facultatif)
-1. **Terminer** pour inscrire la source de données.
+1. Sélectionnez une collection ou créez-en une (facultatif).
+1. Utilisez **Terminer** pour inscrire la source de données.
 
-:::image type="content" source="media/register-scan-azure-blob-storage-source/register-sources.png" alt-text="options pour inscrire des sources" border="true":::
+:::image type="content" source="media/register-scan-azure-blob-storage-source/register-sources.png" alt-text="Options d’inscription des sources" border="true":::
 
 [!INCLUDE [create and manage scans](includes/manage-scans.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Parcourir le catalogue de données Azure Purview](how-to-browse-catalog.md)
-- [Effectuer une recherche dans le catalogue de données Azure Purview](how-to-search-catalog.md)
+- [Navigation dans le catalogue de données Azure Purview](how-to-browse-catalog.md)
+- [Recherche dans le catalogue de données Azure Purview](how-to-search-catalog.md)

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3e3245053fcc9943814268835fa5ac0f40a6f94c
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: f6907db7f6e53247a8f2fc0042e8c8e6b081dbd3
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96750507"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516378"
 ---
 # <a name="secure-your-restful-services"></a>Sécuriser vos services API RESTful 
 
@@ -230,7 +230,7 @@ Une revendication fournit un stockage temporaire de données lors d’une exécu
 
 ### <a name="acquiring-an-access-token"></a>Acquisition d’un jeton d’accès 
 
-Vous pouvez obtenir un jeton d’accès de l’une des manières suivantes : en l’obtenant [auprès d’un fournisseur d’identité fédéré](idp-pass-through-custom.md), en appelant une API REST qui retourne un jeton d’accès, à l’aide d’un [flux ROPC](../active-directory/develop/v2-oauth-ropc.md) ou à l’aide du [flux d’informations d’identification du client](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md).  
+Vous pouvez obtenir un jeton d’accès de l’une des manières suivantes : en l’obtenant [auprès d’un fournisseur d’identité fédéré](idp-pass-through-user-flow.md), en appelant une API REST qui retourne un jeton d’accès, à l’aide d’un [flux ROPC](../active-directory/develop/v2-oauth-ropc.md) ou à l’aide du [flux d’informations d’identification du client](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md).  
 
 L’exemple suivant utilise un profil technique de l’API REST pour soumettre une requête au point de terminaison du jeton Azure AD à l’aide des informations d’identification du client passées en tant qu’authentification de base HTTP. Pour effectuer la configuration dans Azure AD, consultez [Plateforme d’identités Microsoft et flux d’informations d’identification du client OAuth 2.0](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). Vous devrez peut-être modifier cette valeur pour l’interface avec votre fournisseur d’identité. 
 

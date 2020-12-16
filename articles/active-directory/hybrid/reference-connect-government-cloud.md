@@ -11,12 +11,12 @@ ms.date: 04/14/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bbb4298d0d9a9d7589c4a2055b4d55a0b852f951
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: e163ea34948906060996ee952f45ec0cdb467557
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96518207"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504353"
 ---
 # <a name="hybrid-identity-considerations-for-the-azure-government-cloud"></a>Considérations relatives à l’identité hybride pour l’Azure Government Cloud
 
@@ -24,6 +24,9 @@ Cet article contient des considérations relatives à l’intégration d’un en
 
 > [!NOTE]
 > Pour intégrer un environnement Microsoft Active Directory (local ou hébergé dans un IaaS faisant partie de la même instance cloud) au cloud Azure Government, vous devez effectuer une mise à niveau vers la dernière version d’[Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594).
+
+> [!NOTE]
+> Cet article contient des références au terme *liste verte*, un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.
 
 Pour obtenir la liste complète des points de terminaison du ministère de la défense du gouvernement des États-Unis, reportez-vous à la [documentation](/office365/enterprise/office-365-u-s-government-dod-endpoints).
 
@@ -94,7 +97,7 @@ Mozilla Firefox n'utilise pas automatiquement l’authentification Kerberos. Cha
 
 ### <a name="microsoft-edge-based-on-chromium-all-platforms"></a>Microsoft Edge basé sur Chromium (toutes les plateformes)
 
-Si vous avez remplacé les paramètres de stratégie  `AuthNegotiateDelegateAllowlist` ou `AuthServerAllowlist` dans votre environnement, veillez à y ajouter l’URL d’Azure AD `https://autologon.microsoft.us`.
+Si vous avez remplacé les paramètres de stratégie `AuthNegotiateDelegateAllowlist` ou `AuthServerAllowlist` dans votre environnement, veillez à y ajouter également l’URL d’Azure AD `https://autologon.microsoft.us`.
 
 ### <a name="google-chrome-all-platforms"></a>Google Chrome (toutes les plateformes)
 

@@ -12,12 +12,12 @@ ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: baf2734c2f3c4de86b75a20239ecf7440c61a632
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 0cad8fcdf58f4827f28b40550ae93e607e0c0858
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96534044"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97369002"
 ---
 # <a name="dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-release-notes"></a>Notes de publication pour un pool SQL dédié (anciennement SQL DW) dans Azure Synapse Analytics
 
@@ -59,7 +59,7 @@ Pour améliorer les outils, assurez-vous d’avoir installé la version spécifi
 | Améliorations du service | Détails |
 | --- | --- |
 |**Gestion des charges de travail – Utilisation du portail**|Les utilisateurs peuvent configurer et gérer leurs paramètres de gestion des charges de travail par le biais du portail Azure. La possibilité de configurer des [groupes de charges de travail](/azure/synapse-analytics/sql-data-warehouse/quickstart-configure-workload-isolation-portal) et des [classifieurs de charges de travail](/azure/synapse-analytics/sql-data-warehouse/quickstart-create-a-workload-classifier-portal) avec une importance est possible.|
-|**Vue améliorée du catalogue des mappages de table**|La nouvelle vue de catalogue [sys.pdw_permanent_table_mappings](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=sqlallproducts-allversions) mappe des **object_ids** de tables utilisateur permanentes à leurs noms de tables physiques.|
+|**Vue améliorée du catalogue des mappages de table**|La nouvelle vue de catalogue [sys.pdw_permanent_table_mappings](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql) mappe des **object_ids** de tables utilisateur permanentes à leurs noms de tables physiques.|
 
 ## <a name="july-2020"></a>Juillet 2020
 

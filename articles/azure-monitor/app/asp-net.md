@@ -3,13 +3,13 @@ title: Configurer l’analyse pour ASP.NET avec Azure Application Insights | Mic
 description: Configurez les outils d’analytique des performances, de la disponibilité et du comportement des utilisateurs de votre site web ASP.NET, hébergé en local ou dans Azure.
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.custom: contperfq1
-ms.openlocfilehash: 970971082e684ebcb6efce07bb707ffbb20ed228
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: f9cb5370dcddf783e533664c4c141779402103f0
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96904174"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97028986"
 ---
 # <a name="configure-application-insights-for-your-aspnet-website"></a>Configurer Application Insights pour votre site web ASP.NET
 

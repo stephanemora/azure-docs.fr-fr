@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 11/25/2020
+ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e5aca04a649dfa5228d12737b21ef2ee2b14013b
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 891991fa938ad3dcfacae6d02e40efd6d6e9689e
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96750429"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97386848"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique RESTful dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -122,7 +122,7 @@ Le profil technique retourne également des revendications, qui ne sont pas reto
 | ClaimUsedForRequestPayload| Non | Nom d’une revendication de chaîne qui contient la charge utile à envoyer à l’API REST. |
 | DebugMode | Non | Exécute le profil technique en mode débogage. Valeurs possibles : `true` ou `false` (par défaut). En mode débogage, l’API REST peut retourner plus d’informations. Consultez la section [Retour de message d’erreur](#returning-validation-error-message). |
 | IncludeClaimResolvingInClaimsHandling  | Non | Pour les revendications d’entrée et de sortie, spécifie si la [résolution des revendications](claim-resolver-overview.md) est incluse dans le profil technique. Valeurs possibles : `true` ou `false` (par défaut). Si vous souhaitez utiliser un programme de résolution des revendications dans le profil technique, définissez cette valeur sur `true`. |
-| ResolveJsonPathsInJsonTokens  | Non | Indique si le profil technique résout les chemins d’accès JSON. Valeurs possibles : `true` ou `false` (par défaut). Utilisez ces métadonnées pour lire des données issues d’un élément JSON imbriqué. Dans un élément [OutputClaim](technicalprofiles.md#outputclaims), définissez `PartnerClaimType` sur l’élément de chemin d’accès JSON que vous souhaitez générer. Par exemple : `firstName.localized` ou `data.0.to.0.email`.|
+| ResolveJsonPathsInJsonTokens  | Non | Indique si le profil technique résout les chemins d’accès JSON. Valeurs possibles : `true` ou `false` (par défaut). Utilisez ces métadonnées pour lire des données issues d’un élément JSON imbriqué. Dans un élément [OutputClaim](technicalprofiles.md#output-claims), définissez `PartnerClaimType` sur l’élément de chemin d’accès JSON que vous souhaitez générer. Par exemple : `firstName.localized` ou `data.0.to.0.email`.|
 | UseClaimAsBearerToken| Non| Nom de la revendication qui contient le jeton du porteur.|
 
 ## <a name="error-handling"></a>Gestion des erreurs
@@ -223,7 +223,7 @@ Si le type d’authentification est défini sur `ApiKeyHeader`, l’élément **
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| Nom de l’en-tête HTTP, tel que `x-functions-key` ou `x-api-key`. | Yes | Clé utilisée pour l’authentification. |
+| Nom de l’en-tête HTTP, tel que `x-functions-key` ou `x-api-key`. | Oui | Clé utilisée pour l’authentification. |
 
 ```xml
 <TechnicalProfile Id="REST-API-SignUp">

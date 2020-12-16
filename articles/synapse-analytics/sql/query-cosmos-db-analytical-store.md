@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 12/04/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 129534727248ff05b5d38da60dead7903d9a5815
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 22103ad580fa474f44eaf42c696d19bbbd137c8e
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96744463"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095098"
 ---
 # <a name="query-azure-cosmos-db-data-with-a-serverless-sql-pool-in-azure-synapse-link-preview"></a>Interroger des données d’Azure Cosmos DB avec un pool SQL serverless dans Azure Synapse Link (préversion)
 
@@ -222,7 +222,7 @@ FROM OPENROWSET(
     ) with ( date_rep varchar(20), cases bigint, geo_id varchar(6) ) as rows
 ```
 
-N’utilisez pas `OPENROWSET` sans schéma explicitement défini, car cela peut avoir un impact sur vos performances. Veillez à utiliser les plus petites tailles possibles pour vos colonnes [par exemple VARCHAR(100) au lieu de VARCHAR(8000) par défaut]. Vous devriez utiliser un classement UTF-8 comme classement de base de données par défaut ou le définir comme classement de colonnes explicite pour éviter les [problèmes de conversion UTF-8](/troubleshoot/reading-utf8-text). Le classement `Latin1_General_100_BIN2_UTF8` offre des performances optimales quand vous filtrez des données en utilisant des colonnes de chaînes.
+N’utilisez pas `OPENROWSET` sans schéma explicitement défini, car cela peut avoir un impact sur vos performances. Veillez à utiliser les plus petites tailles possibles pour vos colonnes [par exemple VARCHAR(100) au lieu de VARCHAR(8000) par défaut]. Vous devriez utiliser un classement UTF-8 comme classement de base de données par défaut ou le définir comme classement de colonnes explicite pour éviter les [problèmes de conversion UTF-8](/azure/synapse-analytics/troubleshoot/reading-utf8-text). Le classement `Latin1_General_100_BIN2_UTF8` offre des performances optimales quand vous filtrez des données en utilisant des colonnes de chaînes.
 
 ## <a name="query-nested-objects-and-arrays"></a>Interroger des objets et des tableaux imbriqués
 

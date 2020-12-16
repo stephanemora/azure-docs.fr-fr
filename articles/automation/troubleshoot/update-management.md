@@ -5,12 +5,12 @@ services: automation
 ms.date: 12/04/2020
 ms.topic: conceptual
 ms.service: automation
-ms.openlocfilehash: e8fc2a840ce019282625f286a6d54b132a1806c8
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: c6d0f38eaa25f2fe033a5e2cf48ee6daa51fcbe6
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96751255"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929274"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Résoudre les problèmes liés à Update Management
 
@@ -19,7 +19,7 @@ Cet article décrit les problèmes que vous pouvez rencontrer lors du déploieme
 >[!NOTE]
 >Si vous rencontrez des problèmes lors du déploiement d’Update Management sur un ordinateur Windows, ouvrez l’observateur d’événements Windows et examinez le journal **Operations Manager** sous **Journaux des applications et des services** sur l’ordinateur local. Recherchez les événements présentant l’ID d’événement 4502 et les détails d’événement qui contiennent `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent`.
 
-## <a name="scenario-linux-updates-shown-as-pending-and-those-installed-vary"></a>Scénario : Les mises à jour Linux indiquées comme étant en attente et celles qui sont installées varient
+## <a name="scenario-linux-updates-shown-as-pending-and-those-installed-vary"></a><a name="updates-linux-installed-different"></a>Scénario : Les mises à jour Linux indiquées comme étant en attente et celles qui sont installées varient
 
 ### <a name="issue"></a>Problème
 

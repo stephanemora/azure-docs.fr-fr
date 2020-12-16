@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 12/03/2020
-ms.openlocfilehash: 195ddfcc3c781c1866a7751f989c9460463edbb9
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: c824e0abea7320a20441e51caa2a05d534ff61b3
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96558162"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97092684"
 ---
 # <a name="automatically-label-your-data-in-azure-purview"></a>Étiquetage automatique de données dans Azure Purview
 
@@ -38,7 +38,7 @@ Purview utilise les mêmes classifications, également appelées « types d’i
 
 Les étiquettes de confidentialité proposées dans Azure Purview peuvent être appliquées automatiquement aux fichiers et aux colonnes de base de données.
 
-Pour plus d'informations, consultez les pages suivantes :
+Pour plus d’informations, consultez :
 
 - [En savoir plus sur les étiquettes de confidentialité](/microsoft-365/compliance/sensitivity-labels) dans la documentation de Microsoft 365
 - [Présentation des règles d’étiquetage automatique](#what-are-autolabeling-rules)
@@ -68,7 +68,7 @@ Les étiquettes de confidentialité sont prises en charge dans Azure Purview pou
 
 Si vous ne disposez pas encore d’étiquettes de confidentialité, vous devez les créer et les rendre accessibles à Azure Purview. Il est également possible de modifier les étiquettes de confidentialité existantes pour les rendre accessibles à Azure Purview.
 
-Pour plus d'informations, consultez les pages suivantes :
+Pour plus d’informations, consultez :
 
 - [Exigences en termes de licence](#licensing-requirements)
 - [Extension des étiquettes de confidentialité à Azure Purview](#extending-sensitivity-labels-to-azure-purview)
@@ -189,8 +189,7 @@ Pour savoir comment configurer des analyses sur différentes ressources dans Azu
 |---------|---------|
 |**Stockage Blob Azure**     |[Inscription et analyse du Stockage Blob Azure](register-scan-azure-blob-storage-source.md)         |
 |**Azure Data Lake Storage**     |[Inscription et analyse d’Azure Data Lake Storage Gen1](register-scan-adls-gen1.md) </br>[Inscription et analyse d’Azure Data Lake Storage Gen2](register-scan-adls-gen2.md)         |
-|**Bases de données SQL Azure**|[Inscription et analyse d’une base de données Azure SQL Database](register-scan-azure-sql-database.md) </br>[Inscription et analyse d’une instance Azure SQL Database Managed Instance](register-scan-azure-sql-database-managed-instance.md)|
-|**Comptes de stockage derrière des pare-feu**     |[Analyse de comptes de stockage derrière un pare-feu dans Azure Purview](scan-sqlresource-firewall.md)         |
+|**Bases de données SQL Azure**|[Inscrire et analyser une base de données Azure SQL](register-scan-azure-sql-database.md) </br>[Inscrire et analyser une instance Azure SQL Database Managed Instance](register-scan-azure-sql-database-managed-instance.md)|
 | | |
 
 ## <a name="view-labels-on-assets"></a>Affichage des étiquettes sur les ressources
