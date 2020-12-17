@@ -27,7 +27,7 @@ Cet article décrit la procédure à suivre pour résoudre les problèmes empêc
 
 ## <a name="symptom"></a>Symptôme
 
-Lorsque vous utilisez les [Diagnostics de démarrage](./boot-diagnostics.md) pour afficher la capture d’écran de la machine virtuelle, vous pouvez voir la capture d’écran montrant le code d’arrêt Windows l’échec de l’installation de Windows **#0x00000074** ou**BAD_SYSTEM_CONFIG_INFO**.
+Lorsque vous utilisez les [Diagnostics de démarrage](./boot-diagnostics.md) pour afficher la capture d’écran de la machine virtuelle, vous pouvez voir la capture d’écran montrant le code d’arrêt Windows l’échec de l’installation de Windows **#0x00000074** ou **BAD_SYSTEM_CONFIG_INFO**.
 
 *Votre PC a rencontré un problème et doit redémarrer. Vous pouvez redémarrer.* 
 *Pour plus d’informations sur ce problème ainsi que les correctifs possibles, visitez http://windows.com/stopcode* 
