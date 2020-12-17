@@ -6,13 +6,13 @@ ms.author: wesmc
 ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
-ms.date: 03/12/2020
-ms.openlocfilehash: f50c84212e62fae378d9d95e8990e084c82bb99a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 12/14/2020
+ms.openlocfilehash: 6ff5731e7d346c954253ec4186357595461b7678
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000366"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400252"
 ---
 # <a name="use-azure-iot-dps-ip-connection-filters"></a>Utiliser les filtres de connexion IP d’instance IoT DPS Azure
 
@@ -58,7 +58,7 @@ Après avoir rempli les champs, sélectionnez **Enregistrer** pour enregistrer l
 
 ![Notification sur l’enregistrement d’une règle de filtre IP](./media/iot-dps-ip-filtering/ip-filter-save-new-rule.png)
 
-L’option **Ajouter** est désactivée lorsque vous atteignez le nombre maximal de dix règles de filtre IP.
+L’option **Ajouter** est désactivée lorsque vous atteignez le nombre maximal de 100 règles de filtre IP.
 
 Pour modifier une règle existante, sélectionnez les données que vous souhaitez modifier, effectuez la modification, puis sélectionnez **Enregistrer** pour enregistrer votre modification.
 
@@ -135,7 +135,7 @@ Modifiez les attributs de la règle de filtre IP du modèle selon vos besoins.
 
 | Attribut                | Description |
 | ------------------------ | ----------- |
-| **FilterName**           | Donnez un nom à la règle de filtre IP. Ce nom doit être une chaîne alphanumérique unique qui ne prend pas en compte la casse et qui ne dépasse pas 128 caractères. Seuls les caractères alphanumériques ASCII 7 bits sont acceptés ainsi que les suivants : {'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}. |
+| **FilterName**           | Donnez un nom à la règle de filtre IP. Ce nom doit être une chaîne alphanumérique unique qui ne prend pas en compte la casse et qui ne dépasse pas 128 caractères. Seuls les caractères alphanumériques ASCII 7 bits et `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}` sont acceptés. |
 | **Action**               | Les valeurs autorisées sont **Accepter** ou  **Refuser** pour l’action de la règle de filtre IP. |
 | **ipMask**               | Fournissez une adresse IPv4 unique ou un bloc d’adresses IP en notation CIDR. Par exemple, dans la notation CIDR, 192.168.100.0/22 représente les 1024 adresses IPv4 allant de 192.168.100.0 à 192.168.103.255. |
 

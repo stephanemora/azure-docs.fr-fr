@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 12/02/2020
+ms.date: 12/04/2020
 ms.author: aahi
-ms.openlocfilehash: 0437704709e863cdbc62321c8a4b79015564e362
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: 4f5c47000355a004f8d76d8b740b705618748380
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96558757"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505220"
 ---
 # <a name="how-to-sentiment-analysis-and-opinion-mining"></a>Procédure : Analyse des sentiments et Exploration des opinions
 
@@ -51,7 +51,7 @@ Les scores de confiance sont compris entre 1 et 0. Plus les scores sont proche
 
 ## <a name="opinion-mining"></a>Exploration des opinions
 
-Exploration des opinions est une fonctionnalité d’Analyse des sentiments, à compter la version 3.1-preview.1. Également connu sous le nom d’Analyse des sentiments basée sur l’aspect dans le registre du traitement en langage naturel, cette fonctionnalité fournit des informations plus granulaires sur les opinions liées aux aspects (tels que les attributs de produits ou de services) dans le texte. 
+L’Exploration des opinions est une fonctionnalité d’Analyse des sentiments, disponible dans la préversion de la version 3.1. Également connu sous le nom d’Analyse des sentiments basée sur l’aspect dans le registre du traitement en langage naturel, cette fonctionnalité fournit des informations plus granulaires sur les opinions liées aux aspects (tels que les attributs de produits ou de services) dans le texte.
 
 Par exemple, si un client laisse un commentaire sur un hôtel, comme « la chambre était géniale, mais le personnel peu sympathique », Exploration des opinions va repérer des aspects dans le texte ainsi que les opinions et les sentiments associés. Analyse des sentiments peut signaler seulement un sentiment négatif.
 
@@ -74,7 +74,7 @@ La taille du document doit être inférieure à 5 120 caractères par document.
 
 Créez une requête POST. Vous pouvez [utiliser Postman](text-analytics-how-to-call-api.md) ou la **console de test d’API** via les liens de référence suivants pour en structurer une rapidement et l’envoyer. 
 
-#### <a name="version-31-preview2"></a>[Version 3.1-preview.2](#tab/version-3-1)
+#### <a name="version-31-preview3"></a>[Version 3.1-preview.3](#tab/version-3-1)
 
 [Informations de référence sur Analyse des sentiments v3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Sentiment)
 
@@ -91,17 +91,17 @@ Définissez le point de terminaison HTTPS pour l’analyse des sentiments à l�
 > [!NOTE]
 > Vous pouvez trouver la clé et le point de terminaison pour votre ressource Analyse de texte dans le portail Azure. Ces informations se trouvent dans la page **Démarrage rapide** de la ressource, sous **gestion des ressources**. 
 
-#### <a name="version-31-preview2"></a>[Version 3.1-preview.2](#tab/version-3-1)
+#### <a name="version-31-preview3"></a>[Version 3.1-preview.3](#tab/version-3-1)
 
 **Analyse des sentiments**
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/sentiment`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/sentiment`
 
 **Exploration des opinions**
 
 Pour obtenir les résultats de l’Exploration des opinions, vous devez inclure le paramètre `opinionMining=true`. Par exemple :
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/sentiment?opinionMining=true`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/sentiment?opinionMining=true`
 
 La valeur par défaut de ce paramètre est `false`. 
 
@@ -144,7 +144,7 @@ L’API Analyse de texte est sans état. Aucune donnée n’est stockée dans vo
 
 La sortie est retournée immédiatement. Vous pouvez diffuser les résultats vers une application qui accepte JSON ou enregistrer la sortie dans un fichier sur le système local. Ensuite, importez la sortie dans une application que vous pouvez utiliser pour trier, rechercher et manipuler les données. En raison de la prise en charge multilingue et des émojis, la réponse peut contenir des décalages de texte. Pour plus d’informations, consultez le [guide pratique pour traiter les décalages](../concepts/text-offsets.md).
 
-#### <a name="version-31-preview2"></a>[Version 3.1-preview.2](#tab/version-3-1)
+#### <a name="version-31-preview3"></a>[Version 3.1-preview.3](#tab/version-3-1)
 
 ### <a name="sentiment-analysis-and-opinion-mining-example-response"></a>Exemple de réponse de l’Analyse des sentiments et de l’Exploration des opinions
 
@@ -302,5 +302,5 @@ Dans cet article, vous avez découvert les concepts et le workflow de l’analys
 ## <a name="see-also"></a>Voir aussi
 
 * [Vue d’ensemble d’Analyse de texte](../overview.md)
-* [Utilisation de la bibliothèque cliente Analyse de texte](../quickstarts/text-analytics-sdk.md)
+* [Utilisation de la bibliothèque cliente Analyse de texte](../quickstarts/client-libraries-rest-api.md)
 * [Nouveautés](../whats-new.md)

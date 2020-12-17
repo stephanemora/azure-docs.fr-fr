@@ -573,7 +573,7 @@ Utilisez cette transformation de revendication pour supprimer les données inuti
 ```
 
 - Revendications d’entrée :
-    - **outputClaim** : Welcome to Contoso App. If you continue to browse and use this website, you are agreeing to comply with and be bound by the following terms and conditions...
+    - **outputClaim** : Welcome to Contoso App. Si vous continuez à parcourir et à utiliser ce site web, vous acceptez de vous conformer aux conditions générales suivantes...
 - Revendications de sortie :
     - **outputClaim** : NULL
 

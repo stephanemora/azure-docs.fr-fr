@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 11/09/2020
-ms.openlocfilehash: f1712a51fcd35c348f6177b670a7686898a0c78b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 1fe1ad14dc1cc8f5ff5171ef517d23363969be4d
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96346136"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387783"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Démarrage rapide : Créer, entraîner et publier votre base de connaissances QnA Maker
 
@@ -48,7 +48,7 @@ Vous pouvez créer une base de connaissances QnA Maker à partir de votre propre
     |--|--|
     |**Enable multi-turn extraction from URLs, .pdf or .docx files** (Activer l’extraction multitour à partir d’URL, de fichier .pdf ou .docx)|Activé|
     |**Texte par défaut multitour**| Sélectionnez une option|
-    |**+ Ajouter une URL**|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting`|
+    |**+ Ajouter une URL**|`https://www.microsoft.com/en-us/software-download/faq`|
     |**Échange de conversation (chit-chat)**|Sélectionnez **Professional**.|
 
 7. À l’**étape 5**, sélectionnez **Create your KB** (Créer votre base de connaissances).
@@ -83,7 +83,7 @@ Vous pouvez créer une base de connaissances QnA Maker à partir de votre propre
     |--|--|
     |**Enable multi-turn extraction from URLs, .pdf or .docx files** (Activer l’extraction multitour à partir d’URL, de fichier .pdf ou .docx)|Activé|
     |**Texte par défaut multitour**| Sélectionnez une option|
-    |**+ Ajouter une URL**|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting`|
+    |**+ Ajouter un fichier**| Télécharger le manuel Surface Laptop à partir de : « https://download.microsoft.com/download/7/B/1/7B10C82E-F520-4080-8516-5CF0D803EEE0/surface-book-user-guide-EN.pdf  » 
     |**Échange de conversation (chit-chat)**|Sélectionnez **Professional**.|
 
 8. À l’**étape 5**, sélectionnez **Create your KB** (Créer votre base de connaissances).
@@ -122,9 +122,9 @@ Dans le coin supérieur droit, sélectionnez **Save and train** (Enregistrer et 
 1. Dans le portail QnA Maker, en haut à droite, sélectionnez **Test** pour vérifier que les modifications apportées ont pris effet.
 2. Entrez un exemple de requête d’utilisateur dans la zone de texte.
 
-    `How many Azure services are used by a knowledge base?`
+    `I want to know the difference between 32 bit and 64 bit Windows`
 
-    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/test-panel-in-qna-maker.png" alt-text="Entrez un exemple de requête d’utilisateur dans la zone de texte.":::
+    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/query-dialogue.png" alt-text="Entrez un exemple de requête d’utilisateur dans la zone de texte.":::
 
 3. Sélectionnez **Inspect** pour examiner la réponse plus en détail. La fenêtre de test est utilisée pour tester les changements que vous apportez à la base de connaissances avant de la publier.
 

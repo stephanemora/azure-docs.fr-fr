@@ -6,12 +6,12 @@ ms.date: 11/22/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 25d0d409c8112292afd20f052e82494dd8e656ea
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 6bdad71f0b36995abdeb3b1edb87cbef32df8b67
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96601303"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96919432"
 ---
 # <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>Démarrage rapide : Prise en main d'Application Insights dans un projet web Java
 
@@ -30,6 +30,8 @@ Application Insights est un service d’analyse extensible pour développeurs w
 
 ## <a name="get-an-application-insights-instrumentation-key"></a>Obtenir une clé d'instrumentation Application Insights
 
+> [!IMPORTANT]
+> Les nouvelles régions Azure **exigent** l’utilisation de chaînes de connexion au lieu de clés d’instrumentation. Une [chaîne de connexion](./sdk-connection-string.md?tabs=java) identifie la ressource à laquelle vous souhaitez associer vos données de télémétrie. Elle vous permet également de modifier les points de terminaison que votre ressource utilisera comme destination pour votre télémétrie. Vous devrez copier la chaîne de connexion et l’ajouter au code de votre application ou à une variable d’environnement.
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Dans le Portail Azure, créez une ressource Application Insights. Définissez le type d’application sur Application web Java.
 

@@ -21,7 +21,7 @@ Nous sommes heureux d’annoncer que Microsoft Threat Modeling Tool est maintena
 
 Avec cette version, nous mettons fin au support de la version Preview 2017 et recommandons à tous les utilisateurs de la préversion de procéder à la mise à jour vers la version en disponibilité générale. À compter du 15 octobre 2018, nous allons définir la version minimale requise de ClickOnce pour Threat Modeling Tool ; tous les clients de la préversion devront se mettre à niveau.
 
-Microsoft Threat Modeling Tool 2016, qui est disponible à partir du Centre de téléchargement Microsoft, continue d’être pris en charge jusqu’au 1er octobre 2019 pour les correctifs de sécurité critiques uniquement.
+Microsoft Threat Modeling Tool 2016, qui est disponible à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=49168), continue d’être pris en charge jusqu’au 1er octobre 2019 pour les correctifs de sécurité critiques uniquement.
 
 ## <a name="feature-changes"></a>Évolution des fonctionnalités
 

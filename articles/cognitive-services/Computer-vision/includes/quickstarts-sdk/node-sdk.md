@@ -7,15 +7,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: include
-ms.date: 10/26/2020
+ms.date: 12/15/2020
 ms.author: pafarley
 ms.custom: devx-track-js
-ms.openlocfilehash: e0767e50ac6d88922281b10389b77c5cf0c481be
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 50d1222f5c33b327c92799ccf27ed0650ba0226c
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96912370"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97560863"
 ---
 <a name="HOLTop"></a>
 
@@ -251,7 +251,7 @@ Ajoutez le code ci-dessous afin d’appeler la fonction `readTextFromURL` pour l
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_read_call)]
 
-Définissez la fonction `readTextFromURL`. La méthode **read** est ainsi appelée sur l’objet client, qui retourne un ID d’opération et démarre un processus asynchrone pour lire le contenu de l’image. Elle se sert ensuite de l’ID d’opération pour vérifier l’état de l’opération jusqu’à ce que les résultats soient retournés. Elle retourne ensuite les résultats extraits.
+Définissez la fonction `readTextFromURL`. Cela appelle la méthode **read** sur l’objet client, qui retourne un ID d’opération et démarre un processus asynchrone pour lire le contenu de l’image. Elle se sert ensuite de l’ID d’opération pour vérifier l’état de l’opération jusqu’à ce que les résultats soient retournés. Elle retourne ensuite les résultats extraits.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_read_helper)]
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: acc19d9a04909dcf0e79c93e0c8a3fb8225ee1b4
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 1b92d1b5853d6b794ebdcf0e2052b8f15081d608
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96546900"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507572"
 ---
 # <a name="learn-the-basics-of-the-speech-cli"></a>Présentation des bases de l’interface CLI Speech
 
@@ -87,7 +87,7 @@ Dans cette commande, vous spécifiez à la fois la langue source (**avant** trad
 
 ### <a name="configuration-files-in-the-datastore"></a>Fichiers de configuration dans le magasin de données
 
-Le comportement de l’interface CLI Speech peut s’appuyer sur les paramètres des fichiers de configuration, auxquels vous pouvez faire référence dans les appels de l’interface CLI Speech à l’aide d’un symbole @.
+Le comportement de l’interface CLI Speech peut s’appuyer sur les paramètres des fichiers de configuration, que vous pouvez référencer dans les appels de l’interface CLI Speech à l’aide d’un symbole \@.
 L’interface CLI Speech enregistre un nouveau paramètre dans un sous-répertoire `./spx/data` qu’elle crée dans le répertoire de travail actuel.
 Lors de la recherche d’une valeur de configuration, l’interface CLI Speech recherche dans votre répertoire de travail actuel, puis dans le magasin de données dans `./spx/data`, puis dans d’autres magasins de données, y compris un magasin de données en lecture seule final dans le fichier binaire `spx`.
 Avant, comme vous utilisiez le magasin de données pour enregistrer vos valeurs `@key` et `@region`, vous n’aviez pas besoin de les spécifier avec chaque appel de ligne de commande.

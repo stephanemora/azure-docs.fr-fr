@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: overview
 ms.date: 09/23/2020
 ms.author: alkohli
-ms.openlocfilehash: 3fb4085ba275bda1fe784f368eb5d92ac0c668f0
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 059aad8b45aa449f5cd28c97f4ba55e2204c04ce
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96448515"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96937064"
 ---
 # <a name="what-is-azure-stack-edge-pro-with-gpu"></a>Qu’est-ce qu’Azure Stack Edge Pro avec GPU ?
 
@@ -51,9 +51,9 @@ Azure Stack Edge Pro intègre les fonctionnalités suivantes :
 |Actualisation des données     | Possibilité d’actualiser les fichiers locaux avec la dernière version issue du cloud.|
 |Chiffrement    | Prise en charge de BitLocker pour chiffrer les données localement et transférer de façon sécurisée des données vers le cloud via *https*.|
 |Limitation de bande passante| Limiter l’utilisation de la bande passante pendant les heures de pointe.|
-<!--|ExpressRoute | Sécurité accrue avec ExpressRoute. Utilisez la configuration de peering avec laquelle le trafic des appareils locaux vers les points de terminaison de stockage cloud transite par ExpressRoute. Pour plus d’informations, consultez [Vue d’ensemble EpressRoute](../expressroute/expressroute-introduction.md).-->
+<!--|ExpressRoute | Sécurité accrue avec ExpressRoute. Utilisez la configuration de peering avec laquelle le trafic des appareils locaux vers les points de terminaison de stockage cloud transite par ExpressRoute. Pour plus d’informations, voir [Appairage ExpressRoute](../expressroute/expressroute-introduction.md).|-->
 
-## <a name="components"></a>Composants
+## <a name="components"></a>Components
 
 La solution Azure Stack Edge Pro se compose d’une ressource Azure Stack Edge, d’un appareil physique Azure Stack Edge Pro et d’une interface utilisateur web locale.
 

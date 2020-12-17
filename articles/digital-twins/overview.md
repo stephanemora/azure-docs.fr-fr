@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: f0c19130312db4e6ef500a0750f40359931d48d2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 49b7bae1a0cc224b92f292b891fae210f2cffa4e
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099111"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400605"
 ---
 # <a name="what-is-azure-digital-twins"></a>Qu’est-ce qu’Azure Digital Twins ?
 
@@ -44,7 +44,7 @@ Le langage DTDL est utilisé pour les modèles de données dans d’autres servi
 
 Les modèles numériques dans Azure Digital Twins sont des représentations dynamiques et à jour du monde réel. À l’aide des relations dans vos modèles DTDL personnalisés, vous allez connecter les représentations dans un **graphe dynamique** représentant votre environnement.
 
-Vous pouvez afficher une visualisation de votre graphe Azure Digital Twins à l’aide d’un exemple d’application, l’ [**explorateur Azure Digital Twins**](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/).
+Vous pouvez afficher une visualisation de votre graphe Azure Digital Twins à l’aide d’un exemple d’application, l’[**explorateur Azure Digital Twins**](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/).
 
 Voici à quoi ressemble l’exemple de visualisation :
 
@@ -64,7 +64,7 @@ Vous pouvez également piloter Azure Digital Twins à partir d’autres sources 
 
 ### <a name="output-to-tsi-storage-and-analytics"></a>Sortie vers Time Series Insights, Stockage et Analytics
 
-Les données de votre modèle Azure Digital Twins peuvent être routées vers les services Azure en aval pour des analyses ou du stockage supplémentaires. Cela est possible via des **itinéraires d’événements** , qui utilisent [Event Hub](../event-hubs/event-hubs-about.md), [Event Grid](../event-grid/overview.md)ou [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) pour piloter les flux de données souhaités.
+Les données de votre modèle Azure Digital Twins peuvent être routées vers les services Azure en aval pour des analyses ou du stockage supplémentaires. Cela est possible via des **itinéraires d’événements**, qui utilisent [Event Hub](../event-hubs/event-hubs-about.md), [Event Grid](../event-grid/overview.md)ou [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) pour piloter les flux de données souhaités.
 
 Voici quelques opérations que vous pouvez effectuer avec les itinéraires d’événements :
 * Stockage des données Azure Digital Twins dans [Azure Data Lake](../storage/blobs/data-lake-storage-introduction.md)
@@ -96,9 +96,6 @@ Pour obtenir la liste des limites Azure Digital Twins, consultez [*Référence 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si vous avez utilisé la première préversion d’Azure Digital Twins (octobre 2018), découvrez ce qui a changé :
-* [*Vue d’ensemble : Différences par rapport à la première version*](overview-differences.md)
+Si vous avez utilisé la première préversion d’Azure Digital Twins (octobre 2018), découvrez ce qui a changé : [*Vue d’ensemble : Différences par rapport à la première version*](overview-differences.md).
 
-Pour découvrir comment utiliser Azure Digital Twins, vous pouvez également consulter le premier tutoriel :
-
-[*Tutoriel : Coder une application cliente*](tutorial-code.md)
+Pour savoir comment utiliser Azure Digital Twins, vous pouvez également consulter le guide de démarrage rapide suivant : [*Démarrage rapide : Explorer un exemple de scénario*](quickstart-adt-explorer.md).

@@ -3,14 +3,14 @@ author: aahill
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 10/07/2020
+ms.date: 12/11/2020
 ms.author: aahi
-ms.openlocfilehash: ab9824b8880c5d2a994481bf4917efb368ed09a9
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: da5aae933de1317dd97f74c97f9c08ca6cc1d090
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94980960"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97366438"
 ---
 <a name="HOLTop"></a>
 
@@ -35,6 +35,7 @@ ms.locfileid: "94980960"
 * Une fois que vous avez votre abonnement Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="créez une ressource Analyse de texte"  target="_blank">Créer une ressource Analyse de texte <span class="docon docon-navigate-external x-hidden-focus"></span></a> dans le portail Azure pour obtenir votre clé et votre point de terminaison. Une fois le déploiement effectué, cliquez sur **Accéder à la ressource**.
     * Vous aurez besoin de la clé et du point de terminaison de la ressource que vous créez pour connecter votre application à l’API Analyse de texte. Vous collerez votre clé et votre point de terminaison dans le code ci-dessous plus loin dans le guide de démarrage rapide.
     * Vous pouvez utiliser le niveau tarifaire Gratuit (`F0`) pour tester le service, puis passer par la suite à un niveau payant pour la production.
+* Pour utiliser la fonctionnalité d’analyse, vous aurez besoin d’une ressource Analyse de texte avec le niveau tarifaire Standard (S).
 
 ## <a name="setting-up"></a>Configuration
 
@@ -916,5 +917,77 @@ Document ID: 4
          Key phrases:
                 fútbol
 ```
+
+---
+
+## <a name="use-the-api-asynchronously-with-the-analyze-operation"></a>Utiliser l’API de manière asynchrone avec l’opération d’analyse
+
+# <a name="version-31-preview"></a>[Version préliminaire de la version 3.1](#tab/version-3-1)
+
+> [!CAUTION]
+> Pour utiliser des opérations d’analyse, vous devez utiliser une ressource Analyse de texte avec le niveau tarifaire Standard (S).  
+
+Créez une fonction appelée `analyze_example()` qui prend le client comme argument, puis appelle la fonction `begin_analyze()`. Il en résultera une opération durable qui sera interrogée pour obtenir des résultats.
+
+```python
+    def analyze_example(client):
+        documents = [
+            "Microsoft was founded by Bill Gates and Paul Allen."
+        ]
+
+        poller = text_analytics_client.begin_analyze(
+            documents,
+            display_name="Sample Text Analysis",
+            entities_recognition_tasks=[EntitiesRecognitionTask()]
+        )
+
+        result = poller.result()
+
+        for page in result:
+            for task in page.entities_recognition_results:
+                print("Results of Entities Recognition task:")
+                
+                docs = [doc for doc in task.results if not doc.is_error]
+                for idx, doc in enumerate(docs):
+                    print("\nDocument text: {}".format(documents[idx]))
+                    for entity in doc.entities:
+                        print("Entity: {}".format(entity.text))
+                        print("...Category: {}".format(entity.category))
+                        print("...Confidence Score: {}".format(entity.confidence_score))
+                        print("...Offset: {}".format(entity.offset))
+                    print("------------------------------------------")
+
+analyze_example(client)
+```
+
+### <a name="output"></a>Sortie
+
+```console
+Results of Entities Recognition task:
+Document text: Microsoft was founded by Bill Gates and Paul Allen.
+Entity: Microsoft
+...Category: Organization
+...Confidence Score: 0.83
+...Offset: 0
+Entity: Bill Gates
+...Category: Person
+...Confidence Score: 0.85
+...Offset: 25
+Entity: Paul Allen
+...Category: Person
+...Confidence Score: 0.9
+...Offset: 40
+------------------------------------------
+```
+
+Vous pouvez également utiliser l’opération d’analyse pour détecter les informations d’identification personnelle et l’extraction de phrases clés. Consultez l’[exemple d’analyse](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/textanalytics/azure-ai-textanalytics/samples/async_samples/sample_analyze_async.py) sur GitHub.
+
+# <a name="version-30"></a>[Version 3.0](#tab/version-3)
+
+Cette fonctionnalité n’est pas disponible dans la version 3.0.
+
+# <a name="version-21"></a>[Version 2.1](#tab/version-2)
+
+Cette fonctionnalité n’est pas disponible dans la version 2.1.
 
 ---

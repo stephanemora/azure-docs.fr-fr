@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: include
 ms.custom: include file
 ms.author: roy-har
-ms.openlocfilehash: 9965e4c856fdef2af17b116264ad5344ebc97eb2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 081b9288d091e26d0e6d30aa849ced18a3c2ffb6
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "84466818"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938458"
 ---
 Créez l’application de pizza.
 
@@ -59,7 +59,7 @@ Votre application de pizza est maintenant prête à être utilisée.
 
 ## <a name="record-the-access-values-for-your-pizza-app"></a>Enregistrer les valeurs d’accès pour votre application Pizza
 
-Pour utiliser votre nouvelle application de pizza, vous aurez besoin de son ID d’application, de sa clé de création et de son point de terminaison de création.
+Pour utiliser votre nouvelle application de pizza, vous aurez besoin de son ID d’application, de sa clé de création et de son point de terminaison de création. Pour obtenir des prédictions, vous aurez besoin de votre propre point de terminaison de prédiction et de votre propre clé de prédiction.
 
 Pour rechercher ces valeurs :
 
@@ -67,5 +67,5 @@ Pour rechercher ces valeurs :
 1. Dans la page **Application Settings** (Paramètres de l’application), enregistrez l’**ID d’application**.
 1. Sélectionnez **Azure Resources** (Ressources Azure).
 1. Sélectionnez **Authoring Resource** (Ressource de création).
-1. À partir de l’onglet **Authoring Resource** (Ressource de création), enregistrez la **clé primaire**. Cette valeur est votre clé de création.
+1. Sous les onglets **Ressource de création** et **Ressources de prédiction**, enregistrez la **Clé primaire**. Cette valeur est votre clé de création.
 1. Enregistrez l’**URL du point de terminaison**. Cette valeur est votre point de terminaison de création.

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 6011bf90d5a97dcc027f8a9a0916c28226c5c354
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 327dce053c38fdb7b03e7ceb0d7a62ec8b8e7248
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96584473"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96993024"
 ---
 ## <a name="download-and-install"></a>Télécharger et installer
 
@@ -109,6 +109,12 @@ Par exemple, sur Windows, cette commande définit votre clé :
 
 ```shell
 docker run -it -v c:\spx-data:/data --rm msftspeech/spx config @key --set SUBSCRIPTION-KEY
+```
+
+Pour obtenir une interaction plus étendue avec l’outil en ligne de commande, vous pouvez démarrer un conteneur avec un interpréteur de commandes bash interactif en ajoutant un paramètre EntryPoint.
+Dans Windows, entrez cette commande pour démarrer un conteneur qui expose une interface de ligne de commande interactive dans laquelle vous pouvez entrer plusieurs commandes `spx` :
+```shell
+docker run -it --entrypoint=/bin/bash -v c:\spx-data:/data --rm msftspeech/spx
 ```
 
 > [!WARNING]
