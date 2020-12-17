@@ -6,7 +6,7 @@
       href: overview-reports.md
     - name: "Qu’est-ce que la surveillance Azure AD\_?"
       href: overview-monitoring.md
-    - name: "Que sont les diagnostics de connexion\_?"
+    - name: "Qu’est-ce que le diagnostic de connexion\_?"
       href: overview-sign-in-diagnostics.md
 - name: Démarrages rapides
   expanded: true

@@ -86,8 +86,8 @@
                 - name: Script SQL
                   href: ./sql/author-sql-script.md
                   displayname: author
-                - name: Flux de données de mappage
-                  href: ../data-factory/concepts-data-flow-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                - name: Data Flow
+                  href: concepts-data-flow-overview.md
         - name: Calendrier de maintenance
           href: ./sql-data-warehouse/maintenance-scheduling.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Contrôle de code source
@@ -263,7 +263,7 @@
               href: sql/load-data-overview.md
         - name: Développement
           items:
-            - name: Vue d’ensemble
+            - name: Vue d'ensemble
               href: sql/develop-overview.md
             - name: Meilleures pratiques
               href: sql/develop-best-practices.md
@@ -660,8 +660,8 @@
           href: ../data-factory/concepts-integration-runtime.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Flux de données
           items:
-            - name: Vue d’ensemble des flux de données de mappage
-              href: ../data-factory/concepts-data-flow-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Vue d’ensemble des flux de données
+              href: concepts-data-flow-overview.md
             - name: Mode débogage
               href: ../data-factory/concepts-data-flow-debug-mode.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Dérive de schéma

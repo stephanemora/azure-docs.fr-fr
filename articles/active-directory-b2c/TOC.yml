@@ -119,6 +119,22 @@
           href: signin-appauth-ios.md
         - name: Android utilisant AppAuth
           href: signin-appauth-android.md
+    - name: Créer un flux
+      items:
+        - name: Stratégie d’inscription ou de connexion
+          href: add-sign-up-and-sign-in-policy.md
+        - name: Stratégie de réinitialisation de mot de passe
+          href: add-password-reset-policy.md
+        - name: Stratégie de changement de mot de passe
+          href: add-password-change-policy.md
+        - name: Stratégie de modification de profil
+          href: add-profile-editing-policy.md
+        - name: Stratégie d’informations d’identification de mot de passe du propriétaire de ressource
+          href: add-ropc-policy.md
+        - name: Stratégie de configuration de réinitialisation de mot de passe en libre-service (dépréciée)
+          href: user-flow-self-service-password-reset.md
+        - name: Inscription et connexion par téléphone
+          href: phone-authentication-user-flows.md
     - name: Fournisseurs d’identité
       items:
         - name: Ajouter un fournisseur d'identité
@@ -192,38 +208,18 @@
           href: conditional-access-user-flow.md
     - name: Configurer la vérification de l’âge
       href: basic-age-gating.md
-    - name: Flux utilisateur
+    - name: Connecteurs d’API (préversion)
       items:
-        - name: Créer un flux
-          items:
-            - name: Inscription ou connexion
-              href: tutorial-create-user-flows.md
-            - name: Informations d’identification de mot de passe du propriétaire de ressource
-              href: configure-ropc.md
-            - name: Configurer la réinitialisation de mot de passe en libre-service
-              href: user-flow-self-service-password-reset.md
-        - name: Connecteurs d’API (préversion)
-          items:
-            - name: Vue d’ensemble
-              href: api-connectors-overview.md
-            - name: Ajouter un connecteur d'API
-              href: add-api-connector.md
+        - name: Vue d’ensemble
+          href: api-connectors-overview.md
+        - name: Ajouter un connecteur d'API
+          href: add-api-connector.md
     - name: Stratégie personnalisée
       items:
         - name: Vue d’ensemble des stratégies personnalisées
           href: custom-policy-trust-frameworks.md
         - name: Bien démarrer avec les stratégies personnalisées
           href: custom-policy-get-started.md
-        - name: Créer une stratégie
-          items:
-            - name: Informations d’identification de mot de passe du propriétaire de ressource
-              href: ropc-custom.md
-              displayName: ropc
-            - name: Modification de mot de passe
-              href: custom-policy-password-change.md
-            - name: Inscription et connexion par téléphone
-              href: phone-authentication.md
-              displayName: 'otp, passwordless, phone number'
         - name: Vérification d’e-mail personnalisée
           items:
             - name: Mailjet
