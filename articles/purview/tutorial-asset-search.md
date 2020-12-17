@@ -1,18 +1,18 @@
 ---
 title: 'Tutoriel : Parcourir la page d’accueil d’Azure Purview et rechercher une ressource'
 description: Ce tutoriel explique comment utiliser les fonctionnalités de la page d’accueil d’Azure Purview et effectuer des recherches dans le catalogue.
-author: hophan
+author: hophanms
 ms.author: hophan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: 58a899d234488e8075764db9f722ff21e1d0a6f7
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 46c2ee284c33cc8ffb7b0bd3bc536905cf4e2052
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96549702"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97399874"
 ---
 # <a name="tutorial-navigate-the-azure-purview-preview-home-page-and-search-for-an-asset"></a>Tutoriel : Parcourir la page d’accueil d’Azure Purview (préversion) et rechercher une ressource
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 0d342f672f4e8a5fdf33afe0feb7c5051956e29f
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: e8cb939b48f8cfe311ec10c0850cfb234de04fad
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318777"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589744"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-andromeda"></a>Didacticiel : intégration d’Azure Active Directory à Andromeda
 
@@ -62,7 +62,7 @@ Pour configurer l’intégration d’Andromeda à Azure AD, vous devez ajouter A
 
     ![Bouton Nouvelle application](common/add-new-app.png)
 
-4. Dans la zone de recherche, saisissez**Andromeda**, sélectionnez **Andromeda** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+4. Dans la zone de recherche, saisissez **Andromeda**, sélectionnez **Andromeda** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
     ![Andromeda dans la liste des résultats](common/search-new-app.png)
 
@@ -126,30 +126,30 @@ Pour configurer l’authentification unique Azure AD avec Andromeda, procédez c
 
     | Name | Attribut source|
     | ------ | -----------|
-    | rôle        | Rôle spécifique aux applications |
-    | type        | Type d'application |
-    | société       | CompanyName |
+    | rôle | Rôle spécifique aux applications |
+    | type | Type d'application |
+    | société | CompanyName |
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Ces valeurs sont fournies uniquement à des fins de démonstration ; veuillez utiliser les rôles de votre organisation.
 
-    a. Cliquez sur le bouton **Ajouter une nouvelle revendication** pour ouvrir la boîte de dialogue **Gérer les revendications des utilisateurs**.
+    1. Cliquez sur le bouton **Ajouter une nouvelle revendication** pour ouvrir la boîte de dialogue **Gérer les revendications des utilisateurs**.
 
-    ![Capture d’écran montrant Revendications des utilisateurs avec des options permettant d’ajouter une nouvelle revendication et d’enregistrer.](common/new-save-attribute.png)
+        ![Capture d’écran montrant Revendications des utilisateurs avec des options permettant d’ajouter une nouvelle revendication et d’enregistrer.](common/new-save-attribute.png)
 
-    ![Capture d’écran montrant Gérer les revendications des utilisateurs, où vous pouvez entrer les valeurs décrites à cette étape.](common/new-attribute-details.png)
+        ![Capture d’écran montrant Gérer les revendications des utilisateurs, où vous pouvez entrer les valeurs décrites à cette étape.](common/new-attribute-details.png)
 
-    b. Dans la zone de texte **Attribut**, indiquez le nom d’attribut pour cette ligne.
+    1. Dans la zone de texte **Attribut**, indiquez le nom d’attribut pour cette ligne.
 
-    c. Laissez le champ **Espace de noms** vide.
+    1. Laissez le champ **Espace de noms** vide.
 
-    d. Sélectionnez Source comme **Attribut**.
+    1. Sélectionnez Source comme **Attribut**.
 
-    e. Dans la liste **Attribut de la source**, tapez la valeur d’attribut indiquée pour cette ligne.
+    1. Dans la liste **Attribut de la source**, tapez la valeur d’attribut indiquée pour cette ligne.
 
-    f. Cliquez sur **OK**
+    1. Cliquez sur **OK**
 
-    g. Cliquez sur **Enregistrer**.
+    1. Cliquez sur **Enregistrer**.
 
 8. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le **Certificat (Base64)** en fonction des options définies par rapport à vos besoins, puis enregistrez-le sur votre ordinateur.
 
@@ -159,11 +159,11 @@ Pour configurer l’authentification unique Azure AD avec Andromeda, procédez c
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
-    a. URL de connexion
+    1. URL de connexion
 
-    b. Identificateur Azure AD
+    1. Identificateur Azure AD
 
-    c. URL de déconnexion
+    1. URL de déconnexion
 
 ### <a name="configure-andromeda-single-sign-on"></a>Configurer l’authentification unique Andromeda
 
@@ -181,25 +181,25 @@ Pour configurer l’authentification unique Azure AD avec Andromeda, procédez c
 
     ![Configuration d’Andromeda](./media/andromedascm-tutorial/tutorial_andromedascm_config.png)
 
-    a. Cochez **Enable SSO with SAML** (Activer l’authentification unique avec SAML).
+    1. Cochez **Enable SSO with SAML** (Activer l’authentification unique avec SAML).
 
-    b. Dans la section **Informations Andromeda**, copiez la valeur **Identité SP** et collez-la dans la zone de texte **Identificateur** de la section **Configuration SAML de base**.
+    1. Dans la section **Informations Andromeda**, copiez la valeur **Identité SP** et collez-la dans la zone de texte **Identificateur** de la section **Configuration SAML de base**.
 
-    c. Copiez la valeur **URL du consommateur** et collez-la dans la zone de texte **URL de réponse** de la section **Configuration SAML de base**.
+    1. Copiez la valeur **URL du consommateur** et collez-la dans la zone de texte **URL de réponse** de la section **Configuration SAML de base**.
 
-    d. Copiez la valeur **URL d’ouverture de session** et collez-la dans la zone de texte **URL de connexion** de la section **Configuration SAML de base**.
+    1. Copiez la valeur **URL d’ouverture de session** et collez-la dans la zone de texte **URL de connexion** de la section **Configuration SAML de base**.
 
-    e. Dans la section **Fournisseur d’identité SAML**, tapez votre nom IDP.
+    1. Dans la section **Fournisseur d’identité SAML**, tapez votre nom IDP.
 
-    f. Dans la zone de texte **Point de terminaison du service d’authentification unique**, collez la valeur de l’**URL de connexion** que vous avez copiée à partir du portail Azure.
+    1. Dans la zone de texte **Point de terminaison du service d’authentification unique**, collez la valeur de l’**URL de connexion** que vous avez copiée à partir du portail Azure.
 
-    g. Ouvrez le **certificat codé en base 64** téléchargé à partir du portail Azure dans le bloc-notes et collez-le dans la zone de texte **Certificat X.509**.
-    
-    h. Mappez les attributs suivants avec la valeur correspondante pour faciliter la connexion avec authentification unique à partir d’Azure AD. L’attribut **ID utilisateur** est requis pour la connexion. Pour l’approvisionnement, **E-mail**, **Société**, **Type d’utilisateur** et **Rôle** sont requis. Dans cette section, nous définissons le mappage des attributs (nom et valeurs) qui correspondent à ceux définis dans le portail Azure
+    1. Ouvrez le **certificat codé en base 64** téléchargé à partir du portail Azure dans le bloc-notes et collez-le dans la zone de texte **Certificat X.509**.
 
-    ![Andromeda attbmap](./media/andromedascm-tutorial/tutorial_andromedascm_attbmap.png)
+    1. Mappez les attributs suivants avec la valeur correspondante pour faciliter la connexion avec authentification unique à partir d’Azure AD. L’attribut **ID utilisateur** est requis pour la connexion. Pour l’approvisionnement, **E-mail**, **Société**, **Type d’utilisateur** et **Rôle** sont requis. Dans cette section, nous définissons le mappage des attributs (nom et valeurs) qui correspondent à ceux définis dans le portail Azure
 
-    i. Cliquez sur **Enregistrer**.
+        ![Andromeda attbmap](./media/andromedascm-tutorial/tutorial_andromedascm_attbmap.png)
+
+    1. Cliquez sur **Enregistrer**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -218,7 +218,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
     ![Boîte de dialogue Utilisateur](common/user-properties.png)
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
-  
+
     b. Dans le champ **Nom d’utilisateur**, tapez `brittasimon@yourcompanydomain.extension`. Par exemple : BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

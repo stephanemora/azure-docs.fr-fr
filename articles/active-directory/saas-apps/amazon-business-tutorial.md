@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 2f2ad0cb67a41c0a5c59f6428a4912bd91a00e56
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 42da33fe874b6dea43bc16009dd27b70e6c3f535
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318800"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589909"
 ---
 # <a name="tutorial-integrate-amazon-business-with-azure-active-directory"></a>Tutoriel : Intégrer Amazon Business à Azure Active Directory
 
@@ -109,19 +109,19 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. En plus de ce qui précède, l’application Amazon Business s’attend à ce que quelques attributs supplémentaires soient passés dans la réponse SAML. Dans la section **Attributs et revendications de l’utilisateur** de la boîte de dialogue **Revendications de groupe** , effectuez les étapes suivantes :
 
-    a. Cliquez sur le **stylo** en regard de **Groupes renvoyés dans la revendication**.
+    1. Cliquez sur le **stylo** en regard de **Groupes renvoyés dans la revendication**.
 
-    ![Capture d’écran montrant Attributs utilisateur et revendications avec l’icône Groupes renvoyés dans la revendication sélectionnée.](./media/amazon-business-tutorial/config04.png)
+        ![Capture d’écran montrant Attributs utilisateur et revendications avec l’icône Groupes renvoyés dans la revendication sélectionnée.](./media/amazon-business-tutorial/config04.png)
 
-    ![Capture d’écran montrant Revendications de groupe avec des valeurs comme décrit dans cette procédure.](./media/amazon-business-tutorial/config05.png)
+        ![Capture d’écran montrant Revendications de groupe avec des valeurs comme décrit dans cette procédure.](./media/amazon-business-tutorial/config05.png)
 
-    b. Sélectionnez **Tous les groupes** dans la liste d’options.
+    1. Sélectionnez **Tous les groupes** dans la liste d’options.
 
-    c. Sélectionnez **ID de groupe** comme **Attribut de la source**.
+    1. Sélectionnez **ID de groupe** comme **Attribut de la source**.
 
-    d. Cochez la case **Personnaliser le nom de la revendication de groupe** et entrez le nom du groupe en fonction des besoins de votre organisation.
+    1. Cochez la case **Personnaliser le nom de la revendication de groupe** et entrez le nom du groupe en fonction des besoins de votre organisation.
 
-    e. Cliquez sur **Enregistrer**.
+    1. Cliquez sur **Enregistrer**.
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML des métadonnées**, puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 

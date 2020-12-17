@@ -3,20 +3,18 @@ title: Architecture de référence pour une solution de gestion des déchets cr�
 description: Découvrez les concepts qui se rapportent à une solution de gestion des déchets conçue avec Azure IoT Central.
 author: miriambrus
 ms.author: miriamb
-ms.date: 10/23/2019
+ms.date: 12/11/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 93a5d17ce5ea5ec60c67604efe5081d2b3425a84
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: 94098a1a2a9ac1b4889ad165a65c8b9d50d734dd
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94873690"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586803"
 ---
 # <a name="connected-waste-monitoring-reference-architecture"></a>Architecture de référence d’une solution connectée de suivi des déchets 
-
-
 
 Vous pouvez créer des solutions de gestion des déchets connectées à l’aide du **modèle d’application Azure IoT Central** en tant qu’application IoT de démarrage. Cet article fournit des conseils d’ordre général sur l’architecture de référence d’une solution de bout en bout. 
 
@@ -27,8 +25,8 @@ Concepts :
 
 1. Appareils et connectivité  
 1. IoT Central 
-2. Extensibilité et intégrations
-3. Applications métier
+1. Extensibilité et intégrations
+1. Applications métier
 
 Intéressons-nous aux composants clés qui sont généralement impliqués dans une solution de suivi de la consommation d’eau.
 

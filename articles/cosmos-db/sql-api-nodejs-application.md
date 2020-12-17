@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
 ms.custom: devx-track-js
-ms.openlocfilehash: f7b7b8c7b1106bd3c0a6732867946c42df8438c1
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 49cf54bda985f7d97b2db6a3ada7859aee829cff
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097275"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359538"
 ---
 # <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>Tutoriel : Créer une application web Node.js avec le Kit de développement logiciel (SDK) JavaScript pour gérer un compte d’API SQL dans Azure Cosmos DB 
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -106,7 +106,7 @@ Maintenant que vous avez terminé l’installation et la configuration initiales
 ### <a name="create-the-model"></a>Créer le modèle
 1. À la racine du répertoire de votre projet, créez un répertoire nommé **models**.  
 
-2. Dans le répertoire **models** , créez un fichier nommé **taskDao.js**. Ce fichier contient le code nécessaire pour créer la base de données et le conteneur. Il définit également des méthodes pour lire, mettre à jour, créer et rechercher des tâches dans Azure Cosmos DB. 
+2. Dans le répertoire **models**, créez un fichier nommé **taskDao.js**. Ce fichier contient le code nécessaire pour créer la base de données et le conteneur. Il définit également des méthodes pour lire, mettre à jour, créer et rechercher des tâches dans Azure Cosmos DB. 
 
 3. Copiez le code suivant dans le fichier **taskDao.js** :
 
@@ -273,7 +273,7 @@ Maintenant que vous avez terminé l’installation et la configuration initiales
    module.exports = config;
    ```
 
-3. Dans le fichier **config.js** , mettez à jour les valeurs des paramètres HOST et AUTH_KEY en indiquant les valeurs trouvées dans la page Clés de votre compte Azure Cosmos DB, dans le [portail Azure](https://portal.azure.com). 
+3. Dans le fichier **config.js**, mettez à jour les valeurs des paramètres HOST et AUTH_KEY en indiquant les valeurs trouvées dans la page Clés de votre compte Azure Cosmos DB, dans le [portail Azure](https://portal.azure.com). 
 
 4. Enregistrez et fermez le fichier **config.js** .
 
@@ -384,7 +384,7 @@ Nous allons maintenant générer l’interface utilisateur afin qu’un utilisat
 
     Ce code demande au moteur **Jade** de générer un rendu HTML pour notre application et crée un **bloc** intitulé **content** dans lequel nous pouvons fournir la mise en page de nos pages de contenu. Enregistrez et fermez le fichier **layout.jade**.
 
-3. Ouvrez maintenant le fichier **index.jade** , la vue qui sera utilisée par l'application, et remplacez le contenu du fichier par le code suivant :
+3. Ouvrez maintenant le fichier **index.jade**, la vue qui sera utilisée par l'application, et remplacez le contenu du fichier par le code suivant :
 
    ```html
    extends layout
@@ -470,14 +470,14 @@ Lorsque votre application a bien été exécutée localement, vous pouvez la dé
 3. Déployez l’application en l’envoyant à l’appareil distant.
    
    ```bash
-   git push azure master
+   git push azure main
    ```
 
 4. Dans quelques secondes, votre application web sera publiée et lancée dans un navigateur.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Dès que vous n’avez plus besoin de ces ressources, vous pouvez supprimer le groupe de ressources, le compte Azure Cosmos DB et toutes les ressources associées. Pour ce faire, sélectionnez le groupe de ressources que vous avez utilisé pour le compte Azure Cosmos DB, sélectionnez **Supprimer** , puis confirmez le nom du groupe de ressources à supprimer.
+Dès que vous n’avez plus besoin de ces ressources, vous pouvez supprimer le groupe de ressources, le compte Azure Cosmos DB et toutes les ressources associées. Pour ce faire, sélectionnez le groupe de ressources que vous avez utilisé pour le compte Azure Cosmos DB, sélectionnez **Supprimer**, puis confirmez le nom du groupe de ressources à supprimer.
 
 ## <a name="next-steps"></a><a name="_Toc395637775"></a>Étapes suivantes
 

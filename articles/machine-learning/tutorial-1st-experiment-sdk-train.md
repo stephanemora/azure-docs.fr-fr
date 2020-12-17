@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 17bf7b3f457ff6046d92012ffd679ed4b9315530
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: a2f76df05878151405d56b1bff5e588f426d9d92
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96574120"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093551"
 ---
 # <a name="tutorial-train-your-first-machine-learning-model-part-3-of-4"></a>Tutoriel : Entraîner votre premier modèle Machine Learning (partie 3 sur 4)
 
@@ -133,7 +133,7 @@ Créez un fichier Python dans le répertoire `tutorial` nommé `04-run-pytorch.p
 :::row-end:::
 
 > [!div class="nextstepaction"]
-> [J’ai créé le script de contrôle](?success=control-script#submit) [J’ai rencontré un problème](https://www.research.net/r/7CTJQQ?issue=control-script)
+> [J’ai créé le script de contrôle](?success=control-script#submit) [J’ai rencontré un problème](https://www.research.net/r/7CTJQQN?issue=control-script)
 
 
 ## <a name="submit-the-run-to-azure-machine-learning"></a><a name="submit"></a> Soumettre l’exécution à Azure Machine Learning
@@ -186,7 +186,7 @@ Azure Machine Learning conserve aussi une collection d’environnements organis�
 En bref, l’utilisation d’environnements inscrits peut vous faire gagner du temps ! Pour plus d’informations, consultez [Comment utiliser les environnements](./how-to-use-environments.md).
 
 > [!div class="nextstepaction"]
-> [J’ai soumis l’exécution](?success=test-w-environment#log) [J’ai rencontré un problème](https://www.research.net/r/7CTJQQ?issue=test-w-environment)
+> [J’ai soumis l’exécution](?success=test-w-environment#log) [J’ai rencontré un problème](https://www.research.net/r/7CTJQQN?issue=test-w-environment)
 
 ## <a name="log-training-metrics"></a><a name="log"></a> Journaliser les métriques d’entraînement
 
@@ -221,7 +221,7 @@ Les métriques de Azure Machine Learning sont :
 - Conçues pour être mises à l’échelle, vous conservez ces avantages même lorsque vous exécutez des centaines d’expériences.
 
 > [!div class="nextstepaction"]
-> [J’ai modifié train.py ](?success=modify-train#log) [J’ai rencontré un problème](https://www.research.net/r/7CTJQQ?issue=modify-train)
+> [J’ai modifié train.py ](?success=modify-train#log) [J’ai rencontré un problème](https://www.research.net/r/7CTJQQN?issue=modify-train)
 
 ### <a name="update-the-conda-environment-file"></a>Mettre à jour le fichier d’environnement Conda
 
@@ -230,7 +230,7 @@ Le script `train.py` prenait uniquement une nouvelle dépendance sur `azureml.co
 :::code language="python" source="~/MachineLearningNotebooks/tutorials/get-started-day1/configuration/pytorch-aml-env.yml":::
 
 > [!div class="nextstepaction"]
-> [J’ai mis à jour le fichier d’environnement](?success=update-environment#submit-again) [J’ai rencontré un problème](https://www.research.net/r/7CTJQQ?issue=update-environment)
+> [J’ai mis à jour le fichier d’environnement](?success=update-environment#submit-again) [J’ai rencontré un problème](https://www.research.net/r/7CTJQQN?issue=update-environment)
 
 ### <a name="submit-the-run-to-azure-machine-learning"></a><a name="submit-again"></a> Soumettre l’exécution à Azure Machine Learning
 Soumettre ce script une fois de plus :
@@ -244,7 +244,7 @@ Cette fois, quand vous accédez au studio, accédez à l’onglet **Métriques**
 :::image type="content" source="media/tutorial-1st-experiment-sdk-train/logging-metrics.png" alt-text="Graphe des pertes de l’entraînement dans l’onglet Métriques.":::
 
 > [!div class="nextstepaction"]
-> [J’ai resoumis l’exécution](?success=resubmit-with-logging#next-steps) [J’ai rencontré un problème](https://www.research.net/r/7CTJQQ?issue=resubmit-with-logging)
+> [J’ai resoumis l’exécution](?success=resubmit-with-logging#next-steps) [J’ai rencontré un problème](https://www.research.net/r/7CTJQQN?issue=resubmit-with-logging)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

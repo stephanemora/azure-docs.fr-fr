@@ -11,15 +11,14 @@ ms.custom:
 ms.author: dobett
 author: dominicbetts
 ms.date: 11/12/2019
-ms.openlocfilehash: f00448f19cc0a2118477a9527005548fea25537e
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: fca9a72fa237a11a02b6d4fbe30ebba5857384cf
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187270"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97346365"
 ---
 # <a name="tutorial-export-data-from-azure-iot-central-and-visualize-insights-in-power-bi"></a>Tutoriel : Exporter des données à partir d’Azure IoT Central et visualiser des insights dans Power BI
-
 
 
 Dans les deux didacticiels précédents, vous avez créé et personnalisé une application IoT Central à l’aide du modèle d’application **in-Store Analytics-Checkout**. Dans ce didacticiel, vous configurez votre application IoT Central pour exporter les données de télémétrie collectées à partir des appareils. Vous utilisez ensuite Power BI pour créer un tableau de bord personnalisé pour le responsable du magasin afin de visualiser les insights dérivés des données de télémétrie.

@@ -3,21 +3,19 @@ title: 'Tutoriel : Créer une application de supervision des panneaux solaires 
 description: "Tutoriel : Apprenez à créer une application de suivi des panneaux solaires à l'aide de modèles d'application Azure IoT Central."
 author: op-ravi
 ms.author: omravi
-ms.date: 11/12/2019
+ms.date: 12/11/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 145aefbe5a31d71ae614826c63d285c37ac03571
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: d006bae8290c1f6ea564f9985727f4d6ff70bb04
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123923"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516747"
 ---
 # <a name="tutorial-create-and-walk-through-the-solar-panel-monitoring-app-template"></a>Tutoriel : Créer et découvrir pas à pas le modèle d'application de suivi des panneaux solaires 
-
-
 
 Ce didacticiel vous guide tout au long du processus de création de l'application de suivi des panneaux solaires, qui comprend un exemple de modèle d'appareil avec des données simulées. Ce didacticiel vous apprendra à effectuer les opérations suivantes :
 
@@ -31,8 +29,8 @@ Ce didacticiel vous guide tout au long du processus de création de l'applicatio
 Si vous n’avez pas d’abonnement, [créez un compte d’essai gratuit](https://azure.microsoft.com/free)
 
 ## <a name="prerequisites"></a>Prérequis
-- None
-- Pour l'essai, un abonnement Azure est recommandé, mais pas obligatoire
+* None
+* Pour l'essai, un abonnement Azure est recommandé, mais pas obligatoire
 
 
 ## <a name="create-a-solar-panel-monitoring-app"></a>Créer une application de suivi de panneaux solaires 
@@ -41,12 +39,12 @@ Vous pouvez créer cette application en trois étapes simples :
 
 1. Ouvrez la [page d'accueil d'Azure IoT Central](https://apps.azureiotcentral.com), puis cliquez sur **Générer** pour créer une application. 
 
-2. Sélectionnez l'onglet **Énergie**, puis, sous la vignette d'application **Suivi des panneaux solaires**, cliquez sur **Créer une application**. 
+1. Sélectionnez l'onglet **Énergie**, puis, sous la vignette d'application **Suivi des panneaux solaires**, cliquez sur **Créer une application**. 
 
     > [!div class="mx-imgBorder"]
     > ![Créer une application](media/tutorial-iot-central-solar-panel/solar-panel-build.png)
   
-3. La commande **Créer une application** ouvre le formulaire **Nouvelle application**. Entrez les détails demandés, comme illustré dans la figure ci-dessous :
+1. La commande **Créer une application** ouvre le formulaire **Nouvelle application**. Entrez les détails demandés, comme illustré dans la figure ci-dessous :
     * **Nom de l'application** : choisissez un nom pour votre application IoT Central. 
     * **URL** : choisissez une URL IoT Central. La plateforme vérifie son unicité.
     * **Essai gratuit de 7 jours** : si vous disposez déjà d'un abonnement Azure, le paramètre par défaut est recommandé. Si vous n’avez pas d’abonnement Azure, commencez avec l’évaluation gratuite.
@@ -100,7 +98,7 @@ Cliquez sur l'onglet **Modèles d'appareils** pour afficher le modèle de pannea
 Si vous décidez de ne pas continuer à utiliser cette application, supprimez-la en procédant comme suit :
 
 1. Dans le volet gauche, ouvrez l'onglet Administration.
-2. Sélectionnez Paramètres de l'application, puis cliquez sur le bouton Supprimer en bas de la page. 
+1. Sélectionnez Paramètres de l'application, puis cliquez sur le bouton Supprimer en bas de la page. 
 
     > [!div class="mx-imgBorder"]
     > ![Supprimer une application](media/tutorial-iot-central-solar-panel/solar-panel-delete-app.png)

@@ -6,12 +6,12 @@ ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: e55638e20bceb6df4b8e74375d67836123167162
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 7acfb168462354017168ee333ea0b1ecaea434c1
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931739"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107122"
 ---
 # <a name="tutorial-add-outputs-to-your-arm-template"></a>Tutoriel : Ajouter des sorties à votre modèle ARM
 
@@ -41,17 +41,17 @@ L’exemple suivant met en évidence la modification apportée à votre modèle 
 
 Il y a quelques éléments importants à noter concernant la valeur de sortie que vous avez ajoutée.
 
-Le type de valeur retournée est défini sur **object**, ce qui signifie qu’il retourne un objet JSON.
+Le type de valeur retournée est défini sur `object`, ce qui signifie qu’il retourne un objet JSON.
 
 Il utilise la fonction [reference](template-functions-resource.md#reference) pour récupérer l’état d’exécution du compte de stockage. Pour obtenir l’état d’exécution d’une ressource, vous transmettez le nom ou l’ID d’une ressource. Dans ce cas, vous utilisez la même variable que celle que vous avez utilisée pour créer le nom du compte de stockage.
 
-Finalement, il retourne la propriété **primaryEndpoints** à partir du compte de stockage.
+Finalement, il retourne la propriété `primaryEndpoints` à partir du compte de stockage.
 
 ## <a name="deploy-template"></a>Déployer un modèle
 
 Vous êtes prêt à déployer le modèle et à examiner la valeur retournée.
 
-Si vous n’avez pas créé le groupe de ressources, consultez [Créer un groupe de ressources](template-tutorial-create-first-template.md#create-resource-group). L’exemple suppose que vous avez défini la variable **templateFile** sur le chemin du fichier de modèle, comme indiqué dans le [premier tutoriel](template-tutorial-create-first-template.md#deploy-template).
+Si vous n’avez pas créé le groupe de ressources, consultez [Créer un groupe de ressources](template-tutorial-create-first-template.md#create-resource-group). L’exemple suppose que vous avez défini la variable `templateFile` sur le chemin du fichier de modèle, comme indiqué dans le [premier tutoriel](template-tutorial-create-first-template.md#deploy-template).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -92,7 +92,7 @@ Dans la sortie de la commande de déploiement, un objet semblable à l’exemple
 ```
 
 > [!NOTE]
-> Si le déploiement a échoué, utilisez le commutateur **verbose** pour obtenir des informations sur les ressources en cours de création. Utilisez le commutateur **debug** pour obtenir des informations supplémentaires sur le débogage.
+> Si le déploiement a échoué, utilisez le commutateur `verbose` pour obtenir des informations sur les ressources en cours de création. Utilisez le commutateur `debug` pour obtenir des informations supplémentaires sur le débogage.
 
 ## <a name="review-your-work"></a>Passer en revue votre travail
 

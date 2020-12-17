@@ -2,18 +2,17 @@
 title: Configurer un écouteur de groupe de disponibilité pour SQL Server sur des machines virtuelles RHEL dans Azure - Machines virtuelles Linux | Microsoft Docs
 description: Apprendre à configurer un écouteur de groupe de disponibilité dans SQL Server sur des machines virtuelles RHEL dans Azure
 ms.service: virtual-machines-linux
-ms.subservice: ''
 ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 03/11/2020
-ms.openlocfilehash: 01501b99d5d7c42af98d0397cf6ff8cbca14b07b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 83fde9e957cb2011ce585603e51d331be171bc08
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89485788"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586210"
 ---
 # <a name="tutorial-configure-an-availability-group-listener-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Tutoriel : Configurer un écouteur de groupe de disponibilité pour SQL Server sur des machines virtuelles RHEL dans Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -136,7 +135,7 @@ Les règles d’équilibrage de charge déterminent comment l’équilibreur de 
    | **Délai d’inactivité (minutes).** |*4* |
    | **Adresse IP flottante (retour direct du serveur)** |**Activé** |
 
-   :::image type="content" source="media/rhel-high-availability-listener-tutorial/add-load-balancing-rule.png" alt-text="Ajouter un pool back-end":::
+   :::image type="content" source="media/rhel-high-availability-listener-tutorial/add-load-balancing-rule.png" alt-text="Ajouter une règle d’équilibrage de charge":::
 
 4. Cliquez sur **OK**. 
 5. Azure configure la règle d’équilibrage de charge. L’équilibreur de charge est maintenant configuré pour router le trafic vers l’instance de SQL Server qui héberge l’écouteur pour le groupe de disponibilité. 
@@ -263,6 +262,10 @@ Les règles d’équilibrage de charge déterminent comment l’équilibreur de 
     ```
 
 1. Vérifiez vos ressources de cluster à l’aide de la commande `sudo pcs resource`. Vous devriez voir que l’instance principale est désormais `<VM2>`.
+
+    > [!NOTE]
+    > Cet article contient des références au terme esclave, un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.
+
 
     ```output
     [<username>@<VM1> ~]$ sudo pcs resource

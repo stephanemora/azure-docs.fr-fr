@@ -1,18 +1,18 @@
 ---
 title: 'Tutoriel : Créer et importer des termes de glossaire dans Azure Purview (préversion)'
 description: Ce tutoriel explique comment créer des termes de glossaire, ajouter des termes de glossaire à une ressource et importer des termes de glossaire.
-author: hophan
+author: hophanms
 ms.author: hophan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: 3a81d9480dfb07703d5f1ccfb495d069f140dd71
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 4dc8dd84c22d094c87c82f5a920015f886780df2
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96549661"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97399806"
 ---
 # <a name="tutorial-create-and-import-glossary-terms-in-azure-purview-preview"></a>Tutoriel : Créer et importer des termes de glossaire dans Azure Purview (préversion)
 

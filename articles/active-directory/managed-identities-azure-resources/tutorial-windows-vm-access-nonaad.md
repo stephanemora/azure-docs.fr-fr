@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/03/2020
+ms.date: 12/10/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa17a18de8e71b099d6ed717974486203c4379f4
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 668d3cb044512220ff7afbc165c77da704a9a5d7
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96180504"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107513"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-key-vault"></a>Tutoriel : Utiliser une identité managée de machine virtuelle Windows attribuée par le système pour accéder à Azure Key Vault 
 
@@ -61,6 +61,20 @@ Tout d’abord, nous devons créer un Key Vault et accorder son accès à l’id
 1. Sélectionner **Vérifier + créer**
 1. Sélectionnez **Créer**
 
+### <a name="create-a-secret"></a>Créer un secret
+
+Ajoutez ensuite un secret au coffre de clés afin de pouvoir le récupérer ultérieurement à l’aide du code en cours d’exécution dans votre machine virtuelle. Dans le cadre de ce tutoriel, nous utilisons PowerShell, mais les mêmes concepts s’appliquent à tout code s’exécutant dans cette machine virtuelle.
+
+1. Accédez au coffre de clés que vous venez de créer.
+1. Sélectionnez **Secret**, puis cliquez sur **Ajouter**.
+1. Sélectionnez **Générer/Importer**.
+1. Dans l’écran **Créer un secret**, dans les **Options de chargement** laissez **Manuel** sélectionné.
+1. Entrez un nom et une valeur pour le secret.  Vous pouvez choisir la valeur de votre choix. 
+1. Laissez les champs pour la date d’activation et la date d’expiration vides, puis pour **Activé**, laissez la valeur **Oui**. 
+1. Cliquez sur **Créer** pour créer le secret.
+
+   ![Créer un secret](./media/msi-tutorial-windows-vm-access-nonaad/create-secret.png)
+
 ## <a name="grant-access"></a>Accorder l'accès
 
 L’identité managée utilisée par la machine virtuelle doit disposer d’un accès pour lire le secret que nous allons stocker dans le coffre de clés.
@@ -76,19 +90,6 @@ L’identité managée utilisée par la machine virtuelle doit disposer d’un a
 1. Sélectionnez **Ajouter**
 1. Sélectionnez **Enregistrer**.
 
-## <a name="create-a-secret"></a>Créer un secret
-
-Ajoutez ensuite un secret au coffre de clés afin de pouvoir le récupérer ultérieurement à l’aide du code en cours d’exécution dans votre machine virtuelle. Dans le cadre de ce tutoriel, nous utilisons PowerShell, mais les mêmes concepts s’appliquent à tout code s’exécutant dans cette machine virtuelle.
-
-1. Accédez au coffre de clés que vous venez de créer.
-1. Sélectionnez **Secret**, puis cliquez sur **Ajouter**.
-1. Sélectionnez **Générer/Importer**.
-1. Dans l’écran **Créer un secret**, dans les **Options de chargement** laissez **Manuel** sélectionné.
-1. Entrez un nom et une valeur pour le secret.  Vous pouvez choisir la valeur de votre choix. 
-1. Laissez les champs pour la date d’activation et la date d’expiration vides, puis pour **Activé**, laissez la valeur **Oui**. 
-1. Cliquez sur **Créer** pour créer le secret.
-
-   ![Créer un secret](./media/msi-tutorial-windows-vm-access-nonaad/create-secret.png)
 
 ## <a name="access-data"></a>Accéder aux données  
 

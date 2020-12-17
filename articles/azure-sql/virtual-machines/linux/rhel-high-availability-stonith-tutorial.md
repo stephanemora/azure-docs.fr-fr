@@ -2,18 +2,17 @@
 title: Configurer des groupes de disponibilité pour SQL Server sur des machines virtuelles RHEL dans Azure - Machines virtuelles Linux | Microsoft Docs
 description: Découvrir comment configurer la haute disponibilité dans un environnement de cluster RHEL et comment configurer STONITH
 ms.service: virtual-machines-linux
-ms.subservice: ''
 ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 06/25/2020
-ms.openlocfilehash: 8e7ccacce732da4a0194af959abe94438451028a
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: 533f5c9e38818a8e37482cbbb3a90602366eca6f
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96559046"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587211"
 ---
 # <a name="tutorial-configure-availability-groups-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Tutoriel : Configurer des groupes de disponibilité pour SQL Server sur des machines virtuelles RHEL dans Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -946,6 +945,9 @@ Si `synchronization_state_desc` indique SYNCHRONIZED pour `db1`, cela signifie q
 ## <a name="create-availability-group-resources-in-the-pacemaker-cluster"></a>Créer les ressources de groupe de disponibilité dans le cluster Pacemaker
 
 Nous allons suivre le guide permettant de [créer les ressources de groupe de disponibilité dans le cluster Pacemaker](/sql/linux/sql-server-linux-create-availability-group#create-the-availability-group-resources-in-the-pacemaker-cluster-external-only).
+
+> [!NOTE]
+> Cet article contient des références au terme esclave, un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.
 
 ### <a name="create-the-ag-cluster-resource"></a>Créer la ressource de cluster du groupe de disponibilité
 

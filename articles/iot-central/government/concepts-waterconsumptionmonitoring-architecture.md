@@ -3,20 +3,18 @@ title: Architecture de référence pour une solution de suivi de la consommation
 description: Découvrez les concepts qui se rapportent à une solution de suivi de la consommation d’eau conçue avec Azure IoT Central.
 author: miriambrus
 ms.author: miriamb
-ms.date: 10/23/2019
+ms.date: 12/11/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: df402064f2aa26e29ef72c0f73f8f5aa761506e2
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: a291a32c8fd635c9124a7e1f997b6c676c8c0bd4
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94873557"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586786"
 ---
 # <a name="water-consumption-monitoring-reference-architecture"></a>Architecture de référence d’une solution de suivi de la consommation d’eau 
-
-
 
 Vous pouvez créer des solutions de suivi de la consommation d’eau avec le **modèle d’application Azure IoT Central** en tant qu’application IoT de démarrage. Cet article fournit des conseils d’ordre général sur l’architecture de référence d’une solution de bout en bout. 
 
@@ -26,8 +24,8 @@ Concepts :
 
 1. Appareils et connectivité  
 1. IoT Central 
-2. Extensibilité et intégrations
-3. Applications métier
+1. Extensibilité et intégrations
+1. Applications métier
 
 Intéressons-nous aux composants clés qui sont généralement impliqués dans une solution de suivi de la consommation d’eau.
 
