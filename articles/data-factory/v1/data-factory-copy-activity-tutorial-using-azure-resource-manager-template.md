@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 831da4153eebc798265493441ee72c041901904f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a007e64a7bd034397c2030c435a5ad349bd4acc7
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87053900"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97608746"
 ---
 # <a name="tutorial-use-azure-resource-manager-template-to-create-a-data-factory-pipeline-to-copy-data"></a>Tutoriel : utiliser un modèle Azure Resource Manager pour créer un pipeline Data Factory afin de copier des données 
 > [!div class="op_single_selector"]
@@ -341,46 +341,58 @@ Créez un fichier JSON nommé **ADFCopyTutorialARM-Parameters** contient les par
 ## <a name="monitor-pipeline"></a>Surveillance d’un pipeline
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) avec votre compte Azure.
-2. Cliquez sur **Fabriques de données** dans le menu à gauche (ou) cliquez sur **Tous les services** puis sur **Fabriques de données** sous la catégorie **Intelligence et analyse**.
+
+1. Cliquez sur **Fabriques de données** dans le menu à gauche (ou) cliquez sur **Tous les services** puis sur **Fabriques de données** sous la catégorie **Intelligence et analyse**.
    
     ![Menu Fabriques de données](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factories-menu.png)
-3. Sur la page **Fabriques de données**, recherchez votre fabrique de données (AzureBlobToAzureSQLDatabaseDF). 
+
+1. Sur la page **Fabriques de données**, recherchez votre fabrique de données (AzureBlobToAzureSQLDatabaseDF). 
    
     ![Recherche d’une fabrique de données](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/search-for-data-factory.png)  
-4. Cliquez sur votre fabrique de données Azure. La page d’accueil de la fabrique de données apparaît.
+
+1. Cliquez sur votre fabrique de données Azure. La page d’accueil de la fabrique de données apparaît.
    
     ![Page d’accueil de la fabrique de données](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factory-home-page.png)  
-6. Suivez les instructions dans [Surveiller les jeux de données et le pipeline](data-factory-monitor-manage-pipelines.md) pour surveiller le pipeline et les jeux de données que vous avez créés dans ce didacticiel. Pour le moment, Visual Studio ne prend pas en charge la surveillance des pipelines Data Factory.
-7. Lorsqu’une tranche est à l’état **Prêt**, vérifiez que les données sont copiées vers la table **emp** dans Azure SQL Database.
 
+1. Suivez les instructions dans [Surveiller les jeux de données et le pipeline](data-factory-monitor-manage-pipelines.md) pour surveiller le pipeline et les jeux de données que vous avez créés dans ce didacticiel. Pour le moment, Visual Studio ne prend pas en charge la surveillance des pipelines Data Factory.
+
+1. Lorsqu’une tranche est à l’état **Prêt**, vérifiez que les données sont copiées vers la table **emp** dans Azure SQL Database.
 
 Pour plus d’informations sur l’utilisation des panneaux du portail Azure afin de surveiller le pipeline et les jeux de données que vous avez créés dans ce didacticiel, consultez [Surveiller les jeux de données et le pipeline](data-factory-monitor-manage-pipelines.md).
 
 Pour plus d’informations sur l’utilisation de l’application Surveiller et gérer afin de surveiller vos pipelines de données, consultez [Surveillance et gestion des pipelines d’Azure Data Factory à l’aide d’application Surveiller](data-factory-monitor-manage-app.md).
 
 ## <a name="data-factory-entities-in-the-template"></a>Entités Data Factory dans le modèle
+
 ### <a name="define-data-factory"></a>Définir une fabrique de données
-Vous définissez une fabrique de données dans le modèle Resource Manager, comme indiqué dans l’exemple suivant :  
+
+Vous définissez une fabrique de données dans le modèle Resource Manager, comme indiqué dans l’exemple suivant :
 
 ```json
-"resources": [
 {
-    "name": "[variables('dataFactoryName')]",
-    "apiVersion": "2015-10-01",
-    "type": "Microsoft.DataFactory/datafactories",
-    "location": "West US"
+  "resources": [
+    {
+      "name": "[variables('dataFactoryName')]",
+      "apiVersion": "2015-10-01",
+      "type": "Microsoft.DataFactory/datafactories",
+      "location": "West US"
+    }
+  ]
 }
 ```
 
 La propriété dataFactoryName est défini en tant que : 
 
 ```json
-"dataFactoryName": "[concat('AzureBlobToAzureSQLDatabaseDF', uniqueString(resourceGroup().id))]"
+{
+    "dataFactoryName": "[concat('AzureBlobToAzureSQLDatabaseDF', uniqueString(resourceGroup().id))]"
+}
 ```
 
-Il s’agit d’une chaîne unique basée sur l’ID du groupe de ressources.  
+Il s’agit d’une chaîne unique basée sur l’ID du groupe de ressources.
 
 ### <a name="defining-data-factory-entities"></a>Définition des entités Data Factory
+
 Les entités Data Factory suivantes sont définies dans le modèle JSON : 
 
 1. [Service lié Azure Storage](#azure-storage-linked-service)
@@ -390,6 +402,7 @@ Les entités Data Factory suivantes sont définies dans le modèle JSON :
 5. [Pipeline de données avec une activité de copie](#data-pipeline)
 
 #### <a name="azure-storage-linked-service"></a>Service lié Stockage Azure
+
 AzureStorageLinkedService relie votre compte de stockage Azure à la fabrique de données. Vous avez créé un conteneur et chargé des données dans ce compte de stockage en remplissant les [conditions préalables](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). Vous spécifiez le nom et la clé de votre compte Stockage Azure dans cette section. Consultez [Service lié Stockage Azure](data-factory-azure-blob-connector.md#azure-storage-linked-service) pour en savoir plus sur les propriétés JSON utilisées pour définir un service lié Stockage Azure. 
 
 ```json
@@ -413,6 +426,7 @@ AzureStorageLinkedService relie votre compte de stockage Azure à la fabrique de
 La propriété connectionString utilise les paramètres storageAccountName et storageAccountKey. Les valeurs de ces paramètres sont transmises à l’aide d’un fichier de configuration. La définition utilise également les variables azureStorageLinkedService et dataFactoryName définies dans le modèle. 
 
 #### <a name="azure-sql-database-linked-service"></a>Service lié Azure SQL Database
+
 AzureSqlLinkedService lie votre base de données dans Azure SQL Database à la fabrique de données. Les données copiées à partir du stockage Blob sont stockées dans cette base de données. Vous avez créé une table emp dans cette base de données dans le cadre des [conditions préalables](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). Vous spécifiez le nom du serveur SQL logique, le nom de la base de données, le nom d’utilisateur et le mot de passe de l’utilisateur dans cette section. Consultez [Service lié SQL Azure](data-factory-azure-sql-connector.md#linked-service-properties) pour en savoir plus sur les propriétés JSON utilisées pour définir un service lié SQL Azure.  
 
 ```json
@@ -424,11 +438,11 @@ AzureSqlLinkedService lie votre base de données dans Azure SQL Database à la f
     ],
     "apiVersion": "2015-10-01",
     "properties": {
-          "type": "AzureSqlDatabase",
-          "description": "Azure SQL linked service",
-          "typeProperties": {
-            "connectionString": "[concat('Server=tcp:',parameters('sqlServerName'),'.database.windows.net,1433;Database=', parameters('databaseName'), ';User ID=',parameters('sqlServerUserName'),';Password=',parameters('sqlServerPassword'),';Trusted_Connection=False;Encrypt=True;Connection Timeout=30')]"
-          }
+      "type": "AzureSqlDatabase",
+      "description": "Azure SQL linked service",
+      "typeProperties": {
+        "connectionString": "[concat('Server=tcp:',parameters('sqlServerName'),'.database.windows.net,1433;Database=', parameters('databaseName'), ';User ID=',parameters('sqlServerUserName'),';Password=',parameters('sqlServerPassword'),';Trusted_Connection=False;Encrypt=True;Connection Timeout=30')]"
+      }
     }
 }
 ```

@@ -9,13 +9,13 @@ ms.topic: tutorial
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 07/09/2020
-ms.custom: contperfq4
-ms.openlocfilehash: 98ca0f1e82b81c8aad53938a5475f1ece68c0e33
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: contperf-fy20q4
+ms.openlocfilehash: 9ad96bdb632e134cf3e3a0f82bb97f88c87e72e9
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321556"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033440"
 ---
 # <a name="train-and-deploy-an-image-classification-tensorflow-model-using-the-azure-machine-learning-visual-studio-code-extension-preview"></a>Entraîner et déployer un modèle de classification d’images TensorFlow à l’aide de l’extension Azure Machine Learning de Visual Studio Code (préversion)
 
@@ -91,7 +91,7 @@ Pour créer une cible de calcul :
 1. Dans la barre d’activités Visual Studio Code, sélectionnez l’icône **Azure**. La vue Azure Machine Learning apparaît. 
 1. Développez votre nœud d’abonnement. 
 1. Développez le nœud **TeamWorkspace**. 
-1. Sous le nœud de l’espace de travail, cliquez avec le bouton droit sur le nœud **Clusters de calcul** , puis choisissez **Créer un calcul**. 
+1. Sous le nœud de l’espace de travail, cliquez avec le bouton droit sur le nœud **Clusters de calcul**, puis choisissez **Créer un calcul**. 
 
     > [!div class="mx-imgBorder"]
     > ![Créer une cible de calcul](./media/tutorial-train-deploy-image-classification-model-vscode/create-compute.png)
@@ -312,7 +312,7 @@ Pour enregistrer votre modèle :
 1. Dans la barre d’activités Visual Studio Code, sélectionnez l’icône **Azure**. La vue Azure Machine Learning apparaît.
 1. Développez votre nœud d’abonnement. 
 1. Développez le nœud **TeamWorkspace > Expériences > MNIST**.
-1. Obtenez les sorties de modèle générées à partir de l’entraînement du modèle. Cliquez avec le bouton droit sur le nœud d’exécution **Exécution 1** , puis sélectionnez **Télécharger les sorties**. 
+1. Obtenez les sorties de modèle générées à partir de l’entraînement du modèle. Cliquez avec le bouton droit sur le nœud d’exécution **Exécution 1**, puis sélectionnez **Télécharger les sorties**. 
 
     > [!div class="mx-imgBorder"]
     > ![Télécharger les sorties du modèle](./media/tutorial-train-deploy-image-classification-model-vscode/download-outputs.png)
@@ -362,7 +362,7 @@ Pour déployer un service web en tant qu’ACI :
 1. Dans la barre d’activités Visual Studio Code, sélectionnez l’icône **Azure**. La vue Azure Machine Learning apparaît.
 1. Développez votre nœud d’abonnement. 
 1. Développez le nœud **TeamWorkspace > Modèles**. 
-1. Cliquez avec le bouton droit sur **MNIST-TensorFlow-model** , puis sélectionnez **Déployer le service à partir d’un modèle inscrit**.
+1. Cliquez avec le bouton droit sur **MNIST-TensorFlow-model**, puis sélectionnez **Déployer le service à partir d’un modèle inscrit**.
 
     > [!div class="mx-imgBorder"]
     > ![Déployer le modèle](./media/tutorial-train-deploy-image-classification-model-vscode/deploy-model.png)

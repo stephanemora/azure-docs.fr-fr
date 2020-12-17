@@ -11,16 +11,16 @@ ms.topic: tutorial
 ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a9ca6d91be95bfb1a47f85b20f3775a57518ffcf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 036e9e6bf58d837c698a6092770ef581f77bc20c
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87922130"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108244"
 ---
 # <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>Tutoriel : Personnaliser l'interface des expériences utilisateur dans Azure Active Directory B2C
 
-Pour des expériences utilisateur plus courantes telles que l’inscription, la connexion et la modification du profil, vous pouvez utiliser des [flux d’utilisateur](user-flow-overview.md) dans Azure Active Directory B2C (Azure AD B2C). Les informations contenues dans ce tutoriel vous aideront à découvrir comment [personnaliser l’interface utilisateur](customize-ui-overview.md) de ces expériences à l’aide de vos propres fichiers HTML et CSS.
+Pour des expériences utilisateur plus courantes telles que l’inscription, la connexion et la modification du profil, vous pouvez utiliser des [flux d’utilisateur](user-flow-overview.md) dans Azure Active Directory B2C (Azure AD B2C). Les informations contenues dans ce tutoriel vous aideront à découvrir comment [personnaliser l’interface utilisateur](customize-ui-with-html.md) de ces expériences à l’aide de vos propres fichiers HTML et CSS.
 
 Dans cet article, vous apprendrez comment :
 
@@ -166,4 +166,4 @@ Dans cet article, vous avez appris à effectuer les opérations suivantes :
 > * Tester l’interface utilisateur personnalisée
 
 > [!div class="nextstepaction"]
-> [Personnaliser l’interface utilisateur dans Azure Active Directory B2C](customize-ui-overview.md)
+> [Personnaliser l’interface utilisateur dans Azure Active Directory B2C](customize-ui-with-html.md)

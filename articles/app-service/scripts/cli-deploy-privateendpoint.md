@@ -9,12 +9,12 @@ ms.date: 07/06/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: 7246bb3453f6e4863faf15dbcbfdf8534481ddad
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 21f937d95c6cd0dafa27daae50d7a74648af7bdc
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94561415"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97006104"
 ---
 # <a name="create-an-app-service-app-and-deploy-private-endpoint-using-azure-cli"></a>Créer une application App Service et déployer un point de terminaison privé à l’aide d’Azure CLI
 
@@ -37,7 +37,7 @@ az group create --name myResourceGroup --location francecentral
 ## <a name="create-an-app-service-plan"></a>Créer un plan App Service
 
 Vous devez créer un plan App Service pour héberger votre application web.
-Créez un plan App Service avec la commande [az appservice plan create](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create).
+Créez un plan App Service avec la commande [az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-create).
 Cet exemple crée un plan App Service nommé *myAppServicePlan* à l’emplacement *francecentral*, avec la référence SKU *P1V2* et un seul Worker : 
 
 ```azurecli-interactive
@@ -78,7 +78,7 @@ az network vnet create \
 
 ## <a name="configure-the-subnet"></a>Configurer le sous-réseau 
 
-Vous devez mettre à jour le sous-réseau pour désactiver les stratégies réseau du point de terminaison privé. Mettez à jour une configuration de sous-réseau nommée *mySubnet* avec [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update) :
+Vous devez mettre à jour le sous-réseau pour désactiver les stratégies réseau du point de terminaison privé. Mettez à jour une configuration de sous-réseau nommée *mySubnet* avec [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update) :
 
 ```azurecli-interactive
 az network vnet subnet update \

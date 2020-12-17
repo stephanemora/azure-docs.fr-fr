@@ -9,12 +9,12 @@ ms.date: 12/11/2017
 ms.author: msangapu
 ms.reviewer: cephalin
 ms.custom: mvc, seodec18, devx-track-azurecli
-ms.openlocfilehash: 4055ae213000b2c3d6a39cd33db0cdfc87bd7b6f
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 500ac99cd35cfdf601be75a19a1d43f84795cbe8
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94834963"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97006419"
 ---
 # <a name="create-a-scheduled-backup-for-an-app-service-app-using-cli"></a>Créer une sauvegarde planifiée pour une application App Service à l’aide de l’interface CLI
 
@@ -38,15 +38,15 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 
 | Commande | Notes |
 |---|---|
-| [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
-| [`az storage account create`](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create) | Crée un compte de stockage. |
-| [`az storage container create`](/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create) | Crée un conteneur de stockage Azure. |
-| [`az storage container generate-sas`](/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-generate-sas) | Génère un jeton SAS pour un conteneur de stockage Azure.  |
-| [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | Crée un plan App Service. |
-| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Crée une application App Service. |
-| [`az webapp config backup update`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az-webapp-config-backup-update) | Configure une nouvelle planification de sauvegarde pour une application App Service. |
-| [`az webapp config backup show`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az-webapp-config-backup-show) | Affiche la planification de sauvegarde pour une application App Service. |
-| [`az webapp config backup list`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az-webapp-config-backup-list) | Obtient une liste des sauvegardes pour une application App Service. |
+| [`az group create`](/cli/azure/group#az-group-create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
+| [`az storage account create`](/cli/azure/storage/account#az-storage-account-create) | Crée un compte de stockage. |
+| [`az storage container create`](/cli/azure/storage/container#az-storage-container-create) | Crée un conteneur de stockage Azure. |
+| [`az storage container generate-sas`](/cli/azure/storage/container#az-storage-container-generate-sas) | Génère un jeton SAS pour un conteneur de stockage Azure.  |
+| [`az appservice plan create`](/cli/azure/appservice/plan#az-appservice-plan-create) | Crée un plan App Service. |
+| [`az webapp create`](/cli/azure/webapp#az-webapp-create) | Crée une application App Service. |
+| [`az webapp config backup update`](/cli/azure/webapp/config/backup#az-webapp-config-backup-update) | Configure une nouvelle planification de sauvegarde pour une application App Service. |
+| [`az webapp config backup show`](/cli/azure/webapp/config/backup#az-webapp-config-backup-show) | Affiche la planification de sauvegarde pour une application App Service. |
+| [`az webapp config backup list`](/cli/azure/webapp/config/backup#az-webapp-config-backup-list) | Obtient une liste des sauvegardes pour une application App Service. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

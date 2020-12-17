@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: cb3417cf765cd703d72d4a2db7a649400ab2d4de
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: d74057e32b6f16bdb6dae3d96ac46c5cc93571aa
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896767"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97609103"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-internet-access-administrator"></a>Tutoriel : Intégration d'Azure Active Directory à Zscaler Internet Access Administrator
 
@@ -56,7 +56,7 @@ Pour configurer l'intégration de Zscaler Internet Access Administrator à Azure
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
-2. Accédez à **Applications d’entreprise** , puis sélectionnez l’option **Toutes les applications**.
+2. Accédez à **Applications d’entreprise**, puis sélectionnez l’option **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -64,7 +64,7 @@ Pour configurer l'intégration de Zscaler Internet Access Administrator à Azure
 
     ![Bouton Nouvelle application](common/add-new-app.png)
 
-4. Dans la zone de recherche, entrez **Zscaler Internet Access Administrator** , sélectionnez **Zscaler Internet Access Administrator** dans le panneau des résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l'application.
+4. Dans la zone de recherche, entrez **Zscaler Internet Access Administrator**, sélectionnez **Zscaler Internet Access Administrator** dans le panneau des résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l'application.
 
      ![Zscaler Internet Access Administrator dans la liste des résultats](common/search-new-app.png)
 
@@ -92,19 +92,19 @@ Pour configurer l'authentification unique d'Azure AD auprès de Zscaler Internet
 
     ![Lien Configurer l’authentification unique](common/select-sso.png)
 
-2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique** , sélectionnez le mode **SAML/WS-Fed** afin d’activer l’authentification unique.
+2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique**, sélectionnez le mode **SAML/WS-Fed** afin d’activer l’authentification unique.
 
     ![Mode de sélection de l’authentification unique](common/select-saml-option.png)
 
-3. Dans la page **Configurer l’authentification unique avec SAML** , cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base**.
+3. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base**.
 
     ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-4. Sur la page **Configurer l’authentification unique avec SAML** , cliquez sur le bouton **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base**.
+4. Sur la page **Configurer l’authentification unique avec SAML**, cliquez sur le bouton **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base**.
 
     ![Informations d'authentification unique dans Domaine et URL Zscaler Internet Access Administrator](common/idp-intiated.png)
 
-    a. Dans la zone de texte **Identificateur** , entrez une URL répondant à vos besoins :
+    a. Dans la zone de texte **Identificateur**, entrez une URL répondant à vos besoins :
 
     | Identificateur |
     |------------|
@@ -115,7 +115,7 @@ Pour configurer l'authentification unique d'Azure AD auprès de Zscaler Internet
     | `https://admin.zscloud.net` |
     | `https://admin.zscalerbeta.net` |
 
-    b. Dans la zone de texte **URL de réponse** , entrez une URL répondant à vos besoins :
+    b. Dans la zone de texte **URL de réponse**, entrez une URL répondant à vos besoins :
 
     | URL de réponse |
     |-----------|
@@ -126,15 +126,15 @@ Pour configurer l'authentification unique d'Azure AD auprès de Zscaler Internet
     | `https://admin.zscloud.net/adminsso.do` |
     | `https://admin.zscalerbeta.net/adminsso.do` |
 
-5. L'application Zscaler Internet Access Administrator attend les assertions SAML dans un format spécifique. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de la section **Attributs utilisateur et revendications** dans la page d’intégration des applications. Sur la page **Configurer l'authentification unique avec SAML** , cliquez sur le bouton **Modifier** pour ouvrir la boîte de dialogue **Attributs utilisateur et revendications**.
+5. L'application Zscaler Internet Access Administrator attend les assertions SAML dans un format spécifique. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de la section **Attributs utilisateur et revendications** dans la page d’intégration des applications. Sur la page **Configurer l'authentification unique avec SAML**, cliquez sur le bouton **Modifier** pour ouvrir la boîte de dialogue **Attributs utilisateur et revendications**.
 
     ![Le lien Attribut](./media/zscaler-internet-access-administrator-tutorial/tutorial_zscaler-internet_attribute.png)
 
-6. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur** , configurez le jeton SAML comme sur l’image ci-dessus et procédez comme suit :
+6. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, configurez le jeton SAML comme sur l’image ci-dessus et procédez comme suit :
 
     | Nom  | Attribut source  |
     | ---------| ------------ |
-    | Role     | user.assignedroles |
+    | Role | user.assignedroles |
 
     a. Cliquez sur le bouton **Ajouter une nouvelle revendication** pour ouvrir la boîte de dialogue **Gérer les revendications des utilisateurs**.
 
@@ -142,7 +142,7 @@ Pour configurer l'authentification unique d'Azure AD auprès de Zscaler Internet
     
     ![Capture d’écran montrant la boîte de dialogue Manage user claims où vous pouvez entrer les valeurs décrites.](./common/new-attribute-details.png)
 
-    b. Dans la liste **Attribut de la source** , sélectionnez la valeur de l’attribut.
+    b. Dans la liste **Attribut de la source**, sélectionnez la valeur de l’attribut.
 
     c. Cliquez sur **OK**.
 
@@ -151,11 +151,11 @@ Pour configurer l'authentification unique d'Azure AD auprès de Zscaler Internet
     > [!NOTE]
     > Cliquez [ici](../develop/active-directory-enterprise-app-role-management.md) pour savoir comment configurer un rôle dans Azure AD.
 
-7. Dans la page **Configurer l’authentification unique avec SAML** , dans la section **Certificat de signature SAML** , cliquez sur **Télécharger** pour télécharger le **Certificat (Base64)** en fonction des options définies par rapport à vos besoins, puis enregistrez-le sur votre ordinateur.
+7. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le **Certificat (Base64)** en fonction des options définies par rapport à vos besoins, puis enregistrez-le sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/certificatebase64.png)
 
-8. Dans la section **Configurer Zscaler Internet Access Administrator** , copiez la ou les URL appropriées en fonction de vos besoins.
+8. Dans la section **Configurer Zscaler Internet Access Administrator**, copiez la ou les URL appropriées en fonction de vos besoins.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
@@ -169,7 +169,7 @@ Pour configurer l'authentification unique d'Azure AD auprès de Zscaler Internet
 
 1. Dans une autre fenêtre de navigateur web, connectez-vous à votre UI d’administrateur Zscaler Internet Access.
 
-2. Accédez à **Administration > Administrator Management** , effectuez les étapes suivantes, puis cliquez sur Save :
+2. Accédez à **Administration > Administrator Management**, effectuez les étapes suivantes, puis cliquez sur Save :
 
     ![Capture d’écran montrant Administrator Management avec les options permettant d’activer l’authentification SAML, de charger un certificat SSL et de spécifier un émetteur.](./media/zscaler-internet-access-administrator-tutorial/AdminSSO.png "Administration")
 
@@ -177,7 +177,7 @@ Pour configurer l'authentification unique d'Azure AD auprès de Zscaler Internet
 
     b. Cliquez sur **Charger** pour charger le certificat de signature SAML Azure que vous avez téléchargé depuis le portail Azure dans le **Certificat SSL public**.
 
-    c. Si vous le souhaitez, pour renforcer la sécurité, ajoutez les détails de l’émetteur (dans le champ **Issuer** ) afin de vérifier l’émetteur de la réponse SAML.
+    c. Si vous le souhaitez, pour renforcer la sécurité, ajoutez les détails de l’émetteur (dans le champ **Issuer**) afin de vérifier l’émetteur de la réponse SAML.
 
 3. Dans l’UI de l’administrateur, effectuez les étapes suivantes :
 
@@ -191,7 +191,7 @@ Pour configurer l'authentification unique d'Azure AD auprès de Zscaler Internet
 
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
 
-1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory** , sélectionnez **Utilisateurs** , puis sélectionnez **Tous les utilisateurs**.
+1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory**, sélectionnez **Utilisateurs**, puis sélectionnez **Tous les utilisateurs**.
 
     ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](common/users.png)
 
@@ -203,12 +203,12 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     ![Boîte de dialogue Utilisateur](common/user-properties.png)
 
-    a. Dans le champ **Nom** , entrez **BrittaSimon**.
+    a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur** , tapez **brittasimon\@domainedevotreentreprise.extension**.  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple : BrittaSimon@contoso.com
 
-    c. Cochez la case **Afficher le mot de passe** , puis notez la valeur affichée dans le champ Mot de passe.
+    c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
     d. Cliquez sur **Créer**.
 
@@ -216,7 +216,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 Dans cette section, vous allez autoriser Britta Simon à utiliser l'authentification unique Azure en lui accordant l'accès à Zscaler Internet Access Administrator.
 
-1. Sur le portail Azure, sélectionnez **Applications d'entreprise** , **Toutes les applications** , puis **Zscaler Internet Access Administrator**.
+1. Sur le portail Azure, sélectionnez **Applications d'entreprise**, **Toutes les applications**, puis **Zscaler Internet Access Administrator**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -228,15 +228,15 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l'authentifica
 
     ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
 
-4. Cliquez sur le bouton **Ajouter un utilisateur** , puis sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
+4. Cliquez sur le bouton **Ajouter un utilisateur**, puis sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
 
     ![Volet Ajouter une attribution](common/add-assign-user.png)
 
-5. Dans la boîte de dialogue **Utilisateurs et groupes** , sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 
-6. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle** , sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+6. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 
-7. Dans la boîte de dialogue **Ajouter une attribution** , cliquez sur le bouton **Attribuer**.
+7. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
 ### <a name="create-zscaler-internet-access-administrator-test-user"></a>Créer un utilisateur de test Zscaler Internet Access Administrator
 
