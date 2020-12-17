@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 8634cb009d801c7edbb14682bf9d83c25ba111a5
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: b9311329ea4115d49f36dd7d39782bbd748a356b
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351433"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106102"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-nodejs"></a>Démarrage rapide : Envoyer une requête de recherche à l’API REST Recherche d’entités Bing en utilisant Node.js
 
@@ -87,15 +87,15 @@ Bien que cette application soit écrite en JavaScript, l’API est un service we
     let json = JSON.stringify(JSON.parse(body), null, '  ');
     console.log (json);
     });
-        ```
+    ```
 
-## Send a request
+## <a name="send-a-request"></a>Option Send a request (Envoyer une demande)
 
-1. Create a function called `Search()` to send a search request. In it, perform the following steps:
+1. Créez une fonction appelée `Search()` pour envoyer une requête de recherche. Dedans, effectuez les étapes suivantes :
 
-2. Within this function, create a JSON object containing your request parameters. Use `Get` for the method, and add your host and path information. Add your subscription key to the `Ocp-Apim-Subscription-Key` header. 
+2. Dans cette fonction, créez un objet JSON contenant vos paramètres de requête. Utilisez `Get` pour la méthode et ajoutez vos informations d’hôte et de chemin. Ajoutez votre clé d’abonnement dans l’en-tête `Ocp-Apim-Subscription-Key`. 
 
-3. Use `https.request()` to send the request with the response handler created previously, and your search parameters.
+3. Utilisez `https.request()` pour envoyer la requête avec le gestionnaire de réponse créé précédemment, ainsi que vos paramètres de recherche.
     
    ```javascript
    let Search = function () {
