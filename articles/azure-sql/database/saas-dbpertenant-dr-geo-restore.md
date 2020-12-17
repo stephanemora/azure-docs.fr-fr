@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/14/2019
-ms.openlocfilehash: daccbd9dfb3ed628d8a3e604cbb9af4045f1ebe6
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 3fe6095595f5270b18536e6ef46afe4a0a5b3268
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92780884"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607709"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Utiliser la géorestauration pour récupérer une application SaaS multilocataire à partir de sauvegardes de bases de données
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -163,7 +163,7 @@ Le processus de récupération effectue les opérations suivantes :
 
     * L’application a accès aux bases de données de locataire, dès qu’elles sont marquées en ligne dans le catalogue.
 
-    * Une somme des valeurs rowversion dans la base de données de locataire est stockée dans le catalogue. Cette somme joue le rôle d’empreinte digitale qui permet au processus de rapatriement de déterminer si la base de données a été mise à jour dans la région de récupération.       
+    * Une somme des valeurs rowversion dans la base de données de locataire est stockée dans le catalogue. Cette somme joue le rôle d’empreinte digitale qui permet au processus de rapatriement de déterminer si la base de données a été mise à jour dans la région de récupération.
 
 ## <a name="run-the-recovery-script"></a>Exécuter le script de récupération
 

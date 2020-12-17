@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/24/2020
 ms.author: jeedes
-ms.openlocfilehash: 9a62576b65be04414580b42377398e27c4aa389c
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 3cca568245dfce01fb96d7a46590cb72349213ac
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353559"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591920"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-web-cargo-air"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory avec Web Cargo Air
 
@@ -88,7 +88,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (Base64)** et sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
-    ![The Certificate download link](common/certificatebase64.png)
+    ![Lien Téléchargement de certificat](common/certificatebase64.png)
 
 1. Dans la section **Configurer Web Cargo Air**, copiez la ou les URL appropriées en fonction de vos besoins.
 

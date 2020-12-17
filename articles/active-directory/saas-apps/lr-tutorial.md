@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 1376dcb76c22bcd70937f533d337ee9679e9dc59
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 832c08123904b9fb889231faa86c1308704a2581
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96455853"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606417"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-loginradius"></a>Didacticiel : Intégration d’Azure Active Directory avec LoginRadius
 
@@ -151,7 +151,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
        - Commande pour obtenir la clé de certificat pour le fournisseur de services : `openssl genrsa -out lr.hub.loginradius.com.key 2048`
 
        - Commande pour obtenir le certificat pour le fournisseur de services : `openssl req -new -x509 -key lr.hub.loginradius.com.key -out lr.hub.loginradius.com.cert -days 3650 -subj /CN=lr.hub.loginradius.com`
-     
+
        > [!NOTE]
        > Veillez à entrer les valeurs de certificat et de clé de certificat avec l’en-tête et le pied de page :
        > - Exemple de format de valeur de certificat : `-----BEGIN CERTIFICATE-----<certifciate value>-----END CERTIFICATE-----`

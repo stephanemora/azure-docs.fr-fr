@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/26/2019
 ms.author: jeedes
-ms.openlocfilehash: cf6973242e81cef53625a3b1eda4f2d92e1d5ffd
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0d78f2c8da338a92ef88734371647a48ddb190c3
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95998632"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591206"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-adp"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à ADP
 
@@ -155,15 +155,15 @@ Une fois la confirmation reçue de votre représentant ADP, configurez vos servi
 
     ![Propriétés de l’authentification unique liée](./media/adpfederatedsso-tutorial/tutorial_adp_linkedproperties.png)
 
-    a.  Définissez le champ **Activé pour que les utilisateurs se connectent** sur **Oui**.
+    1. Définissez le champ **Activé pour que les utilisateurs se connectent** sur **Oui**.
 
-    b.  Définissez le champs **Affectation de l’utilisateur obligatoire** sur **Oui**.
+    1. Définissez le champs **Affectation de l’utilisateur obligatoire** sur **Oui**.
 
-    c.  Définissez le champ **Visible par les utilisateurs** sur **Oui**.
+    1. Définissez le champ **Visible par les utilisateurs** sur **Oui**.
 
 1. Dans le [portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **ADP**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
 
-1. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique**, sélectionnez le **Mode** **Lié**. pour lier votre application à **ADP**.
+1. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique**, sélectionnez le **Mode****Lié**. pour lier votre application à **ADP**.
 
     ![Authentification unique liée](./media/adpfederatedsso-tutorial/tutorial_adp_linked.png)
 
@@ -171,39 +171,39 @@ Une fois la confirmation reçue de votre représentant ADP, configurez vos servi
 
     ![Propriétés de l’authentification unique](./media/adpfederatedsso-tutorial/tutorial_adp_linkedsignon.png)
 
-    a. Collez l’**URL d’accès utilisateur**, que vous avez copiée à partir de l’**onglet Propriétés** plus haut (à partir de l’application ADP principale).
-                                                             
-    b. Voici les 5 applications qui prennent en charge différentes **URL d’état de relais**. Vous devez ajouter la valeur **d’URL d’état de relais** appropriée pour une application particulière manuellement à **l’URL d’accès utilisateur**.
-    
-    * **ADP Workforce Now**
-        
-        `<User access URL>&relaystate=https://fed.adp.com/saml/fedlanding.html?WFN`
+    1. Collez l’**URL d’accès utilisateur**, que vous avez copiée à partir de l’**onglet Propriétés** plus haut (à partir de l’application ADP principale).
 
-    * **ADP Workforce Now Enhanced Time**
-        
-        `<User access URL>&relaystate=https://fed.adp.com/saml/fedlanding.html?EETDC2`
-    
-    * **ADP Vantage HCM**
-        
-        `<User access URL>&relaystate=https://fed.adp.com/saml/fedlanding.html?ADPVANTAGE`
+    1. Voici les 5 applications qui prennent en charge différentes **URL d’état de relais**. Vous devez ajouter la valeur **d’URL d’état de relais** appropriée pour une application particulière manuellement à **l’URL d’accès utilisateur**.
 
-    * **ADP Enterprise HR**
+        * **ADP Workforce Now**
 
-        `<User access URL>&relaystate=https://fed.adp.com/saml/fedlanding.html?PORTAL`
+            `<User access URL>&relaystate=https://fed.adp.com/saml/fedlanding.html?WFN`
 
-    * **MyADP**
+        * **ADP Workforce Now Enhanced Time**
 
-        `<User access URL>&relaystate=https://fed.adp.com/saml/fedlanding.html?REDBOX`
+            `<User access URL>&relaystate=https://fed.adp.com/saml/fedlanding.html?EETDC2`
 
-9. **Enregistrez** vos modifications.
+        * **ADP Vantage HCM**
 
-10. Une fois la confirmation reçue de votre représentant ADP, commencez à effectuer un test avec un ou deux utilisateurs.
+            `<User access URL>&relaystate=https://fed.adp.com/saml/fedlanding.html?ADPVANTAGE`
 
-    a. Assignez quelques utilisateurs à l’application de service ADP pour tester l’accès fédéré.
+        * **ADP Enterprise HR**
 
-    b. Le test est réussi quand les utilisateurs accèdent à l’application de service ADP dans la galerie et qu’ils peuvent accéder à leur service ADP.
- 
-11. Une fois confirmée la réussite d’un test, assignez le service ADP fédéré à des utilisateurs ou à des groupes d’utilisateurs, comme expliqué plus loin dans le didacticiel, et déployez-le pour vos employés.
+            `<User access URL>&relaystate=https://fed.adp.com/saml/fedlanding.html?PORTAL`
+
+        * **MyADP**
+
+            `<User access URL>&relaystate=https://fed.adp.com/saml/fedlanding.html?REDBOX`
+
+1. **Enregistrez** les changements apportés.
+
+1. Une fois la confirmation reçue de votre représentant ADP, commencez à effectuer un test avec un ou deux utilisateurs.
+
+    1. Assignez quelques utilisateurs à l’application de service ADP pour tester l’accès fédéré.
+
+    1. Le test est réussi quand les utilisateurs accèdent à l’application de service ADP dans la galerie et qu’ils peuvent accéder à leur service ADP.
+
+1. Une fois confirmée la réussite d’un test, assignez le service ADP fédéré à des utilisateurs ou à des groupes d’utilisateurs, comme expliqué plus loin dans le didacticiel, et déployez-le pour vos employés.
 
 ### <a name="create-adp-test-user"></a>Créer un utilisateur de test ADP
 
@@ -217,10 +217,8 @@ Le fait de cliquer sur la vignette ADP dans le panneau d’accès doit vous conn
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](./tutorial-list.md)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](./tutorial-list.md)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
 
 - [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](../conditional-access/overview.md)
-
-- [Essayer ADP avec Azure AD](https://aad.portal.azure.com)

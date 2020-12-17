@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/30/2020
 ms.author: Zhchia
-ms.openlocfilehash: 4d3ee6df90424788c6f9b6bb4e2055023a5d56a6
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 881309c040f6c1bdff758d17ab7f51e935437192
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182056"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607879"
 ---
 # <a name="tutorial-configure-mediusflow-for-automatic-user-provisioning"></a>Tutoriel : Configurer MediusFlow pour l’approvisionnement automatique d’utilisateurs
 
@@ -172,11 +172,11 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 11. Passez en revue les attributs de groupe synchronisés d’Azure AD vers MediusFlow dans la section **Mappages des attributs**. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les groupes dans MediusFlow pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
-      |Attribut|Type|
-      |---|---|
-      |displayName|String|
-      |externalID|String|
-      |membres|Informations de référence|
+    | Attribut | Type |
+    |--|--|
+    | displayName | String |
+    | externalID | String |
+    | membres | Informations de référence |
 
 12. Pour configurer des filtres d’étendue, reportez-vous aux instructions suivantes fournies dans [Approvisionnement d’applications basé sur les attributs avec filtres d’étendue](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019, devx-track-azurecli
 ms.topic: tutorial
 ms.date: 04/11/2020
-ms.openlocfilehash: e5ee40a156d1b6a322895a9e3f0bdbd73ee029b6
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: fb303054a3026a305831309413c51c061a68c5d6
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94954883"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97608049"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-db-for-postgresql-online-using-dms-via-the-azure-cli"></a>Tutoriel : Effectuer la migration en ligne de PostgreSQL vers Azure DB pour PostgreSQL via Azure CLI à l’aide de DMS
 
@@ -250,8 +250,8 @@ Pour compléter tous les objets de base de données tels que les schémas de tab
     * Ajoutez l’adresse IP au fichier pg_hba.conf sur la source, comme dans l’entrée suivante :
 
         ```
-        host    all     all     172.16.136.18/10    md5
-        host    replication     postgres    172.16.136.18/10    md5
+        host     all            all        172.16.136.18/10    md5
+        host     replication    postgres   172.16.136.18/10    md5
         ```
 
 5. Ensuite, créez un projet de migration PostgreSQL en exécutant la commande suivante :
@@ -376,23 +376,23 @@ Pour compléter tous les objets de base de données tels que les schémas de tab
 Dans le fichier de sortie, plusieurs paramètres indiquent la progression de la migration. Par exemple, consultez le fichier de sortie ci-dessous :
 
   ```output
-    "output": [                                 Database Level
+    "output": [                                 // Database Level
           {
-            "appliedChanges": 0,        //Total incremental sync applied after full load
-            "cdcDeleteCounter": 0       // Total delete operation  applied after full load
-            "cdcInsertCounter": 0,      // Total insert operation applied after full load
-            "cdcUpdateCounter": 0,      // Total update operation applied after full load
+            "appliedChanges": 0,         // Total incremental sync applied after full load
+            "cdcDeleteCounter": 0        // Total delete operation  applied after full load
+            "cdcInsertCounter": 0,       // Total insert operation applied after full load
+            "cdcUpdateCounter": 0,       // Total update operation applied after full load
             "databaseName": "inventory",
             "endedOn": null,
             "fullLoadCompletedTables": 2,   //Number of tables completed full load
-            "fullLoadErroredTables": 0, //Number of tables that contain migration error
-            "fullLoadLoadingTables": 0, //Number of tables that are in loading status
-            "fullLoadQueuedTables": 0,  //Number of tables that are in queued status
+            "fullLoadErroredTables": 0,     //Number of tables that contain migration error
+            "fullLoadLoadingTables": 0,     //Number of tables that are in loading status
+            "fullLoadQueuedTables": 0,      //Number of tables that are in queued status
             "id": "db|inventory",
-            "incomingChanges": 0,       //Number of changes after full load
+            "incomingChanges": 0,           //Number of changes after full load
             "initializationCompleted": true,
             "latency": 0,
-            "migrationState": "READY_TO_COMPLETE",  //Status of migration task. READY_TO_COMPLETE means the database is ready for cutover
+            "migrationState": "READY_TO_COMPLETE",    //Status of migration task. READY_TO_COMPLETE means the database is ready for cutover
             "resultType": "DatabaseLevelOutput",
             "startedOn": "2018-07-05T23:36:02.27839+00:00"
           },
@@ -408,25 +408,25 @@ Dans le fichier de sortie, plusieurs paramètres indiquent la progression de la 
             "targetServer": "builddemotarget.postgres.database.azure.com",
             "targetVersion": "Azure Database for PostgreSQL"
           },
-          {                                     Table 1
+          {                                        // Table 1
             "cdcDeleteCounter": 0,
             "cdcInsertCounter": 0,
             "cdcUpdateCounter": 0,
             "dataErrorsCount": 0,
             "databaseName": "inventory",
-            "fullLoadEndedOn": "2018-07-05T23:36:20.740701+00:00",  //Full load completed time
+            "fullLoadEndedOn": "2018-07-05T23:36:20.740701+00:00",    //Full load completed time
             "fullLoadEstFinishTime": "1970-01-01T00:00:00+00:00",
             "fullLoadStartedOn": "2018-07-05T23:36:15.864552+00:00",    //Full load started time
-            "fullLoadTotalRows": 10,                    //Number of rows loaded in full load
-            "fullLoadTotalVolumeBytes": 7056,               //Volume in Bytes in full load
-            "id": "or|inventory|public|actor",          
+            "fullLoadTotalRows": 10,                     //Number of rows loaded in full load
+            "fullLoadTotalVolumeBytes": 7056,            //Volume in Bytes in full load
+            "id": "or|inventory|public|actor",
             "lastModifiedTime": "2018-07-05T23:36:16.880174+00:00",
             "resultType": "TableLevelOutput",
-            "state": "COMPLETED",                   //State of migration for this table
+            "state": "COMPLETED",                       //State of migration for this table
             "tableName": "public.catalog",              //Table name
-            "totalChangesApplied": 0                //Total sync changes that applied after full load
+            "totalChangesApplied": 0                    //Total sync changes that applied after full load
           },
-          {                                     Table 2
+          {                                            //Table 2
             "cdcDeleteCounter": 0,
             "cdcInsertCounter": 50,
             "cdcUpdateCounter": 0,
@@ -444,8 +444,8 @@ Dans le fichier de sortie, plusieurs paramètres indiquent la progression de la 
             "tableName": "public.orders",
             "totalChangesApplied": 0
           }
-        ],                          DMS migration task state
-        "state": "Running", //Migration task state – Running means it is still listening to any changes that might come in                  
+        ],                                      // DMS migration task state
+        "state": "Running",    //Migration task state – Running means it is still listening to any changes that might come in
         "taskType": null
       },
       "resourceGroup": "PostgresDemo",
@@ -460,12 +460,12 @@ Pour garantir la récupération de toutes les données, validez le nombre de lig
 
 ```
 "migrationState": "READY_TO_COMPLETE", //Status of migration task. READY_TO_COMPLETE means database is ready for cutover
- "incomingChanges": 0,  //continue to check for a period of 5-10 minutes to make sure no new incoming changes that need to be applied to the target server
+ "incomingChanges": 0, //continue to check for a period of 5-10 minutes to make sure no new incoming changes that need to be applied to the target server
    "fullLoadTotalRows": 10, //full load for table 1
-    "cdcDeleteCounter": 0,  //delete, insert and update counter on incremental sync after full load
+    "cdcDeleteCounter": 0, //delete, insert and update counter on incremental sync after full load
     "cdcInsertCounter": 50,
     "cdcUpdateCounter": 0,
-     "fullLoadTotalRows": 112,  //full load for table 2
+     "fullLoadTotalRows": 112, //full load for table 2
 ```
 
 1. Effectuez la tâche de migration de base de données de basculement à l’aide de la commande suivante :
