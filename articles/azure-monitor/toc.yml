@@ -129,7 +129,7 @@
           href: app/data-retention-privacy.md
     - name: Alertes
       items:
-        - name: Vue d'ensemble
+        - name: Vue d’ensemble
           href: platform/alerts-overview.md
         - name: Alertes de métrique
           href: platform/alerts-metric-overview.md
@@ -181,7 +181,7 @@
               href: platform/manage-cost-storage.md
     - name: Métriques Azure Monitor
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           displayname: Metrics
           href: platform/data-platform-metrics.md
         - name: Metrics Explorer
@@ -261,7 +261,7 @@
               href: platform/computer-groups.md
             - name: Requêtes inter-ressources
               items:
-                - name: Vue d'ensemble
+                - name: Vue d’ensemble
                   displayname: cross-resource queries
                   href: log-query/cross-workspace-query.md
                 - name: expression de l’application
@@ -349,7 +349,7 @@
               href: app/automate-with-logic-apps.md
     - name: Agents
       items:
-        - name: Vue d'ensemble
+        - name: Vue d’ensemble
           href: platform/agents-overview.md
         - name: Questions fréquentes (FAQ)
           href: faq.md#agents
@@ -366,7 +366,7 @@
               href: platform/data-collection-rule-azure-monitor-agent.md
         - name: Agent Log Analytics
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: platform/log-analytics-agent.md
             - name: Agents Windows
               href: platform/agent-windows.md
@@ -420,7 +420,7 @@
             - name: Linux
               displayname: diagnostics extension
               items:
-                - name: Vue d'ensemble
+                - name: Vue d’ensemble
                   href: ../virtual-machines/extensions/diagnostics-linux.md?toc=/azure/azure-monitor/toc.json
                 - name: Collecter des métriques avec Telegraf
                   href: platform/collect-custom-metrics-linux-telegraf.md
@@ -546,10 +546,10 @@
           items:
             - name: Connecteur de gestion des services informatiques
               href: platform/itsmc-overview.md
-            - name: Définition du connecteur de gestion des services informatiques
-              href: platform/itsmc-definition.md
             - name: Connexions de gestion des services informatiques
               href: platform/itsmc-connections.md
+            - name: Définition du connecteur de gestion des services informatiques
+              href: platform/itsmc-definition.md
             - name: Créer l’application web Service Manager
               href: platform/itsmc-service-manager-script.md
             - name: "Résolution des problèmes dans le connecteur\_ITSM"
@@ -620,7 +620,7 @@
               href: app/nodejs.md
             - name: Python
               items:
-                - name: Vue d'ensemble
+                - name: Vue d’ensemble
                   displayname: 'python, Python, OpenCenus, OpenTelemetry, py'
                   href: app/opencensus-python.md
                 - name: Les dépendances
@@ -785,7 +785,7 @@
               href: app/profiler-troubleshooting.md
         - name: Débogueur de capture instantanée
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               displayname: 'snapshot, debug, debugger, snapshot debugger, snapshotdebugger'
               href: app/snapshot-debugger.md
             - name: Activer le débogueur de capture instantanée pour App Service
@@ -942,7 +942,7 @@
           href: insights/vminsights-configure-workspace.md
         - name: Installer des agents
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: insights/vminsights-enable-overview.md
             - name: Portail Azure
               href: insights/vminsights-enable-portal.md
@@ -986,7 +986,7 @@
           href: insights/vminsights-optout.md
     - name: Azure Monitor pour des conteneurs
       items:
-        - name: Vue d'ensemble
+        - name: Vue d’ensemble
           href: insights/container-insights-overview.md
         - name: Questions fréquentes (FAQ)
           href: faq.md#azure-monitor-for-containers
@@ -1134,7 +1134,7 @@
                   href: platform/alert-management-solution.md
     - name: Workbooks
       items:
-        - name: Vue d'ensemble
+        - name: Vue d’ensemble
           displayname: Workbooks
           href: platform/workbooks-overview.md
         - name: Visualisations

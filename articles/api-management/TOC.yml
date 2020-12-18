@@ -110,6 +110,8 @@
       items:
         - name: Métrique de capacité
           href: api-management-capacity.md
+        - name: Prévoir et gérer les coûts
+          href: plan-manage-costs.md
         - name: Mise à niveau et mise à l’échelle
           href: upgrade-and-scale.md
         - name: Configurer la mise à l’échelle automatique

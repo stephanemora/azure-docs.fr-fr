@@ -30,8 +30,6 @@
       href: azuread-join-sso.md
     - name: Jetons d’actualisation principaux
       href: concept-primary-refresh-token.md
-    - name: Stations de travail gérées par Azure
-      href: concept-azure-managed-workstation.md
 - name: Guides pratiques
   expanded: false
   items:
@@ -55,8 +53,6 @@
       href: howto-vm-sign-in-azure-ad-windows.md
     - name: Infrastructure de bureau virtuel
       href: howto-device-identity-virtual-desktop-infrastructure.md
-    - name: Déployer des stations de travail gérées par Azure
-      href: howto-azure-managed-workstation.md
     - name: Résoudre les problèmes d’identités d’appareil
       items:
         - name: Résoudre les problèmes de jointure d’Azure AD hybride pour les appareils Windows actuels

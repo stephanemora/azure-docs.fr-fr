@@ -263,7 +263,7 @@
               href: sql/load-data-overview.md
         - name: Développement
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: sql/develop-overview.md
             - name: Meilleures pratiques
               href: sql/develop-best-practices.md
@@ -658,6 +658,8 @@
           href: ../data-factory/concepts-pipeline-execution-triggers.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Runtime d’intégration
           href: ../data-factory/concepts-integration-runtime.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Différences par rapport à Azure Data Factory
+          href: ./data-integration/concepts-data-factory-differences.md
         - name: Flux de données
           items:
             - name: Vue d’ensemble des flux de données
@@ -678,8 +680,6 @@
               href: ../data-factory/concepts-data-flow-expression-builder.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Langage d’expression
               href: ../data-factory/data-flow-expression-functions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Différences par rapport à Azure Data Factory
-              href: ./data-integration/concepts-data-factory-differences.md
     - name: Guides pratiques
       items:
         - name: Auteur
