@@ -290,6 +290,8 @@
         - name: Utiliser le contrôle d’intégrité dans le Gestionnaire de déploiement
           displayName: adm
           href: deployment-manager-tutorial-health-check.md
+    - name: Parcours d’apprentissage Microsoft Learn sur les modèles
+      href: /learn/paths/deploy-manage-resource-manager-templates/
 - name: Concepts
   items:
     - name: Bonnes pratiques pour les modèles

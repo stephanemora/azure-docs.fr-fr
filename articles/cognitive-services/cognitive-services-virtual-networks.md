@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 10/07/2020
+ms.date: 12/04/2020
 ms.author: aahi
-ms.openlocfilehash: f79cfce514b81c5829ee7791c18e24d3bc6563b5
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 3b6c2a5a50cedadd8818eae735df55b661e794ef
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369373"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97034018"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Configurer des réseaux virtuels Azure Cognitive Services
 
@@ -49,19 +49,22 @@ Les réseaux virtuels (VNET) sont pris en charge dans les [régions où les serv
 > * Vision personnalisée
 > * Face
 > * Form Recognizer
+> * Lecteur immersif
 > * Language Understanding (LUIS)
 > * Personalizer
+> * Services Speech
 > * Analyse de texte
 > * QnA Maker
 > * Traduction de texte Translator Text
-> * Lecteur immersif
+
 
 > [!NOTE]
 > Si vous utilisez LUIS, la balise **CognitiveServicesManagement** vous permet uniquement d’utiliser le service à l’aide du kit de développement logiciel (SDK) ou de l’API REST. Pour accéder au portail LUIS et l’utiliser à partir d’un réseau virtuel, vous devez utiliser les balises suivantes :  
-> * **AzureResourceManager** 
-> * **CognitiveServicesManagement**
 > * **AzureActiveDirectory**
 > * **AzureFrontDoor.Frontend**
+> * **AzureResourceManager** 
+> * **CognitiveServicesManagement**
+
 
 
 ## <a name="change-the-default-network-access-rule"></a>Changer la règle d’accès réseau par défaut
@@ -491,7 +494,7 @@ Les points de terminaison privés pour les ressources Cognitive Services vous pe
 
 Un point de terminaison privé est une interface réseau spéciale pour une ressource Azure dans votre [réseau virtuel](../virtual-network/virtual-networks-overview.md). La création d’un point de terminaison privé pour votre ressource Cognitive Services offre une connectivité sécurisée entre les clients de votre réseau virtuel et votre ressource. Une adresse IP est attribuée au point de terminaison privé à partir de la plage d’adresses IP de votre réseau virtuel. La connexion entre le point de terminaison privé et le service Cognitive Services utilise une liaison privée sécurisée.
 
-Les applications du réseau virtuel peuvent se connecter au service sans interruption sur le point de terminaison privé à l’aide des mêmes chaînes de connexion et mécanismes d’autorisation qu’ils utilisent dans tous les cas. La seule exception est le service Speech qui nécessite un point de terminaison distinct. Consultez la section sur les [Points de terminaison privés avec le service Speech](#private-endpoints-with-the-speech-service). Les points de terminaison privés peuvent être utilisés avec tous les protocoles pris en charge par la ressource Cognitive Services, notamment l’API REST.
+Les applications du réseau virtuel peuvent se connecter au service sans interruption sur le point de terminaison privé à l’aide des mêmes chaînes de connexion et mécanismes d’autorisation qu’ils utilisent dans tous les cas. La seule exception est les Speech Services qui nécessitent un point de terminaison distinct. Consultez la section relative aux [points de terminaison privés avec les Speech Services](#private-endpoints-with-the-speech-services). Les points de terminaison privés peuvent être utilisés avec tous les protocoles pris en charge par la ressource Cognitive Services, notamment l’API REST.
 
 Vous pouvez créer des points de terminaison privés dans des sous-réseaux qui utilisent des [points de terminaison de service](../virtual-network/virtual-network-service-endpoints-overview.md). Les clients d’un sous-réseau peuvent se connecter à une ressource Cognitive Services à l’aide d’un point de terminaison privé, tout en utilisant des points de terminaison de service pour accéder à d’autres.
 
@@ -509,13 +512,13 @@ Quand vous créez le point de terminaison privé, vous devez spécifier la resso
 
 ### <a name="connecting-to-private-endpoints"></a>Connexion à des points de terminaison privés
 
-Les clients d’un réseau virtuel qui utilisent le point de terminaison privé doivent utiliser la même chaîne de connexion pour la ressource Cognitive Services que les clients qui se connectent au point de terminaison public. La seule exception est le service Speech qui nécessite un point de terminaison distinct. Consultez la section sur les [Points de terminaison privés avec le service Speech](#private-endpoints-with-the-speech-service). Nous nous appuyons sur la résolution DNS pour router automatiquement les connexions entre le réseau virtuel et la ressource Cognitive Services sur une liaison privée. Service Speech 
+Les clients d’un réseau virtuel qui utilisent le point de terminaison privé doivent utiliser la même chaîne de connexion pour la ressource Cognitive Services que les clients qui se connectent au point de terminaison public. La seule exception est les Speech Services qui nécessitent un point de terminaison distinct. Consultez la section relative aux [points de terminaison privés avec les Speech Services](#private-endpoints-with-the-speech-services). Nous nous appuyons sur la résolution DNS pour router automatiquement les connexions entre le réseau virtuel et la ressource Cognitive Services sur une liaison privée. 
 
 Nous créons une [zone DNS privée](../dns/private-dns-overview.md) attachée au réseau virtuel avec les mises à jour nécessaires pour les points de terminaison privés, par défaut. Toutefois, si vous utilisez votre propre serveur DNS, vous devrez peut-être apporter des modifications supplémentaires à votre configuration DNS. La section sur les [modifications DNS](#dns-changes-for-private-endpoints) ci-dessous décrit les mises à jour requises pour les points de terminaison privés.
 
-### <a name="private-endpoints-with-the-speech-service"></a>Points de terminaison privés avec le service Speech
+### <a name="private-endpoints-with-the-speech-services"></a>Points de terminaison privés avec les Speech Services
 
-Quand vous utilisez des points de terminaison privés avec le service Speech, vous devez utiliser un point de terminaison personnalisé pour appeler le service Speech. Vous ne pouvez pas utiliser le point de terminaison global. Le point de terminaison doit suivre ce modèle : `{account}.{stt|tts|voice|dls}.speech.microsoft.com`.
+Consultez [Utilisation de Speech Services avec des points de terminaison privés fournis par Azure Private Link](Speech-Service/speech-services-private-link.md).
 
 ### <a name="dns-changes-for-private-endpoints"></a>Modifications DNS pour les points de terminaison privés
 

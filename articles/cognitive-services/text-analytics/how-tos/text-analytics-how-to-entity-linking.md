@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 11/19/2020
+ms.date: 12/15/2020
 ms.author: aahi
-ms.openlocfilehash: 804d739efa5ac96c0b2d7228573f031f324e590e
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: 9b90f177432de11f8281d03021b38bae647dadf2
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96558978"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562529"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Comment utiliser une reconnaissance d’entité nommée dans Analyse de texte
 
@@ -99,6 +99,14 @@ Vous pouvez aussi utiliser le paramètre facultatif `domain=phi` pour détecter 
 
 [Référence Reconnaissance d’entité nommée version 3.1-preview.2 pour `PII`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-3/operations/EntitiesRecognitionPii)
 
+**Opération asynchrone**
+
+Depuis `v3.1-preview.3`, vous pouvez envoyer des demandes NER de façon asynchrone à l’aide du point de terminaison `/analyze`.
+
+* Opération asynchrone – `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/analyze`
+
+Pour plus d’informations sur l’envoi de requêtes asynchrones, consultez [Comment appeler l’API Analyse de texte](text-analytics-how-to-call-api.md).
+
 #### <a name="version-30"></a>[Version 3.0](#tab/version-3)
 
 La reconnaissance d’entité nommée v3 utilise des points de terminaison distincts pour les demandes de liaison d’entité et NER. Utilisez un format d’URL ci-dessous en fonction de votre demande :
@@ -117,7 +125,11 @@ La reconnaissance d’entité nommée v3 utilise des points de terminaison disti
 
 Définissez un en-tête de requête pour inclure votre clé d’API Analyse de texte. Dans le corps de la demande, fournissez les documents JSON que vous avez préparés.
 
-### <a name="example-ner-request"></a>Exemple de demande NER 
+## <a name="example-requests"></a>Exemples de demandes
+
+#### <a name="version-31-preview"></a>[Version 3.1-preview](#tab/version-3-preview)
+
+### <a name="example-synchronous-ner-request"></a>Exemple de demande NER synchrone 
 
 Le code JSON suivant est un exemple de contenu que vous pouvez envoyer à l’API. Le format de la requête est le même pour les deux versions de l’API.
 
@@ -131,8 +143,64 @@ Le code JSON suivant est un exemple de contenu que vous pouvez envoyer à l’AP
     }
   ]
 }
-
 ```
+
+### <a name="example-asynchronous-ner-request"></a>Exemple de demande NER asynchrone
+
+Si vous utilisez le point de terminaison `/analyze` pour une [opération asynchrone](text-analytics-how-to-call-api.md), vous obtenez une réponse contenant les tâches que vous avez envoyées à l’API.
+
+```json
+{
+    "displayName": "My Job",
+    "analysisInput": {
+        "documents": [
+            {
+                "id": "doc1",
+                "text": "It's incredibly sunny outside! I'm so happy"
+            },
+            {
+                "id": "doc2",
+                "text": "Pike place market is my favorite Seattle attraction."
+            }
+        ]
+    },
+    "tasks": {
+        "entityRecognitionTasks": [
+            {
+                "parameters": {
+                    "model-version": "latest",
+                    "stringIndexType": "TextElements_v8"
+                }
+            }
+        ],
+        "entityRecognitionPiiTasks": [{
+            "parameters": {
+                "model-version": "latest"
+            }
+        }]
+    }
+}
+```
+
+#### <a name="version-30"></a>[Version 3.0](#tab/version-3)
+
+### <a name="example-synchronous-ner-request"></a>Exemple de demande NER synchrone 
+
+La version 3.0 comprend uniquement une opération synchrone. Le code JSON suivant est un exemple de contenu que vous pouvez envoyer à l’API. Le format de la requête est le même pour les deux versions de l’API.
+
+```json
+{
+  "documents": [
+    {
+        "id": "1",
+        "language": "en",
+        "text": "Our tour guide took us up the Space Needle during our trip to Seattle last week."
+    }
+  ]
+}
+```
+
+---
 
 ## <a name="post-the-request"></a>Publier la requête
 
@@ -148,11 +216,68 @@ La sortie est retournée immédiatement. Vous pouvez diffuser en continu les ré
 
 ### <a name="example-responses"></a>Exemples de réponses
 
-La version 3 fournit des points de terminaison distincts pour la reconnaissance d’entité nommée, les informations d’identification personnelle et la liaison d’entités. Les réponses pour les deux opérations figurent ci-dessous. 
+La version 3 fournit des points de terminaison distincts pour la reconnaissance d’entité nommée, les informations d’identification personnelle et la liaison d’entités. La version 3.1-pareview inclut un mode Analyse asynchrone. Les réponses pour ces opérations figurent ci-dessous. 
 
 #### <a name="version-31-preview"></a>[Version 3.1-preview](#tab/version-3-preview)
 
+### <a name="synchronous-example-results"></a>Résultats d’exemple synchrone
+
+Exemple de réponse NER générale :
+
+```json
+{
+  "documents": [
+    {
+      "id": "1",
+      "entities": [
+        {
+          "text": "tour guide",
+          "category": "PersonType",
+          "offset": 4,
+          "length": 10,
+          "confidenceScore": 0.45
+        },
+        {
+          "text": "Space Needle",
+          "category": "Location",
+          "offset": 30,
+          "length": 12,
+          "confidenceScore": 0.38
+        },
+        {
+          "text": "trip",
+          "category": "Event",
+          "offset": 54,
+          "length": 4,
+          "confidenceScore": 0.78
+        },
+        {
+          "text": "Seattle",
+          "category": "Location",
+          "subcategory": "GPE",
+          "offset": 62,
+          "length": 7,
+          "confidenceScore": 0.78
+        },
+        {
+          "text": "last week",
+          "category": "DateTime",
+          "subcategory": "DateRange",
+          "offset": 70,
+          "length": 9,
+          "confidenceScore": 0.8
+        }
+      ],
+      "warnings": []
+    }
+  ],
+  "errors": [],
+  "modelVersion": "2020-04-01"
+}
+```
+
 Exemple de réponse PII :
+
 ```json
 {
   "documents": [
@@ -239,6 +364,58 @@ Exemple de réponse de liaison d’entités :
 }
 ```
 
+### <a name="example-asynchronous-result"></a>Exemple de résultat asynchrone
+
+```json
+{
+  "displayName": "My Analyze Job",
+  "jobId": "dbec96a8-ea22-4ad1-8c99-280b211eb59e_637408224000000000",
+  "lastUpdateDateTime": "2020-11-13T04:01:14Z",
+  "createdDateTime": "2020-11-13T04:01:13Z",
+  "expirationDateTime": "2020-11-14T04:01:13Z",
+  "status": "running",
+  "errors": [],
+  "tasks": {
+      "details": {
+          "name": "My Analyze Job",
+          "lastUpdateDateTime": "2020-11-13T04:01:14Z"
+      },
+      "completed": 1,
+      "failed": 0,
+      "inProgress": 2,
+      "total": 3,
+      "keyPhraseExtractionTasks": [
+          {
+              "name": "My Analyze Job",
+              "lastUpdateDateTime": "2020-11-13T04:01:14.3763516Z",
+              "results": {
+                  "inTerminalState": true,
+                  "documents": [
+                      {
+                          "id": "doc1",
+                          "keyPhrases": [
+                              "sunny outside"
+                          ],
+                          "warnings": []
+                      },
+                      {
+                          "id": "doc2",
+                          "keyPhrases": [
+                              "favorite Seattle attraction",
+                              "Pike place market"
+                          ],
+                          "warnings": []
+                      }
+                  ],
+                  "errors": [],
+                  "modelVersion": "2020-07-01"
+              }
+          }
+      ]
+  }
+}
+```
+
 
 #### <a name="version-30"></a>[Version 3.0](#tab/version-3)
 
@@ -309,5 +486,5 @@ Dans cet article, vous avez vu les concepts et le flux de travail de liaison d'e
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Vue d’ensemble d’Analyse de texte](../overview.md)
-* [Utilisation de la bibliothèque cliente Analyse de texte](../quickstarts/text-analytics-sdk.md)
+* [Utilisation de la bibliothèque cliente Analyse de texte](../quickstarts/client-libraries-rest-api.md)
 * [Nouveautés](../whats-new.md)

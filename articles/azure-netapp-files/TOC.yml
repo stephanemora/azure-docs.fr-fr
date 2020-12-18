@@ -59,6 +59,8 @@
               href: solutions-windows-virtual-desktop.md
     - name: Questions fréquentes (FAQ) sur Azure NetApp Files
       href: azure-netapp-files-faqs.md
+    - name: "Qu’est-ce que l’outil Azure Application Consistent Snapshot Tool\_?"
+      href: azacsnap-introduction.md
 - name: Guides pratiques
   items:
     - name: S’inscrire à Azure NetApp Files
@@ -131,6 +133,32 @@
       href: /rest/api/netapp/
     - name: Modèle Resource Manager
       href: /azure/templates/microsoft.netapp/allversions
+    - name: Outil Azure Application Consistent Snapshot Tool (AzAcSnap)
+      items:
+        - name: Bien démarrer avec AzAcSnap
+          href: azacsnap-get-started.md
+        - name: Installer AzAcSnap
+          href: azacsnap-installation.md
+        - name: Reprise d’activité avec AzAcSnap
+          href: azacsnap-disaster-recovery.md
+        - name: Conseils et astuces pour utiliser AzAcSnap
+          href: azacsnap-tips.md
+        - name: Résoudre les problèmes AzAcSnap
+          href: azacsnap-troubleshoot.md
+        - name: Informations de référence sur les commandes AzAcSnap
+          items:
+            - name: Configurer AzAcSnap
+              href: azacsnap-cmd-ref-configure.md
+            - name: Tester AzAcSnap
+              href: azacsnap-cmd-ref-test.md
+            - name: Sauvegarder avec AzAcSnap
+              href: azacsnap-cmd-ref-backup.md
+            - name: Obtenir des détails en utilisant AzAcSnap
+              href: azacsnap-cmd-ref-details.md
+            - name: Supprimer en utilisant AzAcSnap
+              href: azacsnap-cmd-ref-delete.md
+            - name: Restaurer en utilisant AzAcSnap
+              href: azacsnap-cmd-ref-restore.md
 - name: Ressources
   items:
     - name: Tarifs

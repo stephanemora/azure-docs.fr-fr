@@ -31,7 +31,7 @@ Une fois que vous avez créé le groupe de ressources, créez un registre de con
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
 ```
 
-Voici une sortie partielle pour un nouveau registre de conteneurs Azure nommé *mycontainerregistry082*  :
+Voici une sortie partielle pour un nouveau registre de conteneurs Azure nommé *mycontainerregistry082* :
 
 ```output
 {

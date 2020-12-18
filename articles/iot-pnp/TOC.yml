@@ -57,8 +57,6 @@
   items:
     - name: Installer et utiliser l’explorateur IoT
       href: howto-use-iot-explorer.md
-    - name: Installer et utiliser le pont IoT Plug-and-Play
-      href: howto-use-iot-pnp-bridge.md
     - name: Installer et utiliser les outils de création DTDL
       href: howto-use-dtdl-authoring-tools.md
     - name: "Utiliser Embedded\_C"
@@ -67,6 +65,10 @@
       href: howto-manage-digital-twin.md
     - name: Certifier un appareil
       href: howto-certify-device.md
+    - name: Installer et utiliser le pont IoT Plug-and-Play
+      href: howto-use-iot-pnp-bridge.md
+    - name: 'Créer, déployer et étendre un pont IoT Plug-and-Play'
+      href: howto-build-deploy-extend-pnp-bridge.md
 - name: Informations de référence
   items:
     - name: Bibliothèques et kits SDK

@@ -72,6 +72,8 @@
       items:
         - name: Contrôle des grandes instances Azure HANA à l’aide du portail Azure
           href: hana-li-portal.md
+        - name: Gérer des instances nues via le portail Azure
+          href: baremetal-infrastructure-portal.md
         - name: Configuration de la haute disponibilité avec STONITH
           href: ha-setup-with-stonith.md
         - name: "Sauvegarde du système d’exploitation pour les références (SKU) de type\_II"

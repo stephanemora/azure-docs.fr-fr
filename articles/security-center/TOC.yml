@@ -3,14 +3,14 @@
 - name: Vue d’ensemble
   expanded: true
   items:
-    - name: À propos de Security Center
+    - name: "Qu’est-ce que le Centre de sécurité Azure\_?"
+      href: security-center-introduction.md
+    - name: Disponibilité
       items:
-        - name: "Qu’est-ce que le Centre de sécurité Azure\_?"
-          href: security-center-introduction.md
         - name: Plateformes prises en charge
           displayName: coverage
           href: security-center-os-coverage.md
-        - name: Couverture des fonctionnalités pour les machines virtuelles
+        - name: 'Couverture par système d’exploitation, type d’ordinateur et cloud'
           href: security-center-services.md
         - name: Couverture des fonctionnalités pour les ressources PaaS Azure
           href: features-paas.md

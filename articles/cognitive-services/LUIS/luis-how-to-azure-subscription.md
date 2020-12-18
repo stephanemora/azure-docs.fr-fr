@@ -7,12 +7,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a71c1a0df1a72e3831fa54a041539f62b38a0aca
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 19c27dc80f9af013c458663c9c7afb0033683acd
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95999907"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97348065"
 ---
 # <a name="create-luis-resources"></a>Créer des ressources LUIS
 
@@ -51,16 +51,13 @@ Pour changer la propriété d’une ressource, vous pouvez effectuer l’une des
 * Transférer la [propriété](../../cost-management-billing/manage/billing-subscription-transfer.md) de votre abonnement.
 * Exporter l’application LUIS en tant que fichier, puis importer l’application dans un autre abonnement. L’exportation est disponible dans la page **Mes applications** du portail LUIS.
 
-
 ## <a name="resource-limits"></a>Limites des ressources
 
 ### <a name="authoring-key-creation-limits"></a>Limites de création de clés de création
 
-Vous pouvez générer jusqu’à 10 clés de création par région et par abonnement.
+Vous pouvez générer jusqu’à 10 clés de création par région et par abonnement. Les régions de publication sont différentes des régions de création. Veillez à créer une application dans la région de création qui correspond à la région de publication dans laquelle vous souhaitez que votre application cliente soit située. Pour plus d’informations sur la façon dont les régions de création correspondent aux régions de publication, consultez [Régions de création et de publication](luis-reference-regions.md). 
 
-Pour plus d’informations, consultez les détails relatifs aux [limites des clés](luis-limits.md#key-limits) et aux [régions Azure](luis-reference-regions.md).
-
-Les régions de publication sont différentes des régions de création. Veillez à créer une application dans la région de création qui correspond à la région de publication dans laquelle vous souhaitez que votre application cliente soit située.
+Pour plus d’informations sur les limites de clés, consultez [Limites de clés](luis-limits.md#key-limits).
 
 ### <a name="errors-for-key-usage-limits"></a>Erreurs liées aux limites d’utilisation des clés
 

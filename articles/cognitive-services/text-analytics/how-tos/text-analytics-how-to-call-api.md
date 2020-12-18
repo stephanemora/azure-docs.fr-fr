@@ -10,16 +10,34 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 12/02/2020
 ms.author: aahi
-ms.openlocfilehash: 3d3c452dd883316520e0c28f01c241af74d597c8
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.custom: references_regions
+ms.openlocfilehash: bf53ce5ed3f9505572538533263f0d17c5dcbf45
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602782"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562563"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Comment appeler l’API REST Analyse de texte
 
 Dans cet article, nous utilisons l’API REST Analyse de texte et [Postman](https://www.postman.com/downloads/) pour présenter des concepts clés. L’API fournit plusieurs points de terminaison synchrones et asynchrones pour l’utilisation des fonctionnalités du service. 
+
+## <a name="create-a-text-analytics-resource"></a>Créer une ressource Analyse de texte
+
+> [!NOTE]
+> * Si vous souhaitez utiliser les points de terminaison `/analyze` ou `/health`, vous aurez besoin d’une ressource d’Analyse de texte utilisant un [niveau de tarification](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) Standard (S). Le point de terminaison `/analyze` est inclus dans votre [niveau tarifaire](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
+
+Avant d’utiliser l’API Analyse de texte, vous devrez créer une ressource Azure avec une clé et un point de terminaison pour vos applications. 
+
+1.  Tout d’abord, accédez au [portail Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) et créez une ressource d’Analyse de texte si vous n’en avez pas encore. Choisissez un [niveau tarifaire](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
+
+2.  Sélectionnez la région que votre point de terminaison doit utiliser.  Notez que les points de terminaison `/analyze` et `/health` sont uniquement disponibles dans les régions suivantes : USA Ouest 2, USA Est 2, USA Centre, Europe Nord et Europe Ouest.
+
+3.  Créez la ressource d’Analyse de texte et accédez au panneau « Clés et point de terminaison » dans la partie gauche de la page. Copiez la clé à utiliser ultérieurement lors de l’appel des API. Vous l’ajouterez plus tard en tant que valeur pour l’en-tête `Ocp-Apim-Subscription-Key`.
+
+## <a name="using-the-api-synchronously"></a>Utilisation de l’API de manière asynchrone
+
+Vous pouvez appeler l’API Analyse de texte de façon synchrone (pour des scénarios à faible latence). Vous devez appeler chaque API (fonctionnalité) séparément lors de l’utilisation de l’API synchrone. Si vous devez appeler plusieurs fonctionnalités, consultez la section ci-dessous pour savoir comment appeler l’API Analyse de texte de façon asynchrone. 
 
 ## <a name="using-the-api-asynchronously"></a>Utilisation de l’API de manière asynchrone
 
@@ -48,24 +66,16 @@ Consultez le tableau ci-dessous pour savoir quelles fonctionnalités vous pouvez
 
 [!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
-## <a name="prerequisites"></a>Prérequis
-
-
-> [!NOTE]
-> * Si vous souhaitez utiliser les points de terminaison `/analyze` ou `/health`, vous aurez besoin d’une ressource d’Analyse de texte utilisant un [niveau de tarification](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) Standard (S).
-
-1.  Tout d’abord, accédez au [portail Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) et créez une ressource d’Analyse de texte si vous n’en avez pas encore. Si vous souhaitez utiliser les points de terminaison **ou**, choisissez le `/analyze`niveau de tarification Standard (S)`/health`. Le point de terminaison `/analyze` est inclus dans votre [niveau tarifaire](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
-
-2.  Sélectionnez la région que votre point de terminaison doit utiliser.  Notez que les points de terminaison `/analyze` et `/health` sont uniquement disponibles dans les régions suivantes : USA Ouest 2, USA Est 2, USA Centre, Europe Nord et Europe Ouest.
-
-3.  Créez la ressource d’Analyse de texte et accédez au panneau « Clés et point de terminaison » dans la partie gauche de la page. Copiez la clé à utiliser ultérieurement lors de l’appel des API. Vous l’ajouterez plus tard en tant que valeur pour l’en-tête `Ocp-Apim-Subscription-Key`.
-
 
 <a name="json-schema"></a>
 
-## <a name="api-request-format"></a>Format de demande API
+## <a name="api-request-formats"></a>Formats de demande API
+
+Vous pouvez envoyer des appels synchrones et asynchrones à l’API Analyse de texte.
 
 #### <a name="synchronous"></a>[Synchrone](#tab/synchronous)
+
+### <a name="synchronous-requests"></a>Demandes synchrones
 
 Le format des demandes d’API est le même pour toutes les opérations synchrones. Les documents sont envoyés dans un objet JSON sous forme de texte brut non structuré. XML n’est pas pris en charge. Le schéma JSON se compose des éléments décrits ci-dessous.
 
@@ -89,7 +99,9 @@ Voici un exemple de demande API pour les points de terminaison d’Analyse de te
 }
 ```
 
-#### <a name="analyze"></a>[Analyser](#tab/analyze)
+#### <a name="asynchronous"></a>[Asynchrone](#tab/asynchronous)
+
+### <a name="asynchronous-requests-to-the-analyze-endpoint"></a>Demandes asynchrones adressées au point de terminaison `/analyze`
 
 > [!NOTE]
 > La dernière préversion de la bibliothèque de client d’Analyse de texte vous permet d’appeler des opérations d’Analyse asynchrone en utilisant un objet client. Vous trouverez des exemples sur GitHub :
@@ -154,7 +166,7 @@ Le point de terminaison `/analyze` vous permet de choisir les fonctionnalités d
 
 ```
 
-#### <a name="text-analytics-for-health"></a>[Analyse de texte pour la santé](#tab/health)
+### <a name="asynchronous-requests-to-the-health-endpoint"></a>Demandes asynchrones adressées au point de terminaison `/health`
 
 Le format des demandes d’API adressées à l’Analyse de texte pour l’API hébergée de santé est le même que pour son conteneur. Les documents sont envoyés dans un objet JSON sous forme de texte brut non structuré. XML n’est pas pris en charge. Le schéma JSON se compose des éléments décrits ci-dessous.  Complétez et envoyez le [formulaire de demande Cognitive Services](https://aka.ms/csgate) pour demander l’accès à la préversion publique d’Analyse de texte pour la santé. Vous ne serez pas facturé pour l’utilisation de l’Analyse de texte pour la santé. 
 
@@ -194,6 +206,8 @@ Dans Postman (ou un autre outil de test d’API web), ajoutez le point de termin
 
 #### <a name="synchronous"></a>[Synchrone](#tab/synchronous)
 
+### <a name="endpoints-for-sending-synchronous-requests"></a>Points de terminaison pour l’envoi de demandes synchrones
+
 | Fonctionnalité | Type de demande | Points de terminaison de ressource |
 |--|--|--|
 | Détection de la langue | POST | `<your-text-analytics-resource>/text/analytics/v3.0/languages` |
@@ -204,14 +218,16 @@ Dans Postman (ou un autre outil de test d’API web), ajoutez le point de termin
 | Reconnaissance d’entité nommée – PII | POST | `<your-text-analytics-resource>/text/analytics/v3.0/entities/recognition/pii` |
 | Reconnaissance d’entité nommée – PHI | POST |  `<your-text-analytics-resource>/text/analytics/v3.0/entities/recognition/pii?domain=phi` |
 
-#### <a name="analyze"></a>[Analyser](#tab/analyze)
+#### <a name="asynchronous"></a>[Asynchrone](#tab/asynchronous)
+
+### <a name="endpoints-for-sending-asynchronous-requests-to-the-analyze-endpoint"></a>Points de terminaison pour l’envoi de demandes asynchrones au point de terminaison `/analyze`
 
 | Fonctionnalité | Type de demande | Points de terminaison de ressource |
 |--|--|--|
 | Envoyer un travail d’analyse | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/analyze` |
 | Obtenir l’état et les résultats d’une analyse | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/analyze/jobs/<Operation-Location>` |
 
-#### <a name="text-analytics-for-health"></a>[Analyse de texte pour la santé](#tab/health)
+### <a name="endpoints-for-sending-asynchronous-requests-to-the-health-endpoint"></a>Points de terminaison pour l’envoi de demandes asynchrones au point de terminaison `/health`
 
 | Fonctionnalité | Type de demande | Points de terminaison de ressource |
 |--|--|--|
@@ -267,6 +283,8 @@ Notez que pour les opérations asynchrones `/analyze` ou `/health`, les résulta
  
 # <a name="synchronous"></a>[Synchrone](#tab/synchronous)
 
+### <a name="example-responses-for-synchronous-operation"></a>Exemples de réponses pour une opération synchrone
+
 Les réponses de point de terminaison synchrone varient en fonction du point de terminaison que vous utilisez. Pour obtenir des exemples de réponses, consultez les articles suivants.
 
 + [Détection de la langue](text-analytics-how-to-language-detection.md#step-3-view-the-results)
@@ -274,70 +292,15 @@ Les réponses de point de terminaison synchrone varient en fonction du point de 
 + [Analyse des sentiments](text-analytics-how-to-sentiment-analysis.md#view-the-results)
 + [Reconnaissance d’entités](text-analytics-how-to-entity-linking.md#view-results)
 
-# <a name="analyze"></a>[Analyser](#tab/analyze)
+# <a name="asynchronous"></a>[Asynchrone](#tab/asynchronous)
+
+### <a name="example-responses-for-asynchronous-operations"></a>Exemples de réponses pour des opérations asynchrones
 
 En cas de réussite, la demande GET adressée au point de terminaison `/analyze` retourne un objet contenant les tâches affectées. Par exemple, `keyPhraseExtractionTasks`. Ces tâches contiennent l’objet réponse de la fonctionnalité d’Analyse de texte appropriée. Consultez les articles suivants pour plus d’informations.
 
 + [Extraction de phrases clés](text-analytics-how-to-keyword-extraction.md#step-3-view-results)
 + [Reconnaissance d’entités](text-analytics-how-to-entity-linking.md#view-results)
-
-
-```json
-{
-  "displayName": "My Analyze Job",
-  "jobId": "dbec96a8-ea22-4ad1-8c99-280b211eb59e_637408224000000000",
-  "lastUpdateDateTime": "2020-11-13T04:01:14Z",
-  "createdDateTime": "2020-11-13T04:01:13Z",
-  "expirationDateTime": "2020-11-14T04:01:13Z",
-  "status": "running",
-  "errors": [],
-  "tasks": {
-      "details": {
-          "name": "My Analyze Job",
-          "lastUpdateDateTime": "2020-11-13T04:01:14Z"
-      },
-      "completed": 1,
-      "failed": 0,
-      "inProgress": 2,
-      "total": 3,
-      "keyPhraseExtractionTasks": [
-          {
-              "name": "My Analyze Job",
-              "lastUpdateDateTime": "2020-11-13T04:01:14.3763516Z",
-              "results": {
-                  "inTerminalState": true,
-                  "documents": [
-                      {
-                          "id": "doc1",
-                          "keyPhrases": [
-                              "sunny outside"
-                          ],
-                          "warnings": []
-                      },
-                      {
-                          "id": "doc2",
-                          "keyPhrases": [
-                              "favorite Seattle attraction",
-                              "Pike place market"
-                          ],
-                          "warnings": []
-                      }
-                  ],
-                  "errors": [],
-                  "modelVersion": "2020-07-01"
-              }
-          }
-      ]
-  }
-}
-```
-
-# <a name="text-analytics-for-health"></a>[Analyse de texte pour la santé](#tab/health)
-
-Pour plus d’informations sur l’Analyse de texte de réponse de l’API asynchrone de santé, consultez l’article suivant :
-
 + [Analyse de texte pour la santé](text-analytics-for-health.md#hosted-asynchronous-web-api-response)
-
 
 --- 
 
@@ -346,5 +309,5 @@ Pour plus d’informations sur l’Analyse de texte de réponse de l’API async
 * [Vue d’ensemble d’Analyse de texte](../overview.md)
 * [Questions fréquentes (FAQ)](../text-analytics-resource-faq.md)</br>
 * [Page produit d’Analyse de texte](//go.microsoft.com/fwlink/?LinkID=759712)
-* [Utilisation de la bibliothèque cliente Analyse de texte](../quickstarts/text-analytics-sdk.md)
+* [Utilisation de la bibliothèque cliente Analyse de texte](../quickstarts/client-libraries-rest-api.md)
 * [Nouveautés](../whats-new.md)

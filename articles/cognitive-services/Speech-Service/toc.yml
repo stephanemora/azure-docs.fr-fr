@@ -142,7 +142,7 @@
           items:
             - name: Création de contenu audio
               href: how-to-audio-content-creation.md
-    - name: Informations de référence
+    - name: Référence
       items:
         - name: C++
           displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
@@ -367,21 +367,9 @@
                   href: quickstart-custom-commands-application.md
             - name: Guides pratiques
               items:
-                - name: Développer
-                  items:
-                    - name: Créer une application avec des commandes simples
-                      href: how-to-custom-commands-create-application-with-simple-commands.md
-                    - name: Ajouter des paramètres aux commandes
-                      href: how-to-custom-commands-add-parameters-to-commands.md
-                    - name: Ajouter des configurations aux paramètres des commandes
-                      href: how-to-custom-commands-add-parameter-configuration.md
-                    - name: Ajouter des règles d’interaction
-                      href: how-to-custom-commands-add-interaction-rules.md
-                    - name: Ajouter des modèles de génération de langage pour les réponses vocales
-                      href: how-to-custom-commands-add-language-generation-templates.md
-                    - name: Utiliser une voix personnalisée
-                      href: how-to-custom-commands-use-custom-voice.md
-                - name: Integrate
+                - name: Développer et personnaliser des applications de commandes personnalisées
+                  href: how-to-develop-custom-commands-application.md
+                - name: Intégrer aux applications clientes
                   items:
                     - name: Intégration à une application cliente à l’aide du SDK Speech
                       href: how-to-custom-commands-setup-speech-sdk.md
@@ -395,26 +383,18 @@
                       href: how-to-custom-commands-update-command-from-client.md
                     - name: Mettre à jour une commande à partir d’un point de terminaison web
                       href: how-to-custom-commands-update-command-from-web-endpoint.md
-                - name: Déployer
-                  items:
-                    - name: Déploiement continu avec Azure DevOps
-                      href: how-to-custom-commands-deploy-cicd.md
-                - name: Test
-                  items:
-                    - name: Tester l’application Commandes personnalisées
-                      href: how-to-custom-commands-developer-flow-test.md
-                - name: Débogage
-                  items:
-                    - name: Résoudre les erreurs lors de la création de l’application
-                      href: how-to-custom-commands-debug-build-time.md
-                    - name: Résoudre les erreurs lors de l’exécution de l’application
-                      href: how-to-custom-commands-debug-runtime.md
-                - name: References
-                  items:
-                    - name: Concepts relatifs aux commandes personnalisées
-                      href: custom-commands-references.md
+                - name: Déploiement continu avec Azure DevOps
+                  href: how-to-custom-commands-deploy-cicd.md
+                - name: Tester les application de commandes personnalisées
+                  href: how-to-custom-commands-developer-flow-test.md
+                - name: Résoudre les erreurs lors de la création de l’application
+                  href: how-to-custom-commands-debug-build-time.md
+                - name: Résoudre les erreurs lors de l’exécution de l’application
+                  href: how-to-custom-commands-debug-runtime.md
             - name: Ressources
               items:
+                - name: Concepts relatifs aux commandes personnalisées
+                  href: custom-commands-references.md
                 - name: Exemples de commandes personnalisées (GitHub)
                   href: 'https://aka.ms/speech/cc-samples'
                 - name: Exemples d’assistants vocaux (GitHub)
