@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 79cf0ef059d96ac66f5918605e999d3936d589d2
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 168dcf994d00ba1cb2070665ada5a55cf86cfa4a
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95486515"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359810"
 ---
 # <a name="back-up-and-recover-your-form-recognizer-models"></a>Sauvegarder et récupérer vos modèles Form Recognizer
 
@@ -69,7 +69,7 @@ POST https://{SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0/cust
 Ocp-Apim-Subscription-Key: {SOURCE_FORM_RECOGNIZER_RESOURCE_API_KEY}
 ```
 
-Le corps de la demande doit avoir le format suivant. Vous devez entrer l’ID de ressource et le nom de la région de votre ressource cible. Vous aurez également besoin de l’ID de modèle, du jeton d’accès et de la valeur d’expiration que vous avez copiés à l’étape précédente.
+Le corps de la demande doit avoir le format suivant. Vous devez entrer l’ID de ressource et le nom de la région de votre ressource cible. Vous pouvez trouver votre ID de ressource sous l’onglet **Propriétés** de votre ressource dans le portail Azure, et le nom de la région sous l’onglet **Clés et points de terminaison**. Vous aurez également besoin de l’ID de modèle, du jeton d’accès et de la valeur d’expiration que vous avez copiés à l’étape précédente.
 
 ```json
 {

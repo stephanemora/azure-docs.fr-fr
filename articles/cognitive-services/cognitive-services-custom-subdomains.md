@@ -7,14 +7,14 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 07/24/2019
+ms.date: 12/04/2020
 ms.author: erhopf
-ms.openlocfilehash: 95f3de0fe26678f6b4bcd97a78c06e92b72a7135
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 4746aad2d7cd62cb309a1823f8c50487e6f7e87c
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368812"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032964"
 ---
 # <a name="custom-subdomain-names-for-cognitive-services"></a>Sous-domaines personnalisés pour Cognitive Services
 
@@ -27,7 +27,7 @@ Les ressources Cognitive Services créées avant le 1er juillet 2019 utilisero
 Si vous souhaitez migrer une ressource existante pour tirer parti des noms de sous-domaines personnalisés, afin de pouvoir activer des fonctionnalités telles que Azure AD, suivez ces instructions :
 
 1. Connectez-vous au Portail Azure et recherchez la ressource Cognitive Services à laquelle vous souhaitez ajouter un nom de sous-domaine personnalisé.
-2. Dans le panneau **Vue d’ensemble** , recherchez et sélectionnez **Générer un nom de domaine personnalisé**.
+2. Dans le panneau **Vue d’ensemble**, recherchez et sélectionnez **Générer un nom de domaine personnalisé**.
 3. Cela ouvre un panneau contenant des instructions pour créer un sous-domaine personnalisé unique pour votre ressource.
    > [!WARNING]
    > Une fois que vous avez créé un nom de sous-domaine personnalisé, il ne **peut pas** être modifié.
@@ -39,7 +39,7 @@ Non. Le point de terminaison régional continue de fonctionner pour les ressourc
 ## <a name="what-if-an-sdk-asks-me-for-the-region-for-a-resource"></a>Que se passe-t-il si un kit de développement logiciel (SDK) me demande la région d’une ressource ?
 
 > [!WARNING]
-> Les Speech Services **ne prennent pas en charge** les sous-domaines personnalisés pour l’instant. Utilisez les points de terminaison régionaux lorsque vous utilisez les Speech Services et les kits de développement logiciel (SDK) associés.
+> Les Speech Services utilisent des sous-domaines personnalisés avec de [points de terminaison privés](Speech-Service/speech-services-private-link.md) **uniquement**. Dans tous les autres cas, utilisez des **points de terminaison régionaux** avec les Speech Services et les kits de développement logiciel associés.
 
 Les points de terminaison régionaux et les noms de sous-domaines personnalisés sont pris en charge et peuvent être utilisés indifféremment. Toutefois, le point de terminaison complet est requis.
 

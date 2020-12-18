@@ -9,18 +9,18 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 631aaf3c6a99e093f6ed59089f7ce99803f3f054
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 6eff662ac0140e7a64cc3bab28856178708cb9b2
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96446617"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400673"
 ---
 # <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Contrôler l’accès au compte de stockage pour le pool SQL serverless dans Azure Synapse Analytics
 
 Une requête de pool SQL serverless lit les fichiers directement dans Stockage Azure. Les autorisations d’accès aux fichiers sur le stockage Azure sont contrôlées à deux niveaux :
 - **Niveau de stockage** : l’utilisateur doit avoir l’autorisation d’accéder aux fichiers de stockage sous-jacents. Votre administrateur de stockage doit autoriser le principal Azure AD à lire/écrire des fichiers, ou à générer une clé SAP qui sera utilisée pour accéder au stockage.
-- **Niveau de service SQL** : l’utilisateur doit disposer de l’autorisation `SELECT` pour lire les données d’une [table externe](develop-tables-external-tables.md) ou de l’autorisation `ADMINISTER BULK ADMIN` pour exécuter `OPENROWSET`, ainsi que de l’autorisation d’utiliser des informations d’identification pour accéder au stockage.
+- **Niveau de service SQL** - L’utilisateur doit se voir attribuer l’autorisation de lire les données en utilisant une [table externe](develop-tables-external-tables.md) ou d’exécuter la fonction `OPENROWSET`. Explorez plus en détail [les autorisations requises dans cette section](develop-storage-files-overview.md#permissions).
 
 Cet article décrit les types d’informations d’identification que vous pouvez utiliser et la façon dont la recherche des informations d’identification est appliquée pour les utilisateurs SQL et Azure AD.
 

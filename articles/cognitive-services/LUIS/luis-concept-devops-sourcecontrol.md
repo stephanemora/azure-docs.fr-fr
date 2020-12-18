@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: cf5c88df4e2ac6b95e99a3a78b1bf1e45bf534ed
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 1f5c0c7a877964eeb480fa958c7e76eb5706122f
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95535552"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97561271"
 ---
 # <a name="devops-practices-for-luis"></a>Pratiques DevOps pour LUIS
 
@@ -98,7 +98,7 @@ Quelle que soit la stratégie de branchement que vous adoptez, les membres de l�
 
 Pour qu’il soit possible de travailler de manière indépendante dans des branches avec un projet LUIS :
 
-- **La branche master a sa propre application LUIS.** Cette application représente l’état actuel de votre solution pour votre projet, et sa version active actuelle doit toujours être mappée à la source `.lu` qui se trouve dans la branche master. Toutes les mises à jour de la source `.lu` pour cette application doivent être révisées et testées afin que cette application puisse être déployée pour créer des environnements tels que la production à tout moment. Quand des mises à jour du fichier `.lu` sont fusionnées dans la branche master depuis la branche de fonctionnalité, vous devez créer une version dans l’application LUIS et [incrémenter le numéro de version](#versioning).
+- **La branche primaire a sa propre application LUIS.** Cette application représente l’état actuel de votre solution pour votre projet, et sa version active actuelle doit toujours être mappée à la source `.lu` qui se trouve dans la branche primaire. Toutes les mises à jour de la source `.lu` pour cette application doivent être révisées et testées afin que cette application puisse être déployée pour créer des environnements tels que la production à tout moment. Quand des mises à jour du fichier `.lu` sont fusionnées dans la branche primaire depuis la branche de fonctionnalité, vous devez créer une version dans l’application LUIS et [incrémenter le numéro de version](#versioning).
 
 - **Chaque branche de fonctionnalité doit utiliser sa propre instance d’une application LUIS**. Les développeurs travaillent avec cette application dans une branche de fonctionnalité sans risquer d’affecter les développeurs qui travaillent dans d’autres branches. Cette application « branche dev » est une copie de travail qui doit être supprimée lors de la suppression de la branche de fonctionnalité.
 
@@ -108,13 +108,13 @@ Pour qu’il soit possible de travailler de manière indépendante dans des bran
 
 Les développeurs peuvent travailler sur des mises à jour d’une application LUIS indépendamment des autres branches en effectuant les opérations suivantes :
 
-1. Créer une branche de fonctionnalité à partir de la branche principale (en fonction de la stratégie de branche, généralement master ou développement).
+1. Créer une branche de fonctionnalité à partir de la branche principale (en fonction de la stratégie de branche, généralement primaire ou développement).
 
 1. [Créer une application LUIS dans le portail LUIS](./luis-how-to-start-new-app.md) (« *application de branche dev »* ) uniquement pour prendre en charge le travail dans la branche de fonctionnalité.
 
    * Si la source `.lu` de votre solution existe déjà dans votre branche, du fait de son enregistrement après le travail effectué dans une autre branche auparavant dans le projet, créez votre application LUIS de branche dev en important le fichier `.lu`.
 
-   * Si vous commencez à travailler sur un nouveau projet, vous ne disposez pas encore de la source `.lu` de votre application LUIS master dans le dépôt. Vous créez le fichier `.lu` en exportant votre application de branche dev à partir du portail quand vous avez terminé votre travail dans la branche de fonctionnalité et que vous le soumettez dans le cadre de votre demande de tirage.
+   * Si vous commencez à travailler sur un nouveau projet, vous ne disposez pas encore de la source `.lu` de votre application LUIS primaire dans le dépôt. Vous créez le fichier `.lu` en exportant votre application de branche dev à partir du portail quand vous avez terminé votre travail dans la branche de fonctionnalité et que vous le soumettez dans le cadre de votre demande de tirage.
 
 1. Travailler sur la version active de votre application de branche dev pour implémenter les modifications requises. Nous vous recommandons de travailler dans une seule version de votre application de branche dev pour tout le travail dans la branche de fonctionnalité. Si vous créez plusieurs versions dans votre application de branche dev, veillez à effectuer le suivi de la version qui contient les modifications que vous souhaitez archiver quand vous soumettez votre demande de tirage.
 
@@ -124,7 +124,7 @@ Les développeurs peuvent travailler sur des mises à jour d’une application L
 
 1. Archiver les mises à jour et inviter les pairs à les évaluer. Si vous utilisez GitHub, vous soumettez une [demande de tirage](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests).
 
-1. Quand les modifications sont approuvées, fusionnez les mises à jour dans la branche master. À ce stade, vous créez une [version](./luis-how-to-manage-versions.md) de l’application LUIS *master* à l’aide du fichier `.lu` mis à jour dans la branche master. Pour plus d’informations sur la définition du nom de version, consultez [Gestion de versions](#versioning).
+1. Quand les modifications sont approuvées, fusionnez les mises à jour dans la branche primaire. À ce stade, vous créez une [version](./luis-how-to-manage-versions.md) de l’application LUIS *primaire* à l’aide du fichier `.lu` mis à jour dans la branche primaire. Pour plus d’informations sur la définition du nom de version, consultez [Gestion de versions](#versioning).
 
 1. Quand la branche de fonctionnalité est supprimée, il est judicieux de supprimer l’application LUIS de branche dev que vous avez créée pour le travail dans la branche de fonctionnalité.
 
@@ -150,7 +150,7 @@ Vous pouvez prendre en charge plusieurs développeurs qui travaillent sur la mê
 
 ### <a name="incorporating-changes-from-one-branch-to-another-with-rebase-or-merge"></a>Incorporation de modifications d’une branche à une autre à l’aide d’une opération de rebasage ou de fusion
 
-D’autres développeurs de votre équipe travaillant dans une autre branche peuvent avoir effectué des mises à jour de la source `.lu` et les avoir fusionnées dans la branche master après que vous avez créé votre branche de fonctionnalité. Vous pouvez intégrer leurs modifications dans votre version de travail avant de continuer à apporter vos propres modifications dans votre branche de fonctionnalité. Pour ce faire, vous pouvez [effectuer un rebasage ou une fusion dans la branche master](https://git-scm.com/book/en/v2/Git-Branching-Rebasing) de la même façon que pour n’importe quelle autre ressource de code. L’application LUIS au format LUDown étant lisible par l’homme, elle prend en charge la fusion à l’aide des outils de fusion standard.
+D’autres développeurs de votre équipe travaillant dans une autre branche peuvent avoir effectué des mises à jour de la source `.lu` et les avoir fusionnées dans la branche primaire après que vous avez créé votre branche de fonctionnalité. Vous pouvez intégrer leurs modifications dans votre version de travail avant de continuer à apporter vos propres modifications dans votre branche de fonctionnalité. Pour ce faire, vous pouvez [effectuer un rebasage ou une fusion dans la branche primaire](https://git-scm.com/book/en/v2/Git-Branching-Rebasing) de la même façon que pour n’importe quelle autre ressource de code. L’application LUIS au format LUDown étant lisible par l’homme, elle prend en charge la fusion à l’aide des outils de fusion standard.
 
 Suivez ces conseils si vous rebasez votre application LUIS dans une branche de fonctionnalité :
 
@@ -162,7 +162,7 @@ Suivez ces conseils si vous rebasez votre application LUIS dans une branche de f
 
 ### <a name="merge-prs"></a>Fusionner les demandes de tirage
 
-Une fois votre demande de tirage approuvée, vous pouvez fusionner vos modifications dans votre branche master. Aucune considération particulière ne s’applique à la source LUDown pour une application LUIS : étant lisible par l’homme, elle prend en charge la fusion à l’aide des outils de fusion standard. Les conflits de fusion peuvent être résolus de la même façon que pour les autres fichiers sources.
+Une fois votre demande de tirage approuvée, vous pouvez fusionner vos modifications dans votre branche primaire. Aucune considération particulière ne s’applique à la source LUDown pour une application LUIS : étant lisible par l’homme, elle prend en charge la fusion à l’aide des outils de fusion standard. Les conflits de fusion peuvent être résolus de la même façon que pour les autres fichiers sources.
 
 Une fois votre demande de tirage fusionnée, il est recommandé d’effectuer un nettoyage :
 
@@ -173,7 +173,7 @@ Une fois votre demande de tirage fusionnée, il est recommandé d’effectuer un
 À l’image des ressources de code d’application, vous devez écrire des tests unitaires pour accompagner les mises à jour d’application LUIS. Vous devez utiliser des workflows d’intégration continue pour tester :
 
 - Les mises à jour dans une demande de tirage avant la fusion de celle-ci
-- L’application LUIS de branche master après l’approbation d’une demande de tirage et la fusion des modifications dans la branche master
+- L’application LUIS de branche primaire après l’approbation d’une demande de tirage et la fusion des modifications dans la branche primaire.
 
 Pour plus d’informations sur les tests pour LUIS dans DevOps, consultez [Test de LUIS DevOps](luis-concept-devops-testing.md). Pour plus d’informations sur l’implémentation des workflows, consultez [Workflows d’automatisation pour LUIS DevOps](luis-concept-devops-automation.md).
 
@@ -185,9 +185,9 @@ Une application LUIS au format LUDown étant lisible par l’homme, la communica
 
 Une application est constituée de plusieurs composants qui peuvent inclure des éléments tels qu’un bot s’exécutant dans [Azure Bot Service](/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0), [QnA Maker](https://www.qnamaker.ai/), le [service Azure Speech](../speech-service/overview.md) et bien plus encore. Pour que les applications soient faiblement couplées, utilisez la [gestion de version](/azure/devops/learn/git/what-is-version-control) afin que la version de chaque composant d’une application soit gérée de manière indépendante, ce qui permet aux développeurs de détecter les changements cassants ou les mises à jour en examinant simplement le numéro de version. Il est plus facile de gérer la version de votre application LUIS indépendamment des autres composants si vous conservez celle-ci dans son propre dépôt.
 
-Un schéma de gestion de versions doit être appliqué à l’application LUIS pour la branche master. Quand vous fusionnez des mises à jour du fichier `.lu` pour une application LUIS dans la branche master, vous importez cette source mise à jour dans une nouvelle version de l’application LUIS pour la branche master.
+Un schéma de gestion de versions doit être appliqué à l’application LUIS pour la branche primaire. Quand vous fusionnez des mises à jour du fichier `.lu` pour une application LUIS dans la branche primaire, vous importez cette source mise à jour dans une nouvelle version de l’application LUIS pour la branche primaire.
 
-Nous vous recommandons d’utiliser un schéma de gestion de versions numérique pour la version master de l’application LUIS, par exemple :
+Nous vous recommandons d’utiliser un schéma de gestion de versions numérique pour la version primaire de l’application LUIS, par exemple :
 
 `major.minor[.build[.revision]]`
 
@@ -199,7 +199,7 @@ La version principale/mineure peut être utilisée pour indiquer l’étendue de
 * Version mineure : changement mineur à compatibilité descendante, par exemple après un nouvel entraînement significatif
 * Build : aucune modification de fonctionnalité, juste une autre build.
 
-Une fois que vous avez déterminé le numéro de version de la dernière révision de votre application LUIS master, vous devez générer et tester la nouvelle version de l’application, puis la publier sur un point de terminaison où elle peut être utilisée dans différents environnements de génération, tels que l’assurance qualité ou la production. Nous vous recommandons fortement d’automatiser toutes ces étapes dans un workflow d’intégration continue (CI).
+Une fois que vous avez déterminé le numéro de version de la dernière révision de votre application LUIS primaire, vous devez générer et tester la nouvelle version de l’application, puis la publier sur un point de terminaison où elle peut être utilisée dans différents environnements de génération, tels que l’assurance qualité ou la production. Nous vous recommandons fortement d’automatiser toutes ces étapes dans un workflow d’intégration continue (CI).
 
 Consultez l'article :
 - [Workflows d’automatisation](luis-concept-devops-automation.md) pour plus d’informations sur la façon d’implémenter un workflow CI afin de tester et de publier une application LUIS.
@@ -207,9 +207,9 @@ Consultez l'article :
 
 ### <a name="versioning-the-feature-branch-luis-app"></a>Gestion des versions de l’application LUIS « branche de fonctionnalité »
 
-Quand vous travaillez avec une application LUIS « branche dev » que vous avez créée pour prendre en charge le travail dans une branche de fonctionnalité, vous exportez votre application quand votre travail est terminé et vous incluez le fichier `'lu` mis à jour dans votre demande de tirage. La branche dans votre dépôt et l’application LUIS « branche dev », doivent être supprimées une fois la demande de tirage fusionnée dans la branche master. Étant donné que cette application existe uniquement pour prendre en charge le travail dans la branche de fonctionnalité, vous n’avez pas besoin d’appliquer de schéma de gestion de versions particulier dans cette application.
+Quand vous travaillez avec une application LUIS « branche dev » que vous avez créée pour prendre en charge le travail dans une branche de fonctionnalité, vous exportez votre application quand votre travail est terminé et vous incluez le fichier `'lu` mis à jour dans votre demande de tirage. La branche dans votre dépôt et l’application LUIS « branche dev », doivent être supprimées une fois la demande de tirage fusionnée dans la branche primaire. Étant donné que cette application existe uniquement pour prendre en charge le travail dans la branche de fonctionnalité, vous n’avez pas besoin d’appliquer de schéma de gestion de versions particulier dans cette application.
 
-La gestion de version doit être appliquée quand vos modifications dans votre demande de tirage sont fusionnées dans la branche master, afin que les versions de toutes les mises à jour dans la branche master soient gérées de manière indépendante.
+La gestion de version doit être appliquée quand vos modifications dans votre demande de tirage sont fusionnées dans la branche primaire, afin que les versions de toutes les mises à jour dans la branche primaire soient gérées de manière indépendante.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

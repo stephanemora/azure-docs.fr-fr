@@ -11,14 +11,57 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: c6cc033e4814553020957310224a8ed4cdacbc8e
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 2db93ec6806d4b9cc8c8ac17cfb2c15458bf4dc9
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96483952"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97401149"
 ---
 # <a name="speech-service-release-notes"></a>Notes de publication du service Speech
+
+## <a name="text-to-speech-2020-december-release"></a>Conversion de texte par synthèse vocale – Version de décembre 2020
+
+**Nouvelles voix neuronales en disponibilité générale et en préversion**
+
+Publication de 51 nouvelles voix pour un total de 129 voix neuronales dans 54 langues/paramètres régionaux :
+
+- **46 nouvelles voix dans les paramètres régionaux en disponibilité générale** : Shakir en `ar-EG` arabe (Égypte), Hamed en `ar-SA` arabe (Arabie saoudite), Borislav en `bg-BG` bulgare (Bulgarie), Joana en `ca-ES` catalan (Espagne), Antonin en `cs-CZ` tchèque (République tchèque), Jeppe en `da-DK` danois (Danemark), Jonas en `de-AT` allemand (Autriche), Jan en `de-CH` allemand (Suisse), Nestoras en `el-GR` grec (Grèce), Liam en `en-CA` anglais (Canada), Connor en `en-IE` anglais (Irlande), Madhur en `en-IN` hindi (Inde), Mohan en `en-IN` télougou (Inde), Prabhat en `en-IN` anglais (Inde), Valluvar en `en-IN` tamoul (Inde), Enric en `es-ES` catalan (Espagne), Kert en `et-EE` estonien (Estonie), Harri en `fi-FI` finnois (Finlande), Selma en `fi-FI` finnois (Finlande), Fabrice en `fr-CH` français (Suisse), Colm en `ga-IE` irlandais (Irlande), Avri en `he-IL` hébreu (Israël), Srecko en `hr-HR` croate (Croatie), Tamas en `hu-HU` hongrois (Hongrie), Gadis en `id-ID` indonésien (Indonésie), Leonas en `lt-LT` lituanien (Lituanie), Nils en `lv-LV` letton (Lettonie), Osman en `ms-MY` malais (Malaisie), Joseph en `mt-MT` maltais (Malte), Finn en `nb-NO` norvégien, Bokmål (Norvège), Pernille en `nb-NO` norvégien, Bokmål (Norvège), Fenna en `nl-NL` Néerlandais (Pays-Bas), Maarten en néerlandais `nl-NL` (Pays-Bas), Agnieszka en `pl-PL` polonais (Pologne), Marek en `pl-PL` polonais (Pologne), Duarte `pt-BR` en portugais (Brésil), Raquel `pt-PT` en portugais (Potugal), Emil en `ro-RO` roumain (Roumanie), Dmitry en `ru-RU` russe (Russie), Svetlana en `ru-RU` russe (Russie), Lukas en `sk-SK` slovaque (Slovaquie), Rok en `sl-SI` slovène (Slovénie), Mattias en `sv-SE` suédois (Suède), Sofie en `sv-SE` suédois (Suède), Niwat en `th-TH` thaï (Thaïlande), Ahmet en `tr-TR` turc (Turquie), NamMinh en `vi-VN` vietnamien (Viêt Nam), HsiaoChen en `zh-TW` mandarin taïwanais (Taïwan), YunJhe en `zh-TW` mandarin taïwanais (Taïwan), HiuMaan en `zh-HK` chinois cantonais (Hong Kong), WanLung en `zh-HK` chinois cantonais (Hong Kong).
+
+- **5 nouvelles voix dans les paramètres régionaux en préversion** : Kert en `et-EE` estonien (Estonie), Colm en `ga-IE` irlandais (Irlande), Nils en `lv-LV` letton (Lettonie), Leonas en `lt-LT` lituanien (Lituanie), Joseph en `mt-MT` maltais (Malte).
+
+Avec cette version, nous proposons désormais un total de 129 voix dans 54 langues/paramètres régionaux. En outre, plus de 70 voix standard sont disponibles dans 49 langues/paramètres régionaux. Pour obtenir la liste complète, consultez [Prise en charge linguistique](language-support.md#text-to-speech).
+
+**Mises à jour pour la création de contenu audio**
+- Interface utilisateur améliorée de sélection de la voix avec des catégories de voix et des descriptions de voix détaillées. 
+- Activation du paramétrage de l’intonation pour toutes les voix neuronales dans différentes langues.
+- Automatisation de la localisation de l’interface utilisateur en fonction de la langue du navigateur.
+- Activation des contrôles `StyleDegree` pour toutes les voix neuronales `zh-CN`.
+Visitez l’[outil de création de contenu audio](https://speech.microsoft.com/audiocontentcreation) pour découvrir les nouvelles fonctionnalités. 
+
+**Mises à jour pour les voix zh-CN**
+- Mise à jour de toutes les voix neuronales `zh-CN` pour prendre en charge l’anglais.
+- Activation de toutes les voix neuronales `zh-CN` pour prendre en charge le réglage de l’intonation. Possibilité d’utiliser SSML ou l’outil de création de contenu audio pour régler la meilleure intonation.
+- Mise à jour de toutes les voix neuronales `zh-CN` disponibles dans plusieurs styles pour la prise en charge du contrôle `StyleDegree`. L’intensité de l’émotion (douce ou forte) est réglable.
+- Mise à jour de `zh-CN-YunyeNeural` pour prendre en charge plusieurs styles pouvant refléter différentes émotions.
+
+## <a name="text-to-speech-2020-november-release"></a>Conversion de texte par synthèse vocale – Version de novembre 2020
+
+**Nouveaux paramètres régionaux et voix en préversion**
+- **Cinq nouvelles voix et langues** sont introduites dans le portefeuille de synthèse vocale neuronale. Il s'agit de : Grâce en maltais (Malte), Ona en lituanien (Lituanie), Anu en estonien (Estonie), Orla en irlandais (Irlande) et Everita en letton (Lettonie).
+- **Cinq nouvelles `zh-CN` voix avec prise en charge de plusieurs styles et rôles** : Xiaohan, Xiaomo, Xiaorui, Xiaoxuan et Yunxi.
+
+> Ces voix sont disponibles en préversion publique da,s trois régions Azure : Eastus, southeastasia et westeurope.
+
+**Disponibilité générale du conteneur neuronal de synthèse vocale neuronale**
+- Avec le conteneur de synthèse vocale neuronale, les développeurs peuvent effectuer une synthèse vocale avec les voix numériques les plus naturelles dans leur propre environnement pour des besoins spécifiques en matière de sécurité et de gouvernance des données. Découvrez [comment installer les conteneurs Speech](speech-container-howto.md). 
+
+**Nouvelles fonctionnalités**
+- **Custom Voice** : possibilité pour les utilisateurs de copier un modèle vocal d’une région vers une autre ; prise en charge de l’interruption et reprise de point de terminaison. Accédez au [portail](https://speech.microsoft.com/customvoice) ici.
+- Prise en charge de la [balise de silence SSML](speech-synthesis-markup.md#add-silence). 
+- Améliorations générales de la qualité de la synthèse vocale : Amélioration de la précision de la prononciation des mots dans 5 langues. Réduction de 53 % des erreurs de prononciation.
+
+> Pour plus d’informations, consultez ce [blog sur les technologies](https://techcommunity.microsoft.com/t5/azure-ai/neural-text-to-speech-previews-five-new-languages-with/ba-p/1907604).
 
 ## <a name="text-to-speech-2020-october-release"></a>Conversion de texte par synthèse vocale - Version d’août 2020
 

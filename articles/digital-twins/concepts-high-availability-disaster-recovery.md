@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/14/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: ac75a5b0b59a06855b7ee88d971c269ca915e429
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: 35f4aae246f105d832aaf92c5c5797c8a65b44f1
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763161"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938541"
 ---
 # <a name="azure-digital-twins-high-availability-and-disaster-recovery"></a>Haute disponibilité et récupération d’urgence pour Azure Digital Twins
 
@@ -38,6 +38,29 @@ Le **basculement initié par Microsoft** est déclenché par Microsoft dans de r
 
 >[!NOTE]
 > Certains services Azure fournissent également une option supplémentaire appelée **basculement initié par le client**, qui permet aux clients de lancer un basculement uniquement pour leur instance, par exemple pour exécuter un exercice de récupération d’urgence. Ce mécanisme n’est actuellement **pas pris en charge** par Azure Digital Twins. 
+
+## <a name="monitor-service-health"></a>Suivi de l’intégrité des services
+
+À mesure que les instances Azure Digital Twins sont basculées et récupérées, vous pouvez surveiller le processus à l’aide de l’outil [Azure Service Health](https://docs.microsoft.com/azure/service-health/service-health-overview). Service Health effectue le suivi de l’intégrité de vos services Azure dans différentes régions et abonnements, et partage les communications ayant un impact sur le service concernant les pannes et les temps d’arrêt.
+
+Au cours d’un événement de basculement, Service Health peut indiquer quand votre service est à l’arrêt, et quand il redevient opérationnel.
+
+Pour afficher les événements Service Health...
+1. Accédez à [Service Health](https://portal.azure.com/?feature.customportal=false#blade/Microsoft_Azure_Health/AzureHealthBrowseBlade/serviceIssues) dans le portail Azure (vous pouvez utiliser ce lien ou rechercher le service à l’aide de la barre de recherche du portail).
+1. Utilisez le menu de gauche pour basculer vers la page de l’*historique d’intégrité*.
+1. Recherchez un *nom de problème* commençant par **Azure Digital Twins**, puis sélectionnez-le.
+
+    :::image type="content" source="media/concepts-high-availability-disaster-recovery/navigate.png" alt-text="Capture d’écran du portail Azure montrant la page de l’historique d’intégrité. Il y a là une liste de plusieurs problèmes survenus au cours des derniers jours, avec un problème nommé « Azure Digital Twins - West Europe - Mitigated » en surbrillance." lightbox="media/concepts-high-availability-disaster-recovery/navigate.png":::
+
+1. Pour obtenir des informations générales sur la panne, affichez l’onglet *Résumé*.
+
+    :::image type="content" source="media/concepts-high-availability-disaster-recovery/summary.png" alt-text="Dans la page de l’historique d’intégrité, l’onglet Résumé est en surbrillance. L’onglet affiche des informations générales, telles que la ressource affectée, sa région et son abonnement." lightbox="media/concepts-high-availability-disaster-recovery/summary.png":::
+1. Pour obtenir plus d’informations et des mises à jour concernant l’évolution du problème au fil du temps, consultez l’onglet des *mises à jour du problème*.
+
+    :::image type="content" source="media/concepts-high-availability-disaster-recovery/issue-updates.png" alt-text="Dans la page de l’historique d’intégrité, l’onglet des mises à jour est en surbrillance. L’onglet affiche plusieurs entrées indiquant l’évolution des états depuis un jour jusqu’à l’état actuel." lightbox="media/concepts-high-availability-disaster-recovery/issue-updates.png":::
+
+
+Notez que les informations affichées dans cet outil ne sont pas spécifiques d’une seule instance Azure Digital. Après avoir utilisé Service Health pour comprendre ce qui se passe avec le service Azure Digital Twins dans une région ou un abonnement sonnés, vous pouvez effectuer une analyse plus poussée à l’aide de l’outil [Resource Health](troubleshoot-resource-health.md) pour explorer des instances spécifiques et voir si elles sont affectées.
 
 ## <a name="best-practices"></a>Meilleures pratiques
 

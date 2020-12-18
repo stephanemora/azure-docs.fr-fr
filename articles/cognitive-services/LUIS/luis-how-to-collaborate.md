@@ -8,23 +8,19 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 11/19/2019
-ms.openlocfilehash: 60b100e1100b8a4925a967f8b7265f1612e5beb7
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.date: 12/08/2020
+ms.openlocfilehash: d4bde21dd13b562ffbb51b27ef083ee53685397a
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95018903"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007962"
 ---
 # <a name="add-contributors-to-your-app"></a>Ajouter des contributeurs à votre application
 
-Un propriétaire d’application peut ajouter des contributeurs à des applications. Ces collaborateurs peuvent modifier le modèle, entraîner et publier l’application.
-
-[!INCLUDE [Manage collaborators and contributors based on migrated or not-migrated apps](./includes/manage-contributor-collaborator-migration.md)]
+Un propriétaire d’application peut ajouter des contributeurs à des applications. Ces contributeurs peuvent modifier le modèle, l’entraîner et publier l’application. Une fois que vous avez [migré](luis-migration-authoring.md) votre compte, les _contributeurs_ sont gérés dans le portail Azure pour la ressource de création, à l’aide de la page **Contrôle d’accès (IAM)** . Ajoutez un utilisateur à l’aide de l’adresse e-mail du collaborateur et du rôle _contributeur_.
 
 ## <a name="add-contributor-to-azure-authoring-resource"></a>Ajouter un contributeur à une ressource de création Azure
-
-La procédure suivante est destinée à tous les utilisateurs qui ont **migré** pour utiliser la ressource de création Azure.
 
 Vous avez migré si votre expérience de création LUIS est liée à une ressource de création dans la page **Gérer -> Ressources Azure** du portail LUIS.
 
@@ -41,26 +37,15 @@ Vous avez migré si votre expérience de création LUIS est liée à une ressour
 
     Si vous rencontrez des problèmes avec cette attribution de rôle, voir [Attribution de rôle Azure](../../role-based-access-control/role-assignments-portal.md) et [Résolution des problèmes liés au contrôle d’accès Azure](../../role-based-access-control/troubleshooting.md#problems-with-azure-role-assignments).
 
-## <a name="add-collaborator-to-luis-app"></a>Ajouter un collaborateur à une application LUIS
+## <a name="view-the-app-as-a-contributor"></a>Afficher l’application en tant que contributeur
 
-La procédure suivante est destinée à tous les utilisateurs qui **n’ont pas migré** pour utiliser la ressource de création Azure.
+Une fois que vous avez été ajouté en tant que contributeur, [connectez-vous au portail LUIS](sign-in-luis-portal.md).
 
-Vous n’avez pas opéré de migration si votre expérience de création LUIS n’est pas liée à une ressource de création sur la page **Gérer -> Ressources Azure** du portail LUIS.
-
-Une application possède un seul créateur, son propriétaire, mais peut avoir de nombreux collaborateurs. Pour autoriser des collaborateurs à modifier votre application LUIS, vous devez ajouter l’e-mail qu’ils utilisent pour accéder au portail LUIS à la liste des collaborateurs. Une fois qu’ils sont ajoutés, l’application apparaît dans leur portail LUIS.
-
-1. Sélectionnez **Gérer** dans le menu supérieur droit, puis **Collaborateurs** dans le menu gauche.
-
-1. Sélectionnez **Ajouter un collaborateur** dans la barre d’outils.
-
-1. Entrez l’adresse e-mail utilisée par le collaborateur pour se connecter au portail LUIS.
-
-    ![Ajouter l’adresse e-mail du collaborateur](./media/luis-how-to-collaborate/add-collaborator-pop-up.png)
-
+[!INCLUDE [switch azure directories](includes/switch-azure-directories.md)]
 
 ### <a name="users-with-multiple-emails"></a>Utilisateurs avec plusieurs adresses e-mail
 
-Si vous ajoutez un contributeur/collaborateur à une application LUIS, vous spécifiez son adresse e-mail exacte. Si Azure Active Directory (Azure AD) permet à un utilisateur d’avoir plusieurs comptes de courrier interchangeables, LUIS exige que l’utilisateur se connecte avec l’adresse e-mail spécifiée lors de son ajout en tant que contributeur/collaborateur.
+Si vous ajoutez des contributeurs à une application LUIS, vous spécifiez son adresse e-mail exacte. Si Azure Active Directory (Azure AD) permet à un utilisateur d’avoir plusieurs comptes de courrier interchangeables, LUIS exige que l’utilisateur se connecte avec l’adresse e-mail spécifiée lors de l’ajout du contributeur.
 
 <a name="owner-and-collaborators"></a>
 

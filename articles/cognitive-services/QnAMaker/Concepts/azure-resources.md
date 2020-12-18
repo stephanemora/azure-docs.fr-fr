@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: cd64c19e7e9af05becd7a6978ceb4d0306112170
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: e2c71e028225c22ab0355ff4cda77dacadf94095
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351893"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97512043"
 ---
 # <a name="azure-resources-for-qna-maker"></a>Ressources Azure pour QnA Maker
 
@@ -66,7 +66,7 @@ Le tableau suivant vous donne des indications d’ordre général.
 | -------------------------- | -------------------- | ----------- | ------------ | -------------------------------- |
 | **Expérimentation**        | Référence SKU Gratuite             | Niveau Gratuit   | Niveau Gratuit    | Publier jusqu’à 2 Ko, taille de 50 Mo  |
 | **Environnement Dev/Test**   | Référence SKU standard         | Partagé      | De base        | Publier jusqu’à 14 Ko, taille de 2 Go    |
-| **Environnement de production** | Référence SKU standard         | De base       | standard     | Publier jusqu’à 49 Ko, taille de 25 Go |
+| **Environnement de production** | Référence SKU standard         | De base       | Standard     | Publier jusqu’à 49 Ko, taille de 25 Go |
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/v2)
 
@@ -104,11 +104,11 @@ Le tableau suivant vous donne des indications d’ordre général.
 
 |RPS cible | App Service | Recherche cognitive Azure |
 | -------------------- | ----------- | ------------ |
-| 3             | S1, 1 instance   | S1, 1 instance    |
-| 50         | S3, 10 instances       | S1, 12 instances         |
-| 80         | S3, 10 instances      |  S3, 12 instances  |
-| 100         | P3V2, 10 instances  | S3, 12 instances, 3 partitions   |
-| 200 à 250         | P3V2, 20 instances | S3, 12 instances, 3 partitions    |
+| 3             | S1, 1 réplica   | S1, 1 réplica    |
+| 50         | S3, 10 réplicas       | S1, 12 réplicas         |
+| 80         | S3, 10 réplicas      |  S3, 12 réplicas  |
+| 100         | P3V2, 10 réplicas  | S3, 12 réplicas, 3 partitions   |
+| 200 à 250         | P3V2, 20 réplicas | S3, 12 réplicas, 3 partitions    |
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/v2)
 

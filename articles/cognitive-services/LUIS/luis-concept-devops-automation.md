@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/5/2020
-ms.openlocfilehash: 370dade1b74634649c9de44864a0fd9f5cac988f
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 1ce78e02c652777b524964559b579530f3e022fa
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025974"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97561305"
 ---
 # <a name="continuous-integration-and-continuous-delivery-workflows-for-luis-devops"></a>Flux de travail d’intégration continue et de livraison continue pour LUIS DevOps
 
@@ -59,7 +59,7 @@ Ce flux de travail peut :
 
 Si votre gestionnaire de contrôle des services prend cette fonctionnalité en charge, configurez les règles de protection de la branche pour vous assurer que le flux de travail soit complètement validé avant que la demande de tirage ne soit terminée.
 
-### <a name="the-master-branch-cicd-workflow"></a>Flux de travail CI/CD de la branche principale
+### <a name="the-main-branch-cicd-workflow"></a>Flux de travail CI/CD de la branche principale
 
 Configurez ce flux de travail pour qu’il s’exécute après la fusion des mises à jour de la PR dans la branche principale. L’objectif est de conserver une qualité optimale de votre branche principale en testant chaque mise à jour. Si les mises à jour sont conformes à la qualité attendue, ce flux de travail déploie la nouvelle version de l’application LUIS dans un environnement où vous pouvez effectuer des tests plus approfondis.
 
