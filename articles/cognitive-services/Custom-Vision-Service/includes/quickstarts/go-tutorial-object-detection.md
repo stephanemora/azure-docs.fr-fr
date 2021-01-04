@@ -3,12 +3,12 @@ author: areddish
 ms.author: areddish
 ms.service: cognitive-services
 ms.date: 09/15/2020
-ms.openlocfilehash: 1f07cda0afa7213ca9c803754950c86a3f246469
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: bae0887ca540dd553cc80849d9e134516089d016
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021275"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97582569"
 ---
 Ce guide fournit des instructions et un exemple de code pour vous aider à commencer à utiliser la bibliothèque de client Custom Vision pour Go afin de générer un modèle de détection d’objets. Vous allez créer un projet, ajouter des étiquettes, entraîner le projet et utiliser l’URL de point de terminaison de prédiction du projet pour le tester programmatiquement. Utilisez cet exemple comme modèle pour générer votre propre application de reconnaissance d’image.
 
@@ -274,6 +274,8 @@ go run sample.go
 ```
 
 La sortie de l’application doit apparaître dans la console. Vous pouvez alors vérifier que l’image test (trouvée dans **samples/vision/images/Test**) est balisée de façon appropriée et que la région de détection est correcte.
+
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 [!INCLUDE [clean-od-project](../../includes/clean-od-project.md)]
 

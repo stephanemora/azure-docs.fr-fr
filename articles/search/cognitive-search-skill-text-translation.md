@@ -8,12 +8,12 @@ ms.author: chalton
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 4889ecd02be1b8f59c30550b7813ed5e5935f20f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0953d750ee8b59e9889512bb64cfd276a0bbeb53
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88924692"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654862"
 ---
 #   <a name="text-translation-cognitive-skill"></a>Compétence cognitive Traduction de texte
 
@@ -38,7 +38,7 @@ La taille maximale d’un enregistrement doit être de 50 000 caractères telle
 
 Les paramètres respectent la casse.
 
-| Entrées                | Description |
+| Entrées | Description |
 |---------------------|-------------|
 | defaultToLanguageCode | (Obligatoire) Code de la langue dans laquelle traduire les documents, pour ceux qui ne spécifient pas explicitement la langue cible. <br/> Voir la [Liste complète des langues prises en charge](../cognitive-services/translator/language-support.md). |
 | defaultFromLanguageCode | (Facultatif) Code de la langue à partir de laquelle traduire les documents, pour ceux qui ne spécifient pas explicitement la langue source.  Si defaultFromLanguageCode n’est pas spécifié, la détection automatique de la langue fournie par l’API de traduction de texte Translator Text est utilisée pour déterminer la langue source. <br/> Voir la [Liste complète des langues prises en charge](../cognitive-services/translator/language-support.md). |

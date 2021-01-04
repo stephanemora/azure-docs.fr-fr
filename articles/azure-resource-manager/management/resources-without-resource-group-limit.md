@@ -3,12 +3,12 @@ title: Ressources sans limite du nombre à 800
 description: Répertorie les types de ressources Azure qui peuvent avoir plus de 800 instances dans un groupe de ressources.
 ms.topic: conceptual
 ms.date: 10/28/2020
-ms.openlocfilehash: cec7ea87bbe81d3bfcca37f3133ac650e66f849f
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: c2d5797a7ec354f41d510ec6e884968bf9dbdbcd
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913498"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672362"
 ---
 # <a name="resources-not-limited-to-800-instances-per-resource-group"></a>Ressources non limitées à 800 instances par groupe de ressources
 
@@ -81,7 +81,7 @@ Pour certains types de ressources, vous devez contacter le support pour que la l
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
 
-* labs/virtualMachines – Par défaut, limité à 800 instances. Cette limite peut être augmentée en contactant le support.
+* labs/virtualMachines – Par défaut, limité à 800 instances. 
 * schedules
 
 ## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft.EnterpriseKnowledgeGraph

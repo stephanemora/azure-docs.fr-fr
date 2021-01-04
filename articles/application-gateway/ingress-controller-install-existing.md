@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 2f585dd80219afac7c67eebabd72cb41dce0b673
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 2d64766c754c0ea104ae83fde799a514e9da6d68
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96018696"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97693726"
 ---
 # <a name="install-an-application-gateway-ingress-controller-agic-using-an-existing-application-gateway"></a>Installer un contrôleur d’entrée Application Gateway (AGIC) à l’aide d’une instance Application Gateway existante
 
@@ -323,7 +323,7 @@ L’installation de Helm avec `appgw.shared=true` déploie AGIC, mais n’apport
     ```
 
 ### <a name="enable-for-an-existing-agic-installation"></a>Activer pour une installation AGIC existante
-Supposons que nous disposons déjà d’une instance AKS opérationnelle, d’une instance Application Gateway et d’un AGIC configurés dans notre cluster. Nous avons une entrée pour `prod.contosor.com` et traitons correctement le trafic de celui-ci à partir de l’instance AKS. Nous souhaitons ajouter `staging.contoso.com` à notre instance Application Gateway existante, mais devons l’héberger sur une [machine virtuelle](https://azure.microsoft.com/services/virtual-machines/). Nous allons réutiliser l’instance Application Gateway existante et configurer manuellement un écouteur et des pools principaux pour `staging.contoso.com`. Cependant, la modification manuelle de la configuration de l’instance Application Gateway (via le [portail](https://portal.azure.com), les [API ARM](/rest/api/resources/) ou [Terraform](https://www.terraform.io/)) poserait problème car AGIC possède en totalité l’instance Application Gateway. Quelques instants après l’application de modifications, AGIC les remplacerait ou les supprimerait.
+Supposons que nous disposons déjà d’une instance AKS opérationnelle, d’une instance Application Gateway et d’un AGIC configurés dans notre cluster. Nous avons une entrée pour `prod.contoso.com` et traitons correctement le trafic de celui-ci à partir de l’instance AKS. Nous souhaitons ajouter `staging.contoso.com` à notre instance Application Gateway existante, mais devons l’héberger sur une [machine virtuelle](https://azure.microsoft.com/services/virtual-machines/). Nous allons réutiliser l’instance Application Gateway existante et configurer manuellement un écouteur et des pools principaux pour `staging.contoso.com`. Cependant, la modification manuelle de la configuration de l’instance Application Gateway (via le [portail](https://portal.azure.com), les [API ARM](/rest/api/resources/) ou [Terraform](https://www.terraform.io/)) poserait problème car AGIC possède en totalité l’instance Application Gateway. Quelques instants après l’application de modifications, AGIC les remplacerait ou les supprimerait.
 
 Nous pouvons empêcher AGIC d’apporter des modifications à un sous-ensemble de la configuration.
 

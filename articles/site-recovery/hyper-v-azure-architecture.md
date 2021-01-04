@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: af387b063a3c07d8b6b6c544814565e2a5ebdd46
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c5025b83619b505728bfdf5c4e1ccc81d3bb225e
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95993769"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654759"
 ---
 # <a name="hyper-v-to-azure-disaster-recovery-architecture"></a>Architecture pour la récupération d’urgence de Hyper-V vers Azure
 
@@ -68,7 +68,7 @@ Si vous utilisez un proxy de pare-feu basé sur des URL pour contrôler la conne
 
 | **Nom**                  | **Commercial**                               | **Secteur public**                                 | **Description** |
 | ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
-| Stockage                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`              | Permet d’écrire les données dans le compte de stockage de cache dans la région source à partir de la machine virtuelle. |
+| Stockage                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net` | Permet d’écrire les données dans le compte de stockage de cache dans la région source à partir de la machine virtuelle. |
 | Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Fournit l’autorisation et l’authentification aux URL du service Site Recovery. |
 | Réplication               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`   | Permet à la machine virtuelle de communiquer avec le service Site Recovery. |
 | Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Permet à la machine virtuelle d’écrire des données de surveillance et de diagnostic Site Recovery. |

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 07/22/2020
-ms.openlocfilehash: 99c60cf541b3997f2aeca2ccef5a5af6b9c88e08
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: bff20468e8185073f5c192c1e115bc405dd089eb
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131494"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97693615"
 ---
 # <a name="create-a-power-bi-app-offer"></a>Créer une offre d’application Power BI
 
@@ -32,7 +32,7 @@ Avant de commencer, si ce n’est déjà fait, [créez un compte de la Place de 
 > Après la publication d’une offre, les modifications qui lui ont été apportées dans l’Espace partenaires n’apparaissent dans les magasins en ligne qu’après republication de l’offre. Veillez à toujours effectuer une nouvelle publication après avoir apporté des modifications.
 
 > [!IMPORTANT]
-> Si l’ **Application de service Power BI** n’est pas affichée ou activée, votre compte n’est pas autorisé à créer ce type d’offre. Vérifiez que vous remplissez toutes les [exigences](create-power-bi-app-overview.md) pour ce type d’offre, notamment l’inscription d’un compte de développeur.
+> Si l’**Application de service Power BI** n’est pas affichée ou activée, votre compte n’est pas autorisé à créer ce type d’offre. Vérifiez que vous remplissez toutes les [exigences](create-power-bi-app-overview.md) pour ce type d’offre, notamment l’inscription d’un compte de développeur.
 
 ## <a name="new-offer"></a>Nouvelle offre
 
@@ -109,9 +109,7 @@ Consultez la liste complète des catégories et sous-catégories dans [Bonnes pr
 
 #### <a name="terms-and-conditions"></a>Conditions générales
 
-Pour fournir vos propres conditions générales, entrez jusqu’à 10 000 caractères dans la zone **Conditions générales**. Si vos conditions générales nécessitent une description plus longue, entrez un lien web unique vers l’emplacement où elles se trouvent. Ceci affichera un lien actif aux clients.
-
-Les clients doivent accepter ces conditions avant de pouvoir essayer votre application.
+Pour fournir vos propres conditions générales, entrez jusqu’à 10 000 caractères dans la zone **Conditions générales**. Les clients doivent accepter ces conditions avant de pouvoir essayer votre application.
 
 Sélectionnez **Enregistrer le brouillon** avant de passer à la section suivante, Annonce de l’offre.
 
@@ -192,7 +190,7 @@ Entrez le nom, l’adresse e-mail et le numéro de téléphone d’un **contact 
 - Contact en ingénierie (obligatoire) : Pour les questions techniques et les problèmes de certification.
 - Contact du programme du fournisseur de solutions cloud (facultatif) : Pour toute question du revendeur relative au programme CSP.
 
-Dans la section **Contact du support** , indiquez l’adresse du **site web du support** où les partenaires peuvent trouver l’assistance pour votre offre.
+Dans la section **Contact du support**, indiquez l’adresse du **site web du support** où les partenaires peuvent trouver l’assistance pour votre offre.
 
 ### <a name="supporting-documents"></a>Documents de soutien
 
@@ -205,11 +203,11 @@ Fournissez des logos et images à utiliser avec votre offre. Toutes les images d
 [!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 >[!NOTE]
->Si vous rencontrez un problème lors du chargement de fichiers, vérifiez que votre réseau local ne bloque pas le service `https://upload.xboxlive.com` utilisé par l’Espace partenaires.
+>Si vous rencontrez un problème de téléchargement de fichiers, assurez-vous que votre réseau local ne bloque pas le service `https://upload.xboxlive.com` utilisé par l’espace partenaires.
 
 #### <a name="store-logos"></a>Stocker des logos
 
-Fournissez un fichier PNG pour le logo de **grande taille**. L’Espace partenaires s’en servira pour créer un logo de **petite taille**. Si vous le souhaitez, vous pouvez par la suite le remplacer par une autre image.
+Fournissez un fichier PNG pour le logo de **grande taille**. L'Espace partenaires l'utilisera pour créer un **Petit** logo. Plus tard, vous pourrez éventuellement le remplacer par une autre image.
 
 - **Grande taille** (de 216 x 216 à 350 x 350 px, obligatoire)
 - **Petite taille** (48 x 48 px, facultatif)
@@ -253,9 +251,9 @@ Dans le coin supérieur droit du portail, sélectionnez **Vérifier et publier**
 Dans la page de révision, vous pouvez :
 
 - Consultez l’état d’achèvement de chaque section de l’offre. Vous ne pouvez pas publier tant que toutes les sections de l’offre ne sont pas marquées comme étant complètes.
-  - **Non démarrée**  : la section n’a pas été démarrée et doit être complétée.
-  - **Incomplète**  : la section comporte des erreurs qui doivent être corrigées ou nécessite plus d’informations de votre part. Pour obtenir de l’aide, consultez les sections plus haut dans ce document.
-  - **Complète**  : la section contient toutes les données nécessaires et ne comporte aucune erreur. Toutes les sections de l’offre doivent être complètes pour que vous puissiez envoyer l’offre.
+  - **Non démarrée** : la section n’a pas été démarrée et doit être complétée.
+  - **Incomplète** : la section comporte des erreurs qui doivent être corrigées ou nécessite plus d’informations de votre part. Pour obtenir de l’aide, consultez les sections plus haut dans ce document.
+  - **Complète** : la section contient toutes les données nécessaires et ne comporte aucune erreur. Toutes les sections de l’offre doivent être complètes pour que vous puissiez envoyer l’offre.
 - Fournissez des instructions de test à l’équipe de certification pour vous assurer que votre application est correctement testée. Vous pouvez également fournir des notes supplémentaires utiles pour comprendre votre offre.
 
 Pour envoyer l’offre à des fins de publication, sélectionnez **Publier**.

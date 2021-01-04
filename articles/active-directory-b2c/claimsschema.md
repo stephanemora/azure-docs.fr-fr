@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: aadb75d7257470cf4288c6123263f3d2dfe14d21
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 2ff43408cfa6d95dbd5a235a950269c47d57a416
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92781717"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654028"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-L’élément **ClaimsSchema** définit les types de revendications qui peuvent être référencés dans le cadre de la stratégie. Le schéma de revendications est l’endroit où vous déclarez vos revendications. Une revendication peut être le prénom, le nom de famille, le nom d’affichage, le numéro de téléphone, et bien plus encore. L’élément ClaimsSchema contient une liste d’éléments **ClaimType** . L’élément **ClaimType** contient l’attribut **Id** , qui est le nom de la revendication.
+L’élément **ClaimsSchema** définit les types de revendications qui peuvent être référencés dans le cadre de la stratégie. Le schéma de revendications est l’endroit où vous déclarez vos revendications. Une revendication peut être le prénom, le nom de famille, le nom d’affichage, le numéro de téléphone, et bien plus encore. L’élément ClaimsSchema contient une liste d’éléments **ClaimType**. L’élément **ClaimType** contient l’attribut **Id**, qui est le nom de la revendication.
 
 ```xml
 <BuildingBlocks>
@@ -52,13 +52,13 @@ L’élément **ClaimType** contient les éléments suivants :
 | ------- | ----------- | ----------- |
 | DisplayName | 1:1 | Titre présenté aux utilisateurs sur différents écrans. La valeur peut être [localisée](localization.md). |
 | DataType | 1:1 | Type de la revendication. |
-| DefaultPartnerClaimTypes | 0:1 | Types de revendications par défaut de partenaire à utiliser pour un protocole spécifié. La valeur peut être substituée dans le **PartnerClaimType** spécifié dans l’élément **InputClaim** ou **OutputClaim** . Utilisez cet élément pour spécifier le nom par défaut d’un protocole.  |
+| DefaultPartnerClaimTypes | 0:1 | Types de revendications par défaut de partenaire à utiliser pour un protocole spécifié. La valeur peut être substituée dans le **PartnerClaimType** spécifié dans l’élément **InputClaim** ou **OutputClaim**. Utilisez cet élément pour spécifier le nom par défaut d’un protocole.  |
 | Mask | 0:1 | Chaîne facultative de caractères de masquage qui peuvent être appliqués lors de l’affichage de la revendication. Par exemple, le numéro téléphone 324-232-4343 peut être masqué comme suit : XXX-XXX-4343. |
 | UserHelpText | 0:1 | Description du type de revendication qui peut aider les utilisateurs à comprendre sa raison d’être. La valeur peut être [localisée](localization.md). |
 | UserInputType | 0:1 | Type de contrôle d’entrée qui doit être accessible à l’utilisateur lors de l’entrée manuelle des données de revendication pour le type de revendication. Voir les types d’entrées utilisateur définis plus loin dans cette page. |
 | AdminHelpText | 0:1 | Description du type de revendication qui peut aider les administrateurs à comprendre sa raison d’être. |
 | Restriction | 0:1 | Restrictions de la valeur de cette revendication, par exemple une expression régulière (Regex) ou une liste de valeurs acceptables. La valeur peut être [localisée](localization.md). |
-PredicateValidationReference| 0:1 | Référence à un élément **PredicateValidationsInput** . Les éléments **PredicateValidationReference** vous permettent d’effectuer un processus de validation afin de vous assurer que seules des données correctement formées sont entrées. Pour plus d’informations, consultez [Predicates](predicates.md). |
+PredicateValidationReference| 0:1 | Référence à un élément **PredicateValidationsInput**. Les éléments **PredicateValidationReference** vous permettent d’effectuer un processus de validation afin de vous assurer que seules des données correctement formées sont entrées. Pour plus d’informations, consultez [Predicates](predicates.md). |
 
 
 
@@ -109,7 +109,7 @@ Dans l’exemple suivant, quand l’Infrastructure d’expérience d’identité
 </ClaimType>
 ```
 
-Ainsi, le jeton JWT émis par Azure AD B2C émet le `family_name` au lieu du nom de ClaimType **surname** .
+Ainsi, le jeton JWT émis par Azure AD B2C émet le `family_name` au lieu du nom de ClaimType **surname**.
 
 ```json
 {
@@ -178,7 +178,7 @@ L’élément **Restriction** contient les éléments suivants :
 
 #### <a name="enumeration"></a>Énumération
 
-L’élément **Enumeration** définit les options que l’utilisateur peut sélectionner pour une revendication dans l’interface utilisateur, telle qu’une valeur dans un `CheckboxMultiSelect`, un `DropdownSingleSelect`, ou un `RadioSingleSelect`. Vous pouvez également définir et localiser les options disponibles avec l’élément [LocalizedCollections](localization.md#localizedcollections). Pour rechercher un élément à partir d’une collection de revendications **Enumeration** , utilisez la transformation de revendications [GetMappedValueFromLocalizedCollection](string-transformations.md#getmappedvaluefromlocalizedcollection).
+L’élément **Enumeration** définit les options que l’utilisateur peut sélectionner pour une revendication dans l’interface utilisateur, telle qu’une valeur dans un `CheckboxMultiSelect`, un `DropdownSingleSelect`, ou un `RadioSingleSelect`. Vous pouvez également définir et localiser les options disponibles avec l’élément [LocalizedCollections](localization.md#localizedcollections). Pour rechercher un élément à partir d’une collection de revendications **Enumeration**, utilisez la transformation de revendications [GetMappedValueFromLocalizedCollection](string-transformations.md#getmappedvaluefromlocalizedcollection).
 
 L’élément **Enumeration** contient les attributs suivants :
 
@@ -223,14 +223,14 @@ L’exemple suivant configure une revendication **email** avec validation de l�
   <DisplayName>Email Address</DisplayName>
   <DataType>string</DataType>
   <DefaultPartnerClaimTypes>
-    <Protocol Name="OpenIdConnect" PartnerClaimType="email" />
+  <Protocol Name="OpenIdConnect" PartnerClaimType="email" />
   </DefaultPartnerClaimTypes>
   <UserHelpText>Email address that can be used to contact you.</UserHelpText>
   <UserInputType>TextBox</UserInputType>
   <Restriction>
     <Pattern RegularExpression="^[a-zA-Z0-9.+!#$%&amp;'^_`{}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" HelpText="Please enter a valid email address." />
-    </Restriction>
- </ClaimType>
+  </Restriction>
+</ClaimType>
 ```
 
 L’Infrastructure d’expérience d’identité affiche la revendication d’adresse e-mail avec validation de l’entrée du format d’e-mail :
@@ -241,7 +241,7 @@ L’Infrastructure d’expérience d’identité affiche la revendication d’ad
 
 Azure AD B2C prend en charge toute une gamme de types d’entrée d’utilisateur, telles qu’une zone de texte, un mot de passe et une liste déroulante pouvant être utilisées lors de l’entrée manuelle de données de revendications pour le type de revendication. Vous devez spécifier le **UserInputType** quand vous recueillez des informations de l’utilisateur à l’aide d’un [profil technique autodéclaré](self-asserted-technical-profile.md) et de [contrôles d’affichage](display-controls.md).
 
-Les types d’entrée utilisateur disponibles pour l’élément **UserInputType**  :
+Les types d’entrée utilisateur disponibles pour l’élément **UserInputType** :
 
 | UserInputType | ClaimType pris en charge | Description |
 | --------- | -------- | ----------- |

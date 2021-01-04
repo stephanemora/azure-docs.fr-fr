@@ -8,12 +8,12 @@ ms.date: 12/11/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: ea8300447b9aa596e8678038982771263a4c76f6
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 382adb36712fbf4bee83044c8b2d096223eb6269
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97358773"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97630035"
 ---
 # <a name="download-blobs-from-azure-blob-storage-by-using-azcopy-v10"></a>Télécharger des blobs à partir de Stockage Blob Azure en utilisant AzCopy v10
 
@@ -143,7 +143,7 @@ Utilisez ensuite la commande [azcopy copy](storage-ref-azcopy-copy.md) avec l’
 
 #### <a name="download-a-blob-snapshot"></a>Télécharger un instantané d’objet blob
 
-Vous pouvez télécharger un [instantané de blob](/azure/storage/blobs/snapshots-overview.md) en référençant la valeur **DateTime** d’un instantané de blob. 
+Vous pouvez télécharger un [instantané de blob](/azure/storage/blobs/snapshots-overview) en référençant la valeur **DateTime** d’un instantané de blob. 
 
 |    |     |
 |--------|-----------|
@@ -170,9 +170,9 @@ Pour obtenir la liste complète, consultez [Options](storage-ref-azcopy-copy.md#
 
 Vous trouverez plus d’exemples dans ces articles :
 
-- [Exemples : Télécharger](storage-use-azcopy-blobs-upload.md)
+- [Exemples : Charger](storage-use-azcopy-blobs-upload.md)
 - [Exemples : Copie entre comptes](storage-use-azcopy-blobs-copy.md)
-- [Exemples : Synchroniser](storage-use-azcopy-blobs-synchronize.md)
+- [Exemples : Synchroniser](storage-use-azcopy-blobs-synchronize.md)
 - [Exemples : Compartiments Amazon S3](storage-use-azcopy-s3.md)
 - [Exemples : Azure Files](storage-use-azcopy-files.md)
 - [Tutoriel : Migrer des données locales vers un stockage cloud à l’aide d’AzCopy](storage-use-azcopy-migrate-on-premises-data.md)

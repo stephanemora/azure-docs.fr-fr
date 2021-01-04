@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 12/02/2019
-ms.openlocfilehash: 17c3f07fe553e363d1eb2a997287feb77296a621
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 9b5693ddef5e512b0a95c87a700fd12acd4b5fae
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92540310"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654640"
 ---
 # <a name="use-the-net-sdk-for-apache-hbase"></a>Utiliser le SDK .NET pour Apache HBase
 
@@ -38,13 +38,13 @@ var credentials = new ClusterCredentials(new Uri("https://CLUSTERNAME.azurehdins
 client = new HBaseClient(credentials);
 ```
 
-Remplacez CLUSTERNAME par le nom de votre cluster HDInsight HBase, puis remplacez USERNAME et PASSWORD par les informations d’identification Apache Hadoop spécifiées lors de la création du cluster. Le nom d’utilisateur Hadoop par défaut est **admin** .
+Remplacez CLUSTERNAME par le nom de votre cluster HDInsight HBase, puis remplacez USERNAME et PASSWORD par les informations d’identification Apache Hadoop spécifiées lors de la création du cluster. Le nom d’utilisateur Hadoop par défaut est **admin**.
 
 ## <a name="create-a-new-table"></a>Créer une table
 
-HBase stocke des données dans des tables. Une table se compose de *Rowkey* , la clé primaire, et d’un ou de plusieurs groupes de colonnes appelées *familles de colonnes* . Les données de chaque table sont distribuées horizontalement par une plage Rowkey dans des *régions* . Chaque région dispose d’une clé de début et de fin. Une table peut comporter une ou plusieurs régions. À mesure que les données de la table augmentent, HBase fractionne les grandes régions en régions plus petites. Les régions sont stockées dans *des serveurs de région* , où un même serveur de région peut stocker plusieurs régions.
+HBase stocke des données dans des tables. Une table se compose de *Rowkey*, la clé primaire, et d’un ou de plusieurs groupes de colonnes appelées *familles de colonnes*. Les données de chaque table sont distribuées horizontalement par une plage Rowkey dans des *régions*. Chaque région dispose d’une clé de début et de fin. Une table peut comporter une ou plusieurs régions. À mesure que les données de la table augmentent, HBase fractionne les grandes régions en régions plus petites. Les régions sont stockées dans *des serveurs de région*, où un même serveur de région peut stocker plusieurs régions.
 
-Les données sont stockées physiquement dans *HFiles* . Un seul HFile contient des données pour une table, une région et une famille de colonnes. Les lignes du HFile sont stockées et triées sur Rowkey. Chaque HFile a un index *d’arbre B+* pour la récupération rapide des lignes.
+Les données sont stockées physiquement dans *HFiles*. Un seul HFile contient des données pour une table, une région et une famille de colonnes. Les lignes du HFile sont stockées et triées sur Rowkey. Chaque HFile a un index *d’arbre B+* pour la récupération rapide des lignes.
 
 Pour créer une table, spécifiez un `TableSchema` et des colonnes. Le code suivant vérifie si la table « RestSDKTable » existe déjà. Dans le cas contraire, la table est créée.
 

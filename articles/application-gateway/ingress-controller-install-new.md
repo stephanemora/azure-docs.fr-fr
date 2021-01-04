@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 5e3473a9afefe73fe7b07d3efda1f53675264fc8
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: 9f69f89f565b2d98e408b06e300ff781c13680ef
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94874625"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97693664"
 ---
 # <a name="how-to-install-an-application-gateway-ingress-controller-agic-using-a-new-application-gateway"></a>Comment installer un contrôleur d’entrée Application Gateway (AGIC) à l’aide d’une nouvelle instance Application Gateway
 
@@ -92,7 +92,7 @@ Cette étape permet d’ajouter les composants suivants à votre abonnement :
     az group create -n $resourceGroupName -l $location
 
     # modify the template as needed
-    az group deployment create \
+    az deployment group create \
             -g $resourceGroupName \
             -n $deploymentName \
             --template-file template.json \
@@ -101,7 +101,7 @@ Cette étape permet d’ajouter les composants suivants à votre abonnement :
 
 1. Une fois le déploiement terminé, téléchargez la sortie du déploiement dans un fichier nommé `deployment-outputs.json`.
     ```azurecli
-    az group deployment show -g $resourceGroupName -n $deploymentName --query "properties.outputs" -o json > deployment-outputs.json
+    az deployment group show -g $resourceGroupName -n $deploymentName --query "properties.outputs" -o json > deployment-outputs.json
     ```
 
 ## <a name="set-up-application-gateway-ingress-controller"></a>Configurer le contrôleur d’entrée Application Gateway

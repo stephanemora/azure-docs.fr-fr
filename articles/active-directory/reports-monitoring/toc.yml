@@ -98,9 +98,9 @@
     - name: Applets de commande Azure AD PowerShell pour la création de rapports
       href: reference-powershell-reporting.md
     - name: Informations de référence sur l’API des journaux d’audit
-      href: /graph/api/resources/directoryaudit?view=graph-rest-beta
+      href: /graph/api/resources/directoryaudit?view=graph-rest-1.0
     - name: Informations de référence sur l’API des journaux d’activité de connexion
-      href: /graph/api/resources/signin?view=graph-rest-beta
+      href: /graph/api/resources/signin?view=graph-rest-1.0
     - name: Activités d’audit
       href: reference-audit-activities.md
     - name: Stratégies de conservation des données
