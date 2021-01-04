@@ -8,16 +8,16 @@ ms.topic: quickstart
 ms.author: jukullam
 ms.date: 10/12/2020
 ms.custom: github-actions-azure
-ms.openlocfilehash: 9203cebbd721b918f2514f7615712c035a0460ed
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 216658b5f5443409e7bd44cbd29bff40cd56c75f
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92669751"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606978"
 ---
 # <a name="use-github-actions-to-connect-to-azure-sql-database"></a>Utiliser GitHub Actions pour se connecter à Azure SQL Database
 
-Familiarisez-vous avec [GitHub Actions](https://docs.github.com/en/actions) en utilisant un workflow pour déployer des mises à jour de base de données sur [Azure SQL Database](../azure-sql-iaas-vs-paas-what-is-overview.md). 
+Familiarisez-vous avec [GitHub Actions](https://docs.github.com/en/free-pro-team@latest/actions) en utilisant un workflow pour déployer des mises à jour de base de données sur [Azure SQL Database](../azure-sql-iaas-vs-paas-what-is-overview.md). 
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -30,7 +30,7 @@ Familiarisez-vous avec [GitHub Actions](https://docs.github.com/en/actions) en u
 
 ## <a name="workflow-file-overview"></a>Vue d’ensemble du fichier de workflow
 
-Un workflow GitHub Actions est défini par un fichier YAML (.yml) situé dans le chemin `/.github/workflows/` de votre dépôt. Cette définition contient les étapes et les paramètres qui composent le workflow.
+Un workflow GitHub Actions est défini par un fichier YAML (.yml) dans le chemin `/.github/workflows/` de votre dépôt. Cette définition contient les étapes et les paramètres qui composent le workflow.
 
 Le fichier comporte deux sections :
 
@@ -41,7 +41,7 @@ Le fichier comporte deux sections :
 
 ## <a name="generate-deployment-credentials"></a>Générer les informations d’identification du déploiement
 
-Vous pouvez créer un [principal de service](../../active-directory/develop/app-objects-and-service-principals.md) à l’aide de la commande [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) dans [Azure CLI](/cli/azure/). Exécutez cette commande en utilisant [Azure Cloud Shell](https://shell.azure.com/) dans le portail Azure ou en sélectionnant le bouton **Essayer** .
+Vous pouvez créer un [principal de service](../../active-directory/develop/app-objects-and-service-principals.md) à l’aide de la commande [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) dans [Azure CLI](/cli/azure/). Exécutez cette commande en utilisant [Azure Cloud Shell](https://shell.azure.com/) dans le portail Azure ou en sélectionnant le bouton **Essayer**.
 
 Remplacez les espaces réservés `server-name` par le nom de votre serveur SQL hébergé sur Azure. Remplacez les valeurs `subscription-id` et `resource-group` par l’ID d’abonnement et le groupe de ressources connectés à votre serveur SQL.  
 
@@ -68,7 +68,7 @@ La sortie est un objet JSON dont les informations d’identification d’attribu
 
 ## <a name="copy-the-sql-connection-string"></a>Copier la chaîne de connexion SQL 
 
-Dans le portail Azure, accédez à votre base de données Azure SQL Database, puis ouvrez **Paramètres** > **Chaînes de connexion** . Copiez la chaîne de connexion **ADO.NET** . Remplacez les valeurs d’espace réservé spécifiées pour `your_database` et `your_password`. La chaîne de connexion ressemblera à cette sortie. 
+Dans le portail Azure, accédez à votre base de données Azure SQL Database, puis ouvrez **Paramètres** > **Chaînes de connexion**. Copiez la chaîne de connexion **ADO.NET**. Remplacez les valeurs d’espace réservé spécifiées pour `your_database` et `your_password`. La chaîne de connexion ressemblera à cette sortie. 
 
 ```output
     Server=tcp:my-sql-server.database.windows.net,1433;Initial Catalog={your-database};Persist Security Info=False;User ID={admin-name};Password={your-password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
@@ -80,7 +80,7 @@ Vous utiliserez la chaîne de connexion comme secret GitHub.
 
 1. Dans [GitHub](https://github.com/), accédez à votre référentiel.
 
-1. Sélectionnez **Paramètres > Secrets > Nouveau secret** .
+1. Sélectionnez **Paramètres > Secrets > Nouveau secret**.
 
 1. Collez l’intégralité de la sortie JSON de la commande Azure CLI dans le champ de valeur du secret. Nommez le secret `AZURE_CREDENTIALS`.
 
@@ -92,7 +92,7 @@ Vous utiliserez la chaîne de connexion comme secret GitHub.
         creds: ${{ secrets.AZURE_CREDENTIALS }}
    ```
 
-1. Sélectionnez de nouveau **Nouveau secret** . 
+1. Sélectionnez de nouveau **Nouveau secret**. 
 
 1. Collez la valeur de la chaîne de connexion dans le champ de valeur du secret. Nommez le secret `AZURE_SQL_CONNECTION_STRING`.
 
@@ -101,7 +101,7 @@ Vous utiliserez la chaîne de connexion comme secret GitHub.
 
 1. Accédez à **Actions** pour votre référentiel GitHub. 
 
-2. Sélectionnez **Configurer vous-même un workflow** . 
+2. Sélectionnez **Configurer vous-même un workflow**. 
 
 2. Supprimez tous les éléments après la section `on:` de votre fichier de workflow. Par exemple, votre workflow restant peut ressembler à ce qui suit. 
 

@@ -3,12 +3,12 @@ title: Configurer un labo pour utiliser une passerelle des services Bureau à di
 description: Découvrez comment configurer un labo dans Azure DevTest Labs avec une passerelle des services Bureau à distance afin de garantir un accès sécurisé aux machines virtuelles de labo sans avoir à exposer le port RDP.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: b48a0709deb21ca0f8a27d1cf953c7d8d4ba2cc8
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: dcf5191dea64c3d7bf28b9ce1c616d3d2defb73e
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92144697"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695693"
 ---
 # <a name="configure-your-lab-in-azure-devtest-labs-to-use-a-remote-desktop-gateway"></a>Configurer votre labo dans Azure DevTest Labs pour utiliser une passerelle des services Bureau à distance
 Dans Azure DevTest Labs, vous pouvez configurer une passerelle des services Bureau à distance pour votre labo afin de garantir un accès sécurisé aux machines virtuelles de labo sans avoir à exposer le port RDP. Le labo fournit un emplacement centralisé permettant aux utilisateurs de votre labo de voir toutes les machines virtuelles auxquelles ils ont accès et de s’y connecter. Le bouton **Se connecter** dans la page **Machine virtuelle** crée un fichier RDP spécifique à la machine que vous pouvez ouvrir pour vous connecter à cette dernière. Vous pouvez personnaliser et sécuriser davantage la connexion RDP en connectant votre labo à une passerelle des services Bureau à distance. 
@@ -135,7 +135,7 @@ Suivez ces étapes afin de configurer un exemple de solution pour la batterie de
     Le modèle peut être déployé avec l’interface Azure CLI à l’aide de la commande suivante :
 
     ```azurecli
-    az group deployment create --resource-group {resource-group} --template-file azuredeploy.json --parameters @azuredeploy.parameters.json -–parameters _artifactsLocation="{storage-account-endpoint}/{container-name}" -–parameters _artifactsLocationSasToken = "?{sas-token}"
+    az deployment group create --resource-group {resource-group} --template-file azuredeploy.json --parameters @azuredeploy.parameters.json -–parameters _artifactsLocation="{storage-account-endpoint}/{container-name}" -–parameters _artifactsLocationSasToken = "?{sas-token}"
     ```
 
     Voici les descriptions des paramètres :

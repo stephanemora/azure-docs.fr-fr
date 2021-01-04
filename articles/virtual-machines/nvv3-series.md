@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: dc6056653fc50976439d4b16594e6d554e62f061
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: 65107b0924351ca6debf37201e8849ffe8dd1eab
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91652820"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589424"
 ---
 # <a name="nvv3-series"></a>Série NVv3
 
@@ -25,7 +25,8 @@ Chaque GPU dans les instances NVv3 est fourni avec une licence GRID. Cette licen
 [Mise en cache du Stockage Premium](premium-storage-performance.md) : Pris(e) en charge<br>
 [Migration dynamique](maintenance-and-updates.md) : Non pris en charge<br>
 [Mises à jour avec préservation de la mémoire](maintenance-and-updates.md) : Non pris en charge<br>
-[Génération de machine virtuelle prise en charge](generation-2.md) : Générations 1 et 2<br>
+[Génération de machine virtuelle prise en charge](generation-2.md) : Génération 1 et 2<br>
+Mise en réseau accélérée : Pris en charge<br>
 <br>
 
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | GPU | Mémoire GPU : Gio | Disques de données max. | Débit du disque non mis en cache max. : IOPS/Mbits/s | Nombre max de cartes réseau / Bande passante réseau attendue (MBps) | Stations de travail virtuelles | Applications virtuelles |
@@ -35,8 +36,6 @@ Chaque GPU dans les instances NVv3 est fourni avec une licence GRID. Cette licen
 | Standard_NV48s_v3 |48 | 448 | 1 280 | 4 | 32 | 32 | 80 000/800 | 8 / 24000 | 4 | 100 |
 
 <sup>1</sup> 1 GPU = la moitié d’une carte M60.
-
-<sup>2</sup> À l’heure actuelle, la mise en réseau accélérée n’est pas prise en charge sur cette famille de machines virtuelles. Par conséquent, les performances du réseau réel peuvent être inférieures aux pics théoriques capturés ici.
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

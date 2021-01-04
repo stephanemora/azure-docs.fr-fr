@@ -4,20 +4,20 @@ description: La suppression réversible dans Azure Key Vault vous permet de réc
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-author: msmbaldwin
-ms.author: mbaldwin
-ms.date: 09/30/2020
-ms.openlocfilehash: 184003e42a14e786cc52c4f585c6781f7b9fe0e7
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+author: ShaneBala-keyvault
+ms.author: sudbalas
+ms.date: 12/15/2020
+ms.openlocfilehash: 0f428954ac6ef74253e6e6e430977a85a3943f99
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452192"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589982"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Vue d’ensemble de la suppression réversible d’Azure Key Vault
 
 > [!IMPORTANT]
-> Vous devez immédiatement activer la suppression réversible sur vos coffres de clés. La possibilité de refuser la suppression réversible sera déconseillée à la fin de l’année, et la protection par suppression réversible sera automatiquement activée pour tous les coffres de clés.  Vous trouverez plus de détails [ici](soft-delete-change.md).
+> Vous devez immédiatement activer la suppression réversible sur vos coffres de clés. la possibilité de refuser la suppression réversible sera bientôt dépréciée. Vous trouverez plus de détails [ici](soft-delete-change.md).
 
 La fonctionnalité de suppression réversible de Key Vault permet la récupération des coffres et des objets de coffres supprimés (par exemple, des clés, secrets ou certificats). Nous aborderons en particulier les scénarios suivants :  Cette sécurité offre les protections suivantes :
 

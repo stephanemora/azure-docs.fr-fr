@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 10/09/2020
-ms.openlocfilehash: 982747c1a7e093f84daeb63e75cfdf439d3fccf9
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 34dddd8e5f3fb418fc7155630bf82a922e418402
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546719"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97657088"
 ---
 # <a name="restore-a-dropped-azure-database-for-mysql-server"></a>Restaurer un serveur Azure Database pour MySQL supprimé
 
@@ -45,15 +45,15 @@ Pour restaurer un serveur Azure Database pour MySQL supprimé, vous avez besoin 
  6. Faites défiler la section du corps de la requête et collez le code suivant en remplaçant « Dropped Server Location », « submissionTimestamp » et « resourceId ». Pour « restorePointInTime », spécifiez une valeur de « submissionTimestamp » moins **15 minutes** pour vous assurer que la commande ne génère pas d’erreur.
  
     ```json
-        {
-          "location": "Dropped Server Location",  
-          "properties": 
-              {
-                  "restorePointInTime": "submissionTimestamp - 15 minutes",
-                  "createMode": "PointInTimeRestore",
-                  "sourceServerId": "resourceId"
+    {
+        "location": "Dropped Server Location",  
+        "properties": 
+            {
+                "restorePointInTime": "submissionTimestamp - 15 minutes",
+                "createMode": "PointInTimeRestore",
+                "sourceServerId": "resourceId"
             }
-        }
+    }
     ```
 
 7. Si vous voyez le code de réponse 201 ou 202, cela signifie que la requête de restauration a été correctement envoyée. 

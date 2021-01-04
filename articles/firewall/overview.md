@@ -9,12 +9,12 @@ ms.custom: mvc, contperf-fy21q1
 ms.date: 12/03/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 3bfc8704919fc26db692701eaca526dd5c333b6f
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 04ba20bd5607bc309735e509ac37b15c33445c52
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033491"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672731"
 ---
 # <a name="what-is-azure-firewall"></a>Qu’est-ce qu’un pare-feu Azure ?
 
@@ -68,7 +68,6 @@ Les règles de filtrage réseau pour les protocoles autres que TCP/UDP (par exem
 |Les mises à jour de configuration peuvent prendre cinq minutes en moyenne|Une mise à jour de configuration du Pare-feu Azure peut prendre trois à cinq minutes en moyenne ; les mises à jour parallèles ne sont pas prises en charge.|Un correctif est en cours d’étude.|
 |Le pare-feu Azure utilise des en-têtes SNI TLS pour filtrer le trafic HTTPS et MSSQL|Si le logiciel du navigateur ou du serveur ne prend pas en charge l’extension SNI, vous ne pourrez pas vous connecter via le pare-feu Azure.|Si le logiciel du navigateur ou du serveur ne prend pas en charge SNI, vous pourrez peut-être contrôler la connexion à l’aide d’une règle réseau au lieu d’une règle d’application. Consultez [Indication du nom du serveur](https://wikipedia.org/wiki/Server_Name_Indication) (SNI) pour découvrir les logiciels qui prennent en charge SNI.|
 |Le DNS personnalisé ne fonctionne pas avec le tunneling forcé|Si le tunneling forcé est activé, le DNS personnalisé ne fonctionne pas.|Un correctif est en cours d’étude.|
-|Nouvelle prise en charge des adresses IP publiques pour plusieurs zones de disponibilité|Vous ne pouvez pas ajouter une nouvelle adresse IP publique quand vous déployez un pare-feu avec deux zones de disponibilité (1 et 2, 2 et 3 ou 1 et 3)|Il s’agit d’une limitation des ressources d’adresse IP publique.|
 |Démarrer/Arrêter ne fonctionne pas avec un pare-feu configuré en mode tunnel forcé.|Démarrer/Arrêter ne fonctionne pas avec le pare-feu Azure configuré en mode tunnel forcé. Toute tentative de démarrage de Pare-feu Azure avec le tunneling forcé configuré provoque l’erreur suivante :<br><br>*Set-AzFirewall : impossible d’ajouter la configuration IP de gestion AzureFirewall FW-xx à un pare-feu existant. Redéployez avec une configuration IP de gestion si vous souhaitez utiliser la prise en charge du tunneling forcé.<br>StatusCode : 400<br>ReasonPhrase : Requête incorrecte*|En cours d’examen.<br><br>En guise de solution de contournement, vous pouvez supprimer le pare-feu existant et en créer un nouveau avec les mêmes paramètres.|
 |Impossible d’ajouter des étiquettes de stratégie de pare-feu au moyen du portail|La stratégie du Pare-feu Azure a une limite de prise en charge des correctifs qui vous empêche d’ajouter une étiquette à l’aide du portail Azure. L’erreur suivante est générée : *Impossible d’enregistrer les étiquettes de la ressource*.|Un correctif est en cours d’étude. Sinon, vous pouvez utiliser l’applet de commande Azure PowerShell `Set-AzFirewallPolicy` pour mettre à jour les étiquettes.|
 |IPv6 pas encore pris en charge|Si vous ajoutez une adresse IPv6 à une règle, le pare-feu échoue.|Utilisez uniquement des adresses IPv4. La prise en charge d’IPv6 est en cours d’examen.|

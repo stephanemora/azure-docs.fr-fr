@@ -15,12 +15,12 @@ ms.date: 07/01/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f38ef7db114705392bd1d3dc6f9a4562a809e20
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a6ddde80ca554aea25d24694aff76e61e47d928
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86023865"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672455"
 ---
 # <a name="activate-my-azure-resource-roles-in-privileged-identity-management"></a>Activer mes rôles de ressources Azure dans Privileged Identity Management
 
@@ -42,7 +42,7 @@ Lorsque vous avez besoin d’endosser un rôle de ressources Azure, vous pouvez 
 
 1. Sélectionnez **Rôles de ressources Azure** pour afficher la liste de vos rôles de ressources Azure éligibles.
 
-   ![Page Mes rôles - Rôles de ressources Azure](./media/pim-resource-roles-activate-your-roles/resources-my-roles-azure-resources.png)
+    ![Page Mes rôles - Rôles de ressources Azure](./media/pim-resource-roles-activate-your-roles/resources-my-roles-azure-resources.png)
 
 1. Dans la liste **Rôles de ressources Azure**, recherchez le rôle que vous souhaitez activer.
 
@@ -50,7 +50,7 @@ Lorsque vous avez besoin d’endosser un rôle de ressources Azure, vous pouvez 
 
 1. Sélectionnez **Activer** pour ouvrir la page Activer.
 
-     ![Volet Activer ouvert comportant l’étendue, l’heure de début, la durée et le motif](./media/pim-resource-roles-activate-your-roles/azure-role-eligible-activate.png)
+    ![Volet Activer ouvert comportant l’étendue, l’heure de début, la durée et le motif](./media/pim-resource-roles-activate-your-roles/azure-role-eligible-activate.png)
 
 1. Si votre rôle exige une authentification multifacteur, sélectionnez **Vérifier votre identité avant de continuer**. Vous ne devez vous authentifier qu’une seule fois par session.
 

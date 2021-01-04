@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 3097f7b0b6b69dc470877d4951efbcbd3c7482b1
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 212a6b0786b371bfb92f2e193e67d9accd432bf8
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078491"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97657241"
 ---
 # <a name="api-management-transformation-policies"></a>Stratégies de transformation de la Gestion des API
 Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](./api-management-policies.md).
@@ -316,12 +316,12 @@ Dans cet exemple, la stratégie permet d’acheminer la requête vers un serveur
 
 ```xml
 <set-body>
-@{ 
-    string inBody = context.Request.Body.As<string>(preserveContent: true); 
-    if (inBody[0] =='c') { 
-        inBody[0] = 'm'; 
-    } 
-    return inBody; 
+@{ 
+    string inBody = context.Request.Body.As<string>(preserveContent: true); 
+    if (inBody[0] =='c') { 
+        inBody[0] = 'm'; 
+    } 
+    return inBody; 
 }
 </set-body>
 ```
@@ -329,14 +329,14 @@ Dans cet exemple, la stratégie permet d’acheminer la requête vers un serveur
 #### <a name="example-accessing-the-body-as-a-jobject-note-that-since-we-are-not-reserving-the-original-request-body-accessing-it-later-in-the-pipeline-will-result-in-an-exception"></a>Exemple d’accès au corps sous forme de JObject. Notez que puisque nous ne conservons pas le corps de la requête d’origine, une tentative pour y accéder ultérieurement dans le pipeline entraîne une exception.
 
 ```xml
-<set-body> 
-@{ 
-    JObject inBody = context.Request.Body.As<JObject>(); 
-    if (inBody.attribute == <tag>) { 
-        inBody[0] = 'm'; 
-    } 
-    return inBody.ToString(); 
-} 
+<set-body> 
+@{ 
+    JObject inBody = context.Request.Body.As<JObject>(); 
+    if (inBody.attribute == <tag>) { 
+        inBody[0] = 'm'; 
+    } 
+    return inBody.ToString(); 
+} 
 </set-body>
 
 ```
@@ -697,7 +697,7 @@ OriginalUrl.
   <outbound>
       <base />
       <xsl-transform>
-        <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+          <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
             <xsl:output omit-xml-declaration="yes" method="xml" indent="yes" />
             <!-- Copy all nodes directly-->
             <xsl:template match="node()| @*|*">
@@ -705,7 +705,7 @@ OriginalUrl.
                     <xsl:apply-templates select="@* | node()|*" />
                 </xsl:copy>
             </xsl:template>
-        </xsl:stylesheet>
+          </xsl:stylesheet>
     </xsl-transform>
   </outbound>
 </policies>

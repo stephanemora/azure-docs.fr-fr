@@ -14,12 +14,12 @@ ms.date: 10/14/2020
 ms.author: marsma
 ms.reviewer: shoatman
 ms.custom: aaddev
-ms.openlocfilehash: 752e7dae9040059c662a93d9a9d668bac0e8e2d8
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: bf9b3a154e19fab08c46f9838f555e223f10e8a0
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074666"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672285"
 ---
 # <a name="adal-to-msal-migration-guide-for-android"></a>Guide de migration ADAL vers MSAL pour Android
 
@@ -89,7 +89,7 @@ Si vous utilisez actuellement ADAL et que vous n’avez pas besoin d’utiliser 
 > [!CAUTION]
 > Il n’est pas possible de définir à la fois des étendues et un ID de la ressource. Toute tentative d’une telle définition entraîne un `IllegalArgumentException`.
 
- Cela entraîne le même comportement v1 que celui que vous connaissez. Toutes les autorisations demandées dans votre inscription d’application sont demandées à l’utilisateur lors de sa première interaction.
+Cela entraîne le même comportement v1 que celui que vous connaissez. Toutes les autorisations demandées dans votre inscription d’application sont demandées à l’utilisateur lors de sa première interaction.
 
 ### <a name="authenticate-and-request-permissions-only-as-needed"></a>Authentifier et demander des autorisations uniquement si elles sont nécessaires
 
@@ -131,13 +131,13 @@ Si vous tentez d’utiliser une autorité qui n’est pas connue de Microsoft et
 ### <a name="logging"></a>Journalisation
 Vous pouvez maintenant configurer la journalisation de façon déclarative dans le cadre de votre configuration, comme suit :
 
- ```
- "logging": {
-    "pii_enabled": false,
-    "log_level": "WARNING",
-    "logcat_enabled": true
-  }
-  ```
+```json
+"logging": {
+  "pii_enabled": false,
+  "log_level": "WARNING",
+  "logcat_enabled": true
+}
+```
 
 ## <a name="migrate-from-userinfo-to-account"></a>Migrer depuis UserInfo vers Account
 
@@ -278,30 +278,30 @@ Dans MSAL, il existe une hiérarchie d’exceptions. Chacune possède son propre
 // New interface
   StringBuilder logs = new StringBuilder();
   Logger.getInstance().setExternalLogger(new ILoggerCallback() {
-            @Override
-            public void log(String tag, Logger.LogLevel logLevel, String message, boolean containsPII) {
-                logs.append(message).append('\n');
-            }
-        });
+      @Override
+      public void log(String tag, Logger.LogLevel logLevel, String message, boolean containsPII) {
+          logs.append(message).append('\n');
+      }
+  });
 
 // New Log Levels:
 public enum LogLevel
 {
-        /**
-         * Error level logging.
-         */
-        ERROR,
-        /**
-         * Warning level logging.
-         */
-        WARNING,
-        /**
-         * Info level logging.
-         */
-        INFO,
-        /**
-         * Verbose level logging.
-         */
-        VERBOSE
+    /**
+     * Error level logging.
+     */
+    ERROR,
+    /**
+     * Warning level logging.
+     */
+    WARNING,
+    /**
+     * Info level logging.
+     */
+    INFO,
+    /**
+     * Verbose level logging.
+     */
+    VERBOSE
 }
 ```

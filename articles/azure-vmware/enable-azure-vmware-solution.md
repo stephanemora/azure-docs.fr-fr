@@ -3,12 +3,12 @@ title: Comment activer votre ressource Azure VMware Solution
 description: Découvrez comment envoyer une demande de support pour activer votre ressource Azure VMware Solution. Vous pouvez également demander plus d’hôtes dans votre cloud privé Azure VMware Solution.
 ms.topic: how-to
 ms.date: 11/12/2020
-ms.openlocfilehash: 8bcb61c07a3f0310754cd50931f4576e836deffb
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 6d614dffc4ab3127e1e6740b1a8773e5fd7c23ff
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97346535"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97630885"
 ---
 # <a name="how-to-enable-azure-vmware-solution-resource"></a>Comment activer la ressource Azure VMware Solution
 Découvrez comment envoyer une demande de support pour activer votre ressource [Azure VMware Solution](introduction.md). Vous pouvez également demander plus d’hôtes dans votre cloud privé Azure VMware Solution.
@@ -61,7 +61,7 @@ Avant de créer votre ressource Azure VMware Solution, vous devez soumettre un t
 
 ## <a name="enable-azure-vmware-solution-for-csp-customers"></a>Activer Azure VMware Solution pour les clients CSP 
 
-Les fournisseurs de solutions Cloud doivent utiliser l’[Espace partenaires Microsoft](https://partner.microsoft.com) pour activer Azure VMware Solution pour leurs clients. Cet article utilise le [plan Azure CSP](/partner-center/azure-plan-lp.md) comme exemple afin d’illustrer la procédure d’achat pour les partenaires.
+Les fournisseurs de solutions Cloud doivent utiliser l’[Espace partenaires Microsoft](https://partner.microsoft.com) pour activer Azure VMware Solution pour leurs clients. Cet article utilise le [plan Azure CSP](/partner-center/azure-plan-lp) comme exemple afin d’illustrer la procédure d’achat pour les partenaires.
 
    >[!IMPORTANT] 
    >Le service Azure VMware Solution ne fournit pas l’architecture mutualisée requise. Les partenaires d’hébergement qui en ont besoin ne sont pas pris en charge. 
@@ -76,9 +76,9 @@ Les fournisseurs de solutions Cloud doivent utiliser l’[Espace partenaires Mic
 
 1. Sélectionnez **Plan Azure**, puis **Ajouter au panier**. 
 
-1. Passez en revue et terminez la configuration générale de l’abonnement au plan Azure pour votre client. Pour plus d’informations, consultez la [Documentation de l’Espace partenaires Microsoft](/partner-center/azure-plan-manage.md).
+1. Passez en revue et terminez la configuration générale de l’abonnement au plan Azure pour votre client. Pour plus d’informations, consultez la [Documentation de l’Espace partenaires Microsoft](/partner-center/azure-plan-manage).
 
-Une fois le plan Azure configuré et les [autorisations Azure RBAC](/partner-center/azure-plan-manage.md) nécessaires en place pour l’abonnement, vous devez contacter Microsoft afin d’activer le quota pour un abonnement à un plan Azure. Accédez au portail Azure à partir de l’[Espace partenaires Microsoft](https://partner.microsoft.com) à l’aide de la procédure **Administrateur pour le compte de**.
+Une fois le plan Azure configuré et les [autorisations Azure RBAC](/partner-center/azure-plan-manage) nécessaires en place pour l’abonnement, vous devez contacter Microsoft afin d’activer le quota pour un abonnement à un plan Azure. Accédez au portail Azure à partir de l’[Espace partenaires Microsoft](https://partner.microsoft.com) à l’aide de la procédure **Administrateur pour le compte de**.
 
 1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com).
 

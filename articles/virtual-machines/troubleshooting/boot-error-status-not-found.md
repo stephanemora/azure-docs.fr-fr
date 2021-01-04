@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: v-miegge
-ms.openlocfilehash: 3677d67f55cfccdc80245b2ec870ffa76b0a1940
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff7d5a4e1181dccedc3584d958038a1d695c57ca
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87088663"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97657122"
 ---
 # <a name="troubleshoot-windows-boot-manager-error----0xc0000225-status-not-found"></a>Résoudre les problèmes liés à l’erreur de Gestionnaire de démarrage Windows : 0xC0000225 « État introuvable »
  
@@ -126,7 +126,7 @@ Un endommagement de la ruche du Registre peut être due aux causes suivantes :
       `dir <BINARY WITH ".SYS" EXTENSION>  /s`
 
       Cette commande répertorie toutes les versions du fichier que la machine possède, ce qui vous donne l’historique du chemin d’accès de ce composant.
-      
+
       Par exemple, **dir cng.sys** sera renommé **dir cng.sys /s**.
 
    1. Choisissez la version la plus récente du fichier dans la liste (ou celle que vous préférez) et copiez le fichier dans le dossier **windows\system32** à l’aide du chemin d’accès précédent et de la commande suivante :

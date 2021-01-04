@@ -1,5 +1,5 @@
 ---
-title: Copier des données de Presto avec Azure Data Factory (préversion)
+title: Copier des données de Presto avec Azure Data Factory
 description: Découvrez comment utiliser l’activité de copie pour copier des données de Presto vers des magasins de données récepteurs pris en charge dans le cadre d’un pipeline Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -9,22 +9,19 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 12/18/2020
 ms.author: jingwang
-ms.openlocfilehash: 15f4133b03c1fe77548425500445937e86ed5a8e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af05983432c0f76a88ff82a3638d86a971ef77f5
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87372499"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680709"
 ---
-# <a name="copy-data-from-presto-using-azure-data-factory-preview"></a>Copier des données de Presto avec Azure Data Factory (préversion)
+# <a name="copy-data-from-presto-using-azure-data-factory"></a>Copier des données de Presto avec Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Cet article explique comment utiliser l’activité de copie dans Azure Data Factory pour copier des données de Presto. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
-
-> [!IMPORTANT]
-> Ce connecteur est actuellement en préversion. Essayez-le et envoyez-nous vos commentaires. Si vous souhaitez établir une dépendance sur les connecteurs en préversion dans votre solution, veuillez contacter le [support Azure](https://azure.microsoft.com/support/).
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 

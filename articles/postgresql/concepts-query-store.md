@@ -6,12 +6,12 @@ ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/01/2020
-ms.openlocfilehash: 7b6c8faafac34ada664ddfadebf8d71a16c73fa7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5dff78989eef17f95d8b8dd108baafc53a3f761a
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710530"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97657020"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Superviser les performances avec le Magasin des requêtes
 
@@ -149,25 +149,25 @@ Cette vue retourne toutes les données du Magasin des requêtes. Il existe une l
 ### <a name="query_storequery_texts_view"></a>query_store.query_texts_view
 Cette vue retourne les données du texte des requêtes du Magasin des requêtes. Il existe une ligne pour chaque valeur query_text distincte.
 
-|**Nom**|  **Type**|   **Description**|
-|---|---|---|
-|query_text_id  |bigint     |ID de la table query_texts|
-|query_sql_text |Varchar(10000)     |Texte d’une instruction représentative. Différentes requêtes ayant la même structure sont regroupées en clusters ; ce texte est le texte de la première des requêtes du cluster.|
+| **Nom** | **Type** | **Description** |
+|--|--|--|
+| query_text_id | bigint | ID de la table query_texts |
+| query_sql_text | Varchar(10000) | Texte d’une instruction représentative. Différentes requêtes ayant la même structure sont regroupées en clusters ; ce texte est le texte de la première des requêtes du cluster. |
 
 ### <a name="query_storepgms_wait_sampling_view"></a>query_store.pgms_wait_sampling_view
 Cette vue retourne les données des événements d’attente du Magasin des requêtes. Il existe une ligne pour chaque ID de base de données, ID d’utilisateur, ID de requête et événement distinct.
 
-|**Nom**|  **Type**|   **Informations de référence**| **Description**|
-|---|---|---|---|
-|user_id    |oid    |pg_authid.oid  |OID de l’utilisateur qui a exécuté l’instruction|
-|db_id  |oid    |pg_database.oid    |OID de la base de données dans laquelle l’instruction a été exécutée|
-|query_id   |bigint     ||Code de hachage interne, calculé à partir de l’arborescence d’analyse de l’instruction|
-|event_type |text       ||Type d’événement pour lequel le backend est en attente|
-|événement  |text       ||Nom de l’événement d’attente si le backend est actuellement en attente|
-|calls  |Integer        ||Nombre du même événement capturé|
-
+| **Nom** | **Type** | **Informations de référence** | **Description** |
+|--|--|--|--|
+| user_id | oid | pg_authid.oid | OID de l’utilisateur qui a exécuté l’instruction |
+| db_id | oid | pg_database.oid | OID de la base de données dans laquelle l’instruction a été exécutée |
+| query_id | bigint |  | Code de hachage interne, calculé à partir de l’arborescence d’analyse de l’instruction |
+| event_type | text |  | Type d’événement pour lequel le backend est en attente |
+| événement | text |  | Nom de l’événement d’attente si le backend est actuellement en attente |
+| calls | Integer |  | Nombre du même événement capturé |
 
 ### <a name="functions"></a>Fonctions
+
 Query_store.qs_reset() retourne void
 
 `qs_reset` ignore toutes les statistiques collectées jusqu’à présent par le Magasin des requêtes. Cette fonction peut uniquement être exécutée par le rôle d’administrateur de serveur.

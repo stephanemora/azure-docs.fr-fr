@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 12/18/2020
 ms.author: jingwang
-ms.openlocfilehash: f43f516b0999c4d5b775fc9b78dea9b05e228f0d
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 6670d6dc676ebefa149815253d5ce65c8a9b1abe
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97346246"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680939"
 ---
 # <a name="copy-data-from-the-hdfs-server-by-using-azure-data-factory"></a>Copier des données à partir d’un serveur HDFS à l’aide d’Azure Data Factory
 
@@ -284,7 +284,7 @@ Quelle que soit l’option, veillez à activer webhdfs pour le cluster Hadoop :
 1. Créez le principal HTTP et le keytab pour webhdfs.
 
     > [!IMPORTANT]
-    > Le principal HTTP Kerberos doit commencer par « **HTTP/**  » conformément à la spécification HTTP SPNEGO de Kerberos.
+    > Le principal HTTP Kerberos doit commencer par « **HTTP/**  » conformément à la spécification HTTP SPNEGO de Kerberos. Pour plus d’informations, cliquez [ici](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#HDFS_Configuration_Options).
 
     ```bash
     Kadmin> addprinc -randkey HTTP/<namenode hostname>@<REALM.COM>

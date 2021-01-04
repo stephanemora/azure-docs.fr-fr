@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: e64df21b31d686b72b210d2c62956745350891f5
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: cd64c80acceb1542c080fc45efbce59f287d448a
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895390"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680694"
 ---
 # <a name="how-to-use-the-azure-maps-spatial-io-module"></a>Utiliser le module E/S spatiales Azure Maps
 
-Le kit de développement logiciel (SDK) web Azure Maps fournit le module **E/S spatiales** , qui intègre les données spatiales au kit de développement logiciel (SDK) web Azure Maps à l’aide de JavaScript ou TypeScript. Les puissantes fonctionnalités de ce module permettent aux développeurs d’effectuer les opérations suivantes :
+Le kit de développement logiciel (SDK) web Azure Maps fournit le module **E/S spatiales**, qui intègre les données spatiales au kit de développement logiciel (SDK) web Azure Maps à l’aide de JavaScript ou TypeScript. Les puissantes fonctionnalités de ce module permettent aux développeurs d’effectuer les opérations suivantes :
 
 - [Lire et écrire des fichiers de données spatiales courants](spatial-io-read-write-spatial-data.md). Les formats de fichiers pris en charge sont les suivants : Fichiers KML, KMZ, GPX, GeoRSS, GML, GeoJSON et CSV contenant des colonnes avec des informations spatiales. Prend également en charge le texte connu (WKT).
 - [Connectez-vous aux services Open Geospatial Consortium (OGC) et intégrez-les au kit de développement logiciel (SDK) web Azure Maps. Superposez les services WMS (Web Map Services) et WMTS (Web Map Tile Services) en tant que couches sur la carte](spatial-io-add-ogc-map-layer.md).
@@ -30,10 +30,9 @@ Dans ce guide, nous allons apprendre à intégrer et à utiliser le module E/S s
 
 Cette vidéo fournit une vue d’ensemble du module E/S spatiales dans le Kit de développement logiciel (SDK) web Azure Maps.
 
-<br/>
+</br>
 
-<iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Easily-integrate-spatial-data-into-the-Azure-Maps/player" width="960" height="540" allowFullScreen frameBorder="0" title="Intégrez facilement des données spatiales dans Azure Maps – Vidéo Microsoft Channel 9"></iframe>
-
+> [!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Easily-integrate-spatial-data-into-the-Azure-Maps/player?format=ny]
 
 > [!WARNING]
 > Utilisez uniquement des données et des services qui proviennent d’une source de confiance, en particulier si vous la référencez à partir d’un autre domaine. Le module d’E/S spatiales prend des mesures pour réduire les risques, mais l’approche la plus sûre n’autorise pas les données dangereuses dans votre application en premier lieu. 

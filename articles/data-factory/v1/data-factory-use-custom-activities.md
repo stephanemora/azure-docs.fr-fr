@@ -13,12 +13,12 @@ ms.author: abnarain
 ms.custom: devx-track-csharp
 manager: anandsub
 robots: noindex
-ms.openlocfilehash: b3391727b19e9e8e88646f72667545f1df7fe5a7
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0ef6c97f7924c890bb6665100259970372f1cd26
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012865"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606944"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-version-1-pipeline"></a>Utilisation des activités personnalisées dans un pipeline Azure Data Factory version 1
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -98,8 +98,10 @@ La méthode accepte quatre paramètres :
 La méthode retourne un dictionnaire qui peut être utilisé pour enchaîner ultérieurement des activités personnalisées. Cette fonctionnalité n’étant pas encore implémentée, seul un dictionnaire vide est retourné par la méthode.
 
 ### <a name="procedure"></a>Procédure
+
 1. Créez un projet de **bibliothèque de classes .NET** .
-   <ol type="a">
+   
+    <ol type="a">
      <li>Lancez Visual Studio.</li>
      <li>Cliquez sur <b>Fichier</b>, pointez le curseur de la souris sur <b>Nouveau</b>, puis cliquez sur <b>Projet</b>.</li>
      <li>Développez <b>Modèles</b>, puis sélectionnez <b>Visual C#</b>. Dans cette procédure pas à pas, vous utilisez C#, mais vous pouvez utiliser un autre langage .NET pour développer l’activité personnalisée.</li>
@@ -116,6 +118,7 @@ La méthode retourne un dictionnaire qui peut être utilisé pour enchaîner ult
     ```powershell
     Install-Package Microsoft.Azure.Management.DataFactories
     ```
+
 4. Importez le package NuGet **Azure Storage** dans le projet.
 
     ```powershell
@@ -149,16 +152,19 @@ La méthode retourne un dictionnaire qui peut être utilisé pour enchaîner ult
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Blob;
     ```
+
 6. Remplacez le nom de **l’espace de noms** par **MyDotNetActivityNS**.
 
     ```csharp
     namespace MyDotNetActivityNS
     ```
+
 7. Remplacez le nom de la classe par **MyDotNetActivity** et dérivez-le de l’interface **IDotNetActivity**, comme indiqué dans l’extrait de code suivant :
 
     ```csharp
     public class MyDotNetActivity : IDotNetActivity
     ```
+
 8. Implémentez (ajoutez) la méthode **Execute** de l’interface **IDotNetActivity** dans la classe **MyDotNetActivity** et copiez l’exemple de code suivant dans la méthode.
 
     L’exemple suivant compte le nombre d’occurrences du terme recherché (Microsoft) dans chaque objet blob associé à une tranche de données.
@@ -279,6 +285,7 @@ La méthode retourne un dictionnaire qui peut être utilisé pour enchaîner ult
         return new Dictionary<string, string>();
     }
     ```
+
 9. Ajoutez les méthodes d’assistance suivantes :
 
     ```csharp
@@ -367,25 +374,30 @@ La méthode retourne un dictionnaire qui peut être utilisé pour enchaîner ult
     ```
 
     La méthode Calculate calcule le nombre d’instances du mot-clé Microsoft dans les fichiers d’entrée (objets blob du dossier). Le terme de recherche (« Microsoft ») est codé en dur dans le code.
+
 10. Compilez le projet. Cliquez sur l’option **Générer** du menu, puis sur **Générer la solution**.
 
     > [!IMPORTANT]
     > Définissez la version 4.5.2 de .NET Framework comme infrastructure cible pour votre projet : cliquez avec le bouton droit sur le projet et cliquez sur **Propriétés** pour définir l’infrastructure cible. Data Factory ne prend pas en charge les activités personnalisées compilées avec les versions de .NET Framework ultérieures à la version 4.5.2.
 
 11. Lancez **l’Explorateur Windows** et accédez au dossier **bin\debug** ou **bin\release** (selon le type de build).
+
 12. Créez un fichier zip **MyDotNetActivity.zip** contenant tous les fichiers binaires dans le dossier \<project folder\>\bin\Debug. Incluez le fichier **MyDotNetActivity.pdb** afin d’obtenir des détails supplémentaires tels que le numéro de ligne du code source à l’origine du problème en cas de défaillance.
 
     > [!IMPORTANT]
     > Tous les fichiers contenus dans le fichier zip de l’activité personnalisée doivent se trouver au **premier niveau** et ne doivent pas contenir de sous-dossiers.
 
     ![Fichiers de sortie binaires](./media/data-factory-use-custom-activities/Binaries.png)
-14. Si nécessaire, créez un conteneur de blobs nommé **customactivitycontainer**.
-15. Chargez MyDotNetActivity.zip en tant qu’objet blob dans le customactivitycontainer dans un compte Stockage Blob Azure **à usage général** (pas un Stockage Blob chaud/froid) référencé par AzureStorageLinkedService.
+
+13. Si nécessaire, créez un conteneur de blobs nommé **customactivitycontainer**.
+
+14. Chargez MyDotNetActivity.zip en tant qu’objet blob dans le customactivitycontainer dans un compte Stockage Blob Azure **à usage général** (pas un Stockage Blob chaud/froid) référencé par AzureStorageLinkedService.
 
 > [!IMPORTANT]
 > Si vous ajoutez ce projet d’activité .NET à une solution dans Visual Studio qui contient un projet Data Factory, et que vous ajoutez une référence au projet d’activité .NET à partir du projet d’application Data Factory, vous n’avez pas besoin d’effectuer les deux dernières étapes pour créer manuellement le fichier zip et le télécharger dans le stockage Blob Azure à usage général. Lorsque vous publiez des entités Data Factory à l'aide de Visual Studio, ces étapes sont effectuées automatiquement par le processus de publication. Pour plus d’informations, consultez la section [Projet Data Factory dans Visual Studio](#data-factory-project-in-visual-studio).
 
 ## <a name="create-a-pipeline-with-custom-activity"></a>Créer un pipeline avec une activité personnalisée
+
 Vous avez créé une activité personnalisée et chargé le fichier zip avec des fichiers binaires dans un conteneur de blobs dans un compte de stockage Azure **à usage général**. Dans cette section, vous allez créer une fabrique de données Azure avec un pipeline qui utilise l’activité personnalisée.
 
 Le jeu de données d’entrée de l’activité personnalisée représente les blobs (fichiers) contenus dans le dossier customactivityinput du conteneur adftutorial dans le stockage Blob. Le jeu de données de sortie de l’activité représente les blobs de sortie contenus dans le dossier customactivityoutput du conteneur adftutorial dans le stockage Blob.
