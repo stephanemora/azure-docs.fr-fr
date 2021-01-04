@@ -12,12 +12,12 @@ ms.date: 08/03/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a5fcbf80850fd9de77e6f9a431afea6d48cb14d1
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 6abc3316e18fc70a2969bc220fd75e10e10f0e6e
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94949409"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507776"
 ---
 # <a name="manage-azure-ad-b2c-user-accounts-with-microsoft-graph"></a>Gérer les comptes d’utilisateur Azure AD B2C avec Microsoft Graph
 
@@ -115,7 +115,7 @@ Dans les scénarios de migration d’utilisateurs, si les comptes que vous voule
 
 ### <a name="extension-properties"></a>Propriétés d’extension
 
-Toutes les applications orientées client ont des exigences uniques concernant les informations à recueillir. Votre locataire Azure AD B2C est fourni avec un ensemble intégré d’informations stockées dans des propriétés, comme le prénom, le nom, la localité et le code postal. Avec Azure AD B2C, vous pouvez étendre l’ensemble de propriétés stockées dans chaque compte client. Pour plus d’informations sur la définition d’attributs personnalisés, consultez [Attributs personnalisés (flux utilisateur)](user-flow-custom-attributes.md) et [Attributs personnalisés (stratégies personnalisées)](custom-policy-custom-attributes.md).
+Toutes les applications orientées client ont des exigences uniques concernant les informations à recueillir. Votre locataire Azure AD B2C est fourni avec un ensemble intégré d’informations stockées dans des propriétés, comme le prénom, le nom, la localité et le code postal. Avec Azure AD B2C, vous pouvez étendre l’ensemble de propriétés stockées dans chaque compte client. Pour plus d'informations sur la définition d'attributs personnalisés, consultez [Attributs personnalisés](user-flow-custom-attributes.md).
 
 L’API Microsoft Graph prend en charge la création et la mise à jour d’un utilisateur avec des attributs d’extension. Les attributs d’extension dans l’API Graph sont nommés d’après la convention `extension_ApplicationClientID_attributename`, où `ApplicationClientID` est l’**ID d’application (client)** de l’application `b2c-extensions-app` (accessible dans **Inscriptions d’applications** > **Toutes les applications** dans le portail Azure). Notez que l’**ID d’application (client)** tel qu’il est représenté dans le nom de l’attribut d’extension ne comprend aucun trait d’union. Par exemple :
 

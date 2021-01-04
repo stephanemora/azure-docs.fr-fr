@@ -3,12 +3,12 @@ title: Considérations relatives au stockage pour Azure Functions
 description: En savoir plus sur les exigences de stockage d’Azure Functions et sur le chiffrement des données stockées.
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.openlocfilehash: aefd9a35235a09d94973f383603349f6862bbdd9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 67ff822208f065041e479fc484173d9f06a773ba
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87318179"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107241"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Considérations relatives au stockage pour Azure Functions
 
@@ -27,15 +27,19 @@ Azure Functions nécessite un compte Stockage Azure lorsque vous créez une inst
 
 ## <a name="storage-account-requirements"></a>Conditions requises pour le compte de stockage
 
-Quand vous créez une application de fonction, vous devez créer un compte de stockage Azure à usage général qui prend en charge le stockage Blob, File d’attente et Table, ou établir un lien vers un compte de ce type. Cela est dû au fait que Functions s’appuie sur Stockage Azure pour les opérations telles que la gestion des déclencheurs et la journalisation des exécutions de fonctions. Certains comptes de stockage ne prennent pas en charge les files d’attente ni les tables. Ces comptes incluent les comptes de stockage BLOB uniquement, le Stockage Premium Azure et les comptes de stockage universels avec la réplication ZRS. Ces comptes non pris en charge sont filtrés à partir du panneau Compte de stockage lors de la création d’une application de fonction.
+Quand vous créez une application de fonction, vous devez créer un compte de stockage Azure à usage général qui prend en charge le stockage Blob, File d’attente et Table, ou établir un lien vers un compte de ce type. Cela est dû au fait que Functions s’appuie sur Stockage Azure pour les opérations telles que la gestion des déclencheurs et la journalisation des exécutions de fonctions. Certains comptes de stockage ne prennent pas en charge les files d’attente ni les tables. Ces comptes incluent les comptes de stockage BLOB uniquement, le Stockage Premium Azure et les comptes de stockage universels avec la réplication ZRS.
 
 Pour en savoir plus sur les types de compte de stockage, consultez [Présentation des services Stockage Azure](../storage/common/storage-introduction.md#core-storage-services). 
 
-Bien que vous puissiez utiliser un compte de stockage existant avec votre application de fonction, vous devez vous assurer qu’il répond à ces exigences. Les comptes de stockage créés dans le cadre du flux de création de l’application de fonction sont assurés de répondre à ces exigences en matière de comptes de stockage.  
+Bien que vous puissiez utiliser un compte de stockage existant avec votre application de fonction, vous devez vous assurer qu’il répond à ces exigences. Les comptes de stockage créés dans le cadre du flux de création de l’application de fonction dans le portail Azure sont assurés de répondre à ces exigences en matière de comptes de stockage. Dans le portail, les comptes non pris en charge sont filtrés lorsque vous choisissez un compte de stockage existant pendant la création d’une application de fonction. Dans ce flux, vous êtes uniquement autorisé à choisir des comptes de stockage existants dans la même région que l’application de fonction que vous créez. Pour plus d’informations, consultez [Emplacement du compte de stockage](#storage-account-location).
 
 ## <a name="storage-account-guidance"></a>Guide du compte de stockage
 
 Chaque application de fonction nécessite un compte de stockage afin de fonctionner. Si ce compte est supprimé, votre application de fonction ne s’exécutera pas. Pour détecter un problème lié au stockage, consultez [Comment résoudre les problèmes liés au stockage](functions-recover-storage-account.md). Les autres considérations suivantes s’appliquent au compte de stockage utilisé par les applications de fonction.
+
+### <a name="storage-account-location"></a>Emplacement du compte de stockage
+
+Pour des performances optimales, votre application de fonction doit utiliser un compte de stockage dans la même région, ce qui réduit la latence. Le portail Azure applique cette meilleure pratique. Si, pour une raison quelconque, vous devez utiliser un compte de stockage dans une région différente de votre application de fonction, vous devez créer votre application de fonction en dehors du portail. 
 
 ### <a name="storage-account-connection-setting"></a>Paramètre de connexion au compte de stockage
 

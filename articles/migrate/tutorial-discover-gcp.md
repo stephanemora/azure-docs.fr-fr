@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: 9053246ef747236d9efbc9239ced46b0c421f5bb
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 767617833789c71bfc2ecfc2d518166f8bcee6c6
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753091"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109519"
 ---
 # <a name="tutorial-discover-google-cloud-platform-gcp-instances-with-server-assessment"></a>Tutoriel : Découvrir des instances GCP (Google Cloud Platform) avec Server Assessment
 
@@ -238,7 +238,15 @@ Configurez l’appliance pour la première fois.
 
 À présent, connectez-vous aux serveurs GCP à découvrir à partir de l’appliance, puis démarrez la découverte.
 
-1. À l’**Étape 1 : Fournir les informations d’identification pour la découverte des serveurs physiques ou virtuels Windows et Linux**, cliquez sur **Ajouter les informations d’identification** pour attribuer un nom convivial aux informations d’identification, ajoutez un **nom d’utilisateur** et un **mot de passe** pour un serveur Windows ou Linux. Cliquez sur **Enregistrer**.
+1. À l’**Étape 1 : Fournir des informations d’identification pour la découverte des serveurs physiques ou virtuels Windows et Linux**, cliquez sur **Ajouter des informations d’identification**.
+1. Pour le serveur Windows, sélectionnez le type de source **Windows Server**, spécifiez un nom convivial pour les informations d’identification, puis ajoutez le nom d’utilisateur et le mot de passe. Cliquez sur **Enregistrer**.
+1. Si vous utilisez l’authentification par mot de passe pour le serveur Linux, sélectionnez le type de source **Serveur Linux (basé sur un mot de passe)** , spécifiez un nom convivial pour les informations d’identification, ajoutez le nom d’utilisateur et le mot de passe. Cliquez sur **Enregistrer**.
+1. Si vous utilisez l’authentification par clé SSH pour le serveur Linux, vous pouvez sélectionner le type de source **Serveur Linux (par clé SSH)** , spécifier un nom convivial pour les informations d’identification, ajouter le nom d’utilisateur, puis rechercher et sélectionner le fichier de clé privée SSH. Cliquez sur **Save**(Enregistrer).
+
+    - Azure Migrate prend en charge la clé privée SSH générée par la commande ssh-keygen à l’aide des algorithmes RSA, DSA, ECDSA et ed25519.
+    - Actuellement, Azure Migrate ne prend pas en charge la clé SSH basée sur une phrase secrète. Utilisez une clé SSH sans phrase secrète.
+    - Actuellement, Azure Migrate ne prend pas en charge le fichier de clé privée SSH généré par PuTTy.
+
 2. Si vous souhaitez ajouter plusieurs informations d’identification à la fois, cliquez sur **Ajouter** pour enregistrer et ajouter d’autres informations d'identification. 
 3. Dans **Étape 2 : Fournir les détails du serveur physique ou virtuel**, cliquez sur **Ajouter une source de découverte** pour spécifier l’**adresse IP/nom de domaine complet** du serveur ainsi que le nom convivial des informations d’identification pour se connecter au serveur.
 4. Vous pouvez soit **ajouter un seul élément** à la fois, soit **ajouter plusieurs éléments** simultanément. Il existe également une option permettant de fournir les détails du serveur via **Importer au format CSV**.

@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
 ms.date: 11/10/2020
-ms.openlocfilehash: 65ef118fde57a7b72903d502a06644024939923f
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: b40f618b65af6fd7a6d283431aaf63c2cc1dcd1a
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506020"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368458"
 ---
 # <a name="features-comparison-azure-sql-database-and-azure-sql-managed-instance"></a>Comparaison des fonctionnalités : Azure SQL Database et Azure SQL Managed Instance
 
@@ -85,7 +85,7 @@ Le tableau suivant répertorie les principales fonctionnalités de SQL Server et
 | [OPENQUERY](/sql/t-sql/functions/openquery-transact-sql)|Non|Oui, uniquement pour SQL Database, SQL Managed Instance et SQL Server. Voir [Différences de T-SQL](../managed-instance/transact-sql-tsql-differences-sql-server.md)|
 | [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql)|Oui, uniquement pour importer à partir de Stockage Blob Azure. |Oui, uniquement pour SQL Database, SQL Managed Instance et SQL Server et pour importer à partir de Stockage Blob Azure. Voir [Différences de T-SQL](../managed-instance/transact-sql-tsql-differences-sql-server.md)|
 | [Opérateurs](/sql/t-sql/language-elements/operators-transact-sql) | La plupart - voir Opérateurs individuels |Oui - voir [Différences de T-SQL](../managed-instance/transact-sql-tsql-differences-sql-server.md) |
-| [Polybase](/sql/relational-databases/polybase/polybase-guide) | Non. Vous pouvez interroger les données des fichiers placés sur Azure Blob Storage à l’aide de la fonction `OPENROWSET`. | Non. Vous pouvez interroger les données des fichiers placés sur Azure Blob Storage à l’aide de la fonction `OPENROWSET`. |
+| [Polybase](/sql/relational-databases/polybase/polybase-guide) | Non. Vous pouvez interroger les données des fichiers placés dans Stockage Blob Azure à l’aide de la fonction `OPENROWSET` ou utiliser une [table externe qui fait référence à un pool SQL serverless dans Synapse Analytics](https://devblogs.microsoft.com/azure-sql/read-azure-storage-files-using-synapse-sql-external-tables/). | Non. Vous pouvez interroger les données les fichiers placés dans Stockage Blob Azure à l’aide de la fonction `OPENROWSET`, [un serveur lié qui fait référence à un pool SQL serverless dans Synapse Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/) ou une table externe (en préversion publique) qui fait référence à [un pool SQL serverless dans Synapse Analytics](https://devblogs.microsoft.com/azure-sql/read-azure-storage-files-using-synapse-sql-external-tables/) ou SQL Server. |
 | [Notifications de requête](/sql/relational-databases/native-client/features/working-with-query-notifications) | Non | Oui |
 | [Machine Learning Services](/sql/advanced-analytics/what-is-sql-server-machine-learning)(_anciennement R Services_)| Oui, en [préversion publique](/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services)  | Non |
 | [Modèles de récupération](/sql/relational-databases/backup-restore/recovery-models-sql-server) | Seule la récupération complète qui garantit la haute disponibilité est prise en charge. Les modes de récupération simple et journalisée en bloc ne sont pas disponibles. | Seule la récupération complète qui garantit la haute disponibilité est prise en charge. Les modes de récupération simple et journalisée en bloc ne sont pas disponibles. |

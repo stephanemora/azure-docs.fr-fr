@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: mlearned
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 99be6dc42a9b644166054d61e88a1e0ac329d2ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 63d3ac356e4f2c1d17e1511227f5089b7ff4266f
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91854721"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589155"
 ---
 # <a name="create-a-cicd-pipeline-for-net-with-azure-devops-starter"></a>Créer un pipeline CI/CD pour .NET avec Azure DevOps Starter
 
@@ -66,9 +66,9 @@ Azure DevOps Starter crée un pipeline CI/CD dans Azure DevOps. Vous pouvez cré
 
 DevOps Starter a créé un dépôt Git dans Azure Repos ou dans GitHub. Pour voir le dépôt et modifier le code dans votre application, suivez les étapes ci-dessous :
 
-1. À gauche du tableau de bord DevOps Starter, sélectionnez le lien correspondant à votre branche **master**. Ce lien ouvre une vue sur le référentiel Git récemment créé.
+1. À gauche du tableau de bord DevOps Starter, sélectionnez le lien correspondant à votre branche **principale**. Ce lien ouvre une vue sur le référentiel Git récemment créé.
 
-2. Dans les prochaines étapes, vous allez utiliser le navigateur web pour effectuer des modifications de code directement dans la branche **maîtresse** et les valider. Vous pouvez également cloner votre référentiel Git dans votre IDE favori en sélectionnant **Cloner** dans la partie supérieure droite de la page du référentiel. 
+2. Dans les prochaines étapes, vous allez utiliser le navigateur web pour effectuer des modifications de code directement dans la branche **principale** et les valider. Vous pouvez également cloner votre référentiel Git dans votre IDE favori en sélectionnant **Cloner** dans la partie supérieure droite de la page du référentiel. 
 
 3. Sur la gauche, parcourez la structure de fichiers de l’application jusqu’à **Application/aspnet-core-dotnet-core/Pages/Index.cshtml**.
 

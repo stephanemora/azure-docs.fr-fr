@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 12/08/2020
 ms.author: jeedes
-ms.openlocfilehash: 256685e035659cd0fac7fa5577d99f43f4761ea2
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: ef057b64fa04387d0ebec5a6e5c38f0e06c55a7d
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96180578"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368968"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-alibaba-cloud-service-role-based-sso"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Alibaba Cloud Service (Role-based SSO)
 
@@ -72,7 +72,7 @@ Pour configurer et tester l’authentification unique Azure AD avec Alibaba Clo
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-1. Dans le [Portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **Alibaba Cloud Service (Role-based SSO)** , recherchez la section **Gérer** et sélectionnez **Authentification unique**.
+1. Dans le portail Azure, accédez à la page d’intégration de l’application **Alibaba Cloud Service (Role-based SSO)** , recherchez la section **Gérer** et sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
 1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
 
@@ -94,7 +94,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     > [!Note]
     > Si les valeurs **Identificateur** et **URL de réponse** ne sont pas automatiquement renseignées, renseignez-les manuellement en fonction de vos besoins.
 
-1. Alibaba Cloud Service (Role-based SSO) nécessite que les rôles soient configurés dans Azure AD. La revendication de rôle est préconfigurée. Vous n’avez donc pas à la configurer, mais vous devez toujours créer les rôles dans Azure AD en suivant les instructions de cet [article](../develop/active-directory-enterprise-app-role-management.md).
+1. Alibaba Cloud Service (Role-based SSO) nécessite que les rôles soient configurés dans Azure AD. La revendication de rôle est préconfigurée. Vous n’avez donc pas à la configurer, mais vous devez toujours créer les rôles dans Azure AD en suivant les instructions de cet [article](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#app-roles-ui).
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération** et sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 

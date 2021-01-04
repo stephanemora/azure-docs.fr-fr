@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/14/2020
-ms.openlocfilehash: 29f0f0c3fd48920990519aecfe5ae58c32b43db9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 410b33b5c6078d096fa4b2acaa7b49bc14c95e31
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91253834"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97608270"
 ---
 # <a name="list-entity"></a>Entité de liste
 
@@ -85,7 +85,6 @@ Dans l’énoncé précédent, le mot `paris` est mappé à l’élément paris 
 
 #### <a name="v3-prediction-endpoint-response"></a>[Réponse de point de terminaison de prédiction V3](#tab/V3)
 
-
 Il s’agit du JSON si `verbose=false` est défini dans la chaîne de requête :
 
 ```json
@@ -130,7 +129,6 @@ Il s’agit du JSON si `verbose=true` est défini dans la chaîne de requête :
 |Objet de données|Nom de l’entité|Valeur|
 |--|--|--|
 |Entité de liste|`Cities`|`paris`|
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

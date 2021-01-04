@@ -1,15 +1,15 @@
 ---
 title: Démarrage rapide - exécution de votre premier travail Batch avec l’interface de ligne de commande (CLI) Azure
-description: Apprenez rapidement à créer un compte Batch et à exécuter un travail Batch avec l’interface de ligne de commande Azure.
+description: Ce guide de démarrage rapide montre comment créer un compte Batch et exécuter un travail Batch avec l’interface Azure CLI.
 ms.topic: quickstart
 ms.date: 08/13/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: eb5bb4a627ff26250519651f5e6d47ddd6f5a776
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 297af47b6280381646e654eaededfe8b71a5d874
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94562285"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106680"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>Démarrage rapide : Exécuter votre premier travail Batch avec Azure CLI
 

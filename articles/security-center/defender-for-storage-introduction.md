@@ -7,18 +7,19 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 9b2855f82927b6f1707fd748f097dd357818ac4b
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 8979e315f188a5c21cce206c24f195f72096d438
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341972"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516511"
 ---
 # <a name="introduction-to-azure-defender-for-storage"></a>Présentation d’Azure Defender pour le stockage
 
-**Azure Defender pour Stockage** détecte les activités potentiellement dangereuses sur vos comptes de stockage Azure. Vos données peuvent être protégées, qu’elles soient stockées en tant que conteneurs blob, de partages de fichiers ou de lacs de données.
 
-Cette couche de protection vous permet de traiter efficacement les menaces *sans* pour autant être un expert en sécurité, et vous aide à gérer des systèmes de supervision de la sécurité.
+**Azure Defender pour Stockage** est une couche de sécurité intelligente native Azure qui détecte les tentatives d’accès ou d’exploitation inhabituelles et potentiellement dangereuses de vos comptes de stockage. Il utilise les fonctionnalités avancées de l’IA de sécurité et de [Microsoft Threat Intelligence](https://go.microsoft.com/fwlink/?linkid=2128684) pour fournir des recommandations et des alertes de sécurité contextuelles.
+
+Les alertes de sécurité sont déclenchées lorsque des anomalies se produisent dans l’activité. Ces alertes sont intégrées à Azure Security Center et envoyées par e-mail aux administrateurs d’abonnement avec les détails des activités suspectes et des recommandations sur la façon d’examiner et de corriger les menaces.
 
 
 ## <a name="availability"></a>Disponibilité
@@ -36,14 +37,14 @@ Cette couche de protection vous permet de traiter efficacement les menaces *sans
 
 Les alertes de sécurité sont déclenchées dans les cas suivants :
 
-- **Activité suspecte** : par exemple, le compte de stockage a fait l’objet d’un accès à partir d’une adresse IP connue comme étant un nœud de sortie actif de Tor
-- **Comportement anormal** : par exemple, inclut les modifications apportées au modèle d’accès à un compte de stockage
-- **Programmes malveillants potentiels chargés** : analyse de réputation du code de hachage qui indique qu’un fichier chargé contient des programmes malveillants
+- **Modèles d’accès suspects** – tels qu’un accès réussi à partir d’un nœud de sortie Tor ou d’une adresse IP considérée comme suspecte par Microsoft Threat Intelligence
+- **Activités suspectes** – telles que l’extraction de données anormales ou un changement inhabituel d’autorisations d’accès
+- **Téléchargement de contenu malveillant** – tel que des fichiers de logiciels malveillants potentiels (basés sur l’analyse de réputation du code de hachage) ou l’hébergement de contenu d’hameçonnage
 
-Les alertes fournissent des détails sur l’incident qui les a déclenchées, ainsi que des suggestions pour enquêter et contrer les menaces.
+Les alertes fournissent des détails sur l’incident qui les a déclenchées, ainsi que des suggestions pour enquêter et contrer les menaces. Les alertes peuvent être exportées vers Azure Sentinel ou toute autre solution SIEM tierce ou tout autre outil externe.
 
 > [!TIP]
-> Vous pouvez simuler des alertes de stockage en suivant les instructions données dans [ce billet de blog](https://techcommunity.microsoft.com/t5/azure-security-center/validating-atp-for-azure-storage-detections-in-azure-security/ba-p/1068131).
+> Une bonne pratique consiste à [configurer Azure Defender pour Stockage](https://docs.microsoft.com/azure/storage/common/azure-defender-storage-configure?tabs=azure-security-center) au niveau de l’abonnement, mais vous pouvez également [le configurer sur des comptes de stockage individuels](https://docs.microsoft.com/azure/storage/common/azure-defender-storage-configure?tabs=azure-portal).
 
 
 ## <a name="what-is-hash-reputation-analysis-for-malware"></a>Qu’est-ce que l’analyse de réputation du code de hachage pour les programmes malveillants ?

@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: troubleshooting
 ms.date: 06/14/2019
 ms.author: alkohli
-ms.openlocfilehash: 1c1b38c4021660b9f59098f8442d16bfd0ecc582
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fa8a6643f1b7bd60fbf6e5950234e0381666177e
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87925540"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97605222"
 ---
 # <a name="use-logs-to-troubleshoot-validation-issues-in-azure-data-box-disk"></a>Utiliser des journaux pour résoudre les problèmes de validation dans Azure Data Box Disk
 
@@ -51,21 +51,21 @@ Si vous exécutez plusieurs sessions de validation, un seul journal des erreurs 
 - Voici un exemple de journal des erreurs généré lorsque le nom du conteneur n’est pas valide. Le dossier que vous créez sous les dossiers `BlockBlob`, `PageBlob`, ou `AzureFile` du disque devient un conteneur dans votre compte de stockage Azure. Le nom du conteneur doit respecter les [conventions d’affectation de noms d’Azure](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions).
 
     ```xml
-        <?xml version="1.0" encoding="utf-8"?>
-        <ErrorLog Version="2018-10-01">
-          <SessionId>bbsession</SessionId>
-          <ItemType>BlockBlob</ItemType>
-          <SourceDirectory>E:\BlockBlob</SourceDirectory>
-          <Errors>
-            <Error Code="InvalidShareContainerFormat">
-              <List>
-                <Container Name="Azu-reFile" />
-                <Container Name="bbcont ainer1" />
-              </List>
-              <Count>2</Count>
-            </Error>
-          </Errors>
-          <Warnings />
+    <?xml version="1.0" encoding="utf-8"?>
+    <ErrorLog Version="2018-10-01">
+        <SessionId>bbsession</SessionId>
+        <ItemType>BlockBlob</ItemType>
+        <SourceDirectory>E:\BlockBlob</SourceDirectory>
+        <Errors>
+        <Error Code="InvalidShareContainerFormat">
+            <List>
+            <Container Name="Azu-reFile" />
+            <Container Name="bbcont ainer1" />
+            </List>
+            <Count>2</Count>
+        </Error>
+        </Errors>
+        <Warnings />
     </ErrorLog>
     ```
 

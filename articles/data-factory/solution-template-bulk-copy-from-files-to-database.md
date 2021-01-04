@@ -7,13 +7,13 @@ ms.author: jingwang
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/08/2020
-ms.openlocfilehash: ecf3c3954bd77962e56ee289b623806efb352410
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.date: 12/09/2020
+ms.openlocfilehash: e1bd5852ca12ca03e7202cf9cfb89372d076bad9
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461261"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920423"
 ---
 # <a name="bulk-copy-from-files-to-database"></a>Copie en bloc de fichiers dans une base de données
 
@@ -55,7 +55,7 @@ Le modèle définit les deux paramètres suivants :
     ![Passer en revue le pipeline](media/solution-template-bulk-copy-from-files-to-database/new-pipeline.png)
 
     > [!NOTE]
-    > Si vous choisissez **Azure Synapse Analytics (anciennement SQL DW)** comme destination des données dans l’**étape 2** mentionnée ci-dessus, vous devez entrer une connexion à un stockage d’objets blob Azure pour la préproduction, conformément aux exigences d’Azure Synapse Analytics Polybase. Comme le montre la capture d’écran suivante, le modèle génère automatiquement un *chemin de stockage* pour le stockage d’objets blob. Vérifiez si le conteneur a été créé après l’exécution du pipeline.
+    > Si vous choisissez **Azure Synapse Analytics** comme destination des données à l’**étape 2** mentionnée ci-dessus, vous devez entrer une connexion à un stockage Blob Azure pour la préproduction, comme le demande Azure Synapse Analytics Polybase. Comme le montre la capture d’écran suivante, le modèle génère automatiquement un *chemin de stockage* pour le stockage d’objets blob. Vérifiez si le conteneur a été créé après l’exécution du pipeline.
         
     ![Paramètre Polybase](media/solution-template-bulk-copy-from-files-to-database/staging-account.png)
 

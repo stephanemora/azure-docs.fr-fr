@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 11/11/2020
+ms.date: 12/14/2020
 ms.author: jingwang
-ms.openlocfilehash: ef9ac29735289d5c7a60ff0fca3b9e9f360f6e08
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 34eb34a86948a2b4c043d5d9b58b50958855e449
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005127"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97508712"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-database-in-azure-sql-database-by-using-azure-data-factory"></a>Copier des données à partir d’un stockage Blob Azure vers une base de données dans Azure SQL Database en utilisant Azure Data Factory
 
@@ -26,7 +26,7 @@ ms.locfileid: "96005127"
 Dans ce didacticiel, vous créez une fabrique de données à l’aide de l’interface utilisateur (IU) d’Azure Data Factory. Le pipeline de cette fabrique de données copie les données du stockage Blob Azure vers une base de données dans Azure SQL Database. Le modèle de configuration de ce didacticiel s’applique à la copie depuis un magasin de données de fichiers vers un magasin de données relationnelles. Pour obtenir la liste des magasins de données pris en charge en tant que sources et récepteurs, consultez le tableau [Magasins de données pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).
 
 > [!NOTE]
-> - Si vous débutez avec Data Factory, consultez [Présentation d’Azure Data Factory](introduction.md).
+> Si vous débutez avec Data Factory, consultez [Présentation d’Azure Data Factory](introduction.md).
 
 Dans ce tutoriel, vous effectuerez les étapes suivantes :
 
@@ -82,24 +82,26 @@ Dans ce tutoriel, vous effectuerez les étapes suivantes :
 
 1. Ouvrez **Microsoft Edge** ou **Google Chrome**. L’interface utilisateur de Data Factory n’est actuellement prise en charge que par les navigateurs web Microsoft Edge et Google Chrome.
 2. Dans le menu de gauche, sélectionnez **Créer une ressource** > **Intégration** > **Data Factory**.
-3. Sur la page **Nouvelle fabrique de données**, entrez **ADFTutorialDataFactory** dans le champ **Nom**.
+3. Dans la page **Créer une fabrique de données**, sous l’onglet **De base**, sélectionnez l’**Abonnement** Azure dans lequel vous voulez créer la fabrique de données.
+4. Pour **Groupe de ressources**, réalisez l’une des opérations suivantes :
+
+    a. Sélectionnez un groupe de ressources existant dans la liste déroulante.
+
+    b. Sélectionnez **Créer**, puis entrez le nom d’un nouveau groupe de ressources.
+    
+    Pour plus d’informations sur les groupes de ressources, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/management/overview.md). 
+5. Sous **Région**, sélectionnez l’emplacement de la fabrique de données. Seuls les emplacements pris en charge sont affichés dans la liste déroulante. Les magasins de données (comme Stockage Azure et SQL Database) et les services de calcul (comme Azure HDInsight) utilisés par la fabrique de données peuvent se trouver dans d’autres régions.
+6. Sous **Nom**, entrez **ADFTutorialDataFactory**.
 
    Le nom de la fabrique de données Azure doit être un nom *global unique*. Si vous recevez un message d’erreur concernant la valeur du nom, saisissez un autre nom pour la fabrique de données. (par exemple, yournameADFTutorialDataFactory). Consultez l’article [Azure Data Factory - Règles d’affectation des noms](naming-rules.md) pour savoir comment nommer les règles Data Factory.
 
      ![Nouvelle fabrique de données](./media/doc-common-process/name-not-available-error.png)
-4. Sélectionnez l’**abonnement** Azure dans lequel vous voulez créer la fabrique de données.
-5. Pour **Groupe de ressources**, réalisez l’une des opérations suivantes :
 
-    a. Sélectionnez **Utiliser l’existant**, puis sélectionnez un groupe de ressources existant dans la liste déroulante.
-
-    b. Sélectionnez **Créer**, puis entrez le nom d’un groupe de ressources. 
-         
-    Pour plus d’informations sur les groupes de ressources, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/management/overview.md). 
-6. Sous **Version**, sélectionnez **V2**.
-7. Sous **Emplacement**, sélectionnez l’emplacement de la fabrique de données. Seuls les emplacements pris en charge sont affichés dans la liste déroulante. Les magasins de données (comme Stockage Azure et SQL Database) et les services de calcul (comme Azure HDInsight) utilisés par la fabrique de données peuvent se trouver dans d’autres régions.
-8. Sélectionnez **Create** (Créer).
-9. Une fois la création terminée, vous voyez apparaître l’avis dans le centre de notifications. Sélectionnez **Accéder à la ressource** pour accéder à la page de la fabrique de données.
-10. Sélectionnez **Créer et surveiller** pour lancer l’interface utilisateur de Data Factory dans un onglet séparé.
+7. Sous **Version**, sélectionnez **V2**.
+8. Sélectionnez l’onglet **Configuration Git** dans la partie supérieure, puis cochez la case **Configurer Git plus tard**.
+9. Sélectionnez **Vérifier + créer**, puis **Créer** une fois la validation réussie.
+10. Une fois la création terminée, vous voyez apparaître l’avis dans le centre de notifications. Sélectionnez **Accéder à la ressource** pour accéder à la page de la fabrique de données.
+11. Sélectionnez **Créer et surveiller** pour lancer l’interface utilisateur d’Azure Data Factory dans un onglet séparé.
 
 
 ## <a name="create-a-pipeline"></a>Créer un pipeline
@@ -115,7 +117,7 @@ Dans ce didacticiel, vous commencez par créer le pipeline. Puis vous créez des
 
    ![Création d’un pipeline](./media/doc-common-process/get-started-page.png)
 
-1. 1. Dans le volet Général, sous **Propriétés**, spécifiez **CopyPipeline** comme **Nom**. Réduisez ensuite le panneau en cliquant sur l’icône Propriétés en haut à droite.
+1. Dans le volet Général, sous **Propriétés**, spécifiez **CopyPipeline** comme **Nom**. Réduisez ensuite le panneau en cliquant sur l’icône Propriétés en haut à droite.
 
 1. Dans la boîte à outils **Activités**, développez la catégorie **Déplacer et transformer**, puis faites glisser l’activité **Copier les données** de la boîte à outils vers l’aire du concepteur de pipeline. Spécifiez **CopyFromBlobToSql** pour le **Nom**.
 

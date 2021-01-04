@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-ms.openlocfilehash: cc5a214d53441a5e1f30158a0264278b3cdc95a0
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: e971b02fb87440d4833c2eeba8897143f97a20dd
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92455916"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97670482"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clear-review"></a>Didacticiel : Intégration d’Azure Active Directory avec Clear Review
 
@@ -52,11 +52,11 @@ Pour configurer l’intégration de Clear Review à Azure AD, vous devez ajouter
 
 **Pour ajouter Clear Review à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory** .
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
-2. Accédez à **Applications d’entreprise** , puis sélectionnez l’option **Toutes les applications** .
+2. Accédez à **Applications d’entreprise**, puis sélectionnez l’option **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -64,13 +64,13 @@ Pour configurer l’intégration de Clear Review à Azure AD, vous devez ajouter
 
     ![Bouton Nouvelle application](common/add-new-app.png)
 
-4. Dans la zone de recherche, tapez **Clear Review** , sélectionnez **Clear Review** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+4. Dans la zone de recherche, tapez **Clear Review**, sélectionnez **Clear Review** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
-     ![Clear Review dans la liste des résultats](common/search-new-app.png)
+    ![Clear Review dans la liste des résultats](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
-Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Clear Review, avec un utilisateur de test appelé **Britta Simon** .
+Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Clear Review, avec un utilisateur de test appelé **Britta Simon**.
 Pour que l’authentification unique fonctionne, une relation entre un utilisateur Azure AD et l’utilisateur Clear Review associé doit être établie.
 
 Pour configurer et tester l’authentification unique Azure AD avec Clear Review, vous devez suivre les indications des sections suivantes :
@@ -88,56 +88,56 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
 Pour configurer l’authentification unique Azure AD avec Clear Review, effectuez les étapes suivantes :
 
-1. Dans le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **Clear Review** , sélectionnez **Authentification unique** .
+1. Dans le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **Clear Review**, sélectionnez **Authentification unique**.
 
     ![Lien Configurer l’authentification unique](common/select-sso.png)
 
-2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique** , sélectionnez le mode **SAML/WS-Fed** afin d’activer l’authentification unique.
+2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique**, sélectionnez le mode **SAML/WS-Fed** afin d’activer l’authentification unique.
 
     ![Mode de sélection de l’authentification unique](common/select-saml-option.png)
 
-3. Dans la page **Configurer l’authentification unique avec SAML** , cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base** .
+3. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base**.
 
     ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-4. Dans la section **Configuration SAML de base** , si vous souhaitez configurer l’application en mode lancé par le **fournisseur d’identité** , effectuez les étapes suivantes :
+4. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode lancé par le **fournisseur d’identité**, effectuez les étapes suivantes :
 
-    ![Capture d’écran montrant Basic SAML Configuration, où vous pouvez entrer Identifier, et Reply URL, et sélectionner Save.](common/idp-intiated.png)
+    ![Capture d’écran montrant Configuration SAML de base, où vous pouvez entrer l’identificateur, l’URL de réponse, et sélectionner Enregistrer.](common/idp-intiated.png)
 
-    a. Dans la zone de texte **Identificateur** , tapez une URL au format suivant : `https://<customer name>.clearreview.com/sso/metadata/`
+    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<customer name>.clearreview.com/sso/metadata/`
 
-    b. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : `https://<customer name>.clearreview.com/sso/acs/`
+    b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<customer name>.clearreview.com/sso/acs/`
 
-5. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services** , cliquez sur **Définir des URL supplémentaires** , puis effectuez les étapes suivantes :
+5. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
-    ![Capture d’écran montrant Set additional URLs, où vous pouvez entrer une URL de connexion.](common/metadata-upload-additional-signon.png)
+    ![Capture d’écran montrant Définir des URL supplémentaires, où vous pouvez entrer une URL de connexion.](common/metadata-upload-additional-signon.png)
 
-    Dans la zone de texte **URL de connexion** , tapez une URL au format suivant : `https://<customer name>.clearreview.com`
+    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<customer name>.clearreview.com`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. Pour obtenir ces valeurs, contactez l’[équipe de support client Clear Review](https://clearreview.com/contact/). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-6. L’application Clear Review attend les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration d’attributs de jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut, où **nameidentifier** est mappé avec **user.userprincipalname** . L’application Clear Review s’attend à ce que **nameidentifier** soit mappé avec **user.mail** . Vous devez donc modifier le mappage d’attribut en cliquant sur l’icône **Modifier** et modifier le mappage d’attribut.
+6. L’application Clear Review attend les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration d’attributs de jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut, où **nameidentifier** est mappé avec **user.userprincipalname**. L’application Clear Review s’attend à ce que **nameidentifier** soit mappé avec **user.mail**. Vous devez donc modifier le mappage d’attribut en cliquant sur l’icône **Modifier** et modifier le mappage d’attribut.
 
     ![Capture d’écran montrant User Attributes avec l’icône Edit sélectionnée.](common/edit-attribute.png)
 
 7. Dans la boîte de dialogue **Attributs et revendications de l’utilisateur** , effectuez les étapes suivantes :
 
-    a. Cliquez sur l’ **icône de modification** à droite de **Valeur de nom d’identificateur** .
+    a. Cliquez sur l’**icône de modification** à droite de **Valeur de nom d’identificateur**.
 
     ![Capture d’écran montrant User Attributes & Claims avec l’icône Edit sélectionnée.](./media/clearreview-tutorial/attribute02.png)
 
     ![Capture d’écran montrant la boîte de dialogue Manage user claims où vous pouvez entrer les valeurs décrites.](./media/clearreview-tutorial/attribute01.png)
 
-    b. Dans la liste **Attribut de la source** , sélectionnez la valeur d’attribut **user.givenname** pour cette ligne.
+    b. Dans la liste **Attribut de la source**, sélectionnez la valeur d’attribut **user.givenname** pour cette ligne.
 
-    c. Cliquez sur **Enregistrer** .
+    c. Cliquez sur **Enregistrer**.
 
-8. Dans la page **Configurer l’authentification unique avec SAML** , dans la section **Certificat de signature SAML** , cliquez sur **Télécharger** pour télécharger le **Certificat (Base64)** en fonction des options définies par rapport à vos besoins, puis enregistrez-le sur votre ordinateur.
+8. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le **Certificat (Base64)** en fonction des options définies par rapport à vos besoins, puis enregistrez-le sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/certificatebase64.png)
 
-9. Dans la section **Configurer Clear Review** , copiez la ou les URL appropriées en fonction de vos besoins.
+9. Dans la section **Configurer Clear Review**, copiez la ou les URL appropriées en fonction de vos besoins.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
@@ -149,7 +149,7 @@ Pour configurer l’authentification unique Azure AD avec Clear Review, effectue
 
 ### <a name="configure-clear-review-single-sign-on"></a>Configurer l’authentification unique Clear Review
 
-1. Pour configurer l’authentification unique du côté de **Clear Review** , ouvrez le portail **Clear Review** avec des informations d’identification d’administrateur.
+1. Pour configurer l’authentification unique du côté de **Clear Review**, ouvrez le portail **Clear Review** avec des informations d’identification d’administrateur.
 
 2. Sélectionnez **Admin** dans le volet de navigation de gauche.
 
@@ -163,21 +163,21 @@ Pour configurer l’authentification unique Azure AD avec Clear Review, effectue
 
     ![Capture d’écran montrant la page Single Sign-on Settings où vous pouvez entrer les informations de cette étape.](./media/clearreview-tutorial/tutorial_clearreview_app_admin3.png)
 
-    a. Dans la zone de texte **URL de l’émetteur** , collez la valeur de l’ **identifiant Azure AD** que vous avez copiée à partir du portail Azure.
+    a. Dans la zone de texte **URL de l’émetteur**, collez la valeur de l’**identifiant Azure AD** que vous avez copiée à partir du portail Azure.
 
     b. Dans la zone de texte **SAML Endpoint** (Point de terminaison SAML), collez la valeur **URL de connexion** que vous avez copiée à partir du portail Azure.  
 
-    c. Dans la zone de texte **SLO Endpoint** (Point de terminaison SLO), collez la valeur de l’ **URL de déconnexion** que vous avez copiée à partir du portail Azure.  
+    c. Dans la zone de texte **SLO Endpoint** (Point de terminaison SLO), collez la valeur de l’**URL de déconnexion** que vous avez copiée à partir du portail Azure.  
 
-    d. Ouvrez le certificat que vous avez téléchargé dans le Bloc-notes, puis collez son contenu dans la zone de texte **Certificat X.509** .   
+    d. Ouvrez le certificat que vous avez téléchargé dans le Bloc-notes, puis collez son contenu dans la zone de texte **Certificat X.509**.   
 
-    e. Cliquez sur **Enregistrer** .
+    e. Cliquez sur **Enregistrer**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD 
 
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
 
-1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory** , sélectionnez **Utilisateurs** , puis sélectionnez **Tous les utilisateurs** .
+1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory**, sélectionnez **Utilisateurs**, puis sélectionnez **Tous les utilisateurs**.
 
     ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](common/users.png)
 
@@ -189,40 +189,40 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     ![Boîte de dialogue Utilisateur](common/user-properties.png)
 
-    a. Dans le champ **Nom** , entrez **BrittaSimon** .
-  
-    b. Dans le champ **Nom d’utilisateur** , tapez **brittasimon\@domainedevotreentreprise.extension** .  
+    a. Dans le champ **Nom**, entrez **BrittaSimon**.
+
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple : BrittaSimon@contoso.com
 
-    c. Cochez la case **Afficher le mot de passe** , puis notez la valeur affichée dans le champ Mot de passe.
+    c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
-    d. Cliquez sur **Créer** .
+    d. Cliquez sur **Créer**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
 Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Clear Review.
 
-1. Dans le portail Azure, sélectionnez **Applications d’entreprise** , **Toutes les applications** , puis **Clear Review** .
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, **Toutes les applications**, puis **Clear Review**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
-2. Dans la liste des applications, sélectionnez **Clear Review** .
+2. Dans la liste des applications, sélectionnez **Clear Review**.
 
     ![Lien Clear Review dans la liste des applications](common/all-applications.png)
 
-3. Dans le menu de gauche, sélectionnez **Utilisateurs et groupes** .
+3. Dans le menu de gauche, sélectionnez **Utilisateurs et groupes**.
 
     ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
 
-4. Cliquez sur le bouton **Ajouter un utilisateur** , puis sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution** .
+4. Cliquez sur le bouton **Ajouter un utilisateur**, puis sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
 
     ![Volet Ajouter une attribution](common/add-assign-user.png)
 
-5. Dans la boîte de dialogue **Utilisateurs et groupes** , sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 
-6. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle** , sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+6. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 
-7. Dans la boîte de dialogue **Ajouter une attribution** , cliquez sur le bouton **Attribuer** .
+7. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
 ### <a name="create-clear-review-test-user"></a>Créer un utilisateur de test Clear Review
 

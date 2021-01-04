@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: chnwamba
 ms.custom: devx-track-js
-ms.openlocfilehash: 6f96b74726684d37795c94be74e48611b4145402
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: a22d06137c3ec17851280605ac85c94ef8b342cd
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350209"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563073"
 ---
 # <a name="deploy-static-rendered-nextjs-websites-on-azure-static-web-apps-preview"></a>Déployer des sites web Next.js au rendu statique sur Azure Static Web Apps (préversion)
 
@@ -125,7 +125,7 @@ Azure Static Web Apps déploie votre application à partir d’un référentiel 
 1. Pour transmettre vos modifications à GitHub :
 
     ```bash
-    git push origin master
+    git push origin main
     ```
 
 ## <a name="deploy-your-static-website"></a>Déployer votre site web statique
@@ -155,7 +155,7 @@ Le nouveau compte Static Web Apps doit pouvoir accéder au référentiel avec vo
 1. Cliquez sur le bouton **Sign in with GitHub** (Se connecter avec GitHub).
 1. Sélectionnez l’**organisation** sous laquelle vous avez créé le référentiel pour votre projet Next.js. Il peut s’agir de votre nom d’utilisateur GitHub.
 1. Recherchez et sélectionnez le nom du référentiel que vous avez créé précédemment.
-1. Dans la liste déroulante **Branch** (Branche), choisissez *master* (principale).
+1. Choisissez **main** (principale) comme branche dans la liste déroulante *Branch* (Branche).
 
    :::image type="content" source="media/deploy-nextjs/connect-github.png" alt-text="Connexion à GitHub":::
 
@@ -189,7 +189,7 @@ https://github.com/<YOUR_GITHUB_USERNAME>/nextjs-starter/actions
 
 Une fois l’application créée, Azure Static Web Apps a créé un fichier de workflow GitHub Actions dans votre référentiel. Vous devez placer ce fichier dans votre référentiel local pour synchroniser votre historique git.
 
-Revenez au terminal et exécutez la commande suivante : `git pull origin master`.
+Revenez au terminal et exécutez la commande suivante : `git pull origin main`.
 
 ## <a name="configure-dynamic-routes"></a>Configurer des routages dynamiques
 

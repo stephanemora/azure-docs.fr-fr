@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: f621d11553101c2c0bcfce804b26c218ae58670c
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: f47ee36c0e7806afc10f8f0907825378c2d24410
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576466"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505543"
 ---
 # <a name="calling-client-library-overview"></a>Vue d’ensemble de la bibliothèque cliente d’appel
 
@@ -69,7 +69,7 @@ Le tableau suivant représente l’ensemble des navigateurs pris en charge et de
 
 *Notez que la dernière version de Chrome est prise en charge en plus des deux versions précédentes.<br/>
 
-**Notez que les versions 13.1+ de Safari sont prises en charge. La vidéo sortante pour Safari macOS n’est pas encore prise en charge, mais elle est prise en charge sur iOS. Le partage d’écran sortant est pris en charge uniquement sur iOS pour ordinateur de bureau.
+**Notez que les versions 13.1+ de Safari sont prises en charge. La vidéo sortante pour Safari macOS n’est pas encore prise en charge, mais elle est prise en charge sur iOS. Le partage d’écran sortant est pris en charge uniquement sur iOS pour ordinateur de bureau. Les appels de groupe et 1:1 ne sont actuellement pas disponibles sur Safari.
 
 ## <a name="calling-client---browser-security-model"></a>Client appelant – Modèle de sécurité de navigateur
 
@@ -90,6 +90,15 @@ Par exemple, cet iframe autorise l’accès à la caméra et au microphone :
 ```html
 <iframe allow="camera *; microphone *">
 ```
+
+## <a name="calling-client-library-streaming-support"></a>Prise en charge du streaming de la bibliothèque de client d’appel
+La bibliothèque de client d’appel de Communication Services prend en charge les configurations de streaming suivantes :
+
+|           |Web | Android/iOS|
+|-----------|----|------------|
+|Nombre de flux sortants qui peuvent être envoyés simultanément |1 vidéo + 1 partage d’écran | 1 vidéo + 1 partage d’écran|
+|Nombre de flux entrants qui peuvent être restitués simultanément |1 vidéo + 1 partage d’écran| 6 vidéos + 1 partage d’écran |
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

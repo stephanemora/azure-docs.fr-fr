@@ -1,15 +1,15 @@
 ---
 title: Démarrage rapide Azure - Exécuter votre premier travail Batch sur le portail Azure
-description: Découvrez comment utiliser le portail Azure pour créer un compte Batch, un pool de nœuds de calcul et un travail qui exécute des tâches de base sur le pool.
+description: Ce guide de démarrage rapide montre comment utiliser le portail Azure pour créer un compte Batch, un pool de nœuds de calcul et un travail qui exécute des tâches de base sur le pool.
 ms.topic: quickstart
 ms.date: 08/17/2020
 ms.custom: mvc
-ms.openlocfilehash: cf65a681764a848f8132ec44b8ba313ef1a83235
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d8584ecea8ddd5934771dbe5945a6172a28c801c
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88511369"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106473"
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Démarrage rapide : exécution de votre premier travail Batch dans le portail Azure
 
@@ -97,7 +97,7 @@ Pour créer une deuxième tâche, répétez les étapes ci-dessus. Entrez un aut
 
 Les exemples de tâches que vous avez créés seront terminés en quelques minutes. Pour afficher la sortie d'une tâche terminée, sélectionnez la tâche, puis choisissez **Fichiers sur le nœud**. Sélectionnez le fichier `stdout.txt` pour visualiser la sortie standard de la tâche. Le contenu ressemble à ce qui suit :
 
-:::image type="content" source="media/quick-create-portal/task-output.png" alt-text="Capture d'écran du service Batch sur la Place de marché Azure":::
+:::image type="content" source="media/quick-create-portal/task-output.png" alt-text="Capture d'écran de la sortie d'une tâche terminée.":::
 
 Le contenu affiche les variables d’environnement Azure Batch qui sont définies sur le nœud. Lorsque vous créez vos propres travaux Batch et tâches, vous pouvez référencer ces variables d’environnement dans des lignes de commande de tâche, ainsi que dans les applications et les scripts exécutés par les lignes de commande.
 

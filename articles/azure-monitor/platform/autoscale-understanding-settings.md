@@ -4,12 +4,12 @@ description: Il s’agit d’une description détaillée des paramètres de mise
 ms.topic: conceptual
 ms.date: 12/18/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 6d6b868f745803263339e6b27e2610aaca8f63fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a914f6d71c013acea8dfde0f6578985bc009bb26
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87317465"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97605238"
 ---
 # <a name="understand-autoscale-settings"></a>Comprendre les paramètres de mise à l’échelle automatique
 Les paramètres de mise à l’échelle automatique permettent de s’assurer qu’un nombre approprié de ressources s’exécute pour gérer la charge fluctuante de votre application. Vous pouvez configurer les paramètres de mise à l’échelle automatique de sorte qu’ils soient déclenchés en fonction de mesures indiquant la charge ou les performances, ou un déclenchement à une date et une heure planifiées. Cet article examine de manière détaillée l’anatomie d’un paramètre de mise à l’échelle automatique. L’article commence par le schéma et les propriétés d’un paramètre, puis examine les différents types de profil qui peuvent être configurés. Enfin, il explique comment la fonctionnalité de mise à l’échelle automatique dans Azure évalue chaque profil à exécuter à un moment donné.
@@ -60,7 +60,7 @@ Pour illustrer le schéma du paramètre de mise à l’échelle automatique, le 
               "cooldown": "PT5M"
             }
           },
-    {
+          {
             "metricTrigger": {
               "metricName": "Percentage CPU",
               "metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachineScaleSets/vmss1",
@@ -119,34 +119,41 @@ Il existe trois types de profils de mise à l’échelle automatique :
 
 - **Profil de date fixe :** ce profil est réservé aux cas particuliers. Par exemple, supposons qu’un événement important est prévu le 26 décembre 2017 (PST). Vous souhaitez que les capacités minimales et maximales de votre ressource soient différentes ce jour-là, mais en conservant les mêmes métriques. Dans ce cas, vous devez ajouter un profil de date fixe à la liste des profils de votre paramètre. Le profil est configuré de manière à s’exécuter uniquement le jour de l’événement. Tous les autres jours, la mise à l’échelle automatique utilise le profil régulier.
 
-    ``` JSON
-    "profiles": [{
-    "name": " regularProfile",
-    "capacity": {
-    ...
-    },
-    "rules": [{
-    ...
-    },
-    {
-    ...
-    }]
-    },
-    {
-    "name": "eventProfile",
-    "capacity": {
-    ...
-    },
-    "rules": [{
-    ...
-    }, {
-    ...
-    }],
-    "fixedDate": {
-        "timeZone": "Pacific Standard Time",
-               "start": "2017-12-26T00:00:00",
-               "end": "2017-12-26T23:59:00"
-    }}
+    ```json
+    "profiles": [
+        {
+            "name": " regularProfile",
+            "capacity": {
+                ...
+            },
+            "rules": [
+                {
+                ...
+                },
+                {
+                ...
+                }
+            ]
+        },
+        {
+            "name": "eventProfile",
+            "capacity": {
+            ...
+            },
+            "rules": [
+                {
+                ...
+                }, 
+                {
+                ...
+                }
+            ],
+            "fixedDate": {
+                "timeZone": "Pacific Standard Time",
+                "start": "2017-12-26T00:00:00",
+                "end": "2017-12-26T23:59:00"
+            }
+        }
     ]
     ```
     

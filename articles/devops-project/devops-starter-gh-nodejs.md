@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 08/24/2020
 ms.author: ninallam
-ms.openlocfilehash: 92fa445cee75b2311cbadf96e24c31a1dbd579b8
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: e3c72ce6a15f90f0dbe08bbff10db0ca5f6b5c8f
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332699"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588809"
 ---
 # <a name="set-up-cicd-for-a-nodejs-app-with-devops-starter-using-github-actions"></a>Configurer un workflow CI/CD pour une application Node.js avec DevOps Starter à l’aide de GitHub Actions
 
@@ -33,7 +33,7 @@ DevOps Starter crée un workflow CI/CD à l’aide de GitHub Actions. DevOps Sta
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
-1. Dans la zone de recherche, tapez, puis sélectionnez **DevOps Starter** . Cliquez sur le **signe +** pour créer une ressource.
+1. Dans la zone de recherche, tapez, puis sélectionnez **DevOps Starter**. Cliquez sur le **signe +** pour créer une ressource.
 
     ![Tableau de bord DevOps Starter](_img/azure-devops-starter-aks/search-devops-starter.png)
 
@@ -47,17 +47,17 @@ DevOps Starter crée un workflow CI/CD à l’aide de GitHub Actions. DevOps Sta
 
     ![Fournisseur CI/CD](_img/azure-devops-project-nodejs/provider-selection.png)
 
-1. Sélectionnez l’exemple d’application **Node.js** . Les exemples Node.js offrent le choix entre plusieurs infrastructures d’application.
+1. Sélectionnez l’exemple d’application **Node.js**. Les exemples Node.js offrent le choix entre plusieurs infrastructures d’application.
 
-1. **Express.js** est l’exemple d’infrastructure par défaut. Laissez le paramètre par défaut, puis sélectionnez **Suivant** .   
+1. **Express.js** est l’exemple d’infrastructure par défaut. Laissez le paramètre par défaut, puis sélectionnez **Suivant**.   
 
-2. La cible de déploiement par défaut est Application web Windows. Le framework d’application, que vous avez choisi précédemment, détermine le type de cible de déploiement de service Azure disponible ici. Laissez le service par défaut, puis sélectionnez **Suivant** .
+2. La cible de déploiement par défaut est Application web Windows. Le framework d’application, que vous avez choisi précédemment, détermine le type de cible de déploiement de service Azure disponible ici. Laissez le service par défaut, puis sélectionnez **Suivant**.
  
 ## <a name="configure-github-account-and-an-azure-subscription"></a>Configurer GitHub et un abonnement Azure 
 
 1. Authentifiez-vous auprès de GitHub.
 
-   1. Cliquez sur le bouton **Autoriser** . 
+   1. Cliquez sur le bouton **Autoriser**. 
    
    1. Connectez-vous à GitHub. Si vous n’avez pas de compte GitHub, vous pouvez vous inscrire ici également.
 
@@ -65,7 +65,7 @@ DevOps Starter crée un workflow CI/CD à l’aide de GitHub Actions. DevOps Sta
    
    1. Choisissez un nom pour votre dépôt GitHub. 
    
-   1. Sélectionnez votre abonnement et un emplacement Azure, choisissez un nom pour votre application, puis sélectionnez **Terminé** .
+   1. Sélectionnez votre abonnement et un emplacement Azure, choisissez un nom pour votre application, puis sélectionnez **Terminé**.
     
        ![Entrer les détails GH](_img/azure-devops-project-nodejs/gh-details.png)
 
@@ -74,7 +74,7 @@ DevOps Starter crée un workflow CI/CD à l’aide de GitHub Actions. DevOps Sta
    
 3. Sélectionnez **Parcourir** pour voir votre application en cours d’exécution.
     
-    Le tableau de bord contient les détails du workflow GitHub et des ressources Azure. Pour afficher les détails du workflow GitHub, comme la dernière exécution, les validations et l’état des travaux, vous devez **autoriser l’accès à GitHub** .
+    Le tableau de bord contient les détails du workflow GitHub et des ressources Azure. Pour afficher les détails du workflow GitHub, comme la dernière exécution, les validations et l’état des travaux, vous devez **autoriser l’accès à GitHub**.
    
    ![Tableau de bord - Autoriser](_img/azure-devops-project-nodejs/authenticate-dashboard.png)
 
@@ -86,16 +86,16 @@ DevOps Starter a configuré automatiquement un workflow GitHub avec des travaux 
 
 DevOps Starter crée un dépôt dans GitHub. Pour voir le dépôt et modifier le code dans votre application, suivez les étapes ci-dessous :
 
-1. À gauche du tableau de bord DevOps Starter, sélectionnez le lien correspondant à votre branche maîtresse. Ce lien ouvre une vue sur le dépôt GitHub récemment créé.
+1. À gauche du tableau de bord DevOps Starter, sélectionnez le lien correspondant à votre branche principale. Ce lien ouvre une vue sur le dépôt GitHub récemment créé.
 
-1. Pour afficher l’URL du clone du dépôt, sélectionnez **Cloner** en haut à droite du navigateur. Vous pouvez cloner votre référentiel Git dans votre environnement de développement intégré favori. Dans les prochaines étapes, vous allez utiliser le navigateur web pour effectuer des modifications de code directement dans la branche maîtresse et les valider.
+1. Pour afficher l’URL du clone du dépôt, sélectionnez **Cloner** en haut à droite du navigateur. Vous pouvez cloner votre référentiel Git dans votre environnement de développement intégré favori. Dans les prochaines étapes, vous allez utiliser le navigateur web pour effectuer des modifications de code directement dans la branche principale et les valider.
 
-1. Sur la gauche du navigateur, accédez au fichier **/Application/views/index.pug** .
+1. Sur la gauche du navigateur, accédez au fichier **/Application/views/index.pug**.
 
-1. Sélectionnez **Modifier** , puis modifiez le texte.
-    Par exemple, changez l’une des balises.
+1. Sélectionnez **Modifier**, puis modifiez le texte.
+    Par exemple, modifiez l’une des balises.
 
-1. Sélectionnez **Valider** , puis enregistrez vos modifications.
+1. Sélectionnez **Valider**, puis enregistrez vos modifications.
 
 1. Dans le navigateur, accédez au tableau de bord DevOps Starter.   
 Vous devez maintenant voir un travail de génération de workflow GitHub en cours. Les modifications que vous avez apportées font automatiquement l’objet d’une génération et d’un déploiement via un workflow GitHub.
@@ -104,13 +104,13 @@ Vous devez maintenant voir un travail de génération de workflow GitHub en cour
 
 Dans l’étape précédente, DevOps Starter a automatiquement configuré un workflow GitHub complet. Explorez et personnalisez le workflow selon vos besoins. Effectuez les étapes suivantes pour vous familiariser avec le workflow.
 
-1. À gauche du tableau de bord DevOps Starter, sélectionnez **GitHub workflow** . Ce lien ouvre un onglet de navigateur et le workflow GitHub de votre nouveau projet.
+1. À gauche du tableau de bord DevOps Starter, sélectionnez **GitHub workflow**. Ce lien ouvre un onglet de navigateur et le workflow GitHub de votre nouveau projet.
     > [!NOTE]
-    > Ne renommez pas le fichier de workflow. Le nom du fichier de workflow doit être **devops-starter-workflow.yml** pour que le tableau de bord reflète les modifications.
+    > Ne renommez pas le fichier de workflow. Le nom du fichier de workflow doit être **devops-Starter-workflow.yml** pour que le tableau de bord reflète les modifications.
 
-1. Le fichier yaml de workflow contient toutes les actions GitHub requises pour générer et déployer l’application. Cliquez sur l’option **edit file** (modifier le fichier) pour personnaliser votre fichier de workflow.
+1. Le fichier yaml du workflow contient toutes les actions GitHub nécessaires pour générer et déployer l’application. Cliquez sur l’option **modifier le fichier** pour personnaliser votre fichier de workflow.
 
-1. Sous l’onglet **Code** du dépôt, cliquez sur **commits** . Cette vue montre les validations de code associées au déploiement spécifique.
+1. Sous l’onglet **Code** du dépôt, cliquez sur **commits**. Cette vue montre les validations de code associées au déploiement spécifique.
 
 1. Sous l’onglet **Actions** du dépôt, vous pouvez voir l’historique de toutes les exécutions de workflow de votre dépôt.
 

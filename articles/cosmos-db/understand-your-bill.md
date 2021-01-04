@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 3ac90b79053e59047dbe64598688e77b9df059d1
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: b51be165d3d05ae753c7e0e5536a157fbbacf1ab
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93358709"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938628"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Compréhension de vos factures Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -130,7 +130,7 @@ Supposons que vous créez un conteneur Azure Cosmos dans la région USA Ouest. L
 |**Item** |**Utilisation (mois)**|**Tarif** |**Coût mensuel** |
 |---------|---------|---------|-------|
 |Facture de débit pour le conteneur de la région USA Ouest (écriture dans toutes les régions)       | 10 000 RU/s x 24 x 30    |0,016 $ pour 100 RU/s par heure    |1 152 $ |
-|Facture de débit pour 3 régions supplémentaires : USA Est, Europe Nord et Asie Est (écriture dans toutes les régions)        | (3 + 1) x 10 000 RU/sec x 24 x 30    |0,016 $ pour 100 RU/s par heure   |4 608 $ |
+|Facture de débit pour 3 régions supplémentaires : USA Est, Europe Nord et Asie Est (écriture dans toutes les régions)        | 3 x 10 000 RU/s x 24 x 30    |0,016 $ pour 100 RU/s par heure   |3 456 $ |
 |Facture de stockage pour le conteneur de la région USA Ouest      | 250 Go    |0,25 $/Go  |62,50 $|
 |Facture de stockage pour 3 régions supplémentaires (USA Est, Europe Nord et Asie Est)      | 3 x 250 Go    |0,25 $/Go  |187,50 $|
 |**Total**     |     |  |**6 010 $**|

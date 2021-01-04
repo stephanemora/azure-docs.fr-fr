@@ -13,12 +13,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/01/2020
 ms.author: juergent
-ms.openlocfilehash: 13bdf4b10ec586bf83a70434f003cc1573aca469
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 70b0f8178a94735a6ef37a225044984508cc2233
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94950259"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617134"
 ---
 # <a name="sap-hana-azure-backup-on-file-level"></a>Sauvegarde SAP HANA sur Azure au niveau fichier
 
@@ -28,7 +28,7 @@ Cet article est associé au [Guide de sauvegarde pour SAP HANA sur des machines 
 
 Différents types de machines virtuelles dans Azure autorisent un nombre différent de disques durs virtuels attachés. Les détails exacts sont documentés dans [Tailles des machines virtuelles Linux dans Azure](../../sizes.md). Pour les tests indiqués dans cette documentation, nous avons utilisé une machine virtuelle Azure GS5 qui permet d’attacher 64 disques de données. Pour les grands systèmes SAP HANA, un nombre important de disques peut déjà être utilisé pour les données et les fichiers journaux, éventuellement en association avec un entrelacement logiciel pour un débit d’E/S de disque optimal. Pour plus d’informations sur les configurations de disque suggérées pour les déploiements de SAP HANA sur les machines virtuelles Azure, lisez l’article [Configurations du stockage des machines virtuelles SAP HANA Azure](./hana-vm-operations-storage.md). Les recommandations préconisées incluent notamment les recommandations d’espace disque pour les sauvegardes locales.
 
-La méthode standard pour gérer la sauvegarde/restauration au niveau fichier est d’utiliser une sauvegarde basée sur les fichiers via SAP HANA Studio ou via les instructions SQL SAP HANA. Pour plus d’informations, consultez le [document de référence sur SQL SAP HANA et les vues système](https://help.sap.com/hana/SAP_HANA_SQL_and_System_Views_Reference_en.pdf).
+La méthode standard pour gérer la sauvegarde/restauration au niveau fichier est d’utiliser une sauvegarde basée sur les fichiers via SAP HANA Studio ou via les instructions SQL SAP HANA. Pour plus d’informations, consultez le [document de référence sur SQL SAP HANA et les vues système](https://help.sap.com/viewer/4fe29514fd584807ac9f2a04f6754767/2.0.05/en-US/3859e48180bb4cf8a207e15cf25a7e57.html).
 
 ![Cette illustration montre la boîte de dialogue de l’élément du menu de sauvegarde dans SAP HANA Studio](media/sap-hana-backup-file-level/backup-menue-dialog.png)
 

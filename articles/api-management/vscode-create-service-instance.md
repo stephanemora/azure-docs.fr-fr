@@ -7,12 +7,12 @@ author: vladvino
 ms.author: apimpm
 ms.topic: quickstart
 ms.date: 09/14/2020
-ms.openlocfilehash: 19080679291b88b693c95bd71f8ddc0e59286356
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: fdf7e842959e09a8ec35017031f745cb16d13c6d
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90057323"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400401"
 ---
 # <a name="quickstart-create-a-new-azure-api-management-service-instance-using-visual-studio-code"></a>Démarrage rapide : Créer une instance Gestion des API Azure avec Visual Studio Code
 
@@ -55,7 +55,7 @@ Une instance Gestion des API et le groupe de ressources parent seront créés av
 >
 > Alors que le provisionnement de la référence SKU *Consommation* prend moins d’une minute, la création des autres références SKU prend généralement de 30 à 40 minutes.
 
-À ce stade, vous êtes prêt à importer et à publier votre première API. Vous pouvez également effectuer des opérations courantes de gestion des API dans l’extension de Visual Studio Code. Pour plus d’informations, consultez la documentation consacrée à l’[extension API Management pour Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement&ssr=false#overview).
+À ce stade, vous êtes prêt à importer et à publier votre première API. Vous pouvez également effectuer des opérations courantes de gestion des API dans l’extension de Visual Studio Code. Consultez le [tutoriel](visual-studio-code-tutorial.md) pour plus d’informations.
 
 ![Instance du service Gestion des API créée dans le volet de l’extension API Management dans VS Code](./media/vscode-create-service-instance/vscode-apim-instance.png)
 
@@ -70,4 +70,4 @@ Vous pouvez également sélectionner **Supprimer Gestion des API** pour supprime
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Importer et publier votre première API](import-and-publish.md)
+> [Importer et gérer des API avec l’extension Gestion des API](visual-studio-code-tutorial.md)

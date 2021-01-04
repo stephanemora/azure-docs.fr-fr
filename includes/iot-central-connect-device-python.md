@@ -4,12 +4,12 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/24/2020
-ms.openlocfilehash: cd7d4d3653dc775a949da229e4005d297f7810aa
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: 2eff30333362d461f196972fbaedbeac8f2ae7c9
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96126098"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033863"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
@@ -27,7 +27,7 @@ Quand vous exécutez l’exemple pour vous connecter à IoT Central, il utilise
 
 La fonction `main` :
 
-* Utilise le service DPS pour provisionner l’appareil. Les informations de provisionnement incluent l’ID de modèle.
+* Utilise le service DPS pour provisionner l’appareil. Les informations de provisionnement incluent l’ID de modèle. IoT Central utilise l’ID de modèle pour identifier ou générer le modèle d’appareil correspondant à cet appareil. Pour en savoir plus, consultez [Associer un appareil à un modèle d’appareil](../articles/iot-central/core/concepts-get-connected.md#associate-a-device-with-a-device-template).
 * Crée un objet `Device_client` et définit l’ID de modèle `dtmi:com:example:Thermostat;1` avant l’ouverture de la connexion.
 * Envoie la propriété `maxTempSinceLastReboot` à IoT Central.
 * Crée un écouteur pour la commande `getMaxMinReport`.
@@ -113,7 +113,7 @@ async def main():
     # ...
 ```
 
-La fonction `provision_device` utilise le service DPS pour provisionner l’appareil et l’inscrire auprès d’IoT Central. La fonction comprend l’ID de modèle d’appareil dans la charge utile de provisionnement :
+La fonction `provision_device` utilise le service DPS pour provisionner l’appareil et l’inscrire auprès d’IoT Central. La fonction comprend l’ID de modèle d’appareil, qu’IoT Central utilise pour [associer un appareil à un modèle d’appareil](../articles/iot-central/core/concepts-get-connected.md#associate-a-device-with-a-device-template), dans la charge utile de provisionnement :
 
 ```python
 async def provision_device(provisioning_host, id_scope, registration_id, symmetric_key, model_id):

@@ -1,16 +1,16 @@
 ---
-title: Effectuer le rendu d’une scène de Blender avec Azure Batch et Batch Explorer
+title: Tutoriel - Effectuer le rendu d’une scène de Blender avec Azure Batch et Batch Explorer
 description: 'Didacticiel : comment effectuer le rendu de plusieurs images à partir d’une scène de Blender avec Azure Batch et l’application cliente Batch Explorer'
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: tutorial
-ms.openlocfilehash: 65baff827417cebe2289cc821df94acd38a1ae61
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c015e4e83b0505a45690e92c1d732f74b6f6b0e
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85964802"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106459"
 ---
 # <a name="tutorial-render-a-blender-scene-using-batch-explorer"></a>Didacticiel : Effectuer le rendu d’une scène de Blender avec Batch Explorer
 
@@ -93,6 +93,7 @@ L’état du pool et des machines virtuelles peut être surveillé dans la vue �
 ## <a name="create-a-rendering-job"></a>Créer un travail de rendu
 
 Créez un travail de rendu pour effectuer le rendu d’images à l’aide du pool créé :
+
 * Sélectionnez l’élément de menu « Galerie » dans le menu principal sur le côté gauche.
 * Sélectionnez l’élément « Blender » pour obtenir la liste des éléments de l’application.
 * Sélectionnez les éléments pour le rendu des images sur Windows Server.
@@ -137,6 +138,18 @@ Une fois toutes les tâches terminées, le travail est marqué comme étant term
 * Faites un clic droit et cliquez sur « Supprimer » ou bien sélectionnez l’icône Corbeille au-dessus du pool
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Dans la section « Galerie », explorez les applications de rendu disponibles via Batch Explorer.
-* Pour chaque application, plusieurs modèles sont disponibles, et d’autres seront disponibles au fil du temps.  Par exemple, des modèles Blender permettent de diviser une image en une mosaïque, de sorte que des parties de l’image puissent être rendues en parallèle.
-* Pour une description complète des fonctionnalités de rendu, consultez l’ensemble des articles [ici](./batch-rendering-service.md).
+
+Dans ce didacticiel, vous avez appris à :
+
+> [!div class="checklist"]
+> * Charger une scène de Blender sur le Stockage Azure
+> * Créer un pool Batch avec plusieurs nœuds pour effectuer le rendu
+> * Effectuer le rendu de plusieurs images
+> * Afficher et télécharger les fichiers de rendu des images
+
+Continuez en explorant les applications de rendu disponibles par le biais de Batch Explorer dans la section **Galerie**. Pour chaque application, plusieurs modèles sont disponibles, et d’autres seront disponibles au fil du temps. Par exemple, des modèles Blender permettent de diviser une image en une mosaïque, de sorte que des parties de l’image puissent être rendues en parallèle.
+
+Pour en savoir plus sur le rendu à l’échelle du cloud, consultez les options relatives au service Batch Rendering.
+
+> [!div class="nextstepaction"]
+> [Service de rendu Batch](batch-rendering-service.md)

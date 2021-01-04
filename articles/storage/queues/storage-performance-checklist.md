@@ -1,58 +1,60 @@
 ---
-title: Check-list des performances et de la scalabilité pour le stockage File d’attente - Stockage Azure
-description: Check-list de pratiques validées pour le stockage File d’attente en vue du développement d’applications performantes.
-services: storage
+title: Check-list des performances et de la scalabilité pour le Stockage File d’attente – Stockage Azure
+description: Check-list des pratiques validées pour le Stockage File d’attente dans le développement d’applications performantes.
 author: tamram
-ms.service: storage
-ms.topic: overview
-ms.date: 10/10/2019
+services: storage
 ms.author: tamram
+ms.date: 10/10/2019
+ms.topic: overview
+ms.service: storage
 ms.subservice: queues
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6e86950581255bd4e3a78b0b4a3f599a24a3cad0
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 4040a81d5b509ddbdd355953e28721a7c9fccfb8
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93345752"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97585664"
 ---
-# <a name="performance-and-scalability-checklist-for-queue-storage"></a>Check-list des performances et de la scalabilité pour le stockage File d’attente
+<!-- docutune:casing "Timeout and Server Busy errors" -->
 
-Microsoft a mis au point un certain nombre de pratiques qui ont fait leurs preuves pour le développement d’applications hautes performances avec le stockage File d’attente. Cette check-list fournit des pratiques clés que les développeurs peuvent utiliser pour optimiser les performances. Gardez ces pratiques à l’esprit lorsque vous concevez votre application et tout au long du processus de développement.
+# <a name="performance-and-scalability-checklist-for-queue-storage"></a>Check-list des performances et de la scalabilité pour le Stockage File d’attente
 
-Le stockage Azure a des objectifs de scalabilité et de performances pour la capacité, le taux de transactions et la bande passante. Pour plus d’informations sur les cibles de scalabilité de Stockage Azure, consultez [Cibles de scalabilité et de performances pour les comptes de stockage standard](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) et [Cibles de scalabilité et de performances pour le stockage File d’attente](scalability-targets.md).
+Microsoft a mis au point un certain nombre de pratiques qui ont fait leurs preuves pour le développement d’applications hautes performances avec le service Stockage File d’attente. Cette check-list fournit des pratiques clés que les développeurs peuvent utiliser pour optimiser les performances. Gardez ces pratiques à l’esprit lorsque vous concevez votre application et tout au long du processus de développement.
+
+Le stockage Azure a des objectifs de scalabilité et de performances pour la capacité, le taux de transactions et la bande passante. Pour plus d’informations sur les cibles de scalabilité de Stockage Azure, consultez [Cibles de scalabilité et de performances pour les comptes de stockage standard](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) et [Cibles de scalabilité et de performances pour le Stockage File d’attente](scalability-targets.md).
 
 ## <a name="checklist"></a>Liste de contrôle
 
-Cet article fournit la liste des pratiques validées concernant les performances. Vous pouvez suivre ces pratiques lors du développement de votre application de stockage File d’attente.
+Cet article fournit la liste des pratiques validées concernant les performances. Vous pouvez suivre ces pratiques lors du développement de votre application Stockage File d’attente.
 
 | Terminé | Category | Considérations relatives à la conception |
-| --- | --- | --- |
-| &nbsp; |Objectifs de scalabilité |[Pouvez-vous concevoir votre application pour ne pas qu’elle utilise plus que le nombre maximal de comptes de stockage ?](#maximum-number-of-storage-accounts) |
-| &nbsp; |Objectifs de scalabilité |[Cherchez-vous à ne pas vous approcher des limites de capacité et de transactions ?](#capacity-and-transaction-targets) |
-| &nbsp; |Mise en réseau |[Les appareils côté client disposent-ils d’une bande passante suffisamment large et d’une latence suffisamment faible pour parvenir aux performances nécessaires ?](#throughput) |
-| &nbsp; |Mise en réseau |[La qualité du lien réseau côté client est-elle suffisamment élevée ?](#link-quality) |
-| &nbsp; |Mise en réseau |[L’application cliente se trouve-t-elle dans la même région que le compte de stockage ?](#location) |
-| &nbsp; |Accès direct au client |[Utilisez-vous des signatures d’accès partagé (SAP) et un partage des ressources cross-origin (CORS) pour permettre l’accès direct au stockage Azure ?](#sas-and-cors) |
-| &nbsp; |Configuration .NET |[Utilisez-vous .NET Core 2.1 ou ultérieur pour obtenir des performances optimales ?](#use-net-core) |
-| &nbsp; |Configuration .NET |[Avez-vous configuré votre client pour qu'il utilise un nombre suffisant de connexions simultanées ?](#increase-default-connection-limit) |
-| &nbsp; |Configuration .NET |[Pour les applications .NET, avez-vous configuré .NET pour qu’il utilise un nombre suffisant de threads ?](#increase-minimum-number-of-threads) |
-| &nbsp; |Parallélisme |[Avez-vous vérifié que le parallélisme est limité de façon appropriée, de manière à ne pas surcharger les fonctionnalités de votre client ni s’approcher des objectifs de scalabilité ?](#unbounded-parallelism) |
-| &nbsp; |Outils |[Utilisez-vous la version la plus récente des outils et bibliothèques clientes fournis par Microsoft ?](#client-libraries-and-tools) |
-| &nbsp; |Nouvelle tentatives |[Utilisez-vous une stratégie de nouvelles tentatives avec backoff exponentiel pour les erreurs de limitation et les délais d’expiration ?](#timeout-and-server-busy-errors) |
-| &nbsp; |Nouvelle tentatives |[Votre application empêche-t-elle les nouvelles tentatives pour les erreurs non renouvelables ?](#non-retryable-errors) |
-| &nbsp; |Configuration |[Avez-vous désactivé l’algorithme Nagle pour améliorer les performances des petites requêtes ?](#disable-nagle) |
-| &nbsp; |Taille des messages |[Vos messages sont-ils compacts pour améliorer les performances de la file d'attente ?](#message-size) |
-| &nbsp; |Récupération en bloc |[Récupérez-vous plusieurs messages dans une même opération GET ?](#batch-retrieval) |
-| &nbsp; |Fréquence d’interrogation |[Effectuez-vous des interrogations suffisamment fréquentes pour réduire la latence perçue de votre application ?](#queue-polling-interval) |
-| &nbsp; |Mise à jour de message |[Utilisez-vous l’opération Mise à jour de message pour stocker la progression du traitement des messages et éviter de devoir retraiter l’intégralité du message en cas d’erreur ?](#use-update-message) |
-| &nbsp; |Architecture |[Utilisez-vous des files d'attente pour rendre toute votre application plus extensible en excluant les charges de travail de longue durée du chemin critique et pour les faire ensuite évoluer séparément ?](#application-architecture) |
+|--|--|--|
+| &nbsp; | Objectifs de scalabilité | [Pouvez-vous concevoir votre application pour ne pas qu’elle utilise plus que le nombre maximal de comptes de stockage ?](#maximum-number-of-storage-accounts) |
+| &nbsp; | Objectifs de scalabilité | [Cherchez-vous à ne pas vous approcher des limites de capacité et de transactions ?](#capacity-and-transaction-targets) |
+| &nbsp; | Mise en réseau | [Les appareils côté client disposent-ils d’une bande passante suffisamment large et d’une latence suffisamment faible pour parvenir aux performances nécessaires ?](#throughput) |
+| &nbsp; | Mise en réseau | [La qualité du lien réseau côté client est-elle suffisamment élevée ?](#link-quality) |
+| &nbsp; | Mise en réseau | [L’application cliente se trouve-t-elle dans la même région que le compte de stockage ?](#location) |
+| &nbsp; | Accès direct au client | [Utilisez-vous des signatures d’accès partagé (SAP) et un partage des ressources cross-origin (CORS) pour permettre l’accès direct au stockage Azure ?](#sas-and-cors) |
+| &nbsp; | Configuration .NET | [Utilisez-vous .NET Core 2.1 ou ultérieur pour obtenir des performances optimales ?](#use-net-core) |
+| &nbsp; | Configuration .NET | [Avez-vous configuré votre client pour qu'il utilise un nombre suffisant de connexions simultanées ?](#increase-default-connection-limit) |
+| &nbsp; | Configuration .NET | [Pour les applications .NET, avez-vous configuré .NET pour qu’il utilise un nombre suffisant de threads ?](#increase-the-minimum-number-of-threads) |
+| &nbsp; | Parallélisme | [Avez-vous vérifié que le parallélisme est limité de façon appropriée, de manière à ne pas surcharger les fonctionnalités de votre client ni s’approcher des objectifs de scalabilité ?](#unbounded-parallelism) |
+| &nbsp; | Outils | [Utilisez-vous la version la plus récente des outils et bibliothèques clientes fournis par Microsoft ?](#client-libraries-and-tools) |
+| &nbsp; | Nouvelle tentatives | [Utilisez-vous une stratégie de nouvelles tentatives avec backoff exponentiel pour les erreurs de limitation et les délais d’expiration ?](#timeout-and-server-busy-errors) |
+| &nbsp; | Nouvelle tentatives | [Votre application empêche-t-elle les nouvelles tentatives pour les erreurs non renouvelables ?](#non-retryable-errors) |
+| &nbsp; | Configuration | [Avez-vous désactivé l’algorithme de Nagle pour améliorer les performances des petites requêtes ?](#disable-nagles-algorithm) |
+| &nbsp; | Taille des messages | [Vos messages sont-ils compacts pour améliorer les performances de la file d'attente ?](#message-size) |
+| &nbsp; | Récupération en bloc | [Récupérez-vous plusieurs messages dans une même opération de récupération ?](#batch-retrieval) |
+| &nbsp; | Fréquence d’interrogation | [Effectuez-vous des interrogations suffisamment fréquentes pour réduire la latence perçue de votre application ?](#queue-polling-interval) |
+| &nbsp; | Message de mise à jour | [Effectuez-vous une opération de mise à jour de message pour stocker la progression lors du traitement des messages et éviter ainsi de devoir retraiter l’intégralité du message en cas d’erreur ?](#perform-an-update-message-operation) |
+| &nbsp; | Architecture | [Utilisez-vous des files d'attente pour rendre toute votre application plus extensible en excluant les charges de travail de longue durée du chemin critique et pour les faire ensuite évoluer séparément ?](#application-architecture) |
 
 ## <a name="scalability-targets"></a>Objectifs de scalabilité
 
-Si votre application s’approche de l’un des objectifs d’extensibilité, voire le dépasse, une limitation ou des latences de transaction accrues peuvent survenir. Lorsque le stockage Azure limite votre application, le service commence à retourner les codes d’erreur 503 (Serveur occupé) ou 500 (Délai d’expiration de l’opération). Pour améliorer les performances de votre application, il est important d’éviter de telles erreurs en restant dans les limites des objectifs de scalabilité.
+Si votre application s’approche de l’un des objectifs d’extensibilité, voire le dépasse, une limitation ou des latences de transaction accrues peuvent survenir. Lorsque le stockage Azure limite votre application, le service commence à retourner les codes d’erreur 503 (`Server Busy`) ou 500 (`Operation Timeout`). Pour améliorer les performances de votre application, il est important d’éviter de telles erreurs en restant dans les limites des objectifs de scalabilité.
 
-Pour plus d’informations sur les objectifs de scalabilité concernant le service de File d’attente, consultez [Objectifs de scalabilité et de performances du Stockage Azure](./scalability-targets.md#scale-targets-for-queue-storage).
+Pour plus d’informations sur les objectifs de scalabilité du service Stockage File d’attente, consultez [Objectifs de scalabilité et de performances du Stockage Azure](./scalability-targets.md#scale-targets-for-queue-storage).
 
 ### <a name="maximum-number-of-storage-accounts"></a>Nombre maximal de comptes de stockage
 
@@ -66,7 +68,7 @@ Si votre application s’approche des objectifs d’extensibilité d’un seul c
 - Réexaminez la charge de travail à cause de laquelle votre application s’approche de l’objectif d’extensibilité ou le dépasse. Est-il possible de la concevoir différemment pour qu’elle utilise moins de bande passante ou de capacité, ou moins de transactions ?
 - Si votre application doit dépasser l’un des objectifs de scalabilité, vous devez créer plusieurs comptes de stockage et partitionner vos données d’application sur ces comptes de stockage. Si vous optez pour ce modèle, veillez à concevoir votre application de telle sorte que vous puissiez ajouter davantage de comptes de stockage à l’avenir en vue de l’équilibrage de la charge. Aucun coût autre que l’utilisation (données stockées, transactions effectuées, données transférées, etc.) n’est associé à ces comptes de stockage.
 - Si votre application s’approche des objectifs de bande passante, pensez à compresser les données côté client afin de réduire la bande passante nécessaire à l’envoi des données au stockage Azure. Même si la compression des données peut réduire la bande passante et améliorer les performances du réseau, elle présente des inconvénients. Évaluez l’impact sur les performances qu’entraînent les exigences de traitement supplémentaires liées à la compression et à la décompression des données côté client. Gardez à l’esprit que le stockage de données compressées peut compliquer la résolution des problèmes, car il peut être plus difficile de voir les données à l’aide d’outils standard.
-- Si votre application s’approche des objectifs de scalabilité, vérifiez que vous utilisez bien un backoff exponentiel pour les nouvelles tentatives. Il est préférable d’éviter de s’approcher des objectifs de scalabilité en implémentant les recommandations fournies dans cet article. Toutefois, l’utilisation d’un backoff exponentiel pour les nouvelles tentatives va empêcher votre application d’effectuer une nouvelle tentative rapidement, ce qui pourrait compliquer la limitation. Pour plus d’informations, consultez la section intitulée [Erreurs d’expiration de délai et de serveur occupé](#timeout-and-server-busy-errors).
+- Si votre application s’approche des objectifs de scalabilité, vérifiez que vous utilisez bien un backoff exponentiel pour les nouvelles tentatives. Il est préférable d’éviter de s’approcher des objectifs de scalabilité en implémentant les recommandations fournies dans cet article. Toutefois, l’utilisation d’un backoff exponentiel pour les nouvelles tentatives va empêcher votre application d’effectuer une nouvelle tentative rapidement, ce qui pourrait compliquer la limitation. Pour plus d’informations, consultez la section [Erreurs d’expiration de délai et de serveur occupé](#timeout-and-server-busy-errors).
 
 ## <a name="networking"></a>Mise en réseau
 
@@ -82,11 +84,11 @@ Dans le cas de la bande passante, le problème est souvent dû aux capacités du
 
 #### <a name="link-quality"></a>Qualité du lien
 
-Comme c’est le cas pour toute utilisation du réseau, n’oubliez pas que les conditions réseau qui génèrent des erreurs et une perte de paquets ralentissent le débit effectif. L’utilisation de WireShark ou de NetMon peut vous aider à diagnostiquer ce problème.
+Comme c’est le cas pour toute utilisation du réseau, n’oubliez pas que les conditions réseau qui génèrent des erreurs et une perte de paquets ralentissent le débit effectif. L’utilisation de Wireshark ou de Moniteur réseau peut vous aider à diagnostiquer ce problème.
 
 ### <a name="location"></a>Emplacement
 
-Dans un environnement distribué, le fait de placer le client à proximité du serveur se traduit par des performances optimales. Pour accéder à Azure Storage avec un minimum de latence, votre client doit idéalement se trouver dans la même région Azure. Par exemple, si vous disposez d’un site web Azure qui utilise le stockage Azure, tous deux doivent se trouver dans la même région (USA Ouest ou Asie Sud-Est, par exemple). Cela réduit à la fois la latence et les coûts, puisque l’utilisation de la bande passante dans une seule région était gratuite.
+Dans un environnement distribué, le fait de placer le client à proximité du serveur se traduit par des performances optimales. Pour accéder à Azure Storage avec un minimum de latence, votre client doit idéalement se trouver dans la même région Azure. Par exemple, si vous disposez d’une application web Azure qui utilise le stockage Azure, tous deux doivent se trouver dans la même région (USA Ouest ou Asie Sud-Est, par exemple). Cela réduit à la fois la latence et les coûts, puisque l’utilisation de la bande passante dans une seule région était gratuite.
 
 Si des applications clientes accèdent au stockage Azure sans être hébergées dans Azure (c’est le cas, par exemple, des applications pour appareil mobile ou des services d’entreprise locaux), le fait de placer le compte de stockage dans une région proche de ces appareils peut réduire la latence. Si vos clients sont distribués à grande échelle (par exemple, certains en Amérique du Nord et d’autres en Europe), il est conseillé d’utiliser un compte de stockage pour chaque région. Cette méthode est plus facile à implémenter si les données stockées par l’application sont propres à certains utilisateurs, et elle ne nécessite pas de réplication des données entre différents comptes de stockage.
 
@@ -112,8 +114,8 @@ Développez vos applications du stockage Azure avec .NET Core 2.1 ou ultérieur
 
 Pour plus d’informations sur les améliorations des performances dans .NET Core, consultez les billets de blog suivants :
 
-- [Performance Improvements in .NET Core 3.0](https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-core-3-0/)
-- [Performance Improvements in .NET Core 2.1](https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-core-2-1/)
+- [Amélioration des performances dans .NET Core 3.0](https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-core-3-0/)
+- [Amélioration des performances dans .NET Core 2.1](https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-core-2-1/)
 
 ### <a name="increase-default-connection-limit"></a>Augmenter la limite de connexions par défaut
 
@@ -127,9 +129,9 @@ Définissez la limite de connexions avant d’ouvrir une connexion.
 
 Pour les autres langages de programmation, voir la documentation correspondante pour savoir comment définir la limite de connexions.
 
-Pour plus d’informations, consultez le billet de blog [Services web : connexions simultanées](/archive/blogs/darrenj/web-services-concurrent-connections).
+Pour plus d’informations, consultez le billet de blog [Services web : Connexions simultanées](/archive/blogs/darrenj/web-services-concurrent-connections).
 
-### <a name="increase-minimum-number-of-threads"></a>Augmenter le nombre minimal de threads
+### <a name="increase-the-minimum-number-of-threads"></a>Augmenter le nombre minimal de threads
 
 Si vous utilisez des appels synchrones avec des tâches asynchrones, vous aurez peut-être besoin d’augmenter le nombre de threads dans le pool de threads :
 
@@ -137,7 +139,7 @@ Si vous utilisez des appels synchrones avec des tâches asynchrones, vous aurez 
 ThreadPool.SetMinThreads(100,100); //(Determine the right number for your application)  
 ```
 
-Pour plus d’informations, consultez la méthode [ThreadPool.SetMinThreads](/dotnet/api/system.threading.threadpool.setminthreads).
+Pour plus d’informations, reportez-vous à la méthode [`ThreadPool.SetMinThreads`](/dotnet/api/system.threading.threadpool.setminthreads).
 
 ## <a name="unbounded-parallelism"></a>Parallélisme illimité
 
@@ -153,19 +155,19 @@ Le stockage Azure retourne une erreur lorsque le service ne peut pas traiter une
 
 ### <a name="timeout-and-server-busy-errors"></a>Erreurs d’expiration de délai et de serveur occupé
 
-Le stockage Azure peut limiter votre application si celle-ci s’approche des limites de scalabilité. Dans certains cas, le stockage Azure peut ne pas être en mesure de traiter une requête en raison d’un problème temporaire. Dans les deux cas, le service peut retourner une erreur 503 (Serveur occupé) ou une erreur 500 (Délai expiré). Ces erreurs peuvent également se produire si le service rééquilibre les partitions de données pour permettre un débit plus élevé. L’application cliente doit généralement retenter l’opération qui provoque l’une de ces erreurs. Cependant, si le stockage Azure limite votre application en raison d’un dépassement des objectifs de scalabilité, ou si le service n’a pas été en mesure de répondre à la requête pour une autre raison, le fait d’effectuer des nouvelles tentatives agressives ne fait généralement qu’aggraver le problème. Il est recommandé d’utiliser une stratégie de nouvelle tentative de type backoff exponentiel. Les bibliothèques clientes adopteront par défaut ce comportement. Votre application peut, par exemple, effectuer une nouvelle tentative après 2 secondes, puis 4 secondes, 10 secondes, 30 secondes avant d’abandonner complètement. De cette façon, votre application réduit considérablement la charge sur le service, au lieu d’aggraver un comportement susceptible d’entraîner une limitation.
+Le stockage Azure peut limiter votre application si celle-ci s’approche des limites de scalabilité. Dans certains cas, le stockage Azure peut ne pas être en mesure de traiter une requête en raison d’un problème temporaire. Dans les deux cas, le service peut retourner une erreur 503 (`Server Busy`) ou une erreur 500 (`Timeout`). Ces erreurs peuvent également se produire si le service rééquilibre les partitions de données pour permettre un débit plus élevé. L’application cliente doit généralement retenter l’opération qui provoque l’une de ces erreurs. Cependant, si le stockage Azure limite votre application en raison d’un dépassement des objectifs de scalabilité, ou si le service n’a pas été en mesure de répondre à la requête pour une autre raison, le fait d’effectuer des nouvelles tentatives agressives ne fait généralement qu’aggraver le problème. Il est recommandé d’utiliser une stratégie de nouvelle tentative de type backoff exponentiel. Les bibliothèques clientes adopteront par défaut ce comportement. Votre application peut, par exemple, effectuer une nouvelle tentative après 2 secondes, puis 4 secondes, 10 secondes, 30 secondes avant d’abandonner complètement. De cette façon, votre application réduit considérablement la charge sur le service, au lieu d’aggraver un comportement susceptible d’entraîner une limitation.
 
 Les erreurs de connectivité ne sont pas dues à une limitation et sont généralement temporaires. Dès lors, de nouvelles tentatives peuvent être effectuées immédiatement.
 
 ### <a name="non-retryable-errors"></a>Erreurs non renouvelables
 
-Les bibliothèques clientes gèrent les nouvelles tentatives en sachant quelles erreurs peuvent être retentées. Toutefois, si vous appelez directement l’API REST du stockage Azure, il y a des erreurs que vous ne devez pas renouveler. Par exemple, une erreur 400 (Requête incorrecte) indique que l’application cliente a envoyé une requête qui n’a pas pu être traitée, car elle n’était pas au format attendu. Le fait de renvoyer cette requête générera à chaque fois la même réponse, il ne sert donc à rien de la renvoyer. Si vous appelez directement l’API REST du stockage Azure, tenez compte des erreurs potentielles et déterminez si elles doivent être retentées.
+Les bibliothèques clientes gèrent les nouvelles tentatives en sachant quelles erreurs peuvent être retentées. Toutefois, si vous appelez directement l’API REST du stockage Azure, il y a des erreurs que vous ne devez pas renouveler. Par exemple, une erreur 400 (`Bad Request`) indique que l’application cliente a envoyé une requête qui n’a pas pu être traitée, car elle n’était pas au format attendu. Le fait de renvoyer cette requête générera à chaque fois la même réponse, il ne sert donc à rien de la renvoyer. Si vous appelez directement l’API REST du stockage Azure, tenez compte des erreurs potentielles et déterminez si elles doivent être retentées.
 
 Pour plus d’informations sur les codes d’erreur du stockage Azure, consultez [Codes d’état et d’erreur](/rest/api/storageservices/status-and-error-codes2).
 
-## <a name="disable-nagle"></a>Désactiver Nagle
+## <a name="disable-nagles-algorithm"></a>Désactiver l’algorithme de Nagle
 
-L’algorithme de Nagle est utilisé à grande échelle sur les réseaux TCP/IP en vue d’améliorer les performances du réseau. Cependant, il n’est pas idéal dans toutes les situations (c’est le cas, par exemple, dans les environnements très interactifs). L’algorithme Nagle a un impact négatif sur les performances des requêtes adressées aux services Table et File d’attente Azure. Vous devez donc le désactiver si cela s’avère possible.
+L’algorithme de Nagle est utilisé à grande échelle sur les réseaux TCP/IP en vue d’améliorer les performances du réseau. Cependant, il n’est pas idéal dans toutes les situations (c’est le cas, par exemple, dans les environnements très interactifs). L’algorithme de Nagle a un impact négatif sur les performances des requêtes adressées au Stockage Table Azure. Vous devez donc le désactiver si cela s’avère possible.
 
 ## <a name="message-size"></a>Taille des messages
 
@@ -179,13 +181,13 @@ Vous pouvez récupérer jusqu’à 32 messages d’une file d’attente en une 
 
 La plupart des applications interrogent une file d’attente pour les messages, ce qui peut représenter l’une des plus grandes sources de transactions pour cette application. Sélectionnez votre intervalle d’interrogation avec soin : une interrogation trop fréquente pourrait entraîner un rapprochement des objectifs d’extensibilité pour la file d’attente. Toutefois, à 200 000 transactions à 0,01 $ (au moment de la rédaction), un seul processeur interrogeant une fois par seconde pendant un mois reviendrait à moins de 15 cents. Le prix n’est donc généralement pas un facteur qui affecte le choix de l’intervalle d’interrogation.
 
-Pour plus d’informations relatives au coût, consultez [Tarification Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
+Pour des informations tarifaires à jour, consultez [Tarifs du stockage Azure](https://azure.microsoft.com/pricing/details/storage/).
 
-## <a name="use-update-message"></a>Utiliser l’opération Mise à jour de message
+## <a name="perform-an-update-message-operation"></a>Effectuer une opération de mise à jour de message
 
-Vous pouvez utiliser l’opération **Mise à jour de message** pour augmenter le délai d’expiration de l’invisibilité ou pour mettre à jour les informations d’état d’un message. L’utilisation de l’opération **Mise à jour de message** peut constituer une méthode beaucoup plus efficace qu’un workflow qui transmet une tâche d’une file d’attente à la suivante, une fois chaque étape terminée. Votre application peut enregistrer l’état de la tâche dans le message, puis poursuivre le traitement, au lieu de replacer à chaque fois le message en file d’attente pour l’étape suivante. N’oubliez pas que chaque opération **Mise à jour de message** est comptabilisée dans le cadre de l’objectif de scalabilité.
+Vous pouvez effectuer une opération de mise à jour de message pour augmenter le délai d’expiration de l’invisibilité ou pour mettre à jour les informations d’état d’un message. Cette méthode peut être plus efficace qu’un workflow qui transmet un travail d’une file d’attente à une autre, à chaque fin d’étape effectuée du travail. Votre application peut enregistrer l’état de la tâche dans le message, puis poursuivre le traitement, au lieu de replacer à chaque fois le message en file d’attente pour l’étape suivante. N’oubliez pas que chaque opération de mise à jour de message est comptabilisée dans le cadre de l’objectif de scalabilité.
 
-## <a name="application-architecture"></a>Architecture de l'application
+## <a name="application-architecture"></a>Architecture de l’application
 
 Utilisez des files d’attente pour rendre scalable l’architecture de votre application. Vous trouverez, dans les listes suivantes, les méthodes applicables pour accroître l’extensibilité de votre application :
 
@@ -194,6 +196,6 @@ Utilisez des files d’attente pour rendre scalable l’architecture de votre ap
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Cibles de scalabilité et de performances pour le Stockage File d’attente](scalability-targets.md)
+- [Objectifs de scalabilité et de performances pour le Stockage File d’attente](scalability-targets.md)
 - [Objectifs d’extensibilité et de performances pour les comptes de stockage standard](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
 - [Codes d’état et d’erreur](/rest/api/storageservices/Status-and-Error-Codes2)

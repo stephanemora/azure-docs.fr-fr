@@ -5,15 +5,15 @@ author: cynthn
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.workload: infrastructure
-ms.date: 07/28/2020
+ms.date: 12/07/2020
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: a42b07254deaf19d253f7523631018bfe7166a57
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 4e29bb0fee496af6a8c0fd30d5559bf865123c39
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96339589"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007889"
 ---
 # <a name="azure-dedicated-hosts"></a>Hôtes dédiés Azure
 
@@ -67,11 +67,6 @@ L’exemple de modèle Resource Manager, trouvé [ici](https://github.com/Azure/
 
 ## <a name="manual-vs-automatic-placement"></a>Sélection élective manuelle ou automatique 
 
-> [!IMPORTANT]
-> La fonctionnalité Sélection élective automatique est actuellement en préversion publique.
-> Pour participer à la préversion, répondez à l’enquête d’intégration à l’adresse suivante : [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview).
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 Lorsque vous créez une machine virtuelle dans Azure, vous pouvez sélectionner l’hôte dédié à utiliser. Vous pouvez également utiliser l’option pour placer automatiquement vos machines virtuelles sur des hôtes existants, au sein d’un groupe hôte. 
 
 Lors de la création d’un groupe hôte, vérifiez que le paramètre de sélection élective automatique est sélectionné. Lorsque vous créez votre machine virtuelle, sélectionnez le groupe hôte et laissez Azure sélectionner le meilleur hôte pour votre machine virtuelle. 
@@ -91,11 +86,6 @@ Problèmes connus et limitations lors de l’utilisation de la sélection élect
 
 Les groupes de machines virtuelles identiques vous permettent de traiter un groupe de machines virtuelles en tant que ressource unique, et d’appliquer des stratégies de disponibilité, de gestion, de mise à l’échelle et d’orchestration en tant que groupe. Vos hôtes dédiés existants peuvent également être utilisés pour les groupes de machines virtuelles identiques. 
 
-> [!IMPORTANT]
-> Le service Virtual Machine Scale Sets sur Dedicated Host est actuellement en préversion publique.
-> Pour participer à la préversion, répondez à l’enquête d’intégration sur [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview).
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 Lorsque vous créez un groupe de machines virtuelles identiques, vous pouvez spécifier un groupe hôte existant afin que toutes les instances de machine virtuelle soient créées sur des hôtes dédiés.
 
 Les conditions suivantes s’appliquent lors de la création d’un groupe de machines virtuelles identiques dans un groupe hôte dédié :
@@ -109,7 +99,7 @@ Les conditions suivantes s’appliquent lors de la création d’un groupe de ma
 - Les tailles de machines virtuelles prises en charge pour vos hôtes dédiés doivent correspondre à celle utilisée pour votre groupe identique.
 
 Les paramètres d’optimisation et d’orchestration de groupe identique ne sont pas tous pris en charge par les hôtes dédiés. Appliquez les paramètres suivants à votre groupe identique : 
-- Désactivez le surprovisionnement.
+- Un surprovisionnement n’est pas recommandé et il est désactivé par défaut. Vous pouvez activer le surprovisionnement, mais l’allocation du groupe identique échoue si le groupe d’hôtes n’a pas la capacité nécessaire pour toutes les machines virtuelles, y compris les instances surprovisionnées. 
 - Utilisez le mode d’orchestration ScaleSetVM. 
 - N’utilisez pas de groupes de placement de proximité pour la colocalisation.
 

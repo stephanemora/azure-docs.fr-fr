@@ -5,24 +5,28 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: Java
 ms.topic: sample
-ms.date: 07/23/2020
-author: sakash279
-ms.author: akshanka
+ms.date: 12/10/2020
+author: ThomasWeiss
+ms.author: thweiss
 ms.custom: devx-track-java
-ms.openlocfilehash: 1f3f5a35beeac6c683aeb6db16a417b897755666
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a5da5e1717f897d2236fd73f0fff525e157f7a0e
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93079765"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093687"
 ---
 # <a name="how-to-use-azure-table-storage-or-azure-cosmos-db-table-api-from-java"></a>Guide pratique pour utiliser le Stockage Table Azure ou l’API Table d’Azure Cosmos DB avec Java
+
 [!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
-Cet article vous montre comment créer des tables, stocker vos données et effectuer des opérations CRUD sur les données. Choisissez le service de Table Azure ou l’API Table Azure Cosmos DB. Les exemples sont écrits en Java et utilisent le [Kit de développement logiciel (SDK) Azure Storage pour Java][Azure Storage SDK for Java]. Les scénarios abordés sont les suivants : **création** , **suppression** et **affichage d’une liste de tables** , **insertion** , **interrogation** , **modification** et **suppression** des entités d’une table. Pour plus d'informations sur les tables, consultez la section [Étapes suivantes](#next-steps) .
+Cet article vous montre comment créer des tables, stocker vos données et effectuer des opérations CRUD sur les données. Choisissez le service de Table Azure ou l’API Table Azure Cosmos DB. Les exemples sont écrits en Java et utilisent le [SDK Stockage Azure v8 pour Java][Azure Storage SDK for Java]. Les scénarios abordés sont les suivants : **création**, **suppression** et **affichage d’une liste de tables**, **insertion**, **interrogation**, **modification** et **suppression** des entités d’une table. Pour plus d'informations sur les tables, consultez la section [Étapes suivantes](#next-steps) .
+
+> [!IMPORTANT]
+> La version [v8][Azure Storage SDK for Java] est la dernière version du SDK Stockage Azure qui prend en charge Stockage Table. Une nouvelle version du SDK Stockage Table pour Java sera bientôt disponible.
 
 > [!NOTE]
 > un Kit de développement logiciel (SDK) est disponible pour les développeurs qui utilisent Azure Storage sur des appareils Android. Pour plus d'informations, consultez la page [Kit de développement logiciel (SDK) Azure Storage pour Android][Azure Storage SDK for Android].
@@ -63,7 +67,7 @@ Vous pouvez vous connecter au compte de stockage Azure ou au compte de l’API T
 
 ### <a name="add-an-azure-storage-connection-string"></a>Ajouter une chaîne de connexion de stockage Azure
 
-Un client de stockage Azure utilise une chaîne de connexion de stockage pour stocker des points de terminaison et des informations d’identification permettant d’accéder aux services de gestion des données. Lors de l’exécution dans une application cliente, vous devez spécifier la chaîne de connexion au stockage au format suivant, en indiquant le nom de votre compte de stockage et sa clé d’accès primaire, correspondant aux valeurs **AccountName** et **AccountKey** , sur le [portail Azure](https://portal.azure.com). 
+Un client de stockage Azure utilise une chaîne de connexion de stockage pour stocker des points de terminaison et des informations d’identification permettant d’accéder aux services de gestion des données. Lors de l’exécution dans une application cliente, vous devez spécifier la chaîne de connexion au stockage au format suivant, en indiquant le nom de votre compte de stockage et sa clé d’accès primaire, correspondant aux valeurs **AccountName** et **AccountKey**, sur le [portail Azure](https://portal.azure.com). 
 
 Cet exemple vous montre comment déclarer un champ statique pour qu’il contienne une chaîne de connexion :
 
@@ -77,7 +81,7 @@ public static final String storageConnectionString =
 
 ### <a name="add-an-azure-cosmos-db-table-api-connection-string"></a>Ajouter une chaîne de connexion d’API Table d’Azure Cosmos DB
 
-Un compte Azure Cosmos DB utilise une chaîne de connexion pour stocker le point de terminaison de table et vos informations d’identification. Lors de l’exécution dans une application cliente, vous devez spécifier la chaîne de connexion Azure Cosmos DB au format suivant, en indiquant le nom de votre compte Azure Cosmos DB et sa clé d’accès primaire, correspondant aux valeurs **AccountName** et **AccountKey** , sur le [portail Azure](https://portal.azure.com). 
+Un compte Azure Cosmos DB utilise une chaîne de connexion pour stocker le point de terminaison de table et vos informations d’identification. Lors de l’exécution dans une application cliente, vous devez spécifier la chaîne de connexion Azure Cosmos DB au format suivant, en indiquant le nom de votre compte Azure Cosmos DB et sa clé d’accès primaire, correspondant aux valeurs **AccountName** et **AccountKey**, sur le [portail Azure](https://portal.azure.com). 
 
 Cet exemple vous montre comment déclarer un champ statique pour qu’il contienne la chaîne de connexion Azure Cosmos DB :
 
@@ -628,7 +632,7 @@ catch (Exception e)
 Pour plus d’informations, consultez [Azure pour les développeurs Java](/java/azure).
 
 [Azure SDK for Java]: https://go.microsoft.com/fwlink/?LinkID=525671
-[Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
+[Azure Storage SDK for Java]: https://github.com/Azure/azure-storage-java/tree/v8.6.5
 [Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
 [Référence du Kit de développement logiciel (SDK) du client Azure Storage]: https://azure.github.io/azure-storage-java/
 [Azure Storage REST API]: /rest/api/storageservices/

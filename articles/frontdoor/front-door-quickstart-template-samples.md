@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2020
 ms.author: duau
-ms.openlocfilehash: 961214b3a815eb8ae9b0fcb283599b3474d4706e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bac1df020bf2a683fc04a4d05ae73311e149f70c
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89399359"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511771"
 ---
 # <a name="azure-resource-manager-deployment-model-templates-for-front-door"></a>Modèles de déploiement Azure Resource Manager pour Front Door
 

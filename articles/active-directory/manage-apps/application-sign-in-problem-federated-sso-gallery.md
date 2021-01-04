@@ -12,12 +12,12 @@ ms.date: 02/18/2019
 ms.author: kenwith
 ms.reviewer: luleon, asteen
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: e6d3674aaa4c89f42c2e7b87a6be6cdc8ecabf64
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 596af29fe72a41b5a86a09e4e6d5072d63b6ac71
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97028272"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586344"
 ---
 # <a name="problems-signing-in-to-saml-based-single-sign-on-configured-apps"></a>Problèmes de connexion aux applications configurées pour l’authentification unique basée sur SAML
 Pour résoudre les problèmes de connexion ci-dessous, nous vous recommandons d’effectuer les opérations suivantes afin de bénéficier du meilleur diagnostic et d’automatiser les étapes de résolution :
@@ -33,7 +33,9 @@ Pour ouvrir la page de configuration de l’authentification unique basée sur S
 1.  Entrez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
 1.  Sélectionnez **Applications d’entreprise** dans le menu de navigation de gauche d’Azure Active Directory.
 1.  Sélectionnez **Toutes les applications** pour afficher la liste complète de vos applications.
+
     Si l’application que vous recherchez ne figure pas dans la liste, utilisez la commande **Filtre** en haut de la **liste de toutes les applications** et définissez l’option **Afficher** sur **Toutes les applications**.
+
 1.  Sélectionnez l’application pour laquelle vous souhaitez configurer l’authentification unique.
 1. Une fois l’application chargée, sélectionnez **Authentification unique** dans le menu de navigation de gauche de l’application.
 1. Sélectionner l’authentification basée sur SAML.
@@ -63,7 +65,7 @@ La valeur `AssertionConsumerServiceURL` dans la requête SAML ne correspond pas 
 Vérifiez que la valeur `AssertionConsumerServiceURL` de la requête SAML correspond à la valeur de l’URL de réponse configurée dans Azure AD. 
 
 Vérifiez ou mettez à jour la valeur figurant dans la zone de texte URL de réponse pour qu’elle corresponde à la valeur `AssertionConsumerServiceURL` dans la requête SAML.   
-    
+
 Une fois que vous avez mis à jour la valeur de l’URL de réponse dans Azure AD et qu’elle correspond à celle envoyée par l’application dans la requête SAML, vous devez être en mesure de vous connecter à l’application.
 
 ## <a name="user-not-assigned-a-role"></a>Utilisateur non affecté à un rôle

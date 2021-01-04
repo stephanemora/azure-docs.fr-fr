@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: 26fc976983fc08857e7771d58f15d0abcd9a1d3c
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: cef2e2ca9c7ad4640014d9b5a9a7da42d308ef7c
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353219"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97605142"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Utiliser des invites de suivi pour créer plusieurs tours de conversation
 
@@ -38,7 +38,6 @@ Avec la conversation multitour, un bot conversationnel gère une conversation av
 Dans l’image précédente, un utilisateur a lancé une conversation en entrant **My account**. La base de connaissances contient trois paires de questions/réponses liées. Pour affiner la réponse, l’utilisateur sélectionne un des trois choix de la base de connaissances. La question (#1) comporte trois invites de suivi, qui sont présentées dans le bot conversationnel comme trois options (#2).
 
 Quand l’utilisateur sélectionne une option (#3), la liste suivante d’options d’affinage (#4) est présentée. Cette séquence se poursuit (#5) jusqu’à ce que l’utilisateur détermine la réponse finale correcte (#6).
-
 
 ### <a name="use-multi-turn-in-a-bot"></a>Utiliser la conversation multitour dans un bot
 
@@ -79,7 +78,6 @@ Quand vous ajoutez un document hiérarchique, QnA Maker détermine des invites d
 > [!Caution]
 > L’utilisation d’un fichier de base de connaissances multitour TSV ou XLS exporté comme source de données pour une base de connaissances, nouvelle ou vide, n’est pas prise en charge. Vous devez importer (**Import**) ce type de fichier à partir de la page **Settings** du portail QnA Maker pour ajouter des invites multitours exportées à une base de connaissances.
 
-
 ## <a name="create-knowledge-base-with-multi-turn-prompts-with-the-create-api"></a>Créer la base de connaissances avec des invites multitours à l’aide de l’API Create
 
 Vous pouvez créer une base de connaissances avec des invites multitours à l’aide de l’[API Create de QnA Maker](/rest/api/cognitiveservices/qnamaker/knowledgebase/create). Les invites sont ajoutées dans le tableau `prompts` de la propriété `context`.
@@ -116,7 +114,6 @@ Ajoutez une invite de suivi à une paire de questions/réponses existante qui n�
     |Context-only| Cochez cette case. Une réponse est retournée uniquement si la question spécifie le contexte.|
     |Link to answer|Entrez **Use the sign-in screen** pour rechercher la paire de questions/réponses existante.|
 
-
 1.  Une seule correspondance est retournée. Sélectionnez cette réponse comme suivi, puis choisissez **Save**.
 
     ![Page « Follow-up prompt (PREVIEW) »](../media/conversational-context/search-follow-up-prompt-for-existing-answer.png)
@@ -137,7 +134,6 @@ Quand une invite de suivi est créée et qu’une paire de questions/réponses e
 1. Une fois le texte d’affichage modifié, sélectionnez **Save**.
 1. Dans la barre de navigation du haut, choisissez **Save and train**.
 
-
 ## <a name="add-a-new-question-and-answer-pair-as-a-follow-up-prompt"></a>Ajouter une nouvelle paire de questions/réponses comme invite de suivi
 
 Quand vous ajoutez une nouvelle paire de questions/réponses à la base de connaissances, chaque paire doit être liée à une question existante en tant qu’invite de suivi.
@@ -155,7 +151,6 @@ Quand vous ajoutez une nouvelle paire de questions/réponses à la base de conna
     |||
 
     ![Créer une nouvelle question et réponse d’invite](../media/conversational-context/create-child-prompt-from-parent.png)
-
 
 1. Sélectionnez **Create new**, puis **Save**.
 
@@ -227,7 +222,7 @@ Dans la section précédente, une réponse et les invites de suivi éventuelles 
             "questions": [
                 "Sign out"
             ],
-            "answer": "**Sign out**\n\nHere's how to sign out: \n\n Go to Start, and right-click your name. Then select Sign out. ",
+            "answer": "**Sign out**\n\nHere's how to sign out: \n\n  Go to Start, and right-click your name. Then select Sign out. ",
             "score": 38.01,
             "id": 18,
             "source": "product-manual.pdf",
@@ -353,7 +348,6 @@ La réponse JSON _GenerateAnswer_ de QnA Maker comprend les invites de suivi dan
 ## <a name="query-the-knowledge-base-with-the-qna-maker-id"></a>Interroger la base de connaissances avec l’ID QnA Maker
 
 Si vous créez une application personnalisée à l’aide de la fonctionnalité multitour. Dans la réponse de la question initiale, les éventuelles invites de suivi et leurs `qnaId` associés sont retournés. Maintenant que vous disposez de l’ID, vous pouvez le transmettre dans le corps de la demande de l’invite de suivi. Si le corps de la demande contient le `qnaId` et l’objet de contexte (qui contient les propriétés QnA Maker précédentes), GenerateAnswer retourne la question exacte par ID, au lieu d’utiliser l’algorithme de classement pour trouver la réponse à partir du texte de la question.
-
 
 ## <a name="display-order-is-supported-in-the-update-api"></a>L’ordre d’affichage est pris en charge dans l’API Update
 

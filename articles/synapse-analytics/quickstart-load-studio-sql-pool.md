@@ -6,15 +6,15 @@ author: kevinvngo
 ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: quickstart
-ms.date: 11/16/2020
+ms.date: 12/11/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 312c57c103bf733bc72c5de1d22ab3239d5b5e96
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 86ef610af605c657868824eefe2e6e706f6963ac
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96484665"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97360177"
 ---
 # <a name="quickstart-bulk-loading-with-synapse-sql"></a>Démarrage rapide : Chargement en masse avec Synapse SQL
 
@@ -39,26 +39,25 @@ Vous pouvez facilement charger des données en masse à l’aide de pools SQL d�
 
 ### <a name="steps"></a>Étapes
 
-1. Sélectionnez le compte de stockage et le fichier ou dossier à partir duquel vous effectuez le chargement dans le volet Emplacement de stockage source. L’Assistant tente automatiquement de détecter les fichiers Parquet. Si le type de fichier Parquet ne peut pas être confirmé, le format de texte délimité (CSV) est utilisé par défaut.
+1. Sélectionnez le compte de stockage et le fichier ou dossier à partir duquel vous effectuez le chargement dans le volet Emplacement de stockage source. L’Assistant tente automatiquement de détecter les fichiers Parquet ainsi que les fichiers de texte délimité (CSV), y compris le mappage des champs sources allant du fichier aux types de données SQL cibles appropriés. 
 
    ![Sélection de l’emplacement source](./sql/media/bulk-load/bulk-load-source-location.png)
 
-2. Sélectionnez les paramètres de format de fichier, notamment le compte de stockage dans lequel vous souhaitez écrire les lignes rejetées (fichier d’erreur). Actuellement, seuls les fichiers CSV et Parquet sont pris en charge.
+2. Sélectionnez les paramètres du format de fichier, entre autres vos paramètres d’erreur lorsque des lignes sont rejetées pendant le processus de chargement en masse. Vous pouvez également sélectionner « Aperçu des données » afin de voir comment l’instruction COPY analyse le fichier pour vous aider à configurer les paramètres du format de fichier. Sélectionnez « Aperçu des données » chaque fois que vous modifiez un paramètre de format de fichier pour voir comment l’instruction COPY analyse le fichier avec le paramètre mis à jour :
 
-    ![Sélection des paramètres de format de fichier](./sql/media/bulk-load/bulk-load-file-format-settings.png)
-
-3. Vous pouvez sélectionner « Aperçu des données » pour voir comment l’instruction COPY analyse le fichier pour vous aider à configurer les paramètres de format de fichier. Sélectionnez « Aperçu des données » chaque fois que vous modifiez un paramètre de format de fichier pour voir comment l’instruction COPY analyse le fichier avec le paramètre mis à jour : ![Aperçu des données](./sql/media/bulk-load/bulk-load-file-format-settings-preview-data.png) 
+   ![Aperçu des données](./sql/media/bulk-load/bulk-load-file-format-settings-preview-data.png) 
 
 > [!NOTE]  
 >
 > - L’affichage de l’aperçu des données avec des indicateurs de fin de champ à plusieurs caractères n’est pas pris en charge dans l’Assistant Chargement en masse. L’Assistant Chargement en masse affiche un aperçu des données dans une seule colonne lorsqu’un terminateur de champ à plusieurs caractères est spécifié. 
+> - Lors de la sélection de l’option « Déduire les noms de colonnes », l’Assistant Chargement en masse analyse les noms des colonnes à partir de la première ligne spécifiée par le champ « Première ligne ». L’Assistant Chargement en masse incrémente automatiquement de 1 la valeur FIRSTROW dans l’instruction COPY pour ignorer cette ligne d’en-tête. 
 > - La spécification d’indicateurs de fin de ligne à plusieurs caractères est prise en charge dans l’instruction COPY. Toutefois, elle n’est pas prise en charge dans l’Assistant Chargement en masse, où une erreur sera levée.
 
-4. Sélectionnez le pool SQL dédié que vous utilisez pour charger, notamment si la charge concerne une table existante ou une nouvelle table : ![Sélection de l’emplacement cible](./sql/media/bulk-load/bulk-load-target-location.png)
+3. Sélectionnez le pool SQL dédié que vous utilisez pour charger, notamment si la charge concerne une table existante ou une nouvelle table : ![Sélection de l’emplacement cible](./sql/media/bulk-load/bulk-load-target-location.png)
+4. Sélectionnez « Configurer le mappage de colonnes » pour vérifier que vous disposez du mappage de colonnes approprié. Notez que les noms de colonnes sont automatiquement détectés si l’option « Déduire les noms de colonnes » a été activée. Pour les nouvelles tables, la configuration du mappage de colonnes est essentielle pour la mise à jour des types de données des colonnes cibles :
 
-5. Sélectionnez « Configurer le mappage de colonnes » pour vérifier que vous disposez du mappage de colonnes approprié. Notez que les noms de colonnes sont automatiquement détectés si l’option « Déduire les noms de colonnes » a été activée. Pour les nouvelles tables, la configuration du mappage de colonnes est essentielle pour la mise à jour des types de données des colonnes cibles : ![Configuration du mappage de colonnes](./sql/media/bulk-load/bulk-load-target-location-column-mapping.png)
-
-6. Sélectionnez « Ouvrir un script » et un script T-SQL sera généré avec l’instruction COPY pour charger à partir de votre lac de données : ![Ouverture du script SQL](./sql/media/bulk-load/bulk-load-target-final-script.png)
+   ![Configuration du mappage de colonnes](./sql/media/bulk-load/bulk-load-target-location-column-mapping.png)
+5. Sélectionnez « Ouvrir un script » et un script T-SQL sera généré avec l’instruction COPY pour charger à partir de votre lac de données : ![Ouverture du script SQL](./sql/media/bulk-load/bulk-load-target-final-script.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

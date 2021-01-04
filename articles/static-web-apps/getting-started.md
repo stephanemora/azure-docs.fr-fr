@@ -1,20 +1,20 @@
 ---
-title: 'Démarrage rapide : Création de votre première application web statique avec le service Azure Static Web Apps'
-description: Apprenez à créer un site web Azure Static Web Apps.
+title: 'Démarrage rapide : Création de votre premier site statique avec le service Azure Static Web Apps'
+description: Apprenez à déployer un site statique sur Azure Static Web Apps.
 services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 08/13/2020
 ms.author: cshoe
-ms.openlocfilehash: a78f74b4aadd26af141ed84ca99a092693f56af5
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: eb2356451c349f894c9ca74b1359f6a02d0e002a
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369560"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562512"
 ---
-# <a name="quickstart-building-your-first-static-web-app"></a>Démarrage rapide : Création de votre première application web statique
+# <a name="quickstart-building-your-first-static-site-with-azure-static-web-apps"></a>Démarrage rapide : Création de votre premier site statique avec Azure Static Web Apps
 
 Azure Static Web Apps publie un site web dans un environnement de production en compilant les applications à partir d’un dépôt GitHub. Dans ce guide de démarrage rapide, vous déployez une application web dans Azure Static Web Apps à l’aide de l’extension Visual Studio Code.
 
@@ -52,7 +52,7 @@ Ensuite, ouvrez Visual Studio Code et accédez à **Fichier > Ouvrir le dossier*
 
     :::image type="content" source="media/getting-started/extension-create-app.png" alt-text="Création d’application web statique":::
 
-1. Sélectionnez la branche **master** (principale), puis appuyez sur **Entrée**.
+1. Sélectionnez la branche **main** , puis appuyez sur **Entrée**.
 
     :::image type="content" source="media/getting-started/extension-branch.png" alt-text="Nom de la branche":::
 

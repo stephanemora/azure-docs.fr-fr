@@ -3,12 +3,12 @@ title: Expériences de la gestion multilocataire
 description: La gestion des ressources déléguées Azure offre une expérience de gestion inter-locataires.
 ms.date: 11/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: 95b9bcf6bb9530afc9f6a23c323b6931e8975ad1
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4550921fdefdca440b6757e7a3b7a03337599d16
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95905121"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97510649"
 ---
 # <a name="cross-tenant-management-experiences"></a>Expériences de la gestion multilocataire
 
@@ -90,7 +90,7 @@ La plupart des tâches et des services peuvent être exécutés sur des ressourc
 
 [Azure Monitor](../../azure-monitor/index.yml) :
 
-- Afficher les alertes pour les abonnements délégués, avec la possibilité d’afficher des alertes à travers tous les abonnements
+- Afficher les alertes pour les abonnements délégués, avec la possibilité d’afficher et d’actualiser des alertes à travers tous les abonnements
 - Afficher les détails du journal d’activité pour des abonnements délégués
 - Log Analytics : Interroger des données à partir d’espaces de travail distants dans plusieurs locataires
 - Créer des alertes dans les locataires du client qui déclenchent une automatisation, par exemple des runbooks Azure Automation ou des fonctions Azure Functions, dans le locataire gérant par le biais de webhooks

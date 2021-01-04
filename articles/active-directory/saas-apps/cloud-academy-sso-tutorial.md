@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/16/2020
+ms.date: 12/15/2020
 ms.author: jeedes
-ms.openlocfilehash: 822e28402d0b7829b835ad03a3b3cf7d05c3d343
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 96c4eba31013b868fa7afb41544d5d8cbcc1cdc6
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96180997"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607216"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-cloud-academy---sso"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Cloud Academy - SSO
 
@@ -25,8 +25,6 @@ Dans ce tutoriel, vous allez découvrir comment intégrer Cloud Academy - SSO à
 * Utiliser Azure AD pour contrôler qui peut accéder à Cloud Academy - SSO.
 * Permettre à vos utilisateurs de se connecter automatiquement à Cloud Academy - SSO avec leur compte Azure AD.
 * gérer vos comptes à un emplacement central : le portail Azure.
-
-Pour plus d’informations sur l’intégration d’applications SaaS à Azure AD, consultez [Qu’est-ce que l’authentification unique ?](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -39,15 +37,14 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification SSO Azure AD dans un environnement de test.
 
-Cloud Academy - SSO prend en charge l’authentification unique lancée par le fournisseur de services.
-
-Après avoir configuré Cloud Academy - SSO, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Les contrôles de session sont étendus à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+* Cloud Academy - SSO prend en charge l’authentification unique lancée par le **fournisseur de services**
+* Cloud Academy - SSO prend en charge l’attribution d’utilisateurs **juste-à-temps**
 
 ## <a name="add-cloud-academy---sso-from-the-gallery"></a>Ajouter Cloud Academy - SSO à partir de la galerie
 
 Pour configurer l’intégration de Cloud Academy - SSO à Azure AD, vous devez ajouter Cloud Academy - SSO à votre liste d’applications SaaS managées à partir de la galerie :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire, ou avec un compte Microsoft personnel.
+1. Connectez-vous au portail Azure avec un compte professionnel ou scolaire, ou avec un compte Microsoft personnel.
 1. Sélectionnez **Azure Active Directory** dans le volet de gauche.
 1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
 1. Pour ajouter une application, sélectionnez **Nouvelle application**.
@@ -72,14 +69,29 @@ Pour configurer et tester l’authentification unique Azure AD avec Cloud Academ
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le portail Azure :
 
-1. Dans le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **Cloud Academy - SSO**, recherchez la section **Gérer**, puis sélectionnez **Authentification unique**.
+1. Dans le portail Azure, dans la page d’intégration de l’application **Cloud Academy - SSO**, recherchez la section **Gérer**, puis sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
 1. Dans la page **Configurer l’authentification unique avec SAML**, sélectionnez le bouton représentant un crayon et correspondant à **Configuration SAML de base** pour modifier les paramètres :
 
    ![Capture d’écran montrant le bouton avec l’icône de crayon pour la modification de la configuration SAML de base.](common/edit-urls.png)
 
-1. Dans la section **Configuration SAML de base**, dans la zone **URL de connexion**, entrez `https://cloudacademy.com/login/enterprise/`.
+1. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
 
+    a. Dans la zone de texte **URL d’authentification**, tapez l’une des URL suivantes :
+    
+    | URL de connexion |
+    |--------------|
+    | `https://cloudacademy.com/login/enterprise/` |
+    | `https://app.qa.com/login/enterprise/` |
+    |
+    
+    b. Dans la zone de texte **URL de réponse**, tapez l’une des URL suivantes :
+    
+    | URL de réponse |
+    |--------------|
+    | `https://cloudacademy.com/labs/social/complete/saml/` |
+    | `https://app.qa.com/labs/social/complete/saml/` |
+    |
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, sélectionnez le bouton Copier pour copier l’**URL des métadonnées de fédération d’application**. Enregistrez l’URL.
 
     ![Capture d’écran du bouton Copier pour l’URL des métadonnées de fédération d’application.](common/copy-metadataurl.png)
@@ -103,15 +115,9 @@ Dans cette section, vous allez autoriser B. Simon à utiliser l’authentificat
 1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 1. Dans la liste des applications, sélectionnez **Cloud Academy - SSO**.
 1. Dans la page de vue d’ensemble de l’application, dans la section **Gérer**, sélectionnez **Utilisateurs et groupes** :
-
-   ![Capture d’écran affichant l’option Utilisateurs et groupes.](common/users-groups-blade.png)
-
 1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution** :
-
-    ![Capture d’écran montrant le bouton Ajouter un utilisateur.](common/add-assign-user.png)
-
 1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B.Simon** dans la liste **Utilisateurs**, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
-1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste. Cliquez sur le bouton **Sélectionner** en bas de l’écran.
+1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
 1. Dans la boîte de dialogue **Ajouter une attribution**, sélectionnez **Affecter**.
 
 ## <a name="configure-single-sign-on-for-cloud-academy"></a>Configurer l’authentification unique pour Cloud Academy
@@ -145,36 +151,19 @@ Dans cette section, vous allez autoriser B. Simon à utiliser l’authentificat
 
 ### <a name="create-a-cloud-academy-test-user"></a>Créer un utilisateur de test Cloud Academy
 
-1. Connectez-vous à Cloud Academy - SSO.
-
-1. Sélectionnez le nom de votre société, puis sélectionnez **Members** (Membres) dans le menu qui apparaît :
-
-    ![Capture d’écran montrant l’option Members.](./media/cloud-academy-sso-tutorial/create-user.PNG)
-
-1. Sélectionnez **Invite Members** (Inviter des membres), puis sélectionnez **Invite a Single Member** (Inviter un seul membre) :
-
-    ![Capture d’écran montrant l’option Invite a single Member.](./media/cloud-academy-sso-tutorial/create-user-1.PNG)
-
-1. Entrez des valeurs dans les champs obligatoires, puis sélectionnez **Invite** (Inviter) :
-
-    ![Capture d’écran montrant la boîte de dialogue Invite a Member (Inviter un membre).](./media/cloud-academy-sso-tutorial/create-user-2.PNG)
+Dans cette section, un utilisateur appelé Britta Simon est créé dans Cloud Academy - SSO. Cloud Academy - SSO prend en charge le provisionnement d’utilisateurs juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas encore d’utilisateur dans Cloud Academy - SSO, un utilisateur est créé après l’authentification.
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
-Vous allez maintenant tester votre configuration de l’authentification unique Azure AD à l’aide du panneau d’accès.
+Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
 
-Quand vous sélectionnez la vignette Cloud Academy - SSO dans le panneau d’accès, vous devez être connecté automatiquement à l’instance de Cloud Academy - SSO pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations, consultez [Présentation du volet d’accès](../user-help/my-apps-portal-end-user-access.md).
+* Cliquez sur **Tester cette application** dans le portail Azure. Vous êtes redirigé vers l’URL de connexion Cloud Academy - SSO à partir de laquelle vous pouvez lancer le flux de connexion. 
 
-## <a name="additional-resources"></a>Ressources supplémentaires
+* Accédez directement à l’URL de connexion Cloud Academy - SSO pour y lancer le flux de connexion.
 
-- [Tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](./tutorial-list.md)
+* Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette Cloud Academy - SSO dans Mes applications vous redirige vers l’URL de connexion Cloud Academy - SSO. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](../conditional-access/overview.md)
+## <a name="next-steps"></a>Étapes suivantes
 
-- [Essayer Cloud Academy - SSO avec Azure AD](https://aad.portal.azure.com/)
-
-- [Qu’est-ce que le contrôle de session dans Microsoft Cloud App Security ?](/cloud-app-security/proxy-intro-aad)
-
-- [Guide pratique pour protéger Cloud Academy - SSO avec une visibilité et des contrôles avancés](/cloud-app-security/proxy-intro-aad)
+Après avoir configuré Cloud Academy - SSO, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

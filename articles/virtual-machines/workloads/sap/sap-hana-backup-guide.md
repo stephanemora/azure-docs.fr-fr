@@ -13,12 +13,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/01/2020
 ms.author: juergent
-ms.openlocfilehash: 522af4bf6cc711bbfdfd30d0443ee58dad56b87e
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 340ce84ebe662b976f32048a47fd98d793083065
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94950021"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617100"
 ---
 # <a name="backup-guide-for-sap-hana-on-azure-virtual-machines"></a>Guide de sauvegarde pour SAP HANA sur Machines Virtuelles Azure
 
@@ -103,7 +103,7 @@ Vous trouverez également des informations sur la vérification de cohérence de
 
 ### <a name="pros-and-cons-of-hana-backup-versus-storage-snapshot"></a>Avantages et inconvénients de la sauvegarde HANA par rapport à la capture instantanée de stockage
 
-SAP ne privilégie pas la sauvegarde HANA par rapport à la capture instantanée de stockage. Il répertorie leurs avantages et inconvénients, et chacun peut ainsi déterminer la méthode à utiliser en fonction de la situation et de la technologie de stockage disponible (voir [Planning Your Backup and Recovery Strategy](https://help.sap.com/saphelp_hanaplatform/helpdata/en/ef/085cd5949c40b788bba8fd3c65743e/content.htm) (Planification de votre stratégie de sauvegarde et de récupération) pour plus d’informations).
+SAP ne privilégie pas la sauvegarde HANA par rapport à la capture instantanée de stockage. Il répertorie leurs avantages et inconvénients, et chacun peut ainsi déterminer la méthode à utiliser en fonction de la situation et de la technologie de stockage disponible (voir [Planning Your Backup and Recovery Strategy](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.05/en-US/ef085cd5949c40b788bba8fd3c65743e.html) (Planification de votre stratégie de sauvegarde et de récupération) pour plus d’informations).
 
 Sur Azure, sachez que la fonctionnalité de capture instantanée de blobs Azure ne garantit pas la cohérence du système de fichiers sur plusieurs disques (voir la page [Utilisation d’instantanés blob avec PowerShell](/archive/blogs/cie/using-blob-snapshots-with-powershell)). 
 

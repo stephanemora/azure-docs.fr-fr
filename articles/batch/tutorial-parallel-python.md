@@ -1,16 +1,16 @@
 ---
-title: Exécuter une charge de travail parallèle à l’aide de l’API Python
+title: Tutoriel - Exécuter une charge de travail parallèle à l’aide de l’API Python
 description: Didacticiel - Traiter des fichiers multimédias en parallèle avec ffmpeg dans Azure Batch à l’aide de la bibliothèque cliente Python Batch
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 11/29/2018
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 34cea5e0b60c0a7ee8c3d31dd02a6f7e975de738
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7013ef1e9b6dda4554b665fa8199edb86a8a9adb
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87853328"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106510"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>Tutoriel : Exécuter une charge de travail parallèle avec Azure Batch à l’aide de l’API Python
 
@@ -268,7 +268,7 @@ Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, le comp
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à effectuer les opérations suivantes :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * S’authentifier avec des comptes de stockage et Batch

@@ -16,12 +16,12 @@ ms.date: 09/30/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b4030dedfb0d7308bb5a0f7a86bc49ee168e6d0c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 2e8d68643b5cc0002467f738dd60343fb2c42dc6
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92362805"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631281"
 ---
 # <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management"></a>Tutoriel : Créer votre premier package d’accès dans la gestion des droits d’utilisation Azure AD
 
@@ -117,6 +117,7 @@ Un *package d’accès* est un bundle de ressources dont une équipe ou un proje
 11. Dans la liste déroulante **Rôle**, sélectionnez **Membre**.
 
     ![Nouveau package d’accès - Onglet Rôles des ressources](./media/entitlement-management-access-package-first/resource-roles.png)
+
     >[!IMPORTANT]
     >Les groupes avec attribution de rôle ajoutés à un package d’accès sont indiqués à l’aide du sous-type **Attribuables aux rôles**. Pour plus d’informations sur les groupes attribuables aux rôles Azure AD, reportez-vous à [Créer un groupe avec attribution de rôle](../roles/groups-create-eligible.md) dans Azure Active Directory. Si vous ne voyez aucun groupe avec attribution de rôle à ajouter ou si vous ne pouvez pas l’ajouter, vérifiez que vous possédez le rôle d’annuaire Azure AD et le rôle de gestion des droits d’utilisation requis. Vous devrez peut-être demander à un utilisateur doté des rôles requis d’ajouter la ressource à votre catalogue. Pour plus d’informations, consultez [Rôles requis pour ajouter des ressources à un catalogue](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog).
 

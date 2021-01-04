@@ -1,20 +1,20 @@
 ---
 title: 'Démarrage rapide : Création de votre première application web statique avec Azure Static Web Apps à l’aide du portail Azure'
-description: Apprenez à créer une instance Azure Static Web Apps avec le portail Azure.
+description: Apprenez à déployer un site statique sur Azure Static Web Apps avec le portail Azure.
 services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 09/03/2020
 ms.author: cshoe
-ms.openlocfilehash: b009b34be69e48ae6205cd9ab88d1583ca9c6561
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: aab99721b61ababe218e509ab1078198b5f4152b
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91280558"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97030363"
 ---
-# <a name="quickstart-building-your-first-static-web-app-in-the-azure-portal"></a>Démarrage rapide : Création de votre première application web statique dans le portail Azure
+# <a name="quickstart-building-your-first-static-site-in-the-azure-portal"></a>Démarrage rapide : Création de votre premier site statique dans le portail Azure
 
 Azure Static Web Apps publie un site web dans un environnement de production en compilant les applications à partir d’un dépôt GitHub. Dans ce démarrage rapide, vous allez déployer une application web dans Azure Static Web Apps à partir du portail Azure.
 
@@ -51,7 +51,7 @@ Dans la section _De base_, commencez par configurer votre nouvelle application e
 
 Après vous être connecté à GitHub, entrez les informations relatives au dépôt.
 
-:::image type="content" source="media/getting-started-portal/repository-details.png" alt-text="Section De base":::
+:::image type="content" source="media/getting-started-portal/repository-details.png" alt-text="Détails du référentiel":::
 
 1. Sélectionnez votre _organisation_ préférée.
 1. Sélectionnez **my-first-web-static-app** dans la liste déroulante _Référentiel_.
@@ -94,18 +94,18 @@ Après vous être connecté à GitHub, entrez les informations relatives au dép
 
 1. Sélectionnez **Revoir + créer**.
 
-    :::image type="content" source="media/getting-started-portal/review-create.png" alt-text="Section De base":::
+    :::image type="content" source="media/getting-started-portal/review-create.png" alt-text="Bouton Vérifier + créer":::
 
     > [!NOTE]
     > Vous pouvez modifier le [fichier de workflow](github-actions-workflow.md) pour changer ces valeurs après avoir créé l’application.
 
 1. Sélectionnez **Create** (Créer).
 
-    :::image type="content" source="media/getting-started-portal/create-button.png" alt-text="Section De base":::
+    :::image type="content" source="media/getting-started-portal/create-button.png" alt-text="Bouton Créer":::
 
 1. Sélectionnez **Accéder à la ressource**.
 
-    :::image type="content" source="media/getting-started-portal/resource-button.png" alt-text="Section De base":::
+    :::image type="content" source="media/getting-started-portal/resource-button.png" alt-text="Accédez au bouton de ressources":::
 
 [!INCLUDE [view website](../../includes/static-web-apps-get-started-view-website.md)]
 

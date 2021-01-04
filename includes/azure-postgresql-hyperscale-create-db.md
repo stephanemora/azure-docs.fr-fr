@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 12/16/2020
 ms.author: jonels
 ms.custom: include file
-ms.openlocfilehash: 54cc31cdb0ddc7694568d60b1446f1cf99663e95
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 26289f6bdfa086708548d17125a6dfdf50b02a8f
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/17/2020
-ms.locfileid: "97616624"
+ms.locfileid: "97665207"
 ---
-## <a name="create-an-azure-database-for-postgresql---hyperscale-citus"></a>Créer un serveur Azure Database pour PostgreSQL - Hyperscale (Citus)
+## <a name="create-a-hyperscale-citus-server-group"></a>Créer un groupe de serveurs Hyperscale (Citus)
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 

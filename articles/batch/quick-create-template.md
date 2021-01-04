@@ -1,15 +1,15 @@
 ---
 title: Démarrage rapide Azure – Création d’un compte Batch – Modèle Azure Resource Manager
-description: Apprenez rapidement à exécuter un travail Batch avec l’interface de ligne de commande Azure. Créez et gérez des ressources Azure à partir de la ligne de commande ou dans des scripts.
+description: Ce guide de démarrage rapide montre comment créer un compte Batch à l’aide d’un modèle ARM.
 ms.topic: quickstart
 ms.date: 08/17/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: 606862b31ba4921e39e693735507fca39282091c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: fc6f1537b32c8ced2cfc2bf09f16106f791001fc
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88642399"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106578"
 ---
 # <a name="quickstart-create-a-batch-account-by-using-arm-template"></a>Démarrage rapide : Créer un compte Batch à l’aide d’un modèle ARM
 

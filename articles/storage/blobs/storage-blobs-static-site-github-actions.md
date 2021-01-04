@@ -9,16 +9,16 @@ ms.reviewer: dineshm
 ms.date: 09/11/2020
 ms.subservice: blobs
 ms.custom: devx-track-javascript, github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: 799c0dbc3ddb673cafe0fe4962f7346a841bd4b7
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 544b22e3395cacf0cc2e7a21e4b86325a8f4d236
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95543100"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97605256"
 ---
 # <a name="set-up-a-github-actions-workflow-to-deploy-your-static-website-in-azure-storage"></a>Configurer un workflow GitHub Actions pour déployer votre site web statique dans Stockage Azure
 
-Commencez avec [GitHub Actions](https://docs.github.com/en/actions) en utilisant un workflow pour déployer un site statique sur un compte de stockage Azure. Une fois que vous avez configuré un workflow GitHub Actions, vous pouvez automatiquement déployer votre site vers Azure à partir de GitHub lorsque vous apportez des modifications au code de votre site.
+Commencez avec [GitHub Actions](https://docs.github.com/en/free-pro-team@latest/actions) en utilisant un workflow pour déployer un site statique sur un compte de stockage Azure. Une fois que vous avez configuré un workflow GitHub Actions, vous pouvez automatiquement déployer votre site vers Azure à partir de GitHub lorsque vous apportez des modifications au code de votre site.
 
 > [!NOTE]
 > Si vous utilisez [Azure Static Web Apps](../../static-web-apps/index.yml), vous n’avez pas besoin de configurer manuellement un workflow GitHub Actions.

@@ -5,12 +5,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: dcd64cf779b931dbf3b4f743844071835e0b8c91
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 5e40f91945f83af7880f272f1578370f2ee1ec42
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932054"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97608491"
 ---
 # <a name="explore-azure-monitor-for-azure-cosmos-db"></a>Explorer Azure Monitor pour Azure Cosmos DB
 
@@ -71,7 +71,7 @@ Sélectionnez **Défaillances** en haut de la page et la portion **Défaillances
 
 ![Capture d’écran des défaillances avec répartition par type de requête HTTP](./media/cosmosdb-insights-overview/failures.png)
 
-| Code      |  Description       | 
+| Code |  Description       | 
 |-----------|:--------------------|
 | `200 OK`  | Une des opérations REST suivantes a réussi : </br>- GET sur une ressource. </br> - PUT sur une ressource. </br> - POST sur une ressource. </br> -POST sur une ressource de procédure stockée pour exécuter la procédure stockée.|
 | `201 Created` | Une opération POST pour créer une ressource a réussi. |

@@ -16,12 +16,12 @@ ms.date: 07/27/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99da9b787bfe06bece8b8dafdafc257336dddf63
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 251f9a2b075189f19b9e943ff660baaba93ec33b
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96176186"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97652039"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Résolution des problèmes d’authentification directe Azure Active Directory
 
@@ -61,7 +61,7 @@ Pour confirmer qu’il s’agit du problème, commencez par vérifier que l’ag
 
 1. Créez un compte de test.  
 2. Importez le module PowerShell sur l’ordinateur de l’agent :
- 
+
  ```powershell
  Import-Module "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\PassthroughAuthPSModule\PassthroughAuthPSModule.psd1"
  ```

@@ -7,16 +7,16 @@ ms.date: 09/14/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: devx-track-python, github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: b94e35f504a4c4d6e934ec01b06105f749031e35
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 0c10cc683d8c8c2496ca8fdbd00f0e5065e2db35
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97007379"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97604921"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>Déployer sur App Service à l’aide de GitHub Actions
 
-Prenez en main [GitHub Actions](https://help.github.com/en/articles/about-github-actions) pour automatiser votre workflow et le déployer sur [Azure App Service](overview.md) à partir de GitHub. 
+Prenez en main [GitHub Actions](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions) pour automatiser votre workflow et le déployer sur [Azure App Service](overview.md) à partir de GitHub. 
 
 ## <a name="prerequisites"></a>Prérequis 
 
@@ -63,7 +63,7 @@ Vous pouvez également déployer un workflow sans utiliser le centre de déploie
 
 La méthode recommandée pour l’authentification auprès d’Azure App Service pour GitHub Actions consiste à utiliser un profil de publication. Vous pouvez également vous authentifier avec un principal de service, mais le processus requiert des étapes supplémentaires. 
 
-Enregistrez les informations d’identification de votre profil de publication ou le principal du service en tant que [secret GitHub](https://docs.github.com/en/actions/reference/encrypted-secrets) pour vous authentifier auprès d’Azure. Vous allez accéder au secret dans votre workflow. 
+Enregistrez les informations d’identification de votre profil de publication ou le principal du service en tant que [secret GitHub](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets) pour vous authentifier auprès d’Azure. Vous allez accéder au secret dans votre workflow. 
 
 # <a name="publish-profile"></a>[Profil de publication](#tab/applevel)
 
@@ -192,7 +192,7 @@ jobs:
     name: Build and Deploy
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@main
     - name: Use Node.js ${{ env.NODE_VERSION }}
       uses: actions/setup-node@v1
       with:
@@ -305,7 +305,7 @@ jobs:
 
     steps:
       # Checkout the repo
-      - uses: actions/checkout@master
+      - uses: actions/checkout@main
       
       # Setup .NET Core SDK
       - name: Setup .NET Core
@@ -349,7 +349,7 @@ jobs:
     runs-on: windows-latest
     steps:
 
-    - uses: actions/checkout@master  
+    - uses: actions/checkout@main  
     
     - name: Install Nuget
       uses: nuget/setup-nuget@v1
@@ -435,7 +435,7 @@ jobs:
     name: Build and Deploy
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@main
     - name: Use Node.js ${{ env.NODE_VERSION }}
       uses: actions/setup-node@v1
       with:
@@ -516,7 +516,7 @@ jobs:
 
     steps:
       # Checkout the repo
-      - uses: actions/checkout@master
+      - uses: actions/checkout@main
       - uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
@@ -567,7 +567,7 @@ jobs:
     steps:
 
     # checkout the repo
-    - uses: actions/checkout@master  
+    - uses: actions/checkout@main
     
     - uses: azure/login@v1
       with:
@@ -657,7 +657,7 @@ jobs:
     steps:
     # checkout the repo
     - name: 'Checkout GitHub Action' 
-      uses: actions/checkout@master
+      uses: actions/checkout@main
    
     - uses: azure/login@v1
       with:
@@ -746,7 +746,7 @@ Vous pouvez trouver notre ensemble d’Actions regroupées dans différents réf
 
 - [Connexion/déconnexion de Docker](https://github.com/Azure/docker-login)
 
-- [Événements qui déclenchent des flux de travail](https://help.github.com/en/articles/events-that-trigger-workflows)
+- [Événements qui déclenchent des flux de travail](https://docs.github.com/en/free-pro-team@latest/actions/reference/events-that-trigger-workflows)
 
 - [Déployer K8](https://github.com/Azure/k8s-deploy)
 

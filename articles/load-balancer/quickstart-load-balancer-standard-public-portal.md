@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 10/22/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 5f19b55a955b8e3e1500cf14fa221b46808ac857
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 8827171788bd83a202b3607537204c71c34f29e0
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94698289"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511839"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Démarrage rapide : Créer un équilibreur de charge de base public pour équiper la charge de machines virtuelles en utilisant le portail Azure
 
@@ -41,6 +41,10 @@ Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.az
 >[!NOTE]
 >Il est recommandé de disposer d’un équilibreur de charge de référence SKU Standard pour les charges de travail de production.  Pour plus d’informations sur les références (SKU), consultez **[Références SKU Azure Load Balancer](skus.md)** .
 
+:::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/resources-diagram.png" alt-text="Ressources Standard Load Balancer créées pour le guide de démarrage rapide." border="false":::
+
+*Figure : Ressources créées dans le guide de démarrage rapide.*
+
 Dans cette section, vous créez un équilibreur de charge qui équilibre la charge des machines virtuelles. 
 
 Quand vous créez un équilibreur de charge public, vous créez une adresse IP publique configurée en tant que front-end (nommée **LoadBalancerFrontend** par défaut) pour l’équilibreur de charge.
@@ -49,9 +53,9 @@ Quand vous créez un équilibreur de charge public, vous créez une adresse IP 
 
 2. Dans l’onglet **Fonctions de base** de la page **Créer un équilibreur de charge**, entrez ou sélectionnez les informations suivantes : 
 
-    | Paramètre                 | Value                                              |
+    | Paramètre                 | Valeur                                              |
     | ---                     | ---                                                |
-    | Abonnement               | Sélectionnez votre abonnement.    |    
+    | Subscription               | Sélectionnez votre abonnement.    |    
     | Resource group         | Sélectionnez **Créer**, puis entrez **CreatePubLBQS-rg** dans la zone de texte.|
     | Nom                   | Entrez **myLoadBalancer**                                   |
     | Région         | Sélectionnez **Europe Ouest**.                                        |
@@ -100,7 +104,7 @@ Créez une sonde d’intégrité nommée **myHealthProbe** pour surveiller l’i
 
 2. Sous **Paramètres**, sélectionnez **Sondes d’intégrité**, puis **Ajouter**.
     
-    | Paramètre | Value |
+    | Paramètre | Valeur |
     | ------- | ----- |
     | Nom | Entrez **MyHealthProbe**. |
     | Protocol | Sélectionnez **HTTP**. |
@@ -128,7 +132,7 @@ Dans cette section, vous allez créer une règle d’équilibreur de charge :
 
 3. Pour configurer la règle d’équilibrage de charge, utilisez les valeurs suivantes :
     
-    | Paramètre | Value |
+    | Paramètre | Valeur |
     | ------- | ----- |
     | Nom | Entrez **MyHTTPRule**. |
     | Version de l’adresse IP | Sélectionnez **IPv4** |
@@ -322,6 +326,10 @@ Pour plus d’informations sur les connexions sortantes, consultez [Connexions s
 >[!NOTE]
 >Il est recommandé de disposer d’un équilibreur de charge de référence SKU Standard pour les charges de travail de production.  Pour plus d’informations sur les références (SKU), consultez **[Références SKU Azure Load Balancer](skus.md)** .
 
+:::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/resources-diagram-basic.png" alt-text="Ressources de l’équilibreur de charge de base créées dans le guide de démarrage rapide." border="false":::
+
+*Figure : Ressources créées dans le guide de démarrage rapide.*
+
 Dans cette section, vous créez un équilibreur de charge qui équilibre la charge des machines virtuelles. 
 
 Quand vous créez un équilibreur de charge public, vous créez une adresse IP publique configurée en tant que front-end (nommée **LoadBalancerFrontend** par défaut) pour l’équilibreur de charge.
@@ -332,7 +340,7 @@ Quand vous créez un équilibreur de charge public, vous créez une adresse IP 
 
     | Paramètre                 | Valeur                                              |
     | ---                     | ---                                                |
-    | Abonnement               | Sélectionnez votre abonnement.    |    
+    | Subscription               | Sélectionnez votre abonnement.    |    
     | Resource group         | Sélectionnez **Créer**, puis tapez **CreatePubLBQS-rg** dans la zone de texte.|
     | Nom                   | Entrez **myLoadBalancer**                                   |
     | Région         | Sélectionnez **Europe Ouest**.                                        |
@@ -576,7 +584,7 @@ Les machines virtuelles créées lors des étapes précédentes doivent être aj
 
 ## <a name="install-iis"></a>Installer IIS
 
-1. Sélectionnez **Tous les services** dans le menu de gauche, sélectionnez **Toutes les ressources** puis, dans la liste de ressources, sélectionnez **myVM1** qui se trouve dans le groupe de ressources **CreateStdLBQS-rg**.
+1. Sélectionnez **Tous les services** dans le menu de gauche, sélectionnez **Toutes les ressources** puis, dans la liste de ressources, sélectionnez **myVM1** qui se trouve dans le groupe de ressources **CreatePubLBQS-rg**.
 
 2. Dans la page **Vue d’ensemble**, sélectionnez **Se connecter**, puis **Bastion**.
 

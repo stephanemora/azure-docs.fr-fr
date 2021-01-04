@@ -7,16 +7,16 @@ ms.topic: tutorial
 ms.date: 08/12/2020
 ms.author: peshultz
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 7752bc3f768aec7a3e98fb1813c4194f81fb9dfb
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 6cc6e6a9739b8b06ab3c48dd3fd75f19de8d0787
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917628"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106272"
 ---
 # <a name="tutorial-run-python-scripts-through-azure-data-factory-using-azure-batch"></a>Tutoriel : Exécuter des scripts Python par le biais d’Azure Data Factory avec Azure Batch
 
-Ce didacticiel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * S’authentifier avec des comptes de stockage et Batch
@@ -148,12 +148,23 @@ Si l’exécution du script génère des avertissements ou des erreurs, vous pou
 1. Cliquez sur la tâche pour laquelle un code de sortie d’échec a été retourné.
 1. Consultez `stdout.txt` et `stderr.txt` pour examiner et diagnostiquer le problème.
 
+## <a name="clean-up-resources"></a>Nettoyer les ressources
+
+Bien que vous ne soyez pas facturé pour les travaux et les tâches à proprement parler, les nœuds de calcul vous sont facturés. Par conséquent, nous vous conseillons d’affecter les pools uniquement en fonction des besoins. Lorsque vous supprimez le pool, toutes les sorties de tâche sur les nœuds sont supprimées. Toutefois, les fichiers d’entrée et de sortie restent dans le compte de stockage. Quand vous n’en avez plus besoin, vous pouvez également supprimer le compte Batch et le compte de stockage.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-L’exemple étudié dans ce tutoriel vous a permis de découvrir comment exécuter des scripts Python dans le cadre d’un pipeline par le biais d’Azure Data Factory à l’aide d’Azure Batch.
+Dans ce didacticiel, vous avez appris à :
+
+> [!div class="checklist"]
+> * S’authentifier avec des comptes de stockage et Batch
+> * Développer et exécuter un script en Python
+> * Créer un pool de nœuds de calcul pour exécuter une application
+> * Planifier des charges de travail Python
+> * Superviser un pipeline d’analytique
+> * Accéder aux fichiers journaux
 
 Pour en savoir plus sur Azure Data Factory, consultez :
 
 > [!div class="nextstepaction"]
 > [Aperçu d’Azure Data Factory](../data-factory/introduction.md)
-

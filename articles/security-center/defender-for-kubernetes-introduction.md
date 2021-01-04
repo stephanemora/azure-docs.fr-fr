@@ -7,12 +7,12 @@ ms.date: 9/12/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: a815295c4f2ab78cbd3aff82949d7c28197afd82
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: a0dd00709dbe8a1b0e037fe22750adea7e071162
+ms.sourcegitcommit: 287c20509c4cf21d20eea4619bbef0746a5cd46e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791917"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97372000"
 ---
 # <a name="introduction-to-azure-defender-for-kubernetes"></a>Présentation d’Azure Defender pour Kubernetes
 
@@ -30,8 +30,8 @@ La détection des menaces au niveau de l’hôte sur les nœuds AKS Linux est di
 |----|:----|
 |État de sortie :|Disponibilité générale (GA)|
 |Prix :|**Azure Defender pour Kubernetes** est facturé conformément aux indications de la [page des tarifs](security-center-pricing.md).|
-|Rôles et autorisations obligatoires :|L’ **administrateur de sécurité** peut ignorer les alertes.<br>Le **Lecteur de sécurité** peut afficher les résultats.|
-|Clouds :|![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Non](./media/icons/no-icon.png) National/souverain (US Gov, Chine Gov, autres Gov)|
+|Rôles et autorisations obligatoires :|L’**administrateur de sécurité** peut ignorer les alertes.<br>Le **Lecteur de sécurité** peut afficher les résultats.|
+|Clouds :|![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Oui](./media/icons/yes-icon.png) China Gov<br>![Non](./media/icons/no-icon.png) US Gov, autres zones Gov|
 |||
 
 ## <a name="what-are-the-benefits-of-azure-defender-for-kubernetes"></a>Quels sont les avantages d’Azure Defender pour Kubernetes ?
@@ -49,7 +49,7 @@ Security Center offre une protection contre les menaces à différents niveaux 
     >[!IMPORTANT]
     > Si vous choisissez de ne pas installer les agents sur vos machines hôtes, vous ne recevrez qu’une partie des avantages et alertes de sécurité relatifs à la protection contre les menaces. Vous recevrez toujours les alertes liées à l’analyse réseau et aux communications avec des serveurs malveillants.
 
-- **Niveau de cluster AKS (fourni par Azure Defender pour Kubernetes)** : au niveau du cluster, la protection contre les menaces est basée sur l’analyse des journaux d’audit Kubernetes. Pour activer cette analyse **sans agent** , activez Azure Defender. Pour générer des alertes à ce niveau, Security Center supervise vos services managés par AKS à l’aide des journaux collectés par AKS. Les tableaux de bord Kubernetes exposés, la création de rôles dotés de privilèges élevés et la création de montages sensibles sont des exemples d’événements à ce niveau.
+- **Niveau de cluster AKS (fourni par Azure Defender pour Kubernetes)** : au niveau du cluster, la protection contre les menaces est basée sur l’analyse des journaux d’audit Kubernetes. Pour activer cette analyse **sans agent**, activez Azure Defender. Pour générer des alertes à ce niveau, Security Center supervise vos services managés par AKS à l’aide des journaux collectés par AKS. Les tableaux de bord Kubernetes exposés, la création de rôles dotés de privilèges élevés et la création de montages sensibles sont des exemples d’événements à ce niveau.
 
     Pour obtenir la liste des alertes au niveau du cluster AKS, consultez la [table de référence des alertes](alerts-reference.md#alerts-akscluster).
 
@@ -72,7 +72,7 @@ Comme vous pouvez le constater, les éléments reçus et analysés par Security 
 - Journaux d’audit provenant du serveur d’API
 - Événements de sécurité bruts provenant de l’agent Log Analytics
 - Informations de configuration du cluster provenant du cluster AKS
-- Configuration des charges de travail provenant d’Azure Policy (par le biais du module complémentaire **Azure Policy pour Kubernetes** ). [En savoir plus sur les meilleures pratiques de protection de charge de travail à l’aide du contrôle d’admission Kubernetes](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control)
+- Configuration des charges de travail provenant d’Azure Policy (par le biais du module complémentaire **Azure Policy pour Kubernetes**). [En savoir plus sur les meilleures pratiques de protection de charge de travail à l’aide du contrôle d’admission Kubernetes](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control)
 
 :::image type="content" source="./media/defender-for-kubernetes-intro/kubernetes-service-security-center-integration-detailed.png" alt-text="Architecture générale de l’interaction entre Azure Security Center, Azure Kubernetes Service et Azure Policy" lightbox="./media/defender-for-kubernetes-intro/kubernetes-service-security-center-integration-detailed.png":::
 

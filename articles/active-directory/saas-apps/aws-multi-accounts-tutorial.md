@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/30/2020
 ms.author: jeedes
-ms.openlocfilehash: 246eba24f42baacf264c1c6d39ea63a51c62c51f
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 7e71058e1899cf83e712025b534e51a1be1f6bdb
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92457433"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591767"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws-legacy-tutorial"></a>Tutoriel : Intégration d’Azure Active Directory à Amazon Web Services (AWS) (ancien didacticiel)
 
@@ -70,9 +70,9 @@ Pour configurer l’intégration d’Amazon Web Services (AWS) avec Azure AD,
 
 1. Connectez-vous au portail Azure avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
 1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
-1. Accédez à **Applications d’entreprise** , puis sélectionnez **Toutes les applications**.
+1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
-1. Dans la section **Ajouter à partir de la galerie** , tapez **Amazon Web Services (AWS)** dans la zone de recherche.
+1. Dans la section **Ajouter à partir de la galerie**, tapez **Amazon Web Services (AWS)** dans la zone de recherche.
 1. Sélectionnez **Amazon Web Services (AWS)** dans le panneau des résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
 1. Une fois l’application ajoutée, allez à la page **Propriétés** et copiez **l’ID de l’objet**.
@@ -103,47 +103,47 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Lien Configurer l’authentification unique](common/select-sso.png)
 
-2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique** , sélectionnez le mode **SAML/WS-Fed** afin d’activer l’authentification unique.
+2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique**, sélectionnez le mode **SAML/WS-Fed** afin d’activer l’authentification unique.
 
     ![Mode de sélection de l’authentification unique](common/select-saml-option.png)
 
-3. Dans la page **Configurer l’authentification unique avec SAML** , cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base**.
+3. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base**.
 
     ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-4. Dans la section **Configuration SAML de base** , l’utilisateur n’a rien à faire, car l’application est déjà intégrée à Azure. Cliquez donc sur **Enregistrer**.
+4. Dans la section **Configuration SAML de base**, l’utilisateur n’a rien à faire, car l’application est déjà intégrée à Azure. Cliquez donc sur **Enregistrer**.
 
-5. L’application Amazon Web Services (AWS) attend les assertions SAML dans un format spécifique. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de la section **Attributs utilisateur et revendications** dans la page d’intégration des applications. Dans la page **Configurer l’authentification unique avec SAML** , cliquez sur le bouton **Modifier** pour ouvrir la boîte de dialogue **Attributs utilisateur et revendications**.
+5. L’application Amazon Web Services (AWS) attend les assertions SAML dans un format spécifique. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de la section **Attributs utilisateur et revendications** dans la page d’intégration des applications. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur le bouton **Modifier** pour ouvrir la boîte de dialogue **Attributs utilisateur et revendications**.
 
     ![Capture d’écran montrant Attributs utilisateur avec le contrôle d’édition activé.](common/edit-attribute.png)
 
-6. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur** , configurez le jeton SAML comme sur l’image ci-dessus et procédez comme suit :
+6. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, configurez le jeton SAML comme sur l’image ci-dessus et procédez comme suit :
 
     | Nom  | Attribut source  | Espace de noms |
     | --------------- | --------------- | --------------- |
     | RoleSessionName | user.userprincipalname | `https://aws.amazon.com/SAML/Attributes` |
-    | Role            | user.assignedroles |  `https://aws.amazon.com/SAML/Attributes`|
-    | SessionDuration             | [Indiquez une valeur comprise entre 900 secondes (15 minutes) et 43 200 secondes (12 heures)] |  `https://aws.amazon.com/SAML/Attributes` |
+    | Role | user.assignedroles | `https://aws.amazon.com/SAML/Attributes`|
+    | SessionDuration | [Indiquez une valeur comprise entre 900 secondes (15 minutes) et 43 200 secondes (12 heures)] |  `https://aws.amazon.com/SAML/Attributes` |
 
-    a. Cliquez sur le bouton **Ajouter une nouvelle revendication** pour ouvrir la boîte de dialogue **Gérer les revendications des utilisateurs**.
+    1. Cliquez sur le bouton **Ajouter une nouvelle revendication** pour ouvrir la boîte de dialogue **Gérer les revendications des utilisateurs**.
 
-    ![Capture d’écran montrant Revendications des utilisateurs avec Ajouter une nouvelle revendication et Enregistrer activés.](common/new-save-attribute.png)
+        ![Capture d’écran montrant Revendications des utilisateurs avec Ajouter une nouvelle revendication et Enregistrer activés.](common/new-save-attribute.png)
 
-    ![Capture d’écran montrant Gérer les revendications des utilisateurs, où vous pouvez entrer les valeurs décrites à cette étape.](common/new-attribute-details.png)
+        ![Capture d’écran montrant Gérer les revendications des utilisateurs, où vous pouvez entrer les valeurs décrites à cette étape.](common/new-attribute-details.png)
 
-    b. Dans la zone de texte **Attribut** , indiquez le nom d’attribut pour cette ligne.
+    b. Dans la zone de texte **Attribut**, indiquez le nom d’attribut pour cette ligne.
 
-    c. Dans la zone de texte **Espace de noms** , indiquez la valeur d’espace de noms pour cette ligne.
+    c. Dans la zone de texte **Espace de noms**, indiquez la valeur d’espace de noms pour cette ligne.
 
     d. Sélectionnez Source comme **Attribut**.
 
-    e. Dans la liste **Attribut de la source** , tapez la valeur d’attribut indiquée pour cette ligne.
+    e. Dans la liste **Attribut de la source**, tapez la valeur d’attribut indiquée pour cette ligne.
 
     f. Cliquez sur **OK**
 
     g. Cliquez sur **Enregistrer**.
 
-7. Dans la page **Configurer l’authentification unique avec SAML** , dans la section **Certificat de signature SAML** , cliquez sur **Télécharger** pour télécharger le **XML de métadonnées de fédération** , puis enregistrez-le sur votre ordinateur.
+7. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le **XML de métadonnées de fédération**, puis enregistrez-le sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/metadataxml.png)
 
@@ -159,7 +159,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Identité dans la configuration de l’authentification unique][12]
 
-1. Cliquez sur **Identity Providers** , puis sur **Create Provider**.
+1. Cliquez sur **Identity Providers**, puis sur **Create Provider**.
 
     ![Fournisseur dans la configuration de l’authentification unique][13]
 
@@ -167,15 +167,15 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Boîte de dialogue de la configuration de l’authentification unique][14]
 
-    a. Pour **Provider Type** , sélectionnez **SAML**.
+    a. Pour **Provider Type**, sélectionnez **SAML**.
 
-    b. Dans la zone de texte **Provider Name** (Nom de fournisseur), tapez un nom de fournisseur (par exemple : *WAAD* ).
+    b. Dans la zone de texte **Provider Name** (Nom de fournisseur), tapez un nom de fournisseur (par exemple : *WAAD*).
 
     c. Pour charger le **fichier de métadonnées** téléchargé à partir du portail Azure, cliquez sur **Choose File** (Choisir un fichier).
 
     d. Cliquez sur **Next Step**.
 
-1. Dans la page **Verify Provider Information** , cliquez sur **Create**.
+1. Dans la page **Verify Provider Information**, cliquez sur **Create**.
 
     ![Vérification dans la configuration de l’authentification unique][15]
 
@@ -192,13 +192,13 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     a. Sélectionnez **SAML 2.0 federation** (Fédération SAML 2.0) dans **Select type of trusted entity** (Sélectionnez un type d’entité approuvé).
 
-    b. Dans la section **Choose a SAML 2.0 Provider** (Choisir un fournisseur SAML 2.0), sélectionnez le **fournisseur SAML** que vous avez déjà créé (par exemple : *WAAD* )
+    b. Dans la section **Choose a SAML 2.0 Provider** (Choisir un fournisseur SAML 2.0), sélectionnez le **fournisseur SAML** que vous avez déjà créé (par exemple : *WAAD*)
 
     c. Sélectionnez **Allow programmatic and AWS Management Console access** (Autoriser l’accès par programme à AWS Management Console).
-  
+
     d. Cliquez sur **Suivant : Autorisations**.
 
-1. Recherchez **Accès administrateur** dans la barre de recherche, activez la case à cocher **AdministratorAccess** , puis cliquez sur **Suivant : Balises**.
+1. Recherchez **Accès administrateur** dans la barre de recherche, activez la case à cocher **AdministratorAccess**, puis cliquez sur **Suivant : Balises**.
 
     ![Capture d’écran montrant Administrator Access sélectionné comme nom de stratégie.](./media/aws-multi-accounts-tutorial/administrator-access.png)
 
@@ -206,19 +206,19 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Ajouter des étiquettes](./media/aws-multi-accounts-tutorial/config2.png)
 
-    a. Dans la zone de texte **Clé** , entrez le nom de la clé, par ex. : Azureadtest.
+    a. Dans la zone de texte **Clé**, entrez le nom de la clé, par ex. : Azureadtest.
 
     b. Dans la zone **Valeur (facultatif)** , entrez la valeur de clé en utilisant le format suivant `accountname-aws-admin`. Le nom du compte doit être en minuscules.
 
-    c. Cliquez sur **Suivant : Vérification** ).
+    c. Cliquez sur **Suivant : Vérification**).
 
 1. Dans la boîte de dialogue **Review** , procédez comme suit :
 
     ![Révision dans la configuration de l’authentification unique][34]
 
-    a. Dans la zone de texte **Nom du rôle** , entrez la valeur au format suivant `accountname-aws-admin`.
+    a. Dans la zone de texte **Nom du rôle**, entrez la valeur au format suivant `accountname-aws-admin`.
 
-    b. Dans la zone **Description du rôle** , entrez la valeur que vous avez utilisée pour le nom du rôle.
+    b. Dans la zone **Description du rôle**, entrez la valeur que vous avez utilisée pour le nom du rôle.
 
     c. Cliquez sur **Create Role**.
 
@@ -253,39 +253,35 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Ouvrez l’[afficheur Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer) dans une autre fenêtre.
 
-    a. Connectez-vous au site Microsoft Graph Explorer en utilisant les informations d’identification d’administrateur global/coadministrateur de votre locataire.
+    1. Connectez-vous au site Microsoft Graph Explorer en utilisant les informations d’identification d’administrateur global/coadministrateur de votre locataire.
 
-    b. Vous devez disposer des autorisations suffisantes pour créer les rôles. Cliquez sur **modifier les autorisations** pour obtenir les autorisations requises.
+    1. Vous devez disposer des autorisations suffisantes pour créer les rôles. Cliquez sur **modifier les autorisations** pour obtenir les autorisations requises.
 
-    ![Boîte de dialogue Microsoft Graph Explorer1](./media/aws-multi-accounts-tutorial/graph-explorer-new9.png)
+        ![Boîte de dialogue Microsoft Graph Explorer1](./media/aws-multi-accounts-tutorial/graph-explorer-new9.png)
 
-    c. Sélectionnez les autorisations suivantes dans la liste (si vous ne l’avez pas déjà fait) et cliquez sur « Modifier les autorisations » 
+    1. Sélectionnez les autorisations suivantes dans la liste (si vous ne l’avez pas déjà fait) et cliquez sur « Modifier les autorisations » 
 
-    ![Boîte de dialogue Microsoft Graph Explorer2](./media/aws-multi-accounts-tutorial/graph-explorer-new10.png)
+        ![Boîte de dialogue Microsoft Graph Explorer2](./media/aws-multi-accounts-tutorial/graph-explorer-new10.png)
 
-    d. Vous serez alors invité à vous connecter à nouveau et à accepter le consentement. Après avoir accepté le consentement, vous êtes connecté à Microsoft Graph Explorer à nouveau.
+    1. Vous serez alors invité à vous connecter à nouveau et à accepter le consentement. Après avoir accepté le consentement, vous êtes connecté à Microsoft Graph Explorer à nouveau.
 
-    e. Modifiez la liste déroulante de version sur **bêta**. Pour extraire tous les principaux du service à partir de votre locataire, utilisez la requête suivante :
+    1. Modifiez la liste déroulante de version sur **bêta**. Pour extraire tous les principaux du service à partir de votre locataire, utilisez la requête suivante : `https://graph.microsoft.com/beta/servicePrincipals`. Si vous utilisez plusieurs annuaires, vous pouvez utiliser le modèle suivant, qui contient votre domaine principal : `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`.
 
-    `https://graph.microsoft.com/beta/servicePrincipals`
+        ![Boîte de dialogue Microsoft Graph Explorer3](./media/aws-multi-accounts-tutorial/graph-explorer-new1.png)
 
-    Si vous utilisez plusieurs répertoires, alors vous pouvez utiliser le modèle suivant, qui contient votre domaine principal `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
+    1. Dans la liste des principaux du service extraits, obtenez celui que vous souhaitez modifier. Vous pouvez également utiliser les touches Ctrl + F pour rechercher l’application dans la liste les principaux du service. Vous pouvez utiliser la requête suivante avec **l’ID de l’objet du principal du service** que vous avez copié à partir de la page Propriétés d’Azure AD pour accéder au principal du service respectif.
 
-    ![Boîte de dialogue Microsoft Graph Explorer3](./media/aws-multi-accounts-tutorial/graph-explorer-new1.png)
-  
-    f. Dans la liste des principaux du service extraits, obtenez celui que vous souhaitez modifier. Vous pouvez également utiliser les touches Ctrl + F pour rechercher l’application dans la liste les principaux du service. Vous pouvez utiliser la requête suivante avec **l’ID de l’objet du principal du service** que vous avez copié à partir de la page Propriétés d’Azure AD pour accéder au principal du service respectif.
+        `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`.
 
-    `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`.
+        ![Boîte de dialogue Microsoft Graph Explorer4](./media/aws-multi-accounts-tutorial/graph-explorer-new2.png)
 
-    ![Boîte de dialogue Microsoft Graph Explorer4](./media/aws-multi-accounts-tutorial/graph-explorer-new2.png)
+    1. Extrayez la propriété appRoles à partir de l’objet du principal du service.
 
-    g. Extrayez la propriété appRoles à partir de l’objet du principal du service.
+        ![Boîte de dialogue Microsoft Graph Explorer5](./media/aws-multi-accounts-tutorial/graph-explorer-new3.png)
 
-    ![Boîte de dialogue Microsoft Graph Explorer5](./media/aws-multi-accounts-tutorial/graph-explorer-new3.png)
+    1. À présent, vous devez générer de nouveaux rôles pour votre application. 
 
-    h. À présent, vous devez générer de nouveaux rôles pour votre application. 
-
-    i. Vous trouverez en-dessous de JSON un exemple d’objet appRoles. Créez un objet similaire pour ajouter les rôles que vous voulez pour votre application.
+    1. Vous trouverez en-dessous de JSON un exemple d’objet appRoles. Créez un objet similaire pour ajouter les rôles que vous voulez pour votre application.
 
     ```
     {
@@ -329,9 +325,9 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     > [!Note]
     > Vous pouvez uniquement ajouter de nouveaux rôles après le **msiam_access** de l’opération de correction. En outre, vous pouvez ajouter autant de rôles que vous le souhaitez selon les besoins de votre organisation. Azure AD envoie la **valeur** de ces rôles conformément à la valeur de revendication dans la réponse SAML.
 
-    j. Revenez à votre Microsoft Graph Explorer et modifiez la méthode de **GET** à **PATCH**. Corrigez l’objet du principal du service pour obtenir les rôles souhaités en mettant à jour la propriété appRoles similaire à celle affichée dans l’exemple ci-dessus. Cliquez sur **Exécuter la requête** pour exécuter l’opération de correction. Un message de réussite confirme la création du rôle pour votre application Amazon Web Services.
+    1. Revenez à votre Microsoft Graph Explorer et modifiez la méthode de **GET** à **PATCH**. Corrigez l’objet du principal du service pour obtenir les rôles souhaités en mettant à jour la propriété appRoles similaire à celle affichée dans l’exemple ci-dessus. Cliquez sur **Exécuter la requête** pour exécuter l’opération de correction. Un message de réussite confirme la création du rôle pour votre application Amazon Web Services.
 
-    ![Boîte de dialogue Microsoft Graph Explorer6](./media/aws-multi-accounts-tutorial/graph-explorer-new11.png)
+        ![Boîte de dialogue Microsoft Graph Explorer6](./media/aws-multi-accounts-tutorial/graph-explorer-new11.png)
 
 1. Une fois le principal du service corrigé avec d’autres rôles, vous pouvez assigner des utilisateurs/groupes aux rôles respectifs. Pour ce faire, accédez au portail et à l’application Amazon Web Services. Cliquez sur l’onglet **Utilisateurs et groupes** dans la partie supérieure.
 

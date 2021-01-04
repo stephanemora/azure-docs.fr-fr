@@ -1,20 +1,20 @@
 ---
-title: 'Démarrage rapide : Création de votre première application web statique avec Azure Static Web Apps à l’aide de l’interface Azure CLI'
-description: Apprenez à créer une instance Azure Static Web Apps avec l’interface Azure Static Web Apps CLI.
+title: 'Démarrage rapide : Création de votre premier site statique avec le service Azure Static Web Apps à l’aide de l’interface CLI'
+description: Apprenez à déployer un site statique sur Azure Static Web Apps avec l’interface Azure CLI.
 services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 08/13/2020
 ms.author: cshoe
-ms.openlocfilehash: ed49892284b53844c5c578b752a598cdbdd9b946
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: ca05194c0d8e63290a9cab8d9f7903daa192069b
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320345"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97030346"
 ---
-# <a name="quickstart-building-your-first-static-web-app-using-the-azure-cli"></a>Démarrage rapide : Création de votre première application web statique à l’aide de l’interface Azure CLI
+# <a name="quickstart-building-your-first-static-site-using-the-azure-cli"></a>Démarrage rapide : Création de votre premier site statique à l’aide de l’interface Azure CLI
 
 Azure Static Web Apps publie un site web dans un environnement de production en compilant les applications à partir d’un dépôt GitHub. Dans ce guide de démarrage rapide, vous déployez une application web dans Azure Static Web Apps à l’aide de l’interface Azure CLI.
 

@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 12/14/2018
-ms.openlocfilehash: 413786cf8946c1ffbb76bd0e18eae7c7ba16a9c1
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9b2333e38415a2c0ad50ce36c213ead711c70ab4
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790744"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928798"
 ---
 # <a name="quickstart-restore-a-database-to-azure-sql-managed-instance-with-ssms"></a>Démarrage rapide : Restaurer une base de données dans SQL Managed Instance avec SSMS
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -49,8 +49,11 @@ Dans ce guide de démarrage rapide :
 Dans SQL Server Management Studio, suivez ces étapes pour restaurer la base de données Wide World Importers vers SQL Managed Instance. Le fichier de sauvegarde de base de données est stocké dans un compte de stockage Blob Azure préconfiguré.
 
 1. Ouvrez SSMS et connectez-vous à votre instance managée.
-2. Dans l’ **Explorateur d’objets** , cliquez avec le bouton droit sur votre instance managée et sélectionnez **Nouvelle requête** pour ouvrir une nouvelle fenêtre de requête.
+2. Dans l’**Explorateur d’objets**, cliquez avec le bouton droit sur votre instance managée et sélectionnez **Nouvelle requête** pour ouvrir une nouvelle fenêtre de requête.
 3. Exécutez le script SQL suivant, qui utilise un compte de stockage préconfiguré et une clé SAS pour [créer des informations d’identification](/sql/t-sql/statements/create-credential-transact-sql) dans votre instance managée.
+ 
+   > [!IMPORTANT]
+   > `CREDENTIAL` doit correspondre au chemin du conteneur, commencer par `https` et ne pas contenir de barre oblique de fin. `IDENTITY` doit être `SHARED ACCESS SIGNATURE`. `SECRET` doit être le jeton de signature d’accès partagé, et ne pas contenir de `?` au début.
 
    ```sql
    CREATE CREDENTIAL [https://mitutorials.blob.core.windows.net/databases]

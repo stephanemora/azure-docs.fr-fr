@@ -5,12 +5,12 @@ ms.author: mikben
 ms.date: 10/10/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 820659c513674dc04e914c8f1094afab4f5a89e2
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: c191da32444c3eb0315373780c8037f1b45be423
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96356458"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96993081"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
@@ -28,79 +28,89 @@ Vous devez être membre de l’organisation propriétaire des deux entités pour
 
 ## <a name="add-the-teams-ui-controls"></a>Ajouter les contrôles d’interface utilisateur de Teams
 
-Ajoutez un nouveau bouton et une nouvelle zone de texte dans votre code HTML. La zone de texte servira à entrer le contexte de la réunion Teams, tandis que le bouton permettra de rejoindre la réunion spécifiée :
+Remplacez le code dans index.html par l’extrait de code suivant.
+La zone de texte servira à entrer le contexte de la réunion Teams, tandis que le bouton permettra de rejoindre la réunion spécifiée :
 
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title>Communication Client - Calling Sample</title>
-  </head>
-  <body>
+</head>
+<body>
     <h4>Azure Communication Services</h4>
-    <h1>Calling Quickstart</h1>
-    <input 
-      id="callee-id-input"
-      type="text"
-      placeholder="Who would you like to call?"
-      style="margin-bottom:1em; width: 200px;"
-    />
-    <input 
-      id="teams-id-input"
-      type="text"
-      placeholder="Teams meeting context"
-      style="margin-bottom:1em; width: 300px;"
-    />
+    <h1>Teams meeting join quickstart</h1>
+    <input id="teams-link-input" type="text" placeholder="Teams meeting link"
+        style="margin-bottom:1em; width: 300px;" />
+        <p>Call state <span style="font-weight: bold" id="call-state">-</span></p>
     <div>
-      <button id="call-button" type="button" disabled="true">
-        Start Call
-      </button>
-      &nbsp;
-      <button id="hang-up-button" type="button" disabled="true">
-        Hang Up
-      </button>
-         <button id="meeting-button" type="button" disabled="false">
-        Join Teams Meeting
-      </button>
+        <button id="join-meeting-button" type="button" disabled="false">
+            Join Teams Meeting
+        </button>
+        <button id="hang-up-button" type="button" disabled="true">
+            Hang Up
+        </button>
     </div>
     <script src="./bundle.js"></script>
-  </body>
+</body>
+
 </html>
 ```
 
 ## <a name="enable-the-teams-ui-controls"></a>Activer les contrôles d’interface utilisateur de Teams
 
-Nous pouvons maintenant lier le bouton **Join Teams Meeting** au code qui permet de rejoindre la réunion Teams fournie :
+Remplacez le contenu du fichier client.js par l’extrait de code suivant.
 
 ```javascript
-meetingButton.addEventListener("click", () => {
+import { CallClient } from "@azure/communication-calling";
+import { AzureCommunicationUserCredential } from '@azure/communication-common';
+
+let call;
+let callAgent;
+const meetingLinkInput = document.getElementById('teams-link-input');
+const hangUpButton = document.getElementById('hang-up-button');
+const teamsMeetingJoinButton = document.getElementById('join-meeting-button');
+const callStateElement = document.getElementById('call-state');
+
+async function init() {
+    const callClient = new CallClient();
+    const tokenCredential = new AzureCommunicationUserCredential("<USER ACCESS TOKEN>");
+    callAgent = await callClient.createCallAgent(tokenCredential);
+    teamsMeetingJoinButton.disabled = false;
+}
+init();
+
+hangUpButton.addEventListener("click", async () => {
+    // end the current call
+    await call.hangUp();
+  
+    // toggle button states
+    hangUpButton.disabled = true;
+    teamsMeetingJoinButton.disabled = false;
+    callStateElement.innerText = '-';
+  });
+
+teamsMeetingJoinButton.addEventListener("click", () => {
     
     // set display name in the meeting
-    callAgent.updateDisplayName('YOUR_NAME');
+    callAgent.updateDisplayName('ACS user');
     
     // join with meeting link
-    call = callAgent.join({meetingLink: 'MEETING_LINK'}, {});
-
-     // join with meeting coordinates
-     call = callAgent.join({
-        threadId: 'CHAT_THREAD_ID',
-        organizerId: 'ORGANIZER_ID',
-        tenantId: 'TENANT_ID',
-        messageId: 'MESSAGE_ID'
-    }, {})
+    call = callAgent.join({meetingLink: meetingLinkInput.value}, {});
     
+    call.on('callStateChanged', () => {
+        callStateElement.innerText = call.state;
+    })
     // toggle button states
     hangUpButton.disabled = false;
-    callButton.disabled = true;
-    meetingButton.disabled = true;
+    teamsMeetingJoinButton.disabled = true;
 });
 ```
 
-## <a name="get-the-meeting-context"></a>Obtenir le contexte de la réunion
+## <a name="get-the-teams-meeting-link"></a>Obtenir le lien de réunion Teams
 
-Le contexte Teams peut être récupéré à l’aide des API Graph. Cette procédure est détaillée dans la [documentation de Graph](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta).
-
-Vous pouvez également récupérer les informations de réunion requises à partir de l’URL **Rejoindre la réunion** disponible dans l’invitation à la réunion.
+Le lien de réunion Teams peut être récupéré par le biais des API Graph. Cette procédure est détaillée dans la [documentation de Graph](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta).
+Le kit SDK Communication Services Calling accepte un lien de réunion Teams complet. Ce lien est retourné comme faisant partie de la ressource `onlineMeeting`, accessible sous la [propriété `joinWebUrl`](/graph/api/resources/onlinemeeting?view=graph-rest-beta). Vous pouvez également récupérer les informations de réunion nécessaires à partir de l’URL **Rejoindre la réunion** dans l’invite de réunion Teams elle-même.
 
 ## <a name="run-the-code"></a>Exécuter le code
 
@@ -112,6 +122,6 @@ npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool 
 
 Ouvrez votre navigateur et accédez à http://localhost:8080/. Les éléments suivants doivent s’afficher :
 
-:::image type="content" source="../media/javascript/calling-javascript-app.png" alt-text="Capture d’écran de l’application JavaScript terminée.":::
+:::image type="content" source="../media/javascript/acs-join-teams-meeting-quickstart.PNG" alt-text="Capture d’écran de l’application JavaScript terminée.":::
 
 Insérez le contexte Teams dans la zone de texte et appuyez sur *Join Teams Meeting* pour rejoindre la réunion Teams à partir de votre application Communication Services.

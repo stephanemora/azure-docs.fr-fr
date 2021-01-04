@@ -4,12 +4,12 @@ description: Dans ce tutoriel, vous allez découvrir comment configurer une tâc
 ms.topic: tutorial
 ms.date: 11/24/2020
 ms.custom: seodec18, mvc, devx-track-azurecli
-ms.openlocfilehash: fac409e9acc14048068c0f46ffb2b64cc69582ef
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: c8d1179f1c31642b350ab8757a8d4abf71583bfc
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96029986"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562886"
 ---
 # <a name="tutorial-run-a-multi-step-container-workflow-in-the-cloud-when-you-commit-source-code"></a>Tutoriel : exécuter un workflow de conteneur à plusieurs étapes dans le cloud lorsque vous validez le code source
 
@@ -83,7 +83,7 @@ az acr task create \
     --git-access-token $GIT_PAT
 ```
 
-Cette tâche spécifie que tout code temporel est validé dans la branche *maîtresse* du référentiel spécifié par `--context` et qu’ACR Tasks va exécuter la tâche à plusieurs étapes à partir du code de cette branche. Le fichier YAML spécifié par `--file` à la racine du référentiel définit les étapes. 
+Cette tâche spécifie que tout code temporel est validé dans la branche *primaire* du dépôt spécifié par `--context` et qu’ACR Tasks va exécuter la tâche à plusieurs étapes à partir du code de cette branche. Le fichier YAML spécifié par `--file` à la racine du référentiel définit les étapes. 
 
 La sortie d’une commande [az acr task create][az-acr-task-create] réussie se présente ainsi :
 
@@ -126,7 +126,7 @@ La sortie d’une commande [az acr task create][az-acr-task-create] réussie se 
       {
         "name": "defaultSourceTriggerName",
         "sourceRepository": {
-          "branch": "master",
+          "branch": "main",
           "repositoryUrl": "https://github.com/gituser/acr-build-helloworld-node.git",
           "sourceControlAuthProperties": null,
           "sourceControlType": "Github"
@@ -220,7 +220,7 @@ Exécutez alors les commandes suivantes pour créer, valider et envoyer un nouve
 echo "Hello World!" > hello.txt
 git add hello.txt
 git commit -m "Testing ACR Tasks"
-git push origin master
+git push origin main
 ```
 
 Vous pouvez être invité à fournir vos informations d’identification GitHub lorsque vous exécutez la commande `git push`. Indiquez votre nom d’utilisateur GitHub et entrez le jeton d’accès personnel (PAT) que vous avez créé précédemment pour le mot de passe.

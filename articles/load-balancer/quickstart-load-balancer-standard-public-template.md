@@ -5,22 +5,22 @@ description: Ce guide de démarrage rapide vous montre comment créer un équili
 services: load-balancer
 documentationcenter: na
 author: asudbring
-manager: twooley
+manager: KumudD
 Customer intent: I want to create a load balancer by using an Azure Resource Manager template so that I can load balance internet traffic to VMs.
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/26/2020
+ms.date: 12/09/2020
 ms.author: allensu
 ms.custom: mvc,subject-armqs
-ms.openlocfilehash: 66d702846bac5825239e891ce47f8cca5bb857f0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 378ab88f4dee0c725e89f77cc6b2ffe049ff877a
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90984415"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008433"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-by-using-an-arm-template"></a>Démarrage rapide : Créer un équilibreur de charge public pour équilibrer la charge de machines virtuelles à l’aide d’un modèle Resource Manager
 
@@ -51,12 +51,13 @@ Les références SKU de l’équilibreur de charge et de l’adresse IP publique
 Plusieurs ressources Azure ont été définies dans le modèle :
 
 - [**Microsoft.Network/loadBalancers**](/azure/templates/microsoft.network/loadbalancers)
-- [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses) : pour l’équilibreur de charge et pour chacune des trois machines virtuelles.
+- [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses) : pour l’équilibreur de charge, l’hôte bastion et pour chacune des trois machines virtuelles.
+- [**Microsoft.Network/bastionHosts**](/azure/templates/microsoft.network/bastionhosts)
 - [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups)
 - [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
-- [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines) (3 d’entre elles).
-- [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces) (3 d’entre elles).
-- [**Microsoft.Compute/virtualMachine/extensions**](/azure/templates/microsoft.compute/virtualmachines/extensions) (3 d’entre elles) : à utiliser pour configurer Internet Information Server (IIS) et les pages web.
+- [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines) (3).
+- [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces) (3).
+- [**Microsoft.Compute/virtualMachine/extensions**](/azure/templates/microsoft.compute/virtualmachines/extensions) (3) : à utiliser pour configurer Internet Information Server (IIS) et les pages web.
 
 Pour rechercher d’autres modèles qui sont liés à l’équilibrage de charge Azure, consultez [Modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular).
 
@@ -131,6 +132,8 @@ Dans le portail Azure, sélectionnez le groupe de ressources qui contient l’é
 
 Dans ce guide de démarrage rapide, vous :
 
+* Avez créé un réseau virtuel pour l’équilibreur de charge et les machines virtuelles.
+* Avez créé un hôte Azure Bastion pour l’administration.
 * Avez créé un équilibreur de charge et lui avez attaché des machines virtuelles.
 * Avez configuré la règle de trafic de l’équilibreur de charge, et la sonde d’intégrité.
 * Vous avez testé l’équilibreur de charge.

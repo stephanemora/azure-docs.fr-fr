@@ -6,14 +6,14 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: overview
-ms.date: 11/18/2020
+ms.date: 12/15/2020
 ms.author: banders
-ms.openlocfilehash: 0ef3f833d1bac4f26f49ace2b366cdfcf5ef3e35
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: b79bde204d82b069b3314855a45a680b863c3f69
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352981"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97560489"
 ---
 # <a name="what-are-azure-reservations"></a>Qu’est-ce qu’une réservation Azure ?
 
@@ -58,13 +58,14 @@ Pour plus d’informations, consultez [Acheter une réservation](prepare-buy-r
 
 La réservation est facturée selon le mode de paiement associé à l’abonnement. Le coût de la réservation est déduit de votre solde d’engagement financier, le cas échéant. Lorsque ce solde ne couvre pas le coût des réservations, le dépassement vous est facturé. Si vous avez souscrit un abonnement à partir d’un forfait individuel avec paiement à l’utilisation, la carte de crédit associée à votre compte est facturée immédiatement pour les achats en paiement initial. Les paiements mensuels apparaissent sur votre facture et votre carte de crédit est facturée chaque mois. Lorsque vous réglez sur facture, les frais sont portés sur votre prochaine facture. 
 
-## <a name="permissions-to-view-and-manage-reservations"></a>Autorisations pour consulter et gérer des réservations 
+## <a name="who-can-manage-a-reservation-by-default"></a>Qui peut gérer une réservation par défaut
 
-L’utilisateur qui achète une réservation et l’administrateur de compte de l’abonnement utilisé pour la facturation de la réservation se voient attribuer le rôle Propriétaire sur l’ordre de réservation et la réservation.
+Par défaut, les utilisateurs suivants peuvent voir et gérer des réservations :
 
-Vous pouvez déléguer la gestion des réservations en ajoutant des utilisateurs aux rôles de l’ordre de réservation ou de la réservation. Vous attribuez les rôles dans le portail Azure ou en utilisant des API et PowerShell. 
+- La personne qui achète une réservation et l’administrateur de compte de l’abonnement de facturation utilisé pour acheter la réservation sont ajoutés à l’ordre de réservation.
+- Les administrateurs de facturation de l’Accord Entreprise et du Contrat client Microsoft.
 
-Pour plus d’informations, consultez [Ajouter ou modifier les utilisateurs qui peuvent gérer une réservation](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation). 
+Pour permettre à d’autres personnes de gérer des réservations, consultez [Gérer les réservations pour les ressources Azure](manage-reserved-vm-instance.md).
 
 ## <a name="get-reservation-details-and-utilization-after-purchase"></a>Obtenir les détails de la réservation et les données d’utilisation après l’achat
 

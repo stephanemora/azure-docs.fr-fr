@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: 0dad7add63102d462a2111f1ecf12ae43dae123c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4dca1fa0e823b482044d35f98412187af2fa72ed
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95996183"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507759"
 ---
 # <a name="tutorial-add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Tutoriel : Ajouter la connexion à Microsoft à une application web ASP.NET
 
@@ -373,15 +373,16 @@ Pour inscrire votre application et ajouter manuellement les informations d’ins
    1. Dans l’Explorateur de solutions, sélectionnez le projet et examinez la fenêtre Propriétés (si aucune fenêtre Propriétés ne s’affiche, appuyez sur F4).
    1. Définissez l’option SSL activé sur `True`.
    1. Cliquez avec le bouton droit sur le projet dans Visual Studio et sélectionnez **Propriétés**, puis l’onglet **Web**. Dans la section **Serveurs**, remplacez l’**URL du projet** par l’**URL SSL**.
-   1. Copiez l’URL SSL. Vous allez ajouter cette URL à la liste des URL de redirection dans la liste des URL de redirection du portail d’inscription à l’étape suivante.<br/><br/>![Propriétés d’un projet](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
-1. Connectez-vous au [portail Azure](https://portal.azure.com) soit avec un compte professionnel ou scolaire, soit avec un compte Microsoft personnel.
-1. Si votre compte vous permet d’accéder à plusieurs locataires, sélectionnez votre compte en haut à droite, puis définissez votre session de portail sur le locataire Azure AD souhaité.
-1. Accédez à la page [Inscriptions d’applications](https://go.microsoft.com/fwlink/?linkid=2083908) de la plateforme d’identité Microsoft pour les développeurs.
-1. Sélectionnez **Nouvelle inscription**.
-1. Lorsque la page **Inscrire une application** s’affiche, saisissez les informations d’inscription de votre application :
-   1. Dans la section **Nom**, entrez un nom d’application explicite qui s’affichera aux utilisateurs de l’application, par exemple **ASPNET-Tutorial**.
-   1. Ajoutez l’URL SSL que vous avez copiée à partir de Visual Studio à l’étape 1 (par exemple, `https://localhost:44368/`) dans **URL de réponse**, puis sélectionnez **Inscrire**.
-1. Sélectionnez le menu **Authentification**, sélectionnez **Jetons d’ID** sous **Octroi implicite**, puis sélectionnez **Enregistrer**.
+   1. Copiez l’URL SSL. Vous allez ajouter cette URL à la liste des URI de redirection dans la liste des URI de redirection du portail d’inscription à l’étape suivante.<br/><br/>![Propriétés d’un projet](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Si vous avez accès à plusieurs locataires, utilisez le filtre **Répertoire + abonnement** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: dans le menu du haut pour sélectionner le locataire dans lequel vous voulez inscrire une application.
+1. Recherchez et sélectionnez **Azure Active Directory**.
+1. Sous **Gérer**, sélectionnez **Inscriptions d’applications** > **Nouvelle inscription**.
+1. Entrez un **nom** pour votre application (par exemple, `ASPNET-Tutorial`). Les utilisateurs de votre application peuvent voir ce nom, et vous pouvez le changer ultérieurement.
+1. Ajoutez l’URL SSL que vous avez copiée à partir de Visual Studio à l’étape 1 (par exemple, `https://localhost:44368/`) dans **URI de redirection**.
+1. Sélectionnez **Inscription**.
+1. Sous **Gérer**, sélectionnez **Authentification**.
+1. Dans la section **Octroi implicite**, sélectionnez **Jetons d’ID**, puis sélectionnez **Enregistrer**.
 1. Ajoutez le code suivant dans le fichier web.config situé dans le dossier racine, dans la section `configuration\appSettings` :
 
     ```xml

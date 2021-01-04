@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/21/2020
 ms.author: aahi
-ms.openlocfilehash: 247aea49d60c2d953d8b6dff37d22188a5442a1f
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: e051eca990ae0aa0b5a79c208a594e1b2332bcb2
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94625268"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97612639"
 ---
 Utilisez ce guide de démarrage rapide pour effectuer votre première recherche d’images à l’aide de la bibliothèque de client Recherche d’images Bing. 
 
@@ -36,8 +36,6 @@ Consultez également [Tarification Cognitive Services - API Recherche Bing](http
 ## <a name="create-a-console-project"></a>Créer un projet de console
 
 Tout d’abord, créez une application console C#.
-
-## <a name="create-a-console-project"></a>Créer un projet de console
 
 # <a name="visual-studio"></a>[Visual Studio](#tab/visualstudio)
 

@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 10/15/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: d8afa769c90c5cf9450343cda1a65809062468fb
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: c4c9808813de80beea55e083c5bd80667ae2861f
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888689"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033117"
 ---
 # <a name="communication-services-logs"></a>Journaux Communication Services
 
@@ -39,6 +39,7 @@ Communication Services propose trois types de journaux que vous pouvez activer 
 * **Journaux d’utilisation** : fournit les données d’utilisation associées à chaque offre de service facturée
 * **Journaux des opérations de la conversation** : fournit les informations de base relatives au service de conversation
 * **Journaux des opérations du service de SMS** : fournit les informations de base relatives au service de SMS
+* **Journaux des opérations du service d’authentification** : fournit les informations de base relatives au service d’authentification
 
 ### <a name="usage-logs-schema"></a>Schéma des journaux d’utilisation
 
@@ -100,3 +101,23 @@ Communication Services propose trois types de journaux que vous pouvez activer 
 | SdkType | Type de SDK utilisé dans la demande. |
 | PlatformType | Type de plateforme utilisé dans la demande. |
 | Méthode | Méthode utilisée dans la demande. |
+
+### <a name="authentication-operational-logs"></a>Journaux des opérations d’authentification
+
+| Propriété | Description |
+| -------- | ---------------|
+| TimeGenerated | Horodatage (UTC) de la génération du journal. |
+| NomOpération | Opération associée à l’enregistrement du journal. |
+| CorrelationID | ID des événements corrélés. Peut être utilisé pour identifier les événements corrélés entre plusieurs tables. |
+| OperationVersion | `api-version` associée à l’opération, si `operationName` a été effectuée à l’aide d’une API. S’il n’existe aucune API qui corresponde à cette opération, la version représente la version de cette opération si les propriétés associées à l’opération viennent à changer. |
+| Category | Catégorie de journal de l’événement. La catégorie est la granularité selon laquelle vous pouvez activer ou désactiver des journaux d’activité sur une ressource particulière. Les propriétés qui apparaissent dans l’objet blob de propriétés d’un événement sont les mêmes au sein d’un type de ressource et d’une catégorie de journal spécifique. |
+| ResultType | État de l'opération. |
+| ResultSignature | Sous-état de l’opération. Si cette opération correspond à un appel d’API REST, ce champ est le code d’état HTTP de l’appel REST correspondant. |
+| DurationMs | Durée de l’opération en millisecondes. |
+| callerIpAddress | Adresse IP de l’appelant, si l’opération correspond à un appel d’API qui provient d’une entité avec une adresse IP disponible publiquement. |
+| Level | Niveau de gravité de l’événement. |
+| URI | URI de la requête. |
+| SdkType | Type de SDK utilisé dans la demande. |
+| PlatformType | Type de plateforme utilisé dans la demande. |
+| Identité | Identité Communication Services associée à l’opération. |
+| Étendues | Étendues Communication Services présentes dans le jeton d’accès. |

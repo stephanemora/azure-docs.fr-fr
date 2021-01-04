@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
 ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
-ms.openlocfilehash: e93c0c6bb689980cab1b41e529c491cdf3920260
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: e188c00840a4d043e94f94f9db565e2d4e06aaba
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94591714"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97031060"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>Démarrage rapide : Ajouter la connexion avec Microsoft à une application web Java
 
@@ -47,25 +47,22 @@ Pour exécuter cet exemple, vous avez besoin des éléments suivants :
 >
 > Pour inscrire votre application et ajouter manuellement les informations d’inscription de l’application à votre application, suivez ces étapes :
 >
-> 1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
-> 1. Si votre compte vous propose un accès à plusieurs locataires, sélectionnez votre compte en haut à droite et définissez votre session de portail sur le locataire Azure AD souhaité.
->
-> 1. Accédez à la page [Inscriptions des applications](https://go.microsoft.com/fwlink/?linkid=2083908) de la plateforme d’identité Microsoft pour les développeurs.
-> 1. Sélectionnez **Nouvelle inscription**.
-> 1. Lorsque la page **Inscrire une application** s’affiche, saisissez les informations d’inscription de votre application :
->    - Dans la section **Nom**, saisissez un nom d’application cohérent qui s’affichera pour les utilisateurs de l’application, par exemple `java-webapp`.
->    - Sélectionnez **Inscription**.
-> 1. Sur la page **Vue d’ensemble**, recherchez les valeurs **ID d’application (client)** et **ID de répertoire (locataire)** de l’application. Copiez ces valeurs pour plus tard.
-> 1. Sélectionnez **Authentification** à partir du menu et ajoutez les informations suivantes :
->    - Ajoutez la configuration de la plateforme **web**.  Ajoutez ces `https://localhost:8443/msal4jsample/secure/aad` et `https://localhost:8443/msal4jsample/graph/me` en tant qu’**URI de redirection**.
->    - Sélectionnez **Enregistrer**.
-> 1. Dans le menu, sélectionnez **Certificats et secrets**, puis, dans la section **Secrets client**, cliquez sur **Nouveau secret client** :
->
->    - Tapez une description pour la clé (par exemple, secret de l'application).
->    - Sélectionnez la durée de clé **Dans 1 an**.
->    - La valeur de clé s’affiche lorsque vous sélectionnez **Ajouter**.
->    - Copiez la valeur de la clé pour plus tard. Cette valeur de clé ne sera plus jamais affichée et aucun autre moyen ne permettra de la récupérer. Par conséquent, enregistrez-la dès qu’elle apparaît sur le portail Azure.
->
+> 1. Connectez-vous au [portail Azure](https://portal.azure.com).
+> 1. Si vous avez accès à plusieurs locataires, utilisez le filtre **Répertoire + abonnement** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: dans le menu du haut pour sélectionner le locataire dans lequel vous voulez inscrire une application.
+> 1. Recherchez et sélectionnez **Azure Active Directory**.
+> 1. Sous **Gérer**, sélectionnez **Inscriptions d’applications** > **Nouvelle inscription**.
+> 1. Entrez un **nom** pour votre application (par exemple, `java-webapp`). Les utilisateurs de votre application peuvent voir ce nom, et vous pouvez le changer ultérieurement.
+> 1. Sélectionnez **Inscription**.
+> 1. Dans la page **Vue d’ensemble**, notez les valeurs **ID d’application (client)** et **ID d’annuaire (locataire)** pour une utilisation ultérieure.
+> 1. Sous **Gérer**, sélectionnez **Authentification**.
+> 1. Sélectionnez **Ajouter une plateforme** > **Web**.
+> 1. Dans la section **URI de redirection**, ajoutez `https://localhost:8443/msal4jsample/secure/aad`.
+> 1. Sélectionnez **Configurer**.
+> 1. Dans la section **Web**, ajoutez `https://localhost:8443/msal4jsample/graph/me` comme seconde **URI de redirection**.
+> 1. Sous **Gérer**, sélectionnez **Certificats et secrets**. Dans la section **Secrets client**, sélectionnez **Nouveau secret client**.
+> 1. Tapez une description de clé (par exemple, un secret d’application), laissez l’expiration par défaut et sélectionnez **Ajouter**.
+> 1. Notez la **Valeur** de la **clé secrète client** pour une utilisation ultérieure.
+
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Étape 1 : Configurer votre application dans le portail Azure
 >
@@ -150,7 +147,7 @@ L’exécuter directement à partir de votre IDE en utilisant le serveur Spring 
 
 ##### <a name="running-from-ide"></a>Exécuter à partir d’un IDE
 
-Si vous exécutez l’application Web à partir d’un environnement de développement intégré (IDE), cliquez sur Exécuter, puis accédez à la page d’accueil du projet. Pour cet exemple, l’URL de la page d’accueil standard est https://localhost:8443
+Si vous exécutez l’application web à partir d’un environnement de développement intégré (IDE), sélectionnez Exécuter, puis accédez à la page d’accueil du projet. Pour cet exemple, l’URL de la page d’accueil standard est https://localhost:8443.
 
 1. Sur la première page, sélectionnez le bouton **Connexion** pour rediriger vers Azure Active Directory et inviter l’utilisateur à entrer ses informations d’identification.
 

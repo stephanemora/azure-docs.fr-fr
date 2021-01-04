@@ -3,13 +3,13 @@ title: Utiliser les identités managées dans Azure Kubernetes Service
 description: Découvrez comment utiliser les identités managées dans Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 12/06/2020
-ms.openlocfilehash: 68d8111da5ec10f23d14b375a18229bca075da84
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.date: 12/16/2020
+ms.openlocfilehash: 948a189e1c6e03efca046b6d43dddcaf3d141957
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97026827"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607284"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Utiliser les identités managées dans Azure Kubernetes Service
 
@@ -36,7 +36,7 @@ AKS utilise plusieurs identités managées pour les services intégrés et les m
 
 | Identité                       | Nom    | Cas d’utilisation | Autorisations par défaut | Apportez votre propre identité
 |----------------------------|-----------|----------|
-| Plan de contrôle | non visible | Utilisé par les composants du plan de contrôle AKS pour gérer les ressources de cluster, notamment les équilibreurs de charge d’entrée et les IP publiques gérées par AKS, ainsi que les opérations de mise à l’échelle automatique | Rôle Contributeur pour le groupe de ressources du nœud | PRÉVERSION
+| Plan de contrôle | non visible | Utilisé par les composants du plan de contrôle AKS pour gérer les ressources de cluster, notamment les équilibreurs de charge d’entrée et les IP publiques gérées par AKS, ainsi que les opérations de mise à l’échelle automatique | Rôle Contributeur pour le groupe de ressources du nœud | supported
 | Kubelet | Nom du cluster AKS - agentpool | Authentification avec Azure Container Registry (ACR) | NA (pour kubernetes v1.15+) | Non prise en charge pour le moment
 | Composant additionnel | AzureNPM | Aucune identité requise | N/D | Non
 | Composant additionnel | Analyse du réseau AzureCNI | Aucune identité requise | N/D | Non

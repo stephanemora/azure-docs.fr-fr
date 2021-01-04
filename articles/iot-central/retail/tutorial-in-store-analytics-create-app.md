@@ -11,12 +11,12 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/12/2019
-ms.openlocfilehash: a15ccd6d67b4819ba5dd6233a2a001015037c404
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: fc8928c9f64e323aafb29c9b1e717cc5c2ab6691
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165670"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97346705"
 ---
 # <a name="tutorial-create-an-in-store-analytics-application-in-azure-iot-central"></a>Tutoriel : Créer une application d’analytique en magasin dans Azure IoT Central
 
@@ -60,20 +60,20 @@ Pour créer une nouvelle application Azure IoT Central :
 
     ![Entrer votre compte d’entreprise](./media/tutorial-in-store-analytics-create-app/sign-in.png)
 
-1. Pour commencer à créer une application Azure IoT Central, sélectionnez **Nouvelle application** .
+1. Pour commencer à créer une application Azure IoT Central, sélectionnez **Nouvelle application**.
 
-1. Sélectionnez **Distribution** .  La page de vente au détail affiche plusieurs modèles d’application de vente au détail.
+1. Sélectionnez **Distribution**.  La page de vente au détail affiche plusieurs modèles d’application de vente au détail.
 
 Pour créer une application d’analytique en magasin pour les caisses :  
 
-1. Sélectionnez le modèle d’application **Analytique en magasin – caisse** . Ce modèle comprend des modèles d’appareil pour tous les appareils utilisés dans le tutoriel, à l’exception des capteurs RuuviTag. Le modèle fournit également un tableau de bord d’opérateur permettant de surveiller les caisses et les conditions environnementales, ainsi que l’état des appareils. 
+1. Sélectionnez le modèle d’application **Analytique en magasin – caisse**. Ce modèle comprend des modèles d’appareil pour tous les appareils utilisés dans le tutoriel, à l’exception des capteurs RuuviTag. Le modèle fournit également un tableau de bord d’opérateur permettant de surveiller les caisses et les conditions environnementales, ainsi que l’état des appareils. 
 
-1. Si vous le souhaitez, choisissez un **nom d’application** convivial. Cette application est basée sur un magasin fictif de vente au détail nommé Contoso. Le tutoriel utilise le **nom d’application** *Caisse Contoso* . Le modèle d’application est basé sur la société fictive Northwind. Dans ce tutoriel, vous utilisez Contoso pour apprendre à personnaliser l’application.
+1. Si vous le souhaitez, choisissez un **nom d’application** convivial. Cette application est basée sur un magasin fictif de vente au détail nommé Contoso. Le tutoriel utilise le **nom d’application** *Caisse Contoso*. Le modèle d’application est basé sur la société fictive Northwind. Dans ce tutoriel, vous utilisez Contoso pour apprendre à personnaliser l’application.
 
     > [!NOTE]
-    > Si vous utilisez un **nom d’application** convivial, vous devez toujours utiliser une valeur unique pour l’ **URL** de l’application.
+    > Si vous utilisez un **nom d’application** convivial, vous devez toujours utiliser une valeur unique pour l’**URL** de l’application.
 
-1. Si vous disposez d’un abonnement Azure, entrez vos informations *Répertoire, Abonnement Azure et Région* . Si vous n’avez pas d’abonnement, vous pouvez activer une **version d’évaluation gratuite de 7 jours** et remplir les coordonnées requises.  
+1. Si vous disposez d’un abonnement Azure, entrez vos informations *Répertoire, Abonnement Azure et Région*. Si vous n’avez pas d’abonnement, vous pouvez activer une **version d’évaluation gratuite de 7 jours** et remplir les coordonnées requises.  
 
     Pour plus d’informations sur les répertoires et les abonnements, consultez le guide de démarrage rapide [Créer une application](../core/quick-deploy-iot-central.md).
 
@@ -93,9 +93,9 @@ Pour sélectionner un thème d’application prédéfini :
 
     ![Paramètres d’application Azure IoT Central](./media/tutorial-in-store-analytics-create-app/settings-icon.png)
 
-2. Sélectionnez un nouveau **Thème** .
+2. Sélectionnez un nouveau **Thème**.
 
-3. Sélectionnez **Enregistrer** .
+3. Sélectionnez **Enregistrer**.
 
 Au lieu d’utiliser un thème prédéfini, vous pouvez créer un thème personnalisé. Si vous souhaitez utiliser un ensemble d’exemples d’images pour personnaliser l’application et suivre le tutoriel, téléchargez les [exemples d’images Contoso](https://github.com/Azure-Samples/iot-central-docs-samples/tree/master/retail).
 
@@ -105,15 +105,15 @@ Pour créer un thème personnalisé :
 
     ![Volet gauche Azure IoT Central](./media/tutorial-in-store-analytics-create-app/dashboard-expand.png)
 
-1. Sélectionnez **Administration > Personnaliser votre application** .
+1. Sélectionnez **Administration > Personnaliser votre application**.
 
-1. Utilisez le bouton **Modifier** pour choisir une image à télécharger en tant que **Logo de l’application** . Si vous le souhaitez, spécifiez une valeur pour **Texte de remplacement du logo** . 
+1. Utilisez le bouton **Modifier** pour choisir une image à télécharger en tant que **Logo de l’application**. Si vous le souhaitez, spécifiez une valeur pour **Texte de remplacement du logo**. 
 
-1. Utilisez le bouton **Modifier** pour choisir l’image de l’ **icône du navigateur** qui apparaîtra dans les onglets du navigateur.
+1. Utilisez le bouton **Modifier** pour choisir l’image de l’**icône du navigateur** qui apparaîtra dans les onglets du navigateur.
 
-1. Si vous le souhaitez, remplacez les **couleurs du navigateur** par défaut en ajoutant des codes couleurs hexadécimaux HTML. Pour l’ **en-tête** , ajouter *#008575* .  Pour l’ **accentuation** , ajoutez *#A1F3EA* . 
+1. Si vous le souhaitez, remplacez les **couleurs du navigateur** par défaut en ajoutant des codes couleurs hexadécimaux HTML. Pour l’**en-tête**, ajouter *#008575*.  Pour l’**accentuation**, ajoutez *#A1F3EA*. 
 
-1. Sélectionnez **Enregistrer** . 
+1. Sélectionnez **Enregistrer**. 
 
     ![Personnalisation du logo Azure IoT Central](./media/tutorial-in-store-analytics-create-app/select-application-logo.png)
 
@@ -123,11 +123,11 @@ Pour créer un thème personnalisé :
 
 Pour mettre à jour l’image de l’application :
 
-1. Sélectionnez **Administration > Paramètres d’application** .
+1. Sélectionnez **Administration > Paramètres d’application**.
 
 1. Utilisez le bouton **Sélectionner une image** pour choisir une image à télécharger en tant qu’image de l’application. Cette image apparaît sur la vignette de l’application dans la page **Mes applications** du gestionnaire d’applications IoT Central.
 
-1. Sélectionnez **Enregistrer** .
+1. Sélectionnez **Enregistrer**.
 
 1. Si vous le souhaitez, accédez à l’affichage **Mes applications** sur le site web du [gestionnaire d’applications d’Azure IoT Central](https://aka.ms/iotcentral). La vignette de l’application affiche l’image de l’application mise à jour.
 
@@ -136,7 +136,7 @@ Pour mettre à jour l’image de l’application :
 ## <a name="create-device-templates"></a>Créer des modèles d’appareils
 En tant que réalisateur de logiciel, vous pouvez créer des modèles d’appareil qui vous permettent, à vous et aux opérateurs de l’application, de configurer et de gérer des appareils. Vous créez un modèle en générant un modèle personnalisé, en important un fichier modèle existant ou en important un modèle à partir du catalogue d’appareils Azure IoT. Une fois que vous avez créé et personnalisé un modèle d’appareil, utilisez-le pour connecter des appareils réels à votre application. Si vous le souhaitez, utilisez un modèle d’appareil pour générer des appareils simulés à des fins de test.
 
-Le modèle d’application **Analytique en magasin – caisse** possède des modèles d’appareil pour plusieurs appareils.  Il existe des modèles d’appareil pour deux des trois appareils que vous utilisez dans l’application. Le modèle d’appareil RuuviTag n’est pas inclus dans le modèle d’application **Analytique en magasin – caisse** . Dans cette section, vous ajouterez un modèle d’appareil pour les capteurs RuuviTag à votre application.
+Le modèle d’application **Analytique en magasin – caisse** possède des modèles d’appareil pour plusieurs appareils.  Il existe des modèles d’appareil pour deux des trois appareils que vous utilisez dans l’application. Le modèle d’appareil RuuviTag n’est pas inclus dans le modèle d’application **Analytique en magasin – caisse**. Dans cette section, vous ajouterez un modèle d’appareil pour les capteurs RuuviTag à votre application.
 
 Pour ajouter un modèle d’appareil RuuviTag à votre application :
 
@@ -146,7 +146,7 @@ Pour ajouter un modèle d’appareil RuuviTag à votre application :
 
 1. Recherchez et sélectionnez le modèle d’appareil du capteur **RuuviTag** dans le catalogue d’appareils Azure IoT. 
 
-1. Sélectionnez **Suivant : Personnaliser** .
+1. Sélectionnez **Suivant : Personnaliser**.
 
     ![Capture d’écran mettant en évidence le bouton Suivant : Personnaliser.](./media/tutorial-in-store-analytics-create-app/ruuvitag-device-template.png)
 
@@ -177,7 +177,7 @@ Pour personnaliser les interfaces intégrées du modèle d’appareil RuuviTag 
 
 1. Sélectionnez **Personnaliser** dans le menu du modèle d’appareil RuuviTag. 
 
-1. Faites défiler la liste des fonctionnalités et recherchez le type de données de télémétrie `humidity`. Il s’agit de l’élément de ligne avec la valeur **Nom d’affichage** modifiable d’ *humidité* .
+1. Faites défiler la liste des fonctionnalités et recherchez le type de données de télémétrie `humidity`. Il s’agit de l’élément de ligne avec la valeur **Nom d’affichage** modifiable d’*humidité*.
 
 Dans les étapes suivantes, vous personnaliserez le type de télémétrie `humidity` pour les capteurs RuuviTag. Si vous le souhaitez, personnalisez certains des autres types de télémétrie.
 
@@ -185,9 +185,9 @@ Pour le type de télémétrie `humidity`, apportez les modifications suivantes 
 
 1. Sélectionnez le contrôle **Développer** pour développer les détails du schéma de la ligne.
 
-1. Remplacez la valeur **Nom d’affichage** de l’ *humidité* par une valeur personnalisée telle que *Humidité relative* .
+1. Remplacez la valeur **Nom d’affichage** de l’*humidité* par une valeur personnalisée telle que *Humidité relative*.
 
-1. Pour l’option **Type sémantique** , remplacez la valeur *Aucun* par *Humidité* .  Si vous le souhaitez, définissez des valeurs de schéma pour le type de télémétrie Humidité dans l’affichage de schéma développé. Les paramètres de schéma vous permettent de créer des exigences de validation détaillées pour les données que vos capteurs suivent. Par exemple, vous pouvez définir des valeurs de plage de fonctionnement minimale et maximale pour une interface donnée.
+1. Pour l’option **Type sémantique**, remplacez la valeur *Aucun* par *Humidité*.  Si vous le souhaitez, définissez des valeurs de schéma pour le type de télémétrie Humidité dans l’affichage de schéma développé. Les paramètres de schéma vous permettent de créer des exigences de validation détaillées pour les données que vos capteurs suivent. Par exemple, vous pouvez définir des valeurs de plage de fonctionnement minimale et maximale pour une interface donnée.
 
 1. Cliquez sur **Enregistrer** pour enregistrer vos modifications.
 
@@ -197,23 +197,23 @@ Pour ajouter une propriété cloud à un modèle d’appareil dans votre applica
 
 1. Sélectionnez **Propriétés cloud** dans le menu du modèle d’appareil RuuviTag.
 
-1. Sélectionnez **Ajouter une propriété cloud** . 
+1. Sélectionnez **Ajouter une propriété cloud**. 
 
 Spécifiez les valeurs suivantes pour créer une propriété personnalisée et stocker ainsi l’emplacement de chaque appareil :
 
-1. Entrez la valeur *Emplacement* pour le **Nom d’affichage** . Cette valeur est copiée automatiquement dans le champ **Nom** , qui est un nom convivial pour la propriété. Vous pouvez utiliser la valeur copiée ou la modifier.
+1. Entrez la valeur *Emplacement* pour le **Nom d’affichage**. Cette valeur est copiée automatiquement dans le champ **Nom**, qui est un nom convivial pour la propriété. Vous pouvez utiliser la valeur copiée ou la modifier.
 
-1. Sélectionnez *Chaîne* dans la liste déroulante **Schéma** . Un type de chaîne vous permet d’associer une chaîne de nom d’emplacement à n’importe quel appareil basé sur le modèle. Par exemple, vous pouvez associer une zone dans un magasin à chaque appareil. Si vous le souhaitez, vous pouvez définir le **Type sémantique** de votre propriété sur *Emplacement* , ce qui définit automatiquement le **Schéma** sur *Point géographique* . Vous pouvez alors associer des coordonnées GPS à un appareil. 
+1. Sélectionnez *Chaîne* dans la liste déroulante **Schéma**. Un type de chaîne vous permet d’associer une chaîne de nom d’emplacement à n’importe quel appareil basé sur le modèle. Par exemple, vous pouvez associer une zone dans un magasin à chaque appareil. Si vous le souhaitez, vous pouvez définir le **Type sémantique** de votre propriété sur *Emplacement*, ce qui définit automatiquement le **Schéma** sur *Point géographique*. Vous pouvez alors associer des coordonnées GPS à un appareil. 
 
-1. Définissez **Longueur minimale** sur *2* . 
+1. Définissez **Longueur minimale** sur *2*. 
 
-1. Définissez **Espace blanc de découpage** sur **Activé** .
+1. Définissez **Espace blanc de découpage** sur **Activé**.
 
 1. Sélectionnez **Enregistrer** pour enregistrer votre propriété cloud personnalisée.
 
     ![Personnalisation du modèle d’appareil RuuviTag Azure IoT Central](./media/tutorial-in-store-analytics-create-app/ruuvitag-device-template-cloud-property.png)
 
-1. Sélectionnez **Publier** . 
+1. Sélectionnez **Publier**. 
 
     La publication d’un modèle d’appareil le rend visible aux opérateurs d’application. Après avoir publié un modèle, utilisez-le pour générer des appareils simulés à des fins de test ou pour connecter des appareils réels à votre application. Si vous avez déjà des appareils connectés à votre application, la publication d’un modèle personnalisé applique les modifications sur les appareils.
 
@@ -242,29 +242,29 @@ Pour créer une règle :
 
 1. Développez le volet gauche.
 
-1. Sélectionnez **Règles** .
+1. Sélectionnez **Règles**.
 
-1. Sélectionnez **+Nouveau** .
+1. Sélectionnez **+Nouveau**.
 
 1. Entrez *Taux d’humidité* comme nom de la règle. 
 
-1. Choisissez le modèle d’appareil RuuviTag dans **Étendues** . La règle que vous définissez s’appliquera à tous les capteurs basés sur ce modèle. Si vous le souhaitez, vous pouvez créer un filtre qui applique la règle uniquement à un sous-ensemble défini des capteurs. 
+1. Choisissez le modèle d’appareil RuuviTag dans **Étendues**. La règle que vous définissez s’appliquera à tous les capteurs basés sur ce modèle. Si vous le souhaitez, vous pouvez créer un filtre qui applique la règle uniquement à un sous-ensemble défini des capteurs. 
 
-1. Choisissez `Relative humidity` comme **Données de télémétrie** . Il s’agit de la fonctionnalité de l’appareil que vous avez personnalisée à l’étape précédente.
+1. Choisissez `Relative humidity` comme **Données de télémétrie**. Il s’agit de la fonctionnalité de l’appareil que vous avez personnalisée à l’étape précédente.
 
-1. Choisissez `Is greater than` comme **Opérateur** . 
+1. Choisissez `Is greater than` comme **Opérateur**. 
 
-1. Entrez un taux d’humidité intérieure typique de la plage supérieure pour votre environnement comme **Valeur** . Par exemple, entrez *65* . Vous avez défini une condition pour votre règle qui se produit lorsque l’humidité relative dans un capteur RuuviTag réel ou simulé dépasse cette valeur. Vous devrez peut-être ajuster la valeur en fonction de la plage d’humidité normale dans votre environnement.  
+1. Entrez un taux d’humidité intérieure typique de la plage supérieure pour votre environnement comme **Valeur**. Par exemple, entrez *65*. Vous avez défini une condition pour votre règle qui se produit lorsque l’humidité relative dans un capteur RuuviTag réel ou simulé dépasse cette valeur. Vous devrez peut-être ajuster la valeur en fonction de la plage d’humidité normale dans votre environnement.  
 
    ![Ajout de conditions de règle Azure IoT Central](./media/tutorial-in-store-analytics-create-app/rules-add-conditions.png)
 
 Pour ajouter une action à la règle :
 
-1. Sélectionnez **+ E-mail** . 
+1. Sélectionnez **+ E-mail**. 
 
 1. Entrez *Notification d’humidité élevée* comme **Nom d’affichage** convivial pour l’action. 
 
-1. Entrez l’adresse e-mail associée à votre compte dans **À** . Si vous utilisez un autre e-mail, l’adresse que vous utilisez doit être celle d’un utilisateur qui a été ajouté à l’application. L’utilisateur doit également se connecter et se déconnecter au moins une fois.
+1. Entrez l’adresse e-mail associée à votre compte dans **À**. Si vous utilisez un autre e-mail, l’adresse que vous utilisez doit être celle d’un utilisateur qui a été ajouté à l’application. L’utilisateur doit également se connecter et se déconnecter au moins une fois.
 
 1. Si vous le souhaitez, entrez une note à inclure dans le texte de l’e-mail.
 

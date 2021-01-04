@@ -1,18 +1,18 @@
 ---
 title: 'Démarrage rapide : Créer un compte Azure Purview dans le portail Azure (préversion)'
 description: Ce guide de démarrage rapide explique comment créer un compte Azure Purview et configurer des autorisations pour commencer à l’utiliser.
-author: hophan
+author: hophanms
 ms.author: hophan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: quickstart
 ms.date: 10/23/2020
-ms.openlocfilehash: c9e0b155a4cf34373bb6d851241dc62ddd661045
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 3119152e4a7d0dc799dfe273722101c95c11c0c9
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602360"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400384"
 ---
 # <a name="quickstart-create-an-azure-purview-account-in-the-azure-portal"></a>Démarrage rapide : Créer un compte Azure Purview dans le portail Azure
 
@@ -30,6 +30,10 @@ Dans ce guide de démarrage rapide, vous créez un compte Azure Purview.
 * Votre compte doit avoir l’autorisation de créer des ressources dans l’abonnement.
 
 * Si **Azure Policy** empêche toutes les applications de créer un **compte de stockage** et un **espace de noms EventHub**, vous devez introduire une exception de stratégie au moyen d’une étiquette pouvant être renseignée lors du processus de création d’un compte Purview. La raison principale vient de ce que, pour chaque compte Purview créé, un groupe de ressources managé doit être créé, et dans ce groupe de ressources, un compte de stockage et un espace de noms EventHub.
+
+    > [!important]
+    > Vous n’êtes pas obligé de suivre cette étape si vous ne disposez pas d’Azure Policy, ou si aucune stratégie Azure existante ne bloque la création du **compte de stockage** et de l’**espace de noms EventHub**.
+
     1. Accédez au portail Azure et recherchez **Stratégie**.
     1. Suivez [Créer une définition de stratégie personnalisée](https://docs.microsoft.com/azure/governance/policy/tutorials/create-custom-policy-definition) ou modifiez une stratégie existante pour ajouter deux exceptions avec l’opérateur `not` et l’étiquette `resourceBypass` :
 
@@ -151,7 +155,7 @@ Si, après avoir cliqué sur Ajouter, deux options s’affichent marquées (dés
 
 1. Sélectionnez **Ajouter une attribution de rôle**.
 
-1. Pour le rôle, indiquez **Rôle Conservateur de données Purview** ou **Rôle Administrateur de sources de données Purview** en fonction de l’utilisation qui sera faite du principal de service (pour plus d’informations, consultez [Autorisations du catalogue](catalog-permissions.md)).
+1. Pour le rôle, indiquez **Rôle Conservateur de données Purview** ou **Rôle Administrateur de sources de données Purview**, en fonction de l’utilisation qui sera faite du principal de sécurité (pour plus d’informations, consultez [Autorisations du catalogue](catalog-permissions.md) et [Objets application et principal du service dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)).
 
 1. Pour **Attribuer l’accès à**, laissez la valeur par défaut **Utilisateur, groupe ou principal de service**.
 

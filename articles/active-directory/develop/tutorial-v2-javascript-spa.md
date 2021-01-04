@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/06/2020
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: ded54628a307f3cf4441e804f7f1025a0e943b51
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 4eb3c2905f3c1ccfa63da1bb4a8c81decdbc2f2b
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94979944"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507725"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Tutoriel : Connecter les utilisateurs et appeler l’API Microsoft Graph à partir d’une application monopage (SPA) JavaScript
 
@@ -265,16 +265,17 @@ Vous disposez maintenant d’un serveur simple pour servir votre application mon
 
 Avant de poursuivre l’authentification, inscrivez votre application sur **Azure Active Directory**.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-1. Si votre compte vous donne accès à plusieurs locataires, sélectionnez le compte en haut à droite, puis définissez votre session de portail sur le locataire Azure AD que vous voulez utiliser.
-1. Accédez à la page [Inscriptions d’applications](https://go.microsoft.com/fwlink/?linkid=2083908) de la plateforme d’identité Microsoft pour les développeurs.
-1. Lorsque la page **Inscrire une application** s’affiche, entrez le nom de votre application.
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Si vous avez accès à plusieurs locataires, utilisez le filtre **Répertoire + abonnement** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: dans le menu du haut pour sélectionner le locataire dans lequel vous voulez inscrire une application.
+1. Recherchez et sélectionnez **Azure Active Directory**.
+1. Sous **Gérer**, sélectionnez **Inscriptions d’applications** > **Nouvelle inscription**.
+1. Entrez un **nom** pour votre application. Les utilisateurs de votre application peuvent voir ce nom, et vous pouvez le changer ultérieurement.
 1. Sous **Types de comptes pris en charge**, sélectionnez **Comptes dans un annuaire organisationnel et comptes personnels Microsoft**.
 1. Dans la section **URI de redirection**, sélectionnez la plateforme **Web** dans la liste déroulante, puis définissez la valeur sur l’URL de l’application en fonction de votre serveur web.
 1. Sélectionnez **Inscription**.
 1. Dans la page **Vue d’ensemble**, notez la valeur de **ID d’application (client)** pour une utilisation ultérieure.
-1. Ce démarrage rapide requiert l’activation du [flux d’octroi implicite](v2-oauth2-implicit-grant-flow.md). Dans le volet gauche de l’application inscrite, sélectionnez **Authentification**.
-1. Dans **Paramètres avancés**, sous **Octroi implicite**, cochez les cases **Jetons d’ID** et **Jetons d’accès**. Des jetons d’ID et des jetons d’accès sont nécessaires car cette application doit connecter des utilisateurs et appeler une API.
+1. Sous **Gérer**, sélectionnez **Authentification**.
+1. Dans la section **Octroi implicite**, sélectionnez **Jetons d’ID** et **Jetons d’accès**. Des jetons d’ID et des jetons d’accès sont nécessaires car cette application doit connecter des utilisateurs et appeler une API.
 1. Sélectionnez **Enregistrer**.
 
 > ### <a name="set-a-redirect-url-for-nodejs"></a>Définir d’une URL de redirection pour Node.js

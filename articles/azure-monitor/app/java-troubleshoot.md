@@ -6,12 +6,12 @@ ms.date: 03/14/2019
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: dbc9e48987f527c9579decc3db84091a432a17e5
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 6b578cd03daa6e996a69c03afd327097d6123045
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96601014"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607896"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java-sdk"></a>Guide de dépannage et questions-réponses concernant Application Insights pour le Kit de développement logiciel (SDK) Java
 
@@ -63,7 +63,6 @@ Assurez-vous d'avoir configuré correctement votre application de façon à envo
 Si votre client est une application d’un [téléphone ou d’un autre appareil][platforms], vous pouvez également envoyer la télémétrie à partir de ce dernier.
 
 Utilisez la même clé d'instrumentation pour configurer la télémétrie de votre client et de votre serveur. Les données apparaîtront dans la même ressource Application Insights, et vous pourrez mettre en corrélation les événements du serveur et du client.
-
 
 ## <a name="disabling-telemetry"></a>Désactivation de la télémétrie
 **Comment puis-je désactiver la collecte télémétrique ?**
@@ -183,7 +182,6 @@ Application Insights utilise `org.apache.http`. Cet élément a été déplacé 
 
 >[!NOTE]
 >Si vous activez l’enregistrement au niveau du DÉBOGAGE pour tous les espaces de noms dans l’application, il est respecté par tous les modules en cours d’exécution, y compris `org.apache.http` renommé `com.microsoft.applicationinsights.core.dependencies.http`. Application Insights ne peut pas appliquer de filtrage pour ces appels, car l’appel de journal est effectué par la bibliothèque Apache. L’enregistrement au niveau du débogage produit une quantité considérable de données de journal et n’est pas recommandé pour les instances de production dynamiques.
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 **J’ai configuré Application Insights pour mon application serveur Java. Que puis-je faire d’autre ?**

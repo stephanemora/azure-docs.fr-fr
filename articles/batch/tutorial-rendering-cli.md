@@ -1,15 +1,15 @@
 ---
-title: Créer le rendu d’une scène dans le cloud
+title: Tutoriel - Effectuer le rendu d’une scène dans le cloud
 description: 'Didacticiel : comment créer le rendu d’une scène Autodesk 3ds Max avec Arnold à l’aide du service Azure Batch Rendering et de l’interface de ligne de commande Azure'
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 579a5446cb199bb73f98e2e1cbb0948f062470a8
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: e0858e838ba73862ef7f15040915c5f5cd3c751b
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542386"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106340"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>Tutoriel : Créer le rendu d’une scène avec Azure Batch 
 
@@ -346,7 +346,7 @@ Dans ce tutoriel, vous avez appris à effectuer les opérations suivantes :
 > * Mettre à l’échelle le pool et créer le rendu d’une scène comportant plusieurs images
 > * Télécharger la sortie rendue
 
-Pour en savoir plus sur le rendu à l’échelle du cloud, consultez les options relatives au service Batch Rendering. 
+Pour en savoir plus sur le rendu à l’échelle du cloud, consultez la documentation relative au rendu Batch.
 
 > [!div class="nextstepaction"]
 > [Service de rendu Batch](batch-rendering-service.md)

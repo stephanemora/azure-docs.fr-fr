@@ -7,16 +7,17 @@ ms.author: sumuth
 ms.topic: tutorial
 ms.date: 11/25/2020
 ms.custom: mvc
-ms.openlocfilehash: 31ad9450c775e5e4e7ae543241b48f8c372ad9ee
-ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
+ms.openlocfilehash: 7713b7596b21e02e941a19f64d3658ab0f5f51f5
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96749202"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359011"
 ---
 # <a name="tutorial-deploy-wordpress-app-on-aks-with-azure-database-for-mysql---flexible-server"></a>Tutoriel : Déployer l’application WordPress sur AKS avec Azure Database pour MySQL - Serveur flexible
 
-Dans ce guide de démarrage rapide, vous déployez une application WordPress sur un cluster AKS (Azure Kubernetes Service) avec Azure Database pour MySQL - Serveur flexible (préversion) à l’aide d’Azure CLI. [AKS](../../aks/intro-kubernetes.md) est un service Kubernetes managé qui vous permet de déployer et gérer rapidement des clusters. [Azure Database pour MySQL - Serveur flexible (préversion)](overview.md) est un service de base de données entièrement managé, conçu pour offrir un contrôle plus précis et une plus grande flexibilité des fonctions de gestion de base de données et des paramètres de configuration. Le service Serveur flexible est actuellement disponible en préversion.
+Dans ce guide de démarrage rapide, vous déployez une application WordPress sur un cluster AKS (Azure Kubernetes Service) avec Azure Database pour MySQL - Serveur flexible (préversion) à l’aide d’Azure CLI. 
+**[AKS](../../aks/intro-kubernetes.md)** est un service Kubernetes managé qui vous permet de déployer et gérer rapidement des clusters. **[Azure Database pour MySQL - Serveur flexible (préversion)](overview.md)** est un service de base de données entièrement managé, conçu pour offrir un contrôle plus précis et une plus grande flexibilité des fonctions de gestion de base de données et des paramètres de configuration. Le service Serveur flexible est actuellement disponible en préversion.
 
 > [!NOTE]
 > - La fonctionnalité Serveur flexible Azure Database pour MySQL est actuellement disponible en préversion publique
@@ -115,7 +116,7 @@ Le serveur créé possède les attributs suivants :
 - Étant donné que la commande utilise le contexte local, elle crée le serveur dans le groupe de ressources ```wordpress-project``` et dans la région ```eastus```.
 
 
-## <a name="build-your-wordpress-docker-image"></a>Créer votre image Docker WordPress
+### <a name="build-your-wordpress-docker-image"></a>Créer votre image Docker WordPress
 
 Téléchargez la [dernière version de WordPress](https://wordpress.org/download/). Créer un répertoire ```my-wordpress-app``` pour votre projet et utiliser cette structure de dossiers simple
 
@@ -173,6 +174,7 @@ define('DB_COLLATE', '');
 define('MYSQL_CLIENT_FLAGS', MYSQLI_CLIENT_SSL);
 ```
 
+### <a name="create-a-dockerfile"></a>Créer un Dockerfile
 Créez un autre Dockerfile et copiez-y cet extrait de code. Ce Dockerfile configure le serveur web Apache avec PHP et active l’extension mysqli.
 
 ```docker
@@ -182,12 +184,12 @@ RUN docker-php-ext-install mysqli
 RUN docker-php-ext-enable mysqli
 ```
 
-## <a name="build-your-docker-image"></a>Générer votre image Docker
-Vérifiez que vous êtes dans le répertoire ```my-wordpress-app``` sur un terminal à l’aide de la commande ```cd```. Exécutez la commande suivante pour générer votre image de tableau d’affichage :
+### <a name="build-your-docker-image"></a>Générer votre image Docker
+Vérifiez que vous êtes dans le répertoire ```my-wordpress-app``` sur un terminal à l’aide de la commande ```cd```. Exécutez la commande suivante pour générer l’image :
 
 ``` bash
 
-docker build --tag myblog:latest . 
+docker build --tag myblog:latest .
 
 ```
 
@@ -272,8 +274,6 @@ L’exemple de sortie suivant montre que les déploiements et les ressources ont
 
 ```output
 deployment "wordpress-blog" created
-service "php-svc" created
-deployment "azure-vote-front" created
 service "php-svc" created
 ```
 

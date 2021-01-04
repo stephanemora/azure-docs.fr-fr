@@ -6,12 +6,12 @@ author: TimothyMothra
 ms.author: tilee
 ms.date: 4/23/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 36c5fc93886327c0e3261418343d900ee66cb4eb
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: b44279f31aea8fc02130f1c3d7520f42c648bd4c
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168577"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607947"
 ---
 # <a name="application-insights-for-azure-functions-supported-features"></a>Fonctionnalités Application Insights prises en charge pour Azure Functions
 
@@ -23,37 +23,35 @@ Pour plus d’informations sur les versions compatibles d’Application Insights
 
 ## <a name="supported-features"></a>Fonctionnalités prises en charge
 
-| Azure Functions                       | V1                | V2 et V3   | 
-|-----------------------------------    |---------------    |------------------ |
+| Azure Functions                   | V1            | V2 et V3 | 
+|-----------------------------------|---------------|------------------|
 | | | | 
-| **Collecte automatique de**        |                 |                   |               
-| &bull; Requêtes                     | Oui             | Oui               | 
-| &bull; Exceptions                   | Oui             | Oui               | 
-| &bull; Compteurs de performances         | Oui             | Oui               |
-| &bull; Dépendances                   |                   |                   |               
-| &nbsp;&nbsp;&nbsp;&mdash; HTTP      |                 | Oui               | 
-| &nbsp;&nbsp;&nbsp;&mdash; ServiceBus|                 | Oui               | 
-| &nbsp;&nbsp;&nbsp;&mdash; EventHub  |                 | Oui               | 
-| &nbsp;&nbsp;&nbsp;&mdash; SQL       |                 | Oui               | 
+| **Collecte automatique de**        |               |                  |
+| &bull; Requêtes                     | Oui           | Oui              |
+| &bull; Exceptions                   | Oui           | Oui              |
+| &bull; Compteurs de performances         | Oui           | Oui              |
+| &bull; Dépendances                 |               |                  |
+| &nbsp;&nbsp;&nbsp;&mdash; HTTP      |               | Oui              |
+| &nbsp;&nbsp;&nbsp;&mdash; ServiceBus|               | Oui              |
+| &nbsp;&nbsp;&nbsp;&mdash; EventHub  |               | Oui              |
+| &nbsp;&nbsp;&nbsp;&mdash; SQL       |               | Oui              |
 | | | | 
-| **Fonctionnalités prises en charge**                |                   |                   |               
-| &bull; Pulsation rapide/Métriques temps réel       | Oui             | Oui               | 
-| &nbsp;&nbsp;&nbsp;&mdash; Canal de contrôle sécurisé|                 | Oui               | 
-| &bull; Échantillonnage                     | Oui             | Oui               | 
-| &bull; Pulsations                   |                 | Oui               | 
+| **Fonctionnalités prises en charge**              |               |                  |
+| &bull; Pulsation rapide/Métriques temps réel       | Oui           | Oui              | 
+| &nbsp;&nbsp;&nbsp;&mdash; Canal de contrôle sécurisé |               | Oui | 
+| &bull; Échantillonnage                     | Oui           | Oui              | 
+| &bull; Pulsations                   | | Oui              | 
+| | | |
+| **Corrélation**                    |               |                  |
+| &bull; ServiceBus                  |               | Oui              |
+| &bull; EventHub                    |               | Oui              |
 | | | | 
-| **Corrélation**                       |                   |                   |               
-| &bull; ServiceBus                     |                   | Oui               | 
-| &bull; EventHub                       |                   | Oui               | 
-| | | | 
-| **Configurable**                      |                   |                   |           
-| &bull; Entièrement configurable.<br/>Consultez [Azure Functions](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852) pour obtenir des instructions.<br/>Consultez [ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration) pour connaître toutes les options.               |                   | Oui                   | 
-
+| **Configurable**                  |               |                  |           
+| &bull; Entièrement configurable.<br/>Consultez [Azure Functions](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852) pour obtenir des instructions.<br/>Consultez [ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration) pour connaître toutes les options.           |               | Oui                 | 
 
 ## <a name="performance-counters"></a>Compteurs de performance
 
 La collecte automatique des compteurs de performances fonctionne uniquement sur les machines Windows.
-
 
 ## <a name="live-metrics--secure-control-channel"></a>Métriques en temps réel et canal de contrôle sécurisé
 
@@ -65,7 +63,7 @@ Azure Functions permet l’échantillonnage par défaut dans sa configuration. P
 
 Si votre projet prend une dépendance sur le kit de développement logiciel (SDK) Application Insights pour effectuer un suivi télémétrique manuel, vous constaterez peut-être un comportement inhabituel en présence d'une configuration d’échantillonnage différente de la configuration d’échantillonnage de Functions. 
 
-Nous vous recommandons d’utiliser la même configuration que Functions. Avec **Functions v2** , vous pouvez obtenir la même configuration à l’aide de l’injection de dépendances dans votre constructeur :
+Nous vous recommandons d’utiliser la même configuration que Functions. Avec **Functions v2**, vous pouvez obtenir la même configuration à l’aide de l’injection de dépendances dans votre constructeur :
 
 ```csharp
 using Microsoft.ApplicationInsights;

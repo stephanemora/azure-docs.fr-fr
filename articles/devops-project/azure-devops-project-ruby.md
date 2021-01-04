@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: b7ab2fb13be10d5992f1b26973e9735ac238090a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e2f7115560148a1d3b9d2671be54c1ba4d61946
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91856056"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588911"
 ---
 # <a name="create-a-cicd-pipeline-for-ruby-on-rails-by-using-azure-devops-starter"></a>Créer un pipeline CI/CD pour Ruby on Rails à l’aide d’Azure DevOps Starter
 
@@ -63,9 +63,9 @@ Azure DevOps Starter crée un pipeline CI/CD dans Azure Repos. Vous pouvez crée
 
 Azure DevOps Starter crée un référentiel Git dans Azure Pipelines ou dans GitHub. Pour voir le dépôt et modifier le code dans votre application, effectuez les étapes suivantes :
 
-1. Dans le tableau de bord DevOps Starter, sur la gauche, sélectionnez le lien correspondant à votre branche maîtresse. Le lien ouvre une vue sur le dépôt Git récemment créé.
+1. Dans le tableau de bord DevOps Starter, sur la gauche, sélectionnez le lien correspondant à votre branche principale. Le lien ouvre une vue sur le dépôt Git récemment créé.
 
-1. Pour voir l’URL du clone du dépôt, sélectionnez **Cloner** en haut à droite. Vous pouvez cloner votre dépôt Git dans votre IDE favori. Dans les prochaines étapes, vous allez utiliser le navigateur web pour effectuer des modifications de code directement dans la branche maîtresse et les valider.
+1. Pour voir l’URL du clone du dépôt, sélectionnez **Cloner** en haut à droite. Vous pouvez cloner votre dépôt Git dans votre IDE favori. Dans les prochaines étapes, vous allez utiliser le navigateur web pour effectuer des modifications de code directement dans la branche principale et les valider.
 
 1. Sur la gauche, accédez au fichier *app/views/pages/home.html.erb*, puis sélectionnez **Modifier**.
 

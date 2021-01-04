@@ -7,19 +7,19 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 09/16/2020
-ms.openlocfilehash: b783366958380f391dc76583c42988badc9915c8
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.date: 12/12/2020
+ms.openlocfilehash: 1e9d63c88cf0cd6f65db99b2bc878797770d53cd
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056478"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368628"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Démarrage rapide : Créer un index Recherche cognitive Azure dans le portail Azure
 
-**L’Assistant Importer des données** est un outil du portail Azure qui vous guide lors de la création d’un index de recherche afin que vous puissiez écrire des requêtes intéressantes en quelques minutes. 
+Créez votre premier index à l’aide de l’Assistant **Importation des données** et d’un exemple de source de données intégré, constitué de données d’hôtel fictives. L’Assistant vous guide lors de la création d’un index de recherche (hotels-sample-index) afin que vous puissiez écrire des requêtes intéressantes en quelques minutes. 
 
-L’Assistant comporte également des pages pour l’enrichissement basé sur l’IA afin que vous puissiez extraire le texte et la structure des fichiers image et du texte non structuré. Le traitement du contenu avec l’IA inclut la reconnaissance optique de caractères (OCR), l’extraction d’expressions clé et d’entités, ainsi que l’analyse des images.
+Bien que vous n’utilisiez pas les options de ce guide de démarrage rapide, l’Assistant comporte une page consacrée à l’enrichissement par IA, afin que vous puissiez extraire le texte et la structure des fichiers image et du texte non structuré. Pour obtenir une procédure pas à pas similaire qui propose l’enrichissement par IA, consultez [Démarrage rapide : Créer un ensemble de compétences cognitives](cognitive-search-quickstart-blob.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -49,11 +49,11 @@ Pour les besoins de ce tutoriel, nous utilisons un exemple de jeu de données in
 
 1. [Recherchez votre service de recherche](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). Ensuite, dans la page Vue d’ensemble, cliquez sur **Importer des données** dans la barre de commandes pour créer et remplir un index de recherche.
 
-   :::image type="content" source="media/search-get-started-portal/import-data-cmd.png" alt-text="Listes des index, indexeurs et sources de données":::
+   :::image type="content" source="media/search-get-started-portal/import-data-cmd.png" alt-text="Commande Importer des données":::
 
 1. Dans l’Assistant, cliquez sur **Se connecter aux données** > **Exemples** > **hotels-sample**. Cette source de données est intégrée. Si vous avez créé votre propre source de données, vous devez spécifier un nom, un type et des informations de connexion. Une fois créée, elle devient une « source de données existante » qui peut être réutilisée dans d’autres opérations d’importation.
 
-   :::image type="content" source="media/search-get-started-portal/import-datasource-sample.png" alt-text="Listes des index, indexeurs et sources de données":::
+   :::image type="content" source="media/search-get-started-portal/import-datasource-sample.png" alt-text="Sélection d’un exemple de jeu de données":::
 
 1. Passez à la page suivante.
 
@@ -63,7 +63,7 @@ L’Assistant prend en charge la création d’un [pipeline d’enrichissement p
 
 Nous allons pour le moment ignorer cette étape et passer directement à l’étape de **personnalisation de l’index cible**.
 
-   :::image type="content" source="media/search-get-started-portal/skip-cog-skill-step.png" alt-text="Listes des index, indexeurs et sources de données":::
+   :::image type="content" source="media/search-get-started-portal/skip-cog-skill-step.png" alt-text="Ignorer l’étape des compétences cognitives":::
 
 > [!TIP]
 > Vous pouvez consulter un exemple d'indexation IA dans un [guide de démarrage rapide](cognitive-search-quickstart-blob.md) ou [didacticiel](cognitive-search-tutorial-blob.md).
@@ -83,11 +83,11 @@ Votre sélection n’a aucune influence sur les besoins en stockage. Par exemple
 
 Par défaut, l’Assistant analyse la source de données pour y rechercher des identificateurs uniques comme base pour le champ de clé. Les *chaînes* sont dotées des attributs **Récupérable** et **Possibilité de recherche**. Les *entiers* sont dotés des attributs **Récupérable**, **Filtrable**, **Triable** et **À choix multiples**.
 
-1. Acceptez les valeurs par défaut. 
+1. Acceptez les valeurs par défaut.
 
    Si vous réexécutez l’Assistant à l’aide d’une source de données « hotels » existante, l’index ne sera pas configuré avec les attributs par défaut. Vous devrez sélectionner manuellement les attributs lors des prochaines importations. 
 
-   :::image type="content" source="media/search-get-started-portal/hotelsindex.png" alt-text="Listes des index, indexeurs et sources de données":::
+   :::image type="content" source="media/search-get-started-portal/hotelsindex.png" alt-text="Index des hôtels généré":::
 
 2. Passez à la page suivante.
 
@@ -100,7 +100,7 @@ Cet objet définit un processus exécutable. Vous pouvez le configurer en planif
 
 Cliquez sur **Envoyer** pour créer et exécuter simultanément l’indexeur.
 
-  :::image type="content" source="media/search-get-started-portal/hotels-indexer.png" alt-text="Listes des index, indexeurs et sources de données":::
+  :::image type="content" source="media/search-get-started-portal/hotels-indexer.png" alt-text="Indexeur des hôtels":::
 
 ## <a name="monitor-progress"></a>Surveiller la progression
 
@@ -108,7 +108,7 @@ L’Assistant doit vous rediriger vers la liste des indexeurs où vous pourrez e
 
 Il faut parfois plusieurs minutes au portail pour actualiser la page, mais l’indexeur que vous venez de créer devrait apparaître dans la liste, avec un état indiquant que l’opération est en cours ou qu’elle a réussi, ainsi que le nombre de documents indexés.
 
-   :::image type="content" source="media/search-get-started-portal/indexers-inprogress.png" alt-text="Listes des index, indexeurs et sources de données":::
+   :::image type="content" source="media/search-get-started-portal/indexers-inprogress.png" alt-text="Message de progression de l’indexeur":::
 
 ## <a name="view-the-index"></a>Afficher l’index
 
@@ -116,13 +116,13 @@ La page principale du service fournit des liens vers les ressources créées dan
 
 Attendez que la page du portail s’actualise. Après quelques minutes, vous devriez voir l’index avec un nombre de documents et une taille de stockage.
 
-   :::image type="content" source="media/search-get-started-portal/indexes-list.png" alt-text="Listes des index, indexeurs et sources de données":::
+   :::image type="content" source="media/search-get-started-portal/indexes-list.png" alt-text="Liste des index dans le tableau de bord du service":::
 
 Dans cette liste, vous pouvez cliquer sur l’index *hotels-sample* que vous venez de créer pour voir le schéma de l’index. Ajoutez éventuellement de nouveaux champs. 
 
 L’onglet **Champs** montre le schéma d’index. Faites défiler la liste vers le bas pour entrer un nouveau champ. Dans la plupart des cas, vous ne pouvez pas modifier les champs existants. Les champs existants ont une représentation physique dans la Recherche cognitive Azure et ne sont donc pas modifiables, pas même dans du code. Pour modifier considérablement un champ existant, créez un nouvel index en supprimant l’original.
 
-   :::image type="content" source="media/search-get-started-portal/sample-index-def.png" alt-text="Listes des index, indexeurs et sources de données":::
+   :::image type="content" source="media/search-get-started-portal/sample-index-def.png" alt-text="définition de l’index d’exemples":::
 
 D’autres constructions, telles que des profils de score et des options CORS, peuvent être ajoutées à tout moment.
 
@@ -140,15 +140,15 @@ L’**Explorateur de recherche** est uniquement équipé pour gérer des [demand
 
 1. Cliquez sur **Explorateur de recherche** dans la barre de commandes.
 
-   :::image type="content" source="media/search-get-started-portal/search-explorer-cmd.png" alt-text="Listes des index, indexeurs et sources de données":::
+   :::image type="content" source="media/search-get-started-portal/search-explorer-cmd.png" alt-text="Commande Explorateur de recherche":::
 
 2. Dans la liste déroulante **Index**, choisissez *hotels-sample-index*. Cliquez sur la liste déroulante **Version d’API** pour voir les API REST disponibles. Pour les requêtes ci-après, utilisez la version mise à la disposition générale (2020-06-30).
 
-   :::image type="content" source="media/search-get-started-portal/search-explorer-changeindex.png" alt-text="Listes des index, indexeurs et sources de données":::
+   :::image type="content" source="media/search-get-started-portal/search-explorer-changeindex.png" alt-text="Commandes d’index et d’API":::
 
 3. Dans la barre de recherche, collez les chaînes de requête ci-dessous, puis cliquez sur **Rechercher**.
 
-   :::image type="content" source="media/search-get-started-portal/search-explorer-query-string-example.png" alt-text="Listes des index, indexeurs et sources de données":::
+   :::image type="content" source="media/search-get-started-portal/search-explorer-query-string-example.png" alt-text="Chaîne de requête et bouton de recherche":::
 
 ## <a name="example-queries"></a>Exemples de requêtes
 
@@ -188,8 +188,8 @@ Les filtres de facettes sont inclus dans les demandes de recherche. Vous pouvez 
 
 #### <a name="example-faceted-with-scope-reduction-searchfacetcategorytop2"></a>Exemple (par facettes avec une étendue réduite) : `search=*&facet=Category&$top=2`
 
-* **search=** * est une recherche vide. Les recherches vides portent sur tous les éléments. L’un des motifs possibles de l’exécution d’une requête vide est l’application de filtres ou de facettes au jeu complet de documents. Par exemple, vous souhaitez obtenir une structure de navigation par facettes constituée de tous les hôtels de l’index.
-* **facet** renvoie une structure de navigation que vous pouvez transmettre à un contrôle d’interface utilisateur. Il renvoie des catégories ainsi qu’un nombre. Dans ce cas, les catégories sont basées sur un champ nommé *Catégorie*. Il n’existe pas d’agrégation dans la Recherche cognitive Azure, mais vous pouvez bénéficier d’une fonctionnalité quasiment comparable via `facet`, qui retourne un nombre de documents dans chaque catégorie.
+* **search=** _ est une recherche vide. Les recherches vides portent sur tous les éléments. L’un des motifs possibles de l’exécution d’une requête vide est l’application de filtres ou de facettes au jeu complet de documents. Par exemple, vous souhaitez obtenir une structure de navigation par facettes constituée de tous les hôtels de l’index.
+_ **facet** retourne une structure de navigation que vous pouvez transmettre à un contrôle d’interface utilisateur. Il renvoie des catégories ainsi qu’un nombre. Dans ce cas, les catégories sont basées sur un champ nommé *Catégorie*. Il n’existe pas d’agrégation dans la Recherche cognitive Azure, mais vous pouvez bénéficier d’une fonctionnalité quasiment comparable via `facet`, qui retourne un nombre de documents dans chaque catégorie.
 
 * **$top=2** renvoie deux documents, illustrant ainsi la possibilité d’utiliser `top` pour réduire ou augmenter les résultats.
 

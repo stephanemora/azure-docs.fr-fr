@@ -4,19 +4,19 @@ ms.service: app-service
 ms.topic: include
 ms.date: 03/04/2020
 ms.author: jroth
-ms.openlocfilehash: 800dc50f82fa47228f1a88a143c5b515168812a6
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: 6265a7cde8e276570409238cadfd5ebc777b4527
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92756068"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97532017"
 ---
-| Ressource | Gratuit | Partagé | De base | standard | Premium (v3) | Isolé </th> |
+| Ressource | Gratuit | Partagé | De base | standard | Premium (v1 à v3) | Isolé </th> |
 | --- | --- | --- | --- | --- | --- | --- |
 | [Applications Web, mobiles ou API](https://azure.microsoft.com/services/app-service/) par [plan Azure App Service](../articles/app-service/overview-hosting-plans.md)<sup>1</sup> |10 |100 |Illimité<sup>2</sup> |Illimité<sup>2</sup> |Illimité<sup>2</sup> |Illimité<sup>2</sup>|
 | [Plan App Service](../articles/app-service/overview-hosting-plans.md) |10 par région |10 par groupe de ressources |100 par groupe de ressources |100 par groupe de ressources |100 par groupe de ressources |100 par groupe de ressources|
 | types d'instance de calcul |Partagé |Partagé |Dédié<sup>3</sup> |Dédié<sup>3</sup> |Dédié<sup>3</sup></p> |Dédié<sup>3</sup>|
-| [Scale-out](../articles/app-service/manage-scale-up.md) (nombre maximal d’instances) |1 partagée |1 partagée |3 dédiées<sup>3</sup> |10 dédiées<sup>3</sup> |30 dédiées<sup>3</sup>|100 dédiées<sup>4</sup>|
+| [Scale-out](../articles/app-service/manage-scale-up.md) (nombre maximal d’instances) |1 partagée |1 partagée |3 dédiées<sup>3</sup> |10 dédiées<sup>3</sup> | 20 dédiées pour v1 et v2 ; 30 dédiées pour v3.<sup>3</sup>|100 dédiées<sup>4</sup>|
 | Stockage<sup>5</sup> |1 Go<sup>5</sup> |1 Go<sup>5</sup> |10 Go<sup>5</sup> |50 Go<sup>5</sup> |250 GO<sup>5</sup> <br/><br/> Pour plus de 250 Go, envoyez une demande de support. |1 TO<sup>5</sup> <br/><br/> Le quota de stockage disponible est de 999 Go. |
 | Temps processeur (5 minutes)<sup>6</sup> |3 minutes |3 minutes |Illimité, facturation aux [tarifs standard](https://azure.microsoft.com/pricing/details/app-service/)</a> |Illimité, facturation aux [tarifs standard](https://azure.microsoft.com/pricing/details/app-service/)</a> |Illimité, facturation aux [tarifs standard](https://azure.microsoft.com/pricing/details/app-service/)</a> |Illimité, facturation aux [tarifs standard](https://azure.microsoft.com/pricing/details/app-service/)</a>|
 | Temps processeur (jour)<sup>6</sup> |60 minutes |240 minutes |Illimité, facturation aux [tarifs standard](https://azure.microsoft.com/pricing/details/app-service/)</a> |Illimité, facturation aux [tarifs standard](https://azure.microsoft.com/pricing/details/app-service/)</a> |Illimité, facturation aux [tarifs standard](https://azure.microsoft.com/pricing/details/app-service/)</a> |Illimité, facturation aux [tarifs standard](https://azure.microsoft.com/pricing/details/app-service/)</a> |

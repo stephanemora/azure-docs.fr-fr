@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 031ee9a6d945d923279fd3025c32212c3ead98ed
-ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
+ms.openlocfilehash: c1d448fe9da72654ac1600009e66c88c5e7b93b4
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95406597"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509425"
 ---
 # <a name="tutorial-build-a-multi-tenant-daemon-that-uses-the-microsoft-identity-platform"></a>Tutoriel : Créer un démon multilocataire qui utilise la plateforme d’identités Microsoft
 
@@ -65,7 +65,7 @@ Ou [téléchargez l’exemple dans un fichier zip](https://github.com/Azure-Samp
 
 Cet exemple comporte un projet. Pour inscrire l’application auprès de votre locataire Azure AD, vous pouvez choisir l’une des méthodes suivantes :
 
-- Effectuer les étapes décrites dans [Inscrire l’exemple d’application auprès de votre locataire Azure AD](#register-your-application) et [Configurer l’exemple pour utiliser votre locataire Azure AD](#choose-the-azure-ad-tenant)
+- Effectuer les étapes décrites dans [Inscrire l’exemple d’application auprès de votre locataire Azure AD](#register-the-client-app-dotnet-web-daemon-v2) et [Configurer l’exemple pour utiliser votre locataire Azure AD](#choose-the-azure-ad-tenant)
 - Utilisez des scripts PowerShell pour :
   - Créer *automatiquement* les applications Azure AD et les objets associés (mots de passe, autorisations et dépendances)
   - Modifier les fichiers de configuration des projets Visual Studio.
@@ -93,40 +93,34 @@ Si vous ne souhaitez pas utiliser l’automatisation, suivez les étapes décrit
 
 ### <a name="choose-the-azure-ad-tenant"></a>Choisir le locataire Azure AD
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire, ou avec un compte personnel Microsoft.
-1. Si votre compte est présent dans plusieurs locataires Azure AD, sélectionnez votre profil dans le menu situé en haut de la page, puis sélectionnez **Changer de répertoire**.
-1. Modifiez votre session de portail en la définissant sur le client Azure AD souhaité.
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Si vous avez accès à plusieurs locataires, utilisez le filtre **Répertoire + abonnement** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: dans le menu du haut pour sélectionner le locataire dans lequel vous voulez inscrire une application.
+
 
 ### <a name="register-the-client-app-dotnet-web-daemon-v2"></a>Inscrire l’application cliente (dotnet-web-daemon-v2)
 
-1. Accédez à la page [Inscriptions d’applications](https://go.microsoft.com/fwlink/?linkid=2083908) de la plateforme d’identités Microsoft pour les développeurs.
-1. Sélectionnez **Nouvelle inscription**.
-1. Lorsque la page **Inscrire une application** s’affiche, saisissez les informations d’inscription de votre application :
-   - Dans la section **Nom**, saisissez un nom d’application cohérent qui s’affichera pour les utilisateurs de l’application. Par exemple, entrez **dotnet-web-daemon-v2**.
-   - Dans la section **Types de comptes pris en charge**, sélectionnez **Comptes dans un annuaire organisationnel**.
-   - Dans la section **URI de redirection (facultatif)** , sélectionnez **Web** dans la zone de liste modifiable et entrez les URI de redirection suivants :
-       - **https://localhost:44316/**
-       - **https://localhost:44316/Account/GrantPermissions**
+1. Recherchez et sélectionnez **Azure Active Directory**.
+1. Sous **Gérer**, sélectionnez **Inscriptions d’applications** > **Nouvelle inscription**.
+1. Entrez un **nom** pour votre application (par exemple, `dotnet-web-daemon-v2`). Les utilisateurs de votre application peuvent voir ce nom, et vous pouvez le changer ultérieurement.
+1. Dans la section **Types de comptes pris en charge**, sélectionnez **Comptes dans un annuaire organisationnel**.
+1. Dans la section **URI de redirection (facultatif)** , sélectionnez **Web** dans la zone de liste modifiable et entrez `https://localhost:44316/` et `https://localhost:44316/Account/GrantPermissions` comme URI de redirection.
 
-     S’il y a plus de deux URI de redirection, vous devrez les ajouter à partir de l’onglet **Authentification** une fois que l’application aura été créée.
+    S’il y a plus de deux URI de redirection, vous devrez les ajouter à partir de l’onglet **Authentification** une fois que l’application aura été créée.
 1. Sélectionnez **Inscrire** pour créer l’application.
-1. Sur la page **Vue d'ensemble** de l'application, recherchez la valeur de l'**ID d'application (client)** et notez-la. Vous en aurez besoin pour configurer le fichier de configuration Visual Studio pour ce projet.
-1. Dans la liste des pages de l’application, sélectionnez **Authentification**. Ensuite :
-   - Dans la section **Paramètres avancés**, définissez **URL de déconnexion** sur **https://localhost:44316/Account/EndSession** .
-   - Dans la section **Paramètres avancés** > **Octroi implicite**, sélectionnez **Jetons d’accès** et **Jetons d’ID**. Cet exemple nécessite l’activation du [flux d’octroi implicite](v2-oauth2-implicit-grant-flow.md) pour la connexion de l’utilisateur et l’appel d’une API.
+1. Dans la page **Vue d’ensemble** de l’application, recherchez la valeur de l’**ID d’application (client)** et notez-la. Vous en aurez besoin pour configurer le fichier de configuration Visual Studio pour ce projet.
+1. Sous **Gérer**, sélectionnez **Authentification**.
+1. Définissez **URL de déconnexion** sur `https://localhost:44316/Account/EndSession`.
+1. Dans la section **Octroi implicite**, sélectionnez **Jetons d’accès** et **Jetons d’ID**. Cet exemple nécessite l’activation du [flux d’octroi implicite](v2-oauth2-implicit-grant-flow.md) pour la connexion de l’utilisateur et l’appel d’une API.
 1. Sélectionnez **Enregistrer**.
-1. Dans la page **Certificats et secrets**, accédez à la section **Secrets client**, puis sélectionnez **Nouveau secret client** : Ensuite :
-
-   1. Entrez une description pour la clé (par exemple, **secret de l’application**).
-   1. Sélectionnez une durée pour la clé : **Dans 1 an**, **Dans 2 ans** ou **N’expire jamais**.
-   1. Sélectionnez le bouton **Ajouter**.
-   1. Quand la valeur de la clé s’affiche, copiez puis enregistrez-la dans un endroit sûr. Vous aurez besoin de cette clé plus tard pour configurer le projet dans Visual Studio. Vous ne pourrez pas réafficher ni récupérer cette clé.
-1. Dans la liste des pages de l’application, sélectionnez **Autorisations de l’API**. Ensuite :
-   1. Cliquez sur le bouton **Ajouter une autorisation**.
-   1. Vérifiez ensuite que l’onglet **API Microsoft** est sélectionné.
-   1. Dans la section **API Microsoft couramment utilisées**, sélectionnez **Microsoft Graph**.
-   1. Dans la section **Autorisations d’application**, vérifiez que les autorisations appropriées sont sélectionnées : **User.Read.All**.
-   1. Sélectionnez le bouton **Ajouter des autorisations**.
+1. Sous **Gérer**, sélectionnez **Certificats et secrets**.
+1. Dans la section **Secrets client**, sélectionnez **Nouveau secret client**. 
+1. Entrez une description pour la clé (par exemple, **secret de l’application**).
+1. Sélectionnez une durée pour la clé : **Dans 1 an**, **Dans 2 ans** ou **N’expire jamais**.
+1. Sélectionnez **Ajouter**. Enregistrez la valeur de la clé dans un endroit sûr. Vous aurez besoin de cette clé plus tard pour configurer le projet dans Visual Studio.
+1. Sous **Gérer**, sélectionnez **Autorisations de l’API** > **Ajouter une autorisation**.
+1. Dans la section **API Microsoft couramment utilisées**, sélectionnez **Microsoft Graph**.
+1. Dans la section **Autorisations d’application**, vérifiez que les autorisations appropriées sont sélectionnées : **User.Read.All**.
+1. Sélectionnez **Ajouter des autorisations**.
 
 ## <a name="configure-the-sample-to-use-your-azure-ad-tenant"></a>Configurer l’exemple pour utiliser votre locataire Azure AD
 

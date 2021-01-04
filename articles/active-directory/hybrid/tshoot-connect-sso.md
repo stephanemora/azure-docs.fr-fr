@@ -13,12 +13,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60f23efa4f46849e1fe8b0ebe05cdd83ec16f49e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5bc638eec174a52d501120d5e53bb2dc9e35b688
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997679"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591172"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Résoudre les problèmes d’authentification unique transparente Azure Active Directory
 
@@ -94,11 +94,11 @@ Utilisez la liste de contrôle suivante pour résoudre les problèmes d’authen
 Si vous activez l’audit des réussites sur votre contrôleur de domaine, chaque fois qu’un utilisateur se connecte à l’aide de l’authentification unique transparente, une entrée de sécurité est enregistrée dans le journal des événements. Vous trouverez ces événements de sécurité au moyen de la requête suivante. (Recherchez l'événement **4769** associé au compte d'ordinateur **AzureADSSOAcc$** .)
 
 ```
-    <QueryList>
-      <Query Id="0" Path="Security">
-    <Select Path="Security">*[EventData[Data[@Name='ServiceName'] and (Data='AZUREADSSOACC$')]]</Select>
-      </Query>
-    </QueryList>
+  <QueryList>
+    <Query Id="0" Path="Security">
+      <Select Path="Security">*[EventData[Data[@Name='ServiceName'] and (Data='AZUREADSSOACC$')]]</Select>
+    </Query>
+  </QueryList>
 ```
 
 ## <a name="manual-reset-of-the-feature"></a>Réinitialisation manuelle de la fonctionnalité

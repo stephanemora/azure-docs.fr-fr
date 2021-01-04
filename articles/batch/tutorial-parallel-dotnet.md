@@ -1,16 +1,16 @@
 ---
-title: Exécuter une charge de travail parallèle à l’aide de l’API .NET
+title: Tutoriel - Exécuter une charge de travail parallèle à l’aide de l’API .NET
 description: Didacticiel - Transcoder des fichiers multimédias en parallèle avec ffmpeg dans Azure Batch à l’aide de la bibliothèque cliente Batch .NET
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 09/29/2020
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 396d0f6a2ef9a8c24fc92b641c889ef9e1a7df49
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: a990a5480a8a6462bb6ef9f84070b78768628fd0
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578295"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106527"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Tutoriel : Exécuter une charge de travail parallèle avec Azure Batch à l’aide de l’API .NET
 
@@ -317,7 +317,7 @@ Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, le comp
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à effectuer les opérations suivantes :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Ajouter un package d’application à votre compte Batch
@@ -332,6 +332,3 @@ Pour plus d’exemples d’utilisation de l’API .NET pour planifier et traiter
 
 > [!div class="nextstepaction"]
 > [Exemples C# Batch](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp)
-
-
-En définissant la variable d’instance LowPriorityNodeCount = 0 et DedicatedNodeCount = 5, vous avez résolu le problème et autorisé l’exécution de la tâche.

@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 06/24/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 1e289d094bba8d4336b83a7970e281247e9f4131
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 8e3f0435d9856d2b602a4f2b6f604aee05e040ba
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96007293"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505203"
 ---
 # <a name="introduction-to-azure-blob-storage"></a>Présentation du Stockage Blob Azure
 
@@ -57,7 +57,7 @@ Le service Stockage Azure prend en charge trois types d’objets blob :
 
 - Les **objets blob de blocs** stockent du texte et des données binaires. Ils sont composés de blocs de données qui peuvent être gérés individuellement. Les objets blob de blocs stockent jusqu’à environ 4,75 Tio de données. Des objets blob de blocs plus volumineux sont disponibles en préversion, jusqu’à environ 190,7 Tio.
 - Les **objets blob d’ajout** se composent de blocs, comme les objets blob de blocs, mais sont optimisés pour les opérations d’ajout. Les objets blob d’ajout sont parfaits pour les scénarios tels que la consignation des données issues des machines virtuelles.
-- Les **objets blob de pages** stockent des fichiers à accès aléatoire d’une taille maximale de 8 To. Les objets blob de pages stockent les fichiers de disque dur virtuel et servent de disques pour les machines virtuelles Azure. Pour plus d’informations sur les objets blob de pages, consultez [Vue d’ensemble des objets blob de pages Azure](storage-blob-pageblob-overview.md)
+- Les **objets blob de pages** stockent des fichiers à accès aléatoire d’une taille maximale de 8 Tio. Les objets blob de pages stockent les fichiers de disque dur virtuel et servent de disques pour les machines virtuelles Azure. Pour plus d’informations sur les objets blob de pages, consultez [Vue d’ensemble des objets blob de pages Azure](storage-blob-pageblob-overview.md)
 
 Pour plus d’informations sur les différents types d’objets blob, consultez [Présentation des objets blob de blocs, des objets blob d’ajout et des objets blob de pages](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
 

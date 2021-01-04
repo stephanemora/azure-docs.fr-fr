@@ -4,12 +4,12 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/24/2020
-ms.openlocfilehash: 4b19ae1b584a2d300e4144e79ef76245c71035cf
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: 6a6baa14d7521f4a85350af7b08b5fcbe82ddf6b
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96126113"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033834"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
@@ -27,7 +27,7 @@ Quand vous exécutez l’exemple pour vous connecter à IoT Central, il utilise
 
 La méthode `main` :
 
-* Crée un objet `client` et définit l’ID de modèle `dtmi:com:example:Thermostat;1` avant l’ouverture de la connexion.
+* Crée un objet `client` et définit l’ID de modèle `dtmi:com:example:Thermostat;1` avant l’ouverture de la connexion. IoT Central utilise l’ID de modèle pour identifier ou générer le modèle d’appareil correspondant à cet appareil. Pour en savoir plus, consultez [Associer un appareil à un modèle d’appareil](../articles/iot-central/core/concepts-get-connected.md#associate-a-device-with-a-device-template).
 * Crée un gestionnaire de commandes.
 * Démarre une boucle pour envoyer des données de télémétrie de température toutes les 10 secondes.
 * Envoie la propriété `maxTempSinceLastReboot` à IoT Central. IoT Central ignore la propriété `serialNumber`, car elle ne fait pas partie du modèle d’appareil.
@@ -83,7 +83,7 @@ async function main() {
 }
 ```
 
-La fonction `provisionDevice` montre comment l’appareil utilise le service DPS pour s’inscrire et se connecter à IoT Central. La charge utile comprend l’ID de modèle :
+La fonction `provisionDevice` montre comment l’appareil utilise le service DPS pour s’inscrire et se connecter à IoT Central. La charge utile inclut l’ID de modèle qu’IoT Central utilise pour [associer l’appareil à un modèle d’appareil](../articles/iot-central/core/concepts-get-connected.md#associate-a-device-with-a-device-template) :
 
 ```javascript
 async function provisionDevice(payload) {

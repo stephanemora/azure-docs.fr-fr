@@ -1,19 +1,19 @@
 ---
 title: Emplacement de la ressource de modèle
-description: Décrit comment définir un emplacement de ressource dans un modèle Azure Resource Manager.
+description: Décrit comment définir un emplacement de ressource dans un modèle Azure Resource Manager (modèle ARM).
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.custom: ''
-ms.openlocfilehash: e1310c81d7b726e9be2fe9f38a0bb8d701035ba4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84a818109e6681b8d0e18de4d2d7969310582818
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613694"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922401"
 ---
 # <a name="set-resource-location-in-arm-template"></a>Définir l'emplacement des ressources dans un modèle Resource Manager
 
-Lorsque vous déployez un modèle Azure Resource Manager (ARM), vous devez fournir un emplacement pour chaque ressource. L’emplacement n’a pas à être le même que celui du groupe de ressources.
+Quand vous déployez un modèle Azure Resource Manager (modèle ARM), vous devez fournir un emplacement pour chaque ressource. L’emplacement n’a pas à être le même que celui du groupe de ressources.
 
 ## <a name="get-available-locations"></a>Obtenir les emplacements disponibles
 
@@ -96,5 +96,5 @@ L’exemple suivant illustre le déploiement d’un compte de stockage dans un e
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour obtenir la liste complète des fonctions de modèle, consultez [Fonctions des modèles Azure Resource Manager](template-functions.md).
+* Pour obtenir la liste complète des fonctions de modèle, consultez [Fonctions des modèles ARM](template-functions.md).
 * Pour plus d'informations sur les fichiers de modèle, consultez [Comprendre la structure et la syntaxe des modèles Resource Manager](template-syntax.md).

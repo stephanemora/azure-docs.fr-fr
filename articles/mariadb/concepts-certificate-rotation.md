@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 29a693ac8ff0b170abf59c9671d4b411b456b540
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 02c0ecfc24b65afd46d75464b5411cfd5cf61857
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93346976"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591529"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mariadb"></a>Comprendre les modifications liées au changement d’autorité de certification racine pour Azure Database for MariaDB
 
@@ -43,7 +43,7 @@ Pour éviter toute interruption de la disponibilité de votre application en rai
 
 ## <a name="what-do-i-need-to-do-to-maintain-connectivity"></a>Procédure à suivre pour maintenir la connectivité
 
-Pour éviter toute interruption de la disponibilité de votre application en raison de la révocation inattendue de certificats, ou pour mettre à jour un certificat qui a été révoqué, suivez les étapes ci-dessous. L’idée est de créer un fichier *.pem* , qui combine le certificat actuel et le nouveau, et pendant la validation du certificat SSL, une des valeurs autorisées sera utilisée. Reportez-vous aux étapes ci-dessous :
+Pour éviter toute interruption de la disponibilité de votre application en raison de la révocation inattendue de certificats, ou pour mettre à jour un certificat qui a été révoqué, suivez les étapes ci-dessous. L’idée est de créer un fichier *.pem*, qui combine le certificat actuel et le nouveau, et pendant la validation du certificat SSL, une des valeurs autorisées sera utilisée. Reportez-vous aux étapes ci-dessous :
 
 *   Téléchargez l’autorité de certification **BaltimoreCyberTrustRoot** & **DigiCertGlobalRootG2** à partir des liens ci-dessous :
     *   https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem
@@ -129,8 +129,12 @@ Les certificats utilisés par Azure Database for MariaDB sont fournis par des au
 Étant donné que cette mise à jour est une modification côté client, si le client avait l’habitude de lire les données du serveur de réplica, vous devez également appliquer les modifications pour ces clients.
 
 ###    <a name="12-if-i-am-using-data-in-replication-do-i-need-to-perform-any-action"></a>12. Si j'utilise la réplication des données entrantes, dois-je effectuer une action particulière ?
+
 Si vous utilisez la [réplication des données entrantes](concepts-data-in-replication.md) pour vous connecter à Azure Database pour MySQL, deux éléments sont à prendre en compte :
-*   Si la réplication des données s'effectue entre une machine virtuelle (locale ou Azure) et Azure Database pour MySQL, vous devez vérifier si SSL est utilisé pour créer le réplica. Exécutez **SHOW SLAVE STATUS** et vérifiez le paramètre suivant.  
+
+> [!NOTE]
+>  Cet article contient des références au terme esclave, un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.
+*   Si la réplication des données s'effectue entre une machine virtuelle (locale ou Azure) et Azure Database pour MySQL, vous devez vérifier si SSL est utilisé pour créer le réplica. Exécutez **SHOW SLAVE STATUS** et vérifiez le paramètre suivant. 
 
     ```azurecli-interactive
     Master_SSL_Allowed            : Yes

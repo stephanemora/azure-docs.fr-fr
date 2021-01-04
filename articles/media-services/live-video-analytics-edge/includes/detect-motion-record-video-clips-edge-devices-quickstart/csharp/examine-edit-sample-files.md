@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: bc24d6670cbf0c2ac72c9a1d100467b8724779b3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 426c735dfd0d015cdc1a734edde9d336fb88cfbc
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88682147"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97486680"
 ---
 Dans le cadre des prérequis pour ce guide de démarrage rapide, vous avez téléchargé l’exemple de code dans un dossier. Effectuez les étapes suivantes pour examiner et modifier l’exemple de code.
 
@@ -12,11 +12,11 @@ Dans le cadre des prérequis pour ce guide de démarrage rapide, vous avez tél�
 
     Le modèle de déploiement fait référence au manifeste de déploiement de l’appareil de périphérie, où des variables sont utilisées pour certaines propriétés. Le fichier  *.env* inclut les valeurs de ces variables.
 1. Accédez au dossier *src/cloud-to-device-console-app*. Ce dernier contient le fichier *appsettings.json* et quelques autres fichiers :
-    * ***c2d-console-app.csproj*** : fichier projet pour Visual Studio Code.
-    * ***operations.json*** : liste des opérations que vous voulez que le programme exécute.
-    * ***Program.cs*** : exemple de code de programme. Ce code :
+    * ***c2d-console-app.csproj** _ : fichier projet pour Visual Studio Code.
+    _ ***operations.json** _ : liste des opérations que vous voulez que le programme exécute.
+    _ ***Program.cs** _ : exemple de code de programme. Ce code :
 
-        * Il charge les paramètres de l’application.
+        _ Charge les paramètres de l’application.
         * Invoque les méthodes directes exposées par le module Live Video Analytics sur IoT Edge. Vous pouvez utiliser le module pour analyser des flux vidéo en direct en invoquant ses [méthodes directes](../../../direct-methods.md). 
         * S’interrompt pour vous permettre d’examiner la sortie du programme dans la fenêtre **TERMINAL** et d’examiner les événements générés par le module dans la fenêtre **SORTIE**.
         * Invoque des méthodes directes pour nettoyer des ressources.
@@ -24,7 +24,7 @@ Dans le cadre des prérequis pour ce guide de démarrage rapide, vous avez tél�
 1. Modifiez le fichier *operations.json* :
     * Changez le lien vers la topologie de graphe :
 
-        `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/evr-motion-files/topology.json"`
+        `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/evr-motion-files/2.0/topology.json"`
     * Sous `GraphInstanceSet`, modifiez le nom de la topologie de graphe de manière à ce qu’il corresponde à la valeur figurant dans le lien ci-dessus précédent :
     
       `"topologyName" : "EVRToFilesOnMotionDetection"`

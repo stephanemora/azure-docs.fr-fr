@@ -7,12 +7,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 11/06/2019
 ms.author: raynew
-ms.openlocfilehash: 45baee286fede0ab16da62b7c2e84008d58690b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5cf4dc5123040fd2af8efe54153867a8709fe1ef
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91626494"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97652226"
 ---
 # <a name="vmware-to-azure-disaster-recovery-architecture"></a>Architecture pour la reprise d’activité de VMware sur Azure
 
@@ -45,7 +45,7 @@ Si vous utilisez un proxy de pare-feu basé sur des URL pour contrôler la conne
 
 | **Nom**                  | **Commercial**                               | **Secteur public**                                 | **Description** |
 | ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
-| Stockage                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`              | Permet d’écrire les données dans le compte de stockage de cache dans la région source à partir de la machine virtuelle. |
+| Stockage                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net` | Permet d’écrire les données dans le compte de stockage de cache dans la région source à partir de la machine virtuelle. |
 | Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Fournit l’autorisation et l’authentification aux URL du service Site Recovery. |
 | Réplication               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`   | Permet à la machine virtuelle de communiquer avec le service Site Recovery. |
 | Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Permet à la machine virtuelle d’écrire des données de surveillance et de diagnostic Site Recovery. |

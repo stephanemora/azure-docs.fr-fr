@@ -5,12 +5,12 @@ author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a43fa12e72484e97b828648cd7d610f5cf15ea4e
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: d1e5848e568f42fb8a77c65c775962f27a5a03df
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931586"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588034"
 ---
 # <a name="tutorial-create-arm-templates-with-dependent-resources"></a>Tutoriel : Créer des modèles ARM avec des ressources dépendantes
 
@@ -46,7 +46,7 @@ Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléme
 
 Le référentiel Modèles de démarrage rapide Azure contient les modèles ARM. Au lieu de créer un modèle à partir de zéro, vous pouvez chercher un exemple de modèle et le personnaliser. Le modèle utilisé dans ce didacticiel se nomme [Déployer une machine virtuelle Windows simple](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
 
-1. À partir de Visual Studio Code, sélectionnez **Fichier**>**Ouvrir un fichier**.
+1. À partir de Visual Studio Code, sélectionnez **Fichier** > **Ouvrir un fichier**.
 2. Collez l’URL suivante dans **Nom de fichier** :
 
     ```url
@@ -54,18 +54,18 @@ Le référentiel Modèles de démarrage rapide Azure contient les modèles ARM. 
     ```
 
 3. Sélectionnez **Ouvrir** pour ouvrir le fichier.
-4. Sélectionnez **Fichier**>**Enregistrer sous** pour enregistrer une copie du fichier sur votre ordinateur local avec le nom **azuredeploy.json**.
+4. Sélectionnez **Fichier** > **Enregistrer sous** pour enregistrer une copie du fichier sur votre ordinateur local avec le nom _azuredeploy.json_.
 
 ## <a name="explore-the-template"></a>Explorer le modèle
 
 Lorsque vous explorez le modèle dans cette section, essayez de répondre aux questions suivantes :
 
 * Combien de ressources Azure sont-elles définies dans ce modèle ?
-* L’une des ressources est un compte de stockage Azure.  La définition est-elle semblable à celle utilisée dans le dernier didacticiel ?
+* L’une des ressources est un compte de stockage Azure. La définition est-elle semblable à celle utilisée dans le dernier didacticiel ?
 * Trouvez-vous les références de modèle pour les ressources définies dans ce modèle ?
 * Trouvez-vous les dépendances des ressources ?
 
-1. À partir de Visual Studio Code, réduisez les éléments jusqu'à ce que vous voyiez uniquement les éléments de premier niveau et les éléments de second niveau à l’intérieur des **ressources** :
+1. À partir de Visual Studio Code, réduisez les éléments jusqu'à ce que vous voyiez uniquement les éléments de premier niveau et les éléments de second niveau à l’intérieur des `resources` :
 
     ![Modèles ARM Visual Studio Code](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code.png)
 
@@ -96,7 +96,7 @@ Lorsque vous explorez le modèle dans cette section, essayez de répondre aux qu
 
     ![Élément dependsOn de réseau virtuel des modèles ARM Visual Studio Code](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-virtual-network-definition.png)
 
-    L’élément dependsOn vous permet de définir une ressource comme une dépendance sur une ou plusieurs ressources. Cette ressource dépend d’une autre ressource :
+    L’élément `dependsOn` vous permet de définir une ressource comme une dépendance sur une ou plusieurs ressources. Cette ressource dépend d’une autre ressource :
 
     * `Microsoft.Network/networkSecurityGroups`
 
@@ -124,7 +124,7 @@ En spécifiant les dépendances, Resource Manager déploie efficacement la solut
 
     ![Fichier de chargement du Cloud Shell du portail Azure](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-1. Sélectionnez **Charger/Télécharger des fichiers**, puis **Charger**. Consultez la capture d’écran précédente. Sélectionnez le fichier que vous avez enregistré précédemment. Après avoir chargé le fichier, vous pouvez utiliser la commande **ls** et la commande **cat** pour vérifier que le chargement a été correctement effectué.
+1. Sélectionnez **Charger/Télécharger des fichiers**, puis **Charger**. Consultez la capture d’écran précédente. Sélectionnez le fichier que vous avez enregistré précédemment. Après avoir chargé le fichier, vous pouvez utiliser la commande `ls` et la commande `cat` pour vérifier que le chargement a été correctement effectué.
 
 1. Exécutez le script PowerShell suivant pour déployer le modèle.
 

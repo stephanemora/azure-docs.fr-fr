@@ -10,16 +10,16 @@ ms.author: jukullam
 ms.date: 10/19/2020
 ms.topic: conceptual
 ms.custom: github-actions-azure
-ms.openlocfilehash: 4336827dc7f8cb45f04e4cef94d79d1e6409d5c0
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: e7f6066cb7ed5c166d3e2bdc3f895073b05b92b9
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92794951"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97605023"
 ---
 # <a name="use-github-actions-with-azure-machine-learning"></a>Utiliser GitHub Actions avec Azure Machine Learning
 
-Prise en main de [GitHub Actions](https://help.github.com/en/articles/about-github-actions) pour entraîner un modèle sur Azure Machine Learning. 
+Prise en main de [GitHub Actions](https://docs.github.com/en/free-pro-team@latest/actions) pour entraîner un modèle sur Azure Machine Learning. 
 
 > [!NOTE]
 > La fonctionnalité GitHub Actions pour Azure Machine Learning est fournie telle quelle et n’est pas entièrement prise en charge par Microsoft. Si vous rencontrez des problèmes avec une action spécifique, ouvrez un problème dans le référentiel pour l’action. Par exemple, si vous rencontrez un problème avec l’action aml-deploy, signalez le problème dans le référentiel [https://github.com/Azure/aml-deploy]( https://github.com/Azure/aml-deploy).
@@ -47,7 +47,7 @@ Le fichier comporte quatre sections :
 Créez un nouveau référentiel à partir du [ML OPS avec GitHub Actions et un modèle Azure Machine Learning](https://github.com/machine-learning-apps/ml-template-azure). 
 
 1. Ouvrez le [modèle](https://github.com/machine-learning-apps/ml-template-azure) sur GitHub. 
-2. Sélectionnez **Utiliser ce modèle** . 
+2. Sélectionnez **Utiliser ce modèle**. 
 
     Sélectionnez :::image type="content" source="media/how-to-github-actions-machine-learning/gh-actions-use-template.png" alt-text="Utiliser ce modèle":::
 3. Créez un référentiel à partir du modèle. Définissez le nom du référentiel sur `ml-learning` ou sur le nom de votre choix. 
@@ -55,7 +55,7 @@ Créez un nouveau référentiel à partir du [ML OPS avec GitHub Actions et un m
 
 ## <a name="generate-deployment-credentials"></a>Générer les informations d’identification du déploiement
 
-Vous pouvez créer un [principal de service](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) à l’aide de la commande [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) dans [Azure CLI](/cli/azure/). Exécutez cette commande en utilisant [Azure Cloud Shell](https://shell.azure.com/) dans le portail Azure ou en sélectionnant le bouton **Essayer** .
+Vous pouvez créer un [principal de service](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) à l’aide de la commande [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) dans [Azure CLI](/cli/azure/). Exécutez cette commande en utilisant [Azure Cloud Shell](https://shell.azure.com/) dans le portail Azure ou en sélectionnant le bouton **Essayer**.
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myML" --role contributor \
@@ -77,7 +77,7 @@ Dans l’exemple ci-dessus, remplacez les espaces réservés par votre ID d’ab
 
 ## <a name="configure-the-github-secret"></a>Configurer le secret GitHub
 
-1. Dans [GitHub](https://github.com/), parcourez votre référentiel, sélectionnez **Paramètres > Secrets > Ajouter un nouveau secret** .
+1. Dans [GitHub](https://github.com/), parcourez votre référentiel, sélectionnez **Paramètres > Secrets > Ajouter un nouveau secret**.
 
 2. Collez l’intégralité de la sortie JSON de la commande Azure CLI dans le champ de valeur du secret. Nommez le secret `AZURE_CREDENTIALS`.
 

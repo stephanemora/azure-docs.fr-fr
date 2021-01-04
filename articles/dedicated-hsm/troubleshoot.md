@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.custom: mvc, seodec18
 ms.date: 12/07/2018
 ms.author: mbaldwin
-ms.openlocfilehash: b911181abea06894873e64da51afbb8799f1066a
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 42bfa52721160a469db2aa0507dadfa85ff41389
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927836"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97508269"
 ---
 # <a name="troubleshooting-the-azure-dedicated-hsm-service"></a>Résolution des problèmes du service Azure Dedicated HSM
 
@@ -29,7 +29,7 @@ Le service Azure Dedicated HSM remplit deux fonctions distinctes : d’une part
 
 ## <a name="hsm-registration"></a>Inscription auprès de HSM
 
-Dedicated HSM n’est pas disponible gratuitement, car il fournit des ressources matérielles dans le cloud et constitue donc une ressource précieuse qui doit être protégée. Nous utilisons donc un processus de mise en liste verte par le biais de l’adresse e-mail HSMrequest@microsoft.com. 
+Dedicated HSM n’est pas disponible gratuitement, car il fournit des ressources matérielles dans le cloud et constitue donc une ressource précieuse qui doit être protégée. Nous utilisons donc un processus de mise en liste d’autorisation par le biais de l’adresse e-mail en utilisant HSMrequest@microsoft.com. 
 
 ### <a name="getting-access-to-dedicated-hsm"></a>Accès à Dedicated HSM
 
@@ -69,7 +69,7 @@ Les déploiements peuvent échouer si vous dépassez 2 HSM par tampon et 4 HSM
 Quand un tampon ou une région spécifique arrive à saturation, c’est-à-dire que presque tous les HSM gratuits sont provisionnés, des échecs de déploiement peuvent se produire. Chaque tampon met à disposition des clients 11 HSM, soit 22 par région. Il y a également 3 appareils de secours et 1 appareil de test dans chaque tampon. Si vous pensez avoir atteint une limite, envoyez un e-mail à HSMrequest@microsoft.com pour obtenir des informations sur le niveau de remplissage de tampons spécifiques.
 
 ###  <a name="how-do-i-see-hsms-when-provisioned"></a>Comment voir les HSM après provisionnement
-Dedicated HSM étant un service sur liste verte, il est considéré comme un « type masqué » dans le portail Azure. Pour voir les ressources HSM, vous devez cocher la case « Afficher les types masqués » comme indiqué ci-dessous. Étant donné que la ressource de carte réseau suit toujours le HSM, il s’agit d’un bon endroit pour trouver l’adresse IP du HSM avant d’utiliser SSH pour établir la connexion.
+Dedicated HSM étant un service sur liste d’autorisation, il est considéré comme un « type masqué » dans le portail Azure. Pour voir les ressources HSM, vous devez cocher la case « Afficher les types masqués » comme indiqué ci-dessous. Étant donné que la ressource de carte réseau suit toujours le HSM, il s’agit d’un bon endroit pour trouver l’adresse IP du HSM avant d’utiliser SSH pour établir la connexion.
 
 ![Capture d’écran mettant en évidence la case Afficher les types masqués](./media/troubleshoot/hsm-provisioned.png)
 

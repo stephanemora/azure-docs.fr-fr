@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/06/2018
+ms.date: 12/14/2020
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50e0fe1cf3bb628c40e774423e45ea88d6ab78a5
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b6900647acf7182529f34c8cc065dbb039de38be
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92359711"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504404"
 ---
 # <a name="assign-or-remove-licenses-in-the-azure-active-directory-portal"></a>Assigner ou supprimer des licences dans le portail Azure Active Directory
 
@@ -37,7 +37,7 @@ Plusieurs plans de licence sont disponibles pour le service Azure AD, notamment
 
 Pour obtenir des informations spécifiques sur chaque plan de licence et sur les licences associées, consultez [De quelle licence ai-je besoin ?](https://azure.microsoft.com/pricing/details/active-directory/). Pour vous inscrire aux plans de licence Premium Azure AD des plans, voir [ici](./active-directory-get-started-premium.md).
 
-Certains services Microsoft ne sont pas disponibles dans tous les emplacements. Avant de pouvoir attribuer une licence à un groupe, vous devez spécifier l’ **Emplacement d’utilisation** pour tous les membres. Vous pouvez définir cette valeur dans la zone **Azure Active Directory &gt; Utilisateurs &gt; Profil &gt; Paramètres** dans Azure AD. Tout utilisateur dont l’emplacement d’utilisation n’est pas spécifié hérite de l’emplacement de l’organisation Azure AD.
+Certains services Microsoft ne sont pas disponibles dans tous les emplacements. Avant de pouvoir attribuer une licence à un groupe, vous devez spécifier l’**Emplacement d’utilisation** pour tous les membres. Vous pouvez définir cette valeur dans la zone **Azure Active Directory &gt; Utilisateurs &gt; Profil &gt; Paramètres** dans Azure AD. Tout utilisateur dont l’emplacement d’utilisation n’est pas spécifié hérite de l’emplacement de l’organisation Azure AD.
 
 ## <a name="view-license-plans-and-plan-details"></a>Afficher les plans de licence et les détails du plan
 
@@ -47,13 +47,20 @@ Vous pouvez afficher les plans de service disponibles, y compris les licences in
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/) à l’aide d’un compte Administrateur de licence dans votre organisation Azure AD.
 
-1. Sélectionnez **Azure Active Directory** , puis **Licences** .
+1. Sélectionnez **Azure Active Directory**, puis **Licences**.
 
-    ![Page Licences, indiquant le nombre de services achetés et de licences affectées](media/license-users-groups/license-details-blade.png)
+    :::image type="content" source="media/license-users-groups/license-details-blade.png" alt-text="Page Licences, indiquant le nombre de services achetés et de licences affectées":::
 
-1. Sélectionnez le lien **Acheté** pour afficher la page **Produits** et les valeurs **Assigné** , **Disponible** et **Arrive bientôt à expiration** pour vos plans de licence.
+1. Sélectionnez **Tous les produits** pour afficher la page Tous les produits et les valeurs **Total**, **Assigné**, **Disponible** et **Arrive bientôt à expiration** pour vos plans de licence.
 
-    ![Page de services, avec les plans de licence de service et les informations de licence associées](media/license-users-groups/license-products-blade-with-products.png)
+    :::image type="content" source="media/license-users-groups/license-products-blade-with-products.png" alt-text="Page de services, avec les plans de licence de service, et les informations de licence associées":::
+
+    > [!NOTE]
+    > Les nombres sont définis comme suit : 
+    > - Total : nombre total de licences achetées
+    > - Assigné : nombre de licences attribuées aux utilisateurs
+    > - Disponible : nombre de licences attribuables, y compris celles arrivant bientôt à expiration
+    > - Arrive bientôt à expiration Nombre de licences arrivant bientôt à expiration
 
 1. Sélectionnez un nom de plan pour afficher ses utilisateurs et groupes sous licence.
 
@@ -63,28 +70,28 @@ Assurez-vous que toutes les personnes devant utiliser un service Azure AD sous l
 
 ### <a name="to-assign-a-license-to-a-user"></a>Pour affecter une licence à un utilisateur
 
-1. Dans la page **Produits** , sélectionnez le nom du plan de licence que vous souhaitez affecter à l’utilisateur.
+1. Dans la page **Produits**, sélectionnez le nom du plan de licence que vous souhaitez affecter à l’utilisateur.
 
     ![Page de services, avec un plan de licence de service en surbrillance](media/license-users-groups/license-products-blade-with-product-highlight.png)
 
-1. Dans la page de vue d’ensemble du plan de licence, sélectionnez **Affecter** .
+1. Dans la page de vue d’ensemble du plan de licence, sélectionnez **Affecter**.
 
     ![Page de services, avec l’option Affecter en surbrillance](media/license-users-groups/license-products-blade-with-assign-option-highlight.png)
 
-1. Sur la page **Affecter** , sélectionnez **Utilisateurs et groupes** , puis recherchez et sélectionnez l’utilisateur auquel vous souhaitez affecter la licence.
+1. Sur la page **Affecter**, sélectionnez **Utilisateurs et groupes**, puis recherchez et sélectionnez l’utilisateur auquel vous souhaitez affecter la licence.
 
     ![Page Affecter une licence, avec les options Sélectionner et Rechercher en surbrillance](media/license-users-groups/assign-license-blade-with-highlight.png)
 
-1. Sélectionnez **Options d’affectation** . Assurez-vous que les options de licence appropriées sont activées, puis sélectionnez **OK** .
+1. Sélectionnez **Options d’affectation**. Assurez-vous que les options de licence appropriées sont activées, puis sélectionnez **OK**.
 
     ![Page d’options de licence, avec toutes les options disponibles dans le plan de licence](media/license-users-groups/license-option-blade-assignments.png)
 
     La page **Affecter une licence** s’actualise pour indiquer qu’un utilisateur est sélectionné et que les attributions sont configurées.
 
     > [!NOTE]
-    > Certains services Microsoft ne sont pas disponibles dans tous les emplacements. Avant de pouvoir attribuer une licence à un utilisateur, vous devez spécifier l’ **Emplacement d’utilisation** . Vous pouvez définir cette valeur dans la zone **Azure Active Directory &gt; Utilisateurs &gt; Profil &gt; Paramètres** dans Azure AD. Tout utilisateur dont l’emplacement d’utilisation n’est pas spécifié hérite de l’emplacement de l’organisation Azure AD.
+    > Certains services Microsoft ne sont pas disponibles dans tous les emplacements. Avant de pouvoir attribuer une licence à un utilisateur, vous devez spécifier l’**Emplacement d’utilisation**. Vous pouvez définir cette valeur dans la zone **Azure Active Directory &gt; Utilisateurs &gt; Profil &gt; Paramètres** dans Azure AD. Tout utilisateur dont l’emplacement d’utilisation n’est pas spécifié hérite de l’emplacement de l’organisation Azure AD.
 
-1. Sélectionnez **Attribuer** .
+1. Sélectionnez **Attribuer**.
 
     L’utilisateur est ajouté à la liste des utilisateurs sous licence et a accès aux services Azure AD inclus.
     > [!NOTE]
@@ -92,25 +99,25 @@ Assurez-vous que toutes les personnes devant utiliser un service Azure AD sous l
 
 ### <a name="to-assign-a-license-to-a-group"></a>Pour affecter une licence à un groupe
 
-1. Dans la page **Produits** , sélectionnez le nom du plan de licence que vous souhaitez affecter à l’utilisateur.
+1. Dans la page **Produits**, sélectionnez le nom du plan de licence que vous souhaitez affecter à l’utilisateur.
 
     ![Panneau Produits, avec le plan de licence de produit en surbrillance](media/license-users-groups/license-products-blade-with-product-highlight.png)
 
-1. Sur la page **Offre 2 d’Azure Active Directory Premium** , sélectionnez **Affecter** .
+1. Sur la page **Offre 2 d’Azure Active Directory Premium**, sélectionnez **Affecter**.
 
     ![Page Produits, avec l’option Affecter en surbrillance](media/license-users-groups/license-products-blade-with-assign-option-highlight.png)
 
-1. Sur la page **Affecter** , sélectionnez **Utilisateurs et groupes** , puis recherchez et sélectionnez le groupe auquel vous souhaitez affecter la licence.
+1. Sur la page **Affecter**, sélectionnez **Utilisateurs et groupes**, puis recherchez et sélectionnez le groupe auquel vous souhaitez affecter la licence.
 
     ![Page Affecter une licence, avec les options Sélectionner et Rechercher mises en surbrillance 2](media/license-users-groups/assign-group-license-blade-with-highlight.png)
 
-1. Sélectionnez **Options d’affectation** . Assurez-vous que les options de licence appropriées sont activées, puis sélectionnez **OK** .
+1. Sélectionnez **Options d’affectation**. Assurez-vous que les options de licence appropriées sont activées, puis sélectionnez **OK**.
 
     ![Page d’options de licence, avec toutes les options disponibles dans le plan de licence 2](media/license-users-groups/license-option-blade-group-assignments.png)
 
     La page **Affecter une licence** s’actualise pour indiquer qu’un utilisateur est sélectionné et que les attributions sont configurées.
 
-1. Sélectionnez **Attribuer** .
+1. Sélectionnez **Attribuer**.
 
     Le groupe est ajouté à la liste des groupes sous licence et tous les membres ont accès aux services Azure AD inclus.
 
@@ -120,9 +127,9 @@ Vous pouvez supprimer une licence de la page d’utilisateur Azure AD d’un ut
 
 ### <a name="to-remove-a-license-from-a-user"></a>Pour supprimer une licence d’un utilisateur
 
-1. Dans la page **Utilisateurs sous licence** du plan de service, sélectionnez l’utilisateur dont vous souhaitez supprimer la licence. Par exemple, _Alain Charon_ .
+1. Dans la page **Utilisateurs sous licence** du plan de service, sélectionnez l’utilisateur dont vous souhaitez supprimer la licence. Par exemple, _Alain Charon_.
 
-1. Sélectionnez **Supprimer la licence** .
+1. Sélectionnez **Supprimer la licence**.
 
     ![Page Utilisateurs sous licence, avec l’option Supprimer une licence en surbrillance](media/license-users-groups/license-products-user-blade-with-remove-option-highlight.png)
 
@@ -133,12 +140,12 @@ Vous pouvez supprimer une licence de la page d’utilisateur Azure AD d’un ut
 
 1. Dans la page **Groupes sous licence** du plan de licence, sélectionnez le groupe dont vous souhaitez supprimer la licence.
 
-1. Sélectionnez **Supprimer la licence** .
+1. Sélectionnez **Supprimer la licence**.
 
     ![Page Groupes sous licence avec l’option Supprimer une licence mise en surbrillance 2](media/license-users-groups/license-products-group-blade-with-remove-option-highlight.png)
     
     > [!NOTE]
-    > Lorsqu’un compte d’utilisateur local synchronisé avec Azure AD est hors de portée pour la synchronisation ou lorsque la synchronisation est supprimée, l’utilisateur est supprimé de manière réversible dans Azure AD. Lorsque cela se produit, les licences attribuées directement à l’utilisateur ou via des licences basées sur des groupes sont marquées comme **suspendues** plutôt que **supprimées** .
+    > Lorsqu’un compte d’utilisateur local synchronisé avec Azure AD est hors de portée pour la synchronisation ou lorsque la synchronisation est supprimée, l’utilisateur est supprimé de manière réversible dans Azure AD. Lorsque cela se produit, les licences attribuées directement à l’utilisateur ou via des licences basées sur des groupes sont marquées comme **suspendues** plutôt que **supprimées**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

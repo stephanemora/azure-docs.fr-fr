@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/08/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b83a690386b6240c2c3733afb4d0d9919ca8712d
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: c36f09731bfb21473d8e8bc87c9cfd3316060ee6
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96907392"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631140"
 ---
 # <a name="azure-security-baseline-for-azure-database-migration-service"></a>Base de référence de sécurité pour Azure Database Migration Service
 
@@ -131,7 +131,7 @@ Il est recommandé de supprimer cet ID d’application une fois les migrations t
 ### <a name="im-4-use-strong-authentication-controls-for-all-azure-active-directory-based-access"></a>IM-4 : Utiliser des contrôles d’authentification renforcés pour tous les accès basés sur Azure Active Directory
 
 **Conseils** : Azure Database Migration Service utilise Azure Active Directory qui prend en charge des contrôles d’authentification forts par le biais de l’authentification multifacteur, ainsi que des méthodes fortes sans mot de passe.
-Authentification multifacteur : activez l’authentification multifacteur Azure AD et suivez les recommandations relatives à la gestion des identités et des accès Azure Security Center pour certaines bonnes pratiques dans votre configuration de l’authentification multifacteur. L’authentification multifacteur peut être appliquée à tous les utilisateurs, certains utilisateurs ou au niveau de chaque utilisateur en fonction des conditions de connexion et des facteurs de risque.
+Authentification multifacteur : activez l’authentification multifacteur Azure AD et suivez les recommandations relatives à la gestion des identités et des accès Azure Security Center pour certaines bonnes pratiques dans votre configuration de l’authentification multifacteur. L’authentification multifacteur peut être appliquée à tous les utilisateurs, à certains d’entre eux ou au niveau de chaque utilisateur en fonction des conditions de connexion et des facteurs de risque.
 
 Authentification sans mot de passe – Trois options d’authentification sans mot de passe sont disponibles : Windows Hello Entreprise, l’application Microsoft Authenticator et les méthodes d’authentification locales, comme les cartes à puce.
 
@@ -364,7 +364,7 @@ Azure Database Migration Service ne permet pas d’exécuter une application ou 
 
 ## <a name="logging-and-threat-detection"></a>Journalisation et détection des menaces
 
-*Pour plus d’informations, consultez [Benchmark de sécurité Azure : Journalisation et détection des menaces](/azure/security/benchmarks/security-controls-v2-logging-threat-protection).*
+*Pour plus d’informations, consultez [Benchmark de sécurité Azure : Journalisation et détection des menaces](/azure/security/benchmarks/security-controls-v2-logging-threat-detection).*
 
 ### <a name="lt-2-enable-threat-detection-for-azure-identity-and-access-management"></a>LT-2 : Activer la détection des menaces pour la gestion des identités et des accès Azure
 
@@ -536,7 +536,7 @@ En outre, marquez les ressources à l’aide d’étiquettes et créez un systè
 
 ## <a name="posture-and-vulnerability-management"></a>Gestion de la posture et des vulnérabilités
 
-*Pour plus d’informations, consultez [Benchmark de sécurité Azure : Gestion de la posture et des vulnérabilités](/azure/security/benchmarks/security-controls-v2-vulnerability-management).*
+*Pour plus d’informations, consultez [Benchmark de sécurité Azure : Gestion de la posture et des vulnérabilités](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management).*
 
 ### <a name="pv-8-conduct-regular-attack-simulation"></a>PV-8 : Effectuer une simulation d’attaque régulière
 
@@ -586,9 +586,9 @@ Pour plus d’informations, consultez les références suivantes :
 
 - [Cloud Adoption Framework - Meilleures pratiques en matière de chiffrement et de sécurité des données Azure](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices?toc=/azure/cloud-adoption-framework/toc.json&amp;bc=/azure/cloud-adoption-framework/_bread/toc.json)
 
-- [Benchmark de sécurité Azure - Gestion des ressources](/azure/security/benchmarks/security-benchmark-v2-asset-management)
+- [Benchmark de sécurité Azure - Gestion des ressources](/azure/security/benchmarks/security-controls-v2-asset-management)
 
-- [Benchmark de sécurité Azure - Protection des données](/azure/security/benchmarks/security-benchmark-v2-data-protection)
+- [Benchmark de sécurité Azure - Protection des données](/azure/security/benchmarks/security-controls-v2-data-protection)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -616,7 +616,7 @@ Veillez à ce que la stratégie de segmentation soit implémentée de manière c
 
 **Conseils** : Mesurez et atténuez en permanence les risques liés à vos ressources individuelles et à l’environnement dans lequel elles sont hébergées. Priorisez les ressources à valeur élevée et les surfaces d’attaque hautement exposées, comme les applications publiées, les points d’entrée et de sortie du réseau, les points de terminaison utilisateur et administrateur, etc.
 
-- [Benchmark de sécurité Azure - Gestion de la posture et des vulnérabilités](/azure/security/benchmarks/security-benchmark-v2-posture-vulnerability-management)
+- [Benchmark de sécurité Azure - Gestion de la posture et des vulnérabilités](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -657,7 +657,7 @@ Cette stratégie doit inclure les recommandations, stratégies et normes documen
 Pour plus d’informations, consultez les références suivantes :
 - [Meilleures pratiques pour la sécurité Azure 11 – Architecture. Stratégie de sécurité unifiée unique](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
-- [Benchmark de sécurité Azure – Sécurité réseau](/azure/security/benchmarks/security-benchmark-v2-network-security)
+- [Benchmark de sécurité Azure – Sécurité réseau](/azure/security/benchmarks/security-controls-v2-network-security)
 
 - [Vue d’ensemble de la sécurité réseau d’Azure](../security/fundamentals/network-overview.md)
 
@@ -685,9 +685,9 @@ Cette stratégie doit inclure les recommandations, stratégies et normes documen
 
 Pour plus d’informations, consultez les références suivantes :
 
-- [Benchmark de sécurité Azure - Gestion des identités](/azure/security/benchmarks/security-benchmark-v2-identity-management)
+- [Benchmark de sécurité Azure - Gestion des identités](/azure/security/benchmarks/security-controls-v2-identity-management)
 
-- [Benchmark de sécurité Azure - Accès privilégié](/azure/security/benchmarks/security-benchmark-v2-privileged-access)
+- [Benchmark de sécurité Azure - Accès privilégié](/azure/security/benchmarks/security-controls-v2-privileged-access)
 
 - [Meilleures pratiques pour la sécurité Azure 11 – Architecture. Stratégie de sécurité unifiée unique](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
@@ -719,9 +719,9 @@ Cette stratégie doit inclure les recommandations, stratégies et normes documen
 
 Pour plus d’informations, consultez les références suivantes :
 
-- [Benchmark de sécurité Azure - Journalisation et détection des menaces](/azure/security/benchmarks/security-benchmark-v2-logging-threat-detection)
+- [Benchmark de sécurité Azure - Journalisation et détection des menaces](/azure/security/benchmarks/security-controls-v2-logging-threat-detection)
 
-- [Benchmark de sécurité Azure - Réponse aux incidents](/azure/security/benchmarks/security-benchmark-v2-incident-response)
+- [Benchmark de sécurité Azure - Réponse aux incidents](/azure/security/benchmarks/security-controls-v2-incident-response)
 
 - [Meilleures pratiques pour la sécurité Azure 4 - Processus. Mise à jour des processus de réponse aux incidents pour le cloud](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 

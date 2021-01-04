@@ -4,12 +4,12 @@ description: Cet article décrit la procédure à suivre pour créer une applica
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: e77ff762de11a9c8a723b162993db11efe715b66
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: e86ca76f3eb661e1407a02b58e60b62b391f5702
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/16/2020
-ms.locfileid: "97591546"
+ms.locfileid: "97607981"
 ---
 # <a name="use-java-to-send-events-to-or-receive-events-from-azure-event-hubs-azure-eventhubs"></a>Utiliser Java pour recevoir des événements d’Azure Event Hubs ou lui en envoyer (azure-eventhubs)
 
@@ -17,7 +17,6 @@ Ce guide de démarrage rapide montre comment recevoir des événements d’un hu
 
 > [!WARNING]
 > Ce guide de démarrage rapide utilise les anciens packages **azure-eventhubs** et **azure-eventhubs-eph**. Pour un guide de démarrage rapide qui utilise la dernière version du package **azure-messaging-eventhubs**, consultez [Envoyer et recevoir des événements à l’aide d’azure-messaging-eventhubs](event-hubs-java-get-started-send.md). Pour migrer votre application de l’ancien package vers le nouveau, consultez [Guide to migrate from azure-eventhubs to azure-messaging-eventhubs](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/migration-guide.md) (Guide de migration d’azure-eventhubs vers azure-messaging-eventhubs). 
-
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -75,7 +74,6 @@ public class SimpleSend {
     public static void main(String[] args)
             throws EventHubException, ExecutionException, InterruptedException, IOException {
 
-
     }
  }
 ```
@@ -109,7 +107,6 @@ Créez un événement unique en transformant une chaîne dans son encodage UTF-8
         // Each EventHubClient instance spins up a new TCP/TLS connection, which is expensive.
         // It is always a best practice to reuse these instances. The following sample shows this.
         final EventHubClient ehClient = EventHubClient.createSync(connStr.toString(), executorService);
-
 
         try {
             for (int i = 0; i < 10; i++) {
@@ -418,7 +415,6 @@ Dans votre implémentation, vous pouvez remplacer le mécanisme de points de con
 Vous pouvez utiliser n’importe quel magasin de données disponible dans votre environnement.
 
 La classe com.microsoft.azure.eventprocessorhost.EventProcessorHost vous fournit deux constructeurs qui vous permettent de remplacer le gestionnaire de point de contrôle pour votre EventProcessorHost.
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 Consultez les articles suivants : 

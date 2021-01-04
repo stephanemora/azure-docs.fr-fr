@@ -3,15 +3,15 @@ title: Mises à jour du service de pool d'hôtes Windows Virtual Desktop - Azure
 description: Comment créer un pool d’hôtes de validation pour surveiller les mises à jour de service avant de déployer les mises à jour en production.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 03/13/2020
+ms.date: 12/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b8eb8378480b8784939e3ab63327e73e3705c74a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ead4c0aa7d8d71642fd8a4635edbabcafee5b6c2
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90526508"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563243"
 ---
 # <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>Tutoriel : Créer un pool d’hôtes pour valider les mises à jour de service
 
@@ -66,6 +66,20 @@ Les résultats de la cmdlet doivent se présenter comme suit :
     LoadBalancerType    : BreadthFirst
     ValidationEnvironment : True
 ```
+
+## <a name="enable-your-validation-environment-with-the-azure-portal"></a>Activez votre environnement de validation avec le portail Azure
+
+Vous pouvez également utiliser le portail Azure pour activer votre environnement de validation.
+
+Pour utiliser le portail Azure pour configurer votre pool d’hôtes de validation :
+
+1. Connectez-vous au portail Azure sur <https://portal.azure.com>.
+2. Recherchez et sélectionnez **Windows Virtual Desktop**.
+3. Dans la page Windows Virtual Desktop, sélectionnez **Pools d’hôtes**.
+4. Sélectionnez le nom du pool d’hôtes que vous souhaitez modifier.
+5. Sélectionner **Propriétés**.
+6. Dans le champ d’environnement de validation, sélectionnez **Oui** pour activer l’environnement de validation.
+7. Sélectionnez **Enregistrer**. Les nouveaux paramètres seront appliqués.
 
 ## <a name="update-schedule"></a>Mettre à jour la planification
 

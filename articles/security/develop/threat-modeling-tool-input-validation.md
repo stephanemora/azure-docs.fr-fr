@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4b0be672c0768b4facb6518c777d4fe56eb28aa9
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: c816fbad05831c83c891c70849986b38cb7fdbeb
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94515674"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589540"
 ---
 # <a name="security-frame-input-validation--mitigations"></a>Infrastructure de sécurité : validation des entrées | Mesures d’atténuation 
 | Produit/Service | Article |
@@ -73,7 +73,7 @@ doc.setProperty("AllowXsltScript", false); // CORRECT. Setting to false disables
 | **Technologies applicables** | Générique |
 | **Attributs**              | N/A  |
 | **Informations de référence**              | [IE8 Security Part V - Comprehensive Protection (Sécurité IE8 Partie V - Protection complète)](/archive/blogs/ie/ie8-security-part-v-comprehensive-protection)  |
-| **Étapes** | <p>Pour chaque page susceptible de comporter du contenu contrôlable par l’utilisateur, vous devez utiliser l’en-tête HTTP `X-Content-Type-Options:nosniff`. Pour satisfaire cette exigence, vous pouvez définir l’en-tête requis page par page uniquement pour les pages susceptibles de comporter du contenu contrôlable par l’utilisateur, ou vous pouvez définir un en-tête global pour toutes les pages de l’application.</p><p>Chaque type de fichier provenant d’un serveur web est associé à un [type MIME](https://en.wikipedia.org/wiki/Mime_type) (également appelé *type de contenu* ) qui décrit la nature du contenu (image, texte, application, etc.)</p><p>L’en-tête X-Content-Type-Options est un en-tête HTTP permettant aux développeurs de spécifier que leur contenu ne doit pas être détecté par MIME. Cet en-tête est conçu pour limiter les attaques par détection MIME. La prise en charge de cet en-tête a été ajoutée dans Internet Explorer 8 (IE8).</p><p>Seuls les utilisateurs d’Internet Explorer 8 (IE8) bénéficient de l’en-tête X-Content-Type-Options. À l’heure actuelle, les versions antérieures d’Internet Explorer ne prennent pas en charge l’en-tête X-Content-Type-Options</p><p>Internet Explorer 8 (et les versions ultérieures) constitue le seul navigateur majeur permettant d’implémenter une fonctionnalité de refus de la détection MIME. Si d’autres navigateurs majeurs (Firefox, Safari, Chrome) implémentent des fonctionnalités similaires, cette recommandation sera mise à jour afin d’inclure également la syntaxe de ces navigateurs</p>|
+| **Étapes** | <p>Pour chaque page susceptible de comporter du contenu contrôlable par l’utilisateur, vous devez utiliser l’en-tête HTTP `X-Content-Type-Options:nosniff`. Pour satisfaire cette exigence, vous pouvez définir l’en-tête requis page par page uniquement pour les pages susceptibles de comporter du contenu contrôlable par l’utilisateur, ou vous pouvez définir un en-tête global pour toutes les pages de l’application.</p><p>Chaque type de fichier provenant d’un serveur web est associé à un [type MIME](https://en.wikipedia.org/wiki/Mime_type) (également appelé *type de contenu*) qui décrit la nature du contenu (image, texte, application, etc.)</p><p>L’en-tête X-Content-Type-Options est un en-tête HTTP permettant aux développeurs de spécifier que leur contenu ne doit pas être détecté par MIME. Cet en-tête est conçu pour limiter les attaques par détection MIME. La prise en charge de cet en-tête a été ajoutée dans Internet Explorer 8 (IE8).</p><p>Seuls les utilisateurs d’Internet Explorer 8 (IE8) bénéficient de l’en-tête X-Content-Type-Options. À l’heure actuelle, les versions antérieures d’Internet Explorer ne prennent pas en charge l’en-tête X-Content-Type-Options</p><p>Internet Explorer 8 (et les versions ultérieures) constitue le seul navigateur majeur permettant d’implémenter une fonctionnalité de refus de la détection MIME. Si d’autres navigateurs majeurs (Firefox, Safari, Chrome) implémentent des fonctionnalités similaires, cette recommandation sera mise à jour afin d’inclure également la syntaxe de ces navigateurs</p>|
 
 ### <a name="example"></a>Exemple
 Pour activer l’en-tête requis sur toutes les pages de l’application, vous pouvez effectuer l’une des opérations suivantes : 

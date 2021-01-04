@@ -4,12 +4,12 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/24/2020
-ms.openlocfilehash: 6ad2a405fc8abf2e7df2a896d5c5363b9618dda2
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: 16cba46d9c0f6a933965366d82eb8e21c4ab1ca6
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96126097"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033879"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
@@ -69,7 +69,7 @@ Quand vous exécutez l’exemple pour vous connecter à IoT Central, il utilise
 
 La fonction `main` appelle d’abord `CreateAndConfigureDeviceClientHandleForPnP` pour :
 
-* Définir l’ID du modèle `dtmi:com:example:Thermostat;1`.
+* Définir l’ID du modèle `dtmi:com:example:Thermostat;1`. IoT Central utilise l’ID de modèle pour identifier ou générer le modèle d’appareil correspondant à cet appareil. Pour en savoir plus, consultez [Associer un appareil à un modèle d’appareil](../articles/iot-central/core/concepts-get-connected.md#associate-a-device-with-a-device-template).
 * Utiliser DPS pour provisionner et inscrire l’appareil.
 * Créer un gestionnaire de commandes pour la commande `getMaxMinReport`.
 * Créer un gestionnaire de mise à jour de propriétés pour la propriété `targetTemperature` accessible en écriture.

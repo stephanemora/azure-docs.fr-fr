@@ -3,14 +3,14 @@ title: Lire des données capturées par Azure Event Hubs à partir d’une appli
 description: Cet article explique comment écrire du code Python permettant de capturer les données envoyées à un hub d’événements, et comment lire les données d’événements capturées à partir d’un compte de stockage Azure.
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: cb7165565516136a8425c4c77748c2e13715edb7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f513b35e300141f16ee4c4880bc54aaf37945d65
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88927865"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109910"
 ---
-# <a name="capture-event-hubs-data-in-azure-storage-and-read-it-by-using-python-azure-eventhub-version-5"></a>Capturer des données Event Hubs dans le Stockage Azure et les lire à l’aide de Python (azure-eventhub version 5)
+# <a name="capture-event-hubs-data-in-azure-storage-and-read-it-by-using-python-azure-eventhub"></a>Capturer des données Event Hubs dans le Stockage Azure et les lire à l’aide de Python (azure-eventhub)
 
 Vous pouvez configurer un hub d’événements pour que les données qui lui sont envoyées soient capturées dans le compte de stockage Azure ou dans Azure Data Lake Storage Gen 1 ou Gen 2. Cet article explique comment écrire du code Python pour envoyer des événements à un hub d’événements et lire les données capturées à partir du **Stockage Blob Azure**. Pour plus d’informations sur cette fonctionnalité, consultez la [présentation de la fonctionnalité Event Hubs Capture](event-hubs-capture-overview.md).
 

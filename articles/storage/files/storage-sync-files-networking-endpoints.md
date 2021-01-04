@@ -8,12 +8,12 @@ ms.date: 5/11/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 02d9e65f5422b7b12900d051f01c1d6f55e8685b
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 61ff5d05eb74804af69b90d839115a8468619275
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844674"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921715"
 ---
 # <a name="configuring-azure-file-sync-network-endpoints"></a>Configuration des points de terminaison réseau Azure File Sync
 Azure Files et Azure File Sync fournissent deux principaux types de points de terminaison pour l’accès aux partages de fichiers Azure : 
@@ -34,7 +34,7 @@ Cet article suppose que vous avez :
 
 De plus :
 - Si vous envisagez d’utiliser Azure PowerShell, [installez-en la dernière version](/powershell/azure/install-az-ps).
-- Si vous envisagez d’utiliser Azure CLI, [installez-en la dernière version](/cli/azure/install-azure-cli?view=azure-cli-latest).
+- Si vous envisagez d’utiliser Azure CLI, [installez-en la dernière version](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
 
 ## <a name="create-the-private-endpoints"></a>Créer les points de terminaison privés
 Lorsque vous créez un point de terminaison privé pour une ressource Azure, les ressources suivantes sont déployées :
@@ -588,7 +588,7 @@ Lorsque vous limitez l’accès au compte de stockage à certains réseaux virtu
 Azure File Sync vous permet de restreindre l’accès à des réseaux virtuels spécifiques par le biais de points de terminaison privés uniquement. Azure File Sync ne prend pas en charge les points de terminaison de service pour restreindre l’accès au point de terminaison public à des réseaux virtuels spécifiques. Cela signifie que les deux états pour le point de terminaison public du service de synchronisation du stockage sont Activé et Désactivé.
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
-Cela n’est pas possible via le portail Azure. Pour obtenir des instructions sur la façon de désactiver le point de terminaison public du service de synchronisation du stockage, sélectionnez l’onglet Azure PowerShell ou Azure CLI. 
+Cela n’est pas possible via le portail Azure. Sélectionnez l’onglet Azure PowerShell pour obtenir des instructions sur la façon de désactiver le point de terminaison public du service de synchronisation du stockage. 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 Pour désactiver l’accès au point de terminaison public du service de synchronisation du stockage, définissez la propriété `incomingTrafficPolicy` sur le service de synchronisation du stockage sur `AllowVirtualNetworksOnly`. Si vous souhaitez activer l’accès au point de terminaison public du service de synchronisation du stockage, définissez `incomingTrafficPolicy` sur `AllowAllTraffic` à la place. Pensez à remplacer `<storage-sync-service-resource-group>` et `<storage-sync-service>`.
@@ -603,23 +603,11 @@ $storageSyncService = Get-AzResource `
         -ResourceType "Microsoft.StorageSync/storageSyncServices"
 
 $storageSyncService.Properties.incomingTrafficPolicy = "AllowVirtualNetworksOnly"
-$storageSyncService = $storageSyncService | Set-AzResource -Confirm:$false -Force
+$storageSyncService = $storageSyncService | Set-AzResource -Confirm:$false -Force -UsePatchSemantics
 ```
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-Pour désactiver l’accès au point de terminaison public du service de synchronisation de stockage, définissez la propriété `incomingTrafficPolicy` sur le service de synchronisation du stockage sur `AllowVirtualNetworksOnly`. Si vous souhaitez activer l’accès au point de terminaison public du service de synchronisation du stockage, définissez `incomingTrafficPolicy` sur `AllowAllTraffic` à la place. Pensez à remplacer `<storage-sync-service-resource-group>` et `<storage-sync-service>`.
-
-```bash
-storageSyncServiceResourceGroupName="<storage-sync-service-resource-group>"
-storageSyncServiceName="<storage-sync-service>"
-
-az resource update \
-        --resource-group $storageSyncServiceResourceGroupName \
-        --name $storageSyncServiceName \
-        --resource-type "Microsoft.StorageSync/storageSyncServices" \
-        --set "properties.incomingTrafficPolicy=AllowVirtualNetworksOnly" \
-        --output none
-```
+<a name="azure-cli-does-not-support-setting-the-incomingtrafficpolicy-property-on-the-storage-sync-service-please-select-the-azure-powershell-tab-to-get-instructions-on-how-to-disable-the-storage-sync-service-public-endpoint"></a>L’interface Azure CLI ne prend pas en charge la définition de la propriété `incomingTrafficPolicy` sur le service de synchronisation de stockage. Sélectionnez l’onglet Azure PowerShell pour obtenir des instructions sur la façon de désactiver le point de terminaison public du service de synchronisation du stockage.
 ---
 
 ## <a name="see-also"></a>Voir aussi

@@ -17,12 +17,12 @@ ms.date: 04/09/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f4253fe52346890eaa993a18e8e9bc9b270bffd7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8dbf14b1816d367f864cc3a2977497b34111df3f
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89229852"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586191"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor"></a>Journaux d’activité Azure Active Directory dans Azure Monitor
 
@@ -111,11 +111,11 @@ Le tableau suivant contient les coûts estimés par mois pour un Event Hub de ba
 
 
 
-| Catégorie de journal       | Nombre d’utilisateurs | Événements par jour | Événements par mois (30 jours) | Coût par mois en dollars américains (estimation) |
-| :--                | ---             | ---            | ---                        | --:                          |
-| Audit et connexions | 100 000         | 16 500 000     | 495 000 000                |  1093,00 $                       |
-| Audit              | 100 000         | 1 500 000      | 45 000 000                 |  246,66 $                     |
-| Connexions           | 100 000         | 15 000 000     | 450 000 000                |  847,28 $                     |
+| Catégorie de journal | Nombre d’utilisateurs | Événements par jour | Événements par mois (30 jours) | Coût par mois en dollars américains (estimation) |
+|:-|--|--|--|-:|
+| Audit et connexions | 100 000 | 16 500 000 | 495 000 000 | 1093,00 $ |
+| Audit | 100 000 | 1 500 000 | 45 000 000 | 246,66 $ |
+| Connexions | 100 000 | 15 000 000 | 450 000 000 | 847,28 $ |
 
 
 

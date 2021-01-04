@@ -13,12 +13,12 @@ ms.date: 10/05/2020
 ms.author: jmprieur
 ms.reviewer: marsma
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: d732d2fd8b97ca61222accc21c9930ed8c5c5d3a
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 7c0efbae3576a5b57433fe70885fd97aae5e87e3
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95993888"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107938"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-using-console-apps-identity"></a>Démarrage rapide : Acquérir un jeton et appeler l'API Microsoft Graph en utilisant l'identité de l'application console
 
@@ -49,17 +49,17 @@ Ce guide de démarrage rapide nécessite [.NET Core 3.1](https://www.microsoft.
 > #### <a name="step-1-register-your-application"></a>Étape 1 : Inscrivez votre application
 > Pour inscrire votre application et ajouter manuellement les informations d’inscription de l’application à votre solution, procédez comme suit :
 >
-> 1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
-> 1. Si votre compte vous propose un accès à plusieurs locataires, sélectionnez votre compte en haut à droite et définissez votre session de portail sur le locataire Azure AD souhaité.
-> 1. Accédez à la page [Inscriptions d’applications](https://go.microsoft.com/fwlink/?linkid=2083908) de la plateforme d’identités Microsoft pour les développeurs en recherchant **Inscriptions d’applications** dans la barre de recherche du portail Azure.
-> 1. Sélectionnez **Nouvelle inscription**.
-> 1. Lorsque la page **Inscrire une application** s’affiche, saisissez les informations d’inscription de votre application.
-> 1. Dans la section **Nom**, entrez un nom d’application pertinent qui sera visible par les utilisateurs de l’application, par exemple `Daemon-console`, puis sélectionnez **Inscrire** pour créer l’application.
-> 1. Après l’inscription, sélectionnez le menu **Certificats et secrets**.
-> 1. Sous **Secrets client** , sélectionnez **+ Nouveau secret client**. Donnez-lui un nom et sélectionnez **Ajouter**. Copiez le secret dans un emplacement sûr. Vous devrez l’utiliser dans votre code, et il ne sera plus réaffiché dans le portail.
-> 1. À présent, sélectionnez le menu **Autorisations de l’API**, sélectionnez le bouton **+ Ajouter une autorisation** et sélectionnez **Microsoft Graph**.
+> 1. Connectez-vous au [portail Azure](https://portal.azure.com).
+> 1. Si vous avez accès à plusieurs locataires, utilisez le filtre **Répertoire + abonnement** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: dans le menu du haut pour sélectionner le locataire dans lequel vous voulez inscrire une application.
+> 1. Recherchez et sélectionnez **Azure Active Directory**.
+> 1. Sous **Gérer**, sélectionnez **Inscriptions d’applications** > **Nouvelle inscription**.
+> 1. Entrez un **nom** pour votre application (par exemple, `Daemon-console`). Les utilisateurs de votre application peuvent voir ce nom, et vous pouvez le changer ultérieurement.
+> 1. Sélectionnez **Inscrire** pour créer l’application.
+> 1. Sous **Gérer**, sélectionnez **Certificats et secrets**.
+> 1. Sous **Secrets du client**, sélectionnez **Nouveau secret client**, entrez un nom, puis sélectionnez **Ajouter**. Enregistrez la valeur secrète dans un emplacement sûr pour l’utiliser dans une étape ultérieure.
+> 1. Sous **Gérer**, sélectionnez **Autorisations de l’API** > **Ajouter une autorisation**. Sélectionnez **Microsoft Graph**.
 > 1. Sélectionnez **Autorisations de l’application**.
-> 1. Sous le nœud **Utilisateur**, sélectionnez **User.Read.All**, puis sélectionnez **Ajouter des autorisations**
+> 1. Sous le nœud **Utilisateur**, sélectionnez **User.Read.All**, puis sélectionnez **Ajouter des autorisations**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > ### <a name="download-and-configure-your-quickstart-app"></a>Télécharger et configurer votre application de démarrage rapide
@@ -121,7 +121,7 @@ Si vous essayez d’exécuter l’application à ce stade, vous recevez l’erre
 ##### <a name="global-tenant-administrator"></a>Administrateur de locataires général
 
 > [!div renderon="docs"]
-> Si vous êtes administrateur de locataires général, dans le portail Azure, accédez à **Applications d’entreprise**, cliquez sur votre inscription d’application, puis choisissez **« Autorisations »** dans la section Sécurité du volet de navigation gauche. Cliquez sur le grand bouton intitulé **Accorder un consentement d’administrateur pour {nom du locataire}** (où {nom du locataire} est le nom de votre annuaire).
+> Si vous êtes administrateur de locataires général, dans le portail Azure, accédez à **Applications d’entreprise**, sélectionnez votre inscription d’application, puis choisissez **« Autorisations »** dans la section Sécurité du volet de navigation gauche. Sélectionnez le grand bouton intitulé **Accorder un consentement d’administrateur pour {nom du locataire}** (où {nom du locataire} est le nom de votre annuaire).
 
 > [!div renderon="portal" class="sxs-lookup"]
 > Si vous êtes administrateur général, accédez à la page **Autorisations de l’API** et sélectionnez **Accorder le consentement de l’administrateur pour Entrer_le_nom_du_locataire_ici**

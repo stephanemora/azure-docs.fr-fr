@@ -14,12 +14,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 824ae8d39d934ebc58fc75185e36f5faa11109a9
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 662a0f53a5d5e8e02ef3b29640009fd07bf4f1d0
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325364"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97652142"
 ---
 # <a name="azure-active-directory-code-samples-v10-endpoint"></a>Exemples de code Azure Active Directory (point de terminaison v1.0)
 
@@ -40,10 +40,10 @@ Vous pouvez également contribuer à nos exemples sur GitHub. Pour en savoir plu
 
 Cet exemple montre comment écrire une application monopage sécurisée avec Azure AD.
 
- Plateforme | Appelle sa propre API | Appelle une autre API web
- -------- |  --------------------- | ------------------ 
-![Cette image affiche le logo JavaScript](media/sample-v2-code/logo-js.png) | [javascript-singlepageapp](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |
-![Cette image affiche le logo Angular JS](media/sample-v2-code/logo-angular.png) | [angularjs-singlepageapp](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp) | [angularjs-singlepageapp-cors](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp-dotnet-webapi)
+| Plateforme | Appelle sa propre API | Appelle une autre API web |
+|--|--|--|
+| ![Cette image affiche le logo JavaScript](media/sample-v2-code/logo-js.png) | [javascript-singlepageapp](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |
+| ![Cette image affiche le logo Angular JS](media/sample-v2-code/logo-angular.png) | [angularjs-singlepageapp](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp) | [angularjs-singlepageapp-cors](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp-dotnet-webapi) |
 
 ## <a name="web-applications"></a>Applications web
 
@@ -51,21 +51,21 @@ Cet exemple montre comment écrire une application monopage sécurisée avec Azu
 
 Les exemples suivants illustrent des applications web qui connectent les utilisateurs. Certaines de ces applications appellent également Microsoft Graph ou votre propre API web dans le nom de l’utilisateur connecté.
 
- Plateforme | Connecte uniquement les utilisateurs | Appelle Microsoft Graph | Appelle une autre API web ASP.NET ou ASP.NET Core 2.0
- -------- | ------------------- | --------------------- | -------------------------
-![Cette illustration montre le logo ASP.NET Core](media/sample-v2-code/logo-netcore.png)</p>ASP.NET Core 2.0 | [dotnet-webapp-openidconnect-aspnetcore](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect-aspnetcore) | [webapp-webapi-multitenant-openidconnect-aspnetcore](https://github.com/Azure-Samples/active-directory-webapp-webapi-multitenant-openidconnect-aspnetcore/) </p>(AAD Graph) | [dotnet-webapp-webapi-openidconnect-aspnetcore](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore)
-![Cette image affiche le logo ASP.NET Framework](media/sample-v2-code/logo-netframework.png)</p> ASP.NET 4.5 |  </p> [webapp-WSFederation-dotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation) </p> [dotnet-webapp-webapi-oauth2-useridentity](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-oauth2-useridentity) | [dotnet-webapp-multitenant-openidconnect](https://github.com/Azure-Samples/active-directory-dotnet-webapp-multitenant-openidconnect)</p> (AAD Graph) |
-![Cette image affiche le logo Python](media/sample-v2-code/logo-python.png) | | [python-webapp-graphapi](https://github.com/Azure-Samples/active-directory-python-webapp-graphapi)  |
-![Cette image affiche le logo Java](media/sample-v2-code/logo-java.png)  | | [java-webapp-openidconnect](https://github.com/azure-samples/active-directory-java-webapp-openidconnect)  |
-![Cette image affiche le logo PHP](media/sample-v2-code/logo-php.png) | | [php-graphapi-web](https://github.com/Azure-Samples/active-directory-php-graphapi-web)  |
+| Plateforme | Connecte uniquement les utilisateurs | Appelle Microsoft Graph | Appelle une autre API web ASP.NET ou ASP.NET Core 2.0 |
+|--|--|--|--|
+| ![Cette illustration montre le logo ASP.NET Core](media/sample-v2-code/logo-netcore.png)</p>ASP.NET Core 2.0 | [dotnet-webapp-openidconnect-aspnetcore](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect-aspnetcore) | [webapp-webapi-multitenant-openidconnect-aspnetcore](https://github.com/Azure-Samples/active-directory-webapp-webapi-multitenant-openidconnect-aspnetcore/) </p>(AAD Graph) | [dotnet-webapp-webapi-openidconnect-aspnetcore](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore) |
+| ![Cette image affiche le logo ASP.NET Framework](media/sample-v2-code/logo-netframework.png)</p> ASP.NET 4.5 | </p> [webapp-WSFederation-dotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation) </p> [dotnet-webapp-webapi-oauth2-useridentity](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-oauth2-useridentity) | [dotnet-webapp-multitenant-openidconnect](https://github.com/Azure-Samples/active-directory-dotnet-webapp-multitenant-openidconnect)</p> (AAD Graph) |
+| ![Cette image affiche le logo Python](media/sample-v2-code/logo-python.png) |  | [python-webapp-graphapi](https://github.com/Azure-Samples/active-directory-python-webapp-graphapi) |
+| ![Cette image affiche le logo Java](media/sample-v2-code/logo-java.png) |  | [java-webapp-openidconnect](https://github.com/azure-samples/active-directory-java-webapp-openidconnect) |
+| ![Cette image affiche le logo PHP](media/sample-v2-code/logo-php.png) |  | [php-graphapi-web](https://github.com/Azure-Samples/active-directory-php-graphapi-web) |
 
 ### <a name="web-applications-demonstrating-role-based-access-control-authorization"></a>Applications web illustrant le contrôle d’accès en fonction du rôle (autorisation)
 
 Les exemples suivants montrent comment implémenter le contrôle d’accès en fonction du rôle (RBAC). Le contrôle d’accès en fonction du rôle permet de restreindre les autorisations de certaines fonctionnalités dans une application web à certains utilisateurs. Les utilisateurs sont autorisés selon qu’ils appartiennent à un **groupe Azure AD** ou qu’ils ont un **rôle** d’application donné.
 
-Plateforme | Exemple |
- -------- | ------------------- |
-![Cette image affiche le logo ASP.NET Framework](media/sample-v2-code/logo-netframework.png)</p> ASP.NET 4.5 | [dotnet-webapp-groupclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-groupclaims) </p>  [dotnet-webapp-roleclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims) | Application web MVC .NET 4.5 qui utilise des **rôles** Azure AD pour l’autorisation
+| Plateforme | Exemple |
+|--|--|
+| ![Cette image affiche le logo ASP.NET Framework](media/sample-v2-code/logo-netframework.png)</p> ASP.NET 4.5 | [dotnet-webapp-groupclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-groupclaims) </p>  [dotnet-webapp-roleclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims) | Application web MVC .NET 4.5 qui utilise des **rôles** Azure AD pour l’autorisation |
 
 ## <a name="desktop-and-mobile-public-client-applications-calling-microsoft-graph-or-a-web-api"></a>Applications mobiles clientes et de bureau appelant Microsoft Graph ou une API web
 

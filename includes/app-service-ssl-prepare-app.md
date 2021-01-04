@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 10/15/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: dd73ac372a21a32eac0c742a7f0f525db2d1a4fe
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 8b3c1992a1cff18390f9d1332103e0650af418e2
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92169104"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347718"
 ---
 ## <a name="prepare-your-web-app"></a>Préparation de votre application web
 
-Si vous souhaitez créer des liaisons de sécurité personnalisées ou activer des certificats clients pour votre application App Service, votre [plan App Service](https://azure.microsoft.com/pricing/details/app-service/) doit être au niveau **De base**, **Standard**, **Premium** ou **Isolé**. Au cours de cette étape, vous allez vous assurer que votre application web se trouve dans le niveau de tarification pris en charge.
+Si vous souhaitez créer des liaisons TLS/SSL personnalisées ou activer des certificats clients pour votre application App Service, votre [plan App Service](https://azure.microsoft.com/pricing/details/app-service/) doit être au niveau **De base**, **Standard**, **Premium** ou **Isolé**. Au cours de cette étape, vous allez vous assurer que votre application web se trouve dans le niveau de tarification pris en charge.
 
 ### <a name="sign-in-to-azure"></a>Connexion à Azure
 

@@ -1,19 +1,19 @@
 ---
-title: Tutoriel sur le renvoi d’Azure Data Box dans une commande d’exportation | Microsoft Docs
+title: Tutoriel sur le renvoi d’Azure Data Box dans une commande d’exportation | Microsoft Docs
 description: Découvrez comment expédier votre Azure Data Box à Microsoft une fois la commande d’exportation terminée
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 07/21/2020
+ms.date: 12/11/2020
 ms.author: alkohli
-ms.openlocfilehash: 04e4394e6a439c923558ef90e13c14c0adaa4020
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1035f7fb34ed5b2b11e3ef472ccda7cccc30f652
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88142109"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359028"
 ---
 # <a name="tutorial-return-azure-data-box-preview"></a>Tutoriel : Retourner Azure Data Box (préversion)
 
@@ -45,7 +45,7 @@ Les étapes suivantes sont déterminées par l’endroit où vous retournez l’
 
 ## <a name="ship-data-box-back"></a>Renvoyer la Data Box
 
-Vérifiez que la copie des données à partir de l’appareil a été effectuée et que l’exécution de la **Préparation de l’expédition** a réussi. En fonction de la région où vous expédiez l’appareil, la procédure est différente.
+Vérifiez que la copie des données à partir de l’appareil a été effectuée et que l’exécution de la **Préparation de l’expédition** a réussi. La procédure varie en fonction de la région où vous expédiez l’appareil.
 
 ## <a name="us-canada-europe"></a>[États-Unis, Canada, Europe](#tab/in-us-canada-europe)
 
@@ -53,12 +53,12 @@ Effectuez les étapes suivantes si vous retournez l’appareil aux États-Unis, 
 
 1. Vérifiez que l’appareil est hors tension et que les câbles sont débranchés. 
 2. Enroulez le cordon d’alimentation fourni avec la Data Box et fixez-le à l’arrière de l’appareil.
-3. Assurez-vous que l’étiquette d’expédition est affichée sur l’écran E-ink et planifiez l’enlèvement avec votre transporteur. Si l’étiquette est endommagée ou perdue, ou si elle ne s’affiche pas sur l’écran E-ink, contactez le support Microsoft. Si le support technique le suggère, vous pouvez accéder à **Vue d’ensemble > Télécharger une étiquette d’expédition** dans le portail Azure. Téléchargez l’étiquette d’expédition et collez-la sur l’appareil. 
+3. Vérifiez que l’étiquette d’expédition est affichée sur l’écran E-ink et planifiez l’enlèvement avec votre transporteur. Si l’étiquette est endommagée ou perdue, ou si elle ne s’affiche pas sur l’écran E-ink, contactez le support Microsoft. Si le support technique le suggère, vous pouvez accéder à **Vue d’ensemble > Télécharger une étiquette d’expédition** dans le portail Azure. Téléchargez l’étiquette d’expédition et collez-la sur l’appareil. 
 4. Planifiez une date d’enlèvement avec UPS en cas de renvoi de l’appareil. Pour planifier l’enlèvement :
 
-    - Appelez l’UPS local (numéro d’appel gratuit propre à chaque pays/région).
-    - Lors de l’appel, indiquez le numéro de suivi du retour, qui est indiqué dans l’écran E-ink ou sur l’étiquette de retour imprimée.
-    - Si le numéro de suivi n’est pas indiqué, UPS vous facturera des frais supplémentaires à l’enlèvement.
+   - Appelez l’UPS local (numéro d’appel gratuit propre à chaque pays/région).
+   - Lors de l’appel, indiquez le numéro de suivi du retour, qui est indiqué dans l’écran E-ink ou sur l’étiquette de retour imprimée. Si vous n’indiquez pas le numéro de suivi, UPS vous facturera des frais supplémentaires à l’enlèvement.
+   - Si des problèmes surviennent pendant la planification d’un enlèvement, ou si vous êtes invité à payer des frais supplémentaires, contactez le service des opérations Azure Data Box. Envoyez un e-mail à [adbops@microsoft.com](mailto:adbops@microsoft.com).
 
     Au lieu de planifier l’enlèvement, vous pouvez déposer la Data Box dans le point de dépôt le plus proche.
 4. Une fois que la Data Box a été scannée et récupérée par le transporteur, l’état de la commande dans le portail affiche **Récupérée**. Un ID de suivi s’affiche également.
@@ -67,7 +67,7 @@ Effectuez les étapes suivantes si vous retournez l’appareil aux États-Unis, 
 
 Les centres de données Azure de l’Australie ont une notification de sécurité supplémentaire. Toutes les expéditions entrantes doivent avoir une notification préalable. Effectuez les étapes suivantes pour expédier en Australie.
 
-1. Conservez la boîte d’origine utilisée pour expédier l’appareil dans le cadre d’un retour.
+1. Conservez la boîte d’origine utilisée pour expédier l’appareil, en cas de retour.
 2. Vérifiez que la copie des données sur l’appareil a été effectuée et que la **préparation de l’expédition** a réussi.
 3. Mettez l’appareil hors tension et débranchez les câbles.
 4. Enroulez le cordon d’alimentation fourni avec l’appareil, et fixez-le à l’arrière de ce dernier.
@@ -75,7 +75,7 @@ Les centres de données Azure de l’Australie ont une notification de sécurit�
 
 ## <a name="japan"></a>[Japon](#tab/in-japan)
 
-1. Conservez la boîte d’origine utilisée pour expédier l’appareil dans le cadre d’un retour.
+1. Conservez la boîte d’origine utilisée pour expédier l’appareil, en cas de retour.
 2. Mettez l’appareil hors tension et débranchez les câbles.
 3. Enroulez le cordon d’alimentation fourni avec l’appareil, et fixez-le à l’arrière de ce dernier.
 4. Écrivez le nom et l’adresse de votre entreprise dans la partie du bordereau de réexpédition réservée à l’expéditeur.
@@ -105,7 +105,7 @@ Si nécessaire, vous pouvez contacter le support de Quantium Solutions (en langu
 
 ## <a name="singapore"></a>[Singapour](#tab/in-singapore)
 
-1. Conservez la boîte d’origine utilisée pour expédier l’appareil dans le cadre d’un retour.
+1. Conservez la boîte d’origine utilisée pour expédier l’appareil, en cas de retour.
 2. Notez le numéro de suivi (indiqué comme numéro de référence dans la page Préparation de l’expédition de l’interface utilisateur web locale de la Data Box). Il est disponible une fois l’étape de préparation de l’expédition terminée. Téléchargez l’étiquette d’expédition à partir de cette page, puis collez-la sur le carton d’emballage.
 3. Mettez l’appareil hors tension et débranchez les câbles.
 4. Enroulez le cordon d’alimentation fourni avec l’appareil, et fixez-le à l’arrière de ce dernier. 
@@ -129,7 +129,7 @@ Si nécessaire, vous pouvez contacter le support de Quantium Solutions (en langu
 
 ## <a name="south-africa"></a>[Afrique du Sud](#tab/in-sa)
 
-1. Conservez la boîte d’origine en vue de la réexpédition de l’appareil.
+1. Conservez la boîte d’origine utilisée pour expédier l’appareil, en cas de retour.
 2. Notez le numéro de référence (numéro de lettre de transport) indiqué dans l’interface utilisateur web locale de l’appareil. Ce numéro s’affiche une fois que la **préparation de l’expédition** a abouti.
 3. Téléchargez et imprimez l’étiquette d’expédition disponible dans l’interface utilisateur web locale de l’appareil et apposez-la sur le colis d’expédition.
 4. Pour réserver un enlèvement avec DHL, vous avez plusieurs options :
@@ -147,7 +147,7 @@ Si nécessaire, vous pouvez contacter le support de Quantium Solutions (en langu
 
     * Vous pouvez également déposer le colis au point de service DHL le plus proche.
 
-5. Si vous rencontrez des problèmes, envoyez e-mail à l’adresse [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com), en détaillant les problèmes que vous avez rencontrés et en insérant le numéro de lettre de transport dans la ligne Objet. Vous pouvez également appeler le +27(0)119213902.
+5. En cas de problème, envoyez e-mail à l’adresse [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com), en détaillant le ou les problèmes rencontrés et en insérant le numéro de lettre de transport dans la ligne Objet. Vous pouvez également appeler le +27(0)119213902.
 
 ## <a name="hong-kong"></a>[Hong Kong (R.A.S.)](#tab/in-hk)
 
@@ -158,7 +158,7 @@ Si nécessaire, vous pouvez contacter le support de Quantium Solutions (en langu
 5. Appelez l’assistance téléphonique de **Quantium Solutions** au **(852) 2318 1213** pendant les heures de bureau (de 9h00 à 18h00, du lundi au vendredi).  
 6. Indiquez Enlèvement Microsoft Azure, le numéro de référence et le numéro de suivi (code-barres en haut) sur l’étiquette de réexpédition pour organiser l’enlèvement.
 7. Vous recevrez une confirmation verbale pour la planification de l’enlèvement. Si le transporteur ne procède pas à l’enlèvement, appelez l’assistance téléphonique de Quantium Solutions pour trouver une autre solution.
-8. Lors de la réservation d’un enlèvement avec Quantium, partagez la confirmation avec [Microsoft Data Box Operations Asia](mailto:adbo@microsoft.com) à l’aide du modèle suivant :
+8. Lors de la réservation d’un enlèvement auprès de Quantium, partagez la confirmation avec [Microsoft Data Box Operations Asia](mailto:adbo@microsoft.com) à l’aide du modèle suivant :
 
     ```output
     To: adbo@microsoft.com
@@ -172,7 +172,7 @@ Si nécessaire, vous pouvez contacter le support de Quantium Solutions (en langu
        * Pickup time:
     ```
 
-Si vous rencontrez des problèmes, envoyez un e-mail à Data Box Operations Asia à l’adresse [adbo@microsoft.com](mailto:adbo@microsoft.com), en spécifiant le nom du travail dans l’en-tête d’objet et le problème rencontré.
+En cas de problème, envoyez un e-mail à Data Box Operations Asia à l’adresse [adbo@microsoft.com](mailto:adbo@microsoft.com), en spécifiant le nom du travail dans l’en-tête d’objet et le problème rencontré.
 
 ## <a name="self-managed"></a>[Autogérée](#tab/in-selfmanaged)
 
@@ -194,7 +194,7 @@ Si vous utilisez la Data Box au Japon, à Singapour, en Corée, en Inde, en Afri
 ---
 
 ## <a name="erasure-of-data-from-data-box"></a>Effacer les données de la Data Box
- 
+
 Une fois que l’appareil a atteint le centre de données Azure, la Data Box efface les données de ses disques, conformément aux [instructions du standard NIST SP 800-88 Revision 1](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi).
 
 ## <a name="next-steps"></a>Étapes suivantes

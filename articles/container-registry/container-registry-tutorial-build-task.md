@@ -4,12 +4,12 @@ description: Dans ce didacticiel, vous allez découvrir comment configurer une t
 ms.topic: tutorial
 ms.date: 11/24/2020
 ms.custom: seodec18, mvc, devx-track-azurecli
-ms.openlocfilehash: 00f77d9dc56bf8fff792a23bbb139519ccd24351
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 7f2e6d7f304977d3e6d92a778dba5bf026343707
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030592"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562903"
 ---
 # <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>Tutoriel : automatiser la génération des images de conteneur dans le cloud lorsque vous validez le code source
 
@@ -58,7 +58,7 @@ az acr task create \
 ```
 
 
-Cette tâche spécifie que tout code temporel est validé dans la branche *maîtresse* du référentiel spécifié par `--context` et qu’ACR Tasks va générer l’image conteneur à partir du code de cette branche. Le Dockerfile spécifié par `--file` à la racine du dépôt est utilisé pour générer l’image. L’argument `--image` spécifie une valeur paramétrable de `{{.Run.ID}}` pour la partie « version » de la balise de l’image, garantissant ainsi que l’image générée est en corrélation avec une build spécifique et qu’elle est référencée de façon unique.
+Cette tâche spécifie que tout code temporel est validé dans la branche *primaire* du dépôt spécifié par `--context` et qu’ACR Tasks va générer l’image conteneur à partir du code de cette branche. Le Dockerfile spécifié par `--file` à la racine du dépôt est utilisé pour générer l’image. L’argument `--image` spécifie une valeur paramétrable de `{{.Run.ID}}` pour la partie « version » de la balise de l’image, garantissant ainsi que l’image générée est en corrélation avec une build spécifique et qu’elle est référencée de façon unique.
 
 La sortie d’une commande [az acr task create][az-acr-task-create] réussie se présente ainsi :
 
@@ -103,7 +103,7 @@ La sortie d’une commande [az acr task create][az-acr-task-create] réussie se 
       {
         "name": "defaultSourceTriggerName",
         "sourceRepository": {
-          "branch": "master",
+          "branch": "main",
           "repositoryUrl": "https://github.com/gituser/acr-build-helloworld-node",
           "sourceControlAuthProperties": null,
           "sourceControlType": "GitHub"
@@ -194,7 +194,7 @@ Exécutez alors les commandes suivantes pour créer, valider et envoyer un nouve
 echo "Hello World!" > hello.txt
 git add hello.txt
 git commit -m "Testing ACR Tasks"
-git push origin master
+git push origin main
 ```
 
 Vous pouvez être invité à fournir vos informations d’identification GitHub lorsque vous exécutez la commande `git push`. Indiquez votre nom d’utilisateur GitHub et entrez le jeton d’accès personnel (PAT) que vous avez créé précédemment pour le mot de passe.

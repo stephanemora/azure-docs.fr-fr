@@ -2,13 +2,13 @@
 title: Connecter une machine hybride avec Azure Arc enabled servers
 description: Découvrez comment connecter et inscrire votre machine hybride à l’aide d’Azure Arc enabled servers.
 ms.topic: quickstart
-ms.date: 11/12/2020
-ms.openlocfilehash: 3779d95ac138e83b1d953f744e07ae553890a5d7
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.date: 12/15/2020
+ms.openlocfilehash: 68869854cbfcf6d7297137e6239b2229a20c04a1
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94576833"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516791"
 ---
 # <a name="quickstart-connect-hybrid-machine-with-azure-arc-enabled-servers"></a>Démarrage rapide : Connecter une machine hybride avec Azure Arc enabled servers
 
@@ -29,6 +29,9 @@ ms.locfileid: "94576833"
     * Si la machine se connecte via un pare-feu ou un serveur proxy pour communiquer sur Internet, assurez-vous que les URL [répertoriées](../agent-overview.md#networking-configuration) ne sont pas bloquées.
 
     * Azure Arc enabled servers prend uniquement en charge les régions spécifiées [ici](../overview.md#supported-regions).
+
+> [!WARNING]
+> Le nom d’hôte Linux ou le nom de l’ordinateur Windows ne peuvent pas contenir de mots réservés ou de marques dans le nom. Dans le cas contraire, la tentative d’inscription de la machine connectée auprès d’Azure se solde par un échec. Consultez [Résoudre les erreurs de nom de ressource réservé](../../../azure-resource-manager/templates/error-reserved-resource-name.md) pour obtenir la liste des mots réservés.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 

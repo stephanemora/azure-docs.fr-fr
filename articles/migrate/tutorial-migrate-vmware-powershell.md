@@ -6,12 +6,12 @@ ms.author: rahugup
 manager: bsiva
 ms.topic: tutorial
 ms.date: 10/1/2020
-ms.openlocfilehash: 187e17bcf385ba6b3c17566fc00e5ee77cf009fe
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: ce712736c25c0757f5b654e4442a4f08acdf15e2
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96752479"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97029785"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless---powershell"></a>Migrer des machines virtuelles VMware vers Azure (sans agent) - PowerShell
 
@@ -464,7 +464,7 @@ while (($StopReplicationJob.State -eq "InProgress") -or ($StopReplicationJob.Sta
 Write-Output $StopReplicationJob.State
 ```
 
-2. Installez l’agent [Windows](../virtual-machines/extensions/agent-windows.md) ou [Linux](../virtual-machines/extensions/agent-linux.md) de machine virtuelle Azure sur les machines migrées.
+2. Installez l’agent [Linux](../virtual-machines/extensions/agent-linux.md) sur les machines migrées si la machine exécute le système d’exploitation Linux. Nous installons automatiquement l’agent de machine virtuelle pour les machines virtuelles Windows pendant la migration.
 3. Effectuez les éventuels ajustements post-migration de l’application, comme la mise à jour des chaînes de connexion de base de données et les configurations du serveur web.
 4. Effectuez les tests finaux de réception de l’application et de la migration sur l’application migrée qui s’exécute maintenant dans Azure.
 5. Réduisez le trafic vers l’instance de machine virtuelle Azure migrée.

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: d205cff71b962afb9ead8271ee0c220fa1e2242f
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: 5fb7c0df653048adcffceda4d8a384be823b5c3a
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96518768"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507691"
 ---
 # <a name="tutorial-call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Tutoriel : Appeler l’API Microsoft Graph à partir d’une application de bureau Windows
 
@@ -104,18 +104,17 @@ Vous pouvez inscrire rapidement votre application en procédant comme suit :
 ### <a name="option-2-advanced-mode"></a>Option n°2 : Mode Avancé
 
 Pour inscrire votre application et ajouter les informations d’inscription de l’application à votre solution, procédez comme suit :
-1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
-1. Si votre compte vous propose un accès à plusieurs locataires, sélectionnez votre compte en haut à droite et définissez votre session de portail sur le locataire Azure AD souhaité.
-1. Accédez à la page [Inscriptions des applications](https://go.microsoft.com/fwlink/?linkid=2083908) de la plateforme d’identité Microsoft pour les développeurs.
-1. Sélectionnez **Nouvelle inscription**.
-   - Dans la section **Nom**, saisissez un nom d’application cohérent qui s’affichera pour les utilisateurs de l’application, par exemple `Win-App-calling-MsGraph`.
-   - Dans la section **Types de comptes pris en charge**, sélectionnez **Comptes dans un annuaire organisationnel et comptes personnels Microsoft (par exemple, Skype, Xbox, Outlook.com)** .
-   - Sélectionnez **Inscrire** pour créer l’application.
-1. Dans la liste des pages de l’application, sélectionnez **Authentification**.
-   1. Dans la section **URI de redirection**, dans la liste des URI de redirection :
-   1. Dans la colonne **TYPE**, sélectionnez **Client public/natif (mobile & bureau)** .
-   1. Dans la colonne **URI de redirection**, entrez `https://login.microsoftonline.com/common/oauth2/nativeclient`.
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Si vous avez accès à plusieurs locataires, utilisez le filtre **Répertoire + abonnement** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: dans le menu du haut pour sélectionner le locataire dans lequel vous voulez inscrire une application.
+1. Recherchez et sélectionnez **Azure Active Directory**.
+1. Sous **Gérer**, sélectionnez **Inscriptions d’applications** > **Nouvelle inscription**.
+1. Entrez un **nom** pour votre application (par exemple, `Win-App-calling-MsGraph`). Les utilisateurs de votre application peuvent voir ce nom, et vous pouvez le changer ultérieurement.
+1. Dans la section **Types de comptes pris en charge**, sélectionnez **Comptes dans un annuaire d’organisation (tout annuaire Azure AD - Multilocataire) et comptes Microsoft personnels (par exemple, Skype, Xbox)** .
 1. Sélectionnez **Inscription**.
+1. Sous **Gérer**, sélectionnez **Authentification** > **Ajouter une plateforme**.
+1. Sélectionnez **Applications de bureau et mobiles**.
+1. Dans la section **URI de redirection**, sélectionnez **https://login.microsoftonline.com/common/oauth2/nativeclient** .
+1. Sélectionnez **Configurer**.
 1. Accédez à Visual Studio, ouvrez le fichier *App.xaml.cs*, puis remplacez `Enter_the_Application_Id_here` dans l’extrait de code ci-dessous par l’ID de l’application que vous venez d’inscrire et de copier.
 
     ```csharp

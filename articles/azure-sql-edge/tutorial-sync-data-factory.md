@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 672c9f0d5403ae27a26d58617dca44f0f1121411
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b83201ae864d1f1eb9124af5268360bb1748f6c8
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90904156"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507606"
 ---
 # <a name="tutorial-sync-data-from-sql-edge-to-azure-blob-storage-by-using-azure-data-factory"></a>Tutoriel : Synchroniser des données de SQL Edge sur le Stockage Blob Azure à l’aide d’Azure Data Factory
 
@@ -59,8 +59,11 @@ Exécutez ces commandes sur l’instance SQL Edge :
     CREATE PROCEDURE usp_write_watermark @timestamp datetime, @TableName varchar(50)  
     AS  
     BEGIN
+    
     UPDATE [dbo].[watermarktable]
-    SET [WatermarkValue] = @timestamp WHERE [TableName] = @TableName
+    SET [WatermarkValue] = @timestamp
+    WHERE [TableName] = @TableName
+
     END
     Go
 ```
@@ -143,7 +146,7 @@ Créez une fabrique de données en suivant les instructions de ce [tutoriel](../
 
 18. Sélectionnez l’activité Copie et vérifiez que vous voyez les propriétés de l’activité dans la fenêtre **Propriétés**.
 
-19. Basculez vers l’onglet **Source** dans la fenêtre**Propriétés**, et effectuez les étapes suivantes :
+19. Basculez vers l’onglet **Source** dans la fenêtre **Propriétés**, et effectuez les étapes suivantes :
 
     1. Dans la zone **Jeu de données source**, sélectionnez **SourceDataset**.
 
@@ -187,7 +190,7 @@ Créez une fabrique de données en suivant les instructions de ce [tutoriel](../
 
 30. Sélectionnez **Activité de procédure stockée** dans le concepteur de pipeline et remplacez son nom par **SPtoUpdateWatermarkActivity**.
 
-31. Passez à l’onglet **Compte SQL** et sélectionnez ***QLDBEdgeLinkedService** sous **Service lié**.
+31. Passez à l’onglet **Compte SQL** et sélectionnez **_QLDBEdgeLinkedService_* sous **Service lié**.
 
 32. Basculez vers l’onglet **Procédure stockée** et effectuez ces étapes :
 

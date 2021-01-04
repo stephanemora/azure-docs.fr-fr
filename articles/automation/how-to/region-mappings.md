@@ -1,16 +1,16 @@
 ---
 title: Régions prises en charge pour l’espace de travail Log Analytics lié
 description: Cet article décrit les mappages des régions prises en charge entre un compte Automation et un espace de travail Log Analytics en relation avec certaines fonctionnalités d’Azure Automation.
-ms.date: 12/01/2020
+ms.date: 12/15/2020
 services: automation
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: 25ddf562f92ca96a505432a58f137657a2bbc4bd
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 95537bd54ecb476055608c89ac68a46d410288b6
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96446967"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590883"
 ---
 # <a name="supported-regions-for-linked-log-analytics-workspace"></a>Régions prises en charge pour l’espace de travail Log Analytics lié
 
@@ -44,12 +44,16 @@ Le tableau suivant renseigne sur les mappages pris en charge :
 |ChineEst2<sup>3</sup>|ChinaEast2|
 |JaponEst|JaponEst|
 |**Europe**||
+|NorthEurope|NorthEurope|
+|FranceCentral|FranceCentral|
 |RoyaumeUniSud|RoyaumeUniSud|
 |WestEurope|WestEurope|
 |SwitzerlandNorth|SwitzerlandNorth|
 |**Gouvernement des États-Unis**||
 |USGovVirginie|USGovVirginie|
 |USGovArizona<sup>3</sup>|USGovArizona|
+
+
 
 <sup>1</sup> Le mappage EastUS entre des espaces de travail Log Analytics et des comptes Automation n’est pas un mappage exact de région à région, mais c’est le mappage correct.
 

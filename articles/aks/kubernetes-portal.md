@@ -1,23 +1,21 @@
 ---
-title: Accéder aux ressources Kubernetes à partir du Portail Azure (préversion)
+title: Accéder aux ressources Kubernetes à partir du portail Azure
 description: Découvrez comment interagir avec les ressources Kubernetes pour gérer un cluster Azure Kubernetes service (AKS) à partir du Portail Azure.
 services: container-service
 ms.topic: article
-ms.date: 09/21/2020
-ms.openlocfilehash: cfd09e469de68a1eee7440773347e9fe58bf8619
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.date: 12/09/2020
+ms.openlocfilehash: 8e31c41573ced403a034999de71a5595a54281df
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96571621"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921579"
 ---
-# <a name="access-kubernetes-resources-from-the-azure-portal-preview"></a>Accéder aux ressources Kubernetes à partir du Portail Azure (préversion)
+# <a name="access-kubernetes-resources-from-the-azure-portal"></a>Accéder aux ressources Kubernetes à partir du portail Azure
 
-Le Portail Azure comprend une visionneuse de ressources Kubernetes (préversion) pour un accès facile aux ressources Kubernetes dans votre cluster Azure Kubernetes service (AKS). L’affichage des ressources Kubernetes à partir du Portail Azure réduit le basculement de contexte entre le Portail Azure et l’outil de ligne de commande `kubectl`, ce qui simplifie l’expérience d’affichage et de modification de vos ressources Kubernetes. La visionneuse de ressources comprend actuellement plusieurs types de ressources, tels que les déploiements, les pods et les jeux de réplicas.
+Le portail Azure comprend une vue des ressources Kubernetes pour un accès facile aux ressources Kubernetes dans votre cluster Azure Kubernetes Service (AKS). L’affichage des ressources Kubernetes à partir du Portail Azure réduit le basculement de contexte entre le Portail Azure et l’outil de ligne de commande `kubectl`, ce qui simplifie l’expérience d’affichage et de modification de vos ressources Kubernetes. La visionneuse de ressources comprend actuellement plusieurs types de ressources, tels que les déploiements, les pods et les jeux de réplicas.
 
 La vue des ressources Kubernetes du portail Azure remplace le [module complémentaire du tableau de bord AKS][kubernetes-dashboard], qui était obsolète.
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 

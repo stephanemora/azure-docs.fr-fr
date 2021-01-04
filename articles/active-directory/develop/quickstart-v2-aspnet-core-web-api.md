@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/22/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: aa0a001f9c35202939eeb4a7752803b998a3acf7
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: e85e433e1b1b31470fc8d7dee24353fd719b64e2
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94562013"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97031179"
 ---
 # <a name="quickstart-protect-an-aspnet-core-web-api-with-microsoft-identity-platform"></a>Démarrage rapide : Protéger une API web ASP.NET Core avec la plateforme d’identités Microsoft
 
@@ -38,12 +38,10 @@ Dans ce guide de démarrage rapide, vous téléchargez un exemple de code d’AP
 > 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 > 1. Si vous avez accès à plusieurs locataires, utilisez le filtre **Répertoire + abonnement** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: dans le menu du haut pour sélectionner le locataire dans lequel vous voulez inscrire une application.
 > 1. Recherchez et sélectionnez **Azure Active Directory**.
-> 1. Sous **Gérer**, sélectionnez **Inscriptions d’applications**, puis **Nouvelle inscription**.
+> 1. Sous **Gérer**, sélectionnez **Inscriptions d’applications** > **Nouvelle inscription**.
 > 1. Entrez un **nom** pour votre application (par exemple, `AspNetCoreWebApi-Quickstart`). Les utilisateurs de votre application peuvent voir ce nom, et vous pouvez le changer ultérieurement.
 > 1. Sélectionnez **Inscription**.
-> 1. Sous **Gérer**, sélectionnez **Exposer une API**.
-> 1. Sélectionnez **Ajouter une étendue**, puis sélectionnez **Enregistrer et continuer** pour accepter l’**URI d’ID d’application** par défaut.
-> 1. Dans le panneau **Ajouter une étendue**, entrez les valeurs suivantes :
+> 1. Sous **Gérer**, sélectionnez **Exposer une API** > **Ajouter une étendue**. Acceptez l’**URI d’ID d’application** par défaut en sélectionnant **Enregistrer et continuer**, puis entrez les informations suivantes :
 >    - **Nom de l’étendue** : `access_as_user`
 >    - **Qui peut donner son consentement ?**  : **Administrateurs et utilisateurs**
 >    - **Nom d’affichage du consentement administrateur** : `Access AspNetCoreWebApi-Quickstart`

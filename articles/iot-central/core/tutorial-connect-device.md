@@ -11,12 +11,12 @@ ms.custom:
 - mqtt
 - device-developer
 zone_pivot_groups: programming-languages-set-twenty-six
-ms.openlocfilehash: 9eeb8174c900b0f548144231e65643c9559f75e3
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: 2757d696f5922263abf87399d6491e46b5e5513c
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96126082"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033866"
 ---
 # <a name="tutorial-create-and-connect-a-client-application-to-your-azure-iot-central-application"></a>Tutoriel : Créer et connecter une application cliente à votre application Azure IoT Central
 
@@ -84,3 +84,4 @@ En tant que développeur d’appareils, maintenant que vous avez appris les base
 * Pour en savoir plus sur le rôle des modèles d’appareils quand vous implémentez votre code d’appareil, consultez [Présentation des modèles d’appareils](./concepts-device-templates.md).
 * Lisez [Se connecter à Azure IoT Central](./concepts-get-connected.md) pour en savoir plus sur la façon d’inscrire des appareils auprès d’IoT Central et sur la manière dont IoT Central sécurise les connexions des appareils.
 * Lisez [Charges utiles de télémétrie, de propriétés et de commandes](concepts-telemetry-properties-commands.md) pour en savoir plus sur les données échangées par l’appareil avec IoT Central.
+* Lisez le [guide du développeur d’appareils IoT Plug-and-Play](../../iot-pnp/concepts-developer-guide-device.md).

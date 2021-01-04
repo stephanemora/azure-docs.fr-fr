@@ -6,14 +6,14 @@ services: internet-peering
 author: prmitiki
 ms.service: internet-peering
 ms.topic: conceptual
-ms.date: 11/27/2019
+ms.date: 12/15/2020
 ms.author: prmitiki
-ms.openlocfilehash: 20f25e0add5d05bb2dcf7f3ebdc86ccd5ae889d0
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: bee41bb8e5beb4df3086ab50499cb185a83e4efe
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510785"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97592327"
 ---
 # <a name="peering-policy"></a>Stratégie de peering
 Microsoft gère une stratégie de peering sélective conçue pour garantir la meilleure expérience client possible adossée à des normes sectorielles et des meilleures pratiques, adaptant son échelle à la demande future et au positionnement stratégique du peering. Par conséquent, Microsoft se réserve le droit de faire des exceptions à la stratégie si elles sont jugées nécessaires. Les exigences générales de Microsoft concernant votre réseau sont décrites dans les sections ci-dessous. Elles s’appliquent à la fois aux requêtes de Peering direct et de Peering Exchange. 

@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f694a46fddbc84968b3267842aa19108d051590
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 0876478d638963e7157f7a16a263000eec634db0
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499235"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97005117"
 ---
 # <a name="overview-of-role-based-access-control-in-azure-active-directory"></a>Vue d’ensemble du contrôle d’accès en fonction du rôle dans Azure Active Directory
 
@@ -30,10 +30,13 @@ Cet article explique ce qu’est le contrôle d’accès en fonction du rôle Az
 Les deux systèmes contiennent des définitions de rôles et des attributions de rôles à l’usage similaire. Toutefois, les autorisations de rôle Azure AD ne peuvent pas être utilisées dans les rôles personnalisés Azure, et vice versa.
 
 ## <a name="understand-azure-ad-role-based-access-control"></a>Présentation du contrôle d’accès en fonction du rôle Azure AD
+Azure AD prend en charge 2 types de définitions de rôles : 
+* [Rôles intégrés](https://docs.microsoft.com/azure/active-directory/roles/permissions-reference)
+* [Rôles personnalisés](https://docs.microsoft.com/azure/active-directory/roles/custom-create)
 
-L’octroi d’une autorisation à l’aide de rôles Azure AD personnalisés est un processus en deux étapes qui implique la création d’une définition de rôle personnalisé, puis son affectation à l’aide d’une attribution de rôle. Une définition de rôle personnalisé est une collection d’autorisations que vous ajoutez à partir d’une liste prédéfinie. Il s’agit des mêmes autorisations que celles utilisées dans les rôles intégrés.  
+Les rôles intégrés sont des rôles prêts à l’emploi qui possèdent un ensemble fixe d’autorisations. Ces définitions de rôles ne peuvent pas être modifiées. Il existe de nombreux rôles [intégrés](https://docs.microsoft.com/azure/active-directory/roles/permissions-reference) pris en charge par Azure AD, et la liste s’agrandit. Pour s’ajuster au mieux et satisfaire à vos exigences plus complexes, Azure AD prend également en charge les [rôles personnalisés](https://docs.microsoft.com/azure/active-directory/roles/custom-create). L’octroi d’une autorisation à l’aide de rôles Azure AD personnalisés est un processus en deux étapes qui implique la création d’une définition de rôle personnalisé, puis son affectation à l’aide d’une attribution de rôle. Une définition de rôle personnalisé est une collection d’autorisations que vous ajoutez à partir d’une liste prédéfinie. Il s’agit des mêmes autorisations que celles utilisées dans les rôles intégrés.  
 
-Une fois que vous avez créé votre définition de rôle, attribuez-la à un utilisateur en créant une attribution de rôle. Une attribution de rôle accorde à l’utilisateur les autorisations dans une définition de rôle au niveau d’une étendue spécifiée. Ce processus en deux étapes vous permet de créer une définition de rôle unique et de l’attribuer plusieurs fois à différentes étendues. Une étendue définit l’ensemble des ressources Azure AD auxquelles le membre du rôle a accès. L’étendue la plus courante est l’étendue à l’échelle de l’organisation (échelle-org). Un rôle personnalisé peut être attribué à une étendue d’échelle de l’organisation, ce qui signifie que le membre du rôle dispose des autorisations de rôle sur toutes les ressources de l’organisation. Un rôle personnalisé peut également être attribué au niveau de l’étendue d’objet. Un exemple d’étendue d’objet est une application unique. Le même rôle peut être attribué à un utilisateur sur toutes les applications de l’organisation, puis à un autre utilisateur avec une étendue limitée à l’application Contoso Expense Reports.  
+Une fois que vous avez créé votre définition de rôle personnalisé (ou à l’aide d’un rôle intégré), affectez-la à un utilisateur en créant une attribution de rôle. Une attribution de rôle accorde à l’utilisateur les autorisations dans une définition de rôle au niveau d’une étendue spécifiée. Ce processus en deux étapes vous permet de créer une définition de rôle unique et de l’attribuer plusieurs fois à différentes étendues. Une étendue définit l’ensemble des ressources Azure AD auxquelles le membre du rôle a accès. L’étendue la plus courante est l’étendue à l’échelle de l’organisation (échelle-org). Un rôle personnalisé peut être attribué à une étendue d’échelle de l’organisation, ce qui signifie que le membre du rôle dispose des autorisations de rôle sur toutes les ressources de l’organisation. Un rôle personnalisé peut également être attribué au niveau de l’étendue d’objet. Un exemple d’étendue d’objet est une application unique. Le même rôle peut être attribué à un utilisateur sur toutes les applications de l’organisation, puis à un autre utilisateur avec une étendue limitée à l’application Contoso Expense Reports.  
 
 Les rôles personnalisés et intégrés Azure AD utilisent des concepts similaires au [Contrôle d’accès en fonction du rôle (RBAC) Azure](../../active-directory-b2c/overview.md). La [différence entre ces deux systèmes de contrôle d’accès en fonction du rôle](../../role-based-access-control/rbac-and-directory-admin-roles.md) est qu’Azure RBAC contrôle l’accès aux ressources Azure, telles que les machines virtuelles ou le stockage à l’aide de la gestion des ressources Azure, et que les rôles personnalisés Azure AD contrôlent l’accès aux ressources Azure AD à l’aide de l’API Graph. Les deux systèmes utilisent le concept de définition de rôle et d’attribution de rôle. Les autorisations RBAC Azure AD ne peuvent pas être incluses dans les rôles Azure et inversement.
 
@@ -80,7 +83,7 @@ Une étendue est la restriction des actions autorisées à une ressource Azure A
 
 ## <a name="required-license-plan"></a>Plan de licence obligatoire
 
-[!INCLUDE [License requirement for using custom roles in Azure AD](../../../includes/active-directory-p1-license.md)]
+L’utilisation de rôles intégrés dans Azure AD est gratuite, par contre les rôles personnalisés nécessitent une licence Azure AD Premium P1. Pour trouver la licence appropriée à vos besoins, consultez [Comparaison des fonctionnalités mises à la disposition générale des éditions gratuite, de base et Premium](https://azure.microsoft.com/pricing/details/active-directory).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -6,14 +6,14 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.custom: contperfq1
-ms.date: 10/2/2020
-ms.openlocfilehash: 022e2e25c96473f49468f2bd48e5ee997933baea
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.custom: contperf-fy21q1
+ms.date: 12/9/2020
+ms.openlocfilehash: c11e0702a7825b719417288c5ebbf93defde186c
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348710"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97029242"
 ---
 # <a name="outputs-from-azure-stream-analytics"></a>Sorties d’Azure Stream Analytics
 
@@ -25,12 +25,12 @@ Certains types de sorties prennent en charge le [partitionnement](#partitioning)
 
 | Type de sortie | Partitionnement | Sécurité | 
 |-------------|--------------|----------|
-|[Azure Data Lake Storage Gen 1](azure-data-lake-storage-gen1-output.md)|Oui|Utilisateur Azure Active Directory </br> MSI|
-|[Azure SQL Database](sql-database-output.md)|Oui, facultatif.|Auth utilisateur SQL </br> MSI (préversion)|
-|[Azure Synapse Analytics](azure-synapse-analytics-output.md)|Oui|Auth utilisateur SQL|
-|[Stockage Blob et Azure Data Lake Gen 2](blob-storage-azure-data-lake-gen2-output.md)|Oui|MSI </br> Clé d’accès|
-|[Azure Event Hubs](event-hubs-output.md)|Oui, vous devez définir la colonne clé de partition dans la configuration de sortie.|Clé d’accès|
-|[Power BI](power-bi-output.md)|Non|Utilisateur Azure Active Directory </br> MSI|
+|[Azure Data Lake Storage Gen 1](azure-data-lake-storage-gen1-output.md)|Oui|Utilisateur Azure Active Directory </br> , Identité managée|
+|[Azure SQL Database](sql-database-output.md)|Oui, facultatif.|Authentification utilisateur SQL, </br> Identité managée (préversion)|
+|[Azure Synapse Analytics](azure-synapse-analytics-output.md)|Oui|Authentification utilisateur SQL, </br> Identité managée (préversion)|
+|[Stockage Blob et Azure Data Lake Gen 2](blob-storage-azure-data-lake-gen2-output.md)|Oui|Clé d’accès, </br> Identité managée (préversion)|
+|[Azure Event Hubs](event-hubs-output.md)|Oui, vous devez définir la colonne clé de partition dans la configuration de sortie.|Clé d’accès, </br> Identité managée (préversion)|
+|[Power BI](power-bi-output.md)|Non|Utilisateur Azure Active Directory, </br> Identité managée|
 |[Stockage Table Azure](table-storage-output.md)|Oui|Clé de compte|
 |[Files d’attente Azure Service Bus](service-bus-queues-output.md)|Oui|Clé d’accès|
 |[Rubriques Azure Service Bus](service-bus-topics-output.md)|Oui|Clé d’accès|

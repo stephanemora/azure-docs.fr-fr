@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/26/2020
 ms.author: mathoma
-ms.openlocfilehash: 244fae9f8611acd21f2ee6cd7dafa45b88606456
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: becf9f8c7f6a967ed63cfd3040de90de76e32fff
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359351"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607267"
 ---
 # <a name="create-an-fci-with-azure-shared-disks-sql-server-on-azure-vms"></a>Créer une instance FCI avec des disques partagés Azure (SQL Server sur les machines virtuelles Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -26,7 +26,6 @@ ms.locfileid: "97359351"
 Cet article explique comment créer une instance de cluster de basculement (FCI) à l’aide de disques partagés Azure avec SQL Server sur des machines virtuelles Azure. 
 
 Pour plus d’informations, consultez une présentation de [l’instance FCI avec SQL Server sur les machines virtuelles Azure](failover-cluster-instance-overview.md) et [les meilleures pratiques de cluster](hadr-cluster-best-practices.md). 
-
 
 ## <a name="prerequisites"></a>Prérequis 
 
@@ -37,12 +36,10 @@ Avant de suivre les instructions décrites dans cet article, vous devez déjà d
 - Un compte qui dispose des autorisations nécessaires pour créer des objets sur les machines virtuelles Azure et dans Active Directory.
 - La dernière version de [PowerShell](/powershell/azure/install-az-ps). 
 
-
 ## <a name="add-azure-shared-disk"></a>Ajouter un disque partagé Azure
 Déployez un disque SSD Premium managé avec la fonctionnalité de disque partagé activée. Définissez `maxShares` sur **aligner sur le nombre de nœuds de cluster** pour rendre le disque partageable sur tous les nœuds d’instance de cluster de basculement. 
 
 Ajoutez un disque partagé Azure en procédant comme suit : 
-
 
 1. Enregistrez le script suivant en tant que *SharedDiskConfig.json* : 
 
@@ -85,7 +82,6 @@ Ajoutez un disque partagé Azure en procédant comme suit :
    }
    ```
 
-
 2. Exécutez *SharedDiskConfig.json* à l’aide de PowerShell : 
 
    ```powershell
@@ -97,20 +93,19 @@ Ajoutez un disque partagé Azure en procédant comme suit :
 
 3. Pour chaque machine virtuelle, initialisez les disques partagés attachés en tant que table de partition GUID (GPT) et formatez-les en tant que NTFS (New Technology File System) en exécutant la commande suivante : 
 
-   ```powershell
-   $resourceGroup = "<your resource group name>"
-       $location = "<region of your shared disk>"
-       $ppgName = "<your proximity placement groups name>"
-       $vm = Get-AzVM -ResourceGroupName "<your resource group name>" `
-           -Name "<your VM node name>"
-       $dataDisk = Get-AzDisk -ResourceGroupName $resourceGroup `
-           -DiskName "<your shared disk name>"
-       $vm = Add-AzVMDataDisk -VM $vm -Name "<your shared disk name>" `
-           -CreateOption Attach -ManagedDiskId $dataDisk.Id `
-           -Lun <available LUN  check disk setting of the VM>
-    update-AzVm -VM $vm -ResourceGroupName $resourceGroup
-   ```
-
+    ```powershell
+    $resourceGroup = "<your resource group name>"
+    $location = "<region of your shared disk>"
+    $ppgName = "<your proximity placement groups name>"
+    $vm = Get-AzVM -ResourceGroupName "<your resource group name>" `
+        -Name "<your VM node name>"
+    $dataDisk = Get-AzDisk -ResourceGroupName $resourceGroup `
+        -DiskName "<your shared disk name>"
+    $vm = Add-AzVMDataDisk -VM $vm -Name "<your shared disk name>" `
+        -CreateOption Attach -ManagedDiskId $dataDisk.Id `
+        -Lun <available LUN - check disk setting of the VM>
+    Update-AzVm -VM $vm -ResourceGroupName $resourceGroup
+    ```
 
 ## <a name="create-failover-cluster"></a>Créer un cluster de basculement
 
@@ -119,7 +114,6 @@ Pour créer le cluster de basculement, vous avez besoin des éléments suivants�
 - Les noms des machines virtuelles qui deviennent les nœuds du cluster.
 - Un nom pour le cluster de basculement.
 - Une adresse IP pour le cluster de basculement. Vous pouvez spécifier une adresse IP qui n’est pas utilisée sur le même réseau virtuel et sous-réseau Azure que les nœuds du cluster.
-
 
 # <a name="windows-server-2012-2016"></a>[Windows Server 2012-2016](#tab/windows2012)
 
@@ -140,7 +134,6 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 Pour plus d’informations, consultez [Cluster de basculement : Objet réseau en cluster](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97).
 
 ---
-
 
 ## <a name="configure-quorum"></a>Configurer un quorum
 
@@ -199,13 +192,12 @@ Les répertoires de données de l’instance de cluster de basculement doivent s
 
 Pour gérer votre machine virtuelle SQL Server à partir du portail, inscrivez-la auprès de l’extension SQL IaaS Agent dans le [mode d’administration léger](sql-agent-extension-manually-register-single-vm.md#lightweight-management-mode), actuellement le seul mode pris en charge avec FCI et SQL Server sur les machines virtuelles Azure. 
 
-
 Inscrire une machine virtuelle SQL Server en mode léger avec PowerShell :  
 
 ```powershell-interactive
 # Get the existing compute VM
 $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
-         
+
 # Register SQL VM with 'Lightweight' SQL IaaS agent
 New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
    -LicenseType PAYG -SqlManagementType LightWeight  
@@ -222,7 +214,6 @@ Pour acheminer le trafic de manière appropriée vers le nœud principal actuel,
 ## <a name="next-steps"></a>Étapes suivantes
 
 Si vous ne l’avez pas déjà fait, configurez la connectivité à votre instance FCI avec un [nom de réseau virtuel et un équilibrage de charge Azure](failover-cluster-instance-vnn-azure-load-balancer-configure.md) ou [le nom de réseau distribué (DNN)](failover-cluster-instance-distributed-network-name-dnn-configure.md). 
-
 
 Si les disques partagés Azure ne sont pas la solution de stockage FCI appropriée pour vous, envisagez de créer votre instance FCI à l’aide de [partages de fichiers Premium](failover-cluster-instance-premium-file-share-manually-configure.md) ou d’[espaces de stockage direct](failover-cluster-instance-storage-spaces-direct-manually-configure.md) à la place. 
 

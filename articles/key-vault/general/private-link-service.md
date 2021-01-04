@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 570281e31c70b2f5f85a858f9dd424f93ee86029
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 75f06ae11d308028431202c22338ff4a589acf28
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460065"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97592294"
 ---
 # <a name="integrate-key-vault-with-azure-private-link"></a>Intégrer Key Vault avec Azure Private Link
 
@@ -53,7 +53,7 @@ Après avoir configuré les éléments de base du coffre de clés, sélectionnez
 1. Sélectionnez la case d’option Point de terminaison privé sous l’onglet Réseau.
 1. Cliquer sur le bouton « + Ajouter » pour ajouter un point de terminaison privé.
 
-    ![Image](../media/private-link-service-1.png)
+    ![Capture d’écran montrant l’onglet « Mise en réseau » de la page « Créer un coffre de clés »](../media/private-link-service-1.png)
  
 1. Dans le champ « Région » du panneau Créer un point de terminaison privé, sélectionnez la région dans laquelle se trouve votre réseau virtuel. 
 1. Dans le champ « Nom », créez un nom descriptif qui vous permettra d’identifier ce point de terminaison privé. 
@@ -61,7 +61,7 @@ Après avoir configuré les éléments de base du coffre de clés, sélectionnez
 1. Laissez l’option « intégrer à la zone DNS privée » inchangée.  
 1. Sélectionnez « OK ».
 
-    ![Image](../media/private-link-service-8.png)
+    ![Capture d’écran montrant la page « Créer un point de terminaison privé » avec les paramètres sélectionnés.](../media/private-link-service-8.png)
  
 Le point de terminaison privé configuré est maintenant visible. Vous avez maintenant la possibilité de supprimer et de modifier ce point de terminaison privé. Sélectionnez le bouton « Vérifier + créer » et créez le coffre de clés. Le déploiement prend entre 5 et 10 minutes. 
 
@@ -76,12 +76,13 @@ Si vous disposez déjà d’un coffre de clés, vous pouvez créer une connexion
 1. Sélectionnez l’onglet Connexions des points de terminaison privés en haut de la page
 1. Sélectionnez le bouton « + Point de terminaison privé » en haut de la page.
 
-    ![Image](../media/private-link-service-3.png) ![Image](../media/private-link-service-4.png)
+    ![Capture d’écran montrant le bouton « + Point de terminaison privé » dans la page « Mise en réseau »](../media/private-link-service-3.png).
+    ![Capture d’écran montrant l’onglet « Informations de base » dans la page « Créer un point de terminaison privé (préversion) »](../media/private-link-service-4.png)
 
 Vous pouvez choisir de créer un point de terminaison privé pour n’importe quelle ressource Azure à l’aide de ce panneau. Vous pouvez soit utiliser les menus déroulants pour sélectionner un type de ressource et sélectionner une ressource dans votre annuaire, soit vous connecter à une ressource Azure en utilisant un ID de ressource. Laissez l’option « intégrer à la zone DNS privée » inchangée.  
 
-![Image](../media/private-link-service-3.png)
-![Image](../media/private-link-service-4.png)
+![Capture d’écran montrant l’ajout d’un point de terminaison privé à l’aide du panneau actuel](../media/private-link-service-3.png)
+![Capture d’écran montrant un exemple de la page « Créer un point de terminaison privé (préversion) »](../media/private-link-service-4.png)
 
 Quand vous créez un point de terminaison privé, la connexion doit être approuvée. Si la ressource pour laquelle vous créez un point de terminaison privé se trouve dans votre annuaire, vous pouvez approuver la demande de connexion à condition de bénéficier d’autorisations suffisantes. Si vous vous connectez à une ressource Azure située dans un autre annuaire, vous devez attendre que le propriétaire de cette ressource approuve votre demande de connexion.
 

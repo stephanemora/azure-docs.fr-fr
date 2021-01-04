@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: timlt
-ms.openlocfilehash: 193ceab0b2df1ab833a86eb748c18271a8e33b71
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 5012383e64a85ee025273f5339b828f5338e1d4f
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96852912"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97629066"
 ---
 # <a name="what-are-azure-iot-solution-accelerators"></a>Que sont les accélérateurs de solution IoT ?
 
@@ -29,7 +29,7 @@ Vous pouvez aussi utiliser les accélérateurs de solution en tant qu’outils d
 Le code d’application de chaque accélérateur de solution inclut une application web qui vous permet de gérer l’accélérateur de solution.
 
 > [!NOTE]
-> Les solutions de supervision à distance et de maintenance prédictive ont été supprimées du site [Accélérateurs de solutions Azure IoT](https://www.azureiotsolutions.com/Accelerators). Pour en savoir plus, consultez [Présentation des accélérateurs de solutions Azure IoT (version précédente)](/previous-versions/azure/iot-accelerators/about-iot-accelerators.md).
+> Les solutions de supervision à distance et de maintenance prédictive ont été supprimées du site [Accélérateurs de solutions Azure IoT](https://www.azureiotsolutions.com/Accelerators). Pour en savoir plus, consultez [Présentation des accélérateurs de solutions Azure IoT (version précédente)](/previous-versions/azure/iot-accelerators/about-iot-accelerators).
 
 ## <a name="supported-iot-scenarios"></a>Scénarios IoT pris en charge
 

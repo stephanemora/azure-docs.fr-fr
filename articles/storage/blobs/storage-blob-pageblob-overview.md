@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: wielriac
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 39c1972eba84f4f1990c87112c5801c386849640
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: aada418b4f74c38a2a35c793deb85b94b703fb89
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95545956"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97629355"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Vue d’ensemble des objets blob de pages Azure
 
@@ -57,7 +57,7 @@ Le diagramme suivant décrit les relations globales entre le compte, les contene
 
 # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
-Commencez par obtenir une référence à un conteneur. Pour créer un objet blob de pages, appelez la méthode [GetPageBlobClient](/dotnet/api/azure.storage.blobs.specialized.specializedblobextensions.getpageblobclient), puis la méthode [PageBlobClient.Create](/dotnet/api/azure.storage.blobs.specialized.pageblobclient.create). Transmettez la taille maximale de l’objet blob à créer. Cette taille doit être un multiple de 512 octets.
+Commencez par obtenir une référence à un conteneur. Pour créer un objet blob de pages, appelez la méthode GetPageBlobClient, puis la méthode [PageBlobClient.Create](/dotnet/api/azure.storage.blobs.specialized.pageblobclient.create). Transmettez la taille maximale de l’objet blob à créer. Cette taille doit être un multiple de 512 octets.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_CreatePageBlob":::
 

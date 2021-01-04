@@ -3,12 +3,12 @@ title: Analyser des flux vidéo en direct avec le service Vision par ordinateur 
 description: Ce didacticiel explique comment utiliser Live Video Analytics avec la fonctionnalité IA d’analyse spatiale Vision par ordinateur d’Azure Cognitive Services pour analyser un flux vidéo en direct à partir d’une caméra IP (simulée).
 ms.topic: tutorial
 ms.date: 09/08/2020
-ms.openlocfilehash: 0dc89eaddf5cabc3063744dfe2c9f0236c70438c
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 5cebedec11b91f5b0b94df25a860da3d517bb997
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015683"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400508"
 ---
 # <a name="analyze-live-video-with-computer-vision-for-spatial-analysis-preview"></a>Analyser des flux vidéo en direct avec le service Vision par ordinateur pour l’analyse spatiale (préversion)
 
@@ -51,7 +51,7 @@ Vous trouverez ci-dessous les conditions préalables à remplir pour connecter l
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/spatial-analysis-tutorial/overview.png" alt-text="Vue d’ensemble de l’analyse spatiale":::
  
-Ce diagramme montre comment les signaux circulent dans ce tutoriel. Un [module de périphérie](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) simule une caméra IP hébergeant un serveur RTSP (Real-Time Streaming Protocol). Un nœud de [source RTSP](media-graph-concept.md#rtsp-source) récupère le flux vidéo à partir de ce serveur et envoie des images vidéo au nœud [processeur de filtre de fréquence d’images](media-graph-concept.md#frame-rate-filter-processor). Ce processeur limite la fréquence d’images du flux vidéo qui atteint le nœud processeur MediaGraphCognitiveServicesVisionExtension.
+Ce diagramme montre comment les signaux circulent dans ce tutoriel. Un [module de périphérie](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) simule une caméra IP hébergeant un serveur RTSP (Real-Time Streaming Protocol). Un nœud [source RTSP](media-graph-concept.md#rtsp-source) extrait le flux vidéo provenant de ce serveur et envoie des images vidéo au nœud processeur `MediaGraphCognitiveServicesVisionExtension`.
 
 Le nœud MediaGraphCognitiveServicesVisionExtension joue le rôle d’un proxy. Il convertit les images vidéo dans le type d’image spécifié. Il relaie ensuite l’image via une **mémoire partagée** vers un autre module de périphérie qui exécute des opérations IA derrière un point de terminaison gRPC. Dans cet exemple, ce module de périphérie est le module d’analyse spatiale. Le nœud processeur MediaGraphCognitiveServicesVisionExtension effectue deux opérations :
 

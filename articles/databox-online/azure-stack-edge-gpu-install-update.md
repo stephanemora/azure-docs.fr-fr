@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/30/2020
+ms.date: 12/11/2020
 ms.author: alkohli
-ms.openlocfilehash: 8d17528728c5519244210217b35d6cd6a3afe715
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 004c84387c51233542b1bbbf11d33cdff42259af
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96449021"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359147"
 ---
 # <a name="update-your-azure-stack-edge-pro-gpu"></a>Mettre à jour votre GPU Azure Stack Edge Pro 
 
@@ -22,9 +22,14 @@ Cet article décrit les étapes à effectuer pour installer des mises à jour su
 La procédure décrite dans cet article a été effectuée à l’aide d’une version différente du logiciel, mais le processus reste le même pour la version actuelle du logiciel.
 
 > [!IMPORTANT]
-> - La mise à jour **2011** est la mise à jour actuelle. <!--and corresponds to **2.1.1377.2170** software version on your device.--> Pour plus d’informations sur cette mise à jour, consultez les [notes de publication](azure-stack-edge-gpu-2011-release-notes.md).
->
-> - N’oubliez pas que l’installation d’une mise à jour ou d’un correctif logiciel nécessite le redémarrage de votre appareil. Cette mise à jour contient les mises à jour logicielles de l'appareil et celles de Kubernetes. Étant donné que l'appareil Azure Stack Edge Pro est un appareil à nœud unique, les E/S en cours sont interrompues et votre appareil subit un temps d'arrêt pouvant atteindre 30 minutes pour la mise à jour.
+> - La mise à jour **2012** est la mise à jour actuelle et correspond à :
+>   - Version du logiciel de l’appareil – **2.2.1438.2470**
+>   - Version du serveur Kubernetes – **v1.17.3**
+>   - Version d’IoT Edge : **0.1.0-beta10**
+>    
+>    Pour plus d’informations sur les nouveautés de cette mise à jour, consultez [Notes de publication](azure-stack-edge-gpu-2012-release-notes.md).
+> - Pour appliquer la mise à jour 2012, votre appareil doit exécuter la version 2010.
+> - N’oubliez pas que l’installation d’une mise à jour ou d’un correctif logiciel nécessite le redémarrage de votre appareil. Cette mise à jour contient les mises à jour logicielles de l'appareil et celles de Kubernetes. Étant donné que l’appareil Azure Stack Edge Pro est un appareil à nœud unique, les E/S en cours sont interrompues et votre appareil subit un temps d’arrêt qui peut durer jusqu’à 1,5 heure pour la mise à jour.
 
 Pour installer les mises à jour sur votre appareil, vous devez d’abord configurer l’emplacement du serveur de mise à jour. Une fois le serveur de mise à jour configuré, vous pouvez appliquer les mises à jour par le biais de l’interface utilisateur du portail Azure ou de l’interface utilisateur web locale.
 
@@ -161,7 +166,7 @@ Effectuez les étapes suivantes pour télécharger la mise à jour à partir du 
 
 2. Dans la zone de recherche du catalogue Microsoft Update, entrez le numéro KB (Base de connaissances) du correctif ou des mots clés relatifs à la mise à jour que vous souhaitez télécharger. Par exemple, entrez **Azure Stack Edge Pro**, puis cliquez sur **Rechercher**.
    
-    La liste des mises à jour se présente sous le nom **Azure Stack Edge Update 2011**.
+    La liste des mises à jour se présente sous le nom **Azure Stack Edge Update 2012**.
    
     <!--![Search catalog 2](./media/azure-stack-edge-gpu-install-update/download-update-2b.png)-->
 
@@ -196,7 +201,7 @@ Cette procédure prend environ 20 minutes. Effectuez les opérations suivantes 
 
 5. La mise à jour démarre. Une fois l’appareil correctement mis à jour, il est redémarré. L’interface utilisateur locale n’est pas accessible pendant cet intervalle.
    
-6. Une fois le redémarrage effectué, vous êtes redirigé vers la page **Se connecter** . Pour vérifier que le logiciel de l’appareil a été mis à jour, accédez à **Maintenance** > **Mise à jour logicielle** dans l’interface utilisateur web locale. Pour la version actuelle, la version logicielle affichée doit être **Azure Stack Edge 2011**.
+6. Une fois le redémarrage effectué, vous êtes redirigé vers la page **Se connecter** . Pour vérifier que le logiciel de l’appareil a été mis à jour, accédez à **Maintenance** > **Mise à jour logicielle** dans l’interface utilisateur web locale. Pour la version actuelle, la version logicielle affichée doit être **Azure Stack Edge 2012**.
 
    <!--![update device 6](./media/azure-stack-edge-gpu-install-update/local-ui-update-6.png)--> 
 

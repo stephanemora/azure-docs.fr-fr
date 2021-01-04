@@ -6,12 +6,12 @@ ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 94509ba209e95eb9199ddd760529d47eb48bda10
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: fc1401959adb97f8c4caf6d413a212d9f3b62801
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96930796"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588112"
 ---
 # <a name="tutorial-create-multiple-resource-instances-with-arm-templates"></a>Tutoriel : Créer plusieurs instances de ressources grâce à des modèles ARM
 
@@ -38,15 +38,16 @@ Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléme
 
 [Modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/) est un référentiel de modèles ARM. Au lieu de créer un modèle à partir de zéro, vous pouvez chercher un exemple de modèle et le personnaliser. Le modèle utilisé dans ce démarrage rapide se nomme [Créer un compte de stockage standard](https://azure.microsoft.com/resources/templates/101-storage-account-create/). Le modèle définit une ressource de compte de stockage Azure.
 
-1. À partir de Visual Studio Code, sélectionnez **Fichier**>**Ouvrir un fichier**.
-2. Collez l’URL suivante dans **Nom de fichier** :
+1. À partir de Visual Studio Code, sélectionnez **Fichier** > **Ouvrir un fichier**.
+1. Collez l’URL suivante dans **Nom de fichier** :
 
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
     ```
-3. Sélectionnez **Ouvrir** pour ouvrir le fichier.
-4. Une ressource « Microsoft.Storage/storageaccounts » est définie dans le modèle. Comparer le modèle à la [référence du modèle](/azure/templates/Microsoft.Storage/storageAccounts). Il est préférable de comprendre quelques notions basiques du modèle avant de le personnaliser.
-5. Sélectionnez **Fichier**>**Enregistrer sous** pour enregistrer le fichier sous le nom **azuredeploy.json** sur votre ordinateur local.
+
+1. Sélectionnez **Ouvrir** pour ouvrir le fichier.
+1. Une ressource `Microsoft.Storage/storageAccounts` est définie dans le modèle. Comparer le modèle à la [référence du modèle](/azure/templates/Microsoft.Storage/storageAccounts). Il est préférable de comprendre quelques notions basiques du modèle avant de le personnaliser.
+1. Sélectionnez **Fichier** > **Enregistrer sous** pour enregistrer le fichier sous le nom _azuredeploy.json_ sur votre ordinateur local.
 
 ## <a name="edit-the-template"></a>Modifier le modèle
 
@@ -56,10 +57,10 @@ Dans Visual Studio Code, effectuez les quatre modifications suivantes :
 
 ![Azure Resource Manager crée plusieurs instances](./media/template-tutorial-create-multiple-instances/resource-manager-template-create-multiple-instances.png)
 
-1. Ajoutez un élément `copy` à la définition de ressource du compte de stockage. Dans l’élément copy, vous indiquez le nombre d’itérations et une variable pour cette boucle. La valeur de décompte doit être un entier positif et ne pas dépasser 800.
-2. La fonction `copyIndex()` renvoie l’itération actuelle dans la boucle. Vous utilisez l’index en tant que préfixe du nom. `copyIndex()` est basé sur zéro. Pour décaler la valeur d’index, vous pouvez transmettre une valeur dans la fonction copyIndex(). Par exemple, *copyIndex(1)* .
-3. Supprimez l’élément **variables** car il n’est plus utilisé.
-4. Supprimez l’élément **outputs**. Ce n'est plus nécessaire.
+1. Ajoutez un élément `copy` à la définition de ressource du compte de stockage. Dans l’élément `copy`, vous indiquez le nombre d’itérations et une variable pour cette boucle. La valeur de décompte doit être un entier positif et ne pas dépasser 800.
+2. La fonction `copyIndex()` renvoie l’itération actuelle dans la boucle. Vous utilisez l’index en tant que préfixe du nom. `copyIndex()` est basé sur zéro. Pour décaler la valeur d’index, vous pouvez passer une valeur dans la fonction `copyIndex()`. Par exemple : `copyIndex(1)`.
+3. Supprimez l’élément `variables`, car il n’est plus utilisé.
+4. Supprimez l’élément `outputs`. Ce n’est plus nécessaire.
 
 Le modèle complet ressemble à ceci :
 
@@ -109,17 +110,17 @@ Le modèle complet ressemble à ceci :
 }
 ```
 
-Pour plus d’informations sur la création de plusieurs instances, consultez [Déployer plusieurs instances d’une ressource ou d’une propriété dans des modèles ARM](./copy-resources.md)
+Pour plus d’informations sur la création de plusieurs instances, consultez [Itération de ressource dans les modèles ARM](./copy-resources.md).
 
 ## <a name="deploy-the-template"></a>Déployer le modèle
 
 1. Se connecter à [Azure Cloud Shell](https://shell.azure.com)
 
-1. Choisissez votre environnement préféré en sélectionnant **PowerShell** ou **Bash** (pour CLI) en haut à gauche.  Il est nécessaire de redémarrer l’interpréteur de commandes lors d’un tel changement.
+1. Choisissez votre environnement préféré en sélectionnant **PowerShell** ou **Bash** (pour CLI) en haut à gauche. Il est nécessaire de redémarrer l’interpréteur de commandes lors d’un tel changement.
 
     ![Fichier de chargement du Cloud Shell du portail Azure](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-1. Sélectionnez **Charger/Télécharger des fichiers**, puis **Charger**. Consultez la capture d’écran précédente. Sélectionnez le fichier que vous avez enregistré dans la section précédente. Après avoir chargé le fichier, vous pouvez utiliser la commande **ls** et la commande **cat** pour vérifier que le chargement a été correctement effectué.
+1. Sélectionnez **Charger/Télécharger des fichiers**, puis **Charger**. Consultez la capture d’écran précédente. Sélectionnez le fichier que vous avez enregistré dans la section précédente. Après avoir chargé le fichier, vous pouvez utiliser la commande `ls` et la commande `cat` pour vérifier que le chargement a été correctement effectué.
 
 1. Dans le Cloud Shell, exécutez les commandes suivantes. Sélectionnez l’onglet pour afficher le code PowerShell ou CLI.
 
@@ -148,9 +149,9 @@ Pour plus d’informations sur la création de plusieurs instances, consultez [D
 
     ---
 
-Pour répertorier tous les trois comptes de stockage, omettez le paramètre --name :
+Après un déploiement de modèle réussi, vous pouvez afficher les trois comptes de stockage créés dans le groupe de ressources spécifié. Comparez les noms de compte de stockage avec la définition de nom dans le modèle.
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/azure-cli)
 
 ```azurecli
 echo "Enter a project name that is used to generate resource group name:" &&
@@ -172,8 +173,6 @@ Write-Host "Press [ENTER] to continue ..."
 
 ---
 
-Comparez les noms de compte de stockage avec la définition de nom dans le modèle.
-
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous n’en avez plus besoin, nettoyez les ressources Azure que vous avez déployées en supprimant le groupe de ressources.
@@ -185,7 +184,7 @@ Lorsque vous n’en avez plus besoin, nettoyez les ressources Azure que vous ave
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à créer plusieurs instances de compte de stockage.  Dans le tutoriel suivant, vous développez un modèle disposant de plusieurs ressources et types de ressources. Certaines ressources comportent des ressources dépendantes.
+Dans ce tutoriel, vous avez appris à créer plusieurs instances de compte de stockage. Dans le tutoriel suivant, vous développez un modèle disposant de plusieurs ressources et types de ressources. Certaines ressources comportent des ressources dépendantes.
 
 > [!div class="nextstepaction"]
 > [Créer des ressources dépendantes](./template-tutorial-create-templates-with-dependent-resources.md)

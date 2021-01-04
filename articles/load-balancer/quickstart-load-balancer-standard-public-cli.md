@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 11/23/2020
 ms.author: allensu
 ms.custom: mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: b00d0c83758d0349fd3926e0c263b65af2e4dc92
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 2b22c00845b38d2edea2d78497fb4b46a51896d4
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96021178"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587126"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-cli"></a>Démarrage rapide : Créer un équilibreur de charge public pour équilibrer la charge des machines virtuelles à l’aide d’Azure CLI
 
@@ -53,6 +53,8 @@ Créez un groupe de ressources avec la commande [az group create](/cli/azure/gro
 
 >[!NOTE]
 >Il est recommandé de disposer d’un équilibreur de charge de référence SKU Standard pour les charges de travail de production. Pour plus d’informations sur les références SKU, consultez **[Références SKU Azure Load Balancer](skus.md)** .
+
+:::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/resources-diagram.png" alt-text="Ressources Standard Load Balancer créées pour le guide de démarrage rapide." border="false":::
 
 ## <a name="configure-virtual-network---standard"></a>Configurer le réseau virtuel - Standard
 
@@ -551,6 +553,8 @@ Ajoutez les machines virtuelles au pool sortant avec la commande [az network nic
 
 >[!NOTE]
 >Il est recommandé de disposer d’un équilibreur de charge de référence SKU Standard pour les charges de travail de production. Pour plus d’informations sur les références SKU, consultez **[Références SKU Azure Load Balancer](skus.md)** .
+
+:::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/resources-diagram-basic.png" alt-text="Ressources de l’équilibreur de charge de base créées dans le guide de démarrage rapide." border="false":::
 
 ## <a name="configure-virtual-network---basic"></a>Configurer un réseau virtuel - De base
 

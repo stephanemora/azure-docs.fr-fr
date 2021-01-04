@@ -5,12 +5,12 @@ author: mumian
 ms.date: 01/15/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 7a44edc7cd09709f14415fa0a92e63558001d46d
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 31c4e6383b5eaea2bb66dc1baafa0fbff4918a7c
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928526"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589115"
 ---
 # <a name="tutorial-troubleshoot-arm-template-deployments"></a>Tutoriel : Résoudre les problèmes des déploiements de modèles ARM
 
@@ -43,7 +43,7 @@ Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléme
 
 Ouvrez un modèle nommé [Créer un compte de stockage standard](https://azure.microsoft.com/resources/templates/101-storage-account-create/) depuis les [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/), puis configurez deux problèmes.
 
-1. À partir de Visual Studio Code, sélectionnez **Fichier**>**Ouvrir un fichier**.
+1. À partir de Visual Studio Code, sélectionnez **Fichier** > **Ouvrir un fichier**.
 2. Collez l’URL suivante dans **Nom de fichier** :
 
     ```url
@@ -51,16 +51,16 @@ Ouvrez un modèle nommé [Créer un compte de stockage standard](https://azure.m
     ```
 
 3. Sélectionnez **Ouvrir** pour ouvrir le fichier.
-4. Remplacez la ligne **apiVersion** par la ligne suivante :
+4. Remplacez la ligne `apiVersion` par la ligne suivante :
 
     ```json
     "apiVersion1": "2018-07-02",
     ```
 
-    - **apiVersion1** est un nom d’élément non valide. Il s’agit d’une erreur de validation.
-    - La version de l’API doit être « 2018-07-01 ».  Il s’agit d’une erreur de déploiement.
+    - `apiVersion1` est un nom d’élément non valide. Il s’agit d’une erreur de validation.
+    - La version de l’API doit être `"2018-07-01"`.  Il s’agit d’une erreur de déploiement.
 
-5. Sélectionnez **Fichier**>**Enregistrer sous** pour enregistrer le fichier sous le nom **azuredeploy.json** sur votre ordinateur local.
+5. Sélectionnez **Fichier** > **Enregistrer sous** pour enregistrer le fichier sous le nom _azuredeploy.json_ sur votre ordinateur local.
 
 ## <a name="troubleshoot-the-validation-error"></a>Résoudre l’erreur de validation
 
@@ -68,13 +68,13 @@ Reportez-vous à la section [Déployer le modèle](template-tutorial-create-mult
 
 Vous devez obtenir une erreur similaire à la suivante depuis l’interpréteur de commandes :
 
-```
+```azurepowershell
 New-AzResourceGroupDeployment : 4:29:24 PM - Error: Code=InvalidRequestContent; Message=The request content was invalid and could not be deserialized: 'Could not find member 'apiVersion1' on object of type 'TemplateResource'. Path 'properties.template.resources[0].apiVersion1', line 36, position 24.'.
 ```
 
-Le message d’erreur indique que le problème est lié à **apiVersion1**.
+Le message d’erreur indique que le problème est lié à `apiVersion1`.
 
-Utilisez Visual Studio Code pour remédier au problème en remplaçant **apiVersion1** par **apiVersion**, puis enregistrez le modèle.
+Utilisez Visual Studio Code pour remédier au problème en remplaçant `apiVersion1` par `apiVersion`, puis enregistrez le modèle.
 
 ## <a name="troubleshoot-the-deployment-error"></a>Résoudre l’erreur de déploiement
 
@@ -82,7 +82,7 @@ Reportez-vous à la section [Déployer le modèle](template-tutorial-create-mult
 
 Vous devez obtenir une erreur similaire à la suivante depuis l’interpréteur de commandes :
 
-```
+```azurepowershell
 New-AzResourceGroupDeployment : 4:48:50 PM - Resource Microsoft.Storage/storageAccounts 'storeqii7x2rce77dc' failed with message '{
   "error": {
     "code": "NoRegisteredProviderFound",

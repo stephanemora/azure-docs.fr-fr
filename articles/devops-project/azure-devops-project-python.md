@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: mlearned
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: b6aa0a1bd14072e6ea4ea42004209f332f46a2d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dec41f1b9de6920338360edeb18b9878a8c86432
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91856073"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588928"
 ---
 # <a name="create-a-cicd-pipeline-for-python-with-azure-devops-starter"></a>Créer un pipeline CI/CD pour Python avec Azure DevOps Starter
 
@@ -67,9 +67,9 @@ DevOps Starter crée un pipeline CI/CD dans Azure Pipelines. Vous pouvez créer 
 
 DevOps Starter crée un dépôt Git dans Azure Repos ou dans GitHub. Pour voir le dépôt et modifier le code dans votre application, suivez les étapes ci-dessous : 
 
-1. Sur le côté gauche du tableau de bord DevOps Starter, sélectionnez le lien correspondant à votre branche master. Ce lien ouvre une vue sur le référentiel Git récemment créé.
+1. Sur le côté gauche du tableau de bord DevOps Starter, sélectionnez le lien correspondant à votre branche principale. Ce lien ouvre une vue sur le référentiel Git récemment créé.
 
-1. Pour afficher l’URL du clone du référentiel, sélectionnez **Clone** en haut à droite du navigateur. Vous pouvez cloner votre référentiel Git dans votre environnement de développement intégré favori. Dans les prochaines étapes, vous allez utiliser le navigateur web pour effectuer des modifications de code directement dans la branche maîtresse et les valider.
+1. Pour afficher l’URL du clone du référentiel, sélectionnez **Clone** en haut à droite du navigateur. Vous pouvez cloner votre référentiel Git dans votre environnement de développement intégré favori. Dans les prochaines étapes, vous allez utiliser le navigateur web pour effectuer des modifications de code directement dans la branche principale et les valider.
 
 1. À gauche, accédez au fichier **app/templates/app/index.html**.
 

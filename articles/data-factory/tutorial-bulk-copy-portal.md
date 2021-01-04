@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 12/09/2020
-ms.openlocfilehash: 8594250d72754e6b7d2a6d8c27d3d5bcd0e9c8e4
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 16b924f486215d972477e93c4e199e7076a0a531
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920870"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97508881"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-in-the-azure-portal"></a>Copier plusieurs tables en bloc en utilisant Azure Data Factory sur le portail Azure
 
@@ -25,7 +25,7 @@ ms.locfileid: "96920870"
 Ce tutoriel montre comment **copier des tables d’Azure SQL Database dans Azure Synapse Analytics**. Vous pouvez appliquer le même modèle à d’autres scénarios de copie. Par exemple : copie de tables à partir de SQL Server/Oracle dans Azure SQL Database/Azure Synapse Analytics/Stockage Blob Azure ou copie de différents chemins à partir du Stockage Blob dans des tables Azure SQL Database.
 
 > [!NOTE]
-> - Si vous débutez avec Azure Data Factory, consultez [Présentation d’Azure Data Factory](introduction.md).
+> Si vous débutez avec Azure Data Factory, consultez [Présentation d’Azure Data Factory](introduction.md).
 
 Globalement, ce tutoriel implique les étapes suivantes :
 
@@ -99,9 +99,7 @@ Pour vérifier et activer ce paramètre, accédez à votre serveur > Sécurité
 1. Une fois la ressource créée, sélectionnez **Accéder à la ressource** pour ouvrir la page **Data Factory**. 
    
 1. Cliquez sur la vignette **Créer et surveiller** pour lancer l’application de l’interface utilisateur de Data Factory dans un onglet séparé.
-1. Dans la page **Commençons**, basculez vers l’onglet **Créer** dans le volet gauche comme illustré dans l’image suivante :
 
-     ![Page de prise en main](./media/doc-common-process/get-started-page-author-button.png)
 
 ## <a name="create-linked-services"></a>Créez des services liés
 Vous créez des services liés pour lier vos magasins de données et vos calculs à une fabrique de données. Un service lié comporte les informations de connexion utilisées par le service Data Factory pour se connecter au magasin de données lors de l’exécution. 
@@ -177,7 +175,9 @@ Dans ce didacticiel, les tables SQL source et de destination ne sont pas codées
 
 ### <a name="create-a-dataset-for-source-sql-database"></a>Créer un jeu de données pour la base de données SQL source
 
-1. Cliquez sur **+ (plus)** dans le volet gauche, puis sur **Jeu de données**. 
+1. Sélectionnez l’onglet **Créer** dans le volet gauche.
+
+1. Sélectionnez le bouton **+** (plus) dans le volet gauche, puis sélectionnez **Jeu de données**. 
 
     ![Menu Nouveau jeu de données](./media/tutorial-bulk-copy-portal/new-dataset-menu.png)
 1. Dans la fenêtre **Nouveau jeu de données**, sélectionnez **Azure SQL Database**, puis cliquez sur **Continuer**. 
@@ -277,7 +277,7 @@ Le pipeline **IterateAndCopySQLTables** prend une liste de tables comme paramèt
     1. Cochez la case **Activer le mode de préproduction**.
     1. Sélectionnez **AzureStorageLinkedService** pour **Store Account Linked Service** (Service lié de compte de stockage).
 
-1. Pour valider les paramètres du pipeline, cliquez sur **Valider** sur la barre d’outils pour le pipeline. Vérifiez qu’il n’existe aucune erreur de validation. Pour fermer le **Rapport de validation de pipeline**, cliquez sur **>>** .
+1. Pour valider les paramètres du pipeline, cliquez sur **Valider** sur la barre d’outils pour le pipeline. Vérifiez qu’il n’existe aucune erreur de validation. Pour fermer le **Rapport de validation de pipeline**, cliquez sur les crochets doubles **>>** .
 
 ### <a name="create-the-pipeline-gettablelistandtriggercopydata"></a>Créer le pipeline GetTableListAndTriggerCopyData
 
@@ -285,6 +285,8 @@ Ce pipeline effectue deux actions :
 
 * Recherche la table système Azure SQL Database pour obtenir la liste des tables à copier.
 * Déclenche le pipeline « IterateAndCopySQLTables » pour copier les données.
+
+Voici les étapes à suivre pour créer le pipeline :
 
 1. Dans le volet gauche, cliquez sur **+ (plus)** , puis cliquez sur **Pipeline**.
 1. Dans le panneau Général, sous **Propriétés**, renommez le pipeline **GetTableListAndTriggerCopyData**. 

@@ -1,21 +1,29 @@
 ---
-title: Déclencher une tâche Batch à l’aide d’Azure Functions
+title: 'Tutoriel : Déclencher une tâche Batch à l’aide d’Azure Functions'
 description: 'Tutoriel : Appliquer la reconnaissance optique de caractères (OCR) à des documents numérisés quand ils sont ajoutés à un objet blob de stockage'
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: peshultz
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 6e481219c6be68f9e9da06d92b6c28998cc7a6e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b441b4c4fcbeb089cef24c3a84fa33021e7840de
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88930092"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106380"
 ---
 # <a name="tutorial-trigger-a-batch-job-using-azure-functions"></a>Tutoriel : Déclencher une tâche Batch à l’aide d’Azure Functions
 
-Dans ce tutoriel, vous allez apprendre à déclencher une tâche Batch à l’aide d’Azure Functions. Nous allons examiner un exemple dans lequel la reconnaissance optique de caractères (OCR) est appliquée à des documents ajoutés à un conteneur d’objets blob de stockage Azure par le biais d’Azure Batch. Pour rationaliser le traitement OCR, nous allons configurer une fonction Azure qui exécute une tâche OCR Batch chaque fois qu’un fichier est ajouté au conteneur d’objets blob.
+Dans ce tutoriel, vous allez apprendre à déclencher une tâche Batch à l’aide d’[Azure Functions](../azure-functions/functions-overview.md). Nous allons examiner un exemple dans lequel la reconnaissance optique de caractères (OCR) est appliquée à des documents ajoutés à un conteneur d’objets blob de stockage Azure par le biais d’Azure Batch. Pour rationaliser le traitement OCR, nous allons configurer une fonction Azure qui exécute une tâche OCR Batch chaque fois qu’un fichier est ajouté au conteneur d’objets blob. Vous allez apprendre à effectuer les actions suivantes :
+
+> [!div class="checklist"]
+> * Utiliser Batch Explorer pour créer des pools et des tâches
+> * Utiliser l’Explorateur Stockage pour créer des conteneurs d’objets blob et une signature d’accès partagé (SAP)
+> * Créer une fonction Azure déclenchée par un objet blob
+> * Charger des fichiers d’entrée sur le stockage
+> * Surveiller l’exécution d’une tâche
+> * Récupérer les fichiers de sortie
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -40,7 +48,7 @@ Dans cette section, vous allez utiliser Batch Explorer pour créer le pool Batch
     1. Définissez le type de mise à l’échelle sur **Taille fixe** et définissez le nombre de nœuds dédiés sur 3.
     1. Sélectionnez **Ubuntu 18.04-LTS** comme système d’exploitation.
     1. Choisissez `Standard_f2s_v2` comme taille de machine virtuelle.
-    1. Activez la tâche de démarrage et ajoutez la commande `/bin/bash -c "sudo update-locale LC_ALL=C.UTF-8 LANG=C.UTF-8; sudo apt-get update; sudo apt-get -y install ocrmypdf"`. Veillez à définir l’identité de l’utilisateur sur l’**utilisateur par défaut de la tâche (administrateur)** , ce qui permet aux tâches de démarrage d’inclure des commandes avec `sudo`.
+    1. Activez la tâche de démarrage et ajoutez la commande `/bin/bash -c "sudo update-locale LC_ALL=C.UTF-8 LANG=C.UTF-8; sudo apt-get update; sudo apt-get -y install ocrmypdf"`. Veillez à définir l’identité de l’utilisateur sur l’**utilisateur par défaut de la tâche (administrateur)**, ce qui permet aux tâches de démarrage d’inclure des commandes avec `sudo`.
     1. Sélectionnez **OK**.
 ### <a name="create-a-job"></a>Créer un travail
 
@@ -97,9 +105,13 @@ Pour télécharger les fichiers de sortie depuis l’Explorateur Stockage vers v
 > [!TIP]
 > Les fichiers téléchargés peuvent faire l’objet d’une recherche si vous les ouvrez dans un lecteur PDF.
 
+## <a name="clean-up-resources"></a>Nettoyer les ressources
+
+Vous êtes facturé pour le pool pendant que les nœuds sont en cours d’exécution, même si aucun travail n’est planifié. Lorsque vous n’avez plus besoin du pool, supprimez-le. Dans la vue de compte, sélectionnez **Pools** et le nom du pool. Puis sélectionnez **Supprimer**. Lorsque vous supprimez le pool, toutes les sorties de tâche sur les nœuds sont supprimées. Toutefois, les fichiers de sortie restent dans le compte de stockage. Quand vous n’en avez plus besoin, vous pouvez également supprimer le compte Batch et le compte de stockage.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à effectuer les opérations suivantes : 
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Utiliser Batch Explorer pour créer des pools et des tâches
@@ -109,6 +121,10 @@ Dans ce tutoriel, vous avez appris à effectuer les opérations suivantes :
 > * Surveiller l’exécution d’une tâche
 > * Récupérer les fichiers de sortie
 
-* Pour plus d’exemples d’utilisation de l’API .NET pour planifier et traiter les charges de travail Batch, consultez les [exemples sur GitHub](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp). 
 
-* Pour découvrir d’autres déclencheurs Azure Functions que vous pouvez utiliser pour exécuter des charges de travail Batch, consultez la [documentation Azure Functions](../azure-functions/functions-triggers-bindings.md).
+Continuez en explorant les applications de rendu disponibles par le biais de Batch Explorer dans la section **Galerie**. Pour chaque application, plusieurs modèles sont disponibles, et d’autres seront disponibles au fil du temps. Par exemple, des modèles Blender permettent de diviser une image en une mosaïque, de sorte que des parties de l’image puissent être rendues en parallèle.
+
+Pour plus d’exemples d’utilisation de l’API .NET pour planifier et traiter les charges de travail Batch, consultez les exemples sur GitHub.
+
+> [!div class="nextstepaction"]
+> [Exemples C# Batch](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp)

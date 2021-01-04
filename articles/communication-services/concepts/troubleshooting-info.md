@@ -8,12 +8,12 @@ ms.author: manoskow
 ms.date: 10/23/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 775075765c8c8eaa94541c0f094c1f7743fe59d9
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 88ad060c1ba28285051a91bd928a2a7116dff1ce
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886785"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96937540"
 ---
 # <a name="troubleshooting-in-azure-communication-services"></a>Résolution des problèmes dans Azure Communication Services
 
@@ -165,6 +165,25 @@ Sur Android Studio, accédez à l’Explorateur de fichiers de l’appareil en s
    
 
 ---
+
+
+## <a name="calling-client-library-error-codes"></a>Code d’erreur de la bibliothèque de client d’appel
+
+La bibliothèque de client d’appel Azure Communication Services utilise les codes d’erreur suivants pour vous aider à résoudre les problèmes d’appel. Ces codes d’erreur sont exposés via la propriété `call.callEndReason` à l’issue d’un appel.
+
+| Code d'erreur | Description | Action à effectuer |
+| -------- | ---------------| ---------------|
+| 403 | Interdit / Échec de l’authentification. | Vérifiez que votre jeton Communication Services est valide et qu’il n’a pas expiré. |
+| 404 | Appel introuvable. | Assurez-vous que le numéro que vous appelez (ou l’appel que vous êtes en train de joindre) existe. |
+| 408 | Le délai d’attente du contrôleur d’appel a expiré. | Le contrôleur d’appel a atteint le délai d’attente des messages de protocole provenant des points de terminaison utilisateur. Vérifiez que les clients sont connectés et disponibles. |
+| 410 | Erreur locale de pile multimédia ou d’infrastructure multimédia. | Veillez à utiliser la bibliothèque de client la plus récente dans un environnement pris en charge. |
+| 430 | Impossible de remettre le message à l’application cliente. | Vérifiez que l’application cliente est en cours d’exécution et disponible. |
+| 480 | Le point de terminaison de client distant n’est pas inscrit. | Vérifiez que le point de terminaison distant est disponible. |
+| 481 | Échec du traitement de l’appel entrant. | Soumettez une demande de support via le portail Azure. |
+| 487 | Appel annulé, refusé localement, terminé en raison d’un problème d’incompatibilité avec le point de terminaison, ou ne parvenant pas à générer l’offre multimédia. | Comportement attendu. |
+| 490, 491, 496, 487, 498 | Problèmes de réseau de point de terminaison local. | Vérifiez votre réseau. |
+| 500, 503, 504 | Erreur d’infrastructure Communication Services. | Soumettez une demande de support via le portail Azure. |
+| 603 | Appel global refusé par le participant Communication Services distant | Comportement attendu. |
 
 
 ## <a name="related-information"></a>Informations connexes

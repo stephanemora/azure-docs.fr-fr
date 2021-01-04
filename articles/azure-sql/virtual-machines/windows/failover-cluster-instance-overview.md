@@ -7,17 +7,18 @@ author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.topic: overview
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: d5bd2fc150ee1d35127eeb9dbf3dc1eeffdc9659
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 33be57832d9364b859042cd38349c2437bcfcb18
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685934"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358144"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Instances de cluster de basculement avec SQL Server sur des machines virtuelles Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -50,7 +51,7 @@ SQL Server sur les machines virtuelles Azure offre différentes options en tant 
 |---------|---------|---------|---------|
 |**Version de système d’exploitation minimale**| Tous |Windows Server 2012|Windows Server 2016|
 |**Version minimale de SQL Server**|Tous|SQL Server 2012|SQL Server 2016|
-|**Disponibilité des machines virtuelles prises en charge** |Groupes à haute disponibilité avec groupes de placement de proximité |Groupes à haute disponibilité et zones de disponibilité|Groupes à haute disponibilité |
+|**Disponibilité des machines virtuelles prises en charge** |Groupes à haute disponibilité avec groupes de placement de proximité (pour SSD Premium) </br> Même zone de disponibilité (pour SSD Ultra) |Groupes à haute disponibilité et zones de disponibilité|Groupes à haute disponibilité |
 |**Prend en charge FileStream**|Oui|Non|Oui |
 |**Cache d'objets blob Azure**|Non|Non|Oui|
 
@@ -69,12 +70,16 @@ Le reste de cette section répertorie les avantages et les limitations de chaque
 - Prend en charge le stockage SSD Premium Azure partagées et Disque Ultra Azure.
 - Peut utiliser un seul disque partagé ou entrelacer plusieurs disques partagés pour créer un pool de stockage partagé. 
 - Prend en charge Filestream.
+- Les disques SSD Premium prennent en charge les groupes à haute disponibilité. 
 
 
 **Limitations** : 
-- Les machines virtuelles doivent être placées dans le même groupe à haute disponibilité et le même groupe de placement de proximité.
-- Les zones de disponibilité ne sont pas prises en charge.
+- Il est recommandé de placer les machines virtuelles dans le même groupe à haute disponibilité et le même groupe de placement de proximité.
+- Les disques Ultra ne prennent pas en charge les groupes à haute disponibilité. 
+- Les zones de disponibilité sont prises en charge pour les disques Ultra, mais les machines virtuelles doivent être dans la même zone de disponibilité, ce qui réduit la disponibilité de la machine virtuelle. 
+- Quelle que soit la solution de disponibilité matérielle choisie, la disponibilité du cluster de basculement est toujours de 99,9 % lorsque vous utilisez des disques partagés Azure. 
 - La mise en cache des disques SSD Premium n’est pas prise en charge.
+
  
 Pour commencer, consultez [Instance de cluster de basculement SQL Server avec disques partagés Azure](failover-cluster-instance-azure-shared-disks-manually-configure.md). 
 

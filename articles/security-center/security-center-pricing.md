@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/06/2020
+ms.date: 12/13/2020
 ms.author: memildin
-ms.openlocfilehash: d92047a5b24f04ee7e0d08454867ec9e1a52a8b1
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: d3492685efbf70b69e5bafba919d38a4f06fb666
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96754371"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387468"
 ---
 # <a name="pricing-of-azure-security-center"></a>Niveaux tarifaires d’Azure Security Center
 Azure Security Center fournit une gestion unifiée de la sécurité et une protection avancée contre les menaces pour les charges de travail s’exécutant dans Azure, en local et dans d’autres clouds. Il fournit une visibilité et un contrôle sur les charges de travail cloud hybrides, des défenses actives qui réduisent votre exposition aux menaces et une détection intelligente pour vous aider à suivre le rythme des cyber-risques en rapide évolution.
@@ -68,12 +68,24 @@ Vous trouverez ci-dessous la page de tarification d’un exemple d’abonnement.
 
 ## <a name="faq---pricing-and-billing"></a>FAQ – Prix et facturation 
 
-### <a name="how-can-i-track-who-in-my-organization-enabled-azure-defender-changes-in-azure-security-center"></a>Comment puis-je suivre qui a effectué des modifications au niveau d’Azure Defender dans Azure Security Center dans mon organisation
+- [Comment puis-je suivre qui a effectué des modifications au niveau d’Azure Defender dans Azure Security Center dans mon organisation ?](#how-can-i-track-who-in-my-organization-enabled-azure-defender-changes-in-security-center)
+- [Quels sont les plans proposés par Security Center ?](#what-are-the-plans-offered-by-security-center)
+- [Comment activer Azure Defender pour mon abonnement ?](#how-do-i-enable-azure-defender-for-my-subscription)
+- [Puis-je activer Azure Defender pour des serveurs sur un sous-ensemble de serveurs dans mon abonnement ?](#can-i-enable-azure-defender-for-servers-on-a-subset-of-servers-in-my-subscription)
+- [Azure Defender pour les serveurs est activé pour Mon abonnement, dois-je payer pour les serveurs qui ne sont pas en cours d’exécution ?](#my-subscription-has-azure-defender-for-servers-enabled-do-i-pay-for-not-running-servers)
+- [Les machines sur lesquelles l’agent Log Analytics n’est pas installé seront-elles facturées ?](#will-i-be-charged-for-machines-without-the-log-analytics-agent-installed)
+- [Si un agent Log Analytics émet un rapport dans plusieurs espaces de travail, est-il facturé deux fois ?](#if-a-log-analytics-agent-reports-to-multiple-workspaces-will-i-be-charged-twice)
+- [Si un agent Log Analytics émet un rapport dans plusieurs espaces de travail, l’ingestion de données gratuite de 500 Mo est-elle disponible sur chacun d’eux ?](#if-a-log-analytics-agent-reports-to-multiple-workspaces-is-the-500-mb-free-data-ingestion-available-on-all-of-them)
+- [L’ingestion de données gratuite de 500 Mo est-elle calculée pour un espace de travail entier ou strictement machine par machine ?](#is-the-500-mb-free-data-ingestion-calculated-for-an-entire-workspace-or-strictly-per-machine)
+
+### <a name="how-can-i-track-who-in-my-organization-enabled-azure-defender-changes-in-security-center"></a>Comment puis-je suivre qui a effectué des modifications au niveau d’Azure Defender dans Security Center dans mon organisation ?
 Des abonnements Azure peuvent avoir plusieurs administrateurs autorisés à modifier les paramètres de tarification. Pour savoir quel utilisateur a effectué une modification, utilisez le journal d’activité Azure.
 
-Si les informations de l’utilisateur ne sont pas listées dans la colonne **Événement lancé par**, explorez l’événement pour obtenir les détails correspondants.
+:::image type="content" source="media/security-center-pricing/logged-change-to-pricing.png" alt-text="Journal d’activité Azure montrant un événement de modification de tarif":::
 
-:::image type="content" source="media/security-center-pricing/logged-change-to-pricing.png" alt-text="Journal des événements Azure présentant un événement de modification de tarifs":::
+Si les informations de l’utilisateur ne sont pas listées dans la colonne **Événement lancé par**, explorez les données JSON de l’événement pour obtenir les détails correspondants.
+
+:::image type="content" source="media/security-center-pricing/tracking-pricing-changes-in-activity-log.png" alt-text="Explorateur JSON du journal d’activité Azure":::
 
 
 ### <a name="what-are-the-plans-offered-by-security-center"></a>Quels sont les plans proposés par Security Center ? 
@@ -115,6 +127,10 @@ Oui. Si vous avez configuré votre agent Log Analytics pour envoyer des données
 ### <a name="if-a-log-analytics-agent-reports-to-multiple-workspaces-is-the-500-mb-free-data-ingestion-available-on-all-of-them"></a>Si un agent Log Analytics émet un rapport dans plusieurs espaces de travail, l’ingestion de données gratuite de 500 Mo est-elle disponible sur chacun d’eux ?
 Oui. Si vous avez configuré votre agent Log Analytics pour envoyer des données à deux espaces de travail Log Analytics différents ou plus (multihébergement), vous obtenez une ingestion de données gratuite de 500 Mo. Cela est calculé par nœud, par espace de travail signalé, par jour et disponible pour chaque espace de travail sur lequel les solutions « Sécurité » ou « Logiciel anti-programme malveillant » sont installées. Toutes les données ingérées au-delà de 500 Mo vous seront facturées.
 
+### <a name="is-the-500-mb-free-data-ingestion-calculated-for-an-entire-workspace-or-strictly-per-machine"></a>L’ingestion de données gratuite de 500 Mo est-elle calculée pour un espace de travail entier ou strictement machine par machine ?
+Vous obtiendrez une ingestion de données gratuite de 500 Mo par jour, pour chaque machine connectée à l’espace de travail. Spécifiquement pour les types de données de sécurité directement collectés par Azure Security Center.
+
+Ces données correspondent à un tarif journalier moyenné sur l’ensemble des nœuds. Par conséquent, même si certaines machines envoient 100 Mo et que d’autres envoient 800 Mo, si le total ne dépasse pas la limite de gratuité **[nombre de machines] x 500 Mo**, aucun supplément ne vous est facturé.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Cet article a décrit les options tarifaires de Security Center. Consultez les documents connexes suivants :

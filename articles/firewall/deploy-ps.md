@@ -4,15 +4,15 @@ description: Dans cet article, vous découvrez comment déployer et configurer u
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.date: 11/12/2020
+ms.date: 12/03/2020
 ms.author: victorh
 ms.topic: how-to
-ms.openlocfilehash: 18a7da6402d7835be8dbad0551973a262ab335c8
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: e39e27dbeb9394d19a9d7fd8791c147e11a56bdb
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660234"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558881"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-powershell"></a>Déployer et configurer un pare-feu Azure à l’aide de Azure PowerShell
 
@@ -65,7 +65,7 @@ New-AzResourceGroup -Name Test-FW-RG -Location "East US"
 
 ### <a name="create-a-virtual-network-and-azure-bastion-host"></a>Créer un réseau virtuel et un hôte Azure Bastion
 
-Ce réseau virtuel comporte quatre sous-réseaux :
+Ce réseau virtuel comporte trois sous-réseaux :
 
 > [!NOTE]
 > La taille du sous-réseau AzureFirewallSubnet est /26. Pour plus d’informations sur la taille du sous-réseau, consultez le [FAQ Pare-feu Azure](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).

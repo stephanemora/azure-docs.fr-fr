@@ -3,17 +3,17 @@ title: 'Démarrage rapide : Créer des files d’attente Stockage Azure dans le
 description: Utilisez le portail Azure pour créer une file d’attente. Ensuite, utilisez le portail Azure pour ajouter un message, en afficher les propriétés et l’enlever de la file d’attente.
 author: mhopkins-msft
 ms.author: mhopkins
+ms.reviewer: dineshm
 ms.date: 08/13/2020
+ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
-ms.topic: quickstart
-ms.reviewer: dineshm
-ms.openlocfilehash: 0ee3d9c26d6972da9e528660d034432ce696aa45
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 24b1d16ab5f13a9aef1faa5bc7a3579ad1a5aa5e
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93347197"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97585545"
 ---
 # <a name="quickstart-create-a-queue-and-add-a-message-with-the-azure-portal"></a>Démarrage rapide : Créer une file d’attente et ajouter un message à l’aide du portail Azure
 
@@ -28,7 +28,7 @@ Ce guide de démarrage rapide explique comment utiliser le [portail Azure](https
 Pour créer une file d’attente dans le portail Azure, effectuez les étapes suivantes :
 
 1. Accédez à votre nouveau compte de stockage dans le portail Azure.
-2. Dans le menu de gauche du compte de stockage, faites défiler jusqu’à la section **Service de File d’attente** , puis sélectionnez **Files d’attente**.
+2. Dans le menu de gauche du compte de stockage, faites défiler jusqu’à la section **Stockage File d’attente**, puis sélectionnez **Files d’attente**.
 3. Sélectionnez le bouton **+ File d’attente**.
 4. Entrez un nom pour votre nouvelle file d’attente. Le nom de la file d’attente doit être en minuscules et commencer par une lettre ou un chiffre. Il peut comporter uniquement des lettres, des chiffres et des tirets (-).
 6. Sélectionnez **OK** pour créer la file d’attente.
@@ -66,4 +66,4 @@ Cette opération d’enlèvement entraîne toujours la suppression du message le
 Dans ce guide de démarrage rapide, vous avez vu comment créer une file d’attente, ajouter un message, afficher les propriétés d’un message et enlever un message de la file d’attente dans le portail Azure.
 
 > [!div class="nextstepaction"]
-> [Que sont les files d’attente Azure ?](storage-queues-introduction.md)
+> [Qu’est-ce que Stockage File d’attente Azure ?](storage-queues-introduction.md)

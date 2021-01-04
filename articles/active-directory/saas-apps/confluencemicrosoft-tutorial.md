@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 73f5968f02e0f348c82d83b5b82d67748b4c3586
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: b0cdfd76ed5e7ae20800b52e6074809de12a8b5f
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92455338"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97031468"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-confluence-saml-sso-by-microsoft"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Confluence SAML SSO by Microsoft
 
@@ -63,7 +63,7 @@ Les versions suivantes de Confluence sont actuellement prises en charge :
 
 - Confluence : 5.0 à 5.10
 - Confluence : 6.0.1 à 6.15.9
-- Confluence : 7.0.1 à 7.7.2
+- Confluence : 7.0.1 à 7.9.3
 
 > [!NOTE]
 > Veuillez noter que nos plug-ins Confluence fonctionnent également sur Ubuntu Version 16.04
@@ -79,15 +79,15 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 Pour configurer l’intégration de Confluence SAML SSO by Microsoft à Azure AD, vous devez ajouter Confluence SAML SSO by Microsoft, disponible dans la galerie, à votre liste d’applications SaaS gérées.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
-1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory** .
-1. Accédez à **Applications d’entreprise** , puis sélectionnez **Toutes les applications** .
-1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application** .
-1. Dans la section **Ajouter à partir de la galerie** , tapez **Confluence SAML SSO by Microsoft** dans la zone de recherche.
+1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
+1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
+1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
+1. Dans la section **Ajouter à partir de la galerie**, tapez **Confluence SAML SSO by Microsoft** dans la zone de recherche.
 1. Sélectionnez **Confluence SAML SSO by Microsoft** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-confluence-saml-sso-by-microsoft"></a>Configurez et testez l’authentification unique Azure AD pour Confluence SAML SSO by Microsoft
 
-Configurez et testez l’authentification unique Azure AD avec Confluence SAML SSO by Microsoft à l’aide d’un utilisateur de test nommé **B.Simon** . Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur Confluence SAML SSO by Microsoft associé.
+Configurez et testez l’authentification unique Azure AD avec Confluence SAML SSO by Microsoft à l’aide d’un utilisateur de test nommé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur Confluence SAML SSO by Microsoft associé.
 
 Pour configurer et tester l’authentification unique Azure AD avec Confluence SAML SSO by Microsoft, effectuez les modules suivants :
 
@@ -102,24 +102,24 @@ Pour configurer et tester l’authentification unique Azure AD avec Confluence S
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-1. Dans le [portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **Confluence SAML SSO by Microsoft** , recherchez la section **Gérer** et sélectionnez **Authentification unique** .
-1. Dans la page **Sélectionner une méthode d’authentification unique** , sélectionnez **SAML** .
-1. Dans la page **Configurer l’authentification unique avec SAML** , cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
+1. Dans le [portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **Confluence SAML SSO by Microsoft**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
+1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la section **Configuration SAML de base** , entrez les valeurs pour les champs suivants :
+1. Dans la section **Configuration SAML de base**, entrez les valeurs pour les champs suivants :
 
-    a. Dans la zone de texte **URL de connexion** , tapez une URL au format suivant : `https://<domain:port>/plugins/servlet/saml/auth`.
+    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<domain:port>/plugins/servlet/saml/auth`.
 
-    b. Dans la zone de texte **Identificateur** , tapez une URL en utilisant le format suivant : `https://<domain:port>/`
+    b. Dans la zone de texte **Identificateur**, tapez une URL en utilisant le format suivant : `https://<domain:port>/`
 
-    c. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : `https://<domain:port>/plugins/servlet/saml/auth`
+    c. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<domain:port>/plugins/servlet/saml/auth`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. Le port est facultatif s’il s’agit d’une URL nommée. Ces valeurs sont reçues durant la configuration du plug-in Confluence qui est décrite plus loin dans le didacticiel.
 
-1. Dans la page **Configurer l’authentification unique avec SAML** , dans la section **Certificat de signature SAML** , cliquez sur le bouton Copier pour copier l’ **URL des métadonnées de fédération d’application** , puis enregistrez-la sur votre ordinateur.
+1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier l’**URL des métadonnées de fédération d’application**, puis enregistrez-la sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/copy-metadataurl.png)
 
@@ -127,37 +127,37 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
 
-1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory** , **Utilisateurs** , puis **Tous les utilisateurs** .
+1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
 1. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
-1. Dans les propriétés **Utilisateur** , effectuez les étapes suivantes :
-   1. Dans le champ **Nom** , entrez `B.Simon`.  
-   1. Dans le champ **Nom de l’utilisateur** , entrez username@companydomain.extension. Par exemple : `B.Simon@contoso.com`.
-   1. Cochez la case **Afficher le mot de passe** , puis notez la valeur affichée dans le champ **Mot de passe** .
-   1. Cliquez sur **Créer** .
+1. Dans les propriétés **Utilisateur**, effectuez les étapes suivantes :
+   1. Dans le champ **Nom**, entrez `B.Simon`.  
+   1. Dans le champ **Nom de l’utilisateur**, entrez username@companydomain.extension. Par exemple : `B.Simon@contoso.com`.
+   1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
+   1. Cliquez sur **Créer**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
 Dans cette section, vous allez autoriser B.Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Confluence SAML SSO by Microsoft.
 
-1. Dans le portail Azure, sélectionnez **Applications d’entreprise** , puis **Toutes les applications** .
-1. Dans la liste des applications, sélectionnez **Confluence SAML SSO by Microsoft** .
-1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes** .
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
+1. Dans la liste des applications, sélectionnez **Confluence SAML SSO by Microsoft**.
+1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
 
    ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
 
-1. Sélectionnez **Ajouter un utilisateur** , puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution** .
+1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
 
     ![Lien Ajouter un utilisateur](common/add-assign-user.png)
 
-1. Dans la boîte de dialogue **Utilisateurs et groupes** , sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
-1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle** , sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
-1. Dans la boîte de dialogue **Ajouter une attribution** , cliquez sur le bouton **Attribuer** .
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
+1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
 ## <a name="configure-confluence-saml-sso-by-microsoft-sso"></a>Configurer l’authentification unique Confluence SAML SSO by Microsoft
 
 1. Dans une autre fenêtre de navigateur web, connectez-vous à votre instance de Confluence en tant qu’administrateur.
 
-1. Pointez sur le roue dentée, puis cliquez sur **Modules complémentaires** .
+1. Pointez sur le roue dentée, puis cliquez sur **Modules complémentaires**.
 
     ![Capture d’écran montrant l’icône « Roue dentée » sélectionnée et « Add-ons » mis en évidence dans le menu déroulant.](./media/confluencemicrosoft-tutorial/addon1.png)
 
@@ -176,7 +176,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
     ![Capture d’écran montrant le fichier « server.xml » avec l’attribut ajouté au port « connecteur ».](./media/confluencemicrosoft-tutorial/reverseproxy1.png)
 
-    b. Modifiez l’ **URL de base** dans les **paramètres système** en fonction du proxy/de l’équilibreur de charge.
+    b. Modifiez l’**URL de base** dans les **paramètres système** en fonction du proxy/de l’équilibreur de charge.
 
     ![Capture d’écran montrant la page « Administration - Settings » avec « Base URL » mis en évidence.](./media/confluencemicrosoft-tutorial/reverseproxy2.png)
 
@@ -191,9 +191,9 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
     > [!TIP]
     > Vérifiez qu’un seul certificat est associé à l’application pour éviter toute erreur liée à la résolution des métadonnées. Si plusieurs certificats sont associés, l’administrateur verra un message d’erreur s’afficher lors de la résolution des métadonnées.
 
-    1. Dans la zone de texte **URL des métadonnées** , collez la valeur **URL des métadonnées de fédération de l’application** que vous avez copiée sur le portail Azure, puis cliquez sur le bouton **Résoudre** . L’URL des métadonnées IdP est alors lue et tous les champs sont renseignés.
+    1. Dans la zone de texte **URL des métadonnées**, collez la valeur **URL des métadonnées de fédération de l’application** que vous avez copiée sur le portail Azure, puis cliquez sur le bouton **Résoudre**. L’URL des métadonnées IdP est alors lue et tous les champs sont renseignés.
 
-    1. Copiez les valeurs des champs **Identifier, Reply URL et Sign on URL** , puis collez-les dans les zones de texte **Identificateur, URL de réponse et URL de connexion** correspondantes dans la section **Configuration SAML de base** du portail Azure.
+    1. Copiez les valeurs des champs **Identifier, Reply URL et Sign on URL**, puis collez-les dans les zones de texte **Identificateur, URL de réponse et URL de connexion** correspondantes dans la section **Configuration SAML de base** du portail Azure.
 
     1. Dans **Login Button Name** (Nom du bouton de connexion), tapez le nom du bouton que les utilisateurs doivent voir sur l’écran de connexion.
     
@@ -206,9 +206,9 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
     1. Si vous sélectionnez l’option **User ID is in an Attribute element** (L’identificateur d’utilisateur se trouve dans l’élément Attribute), dans la zone de texte **Attribute name** (Nom de l’attribut), tapez le nom de l’attribut dans lequel l’ID d’utilisateur doit se trouver. 
 
-    1. Si vous utilisez le domaine fédéré (AD FS, etc.) avec Azure AD, cochez l’option **Enable Home Realm Discovery** (Activer la détection de domaine d’accueil), puis entrez un nom de domaine sous **Domain Name** .
+    1. Si vous utilisez le domaine fédéré (AD FS, etc.) avec Azure AD, cochez l’option **Enable Home Realm Discovery** (Activer la détection de domaine d’accueil), puis entrez un nom de domaine sous **Domain Name**.
 
-    1. Si la connexion est basée sur AD FS, tapez le nom du domaine dans le champ **Domain Name** .
+    1. Si la connexion est basée sur AD FS, tapez le nom du domaine dans le champ **Domain Name**.
 
     1. Cochez l’option **Enable Single Sign out** (Activer la déconnexion unique) si vous souhaitez qu’un utilisateur soit déconnecté d’Azure AD quand il se déconnecte de Confluence. 
 
@@ -231,7 +231,7 @@ Pour pouvoir se connecter à un serveur local Confluence, les utilisateurs Azure
 
 1. Connectez-vous à votre serveur local Confluence en tant qu’administrateur.
 
-1. Pointez sur la roue dentée, puis cliquez sur **Gestion des utilisateurs** .
+1. Pointez sur la roue dentée, puis cliquez sur **Gestion des utilisateurs**.
 
     ![Ajouter un employé](./media/confluencemicrosoft-tutorial/user1.png)
 
@@ -249,7 +249,7 @@ Pour pouvoir se connecter à un serveur local Confluence, les utilisateurs Azure
 
     e. Cliquez sur **Confirm Password** (Confirmer le mot de passe), puis entrez de nouveau le mot de passe.
 
-    f. Cliquez sur le bouton **Ajouter** .
+    f. Cliquez sur le bouton **Ajouter**.
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 

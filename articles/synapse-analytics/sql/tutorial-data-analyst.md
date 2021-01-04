@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 11/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7b2d4953b3a42c5d66fca4a67b4a6d0f13700a35
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: d37597f8667c461e8d61f8214483f57eb702c2a0
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96459127"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007549"
 ---
 # <a name="tutorial-explore-and-analyze-data-lakes-with-serverless-sql-pool"></a>Tutoriel : Explorer et analyser des lacs de données avec un pool SQL serverless
 
@@ -38,8 +38,8 @@ SELECT TOP 100 * FROM
 
 Le [jeu de données Taxis de la ville de New York](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/) comprend les éléments suivants :
 
-- Dates et heures de début et de fin des trajets.
-- Adresses de début et de fin des trajets. 
+- Dates et heures de début et de fin de trajet.
+- Emplacements de début et de fin de trajet. 
 - Distance des trajets.
 - Tarifs détaillés.
 - Types de tarifs.

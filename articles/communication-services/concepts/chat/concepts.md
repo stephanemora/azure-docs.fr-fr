@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: f0e69e3f62d3b9e4debb5761d877dcdfdd246f60
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 077500e0188d1cc20864d436a2e2fd711b180702
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886020"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97560234"
 ---
 # <a name="chat-concepts"></a>Concepts relatifs aux conversations
 
@@ -46,8 +46,9 @@ L’architecture des conversations comporte deux parties principales : 1) un se
 
 La conversation Communication Services partage les messages générés par l’utilisateur, ainsi que les messages générés par le système, qui sont appelés **activités de fil**. Les activités de fil sont générées lors de la mise à jour d’un fil de conversation. Lorsque vous appelez `List Messages` ou `Get Messages` sur un fil de conversation, le résultat contient les messages texte générés par l’utilisateur, ainsi que les messages système, classés par ordre chronologique. Cela vous permet de savoir à quel moment un membre a été ajouté ou supprimé, ainsi que la date de mise à jour du sujet du fil de conversation. Les types de messages pris en charge sont les suivants :  
 
- - `Text`: Message réel composé et envoyé par l’utilisateur dans le cadre d’une conversation 
- - `ThreadActivity/AddMember`: Message système qui indique qu’un ou plusieurs membres ont été ajoutés au fil de conversation Par exemple :
+ - `Text` : Message en texte brut composé et envoyé par un utilisateur dans le cadre d’une conversation. 
+ - `RichText/HTML` : Message en texte mis en forme. Notez que les utilisateurs Communication Services ne peuvent actuellement pas envoyer de messages en texte enrichi. Ce type de message est pris en charge par les messages qu’envoient les utilisateurs Teams aux utilisateurs Communication Services dans les scénarios d’interopérabilité de Teams.
+ - `ThreadActivity/AddMember` : Message système qui indique qu’un ou plusieurs membres ont été ajoutés au fil de conversation. Par exemple :
 
 ```xml
 
@@ -92,6 +93,30 @@ La conversation Communication Services partage les messages générés par l’u
 
 ```
 
+- `ThreadActivity/MemberJoined` : Message système généré lorsqu’un utilisateur invité rejoint la conversation de réunion Teams. Les utilisateurs Communication Services peuvent participer en tant qu’invité de Teams à des conversations de réunion. Par exemple :  
+```xml
+{ 
+  "id": "1606351443605", 
+  "type": "ThreadActivity/MemberJoined", 
+  "version": "1606347753409", 
+  "priority": "normal", 
+  "content": "{\"eventtime\":1606351443080,\"initiator\":\"8:orgid:8a53fd2b5ef150bau8442ad732a6ac6b_0e8deebe7527544aa2e7bdf3ce1b8733\",\"members\":[{\"id\":\"8:acs:9b665d83-8164-4923-ad5d-5e983b07d2d7_00000006-7ef9-3bbe-b274-5a3a0d0002b1\",\"friendlyname\":\"\"}]}", 
+  "senderId": " 19:meeting_curGQFTQ8tifs3EK9aTusiszGpkZULzNTTy2dbfI4dCJEaik@thread.v2", 
+  "createdOn": "2020-11-29T00:44:03.6950000Z" 
+} 
+```
+- `ThreadActivity/MemberLeft` : Message système généré lorsqu’un utilisateur invité quitte la conversation de réunion. Les utilisateurs Communication Services peuvent participer en tant qu’invité de Teams à des conversations de réunion. Par exemple : 
+```xml
+{ 
+  "id": "1606347703429", 
+  "type": "ThreadActivity/MemberLeft", 
+  "version": "1606340753429", 
+  "priority": "normal", 
+  "content": "{\"eventtime\":1606340755385,\"initiator\":\"8:orgid:8a53fd2b5u8150ba81442ad732a6ac6b_0e8deebe7527544aa2e7bdf3ce1b8733\",\"members\":[{\"id\":\"8:acs:9b665753-8164-4923-ad5d-5e983b07d2d7_00000006-7ef9-3bbe-b274-5a3a0d0002b1\",\"friendlyname\":\"\"}]}", 
+  "senderId": "19:meeting_9u7hBcYiADudn41Djm0n9DTVyAHuMZuh7p0bDsx1rLVGpnMk@thread.v2", 
+  "createdOn": "2020-11-29T23:42:33.4290000Z" 
+} 
+```
 - `ThreadActivity/TopicUpdate`: Message système qui indique que le sujet a été mis à jour Par exemple :
 
 ```xml

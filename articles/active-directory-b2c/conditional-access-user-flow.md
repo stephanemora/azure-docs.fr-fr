@@ -5,17 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 09/01/2020
+ms.date: 12/14/2020
+ms.custom: project-no-code
 ms.author: mimart
 author: msmimart
 manager: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60bfac3b80e772e7b359b1e926d5fb84e447a8fb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+zone_pivot_groups: b2c-policy-type
+ms.openlocfilehash: d6d5ab13c8997dffee42a053ba498376ccbcb6d8
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89270737"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97585256"
 ---
 # <a name="add-conditional-access-to-user-flows-in-azure-active-directory-b2c"></a>Ajouter l’accès conditionnel à des flux d’utilisateurs dans Azure Active Directory B2C
 
@@ -34,6 +36,22 @@ L’accès conditionnel est pris en charge dans les versions les plus récentes 
 - **Accès conditionnel** : ce paramètre doit toujours être **Activé**. En général, vous ne **désactiverez** ce paramètre que lors du dépannage ou de la migration, ou pour les implémentations héritées.
 
 Apprenez-en davantage sur [Identity Protection et l’accès conditionnel](conditional-access-identity-protection-overview.md) dans Azure AD B2C, ou découvrez [comment les configurer](conditional-access-identity-protection-setup.md).
+
+## <a name="prerequisites"></a>Prérequis
+
+- Azure AD B2C Premium 2 est nécessaire pour créer des stratégies de connexion risquée. Les locataires Premium P1 peuvent créer des stratégies basées sur l’emplacement, l’application ou le groupe.
+- À des fins de test, vous pouvez [inscrire l’application web de test](tutorial-register-applications.md) `https://jwt.ms`, une application web Microsoft qui affiche le contenu décodé d’un jeton (le contenu du jeton ne quitte jamais votre navigateur). 
+- Pour simuler une connexion risquée, téléchargez le navigateur TOR et essayez de vous connecter au point de terminaison du flux d’utilisateur.
+- À l’aide des paramètres suivants, [créez une stratégie d’accès conditionnel](conditional-access-identity-protection-setup.md) :
+   
+  - Pour **Utilisateurs et groupes**, sélectionnez l’utilisateur de test (ne sélectionnez pas **Tous les utilisateurs**, car vous risqueriez de ne pas pouvoir vous connecter).
+  - Pour **Applications ou actions cloud**, choisissez **Sélectionner les applications**, puis choisissez votre application par partie de confiance.
+  - Pour Conditions, sélectionnez **Risque de connexion** et les niveaux de risque **Élevé**, **Moyen** et **Faible**.
+  - Pour **Accorder**, choisissez **Bloquer l’accès**.
+
+      ![Détections de risques](media/conditional-access-identity-protection-setup/test-conditional-access-policy.png)
+
+::: zone pivot="b2c-user-flow"
 
 ## <a name="add-conditional-access-to-a-new-user-flow"></a>Ajouter l’accès conditionnel à un nouveau flux d’utilisateur
 
@@ -89,19 +107,6 @@ Apprenez-en davantage sur [Identity Protection et l’accès conditionnel](condi
 
 Pour tester l’accès conditionnel dans votre flux d’utilisateur, [créez une stratégie d’accès conditionnel](conditional-access-identity-protection-setup.md) et activez l’accès conditionnel dans votre flux d’utilisateur comme décrit ci-dessus. 
 
-### <a name="prerequisites"></a>Prérequis
-
-- Azure AD B2C Premium 2 est nécessaire pour créer des stratégies de connexion risquée. Les locataires Premium P1 peuvent créer des stratégies basées sur l’emplacement, l’application ou le groupe.
-- À des fins de test, vous pouvez [inscrire l’application web de test](tutorial-register-applications.md) `https://jwt.ms`, une application web Microsoft qui affiche le contenu décodé d’un jeton (le contenu du jeton ne quitte jamais votre navigateur). 
-- Pour simuler une connexion risquée, téléchargez le navigateur TOR et essayez de vous connecter au point de terminaison du flux d’utilisateur.
-- À l’aide des paramètres suivants, [créez une stratégie d’accès conditionnel](conditional-access-identity-protection-setup.md) :
-   
-   - Pour **Utilisateurs et groupes**, sélectionnez l’utilisateur de test (ne sélectionnez pas **Tous les utilisateurs**, car vous risqueriez de ne pas pouvoir vous connecter).
-   - Pour **Applications ou actions cloud**, choisissez **Sélectionner les applications**, puis choisissez votre application par partie de confiance.
-   - Pour Conditions, sélectionnez **Risque de connexion** et les niveaux de risque **Élevé**, **Moyen** et **Faible**.
-   - Pour **Accorder**, choisissez **Bloquer l’accès**.
-
-      ![Détections de risques](media/conditional-access-identity-protection-setup/test-conditional-access-policy.png)
 
 ### <a name="run-the-user-flow"></a>Exécuter le flux d’utilisateur
 
@@ -117,6 +122,16 @@ Pour tester l’accès conditionnel dans votre flux d’utilisateur, [créez une
 
    ![Tester une connexion bloquée](media/conditional-access-identity-protection-setup/test-blocked-sign-in.png)
 
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
+
+## <a name="add-conditional-access-to-your-policy"></a>Ajouter l’accès conditionnel à votre stratégie
+
+Vous trouverez un exemple de stratégie d’accès conditionnel sur [GitHub](https://github.com/azure-ad-b2c/samples/tree/master/policies/conditional-access).
+
+::: zone-end
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Personnaliser l’interface utilisateur dans un flux d’utilisateur Azure AD B2C](customize-ui-overview.md)
+[Personnaliser l’interface utilisateur dans un flux d’utilisateur Azure AD B2C](customize-ui-with-html.md)

@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
-ms.custom: aaddev, fasttrack-edit, contperfq1, identityplatformtop40
-ms.openlocfilehash: 1b8b7b16a354fba482fcefe8f306f949f9a952ea
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40
+ms.openlocfilehash: 14b6d6ecc6523199102fd3ef9370fe901c4ff51d
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96902644"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97355696"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Autorisations et consentement dans le point de terminaison de la plateforme d’identités Microsoft
 
@@ -89,7 +89,7 @@ L’étendue `profile` peut être utilisée avec l’étendue `openid` ainsi que
 [L’étendue `offline_access`](https://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess) permet à votre application d’accéder aux ressources pour le compte de l’utilisateur pendant une période prolongée. Dans la page de consentement, cette étendue apparaît comme l’autorisation « Conserver l’accès aux données auxquelles vous lui avez donné l’accès ». Lorsqu’un utilisateur approuve l’étendue `offline_access`, votre application peut recevoir les jetons d’actualisation du point de terminaison des jetons de la plateforme d’identités Microsoft. Les jetons d’actualisation sont de longue durée. Votre application peut obtenir de nouveaux jetons d’accès lorsque les plus anciens arrivent à expiration.
 
 > [!NOTE]
-> Cette autorisation s’affiche sur tous les écrans de consentement du jour, même pour les flux qui ne fournissent pas de jeton d’actualisation (le [flux implicite](v2-oauth2-implicit-grant-flow.md)).  Cela permet de couvrir les scénarios dans lesquels un client peut commencer dans le cadre du flux implicite, puis passer au flux de code où un jeton d’actualisation est attendu.
+> Cette autorisation s’affiche sur tous les écrans de consentement du jour, même pour les flux qui ne fournissent pas de jeton d’actualisation (le [flux implicite](v2-oauth2-implicit-grant-flow.md)). Cela permet de couvrir les scénarios dans lesquels un client peut commencer dans le cadre du flux implicite, puis passer au flux de code où un jeton d’actualisation est attendu.
 
 Sur la plateforme d’identités Microsoft (requêtes adressées au point de terminaison v2.0), votre application doit demander explicitement l’étendue `offline_access` pour recevoir les jetons d’actualisation. Ainsi, lorsque vous échangez un code d’autorisation dans le [flux de code d’autorisation OAuth 2.0](active-directory-v2-protocols.md), vous recevez uniquement un jeton d’accès du point de terminaison `/token`. Le jeton d’accès est valide pendant une courte durée : il arrive généralement à expiration en une heure. À ce stade, votre application doit rediriger l’utilisateur vers le point de terminaison `/authorize` afin de récupérer un nouveau code d’autorisation. Pendant ce réacheminement, en fonction du type d’application, l’utilisateur peut devoir entrer à nouveau ses informations d’identification ou accepter une nouvelle fois les autorisations.
 

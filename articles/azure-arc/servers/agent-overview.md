@@ -1,14 +1,14 @@
 ---
 title: Présentation de l’agent Connected Machine Windows
 description: Cet article fournit une présentation détaillée de l’agent des serveurs avec Azure Arc disponible, qui prend en charge la surveillance de machines virtuelles hébergées dans des environnements hybrides.
-ms.date: 12/01/2020
+ms.date: 12/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1bc9546e6db35153424ba670f8157adb86d19b71
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 531041b7d7439dd2a48fa9e06eb82796f470e9ed
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452949"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563022"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Présentation de l’agent des serveurs activés par Azure Arc
 
@@ -56,6 +56,9 @@ Les versions suivantes des systèmes d’exploitation Windows et Linux sont offi
 - Red Hat Enterprise Linux (RHEL) 7 (x64)
 - Amazon Linux 2 (x64)
 
+> [!WARNING]
+> Le nom d’hôte Linux ou le nom de l’ordinateur Windows ne peuvent pas contenir de mots réservés ni de marques dans le nom. Dans le cas contraire, la tentative d’inscription de la machine connectée auprès d’Azure se solde par un échec. Consultez [Résoudre les erreurs de nom de ressource réservé](../../azure-resource-manager/templates/error-reserved-resource-name.md) pour obtenir la liste des mots réservés.
+
 ### <a name="required-permissions"></a>Autorisations requises
 
 * Pour intégrer des ordinateurs, vous devez être membre du rôle **Intégration de machine connectée à Azure**.
@@ -77,9 +80,9 @@ Pour garantir la sécurité des données en transit vers Azure, nous vous encour
 
 ### <a name="networking-configuration"></a>Configuration de la mise en réseau
 
-L’agent Connected Machine pour Linux et Windows communique en sortie de manière sécurisée vers Azure Arc sur le port TCP 443. Si la machine se connecte via un pare-feu ou un serveur proxy pour communiquer sur Internet, consultez les exigences ci-dessous pour connaître la configuration réseau nécessaire.
+L’agent Connected Machine pour Linux et Windows communique en sortie de manière sécurisée vers Azure Arc sur le port TCP 443. Si la machine se connecte via un pare-feu ou un serveur proxy pour communiquer sur Internet, consultez les éléments ci-dessous pour comprendre la configuration réseau requise.
 
-Si la connectivité sortante est restreinte par votre pare-feu ou votre serveur proxy, vérifiez que les URL listées ci-dessous ne sont pas bloquées. Si vous autorisez uniquement les plages d’adresses IP ou les noms de domaine nécessaires pour que l’agent communique avec le service, vous devez également autoriser l’accès aux URL et étiquettes de service suivantes.
+Si la connectivité sortante est restreinte par votre pare-feu ou votre serveur proxy, vérifiez que les URL listées ci-dessous ne sont pas bloquées. Lorsque vous n’autorisez que les plages d’adresses IP ou les noms de domaine nécessaires pour que l’agent communique avec le service, vous devez également autoriser l’accès aux URL et étiquettes de service suivantes.
 
 Balises de service :
 
@@ -178,8 +181,9 @@ Une fois l’agent Connected Machine pour Windows installé, les modifications d
 
     |Nom du service |Nom complet |Nom du processus |Description |
     |-------------|-------------|-------------|------------|
-    |himds |Azure Hybrid Instance Metadata Service |himds.exe |Ce service implémente le service IMDS (Instance Metadata service) Azure pour gérer la connexion à Azure et l’identité Azure de l’ordinateur connecté.|
-    |DscService |Service de configuration d’invité |dsc_service.exe |La base de code de Desired State Configuration (DSC v2) utilisée dans Azure pour implémenter une stratégie dans l’invité.|
+    |himds |Azure Hybrid Instance Metadata Service |himds |Ce service implémente le service IMDS (Instance Metadata service) Azure pour gérer la connexion à Azure et l’identité Azure de l’ordinateur connecté.|
+    |GCArcService |Service Arc de configuration d’invité |gc_service |Analyse la configuration de l’état souhaité de la machine.|
+    |ExtensionService |Service d’extension de la configuration d’invité | gc_service |Installe les extensions requises ciblant la machine.|
 
 * Les variables d’environnement suivantes sont créées lors de l’installation de l’agent.
 
@@ -197,7 +201,7 @@ Une fois l’agent Connected Machine pour Windows installé, les modifications d
     |%ProgramData%\GuestConfig\gc_agent_logs\gc_agent.log |Enregistre les détails de l’activité du service DSC,<br> en particulier, la connectivité entre le service HIMDS et Azure Policy.|
     |%ProgramData%\GuestConfig\gc_agent_logs\gc_agent_telemetry.txt |Enregistre les détails relatifs à la télémétrie du service DSC et à la journalisation détaillée.|
     |%ProgramData%\GuestConfig\ext_mgr_logs|Enregistre les détails concernant le composant de l’agent Extension.|
-    |%ProgramData%\GuestConfig\extension_logs<ph id="ph1">\&lt;Extension&gt;</ph>|Enregistre les détails de l’extension installée.|
+    |%ProgramData%\GuestConfig\extension_logs\<Extension>|Enregistre les détails de l’extension installée.|
 
 * Le groupe de sécurité local **Applications d’extension de l’agent hybride** est créé.
 
@@ -229,8 +233,9 @@ Une fois l’agent Connected Machine pour Linux installé, les modifications de 
 
     |Nom du service |Nom complet |Nom du processus |Description |
     |-------------|-------------|-------------|------------|
-    |himdsd.service |Azure Hybrid Instance Metadata Service |/opt/azcmagent/bin/himds |Ce service implémente le service IMDS (Instance Metadata service) Azure pour gérer la connexion à Azure et l’identité Azure de l’ordinateur connecté.|
-    |dscd.service |Service de configuration d’invité |/opt/DSC/dsc_linux_service |Il s’agit de la base de code de Desired State Configuration (DSC v2) utilisée dans Azure pour implémenter une stratégie dans l’invité.|
+    |himdsd.service |Service Azure Connected Machine Agent |himds |Ce service implémente le service IMDS (Instance Metadata service) Azure pour gérer la connexion à Azure et l’identité Azure de l’ordinateur connecté.|
+    |gcad.servce |Service Arc GC |gc_linux_service |Analyse la configuration de l’état souhaité de la machine. |
+    |extd.service |Service d’extension |gc_linux_service | Installe les extensions requises ciblant la machine.|
 
 * Plusieurs fichiers journaux sont disponibles pour la résolution des problèmes. Ils sont décrits dans le tableau suivant.
 

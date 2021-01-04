@@ -1,30 +1,30 @@
 ---
-title: 'Tutoriel : Utiliser des files d’attente de stockage Azure dans .NET'
-description: Tutoriel expliquant comment utiliser le service de File d’attente Azure pour créer des files d’attente, et pour insérer, obtenir et supprimer des messages à l’aide du code .NET.
+title: 'Tutoriel : Utiliser des files d’attente Stockage File d’attente Azure dans .NET'
+description: Tutoriel sur l’utilisation de Stockage File d’attente Azure pour créer des files d’attente et pour insérer, obtenir et supprimer des messages à l’aide du code .NET.
 author: mhopkins-msft
 ms.author: mhopkins
+ms.reviewer: dineshm
 ms.date: 06/09/2020
+ms.topic: tutorial
 ms.service: storage
 ms.subservice: queues
-ms.topic: tutorial
-ms.reviewer: dineshm
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9d661800c53cc0795efde1f411675d17661fb968
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 3c41b218ac0d347b2e58931421493755346b13d7
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93345531"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591971"
 ---
-# <a name="tutorial-work-with-azure-storage-queues-in-net"></a>Tutoriel : Utiliser des files d’attente de stockage Azure dans .NET
+# <a name="tutorial-work-with-azure-queue-storage-queues-in-net"></a>Tutoriel : Utiliser des files d’attente Stockage File d’attente Azure dans .NET
 
-Stockage File d’attente Azure implémente des files d’attente cloud pour permettre la communication entre les composants d’une application distribuée. Chaque file d’attente gère une liste de messages qui peuvent être ajoutés par un composant expéditeur et traités par un composant récepteur. Avec une file d’attente, votre application peut être mise à l’échelle immédiatement pour répondre à la demande. Cet article explique les étapes de base pour travailler avec une file d’attente de stockage Azure.
+Stockage File d’attente Azure implémente des files d’attente cloud pour permettre la communication entre les composants d’une application distribuée. Chaque file d’attente gère une liste de messages qui peuvent être ajoutés par un composant expéditeur et traités par un composant récepteur. Avec une file d’attente, votre application peut être mise à l’échelle immédiatement pour répondre à la demande. Cet article montre les étapes de base pour travailler avec une file d’attente Stockage File d’attente Azure.
 
 Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 >
-> - Créer un compte de stockage Azure
+> - Créer un compte Stockage Azure
 > - Créer l’application
 > - Ajouter des bibliothèques clientes Azure
 > - Ajouter la prise en charge du code asynchrone
@@ -43,19 +43,19 @@ Dans ce tutoriel, vous allez apprendre à :
 
 ## <a name="create-an-azure-storage-account"></a>Créer un compte de stockage Azure
 
-Créez d’abord un compte de stockage Azure. Pour obtenir un guide pas à pas de la création d’un compte de stockage, consultez le guide de démarrage rapide [Créer un compte de stockage](../common/storage-account-create.md?toc=%2Fazure%2Fstorage%2Fqueues%2Ftoc.json). Il s’agit d’une étape distincte que vous effectuez après avoir créé un compte Azure gratuit dans les prérequis.
+Commencez par créer un compte Stockage Azure. Pour obtenir un guide pas à pas de la création d’un compte de stockage, consultez [Créer un compte de stockage](../common/storage-account-create.md?toc=%2Fazure%2Fstorage%2Fqueues%2Ftoc.json). Il s’agit d’une étape distincte que vous effectuez après avoir créé un compte Azure gratuit dans les prérequis.
 
 ## <a name="create-the-app"></a>Créer l’application
 
-Créez une application .NET Core nommée **QueueApp**. Par souci pratique, cette application envoie et reçoit des messages via la file d’attente.
+Créez une application .NET Core nommée `QueueApp`. Par souci pratique, cette application envoie et reçoit des messages via la file d’attente.
 
-1. Dans une fenêtre de console (par exemple CMD, PowerShell ou Azure CLI), utilisez la commande `dotnet new` pour créer une application de console avec le nom **QueueApp**. Cette commande crée un projet C# « Hello World » simple avec un seul fichier source : **Program.cs**.
+1. Dans une fenêtre de console (telle que cmd, PowerShell ou Azure CLI), utilisez la commande `dotnet new` pour créer une application de console avec le nom `QueueApp`. Cette commande crée un projet C# « hello world » simple avec un seul fichier source nommé `Program.cs`.
 
    ```console
    dotnet new console -n QueueApp
    ```
 
-2. Passez au dossier **QueueApp** nouvellement créé et générez l’application pour vérifier que tout va bien.
+2. Accédez au dossier `QueueApp` nouvellement créé et générez l’application pour vérifier que tout est en ordre.
 
    ```console
    cd QueueApp
@@ -101,7 +101,7 @@ Créez une application .NET Core nommée **QueueApp**. Par souci pratique, cette
 
 1. Ajoutez les bibliothèques clientes du stockage Azure au projet à l’aide de la commande `dotnet add package`.
 
-   # <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+   # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
    Exécutez la commande suivante à partir du dossier du projet dans la fenêtre de console.
 
@@ -109,7 +109,7 @@ Créez une application .NET Core nommée **QueueApp**. Par souci pratique, cette
    dotnet add package Azure.Storage.Queues
    ```
 
-   # <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
+   # <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
 
    Exécutez les commandes suivantes à partir du dossier du projet dans la fenêtre de console.
 
@@ -126,29 +126,29 @@ Créez une application .NET Core nommée **QueueApp**. Par souci pratique, cette
 
 1. Sur la ligne de commande dans le répertoire du projet, tapez `code .` pour ouvrir Visual Studio Code dans le répertoire actif. Laissez ouverte la fenêtre de ligne de commande. Il y aura d’autres commandes à exécuter plus tard. Si vous êtes invité à ajouter des ressources C# nécessaires pour générer et déboguer, cliquez sur le bouton **Oui**.
 
-1. Ouvrez le fichier source **Program.cs** et ajoutez les espaces de noms suivants juste après l’instruction `using System;`. Cette application utilise des types provenant de ces espaces de noms pour se connecter à Stockage Azure et pour utiliser des files d’attente.
+1. Ouvrez le fichier source `Program.cs` et ajoutez les espaces de noms suivants juste après l’instruction `using System;`. Cette application utilise des types provenant de ces espaces de noms pour se connecter à Stockage Azure et pour utiliser des files d’attente.
 
-   # <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+   # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Program.cs" id="snippet_UsingStatements":::
 
-   # <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
+   # <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Program.cs" id="snippet_UsingStatements":::
 
-1. Enregistrez le fichier **Program.cs**.
+1. Enregistrez le fichier `Program.cs`.
 
 ## <a name="add-support-for-asynchronous-code"></a>Ajouter la prise en charge du code asynchrone
 
 Comme l’application utilise des ressources cloud, le code s’exécute de façon asynchrone.
 
-1. Mettez à jour la méthode **Main** pour qu’elle s’exécute de façon asynchrone. Remplacez **void** par une valeur de retour **async Task**.
+1. Mettez à jour la méthode `Main` pour qu’elle s’exécute de façon asynchrone. Remplacez `void` par une valeur de retour `async Task`.
 
    ```csharp
    static async Task Main(string[] args)
    ```
 
-1. Enregistrez le fichier **Program.cs**.
+1. Enregistrez le fichier `Program.cs`.
 
 ## <a name="create-a-queue"></a>Créer une file d’attente
 
@@ -162,23 +162,23 @@ Ajoutez la chaîne de connexion à l’application afin qu’elle puisse accéde
 
 1. Revenez à Visual Studio Code.
 
-1. Dans la méthode **Main**, remplacez le code `Console.WriteLine("Hello World!");` par la ligne suivante qui récupère la chaîne de connexion de la variable d’environnement.
+1. Dans la méthode `Main`, remplacez le code `Console.WriteLine("Hello, World");` par la ligne suivante qui récupère la chaîne de connexion de la variable d’environnement.
 
-   # <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+   # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Program.cs" id="snippet_DeclareConnectionString":::
 
-   # <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
+   # <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Program.cs" id="snippet_DeclareConnectionString":::
 
-1. Ajoutez le code suivant à **Main** pour créer un objet de file d’attente, qui sera passé plus tard dans les méthodes d’envoi et de réception.
+1. Ajoutez le code suivant à `Main` pour créer un objet de file d’attente, qui sera passé plus tard dans les méthodes d’envoi et de réception.
 
-   # <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+   # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Program.cs" id="snippet_CreateQueueClient":::
 
-   # <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
+   # <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Program.cs" id="snippet_CreateQueueClient":::
 
@@ -188,31 +188,31 @@ Ajoutez la chaîne de connexion à l’application afin qu’elle puisse accéde
 
 Créez une méthode pour envoyer un message dans la file d’attente.
 
-1. Ajoutez la méthode **InsertMessageAsync** suivante à votre classe **Program**.
+1. Ajoutez la méthode `InsertMessageAsync` suivante dans votre classe `Program`.
 
-   # <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+   # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
-   Une référence de file d’attente est passée à cette méthode. Si elle n’existe pas déjà, une file d’attente est créée en appelant [CreateIfNotExistsAsync](/dotnet/api/azure.storage.queues.queueclient.createifnotexistsasync). Ensuite, *newMessage* est ajouté à la file d’attente en appelant [SendMessageAsync](/dotnet/api/azure.storage.queues.queueclient.sendmessageasync).
+   Une référence de file d’attente est passée à cette méthode. Si elle n’existe pas déjà, une nouvelle file d’attente est créée en appelant [`CreateIfNotExistsAsync`](/dotnet/api/azure.storage.queues.queueclient.createifnotexistsasync). Ensuite, elle ajoute `newMessage` à la file d’attente en appelant [`SendMessageAsync`](/dotnet/api/azure.storage.queues.queueclient.sendmessageasync).
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Program.cs" id="snippet_InsertMessage":::
 
-   # <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
+   # <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
 
-   Une référence de file d’attente est passée à cette méthode. Si elle n’existe pas déjà, une file d’attente est créée en appelant [CreateIfNotExistsAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.createifnotexistsasync). Ensuite, *newMessage* est ajouté à la file d’attente en appelant [AddMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync).
+   Une référence de file d’attente est passée à cette méthode. Si elle n’existe pas déjà, une nouvelle file d’attente est créée en appelant [`CreateIfNotExistsAsync`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.createifnotexistsasync). Ensuite, elle ajoute `newMessage` à la file d’attente en appelant [`AddMessageAsync`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync).
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Program.cs" id="snippet_InsertMessage":::
 
-1. **Facultatif** Par défaut, un message peut être conservé pendant une durée maximale de sept jours. Vous pouvez spécifier n’importe quel nombre positif pour la durée de vie du message. L’extrait de code suivant ajoute un message qui n’expire *jamais*.
+1. **Facultatif :** Par défaut, la durée de vie maximale d’un message est définie sur sept jours. Vous pouvez spécifier n’importe quel nombre positif pour la durée de vie du message. L’extrait de code suivant ajoute un message qui n’expire **jamais**.
 
-   # <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+   # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
-    Pour ajouter un message qui n’expire pas, utilisez `Timespan.FromSeconds(-1)` dans votre appel à **SendMessageAsync**.
+    Pour ajouter un message qui n’expire pas, utilisez `Timespan.FromSeconds(-1)` dans votre appel à `SendMessageAsync`.
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Initial.cs" id="snippet_SendNonExpiringMessage":::
 
-   # <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
+   # <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
 
-    Pour ajouter un message qui n’expire pas, utilisez `Timespan.FromSeconds(-1)` dans votre appel à **AddMessageAsync**.
+    Pour ajouter un message qui n’expire pas, utilisez `Timespan.FromSeconds(-1)` dans votre appel à `AddMessageAsync`.
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Initial.cs" id="snippet_SendNonExpiringMessage":::
 
@@ -224,19 +224,19 @@ Le format d’un message de file d’attente doit être compatible avec une dema
 
 Créez une méthode pour récupérer un message de la file d’attente. Une fois que le message est effectivement reçu, il est important de le supprimer de la file d’attente pour qu’il ne soit pas traité plusieurs fois.
 
-1. Ajoutez une nouvelle méthode appelée **RetrieveNextMessageAsync** à votre classe **Program**.
+1. Ajoutez une nouvelle méthode appelée `RetrieveNextMessageAsync` à votre classe `Program`.
 
-   # <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+   # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
-   Cette méthode reçoit un message de la file d’attente par l’appel à [ReceiveMessagesAsync](/dotnet/api/azure.storage.queues.queueclient.receivemessagesasync), en passant 1 dans le premier paramètre pour ne récupérer que le message suivant dans la file d’attente. Une fois que le message est reçu, supprimez-le de la file d’attente en appelant [DeleteMessageAsync](/dotnet/api/azure.storage.queues.queueclient.deletemessageasync).
+   Cette méthode reçoit un message de la file d’attente en appelant [`ReceiveMessagesAsync`](/dotnet/api/azure.storage.queues.queueclient.receivemessagesasync), en passant `1` dans le premier paramètre pour ne récupérer que le message suivant dans la file d’attente. Une fois le message reçu, supprimez-le de la file d’attente en appelant [`DeleteMessageAsync`](/dotnet/api/azure.storage.queues.queueclient.deletemessageasync).
 
-   Quand un message est envoyé à la file d’attente avec une version du SDK antérieure à v12, il est automatiquement encodé en Base64. À compter de v12, cette fonctionnalité a été supprimée. Quand vous récupérez un message en utilisant le SDK v12, il n’est pas décodé automatiquement en base64. Vous devez [décoder le contenu en Base64](/dotnet/api/system.convert.frombase64string) vous-même.
+   Quand un message est envoyé à la file d’attente avec une version du SDK antérieure à v12, il est automatiquement encodé en Base64. À compter de la version v12, cette fonctionnalité a été supprimée. Quand vous récupérez un message en utilisant le SDK v12, il n’est pas décodé automatiquement en base64. Vous devez [décoder le contenu en Base64](/dotnet/api/system.convert.frombase64string) vous-même.
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Initial.cs" id="snippet_InitialRetrieveMessage":::
 
-   # <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
+   # <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
 
-   Cette méthode reçoit un message de la file d’attente en appelant [GetMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessageasync). Une fois que le message est reçu, supprimez-le de la file d’attente en appelant [DeleteMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessageasync).
+   Cette méthode reçoit un message de la file d’attente en appelant [`GetMessageAsync`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessageasync). Une fois le message reçu, supprimez-le de la file d’attente en appelant [`DeleteMessageAsync`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessageasync).
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Initial.cs" id="snippet_InitialRetrieveMessage":::
 
@@ -246,13 +246,13 @@ Créez une méthode pour récupérer un message de la file d’attente. Une fois
 
 C’est une bonne pratique à la fin d’un projet que de déterminer si vous avez toujours besoin des ressources que vous avez créées. Les ressources laissées en cours d’exécution peuvent vous coûter de l’argent. Si la file d’attente existe mais qu’est vide, demandez à l’utilisateur s’il veut la supprimer.
 
-1. Développez la méthode **RetrieveNextMessageAsync** pour y inclure une invite de suppression de la file d’attente vide.
+1. Développez la méthode `RetrieveNextMessageAsync` pour y inclure une invite de suppression de la file d’attente vide.
 
-   # <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+   # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Program.cs" id="snippet_RetrieveMessage":::
 
-   # <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
+   # <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Program.cs" id="snippet_RetrieveMessage":::
 
@@ -260,19 +260,19 @@ C’est une bonne pratique à la fin d’un projet que de déterminer si vous av
 
 ## <a name="check-for-command-line-arguments"></a>Vérifier les arguments de la ligne de commande
 
-Si des arguments de ligne de commande sont passés dans l’application, supposons qu’il s’agisse d’un message à ajouter à la file d’attente. Joignez ensemble les arguments pour en faire une chaîne. Ajoutez cette chaîne à la file d’attente des messages en appelant la méthode **InsertMessageAsync** que nous avons ajoutée précédemment.
+Si des arguments de ligne de commande sont passés dans l’application, supposons qu’il s’agisse d’un message à ajouter à la file d’attente. Joignez ensemble les arguments pour en faire une chaîne. Ajoutez cette chaîne à la file d’attente des messages en appelant la méthode `InsertMessageAsync` que nous avons ajoutée précédemment.
 
-S’il n’y a pas d’arguments de ligne de commande, tentez une opération de récupération. Appelez la méthode **RetrieveNextMessageAsync** pour récupérer le message suivant dans la file d’attente.
+S’il n’y a pas d’arguments de ligne de commande, tentez une opération de récupération. Appelez la méthode `RetrieveNextMessageAsync` pour récupérer le message suivant dans la file d’attente.
 
-Enfin, attendez une entrée utilisateur avant de quitter en appelant **Console.ReadLine**.
+Enfin, attendez une entrée utilisateur avant de quitter en appelant `Console.ReadLine`.
 
-1. Développez la méthode **Main** pour vérifier les arguments de la ligne de commande et attendre une entrée d’utilisateur.
+1. Développez la méthode `Main` pour vérifier les arguments de la ligne de commande et attendre une entrée d’utilisateur.
 
-   # <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+   # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Program.cs" id="snippet_Main":::
 
-   # <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
+   # <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Program.cs" id="snippet_Main":::
 
@@ -282,11 +282,11 @@ Enfin, attendez une entrée utilisateur avant de quitter en appelant **Console.R
 
 Voici le code complet pour ce projet.
 
-   # <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+   # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Program.cs" id="snippet_AllCode":::
 
-   # <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
+   # <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Program.cs" id="snippet_AllCode":::
    ---
@@ -362,9 +362,9 @@ Dans ce didacticiel, vous avez appris à :
 
 1. Créer une file d’attente
 1. Ajouter et supprimer des messages dans une file d’attente
-1. Supprimer une file d’attente de stockage Azure
+1. Supprimer une file d’attente Stockage File d’attente Azure
 
-Pour plus d’informations, consultez les guides de démarrage rapide des files d’attente Azure.
+Pour plus d’informations, consultez les guides de démarrage rapide de Stockage File d’attente Azure.
 
 > [!div class="nextstepaction"]
 > [Démarrage rapide des files d’attente pour le portail](storage-quickstart-queues-portal.md)

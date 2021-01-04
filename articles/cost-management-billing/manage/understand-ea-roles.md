@@ -1,24 +1,24 @@
 ---
-title: Comprendre les rôles d’administrateur d’entreprise dans Azure
+title: Comprendre les rôles d’administrateur pour Accord Entreprise dans Azure
 description: Découvrez les rôles d’administrateur d’entreprise dans Azure. Vous pouvez affecter cinq rôles d’administration distincts.
 author: bandersmsft
 ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 12/10/2020
 ms.author: banders
-ms.custom: contperfq1
-ms.openlocfilehash: e712b44f22a8080b14a2cc2532cadf2dd4738b76
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: e8420f68fba40ddb61d06770f9f5bc2fafe5616a
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94409198"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97560523"
 ---
-# <a name="managing-azure-enterprise-roles"></a>Gestion des rôles Azure Enterprise
+# <a name="managing-azure-enterprise-agreement-roles"></a>Administration des rôles de l’Accord Entreprise Azure
 
-Pour faciliter la gestion de l’utilisation et des dépenses d’une organisation, les clients Azure disposant d’un Contrat Entreprise peuvent attribuer cinq rôles d’administrateur distincts :
+Pour faciliter la gestion de l’utilisation et des dépenses d’une organisation, les clients Azure disposant d’un Accord Entreprise peuvent affecter cinq rôles d’administrateur distincts :
 
 - Administrateur d’entreprise
 - Administrateur d’entreprise (lecture seule)<sup>1</sup>
@@ -40,7 +40,7 @@ Ces rôles sont spécifiques à la gestion des Contrats Entreprise Azure et s’
 
 La hiérarchie du portail Azure Enterprise se compose des éléments suivants :
 
-- Le **portail Azure Enterprise**  : un portail de gestion en ligne qui vous permet de gérer les coût de vos services Azure EA. Vous pouvez :
+- Le **portail Azure Enterprise** : un portail de gestion en ligne qui vous permet de gérer les coût de vos services Azure EA. Vous pouvez :
 
   - créer une hiérarchie Azure EA avec des services, des comptes et des abonnements ;
   - rapprocher les coûts des services consommés, télécharger des rapports d’utilisation et consulter les tarifs ;
@@ -82,6 +82,8 @@ Les utilisateurs ayant ce rôle ont le niveau d’accès le plus élevé. Ils pe
 - Gérer les contacts de notification.
 - Consulter l’utilisation pour tous les comptes.
 - Consulter les frais non facturés pour tous les comptes.
+- Affichez et gérez tous les ordres de réservation et les réservations qui s’appliquent à l’Accord Entreprise.
+  - L’administrateur d’entreprise (en lecture seule) peut afficher les ordres de réservation et les réservations. Il ne peut pas les gérer.
 
 Il peut y avoir plusieurs administrateurs d’entreprise dans une inscription Entreprise. Vous pouvez accorder un accès en lecture seule aux administrateurs d’entreprise. Tous les administrateurs d’entreprise héritent le rôle Administrateur de service.
 
@@ -173,8 +175,8 @@ Pour plus d’informations sur l’ajout d’un administrateur de service, consu
 |Voir les détails relatifs à l’utilisation et aux coûts|✔|✔|✔<sup>6</sup>|✔<sup>6</sup>|✔<sup>7</sup>|✔|
 |Gérer les ressources dans le portail Azure|✘|✘|✘|✘|✔|✘|
 
-- <sup>6</sup> L’administrateur d’entreprise doit activer la stratégie d’ **affichage des frais pour l’administrateur de service** dans Enterprise Portal. L’administrateur de service peut ensuite consulter le détail des coûts pour le service.
-- <sup>7</sup> L’administrateur d’entreprise doit activer la stratégie d’ **affichage des frais pour le propriétaire du compte** dans Enterprise Portal. Le propriétaire du compte peut ensuite consulter le détail des coûts pour le compte.
+- <sup>6</sup> L’administrateur d’entreprise doit activer la stratégie d’**affichage des frais pour l’administrateur de service** dans Enterprise Portal. L’administrateur de service peut ensuite consulter le détail des coûts pour le service.
+- <sup>7</sup> L’administrateur d’entreprise doit activer la stratégie d’**affichage des frais pour le propriétaire du compte** dans Enterprise Portal. Le propriétaire du compte peut ensuite consulter le détail des coûts pour le compte.
 
 ## <a name="see-pricing-for-different-user-roles"></a>Voir les tarifs des différents rôles d’utilisateur
 

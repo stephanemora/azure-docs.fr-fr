@@ -11,12 +11,12 @@ manager: shwang
 ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: 6d3c9f0df0d834ffe75d0b56e3c80a432c27ea38
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4679d06e877679f0a56ee782b9a43a5a8147d7a5
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96018543"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97608117"
 ---
 # <a name="transform-data-by-running-a-databricks-notebook"></a>Transformer des données en exécutant un bloc-notes Databricks
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -81,7 +81,7 @@ Dans la définition d’activité Databricks ci-dessus, vous précisez ces types
         {
             "egg": "dbfs:/mnt/libraries/library.egg"
         },
-    {
+        {
             "whl": "dbfs:/mnt/libraries/mlflow-0.0.1.dev0-py2-none-any.whl"
         },
         {

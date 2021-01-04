@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 05/29/2018
 ms.author: ccompy
 ms.custom: mvc, seodec18
-ms.openlocfilehash: c8a4b6998d1471a79dd789ed6528e22b07f2015c
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 95a4d00a27a0da363561f469b4c5e9e2ad16463c
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92540973"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97510496"
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>Configurer votre environnement App Service avec le tunneling forcé
 
@@ -95,7 +95,7 @@ Pour tunneliser tout le trafic sortant à partir de votre ASE, à l’exception 
 
 3. Recherchez les adresses qui seront utilisées pour tout le trafic sortant de votre environnement App Service vers Internet. Si vous effectuez un tunneling forcé, il s’agit de vos adresses NAT ou adresses IP de passerelle. Si vous voulez acheminer le trafic sortant de l’environnement App Service via une appliance virtuelle réseau, l’adresse de sortie est l’adresse IP publique de l’appliance.
 
-4. _Pour définir les adresses de sortie dans une instance App Service Environment existante :_ Accédez à resources.azure.com, puis à Subscription/\<subscription id>/resourceGroups/\<ase resource group>/providers/Microsoft.Web/hostingEnvironments/\<ase name>. Vous voyez ainsi le code JSON qui décrit votre environnement App Service. Vérifiez que la mention **read/write** apparaît au début. Sélectionnez **Modifier** . Faites défiler vers le bas. Modifiez la valeur **userWhitelistedIpRanges** **null** en quelque chose qui ressemble à ce qui suit. Utiliser les adresses que vous souhaitez définir en tant que plage d’adresses de sortie. 
+4. _Pour définir les adresses de sortie dans une instance App Service Environment existante :_ Accédez à resources.azure.com, puis à Subscription/\<subscription id>/resourceGroups/\<ase resource group>/providers/Microsoft.Web/hostingEnvironments/\<ase name>. Vous voyez ainsi le code JSON qui décrit votre environnement App Service. Vérifiez que la mention **read/write** apparaît au début. Sélectionnez **Modifier**. Faites défiler vers le bas. Modifiez la valeur **userWhitelistedIpRanges** **null** en quelque chose qui ressemble à ce qui suit. Utiliser les adresses que vous souhaitez définir en tant que plage d’adresses de sortie. 
 
     ```json
     "userWhitelistedIpRanges": ["11.22.33.44/32", "55.66.77.0/24"]
@@ -131,7 +131,7 @@ _Pour créer votre ASE avec les adresses de sortie_ : suivez les instructions do
 
 Ces modifications envoient le trafic directement vers Stockage Azure à partir de l’ASE et autorisent l’accès à Azure SQL à partir des adresses supplémentaires autres que l’adresse IP virtuelle de l’ASE.
 
-   ![Tunneling forcé avec une liste verte SQL][3]
+   ![Tunneling forcé avec une liste d’autorisation SQL][3]
 
 ## <a name="preventing-issues"></a>Éviter les problèmes ##
 

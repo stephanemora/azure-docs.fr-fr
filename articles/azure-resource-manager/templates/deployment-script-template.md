@@ -5,18 +5,18 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 11/24/2020
+ms.date: 12/14/2020
 ms.author: jgao
-ms.openlocfilehash: dcc968353edf0e9cf3d63408d02baf94c6cabd9f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c6d171717865fe4bdf3dfb30a6d24badd4fe29ca
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95902444"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505560"
 ---
-# <a name="use-deployment-scripts-in-templates-preview"></a>Utiliser des scripts de déploiement dans des modèles (Préversion)
+# <a name="use-deployment-scripts-in-arm-templates"></a>Utiliser des scripts de déploiement dans des modèles ARM
 
-Découvrez comment utiliser des scripts de déploiement dans des modèles de ressource Azure. Avec un nouveau type de ressource appelé `Microsoft.Resources/deploymentScripts`, les utilisateurs peuvent exécuter des scripts de déploiement dans les déploiements de modèle et examiner les résultats de l’exécution. Ces scripts peuvent être utilisés pour effectuer des étapes personnalisées, comme :
+Découvrez comment utiliser des scripts de déploiement dans des modèles Azure Resource Manager (modèles ARM). Avec un nouveau type de ressource appelé `Microsoft.Resources/deploymentScripts`, les utilisateurs peuvent exécuter des scripts dans les déploiements de modèle et examiner les résultats de l’exécution. Ces scripts peuvent être utilisés pour effectuer des étapes personnalisées, comme :
 
 - ajouter des utilisateurs à un annuaire ;
 - effectuer des opérations de plan de données, par exemple, copier des objets blob ou alimenter une base de données ;
@@ -29,7 +29,6 @@ Les avantages du script de déploiement :
 
 - Facile à coder, utiliser et déboguer. Vous pouvez développer des scripts de déploiement dans vos environnements de développement préférés. Les scripts peuvent être incorporés aux modèles ou dans des fichiers de script externe.
 - Vous pouvez spécifier le langage de script et la plateforme. À l’heure actuelle, les scripts de déploiement Azure PowerShell et Azure CLI dans l’environnement Linux sont pris en charge.
-- Permet la spécification des identités utilisées pour exécuter les scripts. Actuellement, seule l’[identité managée affectée par l’utilisateur](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) est prise en charge.
 - Permet la transmission des arguments de ligne de commande au script.
 - Peut spécifier des sorties de script et les renvoyer au déploiement.
 
@@ -38,12 +37,13 @@ La ressource de script de déploiement n'est disponible que dans les régions o�
 > [!IMPORTANT]
 > Un compte de stockage et une instance de conteneur sont nécessaires pour l’exécution et la résolution des problèmes d’un script. Vous avez le choix entre les options pour spécifier un compte de stockage existant ; sinon, le compte de stockage et l’instance de conteneur sont automatiquement créés par le service de script. Les deux ressources créées automatiquement sont généralement supprimées par le service de script lorsque l’exécution du script de déploiement arrive à un état terminal. Vous êtes facturé pour les ressources jusqu’à ce qu’elles soient supprimées. Pour plus d’informations, consultez [Nettoyer les ressources de script de déploiement](#clean-up-deployment-script-resources).
 
+> [!IMPORTANT]
+> L’API de ressource deploymentScripts version 2020-10-01 prend en charge [OnBehalfofTokens (OBO)](../../active-directory/develop/v2-oauth2-on-behalf-of-flow.md). À l’aide d’OBO, le service de script de déploiement utilise le jeton du principal de déploiement pour créer les ressources sous-jacentes pour l’exécution de scripts de déploiement, notamment Azure Container Instance, le compte de stockage Azure et les attributions de rôles pour l’identité managée. Dans une ancienne version de l’API, l’identité managée permet de créer ces ressources.
+> La logique de nouvelle tentative pour la connexion à Azure est désormais intégrée au script wrapper. Si vous accordez des autorisations dans le même modèle que celui où vous exécutez les scripts de déploiement.  Le service de script de déploiement tente de se connecter pendant 10 minutes avec intervalle de 10 secondes jusqu’à la réplication de l’attribution de rôle d’identité managée.
+
 ## <a name="prerequisites"></a>Prérequis
 
-- **Une identité managée affectée par l’utilisateur avec le rôle de contributeur au groupe de ressources cible**. Cette identité est utilisée pour exécuter les scripts de déploiement. Pour effectuer des opérations en dehors du groupe de ressources, vous devez accorder des autorisations supplémentaires. Par exemple, attribuez l’identité au niveau de l’abonnement si vous souhaitez créer un groupe de ressources.
-
-  > [!NOTE]
-  > Le service de script crée un compte de stockage (sauf si vous spécifiez un compte de stockage existant) et une instance de conteneur en arrière-plan.  Une identité managée affectée par l’utilisateur dotée du rôle de contributeur au niveau de l’abonnement est requise si l’abonnement n’a pas inscrit le compte de stockage Azure (Microsoft.Storage) ni les fournisseurs de ressources d’instance de conteneur Azure (Microsoft.ContainerInstance).
+- **(Facultatif) Une identité managée attribuée par l’utilisateur avec les autorisations requises pour effectuer les opérations dans le script**. Pour l’API de script de déploiement version 2020-10-01 ou ultérieure, le principal de déploiement permet de créer des ressources sous-jacentes. Si le script doit s’authentifier auprès d’Azure et effectuer des actions spécifiques à Azure, nous vous recommandons de fournir le script avec une identité managée attribuée à l’utilisateur. L’identité managée doit avoir l’accès requis dans le groupe de ressources cible pour terminer l’opération dans le script. Vous pouvez également vous connecter à Azure dans le script de déploiement. Pour effectuer des opérations en dehors du groupe de ressources, vous devez accorder des autorisations supplémentaires. Par exemple, attribuez l’identité au niveau de l’abonnement si vous souhaitez créer un groupe de ressources. 
 
   Pour créer une identité, consultez [Créer une identité managée affectée par l’utilisateur à l’aide du Portail Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md), [d’Azure CLI](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md) ou [d’Azure PowerShell](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md). Vous avez besoin de l’ID d’identité lorsque vous déployez le modèle. Le format de l’identité est le suivant :
 
@@ -88,7 +88,7 @@ L’extrait json ci-dessous est un exemple.  Le schéma de modèle le plus réce
 ```json
 {
   "type": "Microsoft.Resources/deploymentScripts",
-  "apiVersion": "2019-10-01-preview",
+  "apiVersion": "2020-10-01",
   "name": "runPowerShellInline",
   "location": "[resourceGroup().location]",
   "kind": "AzurePowerShell", // or "AzureCLI"
@@ -135,7 +135,7 @@ L’extrait json ci-dessous est un exemple.  Le schéma de modèle le plus réce
 
 Détails des valeurs de propriété :
 
-- **Identité** : le service de script de déploiement utilise une identité managée affectée par l’utilisateur pour exécuter les scripts. Actuellement, seule l’identité managée affectée par l’utilisateur est prise en charge.
+- **Identité** : Pour l’API de script de déploiement version 2020-10-01 ou ultérieure, une identité managée attribuée par l’utilisateur est facultative, sauf si vous devez effectuer des actions spécifiques à Azure dans le script.  Pour la version d’API 2019-10-01-preview, une identité managée est nécessaire, car le service de script de déploiement l’utilise pour exécuter les scripts. Actuellement, seule l’identité managée affectée par l’utilisateur est prise en charge.
 - **kind** : spécifie le type de script. Actuellement, les scripts Azure PowerShell et Azure CLI sont pris en charge. Les valeurs sont **AzurePowerShell** et **AzureCLI**.
 - **forceUpdateTag** : la modification de cette valeur entre les déploiements de modèle force le script de déploiement à s’exécuter de nouveau. Si vous utilisez la fonction newGuid() ou utcNow(), ces deux fonctions ne peuvent être utilisées que dans la valeur par défaut d’un paramètre. Pour plus d’informations, consultez [Exécuter le script plusieurs fois](#run-script-more-than-once).
 - **containerSettings** : Spécifiez les paramètres pour personnaliser l’instance de conteneur Azure.  **containerGroupName** est pour spécifier le nom du groupe de conteneurs.  S’il n’est pas spécifié, le nom du groupe est généré automatiquement.
@@ -143,7 +143,7 @@ Détails des valeurs de propriété :
 - **azPowerShellVersion**/**azCliVersion** : spécifie la version du module à utiliser. Pour obtenir la liste des versions prises en charge de PowerShell et de l’interface CLI, consultez les [conditions préalables](#prerequisites).
 - **arguments** : Spécifiez les valeurs de paramètre. Les valeurs sont séparées par des espaces.
 
-    Les scripts de déploiement fractionnent les arguments en un tableau de chaînes en appelant l’appel système [CommandLineToArgvW ](/windows/win32/api/shellapi/nf-shellapi-commandlinetoargvw). Cela est nécessaire, car les arguments sont passés en tant que [propriété de commande](/rest/api/container-instances/containergroups/createorupdate#containerexec) à l’instance de conteneur Azure, et la propriété de commande est un tableau de chaîne.
+    Les scripts de déploiement fractionnent les arguments en un tableau de chaînes en appelant l’appel système [CommandLineToArgvW ](/windows/win32/api/shellapi/nf-shellapi-commandlinetoargvw). Cette étape est nécessaire, car les arguments sont transmis en tant que [propriétés de commande](/rest/api/container-instances/containergroups/createorupdate#containerexec) à Azure Container Instance et la propriété de commande est un tableau de chaîne.
 
     Si les arguments contiennent des caractères d’échappement, utilisez [JsonEscaper](https://www.jsonescaper.com/) pour double-placer les caractères. Collez votre chaîne d’échappement d’origine dans l’outil, puis sélectionnez **Échappement**.  L’outil génère une chaîne avec deux séquences d’échappement. Par exemple, dans l’exemple de modèle précédent, l’argument est **-nom \\«John Dole\\»** .  La chaîne d’échappement est **\\\\\\«John dole\\\\\\»** .
 
@@ -169,14 +169,11 @@ Détails des valeurs de propriété :
 - [Exemple 2](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault-subscription.json) : créez un groupe de ressources au niveau de l’abonnement, créez un coffre de clés dans le groupe de ressources, puis utilisez le script de déploiement pour affecter un certificat au coffre de clés.
 - [Exemple 3](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault-mi.json) : créez une identité gérée affectée par l’utilisateur, attribuez le rôle collaborateur à l’identité au niveau du groupe de ressources, créez un coffre de clés, puis utilisez le script de déploiement pour affecter un certificat au coffre de clés.
 
-> [!NOTE]
-> Il est recommandé de créer une identité affectée par l’utilisateur et d’accorder des autorisations à l’avance. Vous risquez d’obtenir des erreurs de connexion et d’autorisation si vous créez l’identité et accordez les autorisations dans le même modèle que celui où vous exécutez les scripts de déploiement. Il faut un certain temps avant que les autorisations prennent effet.
-
 ## <a name="use-inline-scripts"></a>Utiliser des scripts inclus
 
 Le modèle suivant dispose d’une ressource définie avec le type `Microsoft.Resources/deploymentScripts`. La partie en surbrillance est le script inclus.
 
-:::code language="json" source="~/resourcemanager-templates/deployment-script/deploymentscript-helloworld.json" range="1-54" highlight="34-40":::
+:::code language="json" source="~/resourcemanager-templates/deployment-script/deploymentscript-helloworld.json" range="1-44" highlight="24-30":::
 
 > [!NOTE]
 > Étant donné que les scripts de déploiement inclus sont placés entre guillemets doubles, les chaînes contenues dans les scripts de déploiement doivent être placées en échappement à l’aide de **&#92;** ou mises entre guillemets simples. Vous pouvez également envisager d’utiliser la substitution de chaîne, comme montré dans l’exemple JSON précédent.
@@ -188,11 +185,10 @@ Afin d’exécuter le script, sélectionnez **Try it** (Essayer) pour ouvrir Clo
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the name of the resource group to be created"
 $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-$id = Read-Host -Prompt "Enter the user-assigned managed identity ID"
 
 New-AzResourceGroup -Name $resourceGroupName -Location $location
 
-New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-helloworld.json" -identity $id
+New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-helloworld.json"
 
 Write-Host "Press [ENTER] to continue ..."
 ```
@@ -233,13 +229,13 @@ Vous pouvez séparer les logiques complexes en un ou plusieurs fichiers de scrip
 
 Les fichiers de script de prise en charge peuvent être appelés à partir de scripts inclus et de fichiers de script principal. Les fichiers de script de prise en charge n’ont aucune restriction quant à l’extension de fichier.
 
-Les fichiers de prise en charge sont copiés dans azscripts/azscriptinput au moment de l’exécution. Utilisez un chemin relatif pour référencer les fichiers de prise en charge à partir de scripts inclus et de fichiers de script principal.
+Les fichiers de prise en charge sont copiés dans `azscripts/azscriptinput` au moment de l’exécution. Utilisez un chemin relatif pour référencer les fichiers de prise en charge à partir de scripts inclus et de fichiers de script principal.
 
 ## <a name="work-with-outputs-from-powershell-script"></a>Travailler avec les sorties du script PowerShell
 
 Le modèle suivant montre comment passer des valeurs entre deux ressources deploymentScripts :
 
-:::code language="json" source="~/resourcemanager-templates/deployment-script/deploymentscript-basic.json" range="1-84" highlight="39-40,66":::
+:::code language="json" source="~/resourcemanager-templates/deployment-script/deploymentscript-basic.json" range="1-68" highlight="30-31,50":::
 
 Dans la première ressource, vous définissez une variable appelée **$DeploymentScriptOutputs** et l’utilisez pour stocker les valeurs de sortie. Pour accéder à la valeur de sortie à partir d’une autre ressource dans le modèle, utilisez :
 
@@ -276,7 +272,7 @@ Un compte de stockage et une instance de conteneur sont nécessaires pour l’ex
 
     Ces combinaisons prennent en charge le partage de fichiers.  Pour plus d’informations, consultez[Crée un partage de fichiers Azure](../../storage/files/storage-how-to-create-file-share.md) et [Types de compte de stockage](../../storage/common/storage-account-overview.md).
 - Les règles de pare-feu de compte de stockage ne sont pas encore prises en charge. Pour plus d’informations, consultez [Configurer Pare-feu et réseaux virtuels dans Stockage Azure](../../storage/common/storage-network-security.md).
-- L’identité managée attribuée à l’utilisateur du script de déploiement doit avoir les autorisations nécessaires pour gérer le compte de stockage, y compris la lecture, la création et la suppression des partages de fichiers.
+- Le principal de déploiement doit avoir les autorisations nécessaires pour gérer le compte de stockage, y compris la lecture, la création et la suppression des partages de fichiers.
 
 Pour spécifier un compte de stockage existant, ajoutez le code json suivant à l’élément de propriété de `Microsoft.Resources/deploymentScripts` :
 
@@ -305,7 +301,7 @@ Lorsqu’un compte de stockage existant est utilisé, le service de script crée
 
 ### <a name="handle-non-terminating-errors"></a>Gérer les erreurs sans fin d’exécution
 
-Vous pouvez contrôler la façon dont PowerShell répond aux erreurs sans fin d’exécution à l’aide de la variable **$ErrorActionPreference** dans votre script de déploiement. Si la variable n’est pas définie dans votre script de déploiement, le service de script utilise la valeur par défaut **continuer**.
+Vous pouvez contrôler la façon dont PowerShell répond aux erreurs sans fin d’exécution à l’aide de la variable **$ErrorActionPreference** dans votre script de déploiement. Si la variable n’est pas définie dans votre script de déploiement, le service de script utilise la valeur par défaut **Continuer**.
 
 Le service de script définit l’état d’approvisionnement de la ressource sur **Échec** quand le script rencontre une erreur malgré le paramètre $ErrorActionPreference.
 
@@ -317,11 +313,11 @@ La taille maximale autorisée pour les variables d’environnement est de 64 Ko
 
 ## <a name="monitor-and-troubleshoot-deployment-scripts"></a>Analyser et détecter les problèmes des scripts de déploiement
 
-Le service de script crée un [compte de stockage](../../storage/common/storage-account-overview.md) (sauf si vous spécifiez un compte de stockage existant) et une [instance de conteneur](../../container-instances/container-instances-overview.md) pour l’exécution du script. Si ces ressources sont créées automatiquement par le service de script, les deux ressources ont le suffixe **azscripts** dans les noms des ressources.
+Le service de script crée un [compte de stockage](../../storage/common/storage-account-overview.md) (sauf si vous spécifiez un compte de stockage existant) et une [instance de conteneur](../../container-instances/container-instances-overview.md) pour l’exécution du script. Si ces ressources sont créées automatiquement par le service de script, les deux ressources ont le suffixe `azscripts` dans les noms des ressources.
 
 ![Noms de ressource de script de déploiement d’un modèle Azure Resource Manager](./media/deployment-script-template/resource-manager-template-deployment-script-resources.png)
 
-Le script utilisateur, les résultats de l’exécution et le fichier stdout sont stockés dans les partages de fichiers du compte de stockage. Il existe un dossier nommé **azscripts**. Dans celui-ci, se trouvent deux dossiers supplémentaires pour les fichiers d’entrée et de sortie : **azscriptinput** et **azscriptoutput**.
+Le script utilisateur, les résultats de l’exécution et le fichier stdout sont stockés dans les partages de fichiers du compte de stockage. Un dossier est nommé `azscripts`. Dans celui-ci, se trouvent deux dossiers supplémentaires pour les fichiers d’entrée et de sortie : `azscriptinput` et `azscriptoutput`.
 
 Le dossier output contient un fichier **executionresult.json** et le fichier de sortie du script. Vous pouvez voir le message d’erreur de l’exécution du script dans **executionresult.json**. Le fichier de sortie est créé uniquement lorsque le script est exécuté correctement. Le dossier input contient un fichier de script PowerShell système et les fichiers de script de déploiement utilisateur. Vous pouvez remplacer le fichier de script de déploiement utilisateur par un fichier révisé, puis réexécuter le script de déploiement à partir de l’instance de conteneur Azure.
 
@@ -445,18 +441,18 @@ La sortie de la commande de liste ressemble à ce qui suit :
 Vous pouvez récupérer les informations de déploiement de la ressource de script de déploiement au niveau du groupe de ressources et du niveau de l’abonnement à l’aide de l’API REST :
 
 ```rest
-/subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/microsoft.resources/deploymentScripts/<DeploymentScriptResourceName>?api-version=2019-10-01-preview
+/subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/microsoft.resources/deploymentScripts/<DeploymentScriptResourceName>?api-version=2020-10-01
 ```
 
 ```rest
-/subscriptions/<SubscriptionID>/providers/microsoft.resources/deploymentScripts?api-version=2019-10-01-preview
+/subscriptions/<SubscriptionID>/providers/microsoft.resources/deploymentScripts?api-version=2020-10-01
 ```
 
 L’exemple suivant utilise [ARMClient](https://github.com/projectkudu/ARMClient) :
 
 ```azurepowershell
 armclient login
-armclient get /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourcegroups/myrg/providers/microsoft.resources/deploymentScripts/myDeployementScript?api-version=2019-10-01-preview
+armclient get /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourcegroups/myrg/providers/microsoft.resources/deploymentScripts/myDeployementScript?api-version=2020-10-01
 ```
 
 Le résultat ressemble à ce qui suit :
@@ -514,7 +510,7 @@ Le résultat ressemble à ce qui suit :
 L’API REST suivante retourne le journal :
 
 ```rest
-/subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/microsoft.resources/deploymentScripts/<DeploymentScriptResourceName>/logs?api-version=2019-10-01-preview
+/subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/microsoft.resources/deploymentScripts/<DeploymentScriptResourceName>/logs?api-version=2020-10-01
 ```
 
 Elle fonctionne uniquement avant la suppression des ressources de script de déploiement.
@@ -525,7 +521,7 @@ Pour afficher la ressource deploymentScripts dans le portail, sélectionnez **Af
 
 ## <a name="clean-up-deployment-script-resources"></a>Nettoyer les ressources de script de déploiement
 
-Un compte de stockage et une instance de conteneur sont nécessaires pour l’exécution et la résolution des problèmes d’un script. Vous avez le choix entre les options pour spécifier un compte de stockage existant ; sinon, un compte de stockage et une instance de conteneur sont automatiquement créés par le service de script. Les deux ressources créées automatiquement sont supprimées par le service de script lorsque l’exécution du script de déploiement arrive à un état terminal. Vous êtes facturé pour les ressources jusqu’à ce qu’elles soient supprimées. Pour plus d’informations sur les prix, consultez [Tarifs Container Instances](https://azure.microsoft.com/pricing/details/container-instances/) et [Tarifs Stockage Azure](https://azure.microsoft.com/pricing/details/storage/).
+Un compte de stockage et une instance de conteneur sont nécessaires pour l’exécution et la résolution des problèmes d’un script. Vous avez le choix entre les options pour spécifier un compte de stockage existant ; sinon, un compte de stockage et une instance de conteneur sont automatiquement créés par le service de script. Les deux ressources créées automatiquement sont supprimées par le service de script lorsque l’exécution du script de déploiement arrive à un état terminal. Les ressources vous sont facturées jusqu’à ce qu’elles soient supprimées. Pour plus d’informations sur les prix, consultez [Tarifs Container Instances](https://azure.microsoft.com/pricing/details/container-instances/) et [Tarifs Stockage Azure](https://azure.microsoft.com/pricing/details/storage/).
 
 Le cycle de vie de ces ressources est contrôlé par les propriétés suivantes dans le modèle :
 
@@ -540,9 +536,11 @@ Le cycle de vie de ces ressources est contrôlé par les propriétés suivantes 
 > [!NOTE]
 > Il n’est pas recommandé d’utiliser le compte de stockage et l’instance de conteneur qui sont générés par le service de script à d’autres fins. Les deux ressources peuvent être supprimées en fonction du cycle de vie du script.
 
+L’instance de conteneur et le compte de stockage sont supprimés en fonction de **cleanupPreference**. Toutefois, si le script échoue et si **cleanupPreference** n’est pas défini sur **Toujours**, le processus de déploiement maintient automatiquement le conteneur en cours d’exécution pendant une heure. Vous pouvez utiliser cette heure pour résoudre des problèmes de script. Si vous souhaitez laisser le conteneur s’exécuter après des déploiements réussis, ajoutez une étape de mise en veille à votre script. Par exemple, ajoutez [Start-Sleep](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/start-sleep) à la fin de votre script. Si vous n’ajoutez pas l’étape de mise en veille, le conteneur est défini sur un état terminal et n’est pas accessible, même s’il n’a pas encore été supprimé.
+
 ## <a name="run-script-more-than-once"></a>Exécuter le script plusieurs fois
 
-L’exécution d’un script de déploiement est une opération idempotente. Si aucune des propriétés de la ressource deploymentScripts (y compris le script inclus) n’est modifiée, le script n’est pas exécuté lorsque vous redéployez le modèle. Le service de script de déploiement compare les noms des ressource du modèle aux ressources existantes dans le même groupe de ressources. Vous avez deux options à votre disposition si vous souhaitez exécuter le même script de déploiement plusieurs fois :
+L’exécution d’un script de déploiement est une opération idempotente. Si aucune des propriétés de la ressource deploymentScripts (y compris le script inclus) n’est modifiée, le script ne s’exécute pas lorsque vous redéployez le modèle. Le service de script de déploiement compare les noms des ressource du modèle aux ressources existantes dans le même groupe de ressources. Vous avez deux options à votre disposition si vous souhaitez exécuter le même script de déploiement plusieurs fois :
 
 - Modifiez le nom de votre ressource deploymentScripts. Par exemple, utilisez la fonction de modèle [utcNow](./template-functions-date.md#utcnow) comme nom de ressource, ou comme partie du nom de la ressource. La modification du nom de la ressource crée une nouvelle ressource deploymentScripts. C’est un moyen pratique pour conserver un historique de l’exécution des scripts.
 
@@ -569,7 +567,7 @@ Dès lors que le script a été testé avec succès, vous pouvez l’utiliser en
 | DeploymentScriptOperationFailed | L’opération de script de déploiement a échoué en interne. Contactez le Support Microsoft. |
 | DeploymentScriptStorageAccountAccessKeyNotSpecified | La clé d’accès n’a pas été spécifiée pour le compte de stockage existant.|
 | DeploymentScriptContainerGroupContainsInvalidContainers | Un groupe de conteneurs créé par le service de script de déploiement a été modifié en externe et des conteneurs non valides ont été ajoutés. |
-| DeploymentScriptContainerGroupInNonterminalState | Au moins deux ressources de script de déploiement utilisent le même nom d’instance Azure Container Instances dans le même groupe de ressources, et l’une d’entre elles n’a pas encore terminé son exécution. |
+| DeploymentScriptContainerGroupInNonterminalState | Au moins deux ressources de script de déploiement utilisent le même nom Azure Container Instance dans le même groupe de ressources, et l’une d’entre elles n’a pas encore terminé son exécution. |
 | DeploymentScriptStorageAccountInvalidKind | Le compte de stockage existant du type BlobBlobStorage ou BlobStorage ne prend pas en charge les partages de fichiers et ne peut pas être utilisé. |
 | DeploymentScriptStorageAccountInvalidKindAndSku | Le compte de stockage existant ne prend pas en charge les partages de fichiers. Pour connaître la liste des types de comptes de stockage pris en charge, consultez [Recours à un compte de stockage existant](#use-existing-storage-account). |
 | DeploymentScriptStorageAccountNotFound | Le compte de stockage n’existe pas ou a été supprimé par un processus ou un outil externe. |
@@ -578,7 +576,7 @@ Dès lors que le script a été testé avec succès, vous pouvez l’utiliser en
 | DeploymentScriptStorageAccountInvalidAccessKeyFormat | Le format de la clé de compte de stockage n’est pas valide. Consultez [Gérer les clés d’accès au compte de stockage](../../storage/common/storage-account-keys-manage.md). |
 | DeploymentScriptExceededMaxAllowedTime | Le temps d’exécution du script de déploiement a dépassé la valeur de délai d’attente spécifiée dans la définition de la ressource de script de déploiement. |
 | DeploymentScriptInvalidOutputs | La sortie du script de déploiement n’est pas un objet JSON valide. |
-| DeploymentScriptContainerInstancesServiceLoginFailure | L’identité managée affectée par l’utilisateur n’est pas parvenue à se connecter au bout de 10 tentatives à 1 minute d’intervalle. |
+| DeploymentScriptContainerInstancesServiceLoginFailure | L’identité managée attribuée par l’utilisateur n’est pas parvenue à se connecter au bout de 10 tentatives à 1 minute d’intervalle. |
 | DeploymentScriptContainerGroupNotFound | Un groupe de conteneurs créé par le service de script de déploiement a été supprimé par un processus ou un outil externe. |
 | DeploymentScriptDownloadFailure | Le téléchargement d’un script d’accompagnement a échoué. Consultez [Utilisation d’un script d’accompagnement](#use-supporting-scripts).|
 | DeploymentScriptError | Le script utilisateur a généré une erreur. |

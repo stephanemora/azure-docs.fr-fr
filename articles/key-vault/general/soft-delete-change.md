@@ -1,5 +1,5 @@
 ---
-title: La suppression réversible sera activée sur tous les coffres de clés Azure | Microsoft Docs
+title: Activer la suppression réversible sur tous les coffres de clés Azure | Microsoft Docs
 description: Utilisez ce document pour adopter la suppression réversible pour tous les coffres de clés.
 services: key-vault
 author: ShaneBala-keyvault
@@ -7,19 +7,19 @@ manager: ravijan
 tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 12/15/2020
 ms.author: sudbalas
-ms.openlocfilehash: 0e811cc219002c034afb968be760ce2c249b08f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e512cccdbfdc56500fa7c69372ca38f59d3195c2
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91825248"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590084"
 ---
 # <a name="soft-delete-will-be-enabled-on-all-key-vaults"></a>La suppression réversible sera activée sur tous les coffres de clés
 
 > [!WARNING]
-> **Changement cassant** : La possibilité de refuser la suppression réversible sera dépréciée à la fin de l’année et la protection de la suppression réversible sera automatiquement activée pour tous les coffres de clés.  Il est recommandé aux utilisateurs et aux administrateurs d’Azure Key Vault d’activer immédiatement la suppression réversible sur leurs coffres de clés.
+> **Changement cassant** : la possibilité de refuser la suppression réversible sera bientôt dépréciée. Il est recommandé aux utilisateurs et aux administrateurs d’Azure Key Vault d’activer immédiatement la suppression réversible sur leurs coffres de clés.
 >
 > Pour Managed HSM, la suppression réversible est activée par défaut et ne peut pas être désactivée.
 
@@ -29,9 +29,18 @@ Quand un secret est supprimé d’un coffre de clés sans la protection de la su
 
 Pour plus d’informations sur la fonctionnalité de suppression réversible, consultez [Vue d’ensemble de la suppression réversible d’Azure Key Vault](soft-delete-overview.md).
 
-## <a name="how-do-i-respond-to-breaking-changes"></a>Comment répondre aux changements cassants
+## <a name="can-my-application-work-with-soft-delete-enabled"></a>Mon application peut-elle fonctionner avec la suppression réversible activée ?
 
-Vous ne pouvez pas créer un objet de coffre de clés avec le même nom qu’un objet de coffre de clés dans l’état de suppression réversible.  Par exemple, si vous supprimez une clé nommée `test key` dans le coffre de clés A, vous ne pouvez pas créer une clé nommée `test key` dans le coffre de clés A tant que l’objet `test key` supprimé de façon réversible n’est pas supprimé définitivement.
+> [!Important] 
+> **Vérifiez attentivement les informations suivantes avant d’activer la suppression réversible pour vos coffres de clés**
+
+Les noms Key Vault sont globalement uniques. Les noms des secrets stockés dans un coffre de clés sont également uniques. Vous ne pouvez pas réutiliser le nom d’un coffre de clés ou d’un objet de coffre de clés qui existe à l’état de suppression réversible. 
+
+**Exemple 1** Votre application crée programmatiquement un coffre de clés nommé « Coffre A » et supprime ensuite « Coffre A ». Le coffre de clés est placé dans l’état de suppression réversible. Votre application n’est pas en mesure de recréer un autre coffre de clés nommé « Coffre A » tant que le coffre de clés n’a pas été définitivement supprimé. 
+
+**Exemple 2** Si votre application crée une clé nommée `test key` dans le coffre de clés A et supprime ultérieurement la clé du coffre A, elle ne peut pas créer de clé nommée `test key` dans le coffre de clés A tant que l’objet `test key` n’a pas été définitivement supprimé. 
+
+Ceci peut entraîner des erreurs de conflit si vous tentez de supprimer un objet de coffre de clés et de le recréer avec le même nom sans d’abord le vider dans l’état de suppression réversible. Cela peut entraîner l’échec de vos applications ou de l’automatisation. Consultez votre équipe de développement avant d’effectuer les modifications d’application et d’administration nécessaires ci-dessous. 
 
 ### <a name="application-changes"></a>Changements dans l’application
 
@@ -59,13 +68,14 @@ Si votre organisation est soumise à des exigences de conformité légales et qu
 2. Recherchez « Azure Policy ».
 3. Sélectionnez « Définitions ».
 4. Sous Catégorie, sélectionnez « Key Vault » dans le filtre.
-5. Sélectionnez « Les objets Key Vault doivent être récupérables ».
+5. Sélectionnez la stratégie « Le coffre de clés doit avoir la suppression réversible activée ».
 6. Cliquez sur « Affecter ».
 7. Définissez l’étendue à votre abonnement.
-8. Sélectionnez « Vérifier + créer ».
-9. Une analyse complète de votre environnement peut prendre jusqu’à 24 heures.
-10. Dans le panneau Azure Policy, cliquez sur « Conformité ».
-11. Sélectionnez la stratégie que vous avez appliquée.
+8. Assurez-vous que l’effet de la stratégie est défini sur « Audit ».
+9. Sélectionnez « Vérifier + créer ».
+10. Une analyse complète de votre environnement peut prendre jusqu’à 24 heures.
+11. Dans le panneau Azure Policy, cliquez sur « Conformité ».
+12. Sélectionnez la stratégie que vous avez appliquée.
 
 Vous devez maintenant être en mesure de filtrer et de voir les coffres de clés pour lesquels la suppression réversible est activée (ressources conformes) et les coffres de clés pour lesquels la suppression réversible n’est pas activée (ressources non conformes).
 
@@ -106,15 +116,11 @@ Suivez les étapes ci-dessus dans la section intitulée « Procédure pour audi
 
 ### <a name="what-action-do-i-need-to-take"></a>Quelle action dois-je effectuer ?
 
-Vérifiez que vous n’avez pas besoin d’apporter des modifications à la logique de votre application. Une fois que vous avez la confirmation de cela, activez la suppression réversible sur tous vos coffres de clés. Vous êtes ainsi certain que vous ne serez pas affecté par un changement cassant quand la suppression réversible sera activée pour tous les coffres de clés à la fin de l’année.
+Vérifiez que vous n’avez pas besoin d’apporter des modifications à la logique de votre application. Une fois que vous avez la confirmation de cela, activez la suppression réversible sur tous vos coffres de clés.
 
 ### <a name="by-when-do-i-need-to-take-action"></a>Quand dois-je agir ?
 
-La suppression réversible sera activée pour tous les coffres de clés à la fin de l’année. Pour garantir que vos applications ne sont pas affectées, activez dès que possible la suppression réversible sur vos coffres de clés.
-
-## <a name="what-will-happen-if-i-dont-take-any-action"></a>Que se passe-t-il si je n’effectue aucune action ?
-
-Si vous n’effectuez aucune action, la suppression réversible sera automatiquement activée pour tous vos coffres de clés à la fin de l’année. Ceci peut entraîner des erreurs de conflit si vous tentez de supprimer un objet de coffre de clés et de le recréer avec le même nom sans d’abord le vider dans l’état de suppression réversible. Cela peut entraîner l’échec de vos applications ou de l’automatisation.
+Pour garantir que vos applications ne sont pas affectées, activez dès que possible la suppression réversible sur vos coffres de clés.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

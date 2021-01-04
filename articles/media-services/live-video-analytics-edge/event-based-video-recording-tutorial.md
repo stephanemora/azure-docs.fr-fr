@@ -3,12 +3,12 @@ title: 'Tutoriel : Enregistrement vidéo basé sur les événements et lecture 
 description: Dans ce tutoriel, vous allez apprendre à utiliser Azure Live Video Analytics sur Azure IoT Edge pour effectuer un enregistrement vidéo basé sur les événements dans le cloud et le lire depuis le cloud.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 84f6ef813fb1b2cc425e096212010717d0561aef
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 8f3ecdf7e4260d700f31663852abbb39474cd474
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498300"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97401665"
 ---
 # <a name="tutorial-event-based-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Tutoriel : Enregistrement vidéo basé sur les événements et lecture vidéo dans le cloud
 
@@ -68,13 +68,13 @@ Vous pouvez également déclencher l’enregistrement uniquement lorsqu’un ser
 Le diagramme est une représentation graphique d’un [graphe multimédia](media-graph-concept.md) et des modules supplémentaires qui accomplissent le scénario souhaité. Quatre modules IoT Edge sont impliqués :
 
 * Le module Live Video Analytics sur IoT Edge.
-* Un module de périphérie exécutant un modèle d’intelligence artificielle derrière un point de terminaison HTTP. Ce module d’intelligence artificielle utilise le modèle [YOLO v3](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis/yolov3-onnx), qui peut détecter de nombreux types d’objets.
+* Un module de périphérie exécutant un modèle d’intelligence artificielle derrière un point de terminaison HTTP. Ce module d’intelligence artificielle utilise le modèle [YOLOv3](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis/yolov3-onnx), qui peut détecter de nombreux types d’objets.
 * Un module personnalisé pour compter et filtrer les objets, appelé compteur d’objets dans le diagramme. Vous allez créer un compteur d’objets, puis le déployer au cours de ce tutoriel.
 * Un [module de simulateur RTSP](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) pour simuler une caméra RTSP.
     
 Comme le montre le diagramme, vous allez utiliser un nœud de [source RTSP](media-graph-concept.md#rtsp-source) dans le graphe multimédia afin de capturer la simulation de vidéo en direct du trafic sur l’autoroute et envoyer cette vidéo vers deux chemins :
 
-* Le premier chemin correspond à un [processeur de filtre des fréquences d’images](media-graph-concept.md#frame-rate-filter-processor) qui génère des trames vidéo à la fréquence d’images spécifiée (réduite). Ces trames vidéo sont envoyées à un nœud d’extension HTTP. Le nœud relaie ensuite les trames, sous forme d’images, au module d’intelligence artificielle YOLO v3, qui est un détecteur d’objets. Le nœud reçoit les résultats, qui correspondent aux objets (véhicules dans le trafic) détectés par le modèle. Le nœud d’extension HTTP publie ensuite les résultats par le biais du nœud récepteur de messages IoT Hub dans le hub IoT Edge.
+* Le premier chemin mène à un nœud d’extension HTTP. Le nœud échantillonne les trames vidéo en une valeur que vous définissez à l’aide du champ `samplingOptions`, puis relaie les trames, en tant qu’images, vers le module d’IA YOLOv3, qui est un détecteur d’objets. Le nœud reçoit les résultats, qui correspondent aux objets (véhicules dans le trafic) détectés par le modèle. Le nœud d’extension HTTP publie ensuite les résultats par le biais du nœud récepteur de messages IoT Hub dans le hub IoT Edge.
 * Le module objectCounter est configuré pour recevoir des messages du hub IoT Edge, notamment les résultats de la détection des objets (véhicules dans le trafic). Le module vérifie ces messages et recherche des objets d’un certain type, qui ont été configurés par le biais d’un paramètre. Quand un tel objet est trouvé, ce module envoie un message au hub IoT Edge. Les messages « object found » (objet trouvé) sont ensuite routés vers le nœud source IoT Hub du graphe multimédia. Lors de la réception d’un tel message, le nœud source IoT Hub dans le graphe multimédia déclenche le nœud [processeur de porte de signal](media-graph-concept.md#signal-gate-processor). Le nœud processeur de porte de signal est alors ouvert pour une durée configurée. Pendant cette période, la vidéo passe par la porte pour aller au nœud récepteur d’actifs multimédias. Cette partie du stream en direct est ensuite enregistrée par le biais du nœud [asset sink](media-graph-concept.md#asset-sink) (récepteur d’actifs multimédias) dans un [actif multimédia](terminology.md#asset) de votre compte Azure Media Services.
 
 ## <a name="set-up-your-development-environment"></a>Configurer l''environnement de développement

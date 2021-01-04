@@ -4,12 +4,12 @@ description: Cet article décrit la procédure à suivre pour créer une applica
 ms.topic: quickstart
 ms.date: 09/25/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7962e28ecdc7e2c04fefeb0faf6feb5b730d979c
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 36551a52bc095a37aa5176ab945dd5d27c640954
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024532"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504608"
 ---
 # <a name="send-events-to-and-receive-events-from-azure-event-hubs---net-azuremessagingeventhubs"></a>Réception d’événements en provenance et à destination d’Azure Event Hubs – .NET (Azure.Messaging.EventHubs) 
 Ce guide de démarrage rapide montre comment recevoir des événements d’un hub d’événements et lui en envoyer à l’aide de la bibliothèque .NET **Azure.Messaging.EventHubs**. 
@@ -201,7 +201,7 @@ Dans ce guide de démarrage rapide, vous utilisez Stockage Azure comme magasin d
         static async Task ProcessEventHandler(ProcessEventArgs eventArgs)
         {
             // Write the body of the event to the console window
-            Console.WriteLine("\tRecevied event: {0}", Encoding.UTF8.GetString(eventArgs.Data.Body.ToArray()));
+            Console.WriteLine("\tReceived event: {0}", Encoding.UTF8.GetString(eventArgs.Data.Body.ToArray()));
 
             // Update checkpoint in the blob storage so that the app receives only new events the next time it's run
             await eventArgs.UpdateCheckpointAsync(eventArgs.CancellationToken);

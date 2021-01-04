@@ -8,13 +8,13 @@ ms.subservice: cost-management
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: banders
-ms.custom: contperfq1
-ms.openlocfilehash: b2340e5b220936c1333cf842251b669b3e034042
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: f6df8c6ff0db74798b71d57feae91e5245f2a6c2
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151220"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97028716"
 ---
 # <a name="analyze-unexpected-charges"></a>Analyser les frais inattendus
 
@@ -58,14 +58,14 @@ Parfois, vous ne savez pas quels coûts récents ont entraîné des changements 
 Une simple ressource peut générer des frais sur plusieurs produits et services Azure. Pour en savoir plus, consultez la page des [prix de chaque service Azure](https://azure.microsoft.com/pricing/#product-pricing). Par exemple, vous pouvez créer les compteurs suivants pour suivre l’utilisation d’une machine virtuelle créée dans Azure. Les prix peuvent varier d’un compteur à l’autre.
 
 - Heures de calcul
-- Heures pour l’adresse IP
-- Transfert de données en réception
+- Heures d’adresse IP
+- Transfert de données entrant
 - Transfert de données sortant
-- Disque managé standard
+- Disques managés Standard
 - Opérations disque managées Standard
 - E/S standard - Disque
-- E/S standard - Lecture d’objet blob de blocs
-- E/S standard - Écriture d’objet blob de blocs
+- E/S standard - Lecture d’objet blob
+- E/S standard - Écriture d’objet blob
 - E/S standard - Suppression d’objet blob
 
 Une fois la machine virtuelle créée, chaque compteur commence à émettre des enregistrements d’utilisation. L’utilisation et le prix du compteur font l’objet d’un suivi dans le système de mesure d’Azure. Vous pouvez voir les compteurs qui ont été utilisés pour calculer votre facture dans le fichier CSV d’utilisation.
@@ -80,7 +80,7 @@ Si vous disposez d’autorisations pour voir une ressource, vous devez pouvoir a
 
 ### <a name="analyze-user-permissions-to-the-resources-parent-scope"></a>Analyser les autorisations des utilisateurs sur l’étendue parente de la ressource
 
-Les personnes qui ont accès en écriture à un abonnement ou à un groupe de ressources disposent généralement d’informations sur les ressources qui ont été créées. Elles doivent pouvoir vous expliquer l’objectif d’une ressource ou vous renvoyer à quelqu’un qui est au courant. Pour identifier les personnes disposant d’autorisations sur une étendue d’abonnement, consultez [Voir les attributions de rôles](../../role-based-access-control/check-access.md#view-role-assignments). Vous pouvez utiliser un processus similaire pour les groupes de ressources.
+Les personnes qui ont accès en écriture à un abonnement ou à un groupe de ressources disposent généralement d’informations sur les ressources qui ont été créées. Elles doivent pouvoir vous expliquer l’objectif d’une ressource ou vous renvoyer à quelqu’un qui est au courant. Pour identifier les personnes disposant d’autorisations sur une étendue d’abonnement, consultez [Vérifier l’accès d’un utilisateur aux ressources Azure](../../role-based-access-control/check-access.md). Vous pouvez utiliser un processus similaire pour les groupes de ressources.
 
 ## <a name="get-help-to-identify-charges"></a>Obtenir de l’aide pour identifier certains frais
 

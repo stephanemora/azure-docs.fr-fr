@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 09/28/2020
+ms.date: 12/11/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1cdf983dc8fed64c7d283ac216eb803746add95
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 6299f9ad660252ae39903401672d493b1c1ad52c
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96029368"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347487"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Ajouter une organisation connectée dans la gestion des droits d’utilisation Azure AD
 
@@ -29,7 +29,13 @@ Avec la gestion des droits d’utilisation Azure Active Directory (Azure AD), vo
 
 ## <a name="what-is-a-connected-organization"></a>Qu’est-ce qu’une organisation connectée ?
 
-Une organisation connectée est un domaine ou un annuaire Azure AD externe avec lequel vous collaborez.
+Une organisation connectée est une autre organisation avec laquelle vous avez une relation.  Pour que les utilisateurs de cette organisation puissent accéder à vos ressources, telles que vos sites SharePoint Online ou vos applications, vous avez besoin d’une représentation des utilisateurs de cette organisation dans ce répertoire.  Étant donné que, dans la plupart des cas, les utilisateurs de cette organisation ne sont pas encore dans votre répertoire Azure AD, vous pouvez utiliser la gestion des droits d’utilisation pour les placer dans votre répertoire Azure AD en fonction des besoins.  
+
+La gestion des droits d’utilisation vous permet de spécifier les utilisateurs qui forment une organisation connectée de trois façons.  Il peut s’agir :
+
+* d’utilisateurs d’un autre répertoire Azure AD ;
+* d’utilisateurs d’un autre répertoire non-Azure AD qui a été configuré pour la fédération directe ;
+* d’utilisateurs d’un autre répertoire non-Azure AD dont les adresses e-mail ont toutes le même nom de domaine en commun.
 
 Par exemple, supposons que vous travaillez chez Woodgrove Bank et que vous souhaitez collaborer avec deux organisations externes. Ces deux organisations ont des configurations différentes :
 

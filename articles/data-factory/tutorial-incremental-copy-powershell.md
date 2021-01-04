@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: 267c82981ca91dc8fd437222c80368b5ab6f4a46
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 65a2d06acc3461d881ad6f100f3720b217ef7634
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320861"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97510207"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-powershell"></a>Charger de façon incrémentielle les données depuis Azure SQL Database dans un stockage Blob Azure à l’aide de PowerShell
 
@@ -141,8 +141,8 @@ AS
 
 BEGIN
 
-    UPDATE watermarktable
-    SET [WatermarkValue] = @LastModifiedtime
+UPDATE watermarktable
+SET [WatermarkValue] = @LastModifiedtime
 WHERE [TableName] = @TableName
 
 END
@@ -222,7 +222,7 @@ Vous allez créer des services liés dans une fabrique de données pour lier vos
 
     Voici l'exemple de sortie :
 
-    ```json
+    ```console
     LinkedServiceName : AzureStorageLinkedService
     ResourceGroupName : <resourceGroupName>
     DataFactoryName   : <dataFactoryName>
@@ -253,7 +253,7 @@ Vous allez créer des services liés dans une fabrique de données pour lier vos
 
     Voici l'exemple de sortie :
 
-    ```json
+    ```console
     LinkedServiceName : AzureSQLDatabaseLinkedService
     ResourceGroupName : ADF
     DataFactoryName   : incrementalloadingADF
@@ -327,7 +327,7 @@ Dans cette étape, vous allez créer des jeux de données pour représenter les 
     ```
 
     > [!IMPORTANT]
-    > Cet extrait de code suppose que vous disposez d’un conteneur d’objets blob nommé adftutorial dans le stockage d’objets blob. Créez le conteneur s’il n’existe pas ou attribuez-lui le nom d’un conteneur existant. Le dossier de sortie `incrementalcopy` est automatiquement créé s’il n’existe pas dans le conteneur. Dans ce didacticiel, le nom de fichier est généré dynamiquement à l’aide de l’expression `@CONCAT('Incremental-', pipeline().RunId, '.txt')`.
+    > Cet extrait suppose que vous disposez d’un conteneur d’objets blob nommé `adftutorial` dans votre stockage d’objets blob. Créez le conteneur s’il n’existe pas ou attribuez-lui le nom d’un conteneur existant. Le dossier de sortie `incrementalcopy` est automatiquement créé s’il n’existe pas dans le conteneur. Dans ce didacticiel, le nom de fichier est généré dynamiquement à l’aide de l’expression `@CONCAT('Incremental-', pipeline().RunId, '.txt')`.
 
 2. Exécutez la cmdlet **Set-AzDataFactoryV2Dataset** pour créer le jeu de données SourceDataset.
 
@@ -505,7 +505,7 @@ Dans ce didacticiel, vous allez créer un pipeline avec deux activités de reche
 
    Voici l'exemple de sortie :
 
-   ```json
+   ```console
     PipelineName      : IncrementalCopyPipeline
     ResourceGroupName : ADF
     DataFactoryName   : incrementalloadingADF
@@ -528,7 +528,7 @@ Dans ce didacticiel, vous allez créer un pipeline avec deux activités de reche
 
     Voici l'exemple de sortie :
 
-    ```json
+    ```console
     ResourceGroupName : ADF
     DataFactoryName   : incrementalloadingADF
     ActivityName      : LookupNewWaterMarkActivity
@@ -608,7 +608,7 @@ Dans ce didacticiel, vous allez créer un pipeline avec deux activités de reche
 
     TableName | WatermarkValue
     --------- | --------------
-    data_source_table | 2017-09-05  8:06:00.000
+    data_source_table | 2017-09-05 8:06:00.000
 
 ### <a name="insert-data-into-the-data-source-store-to-verify-delta-data-loading"></a>Insérer des données dans le magasin de source de données pour vérifier le chargement des données delta
 
@@ -648,7 +648,7 @@ Dans ce didacticiel, vous allez créer un pipeline avec deux activités de reche
 
     Voici l'exemple de sortie :
 
-    ```json
+    ```console
     ResourceGroupName : ADF
     DataFactoryName   : incrementalloadingADF
     ActivityName      : LookupNewWaterMarkActivity

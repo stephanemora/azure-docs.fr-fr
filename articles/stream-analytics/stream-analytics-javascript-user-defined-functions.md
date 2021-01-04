@@ -7,13 +7,13 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc, devx-track-js
-ms.date: 06/16/2020
-ms.openlocfilehash: 092e07ed01fb870cdcd9a3fd63d46d30cef96007
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.date: 12/15/2020
+ms.openlocfilehash: 085ac8c2ca7cfafcf0e40152458acf68dd847937
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780839"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97605528"
 ---
 # <a name="javascript-user-defined-functions-in-azure-stream-analytics"></a>Fonctions JavaScript définies par l’utilisateur dans Azure Stream Analytics
  
@@ -215,6 +215,14 @@ La sortie de cette requête sera la valeur DateTime d’entrée dans **de-DE** a
 Samstag, 28. Dezember 2019
 ```
 
+## <a name="user-logging"></a>Journalisation utilisateur
+Le mécanisme de journalisation vous permet de capturer des informations personnalisées pendant l’exécution d’un travail. Vous pouvez utiliser les données de journal pour déboguer ou évaluer l’exactitude du code personnalisé en temps réel. Ce mécanisme est disponible via la méthode Console.Log().
+
+```javascript
+console.log('my error message');
+```
+
+Vous pouvez accéder aux messages du journal par le biais des [journaux de diagnostic](data-errors.md).
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Fonction définie par l’utilisateur pour le machine learning](./machine-learning-udf.md)

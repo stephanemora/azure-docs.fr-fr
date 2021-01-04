@@ -3,16 +3,18 @@ title: Protocole d’extension HTTP – Azure
 description: Dans cet article, vous allez apprendre à utiliser le protocole d’extension HTTP pour envoyer des messages entre le module Live Video Analytics et votre module d’IA ou de validation croisée (CV).
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: f1e1fb0e8fe63b3a83c59a4ec48abdac7f22096a
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 52c98231780a2776f4ff67992f29b247eccb8bc2
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92016652"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97399143"
 ---
 # <a name="http-extension-protocol"></a>Protocole d’extension HTTP
 
-Dans cet article, vous allez apprendre à utiliser le protocole d’extension HTTP pour envoyer des messages entre le module Live Video Analytics et votre module d’IA ou de validation croisée (CV).
+Live Video Analytics sur IoT Edge vous permet d’étendre les fonctionnalités de traitement de graphe multimédia via un [nœud d’extension de graphe](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/media-graph-extension-concept?branch=release-lva-dec-update). Si vous utilisez le processeur d’extension HTTP comme nœud d’extension, la communication entre le module Live Video Analytics et votre module d’IA ou de validation croisée (CV) se fait sur HTTP
+
+Dans cet article, vous allez apprendre à utiliser le protocole d’extension HTTP pour envoyer des messages entre le module Live Video Analytics et votre module d’IA ou de validation croisée (CV). 
 
 Le contrat HTTP est défini entre les deux composants suivants :
 
@@ -85,19 +87,16 @@ Date: Fri, 17 Apr 2020 04:44:01 GMT
 }
 ```
 
-Il est fortement recommandé de retourner les réponses à l’aide de documents JSON valides conformes au schéma pré-établi défini ci-dessous. L’interopérabilité avec d’autres composants et les futures fonctionnalités ajoutées au module Live Video Analytics est ainsi mieux garantie.
+Il est fortement recommandé de retourner les réponses à l’aide de documents JSON valides, conformes au schéma pré-établi défini comme étant le [modèle d’objet du schéma des métadonnées d’inférence](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/inference-metadata-schema?branch=release-lva-dec-update). L’interopérabilité avec d’autres composants et les futures fonctionnalités ajoutées au module Live Video Analytics est ainsi mieux garantie.
 
 Si votre module retourne une réponse dans laquelle le type de contenu n’est pas « application/JSON », Live Video Analytics encode le message sous forme de contenu en base 64 et le sérialise en tant que charge utile JSON opaque.
 
-Si votre module retourne une réponse avec le type de contenu « application/JSON », mais que le schéma JSON ne suit pas le schéma des métadonnées d’inférence décrit ci-dessous, la charge utile du message est transférée par le biais du pipeline, mais l’interopérabilité est réduite.
+Si votre module retourne une réponse avec le type de contenu « application/JSON », mais que le schéma JSON ne suit pas le schéma des métadonnées d’inférence décrit ci-dessous, la charge utile du message est transférée par le biais du pipeline, mais l’interopérabilité est réduite. Pour des informations détaillées et à jour sur le schéma des métadonnées d’inférence, consultez [cette page](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/inference-metadata-schema?branch=release-lva-dec-update).
 
 > [!NOTE]
 > Si votre module ne produit aucun résultat, il doit retourner le code d’état HTTP 204 (Pas de contenu) avec un corps de réponse vide. Live Video Analytics va l’interpréter comme un résultat vide et ne va pas transférer l’événement dans le pipeline.
 
-## <a name="data-contracts---class-hierarchy"></a>Contrats de données - hiérarchie des classes
-
-![hiérarchie des classes](./media/http-extension-protocol/class-hierarchy.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Contrat de données gRPC](./grpc-extension-protocol.md)
+[Protocole d’extension gRPC](./grpc-extension-protocol.md)

@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 10/25/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: a427c77ec23bb933f96d8aec54ca33169aee84d4
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 671ca73cfa898be532521599d1211d2a8081eb4b
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576024"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563260"
 ---
 # <a name="azure-synapse-analytics-frequently-asked-questions"></a>Questions fréquentes (FAQ) sur Azure Synapse Analytics
 
@@ -59,7 +59,7 @@ A : Azure Synapse travaille avec l’analyse des coûts et les alertes de coût
 
 A : Les espaces de travail Synapse prennent en charge les dossiers définis par l’utilisateur.
 
-### <a name="q-can-i-link-more-than-one-power-bi-workspaces-to-a-single-azure-synapse-workspace"></a>Q : Puis-je lier plusieurs espaces de travail Power BI à un seul espace de travail Azure Synapse ?
+### <a name="q-can-i-link-more-than-one-power-bi-workspace-to-a-single-azure-synapse-workspace"></a>Q : Puis-je lier plusieurs espaces de travail Power BI à un seul espace de travail Azure Synapse ?
     
 A : Actuellement, vous ne pouvez lier qu’un seul espace de travail Power BI à un espace de travail Azure synapse. 
 
@@ -69,7 +69,7 @@ A : Synapse Link pour Apache Spark est en disponibilité générale. Synapse Li
 
 ### <a name="q-does-azure-synapse-workspace-support-cicd"></a>Q : L’espace de travail Azure Synapse prend-il en charge CI/CD ? 
 
-A : Oui. Tous les artefacts de pipeline, les notebooks, scripts SQL et définitions de travaux Spark résideront dans GIT. Toutes les définitions de pool seront stockées dans GIT sous forme de modèles ARM. Les objets de pool SQL dédiés (schémas, tables, vues, etc.) seront gérés avec des projets de base de données, avec prise en charge CI/CD.
+A : Oui. Tous les artefacts de pipeline, les notebooks, scripts SQL et définitions de travaux Spark résideront dans Git. Toutes les définitions de pool seront stockées dans Git sous forme de modèles ARM. Les objets de pool SQL dédiés (schémas, tables, vues, etc.) seront gérés avec des projets de base de données, avec prise en charge CI/CD.
 
 ## <a name="pipelines"></a>Pipelines
 
@@ -91,7 +91,7 @@ A : À ce stade, vous devez recréer manuellement vos pipelines Azure Data Fact
 
 A : Apache Spark pour Synapse n’est autre qu’Apache Spark doté d’une prise en charge supplémentaire pour les intégrations à d’autres services (AAD, AzureML, etc.), avec des bibliothèques supplémentaires (mssparktuils, Hummingbird) et des configurations de performances prédéfinies.
 
-Toute charge de travail en cours d’exécution sur Apache Spark s’exécutera sur MSFT Spark sans modification. 
+Toute charge de travail en cours d’exécution sur Apache Spark s’exécutera sur Apache Spark pour Azure Synapse sans modification. 
 
 ### <a name="q-what-versions-of-spark-are-available"></a>Q : Quelles versions de Spark sont disponibles ?
 
@@ -121,7 +121,7 @@ Le moyen le plus simple d’accomplir cette tâche consiste à préparer les don
  
 Pour développer ce scénario, vous devez donner à chaque développeur un pool Spark serverless configuré pour utiliser un petit nombre de ressources Spark. Comme les pools Spark serverless ne coûtent rien tant qu’ils ne sont pas utilisés activement, vous réduisez les coûts lorsqu’il y a plusieurs développeurs. Du fait que les pools partagent des métadonnées (tables Spark), ils peuvent facilement travailler ensemble.
 
-### <a name="q-how-do-i-include-manage-and-install-libraries"></a>Q : Comment inclure, gérer et installer des bibliothèques ? 
+### <a name="q-how-do-i-include-manage-and-install-libraries"></a>Q : Comment inclure, gérer et installer des bibliothèques ?
 
 A :  Vous pouvez installer des packages externes par le biais d’un fichier requirements.txt lors de la création du pool Spark, à partir de l’espace de travail Synapse ou du portail Azure. Consultez [Gérer des bibliothèques pour Apache Spark dans Azure Synapse Analytics](./spark/apache-spark-azure-portal-add-libraries.md).
 
@@ -140,7 +140,7 @@ A : Il n’y a pas de « déplacement » ni de « migration ». Vous pouvez
 A : Par défaut, tous les nouveaux pools SQL dédiés sont déployés dans un espace de travail. Toutefois, si vous avez en besoin, vous pouvez toujours créer un pool SQL dédié (anciennement SQL DW) dans un facteur de forme autonome. 
 
 
-### <a name="q-what-are-the-functional-differences-between-dedicated-sql-pools-and-serverless-sql-pool"></a>Q : Quelles sont les différences fonctionnelles entre les pools SQL dédiés et les pools SQL serverless ? 
+### <a name="q-what-are-the-functional-differences-between-dedicated-sql-pools-and-serverless-sql-pools"></a>Q : Quelles sont les différences fonctionnelles entre les pools SQL dédiés et les pools SQL serverless ?
 
 A : Vous trouverez la liste complète des différences dans [Différences entre les fonctionnalités T-SQL dans Synapse SQL](./sql/overview-features.md).
 
