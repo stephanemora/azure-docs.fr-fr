@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3d26a0ef86ab96940f3d5bb96d87340b77f1faca
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: eca2009ee0470dec9c9ce60d8754f8f7a71619d3
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95016834"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740536"
 ---
 # <a name="diagnose-and-troubleshoot-an-azure-time-series-insights-gen2-environment"></a>Diagnostiquer et résoudre les problèmes d’un environnement Gen2 Azure Time Series Insights.
 
@@ -124,14 +124,6 @@ Si la propriété Timestamp n’est pas explicitement spécifiée, l’horodatag
 Ce problème peut se produire si votre environnement n’a pas de hiérarchie de modèle Time Series définie. Pour plus d’informations, découvrez comment [utiliser des modèles Time Series](./time-series-insights-overview.md).
 
   [![Les instances non apparentées affichent un avertissement.](media/preview-troubleshoot/unparented-instances.png)](media/preview-troubleshoot/unparented-instances.png#lightbox)
-
-## <a name="problem-power-bi-connector-shows-unable-to-connect"></a>Problème : Le connecteur Power BI affiche « Connexion impossible »
-
-Ce problème peut se produire si vous n’utilisez pas la dernière version du connecteur Power BI dans Power BI Desktop.
-
-[![Capture d’écran montrant la boîte de dialogue Connexion impossible.](media/preview-troubleshoot/power-bi-unable-to-connect.png)](media/preview-troubleshoot/power-bi-unable-to-connect.png#lightbox)
-
-- Vérifiez la version de Power BI Desktop et assurez-vous que vous utilisez la version de juillet 2020. Si ce n’est pas le cas, mettez à jour Power BI Desktop et réexécutez le connecteur.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

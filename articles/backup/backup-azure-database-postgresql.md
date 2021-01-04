@@ -4,12 +4,12 @@ description: Découvrir la sauvegarde Azure Database pour PostgreSQL avec conser
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.custom: references_regions
-ms.openlocfilehash: edbfdb6ea741cdb344a121acdbee3b8bd4bc743c
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 32837e5bb871f7db5024569efc27940047aeacd7
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927887"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734638"
 ---
 # <a name="azure-database-for-postgresql-backup-with-long-term-retention-preview"></a>Sauvegarde Azure Database pour PostgreSQL avec conservation à long terme (préversion)
 
@@ -31,7 +31,7 @@ Vous pouvez utiliser cette solution indépendamment ou en plus de la solution de
 
 |Support  |Détails  |
 |---------|---------|
-|Déploiements pris en charge   |  Azure Database pour PostgreSQL - Serveur unique     |
+|Déploiements pris en charge   |  [Azure Database pour PostgreSQL - Serveur unique](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---single-server)     |
 |Régions Azure prises en charge |  USA Est, USA Est 2, USA Centre, USA Centre Sud, USA Ouest, USA Ouest 2, USA Centre Ouest, Brésil Sud, Canada Centre, Europe Nord, Europe Ouest, Royaume-Uni Sud, Royaume-Uni Ouest, Allemagne Centre-Ouest, Suisse Nord, Suisse Ouest, Asie Est, Asie Sud-Est, Japon Est, Japon Ouest, Corée Centre, Corée Sud, Inde Centre, Australie Est, Australie Centre, Australie Centre 2, Émirats arabes unis Nord  |
 |Versions d’Azure PostgreSQL prises en charge    |   9.5, 9.6, 10, 11      |
 
@@ -75,7 +75,7 @@ Les instructions suivantes constituent un guide pas à pas de la configuration d
 
         ![Accéder au Centre de sauvegarde](./media/backup-azure-database-postgresql/backup-center.png)
 
-        Sous **Lancer : Configurer la sauvegarde** , sélectionnez le **Type de source de données** **Azure Database pour PostgreSQL**.
+        Sous **Lancer : Configurer la sauvegarde**, sélectionnez le **Type de source de données** **Azure Database pour PostgreSQL**.
 
         ![Dans Lancer : Configurer la sauvegarde, sélectionner le type de source de données](./media/backup-azure-database-postgresql/initiate-configure-backup.png)
 
@@ -85,7 +85,7 @@ Les instructions suivantes constituent un guide pas à pas de la configuration d
 
         ![Sélectionner Sauvegarder dans Coffre de sauvegarde](./media/backup-azure-database-postgresql/backup-backup-vault.png)
 
-1. Sous **Configurer la sauvegarde** , sélectionnez le **Coffre de sauvegarde** où vous voulez sauvegarder vos bases de données Postgres. Ces informations sont préremplies si vous êtes déjà dans le contexte du coffre.
+1. Sous **Configurer la sauvegarde**, sélectionnez le **Coffre de sauvegarde** où vous voulez sauvegarder vos bases de données Postgres. Ces informations sont préremplies si vous êtes déjà dans le contexte du coffre.
 
     ![Sélectionner Coffre de sauvegarde dans Configurer la sauvegarde](./media/backup-azure-database-postgresql/configure-backup.png)
 
@@ -103,11 +103,11 @@ Les instructions suivantes constituent un guide pas à pas de la configuration d
 
 1. Le service effectue ces contrôles sur les bases de données sélectionnées pour vérifier si le coffre dispose des autorisations nécessaires pour sauvegarder les bases de données et les serveurs Postgres sélectionnés.
     1. **Préparation de la sauvegarde** pour toutes les bases de données doit indiquer **Réussite** pour pouvoir continuer.
-    1. En cas d’erreur, **corrigez l’erreur** , puis **revalidez** ou supprimez la base de données dans les sélections.
+    1. En cas d’erreur, **corrigez l’erreur**, puis **revalidez** ou supprimez la base de données dans les sélections.
 
     ![Erreurs de validation à corriger](./media/backup-azure-database-postgresql/validation-errors.png)
 
-1. Vérifiez tous les détails sous **Examiner et configurer** , puis sélectionnez **Configurer la sauvegarde** pour soumettre l’opération.
+1. Vérifiez tous les détails sous **Examiner et configurer**, puis sélectionnez **Configurer la sauvegarde** pour soumettre l’opération.
 
     ![Vérifier les détails dans Examiner et configurer](./media/backup-azure-database-postgresql/review-and-configure.png)
 
@@ -148,7 +148,7 @@ Les instructions suivantes constituent un guide pas à pas de la configuration d
     ![Modifier la durée de conservation](./media/backup-azure-database-postgresql/edit-retention.png)
 
 >[!NOTE]
->Les règles de conservation sont évaluées selon un ordre de priorité prédéterminé. La priorité est la plus élevée pour la règle **annuelle** , suivie de la règle **mensuelle** , puis de la règle **hebdomadaire**. Les paramètres de conservation par défaut sont appliqués quand aucune autre règle n’est éligible. Par exemple, le même point de récupération peut être la première sauvegarde réussie effectuée chaque semaine ainsi que la première sauvegarde réussie effectuée chaque mois. Cependant, comme la priorité de la règle mensuelle est supérieure à celle de la règle hebdomadaire, la conservation correspondant à la première sauvegarde réussie effectuée chaque mois s’applique.
+>Les règles de conservation sont évaluées selon un ordre de priorité prédéterminé. La priorité est la plus élevée pour la règle **annuelle**, suivie de la règle **mensuelle**, puis de la règle **hebdomadaire**. Les paramètres de conservation par défaut sont appliqués quand aucune autre règle n’est éligible. Par exemple, le même point de récupération peut être la première sauvegarde réussie effectuée chaque semaine ainsi que la première sauvegarde réussie effectuée chaque mois. Cependant, comme la priorité de la règle mensuelle est supérieure à celle de la règle hebdomadaire, la conservation correspondant à la première sauvegarde réussie effectuée chaque mois s’applique.
 
 ## <a name="restore"></a>Restaurer
 
@@ -161,11 +161,11 @@ Suivez ce guide pas à pas pour déclencher une restauration :
 
     ![Sélectionner Restaurer dans le Centre de sauvegarde](./media/backup-azure-database-postgresql/backup-center-restore.png)
 
-    Sous **Lancer : Restaurer** , sélectionnez le **Type de source de données** **Azure Database pour PostgreSQL**. Sélectionnez l’ **Instance de sauvegarde**.
+    Sous **Lancer : Restaurer**, sélectionnez le **Type de source de données** **Azure Database pour PostgreSQL**. Sélectionnez l’**Instance de sauvegarde**.
 
     ![Sélectionner Type de source de données dans Lancer : Restaurer](./media/backup-azure-database-postgresql/initiate-restore.png)
 
-    1. Vous pouvez aussi accéder directement à **Coffre de sauvegarde** -> **Instances de sauvegarde**. Sélectionnez l’ **Instance de sauvegarde** correspondant à la base de données que vous voulez restaurer.
+    1. Vous pouvez aussi accéder directement à **Coffre de sauvegarde** -> **Instances de sauvegarde**. Sélectionnez l’**Instance de sauvegarde** correspondant à la base de données que vous voulez restaurer.
 
     ![Instances de sauvegarde pour la restauration](./media/backup-azure-database-postgresql/backup-instances-restore.png)
 
@@ -181,7 +181,7 @@ Suivez ce guide pas à pas pour déclencher une restauration :
 
 1. Entrez les **Paramètres de restauration**. À ce stade, vous pouvez choisir parmi deux types de restaurations : **Restaurer en tant que base de données** et **Restaurer en tant que fichiers**.
 
-1. **Restaurer en tant que base de données**  :  Restaurez les données de sauvegarde pour créer une nouvelle base de données sur le serveur PostgreSQL cible.
+1. **Restaurer en tant que base de données** :  Restaurez les données de sauvegarde pour créer une nouvelle base de données sur le serveur PostgreSQL cible.
 
     - Le serveur cible peut être le même que le serveur source. Cependant, le remplacement de la base de données d’origine n’est pas pris en charge.
     - Vous pouvez choisir le serveur parmi tous les abonnements, mais dans la même région que le coffre.
@@ -189,7 +189,7 @@ Suivez ce guide pas à pas pour déclencher une restauration :
 
     ![Restaurer en tant que base de données](./media/backup-azure-database-postgresql/restore-as-database.png)
 
-1. **Restaurer en tant que fichiers**  : Copiez les fichiers de la sauvegarde vers le compte de stockage cible (objets blob).
+1. **Restaurer en tant que fichiers** : Copiez les fichiers de la sauvegarde vers le compte de stockage cible (objets blob).
 
     - Vous pouvez choisir un compte de stockage parmi tous les abonnements, mais dans la même région que le coffre.
     - Sélectionnez le conteneur cible dans la liste des conteneurs filtrée pour le compte de stockage sélectionné.
@@ -207,7 +207,7 @@ Sauvegarde Azure suit des recommandations strictes en matière de sécurité. Bi
 
 ## <a name="manage-the-backed-up-azure-postgresql-databases"></a>Gérer les bases de données Azure PostgreSQL sauvegardées
 
-Voici les opérations de gestion que vous pouvez effectuer sur les **instances de sauvegarde**  :
+Voici les opérations de gestion que vous pouvez effectuer sur les **instances de sauvegarde** :
 
 ### <a name="on-demand-backup"></a>Sauvegarde à la demande
 
@@ -228,7 +228,7 @@ Vous pouvez arrêter la protection sur un élément de sauvegarde. Ceci va égal
 
 Vous pouvez changer la stratégie associée à une instance de sauvegarde.
 
-1. Sélectionnez l’ **instance de sauvegarde** -> **Changer la stratégie**.
+1. Sélectionnez l’**instance de sauvegarde** -> **Changer la stratégie**.
 
     ![Changer la stratégie](./media/backup-azure-database-postgresql/change-policy.png)
 
@@ -294,7 +294,7 @@ Reportez-vous à [ce document](https://download.microsoft.com/download/7/4/d/74d
 
 ### <a name="usererrormissingnetworksecuritypermissions"></a>UserErrorMissingNetworkSecurityPermissions
 
-Établissez une visibilité du réseau en activant l’indicateur **Autoriser l’accès aux services Azure** dans la vue du serveur. Dans la vue du serveur, sous le volet **Sécurité de la connexion** , définissez l’indicateur **Autoriser l’accès aux services Azure** sur **Oui**.
+Établissez une visibilité du réseau en activant l’indicateur **Autoriser l’accès aux services Azure** dans la vue du serveur. Dans la vue du serveur, sous le volet **Sécurité de la connexion**, définissez l’indicateur **Autoriser l’accès aux services Azure** sur **Oui**.
 
 ![Autoriser l’accès aux services Azure](./media/backup-azure-database-postgresql/allow-access-to-azure-services.png)
 
@@ -314,8 +314,8 @@ Reportez-vous à [ce document](https://download.microsoft.com/download/7/4/d/74d
     az role assignment create --assignee $VaultMSI_AppId  --role "Storage Blob Data Contributor"   --scope $id
     ```
 
-    1. Remplacez le paramètre du destinataire de l’affectation par l’ **ID d’application** de l’identité MSI du coffre et le paramètre d’étendue de façon à référencer votre conteneur spécifique.
-    1. Pour obtenir l’ **ID d’application** de l’identité MSI du coffre, sélectionnez **Toutes les applications** sous **Type d’application**  :
+    1. Remplacez le paramètre du destinataire de l’affectation par l’**ID d’application** de l’identité MSI du coffre et le paramètre d’étendue de façon à référencer votre conteneur spécifique.
+    1. Pour obtenir l’**ID d’application** de l’identité MSI du coffre, sélectionnez **Toutes les applications** sous **Type d’application** :
 
         ![Sélectionner Toutes les applications](./media/backup-azure-database-postgresql/select-all-applications.png)
 

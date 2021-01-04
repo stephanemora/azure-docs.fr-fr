@@ -10,12 +10,12 @@ ms.author: keli19
 ms.date: 11/13/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 5569b625b8f0c4ba890c0cd5b1700ca6fe83d968
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: a2cc0840b7ba4b26cf9f5b1219fc189230870774
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94591986"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739856"
 ---
 # <a name="import-data-into-azure-machine-learning-designer"></a>Importer des données dans le concepteur Azure Machine Learning
 
@@ -47,8 +47,7 @@ Si les données de sortie du module sont dans un format tabulaire, vous devez ch
  - Un **jeu de données de fichier** inscrit le dossier de sortie du module en tant que jeu de données de fichier. Le dossier de sortie contient un fichier de données et des méta-fichiers utilisés en interne par le concepteur. Sélectionnez cette option si vous souhaitez continuer à utiliser le jeu de données inscrit dans le concepteur. 
 
  - Le **jeu de données tabulaire** inscrit uniquement le fichier de données de sortie du module sous la forme d’un jeu de données tabulaire. Ce format est facilement utilisé par d’autres outils, par exemple dans le Machine Learning automatisé ou le Kit de développement logiciel (SDK) Python. Sélectionnez cette option si vous envisagez d’utiliser le jeu de données enregistré en dehors du concepteur.  
-
-
+ 
 
 ### <a name="use-a-dataset"></a>Utiliser un jeu de données
 
@@ -62,6 +61,14 @@ Si vous inscrivez un jeu de données de fichiers, le type de port de sortie du j
 > [!NOTE]
 > Le concepteur prend en charge le [contrôle de version de jeu de données](how-to-version-track-datasets.md). Spécifiez la version du jeu de données dans le volet des propriétés du module de jeu de données.
 
+### <a name="limitations"></a>Limites 
+
+- Actuellement, vous pouvez visualiser uniquement le jeu de données tabulaire dans le concepteur. Si vous inscrivez un jeu de données de fichiers en dehors du concepteur, vous ne pouvez pas le visualiser dans le canevas du concepteur.
+- Votre jeu de données est stocké dans un réseau virtuel (VNet). Si vous souhaitez le visualiser, vous devez activer l’identité managée de l’espace de travail du magasin de données.
+    1. Accédez au magasin de données connexe, puis cliquez sur **Mettre à jour les informations d’identification**
+    :::image type="content" source="./media/resource-known-issues/datastore-update-credential.png" alt-text="Mettre à jour les informations d’identification":::.
+    1. Sélectionnez **Oui** pour activer l’identité managée de l’espace de travail.
+    :::image type="content" source="./media/resource-known-issues/enable-workspace-managed-identity.png" alt-text="Activer l’identité managée de l’espace de travail":::
 
 ## <a name="import-data-using-the-import-data-module"></a>Importer des données à l’aide du module Importer des données
 

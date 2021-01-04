@@ -9,12 +9,12 @@ ms.date: 2/22/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, references_regions
-ms.openlocfilehash: 4df4c3d91c30dfd63de9073d8435f6f96c6ecd95
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 705910a9e2f4ebc80a63ab22ac4edecc5ae03cd0
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94626824"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724797"
 ---
 # <a name="create-an-azure-file-share"></a>Crée un partage de fichiers Azure
 Pour créer un partage de fichiers Azure, vous devez répondre à trois questions se rapportant la façon dont vous allez l’utiliser :
@@ -172,7 +172,7 @@ La propriété **quota** du partage de fichiers Premium est légèrement différ
 
 - Pour les partages de fichiers Standard, il s’agit d’une limite supérieure du partage de fichiers Azure, au-delà de laquelle les utilisateurs finals ne peuvent pas aller. La finalité principale du quota d’un partage de fichiers Standard est budgétaire : « Je ne veux pas que ce partage de fichiers augmente au-delà de ce point ». Si aucun quota n’est spécifié, le partage de fichiers Standard peut s’étendre jusqu’à 100 Tio (ou 5 Tio si la propriété de partages de fichiers volumineux n’est pas définie pour un compte de stockage).
 
-- Pour les partages de fichiers Premium, le quota est surchargé pour signifier de **taille provisionnée**. La taille provisionnée est la quantité pour laquelle vous êtes facturé, quelle que soit l’utilisation faite. Lorsque vous provisionnez un partage de fichiers Premium, vous devez prendre en compte deux facteurs : 1) la croissance future du partage au niveau de l’utilisation de l’espace et 2) les IOPS nécessaires pour votre charge de travail. Chaque Gio provisionné vous donne droit à des e/s par seconde supplémentaires, réservées et en rafale. Pour plus d’informations sur la planification d’un partage de fichiers Premium, consultez [Provisionnement des partages de fichiers Premium](storage-files-planning.md#understanding-provisioning-for-premium-file-shares).
+- Pour les partages de fichiers Premium, le quota est surchargé pour signifier de **taille provisionnée**. La taille provisionnée est la quantité pour laquelle vous êtes facturé, quelle que soit l’utilisation faite. Lorsque vous provisionnez un partage de fichiers Premium, vous devez prendre en compte deux facteurs : 1) la croissance future du partage au niveau de l’utilisation de l’espace et 2) les IOPS nécessaires pour votre charge de travail. Chaque Gio provisionné vous donne droit à des e/s par seconde supplémentaires, réservées et en rafale. Pour plus d’informations sur la planification d’un partage de fichiers Premium, consultez [Provisionnement des partages de fichiers Premium](understanding-billing.md#provisioned-billing).
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
 Si vous venez de créer votre compte de stockage, vous pouvez accéder à celui-ci depuis l’écran de déploiement en sélectionnant **Accéder à la ressource**. Si vous avez déjà créé le compte de stockage, vous pouvez y accéder par le groupe de ressources qui le contient. Une fois dans le compte de stockage, sélectionnez la vignette intitulée **Partages de fichiers** (vous pouvez également accéder à **Partages de fichiers** en utilisant le sommaire pour le compte de stockage).
