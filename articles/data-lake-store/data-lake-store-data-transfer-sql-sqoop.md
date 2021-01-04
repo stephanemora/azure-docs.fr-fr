@@ -121,7 +121,7 @@ Un cluster HDInsight dispose déjà des packages Sqoop. Si vous avez configuré 
     -rwxrwxrwx   0 sshuser hdfs         18 2016-02-26 21:09 adl://hdiadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1/part-m-00003
     ```
 
-   Chaque fichier **part-m-** * correspond à une ligne dans la table source **Table1**.
+   Chaque fichier **part-m-*** correspond à une ligne dans la table source **Table1**.
 
 ### <a name="export-data-from-data-lake-storage-gen1-into-azure-sql-database"></a>Vous pouvez afficher le contenu des fichiers part-m-* à vérifier.
 

@@ -8,18 +8,18 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: dobett
-ms.openlocfilehash: b05ed6e1239721bcf3c1cf33d3ee63a992fd9843
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 5a088cb07fa74b65e497de54be8c97bd51d31c16
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96853223"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387834"
 ---
 # <a name="use-the-azureiotsolutionscom-site-to-deploy-your-solution-accelerator"></a>Utiliser le site azureiotsolutions.com pour déployer votre accélérateur de solution
 
 Vous pouvez déployer des accélérateurs de solution Azure IoT sur votre abonnement Azure à partir du site [AzureIoTSolutions.com](https://www.azureiotsolutions.com/Accelerators). AzureIoTSolutions.com héberge à la fois les accélérateurs de solution open source Microsoft et de partenaire. Ces accélérateurs de solutions sont adaptés à [l’architecture de référence Azure IoT](/azure/architecture/reference-architectures/iot). Vous pouvez utiliser le site pour déployer rapidement un accélérateur de solution comme environnement de démonstration ou de production.
 
-![AzureIoTSolutions.com](media/iot-accelerators-permissions/iotsolutionscom.png)
+:::image type="content" source="media/iot-accelerators-permissions/iotsolutionscom.png" alt-text="Page d’accueil des solutions IoT":::
 
 > [!TIP]
 > Si vous avez besoin de davantage de contrôle sur le processus de déploiement, vous pouvez utiliser l’interface CLI pour déployer un accélérateur de solution.

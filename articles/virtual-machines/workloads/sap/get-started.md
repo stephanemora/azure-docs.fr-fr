@@ -14,15 +14,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/26/2020
+ms.date: 12/12/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e07876f9e28e7f3245f2524b5ef5da08de085ec1
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 75ea3eec50516c9ba08504dd149d4bd08f8abbb6
+ms.sourcegitcommit: 287c20509c4cf21d20eea4619bbef0746a5cd46e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96486468"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97371932"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Utiliser Azure pour héberger et exécuter des scénarios de charge de travail SAP
 
@@ -47,6 +47,8 @@ Si vous avez des questions précises, nous allons vous orienter vers des documen
 - Quels sont les services Azure, les types de machines virtuelles Azure et les services de stockage Azure disponibles dans les différentes régions Azure. Consultez le site [Produits disponibles par région](https://azure.microsoft.com/global-infrastructure/services/). 
 - Outre Windows et le Pacemaker, les frameworks de haute disponibilité tiers sont-ils pris en charge ? Consultez la deuxième moitié de la [note de support SAP #1928533](https://launchpad.support.sap.com/#/notes/1928533).
 - Quel stockage Azure est le mieux adapté à mon scénario ? Lisez [Types de stockage Azure pour une charge de travail SAP](./planning-guide-storage.md)
+- Le noyau Red Hat dans Oracle Enterprise Linux est-il pris en charge par SAP ? Consultez la [note de support SAP n°1565179](https://launchpad.support.sap.com/#/notes/1565179)
+- Pourquoi les familles de machines virtuelles Azure [Da(s) v4](https://docs.microsoft.com/azure/virtual-machines/dav4-dasv4-series)/[Ea(s)](https://docs.microsoft.com/azure/virtual-machines/eav4-easv4-series) ne sont-elles pas certifiées pour SAP HANA ? Les familles de machines virtuelles Azure Das/Eas sont basées sur du matériel piloté par un processeur AMD. SAP HANA ne prend pas en charge les processeurs AMD, même dans des scénarios virtualisés.
 
  
 ## <a name="sap-hana-on-azure-large-instances"></a>SAP HANA sur Azure (grandes instances)
@@ -74,12 +76,13 @@ Dans cette section, vous trouvez des informations sur la configuration de l’au
 
 
 ## <a name="documentation-on-integration-of-azure-services-into-sap-components"></a>Documentation sur l’intégration de services Azure dans des composants SAP
-Dans cette section, vous trouverez des documents relatifs à l’intégration de PowerBI dans des sources de données SAP, ainsi qu’à l’intégration d’Azure Data Factory dans SAP BW.
+Cette section contient des documents concernant l’intégration de Microsoft Power BI dans des sources de données SAP, ainsi que l’intégration d’Azure Data Factory dans SAP BW.
 
 
 
 ## <a name="change-log"></a>Journal des modifications
 
+- 12/12/2020 : ajout d’un pointeur vers une note de SAP clarifiant certains détails sur la prise en charge d’Oracle Enterprise Linux par SAP pour [les logiciels SAP pris en charge pour les déploiements Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure#oracle-dbms-support)
 - 26/11/2020 : Adaptez les [configurations de stockage des machines virtuelles Azure SAP HANA](./hana-vm-operations-storage.md) et les [types de stockage Azure pour la charge de travail SAP](./planning-guide-storage.md) aux [contrats SLA des machines virtuelles](https://azure.microsoft.com/support/legal/sla/virtual-machines) uniques modifiés
 - 05/11/2020 : Modification du lien vers la nouvelle note SAP concernant les types de systèmes de fichiers pris en charge par HANA dans [Configurations du stockage des machines virtuelles SAP HANA Azure](./hana-vm-operations-storage.md) 
 - 26/10/2020 : Modification apportées à certaines tables de configuration du stockage Premium Azure afin de clarifier le débit approvisionné par rapport au débit de rafale dans les [configurations de stockage de machine virtuelle SAP HANA Azure](./hana-vm-operations-storage.md)

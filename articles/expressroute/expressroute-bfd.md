@@ -5,35 +5,35 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: article
-ms.date: 11/1/2018
+ms.date: 12/14/2020
 ms.author: duau
-ms.openlocfilehash: fd1cad4031d83fd0e17286bfaabb77aa746b646a
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 254f5909e7ed8db4dc18ade2677a3213b268cf41
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92202325"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511261"
 ---
 # <a name="configure-bfd-over-expressroute"></a>Configurer BFD sur ExpressRoute
 
-ExpressRoute prend en charge la détection de transfert bidirectionnel (BFD, Bidirectional Forwarding Detection) sur le peering privé et le peering Microsoft. En activant BFD via ExpressRoute, vous pouvez accélérer la détection des défaillances des liaisons entre les appareils MSEE (Microsoft Enterprise Edge) et les routeurs sur lesquels vous terminez le circuit ExpressRoute (CE/PE). Vous pouvez établir une terminaison d’ExpressRoute sur des appareils de routage de périphérie du client ou des appareils de routage de périphérie de partenaire (si vous avez utilisé le service de connexion de couche 3 managé). Ce document explique pourquoi BFD peut être nécessaire et comment activer BFD sur ExpressRoute.
+ExpressRoute prend en charge la détection de transfert bidirectionnel (BFD, Bidirectional Forwarding Detection) sur le peering privé et le peering Microsoft. Lorsque vous activez BFD sur ExpressRoute, vous pouvez accélérer la détection d’échec de liaison entre les appareils Microsoft Enterprise Edge (MSEE) et les routeurs que votre circuit ExpressRoute configure (CE/PE). Vous pouvez configurer ExpressRoute sur vos appareils de routage en périphérie ou des appareils de routage en périphérie de partenaire (si vous avez utilisé un service de connexion de couche 3 managé). Ce document explique pourquoi BFD peut être nécessaire et comment activer BFD sur ExpressRoute.
 
 ## <a name="need-for-bfd"></a>Besoin de BFD
 
 Le diagramme suivant présente les avantages de l’activation de BFD sur le circuit ExpressRoute : [![1]][1]
 
-Vous pouvez activer le circuit ExpressRoute par des connexions de couche 2 ou par des connexions de couche 3 managées. Dans les deux cas, s’il existe un ou plusieurs appareils de couche 2 dans le chemin de connexion ExpressRoute, la responsabilité de la détection des échecs des liaisons dans le chemin incombe au protocole BGP superposé.
+Vous pouvez activer le circuit ExpressRoute par des connexions de couche 2 ou par des connexions de couche 3 managées. Dans les deux cas, s’il existe plusieurs appareils de couche 2 dans le chemin de connexion ExpressRoute, la responsabilité de la détection des échecs des liaisons dans le chemin incombe à la session BGP superposée.
 
-Sur les appareils MSEE, les durées de conservation et de mise en suspens de BGP sont généralement configurées respectivement sur 60 et 180 secondes. Par conséquent, après un échec de liaison, jusqu’à 3 minutes seraient nécessaires pour détecter cet échec et basculer le trafic vers une autre connexion.
+Sur les appareils MSEE, les durées de conservation et de suspension de BGP sont généralement configurées respectivement sur 60 et 180 secondes. Par conséquent, après un échec de liaison, jusqu’à trois minutes peuvent être nécessaires pour détecter un échec et basculer le trafic vers une autre connexion.
 
-Vous pouvez contrôler les minuteurs BGP en configurant des durées de conservation et de mise en suspens de BGP avec des valeurs inférieures sur l’appareil de peering de périphérie du client. Si les minuteurs BGP ne correspondent pas entre les deux appareils du peering, la session BGP entre les pairs utilise la valeur des minuteurs la plus basse. La durée de conservation de BGP peut être définie avec une valeur minimale de 3 secondes, et la durée de mise en suspens avec une valeur de l’ordre de quelques dizaines de secondes. Cependant, la définition de valeurs agressives pour les minuteurs BGP est moins préférable, car le protocole est basé sur un processus consommant des ressources de façon intensive.
+Vous pouvez contrôler les minuteurs du protocole BGP en configurant des durées inférieures de conservation et de suspension du protocole BGP sur votre appareil de peering en périphérie. Si les minuteurs du protocole BGP ne sont pas les mêmes entre les deux appareils de peering, la session BGP s’établit en utilisant la valeur de temps inférieure. La durée de conservation du protocole BGP peut être définie sur une valeur aussi basse que trois secondes, et la durée de suspension sur un valeur aussi basse que 10 secondes. Toutefois, la définition d’un minuteur de protocole BGP très agressif n’est pas recommandée, car le protocole est exigeant en processus.
 
 Dans ce scénario, BFD peut être bénéfique. BFD assure la détection de la défaillance des liaisons en consommant peu de ressources et dans un intervalle de temps inférieur à la seconde. 
 
 
 ## <a name="enabling-bfd"></a>Activation de BFD
 
-BFD est configuré par défaut sous toutes les interfaces de peering privé ExpressRoute nouvellement créées sur les appareils MSEE. Ainsi, pour activer BFD, vous devez simplement configurer BFD sur vos routeurs CE/PE (sur vos appareils principaux et secondaires). La configuration de BFD est un processus en deux étapes : vous devez configurer BFD sur l’interface, puis la lier à la session BGP.
+BFD est configuré par défaut sous toutes les interfaces de peering privé ExpressRoute nouvellement créées sur les appareils MSEE. Par conséquent, pour activer BFD, il vous suffit de configurer BFD sur vos appareils principaux et secondaires. La configuration de BFD est un processus en deux étapes. Vous configurez BFD sur l’interface, puis liez celle-ci à la session BGP.
 
 Voici un exemple de configuration de CE/PE (avec Cisco IOS XE). 
 
@@ -62,10 +62,10 @@ router bgp 65020
 
 ## <a name="bfd-timer-negotiation"></a>Négociation des minuteurs BFD
 
-Entre les pairs BFD, le plus lent des deux pairs détermine la vitesse de transmission. Les intervalles de transmission/réception BFD des appareils MSEE sont définis sur 300 millisecondes. Dans certains scénarios, l'intervalle peut être défini sur une valeur supérieure de 750 millisecondes. En configurant des valeurs plus élevées, vous pouvez forcer ces intervalles à être plus longs, mais pas plus courts.
+Entre les pairs BFD, le plus lent des deux pairs détermine la vitesse de transmission. Les intervalles de transmission/réception BFD des appareils MSEE sont définis sur 300 millisecondes. Dans certains scénarios, l'intervalle peut être défini sur une valeur supérieure de 750 millisecondes. En configurant une valeur plus élevée, vous pouvez forcer des intervalles plus longs, mais il n’est pas possible de les raccourcir.
 
 >[!NOTE]
->Si vous avez configuré des circuits ExpressRoute géoredondants ou que vous utilisez une connectivité de VPN IPSec de site à site comme solution de secours, l’activation de BFD aide à accélérer la bascule sur l’alternative de secours après une défaillance de la connectivité ExpressRoute. 
+>Si vous avez configuré des circuits ExpressRoute géoredondants, utilisez une connectivité VPN IPSec de site à site en tant que solution de secours. L’activation de BFD permettrait un basculement plus rapide suite à une défaillance de connectivité ExpressRoute. 
 >
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -11,18 +11,18 @@ ms.topic: reference
 ms.date: 12/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3e47eda29b0ad1c47edad08195b2ffd0fe3835af
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 453042766c427b05ec1ee1090a0702f64065542d
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96750473"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97508048"
 ---
 # <a name="single-sign-on-session-management-in-azure-active-directory-b2c"></a>Gestion de session d’authentification unique dans Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-La gestion de [session d’authentification unique](session-overview.md) utilise la même sémantique que tout autre profil technique dans des stratégies personnalisées. Quand une étape d’orchestration est exécutée, le profil technique associé à l’étape est interrogé pour obtenir une référence `UseTechnicalProfileForSessionManagement`. S’il en existe une, le fournisseur de la session de l’authentification unique référencé est vérifié pour voir si l’utilisateur est un participant de la session. Dans l’affirmative, le fournisseur de session d’authentification unique est utilisé pour remplir à nouveau la session. De même, lors de l’exécution d’une étape d’orchestration est terminée, le fournisseur est utilisé pour stocker les informations de la session si un fournisseur de session d’authentification unique a été spécifié.
+La gestion de [session d’authentification unique](session-behavior.md) utilise la même sémantique que tout autre profil technique dans des stratégies personnalisées. Quand une étape d’orchestration est exécutée, le profil technique associé à l’étape est interrogé pour obtenir une référence `UseTechnicalProfileForSessionManagement`. S’il en existe une, le fournisseur de la session de l’authentification unique référencé est vérifié pour voir si l’utilisateur est un participant de la session. Dans l’affirmative, le fournisseur de session d’authentification unique est utilisé pour remplir à nouveau la session. De même, lors de l’exécution d’une étape d’orchestration est terminée, le fournisseur est utilisé pour stocker les informations de la session si un fournisseur de session d’authentification unique a été spécifié.
 
 Azure AD B2C a défini un certain nombre de fournisseurs de session d’authentification unique qui peuvent être utilisés :
 
@@ -168,5 +168,4 @@ Le profil technique `SM-Saml-issuer` suivant est utilisé par le [profil techniq
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur une [session Azure AD B2C](session-overview.md).
-- Découvrez comment [configurer un comportement de session dans des stratégies personnalisées](session-behavior-custom-policy.md).
+Découvrez comment [configurer un comportement de session](session-behavior.md).

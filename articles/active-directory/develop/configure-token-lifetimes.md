@@ -9,22 +9,22 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/23/2020
+ms.date: 12/14/2020
 ms.author: ryanwi
 ms.custom: aaddev, content-perf, FY21Q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 2815041f32ebd7c2dae235229d1ca19aad253f7d
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: e663cdd3846e804d1dcf96076c07b9a3db84272c
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503619"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507742"
 ---
 # <a name="configure-token-lifetime-policies-preview"></a>Configurer des stratégies de durée de vie des jetons (préversion)
 De nombreux scénarios sont possibles dans Azure AD lorsque vous créez et gérez les durées de vie des jetons pour les applications, les principaux du service et votre organisation globale.  
 
 > [!IMPORTANT]
-> Après le 30 janvier 2021, les locataires ne seront plus en mesure de configurer la durée de vie des jetons d’actualisation et de session, et Azure AD cessera d’honorer la configuration existante des jetons d’actualisation et de session dans les stratégies après cette date. Vous pourrez toujours configurer la durée de vie des jetons d'accès après la dépréciation.  Pour en savoir plus, consultez [Durées de vie des jetons configurables dans la plateforme d’identités Microsoft](active-directory-configurable-token-lifetimes.md).
+> Après mai 2020, les locataires ne seront plus en mesure de configurer la durée de vie des jetons d’actualisation et de session.  Azure Active Directory cessera d’honorer la configuration actuelle des jetons d’actualisation et de session dans les stratégies après le 30 janvier 2021. Vous pourrez toujours configurer la durée de vie des jetons d'accès après la dépréciation.  Pour en savoir plus, consultez [Durées de vie des jetons configurables dans la plateforme d’identités Microsoft](active-directory-configurable-token-lifetimes.md).
 > Nous avons implémenté les  [capacités de gestion des sessions d’authentification](../conditional-access/howto-conditional-access-session-lifetime.md)  dans l’accès conditionnel Azure AD. Vous pouvez utiliser cette nouvelle fonctionnalité pour configurer les durées de vie des jetons d’actualisation en définissant la fréquence de connexion.
 
 
@@ -88,7 +88,7 @@ Dans cet exemple, vous allez créer une stratégie qui permet à vos utilisateur
         Get-AzureADPolicy -id | set-azureadpolicy -Definition @($((Get-AzureADPolicy -id ).Replace(" ","")))
         ```
 
-    1. Pour afficher votre nouvelle stratégie et obtenir son **ID d’objet** , exécutez la commande ci-après :
+    1. Pour afficher votre nouvelle stratégie et obtenir son **ID d’objet**, exécutez la commande ci-après :
 
         ```powershell
         Get-AzureADPolicy -Id $policy.Id
@@ -116,7 +116,7 @@ Dans cet exemple, vous créez une stratégie qui nécessite que vos utilisateurs
         $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"AccessTokenLifetime":"02:00:00","MaxAgeSessionSingleFactor":"02:00:00"}}') -DisplayName "WebPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
         ```
 
-    1. Pour voir votre nouvelle stratégie et obtenir son **ObjectId** , exécutez la cmdlet [Get-AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) :
+    1. Pour voir votre nouvelle stratégie et obtenir son **ObjectId**, exécutez la cmdlet [Get-AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) :
 
         ```powershell
         Get-AzureADPolicy -Id $policy.Id
@@ -153,9 +153,9 @@ Dans cet exemple, vous créez une stratégie qui nécessite que vos utilisateurs
         Get-AzureADPolicy -Id $policy.Id
         ```
 
-1. Affectez la stratégie à votre API web. Vous devez également obtenir **l’ID d’objet** de votre application. Utilisez la cmdlet [Get-AzureADApplication](/powershell/module/azuread/get-azureadapplication) pour trouver l’ **ObjectId** de votre application, ou utilisez le [portail Azure](https://portal.azure.com/).
+1. Affectez la stratégie à votre API web. Vous devez également obtenir **l’ID d’objet** de votre application. Utilisez la cmdlet [Get-AzureADApplication](/powershell/module/azuread/get-azureadapplication) pour trouver l’**ObjectId** de votre application, ou utilisez le [portail Azure](https://portal.azure.com/).
 
-    Obtenez l’ **ObjectId** de votre application et assignez la stratégie :
+    Obtenez l’**ObjectId** de votre application et assignez la stratégie :
 
     ```powershell
     # Get the application

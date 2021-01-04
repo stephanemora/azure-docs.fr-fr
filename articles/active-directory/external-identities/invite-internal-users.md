@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c03c2c55988df04cc45ef4a1d66d959513c1626d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75839893d0048841440f2c790df7d23ad825d962
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87907178"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093466"
 ---
 # <a name="invite-internal-users-to-b2b-collaboration"></a>Inviter des utilisateurs internes sur B2B Collaboration
 
@@ -32,7 +32,7 @@ L’envoi d’une invitation à un compte interne existant vous permet de conser
 
 En préversion publique, la méthode décrite dans cet article pour l’invitation d’utilisateurs internes sur B2B Collaboration ne peut pas être utilisée dans les cas suivants :
 
-- Une licence Exchange a déjà été affectée à l’utilisateur interne.
+- Une licence Exchange a été attribuée à l’utilisateur interne.
 - L’utilisateur provient d’un domaine configuré pour la fédération directe dans votre annuaire.
 - L’utilisateur interne est un compte cloud uniquement, et son compte principal n’est pas dans Azure AD.
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a0ad14481673f0061fb0170e60869109c87a6829
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: b4e268d35a2e31db0ce92ff61e66fd23bce68e38
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94379784"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516364"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Vue d’ensemble des jetons dans Azure Active Directory B2C
 
@@ -97,7 +97,7 @@ Les propriétés suivantes sont utilisées pour [gérer la compatibilité des je
 
 ## <a name="pass-through"></a>Requête directe
 
-Au début de l’expérience utilisateur, Azure AD B2C reçoit un jeton d’accès d’un fournisseur d’identité. Azure AD B2C utilise ce jeton pour récupérer des informations sur l’utilisateur. Vous [activez une revendication dans votre flux utilisateur](idp-pass-through-user-flow.md) ou [définissez une revendication dans votre stratégie personnalisée](idp-pass-through-custom.md) pour passer le jeton aux applications que vous inscrivez dans Azure AD B2C. Votre application doit utiliser un [flux utilisateur recommandé](user-flow-versions.md) pour tirer parti de la transmission du jeton en tant que revendication.
+Au début de l’expérience utilisateur, Azure AD B2C reçoit un jeton d’accès d’un fournisseur d’identité. Azure AD B2C utilise ce jeton pour récupérer des informations sur l’utilisateur. Vous activez une revendication dans votre flux d’utilisateur pour [transmettre le jeton](idp-pass-through-user-flow.md) aux applications que vous inscrivez dans Azure AD B2C. Votre application doit utiliser un [flux utilisateur recommandé](user-flow-versions.md) pour tirer parti de la transmission du jeton en tant que revendication.
 
 Pour l’instant, Azure AD B2C permet uniquement de passer le jeton d’accès de fournisseurs d’identité OAuth 2.0 (dont font partie Facebook et Google). Pour tous les autres fournisseurs d’identité, la revendication est retournée vide.
 

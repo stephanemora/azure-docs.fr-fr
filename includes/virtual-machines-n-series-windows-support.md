@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/11/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: caad292f06710fca8d6f64476eead5dfcb164e9d
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: f99aedc21c3b51975649f8944ab53536d365a7d1
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96536971"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97096402"
 ---
 ## <a name="supported-operating-systems-and-drivers"></a>Systèmes d’exploitation et pilotes pris en charge
 
@@ -34,7 +34,9 @@ Les pilotes Tesla NVIDIA (CUDA) pour les machines virtuelles des séries NC, NCv
 
 Microsoft redistribue les programmes d’installation du pilote GRID NVIDIA pour les machines virtuelles de série NV et NVv3 utilisées comme stations de travail virtuelles ou pour les applications virtuelles. Installez uniquement ces pilotes GRID sur des machines virtuelles Azure de série NV, et uniquement sur les systèmes d’exploitation répertoriés dans le tableau suivant. Ces pilotes incluent les licences des logiciels GRID Virtual GPU dans Azure. Vous n’avez pas besoin de configurer un serveur de licences logicielles NVIDIA vGPU.
 
-Les pilotes GRID redistribués par Azure ne fonctionnent pas sur les machines virtuelles de série autre que NV, comme les machines virtuelles de série NC, NCv2, NCv3, ND et NDv2. La seule exception est la série de machines virtuelles NCas_T4_V3 dans laquelle les pilotes GRID activent des fonctionnalités graphiques similaires à celles de la série NV.
+Les pilotes GRID redistribués par Azure ne fonctionnent pas sur les machines virtuelles de série autre que NV, comme les machines virtuelles de série NCv2, NCv3, ND et NDv2. La seule exception est la série de machines virtuelles NCas_T4_V3 dans laquelle les pilotes GRID activent des fonctionnalités graphiques similaires à celles de la série NV.
+
+La série NC avec des GPU NVIDIA K80 ne prend pas en charge les applications graphiques/GRID.  
 
 Notez que l’extension Nvidia installe toujours le dernier pilote. Nous fournissons ici des liens vers la version précédente pour les clients qui dépendent d’une version antérieure.
 

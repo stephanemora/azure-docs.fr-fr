@@ -3,12 +3,12 @@ title: Découvrez comment auditer le contenu des machines virtuelles
 description: Découvrez comment Azure Policy utilise l’agent Configuration d’invité pour auditer les paramètres à l’intérieur des machines virtuelles.
 ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: a956d5e8dcfa82f85020928e1427a08ac8fe7a69
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 7d7aa14038c834747240d17441c61d000ac6bb74
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96906248"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347878"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Comprendre la configuration d’invité d’Azure Policy
 
@@ -84,7 +84,7 @@ Les machines virtuelles utilisant des réseaux virtuels pour la communication re
 
 ### <a name="communicate-over-private-link-in-azure"></a>Communiquer via une liaison privée dans Azure
 
-Les machines virtuelles peuvent utiliser une [liaison privée](../../../private-link/private-link-overview.md) pour la communication avec le service Guest Configuration. Appliquez la balise avec le nom `EnablePrivateNeworkGC` et la valeur `TRUE` pour activer cette fonctionnalité. La balise peut être appliquée avant ou après l’application des définitions de stratégie Guest Configuration à la machine.
+Les machines virtuelles peuvent utiliser une [liaison privée](../../../private-link/private-link-overview.md) pour la communication avec le service Guest Configuration. Appliquez la balise avec le nom `EnablePrivateNeworkGC` (sans lettre « t » dans le mot « Network ») et la valeur `TRUE` pour activer cette fonctionnalité. La balise peut être appliquée avant ou après l’application des définitions de stratégie Guest Configuration à la machine.
 
 Le trafic est acheminé à l’aide de l’[IP publique virtuelle](../../../virtual-network/what-is-ip-address-168-63-129-16.md) d’Azure pour établir un canal sécurisé et authentifié avec les ressources de la plateforme Azure.
 

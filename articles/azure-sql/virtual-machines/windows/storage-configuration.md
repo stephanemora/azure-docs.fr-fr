@@ -7,17 +7,18 @@ author: MashaMSFT
 tags: azure-resource-manager
 ms.assetid: 169fc765-3269-48fa-83f1-9fe3e4e40947
 ms.service: virtual-machines-sql
+ms.subservice: management
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/26/2019
 ms.author: mathoma
-ms.openlocfilehash: 3a4b7d68d7cd21ccb4b7eb8b97e0d331fb236e96
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: d713faf7062f82110be5fa8378faca368b9bb7a2
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146720"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97356707"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Configuration du stockage pour les machines virtuelles SQL Server
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -46,7 +47,7 @@ Lors de l’approvisionnement d’une machine virtuelle Azure à l’aide d’un
 
 ![Capture d’écran mettant en surbrillance l’onglet Paramètres SQL Server et l’option Modification de la configuration.](./media/storage-configuration/sql-vm-storage-configuration-provisioning.png)
 
-Sélectionnez le type de charge de travail pour lequel vous déployez SQL Server sous **Optimisation du stockage**. Avec l’option d’optimisation **Général** , par défaut, vous disposez d’un disque de données avec 5000 E/S par seconde max, et utilisez ce même disque pour vos données, journal des transactions et stockage TempDB. Si vous sélectionnez **Traitement transactionnel** (OLTP) or **Entreposage de données** , vous créez un disque distinct pour les données, le journal des transactions et utilisez le disque SSD local pour TempDB. En matière de stockage, il n’existe aucune différence entre **Traitement transactionnel** et **Entreposage de données** , mais cela modifie votre [configuration de bandes et les indicateurs de trace](#workload-optimization-settings). Opter pour le stockage Premium définit la mise en cache sur *Readonly* pour le lecteur de données, et *Aucune* pour le lecteur de journal conformément aux [meilleures pratiques en matière de performances de machine virtuelle SQL Server](performance-guidelines-best-practices.md). 
+Sélectionnez le type de charge de travail pour lequel vous déployez SQL Server sous **Optimisation du stockage**. Avec l’option d’optimisation **Général**, par défaut, vous disposez d’un disque de données avec 5000 E/S par seconde max, et utilisez ce même disque pour vos données, journal des transactions et stockage TempDB. Si vous sélectionnez **Traitement transactionnel** (OLTP) or **Entreposage de données**, vous créez un disque distinct pour les données, le journal des transactions et utilisez le disque SSD local pour TempDB. En matière de stockage, il n’existe aucune différence entre **Traitement transactionnel** et **Entreposage de données**, mais cela modifie votre [configuration de bandes et les indicateurs de trace](#workload-optimization-settings). Opter pour le stockage Premium définit la mise en cache sur *Readonly* pour le lecteur de données, et *Aucune* pour le lecteur de journal conformément aux [meilleures pratiques en matière de performances de machine virtuelle SQL Server](performance-guidelines-best-practices.md). 
 
 ![Configuration du stockage des machines virtuelles SQL Server lors de la configuration](./media/storage-configuration/sql-vm-storage-configuration.png)
 
@@ -54,7 +55,7 @@ La configuration du disque est entièrement personnalisable pour vous permettre 
 
 En outre, il vous est possible de définir la mise en cache pour les disques. Les machines virtuelles Azure disposent d’une technologie de mise en cache à plusieurs niveaux appelée [Cache Blob](../../../virtual-machines/premium-storage-performance.md#disk-caching) lorsqu'elle est utilisée avec des [disques Premium](../../../virtual-machines/disks-types.md#premium-ssd). Cache Blob combine la RAM de la machine virtuelle et le SSD local pour la mise en cache. 
 
-La mise en cache du disque pour SSD Premium peut être *ReadOnly* , *ReadWrite* ou *Aucune*. 
+La mise en cache du disque pour SSD Premium peut être *ReadOnly*, *ReadWrite* ou *Aucune*. 
 
 - La mise en cache *ReadOnly* s'avère particulièrement intéressante pour les fichiers de données SQL Server stockés sur le stockage Premium. La mise en cache *ReadOnly* offre une faible latence de lecture, de très hautes performances d'E/S et de débit en cas de lectures à partir du cache, dans la mémoire de la machine virtuelle ou du SSD local. Ces lectures sont nettement plus rapides que les lectures à partir du disque de données, provenant du stockage Blob Azure. Le stockage Premium ne tient pas compte des lectures traitées à partir du cache pour le calcul du nombre d’E/S par seconde et du débit du disque. Dès lors, votre application peut offrir de meilleures performances totales en termes d’E/S par seconde et de débit. 
 - La configuration de cache *Aucune* doit être utilisée pour les disques hébergeant le fichier journal SQL Server, car ce fichier journal est écrit de manière séquentielle et ne tire pas parti de la mise en cache *ReadOnly*. 
@@ -62,12 +63,12 @@ La mise en cache du disque pour SSD Premium peut être *ReadOnly* , *ReadWrite* 
 
 
    > [!TIP]
-   > Vérifiez que votre configuration de stockage correspond aux limitations imposées par la taille de machine virtuelle sélectionnée. Opter pour des paramètres de stockage dépassant le seuil des performances de taille de la machine virtuelle génère une erreur : `The desired performance might not be reached due to the maximum virtual machine disk performance cap.`. Diminuez le nombre d’E/S par seconde en modifiant le type de disque ou augmentez le seuil de performances en augmentant la taille de la machine virtuelle. 
+   > Vérifiez que votre configuration de stockage correspond aux limitations imposées par la taille de machine virtuelle sélectionnée. Opter pour des paramètres de stockage dépassant le seuil des performances de taille de la machine virtuelle génère un avertissement : `The desired performance might not be reached due to the maximum virtual machine disk performance cap`. Diminuez le nombre d’E/S par seconde en modifiant le type de disque ou augmentez le seuil de performances en augmentant la taille de la machine virtuelle. Cela n’arrête pas le provisionnement. 
 
 
 En fonction de votre choix, Azure exécute les tâches de configuration du stockage suivantes après avoir créé la machine virtuelle :
 
-* Crée et attache des disques SSD premium à la machine virtuelle.
+* Crée et attache des disques SSD Premium à la machine virtuelle.
 * Configure les disques de données pour que SQL Server puisse y accéder.
 * Configure les disques de données dans un pool de stockage basé sur les critères indiqués pour la taille et les performances (E/S par seconde et débit).
 * Associe le pool de stockage à un nouveau lecteur sur la machine virtuelle.

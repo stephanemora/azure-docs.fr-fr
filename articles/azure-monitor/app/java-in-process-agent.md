@@ -6,12 +6,12 @@ ms.date: 03/29/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 4b29e5375c10fc3c1aaa203df720fdd24090d11e
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 3cab22c2271fd5874b4b094be65c36f5b5f3a22d
+ms.sourcegitcommit: 287c20509c4cf21d20eea4619bbef0746a5cd46e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96601133"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97371881"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Supervision des applications Java sans code avec Azure Monitor Application Insights
 
@@ -186,17 +186,17 @@ Les journalisations Log4j, Logback et java.util.logging sont instrumentées auto
 Par défaut, la journalisation n'est collectée que lorsqu'elle est effectuée au niveau INFO ou à un niveau supérieur.
 Consultez les [options de configuration](./java-standalone-config.md#auto-collected-logging) pour savoir comment modifier ce niveau.
 
-Si vous souhaitez joindre des dimensions personnalisées à vos journaux, vous pouvez utiliser [Log4j 1 MDC](https://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/MDC.html), [Log4j 2 MDC](https://logging.apache.org/log4j/2.x/manual/thread-context.html) ou [Logback MDC](http://logback.qos.ch/manual/mdc.html), et Application Insights pour Java 3.0 capturera automatiquement ces propriétés MDC sous forme de dimensions personnalisées sur vos données de télémétrie de trace et d'exception.
+Si vous souhaitez joindre des dimensions personnalisées à vos journaux, vous pouvez utiliser [Log4j 1.2 MDC](https://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/MDC.html), [Log4j 2 MDC](https://logging.apache.org/log4j/2.x/manual/thread-context.html) ou [Logback MDC](http://logback.qos.ch/manual/mdc.html). Application Insights pour Java 3.0 capturera automatiquement ces propriétés MDC sous forme de dimensions personnalisées sur vos données de télémétrie de trace et d’exception.
 
 ### <a name="send-custom-telemetry-using-application-insights-java-2x-sdk"></a>Envoyer des données de télémétrie personnalisées à l'aide du kit SDK Application Insights pour Java 2.x
 
-Ajoutez `applicationinsights-core-2.6.0.jar` à votre application (toutes les versions 2.x sont prises en charge par Application Insights pour Java 3.0, mais il est préférable d’utiliser la dernière version si vous avez le choix) :
+Ajoutez `applicationinsights-core-2.6.2.jar` à votre application (toutes les versions 2.x sont prises en charge par Application Insights pour Java 3.0, mais il est préférable d’utiliser la dernière version si vous avez le choix) :
 
 ```xml
 <dependency>
   <groupId>com.microsoft.azure</groupId>
   <artifactId>applicationinsights-core</artifactId>
-  <version>2.6.0</version>
+  <version>2.6.2</version>
 </dependency>
 ```
 

@@ -8,17 +8,18 @@ editor: ''
 tags: azure-service-management
 ms.assetid: 53981f7e-8370-4979-b26a-93a5988d905f
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2020
 ms.author: mathoma
-ms.openlocfilehash: 194c6a5cead400e1bac78ba42cb7238b64bd3b7b
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 1a0d1018991be9d78623b0826aeab3d13958e996
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327472"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504132"
 ---
 # <a name="business-continuity-and-hadr-for-sql-server-on-azure-virtual-machines"></a>Continuité d’activité et HADR pour SQL Server sur Machines virtuelles Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -84,9 +85,13 @@ Vous pouvez disposer d’une solution de reprise d’activité pour vos bases de
 
 Si vous avez [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot:primaryr3), vous pouvez implémenter des plans de reprise d’activité hybride avec SQL Server sans entraîner des coûts de licence supplémentaires pour l’instance de reprise d’activité passive.
 
-Dans l’image suivante, la configuration utilise SQL Server s’exécutant sur une machine virtuelle Azure qui utilise 12 cœurs comme réplica de reprise d’activité pour un déploiement SQL Server local qui utilise 12 cœurs. Avant, vous deviez attribuer une licence à 12 cœurs SQL Server pour le déploiement local et le déploiement de machines virtuelles Azure. La nouvelle option offre des avantages de réplica passif pour l’exécution sur une machine virtuelle Azure. À présent, il vous suffit simplement d’attribuer une licence à 12 cœurs SQL Server s’exécutant localement tant que les critères de reprise d’activité pour le réplica passif sur la machine virtuelle Azure sont satisfaits.
+Par exemple, vous pouvez avoir deux réplicas secondaires passifs gratuits lorsque les trois réplicas sont hébergés dans Azure : 
 
-![Réplica de reprise d’activité gratuit dans Azure](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/free-dr-replica-azure.png)
+![Deux réplicas passifs gratuits quand tout est dans Azure](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/failover-with-primary-in-azure.png)
+
+Ou vous pouvez configurer un environnement de basculement hybride avec un réplica local principal sous licence, un réplica passif gratuit pour la haute disponibilité, un réplica passif gratuit pour la récupération d’urgence locale et un réplica passif gratuit pour la récupération d’urgence dans Azure :
+
+![Trois réplicas passifs gratuits lorsque l’environnement est hybride avec un réplica local principal](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/hybrid-with-primary-on-prem.png)
 
 Pour plus d’informations, consultez les [conditions de licence du produit](https://www.microsoft.com/licensing/product-licensing/products). 
 

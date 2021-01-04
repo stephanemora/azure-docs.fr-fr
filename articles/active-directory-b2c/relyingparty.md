@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/11/2020
+ms.date: 12/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2d00942331b7e6c881803af366d1c08e173462b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c50bd71f4e2e5bbe12518f5a5d1cd486af9723a
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90023786"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509749"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -77,8 +77,35 @@ L’élément facultatif **RelyingParty** contient les éléments suivants :
 | Élément | Occurrences | Description |
 | ------- | ----------- | ----------- |
 | DefaultUserJourney | 1:1 | Parcours utilisateur par défaut pour l’application par partie de confiance. |
+| Points de terminaison | 0:1 | Liste de points de terminaison. Pour plus d’informations, consultez [Point de terminaison UserInfo](userinfo-endpoint.md). |
 | UserJourneyBehaviors | 0:1 | Étendue des comportements de parcours utilisateur. |
 | TechnicalProfile | 1:1 | Profil technique pris en charge par l’application par partie de confiance. Le profil technique fournit un contrat conformément auquel l’application par partie de confiance contacte Azure AD B2C. |
+
+## <a name="endpoints"></a>Points de terminaison
+
+L’élément **Points de terminaison** contient l’élément suivant :
+
+| Élément | Occurrences | Description |
+| ------- | ----------- | ----------- |
+| Point de terminaison | 1:1 | Référence à un point de terminaison.|
+
+L’élément **Point de terminaison** contient les attributs suivants :
+
+| Attribut | Obligatoire | Description |
+| --------- | -------- | ----------- |
+| Id | Oui | Identificateur unique du point de terminaison.|
+| UserJourneyReferenceId | Oui | Identificateur du parcours utilisateur dans la stratégie. Pour plus d’informations, consultez [Parcours utilisateur](userjourneys.md)  | 
+
+L’exemple suivant montre une partie de confiance avec un [point de terminaison UserInfo](userinfo-endpoint.md) :
+
+```xml
+<RelyingParty>
+  <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+  <Endpoints>
+    <Endpoint Id="UserInfo" UserJourneyReferenceId="UserInfoJourney" />
+  </Endpoints>
+  ...
+```
 
 ## <a name="defaultuserjourney"></a>DefaultUserJourney
 
@@ -117,7 +144,7 @@ L’élément **UserJourneyBehaviors** contient les éléments suivants :
 | SessionExpiryInSeconds | 0:1 | Durée de vie du cookie de la session d’Azure AD B2C spécifiée en tant que valeur entière et stockée dans le navigateur de l’utilisateur après une authentification réussie. |
 | JourneyInsights | 0:1 | Clé d’instrumentation Azure Application Insights à utiliser. |
 | ContentDefinitionParameters | 0:1 | Liste des paires clé/valeur à ajouter à l’URI de charge de définition de contenu. |
-|ScriptExecution| 0:1| Modes d’exécution [JavaScript](javascript-samples.md) pris en charge. Valeurs possibles : `Allow` ou `Disallow` (par défaut).
+|ScriptExecution| 0:1| Modes d’exécution [JavaScript](javascript-and-page-layout.md) pris en charge. Valeurs possibles : `Allow` ou `Disallow` (par défaut).
 
 ### <a name="singlesignon"></a>SingleSignOn
 
@@ -126,7 +153,7 @@ L’élément **SingleSignOn** contient l’attribut suivant :
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
 | Étendue | Oui | Étendue du comportement d’authentification unique. Valeurs possibles : `Suppressed`, `Tenant`, `Application` ou `Policy`. La valeur `Suppressed` indique que le comportement est supprimé et que l’utilisateur est toujours invité à sélectionner un fournisseur d’identité.  La valeur `Tenant` indique que le comportement est appliqué à toutes les stratégies dans le locataire. Par exemple, un utilisateur suivant deux parcours de stratégie pour un locataire n’est pas invité à sélectionner un fournisseur d’identité. La valeur `Application` indique que le comportement est appliqué à toutes les stratégies pour l’application qui effectue la requête. Par exemple, un utilisateur suivant deux parcours de stratégie pour une application n’est pas invité à sélectionner un fournisseur d’identité. La valeur `Policy` indique que le comportement s’applique uniquement à une stratégie. Par exemple, un utilisateur suivant deux parcours de stratégie pour une infrastructure de confiance est invité à sélectionner un fournisseur d’identité en cas de basculement d’une stratégie à une autre. |
-| KeepAliveInDays | Oui | Contrôle la durée pendant laquelle l’utilisateur reste connecté. Affecter la valeur 0 désactive la fonctionnalité KMSI. Pour plus d’informations, consultez [Maintenir la connexion](custom-policy-keep-me-signed-in.md). |
+| KeepAliveInDays | Oui | Contrôle la durée pendant laquelle l’utilisateur reste connecté. Affecter la valeur 0 désactive la fonctionnalité KMSI. Pour plus d’informations, consultez [Maintenir la connexion](session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi). |
 |EnforceIdTokenHintOnLogout| Non|  Force la transmission d’un jeton d’ID émis précédemment au point de terminaison de déconnexion en tant qu’indicateur de la session authentifiée active de l’utilisateur final avec le client. Valeurs possibles : `false` (par défaut) ou `true`. Pour plus d’informations, consultez [Connexion web avec OpenID Connect](openid-connect.md).  |
 
 
@@ -165,7 +192,7 @@ L’élément **ContentDefinitionParameter** contient l’attribut suivant :
 | --------- | -------- | ----------- |
 | Nom | Oui | Nom de la paire clé/valeur. |
 
-Pour plus d’informations, consultez [Configurer l’interface utilisateur avec du contenu dynamique à l’aide de stratégies personnalisées](custom-policy-ui-customization.md#configure-dynamic-custom-page-content-uri).
+Pour plus d’informations, consultez [Configurer l’interface utilisateur avec du contenu dynamique à l’aide de stratégies personnalisées](customize-ui-with-html.md#configure-dynamic-custom-page-content-uri).
 
 ## <a name="technicalprofile"></a>TechnicalProfile
 

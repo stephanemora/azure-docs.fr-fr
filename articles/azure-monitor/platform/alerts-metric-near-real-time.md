@@ -5,14 +5,14 @@ author: harelbr
 ms.author: harelbr
 services: monitoring
 ms.topic: conceptual
-ms.date: 12/3/2020
+ms.date: 12/15/2020
 ms.subservice: alerts
-ms.openlocfilehash: dfcc1f15ebec1337cfa7d484319c7b942ff052b2
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 8f59f3488f6c8f5b35ec68d93db656447f882a92
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548237"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97510680"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Ressources prises en charge pour les alertes de métrique dans Azure Monitor
 
@@ -41,10 +41,10 @@ Voici la liste complète des sources de métrique d’Azure Monitor prises en ch
 |Microsoft.ClassicCompute/domainNames/slots/roles | Non | Non | [Services cloud (classiques)](./metrics-supported.md#microsoftclassiccomputedomainnamesslotsroles) |
 |Microsoft.ClassicCompute/virtualMachines | Non | Non | [Machines virtuelles classiques](./metrics-supported.md#microsoftclassiccomputevirtualmachines) |
 |Microsoft.ClassicStorage/storageAccounts | Oui | Non | [Comptes de stockage (classiques)](./metrics-supported.md#microsoftclassicstoragestorageaccounts) |
-|Microsoft.ClassicStorage/storageAccounts/blobServices | Oui | Non | |
-|Microsoft.ClassicStorage/storageAccounts/fileServices | Oui | Non | |
-|Microsoft.ClassicStorage/storageAccounts/queueServices | Oui | Non | |
-|Microsoft.ClassicStorage/storageAccounts/tableServices | Oui | Non | |
+|Microsoft.ClassicStorage/storageAccounts/blobServices | Oui | Non | [Comptes de stockage (classiques) – Blobs](./metrics-supported.md#microsoftclassicstoragestorageaccountsblobservices) |
+|Microsoft.ClassicStorage/storageAccounts/fileServices | Oui | Non | [Comptes de stockage (classiques) – Fichiers](./metrics-supported.md#microsoftclassicstoragestorageaccountsfileservices) |
+|Microsoft.ClassicStorage/storageAccounts/queueServices | Oui | Non | [Comptes de stockage (classiques) – Files d’attente](./metrics-supported.md#microsoftclassicstoragestorageaccountsqueueservices) |
+|Microsoft.ClassicStorage/storageAccounts/tableServices | Oui | Non | [Comptes de stockage (classiques) – Tables](./metrics-supported.md#microsoftclassicstoragestorageaccountstableservices) |
 |Microsoft.CognitiveServices/accounts | Oui | Non | [Cognitive Services](./metrics-supported.md#microsoftcognitiveservicesaccounts) |
 |Microsoft.Compute/virtualMachines | Oui | Oui<sup>1</sup> | [Machines virtuelles](./metrics-supported.md#microsoftcomputevirtualmachines) |
 |Microsoft.Compute/virtualMachineScaleSets | Oui | Non |[Groupes de machines virtuelles identiques](./metrics-supported.md#microsoftcomputevirtualmachinescalesets) |
@@ -57,10 +57,9 @@ Voici la liste complète des sources de métrique d’Azure Monitor prises en ch
 |Microsoft.DataShare/accounts | Oui | Non | |
 |Microsoft.DBforMariaDB/servers | Non | Non | [DB for MariaDB](./metrics-supported.md#microsoftdbformariadbservers) |
 |Microsoft.DBforMySQL/servers | Non | Non |[Base de données pour MySQL](./metrics-supported.md#microsoftdbformysqlservers)|
-|Microsoft.DBforPostgreSQL/flexibleServers | Oui | Non | |
 |Microsoft.DBforPostgreSQL/servers | Non | Non | [Base de données pour PostgreSQL](./metrics-supported.md#microsoftdbforpostgresqlservers)|
 |Microsoft.DBforPostgreSQL/serversv2 | Non | Non | [DB pour PostgreSQL V2](./metrics-supported.md#microsoftdbforpostgresqlserversv2)|
-|Microsoft.DBforPostgreSQL/singleservers | Non | Non | [DB pour PostgreSQL (serveur uniques)](./metrics-supported.md#microsoftdbforpostgresqlsingleservers)|
+|Microsoft.DBforPostgreSQL/flexibleServers | Oui | Non | [Base de données pour PostgreSQL (serveurs flexibles)](./metrics-supported.md#microsoftdbforpostgresqlflexibleservers)|
 |Microsoft.Devices/IotHubs | Oui | Non |[IoT Hub](./metrics-supported.md#microsoftdevicesiothubs) |
 |Microsoft.Devices/provisioningServices| Oui | Non | [Services de provisionnement d’appareil](./metrics-supported.md#microsoftdevicesprovisioningservices) |
 |Microsoft.DigitalTwins/digitalTwinsInstances | Oui | Non | |
@@ -104,7 +103,10 @@ Voici la liste complète des sources de métrique d’Azure Monitor prises en ch
 |Microsoft.Sql/servers/databases | Non | Oui | [Bases de données SQL](./metrics-supported.md#microsoftsqlserversdatabases) |
 |Microsoft.Sql/servers/elasticPools | Non | Oui | [Pools élastiques SQL](./metrics-supported.md#microsoftsqlserverselasticpools) |
 |Microsoft.Storage/storageAccounts |Oui | Non | [Comptes de stockage](./metrics-supported.md#microsoftstoragestorageaccounts)|
-|Microsoft.Storage/storageAccounts/services | Oui| Non | [Services blob](./metrics-supported.md#microsoftstoragestorageaccountsblobservices), [Services de fichiers](./metrics-supported.md#microsoftstoragestorageaccountsfileservices), [Services de file d’attente](./metrics-supported.md#microsoftstoragestorageaccountsqueueservices) et [Services de table](./metrics-supported.md#microsoftstoragestorageaccountstableservices)|
+|Microsoft.Storage/storageAccounts/blobServices | Oui| Non | [Comptes de stockage – Blobs](./metrics-supported.md#microsoftstoragestorageaccountsblobservices) |
+|Microsoft.Storage/storageAccounts/fileServices | Oui| Non | [Comptes de stockage – Fichiers](./metrics-supported.md#microsoftstoragestorageaccountsfileservices) |
+|Microsoft.Storage/storageAccounts/queueServices | Oui| Non | [Comptes de stockage – Files d’attente](./metrics-supported.md#microsoftstoragestorageaccountsqueueservices) |
+|Microsoft.Storage/storageAccounts/tableServices | Oui| Non | [Comptes de stockage – Tables](./metrics-supported.md#microsoftstoragestorageaccountstableservices) |
 |Microsoft.StorageCache/caches | Oui | Non | |
 |Microsoft.StorageSync/storageSyncServices | Oui | Non | [Services de synchronisation de stockage](./metrics-supported.md#microsoftstoragesyncstoragesyncservices) |
 |Microsoft.StreamAnalytics/streamingjobs | Oui | Non | [Stream Analytics](./metrics-supported.md#microsoftstreamanalyticsstreamingjobs) |
@@ -115,7 +117,7 @@ Voici la liste complète des sources de métrique d’Azure Monitor prises en ch
 |Microsoft.Web/hostingEnvironments/multiRolePools | Oui | Non | [Pools multirôles App Service Environment](./metrics-supported.md#microsoftwebhostingenvironmentsmultirolepools)|
 |Microsoft.Web/hostingEnvironments/workerPools | Oui | Non | [Pools de workers App Service Environment](./metrics-supported.md#microsoftwebhostingenvironmentsworkerpools)|
 |Microsoft.Web/serverfarms | Oui | Non | [Plans App Service](./metrics-supported.md#microsoftwebserverfarms)|
-|Microsoft.Web/sites | Oui | Non | [App Services](./metrics-supported.md#microsoftwebsites-excluding-functions) et [Functions](./metrics-supported.md#microsoftwebsites-functions)|
+|Microsoft.Web/sites | Oui | Non | [App Services et Functions](./metrics-supported.md#microsoftwebsites)|
 |Microsoft.Web/sites/slots | Oui | Non | [Slots App Service](./metrics-supported.md#microsoftwebsitesslots)|
 
 <sup>1</sup> Pas pris en charge pour les métriques de réseau des machines virtuelles (Octets entrants réseau totaux, Octets sortants réseau totaux, Flux entrants, Flux sortants, Taux de création maximal de flux entrants, Taux de création maximal de flux sortants) et les métriques personnalisées.

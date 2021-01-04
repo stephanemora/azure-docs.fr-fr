@@ -1,7 +1,7 @@
 ---
 title: Nouveautés d’Azure Active Directory B2C (Business-to-Customer)
 description: Documentation et nouvelle et mise à jour pour Azure Active Directory B2C (Business-to-Customer)
-ms.date: 12/03/2020
+ms.date: 12/15/2020
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: reference
@@ -9,16 +9,29 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: CelesteDG
-ms.openlocfilehash: 4c204ec33604ff5edd1551f9728c28e3dcab9a61
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 8805caad990cd472b3199bda27130d8d63be3071
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96571077"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97559725"
 ---
 # <a name="azure-active-directory-b2c-whats-new"></a>Azure Active Directory B2C : Nouveautés
 
 Bienvenue dans les nouveautés de la documentation Azure Active Directory B2C. Cet article répertorie les nouveaux documents qui ont été ajoutés et ceux qui ont subi des mises à jour significatives au cours des trois derniers mois. Pour découvrir les nouveautés du service B2C, consultez [Nouveautés d’Azure Active Directory](../active-directory/fundamentals/whats-new.md).
+
+## <a name="december-2020"></a>Décembre 2020
+
+### <a name="new-articles"></a>Nouveaux articles
+
+- [Créer un flux utilisateur dans Azure Active Directory B2C](create-user-flow.md)
+- [Configurer l’inscription et la connexion par téléphone pour les flux d’utilisateurs (préversion)](phone-authentication-user-flows.md)
+
+### <a name="updated-articles"></a>Articles mis à jour
+
+- [Tutoriel : Créer un locataire Azure Active Directory B2C](tutorial-create-tenant.md)
+- [Exemples de code Azure Active Directory B2C](code-samples.md)
+- [Versions des mises en page](page-layout.md)
 
 ## <a name="november-2020"></a>Novembre 2020
 

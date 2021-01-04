@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 31ae4605b6cc9e26c89beea692fe61fcbda49c4c
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 22bdf93e7236ae5220a6bb7c6ead898628bb51a1
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621499"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007583"
 ---
 # <a name="azure-cache-for-redis-with-azure-private-link-public-preview"></a>Azure Cache pour Redis avec Azure Private Link (Préversion publique)
 Dans cet article, vous allez apprendre à créer un réseau virtuel et une instance Azure Cache pour Redis avec un point de terminaison privé à l’aide du portail Azure. Vous apprendrez également à ajouter un point de terminaison privé à une instance Azure Cache pour Redis existante.
@@ -224,7 +224,12 @@ PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/
 ```
 
 ### <a name="are-network-security-groups-nsg-enabled-for-private-endpoints"></a>Les groupes de sécurité réseau (NSG) sont-ils activés pour les points de terminaison privés ?
-Non, ils sont désactivés pour les points de terminaison privés. Toutefois, s’il existe d’autres ressources sur le sous-réseau, l’application du NSG s’appliquera à ces ressources.
+Non, ils sont désactivés pour les points de terminaison privés. Si les sous-réseaux contenant Private Endpoint peuvent être associés à un groupe de sécurité réseau, les règles ne sont pas effectives sur le trafic traité par Private Endpoint. Vous devez [désactiver l’application des stratégies réseau](../private-link/disable-private-endpoint-network-policy.md) pour déployer Private Endpoint dans un sous-réseau. Le groupe de sécurité réseau est toujours appliqué sur les autres charges de travail hébergées sur le même sous-réseau. Les itinéraires sur un sous-réseau client, quel qu’il soit, utiliseront un préfixe /32. La modification du comportement de routage par défaut nécessite une UDR similaire. 
+
+Contrôlez le trafic à l’aide de règles de groupe de sécurité réseau pour le trafic sortant sur les clients source. Déployez des routes individuelles avec le préfixe /32 pour remplacer les routes de points de terminaison privés. Les journaux de trafic NSG et les informations de supervision pour les connexions sortantes sont toujours pris en charge et peuvent être utilisés.
+
+### <a name="can-i-use-firewall-rules-with-private-endpoints"></a>Puis-je utiliser des règles de pare-feu avec des points de terminaison privés ?
+Non, il s’agit d’une limitation actuelle des points de terminaison privés. Le point de terminaison privé ne fonctionnera pas correctement si des règles de pare-feu sont configurées sur le cache.
 
 ### <a name="how-can-i-connect-to-a-clustered-cache"></a>Comment puis-je me connecter à un cache en cluster ?
 `publicNetworkAccess` doit être défini sur `Disabled`, et il ne peut y avoir qu’une seule connexion de point de terminaison privé.

@@ -11,12 +11,12 @@ ms.reviewer: luquinta
 ms.date: 11/16/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 3fbd4990fd330960bb8dbce2e2a8d1bcb578cf2a
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 17b0564b4b73f5a5032343dcb78669cbf4cabd5a
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701182"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516153"
 ---
 # <a name="use-azure-machine-learning-with-the-fairlearn-open-source-package-to-assess-the-fairness-of-ml-models-preview"></a>Utiliser Azure Machine Learning avec le package open source Fairlearn pour évaluer l’impartialité des modèles Machine Learning (version préliminaire)
 
@@ -38,80 +38,99 @@ Utilisez les commandes suivantes pour installer les packages `azureml-contrib-fa
 pip install azureml-contrib-fairness
 pip install fairlearn==0.4.6
 ```
+Les versions ultérieures de Fairlearn devraient également fonctionner dans l’exemple de code suivant.
 
 
 
 ## <a name="upload-fairness-insights-for-a-single-model"></a>Charger les informations d’impartialité pour un modèle unique
 
-L’exemple suivant montre comment utiliser le package d’impartialité pour télécharger des informations sur l’impartialité du modèle dans Azure Machine Learning et afficher le tableau de bord d’évaluation de l’impartialité dans Azure Machine Learning Studio.
+L’exemple suivant explique comment utiliser le package d’impartialité. Nous allons charger des informations sur l’impartialité du modèle dans Azure Machine Learning et afficher le tableau de bord d’évaluation de l’impartialité dans Azure Machine Learning Studio.
 
 1. Effectuez l’apprentissage d’un exemple de modèle dans un bloc-notes Jupyter. 
 
-    Pour le jeu de données, nous utilisons le jeu de données bien connu Adult Census que nous chargeons à l’aide de `shap` (pour des raisons pratiques). Pour les besoins de cet exemple, nous traitons ce jeu de données comme un problème de décision de prêt et supposons que l’étiquette indique si chaque individu a remboursé un prêt dans le passé. Nous allons utiliser ces données pour faire l’apprentissage d’un modèle capable de prédire si des individus a priori inconnus peuvent ou non rembourser un emprunt. L’hypothèse est que les prédictions du modèle permettent de déterminer si un prêt doit être proposé à un individu.
+    Pour le jeu de données, nous utilisons le jeu de données bien connu Adult Census, que nous récupérons sur OpenML. Nous prétendons avoir un problème de décision concernant un prêt avec l’étiquette indiquant si une personne a remboursé un prêt précédent. Nous allons effectuer l’apprentissage d’un modèle permettant de prédire si des personnes jusque-là inconnues rembourseront un prêt. Un tel modèle pourrait être utilisé pour prendre des décisions en matière de prêt.
 
     ```python
-    from sklearn.model_selection import train_test_split
-    from fairlearn.widget import FairlearnDashboard
-    from sklearn.linear_model import LogisticRegression
-    from sklearn.preprocessing import LabelEncoder, StandardScaler
+    import copy
+    import numpy as np
     import pandas as pd
-    import shap
+
+    from sklearn.compose import ColumnTransformer
+    from sklearn.datasets import fetch_openml
+    from sklearn.impute import SimpleImputer
+    from sklearn.linear_model import LogisticRegression
+    from sklearn.model_selection import train_test_split
+    from sklearn.preprocessing import StandardScaler, OneHotEncoder
+    from sklearn.compose import make_column_selector as selector
+    from sklearn.pipeline import Pipeline
+    
+    from fairlearn.widget import FairlearnDashboard
 
     # Load the census dataset
-    X_raw, Y = shap.datasets.adult()
-    X_raw["Race"].value_counts().to_dict()
+    data = fetch_openml(data_id=1590, as_frame=True)
+    X_raw = data.data
+    y = (data.target == ">50K") * 1
     
-
     # (Optional) Separate the "sex" and "race" sensitive features out and drop them from the main data prior to training your model
-    A = X_raw[['Sex','Race']]
-    X = X_raw.drop(labels=['Sex', 'Race'],axis = 1)
-    X = pd.get_dummies(X)
+    X_raw = data.data
+    y = (data.target == ">50K") * 1
+    A = X_raw[["race", "sex"]]
+    X = X_raw.drop(labels=['sex', 'race'],axis = 1)
     
-    sc = StandardScaler()
-    X_scaled = sc.fit_transform(X)
-    X_scaled = pd.DataFrame(X_scaled, columns=X.columns)
+    # Split the data in "train" and "test" sets
+    (X_train, X_test, y_train, y_test, A_train, A_test) = train_test_split(
+        X_raw, y, A, test_size=0.3, random_state=12345, stratify=y
+    )
 
-    # Perform some standard data preprocessing steps to convert the data into a format suitable for the ML algorithms
-    le = LabelEncoder()
-    Y = le.fit_transform(Y)
-
-    # Split data into train and test
-    from sklearn.model_selection import train_test_split
-    from sklearn.model_selection import train_test_split
-    X_train, X_test, Y_train, Y_test, A_train, A_test = train_test_split(X_scaled, 
-                                                        Y, 
-                                                        A,
-                                                        test_size = 0.2,
-                                                        random_state=0,
-                                                        stratify=Y)
-
-    # Work around indexing issue
+    # Ensure indices are aligned between X, y and A,
+    # after all the slicing and splitting of DataFrames
+    # and Series
     X_train = X_train.reset_index(drop=True)
-    A_train = A_train.reset_index(drop=True)
     X_test = X_test.reset_index(drop=True)
+    y_train = y_train.reset_index(drop=True)
+    y_test = y_test.reset_index(drop=True)
+    A_train = A_train.reset_index(drop=True)
     A_test = A_test.reset_index(drop=True)
 
-    # Improve labels
-    A_test.Sex.loc[(A_test['Sex'] == 0)] = 'female'
-    A_test.Sex.loc[(A_test['Sex'] == 1)] = 'male'
+    # Define a processing pipeline. This happens after the split to avoid data leakage
+    numeric_transformer = Pipeline(
+        steps=[
+            ("impute", SimpleImputer()),
+            ("scaler", StandardScaler()),
+        ]
+    )
+    categorical_transformer = Pipeline(
+        [
+            ("impute", SimpleImputer(strategy="most_frequent")),
+            ("ohe", OneHotEncoder(handle_unknown="ignore")),
+        ]
+    )
+    preprocessor = ColumnTransformer(
+        transformers=[
+            ("num", numeric_transformer, selector(dtype_exclude="category")),
+            ("cat", categorical_transformer, selector(dtype_include="category")),
+        ]
+    )
 
+    # Put an estimator onto the end of the pipeline
+    lr_predictor = Pipeline(
+        steps=[
+            ("preprocessor", copy.deepcopy(preprocessor)),
+            (
+                "classifier",
+                LogisticRegression(solver="liblinear", fit_intercept=True),
+            ),
+        ]
+    )
 
-    A_test.Race.loc[(A_test['Race'] == 0)] = 'Amer-Indian-Eskimo'
-    A_test.Race.loc[(A_test['Race'] == 1)] = 'Asian-Pac-Islander'
-    A_test.Race.loc[(A_test['Race'] == 2)] = 'Black'
-    A_test.Race.loc[(A_test['Race'] == 3)] = 'Other'
-    A_test.Race.loc[(A_test['Race'] == 4)] = 'White'
-
-
-    # Train a classification model
-    lr_predictor = LogisticRegression(solver='liblinear', fit_intercept=True)
-    lr_predictor.fit(X_train, Y_train)
+    # Train the model on the test data
+    lr_predictor.fit(X_train, y_train)
 
     # (Optional) View this model in Fairlearn's fairness dashboard, and see the disparities which appear:
     from fairlearn.widget import FairlearnDashboard
     FairlearnDashboard(sensitive_features=A_test, 
-                       sensitive_feature_names=['Sex', 'Race'],
-                       y_true=Y_test,
+                       sensitive_feature_names=['Race', 'Sex'],
+                       y_true=y_test,
                        y_pred={"lr_model": lr_predictor.predict(X_test)})
     ```
 
@@ -149,11 +168,11 @@ L’exemple suivant montre comment utiliser le package d’impartialité pour t�
 
     ```python
     #  Create a dictionary of model(s) you want to assess for fairness 
-    sf = { 'Race': A_test.Race, 'Sex': A_test.Sex}
+    sf = { 'Race': A_test.race, 'Sex': A_test.sex}
     ys_pred = { lr_reg_id:lr_predictor.predict(X_test) }
     from fairlearn.metrics._group_metric_set import _create_group_metric_set
 
-    dash_dict = _create_group_metric_set(y_true=Y_test,
+    dash_dict = _create_group_metric_set(y_true=y_test,
                                         predictions=ys_pred,
                                         sensitive_features=sf,
                                         prediction_type='binary_classification')
@@ -203,32 +222,37 @@ L’exemple suivant montre comment utiliser le package d’impartialité pour t�
     1. Si vous avez inscrit votre modèle d’origine en suivant les étapes précédentes, vous pouvez sélectionner **Modèles** dans le volet gauche pour l’afficher.
     1. Sélectionnez un modèle, puis l’onglet **Impartialité** pour afficher le tableau de bord de visualisation des explications.
 
-    Pour en savoir plus sur le tableau de bord de visualisation et son contenu, consultez le [Guide de l’utilisateur](https://fairlearn.github.io/master/user_guide/assessment.html#fairlearn-dashboard) de Fairlearn.
+    Pour en savoir plus sur le tableau de bord de visualisation et son contenu, consultez le [guide de l’utilisateur](https://fairlearn.github.io/master/user_guide/assessment.html#fairlearn-dashboard) de Fairlearn.
 
 ## <a name="upload-fairness-insights-for-multiple-models"></a>Charger des informations d’impartialité pour plusieurs modèles
 
-Si vous souhaitez comparer plusieurs modèles et voir comment leurs évaluations d’impartialité diffèrent, vous pouvez passer plusieurs modèles au tableau de bord de visualisation et examiner leurs compromis en matière de performances.
+Pour comparer plusieurs modèles et voir en quoi l’évaluation de leur impartialité diffère, vous pouvez passer plusieurs modèles au tableau de bord de visualisation et comparer leurs compromis entre performances et impartialité.
 
 1. Effectuez l’apprentissage de votre modèles.
     
-    En plus du modèle de régression logistique précédent, nous créons maintenant un deuxième classifieur, basé sur un estimateur de machine à vecteurs de support, puis chargeons un dictionnaire de tableau de bord d’impartialité à l’aide du package `metrics` de Fairlearn. Notez qu’ici nous ignorons les étapes de chargement et de prétraitement des données, puis passez directement à l’étape de formation du modèle.
+    Nous créons maintenant un deuxième classifieur, basé sur un estimateur de machine à vecteurs de support, puis chargeons un dictionnaire de tableau de bord d’impartialité à l’aide du package `metrics` de Fairlearn. Nous partons du principe que le modèle précédemment formé est toujours disponible.
 
 
     ```python
-    # Train your first classification model
-    from sklearn.linear_model import LogisticRegression
-    lr_predictor = LogisticRegression(solver='liblinear', fit_intercept=True)
-    lr_predictor.fit(X_train, Y_train)
+    # Put an SVM predictor onto the preprocessing pipeline
+    from sklearn import svm
+    svm_predictor = Pipeline(
+        steps=[
+            ("preprocessor", copy.deepcopy(preprocessor)),
+            (
+                "classifier",
+                svm.SVC(),
+            ),
+        ]
+    )
 
     # Train your second classification model
-    from sklearn import svm
-    svm_predictor = svm.SVC()
-    svm_predictor.fit(X_train, Y_train)
+    svm_predictor.fit(X_train, y_train)
     ```
 
 2. Inscrivez vos modèles.
 
-    Ensuite, inscrivez les deux modèles auprès d’Azure Machine Learning. Pour des raisons pratiques, dans les appels de méthode suivants, stockez les résultats dans un dictionnaire qui mappe l’`id` du modèle inscrit (une chaîne au format `name:version`) au modèle de prédiction :
+    Ensuite, inscrivez les deux modèles auprès d’Azure Machine Learning. Pour plus de commodité, stockez les résultats dans un dictionnaire qui mappe l’`id` du modèle inscrit (une chaîne au format `name:version`) au modèle de prédiction :
 
     ```python
     model_dict = {}
@@ -255,8 +279,8 @@ Si vous souhaitez comparer plusieurs modèles et voir comment leurs évaluations
     from fairlearn.widget import FairlearnDashboard
 
     FairlearnDashboard(sensitive_features=A_test, 
-                    sensitive_feature_names=['Sex', 'Race'],
-                    y_true=Y_test.tolist(),
+                    sensitive_feature_names=['Race', 'Sex'],
+                    y_true=y_test.tolist(),
                     y_pred=ys_pred)
     ```
 
@@ -265,7 +289,7 @@ Si vous souhaitez comparer plusieurs modèles et voir comment leurs évaluations
     Créez un dictionnaire de tableau de bord à l’aide du package `metrics` de Fairlearn.
 
     ```python
-    sf = { 'Race': A_test.Race, 'Sex': A_test.Sex }
+    sf = { 'Race': A_test.race, 'Sex': A_test.sex }
 
     from fairlearn.metrics._group_metric_set import _create_group_metric_set
 
@@ -311,9 +335,9 @@ Si vous souhaitez comparer plusieurs modèles et voir comment leurs évaluations
 
 Vous pouvez utiliser les algorithmes d’atténuation de [Fairlearn](https://fairlearn.github.io/master/user_guide/mitigation.html), comparer leurs modèles atténués générés au modèle non atténué d’origine, et parcourir les compromis entre performances et impartialité parmi les modèles comparés.
 
-Pour voir un exemple illustrant l’utilisation de l’algorithme d’atténuation [Grid Search](https://fairlearn.github.io/master/user_guide/mitigation.html#grid-search) (qui crée une collection de modèles atténués avec différents compromis d’impartialité et de performances), consultez cet [exemple de bloc-notes](https://github.com/Azure/MachineLearningNotebooks/blob/master/contrib/fairness/fairlearn-azureml-mitigation.ipynb). 
+Pour voir un exemple illustrant l’utilisation de l’algorithme d’atténuation [Grid Search](https://fairlearn.github.io/master/user_guide/mitigation.html#grid-search) (qui crée une collection de modèles atténués avec différents compromis d’impartialité et de performances), consultez cet [exemple de notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/contrib/fairness/fairlearn-azureml-mitigation.ipynb). 
 
-Le chargement de plusieurs informations sur l’impartialité du modèle dans une seule exécution permet de comparer les modèles sur le plan de l’impartialité et des performances. Vous pouvez cliquer sur les modèles affichés dans le graphique de comparaison de modèles pour afficher les informations détaillées sur l’impartialité d’un modèle particulier.
+Le chargement des informations sur l’impartialité de plusieurs modèles dans une seule exécution permet de comparer les modèles sur le plan de l’impartialité et des performances. Vous pouvez cliquer sur l’un des modèles affichés dans le tableau de comparaison des modèles pour voir les informations détaillées sur l’impartialité du modèle en question.
 
 
 [![Tableau de bord Fairlearn pour la comparaison de modèles](./media/how-to-machine-learning-fairness-aml/multi-model-dashboard.png)](./media/how-to-machine-learning-fairness-aml/multi-model-dashboard.png#lightbox)

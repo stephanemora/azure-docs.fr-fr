@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 1ba7391b3b524f7532101083a444aab6059e8a10
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 043e365bfe27db516a42386a91bc0433e27e2068
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94408753"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368832"
 ---
 # <a name="security-control-v2-incident-response"></a>Contrôle de sécurité V2 : Réponse aux incidents
 
@@ -20,7 +20,7 @@ La fonctionnalité Réponse aux incidents recouvre les contrôles dans le cycle 
 
 ## <a name="ir-1-preparation--update-incident-response-process-for-azure"></a>IR-1 : Préparation – mettre à jour le processus de réponse aux incidents pour Azure
 
-| Identifiant Azure | ID des contrôles CIS v7.1 | ID NIST SP800-53 r4 |
+| Identifiant Azure | ID des contrôles CIS v7.1 | ID NIST SP 800-53 r4 |
 |--|--|--|--|
 | IR-1 | 19 | IR-4, IR-8 |
 
@@ -30,9 +30,9 @@ Assurez-vous que votre organisation dispose de processus pour répondre aux inci
 
 - [Guide de référence sur les réponses aux incidents](/microsoft-365/downloads/IR-Reference-Guide.pdf)
 
-**Responsabilité**  : Customer
+**Responsabilité** : Customer
 
-**Parties prenantes de la sécurité des clients** ( [En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
+**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Opérations de sécurité](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
@@ -42,7 +42,7 @@ Assurez-vous que votre organisation dispose de processus pour répondre aux inci
 
 ## <a name="ir-2-preparation--setup-incident-notification"></a>IR-2 : Préparation – configurer la notification d’incident
 
-| Identifiant Azure | ID des contrôles CIS v7.1 | ID NIST SP800-53 r4 |
+| Identifiant Azure | ID des contrôles CIS v7.1 | ID NIST SP 800-53 r4 |
 |--|--|--|--|
 | IR-2 | 19.5 | IR-4, IR-5, IR-6, IR-8 |
 
@@ -50,9 +50,9 @@ Configurez les coordonnées des personnes à contacter en cas d’incident de s�
 
 - [Comment définir le contact de sécurité d’Azure Security Center](../../security-center/security-center-provide-security-contact-details.md)
 
-**Responsabilité**  : Customer
+**Responsabilité** : Customer
 
-**Parties prenantes de la sécurité des clients** ( [En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
+**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Opérations de sécurité](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
@@ -60,7 +60,7 @@ Configurez les coordonnées des personnes à contacter en cas d’incident de s�
 
 ## <a name="ir-3-detection-and-analysis--create-incidents-based-on-high-quality-alerts"></a>IR-3 : Détection et analyse – créer des incidents en fonction d’alertes de haute qualité
 
-| Identifiant Azure | ID des contrôles CIS v7.1 | ID NIST SP800-53 r4 |
+| Identifiant Azure | ID des contrôles CIS v7.1 | ID NIST SP 800-53 r4 |
 |--|--|--|--|
 | IR-3 | 19.6 | IR-4, IR-5 |
 
@@ -76,9 +76,9 @@ Exportez vos alertes et recommandations Azure Security Center en utilisant la fo
 
 - [Comment envoyer des alertes à Azure Sentinel](../../sentinel/connect-azure-security-center.md)
 
-**Responsabilité**  : Customer
+**Responsabilité** : Customer
 
-**Parties prenantes de la sécurité des clients** ( [En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
+**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Opérations de sécurité](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
@@ -88,7 +88,7 @@ Exportez vos alertes et recommandations Azure Security Center en utilisant la fo
 
 ## <a name="ir-4-detection-and-analysis--investigate-an-incident"></a>IR-4 : Détection et analyse – enquêter sur un incident
 
-| Identifiant Azure | ID des contrôles CIS v7.1 | ID NIST SP800-53 r4 |
+| Identifiant Azure | ID des contrôles CIS v7.1 | ID NIST SP 800-53 r4 |
 |--|--|--|--|
 | IR-4 | 19 | IR-4 |
 
@@ -116,9 +116,9 @@ Azure Sentinel fournit des analyses de données approfondies sur pratiquement to
 
 - [Examiner les incidents avec Azure Sentinel](../../sentinel/tutorial-investigate-cases.md)
 
-**Responsabilité**  : Customer
+**Responsabilité** : Customer
 
-**Parties prenantes de la sécurité des clients** ( [En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
+**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Opérations de sécurité](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
@@ -128,7 +128,7 @@ Azure Sentinel fournit des analyses de données approfondies sur pratiquement to
 
 ## <a name="ir-5-detection-and-analysis--prioritize-incidents"></a>IR-5 : Détection et analyse – classer par ordre de priorité les incidents
 
-| Identifiant Azure | ID des contrôles CIS v7.1 | ID NIST SP800-53 r4 |
+| Identifiant Azure | ID des contrôles CIS v7.1 | ID NIST SP 800-53 r4 |
 |--|--|--|--|
 | IR-5 | 19,8 | CA-2, IR-4 |
 
@@ -142,9 +142,9 @@ En outre, marquez les ressources à l’aide d’étiquettes et créez un systè
 
 - [Organisation des ressources Azure à l’aide de catégories](../../azure-resource-manager/management/tag-resources.md)
 
-**Responsabilité**  : Customer
+**Responsabilité** : Customer
 
-**Parties prenantes de la sécurité des clients** ( [En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
+**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Opérations de sécurité](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
@@ -154,7 +154,7 @@ En outre, marquez les ressources à l’aide d’étiquettes et créez un systè
 
 ## <a name="ir-6-containment-eradication-and-recovery--automate-the-incident-handling"></a>IR-6 : Confinement, éradication et récupération – automatiser la gestion des incidents
 
-| Identifiant Azure | ID des contrôles CIS v7.1 | ID NIST SP800-53 r4 |
+| Identifiant Azure | ID des contrôles CIS v7.1 | ID NIST SP 800-53 r4 |
 |--|--|--|--|
 | IR-6 | 19 | IR-4, IR-5, IR-6 |
 
@@ -166,9 +166,9 @@ Automatisez les tâches manuelles répétitives pour accélérer le temps de ré
 
 - [Configurer des réponses automatisées aux menaces dans Azure Sentinel](../../sentinel/tutorial-respond-threats-playbook.md)
 
-**Responsabilité**  : Customer
+**Responsabilité** : Customer
 
-**Parties prenantes de la sécurité des clients** ( [En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
+**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Opérations de sécurité](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 

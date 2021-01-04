@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: b4e35296a999070a6f536f4a52cfb7c3a1d4f42a
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 3d4e5ad0b24b7163072d7e3110a523dad9608923
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186488"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507369"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-connector"></a>Connecter Azure aux outils ITSM à l’aide du connecteur de gestion des services informatiques
 
@@ -30,7 +30,7 @@ ITSMC prend en charge les connexions avec les outils ITSM suivants :
 -   Cherwell
 
    >[!NOTE]
-> À compter du 1er octobre 2020, les intégrations ITSM de Cherwell et Provance à Azure Alert ne seront plus disponibles pour les nouveaux clients. Les nouvelles connexions ITSM ne seront pas prises en charge. Les connexions ITSM existantes continueront d’être prises en charge.
+> Nous proposons à nos clients Cherwell et Provance d’utiliser une [action webhook](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#webhook) pour point de terminaison Cherwell et Provance en guise d’autre solution pour l’intégration.
 
 Avec ITSMC, vous pouvez :
 
@@ -42,9 +42,12 @@ Pour plus d’informations sur les conditions légales et la politique de confid
 Vous pouvez commencer à utiliser ITSMC en effectuant les étapes suivantes :
 
 1.  [Ajoutez ITSMC.](#add-it-service-management-connector)
-2.  [Créez une connexion ITSM.](#create-an-itsm-connection)
-3.  [Utilisez la connexion.](#use-itsmc)
-
+2. [Connecter des produits/services ITSM à IT Service Management Connector](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-connections)
+3.  [Créez une connexion ITSM.](#create-an-itsm-connection)
+4.  [Utilisez la connexion.](#use-itsmc)
+   
+   >[!NOTE]
+> Vous devez suivre les étapes dans cet ordre, sans quoi vous obtiendrez une erreur.
 
 ##  <a name="add-it-service-management-connector"></a>Ajouter un connecteur de gestion des services informatiques
 
@@ -149,12 +152,12 @@ Utilisez la procédure suivante pour créer des éléments de travail :
 
 9. Si vous sélectionnez **Créer des éléments de travail individuels pour chaque élément de configuration**, chaque élément de configuration dispose de son propre élément de travail. Il y a un élément de travail par élément de configuration. Il sera mis à jour en fonction des alertes qui seront créées.
 
-   * Dans un cas, vous sélectionnez dans la liste déroulante de l’élément de travail « Incident » ou « Alert » : Si vous décochez la case **Créer des éléments de travail individuels pour chaque élément de configuration**, chaque alerte crée un élément de travail. Il peut y avoir plusieurs alertes par élément de configuration.
+    * Dans un cas, vous sélectionnez dans la liste déroulante de l’élément de travail « Incident » ou « Alert » : Si vous décochez la case **Créer des éléments de travail individuels pour chaque élément de configuration**, chaque alerte crée un élément de travail. Il peut y avoir plusieurs alertes par élément de configuration.
 
-   ![Capture d’écran montrant la fenêtre Ticket ITSM.](media/itsmc-overview/itsm-action-configuration.png)
-   
-   * Dans un cas, vous sélectionnez dans la liste déroulante de l’élément de travail « Event » : Si vous sélectionnez **Créer des éléments de travail distincts pour chaque entrée de journal** dans la sélection des cases d’option, chaque alerte crée un élément de travail. Si vous sélectionnez **Créer des éléments de travail individuels pour chaque élément de configuration** dans la sélection des cases d’option, chaque élément de configuration dispose de son propre élément de travail.
-   ![Capture d’écran montrant la fenêtre Ticket ITSM.](media/itsmc-overview/itsm-action-configuration-event.png)
+       ![Capture d’écran montrant la fenêtre Incident ITSM.](media/itsmc-overview/itsm-action-configuration.png)
+
+    * Dans un cas, vous sélectionnez dans la liste déroulante de l’élément de travail « Event » : Si vous sélectionnez **Créer des éléments de travail distincts pour chaque entrée de journal** dans la sélection des cases d’option, chaque alerte crée un élément de travail. Si vous sélectionnez **Créer des éléments de travail individuels pour chaque élément de configuration** dans la sélection des cases d’option, chaque élément de configuration dispose de son propre élément de travail.
+   ![Capture d’écran montrant la fenêtre Événement ITSM.](media/itsmc-overview/itsm-action-configuration-event.png)
 
 10. Sélectionnez **OK**.
 
@@ -166,26 +169,6 @@ Quand vous créez ou modifiez une règle d’alerte Azure, utilisez un groupe d�
 >
 >
 >- Le champ de description courte de la définition de règle d’alerte est limité à 40 caractères quand vous l’envoyez à l’aide de l’action ITSM.
-
-
-## <a name="visualize-and-analyze-the-incident-and-change-request-data"></a>Visualiser et analyser les données d’incident et de demande de modification
-
-En fonction de la configuration choisie lors de l’établissement d’une connexion, ITSMC peut synchroniser jusqu’à 120 jours de données d’incidents et de demande de changement. Le schéma d’enregistrement de journal pour ces données est fourni dans la [prochaine section](#additional-information) de cet article.
-
-Vous pouvez visualiser les données d’incident et de demande de changement à l’aide du tableau de bord ITSMC :
-
-![Capture d’écran montrant le tableau de bord ITSMC.](media/itsmc-overview/itsmc-overview-sample-log-analytics.png)
-
-Le tableau de bord fournit également des informations sur l’état du connecteur. Vous pouvez les utiliser comme point de départ pour analyser les problèmes liés aux connexions.
-
-Vous pouvez également visualiser les incidents synchronisés avec les ordinateurs concernés dans Service Map.
-
-La solution Carte de service détecte automatiquement les composants d’application sur les systèmes Windows et Linux et mappe la communication entre les services. Elle vous permet d’afficher les serveurs comme vous vous les représentez, c’est-à-dire comme des systèmes interconnectés qui fournissent des services critiques. Service Map affiche les connexions entre les serveurs, les processus et les ports sur n’importe quelle architecture connectée par TCP. Aucune configuration autre que l’installation d’un agent n’est exigée. Pour plus d’informations, consultez [Utilisation de Service Map](../insights/service-map.md).
-
-Si vous utilisez Service Map, vous pouvez afficher les éléments de service d’assistance créés dans les solutions ITSM, comme indiqué ici :
-
-![Capture d’écran montrant l’écran Log Analytics.](media/itsmc-overview/itsmc-overview-integrated-solutions.png)
-
 
 ## <a name="additional-information"></a>Informations supplémentaires
 
@@ -296,32 +279,12 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | Impact_s| Impact|
 | RequestedDate_t  | Date demandée |
 | ClosedDate_t | Date de fermeture |
-| PlannedStartDate_t  |     Date de début prévue |
-| PlannedEndDate_t  |   Date de fin prévue |
+| PlannedStartDate_t  | Date de début prévue |
+| PlannedEndDate_t  | Date de fin prévue |
 | WorkStartDate_t  | Date de début réelle |
 | WorkEndDate_t | Date de fin réelle|
 | Description_s | Description |
 | Computer  | Élément de configuration |
-
-
-## <a name="troubleshoot-itsm-connections"></a>Dépanner les connexions ITSM
-- Si une connexion échoue à partir de l’interface utilisateur de la source connectée et que le message **Erreur lors de l’enregistrement de la connexion** s’affiche, effectuez les étapes suivantes :
-   - Pour les connexions ServiceNow, Cherwell et Provance :  
-     - Vérifiez que vous avez correctement entré le nom d’utilisateur, le mot de passe, l’ID client et le secret client pour chacune des connexions.  
-     - Veillez à disposer de privilèges suffisants dans le produit ITSM correspondant afin d’établir la connexion.  
-   - Pour les connexions Service Manager :  
-     - Vérifiez que l’application web est correctement déployée et que la connexion hybride est créée. Pour vérifier que la connexion est établie avec l’ordinateur Service Manager local, accédez à l’URL de l’application web, comme décrit dans la documentation concernant l’établissement d’une [connexion hybride](./itsmc-connections.md#configure-the-hybrid-connection).  
-
-- Si les données de ServiceNow ne sont pas synchronisées dans Log Analytics, vérifiez que l’instance ServiceNow n’est pas en état de veille. Parfois, les instances de développement ServiceNow entrent en veille quand elles restent longtemps inactives. Si ce n’est pas ce qui se passe, signalez le problème.
-- Si des alertes Log Analytics se déclenchent mais qu’aucun élément de travail n’est créé dans le produit ITSM, si aucun élément de configuration n’est créé/lié à des éléments de travail ou pour obtenir d’autres informations, consultez ces ressources :
-   -  ITSMC : la solution montre un récapitulatif des connexions, éléments de travail, ordinateurs, etc. Sélectionnez la vignette qui a l’étiquette **État du connecteur**. Cela vous permet d’accéder à **Recherche dans les journaux** avec la requête appropriée. Pour plus d’informations, examinez les enregistrements de journal dont `LogType_S` a la valeur `ERROR`.
-   - Page **Recherche dans les journaux** : Consultez les erreurs et les informations associées directement à l’aide de la requête `*ServiceDeskLog_CL*`.
-
-## <a name="troubleshoot-service-manager-web-app-deployment"></a>Résoudre les problèmes de déploiement de l’application web Service Manager
--   Si vous rencontrez des problèmes lors du déploiement d’application web, vérifiez que vous disposez des autorisations nécessaires pour créer/déployer des ressources dans l’abonnement.
--   Si l’erreur **Référence d’objet non définie sur une instance d’un objet** s’affiche pendant l’exécution du [script](itsmc-service-manager-script.md), vérifiez que vous avez entré des valeurs valides dans la section **Configuration utilisateur**.
--   Si vous ne parvenez pas à créer l’espace de noms de Service Bus Relay, vérifiez que le fournisseur de ressources nécessaire est inscrit dans l’abonnement. S’il n’est pas inscrit, créez manuellement l’espace de noms Service Bus Relay à partir du portail Azure. Vous pouvez également le créer quand vous [créez la connexion hybride](./itsmc-connections.md#configure-the-hybrid-connection) dans le portail Azure.
-
 
 ## <a name="contact-us"></a>Nous contacter
 

@@ -5,22 +5,43 @@ description: Nouvelle documentation mise à jour pour la plateforme d’identit�
 services: active-directory
 author: mmacy
 manager: CelesteDG
-ms.date: 12/01/2020
+ms.date: 12/15/2020
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
 ms.author: marsma
-ms.openlocfilehash: 108cd5f74b7b560534baf8f55f7d07ebb6557e7f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 4813a71a0bdd14e747aa4cfe51ab5a4191df62a4
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96457152"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563039"
 ---
 # <a name="microsoft-identity-platform-docs-whats-new"></a>Documentation relative à la plateforme d’identités Microsoft : Nouveautés
 
 Bienvenue sur cette page dédiée aux nouveautés dans la documentation relative à la plateforme d’identités Microsoft. Cet article répertorie les nouveaux documents qui ont été ajoutés et ceux qui ont subi des mises à jour significatives au cours des trois derniers mois.
+
+## <a name="december-2020"></a>Décembre 2020
+
+### <a name="new-articles"></a>Nouveaux articles
+
+- [Démarrage rapide : Application web ASP.NET Core qui connecte des utilisateurs et appelle Microsoft Graph en leur nom](quickstart-v2-aspnet-core-webapp-calls-graph.md)
+- [Gérer les erreurs et les exceptions dans MSAL.NET](msal-error-handling-dotnet.md)
+- [Gérer les erreurs et les exceptions dans MSAL pour iOS/macOS](msal-error-handling-ios.md)
+- [Gérer les erreurs et les exceptions dans MSAL pour Java](msal-error-handling-java.md)
+- [Gérer les erreurs et les exceptions dans MSAL.js](msal-error-handling-js.md)
+- [Gérer les erreurs et les exceptions dans MSAL pour Python](msal-error-handling-python.md)
+- [Scénarios d’échange de jeton de plateforme d’identités Microsoft avec SAML et OIDC/OAuth](scenario-token-exchange-saml-oauth.md)
+
+### <a name="updated-articles"></a>Articles mis à jour
+
+- [Tutoriel : Créer un démon multilocataire qui utilise la plateforme d’identités Microsoft](tutorial-v2-aspnet-daemon-web-app.md)
+- [Application web qui connecte les utilisateurs : Inscription d'application](scenario-web-app-sign-user-app-registration.md)
+- [Plateforme d’identités Microsoft et flux d’octroi implicite](v2-oauth2-implicit-grant-flow.md)
+- [Jetons d’accès de la plateforme d’identités Microsoft](access-tokens.md)
+- [Une API web qui appelle des API web : Acquérir un jeton pour l’application](scenario-web-api-call-api-acquire-token.md)
+
 
 ## <a name="november-2020"></a>Novembre 2020
 

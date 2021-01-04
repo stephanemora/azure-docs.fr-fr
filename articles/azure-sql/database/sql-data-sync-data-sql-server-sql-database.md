@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: b23b5a81fdff8a05742092f517128e08723103fc
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 55fa106f0515405dcad969f05d28e0bc7b975b40
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96531137"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922278"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Présentation de SQL Data Sync pour Azure
 
@@ -81,6 +81,14 @@ Data Sync n’est pas la solution préconisée pour les scénarios suivants :
 | **Avantages** | - Support actif/actif<br/>- Synchronisation bidirectionnelle entre la base de données Azure SQL et locale | - Latence réduite<br/>- Cohérence transactionnelle<br/>- Réutilisation de la topologie existante après la migration <br/>\- Prise en charge d’Azure SQL Managed Instance |
 | **Inconvénients** | - Pas de cohérence transactionnelle<br/>- Impact plus important sur les performances | - Impossible de publier à partir d’Azure SQL Database <br/>- Coût de maintenance élevé |
 
+## <a name="private-link-for-data-sync-preview"></a>Liaison privée pour Azure SQL Data Sync (préversion)
+La nouvelle fonctionnalité de liaison privée (préversion) vous permet de choisir un point de terminaison privé géré par le service pour établir une connexion sécurisée entre le service de synchronisation et vos bases de données membres/Hub pendant le processus de synchronisation des données. Un point de terminaison privé géré par le service est une adresse IP privée au sein d’un réseau virtuel et d’un sous-réseau spécifiques. Dans Azure SQL Data Sync, le point de terminaison privé géré par le service est créé par Microsoft et est utilisé exclusivement par le service Synchronisation des données pour une opération de synchronisation donnée. Avant de configurer la liaison privée, lisez les [conditions générales](sql-data-sync-data-sql-server-sql-database.md#general-requirements) de la fonctionnalité. 
+
+![Liaison privée pour Azure SQL Data Sync](./media/sql-data-sync-data-sql-server-sql-database/sync-private-link-overview.png)
+
+> [!NOTE]
+> Vous devez approuver manuellement le point de terminaison privé géré par le service dans la page **Connexions de point de terminaison privé** du portail Azure pendant le déploiement du groupe de synchronisation ou à l’aide de PowerShell.
+
 ## <a name="get-started"></a>Bien démarrer 
 
 ### <a name="set-up-data-sync-in-the-azure-portal"></a>Configurer Data Sync dans le portail Azure
@@ -126,6 +134,8 @@ Le provisionnement et le déprovisionnement lors de la création, la mise à jou
 
 - Le niveau d’isolement d’instantané doit être activé pour le hub et les membres de synchronisation. Pour plus d’informations, consultez [Isolement de capture instantanée dans SQL Server](/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
 
+- Pour utiliser la liaison privée avec Azure SQL Data Sync, les bases de données Hub et celles de membre doivent être hébergées dans Azure (même région ou régions différentes), dans le même type de cloud (par exemple, les deux dans le cloud public ou dans le cloud gouvernemental). En outre, pour utiliser une liaison privée, les fournisseurs de ressources Microsoft.Network doivent être inscrits pour les abonnements qui hébergent les serveurs hub et membres. Enfin, vous devez approuver manuellement la liaison privée pour Azure SQL Data Sync pendant la configuration de la synchronisation, dans la section « Connexions des point de terminaison privés » du portail Azure ou via PowerShell. Pour plus d’informations sur l’approbation de la liaison privée, consultez [Configurer SQL Data Sync](./sql-data-sync-sql-server-configure.md). Une fois que vous avez approuvé le point de terminaison privé géré par le service, toutes les communications entre le service de synchronisation et les bases de données membres/Hub se font par le biais de la liaison privée. Les groupes de synchronisation existants peuvent être mis à jour pour que cette fonctionnalité soit activée.
+
 ### <a name="general-limitations"></a>Limitations générales
 
 - Une table ne peut pas avoir une colonne d’identité qui n’est pas la clé primaire.
@@ -169,6 +179,9 @@ Data Sync ne peut pas synchroniser des colonnes en lecture seule ou générées 
 > Il peut y avoir jusqu’à 30 points de terminaison dans un même groupe de synchronisation s’il n’existe qu’un seul groupe de synchronisation. S’il existe plus d’un groupe de synchronisation, le nombre total de points de terminaison dans tous les groupes de synchronisation ne peut pas dépasser 30. Si une base de données appartient à plusieurs groupes de synchronisation, elle est comptée comme plusieurs points de terminaison, et non pas un seul.
 
 ### <a name="network-requirements"></a>Configuration requise pour le réseau
+
+> [!NOTE]
+> Si vous utilisez une liaison privée, cette configuration requise du réseau ne s’applique pas. 
 
 Quand le groupe de synchronisation est établi, le service Data Sync doit se connecter à la base de données Hub. Au moment où vous établissez le groupe de synchronisation, le serveur SQL Azure doit disposer de la configuration suivante dans ses paramètres `Firewalls and virtual networks` :
 

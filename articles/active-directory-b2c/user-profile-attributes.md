@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 85030285810433dc77d1f466d160c50d1f89770e
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 31926653950594b986aca19e2db2877cd655ca24
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96750405"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509595"
 ---
 # <a name="user-profile-attributes"></a>Attributs de profil utilisateur
 
@@ -52,7 +52,7 @@ Le tableau ci-dessous répertorie les attributs de [type de ressource utilisateu
 |facsimileTelephoneNumber<sup>1</sup>|String|Numéro de téléphone de l’appareil fax professionnel de l’utilisateur.|Oui|Non|Persistant, Sortie|
 |givenName       |String|Prénom de l’utilisateur. Longueur max. : 64.|Oui|Oui|Persistant, Sortie|
 |jobTitle        |String|Intitulé du poste de l’utilisateur. Longueur max. : 128.|Oui|Oui|Persistant, Sortie|
-|ImmutableID     |String|Identificateur généralement utilisé pour les utilisateurs migrés à partir d’un Active Directory local.|Non|Non|Persistant, Sortie|
+|ImmutableID     |String|Identificateur généralement utilisé pour les utilisateurs migrés à partir de Windows Server Active Directory.|Non|Non|Persistant, Sortie|
 |legalAgeGroupClassification|String|Classification de tranche d’âge légal. En lecture seule et calculée en fonction des propriétés ageGroup et consentProvidedForMinor. Valeurs autorisées : null, minorWithOutParentalConsent, minorWithParentalConsent, minorNoParentalConsentRequired, notAdult et adult.|Oui|Non|Persistant, Sortie|
 |legalCountry<sup>1</sup>  |String|Pays/région à des fins juridiques.|Non|Non|Persistant, Sortie|
 |mail            |String|Adresse SMTP de l’utilisateur, par exemple « bob@contoso.com ». Lecture seule.|Non|Non|Persistant, Sortie|
@@ -62,15 +62,15 @@ Le tableau ci-dessous répertorie les attributs de [type de ressource utilisateu
 |objectId        |String|Identificateur global unique (GUID) qui est l’identificateur unique de l’utilisateur. Exemple : 12345678-9abc-def0-1234-56789abcde. Lecture seule, non modifiable.|Lecture seule|Oui|Entrée, Persistant, Sortie|
 |otherMails      |Collection de chaînes|Liste d’adresses e-mail supplémentaires pour l’utilisateur. Exemple: ["bob@contoso.com", "Robert@fabrikam.com"].|Oui (adresse e-mail secondaire)|Non|Persistant, Sortie|
 |mot de passe        |String|Mot de passe du compte local lors de la création de l’utilisateur.|Non|Non|Persistant|
-|passwordPolicies     |String|Stratégie du passe du compte. Il s’agit d’une chaîne composée d’un nom de stratégie différent, séparé par une virgule. soit « DisablePasswordExpiration, DisableStrongPassword ».|Non|Non|Persistant, Sortie|
+|passwordPolicies     |String|Stratégie du passe du compte. Il s’agit d’une chaîne composée d’un nom de stratégie différent, séparé par une virgule. Par exemple : « DisablePasswordExpiration, DisableStrongPassword ».|Non|Non|Persistant, Sortie|
 |physicalDeliveryOfficeName (officeLocation)|String|Emplacement du bureau de l’utilisateur. Longueur max. : 128.|Oui|Non|Persistant, Sortie|
 |postalCode      |String|Code postal correspondant à l’adresse postale de l’utilisateur. Le code postal est spécifique au pays ou à la région de l’utilisateur. Aux États-Unis, cet attribut contient le code ZIP. Longueur max. : 40.|Oui|Non|Persistant, Sortie|
 |preferredLanguage    |String|Langue préférée pour l’utilisateur. Doit suivre le code ISO 639-1. Par exemple, « en-US ».|Non|Non|Persistant, Sortie|
 |refreshTokensValidFromDateTime|DateTime|Les jetons d’actualisation émis avant cet instant ne sont pas valides et les applications reçoivent une erreur lors de l’utilisation d’un jeton d’actualisation non valide pour acquérir un nouveau jeton d’accès. Dans ce cas, l’application doit acquérir un nouveau jeton d’actualisation en effectuant une demande au point de terminaison d’autorisation. Lecture seule.|Non|Non|Output|
-|signInNames ([Identities](manage-user-accounts-graph-api.md#identities-property)) |String|Nom de connexion unique de l’utilisateur de compte local de tout type dans le répertoire. Utilisez-le pour obtenir un utilisateur avec une valeur de connexion sans spécifier le type de compte local.|Non|Non|Entrée|
-|signInNames.userName ([Identities](manage-user-accounts-graph-api.md#identities-property)) |String|Nom d’utilisateur unique de l’utilisateur du compte local dans le répertoire. Utilisez-le pour créer ou obtenir un utilisateur avec un nom d’utilisateur de connexion spécifique. Si vous spécifiez cela dans PersistedClaims seul pendant l’opération Patch, les autres types de signInNames sont supprimés. Si vous souhaitez ajouter un nouveau type de signInNames, vous devez également conserver les signInNames existants.|Non|Non|Entrée, Persistant, Sortie|
-|signInNames.phoneNumber ([Identities](manage-user-accounts-graph-api.md#identities-property)) |String|Numéro de téléphone unique de l’utilisateur du compte local dans le répertoire. Utilisez-le pour créer ou obtenir un utilisateur avec un numéro de téléphone de connexion spécifique. Si vous spécifiez cela dans PersistedClaims seul pendant l’opération Patch, les autres types de signInNames sont supprimés. Si vous souhaitez ajouter un nouveau type de signInNames, vous devez également conserver les signInNames existants.|Non|Non|Entrée, Persistant, Sortie|
-|signInNames.emailAddress ([Identities](manage-user-accounts-graph-api.md#identities-property))|String|Adresse e-mail unique de l’utilisateur du compte local dans le répertoire. Utilisez ceci fonction pour créer ou obtenir une adresse e-mail de connexion propre à un utilisateur. Si vous spécifiez cela dans PersistedClaims seul pendant l’opération Patch, les autres types de signInNames sont supprimés. Si vous souhaitez ajouter un nouveau type de signInNames, vous devez également conserver les signInNames existants.|Non|Non|Entrée, Persistant, Sortie|
+|signInNames ([Identities](manage-user-accounts-graph-api.md#identities-property)) |String|Nom de connexion unique de l’utilisateur de compte local de tout type dans le répertoire. Utilisez cet attribut pour obtenir un utilisateur avec une valeur de connexion sans spécifier le type de compte local.|Non|Non|Entrée|
+|signInNames.userName ([Identities](manage-user-accounts-graph-api.md#identities-property)) |String|Nom d’utilisateur unique de l’utilisateur du compte local dans le répertoire. Utilisez cet attribut pour créer ou obtenir un utilisateur avec un nom d’utilisateur de connexion spécifique. Si vous spécifiez cela dans PersistedClaims seul pendant l’opération Patch, les autres types de signInNames sont supprimés. Si vous souhaitez ajouter un nouveau type de signInNames, vous devez également conserver les signInNames existants.|Non|Non|Entrée, Persistant, Sortie|
+|signInNames.phoneNumber ([Identities](manage-user-accounts-graph-api.md#identities-property)) |String|Numéro de téléphone unique de l’utilisateur du compte local dans le répertoire. Utilisez cet attribut pour créer ou obtenir un utilisateur avec un numéro de téléphone de connexion spécifique. Si vous spécifiez cet attribut dans PersistedClaims seul pendant l’opération Patch, les autres types de signInNames sont supprimés. Si vous souhaitez ajouter un nouveau type de signInNames, vous devez également conserver les signInNames existants.|Non|Non|Entrée, Persistant, Sortie|
+|signInNames.emailAddress ([Identities](manage-user-accounts-graph-api.md#identities-property))|String|Adresse e-mail unique de l’utilisateur du compte local dans le répertoire. Utilisez ceci fonction pour créer ou obtenir une adresse e-mail de connexion propre à un utilisateur. Si vous spécifiez cet attribut dans PersistedClaims seul pendant l’opération Patch, les autres types de signInNames sont supprimés. Si vous souhaitez ajouter un nouveau type de signInNames, vous devez également conserver les signInNames existants.|Non|Non|Entrée, Persistant, Sortie|
 |state           |String|État ou province dans l’adresse de l’utilisateur. Longueur max. : 128.|Oui|Oui|Persistant, Sortie|
 |streetAddress   |String|Adresse postale du lieu de travail de l’utilisateur. Longueur max. : 1024.|Oui|Oui|Persistant, Sortie|
 |strongAuthentication AlternativePhoneNumber<sup>1</sup>|String|Numéro de téléphone secondaire de l’utilisateur, utilisé pour l’authentification multifacteur.|Oui|Non|Persistant, Sortie|
@@ -120,5 +120,4 @@ Les types de données suivants sont pris en charge lors de la définition d’un
 ## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur les attributs d’extension :
 - [Extensions de schéma](/graph/extensibility-overview#schema-extensions)
-- [Définir des attributs personnalisés avec un flux d’utilisateur](user-flow-custom-attributes.md)
-- [Définir des attributs personnalisés avec une stratégie personnalisée](custom-policy-custom-attributes.md)
+- [Définir des attributs personnalisés](user-flow-custom-attributes.md)

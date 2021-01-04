@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 12/09/2020
 ms.author: b-juche
-ms.openlocfilehash: db1e8ce2e4fe9ae81bc2299ae70e9ff83941b5b4
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 7c78d5fa89d6d4f3c73bdd1fe9b6d2fdae97c011
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95245872"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96937472"
 ---
 # <a name="cross-region-replication-of-azure-netapp-files-volumes"></a>Réplication inter-région des volumes Azure NetApp Files
 
@@ -38,14 +38,15 @@ La réplication de volume Azure NetApp Files est actuellement disponible dans le
 * USA Centre Sud et USA Est
 * USA Centre Sud et USA Est 2 
 * USA Est 2 et USA Centre 
-* Europe Nord et Europe Ouest
-* Royaume-Uni Sud et Royaume-Uni Ouest
 * Australie Est et Australie Sud-Est
 * Canada Centre et Canada Est
-* Japon Est et Japon Ouest
-* Royaume-Uni Sud et Allemagne Centre-Ouest
-* Asie Sud-Est et Australie Est
 * Inde Centre et Inde Sud
+* Allemagne Centre-Ouest et Allemagne Nord
+* Japon Est et Japon Ouest
+* Europe Nord et Europe Ouest
+* Asie Sud-Est et Australie Est
+* Royaume-Uni Sud et Allemagne Centre-Ouest
+* Royaume-Uni Sud et Royaume-Uni Ouest
 
 ## <a name="service-level-objectives"></a>Objectifs de niveau de service
 

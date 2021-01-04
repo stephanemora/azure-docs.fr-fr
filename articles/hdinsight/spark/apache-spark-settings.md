@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: 231ab5cc93d98d7356d47472b7e160ddd3ade790
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: c2e2daf6d8c9afa6ffef03b088ec9a7dc144cf47
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545937"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504931"
 ---
 # <a name="configure-apache-spark-settings"></a>Configurer les paramètres d’Apache Spark
 
@@ -60,7 +60,7 @@ Vérifiez les paramètres actuels de configuration du cluster HDInsight avant d�
 
 L’interface utilisateur web Apache Ambari s’ouvre sur un tableau de bord regroupant les principales métriques d’utilisation des ressources de cluster.  Le tableau de bord Ambari montre la configuration d’Apache Spark et d’autres services installés. Il comporte un onglet **Historique de la configuration** permettant d’afficher des informations sur tous les services installés, y compris Spark.
 
-Pour afficher les valeurs de configuration pour Apache Spark, sélectionnez **Config History** (Historique de la configuration), puis sélectionnez **Spark2** .  Sélectionnez l’onglet **Configs** (Configurations), puis le lien `Spark` (ou `Spark2`, selon votre version) dans la liste des services.  Une liste de valeurs de configuration pour votre cluster apparaît :
+Pour afficher les valeurs de configuration pour Apache Spark, sélectionnez **Config History** (Historique de la configuration), puis sélectionnez **Spark2**.  Sélectionnez l’onglet **Configs** (Configurations), puis le lien `Spark` (ou `Spark2`, selon votre version) dans la liste des services.  Une liste de valeurs de configuration pour votre cluster apparaît :
 
 ![Configurations de Spark](./media/apache-spark-settings/spark-configurations.png)
 
@@ -121,7 +121,7 @@ YARN contrôle la somme maximale de mémoire utilisée par les conteneurs sur ch
 
 ![Gestion de la mémoire Spark avec YARN](./media/apache-spark-settings/hdi-yarn-spark-memory.png)
 
-## <a name="change-parameters-for-an-application-running-in-jupyter-notebook"></a>Changer des paramètres d’une application exécutée dans un bloc-notes Jupyter
+## <a name="change-parameters-for-an-application-running-in-jupyter-notebook"></a>Changer les paramètres d’une application exécutée dans Jupyter Notebook
 
 Les clusters Spark dans HDInsight incluent un certain nombre de composants par défaut. Chacun de ces composants inclut des valeurs de configuration par défaut qui peuvent être remplacées en fonction des besoins.
 
@@ -133,12 +133,12 @@ Les clusters Spark dans HDInsight incluent un certain nombre de composants par d
 |Notebooks Jupyter et Apache Zeppelin|Interface utilisateur interactive sur navigateur permettant d’interagir avec le cluster Spark.|
 |Pilote ODBC|Connecte les clusters Spark dans HDInsight à des outils décisionnels comme Microsoft Power BI et Tableau.|
 
-Pour les applications exécutées dans le bloc-notes Jupyter, utilisez la commande `%%configure` afin d’apporter des modifications à la configuration depuis le bloc-notes. Ces modifications de configuration sont appliquées aux travaux Spark exécutés à partir de votre instance de bloc-notes. Effectuez ces modifications au début de l’application, avant d’exécuter la première cellule de code. La configuration modifiée est appliquée à la session Livy au moment de sa création.
+Pour les applications exécutées dans Jupyter Notebook, utilisez la commande `%%configure` afin d’apporter des modifications à la configuration depuis le notebook. Ces modifications de configuration sont appliquées aux travaux Spark exécutés à partir de votre instance de bloc-notes. Effectuez ces modifications au début de l’application, avant d’exécuter la première cellule de code. La configuration modifiée est appliquée à la session Livy au moment de sa création.
 
 > [!NOTE]  
 > Pour changer la configuration ultérieurement dans l’application, utilisez le paramètre `-f` (forcer). Néanmoins, toute la progression de l’application est alors perdue.
 
-Le code ci-dessous montre comment changer la configuration d’une application exécutée dans un bloc-notes Jupyter.
+Le code ci-dessous montre comment changer la configuration d’une application exécutée dans Jupyter Notebook.
 
 ```
 %%configure

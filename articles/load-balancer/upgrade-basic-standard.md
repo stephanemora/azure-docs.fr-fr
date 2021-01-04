@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: f97facd8d184be05cbfd79af92dbcaab3a022ebd
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: d54994a7c64718835e70381f92abed83ef693018
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746299"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938509"
 ---
 # <a name="upgrade-azure-public-load-balancer"></a>Mettre à niveau l’équilibreur de charge public Azure
 [Azure Standard Load Balancer](load-balancer-overview.md) offre un ensemble complet de fonctionnalités et une haute disponibilité avec la redondance de zone. Pour en savoir plus sur la référence SKU de Load Balancer, consultez le [tableau comparatif](./skus.md#skus).
@@ -26,7 +26,7 @@ Une mise à niveau se compose de deux phases :
 
 Un script Azure PowerShell est disponible qui effectue les opérations suivantes :
 
-* Il crée un équilibreur de charge Standard dans le groupe de ressources et à l’emplacement que vous spécifiez.
+* Il crée un SKU Standard de Load Balancer avec l’emplacement que vous spécifiez dans le même groupe de ressources que l’instance Load Balancer De base.
 * Il met à niveau une IP publique d’un SKU De base à un SKU Standard sur place.
 * Il copie de façon fluide les configurations de l’équilibreur de charge De base sur l’équilibreur de charge Standard nouvellement créé.
 * Il crée une règle de trafic sortant par défaut qui permet une connectivité sortante.
@@ -58,7 +58,7 @@ Un script Azure PowerShell est disponible qui effectue les opérations suivantes
 
 ## <a name="download-the-script"></a>Télécharger le script
 
-Téléchargez le script de migration à partir de [PowerShell Gallery](https://www.powershellgallery.com/packages/AzurePublicLBUpgrade/2.0).
+Téléchargez le script de migration à partir de [PowerShell Gallery](https://www.powershellgallery.com/packages/AzurePublicLBUpgrade/4.0).
 ## <a name="use-the-script"></a>Utiliser le script
 
 Vous disposez de deux options selon vos préférences et votre configuration de l’environnement PowerShell local :
@@ -92,14 +92,13 @@ Pour exécuter le script :
 
    * **oldRgName : [Chaîne] : Obligatoire** – Il s’agit du groupe de ressources pour votre instance Basic Load Balancer existante que vous souhaitez mettre à niveau. Pour trouver cette valeur de chaîne, accédez au Portail Azure, sélectionnez votre source Basic Load Balancer, puis cliquez sur la **Vue d’ensemble** de l’équilibreur de charge. Le groupe de ressources figure dans cette page.
    * **oldLBName : [Chaîne] : Obligatoire** – Il s’agit du nom de l’instance Basic Load Balancer existante que vous souhaitez mettre à niveau. 
-   * **newrgName : [Chaîne] : Obligatoire** – Il s’agit du groupe de ressources dans lequel l’instance Standard Load Balancer est créée. Ce peut être un nouveau groupe de ressources ou un groupe existant. Si vous choisissez un groupe de ressources existant, notez que le nom de l’équilibreur de charge doit être unique au sein du groupe de ressources. 
    * **newLBName : [Chaîne] : Obligatoire** – Il s’agit du nom de l’instance Standard Load Balancer à créer.
 1. Exécutez le script en utilisant les paramètres appropriés. Cette opération peut prendre entre cinq et sept minutes.
 
     **Exemple**
 
    ```azurepowershell
-   AzurePublicLBUpgrade.ps1 -oldRgName "test_publicUpgrade_rg" -oldLBName "LBForPublic" -newrgName "test_userInput3_rg" -newLbName "LBForUpgrade"
+   AzurePublicLBUpgrade.ps1 -oldRgName "test_publicUpgrade_rg" -oldLBName "LBForPublic" -newLbName "LBForUpgrade"
    ```
 
 ### <a name="create-an-outbound-rule-for-outbound-connection"></a>Créer une règle de trafic sortant pour une connexion sortante

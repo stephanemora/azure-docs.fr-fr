@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, jovanpop, sachinp
 ms.date: 09/14/2020
-ms.openlocfilehash: 11c3de703a4b37318b7b99f60d74190fe8ec8610
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 47c837e7a2ee859c7805d6b2e11058bcc02e6c22
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93077368"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400571"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Vue d’ensemble des limites de ressources Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -108,7 +108,7 @@ Avec le niveau de service Usage général, chaque fichier de base de données re
 
 Si vous constatez une latence élevée des E/S sur un fichier de base de données, ou si vous constatez que les IOPS ou le débit atteignent la limite, vous pouvez améliorer les performances en [augmentant la taille de fichier](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Increase-data-file-size-to-improve-HammerDB-workload-performance/ba-p/823337).
 
-Il existe également des limites au niveau de l’instance concernant le débit max d’écriture dans le journal (22 Mo/s) ; ainsi, vous ne pourrez peut-être pas atteindre le débit de fichier maximal dans le fichier journal car vous atteignez la limite du débit d’instance.
+Il existe également une limite au niveau de l’instance pour le débit maximal d’écriture dans le journal (voir ci-dessus pour les valeurs, p. ex., 22 Mo/s) ; ainsi, vous ne pourrez peut-être pas atteindre le débit de fichier maximal dans le fichier journal, car vous atteignez la limite de débit de l’instance.
 
 ## <a name="supported-regions"></a>Régions prises en charge
 
@@ -132,8 +132,8 @@ SQL Managed Instance prend actuellement en charge le déploiement uniquement sur
 
 Les types d’abonnements pris en charge peuvent contenir un nombre limité de ressources par région. SQL Managed Instance a deux limites par défaut par région Azure (qui peuvent être augmentées à la demande en créant une [demande spéciale de support dans le portail Azure](../database/quota-increase-request.md)) en fonction du type d’abonnement :
 
-- **Limite de sous-réseaux**  : nombre maximal de sous-réseaux sur lesquels des instances managées SQL sont déployées dans une seule et même région.
-- **Limite d’unités de vCore**  : nombre maximal d’unités de vCores qui peuvent être déployées parmi toutes les instances dans une seule région. Un vCore GP utilise une unité de vCore et un vCore BC prend quatre unités de vCore. Le nombre total d’instances n’est pas limité du moment qu’il se trouve dans la limite du nombre d’unités de vCores.
+- **Limite de sous-réseaux** : nombre maximal de sous-réseaux sur lesquels des instances managées SQL sont déployées dans une seule et même région.
+- **Limite d’unités de vCore** : nombre maximal d’unités de vCores qui peuvent être déployées parmi toutes les instances dans une seule région. Un vCore GP utilise une unité de vCore et un vCore BC prend quatre unités de vCore. Le nombre total d’instances n’est pas limité du moment qu’il se trouve dans la limite du nombre d’unités de vCores.
 
 > [!Note]
 > Ces limites sont des paramètres par défaut : il ne s’agit pas de limitations techniques. Ces limites peuvent être augmentées en créant une [demande de support spéciale dans le portail Microsoft Azure](../database/quota-increase-request.md) si vous avez besoin de plus d’instances dans la région actuelle. Vous pouvez aussi créer des instances managées SQL dans une autre région Azure sans envoyer de demandes de support.

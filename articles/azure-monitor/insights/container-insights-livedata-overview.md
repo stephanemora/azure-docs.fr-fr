@@ -2,14 +2,14 @@
 title: Voir Live Data (préversion) avec Azure Monitor pour conteneurs | Microsoft Docs
 description: Cet article décrit la vue en temps réel des journaux, métriques de pod et événements Kubernetes, sans l’utilisation de kubectl, dans Azure Monitor pour conteneurs.
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 12/07/2020
 ms.custom: references_regions
-ms.openlocfilehash: 9c431cebddb210add496dcca20a0334cc5b12bd8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3bfc9aa0f0238d99d9336abe592fa721459f4220
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85337955"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97346807"
 ---
 # <a name="how-to-view-kubernetes-logs-events-and-pod-metrics-in-real-time"></a>Comment voir les journaux, métriques de pod et événements Kubernetes en temps réel
 
@@ -22,25 +22,20 @@ Cet article fournit une vue d’ensemble détaillée et vous aide à mieux compr
 
 Pour obtenir de l’aide lors de la configuration ou de la résolution des problèmes se rapportant à la fonctionnalité Live Data (préversion), consultez notre [guide de configuration](container-insights-livedata-setup.md). Comme cette fonctionnalité accède directement à l’API Kubernetes, des informations supplémentaires sur le modèle d’authentification sont disponibles [ici](https://kubernetes.io/docs/concepts/overview/kubernetes-api/).
 
-## <a name="live-data-preview-functionality-overview"></a>Vue d’ensemble de la fonctionnalité Live Data (préversion)
+## <a name="view-deployment-live-logs-preview"></a>Afficher des journaux dynamiques de déploiement (préversion)
+Utilisez la procédure suivante pour afficher les journaux dynamiques pour des déploiements qui font partie de clusters AKS qui ne sont pas surveillés par Azure Monitor pour conteneurs. Si votre cluster utilise Azure Monitor pour conteneurs, utilisez le processus ci-dessous pour afficher les données actives pour des nœuds, contrôleurs, conteneurs et déploiements.
 
-### <a name="search"></a>Recherche
+1. Dans le portail Azure, accédez au groupe de ressources du cluster AKS et sélectionnez votre ressource AKS.
 
-![Exemple de filtre du volet de la console Live Data](./media/container-insights-livedata-overview/livedata-pane-filter-example.png)
+2. Sélectionnez **Charges de travail** dans la section **Ressources Kubernetes** du menu.
 
-La fonctionnalité Live Data (préversion) comprend la fonctionnalité de recherche. Dans le champ **Rechercher**, vous pouvez filtrer les résultats en tapant un mot clé ou un terme ; tous les résultats correspondants sont mis en surbrillance pour permettre une consultation rapide. Lors de l’affichage d’événements, vous pouvez également limiter les résultats à l’aide du bouton **Filtrer** à droite de la barre de recherche. Selon la ressource que vous avez sélectionnée, un pod, un espace de noms ou un cluster sont répertoriés à partir desquels choisir.
+3. Sélectionnez un déploiement sous l’onglet **Déploiements**.
 
-### <a name="scroll-lock-and-pause"></a>Arrêt défil et Pause
+4. Sélectionnez **Journaux dynamiques (préversion)** dans le menu du déploiement.
 
-Pour suspendre le défilement automatique, et contrôler le comportement du volet en faisant défiler manuellement les nouvelles données lues, servez-vous de l’option **Faire défiler**. Pour réactiver le défilement automatique, sélectionnez de nouveau l’option **Faire défiler**. Vous pouvez aussi interrompre la récupération des données de journal ou d’événement en sélectionnant l’option **Suspendre**. Lorsque vous êtes prêt à reprendre la récupération, sélectionnez **Lire**.
+5. Sélectionnez un pod pour démarrer la collecte des données actives.
 
-![Vue en direct interrompue dans le volet de la console Live Data](./media/container-insights-livedata-overview/livedata-pane-scroll-pause-example.png)
-
->[!IMPORTANT]
->Nous recommandons uniquement de suspendre ou d’interrompre le défilement automatique pendant une brève période de temps, lors de la résolution d’un problème. Ces requêtes peuvent avoir un impact sur la disponibilité et la limitation de l’API Kubernetes sur votre cluster.
-
->[!IMPORTANT]
->Aucune donnée n’est stockée de façon permanente pendant l’exécution de cette fonctionnalité. Toutes les informations capturées lors de la session sont supprimées lorsque vous la quittez, ou que vous fermez votre navigateur. Les données restent uniquement présentes pour la visualisation dans le laps de temps de cinq minutes de la fonctionnalité Métriques ; toutes les mesures datant de plus de cinq minutes sont également supprimées. La mémoire tampon de Live Data (préversion) interroge dans des limites raisonnables de l’utilisation de la mémoire.
+    [![Journaux dynamiques de déploiement](./media/container-insights-livedata-overview/live-data-deployment.png)](./media/container-insights-livedata-overview/live-data-deployment.png#lightbox)
 
 ## <a name="view-logs"></a>Afficher les journaux d’activité
 
@@ -108,6 +103,32 @@ Vous pouvez voir les données de métrique en temps réel, à mesure qu’elles 
 Une fois l’authentification réussie, le volet de la console Live Data (préversion) apparaît sous la grille des données de performances. Les données de métriques sont récupérées, et leur envoi en streaming vers votre console commence pour leur présentation dans les deux graphiques. Le titre du volet indique le nom du pod avec lequel le conteneur est groupé.
 
 ![Exemple de métriques de l’affichage Pod](./media/container-insights-livedata-overview/pod-properties-live-metrics.png)
+
+## <a name="using-live-data-views"></a>Utilisation de vues de données actives
+Les sections suivantes décrivent les fonctionnalités que vous pouvez utiliser dans les différentes vues de données actives.
+
+### <a name="search"></a>Rechercher
+La fonctionnalité Live Data (préversion) comprend la fonctionnalité de recherche. Dans le champ **Rechercher**, vous pouvez filtrer les résultats en tapant un mot clé ou un terme ; tous les résultats correspondants sont mis en surbrillance pour permettre une consultation rapide. Lors de l’affichage d’événements, vous pouvez également limiter les résultats à l’aide du bouton **Filtrer** à droite de la barre de recherche. Selon la ressource que vous avez sélectionnée, un pod, un espace de noms ou un cluster sont répertoriés à partir desquels choisir.
+
+![Exemple de filtre du volet de la console Live Data](./media/container-insights-livedata-overview/livedata-pane-filter-example.png)
+
+![Exemple de filtre du volet de la console Données actives pour le déploiement](./media/container-insights-livedata-overview/live-data-deployment-search.png)
+
+### <a name="scroll-lock-and-pause"></a>Arrêt défil et Pause
+
+Pour suspendre le défilement automatique, et contrôler le comportement du volet en faisant défiler manuellement les nouvelles données lues, servez-vous de l’option **Faire défiler**. Pour réactiver le défilement automatique, sélectionnez de nouveau l’option **Faire défiler**. Vous pouvez aussi interrompre la récupération des données de journal ou d’événement en sélectionnant l’option **Suspendre**. Lorsque vous êtes prêt à reprendre la récupération, sélectionnez **Lire**.
+
+![Vue en direct interrompue dans le volet de la console Live Data](./media/container-insights-livedata-overview/livedata-pane-scroll-pause-example.png)
+
+![Affichage en direct en pause du volet de la console Données actives pour le déploiement](./media/container-insights-livedata-overview/live-data-deployment-pause.png)
+
+
+
+>[!IMPORTANT]
+>Nous recommandons uniquement de suspendre ou d’interrompre le défilement automatique pendant une brève période de temps, lors de la résolution d’un problème. Ces requêtes peuvent avoir un impact sur la disponibilité et la limitation de l’API Kubernetes sur votre cluster.
+
+>[!IMPORTANT]
+>Aucune donnée n’est stockée de façon permanente pendant l’exécution de cette fonctionnalité. Toutes les informations capturées lors de la session sont supprimées lorsque vous la quittez, ou que vous fermez votre navigateur. Les données restent uniquement présentes pour la visualisation dans le laps de temps de cinq minutes de la fonctionnalité Métriques ; toutes les mesures datant de plus de cinq minutes sont également supprimées. La mémoire tampon de Live Data (préversion) interroge dans des limites raisonnables de l’utilisation de la mémoire.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

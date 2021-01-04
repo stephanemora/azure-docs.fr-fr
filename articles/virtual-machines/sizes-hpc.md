@@ -6,15 +6,15 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 12/03/2020
+ms.date: 12/09/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 21b1004a347dec3a7f2a6460d8b853350bf36ff0
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 5559e491be15f8f848329405736fc977267c70cc
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96571043"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938594"
 ---
 # <a name="high-performance-computing-vm-sizes"></a>Tailles des machines virtuelles de calcul haute performance (HPC)
 
@@ -29,6 +29,9 @@ Les machines virtuelles de la [série HB](hb-series.md) sont optimisées pour de
 Les machines virtuelles de la [série HC](hc-series.md) sont optimisées pour les applications tributaires d’un calcul dense, telles que l’analyse implicite par éléments finis, la dynamique moléculaire et la chimie numérique. Les machines virtuelles HC disposent de 44 cœurs de processeur Intel Xeon Platinum 8168, de 8 Go de RAM par cœur de processeur, et d’aucun hyperthreading. La plateforme Intel Xeon Platinum prend en charge le riche écosystème d’outils logiciels d’Intel, comme Intel Math Kernel Library.
 
 Les machines virtuelles de la [série H](h-series.md) sont optimisées pour les applications tributaires de fréquences de processeur élevées ou ayant des besoins en mémoire importants par cœur. Les machines virtuelles de la série H disposent de 8 ou 16 cœurs de processeur Intel Xeon E5 2667 v3, de 7 ou 14 Go de RAM par cœur de processeur, et d’aucun hyperthreading. Les machines virtuelles de la série H disposent d’un Infiniband FDR Mellanox de 56 Go/s dans une configuration de gros arbres non bloquant pour des performances RDMA homogènes. Les machines virtuelles de la série H prennent en charge Intel MPI 5.x et MS-MPI.
+
+> [!NOTE]
+> Toutes les machines virtuelles de série HBv2, HB et HC ont un accès exclusif aux serveurs physiques. Il n’y a qu’une seule machine virtuelle par serveur physique et aucune multilocation partagée avec d’autres machines virtuelles pour ces tailles de machine virtuelle.
 
 > [!NOTE]
 > La mise hors service des [machines virtuelles A8-A11](./sizes-previous-gen.md#a-series---compute-intensive-instances) est planifiée pour le mois de mars 2021. Pour plus d’informations, consultez le [Guide de migration HPC](https://azure.microsoft.com/resources/hpc-migration-guide/).
@@ -103,5 +106,5 @@ Azure fournit plusieurs options pour créer des clusters de machines virtuelles 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - En savoir plus sur [la configuration de vos machines virtuelles](./workloads/hpc/configure.md), [l’activation d’InfiniBand](./workloads/hpc/enable-infiniband.md), [la configuration de MPI](./workloads/hpc/setup-mpi.md) et l’optimisation des applications HPC pour Azure dans l’article relatif aux [charges de travail HPC](./workloads/hpc/overview.md).
-- Découvrez des informations sur les dernières annonces et des exemples et des résultats HPC sur les [Blogs de la communauté Azure Compute Tech](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- Découvrez des informations sur les dernières annonces et des exemples et des résultats HPC sur les [blogs de la communauté Azure Compute Tech](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
 - Pour une vision plus globale de l’architecture d’exécution des charges de travail HPC, consultez [Calcul haute performance (HPC) sur Azure](/azure/architecture/topics/high-performance-computing/).

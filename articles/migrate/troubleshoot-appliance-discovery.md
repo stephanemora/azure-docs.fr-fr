@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 26bb61e0c5a473a56c57391b53009419453956fd
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 90abe6bf680f6a186b970631dcd0a42d6d36bf94
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753414"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511584"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Résoudre les problèmes d’appliance et de découverte Azure Migrate
 
@@ -41,6 +41,13 @@ Cela peut se produire si l’ordinateur de l’appliance se trouve derrière un 
 - Veillez à fournir les informations d’identification pour l’autorisation si le proxy en a besoin.
 - Si vous utilisez un proxy de pare-feu basé sur des URL pour contrôler la connectivité sortante, ajoutez [ces URL](migrate-appliance.md#url-access) à une liste verte.
 - Si vous utilisez un proxy d’interception pour vous connecter à Internet, importez le certificat de proxy sur la machine virtuelle de l’appliance en suivant [ces étapes](./migrate-appliance.md).
+
+
+## <a name="clicking-on-login-button-opens-a-new-tab-with-no-device-code"></a>Cliquer sur le bouton « Connexion » ouvre un nouvel onglet sans code d’appareil
+
+Si, après avoir cliqué sur « Connexion » dans le gestionnaire de configuration de l’appliance, un nouvel onglet s’ouvre sans code, retournez dans l’onglet du gestionnaire de configuration de l’appliance. Vous trouverez le code de l’appareil en caractères gras sous le bouton « Connexion » comme le montre la capture d’écran ci-dessous. Copiez le code et collez-le dans l’onglet Connexion pour vous authentifier auprès d’Azure.
+
+![Code d’appareil](./media/troubleshoot-appliance-discovery/code.png)
 
 ## <a name="cant-sign-into-azure-from-the-appliance-web-app"></a>Impossible de se connecter à Azure à partir de l’application web de l’appliance
 

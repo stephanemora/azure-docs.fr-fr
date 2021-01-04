@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2010f55a28d393086aad544cbec3f5c009801872
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 8364e67e71143729e97c5253f0dfd7b30a1e5c2f
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96750490"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97559818"
 ---
 # <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique OpenID Connect dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -92,8 +92,8 @@ Le profil technique retourne également des revendications qui ne sont pas retou
 | MarkAsFailureOnStatusCode5xx | Non | Indique si une demande adressée à un service externe doit être marquée comme un échec si le code d’état HTTP s’inscrit dans la plage 5xx. Par défaut, il s’agit de `false`. |
 | DiscoverMetadataByTokenIssuer | Non | Indique si les métadonnées OIDC doivent être découvertes à l’aide de l’émetteur dans le jeton JSON Web Token. |
 | IncludeClaimResolvingInClaimsHandling  | Non | Pour les revendications d’entrée et de sortie, spécifie si la [résolution des revendications](claim-resolver-overview.md) est incluse dans le profil technique. Valeurs possibles : `true` ou `false` (par défaut). Si vous souhaitez utiliser un programme de résolution des revendications dans le profil technique, définissez cette valeur sur `true`. |
-|token_endpoint_auth_method| Non| Indique comment Azure AD B2C envoie l’en-tête d’authentification au point de terminaison du jeton. Valeurs possibles : `client_secret_post` (par défaut) et `client_secret_basic` (préversion publique). Pour plus d’informations, consultez [Section d’authentification du client OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication). |
-|SingleLogoutEnabled| No| Indique si, lors de la connexion, le profil technique tente de se déconnecter des fournisseurs d’identité fédérés. Pour plus d’informations, consultez [Déconnexion d’une session Azure AD B2C](session-overview.md#sign-out).  Valeurs possibles : `true` (par défaut) ou `false`.|
+|token_endpoint_auth_method| Non| Indique comment Azure AD B2C envoie l’en-tête d’authentification au point de terminaison du jeton. Valeurs possibles : `client_secret_post` (par défaut), `private_key_jwt` (préversion publique) et `client_secret_basic` (préversion publique). Pour plus d’informations, consultez [Section d’authentification du client OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication). |
+|SingleLogoutEnabled| Non| Indique si, lors de la connexion, le profil technique tente de se déconnecter des fournisseurs d’identité fédérés. Pour plus d’informations, consultez [Déconnexion d’une session Azure AD B2C](session-behavior.md#sign-out).  Valeurs possibles : `true` (par défaut) ou `false`.|
 
 ```xml
 <Metadata>
@@ -132,6 +132,6 @@ Lorsque vous configurez l’URI de redirection de votre fournisseur d’identit�
 
 Exemples :
 
-- [Ajouter Compte Microsoft (MSA) comme fournisseur d’identité utilisant des stratégies personnalisées](identity-provider-microsoft-account-custom.md)
-- [Se connecter à l’aide de comptes Azure AD](identity-provider-azure-ad-single-tenant-custom.md)
-- [Autoriser la connexion d’utilisateurs à un fournisseur d’identité Azure AD mutualisé à l’aide de stratégies personnalisées](identity-provider-azure-ad-multi-tenant-custom.md)
+- [Ajouter Compte Microsoft (MSA) comme fournisseur d’identité utilisant des stratégies personnalisées](identity-provider-microsoft-account.md)
+- [Se connecter à l’aide de comptes Azure AD](identity-provider-azure-ad-single-tenant.md)
+- [Autoriser la connexion d’utilisateurs à un fournisseur d’identité Azure AD mutualisé à l’aide de stratégies personnalisées](identity-provider-azure-ad-multi-tenant.md)

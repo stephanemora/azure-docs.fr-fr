@@ -16,12 +16,12 @@ ms.date: 04/13/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bdfb1ca21860f1dc338f85a82caf643f9f7be6d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 31bdfc7e3eca2a2678b75b80973a1680448737d1
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95973199"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507674"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quickstart"></a>Authentification directe Azure Active Directory : Démarrage rapide
 
@@ -72,7 +72,7 @@ Vérifiez que les prérequis suivants sont remplis.
      | **8080** (facultatif) | Les agents d’authentification signalent leur état toutes les dix minutes sur le port 8080 (si le port 443 n’est pas disponible). Cet état est affiché sur le portail Azure AD. Le port 8080 _n’est pas utilisé_ pour les connexions utilisateur. |
      
      Si votre pare-feu applique les règles en fonction des utilisateurs d’origine, ouvrez ces ports au trafic provenant des services Windows exécutés en tant que service réseau.
-   - Si votre pare-feu ou votre proxy autorise la mise en liste verte de DNS, ajoutez des connexions vers **\*.msappproxy.net** et **\*.servicebus.windows.net**. Dans le cas contraire, autorisez l’accès aux [plages d’adresses IP du centre de données Azure](https://www.microsoft.com/download/details.aspx?id=41653), qui sont mises à jour chaque semaine.
+   - Si votre pare-feu ou proxy vous permet d’ajouter des entrées DNS à une liste d’autorisation, ajoutez des connexions à **\*.msappproxy.net** et **\*.servicebus.windows.net**. Dans le cas contraire, autorisez l’accès aux [plages d’adresses IP du centre de données Azure](https://www.microsoft.com/download/details.aspx?id=41653), qui sont mises à jour chaque semaine.
    - Vos agents d’authentification doivent accéder à **login.windows.net** et à **login.microsoftonline.net** pour l’inscription initiale. Par conséquent, ouvrez également votre pare-feu pour ces URL.
     - Pour la validation des certificats, débloquez les URL suivantes : **crl3.digicert.com:80**, **crl4.digicert.com:80**, **ocsp.digicert.com:80**, **www\.d-trust.net:80**, **root-c3-ca2-2009.ocsp.d-trust.net:80**, **crl.microsoft.com:80**, **oneocsp.microsoft.com:80** et **ocsp.msocsp.com:80**. Ces URL étant utilisées pour la validation de certificat avec d’autres produits Microsoft, elles sont peut-être déjà débloquées.
 

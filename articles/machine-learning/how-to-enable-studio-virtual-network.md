@@ -10,13 +10,13 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 10/21/2020
-ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: a90b98e8be976da9ee2669ab3b5fed4a890f0fb2
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.custom: contperf-fy20q4, tracking-python
+ms.openlocfilehash: 3f128b7ee7fa8f690c2097a5d27e274ec1eb2a8a
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576612"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97559537"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Utiliser le studio Azure Machine Learning dans un réseau virtuel Azure
 
@@ -89,7 +89,9 @@ Ces étapes ajoutent l’identité managée de l’espace de travail en tant que
 
 ### <a name="enable-managed-identity-authentication-for-default-storage-accounts"></a>Activer l’authentification via une identité managée pour les comptes de stockage par défaut
 
-Chaque espace de travail Azure Machine Learning est fourni avec deux comptes de stockage par défaut, qui sont définis lors de la création de votre espace de travail. Le studio utilise les comptes de stockage par défaut pour stocker les artefacts d’expérimentation et de modèle, qui sont essentiels à certaines fonctionnalités du Studio.
+Chaque espace de travail Azure Machine Learning dispose de deux comptes de stockage par défaut : un compte de stockage BLOB par défaut et un compte de magasin de fichiers par défaut, qui sont définis lors de la création de votre espace de travail. Vous pouvez également définir de nouvelles valeurs par défaut dans la page de gestion **Magasin de données**.
+
+![Capture d’écran montrant où se trouvent les magasins de données par défaut](./media/how-to-enable-studio-virtual-network/default-datastores.png)
 
 Le tableau suivant décrit les raisons pour lesquelles vous devez activer l’authentification via l’identité managée pour les comptes de stockage par défaut de votre espace de travail.
 
@@ -98,8 +100,12 @@ Le tableau suivant décrit les raisons pour lesquelles vous devez activer l’au
 |Stockage blob par défaut de l’espace de travail| Stocke les ressources de modèle à partir du concepteur. Vous devez activer l’authentification via une identité managée sur ce compte de stockage pour déployer des modèles dans le concepteur. <br> <br> Vous pouvez visualiser et exécuter un pipeline de concepteur s’il utilise un magasin de données non défini par défaut qui a été configuré pour utiliser l’identité managée. Toutefois, si vous essayez de déployer un modèle entraîné sans que l’identité managée soit activée sur le magasin de données par défaut, le déploiement échoue, quelles que soient les autres magasins de données en cours d’utilisation.|
 |Magasin de fichiers par défaut de l’espace de travail| Stocke les ressources d’expérimentation AutoML. Vous devez activer l’authentification via une identité managée sur ce compte de stockage pour soumettre des expériences AutoML. |
 
-
-![Capture d’écran montrant où se trouvent les magasins de données par défaut](./media/how-to-enable-studio-virtual-network/default-datastores.png)
+> [!WARNING]
+> Il existe un problème connu où le magasin de fichiers par défaut ne crée pas automatiquement le dossier `azureml-filestore`, qui est nécessaire pour soumettre des expériences AutoML. Cela se produit lorsque les utilisateurs importent un magasin de fichiers existant et le définissent par défaut lors de la création de l’espace de travail.
+> 
+> Pour éviter ce problème, vous avez deux options : 1) Utilisez le magasin de fichiers par défaut qui est automatiquement créé pour vous lors de la création de votre espace de travail. 2) Pour importer votre propre magasin de fichiers, assurez-vous que le magasin de fichiers est en dehors du réseau virtuel pendant la création de l’espace de travail. Une fois l’espace de travail créé, ajoutez le compte de stockage au réseau virtuel.
+>
+> Pour résoudre ce problème, supprimez le compte de magasin de fichiers du réseau virtuel, puis rajoutez-le au réseau virtuel.
 
 
 ### <a name="grant-workspace-managed-identity-__reader__-access-to-storage-private-link"></a>Accorder à l’identité managée de l’espace de travail un accès __Lecteur__ à la liaison privée de stockage

@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/16/2020
+ms.date: 12/11/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8eb8de2424012d12f216f154eb077028a8f82d76
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: a89a456b5d9ee36909d5d742a7880d72e5ed86fd
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173700"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97355854"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-provisioning"></a>Prérequis pour le provisionnement cloud Azure AD Connect
 Cet article fournit des conseils sur la façon de choisir et d’utiliser l’approvisionnement cloud Azure Active Directory (Azure AD) Connect en tant que solution d’identité.
@@ -51,11 +51,23 @@ Exécutez l’[outil IdFix](/office365/enterprise/prepare-directory-attributes-f
 
 ### <a name="in-your-on-premises-environment"></a>Dans votre environnement local
 
-1. Identifiez un serveur hôte joint à un domaine exécutant Windows Server 2012 R2 ou ultérieur, avec au minimum 4 Go de RAM et .NET 4.7.1 + Runtime.
+ 1. Identifiez un serveur hôte joint à un domaine exécutant Windows Server 2012 R2 ou ultérieur, avec au minimum 4 Go de RAM et .NET 4.7.1 + Runtime.
 
-1. La stratégie d’exécution de PowerShell sur le serveur local doit être définie sur Undefined ou sur RemoteSigned.
+ >[!NOTE]
+ > N’oubliez pas que la définition d’un filtre d’étendue occasionne un coût de mémoire sur le serveur hôte.  Si aucun filtre d’étendue n’est utilisé, il n’y a aucun coût de mémoire supplémentaire. Le minimum de 4 Go prendra en charge la synchronisation de jusqu’à 12 unités d’organisation définies dans le filtre d’étendue. Si vous devez synchroniser des unités d’organisation supplémentaires, vous devez augmenter la quantité minimale de mémoire. Utilisez le tableau suivant comme guide :
+ >
+ >  
+ >  | Nombre d’unités d’organisation dans le filtre d’étendue| Mémoire minimale nécessaire|
+ >  | --- | --- |
+ >  | 12| 4 Go|
+ >  | 18|5,5 GO|
+ >  | 28|> 10 GO|
+ >
+ > 
 
-1. S’il existe un pare-feu entre vos serveurs et Azure AD, configurez les éléments suivants :
+ 2. La stratégie d’exécution de PowerShell sur le serveur local doit être définie sur Undefined ou sur RemoteSigned.
+
+ 3. S’il existe un pare-feu entre vos serveurs et Azure AD, configurez les éléments suivants :
    - Assurez-vous que les agents peuvent effectuer des requêtes *sortantes* sur Azure AD sur les ports suivants :
 
         | Numéro de port | Utilisation |
@@ -100,7 +112,20 @@ Pour activer TLS 1.2, procédez comme suit.
 
 1. Redémarrez le serveur.
 
+## <a name="known-limitations"></a>Limitations connues
+Les limitations connues sont les suivantes :
 
+### <a name="delta-synchronization"></a>Synchronisation d’écart
+
+- Le filtre d’étendue du groupe pour la synchronisation delta ne prend pas en charge plus de 1 500 membres.
+- Lorsque vous supprimez un groupe utilisé dans le cadre d’un filtre d’étendue de groupe, les utilisateurs qui sont membres du groupe ne sont pas supprimés. 
+- Lorsque vous renommez l’unité d’organisation ou le groupe qui se trouve dans l’étendue, la synchronisation delta ne supprime pas les utilisateurs.
+
+### <a name="provisioning-logs"></a>Journaux de provisionnement
+- Les journaux d’approvisionnement ne font pas clairement la différence entre les opérations de création et de mise à jour.  Vous pouvez voir une opération de création pour une mise à jour et une opération de mise à jour pour une création.
+
+### <a name="group-re-naming-or-ou-re-naming"></a>Renommer le groupe ou renommer l’unité d’organisation
+- Si vous renommez un groupe ou une unité d’organisation dans Active Directory dans le cadre d’une configuration donnée, le travail d’approvisionnement cloud ne pourra pas reconnaître le changement de nom dans Active Directory. Le travail ne sera pas mis en quarantaine et restera sain.
 
 
 ## <a name="next-steps"></a>Étapes suivantes 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: b6f66813ea23f6c9d4b47a3733d0c72c683d0676
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 79f442c5ab7db92e69f5396f3f9205212bdf4d4d
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96493982"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97399245"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Présentation de la journalisation des flux pour les groupes de sécurité réseau
 
@@ -48,7 +48,7 @@ Les journaux de flux sont la source fidèle pour toute activité réseau au sein
 **Propriétés clés**
 
 - Les journaux de flux opèrent au niveau de la [couche 4](https://en.wikipedia.org/wiki/OSI_model#Layer_4:_Transport_Layer) et enregistrent tous les flux IP entrants et sortants d’un groupe de sécurité réseau.
-- Les journaux sont collectés via la plateforme Azure et n’affectent en aucune façon les ressources du client ou les performances réseau.
+- Les journaux sont collectés **à un intervalle d’une minute** via la plateforme Azure et n’affectent en aucune façon les ressources du client ou les performances réseau.
 - Les journaux sont écrits au format JSON et affichent les flux entrants et sortants conformément à une règle de groupe de sécurité réseau.
 - Chaque enregistrement de journal contient l’interface réseau (NIC) à laquelle le flux s’applique, les informations de quintuplet, ainsi que les informations sur le débit (version 2 uniquement) et les décisions de trafic. Pour plus d’informations, consultez _Format de journal_ ci-dessous.
 - Les journaux de flux intègrent une fonctionnalité de rétention qui permet de supprimer automatiquement les journaux jusqu’à un an après leur création. 
@@ -361,6 +361,8 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 **Flux entrants journalisés à partir d’adresses IP Internet dans des machines virtuelles sans IP publiques** : Les machines virtuelles qui n’ont pas d’IP publique attribuée via une IP publique associée à la carte d’interface réseau en tant qu’IP publique de niveau d’instance, ou qui font partie d’un pool principal équilibreur de charge de base, utilisent une [architecture de système en réseau par défaut](../load-balancer/load-balancer-outbound-connections.md) et ont une adresse IP affectée par Azure afin de faciliter la connectivité sortante. Par conséquent, vous pouvez observer des entrées de journal de flux pour les flux d’adresses IP Internet, si le flux est destiné à un port dans la plage de ports attribués à l’architecture de système en réseau. Bien qu’Azure n’autorise pas ces flux vers les machines virtuelles, la tentative est journalisée et apparaît par conception dans le journal de flux du Groupe de sécurité réseau Network Watcher. Nous recommandons que le trafic Internet entrant indésirable soit explicitement bloqué avec le Groupe de sécurité réseau.
 
+**Problème avec le groupe de sécurité réseau du sous-réseau d’Application Gateway v2** : La journalisation de flux sur le groupe de sécurité réseau du sous-réseau d’Application Gateway v2 [n’est pas prise en charge](https://docs.microsoft.com/azure/application-gateway/application-gateway-faq#are-nsg-flow-logs-supported-on-nsgs-associated-to-application-gateway-v2-subnet) actuellement. Ce problème ne concerne pas Application Gateway v1.
+
 **Services incompatibles** : En raison des limitations actuelles de la plateforme, un petit ensemble de services Azure n’est pas pris en charge par les journaux de flux NSG. La liste actuelle des services incompatibles est
 - [Azure Kubernetes Services (AKS)](https://azure.microsoft.com/services/kubernetes-service/)
 - [Logic Apps](https://azure.microsoft.com/services/logic-apps/) 
@@ -369,9 +371,15 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 **Activer sur des réseaux virtuels/sous-réseaux critiques** : Les journaux de flux doivent être activés sur tous les réseaux virtuels/sous-réseaux critiques de votre abonnement en guise de meilleures pratiques d’audit et de sécurité. 
 
-**Activer la journalisation de flux NSG sur tous les groupes de sécurité réseau associés à une ressource** : la journalisation de flux dans Azure est configurée sur la ressource NSG. Un flux ne peut être associé qu’à une règle de groupe de sécurité réseau. Dans les scénarios où plusieurs groupes de sécurité réseau sont utilisés, nous recommandons d’activer les journaux de flux de groupe de sécurité réseau sur tous les groupes de sécurité réseau appliqués à un sous-réseau ou à l’interface réseau d’une ressource pour vous assurer que tout le trafic est enregistré. Pour en savoir plus, consultez la section [Évaluation du trafic](../virtual-network/network-security-group-how-it-works.md) dans Groupes de sécurité réseau.
+**Activer la journalisation de flux NSG sur tous les groupes de sécurité réseau associés à une ressource** : la journalisation de flux dans Azure est configurée sur la ressource NSG. Un flux ne peut être associé qu’à une règle de groupe de sécurité réseau. Dans les scénarios où plusieurs groupes de sécurité réseau sont utilisés, nous recommandons d’activer les journaux de flux de groupe de sécurité réseau sur tous les groupes de sécurité réseau appliqués au sous-réseau ou à l’interface réseau de la ressource pour vous assurer que tout le trafic est enregistré. Pour en savoir plus, consultez la section [Évaluation du trafic](../virtual-network/network-security-group-how-it-works.md) dans Groupes de sécurité réseau. 
+
+Quelques scénarios courants :
+1. **Plusieurs groupes de sécurité réseau sur une carte réseau** : Si plusieurs groupes de sécurité réseau sont attachés à une carte réseau, la journalisation de flux doit être activée sur chacun d’eux.
+1. **Groupe de sécurité réseau au niveau de la carte réseau et du sous-réseau** : Si le groupe de sécurité réseau est configuré au niveau de la carte réseau ainsi qu’au niveau du sous-réseau, la journalisation de flux doit être activée sur les deux groupes de sécurité réseau. 
 
 **Approvisionnement du stockage** : Le stockage doit être approvisionné dans le paramétrage avec le volume de journal de flux attendu.
+
+**Affectation de noms** : Le nom du groupe de sécurité réseau doit comporter jusqu’à 80 caractères et les noms de règle de groupe de sécurité réseau jusqu’à 65 caractères. Si les noms dépassent leur limite de caractères, ils peuvent être tronqués lors de la journalisation.
 
 ## <a name="troubleshooting-common-issues"></a>Résolution des problèmes courants
 

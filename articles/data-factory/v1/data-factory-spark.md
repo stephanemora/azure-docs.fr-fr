@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 6c9e5b6466d3da675975dbf2c532602561e820c9
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 417306e09a9424b302bb226aea5dd2c1debe96f5
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96495070"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97508422"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Appeler des programmes Spark à partir des pipelines Azure Data Factory
 
@@ -118,13 +118,13 @@ Dans cette étape, vous créez un service lié HDInsight pour lier à la fabriqu
 
 1. Copiez et collez l’extrait ci-dessous dans la fenêtre Draft-1. Dans l’éditeur JSON, procédez comme suit :
 
-    a. Spécifier l’URI du cluster Spark HDInsight. Par exemple : `https://<sparkclustername>.azurehdinsight.net/`.
+    1. Spécifier l’URI du cluster Spark HDInsight. Par exemple : `https://<sparkclustername>.azurehdinsight.net/`.
 
-    b. Spécifiez le nom de l’utilisateur qui a accès au cluster Spark.
+    1. Spécifiez le nom de l’utilisateur qui a accès au cluster Spark.
 
-    c. Spécifiez le mot de passe de l’utilisateur.
+    1. Spécifiez le mot de passe de l’utilisateur.
 
-    d. Spécifiez le service lié Stockage Azure associé au cluster Spark HDInsight. Dans cet exemple, il s’agit de AzureStorageLinkedService.
+    1. Spécifiez le service lié Stockage Azure associé au cluster Spark HDInsight. Dans cet exemple, il s’agit de AzureStorageLinkedService.
 
     ```json
     {
@@ -213,20 +213,21 @@ Dans cette étape, vous créez un pipeline avec une activité HDInsightSpark. À
         }
     }
     ```
+
     Notez les points suivants :
 
-    a. La propriété **type** est définie sur **HDInsightSpark**.
+    1. La propriété **type** est définie sur **HDInsightSpark**.
 
-    b. La propriété **rootPath** est définie sur **adfspark\\pyFiles**, où adfspark est le conteneur d’objets Blob et pyFiles est le dossier de fichiers dans ce conteneur. Dans cet exemple, le stockage Blob est celui qui est associé au cluster Spark. Vous pouvez charger le fichier vers un autre compte de stockage. Si vous procédez ainsi, créez un service lié Stockage pour lier à la fabrique de données ce compte de stockage. Ensuite, spécifiez le nom du service lié en tant que valeur pour la propriété **sparkJobLinkedService**. Pour plus d’informations sur cette propriété et d’autres propriétés prises en charge par l’activité Spark, consultez [Propriétés de l’activité Spark](#spark-activity-properties).
+    1. La propriété **rootPath** est définie sur **adfspark\\pyFiles**, où adfspark est le conteneur d’objets Blob et pyFiles est le dossier de fichiers dans ce conteneur. Dans cet exemple, le stockage Blob est celui qui est associé au cluster Spark. Vous pouvez charger le fichier vers un autre compte de stockage. Si vous procédez ainsi, créez un service lié Stockage pour lier à la fabrique de données ce compte de stockage. Ensuite, spécifiez le nom du service lié en tant que valeur pour la propriété **sparkJobLinkedService**. Pour plus d’informations sur cette propriété et d’autres propriétés prises en charge par l’activité Spark, consultez [Propriétés de l’activité Spark](#spark-activity-properties).
 
-    c. La propriété **entryFilePath** est définie sur **test.py**, c’est-à-dire le fichier Python.
+    1. La propriété **entryFilePath** est définie sur **test.py**, c’est-à-dire le fichier Python.
 
-    d. La propriété **getDebugInfo** est définie sur **Always**, ce qui signifie que les fichiers journaux sont toujours générés (succès ou échec).
+    1. La propriété **getDebugInfo** est définie sur **Always**, ce qui signifie que les fichiers journaux sont toujours générés (succès ou échec).
 
-    > [!IMPORTANT]
-    > Nous vous recommandons de ne pas définir cette propriété sur `Always` dans un environnement de production, sauf si vous dépannez un problème.
+       > [!IMPORTANT]
+       > Nous vous recommandons de ne pas définir cette propriété sur `Always` dans un environnement de production, sauf si vous résolvez un problème.
 
-    e. La section **outputs** possède un jeu de données de sortie. Vous devez spécifier un jeu de données de sortie même si le programme Spark ne produit pas de sortie. Le jeu de données de sortie pilote la planification du pipeline (horaire, quotidienne).
+    1. La section **outputs** possède un jeu de données de sortie. Vous devez spécifier un jeu de données de sortie même si le programme Spark ne produit pas de sortie. Le jeu de données de sortie pilote la planification du pipeline (horaire, quotidienne).
 
     Pour plus d’informations sur les propriétés prises en charge par l’activité Spark, consultez la section [Propriétés de l’activité Spark](#spark-activity-properties).
 
@@ -333,7 +334,7 @@ Le tableau suivant décrit les propriétés JSON utilisées dans la définition 
 | rootPath | Conteneur d’objets Blob et dossier contenant le fichier Spark. Le nom de fichier est sensible à la casse. | Oui |
 | entryFilePath | Chemin d’accès relatif au dossier racine du code/package Spark. | Oui |
 | ClassName | Classe principale Java/Spark de l’application. | Non  |
-| arguments | Liste d’arguments de ligne de commande du programme Spark. | Non  |
+| arguments | Liste d’arguments de ligne de commande du programme Spark. | Non |
 | proxyUser | Compte d’utilisateur à emprunter pour exécuter le programme Spark. | Non  |
 | sparkConfig | Spécifiez les valeurs des propriétés de configuration de Spark lisétes dans la rubrique [Configuration Spark : Propriétés de l’application](https://spark.apache.org/docs/latest/configuration.html#available-properties). | Non  |
 | getDebugInfo | Spécifie quand les fichiers journaux de Spark sont copiés vers le stockage utilisé par le cluster HDInsight (ou) spécifié par sparkJobLinkedService. Les valeurs autorisées sont Aucun, Toujours ou Échec. La valeur par défaut est Aucun. | Non  |

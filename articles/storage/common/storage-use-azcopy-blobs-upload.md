@@ -4,16 +4,16 @@ description: Cet article contient une collection d’exemples de commandes AzCop
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/08/2020
+ms.date: 12/11/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 11d40805cda2ea2e3693c6c93034ae19f1f0fcc0
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: ec88a3c740ceda7ccf352f8f32f94e2cd52d0988
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96907384"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358756"
 ---
 # <a name="upload-files-to-azure-blob-storage-by-using-azcopy-v10"></a>Charger des fichiers vers Stockage Blob Azure avec AzCopy v10
 
@@ -26,7 +26,7 @@ Pour obtenir des exemples d’autres types de tâches, telles que le télécharg
 Consultez l’article [Prise en main d’AzCopy](storage-use-azcopy-v10.md) pour télécharger AzCopy, et découvrez comment vous pouvez fournir des informations d’identification au service de stockage.
 
 > [!NOTE] 
-> Les exemples de cet article partent du principe que vous avez fourni des informations d’identification d’autorisation à l’aide d’Azure AD (Azure Active Directory).
+> Les exemples de cet article partent du principe que vous avez fourni des informations d’identification d’autorisation en utilisant Azure AD (Azure Active Directory).
 >
 > Si vous préférez utiliser un jeton SAS pour autoriser l’accès aux données d’objets blob, vous pouvez ajouter ce jeton à l’URL de ressource dans chaque commande AzCopy. Par exemple : `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
 
@@ -135,9 +135,11 @@ Vous pouvez également exclure des fichiers à l’aide de l’option `--exclude
 
 Les options `--include-pattern` et `--exclude-pattern` s’appliquent uniquement aux noms de fichiers, et non au chemin.  Si vous souhaitez copier tous les fichiers texte qui existent dans une arborescence de répertoires, utilisez l’option `–recursive` pour obtenir la totalité de l’arborescence de répertoires, puis utilisez `–include-pattern` et spécifiez `*.txt` pour obtenir tous les fichiers texte.
 
-### <a name="upload-files-that-were-modified-after-a-date-and-time"></a>Charger les fichiers qui ont été modifiés après une date et une heure 
+### <a name="upload-files-that-were-modified-before-or-after-a-date-and-time"></a>Charger les fichiers qui ont été modifiés avant ou après une date et une heure 
 
-Utilisez la commande [azcopy copy](storage-ref-azcopy-copy.md) avec l’option `--include-after`. Spécifiez une date et une heure au format ISO 8601 (par exemple : `2020-08-19T15:04:00Z`). 
+Utilisez la commande [azcopy copy](storage-ref-azcopy-copy.md) avec l’option `--include-before` ou `--include-after`. Spécifiez une date et une heure au format ISO 8601 (par exemple : `2020-08-19T15:04:00Z`). 
+
+Les exemples suivants chargent les fichiers qui ont été modifiés à la date spécifiée ou après celle-ci.
 
 |    |     |
 |--------|-----------|
@@ -186,10 +188,10 @@ Pour obtenir la liste complète, consultez [Options](storage-ref-azcopy-copy.md#
 
 Vous trouverez plus d’exemples dans ces articles :
 
-- [Exemples : Téléchargement](storage-use-azcopy-blobs-download.md)
-- [Exemples : Copier entre comptes](storage-use-azcopy-blobs-copy.md)
-- [Exemples : Synchroniser](storage-use-azcopy-blobs-synchronize.md)
-- [Exemples : Compartiments Amazon S3](storage-use-azcopy-s3.md)
+- [Exemples : Téléchargement](storage-use-azcopy-blobs-download.md)
+- [Exemples : Copie entre comptes](storage-use-azcopy-blobs-copy.md)
+- [Exemples : Synchroniser](storage-use-azcopy-blobs-synchronize.md)
+- [Exemples : Compartiments Amazon S3](storage-use-azcopy-s3.md)
 - [Exemples : Azure Files](storage-use-azcopy-files.md)
 - [Tutoriel : Migrer des données locales vers un stockage cloud à l’aide d’AzCopy](storage-use-azcopy-migrate-on-premises-data.md)
 - [Configurer, optimiser et dépanner AzCopy](storage-use-azcopy-configure.md)

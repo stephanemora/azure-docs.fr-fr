@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/23/2020
-ms.openlocfilehash: c991559d550b351ce70bcc5834f96f313f856a82
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 30004306d9ff44df04a26640a2bd7a09256fce25
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96550074"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516677"
 ---
 # <a name="credentials-for-source-authentication-in-azure-purview"></a>Informations d'identification pour l'authentification des sources dans Azure Purview
 
@@ -20,7 +20,7 @@ Cet article explique comment créer des informations d'identification dans Azure
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Coffre de clés Azure Key Vault. Si vous n'en avez pas, cliquez ici (insérer le lien vers l'article de création de KV) pour savoir comment en créer un.
+* Un coffre de clés Azure. Pour savoir comment en créer un, consultez [Démarrage rapide : Créer un coffre de clés avec le portail Azure](../key-vault/general/quick-create-portal.md).
 
 ## <a name="introduction"></a>Introduction
 Les informations d'identification permettent à Azure Purview de s'authentifier auprès des sources de données que vous avez enregistrées. Un objet Informations d'identification peut être créé pour différents types de scénarios d'authentification (tels que l'authentification de base nécessitant un nom d'utilisateur/mot de passe). Celui-ci capturera les informations spécifiques requises en fonction du type de méthode d'authentification choisi. Les informations d'identification utilisent vos secrets Azure Key Vault existants pour récupérer des informations d'authentification sensibles pendant le processus de création des informations d'identification.

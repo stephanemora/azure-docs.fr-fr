@@ -4,16 +4,16 @@ description: Cet article fournit des informations de référence sur la commande
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 07/24/2020
+ms.date: 12/11/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: fd71f4eb56974b93637c23eddc81e5f33ce788b8
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 6390aafca4937a480e4d92ff04003a294b9c0e20
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96512152"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97356172"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -276,13 +276,15 @@ Transférez des fichiers et des répertoires dans le compte de stockage Azure et
 
 **--include-after** string Inclure uniquement les fichiers modifiés à la date/l’heure donnée. La valeur doit être au format ISO8601. Si aucun fuseau horaire n’est spécifié, la valeur est supposée être dans le fuseau horaire local de l’ordinateur exécutant AzCopy. Par exemple, `2020-08-19T15:04:00Z` pour une heure UTC, ou `2020-08-19` pour minuit (00:00) dans le fuseau horaire local. Comme au niveau d’AzCopy 10.5, cet indicateur s’applique uniquement aux fichiers, non aux dossiers. Les propriétés de dossier ne sont donc pas copiées lors de l’utilisation de cet indicateur avec `--preserve-smb-info` ou `--preserve-smb-permissions`.
 
+ **--include-before** string Inclure uniquement les fichiers modifiés avant ou à la date/l’heure donnée. La valeur doit être au format ISO8601. Si aucun fuseau horaire n’est spécifié, la valeur est supposée être dans le fuseau horaire local de l’ordinateur exécutant AzCopy. Par exemple, `2020-08-19T15:04:00Z` pour une heure UTC, ou `2020-08-19` pour minuit (00:00) dans le fuseau horaire local. À partir d’AzCopy 10.7, cet indicateur s’applique uniquement aux fichiers, et non aux dossiers. Les propriétés de dossier ne sont donc pas copiées lors de l’utilisation de cet indicateur avec `--preserve-smb-info` ou `--preserve-smb-permissions`.
+
 **--include-attributes** string (Windows uniquement) Inclut les fichiers dont les attributs correspondent à la liste d’attributs. Par exemple : A;S;R
 
 **--include-path** string Inclure uniquement ces chemins lors de la copie. Cette option ne prend pas en charge les caractères génériques (*). Vérifie le préfixe du chemin d’accès relatif (par exemple, `myFolder;myFolder/subDirName/file.pdf`).
 
 **--include-pattern** string Inclure uniquement ces fichiers lors de la copie. Cette option prend en charge les caractères génériques (*). Séparez les fichiers à l’aide d’un point-virgule (`;`).
 
-**--list-of-versions** string  Spécifie un fichier où chaque ID de version est listé sur une ligne distincte. Assurez-vous que la source pointe vers un objet blob unique et que tous les ID de version spécifiés dans le fichier à l’aide de cet indicateur appartiennent uniquement à l’objet blob source. AzCopy télécharge les versions spécifiées dans le dossier de destination indiqué. Pour plus d’informations, consultez [Télécharger des versions précédentes d’un objet blob](storage-use-azcopy-blobs.md#download-previous-versions-of-a-blob).
+**--list-of-versions** string Spécifie un fichier où chaque ID de version est listé sur une ligne distincte. Assurez-vous que la source pointe vers un blob unique et que tous les ID de version spécifiés dans le fichier à l’aide de cet indicateur appartiennent uniquement au blob source. AzCopy télécharge les versions spécifiées dans le dossier de destination indiqué. Pour plus d’informations, consultez [Télécharger des versions précédentes d’un objet blob](storage-use-azcopy-blobs.md#download-previous-versions-of-a-blob).
 
 **--log-level** string Définir le niveau de détail pour le fichier journal. Niveaux disponibles : INFO (toutes les requêtes/réponses), WARNING (réponses lentes), ERROR (uniquement les échecs de requêtes) et NONE (aucun journal de sortie) (par défaut `INFO`) 
 

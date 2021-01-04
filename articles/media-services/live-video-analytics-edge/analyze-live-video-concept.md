@@ -3,12 +3,12 @@ title: 'Analyse de la vidéo en direct sans enregistrement : Azure'
 description: Un graphique multimédia peut être utilisé pour extraire les analyses d’un flux vidéo en direct, sans avoir à les enregistrer en périphérie ou dans le cloud en toute simplicité. Cet article aborde ce concept.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 5dda18b68cb19d29623f2120fe07d7cc617f0c2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 25a7cadc47603b726542fa391d441e1fbca78908
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90893030"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97398966"
 ---
 # <a name="analyzing-live-video-without-any-recording"></a>Analyse de la vidéo en direct sans enregistrement
 
@@ -33,15 +33,17 @@ Le graphique multimédia présenté ci-dessous se compose d’un nœud de [sourc
 Le graphique multimédia présenté ci-dessous vous permet d’analyser un flux vidéo en direct à l’aide d’un modèle Custom Vision empaqueté dans un module distinct. La représentation JSON de la topologie d’un tel graphique multimédia peut être trouvée [ici](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/httpExtension/topology.json). Vous pouvez voir des exemples sur l’habillage des modèles dans des modules IoT Edge qui s’exécutent en tant que service d’inférence [ici](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis).
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/analyze-live-video/motion-detected-frames.svg" alt-text="Live Video Analytics basé sur la détection de mouvement":::
+> :::image type="content" source="./media/analyze-live-video/motion-detected-frames.svg" alt-text="Analyse vidéo en direct basée sur un module d’inférence externe":::
 
-Dans ce graphique multimédia, le nœud de processeur de filtre de fréquence d’images réduit la fréquence d’images du flux vidéo en direct entrant avant de l’envoyer à un nœud de [processeur d’extension HTTP](media-graph-concept.md#http-extension-processor), qui envoie des trames d’image (au format JPEG, BMP ou PNG) à un service d’inférence externe sur REST. Les résultats du service d’inférence externe sont récupérés par le nœud d’extension HTTP et relayés à IoT Edge Hub via le nœud de IoT Hub de réception des messages. Ce type de graphique multimédia peut être utilisé pour créer des solutions pour divers scénarios, tels que la compréhension de la distribution de séries chronologiques de véhicules à l’intersection, la compréhension du modèle de trafic des consommateurs dans un magasin de vente au détail, etc.
+Dans ce graphique multimédia, l’entrée vidéo de la source RTSP est envoyée à un [nœud de processeur d’extension HTTP](media-graph-concept.md#http-extension-processor), qui envoie des images (au format JPEG, BMP ou PNG) à un service d’inférence externe sur REST. Les résultats du service d’inférence externe sont récupérés par le nœud d’extension HTTP et relayés à IoT Edge Hub via le nœud de IoT Hub de réception des messages. Ce type de graphique multimédia peut être utilisé pour créer des solutions pour divers scénarios, tels que la compréhension de la distribution de séries chronologiques de véhicules à l’intersection, la compréhension du modèle de trafic des consommateurs dans un magasin de vente au détail, etc.
+>[!TIP]
+> Vous pouvez gérer la fréquence d’images dans le nœud de processeur d’extension HTTP à l’aide du champ `samplingOptions` avant de l’envoyer en aval.
 
-Cet exemple peut être amélioré en utilisant un processeur de détecteur de mouvement avant le nœud de processeur de filtre de fréquence d’images. Cela réduira la charge sur le service d’inférence, car il est utilisé uniquement lorsqu’il y a une activité de mouvement dans la vidéo.
+Cet exemple peut être amélioré en utilisant un processeur de détecteur de mouvement avant le nœud de processeur d’extension HTTP. Cela réduira la charge sur le service d’inférence, car il est utilisé uniquement lorsqu’il y a une activité de mouvement dans la vidéo.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/analyze-live-video/custom-model.svg" alt-text="Live Video Analytics basé sur la détection de mouvement":::
+> :::image type="content" source="./media/analyze-live-video/custom-model.svg" alt-text="Analyse vidéo en direct basée sur les trames détectées par un module d’inférence externe":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Enregistrement de vidéo continu](continuous-video-recording-concept.md)
+[Enregistrement vidéo en continu](continuous-video-recording-concept.md)

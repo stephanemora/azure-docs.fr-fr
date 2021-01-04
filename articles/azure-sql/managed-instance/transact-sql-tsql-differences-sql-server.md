@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 11/10/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 610ab649d64351b0897ef7358cdaf9280fe3ba55
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: c18ee43eefe9c6cf9cba7f4e8f6c3fd3f55bba5a
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684916"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368696"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Différences T-SQL entre SQL Server et Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -396,9 +396,9 @@ La [recherche sémantique](/sql/relational-databases/search/semantic-search-sql-
 
 Les serveurs liés dans SQL Managed Instance prennent en charge un nombre limité de cibles :
 
-- Les cibles prises en charge sont SQL Managed Instance, SQL Database, Azure Synapse SQL et les instances SQL Server. 
+- Les cibles prises en charge sont SQL Managed Instance, SQL Database, Azure Synapse SQL [serverless](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/) et les pools dédiés, ainsi que les instances SQL Server. 
 - Les serveurs liés ne prennent pas en charge les transactions accessibles en écriture distribuées (MS DTC).
-- Les cibles qui ne sont pas prises en charge sont des fichiers, Analysis Services et d’autres SGBDR. Essayez d’utiliser l’importation CSV native à partir de Stockage Blob Azure à l’aide de `BULK INSERT` ou `OPENROWSET` comme alternative pour l’importation de fichiers.
+- Les cibles qui ne sont pas prises en charge sont des fichiers, Analysis Services et d’autres SGBDR. Essayez d’utiliser l’importation CSV native à partir du Stockage Blob Azure à l’aide de `BULK INSERT` ou `OPENROWSET` comme alternative pour l’importation de fichiers, ou chargez des fichiers à l’aide d’un [pool SQL serverless dans Azure Synapse Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/).
 
 Opérations : 
 
@@ -406,11 +406,12 @@ Opérations :
 - `sp_dropserver` est pris en charge pour supprimer un serveur lié. Consultez [sp_dropserver](/sql/relational-databases/system-stored-procedures/sp-dropserver-transact-sql).
 - La fonction `OPENROWSET` peut être utilisée pour exécuter des requêtes uniquement sur des instances SQL Server. Elles peuvent être managées, locales ou dans des machines virtuelles. Consultez [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql).
 - La fonction `OPENDATASOURCE` peut être utilisée pour exécuter des requêtes uniquement sur des instances SQL Server. Elles peuvent être managées, locales ou dans des machines virtuelles. Seules les valeurs `SQLNCLI`, `SQLNCLI11` et `SQLOLEDB` sont prises en charge en tant que fournisseur. par exemple `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee`. Consultez [OPENDATASOURCE](/sql/t-sql/functions/opendatasource-transact-sql).
-- Les serveurs liés ne peuvent pas être utilisés pour lire des fichiers (Excel, CSV) à partir des partages réseau. Essayez d’utiliser [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file) ou [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file) qui lit les fichiers CSV à partir de Stockage Blob Azure. Suivez ces requêtes sur l’[élément de commentaires de SQL Managed Instance](https://feedback.azure.com/forums/915676-sql-managed-instance/suggestions/35657887-linked-server-to-non-sql-sources)|
+- Les serveurs liés ne peuvent pas être utilisés pour lire des fichiers (Excel, CSV) à partir des partages réseau. Essayez d’utiliser [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file), [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file) qui lit les fichiers CSV à partir du Stockage Blob Azure, ou un [serveur lié qui fait référence à un pool SQL serverless dans Synapse Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/). Suivez ces requêtes sur l’[élément de commentaires de SQL Managed Instance](https://feedback.azure.com/forums/915676-sql-managed-instance/suggestions/35657887-linked-server-to-non-sql-sources)|
 
 ### <a name="polybase"></a>PolyBase
 
-Le seul type de source externe pris en charge est SGBDR vers Azure SQL Database et Azure SQL Managed Instance. Pour plus d’informations sur PolyBase, consultez [PolyBase](/sql/relational-databases/polybase/polybase-guide).
+Les seuls types de sources externes disponibles sont SGBDR (en préversion publique) vers Azure SQL Database, Azure SQL Managed Instance et le pool Azure Synapse. Vous pouvez utiliser [une table externe qui fait référence à un pool SQL serverless dans Synapse Analytics](https://devblogs.microsoft.com/azure-sql/read-azure-storage-files-using-synapse-sql-external-tables/) comme solution de contournement pour les tables externes Polybase qui lisent directement à partir du stockage Azure. Dans Azure SQL Managed Instance, vous pouvez utiliser des serveurs liés à [un pool SQL serverless dans Synapse Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/) ou SQL Server pour lire les données de stockage Azure.
+Pour plus d’informations sur PolyBase, consultez [PolyBase](/sql/relational-databases/polybase/polybase-guide).
 
 ### <a name="replication"></a>Réplication
 

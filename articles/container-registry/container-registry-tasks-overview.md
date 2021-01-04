@@ -3,12 +3,12 @@ title: Vue d’ensemble d’ACR Tasks
 description: Introduction à ACR Tasks, une suite de fonctionnalités d’Azure Container Registry qui permet la création ; la gestion et la mise à jour corrective d’images de conteneur sécurisées et automatisées dans le cloud.
 ms.topic: article
 ms.date: 08/12/2020
-ms.openlocfilehash: 14758e363e74450a10f1a2cbfc889f3e24782771
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: b6df415bd55979ef00f6921321dbc254ef7a7e59
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027664"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562852"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatiser la création et la maintenance des images de conteneur avec ACR Tasks
 
@@ -105,7 +105,7 @@ Le tableau suivant présente des exemples d’emplacements de contexte pris en c
 | Emplacement du contexte | Description | Exemple |
 | ---------------- | ----------- | ------- |
 | Système de fichiers local | Fichiers dans un répertoire sur le système de fichiers local. | `/home/user/projects/myapp` |
-| Branche principale GitHub | Fichiers dans la branche maître (ou autre branche par défaut) d’un référentiel GitHub public ou privé.  | `https://github.com/gituser/myapp-repo.git` |
+| Branche primaire GitHub | Fichiers dans la branche primaire (ou autre branche par défaut) d’un dépôt GitHub public ou privé.  | `https://github.com/gituser/myapp-repo.git` |
 | Branche GitHub | Branche spécifique d’un référentiel GitHub public ou privé.| `https://github.com/gituser/myapp-repo.git#mybranch` |
 | Sous-dossier de GitHub | Fichiers dans un sous-dossier d’un référentiel GitHub public ou privé. L’exemple affiche la combinaison de spécifications de branche et de sous-dossier. | `https://github.com/gituser/myapp-repo.git#mybranch:myfolder` |
 | Validation GitHub | Validation spécifique d’un référentiel GitHub public ou privé. L’exemple affiche la combinaison de spécifications de hachage de validation (SHA) et de sous-dossier. | `https://github.com/gituser/myapp-repo.git#git-commit-hash:myfolder` |

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/24/2020
-ms.openlocfilehash: 553c33b3d5ea2e3f1ee81503cb69fe15db387af6
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: bb3c7cc3f51eae90c5b712d224407e639b232fbc
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745024"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938883"
 ---
 # <a name="classification-insights-about-your-data-from-azure-purview"></a>Insights relatifs aux classifications de vos données à partir d’Azure Purview
 
@@ -29,7 +29,7 @@ Dans ce guide pratique, vous allez apprendre à effectuer les opérations suivan
 
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de commencer à utiliser Purview Insights, assurez-vous d’avoir effectué les étapes suivantes :
+Avant de commencer à utiliser les insights Purview, assurez-vous d’avoir effectué les étapes suivantes :
 
 - Configurez vos ressources Azure et alimentez les comptes appropriés avec des données de test
 
@@ -44,7 +44,7 @@ Dans Azure Purview, les classifications sont similaires aux étiquettes d’obje
 Purview utilise les mêmes types d’informations sensibles que Microsoft 365, ce qui vous permet d’étendre vos stratégies de sécurité existantes et la protection à l’ensemble de votre patrimoine de données.
 
 > [!NOTE]
-> Une fois que vous avez analysé vos types de sources, donnez quelques heures aux insights **Étiquetage de classification** pour qu’ils tiennent compte des nouvelles ressources.
+> Une fois que vous avez analysé vos types de sources, donnez quelques heures aux insights **Classification** pour qu’ils tiennent compte des nouvelles ressources.
 
 **Pour afficher les insights relatifs aux classifications :**
 

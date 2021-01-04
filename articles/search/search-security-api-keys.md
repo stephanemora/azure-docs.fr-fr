@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: 0e209e8114d8f1791a00e87894fa12206edcf34e
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 29a314553584843ed6241b9311e9d72b42ec8705
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94700220"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516416"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-cognitive-search-service"></a>Créer et gérer des clés API pour un service Recherche cognitive Azure
 
@@ -27,7 +27,7 @@ Lors du provisionnement du service, les clés sont créées avec votre service d
 
 :::image type="content" source="media/search-manage/azure-search-view-keys.png" alt-text="page du portail, récupérer les paramètres, section clés" border="false":::
 
-## <a name="what-is-an-api-key"></a>Qu’est-ce qu’une clé API ?
+## <a name="what-is-an-api-key"></a>Qu’est-ce qu’une clé API ?
 
 Une clé API est une chaîne composée de nombres et de lettres générée de manière aléatoire. Par le biais des [autorisations basées sur le rôle](search-security-rbac.md), vous pouvez supprimer ou lire les clés, mais vous ne pouvez pas remplacer une clé avec un mot de passe défini par l’utilisateur ou utiliser Active Directory en tant que méthode d’authentification principale pour accéder aux opérations de recherche. 
 
@@ -88,6 +88,7 @@ Vous pouvez toujours accéder au service via le portail ou la couche de gestion 
 Après avoir créé de nouvelles clés via le portail ou la couche de gestion, l'accès à votre contenu (index, indexeurs, sources de données, cartes de synonymes) est restauré dès que vous disposez des nouvelles clés et que vous les fournissez sur les requêtes.
 
 ## <a name="secure-api-keys"></a>Sécuriser les clés API
+
 La sécurité des clés est assurée en limitant l’accès via le portail ou des interfaces Resource Manager (PowerShell ou interface de ligne de commande). Comme indiqué, les administrateurs des abonnements peuvent afficher et régénérer toutes les clés API. Par précaution, passez en revue les affectations de rôle pour comprendre qui a accès aux clés Admin.
 
 + Dans le tableau de bord de service, cliquez sur **Contrôle d’accès (IAM)** , puis sur l’onglet **Attributions de rôles** pour afficher les affectations de rôle pour votre service.

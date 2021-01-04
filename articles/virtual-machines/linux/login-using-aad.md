@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 11/17/2020
 ms.author: sandeo
-ms.openlocfilehash: 4c11e8c9cbd767bb95e094535a8a6cd7c8fe84fc
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: b4fc6b9facc79db109c5ce5be09576b16a2abdc7
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96340881"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97510887"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Aperçu : Se connecter à une machine virtuelle Linux dans Azure via l’authentification Azure Active Directory
 
@@ -119,7 +119,7 @@ La stratégie de contrôle d’accès en fonction du rôle Azure (Azure RBAC) d�
 - **Connexion de l’utilisateur aux machines virtuelles** : les utilisateurs auxquels ce rôle est attribué peuvent se connecter à une machine virtuelle Azure avec des privilèges d’utilisateur standard.
 
 > [!NOTE]
-> Pour autoriser un utilisateur à se connecter à la machine virtuelle via le protocole SSH, vous devez attribuer le rôle *Connexion de l’administrateur aux machines virtuelles* ou *Connexion de l’utilisateur aux machines virtuelles*. Un utilisateur Azure auquel le rôle *Propriétaire* ou *Contributeur* est attribué pour une machine virtuelle ne possède pas automatiquement les privilèges pour se connecter à la machine virtuelle via le protocole SSH.
+> Pour autoriser un utilisateur à se connecter à la machine virtuelle via le protocole SSH, vous devez attribuer le rôle *Connexion de l’administrateur aux machines virtuelles* ou *Connexion de l’utilisateur aux machines virtuelles*. Les rôles Connexion de l’administrateur aux machines virtuelles et Connexion de l’utilisateur aux machines virtuelles utilisant dataActions, ils ne peuvent pas être attribués à l’étendue du groupe d’administration. Actuellement, ces rôles peuvent être attribués uniquement à l’étendue de l’abonnement, du groupe de ressources ou de la ressource. Un utilisateur Azure auquel le rôle *Propriétaire* ou *Contributeur* est attribué pour une machine virtuelle ne possède pas automatiquement les privilèges pour se connecter à la machine virtuelle via le protocole SSH. 
 
 L’exemple suivant illustre l’utilisation de la commande [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) pour attribuer le rôle *Connexion de l’administrateur aux machines virtuelles* à la machine virtuelle de votre utilisateur Azure actuel. Le nom d’utilisateur de votre compte Azure actif est obtenu à l’aide de la commande [az account show](/cli/azure/account#az-account-show), et *l’étendue* est définie sur la machine virtuelle créée dans une étape précédente avec [az vm show](/cli/azure/vm#az-vm-show). L’étendue peut également être attribuée au niveau d’un groupe de ressources ou d’un abonnement, et les autorisations d’héritage Azure RBAC normales s’appliquent. Pour plus d’informations, consultez [Azure RBAC](../../role-based-access-control/overview.md).
 
@@ -138,7 +138,12 @@ az role assignment create \
 
 Pour plus d’informations sur l’utilisation du contrôle d’accès en fonction du rôle Azure (Azure RBAC) pour gérer l’accès aux ressources de votre abonnement Azure, consultez les rubriques relatives à l’utilisation d’[Azure CLI](../../role-based-access-control/role-assignments-cli.md), du [portail Azure](../../role-based-access-control/role-assignments-portal.md) ou d’[Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
-Vous pouvez également configurer Azure AD pour exiger l’authentification multifacteur pour qu’un utilisateur spécifique se connecte à la machine virtuelle Linux. Pour plus d’informations, consultez [Bien démarrer avec Azure AD Multi-Factor Authentication dans le cloud](../../active-directory/authentication/howto-mfa-getstarted.md).
+## <a name="using-conditional-access"></a>Utilisation d’un accès conditionnel
+
+Vous pouvez appliquer des stratégies d’accès conditionnel, telles qu’une authentification multifacteur ou une vérification du risque de connexion utilisateur, avant d’autoriser l’accès à des machines virtuelles Linux dans Azure qui sont activées avec une connexion à Azure AD. Pour appliquer une stratégie d’accès conditionnel, vous devez sélectionner l’application « Connexion à une machine virtuelle Linux Azure » à partir de l’option d’affectation d’applications ou d’actions cloud, puis utiliser le risque de connexion comme condition et/ou exiger une authentification multifacteur comme contrôle d’octroi d’accès. 
+
+> [!WARNING]
+> Le service Azure AD Multi-Factor Authentication activé/appliqué par utilisateur n’est pas pris en charge pour la connexion à une machine virtuelle.
 
 ## <a name="log-in-to-the-linux-virtual-machine"></a>Se connecter à la machine virtuelle Linux
 
@@ -195,6 +200,8 @@ Using keyboard-interactive authentication.
 Access denied:  to sign-in you be assigned a role with action 'Microsoft.Compute/virtualMachines/login/action', for example 'Virtual Machine User Login'
 Access denied
 ```
+> [!NOTE]
+> Si vous rencontrez des problèmes avec des attributions de rôles Azure, consultez [Résoudre les problèmes liés à Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/troubleshooting#azure-role-assignments-limit).
 
 ### <a name="continued-ssh-sign-in-prompts"></a>Invites de connexion SSH continues
 

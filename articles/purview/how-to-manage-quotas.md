@@ -8,12 +8,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/12/2020
-ms.openlocfilehash: 3b0a413db304b4f9d2c50a3d221c480f1e9dc37a
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 57cb1c405e00acb346421d64190a71e9211d21ff
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96550118"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938832"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-purview"></a>Gestion et augmentation des quotas de ressources avec Azure Purview
  
@@ -23,7 +23,7 @@ Azure Purview est un service cloud destiné aux utilisateurs de données. Il off
  
 |**Ressource**|  **Limite par défaut**  |**Limite maximale**|
 |---|---|---|
-|Comptes Purview par client (tous abonnements combinés)|3|Contacter le support technique|
+|Comptes Purview par région, par locataire (tous abonnements confondus)|3|Contacter le support technique|
 |vCore disponibles pour l’analyse, par compte*|160|160|
 |Analyses simultanées, par compte à un moment donné (limite établie en fonction du type des sources de données analysées*)|5 | 10 |
 |Durée maximale d’exécution d’une analyse|7 jours|7 jours|
@@ -44,7 +44,7 @@ Azure Purview est un service cloud destiné aux utilisateurs de données. Il off
 >[Tutoriel : Analyse des données avec Azure Purview](tutorial-scan-data.md)
 
 > [!div class="nextstepaction"]
->[Tutoriel : Navigation sur la page d’accueil et recherche d’une ressource](tutorial-asset-search.md)
+>[Tutoriel : Parcourir la page d’accueil et rechercher une ressource](tutorial-asset-search.md)
 
 > [!div class="nextstepaction"]
 >[Tutoriel : Recherche de ressources et affichage de leur traçabilité](tutorial-browse-and-view-lineage.md)

@@ -12,14 +12,14 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15debb69172dba00163950fdd301826c903e5307
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: b9bc7d94cff46b54b81615cf064ed63927b3ec60
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548329"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929291"
 ---
-# <a name="email-one-time-passcode-authentication"></a>Authentification par envoi d’un code secret à usage unique par e-mail
+# <a name="email-one-time-passcode-authentication-preview"></a>Authentification par envoi d’un code secret à usage unique par e-mail (préversion)
 
 Cet article explique comment activer l’authentification par envoi d’un code secret à usage unique par e-mail pour les utilisateurs invités B2B. La fonctionnalité d’envoi d’un code secret à usage unique par e-mail permet d’authentifier les utilisateurs invités B2B lorsqu’il n’est pas possible de les authentifier par d’autres moyens, comme Azure AD, un compte Microsoft (MSA) ou la fédération Google. Avec l’authentification par code secret à usage unique, il est inutile de créer un compte Microsoft. Lorsque l’utilisateur invité accepte une invitation ou accède à une ressource partagée, il peut demander un code temporaire, qui est envoyé à son adresse e-mail. Puis, il entre ce code pour se connecter.
 

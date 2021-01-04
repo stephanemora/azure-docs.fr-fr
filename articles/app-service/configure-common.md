@@ -1,21 +1,21 @@
 ---
 title: Configurer des applications sur le portail
-description: Apprenez à configurer les paramètres communs d’une application App Service dans le portail Azure. Paramètres d’application, chaînes de connexion, plateforme, pile de langage, conteneur, etc.
+description: Apprenez à configurer les paramètres communs d’une application App Service dans le portail Azure. Paramètres d’application, configuration d’application, chaînes de connexion, plateforme, pile de langage, conteneur, etc.
 keywords: azure app service, web app, paramètres d’app, variables d’environnement
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
-ms.date: 08/13/2019
+ms.date: 12/07/2020
 ms.custom: devx-track-csharp, seodec18, devx-track-azurecli
-ms.openlocfilehash: 76cfefa3f104ecef69e28fecd1c37fc336b0ce8c
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 4594a3a7ac7af7acf75fa5c47e2eab3246fc00e7
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96854646"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97346754"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Configurer une app App Service dans le portail Azure
 
-Cette rubrique explique comment configurer les paramètres courants d’une application web, back-end mobile ou API à l’aide du [portail Azure].
+Cet article explique comment configurer les paramètres courants d’une application web, d’un back end mobile ou d’une application API à l’aide du [portail Azure].
 
 ## <a name="configure-app-settings"></a>Configuration des paramètres d’application
 
@@ -118,7 +118,10 @@ Dans le [portail Azure], recherchez et sélectionnez **App Services**, puis sél
 
 Les développeurs ASP.NET et ASP.NET Core définissent les chaînes de connexion dans App Service comme ils le font avec `<connectionStrings>` dans *Web.config*, mais les valeurs que vous définissez dans App Service remplacent celles du fichier *Web.config*. Vous pouvez conserver en lieu sûr les paramètres de développement (par exemple un fichier de base de données) dans *Web.config* et les secrets de production (par exemple des informations d’identification SQL Database) dans App Service. Le même code utilise vos paramètres de développement lorsque vous déboguez localement, et utilise vos secrets de production lorsque vous les déployez sur Azure.
 
-Pour d’autres piles de langage, il est préférable d'utiliser des [paramètres d’application](#configure-app-settings) car les chaînes de connexion nécessitent un formatage spécial dans les clés variables pour pouvoir accéder aux valeurs. Il y a cependant une exception : certains types de bases de données Azure sont sauvegardés avec l'application si vous configurez leurs chaînes de connexion dans votre application. Pour plus d’informations, consultez [Éléments sauvegardés](manage-backup.md#what-gets-backed-up). Si vous n'avez pas besoin de cette sauvegarde automatisée, utilisez les paramètres de l'application.
+Pour d’autres piles de langage, il est préférable d'utiliser des [paramètres d’application](#configure-app-settings) car les chaînes de connexion nécessitent un formatage spécial dans les clés variables pour pouvoir accéder aux valeurs. 
+
+> [!NOTE]
+> Il existe un cas où vous pouvez utiliser des chaînes de connexion au lieu des paramètres d’application pour les langages autre que .NET : certains types de base de données Azure sont sauvegardés avec l’application _uniquement_ si vous configurez une chaîne de connexion pour la base de données dans votre application App Service. Pour plus d’informations, consultez [Éléments sauvegardés](manage-backup.md#what-gets-backed-up). Si vous n'avez pas besoin de cette sauvegarde automatisée, utilisez les paramètres de l'application.
 
 Lors de l'exécution, les chaînes de connexion sont disponibles en tant que variables d'environnement, préfixées par les types de connexion suivants :
 
@@ -228,21 +231,27 @@ Dans le [portail Azure], recherchez et sélectionnez **App Services**, puis sél
 
 ![Mappages de chemin d’accès](./media/configure-common/open-path.png)
 
-Les informations affichées sur la page **Mappages de chemin d'accès** varient selon le type de système d’exploitation.
+> [!NOTE] 
+> L’onglet **Mappages de chemin d’accès** peut afficher des paramètres spécifiques au système d’exploitation qui diffèrent de l’exemple présenté ici.
 
 ### <a name="windows-apps-uncontainerized"></a>Applications Windows (non conteneurisées)
 
 Pour les applications Windows, vous pouvez personnaliser les mappages de gestionnaire IIS ainsi que les applications et répertoires virtuels.
 
-Les mappages de gestionnaire vous permettent d’ajouter des processeurs de script personnalisés pour gérer les requêtes portant sur des extensions de fichiers spécifiques. Pour ajouter un gestionnaire personnalisé, cliquez sur **Nouveau gestionnaire**. Configurez le gestionnaire comme suit :
+Les mappages de gestionnaire vous permettent d’ajouter des processeurs de script personnalisés pour gérer les requêtes portant sur des extensions de fichiers spécifiques. Pour ajouter un gestionnaire personnalisé, cliquez sur **Nouveau mappage de gestionnaire**. Configurez le gestionnaire comme suit :
 
 - **Extension**. Extension de fichier à gérer, par exemple *\*.php* ou *handler.fcgi*.
 - **Processeur de script**. Chemin d'accès absolu du processeur de script vers vous. Les requêtes de fichiers qui correspondent à l'extension de fichier sont traitées par le processeur de script. Utilisez le chemin `D:\home\site\wwwroot` pour faire référence au répertoire racine de votre application Web.
 - **Arguments**. Arguments de ligne de commande facultatifs pour le processeur de script.
 
-Chaque application comporte le chemin racine par défaut (`/`) mappé à `D:\home\site\wwwroot`, où votre code est déployé par défaut. Si votre racine d'application figure dans un autre dossier, ou si votre référentiel contient plusieurs applications, vous pouvez modifier ou ajouter ici des applications et des répertoires virtuels. Cliquez sur **Nouvelle application virtuelle ou nouveau répertoire virtuel**.
+Chaque application comporte le chemin racine par défaut (`/`) mappé à `D:\home\site\wwwroot`, où votre code est déployé par défaut. Si votre racine d'application figure dans un autre dossier, ou si votre référentiel contient plusieurs applications, vous pouvez modifier ou ajouter ici des applications et des répertoires virtuels. 
 
-Pour configurer des applications et des répertoires virtuels, spécifiez chaque répertoire virtuel et son chemin d’accès physique correspondant par rapport à la racine du site web (`D:\home`). Vous pouvez éventuellement cocher la case **Application** pour marquer un répertoire virtuel comme application.
+À partir de l’onglet **Mappages de chemin d’accès**, cliquez sur **Nouvelle application virtuelle ou nouveau répertoire virtuel**. 
+
+- Pour mapper un répertoire virtuel à un chemin d’accès physique, laissez la case à cocher **Répertoire** activée. Indiquez le répertoire virtuel et le chemin d’accès relatif (physique) correspondant à la racine du site web (`D:\home`).
+- Pour marquer un répertoire virtuel en tant qu’application web, désactivez la case à cocher **Répertoire**.
+  
+  ![Case à cocher Répertoire](./media/configure-common/directory-check-box.png)
 
 ### <a name="containerized-apps"></a>Applications conteneurisées
 

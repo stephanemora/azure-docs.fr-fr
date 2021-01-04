@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 10/21/2020
 ms.author: ccompy
-ms.openlocfilehash: 963f0698b921caa413c61059ad69284c41b4f265
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 57b2955f8cec059cd20d353eba31dc39ad992d50
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95999429"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97506322"
 ---
 L’utilisation de l’intégration au réseau virtuel régional permet à votre application d’accéder aux :
 
@@ -96,7 +96,17 @@ Les routes BGP (Border Gateway Protocol) affectent également le trafic de votre
 
 ### <a name="azure-dns-private-zones"></a>Azure DNS Private Zones 
 
-Une fois que votre application est intégrée à votre réseau virtuel, elle utilise le même serveur DNS que celui avec lequel votre réseau virtuel est configuré. Vous pouvez remplacer ce comportement dans votre application en configurant le paramètre d’application WEBSITE_DNS_SERVER avec l’adresse du serveur DNS de votre choix. Si vous avez un serveur DNS personnalisé configuré avec votre réseau virtuel, mais que vous souhaitez que votre application utilise Azure DNS Private Zones, vous devez définir WEBSITE_DNS_SERVER sur la valeur 168.63.129.16. 
+Une fois que votre application est intégrée à votre réseau virtuel, elle utilise le même serveur DNS que celui avec lequel votre réseau virtuel est configuré. Par défaut, votre application ne fonctionnera pas avec Azure DNS Private Zones. Pour qu’elle fonctionne avec Azure DNS Private Zones, vous devez ajouter les paramètres d’application suivants :
+
+
+1. WEBSITE_DNS_SERVER avec la valeur 168.63.129.16
+1. WEBSITE_VNET_ROUTE_ALL avec la valeur 1
+
+
+Ces paramètres envoient l’ensemble de vos appels sortants de votre application vers votre réseau virtuel, en plus de permettre à votre application d’utiliser Azure DNS Private Zones.   Ces paramètres vont envoyer tous les appels sortants de votre application à votre réseau virtuel. En outre, cela permet à l’application d’utiliser Azure DNS en interrogeant la zone de DNS privé au niveau du Worker. Cette fonctionnalité doit être utilisée lorsqu’une application en cours d’exécution accède à une zone de DNS privé.
+
+> [!NOTE]
+>La tentative d’ajout d’un domaine personnalisé à une application web à l’aide de la zone de DNS privé n’est pas possible avec l’intégration au réseau virtuel. La validation du domaine personnalisé est effectuée au niveau du contrôleur, et non au niveau du Worker, ce qui empêche l’affichage des enregistrements DNS. Pour utiliser un domaine personnalisé à partir d’une zone de DNS privé, la validation doit être ignorée à l’aide d’Application Gateway ou d’un environnement App Service Environment ILB.
 
 ### <a name="private-endpoints"></a>Instances Private Endpoint
 

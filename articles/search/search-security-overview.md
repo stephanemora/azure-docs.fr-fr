@@ -1,26 +1,26 @@
 ---
 title: Présentation de la sécurité
 titleSuffix: Azure Cognitive Search
-description: Recherche cognitive Azure est compatible avec SOC 2, HIPAA et les autres certifications. Connexion et chiffrement des données, authentification ainsi qu’identité et accès via des ID de sécurité utilisateur et de groupe dans les expressions de filtres.
+description: Découvrez les fonctionnalités de sécurité de Recherche cognitive Azure pour protéger les points de terminaison, le contenu et les opérations.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/01/2020
+ms.date: 12/15/2020
 ms.custom: references_regions
-ms.openlocfilehash: f314394d3a0ac453d525079e096162d8739f67cf
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ffb5a78c13413a46565a9c57c87dc8273742fd24
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011793"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563447"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Sécurité dans Recherche cognitive Azure - Vue d’ensemble
 
 Cet article décrit les principales fonctionnalités de sécurité de Recherche cognitive Azure qui peuvent protéger le contenu et les opérations.
 
-+ Au niveau de la couche de stockage, le chiffrement au repos est intégré pour l’ensemble du contenu géré par le service enregistré sur le disque, y compris les index, les cartes de synonymes et les définitions d’indexeurs, de sources de données et d’ensembles de compétences. Recherche cognitive Azure prend également en charge l’ajout de clés gérées par le client (CMK) pour le chiffrement supplémentaire du contenu indexé. Pour les services créés après le 1er août 2020, le chiffrement CMK s’étend aux données sur les disques temporaires, pour le double chiffrement complet du contenu indexé.
++ Au niveau de la couche de stockage, le chiffrement au repos est intégré pour l’ensemble du contenu géré par le service enregistré sur le disque, notamment les index, les cartes de synonymes et les définitions d’indexeurs, de sources de données et d’ensembles de compétences. Recherche cognitive Azure prend également en charge l’ajout de clés gérées par le client (CMK) pour le chiffrement supplémentaire du contenu indexé. Pour les services créés après le 1er août 2020, le chiffrement CMK s’étend aux données sur les disques temporaires, pour le double chiffrement complet du contenu indexé.
 
 + La sécurité du trafic entrant protège le point de terminaison du service Recherche à des niveaux de sécurité plus élevés : depuis des clés API sur la demande à des règles de trafic entrant dans le pare-feu et à des points de terminaison privés qui protègent intégralement votre service de l’Internet public.
 
@@ -76,7 +76,7 @@ Les fonctionnalités de sécurité du trafic entrant protègent le point de term
 
 ### <a name="public-access-using-api-keys"></a>Accès public avec des clés API
 
-Par défaut, un service de recherche est accessible via le cloud public, en utilisant une authentification basée sur des clés pour l’administration ou l’accès aux requêtes au point de terminaison du service de recherche. Une clé API est une chaîne composée de nombres et de lettres générée de manière aléatoire. Le type de clé (admin ou requête) détermine le niveau d’accès. La soumission d’une clé valide est considérée comme la preuve que la requête provient d’une entité approuvée.
+Par défaut, un service de recherche est accessible via le cloud public, en utilisant une authentification basée sur des clés pour l’administration ou l’accès aux requêtes au point de terminaison du service de recherche. Une [clé API](search-security-rbac.md) est une chaîne composée de nombres et de lettres générée de manière aléatoire. Le type de clé (admin ou requête) détermine le niveau d’accès. La soumission d’une clé valide est considérée comme la preuve que la requête provient d’une entité approuvée.
 
 Il existe deux niveaux d’accès à votre service de recherche, qui sont activés par les deux clés API suivantes :
 
@@ -114,15 +114,15 @@ Bien que cette solution soit la plus sécurisée, l’utilisation de services su
 
 Dans Recherche cognitive Azure, les index individuels ne sont pas des objets sécurisables. Au lieu de cela, l’accès aux index est déterminé au niveau de la couche du service (accès en lecture ou en écriture au service) et du contexte d’une opération.
 
-Pour l’accès de l’utilisateur final, vous pouvez structurer les demandes de requête pour établir la connexion à l’aide d’une clé de requête, qui configure toutes les demandes en mode de lecture seule et qui inclut l’index spécifique utilisé par votre application. Dans une demande de requête, il est impossible de joindre des index ou d’accéder simultanément à plusieurs index. Ainsi, toutes les demandes ciblent un index unique par définition. Par conséquent, la structure de la demande de requête proprement dite (une clé plus un index unique cible) définit la limite de sécurité.
+Pour l’accès de l’utilisateur final, vous pouvez structurer les demandes de requête pour établir la connexion à l’aide d’une [clé de requête](search-security-rbac.md), qui configure toutes les demandes en mode de lecture seule et qui inclut l’index spécifique utilisé par votre application. Dans une demande de requête, il est impossible de joindre des index ou d’accéder simultanément à plusieurs index. Ainsi, toutes les demandes ciblent un index unique par définition. Par conséquent, la structure de la demande de requête proprement dite (une clé plus un index unique cible) définit la limite de sécurité.
 
-Il n’existe aucune différence entre l’accès administrateur et l’accès développeur aux index : tous deux doivent disposer d’un accès en écriture pour pouvoir créer, supprimer et mettre à jour des objets gérés par le service. Toute personne disposant d’une clé d’administration pour votre service peut lire, modifier ou supprimer un index de ce service. En ce qui concerne la protection contre la suppression accidentelle ou malveillante d’index, votre contrôle de code source en interne pour les ressources de code est la solution appropriée pour annuler des suppressions ou des modifications d’index indésirables. Recherche cognitive Azure dispose d’un système de basculement dans le cluster pour garantir sa disponibilité, mais il ne stocke pas et n’exécute pas le code propriétaire que vous avez utilisé pour créer ou charger des index.
+Il n’existe aucune différence entre l’accès administrateur et l’accès développeur aux index : tous deux doivent disposer d’un accès en écriture pour pouvoir créer, supprimer et mettre à jour des objets gérés par le service. Toute personne disposant d’une [clé d’administration](search-security-rbac.md) pour votre service peut lire, modifier ou supprimer un index de ce service. En ce qui concerne la protection contre la suppression accidentelle ou malveillante d’index, votre contrôle de code source en interne pour les ressources de code est la solution appropriée pour annuler des suppressions ou des modifications d’index indésirables. Recherche cognitive Azure dispose d’un système de basculement dans le cluster pour garantir sa disponibilité, mais il ne stocke pas et n’exécute pas le code propriétaire que vous avez utilisé pour créer ou charger des index.
 
 Pour les solutions d’architecture mutualisée qui nécessitent des limites de sécurité au niveau des index, ces solutions incluent généralement un niveau intermédiaire, que les clients utilisent pour gérer l’isolation des index. Pour plus d’informations sur les cas d’usage d’architecture mutualisée, consultez [Modèles de conception pour les applications SaaS mutualisées et Recherche cognitive Azure](search-modeling-multitenant-saas-applications.md).
 
 ## <a name="user-access"></a>Accès utilisateur
 
-La façon dont un utilisateur accède à un index et à d’autres objets est déterminée par le type de clé API sur la demande. La plupart des développeurs créent et affectent des [*clés de requête*](search-security-api-keys.md) pour les demandes de recherche du côté client. Une clé de requête accorde un accès en lecture au contenu pouvant faire l’objet d’une recherche dans l’index.
+La façon dont un utilisateur accède à un index et à d’autres objets est déterminée par le type de clé API sur la demande. La plupart des développeurs créent et affectent des [clés de requête](search-security-api-keys.md) pour les demandes de recherche du côté client. Une clé de requête accorde un accès en lecture au contenu pouvant faire l’objet d’une recherche dans l’index.
 
 Si vous avez besoin d’un contrôle précis par utilisateur sur les résultats de la recherche, vous pouvez créer des filtres de sécurité sur vos requêtes, en retournant des documents associés à une identité de sécurité donnée. Au lieu des rôles prédéfinis et des attributions de rôles, le contrôle d’accès basé sur l’identité est implémenté en tant que *filtre* qui limite les résultats de recherche de documents et de contenu en fonction des identités. Le tableau suivant décrit les deux approches permettant de filtrer les résultats de recherche de contenu non autorisé.
 

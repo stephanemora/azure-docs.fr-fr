@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2018
-ms.openlocfilehash: 7df04bd75f3fd11b1caa702655cbd204fc2b4fda
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: c304354f378708c43c25ef8b92b7b80b37ac03af
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96854837"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563107"
 ---
 # <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Solutions de supervision réseau Azure dans Azure Monitor
 
@@ -107,19 +107,33 @@ L’onglet « Afficher les métriques détaillées » ouvre le classeur pré-r
 ## <a name="migrating-from-azure-gateway-analytics-solution-to-azure-monitor-workbooks"></a>Migration de la solution d’analyse Azure Gateway vers des classeurs Azure Monitor
 
 > [!NOTE]
-> La solution d’analytique d’Azure Application Gateway est obsolète et la méthode recommandée pour utiliser l’analytique consiste à utiliser des classeurs exposés à travers les insights Azure Monitor Network pour la ressource Application Gateway.
+> Le classeur Insights réseau Azure Monitor est la solution recommandée pour accéder à l’analytique des métriques et des journaux pour vos ressources Application Gateway.
 
-* Si le paramètre de diagnostics est déjà activé pour stocker les journaux dans un espace de travail Log Analytics, le classeur des insights Azure Monitor Network peut consommer des données à partir du même emplacement. Aucune nouvelle configuration n’est requise.
+1. Vérifiez que [les paramètres de diagnostic sont activés](#enable-azure-application-gateway-diagnostics-in-the-portal) pour stocker les journaux dans un espace de travail Log Analytics. S’il est déjà configuré, le classeur Insights réseau Azure Monitor peut consommer des données à partir du même emplacement et aucune autre modification n’est nécessaire.
 
-* Toutes les données passées sont déjà disponibles dans le classeur à partir du moment où les paramètres de diagnostic ont été activés. Aucun transfert de données n’est nécessaire.
+> [!NOTE]
+> Toutes les données passées sont déjà disponibles dans le classeur à partir du moment où les paramètres de diagnostic ont été activés à l’origine. Aucun transfert de données n’est nécessaire.
 
-* Aucun bouton bascule actif n’est requis pour basculer vers les classeurs. La solution d’analytique et le classeur des insights Network peuvent fonctionner en parallèle.
+2. Accédez au [classeur Insights par défaut](#accessing-azure-application-gateway-analytics-via-azure-monitor-network-insights) pour votre ressource Application Gateway. Tous les insights existants pris en charge par la solution d’analyse Application Gateway seront déjà présents dans le classeur. Vous pouvez l’étendre en ajoutant des [visualisations](../platform/workbooks-overview.md#visualizations) personnalisées basées sur les données de journal et de métrique.
 
-* Il n’y a aucun coût supplémentaire associé aux classeurs Azure Monitor. L’espace de travail Log Analytics continuera à être facturé en fonction de l’utilisation.
-
-* Pour nettoyer la solution d’analyse Azure Gateway à partir de votre espace de travail, vous pouvez supprimer la solution sur la page des ressources de la solution.
+3. Une fois que vous êtes en mesure de voir tous vos insights de métrique et de journal, pour nettoyer la solution d’analyse Azure Gateway à partir de votre espace de travail, vous pouvez supprimer la solution sur la page des ressources de la solution.
 
 [ ![Capture d’écran de l’option de suppression pour la solution d’analyse Azure Application Gateway.](media/azure-networking-analytics/azure-appgw-analytics-delete.png)](media/azure-networking-analytics/application-gateway-analytics-delete.png#lightbox)
+
+### <a name="new-capabilities-with-azure-monitor-network-insights-workbook"></a>Nouvelles capacités avec le classeur Insights réseau Azure Monitor
+
+> [!NOTE]
+> Aucun coût supplémentaire n’est associé au classeur Insights Azure Monitor. L’espace de travail Log Analytics continuera à être facturé en fonction de l’utilisation.
+
+Le classeur Insights réseau vous permet de tirer profit des dernières capacités d’Azure Monitor et de Log Analytics, notamment :
+
+* Console centralisée pour la surveillance et la résolution des problèmes avec des données de [métrique](../insights/network-insights-overview.md#resource-health-and-metrics) et de journal.
+
+* Canevas flexible permettant de créer des [visualisations](../platform/workbooks-overview.md#visualizations) riches et personnalisées.
+
+* Possibilité de consommer et de [partager des modèles de classeur](../platform/workbooks-overview.md#workbooks-versus-workbook-templates) avec une communauté plus vaste.
+
+Pour plus d’informations sur les capacités de la nouvelle solution de classeurs, consultez [la page de présentation des classeurs](../platform/workbooks-overview.md).
 
 ## <a name="azure-network-security-group-analytics-solution-in-azure-monitor"></a>Solution d’analytique Azure Network Security Group dans Azure Monitor
 

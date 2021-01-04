@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 46bcdac41497eea91b5af0c512a7118e33d5d7c3
-ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
+ms.openlocfilehash: 3a37cde79cef59eaf9c3ef130bfbae9cff958bd7
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2020
-ms.locfileid: "94638901"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96919438"
 ---
 # <a name="api-management-advanced-policies"></a>Stratégies avancées de la Gestion des API
 
@@ -69,7 +69,7 @@ La stratégie de flux de contrôle doit contenir au moins un élément `<when/>`
 
 L'exemple suivant présente une stratégie [set-variable](api-management-advanced-policies.md#set-variable) et deux stratégies de flux de contrôle.
 
-La stratégie de variable définie se trouve dans la section entrante. Elle crée une variable `isMobile` booléenne [](api-management-policy-expressions.md#ContextVariables) définie sur true si l'en-tête de demande `User-Agent` contient le texte `iPad` ou `iPhone`.
+La stratégie set variable se trouve dans la section inbound et crée une variable de [contexte](api-management-policy-expressions.md#ContextVariables)`isMobile` booléenne qui a la valeur true si l’en-tête de demande `User-Agent` contient le texte `iPad` ou `iPhone`.
 
 La première stratégie de flux de contrôle se trouve également dans la section inbound et applique de manière conditionnelle une des deux stratégies [Set query string parameter](api-management-transformation-policies.md#SetQueryStringParameter) selon la valeur de la variable de contexte `isMobile`.
 
@@ -78,7 +78,7 @@ La deuxième stratégie de flux de contrôle se trouve dans la section outbound 
 ```xml
 <policies>
     <inbound>
-        <set-variable name="isMobile" value="@(context.Request.Headers["User-Agent"].Contains("iPad") || context.Request.Headers["User-Agent"].Contains("iPhone"))" />
+        <set-variable name="isMobile" value="@(context.Request.Headers.GetValueOrDefault("User-Agent","").Contains("iPad") || context.Request.Headers.GetValueOrDefault("User-Agent","").Contains("iPhone"))" />
         <base />
         <choose>
             <when condition="@(context.Variables.GetValueOrDefault<bool>("isMobile"))">
@@ -851,10 +851,10 @@ La stratégie `set-variable` déclare une variable de [contexte](api-management-
 
 ### <a name="example"></a><a name="set-variableExample"></a> Exemple
 
-L’exemple suivant montre une stratégie set variable dans la section inbound. Cette stratégie de variable définie crée une variable `isMobile` booléenne [](api-management-policy-expressions.md#ContextVariables) définie sur true si l'en-tête de demande `User-Agent` contient le texte `iPad` ou `iPhone`.
+L’exemple suivant montre une stratégie set variable dans la section inbound. Cette stratégie de variable définie crée une variable `isMobile` booléenne [définie](api-management-policy-expressions.md#ContextVariables) sur true si l'en-tête de demande `User-Agent` contient le texte `iPad` ou `iPhone`.
 
 ```xml
-<set-variable name="IsMobile" value="@(context.Request.Headers["User-Agent"].Contains("iPad") || context.Request.Headers["User-Agent"].Contains("iPhone"))" />
+<set-variable name="IsMobile" value="@(context.Request.Headers.GetValueOrDefault("User-Agent","").Contains("iPad") || context.Request.Headers.GetValueOrDefault("User-Agent","").Contains("iPhone"))" />
 ```
 
 ### <a name="elements"></a>Éléments

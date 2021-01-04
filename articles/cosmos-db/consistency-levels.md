@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/12/2020
-ms.openlocfilehash: 742ff2e6cff4569b5b7eeb131cd4394277b6c3cd
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.date: 12/09/2020
+ms.openlocfilehash: a480c8f2dfdda0ce7a1eb879554fb79c96adbe1e
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100454"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347810"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Niveaux de cohérence dans Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -44,22 +44,25 @@ La cohérence de lecture s’applique à une même opération de lecture dans un
 
 Vous pouvez configurer le niveau de cohérence par défaut sur votre compte Azure Cosmos DB à tout moment. Le niveau de cohérence par défaut configuré sur votre compte s’applique à toutes les bases de données Azure Cosmos et tous les conteneurs sous ce compte. Toutes les lectures et requêtes émises vers un conteneur ou une base de données utilisent le niveau de cohérence par défaut spécifié. Pour en savoir plus, consultez [Configurer le niveau de cohérence par défaut](how-to-manage-consistency.md#configure-the-default-consistency-level). Vous pouvez également remplacer le niveau de cohérence par défaut pour une requête spécifique. Pour plus d’informations, consultez [Guide pratique pour remplacer le niveau de cohérence par défaut](how-to-manage-consistency.md?#override-the-default-consistency-level).
 
+> [!IMPORTANT]
+> Il est nécessaire de recréer une instance de Kit de développement logiciel (SDK) après avoir modifié le niveau de cohérence par défaut. Pour ce faire, vous pouvez redémarrer l’application. Cela garantit que le Kit de développement logiciel (SDK) utilise le nouveau niveau de cohérence par défaut.
+
 ## <a name="guarantees-associated-with-consistency-levels"></a>Garanties associées aux niveaux de cohérence
 
 Azure Cosmos DB garantit que 100 % des requêtes de lecture respecteront la garantie de cohérence dans le cadre du niveau de cohérence choisi. Les définitions précises des cinq niveaux de cohérence dans Azure Cosmos DB (en utilisant le langage de spécification TLA +) sont fournies dans le référentiel GitHub [azure-cosmos-tla](https://github.com/Azure/azure-cosmos-tla).
 
 La sémantique des cinq niveaux de cohérence est décrite ici :
 
-- **Remarque** : une cohérence forte offre une garantie de linéarisabilité. La linéarisabilité fait référence aux demandes de traitement simultanées. Garantit que les lectures retournent la version validée la plus récente d’un élément. Un client ne voit jamais une écriture partielle ou non validée. Les utilisateurs sont toujours assurés de lire la toute dernière écriture validée.
+- **Remarque**: une cohérence forte offre une garantie de linéarisabilité. La linéarisabilité fait référence aux demandes de traitement simultanées. Garantit que les lectures retournent la version validée la plus récente d’un élément. Un client ne voit jamais une écriture partielle ou non validée. Les utilisateurs sont toujours assurés de lire la toute dernière écriture validée.
 
   Le graphique suivant illustre la cohérence forte avec des notes musicales. Une fois les données écrites dans la région « USA Ouest 2 », quand vous lisez les données à partir d’autres régions, vous obtenez la valeur la plus récente :
 
   :::image type="content" source="media/consistency-levels/strong-consistency.gif" alt-text="Illustration d’un niveau de cohérence fort":::
 
-- **Obsolescence limitée** : les lectures honoreront la garantie de préfixe cohérent. Les lectures risquent d’accuser un retard par rapport aux écritures d’au maximum *« K »* versions (c’est-à-dire « mises à jour ») d’un élément ou d’un intervalle de temps *« T »* , suivant le seuil qui est atteint en premier. En d’autres termes, lorsque vous choisissez l’obsolescence limitée, « l’obsolescence » peut être configurée de deux manières :
+- **Obsolescence limitée**: les lectures honoreront la garantie de préfixe cohérent. Les lectures risquent d’accuser un retard par rapport aux écritures d’au maximum *« K »* versions (c’est-à-dire « mises à jour ») d’un élément ou d’un intervalle de temps *« T »* , suivant le seuil qui est atteint en premier. En d’autres termes, lorsque vous choisissez l’obsolescence limitée, « l’obsolescence » peut être configurée de deux manières :
 
-- Nombre de versions ( *K* ) de l’élément
-- Intervalle de temps ( *T* ) pendant lequel les lectures peuvent être en retard par rapport aux écritures
+- Nombre de versions (*K*) de l’élément
+- Intervalle de temps (*T*) pendant lequel les lectures peuvent être en retard par rapport aux écritures
 
 Pour un compte à région unique, la valeur minimale de *K* et de *T* est de 10 opérations d’écriture ou de 5 secondes. Pour les comptes à plusieurs régions, la valeur minimale de *K* et *T* est de 100 000 opérations d’écriture ou de 300 secondes.
 
@@ -76,7 +79,7 @@ La cohérence de type Obsolescence limitée offre un ordre global total, en deho
 
   :::image type="content" source="media/consistency-levels/bounded-staleness-consistency.gif" alt-text="Illustration du niveau de cohérence d’obsolescence limitée":::
 
-- **Session** :  Dans une session à un seul client, il est garanti que les lectures honorent le préfixe cohérent, les lectures unitones, les écritures unitones, les lectures de vos écritures et les écritures suivant les lectures. Cela suppose une session avec un seul « processus d’écriture » ou le partage du jeton de session pour plusieurs processus d’écriture.
+- **Session**:  Dans une session à un seul client, il est garanti que les lectures honorent le préfixe cohérent, les lectures unitones, les écritures unitones, les lectures de vos écritures et les écritures suivant les lectures. Cela suppose une session avec un seul « processus d’écriture » ou le partage du jeton de session pour plusieurs processus d’écriture.
 
 Les clients en dehors de la session effectuant des écritures verront les garanties suivantes :
 
@@ -113,7 +116,7 @@ La cohérence éventuelle est la forme de cohérence la plus faible, car un clie
 
 En pratique, vous pouvez obtenir de meilleures garanties de cohérence. Les garanties de cohérence pour une opération de lecture correspondent à l’actualisation et au classement de l’état de la base de données que vous demandez. La cohérence de lecture est liée au classement et à la propagation des opérations d’écriture/mise à jour.  
 
-Si aucune opération d’écriture n’est effectuée sur la base de données, une opération de lecture avec un niveau de cohérence **éventuelle** , **session** ou **préfixe cohérent** risque de produire les mêmes résultats qu’une opération de lecture avec un niveau de cohérence forte.
+Si aucune opération d’écriture n’est effectuée sur la base de données, une opération de lecture avec un niveau de cohérence **éventuelle**, **session** ou **préfixe cohérent** risque de produire les mêmes résultats qu’une opération de lecture avec un niveau de cohérence forte.
 
 Si votre compte Azure Cosmos est configuré avec un niveau de cohérence autre que la cohérence forte, vous pouvez déterminer la probabilité que vos clients bénéficieront de lectures fortes et cohérentes pour vos charges de travail en examinant la métrique *Probabilistically Bounded Staleness* (PBS). Cette métrique est exposée dans le portail Azure. Pour en savoir plus, consultez [Surveiller la métrique de probabilités en fonction de l’obsolescence limitée (PBS)](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric).
 
@@ -153,7 +156,7 @@ La latence exacte de la durée des boucles s’exprime en fonction de la distanc
 
 ## <a name="consistency-levels-and-data-durability"></a><a id="rto"></a>Niveaux de cohérence et durabilité des données
 
-Dans un environnement de base de données globalement distribuée, il existe une relation directe entre le niveau de cohérence et la durabilité des données en situation de panne à l'échelle d'une région. Au moment de l'élaboration de votre plan de continuité d'activité, vous devez identifier le délai maximal acceptable nécessaire à la récupération complète de l'application après un événement perturbateur. Ce délai s’appelle l’ **objectif de délai de récupération** ( **RTO** , recovery time objective). Vous devez également déterminer sur quelle période maximale l'application peut accepter de perdre les mises à jour de données récentes lors de la récupération après l'événement perturbateur. Il s’agit de l’ **objectif de point de récupération** ( **RPO** , recovery point objective).
+Dans un environnement de base de données globalement distribuée, il existe une relation directe entre le niveau de cohérence et la durabilité des données en situation de panne à l'échelle d'une région. Au moment de l'élaboration de votre plan de continuité d'activité, vous devez identifier le délai maximal acceptable nécessaire à la récupération complète de l'application après un événement perturbateur. Ce délai s’appelle l’**objectif de délai de récupération** (**RTO**, recovery time objective). Vous devez également déterminer sur quelle période maximale l'application peut accepter de perdre les mises à jour de données récentes lors de la récupération après l'événement perturbateur. Il s’agit de l’**objectif de point de récupération** (**RPO**, recovery point objective).
 
 Le tableau ci-dessous définit la relation entre le modèle de cohérence et la durabilité des données en situation de panne à l’échelle d’une région. Il est important de noter que dans un système distribué, même avec une cohérence forte, il s’avère impossible d’avoir une base de données distribuée avec un RPO de zéro en raison du [théorème CAP](https://en.wikipedia.org/wiki/CAP_theorem).
 

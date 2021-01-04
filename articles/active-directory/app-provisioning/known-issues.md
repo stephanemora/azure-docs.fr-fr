@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 11/19/2020
+ms.date: 12/14/2020
 ms.reviewer: arvinh
-ms.openlocfilehash: e0a77e1e4757c8951756c3e41479628c293dfd8f
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 78e9d7355b8c96295456f8aa9cb80b1d3bdd2fab
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96174830"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509544"
 ---
 # <a name="known-issues-application-provisioning"></a>Problèmes connus : Approvisionnement d’applications
 Problèmes connus à prendre en compte lors de l’utilisation de l’approvisionnement d’applications. Vous pouvez fournir des retours sur le service d’approvisionnement d’applications sur UserVoice ; voir [UserVoice pour l’approvisionnement d’applications Azure AD](https://aka.ms/appprovisioningfeaturerequest). Nous surveillons étroitement le service UserVoice pour améliorer le service. 
@@ -57,6 +57,10 @@ Azure AD ne peut actuellement pas approvisionner des attributs null. Si un attri
 
 Les expressions de mappage d’attributs peuvent avoir un maximum de 10 000 caractères. 
 
+**Filtres d’étendue non pris en charge**
+
+Les extensions de répertoire appRoleAssignments, userType et accountExpires ne sont pas prises en charge en tant que filtres d’étendue.
+
 
 ## <a name="service-issues"></a>Problèmes liés aux services 
 
@@ -64,7 +68,8 @@ Les expressions de mappage d’attributs peuvent avoir un maximum de 10 000 cara
 
 - L’approvisionnement de mots de passe n’est pas pris en charge. 
 - L’approvisionnement de groupes imbriqués n’est pas pris en charge. 
-- L’approvisionnement de locataires B2C n’est pas pris en charge en raison de la taille des locataires. 
+- L’approvisionnement de locataires B2C n’est pas pris en charge en raison de la taille des locataires.
+- Toutes les applications d’approvisionnement ne sont pas disponibles dans tous les clouds. Par exemple, Atlassian n’est pas encore disponible dans le cloud Government. Nous travaillons en collaboration avec les développeurs d’applications pour intégrer leurs applications à tous les clouds.
 
 **Le provisionnement automatique n’est pas disponible sur mon application OIDC**
 

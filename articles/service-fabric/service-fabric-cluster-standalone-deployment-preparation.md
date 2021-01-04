@@ -3,12 +3,12 @@ title: Préparation du déploiement d’un cluster autonome
 description: Documentation relative à la préparation de l’environnement et la création de la configuration du cluster, à prendre en considération avant de déployer un cluster conçu pour gérer une charge de travail de production.
 ms.topic: conceptual
 ms.date: 9/11/2018
-ms.openlocfilehash: 9e5ad37d803b2042fd57b0a325570e69d7b73038
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 277c7e047815b3b4171f7cced203ecbe5b68b155
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842952"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509170"
 ---
 # <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>Planifier et préparer votre déploiement de cluster Service Fabric autonome
 
@@ -103,7 +103,7 @@ Lorsqu’un administrateur de cluster configure un cluster autonome Service Fabr
 5. Si les ordinateurs du cluster ne sont pas accessibles via Internet, définissez les éléments suivants dans la configuration du cluster :
    * Désactiver la télémétrie : sous *Propriétés*, définissez *« enableTelemetry » : false*
    * Désactiver le téléchargement de version Fabric automatique et les notifications indiquant que la prise en charge de la version actuelle touche à sa fin : sous *Propriétés*, définissez *« fabricClusterAutoupgradeEnabled » : false*
-   * De même, si l’accès réseau à Internet est limité à des domaines sur liste verte, les domaines ci-dessous sont nécessaires pour la mise à niveau automatique : go.microsoft.com download.microsoft.com
+   * De même, si l’accès réseau à Internet est limité à des domaines sur liste d’autorisation, les domaines ci-dessous sont nécessaires pour la mise à niveau automatique : go.microsoft.com download.microsoft.com
 
 6. Définissez les exclusions antivirus Service Fabric appropriées :
 

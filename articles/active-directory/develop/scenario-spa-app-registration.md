@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/19/2020
 ms.author: hahamil
 ms.custom: aaddev
-ms.openlocfilehash: c9fde904d6befebfcfd87b55bd7b2bf4e4c825f2
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: e42b6b7ffa39110ce356094de690bb353a3fb10f
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443821"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107785"
 ---
 # <a name="single-page-application-app-registration"></a>Application monopage : Inscription d'application
 
@@ -27,10 +27,12 @@ Pour inscrire une application monopage dans la plateforme d’identité Microsof
 
 Pour les applications basées sur MSAL.js 1.0 et 2.0, commencez par suivre les étapes suivantes pour créer l’inscription d’application initiale.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). Si votre compte a accès à plusieurs locataires, sélectionnez le filtre **Répertoire + abonnement** dans le menu supérieur, puis choisissez le locataire qui doit contenir l’inscription d’application que vous allez créer.
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Si vous avez accès à plusieurs locataires, utilisez le filtre **Répertoire + abonnement** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: dans le menu du haut pour sélectionner le locataire dans lequel vous voulez inscrire une application.
 1. Recherchez et sélectionnez **Azure Active Directory**.
-1. Sous **Gérer**, sélectionnez **Inscriptions des applications**.
-1. Sélectionnez **Nouvelle inscription**, entrez un **Nom** pour l’application, puis choisissez les **Types de comptes pris en charge** pour celle-ci. N’entrez **PAS** d’**URI de redirection**. Pour obtenir une description des différents types de comptes, consultez [Inscrire une nouvelle application à l’aide du portail Azure](quickstart-register-app.md).
+1. Sous **Gérer**, sélectionnez **Inscriptions d’applications** > **Nouvelle inscription**.
+1. Entrez un **nom** pour votre application. Les utilisateurs de votre application peuvent voir ce nom, et vous pouvez le changer ultérieurement.
+1. Choisissez les **Types de comptes pris en charge** pour l’application. N’entrez **PAS** d’**URI de redirection**. Pour obtenir une description des différents types de comptes, consultez [Inscrire une application](quickstart-register-app.md).
 1. Sélectionnez **Inscrire** pour l’inscription d’application.
 
 Ensuite, configurez l’inscription d’application avec un **URI de redirection** pour spécifier l’emplacement vers où la plateforme d’identité Microsoft doit rediriger le client, ainsi que tous les jetons de sécurité. Suivez les étapes appropriées pour la version de MSAL.js que vous utilisez dans votre application :
@@ -43,7 +45,7 @@ Ensuite, configurez l’inscription d’application avec un **URI de redirection
 Procédez comme suit pour ajouter un URI de redirection pour une application qui utilise MSAL.js 2.0 ou version ultérieure. MSAL.js 2.0+ prend en charge le flux de code d’autorisation avec PKCE et CORS en réponse aux [restrictions de cookies tierces du navigateur](reference-third-party-cookies-spas.md). Le flux d’octroi implicite n’est pas pris en charge dans MSAL.js 2.0+.
 
 1. Dans le portail Azure, sélectionnez l’inscription d’application que vous avez créée à l’étape [Créer l’inscription d’application](#create-the-app-registration).
-1. Sous **Gérer**, sélectionnez **Authentification**, puis **Ajouter une plateforme**.
+1. Sous **Gérer**, sélectionnez **Authentification** > **Ajouter une plateforme**.
 1. Sous **Applications web**, sélectionnez la vignette **Application monopage**.
 1. Sous **URI de redirection**, entrez un [URI de redirection](reply-url.md). N’activez **AUCUNE** des cases à cocher sous **Octroi implicite**.
 1. Sélectionnez **Configurer** pour terminer l’ajout de l’URI de redirection.
@@ -57,7 +59,7 @@ Pour plus de conseils, suivez le [tutoriel](tutorial-v2-javascript-auth-code.md)
 Procédez comme suit pour ajouter un URI de redirection pour une application monopage qui utilise MSAL.js, version 1.3 ou antérieure, et le flux d’octroi implicite. Les applications qui utilisent MSAL.js, version 1.3 ou antérieure, ne prennent pas en charge le flux de code d’autorisation.
 
 1. Dans le portail Azure, sélectionnez l’inscription d’application que vous avez créée à l’étape [Créer l’inscription d’application](#create-the-app-registration).
-1. Sous **Gérer**, sélectionnez **Authentification**, puis **Ajouter une plateforme**.
+1. Sous **Gérer**, sélectionnez **Authentification** > **Ajouter une plateforme**.
 1. Sous **Applications web**, sélectionnez la vignette **Application monopage**.
 1. Sous **URI de redirection**, entrez un [URI de redirection](reply-url.md).
 1. Activez le **Flux implicite** :
@@ -79,4 +81,4 @@ Lorsque toutes vos applications monopages de production représentées par une i
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Ensuite, configurez le code de votre application pour utiliser l’inscription d’application que vous avez créée dans les étapes précédentes : [Configuration du code de l’application](scenario-spa-app-configuration.md).
+Configurez le code de votre application pour utiliser l’inscription d’application que vous avez créée aux étapes précédentes : [Configuration du code de l’application](scenario-spa-app-configuration.md).

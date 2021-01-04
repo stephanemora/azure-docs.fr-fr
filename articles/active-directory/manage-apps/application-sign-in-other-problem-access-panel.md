@@ -11,13 +11,13 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: japere
-ms.custom: contperfq2
-ms.openlocfilehash: 8cbc683f06b809ec4d9c63a61d73a0c731a92cd7
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: 59d733bfe5580e64d531eeac1db443982a308517
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94651616"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033627"
 ---
 # <a name="troubleshoot-problems-signing-in-to-an-application-from-azure-ad-my-apps"></a>Résoudre les problèmes de connexion à une application à partir d’Azure AD Mes applications
 
@@ -61,6 +61,7 @@ L’accès à Mes applications peut être bloqué en raison d’un problème ave
 -   [Vérifier l’état Multi-Factor Authentication d’un utilisateur](#check-a-users-multi-factor-authentication-status)
 -   [Vérifier les informations de contact de l’authentification d’un utilisateur](#check-a-users-authentication-contact-info)
 -   [Vérifier les appartenances d’un utilisateur à des groupes](#check-a-users-group-memberships)
+-   [Vérifier si un utilisateur a plus de 999 attributions de rôle d’application](#check-if-a-user-has-more-than-999-app-role-assignments)
 -   [Vérifier les licences affectées à un utilisateur](#check-a-users-assigned-licenses)
 -   [Affecter une licence à un utilisateur](#assign-a-user-a-license)
 
@@ -138,6 +139,16 @@ Pour vérifier l’appartenance d’un utilisateur à des groupes, procédez com
 5.  Sélectionnez **Tous les utilisateurs**.
 6.  **Recherchez** l’utilisateur qui vous intéresse et **sélectionnez la ligne** correspondante.
 7.  Sélectionnez **Groupes** pour afficher les groupes dont l’utilisateur est membre.
+
+### <a name="check-if-a-user-has-more-than-999-app-role-assignments"></a>Vérifier si un utilisateur a plus de 999 attributions de rôle d’application
+Si plus de 999 attributions de rôle d’application sont affectées à l’utilisateur, il se peut qu’il ne puisse pas voir toutes ses applications sur Mes applications.
+
+Cela est dû au fait que Mes applications indique actuellement jusqu’à 999 attributions de rôle d’application pour déterminer les applications auxquelles les utilisateurs sont affectés. Si un utilisateur est affecté à plus de 999 applications, il n’est pas possible de contrôler celles de ces applications qui s’afficheront dans le portail Mes applications.
+
+Pour vérifier le nombre d’attributions de rôle d’application à un utilisateur, procédez comme suit :
+1. Installez le module PowerShell [**Microsoft. Graph**](https://github.com/microsoftgraph/msgraph-sdk-powershell).
+2. Exécutez `Connect-MgGraph -Scopes "Directory.Read.All"` et authentifiez-vous en tant qu’**administrateur général**.
+3. Exécutez `$m = Get-MgUserAppRoleAssignment -UserId "<userId>" | Measure; $m.Count` pour déterminer le nombre actuel d’attributions de rôle d’application à l’utilisateur.
 
 ### <a name="check-a-users-assigned-licenses"></a>Vérifier les licences affectées à un utilisateur
 Pour vérifier les licences affectées à un utilisateur, procédez comme suit :

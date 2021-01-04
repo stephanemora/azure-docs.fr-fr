@@ -1,72 +1,80 @@
 ---
-title: Résolution des problèmes - Azure Monitor Application Insights pour Java
-description: Résolution des problèmes dans Azure Monitor Application Insights pour Java
+title: Résolution des problèmes dans Azure Monitor Application Insights pour Java
+description: Découvrez comment résoudre les problèmes liés à l’agent Java pour Azure Monitor Application Insights
 ms.topic: conceptual
 ms.date: 11/30/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: cf27763f857cc1fd1aad5256d0c6cecf91251caf
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 14644f76b7de53b2b6ee3f04131daaf59267a5ff
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96855539"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507640"
 ---
-# <a name="troubleshooting-azure-monitor-application-insights-java"></a>Résolution des problèmes dans Azure Monitor Application Insights pour Java
+# <a name="troubleshooting-guide-azure-monitor-application-insights-for-java"></a>Guide de résolution des problèmes : Azure Monitor Application Insights pour Java
 
-Dans cet article, nous avons abordé certains des problèmes courants auxquels un utilisateur peut être confronté lors de l’instrumentation de l’application Java à l’aide de l’agent Java, ainsi que les étapes permettant de résoudre ces problèmes.
+Dans cet article, nous aborderons certains des problèmes courants que vous pouvez rencontrer lors de l’instrumentation d’une application Java à l’aide de l’agent Java pour Application Insights. Nous abordons également les étapes à suivre pour résoudre ces problèmes. Application Insights est une fonctionnalité du service de plateforme Azure Monitor.
 
-## <a name="self-diagnostic-log-file"></a>Fichier journal d’autodiagnostic
+## <a name="check-the-self-diagnostic-log-file"></a>Vérifier le fichier journal de diagnostic automatique
 
-Par défaut, Application Insights pour Java 3.0 génère un fichier journal nommé `applicationinsights.log` dans le répertoire où se trouve le fichier `applicationinsights-agent-3.0.0.jar`.
+Par défaut, l’agent Java 3.0 pour Application Insights produit un fichier journal nommé `applicationinsights.log` dans le même répertoire que le fichier `applicationinsights-agent-3.0.0.jar`.
 
 Ce fichier journal est le premier endroit où chercher des indications sur le problème rencontré.
 
-## <a name="upgrade-from-application-insights-java-2x-sdk"></a>Mise à niveau à partir du SDK Application Insights pour Java 2.x
+## <a name="upgrade-from-the-application-insights-java-2x-sdk"></a>Mettre à niveau à partir du Kit de développement logiciel (SDK) Application Insights pour Java 2.x
 
-Consultez [Mise à niveau à partir du SDK 2.x](./java-standalone-upgrade-from-2x.md).
+Si vous utilisez déjà le Kit de développement logiciel (SDK) Application Insights pour Java 2.x dans votre application, vous pouvez continuer à l’utiliser. L’agent Java 3.0 le détecte. Pour plus d’informations, consultez [Mettre à niveau à partir du Kit de développement logiciel (SDK) Java 2.x](./java-standalone-upgrade-from-2x.md).
 
-## <a name="upgrade-from-30-preview"></a>Mise à niveau à partir de la version 3.0 (préversion)
+## <a name="upgrade-from-application-insights-java-30-preview"></a>Mise à niveau à partir d’Application Insights pour Java 3.0 Preview
 
-Si vous effectuez une mise à niveau à partir de la version 3.0 (préversion), passez en revue très attentivement toutes les [options de configuration](./java-standalone-config.md), car la structure JSON est totalement différente dans la version 3.0 en disponibilité générale.
+Si vous effectuez une mise à niveau à partir de l’agent Java 3.0 Preview, examinez attentivement toutes les [options de configuration](./java-standalone-config.md). La structure JSON a été entièrement modifiée dans la version 3.0 en disponibilité générale (GA).
 
 Ces modifications sont les suivantes :
 
-1.  Le nom du fichier de configuration (anciennement `ApplicationInsights.json`) a été remplacé par `applicationinsights.json`.
-2.  Le nœud `instrumentationSettings` n’est plus présent. Tout le contenu de `instrumentationSettings` a été déplacé vers le niveau racine. 
-3.  Les nœuds de configuration comme `sampling`, `jmxMetrics`, `instrumentation` et `heartbeat` ont été déplacés de `preview` vers le niveau racine.
+-  Le nom du fichier config (anciennement `ApplicationInsights.json`) a été remplacé par `applicationinsights.json`.
+-  Le nœud `instrumentationSettings` n’est plus présent. Tout le contenu de `instrumentationSettings` a été déplacé vers le niveau racine. 
+-  Les nœuds de configuration comme `sampling`, `jmxMetrics`, `instrumentation` et `heartbeat` ont été déplacés de `preview` vers le niveau racine.
 
-## <a name="ssl-certificate-issues"></a>Problèmes de certificat SSL
+## <a name="some-logging-is-not-auto-collected"></a>Une partie de la journalisation n’est pas collectée automatiquement
 
-Si vous utilisez le magasin de clés Java par défaut, sachez que celui-ci dispose déjà de tous les certificats racine de l’autorité de certification. Vous n’aurez donc pas besoin d’importer d’autres certificats SSL.
+La journalisation n’est capturée que si elle respecte, premièrement, le seuil configuré des infrastructures de journalisation, et deuxièmement, le seuil configuré d’Application Insights.
+
+La meilleure façon de savoir si une instruction de journalisation particulière respecte le seuil configuré des frameworks de journalisation est de confirmer qu’elle apparaît dans le journal des applications (par exemple, fichier ou console).
+
+Pour plus d’informations, consultez la [configuration de la journalisation collectée automatiquement](./java-standalone-config.md#auto-collected-logging).
+
+## <a name="import-ssl-certificates"></a>Importer des certificats SSL
+
+Si vous utilisez le magasin de clés Java par défaut, tous les certificats racine de l’autorité de certification sont déjà présents. Vous n’avez pas besoin d’importer d’autres certificats SSL.
 
 Si vous utilisez un magasin de clés Java personnalisé, vous devrez peut-être y importer les certificats SSL de point de terminaison Application Insights.
 
-### <a name="some-key-terminology"></a>Voici certains termes clés :
-Un *magasin de clés* est un référentiel qui contient des certificats, des clés publiques et des clés privées. En règle générale, les distributions JDK comprennent un exécutable permettant de les gérer : `keytool`.
+### <a name="key-terminology"></a>Terminologie clé
+Un *magasin de clés* est un référentiel qui contient des certificats, des clés publiques et des clés privées. En règle générale, les distributions Java Development Kit comprennent un exécutable permettant de les gérer : `keytool`.
 
 L’exemple suivant est une commande simple qui permet d’importer un certificat SSL dans le magasin de clés :
 
 `keytool -importcert -alias your_ssl_certificate -file "your downloaded SSL certificate name".cer -keystore "Your KeyStore name" -storepass "Your keystore password" -noprompt`
 
-### <a name="steps-to-download-and-add-the-ssl-certificate"></a>Étapes pour télécharger et ajouter le certificat SSL :
+### <a name="steps-to-download-and-add-an-ssl-certificate"></a>Étapes pour télécharger et ajouter un certificat SSL
 
-1.  Ouvrez votre navigateur préféré, puis accédez à l’URL `IngestionEndpoint` qui est incluse dans la chaîne de connexion utilisée pour instrumenter votre application, comme indiqué ci-dessous.
+1.  Ouvrez votre navigateur préféré, puis accédez à l’URL `IngestionEndpoint` qui est incluse dans la chaîne de connexion utilisée pour instrumenter votre application.
 
-    :::image type="content" source="media/java-ipa/troubleshooting/ingestion-endpoint-url.png" alt-text="Chaîne de connexion Application Insights":::
+    :::image type="content" source="media/java-ipa/troubleshooting/ingestion-endpoint-url.png" alt-text="Capture d’écran montrant une chaîne de connexion Application Insights.":::
 
-2.  Cliquez sur l’icône « Afficher les informations du site » (verrou) dans le navigateur, puis cliquez sur l’option « Certificat » comme indiqué ci-dessous.
+2.  Sélectionnez l’icône **Afficher les informations du site** (verrou) dans le navigateur, puis sélectionnez l’option **Certificat**.
 
-    :::image type="content" source="media/java-ipa/troubleshooting/certificate-icon-capture.png" alt-text="Capture d’écran du certificat SSL":::
+    :::image type="content" source="media/java-ipa/troubleshooting/certificate-icon-capture.png" alt-text="Capture d’écran de l’option Certificat dans les informations du site.":::
 
-3.  Accédez à l’onglet Détails, puis cliquez sur Copier dans un fichier.
-4.  Cliquez sur le bouton Suivant, sélectionnez le format « X.509 encodé en base 64(.CER) », puis sélectionnez Suivant.
+3.  Accédez à l’onglet **Détails** et sélectionnez **Copier dans le fichier**.
+4.  Sélectionnez le bouton **Suivant**, sélectionnez le format **X.509 encodé en base 64 (.CER)** , puis sélectionnez à nouveau **Suivant**.
 
-    :::image type="content" source="media/java-ipa/troubleshooting/certificate-export-wizard.png" alt-text="Assistant Exportation de certificats SSL":::
+    :::image type="content" source="media/java-ipa/troubleshooting/certificate-export-wizard.png" alt-text="Capture d’écran de l’Assistant Exportation de certificat, avec un format sélectionné.":::
 
-5.  Spécifiez le fichier dans lequel vous souhaitez enregistrer le certificat SSL. Cliquez sur Suivant pour terminer l’Assistant. Le message « L’exportation a réussi »doit s’afficher.
-6.  Une fois que vous disposez du certificat, il est temps de l’importer dans un magasin de clés Java. Utilisez la [commande](#some-key-terminology) ci-dessus pour importer des certificats.
+5.  Spécifiez le fichier dans lequel vous souhaitez enregistrer le certificat SSL. Ensuite, sélectionnez **Suivant** > **Terminer**. Le message « L’exportation a réussi »doit s’afficher.
+6.  Une fois que vous disposez du certificat, il est temps de l’importer dans un magasin de clés Java. Utilisez la [commande précédente](#key-terminology) pour importer des certificats.
 
 > [!WARNING]
-> Vous devrez répéter ces étapes pour récupérer le nouveau certificat avant que le certificat actuel n’expire. Vous trouverez des informations sur l’expiration sous l’onglet « Détails » de la fenêtre contextuelle Certificat, comme indiqué ci-dessous.
-
-:::image type="content" source="media/java-ipa/troubleshooting/certificate-details.png" alt-text="Détails sur les certificats SSL":::
+> Vous devrez répéter ces étapes pour récupérer le nouveau certificat avant que le certificat actuel n’expire. Vous trouverez des informations sur l’expiration sous l’onglet **Détails** de la boîte de dialogue **Certificat**.
+>
+> :::image type="content" source="media/java-ipa/troubleshooting/certificate-details.png" alt-text="Capture d’écran montrant les détails du certificat SSL.":::

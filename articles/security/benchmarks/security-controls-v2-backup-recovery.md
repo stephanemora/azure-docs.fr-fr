@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 1ed477c6cf069dbb402e5bda9c1f48f7bc208f18
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 089cf521a7c5428833be340001c88b870c568a8f
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94698799"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368883"
 ---
 # <a name="security-control-v2-backup-and-recovery"></a>Contrôle de sécurité V2 : Sauvegarde et récupération
 
@@ -20,7 +20,7 @@ La sauvegarde et la récupération recouvrent les contrôles destinés à s’as
 
 ## <a name="br-1-ensure-regular-automated-backups"></a>BR-1 : Garantir des sauvegardes automatiques régulières
 
-| Identifiant Azure | ID des contrôles CIS v7.1 | ID NIST SP800-53 r4 |
+| Identifiant Azure | ID des contrôles CIS v7.1 | ID NIST SP 800-53 r4 |
 |--|--|--|--|
 | BR-1 | 10.1 | CP-2, CP4, CP-6, CP-9 |
 
@@ -50,7 +50,7 @@ Pour un niveau plus élevé de protection, vous pouvez activer l’option de sto
 
 ## <a name="br-2-encrypt-backup-data"></a>BR-2 : Chiffrer les données de sauvegarde
 
-| Identifiant Azure | ID des contrôles CIS v7.1 | ID NIST SP800-53 r4 |
+| Identifiant Azure | ID des contrôles CIS v7.1 | ID NIST SP 800-53 r4 |
 |--|--|--|--|
 | BR-2 | 10,2 | CP-9 |
 
@@ -80,7 +80,7 @@ Utilisez un contrôle d’accès en fonction du rôle Azure dans le service Sauv
 
 ## <a name="br-3-validate-all-backups-including-customer-managed-keys"></a>BR-3 : Valider toutes les sauvegardes, y compris les clés gérées par le client
 
-| Identifiant Azure | ID des contrôles CIS v7.1 | ID NIST SP800-53 r4 |
+| Identifiant Azure | ID des contrôles CIS v7.1 | ID NIST SP 800-53 r4 |
 |--|--|--|--|
 | BR-3 | 10.3 | CP-4, CP-9 |
 
@@ -100,7 +100,7 @@ Effectuez régulièrement une restauration des données de votre sauvegarde. Ass
 
 ## <a name="br-4-mitigate-risk-of-lost-keys"></a>BR-4 : Atténuer les risques liés aux clés perdues
 
-| Identifiant Azure | ID des contrôles CIS v7.1 | ID NIST SP800-53 r4 |
+| Identifiant Azure | ID des contrôles CIS v7.1 | ID NIST SP 800-53 r4 |
 |--|--|--|--|
 | BR-4 | 10,4 | CP-9 |
 

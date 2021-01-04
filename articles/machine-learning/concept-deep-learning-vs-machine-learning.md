@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
-ms.date: 09/22/2020
-ms.custom: contperfq1
-ms.openlocfilehash: c612e2a95e2596b2732ed8282037c8ded908a0a0
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.date: 12/15/2020
+ms.custom: contperf-fy21q1,contperfq1
+ms.openlocfilehash: f7c4529c68f79c6ad19f22054fd0b7d2ba5116db
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96571383"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562835"
 ---
 # <a name="deep-learning-vs-machine-learning-in-azure-machine-learning"></a>Apprentissage profond et apprentissage automatique dans Azure Machine Learning
 
@@ -57,6 +57,16 @@ Le tableau suivant compare les deux techniques de manière plus détaillée :
 |  **Temps d’exécution** | Nécessite relativement peu de temps pour apprendre, de quelques secondes à quelques heures. | Nécessite généralement un temps d’entraînement assez long, car un algorithme de deep learning implique de nombreuses couches. |
 |  **Sortie** | La sortie est généralement une valeur numérique, telle qu’une note ou une classification. | La sortie peut avoir plusieurs formats, comme un texte, un score ou un son. |
 
+## <a name="transfer-learning"></a>Apprentissage de transfert
+
+La formation de modèles Deep Learning nécessite souvent de grandes quantités de données de formation, des ressources de calcul haut de gamme (GPU, TPU) et un temps de formation plus long. Dans les cas où vous ne disposez pas de ces ressources, vous pouvez raccourcir le processus de formation à l’aide d’une technique appelée apprentissage de transfert.
+
+L’apprentissage de transfert est une technique qui applique les connaissances acquises lors de la résolution d’un problème à un problème différent, mais connexe.
+
+En raison de la structure des réseaux neuronaux, le premier ensemble de couches contient généralement des caractéristiques de niveau inférieur, tandis que le dernier ensemble de couches contient des caractéristiques de niveau supérieur qui sont plus proches du domaine en question. En réutilisant les couches finales dans un nouveau domaine ou problème, vous pouvez réduire considérablement le temps, les données et les ressources de calcul nécessaires à la formation du nouveau modèle. Par exemple, si vous avez déjà un modèle qui reconnaît les voitures, vous pouvez réutiliser ce modèle à l’aide de l’apprentissage de transfert pour qu’il reconnaisse également les camions, les motos et d’autres types de véhicules.
+
+Découvrez comment appliquer l’apprentissage de transfert pour la classification d’images à l’aide d’une infrastructure open source dans Azure Machine Learning : [Classifier des images à l’aide d’un modèle Pytorch](./how-to-train-pytorch.md?WT.mc_id=docs-article-lazzeri).
+
 ## <a name="deep-learning-use-cases"></a>Cas d’utilisation du Deep Learning
 
 En raison de sa structure de réseau neuronal artificiel, le Deep Learning excelle dans l’identification de modèles dans des données non structurées telles que des images, du son, de la vidéo et du texte. Pour cette raison, le Deep Learning transforme rapidement de nombreux secteurs, donc ceux de la santé, de l’énergie, des finances et des transports. Ces secteurs repensent actuellement leurs processus métier traditionnels. 
@@ -72,8 +82,6 @@ La reconnaissance d’entité nommée est une méthode de deep learning qui pren
 le Deep Learning est souvent utilisé pour la détection d’objets. La détection d’objet s’opère en deux temps : classification d’image, puis localisation d’image. La _classification_ d’image identifie les objets figurant sur l’image, tels que des voitures ou des personnes. La _localisation_ d’image fournit l’emplacement spécifique de ces objets. 
 
 La détection d’objets est déjà utilisée dans les secteurs du jeu, de la distribution, du tourisme et des véhicules autonomes.
-
-Découvrez comment utiliser un modèle de classification d’images à partir d’une infrastructure open source dans Azure Machine Learning : [Classifier des images à l’aide d’un modèle Pytorch](./how-to-train-pytorch.md?WT.mc_id=docs-article-lazzeri)
 
 ### <a name="image-caption-generation"></a>Génération de légende d’image
 
@@ -107,7 +115,7 @@ Le réseau neuronal feedforward est le type de réseau neuronal artificiel le pl
 
 Les réseaux neuronaux récurrents sont un type de réseau neuronal artificiel largement utilisé. Ces réseaux enregistrent la sortie d’une couche et la renvoient à la couche d’entrée pour aider à prédire le résultat de la couche. Les réseaux neuronaux récurrents ont des capacités d’apprentissage exceptionnelles. Ils sont largement utilisés pour accomplir des tâches complexes comme la prévision de séries chronologiques, l’apprentissage d’écriture manuscrite et la reconnaissance linguistique.
 
-### <a name="convolutional-neural-networks"></a>Réseaux neuronaux convolutifs
+### <a name="convolutional-neural-network"></a>Réseau neuronal convolutif
 
 Un réseau neuronal convolutif est un réseau neuronal artificiel particulièrement efficace qui présente une architecture unique. Les couches sont organisées en trois dimensions : largeur, hauteur et profondeur. Les neurones d’une couche ne sont pas connectés à tous les neurones de la couche suivante, mais uniquement à une petite région de neurones de celle-ci. Le résultat final est réduit à un seul vecteur de notes de probabilité, organisées dans la dimension de la profondeur. 
 

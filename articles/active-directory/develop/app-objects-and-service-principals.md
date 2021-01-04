@@ -13,12 +13,12 @@ ms.date: 07/22/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
-ms.openlocfilehash: e4325303f5a10fa1df670495dd6d8190167182e8
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: a18e3cb65b2ef70a04ca1d7e74dd9d5f42e3a933
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861100"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97355764"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Objets application et principal du service dans Azure Active Directory
 
@@ -47,9 +47,9 @@ Le panneau **Inscriptions d’applications** dans le [portail Azure][AZURE-Porta
 ## <a name="service-principal-object"></a>Objet principal du service
 Pour accéder aux ressources qui sont sécurisées par un locataire Azure AD, l’entité qui nécessite l’accès doit être représentée par un principal de sécurité. Cette exigence est valable aussi bien pour les utilisateurs (principal d’utilisateur) que pour les applications (principal de service). Le principal de sécurité définit la stratégie d’accès et les autorisations pour l’utilisateur ou l’application du locataire Azure AD. Cela rend possibles les fonctionnalités de base, telles que l’authentification de l’application ou de l’utilisateur lors de la connexion, et l’autorisation lors de l’accès aux ressources.
 
-Un principal de service est la représentation locale, ou instance d’application, d’un objet application global dans un locataire ou répertoire unique. Un principal de service est une instance concrète créée à partir de l’objet application, qui hérite de certaines propriétés de celui-ci.  Un principal de service est créé dans chaque locataire dans lequel l’application est utilisée, et fait référence à l’objet application global unique.  L’objet principal de service définit ce que l’application peut réellement faire dans le locataire spécifique, qui peut accéder à l’application, ainsi que les ressources auxquelles l’application peut accéder.
+Un principal de service est la représentation locale, ou instance d’application, d’un objet application global dans un locataire ou répertoire unique. Un principal de service est une instance concrète créée à partir de l’objet application, qui hérite de certaines propriétés de celui-ci. Un principal de service est créé dans chaque locataire dans lequel l’application est utilisée, et fait référence à l’objet application global unique.  L’objet principal de service définit ce que l’application peut réellement faire dans le locataire spécifique, qui peut accéder à l’application, ainsi que les ressources auxquelles l’application peut accéder.
 
-Lorsqu’une application reçoit l’autorisation d’accéder aux ressources d’un locataire (après inscription ou [consentement](developer-glossary.md#consent)), un objet de principal de service est créé. Vous pouvez également créer un objet principal de service dans un locataire à l’aide d’[Azure PowerShell](howto-authenticate-service-principal-powershell.md), de l’interface [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli), de [Microsoft Graph](/graph/api/serviceprincipal-post-serviceprincipals?tabs=http), du [portail Azure][AZURE-Portal] et d’autres outils.  Lorsque vous utilisez le portail, un principal de service est créé automatiquement lorsque vous inscrivez une application.
+Lorsqu’une application reçoit l’autorisation d’accéder aux ressources d’un locataire (après inscription ou [consentement](developer-glossary.md#consent)), un objet de principal de service est créé. Vous pouvez également créer des objets principal de service dans un locataire à l’aide d’[Azure PowerShell](howto-authenticate-service-principal-powershell.md), de l’interface [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli), de [Microsoft Graph](/graph/api/serviceprincipal-post-serviceprincipals?tabs=http), du [portail Azure][AZURE-Portal] et d’autres outils. Lorsque vous utilisez le portail, un principal de service est créé automatiquement lorsque vous inscrivez une application.
 
 Le panneau **Applications d’entreprise** dans le portail permet de répertorier et gérer les principaux de service dans un locataire. Vous pouvez voir les autorisations du principal de service, les autorisations accordées par l’utilisateur, les utilisateurs ayant accordé ces autorisations, les informations de connexion, et bien plus.
 

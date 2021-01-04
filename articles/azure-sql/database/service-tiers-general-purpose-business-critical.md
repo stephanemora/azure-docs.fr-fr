@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
-ms.date: 01/30/2020
-ms.openlocfilehash: 33c63ffc4220da6d98c462039897067e4ba69491
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 12/14/2020
+ms.openlocfilehash: 9ee7440b10bc348d3ba87a4779208791a7b0e9ac
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92793158"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97512026"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-service-tiers"></a>Niveaux de service Azure SQL Database et Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -54,7 +54,7 @@ Le tableau suivant décrit les principales différences entre les niveaux de ser
 | **Débit d’écriture des journaux** | SQL Database | [1,875 Mo/s par vCore (30 Mo/s max)](resource-limits-vcore-single-databases.md#general-purpose---provisioned-compute---gen4) | 100 Mo/s | [6 Mo/s par vCore (96 Mo/s max)](resource-limits-vcore-single-databases.md#business-critical---provisioned-compute---gen4) |
 | | Instance managée SQL | [3 Mo/s par vCore (22 Mo/s max)](../managed-instance/resource-limits.md#service-tier-characteristics) | N/A | [4 Mo/s par vCore (48 Mo/s max)](../managed-instance/resource-limits.md#service-tier-characteristics) |
 |**Disponibilité**|Tous| 99,99 % |  [99,95 % avec un réplica secondaire, 99,99 % avec d’autres réplicas](service-tier-hyperscale-frequently-asked-questions-faq.md#what-slas-are-provided-for-a-hyperscale-database) | 99,99 % <br/> [99,995 % avec base de données unique et redondante dans une zone](https://azure.microsoft.com/blog/understanding-and-leveraging-azure-sql-database-sla/) |
-|**Sauvegardes**|Tous|RA-GRS, 7 à 35 jours (7 jours par défaut)| RA-GRS, 7 jours, récupération jusqu’à une date et heure (PITR) à durée constante | RA-GRS, 7 à 35 jours (7 jours par défaut) |
+|**Sauvegardes**|Tous|RA-GRS, 7 à 35 jours (7 jours par défaut) La durée de rétention pour le niveau De base est de 7 jours maximum. | RA-GRS, 7 jours, récupération jusqu’à une date et heure (PITR) à durée constante | RA-GRS, 7 à 35 jours (7 jours par défaut) |
 |**OLTP en mémoire** | | N/A | N/A | Disponible |
 |**Réplicas en lecture seule**| | 0 intégré <br> 0 à 4 utilisant la [géoréplication](active-geo-replication-overview.md) | 0 à 4 intégrés | 1 intégré et inclus dans le prix <br> 0 à 4 utilisant la [géoréplication](active-geo-replication-overview.md) |
 |**Tarification/facturation** | SQL Database | [vCore, stockage réservé et stockage de sauvegarde](https://azure.microsoft.com/pricing/details/sql-database/single/) sont facturés. <br/>Les IOPS ne sont pas facturées. | [vCore pour chaque réplica et le stockage utilisé](https://azure.microsoft.com/pricing/details/sql-database/single/) sont facturés. <br/>IOPS non encore facturées. | [vCore, stockage réservé et stockage de sauvegarde](https://azure.microsoft.com/pricing/details/sql-database/single/) sont facturés. <br/>Les IOPS ne sont pas facturées. |

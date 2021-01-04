@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/02/2020
+ms.date: 12/09/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: f12a899d3b6daa3b233e6a799871afca1e24d046
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 179e60a41a9cd6a2277959b3cd31159c796d845d
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96533743"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96937285"
 ---
 # <a name="prevent-anonymous-public-read-access-to-containers-and-blobs"></a>Empêcher l’accès en lecture public anonyme aux conteneurs et aux blobs
 
@@ -287,6 +287,23 @@ Une fois que vous avez créé la stratégie avec l’effet de refus et l’avez 
 L’image suivante montre l’erreur qui se produit si vous tentez de créer un compte de stockage qui autorise l’accès public (valeur par défaut pour un nouveau compte) lorsqu’une stratégie avec effet de refus exige que l’accès public soit interdit.
 
 :::image type="content" source="media/anonymous-read-access-prevent/deny-policy-error.png" alt-text="Capture d’écran montrant l’erreur qui se produit lors de la création d’un compte de stockage en violation de la stratégie":::
+
+## <a name="permissions-for-allowing-or-disallowing-public-access"></a>Autorisations pour autoriser ou interdire l’accès public
+
+Afin de définir la propriété **AllowBlobPublicAccess** pour le compte de stockage, un utilisateur doit disposer des autorisations nécessaires pour créer et gérer des comptes de stockage. Les rôles de contrôle d’accès en fonction du rôle Azure (Azure RBAC) qui fournissent ces autorisations incluent l’action **Microsoft.Storage/storageAccounts/write** ou **Microsoft.Storage/storageAccounts/\** _. Les rôles intégrés à cette action comprennent :
+
+- Le rôle [Propriétaire](../../role-based-access-control/built-in-roles.md#owner) d’Azure Resource Manager
+- Le rôle [Contributeur](../../role-based-access-control/built-in-roles.md#contributor) d’Azure Resource Manager
+- Le rôle [Contributeur de compte de stockage](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
+
+Ces rôles ne fournissent pas d’accès aux données d’un compte de stockage par le biais d’Azure Active Directory (Azure AD). Toutefois, ils incluent l’action _*Microsoft.Storage/storageAccounts/listkeys/action**, qui accorde l’accès aux clés d’accès du compte. Avec cette autorisation, un utilisateur peut utiliser les clés d’accès du compte pour accéder à toutes les données d’un compte de stockage.
+
+Les attributions de rôles doivent être définies au niveau du compte de stockage ou à un niveau supérieur pour permettre à un utilisateur d’autoriser ou d’interdire l’accès public au compte de stockage. Pour plus d’informations sur l’étendue des rôles, consultez [Comprendre l’étendue pour Azure RBAC](../../role-based-access-control/scope-overview.md).
+
+Veillez à limiter l’attribution de ces rôles aux seules personnes qui ont besoin de créer un compte de stockage ou de mettre à jour ses propriétés. Utilisez le principe du moindre privilège pour vous assurer que les utilisateurs disposent des autorisations minimales nécessaires pour accomplir leurs tâches. Pour plus d’informations sur la gestion de l’accès avec Azure RBAC, consultez [Meilleures pratiques pour Azure RBAC](../../role-based-access-control/best-practices.md).
+
+> [!NOTE]
+> Les rôles d’administrateur d’abonnement classique Administrateur de service et Co-administrateur incluent l’équivalent du rôle [Propriétaire](../../role-based-access-control/built-in-roles.md#owner) d’Azure Resource Manager. Le rôle **Propriétaire** comprend toutes les actions, de sorte qu’un utilisateur disposant de l’un de ces rôles d’administration peut également créer et gérer des comptes de stockage. Pour plus d’informations, consultez [Rôles d’administrateur d’abonnement classique, rôles Azure et rôles d’administrateur Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
