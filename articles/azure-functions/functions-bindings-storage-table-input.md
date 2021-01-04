@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 7f5db2a2df7314c89f2ebba8e7e54ebe24126386
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 20dc6cde9cce6a9d57047940a38adb5cf004ae6a
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92098146"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347674"
 ---
 # <a name="azure-table-storage-input-bindings-for-azure-functions"></a>Liaisons d’entrée de stockage de table Azure pour Azure Functions
 
@@ -248,7 +248,7 @@ Si vous essayez de lier à `CloudTable` et obtenez un message d’erreur, vérif
 
 L’exemple suivant montre une liaison d’entrée de table dans un fichier *function.json* et un code [Script C#](functions-reference-csharp.md) qui utilise la liaison. La fonction lit les entités d’une clé de partition qui est spécifiée dans un message de file d’attente.
 
-Voici le fichier *function.json*  :
+Voici le fichier *function.json* :
 
 ```json
 {
@@ -560,11 +560,11 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 
 * **Lire une ligne dans**
 
-  Définissez `partitionKey` et `rowKey`. Accédez aux données de la table à l’aide d’un paramètre de méthode `T <paramName>`. Dans Script C#, `paramName` est la valeur spécifiée dans la propriété `name` de *function.json* . `T` est généralement un type qui implémente `ITableEntity` ou est dérivé de `TableEntity`. Les propriétés `filter` et `take` ne sont pas utilisées dans ce scénario.
+  Définissez `partitionKey` et `rowKey`. Accédez aux données de la table à l’aide d’un paramètre de méthode `T <paramName>`. Dans Script C#, `paramName` est la valeur spécifiée dans la propriété `name` de *function.json*. `T` est généralement un type qui implémente `ITableEntity` ou est dérivé de `TableEntity`. Les propriétés `filter` et `take` ne sont pas utilisées dans ce scénario.
 
 * **Lire une ou plusieurs lignes**
 
-  Accédez aux données de la table à l’aide d’un paramètre de méthode `IQueryable<T> <paramName>`. Dans Script C#, `paramName` est la valeur spécifiée dans la propriété `name` de *function.json* . `T` doit être généralement un type qui implémente `ITableEntity` ou est dérivé de `TableEntity`. Vous pouvez utiliser les méthodes `IQueryable` pour effectuer le filtrage voulu. Les propriétés `partitionKey`, `rowKey`, `filter` et `take` ne sont pas utilisées dans ce scénario.  
+  Accédez aux données de la table à l’aide d’un paramètre de méthode `IQueryable<T> <paramName>`. Dans Script C#, `paramName` est la valeur spécifiée dans la propriété `name` de *function.json*. `T` doit être généralement un type qui implémente `ITableEntity` ou est dérivé de `TableEntity`. Vous pouvez utiliser les méthodes `IQueryable` pour effectuer le filtrage voulu. Les propriétés `partitionKey`, `rowKey`, `filter` et `take` ne sont pas utilisées dans ce scénario.  
 
   > [!NOTE]
   > `IQueryable` n’est pas pris en charge dans le [runtime Functions v2](functions-versions.md). Une alternative consiste à utiliser un [paramètre de méthode CloudTable paramName](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable) pour lire la table à l’aide du SDK Stockage Azure. Si vous essayez de lier à `CloudTable` et obtenez un message d’erreur, vérifiez que vous avez une référence à [la bonne version du SDK Stockage](./functions-bindings-storage-table.md#azure-storage-sdk-version-in-functions-1x).
@@ -573,11 +573,11 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 
 * **Lire une ligne dans**
 
-  Définissez `partitionKey` et `rowKey`. Accédez aux données de la table à l’aide d’un paramètre de méthode `T <paramName>`. Dans Script C#, `paramName` est la valeur spécifiée dans la propriété `name` de *function.json* . `T` est généralement un type qui implémente `ITableEntity` ou est dérivé de `TableEntity`. Les propriétés `filter` et `take` ne sont pas utilisées dans ce scénario.
+  Définissez `partitionKey` et `rowKey`. Accédez aux données de la table à l’aide d’un paramètre de méthode `T <paramName>`. Dans Script C#, `paramName` est la valeur spécifiée dans la propriété `name` de *function.json*. `T` est généralement un type qui implémente `ITableEntity` ou est dérivé de `TableEntity`. Les propriétés `filter` et `take` ne sont pas utilisées dans ce scénario.
 
 * **Lire une ou plusieurs lignes**
 
-  Accédez aux données de la table à l’aide d’un paramètre de méthode `IQueryable<T> <paramName>`. Dans Script C#, `paramName` est la valeur spécifiée dans la propriété `name` de *function.json* . `T` doit être généralement un type qui implémente `ITableEntity` ou est dérivé de `TableEntity`. Vous pouvez utiliser les méthodes `IQueryable` pour effectuer le filtrage voulu. Les propriétés `partitionKey`, `rowKey`, `filter` et `take` ne sont pas utilisées dans ce scénario.  
+  Accédez aux données de la table à l’aide d’un paramètre de méthode `IQueryable<T> <paramName>`. Dans Script C#, `paramName` est la valeur spécifiée dans la propriété `name` de *function.json*. `T` doit être généralement un type qui implémente `ITableEntity` ou est dérivé de `TableEntity`. Vous pouvez utiliser les méthodes `IQueryable` pour effectuer le filtrage voulu. Les propriétés `partitionKey`, `rowKey`, `filter` et `take` ne sont pas utilisées dans ce scénario.  
 
   > [!NOTE]
   > `IQueryable` n’est pas pris en charge dans le [runtime Functions v2](functions-versions.md). Une alternative consiste à utiliser un [paramètre de méthode CloudTable paramName](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable) pour lire la table à l’aide du SDK Stockage Azure. Si vous essayez de lier à `CloudTable` et obtenez un message d’erreur, vérifiez que vous avez une référence à [la bonne version du SDK Stockage](./functions-bindings-storage-table.md#azure-storage-sdk-version-in-functions-1x).

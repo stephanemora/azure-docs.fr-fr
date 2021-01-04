@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/22/2020
-ms.openlocfilehash: 55651b3201676ee5cddb5412e950791afaa4e87a
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 01af7b251c9ce3bfebb87016c85ea3efd9c0e8ac
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96852130"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928764"
 ---
 # <a name="how-to-connect-azure-data-factory-and-azure-purview"></a>Guide pratique pour se connecter à Azure Data Factory et Azure Purview
 
@@ -38,9 +38,16 @@ Plusieurs fabriques de données Azure peuvent se connecter à un même Data Cata
  >- Contributeur
  >- Propriétaire
  >- Lecteur
- >- Administrateur de l'accès utilisateur
+ >- Administrateur de l’accès utilisateur
 
 ## <a name="create-new-data-factory-connection"></a>Créer une connexion Data Factory
+
+>[!Note]
+>Pour ajouter ou supprimer les connexions Data Factory, vous devez détenir l’un des rôles Purview :
+>- Propriétaire
+>- Administrateur de l'accès utilisateur
+>
+> De plus, les utilisateurs doivent être le « contributeur » ou le « propriétaire » de la fabrique de données. 
 
 Suivez les étapes ci-dessous pour connecter un compte Data Factory existant à votre Data Catalog Purview.
 
@@ -71,11 +78,6 @@ Pour supprimer une connexion Data Factory, effectuez les étapes suivantes :
 
     :::image type="content" source="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png" alt-text="Capture d’écran montrant comment sélectionner des fabriques de données pour supprimer la connexion." lightbox="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png":::
 
->[!Note]
->Pour ajouter ou supprimer les connexions Data Factory, vous devez détenir l’un des rôles Purview :
->- Propriétaire
->- Administrateur de l’accès utilisateur. Il faut également que les utilisateurs soient « Propriétaire », « Contributeur » ou « Contributeur Data Factory » de la fabrique de données. 
-
 ## <a name="configure-a-self-hosted-ir-to-collect-lineage-from-on-prem-sql"></a>Configurer un IR auto-hébergé pour recueillir la traçabilité à partir de SQL local
 
 Le traçabilité de l’activité Copy Data Factory est disponible pour les bases de données SQL locales. Si vous exécutez un runtime d’intégration auto-hébergé pour le déplacement des données avec Azure Data Factory et que vous souhaitez capturer la traçabilité dans Azure Purview, vérifiez que la version est 4.8.7418.1 ou ultérieure. Pour plus d’informations sur le runtime d’intégration auto-hébergé, consultez [Créer et configurer un runtime d’intégration auto-hébergé](../data-factory/create-self-hosted-integration-runtime.md).
@@ -97,7 +99,7 @@ L’intégration entre Data Factory et Purview ne prend en charge qu’un sous-e
 
 | Système de stockage de données | Prise en charge en tant que source | Prise en charge en tant que récepteur |
 | ------------------- | ------------------- | ----------------- |
-| ADLS Gen1 (aucune prise en charge de JSON) | Yes | Oui (copie non binaire uniquement) |
+| ADLS Gen1 (aucune prise en charge de JSON) | Oui | Oui (copie non binaire uniquement) |
 | ADLS Gen2 (aucune prise en charge de JSON) | Oui | Oui |
 | Objet blob Azure (aucune prise en charge de JSON) | Oui | Oui |
 | Azure Cosmos DB (API SQL) | Oui | Oui |
@@ -117,31 +119,31 @@ L’intégration entre Data Factory et Purview ne prend en charge qu’un sous-e
 | Teradata | Oui | Oui |
 | SAP s4 Hana | Oui | Oui |
 | SAP ECC | Oui | Oui |
-| Hive | Oui | Oui |
+| Ruche | Oui | Oui |
 
 > [!Note]
 > La fonctionnalité de traçabilité implique certaines surcharges de performances dans l’activité de copie Data Factory. Ceux qui configurent des connexions Data Factory dans Purview constateront peut-être que certaines tâches de copie prennent davantage de temps. Le plus souvent, l’impact est négligeable, voire nul. Veuillez contacter le support en indiquant la comparaison de durée si les travaux de copie prennent beaucoup plus de temps que d’habitude.
 
 ### <a name="data-factory-data-flow-support"></a>Prise en charge de Data Flow dans Data Factory
 
-| Système de stockage de données | Pris en charge |
+| Système de stockage de données | Prise en charge |
 | ------------------- | ------------------- | ----------------- |
-| ADLS Gen1 | Yes |
-| ADLS Gen2 | Yes |
-| Objets blob Azure | Yes |
-| Azure SQL Database \* | Yes |
-| Azure Synapse Analytics (anciennement SQL DW) \* | Yes |
+| ADLS Gen1 | Oui |
+| ADLS Gen2 | Oui |
+| Objets blob Azure | Oui |
+| Azure SQL Database \* | Oui |
+| Azure Synapse Analytics (anciennement SQL DW) \* | Oui |
 
 ### <a name="data-factory-execute-ssis-package-support"></a>Prise en charge de l’exécution d’un package SSIS dans Data Factory
 
-| Système de stockage de données | Pris en charge |
+| Système de stockage de données | Prise en charge |
 | ------------------- | ------------------- | ----------------- |
-| Objets blob Azure | Yes |
-| ADLS Gen1 | Yes |
-| ADLS Gen2 | Yes |
-| Azure SQL Database \* | Yes |
-| Azure SQL Database Managed Instance \*| Yes |
-| Azure Synapse Analytics (anciennement SQL DW) \* | Yes |
+| Objets blob Azure | Oui |
+| ADLS Gen1 | Oui |
+| ADLS Gen2 | Oui |
+| Azure SQL Database \* | Oui |
+| Azure SQL Database Managed Instance \*| Oui |
+| Azure Synapse Analytics (anciennement SQL DW) \* | Oui |
 | SQL Server local \* | Oui |
 | Stockage Fichier Azure | Oui |
 

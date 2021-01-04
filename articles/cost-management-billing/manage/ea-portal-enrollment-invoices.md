@@ -3,18 +3,18 @@ title: Factures d’inscription Azure Entreprise
 description: Cet article explique comment gérer et traiter votre facture Azure Enterprise.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/23/2020
+ms.date: 12/09/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.custom: contperfq1
-ms.openlocfilehash: 57ada2ca760ffff2124582c31fdd095d04d4375f
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: c64127f7ebbb416d9dfebb5e417cd27d51697665
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410951"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97030720"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Factures d’inscription Azure Entreprise
 
@@ -39,18 +39,14 @@ Pour voir l’utilisation détaillée de comptes spécifiques, téléchargez le 
 Pour voir les rapports et graphes du résumé de l’utilisation :
 
 1. Connectez-vous au portail Azure Enterprise.
-
 1. Sélectionnez un terme pour l’acompte.
-
-   Pour modifier la plage de dates pour le **Résumé de l’utilisation** , vous pouvez basculer de **M** (mensuel) à **C** (personnalisé) en haut à droite de la page, puis entrer des dates de début et de fin personnalisées.
-
+   Pour modifier la plage de dates pour le **Résumé de l’utilisation**, vous pouvez basculer de **M** (mensuel) à **C** (personnalisé) en haut à droite de la page, puis entrer des dates de début et de fin personnalisées.  
    ![Créer et afficher un résumé de l’utilisation et télécharger les rapports dans un affichage personnalisé](./media/ea-portal-enrollment-invoices/create-ea-view-usage-summary-and-download-reports-custom-view.png)
 1. Pour afficher des détails supplémentaires, vous pouvez sélectionner une période ou un mois sur le graphe.
-
    - Le graphe montre l’utilisation par mois, en détaillant l’engagement utilisé, le dépassement des frais de service, les frais facturés séparément et les frais de la place de marché Azure.
    - Pour le mois sélectionné, vous pouvez utiliser les champs situés sous le graphe pour filtrer par services, comptes et abonnements.
    - Vous pouvez basculer entre un affichage **Frais par services** et **Frais par hiérarchie**.
-   - Affichez les détails du **service Azure** , des **frais facturés séparément** et de la **place de marché Azure** en développant les sections correspondantes.
+   - Affichez les détails du **service Azure**, des **frais facturés séparément** et de la **place de marché Azure** en développant les sections correspondantes.
 
 Regardez cette vidéo pour voir comment afficher l’utilisation :
 
@@ -72,7 +68,7 @@ Pour télécharger des rapports :
 3. Sélectionnez **Download** (Télécharger) à côté du rapport mensuel qui vous intéresse.
 
    > [!NOTE]
-   > Une latence pouvant atteindre cinq jours peut être observée entre la date effective de l’utilisation et celle où l’utilisation est indiquée dans les rapports.
+   > Une latence pouvant atteindre 72 heures peut être observée entre la date effective de l’utilisation et celle où l’utilisation est indiquée dans les rapports.
    >
    > Les utilisateurs qui téléchargent les fichiers CSV dans Excel avec Safari peuvent rencontrer des erreurs de mise en forme. Pour éviter de telles erreurs, ouvrez ces fichiers à l’aide d’un éditeur de texte.
 
@@ -169,15 +165,15 @@ Pour le dépassement, vous êtes facturé pour l’utilisation ou les réservati
 
 Chaque ligne de la facture affiche les informations suivantes :
 
-- **Montant total**  : total des frais
-- **Utilisation de Paiement anticipé**  : montant de votre Paiement anticipé utilisé pour couvrir les frais
-- **Montant net**  : frais qui dépassent votre Paiement anticipé
+- **Montant total** : total des frais
+- **Utilisation de Paiement anticipé** : montant de votre Paiement anticipé utilisé pour couvrir les frais
+- **Montant net** : frais qui dépassent votre Paiement anticipé
 
 Les taxes applicables sont calculées uniquement sur le montant net qui dépasse votre Paiement anticipé.
 
 La facturation de dépassement est automatisée. Le calendrier des notifications et des factures dépend de la date de fin de votre période de facturation.
 
-- La notification de dépassement est généralement envoyée sept jours après la date de fin de facturation.
+- La notification de dépassement est normalement envoyée sept jours après la date de fin de facturation.
 - Les factures de dépassement sont envoyées sept à neuf jours après la notification.
 - Vous pouvez consulter les frais et mettre à jour les numéros de bon de commande générés par le système pendant les sept jours qui s'écoulent entre la notification du dépassement et la facturation.
 
@@ -246,7 +242,7 @@ Les unités de mesure des Contrats Entreprise sont souvent différentes de celle
 
 ### <a name="conversion-between-usage-detail-report-and-the-usage-summary-page"></a>Conversion entre le rapport de détails de l’utilisation et la page de résumé de l’utilisation
 
-Dans le rapport de téléchargement des données d’utilisation, vous pouvez voir l'utilisation des ressources brutes jusqu'à six décimales. Toutefois, les données d’utilisation affichées dans le portail Azure Enterprise sont arrondies à quatre décimales pour les unités de Paiement anticipé et tronquées à zéro décimale pour les unités de dépassement. Les données d'utilisation brutes sont d'abord arrondies à quatre chiffres avant d'être converties en unités utilisées dans le portail Azure Enterprise. Les unités Enterprise converties sont ensuite à nouveau arrondies à quatre chiffres. Vous pouvez afficher les heures consommées réelles avant la conversion dans le rapport de téléchargement de l’utilisation et non dans le portail Azure Enterprise.
+Dans le rapport de téléchargement des données d’utilisation, vous pouvez voir l'utilisation des ressources brutes jusqu'à six décimales. Toutefois, les données d’utilisation affichées dans le portail Azure Enterprise sont arrondies à quatre décimales pour les unités de Paiement anticipé et tronquées à zéro décimale pour les unités de dépassement. Les données d’utilisation brutes sont d’abord arrondies à quatre chiffres avant d’être converties en unités utilisées dans le portail Azure Enterprise. Les unités Enterprise converties sont ensuite à nouveau arrondies à quatre chiffres. Vous pouvez afficher les heures consommées réelles avant la conversion dans le rapport de téléchargement de l’utilisation et non dans le portail Azure Enterprise.
 
 Par exemple : Supposons que 694,533404 heures SQL Server réelles sont indiquées dans le rapport de détails de l’utilisation. Ces unités sont converties en unités 6,94533404 de 100 heures de calcul, puis arrondies à 6,9453 pour être affichées dans le portail Azure Enterprise.
 
@@ -264,7 +260,7 @@ Toute l’utilisation est facturée sur la base des minutes converties en heures
 
 ### <a name="average-daily-consumption"></a>Consommation quotidienne moyenne
 
-Certains services sont facturés sur une base mensuelle, mais l'utilisation est rapportée sur une base quotidienne. Dans ces cas, cette utilisation est évaluée une fois par jour, divisée par 31 et totalisée sur le nombre de jours de ce mois de facturation. Les tarifs ne sont ainsi jamais plus élevés que prévu pour un mois et qui sont légèrement inférieurs pour les mois comptant moins de 31 jours.
+Certains services sont facturés sur une base mensuelle, mais l'utilisation est rapportée sur une base quotidienne. Dans ces cas, cette utilisation est évaluée une fois par jour, divisée par 31 et totalisée sur le nombre de jours de ce mois de facturation. Les tarifs ne sont ainsi jamais plus élevés que prévu pour un mois et ils sont légèrement inférieurs pour les mois comptant moins de 31 jours.
 
 ### <a name="compute-hours-conversion"></a>Conversion des heures de calcul
 

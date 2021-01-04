@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/24/2020
+ms.date: 12/11/2020
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40751b7864cc62d17836ab6d57cd106f6904f64a
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 788512db242bf1a1c6f18ffc0ee773bd3372aa42
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96744106"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97355864"
 ---
 # <a name="data-residency-and-customer-data-for-azure-ad-multi-factor-authentication"></a>Résidence des données et données client pour Azure AD Multi-Factor Authentication
 
@@ -57,7 +57,7 @@ Pour les clouds publics Azure, à l'exclusion de l'authentification Azure B2C, d
 | Notification Microsoft Authenticator | Dans les journaux d’activité Multi-Factor Authentication<br />Enregistrement dans le magasin de données d’activité de l’authentification multifacteur<br />Utilisateurs bloqués si fraude signalée<br />Demandes de modification en cas de changement du jeton de l’appareil Microsoft Authenticator |
 
 > [!NOTE]
-> La banque de données du rapport d'activité Multi-Factor Authentication est stockée aux États-Unis pour tous les clouds, quelle que soit la région qui traite la demande d'authentification. Microsoft Azure Germany, Microsoft Azure Operated by 21Vianet, et Microsoft Government Cloud disposent de leurs propres banques de données indépendantes, distinctes des banques de données de la région du cloud public, mais ces données sont toujours stockées aux États-Unis.
+> La banque de données du rapport d'activité Multi-Factor Authentication est stockée aux États-Unis pour tous les clouds, quelle que soit la région qui traite la demande d'authentification. Microsoft Azure Germany, Microsoft Azure Operated by 21Vianet, et Microsoft Government Cloud disposent de leurs propres banques de données indépendantes, distinctes des banques de données de la région du cloud public, mais ces données sont toujours stockées aux États-Unis. Ces magasins de données contiennent des informations d’identification personnelle (PII), telles que le nom d’utilisateur principal (UPN) et le numéro de téléphone complet. 
 
 Pour Microsoft Azure Government, Microsoft Azure Germany, Microsoft Azure Operated by 21Vianet, l’authentification Azure B2C, NPS Extension, et l’adaptateur Windows Server 2016 ou 2019 AD FS, les données personnelles suivantes sont stockées :
 

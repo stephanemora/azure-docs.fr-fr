@@ -1,5 +1,5 @@
 ---
-title: DB2 vers SQL Database – Guide de migration
+title: 'DB2 vers SQL Database : Guide de migration'
 description: Suivez ce guide pour migrer vos bases de données DB2 vers Azure SQL Database.
 ms.service: sql-database
 ms.subservice: migration-guide
@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 369f17a39b9d7b2f85fffb8b72a293558d16416e
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 3e216c4aeb8d1206011ff9cca2d80900c23b2399
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325160"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97356342"
 ---
 # <a name="migration-guide-db2-to-sql-database"></a>Guide de migration : DB2 vers SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
@@ -147,9 +147,9 @@ L’approche de test pour la migration de base de données comprend les activit�
    > Pour obtenir de l’aide sur le développement et l’exécution de tests de validation post-migration, envisagez d’utiliser la Solution de qualité des données disponible dans le partenaire [QuerySurge](https://www.querysurge.com/company/partners/microsoft). 
 
 
-## <a name="leverage-advanced-features"></a>Tirer parti des fonctionnalités avancées 
+## <a name="leverage-advanced-features"></a>Tirer profit des fonctionnalités avancées 
 
-Veillez à tirer parti des fonctionnalités informatiques avancées offertes par SQL Database, telles que la [haute disponibilité intégrée](../../database/high-availability-sla.md), la [détection des menaces](../../database/azure-defender-for-sql.md) et la [surveillance et le paramétrage de votre charge de travail](../../database/monitor-tune-overview.md). 
+Veillez à tirer parti des fonctionnalités cloud avancées offertes par SQL Database, notamment la [haute disponibilité intégrée](../../database/high-availability-sla.md), la [détection des menaces](../../database/azure-defender-for-sql.md) ainsi que la [supervision et le paramétrage de votre charge de travail](../../database/monitor-tune-overview.md). 
 
 
 Certaines fonctionnalités de SQL Server sont disponibles uniquement lorsque le [niveau de compatibilité de la base de données](/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database) est remplacé par le niveau de compatibilité le plus récent (150). 

@@ -2,14 +2,14 @@
 title: Récupérer des fichiers et des dossiers à partir d’une sauvegarde de machine virtuelle Azure
 description: Dans cet article, découvrez comment récupérer des fichiers et des dossiers à partir d’un point de récupération de machine virtuelle Azure.
 ms.topic: conceptual
-ms.date: 03/01/2019
+ms.date: 03/12/2020
 ms.custom: references_regions
-ms.openlocfilehash: b9d5c90634dac3229e756ad93c10db91b268080c
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 4d34fc48e5d16275d0225a1cef4b5fa63f0b66d6
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94841158"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511652"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Récupérer des fichiers à partir d’une sauvegarde de machine virtuelle Azure
 
@@ -156,7 +156,7 @@ Lorsque vous exécutez l’exécutable, le système d’exploitation monte les n
 
    ![Volumes de récupération attachés](./media/backup-azure-restore-files-from-vm/volumes-attached.png)
 
-**Pour les machines virtuelles sauvegardées avec des disques de grande taille (Windows)**
+#### <a name="for-backed-up-vms-with-large-disks-windows"></a>Pour les machines virtuelles sauvegardées avec des disques de grande taille (Windows)
 
 Si le processus de récupération des fichiers est interrompu après l’exécution du script de restauration des fichiers (par exemple, si les disques ne sont jamais montés ou s’ils le sont, mais que les volumes n’apparaissent pas), procédez comme suit :
   
@@ -182,7 +182,7 @@ Sous Linux, les volumes de point de récupération sont montés sur le dossier d
   ![Menu Récupération de fichier Linux](./media/backup-azure-restore-files-from-vm/linux-mount-paths.png)
 
 
-**Pour les machines virtuelles sauvegardées avec des disques de grande taille (Linux)**
+#### <a name="for-backed-up-vms-with-large-disks-linux"></a>Pour les machines virtuelles sauvegardées avec des disques de grande taille (Linux)**
 
 Si le processus de récupération des fichiers est interrompu après l’exécution du script de restauration des fichiers (par exemple, si les disques ne sont jamais montés ou s’ils le sont, mais que les volumes n’apparaissent pas), procédez comme suit :
 

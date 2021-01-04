@@ -5,22 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: compliance
 ms.topic: how-to
-ms.date: 10/16/2020
+ms.date: 12/02/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c1b07534c702e509b2b664fbee585aa2cff69f6
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: b1829c69510568b0f9a8cec7fb7d2d57be8515d3
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94837598"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509986"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Conditions d’utilisation d’Azure Active Directory
 
-Les conditions d’utilisation d’Azure AD offre aux organisations une méthode simple pour présenter des informations aux utilisateurs finaux. Cette présentation permet de garantir que les utilisateurs voient les clauses d’exclusion de responsabilité nécessaires au respect des conditions légales ou de conformité. Cet article vous montre comment bien démarrer avec l’utilisation des conditions d’utilisation.
+Les conditions d’utilisation d’Azure AD offre aux organisations une méthode simple pour présenter des informations aux utilisateurs finaux. Cette présentation permet de garantir que les utilisateurs voient les clauses d’exclusion de responsabilité nécessaires au respect des conditions légales ou de conformité. Cet article vous montre comment démarrer avec les conditions d’utilisation.
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
@@ -219,15 +219,55 @@ Vous pouvez modifier certains détails des conditions d’utilisation, mais il n
 1. Connectez-vous à Azure et accédez à **Conditions d’utilisation** sur [https://aka.ms/catou](https://aka.ms/catou).
 1. Sélectionnez les conditions d’utilisation à modifier.
 1. Cliquez sur **Modifier les conditions**.
-1. Dans le volet Modifier les conditions d’utilisation, modifiez le nom, le nom d’affichage ou demandez aux utilisateurs de développer les valeurs.
+1. Dans le volet Modifier les conditions d’utilisation, vous pouvez changer les éléments suivants :
+     - **Nom** : nom interne des conditions d’utilisation qui n’est pas partagé avec les utilisateurs finaux
+     - **Nom d’affichage** : nom que les utilisateurs finaux peuvent voir lors de l’affichage des conditions d’utilisation
+     - **Demander aux utilisateurs d’étendre les conditions d’utilisation** : la définition de cette option sur **Activé** force l’utilisateur final à étendre les conditions d’utilisation avant de les accepter.
+     - (Préversion) Vous pouvez **mettre à jour un document de conditions d’utilisation existant**
+     - Vous pouvez ajouter une langue à des conditions d’utilisation existantes
 
    Si vous souhaitez changer d’autres paramètres, comme le document PDF, le fait de demander le consentement des utilisateurs sur chaque appareil, l’expiration des consentements, la durée avant nouvelle acceptation ou encore la stratégie d’accès conditionnel, vous devez établir de nouvelles conditions d’utilisation.
 
-   ![Volet Modifier les conditions d’utilisation montrant les options Nom et Développer](./media/terms-of-use/edit-tou.png)
+    ![Modifier les différentes options de langue ](./media/terms-of-use/edit-terms-use.png)
 
-1. Cliquez sur **Enregistrer** pour enregistrer vos modifications.
+1. Une fois que vous avez terminé, cliquez sur **Enregistrer** pour enregistrer vos modifications.
 
-   Une fois les changements enregistrés, les utilisateurs ne devront pas réaccepter ces modifications.
+## <a name="update-the-version-or-pdf-of-an-existing-terms-of-use"></a>Mettre à jour la version ou le fichier PDF de conditions d’utilisation existantes
+
+1.  Connectez-vous à Azure et accédez à [Conditions d’utilisation](https://aka.ms/catou).
+2.  Sélectionnez les conditions d’utilisation à modifier.
+3.  Cliquez sur **Modifier les conditions**.
+4.  Pour la langue dans laquelle vous souhaitez mettre à jour une nouvelle version, cliquez sur **Mettre à jour** sous la colonne Action.
+ 
+     ![Volet Modifier les conditions d’utilisation montrant les options Nom et Développer](./media/terms-of-use/edit-terms-use.png)
+
+5.  Dans le volet de droite, chargez le fichier PDF pour la nouvelle version.
+6.  Il existe également une option à bascule **Exiger une nouvelle acceptation** si vous souhaitez obliger les utilisateurs à accepter cette nouvelle version la prochaine fois qu’ils se connectent. Si vous exigez une nouvelle acceptation de la part de vos utilisateurs, ceux-ci sont invités à accepter cette nouvelle version la prochaine fois qu’ils tentent d’accéder à la ressource définie dans votre stratégie d’accès conditionnel. Si vous n’exigez pas de nouvelle acceptation de la part de vos utilisateurs, leur consentement préalable demeure à jour et seuls les nouveaux utilisateurs qui n’ont pas fait part de leur consentement ou dont le consentement arrive à expiration voient la nouvelle version.
+
+    ![Modifier les conditions d’utilisation - Mise en évidence de l’option permettant d’exiger une nouvelle acceptation](./media/terms-of-use/re-accept.png)
+
+7.  Une fois que vous avez chargé votre nouveau fichier PDF et opéré votre choix quant à l’exigence d’une nouvelle acceptation, cliquez sur Ajouter en bas du volet.
+8.  La version la plus récente apparaît alors dans la colonne Document.
+
+## <a name="view-previous-versions-of-a-terms-of-use"></a>Afficher les versions précédentes de conditions d’utilisation
+
+1.  Connectez-vous à Azure et accédez à **Conditions d’utilisation** sur https://aka.ms/catou.
+2.  Sélectionnez les conditions d’utilisation dont vous souhaitez afficher un historique des versions.
+3.  Cliquez sur **Langues et historique des versions**.
+4.  Cliquez sur **Voir les versions précédentes**.
+
+    ![Détails du document, y compris les versions linguistiques](./media/terms-of-use/document-details.png)
+
+5.  Vous pouvez cliquer sur le nom du document pour télécharger cette version.
+
+## <a name="see-who-has-accepted-each-version"></a>Voir qui a accepté chaque version
+
+1.  Connectez-vous à Azure et accédez à **Conditions d’utilisation** sur https://aka.ms/catou.
+2.  Pour voir qui a accepté les conditions d’utilisation, sous la colonne **Accepté**, cliquez sur le numéro des conditions d’utilisation de votre choix.
+3.  Par défaut, la page suivante indique l’état actuel de l’acceptation des conditions d’utilisation par chaque utilisateur.
+4.  Si vous souhaitez afficher les événements de consentement préalable, vous pouvez sélectionner **Tous** dans la liste déroulante **État actuel**. Vous pouvez maintenant voir les événements de chaque utilisateur dans les détails pour chaque version et ce qui s’est passé.
+5.  Vous pouvez également sélectionner une version spécifique dans la liste déroulante **Version** pour voir qui l’a acceptée.
+
 
 ## <a name="add-a-terms-of-use-language"></a>Ajouter une langue aux conditions d’utilisation
 
@@ -235,14 +275,14 @@ La procédure suivante explique comment ajouter une langue aux conditions d’ut
 
 1. Connectez-vous à Azure et accédez à **Conditions d’utilisation** sur [https://aka.ms/catou](https://aka.ms/catou).
 1. Sélectionnez les conditions d’utilisation à modifier.
-1. Dans le volet d’informations, cliquez sur l’onglet **Langues**.
-
-   ![Conditions d’utilisation sélectionnées, montrant l’onglet Langues dans le volet Détails](./media/terms-of-use/languages-tou.png)
-
-1. Cliquez sur **Ajouter une langue**.
+1. Cliquez sur **Modifier les conditions**.
+1. Cliquez sur **Ajouter une langue** en bas de la page.
 1. Dans le volet Ajouter une langue aux conditions d’utilisation, chargez votre PDF localisé et sélectionnez la langue.
 
-   ![Volet Ajouter une langue aux conditions d’utilisation avec les options permettant de charger des fichiers PDF localisés](./media/terms-of-use/language-add-tou.png)
+   ![Conditions d’utilisation sélectionnées, montrant l’onglet Langues dans le volet Détails](./media/terms-of-use/select-language.png)
+
+1. Cliquez sur **Ajouter une langue**.
+1. Cliquez sur **Enregistrer**.
 
 1. Cliquez sur **Ajouter** pour ajouter la langue.
 
@@ -318,7 +358,7 @@ Les stratégies d’accès conditionnel prennent effet immédiatement. Dans ce c
 > - Une stratégie d’accès conditionnel est activée dans les conditions d’utilisation
 > - une deuxième instance des conditions d’utilisation est créée.
 
-## <a name="b2b-guests-preview"></a>Invités B2B (préversion)
+## <a name="b2b-guests"></a>Invités B2B
 
 La plupart des organisations mettent en place un processus qui permet à leurs employés de consentir aux conditions d’utilisation et déclarations de confidentialité de leur organisation. Mais comment faire pour appliquer les mêmes consentements pour les invités Azure AD B2B quand ils sont ajoutés par le biais de SharePoint ou de Teams ? Grâce à l’accès conditionnel et aux conditions d’utilisation, vous pouvez appliquer une stratégie directement aux utilisateurs invités B2B. Durant le flux d’acceptation d’invitation, l’utilisateur voit les conditions d’utilisation s’afficher. Cette prise en charge est actuellement en mode préliminaire.
 
@@ -326,7 +366,7 @@ Les conditions d’utilisation sont seulement affichées quand l’utilisateur d
 
 ![Volet Utilisateurs et groupes - Onglet Inclure avec l’option Tous les utilisateurs invités cochée](./media/terms-of-use/b2b-guests.png)
 
-## <a name="support-for-cloud-apps-preview"></a>Prise en charge des applications cloud (préversion)
+## <a name="support-for-cloud-apps"></a>Prise en charge des applications cloud
 
 Les conditions d’utilisation peuvent être utilisées pour différentes applications cloud, notamment Azure Information Protection et Microsoft Intune. Cette prise en charge est actuellement en mode préliminaire.
 

@@ -3,12 +3,12 @@ title: Mettre à jour une délégation
 description: Découvrez comment mettre à jour une délégation pour un client précédemment intégré à Azure Lighthouse.
 ms.date: 12/03/2020
 ms.topic: how-to
-ms.openlocfilehash: 90827281ac9b05105700298494af0b60b0fa511f
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: e204d1f3546e6e978f91c7e808065a388a4af4b3
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96610875"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093415"
 ---
 # <a name="update-a-delegation"></a>Mettre à jour une délégation
 
@@ -17,7 +17,7 @@ Une fois que vous avez intégré un abonnement (ou un groupe de ressources) à A
 > [!TIP]
 > Même si nous faisons ici référence aux fournisseurs de services et aux clients, les [entreprises gérant plusieurs locataires](../concepts/enterprise.md) peuvent suivre le même processus pour configurer Azure Lighthouse et consolider leur expérience de gestion.
 
-Si vous [avez intégré votre client via des modèles Azure Resource Manager (ARM)](onboard-customer.md), un nouveau déploiement doit être effectué pour ce client. En fonction de ce que vous modifiez, vous souhaiterez peut-être mettre à jour l’offre d’origine ou la supprimer pour en créer une nouvelle.
+Si vous [avez intégré votre client via des modèles Azure Resource Manager (modèles ARM)](onboard-customer.md), un nouveau déploiement doit être effectué pour ce client. En fonction de ce que vous modifiez, vous souhaiterez peut-être mettre à jour l’offre d’origine ou la supprimer pour en créer une nouvelle.
 
 - **Si vous modifiez uniquement les autorisations** : Vous pouvez mettre à jour votre délégation en modifiant uniquement la section **Autorisations** du modèle ARM.
 - **Si vous modifiez le locataire gestionnaire** : Vous devez créer un nouveau modèle ARM en utilisant un **mspOfferName** différent de votre offre précédente.

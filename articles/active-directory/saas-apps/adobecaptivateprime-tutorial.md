@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 89f59bba856d662aea0c3ed249d5a1462297ec60
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 63bbec6de8f122178289cc313e5d938e3b926af2
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92309047"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673233"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-captivate-prime"></a>Tutoriel : Intégration d’Azure Active Directory à Adobe Captivate Prime
 
@@ -63,7 +63,7 @@ Pour configurer l’intégration d’Adobe Captivate Prime à Azure AD, vous de
 
 4. Dans la zone de recherche, tapez **Adobe Captivate Prime**, sélectionnez **Adobe Captivate Prime** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
-     ![Adobe Captivate Prime dans la liste des résultats](common/search-new-app.png)
+    ![Adobe Captivate Prime dans la liste des résultats](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
@@ -144,7 +144,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
     ![Boîte de dialogue Utilisateur](common/user-properties.png)
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
-  
+
     b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple : BrittaSimon@contoso.com
 
@@ -180,7 +180,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 ### <a name="create-adobe-captivate-prime-test-user"></a>Créer un utilisateur de test Adobe Captivate Prime
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Adobe Captivate Prime. Collaborez avec l’ [équipe du support technique d’Adobe Captivate Prime](mailto:captivateprimesupport@adobe.com) pour ajouter des utilisateurs à la plateforme Adobe Captivate Prime. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Adobe Captivate Prime. Collaborez avec l’[équipe de support d’Adobe Captivate Prime](mailto:captivateprimesupport@adobe.com) pour ajouter des utilisateurs dans la plateforme Adobe Captivate Prime. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique
 

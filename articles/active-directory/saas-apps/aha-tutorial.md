@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/09/2019
 ms.author: jeedes
-ms.openlocfilehash: 0e5b9b9ba71412244d42204f6cad712b939d7c15
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 82f3a2dc7f43bd484d6a81efaa8d07f13b746d9e
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318993"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97671078"
 ---
 # <a name="tutorial-integrate-aha-with-azure-active-directory"></a>Tutoriel : Intégrer Aha! à Azure Active Directory
 
@@ -65,7 +65,7 @@ Pour configurer et tester l’authentification unique Azure AD avec Aha!, suivez
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
     1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
     1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
-2. **[Configurer l’authentification unique Aha ! ](#configure-aha-sso)** pour configurer les paramètres de l’authentification unique côté application.
+2. **[Configurer l’authentification unique Aha !](#configure-aha-sso)** pour configurer les paramètres de l’authentification unique côté application.
     1. **[Créer un utilisateur de test Aha!](#create-aha-test-user)** pour avoir un équivalent de B.Simon dans Aha! lié à la représentation Azure AD de l’utilisateur.
 3. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
@@ -77,7 +77,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
 1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet pour **Configuration SAML de base** afin de modifier les paramètres.
 
-   ![Modifier la configuration SAML de base](common/edit-urls.png)
+    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
 1. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
 
@@ -143,7 +143,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
     ![Paramètres](./media/aha-tutorial/IC798950.png "Paramètres")
 
 5. Cliquez sur **Account**.
-  
+
     ![Profil](./media/aha-tutorial/IC798951.png "Profil")
 
 6. Cliquez sur **Security and single sign-on**.
@@ -178,7 +178,7 @@ Quand vous cliquez sur la vignette Aha! dans le volet d’accès, vous devez vou
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](./tutorial-list.md)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](./tutorial-list.md)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
 

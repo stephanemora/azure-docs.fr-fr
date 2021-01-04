@@ -9,12 +9,12 @@ ms.date: 12/08/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 07ad0714d0294ad90150acb9df14f17bfc1f5f0d
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: c2074402225c8134329e00003e4fbdfd95b5dba6
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905364"
+ms.locfileid: "96938407"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurer des pare-feux et des réseaux virtuels dans Stockage Azure
 
@@ -64,7 +64,7 @@ Vous pouvez gérer les règles d’accès réseau par défaut pour les comptes d
 
 1. Accédez au compte de stockage que vous voulez sécuriser.
 
-1. Cliquez sur le menu de paramètres appelé **Pare-feu et réseaux virtuels**.
+1. Cliquez sur le menu des paramètres appelé **Mise en réseau**.
 
 1. Pour refuser l’accès par défaut, choisissez d’autoriser l’accès à partir de **Réseaux sélectionnés**. Pour autoriser le trafic de tous les réseaux, choisissez d’autoriser l’accès à partir de **Tous les réseaux**.
 
@@ -148,7 +148,7 @@ Vous pouvez gérer les règles de réseau virtuel pour les comptes de stockage v
 
 1. Accédez au compte de stockage que vous voulez sécuriser.
 
-1. Cliquez sur le menu de paramètres appelé **Pare-feu et réseaux virtuels**.
+1. Cliquez sur le menu des paramètres appelé **Mise en réseau**.
 
 1. Vérifiez que vous avez choisi d’autoriser l’accès à partir des **Réseaux sélectionnés**.
 
@@ -272,7 +272,7 @@ Vous pouvez gérer les règles de réseau IP pour les comptes de stockage via le
 
 1. Accédez au compte de stockage que vous voulez sécuriser.
 
-1. Cliquez sur le menu de paramètres appelé **Pare-feu et réseaux virtuels**.
+1. Cliquez sur le menu des paramètres appelé **Mise en réseau**.
 
 1. Vérifiez que vous avez choisi d’autoriser l’accès à partir des **Réseaux sélectionnés**.
 
@@ -415,7 +415,7 @@ Vous pouvez gérer les exceptions de règle de réseau dans le portail Azure, Po
 
 1. Accédez au compte de stockage que vous voulez sécuriser.
 
-1. Cliquez sur le menu de paramètres appelé **Pare-feu et réseaux virtuels**.
+1. Cliquez sur le menu des paramètres appelé **Mise en réseau**.
 
 1. Vérifiez que vous avez choisi d’autoriser l’accès à partir des **Réseaux sélectionnés**.
 

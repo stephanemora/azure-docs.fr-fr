@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 12/07/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: ce0ea938cac4afa043b8770a4d6a98f08ec145ec
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 6a24713a6027c38d2b9817928f3a82161bd37314
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96484887"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96936724"
 ---
 # <a name="prevent-shared-key-authorization-for-an-azure-storage-account-preview"></a>Empêcher l’autorisation avec clé partagée pour un compte de stockage Azure (préversion)
 
@@ -23,13 +23,11 @@ Chaque demande sécurisée adressée à un compte Stockage Azure doit être auto
 Lorsque vous désactivez l’autorisation avec clé partagée pour un compte de stockage, le service Stockage Azure rejette toutes les demandes ultérieures adressées à ce compte, qui sont autorisées avec les clés d’accès au compte. Seules les demandes sécurisées autorisées avec Azure AD aboutissent. Pour plus d’informations sur l’utilisation d’Azure AD, consultez [Autoriser l’accès aux objets blob et aux files d’attente avec Azure Active Directory](storage-auth-aad.md).
 
 > [!WARNING]
-> Le service Stockage Azure prend en charge l’autorisation Azure AD uniquement pour les demandes adressées au stockage de blob et de file d’attente. Si vous désactivez l’autorisation avec clé partagée pour un compte de stockage, les demandes adressées aux services Azure Files ou Stockage Table qui utilisent une autorisation avec clé partagée échouent.
->
-> Pendant la période de préversion, les demandes adressées aux services Azure Files ou Stockage Table, qui utilisent des jetons de signature d’accès partagé (SAP) générés à l’aide des clés d’accès au compte aboutissent lorsque l’autorisation avec clé partagée est désactivée. Pour plus d’informations, consultez [À propos de la préversion](#about-the-preview).
->
-> La désactivation de l’accès avec clé partagée pour un compte de stockage n’affecte pas les connexions SMB à Azure Files.
+> Le service Stockage Azure prend en charge l’autorisation Azure AD uniquement pour les demandes adressées au stockage de blob et de file d’attente. Si vous désactivez l’autorisation avec clé partagée pour un compte de stockage, les demandes adressées aux services Azure Files ou Stockage Table qui utilisent une autorisation avec clé partagée échouent. Étant donné que le portail Azure utilise toujours l’autorisation par clé partagée pour accéder aux données de fichier et de table, si vous interdisez l’autorisation avec une clé partagée pour le compte de stockage, vous ne pourrez pas accéder aux données de fichier ni de table dans le portail Azure.
 >
 > Microsoft recommande soit de migrer les données des services Azure Files ou Stockage Table vers un compte de stockage séparé avant de désactiver l’accès au compte avec une clé partagée, soit de ne pas appliquer ce paramètre aux comptes de stockage qui prennent en charge les charges de travail des services Azure Files ou Stockage Table.
+>
+> La désactivation de l’accès avec clé partagée pour un compte de stockage n’affecte pas les connexions SMB à Azure Files.
 
 Cet article explique comment détecter les demandes envoyées avec une autorisation avec clé partagée, et comment corriger l’autorisation avec clé partagée pour votre compte de stockage. Pour savoir comment vous inscrire à la préversion, consultez [À propos de la préversion](#about-the-preview).
 
@@ -193,15 +191,32 @@ resources
 | project subscriptionId, resourceGroup, name, allowSharedKeyAccess
 ```
 
+## <a name="permissions-for-allowing-or-disallowing-shared-key-access"></a>Autorisations pour autoriser ou interdire l’accès avec clé partagée
+
+Afin de définir la propriété **AllowSharedKeyAccess** pour le compte de stockage, un utilisateur doit disposer des autorisations nécessaires pour créer et gérer des comptes de stockage. Les rôles de contrôle d’accès en fonction du rôle Azure (Azure RBAC) qui fournissent ces autorisations incluent l’action **Microsoft.Storage/storageAccounts/write** ou **Microsoft.Storage/storageAccounts/\** _. Les rôles intégrés à cette action comprennent :
+
+- Le rôle [Propriétaire](../../role-based-access-control/built-in-roles.md#owner) d’Azure Resource Manager
+- Le rôle [Contributeur](../../role-based-access-control/built-in-roles.md#contributor) d’Azure Resource Manager
+- Le rôle [Contributeur de compte de stockage](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
+
+Ces rôles ne fournissent pas d’accès aux données d’un compte de stockage par le biais d’Azure Active Directory (Azure AD). Toutefois, ils incluent l’action _*Microsoft.Storage/storageAccounts/listkeys/action**, qui accorde l’accès aux clés d’accès du compte. Avec cette autorisation, un utilisateur peut utiliser les clés d’accès du compte pour accéder à toutes les données d’un compte de stockage.
+
+Les attributions de rôles doivent être définies au niveau du compte de stockage ou à un niveau supérieur pour permettre à un utilisateur d’autoriser ou d’interdire l’accès avec clé partagée au compte de stockage. Pour plus d’informations sur l’étendue des rôles, consultez [Comprendre l’étendue pour Azure RBAC](../../role-based-access-control/scope-overview.md).
+
+Veillez à limiter l’attribution de ces rôles aux seules personnes qui ont besoin de créer un compte de stockage ou de mettre à jour ses propriétés. Utilisez le principe du moindre privilège pour vous assurer que les utilisateurs disposent des autorisations minimales nécessaires pour accomplir leurs tâches. Pour plus d’informations sur la gestion de l’accès avec Azure RBAC, consultez [Bonnes pratiques pour Azure RBAC](../../role-based-access-control/best-practices.md).
+
+> [!NOTE]
+> Les rôles d’administrateur d’abonnement classique Administrateur de service et Co-administrateur incluent l’équivalent du rôle [Propriétaire](../../role-based-access-control/built-in-roles.md#owner) d’Azure Resource Manager. Le rôle **Propriétaire** comprend toutes les actions, de sorte qu’un utilisateur disposant de l’un de ces rôles d’administration peut également créer et gérer des comptes de stockage. Pour plus d’informations, consultez [Rôles d’administrateur d’abonnement classique, rôles Azure et rôles d’administrateur Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
+
 ## <a name="understand-how-disallowing-shared-key-affects-sas-tokens"></a>Comprendre comment la désactivation de la clé partagée affecte les jetons SAP
 
-Quand la clé partagée est désactivée pour le compte de stockage, le service Stockage Azure gère les jetons SAP en fonction du type de SAP et du service ciblé par la demande. Le tableau suivant montre comment chaque type de signature d’accès partagé est autorisé et comment le service Storage Azure gère cette SAP quand la propriété **AllowSharedKeyAccess** pour le compte de stockage est définie sur **false**.
+Quand l’accès avec clé partagée est désactivé pour le compte de stockage, le service Stockage Azure gère les jetons SAS en fonction du type de signature d’accès partagé et du service ciblé par la demande. Le tableau suivant montre comment chaque type de signature d’accès partagé est autorisé et comment le service Storage Azure gère cette SAP quand la propriété **AllowSharedKeyAccess** pour le compte de stockage est définie sur **false**.
 
 | Type de SAP | Type d’autorisation | Comportement lorsque la propriété AllowSharedKeyAccess est définie sur false |
 |-|-|-|
 | SAP de délégation d’utilisateur (Stockage Blob uniquement) | Azure AD | La demande est autorisée. Microsoft recommande d’utiliser une SAP de délégation d’utilisateur dans la mesure du possible pour une plus grande sécurité. |
-| SAP de service | Clé partagée | La demande est refusée pour le stockage blob. La demande est autorisée pour le stockage de file d’attente et de table, ainsi que pour Azure Files. Pour plus d’informations, dans la section **À propos de la préversion**, consultez [Les demandes avec jetons SAP sont autorisées pour les files d’attente, les tables et les fichiers quand la propriété AllowSharedKeyAccess est définie sur false](#requests-with-sas-tokens-are-permitted-for-queues-tables-and-files-when-allowsharedkeyaccess-is-false). |
-| SAP de compte | Clé partagée | La demande est refusée pour le stockage blob. La demande est autorisée pour le stockage de file d’attente et de table, ainsi que pour Azure Files. Pour plus d’informations, dans la section **À propos de la préversion**, consultez [Les demandes avec jetons SAP sont autorisées pour les files d’attente, les tables et les fichiers quand la propriété AllowSharedKeyAccess est définie sur false](#requests-with-sas-tokens-are-permitted-for-queues-tables-and-files-when-allowsharedkeyaccess-is-false). |
+| SAP de service | Clé partagée | La demande est refusée pour tous les services de stockage Azure. |
+| SAP de compte | Clé partagée | La demande est refusée pour tous les services de stockage Azure. |
 
 Pour plus d’informations sur les signatures d’accès partagé, consultez [Accorder un accès limité aux ressources du Stockage Azure à l’aide des signatures d’accès partagé (SAP)](storage-sas-overview.md).
 
@@ -219,7 +234,7 @@ Certains outils Azure offrent la possibilité d’utiliser une autorisation Azur
 | Azure PowerShell | Pris en charge. Pour plus d’informations sur l’autorisation des commandes PowerShell pour les opérations d’objet blob ou de file d’attente avec Azure AD, consultez [Exécuter des commandes PowerShell avec des informations d’identification Azure AD pour accéder aux données d’objet blob](../blobs/authorize-data-operations-powershell.md) ou [Exécuter des commandes PowerShell avec des informations d’identification Azure AD pour accéder aux données de la file d’attente](../queues/authorize-data-operations-powershell.md). |
 | Azure CLI | Pris en charge. Pour plus d’informations sur la manière d’autoriser des commandes Azure CLI avec Azure AD pour l’accès aux données de blob et de file d’attente, consultez [Exécuter des commandes Azure CLI avec des informations d’identification Azure AD pour accéder aux données d’objet blob ou de file d’attente](../blobs/authorize-data-operations-cli.md). |
 | Azure IoT Hub | Pris en charge. Pour plus d’informations, consultez [Prise en charge d’IoT Hub pour les réseaux virtuels](../../iot-hub/virtual-network-support.md). |
-| Azure Cloud Shell | Azure Cloud Shell est un interpréteur de commandes intégré dans le portail Azure. Azure Cloud Shell héberge des fichiers à des fins de persistance dans un partage de fichiers Azure dans un compte de stockage. Ces fichiers deviennent inaccessibles si l’autorisation avec clé partagée est désactivée pour ce compte de stockage. Pour plus d’informations, consultez [Connecter votre stockage Microsoft Azure Files](../../cloud-shell/overview.md#connect-your-microsoft-azure-files-storage). <br /><br /> Pour exécuter des commandes dans Azure Cloud Shell afin de gérer les comptes de stockage pour lesquels l’accès avec clé partagée est désactivé, commencez par vérifier que vous disposez des autorisations nécessaires pour ces comptes via le contrôle d’accès en fonction du rôle Azure (Azure RBAC). Pour plus d’informations, consultez [Qu’est-ce que le contrôle d’accès en fonction du rôle Azure (RBAC Azure) ?](../../role-based-access-control/overview.md). |
+| Azure Cloud Shell | Azure Cloud Shell est un interpréteur de commandes intégré dans le portail Azure. Azure Cloud Shell héberge des fichiers à des fins de persistance dans un partage de fichiers Azure dans un compte de stockage. Ces fichiers deviennent inaccessibles si l’autorisation avec clé partagée est désactivée pour ce compte de stockage. Pour plus d’informations, consultez [Connecter votre stockage Microsoft Azure Files](../../cloud-shell/overview.md#connect-your-microsoft-azure-files-storage). <br /><br /> Pour exécuter des commandes dans Azure Cloud Shell afin de gérer les comptes de stockage pour lesquels l’accès avec clé partagée est désactivé, commencez par vérifier que vous disposez des autorisations nécessaires pour ces comptes via Azure RBAC. Pour plus d’informations, consultez [Qu’est-ce que le contrôle d’accès en fonction du rôle Azure (RBAC Azure) ?](../../role-based-access-control/overview.md). |
 
 ## <a name="about-the-preview"></a>À propos de la préversion
 
@@ -240,10 +255,6 @@ Les métriques et la journalisation Azure dans Azure Monitor ne font pas la dist
 - Une SAP de délégation d’utilisateur est autorisée avec Azure AD, et est autorisée sur une demande adressée au Stockage Blob quand la propriété **AllowSharedKeyAccess** est définie sur **false**.
 
 Lorsque vous évaluez le trafic vers votre compte de stockage, gardez à l’esprit que les métriques et les journaux décrits dans [Détecter le type d’autorisation utilisé par les applications clientes](#detect-the-type-of-authorization-used-by-client-applications) peuvent inclure des demandes effectuées avec une SAP de délégation d’utilisateur. Pour plus d’informations sur la façon dont le service Stockage Azure répond à une signature d’accès partagé quand la propriété **AllowSharedKeyAccess** est définie sur **false**, consultez [Comprendre comment la désactivation de la clé partagée affecte les jetons SAP](#understand-how-disallowing-shared-key-affects-sas-tokens).
-
-### <a name="requests-with-sas-tokens-are-permitted-for-queues-tables-and-files-when-allowsharedkeyaccess-is-false"></a>Les demandes avec jetons SAP sont autorisées pour les files d’attente, les tables et les fichiers quand la propriété AllowSharedKeyAccess est définie sur false
-
-Lorsque l’accès avec clé partagée est désactivé pour le compte de stockage pendant la période de préversion, les signatures d’accès partagé qui ciblent une file d’attente, une table ou des ressources Azure Files continuent d’être autorisées. Cette limitation s’applique tant aux jetons SAP de service qu’aux jetons SAP de compte. Les deux types de SAP sont autorisés avec une clé partagée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

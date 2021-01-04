@@ -3,14 +3,14 @@ title: Gérer Suivi des modifications et inventaire dans Azure Automation
 description: Cet article explique comment utiliser le Change Tracking and Inventory pour suivre les modifications apportées aux logiciels et aux services Microsoft dans votre environnement.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 11/02/2020
+ms.date: 12/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 99cdc4191320efb37b37e4ec38e808f3961a1207
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 636dbf95567f761aee19bd567b0835173ce36ccc
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288735"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093619"
 ---
 # <a name="manage-change-tracking-and-inventory"></a>Gérer Change Tracking et Inventory
 
@@ -45,7 +45,7 @@ Utilisez les étapes suivantes pour configurer le suivi des fichiers sur des ord
 
 5. Sélectionnez **Modifier les paramètres** (symbole de l’engrenage).
 
-6. Dans la page Configuration de l’espace de travail, sélectionnez **Fichiers Windows** , puis cliquez sur **+ Ajouter** pour ajouter un nouveau fichier à suivre.
+6. Dans la page Configuration de l’espace de travail, sélectionnez **Fichiers Windows**, puis cliquez sur **+ Ajouter** pour ajouter un nouveau fichier à suivre.
 
 7. Dans le volet Ajouter le fichier Windows pour le suivi des modifications, entrez les informations du fichier ou du dossier à suivre, puis cliquez sur **Enregistrer**. Le tableau suivant définit les propriétés que vous pouvez utiliser pour les informations.
 
@@ -74,7 +74,7 @@ Utilisez les étapes ci-dessous pour configurer le suivi des fichiers sur des or
 
 1. Sélectionnez **Modifier les paramètres** (symbole de l’engrenage).
 
-2. Dans la page Configuration de l’espace de travail, sélectionnez **Fichiers Linux** , puis sélectionnez **+ ajouter** pour ajouter un nouveau fichier à suivre.
+2. Dans la page Configuration de l’espace de travail, sélectionnez **Fichiers Linux**, puis sélectionnez **+ ajouter** pour ajouter un nouveau fichier à suivre.
 
 3. Sur la page **Ajouter un fichier Linux pour le Suivi des modifications** , entrez les informations du fichier ou du répertoire à suivre, puis sélectionnez **Enregistrer**. Le tableau suivant définit les propriétés que vous pouvez utiliser pour les informations.
 
@@ -99,6 +99,7 @@ Utilisez les étapes ci-dessous pour configurer le suivi des fichiers sur des or
 Le suivi de contenu de fichier vous permet de voir le contenu d’un fichier avant et après un changement suivi. La fonctionnalité enregistre le contenu du fichier dans un [compte de stockage](../../storage/common/storage-account-overview.md) chaque fois qu’un changement a lieu. Voici quelques règles à suivre pour le suivi du contenu de fichier :
 
 * Un compte de stockage standard utilisant le modèle de déploiement Resource Manager est nécessaire pour stocker le contenu du fichier.
+* Par défaut, les comptes de stockage acceptent les connexions des clients sur n’importe quel réseau. Si vous avez sécurisé votre compte de stockage pour autoriser uniquement certains types de trafic, vous devez modifier vos règles de configuration pour autoriser votre compte Automation à s’y connecter. Consultez [Configurer des pare-feu Stockage Azure et des réseaux virtuels](../../storage/common/storage-network-security.md).
 * N’utilisez pas de comptes de stockage de modèles de déploiement Premium et Classic. Voir [À propos des comptes Stockage Azure](../../storage/common/storage-account-create.md).
 * Vous pouvez connecter le compte de stockage à un seul compte Automation.
 * Change Tracking et Inventory doit être activé dans votre compte Automation.

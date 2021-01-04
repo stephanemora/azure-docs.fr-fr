@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/19/2020
+ms.date: 12/10/2020
 ms.author: memildin
-ms.openlocfilehash: cf297cdeec88a31950d007246f987957db80e247
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: ecfb4bdbd523dd1514333a2185186eab0a7e4aaa
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785882"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032675"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Intégrer des solutions de sécurité dans Azure Security Center
 Ce document vous aide à gérer les solutions de sécurité déjà connectées à Azure Security Center et à en ajouter de nouvelles.
@@ -26,11 +26,11 @@ Ce document vous aide à gérer les solutions de sécurité déjà connectées �
 ## <a name="integrated-azure-security-solutions"></a>Solutions de sécurité Azure intégrées
 Security Center simplifie l’activation des solutions de sécurité intégrées dans Azure. Voici les avantages :
 
-- **Déploiement simplifié**  : Security Center permet un provisionnement simplifié des solutions de partenaire intégrées. Pour les solutions telles que les logiciels anti-programme malveillant et l’évaluation des vulnérabilités, Security Center peut provisionner l’agent sur vos machines virtuelles. Pour les appliances de pare-feu, Security Center peut prendre en charge une grande partie de la configuration réseau requise.
-- **Détections intégrées**  : les événements de sécurité des solutions de partenaire sont automatiquement collectés, agrégés et affichés dans le cadre des alertes et des incidents de Security Center. Ces événements sont également fusionnés avec les détections d’autres sources pour fournir des fonctions de détection de menaces avancées.
-- **Gestion et surveillance unifiées de l’intégrité**  : Les clients peuvent utiliser des événements d’intégrité intégrés pour surveiller facilement les solutions des partenaires. La gestion de base offre un accès facile à la configuration avancée avec la solution de partenaire.
+- **Déploiement simplifié** : Security Center permet un provisionnement simplifié des solutions de partenaire intégrées. Pour les solutions telles que les logiciels anti-programme malveillant et l’évaluation des vulnérabilités, Security Center peut provisionner l’agent sur vos machines virtuelles. Pour les appliances de pare-feu, Security Center peut prendre en charge une grande partie de la configuration réseau requise.
+- **Détections intégrées** : les événements de sécurité des solutions de partenaire sont automatiquement collectés, agrégés et affichés dans le cadre des alertes et des incidents de Security Center. Ces événements sont également fusionnés avec les détections d’autres sources pour fournir des fonctions de détection de menaces avancées.
+- **Gestion et surveillance unifiées de l’intégrité** : Les clients peuvent utiliser des événements d’intégrité intégrés pour surveiller facilement les solutions des partenaires. La gestion de base offre un accès facile à la configuration avancée avec la solution de partenaire.
 
-Les solutions de sécurité intégrées incluent l’évaluation des vulnérabilités par [Qualys](https://www.qualys.com/public-cloud/#azure) et [Rapid7](https://www.rapid7.com/products/insightvm/), et le pare-feu d’applications web Application Gateway de Microsoft.
+Les solutions de sécurité intégrées incluent actuellement l’évaluation des vulnérabilités par [Qualys](https://www.qualys.com/public-cloud/#azure), [Rapid7](https://www.rapid7.com/products/insightvm/) et [Microsoft Azure Web Application Firewall sur Azure Application Gateway](../web-application-firewall/ag/ag-overview.md).
 
 > [!NOTE]
 > Security Center n’installe pas l’agent Log Analytics sur les appliances virtuelles de partenaire, car la plupart des fournisseurs de sécurité n’autorisent pas l’exécution d’agents externes sur leurs appliances.
@@ -53,7 +53,7 @@ Les solutions de sécurité Azure déployées à partir de Security Center sont 
 
 1. Dans le menu de Security Center, sélectionnez **Solutions de sécurité**.
 
-Sur la page **Solutions de sécurité** , vous pouvez voir l’intégrité des solutions de sécurité Azure intégrées et exécuter des tâches de gestion de base.
+Sur la page **Solutions de sécurité**, vous pouvez voir l’intégrité des solutions de sécurité Azure intégrées et exécuter des tâches de gestion de base.
 
 ### <a name="connected-solutions"></a>Solutions connectées
 
@@ -75,7 +75,7 @@ L’état d’une solution de partenaire peut être :
 
 Sélectionnez **AFFICHAGE** pour obtenir des informations et des options supplémentaires, par exemple :
 
-   - **Console de la solution**  : ouvre l’expérience de gestion pour cette solution.
+   - **Console de la solution** : ouvre l’expérience de gestion pour cette solution.
    - **Associer la machine virtuelle**. : ouvre la page Associer les applications. Il vous permet de connecter des ressources à la solution de partenaire.
    - **Supprimer la solution**
    - **Configurer**

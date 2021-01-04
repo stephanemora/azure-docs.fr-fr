@@ -1,15 +1,14 @@
 ---
 title: FAQ - Sauvegarder des machines virtuelles Azure
 description: Cet article fournit des réponses à des questions courantes sur la sauvegarde des machines virtuelles Azure avec le service Sauvegarde Microsoft Azure.
-ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 0f4f990654cc23fde7cf1ad2e37ba1ada76d94e3
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: ba2779305302e91f68cb2664c90f53fdf9a9ca55
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96324786"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008348"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Forum aux questions - Sauvegarde de machines virtuelles Azure
 
@@ -163,11 +162,20 @@ Des opérations telles que la restauration de secret/clé ne nécessitent pas ce
 
 ### <a name="can-i-access-the-vm-once-restored-due-to-a-vm-having-broken-relationship-with-domain-controller"></a>Puis-je accéder à la machine virtuelle après restauration en raison d’une rupture de la relation entre la machine virtuelle et le contrôleur de domaine ?
 
-Oui, vous accédez à la machine virtuelle après restauration en raison d’une rupture de la relation entre la machine virtuelle et le contrôleur de domaine. Pour plus d’informations, consultez cet [article](./backup-azure-arm-restore-vms.md#post-restore-steps)
+Oui, vous accédez à la machine virtuelle après restauration en raison d’une rupture de la relation entre la machine virtuelle et le contrôleur de domaine. Pour plus d’informations, consultez cet [article](./backup-azure-arm-restore-vms.md#post-restore-steps).
+
+### <a name="can-i-cancel-an-in-progress-restore-job"></a>Est-ce que je peux annuler un travail de restauration en cours ?
+Non, vous ne pouvez pas annuler le travail de restauration en cours.
 
 ### <a name="why-restore-operation-is-taking-long-time-to-complete"></a>Pourquoi l’opération de restauration prend-elle du temps ?
 
 La durée totale de la restauration varie selon les opérations d'entrée/sortie par seconde (IOPS) et le débit du compte de stockage. La durée totale de la restauration peut être affectée si le compte de stockage cible est chargé avec d'autres opérations de lecture et d'écriture de l'application. Pour améliorer l'opération de restauration, sélectionnez un compte de stockage qui n'est pas chargé avec d'autres données d'application.
+
+### <a name="how-do-we-handle-create-new-virtual-machine-restore-type-conflicts-with-governance-policies"></a>Comment pouvons-nous traiter les conflits de type de restauration « Créer une machine virtuelle » avec des stratégies de gouvernance ?
+
+Sauvegarde Azure utilise des disques « attach » à partir de points de récupération et ne prend pas en considération vos galeries ou références d’images. Par conséquent, dans la stratégie, vous pouvez vérifier que « storageProfile.osDisk.createOption est égal à Attach » ; la condition du script est alors :
+
+`if (storageProfile.osDisk.createOption == "Attach") then { exclude <Policy> }`
 
 ## <a name="manage-vm-backups"></a>Gérer les sauvegardes de machine virtuelle
 

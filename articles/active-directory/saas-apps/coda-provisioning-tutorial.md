@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: Zhchia
-ms.openlocfilehash: ea2f25d6b03f002448079b16bd261729807d8a03
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 8df1588a78829252d55f82349d6889c754c989e6
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96179695"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673223"
 ---
 # <a name="tutorial-configure-coda-for-automatic-user-provisioning"></a>Tutoriel : Configurer Coda pour le provisionnement automatique d’utilisateurs
 
@@ -93,7 +93,7 @@ Cette section vous guide tout au long des étapes de configuration du service de
 
 5. Sous la section **Informations d’identification de l’administrateur**, entrez l’URL de votre locataire Coda et le jeton secret récupéré précédemment à l’étape 2. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Coda. Si la connexion échoue, vérifiez que votre compte Coda dispose des autorisations d’administrateur et réessayez.
 
-    ![Capture d’écran montrant la boîte de dialogue Informations d’identification de l’administrateur, où vous pouvez entrer le jeton secret et l’URL de votre locataire.](./media/coda-provisioning-tutorial/provisioning.png)
+     ![Capture d’écran montrant la boîte de dialogue Informations d’identification de l’administrateur, où vous pouvez entrer le jeton secret et l’URL de votre locataire.](./media/coda-provisioning-tutorial/provisioning.png)
 
 6. Dans le champ **E-mail de notification**, entrez l’adresse e-mail de la personne ou du groupe qui doit recevoir les notifications d’erreur de provisionnement et sélectionnez la case à cocher **Envoyer une notification par e-mail en cas de défaillance**.
 

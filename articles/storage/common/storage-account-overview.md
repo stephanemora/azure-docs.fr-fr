@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/17/2020
+ms.date: 12/11/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 7008cfcdeb4615b42839f92a6df71357f9acf911
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 2c9c4cd643e2e4b89f9a7d8f44a6569d0dde2b37
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96484989"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97357379"
 ---
 # <a name="storage-account-overview"></a>Vue d’ensemble du compte de stockage
 
@@ -54,7 +54,7 @@ Les comptes de stockage universels v1 offrent un accès à tous les services des
 - Files d’attente
 - Tables
 
-Dans la plupart des cas, vous devez utiliser des comptes v2 universels. Vous pouvez utiliser des comptes v1 universels pour les scénarios suivants :
+Microsoft recommande des comptes v2 universels pour la plupart des scénarios. Vous pouvez utiliser des comptes v1 universels pour les scénarios suivants :
 
 - Si vos applications nécessitent le modèle de déploiement Azure Classic. Les comptes universels v2 et les comptes de stockage d’objets blob prennent uniquement en charge le modèle de déploiement Azure Resource Manager.
 
@@ -152,7 +152,7 @@ Vous pouvez accorder l’accès aux données de votre compte de stockage à l’
 
 - **Azure Active Directory :** Utilisez les informations d’identification Azure Active Directory (Azure AD) afin d’authentifier un utilisateur, un groupe ou une autre identité, pour l’accès aux données d’objets blob et de files d’attente. Si l’authentification d’une identité réussit, Azure AD retourne un jeton qui doit être utilisé pour autoriser la requête dans le stockage Blob ou File d’attente d’Azure. Pour plus d’informations, consultez [Authentifier l’accès au Stockage Azure à l’aide d’Azure Active Directory](storage-auth-aad.md).
 - **Autorisation par clé partagée :** utilisez la clé d’accès de votre compte de stockage pour construire une chaîne de connexion que votre application utilisera lors de l’exécution afin d’accéder au stockage Azure. Les valeurs de la chaîne de connexion sont utilisées pour construire l’en-tête *d’autorisation* qui est passé au stockage Azure. Pour plus d’informations, consultez [Configuration des chaînes de connexion Stockage Azure](storage-configure-connection-string.md).
-- **Signature d’accès partagé :** Utilisez une signature d’accès partagé pour déléguer l’accès aux ressources de votre compte de stockage si vous n’utilisez pas l’autorisation Azure AD. Une signature d’accès partagé est un jeton qui encapsule toutes les informations nécessaires à l’autorisation d’une requête envoyée au stockage Azure via l’URL. Dans le cadre de la signature d’accès partagé, vous pouvez spécifier la ressource de stockage, les autorisations accordées et l’intervalle pendant lequel les autorisations sont valides. Pour plus d’informations, consultez la page [Utiliser des signatures d’accès partagé (SAP)](storage-sas-overview.md).
+- **Signature d’accès partagé :** Une signature d’accès partagé (SAS) est un jeton qui permet un accès délégué aux ressources de votre compte de stockage. Le jeton SAS encapsule toutes les informations nécessaires à l’autorisation d’une demande envoyée au stockage Azure via l’URL. Lorsque vous créez une signature SAS, vous pouvez spécifier les autorisations que la signature SAS octroie à une ressource et l’intervalle pendant lequel les autorisations sont valides. Un jeton SAS peut être signé avec des informations d’identification Azure AD ou avec une clé partagée. Pour plus d’informations, consultez [Accorder un accès limité aux ressources du Stockage Azure à l’aide des signatures d’accès partagé (SAS)](storage-sas-overview.md).
 
 > [!NOTE]
 > L’authentification des utilisateurs et des applications à l’aide des informations d’identification Azure AD est plus sécurisée et plus facile à utiliser que les autres modes d’autorisation. Même si vous pouvez continuer à utiliser l’autorisation de clé partagée avec vos applications, avec Azure AD, vous n’avez plus besoin de stocker votre clé d’accès de compte avec votre code. Vous pouvez également continuer à utiliser des signatures d’accès partagé (SAP) pour accorder un accès affiné aux ressources de votre compte de stockage. Toutefois, Azure AD offre des fonctionnalités similaires sans nécessiter de gestion des jetons SAP, ni de révocation des SAP compromises.
@@ -192,3 +192,5 @@ Pour plus d’informations sur l’API REST du stockage Azure, consultez [Réfé
 
 - [Créez un compte de stockage](storage-account-create.md)
 - [Créer un compte de stockage d’objet blob de blocs](../blobs/storage-blob-create-account-block-blob.md)
+- [Mettre à niveau vers un compte de stockage v2 à usage général](storage-account-upgrade.md)
+- [récupérer un compte de stockage supprimé](storage-account-recover.md)

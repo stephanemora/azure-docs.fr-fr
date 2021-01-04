@@ -11,12 +11,12 @@ author: knicholasa
 ms.author: nichola
 manager: martinco
 ms.date: 11/23/2020
-ms.openlocfilehash: 9189d4d8cda5f9fcfce7e6ac2097414aa29f0a68
-ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
+ms.openlocfilehash: fc15176318dcfae99434f50a0b4370f371cec05a
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96317467"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938237"
 ---
 # <a name="increase-the-resilience-of-authentication-and-authorization-in-client-applications-you-develop"></a>Augmenter la résilience de l’authentification et de l’autorisation dans les applications clientes que vous développez
 
@@ -30,7 +30,9 @@ MSAL met en cache les jetons et utilise un modèle silencieux d’acquisition de
 
 ![Image d’un appareil et d’une application utilisant MSAL pour appeler Microsoft Identity](media/resilience-client-app/resilience-with-microsoft-authentication-library.png)
 
-Lorsque vous utilisez MSAL, vous bénéficiez de la mise en cache, de l’actualisation et de l’acquisition silencieuse des jetons en utilisant le modèle suivant.
+Quand vous utilisez MSAL, la mise en cache, l’actualisation et l’acquisition en mode silencieux des jetons sont automatiquement prises en charge. Vous pouvez utiliser des modèles simples pour acquérir les jetons nécessaires à l’authentification moderne. Nous prenons en charge de nombreux langages, et vous trouverez un exemple qui correspond à vos langage et scénario sur notre page d’[exemples](https://docs.microsoft.com/azure/active-directory/develop/sample-v2-code).
+
+## <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 try
@@ -42,6 +44,28 @@ catch(MsalUiRequiredException ex)
     result = await app.AcquireToken(scopes).WithClaims(ex.Claims).ExecuteAsync()
 }
 ```
+
+## <a name="javascript"></a>[Javascript](#tab/javascript)
+
+```javascript
+return myMSALObj.acquireTokenSilent(request).catch(error => {
+    console.warn("silent token acquisition fails. acquiring token using redirect");
+    if (error instanceof msal.InteractionRequiredAuthError) {
+        // fallback to interaction when silent call fails
+        return myMSALObj.acquireTokenPopup(request).then(tokenResponse => {
+            console.log(tokenResponse);
+
+            return tokenResponse;
+        }).catch(error => {
+            console.error(error);
+        });
+    } else {
+        console.warn(error);
+    }
+});
+```
+
+---
 
 MSAL peut, dans certains cas, actualiser les jetons de manière proactive. Lorsque Microsoft Identity émet un jeton de longue durée, elle peut envoyer des informations au client concernant le meilleur moment pour actualiser le jeton (« refresh\_in »). MSAL actualise de manière proactive le jeton en fonction de ces informations. L’application continuera à fonctionner tant que l’ancien jeton sera valide, mais prendra plus de temps pour acquérir un autre jeton.
 
@@ -65,7 +89,9 @@ Les développeurs doivent disposer d’un processus de mise à jour vers la dern
 
 [Vérifier la version la plus récente de Microsoft.Identity.Web et les notes de publication](https://github.com/AzureAD/microsoft-identity-web/releases)
 
-## <a name="if-not-using-msal-use-these-resilient-patterns-for-token-handling"></a>Si vous n’utilisez pas MSAL, utilisez ces modèles résilients pour la gestion des jetons
+## <a name="use-resilient-patterns-for-token-handling"></a>Utiliser des modèles résilients pour la gestion des jetons
+
+Si vous n’utilisez pas MSAL, vous pouvez utiliser ces modèles résilients pour la gestion des jetons. Ces bonnes pratiques sont implémentées automatiquement par la bibliothèque MSAL. 
 
 En général, une application qui utilise l’authentification moderne appellera un point de terminaison pour récupérer les jetons qui authentifient l’utilisateur ou autorisent l’application à appeler des API protégées. MSAL est conçue pour gérer les détails de l’authentification et implémente plusieurs modèles pour améliorer la résilience de ce processus. Utilisez les instructions de cette section pour implémenter les meilleures pratiques si vous choisissez d’utiliser une bibliothèque autre que MSAL. Si vous utilisez MSAL, vous bénéficiez de toutes ces meilleures pratiques gratuitement, car MSAL les implémente automatiquement.
 

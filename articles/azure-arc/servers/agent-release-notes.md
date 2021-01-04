@@ -2,13 +2,13 @@
 title: Nouveautés de l’agent des serveurs activés par Azure Arc
 description: Cet article contient les notes de publication de l’agent des serveurs activés par Azure Arc. Pour la plupart des problèmes résumés ici, il existe des liens menant à des informations supplémentaires.
 ms.topic: conceptual
-ms.date: 11/10/2020
-ms.openlocfilehash: 5322a92bfc67d9f80c2271a3ef9b5626455e9ad7
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.date: 12/14/2020
+ms.openlocfilehash: 3a01113d0d6416fb050f5c66191d5c420b7ac137
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445283"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505645"
 ---
 # <a name="whats-new-with-azure-arc-enabled-servers-agent"></a>Nouveautés de l’agent des serveurs activés par Azure Arc
 
@@ -17,6 +17,16 @@ L’agent Connected Machine des serveurs activés par Azure Arc reçoit des amé
 - Versions les plus récentes
 - Problèmes connus
 - Résolution des bogues
+
+## <a name="december-2020"></a>Décembre 2020
+
+### <a name="new-feature"></a>Nouvelle fonctionnalité
+
+Ajout de la prise en charge de Windows Server 2008 R2
+
+### <a name="fixed"></a>Fixe
+
+Résolution d’un problème empêchant l’installation de l’extension de script personnalisé sur Linux.
 
 ## <a name="november-2020"></a>Novembre 2020
 
@@ -65,13 +75,13 @@ Version : 1.0 (Disponibilité générale)
 
 Version : 0.11
 
-- Cette mise en production a annoncé précédemment la prise en charge d’Ubuntu 20.04. Étant donné que certaines extensions de machine virtuelle Azure ne prennent pas en charge Ubuntu 20.04, la prise en charge de cette version d’Ubuntu est en cours de suppression.
+- Cette mise en production a annoncé précédemment la prise en charge d’Ubuntu 20.04. Étant donné que certaines extensions de machine virtuelle Azure ne prennent pas en charge Ubuntu 20.04, la prise en charge de cette version d’Ubuntu est en cours de suppression.
 
 - Améliorations de la fiabilité des déploiements d’extension.
 
 ### <a name="known-issues"></a>Problèmes connus
 
-Si vous utilisez une version antérieure de l’agent Linux et que vous l’avez configurée pour utiliser un serveur proxy, vous devez reconfigurer le paramètre de serveur proxy après la mise à niveau. Pour cela, exécutez `sudo azcmagent_proxy add http://proxyserver.local:83`.
+Si vous utilisez une version antérieure de l’agent Linux et qu’elle est configurée pour utiliser un serveur proxy, vous devez reconfigurer le paramètre de serveur proxy après la mise à niveau. Pour cela, exécutez `sudo azcmagent_proxy add http://proxyserver.local:83`.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

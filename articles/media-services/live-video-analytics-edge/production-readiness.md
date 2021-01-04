@@ -3,12 +3,12 @@ title: Préparation à la production et bonnes pratiques - Azure
 description: Cet article fournit des conseils sur la configuration et le déploiement du module Live Video Analytics sur IoT Edge dans des environnements de production.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 215427e3524861a842349b197668d92167960e5c
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 56982d84b7ffac718072683076657d56a2691d6c
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96906333"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400554"
 ---
 # <a name="production-readiness-and-best-practices"></a>Préparation à la production et bonnes pratiques
 
@@ -109,7 +109,11 @@ Si vous examinez les exemples de graphiques multimédias du guide de démarrage 
 
 ### <a name="naming-video-assets-or-files"></a>Attribution d'un nom aux fichiers et ressources vidéo
 
-Les graphiques multimédias permettent de créer des ressources dans le cloud ou des fichiers mp4 en périphérie. Les ressources multimédias peuvent être générées par [enregistrement vidéo continu](continuous-video-recording-tutorial.md) ou par [enregistrement vidéo basé sur des événements](event-based-video-recording-tutorial.md). Bien que ces ressources et fichiers puissent être nommés comme vous le souhaitez, la structure d'attribution de nom recommandée pour les ressources multimédias basées sur l'enregistrement vidéo continu est « &lt;texte&gt;-${System.GraphTopologyName}-${System.GraphInstanceName} ». Par exemple, vous pouvez définir assetNamePattern sur le récepteur de ressources comme suit :
+Les graphiques multimédias permettent de créer des ressources dans le cloud ou des fichiers mp4 en périphérie. Les ressources multimédias peuvent être générées par [enregistrement vidéo continu](continuous-video-recording-tutorial.md) ou par [enregistrement vidéo basé sur des événements](event-based-video-recording-tutorial.md). Bien que ces ressources et fichiers puissent être nommés comme vous le souhaitez, la structure d'attribution de nom recommandée pour les ressources multimédias basées sur l'enregistrement vidéo continu est « &lt;texte&gt;-${System.GraphTopologyName}-${System.GraphInstanceName} ».   
+
+Le modèle de substitution est défini par le signe $ suivi d’accolades : **${variableName}** .  
+
+Par exemple, vous pouvez définir assetNamePattern sur le récepteur de ressources comme suit :
 
 ```
 "assetNamePattern": "sampleAsset-${System.GraphTopologyName}-${System.GraphInstanceName}
@@ -130,15 +134,29 @@ Si vous exécutez plusieurs instances du même graphique, vous pouvez utiliser l
 Pour les clips vidéo mp4 générés en périphérie par enregistrement vidéo basé sur des événements, le modèle d'attribution de nom recommandé doit inclure DateHeure et, en présence de plusieurs instances du même graphique, il est recommandé d'utiliser les variables système GraphTopologyName et GraphInstanceName. Par exemple, vous pouvez définir filePathPattern sur le récepteur de fichiers comme suit : 
 
 ```
-"filePathPattern": "/var/media/sampleFilesFromEVR-${fileSinkOutputName}-${System.DateTime}"
+"fileNamePattern": "/var/media/sampleFilesFromEVR-${fileSinkOutputName}-${System.DateTime}"
 ```
 
 ou 
 
 ```
-"filePathPattern": "/var/media/sampleFilesFromEVR-${fileSinkOutputName}--${System.GraphTopologyName}-${System.GraphInstanceName} ${System.DateTime}"
+"fileNamePattern": "/var/media/sampleFilesFromEVR-${fileSinkOutputName}--${System.GraphTopologyName}-${System.GraphInstanceName} ${System.DateTime}"
 ```
+>[!NOTE]
+> Dans l’exemple ci-dessus, la variable **fileSinkOutputName** est un exemple de nom de variable que vous définissez dans la topologie de graphe. Il **ne s’agit pas** d’une variable système. 
 
+#### <a name="system-variables"></a>Variables système
+Variables définies par le système que vous pouvez utiliser :
+
+|Variable système|Description|Exemple|
+|-----------|-----------|-----------|
+|System.DateTime|Date/heure UTC au format conforme de fichier ISO8601 (représentation de base AAAAMMJJThhmmss).|20200222T173200Z|
+|System.PreciseDateTime|Date/heure UTC au format conforme de fichier ISO8601 avec les millisecondes (représentation de base AAAAMMJJThhmmss.sss).|20200222T173200.123Z|
+|System.GraphTopologyName|Nom fourni par l’utilisateur de la topologie de graphe en cours d’exécution.|IngestAndRecord|
+|System.GraphInstanceName|Nom fourni par l’utilisateur de l’instance de graphe en cours d’exécution.|camera001|
+
+>[!TIP]
+> Impossible d’utiliser System.PreciseDateTime lors du nommage des ressources en raison du point « . » dans le nom
 ### <a name="keeping-your-vm-clean"></a>Nettoyage de votre machine virtuelle
 
 La machine virtuelle Linux que vous utilisez en tant que périphérique peut cesser de répondre en l'absence de gestion régulière. Il est essentiel de nettoyer les caches, d'éliminer les packages inutiles et de supprimer les conteneurs inutilisés de la machine virtuelle. Pour ce faire, voici un ensemble de commandes recommandées que vous pouvez utiliser sur votre machine virtuelle de périphérie.
@@ -153,7 +171,7 @@ La machine virtuelle Linux que vous utilisez en tant que périphérique peut ces
 
     L'option auto remove supprime les packages qui ont été installés automatiquement parce que d'autres packages en avaient besoin, mais qui ne sont plus nécessaires suite à la suppression de ces autres packages.
 1. `sudo docker image ls` : fournit une liste d'images Docker sur votre système de périphérie
-1. `sudo docker system prune `
+1. `sudo docker system prune`
 
     Docker adopte une approche conservatrice en matière de nettoyage des objets inutilisés (souvent appelés « garbage collection »), tels que les images, les conteneurs, les volumes et les réseaux : ces objets ne sont généralement pas supprimés, sauf si vous le demandez explicitement à Docker. Cela peut amener Docker à utiliser de l'espace disque supplémentaire. Pour chaque type d'objet, Docker fournit une commande d'élagage. En outre, vous pouvez utiliser la commande d'élagage du système Docker pour nettoyer plusieurs types d'objets à la fois. Pour plus d'informations, reportez-vous à [Élagage des objets Docker inutilisés](https://docs.docker.com/config/pruning/).
 1. `sudo docker rmi REPOSITORY:TAG`
@@ -162,4 +180,4 @@ La machine virtuelle Linux que vous utilisez en tant que périphérique peut ces
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Démarrage rapide : Bien démarrer - Live Video Analytics sur IoT Edge](get-started-detect-motion-emit-events-quickstart.md)
+[Démarrage rapide : Bien démarrer – Live Video Analytics sur IoT Edge](get-started-detect-motion-emit-events-quickstart.md)

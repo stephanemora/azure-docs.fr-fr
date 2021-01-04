@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/01/2020
 ms.author: Zhchia
-ms.openlocfilehash: 1658e6adf0c9de0cbd7412b963fb9a134f633430
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 3754a56d1520118937a9d4aad406ae657b4dd23b
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96179693"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673662"
 ---
 # <a name="tutorial-configure-clarizen-one-for-automatic-user-provisioning"></a>Tutoriel : Configurer Clarizen One pour l’approvisionnement automatique d’utilisateurs
 
@@ -78,19 +78,19 @@ Cette section vous guide tout au long des étapes de configuration du service de
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** > **Toutes les applications**.
 
-    ![Capture d’écran montrant le volet Applications d’entreprise.](common/enterprise-applications.png)
+      ![Capture d’écran montrant le volet Applications d’entreprise.](common/enterprise-applications.png)
 
 1. Dans la liste des applications, sélectionnez **Clarizen One**.
 
-    ![Capture d’écran montrant le lien Clarizen One dans la liste Applications.](common/all-applications.png)
+      ![Capture d’écran montrant le lien Clarizen One dans la liste Applications.](common/all-applications.png)
 
 1. Sélectionnez l’onglet **Approvisionnement**.
 
-    ![Capture d’écran montrant l’onglet Provisionnement.](common/provisioning.png)
+      ![Capture d’écran montrant l’onglet Provisionnement.](common/provisioning.png)
 
 1. Définissez le **Mode d’approvisionnement** sur **Automatique**.
 
-    ![Capture d’écran montrant l’option Automatique de l’onglet Provisionnement.](common/provisioning-automatic.png)
+      ![Capture d’écran montrant l’option Automatique de l’onglet Provisionnement.](common/provisioning-automatic.png)
 
 1. Sous la section **Informations d’identification de l’administrateur**, entrez l’**URL du locataire** et le **Jeton secret** de votre compte Clarizen One. Sélectionnez **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Clarizen One. Si la connexion échoue, vérifiez que votre compte Clarizen One dispose d’autorisations d’administrateur, puis réessayez.
 
@@ -162,15 +162,15 @@ Cette section vous guide tout au long des étapes de configuration du service de
 
 1. Afin d’activer le service de provisionnement Azure AD pour Clarizen One, définissez le paramètre **État de provisionnement** sur **Activé** dans la section **Paramètres**.
 
-    ![Capture d’écran montrant le paramètre État de provisionnement activé.](common/provisioning-toggle-on.png)
+      ![Capture d’écran montrant le paramètre État de provisionnement activé.](common/provisioning-toggle-on.png)
 
 1. Définissez les utilisateurs ou groupes à provisionner dans Clarizen One en sélectionnant les valeurs souhaitées dans **Étendue**, dans la section **Paramètres**.
 
-    ![Capture d’écran montrant l’Étendue du provisionnement.](common/provisioning-scope.png)
+      ![Capture d’écran montrant l’Étendue du provisionnement.](common/provisioning-scope.png)
 
 1. Quand vous êtes prêt à effectuer l’approvisionnement, sélectionnez **Enregistrer**.
 
-    ![Capture d’écran montrant l’enregistrement de la configuration de provisionnement.](common/provisioning-configuration-save.png)
+      ![Capture d’écran montrant l’enregistrement de la configuration de provisionnement.](common/provisioning-configuration-save.png)
 
 Cette opération démarre le cycle de synchronisation initiale de tous les utilisateurs et groupes définis dans **Étendue** dans la section **Paramètres**. Le cycle de synchronisation initiale prend plus de temps que les cycles de synchronisation suivants, qui se produisent toutes les 40 minutes environ tant que le service de provisionnement Azure AD est en cours d’exécution.
 

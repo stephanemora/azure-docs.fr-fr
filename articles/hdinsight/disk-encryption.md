@@ -8,12 +8,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/10/2020
-ms.openlocfilehash: a9a90fbb2eedd6db2873d4ac2a5fea94c05c7eed
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4e895cdba1bfc16eac0450bd05271f0e41985b7b
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005654"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359757"
 ---
 # <a name="azure-hdinsight-double-encryption-for-data-at-rest"></a>Double chiffrement Azure HDInsight pour les données au repos
 
@@ -119,15 +119,24 @@ HDInsight prend uniquement en charge Azure Key Vault. Si vous disposez de votre 
 
 Vous êtes maintenant prêt à créer un cluster HDInsight. Les clés gérées par le client ne peuvent être appliquées qu’aux nouveaux clusters, pendant leur création. Vous ne pouvez pas supprimer le chiffrement des clusters à clés gérées par le client, ni ajouter de clés gérées par le client aux clusters existants.
 
+À compter de la [version de novembre 2020](hdinsight-release-notes.md#release-date-11182020), HDInsight prend en charge la création de clusters à l’aide d’URI de clé avec et sans version. Si vous créez le cluster avec un URI de clé sans version, le cluster HDInsight essaiera d’effectuer la rotation automatique des clés lorsque la clé est mise à jour dans votre coffre de clés Azure. Si vous créez le cluster avec un URI de clé avec version, vous devez effectuer une rotation manuelle de clé, comme indiqué dans [Rotation de la clé de chiffrement](#rotating-the-encryption-key).
+
+Pour les clusters créés avant la version de novembre 2020, vous devez effectuer une rotation de clé manuelle à l’aide de l’URI de clé avec version.
+
 #### <a name="using-the-azure-portal"></a>Utilisation du portail Azure
 
-Pendant la création du cluster, fournissez l’**identificateur de clé** complet, incluant la version de la clé. Par exemple : `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. Vous devez aussi affecter l’identité managée au cluster et indiquer l’URI de la clé.
+Lors de la création du cluster, vous pouvez utiliser une clé avec version ou une clé sans version de la façon suivante :
+
+- **Avec version** – Pendant la création du cluster, fournissez l’**identificateur de clé** complet, y compris la version de la clé. Par exemple : `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`.
+- **Sans version** – Pendant la création du cluster, fournissez uniquement l’**identificateur de clé**. Par exemple : `https://contoso-kv.vault.azure.net/keys/myClusterKey`.
+
+Vous devez aussi affecter l’identité managée au cluster.
 
 ![Créer un cluster](./media/disk-encryption/create-cluster-portal.png)
 
 #### <a name="using-azure-cli"></a>Utilisation de l’interface de ligne de commande Azure
 
-L’exemple suivant montre comment utiliser Azure CLI pour créer un nouveau cluster Apache Spark avec le chiffrement de disque activé. Pour plus d’informations, voir [Azure CLI az hdinsight create](/cli/azure/hdinsight#az-hdinsight-create).
+L’exemple suivant montre comment utiliser Azure CLI pour créer un nouveau cluster Apache Spark avec le chiffrement de disque activé. Pour plus d’informations, voir [Azure CLI az hdinsight create](/cli/azure/hdinsight#az-hdinsight-create). Le paramètre `encryption-key-version` est facultatif.
 
 ```azurecli
 az hdinsight create -t spark -g MyResourceGroup -n MyCluster \
@@ -141,7 +150,7 @@ az hdinsight create -t spark -g MyResourceGroup -n MyCluster \
 
 #### <a name="using-azure-resource-manager-templates"></a>Utilisation de modèles Azure Resource Manager
 
-L’exemple suivant montre comment utiliser un modèle Azure Resource Manager pour créer un nouveau cluster Apache Spark avec le chiffrement de disque activé. Pour plus d’informations, consultez [Que sont les modèles ARM ?](../azure-resource-manager/templates/overview.md)
+L’exemple suivant montre comment utiliser un modèle Azure Resource Manager pour créer un nouveau cluster Apache Spark avec le chiffrement de disque activé. Pour plus d’informations, consultez [Que sont les modèles ARM ?](../azure-resource-manager/templates/overview.md) La propriété de modèle de gestionnaire des ressources `diskEncryptionKeyVersion` est facultative.
 
 Cet exemple utilise PowerShell pour appeler le modèle.
 
@@ -355,7 +364,7 @@ Le contenu du modèle de gestion des ressources, `azuredeploy.json` :
 
 ### <a name="rotating-the-encryption-key"></a>Rotation de la clé de chiffrement
 
-Dans certains scénarios, vous pouvez être amené à changer les clés de chiffrement qui sont utilisées par le cluster HDInsight une fois que celui-ci a été créé. Cette tâche peut être facilement effectuée dans le portail. Pour cette opération, le cluster doit avoir accès à la clé actuelle et à la nouvelle clé prévue. Sinon, l’opération de rotation des clés échouera.
+Vous pouvez modifier les clés de chiffrement utilisées sur votre cluster en cours d’exécution, à l’aide du portail Azure ou d’Azure CLI. Pour cette opération, le cluster doit avoir accès à la clé actuelle et à la nouvelle clé prévue. Sinon, l’opération de rotation des clés échouera. Pour les clusters créés après la version de novembre 2020, vous pouvez choisir si vous souhaitez que votre nouvelle clé ait une version ou non. Pour les clusters créés avant la version de novembre 2020, vous devez utiliser une clé avec version lors de la rotation de la clé de chiffrement.
 
 #### <a name="using-the-azure-portal"></a>Utilisation du portail Azure
 

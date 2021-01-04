@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: e74994847608b7fb59a1bf507691f02cf02b714a
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 937d0b379c4f669e5b57e5053d5e3bffeb091e78
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94408871"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368951"
 ---
 # <a name="security-control-v2-endpoint-security"></a>Contrôle de sécurité V2 : Sécurité des points de terminaison
 
@@ -20,7 +20,7 @@ La fonctionnalité Sécurité des points de terminaison couvre les contrôles de
 
 ## <a name="es-1-use-endpoint-detection-and-response-edr"></a>ES-1 : Utiliser la détection de point de terminaison et réponse (EDR)
 
-| Identifiant Azure | ID des contrôles CIS v7.1 | ID NIST SP800-53 r4 |
+| Identifiant Azure | ID des contrôles CIS v7.1 | ID NIST SP 800-53 r4 |
 |--|--|--|--|
 | ES-1 | 8.1 | SI-2, SI-3, SC-3 |
 
@@ -34,9 +34,9 @@ Microsoft Defender Advanced Threat Protection propose la capacité EDR dans le c
 
 - [Service Microsoft Defender ATP pour les serveurs non Windows](/windows/security/threat-protection/microsoft-defender-atp/configure-endpoints-non-windows)
 
-**Responsabilité**  : Customer
+**Responsabilité** : Customer
 
-**Parties prenantes de la sécurité des clients** ( [En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
+**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Sécurité d’infrastructure et de point de terminaison](/azure/cloud-adoption-framework/organize/cloud-security)
 
@@ -48,7 +48,7 @@ Microsoft Defender Advanced Threat Protection propose la capacité EDR dans le c
 
 ## <a name="es-2-use-centrally-managed-modern-anti-malware-software"></a>ES-2 : Utiliser un logiciel anti-programme malveillant moderne géré de manière centralisée
 
-| Identifiant Azure | ID des contrôles CIS v7.1 | ID NIST SP800-53 r4 |
+| Identifiant Azure | ID des contrôles CIS v7.1 | ID NIST SP 800-53 r4 |
 |--|--|--|--|
 | ES-2 | 8.1 | SI-2, SI-3, SC-3 |
 
@@ -62,9 +62,9 @@ Microsoft Antimalware pour Azure Cloud Services est le logiciel anti-programme m
 
 - [Solutions de protection des points de terminaison prises en charge](../../security-center/security-center-services.md?tabs=features-windows#supported-endpoint-protection-solutions-)
 
-**Responsabilité**  : Customer
+**Responsabilité** : Customer
 
-**Parties prenantes de la sécurité des clients** ( [En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
+**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Sécurité d’infrastructure et de point de terminaison](/azure/cloud-adoption-framework/organize/cloud-security)
 
@@ -76,7 +76,7 @@ Microsoft Antimalware pour Azure Cloud Services est le logiciel anti-programme m
 
 ## <a name="es-3-ensure-anti-malware-software-and-signatures-are-updated"></a>ES-3 : Vérifier que les logiciels et signatures anti-programme malveillant sont mis à jour
 
-| Identifiant Azure | ID des contrôles CIS v7.1 | ID NIST SP800-53 r4 |
+| Identifiant Azure | ID des contrôles CIS v7.1 | ID NIST SP 800-53 r4 |
 |--|--|--|--|
 | ES-3 | 8,2 | SI-2, SI-3 |
 
@@ -86,9 +86,9 @@ Suivez les recommandations faites dans Azure Security Center : « Calcul et app
 
 - [Guide pratique pour déployer Microsoft Antimalware pour Azure Cloud Services et les machines virtuelles](../fundamentals/antimalware.md)
 
-**Responsabilité**  : Customer
+**Responsabilité** : Customer
 
-**Parties prenantes de la sécurité des clients** ( [En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
+**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Sécurité d’infrastructure et de point de terminaison](/azure/cloud-adoption-framework/organize/cloud-security)
 

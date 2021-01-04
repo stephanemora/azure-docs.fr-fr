@@ -4,12 +4,12 @@ description: Cet article explique comment authentifier l’accès aux ressources
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: e5d52b82ad6bbcb8dc7c028d3eba25a584590840
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 26c921213168e1028f311eabaa417efdb76f5c97
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332431"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97510088"
 ---
 # <a name="authenticate-access-to-event-hubs-resources-using-shared-access-signatures-sas"></a>Authentifier l’accès aux ressources Event Hubs avec des signatures d’accès partagé
 La signature d’accès partagé (SAS, shared access signature) vous offre un contrôle granulaire sur le type d’accès que vous octroyez aux clients qui la possèdent. Voici quelques-uns des contrôles que vous pouvez définir dans une signature d’accès partagé : 
@@ -20,7 +20,7 @@ La signature d’accès partagé (SAS, shared access signature) vous offre un co
 - Un client ne peut pas emprunter l’identité d’un autre client.
 - Il est possible d’empêcher un client non autorisé d’envoyer des données à un hub d’événements.
 
-Cet article traite de l’authentification de l’accès aux ressources Event Hubs à l’aide d’une signature d’accès partagé. Pour en savoir plus sur l’ **autorisation** de l’accès aux ressources Event Hubs à l’aide d’une signature d’accès partagé, consultez [cet article](authorize-access-shared-access-signature.md). 
+Cet article traite de l’authentification de l’accès aux ressources Event Hubs à l’aide d’une signature d’accès partagé. Pour en savoir plus sur l’**autorisation** de l’accès aux ressources Event Hubs à l’aide d’une signature d’accès partagé, consultez [cet article](authorize-access-shared-access-signature.md). 
 
 > [!NOTE]
 > Comme bonne pratique de sécurité, Microsoft vous recommande d’utiliser si possible les informations d’identification Azure AD plutôt que les signatures d’accès partagé, qui peuvent être plus facilement compromises. Vous pouvez continuer à utiliser des signatures d’accès partagé pour octroyer un accès affiné aux ressources Event Hubs. Cependant, Azure AD offre des fonctionnalités similaires qui ne nécessitent pas de gérer les jetons SAS ou de révoquer des signatures d’accès partagé compromises.
@@ -185,7 +185,7 @@ Des clés SAS sont attribuées à tous les jetons. En règle générale, tous le
 
 Par exemple, pour définir des règles d’autorisation limitées à l’envoi et à la publication sur Event Hubs, vous devez définir une règle d’autorisation d’envoi. Cela peut être effectué au niveau de l’espace de noms. Il est également possible d’attribuer à une entité particulière (rubrique ou instance de hubs d’événements) une étendue plus granulaire. Un client ou une application dont l’étendue est définie avec ce type d’accès granulaire est appelé éditeur Event Hubs. Pour ce faire, procédez comme suit :
 
-1. Créez une clé SAS sur l’entité que vous souhaitez publier pour lui attribuer l’étendue d’ **envoi** . Pour plus d’informations, consultez [Stratégies d’autorisation d’accès partagé](authorize-access-shared-access-signature.md#shared-access-authorization-policies).
+1. Créez une clé SAS sur l’entité que vous souhaitez publier pour lui attribuer l’étendue d’**envoi**. Pour plus d’informations, consultez [Stratégies d’autorisation d’accès partagé](authorize-access-shared-access-signature.md#shared-access-authorization-policies).
 2. Générez un jeton SAS avec un délai d’expiration pour un éditeur spécifique à l’aide de la clé générée à l’étape 1.
 
     ```csharp
@@ -212,11 +212,11 @@ Par exemple, pour définir des règles d’autorisation limitées à l’envoi e
 >
 > Quand le client envoie des données à un hub d’événements, il balise sa requête avec le jeton. Pour empêcher un intrus de procéder à des écoutes clandestines et de voler le jeton, la communication entre le client et le hub d’événements doit avoir lieu sur un canal chiffré.
 > 
-> Si un jeton est volé par un intrus, celui-ci peut emprunter l’identité du client à qui le jeton a été volé. L’inscription d’un éditeur sur liste rouge rend le client inutilisable, jusqu’à ce qu’il reçoive un nouveau jeton qui utilise un éditeur différent.
+> Si un jeton est volé par un intrus, celui-ci peut emprunter l’identité du client à qui le jeton a été volé. L’inscription d’un serveur de publication dans une liste de refus rend le client inutilisable, jusqu’à ce qu’il reçoive un nouveau jeton qui utilise un serveur de publication différent.
 
 
 ## <a name="authenticating-event-hubs-consumers-with-sas"></a>Authentification des consommateurs Event Hubs avec une signature d’accès partagé 
-Pour authentifier les applications back-end qui consomment des données générées par des producteurs Event hubs, l’authentification par jeton Event Hubs nécessite que les clients disposent des droits de **gestion** ou des privilèges d’ **écoute** attribués à l’espace de noms Event hubs ou à l’instance ou la rubrique de hub d’événements. Les données sont consommées à partir de Event Hubs par le biais de groupes de consommateurs. Même si la stratégie SAS vous donne une étendue granulaire, cette étendue est définie uniquement au niveau de l’entité et non au niveau du consommateur. Cela signifie que les privilèges définis au niveau de l’espace de noms ou au niveau de la rubrique ou de l’instance du hub d’événements seront appliqués aux groupes de consommateurs de cette entité.
+Pour authentifier les applications back-end qui consomment des données générées par des producteurs Event hubs, l’authentification par jeton Event Hubs nécessite que les clients disposent des droits de **gestion** ou des privilèges d’**écoute** attribués à l’espace de noms Event hubs ou à l’instance ou la rubrique de hub d’événements. Les données sont consommées à partir de Event Hubs par le biais de groupes de consommateurs. Même si la stratégie SAS vous donne une étendue granulaire, cette étendue est définie uniquement au niveau de l’entité et non au niveau du consommateur. Cela signifie que les privilèges définis au niveau de l’espace de noms ou au niveau de la rubrique ou de l’instance du hub d’événements seront appliqués aux groupes de consommateurs de cette entité.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Voir les articles suivants :

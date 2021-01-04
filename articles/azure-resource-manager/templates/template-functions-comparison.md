@@ -1,18 +1,18 @@
 ---
 title: Fonctions de modèle - Comparaison
-description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour comparer des valeurs.
+description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager (modèle ARM) pour comparer des valeurs.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: c5ffcfe7688935da6ea5602cdb2c66a8b86a8d88
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 1b7192db361f510e0246a737de47930534a1cb9d
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96004600"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920527"
 ---
 # <a name="comparison-functions-for-arm-templates"></a>Fonctions de comparaison pour les modèles ARM
 
-Resource Manager fournit plusieurs fonctions pour effectuer des comparaisons dans vos modèles Azure Resource Manager (ARM).
+Resource Manager fournit plusieurs fonctions pour effectuer des comparaisons dans votre modèle Azure Resource Manager (modèle ARM) :
 
 * [coalesce](#coalesce)
 * [equals](#equals)
@@ -635,4 +635,4 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour obtenir une description des sections d’un modèle Azure Resource Manager, consultez [Comprendre la structure et la syntaxe des modèles ARM](template-syntax.md).
+* Pour une description des sections d’un modèle ARM, consultez [Présentation de la structure et de la syntaxe des modèles ARM](template-syntax.md).

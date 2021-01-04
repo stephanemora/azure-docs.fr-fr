@@ -3,15 +3,15 @@ title: Configurer l’authentification multifacteur Azure pour Windows Virtual D
 description: Comment configurer l’authentification multifacteur Azure pour une sécurité accrue dans Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 10/20/2020
+ms.date: 12/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 35af8191cfe237175cbd6669797d1744ac3ecd49
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 00aba5d169a05eab25dcc63ca813955e71d09598
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92312649"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97092378"
 ---
 # <a name="enable-azure-multifactor-authentication-for-windows-virtual-desktop"></a>Activer l’authentification multifacteur Azure pour Windows Virtual Desktop
 
@@ -41,12 +41,12 @@ Voici comment créer une stratégie d’accès conditionnel qui exige l’authen
 
 1. Connectez-vous au **portail Microsoft Azure** en tant qu’administrateur général, administrateur de sécurité ou administrateur de l’accès conditionnel.
 2. Accédez à **Azure Active Directory** > **Sécurité** > **Accès conditionnel.**
-3. Sélectionnez **Nouvelle stratégie** .
+3. Sélectionnez **Nouvelle stratégie**.
 4. Donnez un nom à votre stratégie. Nous recommandons aux organisations de créer une norme explicite pour les noms de leurs stratégies.
-5. Sous **Affectations** , sélectionnez **Utilisateurs et groupes** .
-6. Sous **Inclure** , sélectionnez **Sélectionner des utilisateurs et des groupes** > **Utilisateurs et groupes** > choisissez le groupe créé lors de la phase [Prérequis](#prerequisites).
-7. Sélectionnez **Terminé** .
-8. Sous **Applications ou actions cloud** > **Inclure** , sélectionnez **Sélectionner les applications** .
+5. Sous **Affectations**, sélectionnez **Utilisateurs et groupes**.
+6. Sous **Inclure**, sélectionnez **Sélectionner des utilisateurs et des groupes** > **Utilisateurs et groupes** > choisissez le groupe créé lors de la phase [Prérequis](#prerequisites).
+7. Sélectionnez **Terminé**.
+8. Sous **Applications ou actions cloud** > **Inclure**, sélectionnez **Sélectionner les applications**.
 9. Sélectionnez l’une des applications suivantes en fonction de la version de Windows Virtual Desktop que vous utilisez.
    
    - Si vous utilisez Windows Virtual Desktop (classique), choisissez ces applications :
@@ -67,7 +67,7 @@ Voici comment créer une stratégie d’accès conditionnel qui exige l’authen
    > 
    > Si vous utilisez Windows Virtual Desktop (classique) et si la stratégie d’accès conditionnel bloque tous les accès et exclut uniquement les ID d’applications Windows Virtual Desktop, vous pouvez résoudre ce problème en ajoutant l’ID d’application 9cdead84-a844-4324-93f2-b2e6bb768d07 à la stratégie. Si vous n’ajoutez pas cet ID d’application, la détection de flux des ressources Windows Virtual Desktop (classique) sera bloquée.
 
-10. Accédez à **Conditions** > **Applications clientes** , puis spécifiez où vous souhaitez appliquer la stratégie :
+10. Accédez à **Conditions** > **Applications clientes**, puis spécifiez où vous souhaitez appliquer la stratégie :
     
     - Sélectionnez **Navigateur** si vous souhaitez que la stratégie s’applique au client web.
     - Sélectionnez **Applications mobiles et clients de bureau** si vous souhaitez appliquer la stratégie à d’autres clients.
@@ -76,18 +76,21 @@ Voici comment créer une stratégie d’accès conditionnel qui exige l’authen
     > [!div class="mx-imgBorder"]
     > ![Capture d’écran de la page des applications clientes. L’utilisateur a activé la case à cocher Applications mobiles et clients de bureau.](media/select-apply.png)
 
-11. Une fois que vous avez sélectionné votre application, choisissez **Sélectionner** , puis sélectionnez **Terminé** .
+11. Une fois que vous avez sélectionné votre application, choisissez **Sélectionner**, puis sélectionnez **Terminé**.
 
     > [!div class="mx-imgBorder"]
     > ![Capture d’écran de la page Applications ou actions cloud. Les applications Windows Virtual Desktop et Client Windows Virtual Desktop sont mises en surbrillance en rouge.](media/cloud-apps-enterprise.png)
 
     >[!NOTE]
-    >Pour rechercher l'ID de l’application que vous souhaitez sélectionner, accédez à **Applications d’entreprise** , puis sélectionnez **Applications Microsoft** dans le menu déroulant correspondant au type d’application.
+    >Pour rechercher l'ID de l’application que vous souhaitez sélectionner, accédez à **Applications d’entreprise**, puis sélectionnez **Applications Microsoft** dans le menu déroulant correspondant au type d’application.
 
-12. Sous **Contrôles d’accès** > **Accorder** , sélectionnez **Accorder l’accès** , **Exiger une authentification multifacteur** , puis **Sélectionner** .
-13. Sous **Contrôles d’accès** > **Session** , sélectionnez **Fréquence de connexion** , définissez la valeur sur la durée entre les invites de votre choix, puis sélectionnez **Sélectionner** . Par exemple, si vous définissez la valeur sur **1** et l’unité sur **Heures** , vous aurez besoin de l’authentification multifacteur si une connexion est lancée une heure après la dernière.
-14. Confirmez vos paramètres et réglez **Activer la stratégie** sur **Activé** .
+12. Sous **Contrôles d’accès** > **Accorder**, sélectionnez **Accorder l’accès**, **Exiger une authentification multifacteur**, puis **Sélectionner**.
+13. Sous **Contrôles d’accès** > **Session**, sélectionnez **Fréquence de connexion**, définissez la valeur sur la durée entre les invites de votre choix, puis sélectionnez **Sélectionner**. Par exemple, si vous définissez la valeur sur **1** et l’unité sur **Heures**, vous aurez besoin de l’authentification multifacteur si une connexion est lancée une heure après la dernière.
+14. Confirmez vos paramètres et réglez **Activer la stratégie** sur **Activé**.
 15. Sélectionnez **Créer** pour activer votre stratégie.
+
+>[!NOTE]
+>Lorsque vous utilisez le client web pour vous connecter à Windows Virtual Desktop par le biais de votre navigateur, le journal répertorie l’ID d’application cliente en tant que a85cf173-4192-42F8-81fa-777a763e6e2c (client Windows Virtual Desktop). Cela est dû au fait que l’application cliente est liée en interne à l’ID d’application serveur où la stratégie d’accès conditionnel a été définie. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

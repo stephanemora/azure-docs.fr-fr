@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/08/2020
 ms.author: jingwang
-ms.openlocfilehash: a8cd6386ed6004935b0a1e45a53c01668166c0e4
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 1b3ab569666ea413ba36da0dc00f6c37336c4443
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96902253"
+ms.locfileid: "96931299"
 ---
 # <a name="copy-data-from-and-to-a-rest-endpoint-by-using-azure-data-factory"></a>Copier des données depuis et vers un point de terminaison REST à l’aide d’Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -303,12 +303,19 @@ Les propriétés prises en charge dans la section **sink** (récepteur) de l’a
 | requestMethod | Méthode HTTP. Les valeurs autorisées sont **POST** (valeur par défaut), **PUT** et **PATCH**. | Non |
 | additionalHeaders | En-têtes de requête HTTP supplémentaires. | Non |
 | httpRequestTimeout | Délai d’expiration (valeur **TimeSpan**) pour l’obtention d’une réponse par la requête HTTP. Cette valeur correspond au délai d’expiration pour l’obtention d’une réponse, et non au délai d’expiration pour l’écriture des données. La valeur par défaut est **00:01:40**.  | Non |
-| requestInterval | Intervalle de temps en millisecondes entre les différentes demandes. La valeur de l’intervalle de demande doit être un nombre compris entre [10, 60000]. |  No |
+| requestInterval | Intervalle de temps en millisecondes entre les différentes demandes. La valeur de l’intervalle de demande doit être un nombre compris entre [10, 60000]. |  Non |
 | httpCompressionType | Type de compression HTTP à utiliser lors de l’envoi de données avec un niveau de compression optimal. Les valeurs autorisées sont **none** et **gzip**. | Non |
-| writeBatchSize | Nombre d’enregistrements à écrire dans le récepteur REST par lot. La valeur par défaut est 10 000. | No |
+| writeBatchSize | Nombre d’enregistrements à écrire dans le récepteur REST par lot. La valeur par défaut est 10 000. | Non |
 
->[!NOTE]
->Le connecteur REST en tant que récepteur fonctionne avec les points de terminaison REST qui acceptent JSON. Les données seront envoyées uniquement au format JSON.
+Le connecteur REST en tant que récepteur fonctionne avec les API REST qui acceptent JSON. Les données sont envoyées au format JSON avec le modèle suivant. Si nécessaire, vous pouvez utiliser le [mappage de schéma](copy-activity-schema-and-type-mapping.md#schema-mapping) de l’activité de copie pour remodeler les données sources de façon à les rendre conformes à la charge utile attendue par l’API REST.
+
+```json
+[
+    { <data object> },
+    { <data object> },
+    ...
+]
+```
 
 **Exemple :**
 
@@ -348,7 +355,7 @@ Les propriétés prises en charge dans la section **sink** (récepteur) de l’a
 
 ## <a name="pagination-support"></a>Prise en charge la pagination
 
-Normalement, l’API REST limite sa taille de charge utile de réponse par demande à un nombre raisonnable. Pour retourner une grande quantité de données, elle fractionne le résultat en plusieurs pages et exige des appelants qu’ils envoient des demandes consécutives pour obtenir la page suivante du résultat. En règle générale, la requête d’une page est dynamique et composée par les informations retournées à partir de la réponse de la page précédente.
+Normalement, quand vous copiez des données à partir de l’API REST, celles-ci limite la taille de charge utile de réponse d’une même demande à un nombre raisonnable. Pour retourner une grande quantité de données, elle fractionne le résultat en plusieurs pages et exige des appelants qu’ils envoient des demandes consécutives pour obtenir la page suivante du résultat. En règle générale, la requête d’une page est dynamique et composée par les informations retournées à partir de la réponse de la page précédente.
 
 Ce connecteur REST générique prend en charge les modèles de pagination suivants : 
 

@@ -14,16 +14,16 @@ ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
-ms.openlocfilehash: 2059c473c8429e7498992e26c0a2c90ea835c537
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 784f1cc7b7e063166dc1f24851ab217cef8d831a
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89646592"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97355645"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Jetons d’ID de la plateforme d’identités Microsoft
 
-Les jetons `id_tokens` sont envoyés à l’application cliente dans le cadre d’un flux [OpenID Connect](v2-protocols-oidc.md) (OIDC). Ils peuvent être envoyés avec ou à la place un jeton d’accès et sont utilisés par le client pour authentifier l’utilisateur.
+Les jetons `id_tokens` sont envoyés à l’application cliente dans le cadre d’un flux [OpenID Connect](v2-protocols-oidc.md) (OIDC). Ils peuvent être envoyés avec ou à la place d’un jeton d’accès et sont utilisés par le client pour authentifier l’utilisateur.
 
 ## <a name="using-the-id_token"></a>Utilisation du jeton id_token
 
@@ -96,7 +96,7 @@ Cette liste affiche les revendications JWT présentes par défaut dans la plupar
 
 ### <a name="using-claims-to-reliably-identify-a-user-subject-and-object-id"></a>Utilisation de revendications pour identifier de manière fiable un utilisateur (Objet et ID d’objet)
 
-Lorsque vous identifiez un utilisateur (par exemple, en le recherchant dans une base de données ou en déterminant les autorisations qui lui sont attribuées), il est essentiel d’utiliser des informations qui resteront constantes et uniques au fil du temps.  Les applications héritées utilisent parfois des champs tels que l’adresse e-mail, un numéro de téléphone ou l’UPN.  Toutes ces éléments peuvent changer au fil du temps et peuvent également être réutilisés au fil du temps, par exemple, quand un employé modifie son nom ou reçoit une adresse e-mail correspondant à celle d’un employé précédent qui n’est plus présent. Par conséquent, il est **critique** que votre application n’utilise pas de données lisibles à l’œil pour identifier un utilisateur. Quelqu’un pourrait les lire et vouloir les modifier.  Utilisez plutôt les revendications fournies par la norme OIDC, ou les revendications d’extension fournies par Microsoft (revendications `sub` et `oid`).
+Lorsque vous identifiez un utilisateur (par exemple, en le recherchant dans une base de données ou en déterminant les autorisations qui lui sont attribuées), il est essentiel d’utiliser des informations qui resteront constantes et uniques au fil du temps. Les applications héritées utilisent parfois des champs tels que l’adresse e-mail, un numéro de téléphone ou l’UPN.  Toutes ces éléments peuvent changer au fil du temps et peuvent également être réutilisés au fil du temps, par exemple, quand un employé modifie son nom ou reçoit une adresse e-mail correspondant à celle d’un employé précédent qui n’est plus présent. Par conséquent, il est **critique** que votre application n’utilise pas de données lisibles à l’œil pour identifier un utilisateur. Quelqu’un pourrait les lire et vouloir les modifier. Utilisez plutôt les revendications fournies par la norme OIDC, ou les revendications d’extension fournies par Microsoft (revendications `sub` et `oid`).
 
 Pour stocker correctement les informations par utilisateur, utilisez `sub` ou `oid` seul (qui, comme des GUID sont uniques), avec `tid` utilisé pour le routage ou partitionnement si nécessaire.  Si vous avez besoin de partager des données entre les services, `oid`+`tid` est préférable, car toutes les applications reçoivent les mêmes revendications `oid` et `tid` pour un utilisateur donné.  La revendication `sub` dans la plateforme d’identité Microsoft est « par paire ». Elle est unique en fonction d’une combinaison de destinataire, de locataire et d’utilisateur du jeton.  Ainsi, deux applications qui demandent des jetons d’ID pour un utilisateur donné reçoivent des revendications `sub` différentes, mais les mêmes revendications `oid` pour cet utilisateur.
 

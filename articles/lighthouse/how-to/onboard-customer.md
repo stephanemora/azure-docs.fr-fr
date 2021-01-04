@@ -1,18 +1,18 @@
 ---
 title: Intégrer un client à Azure Lighthouse
 description: Apprenez à intégrer un client à Azure Lighthouse pour permettre l'accès à ses ressources et la gestion de celles-ci via votre propre locataire à l'aide de la gestion des ressources déléguées Azure.
-ms.date: 12/04/2020
+ms.date: 12/15/2020
 ms.topic: how-to
-ms.openlocfilehash: b353a8194b9f5dd48b315340435669531359e8d5
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: 023b44a77cb38a14df8aa6a885ff137c02942061
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608467"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516123"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Intégrer un client à Azure Lighthouse
 
-Cet article explique comment, en tant que fournisseur de services, vous pouvez intégrer un client à Azure Lighthouse. Les ressources déléguées du client (abonnements et/ou groupes de ressources) sont alors accessibles et gérables via votre propre locataire Azure Active Directory (Azure AD) en utilisant la [gestion des ressources déléguées Azure](../concepts/azure-delegated-resource-management.md).
+Cet article explique comment, en tant que fournisseur de services, vous pouvez intégrer un client à Azure Lighthouse. Les ressources déléguées (abonnements et/ou groupes de ressources) dans le locataire Azure Active Directory (Azure AD) du client peuvent être gérées via votre propre locataire en utilisant la [gestion des ressources déléguées Azure](../concepts/azure-delegated-resource-management.md).
 
 > [!TIP]
 > Même si nous faisons ici référence aux fournisseurs de services et aux clients, les [entreprises gérant plusieurs locataires](../concepts/enterprise.md) peuvent suivre le même processus pour configurer Azure Lighthouse et consolider leur expérience de gestion.
@@ -22,7 +22,7 @@ Vous pouvez répéter le processus d’intégration pour plusieurs clients. Lors
 Pour suivre votre impact sur les engagements client et recevoir une reconnaissance, associez votre ID Microsoft Partner Network (MPN) à au moins un compte d’utilisateur qui a accès à tous vos abonnements intégrés. Vous devez effectuer cette association dans le locataire de votre fournisseur de services. Nous vous recommandons de créer un compte de principal de service dans votre locataire associé à votre ID MPN, puis d’inclure ce principal de service chaque fois que vous intégrez un client. Pour plus d’informations, consultez [Lier votre ID de partenaire pour activer le crédit Partenaires sur des ressources déléguées](partner-earned-credit.md).
 
 > [!NOTE]
-> Les clients peuvent également être intégrés à Azure Lighthouse lorsqu'ils achètent une offre de service géré (public ou privé) que vous [publiez sur la Place de marché Azure](publish-managed-services-offers.md). Vous pouvez également utiliser le processus d’intégration décrit ici en même temps qu’une offre publiée sur la Place de marché Azure.
+> Les clients peuvent également être intégrés à Azure Lighthouse lorsqu’ils acquièrent une offre de service managé (publique ou privée) que vous [publiez dans la Place de marché Azure](publish-managed-services-offers.md). Vous pouvez également utiliser le processus d’intégration décrit ici en même temps qu’une offre publiée dans la Place de marché Azure.
 
 Le processus d’intégration requiert d’exécuter des actions tant dans le locataire du fournisseur de services que dans le locataire du client. Toutes ces étapes sont décrites dans cet article.
 
@@ -303,7 +303,19 @@ az account list
 
 Si vous devez apporter des modifications après l’intégration du client, vous pouvez [mettre à jour la délégation](update-delegation.md). Vous pouvez également [supprimer complètement l’accès à la délégation](remove-delegation.md).
 
+## <a name="troubleshooting"></a>Résolution des problèmes
+
+Si vous ne parvenez pas à intégrer votre client ou si vos utilisateurs ont des difficultés à accéder aux ressources déléguées, vérifiez les conseils et les conditions suivantes, puis réessayez.
+
+- La valeur `managedbyTenantId` ne doit pas être identique à l’ID de locataire pour l’abonnement en cours d’intégration.
+- Vous ne pouvez pas avoir plusieurs affectations dans la même étendue avec le même `mspOfferName`. 
+- Le fournisseur de ressources **Microsoft.ManagedServices** doit être inscrit pour l’abonnement délégué. Cela doit se produire automatiquement pendant le déploiement, mais si ce n’est pas le cas, vous pouvez [l’inscrire manuellement](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
+- Les autorisations ne doivent pas inclure d’utilisateurs dotés du rôle intégré [Propriétaire](../../role-based-access-control/built-in-roles.md#owner) ni d’aucun rôle intégré avec [DataActions](../../role-based-access-control/role-definitions.md#dataactions).
+- Les groupes doivent être créés avec un [**type de groupe**](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md#group-types) défini sur **Sécurité** et non **Microsoft 365**.
+- Les utilisateurs qui ont besoin d’afficher les ressources dans le portail Azure doivent avoir le rôle [Lecteur](../../role-based-access-control/built-in-roles.md#reader) (ou un autre rôle intégré qui inclut l’accès Lecteur).
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Découvrez les [Expériences de gestion inter-locataire](../concepts/cross-tenant-management-experience.md).
 - [Affichez et gérez les clients](view-manage-customers.md) en accédant à **Mes clients** sur le portail Azure.
+- Apprenez à [mettre à jour](update-delegation.md) ou à [supprimer](remove-delegation.md) une délégation.

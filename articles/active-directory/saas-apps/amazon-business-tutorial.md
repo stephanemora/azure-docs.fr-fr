@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 42da33fe874b6dea43bc16009dd27b70e6c3f535
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 1424669af9fe28257e66c8c5438f6e1d171954e0
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97589909"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672897"
 ---
 # <a name="tutorial-integrate-amazon-business-with-azure-active-directory"></a>Tutoriel : Intégrer Amazon Business à Azure Active Directory
 
@@ -74,12 +74,12 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
 1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet pour **Configuration SAML de base** afin de modifier les paramètres.
 
-   ![Modifier la configuration SAML de base](common/edit-urls.png)
+    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
 1. Dans la section **Configuration SAML de base**, si vous souhaitez configurer en mode lancé par le **fournisseur d’identité**, suivez les étapes ci-dessous :
 
     1. Dans la zone de texte **Identificateur (ID d’entité)** , tapez une URL en utilisant un des modèles suivants :
-    
+
        | URL | Région |
        |-|-|
        | `https://www.amazon.com`| Amérique du Nord |
@@ -87,7 +87,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
        | `https://www.amazon.de`| Europe |
 
     1. Dans la zone de texte **URL de réponse** , tapez une URL en utilisant un des modèles suivants :
-    
+
        | URL | Région |
        |-|-|
        | `https://www.amazon.com/bb/feature/sso/action/3p_redirect?idpid={idpid}`| Amérique du Nord |
@@ -146,7 +146,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 1. Dans l’Assistant **Set up SSO** (Configurer l’authentification unique), sélectionnez le fournisseur en fonction des exigences de votre organisation, puis cliquez sur **Next** (Suivant).
 
     ![Capture d’écran montrant Set up SSO, avec Microsoft Azure AD et Next sélectionnés.](media/amazon-business-tutorial/default-group1.png)
-    
+
     > [!NOTE]
     > Bien que l’option Microsoft ADFS soit listée, elle ne fonctionnera pas avec l’authentification unique Azure AD.
 
@@ -193,12 +193,12 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 1. Enfin, dans la section **SSO Connection details** (Détails de la connexion SSO), l’**État** apparaît comme étant **Active** (Actif).
 
     ![Capture d’écran montrant SSO Connection details avec l’état Active.](media/amazon-business-tutorial/sso-connection5.png)
-    
+
     > [!NOTE]
     > Si vous souhaitez configurer l’application en mode lancée par le **fournisseur de services**, effectuez l’étape suivante, et collez l’URL de connexion à partir de la capture d’écran ci-dessus dans la zone de texte **URL de connexion** de la section **Définir des URL supplémentaires** dans le portail Azure. Utilisez le format suivant :
     >
     > `https://www.amazon.<TLD>/bb/feature/sso/action/start?domain_hint=<uniqueid>`
-    
+
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
 Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
@@ -236,7 +236,7 @@ Dans cette section, vous allez autoriser B. Simon à utiliser l’authentificat
 1. Dans la liste des applications, sélectionnez **Amazon Business**.
 1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
 
-   ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
+    ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
 
 1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
 
@@ -288,7 +288,7 @@ Le fait de cliquer sur la vignette Amazon Business dans le panneau d’accès do
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](./tutorial-list.md)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](./tutorial-list.md)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
 

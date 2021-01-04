@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/24/2018
-ms.openlocfilehash: e7b7acb7e67d809229825b3d393fe49af12b3642
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.date: 12/09/2020
+ms.openlocfilehash: 3f15ffd6f7ed784cce398d419e013a69c60289d8
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461212"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921806"
 ---
 # <a name="delta-copy-from-a-database-with-a-control-table"></a>Copie delta à partir d’une base de données avec une table de contrôle
 
@@ -45,7 +45,7 @@ Le modèle définit les paramètres suivants :
 - Le paramètre *Data_Source_WaterMarkColumn* est le nom de la colonne dans la table source qui permet d’identifier les lignes nouvelles ou mises à jour. Le type de cette colonne est généralement *datetime*, *INT* ou un type similaire.
 - *Data_Destination_Container* indique l’emplacement racine où les données sont copiées dans votre magasin de destination.
 - *Data_Destination_Directory* est le chemin du répertoire sous la racine de l’emplacement où les données sont copiées dans votre magasin de destination.
-- *Data_Destination_Table_Name* est l’endroit où les données sont copiées dans votre magasin de destination (applicable lorsque « Azure Synapse Analytics (anciennement SQL DW) » est sélectionné comme destination des données).
+- *Data_Destination_Table_Name* est l’endroit où les données sont copiées dans votre magasin de destination (applicable quand « Azure Synapse Analytics » est sélectionné en tant que destination des données).
 - *Data_Destination_Folder_Path* est l’endroit où les données sont copiées dans votre magasin de destination (applicable lorsque « Système de fichiers » ou « Azure Data Lake Storage Gen1 » est sélectionné comme destination des données).
 - Le paramètre *Control_Table_Table_Name* indique la table de contrôle externe où la valeur de limite supérieure est stockée.
 - Le paramètre *Control_Table_Column_Name* indique la colonne dans la table de contrôle externe où la valeur de limite supérieure est stockée.

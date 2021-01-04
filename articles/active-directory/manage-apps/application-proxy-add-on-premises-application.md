@@ -8,19 +8,22 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/04/2020
+ms.date: 12/10/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 5d0b2df551c73e8c9b24d80280bbc993d9b361b7
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: bcb484d62b7c4add7e1ab5562c19417a90cfb7e1
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928465"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587551"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Tutoriel : Ajouter une application locale pour un accès à distance via le service Proxy d'application d'Azure Active Directory
 
 Le service Proxy d'application d'Azure Active Directory (Azure AD) permet aux utilisateurs d'accéder aux applications locales en se connectant avec leur compte Azure AD. Ce tutoriel prépare votre environnement à l'utilisation du service Proxy d'application. Lorsque votre environnement sera prêt, vous utiliserez le portail Azure pour ajouter une application locale à votre client Azure AD.
+
+Les connecteurs sont un élément clé du proxy d’application. Pour en découvrir plus sur les connecteurs, consultez [Présentation des connecteurs de proxy d’application Azure AD](application-proxy-connectors.md).
 
 Ce didacticiel :
 
@@ -74,7 +77,7 @@ TLS 1.2 doit être activé sur le serveur de connecteurs Windows Server avant l
 Pour activer TLS 1.2 :
 
 1. Définissez les clés de Registre suivantes :
-    
+
    ```
    Windows Registry Editor Version 5.00
 
@@ -191,7 +194,7 @@ Maintenant que vous avez préparé votre environnement et installé un connecteu
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’administrateur.
 2. Dans le volet de navigation de gauche, sélectionnez **Azure Active Directory**.
 3. Sélectionnez **Applications d’entreprise**, puis **Nouvelle application**.
-4. Dans la section **Créer votre propre application**, sélectionnez **Configurer le proxy d’application pour un accès à distance sécurisé à une application locale**.
+4. Sélectionnez le bouton **Ajouter une application locale** qui s’affiche à mi-chemin dans la page dans la section **Applications locales**. Vous pouvez également sélectionner **Créer votre propre application** en haut de la page, puis sélectionner **Configurer le proxy d’application pour un accès à distance sécurisé à une application locale**.
 5. Dans la section **Ajouter votre propre application locale**, fournissez les informations suivantes relatives à votre application :
 
     | Champ | Description |

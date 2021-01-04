@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.subservice: alerts
-ms.openlocfilehash: 61aba3e5792d1cc20da16686d052de91744dab76
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: a8dbadd3af9dc21ced54af151e4de705f854e011
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186777"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97696057"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Créer, afficher et gérer des alertes de journal à l’aide d’Azure Monitor
 
@@ -71,7 +71,7 @@ Pour commencer à écrire des requêtes pour les alertes, procédez comme suit 
     > Comme la fonction [bin()](/azure/kusto/query/binfunction) peut entraîner des intervalles de temps inégaux, le service d’alerte convertit automatiquement la fonction [bin()](/azure/kusto/query/binfunction) en fonction [bin_at()](/azure/kusto/query/binatfunction) avec l’heure appropriée au moment de l’exécution, pour garantir des résultats avec un point fixe.
 
     > [!NOTE]
-    > La commande Fractionner par dimensions d’alerte n’est disponible que pour l’API scheduledQueryRules actuelle. Si vous utilisez l’[API d’alerte Log Analytics](api-alerts.md) héritée, vous devez opérer un basculement. [En savoir plus sur le basculement](./alerts-log-api-switch.md). Les alertes centrées sur les ressources à grande échelle ne sont prises en charge que dans les versions `2020-05-01-preview` et ultérieures de l’API.
+    > La commande Fractionner par dimensions d’alerte n’est disponible que pour l’API scheduledQueryRules actuelle. Si vous utilisez l'[API d'alerte Log Analytics](api-alerts.md) héritée, vous devrez opérer un basculement. [En savoir plus sur le basculement](./alerts-log-api-switch.md) Les alertes centrées sur les ressources à grande échelle ne sont prises en charge que dans les versions `2020-05-01-preview` et ultérieures de l’API.
 
     ![Option Agréger sur](media/alerts-log/aggregate-on.png)
 
@@ -312,7 +312,7 @@ Vous pouvez également utiliser l’interface de ligne de commande d’Azure Res
 ```azurecli
 az login
 
-az group deployment create \
+az deployment group create \
     --name AlertDeployment \
     --resource-group ResourceGroupofTargetResource \
     --template-file mylogalerttemplate.json \

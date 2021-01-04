@@ -3,12 +3,12 @@ title: Configurer Azure Red Hat OpenShift v3.x avec Azure Monitor pour les conte
 description: Cet article explique comment configurer la supervision d’un cluster Kubernetes avec Azure Monitor hébergé sur Azure Red Hat OpenShift versions 3 et ultérieures.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 2cd39c13ce7d67b2bfcfaca0a6f627e19d289783
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 5141ef3a96d39f16a2a9f005dd580b952046e7bf
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186913"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695662"
 ---
 # <a name="configure-azure-red-hat-openshift-v3-with-azure-monitor-for-containers"></a>Configurer Azure Red Hat OpenShift v3.x avec Azure Monitor pour les conteneurs
 
@@ -153,7 +153,7 @@ Si vous avez choisi d’utiliser Azure CLI, vous devez d’abord l’installer e
 5. L’étape suivante permet de déployer le cluster avec la surveillance activée en utilisant Azure CLI.
 
     ```azurecli
-    az group deployment create --resource-group <ClusterResourceGroupName> --template-file ./newClusterWithMonitoring.json --parameters @./newClusterWithMonitoringParam.json
+    az deployment group create --resource-group <ClusterResourceGroupName> --template-file ./newClusterWithMonitoring.json --parameters @./newClusterWithMonitoringParam.json
     ```
 
     La sortie se présente comme suit :
@@ -235,7 +235,7 @@ Si vous avez choisi d’utiliser Azure CLI, vous devez d’abord l’installer e
 6. Pour effectuer un déploiement avec Azure CLI, exécutez les commandes suivantes :
 
     ```azurecli
-    az group deployment create --resource-group <ClusterResourceGroupName> --template-file ./ExistingClusterOnboarding.json --parameters @./existingClusterParam.json
+    az deployment group create --resource-group <ClusterResourceGroupName> --template-file ./ExistingClusterOnboarding.json --parameters @./existingClusterParam.json
     ```
 
     La sortie se présente comme suit :
