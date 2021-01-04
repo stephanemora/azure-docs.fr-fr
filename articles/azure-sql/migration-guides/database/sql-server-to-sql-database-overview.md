@@ -1,5 +1,5 @@
 ---
-title: De SQL Server à SQL Database – Vue d’ensemble de la migration
+title: 'De SQL Server vers SQL Database : Vue d’ensemble de la migration'
 description: Découvrez les différents outils et options à disposition pour migrer vos bases de données SQL Server vers Azure SQL Database.
 ms.service: sql-database
 ms.subservice: migration-guide
@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 46216fe06e3d3425d5b237cdbb7326eed596945a
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 2d668775e8d11faa0b2913cebc41e5217b49c278
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96326928"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97357323"
 ---
 # <a name="migration-overview-sql-server-to-sql-database"></a>Vue d’ensemble de la migration : de SQL Server vers SQL Database
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -219,10 +219,10 @@ Pour commencer la migration de votre instance SQL Server vers Azure SQL Database
    - [Vue d’ensemble d’Azure SQL Database](../../database/sql-database-paas-overview.md)
    - [Calculatrice du coût total de possession Azure](https://azure.microsoft.com/pricing/tco/calculator/) 
 
-- Pour plus d’informations sur le framework et le cycle d’adoption pour les migrations cloud, consultez :
+- Pour plus d’informations sur l’infrastructure et le cycle d’adoption pour les migrations cloud, consultez :
    -  [Cloud Adoption Framework pour Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
-   -  [Bonnes pratiques pour l’évaluation des coûts et le dimensionnement des charges de travail migrées vers Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
+   -  [Meilleures pratiques pour l’évaluation des coûts et le dimensionnement des charges de travail migrées vers Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
 
 
-- Pour évaluer la couche d’accès aux applications, consultez [Data Access Migration Toolkit (préversion)](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit)
+- Pour évaluer la couche d’accès aux applications, consultez [Data Access Migration Toolkit (préversion)](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit).
 - Pour savoir comment exécuter un test A/B sur la couche d’accès aux données, consultez [Assistant Expérimentation de base de données](/sql/dea/database-experimentation-assistant-overview).

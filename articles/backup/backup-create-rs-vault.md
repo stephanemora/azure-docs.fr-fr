@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment créer et configurer des coffr
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.custom: references_regions
-ms.openlocfilehash: ef3d464c051f15d656a4a60937bb05ac496ee52d
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 3ba9f47da4a4c9719c313ba196ca121f8cde54ad
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548424"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387732"
 ---
 # <a name="create-and-configure-a-recovery-services-vault"></a>Créer et configurer un coffre Recovery Services
 
@@ -77,8 +77,9 @@ Un coffre créé avec la redondance GRS comprend l’option permettant de confi
 
  ![Bannière Configuration de la sauvegarde](./media/backup-azure-arm-restore-vms/banner.png)
 
-1. À partir du portail, accédez à Coffre Recovery Services > Paramètres > Propriétés.
-2. Sélectionnez **Activer la restauration interrégion dans ce coffre** pour activer la fonctionnalité.
+1. À partir du portail, accédez à votre coffre Recovery Services > **Propriétés** (sous **Paramètres**).
+1. Dans **Configuration de la sauvegarde** sélectionnez **Mettre à jour**.
+1. Sélectionnez **Activer la restauration interrégion dans ce coffre** pour activer la fonctionnalité.
 
    ![Activer la restauration interrégion](./media/backup-azure-arm-restore-vms/backup-configuration.png)
 

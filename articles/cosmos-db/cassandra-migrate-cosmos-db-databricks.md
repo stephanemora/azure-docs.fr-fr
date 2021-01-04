@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/16/2020
 ms.author: thvankra
 ms.reviewer: thvankra
-ms.openlocfilehash: 827abcdb9eb2eb8b7328eb3e3a78f49d51e87e6b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 74088d749279ab72851e714a50b558dc2adbc0d7
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96349178"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516548"
 ---
 # <a name="migrate-data-from-cassandra-to-azure-cosmos-db-cassandra-api-account-using-azure-databricks"></a>Migrer des données de Cassandra vers un compte API Cassandra Azure Cosmos DB à l'aide d’Azure Databricks
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -42,7 +42,7 @@ Il existe plusieurs façons de migrer des charges de travail de base de données
 
 ## <a name="provision-an-azure-databricks-cluster"></a>Provisionner un cluster Azure Databricks
 
-Vous pouvez suivre les instructions pour [approvisionner un cluster Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal). Notez cependant qu’Apache Spark 3.x n’est actuellement pas pris en charge pour le connecteur Apache Cassandra. Vous devez approvisionner un runtime Databricks avec une version v2.x prise en charge d’Apache Spark. Nous vous recommandons la version 6.6 du runtime Databricks :
+Vous pouvez suivre les instructions pour [approvisionner un cluster Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal). Notez cependant qu’Apache Spark 3.x n’est actuellement pas pris en charge pour le connecteur Apache Cassandra. Vous devez approvisionner un runtime Databricks avec une version v2.x prise en charge d’Apache Spark. Nous vous recommandons de sélectionner une version du runtime de Databricks qui prend en charge la version la plus récente de Spark 2.x, avec la version 2.11 ou antérieure de Scala :
 
 :::image type="content" source="./media/cassandra-migrate-cosmos-db-databricks/databricks-runtime.png" alt-text="Runtime Databricks":::
 

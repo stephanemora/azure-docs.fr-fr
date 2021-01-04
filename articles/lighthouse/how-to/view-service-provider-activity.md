@@ -1,14 +1,14 @@
 ---
 title: Voir l’activité des fournisseurs de services
 description: Les clients peuvent consulter l’activité journalisée pour voir les actions effectuées par les fournisseurs de services par le biais de la gestion des ressources déléguées Azure.
-ms.date: 10/12/2020
+ms.date: 12/11/2020
 ms.topic: how-to
-ms.openlocfilehash: 56c8b88274909aa55e19a4b364aaa3ace2a0c26d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: dcf177cc41dac846d096607445ff4c3d433620ca
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371084"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97356376"
 ---
 # <a name="view-service-provider-activity"></a>Voir l’activité des fournisseurs de services
 
@@ -42,6 +42,12 @@ Pour plus d’informations, consultez [Créer et gérer les alertes de journal d
 Vous pouvez créer des requêtes pour analyser votre activité journalisée ou vous concentrer sur des éléments spécifiques. Par exemple, il est possible qu’un audit vous oblige à signaler toutes les actions de niveau administratif effectuées sur un abonnement. Vous pouvez créer une requête pour filtrer uniquement ces actions et trier les résultats selon l’utilisateur, la date ou une autre valeur.
 
 Pour plus d’informations, consultez [Vue d’ensemble des requêtes de journal dans Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
+
+## <a name="view-user-activity-across-domains"></a>Afficher l’activité des utilisateurs dans les domaines
+
+Vous pouvez afficher l’activité d’utilisateurs individuels dans plusieurs domaines à l’aide de l’exemple de classeur [Journaux d’activité par domaine](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/workbook-activitylogs-by-domain).
+
+Les résultats peuvent être filtrés par nom de domaine. Vous pouvez également appliquer des filtres supplémentaires tels qu’une catégorie, un niveau ou des groupe de ressources.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -4,16 +4,16 @@ description: En savoir plus sur le génie logiciel durable dans Azure Kubernetes
 services: container-service
 ms.topic: conceptual
 ms.date: 08/26/2020
-ms.openlocfilehash: 2457de7bdaa94a6e2269515fafe6689d44960625
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 700723041855fdae4f994480d180292fdfd12e15
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90984969"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97346892"
 ---
 # <a name="sustainable-software-engineering-principles-in-azure-kubernetes-service-aks"></a>Principes du génie logiciel durable dans Azure Kubernetes service (AKS)
 
-Les principes du génie logiciel durable sont un ensemble de compétences visant à vous aider à définir, créer et exécuter des applications durables. L’objectif global est de réduire l’empreinte carbone de tous les aspects de votre application. Le [projet Principles.Green][principles-green] offre une vue d’ensemble des principes du génie logiciel durable.
+Les principes du génie logiciel durable sont un ensemble de compétences visant à vous aider à définir, créer et exécuter des applications durables. L’objectif global est de réduire l’empreinte carbone de tous les aspects de votre application. La page [Principes du génie logiciel durable][principles-sse] présente une vue d’ensemble de ces principes.
 
 Il est important de comprendre qu’il s’agit d’une évolution des priorités et de l’orientation. Dans de nombreux cas, le logiciel est conçu et exécuté de manière à privilégier des performances rapides et une faible latence. Le génie logiciel durable vise à réduire autant que possible les émissions de carbone. Dans certains cas, l’application de principes de génie logiciel durable peut offrir des performances plus rapides ou une latence plus faible, par exemple en réduisant le nombre total de déplacements sur le réseau. Dans d’autres cas, la réduction des émissions de carbone peut entraîner un ralentissement des performances ou une latence accrue, par exemple en retardant des charges de travail de faible priorité. Avant d’envisager d’appliquer des principes de génie logiciel durable à votre application, passez en revue les priorités, les besoins et les compromis de votre application.
 
@@ -74,4 +74,4 @@ Découvrez plus en détail les fonctionnalités ’AKS mentionnées dans cet art
 [node-sizing]: use-multiple-node-pools.md#specify-a-vm-size-for-a-node-pool
 [sustainability-calculator]: https://azure.microsoft.com/blog/microsoft-sustainability-calculator-helps-enterprises-analyze-the-carbon-emissions-of-their-it-infrastructure/
 [system-pools]: use-system-pools.md
-[principles-green]: https://principles.green/
+[principles-sse]: https://docs.microsoft.com/learn/modules/sustainable-software-engineering-overview/

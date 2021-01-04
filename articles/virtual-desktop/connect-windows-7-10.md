@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c9da2acac0957d7fe06d0249775fbed73b5f458d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 59379dd9c3a41729466de269b52dfd3fb206eea9
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91287336"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368713"
 ---
 # <a name="connect-with-the-windows-desktop-client"></a>Se connecter avec le client Windows Desktop
 
@@ -69,3 +69,5 @@ Vous avez deux façons de vous abonner à un espace de travail. Le client peut t
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus sur l’utilisation du client Windows Desktop, consultez [Bien démarrer avec le client Windows Desktop](/windows-server/remote/remote-desktop-services/clients/windowsdesktop/).
+
+Si vous êtes un administrateur désireux d’obtenir des informations plus approfondies sur l’utilisation du bureau Windows, consultez [Client Windows Desktop pour administrateurs](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-admin).

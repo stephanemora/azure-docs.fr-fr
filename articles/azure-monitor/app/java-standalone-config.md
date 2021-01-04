@@ -1,19 +1,19 @@
 ---
-title: Options de configuration – Azure Monitor Application Insights Java
-description: Options de configuration pour Azure Monitor Application Insights Java
+title: Options de configuration – Azure Monitor Application Insights pour Java
+description: Comment configurer Azure Monitor Application Insights pour Java
 ms.topic: conceptual
 ms.date: 11/04/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: e9240253b385a0b53868c5a8a79c751c2f7c09c0
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 73e3d8834fcb41f863fe2e3d686b812bb6174e70
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96601082"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507657"
 ---
-# <a name="configuration-options-for-azure-monitor-application-insights-java"></a>Options de configuration pour Azure Monitor Application Insights Java
+# <a name="configuration-options---azure-monitor-application-insights-for-java"></a>Options de configuration – Azure Monitor Application Insights pour Java
 
 > [!WARNING]
 > **Si vous effectuez une mise à niveau à partir de la préversion 3.0**
@@ -184,9 +184,9 @@ Pour plus d’informations, consultez la documentation du [processeur de télém
 
 Les journalisations Log4j, Logback et java.util.logging sont instrumentées automatiquement, et la journalisation effectuée via ces frameworks de journalisation est collectée automatiquement.
 
-Par défaut, la journalisation est collectée uniquement quand elle est effectuée au niveau `INFO` ou à un niveau supérieur.
+La journalisation n’est capturée que si elle respecte, premièrement, le seuil configuré des infrastructures de journalisation, et deuxièmement, le seuil configuré d’Application Insights.
 
-Si vous souhaitez modifier ce niveau de collection :
+Le seuil d’Application Insights par défaut est `INFO`. Si vous souhaitez modifier ce seuil :
 
 ```json
 {

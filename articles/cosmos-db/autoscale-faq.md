@@ -5,13 +5,13 @@ author: deborahc
 ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/10/2020
-ms.openlocfilehash: 58e7d54750da86b8a700a4f2195bc4cfa012ae4b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.date: 12/11/2020
+ms.openlocfilehash: a740ad62dacc9a29cab1cc144f1789e125ec2e89
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93092685"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368577"
 ---
 # <a name="frequently-asked-questions-about-autoscale-provisioned-throughput-in-azure-cosmos-db"></a>Forum aux questions sur le débit provisionné en mode de mise à l’échelle automatique dans Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -43,7 +43,7 @@ Dans les comptes de région d’écriture unique, le taux de mise à l’échell
 Dans les comptes couvrant plusieurs régions d’écritures, le taux de mise à l’échelle automatique par 100 RU/s est le même que le taux de débit standard (manuel) approvisionné couvrant plusieurs régions d’écriture. Sur votre facture, vous verrez le compteur d’écriture multirégion. Étant donné que les taux sont les mêmes, si vous utilisez la mise à l’échelle automatique, vous verrez la même quantité qu’avec le débit standard.
 
 ### <a name="does-autoscale-work-with-reserved-capacity"></a>La mise à l’échelle automatique fonctionne-t-elle avec la capacité de réserve ?
-Oui. Lorsque vous achetez une capacité réservée pour les comptes couvrant plusieurs régions d’écriture, la remise de réservation pour les ressources de mise à l’échelle automatique est appliquée à votre utilisation du compteur à un ratio de 1,5 * le [ratio de la région spécifique](../cost-management-billing/reservations/understand-cosmosdb-reservation-charges.md#reservation-discount-per-region). 
+Oui. Lorsque vous achetez une capacité réservée pour des comptes couvrant des régions d’écriture unique, la remise de réservation pour ressources de mise à l’échelle automatique est appliquée à votre utilisation du compteur à un ratio de 1,5 * le [ratio de la région spécifique](../cost-management-billing/reservations/understand-cosmosdb-reservation-charges.md#reservation-discount-per-region). 
 
 La capacité de réserve de régions d’écriture fonctionne de la même façon pour la mise à l’échelle automatique et le débit approvisionné standard (manuel). Consultez la rubrique [Capacité de réserve Azure Cosmos DB](cosmos-db-reserved-capacity.md)
 
@@ -109,9 +109,9 @@ Lorsque vous envoyez une requête pour augmenter l’unité de requête/s maxima
 #### <a name="lowering-the-max-rus"></a>Réduction de l’unité de requête/s maximale
 Lorsque vous réduisez l’unité de requête/s maximale, la valeur minimale que vous pouvez lui affecter est la suivante : `MAX(4000, highest max RU/s ever provisioned / 10, current storage in GB * 100)`, arrondie aux 1 000 RU/s les plus proches. 
 
-Exemple 1 : Supposons que vous disposez d’un conteneur de mise à l’échelle automatique avec une unité de requête/s maximale de 20 000 RU/s (mise à l’échelle entre 2 000 et 20 000 RU/s) et d’un stockage de 50 Go. La valeur minimale la plus basse que vous pouvez définir pour la RU/s est : MAX (4 000, 20 000/10, **50 * 100** ) = 5 000 RU/s (mise à l’échelle entre 500 et 5 000 RU/s).
+Exemple 1 : Supposons que vous disposez d’un conteneur de mise à l’échelle automatique avec une unité de requête/s maximale de 20 000 RU/s (mise à l’échelle entre 2 000 et 20 000 RU/s) et d’un stockage de 50 Go. La valeur minimale la plus basse que vous pouvez définir pour la RU/s est : MAX (4 000, 20 000/10, **50 * 100**) = 5 000 RU/s (mise à l’échelle entre 500 et 5 000 RU/s).
 
-Exemple 2 : Supposons que vous disposez d’un conteneur de mise à l’échelle automatique avec une unité de requête/s maximale de 100 000 RU/s et d’un stockage de 100 Go. Vous pouvez à présente mettre à l’échelle l’unité de requête/s maximale jusqu’à 150 000 RU/s (mise à l’échelle entre 15 000 et 150 000 RU/s). La valeur minimale la plus basse que vous pouvez à présent définir pour la RU/s est : MAX (4 000, **150 000/10** , 100 * 100) = 15 000 RU/s (mise à l’échelle entre 1 500 et 15 000 RU/s). 
+Exemple 2 : Supposons que vous disposez d’un conteneur de mise à l’échelle automatique avec une unité de requête/s maximale de 100 000 RU/s et d’un stockage de 100 Go. Vous pouvez à présente mettre à l’échelle l’unité de requête/s maximale jusqu’à 150 000 RU/s (mise à l’échelle entre 15 000 et 150 000 RU/s). La valeur minimale la plus basse que vous pouvez à présent définir pour la RU/s est : MAX (4 000, **150 000/10**, 100 * 100) = 15 000 RU/s (mise à l’échelle entre 1 500 et 15 000 RU/s). 
 
 Pour une base de données à débit partagé, lorsque vous réduisez l’unité de requête/s maximale, la valeur minimale que vous pouvez lui affecter est la suivante : `MAX(4000, highest max RU/s ever provisioned / 10, current storage in GB * 100,  4000 + (MAX(Container count - 25, 0) * 1000))`, arrondie aux 1 000 RU/s les plus proches.  
 

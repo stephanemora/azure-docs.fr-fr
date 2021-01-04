@@ -8,14 +8,14 @@ ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: how-to
 ms.workload: identity
-ms.date: 10/06/2020
+ms.date: 12/10/2020
 ms.author: rolyon
-ms.openlocfilehash: ad0ba3c63f6f0ef6e7e02051031cf215c2e72cce
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 92b27690ab1f2ca8d98eb2231c5a27bc508613f8
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94648240"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095421"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>Transférer un abonnement Azure vers une autre instance Azure AD Directory
 
@@ -53,7 +53,12 @@ Voici quelques raisons pour lesquelles vous pouvez souhaiter transférer un abon
 - Une partie de votre entreprise a été divisée en une société distincte et vous devez déplacer certaines de vos ressources dans un autre annuaire Azure AD.
 - Vous souhaitez gérer certaines de vos ressources dans un annuaire Azure AD différent pour des raisons d’isolation de sécurité.
 
-Le transfert d’un abonnement nécessite un temps d’arrêt pour terminer le processus. Selon votre scénario, il peut être préférable de simplement recréer les ressources et copier les données dans l’annuaire et l’abonnement cibles.
+### <a name="alternate-approaches"></a>Autres approches
+
+Le transfert d’un abonnement nécessite un temps d’arrêt pour terminer le processus. Selon votre scénario, vous pouvez envisager les autres approches suivantes :
+
+- Recréez les ressources et copiez les données vers l’annuaire et l’abonnement cibles.
+- Adoptez une architecture à plusieurs annuaires et laissez l’abonnement dans l’annuaire source. Utilisez Azure Lighthouse pour déléguer des ressources afin que les utilisateurs dans l’annuaire cible puissent accéder à l’abonnement dans l’annuaire source. Pour plus d’informations, consultez [Azure Lighthouse dans les scénarios d’entreprise](../lighthouse/concepts/enterprise.md).
 
 ### <a name="understand-the-impact-of-transferring-a-subscription"></a>Comprendre l’impact du transfert d’un abonnement
 
@@ -383,3 +388,4 @@ Si vous avez l’intention de supprimer l’accès des utilisateurs dans l’ann
 - [Transfert de la propriété de facturation d’un abonnement Azure à un autre compte](../cost-management-billing/manage/billing-subscription-transfer.md)
 - [Transférer des abonnements Azure entre des abonnés et des CSP](../cost-management-billing/manage/transfer-subscriptions-subscribers-csp.md)
 - [Associer ou ajouter un abonnement Azure à votre locataire Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
+- [Azure Lighthouse dans les scénarios d’entreprise](../lighthouse/concepts/enterprise.md)

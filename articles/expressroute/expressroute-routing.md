@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/19/2019
 ms.author: duau
-ms.openlocfilehash: 208fe9c5bfa20bf5b2daab296af9f955db67a33d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 436e866969d620389818bcebca3c5c37b8805309
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96007169"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97629032"
 ---
 # <a name="expressroute-routing-requirements"></a>Configuration requise pour le routage ExpressRoute
 Pour vous connecter aux services de cloud Microsoft à l’aide d’ExpressRoute, vous devez configurer et gérer le routage. Certains fournisseurs de connectivité proposent la configuration et la gestion du routage comme un service géré. Vérifiez auprès de votre fournisseur de connectivité s’il offre ce service. Si ce n’est pas le cas, vous devez respecter les conditions suivantes :
@@ -229,9 +229,12 @@ Par ailleurs, Microsoft marquera également des préfixes basés sur le service 
 | Azure Resource Manager |12076:5070 |
 | Autres services Office 365 Online** | 12076:5100 |
 
-\* Pour le moment, les services globaux Azure incluent uniquement Azure DevOps.\
-\*\* Autorisation requise par Microsoft. Consultez [Configurer des filtres de routage pour l’homologation Microsoft](how-to-routefilter-portal.md)\
-\*\*\* Cette communauté publie également les itinéraires nécessaires pour les services Microsoft Team.\
+\* Pour le moment, les services globaux Azure incluent uniquement Azure DevOps.
+
+\*\* Autorisation requise par Microsoft. Consultez [Configurer des filtres de routage pour l’homologation Microsoft](how-to-routefilter-portal.md)
+
+\*\*\* Cette communauté publie également les itinéraires nécessaires pour les services Microsoft Team.
+
 \*\*\*\* CRM Online prend en charge Dynamics v8.2 et versions antérieures. Pour les versions ultérieures, sélectionnez la communauté régionale pour vos déploiements Dynamics.
 
 > [!NOTE]

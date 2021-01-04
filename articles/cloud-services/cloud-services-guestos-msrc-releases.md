@@ -10,22 +10,78 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/20/2020
+ms.date: 12/15/2020
 ms.author: yohaddad
-ms.openlocfilehash: 9cc86167b9d92289aa2edb605d8037a1bf6a9dcb
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: adaea28d105b72152e1af28cc9d79da19c548c2c
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96338722"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97561407"
 ---
 # <a name="azure-guest-os"></a>Système d’exploitation invité d'Azure
 Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Response Center) appliquées au système d’exploitation invité d'Azure. Parcourez cet article pour déterminer si une mise à jour spécifique s'applique au système d’exploitation invité que vous utilisez. Les mises à jour vont toujours de l'avant pour la [famille][family-explain] spécifique avec laquelle elles ont été présentées.
 
+## <a name="december-2020-guest-os"></a>Système d’exploitation invité, décembre 2020
+>[!NOTE] 
+
+>Le système d’exploitation invité de décembre est en cours de déploiement sur les machines virtuelles de service cloud configurées pour les mises à jour automatiques. Une fois le déploiement terminé, cette version sera disponible pour les mises à jour manuelles via le portail Azure et les fichiers de configuration. Les correctifs suivants sont inclus dans le système d’exploitation invité de décembre. Cette liste est susceptible d’être modifiée. 
+
+| Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| --- | --- | --- | --- | --- |
+|  Version 20-12 |  [4592440]  |  Dernière mise à jour cumulative | 6.26 | 8 décembre 2020 |
+|  Version 20-12 |  [4580325]  |  Mise à jour de Flash | 3.92, 4.85, 5.50, 6.26 | 13 octobre 2020 |
+|  Version 20-12 |  [4586768]  |  Mises à jour cumulatives d’IE | 2.105, 3.92, 4.85 | 10 novembre 2020 |
+|  Version 20-12 |  [4593226]  |  Dernière mise à jour cumulative | 5.50 | 8 décembre 2020 |
+|  Version 20-12 |  [4052623]  |  Defender | 5.50, 6.26 | 13 décembre 2020 |
+|  Version 20-12 |  [4578952]  |  Cumul de la sécurité et de la qualité de .NET Framework 3.5 | 2.105 | 10 novembre 2020 |
+|  Version 20-12 |  [4578955]  |  Cumul de la sécurité et de la qualité de .NET Framework 4.5.2 | 2.105 | 10 novembre 2020 |
+|  Version 20-12 |  [4578953]  |  Cumul de la sécurité et de la qualité de .NET Framework 3.5 | 4.85 | 10 novembre 2020 |
+|  Version 20-12 |  [4578956]  |  Cumul de la sécurité et de la qualité de .NET Framework 4.5.2 | 4.85 | 10 novembre 2020 |
+|  Version 20-12 |  [4578950]  |  Cumul de la sécurité et de la qualité de .NET Framework 3.5 | 3.92 | 10 novembre 2020 |
+|  Version 20-12 |  [4578954]  |  Cumul de la sécurité et de la qualité de .NET Framework 4.5.2 | 3.92 | 10 novembre 2020 |
+|  Version 20-12 |  [4578966]  |  Mise à jour cumulative de .NET Framework 3.5 et 4.7.2 | 6.26 | 13 octobre 2020 |
+|  Version 20-12 |  [4592471]  |  Correctif cumulatif mensuel | 2.105 | 8 décembre 2020 |
+|  Version 20-12 |  [4592468]  |  Correctif cumulatif mensuel | 3.92 | 8 décembre 2020 |
+|  Version 20-12 |  [4592484]  |  Correctif cumulatif mensuel | 4.85 | 8 décembre 2020 |
+|  Version 20-12 |  [4566426]  |  Mise à jour de la pile de maintenance | 3.92 | 14 juillet 2020 |
+|  Version 20-12 |  [4566425]  |  Mise à jour de la pile de maintenance | 4.85 | 14 juillet 2020 |
+|  Version 20-12 OOB |  [4578013]  |  Mise à jour de sécurité autonome | 4.85 | 19 août 2020 |
+|  Version 20-12 |  [4576750]  |  Mise à jour de la pile de maintenance | 5.50 | 8 septembre 2020 |
+|  Version 20-12 |  [4592510]  |  Mise à jour de la pile de maintenance | 2.105 | 8 décembre 2020 |
+|  Version 20-12 |  [4587735]  |  Mise à jour de la pile de maintenance | 6.26 | 10 novembre 2020 |
+|  Version 20-12 |  [4494175]  |  Microcode | 5.50 | 1er septembre 2020 |
+|  Version 20-12 |  [4494174]  |  Microcode | 6.26 | 3 septembre 2020 |
+
+[4592440]: https://support.microsoft.com/kb/4592440
+[4580325]: https://support.microsoft.com/kb/4580325
+[4586768]: https://support.microsoft.com/kb/4586768
+[4593226]: https://support.microsoft.com/kb/4593226
+[4052623]: https://support.microsoft.com/kb/4052623
+[4578952]: https://support.microsoft.com/kb/4578952
+[4578955]: https://support.microsoft.com/kb/4578955
+[4578953]: https://support.microsoft.com/kb/4578953
+[4578956]: https://support.microsoft.com/kb/4578956
+[4578950]: https://support.microsoft.com/kb/4578950
+[4578954]: https://support.microsoft.com/kb/4578954
+[4578966]: https://support.microsoft.com/kb/4578966
+[4592471]: https://support.microsoft.com/kb/4592471
+[4592468]: https://support.microsoft.com/kb/4592468
+[4592484]: https://support.microsoft.com/kb/4592484
+[4566426]: https://support.microsoft.com/kb/4566426
+[4566425]: https://support.microsoft.com/kb/4566425
+[4578013]: https://support.microsoft.com/kb/4578013
+[4576750]: https://support.microsoft.com/kb/4576750
+[4592510]: https://support.microsoft.com/kb/4592510
+[4587735]: https://support.microsoft.com/kb/4587735
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494174]: https://support.microsoft.com/kb/4494174
+
+
 ## <a name="november-2020-guest-os"></a>Système d’exploitation invité, novembre 2020
 >[!NOTE] 
 
->Le système d’exploitation invité de novembre est en cours de déploiement sur les machines virtuelles de service cloud configurées pour les mises à jour automatiques. Une fois le déploiement terminé, cette version sera disponible pour les mises à jour manuelles via le portail Azure et les fichiers de configuration. Les correctifs suivants sont inclus dans le système d’exploitation invité octobre. Cette liste est susceptible d’être modifiée. 
+>Le système d’exploitation invité de novembre est en cours de déploiement sur les machines virtuelles de service cloud configurées pour les mises à jour automatiques. Une fois le déploiement terminé, cette version sera disponible pour les mises à jour manuelles via le portail Azure et les fichiers de configuration. Les correctifs suivants sont inclus dans le système d’exploitation invité de novembre. Cette liste est susceptible d’être modifiée. 
 
 | Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |

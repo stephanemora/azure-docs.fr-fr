@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 1150cdb64c5fe7d1b2241cdc0ad1a6eb0a36f47f
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: be3d3f11e90c17bd8c4792418500da651039e480
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168560"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562801"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Fonctionnalités avancées d’Azure Metrics Explorer
 
@@ -46,26 +46,26 @@ Cliquez sur **Ajouter un graphique** et créez un autre graphique avec une autre
 
 ### <a name="order-or-delete-multiple-charts"></a>Ordonner ou supprimer plusieurs graphiques
 
-Pour ordonner ou supprimer plusieurs graphiques, cliquez sur le bouton de sélection ( **...** ) pour ouvrir le menu des graphiques, puis choisissez l’élément de menu approprié : **Monter** , **Descendre** , ou **Supprimer** .
+Pour ordonner ou supprimer plusieurs graphiques, cliquez sur le bouton de sélection ( **...** ) pour ouvrir le menu des graphiques, puis choisissez l’élément de menu approprié : **Monter**, **Descendre**, ou **Supprimer**.
 
 ## <a name="changing-aggregation"></a>Modification de l’agrégation
 
 Lorsque vous ajoutez une métrique à un graphique, Metrics Explorer présélectionne automatiquement son agrégation par défaut. La valeur par défaut est logique dans les scénarios de base, mais vous pouvez utiliser une autre agrégation pour obtenir des informations supplémentaires sur la métrique. Pour afficher différentes agrégations sur un graphique, vous devez comprendre comment Metrics Explorer les gère. 
 
-Les métriques sont la série de mesures (ou « valeurs métriques ») capturées au cours d’une période donnée. Lorsque vous tracez un graphique, les valeurs de la métrique sélectionnée sont agrégées séparément sur le *fragment de temps* . Vous sélectionnez la taille du fragment de temps [à l’aide du panneau du sélecteur d’heure Metrics Explorer](metrics-getting-started.md#select-a-time-range). Si vous n’effectuez pas de sélection explicite du fragment de temps, la granularité du temps est automatiquement sélectionnée en fonction de l’intervalle de temps actuellement sélectionné. Une fois que le fragment de temps est déterminé, les valeurs métriques qui ont été capturées pendant chaque intervalle de fragment de temps sont agrégées et placées sur le graphique (un point de données par fragment de temps).
+Les métriques sont la série de mesures (ou « valeurs métriques ») capturées au cours d’une période donnée. Lorsque vous tracez un graphique, les valeurs de la métrique sélectionnée sont agrégées séparément sur le *fragment de temps*. Vous sélectionnez la taille du fragment de temps [à l’aide du panneau du sélecteur d’heure Metrics Explorer](metrics-getting-started.md#select-a-time-range). Si vous n’effectuez pas de sélection explicite du fragment de temps, la granularité du temps est automatiquement sélectionnée en fonction de l’intervalle de temps actuellement sélectionné. Une fois que le fragment de temps est déterminé, les valeurs métriques qui ont été capturées pendant chaque intervalle de fragment de temps sont agrégées et placées sur le graphique (un point de données par fragment de temps).
 
-Par exemple, supposons que le graphique indique la métrique **Temps de réponse du serveur** à l’aide de l’agrégation **Moyenne** au cours de l’intervalle de temps des **dernières 24 heures**  :
+Par exemple, supposons que le graphique indique la métrique **Temps de réponse du serveur** à l’aide de l’agrégation **Moyenne** au cours de l’intervalle de temps des **dernières 24 heures** :
 
 - Si la granularité du temps est définie sur 30 minutes, le graphique est dessiné à partir de 48 points de données agrégés (par exemple, le graphique linéaire connecte 48 points dans la zone de traçage du graphique). Autrement dit, 24 heures x 2 points de données par heure. Chaque point de données représente la *moyenne* de tous les temps de réponse capturés pour les requêtes au serveur qui se sont produites pendant chacune des périodes de 30 minutes pertinentes.
 - Si vous réglez la granularité du temps à 15 minutes, vous obtenez 96 points de données agrégés.  Autrement dit, 24 heures x 4 points de données par heure.
 
-Metrics Explorer propose cinq types d’agrégation de statistiques de base : **Somme** , **Nombre** , **Min** , **Max** et **Moyenne** . L’agrégation **Somme** est parfois appelée l’agrégation **Total** . Pour de nombreuses mesures, Metrics Explorer masque les agrégations qui sont totalement inutiles et ne peuvent pas être utilisées.
+Metrics Explorer propose cinq types d’agrégation de statistiques de base : **Somme**, **Nombre**, **Min**, **Max** et **Moyenne**. L’agrégation **Somme** est parfois appelée l’agrégation **Total**. Pour de nombreuses mesures, Metrics Explorer masque les agrégations qui sont totalement inutiles et ne peuvent pas être utilisées.
 
-- **Somme**  : somme de toutes les valeurs capturées sur l’intervalle d’agrégation
-- **Nombre**  : nombre de mesures capturées au cours de l’intervalle d’agrégation. Notez que **Nombre** sera égal à **Somme** dans le cas où la mesure est toujours capturée avec la valeur 1. Cela est courant lorsque la métrique effectue le suivi du nombre d’événements distincts et que chaque mesure représente un événement (autrement dit, le code déclenche un enregistrement de métrique chaque fois qu’une nouvelle requête arrive)
-- **Moyenne**  : moyenne des valeurs métriques capturées sur l’intervalle d’agrégation
-- **Min**  : la plus petite valeur capturée sur l’intervalle d’agrégation
-- **Max**  : la plus grande valeur capturée sur l’intervalle d’agrégation
+- **Somme** : somme de toutes les valeurs capturées sur l’intervalle d’agrégation
+- **Nombre** : nombre de mesures capturées au cours de l’intervalle d’agrégation. Notez que **Nombre** sera égal à **Somme** dans le cas où la mesure est toujours capturée avec la valeur 1. Cela est courant lorsque la métrique effectue le suivi du nombre d’événements distincts et que chaque mesure représente un événement (autrement dit, le code déclenche un enregistrement de métrique chaque fois qu’une nouvelle requête arrive)
+- **Moyenne** : moyenne des valeurs métriques capturées sur l’intervalle d’agrégation
+- **Min** : la plus petite valeur capturée sur l’intervalle d’agrégation
+- **Max** : la plus grande valeur capturée sur l’intervalle d’agrégation
 
 ## <a name="apply-filters-to-charts"></a>Appliquer des filtres aux graphiques
 
@@ -77,15 +77,15 @@ Vous pouvez appliquer des filtres à des graphiques qui montrent des métriques 
 
 2. Sélectionnez la dimension (propriété) que vous souhaitez filtrer.
 
-   ![Capture d’écran montrant les dimensions (propriétés) que vous pouvez filtrer.](./media/metrics-charts/00006.png)
+   ![Capture d’écran montrant les dimensions (propriétés) que vous pouvez filtrer.](./media/metrics-charts/028.png)
 
 3. Sélectionnez les valeurs de dimension que vous souhaitez inclure lors du traçage du graphique (cet exemple illustre le filtrage des transactions de stockage qui ont réussi) :
 
-   ![Capture d’écran montrant le filtrage des transactions de stockage réussies.](./media/metrics-charts/00007.png)
+   ![Capture d’écran montrant le filtrage des transactions de stockage réussies.](./media/metrics-charts/029.png)
 
 4. Après avoir sélectionné les valeurs de filtre, cliquez à côté du sélecteur de filtre pour fermer celui-ci. Le graphique montre à présent le nombre de transactions de stockage qui ont échoué :
 
-   ![Capture d’écran montrant le nombre de transactions de stockage ayant échoué.](./media/metrics-charts/00008.png)
+   ![Capture d’écran montrant le nombre de transactions de stockage ayant échoué.](./media/metrics-charts/030.png)
 
 5. Vous pouvez répéter les étapes 1 à 4 pour appliquer plusieurs filtres aux mêmes graphiques.
 
@@ -104,11 +104,11 @@ Vous pouvez fractionner une métrique par dimension afin de visualiser la façon
 
 2. Choisissez la dimension sur laquelle vous souhaitez segmenter votre graphique :
 
-   ![Capture d’écran montrant la dimension sélectionnée sur laquelle vous segmentez votre graphique.](./media/metrics-charts/00010.png)
+   ![Capture d’écran montrant la dimension sélectionnée sur laquelle vous segmentez votre graphique.](./media/metrics-charts/031.png)
 
    Le graphique montre à présent plusieurs lignes, une par segment de la dimension :
 
-   ![Capture d’écran montrant plusieurs lignes, une pour chaque segment de dimension.](./media/metrics-charts/00012.png)
+   ![Capture d’écran montrant plusieurs lignes, une pour chaque segment de dimension.](./media/metrics-charts/032.png)
 
 3. Cliquez à côté du **sélecteur de regroupement** pour fermer celui-ci.
 
@@ -123,9 +123,13 @@ Par exemple, imaginons que le volume de requêtes réussies passe de 99,99 % à 
 
 Autre exemple avec la fluctuation de la mémoire disponible, pour laquelle la valeur ne peut pas atteindre zéro (techniquement). Si la plage est définie sur une valeur plus élevée, il se peut que les chutes de la mémoire disponible soient plus faciles à repérer. 
 
-Pour contrôler la plage de l’axe des y, utilisez le menu du graphique « ... », puis sélectionnez **Modifier le graphique** pour accéder aux paramètres avancés du graphique. Modifiez les valeurs de la section de la plage de l’axe y, ou utilisez le bouton **Auto** pour rétablir les valeurs par défaut.
+Pour contrôler la plage de l’axe des y, utilisez le menu du graphique « … », puis sélectionnez **Paramètres du graphique** pour accéder aux paramètres avancés du graphique.
 
-![Capture d’écran mettant en évidence l’option Modifier le graphique.](./media/metrics-charts/00014-manually-set-granularity.png)
+![Capture d’écran mettant en évidence l’option des paramètres du graphique.](./media/metrics-charts/033.png)
+
+ Modifiez les valeurs de la section de la plage de l’axe y, ou utilisez le bouton **Auto** pour rétablir les valeurs par défaut.
+ 
+ ![Capture d’écran mettant en évidence la section de la plage de l’axe Y.](./media/metrics-charts/034.png)
 
 > [!WARNING]
 > En général, pour verrouiller les limites de l’axe y pour les graphiques qui effectuent le suivi de nombres ou de sommes différents sur une période (et par conséquent, utilisent les agrégations de compte, somme, minimum ou maximum), vous devez spécifier une granularité temporelle fixe plutôt que de conserver les valeurs définies automatiquement par défaut. En effet, les valeurs des graphiques changent lorsque la granularité temporelle est modifiée automatiquement par l’utilisateur qui redimensionne sa fenêtre de navigation ou qui change de résolution d’écran. La modification de la granularité temporelle qui en découle affecte l’apparence du graphique et invalide la sélection actuelle de la plage de l’axe y.
@@ -136,9 +140,9 @@ Une fois les graphiques configurés, une couleur est automatiquement attribuée 
 
 Pour changer la couleur d'une ligne, cliquez sur la barre de couleur dans la légende qui correspond au graphique. La boîte de dialogue du sélecteur de couleurs s'ouvre. Utilisez le sélecteur de couleurs pour configurer la couleur de la ligne.
 
-Une fois configurées, les couleurs sont conservées lorsque vous épinglez le graphique sur un tableau de bord. La section suivante explique comment épingler un graphique.
+![Capture d’écran montrant comment modifier la couleur.](./media/metrics-charts/035.png)
 
-![Capture d’écran montrant comment épingler un graphique.](./media/metrics-charts/018.png)
+Une fois configurées, les couleurs sont conservées lorsque vous épinglez le graphique sur un tableau de bord. La section suivante explique comment épingler un graphique.
 
 ## <a name="pin-charts-to-dashboards"></a>Épingler des graphiques à des tableaux de bord
 
@@ -146,9 +150,9 @@ Après avoir configuré les graphiques, vous pouvez les ajouter aux tableaux de 
 
 Pour épingler un graphique configuré à un tableau de bord :
 
-Après avoir configuré votre graphique, cliquez sur le menu **Actions** dans l’angle supérieur droit du graphique, puis sur **Épingler au tableau de bord** .
+Après avoir configuré votre graphique, cliquez sur **Épingler au tableau de bord** dans l’angle supérieur droit du graphique.
 
-![image de métrique](./media/metrics-charts/00013.png)
+![Capture d’écran montrant comment épingler un graphique.](./media/metrics-charts/036.png)
 
 ## <a name="create-alert-rules"></a>Créer des règles d'alerte
 
@@ -156,11 +160,11 @@ Vous pouvez utiliser les critères que vous avez définis pour visualiser vos m�
 
 ### <a name="to-create-a-new-alert-rule-click-new-alert-rule"></a>Pour créer une nouvelle règle d’alerte, cliquez sur **Nouvelle règle d’alerte**
 
-![Bouton Nouvelle règle d’alerte surligné en rouge](./media/metrics-charts/015.png)
+![Bouton Nouvelle règle d’alerte surligné en rouge](./media/metrics-charts/042.png)
 
 Vous êtes redirigé vers le volet de la création de règle d’alerte avec les dimensions de métriques sous-jacentes de votre graphique préremplies pour faciliter la génération de règles d’alerte personnalisées.
 
-![Créer une règle d’alerte](./media/metrics-charts/016.png)
+![Créer une règle d’alerte](./media/metrics-charts/041.png)
 
 Lisez cet [article](alerts-metric.md) pour en savoir plus sur la configuration d’alertes de métrique.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/06/2020
 ms.author: b-juche
-ms.openlocfilehash: c6194469837997108964feda82d406c9108641b9
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: a07898692c8af70fab0d2634ed1513f0f3666a4d
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369237"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505458"
 ---
 # <a name="troubleshoot-capacity-pool-issues"></a>Résoudre les problèmes de pools de capacités
 
@@ -33,7 +33,7 @@ Cet article décrit les résolutions des problèmes que vous pouvez rencontrer l
 | Problèmes lors de la suppression d’un pool de capacités  |  Veillez à supprimer tous les volumes et instantanés Azure NetApp Files de l’abonnement dans lequel vous tentez de supprimer le pool de capacités. <br> Si vous avez déjà supprimé tous les volumes et instantanés et que vous ne pouvez toujours pas supprimer le pool de capacités, les références aux ressources peuvent encore exister sans apparaître dans le portail. Dans ce cas, soumettez un ticket de support et spécifiez que vous avez effectué les étapes recommandées ci-dessus. |
 | Échec de la création ou de la modification du volume avec l’erreur `Requested throughput not available` | Le débit disponible pour un volume est déterminé par la taille et le niveau de service de son pool de capacités. Si vous ne disposez pas d’un débit suffisant, vous devez augmenter la taille du pool ou ajuster le débit du volume existant. | 
 
-## <a name="issues-moving-a-capacity-pool"></a>Problèmes relatifs au déplacement d’un pool de capacités 
+## <a name="issues-when-changing-the-capacity-pool-of-a-volume"></a>Problèmes lors de la modification du pool de capacité d’un volume 
 
 > [!IMPORTANT] 
 > L’inscription à la préversion publique de [Changer dynamiquement le niveau de service d’un volume](dynamic-change-volume-service-level.md) est en attente jusqu’à nouvel ordre.

@@ -5,13 +5,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 09/08/2020
-ms.openlocfilehash: f41a43e76993a03554d32fc7f3ce3149848989a9
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.date: 12/14/2020
+ms.openlocfilehash: 427bdec2b5e5ab14d566375d5ad8f9da9dc3e81b
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686427"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505594"
 ---
 # <a name="configure-monitoring-in-azure-monitor-for-vms-guest-health-preview"></a>Configurer la supervision d’Intégrité des invités Azure Monitor pour machines virtuelles (préversion)
 La fonctionnalité Intégrité des invités Azure Monitor pour machines virtuelles vous permet de voir l’état d’intégrité d’une machine virtuelle tel que défini par un ensemble de mesures de performances échantillonnées à des intervalles réguliers. Cet article décrit la façon dont vous pouvez modifier la supervision par défaut à l’aide du portail Azure. Il décrit également les concepts fondamentaux des moniteurs nécessaires à la [configuration de la supervision à l’aide d’une règle de collecte de données](vminsights-health-configure-dcr.md).
@@ -30,9 +30,15 @@ Les moniteur d’unités et les moniteurs d’agrégats ont un paramètre **Éta
 | Désactivé | Le moniteur est désactivé quel que soit le paramètre de son parent. |
 | Identique au parent | Le moniteur sera activé ou désactivé en fonction du paramètre de son parent. |
 
-Lorsqu’un moniteur est désactivé, tous les critères sont affichés comme étant non disponibles, comme indiqué dans l’exemple suivant.
+Quand un moniteur est désactivé, tous les critères sont affichés comme étant non disponibles, comme dans l’exemple suivant.
 
 ![Moniteur désactivé](media/vminsights-health-configure/disabled-monitor.png)
+
+
+> [!NOTE]
+> Si un moniteur parent est désactivé, tous les moniteurs enfants le sont également. Si vous activez explicitement le moniteur enfant, le parent est également activé, mais son état de configuration reste le même. Dans ce cas, vous recevrez le message suivant dans le moniteur parent.
+>
+> *Il existe une incohérence dans la mesure où l’état configuré du moniteur est « désactivé », alors que l’état d’intégrité ne reflète pas cela. En effet, soit les modifications configurées sont propagées, soit un de ses moniteurs enfants a été activé de manière explicite.*
 
 ## <a name="enable-or-disable-virtual-machine"></a>Activer ou désactiver la machine virtuelle
 Vous pouvez désactiver la supervision d’une machine virtuelle pour arrêter temporairement tous les moniteurs. Vous pouvez désactiver la supervision d’une machine virtuelle, par exemple, lorsque vous effectuez une opération de maintenance sur celle-ci.

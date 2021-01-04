@@ -3,12 +3,12 @@ title: Remise d’événement, identité de service géré et liaison privée
 description: Cet article explique comment activer une identité de service managé pour une rubrique Azure Event Grid. Utilisez-la pour transférer des événements vers des destinations prises en charge.
 ms.topic: how-to
 ms.date: 10/22/2020
-ms.openlocfilehash: d16310ac61121af0cc9d76664bfeeeb14e1bc243
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: edb3e5ac8257a29ecd3835e1dfd4c116c3cc7164
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491713"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368611"
 ---
 # <a name="event-delivery-with-a-managed-identity"></a>Remise d’événement avec une identité managée
 Cet article explique comment activer une [identité de service managé](../active-directory/managed-identities-azure-resources/overview.md) pour des rubriques ou des domaines Azure Event Grid. Utilisez-le pour transférer des événements vers des destinations prises en charge, telles que des files d’attente et rubriques Service Bus, des concentrateurs d’événements et des comptes de stockage.
@@ -285,7 +285,7 @@ az eventgrid event-subscription create
 ## <a name="private-endpoints"></a>Instances Private Endpoint
 Actuellement, il n’est pas possible de remettre des événements à l’aide de [points de terminaison privés](../private-link/private-endpoint-overview.md). Autrement dit, il n’y a pas de prise en charge si vous avez des exigences strictes en matière d’isolement réseau lorsque le trafic des événements remis ne doit pas sortir de l’espace IP privé. 
 
-Toutefois, si vos exigences comprennent une méthode sécurisée pour envoyer les événements à l’aide d’un canal chiffré et une identité connue de l’expéditeur (dans ce cas, Event Grid) à l’aide d’un espace IP public, vous pouvez remettre des événements à Event Hubs, Service Bus ou au service de stockage Azure à l’aide d’une rubrique Azure Event Grid ou d’un domaine avec une identité gérée par le système comme présenté dans cet article. Ensuite, vous pouvez utiliser une liaison privée configurée dans Azure Functions ou votre webhook déployé sur votre réseau virtuel pour extraire des événements. Voir l’exemple : [Connectez-vous à des points de terminaison privés avec Azure Functions](/samples/azure-samples/azure-functions-private-endpoints/connect-to-private-endpoints-with-azure-functions/).
+Toutefois, si vos exigences comprennent une méthode sécurisée pour envoyer des événements à l’aide d’un canal chiffré et une identité connue de l’expéditeur (dans ce cas, Event Grid) à l’aide d’un espace IP public, vous pouvez remettre des événements à Event Hubs, Service Bus ou au service Stockage Azure à l’aide d’une rubrique Azure Event Grid ou d’un domaine avec une identité gérée par le système comme présenté dans cet article. Ensuite, vous pouvez utiliser une liaison privée configurée dans Azure Functions ou votre webhook déployé sur votre réseau virtuel pour extraire des événements. Voir l’exemple : [Connectez-vous à des points de terminaison privés avec Azure Functions](/samples/azure-samples/azure-functions-private-endpoints/connect-to-private-endpoints-with-azure-functions/).
 
 Notez que, dans cette configuration, le trafic passe par l’adresse IP publique/Internet d’Event Grid vers Event Hubs, Service Bus ou le stockage Azure, mais que le canal peut être chiffré et qu’une identité gérée Event Grid est utilisée. Si vous configurez votre Azure Functions ou webhook déployé sur votre réseau virtuel pour utiliser un stockage Event Hubs, Service Bus ou stockage Azure via une liaison privée, cette section du trafic restera évidemment dans Azure.
 

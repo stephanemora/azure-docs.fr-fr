@@ -1,23 +1,20 @@
 ---
-title: Simulation de déploiement de modèle (préversion)
+title: Simulation de déploiement de modèle
 description: Déterminez les modifications qui seront apportées à vos ressources avant de déployer un modèle Azure Resource Manager.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 08/05/2020
+ms.date: 12/15/2020
 ms.author: tomfitz
-ms.openlocfilehash: 27efe1e03b8a0d373d566106a53a41007731973e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1ce7f8f718b364dc4b47593cf9ea37e8baf1e72
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87810069"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563090"
 ---
-# <a name="arm-template-deployment-what-if-operation-preview"></a>Opération de simulation de déploiement de modèle ARM (préversion)
+# <a name="arm-template-deployment-what-if-operation"></a>Opération what-if de déploiement de modèle ARM
 
 Avant de déployer un modèle Azure Resource Manager (modèle ARM), vous pouvez prévisualiser les changements qui se produiront. Azure Resource Manager met à votre disposition l’opération de simulation, qui vous permet de voir comment les ressources changent si vous déployez le modèle. L’opération de simulation n’apporte aucune modification aux ressources existantes. Au lieu de cela, elle prédit les modifications si le modèle spécifié est déployé.
-
-> [!NOTE]
-> L’opération de simulation est disponible en préversion. Dans la préversion, les résultats peuvent parfois indiquer qu’une ressource changera alors qu’aucune modification ne se produira. Nous nous efforçons de réduire ces problèmes, mais nous avons besoin de votre aide. Signalez ces problèmes à l’adresse [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
 
 Vous pouvez utiliser l’opération de simulation avec des opérations d’Azure PowerShell, d’Azure CLI ou d’API REST. La simulation est prise en charge pour les déploiements de groupe de ressources, d’abonnement et de niveau locataire.
 
@@ -36,31 +33,6 @@ Install-Module -Name Az -Force
 ```
 
 Pour plus d’informations sur l’installation des modules, consultez [Installer Azure PowerShell](/powershell/azure/install-az-ps).
-
-### <a name="uninstall-alpha-version"></a>Désinstaller la version alpha
-
-Si vous avez déjà installé une version alpha du module de simulation, désinstallez ce module. La version alpha était uniquement disponible pour les utilisateurs qui s’étaient inscrits à une préversion anticipée. Si vous n’avez pas installé cette préversion, vous pouvez ignorer cette section.
-
-1. Exécutez PowerShell en tant qu’administrateur
-1. Vérifiez les versions installées du module Az.Resources.
-
-   ```powershell
-   Get-InstalledModule -Name Az.Resources -AllVersions | select Name,Version
-   ```
-
-1. Si vous disposez d’une version installée avec un numéro de version au format **2.x.x-alpha**, désinstallez cette version.
-
-   ```powershell
-   Uninstall-Module Az.Resources -RequiredVersion 2.0.1-alpha5 -AllowPrerelease
-   ```
-
-1. Désinscrivez le dépôt de simulation que vous avez utilisé pour installer la préversion.
-
-   ```powershell
-   Unregister-PSRepository -Name WhatIfRepository
-   ```
-
-Vous êtes prêt à utiliser la simulation.
 
 ## <a name="install-azure-cli-module"></a>Installer le module Azure CLI
 
@@ -129,8 +101,8 @@ Pour afficher un aperçu des modifications avant de déployer un modèle, utilis
 
 * [az deployment group what-if](/cli/azure/deployment/group#az-deployment-group-what-if) pour les déploiements de groupes de ressources
 * [az deployment sub what-if](/cli/azure/deployment/sub#az-deployment-sub-what-if) pour les déploiements au niveau de l’abonnement
-* [az deployment mg what-if](/cli/azure/deployment/mg?view=azure-cli-latest#az-deployment-mg-what-if) pour les déploiements de groupes de gestion
-* [az deployment tenant what-if](/cli/azure/deployment/tenant?view=azure-cli-latest#az-deployment-tenant-what-if) pour les déploiements de locataires
+* [az deployment mg what-if](/cli/azure/deployment/mg#az-deployment-mg-what-if) pour les déploiements de groupes de gestion
+* [az deployment tenant what-if](/cli/azure/deployment/tenant#az-deployment-tenant-what-if) pour les déploiements de locataires
 
 Vous pouvez utiliser le commutateur `--confirm-with-what-if` (ou sa forme courte `-c`) pour afficher un aperçu des modifications et être invité à poursuivre le déploiement. Ajoutez ce commutateur à :
 
@@ -415,15 +387,15 @@ Vous voyez les modifications attendues et pouvez confirmer que vous souhaitez qu
 
 Vous pouvez utiliser l’opération de simulation par le biais des Kits de développement logiciel (SDK) Azure.
 
-* Pour Python, utilisez [what-if (simulation)](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2019_10_01.operations.deploymentsoperations?view=azure-python#what-if-resource-group-name--deployment-name--properties--location-none--custom-headers-none--raw-false--polling-true----operation-config-).
+* Pour Python, utilisez [what-if (simulation)](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2019_10_01.operations.deploymentsoperations#what-if-resource-group-name--deployment-name--properties--location-none--custom-headers-none--raw-false--polling-true----operation-config-).
 
-* Pour Java, utilisez [DeploymentWhatIf Class](/java/api/com.microsoft.azure.management.resources.deploymentwhatif?view=azure-java-stable).
+* Pour Java, utilisez [DeploymentWhatIf Class](/java/api/com.microsoft.azure.management.resources.deploymentwhatif).
 
-* Pour .NET, utilisez [DeploymentWhatIf Class](/dotnet/api/microsoft.azure.management.resourcemanager.models.deploymentwhatif?view=azure-dotnet).
+* Pour .NET, utilisez [DeploymentWhatIf Class](/dotnet/api/microsoft.azure.management.resourcemanager.models.deploymentwhatif).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Si vous constatez que la préversion de l’opération de simulation génère des résultats incorrects, signalez les problèmes à l’adresse [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
+- Si vous constatez que l’opération de simulation génère des résultats incorrects, signalez les problèmes via [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
 - Pour déployer des modèles avec Azure PowerShell, consultez [Déployer des ressources avec des modèles ARM et Azure PowerShell](deploy-powershell.md).
 - Pour déployer des modèles avec Azure CLI, consultez [Déployer des ressources avec des modèles ARM et Azure CLI](deploy-cli.md).
 - Pour déployer des modèles avec REST, consultez [Déployer des ressources avec des modèles ARM et l’API REST Resource Manager](deploy-rest.md).

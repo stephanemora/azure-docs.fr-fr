@@ -13,12 +13,12 @@ ms.date: 11/04/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: da79a74121318993f807ec3bde101b652a8b49da
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 34cdaa42f3a41ae04c73c570bb4fede01a786af2
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628133"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107836"
 ---
 # <a name="acquire-and-cache-tokens-using-the-microsoft-authentication-library-msal"></a>Acquérir et mettre en cache des jetons à l’aide de la bibliothèque d’authentification Microsoft (MSAL)
 
@@ -122,6 +122,8 @@ Quand votre client demande un jeton d’accès, Azure AD retourne également un 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si vous utilisez MSAL pour Java, découvrez la [Sérialisation du cache de jetons personnalisée dans MSAL pour Java](msal-java-token-cache-serialization.md).
-
-Découvrez la [gestion des erreurs et des exceptions](msal-handling-exceptions.md).
+Plusieurs des plateformes que MSAL prend en charge font l’objet d’informations supplémentaires relatives au cache de jeton dans la documentation de la bibliothèque de cette plateforme. Par exemple :
+- [Obtenir un jeton à partir du cache de jeton à l’aide de MSAL.NET](msal-net-acquire-token-silently.md)
+- [Authentification unique avec MSAL.js](msal-js-sso.md)
+- [Sérialisation personnalisée du cache de jetons dans MSAL pour Python](msal-python-token-cache-serialization.md)
+- [Sérialisation personnalisée du cache de jetons dans MSAL.NET pour Java](msal-java-token-cache-serialization.md)

@@ -7,17 +7,18 @@ author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: a9289fad6f7ae1030628bedcf1a62cacc0b1e23a
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 52d6bc97245423a4add392ab05634d21bcf83a0d
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94564461"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358008"
 ---
 # <a name="prepare-virtual-machines-for-an-fci-sql-server-on-azure-vms"></a>Préparer des machines virtuelles pour une instance FCI (SQL Server sur des machines virtuelles Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -47,19 +48,22 @@ La fonctionnalité de cluster de basculement nécessite que les machines virtuel
 
 Sélectionnez avec soin l’option de disponibilité de la machine virtuelle qui correspond à la configuration souhaitée pour votre cluster : 
 
- - **Disques partagés Azure** : Le [groupe à haute disponibilité](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) configuré avec le domaine d’erreur et le domaine de mise à jour défini sur 1 et placés à l’intérieur d’un [groupe de placement de proximité](../../../virtual-machines/windows/proximity-placement-groups-portal.md).
- - **Partages de fichiers Premium** : [Groupe à haute disponibilité](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) ou [zone de disponibilité](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address). Les partages de fichiers Premium sont la seule option de stockage partagé si vous choisissez des zones de disponibilité comme configuration de disponibilité pour vos machines virtuelles. 
- - **Espaces de stockage direct** : [Groupe à haute disponibilité](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set).
+- **Disques partagés Azure** : l’option de disponibilité varie selon que vous utilisez des disques SSD Premium ou un disque Ultra :
+   - Disque SSD Premium : [groupe à haute disponibilité](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) dans différents domaines d’erreur/de mise à jour pour des disques SSD Premium placés à l’intérieur d’un [groupe de placement de proximité](../../../virtual-machines/windows/proximity-placement-groups-portal.md).
+   - Disque Ultra : [zone de disponibilité](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address) mais les machines virtuelles doivent être placées dans la même zone de disponibilité, ce qui réduit la disponibilité du cluster à 99,9 %. 
+- **Partages de fichiers Premium** : [Groupe à haute disponibilité](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) ou [zone de disponibilité](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address).
+- **Espaces de stockage direct** : [Groupe à haute disponibilité](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set).
 
->[!IMPORTANT]
->Vous ne pouvez pas définir ou modifier le groupe à haute disponibilité après avoir créé une machine virtuelle.
+> [!IMPORTANT]
+> Vous ne pouvez pas définir ou modifier le groupe à haute disponibilité après avoir créé une machine virtuelle.
 
 ## <a name="create-the-virtual-machines"></a>Créer les machines virtuelles
 
 Une fois que vous avez configuré la disponibilité de votre machine virtuelle, vous êtes prêt à créer vos machines virtuelles. Vous pouvez choisir d’utiliser une image de la place de marché Azure sur laquelle SQL Server est déjà installé ou non. Toutefois, si vous choisissez une image pour SQL Server sur des machines virtuelles Azure, vous devez désinstaller SQL Server à partir de la machine virtuelle avant de configurer l’instance de cluster de basculement. 
 
 ### <a name="considerations"></a>Considérations
-Sur un cluster de basculement invité de machine virtuelle IaaS Azure, nous recommandons une seule carte réseau par serveur (nœud de cluster) et un seul sous-réseau. Les réseaux Azure intègrent une redondance physique, ce qui rend inutiles les cartes réseau et les sous-réseaux supplémentaires sur un cluster invité de machine virtuelle IaaS Azure. Même si le rapport de validation de cluster émet un avertissement stipulant que les nœuds sont uniquement accessibles sur un seul réseau, vous pouvez ignorer ce dernier en toute sécurité sur les clusters de basculement invités de machine virtuelle IaaS Azure.
+
+Sur un cluster de basculement invité de machine virtuelle Azure, nous recommandons une seule carte réseau par serveur (nœud de cluster) et un seul sous-réseau. Les réseaux Azure intègrent une redondance physique, ce qui rend inutiles les cartes réseau et les sous-réseaux supplémentaires sur un cluster invité de machine virtuelle IaaS Azure. Même si le rapport de validation de cluster émet un avertissement stipulant que les nœuds sont uniquement accessibles sur un seul réseau, vous pouvez ignorer ce dernier en toute sécurité sur les clusters de basculement invités de machine virtuelle IaaS Azure.
 
 Placez les deux machines virtuelles :
 

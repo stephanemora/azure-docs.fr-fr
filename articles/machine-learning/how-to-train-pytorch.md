@@ -8,21 +8,21 @@ ms.subservice: core
 ms.author: minxia
 author: mx-iao
 ms.reviewer: peterlu
-ms.date: 09/28/2020
+ms.date: 12/10/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: b03395b9c615466a4d64d8760db8ac23a040d832
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: ed368615395614bc0d3e9a6f06727da8c64d8486
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360936"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97559639"
 ---
 # <a name="train-pytorch-models-at-scale-with-azure-machine-learning"></a>Entraîner des modèles PyTorch à grande échelle avec Azure Machine Learning
 
 Dans cet article, découvrez comment exécuter vos scripts d’entraînement [PyTorch](https://pytorch.org/) à l’échelle de l’entreprise à l’aide d’Azure Machine Learning.
 
-Les exemples de scripts dans cet article classifient des images de poulets et de dindes pour créer un réseau neuronal de Deep Learning (DNN) basé sur le [tutoriel](https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html) sur l’apprentissage de transfert de PyTorch. 
+Les exemples de scripts dans cet article classifient des images de poulets et de dindes pour créer un réseau neuronal de Deep Learning (DNN) basé sur le [tutoriel](https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html) sur l’apprentissage de transfert de PyTorch. L’apprentissage de transfert est une technique qui applique les connaissances acquises lors de la résolution d’un problème à un problème différent, mais connexe. Cela permet de raccourcir le processus de formation en exigeant moins de données, de temps et de ressources de calcul qu’une formation partant de zéro.
 
 Que vous soyez en train de former un modèle PyTorch d’apprentissage profond ou que vous déposez un modèle existant dans le Cloud, vous pouvez utiliser Azure Machine Learning pour effectuer un scale-out des tâches de formation Open source à l’aide des ressources de calcul de Cloud élastique. Vous pouvez créer, déployer, mettre à jour et surveiller des modèles de niveau production avec Azure Machine Learning. 
 
@@ -177,7 +177,7 @@ pytorch_env.docker.base_image = 'mcr.microsoft.com/azureml/openmpi3.1.2-cuda10.1
 
 Pour plus d’informations sur la création et l’utilisation d’environnements, consultez [Créer et utiliser des environnements logiciels dans Azure Machine Learning](how-to-use-environments.md).
 
-## <a name="configure-and-submit-your-training-run"></a>Configurer et envoyer votre exécution d’entraînement
+## <a name="configure-and-submit-your-training-run"></a>Configurer et envoyer votre exécution d’entrainement
 
 ### <a name="create-a-scriptrunconfig"></a>Créer un ScriptRunConfig
 
@@ -213,11 +213,11 @@ run.wait_for_completion(show_output=True)
 ### <a name="what-happens-during-run-execution"></a>Ce qui se passe lors de l’exécution
 Quand l’exécution est lancée, elle passe par les phases suivantes :
 
-- **Préparation** : une image docker est créée en fonction de l’environnement défini. L’image est chargée dans le registre de conteneurs de l’espace de travail et mise en cache pour des exécutions ultérieures. Les journaux sont également transmis en continu à l’historique des exécutions et peuvent être affichés afin de surveiller la progression. Si un environnement organisé est spécifié à la place, l’image mise en cache qui renferme cet environnement organisé est utilisée.
+- **Préparation** : une image docker est créée en fonction de l’environnement défini. L’image est chargée dans le registre de conteneurs de l’espace de travail et mise en cache pour des exécutions ultérieures. Les journaux sont également transmis en continu à l’historique des exécutions et peuvent être affichés afin de surveiller la progression. Si un environnement organisé est spécifié à la place, l’image mise en cache qui stocke cet environnement organisé est utilisée.
 
-- **Mise à l’échelle**  : le cluster tente de monter en puissance si le cluster Batch AI nécessite plus de nœuds pour l’exécution que la quantité disponible actuellement.
+- **Mise à l’échelle** : le cluster tente de monter en puissance si le cluster Batch AI nécessite plus de nœuds pour l’exécution que la quantité disponible actuellement.
 
-- **En cours d’exécution**  : tous les scripts dans le dossier de script sont chargés dans la cible de calcul, les magasins de données sont montés ou copiés, puis `script` est exécuté. Les sorties issues de stdout et du dossier **./logs** sont transmises en continu à l’historique des exécutions et peuvent être utilisées pour superviser l’exécution.
+- **En cours d’exécution** : tous les scripts dans le dossier de script sont chargés dans la cible de calcul, les magasins de données sont montés ou copiés, puis `script` est exécuté. Les sorties issues de stdout et du dossier **./logs** sont transmises en continu à l’historique des exécutions et peuvent être utilisées pour superviser l’exécution.
 
 - **Post-traitement** : le dossier **./outputs** de l’exécution est copié dans l’historique des exécutions.
 

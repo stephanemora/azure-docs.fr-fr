@@ -1,10 +1,9 @@
 ---
-title: 'Tutoriel : Configuration de Contentful pour l’attribution automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
-description: Découvrez comment provisionner automatiquement des comptes d’utilisateur d’Azure AD pour Contentful et comment annuler ce provisionnement.
+title: 'Tutoriel : Configuration de Contentful pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory'
+description: Découvrez comment approvisionner et déprovisionner automatiquement des comptes d’utilisateur d’Azure Active Directory (Azure AD) pour Contentful.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: zchia
 manager: beatrizd
 ms.assetid: 3b761984-a9a0-4519-b23e-563438978de5
 ms.service: active-directory
@@ -14,108 +13,110 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/11/2020
-ms.author: Zhchia
-ms.openlocfilehash: 4ff08e51f6e3b2ae72da43052c25046be8bb5397
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.author: zhchia
+ms.openlocfilehash: c9d19624d90b1228b2a44caeff7d103af3172ed9
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352148"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516347"
 ---
 # <a name="tutorial-configure-contentful-for-automatic-user-provisioning"></a>Tutoriel : Configuration de Contentful pour l’attribution automatique d’utilisateurs
 
-Ce tutoriel décrit la procédure à suivre dans Contentful et Azure Active Directory (Azure AD) pour configurer l’attribution automatique d’utilisateurs. Une fois configuré, Azure AD procède automatiquement à l’attribution et à l’annulation de l’attribution des utilisateurs et des groupes sur [Contentful](https://www.contentful.com/) à l’aide du service de provisionnement d’Azure AD. Pour découvrir les informations importantes sur ce que fait ce service, comment il fonctionne et consulter le forum aux questions, reportez-vous à l’article [Automatiser l’attribution et l’annulation de l’attribution des utilisateurs dans les applications SaaS avec Azure Active Directory](../app-provisioning/user-provisioning.md). 
-
+Cet article décrit la procédure à suivre dans Contentful et Azure Active Directory (Azure AD) pour configurer l’approvisionnement automatique d’utilisateurs. Une fois configuré, Azure AD approvisionne et déprovisionne automatiquement des utilisateurs et des groupes sur [Contentful](https://www.contentful.com/) à l’aide du service d’approvisionnement d’Azure AD. Pour obtenir des informations importantes sur l’utilisation et le fonctionnement de ce service, ainsi que des réponses aux questions fréquentes, consultez [Automatiser le provisionnement et le déprovisionnement d’utilisateurs dans les applications SaaS avec Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 ## <a name="capabilities-supported"></a>Fonctionnalités prises en charge
+
 > [!div class="checklist"]
 > * Créer des utilisateurs dans Contentful
 > * Supprimer des utilisateurs dans Contentful lorsqu’ils n’ont plus besoin d’accès
 > * Maintenir la synchronisation des attributs utilisateur entre Azure AD et Contentful
 > * Provisionner des groupes et des appartenances aux groupes dans Contentful
-> * [Authentification unique](./contentful-tutorial.md) auprès de Contentful (recommandé)
+> * [Authentification unique](contentful-tutorial.md) auprès de Contentful (recommandé)
 
 ## <a name="prerequisites"></a>Prérequis
 
 Le scénario décrit dans ce tutoriel part du principe que vous disposez des prérequis suivants :
 
-* [Un locataire Azure AD](../develop/quickstart-create-new-tenant.md) 
-* Un compte d’utilisateur dans Azure AD avec l’[autorisation](../roles/permissions-reference.md) de configurer l’approvisionnement (par exemple, administrateur d’application, administrateur d’application Cloud, propriétaire d’application ou administrateur général). 
-* Un compte d’organisation Contentful avec un abonnement prenant en charge le provisionnement SCIM. Si vous avez des questions concernant l’abonnement de votre organisation, contactez Contentful à l’adresse [support@contentful.com](mailto:support@contentful.com).
+* [Un locataire Azure AD](../develop/quickstart-create-new-tenant.md). 
+* Un compte d’utilisateur dans Azure AD [autorisé](../roles/permissions-reference.md) à configurer l’approvisionnement (par exemple Administrateur d’application, Administrateur d’application cloud, Propriétaire d’application ou Administrateur général). 
+* Un compte d’organisation Contentful avec un abonnement qui prend en charge l’approvisionnement SCIM (System for Cross-domain Identity Management). Si vous avez des questions concernant l’abonnement de votre organisation, contactez le [support technique de Contentful](mailto:support@contentful.com).
  
-## <a name="step-1-plan-your-provisioning-deployment"></a>Étape 1. Planifier votre déploiement de l’approvisionnement
+## <a name="plan-your-provisioning-deployment"></a>Planifier votre déploiement de l’approvisionnement
+
 1. En savoir plus sur le [fonctionnement du service d’approvisionnement](../app-provisioning/user-provisioning.md).
 2. Déterminez qui sera dans l’[étendue pour l’approvisionnement](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 3. Déterminez les données à [mapper entre Azure AD et Contentful](../app-provisioning/customize-application-attributes.md). 
 
-## <a name="step-2-configure-contentful-to-support-provisioning-with-azure-ad"></a>Étape 2. Configurer Contentful pour prendre en charge le provisionnement avec Azure AD
+## <a name="configure-contentful-to-support-provisioning-with-azure-ad"></a>Configurer Contentful pour prendre en charge le provisionnement avec Azure AD
 
-1. Créez un compte **Utilisateur de service** dans Contentful. Toutes les autorisations de provisionnement pour Azure seront accordées par l’intermédiaire de ce compte. Il est recommandé de choisir le rôle d’organisation **Propriétaire** pour ce compte.
+1. Dans Contentful, créez un compte **Utilisateur de service**. Toutes les autorisations d’approvisionnement pour Azure sont accordées par l’intermédiaire de ce compte. Il est recommandé de choisir le rôle d’organisation **Propriétaire** pour ce compte.
 
-2. Connectez-vous à Contentful avec le compte **Utilisateur de service** créé à l’étape précédente.
+2. Connectez-vous à Contentful en tant qu’**utilisateur de service**.
 
-3. Accédez au **Curseur de gauche** -> **Paramètres de l’organisation** -> **Outils d’accès** -> **Attribution d’utilisateurs**.
+3. Dans le menu de gauche, sélectionnez **Paramètres de l’organisation** > **Outils d’accès** > **Attribution d’utilisateurs**.
 
-    ![Menu](media/contentful-provisioning-tutorial/access.png)
+   ![Capture d’écran du menu Paramètres de l’organisation dans Contentful, avec Attribution d’utilisateur mis en évidence sous Outils d’accès.](media/contentful-provisioning-tutorial/access.png)
 
-4. Copiez et enregistrez **l’URL SCIM**. Cette valeur sera entrée dans l’onglet Provisionnement de votre application Contentful sur le Portail Azure.
+4. Copiez et enregistrez **l’URL SCIM**. Vous entrez cette valeur dans le portail Azure, dans l’onglet **Approvisionnement** de votre application Contentful.
 
-5. Cliquez sur **Générer un jeton d’accès personnel**.
+5. Sélectionnez **Générer un jeton d’accès personnel**.
 
     ![url](media/contentful-provisioning-tutorial/generate.png)
 
-6. Dans la fenêtre modale, attribuez un nom explicite à votre jeton d’accès personnel, puis cliquez sur « Générer ».
-    
-7. **L’URL SCIM** et le **Jeton secret** sont générés. Copiez et enregistrez ces valeurs. Elles seront entrées dans l’onglet Provisionnement de votre application Contentful sur le Portail Azure.
+6. Dans la fenêtre modale, entrez un nom pour votre jeton d’accès personnel, puis sélectionnez **Générer**.
 
-    ![access](media/contentful-provisioning-tutorial/token.png)
+7. L’URL SCIM et le jeton secret sont générés. Copiez et enregistrez ces valeurs. Vous entrez ces valeurs dans l’onglet **Approvisionnement** de votre application Contentful dans le portail Azure.
 
-
-Si vous avez des questions lors de la configuration du provisionnement sur la console d’administration Contentful, contactez [support@contentful.com](mailto:support@contentful.com).
+    ![Capture d’écran du volet Jeton d’accès personnel, avec CFPAT et le nom de l’espace réservé du jeton mis en évidence.](media/contentful-provisioning-tutorial/token.png)
 
 
-## <a name="step-3-add-contentful-from-the-azure-ad-application-gallery"></a>Étape 3. Ajouter Contentful à partir de la galerie d’applications Azure AD
+Si vous avez des questions lors de la configuration de l’approvisionnement dans la console d’administration Contentful, contactez le [support technique de Contentful](mailto:support@contentful.com).
 
-Ajoutez Contentful à partir de la galerie d’applications Azure AD afin de commencer à gérer le provisionnement pour Contentful. Si vous avez déjà configuré Contentful pour l’authentification unique, vous pouvez utiliser la même application. Toutefois, il est recommandé de créer une application distincte lors du test initial de l’intégration. En savoir plus sur l’ajout d’une application à partir de la galerie [ici](../manage-apps/add-application-portal.md). 
+## <a name="add-contentful-from-the-azure-ad-application-gallery"></a>Ajouter Contentful à partir de la galerie d’applications Azure AD
 
-## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Étape 4. Définir qui sera dans l’étendue pour l’approvisionnement 
+Pour gérer l’approvisionnement vers Contentful, ajoutez Contentful à partir de la galerie d’applications Azure AD. Si vous avez déjà configuré Contentful pour l’authentification unique, vous pouvez utiliser la même application. Toutefois, nous vous recommandons de créer une application distincte pour tester l’intégration dans un premier temps. Découvrez comment [ajouter une application de la galerie](../manage-apps/add-application-portal.md). 
 
-Le service d’approvisionnement Azure AD vous permet de définir l’étendue des utilisateurs approvisionnés en fonction de l’affectation à l’application et/ou en fonction des attributs de l’utilisateur/groupe. Si vous choisissez de définir l’étendue de l’approvisionnement pour votre application en fonction de l’attribution, vous pouvez utiliser les étapes de [suivantes](../manage-apps/assign-user-or-group-access-portal.md) pour affecter des utilisateurs et des groupes à l’application. Si vous choisissez de définir l’étendue de l’approvisionnement en fonction uniquement des attributs de l’utilisateur ou du groupe, vous pouvez utiliser un filtre d’étendue comme décrit [ici](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
+## <a name="define-who-will-be-in-scope-for-provisioning"></a>Définir qui sera dans l’étendue pour l’approvisionnement 
 
-* Lorsque vous provisionnez des utilisateurs et des groupes pour Contentful, vous devez sélectionner un rôle autre que le rôle **Accès par défaut**. Les utilisateurs disposant du rôle Accès par défaut sont exclus de l’approvisionnement et sont marqués comme non autorisés dans les journaux de configuration. Si le seul rôle disponible dans l’application est le rôle d’accès par défaut, vous pouvez [mettre à jour le manifeste de l’application](../develop/howto-add-app-roles-in-azure-ad-apps.md) pour ajouter des rôles supplémentaires. 
+Vous pouvez utiliser le service d’approvisionnement Azure AD pour définir l’étendue des utilisateurs qui seront approvisionnés en fonction de l’affectation à l’application ou en fonction des attributs de l’utilisateur ou du groupe. 
 
-* Commencez progressivement. Testez avec un petit ensemble d’utilisateurs et de groupes avant d’effectuer un déploiement général. Lorsque l’étendue de l’approvisionnement est définie sur les utilisateurs et les groupes attribués, vous pouvez contrôler cela en affectant un ou deux utilisateurs ou groupes à l’application. Lorsque l’étendue est définie sur tous les utilisateurs et groupes, vous pouvez spécifier un [filtre d’étendue basé sur l’attribut](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
+Si vous choisissez de définir l’étendue de l’approvisionnement pour votre application en fonction de l’attribution, suivez les étapes pour [affecter des utilisateurs et des groupes à l’application](../manage-apps/assign-user-or-group-access-portal.md).
 
+Si vous choisissez de définir l’étendue des utilisateurs qui seront approvisionnés uniquement en fonction des attributs de l’utilisateur ou du groupe, utilisez un filtre d’étendue afin de [définir des règles conditionnelles pour l’approvisionnement des comptes d’utilisateur](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-## <a name="step-5-configure-automatic-user-provisioning-to-contentful"></a>Étape 5. Configurer l’attribution automatique d’utilisateurs pour Contentful 
+* Lorsque vous attribuez des utilisateurs et des groupes à Contentful, vous devez sélectionner un rôle autre que le rôle **Accès par défaut**. Les utilisateurs disposant du rôle Accès par défaut sont exclus de l’approvisionnement et sont marqués comme non autorisés dans les journaux d’approvisionnement. Si le seul rôle disponible sur l’application est le rôle Accès par défaut, vous pouvez [mettre à jour le manifeste de l’application](../develop/howto-add-app-roles-in-azure-ad-apps.md) pour ajouter plus de rôles. 
+* Commencez progressivement. Effectuez un test avec un petit ensemble d’utilisateurs et de groupes avant de procéder à un déploiement général. Lorsque l’étendue de l’approvisionnement est définie sur les utilisateurs et les groupes attribués, vous pouvez contrôler l’étendue en affectant un ou deux utilisateurs ou groupes à l’application. Quand l’étendue est définie sur tous les utilisateurs et groupes, vous pouvez spécifier un [filtre d’étendue basé sur les attributs](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-Cette section vous guide tout au long des étapes de configuration du service d’approvisionnement d’Azure AD pour créer, mettre à jour et désactiver des utilisateurs et/ou des groupes dans TestApp en fonction des assignations d’utilisateurs et/ou de groupes dans Azure AD.
+## <a name="configure-automatic-user-provisioning-to-contentful"></a>Configurer l’attribution automatique d’utilisateurs pour Contentful 
 
-### <a name="to-configure-automatic-user-provisioning-for-contentful-in-azure-ad"></a>Pour configurer l’attribution automatique d’utilisateurs pour Contentful dans Azure AD :
+Cette section vous guide tout au long des étapes de configuration du service d’approvisionnement Azure AD pour créer, mettre à jour et désactiver des utilisateurs et des groupes dans une application de test en fonction des affectations d’utilisateurs ou de groupes dans Azure AD.
+
+### <a name="configure-automatic-user-provisioning-for-contentful-in-azure-ad"></a>Configurer l’approvisionnement automatique d’utilisateurs pour Contentful dans Azure AD
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 
-    ![Panneau Applications d’entreprise](common/enterprise-applications.png)
+   ![Capture d’écran montrant le menu Applications d’entreprise dans le portail Azure, avec l’option Toutes les applications mise en surbrillance.](common/enterprise-applications.png)
 
 2. Dans la liste des applications, sélectionnez **Contentful**.
 
-    ![Lien Contentful dans la liste des applications](common/all-applications.png)
+   ![Capture d’écran montrant les 20 premiers résultats retournés dans la liste Applications.](common/all-applications.png)
 
 3. Sélectionnez l’onglet **Approvisionnement**.
 
-    ![Onglet Approvisionnement](common/provisioning.png)
+   ![Capture d’écran de l’onglet Approvisionnement en surbrillance dans la section Gérer du menu de gauche.](common/provisioning.png)
 
 4. Définissez le **Mode d’approvisionnement** sur **Automatique**.
 
-    ![Onglet Provisionnement automatique](common/provisioning-automatic.png)
+   ![Capture d’écran montrant les options du mode d’approvisionnement, avec Automatique mis en évidence.](common/provisioning-automatic.png)
 
-5. Sous la section **Informations d’identification d’administration**, entrez l’URL et le jeton secret de votre locataire Contentful. Cliquez sur **Tester la connexion** pour voir si Azure AD peut se connecter à Contentful. Si la connexion échoue, vérifiez que votre compte Contentful dispose des autorisations d’administrateur et réessayez.
+5. Dans la section **Informations d’identification d’administration**, entrez l’URL et le jeton secret de votre locataire Contentful. Pour vérifier qu’Azure AD peut se connecter à Contentful, sélectionnez **Tester la connexion**. Si la connexion échoue, vérifiez que votre compte Contentful dispose d’autorisations d’administrateur, puis réessayez.
 
-    ![par jeton](common/provisioning-testconnection-tenanturltoken.png)
+   ![Capture d’écran montrant les zones de texte URL du locataire et Jeton secret, avec le bouton Tester la connexion mis en évidence.](common/provisioning-testconnection-tenanturltoken.png)
 
-6. Dans le champ **E-mail de notification**, entrez l’adresse e-mail de la personne ou du groupe qui doit recevoir les notifications d’erreur de provisionnement et sélectionnez la case à cocher **Envoyer une notification par e-mail en cas de défaillance**.
+6. Dans **E-mail de notification**, entrez l’adresse e-mail de la personne ou du groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
 
-    ![E-mail de notification](common/provisioning-notification-email.png)
+   ![Capture d’écran montrant la zone de texte E-mail de notification.](common/provisioning-notification-email.png)
 
 7. Sélectionnez **Enregistrer**.
 
@@ -131,41 +132,39 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 10. Dans la section **Mappages**, sélectionnez **Synchroniser les groupes Azure Active Directory avec Contentful**.
 
-11. Dans la section **Mappages des attributs**, passez en revue les attributs de groupe qui sont synchronisés entre Azure AD et Contentful. Les attributs sélectionnés comme propriétés de **Correspondance** sont utilisés pour faire correspondre les groupes dans Contentful dans le cadre des opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+11. Dans la section **Mappages des attributs**, passez en revue les attributs de groupe synchronisés entre Azure AD et Contentful. Les attributs sélectionnés comme propriétés de **Correspondance** sont utilisés pour faire correspondre les groupes dans Contentful dans le cadre des opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
-      |Attribut|Type|Pris en charge pour le filtrage|
-      |---|---|---|
-      |displayName|String|&check;|
-      |membres|Informations de référence|
+    |Attribut|Type|Pris en charge pour le filtrage|
+    |---|---|---|
+    |displayName|String|&check;|
+    |membres|Informations de référence|
 
-12. Pour configurer des filtres d’étendue, reportez-vous aux instructions suivantes fournies dans [Approvisionnement d’applications basé sur les attributs avec filtres d’étendue](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+12. Pour configurer des filtres d’étendue, effectuez les étapes décrites dans le [tutoriel relatif au filtre d’étendue](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. Pour activer le service de provisionnement Azure AD pour Contentful, affectez la valeur **Activé** au paramètre **Statut de provisionnement** dans la section **Paramètres**.
+13. Pour activer le service d’approvisionnement Azure AD pour Contentful, dans la section **Paramètres**, définissez **État d’approvisionnement** sur **Activé**.
 
-    ![État d’approvisionnement activé](common/provisioning-toggle-on.png)
+    ![Capture d’écran montrant le bouton bascule Activé ou Désactivé du paramètre État d’approvisionnement.](common/provisioning-toggle-on.png)
 
-14. Définissez les utilisateurs et les groupes que vous souhaitez provisionner sur Contentful en choisissant les valeurs souhaitées dans le champ **Étendue** de la section **Paramètres**.
+14. Pour définir les utilisateurs ou les groupes que vous souhaitez approvisionner dans Contentful, dans la section **Paramètres**, sélectionnez l’option appropriée pour **Étendue**.
 
-    ![Étendue de l’approvisionnement](common/provisioning-scope.png)
+    ![Capture d’écran montrant les options que vous pouvez sélectionner dans le volet Étendue.](common/provisioning-scope.png)
 
-15. Lorsque vous êtes prêt à effectuer l’approvisionnement, cliquez sur **Enregistrer**.
+15. Quand vous êtes prêt à effectuer l’approvisionnement, sélectionnez **Enregistrer**.
 
-    ![Enregistrement de la configuration de l’approvisionnement](common/provisioning-configuration-save.png)
+    ![Capture d’écran montrant le bouton Enregistrer et le bouton Annuler.](common/provisioning-configuration-save.png)
 
-Cette opération démarre le cycle de synchronisation initiale de tous les utilisateurs et groupes définis dans **Étendue** dans la section **Paramètres**. Le cycle de synchronisation initiale prend plus de temps que les cycles de synchronisation suivants, qui se produisent toutes les 40 minutes environ tant que le service de provisionnement Azure AD est en cours d’exécution. 
+Cette opération démarre le cycle de synchronisation initiale de tous les utilisateurs et groupes définis dans **Étendue** sous **Paramètres**. Le cycle de synchronisation initiale prend plus de temps que les cycles de synchronisation suivants, qui se produisent toutes les 40 minutes environ tant que le service de provisionnement Azure AD est en cours d’exécution. 
 
-## <a name="step-6-monitor-your-deployment"></a>Étape 6. Surveiller votre déploiement
-Une fois que vous avez configuré l’approvisionnement, utilisez les ressources suivantes pour surveiller votre déploiement :
+## <a name="monitor-your-deployment"></a>Surveiller votre déploiement
 
-1. Utilisez les [journaux d’approvisionnement](../reports-monitoring/concept-provisioning-logs.md) pour déterminer quels utilisateurs ont été configurés avec succès ou échoué.
-2. Consultez la [barre de progression](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) pour afficher l’état du cycle d’approvisionnement et quand il se termine
-3. Si la configuration de l’approvisionnement semble se trouver dans un état non sain, l’application passe en quarantaine. Pour en savoir plus sur les états de quarantaine, cliquez [ici](../app-provisioning/application-provisioning-quarantine-status.md).  
+Après avoir configuré l’approvisionnement, utilisez les ressources suivantes pour superviser votre déploiement :
 
-## <a name="additional-resources"></a>Ressources supplémentaires
-
-* [Gestion de l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
+* Pour déterminer quels utilisateurs ont été configurés avec succès ou ceux pour laquelle la procédure a échoué, consultez les [journaux d’approvisionnement](../reports-monitoring/concept-provisioning-logs.md).
+* Pour afficher l’état d’avancement du cycle d’approvisionnement et le moment où il se terminera, consultez la [barre de progression](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md).
+* Si la configuration de l’approvisionnement semble être dans un état non sain, l’application passe en quarantaine. En savoir plus sur les [états de quarantaine](../app-provisioning/application-provisioning-quarantine-status.md).  
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Découvrez comment consulter les journaux d’activité et obtenir des rapports sur l’activité d’approvisionnement](../app-provisioning/check-status-user-account-provisioning.md)
+* [Gérer l’attribution de comptes d’utilisateurs pour les applications d’entreprise](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)

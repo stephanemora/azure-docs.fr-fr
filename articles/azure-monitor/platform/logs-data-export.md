@@ -7,12 +7,12 @@ ms.custom: references_regions, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
-ms.openlocfilehash: d2e93ccfaf3ff2c5b74ceef1f6a274f71ee52c4e
-ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
+ms.openlocfilehash: 8fa823620d6d1306260d719cbabaa3d815cc0d09
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96309832"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505441"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Exportation des données de l’espace de travail Log Analytics dans Azure Monitor (préversion)
 L’exportation des données de l’espace de travail Log Analytics dans Azure Monitor vous permet d’exporter en continu des données de tables sélectionnées dans votre espace de travail Log Analytics vers un compte de stockage Azure ou Azure Event Hubs à mesure qu’elles sont collectées. Cet article fournit des informations détaillées sur cette fonctionnalité et les étapes à suivre pour configurer l’exportation de données dans vos espaces de travail.
@@ -28,9 +28,9 @@ Toutes les données des tables incluses sont exportées sans filtre. Par exemple
 ## <a name="other-export-options"></a>Autres options d’exportation
 L’exportation des données d’espace de travail Log Analytics exporte en continu des données à partir d’un espace de travail Log Analytics. Les autres options d’exportation de données pour des scénarios particuliers sont les suivantes :
 
-- Exportation planifiée à partir d’une requête de journal à l’aide d’une application logique. Cela est similaire à la fonctionnalité d’exportation de données, mais vous permet d’envoyer des données filtrées ou agrégées vers le stockage Azure. Toutefois, cette méthode est sujette aux [limites des requêtes de journal](../service-limits.md#log-analytics-workspaces).  Consultez [Archiver des données d’espace de travail Log Analytics dans le stockage Azure à l’aide de l’application logique](logs-export-logic-app.md).
+- Exportation planifiée à partir d’une requête de journal à l’aide d’une application logique. Cela est similaire à la fonctionnalité d’exportation de données, mais vous permet d’envoyer des données filtrées ou agrégées vers le stockage Azure. Toutefois, cette méthode est sujette aux [limites des requêtes de journal](../service-limits.md#log-analytics-workspaces). Consultez [Archiver des données de l’espace de travail Log Analytics dans le stockage Azure à l’aide d’une application logique](logs-export-logic-app.md).
 - Exportation unique à l’aide d’une application logique. Consultez [Connecteur Azure Monitor Logs pour Logic Apps et Power Automate](logicapp-flow-connector.md).
-- Exportez une seule fois vers l’ordinateur local à l’aide d’un script PowerShell. Consultez [Invoke-AzOperationalInsightsQueryExport](https://www.powershellgallery.com/packages/Invoke-AzOperationalInsightsQueryExport).
+- Exportation unique vers l’ordinateur local à l’aide d’un script PowerShell. Consultez [Invoke-AzOperationalInsightsQueryExport](https://www.powershellgallery.com/packages/Invoke-AzOperationalInsightsQueryExport).
 
 
 ## <a name="current-limitations"></a>Limites actuelles
@@ -122,24 +122,37 @@ Une règle d’exportation de données définit les données qui doivent être e
 
 N/A
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+N/A
+
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Utilisez la commande CLI suivante pour afficher les tables dans votre espace de travail. Elle peut vous aider à copier les tables que vous souhaitez inclure dans la règle d’exportation de données.
 
 ```azurecli
-az monitor log-analytics workspace table list -resource-group resourceGroupName --workspace-name workspaceName --query [].name --output table
+az monitor log-analytics workspace table list --resource-group resourceGroupName --workspace-name workspaceName --query [].name --output table
 ```
 
 Utilisez la commande suivante pour créer une règle d’exportation de données vers un compte de stockage à l’aide de l’interface CLI.
 
 ```azurecli
-az monitor log-analytics workspace data-export create --resource-group resourceGroupName --workspace-name workspaceName --name ruleName --tables SecurityEvent Heartbeat --destination $storageAccountId
+$storageAccountResourceId = '/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.Storage/storageAccounts/storage-account-name'
+az monitor log-analytics workspace data-export create --resource-group resourceGroupName --workspace-name workspaceName --name ruleName --tables SecurityEvent Heartbeat --destination $storageAccountResourceId
 ```
 
-Utilisez la commande suivante pour créer une règle d’exportation de données vers un Event Hub à l’aide de l’interface CLI.
+Utilisez la commande suivante pour créer une règle d’exportation de données vers un Event Hub à l’aide de l’interface CLI. Un Event Hub distinct est créée pour chaque table.
 
 ```azurecli
-az monitor log-analytics workspace data-export create --resource-group resourceGroupName --workspace-name workspaceName --name ruleName --tables SecurityEvent Heartbeat --destination $eventHubsNamespacesId
+$eventHubsNamespacesResourceId = '/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.EventHub/namespaces/namespaces-name'
+az monitor log-analytics workspace data-export create --resource-group resourceGroupName --workspace-name workspaceName --name ruleName --tables SecurityEvent Heartbeat --destination $eventHubsNamespacesResourceId
+```
+
+Utilisez la commande suivante pour créer une règle d’exportation de données vers un Event Hub à l’aide de l’interface de ligne de commande. Toutes les tables sont exportées vers le nom d’Event Hub fourni. 
+
+```azurecli
+$eventHubResourceId = '/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.EventHub/namespaces/namespaces-name/eventHubName/eventhub-name'
+az monitor log-analytics workspace data-export create --resource-group resourceGroupName --workspace-name workspaceName --name ruleName --tables SecurityEvent Heartbeat --destination $eventHubResourceId
 ```
 
 # <a name="rest"></a>[REST](#tab/rest)
@@ -205,9 +218,13 @@ Voici un exemple de corps pour la requête REST pour Event Hub pour laquelle un 
 ```
 ---
 
-## <a name="view-data-export-configuration"></a>Voir la configuration de l’exportation de données
+## <a name="view-data-export-rule-configuration"></a>Afficher la configuration de règle d’exportation de données
 
 # <a name="azure-portal"></a>[Azure portal](#tab/portal)
+
+N/A
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 N/A
 
@@ -231,6 +248,10 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 ## <a name="disable-an-export-rule"></a>Désactiver une règle d’exportation
 
 # <a name="azure-portal"></a>[Azure portal](#tab/portal)
+
+N/A
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 N/A
 
@@ -272,6 +293,10 @@ Content-type: application/json
 
 N/A
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+N/A
+
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Utilisez la commande suivante pour supprimer une règle d’exportation de données à l’aide de l’interface CLI.
@@ -295,6 +320,10 @@ DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegrou
 
 N/A
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+N/A
+
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Utilisez la commande suivante pour afficher toutes les règles d’exportation de données dans un espace de travail à l’aide de l’interface CLI.
@@ -315,7 +344,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 ## <a name="unsupported-tables"></a>Tables non prises en charge
 Si la règle d’exportation de données comprend une table non prise en charge, la configuration échoue, mais aucune donnée n’est exportée pour cette table. Si la table est prise en charge par la suite, ses données seront exportées à ce moment-là.
 
-Si la règle d’exportation de données comprend une table qui n’existe pas, elle échoue avec l’erreur ```Table <tableName> does not exist in the workspace.```
+Si la règle d’exportation de données inclut une table qui n’existe pas, elle échoue avec l’erreur « La table <tableName> n’existe pas dans l’espace de travail ».
 
 
 ## <a name="supported-tables"></a>Tables prises en charge

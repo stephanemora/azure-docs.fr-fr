@@ -4,12 +4,12 @@ description: Obtenir les nombres de sessions et d’affichage de page, les donn�
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: b109aaea1ae5e751f40b55a3c703f0739661e10d
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 0588a3eac4ced6cec1e7aea431c6555bbe8bff0a
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876207"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97559877"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights pour les pages web
 
@@ -19,8 +19,11 @@ Vous pouvez utiliser Application Insights avec toutes les pages web ; il vous s
 
 ## <a name="adding-the-javascript-sdk"></a>Ajout du SDK JavaScript
 
+> [!IMPORTANT]
+> Les nouvelles régions Azure **exigent** l’utilisation de chaînes de connexion au lieu de clés d’instrumentation. Une [chaîne de connexion](./sdk-connection-string.md?tabs=js) identifie la ressource à laquelle vous souhaitez associer vos données de télémétrie. Elle vous permet également de modifier les points de terminaison que votre ressource utilisera comme destination pour votre télémétrie. Vous devrez copier la chaîne de connexion et l’ajouter au code de votre application ou à une variable d’environnement.
+
 1. Tout d’abord, vous avez besoin d’une ressource Application Insights. Si vous ne disposez pas encore d’une ressource ni d’une clé d’instrumentation, suivez les [instructions permettant de créer une ressource](create-new-resource.md).
-2. Copiez la _clé d’instrumentation_ (aussi connue sous « ikey ») de la ressource à laquelle vous souhaitez envoyer vos données de télémétrie JavaScript (de l’étape 1). Vous l’ajouterez au paramètre `instrumentationKey` du kit de développement logiciel (SDK) JavaScript Application Insights.
+2. Copiez la _clé d’instrumentation_ (aussi connue sous « iKey ») ou la [chaîne de connexion](#connection-string-setup) de la ressource à laquelle vous souhaitez envoyer vos données de télémétrie JavaScript (de l’étape 1). Vous l’ajouterez au paramètre `instrumentationKey` ou `connectionString` du Kit de développement logiciel (SDK) JavaScript Application Insights.
 3. Ajoutez le kit SDK JavaScript Application Insights à votre page web ou à votre application via l’une des deux options suivantes :
     * [Configuration basée sur npm](#npm-based-setup)
     * [Extrait de code JavaScript](#snippet-based-setup)
@@ -102,7 +105,7 @@ Toutes les options de configuration ont été déplacées vers la fin du script 
 
 Chaque option de configuration est présentée ci-dessus sur une nouvelle ligne, si vous ne souhaitez pas remplacer la valeur par défaut d’un élément répertoriée comme [facultatif], vous pouvez supprimer cette ligne afin de réduire la taille résultante de la page retournée.
 
-Voici les options de configuration disponibles 
+Voici les options de configuration disponibles
 
 | Nom | Type | Description
 |------|------|----------------
@@ -112,6 +115,20 @@ Voici les options de configuration disponibles
 | useXhr | booléen *[facultatif]* | Ce paramètre est utilisé uniquement pour les échecs de chargement du kit de développement logiciel (SDK). La création de rapports tente d’abord d’utiliser la récupération (fetch) () si elle est disponible, puis de revenir à XHR, en définissant cette valeur sur true pour simplement ignorer la vérification de l’extraction. L’utilisation de cette valeur est requise uniquement si votre application est utilisée dans un environnement où la récupération (fetch) ne parviendrait pas à envoyer les événements d’échec.
 | crossOrigin | chaîne *[facultatif]* | Si vous incluez ce paramètre, la balise de script ajoutée pour télécharger le kit de développement logiciel (SDK) inclut l’attribut crossOrigin avec cette valeur de chaîne. Lorsqu’il n’est pas défini (valeur par défaut), aucun attribut crossOrigin n’est ajouté. Les valeurs recommandées ne sont pas définies (valeur par défaut) ; "" ; ou « anonymous » (pour toutes les valeurs valides, consultez [Attribut HTML : documentation `crossorigin`](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin))
 | cfg | Objet **[obligatoire]** | La configuration est passée au Kit de développement logiciel (SDK) Application Insights pendant l’initialisation.
+
+### <a name="connection-string-setup"></a>Configuration de la chaîne de connexion
+
+Pour la configuration de NPM ou de l’extrait de code, vous pouvez également configurer votre instance d’Application Insights à l’aide d’une chaîne de connexion. Remplacez simplement le champ `instrumentationKey` par le champ `connectionString`.
+```js
+import { ApplicationInsights } from '@microsoft/applicationinsights-web'
+
+const appInsights = new ApplicationInsights({ config: {
+  connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE'
+  /* ...Other Configuration Options... */
+} });
+appInsights.loadAppInsights();
+appInsights.trackPageView();
+```
 
 ### <a name="sending-telemetry-to-the-azure-portal"></a>Envoi de données de télémétrie au portail Azure
 
@@ -163,8 +180,8 @@ La plupart des champs de configuration sont nommés de façon à pouvoir avoir l
 | maxBatchInterval | 15000 | Durée de mise en lot des données de télémétrie avant l’envoi (en millisecondes) |
 | disableExceptionTracking | false | Si la valeur est true, les exceptions ne sont pas collectées automatiquement. La valeur par défaut est false. |
 | disableTelemetry | false | Si la valeur est true, les données de télémétrie ne sont pas collectées ni envoyées. La valeur par défaut est false. |
-| enableDebug | false | Si la valeur est true, les données de débogage **internes** sont levées en tant qu’exception **au lieu** d’être consignées, quels que soient les paramètres de journalisation du kit SDK. La valeur par défaut est false. <br>***Remarque :*** L’activation de ce paramètre entraîne la suppression de données de télémétrie chaque fois qu’une erreur interne se produit. Cela peut être utile pour identifier rapidement les problèmes liés à votre configuration ou utilisation du kit SDK. Pour ne pas perdre de données de télémétrie pendant le débogage, utilisez `consoleLoggingLevel` ou `telemetryLoggingLevel` à la place de `enableDebug`. |
-| loggingLevelConsole | 0 | Consigne les erreurs **internes** d’Application Insights dans la console. <br>0 : désactivé, <br>1 : Erreurs critiques uniquement, <br>2 : Tout (erreurs et avertissements) |
+| enableDebug | false | Si la valeur est true, les données de débogage **internes** sont levées en tant qu’exception **au lieu** d’être consignées, quels que soient les paramètres de journalisation du kit SDK. La valeur par défaut est false. <br>**_Remarque :_* _ L’activation de ce paramètre entraîne la suppression de données de télémétrie chaque fois qu’une erreur interne se produit. Cela peut être utile pour identifier rapidement les problèmes liés à votre configuration ou utilisation du kit SDK. Pour ne pas perdre de données de télémétrie pendant le débogage, utilisez `consoleLoggingLevel` ou `telemetryLoggingLevel` à la place de `enableDebug`. |
+| loggingLevelConsole | 0 | Consigne les erreurs _ *internes** d’Application Insights dans la console. <br>0 : désactivé, <br>1 : Erreurs critiques uniquement, <br>2 : Tout (erreurs et avertissements) |
 | loggingLevelTelemetry | 1 | Envoie les erreurs **internes** d’Application Insights en tant que données de télémétrie. <br>0 : désactivé, <br>1 : Erreurs critiques uniquement, <br>2 : Tout (erreurs et avertissements) |
 | diagnosticLogInterval | 10000 | (interne) Intervalle d’interrogation (en ms) pour la file d’attente de journalisation interne |
 | samplingPercentage | 100 | Pourcentage d’événements qui seront envoyés. La valeur par défaut est 100, ce qui signifie que tous les événements sont envoyés. Définissez cette option si vous souhaitez conserver votre plafond de données pour les applications à grande échelle. |

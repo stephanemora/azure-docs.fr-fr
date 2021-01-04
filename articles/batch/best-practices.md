@@ -3,12 +3,12 @@ title: Meilleures pratiques
 description: Découvrez les bonnes pratiques et des conseils utiles pour le développement de vos solutions Azure Batch.
 ms.date: 11/18/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6aaed76ad398b5278850dd66ce1da6d5bd33807f
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 0f19fceca0212bd0a05d7caa311403b173c19de5
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95254661"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563175"
 ---
 # <a name="azure-batch-best-practices"></a>Meilleures pratiques relatives à Azure Batch
 
@@ -140,6 +140,10 @@ Un [nœud de calcul](nodes-and-pools.md#nodes) est une machine virtuelle Azure o
 ### <a name="idempotent-start-tasks"></a>Tâches de démarrage idempotentes
 
 Comme pour les autres tâches, la [tâche de démarrage](jobs-and-tasks.md#start-task) de nœud doit être idempotente, car elle sera réexécutée chaque fois que le nœud démarre. Une tâche idempotente est simplement une tâche qui produit un résultat constant lorsqu’elle est exécutée plusieurs fois.
+
+### <a name="isolated-nodes"></a>Nœuds isolés
+
+Envisagez d’utiliser des tailles de machines virtuelles isolées pour des charges de travail assorties d’exigences de conformité ou réglementaires. Les tailles isolées prises en charge en mode de configuration de machine virtuelle incluent `Standard_E80ids_v4`, `Standard_M128ms`, `Standard_F72s_v2`, `Standard_G5`, `Standard_GS5` et `Standard_E64i_v3`. Pour plus d’informations sur les tailles de machines virtuelles isolées, consultez [Isolation de machine virtuelle dans Azure](https://docs.microsoft.com/azure/virtual-machines/isolation).
 
 ### <a name="manage-long-running-services-via-the-operating-system-services-interface"></a>Gérer les services durables par le biais de l’interface des services du système d’exploitation
 

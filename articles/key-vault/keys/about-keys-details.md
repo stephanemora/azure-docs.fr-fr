@@ -9,12 +9,12 @@ ms.subservice: keys
 ms.topic: conceptual
 ms.date: 10/22/2020
 ms.author: ambapat
-ms.openlocfilehash: 76eedaabf52cf2d56b2feaa6dc2748c25bf7696c
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: b483ffc480f9ad750f8d9901d6bec382db2378c2
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93423690"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368917"
 ---
 # <a name="key-types-algorithms-and-operations"></a>Types de clés, algorithmes et opérations
 
@@ -67,8 +67,8 @@ Le tableau suivant présente un résumé des types de clés et des algorithmes p
 
 ##  <a name="symmetric-key-algorithms"></a>Algorithmes de clé symétrique
 - **AES-KW** : AES Key Wrap ([RFC3394](https://tools.ietf.org/html/rfc3394)).
-- **AES-GCM** : chiffrement AES Galois Counter Mode ([NIST SP800-38d](https://csrc.nist.gov/publications/sp800))
-- **AES-CBC** : chiffrement AES Cipher Block Chaining Mode ([NIST SP800-38a](https://csrc.nist.gov/publications/sp800))
+- **AES-GCM** : chiffrement AES en mode Galois/Compteur ([NIST SP 800-38d](https://csrc.nist.gov/publications/sp800)).
+- **AES-CBC** : chiffrement AES en mode d’opération Enchaînement des blocs ([NIST SP 800-38a](https://csrc.nist.gov/publications/sp800)).
 
 > [!NOTE] 
 > L’implémentation AES-GCM actuelle et les API correspondantes sont en phase d’expérimentation. L’implémentation et les API pourront être substantiellement différentes dans les itérations futures. 

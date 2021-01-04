@@ -12,12 +12,12 @@ ms.date: 11/30/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: e71ab0293dade56c14dce7318fc96021a040b102
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: e0185cc8786dc101375262ddfd187c5d8e7e054f
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96433312"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509561"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Procédure : Fournir des revendications facultatives à votre application
 
@@ -124,28 +124,29 @@ Cet objet OptionalClaims retourne au client le jeton d’ID pour y inclure une r
 
 Vous pouvez configurer des revendications facultatives pour votre application par le biais de l’interface utilisateur ou du manifeste de l’application.
 
-1. Accédez au [portail Azure](https://portal.azure.com). Recherchez et sélectionnez **Azure Active Directory**.
-1. Dans la section **Gérer**, sélectionnez **Inscriptions d’applications**.
+1. Accédez au [portail Azure](https://portal.azure.com). 
+1. Recherchez et sélectionnez **Azure Active Directory**.
+1. Sous **Gérer**, sélectionnez **Inscriptions des applications**.
 1. Sélectionnez dans la liste l’application pour laquelle vous souhaitez configurer des revendications facultatives.
 
 **Configuration de revendications facultatives par le biais de l’interface utilisateur :**
 
 [![Configurer des revendications facultatives dans l'interface utilisateur](./media/active-directory-optional-claims/token-configuration.png)](./media/active-directory-optional-claims/token-configuration.png)
 
-1. Dans la section **Gérer**, sélectionnez **Configuration de jetons**.
+1. Dans **Gérer**, sélectionnez **Configuration de jetons**.
 1. Sélectionnez **Ajouter une revendication facultative**.
 1. Sélectionnez le type de jeton que vous souhaitez configurer.
 1. Sélectionnez les revendications facultatives à ajouter.
 1. Sélectionnez **Ajouter**.
 
 > [!NOTE]
-> Actuellement, le panneau **Configuration du jeton** de l’option d’interface utilisateur n’est pas disponible pour les applications inscrites dans un locataire Azure AD B2C. Pour les applications inscrites dans un locataire B2C, les revendications facultatives peuvent être configurées en modifiant le manifeste d’application. Pour plus d’informations, consultez [Ajouter des revendications et personnaliser l’entrée utilisateur avec des stratégies personnalisées dans Azure Active Directory B2C](../../active-directory-b2c/custom-policy-configure-user-input.md) 
+> Actuellement, le panneau **Configuration du jeton** de l’option d’interface utilisateur n’est pas disponible pour les applications inscrites dans un locataire Azure AD B2C. Pour les applications inscrites dans un locataire B2C, les revendications facultatives peuvent être configurées en modifiant le manifeste d’application. Pour plus d’informations, consultez [Ajouter des revendications et personnaliser l’entrée utilisateur avec des stratégies personnalisées dans Azure Active Directory B2C](../../active-directory-b2c/configure-user-input.md) 
 
 **Configuration de revendications facultatives par le biais du manifeste de l’application :**
 
 [![montre comment configurer des revendications facultatives à l’aide du manifeste de l’application](./media/active-directory-optional-claims/app-manifest.png)](./media/active-directory-optional-claims/app-manifest.png)
 
-1. Dans la section **Gérer**, sélectionnez **Manifeste**. Un éditeur de manifeste web s’ouvre, vous permettant de modifier le manifeste. Si vous le souhaitez, vous pouvez sélectionner **Télécharger** et modifier localement le manifeste, puis utiliser **Charger** afin de l’appliquer de nouveau à votre application. Pour plus d’informations sur le manifeste de l’application, consultez l’[article Connaître le manifeste de l’application Azure AD](reference-app-manifest.md).
+1. Sous **Gérer**, sélectionnez **Manifeste**. Un éditeur de manifeste web s’ouvre, vous permettant de modifier le manifeste. Si vous le souhaitez, vous pouvez sélectionner **Télécharger** et modifier localement le manifeste, puis utiliser **Charger** afin de l’appliquer de nouveau à votre application. Pour plus d’informations sur le manifeste de l’application, consultez l’[article Connaître le manifeste de l’application Azure AD](reference-app-manifest.md).
 
     L’entrée suivante du manifeste de l’application ajoute les revendications facultatives auth_time, ipaddr et upn aux jetons d’ID, d’accès et SAML.
 
@@ -225,22 +226,19 @@ Dans les jetons SAML, ces revendications seront émises avec le format d’URI s
 
 ## <a name="configuring-groups-optional-claims"></a>Configuration des revendications facultatives de groupe
 
-   > [!NOTE]
-   > La possibilité d’émettre des noms de groupe pour des utilisateurs et groupes synchronisés en local est en préversion publique.
-
 Cette section couvre les options de configuration sous les revendications facultatives pour la modification des attributs de groupe utilisés dans les revendications de groupe, de l’ObjectId de groupe par défaut aux attributs synchronisés à partir du Windows Active Directory local. Vous pouvez configurer des revendications facultatives de groupe pour votre application par le biais de l’interface utilisateur ou du manifeste de l’application.
 
 > [!IMPORTANT]
-> Pour plus de détails, dont des mises en garde importantes relatives à la préversion publique des revendications de groupe d’attributs locaux, voir [Configurer des revendications de groupe pour les applications avec Azure AD](../hybrid/how-to-connect-fed-group-claims.md).
+> Pour plus de détails, dont des mises en garde importantes relatives aux revendications de groupe d’attributs locaux, consultez [Configurer des revendications de groupe pour les applications avec Azure AD](../hybrid/how-to-connect-fed-group-claims.md).
 
 **Configuration de revendications facultatives de groupe par le biais de l’interface utilisateur :**
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Une fois que vous êtes authentifié, choisissez votre client Azure AD en le sélectionnant dans le coin supérieur droit de la page.
-1. Dans le menu de gauche, sélectionnez **Azure Active Directory**.
-1. Sous la section **Gérer**, sélectionnez **Inscriptions d’applications**.
+1. Recherchez et sélectionnez **Azure Active Directory**.
+1. Sous **Gérer**, sélectionnez **Inscriptions des applications**.
 1. Sélectionnez dans la liste l’application pour laquelle vous souhaitez configurer des revendications facultatives.
-1. Dans la section **Gérer**, sélectionnez **Configuration de jetons**.
+1. Dans **Gérer**, sélectionnez **Configuration de jetons**.
 1. Sélectionnez **Ajouter une revendication de groupe**.
 1. Sélectionnez les types de groupes à renvoyer (**Groupes de sécurité** ou **Rôles d'annuaire**, **Tous les groupes** et/ou **Groupes attribués à l'application**). L'option **Groupes attribués à l'application** ne comprend que les groupes attribués à l'application. L'option **Tous les groupes** comprend **SecurityGroup**, **DirectoryRole** et **DistributionList**, mais pas **Groupes attribués à l'application**. 
 1. Facultatif : sélectionnez les propriétés du type de jeton pour modifier la valeur de la revendication de groupe afin qu’elle contienne les attributs du groupe local, ou pour remplacer la revendication de groupe par une revendication de rôle.
@@ -250,9 +248,9 @@ Cette section couvre les options de configuration sous les revendications facult
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Une fois que vous êtes authentifié, choisissez votre client Azure AD en le sélectionnant dans le coin supérieur droit de la page.
-1. Dans le menu de gauche, sélectionnez **Azure Active Directory**.
+1. Recherchez et sélectionnez **Azure Active Directory**.
 1. Sélectionnez dans la liste l’application pour laquelle vous souhaitez configurer des revendications facultatives.
-1. Dans la section **Gérer**, sélectionnez **Manifeste**.
+1. Sous **Gérer**, sélectionnez **Manifeste**.
 1. Ajoutez l’entrée suivante à l’aide de l’éditeur de manifeste :
 
    Les valeurs valides sont les suivantes :
@@ -382,13 +380,13 @@ Dans l’exemple ci-dessous, vous allez utiliser l’interface utilisateur **Con
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Une fois que vous êtes authentifié, choisissez votre client Azure AD en le sélectionnant dans le coin supérieur droit de la page.
 
-1. Dans le menu de gauche, sélectionnez **Azure Active Directory**.
+1. Recherchez et sélectionnez **Azure Active Directory**.
 
-1. Sous la section **Gérer**, sélectionnez **Inscriptions d’applications**.
+1. Sous **Gérer**, sélectionnez **Inscriptions des applications**.
 
 1. Dans la liste, recherchez l’application pour laquelle vous souhaitez configurer des revendications facultatives, puis sélectionnez-la.
 
-1. Dans la section **Gérer**, sélectionnez **Configuration de jetons**.
+1. Dans **Gérer**, sélectionnez **Configuration de jetons**.
 
 1. Sélectionnez **Ajouter une revendication facultative**, sélectionnez ensuite le type de jeton **ID**, puis **upn** dans la liste des revendications. Enfin, sélectionnez **Ajouter**.
 
@@ -404,9 +402,9 @@ Dans l’exemple ci-dessous, vous allez utiliser l’interface utilisateur **Con
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Une fois que vous êtes authentifié, choisissez votre client Azure AD en le sélectionnant dans le coin supérieur droit de la page.
-1. Dans le menu de gauche, sélectionnez **Azure Active Directory**.
+1. Recherchez et sélectionnez **Azure Active Directory**.
 1. Dans la liste, recherchez l’application pour laquelle vous souhaitez configurer des revendications facultatives, puis sélectionnez-la.
-1. Dans la section **Gérer**, sélectionnez **Manifeste** pour ouvrir l’éditeur de manifeste en ligne.
+1. Sous **Gérer**, sélectionnez **Manifeste** pour ouvrir l’éditeur de manifeste inlined.
 1. Vous pouvez modifier directement le manifeste à l’aide de cet éditeur. Le manifeste respecte le schéma de [Application entity](./reference-app-manifest.md) et met automatiquement en forme le manifeste une fois enregistré. Les nouveaux éléments sont ajoutés à la propriété `OptionalClaims`.
 
     ```json

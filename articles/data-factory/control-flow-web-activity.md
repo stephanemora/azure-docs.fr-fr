@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: 8ee23adf569a6afafc57dac786cd907a3481abde
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: fbe37152f4ff1ce24754bc2d7b968c8e1c76ca10
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96485789"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387715"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Activité Web dans Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -26,6 +26,9 @@ Une activité web peut être utilisée pour appeler un point de terminaison REST
 
 > [!NOTE]
 > L’activité web est également prise en charge pour appeler des URL hébergées sur un réseau virtuel privé en tirant parti du runtime d’intégration auto-hébergé. Le runtime d’intégration doit pouvoir visualiser le point de terminaison de l’URL. 
+
+> [!NOTE]
+> La taille maximale de la charge utile de la réponse en sortie est de 4 Mo.  
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -90,7 +93,7 @@ Le tableau suivant affiche la configuration requise pour le contenu JSON :
 
 | Type de valeur | Corps de la demande | Response body |
 |---|---|---|
-|Objet JSON | Pris en charge | Pris en charge |
+|Objet JSON | Pris en charge | Prise en charge |
 |Tableau JSON | Prise en charge <br/>(À l’heure actuelle, les tableaux JSON ne fonctionnent pas en raison d’un bogue. Un correctif est en cours.) | Non pris en charge |
 | Valeur JSON | Prise en charge | Non pris en charge |
 | Type non-JSON | Non pris en charge | Non pris en charge |

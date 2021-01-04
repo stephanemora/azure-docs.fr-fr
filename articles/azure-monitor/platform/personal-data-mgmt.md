@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2018
-ms.openlocfilehash: 64c461c5d3e1bb34f480e5173621f8753eadbbd8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2bb1e667758a1430e34d222b9a5c537381c07624
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87318315"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505271"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Guide pour les données personnelles stockées dans Log Analytics et Application Insights
 
@@ -81,14 +81,17 @@ Comme mentionné plus haut dans la section [Stratégie de gestion des données p
 Pour les requêtes d’affichage et d’exportation des données, vous devez utiliser l’[API de requête Log Analytics](https://dev.loganalytics.io/) ou l’[API de requête Application Insights](https://dev.applicationinsights.io/quickstart). L’implémentation de la logique pour convertir la forme des données selon un format approprié pour vos utilisateurs dépend de vous. [Azure Functions](https://azure.microsoft.com/services/functions/) est l’endroit idéal pour héberger cette logique.
 
 > [!IMPORTANT]
->  Alors que la grande majorité des opérations de vidage peuvent être effectuées beaucoup plus rapidement que ce que prévoit le contrat SLA, **le contrat SLA formel pour la réalisation des opérations de vidage est défini à 30 jours** en raison de leur impact important sur la plateforme de données utilisée. Il s’agit d’un processus automatisé, ce qui exclut la possibilité de demander qu’une opération soit gérée plus rapidement.
+>  Alors que la grande majorité des opérations de vidage peuvent être effectuées beaucoup plus rapidement que ce que prévoit le contrat SLA, **le contrat SLA formel pour la réalisation des opérations de vidage est défini à 30 jours** en raison de leur impact important sur la plateforme de données utilisée. Ce contrat SLA répond aux exigences du RGPD. Comme il s’agit d’un processus automatisé, il n’est pas possible de demander qu’une opération soit gérée plus rapidement. 
 
-### <a name="delete"></a>DELETE
+### <a name="delete"></a>Supprimer
 
 > [!WARNING]
 > Les suppressions dans Log Analytics sont destructrices et non réversibles ! Soyez très prudents quand vous les réalisez.
 
 Nous avons rendu disponible un chemin d’API *de vidage* dans le cadre d’une gestion de la confidentialité. Ce chemin doit être utilisé avec prudence en raison du risque associé à cette opération, de l’impact potentiel sur les performances, et de la possibilité d’influer sur les agrégations, les mesures et d’autres aspects de vos données Log Analytics. Pour d’autres approches de la gestion des données privées, consultez la section [Stratégie de gestion des données personnelles](#strategy-for-personal-data-handling).
+
+> [!NOTE]
+> Une fois l’opération de vidage effectuée, les données ne sont pas accessibles tant que l’[état de l’opération de vidage](https://docs.microsoft.com/rest/api/loganalytics/workspacepurge/getpurgestatus) est *en attente*. 
 
 Le vidage est une opération nécessitant des privilèges élevés, qu’aucune application ni utilisateur dans Azure (y compris même le propriétaire de la ressource) n’a l’autorisation d’exécuter sans qu’un rôle lui soit explicitement accordé dans Azure Resource Manager. Ce rôle est _Videur de données_ et il doit être délégué avec prudence en raison du risque de perte de données. 
 

@@ -7,67 +7,40 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/23/2020
-translation.priority.mt:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pt-br
-- ru-ru
-- zh-cn
-- zh-tw
-ms.openlocfilehash: 6ea8bc2551df4f85e4b856dc9cf1c06a9bd571fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/14/2020
+ms.openlocfilehash: 0dbf418d0a673dd0799f0f638e454c484f837fd7
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88923447"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516604"
 ---
 # <a name="lucene-query-syntax-in-azure-cognitive-search"></a>Syntaxe de requête Lucene dans la Recherche cognitive Azure
 
-Vous pouvez écrire des requêtes sur la Recherche cognitive Azure en utilisant la syntaxe riche en fonctionnalités de l’[analyseur de requêtes Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) pour des formes de requêtes spécialisées : caractère générique, recherche approximative, recherche de proximité et expressions régulières en sont quelques exemples. La plus grande partie de la syntaxe de l’analyseur de requêtes Lucene est [implémentée telle quelle dans la Recherche cognitive Azure](search-lucene-query-architecture.md), à l’exception des *recherches de plage*, qui sont construites dans la Recherche cognitive Azure à l’aide d’expressions `$filter`. 
+Lorsque vous créez des alertes, vous pouvez choisir la syntaxe [Analyseur de requêtes Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) pour des formes de requêtes spécialisées : caractère générique, recherche approximative, recherche de proximité et expressions régulières. La plus grande partie de la syntaxe de l’analyseur de requêtes Lucene est [implémentée telle quelle dans Recherche cognitive Azure](search-lucene-query-architecture.md), à l’exception des *recherches de plage*, qui sont construites via des expressions **`$filter`** . 
 
-> [!NOTE]
-> La syntaxe Lucene complète est utilisée pour les expressions de requête passées dans le paramètre **search** de l’API [Recherche dans des documents](/rest/api/searchservice/search-documents) et ne doit pas être confondue avec la [syntaxe OData](query-odata-filter-orderby-syntax.md) utilisée pour le paramètre [$Filter](search-filters.md) de cette API. Ces différentes syntaxes ont leurs propres règles pour la construction de requêtes, l’échappement de chaînes, etc.
+La syntaxe Lucene complète est utilisée pour des expressions de requête transmises dans le paramètre **`search`** d’une requête [Rechercher des documents (API REST)](/rest/api/searchservice/search-documents), à ne pas confondre avec la [syntaxe OData](query-odata-filter-orderby-syntax.md) utilisée pour les expressions [ **`$filter`**](search-filters.md) et [ **`$orderby`** ](search-query-odata-orderby.md) dans la même demande. Les paramètres OData ont une syntaxe et des règles différente pour la construction de requêtes, l’échappement de chaînes, et ainsi de suite.
 
-## <a name="invoke-full-parsing"></a>Appeler l’analyse complète
+## <a name="example-full-syntax"></a>Exemple (syntaxe complète)
 
-Définissez le paramètre de recherche `queryType` pour spécifier l’analyseur à utiliser. Les valeurs valides sont `simple|full`, `simple` étant la valeur par défaut et `full` la valeur pour Lucene. 
+Définissez le paramètre **`queryType`** pour spécifier la syntaxe Lucene complète. L’exemple suivant appelle une recherche dans le champ et un promotion de terme. Cette requête recherche des hôtels où le champ de catégorie contient le terme « budget ». Tout document contenant l’expression « recently renovated » est classé plus haut en raison de la valeur de promotion de terme (3).  
 
-<a name="bkmk_example"></a> 
-
-### <a name="example-showing-full-syntax"></a>Exemple montrant la syntaxe complète
-
-L’exemple suivant recherche les documents dans l’index avec la syntaxe de requête Lucene, ce qu’indique le paramètre `queryType=full`. Cette requête renvoie les hôtels où le champ de catégorie contient le terme « budget » et tous les champs pouvant faire l’objet d’une recherche contenant l’expression « récemment rénové ». Les documents contenant l’expression « recently renovated » sont mieux classés en raison de la valeur de promotion du terme (3).  
-
-Le paramètre `searchMode=all` est approprié dans cet exemple. Quand des opérateurs se trouvent sur la requête, vous devez généralement définir `searchMode=all` pour garantir que *tous* les critères sont satisfaits.
-
-```
-GET /indexes/hotels/docs?search=category:budget AND \"recently renovated\"^3&searchMode=all&api-version=2020-06-30&querytype=full
-```
-
- Vous pouvez aussi utiliser POST :  
-
-```
-POST /indexes/hotels/docs/search?api-version=2020-06-30
+```http
+POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 {
-  "search": "category:budget AND \"recently renovated\"^3",
   "queryType": "full",
+  "search": "category:budget AND \"recently renovated\"^3",
   "searchMode": "all"
 }
 ```
 
-Pour obtenir d’autres exemples, consultez [Exemples de syntaxe de requête Lucene pour créer des requêtes dans la Recherche cognitive Azure](search-query-lucene-examples.md). Pour plus d’informations sur la spécification de tous les paramètres des requêtes, consultez [Rechercher des documents &#40;API REST de Recherche cognitive Azure&#41;](/rest/api/searchservice/Search-Documents).
+Le paramètre **`searchMode`** est approprié dans cet exemple. Quand des opérateurs se trouvent sur la requête, vous devez généralement définir `searchMode=all` pour garantir que *tous* les critères sont satisfaits.  
 
-> [!NOTE]  
->  La Recherche cognitive Azure prend également en charge une [syntaxe de requête simple](query-simple-syntax.md) : il s’agit d’un langage de requête simple et robuste qui peut être utilisé pour la recherche directe de mots clés.  
+Pour obtenir des exemples supplémentaires, consultez [Exemples de syntaxe de requête Lucene](search-query-lucene-examples.md). Pour plus d’informations sur la demande et les paramètres de requête, consultez [Rechercher des documents (API REST)](/rest/api/searchservice/Search-Documents).
 
-##  <a name="syntax-fundamentals"></a><a name="bkmk_syntax"></a> Principes de base de la syntaxe  
+## <a name="syntax-fundamentals"></a><a name="bkmk_syntax"></a> Principes de base de la syntaxe  
 
-les principes de base suivants de la syntaxe s’appliquent à toutes les requêtes qui utilisent la syntaxe Lucene.  
+Les principes de base suivants de la syntaxe s’appliquent à toutes les requêtes qui utilisent la syntaxe Lucene.  
 
 ### <a name="operator-evaluation-in-context"></a>Évaluation des opérateurs en contexte
 
@@ -95,39 +68,15 @@ Vérifiez que tous les caractères dangereux et réservés dans une URL sont enc
 
 Les caractères dangereux sont ``" ` < > # % { } | \ ^ ~ [ ]``. Les caractères réservés sont `; / ? : @ = + &`.
 
-###  <a name="query-size-limits"></a><a name="bkmk_querysizelimits"></a> Limites de taille des requêtes
+## <a name="boolean-operators"></a><a name="bkmk_boolean"></a> Opérateurs booléens
 
- Il existe une limite à la taille des requêtes que vous pouvez envoyer à la Recherche cognitive Azure. Plus précisément, vous pouvez avoir au maximum 1 024 clauses (des expressions séparées par AND, OR, etc.). Il existe également une limite d’environ 32 Ko pour la taille d’un terme individuel dans une requête. Si votre application génère des requêtes de recherche par programmation, nous vous recommandons de la concevoir de façon à ce qu’elle ne génère pas des requêtes d’une taille illimitée.  
+Vous pouvez incorporer des opérateurs booléens dans une chaîne de requête pour améliorer la précision d’une correspondance. La syntaxe complète prend en charge des opérateurs de texte en plus des opérateurs de caractères. Spécifiez toujours les opérateurs booléens de texte (AND, OR, NOT) tout en majuscules.
 
-### <a name="precedence-operators-grouping"></a>Opérateurs de priorité (regroupement)
-
- Vous pouvez utiliser des parenthèses pour créer des sous-requêtes, en incluant des opérateurs au sein de l’instruction entre parenthèses. Par exemple, `motel+(wifi||luxury)` recherche les documents contenant le terme « motel », et « wifi » ou « luxury » (ou les deux).
-
-Le regroupement de champs est similaire, mais il délimite le regroupement à un seul champ. Par exemple, `hotelAmenities:(gym+(wifi||pool))` recherche « gym » et « wifi », ou « gym » et « pool », dans le champ « hotelAmenities ».  
-
-##  <a name="boolean-search"></a><a name="bkmk_boolean"></a> Recherche booléenne
-
- Spécifiez toujours les opérateurs booléens de texte (AND, OR, NOT) tout en majuscules.  
-
-### <a name="or-operator-or-or-"></a>Opérateur OR `OR` ou `||`
-
-L’opérateur OR est une barre verticale. Par exemple, `wifi || luxury` recherche les documents contenant « wifi » ou « luxury », ou les deux. Comme OR est l’opérateur de conjonction par défaut, vous pouvez aussi l’omettre : ainsi, `wifi luxury` est l’équivalent de `wifi || luxury`.
-
-### <a name="and-operator-and--or-"></a>Opérateur AND `AND`, `&&` ou `+`
-
-L’opérateur AND est une esperluette ou un signe plus. Par exemple, `wifi && luxury` recherche les documents contenant à la fois « wifi » et « luxury ». Le caractère plus (+) est utilisé pour les termes obligatoirement présents. Par exemple, `+wifi +luxury` stipule que les deux termes doivent apparaître quelque part dans le champ d’un même document.
-
-### <a name="not-operator-not--or--"></a>Opérateur NOT `NOT`, `!` ou `-`
-
-L’opérateur NOT est un signe moins. Par exemple, `wifi –luxury` recherche les documents qui contiennent le terme `wifi` et/ou pas le terme `luxury`.
-
-Dans une requête, le paramètre **searchMode** détermine si un terme accompagné de l'opérateur NOT est associé à d'autres termes de la requête par les opérateurs AND ou OR (en supposant qu'il n'y ait pas d'opérateur `+` ou `|` sur les autres termes). Les valeurs valides sont `any` ou `all`.
-
-`searchMode=any` augmente le rappel des requêtes en incluant plus de résultats, et par défaut `-` est interprété comme « OR NOT ». Par exemple, `wifi -luxury` établit une correspondance avec les documents qui contiennent le terme `wifi` ou avec ceux qui ne contiennent pas le terme `luxury`.
-
-`searchMode=all` augmente la précision des requêtes en incluant moins de résultats et, par défaut, « - » est interprété comme « AND NOT ». Par exemple, `wifi -luxury` établit une correspondance avec les documents qui contiennent le terme `wifi` et ne contiennent pas le terme « luxury ». Il s’agit sans doute d’un comportement plus intuitif pour l’opérateur `-`. Ainsi, préférez `searchMode=all` à `searchMode=any` si vous souhaitez optimiser la précision des recherches plutôt que le rappel, *et* si vos utilisateurs utilisent fréquemment l'opérateur `-` dans les recherches.
-
-Lorsque vous choisissez un paramètre **searchMode**, tenez compte des modèles d'interaction utilisateur pour les requêtes liées à différentes applications. Les utilisateurs qui recherchent des informations sont plus enclins à inclure un opérateur dans une requête, contrairement aux sites de commerce électronique qui disposent de structures de navigation intégrées.
+|Opérateur de texte | Caractère | Exemple | Usage |
+|--------------|----------- |--------|-------|
+| AND | `&`, `+` | `wifi + luxury` | Spécifie les termes qu’une correspondance doit contenir. Dans l’exemple, le moteur de requête recherche les documents contenant à la fois `wifi` et `luxury`. Le caractère plus (`+`) est utilisé pour les termes obligatoirement présents. Par exemple, `+wifi +luxury` stipule que les deux termes doivent apparaître quelque part dans le champ d’un même document.|
+| OR | `|` | `wifi | luxury` | Trouve une correspondance quand un terme est trouvé. Dans l’exemple, le moteur de requête renvoie des correspondances sur les documents contenant le terme `wifi` ou `luxury`, ou les deux termes. Comme OR est l’opérateur de conjonction par défaut, vous pouvez aussi l’omettre : ainsi, `wifi luxury` est l’équivalent de `wifi | luxury`.|
+| NOT | `!`, `-` | `wifi –luxury` | Retourne des correspondances sur des documents qui excluent le terme. Par exemple, `wifi –luxury` recherche les documents qui contiennent le terme `wifi`, mais pas le terme `luxury`. <br/><br/>Dans une requête, le paramètre `searchMode` détermine si un terme accompagné de l'opérateur NOT est associé à d'autres termes de la requête par les opérateurs AND ou OR (en supposant qu'il n'y ait pas d'opérateur `+` ou `|` sur les autres termes). Les valeurs valides sont `any` ou `all`.  <br/><br/>`searchMode=any` augmente le rappel des requêtes en incluant plus de résultats, et par défaut `-` est interprété comme « OR NOT ». Par exemple, `wifi -luxury` établit une correspondance avec les documents qui contiennent le terme `wifi` ou avec ceux qui ne contiennent pas le terme `luxury`.  <br/><br/>`searchMode=all` augmente la précision des requêtes en incluant moins de résultats et, par défaut, « - » est interprété comme « AND NOT ». Par exemple, `wifi -luxury` établit une correspondance avec les documents qui contiennent le terme `wifi` et ne contiennent pas le terme « luxury ». Il s’agit sans doute d’un comportement plus intuitif pour l’opérateur `-`. Ainsi, préférez `searchMode=all` à `searchMode=any` si vous souhaitez optimiser la précision des recherches plutôt que le rappel, *et* si vos utilisateurs utilisent fréquemment l'opérateur `-` dans les recherches.<br/><br/>Lorsque vous choisissez un paramètre `searchMode`, tenez compte des modèles d'interaction utilisateur pour les requêtes liées à différentes applications. Les utilisateurs qui recherchent des informations sont plus enclins à inclure un opérateur dans une requête, contrairement aux sites de commerce électronique qui disposent de structures de navigation intégrées. |
 
 ##  <a name="fielded-search"></a><a name="bkmk_fields"></a> Recherche par champ
 
@@ -148,14 +97,13 @@ Le champ spécifié dans `fieldName:searchExpression` doit être un champ `searc
 
 Une recherche approximative recherche des correspondances dans des termes à la construction similaire, en développant un terme jusqu’au maximum de 50 termes qui répondent aux critères de distance de deux ou moins. Pour plus d’informations, consultez [Recherche approximative](search-query-fuzzy.md).
 
- Pour effectuer une recherche approximative, utilisez le symbole « ~ » (tilde) à la fin d’un mot avec un paramètre facultatif, un nombre compris entre 0 et 2 (la valeur par défaut), qui spécifie la distance de modification. Par exemple, « blue~ » ou « blue~1 » retournent « blue », « blues » et « glue ».
+Pour effectuer une recherche approximative, utilisez le symbole « ~ » (tilde) à la fin d’un mot avec un paramètre facultatif, un nombre compris entre 0 et 2 (la valeur par défaut), qui spécifie la distance de modification. Par exemple, « blue~ » ou « blue~1 » retournent « blue », « blues » et « glue ».
 
- La recherche partielle est applicable uniquement pour les termes, et non les expressions, mais vous pouvez ajouter le tilde à chaque terme individuel dans un nom en plusieurs parties ou une expression. Par exemple, « Unviersté~ de~ « Wshington~ » correspondrait à « Université de Washington ».
+La recherche partielle est applicable uniquement pour les termes, et non les expressions, mais vous pouvez ajouter le tilde à chaque terme individuel dans un nom en plusieurs parties ou une expression. Par exemple, « Unviersté~ de~ « Wshington~ » correspondrait à « Université de Washington ».
  
 ##  <a name="proximity-search"></a><a name="bkmk_proximity"></a> Recherche de proximité
 
 Les recherches de proximité servent à rechercher des termes qui sont proches les uns des autres dans un document. Insérez un signe tilde « ~ » à la fin d’une expression, suivi du nombre de mots qui créent la limite de proximité. Par exemple, `"hotel airport"~5` recherche les termes « hotel » et « airport » distants de 5 mots ou moins dans un document.  
-
 
 ##  <a name="term-boosting"></a><a name="bkmk_termboost"></a> Promotion de termes
 
@@ -194,9 +142,27 @@ Si vous deviez utiliser l’analyseur en.lucene (Lucene anglais), il appliquerai
 
 D’un autre côté, les analyseurs Microsoft (dans ce cas, l’analyseur en.microsoft) sont un peu plus avancés et utilisent la lemmatisation et non la recherche de radical. Cela signifie que tous les jetons générés doivent être des mots anglais valides. Par exemple, « terminate », « terminates » et « termination » seront généralement conservés dans leur forme entière dans l’index, ce qui constitue un choix préférable pour les scénarios qui dépendent beaucoup des caractères génériques et de la recherche approximative.
 
-##  <a name="scoring-wildcard-and-regex-queries"></a><a name="bkmk_searchscoreforwildcardandregexqueries"></a> Scoring des requêtes avec des caractères génériques et des expressions régulières
+## <a name="scoring-wildcard-and-regex-queries"></a> Scoring des requêtes avec des caractères génériques et des expressions régulières
 
 La Recherche cognitive Azure utilise un scoring basé sur la fréquence ([TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)) pour les requêtes de texte. Cependant, pour les requêtes avec des caractères génériques et des expressions régulières où l’étendue des termes est potentiellement vaste, le facteur de fréquence est ignoré pour empêcher que le classement soit faussé par les correspondances avec des termes plus rares. Toutes les correspondances sont traitées de façon égale pour les recherches avec des caractères génériques et avec des expressions régulières.
+
+## <a name="special-characters"></a>Caractères spéciaux
+
+Dans certains cas, vous rechercherez un caractère spécial, tel que l’émoji « ❤ » ou le signe « € ». Le cas échéant, assurez-vous que l’analyseur que vous utilisez n’ignore pas ces caractères. L’analyseur standard ignore de nombreux caractères spéciaux, en les excluant de votre index.
+
+Les analyseur qui segmentent du texte en unités lexicales incluent l’analyseur « whitespace », qui prend en compte toutes les séquences de caractères séparées par des espaces blancs comme des jetons (donc, la chaîne « ❤ » est considérée comme un jeton). En outre, un analyseur de langage comme l’analyseur Microsoft English (« en.microsoft ») considère la chaîne « € » comme un jeton. Vous pouvez [tester un analyseur](/rest/api/searchservice/test-analyzer) pour voir quels jetons il génère pour une requête donnée.
+
+Lorsque vous utilisez des caractères Unicode, assurez-vous que les symboles sont correctement placés dans une séquence d’échappement dans l’URL de la requête (par exemple, pour « ❤ » utilisez la séquence d’échappement `%E2%9D%A4+`). Postman effectue cette traduction automatiquement.  
+
+## <a name="precedence-grouping"></a>Précédence (regroupement)
+
+Vous pouvez utiliser des parenthèses pour créer des sous-requêtes, en incluant des opérateurs au sein de l’instruction entre parenthèses. Par exemple, `motel+(wifi|luxury)` recherche les documents contenant le terme « motel », et « wifi » ou « luxury » (ou les deux).
+
+Le regroupement de champs est similaire, mais il délimite le regroupement à un seul champ. Par exemple, `hotelAmenities:(gym+(wifi|pool))` recherche « gym » et « wifi », ou « gym » et « pool », dans le champ « hotelAmenities ».  
+
+## <a name="query-size-limits"></a> Limites de taille des requêtes
+
+Il existe une limite à la taille des requêtes que vous pouvez envoyer à la Recherche cognitive Azure. Plus précisément, vous pouvez avoir au maximum 1 024 clauses (des expressions séparées par AND, OR, etc.). Il existe également une limite d’environ 32 Ko pour la taille d’un terme individuel dans une requête. Si votre application génère des requêtes de recherche par programmation, nous vous recommandons de la concevoir de façon à ce qu’elle ne génère pas des requêtes d’une taille illimitée.  
 
 ## <a name="see-also"></a>Voir aussi
 
