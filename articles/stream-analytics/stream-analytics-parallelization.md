@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: b41677d1e4f3ba3889472a3fb9bd6c6a9db4c0a8
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 326af3bc38ce70cc7cb205384bb4302c5ff73d28
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123368"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704178"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Profiter de la parallélisation de requête dans Azure Stream Analytics
 Cet article explique comment tirer parti de la parallélisation dans Azure Stream Analytics. Vous découvrez comment mettre à l’échelle des travaux Stream Analytics en configurant des partitions d’entrée et en réglant la définition de requête Analytics.
@@ -270,7 +270,7 @@ Les observations suivantes utilisent un travail Stream Analytics avec une requê
 | 5 000     |    6    |  6 TU   |
 | 10 000    |    12   |  10 TU  |
 
-La solution [Event Hub](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-eventhubs) met à l’échelle de manière linéaire en termes d’unités de streaming et de débit, ce qui en fait le moyen le plus efficace et le plus performant d’analyser et de diffuser des données à partir de Stream Analytics. Les travaux peuvent être mis à l’échelle jusqu’à 192 unités de streaming, ce qui correspond approximativement au traitement de 200 Mo/s, soit 19 billions d’événements par jour.
+La solution [Event Hub](https://github.com/Azure-Samples/streaming-at-scale/tree/main/eventhubs-streamanalytics-eventhubs) met à l’échelle de manière linéaire en termes d’unités de streaming et de débit, ce qui en fait le moyen le plus efficace et le plus performant d’analyser et de diffuser des données à partir de Stream Analytics. Les travaux peuvent être mis à l’échelle jusqu’à 192 unités de streaming, ce qui correspond approximativement au traitement de 200 Mo/s, soit 19 billions d’événements par jour.
 
 #### <a name="azure-sql"></a>Azure SQL
 |Taux d’ingestion (événements par seconde) | Unités de diffusion en continu | Ressources de sortie  |
@@ -279,7 +279,7 @@ La solution [Event Hub](https://github.com/Azure-Samples/streaming-at-scale/tree
 |    5 000   |   18 |  P4   |
 |    10 000  |   36 |  P6   |
 
-[SQL Azure](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-azuresql) prend en charge l’écriture en parallèle, appelée Inherit Partitioning, qui n’est pas activée par défaut. Toutefois, l’activation de la fonctionnalité Inherit Partitioning avec une requête entièrement parallèle peut ne pas suffire pour atteindre des débits supérieurs. Les débits en écriture SQL dépendent considérablement de la configuration et du schéma de table de votre base de données. L’article [Performances en sortie SQL](./stream-analytics-sql-output-perf.md) contient des informations plus détaillées sur les paramètres susceptibles d’optimiser votre débit en écriture. Comme indiqué dans l’article [Sortie d’Azure Stream Analytics dans Azure SQL Database](./stream-analytics-sql-output-perf.md#azure-stream-analytics), cette solution n’est pas mise à l’échelle de manière linéaire en tant que pipeline entièrement parallèle au-delà de 8 partitions, et peut nécessiter un repartitionnement avant la sortie SQL (voir [INTO](/stream-analytics-query/into-azure-stream-analytics#into-shard-count)). Des références (SKU) Premium sont nécessaires pour prendre en charge des taux d’E/S élevés, ainsi que la surcharge liée aux sauvegardes de fichiers journaux toutes les quelques minutes.
+[SQL Azure](https://github.com/Azure-Samples/streaming-at-scale/tree/main/eventhubs-streamanalytics-azuresql) prend en charge l’écriture en parallèle, appelée Inherit Partitioning, qui n’est pas activée par défaut. Toutefois, l’activation de la fonctionnalité Inherit Partitioning avec une requête entièrement parallèle peut ne pas suffire pour atteindre des débits supérieurs. Les débits en écriture SQL dépendent considérablement de la configuration et du schéma de table de votre base de données. L’article [Performances en sortie SQL](./stream-analytics-sql-output-perf.md) contient des informations plus détaillées sur les paramètres susceptibles d’optimiser votre débit en écriture. Comme indiqué dans l’article [Sortie d’Azure Stream Analytics dans Azure SQL Database](./stream-analytics-sql-output-perf.md#azure-stream-analytics), cette solution n’est pas mise à l’échelle de manière linéaire en tant que pipeline entièrement parallèle au-delà de 8 partitions, et peut nécessiter un repartitionnement avant la sortie SQL (voir [INTO](/stream-analytics-query/into-azure-stream-analytics#into-shard-count)). Des références (SKU) Premium sont nécessaires pour prendre en charge des taux d’E/S élevés, ainsi que la surcharge liée aux sauvegardes de fichiers journaux toutes les quelques minutes.
 
 #### <a name="cosmos-db"></a>Cosmos DB
 |Taux d’ingestion (événements par seconde) | Unités de diffusion en continu | Ressources de sortie  |
@@ -288,7 +288,7 @@ La solution [Event Hub](https://github.com/Azure-Samples/streaming-at-scale/tree
 |  5 000   |  24   | 60 000 unités de requête  |
 |  10 000  |  48   | 120 000 unités de requête |
 
-La sortie de [Cosmos DB](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-cosmosdb) à partir de Stream Analytics a été mise à jour pour utiliser une intégration native sous le [niveau de compatibilité 1.2](./stream-analytics-documentdb-output.md#improved-throughput-with-compatibility-level-12). Le niveau de compatibilité 1.2 permet un débit sensiblement supérieur, et réduit la consommation d’unités de requête par rapport au niveau 1.1 qui est le niveau de compatibilité par défaut pour les nouveaux travaux. La solution utilise des conteneurs CosmosDB partitionnés sur /deviceId et le reste de la solution est configuré de manière identique.
+La sortie de [Cosmos DB](https://github.com/Azure-Samples/streaming-at-scale/tree/main/eventhubs-streamanalytics-cosmosdb) à partir de Stream Analytics a été mise à jour pour utiliser une intégration native sous le [niveau de compatibilité 1.2](./stream-analytics-documentdb-output.md#improved-throughput-with-compatibility-level-12). Le niveau de compatibilité 1.2 permet un débit sensiblement supérieur, et réduit la consommation d’unités de requête par rapport au niveau 1.1 qui est le niveau de compatibilité par défaut pour les nouveaux travaux. La solution utilise des conteneurs CosmosDB partitionnés sur /deviceId et le reste de la solution est configuré de manière identique.
 
 Tous les [exemples Azure de diffusion en continu à grande échelle](https://github.com/Azure-Samples/streaming-at-scale) utilisent un Event Hub alimenté par des clients de test simulant une charge. Chaque événement en entrée est un document JSON de 1 Ko, qui traduit facilement les taux d’ingestion configurés en débits (1 Mo/s, 5 Mo/s et 10 Mo/s). Les événements simulent un appareil IoT envoyant les données JSON suivantes (sous une forme abrégée) pour jusqu’à 1 000 appareils :
 
@@ -311,7 +311,7 @@ Tous les [exemples Azure de diffusion en continu à grande échelle](https://git
 
 ### <a name="identifying-bottlenecks"></a>Identification des goulots d’étranglement
 
-Utilisez le volet Métriques de votre travail Azure Stream Analytics pour identifier les goulots d’étranglement de votre pipeline. Examinez les **événements d’entrée/sortie** pour le débit, ainsi que le [ « Délai en filigrane »](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) ou les **Événements en backlog** , pour voir si le travail suit la vitesse d’entrée. Pour les métriques Event Hub, recherchez les **Demandes limitées** et ajustez les Unités de seuil en conséquence. Pour les métriques de Cosmos DB, examinez la valeur **Nombre maximal de RU/s consommées par groupe de clés de partition** sous Débit pour vous assurer que les groupes de clés de partition sont consommés de manière uniforme. Pour Azure SQL DB, surveillez **E/S journal** et **UC**.
+Utilisez le volet Métriques de votre travail Azure Stream Analytics pour identifier les goulots d’étranglement de votre pipeline. Examinez les **événements d’entrée/sortie** pour le débit, ainsi que le [ « Délai en filigrane »](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) ou les **Événements en backlog**, pour voir si le travail suit la vitesse d’entrée. Pour les métriques Event Hub, recherchez les **Demandes limitées** et ajustez les Unités de seuil en conséquence. Pour les métriques de Cosmos DB, examinez la valeur **Nombre maximal de RU/s consommées par groupe de clés de partition** sous Débit pour vous assurer que les groupes de clés de partition sont consommés de manière uniforme. Pour Azure SQL DB, surveillez **E/S journal** et **UC**.
 
 ## <a name="get-help"></a>Obtenir de l’aide
 

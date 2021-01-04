@@ -507,7 +507,8 @@
           href: speech-container-howto-on-premises.md
         - name: Conteneurs Speech sur des instances de conteneur Azure
           displayName: 'ACI,azure container instances,container instances,containers'
-          href: deploy-speech-on-container-instances.md
+          maintainContext: true
+          href: ../containers/azure-container-instance-recipe.md
         - name: Questions fréquentes (FAQ) sur les conteneurs
           href: speech-container-faq.md
         - name: Documentation sur les conteneurs Cognitive Services
@@ -516,7 +517,7 @@
   items:
     - name: Documentation sur Speech Devices
       href: index-devices.yml
-    - name: Vue d’ensemble
+    - name: Vue d'ensemble
       items:
         - name: "Qu’est-ce que le SDK d’appareils Speech\_?"
           href: speech-devices-sdk.md

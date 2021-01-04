@@ -3,12 +3,12 @@ title: Mises à jour des images de base – Tâches
 description: Familiarisez-vous avec les images de base pour les images conteneurs d’application et découvrez comment la mise à jour d’une image de base peut déclencher une tâche Azure Container Registry.
 ms.topic: article
 ms.date: 01/22/2019
-ms.openlocfilehash: 74e5fb81e3ef6f75b5ee2872ee44b99aae096fd8
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: df33096830cd7b34a288c38c105aff3610315337
+ms.sourcegitcommit: 17e9cb8d05edaac9addcd6e0f2c230f71573422c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96009821"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97707484"
 ---
 # <a name="about-base-image-updates-for-acr-tasks"></a>À propos des mises à jour des images de base pour ACR Tasks
 
@@ -57,7 +57,7 @@ Le délai entre le moment où une image de base est mise à jour et le moment o�
 * **Activé par défaut** : lorsque vous créez une tâche ACR avec la commande [az acr task create][az-acr-task-create], elle est par défaut *activée* pour se déclencher par la mise à jour de l’image de base. Cela signifie que la propriété `base-image-trigger-enabled` est définie sur True. Si vous voulez désactiver ce comportement dans une tâche, mettez à jour la propriété sur False. Par exemple, exécutez la commande suivante [az acr task update][az-acr-task-update] :
 
   ```azurecli
-  az acr task update --myregistry --name mytask --base-image-trigger-enabled False
+  az acr task update --registry myregistry --name mytask --base-image-trigger-enabled False
   ```
 
 * **Déclencher pour le suivi des dépendances** : pour permettre à une tâche ACR de déterminer et de suivre les dépendances d’une image conteneur, y compris son image de base, vous devez d’abord déclencher la génération de l’image **au moins une fois**. Par exemple, déclenchez la tâche manuellement en utilisant la commande [az acr task run][az-acr-task-run].

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 03/09/2020
 ms.topic: article
-ms.openlocfilehash: 5ee9d39db130c76f683ca1f4d1ff64f9ed86d97e
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 300e0ff26d643ae0263d21e604cb26da37a18841
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92204739"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97723823"
 ---
 # <a name="the-arrinspector-inspection-tool"></a>Outil d’inspection ArrInspector
 
@@ -25,13 +25,13 @@ Une fois que vous avez obtenu le nom d’hôte (se terminant par `mixedreality.a
 Si l’application qui appelle `ConnectToArrInspectorAsync` est déjà en cours d’exécution sur un PC :
 
 * Si vous utilisez l’intégration Unity, vous pouvez la lancer automatiquement.
-* Dans le cas contraire, le fichier se trouve dans *User Folders\\LocalAppData\\[votre_application]\\AC\\Temp* .
+* Dans le cas contraire, le fichier se trouve dans *User Folders\\LocalAppData\\[votre_application]\\AC\\Temp*.
 
 Si l’application s’exécute sur un HoloLens :
 
 1. Accédez à l’appareil HoloLens à l’aide du [portail d’appareil Windows](/windows/mixed-reality/using-the-windows-device-portal).
-1. Accédez à *System > File Explorer* .
-1. Accédez à *User Folders\\LocalAppData\\[votre_application]\\AC\\Temp* .
+1. Accédez à *System > File Explorer*.
+1. Accédez à *User Folders\\LocalAppData\\[votre_application]\\AC\\Temp*.
 1. Enregistrez le fichier *StartArrInspector.html* sur votre PC.
 1. Ouvrez le fichier *StartArrInspector.html* pour charger l’ArrInspector de la session.
 
@@ -41,7 +41,7 @@ Si l’application s’exécute sur un HoloLens :
 
 Ce panneau affiche les graphiques de toutes les valeurs de performances par image exposées par le serveur. Les valeurs incluent actuellement la durée de l’image, le FPS, l’utilisation de l’UC et de la mémoire, les statistiques de mémoire telles que l’utilisation globale de la RAM, le nombre d’objets, etc.
 
-Pour visualiser l’un de ces paramètres, cliquez sur le bouton **Ajouter nouveau** et sélectionnez l’une des valeurs disponibles affichées dans la boîte de dialogue. Cette action ajoute un nouveau graphique défilant au panneau, en traçant les valeurs en temps réel. À droite, vous pouvez voir les valeurs *minimale* , *maximale* et *actuelle* .
+Pour visualiser l’un de ces paramètres, cliquez sur le bouton **Ajouter nouveau** et sélectionnez l’une des valeurs disponibles affichées dans la boîte de dialogue. Cette action ajoute un nouveau graphique défilant au panneau, en traçant les valeurs en temps réel. À droite, vous pouvez voir les valeurs *minimale*, *maximale* et *actuelle*.
 
 Vous pouvez afficher un panoramique du graphique en faisant glisser son contenu à l’aide de la souris. Toutefois, le panoramique horizontal n’est possible que si ArrInspector est à l’état suspendu.
 
@@ -90,7 +90,7 @@ Le bouton **Collecter des informations de débogage pour la machine virtuelle** 
 
 Les informations de débogage aident l’équipe Azure Remote Rendering à analyser les problèmes qui se produisent dans une instance ARR en cours d’exécution. La boîte de dialogue contient un champ de texte pour fournir des détails supplémentaires, par exemple des étapes permettant de reproduire un problème.
 
-Après avoir cliqué sur le bouton **Commencer la collecte** , la boîte de dialogue se ferme et le processus de collecte commence. La collecte des informations sur la machine virtuelle peut prendre quelques minutes.
+Après avoir cliqué sur le bouton **Commencer la collecte**, la boîte de dialogue se ferme et le processus de collecte commence. La collecte des informations sur la machine virtuelle peut prendre quelques minutes.
 
 ![Collecte des informations de débogage de la machine virtuelle en cours](./media/state-debugger-panel-in-progress.png)
 
@@ -108,17 +108,3 @@ Dans l’angle supérieur droit, un commutateur vous permet de suspendre les mis
 ![Mode pause](./media/pause-mode.png)
 
 Lors de la réactivation des mises à jour automatiques, tous les panneaux sont réinitialisés.
-
-## <a name="host-configuration"></a>Configuration de l’hôte
-
-Par défaut, l’outil se connecte au serveur ARR qui s’exécute sur le même hôte utilisé par l’ArrInspector. Toutefois, vous pouvez le configurer pour inspecter un autre serveur, en supposant qu’il exécute une instance ARR avec le port d’outils ouvert.
-
-Pour ce faire, accédez au menu principal à gauche de la barre d’en-tête et sélectionnez *Configuration de l’hôte* . Cliquez sur **Ajouter un hôte** , puis entrez le nom et le nom d’hôte. Pour le *nom d’hôte* , utilisez uniquement le nom d’hôte se terminant par `.mixedreality.azure.com`, n’incluez pas `http://` ni de port.
-
-![Configuration de l’hôte](./media/host-configuration.png)
-
-Pour passer rapidement d’un hôte à un autre, utilisez la liste déroulante en haut à droite.
-
-![Combinaison d’hôtes](./media/host-switch-combo.png)
-
-La liste des hôtes est stockée dans le stockage local du navigateur. Elle sera donc conservée lors de la réouverture du même navigateur.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/12/2020
 ms.author: labattul
-ms.openlocfilehash: 622b7e629a7f5fea77afc18ec5121fe3466716ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba7c2a37d58f20ac4ff1f49a46a406d1b1f70106
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87387555"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704416"
 ---
 # <a name="set-up-dpdk-in-a-linux-virtual-machine"></a>Configurer DPDK dans une machine virtuelle Linux
 
@@ -50,7 +50,7 @@ Voici les distributions de la Place de marché Azure qui sont prises en charge 
 
 **Prise en charge de noyau personnalisé**
 
-Pour toute version du noyau Linux non répertoriée, voir [Correctifs pour la création d'un noyau Linux optimisé pour Azure](https://github.com/microsoft/azure-linux-kernel). Pour plus d’informations, vous pouvez également contacter [azuredpdk@microsoft.com](mailto:azuredpdk@microsoft.com). 
+Pour toute version du noyau Linux non répertoriée, voir [Correctifs pour la création d'un noyau Linux optimisé pour Azure](https://github.com/microsoft/azure-linux-kernel). Pour plus d’informations, vous pouvez également contacter [aznetdpdk@microsoft.com](mailto:aznetdpdk@microsoft.com). 
 
 ## <a name="region-support"></a>Prise en charge de la région
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020, devx-track-azurecli
 ms.date: 09/17/2020
-ms.openlocfilehash: f88c242ab6f7ddabe17c9363aa1e6bb7f617c800
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 4ffe5acce831435d3771a2eb48a90b16f584c92a
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94845104"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704008"
 ---
 # <a name="create-a-cluster-with-data-lake-storage-gen2-using-azure-cli"></a>Créer un cluster avec Data Lake Storage Gen2 à l’aide d’Azure CLI
 
@@ -77,7 +77,7 @@ Ensuite, connectez-vous au portail. Ajoutez la nouvelle identité managée affec
  > Assurez-vous que votre compte de stockage dispose de l’identité affectée par l’utilisateur avec les autorisations de rôle **Contributeur aux données Blob du stockage**. Sinon, la création du cluster échouera.
 
 ```azurecli
-az group deployment create --name HDInsightADLSGen2Deployment \
+az deployment group create --name HDInsightADLSGen2Deployment \
     --resource-group <RESOURCEGROUPNAME> \
     --template-file hdinsight-adls-gen2-template.json \
     --parameters parameters.json

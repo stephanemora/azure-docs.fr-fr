@@ -14,12 +14,12 @@ ms.date: 02/28/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0fadcf3f5aefa76ab03d6313643fc18df71f6c3b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 06eb7e8d1be2e58fd6cf87167a585a2ffeee0d7f
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004651"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97708481"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>Configurer les paramètres des rôles Azure AD dans Privileged Identity Management
 
@@ -43,7 +43,7 @@ Suivez les étapes décrites dans cet article pour approuver ou refuser des dema
 Suivez ces étapes pour ouvrir les paramètres d’un rôle Azure AD.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) à l’aide d’un utilisateur avec le rôle [Administrateur de rôle privilégié](../roles/permissions-reference.md#privileged-role-administrator).
-gt
+
 1. Ouvrez **Azure AD Privileged Identity Management** &gt; **Rôles Azure AD** &gt; **Paramètres du rôle**.
 
     ![Page Paramètres de rôle répertoriant les rôles Azure AD](./media/pim-how-to-change-default-settings/role-settings.png)

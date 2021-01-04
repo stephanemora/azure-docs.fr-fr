@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: e2c71e028225c22ab0355ff4cda77dacadf94095
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: b5f7f494c9d0969fbf9431d0b552dafa21a5eace
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97512043"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705402"
 ---
 # <a name="azure-resources-for-qna-maker"></a>Ressources Azure pour QnA Maker
 
@@ -268,8 +268,10 @@ La fenêtre Créer du portail Azure vous permet de créer une ressource QnA Make
 
 > [!div class="mx-imgBorder"]
 > ![Capture d’écran de la liste des ressources QnA Maker managé (préversion) dans le portail Azure](../media/qnamaker-how-to-setup-service/resources-created-v2.png)
+
 > [!TIP]
 > Créez un groupe de ressources lorsque vous créez une ressource QnA Maker. Cela vous permet de voir toutes les ressources associées à la ressource QnA Maker managé (préversion) lors d’une recherche par groupe de ressources.
+
 > [!TIP]
 > Utilisez une convention d’affectation de noms pour indiquer les niveaux tarifaires dans le nom de la ressource ou du groupe de ressources. Si vous recevez des erreurs lors de la création d’une base de connaissances ou de l’ajout de documents, la limite de niveau tarifaire de Recherche cognitive est un problème courant.
 

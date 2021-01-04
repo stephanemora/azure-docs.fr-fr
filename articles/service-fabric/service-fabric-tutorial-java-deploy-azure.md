@@ -4,12 +4,12 @@ description: Dans ce didacticiel, vous allez apprendre à déployer une applicat
 ms.topic: tutorial
 ms.date: 02/26/2018
 ms.custom: mvc, devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 89c49ae530b7a4716bc6e8bf0ea6ccb011847eb8
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: c2e2b2883bfa01d3a36de5d58425449f6f973010
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92738901"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97702155"
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>Tutoriel : Déployer une application Java sur un cluster Service Fabric dans Azure
 
@@ -61,7 +61,7 @@ Les étapes suivantes créent les ressources nécessaires pour déployer votre a
     az account set --subscription [SUBSCRIPTION-ID]
     ```
 
-4. À partir du dossier *service-fabric-java-quickstart/AzureCluster* , exécutez la commande suivante pour créer un certificat de cluster dans Key Vault. Ce certificat est utilisé pour sécuriser votre cluster Service Fabric. Indiquez la région (doit être identique à votre cluster Service Fabric), le nom du groupe de ressource de coffre de clés, le nom du coffre de clés, le mot de passe du certificat et le nom DNS du cluster.
+4. À partir du dossier *service-fabric-java-quickstart/AzureCluster*, exécutez la commande suivante pour créer un certificat de cluster dans Key Vault. Ce certificat est utilisé pour sécuriser votre cluster Service Fabric. Indiquez la région (doit être identique à votre cluster Service Fabric), le nom du groupe de ressource de coffre de clés, le nom du coffre de clés, le mot de passe du certificat et le nom DNS du cluster.
 
     ```bash
     ./new-service-fabric-cluster-certificate.sh [REGION] [KEY-VAULT-RESOURCE-GROUP] [KEY-VAULT-NAME] [CERTIFICATE-PASSWORD] [CLUSTER-DNS-NAME-FOR-CERTIFICATE]
@@ -114,10 +114,10 @@ Les étapes suivantes créent les ressources nécessaires pour déployer votre a
 10. Créez une ressource Event Hubs à l’aide de la commande suivante. Suivez les invites pour entrer les informations de namespaceName, eventHubName, consumerGroupName, sendAuthorizationRule et receiveAuthorizationRule.
 
     ```azurecli
-    az group deployment create -g [RESOURCE-GROUP-NAME] --template-file eventhubsdeploy.json
+    az deployment group create -g [RESOURCE-GROUP-NAME] --template-file eventhubsdeploy.json
 
     Example:
-    az group deployment create -g testeventhubsrg --template-file eventhubsdeploy.json
+    az deployment group create -g testeventhubsrg --template-file eventhubsdeploy.json
     Please provide string value for 'namespaceName' (? for help): testeventhubnamespace
     Please provide string value for 'eventHubName' (? for help): testeventhub
     Please provide string value for 'consumerGroupName' (? for help): testeventhubconsumergroup
@@ -176,8 +176,8 @@ Les étapes suivantes créent les ressources nécessaires pour déployer votre a
     }
     ```
 
-13. Ouvrez **sfdeploy.parameters.json** . Modifiez les paramètres suivants puis enregistrez le fichier.
-    - **clusterName** . Utilisez uniquement des lettres minuscules et des chiffres.
+13. Ouvrez **sfdeploy.parameters.json**. Modifiez les paramètres suivants puis enregistrez le fichier.
+    - **clusterName**. Utilisez uniquement des lettres minuscules et des chiffres.
     - **adminUserName** (pour une valeur autre que vide)
     - **adminPassword** (pour une valeur autre que vide)
 
@@ -189,7 +189,7 @@ Les étapes suivantes créent les ressources nécessaires pour déployer votre a
 
 ## <a name="deploy-your-application-to-the-cluster"></a>Déployer votre application sur le cluster
 
-1. Avant de déployer votre application, vous devez ajouter l’extrait de code suivant au fichier *Voting/VotingApplication/ApplicationManifest.xml* . Le champ **X509FindValue** est l’empreinte renvoyée de l’étape 4 de la section **Créer un cluster Service Fabric dans Azure** . Cet extrait de code est imbriqué sous le champ **ApplicationManifest** (le champ racine).
+1. Avant de déployer votre application, vous devez ajouter l’extrait de code suivant au fichier *Voting/VotingApplication/ApplicationManifest.xml*. Le champ **X509FindValue** est l’empreinte renvoyée de l’étape 4 de la section **Créer un cluster Service Fabric dans Azure**. Cet extrait de code est imbriqué sous le champ **ApplicationManifest** (le champ racine).
 
     ```xml
     <Certificates>
@@ -209,7 +209,7 @@ Les étapes suivantes créent les ressources nécessaires pour déployer votre a
     sfctl cluster select --endpoint https://<clustername>.<region>.cloudapp.azure.com:19080 --pem sfctlconnection.pem --no-verify
     ```
 
-4. Pour déployer votre application, accédez au dossier *Voting/Scripts* et exécutez le script **install.sh** .
+4. Pour déployer votre application, accédez au dossier *Voting/Scripts* et exécutez le script **install.sh**.
 
     ```bash
     ./install.sh
