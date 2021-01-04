@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 21d44044250bacc95c4dbb0dde147e87f2fed6a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0b7d200ef39a6b4da6af33a0a9b9314635c3db33
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91652735"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586429"
 ---
 # <a name="nvv4-series"></a>Série NVv4 
 
@@ -27,6 +27,7 @@ Les machines virtuelles de la série NVv4 sont alimentées par des GPU [AMD Rade
 [Migration dynamique](maintenance-and-updates.md) : Non pris en charge<br>
 [Mises à jour avec préservation de la mémoire](maintenance-and-updates.md) : Non pris en charge<br>
 [Génération de machine virtuelle prise en charge](generation-2.md) : Génération 1<br>
+Mise en réseau accélérée : Pris en charge<br>
 <br>
 
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | GPU | Mémoire GPU : Gio | Disques de données max. | Nombre max. de cartes réseau / Bande passante réseau attendue (Mbits/s) |

@@ -1,18 +1,18 @@
 ---
 title: Bonnes pratiques de déploiement
 description: Cet article présente les meilleures pratiques de déploiement d’Azure Purview. Azure Purview permet à n’importe quel utilisateur d’inscrire, de découvrir, de comprendre et d’utiliser des sources de données.
-author: hophanms
-ms.author: hophan
+author: shsandeep123
+ms.author: sandeepshah
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/23/2020
-ms.openlocfilehash: 1b2841f69ebe91dac748a4b2e24dc0c33756b1da
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 48966e481f9cf8796c866b5c15a4e2a8616eade7
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400690"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695858"
 ---
 # <a name="azure-purview-deployment-best-practices"></a>Meilleures pratiques de déploiement d’Azure Purview
 

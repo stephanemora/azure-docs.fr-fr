@@ -1,18 +1,18 @@
 ---
 title: Gérer des sources de données dans Azure Purview (préversion)
 description: Découvrez comment inscrire de nouvelles sources de données, gérer des collections de sources de données et afficher des sources dans Azure Purview (préversion).
-author: mamccrea
-ms.author: mamccrea
+author: viseshag
+ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/25/2020
-ms.openlocfilehash: 382c79cf77cb22d3cad1af41d6daa662fb00df4c
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 8714c3c3794186d6c21a0513bd7700764c000b6d
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96781162"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97694784"
 ---
 # <a name="manage-data-sources-in-azure-purview-preview"></a>Gérer des sources de données dans Azure Purview (préversion)
 
@@ -28,7 +28,6 @@ Dans cet article, vous allez apprendre à inscrire de nouvelles sources de donn�
 * Azure Synapse Analytics (anciennement SQL DW)
 * Azure Cosmos DB
 * Power BI
-* Teradata (préversion)
 
 ## <a name="register-a-new-source"></a>Inscrire une nouvelle source
 

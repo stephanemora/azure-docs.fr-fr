@@ -6,12 +6,12 @@ ms.custom: devx-track-csharp, devx-track-azurecli
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 0f7047638aa2e2b4a9ac6ffade82fdc117b56cfb
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 1223ff5c56d3c7d58b324d2099980bc0b5408125
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92744184"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655966"
 ---
 # <a name="configure-an-aspnet-core-app-for-azure-app-service"></a>Configurer une application ASP.NET Core pour Azure App Service
 
@@ -125,7 +125,7 @@ namespace SomeNamespace
 }
 ```
 
-Si vous configurez un paramètre d’application portant le même nom dans App Service et dans *appsettings.json* , la valeur d’App Service est prioritaire sur la valeur de *appsettings.json* . La valeur de locale de *appsettings.json* vous permet de déboguer l’application localement, tandis que la valeur d’App Service vous permet d’exécuter l’application dans le produit avec les paramètres de production. Les chaînes de connexion fonctionnent de la même façon. De cette façon, vous pouvez conserver les secrets de votre application en dehors de votre référentiel de code et accéder aux valeurs appropriées sans modifier votre code.
+Si vous configurez un paramètre d’application portant le même nom dans App Service et dans *appsettings.json*, la valeur d’App Service est prioritaire sur la valeur de *appsettings.json*. La valeur de locale de *appsettings.json* vous permet de déboguer l’application localement, tandis que la valeur d’App Service vous permet d’exécuter l’application dans le produit avec les paramètres de production. Les chaînes de connexion fonctionnent de la même façon. De cette façon, vous pouvez conserver les secrets de votre application en dehors de votre référentiel de code et accéder aux valeurs appropriées sans modifier votre code.
 
 > [!NOTE]
 > Notez que l’accès aux [données de configuration hiérarchiques](/aspnet/core/fundamentals/configuration/#hierarchical-configuration-data) dans *appsettings.json* se fait à l’aide du délimiteur `:` qui est standard pour .NET Core. Pour remplacer un paramètre de configuration hiérarchique spécifique dans App Service, définissez le nom du paramètre d’application avec le même format délimité dans la clé. Vous pouvez exécuter l’exemple suivant dans le service [Cloud Shell](https://shell.azure.com) :
@@ -167,7 +167,7 @@ Pour plus d’informations sur la résolution des problèmes des applications AS
 
 ## <a name="get-detailed-exceptions-page"></a>Accéder à la page d’exceptions détaillées
 
-Lorsque votre application ASP.NET Core génère une exception dans le débogueur Visual Studio, le navigateur affiche une page d’exceptions détaillées mais, dans App Service, cette page est remplacée par l’erreur **HTTP 500** générique **Une erreur s’est produite lors du traitement de votre demande** . . Pour afficher la page d’exceptions détaillées dans App Service, ajoutez le paramètre d’application `ASPNETCORE_ENVIRONMENT` à l’application en exécutant la commande suivante dans <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>.
+Lorsque votre application ASP.NET Core génère une exception dans le débogueur Visual Studio, le navigateur affiche une page d’exceptions détaillées mais, dans App Service, cette page est remplacée par l’erreur **HTTP 500** générique **Une erreur s’est produite lors du traitement de votre demande**. . Pour afficher la page d’exceptions détaillées dans App Service, ajoutez le paramètre d’application `ASPNETCORE_ENVIRONMENT` à l’application en exécutant la commande suivante dans <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings ASPNETCORE_ENVIRONMENT="Development"
@@ -192,6 +192,7 @@ public void ConfigureServices(IServiceCollection services)
     {
         options.ForwardedHeaders =
             ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto;
+        // These three subnets encapsulate the applicable Azure subnets. At the moment, it's not possible to narrow it down further.
         options.KnownNetworks.Add(new IPNetwork(IPAddress.Parse("::ffff:10.0.0.0"), 104));
         options.KnownNetworks.Add(new IPNetwork(IPAddress.Parse("::ffff:192.168.0.0"), 112));
         options.KnownNetworks.Add(new IPNetwork(IPAddress.Parse("::ffff:172.16.0.0"), 108));

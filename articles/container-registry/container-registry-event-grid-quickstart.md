@@ -4,12 +4,12 @@ description: Dans ce guide de démarrage rapide, vous activez les événements E
 ms.topic: article
 ms.date: 08/23/2018
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 6058fceb873e2b26da2d30dadba456e2a625f3f2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 2d13dd0ec5e50086e674b215d93917d6173d5af9
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93074214"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97694392"
 ---
 # <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>Démarrage rapide : Envoyer des événements depuis le registre de conteneurs privé à Event Grid
 
@@ -35,7 +35,7 @@ RESOURCE_GROUP_NAME=myResourceGroup
 az group create --name $RESOURCE_GROUP_NAME --location eastus
 ```
 
-## <a name="create-a-container-registry"></a>Créer un registre de conteneur
+## <a name="create-a-container-registry"></a>Créer un registre de conteneurs
 
 Ensuite, déployez un registre de conteneurs dans le groupe de ressources avec les commandes suivantes. Avant d’exécuter la commande [az acr create][az-acr-create], définissez `ACR_NAME` avec un nom pour votre registre. Le nom du registre doit être unique dans Azure, il doit comporter entre 5 et 50 caractères alphanumériques.
 
@@ -78,7 +78,7 @@ Pour déployer l’exemple d’application, définissez `SITE_NAME` avec un nom 
 ```azurecli-interactive
 SITE_NAME=<your-site-name>
 
-az group deployment create \
+az deployment group create \
     --resource-group $RESOURCE_GROUP_NAME \
     --template-uri "https://raw.githubusercontent.com/Azure-Samples/azure-event-grid-viewer/master/azuredeploy.json" \
     --parameters siteName=$SITE_NAME hostingPlanName=$SITE_NAME-plan
@@ -200,7 +200,7 @@ La capture d’écran suivante montre l’exemple d’application avec les trois
 
 ![Navigateur web montrant l’exemple d’application avec des événements ImagePushed et ImageDeleted][sample-app-03]
 
-Félicitations ! Si vous voyez les événements `ImagePushed` et `ImageDeleted`, c’est que votre registre envoie des événements à Event Grid, qui à son tour transfère ces événements à votre point de terminaison d’application web.
+Félicitations ! Si vous voyez les événements `ImagePushed` et `ImageDeleted`, c’est que votre registre envoie des événements à Event Grid, qui à son tour transfère ces événements à votre point de terminaison d’application web.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

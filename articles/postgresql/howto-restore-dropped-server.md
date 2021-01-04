@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 11/03/2020
-ms.openlocfilehash: 81764294cc29ad74d5a77f2055f10498d69b59e5
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 591f01004cfba247112f702625ab05ddc0aaede3
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93342781"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97652923"
 ---
 # <a name="restore-a-dropped-azure-database-for-postgresql-server"></a>Restaurer un serveur Azure Database pour PostgreSQL supprimé
 
@@ -24,7 +24,7 @@ Pour restaurer un serveur Azure Database pour PostgreSQL supprimé, vous avez be
 
 ## <a name="steps-to-restore"></a>Étapes de restauration
 
-1. Accédez au [portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_ActivityLog/ActivityLogBlade). Sélectionnez le service **Azure Monitor** , puis sélectionnez **Journal d’activité**.
+1. Accédez au [portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_ActivityLog/ActivityLogBlade). Sélectionnez le service **Azure Monitor**, puis sélectionnez **Journal d’activité**.
 
 2. Dans Journal d’activité, cliquez sur **Ajouter un filtre** comme indiqué, puis définissez ces filtres comme suit
 
@@ -34,28 +34,31 @@ Pour restaurer un serveur Azure Database pour PostgreSQL supprimé, vous avez be
  
     ![Journal d’activité filtré pour l’opération de suppression du serveur PostgreSQL](./media/howto-restore-dropped-server/activity-log-azure.png)
 
-3. Sélectionnez l’événement **Supprimer le serveur PostgreSQL** , puis sélectionnez l’ **onglet JSON**. Copiez les attributs `resourceId` et `submissionTimestamp` dans la sortie JSON. Le format de resourceId est le suivant : `/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TargetResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/deletedserver`.
+3. Sélectionnez l’événement **Supprimer le serveur PostgreSQL**, puis sélectionnez l’**onglet JSON**. Copiez les attributs `resourceId` et `submissionTimestamp` dans la sortie JSON. Le format de resourceId est le suivant : `/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TargetResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/deletedserver`.
 
 
  4. Accédez à la page PostgreSQL [API REST Créer un serveur](/rest/api/PostgreSQL/servers/create) et sélectionnez l’onglet **Essayer** mis en surbrillance en vert. Connectez-vous à votre compte Azure.
 
- 5. Indiquez les propriétés **resourceGroupName** , **serverName** (nom du serveur supprimé), **subscriptionId** , basées sur la valeur JSON de l’attribut resourceId capturée à l’étape 3 précédente. La propriété api-version est préremplie et peut être laissée telle quelle, comme illustré dans l’image suivante.
+ 5. Indiquez les propriétés **resourceGroupName**, **serverName** (nom du serveur supprimé), **subscriptionId**, basées sur la valeur JSON de l’attribut resourceId capturée à l’étape 3 précédente. La propriété api-version est préremplie et peut être laissée telle quelle, comme illustré dans l’image suivante.
 
     ![Créer un serveur à l’aide de l’API REST](./media/howto-restore-dropped-server/create-server-from-rest-api-azure.png)
   
  6. Faites défiler la section du corps de la requête et collez le code suivant en remplaçant « Dropped Server Location », « submissionTimestamp » et « resourceId ». Pour « restorePointInTime », spécifiez une valeur de « submissionTimestamp » moins **15 minutes** pour vous assurer que la commande ne génère pas d’erreur.
+    
     ```json
-        {
-          "location": "Dropped Server Location",  
-          "properties": 
-              {
-                  "restorePointInTime": "submissionTimestamp - 15 minutes",
-                  "createMode": "PointInTimeRestore",
-                  "sourceServerId": "resourceId"
-            }
-        }
+    {
+      "location": "Dropped Server Location",  
+      "properties": 
+      {
+        "restorePointInTime": "submissionTimestamp - 15 minutes",
+        "createMode": "PointInTimeRestore",
+        "sourceServerId": "resourceId"
+      }
+    }
     ```
+
     Par exemple, si la date et l’heure actuelles sont 2020-11-02T23:59:59.0000000Z, nous recommandons un point de restauration dans le temps antérieur de 15 minutes 2020-11-02T23:44:59.0000000Z.
+
     > [!Important]
     > Il existe un délai limite de cinq jours après la date de suppression du serveur. Au bout de cinq jours, une erreur est attendue, car le fichier de sauvegarde est désormais introuvable.
     

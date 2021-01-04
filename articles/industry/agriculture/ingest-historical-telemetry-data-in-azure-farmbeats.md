@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.custom: has-adal-ref
-ms.openlocfilehash: af1bee00261cd96f61a39389f31a52109f4e64b5
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 603f14d2076b5b74dde0b92a732f8fe816f6dd10
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675823"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656782"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Ingérer des données de télémétrie historiques
 
@@ -42,17 +42,17 @@ Procédez comme suit :
 
 2. **Si vous êtes sur FarmBeats version 1.2.7 ou ultérieure, ignorez les étapes a, b et c et passez à l’étape 3.** . Vous pouvez vérifier la version de FarmBeats en sélectionnant l’icône **Paramètres** dans le coin supérieur droit de l’interface utilisateur de FarmBeats.
 
-      a.  Accédez à **Azure Active Directory** > **Inscriptions des applications** .
+      a.  Accédez à **Azure Active Directory** > **Inscriptions des applications**.
 
-      b. Sélectionnez l’ **inscription d’application** qui a été créée dans le cadre de votre déploiement FarmBeats. Elle aura le même nom que votre hub de données FarmBeats.
+      b. Sélectionnez l’**inscription d’application** qui a été créée dans le cadre de votre déploiement FarmBeats. Elle aura le même nom que votre hub de données FarmBeats.
 
-      c. Sélectionnez **Exposer une API** , sélectionnez **Ajouter une application cliente** , entrez **04b07795-8ddb-461a-bbee-02f9e1bf7b46** , puis cochez **Autoriser l’étendue** . Cela permet d’accéder à l’interface de ligne de commande Azure (Cloud Shell) pour effectuer les étapes ci-dessous :
+      c. Sélectionnez **Exposer une API**, sélectionnez **Ajouter une application cliente**, entrez **04b07795-8ddb-461a-bbee-02f9e1bf7b46**, puis cochez **Autoriser l’étendue**. Cela permet d’accéder à l’interface de ligne de commande Azure (Cloud Shell) pour effectuer les étapes ci-dessous :
 
 3. Ouvrez Cloud Shell. Cette option est disponible dans la barre d’outils située en haut à droite du portail Azure.
 
     ![Barre d’outils du portail Azure](./media/get-drone-imagery-from-drone-partner/navigation-bar-1.png)
 
-4. Vérifiez que l’environnement est défini sur **PowerShell** . Bash est sélectionné par défaut.
+4. Vérifiez que l’environnement est défini sur **PowerShell**. Bash est sélectionné par défaut.
 
     ![Paramètre de la barre d’outils PowerShell](./media/get-sensor-data-from-sensor-partner/power-shell-new-1.png)
 
@@ -76,7 +76,7 @@ Procédez comme suit :
 
     ```
 
-8. Exécutez le script suivant. Le script invite à fournir l’ID de locataire, qui est disponible dans **Azure Active Directory** > page **Vue d’ensemble** .
+8. Exécutez le script suivant. Le script invite à fournir l’ID de locataire, qui est disponible dans **Azure Active Directory** > page **Vue d’ensemble**.
 
     ```azurepowershell-interactive
 
@@ -96,51 +96,50 @@ Procédez comme suit :
  > [!NOTE]
  > En tant que partenaire, vous avez uniquement accès aux option de lecture, de création et de mise à jour des métadonnées. **L’option de suppression est interdite au partenaire.**
 
-- /**DeviceModel**  : DeviceModel correspond aux métadonnées de l’appareil, telles que le fabricant et le type d’appareil (passerelle ou nœud).
-- /**Device**  : Device correspond à un appareil physique présent dans l’exploitation agricole.
-- /**SensorModel**  : SensorModel correspond aux métadonnées du capteur, telles que le fabricant, le type de capteur (analogique ou numérique) et la mesure effectuée par le capteur (température ambiante, pression, etc.).
-- /**Sensor**  : Sensor correspond à un capteur physique qui enregistre des valeurs. Un capteur est généralement connecté à un appareil avec une identité d’appareil.
+- /**DeviceModel** : DeviceModel correspond aux métadonnées de l’appareil, telles que le fabricant et le type d’appareil (passerelle ou nœud).
+- /**Device** : Device correspond à un appareil physique présent dans l’exploitation agricole.
+- /**SensorModel** : SensorModel correspond aux métadonnées du capteur, telles que le fabricant, le type de capteur (analogique ou numérique) et la mesure effectuée par le capteur (température ambiante, pression, etc.).
+- /**Sensor** : Sensor correspond à un capteur physique qui enregistre des valeurs. Un capteur est généralement connecté à un appareil avec une identité d’appareil.
 
-
-|        DeviceModel   |  Suggestions   |
-| ------- | -------             |
-|     Type (nœud, passerelle)        |          Type de l’appareil (nœud ou passerelle)      |
-|          Fabricant            |         Nom du fabricant    |
-|  ProductCode                    |  Code produit de l’appareil ou nom ou numéro du modèle. Par exemple, EnviroMonitor#6800.  |
-|            Ports          |     Nom et type du port (numérique ou analogique).
-|     Nom                 |  Nom destiné à identifier la ressource. Par exemple, le nom du modèle ou du produit.
-      Description     | Description explicite du modèle.
-|    Propriétés          |    Propriétés supplémentaires fournies par le fabricant.   |
-|    **Appareil**             |                      |
-|   DeviceModelId     |     ID du modèle d’appareil associé.  |
-|  HardwareId          | ID unique de l’appareil, par exemple l’adresse MAC.
-|  ReportingInterval        |   Intervalle de rapport en secondes.
-|  Emplacement            |  Latitude (-90 à +90), longitude (-180 à 180) et élévation (en mètres) de l’appareil.
-|ParentDeviceId       |    ID de l’appareil parent auquel cet appareil est connecté. Par exemple, un nœud connecté à une passerelle. Pour un nœud, le parentDeviceId est l’ID d’une passerelle.  |
-|    Nom            | Nom destiné à identifier la ressource. Les partenaires d’appareil doivent envoyer un nom cohérent avec celui de l’appareil côté partenaire. Si le nom de l’appareil partenaire est défini par l’utilisateur, ce nom doit être propagé sur FarmBeats.|
-|     Description       |      Description explicite. |
-|     Propriétés    |  Propriétés supplémentaires fournies par le fabricant.
-|     **SensorModel**        |          |
-|       Type (analogique, numérique)          |      Type de capteur (analogique ou numérique).       |
-|          Fabricant            |       Fabricant du capteur.     |
-|     ProductCode| Code produit ou nom ou numéro du modèle. Par exemple, RS-CO2-N01. |
-|       SensorMeasures > Name       | Nom de la mesure du capteur. Seules les minuscules sont prises en charge. Pour des mesures effectuées à différentes profondeurs, spécifiez la profondeur. Par exemple, humidité_sol_15cm. Ce nom doit être cohérent avec les données de télémétrie.  |
-|          SensorMeasures > DataType       |Type de données de télémétrie. À l’heure actuelle, le type double est pris en charge.|
-|    SensorMeasures > Type    |Type de mesure des données de télémétrie de capteur. Voici les types définis par le système : AmbientTemperature, CO2, Depth, ElectricalConductivity, LeafWetness, Length, LiquidLevel, Nitrate, O2, PH, Phosphate, PointInTime, Potassium, Pressure, RainGauge, RelativeHumidity, Salinity, SoilMoisture, SoilTemperature, SolarRadiation, State, TimeDuration, UVRadiation, UVIndex, Volume, WindDirection, WindRun, WindSpeed, Evapotranspiration, PAR. Pour en ajouter d’autres, reportez-vous à l’API /ExtendedType.|
-|        SensorMeasures > Unit              | Unité des données de télémétrie du capteur. Voici les unités définies par le système : NoUnit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, Mercury, PSI, MilliMeter, CentiMeter, Meter, Inch, Feet, Mile, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, Degree, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, Percentage, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, Liter, MilliLiter, Seconds, UnixTimestamp, MicroMolPerMeterSquaredPerSecond, InchesPerHour. Pour en ajouter d’autres, reportez-vous à la documentation sur l’API /ExtendedType.|
-|    SensorMeasures > AggregationType    |  Les valeurs peuvent être : none, average, maximum, minimum ou StandardDeviation.  |
-|          Nom            | Nom destiné à identifier la ressource. Par exemple, le nom du modèle ou du produit.  |
-|    Description        | Description explicite du modèle.|
-|   Propriétés       |  Propriétés supplémentaires fournies par le fabricant.|
-|    **Capteur**      |          |
-| HardwareId          |   ID unique du capteur défini par le fabricant.|
-|  SensorModelId     |    ID du modèle de capteur associé.|
-| Emplacement          |  Latitude (-90 à +90), longitude (-180 à 180) et élévation (en mètres) du capteur.|
-|   Port > Name        |  Nom et type du port auquel le capteur est connecté sur l’appareil. Ce nom doit être identique à celui défini dans le modèle d’appareil.|
-|    DeviceID  |    ID de l’appareil auquel le capteur est connecté. |
-| Nom            |   Nom destiné à identifier la ressource. Par exemple, nom du capteur ou nom du produit et numéro de modèle ou code produit.|
-|    Description      | Description explicite.|
-|    Propriétés        |Propriétés supplémentaires fournies par le fabricant.|
+| DeviceModel | Suggestions |
+|--|--|
+| Type (nœud, passerelle) | Type de l’appareil (nœud ou passerelle) |
+| Fabricant | Nom du fabricant |
+| ProductCode | Code produit de l’appareil ou nom ou numéro du modèle. Par exemple, EnviroMonitor#6800. |
+| Ports | Nom et type du port (numérique ou analogique). |
+| Nom | Nom destiné à identifier la ressource. Par exemple, le nom du modèle ou du produit. |
+| Description | Description explicite du modèle. |
+| Propriétés | Propriétés supplémentaires fournies par le fabricant. |
+| **Appareil** |  |
+| DeviceModelId | ID du modèle d’appareil associé. |
+| HardwareId | ID unique de l’appareil, par exemple l’adresse MAC. |
+| ReportingInterval | Intervalle de rapport en secondes. |
+| Emplacement | Latitude (-90 à +90), longitude (-180 à 180) et élévation (en mètres) de l’appareil. |
+| ParentDeviceId | ID de l’appareil parent auquel cet appareil est connecté. Par exemple, un nœud connecté à une passerelle. Pour un nœud, le parentDeviceId est l’ID d’une passerelle. |
+| Nom | Nom destiné à identifier la ressource. Les partenaires d’appareil doivent envoyer un nom cohérent avec celui de l’appareil côté partenaire. Si le nom de l’appareil partenaire est défini par l’utilisateur, ce nom doit être propagé sur FarmBeats. |
+| Description | Description explicite. |
+| Propriétés | Propriétés supplémentaires fournies par le fabricant. |
+| **SensorModel** |  |
+| Type (analogique, numérique) | Type de capteur (analogique ou numérique). |
+| Fabricant | Fabricant du capteur. |
+| ProductCode | Code produit ou nom ou numéro du modèle. Par exemple, RS-CO2-N01. |
+| SensorMeasures > Name | Nom de la mesure du capteur. Seules les minuscules sont prises en charge. Pour des mesures effectuées à différentes profondeurs, spécifiez la profondeur. Par exemple, humidité_sol_15cm. Ce nom doit être cohérent avec les données de télémétrie. |
+| SensorMeasures > DataType | Type de données de télémétrie. À l’heure actuelle, le type double est pris en charge. |
+| SensorMeasures > Type | Type de mesure des données de télémétrie de capteur. Voici les types définis par le système : AmbientTemperature, CO2, Depth, ElectricalConductivity, LeafWetness, Length, LiquidLevel, Nitrate, O2, PH, Phosphate, PointInTime, Potassium, Pressure, RainGauge, RelativeHumidity, Salinity, SoilMoisture, SoilTemperature, SolarRadiation, State, TimeDuration, UVRadiation, UVIndex, Volume, WindDirection, WindRun, WindSpeed, Evapotranspiration, PAR. Pour en ajouter d’autres, reportez-vous à l’API /ExtendedType. |
+| SensorMeasures > Unit | Unité des données de télémétrie du capteur. Voici les unités définies par le système : NoUnit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, Mercury, PSI, MilliMeter, CentiMeter, Meter, Inch, Feet, Mile, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, Degree, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, Percentage, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, Liter, MilliLiter, Seconds, UnixTimestamp, MicroMolPerMeterSquaredPerSecond, InchesPerHour. Pour en ajouter d’autres, reportez-vous à la documentation sur l’API /ExtendedType. |
+| SensorMeasures > AggregationType | Les valeurs peuvent être : none, average, maximum, minimum ou StandardDeviation. |
+| Nom | Nom destiné à identifier la ressource. Par exemple, le nom du modèle ou du produit. |
+| Description | Description explicite du modèle. |
+| Propriétés | Propriétés supplémentaires fournies par le fabricant. |
+| **Capteur** |  |
+| HardwareId | ID unique du capteur défini par le fabricant. |
+| SensorModelId | ID du modèle de capteur associé. |
+| Emplacement | Latitude (-90 à +90), longitude (-180 à 180) et élévation (en mètres) du capteur. |
+| Port > Name | Nom et type du port auquel le capteur est connecté sur l’appareil. Ce nom doit être identique à celui défini dans le modèle d’appareil. |
+| DeviceID | ID de l’appareil auquel le capteur est connecté. |
+| Nom | Nom destiné à identifier la ressource. Par exemple, nom du capteur ou nom du produit et numéro de modèle ou code produit. |
+| Description | Description explicite. |
+| Propriétés | Propriétés supplémentaires fournies par le fabricant. |
 
 Pour plus d’informations sur les objets, consultez [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
 
@@ -192,9 +191,9 @@ access_token = token_response.get('access_token')
 
 Voici les en-têtes de requête les plus courants qui doivent être spécifiés lors d’un appel d’API à FarmBeats Datahub :
 
-- **Content-Type** : application/json
-- **Autorisation**  : Porteur <jeton-accès>
-- **Accept** : application/json
+- **Content-Type**: application/json
+- **Autorisation** : Porteur <jeton-accès>
+- **Accept**: application/json
 
 ### <a name="input-payload-to-create-metadata"></a>Charge utile d’entrée pour la création des métadonnées
 
@@ -431,9 +430,9 @@ Voici un exemple de message de télémétrie :
 
 ### <a name="cant-view-telemetry-data-after-ingesting-historicalstreaming-data-from-your-sensors"></a>Impossible d’afficher les données de télémétrie après l’ingestion des données historique/de diffusion en continu à partir de vos capteurs
 
-**Symptôme**  : Des appareils ou des capteurs sont déployés. Vous avez créé les appareils/capteurs sur FarmBeats et ingéré la télémétrie vers l’EventHub, mais vous ne pouvez pas obtenir ni visualiser les données de télémétrie sur FarmBeats.
+**Symptôme** : Des appareils ou des capteurs sont déployés. Vous avez créé les appareils/capteurs sur FarmBeats et ingéré la télémétrie vers l’EventHub, mais vous ne pouvez pas obtenir ni visualiser les données de télémétrie sur FarmBeats.
 
-**Action corrective**  :
+**Action corrective** :
 
 1. Assurez-vous d’avoir effectué l’inscription du partenaire appropriée. Pour le vérifier, accédez à votre Swagger DataHub et à /Partner API, entrez la commande GET et regardez si le partenaire est bien inscrit. Si ce n’est pas le cas, suivez les [étapes indiquées ici](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats) pour ajouter un partenaire.
 

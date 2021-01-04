@@ -57,6 +57,9 @@
           href: container-registry-image-tag-version.md
         - name: Géoréplication
           href: container-registry-geo-replication.md
+        - name: Redondance de zone
+          displayName: availability zone
+          href: zone-redundancy.md
         - name: Bonnes pratiques concernant les registres
           href: container-registry-best-practices.md
         - name: Gérer les images publiques
@@ -159,7 +162,7 @@
 - name: Tâches
   expanded: true
   items:
-    - name: Vue d’ensemble
+    - name: Vue d'ensemble
       expanded: false
       items:
         - name: À propos d’ACR Tasks

@@ -13,12 +13,12 @@ ms.date: 10/27/2020
 ms.author: hirsin
 ms.reviewer: mmacy, hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 909c8910a86734b0a34787f75c233975cd3503c3
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: ceb5acbee2e572b1859a5577b58dd586fc924b3b
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96518241"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97653280"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Jetons d’accès de la plateforme d’identités Microsoft
 
@@ -140,8 +140,8 @@ Pour s’assurer que la taille du jeton ne dépasse pas les limites de taille d�
        }
      }
   ...
- }
- ```
+}
+```
 
 Vous pouvez utiliser la valeur `BulkCreateGroups.ps1` fournie dans le [App Creation Scripts](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-2-Groups/AppCreationScripts) pour aider à tester les scénarios de dépassement.
 
@@ -186,7 +186,7 @@ Les applications ne doivent pas toutes valider des jetons. Dans des scénarios s
 
 Si aucun des scénarios ci-dessus ne s’applique, votre application ne tire pas parti de la validation du jeton et peut présenter un risque de sécurité et de fiabilité si des décisions sont prises en fonction de la validité du jeton.  Les clients publics, comme les applications natives ou monopages, ne bénéficient pas de la validation des jetons. L’application communique directement avec le fournisseur d’identité, de sorte que la protection SSL garantit que les jetons sont valides.
 
- Les API et les applications web doivent uniquement valider les jetons avec une revendication `aud` qui correspond à leur application ; d’autres ressources peuvent avoir des règles de validation de jeton personnalisées. Par exemple, les jetons de Microsoft Graph ne sont pas validés en fonction de ces règles en raison de leur format propriétaire. La validation et l’acceptation de jetons destinés à une autre ressource constituent un exemple du problème d’[adjoint confus](https://cwe.mitre.org/data/definitions/441.html).
+Les API et les applications web doivent uniquement valider les jetons avec une revendication `aud` qui correspond à leur application ; d’autres ressources peuvent avoir des règles de validation de jeton personnalisées. Par exemple, les jetons de Microsoft Graph ne sont pas validés en fonction de ces règles en raison de leur format propriétaire. La validation et l’acceptation de jetons destinés à une autre ressource constituent un exemple du problème d’[adjoint confus](https://cwe.mitre.org/data/definitions/441.html).
 
 Si votre application doit valider un jeton id_token ou access_token conformément à ce qui précède, elle doit d’abord valider la signature et l’émetteur du jeton par rapport aux valeurs figurant dans le document de découverte OpenID. Par exemple, la version indépendante du client du document se trouve à l’adresse [https://login.microsoftonline.com/common/.well-known/openid-configuration](https://login.microsoftonline.com/common/.well-known/openid-configuration).
 

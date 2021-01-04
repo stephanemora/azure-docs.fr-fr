@@ -5,12 +5,12 @@ ms.devlang: Java
 ms.topic: quickstart
 ms.date: 11/09/2020
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 4eae72b38d36348a6bdc98d3cbd98a5a712b3161
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: d95c96e76a3463a77cc64234a909cc1e3d093837
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97399296"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97630222"
 ---
 # <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-java"></a>Envoyer et recevoir des messages à partir de files d’attente Azure Service Bus (Java)
 Dans ce guide de démarrage rapide, vous allez créer une application Java afin d’envoyer et de recevoir des messages à partir d’une file d’attente Azure Service Bus. 
@@ -220,8 +220,8 @@ Sélectionnez la file d’attente dans cette page **Vue d’ensemble** pour acc�
 Voir la documentation et les exemples suivants :
 
 - [Bibliothèque de client Azure Service Bus pour Java - Lisez-moi](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/servicebus/azure-messaging-servicebus/README.md)
-- [Exemples sur GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/servicebus/azure-messaging-servicebus/src/samples)
-- [Informations de référence sur l’API Java](/java/api/overview/azure/servicebus?preserve-view=true&view=azure-java-stable)
+- [Exemples sur GitHub](https://docs.microsoft.com/samples/azure/azure-sdk-for-java/servicebus-samples/)
+- [Informations de référence sur l’API Java](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-messaging-servicebus/7.0.0/index.html)
 
 [Azure SDK for Java]: /azure/developer/java/sdk/java-sdk-azure-get-started
 [Azure Toolkit for Eclipse]: /azure/developer/java/toolkit-for-eclipse/installation

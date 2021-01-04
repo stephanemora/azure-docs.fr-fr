@@ -56,30 +56,20 @@
       items:
         - name: Informations de référence Translator v3
           href: reference/v3-0-reference.md
-          items:
-            - name: Languages
-              href: reference/v3-0-languages.md
-            - name: Translate
-              href: reference/v3-0-translate.md
-            - name: Transliterate
-              href: reference/v3-0-transliterate.md
-            - name: Detect
-              href: reference/v3-0-detect.md
-            - name: BreakSentence
-              href: reference/v3-0-break-sentence.md
-            - name: Recherche dans le dictionnaire
-              href: reference/v3-0-dictionary-lookup.md
-            - name: Exemples de dictionnaire
-              href: reference/v3-0-dictionary-examples.md
-        - name: Informations de référence Translator v2 (déprécié)
-          href: reference/v2-0-reference.md
-          items:
-            - name: Transformer le texte
-              href: transform-text.md
-            - name: Guide pratique pour utiliser le compte-rendu CTF (Collaborative Translation Framework)
-              href: ctf-reporting.md
-            - name: Renvoyer des traductions N-Best
-              href: return-n-best-translations.md
+        - name: Languages
+          href: reference/v3-0-languages.md
+        - name: Translate
+          href: reference/v3-0-translate.md
+        - name: Transliterate
+          href: reference/v3-0-transliterate.md
+        - name: Detect
+          href: reference/v3-0-detect.md
+        - name: BreakSentence
+          href: reference/v3-0-break-sentence.md
+        - name: Recherche dans le dictionnaire
+          href: reference/v3-0-dictionary-lookup.md
+        - name: Exemples de dictionnaire
+          href: reference/v3-0-dictionary-examples.md
         - name: Limites de requête
           href: request-limits.md
     - name: Ressources

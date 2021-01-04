@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 50abfec19295f80fa79864fedb31eadd31dd4d69
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 34a947a2a0f6d8c87c0580f273130b671b4f17fc
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203668"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97722230"
 ---
 # <a name="troubleshoot"></a>Dépanner
 
@@ -23,7 +23,7 @@ Parfois, lors de la [liaison d’un compte de stockage](../how-tos/create-an-acc
 
 ## <a name="client-cant-connect-to-server"></a>Le client ne peut pas se connecter au serveur
 
-Assurez-vous que vos pare-feu (sur l’appareil, les routeurs internes, etc.) ne bloquent pas les ports mentionnés dans la [Configuration requise](../overview/system-requirements.md#network-ports).
+Assurez-vous que vos pare-feu (sur l’appareil, les routeurs internes, etc.) ne bloquent pas les ports mentionnés dans la [Configuration requise](../overview/system-requirements.md#network-firewall).
 
 ## <a name="error-disconnected-videoformatnotavailable"></a>Erreur : `Disconnected: VideoFormatNotAvailable`
 

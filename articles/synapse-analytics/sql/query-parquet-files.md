@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 20bfbaeea48711a680877e4d5d8f618e84eb12d7
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: cce4c6aff986c2e8c3d879d962714e13f6b2e7ae
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462582"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97694677"
 ---
 # <a name="query-parquet-files-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Interroger des fichiers Parquet à l’aide d’un pool SQL serverless dans Azure Synapse Analytics
 
@@ -38,9 +38,9 @@ from openrowset(
 Assurez-vous que vous pouvez accéder à ce fichier. Si votre fichier est protégé par une clé SAP ou une identité Azure personnalisée, vous devez configurer les [informations d’identification au niveau du serveur pour la connexion SQL](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
 
 > [!IMPORTANT]
-> Assurez-vous que vous utilisez un classement de base de données UTF-8 (par exemple `Latin1_General_100_CI_AS_SC_UTF8`), car les valeurs de chaîne dans les fichiers PARQUET sont encodées à l’aide d’un encodage UTF-8.
+> Assurez-vous que vous utilisez un classement de base de données UTF-8 (par exemple `Latin1_General_100_BIN2_UTF8`), car les valeurs de chaîne dans les fichiers PARQUET sont encodées à l’aide d’un encodage UTF-8.
 > Une incompatibilité entre l’encodage de texte dans le fichier PARQUET et le classement peut entraîner des erreurs de conversion inattendues.
-> Vous pouvez facilement modifier le classement par défaut de la base de données actuelle à l’aide de l’instruction T-SQL suivante : `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
+> Vous pouvez facilement modifier le classement par défaut de la base de données actuelle à l’aide de l’instruction T-SQL suivante : `alter database current collate Latin1_General_100_BIN2_UTF8`
 
 ### <a name="data-source-usage"></a>Utilisation d’une source de données
 
@@ -74,10 +74,10 @@ from openrowset(
 ```
 
 > [!IMPORTANT]
-> Veillez à spécifier explicitement un classement UTF-8 (par exemple `Latin1_General_100_CI_AS_SC_UTF8`) pour toutes les colonnes de chaîne dans la clause `WITH`, ou définissez un classement UTF-8 au niveau de la base de données.
+> Veillez à spécifier explicitement un classement UTF-8 (par exemple `Latin1_General_100_BIN2_UTF8`) pour toutes les colonnes de chaîne dans la clause `WITH`, ou définissez un classement UTF-8 au niveau de la base de données.
 > Une incompatibilité entre l’encodage de texte dans le fichier et le classement de colonne de chaîne peut entraîner des erreurs de conversion inattendues.
-> Vous pouvez facilement modifier le classement par défaut de la base de données actuelle à l’aide de l’instruction T-SQL suivante : `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
-> Vous pouvez facilement définir le classement sur les types de colonne à l’aide de la définition suivante : `geo_id varchar(6) collate Latin1_General_100_CI_AI_SC_UTF8`
+> Vous pouvez facilement modifier le classement par défaut de la base de données actuelle à l’aide de l’instruction T-SQL suivante : `alter database current collate Latin1_General_100_BIN2_UTF8`
+> Vous pouvez facilement définir le classement sur les types de colonne à l’aide de la définition suivante : `geo_id varchar(6) collate Latin1_General_100_BIN2_UTF8`
 
 Dans les sections suivantes, vous pouvez voir comment interroger différents types de fichiers Parquet.
 

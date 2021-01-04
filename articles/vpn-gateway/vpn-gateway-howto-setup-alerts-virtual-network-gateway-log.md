@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 11/18/2020
 ms.author: alzam
-ms.openlocfilehash: 1f10799ab32b6cb26a8b3b5b343f65b960d71357
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 70cac6ef566ef52409cd9667708c2fc297e046f7
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96006999"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656612"
 ---
 # <a name="set-up-alerts-on-resource-log-events-from-vpn-gateway"></a>Configurer des alertes sur des événements de journalisation de ressource de la passerelle VPN
 
@@ -21,7 +21,7 @@ Cet article vous permet de configurer des alertes basées sur des événements d
 Les journaux de ressources suivants sont disponibles dans Azure :
 
 |***Nom** _ | _*_Description_*_ |
-|---        | ---               |
+|--- | --- |
 |GatewayDiagnosticLog | Contient des journaux de ressources pour des événements de configuration de passerelle, des modifications principales et des événements de maintenance. |
 |TunnelDiagnosticLog | Contient des événements de changement d’état de tunnel. Les événements de connexion/déconnexion de tunnel affichent une brève explication du changement d’état, le cas échéant |
 |RouteDiagnosticLog | Consigne les modifications apportées aux routes statiques et aux événements BGP qui se produisent sur la passerelle |

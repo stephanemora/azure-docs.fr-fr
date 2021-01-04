@@ -3,12 +3,12 @@ title: Recevoir des événements d’Azure Event Hubs ou lui en envoyer en utili
 description: Cet article décrit la procédure à suivre pour créer une application Python qui reçoit des événements d’Azure Event Hubs et lui en envoie à l’aide du dernier package azure-eventhub.
 ms.topic: quickstart
 ms.date: 02/11/2020
-ms.openlocfilehash: 4850dc9119f6ef43e687f476f66928f13713f051
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: f05f546f19a7944c049b97ba18065159db6fab67
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105949"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97605562"
 ---
 # <a name="send-events-to-or-receive-events-from-event-hubs-by-using-python-azure-eventhub"></a>Recevoir des événements des hubs d’événements ou leur en envoyer en utilisant Python (azure-eventhub)
 Ce guide de démarrage rapide montre comment recevoir des événements d’un hub d’événements et lui en envoyer à l’aide du package Python **azure-eventhub**.
@@ -50,7 +50,7 @@ Dans cette section, vous allez créer un script Python pour envoyer des événem
     async def run():
         # Create a producer client to send messages to the event hub.
         # Specify a connection string to your event hubs namespace and
-            # the event hub name.
+        # the event hub name.
         producer = EventHubProducerClient.from_connection_string(conn_str="EVENT HUBS NAMESPACE - CONNECTION STRING", eventhub_name="EVENT HUB NAME")
         async with producer:
             # Create a batch.

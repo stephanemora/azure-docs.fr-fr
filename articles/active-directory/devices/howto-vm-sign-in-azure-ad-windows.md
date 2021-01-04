@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions, devx-track-azurecli
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c42495ceab7108d20b0f0dedbf0cf94f5f9352d
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: ef2c9d7e2388d2da7a807fbf6b579360115a8323
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509306"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97629797"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Se connecter à une machine virtuelle Windows dans Azure via l’authentification Azure Active Directory (préversion)
 
@@ -333,6 +333,9 @@ Si le message d’erreur suivant s’affiche lorsque vous établissez une connex
 ![Votre compte est configuré de façon à vous empêcher d’utiliser cet appareil.](./media/howto-vm-sign-in-azure-ad-windows/rbac-role-not-assigned.png)
 
 Vérifiez que vous disposez de [stratégies Azure RBAC configurées](../../virtual-machines/linux/login-using-aad.md) pour la machine virtuelle qui accorde à l’utilisateur le rôle Connexion de l’administrateur aux machines virtuelles ou Connexion de l’utilisateur aux machines virtuelles :
+
+> [!NOTE]
+> Si vous rencontrez des problèmes avec des attributions de rôles Azure, consultez [Résoudre les problèmes liés à Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/troubleshooting#azure-role-assignments-limit).
  
 #### <a name="unauthorized-client"></a>Client non autorisé
 

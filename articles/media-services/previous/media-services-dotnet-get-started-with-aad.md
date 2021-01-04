@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: has-adal-ref, devx-track-csharp
-ms.openlocfilehash: 0d0d92c41ec15f4b4cf2307ac686b299cc5fb1ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cca17aacc914412d34f613adfeba31617c60c455
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89262109"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97652940"
 ---
 # <a name="use-azure-ad-authentication-to-access-azure-media-services-api-with-net"></a>Utiliser l’authentification Azure AD pour accéder à l’API Azure Media Services avec .NET
 
@@ -153,8 +153,8 @@ L’exemple de code suivant permet de créer un jeton à l’aide du constructeu
 
 ```csharp
 var tokenCredentials = new AzureAdTokenCredentials("{YOUR Azure AD TENANT DOMAIN HERE}",
-                            new AzureAdClientSymmetricKey("{YOUR CLIENT ID HERE}", "{YOUR CLIENT SECRET}"),
-                            AzureEnvironments.AzureCloudEnvironment);
+                        new AzureAdClientSymmetricKey("{YOUR CLIENT ID HERE}", "{YOUR CLIENT SECRET}"),
+                        AzureEnvironments.AzureCloudEnvironment);
 
 var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 ```
@@ -165,8 +165,8 @@ Pour obtenir des instructions sur la création et la configuration d’un certif
 
 ```csharp
 var tokenCredentials = new AzureAdTokenCredentials("{YOUR Azure AD TENANT DOMAIN HERE}",
-                            new AzureAdClientCertificate("{YOUR CLIENT ID HERE}", "{YOUR CLIENT CERTIFICATE THUMBPRINT}"),
-                            AzureEnvironments.AzureCloudEnvironment);
+                        new AzureAdClientCertificate("{YOUR CLIENT ID HERE}", "{YOUR CLIENT CERTIFICATE THUMBPRINT}"),
+                        AzureEnvironments.AzureCloudEnvironment);
 ```
 
 Pour commencer à programmer sur Media Services, vous devez créer une instance **CloudMediaContext** qui représente le contexte du serveur. Vous devez également transmettre l’**URI de ressource des services REST Media** au constructeur **CloudMediaContext**. Vous pouvez également obtenir la valeur de l’**URI de ressource des services REST Media** à partir du portail Azure.
