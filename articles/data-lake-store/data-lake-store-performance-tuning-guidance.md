@@ -1,17 +1,17 @@
 ---
 title: Azure Data Lake Storage Gen1 – optimisation du niveau de performance
 description: Découvrez pourquoi il est important d’utiliser tout le débit disponible dans Azure Data Lake Storage Gen1 pour obtenir des performances optimales en effectuant autant de lectures et d’écritures en parallèle que possible.
-author: stewu
+author: twooley
 ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 06/30/2017
-ms.author: stewu
-ms.openlocfilehash: e9a589b43490613834a810a68636c426e45c2656
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.author: twooley
+ms.openlocfilehash: c7f16dd9ea450185893164e10928c7022d6ab5a6
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332516"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724678"
 ---
 # <a name="tune-azure-data-lake-storage-gen1-for-performance"></a>Optimisation d’Azure Data Lake Storage Gen1 pour le niveau de performance
 
@@ -65,11 +65,11 @@ Parfois, les pipelines de données ont un contrôle limité sur les données bru
 
 Pour les charges de travail Hive et ADLA, le nettoyage de partition de données de série chronologique peut aider certaines requêtes à lire uniquement un sous-ensemble de données, ce qui améliore le niveau de performance.
 
-Ces pipelines qui ingèrent des données de série chronologique organisent souvent leurs fichiers selon une dénomination structurée pour les fichiers et les dossiers. Voici un exemple courant de données structurées par date : *\DataSet\AAAA\MM\JJ\datafile_AAAA_MM_JJ.tsv* .
+Ces pipelines qui ingèrent des données de série chronologique organisent souvent leurs fichiers selon une dénomination structurée pour les fichiers et les dossiers. Voici un exemple courant de données structurées par date : *\DataSet\AAAA\MM\JJ\datafile_AAAA_MM_JJ.tsv*.
 
 Notez que les informations de date / heure s’affichent à la fois en tant que dossiers et dans le nom de fichier.
 
-Pour la date et l’heure, voici un modèle courant : *\DataSet\AAAA\MM\JJ\HH\mm\datafile_AAAA_MM_JJ_HH_mm.tsv* .
+Pour la date et l’heure, voici un modèle courant : *\DataSet\AAAA\MM\JJ\HH\mm\datafile_AAAA_MM_JJ_HH_mm.tsv*.
 
 Là encore, le type d’organisation des dossiers et fichiers sélectionné doit optimiser les plus gros fichiers et un nombre raisonnable de fichiers par dossier.
 

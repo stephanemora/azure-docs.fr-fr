@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 739be373992fcd994f085f8571675779e450bfee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca24a781f4f3ad5c210813dabbb896de35056ed6
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87090210"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588707"
 ---
 # <a name="collaborative-coding-with-git"></a>Développement collaboratif avec Git
 
@@ -39,7 +39,7 @@ Vous pouvez également créer une branche en utilisant la commande bash Git suiv
 git checkout -b <new branch name> <base branch name>
 
 ```
-Si vous ne spécifiez pas de \<base branch name>, la nouvelle branche est basée sur `master`. 
+Si vous ne spécifiez pas de \<base branch name>, la nouvelle branche est basée sur `main`. 
 
 Pour passer à votre branche de travail, exécutez la commande suivante : 
 
@@ -47,7 +47,7 @@ Pour passer à votre branche de travail, exécutez la commande suivante :
 git checkout <working branch name>
 ```
 
-Une fois que vous avez basculé vers la branche de travail, vous pouvez commencer à développer des artefacts de code ou de documentation pour l’élément de travail. L’exécution de `git checkout master` vous ramène à la branche `master`.
+Une fois que vous avez basculé vers la branche de travail, vous pouvez commencer à développer des artefacts de code ou de documentation pour l’élément de travail. L’exécution de `git checkout main` vous ramène à la branche `main`.
 
 Une bonne pratique est de créer une branche Git pour chaque élément de travail Récit utilisateur. Ensuite, pour chaque élément de travail Tâche, vous pouvez créer une branche basée sur la branche Récit utilisateur. Organisez les branches dans une hiérarchie qui correspond à la relation Récit utilisateur-Tâche quand plusieurs personnes travaillent sur des récits utilisateur différents pour le même projet, ou sur des tâches différentes pour le même récit utilisateur. Vous pouvez réduire les conflits en faisant en sorte que chaque membre de l’équipe travaille sur une branche différente, sur du code différent ou sur d’autres artefacts lors du partage d’une branche. 
 
@@ -105,7 +105,7 @@ Quand vous revenez aux **Dépôts** dans le volet de navigation de gauche, vous 
 Vous pouvez également utiliser les commandes bash Git suivantes pour fusionner la branche de travail `script` avec la branche de base et pour supprimer la branche de travail après la fusion :
 
 ```bash
-git checkout master
+git checkout main
 git merge script
 git branch -d script
 ```

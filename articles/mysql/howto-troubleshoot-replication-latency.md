@@ -7,12 +7,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 10/25/2020
-ms.openlocfilehash: a6ada3557350cd3f2f67dad54152eafded6639ec
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 30ac28ef996c42e99ebece27ec156777f0d033d2
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93087024"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587874"
 ---
 # <a name="troubleshoot-replication-latency-in-azure-database-for-mysql"></a>Résoudre les problèmes de latence de réplication dans Azure Database pour MySQL
 
@@ -31,9 +31,12 @@ Le décalage de réplication sur les réplicas de lecture secondaires dépend de
 
 Dans cet article, vous allez apprendre à résoudre les problèmes de latence de réplication dans Azure Database pour MySQL. Vous comprendrez également certaines causes courantes de l’augmentation de la latence de réplication sur les serveurs de réplication.
 
+> [!NOTE]
+> Cet article contient des références au terme esclave, un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.
+
 ## <a name="replication-concepts"></a>Concepts de réplication
 
-Lorsqu’un journal binaire est activé, le serveur source écrit les transactions validées dans le journal binaire. Le journal binaire est utilisé pour la réplication. Il est activé par défaut pour tous les serveurs nouvellement approvisionnés qui prennent en charge jusqu’à 16 To de stockage. Sur les serveurs de réplication, deux threads s’exécutent sur chaque serveur de réplication. Un thread est *le thread d’e/s* et l’autre est le *thread SQL*  :
+Lorsqu’un journal binaire est activé, le serveur source écrit les transactions validées dans le journal binaire. Le journal binaire est utilisé pour la réplication. Il est activé par défaut pour tous les serveurs nouvellement approvisionnés qui prennent en charge jusqu’à 16 To de stockage. Sur les serveurs de réplication, deux threads s’exécutent sur chaque serveur de réplication. Un thread est *le thread d’e/s* et l’autre est le *thread SQL* :
 
 - Le thread d’E/S se connecte au serveur source et demande les journaux binaires mis à jour. Ce thread reçoit les mises à jour des journaux binaires. Ces mises à jour sont enregistrées sur un serveur de réplication, dans un journal local appelé le *journal de relais*.
 - Le thread SQL lit le journal de relais, puis applique les modifications de données sur les serveurs de réplication.

@@ -3,12 +3,12 @@ title: Utiliser des méthodes directes dans Live Video Analytics sur IoT Edge �
 description: Live Video Analytics sur IoT Edge expose plusieurs méthodes directes. Les méthodes directes sont basées sur les conventions décrites dans cette rubrique.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: ed7cec7b8513044c2bf9b24600b8d9f42a485aae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b5c16dc72beed4ec757e48461a2fc194c113f8d
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87091825"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656238"
 ---
 # <a name="direct-methods"></a>Méthodes directes
 
@@ -140,12 +140,12 @@ Cette méthode directe récupère une topologie de graphe unique.
 
 #### <a name="status-codes"></a>Codes d’état
 
-|Condition  |Code d’état    |Code d’erreur détaillé|
-|---|---|---|
-|Entité trouvée|  200 |N/A
-|Erreurs utilisateur générales    |Plage 400  ||
-|Entité introuvable   |404        ||
-|Erreurs de serveur générales| Plage 500       ||
+| Condition | Code d’état | Code d’erreur détaillé |
+|--|--|--|
+| Entité trouvée | 200 | N/A |
+| Erreurs utilisateur générales | Plage 400 |  |
+| Entité introuvable | 404 |  |
+| Erreurs de serveur générales | Plage 500 |  |
 
 ### <a name="graphtopologyset"></a>GraphTopologySet
 
@@ -227,13 +227,13 @@ Supprime une topologie de graphe unique.
 
 #### <a name="status-codes"></a>Codes d’état
 
-|Condition  |Code d’état    |Code d’erreur détaillé|
-|---|---|---|
-|Entité supprimée|    200|    N/A|
-|Entité introuvable|  204|    N/A|
-|Erreurs utilisateur générales|   Plage 400   ||
-|La topologie de graphe est référencée par une ou plusieurs instances de graphe| 409 |GraphTopologyInUse|
-|Erreurs de serveur générales| Plage 500   ||
+| Condition | Code d’état | Code d’erreur détaillé |
+|--|--|--|
+| Entité supprimée | 200 | N/A |
+| Entité introuvable | 204 | N/A |
+| Erreurs utilisateur générales | Plage 400 |  |
+| La topologie de graphe est référencée par une ou plusieurs instances de graphe | 409 | GraphTopologyInUse |
+| Erreurs de serveur générales | Plage 500 |  |
 
 ### <a name="graphtopologylist"></a>GraphTopologyList
 
@@ -278,18 +278,18 @@ Récupère une liste de toutes les topologies de graphe qui correspondent aux cr
 
 #### <a name="filter-support"></a>Prise en charge des filtres
 
-|Opération      |Champ(s)   |Opérateurs|
+|Opération |Champ(s)    |Opérateurs|
 |---|---|---|
 |$orderby|name  |asc|
 
 
 #### <a name="status-codes"></a>Codes d’état
 
-|Condition  |Code d’état    |Code d’erreur détaillé|
-|---|---|---|
-|Succès|   200 |N/A|
-|Erreurs utilisateur générales|   Plage 400   ||
-|Erreurs de serveur générales| Plage 500   ||
+| Condition | Code d’état | Code d’erreur détaillé |
+|--|--|--|
+| Succès | 200 | N/A |
+| Erreurs utilisateur générales | Plage 400 |  |
+| Erreurs de serveur générales | Plage 500 |  |
 
 ### <a name="graphinstanceget"></a>GraphInstanceGet
 
@@ -323,12 +323,12 @@ Récupère une instance de graphe unique :
 
 #### <a name="status-codes"></a>Codes d’état
 
-|Condition  |Code d’état    |Code d’erreur détaillé|
-|---|---|---|
-|Entité trouvée   |200|   N/A|
-|Erreurs utilisateur générales|   Plage 400   ||
-|Entité introuvable|  404 ||
-|Erreurs de serveur générales| Plage 500   ||
+| Condition | Code d’état | Code d’erreur détaillé |
+|--|--|--|
+| Entité trouvée | 200 | N/A |
+| Erreurs utilisateur générales | Plage 400 |  |
+| Entité introuvable | 404 |  |
+| Erreurs de serveur générales | Plage 500 |  |
 
 ### <a name="graphinstanceset"></a>GraphInstanceSet
 
@@ -373,15 +373,15 @@ Aspects clés :
 
 #### <a name="status-codes"></a>Codes d’état
 
-|Condition  |Code d’état    |Code d’erreur détaillé|
-|---|---|---|
-|Entité existante mise à jour    |200    |N/A|
-|Nouvelle entité créée|    201 |N/A|
-|Erreurs utilisateur générales|   Plage 400   ||
-|Erreurs de validation du graphe    |400|   GraphValidationError|
-|Erreurs de validation du module|  400 |ModuleValidationError|
-|Erreurs de validation des ressources |409    |ResourceValidationError|
-|Erreurs de serveur générales  |Plage 500||    
+| Condition | Code d’état | Code d’erreur détaillé |
+|--|--|--|
+| Entité existante mise à jour | 200 | N/A |
+| Nouvelle entité créée | 201 | N/A |
+| Erreurs utilisateur générales | Plage 400 |  |
+| Erreurs de validation du graphe | 400 | GraphValidationError |
+| Erreurs de validation du module | 400 | ModuleValidationError |
+| Erreurs de validation des ressources | 409 | ResourceValidationError |
+| Erreurs de serveur générales | Plage 500 |  |  |
 
 ### <a name="graphinstancedelete"></a>GraphInstanceDelete
 
@@ -414,13 +414,13 @@ Aspects clés :
 
 #### <a name="status-codes"></a>Codes d’état
 
-|Condition  |Code d’état    |Code d’erreur détaillé|
-|---|---|---|
-|Graphe correctement supprimé|    200|    N/A|
-|Graphe introuvable|   204|    N/A|
-|Erreurs utilisateur générales    |Plage 400  ||
-|Le graphe n’est pas à l’état « Arrêté »    |409    |OperationNotAllowedInState|
-|Erreurs de serveur générales| Plage 500   ||
+| Condition | Code d’état | Code d’erreur détaillé |
+|--|--|--|
+| Graphe correctement supprimé | 200 | N/A |
+| Graphe introuvable | 204 | N/A |
+| Erreurs utilisateur générales | Plage 400 |  |
+| Le graphe n’est pas à l’état « Arrêté » | 409 | OperationNotAllowedInState |
+| Erreurs de serveur générales | Plage 500 |  |
 
 ### <a name="graphinstancelist"></a>GraphInstanceList
 
@@ -472,11 +472,11 @@ Récupère une liste de toutes les instances de graphe qui correspondent aux cri
 
 #### <a name="status-codes"></a>Codes d’état
 
-|Condition  |Code d’état    |Code d’erreur détaillé|
-|---|---|---|
-|Succès    |200    |N/A|
-|Erreurs utilisateur générales|   Plage 400   ||
-|Erreurs de serveur générales| Plage 500   ||
+| Condition | Code d’état | Code d’erreur détaillé |
+|--|--|--|
+| Succès | 200 | N/A |
+| Erreurs utilisateur générales | Plage 400 |  |
+| Erreurs de serveur générales | Plage 500 |  |
 
 ### <a name="graphinstanceactivate"></a>GraphInstanceActivate
 
@@ -516,15 +516,15 @@ Aspects clés
 
 #### <a name="status-codes"></a>Codes d’état
 
-|Condition  |Code d’état    |Code d’erreur détaillé|
-|---|---|---|
-|Graphe activé   |200    |N/A|
-|Nouvelle entité créée |201|   N/A|
-|Erreurs utilisateur générales    |Plage 400  ||
-|Erreurs de validation du module   |400|   ModuleValidationError|
-|Erreurs de validation des ressources|    409|    ResourceValidationError|
-|Le graphe est à l’état Désactivation |409    |OperationNotAllowedInState|
-|Erreurs de serveur générales| Plage 500   ||
+| Condition | Code d’état | Code d’erreur détaillé |
+|--|--|--|
+| Graphe activé | 200 | N/A |
+| Nouvelle entité créée | 201 | N/A |
+| Erreurs utilisateur générales | Plage 400 |  |
+| Erreurs de validation du module | 400 | ModuleValidationError |
+| Erreurs de validation des ressources | 409 | ResourceValidationError |
+| Le graphe est à l’état Désactivation | 409 | OperationNotAllowedInState |
+| Erreurs de serveur générales | Plage 500 |  |
 
 ### <a name="graphinstancedeactivate"></a>GraphInstanceDeactivate
 
@@ -565,13 +565,13 @@ Aspects clés :
 }
 ```
 
-|Condition  |Code d’état    |Code d’erreur détaillé|
-|---|---|---|
-|Graphe activé   |200|   N/A|
-|Nouvelle entité créée |201|   N/A|
-|Erreurs utilisateur générales    |Plage 400  ||
-|Le graphe est à l’état Activation   |409|   OperationNotAllowedInState|
-|Erreurs de serveur générales  |Plage 500  ||
+| Condition | Code d’état | Code d’erreur détaillé |
+|--|--|--|
+| Graphe activé | 200 | N/A |
+| Nouvelle entité créée | 201 | N/A |
+| Erreurs utilisateur générales | Plage 400 |  |
+| Le graphe est à l’état Activation | 409 | OperationNotAllowedInState |
+| Erreurs de serveur générales | Plage 500 |  |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

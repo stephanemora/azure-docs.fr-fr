@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 07/10/2018
-ms.openlocfilehash: f016fd37efa2bd821b5ad2286a921bf29bbedfbd
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: a921e51a3c63828602e7e21bfc96f507649236a5
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92221262"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97682834"
 ---
 # <a name="test-stream-analytics-queries-locally-with-visual-studio"></a>Tester des requêtes Stream Analytics localement avec Visual Studio
 
@@ -28,11 +28,11 @@ Dans votre projet Azure Stream Analytics, double-cliquez sur **Script.asaql** po
  
 ### <a name="add-local-input"></a>Ajouter une entrée locale
 
-Pour valider votre requête par rapport aux données statiques locales, cliquez avec le bouton droit sur l’entrée, et sélectionnez **Ajouter une entrée locale** .
+Pour valider votre requête par rapport aux données statiques locales, cliquez avec le bouton droit sur l’entrée, et sélectionnez **Ajouter une entrée locale**.
    
 ![Capture d’écran mettant en évidence l’option de menu Ajouter une entrée locale.](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-add-local-input-01.png)
    
-Dans la fenêtre indépendante, sélectionnez l’exemple de données dans votre chemin local, puis **Enregistrer** .
+Dans la fenêtre indépendante, sélectionnez l’exemple de données dans votre chemin local, puis **Enregistrer**.
    
 ![Ajouter une entrée locale](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-add-local-input-02.png)
    
@@ -40,7 +40,7 @@ Un fichier nommé **local_EntryStream.json** est automatiquement ajouté à votr
    
 ![Liste des fichiers du dossier d’entrées locales](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-add-local-input-03.png)
    
-Dans l’éditeur de requête, sélectionnez **Exécution locale** . Ou vous pouvez appuyer sur F5.
+Dans l’éditeur de requête, sélectionnez **Exécution locale**. Ou vous pouvez appuyer sur F5.
    
 ![Exécution locale](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-local-run-01.png)
    
@@ -58,15 +58,15 @@ Vérifiez les résultats dans le dossier local.
    
 
 ### <a name="sample-input"></a>Exemple d’entrée
-Vous pouvez également collecter des exemples de données d’entrée à partir de vos sources d’entrée dans un fichier local. Cliquez avec le bouton droit sur le fichier de configuration d’entrée et sélectionnez **Exemple de données** . 
+Vous pouvez également collecter des exemples de données d’entrée à partir de vos sources d’entrée dans un fichier local. Cliquez avec le bouton droit sur le fichier de configuration d’entrée et sélectionnez **Exemple de données**. 
 
 ![Exemples de données](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-sample-data-01.png)
 
-Vous pouvez échantillonner uniquement une diffusion en continu de données à partir d’Event Hubs ou d’IoT Hubs. Les autres sources d’entrée ne sont pas prises en charge. Dans la boîte de dialogue contextuelle, entrez le chemin local utilisé pour enregistrer les exemples de données et sélectionnez **Échantillon** .
+Vous pouvez échantillonner uniquement une diffusion en continu de données à partir d’Event Hubs ou d’IoT Hubs. Les autres sources d’entrée ne sont pas prises en charge. Dans la boîte de dialogue contextuelle, entrez le chemin local utilisé pour enregistrer les exemples de données et sélectionnez **Échantillon**.
 
 ![Configuration des exemples de données](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-sample-data-02.png)
  
-Vous pouvez voir la progression de l’opération dans la fenêtre **Sortie** . 
+Vous pouvez voir la progression de l’opération dans la fenêtre **Sortie**. 
 
 ![Sortie des exemples de données](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-sample-data-03.png)
 
@@ -75,5 +75,4 @@ Vous pouvez voir la progression de l’opération dans la fenêtre **Sortie** .
 * [Démarrage rapide : créer un travail Stream Analytics à l’aide de Visual Studio](stream-analytics-quick-create-vs.md)
 * [Utiliser Visual Studio pour afficher les tâches Azure Stream Analytics](stream-analytics-vs-tools.md)
 * [Tester des données actives localement à l’aide des outils Azure Stream Analytics pour Visual Studio (préversion)](stream-analytics-live-data-local-testing.md)
-* [Tutoriel : Déployer un travail Azure Stream Analytics avec CI/CD à l’aide d’Azure DevOps](stream-analytics-tools-visual-studio-cicd-vsts.md)
 * [Intégrer et développer en continu avec les outils Stream Analytics](stream-analytics-tools-for-visual-studio-cicd.md)

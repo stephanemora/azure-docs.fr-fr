@@ -9,12 +9,12 @@ ms.author: vinsonyu
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 810a08d2f72359b385d2a7567b796aa222c6ab14
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c42acb69e13cc1eb0fbba3fcafaec1451bc4d77
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90930773"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589217"
 ---
 # <a name="features-and-capabilities-of-azure-arc-enabled-sql-managed-instance"></a>Fonctionnalités et capacités de SQL Managed Instance activé pour Azure Arc
 
@@ -59,78 +59,78 @@ Les instances Azure SQL Managed Instance pour Azure Arc partagent une base de co
 
 ###  <a name="rdbms-scalability-and-performance"></a><a name="RDBMSSP"></a> RDBMS Scalability and Performance  
 
-|Fonctionnalité|SQL Managed Instance avec Azure Arc|
-|-------------|----------------|
-|columnstore|   Oui|
-|Fichiers binaires LOB dans les index columnstore cluster|    Oui|
-|Reconstruction d’index columnstore non cluster en ligne| Oui|
-|OLTP en mémoire|    Oui|
-|Mémoire principale persistante|    Oui|
-|Partitionnement des tables et des index|  Oui
-|Compression des données|  Oui|
-|gouverneur de ressources| Oui|
-|Parallélisme de tables partitionnées| Oui|
-|Mémoire de pages de grande taille compatible NUMA et allocation de tableau de tampons|  Oui|
-|Gouvernance des ressources d'E/S|    Oui|
-|Durabilité différée|    Oui|
-|Paramétrage automatique|  Oui|
-|Jointures adaptatives en mode batch| Oui|
-|Retour d’allocation de mémoire en mode batch|  Oui|
-|Exécution entrelacée pour les fonctions table à instructions multiples|  Oui|
-|Améliorations de l’insertion en bloc   |Oui|
+| Fonctionnalité | SQL Managed Instance avec Azure Arc |
+|--|--|
+| columnstore | Oui |
+| Fichiers binaires LOB dans les index columnstore cluster | Oui |
+| Reconstruction d’index columnstore non cluster en ligne | Oui |
+| OLTP en mémoire | Oui |
+| Mémoire principale persistante | Oui |
+| Partitionnement des tables et des index | Oui |
+| Compression des données | Oui |
+| gouverneur de ressources | Oui |
+| Parallélisme de tables partitionnées | Oui |
+| Mémoire de pages de grande taille compatible NUMA et allocation de tableau de tampons | Oui |
+| Gouvernance des ressources d'E/S | Oui |
+| Durabilité différée | Oui |
+| Paramétrage automatique | Oui |
+| Jointures adaptatives en mode batch | Oui |
+| Retour d’allocation de mémoire en mode batch | Oui |
+| Exécution entrelacée pour les fonctions table à instructions multiples | Oui |
+| Améliorations de l’insertion en bloc | Oui |
 
-###  <a name="rdbms-security"></a><a name="RDBMSS"></a> RDBMS Security  
-|Fonctionnalité|SQL Managed Instance avec Azure Arc|
-|-------------|----------------|
-|Sécurité au niveau des lignes|    Oui|
-|Always Encrypted|  Oui|
-|Always Encrypted avec enclaves sécurisées| Non|
-|Masquage dynamique des données|  Oui|
-|Audit de base|    Oui|
-|Audit de granularité fine| Oui|
-|Chiffrement transparent de base de données|   Oui|
-|Rôles définis par l’utilisateur|    Oui|
-|Bases de données autonomes|   Oui|
-|Chiffrement des sauvegardes|    Oui|
+###  <a name="rdbms-security"></a><a name="RDBMSS"></a> RDBMS Security
+
+| Fonctionnalité | SQL Managed Instance avec Azure Arc |
+|--|--|
+| Sécurité au niveau des lignes | Oui |
+| Always Encrypted | Oui |
+| Always Encrypted avec enclaves sécurisées | Non |
+| Masquage dynamique des données | Oui |
+| Audit de base | Oui |
+| Audit de granularité fine | Oui |
+| Chiffrement transparent de base de données | Oui |
+| Rôles définis par l’utilisateur | Oui |
+| Bases de données autonomes | Oui |
+| Chiffrement des sauvegardes | Oui |
 
 ###  <a name="rdbms-manageability"></a><a name="RDBMSM"></a> RDBMS Manageability  
 
-|Fonctionnalité|SQL Managed Instance avec Azure Arc|
-|-------------|----------------|
-|Connexion administrateur dédiée|    Oui|
-|Prise en charge de scripts PowerShell|  Oui|
-|Prise en charge des opérations des composants d’application du niveau Données : extraction, déploiement, mise à niveau, suppression| Oui
-|Automation de stratégie (vérification selon la planification et sur modification)   |Oui|
-|Collecteur de données de performances|    Oui|
-|Rapports de performances standard   |Oui|
-|Repères de plan et gel de plan relatif| Oui|
-|Requête directe de vues d'index (à l'aide de l'indicateur NOEXPAND)|   Oui|
-|Maintenance automatique des vues indexées    |Oui|
-|Vues partitionnées distribuées| Oui|
-|Opérations d'index parallèles    |Oui|
-|Utilisation automatique de vues indexées par l'optimiseur de requête|  Oui|
-|Vérifications de cohérence parallèles |Oui|
-
+| Fonctionnalité | SQL Managed Instance avec Azure Arc |
+|--|--|
+| Connexion administrateur dédiée | Oui |
+| Prise en charge de scripts PowerShell | Oui |
+| Prise en charge des opérations des composants d’application du niveau Données : extraction, déploiement, mise à niveau, suppression | Oui |
+| Automation de stratégie (vérification selon la planification et sur modification) | Oui |
+| Collecteur de données de performances | Oui |
+| Rapports de performances standard | Oui |
+| Repères de plan et gel de plan relatif | Oui |
+| Requête directe de vues d'index (à l'aide de l'indicateur NOEXPAND) | Oui |
+| Maintenance automatique des vues indexées | Oui |
+| Vues partitionnées distribuées | Oui |
+| Opérations d'index parallèles | Oui |
+| Utilisation automatique de vues indexées par l'optimiseur de requête | Oui |
+| Vérifications de cohérence parallèles | Oui |
 
 ### <a name="programmability"></a><a name="Programmability"></a> Programmability  
 
-|Fonctionnalité|SQL Managed Instance avec Azure Arc|
-|-------------|----------------|
-|JSON|  Oui |       |
-|Magasin des requêtes    |Oui    |       
-|Temporal|  Oui |       
-|Prise en charge XML native|    Oui |       
-|Indexation XML   |Oui    |       
-|Fonctions MERGE & UPSERT|   Oui |       
-|Types de données de date et d'heure    |Oui    |       
-|Support d'internationalisation|  Oui |       
-|Recherche sémantique et en texte intégral |    Non      |
-|Spécification d'une langue dans une requête |Oui        |   
-|Service Broker (messagerie)|    Oui     |   
-|Transact-SQL, points de terminaison|    Oui |       
-|Graph| Oui |   
-|Machine Learning Services| Non  |   
-|PolyBase| Non   |
+| Fonctionnalité | SQL Managed Instance avec Azure Arc |
+|--|--|
+| JSON | Oui |
+| Magasin des requêtes | Oui |  |
+| Temporal | Oui |  |
+| Prise en charge XML native | Oui |  |
+| Indexation XML | Oui |  |
+| Fonctions MERGE & UPSERT | Oui |  |
+| Types de données de date et d'heure | Oui |  |
+| Support d'internationalisation | Oui |  |
+| Recherche sémantique et en texte intégral | Non |
+| Spécification d'une langue dans une requête | Oui |  |
+| Service Broker (messagerie) | Oui |  |
+| Transact-SQL, points de terminaison | Oui |  |
+| Graph | Oui |  |
+| Machine Learning Services | Non |  |
+| PolyBase | Non |
 
 
 ### <a name="tools"></a>Outils

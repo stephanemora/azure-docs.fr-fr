@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/11/2019
-ms.openlocfilehash: ba63358347cf9722d2cafa35598b9b3b37f49dc3
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 67e28e8c5092f2b52a3a34053f81d8a00afb24ed
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129454"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97683224"
 ---
 # <a name="copy-or-back-up-azure-stream-analytics-jobs"></a>Copier ou sauvegarder des travaux Azure Stream Analytics
 
@@ -31,13 +31,11 @@ Vous pouvez copier ou sauvegarder vos travaux Azure Stream Analytics déployés 
 
    ![Ouvrir l’Explorateur Stream Analytics](./media/vscode-explore-jobs/open-explorer.png)
 
-2. Pour exporter un travail vers un projet local, recherchez le travail que vous souhaitez exporter dans l’ **Explorateur Stream Analytics** de Visual Studio Code. Puis, sélectionnez un dossier pour votre projet.
+2. Pour exporter un travail vers un projet local, recherchez le travail que vous souhaitez exporter dans l’**Explorateur Stream Analytics** de Visual Studio Code. Puis, sélectionnez un dossier pour votre projet.
 
     ![Localiser le travail ASA dans Visual Studio Code](./media/vscode-explore-jobs/export-job.png)
 
     Le projet est exporté vers le dossier que vous sélectionnez et est ajouté à votre espace de travail actuel.
-
-    ![Exporter le travail ASA dans Visual Studio Code](./media/stream-analytics-manage-job/copy-backup-stream-analytics-jobs.png)
 
 3. Pour publier le travail dans une autre région ou dans une sauvegarde à l’aide d’un autre nom, sélectionnez **Select from your subscriptions to publish** (sélectionner parmi vos abonnements pour publier) dans l’éditeur de requête (\*.asaql) et suivez les instructions.
 
@@ -53,4 +51,3 @@ Vous pouvez copier ou sauvegarder vos travaux Azure Stream Analytics déployés 
 
 * [Démarrage rapide : créer un travail Stream Analytics à l’aide de Visual Studio Code](quick-create-visual-studio-code.md)
 * [Démarrage rapide : créer un travail Stream Analytics à l’aide de Visual Studio](stream-analytics-quick-create-vs.md)
-* [Déployer un travail Azure Stream Analytics avec CI/CD à l’aide de Azure Pipelines](stream-analytics-tools-visual-studio-cicd-vsts.md)

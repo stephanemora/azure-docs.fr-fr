@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2020
 ms.author: Zhchia
-ms.openlocfilehash: 92329a3fa04d3cc685ba5068e9e5ae9932d1eb4d
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 932a94c348c38902c68a6cf8108d8246cdc434ac
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96178940"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673374"
 ---
 # <a name="tutorial-configure-cybsafe-for-automatic-user-provisioning"></a>Tutoriel : Configurer CybSafe pour l’attribution automatique d’utilisateurs
 
@@ -135,15 +135,15 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 13. Pour activer le service de provisionnement Azure AD pour CybSafe, définissez le paramètre **État de provisionnement** sur **Activé** dans la section **Paramètres**.
 
-    ![État d’approvisionnement activé](common/provisioning-toggle-on.png)
+      ![État d’approvisionnement activé](common/provisioning-toggle-on.png)
 
 14. Définissez les utilisateurs et/ou les groupes que vous souhaitez attribuer à CybSafe en choisissant les valeurs souhaitées dans **Étendue**, dans la section **Paramètres**.
 
-    ![Étendue de l’approvisionnement](common/provisioning-scope.png)
+      ![Étendue de l’approvisionnement](common/provisioning-scope.png)
 
 15. Lorsque vous êtes prêt à effectuer l’approvisionnement, cliquez sur **Enregistrer**.
 
-    ![Enregistrement de la configuration de l’approvisionnement](common/provisioning-configuration-save.png)
+      ![Enregistrement de la configuration de l’approvisionnement](common/provisioning-configuration-save.png)
 
 Cette opération démarre le cycle de synchronisation initiale de tous les utilisateurs et groupes définis dans **Étendue** dans la section **Paramètres**. Le cycle de synchronisation initiale prend plus de temps que les cycles de synchronisation suivants, qui se produisent toutes les 40 minutes environ tant que le service de provisionnement Azure AD est en cours d’exécution. 
 

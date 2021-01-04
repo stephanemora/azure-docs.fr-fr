@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: d2eef20b4c5648b1b11f16d8e46b956fc1497181
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d432f29e91097491fc4719ec59a11cb96948f431
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92364420"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97609052"
 ---
 # <a name="create-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Créer un groupe de serveurs PostgreSQL Hyperscale compatible avec Azure Arc
 
@@ -32,7 +32,7 @@ Vous souhaiterez peut-être lire les rubriques importantes avant de procéder à
 - [Configuration de stockage et concepts de stockage Kubernetes](storage-configuration.md)
 - [Modèle de ressources Kubernetes](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/scheduling/resources.md#resource-quantities)
 
-Si vous préférez essayer d’effectuer des opérations sans configurer un environnement complet, commencez rapidement avec [Démarrage rapide Azure Arc](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services) sur Azure Kubernetes service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) ou dans une machine virtuelle Azure.
+Si vous préférez essayer d’effectuer des opérations sans configurer un environnement complet, commencez rapidement avec [Démarrage rapide Azure Arc](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/) sur Azure Kubernetes service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) ou dans une machine virtuelle Azure.
 
 
 ## <a name="login-to-the-azure-arc-data-controller"></a>Se connecter au contrôleur de données Azure Arc
@@ -80,10 +80,10 @@ azdata arc postgres server create -n <name> --workers <# worker nodes with #>=2>
 
 > [!NOTE]
 > - **D’autres paramètres de ligne de commande sont disponibles.  Consultez la liste complète des options en exécutant `azdata arc postgres server create --help`.**
-> - La classe de stockage utilisée pour les sauvegardes ( _--storage-class-backups -scb_ ) correspond par défaut la classe de stockage des données du contrôleur de données si elle n’est pas fournie.
+> - La classe de stockage utilisée pour les sauvegardes ( _--storage-class-backups -scb_) correspond par défaut la classe de stockage des données du contrôleur de données si elle n’est pas fournie.
 > - L’unité acceptée par les paramètres --volume-size-* est une quantité de ressource Kubernetes (un entier suivi d’un de ces suffixes SI (T, G, M, K, m) ou de leurs équivalents de puissance de deux (TI, GI, mi, Ki)).
 > - La longueur des noms doit être inférieure ou égale à 12 caractères et conforme aux conventions d’affectation des noms DNS.
-> - Vous êtes invité à entrer le mot de passe de l’utilisateur administrateur standard _postgres_ .  Vous pouvez ignorer l’invite interactive en définissant la variable d’environnement de session `AZDATA_PASSWORD` avant d’exécuter la commande create.
+> - Vous êtes invité à entrer le mot de passe de l’utilisateur administrateur standard _postgres_.  Vous pouvez ignorer l’invite interactive en définissant la variable d’environnement de session `AZDATA_PASSWORD` avant d’exécuter la commande create.
 > - Si vous avez déployé le contrôleur de données à l’aide des variables d’environnement de session AZDATA_USERNAME et AZDATA_PASSWORD dans la même session de terminal, les valeurs d’AZDATA_PASSWORD seront également utilisées pour déployer le groupe de serveurs PostgreSQL Hyperscale. Si vous préférez utiliser un autre mot de passe, vous pouvez (1) mettre à jour la valeur d’AZDATA_PASSWORD ou (2) supprimer la variable d’environnement AZDATA_PASSWORD ou supprimer sa valeur pour être invité à entrer un mot de passe de manière interactive lorsque vous créez un groupe de serveurs.
 > - Le nom de l’utilisateur administrateur par défaut pour le moteur de base de données PostgreSQL Hyperscale est _postgresql_ et ne peut pas être modifié à ce stade.
 > - La création d’un groupe de serveurs PostgreSQL Hyperscale n’inscrira pas immédiatement les ressources dans Azure. Dans le cadre du processus de chargement de l’[inventaire des ressources](upload-metrics-and-logs-to-azure-monitor.md) ou des [données d’utilisation](view-billing-data-in-azure.md) à Azure, les ressources seront créées dans Azure et vous pourrez voir vos ressources dans le Portail Azure.
@@ -136,7 +136,7 @@ Si vous utilisez une machine virtuelle Azure à tester, suivez les instructions 
 
 ## <a name="special-note-about-azure-virtual-machine-deployments"></a>Remarque spéciale sur les déploiements de machines virtuelles Azure
 
-Lorsque vous utilisez une machine virtuelle Azure, l’adresse IP du point de terminaison n’affiche pas l’adresse IP _publique_ . Utilisez la commande suivante pour localiser l’adresse IP publique :
+Lorsque vous utilisez une machine virtuelle Azure, l’adresse IP du point de terminaison n’affiche pas l’adresse IP _publique_. Utilisez la commande suivante pour localiser l’adresse IP publique :
 
 ```azurecli
 az network public-ip list -g azurearcvm-rg --query "[].{PublicIP:ipAddress}" -o table
@@ -162,12 +162,12 @@ az network nsg rule create -n db_port --destination-port-ranges 30655 --source-a
 
 ## <a name="connect-with-azure-data-studio"></a>Se connecter avec Azure Data Studio
 
-Ouvrez Azure Data Studio et connectez-vous à votre instance avec l’adresse IP et le numéro de port du point de terminaison externe, ainsi que le mot de passe que vous avez spécifié au moment de la création de l’instance.  Si PostgreSQL n’est pas disponible dans la liste déroulante *Type de connexion* , vous pouvez installer l’extension PostgreSQL en recherchant PostgreSQL sous l’onglet Extensions.
+Ouvrez Azure Data Studio et connectez-vous à votre instance avec l’adresse IP et le numéro de port du point de terminaison externe, ainsi que le mot de passe que vous avez spécifié au moment de la création de l’instance.  Si PostgreSQL n’est pas disponible dans la liste déroulante *Type de connexion*, vous pouvez installer l’extension PostgreSQL en recherchant PostgreSQL sous l’onglet Extensions.
 
 > [!NOTE]
 > Vous devrez cliquer sur le bouton [Avancé] dans le panneau de connexion pour entrer le numéro de port.
 
-N’oubliez pas que si vous utilisez une machine virtuelle Azure, vous aurez besoin de l’ _adresse IP_ publique qui est accessible via la commande suivante :
+N’oubliez pas que si vous utilisez une machine virtuelle Azure, vous aurez besoin de l’_adresse IP_ publique qui est accessible via la commande suivante :
 
 ```azurecli
 az network public-ip list -g azurearcvm-rg --query "[].{PublicIP:ipAddress}" -o table

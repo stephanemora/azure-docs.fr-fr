@@ -12,12 +12,12 @@ ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: c40a0cb362f8c43541194cd1ca0c57abbf8fa974
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 49388ee75fa3e5570a906998fdeaa579208fd636
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033100"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588588"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Questions fréquentes (FAQ) sur la fonctionnalité Proxy d’application Azure Active Directory
 
@@ -80,10 +80,12 @@ Des compteurs Analyseur de performances sont installés de concert avec le conne
 Le connecteur ne doit pas obligatoirement se trouver sur le même sous-réseau. En revanche, il a besoin d’une résolution de noms (DNS, fichier hosts) pour la ressource et de la connectivité réseau appropriée (routage vers la ressource, ports ouverts sur la ressource, etc.). Pour obtenir des recommandations, consultez [Considérations sur la topologie de réseau lors de l’utilisation du proxy d’application Azure Active Directory](application-proxy-network-topology.md).
 
 ### <a name="what-versions-of-windows-server-can-i-install-a-connector-on"></a>Sur quelles versions de Windows Server puis-je installer un connecteur ?
+
 Le proxy d’application nécessite Windows Server 2012 R2 ou une version ultérieure. Il existe actuellement une limitation sur HTTP2 pour Windows Server 2019. Pour pouvoir utiliser correctement le connecteur sur Windows Server 2019, vous devez ajouter la clé de Registre suivante et redémarrer le serveur :
-    ```
-    HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\EnableDefaultHttp2 (DWORD) Value: 0 
-    ```
+
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\EnableDefaultHttp2 (DWORD) Value: 0 
+```
 
 ## <a name="application-configuration"></a>Configuration de l’application
 

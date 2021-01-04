@@ -14,12 +14,12 @@ ms.custom:
 - seo-dt-2019
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: db2f6e95153610e0a1b79cf5d30cea3c917333d3
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 8c3c1d28a7fbb3e3c9c449feb03a75d48178b718
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94962567"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97609035"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-from-postgresql-to-azure-db-for-postgresql"></a>Problèmes connus et limitations concernant les migrations en ligne de PostgreSQL vers Azure DB pour PostgreSQL
 
@@ -38,8 +38,8 @@ Les sections suivantes décrivent les problèmes connus et limitations associés
   2. Ajoutez l’adresse IP dans le fichier pg_hba.conf comme indiqué :
 
       ```
-          host  all     172.16.136.18/10    md5
-          host  replication postgres    172.16.136.18/10    md5
+          host    all    172.16.136.18/10    md5
+          host    replication postgres    172.16.136.18/10     md5
       ```
 
 - L’utilisateur doit disposer du rôle REPLICATION sur le serveur qui héberge la base de données source.
@@ -47,7 +47,7 @@ Les sections suivantes décrivent les problèmes connus et limitations associés
 - Le schéma de la base de données cible dans Azure Database pour PostgreSQL - Serveur unique ne doit pas inclure de clés étrangères. Pour supprimer les clés étrangères, utilisez la requête suivante :
 
     ```
-                                SELECT Queries.tablename
+                  SELECT Queries.tablename
            ,concat('alter table ', Queries.tablename, ' ', STRING_AGG(concat('DROP CONSTRAINT ', Queries.foreignkey), ',')) as DropQuery
                 ,concat('alter table ', Queries.tablename, ' ', 
                                                 STRING_AGG(concat('ADD CONSTRAINT ', Queries.foreignkey, ' FOREIGN KEY (', column_name, ')', 'REFERENCES ', foreign_table_name, '(', foreign_column_name, ')' ), ',')) as AddQuery

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 12/07/2020
 ms.author: sngun
 ms.custom: subject-monitoring
-ms.openlocfilehash: 1b1ff2649f54005eff139b1ed1d4d0b4ea152b1f
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 75df985377e6ed1764985f8d0b6b44323f249b8a
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96855020"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97632007"
 ---
 # <a name="monitoring-azure-cosmos-db-data-reference"></a>Supervision des informations de référence sur les données Azure Cosmos DB
 
@@ -104,7 +104,7 @@ Pour obtenir la liste de toutes les catégories Azure Monitor et des liens vers 
 
 ## <a name="azure-monitor-logs-tables"></a>Tables Azure Monitor Logs
 
-Azure Cosmos DB utilise les tables Kusto des journaux Azure Monitor. Vous pouvez interroger ces tables à l’aide de Log Analytics. Pour une liste des utilisations des balles Kusto, consultez l’article [Référence de table des journaux Azure Monitor](/azure-monitor/reference/tables/tables-resourcetype#azure-cosmos-db).
+Azure Cosmos DB utilise les tables Kusto des journaux Azure Monitor. Vous pouvez interroger ces tables à l’aide de Log Analytics. Pour une liste des utilisations des balles Kusto, consultez l’article [Référence de table des journaux Azure Monitor](/azure/azure-monitor/reference/tables/tables-resourcetype#azure-cosmos-db).
 
 ## <a name="see-also"></a>Voir aussi
 

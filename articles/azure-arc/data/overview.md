@@ -9,12 +9,12 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 09/22/2020
 ms.topic: overview
-ms.openlocfilehash: e8a28415bf9448133102e92a658e7d200ac2772c
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: ef16a4c0b6ea40fb4934307916f1fe79ccea72f9
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92316965"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97609137"
 ---
 # <a name="what-are-azure-arc-enabled-data-services-preview"></a>Présentation des services de données avec Azure Arc (préversion)
 
@@ -33,7 +33,7 @@ Les services de données avec Azure Arc, tels que SQL Managed Instance avec Azur
 
 ## <a name="elastic-scale"></a>Mise à l’échelle élastique
 
-L'élasticité de type cloud disponible localement vous permet d'effectuer dynamiquement un scale-up ou un scale-down de vos bases de données en fonction de la capacité de votre infrastructure, de la même manière que dans Azure. Cette fonctionnalité peut convenir aux scénarios d'augmentation du trafic qui se caractérisent par des besoins volatils, notamment aux scénarios nécessitant l'ingestion et l'interrogation de données en temps réel, quelle que soit l'échelle, avec un temps de réponse inférieur à la seconde. En outre, vous pouvez effectuer un scale-out des instances de base de données à l'aide de l'option de déploiement hyperscale unique d'Azure Database pour PostgreSQL Hyperscale. Cette fonctionnalité permet aux charges de travail de données de bénéficier d'une optimisation supplémentaire en termes de capacité grâce à des lectures et à des écritures de scale- *out* uniques.
+L'élasticité de type cloud disponible localement vous permet d'effectuer dynamiquement un scale-up ou un scale-down de vos bases de données en fonction de la capacité de votre infrastructure, de la même manière que dans Azure. Cette fonctionnalité peut convenir aux scénarios d'augmentation du trafic qui se caractérisent par des besoins volatils, notamment aux scénarios nécessitant l'ingestion et l'interrogation de données en temps réel, quelle que soit l'échelle, avec un temps de réponse inférieur à la seconde. En outre, vous pouvez effectuer un scale-out des instances de base de données à l'aide de l'option de déploiement hyperscale unique d'Azure Database pour PostgreSQL Hyperscale. Cette fonctionnalité permet aux charges de travail de données de bénéficier d'une optimisation supplémentaire en termes de capacité grâce à des lectures et à des écritures de scale-*out* uniques.
 
 ## <a name="self-service-provisioning"></a>Approvisionnement en libre-service
 
@@ -50,7 +50,7 @@ De nombreux services tels que l'approvisionnement en libre-service, les sauvegar
 ## <a name="next-steps"></a>Étapes suivantes
 
 > **Vous voulez juste essayer ?**  
-> Démarrez rapidement avec [Démarrage rapide d’Azure Arc](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services) sur Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) ou sur une machine virtuelle Azure.
+> Démarrez rapidement avec [Démarrage rapide d’Azure Arc](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/) sur Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) ou sur une machine virtuelle Azure.
 
 [Installer les outils clients](install-client-tools.md)
 

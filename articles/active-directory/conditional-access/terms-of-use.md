@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1829c69510568b0f9a8cec7fb7d2d57be8515d3
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 399cbef4de91623ada1c38de7c6148d22fde94c7
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509986"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672398"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Conditions d’utilisation d’Azure Active Directory
 
@@ -74,11 +74,11 @@ Après avoir finalisé le document relatif à vos conditions d’utilisation, ef
 1. Connectez-vous à Azure en tant qu’Administrateur général, Administrateur de la sécurité ou Administrateur de l’accès conditionnel.
 1. Accédez aux **conditions d’utilisation** sur [https://aka.ms/catou](https://aka.ms/catou).
 
-   ![Accès conditionnel - Panneau Conditions d’utilisation](./media/terms-of-use/tou-blade.png)
+    ![Accès conditionnel - Panneau Conditions d’utilisation](./media/terms-of-use/tou-blade.png)
 
 1. Cliquez sur **Nouvelles conditions d’utilisation**.
 
-   ![Nouveau panneau Conditions d’utilisation permettant de spécifier les paramètres de vos conditions d’utilisation](./media/terms-of-use/new-tou.png)
+    ![Nouveau panneau Conditions d’utilisation permettant de spécifier les paramètres de vos conditions d’utilisation](./media/terms-of-use/new-tou.png)
 
 1. Dans la zone **Nom**, entrez le nom des conditions d’utilisation à utiliser dans le portail Azure.
 1. Dans la zone **Nom d’affichage**, entrez le titre présenté aux utilisateurs quand ils se connectent.
@@ -88,7 +88,7 @@ Après avoir finalisé le document relatif à vos conditions d’utilisation, ef
 1. Pour demander aux utilisateurs finaux d’accepter vos conditions d’utilisation sur chaque appareil à partir duquel l’accès leur est octroyé, définissez **Demander le consentement des utilisateurs sur chaque appareil** sur **Activé**. Les utilisateurs peuvent être amenés à installer des applications supplémentaires si cette option est activée. Pour plus d’informations, consultez [Conditions d’utilisation par appareil](#per-device-terms-of-use).
 1. Si vous voulez faire expirer les consentements pour les conditions d’utilisation selon une planification, définissez **Faire expirer les consentements** sur **Activé**. Si la valeur Activé est définie, deux paramètres de planification supplémentaires sont affichés.
 
-   ![Paramètres Faire expirer les consentements pour définir la date de début, la fréquence et la durée](./media/terms-of-use/expire-consents.png)
+    ![Paramètres Faire expirer les consentements pour définir la date de début, la fréquence et la durée](./media/terms-of-use/expire-consents.png)
 
 1. Utilisez les paramètres **Expiration commençant le** et **Fréquence** pour spécifier la planification régissant l’expiration des conditions d’utilisation. Le tableau suivant présente deux exemples de paramètres et leur résultat :
 
@@ -115,7 +115,7 @@ Après avoir finalisé le document relatif à vos conditions d’utilisation, ef
 
 1. Sous **Accès conditionnel**, utilisez la liste **Appliquer avec des modèles de stratégie d’accès conditionnel** afin de sélectionner le modèle à utiliser pour appliquer les conditions d’utilisation.
 
-   ![Liste déroulante Accès conditionnel pour sélectionner un modèle de stratégie](./media/terms-of-use/conditional-access-templates.png)
+    ![Liste déroulante Accès conditionnel pour sélectionner un modèle de stratégie](./media/terms-of-use/conditional-access-templates.png)
 
    | Modèle | Description |
    | --- | --- |
@@ -131,7 +131,7 @@ Après avoir finalisé le document relatif à vos conditions d’utilisation, ef
 
 1. Cliquez sur **Créer**.
 
-   Si vous avez sélectionné un modèle d’accès conditionnel personnalisé, un nouvel écran s’affiche pour vous permettre de créer la stratégie d’accès conditionnel personnalisée.
+    Si vous avez sélectionné un modèle d’accès conditionnel personnalisé, un nouvel écran s’affiche pour vous permettre de créer la stratégie d’accès conditionnel personnalisée.
 
    ![Nouveau volet Accès conditionnel si vous avez choisi le modèle de stratégie d’accès conditionnel personnalisé](./media/terms-of-use/custom-policy.png)
 
@@ -145,15 +145,15 @@ Le panneau des conditions d’utilisation affiche le nombre d’utilisateurs aya
 
 1. Connectez-vous à Azure et accédez à **Conditions d’utilisation** sur [https://aka.ms/catou](https://aka.ms/catou).
 
-   ![Panneau Conditions d’utilisation montrant le nombre d’utilisateurs ayant accepté et le nombre d’utilisateurs ayant refusé les conditions](./media/terms-of-use/view-tou.png)
+    ![Panneau Conditions d’utilisation montrant le nombre d’utilisateurs ayant accepté et le nombre d’utilisateurs ayant refusé les conditions](./media/terms-of-use/view-tou.png)
 
 1. Cliquez sur les chiffres situés sous **Accepté** et **Refusé** pour voir qui a accepté et qui a refusé les conditions d’utilisation.
 
-   ![Volet Consentements pour les conditions d’utilisation listant les utilisateurs qui ont accepté les conditions d’utilisation](./media/terms-of-use/accepted-tou.png)
+    ![Volet Consentements pour les conditions d’utilisation listant les utilisateurs qui ont accepté les conditions d’utilisation](./media/terms-of-use/accepted-tou.png)
 
 1. Pour afficher l’historique d’un utilisateur individuel, cliquez sur le bouton de sélection ( **...** ), puis sur **Afficher l’historique**.
 
-   ![Menu contextuel Afficher l’historique pour un utilisateur](./media/terms-of-use/view-history-menu.png)
+    ![Menu contextuel Afficher l’historique pour un utilisateur](./media/terms-of-use/view-history-menu.png)
 
    Le volet Afficher l’historique présente l’historique des acceptations, des refus et des expirations.
 
@@ -169,11 +169,11 @@ Pour démarrer avec les journaux d’audit Azure AD, effectuez les étapes suiva
 1. Sélectionnez des conditions d’utilisation.
 1. Cliquez sur **Afficher les journaux d’audit**.
 
-   ![Panneau Conditions d’utilisation avec l’option Afficher les journaux d’audit mise en surbrillance](./media/terms-of-use/audit-tou.png)
+    ![Panneau Conditions d’utilisation avec l’option Afficher les journaux d’audit mise en surbrillance](./media/terms-of-use/audit-tou.png)
 
 1. Sur l’écran des journaux d’audit Azure AD, vous pouvez filtrer les informations à l’aide des listes fournies pour cibler des éléments spécifiques du journal d’audit.
 
-   Vous pouvez également cliquer sur **Télécharger** pour télécharger les informations dans un fichier .csv en vue d’une utilisation locale.
+    Vous pouvez également cliquer sur **Télécharger** pour télécharger les informations dans un fichier .csv en vue d’une utilisation locale.
 
    ![Écran Journaux d’audit Azure AD listant la date, la stratégie cible, l’activité et la personne ayant démarré l’activité](./media/terms-of-use/audit-logs-tou.png)
 
@@ -204,11 +204,11 @@ Vous pouvez consulter et vérifier les conditions d’utilisation qu’ils ont a
 1. Connectez-vous à [https://myapps.microsoft.com](https://myapps.microsoft.com).
 1. Dans l’angle supérieur droit, cliquez sur votre nom, puis sélectionnez **Profil**.
 
-   ![Site MyApps avec le volet de l’utilisateur ouvert](./media/terms-of-use/tou14.png)
+    ![Site MyApps avec le volet de l’utilisateur ouvert](./media/terms-of-use/tou14.png)
 
 1. Dans la page de votre profil, cliquez sur **Vérifier les conditions d’utilisation**.
 
-   ![Page de profil d’un utilisateur montrant le lien Vérifier les conditions d’utilisation](./media/terms-of-use/tou13a.png)
+    ![Page de profil d’un utilisateur montrant le lien Vérifier les conditions d’utilisation](./media/terms-of-use/tou13a.png)
 
 1. C’est là que vous pouvez consulter les conditions d’utilisation que vous avez acceptées.
 
@@ -220,11 +220,11 @@ Vous pouvez modifier certains détails des conditions d’utilisation, mais il n
 1. Sélectionnez les conditions d’utilisation à modifier.
 1. Cliquez sur **Modifier les conditions**.
 1. Dans le volet Modifier les conditions d’utilisation, vous pouvez changer les éléments suivants :
-     - **Nom** : nom interne des conditions d’utilisation qui n’est pas partagé avec les utilisateurs finaux
-     - **Nom d’affichage** : nom que les utilisateurs finaux peuvent voir lors de l’affichage des conditions d’utilisation
-     - **Demander aux utilisateurs d’étendre les conditions d’utilisation** : la définition de cette option sur **Activé** force l’utilisateur final à étendre les conditions d’utilisation avant de les accepter.
-     - (Préversion) Vous pouvez **mettre à jour un document de conditions d’utilisation existant**
-     - Vous pouvez ajouter une langue à des conditions d’utilisation existantes
+    - **Nom** : nom interne des conditions d’utilisation qui n’est pas partagé avec les utilisateurs finaux
+    - **Nom d’affichage** : nom que les utilisateurs finaux peuvent voir lors de l’affichage des conditions d’utilisation
+    - **Demander aux utilisateurs d’étendre les conditions d’utilisation** : la définition de cette option sur **Activé** force l’utilisateur final à étendre les conditions d’utilisation avant de les accepter.
+    - (Préversion) Vous pouvez **mettre à jour un document de conditions d’utilisation existant**
+    - Vous pouvez ajouter une langue à des conditions d’utilisation existantes
 
    Si vous souhaitez changer d’autres paramètres, comme le document PDF, le fait de demander le consentement des utilisateurs sur chaque appareil, l’expiration des consentements, la durée avant nouvelle acceptation ou encore la stratégie d’accès conditionnel, vous devez établir de nouvelles conditions d’utilisation.
 
@@ -238,8 +238,8 @@ Vous pouvez modifier certains détails des conditions d’utilisation, mais il n
 2.  Sélectionnez les conditions d’utilisation à modifier.
 3.  Cliquez sur **Modifier les conditions**.
 4.  Pour la langue dans laquelle vous souhaitez mettre à jour une nouvelle version, cliquez sur **Mettre à jour** sous la colonne Action.
- 
-     ![Volet Modifier les conditions d’utilisation montrant les options Nom et Développer](./media/terms-of-use/edit-terms-use.png)
+
+    ![Volet Modifier les conditions d’utilisation montrant les options Nom et Développer](./media/terms-of-use/edit-terms-use.png)
 
 5.  Dans le volet de droite, chargez le fichier PDF pour la nouvelle version.
 6.  Il existe également une option à bascule **Exiger une nouvelle acceptation** si vous souhaitez obliger les utilisateurs à accepter cette nouvelle version la prochaine fois qu’ils se connectent. Si vous exigez une nouvelle acceptation de la part de vos utilisateurs, ceux-ci sont invités à accepter cette nouvelle version la prochaine fois qu’ils tentent d’accéder à la ressource définie dans votre stratégie d’accès conditionnel. Si vous n’exigez pas de nouvelle acceptation de la part de vos utilisateurs, leur consentement préalable demeure à jour et seuls les nouveaux utilisateurs qui n’ont pas fait part de leur consentement ou dont le consentement arrive à expiration voient la nouvelle version.
@@ -279,10 +279,10 @@ La procédure suivante explique comment ajouter une langue aux conditions d’ut
 1. Cliquez sur **Ajouter une langue** en bas de la page.
 1. Dans le volet Ajouter une langue aux conditions d’utilisation, chargez votre PDF localisé et sélectionnez la langue.
 
-   ![Conditions d’utilisation sélectionnées, montrant l’onglet Langues dans le volet Détails](./media/terms-of-use/select-language.png)
+    ![Conditions d’utilisation sélectionnées, montrant l’onglet Langues dans le volet Détails](./media/terms-of-use/select-language.png)
 
 1. Cliquez sur **Ajouter une langue**.
-1. Cliquez sur **Enregistrer**.
+1. Cliquez sur **Enregistrer**
 
 1. Cliquez sur **Ajouter** pour ajouter la langue.
 
@@ -340,7 +340,7 @@ Pour supprimer d’anciennes conditions d’utilisation, effectuez les étapes s
 1. Cliquez sur **Supprimer les conditions d’utilisation**.
 1. Dans le message qui s’affiche vous demandant si vous souhaitez continuer, cliquez sur **Oui**.
 
-   ![Message demandant de confirmer la suppression des conditions d’utilisation](./media/terms-of-use/delete-tou.png)
+    ![Message demandant de confirmer la suppression des conditions d’utilisation](./media/terms-of-use/delete-tou.png)
 
    Désormais, vos conditions d’utilisation ne doivent plus s’afficher.
 

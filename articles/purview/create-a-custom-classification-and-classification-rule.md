@@ -1,18 +1,18 @@
 ---
 title: Création d’une classification et d’une règle de classification personnalisées (préversion)
 description: Cet article vous explique comment créer des classifications personnalisées pour définir des types de données propres à votre organisation dans votre patrimoine de données. Il décrit également la création de règles de classification personnalisées permettant de trouver les données spécifiées dans l’ensemble du patrimoine de données.
-author: chandrakavya
-ms.author: kchandra
+author: animukherjee
+ms.author: anmuk
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/1/2020
-ms.openlocfilehash: 16a714cff506117c5d6f7fd4921fbd5346bfda39
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 53c71eec4c913c606669b7d36ca9a71ac8f3e2f1
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96550154"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97693459"
 ---
 # <a name="custom-classifications-in-azure-purview"></a>Classifications personnalisées dans Azure Purview 
 
