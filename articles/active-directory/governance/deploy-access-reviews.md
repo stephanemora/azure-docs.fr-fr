@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 08/14/2020
+ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f3e825f908ffe475b05a5e6748d9505e7283b50
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: a2e670525840b801df874e3f8dcbdbadc0955a12
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92362697"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746301"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Planification d’un déploiement de révision d’accès Azure Active Directory
 
@@ -55,13 +55,13 @@ Il est essentiel de planifier votre déploiement de révision d’accès pour vo
 
 Les principaux avantages de l’activation des révisions d’accès sont les suivants :
 
-* **Contrôle de la collaboration** . Les révisions d’accès permettent aux organisations de gérer l’accès à toutes les ressources dont les utilisateurs ont besoin. Lorsque leurs utilisateurs partagent et collaborent, les organisations peuvent être assurées que les informations sont disponibles uniquement parmi les utilisateurs autorisés.
+* **Contrôle de la collaboration**. Les révisions d’accès permettent aux organisations de gérer l’accès à toutes les ressources dont les utilisateurs ont besoin. Lorsque leurs utilisateurs partagent et collaborent, les organisations peuvent être assurées que les informations sont disponibles uniquement parmi les utilisateurs autorisés.
 
-* **Gestion des risques** . Les révisions d’accès offrent aux organisations un moyen d’examiner l’accès aux données et aux applications, ce qui réduit le risque de fuite de données. Cela inclut des capacités permettant d’examiner régulièrement l’accès d’un partenaire externe aux ressources de l’entreprise. 
+* **Gestion des risques**. Les révisions d’accès offrent aux organisations un moyen d’examiner l’accès aux données et aux applications, ce qui réduit le risque de fuite de données. Cela inclut des capacités permettant d’examiner régulièrement l’accès d’un partenaire externe aux ressources de l’entreprise. 
 
-* **Respect de la gouvernance et de la conformité** . Grâce aux révisions d’accès, vous pouvez régir et recertifier le cycle de vie de l’accès aux groupes, applications et sites. Vous pouvez contrôler le suivi des révisions à des fins de conformité ou pour les applications sensibles aux risques propres à votre organisation. 
+* **Respect de la gouvernance et de la conformité**. Grâce aux révisions d’accès, vous pouvez régir et recertifier le cycle de vie de l’accès aux groupes, applications et sites. Vous pouvez contrôler le suivi des révisions à des fins de conformité ou pour les applications sensibles aux risques propres à votre organisation. 
 
-* **Réduction des coûts** . Les révisions d’accès sont créées dans le cloud et fonctionnent en mode natif avec des ressources cloud telles que des groupes, des applications et des packages d’accès. L’utilisation de révisions d’accès est moins coûteuse que la création de vos propres outils ou la mise à niveau de vos outils locaux.
+* **Réduction des coûts**. Les révisions d’accès sont créées dans le cloud et fonctionnent en mode natif avec des ressources cloud telles que des groupes, des applications et des packages d’accès. L’utilisation de révisions d’accès est moins coûteuse que la création de vos propres outils ou la mise à niveau de vos outils locaux.
 
 ### <a name="training-resources"></a>Ressources de formation
 

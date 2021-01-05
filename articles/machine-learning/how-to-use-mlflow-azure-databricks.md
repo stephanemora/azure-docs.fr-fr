@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 09/22/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: e72784dbdcf08d672a8498609ca3a5bbd11e632d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 72079cc399eea249bce4d285e2c3c4fbf9304708
+ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93319032"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97760603"
 ---
 # <a name="track-azure-databricks-ml-experiments-with-mlflow-and-azure-machine-learning-preview"></a>Assurer le suivi des expériences de Machine Learning Azure Databricks avec MLflow et Azure Machine Learning (préversion)
 
@@ -62,7 +62,7 @@ Pour installer des bibliothèques sur votre cluster, accédez à l'onglet **Bibl
 
  ![mlflow avec azure databricks](./media/how-to-use-mlflow-azure-databricks/azure-databricks-cluster-libraries.png)
 
-Dans le champ **Package** , entrez azureml-mlflow, puis sélectionnez Installer. Répétez cette étape si nécessaire afin d’installer d'autres packages sur votre cluster pour votre expérience.
+Dans le champ **Package**, entrez azureml-mlflow, puis sélectionnez Installer. Répétez cette étape si nécessaire afin d’installer d'autres packages sur votre cluster pour votre expérience.
 
  ![Installation de bibliothèque mlflow Azure DB](./media/how-to-use-mlflow-azure-databricks/install-libraries.png)
 
@@ -156,9 +156,9 @@ Au terme de l'apprentissage de votre modèle, vous pouvez le consigner et l'insc
 
 Par défaut, le serveur de suivi principal est l'espace de travail Azure Databricks ; sauf si vous avez choisi de [configurer MLflow Tracking pour limiter le suivi à votre espace de travail Azure Machine Learning](#set-mlflow-tracking-to-only-track-in-your-azure-machine-learning-workspace), auquel cas le serveur de suivi principal est l'espace de travail Azure Machine Learning.   
 
-* **S'il n'existe pas de modèle inscrit sous ce nom** , la méthode en inscrit un nouveau, crée une Version 1, puis renvoie un objet MLflow ModelVersion. 
+* **S'il n'existe pas de modèle inscrit sous ce nom**, la méthode en inscrit un nouveau, crée une Version 1, puis renvoie un objet MLflow ModelVersion. 
 
-* **S'il existe déjà un modèle inscrit sous ce nom** , la méthode crée une nouvelle version du modèle et renvoie l'objet version. 
+* **S'il existe déjà un modèle inscrit sous ce nom**, la méthode crée une nouvelle version du modèle et renvoie l'objet version. 
 
 ```python
 mlflow.spark.log_model(model, artifact_path = "model", 
@@ -180,8 +180,8 @@ Lorsque vous êtes prêt à créer un point de terminaison pour vos modèles ML�
 Vous pouvez utiliser l'API [mlflow.azureml.deploy](https://www.mlflow.org/docs/latest/python_api/mlflow.azureml.html#mlflow.azureml.deploy) pour déployer un modèle dans votre espace de travail Azure Machine Learning. Si vous avez uniquement inscrit le modèle dans l'espace de travail Azure Databricks, comme décrit dans la section [Inscrire des modèles avec MLflow](#register-models-with-mlflow), spécifiez le paramètre `model_name` afin d'inscrire le modèle dans l'espace de travail Azure Machine Learning. 
 
 Les exécutions Azure Databricks peuvent être déployées sur les points de terminaison suivants : 
-* [Azure Container Instance](how-to-use-mlflow.md#deploy-to-aci)
-* [Azure Kubernetes Service](how-to-use-mlflow.md#deploy-to-aks)
+* [Azure Container Instance](how-to-deploy-models-with-mlflow.md#deploy-to-aci)
+* [Azure Kubernetes Service](how-to-deploy-models-with-mlflow.md#deploy-to-aks)
 
 ### <a name="deploy-models-to-adb-endpoints-for-batch-scoring"></a>Déployer des modèles sur des points de terminaison ADB pour le scoring par lot 
 

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.author: alkohli
-ms.openlocfilehash: c12935a4b0b9cbbf088ba7b9c5ea804be0ce85a1
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 8ea0c27fdd64bae1e6fe9443df76c86e0eb89a75
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96447359"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97762914"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-using-azure-cli-and-python"></a>Déployer des machines virtuelles sur votre appareil GPU Azure Stack Edge Pro à l’aide d’Azure CLI et Python
 
@@ -27,7 +27,7 @@ Ce tutoriel explique comment créer et gérer une machine virtuelle sur votre ap
 
 Le workflow de déploiement est illustré dans le diagramme suivant.
 
-![Workflow du déploiement de machine virtuelle](media/azure-stack-edge-j-series-deploy-virtual-machine-powershell/vm-workflow_r.svg)
+![Workflow du déploiement de machine virtuelle](media/azure-stack-edge-gpu-deploy-virtual-machine-powershell/vm-workflow-r.svg)
 
 Voici une synthèse globale du workflow de déploiement :
 
@@ -43,7 +43,7 @@ Voici une synthèse globale du workflow de déploiement :
 10. Créer un réseau virtuel
 11. Créer une carte réseau virtuelle à l’aide de l’ID de sous-réseau VNet
 
-Pour obtenir une explication détaillée du diagramme de workflow, consultez [Déployer des machines virtuelles sur votre appareil Azure Stack Edge Pro à l’aide d’Azure PowerShell](azure-stack-edge-j-series-deploy-virtual-machine-powershell.md). Pour plus d’informations sur la façon de se connecter à Azure Resource Manager, consultez [Se connecter à Azure Resource Manager à l’aide d’Azure PowerShell](azure-stack-edge-j-series-connect-resource-manager.md).
+Pour obtenir une explication détaillée du diagramme de workflow, consultez [Déployer des machines virtuelles sur votre appareil Azure Stack Edge Pro à l’aide d’Azure PowerShell](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md). Pour plus d’informations sur la façon de se connecter à Azure Resource Manager, consultez [Se connecter à Azure Resource Manager à l’aide d’Azure PowerShell](azure-stack-edge-j-series-connect-resource-manager.md).
 
 ## <a name="prerequisites"></a>Prérequis
 

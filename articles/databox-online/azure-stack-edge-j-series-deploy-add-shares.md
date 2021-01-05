@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 08/28/2020
+ms.date: 12/22/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 68cac756a3c84d0360d475a4bf88a392e3961f1d
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 845eef6e119823af789c9a263bfb750845d55bc0
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96447563"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740910"
 ---
 # <a name="tutorial-transfer-data-via-shares-with-azure-stack-edge-pro-gpu"></a>Tutoriel : Transférer des données via des partages avec Azure Stack Edge Pro avec GPU
 
@@ -72,8 +72,7 @@ Pour créer un partage, procédez comme suit :
    
     f. Selon que vous avez créé un partage SMB ou un partage NFS, effectuez l’une des étapes suivantes : 
      
-    - **Partage SMB** : Sous **Utilisateur local avec tous les privilèges**, sélectionnez **Créer** ou **Utiliser l’existant**. Si vous créez un nouvel utilisateur local, entrez un nom d’utilisateur et un mot de passe, puis confirmez le mot de passe. Cette action affecte des autorisations à l’utilisateur local. Après avoir attribué les autorisations à cet emplacement, vous pouvez utiliser l’Explorateur de fichiers pour les modifier.
-    Si vous cochez la case **Autoriser uniquement les opérations de lecture** pour ces données de partage, vous pouvez indiquer des utilisateurs en lecture seule.
+    - **Partage SMB** : Sous **Utilisateur local avec tous les privilèges**, sélectionnez **Créer** ou **Utiliser l’existant**. Si vous créez un nouvel utilisateur local, entrez un nom d’utilisateur et un mot de passe, puis confirmez le mot de passe. Cette action affecte des autorisations à l’utilisateur local. La modification des autorisations au niveau du partage n’est pas prise en charge. Si vous cochez la case **Autoriser uniquement les opérations de lecture** pour ces données de partage, vous pouvez indiquer des utilisateurs en lecture seule.
     
         ![Ajouter un partage SMB](./media/azure-stack-edge-j-series-deploy-add-shares/add-share-smb-1.png)
    
