@@ -6,14 +6,14 @@ services: application-gateway
 author: surajmb
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 09/23/2020
+ms.date: 01/02/2021
 ms.author: victorh
-ms.openlocfilehash: a72f0106088d26eb2ff53456840c598c3d9619a7
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: aadd4904ff218613c0dd24daff784ad5b8b90fbb
+ms.sourcegitcommit: c538b6e4cf27b992500c079ad9c914c05d55eb7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397550"
+ms.lasthandoff: 01/03/2021
+ms.locfileid: "97854908"
 ---
 # <a name="configure-app-service-with-application-gateway"></a>Configurer App Service avec Application Gateway
 
@@ -36,24 +36,24 @@ Dans cet article, vous apprendrez comment :
 
 1. Dans le portail Azure, sélectionnez votre passerelle applicative.
 
-2. Sous **Pools principaux** , sélectionnez le pool principal.
+2. Sous **Pools principaux**, sélectionnez le pool principal.
 
-4. Sous **Type de cible** , sélectionnez **App Services**.
+4. Sous **Type de cible**, sélectionnez **App Services**.
 
-5. Sous **Cible** , sélectionnez votre App Service.
+5. Sous **Cible**, sélectionnez votre App Service.
 
    :::image type="content" source="./media/configure-web-app-portal/backend-pool.png" alt-text="Service d’application comme back-end":::
    
    > [!NOTE]
-   > Le menu déroulant ne renseigne que les services d’application figurant dans le même abonnement que votre Application Gateway. Si vous voulez utiliser un service d'application d’un autre abonnement que celui où se trouve Application Gateway, au lieu de choisir **App Services** dans le menu déroulant **Cibles** , choisissez l’option **Adresse IP ou nom d'hôte** , puis entrez le nom d'hôte (example. azurewebsites.net) d’App Service.
+   > Le menu déroulant ne renseigne que les services d’application figurant dans le même abonnement que votre Application Gateway. Si vous voulez utiliser un service d'application d’un autre abonnement que celui où se trouve Application Gateway, au lieu de choisir **App Services** dans le menu déroulant **Cibles**, choisissez l’option **Adresse IP ou nom d'hôte**, puis entrez le nom d'hôte (example. azurewebsites.net) d’App Service.
 1. Sélectionnez **Enregistrer**.
 
 ## <a name="edit-http-settings-for-app-service"></a>Modifier les paramètres HTTP pour App Service
 
-1. Sous **Paramètres HTTP** , sélectionnez le paramètre HTTP existant.
+1. Sous **Paramètres HTTP**, sélectionnez le paramètre HTTP existant.
 
-2. Sous **Remplacer par le nouveau nom d’hôte** , sélectionnez **Oui**.
-3. Sous **Remplacement du nom d’hôte** , sélectionnez **Choisir un nom d’hôte à partir d’une cible de backend**.
+2. Sous **Remplacer par le nouveau nom d’hôte**, sélectionnez **Oui**.
+3. Sous **Remplacement du nom d’hôte**, sélectionnez **Choisir un nom d’hôte à partir d’une cible de backend**.
 4. Sélectionnez **Enregistrer**.
 
    :::image type="content" source="./media/configure-web-app-portal/http-settings.png" alt-text="Choisir un nom d’hôte à partir des paramètres HTTP du backend":::

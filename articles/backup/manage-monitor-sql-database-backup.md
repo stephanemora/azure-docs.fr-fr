@@ -3,12 +3,12 @@ title: Gérer et superviser des bases de données SQL Server sur une machine vir
 description: Cet article décrit comment gérer et surveiller des bases de données SQL Server s’exécutant sur une machine virtuelle Azure.
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: b0df22002521c8148cac1200e79aeb0ae5a60546
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e37e6fc211b34b7e427b66db374a705faafd25f9
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021501"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858730"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Gérer et surveiller des bases de données SQL Server sauvegardées
 
@@ -20,7 +20,7 @@ Si vous n’avez pas encore configuré de sauvegardes pour vos bases de données
 
 Sauvegarde Azure affiche toutes les opérations planifiées et à la demande sous **Travaux de sauvegarde** dans le portail, à l’exception des sauvegardes de fichiers journaux planifiées qui peuvent s’avérer particulièrement fréquentes. Les travaux que vous voyez sur ce portail incluent les opérations de découverte, d’inscription, de configuration, de sauvegarde et de restauration de base de données.
 
-![Portail Travaux de sauvegarde](./media/backup-azure-sql-database/jobs-list.png)
+![Portail Travaux de sauvegarde](./media/backup-azure-sql-database/sql-backup-jobs-list.png)
 
 Pour plus d’informations sur les scénarios de surveillance, voir [Surveillance dans le portail Azure](backup-azure-monitoring-built-in-monitor.md) et [Surveillance à l’aide d’Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).  
 
@@ -36,13 +36,9 @@ Pour surveiller les alertes de sauvegarde de base de données :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
-2. Sur le tableau de bord du coffre, sélectionnez **Alertes et événements**.
+2. Dans le tableau de bord du coffre, sélectionnez **Alertes de sauvegarde**.
 
-   ![Sélectionner Alertes et événements](./media/backup-azure-sql-database/vault-menu-alerts-events.png)
-
-3. Dans **Alertes et événements**, sélectionnez **Alertes de sauvegarde**.
-
-   ![Sélectionner Alertes de sauvegarde](./media/backup-azure-sql-database/backup-alerts-dashboard.png)
+   ![Sélectionner Alertes de sauvegarde](./media/backup-azure-sql-database/sql-backup-alerts-list.png)
 
 ## <a name="stop-protection-for-a-sql-server-database"></a>Arrêter la protection d’une base de données SQL Server
 

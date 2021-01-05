@@ -4,12 +4,12 @@ description: Obtenir les nombres de sessions et d’affichage de page, les donn�
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 0588a3eac4ced6cec1e7aea431c6555bbe8bff0a
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 6678c662c4646a8181b1617ccddf9b8718c957bf
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97559877"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858550"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights pour les pages web
 
@@ -339,7 +339,7 @@ Dernières modifications dans la version V2 du kit SDK :
 - Pour permettre de meilleures signatures d’API, certains appels d’API, tels que trackPageView et trackException, ont été mis à jour. L’exécution dans Internet Explorer 8 ou des versions antérieures du navigateur n’est pas prise en charge.
 - L’enveloppe de télémétrie présente des modifications de structure et de nom des champs en raison de mises à jour du schéma de données.
 - `context.operation` a été déplacé vers `context.telemetryTrace`. Certains champs ont également été modifiés (`operation.id` --> `telemetryTrace.traceID`).
-  - Pour actualiser manuellement l’ID de consultation de page actuel (par exemple, dans les applications SPA), utilisez `appInsights.properties.context.telemetryTrace.traceID = Util.generateW3CId()`.
+  - Pour actualiser manuellement l’ID de consultation de page actuel (par exemple, dans les applications SPA), utilisez `appInsights.properties.context.telemetryTrace.traceID = Microsoft.ApplicationInsights.Telemetry.Util.generateW3CId()`.
     > [!NOTE]
     > Pour conserver l’ID de trace unique, dans lequel vous avez déjà utilisé `Util.newId()`, utilisez maintenant `Util.generateW3CId()`. Tous deux finissent par être l’ID d’opération.
 
