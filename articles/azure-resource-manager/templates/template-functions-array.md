@@ -1,18 +1,18 @@
 ---
 title: Fonctions de modèle - tableaux
-description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour travailler avec des tableaux.
+description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager (ARM) pour travailler avec des tableaux.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 85f910f6143fd16f996a200172d0efd852897d8c
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 40a6815bb10ce9725405d68498b9a554706f3af8
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96004617"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920548"
 ---
 # <a name="array-functions-for-arm-templates"></a>Fonctions de tableau pour les modèles ARM
 
-Resource Manager fournit plusieurs fonctions pour travailler avec des tableaux dans votre modèle Azure Resource Manager (ARM).
+Resource Manager fournit plusieurs fonctions pour vous permettre d’utiliser des tableaux dans votre modèle Azure Resource Manager (ARM) :
 
 * [array](#array)
 * [concat](#concat)
@@ -889,7 +889,7 @@ Vous pouvez utiliser cette fonction avec un tableau pour spécifier le nombre d�
 
 ---
 
-Pour plus d’informations sur l’utilisation de cette fonction avec un tableau, voir [Création de plusieurs instances de ressources dans Azure Resource Manager](copy-resources.md).
+Pour plus d’informations sur l’utilisation de cette fonction avec un tableau, consultez [Itération sur des ressources dans les modèles ARM](copy-resources.md).
 
 ## <a name="max"></a>max
 
@@ -1381,4 +1381,4 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour obtenir une description des sections d’un modèle Azure Resource Manager, consultez [Comprendre la structure et la syntaxe des modèles ARM](template-syntax.md).
+* Pour une description des sections d’un modèle ARM, consultez [Présentation de la structure et de la syntaxe des modèles ARM](template-syntax.md).

@@ -14,15 +14,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/21/2020
+ms.date: 12/12/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a02c30423ab3c6de87eac7d34b5f0004e54a8d5d
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 28d47b61bce7e154da6c6adb4b74e2b5cf1f3f3d
+ms.sourcegitcommit: 287c20509c4cf21d20eea4619bbef0746a5cd46e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94957807"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97371847"
 ---
 # <a name="what-sap-software-is-supported-for-azure-deployments"></a>Logiciels SAP dont le déploiement est pris en charge sur Azure
 Cet article explique comment identifier les logiciels SAP dont le déploiement est pris en charge sur Azure, ainsi que les versions de système d’exploitation ou système de gestion de base de données nécessaires.
@@ -82,6 +82,12 @@ Le système d’exploitation, les versions de SGBD Oracle et les fonctionnalité
 - Les systèmes SAP non-Unicode sont pris en charge uniquement avec des serveurs d’applications qui exécutent le système d’exploitation invité Windows. Le système d’exploitation invité du SGBD peut être Oracle Linux ou Windows. La raison de cette restriction apparaît évidente dans le Tableau de disponibilité des produits (PAM) SAP. Pour Oracle Linux, SAP n’a jamais publié de noyaux SAP non-Unicode
 
 Connaissant les versions de SGBD prises en charge avec l’infrastructure Azure ciblée, vous devez vérifier dans le Tableau de disponibilité des produits SAP si les versions de système d’exploitation et le SGBD requis sont pris en charge avec les versions de votre produit SAP que vous souhaitez exécuter. 
+
+## <a name="oracle-linux"></a>Oracle Linux
+La question la plus importante concernant Oracle Linux consiste à savoir si SAP prend en charge le noyau Red Hat qui fait également partie intégrante d’Oracle Linux. Pour plus d’informations, consultez la [Note 1565179 sur la prise en charge de SAP](https://launchpad.support.sap.com/#/notes/1565179).
+
+## <a name="other-database-than-sap-hana"></a>Autre base de données que SAP HANA
+La prise en charge des bases de données autres que HANA pour la charge de travail SAP est documentée dans la [Note de support 1928533 sur la prise en charge de SAP](https://launchpad.support.sap.com/#/notes/1928533).
 
 
 ## <a name="sap-hana-support"></a>Pris en charge de SAP HANA

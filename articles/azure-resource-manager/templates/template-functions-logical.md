@@ -1,18 +1,18 @@
 ---
 title: Fonctions de modèle - Logique
-description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour déterminer les valeurs logiques.
+description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager (modèle ARM) pour déterminer les valeurs logiques.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: b54c104c8af5bb742b2c82d8a075515b8696501b
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 27d94f10374daf0b9a351469579a5eb659cf5445
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96004549"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920479"
 ---
 # <a name="logical-functions-for-arm-templates"></a>Fonctions logiques pour les modèles ARM
 
-Resource Manager fournit plusieurs fonctions pour effectuer des comparaisons dans vos modèles Azure Resource Manager (ARM).
+Resource Manager fournit plusieurs fonctions pour effectuer des comparaisons dans votre modèle Azure Resource Manager (modèle ARM) :
 
 * [and](#and)
 * [bool](#bool)
@@ -227,7 +227,7 @@ Retourne le deuxième paramètre lorsque le premier paramètre est **True** ; s
 
 ### <a name="remarks"></a>Remarques
 
-Lorsque la condition est **True**, seule la valeur true est évaluée. Lorsque la condition est **False**, seule la valeur false est évaluée. Avec la fonction **si**, vous pouvez inclure des expressions qui sont uniquement valides de manière conditionnelle. Par exemple, vous pouvez référencer une ressource qui existe sous une condition, mais pas sous l’autre condition. Vous trouverez un exemple illustrant des expressions évaluant de manière conditionnelle dans la section suivante.
+Lorsque la condition est **True**, seule la valeur true est évaluée. Lorsque la condition est **False**, seule la valeur false est évaluée. Avec la fonction `if`, vous pouvez inclure des expressions qui sont uniquement valides de manière conditionnelle. Par exemple, vous pouvez référencer une ressource qui existe sous une condition, mais pas sous l’autre condition. Vous trouverez un exemple illustrant des expressions évaluant de manière conditionnelle dans la section suivante.
 
 ### <a name="examples"></a>Exemples
 
@@ -542,4 +542,4 @@ La sortie de l’exemple précédent est :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour obtenir une description des sections d’un modèle Azure Resource Manager, consultez [Comprendre la structure et la syntaxe des modèles ARM](template-syntax.md).
+* Pour obtenir une description des sections d’un modèle ARM, consultez [Comprendre la structure et la syntaxe des modèles ARM](template-syntax.md).

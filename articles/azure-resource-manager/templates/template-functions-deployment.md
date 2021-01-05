@@ -1,18 +1,18 @@
 ---
 title: Fonctions et déploiement du modèle
-description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour récupérer des informations de déploiement.
+description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager (modèle ARM) pour récupérer des informations de déploiement.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 9d6a1783bcd6d84c181edae84063ed7c0964c3d8
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: e63caef669a2c28d29cd0bbd649b0997cea14ee1
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96004566"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920514"
 ---
 # <a name="deployment-functions-for-arm-templates"></a>Fonctions de déploiement pour les modèles ARM
 
-Resource Manager fournit les fonctions suivantes pour obtenir des valeurs liées au déploiement actuel de votre modèle Azure Resource Manager (ARM) :
+Resource Manager fournit les fonctions suivantes pour obtenir des valeurs liées au déploiement actuel de votre modèle Azure Resource Manager (modèle ARM) :
 
 * [deployment](#deployment)
 * [environment](#environment)
@@ -185,7 +185,7 @@ L’exemple précédent retourne l’objet suivant :
 
 Retourne des informations sur l’environnement Azure utilisé pour le déploiement.
 
-### <a name="return-value"></a>Valeur de retour
+### <a name="return-value"></a>Valeur retournée
 
 Cette valeur retourne des propriétés pour l’environnement Azure actuel. L’exemple suivant présente les propriétés pour Azure international. Les clouds souverains peuvent retourner des propriétés légèrement différentes.
 
@@ -303,7 +303,7 @@ Retourne une valeur de paramètre. Le nom de paramètre spécifié doit être d�
 
 La valeur du paramètre spécifié.
 
-### <a name="remarks"></a>Remarques
+### <a name="remarks"></a>Notes
 
 En général, vous utilisez les paramètres pour définir les valeurs de la ressource. L’exemple suivant définit le nom du site web sur la valeur du paramètre transmise au cours du déploiement.
 
@@ -434,7 +434,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 | arrayOutput | Array | [1, 2, 3] |
 | crossOutput | String | option 1 |
 
-Pour plus d’informations sur l’utilisation des paramètres, consultez [Paramètres dans les modèles Azure Resource Manager](template-parameters.md).
+Pour plus d’informations sur l’utilisation des paramètres, consultez [Paramètres dans les modèles ARM](template-parameters.md).
 
 ## <a name="variables"></a>variables
 
@@ -448,11 +448,11 @@ Retourne la valeur de la variable. Le nom de variable spécifié doit être déf
 |:--- |:--- |:--- |:--- |
 | variableName |Oui |String |Nom de la variable à retourner. |
 
-### <a name="return-value"></a>Valeur de retour
+### <a name="return-value"></a>Valeur retournée
 
 La valeur de la variable spécifiée.
 
-### <a name="remarks"></a>Remarques
+### <a name="remarks"></a>Notes
 
 En général, vous utilisez les variables pour simplifier votre modèle en créant des valeurs complexes une seule fois. L’exemple suivant crée un nom unique pour un compte de stockage.
 
@@ -571,8 +571,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 | exampleOutput3 | String | myVariable |
 | exampleOutput4 |  Object | {"property1": "value1", "property2": "value2"} |
 
-Pour plus d’informations sur l’utilisation des variables, consultez [Variables dans un modèle Azure Resource Manager](template-variables.md).
+Pour plus d’informations sur l’utilisation des variables, consultez [Variables dans un modèle ARM](template-variables.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour obtenir une description des sections d’un modèle Azure Resource Manager, consultez [Comprendre la structure et la syntaxe des modèles ARM](template-syntax.md).
+* Pour obtenir une description des sections d’un modèle ARM, consultez [Comprendre la structure et la syntaxe des modèles ARM](template-syntax.md).

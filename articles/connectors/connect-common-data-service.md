@@ -1,22 +1,25 @@
 ---
-title: Se connecter à Common Data Service
-description: Créer et gérer des enregistrements Common Data Service à l’aide d’Azure Logic Apps
+title: Connexion à Common Data Service (Microsoft Dataverse)
+description: Créez et gérez des enregistrements Common Data Service (Microsoft Dataverse) avec Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: jdaly, logicappspm
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 12/11/2020
 tags: connectors
-ms.openlocfilehash: de85a61cbd699ec9ac2669f8abb6217254038de9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b17c3d54b7065a18e015363a0362766f844e4e10
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91334580"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97355116"
 ---
-# <a name="create-and-manage-records-in-common-data-service-by-using-azure-logic-apps"></a>Créer et gérer des enregistrements dans Common Data Service à l’aide d’Azure Logic Apps
+# <a name="create-and-manage-records-in-common-data-service-microsoft-dataverse-by-using-azure-logic-apps"></a>Création et gestion d’enregistrements dans Common Data Service (Microsoft Dataverse) avec Azure Logic Apps
 
-Avec [Azure Logic Apps](../logic-apps/logic-apps-overview.md) et le [connecteur Common Data Service](/connectors/commondataservice/), vous pouvez créer des flux de travail automatisés qui gèrent les enregistrements dans votre base de données [Common Data Service](/powerapps/maker/common-data-service/data-platform-intro). Ces flux de travail peuvent créer des enregistrements, mettre à jour des enregistrements et exécuter d’autres opérations. Vous pouvez également obtenir des informations à partir de votre base de données Common Data Service et rendre la sortie disponible pour d’autres actions à utiliser dans votre application logique. Par exemple, lorsqu’un enregistrement est mis à jour dans votre base de données Common Data Service, vous pouvez envoyer un e-mail à l’aide du connecteur Office 365 Outlook.
+> [!NOTE]
+> En novembre 2020, Common Data Service a été renommé Microsoft Dataverse.
+
+Avec [Azure Logic Apps](../logic-apps/logic-apps-overview.md) et le [connecteur Common Data Service](/connectors/commondataservice/), vous pouvez créer des flux de travail automatisés qui gèrent les enregistrements dans votre base de données [Common Data Service (maintenant Microsoft Dataverse)](/powerapps/maker/common-data-service/data-platform-intro). Ces flux de travail peuvent créer des enregistrements, mettre à jour des enregistrements et exécuter d’autres opérations. Vous pouvez également obtenir des informations à partir de votre base de données Common Data Service et rendre la sortie disponible pour d’autres actions à utiliser dans votre application logique. Par exemple, lorsqu’un enregistrement est mis à jour dans votre base de données Common Data Service, vous pouvez envoyer un e-mail à l’aide du connecteur Office 365 Outlook.
 
 Cet article vous explique comment générer une application logique qui crée un enregistrement de tâche quand un enregistrement de prospect est créé.
 

@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: how-to
 ms.date: 11/16/2020
 ms.author: victorh
-ms.openlocfilehash: 858343b6c5081b52d9e93909f9d52eaccd88a584
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: c5613dda7adbbc47f989bc2a772777e716620b3c
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660268"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97348031"
 ---
 # <a name="azure-firewall-snat-private-ip-address-ranges"></a>Pare-feu Azure traduit l’adresse réseau source des plages d’adresses IP privées
 
@@ -35,9 +35,22 @@ Vous pouvez utiliser Azure PowerShell afin de spécifier des plages d'adresses 
 
 ### <a name="new-firewall"></a>Nouveau pare-feu
 
-Pour un nouveau pare-feu, la commande Azure PowerShell est :
+Pour un nouveau pare-feu, la cmdlet Azure PowerShell est la suivante :
 
-`New-AzFirewall -Name $GatewayName -ResourceGroupName $RG -Location $Location -VirtualNetworkName $vnet.Name -PublicIpName $LBPip.Name -PrivateRange @("IANAPrivateRanges","IPRange1", "IPRange2")`
+```azurepowershell
+$azFw = @{
+    Name               = '<fw-name>'
+    ResourceGroupName  = '<resourcegroup-name>'
+    Location           = '<location>'
+    VirtualNetworkName = '<vnet-name>'
+    PublicIpName       = '<public-ip-name>'
+    PrivateRange       = @("IANAPrivateRanges", "192.168.1.0/24", "192.168.1.10")
+}
+
+New-AzFirewall @azFw
+```
+> [!NOTE]
+> Le déploiement du Pare-feu Azure avec `New-AzFirewall` exige un réseau virtuel et une adresse IP publique existants. Pour accéder à un guide de déploiement complet, consultez [Déploiement et configuration d’un Pare-feu Azure avec Azure PowerShell](deploy-ps.md).
 
 > [!NOTE]
 > IANAPrivateRanges est étendu aux valeurs par défaut actuelles sur Pare-feu Azure, tandis que les autres plages y sont ajoutées. Pour conserver la valeur par défaut IANAPrivateRanges dans votre spécification de plage privée, elle doit rester dans votre spécification `PrivateRange`, comme indiqué dans les exemples suivants.
@@ -46,22 +59,54 @@ Pour plus d’informations, consultez [New-AzFirewall](/powershell/module/az.net
 
 ### <a name="existing-firewall"></a>Pare-feu existant
 
-Pour configurer un pare-feu existant, utilisez les commandes Azure PowerShell suivantes :
+Pour configurer un pare-feu existant, utilisez les cmdlets Azure PowerShell suivantes :
 
 ```azurepowershell
-$azfw = Get-AzFirewall -ResourceGroupName "Firewall Resource Group name"
-$azfw.PrivateRange = @("IANAPrivateRanges","IPRange1", "IPRange2")
+$azfw = Get-AzFirewall -Name '<fw-name>' -ResourceGroupName '<resourcegroup-name>'
+$azfw.PrivateRange = @("IANAPrivateRanges","192.168.1.0/24", "192.168.1.10")
 Set-AzFirewall -AzureFirewall $azfw
 ```
 
-### <a name="templates"></a>Modèles
+## <a name="configure-snat-private-ip-address-ranges---azure-cli"></a>Configuration de plages d’adresses IP privées SNAT – Azure CLI
 
-Vous pouvez ajouter ce qui suit à la section `additionalProperties` :
+Vous pouvez utiliser Azure CLI afin de spécifier des plages d’adresses IP privées pour le pare-feu.
 
+### <a name="new-firewall"></a>Nouveau pare-feu
+
+Pour un nouveau pare-feu, la commande Azure CLI est la suivante :
+
+```azurecli-interactive
+az network firewall create \
+-n <fw-name> \
+-g <resourcegroup-name> \
+--private-ranges 192.168.1.0/24 192.168.1.10 IANAPrivateRanges
 ```
+
+> [!NOTE]
+> Le déploiement du Pare-feu Azure avec la commande Azure CLI `az network firewall create` impose des étapes de configuration supplémentaires visant à créer des adresses IP publiques et une configuration IP. Pour accéder à un guide de déploiement complet, consultez [Déploiement et configuration d’un Pare-feu Azure avec Azure CLI](deploy-cli.md).
+
+> [!NOTE]
+> IANAPrivateRanges est étendu aux valeurs par défaut actuelles sur Pare-feu Azure, tandis que les autres plages y sont ajoutées. Pour conserver la valeur par défaut IANAPrivateRanges dans votre spécification de plage privée, elle doit rester dans votre spécification `PrivateRange`, comme indiqué dans les exemples suivants.
+
+### <a name="existing-firewall"></a>Pare-feu existant
+
+Pour configurer un pare-feu existant, la commande Azure CLI est la suivante :
+
+```azurecli-interactive
+az network firewall update \
+-n <fw-name> \
+-g <resourcegroup-name> \
+--private-ranges 192.168.1.0/24 192.168.1.10 IANAPrivateRanges
+```
+
+## <a name="configure-snat-private-ip-address-ranges---arm-template"></a>Configuration de plages d’adresses IP privées SNAT – Modèle ARM
+
+Pour configurer SNAT pendant le déploiement d’un modèle ARM, vous pouvez ajouter les éléments suivants à la propriété `additionalProperties` :
+
+```json
 "additionalProperties": {
-                    "Network.SNAT.PrivateRanges": "IANAPrivateRanges , IPRange1, IPRange2"
-                },
+   "Network.SNAT.PrivateRanges": "IANAPrivateRanges , IPRange1, IPRange2"
+},
 ```
 
 ## <a name="configure-snat-private-ip-address-ranges---azure-portal"></a>Configurer des plages d'adresses IP privées pour la traduction SNAT - Portail Azure

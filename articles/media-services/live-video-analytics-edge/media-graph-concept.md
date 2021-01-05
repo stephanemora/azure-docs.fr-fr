@@ -3,12 +3,12 @@ title: Concept de graphe multimédia – Azure
 description: Un graphe multimédia vous permet de définir l’emplacement à partir duquel les médias doivent être capturés, la manière dont ils doivent être traités et où les résultats doivent être remis. Cet article fournit une description détaillée du concept de graphe multimédia.
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 7def82160547b759c7ab4c40c681052747261920
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6f23e7db8cecb46106a63fdecdb6ba04dbd99682
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91567076"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97401098"
 ---
 # <a name="media-graph"></a>Graphe multimédia
 
@@ -41,7 +41,7 @@ Les valeurs des paramètres de la topologie sont spécifiées lorsque vous crée
 Le cycle de vie des topologies de graphe et des instances de graphe est illustré dans le diagramme d’état suivant.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/media-graph/graph-topology-lifecycle.svg" alt-text="Graphe multimédia":::
+> :::image type="content" source="./media/media-graph/graph-topology-lifecycle.svg" alt-text="Cycle de vie des instances et des topologies de graphe":::
 
 Commencez par [créer une topologie de graphe](direct-methods.md#graphtopologyset). Ensuite, pour chaque flux vidéo en direct que vous souhaitez traiter avec cette topologie, vous [créez une instance de graphe](direct-methods.md#graphinstanceset). 
 
@@ -70,7 +70,7 @@ Live Video Analytics sur IoT Edge prend en charge les types de nœuds suivants d
 
 #### <a name="rtsp-source"></a>Source RTSP 
 
-Un nœud source RTSP vous permet d’ingérer des médias à partir d’un [RTSP](https://tools.ietf.org/html/rfc2326 server). Les caméras de surveillance et les caméras IP transmettent leurs données dans le cadre d’un protocole dit RTSP (real-time-streaming-protocol ; protocole de diffusion en continu et en temps réel), au contraire d’autres types d’appareils comme les téléphones et les caméras vidéo. Ce protocole est utilisé pour établir et contrôler les sessions multimédias entre un serveur (la caméra) et un client. Le nœud source RTSP dans un graphe multimédia agit comme un client et peut établir une session avec un serveur RTSP. De nombreux appareils, par exemple la plupart des [caméras IP](https://en.wikipedia.org/wiki/IP_camera), disposent d’un serveur RTSP intégré. [ONVIF](https://www.onvif.org/) exige la prise en charge de RTSP dans sa définition des appareils conformes aux [profils G, S et T](https://www.onvif.org/wp-content/uploads/2019/12/ONVIF_Profile_Feature_overview_v2-3.pdf). Le nœud source RTSP vous oblige à spécifier une URL RTSP, ainsi que les informations d’identification permettant une connexion authentifiée.
+Un nœud source RTSP permet d’ingérer des médias à partir d’un serveur [RTSP](https://tools.ietf.org/html/rfc2326). Les caméras de surveillance et les caméras IP transmettent leurs données dans le cadre d’un protocole dit RTSP (real-time-streaming-protocol ; protocole de diffusion en continu et en temps réel), au contraire d’autres types d’appareils comme les téléphones et les caméras vidéo. Ce protocole est utilisé pour établir et contrôler les sessions multimédias entre un serveur (la caméra) et un client. Le nœud source RTSP dans un graphe multimédia agit comme un client et peut établir une session avec un serveur RTSP. De nombreux appareils, par exemple la plupart des [caméras IP](https://en.wikipedia.org/wiki/IP_camera), disposent d’un serveur RTSP intégré. [ONVIF](https://www.onvif.org/) exige la prise en charge de RTSP dans sa définition des appareils conformes aux [profils G, S et T](https://www.onvif.org/wp-content/uploads/2019/12/ONVIF_Profile_Feature_overview_v2-3.pdf). Le nœud source RTSP vous oblige à spécifier une URL RTSP, ainsi que les informations d’identification permettant une connexion authentifiée.
 
 #### <a name="iot-hub-message-source"></a>Source de messages IoT Hub 
 
@@ -87,6 +87,8 @@ Le nœud processeur de détection de mouvement vous permet de détecter les mouv
 #### <a name="frame-rate-filter-processor"></a>Processeur de filtre de fréquence d’images  
 
 Le nœud processeur de filtre de fréquence d’images vous permet d’échantillonner des images du flux vidéo entrant à une vitesse spécifiée. Cela vous permet de réduire le nombre d’images envoyées aux composants en aval (tels qu’un nœud processeur d’extension HTTP) en vue d’un traitement supplémentaire.
+>[!WARNING]
+> Ce processeur est **déconseillé** dans la dernière version du module Live Video Analytics sur IoT Edge. La gestion de la fréquence d’images est maintenant prise en charge dans les processeurs d’extension de graphe.
 
 #### <a name="http-extension-processor"></a>Processeur d’extension HTTP
 
@@ -108,8 +110,9 @@ Un nœud récepteur de ressources vous permet d’écrire des données multiméd
 
 #### <a name="file-sink"></a>Récepteur de fichiers  
 
-Le nœud récepteur de fichiers vous permet d’écrire des données multimédias (vidéo ou audio) à un emplacement sur le système de fichiers local de l’appareil IoT Edge. Il ne peut y avoir qu’un seul nœud récepteur de fichiers dans un graphe multimédia, et il doit être en aval d’un nœud processeur de porte de signal. Cela limite la durée des fichiers de sortie aux valeurs spécifiées dans les propriétés du nœud processeur de la porte de signal.
-
+Le nœud récepteur de fichiers vous permet d’écrire des données multimédias (vidéo ou audio) à un emplacement sur le système de fichiers local de l’appareil IoT Edge. Il ne peut y avoir qu’un seul nœud récepteur de fichiers dans un graphe multimédia, et il doit être en aval d’un nœud processeur de porte de signal. Cela limite la durée des fichiers de sortie aux valeurs spécifiées dans les propriétés du nœud processeur de la porte de signal. Pour éviter que votre appareil Edge ne manque d’espace disque, vous pouvez également définir la taille maximale utilisable par le module Live Video Analytics sur IoT Edge pour stocker des données.  
+> [!NOTE]
+Si le récepteur de fichiers est saturé, le module Live Video Analytics sur IoT Edge se met à supprimer les données les plus anciennes et à les remplacer par les nouvelles.
 #### <a name="iot-hub-message-sink"></a>Récepteur de messages IoT Hub  
 
 Un nœud récepteur de messages IoT Hub vous permet de publier des événements sur un hub IoT Edge. Le hub IoT Edge peut ensuite acheminer les données vers d’autres modules ou applications sur le périphérique ou vers IoT Hub dans le cloud (par itinéraires spécifiés dans le manifeste de déploiement). Le nœud récepteur de messages IoT Hub peut accepter des événements provenant de processeurs en amont, tels qu’un nœud processeur de détection de mouvement, ou d’un service d’inférence externe via un nœud processeur d’extension HTTP.

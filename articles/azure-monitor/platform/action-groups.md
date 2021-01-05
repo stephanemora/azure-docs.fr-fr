@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: a2144827cd27c0af6610dabdf5ad205359f550cc
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 9b5b20de1b86eae72de54b3f2c1cf37074fba144
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96435482"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095166"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Créer et gérer des groupes d’actions sur le Portail Azure
 Un groupe d’actions est une collection de préférences de notification définies par le propriétaire d’un abonnement Azure. Les alertes Azure Monitor et Service Health utilisent des groupes d’actions pour avertir les utilisateurs qu’une alerte a été déclenchée. Plusieurs alertes peuvent utiliser le même groupe d’actions ou des groupes d’actions différents selon les besoins de l’utilisateur. 
@@ -250,7 +250,47 @@ Vous pouvez avoir un nombre limité d’actions SMS par groupe d’actions.
 > Si l’interface utilisateur du groupe d’actions sur le portail Azure ne vous permet pas de sélectionner votre indicatif de pays/région, cela signifie que les SMS ne sont pas pris en charge pour votre pays/région.  Si votre indicatif de pays/région n’est pas disponible, vous pouvez voter pour que votre pays/région soit ajouté sur la page d’[UserVoice](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice). En attendant, une solution consiste à demander à votre groupe d’actions d’appeler un webhook auprès d’un fournisseur SMS tiers prenant en charge votre pays/région.  
 
 La tarification pour les pays/régions pris en charge est indiquée dans la [page de tarification Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
-  
+
+**Liste des pays où la notification par SMS est prise en charge**
+
+| Indicatif de pays | Nom du pays |
+|:---|:---|
+| 61 | Australie |
+| 43 | Autriche |
+| 32 | Belgique |
+| 55 | Brésil |
+| 1 |Canada |
+| 56 | Chili |
+| 86 | Chine |
+| 420 | République tchèque |
+| 45 | Danemark |
+| 372 | Estonie |
+| 358 | Finlande |
+| 33 | France |
+| 49 | Allemagne |
+| 852 | Hong Kong (R.A.S.) |
+| 91 | Inde |
+| 353 | Irlande |
+| 972 | Israël |
+| 39 | Italie |
+| 81 | Japon |
+| 352 | Luxembourg |
+| 60 | Malaisie |
+| 52 | Mexique |
+| 31 | Pays-Bas |
+| 64 | Nouvelle-Zélande |
+| 47 | Norvège |
+| 351 | Portugal |
+| 1 | Porto Rico |
+| 40 | Roumanie |
+| 65 | Singapour |
+| 27 | Afrique du Sud |
+| 82 | Corée du Sud |
+| 34 | Espagne |
+| 41 | Suisse |
+| 886 | Taïwan |
+| 44 | Royaume-Uni |
+| 1 | États-Unis |
 
 ### <a name="voice"></a>Voix
 Pour obtenir un comportement supplémentaire important, consultez l’article [Informations de limitation du débit](./alerts-rate-limiting.md).
@@ -259,6 +299,7 @@ Vous pouvez avoir un nombre limité d’actions de voix par groupe d’actions.
 
 > [!NOTE]
 > Si l’interface utilisateur du groupe d’actions sur le portail Azure ne vous permet pas de sélectionner votre indicatif de pays/région, cela signifie que les appels vocaux ne sont pas pris en charge pour votre pays/région. Si votre indicatif de pays/région n’est pas disponible, vous pouvez voter pour que votre pays/région soit ajouté sur la page d’[UserVoice](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice).  En attendant, une solution consiste à demander à votre groupe d’actions d’appeler un webhook auprès d’un fournisseur d’appels vocaux tiers prenant en charge votre pays/région.  
+> Le seul indicatif de pays pris en charge actuellement dans le groupe d'actions du portail Azure pour la notification vocale est +1 (États-Unis). 
 
 La tarification pour les pays/régions pris en charge est indiquée dans la [page de tarification Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: 5dbd49312b58dc656e2239e8a0a4acea614023de
-ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
+ms.openlocfilehash: d38c57a8c8504e1e03406f7cd8a0b61725cb0511
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96317134"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008081"
 ---
 # <a name="continuous-integration-and-delivery-for-azure-synapse-workspace"></a>Intégration et livraison continues pour l’espace de travail Azure Synapse
 
@@ -107,7 +107,13 @@ Utilisez l’extension de [déploiement d’espace de travail Synapse](https://m
 
      ![Ajouter une extension](media/add-extension-task.png)
 
-1.  Dans la tâche, fournissez les informations du référentiel Git associées de **workspace_publish**, puis sélectionnez le groupe de ressources, la région, le nom et l’environnement cloud de l’espace de travail cible. Fournissez des paramètres et des valeurs si nécessaire.
+1.  Dans la tâche, sélectionnez **…** à côté de la zone **Modèle** pour choisir le fichier de modèle.
+
+1. Sélectionnez **…** en regard de la zone **Paramètres du modèle** pour choisir le fichier de paramètres.
+
+1. Sélectionnez la connexion, le groupe de ressources et le nom de l’espace de travail cible. 
+
+1. Sélectionnez **…** en regard de la zone **Remplacer les paramètres du modèle** et entrez les valeurs de paramètre souhaitées pour l’espace de travail cible. 
 
     ![Déployer un espace de travail Synapse](media/create-release-artifacts-deployment.png)
 

@@ -1,20 +1,20 @@
 ---
 title: Kit de ressources de test de modèle ARM
-description: Décrit la procédure d’exécution du kit de ressources de test de modèle ARM sur votre modèle. Le kit de ressources vous permet de voir si vous avez implémenté les pratiques recommandées.
+description: Explique comment exécuter le kit de ressources de test de modèles Azure Resource Manager (ARM) sur un modèle. Le kit de ressources vous permet de voir si vous avez implémenté les pratiques recommandées.
 ms.topic: conceptual
 ms.date: 09/02/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 73f6db8cbd5e4d7a0670c394f6af338aae8e9e79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 29ebe2f0ec4d4c39154272bbbdf4d0c9ede9fd95
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89439558"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928186"
 ---
 # <a name="use-arm-template-test-toolkit"></a>Utiliser un kit de ressources de test de modèle ARM
 
-Le [kit de ressources de test de modèle Azure Resource Manager (ARM](https://aka.ms/arm-ttk)) vérifie si votre modèle utilise les pratiques recommandées. Lorsque votre modèle n’est pas conforme aux pratiques recommandées, il retourne une liste d’avertissements avec les modifications suggérées. Avec le kit de ressources de test, vous pouvez apprendre à éviter les problèmes courants liés au développement de modèles.
+Le [kit de ressources de test de modèles Azure Resource Manager (ARM](https://aka.ms/arm-ttk)) vérifie si un modèle applique les pratiques recommandées. Lorsque votre modèle n’est pas conforme aux pratiques recommandées, il retourne une liste d’avertissements avec les modifications suggérées. Avec le kit de ressources de test, vous pouvez apprendre à éviter les problèmes courants liés au développement de modèles.
 
 Le kit de ressources de test fournit un [ensemble de tests par défaut](test-cases.md). Ces tests sont des recommandations, mais pas des exigences. Vous pouvez choisir les tests qui sont pertinents pour vos objectifs et personnaliser les tests à exécuter.
 
@@ -282,4 +282,4 @@ L’exemple suivant illustre la procédure d’exécution des tests.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur les tests par défaut, consultez [Cas de test pour le kit de ressources](test-cases.md).
+Pour plus d’informations sur les tests par défaut, consultez [Cas de test par défaut pour le kit de ressources de test de modèles ARM](test-cases.md).

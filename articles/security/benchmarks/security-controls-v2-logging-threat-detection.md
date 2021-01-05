@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 99e7a8fcb34c963cfab366f1913508a7ff3f4a51
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: c5a855ffe06a17d8ec1bfe249dbe7bc41d1166af
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94408700"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97369070"
 ---
 # <a name="security-control-v2-logging-and-threat-detection"></a>Contrôle de sécurité V2 : Journalisation et détection des menaces
 
@@ -20,7 +20,7 @@ La fonctionnalité Journalisation et détection des menaces recouvre les contrô
 
 ## <a name="lt-1-enable-threat-detection-for-azure-resources"></a>LT-1 : Activer la détection des menaces pour les ressources Azure
 
-| Identifiant Azure | ID des contrôles CIS v7.1 | ID NIST SP800-53 r4 |
+| Identifiant Azure | ID des contrôles CIS v7.1 | ID NIST SP 800-53 r4 |
 |--|--|--|--|
 | LT-1 | 6.7 | AU-3, AU-6, AU-12, SI-4 |
 
@@ -38,9 +38,9 @@ En outre, utilisez Azure Sentinel pour créer des règles d’analyse, qui repè
 
 - [Renseignement sur les menaces informatiques dans Azure Sentinel](/azure/architecture/example-scenario/data/sentinel-threat-intelligence)
 
-**Responsabilité**  : Customer
+**Responsabilité** : Customer
 
-**Parties prenantes de la sécurité des clients** ( [En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
+**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Sécurité d’infrastructure et de point de terminaison](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
@@ -54,7 +54,7 @@ En outre, utilisez Azure Sentinel pour créer des règles d’analyse, qui repè
 
 ## <a name="lt-2-enable-threat-detection-for-azure-identity-and-access-management"></a>LT-2 : Activer la détection des menaces pour la gestion des identités et des accès Azure
 
-| Identifiant Azure | ID des contrôles CIS v7.1 | ID NIST SP800-53 r4 |
+| Identifiant Azure | ID des contrôles CIS v7.1 | ID NIST SP 800-53 r4 |
 |--|--|--|--|
 | LT-2 | 6.8 | AU-3, AU-6, AU-12, SI-4 |
 
@@ -75,9 +75,9 @@ Azure Security Center pouvez également alerter en cas de certaines activités s
 
 - [Protection contre les menaces dans Azure Security Center](../../security-center/azure-defender.md)
 
-**Responsabilité**  : Customer
+**Responsabilité** : Customer
 
-**Parties prenantes de la sécurité des clients** ( [En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
+**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Sécurité d’infrastructure et de point de terminaison](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
@@ -91,7 +91,7 @@ Azure Security Center pouvez également alerter en cas de certaines activités s
 
 ## <a name="lt-3-enable-logging-for-azure-network-activities"></a>LT-3 : Activer la journalisation pour les activités réseau Azure
 
-| Identifiant Azure | ID des contrôles CIS v7.1 | ID NIST SP800-53 r4 |
+| Identifiant Azure | ID des contrôles CIS v7.1 | ID NIST SP 800-53 r4 |
 |--|--|--|--|
 | LT-3 | 9.3, 12.2, 12.5, 12.8 | AU-3, AU-6, AU-12, SI-4 |
 
@@ -109,9 +109,9 @@ Activez et collectez les journaux de ressources des groupes de sécurité résea
 
 - [Rassemblement d’informations sur votre infrastructure DNS avec la solution DNS Analytics](../../azure-monitor/insights/dns-analytics.md)
 
-**Responsabilité**  : Customer
+**Responsabilité** : Customer
 
-**Parties prenantes de la sécurité des clients** ( [En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
+**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Sécurité d’infrastructure et de point de terminaison](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
@@ -125,7 +125,7 @@ Activez et collectez les journaux de ressources des groupes de sécurité résea
 
 ## <a name="lt-4-enable-logging-for-azure-resources"></a>LT-4 : Activer la journalisation pour les ressources Azure
 
-| Identifiant Azure | ID des contrôles CIS v7.1 | ID NIST SP800-53 r4 |
+| Identifiant Azure | ID des contrôles CIS v7.1 | ID NIST SP 800-53 r4 |
 |--|--|--|--|
 | LT-4 | 6.2, 6.3, 8.8 | AU-3, AU-12 |
 
@@ -137,9 +137,9 @@ Vous pouvez utiliser Azure Security Center et Azure Policy pour activer les jour
 
 - [Présentation de la collecte de données Azure Security Center](../../security-center/security-center-enable-data-collection.md)
 
-**Responsabilité**  : Partagé
+**Responsabilité** : Partagé
 
-**Parties prenantes de la sécurité des clients** ( [En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
+**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Opérations de sécurité](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
@@ -151,7 +151,7 @@ Sécurité d’infrastructure et de point de terminaison
 
 ## <a name="lt-5-centralize-security-log-management-and-analysis"></a>LT-5 : Centraliser la gestion et l’analyse des journaux de sécurité
 
-| Identifiant Azure | ID des contrôles CIS v7.1 | ID NIST SP800-53 r4 |
+| Identifiant Azure | ID des contrôles CIS v7.1 | ID NIST SP 800-53 r4 |
 |--|--|--|--|
 | LT-5 | 6.5, 6.6 | AU-3, SI-4 |
 
@@ -167,9 +167,9 @@ De nombreuses organisations choisissent d’utiliser Azure Sentinel pour les don
 
 - [Guide pratique pour intégrer Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
-**Responsabilité**  : Customer
+**Responsabilité** : Customer
 
-**Parties prenantes de la sécurité des clients** ( [En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
+**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Architecture de la sécurité](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
@@ -179,7 +179,7 @@ De nombreuses organisations choisissent d’utiliser Azure Sentinel pour les don
 
 ## <a name="lt-6-configure-log-storage-retention"></a>LT-6 : Configurer la rétention du stockage des journaux
 
-| Identifiant Azure | ID des contrôles CIS v7.1 | ID NIST SP800-53 r4 |
+| Identifiant Azure | ID des contrôles CIS v7.1 | ID NIST SP 800-53 r4 |
 |--|--|--|--|
 | LT-6 | 6.4 | AU-3, AU-11 |
 
@@ -193,9 +193,9 @@ Dans Azure Monitor, vous pouvez définir la période de rétention de votre espa
 
 - [Exportation des alertes et recommandations Azure Security Center](../../security-center/continuous-export.md)
 
-**Responsabilité**  : Customer
+**Responsabilité** : Customer
 
-**Parties prenantes de la sécurité des clients** ( [En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
+**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Architecture de la sécurité](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
@@ -207,7 +207,7 @@ Dans Azure Monitor, vous pouvez définir la période de rétention de votre espa
 
 ## <a name="lt-7-use-approved-time-synchronization-sources"></a>LT-7 : Utiliser des sources de synchronisation date/heure approuvées
 
-| Identifiant Azure | ID des contrôles CIS v7.1 | ID NIST SP800-53 r4 |
+| Identifiant Azure | ID des contrôles CIS v7.1 | ID NIST SP 800-53 r4 |
 |--|--|--|--|
 | LT-7 | 6.1 | AU-8 |
 
@@ -221,9 +221,9 @@ Tous les journaux générés par des ressources dans Azure fournissent des horod
 
 - [Comment désactiver le protocole UDP entrant pour les services Azure](https://support.microsoft.com/help/4558520/how-to-disable-inbound-udp-for-azure-services)
 
-**Responsabilité**  : Partagé
+**Responsabilité** : Partagé
 
-**Parties prenantes de la sécurité des clients** ( [En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
+**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Stratégie et normes](/azure/cloud-adoption-framework/organize/cloud-security-policy-standards)
 

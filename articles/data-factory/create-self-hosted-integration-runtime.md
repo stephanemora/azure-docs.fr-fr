@@ -11,12 +11,12 @@ ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 11/25/2020
-ms.openlocfilehash: 22155083a71a9cbf615293a4f86a179aaefce2a9
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 04efb7bcae11ef6cf377d821b49f9b07d41d347f
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96023349"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932589"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Créer et configurer un runtime d’intégration auto-hébergé
 
@@ -102,29 +102,28 @@ Dmgcmd.exe est inclus dans le programme d'installation auto-hébergé. Il est g�
 Utilisez l’application comme suit :
 
 ```powershell
-dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<thumbprint>"] -EnableRemoteAccessInContainer "<port>" ["<thumbprint>"] -DisableRemoteAccess -Key "<AuthenticationKey>" -GenerateBackupFile "<filePath>" "<password>" -ImportBackupFile "<filePath>" "<password>" -Restart -Start -Stop -StartUpgradeService -StopUpgradeService -TurnOnAutoUpdate -TurnOffAutoUpdate -SwitchServiceAccount "<domain\user>" ["<password>"] -Loglevel <logLevel> ]
+dmgcmd ACTION args...
 ```
 
-Vous trouverez ci-dessous les détails relatifs aux paramètres et propriétés de l'application : 
+Voici les détails relatifs aux actions et aux arguments de l'application : 
 
-| Propriété                                                    | Description                                                  | Obligatoire |
-| ----------------------------------------------------------- | ------------------------------------------------------------ | -------- |
-| **RegisterNewNode** "`<AuthenticationKey>`"                     | Inscrire un nœud de runtime d'intégration auto-hébergé avec la clé d’authentification spécifiée. | Non       |
-| **RegisterNewNode** "`<AuthenticationKey>`" "`<NodeName>`"      | Inscrire un nœud de runtime d’intégration auto-hébergé avec la clé d’authentification et le nom de nœud spécifiés. | Non       |
-| **EnableRemoteAccess** "`<port>`" ["`<thumbprint>`"]            | Activer l’accès à distance sur le nœud actuel pour configurer un cluster haute disponibilité. Il est également possible d'activer la définition des informations d’identification directement sur le runtime d’intégration auto-hébergé, sans passer par Azure Data Factory. Pour ce faire, utilisez la cmdlet **New-AzDataFactoryV2LinkedServiceEncryptedCredential** à partir d’une machine distante du même réseau. | Non       |
-| **EnableRemoteAccessInContainer** "`<port>`" ["`<thumbprint>`"] | Activer l’accès à distance au nœud actif lorsque le nœud s’exécute dans le conteneur. | Non       |
-| **DisableRemoteAccess**                                         | Désactiver l’accès à distance au nœud actif. L’accès à distance est nécessaire pour une configuration à plusieurs nœuds. La cmdlet PowerShell **New-AzDataFactoryV2LinkedServiceEncryptedCredential** fonctionne toujours même lorsque l’accès à distance est désactivé. Ce comportement se vérifie tant que la cmdlet est exécutée sur le même ordinateur que le nœud du runtime d’intégration auto-hébergé. | Non       |
-| **Key** "`<AuthenticationKey>`"                                 | Remplacer ou mettre à jour la clé d’authentification précédente. Utilisez cette action avec précaution. Elle peut entraîner la mise hors connexion de votre nœud du runtime d’intégration auto-hébergé précédent si la clé appartient à un nouveau runtime d’intégration. | Non       |
-| **GenerateBackupFile** "`<filePath>`" "`<password>`"            | Générer un fichier de sauvegarde pour le nœud actif. Ce fichier inclut la clé du nœud et les informations d’identification du magasin de données. | Non       |
-| **ImportBackupFile** "`<filePath>`" "`<password>`"              | Restaurer le nœud à partir d’un fichier de sauvegarde.                          | Non       |
-| **Restart**                                                     | Redémarrer le service hôte du runtime d'intégration auto-hébergé.   | Non       |
-| **Start**                                                       | Démarrer le service hôte du runtime d'intégration auto-hébergé.     | Non       |
-| **Stop**                                                        | Arrêter le service hôte du runtime d'intégration auto-hébergé.        | Non       |
-| **StartUpgradeService**                                         | Démarrer le service hôte du runtime d'intégration auto-hébergé.       | Non       |
-| **StopUpgradeService**                                          | Arrêter le service de mise à niveau du runtime d'intégration auto-hébergé.        | Non       |
-| **TurnOnAutoUpdate**                                            | Activer la mise à jour automatique du runtime d'intégration auto-hébergé.        | Non       |
-| **TurnOffAutoUpdate**                                           | Désactiver la mise à jour automatique du runtime d'intégration auto-hébergé.       | Non       |
-| **SwitchServiceAccount** "`<domain\user>`" ["`<password>`"]           | Définir DIAHostService de façon à ce qu’il s’exécute en tant que nouveau compte. Utilisez le mot de passe vide (« ») pour les comptes système et comptes virtuels. | Non       |
+|ACTION|args|Description|
+|------|----|-----------|
+|-rn,<br/>-RegisterNewNode|"`<AuthenticationKey>`" ["`<NodeName>`"]|Inscrire un nœud de runtime d’intégration auto-hébergé avec la clé d’authentification et le nom de nœud spécifiés.|
+|-era,<br/>-EnableRemoteAccess|"`<port>`" ["`<thumbprint>`"]|Activer l’accès à distance sur le nœud actuel pour configurer un cluster haute disponibilité. Il est également possible d'activer la définition des informations d’identification directement sur le runtime d’intégration auto-hébergé, sans passer par Azure Data Factory. Pour ce faire, utilisez la cmdlet **New-AzDataFactoryV2LinkedServiceEncryptedCredential** à partir d’une machine distante du même réseau.|
+|-erac,<br/>-EnableRemoteAccessInContainer|"`<port>`" ["`<thumbprint>`"]|Activer l’accès à distance au nœud actif lorsque le nœud s’exécute dans le conteneur.|
+|-dra,<br/>-DisableRemoteAccess||Désactiver l’accès à distance au nœud actif. L’accès à distance est nécessaire pour une configuration à plusieurs nœuds. La cmdlet PowerShell **New-AzDataFactoryV2LinkedServiceEncryptedCredential** fonctionne toujours même lorsque l’accès à distance est désactivé. Ce comportement se vérifie tant que la cmdlet est exécutée sur le même ordinateur que le nœud du runtime d’intégration auto-hébergé.|
+|-k,<br/>-Key|"`<AuthenticationKey>`"|Remplacer ou mettre à jour la clé d’authentification précédente. Utilisez cette action avec précaution. Elle peut entraîner la mise hors connexion de votre nœud du runtime d’intégration auto-hébergé précédent si la clé appartient à un nouveau runtime d’intégration.|
+|-gbf,<br/>-GenerateBackupFile|"`<filePath>`" "`<password>`"|Générer un fichier de sauvegarde pour le nœud actif. Ce fichier inclut la clé du nœud et les informations d’identification du magasin de données.|
+|-ibf,<br/>-ImportBackupFile|"`<filePath>`" "`<password>`"|Restaurer le nœud à partir d’un fichier de sauvegarde.|
+|-r,<br/>-Restart||Redémarrer le service hôte du runtime d'intégration auto-hébergé.|
+|-s,<br/>-Start||Démarrer le service hôte du runtime d'intégration auto-hébergé.|
+|-t,<br/>-Stop||Arrêter le service hôte du runtime d'intégration auto-hébergé.|
+|-sus,<br/>-StartUpgradeService||Démarrer le service hôte du runtime d'intégration auto-hébergé.|
+|-tus,<br/>-StopUpgradeService||Arrêter le service de mise à niveau du runtime d'intégration auto-hébergé.|
+|-tonau,<br/>-TurnOnAutoUpdate||Activer la mise à jour automatique du runtime d'intégration auto-hébergé.|
+|-toffau,<br/>-TurnOffAutoUpdate||Désactiver la mise à jour automatique du runtime d'intégration auto-hébergé.|
+|-ssa,<br/>-SwitchServiceAccount|"`<domain\user>`" ["`<password>`"]|Définir DIAHostService de façon à ce qu’il s’exécute en tant que nouveau compte. Utilisez le mot de passe vide (« ») pour les comptes système et comptes virtuels.|
 
 
 ## <a name="command-flow-and-data-flow"></a>Flux de commandes et flux de données
@@ -150,7 +149,7 @@ Voici un résumé global des étapes de flux de données de copie avec un runtim
 - Utilisez un runtime d’intégration auto-hébergé prendre en charge l’intégration des données au sein d’un réseau virtuel Azure.
 - Considérez votre source de données comme une source de données locale qui se trouve derrière un pare-feu, même lorsque vous utilisez Azure ExpressRoute. Utilisez le runtime d’intégration auto-hébergé pour connecter le service à la source de données.
 - Utiliser le runtime d’intégration auto-hébergé même si le magasin de données se trouve dans le cloud sur une infrastructure en tant que service (IaaS) Azure.
-- Les tâches peuvent échouer dans un runtime d’intégration auto-hébergé que vous avez installé sur un serveur Windows pour lequel le chiffrement compatible FIPS est activé. Pour contourner ce problème, vous avez deux options : stocker les informations d’identification/valeurs secrètes dans un Azure Key Vault ou désactiver le chiffrement conforme aux normes FIPS sur le serveur. Pour désactiver le chiffrement compatible FIPS, modifiez la valeur de la sous-clé du registre suivante de 1 (activé) à 0 (désactivé) : `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled`. Si vous utilisez le [runtime d’intégration auto-hébergé comme proxy pour le runtime d’intégration SSIS](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis), le chiffrement conforme aux normes FIPS peut être activé et utilisé lors du déplacement de données de l’environnement local vers le stockage Blob Azure en tant que zone de transit.
+- Les tâches peuvent échouer dans un runtime d’intégration auto-hébergé que vous avez installé sur un serveur Windows pour lequel le chiffrement compatible FIPS est activé. Pour contourner ce problème, vous avez deux options : stocker les informations d’identification/valeurs secrètes dans un Azure Key Vault ou désactiver le chiffrement conforme aux normes FIPS sur le serveur. Pour désactiver le chiffrement compatible FIPS, modifiez la valeur de la sous-clé du registre suivante de 1 (activé) à 0 (désactivé) : `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled`. Si vous utilisez le [runtime d’intégration auto-hébergé comme proxy pour le runtime d’intégration SSIS](./self-hosted-integration-runtime-proxy-ssis.md), le chiffrement conforme aux normes FIPS peut être activé et utilisé lors du déplacement de données de l’environnement local vers le stockage Blob Azure en tant que zone de transit.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -160,7 +159,7 @@ Voici un résumé global des étapes de flux de données de copie avec un runtim
   + Windows 10
   + Windows Server 2008 R2 SP1
   + Windows Server 2012
-  + Windows Server 2012 R2
+  + Windows Server 2012 R2
   + Windows Server 2016
   + Windows Server 2019
    
@@ -331,7 +330,7 @@ Au niveau du pare-feu Windows ou au niveau de la machine, ces ports de sortie so
 
 Assurez-vous de correctement activer les règles de pare-feu sur le pare-feu d’entreprise, le pare-feu Windows de la machine du runtime d’intégration auto-hébergé, ainsi le magasin de données lui-même. Activer ces règles permet au runtime d’intégration auto-hébergé de se connecter correctement à la source et au récepteur. Activez les règles pour chaque magasin de données impliqué dans l’opération de copie.
 
-Par exemple, pour copier à partir d’un magasin de données local vers un récepteur SQL Database ou un récepteur Azure Synapse Analytics (anciennement SQL Data Warehouse), procédez comme suit :
+Par exemple, pour copier à partir d’une banque de données locale vers un récepteur SQL Database ou un récepteur Azure Synapse Analytics, effectuez les opérations suivantes :
 
 1. Autorisez le trafic TCP sortant sur le port 1433 pour le pare-feu Windows et le pare-feu d’entreprise.
 1. Configurez les paramètres de pare-feu de la base de données SQL pour ajouter l’adresse IP de la machine du runtime d’intégration auto-hébergé à la liste des adresses IP autorisées.

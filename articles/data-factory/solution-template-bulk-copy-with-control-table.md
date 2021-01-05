@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/14/2018
-ms.openlocfilehash: 8d1ff372009c6158f2148847dd77126bcb4d189f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.date: 12/09/2020
+ms.openlocfilehash: d89fd8b4102333603fa71b2cc28a49b732b91b08
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461234"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920892"
 ---
 # <a name="bulk-copy-from-a-database-with-a-control-table"></a>Copier en bloc à partir d’une base de données avec une table de contrôle
 
@@ -44,7 +44,7 @@ Le modèle définit les paramètres suivants :
 - *Data_Destination_Container* est le chemin d’accès du dossier racine où les données sont copiées dans votre magasin de destination. 
 - *Data_Destination_Directory* est le chemin du répertoire sous la racine où les données sont copiées dans votre magasin de destination. 
 
-Les trois derniers paramètres qui définissent le chemin d’accès dans votre magasin de destination sont visibles uniquement si la destination que vous choisissez est un stockage basé sur des fichiers. Si vous choisissez « Azure Synapse Analytics (anciennement SQL DW) » comme magasin de destination, ces paramètres ne sont pas requis. Cependant, les noms des tables et le schéma dans Azure Synapse Analytics doivent être identiques à ceux de la base de données source.
+Les trois derniers paramètres qui définissent le chemin d’accès dans votre magasin de destination sont visibles uniquement si la destination que vous choisissez est un stockage basé sur des fichiers. Si vous choisissez « Azure Synapse Analytics » comme magasin de destination, ces paramètres ne sont pas requis. Cependant, les noms des tables et le schéma dans Azure Synapse Analytics doivent être identiques à ceux de la base de données source.
 
 ## <a name="how-to-use-this-solution-template"></a>Utiliser ce modèle de solution
 
@@ -94,7 +94,7 @@ Les trois derniers paramètres qui définissent le chemin d’accès dans votre 
 
     ![Vérifier le résultat](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable8.png)
 
-9. (Facultatif) Si vous choisissez « Azure Synapse Analytics (anciennement SQL DW) » comme destination des données, vous devez entrer une connexion à un stockage d’objets blob Azure pour la mise en lots, conformément aux exigences d’Azure Synapse Analytics Polybase. Le modèle génère automatiquement un chemin de conteneur pour votre stockage d’objets blob. Vérifiez si le conteneur a été créé après l’exécution du pipeline.
+9. (Facultatif) Si vous choisissez « Azure Synapse Analytics » comme destination des données, vous devez entrer une connexion à un stockage d’objets blob Azure pour la mise en lots, conformément aux exigences d’Azure Synapse Analytics Polybase. Le modèle génère automatiquement un chemin de conteneur pour votre stockage d’objets blob. Vérifiez si le conteneur a été créé après l’exécution du pipeline.
     
     ![Paramètre Polybase](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable9.png)
        

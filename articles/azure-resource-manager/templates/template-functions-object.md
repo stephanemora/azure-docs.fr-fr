@@ -1,18 +1,18 @@
 ---
 title: Fonctions de modèle - objets
-description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour travailler avec des objets.
+description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager (ARM) pour travailler avec des objets.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 7ed317b3506f00e71bbf97d5564cacec05032744
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 5e13177db1a7cf2f19a822363cb3884474566add
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96004515"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920444"
 ---
 # <a name="object-functions-for-arm-templates"></a>Fonctions d’objet pour les modèles ARM
 
-Resource Manager fournit plusieurs fonctions pour travailler avec des objets dans votre modèle Azure Resource Manager (ARM).
+Resource Manager fournit plusieurs fonctions pour vous permettre d’utiliser des objets dans votre modèle Azure Resource Manager (ARM) :
 
 * [contains](#contains)
 * [createObject](#createobject)
@@ -792,4 +792,4 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour obtenir une description des sections d’un modèle Azure Resource Manager, consultez [Comprendre la structure et la syntaxe des modèles ARM](template-syntax.md).
+* Pour une description des sections d’un modèle ARM, consultez [Présentation de la structure et de la syntaxe des modèles ARM](template-syntax.md).

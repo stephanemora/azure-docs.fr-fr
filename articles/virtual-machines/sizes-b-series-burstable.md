@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: sttsinar
-ms.openlocfilehash: 819654ef88584cb91d6032e46256258aaed524fd
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: ea812df825288eae3822cce01b24ebc82534c541
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500306"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928815"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Tailles de machines virtuelles modulables Série B
 
@@ -132,7 +132,7 @@ Par exemple, dans l’exemple ci-dessus, vos performances de base sont de 20 %. 
 
 ### <a name="q-why-is-my-remaining-credit-set-to-0-after-a-redeploy-or-a-stopstart"></a>Q : Pourquoi mon crédit restant est-il défini sur 0 après un redéploiement ou un arrêt/démarrage ?
 
-**R** : Lorsqu’une machine virtuelle est « REDÉPLOYÉE » et qu’elle est déplacée vers un autre nœud, le crédit cumulé est perdu. Si la machine virtuelle est arrêtée/démarrée, mais reste sur le même nœud, la machine virtuelle conserve le crédit cumulé. Lorsque la machine virtuelle redémarre à zéro sur un nœud, elle obtient un crédit initial (240 pour Standard_B8ms).
+**R** : Lorsqu’une machine virtuelle est redéployée et déplacée vers un autre nœud, le crédit cumulé est perdu. Si la machine virtuelle est arrêtée/démarrée, mais reste sur le même nœud, la machine virtuelle conserve le crédit cumulé. Lorsque la machine virtuelle redémarre à zéro sur un nœud, elle obtient un crédit initial (240 pour Standard_B8ms).
 
 ### <a name="q-what-happens-if-i-deploy-an-unsupported-os-image-on-b1ls"></a>Q : Que se passe-t-il si je déploie une image de système d’exploitation non prise en charge sur B1ls ?
 

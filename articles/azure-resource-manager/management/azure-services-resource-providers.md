@@ -3,12 +3,12 @@ title: Fournisseurs de ressources par les services Azure
 description: Répertorie tous les espaces de noms de fournisseurs de ressources pour Azure Resource Manager et affiche le service Azure de chaque espace de noms.
 ms.topic: conceptual
 ms.date: 12/01/2020
-ms.openlocfilehash: faea6badc24d0152e94fc507cafdb15932d1ea3e
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 5e89b2b7cf7c27a501d93f63c74d81d8fb40883c
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452638"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033542"
 ---
 # <a name="resource-providers-for-azure-services"></a>Fournisseurs de ressources pour les services Azure
 
@@ -35,6 +35,7 @@ Les fournisseurs de ressources marqués avec **- inscrit** sont inscrits par dé
 | Microsoft.AutonomousSystems | [Systèmes autonomes](https://www.microsoft.com/ai/autonomous-systems) |
 | Microsoft.AVS | [Azure VMware Solution](../../azure-vmware/index.yml) |
 | Microsoft.AzureActiveDirectory | [Azure Active Directory B2C](../../active-directory-b2c/index.yml) |
+| Microsoft.AzureArcData | Registre des services de données avec Azure Arc |
 | Microsoft.AzureData | Registre SQL Server |
 | Microsoft.AzureStack | core |
 | Microsoft.AzureStackHCI | [Azure Stack HCI](/azure-stack/hci/overview) |

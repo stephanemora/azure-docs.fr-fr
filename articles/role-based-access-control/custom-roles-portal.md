@@ -6,18 +6,16 @@ documentationcenter: ''
 author: rolyon
 manager: mtillman
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/13/2020
+ms.date: 12/11/2020
 ms.author: rolyon
-ms.openlocfilehash: 9ab6561b1dc0e8b977fc69d259c5f26366f355ce
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: ecda0edcd34999e8cbb6c7ab9039953d17c119e5
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92481327"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97369224"
 ---
 # <a name="create-or-update-azure-custom-roles-using-the-azure-portal"></a>Créer ou mettre à jour des rôles personnalisés Azure à l’aide du portail Azure
 
@@ -31,14 +29,12 @@ Pour créer des rôles personnalisés, vous avez besoin des éléments suivants 
 
 ## <a name="step-1-determine-the-permissions-you-need"></a>Étape 1 : Déterminer les autorisations nécessaires
 
-Azure dispose de plusieurs milliers d’autorisations que vous pouvez inclure dans votre rôle personnalisé. Voici quatre façons de déterminer les autorisations à ajouter à votre rôle personnalisé :
+Azure dispose de plusieurs milliers d’autorisations que vous pouvez inclure dans votre rôle personnalisé. Voici quelques moyens de déterminer les autorisations à ajouter à un rôle personnalisé :
 
-| Méthode | Description |
-| --- | --- |
-| Examiner des rôles existants | Vous pouvez examiner des rôles existants pour voir quelles autorisations sont utilisées. Pour plus d’informations, voir [Rôles intégrés Azure](built-in-roles.md). |
-| Rechercher des autorisations par mot clé | Lorsque vous créez un rôle personnalisé à l’aide du portail Azure, vous pouvez rechercher des autorisations par mot clé. Par exemple, vous pouvez rechercher des autorisations d’ *ordinateur virtuel* ou de *facturation*. Cette fonctionnalité de recherche est décrite plus loin à l’[Étape 4 : Autorisations](#step-4-permissions). |
-| Télécharger toutes les autorisations | Lorsque vous créez un rôle personnalisé à l’aide du portail Azure, vous pouvez télécharger toutes les autorisations en tant que fichier CSV, puis Rechercher celui-ci. Dans le volet **Ajouter des autorisations** , cliquez sur le bouton **Télécharger toutes les autorisations** pour les télécharger toutes. Pour plus d’informations sur le volet Ajouter des autorisations, voir l’[Étape 4 : Autorisations](#step-4-permissions). |
-| Afficher les autorisations dans les documents | Vous pouvez afficher les autorisations disponibles dans les [opérations de fournisseur de ressources Azure Resource Manager](resource-provider-operations.md). |
+- Examinez les [rôles intégrés](built-in-roles.md) existants.
+- Dressez la liste des services Azure auxquels vous souhaitez accorder l’accès.
+- Déterminez les [fournisseurs de ressources correspondant aux services Azure](../azure-resource-manager/management/azure-services-resource-providers.md). Une méthode de recherche est décrite plus loin dans [Étape 4 : Autorisations](#step-4-permissions).
+- Recherchez dans [Autorisations disponibles](resource-provider-operations.md) les autorisations que vous souhaitez inclure. Une méthode de recherche est décrite plus loin dans [Étape 4 : Autorisations](#step-4-permissions).
 
 ## <a name="step-2-choose-how-to-start"></a>Étape 2 : Choisir comment commencer
 
@@ -72,7 +68,7 @@ Si vous préférez, vous pouvez suivre ces étapes pour démarrer un rôle perso
 
 1. Dans le portail Azure, ouvrez un abonnement ou un groupe de ressources dans lequel vous souhaitez que le rôle personnalisé soit attribuable, puis ouvrez **Contrôle d’accès (IAM)** .
 
-1. Cliquez sur **Ajouter** , puis sur **Ajouter un rôle personnalisé**.
+1. Cliquez sur **Ajouter**, puis sur **Ajouter un rôle personnalisé**.
 
     ![Menu Ajouter un rôle personnalisé](./media/custom-roles-portal/add-custom-role-menu.png)
 
@@ -136,13 +132,13 @@ Si vous préférez, vous pouvez spécifier la plupart des valeurs de votre rôle
     
 1. Dans le portail Azure, ouvrez la page **Contrôle d’accès (IAM)** .
 
-1. Cliquez sur **Ajouter** , puis sur **Ajouter un rôle personnalisé**.
+1. Cliquez sur **Ajouter**, puis sur **Ajouter un rôle personnalisé**.
 
     ![Menu Ajouter un rôle personnalisé](./media/custom-roles-portal/add-custom-role-menu.png)
 
     Cette action ouvre l’éditeur de rôles personnalisés.
 
-1. Sous l’onglet Paramètres de base, dans **Autorisations de base** , sélectionnez **Démarrer à partir d’un JSON**.
+1. Sous l’onglet Paramètres de base, dans **Autorisations de base**, sélectionnez **Démarrer à partir d’un JSON**.
 
 1. En regard de la zone Sélectionner un fichier, cliquez sur le bouton de dossier pour ouvrir la boîte de dialogue Ouvrir.
 
@@ -152,11 +148,11 @@ Si vous préférez, vous pouvez spécifier la plupart des valeurs de votre rôle
 
 ## <a name="step-3-basics"></a>Étape 3 : Concepts de base
 
-Sous l’onglet **Paramètres de base** , spécifiez le nom, la description et les autorisations de base pour votre rôle personnalisé.
+Sous l’onglet **Paramètres de base**, spécifiez le nom, la description et les autorisations de base pour votre rôle personnalisé.
 
-1. Dans la zone **Nom de rôle personnalisé** , spécifiez un nom pour le rôle personnalisé. Le nom doit être unique pour l’annuaire Azure AD. Il peut inclure des lettres, des chiffres, des espaces et des caractères spéciaux.
+1. Dans la zone **Nom de rôle personnalisé**, spécifiez un nom pour le rôle personnalisé. Le nom doit être unique pour l’annuaire Azure AD. Il peut inclure des lettres, des chiffres, des espaces et des caractères spéciaux.
 
-1. Dans la zone **Description** , entrez une description facultative pour le rôle personnalisé. Celle-ci deviendra l’info-bulle pour le rôle personnalisé.
+1. Dans la zone **Description**, entrez une description facultative pour le rôle personnalisé. Celle-ci deviendra l’info-bulle pour le rôle personnalisé.
 
     L’option **Autorisations de base** devrait déjà être définie suite à l’étape précédente, mais vous pouvez la modifier.
 
@@ -164,7 +160,7 @@ Sous l’onglet **Paramètres de base** , spécifiez le nom, la description et l
 
 ## <a name="step-4-permissions"></a>Étape 4 : Autorisations
 
-Sous l’onglet **Autorisations** , vous spécifiez les autorisations pour votre rôle personnalisé. Selon que vous avez cloné un rôle ou avez démarré avec un fichier JSON, il se peut que l’onglet Autorisations répertorie déjà certaines autorisations.
+Sous l’onglet **Autorisations**, vous spécifiez les autorisations pour votre rôle personnalisé. Selon que vous avez cloné un rôle ou avez démarré avec un fichier JSON, il se peut que l’onglet Autorisations répertorie déjà certaines autorisations.
 
 ![Onglet Autorisations pour la création d’un rôle personnalisé](./media/custom-roles-portal/permissions.png)
 
@@ -174,9 +170,9 @@ Pour ajouter ou supprimer des autorisations pour votre rôle personnalisé, proc
 
 1. Pour ajouter des autorisations, cliquez sur **Ajouter des autorisations** pour ouvrir le volet Ajouter des autorisations.
 
-    Ce volet répertorie toutes les autorisations disponibles regroupées par catégories dans un format de carte. Chaque catégorie représente un *fournisseur de ressources* , à savoir un service fournissant des ressources Azure.
+    Ce volet répertorie toutes les autorisations disponibles regroupées par catégories dans un format de carte. Chaque catégorie représente un *fournisseur de ressources*, à savoir un service fournissant des ressources Azure.
 
-1. Dans la zone **Rechercher une autorisation** , tapez une chaîne pour rechercher des autorisations. Par exemple, recherchez *facture* pour trouver des autorisations liées à la facture.
+1. Dans la zone **Rechercher une autorisation**, tapez une chaîne pour rechercher des autorisations. Par exemple, recherchez *facture* pour trouver des autorisations liées à la facture.
 
     Une liste de cartes de fournisseur de ressources s’affiche en fonction de votre chaîne de recherche. Pour obtenir une liste qui mappe des fournisseurs de ressources à des services Azure, voir [Fournisseurs de ressources pour les services Azure](../azure-resource-manager/management/azure-services-resource-providers.md).
 
@@ -245,7 +241,7 @@ Lorsque vous excluez une autorisation, celle-ci est ajoutée en tant que `NotAct
 
 ## <a name="step-5-assignable-scopes"></a>Étape 5 : Étendues attribuables
 
-Sous l’onglet **Étendues attribuables** , spécifiez l’emplacement où votre rôle personnalisé est disponible pour affectation, par exemple, un abonnement ou un groupe de ressources. Selon la façon dont vous avez choisi de commencer, cet onglet peut répertorier l’étendue dans laquelle vous avez ouvert la page Contrôle d’accès (IAM). La définition de l’étendue attribuable sur l’étendue racine (« / ») n’est pas prise en charge. Actuellement, vous ne pouvez pas ajouter un groupe d’administration en tant qu’étendue attribuable.
+Sous l’onglet **Étendues attribuables**, spécifiez l’emplacement où votre rôle personnalisé est disponible pour affectation, par exemple, un abonnement ou un groupe de ressources. Selon la façon dont vous avez choisi de commencer, cet onglet peut répertorier l’étendue dans laquelle vous avez ouvert la page Contrôle d’accès (IAM). La définition de l’étendue attribuable sur l’étendue racine (« / ») n’est pas prise en charge. Actuellement, vous ne pouvez pas ajouter un groupe d’administration en tant qu’étendue attribuable.
 
 1. Cliquez sur **Ajouter des étendues attribuables** pour ouvrir le volet Ajouter des étendues attribuables.
 
@@ -259,7 +255,7 @@ Sous l’onglet **Étendues attribuables** , spécifiez l’emplacement où votr
 
 ## <a name="step-6-json"></a>Étape 6 : JSON
 
-Sous l’onglet **JSON** , vous voyez votre rôle personnalisé au format JSON. Si vous le souhaitez, vous pouvez modifier directement le JSON. Si vous souhaitez ajouter une autorisation générique (`*`), vous devez utiliser cet onglet.
+Sous l’onglet **JSON**, vous voyez votre rôle personnalisé au format JSON. Si vous le souhaitez, vous pouvez modifier directement le JSON. Si vous souhaitez ajouter une autorisation générique (`*`), vous devez utiliser cet onglet.
 
 1. Pour modifier le JSON, cliquez sur **Modifier**.
 
@@ -273,7 +269,7 @@ Sous l’onglet **JSON** , vous voyez votre rôle personnalisé au format JSON. 
 
 ## <a name="step-7-review--create"></a>Étape 7 : Vérifier + créer
 
-Sous l’onglet **Vérifier + créer** , vous pouvez vérifier les paramètres de votre rôle personnalisé.
+Sous l’onglet **Vérifier + créer**, vous pouvez vérifier les paramètres de votre rôle personnalisé.
 
 1. Vérifiez les paramètres de votre rôle personnalisé.
 
@@ -301,7 +297,7 @@ Pour afficher vos rôles personnalisés, procédez comme suit.
 
 1. Cliquez sur l’onglet **Rôles** pour afficher une liste de tous les rôles intégrés et personnalisés.
 
-1. Dans la liste **Type** , sélectionnez **CustomRole** pour voir vos rôles personnalisés.
+1. Dans la liste **Type**, sélectionnez **CustomRole** pour voir vos rôles personnalisés.
 
     Si vous venez de créer votre rôle personnalisé et ne le voyez pas dans la liste, cliquez sur **Actualiser**.
 
@@ -339,4 +335,4 @@ Pour afficher vos rôles personnalisés, procédez comme suit.
 
 - [Tutoriel : Créer un rôle personnalisé Azure à l’aide d’Azure PowerShell](tutorial-custom-role-powershell.md)
 - [Rôle personnalisés Azure](custom-roles.md)
-- [Opérations du fournisseur de ressources Azure Resource Manager](resource-provider-operations.md)
+- [Opérations de fournisseur de ressources Azure](resource-provider-operations.md)

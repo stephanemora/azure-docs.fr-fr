@@ -4,16 +4,16 @@ description: Découvrez la relation entre les types de nœuds Azure Service Fabr
 ms.topic: conceptual
 ms.date: 03/23/2018
 ms.author: pepogors
-ms.openlocfilehash: 7df7ed9fa1f872cd9554dcf4c8880b7c9d5e53c4
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 9e30c02de54806006a1881448bcb9f788a57310c
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576398"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095251"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Types de nœuds Azure Service Fabric et groupes de machines virtuelles identiques
 
-Les [groupes de machines virtuelles identiques](../virtual-machine-scale-sets/index.yml) représentent une ressource de calcul Azure. Vous pouvez utiliser des groupes identiques pour déployer et gérer une collection de machines virtuelles comme un groupe. Chaque type de nœud que vous définissez dans un cluster Azure Service Fabric configure exactement un groupe identique : plusieurs types de nœuds ne peuvent pas être sauvegardés par le même groupe identique et un type de nœud ne doit pas (dans la plupart des cas) être sauvegardé par plusieurs groupes identiques. Une exception à cette règle est observée dans le rare cas de la [mise à l’échelle verticale](service-fabric-best-practices-capacity-scaling.md#vertical-scaling-considerations) d’un type de nœud, lorsque vous avez temporairement deux groupes identiques avec la même valeur `nodeTypeRef`, tandis que les réplicas sont migrés de l’original au groupe identique mis à niveau.
+Les [groupes de machines virtuelles identiques](../virtual-machine-scale-sets/index.yml) représentent une ressource de calcul Azure. Vous pouvez utiliser des groupes identiques pour déployer et gérer une collection de machines virtuelles comme un groupe. Chaque type de nœud que vous définissez dans un cluster Azure Service Fabric configure exactement un groupe identique : plusieurs types de nœuds ne peuvent pas être sauvegardés par le même groupe identique et un type de nœud ne doit pas être sauvegardé par plusieurs groupes identiques.
 
 Le runtime Service Fabric est installé sur chaque machine virtuelle dans le groupe identique par l’extension de machine virtuelle *Microsoft.Azure.ServiceFabric*. Vous pouvez faire monter ou descendre en puissance chaque type de nœud de manière indépendante, modifier la référence SKU du système d’exploitation s’exécutant sur chaque nœud de cluster, avoir différents ensembles de ports ouverts et utiliser différentes métriques de capacité.
 

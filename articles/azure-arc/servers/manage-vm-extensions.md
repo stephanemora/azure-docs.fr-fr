@@ -1,20 +1,20 @@
 ---
 title: Gestion des extensions de machine virtuelle avec des serveur activés par Azure Arc
 description: Les serveurs activés par Azure Arc peuvent gérer le déploiement d’extensions de machine virtuelle qui permettent d’effectuer des tâches d’automatisation et de configuration post-déploiement sur des machines virtuelles non Azure.
-ms.date: 11/06/2020
+ms.date: 12/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7682f6c8631bbaf2310d501d7cee6aecb2311226
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 55e21f9c6bcd2dfe5f995093034773f2a87d9b03
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358029"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504506"
 ---
 # <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers"></a>Gestion des extensions de machine virtuelle avec des serveurs activés par Azure Arc
 
-Les extensions de machine virtuelle sont de petites applications qui permettent d’effectuer des tâches de configuration et d’automatisation de post-déploiement sur des machines virtuelles Azure. Par exemple, si une machine virtuelle nécessite l’installation d’un logiciel, une protection antivirus ou l’exécution d’un script, vous pouvez utiliser une extension de machine virtuelle.
+Les extensions de machine virtuelle sont de petites applications qui permettent d’effectuer des tâches de configuration et d’automatisation de post-déploiement sur des machines virtuelles Azure. Par exemple, si une machine virtuelle exige l’installation d’un logiciel, une protection antivirus ou l’exécution d’un script, vous pouvez utiliser une extension de machine virtuelle.
 
-Les serveurs activés par Azure Arc vous permettent de déployer des extensions de machine virtuelle Azure sur des machines virtuelles Linux et Windows non Azure, ce qui simplifie la gestion de vos environnements de machines hybrides locaux, périphériques et sur d’autres clouds tout au long de leur cycle de vie. Les extensions de machine virtuelle peuvent être gérées à l’aide des méthodes suivantes sur vos machines ou serveurs hybrides gérés par des serveurs compatibles Arc :
+Les serveurs avec Azure Arc vous permettent de déployer des extensions de machine virtuelle Azure sur des machines virtuelles Linux et Windows hors Azure, ce qui simplifie la gestion de votre machine hybride tout au long de son cycle de vie. Les extensions de machine virtuelle peuvent être gérées à l’aide des méthodes suivantes sur vos machines ou serveurs hybrides gérés par des serveurs compatibles Arc :
 
 - [Portail Azure](manage-vm-extensions-portal.md)
 - [Azure CLI](manage-vm-extensions-cli.md)
@@ -27,7 +27,7 @@ La prise en charge des extensions de machine virtuelle des serveurs activés par
 
 - Utilise [Azure Automation State Configuration](../../automation/automation-dsc-overview.md) pour stocker de manière centralisée les configurations et conserver l’état souhaité des machines connectées hybrides activées via l’extension de machine virtuelle DSC.
 
-- Collecte les données de journaux à des fins d’analyse en activant [Journaux dans Azure Monitor](../../azure-monitor/platform/data-platform-logs.md) via l’extension de machine virtuelle de l’agent Log Analytics. Cela s’avère utile pour effectuer des analyses complexes de données issues de diverses sources.
+- Collecte les données de journaux à des fins d’analyse en activant [Journaux dans Azure Monitor](../../azure-monitor/platform/data-platform-logs.md) via l’extension de machine virtuelle de l’agent Log Analytics. Ce point s’avère utile pour effectuer une analyse complexe de données issues de sources de différents types.
 
 - Avec [Azure Monitor pour machines virtuelles](../../azure-monitor/insights/vminsights-overview.md), analyse les performances de vos machines virtuelles Windows et Linux et supervise leurs processus et dépendances vis-à-vis d’autres ressources et les processus externes. Pour cela, il convient d’activer les extensions de machine virtuelle de l’agent Log Analytics et de Dependency Agent.
 
@@ -65,11 +65,13 @@ Cette fonctionnalité dépend des fournisseurs de ressources Azure suivants de v
 - **Microsoft.HybridCompute**
 - **Microsoft.GuestConfiguration**
 
-S’ils ne sont pas déjà inscrits, suivez les étapes indiquées sous [Inscrire des fournisseurs de ressources Azure](agent-overview.md#register-azure-resource-providers).
+S’ils ne sont pas déjà inscrits, suivez la procédure [Inscription de fournisseurs de ressources Azure](agent-overview.md#register-azure-resource-providers).
+
+Veillez à consulter la documentation relative à chacune des extensions de machine virtuelle indiquées dans le tableau précédent pour savoir si elle présente une configuration réseau ou système requise. Vous éviterez ainsi des problèmes de connectivité avec des services et des fonctionnalités Azure qui s’appuient sur cette extension de machine virtuelle.
 
 ### <a name="log-analytics-vm-extension"></a>Extension de machine virtuelle Log Analytics
 
-L’extension de machine virtuelle de l’agent Log Analytics pour Linux nécessite l’installation de Python 2.x sur la machine cible.
+L’extension de machine virtuelle de l’agent Log Analytics pour Linux nécessite l’installation de Python 2.x sur la machine cible. 
 
 ### <a name="azure-key-vault-vm-extension-preview"></a>Extension de machine virtuelle Azure Key Vault (préversion)
 

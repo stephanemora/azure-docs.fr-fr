@@ -2,18 +2,18 @@
 title: Utiliser des identités managées pour accéder à App Configuration
 titleSuffix: Azure App Configuration
 description: S’authentifier auprès d’Azure App Configuration à l’aide d’identités managées
-author: lisaguthrie
-ms.author: lcozzens
+author: AlexandraKemperMS
+ms.author: alkemper
 ms.service: azure-app-configuration
 ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 2/25/2020
-ms.openlocfilehash: f2d8c6e94638c01fb21e070a756c0c97c330fb26
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 8ef3ff20c67eefa2091ffb1732ced813b169e596
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92671605"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929750"
 ---
 # <a name="use-managed-identities-to-access-app-configuration"></a>Utiliser des identités managées pour accéder à App Configuration
 
@@ -22,6 +22,9 @@ Les [identités managées](../active-directory/managed-identities-azure-resource
 Azure App Configuration et ses bibliothèques clientes .NET Core, .NET Framework et Java Spring sont fournis avec la prise en charge de l’identité managée qui leur est intégrée. Bien que vous ne soyez pas obligé de l’utiliser, l’identité managée élimine le besoin d’un jeton d’accès contenant des secrets. Votre code peut accéder au magasin App Configuration à l’aide du point de terminaison de service uniquement. Vous pouvez incorporer cette URL directement dans votre code sans exposer les secrets.
 
 Cet article montre comment tirer parti de l’identité managée pour accéder à App Configuration. Il s’appuie sur l’application web introduite dans les guides de démarrage rapide. Avant de continuer, [créez une application ASP.NET Core avec App Configuration](./quickstart-aspnet-core-app.md).
+
+> [!NOTE]
+> Cet article utilise Azure App Service à titre d’exemple, mais le même concept s’applique à tout autre service Azure qui prend en charge l’identité managée, par exemple, [Azure Kubernetes Service](../aks/use-azure-ad-pod-identity.md), [Azure Virtual Machine](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md) et [Azure Container Instances](../container-instances/container-instances-managed-identity.md). Si votre charge de travail est hébergée dans l’un de ces services, vous pouvez également tirer parti de la prise en charge des identités managées de ce service.
 
 Cet article montre également comment utiliser l’identité managée avec les références Key Vault d’App Configuration. Avec une seule identité managée, vous pouvez accéder en toute transparence aux secrets de Key Vault et aux valeurs de configuration à partir de l’App Configuration. Si vous voulez explorer cette fonctionnalité, commencez par terminer [Utiliser des références Key Vault avec ASP.NET Core](./use-key-vault-references-dotnet-core.md).
 
@@ -49,9 +52,9 @@ Pour configurer une identité managée dans le portail, créez d’abord une app
 
 1. Créez une instance App Services dans le [portail Azure](https://portal.azure.com) comme vous le faites normalement. Accédez-y dans le portail.
 
-1. Faites défiler l’écran jusqu’au groupe **Paramètres** dans le volet de gauche, puis sélectionnez **Identité** .
+1. Faites défiler l’écran jusqu’au groupe **Paramètres** dans le volet de gauche, puis sélectionnez **Identité**.
 
-1. Sous l’onglet **Affecté(e) par le système** , définissez **État** sur **Activé** , puis sélectionnez **Enregistrer** .
+1. Sous l’onglet **Affecté(e) par le système**, définissez **État** sur **Activé**, puis sélectionnez **Enregistrer**.
 
 1. Répondez **Oui** lorsque vous êtes invité à activer l’identité managée affectée par le système.
 
@@ -59,17 +62,17 @@ Pour configurer une identité managée dans le portail, créez d’abord une app
 
 ## <a name="grant-access-to-app-configuration"></a>Accorder l’accès à App Configuration
 
-1. Dans le [Portail Azure](https://portal.azure.com), sélectionnez **Toutes les ressources** , puis sélectionnez le magasin App Configuration que vous avez créé dans le guide de démarrage rapide.
+1. Dans le [Portail Azure](https://portal.azure.com), sélectionnez **Toutes les ressources**, puis sélectionnez le magasin App Configuration que vous avez créé dans le guide de démarrage rapide.
 
 1. Sélectionnez **Contrôle d’accès (IAM)** .
 
-1. Sous l’onglet **Vérifier l’accès** , sélectionnez **Ajouter** dans l’interface utilisateur de carte **Ajouter une attribution de rôle** .
+1. Sous l’onglet **Vérifier l’accès**, sélectionnez **Ajouter** dans l’interface utilisateur de carte **Ajouter une attribution de rôle**.
 
-1. Sous **Rôle** , sélectionnez **Lecteur de données de l’App Configuration** . Sous **Attribuer l’accès à** , sélectionnez **App Service** sous **Identité managée affectée par le système** .
+1. Sous **Rôle**, sélectionnez **Lecteur de données de l’App Configuration**. Sous **Attribuer l’accès à**, sélectionnez **App Service** sous **Identité managée affectée par le système**.
 
-1. Sous **Abonnement** , sélectionnez votre abonnement Azure. Sélectionnez la ressource App Service de votre application.
+1. Sous **Abonnement**, sélectionnez votre abonnement Azure. Sélectionnez la ressource App Service de votre application.
 
-1. Sélectionnez **Enregistrer** .
+1. Sélectionnez **Enregistrer**.
 
     ![Ajouter une identité managée](./media/add-managed-identity.png)
 
@@ -77,7 +80,7 @@ Pour configurer une identité managée dans le portail, créez d’abord une app
 
 ## <a name="use-a-managed-identity"></a>Utiliser une identité managée
 
-1. Ajoutez une référence au package *Azure.Identity*  :
+1. Ajoutez une référence au package *Azure.Identity* :
 
     ```cli
     dotnet add package Azure.Identity
@@ -85,7 +88,7 @@ Pour configurer une identité managée dans le portail, créez d’abord une app
 
 1. Recherchez le point de terminaison de votre magasin App Configuration. Cette URL est indiquée sous l’onglet **Clés d’accès** pour le magasin du portail Azure.
 
-1. Ouvrez *appsettings.json* , puis ajoutez le script suivant. Remplacez *\<service_endpoint>* , crochets compris, par l’URL de votre magasin App Configuration.
+1. Ouvrez *appsettings.json*, puis ajoutez le script suivant. Remplacez *\<service_endpoint>* , crochets compris, par l’URL de votre magasin App Configuration.
 
     ```json
     "AppConfig": {
@@ -136,7 +139,7 @@ Pour configurer une identité managée dans le portail, créez d’abord une app
     ```
     ---
 
-1. Pour utiliser à la fois les valeurs de App Configuration et les références de Key Vault, mettez à jour *Program.cs* comme indiqué ci-dessous. Ce code permet de créer `KeyVaultClient` à l’aide d’un `AzureServiceTokenProvider` et de passer cette référence à un appel à la méthode `UseAzureKeyVault`.
+1. Pour utiliser à la fois les valeurs de App Configuration et les références de Key Vault, mettez à jour *Program.cs* comme indiqué ci-dessous. Ce code appelle `SetCredential` dans le cadre de `ConfigureKeyVault` pour transmettre au fournisseur de configuration les informations d’identification à utiliser lors de l’authentification auprès de Key Vault.
 
     ### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
 
@@ -151,10 +154,10 @@ Pour configurer une identité managée dans le portail, créez d’abord une app
                    config.AddAzureAppConfiguration(options =>
                    {
                        options.Connect(new Uri(settings["AppConfig:Endpoint"]), credentials)
-                           .ConfigureKeyVault(kv =>
-                           {
-                              kv.SetCredential(credentials);
-                           });
+                              .ConfigureKeyVault(kv =>
+                              {
+                                 kv.SetCredential(credentials);
+                              });
                    });
                })
                .UseStartup<Startup>();
@@ -175,10 +178,10 @@ Pour configurer une identité managée dans le portail, créez d’abord une app
                     config.AddAzureAppConfiguration(options =>
                     {
                         options.Connect(new Uri(settings["AppConfig:Endpoint"]), credentials)
-                            .ConfigureKeyVault(kv =>
-                            {
-                                kv.SetCredential(credentials);
-                            });
+                               .ConfigureKeyVault(kv =>
+                               {
+                                   kv.SetCredential(credentials);
+                               });
                     });
                 });
             })
@@ -186,10 +189,10 @@ Pour configurer une identité managée dans le portail, créez d’abord une app
     ```
     ---
 
-    Vous pouvez maintenant accéder aux références Key Vault comme n’importe quelle autre clé App Configuration. Le fournisseur de configuration utilise le `KeyVaultClient` que vous avez configuré pour l’authentification auprès de Key Vault et la récupération de la valeur.
+    Vous pouvez maintenant accéder aux références Key Vault comme n’importe quelle autre clé App Configuration. Le fournisseur de configuration utilise le `ManagedIdentityCredential` pour l’authentification auprès de Key Vault et la récupération de la valeur.
 
-> [!NOTE]
-> `ManagedIdentityCredential` prend uniquement en charge l’authentification d’identité managée. Il ne fonctionne pas dans les environnements locaux. Si vous souhaitez exécuter le code localement, vous pouvez utiliser `DefaultAzureCredential`, qui prend également en charge l’authentification du principal du service. Pour plus d’informations, consultez le [lien](/dotnet/api/azure.identity.defaultazurecredential).
+    > [!NOTE]
+    > `ManagedIdentityCredential` fonctionne uniquement dans les environnements de services Azure qui prennent en charge l’authentification d’identité managée. Il ne fonctionne pas dans l’environnement local. Utilisez [`DefaultAzureCredential`](/dotnet/api/azure.identity.defaultazurecredential) pour que le code fonctionne dans les environnements locaux et Azure, car il se résume à quelques options d’authentification, y compris l’identité managée.
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
@@ -226,7 +229,7 @@ La sortie de la commande ressemble à ceci :
 
 ### <a name="deploy-your-project"></a>Déployez votre projet
 
-Dans la _fenêtre du terminal local_ , ajoutez un référentiel distant Azure dans votre référentiel Git local. Remplacez _\<url>_ par l’URL du Git distant mentionné dans la section [Activer Git local avec Kudu](#enable-local-git-with-kudu).
+Dans la _fenêtre du terminal local_, ajoutez un référentiel distant Azure dans votre référentiel Git local. Remplacez _\<url>_ par l’URL du Git distant mentionné dans la section [Activer Git local avec Kudu](#enable-local-git-with-kudu).
 
 ```bash
 git remote add azure <url>
@@ -235,7 +238,7 @@ git remote add azure <url>
 Effectuez une transmission de type push vers le référentiel distant Azure pour déployer votre application à l’aide de la commande suivante. Quand vous êtes invité à entrer un mot de passe, entrez celui que vous avez créé dans la section [Configuration d’un utilisateur de déploiement](#configure-a-deployment-user). N’utilisez pas le mot de passe que vous utilisez pour vous connecter au portail Azure.
 
 ```bash
-git push azure master
+git push azure main
 ```
 
 Vous pouvez voir une automation spécifique au runtime dans la sortie, comme MSBuild pour ASP.NET, `npm install` pour Node.js et `pip install` pour Python.
@@ -252,7 +255,7 @@ http://<app_name>.azurewebsites.net
 
 Les fournisseurs App Configuration pour .NET Framework et Java Spring disposent également d’une prise en charge intégrée de l’identité managée. Vous pouvez utiliser le point de terminaison de l’URL de votre magasin au lieu de sa chaîne de connexion complète quand vous configurez l’un de ses fournisseurs.
 
-Par exemple, vous pouvez mettre à jour l’application console .NET Framework créée dans le démarrage rapide pour indiquer les paramètres suivants dans le fichier *App.config*  :
+Par exemple, vous pouvez mettre à jour l’application console .NET Framework créée dans le démarrage rapide pour indiquer les paramètres suivants dans le fichier *App.config* :
 
 ```xml
     <configSections>

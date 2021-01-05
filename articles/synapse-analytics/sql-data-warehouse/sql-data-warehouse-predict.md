@@ -11,12 +11,12 @@ ms.date: 07/21/2020
 ms.author: anjangsh
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: ce77a169e28e21aa37be2a49997a58ee42c93807
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: b1a2e802f66132a88060fb74831781055897b077
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96510826"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093653"
 ---
 # <a name="score-machine-learning-models-with-predict"></a>Noter des modèles Machine Learning avec PREDICT
 
@@ -35,7 +35,7 @@ Un pool SQL dédié attend un modèle préentraîné. Lors de l’entraînement 
 
 - Un pool SQL dédié ne prend en charge que les modèles au format ONNX. ONNX est un format de modèle open source qui vous permet d’échanger des modèles entre différentes infrastructures pour activer l’interopérabilité. Vous pouvez convertir vos modèles existants au format ONNX à l’aide d’infrastructures qui le prennent en charge en mode natif ou qui disposent de packages de conversion. Par exemple, le package [sklearn-onnx](https://github.com/onnx/sklearn-onnx) convertit des modèles scikit-learn au format ONNX. Le [dépôt GitHub ONNX](https://github.com/onnx/tutorials#converting-to-onnx-format) fournit une liste d’infrastructures et d’exemples pris en charge.
 
-   Si vous utilisez un [Machine Learning automatisé](https://docs.microsoft.com/azure/machine-learning/concept-automated-ml) pour l’apprentissage, veillez à définir le paramètre *enable_onnx_compatible_models* sur TRUE pour produire un modèle au format ONNX. Le [Bloc-notes Machine Learning automatisé](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) présente un exemple d’utilisation d’AutoML pour créer un modèle Machine Learning au format ONNX.
+   Si vous utilisez un [Machine Learning automatisé](https://docs.microsoft.com/azure/machine-learning/concept-automated-ml) pour l’apprentissage, veillez à définir le paramètre *enable_onnx_compatible_models* sur TRUE pour produire un modèle au format ONNX. Le [Notebook Machine Learning automatisé](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) présente un exemple d’utilisation du ML automatisé pour créer un modèle Machine Learning au format ONNX.
 
 - Les types de données pris en charge en entrée sont les suivants :
     - int, bigint, real, float

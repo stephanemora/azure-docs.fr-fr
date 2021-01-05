@@ -4,12 +4,12 @@ description: Cet article traite des questions générales fréquemment posées s
 ms.topic: conceptual
 ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: 3da86eead5b927a2a71d7b1a28bc5966bf5f8840
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: add5874dc828f05c7c51f0f378988c94cbd42486
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369435"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109553"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Questions générales sur Azure Site Recovery
 
@@ -117,7 +117,7 @@ Les agents de mobilité installés sur les éléments répliqués communiquent a
 Toutes les communications entre les microservices d’Azure Site Recovery se produisent sur le protocole TLS 1.2. Site Recovery utilise le dernier protocole TLS disponible ainsi que des fournisseurs de sécurité configurés dans le système d’exploitation. Vous devez activer explicitement le protocole TLS 1.2 dans le registre, afin que Site Recovery puisse commencer à utiliser TLS 1.2 pour la communication avec les services. 
 
 ### <a name="how-can-i-enforce-restricted-access-on-my-storage-accounts-which-are-accessed-by-site-recovery-service-for-readingwriting-replication-data"></a>Comment appliquer un accès restreint sur mes comptes de stockage, auxquels Site Recovery Service accède pour lire/écrire des données de réplication ?
-Vous pouvez activer l’identité managée du coffre Recovery Services en accédant au paramètre *Identité* . Une fois le coffre inscrit auprès d’Azure Active Directory, accédez à vos comptes de stockage et attribuez les rôles suivantes au coffre :
+Vous pouvez activer l’identité managée du coffre Recovery Services en accédant au paramètre *Identité*. Une fois le coffre inscrit auprès d’Azure Active Directory, accédez à vos comptes de stockage et attribuez les rôles suivantes au coffre :
 
 - Comptes de stockage basés sur Resource Manager (type Standard) :
   - [Contributeur](../role-based-access-control/built-in-roles.md#contributor)
@@ -132,10 +132,10 @@ Vous pouvez activer l’identité managée du coffre Recovery Services en accéd
 ## <a name="disaster-recovery"></a>Récupération d'urgence
 
 ### <a name="what-can-site-recovery-protect"></a>Que peut protéger Site Recovery ?
-* **Machines virtuelles Azure**  : Site Recovery peut répliquer n’importe quelle charge de travail exécutée sur une machine virtuelle Azure prise en charge.
-* **Machines virtuelles Hyper-V**  : Site Recovery peut protéger toute charge de travail en cours d’exécution sur une machine virtuelle Hyper-V.
-* **Serveurs physiques**  : Site Recovery peut protéger les serveurs physiques exécutant Windows ou Linux.
-* **Machines virtuelles VMware**  : Site Recovery peut protéger toute charge de travail en cours d’exécution dans une machine virtuelle VMware.
+* **Machines virtuelles Azure** : Site Recovery peut répliquer n’importe quelle charge de travail exécutée sur une machine virtuelle Azure prise en charge.
+* **Machines virtuelles Hyper-V** : Site Recovery peut protéger toute charge de travail en cours d’exécution sur une machine virtuelle Hyper-V.
+* **Serveurs physiques** : Site Recovery peut protéger les serveurs physiques exécutant Windows ou Linux.
+* **Machines virtuelles VMware** : Site Recovery peut protéger toute charge de travail en cours d’exécution dans une machine virtuelle VMware.
 
 ### <a name="what-workloads-can-i-protect-with-site-recovery"></a>Quelles charges de travail puis-je protéger avec Site Recovery ?
 Vous pouvez utiliser Site Recovery pour protéger la plupart des charges de travail en cours d’exécution sur une machine virtuelle ou un serveur physique pris(e) en charge. Site Recovery assure la prise en charge de la réplication compatible avec les applications afin qu’elles puissent être récupérées dans un état intelligent. Site Recovery s’intègre aux applications Microsoft, notamment à SharePoint, Exchange, Dynamics, SQL Server et Active Directory, et fonctionne en étroite collaboration avec les principaux fournisseurs, notamment Oracle, SAP, IBM et Red Hat. [En savoir plus](site-recovery-workload.md) sur la protection des charges de travail.
@@ -273,6 +273,9 @@ Les points de récupération cohérents au niveau application sont créés à pa
 
 En raison de leur contenu supplémentaire, les captures instantanées de cohérence des applications sont davantage sollicitées et prennent le plus de temps. Les points de récupération cohérent au niveau application sont recommandés pour des systèmes d’exploitation de base de données et des applications telles que SQL Server.
 
+>[!Note]
+>La création de points de récupération cohérents au niveau de l’application échoue sur un ordinateur Windows s’il contient plus de 64 volumes.
+
 ### <a name="what-is-the-impact-of-application-consistent-recovery-points-on-application-performance"></a>Quel est l’impact des points de récupération cohérents au niveau de l'application sur les performances de cette dernière ?
 
 Les points de récupération de cohérence des applications capturent toutes les données en mémoire et en cours. Étant donné que les points de récupération capturent ces données, ils nécessitent une infrastructure telle que VSS sur Windows pour suspendre l’application. Si le processus de capture est fréquent, cela peut affecter les performances lorsque la charge de travail est déjà occupée. Nous déconseillons d’utiliser une fréquence faible pour les points de récupération de cohérence des applications en lien avec des charges de travail autres que de bases de données. Même pour une charge de travail de base de données, une heure suffit.
@@ -304,7 +307,7 @@ Non, Site Recovery conserve tous vos points de récupération antérieurs. En fo
 
 ### <a name="after-replication-is-enabled-on-a-vm-how-do-i-change-the-replication-policy"></a>Une fois la réplication activée sur une machine virtuelle, comment modifier la stratégie de réplication ?
 
-Accédez à **Coffre Site Recovery** > **Infrastructure Site Recovery** > **Stratégies de réplication** . Sélectionnez la stratégie à modifier, modifiez-la, puis enregistrez les modifications. Toute modification s’applique également à toutes les réplications existantes.
+Accédez à **Coffre Site Recovery** > **Infrastructure Site Recovery** > **Stratégies de réplication**. Sélectionnez la stratégie à modifier, modifiez-la, puis enregistrez les modifications. Toute modification s’applique également à toutes les réplications existantes.
 
 ### <a name="are-all-the-recovery-points-a-complete-copy-of-the-vm-or-a-differential"></a>Tous les points de récupération sont-ils une copie complète ou différentielle de la machine virtuelle ?
 

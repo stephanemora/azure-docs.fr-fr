@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: pharring
 ms.author: pharring
 ms.date: 11/10/2020
-ms.openlocfilehash: 73fea1e1928cf4e1bd5342aa0a4c885ccb5cf137
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 4a787c6e2a9b59874f965a2bbcebea9ce02d8082
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548169"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093258"
 ---
 # <a name="release-notes-for-microsoftapplicationinsightssnapshotcollector"></a>Notes de publication pour Microsoft.ApplicationInsights.SnapshotCollector
 
@@ -18,9 +18,14 @@ Cet article contient les notes de publication relatives au package NuGet Microso
 
 [Découvrez-en](./snapshot-debugger.md) plus sur le Débogueur de capture instantanée Azure Application Insights pour les applications .NET.
 
-Pour obtenir des rapports de bogues et des commentaires, ouvrez un problème sur GitHub à l’adresse https://github.com/microsoft/ApplicationInsights-dotnet.
+Pour obtenir des rapports de bogues et des commentaires, ouvrez un problème sur GitHub à l’adresse https://github.com/microsoft/ApplicationInsights-SnapshotCollector.
 
 ## <a name="release-notes"></a>Notes de publication
+
+## <a name="1375"></a>[1.3.7.5](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.7.5)
+Version point permettant de rétroporter un correctif à partir de 1.4.0-pre.
+### <a name="bug-fixes"></a>Résolution des bogues
+- Correction de [ObjectDisposedException à l’arrêt](https://github.com/microsoft/ApplicationInsights-dotnet/issues/2097).
 
 ## <a name="1374"></a>[1.3.7.4](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.7.4)
 Version intermédiaire qui résout un problème découvert lors du test du scénario d'attachement sans code d'Azure App Service.

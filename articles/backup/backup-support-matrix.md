@@ -4,12 +4,12 @@ description: Fournit un résumé des limitations et des paramètres de prise en 
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: 70a81b42ad2fb417902a627afb1651d572844648
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: be0c576da6e38233423a79f562f767de806d7640
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548509"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008365"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matrice de prise en charge pour Sauvegarde Azure
 
@@ -67,7 +67,7 @@ Voici ce qui est pris en charge si vous voulez sauvegarder des machines virtuell
 
 **Machine** | **Éléments sauvegardés** | **Lieu** | **Caractéristiques**
 --- | --- | --- | ---
-**Sauvegarde de machine virtuelle Azure à l’aide de l’extension de machine virtuelle** | Machine virtuelle complète | Sauvegarder vers le coffre. | Extension installée lorsque vous activez la sauvegarde pour une machine virtuelle.<br/><br/> Sauvegarde une fois par jour.<br/><br/> Sauvegarde tenant compte des applications pour les machines virtuelles Windows, sauvegarde cohérente au niveau fichier pour les machines virtuelles Linux. Vous pouvez configurer la cohérence des applications pour les machines Linux à l’aide de scripts personnalisés.<br/><br/> Restaurez une machine virtuelle ou un disque.<br/><br/> Sauvegarde d'une machine virtuelle Azure impossible vers un emplacement local.
+**Sauvegarde de machine virtuelle Azure à l’aide de l’extension de machine virtuelle** | Machine virtuelle complète | Sauvegarder vers le coffre. | Extension installée lorsque vous activez la sauvegarde pour une machine virtuelle.<br/><br/> Sauvegarde une fois par jour.<br/><br/> Sauvegarde tenant compte des applications pour les machines virtuelles Windows, sauvegarde cohérente au niveau fichier pour les machines virtuelles Linux. Vous pouvez configurer la cohérence des applications pour les machines Linux à l’aide de scripts personnalisés.<br/><br/> Restaurez une machine virtuelle ou un disque.<br/><br/>La [sauvegarde et la restauration des contrôleurs de domaine Active Directory](active-directory-backup-restore.md) sont prises en charge.<br><br> Sauvegarde d'une machine virtuelle Azure impossible vers un emplacement local.
 **Sauvegarde de machine virtuelle Azure à l’aide de l’agent MARS** | Fichiers, dossiers, état du système | Sauvegarder vers le coffre. | Sauvegarde trois fois par jour.<br/><br/> Si vous souhaitez sauvegarder des fichiers ou dossiers spécifiques plutôt que la machine virtuelle entière, l’agent MARS peut s’exécuter en même temps que l’extension de machine virtuelle .
 **Machine virtuelle Azure avec DPM** | Fichiers, dossiers, volumes, état du système, données d’application | Sauvegarde dans le stockage local de la machine virtuelle Azure exécutant DPM. DPM, puis sauvegarde dans le coffre. | Captures instantanées tenant compte des applications.<br/><br/> Précision totale pour la sauvegarde et la récupération.<br/><br/> Linux pris en charge pour les machines virtuelles (Hyper-V/VMware).<br/><br/> Oracle non pris en charge.
 **Machine virtuelle Azure avec MABS** | Fichiers, dossiers, volumes, état du système, données d’application | Sauvegarde dans le stockage local de la machine virtuelle Azure exécutant MABS. MABS effectue ensuite la sauvegarde dans le coffre. | Captures instantanées tenant compte des applications.<br/><br/> Précision totale pour la sauvegarde et la récupération.<br/><br/> Linux pris en charge pour les machines virtuelles (Hyper-V/VMware).<br/><br/> Oracle non pris en charge.

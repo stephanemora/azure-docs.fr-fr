@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: b6cadbf5c3a33c1a954a47f37b33ad8703f40b69
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 2f1fe7c25327e8ecab9b450cab167391d8949b0a
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350736"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008159"
 ---
 # <a name="source-control-in-azure-synapse-studio"></a>Contrôle de code source dans Azure Synapse Studio
 
@@ -138,6 +138,24 @@ Si vous vous connectez à GitHub à partir de Synapse Studio pour la première f
 
 Une fois ces étapes effectuées, votre espace de travail est en mesure de se connecter aux référentiels publics et privés au sein de votre organisation. Si vous ne parvenez pas à vous connecter, essayez de vider le cache du navigateur et de réessayer.
 
+#### <a name="already-connected-to-github-using-a-personal-account"></a>Déjà connecté à GitHub à l’aide d’un compte personnel
+
+Si vous êtes déjà connecté à GitHub et que vous avez accordé uniquement l’autorisation d’accéder à un compte personnel, suivez les étapes ci-dessous pour accorder des autorisations à une organisation.
+
+1. Accédez à GitHub et ouvrez **Paramètres**.
+
+    ![Ouvrir les paramètres GitHub](media/github-settings.png)
+
+1. Sélectionnez **Applications**. Dans l’onglet **Applications OAuth autorisées**, *Azure Synapse* apparaît.
+
+    ![Applications OAuth autorisées](media/authorize-app.png)
+
+1. Sélectionnez *Azure Synapse* et accordez l’accès à votre organisation.
+
+    ![Octroi de l’autorisation à l’organisation](media/grant-organization-permission.png)
+
+À l’issue de cette procédure, votre espace de travail pourra se connecter aux référentiels publics et privés au sein de votre organisation.
+
 ## <a name="version-control"></a>Gestion de versions
 
 Les systèmes de contrôle de version (également appelé _contrôle du code source_) permettent aux développeurs de collaborer sur le code et de suivre les modifications. Le contrôle du code source est un outil essentiel pour les projets impliquant plusieurs développeurs.
@@ -163,6 +181,7 @@ Par défaut, Synapse Studio génère les modèles d’espace de travail et les e
 ```
 
 Azure Synapse Studio ne peut avoir qu’une seule branche de publication à la fois. Quand vous spécifiez une nouvelle branche de publication, la branche de publication précédente n’est pas supprimée. Si vous souhaitez la supprimer, faites-le manuellement.
+
 
 ### <a name="publish-code-changes"></a>Publier les modifications de code
 
@@ -192,7 +211,7 @@ Après avoir supprimé l’association avec le dépôt actuel, vous pouvez confi
 
 ## <a name="best-practices-for-git-integration"></a>Meilleures pratiques d'intégration Git
 
--   **Autorisations**. Une fois que vous disposez d’un référentiel git connecté à votre espace de travail, toute personne ayant accès à votre référentiel git avec un rôle dans votre espace de travail est en mesure de mettre à jour les artefacts, notamment un script SQL, un notebook, une définition de travail Spark, un jeu de données, un flux de données et le pipeline en mode git. En règle générale, vous ne souhaitez pas autoriser tous les membres de l’équipe à mettre à jour l’espace de travail. Accordez uniquement l’autorisation d’accès au référentiel git aux auteurs d’artefacts de l’espace de travail Synapse. 
+-   **Autorisations**. Une fois un référentiel GIT connecté à votre espace de travail, toute personne ayant accès à ce référentiel dans votre espace de travail, indépendamment de son rôle, peut mettre à jour les artefacts (par exemple script SQL, notebook, définition de tâche Spark, jeu de données, flux de données et pipeline) en mode GIT. En règle générale, vous ne souhaitez pas autoriser tous les membres de l’équipe à mettre à jour l’espace de travail. Accordez uniquement l’autorisation d’accès au référentiel git aux auteurs d’artefacts de l’espace de travail Synapse. 
 -   **Collaboration**. Il est recommandé de ne pas autoriser les archivages directs dans la branche de collaboration. Cette restriction peut aider à éviter les bogues, car chaque archivage passe par un processus de demande de tirage décrit dans [Création de branches de fonctionnalités](source-control.md#creating-feature-branches).
 -   **Mode réel Synapse**. Après la publication en mode git, toutes les modifications sont reflétées en mode réel Synapse. En mode réel Synapse, la publication est désactivée. Vous pouvez afficher et exécuter des artefacts en mode réel si vous avez reçu l’autorisation appropriée. 
 -   **Modifier les artefacts dans Studio**. Synapse Studio est le seul endroit où vous pouvez activer le contrôle de code source de l’espace de travail et synchroniser automatiquement les modifications dans Git. Toute modification via le Kit de développement logiciel (SDK), PowerShell, n’est pas synchronisée avec git. Nous vous recommandons de toujours modifier l’artefact dans Studio lorsque git est activé.

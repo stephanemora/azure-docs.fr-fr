@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 06/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: f5421efc96b957f5ae96515bbcf17c8a773397c9
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 9dad8ffc9971894a2777e8bda9bcf6d78eee00a9
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368245"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97369274"
 ---
 # <a name="list-azure-role-definitions"></a>Lister les définitions de rôles Azure
 
@@ -33,7 +33,7 @@ Pour voir la liste des rôles d’administrateur pour Azure Active Directory, co
 
 Suivez ces étapes pour lister tous les rôles dans le portail Azure.
 
-1. Dans le portail Azure, cliquez sur **Tous les services** , puis sélectionnez n’importe quelle étendue. Par exemple, vous pouvez sélectionner **Groupes d’administration** , **Abonnements** , **Groupes de ressources** , ou une ressource.
+1. Dans le portail Azure, cliquez sur **Tous les services**, puis sélectionnez n’importe quelle étendue. Par exemple, vous pouvez sélectionner **Groupes d’administration**, **Abonnements**, **Groupes de ressources**, ou une ressource.
 
 1. Cliquez sur la ressource spécifique.
 
@@ -235,7 +235,7 @@ Pour lister les détails d’un rôle, utilisez [az role definition list](/cli/
 az role definition list --name {roleName}
 ```
 
-L’exemple suivant liste la définition de rôle *Contributeur*  :
+L’exemple suivant liste la définition de rôle *Contributeur* :
 
 ```azurecli
 az role definition list --name "Contributor"
@@ -275,7 +275,7 @@ az role definition list --name "Contributor"
 
 ### <a name="list-permissions-of-a-role-definition"></a>Lister les autorisations d’une définition de rôle
 
-L’exemple suivant liste simplement les *actions* et les *notActions* du rôle *Contributeur* .
+L’exemple suivant liste simplement les *actions* et les *notActions* du rôle *Contributeur*.
 
 ```azurecli
 az role definition list --name "Contributor" --output json --query '[].{actions:permissions[0].actions, notActions:permissions[0].notActions}'
@@ -298,7 +298,7 @@ az role definition list --name "Contributor" --output json --query '[].{actions:
 ]
 ```
 
-L’exemple suivant liste simplement les actions du rôle *Contributeur de machines virtuelles* .
+L’exemple suivant liste simplement les actions du rôle *Contributeur de machines virtuelles*.
 
 ```azurecli
 az role definition list --name "Virtual Machine Contributor" --output json --query '[].permissions[0].actions'
@@ -351,7 +351,7 @@ Pour répertorier les définitions de rôles, utilisez l’API REST [Définition
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1` | Ressource |
 
-    Dans l’exemple précédent, microsoft.web est un fournisseur de ressources qui fait référence à une instance App Service. De la même façon, vous pouvez utiliser tout autre fournisseur de ressources et spécifier l’étendue. Pour plus d’informations, consultez [Fournisseurs et types de ressources Azure](../azure-resource-manager/management/resource-providers-and-types.md) et [Opérations du fournisseur de ressources Azure Resource Manager](resource-provider-operations.md) prises en charge.  
+    Dans l’exemple précédent, microsoft.web est un fournisseur de ressources qui fait référence à une instance App Service. De la même façon, vous pouvez utiliser tout autre fournisseur de ressources et spécifier l’étendue. Pour plus d’informations, consultez [Fournisseurs et types de ressources Azure](../azure-resource-manager/management/resource-providers-and-types.md) et [Opérations du fournisseur de ressources Azure](resource-provider-operations.md) prises en charge.  
      
 1. Remplacez *{filter}* par la condition que vous voulez appliquer pour filtrer la liste des définitions de rôles.
 

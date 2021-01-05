@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/03/2020
+ms.date: 12/11/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 683f0e070ad77add62ed76eabd70b42ba15f012e
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 558f4792a055fc491f15600ecc5502c3a114a94b
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498130"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97360218"
 ---
 # <a name="enforce-a-minimum-required-version-of-transport-layer-security-tls-for-requests-to-a-storage-account"></a>Appliquer une version minimale requise du protocole TLS (Transport Layer Security) pour des demandes adressées à un compte de stockage
 
@@ -86,6 +86,9 @@ StorageBlobLogs
 ## <a name="remediate-security-risks-with-a-minimum-version-of-tls"></a>Corriger les risques de sécurité avec une version minimale de TLS
 
 Lorsque vous êtes certain que le trafic provenant de clients utilisant des versions antérieures de TLS est minimal, ou qu’il est acceptable que des requêtes effectuées avec une version antérieure de TLS échouent, vous pouvez commencer à appliquer d’une version minimale de TLS sur votre compte de stockage. Exiger que les clients utilisent une version minimale de TLS pour effectuer des demandes sur un compte de stockage fait partie d’une stratégie visant à de réduire les risques de sécurité pour vos données.
+
+> [!IMPORTANT]
+> Si vous utilisez un service qui se connecte au Stockage Azure, vérifiez qu’il utilise la bonne version du protocole TLS pour envoyer des demandes au Stockage Azure avant de définir la version minimale requise pour un compte de stockage.
 
 ### <a name="configure-the-minimum-tls-version-for-a-storage-account"></a>Configurer la version minimale de TLS pour un compte de stockage
 
@@ -339,6 +342,23 @@ Une fois que vous avez créé la stratégie avec l’effet de refus et l’avez 
 L’image suivante montre l’erreur qui se produit si vous tentez de créer un compte de stockage avec la version minimale de TLS définie sur TLS 1.0 (valeur par défaut pour un nouveau compte) quand une stratégie avec effet de refus exige que la version minimale de TLS soit définie sur TLS 1.2.
 
 :::image type="content" source="media/transport-layer-security-configure-minimum-version/deny-policy-error.png" alt-text="Capture d’écran montrant l’erreur qui se produit lors de la création d’un compte de stockage en violation de la stratégie":::
+
+## <a name="permissions-necessary-to-require-a-minimum-version-of-tls"></a>Autorisations nécessaires pour exiger une version minimale du protocole TLS
+
+Pour pouvoir définir la propriété **MinimumTlsVersion** du compte de stockage, un utilisateur doit disposer des autorisations nécessaires pour créer et gérer des comptes de stockage. Les rôles de contrôle d’accès en fonction du rôle Azure (Azure RBAC) qui fournissent ces autorisations comprennent l’action **Microsoft.Storage/storageAccounts/write** ou l’action **Microsoft.Storage/storageAccounts/\** _. Parmi les rôles intégrés comportant cette action figurent :
+
+- Le rôle [Propriétaire](../../role-based-access-control/built-in-roles.md#owner) d’Azure Resource Manager
+- Le rôle [Contributeur](../../role-based-access-control/built-in-roles.md#contributor) d’Azure Resource Manager
+- Le rôle [Contributeur de compte de stockage](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
+
+Ces rôles ne donnent pas accès aux données d’un compte de stockage par le biais d’Azure Active Directory (Azure AD). Toutefois, ils incluent l’action _*Microsoft.Storage/storageAccounts/listkeys/action**, qui accorde l’accès aux clés d’accès du compte. Avec cette autorisation, un utilisateur peut utiliser les clés d’accès du compte pour accéder à toutes les données d’un compte de stockage.
+
+Les attributions de rôles doivent être définies au niveau du compte de stockage ou à un niveau supérieur pour permettre à un utilisateur d’exiger une version minimale du protocole TLS pour le compte de stockage. Pour plus d’informations sur l’étendue des rôles, consultez [Présentation de l’étendue pour Azure RBAC](../../role-based-access-control/scope-overview.md).
+
+Veillez à limiter l’attribution de ces rôles aux seules personnes qui ont besoin de créer un compte de stockage ou de mettre à jour ses propriétés. Appliquez le principe des privilèges minimum pour que les utilisateurs disposent des autorisations nécessaires les plus faibles possibles pour accomplir leurs tâches. Pour plus d’informations sur la gestion de l’accès avec Azure RBAC, consultez [Meilleures pratiques pour Azure RBAC](../../role-based-access-control/best-practices.md).
+
+> [!NOTE]
+> Les rôles d’administrateur d’abonnement classique Administrateur de service et Co-administrateur incluent l’équivalent du rôle [Propriétaire](../../role-based-access-control/built-in-roles.md#owner) d’Azure Resource Manager. Le rôle **Propriétaire** comprend toutes les actions. Par conséquent, un utilisateur disposant de l’un de ces rôles d’administration peut également créer et gérer des comptes de stockage. Pour plus d’informations, consultez [Rôles d’administrateur d’abonnement classique, rôles Azure et rôles d’administrateur Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
 
 ## <a name="network-considerations"></a>Considérations relatives au réseau
 

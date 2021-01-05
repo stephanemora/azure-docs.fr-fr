@@ -6,12 +6,12 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 10/09/2020
-ms.openlocfilehash: db09943085cb7934bca5d7f2dc24ba692613ee19
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 2b1ba0779649c4955987c7dae9802cefaba89b79
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426897"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109337"
 ---
 # <a name="find-tenant-id-object-id-and-partner-association-details"></a>Rechercher l’ID du locataire, l’ID de l’objet et les détails de l’association de partenaires
 
@@ -29,7 +29,7 @@ Si vous avez besoin de captures d’écran de ces éléments dans Azure Cloud Sh
 
     :::image type="content" source="media/tenant-and-object-id/icon-azure-ad.png" alt-text="Icône d’Azure Active Directory dans le portail Azure.":::
 
-3. Sélectionnez **Groupes**. Votre ID de locataire se trouve dans la boîte **Informations sur le locataire**.
+3. Sélectionnez **Vue d’ensemble**. Votre ID de locataire apparaît sous **Informations de base**.
 
     :::image type="content" source="media/tenant-and-object-id/select-groups-1.png" alt-text="Sélectionnez Groupes dans le portail Azure.":::
 
@@ -48,7 +48,7 @@ Si vous avez besoin de captures d’écran de ces éléments dans Azure Cloud Sh
 
 1. Accédez à la page Abonnements comme décrit dans la section précédente.
 2. Sélectionnez un abonnement.
-3. Sous **Facturation** , sélectionnez **Informations sur les partenaires**.
+3. Sous **Facturation**, sélectionnez **Informations sur les partenaires**.
 
     :::image type="content" source="media/tenant-and-object-id/menu-partner-information.png" alt-text="Informations sur le partenaire dans le menu de navigation de gauche.":::
 

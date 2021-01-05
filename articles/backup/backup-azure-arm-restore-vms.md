@@ -4,12 +4,12 @@ description: Restaurer une machine virtuelle Azure à partir d’un point de ré
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: 1c28de679bd957a472e543489a2dd15b3883aed5
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: baae35c87f306f5773fa8061f27e9793754ccc9c
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327183"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008501"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Comment restaurer des données de machine virtuelle Azure dans le Portail Azure
 
@@ -213,6 +213,8 @@ Il existe un certain nombre de scénarios courants dans lesquels vous pouvez avo
 **Restaurer plusieurs machines virtuelles contrôleurs de domaine dans un seul domaine** | Si d’autres contrôleurs de domaine du même domaine sont accessibles sur le réseau, le contrôleur de domaine peut être restauré comme n’importe quelle machine virtuelle. S’il s’agit du dernier contrôleur de domaine dans le domaine ou si une récupération dans un réseau isolé est effectuée, utilisez une [récupération de forêt](/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery).
 **Restaurer une machine virtuelle contrôleur de domaine unique dans une configuration à plusieurs domaines** |  Restaurez les disques et créez une machine virtuelle avec [PowerShell](backup-azure-vms-automation.md#restore-the-disks).  
 **Restaurer plusieurs domaines dans une forêt** | Nous recommandons une [récupération de forêt](/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery).
+
+Pour plus d’informations, consultez [Sauvegarder et restaurer des contrôleurs de domaine Active Directory](active-directory-backup-restore.md).
 
 ## <a name="track-the-restore-operation"></a>Suivi de l’opération de restauration
 

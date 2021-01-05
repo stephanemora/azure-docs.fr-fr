@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: d6676187f87cecb7f876150d1582cde9051dd251
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: f6c990b3ce5edaab4d2ce6600c0291272058e092
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367480"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97369291"
 ---
 # <a name="security-control-v2-privileged-access"></a>Contrôle de sécurité V2 : Accès privilégié
 
@@ -20,7 +20,7 @@ L’accès privilégié recouvre les contrôles permettant de protéger l’acc�
 
 ## <a name="pa-1-protect-and-limit-highly-privileged-users"></a>PA-1 : Protéger et limiter les utilisateurs disposant de privilèges élevés
 
-| Identifiant Azure | ID des contrôles CIS v7.1 | ID NIST SP800-53 r4 |
+| Identifiant Azure | ID des contrôles CIS v7.1 | ID NIST SP 800-53 r4 |
 |--|--|--|--|
 | PA-1 | 4.3, 4.8 | AC-2 |
 
@@ -40,9 +40,9 @@ Vous pouvez activer l’accès privilégié juste-à-temps (JAT) aux ressources 
 
 - [Sécurisation de l’accès privilégié pour les déploiements hybrides et cloud dans Azure AD](../../active-directory/roles/security-planning.md)
 
-**Responsabilité**  : Customer
+**Responsabilité** : Customer
 
-**Parties prenantes de la sécurité des clients** ( [En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
+**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Gestion des identités et des clés](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
 
@@ -54,7 +54,7 @@ Vous pouvez activer l’accès privilégié juste-à-temps (JAT) aux ressources 
 
 ## <a name="pa-2-restrict-administrative-access-to-business-critical-systems"></a>PA-2 : Limiter l’accès administratif aux systèmes critiques de l’entreprise
 
-| Identifiant Azure | ID des contrôles CIS v7.1 | ID NIST SP800-53 r4 |
+| Identifiant Azure | ID des contrôles CIS v7.1 | ID NIST SP 800-53 r4 |
 |--|--|--|--|
 | PA-2 | 13.2, 2.10 | AC-2, SC-3, SC-7 |
 
@@ -70,9 +70,9 @@ Veillez à attribuer des comptes privilégiés distincts des comptes d’utilisa
 
 - [Administrateurs d’abonnements Azure](../../cost-management-billing/manage/add-change-subscription-administrator.md)
 
-**Responsabilité**  : Customer
+**Responsabilité** : Customer
 
-**Parties prenantes de la sécurité des clients** ( [En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
+**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Gestion des identités et des clés](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
 
@@ -82,7 +82,7 @@ Veillez à attribuer des comptes privilégiés distincts des comptes d’utilisa
 
 ## <a name="pa-3-review-and-reconcile-user-access-regularly"></a>PA-3 : Examiner et rapprocher régulièrement les accès utilisateur
 
-| Identifiant Azure | ID des contrôles CIS v7.1 | ID NIST SP800-53 r4 |
+| Identifiant Azure | ID des contrôles CIS v7.1 | ID NIST SP 800-53 r4 |
 |--|--|--|--|
 | PA-3 | 4.1, 16.9, 16.10 | AC-2 |
 
@@ -95,9 +95,9 @@ Remarque : Certains services Azure prennent en charge des utilisateurs et rôle
 
 - [Utilisation des révisions d’accès et des identités Azure AD](../../active-directory/governance/access-reviews-overview.md)
 
-**Responsabilité**  : Customer
+**Responsabilité** : Customer
 
-**Parties prenantes de la sécurité des clients** ( [En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
+**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Gestion des identités et des clés](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
 
@@ -107,7 +107,7 @@ Remarque : Certains services Azure prennent en charge des utilisateurs et rôle
 
 ## <a name="pa-4-set-up-emergency-access-in-azure-ad"></a>PA-4 : Configurer l’accès d’urgence dans Azure AD
 
-| Identifiant Azure | ID des contrôles CIS v7.1 | ID NIST SP800-53 r4 |
+| Identifiant Azure | ID des contrôles CIS v7.1 | ID NIST SP 800-53 r4 |
 |--|--|--|--|
 | PA-4 | 16 | AC-2, CP-2 |
 
@@ -116,9 +116,9 @@ Vous devez vous assurer que les informations d’identification (telles que le m
 
 - [Gérer des comptes d’accès d’urgence dans Azure AD](../../active-directory/roles/security-emergency-access.md)
 
-**Responsabilité**  : Customer
+**Responsabilité** : Customer
 
-**Parties prenantes de la sécurité des clients** ( [En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
+**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Gestion des identités et des clés](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
 
@@ -130,7 +130,7 @@ Vous devez vous assurer que les informations d’identification (telles que le m
 
 ## <a name="pa-5-automate-entitlement-management"></a>PA-5 : Automatiser la gestion des droits d'utilisation
 
-| Identifiant Azure | ID des contrôles CIS v7.1 | ID NIST SP800-53 r4 |
+| Identifiant Azure | ID des contrôles CIS v7.1 | ID NIST SP 800-53 r4 |
 |--|--|--|--|
 | PA-5 | 16 | AC-2, AC-5, PM-10 |
 
@@ -139,9 +139,9 @@ Utilisez les fonctionnalités de gestion des droits d’utilisation d’Azure AD
 
 - [Présentation de la gestion des droits d’utilisation Azure AD](../../active-directory/governance/entitlement-management-overview.md)
 
-**Responsabilité**  : Customer
+**Responsabilité** : Customer
 
-**Parties prenantes de la sécurité des clients** ( [En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
+**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Gestion des identités et des clés](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
 
@@ -151,7 +151,7 @@ Utilisez les fonctionnalités de gestion des droits d’utilisation d’Azure AD
 
 ## <a name="pa-6-use-privileged-access-workstations"></a>PA-6 : Utiliser des stations de travail d’accès privilégié
 
-| Identifiant Azure | ID des contrôles CIS v7.1 | ID NIST SP800-53 r4 |
+| Identifiant Azure | ID des contrôles CIS v7.1 | ID NIST SP 800-53 r4 |
 |--|--|--|--|
 | PA-6 | 4.6, 11.6, 12.12 | AC-2, SC-3,  SC-7 |
 
@@ -161,9 +161,9 @@ Les stations de travail sécurisées et isolées sont extrêmement importantes p
 
 - [Déployer une station de travail d’accès privilégié](../../active-directory/devices/howto-azure-managed-workstation.md)
 
-**Responsabilité**  : Customer
+**Responsabilité** : Customer
 
-**Parties prenantes de la sécurité des clients** ( [En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
+**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Sécurité des applications et DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
@@ -173,7 +173,7 @@ Les stations de travail sécurisées et isolées sont extrêmement importantes p
 
 ## <a name="pa-7-follow-just-enough-administration-least-privilege-principle"></a>PA-7 : Suivre le principe Just Enough Administration (privilèges minimum)
 
-| Identifiant Azure | ID des contrôles CIS v7.1 | ID NIST SP800-53 r4 |
+| Identifiant Azure | ID des contrôles CIS v7.1 | ID NIST SP 800-53 r4 |
 |--|--|--|--|
 | PA-7 | 14.6 | AC-2, AC-3, SC-3 |
 
@@ -186,9 +186,9 @@ Utilisez des rôles intégrés pour allouer les autorisations et créez un rôle
 
 - [Utilisation des révisions d’accès et des identités Azure AD](../../active-directory/governance/access-reviews-overview.md)
 
-**Responsabilité**  : Customer
+**Responsabilité** : Customer
 
-**Parties prenantes de la sécurité des clients** ( [En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
+**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Sécurité des applications et DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
@@ -200,7 +200,7 @@ Utilisez des rôles intégrés pour allouer les autorisations et créez un rôle
 
 ## <a name="pa-8-choose-approval-process-for-microsoft-support"></a>PA-8 : Choisir le processus d’approbation pour le support Microsoft 
 
-| Identifiant Azure | ID des contrôles CIS v7.1 | ID NIST SP800-53 r4 |
+| Identifiant Azure | ID des contrôles CIS v7.1 | ID NIST SP 800-53 r4 |
 |--|--|--|--|
 | PA-8 | 16 | AC-2, AC-3, AC-4 |
 
@@ -208,9 +208,9 @@ Dans le cadre des scénarios de support où Microsoft a besoin d’accéder aux 
 
 - [Présentation de Customer Lockbox](../fundamentals/customer-lockbox-overview.md)
 
-**Responsabilité**  : Customer
+**Responsabilité** : Customer
 
-**Parties prenantes de la sécurité des clients** ( [En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
+**Parties prenantes de la sécurité des clients** ([En savoir plus](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)) :
 
 - [Sécurité des applications et DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 

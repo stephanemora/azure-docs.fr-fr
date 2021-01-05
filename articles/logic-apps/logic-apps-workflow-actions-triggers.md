@@ -7,12 +7,12 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 3dbfcacb6ea5922a01d52dfe39189f09f48d4b4a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7423f8d8f2a566801048457ad5f5c44f3c1097ec
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96006079"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920060"
 ---
 # <a name="schema-reference-guide-for-trigger-and-action-types-in-azure-logic-apps"></a>Guide de référence du schéma des types d’actions et de déclencheurs dans Azure Logic Apps
 
@@ -1506,7 +1506,7 @@ Contrairement à d’autres actions, l’action **Response** présente des restr
 
 * Votre workflow peut utiliser l’action **Response** n’importe où *sauf* à l’intérieur de boucles **Foreach**, de boucles **Until**, y compris les boucles séquentielles, et de branches parallèles. 
 
-* La requête HTTP d’origine obtient la réponse de votre workflow uniquement quand toutes les actions requises par  l’action **Response** sont terminées dans la [limite de délai d’attente de requête HTTP](../logic-apps/logic-apps-limits-and-config.md#request-limits).
+* La requête d’origine obtient la réponse de votre workflow uniquement quand toutes les actions requises par l’action **Response** sont terminées dans la [limite de délai d’attente HTTP](../logic-apps/logic-apps-limits-and-config.md#http-limits).
 
   Toutefois, si votre workflow appelle une autre application logique en tant que workflow imbriqué, le workflow parent attend que le workflow imbriqué se termine, quelle que soit la durée nécessaire.
 

@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a61eca3340985886ef782b28a59a1283c5f473ce
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8ead05598c6ca4d096e1a68c8d640938ecd771c2
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91265709"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97355509"
 ---
 # <a name="identity-providers-for-external-identities"></a>Fournisseurs d’identité pour les identités externes
 
@@ -25,6 +25,9 @@ Un *fournisseur d’identité* crée, entretient et gère les informations d’i
 Cependant, vous pouvez leur permettre de se connecter avec différents fournisseurs d’identité.
 
 - **Google** : la fédération des services Google permet à des utilisateurs externes de donner suite à des invitations que vous leur avez envoyées en se connectant à vos applications avec leurs propres comptes Gmail. Vous pouvez également utiliser la fédération des services Google dans vos flux d’utilisateurs d’inscription en libre-service.
+   > [!IMPORTANT]
+   > **À compter du 4 janvier 2021**, Google [déconseille la prise en charge de la connexion WebView](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). Si vous utilisez la fédération Google ou l’inscription en libre-service avec Gmail, [testez la compatibilité de vos applications métier natives](google-federation.md#deprecation-of-webview-sign-in-support).
+
    > [!NOTE]
    > Dans la préversion actuelle de l’inscription en libre-service, si un flux d’utilisateurs est associé à une application et que vous envoyez à une utilisateur une invitation à cette application, l’utilisateur ne peut pas utiliser un compte Gmail pour donner suite à l’invitation. Une solution de contournement pour l’utilisateur consiste à suivre le processus d’inscription en libre-service. Il peut également donner suite à l’invitation en accédant à une autre application ou en utilisant son portail Mes applications à l’adresse https://myapps.microsoft.com.
 

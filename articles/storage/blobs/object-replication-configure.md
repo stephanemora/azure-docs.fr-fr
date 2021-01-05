@@ -10,12 +10,12 @@ ms.date: 11/09/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: e3503a9eef5c11db35684ca61fb1ee39525a465d
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 9f2b0dccde0532646457a0841fc2798e103d8cc7
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427596"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347946"
 ---
 # <a name="configure-object-replication-for-block-blobs"></a>Configurer la réplication d’objets pour des objets blob de blocs
 
@@ -314,7 +314,7 @@ $destPolicy = Get-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
 $destPolicy | ConvertTo-Json -Depth 5 > c:\temp\json.txt
 ```
 
-Pour utiliser le fichier JSON afin de configurer la stratégie de réplication sur le compte source avec PowerShell, récupérez le fichier local et convertissez le fichier JSON en objet. Appelez ensuite la commande [Set-AzStorageObjectReplicationPolicy](/powershell/module/az.storage/set-azstorageobjectreplicationpolicy) pour configurer la stratégie sur le compte source, comme indiqué dans l’exemple suivant. N’oubliez pas de remplacer les valeurs entre crochets dans le chemin d’accès du fichier par vos propres valeurs :
+Pour utiliser le fichier JSON afin de définir la stratégie de réplication sur le compte source avec PowerShell, récupérez le fichier local et convertissez-le de JSON en objet. Appelez ensuite la commande [Set-AzStorageObjectReplicationPolicy](/powershell/module/az.storage/set-azstorageobjectreplicationpolicy) pour configurer la stratégie sur le compte source, comme indiqué dans l’exemple suivant. N’oubliez pas de remplacer les valeurs entre crochets dans le chemin d’accès du fichier par vos propres valeurs :
 
 ```powershell
 $object = Get-Content -Path C:\temp\json.txt | ConvertFrom-Json

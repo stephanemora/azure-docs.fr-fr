@@ -5,25 +5,19 @@ author: cynthn
 ms.service: virtual-machines
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 09/04/2020
+ms.date: 12/07/2020
 ms.author: cynthn
-ms.openlocfilehash: a6bef4944207e26f2de93daa89fa1418c5c44c4f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b166363a8c64a4a4c5d34efa55dcaefa09d6df49
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91373022"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007940"
 ---
 # <a name="deploy-vms-and-scale-sets-to-dedicated-hosts-using-the-portal"></a>Déployer des machines virtuelles et des groupes identiques sur des hôtes dédiés à l'aide du portail 
 
 Cet article vous guide dans la création d’un [hôte dédié](dedicated-hosts.md) Azure pour héberger vos machines virtuelles. 
 
-
-> [!IMPORTANT]
-> Cet article traite également de la sélection élective automatique des machines virtuelles et des groupes identiques. La fonctionnalité Sélection élective automatique est actuellement en préversion publique.
-> Pour participer à la préversion, répondez à l'enquête d'intégration à l'adresse suivante : [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview).
-> Pour accéder à la fonctionnalité d'évaluation sur le portail Azure, vous devez utiliser l'URL suivante : [https://aka.ms/vmssadh](https://aka.ms/vmssadh).
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="limitations"></a>Limites
 
@@ -42,7 +36,7 @@ Vous pouvez également choisir d’utiliser des zones de disponibilité et des d
 Dans cet exemple, nous allons créer un groupe hôte en utilisant 1 zone de disponibilité et 2 domaines d’erreur. 
 
 
-1. Ouvrez le [Portail Microsoft Azure](https://portal.azure.com). Si vous souhaitez essayer la préversion de la fonctionnalité **Sélection élective automatique**, utilisez l'URL suivante : [https://aka.ms/vmssadh](https://aka.ms/vmssadh).
+1. Ouvrez le [Portail Microsoft Azure](https://portal.azure.com). 
 1. Sélectionnez l’option **Créer une ressource**, en haut à gauche du portail.
 1. Recherchez des **groupes hôtes** et sélectionnez **Host Groups** (Groupes hôtes) dans les résultats.
 1. Dans la page **Host Groups** (Groupes hôtes), sélectionnez **Créer**.
@@ -52,7 +46,7 @@ Dans cet exemple, nous allons créer un groupe hôte en utilisant 1 zone de disp
 1. Pour **Emplacement**, sélectionnez **USA Est**.
 1. Pour **Zone de disponibilité**, sélectionnez **1**.
 1. Pour **Fault Domain Count** (Nombre de domaines d’erreur), sélectionnez **2**.
-1. Si vous avez utilisé l'URL de la fonctionnalité **Sélection élective automatique**, sélectionnez cette option pour attribuer automatiquement des machines virtuelles et mettre à l'échelle des machines virtuelles et des groupes identiques sur un hôte disponible dans ce groupe.
+1. Sélectionnez **Sélection élective automatique** pour attribuer automatiquement des machines virtuelles et des instances de groupes identiques à un hôte disponible dans ce groupe.
 1. Sélectionnez **Vérifier + Créer**, puis attendez la validation.
 1. Lorsque le message **Validation passed** (Validation réussie) apparaît, sélectionnez **Créer** pour créer le groupe hôte.
 
@@ -86,25 +80,14 @@ Si vous définissez un nombre de domaines d’erreur pour votre groupe hôte, vo
 1. Dans **Options de disponibilité**, sélectionnez **Zone de disponibilité**, puis sélectionnez *1* dans la liste déroulante.
 1. Pour la taille, sélectionnez **Modifier la taille**. Dans la liste des tailles disponibles, choisissez-en une dans la série Esv3, par exemple **Standard E2s v3**. Vous devrez peut-être effacer le filtre afin d’afficher toutes les tailles disponibles.
 1. Renseignez les autres champs de l'onglet **De base** selon vos besoins.
-1. En haut de la page, sélectionnez l’onglet **Avancé**, puis dans la section **Hôte**, sélectionnez *myHostGroup* pour **Groupe hôte** et *myHost* pour l'**hôte**. 
+1. Si vous souhaitez indiquer quel hôte utiliser pour votre machine virtuelle, sélectionnez l’onglet **Avancé** en haut de la page. Ensuite, sélectionnez *myHostGroup* comme **Groupe hôte** et *myHost* comme **Hôte** dans la section **Hôte**. Sinon, votre machine virtuelle sera automatiquement placée sur un hôte possédant de la capacité.
     ![Sélectionner le groupe hôte et l’hôte](./media/dedicated-hosts-portal/advanced.png)
 1. Conservez les valeurs par défaut restantes, puis sélectionnez le bouton **Vérifier + créer** en bas de la page.
 1. Lorsque vous voyez le message indiquant que la validation a réussi, sélectionnez **Créer**.
 
 Quelques minutes sont nécessaires pour le déploiement de votre machine virtuelle.
 
-## <a name="create-a-scale-set-preview"></a>Créez un groupe identique (préversion)
-
-> [!IMPORTANT]
-> La fonctionnalité Groupes de machines virtuelles identiques sur Dedicated Host est actuellement en préversion publique.
->
-> Pour participer à la préversion, répondez à l'enquête d'intégration à l'adresse suivante : [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview).
->
-> Pour accéder à la fonctionnalité d'évaluation sur le portail Azure, vous devez utiliser l'URL suivante : [https://aka.ms/vmssadh](https://aka.ms/vmssadh).
->
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. 
->
-> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+## <a name="create-a-scale-set"></a>Créer un groupe identique 
 
 Lorsque vous déployez un groupe identique, vous spécifiez le groupe hôte.
 

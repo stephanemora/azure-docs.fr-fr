@@ -4,16 +4,16 @@ description: En savoir plus sur les disques Ultra pour machines virtuelles Azure
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 09/28/2020
+ms.date: 12/10/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: aa1c681d4b34199456f3447bcac5587005a044ce
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 9c3c1acbc2606d882ad45744457137be5014bc4c
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96016627"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093483"
 ---
 # <a name="using-azure-ultra-disks"></a>Utilisation de disques Ultra Azure
 
@@ -170,9 +170,6 @@ Remplacez ou définissez les variables **$vmname**, **$rgname**, **$diskname**, 
 ```azurecli-interactive
 az disk create --subscription $subscription -n $diskname -g $rgname --size-gb 1024 --location $location --sku UltraSSD_LRS --disk-iops-read-write 8192 --disk-mbps-read-write 400
 az vm create --subscription $subscription -n $vmname -g $rgname --image Win2016Datacenter --ultra-ssd-enabled true --zone $zone --authentication-type password --admin-password $password --admin-username $user --size Standard_D4s_v3 --location $location --attach-data-disks $diskname
-
-#create an ultra disk with 512 sector size
-az disk create --subscription $subscription -n $diskname -g $rgname --size-gb 1024 --location $location --sku UltraSSD_LRS --disk-iops-read-write 8192 --disk-mbps-read-write 400 --logical-sector-size 512
 ```
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
@@ -225,8 +222,59 @@ $vm = Get-AzVM -ResourceGroupName $resourceGroup -Name $vmName
 $disk = Get-AzDisk -ResourceGroupName $resourceGroup -Name $diskName
 $vm = Add-AzVMDataDisk -VM $vm -Name $diskName -CreateOption Attach -ManagedDiskId $disk.Id -Lun $lun
 Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
+```
 
-# Example for creating a disk with 512 sector size
+---
+
+## <a name="deploy-an-ultra-disk---512-byte-sector-size"></a>Déploiement d’un Disque Ultra d’une taille de secteur de 512 octets
+
+# <a name="portal"></a>[Portail](#tab/azure-portal)
+
+À l’heure actuelle, le Portail Azure ne prend pas en charge la création d’un Disque Ultra dont la taille de secteur est de 512 octets. Vous pouvez en revanche utiliser le module Azure PowerShell ou Azure CLI.
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Tout d’abord, déterminez la taille de la machine virtuelle à déployer. Pour obtenir la liste des tailles de machines virtuelles prises en charge, consultez la section [Étendue et limitations de la version en disponibilité générale](#ga-scope-and-limitations).
+
+Pour attacher un disque Ultra, vous devez créer une machine virtuelle capable d’utiliser des disques Ultra.
+
+Remplacez ou définissez les variables **$vmname**, **$rgname**, **$diskname**, **$location**, **$password**, **$user** par votre propres valeurs. Définissez **$zone** sur la valeur de votre zone de disponibilité, que vous avez obtenue grâce à la procédure décrite au [début de cet article](#determine-vm-size-and-region-availability). Exécutez ensuite la commande CLI suivante pour créer une machine virtuelle avec un Disque Ultra d’une taille de secteur de 512 octets :
+
+```azurecli
+#create an ultra disk with 512 sector size
+az disk create --subscription $subscription -n $diskname -g $rgname --size-gb 1024 --location $location --sku UltraSSD_LRS --disk-iops-read-write 8192 --disk-mbps-read-write 400 --logical-sector-size 512
+az vm create --subscription $subscription -n $vmname -g $rgname --image Win2016Datacenter --ultra-ssd-enabled true --zone $zone --authentication-type password --admin-password $password --admin-username $user --size Standard_D4s_v3 --location $location --attach-data-disks $diskname
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Tout d’abord, déterminez la taille de la machine virtuelle à déployer. Pour obtenir la liste des tailles de machines virtuelles prises en charge, consultez la section [Étendue et limitations de la version en disponibilité générale](#ga-scope-and-limitations).
+
+Pour pouvoir utiliser des disques Ultra, vous devez créer une machine virtuelle capable d’utiliser ce type de disque. Remplacez ou définissez les variables **$resourcegroup** et **$vmName** par vos propres valeurs. Définissez **$zone** sur la valeur de votre zone de disponibilité, que vous avez obtenue grâce à la procédure décrite au [début de cet article](#determine-vm-size-and-region-availability). Ensuite, exécutez la commande [New-AzVm](/powershell/module/az.compute/new-azvm) suivante pour créer une machine virtuelle capable de gérer les disques SSD Ultra :
+
+```powershell
+New-AzVm `
+    -ResourceGroupName $resourcegroup `
+    -Name $vmName `
+    -Location "eastus2" `
+    -Image "Win2016Datacenter" `
+    -EnableUltraSSD `
+    -size "Standard_D4s_v3" `
+    -zone $zone
+```
+
+Pour créer et attacher un Disque Ultra d’une taille de secteur de 512 octets, vous pouvez utiliser le script suivant :
+
+```powershell
+# Set parameters and select subscription
+$subscription = "<yourSubscriptionID>"
+$resourceGroup = "<yourResourceGroup>"
+$vmName = "<yourVMName>"
+$diskName = "<yourDiskName>"
+$lun = 1
+Connect-AzAccount -SubscriptionId $subscription
+
+# Create the disk
 $diskconfig = New-AzDiskConfig `
 -Location 'EastUS2' `
 -DiskSizeGB 8 `
@@ -237,8 +285,17 @@ $diskconfig = New-AzDiskConfig `
 -CreateOption Empty `
 -zone $zone;
 
-```
+New-AzDisk `
+-ResourceGroupName $resourceGroup `
+-DiskName $diskName `
+-Disk $diskconfig;
 
+# add disk to VM
+$vm = Get-AzVM -ResourceGroupName $resourceGroup -Name $vmName
+$disk = Get-AzDisk -ResourceGroupName $resourceGroup -Name $diskName
+$vm = Add-AzVMDataDisk -VM $vm -Name $diskName -CreateOption Attach -ManagedDiskId $disk.Id -Lun $lun
+Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
+```
 ---
 ## <a name="attach-an-ultra-disk"></a>Attacher un disque Ultra
 

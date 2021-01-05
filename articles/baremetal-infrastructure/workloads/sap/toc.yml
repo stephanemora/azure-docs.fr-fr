@@ -13,4 +13,4 @@
 - name: Référence
   items:
     - name: Types de charges de travail BareMetal
-      href: /azure/virtual-machines/workloads/sap/get-started?context=/azure/baremetal-infrastructure/context/context
+      href: /azure/virtual-machines/workloads/sap/get-started?context=/azure/baremetal-infrastructure/workloads/sap/context/context

@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: f270ac736bb5dbc429dc8659cc88e63d0b51a523
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: cc17a66aceb6ab3eba9a18f8f07902822f4c81bb
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94366636"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96937659"
 ---
 # <a name="limits-in-azure-database-for-postgresql---flexible-server"></a>Limites dans Azure Database pour PostgreSQL - Serveur flexible
 
@@ -116,6 +116,7 @@ Une connexion PostgreSQL, même inactive, peut utiliser environ 10 Mo de mémoi
 
 * L’authentification Azure AD n’est pas encore prise en charge. Nous vous recommandons d’utiliser l’option [Serveur unique](../overview-single-server.md) si vous avez besoin de l’authentification Azure AD.
 * Les réplicas en lecture ne sont pas encore pris en charge. Nous vous recommandons d’utiliser l’option [Serveur unique](../overview-single-server.md) si vous avez besoin de réplicas en lecture.
+* Le déplacement de ressources dans un autre abonnement n’est pas pris en charge. 
 
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -3,90 +3,90 @@ title: Évaluer les résultats de l’expérience AutoML
 titleSuffix: Azure Machine Learning
 description: Apprenez à afficher et à évaluer les graphiques et les métriques pour chacune de vos exécutions d’expérience de Machine Learning automatisé.
 services: machine-learning
-author: aniththa
-ms.author: anumamah
+author: gregorybchris
+ms.author: chgrego
 ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 10/09/2020
+ms.date: 12/09/2020
 ms.topic: conceptual
-ms.custom: how-to, contperfq2, automl
-ms.openlocfilehash: fcbe0fc5049f6e892f80f048a885c75420bc636e
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.custom: how-to, contperf-fy21q2, automl
+ms.openlocfilehash: 747cc88cdea59017483245b59e4b2c56c4b06a40
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359083"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032930"
 ---
 # <a name="evaluate-automated-machine-learning-experiment-results"></a>Évaluer les résultats de l’expérience de Machine Learning automatisé
 
-Cet article explique comment afficher et évaluer les résultats de vos expériences de Machine Learning automatisé, ML automatisé. Ces expériences comprennent plusieurs exécutions, chacune d’entre elles créant un modèle. Pour vous aider à évaluer chaque modèle, le ML automatisé génère automatiquement des métriques et graphiques de performances spécifiques pour votre type d’expérience. 
+Cet article explique comment évaluer et comparer les modèles entraînés par votre expérience de Machine Learning automatisé. Au cours d’une expérience de Machine Learning automatisé, de nombreuses exécutions sont créées, et chacune d’elles crée un modèle. Pour chaque modèle, le Machine Learning automatisé génère des métriques et des graphiques d’évaluation qui vous aident à mesurer les performances du modèle. 
 
-Par exemple, le ML automatisé fournit différents graphiques pour les modèles de classification et de régression. 
+Par exemple, le Machine Learning automatisé génère les graphiques suivants basés sur le type d’expérimentation.
 
-|Classification|régression ;
-|---|---|
-|<li> [Matrice de confusion](#confusion-matrix) <li>[Graphique de rappel de précision](#precision-recall-chart) <li> [ROC (Receiver operating characteristic)](#roc) <li> [Courbe d’élévation](#lift-curve)<li> [Courbe de gains](#gains-curve)<li> [Tracé d’étalonnage](#calibration-plot) | <li> [Prédiction et True](#pvt) <li> [Histogramme des résidus](#histo)|
+| classification ;| Régression/prévisions |
+| ----------------------------------------------------------- | ---------------------------------------- |
+| [Matrice de confusion](#confusion-matrix)                       | [Histogramme de résiduels](#residuals)        |
+| [Courbe ROC (Receiver operating characteristic)](#roc-curve) | [Prédiction et résultat](#predicted-vs-true) |
+| [Courbe PR (rappel de précision)](#precision-recall-curve)      |                                          |
+| [Courbe d’élévation](#lift-curve)                                   |                                          |
+| [Courbe de gains cumulés](#cumulative-gains-curve)           |                                          |
+| [Courbe d’étalonnage](#calibration-curve)                     |                     
+
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree) dès aujourd’hui.
-
-* Créez une expérience pour votre exécution de machine learning automatisé, que ce soit avec le SDK ou dans Azure Machine Learning Studio.
-
-    * Utilisez le Kit de développement logiciel (SDK) pour développer un [modèle de classification](how-to-auto-train-remote.md) ou un [modèle de régression](tutorial-auto-train-models.md)
-    * Utilisez [Azure Machine Learning Studio](how-to-use-automated-ml-for-ml-models.md) pour créer un modèle de classification ou de régression en chargeant les données appropriées.
+- Un abonnement Azure. (Si vous n’avez pas d’abonnement Azure, [créez un compte gratuit](https://aka.ms/AMLFree) avant de commencer)
+- Une expérience Azure Machine Learning créée avec l’une des options suivantes :
+  - [Azure Machine Learning Studio](how-to-use-automated-ml-for-ml-models.md) (aucun code requis)
+  - Le [kit SDK Python d’Azure Machine Learning](how-to-configure-auto-train.md)
 
 ## <a name="view-run-results"></a>Afficher les résultats de l’exécution
 
-Lorsque votre expérience de Machine Learning automatisé est terminée, un historique des exécutions est disponible dans votre espace de travail de Machine Learning via le [Azure Machine Learning studio](overview-what-is-machine-learning-studio.md). 
+Une fois votre expérience ML automatisé terminée, vous trouverez un historique des exécutions via :
+  - Un navigateur avec [Azure Machine Learning Studio](overview-what-is-machine-learning-studio.md)
+  - Un notebook Jupyter utilisant le [widget RunDetails Jupyter](/python/api/azureml-widgets/azureml.widgets.rundetails?view=azure-ml-py&preserve-view=true)
 
-Pour les expériences de kit de développement logiciel (SDK), vous pouvez également voir ces mêmes résultats lors d’une exécution avec le `RunDetails` [widget Jupyter](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py).
-
-Les étapes et les animations suivantes montrent comment afficher l’historique des exécutions et les métriques et graphiques de performances d’un modèle spécifique dans le studio.
-
-![Procédure d’affichage de l’historique des exécutions et des métriques et graphiques de performances d’un modèle](./media/how-to-understand-automated-ml/view-run-metrics-ui.gif)
-
-Pour afficher l’historique des exécutions et les métriques et graphiques de performances du modèle et les graphiques dans le studio : 
+Les étapes et la vidéo suivantes vous montrent comment afficher l’historique des exécutions et les graphiques ainsi que les métriques d’évaluation du modèle dans Studio :
 
 1. [Connectez-vous au studio](https://ml.azure.com/) et accédez à votre espace de travail.
-1. Dans le panneau gauche de l’espace de travail, sélectionnez **Exécutions**.
-1. Dans la liste des expériences, sélectionnez celle que vous voulez explorer.
-1. Dans la table du bas, sélectionnez l’**Exécution**.
-1. Dans l’onglet **Modèles**, sélectionnez le **Nom de l’algorithme** pour le modèle que vous voulez explorer.
-1. Dans l’onglet **Métriques**, sélectionnez les métriques et graphiques que vous voulez évaluer pour ce modèle. 
+1. Dans le menu de gauche, sélectionnez **Expériences**.
+1. Sélectionnez votre expérience dans la liste des expériences.
+1. Dans le tableau en bas de la page, sélectionnez une exécution de ML automatisé.
+1. Dans l’onglet **Modèles**, sélectionnez le **Nom de l’algorithme** du modèle que vous voulez évaluer.
+1. Dans l’onglet **Métriques** , utilisez les cases à cocher à gauche pour afficher les métriques et les graphiques.
 
+![Étapes pour afficher les métriques dans Studio](./media/how-to-understand-automated-ml/how-to-studio-metrics.gif)
 
-<a name="classification"></a> 
+## <a name="classification-metrics"></a>Métriques de classification
 
-## <a name="classification-performance-metrics"></a>Métriques de performances de classification
+Le ML automatisé calcule les métriques de performances pour chaque modèle de classification généré pour votre expérience. Ces métriques sont basées sur l’implémentation scikit-learn. 
 
-Le tableau suivant récapitule les métriques de performances de modèle calculées par le ML automatisé pour chaque modèle de classification généré pour votre expérience. 
+De nombreuses métriques de classification sont définies pour une classification binaire sur deux classes et nécessitent une moyenne de ces classes afin de générer un score pour la classification multiclasse. Scikit-learn offre plusieurs méthodes de calcul de la moyenne, dont trois s’appuient sur le ML automatisé : **macro**, **micro** et **pondérée**.
 
-Métrique|Description|Calcul|Paramètres supplémentaires
---|--|--|--
-AUC_macro| « AUC » est « Area under the Receiver Operating Characteristic Curve » (la zone sous la courbe caractéristique de fonctionnement du récepteur). « Macro » est la moyenne arithmétique de l’AUC pour chaque classe.  | [Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="macro"|
-AUC_micro| « AUC » est « Area under the Receiver Operating Characteristic Curve » (la zone sous la courbe caractéristique de fonctionnement du récepteur). « Micro » est calculé globalement en combinant les vrais positifs et les faux positifs de chaque classe.| [Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="micro"|
-AUC_weighted  | « AUC » est « Area under the Receiver Operating Characteristic Curve » (la zone sous la courbe caractéristique de fonctionnement du récepteur). « Weighted » est la moyenne arithmétique du score pour chaque classe, pondérée par le nombre d’instances « true » dans chaque classe.| [Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html)|average="weighted"
-accuracy|La précision est le pourcentage d’étiquettes prédites qui correspondent exactement aux étiquettes réelles. |[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html) |None|
-average_precision_score_macro|La précision moyenne résume la courbe précision-rappel comme moyenne pondérée des précisions atteintes à chaque seuil, avec l’augmentation du rappel du seuil précédent utilisé comme pondération. Macro est la moyenne arithmétique du score de précision moyen de chaque classe.|[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)|average="macro"|
-average_precision_score_micro|La précision moyenne résume la courbe précision-rappel comme moyenne pondérée des précisions atteintes à chaque seuil, avec l’augmentation du rappel du seuil précédent utilisé comme pondération. « Micro » est calculé globalement en combinant les vrais positifs et les faux positifs de chaque limite.|[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)|average="micro"|
-average_precision_score_weighted|La précision moyenne résume la courbe précision-rappel comme moyenne pondérée des précisions atteintes à chaque seuil, avec l’augmentation du rappel du seuil précédent utilisé comme pondération. « Weighted » est la moyenne arithmétique du score de précision moyen pour chaque classe, pondérée par le nombre d’instances « true » dans chaque classe.|[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)|average="weighted"|
-balanced_accuracy|La précision équilibrée est la moyenne arithmétique du rappel pour chaque classe.|[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|average="macro"|
-f1_score_macro|Le score F1 est la moyenne harmonique de la précision et du rappel. « Macro » est la moyenne arithmétique du score F1 pour chaque classe.|[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|average="macro"|
-f1_score_micro|Le score F1 est la moyenne harmonique de la précision et du rappel. « Micro » est calculé globalement en comptant le total des vrais positifs, des faux négatifs et des faux positifs.|[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|average="micro"|
-f1_score_weighted|Le score F1 est la moyenne harmonique de la précision et du rappel. Moyenne pondérée par fréquence de classe du score F1 pour chaque classe|[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|average="weighted"|
-log_loss|Il s’agit de la fonction de perte utilisée dans la régression logistique (multinomiale) et les extensions de celle-ci, comme les réseaux neuronaux, définie comme la probabilité logarithmique négative des étiquettes réelles, étant données les prédictions d’un classifieur probabiliste. Pour un échantillon unique avec l’étiquette vraie yt dans {0,1} et la probabilité estimée yp que yt = 1, la perte logarithmique est - -log P(yt&#124;yp) = -(yt log(yp) + (1 - yt) log(1 - yp)).|[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.html)|None|
-norm_macro_recall|Le rappel macro normalisé est tel que la performance aléatoire ait un score de 0 et la performance parfaite ait un score de 1. Ceci est réalisé par norm_macro_recall := (recall_score_macro - R)/(1 - R), où R est la valeur attendue de recall_score_macro pour des prédictions aléatoires (c’est-à-dire R=0,5 pour la classification binaire et R=(1/C) pour les problèmes de classification de classe C).|[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|average = "macro" |
-precision_score_macro|La précision est le pourcentage d’éléments prédits positivement qui sont correctement étiquetés. « Macro » est la moyenne arithmétique de la précision pour chaque classe.|[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|average="macro"|
-precision_score_micro|La précision est le pourcentage d’éléments prédits positivement qui sont correctement étiquetés. « Micro » est calculé globalement en comptant le total des vrais positifs et des faux positifs.|[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|average="micro"|
-precision_score_weighted|La précision est le pourcentage d’éléments prédits positivement qui sont correctement étiquetés. « Weighted » est la moyenne arithmétique de la précision pour chaque classe, pondérée par le nombre d’instances « true » dans chaque classe.|[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|average="weighted"|
-recall_score_macro|Le rappel est le pourcentage d’éléments d’une certaine classe correctement étiquetés. « Macro » est la moyenne arithmétique du rappel pour chaque classe.|[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|average="macro"|
-recall_score_micro|Le rappel est le pourcentage d’éléments d’une certaine classe correctement étiquetés. « Micro » est calculé globalement en comptant le total des vrais positifs, des faux négatifs et des faux positifs.|[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|average="micro"|
-recall_score_weighted|Le rappel est le pourcentage d’éléments d’une certaine classe correctement étiquetés. « Weighted » est la moyenne arithmétique du rappel pour chaque classe, pondérée par le nombre d’instances « true » dans chaque classe.|[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|average="weighted"|
-weighted_accuracy|La précision pondérée est la précision où le poids donné à chaque exemple est égal à la proportion d’instances « true » dans la classe « true » de cet exemple.|[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html)|sample_weight est un vecteur égal à la proportion de cette classe pour chaque élément dans la cible|
+- **Macro** : calculer la métrique pour chaque classe et prendre la moyenne non pondérée
+- **Micro** : calculer globalement la métrique en comptant le total des vrais positifs, des faux négatifs et des faux positifs (indépendamment des classes).
+- **Pondérée** : calculer la métrique pour chaque classe et prendre la moyenne pondérée en fonction du nombre d’échantillons par classe.
 
-### <a name="binary-vs-multiclass-metrics"></a>Métriques binaires et multiclasses
+Bien que chaque méthode de calcul de la moyenne présente ses avantages, il convient de considérer le déséquilibre des classes lors de la sélection de la méthode appropriée. Si les classes comportent un nombre différent d’échantillons, il peut être plus intéressant d’utiliser une macro moyenne dans laquelle les classes minoritaires sont affectées d’une pondération égale à celle des classes majoritaires. En savoir plus sur les [métriques binaires et les métriques multiclasses](#binary-vs-multiclass-classification-metrics) dans le ML automatisé. 
+
+Le tableau suivant récapitule les métriques de performances de modèle calculées par le ML automatisé pour chaque modèle de classification généré pour votre expérience. Pour plus d’informations, consultez la documentation relative à scikit-learn dans le champ **Calcul** de chaque métrique. 
+
+|Métrique|Description|Calcul|
+|--|--|---|
+|AUC | « AUC » est [Area under the Receiver Operating Characteristic Curve](#roc-curve) (la zone sous la courbe caractéristique de fonctionnement du récepteur).<br><br> **Objectif** : Une valeur proche de 1 est optimale <br> **Plage :** [0, 1]<br> <br>Les noms de métriques pris en charge incluent, <li>`AUC_macro` est la moyenne arithmétique de l’AUC pour chaque classe.<li> `AUC_micro` est calculé en combinant les vrais positifs et les faux positifs de chaque classe. <li> `AUC_weighted` est la moyenne arithmétique du score pour chaque classe, pondérée par le nombre d’instances « true » dans chaque classe.   |[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | 
+|accuracy| La précision représente le taux de prédictions qui correspondent exactement aux étiquettes de classes réelles. <br> <br>**Objectif** : Une valeur proche de 1 est optimale <br> **Plage :** [0, 1]|[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html)|
+|average_precision|La précision moyenne résume la courbe précision-rappel comme moyenne pondérée des précisions atteintes à chaque seuil, avec l’augmentation du rappel du seuil précédent utilisé comme pondération. <br><br> **Objectif** : Une valeur proche de 1 est optimale <br> **Plage :** [0, 1]<br> <br>Les noms de métriques pris en charge incluent,<li>`average_precision_score_macro` est la moyenne arithmétique du score de précision moyen de chaque classe.<li> `average_precision_score_micro` est calculé en combinant les vrais positifs et les faux positifs de chaque limite.<li>`average_precision_score_weighted` est la moyenne arithmétique du score de précision moyen pour chaque classe, pondérée par le nombre d’instances « true » dans chaque classe.|[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)|
+balanced_accuracy|La précision équilibrée est la moyenne arithmétique du rappel pour chaque classe.<br> <br>**Objectif** : Une valeur proche de 1 est optimale <br> **Plage :** [0, 1]|[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|
+f1_score|Le score F1 est la moyenne harmonique de la précision et du rappel. Il s’agit d’une bonne métrique équilibrée de faux positifs et de faux négatifs. Toutefois, il ne prend pas en compte les vrais négatifs. <br> <br>**Objectif** : Une valeur proche de 1 est optimale <br> **Plage :** [0, 1]<br> <br>Les noms de métriques pris en charge incluent,<li>  `f1_score_macro` est la moyenne arithmétique du score F1 pour chaque classe. <li> `f1_score_micro` est calculé en comptant le total des vrais positifs, des faux négatifs et des faux positifs. <li> `f1_score_weighted` : moyenne pondérée par fréquence de classe du score F1 pour chaque classe.|[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|
+log_loss|Il s’agit de la fonction de perte utilisée dans la régression logistique (multinomiale) et les extensions de celle-ci, comme les réseaux neuronaux, définie comme la probabilité logarithmique négative des étiquettes réelles, étant données les prédictions d’un classifieur probabiliste. <br><br> **Objectif** : Une valeur proche de 0 est optimale <br> **Plage :** [0, inf)|[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.html)|
+norm_macro_recall| Le rappel macro normalisé représente un rappel macro moyen et normalisé, de sorte que la performance aléatoire affiche un score de 0 et la performance parfaite un score de 1. <br> <br>**Objectif** : Une valeur proche de 1 est optimale <br> **Plage :** [0, 1] |`(recall_score_macro - R)`&nbsp;/&nbsp;`(1 - R)` <br><br>où `R` est la valeur attendue de `recall_score_macro` pour les prédictions aléatoires.<br><br>`R = 0.5`&nbsp;pour la classification &nbsp;binaire&nbsp;. <br>`R = (1 / C)` pour les problèmes de classification de classe C.|
+matthews_correlation | Le coefficient de corrélation Matthews est une métrique équilibrée de précision, qui peut être utilisé même si une classe contient beaucoup plus d’échantillons qu’une autre. Un coefficient de 1 indique une prédiction parfaite, 0 une prédiction aléatoire, et-1 une prédiction inverse.<br><br> **Objectif** : Une valeur proche de 1 est optimale <br> **Plage :** [-1, 1]|[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.matthews_corrcoef.html)|
+précision|La précision est la capacité d’un modèle à éviter d’étiqueter des échantillons négatifs comme positifs. <br><br> **Objectif** : Une valeur proche de 1 est optimale <br> **Plage :** [0, 1]<br> <br>Les noms de métriques pris en charge incluent, <li> `precision_score_macro` est la moyenne arithmétique de la précision pour chaque classe. <li> `precision_score_micro` est calculé globalement en comptant le total des vrais positifs et des faux positifs. <li> `precision_score_weighted` est la moyenne arithmétique de la précision pour chaque classe, pondérée par le nombre d’instances « true » dans chaque classe.|[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|
+rappel| Le rappel est la capacité d’un modèle à détecter tous les échantillons positifs. <br><br> **Objectif** : Une valeur proche de 1 est optimale <br> **Plage :** [0, 1]<br> <br>Les noms de métriques pris en charge incluent, <li>`recall_score_macro` est la moyenne arithmétique du rappel pour chaque classe. <li> `recall_score_micro` est calculé globalement en comptant le total des vrais positifs, des faux négatifs et des faux positifs.<li> `recall_score_weighted` est la moyenne arithmétique du rappel pour chaque classe, pondérée par le nombre d’instances « true » dans chaque classe.|[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|
+weighted_accuracy|La précision pondérée est la précision avec laquelle chaque échantillon est pondéré par le nombre total d’échantillons appartenant à la même classe. <br><br>**Objectif** : Une valeur proche de 1 est optimale <br>**Plage :** [0, 1]|[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html)|
+
+### <a name="binary-vs-multiclass-classification-metrics"></a>Métriques de classification binaires et multiclasses
 
 Le ML automatisé ne fait pas la différence entre les métriques binaires et multiclasses. Les mêmes métriques de validation sont signalées si un jeu de données a deux classes ou plus de deux classes. Toutefois, certaines métriques sont destinées à la classification multiclasse. Lorsqu’elles sont appliquées à un jeu de données binaire, ces métriques ne traitent pas les classes comme la classe `true`, comme vous pourriez vous y attendre. Les métriques qui sont clairement destinées à la multiclasse sont suivies d’un suffixe `micro`, `macro` ou `weighted`. `average_precision_score`, `f1_score`, `precision_score`, `recall_score` et `AUC` en sont des exemples.
 
@@ -94,180 +94,162 @@ Par exemple, au lieu de calculer le rappel comme `tp / (tp + fn)`, le rappel mul
 
 ## <a name="confusion-matrix"></a>Matrice de confusion
 
-Une matrice de confusion décrit les performances d’un modèle de classification. Chaque ligne affiche les instances de la classe true, ou de la classe actuelle dans votre jeu de données, et chaque colonne représente les instances de la classe qui a été prédite par le modèle. 
+Les matrices de confusion fournissent un visuel de la manière dont un modèle de Machine Learning génère des erreurs systématiques dans ses prédictions pour les modèles de classification. Le terme « confusion » dans le nom provient d’un modèle « confus » ou d’un mauvais étiquetage des échantillons. Une cellule à la ligne `i` et dans la colonne `j` d’une matrice de confusion contient le nombre d’échantillons dans le jeu de données d’évaluation qui appartiennent à la classe `C_i` et qui ont été classés par le modèle en tant que classe `C_j`.
 
-Pour chaque matrice de confusion, le ML automatisé affiche la fréquence de chaque étiquette prédite (colonne) par rapport à celle de chaque étiquette True (ligne). Plus la couleur est sombre, plus le nombre dans cette partie de la matrice est élevé. 
+Dans Studio, une cellule plus sombre indique un plus grand nombre d’échantillons. La sélection de la vue **normalisée** dans la liste déroulante normalise les données de chaque ligne de la matrice afin d’afficher le pourcentage de classe `C_i` prédit comme étant une classe `C_j`. La vue **brute** par défaut offre l’avantage de pouvoir vérifier si le modèle a mal classifié les échantillons de la classe minoritaire en raison d’un déséquilibre dans la distribution des classes réelles, un problème courant dans les jeux de données déséquilibrés.
 
-### <a name="what-does-a-good-model-look-like"></a>À quoi ressemble un bon modèle ?
+Dans un bon modèle, la matrice de confusion affiche la plupart des échantillons le long de la diagonale.
 
-Une matrice de confusion compare la valeur réelle du jeu de données aux valeurs prédites par le modèle. Pour cette raison, les modèles Machine Learning seront d’une plus grande justesse si la plupart de leurs valeurs se trouvent le long de la diagonale (ce qui signifie que le modèle a prédit la bonne valeur). Si un modèle a un déséquilibre de classe, la matrice de confusion permet de détecter un modèle biaisé.
+### <a name="confusion-matrix-for-a-good-model"></a>Matrice de confusion pour un bon modèle 
+![Matrice de confusion pour un bon modèle ](./media/how-to-understand-automated-ml/chart-confusion-matrix-good.png)
 
-#### <a name="example-1-a-classification-model-with-poor-accuracy"></a>Exemple 1 : Modèle de classification avec un niveau de justesse bas
-![Modèle de classification avec un niveau de justesse bas](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-confusion-matrix1.png)
+### <a name="confusion-matrix-for-a-bad-model"></a>Matrice de confusion pour un mauvais modèle
+![Matrice de confusion pour un mauvais modèle](./media/how-to-understand-automated-ml/chart-confusion-matrix-bad.png)
 
-#### <a name="example-2-a-classification-model-with-high-accuracy"></a>Exemple 2 : Modèle de classification avec un niveau de justesse élevé 
-![Modèle de classification avec un niveau de justesse élevé](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-confusion-matrix2.png)
+## <a name="roc-curve"></a>Courbe ROC
 
-##### <a name="example-3-a-classification-model-with-high-accuracy-and-high-bias-in-model-predictions"></a>Exemple 3 : Modèle de classification avec un niveau de justesse élevé et un biais élevé dans les prédictions de modèle
-![Modèle de classification avec un niveau de justesse élevé et un biais élevé dans les prédictions de modèle](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-biased-model.png)
+La courbe ROC (receiver operating characteristic) trace la relation entre le taux de vrais positifs (TPR) et le taux de faux positifs (FPR), à mesure que le seuil de décision varie. La courbe ROC peut être moins intéressante lors de l’apprentissage de modèles sur des jeux de données avec un déséquilibre de classe élevé, car la classe majoritaire peut être submergée par les classes minoritaires.
 
-<a name="precision-recall-chart"></a>
+La zone sous la courbe (AUC) peut être interprétée comme la proportion d’échantillons correctement classés. Plus précisément, la valeur AUC représente la probabilité que le classifieur classe un échantillon positif choisi de façon aléatoire à un rang plus élevé qu’un échantillon négatif choisi de façon aléatoire. La forme de la courbe donne une indication de la relation entre les valeurs TPR et FPR en tant que fonction du seuil de classification ou de la limite de décision.
 
-## <a name="precision-recall-chart"></a>Graphique de rappel de précision
+Une courbe qui approche l’angle supérieur gauche du graphique atteint une valeur TPR de 100 % et une valeur FPR de 0 %, ce qui correspond au meilleur modèle possible. Un modèle aléatoire produit une courbe ROC le long de la ligne `y = x`, de l’angle inférieur gauche à l’angle supérieur droit. Un modèle pire qu’aléatoire aurait une courbe ROC qui passe sous la ligne `y = x`.
+> [!TIP]
+> Pour les expériences de classification, chacun des graphiques en courbes produits pour les modèles ML automatisés peut être utilisé pour évaluer le modèle par classe ou la moyenne de toutes les classes. Vous pouvez basculer entre ces différentes vues en cliquant sur les étiquettes de classe dans la légende à droite du graphique.
+### <a name="roc-curve-for-a-good-model"></a>Courbe ROC pour un bon modèle
+![Courbe ROC pour un bon modèle](./media/how-to-understand-automated-ml/chart-roc-curve-good.png)
 
-La courbe Précision et rappel montre la relation qui existe entre la précision et le rappel dans un modèle. Le terme « précision » désigne la capacité d’un modèle à étiqueter correctement toutes les instances. Le rappel représente la capacité d’un classifieur à rechercher toutes les instances d’une étiquette spécifique.
+### <a name="roc-curve-for-a-bad-model"></a>Courbe ROC pour un mauvais modèle
+![Courbe ROC pour un mauvais modèle](./media/how-to-understand-automated-ml/chart-roc-curve-bad.png)
 
-Avec ce graphique, vous pouvez comparer les courbes de rappel de précision pour chaque modèle afin de déterminer quel modèle présente une relation acceptable entre précision et rappel pour votre problème d’entreprise spécifique. Ce graphique montre le rappel de précision de macro-moyenne, le rappel de précision de micro-moyenne et le rappel de précision associé à toutes les classes d’un modèle. 
+## <a name="precision-recall-curve"></a>Courbe de rappel de précision
 
-La **macro-moyenne** calcule la métrique indépendamment de chaque classe, puis elle prend la moyenne en traitant toutes les classes de manière égale. La **micro-moyenne**, quant à elle, agrège les contributions de toutes les classes pour calculer la moyenne. La micro-moyenne est préférable si le jeu de données contient un déséquilibre de classe.
+La courbe de rappel de précision dessine la relation qui existe entre la précision et le rappel à mesure que le seuil de décision varie. Le rappel est la capacité d’un modèle à détecter tous les échantillons positifs, tandis que la précision est la capacité d’un modèle à éviter d’étiqueter des échantillons négatifs comme positifs. Certains problèmes qui affectent l’entreprise peuvent nécessiter un rappel plus élevé et une plus grande précision selon l’importance relative d’éviter les faux négatifs et les faux positifs.
+> [!TIP]
+> Pour les expériences de classification, chacun des graphiques en courbes produits pour les modèles ML automatisés peut être utilisé pour évaluer le modèle par classe ou la moyenne de toutes les classes. Vous pouvez basculer entre ces différentes vues en cliquant sur les étiquettes de classe dans la légende à droite du graphique.
+### <a name="precision-recall-curve-for-a-good-model"></a>Courbe de rappel-précision pour un bon modèle
+![Courbe de rappel-précision pour un bon modèle](./media/how-to-understand-automated-ml/chart-precision-recall-curve-good.png)
 
-### <a name="what-does-a-good-model-look-like"></a>À quoi ressemble un bon modèle ?
-La courbe Précision et rappel idéale dépend de l’objectif du problème métier. 
+### <a name="precision-recall-curve-for-a-bad-model"></a>Courbe de rappel de précision pour un mauvais modèle
+![Courbe de rappel de précision pour un mauvais modèle](./media/how-to-understand-automated-ml/chart-precision-recall-curve-bad.png)
 
-##### <a name="example-1-a-classification-model-with-low-precision-and-low-recall"></a>Exemple 1 : Modèle de classification avec un niveau faible de précision et de rappel
-![Modèle de classification avec un niveau faible de précision et de rappel](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-precision-recall1.png)
+## <a name="cumulative-gains-curve"></a>Courbe de gains cumulés
 
-##### <a name="example-2-a-classification-model-with-100-precision-and-100-recall"></a>Exemple 2 : Modèle de classification avec une précision et un rappel d’environ 100 % 
-![Modèle de classification avec une précision et un rappel élevés](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-precision-recall2.png)
+La courbe de gains cumulés trace le pourcentage d’échantillons positifs correctement classés en fonction du pourcentage d’échantillons considérés dans l’ordre de probabilité prédite.
 
-<a name="roc"></a>
+Pour calculer le gain, triez tout d’abord tous les échantillons de la probabilité la plus élevée à la probabilité la plus faible prédites par le modèle. Prenez ensuite `x%` des prédictions affichant la confiance la plus élevée. Divisez le nombre d’échantillons positifs détectés dans `x%` par le nombre total d’échantillons positifs pour obtenir le gain. Le gain cumulatif représente le pourcentage d’échantillons positifs que nous détectons en considérant un pourcentage des données les plus susceptibles d’appartenir à la classe positive.
 
-## <a name="roc-chart"></a>Graphique ROC
+Un modèle parfait classe tous les échantillons positifs au-dessus de tous les échantillons négatifs, ce qui donne une courbe de gains cumulés composée de deux segments droits. Le premier segment est une ligne avec une pente `1 / x` de `(0, 0)` à `(x, 1)`, où `x` est la fraction d’échantillons qui appartiennent à la classe positive (`1 / num_classes` si les classes sont équilibrées). Le second segment est une ligne horizontale de `(x, 1)` à `(1, 1)`. Dans le premier segment, tous les échantillons positifs sont classés correctement et le gain cumulatif passe à `100%` dans les `x%` premiers exemples pris en compte.
 
-Le ROC (Receiver Operating Characteristic) est un tracé d’étiquettes bien classées et mal classées pour un modèle spécifique. La courbe ROC peut être moins intéressante lors de l’apprentissage de modèles sur des jeux de données avec un déséquilibre de classe élevé, car la classe majoritaire peut être submergée par les classes minoritaires.
+Le modèle aléatoire avec ligne de base aura une courbe de gains cumulés qui suit `y = x` où, pour `x%` exemples considérés, seuls `x%` échantillons positifs totaux environ ont été détectés. Un modèle parfait aura une courbe moyenne micro qui touche l’angle supérieur gauche et une ligne moyenne macro avec une pente `1 / num_classes` jusqu’à ce que le gain cumulatif soit de 100 %, puis devient horizontale jusqu’à que ce le pourcentage de données soit de 100.
+> [!TIP]
+> Pour les expériences de classification, chacun des graphiques en courbes produits pour les modèles ML automatisés peut être utilisé pour évaluer le modèle par classe ou la moyenne de toutes les classes. Vous pouvez basculer entre ces différentes vues en cliquant sur les étiquettes de classe dans la légende à droite du graphique.
+### <a name="cumulative-gains-curve-for-a-good-model"></a>Courbe de gains cumulés pour un bon modèle
+![Courbe de gains cumulés pour un bon modèle](./media/how-to-understand-automated-ml/chart-cumulative-gains-curve-good.png)
 
-Vous pouvez visualiser la zone sous le graphique ROC comme la proportion d’échantillons correctement classés. Un utilisateur avancé du graphique ROC peut observer au-delà de la zone sous la courbe et obtenir une intuition pour les taux de vrais et faux positifs en tant que fonction du seuil de classification ou de la limite de décision.
+### <a name="cumulative-gains-curve-for-a-bad-model"></a>Courbe des gains cumulés pour un mauvais modèle
+![Courbe des gains cumulés pour un mauvais modèle](./media/how-to-understand-automated-ml/chart-cumulative-gains-curve-bad.png)
 
-### <a name="what-does-a-good-model-look-like"></a>À quoi ressemble un bon modèle ?
-Une courbe ROC qui approche le coin supérieur gauche avec un taux de vrais positifs de 100 % et un taux de faux positifs de 0 % est le meilleur modèle. Un modèle aléatoire s’affiche sous la forme d’une ligne plate allant du coin inférieur gauche au coin supérieur droit. Un modèle pire qu’aléatoire serait en dessous de la ligne y = x.
+## <a name="lift-curve"></a>Courbe d’élévation
 
-#### <a name="example-1-a-classification-model-with-low-true-labels-and-high-false-labels"></a>Exemple 1 : Modèle de classification avec un nombre faible d’étiquettes Vrais et un nombre élevé d’étiquettes Faux
-![Modèle de classification avec un nombre faible d’étiquettes Vrais et un nombre élevé d’étiquettes Faux](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-roc-1.png)
+La courbe d’élévation montre dans quelle mesure un modèle est plus performant qu’un modèle aléatoire. L’élévation est définie comme le rapport entre le gain cumulé et le gain cumulatif d’un modèle aléatoire.
 
-#### <a name="example-2-a-classification-model-with-high-true-labels-and-low-false-labels"></a>Exemple 2 : Modèle de classification avec un nombre élevé d’étiquettes Vrais et un nombre faible d’étiquettes Faux
+Cette performance relative prend en compte le fait que la classification est plus difficile lorsque vous augmentez le nombre de classes. (Un modèle aléatoire prédit de manière incorrecte une fraction plus élevée d’échantillons d’un jeu de données avec 10 classes par rapport à un jeu de données avec deux classes)
 
-![Modèle de classification avec un nombre élevé d’étiquettes Vrais et un nombre faible d’étiquettes Faux](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-roc-2.png)
+La courbe d’élévation de ligne de base représente la ligne `y = 1` dans laquelle les performances du modèle sont cohérentes avec celles d’un modèle aléatoire. En général, la courbe d’élévation d’un bon modèle est plus haute sur ce graphique et plus éloignée de l’axe des x, ce qui indique que lorsque le modèle affiche ses prédictions les plus fiables , il est beaucoup plus performant que le modèle aléatoire.
 
+> [!TIP]
+> Pour les expériences de classification, chacun des graphiques en courbes produits pour les modèles ML automatisés peut être utilisé pour évaluer le modèle par classe ou la moyenne de toutes les classes. Vous pouvez basculer entre ces différentes vues en cliquant sur les étiquettes de classe dans la légende à droite du graphique.
+### <a name="lift-curve-for-a-good-model"></a>Courbe d’élévation pour un bon modèle
+![Courbe d’élévation pour un bon modèle](./media/how-to-understand-automated-ml/chart-lift-curve-good.png)
+ 
+### <a name="lift-curve-for-a-bad-model"></a>Courbe d’élévation pour un mauvais modèle
+![Courbe d’élévation pour un mauvais modèle](./media/how-to-understand-automated-ml/chart-lift-curve-bad.png)
 
-<a name="lift-curve"></a>
+## <a name="calibration-curve"></a>Courbe d’étalonnage
 
-## <a name="lift-chart"></a>Graphique de courbes d’élévation
+La courbe d’étalonnage trace la confiance d’un modèle dans ses prédictions par rapport à la proportion d’échantillons positifs à chaque niveau de confiance. Un modèle bien étalonné va correctement classer 100 % des prédictions auxquelles il affecte une confiance de 100 %, 50 % des prédictions auxquelles il affecte une confiance de 50 %, 20 % des prédictions auxquelles il affecte une confiance de 20 %, et ainsi de suite. Un modèle parfaitement étalonné aura une courbe d’étalonnage qui suit la ligne `y = x`, dans laquelle le modèle prédit parfaitement la probabilité que les échantillons appartiennent à chaque classe.
 
-Les graphiques de courbes d’élévation évaluent les performances de modèles de classification. Un graphique de courbes d’élévation dans quelle mesure un modèle est plus performant qu’un modèle aléatoire. Cela vous donne une performance relative qui prend en compte le fait que la classification est plus difficile lorsque vous augmentez le nombre de classes. Un modèle aléatoire prédit de manière incorrecte une fraction plus élevée d’échantillons d’un jeu de données avec dix classes par rapport à un jeu de données avec deux classes.
-
-Vous pouvez comparer l’élévation du modèle généré automatiquement avec Azure Machine Learning par rapport à la ligne de base (modèle aléatoire) afin d’afficher le gain de valeur de ce modèle spécifique.
-
-### <a name="what-does-a-good-model-look-like"></a>À quoi ressemble un bon modèle ?
-
-Un modèle plus performant aura une courbe d’élévation plus élevée sur le graphique et plus éloignée de la ligne de base. 
-
-#### <a name="example-1-a-classification-model-that-performs-poorly-compared-to-a-random-selection-model"></a>Exemple 1 : Modèle de classification avec des performances inférieures à celles d’un modèle de sélection aléatoire
-![Modèle de classification avec des performances moins élevées que celles d’un modèle de sélection aléatoire](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-lift-curve1.png)
-
-#### <a name="example-2-a-classification-model-that-performs-better-than-a-random-selection-model"></a>Exemple 2 : Modèle de classification avec des performances plus élevées que celles d’un modèle de sélection aléatoire
-![Modèle de classification plus efficace](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-lift-curve2.png)
-
-<a name="gains-curve"></a>
-
-## <a name="cumulative-gains-chart"></a>Graphique de gains cumulés
-
-Un graphique de gains cumulés évalue les performances d’un modèle de classification pour chaque partie des données. Pour chaque centile du jeu de données, le graphique indique le nombre d’échantillons qui ont été correctement classés par rapport à un modèle qui est toujours incorrect. Ces informations offrent une autre façon d’observer les résultats dans le graphique de courbes d’élévation associé.
-
-Le graphique de gains cumulés vous aide à choisir la limite de classification au moyen d’un pourcentage qui correspond à un gain souhaité à partir du modèle. Vous pouvez comparer le graphique de gains cumulés à la ligne de base (modèle incorrect) pour voir le pourcentage d’échantillons qui ont été correctement classés à chaque centile de confiance.
-
-#### <a name="what-does-a-good-model-look-like"></a>À quoi ressemble un bon modèle ?
-
-À l’instar d’un graphique de courbes d’élévation, plus votre courbe de gains cumulés est au-dessus de la ligne de base, plus votre modèle est performant. En outre, plus votre courbe de gains cumulés est proche de l’angle supérieur gauche du graphique, plus le gain de votre modèle est proche de la ligne de base. 
-
-##### <a name="example-1-a-classification-model-with-minimal-gain"></a>Exemple 1 : Modèle de classification avec des gains minimaux
-![Modèle de classification avec des gains minimaux](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-gains-curve2.png)
-
-##### <a name="example-2-a-classification-model-with-significant-gain"></a>Exemple 2 : Modèle de classification avec des gains importants
-![Modèle de classification avec des gains importants](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-gains-curve1.png)
-
-<a name="calibration-plot"></a>
-
-## <a name="calibration-chart"></a>Graphique d’étalonnage
-
-Un tracé d’étalonnage affiche le niveau de confiance d’un modèle prédictif. Pour ce faire, il montre la relation entre la probabilité prévue et la probabilité réelle, où le terme « probabilité » représente la vraisemblance pour une instance spécifique d’appartenir à une étiquette.
-
-Pour tous les problèmes de classification, vous pouvez consulter la ligne d’étalonnage concernant la micro-moyenne, la macro-moyenne et chaque classe dans un modèle prédictif donné.
-
-La **macro-moyenne** calcule la métrique indépendamment de chaque classe, puis elle prend la moyenne en traitant toutes les classes de manière égale. La **micro-moyenne**, quant à elle, agrège les contributions de toutes les classes pour calculer la moyenne. 
-
-### <a name="what-does-a-good-model-look-like"></a>À quoi ressemble un bon modèle ?
-Un modèle bien étalonné s’aligne sur la ligne y = x, où il prédit correctement la probabilité que les échantillons appartiennent à chaque classe. Un modèle trop confiant prédira excessivement des probabilités proches de zéro et un, étant rarement incertain quant à la classe de chaque exemple.
-
-#### <a name="example-1-a-well-calibrated-model"></a>Exemple 1 : Modèle bien étalonné
-![ Autre modèle bien étalonné](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-calib-curve1.png)
-
-#### <a name="example-2-an-over-confident-model"></a>Exemple 2 : Modèle trop confiant
-![Modèle trop confiant](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-calib-curve2.png)
-
-
-<a name="regression"></a> 
-
-## <a name="regression-performance-metrics"></a>Métriques de performances de régression
-
-Le tableau suivant récapitule les métriques de performances de modèle calculées par la ML automatisé pour chaque modèle de régression ou modèle de prévision généré pour votre expérience. 
-
-|Métrique|Description|Calcul|Paramètres supplémentaires
---|--|--|--|
-explained_variance|La variance expliquée est la proportion selon laquelle un modèle mathématique compte pour la variation d’un jeu de données particulier. C’est le pourcentage de diminution de la variance des données d’origine par rapport à la variance des erreurs. Lorsque la moyenne des erreurs est 0, elle est égale au coefficient de détermination (voir r2_score ci-dessous).|[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html)|None|
-r2_score|R2 est le coefficient de détermination ou le pourcentage de réduction dans les erreurs quadratiques comparé à un modèle de référence qui génère la moyenne. |[Calcul](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|None|
-spearman_correlation|La corrélation de Spearman est une mesure non paramétrique de la monotonie de la relation entre deux jeux de données. Contrairement à la corrélation de Pearson, la corrélation de Spearman ne suppose pas que les deux jeux de données sont normalement distribués. Comme d’autres coefficients de corrélation, celle-ci varie entre -1 et +1, 0 impliquant l’absence de corrélation. Les corrélations de -1 ou +1 impliquent une relation monotone exacte. Les corrélations positives impliquent que quand x augmente, y augmente également. Les corrélations négatives impliquent que quand x augmente, y diminue.|[Calcul](https://docs.scipy.org/doc/scipy-0.16.1/reference/generated/scipy.stats.spearmanr.html)|None|
-mean_absolute_error|L’erreur d’absolue moyenne est la valeur attendue de la valeur absolue de la différence entre la cible et la prédiction|[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html)|None|
-normalized_mean_absolute_error|L’erreur d’absolue moyenne normalisée est l’erreur absolue moyenne divisée par la plage des données|[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html)|Diviser par la plage de données|
-median_absolute_error|L’erreur absolue médiane est la médiane de toutes les différences absolues entre la cible et la prédiction. Cette perte est robuste pour les valeurs hors norme.|[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.median_absolute_error.html)|None|
-normalized_median_absolute_error|L’erreur d’absolue médiane normalisée est l’erreur absolue médiane divisée par la plage des données|[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.median_absolute_error.html)|Diviser par la plage de données|
-root_mean_squared_error|L’erreur quadratique moyenne racine est la racine carrée de la différence quadratique attendue entre la cible et la prédiction|[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|None|
-normalized_root_mean_squared_error|L’erreur quadratique moyenne racine normalisée est l’erreur quadratique moyenne racine divisée par la plage des données|[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|Diviser par la plage de données|
-root_mean_squared_log_error|L’erreur logarithmique quadratique moyenne racine est la racine carrée de l’erreur logarithmique quadratique attendue|[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|None|
-normalized_root_mean_squared_log_error|L’erreur logarithmique quadratique moyenne racine normalisée est l’erreur logarithmique quadratique moyenne racine divisée par la plage des données|[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Diviser par la plage de données|
-
-<a name="pvt"></a>
-
-## <a name="predicted-vs-true-chart"></a> Prédiction et True
-
-Prédiction et True indique la relation entre une valeur prévue et sa valeur true en corrélation pour un problème de régression. 
-
-Après chaque exécution, vous pouvez afficher un graphique de type Prédiction et True pour chaque modèle de régression. Pour protéger la confidentialité des données, les valeurs sont réunies dans un conteneur et la taille de chaque emplacement est affichée sous la forme d’un graphique à barres au bas de la zone de graphique. Vous pouvez comparer le modèle prédictif, dont la zone la plus claire indique les marges d’erreur, par rapport à la valeur idéale du modèle.
-
-### <a name="what-does-a-good-model-look-like"></a>À quoi ressemble un bon modèle ?
-Ce graphique peut servir à mesurer les performances d’un modèle, car plus les valeurs prévues sont proches de la ligne y=x, plus le modèle prédictif est performant.
-
-#### <a name="example-1-a-regression-model-with-low-performance"></a>Exemple 1 : Modèle de régression faiblement performant
-![Modèle de régression avec une justesse faible des prédictions](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression1.png)
-
-#### <a name="example-2-a-regression-model-with-high-performance"></a>Exemple 2 : Modèle de régression hautement performant
-![Modèle de régression avec un niveau de justesse élevé des prédictions](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression2.png)
-
-<a name="histo"></a> 
-
-## <a name="histogram-of-residuals-chart"></a> Histogramme des résidus
-
-Le ML automatisé fournit automatiquement un graphique des résidus pour montrer comment les erreurs d’un modèle de régression sont réparties. Un résiduel est la différence entre la valeur prédite et la valeur réelle (`y_pred - y_true`). 
-
-### <a name="what-does-a-good-model-look-like"></a>À quoi ressemble un bon modèle ?
-Pour afficher une marge d’erreur avec un biais faible, l’histogramme des résidus doit avoir la forme d’une cloche centrée sur zéro.
-
-#### <a name="example-1-a-regression-model-with-bias-in-its-errors"></a>Exemple 1 : Modèle de régression avec des erreurs comprenant un biais
-![Modèle de régression avec des erreurs comprenant un biais](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression3.png)
-
-#### <a name="example-2-a-regression-model-with-a-more-even-distribution-of-errors"></a>Exemple 2 : Modèle de régression avec des erreurs mieux réparties
-![Modèle de régression avec des erreurs mieux réparties](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression4.png)
-
-<a name="explain-model"></a>
-
-## <a name="model-interpretability-and-feature-importance"></a> Interprétabilité du modèle et importance des fonctionnalités
-Le Machine Learning automatisé fournit un tableau de bord d’interprétation Machine Learning pour vos exécutions.
-
-Pour plus d’informations sur l’activation des fonctionnalités d’interprétabilité, consultez [Interprétabilité : explications des modèles en Machine Learning automatisé](how-to-machine-learning-interpretability-automl.md).
+Un modèle trop confiant prédira excessivement des probabilités proches de zéro et un, étant rarement incertain quant à la classe de chaque exemple, et la courbe d’étalonnage ressemblera à un « S » inversé. Un modèle sous-confiant attribuera une probabilité inférieure en moyenne à la classe qu’il prédit et la courbe d’étalonnage associée ressemblera à un « S ». La courbe d’étalonnage ne représente pas la capacité d’un modèle à être correctement classifié, mais plutôt sa capacité à attribuer correctement un niveau de confiance à ses prédictions. Un mauvais modèle peut toujours afficher une bonne courbe d’étalonnage si le modèle attribue correctement une faible confiance et une haute incertitude.
 
 > [!NOTE]
-> Le modèle ForecastTCN n’est actuellement pas pris en charge par le client d’explication. Ce modèle ne renvoie pas de tableau de bord s’il est retourné comme meilleur modèle et ne prend pas en charge les exécutions d’explications à la demande.
+> La courbe d’étalonnage est sensible au nombre d’échantillons, donc un petit jeu de validation peut produire des résultats difficiles à interpréter. Cela ne signifie pas nécessairement que le modèle n’est pas correctement étalonné.
+
+### <a name="calibration-curve-for-a-good-model"></a>Courbe d’étalonnage pour un bon modèle
+![Courbe d’étalonnage pour un bon modèle](./media/how-to-understand-automated-ml/chart-calibration-curve-good.png)
+
+### <a name="calibration-curve-for-a-bad-model"></a>Courbe d’étalonnage pour un mauvais modèle
+![Courbe d’étalonnage pour un mauvais modèle](./media/how-to-understand-automated-ml/chart-calibration-curve-bad.png)
+
+## <a name="regressionforecasting-metrics"></a>Métriques de régression/prévision
+
+ML automatisé calcule les mêmes métriques de performances pour chaque modèle généré, qu’il s’agisse d’une expérience de régression ou de prévision. Ces mesures sont également soumises à la normalisation pour permettre une comparaison entre les modèles formés sur des données avec des plages différentes. Pour plus d’informations, consultez [Normalisation des métriques](#metric-normalization).  
+
+Le tableau suivant récapitule les métriques de performance de modèle générées pour les expériences de régression et de prévision. Comme les métriques de classification, ces métriques sont également basées sur des implémentations scikit learn. La documentation scikit learn correspondante est liée en conséquence, dans le champ **Calcul**.
+
+|Métrique|Description|Calcul|
+--|--|--|
+explained_variance|La variance expliquée évalue dans quelle mesure un modèle tient compte de la variation dans la variable cible. C’est le pourcentage de diminution de la variance des données d’origine par rapport à la variance des erreurs. Lorsque la moyenne des erreurs est 0, elle est égale au coefficient de détermination (voir r2_score ci-dessous). <br> <br> **Objectif** : Une valeur proche de 1 est optimale <br> **Plage :** (-inf, 1]|[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html)|
+mean_absolute_error|L’erreur d’absolue moyenne est la valeur attendue de la valeur absolue de la différence entre la cible et la prédiction.<br><br> **Objectif** : Une valeur proche de 0 est optimale <br> **Plage :** [0, inf) <br><br> Types : <br>`mean_absolute_error` <br>  `normalized_mean_absolute_error` est la valeur mean_absolute_error divisée par la plage des données. | [Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html)|
+mean_absolute_percentage_error|L’erreur de pourcentage absolue moyenne (MAPE) mesure la différence moyenne entre une valeur prédite et la valeur réelle.<br><br> **Objectif** : Une valeur proche de 0 est optimale <br> **Plage :** [0, inf) ||
+median_absolute_error|L’erreur absolue médiane est la médiane de toutes les différences absolues entre la cible et la prédiction. Cette perte est robuste pour les valeurs hors norme.<br><br> **Objectif** : Une valeur proche de 0 est optimale <br> **Plage :** [0, inf)<br><br>Types : <br> `median_absolute_error`<br> `normalized_median_absolute_error` est la valeur median_absolute_error divisée par la plage des données. |[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.median_absolute_error.html)|
+r2_score|R2 est le coefficient de détermination ou le pourcentage de réduction dans les erreurs quadratiques comparé à un modèle de référence qui génère la moyenne. <br> <br> **Objectif** : Une valeur proche de 1 est optimale <br> **Plage :** (-inf, 1]|[Calcul](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|
+root_mean_squared_error |L’erreur quadratique moyenne racine (RMSE) est la racine carrée de la différence quadratique attendue entre la cible et la prédiction. Pour un estimateur non biaisé, la valeur RMSE est égale à l’écart type.<br> <br> **Objectif** : Une valeur proche de 0 est optimale <br> **Plage :** [0, inf)<br><br>Types :<br> `root_mean_squared_error` <br> `normalized_root_mean_squared_error` est la valeur root_mean_squared_error divisée par la plage des données. |[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|
+root_mean_squared_log_error|L’erreur logarithmique quadratique moyenne racine est la racine carrée de l’erreur logarithmique quadratique attendue.<br><br>**Objectif** : Une valeur proche de 0 est optimale <br> **Plage :** [0, inf) <br> <br>Types : <br>`root_mean_squared_log_error` <br> `normalized_root_mean_squared_log_error` est la valeur root_mean_squared_log_error divisée par la plage des données.  |[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|
+spearman_correlation| La corrélation de Spearman est une mesure non paramétrique de la monotonie de la relation entre deux jeux de données. Contrairement à la corrélation de Pearson, la corrélation de Spearman ne suppose pas que les deux jeux de données sont normalement distribués. Comme d’autres coefficients de corrélation, la corrélation de Spearman varie entre -1 et 1, 0 impliquant l’absence de corrélation. Les corrélations de -1 ou 1 impliquent une relation monotone exacte. <br><br> La corrélation de Spearman est une métrique de corrélation de l’ordre de classement, ce qui signifie que les modifications apportées aux valeurs prédites ou réelles ne changeront pas le résultat Spearman si elles ne modifient pas l’ordre de classement des valeurs prédites ou réelles.<br> <br> **Objectif** : Une valeur proche de 1 est optimale <br> **Plage :** [-1, 1]|[Calcul](https://docs.scipy.org/doc/scipy-0.16.1/reference/generated/scipy.stats.spearmanr.html)|
+
+### <a name="metric-normalization"></a>Normalisation des métriques
+
+ML automatisé normalise les métriques de régression et de prévision permettant une comparaison entre les modèles formés sur des données avec des plages différentes. Un modèle formé sur des données avec une plus grande plage affiche une erreur plus élevée que le même modèle formé sur des données avec une plage plus restreinte, sauf si cette erreur est normalisée.
+
+Bien qu’il n’existe pas de méthode standard pour normaliser les métriques d’erreur, ML automatisé adopte l’approche courante consistant à diviser l’erreur par la plage des données : `normalized_error = error / (y_max - y_min)`
+
+Lors de l’évaluation d’un modèle de prévision sur des données de série chronologique, ML automatisé prend des mesures supplémentaires pour s’assurer que la normalisation se produit par ID de série chronologique (grain), car chaque série chronologique utilise probablement une distribution différente des valeurs cibles.
+## <a name="residuals"></a>Résidus
+
+Le graphique des résidus est un histogramme des erreurs de prédiction (résidus) générées pour les expériences de régression et de prévision. Les résidus sont calculés en tant que `y_predicted - y_true` pour tous les échantillons, puis affichés sous la forme d’un histogramme pour afficher l’écart du modèle.
+
+Dans cet exemple, notez que les deux modèles sont légèrement biaisés pour prédire une valeur inférieure à la valeur réelle. Ce cas n’est pas rare pour un jeu de données avec une distribution asymétrique de cibles réelles, mais c’est le signe de performances de modèle médiocres. Un bon modèle aura une distribution résiduelle proche de zéro avec peu de restes aux extrêmes. Un mauvais modèle aura une distribution répartie des résidus avec moins d’échantillons autour de zéro.
+
+### <a name="residuals-chart-for-a-good-model"></a>Graphique des résidus pour un bon modèle
+![Graphique des résidus pour un bon modèle](./media/how-to-understand-automated-ml/chart-residuals-good.png)
+
+### <a name="residuals-chart-for-a-bad-model"></a>Graphique des résidus pour un mauvais modèle
+![Graphique des résidus pour un mauvais modèle](./media/how-to-understand-automated-ml/chart-residuals-bad.png)
+
+## <a name="predicted-vs-true"></a>Prédiction et résultat
+
+Pour les expériences de régression et de prévision, le graphique de prédiction et résultat trace la relation entre la fonctionnalité cible (valeurs vraies/réelles) et les prédictions du modèle. Les valeurs vraies sont compartimentées le long de l’axe des x et, pour chaque compartiment, la valeur moyenne prédite est tracée avec des barres d’erreur. Cela vous permet de voir si un modèle est biaisé vers la prédiction de certaines valeurs. La ligne affiche la prédiction moyenne et la zone ombrée indique la variance des prédictions autour de cette moyenne.
+
+Souvent, la valeur vraie la plus courante affichera les prédictions les plus précises avec la variance la plus faible. La distance de la courbe de tendance par rapport à la ligne `y = x` idéale où il y a peu de valeurs vraies est une bonne mesure des performances du modèle sur les valeurs hors norme. Vous pouvez utiliser l’histogramme au bas du graphique pour connaître la distribution réelle des données. L’ajout d’autres exemples de données où la distribution est partiellement allouée peut améliorer les performances du modèle sur les données non visibles.
+
+Dans cet exemple, notez que le meilleur modèle comporte une ligne de prédiction et résultat plus proche de la ligne `y = x` idéale.
+
+### <a name="predicted-vs-true-chart-for-a-good-model"></a>Graphique prédit et graphique réel pour un bon modèle
+![Graphique prédit et graphique réel pour un bon modèle](./media/how-to-understand-automated-ml/chart-predicted-true-good.png)
+
+### <a name="predicted-vs-true-chart-for-a-bad-model"></a>Graphique prédit et réel pour un mauvais modèle
+![Graphique prédit et réel pour un mauvais modèle](./media/how-to-understand-automated-ml/chart-predicted-true-bad.png)
+
+## <a name="model-explanations-and-feature-importances"></a>Explications des modèles et importance des fonctionnalités
+
+Bien que les métriques et les graphiques d’évaluation des modèles conviennent parfaitement pour mesurer la qualité générale d’un modèle, il est essentiel d’inspecter les fonctionnalités du jeu de données qu’un modèle utilisé pour faire ses prédictions lorsque vous souhaitez mettre en place des pratiques IA responsables. C’est la raison pour laquelle ML automatisé fournit un tableau de bord d’interprétation des modèles permettant de mesurer et de signaler les contributions relatives des fonctionnalités du jeu de données.
+
+![Importances des fonctionnalités](./media/how-to-understand-automated-ml/how-to-feature-importance.gif)
+
+Pour afficher le tableau de bord d’interprétation dans le studio :
+
+1. [Connectez-vous au studio](https://ml.azure.com/) et accédez à votre espace de travail
+2. Dans le menu de gauche, sélectionnez **Expériences**
+3. Sélectionnez votre expérience dans la liste des expériences
+4. Dans le tableau en bas de la page, sélectionnez une exécution AutoML
+5. Dans l’onglet **Modèles**, sélectionnez le **Nom de l’algorithme** du modèle que vous voulez expliquer
+6. Dans l’onglet **Explications**, vous pouvez voir qu’une explication a déjà été créée si le modèle était le meilleur
+7. Pour créer une nouvelle explication, sélectionnez **Expliquer le modèle**, puis choisissez le calcul distant avec lequel vous allez calculer les explications
+
+> [!NOTE]
+> Le modèle ForecastTCN n’est actuellement pas pris en charge par les explications ML automatisé, et les autres modèles de prévision peuvent avoir un accès limité aux outils d’interprétation.
 
 ## <a name="next-steps"></a>Étapes suivantes
-
-+ Apprenez-en davantage sur le [ML automatisé](concept-automated-ml.md) dans Azure Machine Learning.
-+ Testez les exemples de notebooks disponibles dans l’[explication du modèle de Machine Learning automatisé](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model).
+* Testez les exemples de notebooks disponibles dans l’[explication du modèle de Machine Learning automatisé](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model).
+* En savoir plus sur les [offres avec IA responsable dans ML automatisé](how-to-machine-learning-interpretability-automl.md).
+* Pour les questions spécifiques à ML automatisé, contactez askautomatedml@microsoft.com.

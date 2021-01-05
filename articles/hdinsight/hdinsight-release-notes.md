@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/12/2020
-ms.openlocfilehash: 00b5d220cdbc511a309d55cfca2049508049fa30
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 0895e84363d40bdbf30408f2b2a0d95f951eb303
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96549002"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032556"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Notes de publication Azure HDInsight
 
@@ -64,3 +64,18 @@ HDInsight continue à améliorer la fiabilité et les performances des clusters.
 
 ## <a name="component-version-change"></a>Changement de la version des composants
 Aucune modification de la version des composants pour cette version. Les versions actuelles des composants pour HDInsight 4.0 et HDInsight 3.6 sont indiquées dans [ce document](./hdinsight-component-versioning.md).
+
+## <a name="known-issues"></a>Problèmes connus
+### <a name="prevent-hdinsight-cluster-vms-from-rebooting-periodically"></a>Empêcher les machines virtuelles du cluster HDInsight de redémarrer régulièrement
+
+Depuis la mi-novembre 2020, vous avez peut-être remarqué que les machines virtuelles du cluster HDInsight sont redémarrées régulièrement. Cela peut être dû aux raisons suivantes :
+
+1.  Clamav est activé sur votre cluster. Le nouveau package azsec-clamav consomme une grande quantité de mémoire qui déclenche le redémarrage du nœud. 
+2.  Une tâche CRON est planifiée quotidiennement pour surveiller les modifications apportées à la liste des autorités de certification (CA) utilisées par les services Azure. Lorsqu’un nouveau certificat d’autorité de certification est disponible, le script ajoute le certificat au magasin d’approbations JDK et planifie un redémarrage.
+
+Dans les deux cas, HDInsight déploie des correctifs et applique un patch pour tous les clusters en cours d’exécution. Pour appliquer immédiatement le correctif et éviter le redémarrage inattendu des machines virtuelles, vous pouvez exécuter les actions de script ci-dessous sur tous les nœuds de cluster en tant qu’action de script persistante. HDInsight publiera un autre avis une fois l’application du correctif et du patch terminée.
+```
+https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/replace_cacert_script.sh
+https://healingscriptssa.blob.core.windows.net/healingscripts/ChangeOOMPolicyAndApplyLatestConfigForClamav.sh
+```
+

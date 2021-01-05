@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/01/2020
-ms.openlocfilehash: 8eb163c95fb1426ebae8956d50f6d8f6aec6fd7f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 1a6b328bc076ffa619921a8698549e95e6f15c60
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013647"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400758"
 ---
 # <a name="perform-log-query-in-azure-monitor-that-span-across-workspaces-and-apps"></a>Exécuter une requête de journal dans Azure Monitor qui s’étend sur plusieurs espaces de travail et applications
 
@@ -22,7 +22,7 @@ Il existe deux méthodes pour interroger des données stockées dans plusieurs e
 2. Implicitement à l’aide de [requêtes du contexte des ressources](../platform/design-logs-deployment.md#access-mode). Lorsque vous interrogez dans le contexte d’une ressource, d’un groupe de ressources ou d’un abonnement spécifique, les données pertinentes sont extraites de tous les espaces de travail contenant des données pour ces ressources. Les données Application Insights stockées dans des applications ne sont pas extraites.
 
 > [!IMPORTANT]
-> Si vous utilisez une [ressource Application Insights basée sur un espace de travail](../app/create-workspace-resource.md), la télémétrie est stockée dans un espace de travail Log Analytics avec toutes les autres données de journal. Utilisez l’expression log () pour écrire une requête incluant une application dans plusieurs espaces de travail. En présence de plusieurs applications dans le même espace de travail, vous n’avez pas besoin de requête entre espaces de travail.
+> Si vous utilisez une [ressource Application Insights basée sur un espace de travail](../app/create-workspace-resource.md), la télémétrie est stockée dans un espace de travail Log Analytics avec toutes les autres données de journal. Utilisez l’expression workspace() pour écrire une requête incluant une application dans plusieurs espaces de travail. En présence de plusieurs applications dans le même espace de travail, vous n’avez pas besoin de requête entre espaces de travail.
 
 
 ## <a name="cross-resource-query-limits"></a>Limites de requête inter-ressources 

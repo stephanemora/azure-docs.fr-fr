@@ -10,12 +10,12 @@ ms.date: 11/20/2020
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: 118aaa368f48838a33d130d8dddc89bb8dce3f3e
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d435ced4c8ec56fae5081ede367b593d2b66ef0f
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498181"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96936537"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>Accorder un accès limité aux ressources du Stockage Azure à l’aide des signatures d’accès partagé (SAP)
 
@@ -76,6 +76,9 @@ Une signature d’accès partagé peut prendre l’une des deux formes suivantes
 ## <a name="how-a-shared-access-signature-works"></a>Fonctionnement d’une signature d’accès partagé
 
 Une signature d’accès partagé est un URI signé qui pointe vers une ou plusieurs ressources de stockage. L’URI inclut un jeton qui contient un ensemble spécial de paramètres de requête. Le jeton indique comment le client peut accéder aux ressources. L’un des paramètres de requête, la signature, est construit à partir des paramètres de signature d’accès partagé et signé avec la clé utilisée pour créer la SAP. Cette signature est utilisée par le stockage Azure pour autoriser l’accès à la ressource de stockage.
+
+> [!NOTE]
+> Il n’est pas possible d’auditer la génération de jetons SAP. Tout utilisateur disposant de privilèges permettant de générer un jeton SAP, soit à l’aide de la clé de compte, soit via une attribution de rôle RBAC Azure, peut le faire sans avoir connaissance du propriétaire du compte de stockage. Veillez à limiter les autorisations qui permettent aux utilisateurs de générer des jetons SAP. Pour empêcher les utilisateurs de générer un jeton SAP signée avec la clé de compte pour les charges de travail d’objets blob et de file d’attente, vous pouvez interdire l’accès avec une clé partagée au compte de stockage. Pour plus d’informations, consultez [Empêcher l’autorisation avec une clé partagée](shared-key-authorization-prevent.md).
 
 ### <a name="sas-signature-and-authorization"></a>Signature SAP et autorisation
 

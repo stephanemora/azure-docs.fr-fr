@@ -1,18 +1,18 @@
 ---
 title: Fonctions de modèle – Numérique
-description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour travailler avec des nombres.
+description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager (ARM) pour travailler avec des nombres.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 26f4b846c67ee7b926ea984ceefd84bf9ea56952
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: f3687581d94f80cc923614a0655da1813bd5c97b
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96004532"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359708"
 ---
 # <a name="numeric-functions-for-arm-templates"></a>Fonctions numériques pour les modèles ARM
 
-Resource Manager fournit les fonctions ci-après pour travailler avec des entiers dans votre modèles Azure Resource Manager (ARM) :
+Resource Manager fournit les fonctions ci-après pour travailler avec des entiers dans votre modèle Azure Resource Manager (modèle ARM) :
 
 * [add](#add)
 * [copyIndex](#copyindex)
@@ -247,7 +247,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 `float(arg1)`
 
-Convertit la valeur en nombre à virgule flottante. Vous utilisez uniquement cette fonction lors de la transmission de paramètres personnalisés à une application, telle qu’une application logique. La fonction `float` n’est pas prise en charge dans Becip.  Consultez [Prise en charge des types numériques autres que les entiers 32 bits](https://github.com/Azure/bicep/issues/486).
+Convertit la valeur en nombre à virgule flottante. Vous utilisez uniquement cette fonction lors de la transmission de paramètres personnalisés à une application, telle qu’une application logique. La fonction `float` n’est pas prise en charge dans Bicep.  Consultez [Prise en charge des types numériques autres que les entiers 32 bits](https://github.com/Azure/bicep/issues/486).
 
 ### <a name="parameters"></a>Paramètres
 
@@ -700,5 +700,5 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour obtenir une description des sections d’un modèle Azure Resource Manager, consultez [Comprendre la structure et la syntaxe des modèles ARM](template-syntax.md).
-* Pour itérer un nombre de fois spécifié lors de la création d'un type de ressource, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](copy-resources.md).
+* Pour obtenir une description des sections d’un modèle ARM, consultez [Comprendre la structure et la syntaxe des modèles ARM](template-syntax.md).
+* Pour itérer un nombre spécifié lors de la création d’un type de ressource, consultez [Itération de ressource dans les modèles ARM](copy-resources.md).

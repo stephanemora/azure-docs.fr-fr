@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82f0408b7e46493f6c3ec62d48a992e87f196f78
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 3165bc28e6d6283bf8578d9c10b11f7b19981002
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96860607"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97355237"
 ---
 # <a name="add-a-custom-approval-workflow-to-self-service-sign-up"></a>Ajouter un flux de travail d’approbation personnalisé à l’inscription en libre-service
 
@@ -26,6 +26,9 @@ Cet article fournit un exemple d’intégration à un système d’approbation. 
 
 - Approuver automatiquement l’utilisateur et autoriser Azure AD à créer le compte d’utilisateur.
 - Déclencher une révision manuelle. Si la requête est approuvée, le système d’approbation utilise Microsoft Graph pour approvisionner le compte d’utilisateur. Le système d’approbation peut également informer l’utilisateur que son compte a été créé.
+
+> [!IMPORTANT]
+>**À compter du 4 janvier 2021**, Google [déconseille la prise en charge de la connexion WebView](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). Si vous utilisez la fédération Google ou l’inscription en libre-service avec Gmail, [testez la compatibilité de vos applications métier natives](google-federation.md#deprecation-of-webview-sign-in-support).
 
 ## <a name="register-an-application-for-your-approval-system"></a>Inscrire une application pour votre système d’approbation
 

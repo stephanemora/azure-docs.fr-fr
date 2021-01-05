@@ -93,6 +93,8 @@
       href: manage.md
     - name: Groupes identiques de machines virtuelles
       items:
+        - name: Mettre à jour ou supprimer un équilibreur de charge Azure existant utilisé par un groupe de machines virtuelles identiques
+          href: update-load-balancer-with-vm-scale-set.md
         - name: Utiliser avec un équilibreur de charge Azure existant - Portail
           href: configure-vm-scale-set-portal.md
         - name: Utiliser avec un équilibreur de charge Azure existant - PowerShell

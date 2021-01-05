@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 092320db9b7fe2b1f3fe142f84ad201d40dc6e2e
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 1318aaf50d4f05b8a999e5661318dc83997a2f02
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492282"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920789"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Chiffrement des données au repos d’Azure
 
@@ -33,7 +33,7 @@ Le chiffrement au repos est une exigence de sécurité courante. Dans Azure, les
 
 ## <a name="what-is-encryption-at-rest"></a>Qu’est-ce que le chiffrement au repos ?
 
-Le chiffrement au repos fait référence à l’encodage (chiffrement) des données quand elles sont stockées. La conception du chiffrement au repos dans Azure utilise le chiffrement symétrique pour chiffrer et déchiffrer rapidement de grandes quantités de données selon un modèle conceptuel simple :
+Le chiffrement est le codage sécurisé des informations utilisées pour protéger la confidentialité des données. La conception du chiffrement au repos dans Azure utilise le chiffrement symétrique pour chiffrer et déchiffrer rapidement de grandes quantités de données selon un modèle conceptuel simple :
 
 - Une clé de chiffrement symétrique est utilisée pour chiffrer les données au fil de leur stockage.
 - La clé de chiffrement est utilisée pour déchiffrer ces données au fil de leur préparation à une utilisation en mémoire.

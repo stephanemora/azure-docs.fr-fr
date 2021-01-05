@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cynthn
-ms.openlocfilehash: 4dd15df0e745a5c6e3130233e693bbdb22655775
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: b2f50ba910e3e47c55a63f58bc9f5e978e80e95a
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500442"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97401183"
 ---
 # <a name="manage-the-availability-of-linux-virtual-machines"></a>Gestion de la disponibilité des machines virtuelles Linux
 
@@ -70,7 +70,7 @@ Les domaines d’erreur définissent le groupe de machines virtuelles partageant
    ![Schéma conceptuel de la configuration du domaine de mise à jour et du domaine d’erreur](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
 
 ## <a name="use-managed-disks-for-vms-in-an-availability-set"></a>Utilisation de disques managés pour les machines virtuelles dans le groupe à haute disponibilité
-Si vous utilisez actuellement des machines virtuelles avec des disques non managés, nous vous recommandons fortement de passer à des disques managés pour [Linux](./linux/convert-unmanaged-to-managed-disks.md) et [Windows](./windows/convert-unmanaged-to-managed-disks.md).
+Si vous utilisez actuellement des machines virtuelles avec des disques non managés, nous vous recommandons vivement de passer à des disques managés pour [Linux](./linux/convert-unmanaged-to-managed-disks.md) et [Windows](./windows/convert-unmanaged-to-managed-disks.md).
 
 Les [disques managés](./managed-disks-overview.md) augmentent la fiabilité des groupes à haute disponibilité en garantissant que les disques des machines virtuelles d’un groupe à haute disponibilité sont suffisamment isolés les uns des autres, ceci pour éviter les points de défaillance uniques. Ceci se fait en plaçant automatiquement les disques dans des domaines d’erreur de stockage différents (clusters de stockage) et en les alignant avec le domaine d’erreur de machine virtuelle. Si un domaine d’erreur de stockage est mis en échec en raison d’une défaillance matérielle ou logicielle, seule l’instance de machine virtuelle possédant des disques sur le domaine d’erreur de stockage est mise en échec.
 ![Domaines d’erreurs de disques managés](./media/virtual-machines-common-manage-availability/md-fd-updated.png)

@@ -1,17 +1,17 @@
 ---
 title: Synchroniser votre dépôt GitHub avec App Configuration
 description: Utilisez GitHub Actions pour mettre automatiquement à jour votre instance App Configuration quand vous mettez à jour votre dépôt GitHub.
-author: lisaguthrie
-ms.author: lcozzens
-ms.date: 02/20/2020
+author: AlexandraKemperMS
+ms.author: alkemper
+ms.date: 05/28/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 66d0e32e7dfdd5ab2abee5108ac8ce54c5222747
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b2b5f4bcbcc5af07a763ee4dff2d42413750fb7
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87371819"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96930277"
 ---
 # <a name="sync-your-github-repository-to-app-configuration"></a>Synchroniser votre dépôt GitHub avec App Configuration
 
@@ -35,7 +35,7 @@ Pour commencer à utiliser cette action GitHub, accédez à votre dépôt et sé
 ## <a name="sync-configuration-files-after-a-push"></a>Synchroniser les fichiers de configuration après un push
 Cette action synchronise les fichiers Azure App Configuration lors du push d’une modification vers `appsettings.json`. Quand un développeur envoie (push) une modification vers `appsettings.json`, l’action App Configuration Sync met à jour l’instance App Configuration avec les nouvelles valeurs.
 
-La première section de ce flux de travail spécifie que l’action se déclenche *sur* un *push* contenant `appsettings.json` vers la branche *maître*. La deuxième section répertorie les travaux exécutés une fois que l’action déclenchée. L’action extrait les fichiers appropriés et met à jour l’instance App Configuration à l’aide de la chaîne de connexion stockée en tant que secret dans le dépôt.  Pour plus d’informations sur l’utilisation des secrets dans GitHub, consultez [cet article GitHub](https://help.github.com/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets) sur la création et l’utilisation des secrets chiffrés.
+La première section de ce flux de travail spécifie que l’action se déclenche *sur* un *envoi (push)* contenant `appsettings.json` vers la branche *primaire*. La deuxième section répertorie les travaux exécutés une fois que l’action déclenchée. L’action extrait les fichiers appropriés et met à jour l’instance App Configuration à l’aide de la chaîne de connexion stockée en tant que secret dans le dépôt.  Pour plus d’informations sur l’utilisation des secrets dans GitHub, consultez [cet article GitHub](https://help.github.com/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets) sur la création et l’utilisation des secrets chiffrés.
 
 ```json
 on: 
@@ -177,7 +177,7 @@ jobs:
 ## <a name="use-a-dynamic-label-on-sync"></a>Utiliser une étiquette dynamique lors d’une synchronisation
 L’action suivante insère une étiquette dynamique à chaque synchronisation. De cette façon, chaque synchronisation peut être identifiée et les modifications du code peuvent être mappées aux modifications de configuration.
 
-La première section de ce flux de travail spécifie que l’action se déclenche *sur* un *push* contenant `appsettings.json` vers la branche *maître*. La deuxième section exécute un travail qui crée une étiquette pour la mise à jour de configuration en fonction du hachage de validation. Le travail met ensuite à jour l’instance App Configuration avec les nouvelles valeurs et l’étiquette unique pour cette mise à jour.
+La première section de ce flux de travail spécifie que l’action se déclenche *sur* un *envoi (push)* contenant `appsettings.json` vers la branche *primaire*. La deuxième section exécute un travail qui crée une étiquette pour la mise à jour de configuration en fonction du hachage de validation. Le travail met ensuite à jour l’instance App Configuration avec les nouvelles valeurs et l’étiquette unique pour cette mise à jour.
 
 ```json
 on: 

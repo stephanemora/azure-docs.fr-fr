@@ -1,18 +1,18 @@
 ---
 title: Fonctions de modèle - date
-description: Décrit les fonctions à employer dans un modèle Azure Resource Manager pour utiliser les dates.
+description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager (ARM) pour travailler avec des dates.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 83e601adb649098f7a4e19cb71170b96a3287d9b
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 58d865f109ecca2629b89eeb55e554743824c195
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96004583"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920501"
 ---
 # <a name="date-functions-for-arm-templates"></a>Fonctions de date pour les modèles ARM
 
-Resource Manager fournit les fonctions ci-après pour utiliser les dates dans vos modèles ARM (Azure Resource Manager) :
+Resource Manager fournit les fonctions ci-dessous pour vous permettre d’utiliser des dates dans votre modèle Azure Resource Manager (ARM) :
 
 * [dateTimeAdd](#datetimeadd)
 * [utcNow](#utcnow)
@@ -182,7 +182,7 @@ resource scheduler 'Microsoft.Automation/automationAccounts/schedules@2015-10-31
 
 `utcNow(format)`
 
-Retourne la valeur de date/heure (UTC) actuelle au format spécifié. Si aucun format n’est spécifié, le format ISO 8601 (aaaaMMjjTHHmmssZ) est utilisé. **Cette fonction peut uniquement être utilisée dans la valeur par défaut d’un paramètre.**
+Retourne la valeur de date/heure (UTC) actuelle au format spécifié. Si aucun format n’est indiqué, le format utilisé est ISO 8601 (`yyyyMMddTHHmmssZ`). **Cette fonction peut uniquement être utilisée dans la valeur par défaut d’un paramètre.**
 
 ### <a name="parameters"></a>Paramètres
 
@@ -326,4 +326,4 @@ output utcShortOutput string = utcShort
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour obtenir une description des sections d’un modèle Azure Resource Manager, consultez [Comprendre la structure et la syntaxe des modèles ARM](template-syntax.md).
+* Pour une description des sections d’un modèle ARM, consultez [Présentation de la structure et de la syntaxe des modèles ARM](template-syntax.md).

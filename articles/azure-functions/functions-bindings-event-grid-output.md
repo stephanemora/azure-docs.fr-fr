@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, fasttrack-edit, devx-track-python
-ms.openlocfilehash: 6bd4d5d82af213063b2000693e46d22744604480
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 888afdc2764fed9f0b2c8b548c3e2b1c48e9a31e
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88214111"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97094674"
 ---
 # <a name="azure-event-grid-output-binding-for-azure-functions"></a>Liaison de sortie Azure Event Grid pour Azure Functions
 
@@ -100,6 +100,10 @@ public static void Run(TimerInfo myTimer, ICollector<EventGridEvent> outputEvent
 }
 ```
 
+# <a name="java"></a>[Java](#tab/java)
+
+La liaison de sortie Event Grid n’est pas disponible pour Java.
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 L’exemple suivant montre les données de la liaison de sortie Event Grid dans le fichier *function.json*.
@@ -160,6 +164,70 @@ module.exports = function(context) {
 };
 ```
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+L’exemple suivant montre comment configurer une fonction pour générer un message d’événement Event Grid. La section dans laquelle `type` a la valeur `eventGrid` configure les valeurs nécessaires pour établir une liaison de sortie Event Grid.
+
+```powershell
+{
+  "bindings": [
+    {
+      "type": "eventGrid",
+      "name": "outputEvent",
+      "topicEndpointUri": "MyEventGridTopicUriSetting",
+      "topicKeySetting": "MyEventGridTopicKeySetting",
+      "direction": "out"
+    },
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "Request",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "Response"
+    }
+  ]
+}
+```
+
+Dans votre fonction, utilisez `Push-OutputBinding` pour envoyer un événement à une rubrique personnalisée par le biais de la liaison de sortie Event Grid.
+
+```powershell
+using namespace System.Net
+
+# Input bindings are passed in via param block.
+param($Request, $TriggerMetadata)
+
+# Write to the Azure Functions log stream.
+Write-Host "PowerShell HTTP trigger function processed a request."
+
+# Interact with query parameters or the body of the request.
+$message = $Request.Query.Message
+
+Push-OutputBinding -Name outputEvent -Value  @{
+    id = "1"
+    EventType = "testEvent"
+    Subject = "testapp/testPublish"
+    EventTime = "2020-08-27T21:03:07+00:00"
+    Data = @{
+        Message = $message
+    }
+    DataVersion = "1.0"
+}
+
+Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
+    StatusCode = 200
+    Body = "OK"
+})
+```
+
 # <a name="python"></a>[Python](#tab/python)
 
 L’exemple suivant montre une liaison de déclencheur dans un fichier *function.json* et une [fonction Python](functions-reference-python.md) qui utilise la liaison. Il envoie ensuite un événement à la rubrique personnalisée, comme spécifié par `topicEndpointUri`.
@@ -194,7 +262,6 @@ import logging
 import azure.functions as func
 import datetime
 
-
 def main(eventGridEvent: func.EventGridEvent, 
          outputEvent: func.Out[func.EventGridOutputEvent]) -> None:
 
@@ -209,10 +276,6 @@ def main(eventGridEvent: func.EventGridEvent,
             event_time=datetime.datetime.utcnow(),
             data_version="1.0"))
 ```
-
-# <a name="java"></a>[Java](#tab/java)
-
-La liaison de sortie Event Grid n’est pas disponible pour Java.
 
 ---
 
@@ -239,17 +302,21 @@ Pour obtenir un exemple complet, consultez [exemple](#example).
 
 Les attributs ne sont pas pris en charge par le script C#.
 
+# <a name="java"></a>[Java](#tab/java)
+
+La liaison de sortie Event Grid n’est pas disponible pour Java.
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Les attributs ne sont pas pris en charge par JavaScript.
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Les attributs ne sont pas pris en charge par PowerShell.
+
 # <a name="python"></a>[Python](#tab/python)
 
 La liaison de sortie Event Grid n’est pas disponible pour Python.
-
-# <a name="java"></a>[Java](#tab/java)
-
-La liaison de sortie Event Grid n’est pas disponible pour Java.
 
 ---
 
@@ -280,17 +347,21 @@ Envoyez des messages en utilisant un paramètre de méthode comme `out EventGrid
 
 Envoyez des messages en utilisant un paramètre de méthode comme `out EventGridEvent paramName`. Dans Script C#, `paramName` est la valeur spécifiée dans la propriété `name` de *function.json*. Pour écrire plusieurs messages, vous pouvez utiliser `ICollector<EventGridEvent>` ou `IAsyncCollector<EventGridEvent>` à la place de `out EventGridEvent`.
 
+# <a name="java"></a>[Java](#tab/java)
+
+La liaison de sortie Event Grid n’est pas disponible pour Java.
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Accédez à l’événement de sortie à l’aide de `context.bindings.<name>` où `<name>` est la valeur spécifiée dans la propriété `name` de *function.json*.
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Accédez à l’événement de sortie avec la cmdlet `Push-OutputBinding` pour envoyer un événement à la liaison de sortie Event Grid.
+
 # <a name="python"></a>[Python](#tab/python)
 
 La liaison de sortie Event Grid n’est pas disponible pour Python.
-
-# <a name="java"></a>[Java](#tab/java)
-
-La liaison de sortie Event Grid n’est pas disponible pour Java.
 
 ---
 

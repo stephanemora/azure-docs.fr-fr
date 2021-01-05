@@ -12,12 +12,12 @@ ms.date: 09/11/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 358a551908a7263f3258f47dfe1cceeffe2307b1
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: b255f64547c3bae56d31415dc94a751989ca1f45
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96860488"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504897"
 ---
 # <a name="add-or-remove-group-owners-in-azure-active-directory"></a>Ajouter ou supprimer les propriétaires de groupes dans Azure Active Directory
 Les groupes Azure Active Directory (Azure AD) sont détenus et gérés par des propriétaires de groupes. Les propriétaires de groupe peuvent être des utilisateurs ou des principaux de service et sont en mesure de gérer le groupe, notamment l’appartenance. Seuls les propriétaires de groupe existant ou les administrateurs gérant un groupe peuvent attribuer des propriétaires de groupe. Ils ne sont pas nécessairement membres du groupe.

@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 08/03/2020
 ms.author: amjads
-ms.openlocfilehash: b1dd26fce2e0a761ceed211933cb79ce518905e2
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: dd3b713a027df80908e1a8a3ae53e8dc526d7d6e
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965882"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96936945"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Extensions et fonctionnalités des machines virtuelles Azure
 Les extensions sont de petites applications qui proposent une configuration post-déploiement et une automatisation sur les machines virtuelles Azure. La plateforme Azure héberge de nombreuses extensions, notamment des applications de configuration, de surveillance, de sécurité et utilitaires de machine virtuelle. Les éditeurs prennent une application, l’enveloppent dans une extension et simplifient l’installation. Il vous suffit de définir les paramètres obligatoires. 

@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: machine-learning
 ms.date: 09/13/2020
-ms.openlocfilehash: 8250f7154cfb2739d065980284da67a200680d89
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 805bc2aecda37599234c81dd928868d8c14aea4e
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95919077"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97091987"
 ---
 # <a name="train-machine-learning-models"></a>Effectuer l’apprentissage de modèles Machine Learning
 Apache Spark dans Azure Synapse Analytics permet l’apprentissage automatique avec le Big Data, en offrant la possibilité d’extraire de précieuses informations de grandes quantités de données structurées, non structurées et à déplacement rapide. Il existe plusieurs options pour effectuer l’apprentissage de modèles Machine Learning à l’aide d’Azure Spark dans Azure Synapse Analytics : Apache Spark MLlib, Azure Machine Learning et diverses autres bibliothèques open source. 
@@ -44,13 +44,13 @@ La bibliothèque Microsoft Machine Learning pour Apache Spark est [MMLSpark](htt
 MMLSpark crée une couche au-dessus des API de bas niveau de SparkML lors de la création de modèles ML évolutifs (comme des chaînes d’indexation), lors du formatage de données dans une disposition compatibles avec les algorithmes de Machine Learning et lors de l’assemblage de vecteurs de caractéristiques. La bibliothque MMLSpark simplifie ces opérations ainsi que d’autres tâches courantes permettant de créer des modèles dans PySpark.
 
 ## <a name="automated-ml-in-azure-machine-learning"></a>Machine learning automatisé dans Azure Machine Learning 
-Azure Machine Learning est un environnement informatique qui vous permet d’effectuer l’apprentissage, le déploiement, l’automatisation, la gestion et le suivi des modèles Machine Learning. Le Machine Learning automatisé (AutoML) dans Azure Machine Learning accepte les données d’apprentissage et les paramètres de configuration, et itère automatiquement via des combinaisons de méthodes de normalisation/standardisation des caractéristiques, des modèles et des configurations d’hyperparamètres afin d’obtenir le meilleur modèle. 
+Azure Machine Learning est un environnement informatique qui vous permet d’effectuer l’apprentissage, le déploiement, l’automatisation, la gestion et le suivi des modèles Machine Learning. Le ML automatisé proposé dans Azure Machine Learning prend des données d’apprentissage et des paramètres de configuration, et effectue automatiquement des itérations en combinant différentes méthodes de normalisation/standardisation des caractéristiques, différents modèles et différents hyperparamètres pour parvenir au meilleur modèle. 
 
-Lors de l’utilisation d’AutoML dans Azure Synapse Analytics, vous pouvez tirer parti de l’intégration profonde entre les différents services afin de simplifier l’authentification et la formation des modèles. 
+L’intégration profonde du ML automatisé dans Azure Synapse Analytics permet de simplifier l’authentification et l’entraînement des modèles. 
 
 > [!NOTE]
 > 
-> Pour en savoir plus sur la création d’une expérience Azure Machine Learning AutoML, suivez ce [tutoriel](./spark/../apache-spark-azure-machine-learning-tutorial.md).
+> Pour plus d’informations sur la création d’une expérience de ML automatisé Azure Machine Learning, suivez ce [tutoriel](./spark/../apache-spark-azure-machine-learning-tutorial.md).
 
 ## <a name="azure-cognitive-services"></a>Azure Cognitive Services
 [Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/what-are-cognitive-services) fournit des capacités d’apprentissage automatique pour résoudre des problèmes généraux tels que l’analyse de texte pour inférer des sentiments ou l’analyse d’images pour reconnaître des objets ou des visages. Pour utiliser ces services, vous n’avez pas besoin de connaissances spéciales en matière de Machine Learning ou de science des données. Un service cognitif fournit tout ou partie des composants d’une solution de Machine Learning : données, algorithme et modèle formé. Ces services requièrent une connaissance générale de vos données mais ne nécessitent aucune expérience en Machine Learning ou en science des données. Vous pouvez exploiter ces services cognitifs préformés automatiquement au sein d’Azure Synapse Analytics.
@@ -58,6 +58,6 @@ Lors de l’utilisation d’AutoML dans Azure Synapse Analytics, vous pouvez tir
 ## <a name="next-steps"></a>Étapes suivantes
 Cet article fournit une vue d’ensemble des différentes options d’apprentissage des modèles Machine Learning dans les pools Apache Spark dans Azure Synapse Analytics. Vous pouvez en savoir plus sur la formation des modèles en suivant le tutoriel ci-dessous :
 
-- Exécuter des expériences ML automatisées à l’aide d’Azure Machine Learning et Azure Synapse Analytics : [Tutoriel AutoML](./spark/../apache-spark-autoscale.md) 
+- Exécuter des expériences ML automatisées à l’aide d’Azure Machine Learning et Azure Synapse Analytics : [Tutoriel ML automatisé](./spark/../apache-spark-autoscale.md) 
 - Exécuter des expériences SparkML : [Tutoriel Apache SparkML](../spark/apache-spark-azure-machine-learning-tutorial.md)
 - Afficher les bibliothèques par défaut : [Runtime Azure Synapse Analytics](../spark/apache-spark-version-support.md)

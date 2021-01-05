@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 96cd460ddfea863eb27a1087ff59f3b87acf65d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 41cfff11e44a3d052614aa3c81a4623f59bbbbf5
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90531302"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095285"
 ---
 # <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Planification et mise à l’échelle de la capacité pour Azure Service Fabric
 
@@ -50,21 +50,11 @@ La [mise à l’échelle verticale](./virtual-machine-scale-set-scale-node-type-
 > [!NOTE]
 > Le type de nœud principal qui héberge des services système Service Fabric avec état doit présenter un niveau de durabilité Silver ou supérieur. Une fois le niveau Silver activé, les opérations de cluster telles que les mises à niveau, l’ajout ou la suppression de nœuds, etc. seront plus lentes car le système privilégie la sécurité des données par rapport à la vitesse des opérations.
 
-La mise à l’échelle verticale d’un groupe de machines virtuelles identiques est une opération destructrice. À la place, mettez à l’échelle de façon horizontale votre cluster en ajoutant un nouveau groupe identique avec la référence SKU souhaitée. Ensuite, migrez vos services vers votre référence SKU souhaitée pour effectuer une opération de mise à l’échelle verticale sûre. Modifier la référence SKU d’une ressource de groupe de machines virtuelles identiques est une opération destructrice, car cela réinitialise vos hôtes et supprime tout état persistant localement.
+La mise à l'échelle verticale d’un groupe de machines virtuelles identiques en modifiant la référence SKU d’une ressource de groupe de machines virtuelles identiques est une opération destructrice, car cela réinitialise vos hôtes et supprime tout état persistant localement. Privilégiez plutôt une mise à l'échelle horizontale de votre cluster en ajoutant un nouveau groupe de machines virtuelles identiques avec la référence SKU souhaitée, puis migrez vos services vers le nouveau groupe identique pour procéder en toute sécurité une opération de mise à l'échelle verticale.
 
-Votre cluster utilise les [propriétés de nœud et contraintes de placement](./service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints) de Service Fabric pour savoir où héberger vos services d’applications. Lorsque vous mettez à l’échelle verticalement votre type de nœud principal, déclarez des valeurs de propriété identiques pour `"nodeTypeRef"`. Vous pouvez trouver ces valeurs dans l’extension de Service Fabric pour les groupes de machines virtuelles identiques. 
-
-L’extrait suivant d’un modèle Resource Manager présente les propriétés que vous allez déclarer. Il a la même valeur pour les groupes identiques auxquels vous effectuez la mise à l’échelle, et il est pris en charge uniquement comme un service avec état temporaire de votre cluster.
-
-```json
-"settings": {
-   "nodeTypeRef": ["[parameters('primaryNodetypeName')]"]
-}
-```
+Votre cluster utilise les [propriétés de nœud et contraintes de placement](./service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints) de Service Fabric pour savoir où héberger vos services d’applications. Lorsque vous effectuez une mise à l'échelle verticale d’un type de nœud principal, vous déployez un second type de nœud principal, vous définissez (`"isPrimary": false`) sur le type de nœud principal d’origine tout en désactivant ses nœuds, puis vous supprimez son groupe identique et ses ressources associées. Pour plus de détails, consultez [Effectuer un scale-up sur un type de nœud principal de cluster Service Fabric](service-fabric-scale-up-primary-node-type.md).
 
 > [!NOTE]
-> Ne laissez pas votre cluster s’exécuter avec plusieurs groupes de machines virtuelles identiques utilisant la même propriété `nodeTypeRef` au-delà du laps de temps nécessaire à l’opération de mise à l’échelle verticale.
->
 > Validez toujours les opérations dans des environnements de test avant de modifier l’environnement de production. Par défaut, les services système de cluster Service Fabric présentent une contrainte de placement pour cibler uniquement le type de nœud principal.
 
 Une fois les propriétés de nœud et les contraintes de placement déclarées, procédez comme suit sur une instance de machine virtuelle à la fois. Ceci permet d’arrêter correctement les services système (et vos services avec état) sur l’instance de machine virtuelle que vous supprimez pendant que de nouveaux réplicas sont créés ailleurs.

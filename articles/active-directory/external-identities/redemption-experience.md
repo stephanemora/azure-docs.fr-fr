@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8520afdd05ecce8604ce72596bdf06053217cc2e
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: aef4ff77eb02723bcd95dcc99a55094bd10acd4c
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173088"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97355475"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Utilisation d'invitations Azure Active Directory B2B Collaboration
 
@@ -25,7 +25,8 @@ Cet article décrit les différentes façons dont les utilisateurs invités peuv
 Lorsque vous ajoutez un utilisateur invité à votre annuaire, le compte d’utilisateur invité présente un état de consentement (affichable dans PowerShell) qui est initialement défini sur **PendingAcceptance**. Ce paramètre est maintenu jusqu’à ce que l’invité accepte votre invitation et approuve votre politique de confidentialité ainsi que vos conditions d’utilisation. Après cela, l’état de consentement passe à **Accepté**, et les pages de consentement ne sont plus présentées à l’invité.
 
    > [!IMPORTANT]
-   > **À compter du 31 mars 2021**, Microsoft ne prendra plus en charge l’échange d’invitations en créant des locataires et des comptes Azure AD non managés pour les scénarios de collaboration B2B. Dans cette optique, nous encourageons les clients à choisir l’[authentification au moyen d’un code secret à usage unique envoyé par e-mail](one-time-passcode.md). Nous serions heureux de recevoir vos commentaires sur cette fonctionnalité de préversion publique, et sommes ravis de vous proposer encore plus de moyens de collaborer.
+   > - **À compter du 4 janvier 2021**, Google [déconseille la prise en charge de la connexion WebView](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). Si vous utilisez la fédération Google ou l’inscription en libre-service avec Gmail, [testez la compatibilité de vos applications métier natives](google-federation.md#deprecation-of-webview-sign-in-support).
+   > - **À compter du 31 mars 2021**, Microsoft ne prendra plus en charge l’échange d’invitations en créant des locataires et des comptes Azure AD non managés pour les scénarios de collaboration B2B. Dans cette optique, nous encourageons les clients à choisir l’[authentification au moyen d’un code secret à usage unique envoyé par e-mail](one-time-passcode.md). Nous serions heureux de recevoir vos commentaires sur cette fonctionnalité de préversion publique, et sommes ravis de vous proposer encore plus de moyens de collaborer.
 
 ## <a name="redemption-through-the-invitation-email"></a>Acceptation via l’e-mail d’invitation
 

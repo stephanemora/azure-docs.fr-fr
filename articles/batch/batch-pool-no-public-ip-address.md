@@ -3,15 +3,15 @@ title: Créer un pool Azure Batch sans adresses IP publiques
 description: Découvrez comment créer un pool sans adresses IP publiques
 author: pkshultz
 ms.topic: how-to
-ms.date: 10/08/2020
+ms.date: 12/9/2020
 ms.author: peshultz
 ms.custom: references_regions
-ms.openlocfilehash: 09a5632f969117e69e68bbe0df2bfbab9a8a102b
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 806e85fca0a509d56e248fc7779fba0f0a59a61d
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842133"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007668"
 ---
 # <a name="create-an-azure-batch-pool-without-public-ip-addresses"></a>Créer un pool Azure Batch sans adresses IP publiques
 
@@ -25,7 +25,8 @@ Pour restreindre l’accès à ces nœuds et réduire la détectabilité de ces 
 
 > [!IMPORTANT]
 > La prise en charge des pools sans adresses IP publiques dans Azure Batch est actuellement en préversion publique pour les régions suivantes : France Centre, Asie Est, USA Centre-Ouest, USA Centre Sud, USA Ouest 2, USA Est, Europe Nord, USA Est 2, USA Centre, Europe Ouest, USA Centre Nord, USA Ouest, Australie Est, Japon Est, Japon Ouest.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
+> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Prérequis
 

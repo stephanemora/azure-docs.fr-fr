@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 07/08/2020
 ms.reviewer: mahender
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 4f1aceed7e6a41a8ad4f3a062f23a796e31e34ad
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 1b95b1e96dc26fb72338518fc969c69b035d5f68
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96601677"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095234"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Authentification et autorisation dans Azure App Service et Azure Functions
 
@@ -152,6 +152,7 @@ Cette option évite d’avoir à écrire du code d’authentification dans l’a
 
 ## <a name="more-resources"></a>Plus de ressources
 
+* [Tutoriel : Authentifier et autoriser des utilisateurs dans une application Web qui accède à Azure Storage et à Microsoft Graph](scenario-secure-app-authentication-app-service.md)
 * [Tutoriel : Authentifier et autoriser les utilisateurs de bout en bout dans Azure App Service (Windows)](tutorial-auth-aad.md)  
 * [Tutoriel : Authentifier et autoriser les utilisateurs de bout en bout dans Azure App Service pour Linux](./tutorial-auth-aad.md?pivots=platform-linux%3fpivots%3dplatform-linux)  
 * [Personnaliser l’authentification et l’autorisation dans App Service](app-service-authentication-how-to.md)

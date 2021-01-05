@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: 8021d659c144bfb68c2714f1680b6ad27a51b56a
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: ac4763a2d79059eb2608595b616c945af274627e
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95522343"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928509"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Qu’est-ce qu’Azure Private Endpoint ?
 
@@ -28,7 +28,7 @@ Azure Private Endpoint est une interface réseau qui vous permet de vous connect
 |Subnet    |  Le sous-réseau pour déployer et allouer des adresses IP privées à partir d’un réseau virtuel. Pour connaître la configuration requise pour le sous-réseau, consultez la section Limitations de cet article.         |
 |Ressource Private Link    |   Ressource Private Link à connecter avec l’ID de ressource ou l’alias dans la liste des types disponibles. Un identificateur réseau unique sera généré pour tout le trafic envoyé à cette ressource.       |
 |Sous-ressource cible   |      Sous-ressource à connecter. Chaque type de ressource Private Link a différentes options à sélectionner en fonction de vos préférences.    |
-|Méthode d’approbation de la connexion    |  Automatique ou manuel. Selon les autorisations de contrôle d’accès Azure en fonction du rôle (Azure RBAC), votre point de terminaison privé peut être approuvé automatiquement. Si vous essayez de vous connecter à une ressource Private Link sans Azure RBAC, utilisez la méthode manuelle pour permettre au propriétaire de la ressource d’approuver la connexion.        |
+|Méthode d’approbation de la connexion    |  Automatique ou manuel. Selon les autorisations de contrôle d’accès Azure en fonction du rôle (Azure RBAC), votre point de terminaison privé peut être approuvé automatiquement. Si vous essayez de vous connecter à une ressource Private Link sans RBAC Azure, utilisez la méthode manuelle pour permettre au propriétaire de la ressource d’approuver la connexion.        |
 |Message de requête     |  Vous pouvez spécifier un message pour que les connexions demandées soient approuvées manuellement. Ce message peut être utilisé pour identifier une demande spécifique.        |
 |État de la connexion   |   Propriété en lecture seule qui spécifie si Private Endpoint est actif. Seules les instances Private Endpoint dans un état approuvé peuvent être utilisées pour envoyer du trafic. États supplémentaires disponibles : <br>-**Approuvé** : La connexion a été approuvée automatiquement ou manuellement et est prête à être utilisée.</br><br>-**En attente** : La connexion a été créée manuellement et est en attente d’approbation par le propriétaire de la ressource Private Link.</br><br>-**Rejeté** : La connexion a été rejetée par le propriétaire de la ressource Private Link.</br><br>-**Déconnecté** : La connexion a été supprimée par le propriétaire de la ressource Private Link. Private Endpoint devient informatif et doit être supprimé pour le nettoyage. </br>|
 

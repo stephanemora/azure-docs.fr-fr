@@ -1,200 +1,33 @@
 ---
-title: Attachement d’application MSIX Windows Virtual Desktop - Azure
-description: Comment configurer l’attachement d’application MSIX pour Windows Virtual Desktop.
+title: Configurer des scripts PowerShell pour l’attachement d’application MSIX Windows Virtual Desktop - Azure
+description: Comment créer des scripts PowerShell pour l’attachement d’application MSIX Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 06/16/2020
+ms.date: 12/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3b02be8f35ff33f758aebe03c89287c51c9ffef7
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: f625b7dd68d4b5a5e1af68aeb53dac453ff8cbfd
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91816330"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400826"
 ---
-# <a name="set-up-msix-app-attach"></a>Configurer l’attachement d’application MSIX
+# <a name="create-powershell-scripts-for-msix-app-attach-preview"></a>Créer des scripts PowerShell pour l’attachement de l’application MSIX (préversion)
 
 > [!IMPORTANT]
 > L’application MSIX est actuellement disponible en préversion publique.
 > Cette préversion est fournie sans contrat de niveau de service, c’est pourquoi nous déconseillons son utilisation pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
 > Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Cette rubrique vous guide tout au long de la configuration de l’attachement d’application MSIX dans un environnement Windows Virtual Desktop.
+Cet article vous guide tout au long de la configuration des scripts PowerShell pour l’attachement d’application MSIX.
 
-## <a name="requirements"></a>Spécifications
-
-Avant de commencer, voici ce dont vous avez besoin pour configurer l’attachement d’application MSIX :
-
-- Accès au portail Windows Insider pour obtenir la version de Windows 10 avec prise en charge des API d’attachement d’application MSIX.
-- Un déploiement Windows Virtual Desktop opérationnel. Pour apprendre à déployer Windows Virtual Desktop (classique), consultez [Création d’un locataire dans Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md). Pour apprendre à déployer Windows Virtual Desktop avec intégration Azure Resource Manager, consultez [Création d’un pool d’hôtes avec le Portail Azure](./create-host-pools-azure-marketplace.md).
-- Outil de d’empaquetage MSIX.
-- Partage réseau dans votre déploiement Windows Virtual Desktop où le package MSIX sera stocké.
-
-## <a name="get-the-os-image"></a>Obtenir l’image du système d’exploitation
-
-Tout d’abord, vous devez obtenir l’image du système d’exploitation. Vous pouvez obtenir l’image du système d’exploitation via le Portail Azure. Toutefois, si vous êtes membre du programme Windows Insider, vous avez la possibilité d’utiliser le portail Windows Insider à la place.
-
-### <a name="get-the-os-image-from-the-azure-portal"></a>Obtenir l’image du système d’exploitation à partir du portail Azure
-
-Pour obtenir l’image du système d’exploitation à partir du portail Azure :
-
-1. Ouvrez le [portail Azure](https://portal.azure.com) et connectez-vous.
-
-2. Accédez à **Créer une machine virtuelle**.
-
-3. Dans l’onglet **De base**, sélectionnez **Windows 10 Entreprise multisession, version 2004**.
-
-4. Suivez les autres instructions pour terminer la création de la machine virtuelle.
-
-     >[!NOTE]
-     >Vous pouvez utiliser cette machine virtuelle pour tester directement l’attachement de l’application MSIX. Pour en savoir plus, consultez directement [Générer un package VHD ou VHDX pour MSIX](#generate-a-vhd-or-vhdx-package-for-msix). Sinon, poursuivez la lecture de cette section.
-
-### <a name="get-the-os-image-from-the-windows-insider-portal"></a>Obtenir l’image du système d’exploitation à partir du portail Windows Insider
-
-Pour récupérer l’image du système d’exploitation à partir du portail Windows Insider :
-
-1. Ouvrez le [portail Windows Insider](https://www.microsoft.com/software-download/windowsinsiderpreviewadvanced?wa=wsignin1.0) et connectez-vous.
-
-     >[!NOTE]
-     >Vous devez être membre du programme Windows Insider pour accéder au portail Windows Insider. Pour en savoir plus sur le programme Windows Insider, consultez notre [Documentation sur Windows Insider](/windows-insider/at-home/).
-
-2. Faites défiler jusqu’à la section **Sélectionner l’édition** et sélectionnez **Windows 10 Insider Preview Enterprise (FAST) – Build 19041** ou version ultérieure.
-
-3. Sélectionnez **Confirmer**, sélectionnez la langue que vous souhaitez utiliser, puis sélectionnez **Confirmer**.
-
-     >[!NOTE]
-     >À l’heure actuelle, l’anglais est la seule langue qui a été testée avec la fonctionnalité. Vous pouvez sélectionner d’autres langues, mais elles risquent de ne pas s’afficher comme prévu.
-
-4. Une fois le lien de téléchargement généré, sélectionnez le **Téléchargement 64 bits** et enregistrez le fichier sur votre disque dur local.
-
-## <a name="prepare-the-vhd-image-for-azure"></a>Préparer l’image de disque dur virtuel pour Azure
-
-Ensuite, vous devez créer une image de disque dur virtuel maître. Si vous n’avez pas encore créé votre image de disque dur virtuel principale, accédez à [Préparer et personnaliser une image de disque dur virtuel principale](set-up-customize-master-image.md) et suivez les instructions qui s’y trouvent.
-
-Une fois que vous avez créé votre image de disque dur virtuel principale, vous devez désactiver les mises à jour automatiques pour les applications d’attachement d’application MSIX. Pour désactiver les mises à jour automatiques, vous devez exécuter les commandes suivantes dans une invite de commandes avec élévation de privilèges :
-
-```cmd
-rem Disable Store auto update:
-
-reg add HKLM\Software\Policies\Microsoft\WindowsStore /v AutoDownload /t REG_DWORD /d 0 /f
-Schtasks /Change /Tn "\Microsoft\Windows\WindowsUpdate\Automatic app update" /Disable
-Schtasks /Change /Tn "\Microsoft\Windows\WindowsUpdate\Scheduled Start" /Disable
-
-rem Disable Content Delivery auto download apps that they want to promote to users:
-
-reg add HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager /v PreInstalledAppsEnabled /t REG_DWORD /d 0 /f
-
-reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\Debug /v ContentDeliveryAllowedOverride /t REG_DWORD /d 0x2 /f
-
-rem Disable Windows Update:
-
-sc config wuauserv start=disabled
-```
-
-Une fois que vous avez désactivé les mises à jour automatiques, vous devez activer Hyper-V parce que vous allez utiliser la commande Mount-VHD pour l’indexation et la commande Dismount-VHD pour le retrait.
-
-```powershell
-Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
-```
->[!NOTE]
->Cette modification va nécessiter le redémarrage de la machine virtuelle.
-
-Ensuite, préparez le disque dur virtuel de la machine virtuelle pour Azure et chargez le disque dur virtuel résultant sur Azure. Pour en savoir plus, consultez [Préparer et personnaliser une image VHD principale](set-up-customize-master-image.md).
-
-Une fois que vous avez téléchargé le disque dur virtuel dans Azure, créez un pool d’ordinateurs hôtes basé sur cette nouvelle image en suivant les instructions du didacticiel [Créer un pool d’hôtes en utilisant la Place de marché Azure](create-host-pools-azure-marketplace.md).
-
-## <a name="prepare-the-application-for-msix-app-attach"></a>Préparer l’application pour l’attachement d’application MSIX
-
-Si vous disposez déjà d’un package MSIX, passez directement à la [Configurer l’infrastructure Windows Virtual Desktop](#configure-windows-virtual-desktop-infrastructure). Si vous souhaitez tester des applications héritées, suivez les instructions de [Créer un package MSIX à partir d’un programme d’installation de bureau](/windows/msix/packaging-tool/create-app-package-msi-vm/) pour convertir l’application héritée en package MSIX.
-
-## <a name="generate-a-vhd-or-vhdx-package-for-msix"></a>Générer un package VHD ou VHDX pour MSIX
-
-Les packages sont au format VHD ou VHDX pour optimiser les performances. MSIX requiert des packages VHD ou VHDX pour fonctionner correctement.
-
-Pour générer un package VHD ou VHDX pour MSIX :
-
-1. [Téléchargez l’outil msixmgr](https://aka.ms/msixmgr) et enregistrez le dossier .zip dans un dossier au sein d’une machine virtuelle hôte de session.
-
-2. Décompressez le dossier .zip de l’outil msixmgr.
-
-3. Placez le package MSIX source dans le même dossier que celui où vous avez décompressé l’outil msixmgr.
-
-4. Exécutez l’applet de commande suivante dans PowerShell pour créer un disque dur virtuel :
-
-    ```powershell
-    New-VHD -SizeBytes <size>MB -Path c:\temp\<name>.vhd -Dynamic -Confirm:$false
-    ```
-
-    >[!NOTE]
-    >Assurez-vous que la taille du disque dur virtuel est suffisamment grande pour contenir le MSIX développé.*
-
-5. Exécutez l’applet de commande suivante pour monter le disque dur virtuel nouvellement créé :
-
-    ```powershell
-    $vhdObject = Mount-VHD c:\temp\<name>.vhd -Passthru
-    ```
-
-6. Exécutez cette applet de commande pour initialiser le disque dur virtuel :
-
-    ```powershell
-    $disk = Initialize-Disk -Passthru -Number $vhdObject.Number
-    ```
-
-7. Exécutez cette applet de commande pour créer une nouvelle partition :
-
-    ```powershell
-    $partition = New-Partition -AssignDriveLetter -UseMaximumSize -DiskNumber $disk.Number
-    ```
-
-8. Exécutez cette applet de commande pour formater la partition :
-
-    ```powershell
-    Format-Volume -FileSystem NTFS -Confirm:$false -DriveLetter $partition.DriveLetter -Force
-    ```
-
-9. Créez un dossier parent sur le disque dur virtuel monté. Cette étape est obligatoire, car l’attachement de l’application MSIX requiert un dossier parent. Vous pouvez nommer le dossier parent comme vous le souhaitez.
-
-### <a name="expand-msix"></a>Développer MSIX
-
-Après cela, vous devez « développer » l’image MSIX en la décompressant. Pour décompresser l’image MSIX :
-
-1. Ouvrez une invite de commandes en tant qu’administrateur et accédez au dossier dans lequel vous avez téléchargé et décompressé l’outil msixmgr.
-
-2. Exécutez l’applet de commande suivante pour décompresser le MSIX dans le disque dur virtuel que vous avez créé et monté dans la section précédente.
-
-    ```powershell
-    msixmgr.exe -Unpack -packagePath <package>.msix -destination "f:\<name of folder you created earlier>" -applyacls
-    ```
-
-    Le message suivant doit apparaître une fois la décompression terminée :
-
-    `Successfully unpacked and applied ACLs for package: <package name>.msix`
-
-    >[!NOTE]
-    > Si vous utilisez des packages du Microsoft Store pour Entreprises (ou Éducation) au sein de votre réseau, ou sur des appareils qui ne sont pas connectés à Internet, vous devez obtenir les licences de package à partir du Store et les installer pour exécuter l’application avec succès. Consultez [Utiliser des packages hors connexion](#use-packages-offline).
-
-3. Accédez au disque dur virtuel monté, puis ouvrez le dossier de l’application et vérifiez que le contenu du package est présent.
-
-4. Démontez le disque dur virtuel.
-
-## <a name="configure-windows-virtual-desktop-infrastructure"></a>Configurer l’infrastructure Windows Virtual Desktop
-
-Par défaut, un package développé MSIX unique (le disque dur virtuel que vous avez créé dans la section précédente) peut être partagé entre plusieurs machines virtuelles hôtes de session, car les disques durs virtuels sont attachés en mode lecture seule.
-
-Avant de commencer, assurez-vous que votre partage réseau répond à la configuration requise suivante :
-
-- Le partage est compatible avec SMB.
-- Les machines virtuelles qui font partie du pool hôte de session disposent d’autorisations NTFS sur le partage.
-
-### <a name="set-up-an-msix-app-attach-share"></a>Configurer un partage d’attachement d’application MSIX
-
-Dans votre environnement Windows Virtual Desktop, créez un partage réseau et déplacez-y le package.
-
->[!NOTE]
-> La meilleure pratique pour créer des partages réseau MSIX consiste à configurer le partage réseau avec des autorisations NTFS en lecture seule.
+>[!IMPORTANT]
+>Avant de commencer, veillez à renseigner et à envoyer [ce formulaire](https://aka.ms/enablemsixappattach) pour activer l’attachement d’application MSIX dans votre abonnement. Si votre demande n’est pas approuvée, l’attachement d’application MSIX ne fonctionnera pas. L’approbation des demandes peut prendre jusqu’à 24 heures pendant les jours ouvrables. Vous recevrez un e-mail lorsque votre demande aura été acceptée et traitée.
 
 ## <a name="install-certificates"></a>Installer des certificats
+
+Vous devez installer des certificats sur tous les hôtes de session dans le pool hôte qui hébergera les points d’accès à partir des packages d’attachement d’application MSIX.
 
 Si votre application utilise un certificat qui n’est pas approuvé publiquement ou qui a été auto-signé, procédez comme suit pour l’installer :
 
@@ -243,7 +76,7 @@ Avant de mettre à jour les scripts PowerShell, vérifiez que vous disposez du G
     Possible values for VolumeName along with current mount points are:
 
     \\?\Volume{a12b3456-0000-0000-0000-10000000000}\
-    *** NO MOUNT POINTS ***
+    **_ NO MOUNT POINTS _*_
 
     \\?\Volume{c78d9012-0000-0000-0000-20000000000}\
         E:\
@@ -254,7 +87,7 @@ Avant de mettre à jour les scripts PowerShell, vérifiez que vous disposez du G
     ```
 
 
-6.  Mettez à jour la variable **$volumeGuid** avec le GUID de volume que vous venez de copier.
+6.  Mettez à jour la variable _ *$volumeGuid** avec le GUID de volume que vous venez de copier.
 
 7. Ouvrez une invite admin PowerShell et mettez à jour le script PowerShell suivant avec les variables qui s’appliquent à votre environnement.
 

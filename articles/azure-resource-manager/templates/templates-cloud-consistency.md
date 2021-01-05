@@ -1,23 +1,23 @@
 ---
 title: Réutiliser les modèles entre les clouds
-description: Développez des modèles Azure Resource Manager qui fonctionnent de manière identique pour des environnements cloud différents. Créez ou mettez à jour des modèles existants pour Azure Stack.
+description: Développez des modèles Azure Resource Manager (modèles ARM) qui fonctionnent de manière identique pour des environnements cloud différents. Créez ou mettez à jour des modèles existants pour Azure Stack.
 author: marcvaneijk
 ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: ea010a625c3e3cd6228513299d878733bf3775ce
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 806556a8da97ec84fe8141b95198b4a7da95c062
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92744759"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928356"
 ---
 # <a name="develop-arm-templates-for-cloud-consistency"></a>Développer des modèles ARM pour la cohérence du cloud
 
 [!INCLUDE [requires-azurerm](../../../includes/requires-azurerm.md)]
 
-La cohérence est l’un des principaux avantages d’Azure. Les investissements de développement pour un emplacement sont réutilisables pour un autre. Un modèle Azure Resource Manager (ARM) rend vos déploiements cohérents et reproductibles entre différents environnements, y compris Azure global, les clouds souverains Azure et Azure Stack. Toutefois, pour réutiliser des modèles dans différents clouds, vous devez prendre en compte les dépendances spécifiques au cloud, comme l’explique ce guide.
+La cohérence est l’un des principaux avantages d’Azure. Les investissements de développement pour un emplacement sont réutilisables pour un autre. Un modèle Azure Resource Manager (modèle ARM) rend vos déploiements cohérents et reproductibles entre différents environnements, y compris Azure global, les clouds souverains Azure et Azure Stack. Toutefois, pour réutiliser des modèles dans différents clouds, vous devez prendre en compte les dépendances spécifiques au cloud, comme l’explique ce guide.
 
 Microsoft propose des services cloud intelligents adaptés à l’entreprise dans de nombreux emplacements, notamment :
 
@@ -205,7 +205,7 @@ Pour construire l’URI absolu d’un artefact, la méthode recommandée est d�
 }
 ```
 
-Grâce à cette approche, tous les artefacts de déploiement, y compris les scripts de configuration, peuvent être stockés au même emplacement avec le modèle lui-même. Pour modifier l’emplacement de tous les liens, vous n’avez qu’à spécifier une URL de base différente pour les _paramètres artifactsLocation_ .
+Grâce à cette approche, tous les artefacts de déploiement, y compris les scripts de configuration, peuvent être stockés au même emplacement avec le modèle lui-même. Pour modifier l’emplacement de tous les liens, vous n’avez qu’à spécifier une URL de base différente pour les _paramètres artifactsLocation_.
 
 ## <a name="factor-in-differing-regional-capabilities"></a>Tenir compte des différentes fonctionnalités régionales
 
@@ -443,8 +443,8 @@ Les espaces de noms du point de terminaison peuvent également être utilisés d
 
 De manière générale, évitez les points de terminaison codés en dur dans un modèle. La meilleure pratique consiste à utiliser la fonction de modèle de référence pour récupérer les points de terminaison de manière dynamique. Par exemple, le point de terminaison généralement codé en dur est l’espace de noms du point de terminaison des comptes de stockage. Chaque compte de stockage possède un nom de domaine complet (FQDN) unique, construit en concaténant le nom du compte de stockage avec l’espace de noms du point de terminaison. Un compte de stockage d’objets blob nommé mystorageaccount1 donne lieu à différents noms de domaine complets (FQDN) en fonction du cloud :
 
-* **mystorageaccount1.blob.core.windows.net** s’il est créé dans le cloud Azure global.
-* **mystorageaccount1.blob.core.chinacloudapi.cn** s’il est créé dans le cloud Azure Chine 21Vianet.
+* `mystorageaccount1.blob.core.windows.net` s’il est créé dans le cloud Azure global.
+* `mystorageaccount1.blob.core.chinacloudapi.cn`s’il est créé dans le cloud Azure Chine 21Vianet.
 
 La fonction de modèle de référence suivante récupère l’espace de noms du point de terminaison du fournisseur de ressources de stockage :
 
@@ -611,7 +611,7 @@ Comme les extensions de machine virtuelle sont des ressources Resource Manager i
 
 La version d’API de la ressource d’extension de machine virtuelle doit être présente dans tous les emplacements que vous envisagez de cibler avec votre modèle. La dépendance de l’emplacement fonctionne comme la disponibilité de la version d’API du fournisseur de ressources évoquée précédemment dans la section « Vérifier la version de tous les types de ressources ».
 
-Pour obtenir une liste des versions d’API disponibles pour la ressource d’extension de machine virtuelle, utilisez l’applet de commande [Get-AzureRmResourceProvider](/powershell/module/az.resources/get-azresourceprovider) avec le fournisseur de ressources **Microsoft.Compute** , comme suit :
+Pour obtenir une liste des versions d’API disponibles pour la ressource d’extension de machine virtuelle, utilisez l’applet de commande [Get-AzureRmResourceProvider](/powershell/module/az.resources/get-azresourceprovider) avec le fournisseur de ressources **Microsoft.Compute**, comme suit :
 
 ```azurepowershell-interactive
 Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Compute" | Select-Object -ExpandProperty ResourceTypes | Select ResourceTypeName, Locations, ApiVersions | where {$_.ResourceTypeName -eq "virtualMachines/extensions"}

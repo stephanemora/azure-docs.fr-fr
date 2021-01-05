@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 10/22/2020
-ms.openlocfilehash: a0b0dc8c29bcdb51f7b348dd62e3d27796819a7d
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: e0a1d8dba9ea284322584de3b4be2ae390d15fdf
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96550246"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920261"
 ---
 # <a name="register-and-scan-azure-synapse-analytics"></a>Inscrire et analyser Azure Synapse Analytics
 
@@ -21,6 +21,10 @@ Cet article explique comment inscrire et analyser une instance d’Azure Synapse
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
 Azure Synapse Analytics (anciennement SQL DW) prend en charge les analyses complètes et incrémentielles pour capturer les métadonnées et le schéma. Ces analyses permettent également de classer les données automatiquement selon des règles de classification système et personnalisées.
+
+### <a name="known-limitations"></a>Limitations connues
+
+Azure Purview ne prend pas en charge l’analyse des [vues](https://docs.microsoft.com/sql/relational-databases/views/views?view=sql-server-ver15) dans Azure Synapse Analytics.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -62,10 +66,10 @@ Si vous souhaitez appliquer l’authentification par principal de service pour l
 > [!Note]
 > Si vous devez créer un principal de service, procédez comme suit :
 > 1. Accédez au [portail Azure](https://portal.azure.com).
-> 1. Sélectionnez **Azure Active Directory** dans le menu de gauche.
+> 1. Dans le menu de gauche, sélectionnez **Azure Active Directory**.
 > 1. Sélectionnez **Inscriptions d’applications**.
 > 1. Sélectionnez **+ Nouvelle inscription d’application**.
-> 1. Entrez un nom pour **l’application** (nom du principal de service).
+> 1. Entrez un nom pour l’**application** (nom du principal de service).
 > 1. Sélectionnez **Comptes dans ce répertoire organisationnel uniquement**.
 > 1. Pour l’URI de redirection, sélectionnez **Web** et entrez l’URL de votre choix. Il n’est pas nécessaire qu’elle soit réelle ni qu’elle fonctionne.
 > 1. Sélectionnez ensuite **Inscription**.
@@ -73,10 +77,10 @@ Si vous souhaitez appliquer l’authentification par principal de service pour l
 Il est nécessaire de récupérer l’ID d’application et le secret du principal de service :
 
 1. Accédez à votre principal de service sur le [Portail Azure](https://portal.azure.com).
-1. Copiez les valeurs **ID d’application (client)** dans **Vue d’ensemble** et **Clé secrète client** dans **Certificats et secrets**.
+1. Copiez les valeurs **ID d’application (client)** dans **Vue d’ensemble** et **Secret client** dans **Certificats et secrets**.
 1. Accédez à votre coffre de clés.
 1. Sélectionnez **Paramètres > Secrets**.
-1. Sélectionnez **+ Générer/importer**, puis entrez le **Nom** de votre choix et la **Valeur** comme **Clé secrète client** de votre principal de service.
+1. Sélectionnez **+ Générer/importer** et entrez le **nom** de votre choix et la **valeur** comme **secret client** de votre principal de service.
 1. Sélectionnez **Créer** pour terminer.
 1. Si votre coffre de clés n’est pas encore connecté à Purview, vous devrez [créer une connexion de coffre de clés](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account).
 1. Enfin, [créez des informations d’identification](manage-credentials.md#create-a-new-credential) à l’aide du principal de service pour configurer votre analyse. 

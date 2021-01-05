@@ -3,12 +3,12 @@ title: Notes de publication pour Live Video Analytics sur IoT Edge – Azure
 description: Cette rubrique fournit des notes de publication sur les versions, les améliorations, les correctifs de bogues et les problèmes connus de Live Video Analytics sur IoT Edge.
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: 18da50fe763ef7c5fc3c06ac00052679c488cae7
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 2800d41340e45867ea4126733cdb5968cf8b91c5
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015632"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400843"
 ---
 # <a name="live-video-analytics-on-iot-edge-release-notes"></a>Notes de publication pour Live Video Analytics sur IoT Edge
 
@@ -23,9 +23,23 @@ Cet article vous fournit des informations sur :
 
 <hr width=100%>
 
+## <a name="december-14-2020"></a>14 décembre 2020
+Cette version est la préversion publique d’actualisation de Live Video Analytics sur IoT Edge. La balise de version est
+
+```
+     mcr.microsoft.com/media/live-video-analytics:2.0.0
+```
+### <a name="module-updates"></a>Mises à jour de module
+* Ajout de la prise en charge de plusieurs processeurs d’extension HTTP et gRPC par topologie de graphe.
+* Ajout de la prise en charge de la gestion de l’espace disque pour les nœuds récepteurs.
+* Ajout de la prise en charge par le nœud `MediaGraphGrpcExtension` de la propriété [extensionConfiguration](grpc-extension-protocol.md) permettant d’utiliser plusieurs modèles IA au sein d’un même serveur gRPC.
+* Ajout de la prise en charge de la collecte des métriques du module Live Video Analytics au [format Prometheus](https://prometheus.io/docs/practices/naming/) 
+* Processeur de filtre de fréquence d’images **déconseillé**.  
+    * Gestion de la fréquence d’images désormais disponible dans les nœuds du processeur d’extension de graphe.
+
 ## <a name="september-22-2020"></a>22 septembre 2020
 
-Cette balise de version pour l’actualisation du module en septembre 2020 est la suivante :
+La balise de version correspondant à l’actualisation de septembre 2020 du module est la suivante :
 
 ```
 mcr.microsoft.com/media/live-video-analytics:1.0.4
@@ -48,7 +62,7 @@ mcr.microsoft.com/media/live-video-analytics:1.0.4
 
 ## <a name="august-19-2020"></a>19 août 2020
 
-Cette balise de version pour l’actualisation du module en août 2020 est la suivante :
+La balise de version correspondant à l’actualisation d’août 2020 du module est la suivante :
 
 ```
 mcr.microsoft.com/media/live-video-analytics:1.0.3
@@ -67,13 +81,13 @@ mcr.microsoft.com/media/live-video-analytics:1.0.3
 
 ### <a name="bug-fixes"></a>Résolution des bogues 
 
-* Supprimer l’utilisation d’une extension Azure déconseillée dans le script de configuration
+* Suppression de l’utilisation d’une extension Azure déconseillée dans le script de configuration.
 
 <hr width=100%>
 
 ## <a name="july-13-2020"></a>13 juillet 2020
 
-Cette balise de version pour l’actualisation du module en juillet 2020 est la suivante :
+La balise de version correspondant à l’actualisation de juillet 2020 du module est la suivante :
 
 ```
 mcr.microsoft.com/media/live-video-analytics:1.0.2

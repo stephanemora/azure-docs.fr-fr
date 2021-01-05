@@ -1,5 +1,5 @@
 ---
-title: SQL Server vers SQL Managed Instance - Guide de migration
+title: 'SQL Server vers SQL Managed Instance : Guide de migration'
 description: Suivez ce guide pour migrer vos bases de données SQL Server vers Azure SQL Managed Instance.
 ms.service: sql-managed-instance
 ms.subservice: migration-guide
@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 5d5404537ad107a54bd32110727e5a7d0f74ebea
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: ac8b0e0c2cdbd46626677f4be0f78800d839ad28
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96326894"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358892"
 ---
 # <a name="migration-guide-sql-server-to-sql-managed-instance"></a>Guide de migration : de SQL Server vers SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -27,7 +27,7 @@ Vous pouvez migrer SQL Server s’exécutant en local ou sur :
 - SQL Server sur les machines virtuelles  
 - Amazon Web Services (AWS) EC2 
 - Amazon Relational Database Service (AWS RDS) 
-- Compute Engine (Google Cloud Platform - GCP)  
+- Compute Engine (Google Cloud Platform – GCP)  
 - Cloud SQL pour SQL Server (Google Cloud Platform - GCP) 
 
 Pour plus d’informations sur la migration, consultez la [vue d’ensemble de la migration](sql-server-to-managed-instance-overview.md). Pour d’autres scénarios, consultez le [guide de migration de base de données](https://datamigration.microsoft.com/).
@@ -217,12 +217,12 @@ Certaines fonctionnalités SQL Server sont disponibles uniquement une fois que v
 - Pour en savoir plus sur Azure SQL Managed Instance, consultez :
    - [Niveaux de service dans Azure SQL Managed Instance](../../managed-instance/sql-managed-instance-paas-overview.md#service-tiers)
    - [Différences entre SQL Server et Azure SQL Managed Instance](../../managed-instance/transact-sql-tsql-differences-sql-server.md)
-   - [Outil de calcul du coût total de possession Azure](https://azure.microsoft.com/pricing/tco/calculator/) 
+   - [Calculatrice du coût total de possession Azure](https://azure.microsoft.com/pricing/tco/calculator/) 
 
 
-- Pour en savoir plus sur le framework et le cycle d’adoption des migrations cloud, consultez
+- Pour plus d’informations sur l’infrastructure et le cycle d’adoption pour les migrations cloud, consultez :
    -  [Cloud Adoption Framework pour Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
-   -  [Bonnes pratiques pour l’évaluation des coûts et du dimensionnement des charges de travail migrées vers Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
+   -  [Meilleures pratiques pour l’évaluation des coûts et le dimensionnement des charges de travail migrées vers Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
 
-- Pour évaluer la couche d’accès aux applications, consultez [Data Access Migration Toolkit (préversion)](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit)
-- Pour plus d’informations sur l’exécution des tests A/B de la couche d’accès aux données, consultez [Assistant Expérimentation de base de données](/sql/dea/database-experimentation-assistant-overview).
+- Pour évaluer la couche d’accès aux applications, consultez [Data Access Migration Toolkit (préversion)](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit).
+- Pour savoir comment exécuter un test A/B sur la couche d’accès aux données, consultez [Assistant Expérimentation de base de données](/sql/dea/database-experimentation-assistant-overview).
