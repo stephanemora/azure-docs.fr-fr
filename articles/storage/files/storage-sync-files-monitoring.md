@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 87d0b740ec4f7ffb8966b386c273c023f69c42d8
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 1cc2cd1a7c5c16b1f9d1542e3f2d14dc030bb090
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97008297"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586548"
 ---
 # <a name="monitor-azure-file-sync"></a>Superviser Azure File Sync
 
@@ -161,7 +161,7 @@ Intégrité de la hiérarchisation cloud
   - L’ID d’événement 9003 fournit la distribution des erreurs de distribution pour un point de terminaison de serveur. Par exemple : le nombre total d'erreurs et le code d'erreur. Un événement est enregistré par code d'erreur.
   - L’ID d’événement 9016 fournit des résultats de dédoublement pour un volume. Par exemple : le pourcentage d'espace libre, le nombre de fichiers dupliqués au cours de la session et le nombre d'échecs de duplication de fichiers.
   - L’ID d’événement 9029 fournit des informations sur les sessions de duplication d’un point de terminaison de serveur. Par exemple : le nombre de fichiers tentés au cours de la session, le nombre de fichiers hiérarchisés au cours de la session et le nombre de fichiers déjà hiérarchisés.
-  
+
 - Pour surveiller l'activité de rappel sur un serveur, utilisez les ID d'événement 9005, 9006, 9009, 9059 et 9071 dans le journal des événements de télémétrie. Celui-ci se trouve dans l'observateur d'événements, sous *Applications and Services\Microsoft\FileSync\Agent*.
 
   - L’ID d’événement 9005 fournit une fiabilité de rappel pour un point de terminaison de serveur. Par exemple : le nombre de total de fichiers uniques consultés et le nombre total de fichiers uniques dont l'accès a échoué.
@@ -192,7 +192,7 @@ Cette section propose des exemples d’alertes pour Azure File Sync.
 
   > [!Note]  
   > Si vous créez une alerte et que celle-ci est trop bruyante, ajustez la valeur de seuil et la logique d’alerte.
-  
+
 ### <a name="how-to-create-an-alert-if-the-server-endpoint-health-shows-an-error-in-the-portal"></a>Comment créer une alerte si l’intégrité du point de terminaison de serveur affiche une erreur dans le portail
 
 1. Dans le **Portail Azure**, accédez au **Service de synchronisation de stockage** respectif. 
@@ -201,16 +201,16 @@ Cette section propose des exemples d’alertes pour Azure File Sync.
 4. Configurez la condition en cliquant sur **Sélectionner la condition**.
 5. Dans le panneau **Configurer la logique du signal**, cliquez sur **Résultat de session de synchronisation** sous le nom du signal.  
 6. Sélectionnez la configuration de dimension suivante : 
-    - Nom de la dimension : **Nom de point de terminaison de serveur**  
-    - Opérateur : **=** 
-    - Valeurs de dimension : **Toutes les valeurs actuelles et futures**  
+     - Nom de la dimension : **Nom de point de terminaison de serveur**  
+     - Opérateur : **=** 
+     - Valeurs de dimension : **Toutes les valeurs actuelles et futures**  
 7. Accédez à **Logique d’alerte** et procédez comme suit : 
-    - Seuil défini sur **Statique** 
-    - Opérateur : **Inférieur à** 
-    - Type d’agrégation : **Maximum**  
-    - Valeur de seuil : **1** 
-    - Évaluées sur la base de : Granularité de l’agrégation = **24 heures** | Fréquence d’évaluation = **toutes les heures** 
-    - Cliquez sur **Terminé.** 
+     - Seuil défini sur **Statique** 
+     - Opérateur : **Inférieur à** 
+     - Type d’agrégation : **Maximum**  
+     - Valeur de seuil : **1** 
+     - Évaluées sur la base de : Granularité de l’agrégation = **24 heures** | Fréquence d’évaluation = **toutes les heures** 
+     - Cliquez sur **Terminé.** 
 8. Cliquez sur **Sélectionner un groupe d’actions** pour ajouter un groupe d’actions (e-mail, SMS, etc.) à l’alerte, soit en sélectionnant un groupe d’actions existant, soit en créant un nouveau groupe d’actions.
 9. Renseignez les **détails de l’alerte** (**Nom de règle d’alerte**, **Description** et **Gravité** par exemple).
 10. Cliquez sur **Créer une règle d'alerte**. 
@@ -254,7 +254,7 @@ Cette section propose des exemples d’alertes pour Azure File Sync.
      - Type d’agrégation : **Maximum**  
      - Valeur de seuil (en octets) : **1** 
      - Évaluées sur la base de : Granularité de l’agrégation = **1 heure** | Fréquence d’évaluation = **toutes les 30 minutes** 
-        - Notez que les métriques sont envoyées à Azure Monitor toutes les 15 à 20 minutes. Ne définissez pas la **Fréquence d’évaluation** sur une valeur inférieure à 30 minutes (générera des alertes erronées).
+         - Notez que les métriques sont envoyées à Azure Monitor toutes les 15 à 20 minutes. Ne définissez pas la **Fréquence d’évaluation** sur une valeur inférieure à 30 minutes (générera des alertes erronées).
      - Cliquez sur **Terminé.** 
 8. Cliquez sur **Sélectionner un groupe d’actions** pour ajouter un groupe d’actions (e-mail, SMS, etc.) à l’alerte, soit en sélectionnant un groupe d’actions existant, soit en créant un nouveau groupe d’actions.
 9. Renseignez les **détails de l’alerte** (**Nom de règle d’alerte**, **Description** et **Gravité** par exemple).
@@ -277,7 +277,7 @@ Cette section propose des exemples d’alertes pour Azure File Sync.
      - Type d’agrégation : **Total**  
      - Valeur de seuil (en octets) : **67108864000** 
      - Évaluées sur la base de : Granularité de l’agrégation = **24 heures** | Fréquence d’évaluation = **toutes les heures** 
-    - Cliquez sur **Terminé.** 
+     - Cliquez sur **Terminé.** 
 8. Cliquez sur **Sélectionner un groupe d’actions** pour ajouter un groupe d’actions (e-mail, SMS, etc.) à l’alerte, soit en sélectionnant un groupe d’actions existant, soit en créant un nouveau groupe d’actions.
 9. Renseignez les **détails de l’alerte** (**Nom de règle d’alerte**, **Description** et **Gravité** par exemple).
 10. Cliquez sur **Créer une règle d'alerte**. 

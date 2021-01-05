@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 869cf5a47831844b04e0461a95fb7d16aa4d1569
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 520b2eff91faf2e333ab0a5df7bcc85e6a47c80a
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97110968"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97585188"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Personnaliser l’interface utilisateur dans Azure Active Directory B2C
 
@@ -29,9 +29,7 @@ La personnalisation de l’interface utilisateur qu’Azure Active Directory B2C
 > [!TIP]
 > Si vous souhaitez modifier uniquement le logo de la bannière, l’image et la couleur d’arrière-plan de vos pages de flux utilisateur, vous pouvez essayer la fonctionnalité [Personnalisation de la société](company-branding.md).
 
-
 ## <a name="custom-html-and-css-overview"></a>Vue d’ensemble des fichiers HTML et CSS personnalisés
-
 
 Azure AD B2C exécute le code dans le navigateur de votre client à l’aide de [Partage des ressources cross-origin (CORS)](https://www.w3.org/TR/cors/). Au moment de l’exécution, le contenu est chargé depuis une URL que vous spécifiez dans votre flux utilisateur ou stratégie personnalisée. Chaque page de l’expérience utilisateur charge son contenu à partir de l’URL que vous spécifiez pour cette page. Une fois le contenu chargé à partir de votre URL, il est fusionné avec un fragment HTML inséré par Azure AD B2C, puis la page est présentée à votre client.
 
@@ -121,7 +119,6 @@ Voici une vue d’ensemble du processus :
 ## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
-
 
 ### <a name="1-create-your-html-content"></a>1. Créer votre contenu HTML
 
@@ -235,7 +232,6 @@ Vérifiez que vous êtes prêt en effectuant les étapes suivantes :
 1. Sélectionnez **Envoyer une demande**.
     Le résultat devrait être `XHR status: 200`. 
     Si vous recevez une erreur, assurez-vous que vos paramètres CORS sont corrects. Vous serez peut-être amené à vider le cache de votre navigateur ou à ouvrir une fenêtre de navigation privée, en appuyant sur Ctrl+Maj+P.
-
 
 ::: zone pivot="b2c-user-flow"
 
@@ -383,7 +379,7 @@ Pour utiliser l’exemple :
     <link href="./css/assets.css" rel="stylesheet" type="text/css" />
     ```
 
-    À
+    Pour
     ```html
     <link href="https://your-storage-account.blob.core.windows.net/your-container/css/assets.css" rel="stylesheet" type="text/css" />
     ```
@@ -391,10 +387,7 @@ Pour utiliser l’exemple :
 1. Modifiez à présent la stratégie, en la faisant pointer vers votre fichier HTML, comme indiqué précédemment.
 1. Si vous constatez qu’il manque des polices, des images ou des feuilles de style CSS, vérifiez vos références dans la stratégie d’extensions et les fichiers \*.html.
 
-
 ## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez comment activer le [code JavaScript côté client](javascript-and-page-layout.md).
-
-
 
