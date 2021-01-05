@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.custom:
 - devx-track-java
 - devx-track-azurecli
-ms.openlocfilehash: db24fa4721e2e502c5098b415c4cf06da80f697d
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 504d3a834760605149c93c0beea84bbe1b59e263
+ms.sourcegitcommit: 17e9cb8d05edaac9addcd6e0f2c230f71573422c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96175676"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97707552"
 ---
 # <a name="quickstart-create-a-java-function-in-azure-from-the-command-line"></a>Démarrage rapide : Créer une fonction Java dans Azure à partir de la ligne de commande
 
@@ -73,7 +73,7 @@ Dans Azure Functions, un projet de fonction est un conteneur pour une ou plusieu
     ---
 
     > [!IMPORTANT]
-    > + Utilisez `-DjavaVersion=11` si vous voulez exécuter vos fonctions sur Java 11. Pour plus d’informations, consultez les [versions Java](functions-reference-java.md#java-versions). 
+    > + Utilisez `-DjavaVersion=11` si vous voulez que vos fonctions s’exécutent sur Java 11. Pour plus d’informations, consultez les [versions Java](functions-reference-java.md#java-versions). 
     > + La variable d’environnement `JAVA_HOME` doit être définie sur l’emplacement d’installation de la version appropriée du JDK pour que vous puissiez suivre cet article.
 
 1. Maven vous invite à entrer les valeurs nécessaires pour terminer la génération du projet lors du déploiement.   
@@ -146,7 +146,7 @@ L’archétype génère également un test unitaire pour votre fonction. Lorsque
     </pre>
     
     > [!NOTE]  
-    > Si HttpExample n’apparaît pas comme indiqué ci-dessous, cela signifie probablement que vous avez démarré l’hôte à partir d’un emplacement autre que le dossier racine du projet. Dans ce cas, utilisez **Ctrl**+**C** pour arrêter l’hôte, accédez au dossier racine du projet, puis réexécutez la commande précédente.
+    > Si HttpExample n’apparaît pas comme indiqué ci-dessus, cela signifie probablement que vous avez démarré l’hôte à partir d’un emplacement autre que le dossier racine du projet. Dans ce cas, utilisez **Ctrl**+**C** pour arrêter l’hôte, accédez au dossier racine du projet, puis réexécutez la commande précédente.
 
 1. Copiez dans un navigateur l’URL de votre fonction `HttpExample` à partir de cette sortie, puis ajoutez la chaîne de requête `?name=<YOUR_NAME>` pour obtenir une URL complète semblable à `http://localhost:7071/api/HttpExample?name=Functions`. Le navigateur doit afficher un message similaire à `Hello Functions` :
 

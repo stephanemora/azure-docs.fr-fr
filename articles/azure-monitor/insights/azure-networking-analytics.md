@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2018
-ms.openlocfilehash: c304354f378708c43c25ef8b92b7b80b37ac03af
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 19370eee9d9fa524de9beeaa85a15521580bd8e6
+ms.sourcegitcommit: 17e9cb8d05edaac9addcd6e0f2c230f71573422c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97563107"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97707688"
 ---
 # <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Solutions de supervision réseau Azure dans Azure Monitor
 
@@ -104,6 +104,21 @@ L’onglet « Afficher les métriques détaillées » ouvre le classeur pré-r
 
 [ ![Capture d’écran du classeur Application Gateway](media/azure-networking-analytics/azure-appgw-workbook.png)](media/azure-networking-analytics/application-gateway-workbook.png#lightbox)
 
+### <a name="new-capabilities-with-azure-monitor-network-insights-workbook"></a>Nouvelles capacités avec le classeur Insights réseau Azure Monitor
+
+> [!NOTE]
+> Aucun coût supplémentaire n’est associé au classeur Insights Azure Monitor. L’espace de travail Log Analytics continuera à être facturé en fonction de l’utilisation.
+
+Le classeur Insights réseau vous permet de tirer profit des dernières capacités d’Azure Monitor et de Log Analytics, notamment :
+
+* Console centralisée pour la surveillance et la résolution des problèmes avec des données de [métrique](../insights/network-insights-overview.md#resource-health-and-metrics) et de journal.
+
+* Canevas flexible permettant de créer des [visualisations](../platform/workbooks-overview.md#visualizations) riches et personnalisées.
+
+* Possibilité de consommer et de [partager des modèles de classeur](../platform/workbooks-overview.md#workbooks-versus-workbook-templates) avec une communauté plus vaste.
+
+Pour plus d’informations sur les capacités de la nouvelle solution de classeurs, consultez [la page de présentation des classeurs](../platform/workbooks-overview.md).
+
 ## <a name="migrating-from-azure-gateway-analytics-solution-to-azure-monitor-workbooks"></a>Migration de la solution d’analyse Azure Gateway vers des classeurs Azure Monitor
 
 > [!NOTE]
@@ -119,21 +134,6 @@ L’onglet « Afficher les métriques détaillées » ouvre le classeur pré-r
 3. Une fois que vous êtes en mesure de voir tous vos insights de métrique et de journal, pour nettoyer la solution d’analyse Azure Gateway à partir de votre espace de travail, vous pouvez supprimer la solution sur la page des ressources de la solution.
 
 [ ![Capture d’écran de l’option de suppression pour la solution d’analyse Azure Application Gateway.](media/azure-networking-analytics/azure-appgw-analytics-delete.png)](media/azure-networking-analytics/application-gateway-analytics-delete.png#lightbox)
-
-### <a name="new-capabilities-with-azure-monitor-network-insights-workbook"></a>Nouvelles capacités avec le classeur Insights réseau Azure Monitor
-
-> [!NOTE]
-> Aucun coût supplémentaire n’est associé au classeur Insights Azure Monitor. L’espace de travail Log Analytics continuera à être facturé en fonction de l’utilisation.
-
-Le classeur Insights réseau vous permet de tirer profit des dernières capacités d’Azure Monitor et de Log Analytics, notamment :
-
-* Console centralisée pour la surveillance et la résolution des problèmes avec des données de [métrique](../insights/network-insights-overview.md#resource-health-and-metrics) et de journal.
-
-* Canevas flexible permettant de créer des [visualisations](../platform/workbooks-overview.md#visualizations) riches et personnalisées.
-
-* Possibilité de consommer et de [partager des modèles de classeur](../platform/workbooks-overview.md#workbooks-versus-workbook-templates) avec une communauté plus vaste.
-
-Pour plus d’informations sur les capacités de la nouvelle solution de classeurs, consultez [la page de présentation des classeurs](../platform/workbooks-overview.md).
 
 ## <a name="azure-network-security-group-analytics-solution-in-azure-monitor"></a>Solution d’analytique Azure Network Security Group dans Azure Monitor
 
