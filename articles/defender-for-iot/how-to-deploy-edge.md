@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/30/2020
 ms.author: mlottner
-ms.openlocfilehash: 75a9d1267a8824801e3c24fc25c687f29a808187
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: c2b440413599ce07112231af17daa0bc14817b76
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96339929"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97832775"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Déployer un module de sécurité sur votre appareil IoT Edge
 
@@ -53,7 +53,7 @@ Procédez comme suit pour déployer un module de sécurité Defender pour IoT su
 
 1. Sélectionnez **Internet des objets**, puis recherchez **Defender pour IoT** et sélectionnez-le.
 
-   ![Sélectionnez Defender pour IoT.](media/howto/edge-onboarding-8.png)
+   :::image type="content" source="media/howto/edge-onboarding-8.png" alt-text="Sélectionnez Defender pour IoT.":::
 
 1. Cliquez sur **Créer** pour configurer le déploiement.
 

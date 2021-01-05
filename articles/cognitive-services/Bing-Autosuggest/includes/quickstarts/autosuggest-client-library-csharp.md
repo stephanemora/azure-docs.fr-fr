@@ -8,18 +8,18 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/06/2020
 ms.author: aahi
-ms.openlocfilehash: 9d6d65ea7255528146b144c4bfa35e98b10b4055
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 5bfe28a8111128ba7d8072c27d8647e6137620cd
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94371861"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97844767"
 ---
 Bien démarrer avec la bibliothèque de client Suggestion automatique Bing pour .NET Suivez les étapes suivantes pour installer le package et essayer l’exemple de code pour les tâches de base.
 
 Utilisez la bibliothèque de client Suggestion automatique Bing pour .NET pour obtenir des suggestions de recherche basées sur des chaînes de requête partielles.
 
-[Documentation de référence](/dotnet/api/overview/azure/cognitiveservices/client/bingautosuggest?view=azure-dotnet) | [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Search.BingAutoSuggest) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.AutoSuggest/) | [Exemple de code](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/BingAutoSuggest/Program.cs)
+[Documentation de référence](/dotnet/api/overview/azure/cognitiveservices/bing-autosuggest-readme?view=azure-dotnet) | [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Search.BingAutoSuggest) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.AutoSuggest/) | [Exemple de code](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/BingAutoSuggest/Program.cs)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -216,4 +216,4 @@ Si vous souhaitez nettoyer et supprimer un abonnement Cognitive Services, vous p
 ## <a name="see-also"></a>Voir aussi
 
 - [Qu’est-ce que la Suggestion automatique Bing ?](../../get-suggested-search-terms.md)
-- [Informations de référence dotnet sur la suggestion automatique Bing](/dotnet/api/overview/azure/cognitiveservices/client/bingautosuggest?view=azure-dotnet)
+- [Informations de référence dotnet sur la suggestion automatique Bing](/dotnet/api/overview/azure/cognitiveservices/bing-autosuggest-readme?view=azure-dotnet)

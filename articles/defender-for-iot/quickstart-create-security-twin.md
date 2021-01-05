@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/08/2019
 ms.author: mlottner
-ms.openlocfilehash: 74e0e8daa662f4dd49f1886972236b5b0a3b100a
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 3e48ed870bf405a82441678b5e8c01d199e7ebff
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348855"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97835004"
 ---
 # <a name="quickstart-create-an-azureiotsecurity-module-twin"></a>Démarrage rapide : Créer un jumeau de module azureiotsecurity
 
@@ -65,10 +65,10 @@ Pour vérifier l’existence d’un jumeau de module de sécurité pour un appar
 
 1. Dans votre hub IoT, sélectionnez **Appareils IoT** dans le menu **Explorateurs**.
 1. Entrez l’ID de l’appareil, ou sélectionnez une option dans le **champ de recherche des appareils**, puis cliquez sur **Interroger les appareils**.
-    ![Interroger les appareils](./media/quickstart/verify-security-module-twin.png)
+    :::image type="content" source="./media/quickstart/verify-security-module-twin.png" alt-text="Interroger les appareils":::
 1. Sélectionnez l’appareil ou double-cliquez dessus pour ouvrir la page des détails de l’appareil.
 1. Sélectionnez le menu **Identités de module** et vérifiez l’existence du module **azureiotsecurity** dans la liste des identités de module associées à l’appareil.
-    ![Modules associés à un appareil](./media/quickstart/verify-security-module-twin-3.png)
+    :::image type="content" source="./media/quickstart/verify-security-module-twin-3.png" alt-text="Modules associés à un appareil":::
 
 Pour en savoir plus sur la personnalisation des propriétés des jumeaux de module Defender pour IoT, consultez [Configuration de l’agent](how-to-agent-configuration.md).
 

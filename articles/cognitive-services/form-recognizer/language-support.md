@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 11/23/2020
 ms.author: erhopf
-ms.openlocfilehash: 818ea89822b67c9bca99a4b8934a08d9b384f8b6
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 3814f52034922c7814b1d45822ca1e9d5f248825
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95736440"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97844981"
 ---
 # <a name="language-support-for-form-recognizer"></a>Prise en charge linguistique pour Form Recognizer
 
@@ -24,12 +24,12 @@ Ce tableau liste les langues prises en charge par le service Form Recognizer.
 
 |Langage| Code langue | Form Recognizer v2.0 | Form Recognizer v2.1 préversion|
 |:-----|:----:|:-----:|:---:|
-|Anglais (imprimé et manuscrit) | `en` | ✔ | ✔|
 |Chinois (simplifié) | `zh-Hans`| | ✔ |
-|Japonais | `ja` |  | ✔|
 |Néerlandais | `nl` | | ✔ |
+|Anglais (imprimé et manuscrit) | `en` | ✔ | ✔|
 |Français | `fr` | | ✔ |
 |Allemand | `de` | | ✔ |
 |Italien | `it` | | ✔ |
+|Japonais | `ja` |  | ✔|
 |Portugais | `pt` | | ✔ |
 |Espagnol | `es` | | ✔ |

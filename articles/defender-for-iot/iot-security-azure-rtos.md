@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/07/2020
 ms.author: mlottner
-ms.openlocfilehash: ec314a729914fee26d30165c9df1644bde3845aa
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 9950f3727aac365205e979d9590edacebd32f1fc
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91995494"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97832741"
 ---
 # <a name="overview-defender-for-iot-security-module-for-azure-rtos-preview"></a>Présentation : Module de sécurité Defender pour IoT pour Azure RTOS (préversion)
 
 Le module de sécurité Azure Defender pour IoT constitue une solution de sécurité complète pour les appareils qui utilisent Azure RTOS. Il permet de couvrir les menaces courantes et les activités malveillantes potentielles sur les appareils de système d’exploitation en temps réel (RTOS). Azure RTOS est désormais équipé du module de sécurité Azure IoT intégré.
 
-![Visualisation de Azure Defender pour IoT Azure RTOS.](./media/architecture/azure-rtos-security-monitoring.png)
+:::image type="content" source="./media/architecture/azure-rtos-security-monitoring.png" alt-text="Visualisation de Azure Defender pour IoT Azure RTOS.":::
 
 
 Le module de sécurité pour Azure RTOS offre les fonctionnalités suivantes :

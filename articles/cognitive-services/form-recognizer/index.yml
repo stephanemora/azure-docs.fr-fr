@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 09/05/2019
-  ms.openlocfilehash: 3ba0788b150f39c43471fd9d5e69b14a36ddbb78
-  ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+  ms.openlocfilehash: a94e30beb495d3ead38a14ef86c050dfc1afd0fd
+  ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 11/23/2020
-  ms.locfileid: "95493602"
+  ms.lasthandoff: 01/01/2021
+  ms.locfileid: "97845267"
 landingContent:
 - title: À propos de Form Recognizer
   linkLists:
@@ -45,7 +45,7 @@ landingContent:
     - text: Utilisation du kit SDK JavaScript
       url: quickstarts/client-library.md?pivots=programming-language-javascript
     - text: Utilisation de l’API REST (cURL)
-      url: quickstarts/curl-train-extract.md
+      url: quickstarts/client-library.md?pivots=programming-language-rest-api
 - title: Créer un jeu de données d’entraînement
   linkLists:
   - linkListType: how-to-guide
@@ -62,8 +62,6 @@ landingContent:
     links:
     - text: Entraîner avec l’exemple d’outil d’étiquetage
       url: quickstarts/label-tool.md
-    - text: Entraîner avec des étiquettes en utilisant l’API REST et Python
-      url: quickstarts/python-labeled-data.md
 - title: Extraire les données de reçus
   linkLists:
   - linkListType: quickstart
@@ -77,9 +75,7 @@ landingContent:
     - text: Utilisation du kit SDK JavaScript
       url: quickstarts/client-library.md?pivots=programming-language-javascript
     - text: Utilisation de l’API REST (cURL)
-      url: quickstarts/curl-train-extract.md
-    - text: Utilisation de l’API REST (cURL)
-      url: quickstarts/curl-receipts.md
+      url: quickstarts/client-library.md?pivots=programming-language-rest-api
   - linkListType: concept
     links:
     - text: Concepts relatifs aux reçus
@@ -88,8 +84,16 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Utilisation de l’API REST
-      url: quickstarts/python-business-cards.md?
+    - text: Utilisation du kit de développement logiciel (SDK) .NET
+      url: quickstarts/client-library.md?pivots=programming-language-csharp
+    - text: Utilisation du Kit de développement logiciel (SDK) Python
+      url: quickstarts/client-library.md?pivots=programming-language-python
+    - text: Utilisation du Kit de développement logiciel (SDK) Java
+      url: quickstarts/client-library.md?pivots=programming-language-java
+    - text: Utilisation du kit SDK JavaScript
+      url: quickstarts/client-library.md?pivots=programming-language-javascript
+    - text: Utilisation de l’API REST (cURL)
+      url: quickstarts/client-library.md?pivots=programming-language-rest-api
   - linkListType: concept
     links:
     - text: Concepts relatifs aux cartes de visite
@@ -111,9 +115,7 @@ landingContent:
     - text: Utilisation du kit SDK JavaScript
       url: quickstarts/client-library.md?pivots=programming-language-javascript
     - text: Utilisation de l’API REST (cURL)
-      url: quickstarts/curl-train-extract.md
-    - text: Utilisation de l’API REST (Python)
-      url: quickstarts/python-layout.md
+      url: quickstarts/client-library.md?pivots=programming-language-rest-api
 - title: Utiliser des conteneurs
   linkLists:
   - linkListType: get-started

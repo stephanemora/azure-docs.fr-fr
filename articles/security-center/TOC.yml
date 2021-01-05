@@ -110,6 +110,8 @@
       href: tutorial-security-incident.md
     - name: Améliorer votre conformité aux normes
       href: security-center-compliance-dashboard.md
+    - name: Gérer les stratégies de sécurité
+      href: tutorial-security-policy.md
 - name: Concepts
   items:
     - name: Gestion de la posture de sécurité cloud
@@ -120,11 +122,6 @@
           href: secure-score-security-controls.md
         - name: Vue d’ensemble des recommandations de sécurité
           href: security-center-recommendations.md
-        - name: Vue d’ensemble des stratégies de sécurité
-          href: tutorial-security-policy.md
-        - name: Stratégies de sécurité intégrées
-          displayName: 'samples, policy'
-          href: ./policy-reference.md
         - name: Utiliser les recommandations pour améliorer la sécurité
           href: security-center-using-recommendations.md
         - name: Base de référence de la sécurité
@@ -224,14 +221,9 @@
         - name: Durcir vos hôtes Docker
           displayName: containers
           href: harden-docker-hosts.md
-    - name: Utiliser Azure Defender pour SQL
-      items:
-        - name: Configurer Azure Defender pour SQL sur des machines virtuelles Azure
+        - name: Utiliser Azure Defender pour SQL
           href: defender-for-sql-usage.md
           displayName: 'hybrid, arc'
-        - name: Personnaliser votre politique de protection des informations SQL
-          displayName: 'sql, database, data discovery'
-          href: security-center-info-protection-policy.md
     - name: Utiliser Azure Defender pour des registres de conteneurs
       items:
         - name: Analyser les images de votre registre à la recherche de vulnérabilités
@@ -281,6 +273,9 @@
       href: security-center-investigation-user-data.md
     - name: Obtenir une visibilité à l’échelle du locataire
       href: security-center-management-groups.md
+    - name: Personnaliser votre politique de protection des informations SQL
+      displayName: 'sql, database, data discovery'
+      href: security-center-info-protection-policy.md
 - name: Informations de référence
   items:
     - name: API REST
@@ -297,6 +292,9 @@
           href: faq-vms.md
         - name: Utilisateurs existants d’Azure Log Analytics
           href: faq-azure-monitor-logs.md
+    - name: Stratégies de sécurité intégrées
+      displayName: 'samples, policy'
+      href: policy-reference.md
     - name: Blog sur la feuille de route Azure
       href: 'https://azure.microsoft.com/updates/?product=security-center'
     - name: Évaluation de la protection de point de terminaison et recommandations
