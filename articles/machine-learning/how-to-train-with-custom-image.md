@@ -10,12 +10,12 @@ author: saachigopal
 ms.date: 10/20/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: a441d1d22f938e1d1e05aea547929fa3b315d406
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: cb8e71d9f94441f79dd7ce2fd5ee6458987563c3
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95012888"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97795918"
 ---
 # <a name="train-a-model-by-using-a-custom-docker-image"></a>Former un modèle à l’aide d’une image Docker personnalisée
 
@@ -158,7 +158,7 @@ Lorsque vous soumettez une exécution d’apprentissage à l’aide d’un `Scri
 ```python
 from azureml.core import Experiment
 
-run = Experiment(ws,'fastai-custom-image').submit(src)
+run = Experiment(ws,'Tutorial-fastai').submit(src)
 run.wait_for_completion(show_output=True)
 ```
 

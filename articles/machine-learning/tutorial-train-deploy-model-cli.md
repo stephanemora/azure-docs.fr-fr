@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 03/26/2020
-ms.openlocfilehash: 119f1eaa838b404a3dbdc22f692f559816810dde
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 55221fa529688fbae1698a094ea31f6a3f765100
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578686"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97796242"
 ---
 # <a name="tutorial-train-and-deploy-a-model-from-the-cli"></a>Tutoriel : Entraîner et déployer un modèle à partir de l’interface CLI
 
@@ -307,10 +307,10 @@ Pour plus d’informations sur les fichiers de configuration d’exécution, con
 Pour démarrer une exécution d’entraînement sur la cible de calcul `cpu-cluster`, utilisez la commande suivante :
 
 ```azurecli-interactive
-az ml run submit-script -c mnist -e myexperiment --source-directory scripts -t runoutput.json
+az ml run submit-script -c mnist -e tutorial-cli --source-directory scripts -t runoutput.json
 ```
 
-Cette commande spécifie un nom pour l’expérience (`myexperiment`). L’expérience stocke des informations sur cette exécution dans l’espace de travail.
+Cette commande spécifie un nom pour l’expérience (`tutorial-cli`). L’expérience stocke des informations sur cette exécution dans l’espace de travail.
 
 Le paramètre `-c mnist` spécifie le fichier `.azureml/mnist.runconfig`.
 
@@ -327,7 +327,7 @@ Ce texte est consigné à partir du script d’entraînement et affiche la préc
 
 Si vous examinez le script d’entraînement, vous remarquerez qu’il utilise aussi la valeur alpha au moment de stocker le modèle entraîné dans `outputs/sklearn_mnist_model.pkl`.
 
-Le modèle a été enregistré dans le répertoire `./outputs` sur la cible de calcul où il a été entraîné (en l’occurrence, l’instance de calcul Azure Machine Learning dans le cloud Azure). Le processus d’entraînement charge automatiquement le contenu du répertoire `./outputs` de la cible de calcul où s’exerce l’entraînement vers votre espace de travail Azure Machine Learning. Il est stocké en tant que partie intégrante de l’expérience (`myexperiment` dans cet exemple).
+Le modèle a été enregistré dans le répertoire `./outputs` sur la cible de calcul où il a été entraîné (en l’occurrence, l’instance de calcul Azure Machine Learning dans le cloud Azure). Le processus d’entraînement charge automatiquement le contenu du répertoire `./outputs` de la cible de calcul où s’exerce l’entraînement vers votre espace de travail Azure Machine Learning. Il est stocké en tant que partie intégrante de l’expérience (`tutorial-cli` dans cet exemple).
 
 ## <a name="register-the-model"></a>Inscrire le modèle
 
@@ -345,13 +345,13 @@ Le résultat de cette commande doit ressembler au JSON suivant :
 {
   "createdTime": "2019-09-19T15:25:32.411572+00:00",
   "description": "",
-  "experimentName": "myexperiment",
+  "experimentName": "tutorial-cli",
   "framework": "Custom",
   "frameworkVersion": null,
   "id": "mymodel:1",
   "name": "mymodel",
   "properties": "",
-  "runId": "myexperiment_1568906070_5874522d",
+  "runId": "tutorial-cli_1568906070_5874522d",
   "tags": "",
   "version": 1
 }

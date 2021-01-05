@@ -3,16 +3,16 @@ title: Foire aux questions Azure IoT Central | Microsoft Docs
 description: Foire aux questions (FAQ) Azure IoT Central et réponses
 author: dominicbetts
 ms.author: dobett
-ms.date: 09/23/2020
+ms.date: 12/20/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: cbe0dbe55f903c25556698a5d510bf9e67b408be
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: acabaf843f8acfe7bc0b5e9456dee09bde74bef7
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126718"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97796038"
 ---
 # <a name="frequently-asked-questions-for-iot-central"></a>Foire aux questions pour IoT Central
 
@@ -38,11 +38,11 @@ Quand un opérateur débloque un appareil, l’état revient à sa valeur préc�
 
 Si l’état de l’appareil est **En attente d’approbation** sur la page **Appareils**, cela signifie que l’option **Approbation automatique** est désactivée :
 
-:::image type="content" source="media/howto-faq/auto-approve.png" alt-text="Capture d’écran montrant un appareil bloqué":::
+:::image type="content" source="media/howto-faq/auto-approve.png" alt-text="Capture d’écran montrant une application avec l’option d’approbation automatique désactivée.":::
 
 Un opérateur doit approuver explicitement un appareil avant qu’il ne commence à envoyer des données. Les appareils non enregistrés manuellement sur la page **Appareils**, mais connectés avec des informations d'identification valides afficheront l’état **En attente d'approbation**. Les opérateurs peuvent approuver ces appareils sur la page **Appareils** en utilisant le bouton **Approuver** :
 
-:::image type="content" source="media/howto-faq/approve-device.png" alt-text="Capture d’écran montrant un appareil bloqué":::
+:::image type="content" source="media/howto-faq/approve-device.png" alt-text="Capture d’écran montrant comment approuver un appareil":::
 
 **Comment associer un appareil à un modèle d’appareil ?**
 

@@ -7,12 +7,12 @@ ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 03/10/2020
-ms.openlocfilehash: ef0e3a451a5687278acaf1e857012027a5e657a3
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: bf38291e26c46d26bbf8cb110d18e9526fb3f777
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186760"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97797177"
 ---
 # <a name="quickstart-monitor-an-azure-virtual-machine-with-azure-monitor"></a>Superviser une machine virtuelle Azure avec Azure Monitor.
 [Azure Monitor](../overview.md) commence à collecter les données des machines virtuelles Azure dès leur création. Dans ce guide de démarrage rapide, vous allez découvrir brièvement comment les données sont collectées automatiquement pour une machine virtuelle Azure, et comment les voir dans le portail Azure. Vous allez ensuite activer [Azure Monitor pour machines virtuelles](../insights/vminsights-overview.md) sur votre machine virtuelle, ce qui permet aux agents de la machine virtuelle de collecter et d’analyser les données du système d’exploitation invité, notamment les processus et leurs dépendances.
@@ -73,7 +73,7 @@ Quand vous créez un espace de travail Log Analytics, il doit être configuré p
 
 ### <a name="data-collection-from-linux-vm"></a>Collecte de données à partir d’une machine virtuelle Linux
 
-1. Sélectionnez **Syslog**.  
+1. Sélectionnez **Données**, puis **Syslog**.
 
 2. Ajoutez un journal des événements en tapant son nom.  Entrez **Syslog**, puis sélectionnez le signe plus **+**.  
 
