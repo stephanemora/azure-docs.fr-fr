@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 49fa0c849a6b2eab0647922a711c50b4fe762584
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 69f9b5a74566879ecf8f15f23e689ebb731da45a
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095660"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814140"
 ---
 # <a name="quickstart-create-and-configure-azure-ddos-protection-standard-using-azure-powershell"></a>Démarrage rapide : Créer et configurer Azure DDoS Protection Standard à l’aide d’Azure PowerShell
 
@@ -24,7 +24,7 @@ Prise en main d’Azure DDoS Protection Standard à l’aide d’Azure PowerShel
 
 Un plan de protection DDoS définit un ensemble de réseaux virtuels pour lesquels la protection DDoS standard est activée par le biais des abonnements. Vous pouvez configurer un plan de protection DDoS pour votre organisation et lier des réseaux virtuels à partir de plusieurs abonnements au même plan. 
 
-Dans ce guide de démarrage rapide, vous allez créer un plan de protection DDoS et le lier à un réseau virtuel. 
+Dans ce démarrage rapide, vous allez créer un plan de protection DDoS et le lier à un réseau virtuel. 
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -39,13 +39,13 @@ Dans ce guide de démarrage rapide, vous allez créer un plan de protection DDoS
 
 Dans Azure, vous allouez les ressources associées à un groupe de ressources. Vous pouvez utiliser un groupe de ressources existant ou en créer un.
 
-Pour créer un groupe de ressources, utilisez [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Dans cet exemple, nous allons nommer notre groupe de ressources _MyResourceGroup_ et utiliser la région _USA Est_  :
+Pour créer un groupe de ressources, utilisez [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Dans cet exemple, nous allons nommer notre groupe de ressources _MyResourceGroup_ et utiliser la région _USA Est_ :
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name MyResourceGroup -Location "East US"
 ```
 
-Créez maintenant un plan de protection DDoS nommé _MyDdosProtectionPlan_  :
+Créez maintenant un plan de protection DDoS nommé _MyDdosProtectionPlan_ :
 
 ```azurepowershell-interactive
 New-AzDdosProtectionPlan -ResourceGroupName MyResourceGroup -Name MyDdosProtectionPlan -Location "East US"
@@ -55,7 +55,7 @@ New-AzDdosProtectionPlan -ResourceGroupName MyResourceGroup -Name MyDdosProtecti
 
 ### <a name="enable-ddos-for-a-new-virtual-network"></a>Activer la protection DDoS pour un nouveau réseau virtuel
 
-Vous pouvez activer la protection DDoS lors de la création d’un réseau virtuel. Dans cet exemple, nous allons nommer notre réseau virtuel _MyVnet_  : 
+Vous pouvez activer la protection DDoS lors de la création d’un réseau virtuel. Dans cet exemple, nous allons nommer notre réseau virtuel _MyVnet_ : 
 
 ```azurepowershell-interactive
 New-AzVirtualNetwork -Name MyVnet -ResourceGroupName MyResourceGroup -Location "East US" -AddressPrefix 10.0.0.0/16
@@ -114,4 +114,4 @@ Si vous souhaitez supprimer un plan de protection DDoS, vous devez d’abord dis
 Pour savoir comment consulter et configurer la télémétrie pour votre plan de protection DDoS, passez aux tutoriels.
 
 > [!div class="nextstepaction"]
-> [Consulter et configurer la télémétrie de la protection DDoS](telemetry-monitoring-alerting.md)
+> [Consulter et configurer la télémétrie de la protection DDoS](telemetry.md)

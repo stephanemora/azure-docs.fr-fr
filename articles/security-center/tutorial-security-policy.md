@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 76695d4d8dbc3e3a6b04b89b8f34e41b83a92963
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 88af554faab9479a402dd393b0a7eed0835ce59e
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965185"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814344"
 ---
-# <a name="working-with-security-policies"></a>Utilisation de stratégies de sécurité
+# <a name="manage-security-policies"></a>Gérer les stratégies de sécurité
 
 Cet article explique comment configurer des stratégies de sécurité et comment les afficher dans Security Center. 
 

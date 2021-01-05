@@ -3,16 +3,14 @@ title: Concepts – Mises à jour et mises à niveau des clouds privés
 description: Découvrez les processus et fonctionnalités clés de mise à niveau dans Azure VMware Solution.
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 380e97eae559145a9ef5ed7b6e7bf14f18039eed
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6fb65a0e192fbf1f054857223b3fdaf58fc6a903
+ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91316798"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97809647"
 ---
 # <a name="azure-vmware-solution-private-cloud-updates-and-upgrades"></a>Mises à jour et mises à niveau des clouds privés Azure VMware Solution
-
-## <a name="overview"></a>Vue d’ensemble
 
 L’un des principaux avantages des clouds privés d’Azure VMware Solution réside dans le fait que la plateforme est tenue à jour pour vous. La maintenance de la plateforme comprend les mises à jour automatisées vers une offre groupée de logiciels validée VMware, ce qui aide à garantir que vous utilisez la dernière version en date des logiciels de cloud privé Azure VMware Solution validés.
 
