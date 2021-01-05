@@ -4,19 +4,19 @@ description: Migrer un certificat assurant la protection de la clé de chiffreme
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: security
-ms.custom: sqldbrb=1, devx-track-azurecli
+ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: how-to
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein, jovanpop
 ms.date: 07/21/2020
-ms.openlocfilehash: 80ff16156348db9c3a209757b48b7d54615d9104
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: c465da3d5d812ea7e811cbe59318122700c6e786
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790693"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97824668"
 ---
 # <a name="migrate-a-certificate-of-a-tde-protected-database-to-azure-sql-managed-instance"></a>Migrer vers Azure SQL Managed Instance un certificat d’une base de données protégée par TDE
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -125,7 +125,7 @@ Si le certificat est conservé dans le magasin de certificats de l’ordinateur 
 
 2. Dans le composant logiciel enfichable MMC Certificats, développez le chemin d’accès Personnel > Certificats pour afficher la liste des certificats.
 
-3. Cliquez avec le bouton droit sur le certificat, puis cliquez sur **Exporter** .
+3. Cliquez avec le bouton droit sur le certificat, puis cliquez sur **Exporter**.
 
 4. Suivez l’Assistant pour exporter le certificat et la clé privée dans un format .pfx.
 
@@ -160,7 +160,7 @@ Si le certificat est conservé dans le magasin de certificats de l’ordinateur 
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Vous devez d’abord [configurer un coffre de clés Azure](../../key-vault/general/manage-with-cli2.md) avec votre fichier *.pfx* .
+Vous devez d’abord [configurer un coffre de clés Azure](../../key-vault/general/manage-with-cli2.md) avec votre fichier *.pfx*.
 
 1. Commencez par les étapes de préparation dans PowerShell :
 

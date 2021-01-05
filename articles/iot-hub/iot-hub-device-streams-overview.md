@@ -11,13 +11,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - 'Role: Technical Support'
-- devx-track-azurecli
-ms.openlocfilehash: bdd9d5fd878094326331e60fc1a639eef08b7ea3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9487fc562fa099d2650aabc8d15fc1449c7fcb5c
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792461"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825184"
 ---
 # <a name="iot-hub-device-streams-preview"></a>Flux d'appareils IoT Hub (préversion)
 
@@ -57,7 +56,7 @@ La création programmatique d'un flux d'appareil à l’aide du SDK implique les
 
 1. L’application de l'appareil enregistre à l'avance un rappel pour être informé chaque fois qu'un nouveau flux d'appareil est initié vers l'appareil. Cette étape intervient généralement lorsque l'appareil démarre et se connecte à IoT Hub.
 
-2. Si besoin, le programme côté service initie un flux d'appareil en fournissant l'ID d'appareil ( _pas_ l’adresse IP).
+2. Si besoin, le programme côté service initie un flux d'appareil en fournissant l'ID d'appareil (_pas_ l’adresse IP).
 
 3. IoT Hub informe le programme côté client en appelant le rappel enregistré à l’étape 1. L’appareil peut accepter ou rejeter la requête d’initiation de flux. Cette logique peut être spécifique à votre scénario d’application. Si la requête de flux est rejetée par l’appareil, IoT Hub en informe le service. Si elle est acceptée, les étapes ci-dessous s'ensuivent.
 
@@ -129,7 +128,7 @@ Vous pouvez configurer Azure Monitor de manière à collecter les [journaux de r
 
 Pour créer un paramètre de diagnostic et envoyer les journaux de flux d’appareils pour votre hub IoT vers les journaux Azure Monitor :
 
-1. Dans le portail Azure, accédez à votre hub IoT. Dans le volet de gauche, sous **Supervision** , sélectionnez **Paramètres de diagnostic**. Sélectionnez ensuite **Ajouter un paramètre de diagnostic**.
+1. Dans le portail Azure, accédez à votre hub IoT. Dans le volet de gauche, sous **Supervision**, sélectionnez **Paramètres de diagnostic**. Sélectionnez ensuite **Ajouter un paramètre de diagnostic**.
 
 2. Donnez un nom à votre paramètre de diagnostic et sélectionnez **DeviceStreams** dans la liste des journaux. Sélectionnez ensuite **Envoyer à Log Analytics**. Vous serez invité à sélectionner un espace de travail Log Analytics existant ou à en créer un.
 

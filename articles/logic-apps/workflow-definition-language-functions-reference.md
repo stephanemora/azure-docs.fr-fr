@@ -3,15 +3,15 @@ title: Guide de référence pour les fonctions dans les expressions
 description: Guide de référence sur les fonctions dans les expressions pour Azure Logic Apps et Power Automate
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, logicappspm
+ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
 ms.date: 09/04/2020
-ms.openlocfilehash: a4646263eeb93a33a03e32107b46bb6dc104ce06
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 5c03d9b64f957f6ef8450197477f185dc8d15b2d
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96326299"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825856"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guide de référence sur l’utilisation des fonctions dans les expressions pour Azure Logic Apps et Power Automate
 
@@ -1678,7 +1678,7 @@ decodeUriComponent('<value>')
 Cet exemple illustre le remplacement des caractères d’échappement de cette chaîne par des versions décodées :
 
 ```
-decodeUriComponent('http%3A%2F%2Fcontoso.com')
+decodeUriComponent('https%3A%2F%2Fcontoso.com')
 ```
 
 Et retourne ce résultat : `"https://contoso.com"`
@@ -1753,7 +1753,7 @@ Cet exemple illustre la création d’une version encodée sous forme d’URI po
 encodeUriComponent('https://contoso.com')
 ```
 
-Et retourne ce résultat : `"http%3A%2F%2Fcontoso.com"`
+Et retourne ce résultat : `"https%3A%2F%2Fcontoso.com"`
 
 <a name="empty"></a>
 
@@ -4174,7 +4174,7 @@ Cet exemple illustre la création d’un tableau à partir de la valeur de la cl
 triggerFormDataMultiValues('feedUrl')
 ```
 
-Et retourne ce tableau en tant qu’exemple de résultat : `["http://feeds.reuters.com/reuters/topNews"]`
+Et retourne ce tableau en tant qu’exemple de résultat : `["https://feeds.a.dj.com/rss/RSSMarketsMain.xml"]`
 
 <a name="triggerFormDataValue"></a>
 
@@ -4205,7 +4205,7 @@ Cet exemple illustre la création d’une chaîne à partir de la valeur de la c
 triggerFormDataValue('feedUrl')
 ```
 
-Et retourne cette chaîne en tant qu’exemple de résultat : `"http://feeds.reuters.com/reuters/topNews"`
+Et retourne cette chaîne en tant qu’exemple de résultat : `"https://feeds.a.dj.com/rss/RSSMarketsMain.xml"`
 
 <a name="triggerMultipartBody"></a>
 
@@ -4336,7 +4336,7 @@ Cet exemple illustre la création d’une version encodée sous forme d’URI po
 uriComponent('https://contoso.com')
 ```
 
-Et retourne ce résultat : `"http%3A%2F%2Fcontoso.com"`
+Et retourne ce résultat : `"https%3A%2F%2Fcontoso.com"`
 
 <a name="uriComponentToBinary"></a>
 
@@ -4363,7 +4363,7 @@ uriComponentToBinary('<value>')
 Cet exemple illustre la création de la version binaire de cette chaîne encodée sous forme d’URI :
 
 ```
-uriComponentToBinary('http%3A%2F%2Fcontoso.com')
+uriComponentToBinary('https%3A%2F%2Fcontoso.com')
 ```
 
 Et retourne ce résultat :
@@ -4398,7 +4398,7 @@ uriComponentToString('<value>')
 Cet exemple illustre la création de la version de type chaîne décodée pour cette chaîne encodée sous forme d’URI :
 
 ```
-uriComponentToString('http%3A%2F%2Fcontoso.com')
+uriComponentToString('https%3A%2F%2Fcontoso.com')
 ```
 
 Et retourne ce résultat : `"https://contoso.com"`
@@ -4458,7 +4458,7 @@ uriPath('<uri>')
 Cet exemple recherche la valeur `path` pour cet URI :
 
 ```
-uriPath('http://www.contoso.com/catalog/shownew.htm?date=today')
+uriPath('https://www.contoso.com/catalog/shownew.htm?date=today')
 ```
 
 Et retourne ce résultat : `"/catalog/shownew.htm"`
@@ -4488,7 +4488,7 @@ uriPathAndQuery('<uri>')
 Cet exemple recherche les valeurs `path` et `query` pour cet URI :
 
 ```
-uriPathAndQuery('http://www.contoso.com/catalog/shownew.htm?date=today')
+uriPathAndQuery('https://www.contoso.com/catalog/shownew.htm?date=today')
 ```
 
 Et retourne ce résultat : `"/catalog/shownew.htm?date=today"`
@@ -4518,7 +4518,7 @@ uriPort('<uri>')
 Cet exemple retourne la valeur `port` pour cet URI :
 
 ```
-uriPort('http://www.localhost:8080')
+uriPort('https://www.localhost:8080')
 ```
 
 Et retourne ce résultat : `8080`
@@ -4548,7 +4548,7 @@ uriQuery('<uri>')
 Cet exemple retourne la valeur `query` pour cet URI :
 
 ```
-uriQuery('http://www.contoso.com/catalog/shownew.htm?date=today')
+uriQuery('https://www.contoso.com/catalog/shownew.htm?date=today')
 ```
 
 Et retourne ce résultat : `"?date=today"`
@@ -4578,7 +4578,7 @@ uriScheme('<uri>')
 Cet exemple retourne la valeur `scheme` pour cet URI :
 
 ```
-uriScheme('http://www.contoso.com/catalog/shownew.htm?date=today')
+uriScheme('https://www.contoso.com/catalog/shownew.htm?date=today')
 ```
 
 Et retourne ce résultat : `"http"`
@@ -4918,16 +4918,16 @@ Voici le résultat : `30`
 
 *Exemple 8*
 
-Dans cet exemple, supposons que vous avez cette chaîne XML, qui comprend l’espace de noms du document XML, `xmlns="http://contoso.com"` :
+Dans cet exemple, supposons que vous avez cette chaîne XML, qui comprend l’espace de noms du document XML, `xmlns="https://contoso.com"` :
 
 ```xml
-<?xml version="1.0"?><file xmlns="http://contoso.com"><location>Paris</location></file>
+<?xml version="1.0"?><file xmlns="https://contoso.com"><location>Paris</location></file>
 ```
 
-Ces expressions utilisent une expression XPath, `/*[name()="file"]/*[name()="location"]` ou `/*[local-name()="file" and namespace-uri()="http://contoso.com"]/*[local-name()="location"]`, pour rechercher les nœuds qui correspondent au nœud `<location></location>`. Ces exemples illustrent la syntaxe que vous utilisez dans le concepteur d’application logique ou dans l’éditeur d’expressions :
+Ces expressions utilisent une expression XPath, `/*[name()="file"]/*[name()="location"]` ou `/*[local-name()="file" and namespace-uri()="https://contoso.com"]/*[local-name()="location"]`, pour rechercher les nœuds qui correspondent au nœud `<location></location>`. Ces exemples illustrent la syntaxe que vous utilisez dans le concepteur d’application logique ou dans l’éditeur d’expressions :
 
 * `xpath(xml(body('Http')), '/*[name()="file"]/*[name()="location"]')`
-* `xpath(xml(body('Http')), '/*[local-name()="file" and namespace-uri()="http://contoso.com"]/*[local-name()="location"]')`
+* `xpath(xml(body('Http')), '/*[local-name()="file" and namespace-uri()="https://contoso.com"]/*[local-name()="location"]')`
 
 Voici le nœud obtenu qui correspond au nœud `<location></location>` : 
 

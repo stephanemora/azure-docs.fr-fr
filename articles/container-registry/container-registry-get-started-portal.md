@@ -3,13 +3,13 @@ title: Guide de démarrage rapide - Créer un registre dans le portail
 description: Apprenez rapidement à créer un registre de conteneurs Azure privé à l’aide du portail Azure.
 ms.topic: quickstart
 ms.date: 08/04/2020
-ms.custom: seodec18, mvc, devx-track-azurecli
-ms.openlocfilehash: 00ed6b4569d22739051198c5b0c60987f783a87f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.custom: seodec18, mvc
+ms.openlocfilehash: ff74232edf5c96f091082f8486c44fed6125b0b1
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020039"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825846"
 ---
 # <a name="quickstart-create-an-azure-container-registry-using-the-azure-portal"></a>Démarrage rapide : Créer un registre de conteneurs Azure à l’aide du portail Azure
 

@@ -3,12 +3,12 @@ title: Concepts – Clusters et clouds privés
 description: Découvrez les principales fonctionnalités des centres de données à définition logicielle Azure VMware Solution et des clusters vSphere.
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: af34bb0d83d9571ae91dce90cab198a61cfe82a1
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 7f8508abed3446c58a683454bc49ec7dbb49d051
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967378"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825098"
 ---
 #  <a name="azure-vmware-solution-private-cloud-and-cluster-concepts"></a>Concepts de cloud privé et de cluster Azure VMware Solution
 
@@ -48,18 +48,8 @@ Les hôtes utilisés pour créer ou mettre à l’échelle des clusters provienn
 
 ## <a name="vmware-software-versions"></a>Versions des logiciels VMware
 
-Les versions actuelles des logiciels VMware utilisés dans des clusters de cloud privé Azure VMware Solution sont les suivantes :
+[!INCLUDE [vmware-software-versions](includes/vmware-software-versions.md)]
 
-| Logiciel              |    Version   |
-| :---                  |     :---:    |
-| VCSA / vSphere / ESXi |    6.7 U3    | 
-| ESXi                  |    6.7 U3    | 
-| vSAN                  |    6.7 U3    |
-| NSX-T                 |      2.5     |
-
-Pour tout nouveau cluster dans un cloud privé, la version du logiciel correspond à ce qui est en cours d’exécution. Pour tout nouveau cloud privé dans un abonnement, la dernière version de la pile logicielle est installée.
-
-Les stratégies et processus généraux de mise à niveau pour le logiciel de plateforme Azure VMware Solution sont décrits dans l’article [Mises à jour et mises à niveau des clouds privés](concepts-upgrades.md).
 
 ## <a name="host-maintenance-and-lifecycle-management"></a>Maintenance de l’hôte et gestion du cycle de vie
 

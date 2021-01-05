@@ -4,13 +4,13 @@ description: Dans ce didacticiel Azure Kubernetes Service (AKS), vous découvrez
 services: container-service
 ms.topic: tutorial
 ms.date: 09/30/2020
-ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: e700934a965f836456458cb33dc46125bef4ab72
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.custom: mvc
+ms.openlocfilehash: 7f16ba3ffe6b6f96f17df540eb67e9cec0bfea8c
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747005"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825683"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Tutoriel : Mettre à l’échelle des applications dans Azure Kubernetes Service (AKS)
 
@@ -45,7 +45,7 @@ azure-vote-back-2549686872-4d2r5   1/1       Running   0          31m
 azure-vote-front-848767080-tf34m   1/1       Running   0          31m
 ```
 
-Pour changer manuellement le nombre de pods dans le déploiement *azure-vote-front* , utilisez la commande [kubectl scale][kubectl-scale]. L’exemple suivant augmente le nombre de pods de serveur frontal à *5* :
+Pour changer manuellement le nombre de pods dans le déploiement *azure-vote-front*, utilisez la commande [kubectl scale][kubectl-scale]. L’exemple suivant augmente le nombre de pods de serveur frontal à *5* :
 
 ```console
 kubectl scale --replicas=5 deployment/azure-vote-front
@@ -74,7 +74,7 @@ az aks show --resource-group myResourceGroup --name myAKSCluster --query kuberne
 ```
 
 > [!NOTE]
-> Si votre cluster AKS est inférieur à *1.10* , Metrics Server n’est pas installé automatiquement. Les manifestes d’installation de Metrics Server sont disponibles en tant que ressource `components.yaml` dans les versions de Metrics Server, ce qui signifie que vous pouvez les installer via une URL. Pour en savoir plus sur ces définitions YAML, consultez la section [Déploiement][metrics-server-github] du fichier Lisez-moi.
+> Si votre cluster AKS est inférieur à *1.10*, Metrics Server n’est pas installé automatiquement. Les manifestes d’installation de Metrics Server sont disponibles en tant que ressource `components.yaml` dans les versions de Metrics Server, ce qui signifie que vous pouvez les installer via une URL. Pour en savoir plus sur ces définitions YAML, consultez la section [Déploiement][metrics-server-github] du fichier Lisez-moi.
 > 
 > Exemple d’installation :
 > ```console
@@ -91,7 +91,7 @@ resources:
      cpu: 500m
 ```
 
-L’exemple suivant utilise la commande [kubectl autoscale][kubectl-autoscale] pour effectuer un scaling automatique du nombre de pods dans le déploiement *azure-vote-front* . Si l’utilisation moyenne du processeur sur tous les pods dépasse 50 % de l’utilisation demandée, l’outil de mise à l’échelle automatique (ou « autoscaler ») fait passer le nombre de pods à *10* instances, au maximum. Un minimum de *3*  instances est ensuite défini pour le déploiement :
+L’exemple suivant utilise la commande [kubectl autoscale][kubectl-autoscale] pour effectuer un scaling automatique du nombre de pods dans le déploiement *azure-vote-front*. Si l’utilisation moyenne du processeur sur tous les pods dépasse 50 % de l’utilisation demandée, l’outil de mise à l’échelle automatique (ou « autoscaler ») fait passer le nombre de pods à *10* instances, au maximum. Un minimum de *3* instances est ensuite défini pour le déploiement :
 
 ```console
 kubectl autoscale deployment azure-vote-front --cpu-percent=50 --min=3 --max=10
@@ -150,7 +150,7 @@ Au bout de quelques minutes, avec une charge minimale sur l’application Azure 
 
 Si vous avez créé votre cluster Kubernetes à l’aide des commandes dans le tutoriel précédent, le cluster comporte deux nœuds. Vous pouvez ajuster le nombre de nœuds manuellement si vous prévoyez davantage ou moins de charges de travail de conteneur sur votre cluster.
 
-L’exemple suivant permet d’augmenter le nombre de nœuds à trois dans le cluster Kubernetes nommé *myAKSCluster* . Quelques minutes sont nécessaires pour exécuter la commande.
+L’exemple suivant permet d’augmenter le nombre de nœuds à trois dans le cluster Kubernetes nommé *myAKSCluster*. Quelques minutes sont nécessaires pour exécuter la commande.
 
 ```azurecli
 az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 3
