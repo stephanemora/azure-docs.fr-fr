@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/27/2020
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: cc0dd5e76227c0814659b74afc2ac46c8ca4de73
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a51cd242eb26709464aa502938cd04807aea721
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87102634"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97805666"
 ---
 ## <a name="common-scenarios"></a>Scénarios courants
 Le mode rafale peut être très avantageux pour les scénarios suivants :
@@ -47,7 +47,7 @@ Les exemples suivants illustrent le fonctionnement du mode rafale avec différen
     - Mo/s approvisionnés : 25
     - Maximum de Mo/s en rafale : 170 
 - 2 disques de données P10 
-    - Mo/s approvisionnés : 25
+    - Mo/s approvisionnés : 100
     - Maximum de Mo/s en rafale : 170
 
  Lorsque la machine virtuelle démarre, elle récupère les données du disque du système d’exploitation. Étant donné que ce disque fait partie d’une machine virtuelle en cours de démarrage, il est saturé de crédits de rafale. Ces crédits permettent au disque du système d’exploitation de pousser sa vitesse de démarrage à 170 Mo/s, comme illustré ci-dessous :

@@ -10,12 +10,13 @@ ms.date: 08/01/2020
 ms.author: jafreebe
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 3c5a04bd14bdcbf250908db78c622b963f191d91
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+adobe-target: true
+ms.openlocfilehash: b54df350e3f59720a92d7c1e74e28d9fcafddf94
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93333084"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97802471"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service"></a>Démarrage rapide : Créer une application Java dans Azure App Service
 
@@ -78,11 +79,11 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.12.0:config
 
 # <a name="java-se"></a>[Java SE](#tab/javase)
 
-1. Quand vous êtes invité à choisir l’option **Subscription** , sélectionnez l’abonnement (`Subscription`) approprié en entrant le numéro indiqué au début de la ligne.
-1. Quand vous êtes invité à choisir l’option **Application web** , acceptez l’option par défaut `<create>` en appuyant sur Entrée ou sélectionnez une application existante.
-1. Quand vous êtes invité à choisir l’option **Système d’exploitation** , sélectionnez **Windows** en entrant `3`.
-1. Quand vous êtes invité à choisir l’option **Niveau tarifaire** , sélectionnez **B2** en entrant `2`.
-1. Utilisez la version de Java par défaut, **Java 8** , en appuyant sur Entrée.
+1. Quand vous êtes invité à choisir l’option **Subscription**, sélectionnez l’abonnement (`Subscription`) approprié en entrant le numéro indiqué au début de la ligne.
+1. Quand vous êtes invité à choisir l’option **Application web**, acceptez l’option par défaut `<create>` en appuyant sur Entrée ou sélectionnez une application existante.
+1. Quand vous êtes invité à choisir l’option **Système d’exploitation**, sélectionnez **Windows** en entrant `3`.
+1. Quand vous êtes invité à choisir l’option **Niveau tarifaire**, sélectionnez **B2** en entrant `2`.
+1. Utilisez la version de Java par défaut, **Java 8**, en appuyant sur Entrée.
 1. Enfin, appuyez sur Entrée dans la dernière invite pour confirmer vos sélections.
 
     Le résumé généré ressemble à l’extrait de code ci-dessous.
@@ -110,12 +111,12 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.12.0:config
 
 # <a name="tomcat"></a>[Tomcat](#tab/tomcat)
 
-1. Quand vous êtes invité à choisir l’option **Subscription** , sélectionnez l’abonnement (`Subscription`) approprié en entrant le numéro indiqué au début de la ligne.
-1. Quand vous êtes invité à choisir l’option **Application web** , acceptez l’option par défaut `<create>` en appuyant sur Entrée ou sélectionnez une application existante.
-1. Quand vous êtes invité à choisir l’option **Système d’exploitation** , sélectionnez **Windows** en entrant `3`.
-1. Quand vous êtes invité à choisir l’option **Niveau tarifaire** , sélectionnez **B2** en entrant `2`.
-1. Utilisez la version de Java par défaut, **Java 8** , en appuyant sur Entrée.
-1. Utilisez le conteneur web par défaut, **Tomcat 8.5** , en appuyant sur Entrée.
+1. Quand vous êtes invité à choisir l’option **Subscription**, sélectionnez l’abonnement (`Subscription`) approprié en entrant le numéro indiqué au début de la ligne.
+1. Quand vous êtes invité à choisir l’option **Application web**, acceptez l’option par défaut `<create>` en appuyant sur Entrée ou sélectionnez une application existante.
+1. Quand vous êtes invité à choisir l’option **Système d’exploitation**, sélectionnez **Windows** en entrant `3`.
+1. Quand vous êtes invité à choisir l’option **Niveau tarifaire**, sélectionnez **B2** en entrant `2`.
+1. Utilisez la version de Java par défaut, **Java 8**, en appuyant sur Entrée.
+1. Utilisez le conteneur web par défaut, **Tomcat 8.5**, en appuyant sur Entrée.
 1. Enfin, appuyez sur Entrée dans la dernière invite pour confirmer vos sélections.
 
     Le résumé généré ressemble à l’extrait de code ci-dessous.
@@ -148,11 +149,11 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.12.0:config
 
 ### <a name="java-se"></a>[Java SE](#tab/javase)
 
-1. Quand vous êtes invité à choisir l’option **Subscription** , sélectionnez l’abonnement (`Subscription`) approprié en entrant le numéro indiqué au début de la ligne.
-1. Quand vous êtes invité à choisir l’option **Application web** , acceptez l’option par défaut `<create>` en appuyant sur Entrée ou sélectionnez une application existante.
-1. Quand vous êtes invité à choisir l’option **Système d’exploitation** , sélectionnez **Linux** en appuyant sur Entrée.
-1. Quand vous êtes invité à choisir l’option **Niveau tarifaire** , sélectionnez **B2** en entrant `2`.
-1. Utilisez la version de Java par défaut, **Java 8** , en appuyant sur Entrée.
+1. Quand vous êtes invité à choisir l’option **Subscription**, sélectionnez l’abonnement (`Subscription`) approprié en entrant le numéro indiqué au début de la ligne.
+1. Quand vous êtes invité à choisir l’option **Application web**, acceptez l’option par défaut `<create>` en appuyant sur Entrée ou sélectionnez une application existante.
+1. Quand vous êtes invité à choisir l’option **Système d’exploitation**, sélectionnez **Linux** en appuyant sur Entrée.
+1. Quand vous êtes invité à choisir l’option **Niveau tarifaire**, sélectionnez **B2** en entrant `2`.
+1. Utilisez la version de Java par défaut, **Java 8**, en appuyant sur Entrée.
 1. Enfin, appuyez sur Entrée dans la dernière invite pour confirmer vos sélections.
 
     ```
@@ -177,12 +178,12 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.12.0:config
 
 ### <a name="tomcat"></a>[Tomcat](#tab/tomcat)
 
-1. Quand vous êtes invité à choisir l’option **Subscription** , sélectionnez l’abonnement (`Subscription`) approprié en entrant le numéro indiqué au début de la ligne.
-1. Quand vous êtes invité à choisir l’option **Application web** , acceptez l’option par défaut `<create>` en appuyant sur Entrée ou sélectionnez une application existante.
-1. Quand vous êtes invité à choisir l’option **Système d’exploitation** , sélectionnez **Linux** en appuyant sur Entrée.
-1. Quand vous êtes invité à choisir l’option **Niveau tarifaire** , sélectionnez **B2** en entrant `2`.
-1. Utilisez la version de Java par défaut, **Java 8** , en appuyant sur Entrée.
-1. Utilisez le conteneur web par défaut, **Tomcat 8.5** , en appuyant sur Entrée.
+1. Quand vous êtes invité à choisir l’option **Subscription**, sélectionnez l’abonnement (`Subscription`) approprié en entrant le numéro indiqué au début de la ligne.
+1. Quand vous êtes invité à choisir l’option **Application web**, acceptez l’option par défaut `<create>` en appuyant sur Entrée ou sélectionnez une application existante.
+1. Quand vous êtes invité à choisir l’option **Système d’exploitation**, sélectionnez **Linux** en appuyant sur Entrée.
+1. Quand vous êtes invité à choisir l’option **Niveau tarifaire**, sélectionnez **B2** en entrant `2`.
+1. Utilisez la version de Java par défaut, **Java 8**, en appuyant sur Entrée.
+1. Utilisez le conteneur web par défaut, **Tomcat 8.5**, en appuyant sur Entrée.
 1. Enfin, appuyez sur Entrée dans la dernière invite pour confirmer vos sélections.
 
     ```
@@ -217,7 +218,7 @@ Propriété | Obligatoire | Description | Version
 `<subscriptionId>` | false | Spécifiez l’ID d’abonnement. | 0.1.0+
 `<resourceGroup>` | true | Groupe de ressources Azure pour votre application web. | 0.1.0+
 `<appName>` | true | Le nom de votre application web. | 0.1.0+
-`<region>` | true | Spécifie la région où votre application web sera hébergée ; la valeur par défaut est **westeurope**. Toutes les régions valides dans la section [Régions prises en charge](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme). | 0.1.0+
+`<region>` | true | Spécifie la région où votre application web sera hébergée ; la valeur par défaut est **westeurope**. Toutes les régions valides dans la section [Régions prises en charge](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md). | 0.1.0+
 `<pricingTier>` | false | Le niveau tarifaire pour votre application web. La valeur par défaut est **P1V2** pour une charge de travail de production, tandis que **B2** est la valeur minimale recommandée pour le développement/test Java. [En savoir plus](https://azure.microsoft.com/pricing/details/app-service/linux/)| 0.1.0+
 `<runtime>` | true | La configuration de l’environnement de runtime, dont vous pouvez afficher les détails [ici](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details). | 0.1.0+
 `<deployment>` | true | La configuration de déploiement, dont vous pouvez afficher les détails [ici](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details). | 0.1.0+
