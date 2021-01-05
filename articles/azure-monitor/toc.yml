@@ -181,7 +181,7 @@
               href: platform/manage-cost-storage.md
     - name: Métriques Azure Monitor
       items:
-        - name: Vue d'ensemble
+        - name: Vue d’ensemble
           displayname: Metrics
           href: platform/data-platform-metrics.md
         - name: Metrics Explorer
@@ -261,7 +261,7 @@
               href: platform/computer-groups.md
             - name: Requêtes inter-ressources
               items:
-                - name: Vue d’ensemble
+                - name: Vue d'ensemble
                   displayname: cross-resource queries
                   href: log-query/cross-workspace-query.md
                 - name: expression de l’application
@@ -544,18 +544,40 @@
           href: platform/alerts-resource-move.md
         - name: Gestion des services informatiques
           items:
-            - name: Connecteur de gestion des services informatiques
+            - name: Vue d’ensemble du connecteur ITSM
               href: platform/itsmc-overview.md
-            - name: Connexions de gestion des services informatiques
-              href: platform/itsmc-connections.md
-            - name: Définition du connecteur de gestion des services informatiques
+            - name: Configuration des partenaires du connecteur ITSM
+              items:
+                - name: Vue d’ensemble
+                  href: platform/itsmc-connections.md
+                - name: ServiceNow
+                  href: platform/itsmc-connections-servicenow.md
+                - name: System Center Service Manager
+                  items:
+                    - name: Programme d’installation
+                      href: platform/itsmc-connections-scsm.md
+                    - name: Créer l’application web Service Manager
+                      href: platform/itsmc-service-manager-script.md
+                - name: Cherwell
+                  href: platform/itsmc-connections-cherwell.md
+                - name: Provance
+                  href: platform/itsmc-connections-provance.md
+            - name: Configuration Azure du connecteur ITSM
               href: platform/itsmc-definition.md
-            - name: Créer l’application web Service Manager
-              href: platform/itsmc-service-manager-script.md
+            - name: Données synchronisées à partir de votre produit ITSM
+              href: platform/itsmc-synced-data.md
             - name: "Résolution des problèmes dans le connecteur\_ITSM"
               href: platform/itsmc-resync-servicenow.md
             - name: Intégrer à Secure Export
-              href: platform/it-service-management-connector-secure-webhook-connections.md
+              items:
+                - name: Vue d’ensemble
+                  href: platform/it-service-management-connector-secure-webhook-connections.md
+                - name: Configuration d’Azure pour utiliser Exportation sécurisée
+                  href: platform/itsm-connector-secure-webhook-connections-azure-configuration.md
+                - name: BMC
+                  href: platform/itsmc-secure-webhook-connections-bmc.md
+                - name: ServiceNow
+                  href: platform/itsmc-secure-webhook-connections-servicenow.md
         - name: Migrer les règles d’alerte classiques
           items:
             - name: À propos des alertes classiques
@@ -790,6 +812,8 @@
               href: app/snapshot-debugger.md
             - name: Activer le débogueur de capture instantanée pour App Service
               href: app/snapshot-debugger-appservice.md
+            - name: Activer le débogueur de capture instantanée pour une application de fonction
+              href: app/snapshot-debugger-function-app.md
             - name: Activer le débogueur de capture instantanée pour d’autres environnements
               href: app/snapshot-debugger-vm.md
             - name: Mettre à niveau le Débogueur de capture instantanée

@@ -11,48 +11,58 @@ metadata:
   author: mlottner
   ms.author: mlottner
   ms.date: 09/07/2020
-  ms.openlocfilehash: 18f3f2f14d4e04c523a355f699eaf24b8c93bb81
-  ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+  ms.openlocfilehash: 00cef8a146a84c4261dde46785f2ea9bb1c03173
+  ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 10/15/2020
-  ms.locfileid: "92090010"
+  ms.lasthandoff: 12/31/2020
+  ms.locfileid: "97832333"
 landingContent:
-- title: À propos d’Azure Defender pour IoT
+- title: Bien démarrer avec Azure Defender pour IoT
   linkLists:
   - linkListType: overview
     links:
     - text: Qu’est-ce que Azure Defender pour IoT ?
       url: overview.md
-    - text: Module de sécurité pour Azure RTOS
-      url: iot-security-azure-rtos.md
-    - text: Planifier votre solution
-      url: service-prerequisites.md
-  - linkListType: architecture
-    links:
-    - text: Comprendre l’architecture Azure Defender pour IoT
+    - text: Architecture de la solution
       url: architecture.md
-    - text: Agents Azure Defender pour IoT
-      url: security-agent-architecture.md
+    - text: Vue d’ensemble de la configuration
+      url: getting-started.md
+- title: Configurer et intégrer - solution sans agent
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Configurer votre réseau
+      url: how-to-set-up-your-network.md
+    - text: Identifier les appareils nécessaires
+      url: how-to-identify-required-appliances.md
+    - text: Installer les logiciels
+      url: how-to-install-software.md
+- title: Superviser votre réseau - solution sans agent
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Afficher les appareils connectés
+      url: how-to-work-with-the-sensor-device-map.md
+    - text: Afficher les inventaires d’appareils
+      url: how-to-investigate-sensor-detections-in-a-device-inventory.md
+    - text: Examen des alertes
+      url: how-to-work-with-alerts-on-your-sensor.md
+    - text: Générer des rapports
+      url: how-to-generate-reports.md
+    - text: Contrôler quel trafic est détecté
+      url: how-to-control-what-traffic-is-monitored.md
+    - text: Se connecter à Azure Sentinel
+      url: how-to-configure-with-sentinel.md
+- title: Azure Defender pour IoT - solution basée sur un agent
+  linkLists:
+  - linkListType: overview
+    links:
     - text: Module de sécurité Edge
       url: security-edge-architecture.md
-- title: Intégrer Azure Defender pour IoT à IoT Hub
-  linkLists:
-  - linkListType: get-started
-    links:
-    - text: Bien démarrer avec Azure Defender pour IoT
-      url: getting-started.md
-    - text: IoT Hub
-      url: iot-hub-integration.md
-    - text: Bien démarrer avec le module de sécurité pour Azure RTOS
-      url: concept-rtos-security-module.md
-    - text: Agents de sécurité
-      url: security-agents.md
-- title: Configurer votre solution
-  linkLists:
   - linkListType: quickstart
     links:
-    - text: Activer Azure Defender pour IoT dans IoT Hub
+    - text: Activer IoT Hub - solutions basées sur un agent
       url: quickstart-onboard-iot-hub.md
     - text: Configurer votre solution de sécurité IoT
       url: quickstart-configure-your-solution.md
@@ -64,40 +74,6 @@ landingContent:
       url: quickstart-create-custom-alerts.md
     - text: Investiguer les alertes de sécurité
       url: quickstart-investigate-security-alerts.md
-- title: Personnaliser votre solution
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: Personnaliser le module de sécurité pour Azure RTOS
-      url: how-to-azure-rtos-security-module.md
-    - text: Choisir un agent
-      url: how-to-deploy-agent.md
-    - text: Déployer un agent de sécurité Azure Defender pour IoT basé sur C# pour Windows
-      url: how-to-deploy-windows-cs.md
-    - text: Déployer un agent de sécurité Azure Defender pour IoT basé sur C# pour Linux
-      url: how-to-deploy-linux-cs.md
-    - text: Déployer un agent de sécurité Azure Defender pour IoT basé sur C pour Linux
-      url: how-to-deploy-linux-c.md
-    - text: Déployer un module de sécurité Edge
-      url: how-to-deploy-edge.md
-    - text: Configurer des agents de sécurité
-      url: how-to-agent-configuration.md
-    - text: Envoyer vos propres messages de sécurité
-      url: how-to-send-security-messages.md
-    - text: Accéder aux données de sécurité brutes
-      url: how-to-security-data-access.md
-    - text: Investiguer un appareil
-      url: how-to-investigate-device.md
-- title: Résoudre les problèmes d’un agent de sécurité
-  linkLists:
-  - linkListType: tutorial
-    links:
-    - text: Guide de résolution des problèmes liés à l’agent de sécurité (Linux)
-      url: troubleshoot-agent.md
-    - text: Fonctionnement du fichier LocalConfiguration.json - Agent C
-      url: azure-iot-security-local-configuration-c.md
-    - text: Fonctionnement du fichier de configuration local - Agent C#
-      url: azure-iot-security-local-configuration-csharp.md
 - title: Ressources de la solution Azure Defender pour IoT
   linkLists:
   - linkListType: video

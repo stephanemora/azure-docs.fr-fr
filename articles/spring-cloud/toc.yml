@@ -95,6 +95,10 @@
           href: diagnostic-services.md
         - name: Diffuser les journaux en temps réel
           href: spring-cloud-howto-log-streaming.md
+        - name: Application Insights avec Java In-Process Agent
+          href: spring-cloud-howto-application-insights.md
+        - name: Métriques du disjoncteur Resilience4J
+          href: spring-cloud-howto-circuit-breaker-metrics.md
     - name: Sécuriser
       items:
         - name: Activer l’identité managée affectée par le système

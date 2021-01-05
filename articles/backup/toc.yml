@@ -94,6 +94,8 @@
       href: backup-architecture.md
     - name: Aide et bonnes pratiques
       href: guidance-best-practices.md
+    - name: Glossaire des termes
+      href: azure-backup-glossary.md
 - name: Guides pratiques
   items:
     - name: Coffres
@@ -164,6 +166,8 @@
               href: backup-azure-manage-vms.md
             - name: Gérer les points de récupération
               href: manage-recovery-points.md
+            - name: "Modifier la stratégie de sauvegarde avec Azure\_CLI"
+              href: modify-vm-policy-cli.md
     - name: Base de données SQL Server sur la sauvegarde de machines virtuelles Azure
       items:
         - name: Vue d’ensemble
@@ -474,5 +478,5 @@
       href: azure-backup-pricing.md
     - name: Mises à jour de service
       href: 'https://azure.microsoft.com/updates/?product=backup'
-    - name: Vidéos
+    - name: Videos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=backup'

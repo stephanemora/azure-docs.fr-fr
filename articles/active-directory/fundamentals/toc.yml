@@ -25,6 +25,28 @@
   items:
     - name: Sécurité
       items:
+        - name: Accès externe sécurisé aux ressources
+          items:
+            - name: Vue d’ensemble de l’accès externe sécurisé
+              href: secure-external-access-resources.md
+            - name: 1 Déterminer votre posture de sécurité
+              href: 1-secure-access-posture.md
+            - name: 2 Déterminer votre état actuel
+              href: 2-secure-access-current-state.md
+            - name: 3 Créer un plan de sécurité
+              href: 3-secure-access-plan.md
+            - name: 4 Sécuriser l’accès avec des groupes
+              href: 4-secure-access-groups.md
+            - name: 5 Sécuriser l’accès avec B2B Collaboration
+              href: 5-secure-access-b2b.md
+            - name: 6 Sécuriser l’accès avec la gestion des droits d’utilisation
+              href: 6-secure-access-entitlement-managment.md
+            - name: 7 Sécuriser l’accès avec l’accès conditionnel
+              href: 7-secure-access-conditional-access.md
+            - name: 8 Sécuriser l’accès avec des étiquettes de confidentialité
+              href: 8-secure-access-sensitivity-labels.md
+            - name: '9 Sécuriser l’accès à Teams, SharePoint et OneDrive'
+              href: 9-secure-access-teams-sharepoint.md
         - name: "Activer la\_MFA"
           href: concept-fundamentals-mfa-get-started.md
         - name: Paramètres de sécurité par défaut

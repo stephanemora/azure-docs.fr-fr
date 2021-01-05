@@ -28,14 +28,6 @@
       href: tutorial-sync-data-factory.md
     - name: Synchroniser des données avec SQL Data Sync
       href: tutorial-sync-data-sync.md
-    - name: Générer une solution IoT de bout en bout avec SQL Edge
-      items:
-        - name: Configurer les ressources Azure
-          href: tutorial-deploy-azure-resources.md
-        - name: Configurer des modules IoT Edge
-          href: tutorial-set-up-iot-edge-modules.md
-        - name: Déployer un modèle sur SQL Edge
-          href: tutorial-run-ml-model-on-sql-edge.md
 - name: Concepts
   items:
     - name: Déployer
@@ -138,6 +130,18 @@
       href: create-stream-analytics-job.md
     - name: Résoudre les problèmes de déploiement
       href: troubleshoot.md
+- name: Exemples
+  items:
+    - name: Prédiction de minerai de fer de silice
+      items:
+        - name: Configurer les ressources Azure
+          href: tutorial-deploy-azure-resources.md
+        - name: Configurer des modules IoT Edge
+          href: tutorial-set-up-iot-edge-modules.md
+        - name: Déployer un modèle sur SQL Edge
+          href: tutorial-run-ml-model-on-sql-edge.md
+    - name: Énergie renouvelable - analytique des éoliennes
+      href: tutorial-renewable-energy-demo.md
 - name: Référence
   items:
     - name: Informations de référence sur Transact-SQL (T-SQL)

@@ -263,7 +263,7 @@
               href: sql/load-data-overview.md
         - name: Développement
           items:
-            - name: Vue d’ensemble
+            - name: Vue d'ensemble
               href: sql/develop-overview.md
             - name: Meilleures pratiques
               href: sql/develop-best-practices.md
@@ -502,7 +502,7 @@
               items:
                 - name: Ajouter une tâche Azure Stream Analytics
                   href: ./sql-data-warehouse/sql-data-warehouse-integrate-azure-stream-analytics.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Outils pour se connecter aux espaces de travail Synapse
+        - name: Se connecter à des outils et des applications
           items:
             - name: Vue d’ensemble
               href: sql/connect-overview.md
@@ -510,14 +510,20 @@
               href: sql/get-started-azure-data-studio.md
             - name: Chaînes de connexion
               href: sql/connection-strings.md
-            - name: Interroger avec sqlcmd
-              href: sql/get-started-connect-sqlcmd.md
             - name: Soumettre des requêtes avec SSMS
               href: sql/get-started-ssms.md
-            - name: Soumettre des requêtes avec Visual Studio
-              href: sql/get-started-visual-studio.md
             - name: Se connecter à Power BI Desktop
               href: sql/get-started-power-bi-professional.md
+            - name: Requête avec Visual Studio SSDT
+              href: sql/get-started-visual-studio.md
+            - name: Interroger avec .NET Core
+              href: ../azure-sql/database/connect-query-dotnet-core.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Interroger avec Visual Studio .NET
+              href: ../azure-sql/database/connect-query-dotnet-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Interroger avec Python
+              href: ../azure-sql/database/connect-query-python.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Interroger avec sqlcmd
+              href: sql/get-started-connect-sqlcmd.md
 - name: Apache Spark
   items:
     - name: Vue d’ensemble
@@ -1107,6 +1113,10 @@
           href: ./machine-learning/tutorial-cognitive-services-anomaly.md
         - name: Configurer Cognitive Services pour Azure Synapse
           href: ./machine-learning/tutorial-configure-cognitive-services-synapse.md
+- name: Procédures
+  items:
+    - name: Prévoir et gérer les coûts
+      href: plan-manage-costs.md
 - name: Informations de référence
   items:
     - name: Azure CLI

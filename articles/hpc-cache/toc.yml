@@ -42,8 +42,14 @@
       href: hpc-cache-mount.md
     - name: Gérer le cache
       href: hpc-cache-manage.md
-    - name: Configurer les paramètres facultatifs
-      href: configuration.md
+    - name: Utiliser les paramètres facultatifs
+      items:
+        - name: Configurer les paramètres facultatifs
+          href: configuration.md
+        - name: Personnaliser les stratégies d’accès
+          href: access-policies.md
+        - name: Configurer les services d’annuaire
+          href: directory-services.md
 - name: Informations de référence
   items:
     - name: Azure CLI

@@ -419,9 +419,9 @@
               href: ./spark/apache-spark-improve-performance-iocache.md
             - name: Utiliser des blocs-notes avec Apache Spark
               items:
-                - name: Utiliser un bloc-notes Jupyter local
+                - name: Utiliser un notebook Jupyter local
                   href: ./spark/apache-spark-jupyter-notebook-install-locally.md
-                - name: Noyaux du bloc-notes Jupyter
+                - name: Noyaux Jupyter Notebook
                   href: ./spark/apache-spark-jupyter-notebook-kernels.md
                 - name: Utiliser des packages externes avec Jupyter à l'aide de commandes magiques de cellules
                   href: ./spark/apache-spark-jupyter-notebook-use-external-packages.md

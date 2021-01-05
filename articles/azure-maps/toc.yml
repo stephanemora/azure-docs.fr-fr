@@ -9,6 +9,8 @@
   items:
     - name: Créer une application web
       href: quick-demo-map-app.md
+    - name: Créer une application Android
+      href: quick-android-map.md
 - name: Tutoriels
   items:
     - name: Tutoriels sur le kit SDK web
@@ -21,6 +23,10 @@
           href: tutorial-prioritized-routes.md
         - name: Créer un localisateur de magasin
           href: tutorial-create-store-locator.md
+    - name: Tutoriels sur le kit Android SDK
+      items:
+        - name: Charger des données GeoJSON dans une carte
+          href: tutorial-load-geojson-file-android.md
     - name: Tutoriels sur l’API REST
       items:
         - name: Créer des plans intérieurs
@@ -238,16 +244,28 @@
           href: how-to-use-android-map-control-library.md
         - name: Changer le style de la carte
           href: set-android-map-styles.md
+        - name: Création d'une source de données
+          href: create-data-source-android-sdk.md
         - name: Ajouter un calque de symboles
           href: how-to-add-symbol-to-android-map.md
+        - name: Ajouter un calque de bulles
+          href: map-add-bubble-layer-android.md
         - name: Ajouter des formes
           href: how-to-add-shapes-to-android-map.md
+        - name: Ajouter une couche de carte thermique
+          href: map-add-heat-map-layer-android.md
+        - name: Ajouter une couche de lignes
+          href: android-map-add-line-layer.md
         - name: Afficher des informations sur les fonctionnalités
           href: display-feature-information-android.md
         - name: Ajouter un calque de vignettes
           href: how-to-add-tile-layer-android-map.md
         - name: Afficher les données du trafic
           href: how-to-show-traffic-android.md
+        - name: Utiliser des expressions pilotées par les données
+          href: data-driven-style-expressions-android-sdk.md
+        - name: Réaction aux événements
+          href: android-map-events.md
     - name: Utiliser Azure Maps dans Power BI
       items:
         - name: Prise en main

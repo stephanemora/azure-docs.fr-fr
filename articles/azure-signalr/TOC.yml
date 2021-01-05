@@ -54,6 +54,22 @@
           href: ../azure-functions/functions-bindings-signalr-service.md
         - name: Paramètres en amont
           href: concept-upstream.md
+    - name: Disponibilité
+      items:
+        - name: Arrêter votre serveur d’application normalement
+          href: server-graceful-shutdown.md
+    - name: Sécurité
+      items:
+        - name: Autorisation
+          items:
+            - name: Autoriser l’accès avec Azure Active Directory
+              href: authorize-access-azure-active-directory.md
+        - name: Authentification
+          items:
+            - name: Authentifier à partir d’une application
+              href: authenticate-application.md
+            - name: Authentifier avec une identité managée
+              href: authenticate-managed-identity.md
     - name: Haute disponibilité
       items:
         - name: Résilience et reprise d’activité après sinistre

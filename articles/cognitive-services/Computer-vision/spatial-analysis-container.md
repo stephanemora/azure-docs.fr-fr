@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: aahi
-ms.openlocfilehash: 2f03746a6a5afc388db2beeff84b3ab4cbd393b5
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: f41e513ee0f2755c446a9cb95465c1f636fe5a7a
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95014592"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606264"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>Installer et exécuter le conteneur d’analyse spatiale (préversion)
 
@@ -113,7 +113,7 @@ Dans la page  **Configurer le calcul Edge** , choisissez une ressource IoT H
 
 Cliquez sur **Créer**. La création de ressources IoT Hub peut prendre quelques minutes. Une fois la ressource IoT Hub créée, la vignette  **Configurer le computing en périphérie** sera mise à jour pour afficher la nouvelle configuration. Pour vérifier que le rôle de computing Edge a été configuré, sélectionnez  **Configuration de la vue** sur la vignette  **Configurer le calcul** .
 
-Quand le rôle de calcul Edge est configuré sur l’appareil Edge, il crée deux appareils : un appareil IoT et un appareil IoT Edge. Ces deux appareils peuvent être visualisés dans la ressource IoT Hub. Le runtime Azure IoT Edge sera déjà en cours d’exécution sur l’appareil IoT Edge.            
+Quand le rôle de calcul Edge est configuré sur l’appareil Edge, il crée deux appareils : un appareil IoT et un appareil IoT Edge. Ces deux appareils peuvent être visualisés dans la ressource IoT Hub. Le runtime Azure IoT Edge sera déjà en cours d’exécution sur l’appareil IoT Edge.
 
 > [!NOTE]
 > * Actuellement, seule la plateforme Linux est prise en charge pour les appareils IoT Edge. Pour obtenir de l’aide sur le dépannage de l’appareil Azure Stack Edge, consultez l’article [Journalisation et résolution des problèmes](spatial-analysis-logging.md).

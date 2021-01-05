@@ -27,6 +27,8 @@
       href: learn/automation-tutorial-runbook-textual.md
     - name: Créer un runbook Python
       href: learn/automation-tutorial-runbook-textual-python2.md
+    - name: "Créer un runbook Python\_3"
+      href: learn/automation-tutorial-runbook-textual-python-3.md
 - name: Concepts
   items:
     - name: Vue d’ensemble de l’authentification des comptes Automation
@@ -96,6 +98,8 @@
           href: shared-resources/variables.md
         - name: Gérer les packages Python 2
           href: python-packages.md
+        - name: "Gérer les packages Python\_3"
+          href: python-3-packages.md
         - name: Résoudre les problèmes liés aux ressources partagées
           href: troubleshoot/shared-resources.md
     - name: Automatisation de processus
@@ -345,5 +349,5 @@
       href: 'https://azure.microsoft.com/updates/?product=automation'
     - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/azure-automation'
-    - name: Vidéos
+    - name: Videos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=automation'

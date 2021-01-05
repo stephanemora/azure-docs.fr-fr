@@ -9,12 +9,12 @@ metadata:
   author: anastasia-ms
   ms.author: v-stharr
   ms.date: 1/15/2020
-  ms.openlocfilehash: fa4db97e2aefe48e792f7d43dbb782e7a0967716
-  ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+  ms.openlocfilehash: 17113e3a2564ed56ecbcf8e34de27c4fe398ce03
+  ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 12/09/2020
-  ms.locfileid: "96905262"
+  ms.lasthandoff: 12/18/2020
+  ms.locfileid: "97680679"
 landingContent:
 - title: À propos d’Azure Maps
   linkLists:
@@ -40,6 +40,8 @@ landingContent:
     links:
     - text: Créer une application web avec Azure Maps
       url: quick-demo-map-app.md
+    - text: Créer une application Android avec Azure Maps
+      url: quick-android-map.md
   - linkListType: concept
     links:
     - text: Choisir le bon niveau tarifaire pour un compte Maps
@@ -130,12 +132,26 @@ landingContent:
       url: /javascript/api/azure-maps-spatial-io/
 - title: Développement avec le kit Android SDK
   linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Charger des données GeoJSON dans une carte
+      url: tutorial-load-geojson-file-android.md
   - linkListType: how-to-guide
     links:
     - text: Bien démarrer avec le contrôle de carte Android
       url: how-to-use-android-map-control-library.md
-    - text: Afficher les informations de métadonnées d’une fonctionnalité
-      url: display-feature-information-android.md
+    - text: Création d'une source de données
+      url: create-data-source-android-sdk.md
+    - text: Ajouter un calque de bulles
+      url: map-add-bubble-layer-android.md
+    - text: Ajouter un calque de symboles
+      url: how-to-add-symbol-to-android-map.md
+    - text: Ajouter une couche de lignes
+      url: android-map-add-line-layer.md
+    - text: Ajouter une couche de polygones
+      url: how-to-add-shapes-to-android-map.md
+    - text: Utiliser des expressions de style basées sur les données
+      url: data-driven-style-expressions-android-sdk.md
     - text: Ajouter une couche de mosaïques à une carte
       url: how-to-add-tile-layer-android-map.md
     - text: Ajouter une forme à une carte

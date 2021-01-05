@@ -15,9 +15,11 @@
 - name: Tutoriels
   items:
     - name: Consulter et configurer la télémétrie de la protection DDoS
-      href: telemetry-monitoring-alerting.md
-    - name: Configurer les rapports de prévention des attaques DDoS et les journaux de flux
-      href: reports-and-flow-logs.md
+      href: telemetry.md
+    - name: Afficher et configurer la journalisation des diagnostics DDoS
+      href: diagnostic-logging.md
+    - name: Afficher et configurer les alertes de protection DDoS
+      href: alerts.md
 - name: Concepts
   items:
     - name: Types d’attaques

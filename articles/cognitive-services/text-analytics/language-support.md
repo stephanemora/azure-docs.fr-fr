@@ -8,19 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 11/19/2020
+ms.date: 12/17/2020
 ms.author: aahi
-ms.openlocfilehash: b90fe6b7e0937a9ac3b300e904085122610d5645
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 180de56e3c158802460d2ff995041e8572d4dcd7
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94957076"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97844963"
 ---
 # <a name="text-analytics-api-v3-language-support"></a>Prise en charge linguistique de l’API Analyse de texte v3 
-
-[!INCLUDE [v3 region availability](includes/v3-region-availability.md)]
-
 
 #### <a name="sentiment-analysis"></a>[Analyse des sentiments](#tab/sentiment-analysis)
 
@@ -64,9 +61,9 @@ ms.locfileid: "94957076"
 | Langage               | Code langue | Prise en charge de v2.1 | Prise en charge de v3 | À partir de la version de modèle v3 : |       Notes        |
 |:-----------------------|:-------------:|:----------:|:----------:|:-------------------------------:|:------------------:|
 | Arabe                |     `ar`      |     ✓      |            |                                 |                    |
-| Tchèque                 |     `cs`      |     ✓      |            |                                 |                    |
 | Chinois simplifié     |   `zh-hans`   |     ✓      |            |                                 | `zh` également accepté |
 | Chinois traditionnel   |   `zh-hant`   |     ✓      |            |                                 |                    |
+| Tchèque                 |     `cs`      |     ✓      |            |                                 |                    |
 | Danois                |     `da`      |     ✓      |            |                                 |                    |
 | Néerlandais                 |     `nl`      |     ✓      |            |                                 |                    |
 | Anglais                |     `en`      |     ✓      |     ✓      |           2019-10-01            |                    |
@@ -80,8 +77,8 @@ ms.locfileid: "94957076"
 | Coréen                |     `ko`      |     ✓      |            |                                 |                    |
 | Norvégien (Bokmål)   |     `no`      |     ✓      |            |                                 | `nb` également accepté |
 | Polonais                |     `pl`      |     ✓      |            |                                 |                    |
-| Portugais (Portugal) |    `pt-PT`    |     ✓      |            |                                 | `pt` également accepté |
 | Portugais (Brésil)   |    `pt-BR`    |     ✓      |            |                                 |                    |
+| Portugais (Portugal) |    `pt-PT`    |     ✓      |            |                                 | `pt` également accepté |
 | Russe              |     `ru`      |     ✓      |            |                                 |                    |
 | Espagnol               |     `es`      |     ✓      |     ✓       |              2020-04-01                   |                    |
 | Suédois               |     `sv`      |     ✓      |            |                                 |                    |
@@ -104,8 +101,8 @@ ms.locfileid: "94957076"
 | Coréen                |     `ko`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Norvégien (Bokmål)   |     `no`      |     ✓      |     ✓      |                2019-10-01                 | `nb` également accepté |
 | Polonais                |     `pl`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| Portugais (Portugal) |    `pt-PT`    |     ✓      |     ✓      |                2019-10-01                 | `pt` également accepté |
 | Portugais (Brésil)   |    `pt-BR`    |     ✓      |     ✓      |                2019-10-01                 |                    |
+| Portugais (Portugal) |    `pt-PT`    |     ✓      |     ✓      |                2019-10-01                 | `pt` également accepté |
 | Russe               |     `ru`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Espagnol               |     `es`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Suédois               |     `sv`      |     ✓      |     ✓      |                2019-10-01                 |                    |
@@ -123,104 +120,102 @@ L’API Analyse de texte peut détecter une grande variété de langues, de vari
 
 Si vous avez du contenu exprimé dans une langue moins fréquemment utilisée, vous pouvez essayer Détection de langue pour voir si elle retourne un code. La réponse pour les langues qui ne peuvent pas être détectées est `unknown`.
 
-| Langage | Code de langue |  Prise en charge de v3 | Disponible à partir de la version de modèle v3 : |
-|:---------|:-------------:|:----------:|:-----------------------------------------:|
-|Afrikaans|`af`|✓|    |
-|Albanais|`sq`|✓|    |
-|Arabe|`ar`|✓|    |
-|Arménien|`hy`|✓|    |
-|Basque|`eu`|✓|    |
-|Biélorusse|`be`|✓|    |
-|Bengali|`bn`|✓|    |
-|Bosniaque|`bs`|✓|2020-09-01|
-|Bulgare|`bg`|✓|    |
-|Birman|`my`|✓|    |
-|Catalan, valencien|`ca`|✓|    |
-|Khmer central|`km`|✓|    |
-|Chinois|`zh`|✓|    |
-|Chinois (simplifié)|`zh_chs`|✓|    |
-|Chinois traditionnel|`zh_cht`|✓|    |
-|Croate|`hr`|✓|    |
-|Tchèque|`cs`|✓|    |
-|Danois|`da`|✓|    |
-|Dari|`prs`|✓|2020-09-01|
-|Divehi, Dhivehi, maldivien|`dv`|✓|    |
-|Néerlandais, flamand|`nl`|✓|    |
-|Anglais|`en`|✓|    |
-|Espéranto|`eo`|✓|    |
-|Estonien|`et`|✓|    |
-|Fidjien|`fj`|✓|2020-09-01|
-|Finnois|`fi`|✓|    |
-|Français|`fr`|✓|    |
-|Galicien|`gl`|✓|    |
-|Géorgien|`ka`|✓|    |
-|Allemand|`de`|✓|    |
-|Grec|`el`|✓|    |
-|Goudjrati|`gu`|✓|    |
-|Haïtien, créole haïtien|`ht`|✓|    |
-|Hébreu|`he`|✓|    |
-|Hindi|`hi`|✓|    |
-|Hmong blanc|`mww`|✓|2020-09-01|
-|Hongrois|`hu`|✓|    |
-|Islandais|`is`|✓|    |
-|Indonésien|`id`|✓|    |
-|Inuktitut|`iu`|✓|    |
-|Irlandais|`ga`|✓|    |
-|Italien|`it`|✓|    |
-|Japonais|`ja`|✓|    |
-|Kannada|`kn`|✓|    |
-|Kazakh|`kk`|✓|2020-09-01|
-|Coréen|`ko`|✓|    |
-|Kurde|`ku`|✓|    |
-|Lao|`lo`|✓|    |
-|Latin|`la`|✓|    |
-|Letton|`lv`|✓|    |
-|Lituanien|`lt`|✓|    |
-|Macédonien|`mk`|✓|    |
-|Malgache|`mg`|✓|2020-09-01|
-|Malais|`ms`|✓|    |
-|Malayalam|`ml`|✓|    |
-|Maltais|`mt`|✓|    |
-|Maori|`mi`|✓|2020-09-01|
-|Marathi|`mr`|✓|2020-09-01|
-|Norvégien|`no`|✓|    |
-|Norvégien (Nynorsk)|`nn`|✓|    |
-|Odia|`or`|✓|    |
-|Pachto, pachtou|`ps`|✓|    |
-|Persan|`fa`|✓|    |
-|Polonais|`pl`|✓|    |
-|Portugais|`pt`|✓|    |
-|Pendjabi, penjabi|`pa`|✓|    |
-|Queretaro Otomi|`otq`|✓|2020-09-01|
-|Roumain, moldave|`ro`|✓|    |
-|Russe|`ru`|✓|    |
-|Samoan|`sm`|✓|2020-09-01|
-|Serbe|`sr`|✓|    |
-|Singhalais, cingalais|`si`|✓|    |
-|Slovaque|`sk`|✓|    |
-|Slovène|`sl`|✓|    |
-|Somali|`so`|✓|    |
-|Espagnol, castillan|`es`|✓|    |
-|Swahili|`sw`|✓|    |
-|Suédois|`sv`|✓|    |
-|Tagalog|`tl`|✓|    |
-|Tahitien|`ty`|✓|2020-09-01|
-|Tamoul|`ta`|✓|    |
-|Télougou|`te`|✓|    |
-|Thaï|`th`|✓|    |
-|Tonga|`to`|✓|2020-09-01|
-|Turc|`tr`|✓|    |
-|Ukrainien|`uk`|✓|    |
-|Ourdou|`ur`|✓|    |
-|Ouzbek|`uz`|✓|    |
-|Vietnamien|`vi`|✓|    |
-|Gallois|`cy`|✓|    |
-|Yiddish|`yi`|✓|    |
-|Yucatec Maya|`yua`|✓|    |
-
+| Langage | Code de langue | Prise en charge de v3 | Disponible à partir de la version de modèle v3 : |
+|:-|:-:|:-:|:-:|
+| Afrikaans | `af` | ✓ |  |
+| Albanais | `sq` | ✓ |  |
+| Arabe | `ar` | ✓ |  |
+| Arménien | `hy` | ✓ |  |
+| Basque | `eu` | ✓ |  |
+| Biélorusse | `be` | ✓ |  |
+| Bengali | `bn` | ✓ |  |
+| Bosniaque | `bs` | ✓ | 2020-09-01 |
+| Bulgare | `bg` | ✓ |  |
+| Birman | `my` | ✓ |  |
+| Catalan, valencien | `ca` | ✓ |  |
+| Khmer central | `km` | ✓ |  |
+| Chinois | `zh` | ✓ |  |
+| Chinois (simplifié) | `zh_chs` | ✓ |  |
+| Chinois traditionnel | `zh_cht` | ✓ |  |
+| Croate | `hr` | ✓ |  |
+| Tchèque | `cs` | ✓ |  |
+| Danois | `da` | ✓ |  |
+| Dari | `prs` | ✓ | 2020-09-01 |
+| Divehi, Dhivehi, maldivien | `dv` | ✓ |  |
+| Néerlandais, flamand | `nl` | ✓ |  |
+| Anglais | `en` | ✓ |  |
+| Espéranto | `eo` | ✓ |  |
+| Estonien | `et` | ✓ |  |
+| Fidjien | `fj` | ✓ | 2020-09-01 |
+| Finnois | `fi` | ✓ |  |
+| Français | `fr` | ✓ |  |
+| Galicien | `gl` | ✓ |  |
+| Géorgien | `ka` | ✓ |  |
+| Allemand | `de` | ✓ |  |
+| Grec | `el` | ✓ |  |
+| Goudjrati | `gu` | ✓ |  |
+| Haïtien, créole haïtien | `ht` | ✓ |  |
+| Hébreu | `he` | ✓ |  |
+| Hindi | `hi` | ✓ |  |
+| Hmong blanc | `mww` | ✓ | 2020-09-01 |
+| Hongrois | `hu` | ✓ |  |
+| Islandais | `is` | ✓ |  |
+| Indonésien | `id` | ✓ |  |
+| Inuktitut | `iu` | ✓ |  |
+| Irlandais | `ga` | ✓ |  |
+| Italien | `it` | ✓ |  |
+| Japonais | `ja` | ✓ |  |
+| Kannada | `kn` | ✓ |  |
+| Kazakh | `kk` | ✓ | 2020-09-01 |
+| Coréen | `ko` | ✓ |  |
+| Kurde | `ku` | ✓ |  |
+| Lao | `lo` | ✓ |  |
+| Latin | `la` | ✓ |  |
+| Letton | `lv` | ✓ |  |
+| Lituanien | `lt` | ✓ |  |
+| Macédonien | `mk` | ✓ |  |
+| Malgache | `mg` | ✓ | 2020-09-01 |
+| Malais | `ms` | ✓ |  |
+| Malayalam | `ml` | ✓ |  |
+| Maltais | `mt` | ✓ |  |
+| Maori | `mi` | ✓ | 2020-09-01 |
+| Marathi | `mr` | ✓ | 2020-09-01 |
+| Norvégien | `no` | ✓ |  |
+| Norvégien (Nynorsk) | `nn` | ✓ |  |
+| Odia | `or` | ✓ |  |
+| Pachto, pachtou | `ps` | ✓ |  |
+| Persan | `fa` | ✓ |  |
+| Polonais | `pl` | ✓ |  |
+| Portugais | `pt` | ✓ |  |
+| Pendjabi, penjabi | `pa` | ✓ |  |
+| Queretaro Otomi | `otq` | ✓ | 2020-09-01 |
+| Roumain, moldave | `ro` | ✓ |  |
+| Russe | `ru` | ✓ |  |
+| Samoan | `sm` | ✓ | 2020-09-01 |
+| Serbe | `sr` | ✓ |  |
+| Singhalais, cingalais | `si` | ✓ |  |
+| Slovaque | `sk` | ✓ |  |
+| Slovène | `sl` | ✓ |  |
+| Somali | `so` | ✓ |  |
+| Espagnol, castillan | `es` | ✓ |  |
+| Swahili | `sw` | ✓ |  |
+| Suédois | `sv` | ✓ |  |
+| Tagalog | `tl` | ✓ |  |
+| Tahitien | `ty` | ✓ | 2020-09-01 |
+| Tamoul | `ta` | ✓ |  |
+| Télougou | `te` | ✓ |  |
+| Thaï | `th` | ✓ |  |
+| Tonga | `to` | ✓ | 2020-09-01 |
+| Turc | `tr` | ✓ |  |
+| Ukrainien | `uk` | ✓ |  |
+| Ourdou | `ur` | ✓ |  |
+| Ouzbek | `uz` | ✓ |  |
+| Vietnamien | `vi` | ✓ |  |
+| Gallois | `cy` | ✓ |  |
+| Yiddish | `yi` | ✓ |  |
+| Yucatec Maya | `yua` | ✓ |  |
 
 ---
-
 
 ## <a name="see-also"></a>Voir aussi
 
