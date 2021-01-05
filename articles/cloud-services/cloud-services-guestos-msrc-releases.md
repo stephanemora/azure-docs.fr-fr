@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 12/15/2020
 ms.author: yohaddad
-ms.openlocfilehash: adaea28d105b72152e1af28cc9d79da19c548c2c
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 2fb1ae2bbda55a04f4e76505a55b28372af00f33
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/16/2020
-ms.locfileid: "97561407"
+ms.locfileid: "97606672"
 ---
 # <a name="azure-guest-os"></a>Système d’exploitation invité d'Azure
 Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Response Center) appliquées au système d’exploitation invité d'Azure. Parcourez cet article pour déterminer si une mise à jour spécifique s'applique au système d’exploitation invité que vous utilisez. Les mises à jour vont toujours de l'avant pour la [famille][family-explain] spécifique avec laquelle elles ont été présentées.
@@ -1171,8 +1171,8 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | Version 12-18 | [4470199] | Internet Explorer  | 2.81, 3.68, 4.61 | 11 décembre 2018 |
 | N/A | [4468323] | Mise à jour du fuseau horaire    | 2.81, 3.68, 4.61 | 13 décembre 2018 |
 | N/A | [4467107] | Correctif cumulatif de novembre non relatif à la sécurité   | 2.81 | 13 novembre 2018 |
-| N/A | [4467701] | Correctif cumulatif de novembre non relatif à la sécurité     | 3.68 | 13 novembre 2018 |
-| N/A | [4467697] | Correctif cumulatif de novembre non relatif à la sécurité     | 4.61 | 13 novembre 2018 |
+| N/A | [4467701] | Correctif cumulatif de novembre non relatif à la sécurité | 3.68 | 13 novembre 2018 |
+| N/A | [4467697] | Correctif cumulatif de novembre non relatif à la sécurité | 4.61 | 13 novembre 2018 |
 
 [4471321]: https://support.microsoft.com/kb/4471321
 [4471328]: https://support.microsoft.com/kb/4471328
