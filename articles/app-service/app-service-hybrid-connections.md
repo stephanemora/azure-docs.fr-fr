@@ -6,13 +6,13 @@ ms.assetid: 66774bde-13f5-45d0-9a70-4e9536a4f619
 ms.topic: article
 ms.date: 06/08/2020
 ms.author: ccompy
-ms.custom: seodec18, fasttrack-edit, devx-track-azurecli
-ms.openlocfilehash: c7900341cfcda52dafcb269b833f5ad8dd0f55b7
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.custom: seodec18, fasttrack-edit
+ms.openlocfilehash: 16f6a0660fa9aa20f636ee412f3f337bd5dea9b5
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92739763"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825978"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Connexions hybrides d’Azure App Service
 
@@ -56,15 +56,15 @@ Ce que vous ne pouvez pas faire avec les connexions hybrides, notamment :
 
 ## <a name="add-and-create-hybrid-connections-in-your-app"></a>Ajouter et créer des connexions hybrides dans votre application ##
 
-Pour créer une connexion hybride, accédez au [portail Azure][portal] et sélectionnez votre application. Sélectionnez **Mise en réseau** > **Configurer vos points de terminaison de connexion hybride** . Vous pouvez alors voir les connexions hybrides configurées pour votre application.  
+Pour créer une connexion hybride, accédez au [portail Azure][portal] et sélectionnez votre application. Sélectionnez **Mise en réseau** > **Configurer vos points de terminaison de connexion hybride**. Vous pouvez alors voir les connexions hybrides configurées pour votre application.  
 
 ![Capture d’écran de la liste des connexions hybrides][2]
 
-Pour ajouter une nouvelle connexion hybride, sélectionnez **[+] Ajouter une connexion hybride** .  La liste des connexions hybrides que vous avez déjà créées apparaît. Pour en ajouter une ou plusieurs à votre application, sélectionnez celles de votre choix, puis **Ajouter la connexion hybride sélectionnée** .  
+Pour ajouter une nouvelle connexion hybride, sélectionnez **[+] Ajouter une connexion hybride**.  La liste des connexions hybrides que vous avez déjà créées apparaît. Pour en ajouter une ou plusieurs à votre application, sélectionnez celles de votre choix, puis **Ajouter la connexion hybride sélectionnée**.  
 
 ![Capture d’écran du portail des connexions hybrides][3]
 
-Si vous souhaitez créer une nouvelle connexion hybride, sélectionnez **Créer une connexion hybride** . Spécifiez les éléments suivants : 
+Si vous souhaitez créer une nouvelle connexion hybride, sélectionnez **Créer une connexion hybride**. Spécifiez les éléments suivants : 
 
 - Nom de la connexion hybride.
 - Nom d’hôte du point de terminaison.
@@ -75,7 +75,7 @@ Si vous souhaitez créer une nouvelle connexion hybride, sélectionnez **Créer 
 
 Chaque connexion hybride est liée à un espace de noms Service Bus et chaque espace de noms Service Bus se trouve dans une région Azure. Il est important d’essayer d’utiliser un espace de noms Service Bus dans la même région que votre application pour éviter une latence du réseau.
 
-Si vous souhaitez supprimer votre connexion hybride de votre application, cliquez avec le bouton droit dessus et sélectionnez **Déconnecter** .  
+Si vous souhaitez supprimer votre connexion hybride de votre application, cliquez avec le bouton droit dessus et sélectionnez **Déconnecter**.  
 
 Lorsqu’une connexion hybride est ajoutée à votre application, vous pouvez afficher ses détails simplement en la sélectionnant. 
 
@@ -113,7 +113,7 @@ En plus des exigences de référence SKU de plan App Service, il existe un coût
 
 ## <a name="hybrid-connection-manager"></a>Gestionnaire de connexion hybride ##
 
-La fonctionnalité Connexions hybrides exige un agent de relais dans le réseau qui héberge votre point de terminaison de connexion hybride. Cet agent de relais est appelé le Gestionnaire de connexion hybride (GCH). Pour télécharger HCM, à partir de votre application dans le [portail Azure][portal], sélectionnez **Mise en réseau** > **Configurer vos points de terminaison de connexion hybride** .  
+La fonctionnalité Connexions hybrides exige un agent de relais dans le réseau qui héberge votre point de terminaison de connexion hybride. Cet agent de relais est appelé le Gestionnaire de connexion hybride (GCH). Pour télécharger HCM, à partir de votre application dans le [portail Azure][portal], sélectionnez **Mise en réseau** > **Configurer vos points de terminaison de connexion hybride**.  
 
 Cet outil s’exécute sur Windows Server 2012 et version ultérieure. Le HCM s’exécute en tant que service et connecte le trafic sortant à Azure Relay sur le port 443.  
 
@@ -126,7 +126,7 @@ Quand vous démarrez l’interface utilisateur HCM, vous voyez tout d’abord un
 Pour ajouter une ou plusieurs connexions hybrides à votre GCH :
 
 1. Démarrez l’interface utilisateur de HCM.
-2. Sélectionnez **Configurer une autre connexion hybride** .
+2. Sélectionnez **Configurer une autre connexion hybride**.
 ![Capture d’écran de la configuration de nouvelles connexions hybrides][8]
 
 1. Connectez-vous à votre compte Azure pour obtenir les connexions hybrides disponibles avec vos abonnements. Le HCM ne continue pas d’utiliser votre compte Azure au-delà de cela. 
@@ -134,7 +134,7 @@ Pour ajouter une ou plusieurs connexions hybrides à votre GCH :
 1. Sélectionnez les connexions hybrides à faire relayer par HCM.
 ![Capture d’écran des connexions hybrides][9]
 
-1. Sélectionnez **Enregistrer** .
+1. Sélectionnez **Enregistrer**.
 
 Vous pouvez maintenant voir les connexions hybrides que vous avez ajoutées. Vous pouvez également sélectionner la connexion hybride configurée pour en afficher les détails.
 
@@ -197,11 +197,11 @@ Commands:
 
 Tout utilisateur disposant des autorisations suffisantes sur le relais Azure Service Bus Relay sous-jacent peut ajouter une connexion hybride existante à d’autres App Service Web Apps. Cela signifie que si vous devez empêcher d’autres utilisateurs de réutiliser cette même connexion hybride (par exemple, lorsque la ressource cible est un service ne présentant pas de mesures de sécurité supplémentaires pour empêcher les accès non autorisés), vous devez verrouiller l’accès à Azure Service Bus Relay.
 
-Toute personne bénéficiant d’un accès `Reader` au relais peut _voir_ la connexion hybride lorsqu’elle essaye de l’ajouter à son application web dans le portail Azure. Toutefois, elle ne peut pas l’ _ajouter_ , car elle ne dispose pas des autorisations nécessaires pour récupérer la chaîne de connexion utilisée pour établir la connexion au relais. Pour ajouter la connexion hybride, les utilisateurs doivent disposer de l’autorisation `listKeys` (`Microsoft.Relay/namespaces/hybridConnections/authorizationRules/listKeys/action`). Le rôle `Contributor`, ou tout autre rôle comprenant cette autorisation sur le relais, permettra aux utilisateurs d’utiliser la connexion hybride et de l’ajouter à leurs propres applications web.
+Toute personne bénéficiant d’un accès `Reader` au relais peut _voir_ la connexion hybride lorsqu’elle essaye de l’ajouter à son application web dans le portail Azure. Toutefois, elle ne peut pas l’_ajouter_, car elle ne dispose pas des autorisations nécessaires pour récupérer la chaîne de connexion utilisée pour établir la connexion au relais. Pour ajouter la connexion hybride, les utilisateurs doivent disposer de l’autorisation `listKeys` (`Microsoft.Relay/namespaces/hybridConnections/authorizationRules/listKeys/action`). Le rôle `Contributor`, ou tout autre rôle comprenant cette autorisation sur le relais, permettra aux utilisateurs d’utiliser la connexion hybride et de l’ajouter à leurs propres applications web.
 
 ## <a name="troubleshooting"></a>Dépannage ##
 
-L’état « Connecté » signifie qu’au moins un HCM est configuré avec cette connexion hybride et qu’il est en mesure d’atteindre Azure. Si l’état de votre connexion hybride n’indique pas **Connecté** , votre connexion hybride n’est configurée sur aucun HCM ayant accès à Azure.
+L’état « Connecté » signifie qu’au moins un HCM est configuré avec cette connexion hybride et qu’il est en mesure d’atteindre Azure. Si l’état de votre connexion hybride n’indique pas **Connecté**, votre connexion hybride n’est configurée sur aucun HCM ayant accès à Azure.
 
 La principale raison pour laquelle les clients ne peuvent pas se connecter à leur point de terminaison est que le point de terminaison a été spécifié à l’aide d’une adresse IP au lieu d’un nom DNS. Si votre application ne peut pas accéder au point de terminaison souhaité et que vous avez utilisé une adresse IP, utilisez un nom DNS valide sur l’hôte sur lequel le GCH est exécuté. Vérifiez également que le nom DNS est correctement résolu sur l’hôte sur lequel le HCM est en cours d’exécution. Vérifiez qu’il existe une connectivité à partir de l’hôte où le HCM est en cours d’exécution vers le point de terminaison de connexion hybride.  
 

@@ -75,7 +75,7 @@
     - name: Kits SDK
       items:
         - name: .NET
-          href: /dotnet/api/overview/azure/cognitiveservices/client/bingcustomsearch?view=azure-dotnet
+          href: /dotnet/api/overview/azure/cognitiveservices/bing-custom-search-readme?view=azure-dotnet
         - name: Java - Recherche personnalisée
           href: /java/api/overview/azure/cognitiveservices/client/bingcustomsearch?view=azure-java-stable
         - name: Java - Recherche d’images personnalisée

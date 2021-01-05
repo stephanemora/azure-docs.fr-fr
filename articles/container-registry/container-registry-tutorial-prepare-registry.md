@@ -3,13 +3,13 @@ title: Tutoriel - Créer un registre géorépliqué
 description: Créez un registre de conteneurs Azure, configurez la géoréplication, préparez une image Docker et déployez-la dans le registre. Première partie d’une série en trois parties.
 ms.topic: tutorial
 ms.date: 06/30/2020
-ms.custom: seodec18, mvc, devx-track-azurecli
-ms.openlocfilehash: 804f07762bef596f4631fbc5f694ecc6b308bfad
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.custom: seodec18, mvc
+ms.openlocfilehash: 6abf1b7a524bc7dd28f1704a362749ac84de2389
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027225"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97826082"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Tutoriel : Préparer un registre de conteneurs Azure géorépliqué
 

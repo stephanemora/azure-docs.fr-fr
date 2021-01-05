@@ -8,12 +8,12 @@ ms.service: virtual-machines-linux
 ms.subservice: workloads
 ms.assetid: 8a4df7bf-be49-4198-800e-db381cda98f5
 ms.date: 10/30/2020
-ms.openlocfilehash: bab84b12c871c621b5a317ba8b47f9b18c91bff3
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: bd6ff46807c22309679ba7e8518685bb05cc77e2
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500187"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830715"
 ---
 # <a name="deploy-enterprise-java-applications-to-azure-with-jboss-eap-on-red-hat-enterprise-linux"></a>Déployer des applications Java d’entreprise sur Azure avec JBoss EAP on Red Hat Enterprise Linux
 
@@ -152,7 +152,7 @@ Pour plus d’informations sur les tarifs des machines virtuelles en mode PAYG, 
 Afin d’utiliser le modèle BYOS pour le système d’exploitation RHEL, vous devez disposer d’un abonnement Red Hat valide avec les droits d’utilisation du système d’exploitation RHEL dans Azure. Avant de déployer le système d’exploitation RHEL avec le modèle BYOS, assurez-vous de respecter les prérequis suivants :
 
 1. Vérifiez que les droits JBoss EAP et de système d’exploitation RHEL sont associés à votre abonnement Red Hat.
-2. Autorisez votre ID d’abonnement Azure à utiliser des images BYOS RHEL. Suivez la [documentation Red Hat Subscription Management](https://access.redhat.com/documentation/en/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/con-enable-subs) pour effectuer ce processus, qui comprend les étapes suivantes :
+2. Autorisez votre ID d’abonnement Azure à utiliser des images BYOS RHEL. Suivez la [documentation Red Hat Subscription Management](https://access.redhat.com/documentation/red_hat_subscription_management/1/) pour effectuer ce processus, qui comprend les étapes suivantes :
 
    1. Activez Microsoft Azure en tant que fournisseur dans votre tableau de bord Red Hat Cloud Access.
 
@@ -160,7 +160,7 @@ Afin d’utiliser le modèle BYOS pour le système d’exploitation RHEL, vous d
 
    1. Activez de nouveaux produits pour Cloud Access sur Microsoft Azure.
     
-   1. Activez les images Red Hat Gold pour votre abonnement Azure. Pour plus d’informations, consultez [Images Red Hat Gold sur Microsoft Azure](https://access.redhat.com/documentation/en/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/using_red_hat_gold_images#con-gold-image-azure).
+   1. Activez les images Red Hat Gold pour votre abonnement Azure. Pour plus d’informations, consultez [Images Red Hat Gold sur Microsoft Azure](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/cloud-access-gold-images_cloud-access#proc_using-gold-images-azure_cloud-access).
 
    1. Attendez que les images Red Hat Gold soient disponibles dans votre abonnement Azure. Ces images sont généralement disponibles dans un délai de trois heures.
     
@@ -212,7 +212,7 @@ Vous pouvez déployer le modèle selon les façons suivantes :
   ```
 
   ```
-  az group deployment create --resource-group <my-resource-group> --template-uri <raw link to the template which can be obtained from github>
+  az deployment group create --resource-group <my-resource-group> --template-uri <raw link to the template which can be obtained from github>
   ```
 
   Pour plus d’informations sur l’installation et la configuration d’Azure CLI, consultez [Installer l’interface Azure CLI](/cli/azure/install-azure-cli).
