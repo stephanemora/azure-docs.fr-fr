@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: 29f5b549bd5f5dbc421487739bb1eb8c7f120bb0
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: eb31bb09c1e09e4799715fc5a1cbca4b216b28a2
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91441026"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922964"
 ---
 # <a name="connect-a-vpn-gateway-virtual-network-gateway-to-virtual-wan"></a>Connecter une passerelle VPN (passerelle de réseau virtuel) à Virtual WAN
 
@@ -45,7 +45,7 @@ Sur la page **Configuration** de la passerelle de réseau virtuel, activez le mo
 
 ### <a name="bgp-setting"></a><a name="BGP"></a>Paramètre BGP
 
-Sur la page **Configuration** de la passerelle de réseau virtuel, vous pouvez configurer l’**ASN BGP**. Modifiez l’ASN BGP. L’ASN BGP ne peut pas être 65515. 66515 sera utilisé par Azure Virtual WAN.
+Sur la page **Configuration** de la passerelle de réseau virtuel, vous pouvez configurer l’**ASN BGP**. Modifiez l’ASN BGP. L’ASN BGP ne peut pas être 65515. 65515 sera utilisé par Azure Virtual WAN.
 
 ![Capture d’écran montrant une page de configuration de passerelle de réseau virtuel avec l’option Configurer l’ASN BGP sélectionnée.](./media/connect-virtual-network-gateway-vwan/bgp.png "bgp")
 

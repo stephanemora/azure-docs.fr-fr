@@ -5,18 +5,18 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: article
-ms.date: 11/19/2020
+ms.date: 12/07/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 589420d96a3a6dfcc1c17a1b204765022b1ce412
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 1736a1d22ccfb0f00061534d1c733ab72da4c7b0
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94916642"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922494"
 ---
 # <a name="add-and-run-code-snippets-by-using-inline-code-in-azure-logic-apps"></a>Ajoutez et exécutez des extraits de code en utilisant du code inclus dans Azure Logic Apps
 
-Lorsque vous souhaitez exécuter un extrait de code au sein de votre application logique, vous pouvez ajouter l’action **Code inclus** intégrée sous la forme d’une étape dans le flux de travail de votre application logique. Cette action fonctionne mieux lorsque vous souhaitez exécuter du code qui correspond à ce scénario :
+Lorsque vous souhaitez exécuter un extrait de code au sein de votre application logique, vous pouvez ajouter l’action Code inclus intégrée sous la forme d’une étape dans le flux de travail de votre application logique. Cette action fonctionne mieux lorsque vous souhaitez exécuter du code qui correspond à ce scénario :
 
 * S’exécute dans JavaScript. D’autres langues seront bientôt disponibles.
 
@@ -29,13 +29,13 @@ Lorsque vous souhaitez exécuter un extrait de code au sein de votre application
 * Utilise Node.js version 8.11.1. Pour en savoir plus, voir [Objets globaux standards (par catégorie)](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects).
 
   > [!NOTE]
-  > La fonction `require()` n'est pas prise en charge par l'action **Code inclus** pour l'exécution de JavaScript.
+  > La fonction `require()` n'est pas prise en charge par l'action Code inclus pour l'exécution de JavaScript.
 
-Cette action exécute l’extrait de code et renvoie la sortie de cet extrait de code sous la forme d’un jeton nommé **Result**, que vous pouvez utiliser pour les actions suivantes au sein de votre application logique. Pour d’autres scénarios visant à créer une fonction pour votre code, essayez de [créer et d’appeler une fonction Azure](../logic-apps/logic-apps-azure-functions.md) dans votre application logique.
+Cette action exécute l’extrait de code et retourne la sortie de cet extrait de code sous la forme d’un jeton nommé `Result`. Vous pouvez utiliser ce jeton avec les actions suivantes dans le flux de travail de votre application logique. Pour d’autres scénarios visant à créer une fonction pour votre code, essayez plutôt de [créer et d’appeler une fonction Azure](../logic-apps/logic-apps-azure-functions.md) dans votre application logique.
 
 Dans cet article, l’exemple d’application logique se déclenche lorsqu’un nouvel e-mail arrive dans un compte professionnel ou scolaire. L’extrait de code extrait et renvoie toutes les adresses e-mail qui s’affichent dans le corps du message.
 
-![Présentation des exemples](./media/logic-apps-add-run-inline-code/inline-code-example-overview.png)
+![Capture d’écran montrant un exemple d’application logique](./media/logic-apps-add-run-inline-code/inline-code-example-overview.png)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -43,38 +43,55 @@ Dans cet article, l’exemple d’application logique se déclenche lorsqu’un 
 
 * Application logique dans laquelle vous souhaitez ajouter votre extrait de code, y compris un déclencheur. Si vous n’avez pas d’application logique, consultez la section [Démarrage rapide : Créer votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-   L’exemple d’application logique de cette rubrique utilise ce déclencheur Outlook Office 365 : **When a new email arrives** (Quand un nouveau courrier électronique arrive)
+   L’exemple de cette rubrique utilise le déclencheur Office 365 Outlook intitulé **quand un nouvel e-mail arrive**.
 
-* [Compte d’intégration](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) lié à votre application logique. Si vous ne souhaitez pas créer ou utiliser un compte d’intégration, essayez de créer une application logique dans le portail Azure à l’aide du nouveau type de ressource **Logic App (préversion)** ou dans Visual Studio Code à l’aide de la nouvelle [extension en préversion Azure Logic Apps](../logic-apps/create-stateful-stateless-workflows-visual-studio-code.md).
+* [Compte d’intégration](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) lié à votre application logique.
 
-  > [!NOTE]
-  > Veillez à utiliser un compte d'intégration adapté à votre cas d'usage ou scénario. Par exemple, les comptes d'intégration de [niveau gratuit](../logic-apps/logic-apps-pricing.md#integration-accounts) sont uniquement destinés aux charges de travail et aux scénarios exploratoires, et non aux scénarios de production ; ils sont limités en termes d'utilisation et de débit, et ne sont pris en charge par aucun contrat de niveau de service (SLA). Les autres niveaux sont payants, mais incluent la prise en charge des contrats SLA, fournissent davantage de débit et offrent des limites plus élevées. Apprenez-en davantage sur les [niveaux](../logic-apps/logic-apps-pricing.md#integration-accounts), la [tarification](https://azure.microsoft.com/pricing/details/logic-apps/) et les [limites](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits) des comptes d'intégration.
+  * Veillez à utiliser un compte d'intégration adapté à votre cas d'usage ou scénario.
+
+    Par exemple, les comptes d'intégration de [niveau gratuit](../logic-apps/logic-apps-pricing.md#integration-accounts) sont uniquement destinés aux charges de travail et aux scénarios exploratoires, et non aux scénarios de production ; ils sont limités en termes d'utilisation et de débit, et ne sont pris en charge par aucun contrat de niveau de service (SLA). Les autres niveaux sont payants, mais incluent la prise en charge des contrats SLA, fournissent davantage de débit et offrent des limites plus élevées. Apprenez-en davantage sur les [niveaux](../logic-apps/logic-apps-pricing.md#integration-accounts), la [tarification](https://azure.microsoft.com/pricing/details/logic-apps/) et les [limites](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits) des comptes d'intégration.
+
+   * Si vous ne souhaitez pas utiliser un compte d’intégration, vous pouvez essayer d’utiliser [Préversion Azure Logic Apps](logic-apps-overview-preview.md) et créer une application logique à partir du type de ressource **Application logique (préversion)** .
+
+     Dans Préversion Azure Logic Apps, l’option **Code inlined** s’appelle désormais **Opérations de code inlined**, avec ces autres différences :
+
+     * **Exécuter du code JavaScript** s’appelle maintenant **Exécuter des JavaScript inlined**.
+
+     * Si vous utilisez macOS ou Linux, les actions Opérations de code inlined sont actuellement indisponibles lorsque vous utilisez l’extension Azure Logic Apps (préversion) dans Visual Studio Code.
+
+     * Les actions Opérations de code inlined ont des [limites mises à jour](logic-apps-overview-preview.md#inline-code-limits).
+
+     Vous pouvez démarrer à partir de l’une des options suivantes :
+
+     * Créer l’application logique à partir du type de ressource **Application logique (préversion)** [En utilisant le portail Azure](create-stateful-stateless-workflows-azure-portal.md).
+
+     * Créer un projet pour l’application logique [en utilisant Visual Studio Code et l’extension Azure Logic Apps (préversion)](create-stateful-stateless-workflows-visual-studio-code.md)
 
 ## <a name="add-inline-code"></a>Ajouter du code inclus
 
 1. Si ce n’est déjà fait, dans le [Portail Microsoft Azure](https://portal.azure.com), ouvrez votre application logique dans le Concepteur d’application logique.
 
-1. Dans le concepteur, ajoutez l’action **Code inclus** à l’emplacement souhaité dans le flux de travail de votre application logique.
+1. Dans le concepteur, indiquez l’emplacement où ajouter l’action de code inclus dans le flux de travail de votre application logique.
 
-   * Pour ajouter l’action à la fin de votre flux de travail, choisissez **Nouvelle étape**.
+   * Pour ajouter l’action à la fin de votre flux de travail, sélectionnez **Nouvelle étape**.
 
-   * Pour ajouter l’action entre des étapes existantes, déplacez votre pointeur de souris sur la flèche qui connecte ces étapes. Cliquez sur le signe plus ( **+** ), puis sélectionnez **Ajouter une action**.
+   * Pour ajouter l’action entre des étapes, déplacez votre pointeur de souris sur la flèche qui connecte ces étapes. Sélectionnez le signe plus ( **+** ) qui s’affiche, puis sélectionnez **Ajouter une action**.
 
-   Cet exemple ajoute l’action **Code inclus** sous le déclencheur Office 365 Outlook.
+   Cet exemple ajoute l’action Code inclus sous le déclencheur Office 365 Outlook.
 
-   ![Ajouter une nouvelle étape](./media/logic-apps-add-run-inline-code/add-new-step.png)
+   ![Ajouter la nouvelle étape sous le déclencheur](./media/logic-apps-add-run-inline-code/add-new-step.png)
 
-1. Sous **Choisir une action**, dans la zone de recherche, entrez « code inclus » à titre de filtre. Dans la liste des actions, sélectionnez cette action : **Exécuter du code JavaScript**
+1. Sous **Choisir une action**, dans la zone de recherche, entrez `inline code`. Dans la liste des actions, sélectionnez l’action **Exécuter du code JavaScript**.
 
-   ![Sélectionnez « Exécuter du code JavaScript »](./media/logic-apps-add-run-inline-code/select-inline-code-action.png)
+   ![Sélectionner l’action « Exécuter du code JavaScript »](./media/logic-apps-add-run-inline-code/select-inline-code-action.png)
 
-   Cette action s’affiche dans le concepteur. Elle contient un exemple de code par défaut, y compris une instruction return.
+   Cette action s’affiche par défaut dans le concepteur et contient un exemple de code, y compris une instruction `return`.
 
    ![Action Code inclus avec un exemple de code par défaut](./media/logic-apps-add-run-inline-code/inline-code-action-default.png)
 
-1. Dans la zone **Code**, supprimez l’exemple de code et saisissez le code que vous souhaitez exécuter. Écrivez le code que vous voulez placer à l’intérieur d’une méthode, mais sans définir la signature de méthode.
+1. Dans la zone **Code**, supprimez l’exemple de code et saisissez votre code. Écrivez le code que vous voulez placer à l’intérieur d’une méthode, mais sans la signature de méthode.
 
-   Lorsque vous tapez un mot clé reconnu, la liste de saisie semi-automatique s’affiche afin que vous puissiez sélectionner des mots clés parmi ceux qui sont disponibles, par exemple :
+   Si vous commencez à taper un mot clé reconnu, la liste de saisie semi-automatique s’affiche afin que vous puissiez sélectionner des mots clés parmi ceux qui sont disponibles, par exemple :
 
    ![Liste de saisie semi-automatique de mots clés](./media/logic-apps-add-run-inline-code/auto-complete.png)
 
@@ -88,10 +105,9 @@ Dans cet article, l’exemple d’application logique se déclenche lorsqu’un 
 
    ![Sélection d’un résultat](./media/logic-apps-add-run-inline-code/inline-code-example-select-outputs.png)
 
-   Dans la zone **Code**, votre extrait de code peut utiliser l’objet `workflowContext` en lecture seule. Cet objet possède des sous-propriétés qui permettent à votre code d’accéder aux résultats provenant du déclencheur, ainsi que les actions précédentes, dans votre flux de travail. Pour en savoir plus, consultez la section suivante du présent document : [Faire référence aux résultats des actions et du déclencheur dans votre code](#workflowcontext).
+   Dans la zone **Code**, votre extrait de code peut utiliser l’objet `workflowContext` en lecture seule. Cet objet inclut des sous-propriétés qui permettent à votre code d’accéder aux résultats provenant du déclencheur, ainsi que les actions précédentes, dans votre flux de travail. Pour plus d’informations, consultez la section [Faire référence aux résultats des actions et du déclencheur dans votre code](#workflowcontext) plus loin dans cette rubrique.
 
    > [!NOTE]
-   >
    > Si votre extrait de code fait référence à des noms d’action qui utilisent l’opérateur point (.), vous devez ajouter ces noms d’actions au paramètre [**Actions**](#add-parameters). Ces références doivent également placer les noms d’action entre des crochets ([]) et des guillemets, par exemple :
    >
    > `// Correct`</br> 
@@ -210,12 +226,12 @@ Dans l’exemple de cette rubrique, l’objet `workflowContext` présente les pr
 
 ## <a name="add-parameters"></a>Ajout de paramètres
 
-Dans certains cas, vous devrez peut-être demander explicitement à l’action **Code inclus** d’inclure les résultats du déclencheur ou d’actions spécifiques référencées par votre code en tant que dépendances, en ajoutant les paramètres **Déclencheur** ou **Actions**. Cette option est utile pour les scénarios dans lesquels le système ne trouve pas les résultats référencés au moment de l’exécution.
+Dans certains cas, vous devrez peut-être demander explicitement à l’action Code inclus d’inclure les résultats du déclencheur ou d’actions spécifiques référencées par votre code en tant que dépendances, en ajoutant les paramètres **Déclencheur** ou **Actions**. Cette option est utile pour les scénarios dans lesquels le système ne trouve pas les résultats référencés au moment de l’exécution.
 
 > [!TIP]
 > Si vous projetez de réutiliser votre code, ajoutez des références aux propriétés à l’aide de la zone **Code**, afin que votre code inclue les références des jetons résolus, plutôt que d’ajouter le déclencheur ou les actions en tant que dépendances explicites.
 
-Par exemple, supposons que vous disposiez du code qui fait référence au résultat **SelectedOption** de l’action **Envoyer un e-mail d’approbation** pour le connecteur Office 365 Outlook. Lors de la création, le moteur Logic Apps analyse votre code pour déterminer si vous avez référencé des résultats d’actions ou de déclencheur et inclut ces résultats automatiquement. Lors de l’exécution, si vous obtenez une erreur indiquant que le résultat d’action ou de déclencheur référencé n’est pas disponible dans l’objet `workflowContext` spécifié, vous pouvez ajouter ce déclencheur ou cette action en tant que dépendance explicite. Dans cet exemple, vous ajoutez le paramètre **Actions** et spécifiez que l’action **Code inclus** doit inclure explicitement le résultat de l’action **Envoyer un e-mail d’approbation**.
+Par exemple, supposons que vous disposiez du code qui fait référence au résultat **SelectedOption** de l’action **Envoyer un e-mail d’approbation** pour le connecteur Office 365 Outlook. Lors de la création, le moteur Logic Apps analyse votre code pour déterminer si vous avez référencé des résultats d’actions ou de déclencheur et inclut ces résultats automatiquement. Lors de l’exécution, si vous obtenez une erreur indiquant que le résultat d’action ou de déclencheur référencé n’est pas disponible dans l’objet `workflowContext` spécifié, vous pouvez ajouter ce déclencheur ou cette action en tant que dépendance explicite. Dans cet exemple, vous ajoutez le paramètre **Actions** et spécifiez que l’action Code inclus doit inclure explicitement le résultat de l’action **Envoyer un e-mail d’approbation**.
 
 Pour ajouter ces paramètres, ouvrez la liste **Ajouter un nouveau paramètre**, puis sélectionnez les paramètres de votre choix :
 
@@ -255,13 +271,13 @@ Si vous sélectionnez **Actions**, vous êtes invité à indiquer les actions qu
 
    ![Rechercher le nom d’une action dans JSON](./media/logic-apps-add-run-inline-code/find-action-name-json.png)
 
-1. Pour revenir au mode Création, dans la barre d’outils du mode Code, choisissez **Concepteur**.
+1. Pour revenir au mode Création, dans la barre d’outils du mode Code, sélectionnez **Concepteur**.
 
 1. Pour ajouter la première action dans la zone **Élément d’action - 1**, saisissez le nom JSON de l’action.
 
    ![Indiquer la première action](./media/logic-apps-add-run-inline-code/add-action-parameter.png)
 
-1. Pour ajouter une autre action, choisissez **Ajouter un nouvel élément**.
+1. Pour ajouter une autre action, sélectionnez **Ajouter un nouvel élément**.
 
 ## <a name="reference"></a>Informations de référence
 

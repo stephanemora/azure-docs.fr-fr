@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 11/09/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4fa0f4d87567bd77faacfd2373dba0d2b8996446
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: 81a1263d0eacbffa77e2e35e4594e23235394183
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94873367"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108669"
 ---
 # <a name="localization-string-ids"></a>ID de chaînes de localisation
 
@@ -442,7 +442,7 @@ Voici les ID des messages d’erreur de [profil technique du service Restful](re
 
 ## <a name="azure-ad-mfa-error-messages"></a>Messages d’erreur Azure AD MFA
 
-Voici les ID d’un message d’erreur de [profil technique Azure AD MFA](multi-factor-auth-technical-profile.md) :
+Voici les ID des messages d’erreur de [profil technique Azure AD MFA](multi-factor-auth-technical-profile.md) :
 
 | id | Valeur par défaut |
 | -- | ------------- |
@@ -547,5 +547,5 @@ Voici les ID des messages d’erreur relatifs aux transformations de revendicati
 
 Pour voir des exemples de localisation, consultez les articles suivants :
 
-- [Personnalisation de la langue avec la stratégie personnalisée dans Azure Active Directory B2C](custom-policy-localization.md)
-- [Personnalisation de la langue avec les flux d’utilisateurs dans Azure Active Directory B2C](user-flow-language-customization.md)
+- [Personnalisation de la langue avec la stratégie personnalisée dans Azure Active Directory B2C](language-customization.md)
+- [Personnalisation de la langue avec les flux d’utilisateurs dans Azure Active Directory B2C](language-customization.md)

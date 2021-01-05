@@ -3,17 +3,17 @@ title: 'Niveaux d’accès pour Stockage Blob Azure : chaud, froid et archive'
 description: En savoir plus sur les niveaux d’accès chaud, froid et archive pour Stockage Blob Azure. Examinez les comptes de stockage qui prennent en charge la hiérarchisation. Comparez les options de stockage d’objets blob de blocs.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 10/29/2020
+ms.date: 12/08/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 87106cce018a2b2663de2a9abbb43b31ab58c125
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 51998c159018b614ab519766c54fdddf7437e95b
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96007322"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96923987"
 ---
 # <a name="access-tiers-for-azure-blob-storage---hot-cool-and-archive"></a>Niveaux d’accès pour Stockage Blob Azure : chaud, froid et archive
 
@@ -112,6 +112,11 @@ Lorsqu’un objet blob est déplacé vers un niveau plus chaud (archive->froid, 
 
 Les objets blob déplacés vers le niveau d’accès froid (comptes GPv2 uniquement) sont soumis à une période de suppression anticipée du niveau d’accès froid de 30 jours. Les objets blob déplacés vers le niveau archive sont soumis à une période de suppression anticipée de 180 jours. Ces charges sont calculées au prorata. Par exemple, si un objet blob est déplacé vers le niveau archive puis supprimé ou déplacé vers le niveau d’accès chaud après 45 jours, des frais de suppression anticipée équivalents à 135 (180 moins 45) jours de stockage de cet objet blob dans le niveau archive vous seront facturés.
 
+Voici quelques informations concernant le déplacement entre les niveaux froid et archive :
+
+1. S’il est déduit qu’un objet blob se trouve au niveau froid en fonction du niveau d’accès par défaut du compte de stockage et que l’objet blob est déplacé vers le niveau archive, il n’y a aucuns frais de suppression anticipée.
+1. Si un objet blob est explicitement déplacé vers le niveau froid, puis déplacé vers le niveau archive, des frais de suppression anticipée s’appliquent.
+
 Vous pouvez calculer la suppression anticipée en utilisant la propriété blob, **Last-Modified**, s’il n’y a pas eu de changement de niveau d’accès. Sinon, vous pouvez l’utiliser lorsque le niveau d’accès a été défini sur froid ou archive en affichant la propriété blob : **access-tier-change-time**. Pour plus d’informations sur les propriétés de l’objet blob, consultez [Get Blob Properties](/rest/api/storageservices/get-blob-properties).
 
 ## <a name="comparing-block-blob-storage-options"></a>Comparaison des options de stockage d’objets blob de blocs
@@ -123,7 +128,7 @@ Le tableau suivant présente une comparaison du stockage d’objets blob de bloc
 | **Disponibilité**                          | 99,9 %                     | 99,9 %        | 99 %                 | Hors connexion           |
 | **Disponibilité** <br> **(Lectures RA-GRS)**  | N/A                       | 99,99 %       | 99,9 %               | Hors connexion           |
 | **Frais d’utilisation**                         | Coûts de stockage supérieurs, coût d’accès et de transaction inférieur | Coûts de stockage supérieurs, coûts d'accès et de transaction inférieurs | Coûts de stockage inférieurs, coûts d'accès et de transaction supérieurs | Coûts de stockage les plus faibles, coûts d'accès et de transaction les plus élevés |
-| **Taille minimale des objets**                   | N/A                       | N/A          | N/A                 | N/A               |
+| **Taille minimale des objets**                   | N/A                       | NON APPLICABLE          | N/A                 | N/A               |
 | **Durée de stockage minimale**              | N/A                       | N/A          | 30 jours<sup>1</sup> | 180 jours
 | **Latence** <br> **(Temps jusqu’au premier octet)** | Millisecondes à un chiffre | millisecondes | millisecondes        | heures<sup>2</sup> |
 

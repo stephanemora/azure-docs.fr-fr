@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 72d774b4ced6471ff7b355b2cb43c3c9127b5975
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: f0c9a01e43f12e8fbe597c85c22b79c0994305e3
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658517"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938866"
 ---
 # <a name="supported-postgresql-major-versions"></a>Versions principales de PostgreSQL prises en charge
 
@@ -38,10 +38,10 @@ La version mineure actuelle est 9.5.20. Consultez la [documentation PostgreSQL](
 ## <a name="managing-upgrades"></a>Gestion des mises à niveau
 Le projet PostgreSQL publie régulièrement des versions mineures pour corriger les bogues signalés. Azure Database pour PostgreSQL répare automatiquement les serveurs avec des versions mineures pendant les déploiements mensuels du service. 
 
-Les mises à niveau sur place automatiques pour les versions majeures ne sont pas prises en charge. Pour effectuer une mise à niveau vers la version majeure suivante : 
-   * Consultez les différentes méthodes permettant d’effectuer des [mises à niveau de version majeure à l’aide de dump et restore](./how-to-upgrade-using-dump-and-restore.md)
+Les mises à niveau sur place automatiques pour les versions majeures ne sont pas prises en charge. Pour effectuer une mise à niveau vers la version majeure supérieure : 
+   * Vous pouvez utiliser une des méthodes documentées dans les [mises à niveau de version majeure à l’aide de dump et restore](./how-to-upgrade-using-dump-and-restore.md).
    * Vous pouvez utiliser [pg_dump et pg_restore](./howto-migrate-using-dump-and-restore.md) pour déplacer une base de données vers un serveur créé avec la nouvelle version du moteur.
-   * Vous pouvez également procéder à une mise à niveau de PostgreSQL 10 vers la version 11 à l’aide d’[Azure Database Migration Service](..\dms\tutorial-azure-postgresql-to-azure-postgresql-online-portal.md).
+   * Vous pouvez utiliser [Azure Database Migration Service](..\dms\tutorial-azure-postgresql-to-azure-postgresql-online-portal.md) pour effectuer des mises à niveau en ligne.
 
 ### <a name="version-syntax"></a>Syntaxe de version
 Avant PostgreSQL version 10, la [stratégie de gestion de version PostgreSQL](https://www.postgresql.org/support/versioning/) considérait une _mise à niveau principale_ comme une augmentation du premier _ou_ du deuxième nombre. Par exemple, une mise à niveau de la version 9.5 vers la version 9.6 était considérée comme une mise à niveau _principale_. Depuis la version 10, seule une modification du premier numéro est considérée comme une mise à niveau principale. Par exemple, une mise à niveau de la version 10.0 vers la version 10.1 est une mise à niveau _mineure_. Une mise à niveau de la version 10 à 11 est une mise à niveau _principale_.

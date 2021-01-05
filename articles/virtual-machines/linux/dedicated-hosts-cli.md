@@ -4,21 +4,21 @@ description: Déployez des machines virtuelles et des instances de groupes ident
 author: cynthn
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 09/25/2020
+ms.date: 11/12/2020
 ms.author: cynthn
-ms.openlocfilehash: d99f8c380b486ed818aff64782ca817dab41c916
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ef0c8d53d885f11acdcf578db155de3d7848887e
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91975279"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97360065"
 ---
 # <a name="deploy-to-dedicated-hosts-using-the-azure-cli"></a>Déployer sur des hôtes dédiés avec Azure CLI
  
 
 Cet article vous guide dans la création d’un [hôte dédié](../dedicated-hosts.md) Azure pour héberger vos machines virtuelles. 
 
-Vérifiez que vous avez installé Azure CLI version 2.0.70 ou version ultérieure, et que vous êtes connecté à un compte Azure avec `az login`. 
+Vérifiez que vous avez installé Azure CLI version 2.16.0 ou version ultérieure, et que vous êtes connecté à un compte Azure avec `az login`. 
 
 
 ## <a name="limitations"></a>Limites
@@ -65,14 +65,6 @@ az vm host group create \
 
 Ajoutez le paramètre `--automatic-placement true` pour que vos machines virtuelles et vos instances de groupes identiques soient placées automatiquement sur les hôtes au sein d’un groupe hôte. Pour plus d’informations, consultez [Sélection élective manuelle ou automatique](../dedicated-hosts.md#manual-vs-automatic-placement).
 
-> [!IMPORTANT]
-> La fonctionnalité Sélection élective automatique est actuellement en préversion publique.
->
-> Pour participer à la préversion, répondez à l’enquête d’intégration sur [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview).
->
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. 
->
-> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ### <a name="other-examples"></a>Autres exemples
 
@@ -133,16 +125,7 @@ Pour placer la machine virtuelle sur un hôte spécifique, utilisez `--host` au 
 > [!WARNING]
 > Toute machine virtuelle créée sur un hôte qui ne dispose pas d’un nombre de ressources suffisant présente un état ÉCHEC. 
 
-## <a name="create-a-scale-set-preview"></a>Créer un groupe identique (préversion)
-
-> [!IMPORTANT]
-> La fonctionnalité Groupes de machines virtuelles identiques sur Dedicated Host est actuellement en préversion publique.
->
-> Pour participer à la préversion, répondez à l’enquête d’intégration sur [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview).
->
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. 
->
-> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+## <a name="create-a-scale-set"></a>Créer un groupe identique 
 
 Lorsque vous déployez un groupe identique, vous spécifiez le groupe hôte.
 

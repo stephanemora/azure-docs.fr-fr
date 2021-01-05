@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/21/2020
-ms.openlocfilehash: 2fd7a3e512b79651fdcf6a6ac0c14822361fc263
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: b8f9759d19089f74d62def41b205d862ce9a7d43
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350192"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359725"
 ---
 # <a name="azure-hdinsight-40-overview"></a>Vue d’ensemble d’Azure HDInsight 4.0
 
@@ -38,7 +38,12 @@ Hive prend désormais en charge les vues matérialisées dynamiques, ou le préc
 
 ### <a name="hive-transactional-tables"></a>Tables transactionnelles Hive
 
-HDI 4.0 inclut Apache Hive 3. Hive 3 nécessite une conformité ACID (atomicité, cohérence, isolation, durabilité) pour les tables transactionnelles qui résident dans l’entrepôt Hive. Les tables de conformité ACID et les données de table sont accessibles et gérées par Hive. Les données des tables CRUD (créer, récupérer, mettre à jour et supprimer) doivent être au format de fichier ORC (Optimized Row Column). Les tables à insertion uniquement prennent en charge tous les formats de fichier.
+HDI 4.0 inclut Apache Hive 3. Hive 3 nécessite une conformité ACID (atomicité, cohérence, isolation, durabilité) pour les tables transactionnelles qui résident dans l’entrepôt Hive. Les tables de conformité ACID et les données de table sont accessibles et gérées par Hive. Les données des tables CRUD (créer, récupérer, mettre à jour et supprimer) doivent être au format de fichier ORC (Optimized Row Column). Les tables à insertion uniquement prennent en charge tous les formats de fichier. 
+
+> [!Note]
+> La prise en charge ACID/transactionnelle ne fonctionne que pour les tables managées et non pour les tables externes. Les tables externes Hive sont conçues pour permettre aux parties externes de lire et d’écrire des données de table, sans avoir à modifier les données sous-jacentes. Pour les tables ACID, Hive peut modifier les données sous-jacentes avec des compactages et des transactions.
+
+Voici quelques-uns des avantages des tables ACID :
 
 * ACID v2 améliore les performances au niveau du format de stockage et du moteur d’exécution.
 

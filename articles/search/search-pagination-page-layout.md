@@ -7,19 +7,22 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/01/2020
-ms.openlocfilehash: e583cedc04113615c50cc9906cbd11a99ff48683
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.date: 12/09/2020
+ms.openlocfilehash: 182ec758a8764a959b39296163e63e800cf5108c
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421717"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008482"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Guide pratique pour utiliser les résultats de recherche dans Recherche cognitive Azure
 
-Cet article explique comment obtenir une réponse à une requête qui renvoie le nombre total de documents correspondants, les résultats paginés, les résultats triés et les termes mis en surbrillance.
+Cet article explique comment formuler une réponse à une requête dans Recherche cognitive Azure. La structure d’une réponse est déterminée par les paramètres de la requête : [Search Document](/rest/api/searchservice/Search-Documents) dans l’API REST, ou [SearchResults Class](/dotnet/api/azure.search.documents.models.searchresults-1) dans le Kit de développement logiciel (SDK) .NET. Vous pouvez utiliser les paramètres de la requête pour structurer le jeu de résultats des manières suivantes :
 
-La structure d’une réponse est déterminée par les paramètres de la requête : [Search Document](/rest/api/searchservice/Search-Documents) dans l’API REST, ou [SearchResults Class](/dotnet/api/azure.search.documents.models.searchresults-1) dans le Kit de développement logiciel (SDK) .NET.
++ Limiter ou traiter par lot le nombre de documents dans les résultats (50 par défaut)
++ Sélection des champs à inclure dans les résultats
++ Classer les résultats
++ Mettre en surbrillance un terme entier ou partiel correspondant dans le corps des résultats de la recherche
 
 ## <a name="result-composition"></a>Composition des résultats
 
@@ -38,6 +41,14 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 
 > [!NOTE]
 > Si vous souhaitez inclure des fichiers image dans un résultat, tel qu’une photo de produit ou un logo, stockez-les en dehors de Recherche cognitive Azure, mais incluez un champ dans votre index pour référencer l’URL d’image dans le document de recherche. Les exemples d’index qui prennent en charge les images dans les résultats incluent la démonstration **realestate-sample-us**, présentée dans ce [guide de démarrage rapide](search-create-app-portal.md), et l’[application de démonstration New York City Jobs](https://aka.ms/azjobsdemo).
+
+### <a name="tips-for-unexpected-results"></a>Conseils en cas de résultats inattendus
+
+Parfois, la substance et non la structure de résultats est inattendue. Quand les résultats de requête sont inattendus, vous pouvez essayer ces modifications de requête pour voir si les résultats s’améliorent :
+
++ Remplacez **`searchMode=any`** (valeur par défaut) par **`searchMode=all`** pour exiger des correspondances sur tous les critères plutôt que sur un seul d’entre eux. Cela s’applique particulièrement quand des opérateurs booléens sont inclus dans la requête.
+
++ Expérimentez différents analyseurs lexicaux ou analyseurs personnalisés pour déterminer s’ils modifient le résultat de la requête. L’analyseur par défaut fractionne les mots avec tirets et réduit les mots aux formes racines, ce qui améliore généralement la robustesse d’une réponse de requête. Toutefois, si vous devez conserver les tirets ou si des chaînes incluent des caractères spéciaux, vous devrez peut-être configurer des analyseurs personnalisés pour vous assurer que l’index contient des jetons au format approprié. Pour plus d’informations, consultez [Recherche de termes partiels et modèles avec des caractères spéciaux (traits d’union, caractères génériques, expressions régulières, modèles)](search-query-partial-matching.md).
 
 ## <a name="paging-results"></a>Résultats de pagination
 
@@ -80,9 +91,9 @@ Notez que le document 2 est extrait 2 fois. Cela est dû au fait que le nouvea
 
 ## <a name="ordering-results"></a>Classement des résultats
 
-Pour les requêtes de recherche en texte intégral, les résultats sont automatiquement classés en fonction d’un score de recherche, calculé sur la base de la fréquence et de la proximité des termes dans un document, les scores les plus élevés étant attribués aux documents présentant des correspondances plus nombreuses ou plus fortes sur un terme de recherche. 
+Pour les requêtes de recherche en texte intégral, les résultats sont automatiquement classés en fonction d’un score de recherche, calculé sur la base de la fréquence et de la proximité des termes dans un document (valeurs dérivées de [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)), les scores les plus élevés étant attribués aux documents présentant des correspondances plus nombreuses ou plus fortes sur un terme de recherche. 
 
-Les scores de recherche donnent une impression générale de pertinence, reflétant la force de la correspondance par rapport à d’autres documents du même jeu de résultats. Les scores ne sont pas toujours cohérents d’une requête à l’autre. Par conséquent, lorsque vous utilisez des requêtes, vous pouvez remarquer des différences mineures dans l’ordre des documents recherchés. Il existe plusieurs explications à cette situation.
+Les scores de recherche donnent une impression générale de pertinence, reflétant la force de la correspondance par rapport à d’autres documents du même jeu de résultats. Mais les scores ne sont pas toujours cohérents d’une requête à l’autre. Par conséquent, lorsque vous utilisez des requêtes, vous pouvez remarquer des différences mineures dans l’ordre des documents recherchés. Il existe plusieurs explications à cette situation.
 
 | Cause | Description |
 |-----------|-------------|
@@ -90,11 +101,11 @@ Les scores de recherche donnent une impression générale de pertinence, reflét
 | Réplicas multiples | Pour les services qui utilisent plusieurs réplicas, les requêtes sont émises en parallèle pour chaque réplicas. Les statistiques d’index utilisées pour calculer un score de recherche sont calculées par réplica, les résultats étant fusionnés et classés dans la réponse de la requête. Les réplicas sont principalement des miroirs les uns des autres, mais les statistiques peuvent varier en raison de petites différences d’état. Par exemple, un réplica peut avoir supprimé des documents contribuant à leurs statistiques, qui ont été fusionnées à partir d’autres réplicas. En règle générale, les différences dans les statistiques par réplica sont plus perceptibles dans les index plus petits. |
 | Scores identiques | Si plusieurs documents ont le même score, chacun d’entre eux peut apparaître en premier.  |
 
-### <a name="consistent-ordering"></a>Classement cohérent
+### <a name="how-to-get-consistent-ordering"></a>Guide pratique pour obtenir un classement cohérent
 
-Étant donné la flexibilité dans le classement des résultats, vous souhaiterez peut-être explorer d’autres options si la cohérence est une exigence de l’application. L’approche la plus simple consiste à trier en fonction d’une valeur de champ, comme une évaluation ou une date. Pour les scénarios où vous souhaitez effectuer un tri en fonction d’un champ spécifique, tel qu’une évaluation ou une date, vous pouvez définir explicitement une [expression `$orderby`](query-odata-filter-orderby-syntax.md), qui peut être appliquée à n’importe quel champ indexé en tant que **Triable**.
+Si une application nécessite un classement cohérent, vous pouvez définir explicitement une expression [ **`$orderby`** ] (query-odata-filter-orderby-syntax.md) sur un champ. Seuls les champs qui sont indexés en tant que **`sortable`** peuvent être utilisés pour trier les résultats. Les champs couramment utilisés dans **`$orderby`** incluent les champs d’évaluation, de date et d’emplacement si vous spécifiez la valeur du paramètre **`orderby`** pour inclure les noms de champs et les appels à la [**fonction `geo.distance()`** ](query-odata-filter-orderby-syntax.md) pour les valeurs géospatiales.
 
-Une autre option consiste à utiliser un [profil de scoring personnalisé](index-add-scoring-profiles.md). Les profils de scoring vous permettent de mieux contrôler le classement des éléments dans les résultats de recherche, avec la possibilité d’augmenter le nombre de correspondances trouvées dans des champs spécifiques. La logique de scoring supplémentaire peut aider à surmonter les différences mineures entre les réplicas, car les scores de recherche pour chaque document sont plus éloignés les uns des autres. Nous vous recommandons d’utiliser l’[algorithme de classement](index-ranking-similarity.md) pour cette approche.
+Une autre approche qui favorise la cohérence consiste à utiliser un [profil de score personnalisé](index-add-scoring-profiles.md). Les profils de scoring vous permettent de mieux contrôler le classement des éléments dans les résultats de recherche, avec la possibilité d’augmenter le nombre de correspondances trouvées dans des champs spécifiques. La logique de scoring supplémentaire peut aider à surmonter les différences mineures entre les réplicas, car les scores de recherche pour chaque document sont plus éloignés les uns des autres. Nous vous recommandons d’utiliser l’[algorithme de classement](index-ranking-similarity.md) pour cette approche.
 
 ## <a name="hit-highlighting"></a>Mise en surbrillance des correspondances
 

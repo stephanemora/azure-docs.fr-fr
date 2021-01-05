@@ -8,19 +8,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 01/24/2019
+ms.date: 11/02/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: cba8837fc738884fc187b13083487c2ab62d25f0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 21c8e75ac81a443b1dd9d4a0f43263bbf40bee88
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020090"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359198"
 ---
 # <a name="add-non-microsoft-accounts-to-the-microsoft-authenticator-app"></a>Ajouter vos comptes non-Microsoft à l’application Microsoft Authenticator
 
-Ajoutez vos comptes non-Microsoft, tels que Google, Facebook ou GitHub, à l'application Microsoft Authenticator pour la vérification en deux étapes. L'application Microsoft Authenticator fonctionne avec n'importe quelle application qui utilise la vérification en deux étapes et n'importe quel compte qui prend en charge les mots de passe à usage unique et durée définie (normes TOTP).
+Si vous possédez des comptes non-Microsoft, tels que Google, Facebook ou GitHub, vous pouvez les ajouter à l'application Microsoft Authenticator pour la vérification en deux étapes. L'application Microsoft Authenticator fonctionne avec n'importe quelle application qui utilise la vérification en deux étapes et n'importe quel compte qui prend en charge les mots de passe à usage unique et durée définie (normes TOTP).
 
 >[!Important]
 >Avant de pouvoir ajouter votre compte, vous devez télécharger et installer l’application Microsoft Authenticator. Si ce n’est pas déjà fait, suivez la procédure décrite dans l’article [Télécharger et installer l’application](user-help-auth-app-download-install.md).
@@ -130,7 +130,7 @@ Ajoutez votre compte GitHub en activant la vérification en deux étapes, puis e
 
 1. Sur la page **Authentification à deux facteurs** de votre ordinateur, sélectionnez **Configurer à l'aide d'une application**.
 
-2. Enregistrez vos codes de récupération afin de pouvoir retourner sur votre compte si vous en perdez l'accès, puis sélectionnez **Suivant**. 
+2. Enregistrez vos codes de récupération afin de pouvoir retourner sur votre compte si vous en perdez l'accès, puis sélectionnez **Suivant**.
 
     Pour enregistrer vos codes, téléchargez-les sur votre appareil, imprimez-les ou copiez-les dans un outil de gestion des mots de passe.
 

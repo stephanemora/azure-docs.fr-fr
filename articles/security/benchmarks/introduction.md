@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: f3b492534bedde50d2413b88fa38cd6325ed5df7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 32aa64a9343a8e3c62af4322b3320b28ce805064
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91328256"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97369189"
 ---
 # <a name="azure-security-benchmark-introduction"></a>Introduction aux benchmarks de sécurité Azure
 
@@ -27,7 +27,7 @@ Le benchmark de sécurité Azure comprend un ensemble de recommandations de séc
 - **Lignes de base de service** : Elles appliquent les contrôles à des services Azure individuels pour fournir des recommandations sur la configuration de la sécurité de ces services.
 
 ## <a name="implement-the-azure-security-benchmark"></a>Implémenter le benchmark de sécurité Azure
-- **Planifiez** votre implémentation de test de sécurité Azure en consultant la [documentation](overview.md) pour les contrôles d’entreprise et les lignes de base spécifiques aux services pour planifier votre infrastructure de contrôle et la façon dont elle est s’applique à des contrôles tels que CIS (Controls v7.1) et le framework NIST (SP800-53).
+- **Planifiez** votre implémentation de test de sécurité Azure en consultant la [documentation](overview.md) pour les contrôles d’entreprise et les lignes de base spécifiques aux services pour planifier votre infrastructure de contrôle et la façon dont elle est s’applique à des contrôles tels que CIS (Controls v7.1) et le framework NIST (SP 800-53).
 - **Analysez** votre conformité avec l’état du benchmark de sécurité Azure (et d’autres jeux de contrôles) à l’aide du [tableau de bord de conformité](../../security-center/security-center-compliance-dashboard.md) d’Azure Security Center.
 - **Établissez des garde-fous** pour automatiser les configurations sécurisées et appliquer la conformité avec le benchmark de sécurité Azure (et les autres exigences de votre organisation) avec Azure Blueprints et Azure Policy.
  

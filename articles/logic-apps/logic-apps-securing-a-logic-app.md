@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 11/05/2020
-ms.openlocfilehash: 331c55a9f7a489aa58f9d3add7303dc18917215d
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.date: 12/08/2020
+ms.openlocfilehash: cdaa054559be9db52eeef6f3aaa0f86ccf84206f
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331938"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922951"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Accès et données sécurisés dans Azure Logic Apps
 
@@ -199,7 +199,7 @@ Afin d’activer Azure AD OAuth pour votre application logique dans le portail 
    | Propriété | Obligatoire | Description |
    |----------|----------|-------------|
    | **Nom de la stratégie** | Oui | Nom que vous voulez utiliser pour la stratégie d’autorisation |
-   | **Revendications** | Oui | Types de revendications et valeurs que votre application logique accepte des appels entrants. La valeur de la revendication est limitée à 80 caractères. Voici les types de revendications disponibles : <p><p>- **Émetteur** <br>- **Audience** <br>- **Subject** <br>- **ID JWT** (ID JSON Web Token) <p><p>Au minimum, la liste **Revendications** doit inclure la revendication **Émetteur**, dont la valeur commence par `https://sts.windows.net/` ou `https://login.microsoftonline.com/` en tant qu’ID d’émetteur Azure AD. Pour plus d’informations sur ces types de revendication, consultez [Revendications dans les jetons de sécurité Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). Vous pouvez également spécifier vos propres type et valeur de revendication. |
+   | **Revendications** | Oui | Types de revendications et valeurs que votre application logique accepte des appels entrants. La valeur de la revendication est limitée à un [nombre maximal de caractères](logic-apps-limits-and-config.md#authentication-limits). Voici les types de revendications disponibles : <p><p>- **Émetteur** <br>- **Audience** <br>- **Subject** <br>- **ID JWT** (ID JSON Web Token) <p><p>Au minimum, la liste **Revendications** doit inclure la revendication **Émetteur**, dont la valeur commence par `https://sts.windows.net/` ou `https://login.microsoftonline.com/` en tant qu’ID d’émetteur Azure AD. Pour plus d’informations sur ces types de revendication, consultez [Revendications dans les jetons de sécurité Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). Vous pouvez également spécifier vos propres type et valeur de revendication. |
    |||
 
 1. Pour ajouter une autre revendication, sélectionnez l’une des options suivantes :

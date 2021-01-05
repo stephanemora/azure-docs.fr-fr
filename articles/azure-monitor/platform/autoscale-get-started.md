@@ -4,12 +4,12 @@ description: Découvrez comment mettre à l’échelle votre ressource Applicati
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 364309301b403234936da1bac6e1b74af24c2fdb
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: bf0194e82acde0406cfeb57af027831f92a90c92
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96573304"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938305"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Bien démarrer avec la mise à l’échelle automatique dans Azure
 Cet article décrit comment configurer vos paramètres de mise à l’échelle automatique pour votre ressource dans le portail Microsoft Azure.
@@ -136,9 +136,11 @@ Lorsque le chemin du contrôle d’intégrité est fourni, App Service effectue 
 > [!NOTE]
 > N’oubliez pas que votre plan App Service doit faire l’objet d’un scale-out à hauteur de 2 instances et utiliser le **niveau de base ou supérieur** pour que l’exclusion de l’équilibreur de charge se produise. Si vous n’avez qu’une seule instance, elle n’est pas supprimée de l’équilibreur de charge, même si elle n’est pas saine. 
 
-Les instances saines restantes peuvent subir une augmentation de charge. Pour éviter de submerger les instances restantes, jusqu’à la moitié de vos instances sera exclue. Par exemple, si un scale-out du plan d’App Service vers 4 instances dont 3 qui ne sont pas saines est effectué, au moins 2 instances seront exclues de la rotation exclu de la rotation de LoadBalancer. Les 2 autres instances (1 saine et 1 non saine) continueront de recevoir des requêtes. Dans le pire des cas où toutes les instances sont non saines, aucune ne sera exclue. Si vous souhaitez remplacer ce comportement, vous pouvez définir le paramètre d’application `WEBSITE_HEALTHCHECK_MAXUNHEALTHYWORKERPERCENT` sur une valeur comprise entre `0` et `100`. Si vous attribuez une valeur plus élevée, vous supprimez les instances non saines (la valeur par défaut est 50).
+En outre, le chemin d’accès de contrôle d’intégrité est interrogé lorsque des instances sont ajoutées ou redémarrées, par exemple lors d’opérations de scale-out, de redémarrages manuels ou de déploiement de code via le site SCM. Si le contrôle d’intégrité échoue au cours de ces opérations, les instances qui échouent ne seront pas ajoutées à l’équilibreur de charge. Cela empêche ces opérations d’avoir un impact négatif sur la disponibilité de votre application.
 
-Si une instance n’est pas saine pendant une heure, elle sera remplacée par une nouvelle instance. Une instance au plus sera remplacée chaque heure, avec un maximum de trois instances par jour et par plan App Service.
+Lorsque vous utilisez le contrôle d’intégrité, les instances saines restantes peuvent subir une augmentation de charge. Pour éviter de submerger les instances restantes, jusqu’à la moitié de vos instances sera exclue. Par exemple, si un scale-out du plan d’App Service vers 4 instances dont 3 qui ne sont pas saines est effectué, au moins 2 instances seront exclues de la rotation exclu de la rotation de LoadBalancer. Les 2 autres instances (1 saine et 1 non saine) continueront de recevoir des requêtes. Dans le pire des cas où toutes les instances sont non saines, aucune ne sera exclue. Si vous souhaitez remplacer ce comportement, vous pouvez définir le paramètre d’application `WEBSITE_HEALTHCHECK_MAXUNHEALTHYWORKERPERCENT` sur une valeur comprise entre `0` et `100`. Si vous attribuez une valeur plus élevée, vous supprimez les instances non saines (la valeur par défaut est 50).
+
+Si les contrôles d’intégrité échouent pour toutes les applications sur une instance pendant une heure, l’instance est remplacée. Une instance au plus sera remplacée chaque heure, avec un maximum de trois instances par jour et par plan App Service.
 
 ### <a name="monitoring"></a>Surveillance
 

@@ -7,12 +7,12 @@ ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
 ms.custom: devx-track-csharp, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: c734c0ceb9c4d5418edc51a2c3ad3c052637ad31
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 4c7ba5806707e818f0ef13717d5f00b542c37614
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94696980"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97092735"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Guide pratique pour utiliser des identités managées pour App Service et Azure Functions
 
@@ -109,7 +109,7 @@ Les étapes suivantes vous guident dans la création d’une application à laqu
 
 1. Le cas échéant, installez Azure PowerShell à l’aide des instructions figurant dans le [guide Azure PowerShell](/powershell/azure/), puis exécutez `Login-AzAccount` pour créer une connexion avec Azure.
 
-2. Créez une application de fonction avec Azure PowerShell. Pour obtenir plus d’exemples d’utilisation d’Azure PowerShell avec Azure Functions, consultez les [Informations de référence sur AZ.Functions](/powershell/module/az.functions/?view=azps-4.1.0#functions) :
+2. Créez une application de fonction avec Azure PowerShell. Pour obtenir plus d’exemples d’utilisation d’Azure PowerShell avec Azure Functions, consultez les [Informations de référence sur AZ.Functions](/powershell/module/az.functions/#functions) :
 
     ```azurepowershell-interactive
     # Create a resource group.
@@ -219,7 +219,7 @@ Les étapes suivantes vous guident dans la création d’une application à laqu
 
 1. Le cas échéant, installez Azure PowerShell à l’aide des instructions figurant dans le [guide Azure PowerShell](/powershell/azure/), puis exécutez `Login-AzAccount` pour créer une connexion avec Azure.
 
-2. Créez une application de fonction avec Azure PowerShell. Pour obtenir plus d’exemples d’utilisation d’Azure PowerShell avec Azure Functions, consultez les [Informations de référence sur AZ.Functions](/powershell/module/az.functions/?view=azps-4.1.0#functions) : Le script ci-dessous utilise également `New-AzUserAssignedIdentity` qui doit être installé séparément comme pour [créer, répertorier ou supprimer une identité gérée et affectée par l’utilisateur à l’aide d’Azure PowerShell](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md).
+2. Créez une application de fonction avec Azure PowerShell. Pour obtenir plus d’exemples d’utilisation d’Azure PowerShell avec Azure Functions, consultez les [Informations de référence sur AZ.Functions](/powershell/module/az.functions/#functions) : Le script ci-dessous utilise également `New-AzUserAssignedIdentity` qui doit être installé séparément comme pour [créer, répertorier ou supprimer une identité gérée et affectée par l’utilisateur à l’aide d’Azure PowerShell](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md).
 
     ```azurepowershell-interactive
     # Create a resource group.
@@ -308,7 +308,7 @@ Une application peut utiliser son identité managée pour obtenir des jetons afi
 Vous pouvez être amené à configurer la ressource cible pour autoriser l’accès à partir de votre application. Par exemple, si vous demandez un jeton pour accéder à Key Vault, vous devez vérifier que vous avez ajouté une stratégie d’accès qui inclut l’identité de votre application. Si tel n’est pas le cas, vos appels au coffre de clés sont rejetés, même s’ils incluent le jeton. Pour en savoir plus sur les ressources qui prennent en charge les jetons Azure Active Directory, consultez [Services Azure prenant en charge l’authentification Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
 > [!IMPORTANT]
-> Les services principaux pour les identités gérées conservent un cache par URI de ressource pendant environ 8 heures. Si vous mettez à jour la stratégie d’accès d’une ressource cible particulière et que vous récupérez immédiatement un jeton pour cette ressource, vous pouvez continuer à obtenir un jeton mis en cache avec des autorisations obsolètes jusqu’à ce que ce jeton expire. Il n’existe actuellement aucun moyen de forcer l’actualisation d’un jeton.
+> Les services principaux pour les identités gérées conservent un cache par URI de ressource pendant environ 24 heures. Si vous mettez à jour la stratégie d’accès d’une ressource cible particulière et que vous récupérez immédiatement un jeton pour cette ressource, vous pouvez continuer à obtenir un jeton mis en cache avec des autorisations obsolètes jusqu’à ce que ce jeton expire. Il n’existe actuellement aucun moyen de forcer l’actualisation d’un jeton.
 
 Il existe un protocole REST simple pour obtenir un jeton dans App Service et Azure Functions. Cela peut être utilisé pour toutes les applications et tous les langages. Pour .NET et Java, le Kit de développement logiciel (SDK) Azure fournit une abstraction par rapport à ce protocole et facilite l’expérience de développement locale.
 
@@ -522,7 +522,8 @@ Update-AzFunctionApp -Name $functionAppName -ResourceGroupName $resourceGroupNam
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-> [!div class="nextstepaction"]
-> [Accéder à Azure SQL Database de manière sécurisée à l’aide d’une identité managée](app-service-web-tutorial-connect-msi.md)
+- [Accéder à Azure SQL Database de manière sécurisée à l’aide d’une identité managée](app-service-web-tutorial-connect-msi.md)
+- [Accéder à Stockage Azure de manière sécurisée à l’aide d’une identité managée](scenario-secure-app-access-storage.md)
+- [Appeler Microsoft Graph de manière sécurisée à l’aide d’une identité managée](scenario-secure-app-access-microsoft-graph-as-app.md)
 
 [Guide de référence technique sur Microsoft.Azure.Services.AppAuthentication]: ../key-vault/general/service-to-service-authentication.md

@@ -14,12 +14,12 @@ ms.date: 11/11/2019
 ms.author: rayluo
 ms.reviewer: marsma, rayluo, nacanuma
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 731c608b8ac280a3a3c4e77c3a94533d258cb85d
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 213184409c9f5ee21ac9f61be1ad138fbbaa3590
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96618040"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107853"
 ---
 # <a name="adal-to-msal-migration-guide-for-python"></a>Guide de migration ADAL vers MSAL pour Python
 
@@ -50,7 +50,7 @@ Pour plus d’informations sur les différents types d’étendues, consultez [A
 
 ### <a name="error-handling"></a>Gestion des erreurs
 
-La bibliothèque d’authentification Active Directory (ADAL) pour Python utilise l’exception `AdalError` pour indiquer qu’un problème est survenu. MSAL pour Python utilise généralement des codes d’erreur à la place. Pour plus d’informations, consultez la rubrique [Gestion des erreurs MSAL pour Python](./msal-handling-exceptions.md?tabs=python).
+La bibliothèque d’authentification Active Directory (ADAL) pour Python utilise l’exception `AdalError` pour indiquer qu’un problème est survenu. MSAL pour Python utilise généralement des codes d’erreur à la place. Pour plus d’informations, consultez la rubrique [Gestion des erreurs MSAL pour Python](msal-error-handling-python.md).
 
 ### <a name="api-changes"></a>Modifications d'API
 

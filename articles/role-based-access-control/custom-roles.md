@@ -2,25 +2,19 @@
 title: Rôles personnalisés Azure - Contrôle d’accès en fonction du rôle (RBAC) Azure
 description: Découvrez comment créer des rôles personnalisés Azure avec le contrôle d’accès en fonction du rôle (RBAC) Azure pour une gestion affinée des accès aux ressources Azure.
 services: active-directory
-documentationcenter: ''
 author: rolyon
 manager: mtillman
-ms.assetid: e4206ea9-52c3-47ee-af29-f6eef7566fa5
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/13/2020
+ms.date: 12/11/2020
 ms.author: rolyon
-ms.reviewer: bagovind
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fd737a22a37d6edc47c2769a470af00537d720eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eddbd9cb695f3ff7eabd9f2549d0a868d8826eb9
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87124151"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97369121"
 ---
 # <a name="azure-custom-roles"></a>Rôles personnalisés Azure
 
@@ -32,6 +26,52 @@ ms.locfileid: "87124151"
 Si les [rôles intégrés Azure](built-in-roles.md) ne répondent pas aux besoins spécifiques de votre organisation, vous pouvez créer vos propres rôles personnalisés. Tout comme les rôles intégrés, vous pouvez attribuer des rôles personnalisés à des utilisateurs, à des groupes et à des principaux de service dans des étendues de groupe d’administration, d’abonnement et de groupe de ressources.
 
 Les rôles personnalisés peuvent être partagés entre abonnements qui font confiance au même annuaire Azure AD. Il existe une limite de **5 000** rôles personnalisés par annuaire. (Pour Azure Allemagne et Azure Chine 21Vianet, la limite est de 2 000 rôles personnalisés). Vous pouvez créer des rôles personnalisés à l’aide du portail Azure, d’Azure PowerShell, d’Azure CLI ou de l’API REST.
+
+## <a name="steps-to-create-a-custom-role"></a>Procédure de création d’un rôle personnalisé
+
+Voici la procédure de base pour créer un rôle personnalisé.
+
+1. Déterminez les autorisations nécessaires.
+
+    Lorsque vous créez un rôle personnalisé, vous devez connaître les opérations qui sont disponibles pour définir vos autorisations. En règle générale, vous démarrez avec un rôle intégré existant, puis vous le modifiez selon vos besoins. Vous ajouterez les opérations aux propriétés `Actions` ou `NotActions` de la [définition de rôle](role-definitions.md). Si vous avez des opérations de données, vous les ajouterez aux propriétés `DataActions` ou `NotDataActions`.
+
+    Pour plus d’informations, consultez la section suivante [Déterminer les autorisations nécessaires](#how-to-determine-the-permissions-you-need).
+
+1. Choisissez la méthode de création de votre choix pour le rôle personnalisé.
+
+    Vous pouvez créer des rôles personnalisés à l’aide du [portail Azure](custom-roles-portal.md), d’[Azure PowerShell](custom-roles-powershell.md), d’[Azure CLI](custom-roles-cli.md) ou de l’[API REST](custom-roles-rest.md).
+
+1. Créez le rôle personnalisé.
+
+    Le moyen le plus simple consiste à utiliser le Portail Azure. Pour connaître les étapes de création d’un rôle personnalisé à l’aide du Portail Azure, consultez [Créer ou mettre à jour des rôles personnalisés Azure à l’aide du portail Azure](custom-roles-portal.md).
+
+1. Testez le rôle personnalisé.
+
+    Une fois que vous avez votre rôle personnalisé, vous devez le tester pour vérifier qu’il fonctionne comme prévu. Si vous avez besoin d’effectuer des ajustements ultérieurement, vous pouvez mettre à jour le rôle personnalisé.
+
+## <a name="how-to-determine-the-permissions-you-need"></a>Déterminer les autorisations nécessaires
+
+Azure dispose de plusieurs milliers d’autorisations que vous pouvez inclure dans votre rôle personnalisé. Voici quelques moyens de déterminer les autorisations à ajouter à un rôle personnalisé :
+
+- Examinez les [rôles intégrés](built-in-roles.md) existants.
+
+    Vous souhaiterez peut-être modifier un rôle existant ou combiner des autorisations utilisées dans plusieurs rôles.
+
+- Dressez la liste des services Azure auxquels vous souhaitez accorder l’accès.
+
+- Déterminez les [fournisseurs de ressources correspondant aux services Azure](../azure-resource-manager/management/azure-services-resource-providers.md).
+
+    Les services Azure exposent leurs fonctionnalités et leurs autorisations par le biais de [fournisseurs de ressources](../azure-resource-manager/management/overview.md). Par exemple, le fournisseur de ressources Microsoft.Compute fournit des ressources de machines virtuelles, tandis que le fournisseur de ressources Microsoft.Billing fournit des ressources d’abonnement et de facturation. Connaître les fournisseurs de ressources peut vous aider à limiter et à déterminer les autorisations dont vous avez besoin pour votre rôle personnalisé.
+
+    Lorsque vous créez un rôle personnalisé à l’aide du portail Azure, vous pouvez également déterminer les fournisseurs de ressources en recherchant des mots clés. Cette fonctionnalité de recherche est décrite dans la section [Créer ou mettre à jour des rôles personnalisés Azure à l’aide du portail Azure](custom-roles-portal.md#step-4-permissions).
+
+    ![Volet Ajouter des autorisations avec fournisseur de ressources](./media/custom-roles-portal/add-permissions-provider.png)
+
+- Recherchez dans [Autorisations disponibles](resource-provider-operations.md) les autorisations que vous souhaitez inclure.
+
+    Lorsque vous créez un rôle personnalisé à l’aide du portail Azure, vous pouvez rechercher des autorisations par mot clé. Par exemple, vous pouvez rechercher des autorisations d’*ordinateur virtuel* ou de *facturation*. Vous pouvez également télécharger toutes les autorisations sous la forme d’un fichier CSV, puis lancer une recherche dans ce fichier. Cette fonctionnalité de recherche est décrite dans la section [Créer ou mettre à jour des rôles personnalisés Azure à l’aide du portail Azure](custom-roles-portal.md#step-4-permissions).
+
+    ![Liste Ajouter des autorisations](./media/custom-roles-portal/add-permissions-list.png)
 
 ## <a name="custom-role-example"></a>Exemple de rôle personnalisé
 
@@ -150,26 +190,6 @@ Vous pouvez également avoir plusieurs caractères génériques dans une chaîne
 ```
 Microsoft.CostManagement/*/query/*
 ```
-
-## <a name="steps-to-create-a-custom-role"></a>Procédure de création d’un rôle personnalisé
-
-Pour créer un rôle personnalisé, voici les étapes de base que vous devez suivre.
-
-1. Choisissez la méthode de création de votre choix pour le rôle personnalisé.
-
-    Vous pouvez créer des rôles personnalisés à l’aide du Portail Azure, d’Azure PowerShell, de l’interface de ligne de commande Azure ou de l’API REST.
-
-1. Déterminez les autorisations nécessaires.
-
-    Lorsque vous créez un rôle personnalisé, vous devez connaître les opérations qui sont disponibles pour définir vos autorisations. Pour voir la liste des opérations, consultez [Opérations du fournisseur de ressources Azure Resource Manager](resource-provider-operations.md). Vous ajouterez les opérations aux propriétés `Actions` ou `NotActions` de la [définition de rôle](role-definitions.md). Si vous avez des opérations de données, vous les ajouterez aux propriétés `DataActions` ou `NotDataActions`.
-
-1. Créez le rôle personnalisé.
-
-    En règle générale, vous démarrez avec un rôle intégré existant, puis vous le modifiez selon vos besoins. Le moyen le plus simple consiste à utiliser le Portail Azure. Pour connaître les étapes de création d’un rôle personnalisé à l’aide du Portail Azure, consultez [Créer ou mettre à jour des rôles personnalisés Azure à l’aide du portail Azure](custom-roles-portal.md).
-
-1. Testez le rôle personnalisé.
-
-    Une fois que vous avez votre rôle personnalisé, vous devez le tester pour vérifier qu’il fonctionne comme prévu. Si vous avez besoin d’effectuer des ajustements ultérieurement, vous pouvez mettre à jour le rôle personnalisé.
 
 ## <a name="who-can-create-delete-update-or-view-a-custom-role"></a>Qui peut créer, supprimer, mettre à jour ou afficher un rôle personnalisé
 

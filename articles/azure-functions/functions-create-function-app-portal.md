@@ -4,12 +4,12 @@ description: Créez une application de fonction dans Azure à l’aide du portai
 ms.topic: how-to
 ms.date: 08/29/2019
 ms.custom: mvc
-ms.openlocfilehash: 001b4e4f0ea7fbacd232b2a87abfe353f34919bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8d19a269903de309bf219c2546fa70c3abe7be10
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80985012"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093586"
 ---
 # <a name="create-a-function-app-from-the-azure-portal"></a>Créer une Function App à l’aide du Portail Azure
 
@@ -31,10 +31,12 @@ Si vous prévoyez d’exécuter des fonctions JavaScript sur un plan Dedicated (
 
 ## <a name="storage-account-requirements"></a>Conditions requises pour le compte de stockage
 
-Quand vous créez une application de fonction, vous devez créer un compte de stockage Azure à usage général qui prend en charge le stockage Blob, File d’attente et Table, ou établir un lien vers un compte de ce type. En interne, Azure Functions utilise le stockage pour les opérations telles que la gestion des déclencheurs et la journalisation des exécutions de fonctions. Certains comptes de stockage ne prennent pas en charge les files d’attente et les tables, comme les comptes de stockage Blob uniquement, le stockage Premium Azure et les comptes de stockage à usage général avec la réplication ZRS. Ces comptes sont filtrés à partir du panneau du compte de stockage lors de la création d’une Function App.
+Quand vous créez une application de fonction, vous devez créer un compte de stockage Azure à usage général qui prend en charge le stockage Blob, File d’attente et Table, ou établir un lien vers un compte de ce type. En interne, Azure Functions utilise le stockage pour les opérations telles que la gestion des déclencheurs et la journalisation des exécutions de fonctions. Certains comptes de stockage ne prennent pas en charge les files d’attente et les tables, comme les comptes de stockage Blob uniquement, le stockage Premium Azure et les comptes de stockage à usage général avec la réplication ZRS. 
+
+Les comptes d’un type non pris en charge sont filtrés lorsque vous créez une application de fonction dans le portail Azure. Le portail vous permet également d’utiliser un compte de stockage existant lorsque ce compte se trouve dans la même région que l’application de fonction que vous créez. Si, pour une raison ou une autre, vous souhaitez ignorer les meilleures pratiques en matière de performances consistant à utiliser le compte de stockage par votre application de fonction dans la même région, vous devez créer votre application de fonction en dehors du portail. 
 
 >[!NOTE]
->Lorsque vous utilisez le plan d’hébergement de la consommation, les fichiers de code de fonction et de configuration de liaison sont stockés sur le Stockage Fichier Azure dans le compte de stockage principal. Lorsque vous supprimez le compte de stockage principal, ce contenu est supprimé et ne peut pas être récupéré.
+>Lorsque vous utilisez le plan d’hébergement de la consommation, les fichiers de code de fonction et de configuration de liaison sont stockés sur le Stockage Fichier Azure dans le compte de stockage principal. Lorsque vous supprimez le compte de stockage principal, ce contenu est supprimé et ne peut pas être récupéré. 
 
 Pour en savoir plus sur les types de compte de stockage, consultez [Présentation des services Stockage Azure](../storage/common/storage-introduction.md#core-storage-services). 
 

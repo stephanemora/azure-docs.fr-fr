@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: 47377817b62d33e8af79e4a0d2dceb68ba9dbdc5
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 83e9a96573bbc72e0afff61cc0f151f95b081e30
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658645"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97031577"
 ---
 # <a name="azure-firewall-service-tags"></a>Balises de service de Pare-feu Azure
 
@@ -22,7 +22,7 @@ Les balises de service de Pare-feu Azure peuvent être utilisées dans le champ 
 
 ## <a name="supported-service-tags"></a>Balises de service prises en charge
 
-Consultez la section [Groupes de sécurité](../virtual-network/network-security-groups-overview.md#service-tags) pour obtenir la liste des balises de service disponibles que vous pouvez utiliser dans les règles de réseau de pare-feu Azure.
+Consultez la section [Balises de service du réseau virtuel](../virtual-network/service-tags-overview.md#available-service-tags) pour obtenir la liste des balises de service disponibles que vous pouvez utiliser dans les règles de réseau de pare-feu Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

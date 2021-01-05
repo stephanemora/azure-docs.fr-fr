@@ -17,12 +17,12 @@ ms.date: 11/05/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc5f902d75084d649f211d589e53041f1eb37f0e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4e240e8ec53ce007be1a858af7b6e41273ca8831
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012712"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093636"
 ---
 # <a name="how-long-does-azure-ad-store-reporting-data"></a>Pendant combien de temps les données de rapport sont-elles conservées par Azure AD ?
 
@@ -47,7 +47,7 @@ Dans cet article, vous allez en savoir plus sur les stratégies de rétention de
 
 ### <a name="how-soon-can-i-see-activities-data-after-getting-a-premium-license"></a>Au bout de combien de temps puis-je consulter les données d'activité après avoir obtenu une licence Premium ?
 
-Si vous avez déjà des données d'activités avec votre licence gratuite, vous pouvez les voir immédiatement lors de la mise à niveau. Si vous n'avez pas encore de données, il faudra un ou deux jours pour que les données apparaissent dans les rapports après la mise à niveau vers une licence Premium.
+Si vous avez déjà des données d'activités avec votre licence gratuite, vous pouvez les voir immédiatement lors de la mise à niveau. Si vous n'avez pas encore de données, il faudra jusqu’à trois jours pour que les données apparaissent dans les rapports après la mise à niveau vers une licence Premium.
 
 ---
 

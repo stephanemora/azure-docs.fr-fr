@@ -1,18 +1,18 @@
 ---
 title: Fonctions de modèle - Ressources
-description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour récupérer des valeurs sur les ressources.
+description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager (modèle ARM) pour récupérer des valeurs sur les ressources.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 3b5a2642ebbabac61e46f4d9b0a2dfec9610a673
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 166e9104a9d791ac6d82ed0e8e2d3659efd2ae0d
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96902661"
+ms.locfileid: "96919983"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Fonctions de ressource pour les modèles ARM
 
-Resource Manager fournit les fonctions suivantes pour obtenir des valeurs de ressource dans votre modèle Azure Resource Manager (ARM) :
+Resource Manager fournit les fonctions suivantes pour obtenir des valeurs de ressource dans votre modèle Azure Resource Manager (modèle ARM) :
 
 * [extensionResourceId](#extensionresourceid)
 * [list*](#list)
@@ -1632,7 +1632,7 @@ resource myPolicyAssignment 'Microsoft.Authorization/policyAssignments@2019-09-0
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour obtenir une description des sections d’un modèle Azure Resource Manager, consultez [Création de modèles Azure Resource Manager](template-syntax.md).
-* Pour fusionner plusieurs modèles, consultez [Utilisation de modèles liés avec Azure Resource Manager](linked-templates.md).
-* Pour itérer un nombre de fois spécifié lors de la création d'un type de ressource, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](copy-resources.md).
-* Pour savoir comment déployer le modèle que vous avez créé, consultez [Déployer une application avec un modèle Azure Resource Manager](deploy-powershell.md).
+* Pour obtenir une description des sections d’un modèle ARM, consultez [Comprendre la structure et la syntaxe des modèles ARM](template-syntax.md).
+* Pour fusionner plusieurs modèles, consultez [Utilisation de modèles liés et imbriqués lors du déploiement de ressources Azure](linked-templates.md).
+* Pour itérer un nombre spécifié lors de la création d’un type de ressource, consultez [Itération de ressource dans les modèles ARM](copy-resources.md).
+* Pour découvrir comment déployer le modèle que vous avez créé, consultez [Déployer des ressources avec des modèles ARM et Azure PowerShell](deploy-powershell.md).
