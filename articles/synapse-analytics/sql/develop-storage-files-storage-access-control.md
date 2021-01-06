@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6eff662ac0140e7a64cc3bab28856178708cb9b2
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: edb1d419900147b586ba1ff257d4307b237be537
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400673"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746726"
 ---
 # <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Contrôler l’accès au compte de stockage pour le pool SQL serverless dans Azure Synapse Analytics
 
@@ -89,9 +89,67 @@ Vous pouvez utiliser les combinaisons de types d’autorisations et de stockage 
 
 \* Le jeton SAP et l’identité Azure AD peuvent être utilisés pour accéder à un stockage qui n’est pas protégé par un pare-feu.
 
-> [!IMPORTANT]
-> Lors de l’accès à un stockage protégé par le pare-feu, seule une identité managée peut être utilisée. Vous devez activer l’option [Autoriser les services Microsoft approuvés...](../../storage/common/storage-network-security.md#trusted-microsoft-services) et [Attribuer un rôle Azure](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights) de façon explicite à l’[identité managée attribuée par le système](../../active-directory/managed-identities-azure-resources/overview.md) pour cette instance de ressource. Dans ce cas, l’étendue de l’accès pour l’instance correspond au rôle Azure affecté à l’identité managée.
->
+
+### <a name="querying-firewall-protected-storage"></a>Interrogation du stockage protégé par un pare-feu
+
+Lors de l’accès à un stockage protégé par le pare-feu, vous pouvez utiliser une **identité utilisateur** ou une **identité managée**.
+
+#### <a name="user-identity"></a>Identité de l’utilisateur
+
+Pour accéder au stockage protégé par le pare-feu via une identité utilisateur, vous pouvez utiliser le module PowerShell Az.Storage.
+#### <a name="configuration-via-powershell"></a>Configuration via PowerShell
+
+Suivez ces étapes pour configurer le pare-feu de votre compte de stockage et ajouter une exception pour l’espace de travail synapse.
+
+1. Ouvrez PowerShell ou [installez PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-7.1&preserve-view=true )
+2. Installez le module Az. Storage mis à jour : 
+    ```powershell
+    Install-Module -Name Az.Storage -RequiredVersion 3.0.1-preview -AllowPrerelease
+    ```
+    > [!IMPORTANT]
+    > Veillez à utiliser la version 3.0.1 ou ultérieure. Vous pouvez vérifier votre version Az.Storage en exécutant cette commande :  
+    > ```powershell 
+    > Get-Module -ListAvailable -Name  Az.Storage | select Version
+    > ```
+    > 
+
+3. Connectez-vous à votre locataire Azure : 
+    ```powershell
+    Connect-AzAccount
+    ```
+4. Définissez les variables dans PowerShell : 
+    - Nom du groupe de ressources - vous pouvez le trouver dans le portail Azure dans la vue d’ensemble de l’espace de travail Synapse.
+    - Nom du compte - nom du compte de stockage protégé par les règles de pare-feu.
+    - ID de locataire - vous pouvez le trouver dans le portail Azure dans Azure Active Directory dans les informations du locataire.
+    - ID de ressource - vous pouvez le trouver dans le portail Azure dans la vue d’ensemble de l’espace de travail Synapse.
+
+    ```powershell
+        $resourceGroupName = "<resource group name>"
+        $accountName = "<storage account name>"
+        $tenantId = "<tenant id>"
+        $resourceId = "<Synapse workspace resource id>"
+    ```
+    > [!IMPORTANT]
+    > Assurez-vous que l’ID de ressource correspond à ce modèle.
+    >
+    > Il est important d’écrire **resourcegroups** en minuscules.
+    > Exemple d’un ID de ressource : 
+    > ```
+    > /subscriptions/{subscription-id}/resourcegroups/{resource-group}/providers/Microsoft.Synapse/workspaces/{name-of-workspace}
+    > ```
+    > 
+5. Ajoutez une règle de réseau de stockage : 
+    ```powershell
+        Add-AzStorageAccountNetworkRule -ResourceGroupName $resourceGroupName -Name $accountName -TenantId $tenantId -ResourceId $resourceId
+    ```
+6. Vérifiez que la règle a été appliquée dans votre compte de stockage : 
+    ```powershell
+        $rule = Get-AzStorageAccountNetworkRuleSet -ResourceGroupName $resourceGroupName -Name $accountName
+        $rule.ResourceAccessRules
+    ```
+
+#### <a name="managed-identity"></a>Identité managée
+Vous devez activer l’option [Autoriser les services Microsoft approuvés...](../../storage/common/storage-network-security.md#trusted-microsoft-services) et [Attribuer un rôle Azure](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights) de façon explicite à l’[identité managée attribuée par le système](../../active-directory/managed-identities-azure-resources/overview.md) pour cette instance de ressource. Dans ce cas, l’étendue de l’accès pour l’instance correspond au rôle Azure affecté à l’identité managée.
 
 ## <a name="credentials"></a>Informations d'identification
 
