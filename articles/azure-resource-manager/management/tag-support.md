@@ -3,12 +3,12 @@ title: Prise en charge des étiquettes pour les ressources
 description: Indique les types de ressources Azure qui prennent en charge les étiquettes. Fournit des détails pour tous les services Azure.
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: fb81ed303cf27add3a033021f017c03f4b9e9750
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 12a57577241e3b2206aab9c3badb29502e7b0301
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005722"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656969"
 ---
 # <a name="tag-support-for-azure-resources"></a>Prise en charge des étiquettes pour les ressources Azure
 Cet article indique si un type de ressource prend en charge les [étiquettes](tag-resources.md). La colonne intitulée **Prend en charge les balises** indique si le type de ressource a une propriété pour la balise. La colonne intitulée **Balise dans le rapport des coûts** indique si ce type de ressource transmet la balise au rapport des coûts. Vous pouvez afficher les coûts à l’aide d’étiquettes dans l’[analyse Azure Cost Management](../../cost-management-billing/costs/group-filter.md) et les [données de facturation et d’utilisation quotidienne Azure](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
@@ -363,7 +363,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 > | ------------- | ----------- | ----------- |
 > | privateClouds | Oui | Oui |
-> | privateClouds / addons | Non | Non |
+> | Clouds privés / modules complémentaires | Non | Non |
 > | Clouds privés / autorisations | Non | Non |
 > | Clouds privés / clusters | Non | Non |
 > | privateClouds / globalReachConnections | Non | Non |
@@ -845,7 +845,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | ReservationRecommendations | Non | Non |
 > | ReservationSummaries | Non | Non |
 > | ReservationTransactions | Non | Non |
-> | Balises | Non | Non |
+> | Étiquettes | Non | Non |
 > | tenants | Non | Non |
 > | Termes | Non | Non |
 > | UsageDetails | Non | Non |
@@ -2253,7 +2253,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 > | ------------- | ----------- | ----------- |
 > | managedInstances | Oui | Oui |
-> | managedInstances / databases | Oui (voir la [remarque ci-dessous](#sqlnote)) | Oui |
+> | managedInstances / databases | Non | Non |
 > | managedInstances / databases / backupShortTermRetentionPolicies | Non | Non |
 > | managedInstances / databases / schemas / tables / columns / sensitivityLabels | Non | Non |
 > | managedInstances / databases / vulnerabilityAssessments | Non | Non |

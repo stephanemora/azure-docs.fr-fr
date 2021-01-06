@@ -3,12 +3,12 @@ title: Détails de la structure des définitions de stratégies
 description: Décrit comment les définitions de stratégie permettent d’établir des conventions pour les ressources Azure dans votre organisation.
 ms.date: 10/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5f9a110247d4ec93c8f3fb95fc9ed61eb6806787
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 52adaf9522e4690c4c44a72ed47592f5b1d6471e
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305152"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883246"
 ---
 # <a name="azure-policy-definition-structure"></a>Structure de définition Azure Policy
 
@@ -75,7 +75,7 @@ Les modèles et les éléments intégrés Azure Policy sont disponibles sous [Ex
 **displayName** et **description** permettent de distinguer la définition de stratégie et de préciser son contexte d’utilisation. **displayName** a une longueur maximale de _128_ caractères et **description** a une longueur maximale de _512_ caractères.
 
 > [!NOTE]
-> Lors de la création ou de la mise à jour d’une définition de stratégie, **id** , **type** et **name** sont définis par des propriétés externes non comprises dans le code JSON et qui ne sont pas nécessaires au fichier JSON. La récupération de la définition de stratégie via le SDK permet de retourner les propriétés **id** , **type** et **name** dans le code JSON, mais chacune d’elles correspond à des informations en lecture seule qui sont relatives à la définition de stratégie.
+> Lors de la création ou de la mise à jour d’une définition de stratégie, **id**, **type** et **name** sont définis par des propriétés externes non comprises dans le code JSON et qui ne sont pas nécessaires au fichier JSON. La récupération de la définition de stratégie via le SDK permet de retourner les propriétés **id**, **type** et **name** dans le code JSON, mais chacune d’elles correspond à des informations en lecture seule qui sont relatives à la définition de stratégie.
 
 ## <a name="type"></a>Type
 
@@ -98,7 +98,7 @@ Le **mode** détermine les types de ressources à évaluer pour une définition 
 
 Par exemple, la ressource `Microsoft.Network/routeTables` prend en charge les étiquettes et l’emplacement, et elle est évaluée dans les deux modes. En revanche, la ressource `Microsoft.Network/routeTables/routes` ne peut pas être étiquetée et n’est pas évaluée en mode `Indexed`.
 
-Nous vous recommandons de définir **mode** sur `all` dans tous les cas. Toutes les définitions de stratégie créées via le portail utilisent le mode `all`. Si vous utilisez PowerShell ou Azure CLI, vous pouvez spécifier le paramètre **mode** manuellement. Si la définition de stratégie ne comporte pas de valeur **mode** , elle prend la valeur par défaut `all` dans Azure PowerShell et `null` dans Azure CLI. Le mode `null` a le même effet que `indexed`, à savoir assurer une compatibilité descendante.
+Nous vous recommandons de définir **mode** sur `all` dans tous les cas. Toutes les définitions de stratégie créées via le portail utilisent le mode `all`. Si vous utilisez PowerShell ou Azure CLI, vous pouvez spécifier le paramètre **mode** manuellement. Si la définition de stratégie ne comporte pas de valeur **mode**, elle prend la valeur par défaut `all` dans Azure PowerShell et `null` dans Azure CLI. Le mode `null` a le même effet que `indexed`, à savoir assurer une compatibilité descendante.
 
 Il est recommandé (quoique non obligatoire) d’utiliser `indexed` pour créer des stratégies qui appliquent des balises ou des emplacements, car cela empêche les ressources qui ne prennent pas en charge les balises et les emplacements de s’afficher comme non conformes dans les résultats de conformité. Les **groupes de ressources** et les **abonnements** font figure d’exception. Les définitions de stratégie qui appliquent des emplacements ou des balises à un groupe de ressources ou un abonnement doivent définir le **mode** sur `all` et cibler spécifiquement le type `Microsoft.Resources/subscriptions/resourceGroups` ou `Microsoft.Resources/subscriptions`. Pour obtenir un exemple, consultez [Modèle : Balises – Exemple 1](../samples/pattern-tags.md). Pour obtenir la liste des ressources qui prennent en charge les étiquettes, consultez [Prise en charge des étiquettes pour les ressources Azure](../../../azure-resource-manager/management/tag-support.md).
 
@@ -106,9 +106,9 @@ Il est recommandé (quoique non obligatoire) d’utiliser `indexed` pour créer 
 
 Le mode Fournisseur de ressources suivant est entièrement pris en charge :
 
-- `Microsoft.Kubernetes.Data` pour la gestion de vos clusters Kubernetes sur ou hors Azure. Les définitions utilisant ce mode Fournisseur de ressources utilisent les effects _audit_ , _deny_ et _disabled_. L’effet [EnforceOPAConstraint](./effects.md#enforceopaconstraint) est _déconseillé_.
+- `Microsoft.Kubernetes.Data` pour la gestion de vos clusters Kubernetes sur ou hors Azure. Les définitions utilisant ce mode Fournisseur de ressources utilisent les effects _audit_, _deny_ et _disabled_. L’effet [EnforceOPAConstraint](./effects.md#enforceopaconstraint) est _déconseillé_.
 
-Les modes Fournisseur de ressources suivants sont actuellement pris en charge en **préversion**  :
+Les modes Fournisseur de ressources suivants sont actuellement pris en charge en **préversion** :
 
 - `Microsoft.ContainerService.Data` pour la gestion des règles d’admission de contrôleur sur [Azure Kubernetes Service](../../../aks/intro-kubernetes.md). Les définitions utilisant ce mode Fournisseur de ressources **doivent** utiliser l’effet [EnforceRegoPolicy](./effects.md#enforceregopolicy). Ce mode est _déconseillé_.
 - `Microsoft.KeyVault.Data` pour la gestion des coffres et des certificats dans [Azure Key Vault](../../../key-vault/general/overview.md). Pour plus d’informations sur ces définitions de stratégie, consultez [Intégrer Azure Key Vault à Azure Policy](../../../key-vault/general/azure-policy.md).
@@ -128,7 +128,7 @@ La propriété facultative `metadata` stocke les informations relatives à la d�
 - `deprecated` (booléen) : indicateur true ou false permettant de déterminer si la définition de stratégie a été marquée comme _déconseillée_.
 
 > [!NOTE]
-> Le service Azure Policy utilise les propriétés `version`, `preview` et `deprecated` pour transmettre le niveau de changement à la définition ou à initiative et à l’état d’une stratégie intégrée. Le format de `version` est le suivant : `{Major}.{Minor}.{Patch}`. Les états spécifiques, tels que _déprécié_ ou _préversion_ , sont ajoutés à la propriété `version` ou à toute autre propriété en tant que valeur **booléenne**. Pour plus d’informations sur la façon dont les versions d’Azure Policy sont intégrées, consultez [Contrôle des versions des éléments intégrés](https://github.com/Azure/azure-policy/blob/master/built-in-policies/README.md).
+> Le service Azure Policy utilise les propriétés `version`, `preview` et `deprecated` pour transmettre le niveau de changement à la définition ou à initiative et à l’état d’une stratégie intégrée. Le format de `version` est le suivant : `{Major}.{Minor}.{Patch}`. Les états spécifiques, tels que _déprécié_ ou _préversion_, sont ajoutés à la propriété `version` ou à toute autre propriété en tant que valeur **booléenne**. Pour plus d’informations sur la façon dont les versions d’Azure Policy sont intégrées, consultez [Contrôle des versions des éléments intégrés](https://github.com/Azure/azure-policy/blob/master/built-in-policies/README.md).
 
 ## <a name="parameters"></a>Paramètres
 
@@ -143,7 +143,7 @@ Les paramètres fonctionnent de manière identique durant la création de strat�
 Un paramètre possède les propriétés suivantes qui sont utilisées dans la définition de la stratégie :
 
 - `name`: Nom de votre paramètre. Utilisé par la fonction de déploiement `parameters` dans le cadre de la règle de stratégie. Pour plus d’informations, consultez [Utilisation d’une valeur de paramètre](#using-a-parameter-value).
-- `type`: Détermine si le paramètre est une **chaîne** , un **tableau** , un **objet** , **booléen** , **entier** , **flottant** , ou **DateHeure**.
+- `type`: Détermine si le paramètre est une **chaîne**, un **tableau**, un **objet**, **booléen**, **entier**, **flottant**, ou **DateHeure**.
 - `metadata`: Définit les sous-propriétés utilisées principalement par le portail Azure pour afficher des informations conviviales :
   - `description`: Explication du rôle du paramètre. Utilisable pour fournir des exemples de valeurs acceptables.
   - `displayName`: Nom convivial du paramètre visible dans le portail.
@@ -189,7 +189,7 @@ Cet exemple fait référence au paramètre **allowedLocations** autorisé qui a 
 
 ### <a name="strongtype"></a>strongType
 
-Dans la propriété `metadata`, vous pouvez utiliser **strongType** pour fournir une liste à choix multiple des options dans le portail Azure. **strongType** peut être un _type de ressource_ pris en charge ou une valeur autorisée. Pour déterminer si un _type de ressource_ est valide pour **strongType** , utilisez la commande [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider). Le format d’un _type de ressource_ **strongType** est `<Resource Provider>/<Resource Type>`. Par exemple : `Microsoft.Network/virtualNetworks/subnets`.
+Dans la propriété `metadata`, vous pouvez utiliser **strongType** pour fournir une liste à choix multiple des options dans le portail Azure. **strongType** peut être un _type de ressource_ pris en charge ou une valeur autorisée. Pour déterminer si un _type de ressource_ est valide pour **strongType**, utilisez la commande [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider). Le format d’un _type de ressource_ **strongType** est `<Resource Provider>/<Resource Type>`. Par exemple : `Microsoft.Network/virtualNetworks/subnets`.
 
 Certains _types de ressources_ non retournés par la commande **AzResourceProvider** sont pris en charge. Ces types sont les suivants :
 
@@ -216,9 +216,9 @@ Pour plus d’informations, consultez [Comprendre l’étendue d’Azure Policy]
 
 ## <a name="policy-rule"></a>Règle de stratégie
 
-La règle de stratégie se compose de blocs **if** et **then**. Dans le bloc **if** , vous définissez une ou plusieurs conditions qui spécifient à quel moment la stratégie est mise en œuvre. Vous pouvez appliquer des opérateurs logiques à ces conditions pour définir avec précision le scénario d’une stratégie.
+La règle de stratégie se compose de blocs **if** et **then**. Dans le bloc **if**, vous définissez une ou plusieurs conditions qui spécifient à quel moment la stratégie est mise en œuvre. Vous pouvez appliquer des opérateurs logiques à ces conditions pour définir avec précision le scénario d’une stratégie.
 
-Dans le bloc **then** , vous définissez l’effet qui se produit lorsque les conditions de **si** sont remplies.
+Dans le bloc **then**, vous définissez l’effet qui se produit lorsque les conditions de **si** sont remplies.
 
 ```json
 {
@@ -239,7 +239,7 @@ Les opérateurs logiques pris en charge sont les suivants :
 - `"allOf": [{condition or operator},{condition or operator}]`
 - `"anyOf": [{condition or operator},{condition or operator}]`
 
-La syntaxe **not** inverse le résultat de la condition. La syntaxe **allOf** (semblable à l’opération logique **And** ) nécessite que toutes les conditions soient remplies. La syntaxe **anyOf** (semblable à l’opération logique **Of** ) nécessite qu’au moins une des conditions soit remplie.
+La syntaxe **not** inverse le résultat de la condition. La syntaxe **allOf** (semblable à l’opération logique **And**) nécessite que toutes les conditions soient remplies. La syntaxe **anyOf** (semblable à l’opération logique **Of**) nécessite qu’au moins une des conditions soit remplie.
 
 Vous pouvez imbriquer des opérateurs logiques. L’exemple suivant illustre une opération **not** imbriquée dans une opération **allOf**.
 
@@ -284,12 +284,12 @@ Une condition évalue si un **champ** ou un accesseur de **valeur** répond à c
   `"greaterOrEquals": intValue`
 - `"exists": "bool"`
 
-Pour **less** , **lessOrEquals** , **greater** et **greaterOrEquals** , si le type de propriété ne correspond pas au type de condition, une erreur est générée. Les comparaisons de chaînes sont effectuées à l’aide de `InvariantCultureIgnoreCase`.
+Pour **less**, **lessOrEquals**, **greater** et **greaterOrEquals**, si le type de propriété ne correspond pas au type de condition, une erreur est générée. Les comparaisons de chaînes sont effectuées à l’aide de `InvariantCultureIgnoreCase`.
 
-Avec les conditions **like** et **notLike** , un caractère générique `*` est indiqué dans la valeur.
+Avec les conditions **like** et **notLike**, un caractère générique `*` est indiqué dans la valeur.
 Celle-ci ne doit pas en comporter plus d’un (`*`).
 
-Si vous utilisez les conditions **match** et **notMatch** , entrez `#` pour trouver un chiffre, `?` pour une lettre, `.` pour un caractère et tout autre caractère pour représenter ce caractère réel. **match** et **notMatch** sont sensibles à la casse. Cependant, toutes les autres conditions qui évaluent une _stringValue_ ne sont pas sensibles à la casse. Des alternatives non sensibles à la casse sont disponibles dans **matchInsensitively** et **notMatchInsensitively**.
+Si vous utilisez les conditions **match** et **notMatch**, entrez `#` pour trouver un chiffre, `?` pour une lettre, `.` pour un caractère et tout autre caractère pour représenter ce caractère réel. **match** et **notMatch** sont sensibles à la casse. Cependant, toutes les autres conditions qui évaluent une _stringValue_ ne sont pas sensibles à la casse. Des alternatives non sensibles à la casse sont disponibles dans **matchInsensitively** et **notMatchInsensitively**.
 
 Dans une valeur de champ de tableau à **alias \[\*\]** , chaque élément du tableau est évalué individuellement avec un opérateur logique **and** entre les éléments. Pour plus d’informations, consultez [Références aux propriétés des ressources de tableau](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
 
@@ -440,7 +440,7 @@ Avec la règle de stratégie révisée, `if()` vérifie la longueur du **nom** a
 
 ### <a name="count"></a>Count
 
-Les conditions qui comptent le nombre de membres d’un tableau dans la charge utile de la ressource satisfaisant une expression de condition peuvent être formées à l’aide d’une expression **count**. Les scénarios courants vérifient si « au moins un des », « un seul des », « tous les » ou « aucun des » membres du tableau remplissent la condition. **count** évalue chaque membre du tableau [\[\*\] alias](#understanding-the--alias) à la recherche d’une expression de condition, et additionne les résultats _true_ , qui sont ensuite comparés à l’opérateur d’expression. Les expressions **count** peuvent être ajoutées jusqu’à 3 fois à une même définition **policyRule**.
+Les conditions qui comptent le nombre de membres d’un tableau dans la charge utile de la ressource satisfaisant une expression de condition peuvent être formées à l’aide d’une expression **count**. Les scénarios courants vérifient si « au moins un des », « un seul des », « tous les » ou « aucun des » membres du tableau remplissent la condition. **count** évalue chaque membre du tableau [\[\*\] alias](#understanding-the--alias) à la recherche d’une expression de condition, et additionne les résultats _true_, qui sont ensuite comparés à l’opérateur d’expression. Les expressions **count** peuvent être ajoutées jusqu’à 3 fois à une même définition **policyRule**.
 
 La structure de l’expression **count** est :
 
@@ -456,7 +456,7 @@ La structure de l’expression **count** est :
 }
 ```
 
-Les propriétés suivantes sont utilisées avec **count**  :
+Les propriétés suivantes sont utilisées avec **count** :
 
 - **count.field** (obligatoire) : contient le chemin du tableau et doit être un alias de tableau. Si le tableau est manquant, l’expression est évaluée à _false_ sans tenir compte de l’expression de condition.
 - **count.where** (facultatif) : l’expression de condition pour évaluer individuellement chaque membre du tableau [alias \[\*\]](#understanding-the--alias) de **count.field**. Si cette propriété n’est pas fournie, tous les membres du tableau avec le chemin « field » sont évalués à _true_. Toute [condition](../concepts/definition-structure.md#conditions) peut être utilisée à l’intérieur de cette propriété.
@@ -571,11 +571,11 @@ Azure Policy prend en charge les types d’effet suivants :
 
 - **append** : ajoute l’ensemble de champs défini à la requête.
 - **audit** : génère un événement d’avertissement dans le journal d’activité, mais ne fait pas échouer la requête.
-- **AuditIfNotExists**  : génère un événement d’avertissement dans le journal d’activité si une ressource connexe n’existe pas
+- **AuditIfNotExists** : génère un événement d’avertissement dans le journal d’activité si une ressource connexe n’existe pas
 - **deny** : génère un événement dans le journal d’activité et fait échouer la requête.
-- **DeployIfNotExists**  : déploie une ressource connexe si elle n’existe pas déjà
-- **disabled**  : n’évalue pas la conformité des ressources à la règle de stratégie.
-- **Modify**  : ajoute, met à jour ou supprime les étiquettes définies dans une ressource
+- **DeployIfNotExists** : déploie une ressource connexe si elle n’existe pas déjà
+- **disabled** : n’évalue pas la conformité des ressources à la règle de stratégie.
+- **Modify** : ajoute, met à jour ou supprime les étiquettes définies dans une ressource
 - **EnforceOPAConstraint** (déconseillé) : configure le contrôleur des admissions Open Policy Agent avec Gatekeeper v3 pour les clusters Kubernetes automanagés sur Azure
 - **EnforceRegoPolicy** (déconseillé) : configure le contrôleur des admissions Open Policy Agent avec Gatekeeper v2 dans Azure Kubernetes Service
 
@@ -606,10 +606,10 @@ La fonction suivante est utilisable dans une règle de stratégie, mais diffère
 Les fonctions suivantes sont disponibles uniquement dans les règles de stratégie :
 
 - `addDays(dateTime, numberOfDaysToAdd)`
-  - **dateTime**  : [obligatoire] chaîne – chaîne au format DateHeure universel ISO 8601 « yyyy-MM-ddTHH:mm:ss.FFFFFFFZ »
-  - **numberOfDaysToAdd**  : [obligatoire] nombre entier - nombre de jours à ajouter
+  - **dateTime** : [obligatoire] chaîne – chaîne au format DateHeure universel ISO 8601 « yyyy-MM-ddTHH:mm:ss.FFFFFFFZ »
+  - **numberOfDaysToAdd** : [obligatoire] nombre entier - nombre de jours à ajouter
 - `field(fieldName)`
-  - **fieldName**  : [Obligatoire] chaîne - Nom du [champ](#fields) à récupérer
+  - **fieldName** : [Obligatoire] chaîne - Nom du [champ](#fields) à récupérer
   - Retourne la valeur de ce champ à partir de la ressource en cours d’évaluation par la condition If.
   - `field` est principalement utilisé avec **AuditIfNotExists** et **DeployIfNotExists** pour faire référence aux champs actuellement évalués de la ressource. Vous pouvez en voir une illustration dans [l’exemple DeployIfNotExists](effects.md#deployifnotexists-example).
 - `requestContext().apiVersion`
@@ -629,8 +629,8 @@ Les fonctions suivantes sont disponibles uniquement dans les règles de stratég
 
 
 - `ipRangeContains(range, targetRange)`
-    - **range**  : Chaîne [obligatoire] ; chaîne spécifiant une plage d’adresses IP.
-    - **targetRange**  : Chaîne [obligatoire] ; chaîne spécifiant une plage d’adresses IP.
+    - **range** : Chaîne [obligatoire] ; chaîne spécifiant une plage d’adresses IP.
+    - **targetRange** : Chaîne [obligatoire] ; chaîne spécifiant une plage d’adresses IP.
 
     Retourne une valeur indiquant si la plage d’adresses IP donnée contient la plage d’adresses IP cible. Les plages vides ou la combinaison entre familles d’adresses IP ne sont pas autorisées et entraînent l’échec de l’évaluation.
 
@@ -642,7 +642,7 @@ Les fonctions suivantes sont disponibles uniquement dans les règles de stratég
 
 #### <a name="policy-function-example"></a>Exemple de fonction de stratégie
 
-Cet exemple de règle de stratégie utilise la fonction de ressource `resourceGroup` pour obtenir la propriété **name** , combinée au tableau `concat` et à la fonction d’objet, pour créer une condition `like` selon laquelle le nom de ressource commence par le nom du groupe de ressources.
+Cet exemple de règle de stratégie utilise la fonction de ressource `resourceGroup` pour obtenir la propriété **name**, combinée au tableau `concat` et à la fonction d’objet, pour créer une condition `like` selon laquelle le nom de ressource commence par le nom du groupe de ressources.
 
 ```json
 {
@@ -669,25 +669,6 @@ La liste des alias augmente toujours. Pour trouver les alias actuellement pris e
   Utilisez l’[extension Azure Policy pour Visual Studio Code](../how-to/extension-for-vscode.md) afin d’afficher et de découvrir les alias des propriétés de ressources.
 
   :::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Capture d’écran de l’extension Azure Policy pour Visual Studio Code permettant de survoler une propriété afin d’afficher les noms d’alias." border="false":::
-
-- Azure Resource Graph
-
-  Utilisez l’opérateur `project` pour afficher l’ **alias** d’une ressource.
-
-  ```kusto
-  Resources
-  | where type=~'microsoft.storage/storageaccounts'
-  | limit 1
-  | project aliases
-  ```
-  
-  ```azurecli-interactive
-  az graph query -q "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
-  ```
-  
-  ```azurepowershell-interactive
-  Search-AzGraph -Query "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
-  ```
 
 - Azure PowerShell
 

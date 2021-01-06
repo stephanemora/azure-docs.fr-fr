@@ -1,19 +1,19 @@
 ---
 title: Azure VMware Solution by CloudSimple - Étendre un réseau de couche 2 local au cloud privé
 description: Explique comment configurer un VPN de couche 2 entre NSX-T sur un cloud privé CloudSimple et un client NSX Edge autonome local
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/19/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: f524bf6af66d44bc13b7c0957de7977968cbef28
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 06446b6c36e36466fe891d7327d8151603cdecd2
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427262"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97899369"
 ---
 # <a name="migrate-workloads-using-layer-2-stretched-networks"></a>Migrer des charges de travail à l’aide de réseaux étendus de couche 2
 
@@ -108,7 +108,7 @@ Pour plus d'informations, voir [Réseaux privés virtuels](https://docs.vmware.c
 
 Les étapes suivantes montrent comment récupérer l'ID du routeur logique de l'instance de routeur logique Tier0 DR pour les services IPsec et L2VPN. L'ID du routeur logique sera nécessaire plus tard lors de l'implémentation de L2VPN.
 
-1. Connectez-vous à NSX-T Manager `https://*nsx-t-manager-ip-address*` et sélectionnez **Networking (Mise en réseau)**  > **Routers (Routeurs)**  > **Provider-LR** > **Overview (Vue d’ensemble)** . Pour le **mode Haute disponibilité** , sélectionnez **Actif / passif** . Cette action ouvre une fenêtre contextuelle qui affiche la machine virtuelle Edge sur laquelle le routeur Tier0 est actuellement actif.
+1. Connectez-vous à NSX-T Manager `https://*nsx-t-manager-ip-address*` et sélectionnez **Networking (Mise en réseau)**  > **Routers (Routeurs)**  > **Provider-LR** > **Overview (Vue d’ensemble)** . Pour le **mode Haute disponibilité**, sélectionnez **Actif / passif**. Cette action ouvre une fenêtre contextuelle qui affiche la machine virtuelle Edge sur laquelle le routeur Tier0 est actuellement actif.
 
     ![Sélectionner Actif / passif](media/l2vpn-fetch01.png)
 
@@ -137,7 +137,7 @@ Les étapes suivantes montrent comment récupérer l'ID du routeur logique de l'
 ## <a name="fetch-the-logical-switch-id-needed-for-l2vpn"></a>Récupérer l'ID du commutateur logique nécessaire pour L2VPN
 
 1. Se connecter à NSX-T Manager (`https://nsx-t-manager-ip-address`).
-2. Sélectionnez **Mis en réseau** > **Commutation** > **Commutateurs** >  **<\Commutateur logique\>**  > **Vue d'ensemble** .
+2. Sélectionnez **Mis en réseau** > **Commutation** > **Commutateurs** >  **<\Commutateur logique\>**  > **Vue d'ensemble**.
 3. Notez l'UUID du commutateur logique étendu, nécessaire lors de la configuration de L2VPN.
 
     ![get logical-router output](media/l2vpn-fetch-switch01.png)
@@ -154,16 +154,16 @@ Pour établir un VPN IPsec basé sur itinéraires entre le routeur NSX-T Tier0 e
 
 ### <a name="advertise-the-loopback-interface-ip-to-the-underlay-network"></a>Annoncer l'interface de bouclage IP sur le réseau sous-jacent
 
-1. Créez un itinéraire nul pour le réseau d'interface de bouclage. Connectez-vous à NSX-T Manager et sélectionnez **Networking (Mise en réseau)**  > **Routing (Routage)**  > **Routers (Routeurs)**  > **Provider-LR** > **Routing (Routage)**  > **Static Routes (Itinéraires statiques)** . Cliquez sur **Add** . Pour **Network (Réseau)** , entrez l’adresse IP de l’interface de bouclage. Pour **Next Hops (Prochains tronçons)** , cliquez sur **Add (Ajouter)** , spécifiez 'Null' comme prochain tronçon, puis conservez la valeur par défaut 1 pour Admin Distance (Distance admin).
+1. Créez un itinéraire nul pour le réseau d'interface de bouclage. Connectez-vous à NSX-T Manager et sélectionnez **Networking (Mise en réseau)**  > **Routing (Routage)**  > **Routers (Routeurs)**  > **Provider-LR** > **Routing (Routage)**  > **Static Routes (Itinéraires statiques)** . Cliquez sur **Add**. Pour **Network (Réseau)** , entrez l’adresse IP de l’interface de bouclage. Pour **Next Hops (Prochains tronçons)** , cliquez sur **Add (Ajouter)** , spécifiez 'Null' comme prochain tronçon, puis conservez la valeur par défaut 1 pour Admin Distance (Distance admin).
 
     ![Ajouter un itinéraire statique](media/l2vpn-routing-security01.png)
 
-2. Créez une liste de préfixes IP. Connectez-vous à NSX-T Manager et sélectionnez **Networking (Mise en réseau)**  > **Routing (Routage)**  > **Routers (Routeurs)**  > **Provider-LR** > **Routing (Routage)**  > **IP Prefix Lists (Listes de préfixes IP)** . Cliquez sur **Add** . Entrez un nom pour identifier la liste. Pour **Préfixes** , cliquez deux fois sur **Ajouter** . Sur la première ligne, entrez '0.0.0.0/0 pour **Network (Réseau)** et 'Deny' pour **Action** . Sur la deuxième ligne, sélectionnez **Any (N’importe quel)** pour **Network (Réseau)** et **Permit (Autoriser)** pour **Action** .
+2. Créez une liste de préfixes IP. Connectez-vous à NSX-T Manager et sélectionnez **Networking (Mise en réseau)**  > **Routing (Routage)**  > **Routers (Routeurs)**  > **Provider-LR** > **Routing (Routage)**  > **IP Prefix Lists (Listes de préfixes IP)** . Cliquez sur **Add**. Entrez un nom pour identifier la liste. Pour **Préfixes**, cliquez deux fois sur **Ajouter**. Sur la première ligne, entrez '0.0.0.0/0 pour **Network (Réseau)** et 'Deny' pour **Action**. Sur la deuxième ligne, sélectionnez **Any (N’importe quel)** pour **Network (Réseau)** et **Permit (Autoriser)** pour **Action**.
 3. Attachez la liste des préfixes IP aux deux voisins BGP (TOR). Attacher la liste des préfixes IP au voisin BGP empêche l’itinéraire par défaut d'être annoncé dans BGP aux commutateurs TOR. Cependant, tout autre itinéraire incluant l’itinéraire nul annoncera l'adresse IP de l'interface de bouclage aux commutateurs TOR.
 
     ![Créer une liste de préfixes IP](media/l2vpn-routing-security02.png)
 
-4. Connectez-vous à NSX-T Manager et sélectionnez **Networking (Mise en réseau)**  > **Routing (Routage)**  > **Routers (Routeurs)**  > **Provider-LR** > **Routing (Routage)**  > **BGP** > **Neighbors (Voisins)** . Sélectionnez le premier voisin. Cliquez sur **Edit (Modifier)**  > **Address Families (Familles d’adresses)** . Pour la famille IPv4, modifiez la colonne **Out Filter (Filtre sortant)** et sélectionnez la liste des préfixes IP que vous avez créée. Cliquez sur **Enregistrer** . Répétez cette étape pour le deuxième voisin.
+4. Connectez-vous à NSX-T Manager et sélectionnez **Networking (Mise en réseau)**  > **Routing (Routage)**  > **Routers (Routeurs)**  > **Provider-LR** > **Routing (Routage)**  > **BGP** > **Neighbors (Voisins)** . Sélectionnez le premier voisin. Cliquez sur **Edit (Modifier)**  > **Address Families (Familles d’adresses)** . Pour la famille IPv4, modifiez la colonne **Out Filter (Filtre sortant)** et sélectionnez la liste des préfixes IP que vous avez créée. Cliquez sur **Enregistrer**. Répétez cette étape pour le deuxième voisin.
 
     ![Joindre la liste des préfixes IP 1](media/l2vpn-routing-security03.png) ![Joindre la liste des préfixes IP 2](media/l2vpn-routing-security04.png)
 
@@ -428,19 +428,19 @@ Avant le déploiement, vérifiez que vos règles de pare-feu locales autorisent 
 
     ![Télécharger le client autonome NSX Edge](media/l2vpn-deploy-client01.png)
 
-2. Ouvrez le dossier contenant tous les fichiers extraits. Sélectionnez tous les disques de machines virtuelles (NSX-l2t-client-large.mf et NSX-l2t-client-large.ovf pour les appliances de grande taille, ou NSX-l2t-client-Xlarge.mf et NSX-l2t-client-Xlarge.ovf pour les appliances de très grande taille). Cliquez sur **Suivant** .
+2. Ouvrez le dossier contenant tous les fichiers extraits. Sélectionnez tous les disques de machines virtuelles (NSX-l2t-client-large.mf et NSX-l2t-client-large.ovf pour les appliances de grande taille, ou NSX-l2t-client-Xlarge.mf et NSX-l2t-client-Xlarge.ovf pour les appliances de très grande taille). Cliquez sur **Suivant**.
 
     ![Sélectionner le modèle](media/l2vpn-deploy-client02.png) ![Capture d’écran montrant les fichiers VMDK sélectionnés.](media/l2vpn-deploy-client03.png)
 
-3. Entrez un nom pour le client autonome NSX-T, puis cliquez sur **Suivant** .
+3. Entrez un nom pour le client autonome NSX-T, puis cliquez sur **Suivant**.
 
     ![Entrer le nom du modèle](media/l2vpn-deploy-client04.png)
 
-4. Le cas échéant, cliquez sur **Suivant** pour accéder aux paramètres du magasin de données. Sélectionnez le magasin de données approprié pour le client autonome NSX-T, puis cliquez sur **Suivant** .
+4. Le cas échéant, cliquez sur **Suivant** pour accéder aux paramètres du magasin de données. Sélectionnez le magasin de données approprié pour le client autonome NSX-T, puis cliquez sur **Suivant**.
 
     ![Sélectionner la banque de données](media/l2vpn-deploy-client06.png)
 
-5. Sélectionnez les groupes de ports corrects pour l’interface Trunk (Trunk PG), Public (Uplink PG) et HA (Uplink PG) pour le client autonome NSX-T. Cliquez sur **Suivant** .
+5. Sélectionnez les groupes de ports corrects pour l’interface Trunk (Trunk PG), Public (Uplink PG) et HA (Uplink PG) pour le client autonome NSX-T. Cliquez sur **Suivant**.
 
     ![Sélectionner des groupes de ports](media/l2vpn-deploy-client07.png)
 
@@ -448,22 +448,22 @@ Avant le déploiement, vérifiez que vos règles de pare-feu locales autorisent 
 
     Développez L2T :
 
-    * **Adresse de l’homologue** . Entrez l'adresse IP réservée sur le portail Azure CloudSimple pour l'interface de bouclage NSX-T Tier0.
-    * **Code de l’homologue** . Collez le code homologue obtenu lors de la dernière étape du déploiement du serveur L2VPN.
+    * **Adresse de l’homologue**. Entrez l'adresse IP réservée sur le portail Azure CloudSimple pour l'interface de bouclage NSX-T Tier0.
+    * **Code de l’homologue**. Collez le code homologue obtenu lors de la dernière étape du déploiement du serveur L2VPN.
     * **VLAN d’interfaces secondaires (ID de tunnel)** . Entrez l'ID du VLAN à étendre. Entre parenthèses (), entrez l'ID du tunnel qui a été configuré précédemment.
 
     Développez l’interface de la liaison montante :
 
-    * **Adresse IP du DNS** . Entrez l'adresse IP DNS locale.
-    * **Passerelle par défaut** .  Entrez la passerelle par défaut du VLAN qui servira de passerelle par défaut pour ce client.
-    * **Adresse IP** . Entrez l'adresse IP de liaison montante du client autonome.
-    * **Longueur du préfixe** . Entrez la longueur du préfixe du VLAN/sous-réseau de liaison montante.
-    * **CLI admin/enable/root User Password** . Définissez le mot de passe pour le compte admin /enable /root.
+    * **Adresse IP du DNS**. Entrez l'adresse IP DNS locale.
+    * **Passerelle par défaut**.  Entrez la passerelle par défaut du VLAN qui servira de passerelle par défaut pour ce client.
+    * **Adresse IP**. Entrez l'adresse IP de liaison montante du client autonome.
+    * **Longueur du préfixe**. Entrez la longueur du préfixe du VLAN/sous-réseau de liaison montante.
+    * **CLI admin/enable/root User Password**. Définissez le mot de passe pour le compte admin /enable /root.
 
       ![Personnaliser le modèle](media/l2vpn-deploy-client08.png)
       ![Personnaliser le modèle - plus](media/l2vpn-deploy-client09.png)
 
-7. Vérifiez les paramètres, puis cliquez sur **Terminer** .
+7. Vérifiez les paramètres, puis cliquez sur **Terminer**.
 
     ![Terminer la configuration](media/l2vpn-deploy-client10.png)
 

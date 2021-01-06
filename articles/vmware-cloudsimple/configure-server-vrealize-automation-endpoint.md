@@ -1,19 +1,19 @@
 ---
 title: Azure VMware Solution by CloudSimple – Configurer vCenter sur le cloud privé pour vRealize Automation
 description: Décrit comment configurer un serveur VMware vCenter sur votre cloud privé CloudSimple en tant que point de terminaison pour VMware vRealize Automation
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/19/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: df73acfc469a8b7b5329b61095aefdbd73baafd4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b6c6a320e6299808a91214476c8c0460f9f53d9
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77024838"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895051"
 ---
 # <a name="set-up-vcenter-on-your-private-cloud-for-vmware-vrealize-automation"></a>Configurer vCenter sur votre cloud privé pour VMware vRealize Automation
 
@@ -48,7 +48,7 @@ Effectuez les tâches suivantes avant de configurer le serveur vCenter :
 2. Déployez un agent vSphere pour le point de terminaison vRealize Automation.
     1. Accédez à https://*vra-url*:5480/installer, où *vra-url* est l’URL que vous utilisez pour accéder à l’interface utilisateur d’administration de vRealize Automation.
     2. Cliquez sur **Programme d'installation IaaS** pour télécharger le programme d'installation.<br>
-    La convention d’affectation de noms pour le fichier du programme d'installation est setup_*vra-url*@5480.exe.
+    La convention d’affectation de noms pour le fichier du programme d'installation est setup_ *vra-url*@5480.exe.
     3. Exécutez le programme d’installation. Dans l’écran de bienvenue, cliquez sur **Suivant**.
     4. Acceptez le CLUF, puis cliquez sur **Suivant**.
     5. Fournissez les informations de connexion, cliquez sur **Accepter le certificat**, puis cliquez sur **Suivant**.

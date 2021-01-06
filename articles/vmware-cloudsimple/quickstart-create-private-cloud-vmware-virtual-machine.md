@@ -1,19 +1,19 @@
 ---
 title: Démarrage rapide - Créer une machine virtuelle Azure VMware sur un cloud privé - Azure VMware Solutions by CloudSimple
 description: Découvrez comment créer une machine virtuelle VMware sur un cloud privé CloudSimple. Accédez au portail CloudSimple s’effectue à partir du Portail Azure.
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/16/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: fd67a5a7f1bf665333e06c66f73c7f18727a3e12
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: c741f01ccc3e34ec991aa77fc850fd9f60c4d8aa
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427762"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97899284"
 ---
 # <a name="create-vmware-virtual-machines-on-your-private-cloud"></a>Créer des machines virtuelles VMware sur votre cloud privé
 
@@ -28,7 +28,7 @@ Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.az
 1. Sélectionnez **Tous les services**.
 2. Recherchez **Services CloudSimple**.
 3. Sélectionnez le service CloudSimple où vous voulez créer votre cloud privé.
-4. Depuis la page **Vue d’ensemble** , cliquez sur **Accéder au portail CloudSimple** pour ouvrir un nouvel onglet de navigateur pour le portail CloudSimple.  Si vous y êtes invité, connectez-vous avec vos informations d’identification Azure.  
+4. Depuis la page **Vue d’ensemble**, cliquez sur **Accéder au portail CloudSimple** pour ouvrir un nouvel onglet de navigateur pour le portail CloudSimple.  Si vous y êtes invité, connectez-vous avec vos informations d’identification Azure.  
 
     ![Lancer le portail CloudSimple](media/launch-cloudsimple-portal.png)
 
@@ -36,7 +36,7 @@ Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.az
 
 Vous pouvez maintenant lancer vCenter pour configurer des stratégies et des machines virtuelles.
 
-Pour accéder à vCenter, démarrez depuis le portail CloudSimple. Sur la page d’accueil, sous **Tâches courantes** , cliquez sur **Lancer le client vSphere**.  Sélectionnez le cloud privé, puis cliquez sur **Lancer le client vSphere** sur le cloud privé.
+Pour accéder à vCenter, démarrez depuis le portail CloudSimple. Sur la page d’accueil, sous **Tâches courantes**, cliquez sur **Lancer le client vSphere**.  Sélectionnez le cloud privé, puis cliquez sur **Lancer le client vSphere** sur le cloud privé.
 
    ![Lancer le client vSphere](media/launch-vcenter-from-cloudsimple-portal.png)
 
@@ -46,7 +46,7 @@ Pour accéder à vCenter, démarrez depuis le portail CloudSimple. Sur la page d
   > Pour le chargement des fichiers ISO, utilisez le client HTML5 vSphere.  L’utilisation d’un client Flash peut entraîner une erreur.
 
 1. Récupérez le fichier ISO ou le modèle vSphere à charger sur vCenter pour créer une machine virtuelle et la mettre à disposition sur votre système local.
-2. Dans vCenter, cliquez sur l'icône **Disque** et sélectionnez **vsanDatastore**. Cliquez sur **Fichiers** , puis sur **Nouveau dossier**.
+2. Dans vCenter, cliquez sur l'icône **Disque** et sélectionnez **vsanDatastore**. Cliquez sur **Fichiers**, puis sur **Nouveau dossier**.
     ![ISO vCenter](media/vciso00.png)
 
 3. Créez un dossier intitulé « ISO et modèles ».
@@ -57,19 +57,19 @@ Pour accéder à vCenter, démarrez depuis le portail CloudSimple. Sur la page d
 
 1. Dans vCenter, cliquez sur l'icône **Hôtes et clusters**.
 
-2. Cliquez avec le bouton droit de la souris sur **Charge de travail** , puis sélectionnez **Nouvelle machine virtuelle**.
+2. Cliquez avec le bouton droit de la souris sur **Charge de travail**, puis sélectionnez **Nouvelle machine virtuelle**.
     ![Capture d’écran mettant en évidence l’option de menu Nouvelle machine virtuelle.](media/vcvm01.png)
 
-3. Sélectionnez **Créer une machine virtuelle** , puis cliquez sur **Suivant**.
+3. Sélectionnez **Créer une machine virtuelle**, puis cliquez sur **Suivant**.
     ![Capture d’écran mettant en évidence l’option Créer une machine virtuelle.](media/vcvm02.png)
 
 4. Nommez la machine, sélectionnez l’emplacement **Workload VM’s** (Machines virtuelles de charge de travail), puis cliquez sur **Suivant**.
     ![Capture d’écran mettant en évidence l’option Machines virtuelles de charge de travail.](media/vcvm03.png)
 
-5. Sélectionnez la ressource de calcul **Charge de travail** , puis cliquez sur **Suivant**.
+5. Sélectionnez la ressource de calcul **Charge de travail**, puis cliquez sur **Suivant**.
     ![Capture d’écran mettant en évidence la ressource Calcul de charge de travail.](media/vcvm04.png)
 
-6. Sélectionnez **vsanDatastore** , puis cliquez sur **Suivant**.
+6. Sélectionnez **vsanDatastore**, puis cliquez sur **Suivant**.
     ![Capture d’écran mettant en évidence l’option vsanDatastore.](media/vcvm05.png)
 
 7. Conservez la sélection de compatibilité ESXi 6.5 par défaut, puis cliquez sur **Suivant**.

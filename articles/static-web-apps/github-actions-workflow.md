@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 3518935991409d87917582558a34ad7c54841e23
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 5e6188ca2e8e0972e86bed578144a29a96570876
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173668"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901196"
 ---
 # <a name="github-actions-workflows-for-azure-static-web-apps-preview"></a>Flux de travail GitHub Actions pour Azure Static Web Apps - Préversion
 
@@ -27,7 +27,7 @@ Quand vous liez votre référentiel GitHub à Azure Static Web Apps, un fichier 
 Procédez comme suit pour afficher le fichier de flux de travail généré.
 
 1. Ouvrez le référentiel de l’application sur GitHub.
-1. Dans l’onglet _Code_ , cliquez sur le dossier `.github/workflows`.
+1. Dans l’onglet _Code_, cliquez sur le dossier `.github/workflows`.
 1. Cliquez sur le fichier dont le nom ressemble à `azure-static-web-apps-<RANDOM_NAME>.yml`.
 
 Le fichier YAML dans votre référentiel ressemblera à l’exemple suivant :
@@ -63,7 +63,7 @@ jobs:
         ###### Repository/Build Configurations - These values can be configured to match you app requirements. ######
         app_location: '/' # App source code path
         api_location: 'api' # Api source code path - optional
-        app_artifact_location: 'dist' # Built app content directory - optional
+        output_location: 'dist' # Built app content directory - optional
         ###### End of Repository/Build Configurations ######
 
   close_pull_request_job:
@@ -132,7 +132,7 @@ with:
     ###### Repository/Build Configurations - These values can be configured to match you app requirements. ######
     app_location: '/' # App source code path
     api_location: 'api' # Api source code path - optional
-    app_artifact_location: 'dist' # Built app content directory - optional
+    output_location: 'dist' # Built app content directory - optional
     ###### End of Repository/Build Configurations ######
 ```
 
@@ -140,7 +140,7 @@ with:
 |---|---|---|
 | `app_location` | Emplacement du code de votre application.<br><br>Par exemple, entrez `/` si le code source de votre application se trouve à la racine du référentiel ou `/app` si le code de votre application se trouve dans un répertoire appelé `app`. | Oui |
 | `api_location` | Emplacement de votre code Azure Functions.<br><br>Par exemple, entrez `/api` si le code de votre application se trouve dans un dossier appelé `api`. Si aucune application Azure Functions n’est détectée dans le dossier, la création n’échoue pas, le flux de travail suppose que vous ne souhaitez pas d’API. | Non |
-| `app_artifact_location` | Emplacement du répertoire de sortie de compilation par rapport à `app_location`.<br><br>Par exemple, si le code source de votre application se trouve dans `/app`, et que le script de compilation place les fichiers dans le dossier `/app/build`, définissez `build` comme valeur `app_artifact_location`. | Non |
+| `output_location` | Emplacement du répertoire de sortie de compilation par rapport à `app_location`.<br><br>Par exemple, si le code source de votre application se trouve dans `/app`, et que le script de compilation place les fichiers dans le dossier `/app/build`, définissez `build` comme valeur `output_location`. | Non |
 
 Les valeurs `repo_token`, `action`et `azure_static_web_apps_api_token` sont définies pour vous par Azure Static Web Apps et ne doivent pas être modifiées manuellement.
 
@@ -161,9 +161,9 @@ Vous pouvez personnaliser le flux de travail pour rechercher le fichier [routes.
 
 | Propriété            | Description |
 |---------------------|-------------|
-| `routes_location` | Définit l’emplacement du répertoire où se trouve le fichier _routes.json_ . Cet emplacement est relatif par rapport à la racine du référentiel. |
+| `routes_location` | Définit l’emplacement du répertoire où se trouve le fichier _routes.json_. Cet emplacement est relatif par rapport à la racine du référentiel. |
 
- L’emplacement de votre fichier de _routes.json_ est particulièrement important si l’étape de compilation de votre framework frontal ne déplace pas ce fichier vers `app_artifact_location` par défaut.
+ L’emplacement de votre fichier de _routes.json_ est particulièrement important si l’étape de compilation de votre framework frontal ne déplace pas ce fichier vers `output_location` par défaut.
 
 ## <a name="environment-variables"></a>Variables d'environnement
 
@@ -189,7 +189,7 @@ jobs:
           ###### Repository/Build Configurations
           app_location: "/"
           api_location: "api"
-          app_artifact_location: "public"
+          output_location: "public"
           ###### End of Repository/Build Configurations ######
         env: # Add environment variables here
           HUGO_VERSION: 0.58.0

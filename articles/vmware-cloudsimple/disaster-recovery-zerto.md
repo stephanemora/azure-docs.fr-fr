@@ -1,19 +1,19 @@
 ---
 title: Azure VMware Solution by CloudSimple - Utiliser le cloud privé comme site de reprise d’activité pour les charges de travail locales
 description: Explique comment configurer votre cloud privé CloudSimple en tant que site de reprise d’activité pour les charges de travail VMware locales.
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/20/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 0e019a9229b671be2fb73e758bd39f33657bc2d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5dd1f157984cdb300cc3b375d71654e5da54d1ae
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77083135"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97898128"
 ---
 # <a name="set-up-cloudsimple-private-cloud-as-a-disaster-recovery-site-for-on-premises-vmware-workloads"></a>Configurer votre cloud privé CloudSimple comme site de reprise d’activité pour les charges de travail VMware locales
 

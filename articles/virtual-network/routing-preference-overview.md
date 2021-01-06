@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/02/2020
 ms.author: mnayak
-ms.openlocfilehash: c1c2c5f27143be7fc10269c948bee9d5465d565a
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 656f8a0e0530a20807fc8fddd4cd96d1d955c8ac
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96530440"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97912697"
 ---
 # <a name="what-is-routing-preference-preview"></a>Qu’est-ce qu’une préférence de routage (préversion) ?
 
@@ -72,11 +72,6 @@ Pour le stockage, les points de terminaison principaux utilisent toujours le **r
 ## <a name="pricing"></a>Tarifs
 La différence de prix entre les deux options est reflétée dans la tarification du transfert de données de sortie Internet. Le prix du transfert de données via le **réseau Microsoft mondial** est identique au prix de sortie Internet actuel. Pour accéder aux dernières informations sur la tarification, visitez la [page sur les tarifs de bande passante Azure](https://azure.microsoft.com/pricing/details/bandwidth/). 
 
-## <a name="availability"></a>Disponibilité
-
-La prise en charge de préférence de routage est disponible dans les régions suivantes pour des services tels que les machines virtuelles et l’équilibreur de charge accessible via Internet qui utilisent une adresse IP publique pour la sortie Internet : Europe Nord, Europe Ouest, France Sud, Royaume-Uni Sud, USA Est, USA Centre Nord, USA Centre Sud, USA Ouest, USA Centre-Ouest, Asie Sud-Est, Allemagne Centre-Ouest, Suisse Ouest, Japon Est et Japon Ouest.
-
-La prise en charge de préférence de routage pour le compte de stockage est disponible dans les régions Azure suivantes : USA Centre Nord, USA Centre-Ouest, USA Centre Sud, USA Est, USA Ouest, Europe Nord, France Sud, Allemagne Centre-Ouest, Suisse Ouest, Asie Sud-Est, Japon Est et Japon Ouest.
 ## <a name="limitations"></a>Limites
 
 * La préférence de routage est compatible uniquement avec la référence (SKU) standard d’adresse IP publique. La référence (SKU) de base d’adresse IP publique n’est pas prise en charge.

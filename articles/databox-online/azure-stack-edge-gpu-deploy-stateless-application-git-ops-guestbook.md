@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 82b786f3c90a7ef482ccbcd6e66fb9abfc4eea5f
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 4e974d93b5b7550081abcd7e251c7eda265a2397
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97561934"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882957"
 ---
 # <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-pro-gpu"></a>Déployer une application sans état PHP Guestbook avec Redis sur un cluster Kubernetes avec Arc sur Azure Stack Edge Pro avec GPU
 
@@ -27,6 +27,8 @@ Le déploiement s’effectue à l’aide de GitOps sur le cluster Kubernetes ave
 
 Cette procédure est destinée aux personnes qui ont examiné les [charges de travail Kubernetes sur un appareil Azure Stack Edge Pro](azure-stack-edge-gpu-kubernetes-workload-management.md) et connaissent les concepts de [Kubernetes avec Azure Arc (préversion)](../azure-arc/kubernetes/overview.md).
 
+> [!NOTE]
+> Cet article contient des références au terme esclave, un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -108,7 +110,6 @@ Procédez comme suit pour configurer la ressource Azure Arc afin de déployer un
 1. Le déploiement prend quelques minutes. Une fois le déploiement terminé, l’**État de l’opérateur** indique **Installé**.
 
     ![Capture d’écran montrant le cluster Kubernetes Azure Arc dans un état installé.](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-2.png)
-
 
 ## <a name="verify-deployment"></a>Vérifier le déploiement
 

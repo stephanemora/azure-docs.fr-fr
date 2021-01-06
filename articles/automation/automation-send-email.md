@@ -3,14 +3,14 @@ title: Envoyer un e-mail à partir d’un runbook Azure Automation
 description: Cet article explique comment envoyer un e-mail à partir d’un runbook.
 services: automation
 ms.subservice: process-automation
-ms.date: 07/15/2019
+ms.date: 01/05/2021
 ms.topic: conceptual
-ms.openlocfilehash: a81ae680a5f04eca0a6cc01ee24b474cc5daabea
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 65fa226b368baa3b1d4f376600e610a518c48c02
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97005203"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900319"
 ---
 # <a name="send-an-email-from-a-runbook"></a>Envoyer un e-mail depuis un runbook
 
@@ -67,7 +67,7 @@ Pour découvrir d’autres méthodes de création d’un coffre de clés Azure e
 
 Pour utiliser Azure Key Vault dans un runbook, vous devez importer les modules suivants dans votre compte Automation :
 
-* [Az.Profile](https://www.powershellgallery.com/packages/Az.Profile)
+* [Az.Accounts](https://www.powershellgallery.com/packages/Az.Accounts)
 * [Az.KeyVault](https://www.powershellgallery.com/packages/Az.KeyVault)
 
 Pour obtenir des instructions, consultez [Importer des modules Az](shared-resources/modules.md#import-az-modules).
@@ -142,7 +142,7 @@ Si vous ne voyez pas votre e-mail de test, vérifiez vos dossiers de **courrier 
 
 1. Quand le runbook n’est plus nécessaire, sélectionnez-le dans la liste de runbooks et cliquez sur **Supprimer**.
 
-2. Supprimez le coffre de clés à l’aide de l’applet de commande [Remove-AzKeyVault](/powershell/module/az.keyvault/remove-azkeyvault?view=azps-3.7.0).
+2. Supprimez le coffre de clés à l’aide de l’applet de commande [Remove-AzKeyVault](/powershell/module/az.keyvault/remove-azkeyvault).
 
 ```azurepowershell-interactive
 $VaultName = "<your KeyVault name>"

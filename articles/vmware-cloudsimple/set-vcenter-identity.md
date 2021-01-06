@@ -1,19 +1,19 @@
 ---
 title: Azure VMware Solution by CloudSimple – Configurer des sources d’identité vCenter sur le cloud privé
 description: Décrit comment configurer votre cloud privé vCenter pour s’authentifier auprès d’Active Directory afin que les administrateurs VMware accèdent à vCenter
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/15/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 60090dec56a177fac6ddad946d97142b484355af
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: a76fecb942c5c6da926e37149245e82dcbc4661b
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425747"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97899148"
 ---
 # <a name="set-up-vcenter-identity-sources-to-use-active-directory"></a>Configurer des sources d’identité vCenter pour utiliser Active Directory
 
@@ -33,7 +33,7 @@ Ce guide explique les tâches à effectuer pour configurer un domaine et des con
 Avant d’[ajouter une source d’identité](#add-an-identity-source-on-vcenter), [augmentez temporairement vos privilèges vCenter](escalate-private-cloud-privileges.md).
 
 > [!CAUTION]
-> Les nouveaux utilisateurs doivent être ajoutés uniquement à *Cloud-Owner-Group* , à *Cloud-Global-Cluster-Admin-Group* , à *Cloud-Global-Storage-Admin-Group* , à *Cloud-Global-Network-Admin-Group* ou à *Cloud-Global-VM-Admin-Group*.  Les utilisateurs ajoutés au groupe *Administrateurs* seront automatiquement supprimés.  Seuls des comptes de service doivent être ajoutés au groupe *Administrateurs* , et les comptes de service en doivent pas être utilisés pour se connecter à l’interface utilisateur web de vSphere.   
+> Les nouveaux utilisateurs doivent être ajoutés uniquement à *Cloud-Owner-Group*, à *Cloud-Global-Cluster-Admin-Group*, à *Cloud-Global-Storage-Admin-Group*, à *Cloud-Global-Network-Admin-Group* ou à *Cloud-Global-VM-Admin-Group*.  Les utilisateurs ajoutés au groupe *Administrateurs* seront automatiquement supprimés.  Seuls des comptes de service doivent être ajoutés au groupe *Administrateurs*, et les comptes de service en doivent pas être utilisés pour se connecter à l’interface utilisateur web de vSphere.   
 
 
 ## <a name="identity-source-options"></a>Options de la source d’identité
@@ -125,7 +125,7 @@ Une fois la connexion réseau établie, suivez les étapes fournies dans [Ajoute
 
     ![Sources d’identité](media/OnPremAD03.png)
 
-6. Sélectionnez **Active Directory en tant que serveur LDAP** , puis cliquez sur **Suivant**.
+6. Sélectionnez **Active Directory en tant que serveur LDAP**, puis cliquez sur **Suivant**.
 
     ![Capture d'écran mettant en évidence l'option Active Directory en tant que serveur LDAP.](media/OnPremAD04.png)
 

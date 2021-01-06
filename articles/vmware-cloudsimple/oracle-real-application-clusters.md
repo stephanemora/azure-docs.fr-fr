@@ -1,19 +1,19 @@
 ---
 title: Azure VMware Solution by CloudSimple - Optimiser votre cloud privé CloudSimple pour Oracle RAC
 description: Explique comment déployer un nouveau cluster et optimiser une machine virtuelle pour l’installation et la configuration d’Oracle Real Application Clusters (RAC).
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/06/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 980ba86a9916e13dd2ac7639bd06d3ab8546d2f1
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 3959aae5f490af10c6747cfa67d9960e0c4a203f
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424693"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97899267"
 ---
 # <a name="optimize-your-cloudsimple-private-cloud-for-installing-oracle-rac"></a>Optimiser votre cloud privé CloudSimple pour l’installation d’Oracle RAC
 
@@ -174,9 +174,9 @@ Les stratégies vSAN définissent les défaillances à tolérer et l’entrelace
 3. Dans le menu de gauche, sélectionnez **VM Storage Policies** (Stratégies de stockage de machines virtuelles), puis **Create a VM storage Policy** (Créer une stratégie de stockage de machines virtuelles).
 4. Entrez un nom explicite pour la stratégie, puis cliquez sur **NEXT**.
 5. Dans la section **Policy structure** (Structure de la stratégie), sélectionnez **Enable rules for vSAN storage** (Activer les règles pour le stockage vSAN), puis cliquez sur **NEXT**.
-6. Dans la section **vSAN** > **Availability** (Disponibilité), sélectionnez **None** pour Site disaster tolerance (Tolérance pour la reprise d’activité de site). Pour Failures to tolerate, sélectionnez l’option de mise en miroir RAID ( **RAID - Mirroring** ) pour la FTT souhaitée.
+6. Dans la section **vSAN** > **Availability** (Disponibilité), sélectionnez **None** pour Site disaster tolerance (Tolérance pour la reprise d’activité de site). Pour Failures to tolerate, sélectionnez l’option de mise en miroir RAID (**RAID - Mirroring**) pour la FTT souhaitée.
     ![Paramètres de vSAN](media/oracle-rac-storage-wizard-vsan.png).
-7. Dans la section **Advanced** , sélectionnez le nombre d’agrégations de disques par objet. Pour Object space reservation (Réservation d’espace d’objet), sélectionnez **Thick Provisioned** (Alloué de manière statique). Sélectionnez **Disable object checksum** (Désactiver la somme de contrôle des objets). Cliquez sur **NEXT**.
+7. Dans la section **Advanced**, sélectionnez le nombre d’agrégations de disques par objet. Pour Object space reservation (Réservation d’espace d’objet), sélectionnez **Thick Provisioned** (Alloué de manière statique). Sélectionnez **Disable object checksum** (Désactiver la somme de contrôle des objets). Cliquez sur **NEXT**.
 8. Suivez les instructions à l’écran pour afficher la liste des banques de données vSAN compatibles, passer en revue les paramètres et terminer l’installation.
 
 ## <a name="create-oracle-vms-and-create-shared-vm-disks-for-oracle"></a>Créer des machines virtuelles Oracle et créer des disques de machines virtuelles partagés pour Oracle
@@ -187,7 +187,7 @@ Pour créer une machine virtuelle pour Oracle, clonez une machine virtuelle exis
 
 1. Dans vCenter, cliquez sur l'icône **Hôtes et clusters**. Sélectionnez le cluster que vous avez créé pour Oracle.
 2. Cliquez avec le bouton droit de la souris sur le cluster et sélectionnez **New Virtual Machine** (Nouvelle machine virtuelle).
-3. Sélectionnez **Créer une machine virtuelle** , puis cliquez sur **Suivant**.
+3. Sélectionnez **Créer une machine virtuelle**, puis cliquez sur **Suivant**.
 4. Nommez la machine, sélectionnez l’emplacement de la machine virtuelle Oracle, puis cliquez sur **Next**.
 5. Sélectionnez la ressource de cluster, puis cliquez sur **Next**.
 6. Sélectionnez la banque de données vSAN pour le cluster, puis cliquez sur **Next**.
@@ -196,7 +196,7 @@ Pour créer une machine virtuelle pour Oracle, clonez une machine virtuelle exis
 9. Sélectionnez la taille de disque dur requise pour l’installation du système d’exploitation.
 10. Pour installer l’application sur un autre appareil, cliquez sur **Add new device** (Ajouter un nouvel appareil).
 11. Sélectionnez les options réseau et affectez le groupe de ports distribués créé pour le réseau public.
-12. Pour ajouter des interfaces réseau supplémentaires, cliquez sur **Add new device** , puis sélectionnez le groupe de ports distribués créé pour le réseau privé.
+12. Pour ajouter des interfaces réseau supplémentaires, cliquez sur **Add new device**, puis sélectionnez le groupe de ports distribués créé pour le réseau privé.
 13. Pour New DC/DVD Drive (Nouveau lecteur CD/DVD), sélectionnez le fichier ISO de banques de données qui contient l’image ISO de l’installation de système d’exploitation de votre choix. Sélectionnez le fichier que vous avez chargé précédemment dans le dossier des fichiers ISO et des modèles, puis cliquez sur **OK**.
 14. Vérifiez les paramètres, puis cliquez sur **OK** pour créer la machine virtuelle.
 15. Mettez la machine virtuelle sous tension. Installez le système d’exploitation et toutes les mises à jour requises.
@@ -210,7 +210,7 @@ Oracle utilise un disque partagé pour stocker les fichiers de données, journau
 #### <a name="create-disks-on-the-first-vm"></a>Créer des disques sur la première machine virtuelle
 
 1. Dans vCenter, cliquez avec le bouton droit sur l’une des machines virtuelles Oracle, puis sélectionnez **Edit settings**.
-2. Dans la section New Device, sélectionnez **SCSI controller** , puis cliquez sur **Add**.
+2. Dans la section New Device, sélectionnez **SCSI controller**, puis cliquez sur **Add**.
 3. Dans la section New Device, sélectionnez **New Hard disk** (Nouveau disque dur), puis cliquez sur **Add**.
 4. Développez les propriétés du nouveau disque dur.
 5. Spécifiez la taille du disque dur.
@@ -227,7 +227,7 @@ Répétez les étapes 2 à 10 pour tous les nouveaux disques requis pour les fic
 #### <a name="attach-disks-to-second-vm"></a>Attacher des disques à la deuxième machine virtuelle
 
 1. Dans vCenter, cliquez avec le bouton droit sur l’une des machines virtuelles Oracle, puis sélectionnez **Edit settings**.
-2. Dans la section New Device, sélectionnez **SCSI controller** , puis cliquez sur **Add**.
+2. Dans la section New Device, sélectionnez **SCSI controller**, puis cliquez sur **Add**.
 3. Dans la section New Device, sélectionnez **Existing Hard disk** (Disque dur existant), puis cliquez sur **Add**.
 4. Accédez à l’emplacement où le disque a été créé pour la première machine virtuelle et sélectionnez le fichier VMDK.
 5. Spécifiez la stratégie de stockage vSAN que vous avez définie précédemment comme stratégie de stockage de la machine virtuelle.

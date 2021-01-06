@@ -12,19 +12,19 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 12/01/2020
 ms.author: kumud
-ms.openlocfilehash: 814158ad68e63760c1f2a1bce3eeff812de3c13e
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: a25d6d0d1990682287b5962a7bd93a0c525db133
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938730"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882362"
 ---
 # <a name="integrate-azure-services-with-virtual-networks-for-network-isolation"></a>Intégrer des services Azure à des réseaux virtuels pour l’isolement réseau
 
 L’intégration d’un service Azure à un réseau virtuel vous permet de verrouiller l’accès au service à votre infrastructure de réseau virtuel uniquement. L’infrastructure de réseau virtuel comprend également des réseaux virtuels appairés et des réseaux locaux.
 
 L’intégration au réseau virtuel offre aux services Azure les avantages de l’isolement réseau et peut être accomplie à l’aide d’une ou plusieurs des méthodes suivantes :
-- [Déploiement d’instances dédiées du service dans un réseau virtuel](virtual-network-service-endpoints-overview.md). Les services sont alors accessibles de manière privée dans le réseau virtuel, et à partir des réseaux locaux.
+- [Déploiement d’instances dédiées du service dans un réseau virtuel](virtual-network-for-azure-services.md). Les services sont alors accessibles de manière privée dans le réseau virtuel, et à partir des réseaux locaux.
 - Utilisation d’un [point de terminaison privé](../private-link/private-endpoint-overview.md) qui vous permet de vous connecter de façon privée et sécurisée à un service basé sur [Azure Private Link](../private-link/private-link-overview.md). Le point de terminaison privé utilise une adresse IP privée de votre réseau virtuel, plaçant de fait le service dans votre réseau virtuel.
 - Accès au service à l’aide de points de terminaison publics en étendant un réseau virtuel au service par le biais de [points de terminaison de service](virtual-network-service-endpoints-overview.md). Les points de terminaison de service permettent de sécuriser les ressources de service au sein du réseau virtuel.
 - Utilisation d’[étiquettes de service](service-tags-overview.md) pour autoriser ou refuser le trafic vers vos ressources Azure vers et depuis des points de terminaison IP publics.

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 06d20dd47ceb71b51e226d662892eab06b072685
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 601f268f81c222ada5a4f99b05ae8ffcdfc13a23
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500935"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916284"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Check-list relative à la planification et au déploiement de la charge de travail SAP sur Azure
 
@@ -66,7 +66,7 @@ Au cours de cette phase, vous planifiez la migration de votre charge de travail 
     - Architecture de haute disponibilité et de récupération d’urgence.
         - En fonction des objectifs RTO et RPO, définissez l’architecture de haute disponibilité et de récupération d’urgence.
         - Pour une haute disponibilité dans une zone, vérifiez ce que le SGBD souhaité peut offrir dans Azure. La plupart des packages SGBD offrent les méthodes synchrones d’un serveur de secours synchrone, ce que nous recommandons pour les systèmes de production. Consultez aussi la documentation SAP pour les différentes bases de données en commençant par [Facteurs à prendre en compte pour le déploiement SGBD de machines virtuelles Azure pour les charges de travail SAP](./dbms_guide_general.md) et les documents connexes.
-           L’utilisation du Clustering de basculement Windows Server avec une configuration de disque partagé pour la couche SGBD comme [décrit pour SQL Server](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server?view=sql-server-2017), par exemple, n’est pas prise en charge. Utilisez plutôt des solutions comme :
+           L’utilisation du Clustering de basculement Windows Server avec une configuration de disque partagé pour la couche SGBD comme [décrit pour SQL Server](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server?view=sql-server-2017&preserve-view=true), par exemple, n’est pas prise en charge. Utilisez plutôt des solutions comme :
            - [SQL Server AlwaysOn](/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups)
            - [Oracle Data Guard](../oracle/configure-oracle-dataguard.md)
            - [Réplication de système HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html)

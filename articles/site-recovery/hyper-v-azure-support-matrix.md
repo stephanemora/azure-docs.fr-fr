@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: 7466f037f0a39b67023b9ebcc27c2e19b27f42ab
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 79558bd2c8e9bfec0aff47d254944977d271a762
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96485261"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587812"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Prendre en charge la matrice pour effectuer une récupération d’urgence de machines virtuelles Hyper-V locales vers Azure
 
@@ -131,6 +131,7 @@ Chemins d’accès multiples (MPIO) | Oui | Oui
 Stockage localement redondant | Oui | Oui
 Stockage géo-redondant | Oui | Oui
 Stockage géo-redondant avec accès en lecture | Oui | Oui
+Stockage redondant interzone | Non | Non
 Stockage froid | Non | Non
 Stockage chaud| Non | Non
 Objets blob de blocs | Non | Non

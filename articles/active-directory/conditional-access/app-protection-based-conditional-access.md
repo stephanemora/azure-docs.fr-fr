@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03069bc37333cbd26dfe4f40ce4496f3afe768ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 672a3f95efad24c07379fafe8b22088dc731c2df
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91266040"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881159"
 ---
 # <a name="how-to-require-app-protection-policy-and-an-approved-client-app-for-cloud-app-access-with-conditional-access"></a>Procédure : Exiger une stratégie de protection d’application pour l’accès aux applications cloud avec l’accès conditionnel
 
@@ -60,8 +60,8 @@ Les organisations doivent effectuer les étapes suivantes pour exiger l’utilis
    1. Sélectionnez **Applications mobiles et clients de bureau** et désélectionnez le reste.
 1. Sous **Contrôles d’accès** > **Octroyer**, sélectionnez les options suivantes :
    - **Demander une application cliente approuvée**
-   - **Exiger une stratégie de protection des applications (préversion)**
-   - **Demander tous les contrôles sélectionnés**
+   - **Exiger une stratégie de protection des applications**
+   - **Demander un des contrôles sélectionnés**
 1. Confirmez vos paramètres et réglez **Activer la stratégie** sur **Activé**.
 1. Sélectionnez **Créer** pour créer et activer votre stratégie.
 
@@ -111,8 +111,8 @@ Les organisations doivent effectuer les étapes suivantes pour exiger l’utilis
    1. Sélectionnez **Navigateur** et désélectionnez tout le reste.
 1. Sous **Contrôles d’accès** > **Octroyer**, sélectionnez les options suivantes :
    - **Demander une application cliente approuvée**
-   - **Exiger une stratégie de protection des applications (préversion)**
-   - **Demander tous les contrôles sélectionnés**
+   - **Exiger une stratégie de protection des applications**
+   - **Demander un des contrôles sélectionnés**
 1. Confirmez vos paramètres et réglez **Activer la stratégie** sur **Activé**.
 1. Sélectionnez **Créer** pour créer et activer votre stratégie.
 
@@ -144,7 +144,7 @@ Les organisations doivent effectuer les trois étapes suivantes pour exiger l’
    1. Sélectionnez **Applications mobiles et clients de bureau** et désélectionnez le reste.
 1. Sous **Contrôles d’accès** > **Octroyer**, sélectionnez les options suivantes :
    - **Demander une application cliente approuvée**
-   - **Exiger une stratégie de protection des applications (préversion)**
+   - **Exiger une stratégie de protection des applications**
    - **Demander un des contrôles sélectionnés**
 1. Confirmez vos paramètres et réglez **Activer la stratégie** sur **Activé**.
 1. Sélectionnez **Créer** pour créer et activer votre stratégie.

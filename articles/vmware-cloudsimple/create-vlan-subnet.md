@@ -1,19 +1,19 @@
 ---
 title: Créer des réseaux locaux virtuels/sous-réseaux - Azure VMware Solutions by CloudSimple
 description: Azure VMware Solutions by CloudSimple - Décrit comment créer et gérer des réseaux locaux virtuels/sous-réseaux pour vos clouds privés, puis appliquer des règles de pare-feu.
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/15/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: c0160513eb9abca54adbc3819b982348dc202c90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 06bebcb7369f6604fc79c1d3d0a4a6afa8b0a1da
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77565993"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97896309"
 ---
 # <a name="create-and-manage-vlanssubnets-for-your-private-clouds"></a>Créer et gérer des réseaux locaux virtuels/sous-réseaux pour vos clouds privés
 

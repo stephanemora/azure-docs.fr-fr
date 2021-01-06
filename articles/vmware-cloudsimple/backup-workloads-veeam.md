@@ -1,19 +1,19 @@
 ---
 title: Azure VMware Solution by CloudSimple – Sauvegarder des machines virtuelles de charge de travail sur un cloud privé à l’aide de Veeam
 description: Indique comment sauvegarder vos machines virtuelles qui s’exécutent dans un cloud privé CloudSimple basé sur Azure à l’aide de Veeam B&R 9.5
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/16/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: cb883b70d1ae9f2894c7679633a586586922aa18
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 7be606b3e23a594e67acf3f169d88353403d8577
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92419930"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97899335"
 ---
 # <a name="back-up-workload-vms-on-cloudsimple-private-cloud-using-veeam-br"></a>Sauvegarder des machines virtuelles de charge de travail sur le cloud privé CloudSimple à l’aide de Veeam B&R
 
@@ -194,7 +194,7 @@ Connectez votre réseau virtuel au cloud privé en suivant les instructions de [
 
 ### <a name="configure-azure-blob-storage-for-long-term-data-retention"></a>Configurer le stockage d’objets blob Azure pour la conservation des données à long terme
 
-1. Créez un compte de stockage à usage général (GPv2) de type standard et un conteneur d’objets blob, comme indiqué dans la vidéo de Microsoft [Prise en main du stockage Azure](https://azure.microsoft.com/resources/videos/get-started-with-azure-storage).
+1. Créez un compte de stockage à usage général (GPv2) de type standard et un conteneur d’objets blob, comme indiqué dans la vidéo de Mircosoft [Prise en main du stockage Azure](https://azure.microsoft.com/resources/videos/get-started-with-azure-storage).
 2. Créez un conteneur de stockage Azure, comme indiqué dans la référence [Créer un conteneur](/rest/api/storageservices/create-container).
 2. Téléchargez `azcopy` l’utilitaire de ligne de commande pour Linux à partir de Microsoft. Vous pouvez utilisez les commandes suivantes dans l’interpréteur de commandes Bash de CentOS 7.5.
 

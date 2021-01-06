@@ -5,12 +5,12 @@ author: naiteeks
 ms.topic: how-to
 ms.author: naiteeks
 ms.date: 12/14/2020
-ms.openlocfilehash: 7904269a8ca87d3d801c7ff78def1b60f242b9ab
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 9621f0a933c6102309286505f2c551c5256c5506
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97417426"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901553"
 ---
 # <a name="upgrading-live-video-analytics-on-iot-edge-from-10-to-20"></a>Mise à niveau de Live Video Analytics sur IoT Edge de 1.0 à 2.0
 
@@ -169,7 +169,7 @@ Avec cette mise en production, Telegraf peut être utilisé pour envoyer des mé
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/telemetry-schema/telegraf.png" alt-text="Taxonomie des événements":::
 
-Vous pouvez produire une image Telegraf avec une configuration personnalisée facilement à l’aide de Docker. Pour en savoir plus à ce sujet, consultez la page [Surveillance et journalisation](monitoring-logging.md#azure-monitor-collection-using-telegraf).
+Vous pouvez produire une image Telegraf avec une configuration personnalisée facilement à l’aide de Docker. Pour en savoir plus à ce sujet, consultez la page [Surveillance et journalisation](monitoring-logging.md#azure-monitor-collection-via-telegraf).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
