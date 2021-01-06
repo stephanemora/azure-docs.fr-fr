@@ -5,18 +5,18 @@ author: cgillum
 ms.topic: overview
 ms.date: 08/31/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 504ef93a0002895bc5662d95ad269c8593170ee2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2ec1b080c195a47caafd0120240b5fb61ede062b
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "74233012"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97932280"
 ---
 # <a name="durable-functions-billing"></a>Facturation Durable Functions
 
 [Durable Functions](durable-functions-overview.md) suit le même modèle de facturation qu’Azure Functions. Pour plus d’informations, consultez [Tarification d’Azure Functions](https://azure.microsoft.com/pricing/details/functions/).
 
-Lors de l’exécution de fonctions d’orchestrateur dans le [plan de consommation](../functions-scale.md#consumption-plan) Azure Functions, vous devez avoir conscience de certains comportements de facturation. Les sections suivantes décrivent ces comportements et leur incidence plus en détail.
+Lors de l’exécution de fonctions d’orchestrateur dans le [plan de consommation](../consumption-plan.md) Azure Functions, vous devez avoir conscience de certains comportements de facturation. Les sections suivantes décrivent ces comportements et leur incidence plus en détail.
 
 ## <a name="orchestrator-function-replay-billing"></a>Facturation de la relecture de fonctions orchestrator
 
@@ -45,7 +45,7 @@ Plusieurs facteurs contribuent aux coûts du Stockage Azure réels engendrés pa
 
 * Une application de fonction est associée à un seul hub de tâches, qui partage un ensemble de ressources de Stockage Azure. Ces ressources sont utilisées par toutes les fonctions durables dans une application de fonction. Le nombre réel de fonctions dans l’application de fonction n’a aucune incidence sur les coûts des transactions du Stockage Azure.
 * Chaque instance d’application de fonction interroge en interne plusieurs files d’attente dans le compte de stockage à l’aide d’un algorithme d’interrogation avec interruption exponentielle. Une instance d’application inactive interroge les files d’attente moins souvent qu’une application active, ce qui réduit les coûts de transaction. Pour plus d’informations sur le comportement d’interrogation de file d’attente Durable Functions, consultez la [section relative à l’interrogation de file d’attente dans l’article Performances et mise à l’échelle](durable-functions-perf-and-scale.md#queue-polling).
-* En cas d’exécution dans les plans Consommation Azure Functions ou Premium, le [contrôleur de mise à l’échelle Azure Functions](../functions-scale.md#how-the-consumption-and-premium-plans-work) interroge régulièrement toutes les files d’attente de hub de tâches en arrière-plan. En cas d’échelle faible à modérée d’une application de fonction, une seule instance de contrôleur d’échelle interroge ces files d’attente. Si l’application de fonction est étendue à un grand nombre d’instances, d’autres instances de contrôleur d’échelle peuvent être ajoutées. Ces instances de contrôleur d’échelle supplémentaires peuvent augmenter les coûts totaux de transaction de file d’attente.
+* En cas d’exécution dans les plans Consommation Azure Functions ou Premium, le [contrôleur de mise à l’échelle Azure Functions](../event-driven-scaling.md) interroge régulièrement toutes les files d’attente de hub de tâches en arrière-plan. En cas d’échelle faible à modérée d’une application de fonction, une seule instance de contrôleur d’échelle interroge ces files d’attente. Si l’application de fonction est étendue à un grand nombre d’instances, d’autres instances de contrôleur d’échelle peuvent être ajoutées. Ces instances de contrôleur d’échelle supplémentaires peuvent augmenter les coûts totaux de transaction de file d’attente.
 * Chaque instance d’application de fonction est en concurrence pour un ensemble de baux d’objets blob. Ces instances effectuent régulièrement des appels au service BLOB Azure pour renouveler les baux détenus ou tenter d’acquérir de nouveaux baux. Le nombre de partitions configurées du hub de tâches détermine le nombre de baux d’objets blob. Un scale-out vers un plus grand nombre d’instances d’application de fonction augmente probablement les coûts de transaction du Stockage Azure associés à ces opérations de bail.
 
 Vous trouverez de plus amples informations sur les tarifs du Stockage Azure dans la documentation sur la [tarification Stockage Azure](https://azure.microsoft.com/pricing/details/storage/). 

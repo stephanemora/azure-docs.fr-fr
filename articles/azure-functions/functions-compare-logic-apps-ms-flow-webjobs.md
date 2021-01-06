@@ -4,12 +4,12 @@ description: 'Comparez les services cloud Microsoft optimisés pour les tâches 
 ms.topic: overview
 ms.date: 04/09/2018
 ms.custom: mvc
-ms.openlocfilehash: 2c17b311811fd2cba46db379fcc766c04dd9d56d
-ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
+ms.openlocfilehash: 81b143219fd0b53d4cd00761af6b767c173ed88d
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91403073"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934864"
 ---
 # <a name="choose-the-right-integration-and-automation-services-in-azure"></a>Choisir les services d’intégration et d’automatisation appropriés dans Azure
 
@@ -78,9 +78,9 @@ Azure Functions repose sur le Kit de développement logiciel (SDK) WebJobs, donc
 
 |  | Fonctions | WebJobs avec le Kit de développement logiciel (SDK) WebJobs |
 | --- | --- | --- |
-|**[Modèle d’application serverless](https://azure.microsoft.com/solutions/serverless/) avec [mise à l’échelle automatique](functions-scale.md#how-the-consumption-and-premium-plans-work)**|✔||
+|**[Modèle d’application serverless](https://azure.microsoft.com/solutions/serverless/) avec [mise à l’échelle automatique](event-driven-scaling.md)**|✔||
 |**[Développement et test dans un navigateur](functions-create-first-azure-function.md)** |✔||
-|**[Paiement à l’utilisation](functions-scale.md#consumption-plan)**|✔||
+|**[Paiement à l’utilisation](consumption-plan.md)**|✔||
 |**[Intégration à Logic Apps](functions-twitter-email.md)**|✔||
 | **Événements déclencheurs** |[Minuteur](functions-bindings-timer.md)<br>[Objets blob et files d’attente Stockage Azure](functions-bindings-storage-blob.md)<br>[Files d’attente et rubriques Azure Service Bus](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md)<br>[Azure Event Grid](functions-bindings-event-grid.md)|[Minuteur](functions-bindings-timer.md)<br>[Objets blob et files d’attente Stockage Azure](functions-bindings-storage-blob.md)<br>[Files d’attente et rubriques Azure Service Bus](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[Système de fichiers](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Files/FileTriggerAttribute.cs)|
 | **Langues prises en charge**  |C#<br>F#<br>JavaScript<br>Java<br>Python<br>PowerShell |C#<sup>1</sup>|
