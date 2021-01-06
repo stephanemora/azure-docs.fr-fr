@@ -1,20 +1,20 @@
 ### YamlMime:Landing
 title: Documentation sur Azure Functions
-summary: Azure Functions est un service de calcul serverless qui vous permet d’exécuter du code déclenché par des événements sans provisionner ni gérer explicitement l’infrastructure. Ses fonctionnalités de « calcul à la demande » offrent une intégration légère et une capacité de prise en charge unique. Vous pouvez également l’utiliser pour fournir des API web, répondre à des modifications de base de données, traiter des flux de données IoT et gérer des files d’attente de messages.
+summary: Azure Functions est un service cloud disponible à la demande qui fournit toutes l’infrastructure et les ressources mises à jour en continu qui sont nécessaires pour exécuter vos applications. Vous vous concentrez sur les parties de code les plus importantes pour vous, et Azure Functions s’occupe du reste. Vous pouvez également utiliser Azure Functions pour créer des API web, répondre à des modifications de base de données, traiter des flux IoT, gérer des files d’attente de messages et plus encore.
 metadata:
   title: Documentation sur Azure Functions
-  description: Azure Functions est un service de calcul serverless qui vous permet d’exécuter du code déclenché par des événements sans provisionner ni gérer explicitement l’infrastructure. Ses fonctionnalités de « calcul à la demande » offrent une intégration légère et une capacité de prise en charge unique. Vous pouvez également l’utiliser pour fournir des API web, répondre à des modifications de base de données, traiter des flux de données IoT et gérer des files d’attente de messages.
+  description: Azure Functions est un service cloud disponible à la demande qui fournit toutes l’infrastructure et les ressources mises à jour en continu qui sont nécessaires pour exécuter vos applications. Vous vous concentrez sur les parties de code les plus importantes pour vous, et Azure Functions s’occupe du reste. Vous pouvez également utiliser Azure Functions pour créer des API web, répondre à des modifications de base de données, traiter des flux IoT, gérer des files d’attente de messages et plus encore.
   ms.service: azure-functions
   ms.topic: landing-page
   author: ggailey777
   ms.author: azfundocs
   ms.date: 09/17/2019
-  ms.openlocfilehash: e6c3cb1a9d536ed898c48c45f57434dc4bf66970
-  ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+  ms.openlocfilehash: 74acabf21252acfd79520d7f24ff79503734a235
+  ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 12/15/2020
-  ms.locfileid: "97505288"
+  ms.lasthandoff: 01/05/2021
+  ms.locfileid: "97901519"
 landingContent:
 - title: À propos d’Azure Functions
   linkLists:

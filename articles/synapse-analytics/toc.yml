@@ -263,7 +263,7 @@
               href: sql/load-data-overview.md
         - name: Développement
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: sql/develop-overview.md
             - name: Meilleures pratiques
               href: sql/develop-best-practices.md
@@ -1113,6 +1113,16 @@
           href: ./machine-learning/tutorial-cognitive-services-anomaly.md
         - name: Configurer Cognitive Services pour Azure Synapse
           href: ./machine-learning/tutorial-configure-cognitive-services-synapse.md
+- name: Catalogue de données et gouvernance
+  items:
+    - name: Démarrages rapides
+      items:
+        - name: Se connecter à un compte Azure Purview
+          href: ./catalog-and-governance/quickstart-connect-azure-purview.md
+    - name: Guides pratiques
+      items:
+        - name: 'Découvrir, connecter et explorer des données dans Synapse en utilisant Azure Purview'
+          href: ./catalog-and-governance/how-to-discover-connect-analyze-azure-purview.md
 - name: Procédures
   items:
     - name: Prévoir et gérer les coûts
