@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 11/11/2020
+ms.date: 12/17/2020
 ms.author: aahi
-ms.openlocfilehash: bb9b0da609169288521d21ee6d5e412a786c7549
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 4b106ebc5606c4e5a290e12728d4e2011e80f6a2
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94573864"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861811"
 ---
 ## <a name="azure-cognitive-services-container-security"></a>Sécurité des conteneurs Azure Cognitive Services
 
@@ -44,7 +44,7 @@ L’hôte doit ajouter à la liste verte le **port 443** et les domaines suivan
 
 #### <a name="disable-deep-packet-inspection"></a>Désactiver l’inspection approfondie des paquets
 
-> L’[inspection approfondie des paquets](https://en.wikipedia.org/wiki/Deep_packet_inspection) est un type de traitement des données qui inspecte en détail les données envoyées sur un réseau informatique et prend généralement une mesure en bloquant, en reroutant ou en enregistrant ces données en conséquence.
+L’[inspection approfondie des paquets](https://en.wikipedia.org/wiki/Deep_packet_inspection) est un type de traitement des données qui inspecte en détail les données envoyées sur un réseau informatique et prend généralement une mesure en bloquant, en reroutant ou en enregistrant ces données en conséquence.
 
 Désactivez l’inspection approfondie des paquets sur les canaux sécurisés que les conteneurs Cognitive Services créent sur des serveurs Microsoft. Dans le cas contraire, le conteneur ne fonctionnera pas correctement.
 

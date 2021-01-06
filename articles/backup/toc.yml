@@ -75,7 +75,7 @@
         - name: FAQ sur les coffres Recovery Services
           href: backup-azure-backup-faq.md
         - name: Questions fréquentes (FAQ) sur le Centre de sauvegarde
-          href: backup-center-faq.md
+          href: backup-center-faq.yml
         - name: FAQ sur la sauvegarde des machines virtuelles Azure
           href: backup-azure-vm-backup-faq.md
         - name: FAQ sur l’agent MARS
@@ -478,5 +478,5 @@
       href: azure-backup-pricing.md
     - name: Mises à jour de service
       href: 'https://azure.microsoft.com/updates/?product=backup'
-    - name: Videos
+    - name: Vidéos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=backup'
