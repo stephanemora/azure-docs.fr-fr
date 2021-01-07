@@ -3,16 +3,16 @@ title: Vue d’ensemble de l’exemple de blueprint Australian Government ISM PR
 description: Vue d’ensemble de l’exemple de blueprint Australian Government ISM PROTECTED. Cet exemple de blueprint aide les clients à évaluer des contrôles ISM PROTECTED spécifiques.
 ms.date: 09/11/2020
 ms.topic: sample
-ms.openlocfilehash: 4e6b1db0d2f4ecff13068c8e673f2237740ffec2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69f18c7a34bdf39ebbc2031b187d033c999165a9
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90038688"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955567"
 ---
 # <a name="overview-of-the-australian-government-ism-protected-blueprint-sample"></a>Vue d’ensemble de l’exemple de blueprint Australian Government ISM PROTECTED
 
-L’exemple de blueprint de gouvernance ISM fournit un ensemble de garde-fous de gouvernance avec [Azure Policy](../../../policy/overview.md) destiné à faciliter l’obtention de l’attestation ISM PROTECTED (version de février 2020). Ce blueprint aide les clients à déployer un ensemble de stratégies pour les architectures déployées sur Azure nécessitant une accréditation ou une conformité au framework ISM. La section sur la correspondance des contrôles fournit des détails sur les stratégies incluses dans cette initiative et explique comment elles permettent de satisfaire aux différents contrôles définis par le framework ISM. Quand des ressources sont affectées à une architecture, elles sont évaluées par Azure Policy pour déterminer si elles sont en conformité avec les stratégies affectées.
+L’exemple de blueprint de gouvernance ISM fournit un ensemble de garde-fous de gouvernance avec [Azure Policy](../../../policy/overview.md) destiné à faciliter l’obtention de l’attestation ISM PROTECTED (version de février 2020). Ce blueprint aide les clients à déployer un ensemble de stratégies pour les architectures déployées sur Azure nécessitant une accréditation ou une conformité au framework ISM. 
 
 ## <a name="control-mapping"></a>Correspondance des contrôles
 

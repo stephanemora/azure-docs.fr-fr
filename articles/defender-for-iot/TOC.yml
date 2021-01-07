@@ -3,6 +3,8 @@
 - name: Vue d’ensemble
   href: overview.md
   items:
+    - name: Nouveautés
+      href: release-notes.md
     - name: Architecture de solution
       href: architecture.md
 - name: Démarrages rapides
@@ -233,5 +235,5 @@
           href: 'https://azure.microsoft.com/regions/services/'
         - name: Tarifs
           href: 'https://azure.microsoft.com/pricing/details/security-center/'
-        - name: Videos
+        - name: Vidéos
           href: 'https://azure.microsoft.com/resources/videos/index/?services=security-center&service=internet-of-things&page=1&sort=newest'
