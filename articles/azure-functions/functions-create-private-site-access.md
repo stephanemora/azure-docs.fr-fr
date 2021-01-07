@@ -6,12 +6,12 @@ ms.author: cshoe
 ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 06/17/2020
-ms.openlocfilehash: 75e3886e31592b0672487bacd5ff2266e07e39cd
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 766ad12daeb6d2763f7ed5fe026cd4a0021eaf33
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182499"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937040"
 ---
 # <a name="tutorial-establish-azure-functions-private-site-access"></a>Tutoriel : Établir l’accès privé aux sites avec Azure Functions
 
@@ -130,7 +130,7 @@ La première étape de ce tutoriel consiste à créer une machine virtuelle à l
 
 ## <a name="create-an-azure-functions-app"></a>Créer une application Azure Functions
 
-L’étape suivante consiste à créer une application de fonction dans Azure à l’aide du [plan de consommation](functions-scale.md#consumption-plan). Vous déploierez le code de votre fonction sur cette ressource ultérieurement dans le tutoriel.
+L’étape suivante consiste à créer une application de fonction dans Azure à l’aide du [plan de consommation](consumption-plan.md). Vous déploierez le code de votre fonction sur cette ressource ultérieurement dans le tutoriel.
 
 1. Dans le portail, choisissez **Ajouter** en haut de la vue de groupe de ressources.
 1. Sélectionnez **Compute > Function App**.
@@ -149,7 +149,7 @@ L’étape suivante consiste à créer une application de fonction dans Azure à
 
     | Paramètre      | Valeur suggérée  | Description      |
     | ------------ | ---------------- | ---------------- |
-    | _Compte de stockage_ | Nom globalement unique | Créez un compte de stockage utilisé par votre application de fonction. Les noms des comptes de stockage doivent comporter entre 3 et 24 caractères, uniquement des lettres minuscules et des chiffres. Vous pouvez également utiliser un compte existant qui doit répondre aux [exigences relatives aux comptes de stockage](./functions-scale.md#storage-account-requirements). |
+    | _Compte de stockage_ | Nom globalement unique | Créez un compte de stockage utilisé par votre application de fonction. Les noms des comptes de stockage doivent comporter entre 3 et 24 caractères, uniquement des lettres minuscules et des chiffres. Vous pouvez également utiliser un compte existant qui doit répondre aux [exigences relatives aux comptes de stockage](storage-considerations.md#storage-account-requirements). |
     | _Système d’exploitation_ | Système d’exploitation préféré | Un système d’exploitation est présélectionné pour vous en fonction de la sélection de votre pile d’exécution, mais vous pouvez modifier le paramètre si nécessaire. |
     | _Planification_ | Consommation | Le [plan d’hébergement](./functions-scale.md) régit la mise à l’échelle de l’application de fonction est la mise à disposition des ressources pour chaque instance. |
 1. Sélectionnez **Vérifier + créer** pour passer en revue les sélections de configuration d’application.

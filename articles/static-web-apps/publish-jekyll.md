@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.author: cshoe
-ms.openlocfilehash: e3bad12362358620d0f2dc105bb2820dfb691d00
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 673852f8f9aa81c838a7c1db68681bb9ee0b7e0b
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "92000221"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97862020"
 ---
 # <a name="tutorial-publish-a-jekyll-site-to-azure-static-web-apps-preview"></a>Tutoriel : Publier un site Jekyll dans Azure Static Web Apps (préversion)
 
@@ -118,7 +118,7 @@ Les étapes suivantes vous montrent comment créer une application Static Web Ap
 
 1. Pour _Branch_ (Branche), sélectionnez **master** (principale).
 
-    :::image type="content" source="./media/publish-jekyll/completed-github-info.png" alt-text="Champs renseignés":::
+    :::image type="content" source="./media/publish-jekyll/completed-github-info.png" alt-text="Champs GitHub renseignés":::
 
 ### <a name="build"></a>Build
 
@@ -150,7 +150,7 @@ Vous ajoutez ensuite les paramètres de configuration utilisés par le processus
 
     ```yml
     - name: Set up Ruby
-      uses: ruby/setup-ruby@ec106b438a1ff6ff109590de34ddc62c540232e0
+      uses: ruby/setup-ruby@v1.59.1
       with:
         ruby-version: 2.6
     - name: Install dependencies
@@ -171,7 +171,7 @@ Vous ajoutez ensuite les paramètres de configuration utilisés par le processus
 
 1. Dans la fenêtre _Vue d’ensemble_ du portail Azure, cliquez sur le lien _URL_ pour ouvrir l’application que vous avez déployée.
 
-   :::image type="content" source="./media/publish-jekyll/deployed-app.png" alt-text="Champs renseignés":::
+   :::image type="content" source="./media/publish-jekyll/deployed-app.png" alt-text="Application déployée":::
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

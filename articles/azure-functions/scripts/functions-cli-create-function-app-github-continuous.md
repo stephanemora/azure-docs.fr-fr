@@ -4,16 +4,16 @@ description: Créez une application de fonction et déployez le code de fonction
 ms.date: 07/03/2018
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 752d8a729c56fc2e0e110fcedc263eab4ba7a96b
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 219e993ad7132c90de6db680facc9b8f815947cc
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565305"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934385"
 ---
 # <a name="create-a-function-app-in-azure-that-is-deployed-from-github"></a>Créer une application de fonction déployée à partir de GitHub dans Azure
 
-Cet exemple de script Azure Functions crée une application de fonction à l’aide du [plan Consommation](../functions-scale.md#consumption-plan) et de ses ressources associées. Le script configure également votre code de fonction pour le déploiement continu à partir d’un référentiel GitHub. 
+Cet exemple de script Azure Functions crée une application de fonction à l’aide du [plan Consommation](../consumption-plan.md) et de ses ressources associées. Le script configure également votre code de fonction pour le déploiement continu à partir d’un référentiel GitHub. 
 
 Dans cet exemple, vous aurez besoin des éléments suivants :
 
@@ -42,7 +42,7 @@ Chaque commande du tableau renvoie à une documentation spécifique. Ce script u
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
 | [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Crée le compte de stockage requis par l’application de fonction. |
-| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Crée une application de fonction dans le [plan Consommation](../functions-scale.md#consumption-plan) serverless, et l’associe à un dépôt Git ou Mercurial. |
+| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Crée une application de fonction dans le [plan Consommation](../consumption-plan.md) serverless, et l’associe à un dépôt Git ou Mercurial. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

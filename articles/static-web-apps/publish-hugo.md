@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
-ms.openlocfilehash: 5f511a898b3b2964f954ba150b05f02486456dcf
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: e49a84f5ac507ac80481313c103701a88934083a
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92171483"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900771"
 ---
 # <a name="tutorial-publish-a-hugo-site-to-azure-static-web-apps-preview"></a>Tutoriel : Publier un site Hugo dans Azure Static Web Apps Preview
 
@@ -77,7 +77,7 @@ Créer une application Hugo à l’aide de l’interface de ligne de commande (C
 
 Vous devez avoir un référentiel sur GitHub pour vous connecter à Azure Static Web Apps. Les étapes suivantes vous montrent comment créer un référentiel pour votre site.
 
-1. Créez un référentiel GitHub (ne créez pas de fichier README) sur [https://github.com/new](https://github.com/new) appelé **hugo-static-app** .
+1. Créez un référentiel GitHub (ne créez pas de fichier README) sur [https://github.com/new](https://github.com/new) appelé **hugo-static-app**.
 
 1. Ajoutez le référentiel GitHub en tant que référentiel distant pour votre référentiel local. Veillez à remplacer l’espace réservé `<YOUR_USER_NAME>` par votre nom d’utilisateur GitHub dans la commande suivante.
 
@@ -99,33 +99,33 @@ Les étapes suivantes vous montrent comment créer une application Static Web Ap
 
 1. Accéder au [portail Azure](https://portal.azure.com)
 1. Cliquez sur **Create a Resource** (Créer une ressource).
-1. Recherchez **Static Web Apps** .
+1. Recherchez **Static Web Apps**.
 1. Cliquez sur **Static Web Apps (Preview)** (Static Web Apps (préversion))
 1. Cliquez sur **Créer**
 
    :::image type="content" source="./media/publish-hugo/create-in-portal.png" alt-text="Création d’une ressource Azure Static Web Apps dans le portail":::
 
-1. Pour **Abonnement** , acceptez l’abonnement qui est listé ou sélectionnez-en un nouveau dans la liste déroulante.
+1. Pour **Abonnement**, acceptez l’abonnement qui est listé ou sélectionnez-en un nouveau dans la liste déroulante.
 
-1. Dans _Groupe de ressources_ , sélectionnez **Nouveau** . Dans _New resource group name_ (Nom du nouveau groupe de ressources), entrez **hugo-static-app** , puis sélectionnez **OK** .
+1. Dans _Groupe de ressources_, sélectionnez **Nouveau**. Dans _New resource group name_ (Nom du nouveau groupe de ressources), entrez **hugo-static-app**, puis sélectionnez **OK**.
 
-1. Ensuite, entrez un nom pour votre application dans la zone **Nom** . Les caractères valides sont `a-z`, `A-Z`, `0-9` et `-`.
+1. Ensuite, entrez un nom pour votre application dans la zone **Nom**. Les caractères valides sont `a-z`, `A-Z`, `0-9` et `-`.
 
 1. Dans _Region_ (Région), sélectionnez une région disponible proche de vous.
 
-1. Pour _SKU_ , sélectionnez **Free** (Gratuit).
+1. Pour _SKU_, sélectionnez **Free** (Gratuit).
 
-   :::image type="content" source="./media/publish-hugo/basic-app-details.png" alt-text="Création d’une ressource Azure Static Web Apps dans le portail":::
+   :::image type="content" source="./media/publish-hugo/basic-app-details.png" alt-text="Champs renseignés":::
 
 1. Cliquez sur le bouton **Sign in with GitHub** (Se connecter avec GitHub).
 
-1. Sélectionnez l’ **organisation** sous laquelle vous avez créé le référentiel.
+1. Sélectionnez l’**organisation** sous laquelle vous avez créé le référentiel.
 
 1. Sélectionnez **hugo-static-app** comme _Repository_ (Référentiel).
 
 1. Pour _Branch_ (Branche), sélectionnez **master** (principale).
 
-   :::image type="content" source="./media/publish-hugo/completed-github-info.png" alt-text="Création d’une ressource Azure Static Web Apps dans le portail":::
+   :::image type="content" source="./media/publish-hugo/completed-github-info.png" alt-text="Champs GitHub renseignés":::
 
 ### <a name="build"></a>Build
 
@@ -135,7 +135,7 @@ Vous ajoutez ensuite les paramètres de configuration utilisés par le processus
 
 1. Définissez _App location_ (Emplacement de l’application) sur **/** .
 
-1. Définissez _App artifact location_ (Emplacement de l’artefact de l’application) sur **public** .
+1. Définissez _App artifact location_ (Emplacement de l’artefact de l’application) sur **public**.
 
    Il n’est pas nécessaire de fournir une valeur pour _API location_ (Emplacement de l’API), puisque vous ne déployez pas d’API pour le moment.
 
@@ -149,7 +149,7 @@ Vous ajoutez ensuite les paramètres de configuration utilisés par le processus
 
 1. Dans la fenêtre _Overview_ (Vue d’ensemble) du portail Azure de la ressource Azure Static Web Apps nouvellement créée, cliquez sur le lien _URL_ pour ouvrir l’application que vous avez déployée.
 
-   :::image type="content" source="./media/publish-hugo/deployed-app.png" alt-text="Création d’une ressource Azure Static Web Apps dans le portail":::
+   :::image type="content" source="./media/publish-hugo/deployed-app.png" alt-text="Application déployée":::
 
 #### <a name="custom-hugo-version"></a>Version de Hugo personnalisée
 
@@ -176,7 +176,7 @@ jobs:
           # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
           app_location: "/" # App source code path
           api_location: "api" # Api source code path - optional
-          app_artifact_location: "public" # Built app content directory - optional
+          output_location: "public" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
         env:
           HUGO_VERSION: 0.58.0

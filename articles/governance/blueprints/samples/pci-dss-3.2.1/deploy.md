@@ -3,12 +3,12 @@ title: Déployer l’exemple de blueprint PCI-DSS v3.2.1
 description: Étapes de déploiement de l’exemple de blueprint Payment Card Industry Data Security Standard v3.2.1, y compris les détails du paramètre d’artefact blueprint.
 ms.date: 08/19/2020
 ms.topic: sample
-ms.openlocfilehash: a7917f09e5e5ff898bd155f0961e5c9765b8d791
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0b1d635a073dc19e41a7ba73e130d6028daca99
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88649208"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955669"
 ---
 # <a name="deploy-the-pci-dss-v321-blueprint-sample"></a>Déployer l’exemple de blueprint PCI-DSS v3.2.1
 
@@ -27,7 +27,7 @@ Commencez par implémenter l’exemple de blueprint. Pour cela, créez un bluepr
 
 1. Sélectionnez **Tous les services** dans le volet gauche. Recherchez et sélectionnez **Blueprints**.
 
-1. Dans la page **Démarrage**à gauche, sélectionnez le bouton **Créer** sous _Créer un blueprint_.
+1. Dans la page **Démarrage** à gauche, sélectionnez le bouton **Créer** sous _Créer un blueprint_.
 
 1. Recherchez l’exemple de blueprint **PCI-DSS v3.2.1** sous _Autres exemples_ et sélectionnez **Utiliser cet exemple**.
 
@@ -93,7 +93,7 @@ Le tableau suivant fournit la liste des paramètres d’artefact de blueprint :
 
 |Nom de l’artefact|Type d’artefact|Nom du paramètre|Description|
 |-|-|-|-|
-|\[Prévisualiser\] les contrôles d’audit PCI v3.2.1:2018 et déployer des extensions de machine virtuelle spécifiques pour prendre en charge les exigences d’audit|Affectation de rôle|Liste des types de ressources | Auditez le paramètre de diagnostic pour les types de ressources sélectionnés. Par défaut, toutes les ressources sont sélectionnées.| 
+|PCI v3.2.1:2018|Affectation de rôle|Liste des types de ressources | Auditez le paramètre de diagnostic pour les types de ressources sélectionnés. Par défaut, toutes les ressources sont sélectionnées.| 
 |Emplacements autorisés|Affectation de rôle|Liste des emplacements autorisés|Liste des emplacements de centre de données autorisés sur lesquels toutes vos ressources peuvent êtres déployées. Vous pouvez personnaliser cette liste pour indiquer les emplacements Azure de votre choix de manière globale. Sélectionnez les emplacements que vous voulez autoriser.| 
 |Emplacements autorisés pour les groupes de ressources|Affectation de rôle |Emplacement autorisé |Cette stratégie vous permet de restreindre les emplacements où votre organisation peut créer des groupes de ressources. Utilisez-la pour appliquer vos exigences de conformité géographique.| 
 |Déployer l’audit sur des serveurs SQL|Affectation de rôle|Jours de conservation|Rétention des données en nombre de jours. La valeur par défaut est 180, mais PCI nécessite une valeur de 365.| 

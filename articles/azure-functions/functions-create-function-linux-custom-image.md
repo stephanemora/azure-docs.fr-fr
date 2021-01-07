@@ -5,12 +5,12 @@ ms.date: 12/2/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
 zone_pivot_groups: programming-languages-set-functions-full
-ms.openlocfilehash: f270f74f97a9b9306d7b23dacec12c38f418dbd1
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: fb85920b04e3cd457dc36d1ba1fd0f18dcd7abb6
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96921821"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937057"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Créer une fonction sur Linux avec un conteneur personnalisé
 
@@ -20,7 +20,7 @@ Dans ce tutoriel, vous allez créer et déployer votre code sur Azure Functions 
 Azure Functions prend en charge n’importe quel langage ou runtime à l’aide de [gestionnaires personnalisés](functions-custom-handlers.md). Pour certains langages, tels que le langage de programmation R utilisé dans ce tutoriel, vous devez installer le runtime ou des bibliothèques supplémentaires en tant que dépendances qui demandent d’utiliser un conteneur personnalisé.
 ::: zone-end
 
-Le déploiement du code de votre fonction dans un conteneur Linux personnalisé nécessite un hébergement de [plan Premium](functions-premium-plan.md#features) ou de [Plan dédié (App Service)](functions-scale.md#app-service-plan). Effectuer ce tutoriel entraîne des coûts de quelques dollars US dans votre compte Azure, que vous pouvez réduire en [nettoyant les ressources](#clean-up-resources) quand vous avez terminé.
+Le déploiement du code de votre fonction dans un conteneur Linux personnalisé nécessite un hébergement de [plan Premium](functions-premium-plan.md) ou de [Plan dédié (App Service)](dedicated-plan.md). Effectuer ce tutoriel entraîne des coûts de quelques dollars US dans votre compte Azure, que vous pouvez réduire en [nettoyant les ressources](#clean-up-resources) quand vous avez terminé.
 
 Vous pouvez également utiliser un conteneur Azure App Service par défaut, comme décrit dans [Créer votre première fonction hébergée sur Linux](./create-first-function-cli-csharp.md?pivots=programming-language-python). Les images de base prises en charge pour Azure Functions se trouvent dans le [référentiel d’images de base Azure Functions](https://hub.docker.com/_/microsoft-azure-functions-base).
 
