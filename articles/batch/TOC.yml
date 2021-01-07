@@ -137,6 +137,8 @@
           href: batch-automatic-scaling.md
         - name: Choisir une taille de VM pour les nœuds de calcul
           href: batch-pool-vm-sizes.md
+        - name: Passer d’un service cloud à des pools de machines virtuelles
+          href: batch-pool-cloud-service-to-virtual-machine-configuration.md
         - name: Configurer l’accès aux nœuds de calcul
           href: pool-endpoint-configuration.md
         - name: Créer un pool avec Shared Image Gallery

@@ -14,7 +14,7 @@
   items:
     - name: Déploiement de base de données
       items:
-        - name: Github Actions
+        - name: Actions de GitHub
           href: how-to-deploy-github-action.md
     - name: Migration
       items:
@@ -640,6 +640,8 @@
           href: howto-hyperscale-create-users.md
         - name: Données distribuées
           items:
+            - name: Déterminer la taille des tables
+              href: howto-hyperscale-table-size.md
             - name: Distribuer et modifier des tables
               href: howto-hyperscale-modify-distributed-tables.md
         - name: Haute disponibilité
@@ -657,6 +659,8 @@
             - name: Résoudre les erreurs de connexion
               href: howto-hyperscale-troubleshoot-common-connection-issues.md
               displayName: 'connection errors, hyperscale'
+            - name: Requêtes de diagnostic utiles
+              href: howto-hyperscale-useful-diagnostic-queries.md
 - name: Informations de référence
   items:
     - name: Azure CLI
