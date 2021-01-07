@@ -2,13 +2,13 @@
 title: Déploiement conditionnel avec des modèles
 description: Explique comment déployer une ressource de manière conditionnelle dans un modèle Azure Resource Manager (modèle ARM).
 ms.topic: conceptual
-ms.date: 06/01/2020
-ms.openlocfilehash: 0a31bd1fbf755046f331542b4d5952b27a793360
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.date: 12/17/2020
+ms.openlocfilehash: 1492e9f9f45f23628f9933628fd2740e08ad9eb0
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905993"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672846"
 ---
 # <a name="conditional-deployment-in-arm-templates"></a>Déploiement conditionnel dans des modèles ARM
 
@@ -90,5 +90,6 @@ Si vous déployez un modèle en [mode complet](deployment-modes.md) et qu’une 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+* Pour lire un module Microsoft Learn qui aborde les conditions de déploiement, consultez [Gérer des déploiements cloud complexes à l’aide des fonctionnalités avancées de modèle ARM](/learn/modules/manage-deployments-advanced-arm-template-features/).
 * Pour obtenir des recommandations sur la création de modèles, consultez [Bonnes pratiques relatives aux modèles ARM](template-best-practices.md).
 * Pour créer plusieurs instances d’une ressource, consultez [Itération de ressources dans des modèles ARM](copy-resources.md).

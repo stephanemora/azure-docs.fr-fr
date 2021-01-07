@@ -3,12 +3,12 @@ title: Questions courantes sur la récupération d’urgence pour VMware avec Az
 description: Obtenez des réponses à des questions courantes sur la récupération d’urgence de machines virtuelles VMware locales sur Azure à l’aide d’Azure Site Recovery.
 ms.date: 11/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8f292e7f624b80e8e13514a714c5759d88fbe57c
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: a272486eea111ab8c8e489556986f12f382e3f65
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94379988"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587790"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Questions courantes sur la réplication de VMware vers Azure
 
@@ -146,6 +146,10 @@ La réplication est continue quand il s’agit de la réplication des machines v
 ### <a name="can-i-extend-replication"></a>Puis-je étendre la réplication ?
 
 La réplication étendue ou chaînée n’est pas prise en charge. Demandez cette fonctionnalité dans le [forum de commentaires](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).
+
+### <a name="how-can-i-track-progress-of-initial-replicationsynchronization"></a>Comment puis-je suivre la progression de la réplication/synchronisation initiale ?
+
+Cette fonctionnalité est récemment devenue Site Recovery Services. Mettez à jour votre infrastructure Site Recovery (serveurs de configuration, serveurs de processus de montée en puissance parallèle) et l’agent de mobilité vers les versions 9.36 ou ultérieures pour bénéficier de détails précis. En savoir plus sur le suivi de la progression [ici](vmware-azure-enable-replication.md#monitor-initial-replication).
 
 ### <a name="can-i-do-an-offline-initial-replication"></a>Puis-je effectuer une réplication initiale hors connexion ?
 

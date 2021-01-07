@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/03/2020
-ms.openlocfilehash: 7a2e029fbcc1a26da9c8c8cbff5ee3b9bbb849e0
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 06f738ea88093ea8de45efebea983fd7fa13216e
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928271"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387817"
 ---
 # <a name="tutorial-use-the-rest-apis"></a>Tutoriel : Utiliser les API REST
 
@@ -113,7 +113,7 @@ Recherchez et enregistrez les valeurs suivantes :
   * Dans la section **Gérer** dans le volet gauche, sélectionnez **Propriétés**, recherchez l’**ID de locataire**, puis sélectionnez l’icône **Copier dans le Presse-papiers** pour enregistrer sa valeur.
 * Point de terminaison Atlas :
   * Dans la [page des comptes Azure Purview](https://aka.ms/purviewportal) dans le portail Azure, recherchez et sélectionnez votre compte Azure Purview dans la liste.
-  * Sélectionnez **Vue d’ensemble**, recherchez **Point de terminaison Atlas**, puis sélectionnez l’icône **Copier dans le Presse-papiers** pour enregistrer sa valeur. Supprimez la partie *https://* de la chaîne quand vous l’utilisez ultérieurement.
+  * Sélectionnez **Propriétés**, recherchez **Point de terminaison Atlas**, puis sélectionnez l’icône **Copier dans le Presse-papiers** pour enregistrer sa valeur. Supprimez la partie *https://* de la chaîne quand vous l’utilisez ultérieurement.
 * Nom du compte :
   * Extrayez le nom de votre catalogue à partir de la chaîne du point de terminaison Atlas. Par exemple, si votre point de terminaison Atlas est `https://ThisIsMyCatalog.catalog.purview.azure.com`, le nom de votre compte est `ThisIsMyCatalog`.
 
@@ -199,6 +199,7 @@ namespace PurviewCatalogSdkTest
         {
             Console.WriteLine("Azure Purview client");
 
+            // You need to change the api path below (e.g. /api) based on what you're trying to call
             string baseUri = string.Format("https://{0}.catalog.purview.azure.com/api", accountName);
 
             // Get token and set auth

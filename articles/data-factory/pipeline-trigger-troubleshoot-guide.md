@@ -1,20 +1,20 @@
 ---
-title: Résoudre des problèmes d’orchestration et de déclencheurs de pipeline dans ADF
-description: Utiliser différentes méthodes pour résoudre des problèmes de déclencheurs de pipeline dans ADF
+title: Résoudre les problèmes liés à l’orchestration et aux déclencheurs de pipeline dans Azure Data Factory
+description: Utiliser différentes méthodes pour résoudre des problèmes de déclencheurs de pipeline dans Azure Data Factory.
 author: ssabat
 ms.service: data-factory
 ms.date: 12/15/2020
 ms.topic: troubleshooting
 ms.author: susabat
 ms.reviewer: susabat
-ms.openlocfilehash: ed3728513820da9f4ef85d44cac983dc09c3fc7d
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 0e67a316b012eda61607c84edfd8e10d6aa3318d
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97517700"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589149"
 ---
-# <a name="troubleshoot-pipeline-orchestration-and-triggers-in-adf"></a>Résoudre des problèmes d’orchestration et de déclencheurs de pipeline dans ADF
+# <a name="troubleshoot-pipeline-orchestration-and-triggers-in-azure-data-factory"></a>Résoudre les problèmes liés à l’orchestration et aux déclencheurs de pipeline dans Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -27,10 +27,10 @@ Les exécutions de pipeline sont généralement instanciées en transmettant des
 ### <a name="pipeline-with-azure-function-throws-error-with-private-end-point-connectivity"></a>Le pipeline avec Fonction Azure lève une erreur liée à une connexion de point de terminaison privé
  
 #### <a name="issue"></a>Problème
-Dans certains cas, ADF et l’Application Azure Function s’exécutent sur un point de terminaison privé. Vous essayez d’obtenir un pipeline qui interagit avec l’Application Azure Function pour fonctionner. Vous avez essayé trois méthodes différentes, mais l’une retourne une erreur `Bad Request`, et les deux autres méthodes retournent `103 Error Forbidden`.
+Dans certains cas, Data Factory et l’Application Azure Function s’exécutent sur un point de terminaison privé. Vous essayez d’obtenir un pipeline qui interagit avec l’Application Azure Function pour fonctionner. Vous avez essayé trois méthodes différentes, mais l’une retourne une erreur `Bad Request`, et les deux autres méthodes retournent `103 Error Forbidden`.
 
 #### <a name="cause"></a>Cause 
-ADF ne prend actuellement pas en charge un connecteur de point de terminaison privé pour l’Application Azure Function. C’est la raison pour laquelle l’Application Azure Function rejette les appels, car il est configuré pour autoriser uniquement les connexions à partir d’une liaison privée.
+Azure Data Factory ne prend actuellement pas en charge un connecteur de point de terminaison privé pour l’Application Azure Function. C’est la raison pour laquelle l’Application Azure Function rejette les appels, car il est configuré pour autoriser uniquement les connexions à partir d’une liaison privée.
 
 #### <a name="resolution"></a>Résolution
 Vous pouvez créer un point de terminaison privé de type **PrivateLinkService** et fournir le DNS de votre application de fonction pour que la connexion fonctionne.
@@ -46,7 +46,7 @@ Actualisez le navigateur et appliquez les filtres appropriés pour la surveillan
 ### <a name="copy-pipeline-failure--found-more-columns-than-expected-column-count-delimitedtextmorecolumnsthandefined"></a>Échec de pipeline de copie : le nombre de colonnes trouvé est supérieur au nombre attendu (DelimitedTextMoreColumnsThanDefined)
 
 #### <a name="issue"></a>Problème  
-Si un dossier que vous copiez contient des fichiers avec des schémas différents, comme un nombre variable de colonnes, des délimiteurs ou paramètres de guillemets différents, ou des problèmes quelconques liés aux données, le pipeline ADF cesse de s’exécuter en levant l’erreur suivante :
+Si un dossier que vous copiez contient des fichiers avec des schémas différents, comme un nombre variable de colonnes, des délimiteurs ou paramètres de guillemets différents, ou des problèmes quelconques liés aux données, le pipeline Azure Data Factory cesse de s’exécuter en levant l’erreur suivante :
 
 `
 Operation on target Copy_sks  failed: Failure happened on 'Sink' side.
@@ -57,7 +57,7 @@ Source=Microsoft.DataTransfer.Common,'
 `
 
 #### <a name="resolution"></a>Résolution
-Sélectionnez l’option « Copie binaire » lors de la création de l’activité Copier des données. Ainsi, pour la copie en bloc ou la migration de vos données d’un Data Lake vers un autre, avec l’option **binaire**, ADF n’ouvre pas les fichiers pour lire le schéma, mais traite simplement chacun d’eux comme fichier binaire et les copie vers l’autre emplacement.
+Sélectionnez l’option « Copie binaire » lors de la création de l’activité Copier des données. Ainsi, pour la copie en bloc ou la migration de vos données d’un Data Lake vers un autre, avec l’option **binaire**, Azure Data Factory n’ouvre pas les fichiers pour lire le schéma, mais traite simplement chacun d’eux comme fichier binaire et les copie vers l’autre emplacement.
 
 ### <a name="pipeline-run-fails-when-capacity-limit-of-integration-runtime-is-reached"></a>L’exécution du pipeline échoue quand la limite de capacité du runtime d’intégration est atteinte
 
@@ -79,14 +79,14 @@ Si vous exécutez une grande quantité de flux de données simultanément à l�
 ### <a name="how-to-monitor-pipeline-failures-on-regular-interval"></a>Comment surveiller les échecs de pipeline à intervalles réguliers
 
 #### <a name="issue"></a>Problème
-Il est souvent nécessaire de surveiller les pipelines ADF à intervalles réguliers, par exemple, de 5 minutes. Vous pouvez interroger et filtrer les exécutions du pipeline à partir d’une fabrique de données à l’aide du point de terminaison. 
+Il est souvent nécessaire de surveiller les pipelines Azure Data Factory à intervalles réguliers, par exemple, de 5 minutes. Vous pouvez interroger et filtrer les exécutions du pipeline à partir d’une fabrique de données à l’aide du point de terminaison. 
 
 #### <a name="recommendation"></a>Recommandation
 1. Configurez une application logique Azure pour interroger tous les pipelines ayant échoué toutes les 5 minutes.
 2. Ensuite, vous pouvez signaler des incidents à notre système de billetterie comme décrit dans [QueryByFactory](https://docs.microsoft.com/rest/api/datafactory/pipelineruns/querybyfactory).
 
 #### <a name="reference"></a>Référence
-- [Envoi à l’extérieur de notifications à partir d’ADF](https://www.mssqltips.com/sqlservertip/5962/send-notifications-from-an-azure-data-factory-pipeline--part-2/)
+- [Envoi à l’extérieur de notifications à partir d’Azure Data Factory](https://www.mssqltips.com/sqlservertip/5962/send-notifications-from-an-azure-data-factory-pipeline--part-2/)
 
 ### <a name="how-to-handle-activity-level-errors-and-failures-in-pipelines"></a>Comment gérer les erreurs et échecs au niveau des activités dans les pipelines
 

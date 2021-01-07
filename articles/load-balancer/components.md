@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2020
 ms.author: allensu
-ms.openlocfilehash: bf7a35e8cedbe62aafb29aa6d9dc8fcb42e90b2e
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 6ddfe581bb3f2f584fdec0229981321297c9a77f
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94693764"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97399192"
 ---
 # <a name="azure-load-balancer-components"></a>Composants Azure Load Balancer
 
@@ -44,7 +44,7 @@ La nature de l’adresse IP détermine le **type** d’équilibreur de charge cr
 
 ![Exemple d’équilibreur de charge hiérarchisé](./media/load-balancer-overview/load-balancer.png)
 
-Load Balancer peut avoir plusieurs adresses IP frontales. En savoir plus sur les [serveurs frontaux multiples](load-balancer-multivip-overview.md).
+Load Balancer peut avoir plusieurs adresses IP de front-end. En savoir plus sur les [serveurs frontaux multiples](load-balancer-multivip-overview.md).
 
 ## <a name="backend-pool"></a>Pool principal
 
@@ -58,25 +58,23 @@ Quand vous envisagez la conception de votre pool de back-ends, concevez le moins
 
 Une sonde d’intégrité sert à déterminer l’état d’intégrité des instances du pool de back-ends. Pendant la création de l’équilibreur de charge, configurez une sonde d’intégrité qu’il pourra utiliser.  Cette sonde d’intégrité déterminera si une instance est saine et peut recevoir du trafic.
 
-Vous pouvez définir le seuil de défaillance sur le plan de l’intégrité pour vos sondes d’intégrité. Quand une sonde ne répond pas, l’équilibreur de charge n’envoie plus de nouvelles connexions aux instances non saines. Un échec de la sonde n’affecte pas les connexions existantes. La connexion se poursuit :
+Vous pouvez définir le seuil de défaillance sur le plan de l’intégrité pour vos sondes d’intégrité. Lorsqu’une sonde ne répond pas, l’équilibrage de charge n’envoie plus de nouvelles connexions aux instances défaillantes. Un échec de la sonde n’affecte pas les connexions existantes. La connexion se poursuit :
 
 - Jusqu’à ce que l’application termine le flux
 - Jusqu’à ce que le délai d’inactivité soit atteint
 - Jusqu’à ce que la machine virtuelle s’arrête
 
-Azure Load Balancer fournit différents types de sondes d’intégrité pour les points de terminaison : TCP, HTTP et HTTPS. [En savoir plus sur les sondes d’intégrité Load Balancer](load-balancer-custom-probe-overview.md).
+L’équilibreur de charge fournit différents types de sondes d’intégrité pour les points de terminaison : TCP, HTTP et HTTPS. [En savoir plus sur les sondes d’intégrité Load Balancer](load-balancer-custom-probe-overview.md).
 
 L’équilibreur de charge de base ne prend pas en charge les sondes HTTPS. Il ferme toutes les connexions TCP (y compris les connexions établies).
 
-## <a name="load-balancing-rules"></a>Règles d’équilibrage de charge
+## <a name="load-balancing-rules"></a>Règles d’équilibrage de la charge
 
-Une règle d’équilibrage de charge sert à définir la manière dont le trafic entrant est distribué à **toutes** les instances du pool de back-ends. Elle fait correspondre une configuration IP front-end et un port donnés à plusieurs adresses IP back-end et ports.
+Une règle d’équilibreur de charge sert à définir la manière dont le trafic entrant est distribué à **toutes** les instances du pool de back-ends. Une règle d’équilibrage de charge fait correspondre une configuration d’adresse IP frontale et un port donnés à plusieurs adresses IP frontales et ports.
 
-Par exemple, utilisez une règle d’équilibrage de charge pour le port 80 pour router le trafic de votre adresse IP front-end vers le port 80 de vos instances back-end.
+Par exemple, utilisez une règle d’équilibrage de charge pour le port 80 afin de router le trafic de votre adresse IP de front-end vers le port 80 de vos instances de back-end.
 
-<p align="center">
-  <img src="./media/load-balancer-components/lbrules.svg" alt= "Figure depicts how Azure Load Balancer directs frontend port 80 to three instances of backend port 80." width="512" title="Règles d’équilibrage de charge">
-</p>
+:::image type="content" source="./media/load-balancer-components/lbrules.png" alt-text="Diagramme de référence de règle d’équilibreur de charge" border="false":::
 
 *Figure : Règles d’équilibrage de charge*
 
@@ -106,13 +104,9 @@ Découvrez-en plus sur les [ports à haute disponibilité](load-balancer-ha-port
 
 ## <a name="inbound-nat-rules"></a>Règles NAT entrantes
 
-Une règle NAT de trafic entrant transfère le trafic entrant envoyé à la combinaison de l’adresse IP front-end et du port. Le trafic est envoyé à une machine virtuelle ou instance **spécifique** dans le pool back-end. Ce réacheminement de port est accompli à l’aide de la même distribution basée sur le hachage que l’équilibrage de charge.
+Une règle NAT de trafic entrant transfère le trafic entrant envoyé à la combinaison de l’adresse IP frontale et du port. Le trafic est envoyé à une machine virtuelle ou instance **spécifique** dans le pool back-end. Ce réacheminement de port est accompli à l’aide de la même distribution basée sur le hachage que l’équilibrage de charge.
 
-Par exemple, si vous souhaitez que les sessions RDP (Remote Desktop Protocol) ou SSH (Secure Shell) séparent les instances de machine virtuelle d’un pool de back-ends, plusieurs points de terminaison internes peuvent être mappés à des ports sur la même adresse IP front-end. Les adresses IP front-end peuvent être utilisées pour administrer à distance vos machines virtuelles sans serveur de rebond supplémentaire.
-
-<p align="center">
-  <img src="./media/load-balancer-components/inboundnatrules.svg" alt="Figure depicts how Azure Load Balancer directs frontend ports 3389, 443, and 80 to backend ports with the same values on separate servers." width="512" title="Règles NAT entrantes">
-</p>
+:::image type="content" source="./media/load-balancer-components/inboundnatrules.png" alt-text="Diagramme de référence de règle NAT de trafic entrant" border="false":::
 
 *Figure : Règles NAT de trafic entrant*
 
@@ -126,9 +120,13 @@ En savoir plus sur les [connexions sortantes et les règles](load-balancer-outbo
 
 L’équilibreur de charge de base ne prend pas en charge les règles de trafic sortant.
 
+:::image type="content" source="./media/load-balancer-components/outbound-rules.png" alt-text="Diagramme de référence de règle de trafic sortant" border="false":::
+
+*Figure : Règles de trafic sortant*
+
 ## <a name="limitations"></a>Limites
 
-- En savoir plus sur les [limites](../azure-resource-manager/management/azure-subscription-service-limits.md) des équilibreurs de charge 
+- Découvrez les [limites](../azure-resource-manager/management/azure-subscription-service-limits.md) des équilibreurs de charge. 
 - L’équilibreur de charge offre un équilibrage de charge et le réacheminement de ports pour les protocoles TCP ou UDP spécifiques. Les règles d’équilibrage de charge et les règles NAT de trafic entrant prennent en charge les protocoles TCP et UDP, mais aucun autre protocole IP, notamment ICMP.
 - Le flux sortant depuis une machine virtuelle back-end vers un front-end d’un équilibreur de charge interne est voué à l’échec.
 - Une règle d’équilibreur de charge ne peut pas s’étendre sur deux réseaux virtuels.  Les front-ends et leurs instances back-end doivent être dans le même réseau virtuel.  
@@ -136,14 +134,14 @@ L’équilibreur de charge de base ne prend pas en charge les règles de trafic 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour bien démarrer avec les équilibreurs de charge, consultez [Créer un équilibreur de charge standard public](quickstart-load-balancer-standard-public-portal.md).
+- Pour bien démarrer avec un équilibreur de charge, consultez [Créer un équilibreur de charge standard public](quickstart-load-balancer-standard-public-portal.md).
 - En savoir plus sur [Azure Load Balancer](load-balancer-overview.md).
 - Découvrez les [adresses IP publiques](../virtual-network/virtual-network-public-ip-address.md).
 - Découvrez les [adresses IP privées](../virtual-network/private-ip-addresses.md).
-- Découvrez comment utiliser [Standard Load Balancer et les zones de disponibilité](load-balancer-standard-availability-zones.md).
-- En savoir plus sur les [Diagnostics Load Balancer Standard](load-balancer-standard-diagnostics.md).
+- Découvrez comment utiliser [un équilibreur de charge standard et les zones de disponibilité](load-balancer-standard-availability-zones.md).
+- Découvrez les [diagnostics des équilibreurs de charge standard](load-balancer-standard-diagnostics.md).
 - En savoir plus sur la [réinitialisation TCP au terme du délai d’inactivité](load-balancer-tcp-reset.md).
-- Découvrez [Load Balancer Standard avec les règles d’équilibrage de charge des ports HA](load-balancer-ha-ports-overview.md).
+- Découvrez un [équilibreur de charge standard avec des règles d’équilibrage de charge des ports HA](load-balancer-ha-ports-overview.md).
 - En savoir plus sur les [groupes de sécurité réseau](../virtual-network/network-security-groups-overview.md).
 - Découvrez-en plus sur les [limites des équilibreurs de charge](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer).
 - Découvrez l’utilisation du [réacheminement de port](./tutorial-load-balancer-port-forwarding-portal.md).
