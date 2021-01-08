@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/07/2020
 ms.author: rkarlin
-ms.openlocfilehash: 5e7eabd44ea8c56fbb102f9e48812745a31de62a
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 0c303adb4ee7c7551c6b389ec169d92a661a63bc
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089194"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97835021"
 ---
 # <a name="azure-defender-for-iot-frequently-asked-questions"></a>Forum aux questions sur Azure Defender pour IoT
 
@@ -79,15 +79,11 @@ Oui. Vous pouvez définir une alerte personnalisée pour un ensemble prédéfini
 
 Les capteurs et les agents continuent à s’exécuter et à stocker les données tant que l’appareil est en cours d’exécution. Les données sont stockées dans le cache de messages de sécurité en fonction de la configuration de taille. Lorsque l’appareil retrouve sa connectivité, les messages de sécurité sont à nouveau envoyés.
 
-
-
-
-
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus sur la prise en main de Defender pour IoT, consultez la documentation suivante :
 
 - Lire la [Vue d’ensemble de Defender pour IoT](overview.md)
-- Vérifier les [conditions préalables du service](service-prerequisites.md)
-- En savoir plus sur la [prise en main](getting-started.md)
+- Vérifier la [configuration requise pour le système](quickstart-system-prerequisites.md)
+- En savoir plus sur la [Prise en main de Defender pour IoT](getting-started.md)
 - Comprendre les [Alertes de sécurité de Defender pour IoT](concept-security-alerts.md)

@@ -443,9 +443,9 @@
                     - name: ST_ISVALIDDETAILED
                       displayName: 'ST_ISVALIDDETAILED, st isvaliddetailed, is valid detailed, built-in functions'
                       href: sql-query-st-isvaliddetailed.md
-                - name: Fonctions de chaîne
+                - name: Fonctions de chaînes
                   items:
-                    - name: Fonctions de chaîne
+                    - name: Fonctions de chaînes
                       displayName: 'string functions, string, system functions, built-in functions'
                       href: sql-query-string-functions.md
                     - name: CONCAT

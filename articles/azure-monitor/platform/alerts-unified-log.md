@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 5/31/2019
 ms.subservice: alerts
-ms.openlocfilehash: 9f8004b41e8048dfc97fb61bb67a634963c0c575
-ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
+ms.openlocfilehash: a913bc0ae01507cb26c1650d63918a8319eeacf4
+ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96317552"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857424"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alertes de journal dans Azure Monitor
 
@@ -120,6 +120,8 @@ Dans les espaces de travail et Application Insights, il est uniquement pris en c
 ### <a name="split-by-alert-dimensions"></a>Fractionner par dimensions d'alerte
 
 Fractionnez les alertes par colonnes numériques ou de chaînes en alertes distinctes en les regroupant en combinaisons uniques. Lors de la création d'alertes centrées sur les ressources à grande échelle (étendue d'abonnement ou de groupe de ressources), vous pouvez fractionner par colonne d'ID de ressource Azure. Le fractionnement sur la colonne d'ID de ressource Azure remplacera la cible de l'alerte par la ressource spécifiée.
+
+La répartition par colonne d’ID de ressource Azure est recommandée lorsque vous souhaitez surveiller la même condition sur plusieurs ressources Azure. Par exemple, la surveillance de toutes les machines virtuelles pour l’utilisation du processeur sur 80 %. Vous pouvez également décider de ne pas fractionner lorsque vous souhaitez une condition sur plusieurs ressources dans l’étendue, par exemple la surveillance qu’au moins cinq machines de l’étendue du groupe de ressources ont une utilisation du processeur supérieure à 80 %.
 
 Dans les espaces de travail et Application Insights, il est uniquement pris en charge dans le type de mesure **Mesure métrique**. Le champ s'appelle **Agréger sur**. Il est limité à trois colonnes. La présence de plus de trois groupes par colonnes dans la requête peut donner des résultats inattendus. Dans tous les autres types de ressources, il est configuré dans la section **Fractionner par dimensions** de la condition (limitée à six fractionnements).
 

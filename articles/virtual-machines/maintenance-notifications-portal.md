@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: shants
-ms.openlocfilehash: 09693a09e35503a2a221f8de1903b4218b8766f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 318095e6cf68ec100dc9ea5221ecd93cba8f7c1e
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87082441"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656816"
 ---
 # <a name="handling-planned-maintenance-notifications-using-the-portal"></a>Gestion de notifications de maintenance planifiée à l’aide du portail
 
@@ -32,15 +32,14 @@ Vous pouvez utiliser le portail Azure et rechercher les machines virtuelles sur 
 
    **État de la maintenance** : Affiche l’état de maintenance de la machine virtuelle. Les valeurs potentielles sont les suivantes :
       
-      | Valeur | Description |
-      |-------|-------------|
-      | Démarrer maintenant | La machine virtuelle étant dans la fenêtre de maintenance libre-service, vous pouvez lancer la maintenance vous-même. Consultez la procédure ci-dessous pour démarrer la maintenance sur votre machine virtuelle. | 
-      | Planifiée | Une maintenance est planifiée sur la machine virtuelle, mais aucune option de lancement ne vous est proposée. Pour déterminer la fenêtre de maintenance, sélectionnez la fenêtre Maintenance - Planifiée dans cet affichage ou cliquez sur la machine virtuelle. | 
-      | Mise à jour déjà effectuée | Votre machine virtuelle est déjà mise à jour et aucune action supplémentaire n’est nécessaire pour l’instant. | 
-      | Réessayer plus tard | Vous avez lancé la maintenance, mais sans succès. Vous pourrez utiliser l’option de maintenance libre-service ultérieurement. | 
-      | Réessayer maintenant | Vous pouvez faire une nouvelle tentative de maintenance automatique après un échec. | 
-      | - | Votre machine virtuelle ne fait pas partie d’un cycle de maintenance planifiée. |
-      
+    | Valeur | Description |
+    |-------|-------------|
+    | Démarrer maintenant | La machine virtuelle étant dans la fenêtre de maintenance libre-service, vous pouvez lancer la maintenance vous-même. Consultez la procédure ci-dessous pour démarrer la maintenance sur votre machine virtuelle. | 
+    | Planifiée | Une maintenance est planifiée sur la machine virtuelle, mais aucune option de lancement ne vous est proposée. Pour déterminer la fenêtre de maintenance, sélectionnez la fenêtre Maintenance - Planifiée dans cet affichage ou cliquez sur la machine virtuelle. | 
+    | Mise à jour déjà effectuée | Votre machine virtuelle est déjà mise à jour et aucune action supplémentaire n’est nécessaire pour l’instant. | 
+    | Réessayer plus tard | Vous avez lancé la maintenance, mais sans succès. Vous pourrez utiliser l’option de maintenance libre-service ultérieurement. | 
+    | Réessayer maintenant | Vous pouvez faire une nouvelle tentative de maintenance automatique après un échec. | 
+    | - | Votre machine virtuelle ne fait pas partie d’un cycle de maintenance planifiée. |
 
    **Fenêtre Maintenance - Libre-service** : Affiche la fenêtre de temps dans laquelle vous pouvez démarrer vous-même la maintenance de vos machines virtuelles.
    

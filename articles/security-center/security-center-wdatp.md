@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: 5645a2e0449a1929421f9444bf645f08ad0525e9
-ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
+ms.openlocfilehash: 10fa47a8f613218b1331259040be77df867ade95
+ms.sourcegitcommit: c538b6e4cf27b992500c079ad9c914c05d55eb7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96296809"
+ms.lasthandoff: 01/03/2021
+ms.locfileid: "97854840"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Protéger vos points de terminaison avec la solution EDR intégrée de Security Center : Microsoft Defender for Endpoint
 
@@ -42,10 +42,10 @@ Microsoft Defender for Endpoint est une solution holistique de sécurité des po
 |---------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | État de sortie :                  | Disponibilité générale (GA)                                                                                                                                                                                                                                                                                      |
 | Prix :                        | Nécessite [Azure Defender pour les serveurs](security-center-pricing.md)                                                                                                                                                                                                                                             |
-| Plateformes prises en charge :            | ![Oui](./media/icons/yes-icon.png) Machines Azure exécutant Windows<br>![Oui](./media/icons/yes-icon.png) Machines Azure Arc exécutant Windows|
-| Versions de Windows prises en charge :  | Defender for Endpoint est intégré à Windows 10 1703 (et versions ultérieures) et Windows Server 2019.<br>Security Center prend en charge la détection sur Windows Server 2016, 2012 R2 et 2008 R2 SP1.<br>La supervision des points de terminaison de serveur qui utilise cette intégration a été désactivée pour les clients Office 365 GCC. |
-| Rôles et autorisations obligatoires : | Pour activer/désactiver l'intégration : **Administrateur de la sécurité** ou **Propriétaire**<br>Pour afficher des alertes MDATP dans Security Center : **Lecteur de sécurité**, **Lecteur**, **Contributeur du groupe de ressources**, **Propriétaire du groupe de ressources**, **Administrateur de la sécurité**, **Propriétaire de l’abonnement** ou **Contributeur de l’abonnement**                         |
-| Clouds :                         | ![Oui](./media/icons/yes-icon.png) Clouds commerciaux.<br>![Non](./media/icons/no-icon.png) Clients Cloud de la communauté du secteur public exécutant des charges de travail dans des clouds Azure mondiaux<br>![Oui](./media/icons/yes-icon.png) Gouvernement des États-Unis<br>![Non](./media/icons/no-icon.png) Chine Gov, autres Gov                                                        |
+| Plateformes prises en charge :            | Machines Azure exécutant Windows<br>Machines Azure Arc exécutant Windows|
+| Versions de Windows prises en charge :  |  • Security Center prend en charge la détection sur Windows Server 2016, 2012 R2 et 2008 R2 SP1<br> • Supervision des points de terminaison de serveur qui utilise cette intégration a été désactivée pour les clients Office 365 GCC<br> • Aucune prise en charge de Windows Server 2019, Windows 10 1703 (et versions ultérieures) ou Linux|
+| Rôles et autorisations obligatoires : | Pour activer/désactiver l'intégration : **Administrateur de la sécurité** ou **Propriétaire**<br>Pour afficher des alertes MDATP dans Security Center : **Lecteur de sécurité**, **Lecteur**, **Contributeur du groupe de ressources**, **Propriétaire du groupe de ressources**, **Administrateur de la sécurité**, **Propriétaire de l’abonnement** ou **Contributeur de l’abonnement**|
+| Clouds :                         | ![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Oui](./media/icons/yes-icon.png) Gouvernement des États-Unis<br>![Non](./media/icons/no-icon.png) Chine Gov, autres Gov<br>![Non](./media/icons/no-icon.png) Clients Cloud de la communauté du secteur public exécutant des charges de travail dans des clouds Azure mondiaux                                                        |
 |                                 |                                                                                                                                                                                                                                                                                                               |
 
 

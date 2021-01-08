@@ -3,42 +3,115 @@ title: Comprendre les jumeaux numériques IoT Plug-and-Play
 description: Comprendre comment IoT Plug-and-Play utilise les jumeaux numériques
 author: prashmo
 ms.author: prashmo
-ms.date: 07/17/2020
+ms.date: 12/14/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: f13230c7bd88a9c3cf043fc1881a34f6b7ce6fe7
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 99c957e5bf6ffe69c94e109796590f5ab975c3cf
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95495319"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656884"
 ---
 # <a name="understand-iot-plug-and-play-digital-twins"></a>Comprendre les jumeaux numériques IoT Plug-and-Play
 
-Un appareil IoT Plug-and-Play implémente un modèle décrit par le schéma [DTDL (Digital Twins Definition Language)](https://github.com/Azure/opendigitaltwins-dtdl). Un modèle décrit l’ensemble des composants, propriétés, commandes et messages de télémétrie qu’un appareil particulier peut avoir. Un jumeau d’appareil et un jumeau numérique sont initialisés la première fois qu’un appareil IoT Plug-and-Play se connecte à un hub IoT.
+Un appareil IoT Plug-and-Play implémente un modèle décrit par le schéma [DTDL (Digital Twins Definition Language)](https://github.com/Azure/opendigitaltwins-dtdl). Un modèle décrit l’ensemble des composants, propriétés, commandes et messages de télémétrie qu’un appareil particulier peut avoir.
 
 IoT Plug-and-Play utilise DTDL version 2. Pour plus d’informations sur cette version, consultez la spécification [Digital Twins Definition Language (DTDL) – version 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) sur GitHub.
 
-DTDL n’est pas exclusif à IoT Plug-and-Play. D’autres services IoT, tels qu’[Azure Digital Twins](../digital-twins/overview.md), l’utilisent pour représenter des environnements entiers tels que des bâtiments et des réseaux énergétiques. Pour plus d’informations, consultez [Comprendre les modèles de jumeaux dans Azure Digital Twins](../digital-twins/concepts-models.md).
+> [!NOTE]
+> DTDL n’est pas exclusif à IoT Plug-and-Play. D’autres services IoT, tels qu’[Azure Digital Twins](../digital-twins/overview.md), l’utilisent pour représenter des environnements entiers tels que des bâtiments et des réseaux énergétiques.
 
-Cet article décrit de quelle façon les composants et les propriétés sont représentés dans les sections *Souhaité* et *Rapporté* d’un jumeau d’appareil. Il décrit également la façon dont ces concepts sont mappés au jumeau numérique correspondant.
+Les kits de développement logiciel (SDK) Azure IoT service incluent des API qui permettent à un service d’interagir avec le jumeau numérique d’un appareil. Par exemple, un service peut lire les propriétés de l’appareil à partir de le jumeau numérique ou utiliser le jumeau numérique pour appeler une commande sur un appareil. Pour plus d’informations, consultez [Exemples de jumeaux numériques avec IoT Hub](concepts-developer-guide-service.md#iot-hub-digital-twin-examples).
 
-L’appareil IoT Plug-and-Play de cet article implémente le [modèle Contrôleur de température](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) avec le composant [Thermostat](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json).
+L’exemple d’appareil IoT Plug-and-Play dans cet article implémente un modèle de [contrôleur de température](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) qui a des composants de [thermostat](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json).
 
 ## <a name="device-twins-and-digital-twins"></a>Jumeaux d’appareil et jumeaux numériques
 
-Les jumeaux d’appareil sont des documents JSON qui stockent des informations sur l’état des appareils (métadonnées, configurations et conditions). Pour en savoir plus, consultez [Comprendre et utiliser les jumeaux d’appareil dans IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md). Les fabricants d’appareils et les développeurs de solutions peuvent continuer à utiliser le même ensemble d’API de jumeau d’appareil et de SDK pour implémenter des appareils et des solutions utilisant les conventions IoT Plug-and-Play.
+En plus des jumeaux numériques, Azure IoT Hub gère également les *jumeaux d’appareil* pour chaque appareil connecté. Un jumeau d’appareil est semblable à un jumeau numérique en ce qu’il s’agit d’une représentation des propriétés d’un appareil. Les kits de développement logiciel (SDK) Azure IoT service incluent des API permettant d’interagir avec les jumeaux d’appareil.
 
-Les API de jumeaux numériques opèrent sur des constructions de haut niveau en langage DTDL (Digital Twins Definition Language), telles que les composants, les propriétés et les commandes. Les API de jumeaux numériques permettent aux développeurs de solutions de créer plus facilement des solutions IoT Plug-and-Play.
+IoT Hub Initialise un jumeau numérique et un jumeau d’appareil la première fois qu’un appareil IoT Plug-and-Play se connecte.
 
-Dans un jumeau d’appareil, l’état d’une propriété accessible en écriture est réparti entre les sections Souhaité et Rapporté. Toutes les propriétés en lecture seule sont accessibles dans la section Rapporté.
+Les jumeaux d’appareil sont des documents JSON qui stockent des informations sur l’état des appareils (métadonnées, configurations et conditions). Pour plus d’informations, consultez [des exemples de client de service IoT Hub](concepts-developer-guide-service.md#iot-hub-service-client-examples). Les fabricants d’appareils et les développeurs de solutions peuvent continuer à utiliser le même ensemble d’API de jumeau d’appareil et de SDK pour implémenter des appareils et des solutions utilisant les conventions IoT Plug-and-Play.
+
+Les API de jumeaux numériques opèrent sur des constructions DTDL de haut niveau, telles que les composants, les propriétés et les commandes. Les API de jumeaux numériques permettent aux développeurs de solutions de créer plus facilement des solutions IoT Plug-and-Play.
+
+Dans un jumeau d’appareil, l’état d’une propriété accessible en écriture est fractionné sur les *propriétés souhaitées* et *propriétés signalées*. Toutes les propriétés en lecture seule sont accessibles dans la section Propriétés rapportées.
 
 Dans un jumeau numérique, il existe une vue unifiée de l’état actuel et souhaité de la propriété. L’état de synchronisation d’une propriété donnée est stocké dans la section `$metadata` du composant par défaut correspondant.
 
-### <a name="digital-twin-json-format"></a>Format JSON de jumeaux numériques
+### <a name="device-twin-json-example"></a>Exemple JSON de jumeau d'appareil
 
-Lorsqu’il est représenté sous la forme d’un objet JSON, un jumeau numérique comprend les champs suivants :
+L’extrait de code suivant montre un jumeau d’appareil IoT Plug-and-Play formaté comme un objet JSON :
+
+```json
+{
+  "deviceId": "sample-device",
+  "modelId": "dtmi:com:example:TemperatureController;1",
+  "version": 15,
+  "properties": {
+    "desired": {
+      "thermostat1": {
+        "__t": "c",
+        "targetTemperature": 21.8
+      },
+      "$metadata": {...},
+      "$version": 4
+    },
+    "reported": {
+      "serialNumber": "alwinexlepaho8329",
+      "thermostat1": {
+        "maxTempSinceLastReboot": 25.3,
+        "__t": "c",
+        "targetTemperature": {
+          "value": 21.8,
+          "ac": 200,
+          "ad": "Successfully executed patch",
+        }
+      },
+      "$metadata": {...},
+      "$version": 11
+    }
+  }
+}
+```
+
+### <a name="digital-twin-example"></a>Exemple de jumeau numérique
+
+L’extrait de code suivant montre le jumeau numérique formaté comme un objet JSON :
+
+```json
+{
+  "$dtId": "sample-device",
+  "serialNumber": "alwinexlepaho8329",
+  "thermostat1": {
+    "maxTempSinceLastReboot": 25.3,
+    "targetTemperature": 21.8,
+    "$metadata": {
+      "targetTemperature": {
+        "desiredValue": 21.8,
+        "desiredVersion": 4,
+        "ackVersion": 4,
+        "ackCode": 200,
+        "ackDescription": "Successfully executed patch",
+        "lastUpdateTime": "2020-07-17T06:11:04.9309159Z"
+      },
+      "maxTempSinceLastReboot": {
+         "lastUpdateTime": "2020-07-17T06:10:31.9609233Z"
+      }
+    }
+  },
+  "$metadata": {
+    "$model": "dtmi:com:example:TemperatureController;1",
+    "serialNumber": {
+      "lastUpdateTime": "2020-07-17T06:10:31.9609233Z"
+    }
+  }
+}
+```
+
+Le tableau suivant décrit les champs de l’objet JSON d’un jumeau numérique :
 
 | Nom du champ | Description |
 | --- | --- |
@@ -55,83 +128,13 @@ Lorsqu’il est représenté sous la forme d’un objet JSON, un jumeau numéri
 | `{componentName}.{propertyName}` | Valeur de la propriété du composant au format JSON |
 | `{componentName}.$metadata` | Informations sur les métadonnées du composant. |
 
-#### <a name="device-twin-sample"></a>Exemple de jumeau d’appareil
-
-L’extrait de code suivant montre un jumeau d’appareil IoT Plug-and-Play formaté comme un objet JSON :
-
-```json
-{
-    "deviceId": "sample-device",
-    "modelId": "dtmi:com:example:TemperatureController;1",
-    "version": 15,
-    "properties": {
-        "desired": {
-            "thermostat1": {
-                "__t": "c",
-                "targetTemperature": 21.8
-            },
-            "$metadata": {...},
-            "$version": 4
-        },
-        "reported": {
-            "serialNumber": "alwinexlepaho8329",
-            "thermostat1": {
-                "maxTempSinceLastReboot": 25.3,
-                "__t": "c",
-                "targetTemperature": {
-                    "value": 21.8,
-                    "ac": 200,
-                    "ad": "Successfully executed patch",
-                }
-            },
-            "$metadata": {...},
-            "$version": 11
-        }
-    }
-}
-```
-
-#### <a name="digital-twin-sample"></a>Exemple de jumeau numérique
-
-L’extrait de code suivant montre le jumeau numérique formaté comme un objet JSON :
-
-```json
-{
-    "$dtId": "sample-device",
-    "serialNumber": "alwinexlepaho8329",
-    "thermostat1": {
-        "maxTempSinceLastReboot": 25.3,
-        "targetTemperature": 21.8,
-        "$metadata": {
-            "targetTemperature": {
-                "desiredValue": 21.8,
-                "desiredVersion": 4,
-                "ackVersion": 4,
-                "ackCode": 200,
-                "ackDescription": "Successfully executed patch",
-                "lastUpdateTime": "2020-07-17T06:11:04.9309159Z"
-            },
-            "maxTempSinceLastReboot": {
-                "lastUpdateTime": "2020-07-17T06:10:31.9609233Z"
-            }
-        }
-    },
-    "$metadata": {
-        "$model": "dtmi:com:example:TemperatureController;1",
-        "serialNumber": {
-            "lastUpdateTime": "2020-07-17T06:10:31.9609233Z"
-        }
-    }
-}
-```
-
 ### <a name="properties"></a>Propriétés
 
 Les propriétés sont des champs de données représentant l’état d’une entité ; c’est par exemple le cas des propriétés dans de nombreux langages de programmation orientés objet.
 
 #### <a name="read-only-property"></a>Propriété en lecture seule
 
-Schéma :
+Schéma DTDL :
 
 ```json
 {
@@ -152,9 +155,9 @@ Les extraits de code suivants montrent la représentation JSON côte à côte d
 
 ```json
 "properties": {
-    "reported": {
-        "serialNumber": "alwinexlepaho8329"
-    }
+  "reported": {
+    "serialNumber": "alwinexlepaho8329"
+  }
 }
 ```
 
@@ -171,15 +174,17 @@ Les extraits de code suivants montrent la représentation JSON côte à côte d
 
 #### <a name="writable-property"></a>Propriété accessible en écriture
 
-Supposons que l’appareil avait également la propriété accessible en écriture suivante dans le composant par défaut :
+Les exemples suivants montrent une propriété accessible en écriture dans le composant par défaut.
+
+DTDL :
 
 ```json
 {
-    "@type": "Property",
-    "name": "fanSpeed",
-    "displayName": "Fan Speed",
-    "writable": true,
-    "schema": "double"
+  "@type": "Property",
+  "name": "fanSpeed",
+  "displayName": "Fan Speed",
+  "writable": true,
+  "schema": "double"
 }
 ```
 
@@ -189,19 +194,19 @@ Supposons que l’appareil avait également la propriété accessible en écritu
 
 ```json
 {
-    "properties": {
-        "desired": {
-            "fanSpeed": 2.0,
-        },
-        "reported": {
-            "fanSpeed": {
-                "value": 3.0,
-                "ac": 200,
-                "av": 1,
-                "ad": "Successfully executed patch version 1"
-            }
-        }
+  "properties": {
+    "desired": {
+      "fanSpeed": 2.0,
     },
+    "reported": {
+      "fanSpeed": {
+        "value": 3.0,
+        "ac": 200,
+        "av": 1,
+        "ad": "Successfully executed patch version 1"
+      }
+    }
+  },
 }
 ```
 
@@ -211,17 +216,17 @@ Supposons que l’appareil avait également la propriété accessible en écritu
 
 ```json
 {
-    "fanSpeed": 3.0,
-    "$metadata": {
-        "fanSpeed": {
-            "desiredValue": 2.0,
-            "desiredVersion": 2,
-            "ackVersion": 1,
-            "ackCode": 200,
-            "ackDescription": "Successfully executed patch version 1",
-            "lastUpdateTime": "2020-07-17T06:10:31.9609233Z"
-        }
+  "fanSpeed": 3.0,
+  "$metadata": {
+    "fanSpeed": {
+      "desiredValue": 2.0,
+      "desiredVersion": 2,
+      "ackVersion": 1,
+      "ackCode": 200,
+      "ackDescription": "Successfully executed patch version 1",
+      "lastUpdateTime": "2020-07-17T06:10:31.9609233Z"
     }
+  }
 }
 ```
 
@@ -233,8 +238,7 @@ Dans cet exemple, `3.0` est la valeur actuelle de la propriété `fanSpeed` rapp
 ### <a name="components"></a>Components
 
 Les composants permettent de créer l’interface de modèle en tant qu’assembly d’autres interfaces.
-Envisagez l’interface [Thermostat](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json), qui est définie comme modèle.
-Cette interface peut désormais être incorporée en tant que composant thermostat1 (et un autre composant thermostat2) lors de la définition du [modèle Contrôleur de température](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json).
+Par exemple, l’interface [Thermostat](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) peut être incorporée en tant que composants `thermostat1` et `thermostat2` dans le modèle de [contrôleur de température](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json).
 
 Dans un jumeau d’appareil, un composant est identifié par le marqueur `{ "__t": "c"}`. Dans un jumeau numérique, la présence de `$metadata` marque un composant.
 
@@ -251,30 +255,30 @@ Les extraits de code suivants montrent la représentation JSON côte à côte d
 
 ```json
 "properties": {
-    "desired": {
-        "thermostat1": {
-            "__t": "c",
-            "targetTemperature": 21.8
-        },
-        "$metadata": {
-        },
-        "$version": 4
+  "desired": {
+    "thermostat1": {
+      "__t": "c",
+      "targetTemperature": 21.8
     },
-    "reported": {
-        "thermostat1": {
-            "maxTempSinceLastReboot": 25.3,
-            "__t": "c",
-            "targetTemperature": {
-                "value": 21.8,
-                "ac": 200,
-                "ad": "Successfully executed patch",
-                "av": 4
-            }
-        },
-        "$metadata": {
-        },
-        "$version": 11
-    }
+    "$metadata": {
+    },
+    "$version": 4
+  },
+  "reported": {
+    "thermostat1": {
+      "maxTempSinceLastReboot": 25.3,
+      "__t": "c",
+      "targetTemperature": {
+        "value": 21.8,
+        "ac": 200,
+        "ad": "Successfully executed patch",
+        "av": 4
+      }
+    },
+    "$metadata": {
+    },
+    "$version": 11
+  }
 }
 ```
 
@@ -284,21 +288,21 @@ Les extraits de code suivants montrent la représentation JSON côte à côte d
 
 ```json
 "thermostat1": {
-    "maxTempSinceLastReboot": 25.3,
-    "targetTemperature": 21.8,
-    "$metadata": {
-        "targetTemperature": {
-            "desiredValue": 21.8,
-            "desiredVersion": 4,
-            "ackVersion": 4,
-            "ackCode": 200,
-            "ackDescription": "Successfully executed patch",
-            "lastUpdateTime": "2020-07-17T06:11:04.9309159Z"
-        },
-        "maxTempSinceLastReboot": {
-            "lastUpdateTime": "2020-07-17T06:10:31.9609233Z"
-        }
+  "maxTempSinceLastReboot": 25.3,
+  "targetTemperature": 21.8,
+  "$metadata": {
+    "targetTemperature": {
+      "desiredValue": 21.8,
+      "desiredVersion": 4,
+      "ackVersion": 4,
+      "ackCode": 200,
+      "ackDescription": "Successfully executed patch",
+      "lastUpdateTime": "2020-07-17T06:11:04.9309159Z"
+    },
+    "maxTempSinceLastReboot": {
+       "lastUpdateTime": "2020-07-17T06:10:31.9609233Z"
     }
+  }
 }
 ```
 
@@ -307,7 +311,7 @@ Les extraits de code suivants montrent la représentation JSON côte à côte d
 
 ## <a name="digital-twin-apis"></a>API de jumeaux numériques
 
-Azure Digital Twins est fourni avec les opérations **Obtenir le jumeau numérique**, **Mettre à jour un jumeau numérique**, **Appeler la commande d’un composant** et **Appeler une commande** pour gérer le jumeau numérique de l’appareil. Vous pouvez utiliser les [API REST](/rest/api/iothub/service/digitaltwin) directement ou par le biais d’un [Kit de développement logiciel (SDK) de service](../iot-pnp/libraries-sdks.md).
+Les API de jumeaux numériques incluent des opérations de gestion des jumeaux numériques comme **Obtenir des jumeaux numériques**, **Mettre à jour des jumeaux numériques**, **Appeler une commande de composant** et **Appeler une commande**. Vous pouvez utiliser les [API REST](/rest/api/iothub/service/digitaltwin) directement ou par le biais d’un [Kit de développement logiciel (SDK) de service](../iot-pnp/libraries-sdks.md).
 
 ## <a name="digital-twin-change-events"></a>Événements de changement de jumeau numérique
 

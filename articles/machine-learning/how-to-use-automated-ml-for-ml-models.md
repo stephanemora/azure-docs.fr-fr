@@ -8,15 +8,15 @@ ms.subservice: core
 ms.author: nibaccam
 author: aniththa
 ms.reviewer: nibaccam
-ms.date: 07/10/2020
+ms.date: 12/20/2020
 ms.topic: conceptual
 ms.custom: how-to, automl
-ms.openlocfilehash: 7cd704dad3d0ede55e4df4d9e222ff83fd7ae350
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: 4539936007de0b45ab33dbd391baacc8f7d2ce2a
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94919639"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97796055"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Créer, examiner et déployer des modèles de machine learning automatisé avec Azure Machine Learning
 
@@ -91,7 +91,7 @@ Dans le cas contraire, vous verrez une liste de vos expériences récentes Machi
         Sélectionnez **Suivant**.
 1. Sélectionnez votre jeu de données récemment créé une fois qu’il apparaît. Vous pouvez également afficher un aperçu du jeu de données et des exemples de statistiques. 
 
-1. Dans le formulaire **Configurer l’exécution**, entrez un nom d’expérience unique.
+1. Dans le formulaire **Configurer l’exécution**, sélectionnez **Créer** , puis entrez **didacticiel-automl-deploy** pour le nom de l’expérience.
 
 1. Sélectionnez une colonne cible ; il s’agit de la colonne sur laquelle vous voulez effectuer des prédictions.
 
@@ -164,7 +164,7 @@ Imputer avec| Sélectionnez la valeur à imputer aux valeurs manquantes dans vos
 Sélectionnez **Terminer** pour exécuter votre expérience. Le processus de préparation de l’expérience peut prendre jusqu’à 10 minutes. Les travaux de formation peuvent prendre 2 à 3 minutes supplémentaires pour que chaque pipeline se termine.
 
 > [!NOTE]
-> Les algorithmes automatisés ML ont un fonctionnement aléatoire inhérent qui peut provoquer de légères variations dans un score de métrique final des modèles recommandés, comme la précision. Le ML automatisé exécute également des opérations au niveau des données, telles que les opérations train-test split, train-validation split ou la validation croisée, si nécessaire. Par conséquent, si vous exécutez plusieurs fois une expérience avec les mêmes paramètres de configuration et la même métrique principale, vous constaterez probablement des variations dans chaque score de métrique finale d’expériences, en raison de ces facteurs. 
+> Les algorithmes utilisés par le ML automatisé présentent un fonctionnement aléatoire inhérent qui peut provoquer de légères variations dans un score de métrique final de modèle recommandé, comme la précision. Le ML automatisé exécute également des opérations au niveau des données, telles que les opérations train-test split, train-validation split ou la validation croisée, si nécessaire. Par conséquent, si vous exécutez plusieurs fois une expérience avec les mêmes paramètres de configuration et la même métrique principale, vous constaterez probablement des variations dans chaque score de métrique finale d’expériences, en raison de ces facteurs. 
 
 ### <a name="view-experiment-details"></a>Afficher les détails de l'expérience
 
@@ -172,7 +172,7 @@ L’écran **Détails de l’exécution** ouvre l’onglet **Détails**. Cet éc
 
 L’onglet **Modèles** contient une liste des modèles créés affichés selon leur score de métrique. Par défaut, le modèle qui obtient la valeur la plus élevée d’après la métrique choisie figure en haut de la liste. À mesure que le travail de formation essaie plus de modèles, ceux-ci sont ajoutés à la liste. Utilisez cela pour obtenir une comparaison rapide des métriques des modèles déjà produits.
 
-[![Tableau de bord des détails de l’exécution](media/how-to-use-automated-ml-for-ml-models/run-details.png)](media/how-to-use-automated-ml-for-ml-models/run-details-expanded.png#lightbox)
+![Détails de l’exécution](./media/how-to-use-automated-ml-for-ml-models/explore-models.gif)
 
 ### <a name="view-training-run-details"></a>Afficher les détails de l'exécution de formation
 
@@ -216,10 +216,10 @@ Machine Learning automatisé vous aide à déployer le modèle sans écrire de c
 1. Sélectionnez **Déployer**. Le déploiement peut prendre environ 20 minutes.
     Une fois le déploiement commencé, l’onglet **Résumé du modèle** s’affiche. Consultez la progression du déploiement sous la section **État du déploiement**. 
 
-Vous disposez maintenant d’un service web opérationnel pour générer des prédictions ! Vous pouvez tester les prédictions en interrogeant le service à partir du [support Azure Machine Learning intégré de Power BI](how-to-consume-web-service.md#consume-the-service-from-power-bi).
+Vous disposez maintenant d’un service web opérationnel pour générer des prédictions ! Vous pouvez tester les prédictions en interrogeant le service à partir du [support Azure Machine Learning intégré de Power BI](https://docs.microsoft.com/power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [En savoir plus sur l'utilisation d'un service web](./how-to-consume-web-service.md).
+* [En savoir plus sur l'utilisation d'un service web](how-to-consume-web-service.md).
 * [Comprendre les résultats du Machine Learning](how-to-understand-automated-ml.md).
 * [En savoir plus sur Machine Learning automatisé](concept-automated-ml.md) et Azure Machine Learning.

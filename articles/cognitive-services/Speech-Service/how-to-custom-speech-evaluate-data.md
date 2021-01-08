@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: trbye
-ms.openlocfilehash: b8b3a0aa6d9790dbb5900eac2d79074f44a749d2
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 54a54dccd82e4f6cfd72a1cc8a71b51f9fd4ed95
+ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025648"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857356"
 ---
 # <a name="evaluate-and-improve-custom-speech-accuracy"></a>Évaluer et améliorer la justesse de Custom Speech
 
@@ -23,7 +23,7 @@ Dans cet article, vous allez apprendre à mesurer et à améliorer de manière q
 
 ## <a name="evaluate-custom-speech-accuracy"></a>Évaluer la précision de Custom Speech
 
-Le standard de mesure de la précision d’un modèle est le *taux d’erreur de mots*  (WER, de l’anglais « Word Error Rate »). Il compte le nombre de mots incorrects identifiés lors de la reconnaissance, puis le divise par le nombre total de mots fournis dans la transcription étiquetée à la main (il s’agit de « N » ci-dessous). Enfin, ce nombre est multiplié par 100 % pour calculer le taux WER.
+Le standard de mesure de la précision d’un modèle est le [taux d’erreur de mots](https://en.wikipedia.org/wiki/Word_error_rate)  (WER, de l’anglais « Word Error Rate »). Il compte le nombre de mots incorrects identifiés lors de la reconnaissance, puis le divise par le nombre total de mots fournis dans la transcription étiquetée à la main (il s’agit de « N » ci-dessous). Enfin, ce nombre est multiplié par 100 % pour calculer le taux WER.
 
 ![Formule du taux WER](./media/custom-speech/custom-speech-wer-formula.png)
 
@@ -36,6 +36,8 @@ Les mots mal identifiés se décomposent en trois catégories :
 Voici un exemple :
 
 ![Exemple de mots mal identifiés](./media/custom-speech/custom-speech-dis-words.png)
+
+Si vous souhaitez répliquer des mesures WER en local, vous pouvez utiliser SCLITE à partir de [SCTK](https://github.com/usnistgov/SCTK).
 
 ## <a name="resolve-errors-and-improve-wer"></a>Résoudre les erreurs et améliorer le taux WER
 
@@ -96,7 +98,7 @@ Les sections suivantes décrivent comment chaque type de données d’entraînem
 
 ### <a name="add-related-text-sentences"></a>Ajouter des phrases de texte associées
 
-L’ajout de phrases de texte associées permet principalement de réduire les erreurs de substitution liées à la reconnaissance erronée des mots courants et des mots spécifiques à un domaine en les présentant en contexte. Les mots spécifiques à un domaine peuvent être des mots rares ou inventés, mais leur prononciation doit être facile à reconnaître.
+Lorsque vous formez un nouveau modèle personnalisé, commencez par ajouter du texte associé pour améliorer la reconnaissance des mots et des expressions spécifiques à un domaine. L’ajout de phrases de texte associées permet principalement de réduire les erreurs de substitution liées à la reconnaissance erronée des mots courants et des mots spécifiques à un domaine en les présentant en contexte. Les mots spécifiques à un domaine peuvent être des mots rares ou inventés, mais leur prononciation doit être facile à reconnaître.
 
 > [!NOTE]
 > Évitez les phrases de texte associées qui incluent du bruit, comme des caractères ou des mots non reconnaissables.
@@ -111,6 +113,12 @@ Tenez compte des détails suivants :
 * Évitez les exemples comprenant des erreurs de transcription, mais incluez une qualité audio diversifiée.
 * Évitez les phrases qui ne sont pas liées au domaine de votre problème. Les phrases non liées peuvent endommager votre modèle.
 * En cas de variation de la qualité des transcriptions, vous pouvez dupliquer des phrases exceptionnellement bonnes (par exemple, d’excellentes transcriptions qui incluent des expressions clés) pour augmenter leur poids.
+* Le service vocal utilise automatiquement les transcriptions pour améliorer la reconnaissance des mots et des expressions spécifiques à un domaine, comme s’ils avaient été ajoutés en tant que texte associé.
+* L’apprentissage de l’audio est plus avantageux si le contenu audio est également difficile à comprendre pour les êtres humains. Dans la plupart des cas, vous devez commencer l’apprentissage en utilisant simplement du texte associé.
+* L’exécution d’une opération d’apprentissage peut prendre plusieurs jours. Pour améliorer la vitesse de formation, veillez à créer votre abonnement au service vocal dans une région [avec un matériel dédié](custom-speech-overview.md#set-up-your-azure-account) pour l’apprentissage.
+
+> [!NOTE]
+> Tous les modèles de base ne prennent pas en charge l’audio. Si un modèle de base ne le prend pas en charge, le service vocal utilise uniquement le texte des transcriptions et ignore l’audio.
 
 ### <a name="add-new-words-with-pronunciation"></a>Ajouter de nouveaux mots avec la prononciation
 

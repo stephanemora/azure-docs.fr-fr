@@ -1,18 +1,21 @@
 ---
 title: Meilleures pratiques
 description: Découvrez les bonnes pratiques et des conseils utiles pour le développement de vos solutions Azure Batch.
-ms.date: 11/18/2020
+ms.date: 12/18/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0f19fceca0212bd0a05d7caa311403b173c19de5
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 5c3521a3b5fe0dd9c2d1534f6e2a6864647f5da3
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97563175"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97694181"
 ---
 # <a name="azure-batch-best-practices"></a>Meilleures pratiques relatives à Azure Batch
 
 Cet article présente une collection de bonnes pratiques et de conseils utiles pour utiliser le service Azure Batch de manière efficace, basée sur des expériences réelles avec Batch. Ces conseils peuvent vous aider à améliorer les performances et à éviter les pièges de conception dans vos solutions Azure Batch.
+
+> [!TIP]
+> Pour obtenir des conseils sur la sécurité dans Azure Batch, consultez [Meilleures pratiques en matière de sécurité et de conformité par lots](security-best-practices.md).
 
 ## <a name="pools"></a>Pools
 
