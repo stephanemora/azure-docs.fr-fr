@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/20/2020
 ms.author: rohink
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: df180f0aefc817004e99d63998d000498c4d15aa
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 820641af00caea4ffca450be8aa81b5357ba1261
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92310153"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97652957"
 ---
 # <a name="quickstart-create-an-azure-private-dns-zone-using-the-azure-cli"></a>Démarrage rapide : Créer une zone Azure DNS privée avec l’interface Azure CLI
 
@@ -21,13 +21,13 @@ Ce guide de démarrage rapide vous guide tout au long des étapes de création d
 
 Une zone DNS permet d’héberger les enregistrements DNS d’un domaine particulier. Pour commencer à héberger votre domaine dans le DNS Azure, vous devez créer une zone DNS pour ce nom de domaine. Chaque enregistrement DNS pour votre domaine est ensuite créé à l’intérieur de cette zone DNS. Pour publier une zone DNS privée sur votre réseau virtuel, vous spécifiez la liste des réseaux virtuels qui sont autorisés à résoudre les enregistrements dans la zone.  On les appelle réseaux virtuels *liés*. Quand l’inscription automatique est activée, Azure DNS met également à jour les enregistrements de zone chaque fois qu’une machine virtuelle est créée, change d’adresse IP ou est supprimée.
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="prerequisites"></a>Prérequis
 
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-Si vous préférez, vous pouvez suivre ce guide de démarrage rapide en utilisant [Azure PowerShell](private-dns-getstarted-powershell.md).
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+- Vous pouvez également suivre ce guide de démarrage rapide en utilisant [Azure PowerShell](private-dns-getstarted-powershell.md).
 
 ## <a name="create-the-resource-group"></a>Créer le groupe de ressources
 
@@ -151,13 +151,13 @@ Répétez l’opération pour myVM02.
 
 1. À partir de l’invite de commandes Windows PowerShell myVM02, faites un test ping de myVM01 en utilisant le nom d’hôte enregistré automatiquement :
 
-   ```
+   ```powershell
    ping myVM01.private.contoso.com
    ```
 
    La sortie doit ressembler à ceci :
 
-   ```
+   ```output
    PS C:\> ping myvm01.private.contoso.com
 
    Pinging myvm01.private.contoso.com [10.2.0.4] with 32 bytes of data:
@@ -175,13 +175,13 @@ Répétez l’opération pour myVM02.
 
 2. Maintenant faites un test ping sur le nom **db** que vous avez créé précédemment :
 
-   ```
+   ```powershell
    ping db.private.contoso.com
    ```
 
    La sortie doit ressembler à ceci :
 
-   ```
+   ```output
    PS C:\> ping db.private.contoso.com
 
    Pinging db.private.contoso.com [10.2.0.4] with 32 bytes of data:

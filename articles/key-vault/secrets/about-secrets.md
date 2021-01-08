@@ -1,6 +1,6 @@
 ---
 title: À propos des secrets Azure Key Vault - Azure Key Vault
-description: Vue d’ensemble de l’interface REST Azure Key Vault et des détails de développement sur les secrets.
+description: Présentation des secrets Azure Key Vault.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -10,16 +10,16 @@ ms.subservice: secrets
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7aa2feba5a2b2fa47bbb0c055a2f556b8997ab34
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4ded48fe8f04d2cdba40650974fd5002d659e381
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "82930469"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705266"
 ---
 # <a name="about-azure-key-vault-secrets"></a>À propos des secrets Azure Key Vault
 
-Key Vault offre un stockage sécurisé des secrets, tels que les mots de passe et les chaînes de connexion de base de données.
+[Key Vault](../general/overview.md) offre un stockage sécurisé des secrets génériques, tels que les mots de passe et les chaînes de connexion de base de données.
 
 Pour les développeurs, les API Key Vault acceptent et retournent des valeurs de secret sous forme de chaînes. En interne, Key Vault stocke et gère les secrets par séquence d’octets (8 bits), avec une taille maximale de 25 Ko chacune. Le service Key Vault ne fournit pas la sémantique pour les secrets. Il accepte simplement les données, les chiffre, les stocke et retourne un identificateur de secret (« id »). L’identificateur peut être utilisé pour récupérer le secret ultérieurement.  
 
@@ -44,9 +44,11 @@ Des attributs supplémentaires en lecture seule sont inclus dans toute réponse 
 - *created* : IntDate, facultatif. L’attribut created indique quand cette version du secret a été créée. Cette valeur est null pour les secrets créés avant l’ajout de cet attribut. Sa valeur doit être un nombre contenant une valeur IntDate.  
 - *updated* : IntDate, facultatif. L’attribut updated indique quand cette version du secret a été mise à jour. Cette valeur est null pour les secrets qui ont été mis à jour pour la dernière fois avant l’ajout de cet attribut. Sa valeur doit être un nombre contenant une valeur IntDate.
 
+Pour plus d’informations sur les attributs courants de chaque type d’objet de coffre de clés, consultez [Vue d’ensemble des clés, secrets et certificats Azure Key Vault](../general/about-keys-secrets-certificates.md).
+
 ### <a name="date-time-controlled-operations"></a>Opérations contrôlées par date/heure
 
-L’opération **get** d’un secret s’appliquera aux secrets pas encore valides ou ayant expiré, en dehors de la fenêtre *nbf* / *exp*. L’appel de l’opération **get** d’un secret, pour un secret pas encore valide, peut être utilisé à des fins de test. La récupération (opération **get**ting) d’un secret expiré peut être utilisée pour des opérations de récupération.
+L’opération **get** d’un secret s’appliquera aux secrets pas encore valides ou ayant expiré, en dehors de la fenêtre *nbf* / *exp*. L’appel de l’opération **get** d’un secret, pour un secret pas encore valide, peut être utilisé à des fins de test. La récupération (opération **get** ting) d’un secret expiré peut être utilisée pour des opérations de récupération.
 
 ## <a name="secret-access-control"></a>Contrôle d’accès aux secrets
 
@@ -68,6 +70,12 @@ Les autorisations suivantes peuvent être utilisées, par principal, dans l’en
 
 Pour plus d’informations sur l’utilisation des secrets, voir [Informations de référence sur les opérations liées aux secrets dans l’API REST Key Vault](/rest/api/keyvault). Pour plus d’informations sur l’établissement d’autorisations, consultez [Coffres : créer ou mettre à jour](/rest/api/keyvault/vaults/createorupdate) et [Coffres : mettre à jour la stratégie d’accès](/rest/api/keyvault/vaults/updateaccesspolicy). 
 
+Guides pratiques pour contrôler l’accès dans Key Vault :
+- [Attribuer une stratégie d’accès Key Vault à l’aide de l’interface CLI](../general/assign-access-policy-cli.md)
+- [Attribuer une stratégie d’accès Key Vault à l’aide de PowerShell](../general/assign-access-policy-powershell.md)
+- [Attribuer une stratégie d’accès Key Vault à l’aide du portail Azure](../general/assign-access-policy-portal.md)
+- [Donnez accès aux clés, certificats et secrets du coffre de clés avec un contrôle d’accès en fonction du rôle Azure (préversion)](../general/rbac-guide.md)
+
 ## <a name="secret-tags"></a>Balises de secret  
 Vous pouvez spécifier des métadonnées spécifiques à l’application supplémentaires sous la forme de balises. Key Vault prend en charge jusqu’à 15 balises, chacune d’entre elles pouvant avoir un nom de 256 caractères et une valeur de 256 caractères.  
 
@@ -76,14 +84,17 @@ Vous pouvez spécifier des métadonnées spécifiques à l’application supplé
 
 ## <a name="azure-storage-account-key-management"></a>Gestion des clés de compte de stockage Azure
 
-Key Vault peut gérer les clés de compte de stockage Azure :
+Key Vault peut gérer les clés de [compte de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-account-overview) :
 
 - En interne, Key Vault peut lister (synchroniser) les clés avec un compte de stockage Azure. 
 - Key Vault regénère (fait tourner) les clés régulièrement.
 - Les valeurs de clés ne sont jamais retournées en réponse à l’appelant.
 - Key Vault gère les clés des comptes de stockage et des comptes de stockage classiques.
 
-Pour plus d’informations, consultez [Clés de compte de stockage Azure Key Vault](../secrets/overview-storage-keys.md).
+Pour plus d'informations, consultez les pages suivantes :
+- [Clés d’accès au compte de stockage](https://docs.microsoft.com/azure/storage/common/storage-account-keys-manage)
+- [Gestion des clés de compte de stockage dans Azure Key Vault](../secrets/overview-storage-keys.md)
+
 
 ## <a name="storage-account-access-control"></a>Contrôle d’accès aux comptes de stockage
 
@@ -109,11 +120,18 @@ Vous pouvez utiliser les autorisations suivantes quand vous autorisez un utilisa
 
 Pour plus d’informations, consultez [Informations de référence sur les opérations de compte de stockage dans l’API REST Key Vault](/rest/api/keyvault). Pour plus d’informations sur l’établissement d’autorisations, consultez [Coffres : créer ou mettre à jour](/rest/api/keyvault/vaults/createorupdate) et [Coffres : mettre à jour la stratégie d’accès](/rest/api/keyvault/vaults/updateaccesspolicy).
 
+Guides pratiques pour contrôler l’accès dans Key Vault :
+- [Attribuer une stratégie d’accès Key Vault à l’aide de l’interface CLI](../general/assign-access-policy-cli.md)
+- [Attribuer une stratégie d’accès Key Vault à l’aide de PowerShell](../general/assign-access-policy-powershell.md)
+- [Attribuer une stratégie d’accès Key Vault à l’aide du portail Azure](../general/assign-access-policy-portal.md)
+- [Donnez accès aux clés, certificats et secrets du coffre de clés avec un contrôle d’accès en fonction du rôle Azure (préversion)](../general/rbac-guide.md)
+
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [À propos de Key Vault](../general/overview.md)
 - [Présentation des clés, des secrets et des certificats](../general/about-keys-secrets-certificates.md)
 - [À propos des clés](../keys/about-keys.md)
 - [À propos des certificats](../certificates/about-certificates.md)
-- [Authentification, requêtes et réponses](../general/authentication-requests-and-responses.md)
+- [Sécuriser l’accès à un coffre de clés](../general/secure-your-key-vault.md)
 - [Guide du développeur Key Vault](../general/developers-guide.md)

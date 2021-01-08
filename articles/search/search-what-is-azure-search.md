@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 11/24/2020
+ms.date: 12/17/2020
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 01f61eac31c388cd0bf8a857beb7a10944187c6b
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 1814555f738f37523c5b23ae729bf20bff62e1f9
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027898"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97679524"
 ---
 # <a name="what-is-azure-cognitive-search"></a>Qu’est-ce que la Recherche cognitive Azure ?
 
@@ -25,8 +25,8 @@ Lorsque vous créez un service Recherche cognitive, vous obtenez :
 + Un moteur de recherche qui effectue l’indexation et l’exécution des requêtes.
 + Le stockage persistant des index de recherche que vous créez et gérez.
 + Un langage de requête permettant de composer des requêtes simples ou complexes.
-+ Une analyse centrée sur l’IA, avec création de contenu pouvant faire l’objet d’une recherche à partir d’images, de texte brut, de fichiers d’application.
-+ L’intégration avec les données Azure par le biais d’indexeurs de recherche, l’automatisation de l’importation et de l’actualisation des données.
++ [Enrichissements pilotés par l’IA](cognitive-search-concept-intro.md), avec création de contenu recherchable à partir d’images, de texte brut, de fichiers d’application
++ Intégration à d’autres services Azure pour les données, le Machine Learning/l’IA et la sécurité
 
 D’un point de vue architectural, un service de recherche se trouve entre les magasins de données externes qui contiennent vos données non indexées, et une application cliente qui envoie des demandes de requête à un index de recherche et gère la réponse.
 
@@ -89,11 +89,11 @@ Parmi les fournisseurs de services cloud, la Recherche cognitive Azure s’avèr
 Voici les principaux atouts :
 
 + Intégration de données Azure (robots) au niveau de la couche d’indexation
-+ Portail Azure de gestion centralisée
-+ Mise à l’échelle Azure, fiabilité et disponibilité de premier ordre
-+ Traitement IA de données brutes pour faciliter la recherche, y compris le texte dans des images ou la recherche de séquences dans un contenu non structuré.
++ Intégration d’Azure Private Link pour prendre en charge les exigences de sécurité en dehors d’Internet
++ Intégration au traitement de l’IA pour rendre possible la recherche de texte dans des types de contenu ne pouvant pas être recherché.
 + Analyse linguistique et personnalisée, incluant des analyseurs de recherche en texte intégral solide en 56 langues
-+ [Principales fonctionnalités communes aux applications centrées sur les recherches](search-features-list.md) : notation, recherche par facettes, suggestions, synonymes, recherche basée sur la localisation, etc.
++ [Fonctionnalités critiques](search-features-list.md) : langage de requête riche, paramétrage de la pertinence, recherche par facettes, autocomplétion, synonymes, recherche basée sur la localisation et composition des résultats.
++ Mise à l’échelle Azure, fiabilité et disponibilité de premier ordre
 
 Parmi nos clients, ceux capables d’exploiter le plus large éventail de fonctionnalités de la Recherche cognitive Azure sont les catalogues en ligne, les programmes métier et les applications de découverte de documents.
 

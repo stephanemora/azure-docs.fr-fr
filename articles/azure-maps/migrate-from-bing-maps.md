@@ -3,22 +3,36 @@ title: 'Tutoriel : Migrer de Bing Cartes vers Azure Maps | Microsoft Azure Maps
 description: Tutoriel sur la migration de Bing Cartes vers Microsoft Azure Maps. Vous aide à passer aux API et kits SDK Azure Maps.
 author: rbrundritt
 ms.author: richbrun
-ms.date: 9/10/2020
+ms.date: 12/17/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 0045520849ea20d3e53a30101e6db0f5d495ab15
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 52768874ef27bf87846d4abbd68e9e8c1972f996
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92897005"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97679450"
 ---
-# <a name="tutorial---migrate-from-bing-maps-to-azure-maps"></a>Tutoriel – Migrer de Bing Cartes vers Azure Maps
+# <a name="tutorial-migrate-from-bing-maps-to-azure-maps"></a>Tutoriel : Migrer de Bing Cartes vers Azure Maps
 
-Ce guide fournit des insights sur la migration d’applications web, mobiles et basées sur serveur de Bing Cartes vers la plateforme Azure Maps. Ce guide comprend des exemples de code comparatifs, des suggestions de migration et des bonnes pratiques pour la migration vers Azure Maps.
+Ce guide fournit des insights sur la migration d’applications web, mobiles et basées sur serveur de Bing Cartes vers la plateforme Azure Maps. Ce guide comprend des exemples de code comparatifs, des suggestions de migration et des bonnes pratiques pour la migration vers Azure Maps. 
+
+Ce didacticiel vous apprendra à effectuer les opérations suivantes :
+
+> [!div class="checklist"]
+> * Comparaison des fonctionnalités Bing Cartes et de leurs équivalents dans Azure Maps
+> * Différences de licences à prendre en compte
+> * Planification de votre migration
+> * Où trouver des ressources techniques et un support technique
+
+## <a name="prerequisites"></a>Prérequis
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
+2. [Créer un compte Azure Maps](quick-demo-map-app.md#create-an-azure-maps-account)
+3. [Obtenir une clé d’abonnement principale](quick-demo-map-app.md#get-the-primary-key-for-your-account), également appelée clé primaire ou clé d’abonnement. Pour plus d’informations sur l’authentification dans Azure Maps, voir [Gérer l’authentification dans Azure Maps](how-to-manage-authentication.md).
 
 ## <a name="azure-maps-platform-overview"></a>Vue d’ensemble de la plateforme Azure Maps
 
@@ -39,7 +53,7 @@ Le tableau suivant fournit une liste générale des fonctionnalités de Bing Car
 | Suggestion automatique                           | ✓                  |
 | Directions (y compris camion)          | ✓                  |
 | Matrice des distances                       | ✓                  |
-| Élévations                            | Prévu            |
+| Élévations                            | ✓ (préversion)        |
 | Imagerie – Carte statique                  | ✓                  |
 | Métadonnées d’imagerie                      | ✓                  |
 | Isochrones                            | ✓                  |
@@ -60,11 +74,11 @@ Bing Cartes fournit une authentification basée sur les clés de base. Azure Map
 
 Lors de la migration vers Azure Maps à partir de Bing Cartes, les points suivants doivent être pris en compte en ce qui concerne les licences.
 
--   Azure Maps facture l’utilisation de cartes interactives en fonction du nombre de mosaïques chargées, tandis que Bing Cartes facture le chargement du contrôle de carte (sessions). Sur Azure Maps, les mosaïques sont automatiquement mises en cache afin de réduire le coût pour le développeur. Une transaction Azure Maps est générée toutes les 15 mosaïques qui sont chargées. Les kits de développement logiciel (SDK) Azure Maps interactifs utilisent des mosaïques de 512 pixels et génèrent en moyenne une transaction ou moins par vue de page.
+* Azure Maps facture l’utilisation de cartes interactives en fonction du nombre de mosaïques chargées, tandis que Bing Cartes facture le chargement du contrôle de carte (sessions). Pour réduire les coûts des développeurs, Azure Maps met automatiquement en cache les mosaïques. Une transaction Azure Maps est générée toutes les 15 mosaïques qui sont chargées. Les kits de développement logiciel (SDK) Azure Maps interactifs utilisent des mosaïques de 512 pixels et génèrent en moyenne une transaction ou moins par vue de page.
 
--   Azure Maps permet de stocker les données de sa plateforme dans Azure. Elles peuvent également être mises en cache ailleurs pendant six mois au maximum, en fonction des [conditions d’utilisation](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31).
+* Azure Maps permet de stocker les données de sa plateforme dans Azure. Elles peuvent également être mises en cache ailleurs pendant six mois au maximum, en fonction des [conditions d’utilisation](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31).
 
-Voici quelques ressources liées aux licences pour Azure Maps :
+Voici quelques ressources concernant les licences Azure Maps :
 
 -   [Page des tarifs Azure Maps](https://azure.microsoft.com/pricing/details/azure-maps/)
 -   [Calculatrice de prix Azure](https://azure.microsoft.com/pricing/calculator/?service=azure-maps)
@@ -73,7 +87,7 @@ Voici quelques ressources liées aux licences pour Azure Maps :
 
 ## <a name="suggested-migration-plan"></a>Plan de migration suggéré
 
-Voici un plan de migration général.
+Voici un exemple de plan de migration général.
 
 1.  Effectuez l’inventaire des services et des kits SDK Bing Cartes que votre application utilise, et vérifiez qu’Azure Maps fournit d’autres kits SDK et services vers lesquels migrer.
 2.  Créez un abonnement Azure (si vous n’en avez pas encore) à l’adresse <https://azure.com>.
@@ -88,28 +102,28 @@ Pour créer un compte Azure Maps et accéder à la plateforme Azure Maps, effect
 
 1. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 2. Connectez-vous au [portail Azure](https://portal.azure.com/).
-3. Créez un [compte Azure Maps](./how-to-manage-account-keys.md). 
+3. Créez un [compte Azure Maps](./how-to-manage-account-keys.md).
 4. [Procurez-vous votre clé d’abonnement Azure Maps](./how-to-manage-authentication.md#view-authentication-details) ou configurez l’authentification Azure Active Directory pour renforcer la sécurité.
 
 ## <a name="azure-maps-technical-resources"></a>Ressources techniques Azure Maps
 
 Voici une liste de ressources techniques utiles pour Azure Maps.
 
--   Vue d’ensemble : https://azure.com/maps
--   Documentation : <https://aka.ms/AzureMapsDocs>
--   Exemples de code de kit de développement logiciel web : <https://aka.ms/AzureMapsSamples>
--   Forums des développeurs : <https://aka.ms/AzureMapsForums>
--   Vidéos : <https://aka.ms/AzureMapsVideos>
--   Blog : <https://aka.ms/AzureMapsBlog>
--   Commentaires Azure Maps (UserVoice) : <https://aka.ms/AzureMapsFeedback>
+* Vue d’ensemble : <https://azure.com/maps>
+* Documentation : <https://aka.ms/AzureMapsDocs>
+* Exemples de code de kit de développement logiciel web : <https://aka.ms/AzureMapsSamples>
+* Forums des développeurs : <https://aka.ms/AzureMapsForums>
+* Vidéos : <https://aka.ms/AzureMapsVideos>
+* Blog : <https://aka.ms/AzureMapsBlog>
+* Commentaires Azure Maps (UserVoice) : <https://aka.ms/AzureMapsFeedback>
 
 ## <a name="migration-support"></a>Prise en charge de la migration
 
 Les développeurs peuvent rechercher la prise en charge de la migration via les [forums](/answers/topics/azure-maps.html) ou via l’une des nombreuses options de support Azure : <https://azure.microsoft.com/support/options/>
 
-## <a name="new-terminology"></a>Nouvelle terminologie 
+## <a name="new-terminology"></a>Nouvelle terminologie
 
-Voici une liste de termes courants dans Bing Cartes qui ont une appellation différente dans Azure Maps.
+La liste suivante contient les termes couramment employés dans Bing Cartes, ainsi que les termes correspondants dans Azure Maps.
 
 | Terme Bing Cartes                    | Terme Azure Maps                                                |
 |-----------------------------------|----------------------------------------------------------------|
@@ -128,12 +142,13 @@ Voici une liste de termes courants dans Bing Cartes qui ont une appellation diff
 | Barre de navigation                    | Sélecteur de style de carte, contrôle de zoom, contrôle de tangage, contrôle de boussole |
 | Punaise                           | Calque de bulles, calque de symboles ou marqueur HTML                      |
 
+## <a name="clean-up-resources"></a>Nettoyer les ressources
+
+Aucune ressource ne nécessite un nettoyage.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez en détail comment migrer votre application Bing Cartes avec les articles suivants :
 
 > [!div class="nextstepaction"]
 > [Migrer une application web](migrate-from-bing-maps-web-app.md)
-
-> [!div class="nextstepaction"]
-> [Migrer un service web](migrate-from-bing-maps-web-services.md)

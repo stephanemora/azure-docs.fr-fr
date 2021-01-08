@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 03/27/2018
 ms.reviewer: avverma
 ms.custom: avverma, devx-track-azurecli
-ms.openlocfilehash: 7e727d06670c9d07ec1aa18b92504433f6c519d6
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 88cec878ca5d3ccab3a232888ff3a3c0b0faa1db
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94518292"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705249"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-an-azure-template"></a>Tutoriel : Mettre automatiquement à l’échelle un groupe de machines virtuelles identiques avec un modèle Azure
 Lorsque vous créez un groupe identique, vous définissez le nombre d’instances de machine virtuelle que vous souhaitez exécuter. À mesure que la demande de votre application change, vous pouvez augmenter ou diminuer automatiquement le nombre d’instances de machine virtuelle. La capacité de mise à l’échelle automatique vous permet de suivre la demande du client ou de répondre aux changements de performances de votre application tout au long de son cycle de vie. Ce didacticiel vous montre comment effectuer les opérations suivantes :
@@ -143,10 +143,10 @@ Tout d’abord, créez un groupe de ressources avec la commande [az group create
 az group create --name myResourceGroup --location eastus
 ```
 
-Créez à présent un groupe identique de machines virtuelles avec [az group deployment create](/cli/azure/group/deployment). Lorsque vous y êtes invité, fournissez votre propre nom d’utilisateur, comme *azureuser* et le mot de passe que vous avez utilisés comme informations d’identification pour chaque instance de machine virtuelle :
+Créez à présent un groupe de machines virtuelles identiques avec [az deployment group create](/cli/azure/deployment/group). Lorsque vous y êtes invité, fournissez votre propre nom d’utilisateur, comme *azureuser* et le mot de passe que vous avez utilisés comme informations d’identification pour chaque instance de machine virtuelle :
 
 ```azurecli-interactive
-az group deployment create \
+az deployment group create \
   --resource-group myResourceGroup \
   --template-uri https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/scale_sets/autoscale.json
 ```

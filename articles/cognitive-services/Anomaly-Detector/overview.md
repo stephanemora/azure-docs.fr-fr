@@ -12,12 +12,12 @@ ms.date: 11/23/2020
 ms.author: mbullwin
 keywords: détection d’anomalie, Machine Learning, algorithmes
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 1a13b962a000e6e3b2143dc23f94b63c122bd963
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: d8698a17db8be6a3d5b26d764ef86702320ebfa4
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95999096"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705079"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>Présentation de l’API Détecteur d’anomalies
 
@@ -97,6 +97,6 @@ Pour plus d’informations sur les algorithmes SR-CNN de pointe développés pa
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Démarrage rapide : Détecter des anomalies dans vos données de séries chronologiques avec l’API Détecteur d’anomalies](quickstarts/detect-data-anomalies-csharp.md)
+* [Démarrage rapide : Détecter des anomalies dans vos données de séries chronologiques avec le Détecteur d’anomalies](quickstarts/client-libraries.md)
 * [Démonstration en ligne](https://notebooks.azure.com/AzureAnomalyDetection/projects/anomalydetector) de l’API Détecteur d’anomalies
 * La [référence d’API REST](https://aka.ms/anomaly-detector-rest-api-ref) du Détecteur d'anomalies

@@ -3,24 +3,24 @@ title: 'Tutoriel : Créer et gérer des budgets Azure'
 description: Ce tutoriel vous aide à planifier et à prendre en compte les coûts de services Azure que vous consommez.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/20/2020
+ms.date: 12/16/2020
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 48cf5aea60f66fa8b24fd09e7304be0077f2fdcf
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: c8b0265a72911688f08e0f8c4a39fa657f034472
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132803"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97630137"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutoriel : Créer et gérer des budgets Azure
 
 Les budgets dans Cost Management vous aident à planifier et à suivre la comptabilité de l’organisation. Avec les budgets, vous pouvez prendre en compte les services Azure que vous consommez ou auxquels vous vous abonnez pendant une période spécifique. Ils vous permettent d’informer les autres utilisateurs de leurs dépenses pour gérer les coûts de manière proactive, ainsi que pour superviser la progression des dépenses. En cas de dépassement des seuils budgétaires que vous avez créés, seules des notifications sont déclenchées. Aucune de vos ressources n’est affectée et votre consommation n’est pas arrêtée. Vous pouvez utiliser des budgets pour comparer et suivre les dépenses lors de l’analyse des coûts.
 
-Les données de coûts et d’utilisation sont généralement disponibles dans un délai de 8 à 24 heures, et les budgets sont évalués par rapport à ces coûts toutes les 12 à 14 heures. Veillez à vous familiariser avec les détails de [Mises à jour et rétention des données de coût et d’utilisation](./understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention). Quand un seuil budgétaire est atteint, des notifications par e-mail sont normalement envoyées dans l’heure suivant l’évaluation.
+Les données de coûts et d’utilisation sont généralement disponibles dans un délai de 8 à 24 heures, et les budgets sont évalués par rapport à ces coûts toutes les 24 heures. Veillez à vous familiariser avec les détails de [Mises à jour et rétention des données de coût et d’utilisation](./understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention). Quand un seuil budgétaire est atteint, des notifications par e-mail sont normalement envoyées dans l’heure suivant l’évaluation.
 
 Les budgets sont automatiquement réinitialisés à la fin d’une période (mensuelle, trimestrielle ou annuelle) pour le même montant lorsque vous sélectionnez une date d’expiration ultérieure. Étant donné qu’ils sont réinitialisés avec le même montant de budget, vous devez créer des budgets distincts quand les montants budgétisés diffèrent pour des périodes ultérieures.
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: milismsft
 ms.author: adrianmi
 ms.date: 09/21/2020
-ms.openlocfilehash: 5d105ad4c2aff03dae52b340037e4c193bf82ca1
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: 92fdef48556a3306ee5e3f10e07ff609a8fc4be4
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608433"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656221"
 ---
 # <a name="azure-cosmos-db-emulator---release-notes-and-download-information"></a>Émulateur Azure Cosmos DB – Notes de publication et informations sur le téléchargement
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -23,7 +23,7 @@ Cet article présente les notes de publication de l’émulateur Azure Cosmos D
 | | |
 |---------|---------|
 |**Téléchargement de MSI**|[Centre de téléchargement Microsoft](https://aka.ms/cosmosdb-emulator)|
-|**Prise en main**|[Développer localement avec l’émulateur Azure Cosmos](local-emulator.md)|
+|**Prise en main**|[Développer localement avec l’émulateur Azure Cosmos DB](local-emulator.md)|
 
 ## <a name="release-notes"></a>Notes de publication
 
@@ -83,7 +83,7 @@ Cette version ajoute deux nouvelles options de démarrage de l’émulateur Cosm
 
 ### <a name="246"></a>2.4.6
 
-- Cette version offre une parité avec les fonctionnalités du service Azure Cosmos à partir de juillet 2019, avec les exceptions indiquées dans [Développer localement avec l’émulateur Azure Cosmos](local-emulator.md). Elle résout aussi plusieurs bogues liés à l’arrêt de l’émulateur quand il est appelé via la ligne de commande, et les remplacements d’adresses IP internes pour les clients SDK utilisant une connectivité en mode direct.
+- Cette version offre une parité avec les fonctionnalités du service Azure Cosmos à partir de juillet 2019, avec les exceptions indiquées dans [Développer localement avec l’émulateur Azure Cosmos DB](local-emulator.md). Elle résout aussi plusieurs bogues liés à l’arrêt de l’émulateur quand il est appelé via la ligne de commande, et les remplacements d’adresses IP internes pour les clients SDK utilisant une connectivité en mode direct.
 
 ### <a name="243"></a>2.4.3
 

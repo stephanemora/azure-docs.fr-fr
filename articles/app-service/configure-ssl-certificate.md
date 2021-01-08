@@ -6,18 +6,21 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: dff98a5c54d2fee350e2b35dc00148c19ea233b8
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 15a77835e3e618c17b9839aa5a010cd4d29cebe1
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94956498"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97653110"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Ajouter un certificat TLS/SSL dans Azure App Service
 
 [Azure App Service](overview.md) offre un service d’hébergement web hautement évolutif appliquant des mises à jour correctives automatiques. Cet article explique comment créer, charger ou importer un certificat privé ou public dans App Service. 
 
 Une fois le certificat ajouté à votre application App Service ou à votre [application de fonction](../azure-functions/index.yml), vous pouvez [sécuriser un nom DNS personnalisé avec celui-ci](configure-ssl-bindings.md) ou l’[utiliser dans votre code d’application](configure-ssl-certificate-in-code.md).
+
+> [!NOTE]
+> Quand un certificat est chargé dans une application, celui-ci est stocké dans une unité de déploiement qui est liée à la combinaison Groupe de ressources/Région de l’application (appelée en interne *espace web*). De cette façon, le certificat est accessible aux autres applications qui sont associées à la même combinaison Groupe de ressources/Région. 
 
 Le tableau suivant répertorie les options permettant d’ajouter des certificats dans App Service :
 

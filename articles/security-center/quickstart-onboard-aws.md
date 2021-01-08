@@ -3,16 +3,16 @@ title: Connecter votre compte AWS à Azure Security Center
 description: Surveillance de vos ressources AWS à partir d’Azure Security Center
 author: memildin
 ms.author: memildin
-ms.date: 9/22/2020
+ms.date: 12/29/2020
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 23609613cace2f9be90ad5c88d4d51bb1c2f1a9b
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 4c919115efb39a8e8c008eab69dc087792f7b105
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96573508"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814310"
 ---
 #  <a name="connect-your-aws-accounts-to-azure-security-center"></a>Connecter vos comptes AWS à Azure Security Center
 
@@ -41,7 +41,7 @@ Dans la capture d’écran ci-dessous, vous pouvez voir les comptes AWS affiché
 |----|:----|
 |État de sortie :|PRÉVERSION<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
 |Prix :|Nécessite [Azure Defender pour les serveurs](defender-for-servers-introduction.md)|
-|Rôles et autorisations obligatoires :|**Propriétaire** ou **Contributeur** sur l’abonnement Azure approprié|
+|Rôles et autorisations obligatoires :|**Propriétaire** sur l’abonnement Azure approprié<br>Le **contributeur** peut également connecter un compte AWS si un propriétaire fournit les détails du principal de service|
 |Clouds :|![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Non](./media/icons/no-icon.png) National/souverain (US Gov, Chine Gov, autres Gov)|
 |||
 

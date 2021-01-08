@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: overview
 ms.date: 09/08/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 5eec15871279f3ca38c726fcd1ef1b21d0d38699
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ba314963058389e171601407ff00411049eecd45
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88750187"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845418"
 ---
 # <a name="durable-orchestrations"></a>Orchestrations durables
 
@@ -293,7 +293,7 @@ Il n’est pas possible de passer directement plusieurs paramètres à une fonct
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-Dans .NET, vous pouvez également utiliser des objets [ValueTuples](/dotnet/csharp/tuples). Dans l’exemple suivant, de nouvelles fonctionnalités des objets [ValueTuples](/dotnet/csharp/tuples) sont ajoutées avec [C# 7](/dotnet/csharp/whats-new/csharp-7#tuples) :
+Dans .NET, vous pouvez également utiliser des objets [ValueTuple](/dotnet/csharp/tuples). L’exemple suivant utilise de nouvelles fonctionnalités de [ValueTuple](/dotnet/csharp/tuples) ajoutées avec [C# 7](/dotnet/csharp/whats-new/csharp-7#tuples) :
 
 ```csharp
 [FunctionName("GetCourseRecommendations")]

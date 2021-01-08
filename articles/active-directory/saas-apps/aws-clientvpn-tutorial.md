@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/11/2020
+ms.date: 12/29/2020
 ms.author: jeedes
-ms.openlocfilehash: 3a53a5b7e60ef214a3db58d9e280e9dee8fec609
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 11aac69816714611c168cd05c2828dd1ae85786e
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97355883"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97813647"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-aws-clientvpn"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à AWS ClientVPN
 
@@ -89,7 +89,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     |
 
     > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de réponse et l’URL de connexion réelles. Pour obtenir ces valeurs, contactez l’[équipe du support client AWS ClientVPN](https://aws.amazon.com/contact-us/). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > Il ne s’agit pas de valeurs réelles.  Mettez à jour ces valeurs avec l’URL de réponse et l’URL de connexion réelles.  L’URL de connexion et l’URL de réponse peuvent avoir la même valeur (http://127.0.0.1:35001).  Pour plus d’informations, consultez la [documentation AWS ClientVPN](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/client-authentication.html#ad).   Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure. Contactez l’[équipe de support AWS ClientVPN](https://aws.amazon.com/contact-us/) pour tout problème de configuration. 
 
 1. Dans le service Azure Active Directory, accédez à **Inscriptions d’applications**, puis sélectionnez **Toutes les applications**.
 

@@ -3,15 +3,15 @@ title: Vue d’ensemble de Fonctions durables - Azure
 description: Introduction à l’extension Fonctions durables pour Azure Functions.
 author: cgillum
 ms.topic: overview
-ms.date: 03/12/2020
+ms.date: 12/23/2020
 ms.author: cgillum
 ms.reviewer: azfuncdf
-ms.openlocfilehash: 28c494bf2867ec5d2d3ee99ef7ee45f8181cfd90
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.openlocfilehash: 3725970c982c2d060685bf0b99d12a8fc998f20a
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89669257"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97763572"
 ---
 # <a name="what-are-durable-functions"></a>Présentation de Durable Functions
 
@@ -23,9 +23,11 @@ Durable Functions prend actuellement en charge les langages suivants :
 
 * **C#**  : les [bibliothèques de classes précompilées](../functions-dotnet-class-library.md) et le [script C#](../functions-reference-csharp.md).
 * **JavaScript** : pris en charge uniquement pour la version 2.x du runtime Azure Functions. Nécessite la version 1.7.0 ou ultérieure de l’extension Durable Functions. 
-* **Python** : nécessite la version 1.8.5 ou une version ultérieure de l’extension Durable Functions. La prise en charge de Durable Functions est actuellement en préversion publique.
+* **Python** : nécessite la version 2.3.1 ou une version ultérieure de l’extension Durable Functions. La prise en charge de Durable Functions est actuellement en préversion publique.
 * **F#**  : les bibliothèques de classes précompilées et le script F#. Le script F# est pris en charge uniquement pour la version 1.x du runtime Azure Functions.
 * **PowerShell** : la prise en charge de Durable Functions est actuellement en préversion publique. Uniquement pris en charge pour la version 3.x du runtime Azure Functions et PowerShell 7. Nécessite la version 2.2.2 ou ultérieure de l'extension Durable Functions. Actuellement, seuls les modèles suivants sont pris en charge : [Chaînage de fonctions](#chaining), [Fan-out/fan-in](#fan-in-out), [API HTTP Async](#async-http).
+
+Pour accéder aux fonctionnalités et mises à jour les plus récentes, il est recommandé d’utiliser les dernières versions de l’extension Durable Functions et les bibliothèques Durable Functions spécifiques au langage. Apprenez-en davantage sur les [versions Durable Functions](durable-functions-versions.md).
 
 À l’avenir, Durable Functions est censé prendre en charge tous les [langages pris en charge dans Azure Functions](../supported-languages.md). Consultez la [liste des problèmes avec Durable Functions](https://github.com/Azure/azure-functions-durable-extension/issues) pour connaître l’état actuel de la prise en charge de langages supplémentaires.
 

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 12/04/2020
 ms.author: aahi
-ms.openlocfilehash: 4f5c47000355a004f8d76d8b740b705618748380
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 6ea7b992a682537471ce0e78385b37674199d687
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505220"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673051"
 ---
 # <a name="how-to-sentiment-analysis-and-opinion-mining"></a>Procédure : Analyse des sentiments et Exploration des opinions
 
@@ -24,8 +24,6 @@ La fonctionnalité Analyse des sentiments de l’API Analyse de texte offre deux
 Les modèles IA utilisés par l’API sont fournis par le service ; vous n’avez qu’à envoyer le contenu à analyser.
 
 ## <a name="sentiment-analysis-versions-and-features"></a>Versions et fonctionnalités d’Analyse des sentiments
-
-[!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
 | Fonctionnalité                                   | Analyse des sentiments v3 | Analyse des sentiments v3.1 (préversion) |
 |-------------------------------------------|-----------------------|-----------------------------------|
@@ -47,7 +45,7 @@ Les étiquettes sont *positive* (positif), *negative* (négatif) et *neutral* (n
 | Le document contient au moins une phrase `negative` et au moins une phrase `positive`.    | `mixed`                 |
 | Toutes les phrases du document sont de type `neutral`.                                                  | `neutral`               |
 
-Les scores de confiance sont compris entre 1 et 0. Plus les scores sont proches de 1, plus le niveau de confiance dans la classification de l’étiquette est élevé ; inversement, plus les scores sont faibles, plus le niveau de confiance est bas. Pour chaque document ou chaque phrase, les scores prédits associés aux étiquettes (positif, négatif et neutre) donnent la somme de 1.
+Les scores de confiance sont compris entre 1 et 0. Plus les scores sont proches de 1, plus le niveau de confiance dans la classification de l’étiquette est élevé ; inversement, plus les scores sont faibles, plus le niveau de confiance est bas. Pour chaque document ou chaque phrase, les scores prédits associés aux étiquettes (positif, négatif et neutre) donnent la somme de 1. Pour plus d’informations, consultez la [note de transparence relative à Analyse de texte](/legal/cognitive-services/text-analytics/transparency-note?context=/azure/cognitive-services/text-analytics/context/context). 
 
 ## <a name="opinion-mining"></a>Exploration des opinions
 

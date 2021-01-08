@@ -9,14 +9,14 @@ ms.topic: tutorial
 author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
-ms.date: 07/10/2020
+ms.date: 12/21/2020
 ms.custom: automl
-ms.openlocfilehash: 4b2769139e74289c4760b5c398c80380afea351f
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 90c827774f38f07b9791a6399a53b0304bbe28c8
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96921888"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695213"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Tutoriel : Créer un modèle de classification avec le ML automatisé dans Azure Machine Learning
 
@@ -102,9 +102,7 @@ Avant de configurer votre expérience, chargez votre fichier de données dans vo
         En-têtes de colonne| Indique la façon dont les éventuels en-têtes du jeu de données sont traités.| Tous les fichiers ont les mêmes en-têtes
         Ignorer les lignes | Indique le nombre éventuel de lignes ignorées dans le jeu de données.| None
 
-    1. Le formulaire **Schema** permet de configurer davantage vos données pour cette expérience. Pour cet exemple, sélectionnez le bouton bascule correspondant à la caractéristique **day_of_week**, afin de ne pas l’inclure pour cette expérience. Sélectionnez **Suivant**.
-
-        ![Configuration de l’onglet Aperçu](./media/tutorial-first-experiment-automated-ml/schema-tab-config.gif)
+    1. Le formulaire **Schema** permet de configurer davantage vos données pour cette expérience. Pour cet exemple, nous n’effectuons aucune sélection. Sélectionnez **Suivant**.
 
     1. Dans le formulaire **Confirmer les détails**, vérifiez que les informations correspondent à celles qui ont été précédemment renseignées sur les formulaires **Informations de base, magasin de données et sélection de fichiers** et **Paramètres et aperçu**.
     
@@ -112,32 +110,44 @@ Avant de configurer votre expérience, chargez votre fichier de données dans vo
     
     1. Sélectionnez votre jeu de données une fois qu’il apparaît dans la liste.
     
-    1. Passez en revue l’**Aperçu des données** pour vous assurer que vous n’avez pas inclus **day_of_week**, puis sélectionnez **OK**.
+    1. Passez en revue l’**Aperçu des données** pour vérifier que vous n’avez pas inclus **day_of_week**, puis sélectionnez **Fermer**.
 
     1. Sélectionnez **Suivant**.
 
-## <a name="configure-experiment-run"></a>Configurer l’exécution de l’expérience
+## <a name="configure-run"></a>Configurer l’exécution
 
 Une fois que vous avez chargé et configuré vos données, vous pouvez configurer votre expérience. Cette configuration comprend des tâches de conception d’expérience, comme la sélection de la taille de votre environnement de calcul et la spécification de la colonne que vous voulez prédire. 
+
+1. Sélectionnez la case d’option **Créer**.
 
 1. Remplissez le formulaire **Configurer l’exécution** comme suit :
     1. Entrez le nom suivant pour l’expérience : `my-1st-automl-experiment`
 
     1. Sélectionnez **y** comme colonne cible, ce que vous souhaitez prédire. Cette colonne indique si le client a souscrit à un compte de dépôt à terme.
     
-    1. Sélectionnez **Create a new compute** (Créer un nouveau calcul), puis configurez la cible de calcul. Une cible de calcul est un environnement de ressources local ou informatique utilisé pour exécuter votre script d’entraînement ou pour héberger votre déploiement de service. Pour cette expérience, nous utilisons un calcul informatique. 
+    1. Sélectionnez **+Create a new compute** (Créer un nouveau calcul), puis configurez la cible de calcul. Une cible de calcul est un environnement de ressources local ou informatique utilisé pour exécuter votre script d’entraînement ou pour héberger votre déploiement de service. Pour cette expérience, nous utilisons un calcul informatique. 
+        1. Remplissez le formulaire **Machine virtuelle** pour configurer votre calcul.
 
-        Champ | Description | Valeur pour le tutoriel
-        ----|---|---
-        Nom du calcul |Nom unique qui identifie votre contexte de calcul.|automl-compute
-        Type de&nbsp;machine&nbsp;virtuelle| Sélectionnez le type de machine virtuelle pour votre calcul.|Processeur (CPU)
-        Taille de la&nbsp;machine&nbsp;virtuelle| Sélectionnez la taille de la machine virtuelle pour votre calcul.|Standard_DS12_V2
-        Nombre minimal/maximal de nœuds| Pour profiler des données, vous devez spécifier un ou plusieurs nœuds.|Nœuds min. : 1<br>Nœuds max. : 6
-        Secondes d’inactivité avant le scale-down | Durée d’inactivité avant que le cluster ne fasse l’objet d’un scale-down au nombre de nœuds minimal.|120 (par défaut)
-        Paramètres avancés | Paramètres pour configurer et autoriser un réseau virtuel pour votre expérience.| None
-        1. Sélectionnez **Créer** pour accéder à la cible de calcul. 
+            Champ | Description | Valeur pour le tutoriel
+            ----|---|---
+            Priorité&nbsp;de la machine&nbsp;virtuelle |Sélectionnez la priorité que doit avoir votre expérience| Dédié
+            Type de&nbsp;machine&nbsp;virtuelle| Sélectionnez le type de machine virtuelle pour votre calcul.|Processeur (CPU)
+            Taille de la&nbsp;machine&nbsp;virtuelle| Sélectionnez la taille de la machine virtuelle pour votre calcul. La liste des tailles recommandées qui est fournie dépend de vos données et du type de l’expérience. |Standard_DS12_V2
+        
+        1. Sélectionnez **Suivant** pour renseigner le formulaire **Configurer les paramètres**.
+        
+            Champ | Description | Valeur pour le tutoriel
+            ----|---|---
+            Nom du calcul |  Nom unique qui identifie votre contexte de calcul. | automl-compute
+            Nombre minimal/maximal de nœuds| Pour profiler des données, vous devez spécifier un ou plusieurs nœuds.|Nœuds min. : 1<br>Nœuds max. : 6
+            Secondes d’inactivité avant le scale-down | Durée d’inactivité avant que le cluster ne fasse l’objet d’un scale-down au nombre de nœuds minimal.|120 (par défaut)
+            Paramètres avancés | Paramètres pour configurer et autoriser un réseau virtuel pour votre expérience.| None               
+
+        1. Sélectionnez **Créer** pour créer votre cible de calcul. 
 
             **Quelques minutes sont nécessaires pour achever l’opération**. 
+
+             ![Page Paramètres](./media/tutorial-first-experiment-automated-ml/compute-settings.png)
 
         1. Une fois la création terminée, sélectionnez votre nouvelle cible de calcul dans la liste déroulante.
 
@@ -159,14 +169,18 @@ Une fois que vous avez chargé et configuré vos données, vous pouvez configure
         Accès concurrentiel| Nombre maximal d’itérations parallèles exécutées par itération| Nombre maximal&nbsp;d’itérations&nbsp;simultanées : 5
         
         Sélectionnez **Enregistrer**.
+    
+    1. Sélectionnez **Afficher les paramètres de caractérisation**. Pour cet exemple, sélectionnez le bouton bascule correspondant à la caractéristique **day_of_week**, afin de ne pas l’inclure pour la caractérisation dans cette expérience.
 
-1. Sélectionnez **Terminer** pour exécuter l’expérience. L’écran **Détails de l’exécution** s’ouvre et affiche l’**État de l’exécution** dans la partie supérieure au début de la préparation de l’expérience.
+        ![Sélection de caractérisation](./media/tutorial-first-experiment-automated-ml/featurization-setting-config.gif)   
+ 
+        Sélectionnez **Enregistrer**.
+
+1. Sélectionnez **Terminer** pour exécuter l’expérience. L’écran **Détails de l’exécution** s’ouvre et affiche l’**État de l’exécution** dans la partie supérieure au début de la préparation de l’expérience. Cet état est mis à jour à mesure que l’expérience progresse. Les notifications s’affichent également en haut à droite de Studio pour vous informer de l’état de votre expérience.
 
 >[!IMPORTANT]
 > La préparation nécessaire à l’exécution de l’expérience prend **10 à 15** minutes.
-> Une fois que l’exécution a commencé, **2-3 minutes supplémentaires sont nécessaires pour chaque itération**.  
-> Sélectionnez **Actualiser** périodiquement pour voir l’état de l’exécution à mesure que l’expérience progresse.
->
+> Une fois que l’exécution a commencé, **2-3 minutes supplémentaires sont nécessaires pour chaque itération**.  <br> <br>
 > Dans un environnement de production, cette durée est un peu plus longue. Toutefois, dans le cadre de ce tutoriel, nous vous suggérons de commencer à explorer les algorithmes testés dans l’onglet **Modèles** à mesure qu’ils se terminent, pendant que les autres sont encore en cours d’exécution. 
 
 ##  <a name="explore-models"></a>Explorer les modèles
@@ -238,7 +252,7 @@ Supprimez uniquement l’instance de déploiement d’Azure Machine Learning (ac
 Dans ce tutoriel sur le machine learning automatisé, vous avez utilisé l’interface de ML automatisé d’Azure Machine Learning pour créer et déployer un modèle de classification. Pour plus d’informations et pour connaître les étapes suivantes, consultez ces articles :
 
 > [!div class="nextstepaction"]
-> [Utiliser un service web](how-to-consume-web-service.md#consume-the-service-from-power-bi)
+> [Utiliser un service web](https://docs.microsoft.com/power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context)
 
 + En savoir plus sur le [Machine Learning automatisé](concept-automated-ml.md).
 + Pour plus d’informations sur les métriques et les graphiques de classification, consultez l’article [Comprendre les résultats du Machine Learning automatisé](how-to-understand-automated-ml.md).

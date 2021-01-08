@@ -5,14 +5,14 @@ author: amberbhargava
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 12/17/2020
 ms.author: banders
-ms.openlocfilehash: f0ace05d6a4df65282bd56cca8e7895b0dc24edf
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 511c0ecdef45a882bcc3a427d5ec602b3ebabc66
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686545"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673829"
 ---
 # <a name="understand-microsoft-customer-agreement-administrative-roles-in-azure"></a>Présentation des rôles d'administrateur Azure dans le cadre des Contrats client Microsoft
 
@@ -32,7 +32,7 @@ Le tableau suivant décrit les rôles de facturation que vous utilisez pour gér
 |Propriétaire du profil de facturation|Gérer tout le contenu du profil de facturation|
 |Collaborateur du profil de facturation|Gérer tout le contenu du profil de facturation, à l'exception des autorisations|
 |Lecteur du profil de facturation|Affichage en lecture seule de tout ce qui se trouve sur le profil de facturation|
-|Gestionnaire de factures|Consulter et payer les factures pour le profil de facturation|
+|Gestionnaire de factures|Afficher les factures associées au profil de facturation|
 |Propriétaire de section de facture|Gérer tout le contenu de la section de facture|
 |Contributeur de section de facture|Gérer tout le contenu de la section de facture, à l'exception des autorisations|
 |Lecteur de section de facture|Affichage en lecture seule de tout le contenu de la section de facture|

@@ -3,12 +3,12 @@ author: PatrickFarley
 ms.author: pafarley
 ms.service: cognitive-services
 ms.date: 10/25/2020
-ms.openlocfilehash: 55360f2f11196d1f6794edec011c008b813288c1
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: dde50986601a9e6412b81fe0c4faa9775784c6c8
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94625292"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97582490"
 ---
 Bien démarrer avec la bibliothèque de client Custom Vision pour Python Suivez les étapes ci-après pour installer le package et essayer l’exemple de code afin de créer un modèle de classification d’images. Vous allez créer un projet, ajouter des étiquettes, entraîner le projet et utiliser l’URL de point de terminaison de prédiction du projet pour le tester programmatiquement. Utilisez cet exemple comme modèle pour générer votre propre application de reconnaissance d’image.
 
@@ -58,7 +58,7 @@ Créez des variables pour le point de terminaison et les clés d’abonnement Az
 [!code-python[](~/cognitive-services-quickstart-code/python/CustomVision/ImageClassification/CustomVisionQuickstart.py?name=snippet_creds)]
 
 > [!IMPORTANT]
-> Accédez au portail Azure. Si les ressources Custom Vision que vous avez créées dans la section **Prérequis** ont été déployées, cliquez sur le bouton **Accéder à la ressource** sous **Étapes suivantes**. Les clés et le point de terminaison se trouvent dans les pages **Clé et point de terminaison** des ressources, sous **Gestion des ressources**. Vous devez vous procurer vos clés d’entraînement et de prédiction.
+> Accédez au portail Azure. Si les ressources Custom Vision que vous avez créées dans la section **Prérequis** ont été déployées, cliquez sur le bouton **Accéder à la ressource** sous **Étapes suivantes**. Les clés et le point de terminaison se trouvent dans les pages **Clé et point de terminaison** des ressources, sous **Gestion des ressources**. Vous devrez obtenir vos clés d’entrainement et de prédiction, ainsi que le point de terminaison des ressources d’entrainement.
 >
 > Vous trouverez la valeur de l’ID de ressource de prédiction sous l’onglet **Vue d’ensemble** de la ressource, listé comme **ID d’abonnement**.
 >
@@ -111,7 +111,7 @@ Tout d’abord, téléchargez les exemples d’images pour ce projet. Enregistre
 
 Pour ajouter les exemples d’images au projet, insérez le code suivant après la création de mots clés. Ce code charge chaque image avec la balise correspondante. Vous pouvez charger jusqu’à 64 images dans un même lot.
 
-[!code-python[](~/cognitive-services-quickstart-code/python/CustomVision/ImageClassification/CustomVisionQuickstart.py?name=snippet_tags)]
+[!code-python[](~/cognitive-services-quickstart-code/python/CustomVision/ImageClassification/CustomVisionQuickstart.py?name=snippet_upload)]
 
 > [!NOTE]
 > Vous devrez changer le chemin des images en fonction de l’emplacement à partir duquel vous avez téléchargé le dépôt d’exemples du kit SDK Python pour Cognitive Services.
@@ -162,6 +162,8 @@ Done!
 ```
 
 Vous pouvez ensuite vérifier que l’image de test (qui se trouve dans **<emplacement_image_base>/images/Test/** ) est correctement étiquetée. Vous pouvez aussi revenir sur le [site web Custom Vision](https://customvision.ai) et consulter l’état actuel de votre nouveau projet.
+
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 [!INCLUDE [clean-ic-project](../../includes/clean-ic-project.md)]
 

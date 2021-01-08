@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 12/16/2020
-ms.openlocfilehash: bc93c3643e329879e5118d1cfb61a356442df808
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 7d93002af866aa653972182a13ea37d37e912ce8
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/17/2020
-ms.locfileid: "97618390"
+ms.locfileid: "97630307"
 ---
 # <a name="tutorial-shard-data-on-worker-nodes-in-azure-database-for-postgresql--hyperscale-citus"></a>Tutoriel : Partitionner des données sur des nœuds Worker dans Azure Database pour PostgreSQL – Hyperscale (Citus)
 
@@ -172,7 +172,7 @@ Nous pouvons voir que les partitions sont de taille égale. Nous avons déjà vu
 Les lignes de notre exemple `users` sont distribuées uniformément en raison des propriétés de la colonne de distribution, `email`.
 
 1. Le nombre d’adresses e-mail était supérieur ou égal au nombre de partitions.
-2. Le nombre de lignes par adresse e-mail était similaire (dans notre cas, exactement une ligne par adresse parce que nous avons déclaré email comme clé).
+2. Le nombre de lignes par adresse e-mail était similaire (dans notre cas, exactement une ligne par adresse parce que nous avons déclaré « email » comme clé).
 
 Un choix quelconque de table et de colonne de distribution pour lequel l’une ou l’autre des propriétés échoue aboutira à une taille de données inégale sur les Workers, autrement dit, à une *asymétrie des données*.
 

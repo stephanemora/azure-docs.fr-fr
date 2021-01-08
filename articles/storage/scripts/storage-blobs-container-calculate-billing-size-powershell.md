@@ -7,18 +7,21 @@ ms.service: storage
 ms.subservice: blobs
 ms.devlang: powershell
 ms.topic: sample
-ms.date: 11/07/2017
+ms.date: 12/29/2020
 ms.author: fryu
-ms.openlocfilehash: 2d921a968f50f64788ccbd7637bc04c8492a3f90
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: dfc338844e310102447e2498ee9cce8f28a79b9f
+ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96010892"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97809562"
 ---
 # <a name="calculate-the-total-billing-size-of-a-blob-container"></a>Calculer la taille totale de facturation d’un conteneur d’objets blob
 
 Ce script calcule la taille d’un conteneur dans le stockage d’objets blob Azure à des fins d’estimation des coûts de facturation. Le script additionne la taille des objets blob qui se trouvent dans le conteneur.
+
+> [!IMPORTANT]
+> L’exemple de script fourni dans cet article peut ne pas calculer avec précision la taille de facturation des instantanés d’objets blob.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
@@ -31,7 +34,7 @@ Ce script calcule la taille d’un conteneur dans le stockage d’objets blob Az
 
 La taille totale du conteneur d’objets blob correspond à la taille du conteneur lui-même et de celle de tous les objets blob qu’il contient.
 
-Les sections suivantes décrivent comment calculer la capacité de stockage pour les conteneurs d’objets blob et les objets blob.  Dans la section suivante, Len(X) désigne le nombre de caractères dans la chaîne.
+Les sections suivantes décrivent comment calculer la capacité de stockage pour les conteneurs d’objets blob et les objets blob. Dans la section suivante, Len(X) désigne le nombre de caractères dans la chaîne.
 
 ### <a name="blob-containers"></a>Conteneurs d’objets blob
 
@@ -44,6 +47,7 @@ For-Each Signed Identifier[512 bytes]
 ```
 
 Voici la répartition :
+
 * 48 octets de charge utile pour chaque conteneur comprenant l’heure de dernière modification, les autorisations, les paramètres publics et des métadonnées système.
 
 * Le nom du conteneur est stocké au format Unicode. Vous devez donc prendre le nombre de caractères et le multiplier par deux.

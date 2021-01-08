@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 09/02/2020
+ms.date: 12/21/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge Pro in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: 52f0bcbb332b5d5e47440accff9d9895dcef7056
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 830e0a8733d3f5a49cede09b331dc0298ee1ce4d
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96449372"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734705"
 ---
 # <a name="tutorial-install-azure-stack-edge-pro-with-gpu"></a>Tutoriel : Installer Azure Stack Edge Pro avec GPU
 
@@ -159,14 +159,14 @@ Identifiez les éléments d’installation de l’assemblage du kit de rails :
 
 Acheminez les câbles, puis branchez votre appareil. Les procédures suivantes expliquent comment effectuer le câblage d’alimentation et de réseau de votre appareil Azure Stack Edge Pro.
 
-Avant de commencer à câbler votre appareil, vous avez besoin des éléments suivants :
+Pour brancher votre appareil, vous avez besoin des éléments suivants :
 
 - Votre appareil physique Azure Stack Edge Pro, déballé et monté en rack.
 - 2 câbles d’alimentation.
 - Au moins un câble réseau 1-GbE RJ-45 à brancher à l’interface de gestion. Il existe deux interfaces de réseau 1-GbE, une interface de gestion, et une interface de données, sur l’appareil.
 - Un câble en cuivre 25-GbE SFP+ pour chaque interface de réseau de données à configurer. Au moins une interface de réseau de données, au choix PORT 2, PORT 3, PORT 4, PORT 5 ou PORT 6, doit être connectée à Internet (avec connectivité à Azure).  
 - Accès à deux unités de distribution d’énergie (recommandé).
-- Commutateur réseau 1-GbE au minimum pour connecter une interface réseau 1 GbE à Internet pour les données. L’interface utilisateur web locale n’est pas accessible si le commutateur connecté n’a pas au moins une capacité de 1 GbE. Si vous utilisez l’interface 25/10 GbE pour les données, vous aurez besoin d’un commutateur 25 GbE ou 10 GbE. 
+- Commutateur réseau 1-GbE au minimum pour connecter une interface réseau 1 GbE à Internet pour les données. L’interface utilisateur web locale n’est pas accessible si le commutateur connecté n’offre pas un débit d’au moins 1 GbE. Si vous utilisez l’interface 25/10 GbE pour les données, vous aurez besoin d’un commutateur 25 GbE ou 10 GbE.
 
 > [!NOTE]
 > - Si vous ne connectez qu’une seule interface de réseau, nous vous recommandons d’utiliser une interface réseau 25/10-GbE telle que PORT 3, PORT 4, PORT 5 ou PORT 6 pour envoyer des données à Azure. 
@@ -186,14 +186,14 @@ Sur votre appareil Azure Stack Edge Pro :
     - Quatre interfaces de 25 Gbits/s qui peuvent également faire office d’interfaces de 10 Gbits/s.
     - Un contrôleur de gestion de la carte de base (BMC).
 
-- Le fond de panier comprend deux cartes réseau correspondant aux 6 ports :
+- Le fond de panier comprend deux cartes réseau correspondant aux six ports :
 
-    - **Carte Microsoft Qlogic Cavium 25G NDC personnalisée** - Ports 1 à 4.
+    - **Carte Microsoft `Qlogic` Cavium 25G NDC personnalisée** - Ports 1 à 4.
     - **Carte réseau Mellanox Dual Port 25G ConnectX - 4 canaux** - Ports 5 et 6.
 
 Pour obtenir la liste complète des câbles, commutateurs et transmetteurs pris en charge pour ces cartes réseau, consultez le document :
 
-- [Matrice d’interopérabilité de la carte Qlogic Cavium 25G NDC](https://www.marvell.com/documents/xalflardzafh32cfvi0z/).
+- [Matrice d’interopérabilité de la carte `Qlogic` Cavium 25G NDC](https://www.marvell.com/documents/xalflardzafh32cfvi0z/).
 - [Produits compatibles avec la carte réseau Mellanox Dual Port 25G ConnectX - 4 canaux](https://docs.mellanox.com/display/ConnectX4LxFirmwarev14271016/Firmware+Compatible+Products).  
 
  
@@ -201,15 +201,15 @@ Effectuez les étapes suivantes pour brancher l’alimentation et le réseau de 
 
 1. Identifiez les différents ports sur le fond de panier de votre appareil. Vous pouvez avoir reçu un des appareils suivants de l’usine en fonction du nombre de GPU de votre appareil.
 
-    - Appareil avec 2 emplacements d’interconnexion de composant périphérique (PCI) et un GPU
+    - Appareil avec deux emplacements d’interconnexion de composants périphériques (PCI) et un GPU
 
         ![Fond de panier d’un appareil câblé](./media/azure-stack-edge-gpu-deploy-install/ase-two-pci-slots.png)
 
-    - Appareil avec 3 emplacements PCI et un GPU
+    - Appareil avec trois emplacements PCI et un GPU
 
         ![Fond de panier d’un appareil câblé 2](./media/azure-stack-edge-gpu-deploy-install/ase-three-pci-slots-one-gpu.png)
 
-    - Appareil avec 3 emplacements PCI et deux GPU
+    - Appareil avec trois emplacements PCI et deux GPU
 
         ![Fond de panier d’un appareil câblé 3](./media/azure-stack-edge-gpu-deploy-install/ase-three-pci-slots-two-gpu.png)
 

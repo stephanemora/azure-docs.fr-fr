@@ -8,15 +8,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 12/14/2020
+ms.date: 12/16/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: ec7b951581efd0a25b44d298b1f1bfb997167d88
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 7eda805a5fdf24a7a55b9296a0f0a1c9a5bfc576
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97589098"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97683500"
 ---
 # <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate"></a>Tutoriel : Utiliser des scripts de déploiement pour créer un certificat auto-signé
 
@@ -34,13 +34,15 @@ Ce tutoriel décrit les tâches suivantes :
 > * Déboguer le script qui a échoué
 > * Nettoyer les ressources
 
+Pour lire un module Microsoft Learn qui aborde les scripts de déploiement, consultez [Étendre des modèles ARM à l’aide de scripts de déploiement](/learn/modules/extend-resource-manager-template-deployment-scripts/).
+
 ## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléments suivants :
 
 * **[Visual Studio Code](https://code.visualstudio.com/) avec l’extension Outils Resource Manager**. Consultez [Démarrage rapide : Créer des modèles ARM avec Visual Studio Code](./quickstart-create-templates-use-visual-studio-code.md).
 
-* **Une identité managée affectée par l’utilisateur avec le rôle de contributeur au niveau de l’abonnement**. Cette identité est utilisée pour exécuter les scripts de déploiement. Pour en créer une, consultez [Identité managée affectée par l’utilisateur](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). Vous avez besoin de l’ID d’identité lorsque vous déployez le modèle. Le format de l’identité est le suivant :
+* **Identité managée affectée par l’utilisateur**. Cette identité est utilisée pour effectuer des actions propres à Azure dans le script. Pour en créer une, consultez [Identité managée affectée par l’utilisateur](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). Vous avez besoin de l’ID d’identité lorsque vous déployez le modèle. Le format de l’identité est le suivant :
 
   ```json
   /subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<IdentityID>
@@ -253,7 +255,7 @@ Le script de déploiement ajoute un certificat au coffre de clés. Configurez le
 
     La ressource `deploymentScripts` dépend de la ressource du coffre de clés et de la ressource d’attribution de rôle. Ses propriétés sont les suivantes :
 
-    * `identity` : Le script de déploiement utilise une identité managée affectée par l’utilisateur pour exécuter les scripts.
+    * `identity` : Le script de déploiement utilise une identité managée affectée par l’utilisateur pour effectuer des opérations dans le script.
     * `kind` : Spécifiez le type de script. Seuls les scripts PowerShell sont actuellement pris en charge.
     * `forceUpdateTag` : Déterminez si le script de déploiement doit être exécuté même si la source du script n’a pas changé. Il peut s’agir de l’horodatage actuel ou d’un GUID. Pour plus d’informations, consultez [Exécuter un script plusieurs fois](./deployment-script-template.md#run-script-more-than-once).
     * `azPowerShellVersion` : Spécifie la version du module Azure PowerShell à utiliser. Actuellement, le script de déploiement prend en charge la version 2.7.0, 2.8.0 et 3.0.0.

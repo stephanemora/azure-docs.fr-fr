@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 92a878c60ba2a7c08a17ce2833132b389ef49435
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 9b6fcec6f564e944f0e73d151b61d46af4b4cc03
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318745"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673135"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-anaplan"></a>Didacticiel : Intégration d’Azure Active Directory à Anaplan
 
@@ -63,7 +63,7 @@ Pour configurer l’intégration d’Anaplan à Azure AD, vous devez ajouter An
 
 4. Dans la zone de recherche, tapez **Aha!** , sélectionnez **Aha!** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
-     ![Anaplan dans la liste des résultats](common/search-new-app.png)
+    ![Anaplan dans la liste des résultats](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
@@ -143,7 +143,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
     ![Boîte de dialogue Utilisateur](common/user-properties.png)
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
-  
+
     b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple : BrittaSimon@contoso.com
 
@@ -179,7 +179,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 ### <a name="create-anaplan-test-user"></a>Créer un utilisateur de test Anaplan
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Anaplan. Contactez l’ [équipe du support technique Anaplan](mailto:support@anaplan.com) pour ajouter des utilisateurs à la plateforme Anaplan. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Anaplan. Pour ajouter les utilisateurs à la plateforme Anaplan, contactez l’[équipe du support Anaplan](mailto:support@anaplan.com). Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique
 

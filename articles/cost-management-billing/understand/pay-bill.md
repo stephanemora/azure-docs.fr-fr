@@ -1,6 +1,6 @@
 ---
-title: Payer votre facture Microsoft Azure | Microsoft Docs
-description: Découvrez comment payer une facture dans le portail Azure. Vous devez être propriétaire du profil de facturation, contributeur ou gestionnaire de factures pour payer dans le portail.
+title: Payer votre facture Microsoft Azure
+description: Découvrez comment payer votre facture dans le portail Azure. Vous devez être propriétaire du profil de facturation, contributeur ou gestionnaire de factures pour payer dans le portail.
 keywords: facturation, en retard, solde, payer maintenant,
 author: banders
 ms.reviewer: judupont
@@ -8,24 +8,42 @@ tags: billing, past due, pay now, bill, invoice, pay
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 11/20/2020
+ms.date: 12/17/2020
 ms.author: banders
-ms.openlocfilehash: 5397bb4ebd5909406d0bae1ef68ec2c6453549d0
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 2983f870d6ab20dac4da487ba03ebf84905f8dcc
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95026333"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680322"
 ---
 # <a name="how-to-pay-your-bill-for-microsoft-azure"></a>Comment payer votre facture Microsoft Azure
 
-Cet article s’adresse aux clients ayant un Contrat client Microsoft (MCA) ayant souscrit à Azure via le site web Azure. [Vérifiez votre accès à un Contrat client Microsoft](#check-access-to-a-microsoft-customer-agreement).
+Cet article s’applique aux clients disposant d’un Contrat client Microsoft (MCA).
 
-Le mode de paiement par défaut de votre profil de facturation peut être par carte de crédit ou par chèque/virement bancaire. Si vous possédez des crédits Azure, ces derniers sont appliqués automatiquement à votre facture pour chaque période de facturation. Afin de pouvoir payer votre abonnement par chèque/virement bancaire, consultez [Comment payer par facture](../manage/pay-by-invoice.md).
+[Vérifiez votre accès à un Contrat client Microsoft](#check-access-to-a-microsoft-customer-agreement).
 
-Si votre mode de paiement par défaut est par chèque/virement bancaire, vous pouvez envoyer votre paiement à l’adresse indiquée au bas de votre facture. Vous pouvez également payer en ligne avec une carte de crédit dans le Portail Azure.
+Il existe deux façons de payer votre facture Azure. Vous pouvez payer avec le mode de paiement par défaut de votre profil de facturation ou vous pouvez effectuer un paiement unique appelé **Payer maintenant**.
 
-Si votre mode de paiement par défaut est par carte de crédit, nous débiterons automatiquement votre carte de crédit à chaque période de facturation une fois la facture générée. Vous pouvez également payer en ligne dans le Portail Azure si vous souhaitez utiliser une autre carte de crédit ou si le prélèvement automatique échoue.
+Si vous avez des crédits Azure, ils s’appliquent automatiquement à votre facture pour chaque période de facturation.
+
+## <a name="pay-by-default-payment-method"></a>Payer avec le mode de paiement par défaut
+
+Le mode de paiement par défaut de votre profil de facturation peut être par carte de crédit, par chèque ou par virement bancaire.
+
+### <a name="credit-or-debit-card"></a>Carte de crédit
+
+Si le mode de paiement par défaut de votre profil de facturation est par carte de crédit, la carte est automatiquement facturée à chaque période de facturation.
+
+En cas de refus du paiement automatique par carte de crédit pour une raison quelconque, vous pouvez effectuer un paiement unique avec une carte de crédit dans le portail Azure à l’aide de la fonctionnalité **Payer maintenant**.
+
+Si vous souhaitez adopter le paiement par chèque ou par virement comme mode de paiement par défaut, consultez [Comment payer par facture](../manage/pay-by-invoice.md).
+
+### <a name="check-or-wire-transfer"></a>Chèque ou virement
+
+Si le mode de paiement par défaut de votre profil de facturation est par chèque ou virement, suivez les instructions de paiement indiquées dans le fichier PDF de votre facture.
+
+Sinon, si le montant de votre facture est inférieur au seuil associé à votre devise, vous pouvez effectuer un paiement unique dans le portail Azure avec une carte de crédit à l’aide de la fonctionnalité **Payer maintenant**. Si le montant de votre facture dépasse le seuil, vous ne pouvez pas payer votre facture avec une carte de crédit. Le seuil pour votre devise apparaît dans le portail Azure une fois que vous avez sélectionné **Payer maintenant**.
 
 ## <a name="pay-now-in-the-azure-portal"></a>Payer maintenant dans le Portail Azure
 
@@ -35,10 +53,10 @@ Pour payer les factures dans le portail Azure, vous devez disposer des [autorisa
 1. Effectuez une recherche sur **Gestion des coûts + facturation**.
 1. Dans le menu de gauche, sélectionnez **Factures** sous **Facturation**.
 1. Si une de vos factures est à échéance ou impayée, vous voyez un lien bleu **Payer maintenant** pour cette facture. Sélectionnez **Payer maintenant**.
-1. Dans le nouveau panneau, cliquez sur **Sélectionner un mode de paiement** pour choisir une carte de crédit existante ou ajouter un nouveau mode.
-1. Une fois la méthode de paiement sélectionnée, cliquez sur **Payer maintenant**.
+1. Dans la fenêtre Payer maintenant, cliquez sur **Sélectionner un mode de paiement** pour choisir une carte de crédit existante ou ajouter un nouveau mode.
+1. Après avoir sélectionné un mode de paiement, sélectionnez **Payer maintenant**.
 
-L’état de la facture sera mis à jour en Payée dans le panneau des factures.
+L’état de la facture indique *payé* dans les 24 heures.
 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Vérifier l'accès à un contrat client Microsoft
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]

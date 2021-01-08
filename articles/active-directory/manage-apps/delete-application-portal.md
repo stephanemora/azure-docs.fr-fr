@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 07/01/2020
+ms.date: 12/28/2020
 ms.author: kenwith
-ms.openlocfilehash: 677c9c0123c174fdf2cf8e94f9c8110656d21306
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: e2b8bd47f7d124562a38413d36b849d1f7efacee
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94649396"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97802760"
 ---
 # <a name="quickstart-delete-an-application-from-your-azure-active-directory-azure-ad-tenant"></a>Démarrage rapide : Supprimer une application de votre locataire Azure Active Directory (Azure AD)
 
@@ -53,6 +53,6 @@ Quand vous aurez terminé cette série de guides de démarrage rapide, envisagez
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous avez terminé la série de guides de démarrage rapide. Pour continuer, apprenez-en davantage sur les bonnes pratiques relatives à la gestion des applications.
+Vous avez terminé la série de guides de démarrage rapide. Ensuite, pour en savoir plus sur l’authentification unique (SSO), consultez [Qu’est-ce que l’authentification unique ?](what-is-single-sign-on.md) Vous pouvez aussi en apprendre davantage sur les bonnes pratiques relatives à la gestion des applications.
 > [!div class="nextstepaction"]
 > [Bonnes pratiques relatives à la gestion des applications](application-management-fundamentals.md)

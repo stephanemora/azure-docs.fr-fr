@@ -6,37 +6,36 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
-ms.date: 05/06/2019
-ms.openlocfilehash: 1fffeec1434cb066487bf383589554edec2e6a86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/17/2020
+ms.openlocfilehash: 2353d15707fe215bfcab7912f2a9c598c4af7e49
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75443690"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822010"
 ---
 # <a name="tutorial-custom-net-deserializers-for-azure-stream-analytics"></a>Tutoriel : Désérialiseurs .NET personnalisés pour Azure Stream Analytics
 
 Azure Stream Analytics dispose d’une [prise en charge intégrée de trois formats de données](stream-analytics-parsing-json.md) : JSON, CSV et Avro. Avec les désérialiseurs .NET personnalisés, vous pouvez lire des données à partir d’autres formats, par exemple le [tampon de protocole](https://developers.google.com/protocol-buffers/), [Bond](https://github.com/Microsoft/bond) et d’autres formats définis par l’utilisateur pour les travaux cloud et de périphérie.
 
-Ce tutoriel montre comment créer un désérialiseur .NET personnalisé pour un travail cloud Azure Stream Analytics à l’aide de Visual Studio. 
+Ce tutoriel montre comment créer un désérialiseur .NET personnalisé pour un travail cloud Azure Stream Analytics à l’aide de Visual Studio. Pour savoir comment créer des désérialiseurs .NET dans Visual Studio Code, consultez [Créer des désérialiseurs .NET pour Azure Stream Analytics dans Visual Studio Code](visual-studio-code-custom-deserializer.md).
 
-Dans ce tutoriel, vous allez apprendre à :
+Dans ce tutoriel, vous allez découvrir comment :
 
 > [!div class="checklist"]
 > * Créer un désérialiseur personnalisé pour le tampon de protocole.
 > * Créer un travail Azure Stream Analytics dans Visual Studio.
 > * Configurer votre travail Stream Analytics pour utiliser le désérialiseur personnalisé.
-> * Exécuter votre travail Stream Analytics localement pour tester le désérialiseur personnalisé.
+> * Exécuter votre travail Stream Analytics localement pour tester et déboguer le désérialiseur personnalisé.
+
 
 ## <a name="prerequisites"></a>Prérequis
 
 * Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* Installez [Visual Studio 2017](https://www.visualstudio.com/downloads/) ou [Visual Studio 2015](https://www.visualstudio.com/vs/older-downloads/). Les éditions Enterprise (Ultimate/Premium), Professional et Community sont prises en charge. L’édition Express n’est pas prise en charge.
+* Installez [Visual Studio 2019 (recommandé)](https://www.visualstudio.com/downloads/) ou [Visual Studio 2017](https://www.visualstudio.com/vs/older-downloads/). Les éditions Enterprise (Ultimate/Premium), Professional et Community sont prises en charge. L’édition Express n’est pas prise en charge. 
 
-* [Installez les outils Stream Analytics pour Visual Studio](stream-analytics-tools-for-visual-studio-install.md) ou effectuez une mise à jour vers la dernière version. Les versions suivantes de Visual Studio sont prises en charge :
-   * Visual Studio 2015
-   * Visual Studio 2017
+* [Installez les outils Stream Analytics pour Visual Studio](stream-analytics-tools-for-visual-studio-install.md) ou effectuez une mise à jour vers la dernière version. 
 
 * Ouvrez **Cloud Explorer** dans Visual Studio, puis connectez-vous à votre abonnement Azure.
 
@@ -116,11 +115,13 @@ Vous avez réussi à implémenter un désérialiseur personnalisé pour votre tr
 
 ## <a name="debug-your-deserializer"></a>Déboguer votre désérialiseur
 
-Vous pouvez déboguer votre désérialiseur .NET localement de la même façon que vous déboguez du code .NET. 
+Vous pouvez déboguer votre désérialiseur .NET localement de la même façon que vous déboguez du code .NET.
 
-1. Ajoutez des points d’arrêt à votre fonction.
+1. Cliquez avec le bouton droit sur le projet **ProtobufCloudDeserializer** pour le définir comme projet de démarrage.
 
-2. Appuyez sur **F5** pour démarrer le débogage. Le programme s’arrête sur vos points d’arrêt comme prévu.
+2. Ajoutez des points d’arrêt à votre fonction.
+
+3. Appuyez sur **F5** pour démarrer le débogage. Le programme s’arrête sur vos points d’arrêt comme prévu.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

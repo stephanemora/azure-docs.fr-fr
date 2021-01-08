@@ -1,18 +1,18 @@
 ---
 title: Inscrire et analyser Azure SQL Database
 description: Ce tutoriel explique comment analyser Azure SQL Database.
-author: hophan
+author: hophanms
 ms.author: hophan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 10/02/2020
-ms.openlocfilehash: 1fbeedd8643a777b29ebe4993eed7b664240621c
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 15708e35fa27bb4a1f72368df6f49ff747eb799b
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920270"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739788"
 ---
 # <a name="register-and-scan-an-azure-sql-database"></a>Inscrire et analyser une base de données Azure SQL
 
@@ -28,7 +28,7 @@ La source de données Azure SQL Database prend en charge les fonctionnalités su
 
 ### <a name="known-limitations"></a>Limitations connues
 
-Azure Purview ne prend pas en charge l’analyse des [vues](https://docs.microsoft.com/sql/relational-databases/views/views?view=sql-server-ver15) dans Azure SQL Database. 
+Azure Purview ne prend pas en charge l’analyse des [vues](https://docs.microsoft.com/sql/relational-databases/views/views?view=sql-server-ver15&preserve-view=true) dans Azure SQL Database. 
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -89,7 +89,7 @@ Vous pouvez utiliser un principal de service existant ou en créer un nouveau.
 Le principal de service ou l’identité managée doivent avoir l’autorisation d’obtenir des métadonnées pour la base de données, les schémas et les tables. Ils doivent également être en mesure d’interroger les tables à échantillonner pour la classification.
 
 - [Configurer et gérer l’authentification Azure AD avec Azure SQL](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure)
-- Si vous utilisez une identité managée, votre compte Purview possède sa propre identité managée, qui est fondamentalement votre nom Purview lorsque vous l’avez créé. Vous devez créer un utilisateur Azure AD dans Azure SQL Database avec l’identité managée exacte de Purview ou votre propre principal de service en suivant le tutoriel [Créer l’utilisateur de principal de service dans Azure SQL Database](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-service-principal-tutorial#create-the-service-principal-user-in-azure-sql-database). Vous devez affecter l’autorisation `db_owner` (**recommandée**) à l’identité. Exemple de syntaxe SQL pour créer l’utilisateur et accorder l’autorisation :
+- Si vous utilisez une identité managée, votre compte Purview possède sa propre identité managée, qui est fondamentalement votre nom Purview lorsque vous l’avez créé. Vous devez créer un utilisateur Azure AD dans Azure SQL Database avec l’identité managée exacte de Purview ou votre propre principal de service en suivant le tutoriel [Créer l’utilisateur de principal de service dans Azure SQL Database](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-service-principal-tutorial#create-the-service-principal-user-in-azure-sql-database). Vous devez affecter l’autorisation adaptée (par exemple, `db_owner` ou `db_datareader`) à l’identité. Exemple de syntaxe SQL pour créer l’utilisateur et accorder l’autorisation :
 
     ```sql
     CREATE USER [Username] FROM EXTERNAL PROVIDER
@@ -100,7 +100,7 @@ Le principal de service ou l’identité managée doivent avoir l’autorisation
     ```
 
     > [!Note]
-    > `Username` est votre propre principal de service ou l’identité managée de Purview.
+    > `Username` est soit votre propre principal de service, soit l’identité managée de Purview. En savoir plus sur les [rôles de base de données fixes et leurs fonctionnalités](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles?view=sql-server-ver15&preserve-view=true#fixed-database-roles).
     
 ##### <a name="add-service-principal-to-key-vault-and-purviews-credential"></a>Ajouter le principal de service aux informations d’identification de Purview et du coffre de clés
 
@@ -113,9 +113,9 @@ Il est nécessaire d’obtenir l’ID d’application et le secret du principal 
 1. Copiez les valeurs **ID d’application (client)** dans **Vue d’ensemble** et **Secret client** dans **Certificats et secrets**.
 1. Accédez à votre coffre de clés.
 1. Sélectionnez **Paramètres > Secrets**.
-1. Sélectionnez **+ Générer/importer** et entrez le **nom** de votre choix et la **valeur** comme **secret client** de votre principal de service.
+1. Sélectionnez **+ Générer/importer**, puis entrez le **nom** de votre choix et la **Valeur** comme **Clé secrète client** de votre principal de service.
 1. Sélectionnez **Créer** pour terminer.
-1. Si votre coffre de clés n’est pas encore connecté à Purview, vous devrez [créer une nouvelle connexion de coffre de clés](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account).
+1. Si votre coffre de clés n’est pas encore connecté à Purview, vous devrez [créer une connexion de coffre de clés](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account).
 1. Enfin, [créez de nouvelles informations d’identification](manage-credentials.md#create-a-new-credential) à l’aide du principal de service pour configurer votre analyse.
 
 ### <a name="firewall-settings"></a>Paramètres du pare-feu
@@ -163,5 +163,5 @@ Dans l’écran **Inscrire des sources (Azure SQL Database)** , procédez comme 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Parcourir le catalogue de données Azure Purview](how-to-browse-catalog.md)
-- [Effectuer une recherche dans le catalogue de données Azure Purview](how-to-search-catalog.md)
+- [Navigation dans le catalogue de données Azure Purview](how-to-browse-catalog.md)
+- [Recherche dans le catalogue de données Azure Purview](how-to-search-catalog.md)

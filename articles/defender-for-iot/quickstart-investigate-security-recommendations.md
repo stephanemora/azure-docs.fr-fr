@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: 859f1c4a1ed1b3d9139307c52f44a14e3089e31f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 66b5694823096f0747ea099b631a53198a819816
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90944391"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97835038"
 ---
 # <a name="quickstart-investigate-security-recommendations"></a>Démarrage rapide : Investiguer les recommandations de sécurité
 
@@ -33,11 +33,11 @@ C’est parti !
 
 La liste des recommandations de sécurité IoT Hub affiche toutes les recommandations de sécurité agrégées pour votre IoT Hub.
 
-1.  Dans le portail Azure, ouvrez l’ **IoT Hub**  que vous voulez examiner pour de nouvelles recommandations.
+1.  Dans le portail Azure, ouvrez l’**IoT Hub** que vous voulez examiner pour de nouvelles recommandations.
 
-1.  Dans le menu  **Sécurité** , sélectionnez  **Recommandations**. Toutes les recommandations de sécurité pour l’IoT Hub s’affichent et les recommandations marquées d’un drapeau  **Nouveau**  sont vos recommandations de ces dernières 24 heures. 
+1.  Dans le menu **Sécurité**, sélectionnez **Recommandations**. Toutes les recommandations de sécurité pour le hub IoT s’affichent et les recommandations marquées d’un drapeau **Nouveau** sont vos recommandations de ces dernières 24 heures. 
 
-    [ ![Examiner les recommandations de sécurité avec ASC pour IoT](media/quickstart/investigate-security-recommendations-inline.png)](media/quickstart/investigate-security-recommendations-expanded.png#lightbox)
+    :::image type="content" source="media/quickstart/investigate-security-recommendations-expanded.png#lightbox" alt-text="Examiner les recommandations de sécurité avec ASC pour IoT](media/quickstart/investigate-security-recommendations-inline.png)":::
 
 
 1.  Sélectionnez et ouvrez une recommandation dans la liste pour ouvrir ses détails et en explorer les spécificités.
@@ -46,21 +46,21 @@ La liste des recommandations de sécurité IoT Hub affiche toutes les recommanda
 
 Ouvrez chaque recommandation agrégée pour afficher sa description détaillée, ses étapes de correction et l’identité d’appareil pour chaque appareil qui a déclenché une recommandation. La gravité de la recommandation ainsi que l’accès direct à l’examen s’affichent également à l’aide de l’Analytique des journaux d'activité.
 
-1.  Sélectionnez et ouvrez n’importe quelle recommandation de la liste  **IoT Hub** \> **Sécurité** \> **Recommandations** .
+1.  Sélectionnez et ouvrez n’importe quelle recommandation de la liste **IoT Hub** \> **Sécurité** \> **Recommandations**.
 
-1.  Examinez la **description**, la  **gravité**, les  **détails de l’appareil**  de tous les appareils en lien avec la recommandation qui ont émis celle-ci au cours de la période d’agrégation. 
+1.  Examinez la **description**, la **gravité**, les **détails de l’appareil** de tous les appareils en lien avec la recommandation qui ont émis celle-ci au cours de la période d’agrégation. 
 
-1.  Après avoir vérifié les spécificités de la recommandation, suivez les instructions de l’ **étape de correction manuelle**  afin d’atténuer et résoudre le problème à l’origine de la recommandation. 
+1.  Après avoir vérifié les spécificités de la recommandation, suivez les instructions de l’**étape de correction manuelle** afin d’atténuer et résoudre le problème à l’origine de la recommandation. 
 
-    [ ![Appliquer les recommandations de sécurité avec ASC pour IoT](media/quickstart/remediate-security-recommendations-inline.png)](media/quickstart/remediate-security-recommendations-expanded.png#lightbox)
+    [ :::image type="content" source="media/quickstart/remediate-security-recommendations-expanded.png#lightbox" alt-text="Appliquer les recommandations de sécurité avec ASC pour IoT](media/quickstart/remediate-security-recommendations-inline.png)":::
 
 
 1.  Explorez les détails de la recommandation pour un appareil spécifique en sélectionnant l’appareil voulu dans la page détaillée.
 
-    [ ![Examiner les recommandations de sécurité spécifiques pour un appareil à l’aide d’ASC pour IoT](media/quickstart/explore-security-recommendation-detail-inline.png)](media/quickstart/explore-security-recommendation-detail-expanded.png#lightbox)
+    [ :::image type="content" source="media/quickstart/explore-security-recommendation-detail-expanded.png#lightbox" alt-text="Examiner les recommandations de sécurité spécifiques pour un appareil à l’aide d’ASC pour IoT](media/quickstart/explore-security-recommendation-detail-inline.png)":::
 
 
-1.  Si un examen supplémentaire est nécessaire,  **examinez la recommandation dans l’Analytique des journaux d'activité** en suivant le lien. 
+1.  Si un examen supplémentaire est nécessaire, **examinez la recommandation dans l’Analytique des journaux d’activité** en suivant le lien. 
 
 
 ## <a name="next-steps"></a>Étapes suivantes

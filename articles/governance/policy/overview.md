@@ -3,12 +3,12 @@ title: Présentation de la stratégie Azure
 description: Azure Policy est un service dans Azure, que vous utilisez pour créer, affecter et gérer les définitions de stratégie dans votre environnement Azure.
 ms.date: 10/05/2020
 ms.topic: overview
-ms.openlocfilehash: 8a32e32afb544588bb033cc64ede5ecbe6e2bac2
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 96fd29b5e3d24bc3e678461a95005e004a8a3a80
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097386"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97803950"
 ---
 # <a name="what-is-azure-policy"></a>Présentation d’Azure Policy
 
@@ -20,7 +20,7 @@ La totalité des données et objets Azure Policy sont chiffrés au repos. Pour p
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Azure Policy évalue les ressources dans Azure en comparant les propriétés de ces ressources aux règles d’entreprise. Ces règles d’entreprise, décrites au [format JSON](./concepts/definition-structure.md), sont appelées [définitions de stratégie](#policy-definition). Pour simplifier la gestion, plusieurs règles d’entreprise peuvent être regroupées pour former une [initiative de stratégie](#initiative-definition) (parfois appelée _policySet_ ). Une fois que vos règles d’entreprise ont été formées, l’initiative ou la définition de stratégie est [affectée](#assignments) à n’importe quelle étendue de ressources prise en charge par Azure, comme des [groupes d’administration](../management-groups/overview.md), des abonnements, des [groupes de ressources](../../azure-resource-manager/management/overview.md#resource-groups) ou des ressources individuelles. L’affectation s’applique à toutes les ressources au sein de l’[étendue Resource Manager](../../azure-resource-manager/management/overview.md#understand-scope) de cette affectation. Des sous-étendues peuvent être exclues, si nécessaire. Pour plus d’informations, consultez [Étendue d’Azure Policy](./concepts/scope.md).
+Azure Policy évalue les ressources dans Azure en comparant les propriétés de ces ressources aux règles d’entreprise. Ces règles d’entreprise, décrites au [format JSON](./concepts/definition-structure.md), sont appelées [définitions de stratégie](#policy-definition). Pour simplifier la gestion, plusieurs règles d’entreprise peuvent être regroupées pour former une [initiative de stratégie](#initiative-definition) (parfois appelée _policySet_). Une fois que vos règles d’entreprise ont été formées, l’initiative ou la définition de stratégie est [affectée](#assignments) à n’importe quelle étendue de ressources prise en charge par Azure, comme des [groupes d’administration](../management-groups/overview.md), des abonnements, des [groupes de ressources](../../azure-resource-manager/management/overview.md#resource-groups) ou des ressources individuelles. L’affectation s’applique à toutes les ressources au sein de l’[étendue Resource Manager](../../azure-resource-manager/management/overview.md#understand-scope) de cette affectation. Des sous-étendues peuvent être exclues, si nécessaire. Pour plus d’informations, consultez [Étendue d’Azure Policy](./concepts/scope.md).
 
 Azure Policy utilise un [format JSON](./concepts/definition-structure.md) afin de former la logique utilisée par l’évaluation pour déterminer si une ressource est conforme ou non. Les définitions incluent des métadonnées et la règle de stratégie. La règle définie peut utiliser des fonctions, des paramètres, des opérateurs logiques, des conditions et des [alias](./concepts/definition-structure.md#aliases) de propriété afin d’établir une correspondance exacte au scénario de votre choix. La règle de stratégie détermine quelles ressources de l’étendue de l’affectation sont évaluées.
 
@@ -61,7 +61,7 @@ La présentation suivante d’Azure Policy est à partir de la Build 2018. Pour 
 
 ### <a name="azure-policy-and-azure-rbac"></a>Azure Policy et Azure RBAC
 
-Il existe quelques différences importantes entre Azure Policy et le contrôle d’accès en fonction du rôle Azure (Azure RBAC). Azure Policy évalue l’état en examinant les propriétés des ressources qui sont représentées dans Resource Manager et les propriétés de certains fournisseurs de ressources. Azure Policy ne limite pas les actions (également appelées _opérations_ ). Azure Policy garantit que l’état des ressources est conforme à vos règles d’entreprise sans se préoccuper de qui a apporté la modification ou qui a l’autorisation d’apporter une modification.
+Il existe quelques différences importantes entre Azure Policy et le contrôle d’accès en fonction du rôle Azure (Azure RBAC). Azure Policy évalue l’état en examinant les propriétés des ressources qui sont représentées dans Resource Manager et les propriétés de certains fournisseurs de ressources. Azure Policy ne limite pas les actions (également appelées _opérations_). Azure Policy garantit que l’état des ressources est conforme à vos règles d’entreprise sans se préoccuper de qui a apporté la modification ou qui a l’autorisation d’apporter une modification.
 
 Azure RBAC est axé sur la gestion des [actions](../../role-based-access-control/resource-provider-operations.md) des utilisateurs dans différentes étendues. Si le contrôle d’une action est nécessaire, Azure RBAC est l’outil qu’il convient d’utiliser. Même si une personne est autorisée à exécuter une action, si le résultat est une ressource non conforme, Azure Policy bloque toujours la création ou la mise à jour.
 
@@ -74,7 +74,7 @@ Azure Policy dispose d’autorisations, aussi appelées opérations, dans deux f
 - [Microsoft.Authorization](../../role-based-access-control/resource-provider-operations.md#microsoftauthorization)
 - [Microsoft.PolicyInsights](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
 
-Plusieurs rôles intégrés accordent des autorisations aux ressources Azure Policy. Le rôle **Contributeur de stratégie de ressource** inclut la plupart des opérations d’Azure Policy. Quant au rôle **Propriétaire** , il dispose de tous les droits. Les rôles **Contributeur** et **Lecteur** ont accès à toutes les opérations de _lecture_ Azure Policy. Un **Contributeur** peut déclencher la correction d’une ressource, mais ne peut pas _créer_ des définitions ou des affectations. Un **Administrateur de l’accès utilisateur** est nécessaire pour accorder les autorisations nécessaires à l’identité managée sur les affectations **deployIfNotExists** ou **modify** .
+Plusieurs rôles intégrés accordent des autorisations aux ressources Azure Policy. Le rôle **Contributeur de stratégie de ressource** inclut la plupart des opérations d’Azure Policy. Quant au rôle **Propriétaire**, il dispose de tous les droits. Les rôles **Contributeur** et **Lecteur** ont accès à toutes les opérations de _lecture_ Azure Policy. Un **Contributeur** peut déclencher la correction d’une ressource, mais ne peut pas _créer_ des définitions ou des affectations. Un **Administrateur de l’accès utilisateur** est nécessaire pour accorder les autorisations nécessaires à l’identité managée sur les affectations **deployIfNotExists** ou **modify**.
 
 Si aucun des rôles intégrés ne dispose d’autorisations, créez un [rôle personnalisé](../../role-based-access-control/custom-roles.md).
 
@@ -94,7 +94,7 @@ Voici quelques conseils et astuces à garder à l’esprit :
 - Tenez compte des hiérarchies de l’organisation lors de la création de définitions et d’affectations. Nous vous recommandons de créer des définitions à des niveaux supérieurs, comme au niveau de l’abonnement ou du groupe d’administration. Ensuite, créez l’affectation au niveau enfant suivant. Si vous créez une définition au niveau d’un groupe d’administration, l’affectation peut être limitée à un abonnement ou groupe de ressources au sein de ce groupe d’administration.
 
 - Nous vous recommandons de créer et d’affecter des définitions d’initiative même pour une définition de stratégie unique.
-  Par exemple, vous avez la définition de stratégie _policyDefA_ et la créez sous la définition d’initiative _initiativeDefC_ . Si vous créez une autre définition de stratégie ultérieurement pour _policyDefB_ avec des objectifs similaires à _policyDefA_ , vous pouvez l’ajouter sous _initiativeDefC_ et les suivre ensemble.
+  Par exemple, vous avez la définition de stratégie _policyDefA_ et la créez sous la définition d’initiative _initiativeDefC_. Si vous créez une autre définition de stratégie ultérieurement pour _policyDefB_ avec des objectifs similaires à _policyDefA_, vous pouvez l’ajouter sous _initiativeDefC_ et les suivre ensemble.
 
 - Une fois que vous avez créé une affectation d’initiative, les définitions de stratégie ajoutées à l’initiative font également partie des affectations de cette initiative.
 
@@ -124,13 +124,13 @@ Pour plus d’informations sur les structures des définitions de stratégie, co
 
 Les paramètres de stratégie permettent de simplifier la gestion des stratégies en réduisant le nombre de définitions de stratégies que vous devez créer. Vous pouvez définir des paramètres lors de la création d’une définition de stratégie, pour la rendre plus générique. Vous pouvez ensuite réutiliser cette définition de stratégie pour différents scénarios. Pour ce faire, transmettez différentes valeurs lors de l’affectation de la définition de stratégie. Par exemple, spécifiez un ensemble d’emplacements pour un abonnement.
 
-Les paramètres sont définis lors de la création d’une définition de stratégie. Quand un paramètre est défini, un nom lui est affecté et éventuellement une valeur. Par exemple, vous pouvez définir un paramètre pour une stratégie intitulée _Emplacement_ . Vous pouvez ensuite lui attribuer différentes valeurs comme _EastUS_ ou _WestUS_ lors de l’affectation d’une stratégie.
+Les paramètres sont définis lors de la création d’une définition de stratégie. Quand un paramètre est défini, un nom lui est affecté et éventuellement une valeur. Par exemple, vous pouvez définir un paramètre pour une stratégie intitulée _Emplacement_. Vous pouvez ensuite lui attribuer différentes valeurs comme _EastUS_ ou _WestUS_ lors de l’affectation d’une stratégie.
 
 Pour plus d’informations sur les paramètres de stratégie, consultez [Definition structure - Parameters](./concepts/definition-structure.md#parameters) (Structure de la définition - Paramètres).
 
 ### <a name="initiative-definition"></a>Définition d’initiative
 
-Une définition d’initiative est une collection de définitions de stratégie qui sont spécialement conçues pour atteindre un objectif global particulier. Les définitions d’initiative simplifient la gestion et l’affectation des définitions de stratégie. Elles simplifient ces procédures en regroupant un ensemble de stratégies en un seul élément. Par exemple, vous pouvez créer une initiative intitulée **Activer la surveillance dans Azure Security Center** , avec comme objectif de surveiller toutes les recommandations de sécurité disponibles dans votre centre Azure Security Center.
+Une définition d’initiative est une collection de définitions de stratégie qui sont spécialement conçues pour atteindre un objectif global particulier. Les définitions d’initiative simplifient la gestion et l’affectation des définitions de stratégie. Elles simplifient ces procédures en regroupant un ensemble de stratégies en un seul élément. Par exemple, vous pouvez créer une initiative intitulée **Activer la surveillance dans Azure Security Center**, avec comme objectif de surveiller toutes les recommandations de sécurité disponibles dans votre centre Azure Security Center.
 
 > [!NOTE]
 > Le SDK, et notamment Azure CLI et Azure PowerShell, utilisent des propriétés et des paramètres nommés **PolicySet** pour référencer les initiatives.
@@ -143,17 +143,17 @@ Dans cette initiative, vous avez par exemple des définitions de stratégie comm
 
 Comme les paramètres de stratégie, les paramètres d’initiative permettent de simplifier la gestion en réduisant la redondance. Les paramètres d’initiative sont les paramètres utilisés par les définitions de stratégie dans l’initiative.
 
-Par exemple, imaginons un scénario où vous avez une définition d’initiative ( **initiativeC** ) avec les définitions de stratégie **policyA** et **policyB** , et chacune des définitions de stratégie attend un type de paramètre différent :
+Par exemple, imaginons un scénario où vous avez une définition d’initiative (**initiativeC**) avec les définitions de stratégie **policyA** et **policyB**, et chacune des définitions de stratégie attend un type de paramètre différent :
 
 | Policy | Nom de paramètre |Type de paramètre  |Remarque |
 |---|---|---|---|
 | policyA | allowedLocations | tableau  |Ce paramètre attend une liste de chaînes pour une valeur, le type de paramètre ayant été défini comme tableau |
 | policyB | allowedSingleLocation |string |Ce paramètre attend un mot pour une valeur, le type de paramètre ayant été défini comme chaîne |
 
-Dans ce scénario, quand vous définissez les paramètres d’initiative pour **initiativeC** , vous avec trois options :
+Dans ce scénario, quand vous définissez les paramètres d’initiative pour **initiativeC**, vous avec trois options :
 
-- Utilisez les paramètres des définitions de stratégie dans cette initiative : Dans cet exemple, _allowedLocations_ et _allowedSingleLocation_ deviennent des paramètres d’initiative pour **initiativeC** .
-- Fournir des valeurs pour les paramètres des définitions de stratégie dans la définition de cette initiative. Dans cet exemple, vous pouvez fournir une liste d’emplacements au paramètre de **policyA** ( **allowedLocations** ) et au paramètre de **policyB** ( **allowedSingleLocation** . Vous pouvez également fournir des valeurs lors de l’affectation de cette initiative.
+- Utilisez les paramètres des définitions de stratégie dans cette initiative : Dans cet exemple, _allowedLocations_ et _allowedSingleLocation_ deviennent des paramètres d’initiative pour **initiativeC**.
+- Fournir des valeurs pour les paramètres des définitions de stratégie dans la définition de cette initiative. Dans cet exemple, vous pouvez fournir une liste d’emplacements au paramètre de **policyA** (**allowedLocations**) et au paramètre de **policyB** (**allowedSingleLocation**. Vous pouvez également fournir des valeurs lors de l’affectation de cette initiative.
 - Fournir une liste d’options de _valeurs_ qui peuvent être utilisées lors de l’affectation de cette initiative. Lorsque vous affectez cette initiative, les paramètres hérités des définitions de stratégie dans l’initiative peuvent avoir seulement des valeurs provenant de cette liste fournie.
 
 Lorsque vous créez des options de valeur dans une définition d’initiative, vous ne pouvez pas entrer de valeur différente lors de l’affectation d’initiative, car elle ne fait pas partie de la liste.

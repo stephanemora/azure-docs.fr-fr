@@ -7,12 +7,12 @@ ms.service: vnf-manager
 ms.topic: overview
 ms.date: 09/22/2020
 ms.author: wamota
-ms.openlocfilehash: fcc44bb1c8017d63ee7926a31177aebaafd832fc
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 05f3b5b461e42c29a12f126928f69069b45007d3
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91336375"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97797266"
 ---
 # <a name="what-is-azure-orbital-preview"></a>Présentation d’Azure Orbital (Préversion)
 
@@ -21,11 +21,11 @@ Azure Orbital est une station terrienne complètement managée dans le Cloud en 
 [:::image type="content" source="./media/azure-orbital-overview/orbital-all-ignite-link.png" alt-text="Vidéo de lancement d’Azure Orbital à Ignite":::](https://aka.ms/orbitalatignite)
 [Regarder l’annonce Azure Orbital à Ignite sur le canal YouTube d’Azure](https://aka.ms/orbitalatignite)
 
-Azure Orbital se concentre sur la création d’un écosystème de partenaires pour permettre aux clients d’utiliser des stations terriennes partenaires en plus des stations terriennes d’Orbital, ainsi que des modems Cloud partenaires en plus des modems Cloud intégrés.   Notre partenariat avec Azure Orbital est axé sur la collaboration avec des leaders du secteur, tels que KSAT, en plus d’autres fournisseurs de stations terriennes/téléports tels que ViaSat Real-Time Earth (RTE) et US Electrodynamics Inc. afin d’offrir une large couverture disponible en amont. Ce partenariat s’étend également aux fournisseurs de télécommunications par satellite tels que SES et autres fournisseurs de stations terriennes/téléports, ViaSat Real-time Earth (RTE) et US Electrodynamics Inc. pour offrir une connectivité sans précédent, comme un accès mondial à votre flotte LEO/MEO, un accès direct à Azure pour les constellations de communication ou un accès mondial à votre flotte LEO/MEO. Nous avons pris les mesures nécessaires pour virtualiser le signal RF et nous nous somme associés à des leaders, tels que Kratos et Amergint, pour introduire leurs modems dans la place de marché. Notre objectif est de permettre à nos clients d’accomplir davantage et de construire des systèmes avec notre plateforme de service de station terrienne riche, évolutive et hautement flexible.
+Azure Orbital se concentre sur la création d’un écosystème de partenaires pour permettre aux clients d’utiliser des stations terriennes partenaires en plus des stations terriennes d’Orbital, ainsi que des modems Cloud partenaires en plus des modems Cloud intégrés. Azure Orbital est axé sur la collaboration avec des leaders du secteur, tels que KSAT, en plus d’autres fournisseurs de stations terriennes/téléports tels que ViaSat Real-Time Earth (RTE) et US Electrodynamics Inc. afin d’offrir une large couverture disponible en amont. Ce partenariat s’étend également aux fournisseurs de télécommunications par satellite tels que SES et autres fournisseurs de stations terriennes/téléports, ViaSat Real-time Earth (RTE) et US Electrodynamics Inc. pour offrir une connectivité sans précédent, comme un accès mondial à votre flotte LEO/MEO, un accès direct à Azure pour les constellations de communication ou un accès mondial à votre flotte LEO/MEO. Nous avons pris les mesures nécessaires pour virtualiser le signal RF et nous nous somme associés à des leaders, tels que Kratos et Amergint, pour introduire leurs modems dans la place de marché. Notre objectif est de permettre à nos clients d’accomplir davantage et de construire des systèmes avec notre plateforme de service de station terrienne riche, évolutive et hautement flexible.
 
 Azure Orbital propose plusieurs cas d’usage pour nos clients, notamment l’observation de la Terre et les communications internationales. Il fournit également une plateforme qui permet la transformation numérique des stations terriennes existantes grâce à la virtualisation. Vous bénéficiez d’un accès direct à tous les services Azure, à l’infrastructure mondiale Azure, à la place de marché et également d’un accès à notre écosystème de partenaires de classe mondiale via notre service.
 
-:::image type="content" source="./media/azure-orbital-overview/orbital-all-overview.png" alt-text="Vidéo de lancement d’Azure Orbital à Ignite":::
+:::image type="content" source="./media/azure-orbital-overview/orbital-all-overview.png" alt-text="Vue d’ensemble d’Azure Orbital":::
 
 **Les propositions de valeur pour les utilisateurs d’Azure Orbital sont les suivantes :**
 
@@ -49,13 +49,13 @@ Pour plus d’informations sur notre préversion ou pour indiquer votre souhait 
 
 ## <a name="earth-observation"></a><a name="earth-observation"></a>Observation de la Terre
 
-:::image type="content" source="./media/azure-orbital-overview/orbital-eos-dataflow.png" alt-text="Vidéo de lancement d’Azure Orbital à Ignite" lightbox="./media/azure-orbital-overview/orbital-eos-dataflow-expanded.png":::
+:::image type="content" source="./media/azure-orbital-overview/orbital-eos-dataflow.png" alt-text="Azure Orbital pour le dataflow d’observation de la Terre" lightbox="./media/azure-orbital-overview/orbital-eos-dataflow-expanded.png":::
 
 Vous pouvez utiliser Azure Orbital pour planifier des contacts avec des satellites sur une base de paiement à l’utilisation pour les tâches d’entretien et les liaisons descendantes de la charge utile. Utilisez les temps d’accès planifiés pour ingérer les données du satellite, surveiller l’intégrité et l’état du satellite, ou transmettre des commandes au satellite. Les données entrantes sont transmises à votre réseau virtuel privé, ce qui permet de les traiter ou de les stocker dans Azure.
 
 Étant donné que le service est entièrement numérisé, un modem logiciel de Kratos et Amergint peut être utilisé pour exécuter les fonctions de modulation/démodulation et d’encodage/décodage afin de récupérer les données. Vous avez la possibilité d’effectuer vos achats sur la place de marché ou de nous laisser gérer cette partie pour vous. En outre, l’intégration avec Kubos permet de tirer pleinement parti d’une solution de bout en bout pour gérer les opérations de la flotte et les fonctions de télémétrie, de suivi et de contrôle (TT&C). Implémentez vos charges de travail dans Azure en utilisant les ressources et les boîtes à outils Azure pour manipuler les données de charge utile dans les offres finales.
 
-:::image type="content" source="./media/azure-orbital-overview/orbital-eos-schedule.png" alt-text="Vidéo de lancement d’Azure Orbital à Ignite":::
+:::image type="content" source="./media/azure-orbital-overview/orbital-eos-schedule.png" alt-text="Azure Orbital pour la planification de l’observation de la Terre":::
 
 ### <a name="scheduling-contacts"></a><a name="scheduling-contacts"></a>Planification des contacts
 
@@ -71,7 +71,7 @@ Pour plus d’informations sur notre préversion ou pour indiquer votre souhait 
 
 ## <a name="global-communication"></a><a name="global-communication"></a>Communication globale
 
-:::image type="content" source="./media/azure-orbital-overview/orbital-communications-use-flow.png" alt-text="Vidéo de lancement d’Azure Orbital à Ignite":::
+:::image type="content" source="./media/azure-orbital-overview/orbital-communications-use-flow.png" alt-text="Azure Orbital pour un flux d’utilisation des communications globales":::
 
 Les fournisseurs de satellites qui proposent des fonctionnalités de communication globale à leurs clients peuvent utiliser Azure Orbital pour cohéberger de nouvelles stations terriennes dans des centres de données Azure ou en périphérie du réseau Azure, ou interconnecter leurs stations terriennes existantes avec le réseau principal Azure mondial. Ils peuvent ensuite acheminer leur trafic sur le réseau mondial de Microsoft, tirer parti de l’accès à Internet depuis la périphérie du réseau Azure pour fournir des services Internet et d’autres services managés à leurs clients.
 
@@ -85,7 +85,7 @@ En plus de construire nos propres stations terriennes, Azure Orbital permet aux 
 
 Les fournisseurs de stations terriennes ou de téléports peuvent s’associer à Azure Orbital pour transformer numériquement leurs stations terriennes. Ce faisant, les clients peuvent utiliser ces stations terriennes pour planifier des contacts sur leurs satellites tout en tirant parti de toutes les fonctionnalités de traitement radio et de traitement des données offertes par la plateforme et les partenaires Orbital via la place de marché. Le service est étroitement intégré aux charges de travail dans le Cloud, ainsi qu’à un écosystème dynamique de solutions tierces via la place de marché, comme les modems, la gestion des ressources et les services de contrôle de mission. Toutes les données peuvent également tirer parti du réseau mondial de fibres optiques à faible latence et à haute fiabilité d’Azure. Ensemble, nous pensons qu’il offrira la plus large couverture et la plus grande flexibilité possible pour permettre à nos clients de communiquer avec les satellites de la manière la plus agile et fiable qui soit.
 
-:::image type="content" source="./media/azure-orbital-overview/orbital-all-digital-transformations.png" alt-text="Vidéo de lancement d’Azure Orbital à Ignite":::
+:::image type="content" source="./media/azure-orbital-overview/orbital-all-digital-transformations.png" alt-text="Azure Orbital pour la transformation numérique":::
 
 Pour plus d’informations sur notre préversion ou pour indiquer votre souhait de participer à la préversion, remplissez le formulaire de contact [ici](https://aka.ms/iaminterested)ou envoyez-nous un e-mail à [MSAzureOrbital@microsoft.com](mailto:MSAzureOrbital@microsoft.com).
 
@@ -93,7 +93,7 @@ Pour plus d’informations sur notre préversion ou pour indiquer votre souhait 
 
 À mesure que notre voyage dans l’espace progressera, nous ajouterons de nouveaux partenaires à notre écosystème pour aider nos clients à accomplir davantage avec Azure Orbital. Notre approche sera guidée par nos partenaires pendant que nous construisons Azure Orbital. Notre objectif est également de créer un écosystème dynamique de partenaires afin de créer conjointement davantage de valeur tant pour nos partenaires que nos clients. Voyez-le comme un récif de corail !
 
-:::image type="content" source="./media/azure-orbital-overview/orbital-all-partners.png" alt-text="Vidéo de lancement d’Azure Orbital à Ignite":::
+:::image type="content" source="./media/azure-orbital-overview/orbital-all-partners.png" alt-text="Partenaires Azure Orbital":::
 
 Les sections suivantes présentent une liste des catégories de partenaires et des partenaires Azure Orbital qui font déjà partie de l’écosystème Orbital :
 

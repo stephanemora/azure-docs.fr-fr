@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/15/2020
+ms.date: 12/24/2020
 ms.author: jeedes
-ms.openlocfilehash: 7bb74732074482c12d3bc760e259bb014ccf006f
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: d9e118620cb38e94cfc18d01d31888ac0a444bb7
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96179256"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97813426"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ekarda"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à ekarda
 
@@ -25,8 +25,6 @@ Dans ce tutoriel, vous allez découvrir comment intégrer ekarda à Azure Active
 * Contrôler dans Azure AD qui a accès à ekarda.
 * Permettre à vos utilisateurs de se connecter automatiquement à ekarda avec leur compte Azure AD.
 * gérer vos comptes à un emplacement central : le portail Azure.
-
-Pour plus d’informations sur l’intégration d’applications SaaS à Azure AD, consultez [Qu’est-ce que l’authentification unique ?](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -41,13 +39,12 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 
 * ekarda prend en charge l’authentification unique lancée par le fournisseur de services et par le fournisseur d’identité.
 * ekarda prend en charge le provisionnement d’utilisateurs juste-à-temps.
-* Après avoir configuré ekarda, vous pouvez appliquer le contrôle de session. Cette précaution protège contre l’exfiltration et l’infiltration de données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir du contrôle d’application par accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="add-ekarda-from-the-gallery"></a>Ajouter ekarda à partir de la galerie
 
 Pour configurer l’intégration d’ekarda à Azure AD, ajoutez ekarda à partir de la galerie à votre liste d’applications SaaS managées :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire, ou avec un compte personnel Microsoft.
+1. Connectez-vous au portail Azure avec un compte professionnel ou scolaire, ou avec un compte personnel Microsoft.
 
 1. Dans le volet de gauche, sélectionnez le service **Azure Active Directory**.
 1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
@@ -55,7 +52,7 @@ Pour configurer l’intégration d’ekarda à Azure AD, ajoutez ekarda à part
 1. Dans la section **Ajouter à partir de la galerie**, tapez **ekarda** dans la zone de recherche.
 1. Sélectionnez **ekarda** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-ekarda"></a>Configurer et tester l’authentification unique Azure AD pour ekarda
+## <a name="configure-and-test-azure-ad-sso-for-ekarda"></a>Configurer et tester l’authentification unique Azure AD pour ekarda
 
 Configurez et testez l’authentification unique Azure AD avec ekarda en utilisant un utilisateur de test appelé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur ekarda associé.
 
@@ -73,7 +70,7 @@ Pour configurer et tester l’authentification unique Azure AD avec ekarda, eff
 
 Effectuez les étapes suivantes dans le portail Azure pour activer l’authentification unique Azure AD :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com/).
+1. Connectez-vous au portail Azure.
 1. Dans la page d’intégration de l’application **ekarda**, recherchez la section **Gérer**, puis sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
 1. Dans la page **Configurer l’authentification unique avec SAML**, sélectionnez l’icône de crayon pour modifier les paramètres de **Configuration SAML de base**.
@@ -95,7 +92,7 @@ Effectuez les étapes suivantes dans le portail Azure pour activer l’authentif
 
 1. Si vous voulez configurer l’application en mode Lancé par le fournisseur de services, sélectionnez **Définir des URL supplémentaires** et effectuez les actions suivantes :
 
-    * Dans la zone de texte **URL de connexion**, entrez une URL au format suivant : `https://my.ekarda.com/users/saml_sso/<COMPANY_ID>`
+    Dans la zone de texte **URL de connexion**, entrez une URL au format suivant : `https://my.ekarda.com/users/saml_sso/<COMPANY_ID>`
 
     > [!NOTE]
     > Les valeurs des deux étapes précédentes ne sont pas réelles. Remplacez-les par les valeurs réelles de l’identificateur, de l’URL de réponse et de l’URL d’authentification. Pour obtenir ces valeurs, contactez l’[équipe de support client ekarda](mailto:contact@ekarda.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
@@ -129,19 +126,24 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 1. Dans la liste des applications, sélectionnez **ekarda**.
 1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
 
-   ![Capture d’écran de la section Gérer, avec Utilisateurs et groupes mis en évidence.](common/users-groups-blade.png)
-
 1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
 
-    ![Capture d’écran de la page Utilisateurs et groupes, avec Ajouter un utilisateur mis en évidence.](common/add-assign-user.png)
-
 1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B.Simon** dans la liste des utilisateurs. Choisissez ensuite **Sélectionner** dans le bas de l’écran.
-1. Si vous attendez une valeur de rôle dans l’assertion SAML, sélectionnez le rôle approprié pour l’utilisateur dans la liste de la boîte de dialogue **Sélectionner un rôle**. Choisissez ensuite **Sélectionner** dans le bas de l’écran.
+1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
 1. Dans la boîte de dialogue **Ajouter une attribution**, sélectionnez **Affecter**.
 
 ## <a name="configure-ekarda-sso"></a>Configurer l’authentification unique ekarda
 
-1. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise ekarda en tant qu’administrateur.
+1. Pour automatiser la configuration dans ekarda, vous devez installer l’**extension de navigateur My Apps Secure Sign-in** en cliquant sur **Installer l’extension**.
+
+    ![Extension My apps](common/install-myappssecure-extension.png)
+
+2. Une fois l’extension ajoutée au navigateur, cliquez sur **Configurer ekarda** pour être dirigé vers l’application ekarda. À partir de là, indiquez les informations d’identification de l’administrateur pour vous connecter à ekarda. Cette extension de navigateur configure automatiquement l’application et automatise les étapes 3 à 6.
+
+    ![Configuration](common/setup-sso.png)
+
+3. Si vous souhaitez configurer ekarda manuellement, dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise ekarda en tant qu’administrateur.
+
 1. Cliquez sur **Admin (Administrateur)**  > **My Account (Mon compte)** .
 
     ![Capture d’écran de l’interface utilisateur du site ekarda avec My Account mis en évidence dans le menu Admin.](./media/ekarda-tutorial/ekarda.png)
@@ -166,16 +168,20 @@ Dans cette section, un utilisateur appelé B.Simon est créé dans ekarda. ekard
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
-Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à partir du portail Mes applications.
+Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes.
 
-Quand vous cliquez sur la vignette ekarda dans le portail Mes applications, vous devez normalement être connecté automatiquement au site ekarda pour lequel vous avez configuré l’authentification unique. Pour plus d’informations sur le portail Mes applications, consultez [Introduction au portail Mes applications](../user-help/my-apps-portal-end-user-access.md).
+#### <a name="sp-initiated"></a>Lancée par le fournisseur de services :
 
-## <a name="additional-resources"></a>Ressources supplémentaires
+* Cliquez sur **Tester cette application** dans le portail Azure. Cette opération redirige vers l’URL de connexion ekarda où vous pouvez lancer le processus de connexion.
 
-* [Listes des tutoriels pour intégrer des applications SaaS à Azure Active Directory](./tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
-* [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](../conditional-access/overview.md)
-* [Essayer ekarda avec Azure AD](https://aad.portal.azure.com/)
-* Utilisez la [solution d’entreprise eCard d’ekarda](https://ekarda.com/ecards-ecards-with-logo-for-business-corporate-enterprise) pour permettre à un nombre quelconque d’employés d’envoyer des eCards personnalisées avec le logo de votre entreprise à leurs clients et collègues. Découvrez plus d’informations sur le [provisionnement d’ekarda en tant que solution d’authentification unique](https://support.ekarda.com/#SSO-Implementation).
-* [Qu’est-ce que le contrôle de session dans Microsoft Cloud App Security ?](/cloud-app-security/proxy-intro-aad)
-* [Guide pratique pour protéger ekarda avec une visibilité et des contrôles avancés](/cloud-app-security/proxy-intro-aad)
+* Accédez directement à l’URL de connexion ekarda pour lancer le processus de connexion.
+
+#### <a name="idp-initiated"></a>Lancée par le fournisseur d’identité :
+
+* Cliquez sur **Tester cette application** dans le portail Azure ; vous devez être connecté automatiquement à l’instance d’ekarda pour laquelle vous avez configuré l’authentification unique.
+
+Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Si, quand vous cliquez sur la vignette ekarda dans Mes applications, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion ; s’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance d’ekarda pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Après avoir configuré ekarda, vous pouvez appliquer le contrôle de session. Cette précaution protège contre l’exfiltration et l’infiltration de données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir du contrôle d’application par accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

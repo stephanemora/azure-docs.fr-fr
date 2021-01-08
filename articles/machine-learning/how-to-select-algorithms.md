@@ -30,7 +30,7 @@ Vous êtes nombreux à vous poser la question suivante : « Quel algorithme d'
 
 ## <a name="business-scenarios-and-the-machine-learning-algorithm-cheat-sheet"></a>Scénarios d'entreprise et Aide-mémoire sur les algorithmes Machine Learning
 
-L' [Aide-mémoire sur les algorithmes Azure Machine Learning](./algorithm-cheat-sheet.md?WT.mc_id=docs-article-lazzeri) vous permet de répondre à la première question : **Que voulez-vous faire avec vos données ?**  ? Utilisez l'Aide-mémoire sur les algorithmes Machine Learning pour rechercher la tâche que vous souhaitez effectuer, puis recherchez un [concepteur Azure Machine Learning](./concept-designer.md?WT.mc_id=docs-article-lazzeri) pour la solution d'analyse prédictive. 
+L'[Aide-mémoire sur les algorithmes Azure Machine Learning](./algorithm-cheat-sheet.md?WT.mc_id=docs-article-lazzeri) vous permet de répondre à la première question : **Que voulez-vous faire avec vos données ?**  ? Utilisez l'Aide-mémoire sur les algorithmes Machine Learning pour rechercher la tâche que vous souhaitez effectuer, puis recherchez un [concepteur Azure Machine Learning](./concept-designer.md?WT.mc_id=docs-article-lazzeri) pour la solution d'analyse prédictive. 
 
 Le concepteur Machine Learning fournit une gamme complète d'algorithmes, tels que [Forêt d'arbres de décision multiclasse](./algorithm-module-reference/multiclass-decision-forest.md?WT.mc_id=docs-article-lazzeri), [Systèmes de recommandation](./algorithm-module-reference/evaluate-recommender.md?WT.mc_id=docs-article-lazzeri), [Régression de réseau neuronal](./algorithm-module-reference/neural-network-regression.md?WT.mc_id=docs-article-lazzeri), [Réseau neuronal multiclasse](./algorithm-module-reference/multiclass-neural-network.md?WT.mc_id=docs-article-lazzeri) et [Clustering k-moyennes](./algorithm-module-reference/k-means-clustering.md?WT.mc_id=docs-article-lazzeri). Chaque algorithme est conçu pour traiter un type particulier de problème d'apprentissage automatique. Consultez [Informations de référence sur les algorithmes et les modules du concepteur Machine Learning](./algorithm-module-reference/module-reference.md?WT.mc_id=docs-article-lazzeri). Vous y trouverez une liste complète ainsi que de la documentation sur le fonctionnement de chaque algorithme et sur les paramètres à configurer pour optimiser l'algorithme.
 
@@ -123,11 +123,11 @@ Les algorithmes de régression linéaire supposent que les tendances des donnée
 
 ![Limite de classe non linéaire](./media/how-to-select-algorithms/nonlinear-class-boundary.png)
 
-**_Limite de classe non linéaire_* _ : _l’utilisation d’un algorithme de classification linéaire entraînerait une justesse faible.*
+**_Limite de classe non linéaire_* _: _l’utilisation d’un algorithme de classification linéaire entraînerait une justesse faible.*
 
 ![Données avec une tendance non linéaire](./media/how-to-select-algorithms/nonlinear-trend.png)
 
-***Données avec une tendance non linéaire** _ : _l’utilisation d’une méthode de régression linéaire entraînerait plus d’erreurs.*
+***Données avec une tendance non linéaire** _: _l’utilisation d’une méthode de régression linéaire entraînerait plus d’erreurs.*
 
 ## <a name="number-of-parameters"></a>Nombre de paramètres
 

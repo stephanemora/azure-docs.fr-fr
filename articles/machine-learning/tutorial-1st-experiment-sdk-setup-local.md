@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 05ac0f78345e1c1d7643f24410d53b209ab7c375
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 62a1f43fb73f0eda77ebb8f62f64c95ff4ad37a1
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96574154"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734196"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-your-development-environment-part-1-of-4"></a>Tutoriel : Bien démarrer avec Azure Machine Learning dans votre environnement de développement (partie 1 sur 4)
 
@@ -65,6 +65,9 @@ tutorial
 
 - `tutorial` : Répertoire de plus haut niveau du projet.
 - `.azureml` : Sous-répertoire masqué pour le stockage des fichiers de configuration Azure Machine Learning.
+
+> [!TIP]
+> Si vous utilisez un Mac, dans une fenêtre de recherche, tapez **Commande + Maj + .** pour activer ou désactiver la fonctionnalité permettant d’afficher et de créer des répertoires dont le nom commence par un point.  Sinon, vous pouvez également utiliser le terminal de commande pour créer le répertoire.
 
 
 > [!div class="nextstepaction"]

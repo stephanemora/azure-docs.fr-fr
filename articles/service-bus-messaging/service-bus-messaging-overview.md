@@ -3,15 +3,15 @@ title: Présentation de la messagerie Azure Service Bus | Microsoft Docs
 description: Cet article offre une vue d’ensemble d’Azure Service Bus, le répartiteur de messages Intégration Entreprise complètement managé.
 ms.topic: overview
 ms.date: 11/20/2020
-ms.openlocfilehash: b795d0c5b429a812d90e0759fbcde3d348b86e22
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 70e9d966a14f78866d72865eed4cbb2dfd6c18dd
+ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602714"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97755733"
 ---
 # <a name="what-is-azure-service-bus"></a>Qu’est-ce qu’Azure Service Bus ?
-Microsoft Azure Service Bus est un répartiteur de messages d’entreprise complètement managé, avec des files d’attente de messages et des rubriques d’abonnement public. Service Bus est utilisé pour découpler les applications et les services les uns des autres pour offrir les avantages suivants :
+Microsoft Azure Service Bus est un répartiteur de messages d’entreprise complètement managé, avec des files d’attente de messages et des rubriques de publication/abonnement. Service Bus est utilisé pour découpler les applications et les services les uns des autres pour offrir les avantages suivants :
 
 - Travail d’équilibrage de charge entre les workers concurrents
 - Routage et transfert de façon sécurisée des données et du contrôle au-delà des limites des services et des applications

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/29/2020
+ms.date: 12/18/2020
 ms.author: jeedes
-ms.openlocfilehash: a960bb3590138ca5efa5146988240db1707a3cf0
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: c26224f388c09ec758373c877004f5485bb420df
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182119"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97725076"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-terraform-cloud"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Terraform Cloud
 
@@ -76,7 +76,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode Initié par le **fournisseur d’identité**, entrez les valeurs pour les champs suivants :
+1. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode lancé par le **fournisseur d’identité**, effectuez les étapes suivantes :
 
     Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://app.terraform.io/sso/saml/samlconf-<ID>/metadata`
 
@@ -116,7 +116,15 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 ## <a name="configure-terraform-cloud-sso"></a>Configurer l’authentification unique Terraform Cloud
 
-1. Dans une autre fenêtre de navigateur web, connectez-vous au site web Terraform Cloud en tant qu’administrateur.
+1. Pour automatiser la configuration dans Terraform Cloud, vous devez installer l’**extension de navigateur My Apps Secure Sign-in** en cliquant sur **Installer l’extension**.
+
+    ![Extension My apps](common/install-myappssecure-extension.png)
+
+2. Une fois l’extension ajoutée au navigateur, un clic sur **Configurer Terraform Cloud** vous redirige vers l’application Terraform Cloud. À partir de là, indiquez les informations d’identification de l’administrateur pour vous connecter à Terraform Cloud. Cette extension de navigateur configure automatiquement l’application et automatise les étapes 3 à 5.
+
+    ![Configuration](common/setup-sso.png)
+
+3. Si vous souhaitez configurer Terraform Cloud manuellement, dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise Terraform Cloud en tant qu’administrateur.
 
 2. Accédez à **Settings > SSO > Edit Settings** (Paramètres > SSO > Modifier les paramètres)
 

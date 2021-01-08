@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/03/2020
-ms.openlocfilehash: 21ccbc83c80e1b659dd240973a609d624f270835
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: cb7a441a6d86cd64847300d1e597cf6f86067282
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97028510"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740944"
 ---
 # <a name="quickstart-create-an-azure-sql-database-single-database"></a>Démarrage rapide : Créer une base de données Azure SQL
 
@@ -141,7 +141,7 @@ az sql server firewall-rule create \
 ```
 
 
-## <a name="create-a-single-database"></a>Créer une base de données unique
+## <a name="create-a-single-database-with-azure-cli"></a>Créer une base de données unique avec Azure CLI
 
 Créez une base de données avec la commande [az sql db create](/cli/azure/sql/db). Le code suivant permet la création
 
@@ -230,7 +230,7 @@ Créez une règle de pare-feu de serveur avec l’applet de commande [New-AzSqlS
 ```
 
 
-## <a name="create-a-single-database"></a>Créer une base de données unique
+## <a name="create-a-single-database-with-powershell"></a>Créer une base de données unique avec PowerShell
 
 Créez une base de données unique avec l’applet de commande [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase).
 

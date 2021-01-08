@@ -5,12 +5,12 @@ author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: d1e5848e568f42fb8a77c65c775962f27a5a03df
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: a77f64e51a26e1f916f9f96704c55412a870a509
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97588034"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673934"
 ---
 # <a name="tutorial-create-arm-templates-with-dependent-resources"></a>Tutoriel : Créer des modèles ARM avec des ressources dépendantes
 
@@ -28,6 +28,8 @@ Ce tutoriel décrit les tâches suivantes :
 > * Déployer le modèle
 
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
+
+Pour lire un module Microsoft Learn qui aborde les dépendances de ressources, consultez [Gérer des déploiements cloud complexes à l’aide des fonctionnalités avancées de modèle ARM](/learn/modules/manage-deployments-advanced-arm-template-features/).
 
 ## <a name="prerequisites"></a>Prérequis
 

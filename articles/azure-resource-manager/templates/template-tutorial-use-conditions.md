@@ -5,12 +5,12 @@ author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: f044863be7d0bfaaad57d3974a1d2856b27927ea
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: bc6dc5b385a39ddb1c4f1663649ea21e5ed14767
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97589132"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97669310"
 ---
 # <a name="tutorial-use-condition-in-arm-templates"></a>Tutoriel : Utiliser une condition dans des modèles ARM
 
@@ -34,6 +34,8 @@ Ce tutoriel traite uniquement d’un scénario de base d’utilisation de condit
 * [Déployer une ressource de manière conditionnelle dans un modèle ARM](/azure/architecture/building-blocks/extending-templates/conditional-deploy).
 * [Fonction de modèle : If](./template-functions-logical.md#if).
 * [Fonctions de comparaison pour les modèles ARM](./template-functions-comparison.md)
+
+Pour lire un module Microsoft Learn qui aborde les conditions, consultez [Gérer des déploiements cloud complexes à l’aide des fonctionnalités avancées de modèle ARM](/learn/modules/manage-deployments-advanced-arm-template-features/).
 
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 

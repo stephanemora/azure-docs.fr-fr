@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to,automl,contperf-fy21q2
 ms.date: 12/18/2020
-ms.openlocfilehash: 526afe758063ce6c5f6bd86f8192f56d5f844a85
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: b26b0d9086f464556cbca2c70773374c3cccbd52
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97694001"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915859"
 ---
 # <a name="data-featurization-in-automated-machine-learning"></a>Caractérisation de données dans le Machine Learning automatisé
 
@@ -68,9 +68,6 @@ Le tableau suivant récapitule les techniques appliquées automatiquement à vos
 |_*Générer plus de fonctionnalités**_ |Pour les caractéristiques de type date/heure : Année, Mois, Jour, Jour de la semaine, Jour de l’année, Trimestre, Semaine de l’année, Heure, Minute, Seconde.<br><br> _Pour les tâches de prévision,* ces fonctionnalités DateHeure supplémentaires sont créées : Année ISO, Semestre - semestre, Mois civil comme chaîne, Semaine, Jour de la semaine comme chaîne, Jour du trimestre, Jour de l’année, AM/PM (0 si l’heure se situe avant midi (12 pm), sinon 1), AM/PM comme chaîne, Heure de la journée (base de 12 heures)<br/><br/>Pour les caractéristiques de type texte : Fréquence des termes basée sur les unigrammes, les bigrammes et les trigrammes. En savoir plus sur [comment cela se passe avec BERT.](#bert-integration)|
 |**Transformer et encoder** _|Les fonctionnalités numériques avec très peu de valeurs uniques sont transformées en fonctionnalités catégorielles.<br/><br/>L’encodage one-hot est utilisé pour les fonctionnalités catégoriques de faible cardinalité. L’encodage one-hot-hash est utilisé pour les fonctionnalités catégoriques de haute cardinalité.|
 |_ *Incorporations de mots**|Caractériseur de texte convertissant les vecteurs de jetons de texte en vecteurs de phrase à l’aide d’un modèle déjà formé. Le vecteur d’incorporation de chaque mot d’un document est agrégé avec le reste pour produire un vecteur de fonctionnalité de document.|
-|**Encodages cibles**|Pour les fonctionnalités catégorielles, cette étape mappe chaque catégorie avec une valeur cible moyenne pour les problèmes de régression, et à la probabilité de chaque classe pour les problèmes de classification. Une pondération basée sur la fréquence et une validation croisée par échantillons (« k-fold ») sont appliquées pour réduire l’ajustement du mappage et le bruit provoqué par les catégories de données éparses.|
-|**Encodage de texte cible**|Pour l'entrée de texte, un modèle linéaire empilé avec « bag-of-words » est utilisé afin de générer la probabilité de chaque classe.|
-|**WoE (Poids de la preuve)**|Calcule la valeur WoE en tant que mesure de corrélation des colonnes catégorielles vers la colonne cible. Le WoE est calculé en tant qu'enregistrement du ratio de probabilités à l'intérieur et à l'extérieur de la classe. Cette étape produit une colonne de fonctionnalités numériques par classe et évite d'avoir à imputer les valeurs manquantes et le traitement de valeur hors norme.|
 |**Distance de cluster**|Effectue l’apprentissage d’un modèle de clustering k-moyennes sur toutes les colonnes numériques. Génère de nouvelles fonctionnalités *k*, une nouvelle fonctionnalité numérique par cluster, contenant la distance de chaque échantillon par rapport au centroïde de chaque cluster.|
 
 ## <a name="data-guardrails"></a>Garde-fous des données

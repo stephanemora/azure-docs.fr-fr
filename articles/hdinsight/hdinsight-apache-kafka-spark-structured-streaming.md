@@ -1,6 +1,6 @@
 ---
 title: 'Tutoriel : Diffusion en continu Apache Spark et Apache Kafka – Azure HDInsight'
-description: Découvrez comment utiliser la diffusion en continu Apache Spark pour échanger des flux de données avec Apache Kafka. Dans ce didacticiel, vous diffusez des données avec un bloc-notes Jupyter à partir de Spark sur HDInsight.
+description: Découvrez comment utiliser la diffusion en continu Apache Spark pour échanger des flux de données avec Apache Kafka. Dans ce tutoriel, vous allez diffuser des données en continu à partir de Spark sur HDInsight, à l’aide d’un notebook Jupyter.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,seodec18,seoapr2020
 ms.date: 04/22/2020
-ms.openlocfilehash: 8aa7401a2ee7a0d87736e6b18fc814f983e2afa0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9af0349326cf82ed9d050c367b6ed784c9ea9ce9
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82184195"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97821126"
 ---
 # <a name="tutorial-use-apache-spark-structured-streaming-with-apache-kafka-on-hdinsight"></a>Tutoriel : Utiliser Apache Spark Structured Streaming avec Apache Kafka sur HDInsight
 

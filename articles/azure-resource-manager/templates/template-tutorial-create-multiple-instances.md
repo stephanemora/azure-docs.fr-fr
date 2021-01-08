@@ -6,12 +6,12 @@ ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: fc1401959adb97f8c4caf6d413a212d9f3b62801
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: e669e27547633639a88674ffee499fb1d84facdf
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97588112"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673951"
 ---
 # <a name="tutorial-create-multiple-resource-instances-with-arm-templates"></a>Tutoriel : Créer plusieurs instances de ressources grâce à des modèles ARM
 
@@ -27,6 +27,8 @@ Ce tutoriel décrit les tâches suivantes :
 > * Déployer le modèle
 
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
+
+Pour lire un module Microsoft Learn qui aborde la copie des ressources, consultez [Gérer des déploiements cloud complexes à l’aide des fonctionnalités avancées de modèle ARM](/learn/modules/manage-deployments-advanced-arm-template-features/).
 
 ## <a name="prerequisites"></a>Prérequis
 

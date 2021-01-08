@@ -4,12 +4,12 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 11/20/2020
 ms.author: parkerra
-ms.openlocfilehash: d969b1639dbb39b920c985964abe1239f068d740
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 81d2804d99896200ea6f68592ea168112e172c20
+ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185265"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97762598"
 ---
 Sélectionnez **Build**. Dans le volet qui s’ouvre, sélectionnez un dossier vers lequel exporter le projet Xcode.
 
@@ -30,9 +30,9 @@ open ./Unity-iPhone.xcodeproj
 
 Sélectionnez le nœud racine **Unity-iPhone** pour voir les paramètres du projet, puis sélectionnez l’onglet **General**.
 
-Sous **Signing** (Signature), vérifiez que l’option **Automatically manage signing** (Gérer automatiquement la signature) est activée. Si ce n’est pas le cas, activez-la, puis réinitialisez les paramètres de génération en sélectionnant **Enable Automatic** (Activer l’option automatique) dans le volet qui s’affiche.
+Sous **Deployment Info**, vérifiez que la cible de déploiement est **iOS 11.0**.
 
-Sous **Deployment Info** (Informations sur le déploiement), assurez-vous que l’option **Deployment Target** (Cible de déploiement) est définie sur **11.0**.
+Sélectionnez l’onglet **Signing & Capabilities** et vérifiez que l’option **Automatically manage signing** (Gérer automatiquement la signature) est activée. Si ce n’est pas le cas, activez-la, puis réinitialisez les paramètres de génération en sélectionnant **Enable Automatic** (Activer l’option automatique) dans le volet qui s’affiche.
 
 ## <a name="deploy-the-app-to-your-ios-device"></a>Déployer l’application sur votre appareil iOS
 

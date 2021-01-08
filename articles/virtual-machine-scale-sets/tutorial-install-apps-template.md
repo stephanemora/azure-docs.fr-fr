@@ -9,12 +9,12 @@ ms.subservice: template
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 2d748f787b40bb26e9faebb028d71c6c3e30ee55
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: d5eba5486e7d26e62379e0112cd4b95322e6dae1
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94516558"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705232"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-an-azure-template"></a>Tutoriel : Installer des applications dans des groupes de machines virtuelles identiques avec un modèle Azure
 Pour exécuter des applications sur des instances de machine virtuelle d’un groupe identique, vous devez d’abord installer les composants d’application et les fichiers requis. Dans un didacticiel précédent, vous avez appris à créer et utiliser une image personnalisée de machine virtuelle pour déployer vos instances de machine virtuelle. Cette image personnalisée comprenait l’installation et la configuration manuelles d’applications. Vous pouvez également automatiser l’installation des applications pour un groupe identique après le déploiement de chaque instance de machine virtuelle, ou mettre à jour une application déjà exécutée dans un groupe identique. Ce didacticiel vous montre comment effectuer les opérations suivantes :
@@ -76,10 +76,10 @@ Nous allons utiliser le modèle exemple pour créer un groupe identique et appli
 az group create --name myResourceGroup --location eastus
 ```
 
-Créez à présent un groupe identique de machines virtuelles avec [az group deployment create](/cli/azure/group/deployment). Lorsque vous y êtes invité, fournissez votre propre nom d’utilisateur et mot de passe utilisés comme informations d’identification pour chaque instance de machine virtuelle :
+Créez à présent un groupe de machines virtuelles identiques avec [az deployment group create](/cli/azure/deployment/group). Lorsque vous y êtes invité, fournissez votre propre nom d’utilisateur et mot de passe utilisés comme informations d’identification pour chaque instance de machine virtuelle :
 
 ```azurecli-interactive
-az group deployment create \
+az deployment group create \
   --resource-group myResourceGroup \
   --template-uri https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/scale_sets/azuredeploy.json
 ```
@@ -134,10 +134,10 @@ Pour mettre à jour la définition de l’extension de script personnalisé, mod
 }
 ```
 
-Appliquez la configuration de l’extension de script personnalisé aux instances de machine virtuelle dans votre groupe identique de nouveau avec [az group deployment create](/cli/azure/group/deployment). Ce modèle *azuredeployv2.json* est utilisé pour appliquer la version mise à jour de l’application. Dans la pratique, vous modifiez le modèle *azuredeploy.json* existant pour faire référence au script d’installation mis à jour, comme indiqué dans la section précédente. Lorsque vous y êtes invité, entrez le nom d’utilisateur et mot de passe utilisés lors de la création du groupe identique :
+Appliquez la configuration de l’extension de script personnalisé aux instances de machine virtuelle dans votre groupe de machines virtuelles identiques de nouveau avec [az deployment group create](/cli/azure/deployment/group). Ce modèle *azuredeployv2.json* est utilisé pour appliquer la version mise à jour de l’application. Dans la pratique, vous modifiez le modèle *azuredeploy.json* existant pour faire référence au script d’installation mis à jour, comme indiqué dans la section précédente. Lorsque vous y êtes invité, entrez le nom d’utilisateur et mot de passe utilisés lors de la création du groupe identique :
 
 ```azurecli-interactive
-az group deployment create \
+az deployment group create \
   --resource-group myResourceGroup \
   --template-uri https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/scale_sets/azuredeploy_v2.json
 ```

@@ -3,14 +3,14 @@ title: Créer votre première fonction durable dans Azure en Python
 description: Créez et publiez une fonction durable Azure dans Python à l’aide de Visual Studio Code.
 author: anthonychu
 ms.topic: quickstart
-ms.date: 04/04/2020
+ms.date: 12/23/2020
 ms.reviewer: azfuncdf, antchu
-ms.openlocfilehash: 5d624027259212d804ced26a6daaffb853984a98
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0cc321563de645aeb1d204b67b0ab72053d79c7e
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012627"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97763555"
 ---
 # <a name="create-your-first-durable-function-in-python"></a>Créer votre première fonction durable en Python
 
@@ -40,7 +40,7 @@ Pour suivre ce tutoriel :
 
 Dans cette section, vous utilisez Visual Studio Code pour créer un projet Azure Functions local. 
 
-1. Dans Visual Studio Code, appuyez sur F1 (ou Ctrl/Cmd+Maj+P) pour ouvrir la palette de commandes. Dans la palette de commandes, recherchez et sélectionnez `Azure Functions: Create New Project...`.
+1. Dans Visual Studio Code, appuyez sur F1 (ou <kbd>Ctrl/Cmd+Maj+P</kbd>) pour ouvrir la palette de commandes. Dans la palette de commandes, recherchez et sélectionnez `Azure Functions: Create New Project...`.
 
     ![Créer une fonction](media/quickstart-python-vscode/functions-create-project.png)
 
@@ -60,18 +60,33 @@ Visual Studio Code installe la solution Azure Functions Core Tools, si nécessai
 
 Un fichier requirements.txt est également créé dans le dossier racine. Il spécifie les packages Python nécessaires pour exécuter votre application de fonction.
 
+## <a name="update-azure-functions-extension-bundles-version"></a>Mettre à jour la version des bundles d’extensions Azure Functions
+
+Azure Functions pour Python nécessite la version 2.x des [bundles d’extensions Azure Functions](../functions-bindings-register.md#access-extensions-in-non-net-languages). Les bundles d’extensions sont configurés dans *host.json*.
+
+1. Ouvrez *host.json* dans le projet. Mettez à jour le bundle d’extensions `version` vers `[2.*, 3.0.0)`. Cela spécifie une plage de versions supérieure ou égale à 2.0 et inférieure à 3.0.
+
+    ```json
+    "extensionBundle": {
+    "id": "Microsoft.Azure.Functions.ExtensionBundle",
+    "version": "[2.*, 3.0.0)"
+    }
+    ```
+
+1. VS Code doit être rechargé avant que la version mise à jour du bundle d’extensions ne soit répercutée. Dans la palette de commandes, recherchez la commande *Développeur : Recharger la fenêtre* et exécutez-la.
+
 ## <a name="install-azure-functions-durable-from-pypi"></a>Installer azure-functions-durable à partir de PyPI
 
 Quand vous avez créé le projet, l’extension Azure Functions de VS Code a automatiquement créé un environnement virtuel en utilisant la version de Python que vous avez sélectionnée. Vous allez maintenant activer l’environnement virtuel dans un terminal et installer certaines dépendances requises par Azure Functions et Durable Functions.
 
-1. Ouvrez le fichier `requirements.txt` dans l’éditeur et remplacez son contenu par ce qui suit :
+1. Ouvrez le fichier *requirements.txt* dans l’éditeur et remplacez son contenu par ce qui suit :
 
     ```
     azure-functions
-    azure-functions-durable>=1.0.0b6
+    azure-functions-durable>=1.0.0b12
     ```
 
-1. Ouvrez le terminal intégré de l’éditeur dans le dossier actif (`` Ctrl-Shift-` ``).
+1. Ouvrez le terminal intégré de l’éditeur dans le dossier actif (<kbd>Ctrl+Maj+`</kbd>).
 
 1. Dans le terminal intégré, activez l’environnement virtuel dans le dossier actif :
 
@@ -203,7 +218,7 @@ Azure Functions Core Tools vous permet d’exécuter un projet Azure Functions s
     }
     ```
 
-1. Pour arrêter le débogage, appuyez sur **Maj + F5** dans VS Code.
+1. Pour arrêter le débogage, appuyez sur <kbd>Maj+F5</kbd> dans VS Code.
 
 Après avoir vérifié que la fonction s’exécute correctement sur votre ordinateur local, il est temps de publier le projet sur Azure.
 

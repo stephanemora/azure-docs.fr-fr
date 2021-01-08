@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: overview
 ms.date: 09/30/2019
-ms.openlocfilehash: d8b6a852ff0aeb287b12d63bfa689a38a56d418f
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 00ae812536e73f432b9bddb93fc1b4a958b379f5
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96485011"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97812866"
 ---
 # <a name="what-is-azure-data-factory"></a>qu'est-ce qu'Azure Data Factory ?
 
@@ -56,8 +56,7 @@ Une fois que les données sont présentes dans un magasin de données centralis�
 Si vous préférez programmer des transformations manuellement, Azure Data Factory prend en charge les activités externes pour l’exécution de vos transformations sur des services de calcul comme HDInsight Hadoop, Spark, Data Lake Analytics et Machine Learning.
 
 ### <a name="cicd-and-publish"></a>CI/CD et publication
-Data Factory offre une prise en charge complète de l’intégration continue/livraison continue (CI/CD) de vos pipelines de données avec Azure DevOps et GitHub. Ceci vous permet de développer et de distribuer de façon incrémentielle vos processus ETL avant de publier le produit fini. Une fois que les données brutes ont été affinées sous une forme utilisable par l’entreprise, chargez-les dans Azure Data Warehouse, Azure SQL Database, Azure CosmosDB ou n’importe quel moteur d’analyse auquel vos utilisateurs peuvent accéder à partir de leurs outils d’analyse décisionnelle.
-
+[Data Factory offre une prise en charge complète de l’intégration continue/livraison continue (CI/CD)](continuous-integration-deployment.md) de vos pipelines de données avec Azure DevOps et GitHub. Ceci vous permet de développer et de distribuer de façon incrémentielle vos processus ETL avant de publier le produit fini. Une fois que les données brutes ont été affinées sous une forme utilisable par l’entreprise, chargez-les dans Azure Data Warehouse, Azure SQL Database, Azure CosmosDB ou n’importe quel moteur d’analyse auquel vos utilisateurs peuvent accéder à partir de leurs outils d’analyse décisionnelle.
 ### <a name="monitor"></a>Superviser
 Une fois que vous avez créé et déployé votre pipeline d’intégration de données afin de bénéficier de la valeur commerciale fournie par les données affinées, surveillez les activités planifiées et les pipelines pour connaître les taux de réussite et d’échec. Azure Data Factory intègre une prise en charge de la supervision des pipelines par le biais d’Azure Monitor, une API, PowerShell, des journaux Azure Monitor et les panneaux de contrôle d’intégrité du portail Azure.
 

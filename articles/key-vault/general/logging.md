@@ -8,14 +8,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 08/12/2019
+ms.date: 12/18/2020
 ms.author: mbaldwin
-ms.openlocfilehash: eef4f6b8ee5821e54b5b7709eee7f8dad8749e63
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: b1f7b115c5a8198b53e36672a891903a41a9511b
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94488534"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704127"
 ---
 # <a name="azure-key-vault-logging"></a>Journalisation d’Azure Key Vault
 
@@ -23,7 +23,7 @@ Une fois que vous avez créé un ou plusieurs coffres de clés, vous voulez prob
 
 Vous pouvez accéder aux informations de journalisation 10 minutes (au maximum) après l’opération sur le coffre de clés. Dans la plupart des cas, ce sera plus rapide.  C’est à vous de gérer vos journaux d’activité dans votre compte de stockage :
 
-* Utilisez les méthodes de contrôle d’accès Azure standard pour assurer la sécurité de vos journaux d’activité en limitant l’accès à ces derniers.
+* Utilisez les méthodes de contrôle d’accès Azure standard dans votre compte de stockage pour assurer la sécurité de vos journaux en limitant l’accès à ces derniers.
 * Supprimez les journaux d’activité que vous ne souhaitez plus conserver dans votre compte de stockage.
 
 Pour obtenir des informations générales sur Key Vault, consultez l’article [Qu’est-ce qu’Azure Key Vault ?](overview.md). Pour plus d’informations sur les endroits où Key Vault est disponible, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/key-vault/). Découvrez plus d’informations sur l’utilisation d’[Azure Monitor pour Key Vault](../../azure-monitor/insights/key-vault-insights-overview.md).
@@ -85,6 +85,8 @@ Le tableau ci-après répertorie les valeurs **operationName** et les commandes 
 
 ### <a name="operation-names-table"></a>Table des noms d’opération
 
+# <a name="vault"></a>[Coffre](#tab/Vault)
+
 | operationName | Commande API REST |
 | --- | --- |
 | **Authentification** |Authentification par le biais du point de terminaison Azure Active Directory |
@@ -97,6 +99,12 @@ Le tableau ci-après répertorie les valeurs **operationName** et les commandes 
 | **VaultRecover** |Récupérer un coffre supprimé|
 | **VaultGetDeleted** |[Obtenir un coffre supprimé](/rest/api/keyvault/vaults/getdeleted) |
 | **VaultListDeleted** |[Lister les coffres supprimés](/rest/api/keyvault/vaults/listdeleted) |
+| **VaultAccessPolicyChangedEventGridNotification** | Événement lié à la modification de la stratégie d’accès au coffre publié |
+
+# <a name="keys"></a>[Clés](#tab/Keys)
+
+| operationName | Commande API REST |
+| --- | --- |
 | **KeyCreate** |[Création d’une clé](/rest/api/keyvault/createkey) |
 | **KeyGet** |[Obtention des informations sur une clé](/rest/api/keyvault/getkey) |
 | **KeyImport** |[Importation d’une clé dans un coffre](/rest/api/keyvault/vaults) |
@@ -116,36 +124,13 @@ Le tableau ci-après répertorie les valeurs **operationName** et les commandes 
 | **KeyRecover** |[Récupérer une clé](/rest/api/keyvault/recoverdeletedkey) |
 | **KeyGetDeleted** |[Obtenir une clé supprimée](/rest/api/keyvault/getdeletedkey) |
 | **KeyListDeleted** |[Lister les clés supprimées dans un coffre](/rest/api/keyvault/getdeletedkeys) |
-| **CertificateGet** |[Obtenir des informations sur un certificat](/rest/api/keyvault/getcertificate) |
-| **CertificateCreate** |[Créer un certificat](/rest/api/keyvault/createcertificate) |
-| **CertificateImport** |[Importer un certificat dans un coffre](/rest/api/keyvault/importcertificate) |
-| **CertificateUpdate** |[Mettre à jour un certificat](/rest/api/keyvault/updatecertificate) |
-| **CertificateList** |[Lister les certificats d’un coffre](/rest/api/keyvault/getcertificates) |
-| **CertificateListVersions** |[Lister les versions d’un certificat](/rest/api/keyvault/getcertificateversions) |
-| **CertificateDelete** |[Supprimer un certificat](/rest/api/keyvault/deletecertificate) |
-| **CertificatePurge** |[Vider un certificat](/rest/api/keyvault/purgedeletedcertificate) |
-| **CertificateBackup** |[Sauvegarder un certificat](/rest/api/keyvault/backupcertificate) |
-| **CertificateRestore** |[Restaurer un certificat](/rest/api/keyvault/restorecertificate) |
-| **CertificateRecover** |[Récupérer un certificat](/rest/api/keyvault/recoverdeletedcertificate) |
-| **CertificateGetDeleted** |[Obtenir un certificat supprimé](/rest/api/keyvault/getdeletedcertificate) |
-| **CertificateListDeleted** |[Lister les certificats supprimés d’un coffre](/rest/api/keyvault/getdeletedcertificates) |
-| **CertificatePolicyGet** |[Obtenir une stratégie de certificat](/rest/api/keyvault/getcertificatepolicy) |
-| **CertificatePolicyUpdate** |[Mettre à jour une stratégie de certificat](/rest/api/keyvault/updatecertificatepolicy) |
-| **CertificatePolicySet** |[Créer une stratégie de certificat](/rest/api/keyvault/createcertificate) |
-| **CertificateContactsGet** |[Obtenir des contacts de certificat](/rest/api/keyvault/getcertificatecontacts) |
-| **CertificateContactsSet** |[Définir des contacts de certificat](/rest/api/keyvault/setcertificatecontacts) |
-| **CertificateContactsDelete** |[Supprimer des contacts de certificat](/rest/api/keyvault/deletecertificatecontacts) |
-| **CertificateIssuerGet** |[Obtenir un émetteur de certificat](/rest/api/keyvault/getcertificateissuer) |
-| **CertificateIssuerSet** |[Définir un émetteur de certificat](/rest/api/keyvault/setcertificateissuer) |
-| **CertificateIssuerUpdate** |[Mettre à jour un émetteur de certificat](/rest/api/keyvault/updatecertificateissuer) |
-| **CertificateIssuerDelete** |[Supprimer un émetteur de certificat](/rest/api/keyvault/deletecertificateissuer) |
-| **CertificateIssuersList** |[Lister les émetteurs de certificats](/rest/api/keyvault/getcertificateissuers) |
-| **CertificateEnroll** |Inscrire un certificat |
-| **CertificateRenew** |Renouveler un certificat |
-| **CertificatePendingGet** |Récupérer le certificat en attente |
-| **CertificatePendingMerge** |En attente d’une fusion de certificats |
-| **CertificatePendingUpdate** |En attente d’une mise à jour de certificat |
-| **CertificatePendingDelete** |Supprimer un certificat en attente |
+| **KeyNearExpiryEventGridNotification** |Événement lié à une clé proche de l’expiration publié |
+| **KeyExpiredEventGridNotification** |Événement lié à une clé expirée publié |
+
+# <a name="secrets"></a>[Secrets](#tab/Secrets)
+
+| operationName | Commande API REST |
+| --- | --- |
 | **SecretSet** |[Création d’une clé secrète](/rest/api/keyvault/updatecertificate) |
 | **SecretGet** |[Obtention d’un secret](/rest/api/keyvault/getsecret) |
 | **SecretUpdate** |[Mise à jour d’une clé secrète](/rest/api/keyvault/updatesecret) |
@@ -158,13 +143,17 @@ Le tableau ci-après répertorie les valeurs **operationName** et les commandes 
 | **SecretRecover** |[Récupérer un secret](/rest/api/keyvault/recoverdeletedsecret) |
 | **SecretGetDeleted** |[Obtenir un secret supprimé](/rest/api/keyvault/getdeletedsecret) |
 | **SecretListDeleted** |[Lister les secrets supprimés dans un coffre](/rest/api/keyvault/getdeletedsecrets) |
-| **VaultAccessPolicyChangedEventGridNotification** | Événement lié à la modification de la stratégie d’accès au coffre publié |
 | **SecretNearExpiryEventGridNotification** |Événement lié à un secret proche de l’expiration publié |
 | **SecretExpiredEventGridNotification** |Événement lié à un secret expiré publié |
-| **KeyNearExpiryEventGridNotification** |Événement lié à une clé proche de l’expiration publié |
-| **KeyExpiredEventGridNotification** |Événement lié à une clé expirée publié |
-| **CertificateNearExpiryEventGridNotification** |Événement lié à un certificat proche de l’expiration publié |
-| **CertificateExpiredEventGridNotification** |Événement lié à un certificat expiré publié |
+
+# <a name="certificates"></a>[Certificats](#tab/Cerificates)
+
+| operationName | Commande API REST |
+| --- | --- |
+
+| **CertificateGet** |[Obtenir des informations sur un certificat](/rest/api/keyvault/getcertificate) | | **CertificateCreate** |[Créer un certificat](/rest/api/keyvault/createcertificate) | | **CertificateImport** |[Importer un certificat dans un coffre](/rest/api/keyvault/importcertificate) | | **CertificateUpdate** |[Mettre à jour un certificat](/rest/api/keyvault/updatecertificate) | | **CertificateList** |[Lister les certificats dans un coffre](/rest/api/keyvault/getcertificates) | | **CertificateListVersions** |[Lister les versions d’un certificat](/rest/api/keyvault/getcertificateversions) | | **CertificateDelete** |[Supprimer un certificat](/rest/api/keyvault/deletecertificate) | | **CertificatePurge** |[Vider un certificat](/rest/api/keyvault/purgedeletedcertificate) | | **CertificateBackup** |[Sauvegarder un certificat](/rest/api/keyvault/backupcertificate) | | **CertificateRestore** |[Restaurer un certificat](/rest/api/keyvault/restorecertificate) | | **CertificateRecover** |[Récupérer un certificat](/rest/api/keyvault/recoverdeletedcertificate) | | **CertificateGetDeleted** |[Obtenir un certificat supprimé](/rest/api/keyvault/getdeletedcertificate) | | **CertificateListDeleted** |[Lister les certificats supprimés dans un coffre](/rest/api/keyvault/getdeletedcertificates) | | **CertificatePolicyGet** |[Obtenir la stratégie de certificat | | **CertificatePolicyUpdate** |[Mettre à jour la stratégie de](/rest/api/keyvault/getcertificatepolicy) certificat](/rest/api/keyvault/updatecertificatepolicy) | | **CertificatePolicySet** |[Créer une stratégie de certificat](/rest/api/keyvault/createcertificate) | | **CertificateContactsGet** |[Accéder aux contacts](/rest/api/keyvault/getcertificatecontacts) | | **CertificateContactsSet** |[Définir des contacts de certificat](/rest/api/keyvault/setcertificatecontacts) | | **CertificateContactsDelete** |[Supprimer des contacts de certificat](/rest/api/keyvault/deletecertificatecontacts) | | **CertificateIssuerGet** |[Obtenir l’émetteur de certificat](/rest/api/keyvault/getcertificateissuer) | | **CertificateIssuerSet** |[Définir l’émetteur de certificat](/rest/api/keyvault/setcertificateissuer) | | **CertificateIssuerUpdate** |[Mettre à jour l’émetteur de certificat](/rest/api/keyvault/updatecertificateissuer) | | **CertificateIssuerDelete** |[Supprimer l’émetteur de certificat](/rest/api/keyvault/deletecertificateissuer) | | **CertificateIssuersList** |[Lister les émetteurs de certificat](/rest/api/keyvault/getcertificateissuers) | | **CertificateEnroll** |Inscrire un certificat | | **CertificateRenew** |Renouveler un certificat | | **CertificatePendingGet** |Récupérer un certificat en attente | | **CertificatePendingMerge** |Mettre en attente une fusion de certificats | | **CertificatePendingUpdate** |Mettre en attente une mise à jour de certificat | | **CertificatePendingDelete** |Supprimer un certificat en attente | | **CertificateNearExpiryEventGridNotification** |Événement d’expiration prochaine de certificat publié |
+<a name="-certificateexpiredeventgridnotification-certificate-expired-event-published-"></a>| **CertificateExpiredEventGridNotification** |Événement de certificat expiré publié |
+---
 
 ## <a name="use-azure-monitor-logs"></a>Utiliser les journaux d’activité Azure Monitor
 
@@ -175,6 +164,7 @@ Pour plus d’informations, notamment sur la procédure de configuration corresp
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Guide pratique pour activer la journalisation de Key Vault](howto-logging.md)
+- [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/)
 - Pour accéder à un tutoriel utilisant Azure Key Vault dans une application web .NET, consultez l’article [Utilisation d’Azure Key Vault à partir d’une application web](tutorial-net-create-vault-azure-web-app.md).
 - Pour les références de programmation, consultez le [guide du développeur de coffre de clés Azure](developers-guide.md).
 - Pour obtenir la liste des cmdlets Azure PowerShell 1.0 concernant Azure Key Vault, consultez l’article [Azure Key Vault Cmdlets](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault) (Cmdlets Azure Key Vault).

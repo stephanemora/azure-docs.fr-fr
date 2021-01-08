@@ -11,12 +11,12 @@ ms.workload: infrastructure
 ms.date: 1/3/2020
 ms.author: ushan
 ms.custom: devops, devx-track-js
-ms.openlocfilehash: 6bc6776df889c5c8ccc6acfe5764549ccf7354a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d26da693d83fd680c644849d581ea35ca7b49af
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320198"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739703"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-using-azure-devops-services-and-azure-pipelines"></a>Tutoriel : Déployer votre application sur des machines virtuelles Linux dans Azure à l’aide d’Azure DevOps Services et d’Azure Pipelines
 
@@ -202,7 +202,7 @@ Pour plus d’informations, suivez les étapes mentionnées dans [Générer votr
 
 - Examinez le pipeline pour voir à quoi il sert. Vérifiez que toutes les entrées par défaut sont adaptées à votre code.
 
-- Sélectionnez **Enregistrer et exécuter**. Ensuite, sélectionnez **Commiter directement sur la branche maître**, puis choisissez à nouveau **Enregistrer et réexécuter**.
+- Sélectionnez **Enregistrer et exécuter**, **Valider directement sur la branche primaire**, puis choisissez à nouveau **Enregistrer et exécuter**.
 
 - Une nouvelle exécution est lancée. Attendez la fin de l’exécution.
 

@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 8979e315f188a5c21cce206c24f195f72096d438
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: b338b8ee93fb24cff54968630d4ff00deca0b64b
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516511"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606723"
 ---
 # <a name="introduction-to-azure-defender-for-storage"></a>Présentation d’Azure Defender pour le stockage
 
@@ -20,7 +20,6 @@ ms.locfileid: "97516511"
 **Azure Defender pour Stockage** est une couche de sécurité intelligente native Azure qui détecte les tentatives d’accès ou d’exploitation inhabituelles et potentiellement dangereuses de vos comptes de stockage. Il utilise les fonctionnalités avancées de l’IA de sécurité et de [Microsoft Threat Intelligence](https://go.microsoft.com/fwlink/?linkid=2128684) pour fournir des recommandations et des alertes de sécurité contextuelles.
 
 Les alertes de sécurité sont déclenchées lorsque des anomalies se produisent dans l’activité. Ces alertes sont intégrées à Azure Security Center et envoyées par e-mail aux administrateurs d’abonnement avec les détails des activités suspectes et des recommandations sur la façon d’examiner et de corriger les menaces.
-
 
 ## <a name="availability"></a>Disponibilité
 
@@ -31,6 +30,17 @@ Les alertes de sécurité sont déclenchées lorsque des anomalies se produisent
 |Types de stockage protégés :|[Stockage Blob](https://azure.microsoft.com/services/storage/blobs/)<br>[Azure Files](../storage/files/storage-files-introduction.md)<br>[Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)|
 |Clouds :|![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Oui](./media/icons/yes-icon.png) Gouvernement des États-Unis<br>![Non](./media/icons/no-icon.png) Chine Gov, autres Gov|
 |||
+
+
+## <a name="what-are-the-benefits-of-azure-defender-for-storage"></a>Quels sont les avantages d’Azure Defender pour le stockage ?
+
+Azure Defender pour le stockage offre les avantages suivants :
+
+- **Sécurité native Azure** : l’activation en un clic permet à Defender pour le stockage de protéger les données stockées dans les objets blob Azure, les fichiers Azure et les lacs de données. En tant que service natif Azure, Defender pour le stockage offre une sécurité centralisée sur l’ensemble des ressources de données gérées par Azure et est intégré à d’autres services de sécurité Azure comme Azure Sentinel.
+- **Suite de détection riche** : la technologie Microsoft Threat Intelligence permet aux détections dans Defender pour le stockage de couvrir les principales menaces de stockage telles que l’accès anonyme, les informations d’identification compromises, l’ingénierie sociale, les abus de privilèges et le contenu malveillant.
+- **Réponse à grande échelle** : les outils d’automatisation de Security Center facilitent la prévention et la réponse par rapport aux menaces identifiées. Pour en savoir plus, consultez [Automatiser les réponses aux déclencheurs Security Center](workflow-automation.md).
+
+:::image type="content" source="media/defender-for-storage-introduction/defender-for-storage-high-level-overview.png" alt-text="Présentation générale des fonctionnalités d’Azure Defender pour le stockage":::
 
 
 ## <a name="what-kind-of-alerts-does-azure-defender-for-storage-provide"></a>Quels sont les types d’alertes fournis par Azure Defender pour le stockage ?

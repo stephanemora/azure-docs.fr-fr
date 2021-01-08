@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 97d95f9993f85a51ac7baa69ebb331f6c8588c18
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: acc1660be99b3b7cc9a3c7414c47f9f6e159b559
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318717"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674096"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-frankly"></a>Didacticiel : Intégration d’Azure Active Directory dans &frankly
 
@@ -63,7 +63,7 @@ Pour configurer l’intégration de &frankly dans Azure AD, vous devez ajouter &
 
 4. Dans la zone de recherche, tapez **&frankly**, sélectionnez **&frankly** dans le panneau de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
-     ![&frankly dans la liste des résultats](common/search-new-app.png)
+    ![&frankly dans la liste des résultats](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
@@ -145,7 +145,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
     ![Boîte de dialogue Utilisateur](common/user-properties.png)
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
-  
+
     b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple : BrittaSimon@contoso.com
 
@@ -181,7 +181,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 ### <a name="create-frankly-test-user"></a>Créer un utilisateur de test &frankly
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans &frankly. Pour ajouter les utilisateurs à la plateforme &frankly, contactez l’ [équipe du support &frankly](mailto:help@andfrankly.com). Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans &frankly. Pour ajouter les utilisateurs à la plateforme &frankly, contactez l’[équipe du support &frankly](mailto:help@andfrankly.com). Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique
 

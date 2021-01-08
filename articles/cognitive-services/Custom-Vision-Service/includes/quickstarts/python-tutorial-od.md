@@ -3,12 +3,12 @@ author: PatrickFarley
 ms.author: pafarley
 ms.service: cognitive-services
 ms.date: 10/25/2020
-ms.openlocfilehash: b35b383eb93b0c451fcb98c66538a4335480a649
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 51b1af81e37008a7e959719846039c5470705760
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021277"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97582628"
 ---
 Bien démarrer avec la bibliothèque de client Custom Vision pour Python Suivez les étapes ci-après pour installer le package et essayer l’exemple de code visant à créer un modèle de détection d’objets. Vous allez créer un projet, ajouter des étiquettes, entraîner le projet et utiliser l’URL de point de terminaison de prédiction du projet pour le tester programmatiquement. Utilisez cet exemple comme modèle pour générer votre propre application de reconnaissance d’image.
 
@@ -59,7 +59,7 @@ Créez des variables pour le point de terminaison et les clés d’abonnement Az
 
 
 > [!IMPORTANT]
-> Accédez au portail Azure. Si les ressources Custom Vision que vous avez créées dans la section **Prérequis** ont été déployées, cliquez sur le bouton **Accéder à la ressource** sous **Étapes suivantes**. Les clés et le point de terminaison se trouvent dans les pages **Clé et point de terminaison** des ressources, sous **Gestion des ressources**. Vous devez vous procurer vos clés d’entraînement et de prédiction.
+> Accédez au portail Azure. Si les ressources Custom Vision que vous avez créées dans la section **Prérequis** ont été déployées, cliquez sur le bouton **Accéder à la ressource** sous **Étapes suivantes**. Les clés et le point de terminaison se trouvent dans les pages **Clé et point de terminaison** des ressources, sous **Gestion des ressources**. Vous devrez obtenir vos clés d’entrainement et de prédiction, ainsi que le point de terminaison des ressources d’entrainement.
 >
 > Vous trouverez la valeur de l’ID de ressource de prédiction sous l’onglet **Vue d’ensemble** de la ressource, listé comme **ID d’abonnement**.
 >
@@ -160,6 +160,8 @@ python CustomVisionQuickstart.py
 ```
 
 La sortie de l’application doit apparaître dans la console. Vous pouvez alors vérifier que l’image test (qui se trouve dans **<emplacement_de_base_des_images>/images/Test**) est étiquetée de façon appropriée et que la région de détection est correcte. Vous pouvez aussi revenir sur le [site web Custom Vision](https://customvision.ai) et consulter l’état actuel de votre nouveau projet.
+
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 [!INCLUDE [clean-od-project](../../includes/clean-od-project.md)]
 

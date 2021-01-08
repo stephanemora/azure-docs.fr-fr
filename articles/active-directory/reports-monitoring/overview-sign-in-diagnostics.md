@@ -1,6 +1,6 @@
 ---
 title: Qu’est-ce que le diagnostic de connexion dans Azure AD ? | Microsoft Docs
-description: Présente une vue d’ensemble générale des diagnostics de connexion dans Azure AD.
+description: Présente une vue d’ensemble générale du diagnostic de connexion dans Azure AD.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -17,23 +17,23 @@ ms.date: 12/15/2020
 ms.author: markvi
 ms.reviewer: tspring
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6aedf41fbf1ed0d70467a2efe97431fdecaa4fa
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: e85de1edd94a0430a4b28b332d9e43b967afba76
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/16/2020
-ms.locfileid: "97585908"
+ms.locfileid: "97608916"
 ---
 # <a name="what-is-sign-in-diagnostic-in-azure-ad"></a>Qu’est-ce que le diagnostic de connexion dans Azure AD ?
 
 Azure AD fournit un modèle de sécurité flexible permettant de contrôler ce que les utilisateurs peuvent faire avec les ressources gérées. L’accès à ces ressources n’est pas uniquement contrôlé par votre **identité**, il l’est également par le **moyen** que vous utilisez pour accéder aux ressources. En général, la flexibilité s’accompagne d’un certain degré de complexité dû au nombre d’options de configuration dont vous disposez. De cette complexité peut découler une augmentation du risque d’erreurs.
 
-En tant qu’administrateur informatique, vous avez besoin d’une solution qui vous offre le niveau d’insights adapté aux activités de votre système, pour que vous puissiez diagnostiquer et résoudre facilement les problèmes lorsqu’ils se produisent. Le diagnostic de connexion pour Azure AD est un exemple de ce type de solution. Utilisez le diagnostic pour analyser ce qui s’est produit lors d’une connexion, puis déterminer les actions que vous pouvez entreprendre pour résoudre les problèmes, sans devoir forcément faire intervenir le support Microsoft.
+En tant qu’administrateur informatique, vous avez besoin d’une solution qui vous offre le niveau d’insights adapté aux activités de votre système, pour que vous puissiez diagnostiquer et résoudre facilement les problèmes lorsqu’ils se produisent. Le diagnostic de connexion pour Azure AD est un exemple de ce type de solution. Utilisez le diagnostic pour analyser ce qui s’est produit lors d’une connexion, puis déterminer les actions que vous pouvez entreprendre pour résoudre les problèmes, sans devoir forcément faire intervenir le support Microsoft.
 
 Cet article trace un panorama des possibilités de la solution et de la façon dont vous pouvez l’utiliser.
 
 
-## <a name="requirements"></a>Spécifications
+## <a name="requirements"></a>Configuration requise
 
 Le diagnostic de connexion est disponible dans toutes les éditions d’Azure AD.<br> Vous devez être administrateur global dans Azure AD pour l’utiliser.
 

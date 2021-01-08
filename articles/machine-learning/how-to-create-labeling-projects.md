@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
 ms.custom: data4ml
-ms.openlocfilehash: 5abb222a6211e2f3f92c002a49987ac54edc78e2
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: cd35cea28e23e88ba97bb7a27dc252d6bebd65e4
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97346654"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739652"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Créer un projet d’étiquetage des données et exporter des étiquettes 
 
@@ -256,6 +256,17 @@ Vous pouvez exporter les données d’étiquette pour Machine Learning - Expéri
 Le fichier COCO est créé dans le magasin d’objets blob par défaut de l’espace de travail Azure Machine Learning, dans un dossier situé au sein de *export/coco*. Vous pouvez accéder au jeu de données Azure Machine Learning exporté dans la section **Jeux de données** de Machine Learning. La page de détails du jeu de données fournit également un exemple de code pour accéder aux étiquettes à partir de Python.
 
 ![Jeu de données exporté](./media/how-to-create-labeling-projects/exported-dataset.png)
+
+## <a name="troubleshooting"></a>Résolution des problèmes
+
+Si vous rencontrez l’un de ces problèmes, suivez les conseils ci-dessous.
+
+|Problème  |Résolution  |
+|---------|---------|
+|Seuls des jeux de données créés dans des magasins de données d’objets blob peuvent être utilisés.     |  Il s’agit d’une limitation connue de la version actuelle.       |
+|Une fois la création effectuée, le projet affiche le message « Initialisation » pendant une longue période.     | Actualisez la page manuellement. L’initialisation doit se faire à environ 20 points de données par seconde. L’absence d’actualisation automatique est un problème connu.         |
+|Au moment du passage en revue des images, les images récemment étiquetées ne sont pas affichées.     |   Pour charger toutes les images étiquetées, choisissez le bouton **Premier**. Le bouton **Premier** vous ramène au début de la liste, mais charge toutes les données étiquetées.      |
+|Appuyer sur la touche Échap lors de l’étiquetage pour la détection d’objet crée une étiquette de taille zéro dans l’angle supérieur gauche. L’envoi d’étiquettes dans cet état échoue.     |   Pour supprimer l’étiquette, cliquez sur la croix en regard de celle-ci.  |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

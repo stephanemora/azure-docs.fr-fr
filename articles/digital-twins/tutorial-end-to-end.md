@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: f788c9e78790e6872870869e2bc153e1b1451e51
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 64e648cf6ae3c763d3e9ab1a6970f48c84331bad
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566535"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845621"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Tutoriel : Créer une solution de bout en bout
 
@@ -52,8 +52,6 @@ Voici les composants implémentés par l’exemple d’application *AdtSampleApp
 * Interface de la console pour appeler l’API Azure Digital Twins
 * *SampleClientApp* : exemple de solution Azure Digital Twins
 * *SampleFunctionsApp* : application Azure Functions qui met à jour votre graphe Azure Digital Twins à partir des données de télémétrie issues des événements IoT Hub et Azure Digital Twins
-
-L’exemple de projet contient également un composant d’autorisation interactif. Chaque fois que vous démarrez le projet, une fenêtre de navigateur s’ouvre, vous invitant à vous connecter avec votre compte Azure.
 
 ### <a name="instantiate-the-pre-created-twin-graph"></a>Instancier le graphe de jumeaux pré-créé
 
@@ -134,7 +132,7 @@ Pour une cible spécifique, choisissez **Application de fonction Azure (Windows)
 
 Dans la page *Instance de Functions*, choisissez votre abonnement. Cette opération doit remplir une zone avec les *groupes de ressources* de votre abonnement.
 
-Sélectionnez le groupe de ressources de votre instance et cliquez sur *+ Créer une fonction Azure...* .
+Sélectionnez le groupe de ressources de votre instance et cliquez sur *+* pour créer une fonction Azure.
 
 :::image type="content" source="media/tutorial-end-to-end/publish-azure-function-3.png" alt-text="Publier la fonction Azure dans Visual Studio : Instance de Functions (avant la création de l’application de fonction)":::
 

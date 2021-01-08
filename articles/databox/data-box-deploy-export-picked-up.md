@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 12/11/2020
+ms.date: 12/18/2020
 ms.author: alkohli
-ms.openlocfilehash: 1035f7fb34ed5b2b11e3ef472ccda7cccc30f652
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 4b5bbe19ddeda7c6b313186b7e24532a294f7253
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359028"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680833"
 ---
-# <a name="tutorial-return-azure-data-box-preview"></a>Tutoriel : Retourner Azure Data Box (préversion)
+# <a name="tutorial-return-azure-data-box"></a>Tutoriel : Retourner un appareil Azure Data Box
 
 Ce tutoriel explique comment retourner Azure Data Box et comment les données sont effacées une fois que l’appareil est réceptionné au centre de données Azure.
 
@@ -27,8 +27,6 @@ Ce didacticiel fournit des informations sur les sujets suivants :
 > * Préparer l’expédition
 > * Expédier la Data Box à Microsoft
 > * Effacer les données de la Data Box
-
-[!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 

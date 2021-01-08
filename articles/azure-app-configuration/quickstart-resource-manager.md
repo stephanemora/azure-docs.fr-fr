@@ -8,12 +8,12 @@ ms.date: 10/16/2020
 ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: feabac62564729338e41bf30eaf8d9f5a6317126
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 56505c95e65911cafbaaa403cd09332695439d97
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149008"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825673"
 ---
 # <a name="quickstart-create-an-azure-app-configuration-store-by-using-an-arm-template"></a>Démarrage rapide : Créer un magasin Azure App Configuration avec un modèle Resource Manager
 
@@ -25,7 +25,7 @@ Ce guide de démarrage rapide explique comment :
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure** . Le modèle s’ouvre dans le portail Azure.
+Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure**. Le modèle s’ouvre dans le portail Azure.
 
 [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-app-configuration-store-kv%2Fazuredeploy.json)
 
@@ -46,10 +46,10 @@ Le guide de démarrage rapide utilise l’élément `copy` pour créer plusieurs
 
 Deux ressources Azure sont définies dans le modèle :
 
-- [Microsoft.AppConfiguration/configurationStores](/azure/templates/microsoft.appconfiguration/2020-06-01/configurationstores) : crée un magasin App Configuration.
-- Microsoft.AppConfiguration/configurationStores/keyValues : crée une paire clé/valeur dans le magasin App Configuration.
+- [Microsoft.AppConfiguration/configurationStores](/azure/templates/microsoft.appconfiguration/2020-07-01-preview/configurationstores) : crée un magasin App Configuration.
+- [Microsoft.AppConfiguration/configurationStores/keyValues](/azure/templates/microsoft.appconfiguration/2020-07-01-preview/configurationstores/keyvalues) : crée une valeur de clé dans le magasin App Configuration.
 
-> [!NOTE]
+> [!TIP]
 > Le nom de la ressource `keyValues` est une combinaison de clé et d’étiquette. La clé et l’étiquette sont jointes par le délimiteur de `$`. L’étiquette est facultative. Dans l’exemple ci-dessus, la ressource `keyValues` portant le nom `myKey` crée une paire clé/valeur sans étiquette.
 >
 > L’encodage par pourcentage, également appelé encodage d’URL, permet aux clés ou aux étiquettes d’inclure des caractères qui ne sont pas autorisés dans les noms des ressources des modèles Resource Manager. `%` n’étant pas un caractère autorisé, `~` est utilisé à la place. Pour encoder correctement un nom, effectuez les étapes suivantes :
@@ -59,6 +59,13 @@ Deux ressources Azure sont définies dans le modèle :
 > 3. Remplacer `%` par `~`
 >
 > Par exemple, si vous souhaitez créer une paire clé-valeur avec un nom de clé `AppName:DbEndpoint` et un nom d’étiquette `Test`, le nom de la ressource doit être `AppName~3ADbEndpoint$Test`.
+
+> [!NOTE]
+> App Configuration permet l’accès aux données de valeur de clé via une [liaison privée](concept-private-endpoint.md) à partir de votre réseau virtuel. Par défaut, lorsque la fonctionnalité est activée, toutes les demandes de données App Configuration sur le réseau public sont refusées. Étant donné que le modèle ARM s’exécute en dehors de votre réseau virtuel, l’accès aux données à partir d’un modèle ARM n’est pas autorisé. Pour autoriser l’accès aux données à partir d’un modèle ARM quand une liaison privée est utilisée, vous pouvez activer l’accès au réseau public à l’aide de la commande Azure CLI suivante. Il est important de prendre en compte les implications en matière de sécurité de l’activation de l’accès au réseau public dans ce scénario.
+>
+> ```azurecli-interactive
+> az appconfig update -g MyResourceGroup -n MyAppConfiguration --enable-public-network true
+> ```
 
 ## <a name="deploy-the-template"></a>Déployer le modèle
 
@@ -84,9 +91,9 @@ Read-Host -Prompt "Press [ENTER] to continue ..."
 ## <a name="review-deployed-resources"></a>Vérifier les ressources déployées
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Dans la zone de recherche du portail Azure, tapez **App Configuration** . Sélectionnez **App Configuration** dans la liste.
+1. Dans la zone de recherche du portail Azure, tapez **App Configuration**. Sélectionnez **App Configuration** dans la liste.
 1. Sélectionnez la ressource App Configuration tout juste créée.
-1. Sous **Opérations** , cliquez sur **Explorateur de configurations** .
+1. Sous **Opérations**, cliquez sur **Explorateur de configurations**.
 1. Vérifiez que deux paires clé/valeur existent.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources

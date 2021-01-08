@@ -11,12 +11,12 @@ ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: traitement de données automatisé, traitement de documents, entrée de données automatisée, traitement des formulaires
-ms.openlocfilehash: 39243f4428d055ee5d4491c3e87b4b91213f63f1
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: ed940622f72271ef3e606c5068babcb6366c31b6
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353678"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845523"
 ---
 # <a name="what-is-form-recognizer"></a>Qu’est-ce que Form Recognizer ?
 
@@ -108,23 +108,21 @@ Le modèle Business Cards (Cartes de visite) vous permet d’extraire des inform
 
 Utilisez l’[outil Sample Form Recognizer](https://fott.azurewebsites.net/) ou suivez un guide de démarrage rapide pour commencer à extraire des données de vos formulaires. Nous vous recommandons d’utiliser le service gratuit pendant que vous apprenez la technologie. N’oubliez pas que le nombre de pages gratuites est limité à 500 par mois.
 
-* [Démarrages rapides sur la bibliothèque de client](./quickstarts/client-library.md) (tous les langages, plusieurs scénarios)
+* [Démarrage rapide sur la bibliothèque de client / API REST](./quickstarts/client-library.md) (tous les langages, plusieurs scénarios)
 * Démarrages rapides sur l’interface utilisateur web
   * [Entraînement avec des étiquettes - Outil Exemple d’étiquetage](quickstarts/label-tool.md)
-* Démarrages rapides REST
+* Exemples REST (GitHub)
  * Extraire du texte, des marques de sélection et une structure de tableau dans des documents
-    * [Extraire des données de disposition - Python](quickstarts/python-layout.md)
+    * [Extraire des données de disposition - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-layout.md)
   * Entraîner des modèles personnalisés et extraire des données de formulaire
-    * [Effectuer l’entraînement sans étiquettes - cURL](quickstarts/curl-train-extract.md)
-    * [Effectuer l’entraînement sans étiquettes - Python](quickstarts/python-train-extract.md)
-    * [Effectuer l’entraînement avec des étiquettes - Python](quickstarts/python-labeled-data.md)
+    * [Effectuer l’entraînement sans étiquettes - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-train-extract.md)
+    * [Effectuer l’entraînement avec des étiquettes - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md)
   * Extraire des données dans des factures
-    * [Extraire les données de factures - Python](quickstarts/python-invoices.md)
+    * [Extraire les données de factures - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-invoices.md)
   * Extraire les données des reçus de ventes
-    * [Extraire des données de reçu - cURL](quickstarts/curl-receipts.md)
-    * [Extraire des données de reçu - Python](quickstarts/python-receipts.md)
+    * [Extraire des données de reçu - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-receipts.md)
   * Extraire des données à partir de cartes de visite
-    * [Extraire des données de cartes de visite - Python](quickstarts/python-business-cards.md)
+    * [Extraire des données de cartes de visite - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-business-cards.md)
 
 ### <a name="review-the-rest-apis"></a>Passer en revue les API REST
 
@@ -162,4 +160,4 @@ Comme c’est le cas pour tous les services Cognitive Services, les développeur
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Suivez un [guide de démarrage rapide sur la bibliothèque de client](quickstarts/client-library.md) pour bien démarrer avec l’écriture d’une application de traitement de formulaires avec Form Recognizer dans le langage de votre choix.
+Suivez un [guide de démarrage rapide](quickstarts/client-library.md) pour vous lancer dans l’écriture d’une application de traitement de formulaires avec Form Recognizer dans le langage de votre choix.

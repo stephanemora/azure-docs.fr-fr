@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: 74bad563de60abc0c1eb7623a81c83fea03f5ee6
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 6258365ab00ab538f3f3502682078d29a391578c
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207221"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724926"
 ---
 # <a name="quickstart-render-a-model-with-unity"></a>Démarrage rapide : Afficher un modèle avec Unity
 
@@ -74,8 +74,8 @@ Le modèle par défaut dont nous effectuons le rendu est un [exemple de modèle 
 ![Informations de compte ARR](./media/arr-sample-account-info.png)
 
 > [!IMPORTANT]
-> Le portail Azure affiche le domaine de votre compte uniquement sous la forme *mixedreality.azure.com*. Ceci n’est pas suffisant pour établir correctement la connexion.
-> Définissez **AccountDomain** sur `<region>.mixedreality.azure.com`, où `<region>` est [l’une des régions disponibles proches de votre emplacement](../reference/regions.md).
+> Définissez **AccountDomain** sur `<region>.mixedreality.azure.com`, où `<region>` est [l’une des régions disponibles proches de votre emplacement](../reference/regions.md).\
+> Définissez **AccountAuthenticationDomain** sur le [domaine de compte](../how-tos/create-an-account.md#retrieve-the-account-information) comme indiqué dans le portail Azure.
 
 Plus tard, nous déploierons ce projet sur un appareil HoloLens et nous nous connecterons au service Remote Rendering à partir de cet appareil. Nous ne disposons pas d’un moyen simple pour entrer les informations d’identification sur l’appareil. Cet exemple de démarrage rapide va donc **enregistrer les informations d’identification dans la scène Unity**.
 
@@ -92,9 +92,7 @@ Félicitations ! Vous voyez maintenant un modèle rendu à distance.
 
 ## <a name="inspecting-the-scene"></a>Inspection de la scène
 
-Quand la connexion est établie pour le rendu à distance, le panneau Inspector est mis à jour avec des informations d’état supplémentaires :
-
-![Lecture de l’exemple dans Unity](./media/arr-sample-configure-session-running.png)
+Quand la connexion est établie pour le rendu à distance, le panneau Inspector est mis à jour avec des informations d’état supplémentaires : ![Lecture de l’exemple dans Unity](./media/arr-sample-configure-session-running.png)
 
 Vous pouvez maintenant explorer le graphique de scène en sélectionnant le nouveau nœud et en cliquant sur **Show children** dans le panneau Inspector.
 

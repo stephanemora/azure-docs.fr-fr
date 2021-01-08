@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 200d23f390c9c22af90099e1e136c832287aa10d
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: d8a7bb620b7fcc9c878986d3575e22bb6f0f77bc
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207527"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724116"
 ---
 # <a name="tutorial-securing-azure-remote-rendering-and-model-storage"></a>Tutoriel : Sécurisation d’Azure Remote Rendering et du stockage de modèles
 
@@ -255,6 +255,14 @@ Maintenant que tout est configuré du côté d’Azure, nous devons modifier la 
             get => azureRemoteRenderingAccountID.Trim();
             set => azureRemoteRenderingAccountID = value;
         }
+    
+        [SerializeField]
+        private string azureRemoteRenderingAccountAuthenticationDomain;
+        public string AzureRemoteRenderingAccountAuthenticationDomain
+        {
+            get => azureRemoteRenderingAccountAuthenticationDomain.Trim();
+            set => azureRemoteRenderingAccountAuthenticationDomain = value;
+        }
 
         public override event Action<string> AuthenticationInstructions;
 
@@ -262,7 +270,7 @@ Maintenant que tout est configuré du côté d’Azure, nous devons modifier la 
 
         string redirect_uri = "https://login.microsoftonline.com/common/oauth2/nativeclient";
 
-        string[] scopes => new string[] { "https://sts.mixedreality.azure.com/mixedreality.signin" };
+        string[] scopes => new string[] { "https://sts." + AzureRemoteRenderingAccountAuthenticationDomain + "/mixedreality.signin" };
 
         public void OnEnable()
         {
@@ -279,7 +287,7 @@ Maintenant que tout est configuré du côté d’Azure, nous devons modifier la 
 
                 var AD_Token = result.AccessToken;
 
-                return await Task.FromResult(new AzureFrontendAccountInfo(AccountDomain, AzureRemoteRenderingAccountID, "", AD_Token, ""));
+                return await Task.FromResult(new AzureFrontendAccountInfo(AzureRemoteRenderingAccountAuthenticationDomain, AccountDomain, AzureRemoteRenderingAccountID, "", AD_Token, ""));
             }
             else
             {
@@ -369,7 +377,7 @@ La partie la plus importante de ce cours du point de vue d’ARR est cette ligne
 return await Task.FromResult(new AzureFrontendAccountInfo(AccountDomain, AzureRemoteRenderingAccountID, "", AD_Token, ""));
 ```
 
-Ici, nous créons un objet **AzureFrontendAccountInfo** en utilisant le domaine du compte, l’ID du compte et le jeton d’accès. Ce jeton est ensuite utilisé par le service ARR pour interroger, créer et rejoindre les sessions de rendu à distance aussi longtemps que l’utilisateur dispose des autorisations basées sur un rôle configurées précédemment.
+Ici, nous créons un objet **AzureFrontendAccountInfo** en utilisant le domaine du compte, l’ID du compte, le domaine d’authentification du compte et le jeton d’accès. Ce jeton est ensuite utilisé par le service ARR pour interroger, créer et rejoindre les sessions de rendu à distance aussi longtemps que l’utilisateur dispose des autorisations basées sur un rôle configurées précédemment.
 
 À la suite de cette modification, l’état actuel de l’application et son accès à vos ressources Azure ressemblent à ceci :
 
@@ -391,6 +399,7 @@ Dans l’éditeur Unity, quand l’authentification AAD est active, il est néce
     * **Active Directory Application Client ID** correspond à l’*ID d’application (client)* qui se trouve dans l’inscription de votre application AAD (voir l’image ci-dessous).
     * **Azure Tenant ID** correspond à l’*ID de l’annuaire (locataire)* qui se trouve dans l’inscription de votre application AAD (voir l’image ci-dessous).
     * **Azure Remote Rendering Account ID** correspond à l’**ID de compte** que vous utilisez pour **RemoteRenderingCoordinator**.
+    * **Account Authentication Domain** correspond au **domaine d’authentification du compte** que vous utilisez dans **RemoteRenderingCoordinator**.
 
     ![Capture d’écran mettant à évidence l’ID d’application (client) et l’ID de l’annuaire (locataire).](./media/app-overview-data.png)
 

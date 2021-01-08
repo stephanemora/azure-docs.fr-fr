@@ -7,16 +7,16 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: MVC
-ms.openlocfilehash: 0c3b86fc823e4b563dc747a5604fcb2e04995fed
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 480051680ea98b82627a9a2b3ea004d9472f7124
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96752649"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97797092"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>Migrer des machines virtuelles VMware vers Azure (migration basée sur un agent)
 
-Cet article explique comment effectuer la migration de machines virtuelles VMware locales vers Azure avec l’outil [Azure Migrate : Migration de serveur](migrate-services-overview.md#azure-migrate-server-migration-tool), en utilisant la migration basée sur un agent.  Vous pouvez également migrer des machines virtuelles VMware à l’aide de la migration basée sur un agent. [Comparez](server-migrate-overview.md#compare-migration-methods) les méthodes.
+Cet article explique comment effectuer la migration de machines virtuelles VMware locales vers Azure avec l’outil [Azure Migrate : Migration de serveur](migrate-services-overview.md#azure-migrate-server-migration-tool), en utilisant la migration basée sur un agent.  Vous pouvez également migrer des machines virtuelles VMware à l’aide de la migration sans agent. [Comparez](server-migrate-overview.md#compare-migration-methods) les méthodes.
 
 
  Dans ce tutoriel, vous allez apprendre à :

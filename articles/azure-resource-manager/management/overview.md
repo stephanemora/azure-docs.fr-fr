@@ -4,12 +4,12 @@ description: Explique comment utiliser Azure Resource Manager pour les tâches d
 ms.topic: overview
 ms.date: 09/01/2020
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: f3b3ebce3dd34637a787895e7724736adfc186fb
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: fad49db94195bbd2f9e5e32f8596f33fab586752
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032250"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858516"
 ---
 # <a name="what-is-azure-resource-manager"></a>Qu’est-ce qu’Azure Resource Manager ?
 
@@ -33,7 +33,7 @@ Si vous êtes un nouvel utilisateur d’Azure Resource Manager, vous pouvez ne p
 
 * **ressource** : élément gérable disponible dans Azure. Les machines virtuelles, les comptes de stockage, les applications web, les bases de données et les réseaux virtuels sont des exemples de ressources. Les groupes de ressources, les abonnements, les groupes d’administration et les étiquettes sont également des exemples de ressources.
 * **groupe de ressources** : conteneur réunissant les ressources associées d’une solution Azure. Le groupe de ressources inclut les ressources que vous voulez gérer en tant que groupe. Vous déterminez quelles sont les ressources qui appartiennent à un groupe de ressources en fonction de ce qui convient le mieux à votre organisation. Voir [Groupes de ressources](#resource-groups).
-* **fournisseur de ressources** : service qui fournit des ressources Azure. Par exemple, Microsoft.Compute est un fournisseur de ressources courant, qui fournit la ressource de machine virtuelle. Microsoft.Storage est un autre fournisseur de ressources courant. Consultez [Fournisseurs et types de ressources](resource-providers-and-types.md).
+* **fournisseur de ressources** : service qui fournit des ressources Azure. Par exemple, `Microsoft.Compute` est un fournisseur de ressources courant, qui fournit la ressource de machine virtuelle. `Microsoft.Storage` est un autre fournisseur de ressources courant. Consultez [Fournisseurs et types de ressources](resource-providers-and-types.md).
 * **Modèle Resource Manager** : fichier JSON (JavaScript Object Notation) qui définit une ou plusieurs ressources à déployer dans un groupe de ressources, un abonnement, un groupe d’administration ou un locataire. Le modèle peut être utilisé pour déployer les ressources de manière cohérente et répétée. Consultez [Vue d’ensemble du déploiement de modèles](../templates/overview.md).
 * **syntaxe déclarative** : syntaxe qui vous permet de déclarer « Voici ce que je souhaite créer » sans avoir à écrire la séquence de commandes de programmation pour le créer. Le modèle Resource Manager est un exemple de syntaxe déclarative. Dans le fichier, vous définissez les propriétés afin de déployer l’infrastructure vers Azure.  Consultez [Vue d’ensemble du déploiement de modèles](../templates/overview.md).
 
@@ -61,7 +61,7 @@ Azure fournit quatre niveaux d’étendue : [Groupes d’administration](../../g
 
 ![Niveaux de gestion](./media/overview/scope-levels.png)
 
-Vous appliquez les paramètres de gestion à tous ces niveaux de l’étendue. Le niveau que vous sélectionnez détermine à quel point le paramètre est appliqué. Les niveaux inférieurs héritent des paramètres des niveaux supérieurs. Par exemple, Lorsque vous appliquez une [stratégie](../../governance/policy/overview.md) à l’abonnement, cette stratégie est appliquée à tous les groupes de ressources et les ressources de votre abonnement. Lorsque vous appliquez une stratégie sur le groupe de ressources, cette stratégie est appliquée sur le groupe de ressources et toutes ses ressources. Toutefois, un autre groupe de ressources ne dispose pas de cette affectation de stratégie.
+Vous appliquez les paramètres de gestion à tous ces niveaux de l’étendue. Le niveau que vous sélectionnez détermine à quel point le paramètre est appliqué. Les niveaux inférieurs héritent des paramètres des niveaux supérieurs. Par exemple, Lorsque vous appliquez une [stratégie](../../governance/policy/overview.md) à l’abonnement, cette stratégie est appliquée à tous les groupes de ressources et les ressources de votre abonnement. Lorsque vous appliquez une stratégie au groupe de ressources, elle est appliquée au groupe de ressources et à toutes ses ressources. Toutefois, un autre groupe de ressources ne dispose pas de cette affectation de stratégie.
 
 Vous pouvez déployer des modèles sur des locataires, des groupes d’administration, des abonnements ou des groupes de ressources.
 
@@ -99,11 +99,11 @@ Lorsque vous définissez votre groupe de ressources, vous devez prendre en compt
 
 ## <a name="resiliency-of-azure-resource-manager"></a>Résilience d’Azure Resource Manager
 
-Le service Azure Resource Manager est conçu pour la résilience et la disponibilité continue. Les opérations Resource Manager et du plan de contrôle (demandes envoyées à management.azure.com) dans l’API REST sont :
+Le service Azure Resource Manager est conçu pour la résilience et la disponibilité continue. Les opérations Resource Manager et du plan de contrôle (demandes envoyées à `management.azure.com`) dans l’API REST sont :
 
 * Distribuées dans différentes régions. Certains services sont régionaux.
 
-* Distribuées dans différentes zones de disponibilité (et régions) dans les localisations qui ont plusieurs zones de disponibilité.
+* Distribuées dans différentes zones de disponibilité (et régions) aux endroits comportant plusieurs zones de disponibilité.
 
 * Non dépendantes d’un seul centre de données logique.
 

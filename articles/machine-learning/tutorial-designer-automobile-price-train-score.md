@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 09/28/2020
 ms.custom: designer
-ms.openlocfilehash: ca812fc7548e3c70f1faa1e1ed6a34afda3872af
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 2e46da1657a7473d3ff8cdf4ac43e5341b143455
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575973"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97796106"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer"></a>Tutoriel : Prédire le prix de voitures avec le concepteur
 
@@ -272,7 +272,7 @@ Quand vous avez terminé la configuration de votre pipeline, vous pouvez lancer 
     > [!NOTE]
     > Les expériences regroupent les exécutions de pipeline similaires. Si vous exécutez un pipeline plusieurs fois, vous pouvez sélectionner la même expérience pour les exécutions successives.
 
-    1. Entrez un nom descriptif pour le **Nom de la nouvelle expérience**.
+    1. Pour **Nom de la nouvelle expérience**, entrez **Tutorial-CarPrices**.
 
     1. Sélectionnez **Envoyer**.
     

@@ -9,16 +9,23 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: d257c66de8fb62fb57c573d91966f3e7d8d1b123
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 6024aae68183fbe02125ef4207e9fbce8abd6a2b
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96904956"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97679073"
 ---
-# <a name="tutorial---migrate-web-service-from-bing-maps"></a>Tutoriel - Migrer des services web à partir de Bing Cartes
+# <a name="tutorial-migrate-web-service-from-bing-maps"></a>Tutoriel : Migrer un service web à partir de Bing Cartes
 
-Azure Maps et Bing Cartes donnent tous deux accès à des API spatiales par le biais de services web REST. Les interfaces API de ces plateformes offrent des fonctionnalités similaires mais utilisent des conventions d’affectation de noms et des objets de réponse différents.
+Azure Maps et Bing Cartes donnent tous deux accès à des API spatiales par le biais de services web REST. Les interfaces API de ces plateformes offrent des fonctionnalités similaires mais utilisent des conventions d’affectation de noms et des objets de réponse différents. Dans ce didacticiel, vous apprendrez à :
+
+> * Transférer et inverser le géocodage
+> * Rechercher des points d’intérêt
+> * Calculer des itinéraires et des directions
+> * Récupérer une image de carte
+> * Calculer une matrice des distances
+> * Obtenir les détails d’un fuseau horaire
 
 Le tableau suivant présente les API du service Azure Maps qui offrent des fonctionnalités similaires à celles des API du service Bing Cartes listées.
 
@@ -59,6 +66,12 @@ Veillez également à consulter les guides de bonnes pratiques suivants :
 -   [Bonnes pratiques pour la recherche](./how-to-use-best-practices-for-search.md)
 -   [Bonne pratiques en matière de routage](./how-to-use-best-practices-for-routing.md)
 
+## <a name="prerequisites"></a>Prérequis
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
+2. [Créer un compte Azure Maps](quick-demo-map-app.md#create-an-azure-maps-account)
+3. [Obtenir une clé d’abonnement principale](quick-demo-map-app.md#get-the-primary-key-for-your-account), également appelée clé primaire ou clé d’abonnement. Pour plus d’informations sur l’authentification dans Azure Maps, voir [Gérer l’authentification dans Azure Maps](how-to-manage-authentication.md).
+
 ## <a name="geocoding-addresses"></a>Géocodage d’adresses
 
 Le géocodage est le processus de conversion d’une adresse (par exemple `"1 Microsoft way, Redmond, WA"`) en une coordonnée (par exemple longitude : -122.1298, latitude : 47.64005). Les coordonnées sont alors souvent utilisées pour positionner une punaise sur une carte ou centrer une carte.
@@ -91,9 +104,9 @@ Les tableaux suivants référencent de manière croisée les paramètres de l’
 
 Azure Maps prend également en charge :
 
--   `countrySecondarySubdivision` : comté, districts
--   `countryTertiarySubdivision` : zones nommées ; boroughs, canton, communes
--   `ofs` : parcourir les résultats en combinaison avec le paramètre `maxResults`.
+* `countrySecondarySubdivision` : comté, districts
+* `countryTertiarySubdivision` : zones nommées ; boroughs, canton, communes
+* `ofs` : parcourir les résultats en combinaison avec le paramètre `maxResults`.
 
 **Localisation par requête (chaîne d’adresse de forme libre)**
 
@@ -109,10 +122,10 @@ Azure Maps prend également en charge :
 
 Azure Maps prend également en charge :
 
--   `typeahead` : indique si la requête sera interprétée en tant qu’entrée partielle et si la recherche passera en mode prédictif (suggestion automatique/autocomplétion).
--   `countrySet` : liste séparée par des virgules de codes de pays ISO2 dans lesquels limiter la recherche.
--   `lat`/`lon`, `topLeft`/`btmRight`, `radius` : spécifiez la localisation et la zone de l’utilisateur pour que les résultats soient plus localement pertinents.
--   `ofs` : parcourir les résultats en combinaison avec le paramètre `maxResults`.
+* `typeahead` : indique si la requête sera interprétée en tant qu’entrée partielle et si la recherche passera en mode prédictif (suggestion automatique/autocomplétion).
+* `countrySet` : liste séparée par des virgules de codes de pays ISO2 dans lesquels limiter la recherche.
+* `lat`/`lon`, `topLeft`/`btmRight`, `radius` : spécifiez la localisation et la zone de l’utilisateur pour que les résultats soient plus localement pertinents.
+* `ofs` : parcourir les résultats en combinaison avec le paramètre `maxResults`.
 
 Vous trouverez [ici](./how-to-search-for-address.md) un exemple d’utilisation du service de recherche. Veillez à consulter la documentation [Bonnes pratiques pour la recherche](./how-to-use-best-practices-for-search.md).
 
@@ -142,9 +155,9 @@ Veillez à consulter la documentation [Bonnes pratiques pour la recherche](./how
 
 L’API de géocodage inverse d’Azure Maps offre quelques fonctionnalités supplémentaires non disponibles dans Bing Cartes et dont l’intégration pourrait être utile lors de la migration de votre application :
 
--   Récupérer les données de limitations de vitesse.
--   Récupérer des informations sur la nature des routes : route locale, artère, accès limité, rampe, etc.
--   Côté de la rue de la coordonnée spécifiée.
+* Récupérer les données de limitations de vitesse.
+* Récupérer des informations sur la nature des routes : route locale, artère, accès limité, rampe, etc.
+* Côté de la rue de la coordonnée spécifiée.
 
 **Tableau de comparaison des types d’entités**
 
@@ -174,10 +187,10 @@ Plusieurs des API de recherche Azure Maps prennent en charge le mode prédictif,
 
 Azure Maps permet de calculer des itinéraires et des directions. Azure Maps offre de nombreuses fonctionnalités similaires à celles du service d’itinéraire Bing Cartes, par exemple :
 
--   Heures d’arrivée et de départ
--   Itinéraires en temps réel et selon les prédictions de circulation
--   Différents modes de transport : voiture, marche, camion
--   Optimisation de l’ordre des points de repère (commerciaux itinérants)
+* Heures d’arrivée et de départ
+* Itinéraires en temps réel et selon les prédictions de circulation
+* Différents modes de transport : voiture, marche, camion
+* Optimisation de l’ordre des points de repère (commerciaux itinérants)
 
 > [!NOTE]
 > Pour Azure Maps, tous les points de cheminement doivent être des coordonnées. Les adresses devront d’abord être géocodées.
@@ -237,21 +250,21 @@ Veillez également à consulter la documentation sur les [bonnes pratiques en ma
 
 L’API d’itinéraire d’Azure Maps offre de nombreuses fonctionnalités supplémentaires non disponibles dans Bing Cartes et dont l’intégration pourrait être utile lors de la migration de votre application :
 
--   Prise en charge du type d'itinéraire : le plus court, le plus rapide, vers plusieurs destinations simultanément, et le plus économique en carburant.
--   Prise en charge de modes de déplacement supplémentaires : vélo, bus, moto, taxi, camion et camionnette.
--   Prise en charge de 150 points de cheminement.
--   Calculez plusieurs temps de parcours dans une même requête ; trafic historique, trafic en direct, aucun trafic.
--   Autres types de routes à éviter : itinéraires de covoiturage, routes non goudronnées, routes déjà utilisées.
--   Routage basé sur les caractéristiques du moteur. Calculez les itinéraires pour les véhicules à combustion ou électriques en fonction de la réserve de carburant ou d’électricité, et des caractéristiques du moteur.
--   Spécifiez la vitesse maximale du véhicule.
+* Prise en charge du type d'itinéraire : le plus court, le plus rapide, vers plusieurs destinations simultanément, et le plus économique en carburant.
+* Prise en charge de modes de déplacement supplémentaires : vélo, bus, moto, taxi, camion et camionnette.
+* Prise en charge de 150 points de cheminement.
+* Calculez plusieurs temps de parcours dans une même requête ; trafic historique, trafic en direct, aucun trafic.
+* Autres types de routes à éviter : itinéraires de covoiturage, routes non goudronnées, routes déjà utilisées.
+* Routage basé sur les caractéristiques du moteur. Calculez les itinéraires pour les véhicules à combustion ou électriques en fonction de la réserve de carburant ou d’électricité, et des caractéristiques du moteur.
+* Spécifiez la vitesse maximale du véhicule.
 
 ## <a name="snap-coordinates-to-road"></a>Ancrer des coordonnées sur la route
 
 Il existe plusieurs façons d’ancrer des coordonnées sur les routes dans Azure Maps.
 
--   Utilisez l’API Itinéraires pour ancrer les coordonnées sur un itinéraire logique dans le réseau routier.
--   Utilisez le kit SDK web Azure Maps pour ancrer des coordonnées individuelles sur la route la plus proche dans les mosaïques vectorielles.
--   Utilisez les mosaïques vectorielles Azure Maps directement pour ancrer des coordonnées individuelles.
+* Utilisez l’API Itinéraires pour ancrer les coordonnées sur un itinéraire logique dans le réseau routier.
+* Utilisez le kit SDK web Azure Maps pour ancrer des coordonnées individuelles sur la route la plus proche dans les mosaïques vectorielles.
+* Utilisez les mosaïques vectorielles Azure Maps directement pour ancrer des coordonnées individuelles.
 
 **Utilisation de l’API Obtenir des directions pour ancrer des coordonnées**
 
@@ -259,8 +272,8 @@ Azure Maps peut ancrer des coordonnées sur des routes à l’aide de l’API [O
 
 Il existe deux manières différentes d’utiliser l’API Obtenir des directions pour ancrer des coordonnées sur des routes.
 
--   S’il y a 150 coordonnées ou moins, elles peuvent être transmises en tant que points de repère dans l’API Obtenir des directions. À l’aide de cette approche, vous pouvez récupérer deux différents types de données ancrées. Les directions d’itinéraire contiendront les points de repère ancrés, tandis que le tracé d’itinéraire aura un ensemble interpolé de coordonnées remplissant le tracé complet entre les coordonnées.
--   S’il y a plus de 150 coordonnées, vous pouvez utiliser l’API Publier des directions. Les coordonnées de début et de fin doivent être transmises dans le paramètre de requête, mais toutes les coordonnées peuvent être transmises dans le paramètre `supportingPoints` dans le corps de la requête POST et mises en forme en tant que collection de points de géométrie GeoJSON. Les seules données ancrées disponibles à l’aide de cette approche seront le tracé d’itinéraire qui est un ensemble interpolé de coordonnées remplissant le tracé complet entre les coordonnées. [Voici un exemple](https://azuremapscodesamples.azurewebsites.net/?sample=Snap%20points%20to%20logical%20route%20path) de cette approche utilisant le module de services dans le kit SDK web Azure Maps.
+* S’il y a 150 coordonnées ou moins, elles peuvent être transmises en tant que points de repère dans l’API Obtenir des directions. À l’aide de cette approche, vous pouvez récupérer deux différents types de données ancrées. Les directions d’itinéraire contiendront les points de repère ancrés, tandis que le tracé d’itinéraire aura un ensemble interpolé de coordonnées remplissant le tracé complet entre les coordonnées.
+* S’il y a plus de 150 coordonnées, vous pouvez utiliser l’API Publier des directions. Les coordonnées de début et de fin doivent être transmises dans le paramètre de requête, mais toutes les coordonnées peuvent être transmises dans le paramètre `supportingPoints` dans le corps de la requête POST et mises en forme en tant que collection de points de géométrie GeoJSON. Les seules données ancrées disponibles à l’aide de cette approche seront le tracé d’itinéraire qui est un ensemble interpolé de coordonnées remplissant le tracé complet entre les coordonnées. [Voici un exemple](https://azuremapscodesamples.azurewebsites.net/?sample=Snap%20points%20to%20logical%20route%20path) de cette approche utilisant le module de services dans le kit SDK web Azure Maps.
 
 Le tableau suivant référence de manière croisée les paramètres de l’API Bing Cartes et les paramètres d’API comparables dans Azure Maps.
 
@@ -368,9 +381,7 @@ Par exemple, dans Bing Cartes, une punaise rouge avec l’étiquette « AB » 
 
 > `&pushpin=45,-110;7;AB`
 
-<center>
-
-![Punaise de carte statique Bing Cartes](media/migrate-bing-maps-web-service/bing-maps-static-map-pin.jpg)</center>
+![Punaise de carte statique Bing Cartes](media/migrate-bing-maps-web-service/bing-maps-static-map-pin.jpg)
 
 **Après : Azure Maps**
 
@@ -384,21 +395,21 @@ En ce qui concerne les localisations de punaises, Azure Maps exige que les coord
 
 La valeur `iconType` spécifie le type d’épingle à créer et peut avoir les valeurs suivantes :
 
--   `default` : icône d’épingle par défaut.
--   `none` : aucune icône n’apparaît, seules les étiquettes seront affichées.
--   `custom` : spécifie une icône personnalisée à utiliser. Une URL pointant vers l'image de l'icône peut être ajoutée à la fin du paramètre `pins`, après les informations d’emplacement de l’épingle.
--   `{udid}` : identifiant unique de données (UDID) pour une icône stockée dans la plateforme de stockage de données Azure Maps.
+* `default` : icône d’épingle par défaut.
+* `none` : aucune icône n’apparaît, seules les étiquettes seront affichées.
+* `custom` : spécifie une icône personnalisée à utiliser. Une URL pointant vers l'image de l'icône peut être ajoutée à la fin du paramètre `pins`, après les informations d’emplacement de l’épingle.
+* `{udid}` : identifiant unique de données (UDID) pour une icône stockée dans la plateforme de stockage de données Azure Maps.
 
 Les styles d’épingles dans Azure Maps sont ajoutés au format `optionNameValue`, avec plusieurs styles séparés par un caractère barre verticale (`|`), par exemple `iconType|optionName1Value1|optionName2Value2`. Notez que les noms et les valeurs des options ne sont pas séparés. Les noms d’options de style suivants peuvent être utilisés pour appliquer un style à des punaises dans Azure Maps :
 
--   `al` : spécifie l’opacité (alpha) des punaises. Peut être un nombre compris entre 0 et 1.
--   `an` : spécifie l’ancrage de l’épingle. Les valeurs des pixels x et y sont spécifiées au format `x y`.
--   `co` : couleur de l’épingle. Doit être une couleur hexadécimale 24 bits : `000000` à `FFFFFF`.
--   `la` : spécifie l’ancrage de l’étiquette. Les valeurs des pixels x et y sont spécifiées au format `x y`.
--   `lc` : couleur de l’étiquette. Doit être une couleur hexadécimale 24 bits : `000000` à `FFFFFF`.
--   `ls` : taille de l’étiquette en pixels. Peut être un nombre supérieur à 0.
--   `ro` : valeur en degrés de la rotation de l’icône. Peut être un nombre compris entre -360 et 360.
--   `sc` : valeur de mise à l'échelle de l’icône de l’épingle. Peut être un nombre supérieur à 0.
+* `al` : spécifie l’opacité (alpha) des punaises. Peut être un nombre compris entre 0 et 1.
+* `an` : spécifie l’ancrage de l’épingle. Les valeurs des pixels x et y sont spécifiées au format `x y`.
+* `co` : couleur de l’épingle. Doit être une couleur hexadécimale 24 bits : `000000` à `FFFFFF`.
+* `la` : spécifie l’ancrage de l’étiquette. Les valeurs des pixels x et y sont spécifiées au format `x y`.
+* `lc` : couleur de l’étiquette. Doit être une couleur hexadécimale 24 bits : `000000` à `FFFFFF`.
+* `ls` : taille de l’étiquette en pixels. Peut être un nombre supérieur à 0.
+* `ro` : valeur en degrés de la rotation de l’icône. Peut être un nombre compris entre -360 et 360.
+* `sc` : valeur de mise à l'échelle de l’icône de l’épingle. Peut être un nombre supérieur à 0.
 
 Des valeurs d’étiquette sont spécifiées pour chaque localisation de punaise, au lieu d’utiliser une seule valeur d’étiquette qui s’applique à toutes les punaises de la liste des localisations. La valeur de l’étiquette peut être une chaîne de plusieurs caractères et être entourée de guillemets simples pour éviter de la confondre avec une valeur de style ou d'emplacement.
 
@@ -406,17 +417,13 @@ Par exemple, dans Azure Maps, une icône rouge (`FF0000`) par défaut avec l'ét
 
 > `&pins=default|coFF0000|la15 50||'Space Needle'-122.349300 47.620180`
 
-<center>
-
-![Punaise de carte statique Azure Maps](media/migrate-bing-maps-web-service/azure-maps-static-map-pin.jpg)</center>
+![Punaise de carte statique Azure Maps](media/migrate-bing-maps-web-service/azure-maps-static-map-pin.jpg)
 
 L’exemple suivant ajoute trois épingles avec les valeurs d'étiquette '1', '2' et '3' :
 
 > `&pins=default||'1'-122 45|'2'-119.5 43.2|'3'-121.67 47.12`
 
-<center>
-
-![Punaises multiples de carte statique Azure Maps](media/migrate-bing-maps-web-service/azure-maps-static-map-multiple-pins.jpg)</center>
+![Punaises multiples de carte statique Azure Maps](media/migrate-bing-maps-web-service/azure-maps-static-map-multiple-pins.jpg)
 
 ### <a name="draw-curve-url-parameter-format-comparison"></a>Comparaison du format du paramètre URL de dessin de courbe
 
@@ -436,9 +443,7 @@ Par exemple, dans Bing Cartes, une ligne bleue avec une opacité de 50 % et une
 
 `&drawCurve=l,FF000088,4;45,-110_50,-100`
 
-<center>
-
-![Ligne de carte statique Bing Cartes](media/migrate-bing-maps-web-service/bing-maps-static-map-line.jpg)</center>
+![Ligne de carte statique Bing Cartes](media/migrate-bing-maps-web-service/bing-maps-static-map-line.jpg)
 
 **Après : Azure Maps**
 
@@ -450,20 +455,18 @@ En ce qui concerne les localisations de tracés, Azure Maps exige que les coordo
 
 Les styles de chemins d'accès dans Azure Maps sont ajoutés au format `optionNameValue`, avec plusieurs styles séparés par un caractère barre verticale (`|`), par exemple `optionName1Value1|optionName2Value2`. Notez que les noms et les valeurs des options ne sont pas séparés. Les noms d’options de style suivants peuvent être utilisés pour appliquer un style à des chemins d'accès dans Azure Maps :
 
--   `fa` : opacité de la couleur de remplissage (alpha) utilisée lors du rendu des polygones. Peut être un nombre compris entre 0 et 1.
--   `fc` : couleur de remplissage utilisée pour afficher l’aire d’un polygone.
--   `la` : opacité de la couleur des lignes (alpha) utilisée lors du rendu des lignes et du contour des polygones. Peut être un nombre compris entre 0 et 1.
--   `lc` : couleur de ligne utilisée pour rendre les lignes et le contour des polygones.
--   `lw` : largeur de la ligne en pixels.
--   `ra` : spécifie un rayon de cercle en mètres.
+* `fa` : opacité de la couleur de remplissage (alpha) utilisée lors du rendu des polygones. Peut être un nombre compris entre 0 et 1.
+* `fc` : couleur de remplissage utilisée pour afficher l’aire d’un polygone.
+* `la` : opacité de la couleur des lignes (alpha) utilisée lors du rendu des lignes et du contour des polygones. Peut être un nombre compris entre 0 et 1.
+* `lc` : couleur de ligne utilisée pour rendre les lignes et le contour des polygones.
+* `lw` : largeur de la ligne en pixels.
+* `ra` : spécifie un rayon de cercle en mètres.
 
 Par exemple, dans Azure Maps, une ligne bleue avec une opacité de 50 % et une épaisseur de quatre pixels peut être ajoutée à la carte entre les coordonnées (longitude : -110, latitude : 45 et longitude : -100, latitude : 50) avec le paramètre d’URL suivant :
 
 > `&path=lc0000FF|la.5|lw4||-110 45|-100 50`
 
-<center>
-
-![Ligne de carte statique Azure Maps](media/migrate-bing-maps-web-service/azure-maps-static-map-line.jpg)</center>
+![Ligne de carte statique Azure Maps](media/migrate-bing-maps-web-service/azure-maps-static-map-line.jpg)
 
 ## <a name="calculate-a-distance-matrix"></a>Calculer une matrice des distances
 
@@ -547,8 +550,8 @@ Veillez à consulter la documentation [Bonnes pratiques pour la recherche](./how
 
 Azure Maps fournit plusieurs API pour la récupération des données de trafic. Deux types de données de trafic sont disponibles :
 
--   **Données de circulation** : elles fournissent des métriques concernant la circulation sur des sections de route. Elles sont souvent utilisées pour coder les routes par couleur. Ces données sont mises à jour toutes les deux minutes.
--   **Données d’incident** : fournit des données sur la construction, les fermetures de route, les accidents et autres incidents susceptibles d’affecter le trafic. Ces données sont mises à jour toutes les minutes.
+* **Données de circulation** : elles fournissent des métriques concernant la circulation sur des sections de route. Elles sont souvent utilisées pour coder les routes par couleur. Ces données sont mises à jour toutes les deux minutes.
+* **Données d’incident** : fournit des données sur la construction, les fermetures de route, les accidents et autres incidents susceptibles d’affecter le trafic. Ces données sont mises à jour toutes les minutes.
 
 Bing Cartes fournit des données de circulation et d’incident dans ses contrôles de carte interactifs, et rend également les données d’incident disponibles en tant que service.
 
@@ -602,9 +605,9 @@ Par ailleurs, la plateforme Azure Maps fournit également un certain nombre d’
 
 Les services de données spatiales dans Bing Cartes offrent trois fonctionnalités clés :
 
--   Géocodage par lot : traitez un grand lot de géocodes d’adresses en une seule requête.
--   Récupérer les données de frontières administratives : utilisez une coordonnée et obtenez une frontière d’intersection pour un type d’entité spécifié.
--   Héberger et interroger des données métier spatiales : chargez une table de données 2D simple et accédez-y à l’aide de quelques requêtes spatiales simples.
+* Géocodage par lot : traitez un grand lot de géocodes d’adresses en une seule requête.
+* Récupérer les données de frontières administratives : utilisez une coordonnée et obtenez une frontière d’intersection pour un type d’entité spécifié.
+* Héberger et interroger des données métier spatiales : chargez une table de données 2D simple et accédez-y à l’aide de quelques requêtes spatiales simples.
 
 ### <a name="batch-geocode-data"></a>Données de géocodes par lot
 
@@ -660,7 +663,11 @@ Azure Maps fournit des bibliothèques de client pour les langages de programmati
 
 Bibliothèques de client open source pour d’autres langages de programmation :
 
--   .NET Standard 2.0 : [projet GitHub](https://github.com/perfahlen/AzureMapsRestServices) \| [package NuGet](https://www.nuget.org/packages/AzureMapsRestToolkit/)
+* .NET Standard 2.0 : [projet GitHub](https://github.com/perfahlen/AzureMapsRestServices) \| [package NuGet](https://www.nuget.org/packages/AzureMapsRestToolkit/)
+
+## <a name="clean-up-resources"></a>Nettoyer les ressources
+
+Aucune ressource à nettoyer.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -668,15 +675,3 @@ En savoir plus sur les services REST Azure Maps.
 
 > [!div class="nextstepaction"]
 > [Meilleures pratiques pour l'utilisation du service de recherche](how-to-use-best-practices-for-search.md)
-
-> [!div class="nextstepaction"]
-> [Bonnes pratiques en matière d’utilisation du service de routage](how-to-use-best-practices-for-search.md)
-
-> [!div class="nextstepaction"]
-> [Comment utiliser le module de services (SDK web)](how-to-use-best-practices-for-routing.md)
-
-> [!div class="nextstepaction"]
-> [Documentation de référence sur l’API de service REST Azure Maps](/rest/api/maps/)
-
-> [!div class="nextstepaction"]
-> [Exemples de code](/samples/browse/?products=azure-maps)

@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 9b6fc05cc2e97e8e0d74f7d19912afedb37c0fa5
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 45654d55ac07bc9056a41cacba6f8f5890c56580
+ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97366531"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97808638"
 ---
 > [!IMPORTANT]
 > * Le code indiqué dans cet article utilise des méthodes synchrones et un stockage d’informations d’identification non sécurisé pour des raisons de simplicité. Consultez la documentation de référence ci-dessous. 
@@ -121,6 +121,8 @@ Authentifiez un objet client à l’aide des variables d’abonnement que vous a
 
 Vous devrez aussi ajouter des références aux URL pour vos données d’entraînement et de test.
 * [!INCLUDE [get SAS URL](../../includes/sas-instructions.md)]
+   
+   :::image type="content" source="../../media/quickstarts/get-sas-url.png" alt-text="Récupération d’URL SAS":::
 * Utilisez les exemples de formulaires et d’images de tickets de caisse fournis avec les exemples ci-dessous (également disponibles sur [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/test-assets)) ou utilisez les étapes ci-dessus pour récupérer l’URL SAS d’un document individuel dans le stockage d’objets blob. 
 
 

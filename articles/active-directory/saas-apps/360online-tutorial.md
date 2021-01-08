@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 1f3de29e5f046da56638876a35ca983792a4ce6c
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: d2e7935de23dcbdccfa6f4efa602dbab42931075
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319139"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673843"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-360-online"></a>Didacticiel : Intégration d’Azure Active Directory à 360 Online
 
@@ -63,7 +63,7 @@ Pour configurer l’intégration de 360 Online à Azure AD, vous devez ajouter 
 
 4. Dans la zone de recherche, tapez **360 Online**, sélectionnez **360 Online** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
-     ![360 Online dans la liste des résultats](common/search-new-app.png)
+    ![360 Online dans la liste des résultats](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
@@ -141,7 +141,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
     ![Boîte de dialogue Utilisateur](common/user-properties.png)
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
-  
+
     b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple : BrittaSimon@contoso.com
 
@@ -177,7 +177,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 ### <a name="create-360-online-test-user"></a>Créer utilisateur de test 360 Online
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans 360 Online. Contactez l’ [équipe du support technique 360 Online](mailto:360online@software-innovation.com) pour ajouter des utilisateurs à la plateforme 360 Online. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans 360 Online. Contactez l’[équipe du support technique 360 Online](mailto:360online@software-innovation.com) pour ajouter des utilisateurs à la plateforme 360 Online. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique
 

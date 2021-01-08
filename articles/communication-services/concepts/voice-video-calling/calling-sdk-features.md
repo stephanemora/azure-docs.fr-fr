@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: f47ee36c0e7806afc10f8f0907825378c2d24410
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: c801a276f3a116f00b34d750ca8bfec7e56d377b
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505543"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680736"
 ---
 # <a name="calling-client-library-overview"></a>Vue d’ensemble de la bibliothèque cliente d’appel
 
@@ -58,13 +58,13 @@ La liste suivante présente l’ensemble des fonctionnalités actuellement dispo
 |                   | Composer un numéro à partir d’un appel de groupe en tant que participant RTPC                                                                    | ✔️   | ✔️            | ✔️   
 | Général           | Tester votre micro, votre haut-parleur et votre caméra avec un service de test audio (disponible en appelant 8:echo123)                   |  ✔️  | ✔️            | ✔️   
 
-## <a name="calling-client-library-browser-support"></a>Prise en charge des navigateurs de bibliothèques clientes d’appel
+## <a name="javascript-calling-client-library-support-by-os-and-browser"></a>Prise en charge de la bibliothèque cliente d’appel JavaScript par système d’exploitation et navigateur
 
 Le tableau suivant représente l’ensemble des navigateurs pris en charge et des versions actuellement disponibles.
 
-|                                  | Windows          | macOS          | Ubuntu | Linux  | Android | iOS    |
-| -------------------------------- | ---------------- | -------------- | ------- | ------ | ------ | ------ |
-| **Bibliothèque de client Calling** | Chrome*, nouveau Edge | Chrome *, Safari** | Chrome*  | Chrome* | Chrome* | Safari** |
+|                                  | Windows          | macOS          | Ubuntu | Linux  | Android | iOS    | iPadOS|
+| -------------------------------- | ---------------- | -------------- | ------- | ------ | ------ | ------ | -------|
+| **Bibliothèque de client Calling** | Chrome*, nouveau Edge | Chrome *, Safari** | Chrome*  | Chrome* | Chrome* | Safari** | Safari** |
 
 
 *Notez que la dernière version de Chrome est prise en charge en plus des deux versions précédentes.<br/>

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc
 ms.date: 02/12/2020
-ms.openlocfilehash: 5eb6788a558e4429296731f1693edd18bf92f98f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 85c4298c0c83480c244cc12238c21160a4a4282e
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77198886"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822112"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Tutoriel : Charger des données et exécuter des requêtes sur un cluster Apache Spark dans Azure HDInsight
 
@@ -28,7 +28,7 @@ Dans ce tutoriel, vous allez apprendre à :
 
 Un cluster Apache Spark sur HDInsight. Consultez [Créer un cluster Apache Spark](./apache-spark-jupyter-spark-sql-use-portal.md).
 
-## <a name="create-a-jupyter-notebook"></a>Créer un bloc-notes Jupyter
+## <a name="create-a-jupyter-notebook"></a>Créer un bloc-notes Jupyter Notebook
 
 Jupyter Notebook est un environnement de Notebook interactif qui prend en charge plusieurs langages de programmation. Le Notebook vous permet d’interagir avec vos données, de combiner du code avec le texte Markdown et d’effectuer des visualisations simples.
 
@@ -49,7 +49,7 @@ Les applications peuvent créer des dataframes directement à partir de fichiers
 
 ![Capture instantanée des données pour la requête Spark SQL interactive](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "Capture instantanée des données pour la requête Spark SQL interactive")
 
-1. Collez l'exemple de code suivant dans une cellule vide du notebook Jupyter, puis appuyez sur **MAJ + ENTRÉE** pour exécuter le code. Le code importe les types requis pour ce scénario :
+1. Collez l’exemple de code suivant dans une cellule vide du notebook Jupyter, puis appuyez sur **MAJ + ENTRÉE** pour exécuter le code. Le code importe les types requis pour ce scénario :
 
     ```python
     from pyspark.sql import *
@@ -95,7 +95,7 @@ Une fois la table créée, vous pouvez exécuter une requête interactive sur le
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Avec HDInsight, vos données et notebooks Jupyter sont stockés dans le stockage Azure ou Azure Data Lake Storage. Vous pouvez ainsi supprimer un cluster en toute sécurité s’il n’est pas en cours d’utilisation. Vous devez également payer pour un cluster HDInsight, même quand vous ne l’utilisez pas. Étant donné que les frais pour le cluster sont bien plus élevés que les frais de stockage, mieux vaut supprimer les clusters quand ils ne sont pas utilisés. Si vous prévoyez de suivre le tutoriel suivant immédiatement, vous souhaiterez peut-être conserver le cluster.
+Avec HDInsight, vos données et notebooks Jupyter sont stockés dans le stockage Azure ou dans Azure Data Lake Storage, ce qui vous permet de supprimer un cluster sans risque quand celui-ci n’est pas utilisé. Vous devez également payer pour un cluster HDInsight, même quand vous ne l’utilisez pas. Étant donné que les frais pour le cluster sont bien plus élevés que les frais de stockage, mieux vaut supprimer les clusters quand ils ne sont pas utilisés. Si vous prévoyez de suivre le tutoriel suivant immédiatement, vous souhaiterez peut-être conserver le cluster.
 
 Ouvrez le cluster dans le portail Azure, puis sélectionnez **Supprimer**.
 

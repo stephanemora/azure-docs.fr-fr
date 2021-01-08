@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.author: sacartac
 ms.reviewer: nibaccam
 author: cartacioS
-ms.date: 07/10/2020
+ms.date: 12/21/2020
 ms.custom: automl
-ms.openlocfilehash: 8b354abb98c56a572badf2421b0d7dbbd25f7a63
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 31e9ff3fd07a7d305c88d28629f3252db5d857c8
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96921856"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695436"
 ---
 # <a name="tutorial-forecast-demand-with-automated-machine-learning"></a>Tutoriel : Prévoir la demande avec le Machine Learning automatisé
 
@@ -100,7 +100,7 @@ Avant de configurer votre expérience, chargez votre fichier de données dans vo
 
     1. Sélectionnez **Suivant**.
 
-## <a name="configure-experiment-run"></a>Configurer l’exécution de l’expérience
+## <a name="configure-run"></a>Configurer l’exécution
 
 Une fois vos données chargées et configurées, configurez votre cible de calcul à distance et sélectionnez dans vos données la colonne que vous souhaitez prédire.
 
@@ -111,14 +111,22 @@ Une fois vos données chargées et configurées, configurez votre cible de calcu
 
     1. Sélectionnez **Create a new compute** (Créer un nouveau calcul), puis configurez la cible de calcul. Le ML automatisé prend uniquement en charge la capacité de calcul Azure Machine Learning. 
 
-        Champ | Description | Valeur pour le tutoriel
-        ----|---|---
-        Nom du calcul |Nom unique qui identifie votre contexte de calcul.|bike-compute
-        Type de&nbsp;machine&nbsp;virtuelle|Sélectionnez le type de machine virtuelle pour votre calcul.|Processeur (CPU)
-        Taille de la&nbsp;machine&nbsp;virtuelle| Sélectionnez la taille de la machine virtuelle pour votre calcul.|Standard_DS12_V2
-        Nombre minimal/maximal de nœuds| Pour profiler des données, vous devez spécifier un ou plusieurs nœuds.|Nœuds min. : 1<br>Nœuds max. : 6
-        Secondes d’inactivité avant le scale-down | Durée d’inactivité avant que le cluster ne fasse l’objet d’un scale-down au nombre de nœuds minimal.|120 (par défaut)
-        Paramètres avancés | Paramètres pour configurer et autoriser un réseau virtuel pour votre expérience.| None
+        1. Remplissez le formulaire **Machine virtuelle** pour configurer votre calcul.
+
+            Champ | Description | Valeur pour le tutoriel
+            ----|---|---
+            Priorité&nbsp;de la machine&nbsp;virtuelle |Sélectionnez la priorité que doit avoir votre expérience| Dédié
+            Type de&nbsp;machine&nbsp;virtuelle| Sélectionnez le type de machine virtuelle pour votre calcul.|Processeur (CPU)
+            Taille de la&nbsp;machine&nbsp;virtuelle| Sélectionnez la taille de la machine virtuelle pour votre calcul. La liste des tailles recommandées qui est fournie dépend de vos données et du type de l’expérience. |Standard_DS12_V2
+        
+        1. Sélectionnez **Suivant** pour renseigner le formulaire **Configurer les paramètres**.
+        
+             Champ | Description | Valeur pour le tutoriel
+            ----|---|---
+            Nom du calcul |  Nom unique qui identifie votre contexte de calcul. | bike-compute
+            Nombre minimal/maximal de nœuds| Pour profiler des données, vous devez spécifier un ou plusieurs nœuds.|Nœuds min. : 1<br>Nœuds max. : 6
+            Secondes d’inactivité avant le scale-down | Durée d’inactivité avant que le cluster ne fasse l’objet d’un scale-down au nombre de nœuds minimal.|120 (par défaut)
+            Paramètres avancés | Paramètres pour configurer et autoriser un réseau virtuel pour votre expérience.| None 
   
         1. Sélectionnez **Créer** pour accéder à la cible de calcul. 
 
@@ -154,11 +162,11 @@ Terminez la configuration de votre expérience de ML automatisé en spécifiant 
 
 ## <a name="run-experiment"></a>Exécuter une expérience
 
-Pour exécuter votre expérience, sélectionnez **Terminer**. L’écran **Détails de l’exécution** s’ouvre avec **État de l’exécution**  en haut à côté du numéro de l’exécution. Cet état est mis à jour à mesure que l’expérience progresse.
+Pour exécuter votre expérience, sélectionnez **Terminer**. L’écran **Détails de l’exécution** s’ouvre avec **État de l’exécution**  en haut à côté du numéro de l’exécution. Cet état est mis à jour à mesure que l’expérience progresse. Les notifications s’affichent également en haut à droite de Studio pour vous informer de l’état de votre expérience.
 
 >[!IMPORTANT]
 > La préparation nécessaire à l’exécution de l’expérience prend **10 à 15** minutes.
-> Une fois que l’exécution a commencé, **2-3 minutes supplémentaires sont nécessaires pour chaque itération**.  <br> <br>
+> Une fois que l’exécution a commencé, **2-3 minutes supplémentaires sont nécessaires pour chaque itération**.<br> <br>
 > Dans un environnement de production, ce processus prend du temps. Pendant que vous attendez, nous vous suggérons de commencer à explorer les algorithmes testés sous l’onglet **Modèles** à mesure qu’ils se terminent. 
 
 ##  <a name="explore-models"></a>Explorer les modèles
@@ -169,7 +177,7 @@ En attendant que toutes les modèles d’expérience se terminent, sélectionnez
 
 L’exemple suivant parcourt les onglets **Détails** et **Métriques** pour montrer les propriétés, les métriques et les graphiques de performances du modèle sélectionné. 
 
-![Détails de l’exécution](./media/tutorial-automated-ml-forecast/explore-models-ui.gif)
+![Détails de l’exécution](./media/tutorial-automated-ml-forecast/explore-models.gif)
 
 ## <a name="deploy-the-model"></a>Déployer le modèle
 
@@ -232,7 +240,7 @@ Dans ce tutoriel, vous avez utilisé le ML automatisé dans Azure Machine Learni
 Pour savoir comment créer un schéma pris en charge par Power BI pour faciliter la consommation de votre service web récemment déployé, lisez cet article :
 
 > [!div class="nextstepaction"]
-> [Utiliser un service web](how-to-consume-web-service.md#consume-the-service-from-power-bi)
+> [Utiliser un service web](https://docs.microsoft.com/power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context)
 
 + En savoir plus sur le [Machine Learning automatisé](concept-automated-ml.md).
 + Pour plus d’informations sur les métriques et les graphiques de classification, consultez l’article [Comprendre les résultats du Machine Learning automatisé](how-to-understand-automated-ml.md).

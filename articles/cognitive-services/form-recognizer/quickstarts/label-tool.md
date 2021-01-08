@@ -11,12 +11,12 @@ ms.date: 09/30/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: traitement de documents
-ms.openlocfilehash: 7671d8d58ffbd0fca444eefe53c46c99a4e76d37
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: a1cf919e17e22cb6280dce27faceb7cd034a6962
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "96009328"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845540"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Entraîner un modèle Form Recognizer avec des étiquettes à l’aide de l’outil d’étiquetage des exemples
 
@@ -106,7 +106,7 @@ Vous allez utiliser le moteur Docker pour exécuter l’outil d’étiquetage de
    Cette commande rend l’outil d’étiquetage des exemples disponible par le biais d’un navigateur web. Atteindre `http://localhost:3000`.
 
 > [!NOTE]
-> Vous pouvez également étiqueter des documents et entraîner des modèles à l’aide de l’API REST Form Recognizer. Pour effectuer un entraînement et une analyse avec l’API REST, consultez [Entraîner avec des étiquettes en utilisant l’API REST et Python](./python-labeled-data.md).
+> Vous pouvez également étiqueter des documents et entraîner des modèles à l’aide de l’API REST Form Recognizer. Pour effectuer un entraînement et une analyse avec l’API REST, consultez [Entraîner avec des étiquettes en utilisant l’API REST et Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md).
 
 ## <a name="set-up-input-data"></a>Configurer les données d’entrée
 
@@ -137,7 +137,9 @@ Renseignez les champs avec les valeurs suivantes :
 
 * **Display Name** (nom d’affichage) : nom d’affichage de la connexion.
 * **Description** : description de votre projet.
-* **SAS URL** (URL SAS) : URL de signature d’accès partagé (SAS) de votre conteneur Stockage Blob Azure. Pour récupérer l’URL SAS, ouvrez l’Explorateur Stockage Microsoft Azure, cliquez avec le bouton droit sur votre conteneur, puis sélectionnez **Obtenir une signature d’accès partagé**. Définissez le délai d’expiration sur une heure à laquelle vous aurez fini d’utiliser le service. Assurez-vous que les autorisations **Read** (Lecture), **Write** (Écriture), **Delete** (Suppression) et **List** (Listage) sont cochées, puis cliquez sur **Create** (Créer). Copiez alors la valeur dans la section **URL**. Il doit avoir le format : `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+* **SAS URL** (URL SAS) : URL de signature d’accès partagé (SAS) de votre conteneur Stockage Blob Azure. [!INCLUDE [get SAS URL](../includes/sas-instructions.md)]
+
+   :::image type="content" source="../media/quickstarts/get-sas-url.png" alt-text="Récupération d’URL SAS":::
 
 :::image type="content" source="../media/label-tool/connections.png" alt-text="Paramètres de connexion de l’outil d’étiquetage des exemples.":::
 
@@ -223,7 +225,7 @@ Effectuez les étapes ci-dessus pour étiqueter au moins cinq de vos formulaires
 
 ### <a name="specify-tag-value-types"></a>Spécifier des types de valeurs d’étiquettes
 
-Si vous le souhaitez, vous pouvez définir le type de données attendu pour chaque étiquette. Ouvrez le menu contextuel à droite d’une étiquette et sélectionnez un type dans le menu. Cette fonctionnalité permet à l’algorithme de détection d’effectuer certaines hypothèses qui amélioreront la justesse de la détection de texte. Elle garantit également que les valeurs détectées sont retournées dans un format normalisé dans la sortie JSON finale. 
+Si vous le souhaitez, vous pouvez définir le type de données attendu pour chaque étiquette. Ouvrez le menu contextuel à droite d’une étiquette et sélectionnez un type dans le menu. Cette fonctionnalité permet à l’algorithme de détection d’effectuer certaines hypothèses qui amélioreront la justesse de la détection de texte. Elle garantit également que les valeurs détectées sont retournées dans un format normalisé dans la sortie JSON finale. Les informations sur le type de valeur sont enregistrées dans le fichier *fields.json* sous le même chemin que vos fichiers d’étiquette.
 
 > [!div class="mx-imgBorder"]
 > ![Sélection d'un type valeur avec l'outil d'étiquetage des exemples](../media/whats-new/formre-value-type.png)
@@ -266,7 +268,7 @@ Les types et variantes de valeurs suivants sont actuellement pris en charge :
 
 Dans le volet gauche, cliquez sur l’icône d’entraînement (wagon) pour ouvrir la page Training (Entraînement). Cliquez ensuite sur le bouton **Train** pour commencer l’entraînement du modèle. Une fois le processus d’entraînement terminé, les informations suivantes s’affichent :
 
-* **Model ID** : ID du modèle qui a été créé et entraîné. Chaque appel d’entraînement crée un modèle avec son propre ID. Copiez cette chaîne dans un emplacement sûr. Vous en aurez besoin si vous souhaitez effectuer des appels de prédiction via l’[API REST](./curl-train-extract.md) pi une [bibliothèque de client](./client-library.md).
+* **Model ID** : ID du modèle qui a été créé et entraîné. Chaque appel d’entraînement crée un modèle avec son propre ID. Copiez cette chaîne dans un emplacement sûr. Vous en aurez besoin si vous souhaitez effectuer des appels de prédiction via l’[API REST](./client-library.md?pivots=programming-language-rest-api) pi une [bibliothèque de client](./client-library.md).
 * **Average Accuracy** : justesse moyenne du modèle. Vous pouvez améliorer la justesse du modèle en étiquetant des formulaires supplémentaires et en effectuant un nouvel entraînement pour créer un modèle. Nous vous recommandons de commencer par étiqueter cinq formulaires et d’ajouter des formulaires en fonction des besoins.
 * Liste des étiquettes et justesse estimée par étiquette.
 
@@ -276,7 +278,7 @@ Dans le volet gauche, cliquez sur l’icône d’entraînement (wagon) pour ouvr
 Une fois l’entraînement terminé, examinez la valeur **Average Accuracy**. Si cette valeur est petite, vous devez ajouter d’autres documents d’entrée et répéter les étapes ci-dessus. Les documents que vous avez déjà étiquetés sont conservés dans l’index du projet.
 
 > [!TIP]
-> Vous pouvez également exécuter le processus d’entraînement avec un appel d’API REST. Pour savoir comment procéder, consultez [Effectuer un entraînement avec des étiquettes à l’aide de Python](./python-labeled-data.md).
+> Vous pouvez également exécuter le processus d’entraînement avec un appel d’API REST. Pour savoir comment procéder, consultez [Effectuer un entraînement avec des étiquettes à l’aide de Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md).
 
 ## <a name="compose-trained-models"></a>Composer des modèles entraînés
 
@@ -299,7 +301,7 @@ Pour composer des modèles dans l’outil d’étiquetage des exemples, cliquez 
 Cliquez sur l’icône de prédiction (ampoule) sur la gauche pour tester votre modèle. Chargez un document de formulaire que vous n’avez pas utilisé dans le processus d’entraînement. Cliquez ensuite sur le bouton **Predict** à droite pour obtenir les prédictions de clé/valeur pour le formulaire. L’outil applique des étiquettes dans les cadres englobants et signale la confiance de chaque étiquette.
 
 > [!TIP]
-> Vous pouvez également exécuter l’API Analyze (Analyser) avec un appel REST. Pour savoir comment procéder, consultez [Effectuer un entraînement avec des étiquettes à l’aide de Python](./python-labeled-data.md).
+> Vous pouvez également exécuter l’API Analyze (Analyser) avec un appel REST. Pour savoir comment procéder, consultez [Effectuer un entraînement avec des étiquettes à l’aide de Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md).
 
 ## <a name="improve-results"></a>Améliorer les résultats
 
@@ -326,7 +328,7 @@ Enfin, accédez à la page principale (icône en forme de maison), puis cliquez 
 Dans ce guide de démarrage rapide, vous avez appris à utiliser l’outil d’étiquetage des exemples Form Recognizer pour entraîner un modèle avec des données étiquetées manuellement. Si vous souhaitez créer votre propre utilitaire pour étiqueter des données d’apprentissage, utilisez les API REST dédiées à l’apprentissage de données étiquetées.
 
 > [!div class="nextstepaction"]
-> [Effectuer un entraînement avec des étiquettes à l’aide de Python](./python-labeled-data.md)
+> [Effectuer un entraînement avec des étiquettes à l’aide de Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md)
 
 * [Qu’est-ce que Form Recognizer ?](../overview.md)
-* [Démarrages rapides de bibliothèque de client Form Recognizer](client-library.md)
+* [Démarrage rapide Form Recognizer](client-library.md)

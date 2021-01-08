@@ -8,12 +8,12 @@ ms.topic: overview
 author: peterclu
 ms.author: peterlu
 ms.date: 08/24/2020
-ms.openlocfilehash: 018a0e3a244d1f0e36ce638d646ab05861c10e38
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: f59ed16f98a22f77b2e67ec2bf829f58dccef611
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565906"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740502"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Qu’est-ce que le studio Azure Machine Learning ?
 
@@ -25,6 +25,11 @@ Dans cet article, vous apprenez :
 > - Comment [gérer les ressources et les actifs](#manage-assets-and-resources) dans le studio.
 > - Les différences entre le [studio Azure Machine Learning et MS Studio (classique)](#ml-studio-classic-vs-azure-machine-learning-studio).
 
+Nous vous recommandons d’utiliser le navigateur le plus récent compatible avec votre système d’exploitation. Les opérateurs suivants sont pris en charge :
+  * Microsoft Edge (le nouveau Microsoft Edge, dernière version. Pas Microsoft Edge hérité)
+  * Safari (dernière version, Mac uniquement)
+  * Chrome (version la plus récente)
+  * Firefox (version la plus récente)
 
 ## <a name="author-machine-learning-projects"></a>Créer des projets de machine learning
 
@@ -33,6 +38,8 @@ Le studio propose plusieurs expériences de création en fonction du type du pro
 + **Blocs-notes**
 
   Écrivez et exécutez votre propre code dans les [serveurs Jupyter Notebook](how-to-run-jupyter-notebooks.md) managés qui sont directement intégrés au studio. 
+
+:::image type="content" source="media/overview-what-is-azure-ml-studio/notebooks.gif" alt-text="Capture d’écran : écrire et exécuter du code dans un notebook":::
 
 + **Concepteur Azure Machine Learning**
 
@@ -94,6 +101,9 @@ Le tableau suivant récapitule les principales différences entre ML Studio (cla
 | Détection de la dérive de données | Non pris en charge | [Pris en charge](how-to-monitor-datasets.md) |
 | Projets d'étiquetage de données | Non pris en charge | [Pris en charge](how-to-create-labeling-projects.md) |
 
+## <a name="troubleshooting"></a>Résolution des problèmes
+
+* **Éléments de l’interface utilisateur manquants dans Studio** Le contrôle d’accès en fonction du rôle Azure peut permettre de limiter les actions possibles avec Azure Machine Learning. Ces restrictions sont susceptibles d’empêcher l’affichage d’éléments de l’interface utilisateur dans Azure Machine Learning studio. Par exemple, si le rôle qui vous est attribué ne permet pas de créer d’instance de calcul, l’option de création d’une instance de calcul n’apparaîtra pas dans Studio. Pour plus d’informations, consultez [Gestion des utilisateurs et des rôles](how-to-assign-roles.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

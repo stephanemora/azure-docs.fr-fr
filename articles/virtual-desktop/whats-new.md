@@ -8,12 +8,12 @@ ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
 ms.custom: references_regions
-ms.openlocfilehash: e267de136271991446444a47a470dd52789b3613
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: e42e49f69a159bf3bfdc732d41dc66a9a707f42f
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96533959"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617355"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Nouveautés de Windows Virtual Desktop
 
@@ -49,7 +49,7 @@ Nous avons publié la version 2.0.1 des applets de commande Windows Virtual Des
 
 ### <a name="azure-advisor-updates"></a>Mises à jour d’Azure Advisor
 
-Azure Advisor comporte désormais une nouvelle recommandation en matière de conseils de proximité dans Windows Virtual Desktop. Pour plus d’informations, consultez le [site web Azure](https://azure.microsoft.com/updates/new-recommendations-from-azure-advisor/).
+Azure Advisor comporte désormais une nouvelle recommandation en matière de conseils de proximité dans Windows Virtual Desktop et une nouvelle recommandation pour optimiser les performances dans les pools d’hôtes à charge équilibrée en profondeur d’abord. Pour plus d’informations, consultez le [site web Azure](https://azure.microsoft.com/updates/new-recommendations-from-azure-advisor/).
 
 ## <a name="october-2020"></a>Octobre 2020
 

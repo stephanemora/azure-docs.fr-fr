@@ -12,20 +12,27 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2020
+ms.date: 12/30/2020
 ms.author: memildin
-ms.openlocfilehash: bd8c5c31579ac22cd6c77dffd31103680e393f69
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: d3ed064547b1202aa562fffdfde85a28cbe8514e
+ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187168"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97809545"
 ---
-# <a name="quickstart-setting-up-azure-security-center"></a>Démarrage rapide : Configuration d’Azure Security Center
+# <a name="quickstart-set-up-azure-security-center"></a>Démarrage rapide : Configurer Azure Security Center
 
 Azure Security Center propose des fonctionnalités unifiées de gestion de la sécurité et de protection contre les menaces sur l’ensemble des charges de travail cloud hybrides. Alors que les fonctionnalités gratuites offrent une sécurité limitée pour vos ressources Azure uniquement, l’activation d’Azure Defender étend ces fonctions aux ressources locales et à d’autres clouds. Azure Defender aide à rechercher et à corriger les failles de sécurité, applique des contrôles d’accès et d’application pour bloquer les activités malveillantes, détecte les menaces à l’aide de l’analytique et de l’analyse décisionnelle et répond rapidement en cas d’attaque. Vous pouvez essayer gratuitement Azure Defender. Pour en savoir plus, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/security-center/).
 
-Dans cet article, vous effectuez une mise à niveau vers Azure Defender pour renforcer la sécurité et installer l’agent Log Analytics sur vos machines afin de surveiller les menaces et les failles de sécurité.
+Ce guide de démarrage rapide vous indique comment activer Azure Defender pour renforcer la sécurité et comment installer l’agent Log Analytics sur vos machines afin de superviser les menaces et les failles de sécurité.
+
+Vous allez effectuer les étapes suivantes :
+
+> [!div class="checklist"]
+> * Activer Security Center sur votre abonnement Azure
+> * Activer Azure Defender sur votre abonnement Azure
+> * Activer la collecte de données automatique
 
 ## <a name="prerequisites"></a>Prérequis
 Pour utiliser le Centre de sécurité, vous devez disposer d’un abonnement à Microsoft Azure. Si vous n’avez pas d’abonnement, vous pouvez vous inscrire pour avoir un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/).
