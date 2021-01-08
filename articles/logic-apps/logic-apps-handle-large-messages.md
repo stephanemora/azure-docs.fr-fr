@@ -3,16 +3,14 @@ title: Gérer des messages volumineux à l’aide d’une segmentation
 description: Apprenez à gérer les messages volumineux en les segmentant en tâches et flux de travail automatisés que vous créez avec Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-author: DavidCBerry13
-ms.author: daberry
 ms.topic: article
-ms.date: 12/03/2019
-ms.openlocfilehash: 54828dded5196c86946d99a9cd8cec7a42533661
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/18/2020
+ms.openlocfilehash: de4af34182fc1a95968e95d322a6ec35101a3dc9
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83117561"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695872"
 ---
 # <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Gérer les messages volumineux avec la segmentation dans Azure Logic Apps
 
@@ -40,8 +38,57 @@ Les services qui communiquent avec Logic Apps peuvent avoir leurs propres limite
 
 Pour les connecteurs qui prennent en charge la segmentation, le protocole de segmentation sous-jacent n’est pas visible par les utilisateurs finaux. Toutefois, tous les connecteurs ne prennent pas en charge la segmentation. Ces connecteurs génèrent alors des erreurs d’exécution lorsque les messages entrants dépassent la taille maximale autorisée pour ces connecteurs.
 
-> [!NOTE]
-> Pour les actions qui utilisent la segmentation, vous ne pouvez pas passer le corps du déclencheur ou utiliser des expressions telles que `@triggerBody()?['Content']` dans ces actions. Au lieu de cela, pour le contenu de fichier texte ou JSON, vous pouvez essayer d’utiliser l’[action **Compose**](../logic-apps/logic-apps-perform-data-operations.md#compose-action) ou [créer une variable](../logic-apps/logic-apps-create-variables-store-values.md) pour gérer ce contenu. Si le corps du déclencheur contient d’autres types de contenu, tels que des fichiers multimédias, vous devez effectuer d’autres étapes pour gérer ce contenu.
+
+Pour les actions qui prennent en charge et sont activées pour la segmentation, vous ne pouvez pas utiliser les corps, les variables et les expressions du déclencheur, comme `@triggerBody()?['Content']`, car l’utilisation de l’une de ces entrées empêche l’opération de segmentation de se produire. Au lieu de cela, utilisez l’action [**Composer**](../logic-apps/logic-apps-perform-data-operations.md#compose-action). Plus précisément, vous devez créer un champ `body` à l’aide de l’action **Composer** pour stocker la sortie des données à partir du corps du déclencheur, de la variable, de l’expression, etc., par exemple :
+
+```json
+"Compose": {
+    "inputs": {
+        "body": "@variables('myVar1')"
+    },
+    "runAfter": {
+        "Until": [
+            "Succeeded"
+        ]
+    },
+    "type": "Compose"
+},
+```
+Ensuite, pour référencer les données, dans l’action de segmentation, utilisez `@body('Compose')`.
+
+```json
+"Create_file": {
+    "inputs": {
+        "body": "@body('Compose')",
+        "headers": {
+            "ReadFileMetadataFromServer": true
+        },
+        "host": {
+            "connection": {
+                "name": "@parameters('$connections')['sftpwithssh_1']['connectionId']"
+            }
+        },
+        "method": "post",
+        "path": "/datasets/default/files",
+        "queries": {
+            "folderPath": "/c:/test1/test1sub",
+            "name": "tt.txt",
+            "queryParametersSingleEncoded": true
+        }
+    },
+    "runAfter": {
+        "Compose": [
+            "Succeeded"
+        ]
+    },
+    "runtimeConfiguration": {
+        "contentTransfer": {
+            "transferMode": "Chunked"
+        }
+    },
+    "type": "ApiConnection"
+},
+```
 
 <a name="set-up-chunking"></a>
 

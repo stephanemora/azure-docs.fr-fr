@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: quickstart
 ms.date: 11/15/2020
 ms.author: memildin
-ms.openlocfilehash: f5cf432e3824ca0bb441a458a08fc7353291cf1f
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: be8123d3c8a4acc684610aeaa9ee263c5defa17d
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96490055"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97813613"
 ---
 # <a name="auto-provisioning-agents-and-extensions-from-azure-security-center"></a>Provisionnement automatique d’agents et d’extensions à partir d’Azure Security Center
 
@@ -30,6 +30,17 @@ Les données sont collectées à l’aide des éléments suivants :
 > Au fil de la croissance de Security Center, les types de ressources pouvant être surveillés ont également augmenté. Le nombre d’extensions a également augmenté. Le provisionnement automatique s’est développé pour prendre en charge des types de ressources supplémentaires en tirant parti des fonctionnalités Azure Policy.
 
 :::image type="content" source="./media/security-center-enable-data-collection/auto-provisioning-options.png" alt-text="Page des paramètres de provisionnement automatique de Security Center":::
+
+
+## <a name="availability"></a>Disponibilité
+
+| Aspect                  | Détails                                                                                                                                                                                                                      |
+|-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| État de sortie :          | **Caractéristique** : Le provisionnement automatique est en disponibilité générale<br>**Agent et extensions** : L’agent Log Analytics pour les machines virtuelles Azure est en disponibilité générale, Microsoft Dependency Agent est en préversion, le module complémentaire Policy pour Kubernetes est en disponibilité générale                |
+| Prix :                | Gratuit                                                                                                                                                                                                                         |
+| Destinations prises en charge : | ![Oui](./media/icons/yes-icon.png) Machines Azure<br>![Non](./media/icons/no-icon.png) Machines Azure Arc<br>![Non](./media/icons/no-icon.png) Nœuds Kubernetes<br>![Non](./media/icons/no-icon.png) Virtual Machine Scale Sets |
+| Clouds :                 | ![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Oui](./media/icons/yes-icon.png) US Gov, China Gov, autres Gov                                                                                                      |
+|                         |                                                                                                                                                                                                                              |
 
 
 ## <a name="why-use-auto-provisioning"></a>Pourquoi utiliser le provisionnement automatique ?

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: noakup
 ms.author: noakuper
 ms.date: 09/03/2020
-ms.openlocfilehash: f221237bee441ec78d726dabf476d1085a27071d
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 0a2439f0ed18cf93691a1d0389e049b1b7993d93
+ms.sourcegitcommit: a89a517622a3886b3a44ed42839d41a301c786e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095302"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97732056"
 ---
 # <a name="using-customer-managed-storage-accounts-in-azure-monitor-log-analytics"></a>Utilisation de comptes de stockage gérés par le client dans Azure Monitor Log Analytics
 
@@ -32,11 +32,11 @@ Types de données pris en charge :
 * Journaux d’activité IIS
 
 ## <a name="using-private-links"></a>Utilisation de liaisons privées
-Les comptes de stockage gérés par le client sont requis dans certains cas d’usage, notamment lorsque des liaisons privées sont utilisées pour se connecter à des ressources Azure Monitor. L’un de ces cas est l’ingestion de journaux personnalisés ou de journaux IIS. Ces types de données sont d’abord chargés sous forme de blobs sur un compte Stockage Azure intermédiaire, et seulement ensuite ils sont ingérés dans un espace de travail. De même, certaines solutions Azure Monitor peuvent utiliser des comptes de stockage pour stocker des fichiers volumineux, tels que des fichiers de sauvegarde Watson, qui sont utilisés par la solution Azure Security Center. 
+Les comptes de stockage gérés par le client sont requis dans certains cas d’usage, notamment lorsque des liaisons privées sont utilisées pour se connecter à des ressources Azure Monitor. L’un de ces cas est l’ingestion de journaux personnalisés ou de journaux IIS. Ces types de données sont d’abord chargés sous forme de blobs sur un compte Stockage Azure intermédiaire, et seulement ensuite ils sont ingérés dans un espace de travail. De même, certaines solutions Azure Monitor peuvent utiliser des comptes de stockage pour stocker des fichiers volumineux, tels que Azure Security Center (ASC) qui peuvent nécessiter le chargement de fichiers. 
 
 ##### <a name="private-link-scenarios-that-require-a-customer-managed-storage"></a>Scénarios Azure Private Link qui requièrent un stockage géré par le client
 * Ingestion de journaux personnalisés et de journaux IIS
-* Solution ASC autorisée à collecter des fichiers de sauvegarde Watson
+* Autorisation à la solution ASC de télécharger des fichiers
 
 ### <a name="how-to-use-a-customer-managed-storage-account-over-a-private-link"></a>Comment utiliser un compte de stockage géré par le client via une liaison privée
 ##### <a name="workspace-requirements"></a>Conditions requises pour l’espace de travail
@@ -45,13 +45,14 @@ Lors de la connexion à Azure Monitor via une liaison privée, les agents Log An
 Pour que le compte de stockage se connecte correctement à votre liaison privée, il doit :
 * se trouver sur votre réseau virtuel ou sur un réseau appairé et être connecté à votre réseau virtuel via une liaison privée. Cela permet aux agents de votre réseau virtuel d’envoyer des journaux au compte de stockage ;
 * se trouver dans la même région que l’espace de travail auquel il est lié ;
-* autoriser Azure Monitor à accéder au compte de stockage. Si vous avez choisi de n’autoriser que certains réseaux à accéder à votre compte de stockage, veillez à autoriser cette exception : « Autoriser les services Microsoft approuvés à accéder à ce compte de stockage ». Cela permet à Log Analytics de lire les journaux ingérés dans ce compte de stockage ;
+* autoriser Azure Monitor à accéder au compte de stockage. Si vous avez choisi d’autoriser uniquement certains réseaux à accéder à votre compte de stockage, vous devez sélectionner l’exception : « Autoriser les services Microsoft approuvés à accéder à ce compte de stockage ».
+![Image de l’approbation de compte de stockage MS services](./media/private-storage/storage-trust.png)
 * si votre espace de travail traite également du trafic provenant d’autres réseaux, vous devez configurer le compte de stockage de manière à autoriser le trafic entrant provenant des réseaux concernés ou d’Internet.
 
 ##### <a name="link-your-storage-account-to-a-log-analytics-workspace"></a>Lier votre compte de stockage à un espace de travail Log Analytics
 Vous pouvez lier votre compte de stockage à l’espace de travail via l’[interface de ligne de commande Azure](/cli/azure/monitor/log-analytics/workspace/linked-storage) ou l’[API REST](/rest/api/loganalytics/linkedstorageaccounts). Valeurs dataSourceType applicables :
 * CustomLogs : utilise le stockage pour les journaux personnalisés et les journaux IIS pendant l’ingestion.
-* AzureWatson : utilise le stockage pour les fichiers de sauvegarde Watson chargés par la solution ASC (Azure Security Center). Pour plus d’informations sur la gestion de la conservation des données, le remplacement d’un compte de stockage lié et la surveillance de l’activité sur votre compte de stockage, consultez la section [Gestion des comptes de stockage liés](#managing-linked-storage-accounts). 
+* AzureWatson : utilise le stockage pour les fichiers de sauvegarde chargés par la solution ASC (Azure Security Center). Pour plus d’informations sur la gestion de la conservation des données, le remplacement d’un compte de stockage lié et la surveillance de l’activité sur votre compte de stockage, consultez la section [Gestion des comptes de stockage liés](#managing-linked-storage-accounts). 
 
 ## <a name="encrypting-data-with-cmk"></a>Chiffrement des données avec une clé gérée par le client
 Stockage Azure chiffre toutes les données au repos dans un compte de stockage. Par défaut, le service chiffre les données avec des clés gérées par Microsoft (MMK). Toutefois, Stockage Azure vous permet d’utiliser une clé gérée par le client (CMK) à partir d’Azure Key Vault pour chiffrer vos données de stockage. Vous pouvez importer vos propres clés dans Azure Key Vault ou utiliser les API d’Azure Key Vault pour générer des clés.

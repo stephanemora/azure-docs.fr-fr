@@ -11,12 +11,12 @@ ms.reviewer: peterlu
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: a7d55c6e550000d2dd6c2930d95086ec433c246b
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: d9bad49b7c3d71304a33691cf5004c853228f8e8
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93361095"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97797228"
 ---
 # <a name="train-keras-models-at-scale-with-azure-machine-learning"></a>Entraîner des modèles Keras à grande échelle avec Azure Machine Learning
 
@@ -157,7 +157,7 @@ keras_env.docker.base_image = 'mcr.microsoft.com/azureml/openmpi3.1.2-cuda10.0-c
 
 Pour plus d’informations sur la création et l’utilisation d’environnements, consultez [Créer et utiliser des environnements logiciels dans Azure Machine Learning](how-to-use-environments.md).
 
-## <a name="configure-and-submit-your-training-run"></a>Configurer et envoyer votre exécution d’entraînement
+## <a name="configure-and-submit-your-training-run"></a>Configurer et envoyer votre exécution d’entrainement
 
 ### <a name="create-a-scriptrunconfig"></a>Créer un ScriptRunConfig
 Commencez par récupérer les données du magasin de données de l’espace de travail à l’aide de la classe `Dataset`.
@@ -192,25 +192,25 @@ src = ScriptRunConfig(source_directory=script_folder,
 Pour plus d’informations sur la configuration des travaux avec ScriptRunConfig, consultez [Configurer et envoyer des exécutions d’entraînement](how-to-set-up-training-targets.md).
 
 > [!WARNING]
-> Si vous utilisiez l’estimateur TensorFlow pour configurer vos travaux d’entraînement Keras, notez que les estimateurs seront dépréciés dans une prochaine version du SDK Azure ML. Avec le SDK Azure ML versions 1.15.0 et ultérieures, ScriptRunConfig est la méthode recommandée pour configurer des travaux d’entraînement, y compris ceux utilisant des frameworks DL.
+> Si vous utilisiez précédemment l’estimateur TensorFlow pour configurer vos travaux de formation keras, veuillez noter que les estimateurs ont été dépréciés à partir de la version du kit de développement logiciel (SDK) 1.19.0. Avec le kit de développement logiciel (SDK) Azure ML > = 1.15.0, ScriptRunConfig est la méthode recommandée pour configurer des tâches de formation, y compris celles utilisant des infrastructures d’apprentissage approfondi. Pour les questions courantes sur la migration, consultez le [Guide de migration pour ScriptRunConfig](how-to-migrate-from-estimators-to-scriptrunconfig.md).
 
 ### <a name="submit-your-run"></a>Envoyer votre exécution
 
 L’[objet d’exécution](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py) fournit l’interface à l’historique des exécutions pendant et après l’exécution de la tâche.
 
 ```Python
-run = Experiment(workspace=ws, name='keras-mnist').submit(src)
+run = Experiment(workspace=ws, name='Tutorial-Keras-Minst').submit(src)
 run.wait_for_completion(show_output=True)
 ```
 
 ### <a name="what-happens-during-run-execution"></a>Ce qui se passe lors de l’exécution
 Quand l’exécution est lancée, elle passe par les phases suivantes :
 
-- **Préparation** : une image docker est créée en fonction de l’environnement défini. L’image est chargée dans le registre de conteneurs de l’espace de travail et mise en cache pour des exécutions ultérieures. Les journaux sont également transmis en continu à l’historique des exécutions et peuvent être affichés afin de surveiller la progression. Si un environnement organisé est spécifié à la place, l’image mise en cache qui renferme cet environnement organisé est utilisée.
+- **Préparation** : une image docker est créée en fonction de l’environnement défini. L’image est chargée dans le registre de conteneurs de l’espace de travail et mise en cache pour des exécutions ultérieures. Les journaux sont également transmis en continu à l’historique des exécutions et peuvent être affichés afin de surveiller la progression. Si un environnement organisé est spécifié à la place, l’image mise en cache qui stocke cet environnement organisé est utilisée.
 
-- **Mise à l’échelle**  : le cluster tente de monter en puissance si le cluster Batch AI nécessite plus de nœuds pour l’exécution que la quantité disponible actuellement.
+- **Mise à l’échelle** : le cluster tente de monter en puissance si le cluster Batch AI nécessite plus de nœuds pour l’exécution que la quantité disponible actuellement.
 
-- **En cours d’exécution**  : tous les scripts dans le dossier de script sont chargés dans la cible de calcul, les magasins de données sont montés ou copiés, puis `script` est exécuté. Les sorties issues de stdout et du dossier **./logs** sont transmises en continu à l’historique des exécutions et peuvent être utilisées pour superviser l’exécution.
+- **En cours d’exécution** : tous les scripts dans le dossier de script sont chargés dans la cible de calcul, les magasins de données sont montés ou copiés, puis `script` est exécuté. Les sorties issues de stdout et du dossier **./logs** sont transmises en continu à l’historique des exécutions et peuvent être utilisées pour superviser l’exécution.
 
 - **Post-traitement** : le dossier **./outputs** de l’exécution est copié dans l’historique des exécutions.
 

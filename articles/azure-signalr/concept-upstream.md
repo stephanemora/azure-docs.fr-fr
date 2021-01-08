@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.author: chenyl
-ms.openlocfilehash: 1d51f5e8d2fac1e2b180a608c840d0a322e76271
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 33df4410b9dd82fd0b1c732eb03ab5e0e77e9869
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92143243"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97763113"
 ---
 # <a name="upstream-settings"></a>Paramètres en amont
 
@@ -53,6 +53,19 @@ Quand un client dans le Hub « conversation » appelle la méthode Hub `broadc
 http://host.com/chat/api/messages/broadcast
 ```
 
+### <a name="key-vault-secret-reference-in-url-template-settings"></a>Référence Key Vault secrète dans les paramètres de modèle d’URL
+
+L’URL en amont ne correspond pas au chiffrement au repos. Si vous avez des informations sensibles, il est recommandé d’utiliser Key Vault pour les enregistrer là où le contrôle d’accès offre une meilleure assurance. En fait, vous pouvez activer l’identité managée du service Azure SignalR, puis accorder l’autorisation de lecture sur une instance de Key Vault et utiliser la référence au lieu du texte en clair dans le modèle d’URL en amont.
+
+1. Ajoutez une identité affectée par le système ou une identité affectée par l’utilisateur. Consultez [Comment ajouter une identité gérée dans le portail Azure](./howto-use-managed-identity.md#add-a-system-assigned-identity)
+
+2. Accordez une autorisation de lecture secrète pour l’identité gérée dans les stratégies d’accès de Key Vault. Consultez [Attribuer une stratégie d’accès Key Vault à l’aide du portail Azure](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal)
+
+3. Remplacez votre texte sensible par la syntaxe `{@Microsoft.KeyVault(SecretUri=<secret-identity>)}` dans le modèle d’URL en amont.
+
+> [!NOTE]
+> Le contenu secret est relu uniquement lorsque vous modifiez les paramètres en amont ou modifiez l’identité gérée. Assurez-vous que vous avez accordé une autorisation de lecture secrète à l’identité gérée avant d’utiliser la référence Key Vault.
+
 ### <a name="rule-settings"></a>Paramètres de la règle
 
 Vous pouvez définir des règles pour les *règles de Hub*, les *règles de catégorie* et les *règles d’événement* séparément. La règle de correspondance prend en charge trois formats. Prenons l’exemple des règles d’événement :
@@ -61,8 +74,8 @@ Vous pouvez définir des règles pour les *règles de Hub*, les *règles de cat�
 - Utilisez le nom complet de l’événement pour correspondre à l’événement. Par exemple, `connected` correspond à l’événement connecté.
 
 > [!NOTE]
-> Si vous utilisez Azure Functions et le [déclencheur Signalr](../azure-functions/functions-bindings-signalr-service-trigger.md), celui-ci expose un seul point de terminaison au format suivant : `https://<APP_NAME>.azurewebsites.net/runtime/webhooks/signalr?code=<API_KEY>`.
-> Vous pouvez simplement configurer le modèle d’url sur cette url.
+> Si vous utilisez Azure Functions et le [déclencheur Signalr](../azure-functions/functions-bindings-signalr-service-trigger.md), celui-ci expose un seul point de terminaison au format suivant : `<Function_App_URL>/runtime/webhooks/signalr?code=<API_KEY>`.
+> Vous pouvez simplement configurer les **paramètres de modèle d’URL** pour cette URL et conserver les **paramètres de règle** par défaut. Pour plus d’informations sur la recherche des `<Function_App_URL>` et des `<API_KEY>`, consultez [Intégration du service SignalR](../azure-functions/functions-bindings-signalr-service-trigger.md#signalr-service-integration).
 
 ### <a name="authentication-settings"></a>Authentication settings
 
@@ -82,7 +95,7 @@ Lorsque vous sélectionnez `ManagedIdentity`, vous devez activer une identité m
 3. Ajoutez des URL sous **Modèle d’URL en amont**. Ensuite, des paramètres tels que **Règles de Hub** affichent la valeur par défaut.
 4. Pour définir des paramètres pour les **Règles de Hub**, les **Règles d’événement**, les **Règles de catégorie** et l’**Authentification en amont**, sélectionnez la valeur des **Règles de Hub**. Une page permettant de modifier les paramètres s’affiche :
 
-    :::image type="content" source="media/concept-upstream/upstream-detail-portal.png" alt-text="Paramètres en amont":::
+    :::image type="content" source="media/concept-upstream/upstream-detail-portal.png" alt-text="Détails du paramètre En amont":::
 
 5. Pour définir l’**Authentification en amont**, vérifiez que vous avez d’abord activé une identité managée. Sélectionnez ensuite **Utiliser l’identité managée**. Selon vos besoins, vous pouvez choisir des options sous **ID de ressource d’authentification**. Pour plus de détails, consultez [Identités managées pour Azure SignalR Service](howto-use-managed-identity.md).
 
@@ -115,7 +128,7 @@ Pour créer des paramètres en amont à l’aide d’un [modèle de Azure Resour
 
 ## <a name="serverless-protocols"></a>Protocoles serverless
 
-Azure SignalR Service envoie des messages aux points de terminaison qui suivent les protocoles suivants.
+Azure SignalR Service envoie des messages aux points de terminaison qui suivent les protocoles suivants. Vous pouvez utiliser [la liaison de déclencheur du service SignalR](../azure-functions/functions-bindings-signalr-service-trigger.md) avec Function App, qui gère ces protocoles pour vous.
 
 ### <a name="method"></a>Méthode
 
@@ -170,3 +183,5 @@ Hex_encoded(HMAC_SHA256(accessKey, connection-id))
 
 - [Identités managées pour Azure SignalR Service](howto-use-managed-identity.md)
 - [Développement et configuration Azure Functions avec Azure SignalR Service](signalr-concept-serverless-development-config.md)
+- [Gérer les messages du service SignalR (liaison de déclenchement)](../azure-functions/functions-bindings-signalr-service-trigger.md)
+- [Exemple de liaison de déclencheur SignalR Service](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/BidirectionChat)

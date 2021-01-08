@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: quickstart
 ms.date: 12/08/2020
 ms.author: mbaldwin
-ms.openlocfilehash: c3407b9539047b5c683f304549977eace7b57341
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 73d247464f167040c6f7129bdf7014b877317fc5
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96779003"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936258"
 ---
 # <a name="quickstart-create-a-key-vault-using-powershell"></a>Démarrage rapide : Créer un coffre de clés à l’aide de PowerShell
 
@@ -78,4 +78,5 @@ Dans ce guide de démarrage rapide, vous avez créé un coffre de clés à l’a
 
 - Lire la [vue d’ensemble Azure Key Vault](overview.md)
 - Consulter la référence des [applets de commande Azure PowerShell Key Vault](/powershell/module/az.keyvault/)
-- Passer en revue les [bonnes pratiques relatives à Azure Key Vault](best-practices.md)
+- Passer en revue la [Vue d’ensemble de la sécurité d’Azure Key Vault](security-overview.md)
+

@@ -1,20 +1,20 @@
 ---
 title: Guide pratique pour utiliser Stockage Files d’attente à partir de Python - Stockage Azure
-description: Apprenez à utiliser le service de File d'attente Azure à partir de Python pour créer et supprimer des files d'attente, ainsi que pour insérer, récupérer et supprimer des messages.
+description: Apprenez à utiliser le Stockage File d'attente Azure à partir de Python pour créer et supprimer des files d'attente, ainsi que pour insérer, récupérer et supprimer des messages.
 author: mhopkins-msft
 ms.author: mhopkins
+ms.reviewer: dineshm
 ms.date: 08/25/2020
+ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
-ms.topic: how-to
-ms.reviewer: dineshm
 ms.custom: seo-javascript-october2019, devx-track-python
-ms.openlocfilehash: ac75b89548d346945901d752672ef0f08601ccfb
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: e473bf5c2761010a6aeea94e6430d34ca34989fb
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93345650"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588275"
 ---
 # <a name="how-to-use-azure-queue-storage-from-python"></a>Guide pratique pour utiliser Stockage Files d’attente à partir de Python
 
@@ -24,7 +24,7 @@ ms.locfileid: "93345650"
 
 Cet article présente des scénarios courants d’utilisation du service Stockage File d’attente Azure. Les scénarios traités comprennent l'insertion, la consultation rapide, la récupération et la suppression de messages de la file d'attente. Le code de création et de suppression de files d'attente est également abordé.
 
-Les exemples de cet article sont écrits en Python et utilisent la [bibliothèque de client Stockage File d'attente Azure pour Python]. Pour plus d’informations sur les files d’attente, consultez la section [Étapes suivantes](#next-steps).
+Les exemples de cet article sont écrits en Python et utilisent la [bibliothèque de client Stockage File d'attente Azure pour Python](https://github.com/Azure/Azure-SDK-for-Python/tree/master/sdk/storage/azure-storage-queue). Pour plus d’informations sur les files d’attente, consultez la section [Étapes suivantes](#next-steps).
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
@@ -32,7 +32,7 @@ Les exemples de cet article sont écrits en Python et utilisent la [bibliothèqu
 
 ## <a name="download-and-install-azure-storage-sdk-for-python"></a>Télécharger et installer le SDK Stockage Azure pour Python
 
-Le [SDK Stockage Azure pour Python](https://github.com/azure/azure-storage-python) nécessite Python versions 2.7, 3.3 et ultérieures.
+Le [SDK Stockage Azure pour Python](https://github.com/azure/azure-storage-python) nécessite Python versions 2.7, 3.3 et ultérieures.
 
 ### <a name="install-via-pypi"></a>Effectuer l'installation via PyPi
 
@@ -55,7 +55,7 @@ pip install azure-storage-queue==2.1.0
 > [!NOTE]
 > Si vous mettez à niveau la version 0.36 ou antérieure du SDK Stockage Azure pour Python, désinstallez l’ancien SDK à l’aide de `pip uninstall azure-storage` avant d’installer le dernier package.
 
-Pour connaître les autres méthodes d'installation, consultez [SDK Azure pour Python].
+Pour connaître les autres méthodes d'installation, consultez [SDK Azure pour Python](https://github.com/Azure/Azure-SDK-for-Python).
 
 [!INCLUDE [storage-quickstart-credentials-include](../../../includes/storage-quickstart-credentials-include.md)]
 
@@ -63,13 +63,13 @@ Pour connaître les autres méthodes d'installation, consultez [SDK Azure pour P
 
 # <a name="python-v12"></a>[Python v12](#tab/python)
 
-L'objet [QueueClient](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueclient) vous permet d'utiliser une file d'attente. Ajoutez le code suivant au début de chaque fichier Python dans lequel vous souhaitez accéder à une file d'attente Azure par programme :
+L’objet [`QueueClient`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueclient) vous permet d’utiliser une file d’attente. Ajoutez le code suivant au début de chaque fichier Python dans lequel vous souhaitez accéder à une file d'attente Azure par programme :
 
 :::code language="python" source="~/azure-storage-snippets/queues/howto/python/python-v12/python-howto-v12.py" id="Snippet_ImportStatements":::
 
 # <a name="python-v2"></a>[Python v2](#tab/python2)
 
-L'objet [QueueService](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2) permet d'utiliser des files d'attente. Le code suivant crée un objet `QueueService`. Ajoutez le code suivant au début de chaque fichier Python dans lequel vous souhaitez accéder à Stockage Azure par programme :
+L’objet [`QueueService`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2) vous permet d’utiliser des files d’attente. Le code suivant crée un objet `QueueService`. Ajoutez le code suivant au début de chaque fichier Python dans lequel vous souhaitez accéder à Stockage Azure par programme :
 
 ```python
 from azure.storage.queue import (
@@ -121,16 +121,16 @@ queue_service.create_queue(queue_name)
 
 # <a name="python-v12"></a>[Python v12](#tab/python)
 
-Pour insérer un message dans une file d'attente, utilisez la méthode [send_message](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueclient#send-message-content----kwargs-).
+Pour insérer un message dans une file d’attente, utilisez la méthode [`send_message`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueclient#send-message-content----kwargs-).
 
 :::code language="python" source="~/azure-storage-snippets/queues/howto/python/python-v12/python-howto-v12.py" id="Snippet_AddMessage":::
 
 # <a name="python-v2"></a>[Python v2](#tab/python2)
 
-Pour insérer un message dans une file d’attente, utilisez la méthode [put_message](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#put-message-queue-name--content--visibility-timeout-none--time-to-live-none--timeout-none-) afin de créer un message et l’ajouter à la file d’attente.
+Pour insérer un message dans une file d’attente, utilisez la méthode [`put_message`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#put-message-queue-name--content--visibility-timeout-none--time-to-live-none--timeout-none-) pour créer un message et l’ajouter à la file d’attente.
 
 ```python
-message = u"Hello World"
+message = u"Hello, World"
 print("Adding message: " + message)
 queue_service.put_message(queue_name, message)
 ```
@@ -147,7 +147,7 @@ Configurez les fonctions d'encodage et de décodage Base64 sur l'objet client de
 
 # <a name="python-v2"></a>[Python v2](#tab/python2)
 
-Configurez les fonctions d'encodage et de décodage Base64 sur l'objet service de la file d'attente.
+Configurez les fonctions d’encodage et de décodage base64 sur un objet Stockage File d'attente.
 
 ```python
 # Setup Base64 encoding and decoding functions
@@ -161,13 +161,13 @@ queue_service.decode_function = QueueMessageFormat.binary_base64decode
 
 # <a name="python-v12"></a>[Python v12](#tab/python)
 
-Vous pouvez lire furtivement les messages sans les supprimer de la file d'attente en appelant la méthode [peek_messages](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueclient#peek-messages-max-messages-none----kwargs-). Par défaut, `peek_messages` lit furtivement un seul message.
+Vous pouvez lire les messages sans les supprimer de la file d’attente en appelant la méthode [`peek_messages`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueclient#peek-messages-max-messages-none----kwargs-). Par défaut, cette méthode lit un seul message.
 
 :::code language="python" source="~/azure-storage-snippets/queues/howto/python/python-v12/python-howto-v12.py" id="Snippet_PeekMessage":::
 
 # <a name="python-v2"></a>[Python v2](#tab/python2)
 
-Vous pouvez lire furtivement les messages sans les supprimer de la file d'attente en appelant la méthode [peek_messages](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#peek-messages-queue-name--num-messages-none--timeout-none-). Par défaut, `peek_messages` lit furtivement un seul message.
+Vous pouvez lire les messages sans les supprimer de la file d’attente en appelant la méthode [`peek_messages`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#peek-messages-queue-name--num-messages-none--timeout-none-). Par défaut, cette méthode lit un seul message.
 
 ```python
 messages = queue_service.peek_messages(queue_name)
@@ -184,20 +184,20 @@ Vous pouvez modifier le contenu d'un message placé dans la file d'attente. Si l
 
 # <a name="python-v12"></a>[Python v12](#tab/python)
 
-Le code ci-dessous utilise la méthode [update_message](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueclient#update-message-message--pop-receipt-none--content-none----kwargs-) pour mettre à jour un message. Ce délai de visibilité est défini sur 0, ce qui signifie que le message s’affiche immédiatement et que le contenu est mis à jour.
+Le code suivant utilise la méthode [`update_message`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueclient#update-message-message--pop-receipt-none--content-none----kwargs-) pour mettre à jour un message. Ce délai de visibilité est défini sur 0, ce qui signifie que le message s’affiche immédiatement et que le contenu est mis à jour.
 
 :::code language="python" source="~/azure-storage-snippets/queues/howto/python/python-v12/python-howto-v12.py" id="Snippet_ChangeMessage":::
 
 # <a name="python-v2"></a>[Python v2](#tab/python2)
 
-Le code ci-dessous utilise la méthode [update_message](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#update-message-queue-name--message-id--pop-receipt--visibility-timeout--content-none--timeout-none-) pour mettre à jour un message. Ce délai de visibilité est défini sur 0, ce qui signifie que le message s’affiche immédiatement et que le contenu est mis à jour.
+Le code suivant utilise la méthode [`update_message`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#update-message-queue-name--message-id--pop-receipt--visibility-timeout--content-none--timeout-none-) pour mettre à jour un message. Ce délai de visibilité est défini sur 0, ce qui signifie que le message s’affiche immédiatement et que le contenu est mis à jour.
 
 ```python
 messages = queue_service.get_messages(queue_name)
 
 for message in messages:
     queue_service.update_message(
-        queue_name, message.id, message.pop_receipt, 0, u"Hello World Again")
+        queue_name, message.id, message.pop_receipt, 0, u"Hello, World Again")
 ```
 
 ---
@@ -208,13 +208,13 @@ Vous pouvez obtenir une estimation du nombre de messages dans une file d'attente
 
 # <a name="python-v12"></a>[Python v12](#tab/python)
 
-La méthode [get_queue_properties](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueclient#get-queue-properties---kwargs-) demande au service de file d'attente de renvoyer des propriétés relatives à la file d'attente, y compris `approximate_message_count`.
+La méthode [get_queue_properties](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueclient#get-queue-properties---kwargs-) retourne les propriétés de file d’attente, y compris `approximate_message_count`.
 
 :::code language="python" source="~/azure-storage-snippets/queues/howto/python/python-v12/python-howto-v12.py" id="Snippet_GetQueueLength":::
 
 # <a name="python-v2"></a>[Python v2](#tab/python2)
 
-La méthode [get_queue_metadata](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#get-queue-metadata-queue-name--timeout-none-) demande au service de file d'attente de renvoyer les métadonnées relatives à la file d'attente, y compris `approximate_message_count`.
+La méthode [`get_queue_metadata`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#get-queue-metadata-queue-name--timeout-none-) retourne les propriétés de file d’attente, y compris `approximate_message_count`.
 
 ```python
 metadata = queue_service.get_queue_metadata(queue_name)
@@ -224,7 +224,7 @@ print("Message count: " + str(count))
 
 ---
 
-Le résultat est seulement approximatif, car des messages peuvent être ajoutés ou supprimés après que le service de file d'attente a répondu à votre demande.
+Le résultat est seulement approximatif, car des messages peuvent être ajoutés ou supprimés après que le service a répondu à votre demande.
 
 ## <a name="dequeue-messages"></a>Enlever des messages d’une file d’attente
 
@@ -254,13 +254,13 @@ Il existe deux façons de personnaliser la récupération des messages à partir
 
 # <a name="python-v12"></a>[Python v12](#tab/python)
 
-L'exemple de code suivant utilise la méthode [receive_messages](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueclient#receive-messages---kwargs-) pour récupérer des messages par lots. Il traite ensuite chacun des messages de chaque lot en utilisant une boucle `for` imbriquée. Il définit également le délai d'expiration de l'invisibilité sur cinq minutes pour chaque message.
+L’exemple de code suivant utilise la méthode [`receive_messages`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueclient#receive-messages---kwargs-) pour recevoir des messages par lots. Il traite ensuite chacun des messages de chaque lot en utilisant une boucle `for` imbriquée. Il définit également le délai d'expiration de l'invisibilité sur cinq minutes pour chaque message.
 
 :::code language="python" source="~/azure-storage-snippets/queues/howto/python/python-v12/python-howto-v12.py" id="Snippet_DequeueByPage":::
 
 # <a name="python-v2"></a>[Python v2](#tab/python2)
 
-L'exemple de code suivant utilise la méthode [get_messages](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#get-messages-queue-name--num-messages-none--visibility-timeout-none--timeout-none-) pour récupérer 16 messages en un appel. Ensuite, il traite chaque message à l'aide d'une boucle `for`. Il définit également le délai d'expiration de l'invisibilité sur cinq minutes pour chaque message.
+L’exemple de code suivant utilise la méthode [`get_messages`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#get-messages-queue-name--num-messages-none--visibility-timeout-none--timeout-none-) pour obtenir 16 messages en un appel. Ensuite, il traite chaque message à l'aide d'une boucle `for`. Il définit également le délai d'expiration de l'invisibilité sur cinq minutes pour chaque message.
 
 ```python
 messages = queue_service.get_messages(queue_name, num_messages=16, visibility_timeout=5*60)
@@ -276,13 +276,13 @@ for message in messages:
 
 # <a name="python-v12"></a>[Python v12](#tab/python)
 
-Pour supprimer une file d’attente et tous les messages qu’elle contient, appelez la méthode [delete_queue](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueclient#delete-queue---kwargs-).
+Pour supprimer une file d’attente et tous les messages qu’elle contient, appelez la méthode [`delete_queue`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueclient#delete-queue---kwargs-).
 
 :::code language="python" source="~/azure-storage-snippets/queues/howto/python/python-v12/python-howto-v12.py" id="Snippet_DeleteQueue":::
 
 # <a name="python-v2"></a>[Python v2](#tab/python2)
 
-Pour supprimer une file d’attente et tous les messages qu’elle contient, appelez la méthode [delete_queue](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#delete-queue-queue-name--fail-not-exist-false--timeout-none-).
+Pour supprimer une file d’attente et tous les messages qu’elle contient, appelez la méthode [`delete_queue`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#delete-queue-queue-name--fail-not-exist-false--timeout-none-).
 
 ```python
 print("Deleting queue: " + queue_name)
@@ -295,12 +295,8 @@ queue_service.delete_queue(queue_name)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous connaissez les bases du stockage de files d’attente, consultez les liens suivants pour en savoir plus.
+Maintenant que vous connaissez les bases du Stockage File d'attente, consultez les liens suivants pour en savoir plus.
 
-- [Informations de référence sur l’API Python Files d’attente Azure](/python/api/azure-storage-queue)
+- [Informations de référence sur l’API Python Stockage File d'attente Azure](/python/api/azure-storage-queue)
 - [Centre de développement Python](https://azure.microsoft.com/develop/python/)
-- [API REST des services d’Azure Storage](/rest/api/storageservices/)
-
-[Bibliothèque de client Stockage File d'attente Azure pour Python]: https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue
-[SDK Azure pour Python]: https://github.com/azure/azure-sdk-for-python
-[Azure Storage Team Blog]: https://techcommunity.microsoft.com/t5/azure-storage/bg-p/AzureStorageBlog
+- [Référence de l’API REST des services de stockage](/rest/api/storageservices/)

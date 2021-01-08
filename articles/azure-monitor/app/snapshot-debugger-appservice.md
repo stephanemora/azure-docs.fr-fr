@@ -2,25 +2,26 @@
 title: Activer le Débogueur de capture instantanée pour les applications .NET dans Azure App Service | Microsoft Docs
 description: Activer le Débogueur de capture instantanée pour les applications .NET dans Azure App Service
 ms.topic: conceptual
-author: brahmnes
-ms.author: bfung
+author: cweining
+ms.author: cweining
 ms.date: 03/26/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 35653840c5ddd6f5ae2d5dc078513f0fa35ab34a
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 421f80493a9cb88e8bbbddc06aa9a24042b64b17
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560931"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695462"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-app-service"></a>Activer le Débogueur de capture instantanée pour les applications .NET dans Azure App Service
 
-Le Débogueur de capture instantanée fonctionne actuellement pour les applications ASP.NET et ASP.NET Core s’exécutant sur Azure App Service sur des plans de service Windows. Lorsque vous utilisez le Débogueur de capture instantanée, nous vous recommandons d'exécuter votre application au niveau de service De base (ou supérieur). Pour la plupart des applications, la mémoire disponible avec les niveaux de service Gratuit et Partagé est insuffisante pour enregistrer les captures instantanées.
+Le Débogueur de capture instantanée fonctionne actuellement pour les applications ASP.NET et ASP.NET Core s’exécutant sur Azure App Service sur des plans de service Windows. Lorsque vous utilisez le Débogueur de capture instantanée, nous vous recommandons d'exécuter votre application au niveau de service De base (ou supérieur). Pour la plupart des applications, la mémoire disponible ou l’espace disque avec les niveaux de service Gratuit et Partagé est insuffisant pour enregistrer les captures instantanées.
 
 ## <a name="enable-snapshot-debugger"></a><a id="installation"></a> Activer le Débogueur de capture instantanée
 Pour activer le Débogueur de capture instantanée pour une application, suivez les instructions ci-dessous.
 
 Si vous exécutez un autre type de service Azure, voici les instructions à suivre pour activer Débogueur de capture instantanée sur d’autres plateformes prises en charge :
+* [Fonction Azure](snapshot-debugger-function-app.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Cloud Services](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [Services Azure Service Fabric](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [Machines virtuelles Azure et Virtual Machine Scale Sets](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)

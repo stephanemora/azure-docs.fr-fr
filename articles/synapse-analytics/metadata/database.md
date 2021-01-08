@@ -10,18 +10,18 @@ ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 14ae8b8670db53761d085bc019711e829633601b
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 93602e522338166abac98c3e4a198e1aff392d21
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96451811"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934966"
 ---
 # <a name="azure-synapse-analytics-shared-database"></a>Base de données partagée Azure Synapse Analytics
 
-Azure Synapse Analytics permet aux différents moteurs de calcul d’espace de travail de partager des bases de données et des tables entre ses pools Apache Spark serverless et le moteur de son pool SQL serverless.
+Azure Synapse Analytics permet aux différents moteurs de calcul d’espace de travail de partager des bases de données et des tables. Actuellement, les bases de données et les tables Parquet créées sur les pools Apache Spark sont automatiquement partagées avec le moteur du pool SQL serverless.
 
-Une base de données créée avec un travail Spark devient visible avec le même nom pour tous les pools Spark actuels et futurs dans l’espace de travail, y compris le moteur du pool SQL serverless.
+Une base de données créée avec un travail Spark devient visible avec le même nom pour tous les pools Spark actuels et futurs dans l’espace de travail, y compris le moteur du pool SQL serverless. Vous ne pouvez pas ajouter d’objets personnalisés (tables externes, vues, procédures) directement dans cette base de données répliquée en utilisant le pool SQL serverless.
 
 La base de données Spark par défaut, nommée `default`, est également visible dans le contexte SQL du pool SQL serverless sous le nom `default`.
 

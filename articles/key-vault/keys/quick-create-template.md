@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc,subject-armqs
 ms.date: 10/14/2020
 ms.author: sebansal
-ms.openlocfilehash: 73c52963df65dc4037f087a93108ccfacb3fb5d4
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 566ddae3893a5499ddefe0ccd1ade8caff4567c2
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461554"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934983"
 ---
 # <a name="quickstart-create-an-azure-key-vault-and-a-key-by-using-arm-template-preview"></a>Démarrage rapide : Créer un coffre de clés Azure et une clé à l’aide d’un modèle ARM (préversion)
 
@@ -217,4 +217,4 @@ Dans ce guide de démarrage rapide, vous avez créé un coffre de clés et une c
 
 - Lire la [vue d’ensemble Azure Key Vault](../general/overview.md)
 - En savoir plus sur [Azure Resource Manager](../../azure-resource-manager/management/overview.md)
-- Passer en revue les [bonnes pratiques relatives à Azure Key Vault](../general/best-practices.md)
+- Passer en revue la [Vue d’ensemble de la sécurité de Key Vault](../general/security-overview.md)

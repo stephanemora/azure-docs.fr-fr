@@ -5,14 +5,14 @@ author: mayanknayar
 ms.service: virtual-machines-windows
 ms.workload: infrastructure
 ms.topic: how-to
-ms.date: 09/09/2020
+ms.date: 12/23/2020
 ms.author: manayar
-ms.openlocfilehash: 8c7574daced9cec078b6e98e378212ce30d6f4f6
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: e22e8b81382614c2930c72a8150606f859be501d
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92744718"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97762977"
 ---
 # <a name="preview-automatic-vm-guest-patching-for-windows-vms-in-azure"></a>Aperçu : Mise à jour corrective automatique de l’invité de machine virtuelle pour les machines virtuelles Windows dans Azure
 
@@ -34,11 +34,11 @@ La mise à jour corrective automatique de l’invité de machine virtuelle prés
 
 Si la mise à jour corrective automatique de l’invité de machine virtuelle est activée sur une machine virtuelle, les patchs *Critiques* et *Sécurité* sont téléchargés et appliqués automatiquement sur la machine virtuelle. Ce processus démarre automatiquement chaque mois quand de nouveaux patchs sont publiés par le biais de Windows Update. L’évaluation et l’installation des patchs sont automatiques, et le processus comprend le redémarrage de la machine virtuelle le cas échéant.
 
-La machine virtuelle est évaluée régulièrement pour déterminer les patchs qui s’appliquent à elle. Les patchs peuvent être installés n’importe quel jour sur la machine virtuelle, pendant les heures creuses de la machine virtuelle. Cette évaluation automatique garantit que tous les patchs manquants sont découverts dès que possible.
+La machine virtuelle est évaluée régulièrement et plusieurs fois sur une période de 30 jours pour déterminer les correctifs applicables pour cette machine virtuelle. Les patchs peuvent être installés n’importe quel jour sur la machine virtuelle, pendant les heures creuses de la machine virtuelle. Cette évaluation automatique garantit que tous les patchs manquants sont découverts dès que possible.
 
-Les patchs sont installés dans les 30 jours suivant la version mensuelle de Windows Update, qui suit l’orchestration de première disponibilité décrite ci-dessous. Les patchs sont installés uniquement pendant les heures creuses de la machine virtuelle, en fonction de son fuseau horaire. La machine virtuelle doit fonctionner pendant les heures creuses pour que les patchs soient installés automatiquement. Si une machine virtuelle est mise hors tension pendant une évaluation périodique, elle est automatiquement évaluée et les patchs applicables sont installés automatiquement lors de l’évaluation périodique suivante où la machine virtuelle est sous tension.
+Les patchs sont installés dans les 30 jours suivant la version mensuelle de Windows Update, qui suit l’orchestration de première disponibilité décrite ci-dessous. Les patchs sont installés uniquement pendant les heures creuses de la machine virtuelle, en fonction de son fuseau horaire. La machine virtuelle doit fonctionner pendant les heures creuses pour que les patchs soient installés automatiquement. Si une machine virtuelle est mise hors tension pendant une évaluation périodique, elle est automatiquement évaluée et les patchs applicables sont installés automatiquement lors de l’évaluation périodique suivante (habituellement quelques jours plus tard) où la machine virtuelle est sous tension.
 
-Pour installer des patchs avec d’autres classifications de patchs ou pour planifier l’installation des patchs dans votre propre fenêtre de maintenance personnalisée, vous pouvez utiliser [Update Management](tutorial-config-management.md#manage-windows-updates).
+Les mises à jour de définitions et d’autres correctifs non classés comme *critiques* ou de *sécurité* ne seront pas installés par le biais de la mise à jour corrective automatique de l’invité de machine virtuelle. Pour installer des patchs avec d’autres classifications de patchs ou pour planifier l’installation des patchs dans votre propre fenêtre de maintenance personnalisée, vous pouvez utiliser [Update Management](tutorial-config-management.md#manage-windows-updates).
 
 ### <a name="availability-first-patching"></a>Mise à jour corrective selon la première disponibilité
 
@@ -69,11 +69,11 @@ Les références SKU de plateforme suivantes sont prises en charge (et d’autre
 
 | Serveur de publication               | Offre de système d’exploitation      |  Sku               |
 |-------------------------|---------------|--------------------|
-| Microsoft Corporation   | WindowsServer | 2012-R2-Datacenter |
-| Microsoft Corporation   | WindowsServer | 2016-centre-de-données    |
-| Microsoft Corporation   | WindowsServer | 2016-Datacenter-Server-Core |
-| Microsoft Corporation   | WindowsServer | 2019-Datacenter |
-| Microsoft Corporation   | WindowsServer | 2019-Datacenter-Server-Core |
+| MicrosoftWindowsServer  | WindowsServer | 2012-R2-Datacenter |
+| MicrosoftWindowsServer  | WindowsServer | 2016-centre-de-données    |
+| MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter-Server-Core |
+| MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter |
+| MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter-Core |
 
 ## <a name="patch-orchestration-modes"></a>Modes d’orchestration des patchs
 Les machines virtuelles Windows sur Azure prennent désormais en charge les modes d’orchestration des patchs suivants :
@@ -83,7 +83,7 @@ Les machines virtuelles Windows sur Azure prennent désormais en charge les mode
 - Ce mode est obligatoire pour la mise à jour corrective selon la première disponibilité.
 - La réglage de ce mode désactive également les mises à jour automatiques natives sur la machine virtuelle Windows pour éviter les doublons.
 - Ce mode est pris en charge uniquement pour les machines virtuelles créées à l’aide des images de plateforme de système d’exploitation prises en charge ci-dessus.
-- Pour utiliser ce mode, définissez la propriété `osProfile.windowsConfiguration.enableAutomaticUpdates=true` et la propriété `osProfile.windowsConfiguration.patchSettings.patchMode=AutomaticByPlatfom` dans le modèle de machine virtuelle.
+- Pour utiliser ce mode, définissez la propriété `osProfile.windowsConfiguration.enableAutomaticUpdates=true` et la propriété `osProfile.windowsConfiguration.patchSettings.patchMode=AutomaticByPlatform` dans le modèle de machine virtuelle.
 
 **AutomaticByOS :**
 - Ce mode active les mises à jour automatiques sur la machine virtuelle Windows, et les patchs sont installés sur la machine virtuelle par le biais des mises à jour automatiques.
@@ -107,7 +107,7 @@ Les machines virtuelles Windows sur Azure prennent désormais en charge les mode
 - La machine virtuelle doit être en mesure d’accéder aux points de terminaison Windows Update. Si votre machine virtuelle est configurée pour utiliser Windows Server Update Services (WSUS), les points de terminaison de serveur WSUS appropriés doivent être accessibles.
 - Utilisez la version 2020-06-01 ou un version ultérieure de l’API de calcul.
 
-L’activation de la fonctionnalité en préversion requiert une inscription unique à la fonctionnalité *InGuestAutoPatchVMPreview* par abonnement, comme indiqué ci-dessous.
+L’activation de la fonctionnalité en préversion requiert une inscription unique à la fonctionnalité **InGuestAutoPatchVMPreview** par abonnement, comme indiqué ci-dessous.
 
 ### <a name="rest-api"></a>API REST
 L’exemple suivant décrit comment activer la préversion pour votre abonnement :
@@ -199,7 +199,7 @@ Set-AzVMOperatingSystem -VM $VirtualMachine -Windows -ComputerName $ComputerName
 ```
 
 ### <a name="azure-cli-20"></a>Azure CLI 2.0
-Utilisez [az vm create](/cli/azure/vm#az-vm-create) pour activer la mise à jour corrective automatique de l’invité de machine virtuelle lors de la création d’une machine virtuelle. L’exemple suivant configure la mise à jour corrective automatique de l’invité de machine virtuelle pour la machine virtuelle nommée *myVM* dans le groupe de ressources appelé *myResourceGroup*  :
+Utilisez [az vm create](/cli/azure/vm#az-vm-create) pour activer la mise à jour corrective automatique de l’invité de machine virtuelle lors de la création d’une machine virtuelle. L’exemple suivant configure la mise à jour corrective automatique de l’invité de machine virtuelle pour la machine virtuelle nommée *myVM* dans le groupe de ressources appelé *myResourceGroup* :
 
 ```azurecli-interactive
 az vm create --resource-group myResourceGroup --name myVM --image Win2019Datacenter --enable-agent --enable-auto-update --patch-mode AutomaticByPlatform
@@ -254,10 +254,10 @@ Les résultats de l’installation des patchs pour votre machine virtuelle peuve
 ## <a name="on-demand-patch-assessment"></a>Évaluation des patchs à la demande
 Si la mise à jour corrective automatique de l’invité de machine virtuelle est déjà activée pour votre machine virtuelle, une évaluation périodique des patchs est effectuée sur la machine virtuelle pendant ses heures creuses. Ce processus est automatique et les résultats de l’évaluation la plus récente peuvent être examinés par le biais de la vue d’instance de la machine virtuelle, comme décrit précédemment dans ce document. Vous pouvez également déclencher une évaluation des patchs à la demande pour votre machine virtuelle à tout moment. L’évaluation des patchs peut prendre quelques minutes et l’état de l’évaluation la plus récente est mis à jour dans la vue d’instance de la machine virtuelle.
 
-L’activation de la fonctionnalité en préversion requiert une inscription unique à la fonctionnalité *InGuestPatchVMPreview* par abonnement. La préversion des fonctionnalités pour l’évaluation des correctifs à la demande peut être activée à la suite du [processus d’activation de la préversion](automatic-vm-guest-patching.md#requirements-for-enabling-automatic-vm-guest-patching) décrit précédemment pour la mise à jour corrective de l’invité de machine virtuelle.
+L’activation de la fonctionnalité en préversion requiert une inscription unique à la fonctionnalité **InGuestPatchVMPreview** par abonnement. Cette préversion de la fonctionnalité est différente de l’inscription automatique de la fonctionnalité de mise à jour corrective invité de machine virtuelle effectuée précédemment pour **InGuestAutoPatchVMPreview**. L’activation de l’aperçu des fonctionnalités supplémentaires est une exigence distincte et supplémentaire. La préversion des fonctionnalités pour l’évaluation des correctifs à la demande peut être activée à la suite du [processus d’activation de la préversion](automatic-vm-guest-patching.md#requirements-for-enabling-automatic-vm-guest-patching) décrit précédemment pour la mise à jour corrective de l’invité de machine virtuelle.
 
 > [!NOTE]
->L’évaluation des correctifs à la demande ne déclenche pas automatiquement l’installation des correctifs. Les patchs évalués et en vigueur pour la machine virtuelle seront installés uniquement pendant les heures creuses de la machine virtuelle, en suivant le processus de mise à jour corrective selon la première disponibilité décrit précédemment dans ce document.
+>L’évaluation des correctifs à la demande ne déclenche pas automatiquement l’installation des correctifs. Si vous avez activé la mise à jour corrective automatique de l’invité de machine virtuelle, les correctifs appliqués et applicables pour la machine virtuelle sont installés pendant les heures creuses de la machine virtuelle, en suivant le processus de mise à jour corrective et de disponibilité décrit plus haut dans ce document.
 
 ### <a name="rest-api"></a>API REST
 ```

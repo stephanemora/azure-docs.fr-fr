@@ -4,15 +4,15 @@ description: Découvrez comment configurer Azure Private Link pour accéder à u
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 09/18/2020
+ms.date: 12/16/2020
 ms.author: thweiss
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4ba4e5f462a3cc88de5b23b32a5e749f9363e93f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 9a6db0d25165059581d7ffafa5b8e7fd19330c87
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93081890"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97629644"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Configurer Azure Private Link pour un compte Azure Cosmos
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -32,13 +32,13 @@ Cet article décrit pas à pas la création d’un point de terminaison privé. 
 
 Afin de créer un point de terminaison privé pour un compte Azure Cosmos existant à l’aide du Portail Azure, procédez comme suit :
 
-1. Dans le volet **Toutes les ressources** , choisissez un compte Azure Cosmos.
+1. Dans le volet **Toutes les ressources**, choisissez un compte Azure Cosmos.
 
-1. Sélectionnez **Connexions au point de terminaison privé** dans la liste de paramètres, puis **Point de terminaison privé**  :
+1. Sélectionnez **Connexions au point de terminaison privé** dans la liste de paramètres, puis **Point de terminaison privé** :
 
    :::image type="content" source="./media/how-to-configure-private-endpoints/create-private-endpoint-portal.png" alt-text="Sélections pour créer un point de terminaison privé dans le Portail Azure":::
 
-1. Dans le volet **Créer un point de terminaison privé – Concepts de base** , entrez ou sélectionnez les informations suivantes :
+1. Dans le volet **Créer un point de terminaison privé – Concepts de base**, entrez ou sélectionnez les informations suivantes :
 
     | Paramètre | Valeur |
     | ------- | ----- |
@@ -50,7 +50,7 @@ Afin de créer un point de terminaison privé pour un compte Azure Cosmos exista
     |Région| Sélectionnez la région dans laquelle vous souhaitez déployer Private Link. Créez le point de terminaison privé au même emplacement que votre réseau virtuel.|
     |||
 1. Sélectionnez **Suivant : Ressource**.
-1. Dans **Créer un point de terminaison privé - Ressource** , entrez ou sélectionnez les informations suivantes :
+1. Dans **Créer un point de terminaison privé - Ressource**, entrez ou sélectionnez les informations suivantes :
 
     | Paramètre | Valeur |
     | ------- | ----- |
@@ -58,11 +58,11 @@ Afin de créer un point de terminaison privé pour un compte Azure Cosmos exista
     | Abonnement| Sélectionnez votre abonnement. |
     | Type de ressource | Sélectionnez **Microsoft.AzureCosmosDB/databaseAccounts**. |
     | Ressource |Sélectionnez votre compte Azure Cosmos. |
-    |Sous-ressource cible |Sélectionnez le type d’API Azure Cosmos DB que vous souhaitez mapper. Par défaut, il n’y a qu’un seul choix pour les API SQL, MongoDB et Cassandra. Pour les API Gremlin et Table, vous pouvez également choisir **Sql** , car ces API sont interopérables avec l’API SQL. |
+    |Sous-ressource cible |Sélectionnez le type d’API Azure Cosmos DB que vous souhaitez mapper. Par défaut, il n’y a qu’un seul choix pour les API SQL, MongoDB et Cassandra. Pour les API Gremlin et Table, vous pouvez également choisir **Sql**, car ces API sont interopérables avec l’API SQL. |
     |||
 
 1. Sélectionnez **Suivant : Configuration**.
-1. Dans **Créer un point de terminaison privé – Configuration** , entrez ou sélectionnez ces informations :
+1. Dans **Créer un point de terminaison privé – Configuration**, entrez ou sélectionnez ces informations :
 
     | Paramètre | Valeur |
     | ------- | ----- |
@@ -74,7 +74,7 @@ Afin de créer un point de terminaison privé pour un compte Azure Cosmos exista
     |Zone DNS privée |Sélectionnez **privatelink.documents.azure.com**. <br><br/> La zone DNS privée est déterminée automatiquement. Vous ne pouvez pas la modifier à l’aide du Portail Azure.|
     |||
 
-1. Sélectionnez **Revoir + créer**. Sur la page **Revoir + créer** , Azure valide votre configuration.
+1. Sélectionnez **Revoir + créer**. Sur la page **Revoir + créer**, Azure valide votre configuration.
 1. Lorsque le message **Validation passed** (Validation réussie) apparaît, sélectionnez **Créer**.
 
 Si vous avez approuvé Private Link pour un compte Azure Cosmos, dans le Portail Azure, l’option **Tous les réseaux** dans le volet **Pare-feu et réseaux virtuels** est désactivée.
@@ -616,6 +616,9 @@ foreach ($ipconfig in $networkInterface.properties.ipConfigurations) {
 Vous devez utiliser une zone DNS privée dans le sous-réseau où vous avez créé le point de terminaison privé. Configurez les points de terminaison de façon à ce que chaque adresse IP privée soit mappée à une entrée DNS. (Consultez la propriété `fqdns` dans la réponse indiquée plus haut.)
 
 Lorsque vous créez le point de terminaison privé, vous pouvez intégrer celui-ci à une zone DNS privée dans Azure. Si vous choisissez plutôt d’utiliser une zone DNS personnalisée, vous devez la configurer afin d’ajouter des enregistrements DNS pour toutes les adresses IP privées réservées au point de terminaison privé.
+
+> [!IMPORTANT]
+> Il s’agit de la résolution DNS de vos demandes qui détermine si ces requêtes passent par vos points de terminaison privés ou prennent l’itinéraire public standard. Assurez-vous que votre DNS local fait correctement référence au protocole IP privé adressé mappé par votre point de terminaison privé.
 
 ## <a name="private-link-combined-with-firewall-rules"></a>Private Link combiné à des règles de pare-feu
 

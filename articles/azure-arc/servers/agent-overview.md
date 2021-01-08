@@ -1,14 +1,14 @@
 ---
 title: Présentation de l’agent Connected Machine Windows
 description: Cet article fournit une présentation détaillée de l’agent des serveurs avec Azure Arc disponible, qui prend en charge la surveillance de machines virtuelles hébergées dans des environnements hybrides.
-ms.date: 12/15/2020
+ms.date: 12/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 531041b7d7439dd2a48fa9e06eb82796f470e9ed
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: bff76cbaa678ed82538eb6d75633aa94cdce30bf
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97563022"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97723267"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Présentation de l’agent des serveurs activés par Azure Arc
 
@@ -49,7 +49,7 @@ L’agent Azure Connected Machine pour Windows et Linux peut être mis à niveau
 
 Les versions suivantes des systèmes d’exploitation Windows et Linux sont officiellement prises en charge pour l’agent Azure Connected Machine :
 
-- Windows Server 2012 R2 et versions ultérieures (y compris Windows Server Core)
+- Windows Server 2008 R2, Windows Server 2012 R2 et versions ultérieures (y compris Server Core)
 - Ubuntu 16.04 et 18.04 LTS (x64)
 - CentOS Linux 7 (x64)
 - SUSE Linux Enterprise Server (SLES) 15 (x64)
@@ -82,6 +82,10 @@ Pour garantir la sécurité des données en transit vers Azure, nous vous encour
 
 L’agent Connected Machine pour Linux et Windows communique en sortie de manière sécurisée vers Azure Arc sur le port TCP 443. Si la machine se connecte via un pare-feu ou un serveur proxy pour communiquer sur Internet, consultez les éléments ci-dessous pour comprendre la configuration réseau requise.
 
+> [!NOTE]
+> Les serveurs avec Arc activé ne prennent pas en charge l’utilisation d’une passerelle [Log Analytics](../../azure-monitor/platform/gateway.md) en tant que proxy pour l’agent de l’ordinateur connecté.
+>
+
 Si la connectivité sortante est restreinte par votre pare-feu ou votre serveur proxy, vérifiez que les URL listées ci-dessous ne sont pas bloquées. Lorsque vous n’autorisez que les plages d’adresses IP ou les noms de domaine nécessaires pour que l’agent communique avec le service, vous devez également autoriser l’accès aux URL et étiquettes de service suivantes.
 
 Balises de service :
@@ -97,9 +101,11 @@ URL :
 |---------|---------|
 |`management.azure.com`|Azure Resource Manager|
 |`login.windows.net`|Azure Active Directory|
+|`login.microsoftonline.com`|Azure Active Directory|
 |`dc.services.visualstudio.com`|Application Insights|
 |`*.guestconfiguration.azure.com` |Guest Configuration|
 |`*.his.arc.azure.com`|Service d’identité hybride|
+|`www.office.com`|Office 365|
 
 Les agents de préversion (version 0.11 et antérieure) nécessitent également l’accès aux URL suivantes :
 

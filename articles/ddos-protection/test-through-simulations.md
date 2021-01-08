@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: eff738e24b3abce52e80291c55a3ae64c3c8c853
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 55692122461ef1b22b43b0def43e826ac7aeae30
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92904887"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97813783"
 ---
 # <a name="test-through-simulations"></a>Tester à l’aide de simulations
 
@@ -36,7 +36,7 @@ Nous travaillons en collaboration avec [BreakingPoint Cloud](https://www.ixiacom
 
 ## <a name="configure-a-ddos-test-attack"></a>Configurer une attaque de test DDoS
 
-1. Entrez ou sélectionnez les valeurs suivantes, puis sélectionnez **Démarrer le test**  :
+1. Entrez ou sélectionnez les valeurs suivantes, puis sélectionnez **Démarrer le test** :
 
     |Paramètre        |Valeur                                              |
     |---------      |---------                                          |
@@ -54,15 +54,19 @@ Cela devrait maintenant ressembler à ceci :
 
 1. Connectez-vous à https://portal.azure.com et accédez à votre abonnement.
 1. Sélectionnez l’adresse IP publique sur laquelle vous avez testé l’attaque.
-1. Sous **Supervision** , sélectionnez **Métriques**.
-1. Pour **Métrique** , sélectionnez _Sous attaque DDoS ou non_.
+1. Sous **Supervision**, sélectionnez **Métriques**.
+1. Pour **Métrique**, sélectionnez _Sous attaque DDoS ou non_.
 
-Une fois la ressource attaquée, vous devez voir que la valeur passe de **0** à **1** , comme dans l’image suivante :
+Une fois la ressource attaquée, vous devez voir que la valeur passe de **0** à **1**, comme dans l’image suivante :
 
 ![Exemple de simulation d’attaque DDoS : Portail](./media/ddos-attack-simulation/ddos-attack-simulation-example-2.png)
 
+### <a name="breakingpoint-cloud-api-script"></a>Script de l’API BreakingPoint Cloud
+
+Ce [script d’API](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/Breaking%20Point%20SDK) peut être utilisé pour automatiser les tests DDoS en exécutant une seule fois ou à l’aide de cron pour planifier des tests réguliers. Cela permet de vérifier que votre journalisation est correctement configurée et que les procédures de détection et de réponse sont efficaces. Les scripts requièrent un système d’exploitation Linux (testé avec Ubuntu 18.04 LTS) et Python 3. Installez les composants requis et le client API à l’aide du script inclus ou à l’aide de la documentation sur le site Web [BreakingPoint Cloud](http://breakingpoint.cloud/) .
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez comment [consulter et configurer la télémétrie de la protection DDoS](telemetry-monitoring-alerting.md).
-- Découvrez comment [configurer les rapports de prévention des attaques DDoS et les journaux de flux](reports-and-flow-logs.md).
+- Découvrez comment [consulter et configurer la télémétrie de la protection DDoS](telemetry.md).
+- Découvrez comment [afficher et configurer la journalisation des diagnostics DDoS](diagnostic-logging.md).
 - Découvrez comment [faire appel à une réponse rapide DDoS](ddos-rapid-response.md).

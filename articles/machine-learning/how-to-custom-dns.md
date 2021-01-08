@@ -11,16 +11,16 @@ author: jhirono
 ms.date: 11/20/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 07ff656c5eacbbcdc16c6c7cf098478ca6baf745
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 8d3145639d2d4fb64bdb374f1dea0a7b70e4151c
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509289"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724712"
 ---
 # <a name="how-to-use-your-workspace-with-a-custom-dns-server"></a>Utilisation de votre espace de travail avec un serveur DNS personnalisé
 
-Lorsque vous utilisez un espace de travail Azure Machine Learning avec un point de terminaison privé, il existe [plusieurs manières de gérer la résolution de noms DNS](../private-link/private-endpoint-dns.md). Par défaut, Azure gère automatiquement la résolution de noms pour votre espace de travail et votre point de terminaison privé. Si vous utilisez plutôt _votre propre serveur DNS personnalisé_ _, vous devez créer manuellement des entrées DNS pour l’espace de travail.
+Lorsque vous utilisez un espace de travail Azure Machine Learning avec un point de terminaison privé, il existe [plusieurs manières de gérer la résolution de noms DNS](../private-link/private-endpoint-dns.md). Par défaut, Azure gère automatiquement la résolution de noms pour votre espace de travail et votre point de terminaison privé. Si vous _utilisez votre propre serveur DNS personnalisé_ _, vous devez créer manuellement des entrées DNS ou utiliser des redirecteurs conditionnels pour l’espace de travail.
 
 > [!IMPORTANT]
 > Cet article ne traite que de la recherche du nom de domaine complet (FQDN) et des adresses IP pour ces entrées. il ne fournit pas d’informations sur la configuration des enregistrements DNS pour ces éléments. Pour savoir comment ajouter des enregistrements, consultez la documentation de votre logiciel DNS.
@@ -37,9 +37,9 @@ Lorsque vous utilisez un espace de travail Azure Machine Learning avec un point
 
 - Éventuellement, [Azure CLI](/cli/azure/install-azure-cli) ou [Azure PowerShell](/powershell/azure/install-az-ps).
 
-## <a name="find-the-ip-addresses"></a>Rechercher les adresses IP
-
-La liste suivante contient les noms de domaine complets (FQDN) utilisés par votre espace de travail et le point de terminaison privé :
+## <a name="fqdns-in-use"></a>FQDN en cours d’utilisation
+### <a name="these-fqdns-are-in-use-in-the-following-regions-eastus-southcentralus-and-westus2"></a>Ces noms de domaine complets sont utilisés dans les régions suivantes : eastus, southcentralus et westus2.
+La liste suivante contient les noms de domaine complets (FQDN) utilisés par votre espace de travail :
 
 * `<workspace-GUID>.workspace.<region>.cert.api.azureml.ms`
 * `<workspace-GUID>.workspace.<region>.api.azureml.ms`
@@ -51,6 +51,19 @@ La liste suivante contient les noms de domaine complets (FQDN) utilisés par vot
 
     > [!NOTE]
     > Les instances de calcul sont accessibles uniquement à partir du réseau virtuel.
+    
+### <a name="these-fqdns-are-in-use-in-all-other-regions"></a>Ces noms de domaine complets sont utilisés dans toutes les autres régions
+La liste suivante contient les noms de domaine complets (FQDN) utilisés par votre espace de travail :
+
+* `<workspace-GUID>.workspace.<region>.cert.api.azureml.ms`
+* `<workspace-GUID>.workspace.<region>.api.azureml.ms`
+* `ml-<workspace-name>-<region>-<workspace-guid>.notebooks.azure.net`
+* `<instance-name>.<region>.instances.azureml.ms`
+
+    > [!NOTE]
+    > Les instances de calcul sont accessibles uniquement à partir du réseau virtuel.
+
+## <a name="find-the-ip-addresses"></a>Rechercher les adresses IP
 
 Pour rechercher les adresses IP internes des noms de domaine complets dans le réseau virtuel, utilisez l’une des méthodes suivantes :
 
@@ -89,7 +102,7 @@ Les informations retournées par toutes les méthodes sont les mêmes : une lis
 | `ml-myworkspace-eastus-fb7e20a0-8891-458b-b969-55ddb3382f51.notebooks.azure.net` | `10.1.0.6` |
 
 > [!IMPORTANT]
-> Certains noms de domaine complets ne sont pas affichés dans la liste par le point de terminaison privé, mais ils sont requis par l’espace de travail. Ces noms de domaine complets sont répertoriés dans le tableau suivant et doivent également être ajoutés à votre serveur DNS :
+> Certains noms de domaine complets ne sont pas affichés dans la liste par le point de terminaison privé, mais ils sont requis par l’espace de travail dans les régions eastus, southcentralus et westus2. Ces noms de domaine complets sont répertoriés dans le tableau suivant et doivent également être ajoutés à votre serveur DNS et/ou à une zone de DNS privé Azure :
 >
 > * `<workspace-GUID>.workspace.<region>.cert.api.azureml.ms`
 > * `<workspace-GUID>.workspace.<region>.experiments.azureml.net`
@@ -102,3 +115,5 @@ Les informations retournées par toutes les méthodes sont les mêmes : une lis
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur l’utilisation d’Azure Machine Learning avec un réseau virtuel, consultez [Présentation du réseau virtuel](how-to-network-security-overview.md).
+
+Pour plus d’informations sur l’intégration des points de terminaison privés dans votre configuration DNS, consultez [Configuration DNS du point de terminaison privé Azure](https://docs.microsoft.com/azure/private-link/private-endpoint-dns).

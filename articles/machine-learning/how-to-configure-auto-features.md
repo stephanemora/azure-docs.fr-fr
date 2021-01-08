@@ -1,7 +1,7 @@
 ---
-title: Caractérisation dans les expériences AutoML
+title: Caractérisation avec Machine Learning automatisé
 titleSuffix: Azure Machine Learning
-description: Découvrez les paramètres de caractérisation proposés par les offres Azure Machine Learning et la manière dont l’ingénierie de caractéristiques est prise en charge dans les expériences de ML automatisé.
+description: Découvrez les paramètres de caractérisation de données dans Azure Machine Learning et comment personnaliser ces fonctionnalités pour vos expériences de ML automatisés.
 author: nibaccam
 ms.author: nibaccam
 ms.reviewer: nibaccam
@@ -9,23 +9,22 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to, automl
-ms.date: 05/28/2020
-ms.openlocfilehash: 658db1604895515525e5a4826a43c0b21d9698b1
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.custom: how-to,automl,contperf-fy21q2
+ms.date: 12/18/2020
+ms.openlocfilehash: 526afe758063ce6c5f6bd86f8192f56d5f844a85
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359627"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97694001"
 ---
-# <a name="featurization-in-automated-machine-learning"></a>Caractérisation dans le Machine Learning automatisé
+# <a name="data-featurization-in-automated-machine-learning"></a>Caractérisation de données dans le Machine Learning automatisé
 
 
 
-Dans ce guide, vous allez apprendre ce qui suit :
+En savoir plus sur les paramètres de caractérisation de données dans Azure Machine Learning et sur la façon de personnaliser ces fonctionnalités pour [les expériences d’expérimentation automatisées de ML](concept-automated-ml.md).
 
-- Quels paramètres de caractérisation sont proposés par le Azure Machine Learning.
-- Comment personnaliser ces fonctionnalités pour vos [expériences de machine learning automatisé](concept-automated-ml.md).
+## <a name="feature-engineering-and-featurization"></a>Ingénierie des caractéristiques et caractérisation
 
 *L’ingénierie des caractéristiques* est le processus qui consiste à utiliser la connaissance du domaine des données pour créer des fonctionnalités qui aident les algorithmes de ML à améliorer leur apprentissage. Dans Azure Machine Learning, des techniques de mise à l’échelle et de normalisation des données sont appliquées pour faciliter l’ingénierie de caractéristiques. Généralement, ces techniques et l’ingénierie des caractéristiques sont appelées *caractérisation* dans les expériences de Machine Learning automatisé *(AutoML)* .
 
@@ -38,7 +37,7 @@ Cet article part du principe que vous savez déjà comment configurer une expér
 
 ## <a name="configure-featurization"></a>Configuration de la caractérisation
 
-Dans chaque expérience de Machine Learning automatisée, des [techniques de mise à l’échelle automatique et de normalisation](#featurization) sont appliquées par défaut à vos données. Ces techniques sont des types de caractérisation qui aident *certains* algorithmes sensibles aux caractéristiques à des échelles différentes. Toutefois, vous pouvez également activer des caractérisations supplémentaires, telles que l’ *imputation des valeurs manquantes* , *l’encodage* et les *transformations*.
+Dans chaque expérience de Machine Learning automatisée, des [techniques de mise à l’échelle automatique et de normalisation](#featurization) sont appliquées par défaut à vos données. Ces techniques sont des types de caractérisation qui aident *certains* algorithmes sensibles aux caractéristiques à des échelles différentes. Vous pouvez activer davantage de caractérisation, par exemple *d’imputation des valeurs manquantes*, *d’encodage* et de *transformations*.
 
 > [!NOTE]
 > Les étapes de caractérisation du Machine Learning automatisé (normalisation des fonctionnalités, gestion des données manquantes, conversion de texte en valeurs numériques) font partie du modèle sous-jacent. Lorsque vous utilisez le modèle pour des prédictions, les étapes de caractérisation qui sont appliquées pendant la formation sont appliquées automatiquement à vos données d’entrée.
@@ -49,7 +48,7 @@ Le tableau suivant présente les paramètres acceptés pour `featurization` dans
 
 |Configuration de la caractérisation | Description|
 ------------- | ------------- |
-|`"featurization": 'auto'`| Indique que, dans le cadre du prétraitement, des [étapes de garde-fous des données et de caractérisation](#featurization) doivent être effectuées automatiquement. Il s’agit du paramètre par défaut.|
+|`"featurization": 'auto'`| Indique que, dans le cadre du prétraitement, des étapes de [garde-fous des données](#data-guardrails) et de [caractérisation](#featurization) doivent être effectuées automatiquement. Il s’agit du paramètre par défaut.|
 |`"featurization": 'off'`| Indique que des étapes de caractérisation ne doivent pas être effectuées automatiquement.|
 |`"featurization":`&nbsp;`'FeaturizationConfig'`| Indique que des étapes de caractérisation personnalisées doivent être utilisées. [Découvrez comment personnaliser la caractérisation](#customize-featurization).|
 
@@ -66,13 +65,13 @@ Le tableau suivant récapitule les techniques appliquées automatiquement à vos
 | ------------- | ------------- |
 |**Supprimer les caractéristiques de cardinalité élevée ou d’absence de variance** _ |Supprime ces fonctionnalités des ensembles de formation et de validation. S’applique aux fonctionnalités dont toutes les valeurs sont manquantes, avec la même valeur sur toutes les lignes, ou avec une cardinalité élevée (par exemple, les codes de hachage, les ID, ou les GUID).|
 |_*Imputer des valeurs manquantes**_ |Pour les fonctionnalités numériques, remplacement par la moyenne des valeurs dans la colonne.<br/><br/>Pour les fonctionnalités catégorielles, remplacement par la valeur la plus fréquente.|
-|_*Générer des caractéristiques supplémentaires**_ |Pour les caractéristiques de type date/heure : Année, Mois, Jour, Jour de la semaine, Jour de l’année, Trimestre, Semaine de l’année, Heure, Minute, Seconde.<br><br> _Pour les tâches de prévision,* ces fonctionnalités DateHeure supplémentaires sont créées : Année ISO, Semestre - semestre, Mois civil comme chaîne, Semaine, Jour de la semaine comme chaîne, Jour du trimestre, Jour de l’année, AM/PM (0 si l’heure se situe avant midi (12 pm), sinon 1), AM/PM comme chaîne, Heure de la journée (base de 12 heures)<br/><br/>Pour les caractéristiques de type texte : Fréquence des termes basée sur les unigrammes, les bigrammes et les trigrammes. En savoir plus sur [comment cela se passe avec BERT.](#bert-integration)|
+|_*Générer plus de fonctionnalités**_ |Pour les caractéristiques de type date/heure : Année, Mois, Jour, Jour de la semaine, Jour de l’année, Trimestre, Semaine de l’année, Heure, Minute, Seconde.<br><br> _Pour les tâches de prévision,* ces fonctionnalités DateHeure supplémentaires sont créées : Année ISO, Semestre - semestre, Mois civil comme chaîne, Semaine, Jour de la semaine comme chaîne, Jour du trimestre, Jour de l’année, AM/PM (0 si l’heure se situe avant midi (12 pm), sinon 1), AM/PM comme chaîne, Heure de la journée (base de 12 heures)<br/><br/>Pour les caractéristiques de type texte : Fréquence des termes basée sur les unigrammes, les bigrammes et les trigrammes. En savoir plus sur [comment cela se passe avec BERT.](#bert-integration)|
 |**Transformer et encoder** _|Les fonctionnalités numériques avec très peu de valeurs uniques sont transformées en fonctionnalités catégorielles.<br/><br/>L’encodage one-hot est utilisé pour les fonctionnalités catégoriques de faible cardinalité. L’encodage one-hot-hash est utilisé pour les fonctionnalités catégoriques de haute cardinalité.|
 |_ *Incorporations de mots**|Caractériseur de texte convertissant les vecteurs de jetons de texte en vecteurs de phrase à l’aide d’un modèle déjà formé. Le vecteur d’incorporation de chaque mot d’un document est agrégé avec le reste pour produire un vecteur de fonctionnalité de document.|
 |**Encodages cibles**|Pour les fonctionnalités catégorielles, cette étape mappe chaque catégorie avec une valeur cible moyenne pour les problèmes de régression, et à la probabilité de chaque classe pour les problèmes de classification. Une pondération basée sur la fréquence et une validation croisée par échantillons (« k-fold ») sont appliquées pour réduire l’ajustement du mappage et le bruit provoqué par les catégories de données éparses.|
 |**Encodage de texte cible**|Pour l'entrée de texte, un modèle linéaire empilé avec « bag-of-words » est utilisé afin de générer la probabilité de chaque classe.|
 |**WoE (Poids de la preuve)**|Calcule la valeur WoE en tant que mesure de corrélation des colonnes catégorielles vers la colonne cible. Le WoE est calculé en tant qu'enregistrement du ratio de probabilités à l'intérieur et à l'extérieur de la classe. Cette étape produit une colonne de fonctionnalités numériques par classe et évite d'avoir à imputer les valeurs manquantes et le traitement de valeur hors norme.|
-|**Distance de cluster**|Effectue l’apprentissage d’un modèle de clustering k-moyennes sur toutes les colonnes numériques. Génère de nouvelles fonctionnalités *k* , une nouvelle fonctionnalité numérique par cluster, contenant la distance de chaque échantillon par rapport au centroïde de chaque cluster.|
+|**Distance de cluster**|Effectue l’apprentissage d’un modèle de clustering k-moyennes sur toutes les colonnes numériques. Génère de nouvelles fonctionnalités *k*, une nouvelle fonctionnalité numérique par cluster, contenant la distance de chaque échantillon par rapport au centroïde de chaque cluster.|
 
 ## <a name="data-guardrails"></a>Garde-fous des données
 
@@ -81,7 +80,7 @@ Le tableau suivant récapitule les techniques appliquées automatiquement à vos
 Les Garde-fous des données sont appliqués :
 
 - **Pour les expériences du Kit de développement logiciel (SDK)** : Lorsque les paramètres `"featurization": 'auto'` ou `validation=auto` sont spécifiés dans votre objet `AutoMLConfig`.
-- **Pour les expériences de studio** : Quand l’option Caractérisation automatique est activée.
+- **Pour les expériences de studio**: Quand l’option Caractérisation automatique est activée.
 
 Vous pouvez consulter les Garde-fous des données pour votre expérience :
 
@@ -303,22 +302,24 @@ class_prob = fitted_model.predict_proba(X_test)
 
 Si le modèle sous-jacent ne prend pas en charge la fonction `predict_proba()` ou si le format est incorrect, une exception spécifique de la classe de modèle est levée. Pour obtenir des exemples de la manière dont cette fonction est implémentée pour différents types de modèles, consultez les documents de référence [RandomForestClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html#sklearn.ensemble.RandomForestClassifier.predict_proba) et [XGBoost](https://xgboost.readthedocs.io/en/latest/python/python_api.html).
 
-## <a name="bert-integration"></a>Intégration de BERT
+<a name="bert-integration"></a>
+
+## <a name="bert-integration-in-automated-ml"></a>Intégration de BERT dans les ML automatisés
 
 [BERT](https://techcommunity.microsoft.com/t5/azure-ai/how-bert-is-integrated-into-azure-automated-machine-learning/ba-p/1194657) est utilisé dans la couche de caractérisation de ML automatisé. Dans cette couche, si une colonne contient du texte libre ou d’autres types de données tels que des horodateurs ou des nombres simples, nous les caractérisons en conséquence.
 
 Pour BERT, le modèle est affiné et formé à l’aide des étiquettes fournies par l’utilisateur. À partir de là, les incorporations de documents sont générées en tant que fonctionnalités en aux côtés d’autres, comme les fonctionnalités de timestamp, de jour de la semaine. 
 
 
-### <a name="bert-steps"></a>Étapes BERT
+### <a name="steps-to-invoke-bert"></a>Étapes à suivre pour appeler BERT
 
-Pour appeler BERT, vous devez définir `enable_dnn: True` dans automl_settings et utiliser un calcul GPU (par exemple, `vm_size = "STANDARD_NC6"` ou un GPU supérieur). Si un calcul de l’UC est utilisé, au lieu de BERT, AutoML active le caractériseur BiLSTM DNN.
+Pour appeler BERT, définissez `enable_dnn: True` dans automl_settings et utiliser un calcul GPU (`vm_size = "STANDARD_NC6"` ou un GPU supérieur). Si un calcul de l’UC est utilisé, au lieu de BERT, AutoML active le caractériseur BiLSTM DNN.
 
 AutoML effectue les étapes suivantes pour BERT. 
 
 1. **Prétraitement et création de jetons pour toutes les colonnes de texte**. Par exemple, le transformateur « StringCast » se trouve dans le résumé de caractérisation du modèle final. Vous trouverez un exemple de la façon de générer le résumé de caractérisation du modèle dans [ce notebook](https://towardsdatascience.com/automated-text-classification-using-machine-learning-3df4f4f9570b).
 
-2. **Concaténez toutes les colonnes de texte en une seule colonne de texte** , d’où le `StringConcatTransformer` dans le modèle final. 
+2. **Concaténez toutes les colonnes de texte en une seule colonne de texte**, d’où le `StringConcatTransformer` dans le modèle final. 
 
     Notre implémentation de BERT limite la longueur totale du texte d’un exemple de formation à 128 jetons. Cela signifie qu’en cas de concaténation, toutes les colonnes de texte doivent idéalement avoir une longueur maximale de 128 jetons. S’il y a plusieurs colonnes, chaque colonne doit être élaguée de telle sorte que cette condition soit remplie. Sinon, pour les colonnes concaténées de longueur > 128 jetons, la couche du générateur de jetons de BERT va tronquer cette entrée à 128 jetons.
 
@@ -327,7 +328,8 @@ AutoML effectue les étapes suivantes pour BERT.
 BERT s’exécute généralement plus longtemps que les autres caractériseurs. Pour de meilleures performances, nous vous conseillons d’utiliser « STANDARD_NC24r » ou « STANDARD_NC24rs_V3 » pour leurs capacités RDMA. 
 
 AutoML distribuera l’entraînement BERT sur plusieurs nœuds s’ils sont disponibles (avec un maximum de huit nœuds). Pour ce faire, vous pouvez définir le paramètre `max_concurrent_iterations` sur une valeur supérieure à 1 dans votre objet `AutoMLConfig`. 
-### <a name="supported-languages"></a>Langues prises en charge
+
+## <a name="supported-languages-for-bert-in-automl"></a>Langues prises en charge pour BERT dans autoML 
 
 AutoML prend actuellement en charge environ 100 langues et choisit le modèle BERT approprié en fonction de la langue du jeu de données. Pour les données en allemand, nous utilisons le modèle BERT allemand. Pour l’anglais, nous utilisons le modèle BERT anglais. Pour toutes les autres langues, nous utilisons le modèle BERT multilingue.
 

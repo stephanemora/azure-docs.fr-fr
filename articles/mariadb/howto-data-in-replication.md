@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 9/29/2020
-ms.openlocfilehash: fe7e02cc34dc9c97e540d7b8d96c48ee8d5cfe09
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 3ed0fea4846b969c2af80aa525f7da64e7700bb5
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94535365"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587925"
 ---
 # <a name="configure-data-in-replication-in-azure-database-for-mariadb"></a>Configurer la réplication des données entrantes dans Azure Database for MariaDB
 
@@ -284,7 +284,7 @@ Les étapes suivantes préparent et configurent le serveur MariaDB hébergé loc
     
     En raison d’une limitation de la réplication native dans MariaDB, vous devez définir les variables [`sync_master_info`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_master_info) et [`sync_relay_log_info`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_relay_log_info) sur la réplication sans scénario GTID.
 
-    Vérifiez les variables `sync_master_info` et `sync_relay_log_info` de votre serveur esclave pour vous assurer que la réplication des données entrantes est stable, et définissez les variables sur `1`.
+    Vérifiez les variables `sync_master_info` et `sync_relay_log_info` de votre réplique pour vous assurer que la réplication des données entrantes est stable, et définissez les variables sur `1`.
     
 ## <a name="other-stored-procedures"></a>Autres procédures stockées
 

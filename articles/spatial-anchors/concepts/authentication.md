@@ -9,12 +9,12 @@ ms.date: 11/20/2020
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0166a3b6031f9e1d364a37db99be5bc5a65267df
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 01065f9ac26599d26d6e2a6979eae1e559a82854
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95484608"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97722961"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Autorisation et authentification auprès d’Azure Spatial Anchors
 
@@ -193,7 +193,7 @@ Le jeton d’accès Azure AD est récupéré à l’aide de [MSAL](../../active-
 **Dans votre code**
 
 >[!NOTE]
-> Vous pouvez utiliser l’exemple de service disponible sur GitHub.
+> Vous pouvez utiliser l’[exemple de service](https://github.com/Azure/azure-spatial-anchors-samples/tree/master/Sharing/SharingServiceSample) qui est disponible dans le cadre de l’exemple d’[applications d’ancrage spatial](https://github.com/Azure/azure-spatial-anchors-samples).
 
 1.    Veillez à utiliser l’ID d’application, le secret d’application et l’URI de redirection de votre propre application Azure AD comme paramètres d’**ID client**, de **secret** et d’**URI de redirection** dans la bibliothèque MSAL.
 2.    Définissez comme ID de locataire votre propre ID de locataire Azure AD dans le paramètre d’**autorité** dans la bibliothèque MSAL.

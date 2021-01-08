@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 5894a57e6495ca02002c8f32b893e696c7f5679b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 5c21efc9cb082d915fd87e9ae01606fce18016bc
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350702"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97897277"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning"></a>Tutoriel : Configurer ServiceNow pour l'approvisionnement automatique d'utilisateurs
 
@@ -50,7 +50,7 @@ Le scénario décrit dans ce tutoriel part du principe que vous disposez des pr�
 
 1. Identifiez le nom de votre instance ServiceNow. Vous pouvez trouver le nom de l’instance dans l’URL que vous utilisez pour accéder à ServiceNow. Dans l’exemple ci-dessous, le nom de l’instance est dev35214.
 
-   ![Instance ServiceNow](media/servicenow-provisioning-tutorial/servicenow_instance.png)
+   ![Instance ServiceNow](media/servicenow-provisioning-tutorial/servicenow-instance.png)
 
 2. Obtenez les informations d’identification d’un administrateur dans ServiceNow. Accédez au profil utilisateur dans ServiceNow et vérifiez que l’utilisateur a le rôle d’administrateur. 
 
@@ -94,7 +94,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 5. Dans la section **Informations d’identification d’administrateur**, entrez vos informations d’identification d’administrateur ServiceNow et votre nom d’utilisateur. Cliquez sur **Tester la connexion** pour vérifier qu'Azure AD peut se connecter à ServiceNow. Si la connexion échoue, vérifiez que votre compte ServiceNow dispose d’autorisations d’administrateur et réessayez.
 
-    ![Capture d’écran montrant la page Approvisionnement du service, dans laquelle vous pouvez entrer les informations d’identification de l’administrateur.](./media/servicenow-provisioning-tutorial/provisioning.png)
+    ![Capture d’écran montrant la page Approvisionnement du service, dans laquelle vous pouvez entrer les informations d’identification de l’administrateur.](./media/servicenow-provisioning-tutorial/servicenow-provisioning.png)
 
 6. Dans le champ **E-mail de notification**, entrez l’adresse e-mail de la personne ou du groupe qui doit recevoir les notifications d’erreur de provisionnement et sélectionnez la case à cocher **Envoyer une notification par e-mail en cas de défaillance**.
 
@@ -142,11 +142,16 @@ Une fois que vous avez configuré l’approvisionnement, utilisez les ressources
   
   `Details: Your ServiceNow instance name appears to be invalid.  Please provide a current ServiceNow administrative user name and          password along with the name of a valid ServiceNow instance.`                                                              
 
-   Cette erreur indique un problème de communication avec l’instance de ServiceNow. Vérifiez bien que les paramètres suivants sont *désactivés* dans ServiceNow :
+   Cette erreur indique un problème de communication avec l’instance de ServiceNow. 
+   
+   Si vous rencontrez des problèmes de test de connexion, essayez en passant les paramètres suivants sur **désactivé** dans ServiceNow :
    
    1. Sélectionnez **System Security** > **High security settings** > **Require basic authentication for incoming SCHEMA requests**.
    2. Sélectionnez **System Properties** > **Web Services** > **Require basic authorization for incoming SOAP requests**.
 
+   ![Autorisation des demandes SOAP](media/servicenow-provisioning-tutorial/servicenow-webservice.png)
+
+   Si cela résout vos problèmes, contactez le support technique de ServiceNow et demandez-leur d’activer le débogage SOAP pour faciliter le dépannage. 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Gestion de l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise](../app-provisioning/configure-automatic-user-provisioning-portal.md)

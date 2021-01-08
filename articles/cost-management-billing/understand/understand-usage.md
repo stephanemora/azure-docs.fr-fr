@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 01/04/2021
 ms.author: banders
-ms.openlocfilehash: 559fe43bbd9b8951a97733ae1250046f65f10404
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 07e3cfdce238d5fc4e2737a49dde6fd624de8506
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149359"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882498"
 ---
 # <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>Comprendre les termes du fichier sur l’utilisation et les frais Azure
 
@@ -90,11 +90,11 @@ PublisherType | Tous | Type d’éditeur (valeurs : **Azure**, **AWS**, **Place
 Quantité | Tous | Nombre d’unités achetées ou consommés.
 ID de réservation | EA, MCA | Identificateur unique de l’instance de réservation achetée.
 ReservationName | EA, MCA | Nom de l’instance de réservation achetée.
-ResourceGroup | Tous | Nom du [groupe de ressources](../../azure-resource-manager/management/overview.md) dans lequel figure la ressource. Tous les frais ne proviennent pas de ressources déployées sur des groupes de ressources. Les frais qui n’ont pas de groupe de ressources seront indiqués comme étant nuls ou vides, **autres**ou **non applicable**.
+ResourceGroup | Tous | Nom du [groupe de ressources](../../azure-resource-manager/management/overview.md) dans lequel figure la ressource. Tous les frais ne proviennent pas de ressources déployées sur des groupes de ressources. Les frais qui n’ont pas de groupe de ressources seront indiqués comme étant nuls ou vides, **autres** ou **non applicable**.
 ResourceId<sup>1</sup> | Tous | Identificateur unique de la ressources [Azure Resource Manager](/rest/api/resources/resources).
 ResourceLocation | Tous | Emplacement du centre de données où la ressource est exécutée. Voir Location.
-Nom_ressource | EA, PAYG | Nom de la ressource. Tous les frais ne proviennent pas de ressources déployées. Les frais qui n’ont pas de type de ressource s’affichent comme étant nuls ou vides, **autres**ou **non applicable**.
-ResourceType | MCA | Type d’instance de ressource. Tous les frais ne proviennent pas de ressources déployées. Les frais qui n’ont pas de type de ressource s’affichent comme étant nuls ou vides, **autres**ou **non applicable**.
+Nom_ressource | EA, PAYG | Nom de la ressource. Tous les frais ne proviennent pas de ressources déployées. Les frais qui n’ont pas de type de ressource s’affichent comme étant nuls ou vides, **autres** ou **non applicable**.
+ResourceType | MCA | Type d’instance de ressource. Tous les frais ne proviennent pas de ressources déployées. Les frais qui n’ont pas de type de ressource s’affichent comme étant nuls ou vides, **autres** ou **non applicable**.
 ServiceFamily | MCA | Famille de services à laquelle appartient le service.
 ServiceInfo1 | Tous | Métadonnées relatives au service.
 ServiceInfo2 | Tous | Champ hérité avec des métadonnées facultatives spécifiques du service.
@@ -126,10 +126,24 @@ UsageDate | Date
 UsageEnd | Date
 UsageStart | Date
 
-
 ## <a name="ensure-charges-are-correct"></a>Vérifier que les frais sont corrects
 
 Pour en savoir plus sur les détails de l’utilisation et des frais, découvrez comment comprendre votre facture de [paiement à l’utilisation](review-individual-bill.md) ou de [Contrat client Microsoft](review-customer-agreement-bill.md).
+
+## <a name="unexpected-usage-or-charges"></a>Utilisation ou frais inattendus
+
+Si vous avez des frais d’utilisation que vous ne reconnaissez pas, vous pouvez faire plusieurs choses pour en comprendre l’origine :
+
+- Passer en revue la facture qui a des frais pour la ressource
+- Passer en revue les frais facturés dans Analyse des coûts
+- Rechercher les personnes responsables de la ressource et les solliciter
+- Analyser les journaux d’audit
+- Analyser les autorisations des utilisateurs sur l’étendue parente de la ressource
+- Créer une [demande de support Azure](https://go.microsoft.com/fwlink/?linkid=2083458) afin d’obtenir de l’aide pour identifier les frais
+
+Pour plus d’informations, consultez [Analyser les frais inattendus](analyze-unexpected-charges.md).
+
+Notez qu’Azure ne journalise pas la plupart des actions des utilisateurs. Au lieu de cela, Microsoft journalise l’utilisation des ressources pour la facturation. Si vous remarquez un pic d’utilisation dans le passé et que vous n’avez pas activé la journalisation, Microsoft ne peut pas identifier la cause. Activez la journalisation pour le service dont vous voulez voir l’utilisation accrue afin que l’équipe technique appropriée puisse vous aider pour le problème.
 
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
 

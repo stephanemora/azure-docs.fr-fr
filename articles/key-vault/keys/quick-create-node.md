@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: 1b23fa9f9cbf7b385a04835149b5d53cc42351eb
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: db6bb5c204bfe79b9d7470f651081aa4f4dcf2ed
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825886"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97932705"
 ---
 # <a name="quickstart-azure-key-vault-key-client-library-for-javascript-version-4"></a>Démarrage rapide : Bibliothèque de client de clés Azure Key Vault pour JavaScript (version 4)
 
@@ -91,7 +91,7 @@ set KEY_VAULT_NAME=<your-key-vault-name>
 ````
 Windows PowerShell
 ```powershell
-$Env:KEY_VAULT_NAME=<your-key-vault-name>
+$Env:KEY_VAULT_NAME="<your-key-vault-name>"
 ```
 
 macOS ou Linux
@@ -274,4 +274,4 @@ Dans ce guide de démarrage rapide, vous avez créé un coffre de clés, stocké
 - Lire une [présentation des clés Azure Key Vault](about-keys.md)
 - Découvrir comment [Sécuriser l’accès à un coffre de clés](../general/secure-your-key-vault.md)
 - Consulter le [Guide du développeur Azure Key Vault](../general/developers-guide.md)
-- Passer en revue les [bonnes pratiques relatives à Azure Key Vault](../general/best-practices.md)
+- Passer en revue la [Vue d’ensemble de la sécurité de Key Vault](../general/security-overview.md)

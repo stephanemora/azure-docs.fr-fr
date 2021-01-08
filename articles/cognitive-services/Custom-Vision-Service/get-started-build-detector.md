@@ -12,12 +12,12 @@ ms.date: 09/30/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: reconnaissance d’image, application de reconnaissance d’image, vision personnalisée
-ms.openlocfilehash: ab747ad5e7b9362e9c587741198a0191c032b124
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 8274ddd0e492d1a27ebc1579fc6efdcc8cc84955
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96018357"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97912982"
 ---
 # <a name="quickstart-build-an-object-detector-with-the-custom-vision-website"></a>Démarrage rapide : Créer un détecteur d’objets avec le site web Custom Vision
 
@@ -100,6 +100,7 @@ Une fois l’entraînement terminé, les performances du modèle sont calculées
 
 - La **précision** indique la proportion des classifications identifiées qui étaient correctes. Par exemple, si le modèle a identifié 100 images comme étant des chiens et que 99 d’entre elles étaient effectivement des chiens, la précision est de 99 %.
 - Le **rappel** indique la proportion des classifications réelles qui ont été correctement identifiées. Par exemple, s’il y avait 100 images de pommes et que le modèle en a identifié 80 comme étant des pommes, le rappel est de 80 %.
+- **Moyenne des précisions moyennes** est la valeur moyenne de la précision moyenne. La précision moyenne est la zone sous la courbe de précision/rappel (précision tracée par rapport au rappel pour chaque prédiction effectuée).
 
 ![Les résultats de l’entraînement montrent la précision et le rappel globaux, ainsi que la précision moyenne.](./media/get-started-build-detector/trained-performance.png)
 

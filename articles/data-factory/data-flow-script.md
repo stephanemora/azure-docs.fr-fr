@@ -6,13 +6,13 @@ ms.author: nimoolen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/03/2020
-ms.openlocfilehash: 69b2713e928707479945df0bb242ac2fbc001c32
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.date: 12/23/2020
+ms.openlocfilehash: 3f5a6171ba81b858d649f381ed316be0637a2571
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96600657"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858652"
 ---
 # <a name="data-flow-script-dfs"></a>Script de flux de données (DFS)
 
@@ -245,6 +245,18 @@ derive(each(match(type=='string'), $$ = 'string'),
     each(match(type=='timestamp'), $$ = 'timestamp'),
     each(match(type=='boolean'), $$ = 'boolean'),
     each(match(type=='double'), $$ = 'double')) ~> DerivedColumn1
+```
+
+### <a name="fill-down"></a>Recopier en bas
+Voici comment implémenter le problème de « remplissage » commun avec les jeux de données lorsque vous souhaitez remplacer les valeurs NULL par la valeur non NULL précédente dans la séquence. Notez que cette opération peut avoir une incidence négative sur les performances, car vous devez créer une fenêtre synthétique sur l’ensemble de votre jeu de données avec une valeur de catégorie « factice ». En outre, vous devez effectuer un tri par valeur pour créer la séquence de données appropriée afin de rechercher la valeur non NULL précédente. Cet extrait de code ci-dessous crée la catégorie synthétique comme « factice » et effectue un tri en fonction d’une clé de substitution. Vous pouvez supprimer la clé de substitution et utiliser votre propre clé de tri spécifique aux données. Cet extrait de code suppose que vous avez déjà ajouté une transformation source appelée ```source1```
+
+```
+source1 derive(dummy = 1) ~> DerivedColumn
+DerivedColumn keyGenerate(output(sk as long),
+    startAt: 1L) ~> SurrogateKey
+SurrogateKey window(over(dummy),
+    asc(sk, true),
+    Rating2 = coalesce(Rating, last(Rating, true()))) ~> Window1
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

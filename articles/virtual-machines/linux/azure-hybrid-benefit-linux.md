@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: mathapli
-ms.openlocfilehash: 1bc108f76ac35b13474de18d473f5728dbad9d23
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: ba7081c877f3c3adae6e678280592c9445a95d1b
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560014"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858805"
 ---
 # <a name="how-azure-hybrid-benefit-applies-for-linux-virtual-machines"></a>Application d’Azure Hybrid Benefit aux machines virtuelles Linux
 
@@ -53,7 +53,7 @@ Pour commencer à utiliser l’avantage pour Red Hat :
 1. Activez un ou plusieurs de vos abonnements RHEL éligibles pour être utilisés dans Azure à l’aide de l’[interface client de Red Hat Cloud Access](https://access.redhat.com/management/cloud).
 
    Les abonnements Azure que vous fournissez pendant le processus d’activation de Red Hat Cloud Access seront alors autorisés à utiliser la fonctionnalité Azure Hybrid Benefit.
-1. Appliquez Azure Hybrid Benefit à l’une de vos machines virtuelles PAYG RHEL existantes et à toutes les nouvelles machines virtuelles RHEL que vous déployez à partir d’images PAYG de Place de marché Azure.
+1. Appliquez Azure Hybrid Benefit à l’une de vos machines virtuelles PAYG RHEL existantes et à toutes les nouvelles machines virtuelles RHEL que vous déployez à partir d’images PAYG de Place de marché Azure. Vous pouvez utiliser le portail Azure ou Azure CLI pour activer l’avantage.
 1. Effectuez les [étapes recommandées suivantes](https://access.redhat.com/articles/5419341) pour configurer des sources de mise à jour pour les machines virtuelles RHEL et tenir compte des consignes de conformité des abonnements RHEL.
 
 
@@ -62,8 +62,33 @@ Pour commencer à utiliser l’avantage pour Red Hat :
 Pour commencer à utiliser l’avantage pour SUSE :
 
 1. Inscrivez-vous au programme de cloud public SUSE.
-1. Appliquez l’avantage à vos machines virtuelles existantes via Azure CLI.
+1. Appliquez l’avantage à vos machines virtuelles nouvellement créées ou existantes via le portail Azure ou Azure CLI.
 1. Inscrivez vos machines virtuelles recevant l’avantage auprès d’une source de mises à jour distincte.
+
+## <a name="enable-and-disable-the-benefit-in-the-azure-portal"></a>Activez et désactivez l’avantage dans le portail Azure.
+
+Vous pouvez activer l’avantage sur les machines virtuelles existantes avec l’option **Configuration** à gauche et en suivant les étapes qui y sont décrites. Vous pouvez activer l’avantage sur les nouvelles machines virtuelles lors de l’expérience de création de machine virtuelle.
+
+### <a name="azure-portal-example-to-enable-the-benefit-for-an-existing-vm"></a>Exemple pour activer l’avantage d’une machine virtuelle existante via le portail Azure :
+1. Visitez le [portail Microsoft Azure](https://portal.azure.com/)
+1. Accédez à la page Créer une machine virtuelle sur le portail.
+ ![AHB lors de la création de la machine virtuelle](./media/azure-hybrid-benefit/create-vm-ahb.png)
+1. Cochez la case pour activer la conversion AHB et utiliser des licences d’accès Cloud.
+ ![Case à cocher AHB lors de la création de la machine virtuelle](./media/azure-hybrid-benefit/create-vm-ahb-checkbox.png)
+1. Créer une machine virtuelle en suivant le jeu d’instructions suivant
+1. Vérifiez le panneau **Configuration** et l’option activée s’affiche. 
+![Panneau de configuration AHB après la création](./media/azure-hybrid-benefit/create-configuration-blade.png)
+
+### <a name="azure-portal-example-to-enable-the-benefit-during-creation-of-vm"></a>Exemple pour activer l’avantage d’une machine virtuelle pendant la création d’une MV via le portail Azure :
+1. Visitez le [portail Microsoft Azure](https://portal.azure.com/)
+1. Ouvrez la page de la machine virtuelle sur laquelle vous souhaitez appliquer la conversion.
+1. Accédez à l’option de **Configuration** sur la gauche. La section Licences s’affiche. Pour activer la conversion AHB, cochez la case d’option « Oui », puis cochez la case confirmation.
+![Panneau de configuration AHB après la création](./media/azure-hybrid-benefit/create-configuration-blade.png)
+
+
+>[!NOTE]
+> Si vous avez créé un **instantané personnalisé** ou une **image partagée (SIG)** d’une image de la place de marché PAYG RHEL ou SLES, vous pouvez uniquement utiliser Azure CLI pour activer Azure Hybrid Benefit. Il s’agit d’une limitation connue. actuellement, il n’existe pas de date prévue pour cette fonctionnalité sur le portail Azure.
+
 
 
 ## <a name="enable-and-disable-the-benefit-in-the-azure-cli"></a>Activez et désactivez l’avantage dans Azure CLI.
@@ -147,7 +172,7 @@ Pour plus d’informations sur la conformité des abonnements Red Hat, les mises
 
 ### <a name="suse"></a>SUSE
 
-Pour utiliser Azure Hybrid Benefit pour vos machines virtuelles SLES, vous devez d’abord être inscrit au [programme de cloud public SUSE](https://www.suse.com/media/guide/suse_public_cloud_service_provider_program_overview.pdf). Une fois que vous avez acheté des abonnements SUSE, vous devez inscrire vos machines virtuelles qui utilisent ces abonnements auprès de votre propre source de mises à jour. Utilisez le centre de clients SUSE, le serveur Subscription Management Tool ou SUSE Manager pour cette inscription.
+Pour utiliser Azure Hybrid Benefit pour vos machines virtuelles SLES et pour plus d’informations sur le passage de SLES PAYG à BYOS ou sur le passage de SLES BYOS à PAYG, consultez [SUSE Linux Enterprise et Azure Hybrid Benefit](https://www.suse.com/c/suse-linux-enterprise-and-azure-hybrid-benefit/). 
 
 ## <a name="frequently-asked-questions"></a>Forum aux questions
 *Q : Puis-je utiliser un type de licence `RHEL_BYOS` avec une image SLES ou inversement ?*
@@ -184,7 +209,11 @@ A : Non, c’est impossible. Les instances réservées n’entrent pas actuelle
 
 *Q : Puis-je utiliser Azure Hybrid Benefit sur une machine virtuelle déployée pour SQL Server sur des images RHEL ?*
 
-A : Non, c’est impossible. Aucune prise en charge de ces éléments n’est prévue.
+A : Non, c’est impossible. Il n’existe aucun plan pour prendre en charge ces machines virtuelles.
+
+*Q : Puis-je utiliser Azure Hybrid Benefit sur mon abonnement RHEL Virtual Data Center ?*
+
+A : Non, vous ne pouvez pas. VDC n’est pas pris en charge sur Azure, y compris AHB.  
  
 
 ## <a name="common-problems"></a>Problèmes courants

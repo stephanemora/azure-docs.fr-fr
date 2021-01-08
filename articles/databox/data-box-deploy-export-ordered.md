@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: how-to
-ms.date: 11/23/2020
+ms.date: 12/18/2020
 ms.author: alkohli
-ms.openlocfilehash: b132368982e0013bfe6f3ffd52e7aacb7b1274eb
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: e822a2be200f701d65ab2080804d252f99589680
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "96003180"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680789"
 ---
-# <a name="tutorial-create-export-order-for-azure-data-box-preview"></a>Tutoriel : Créer une commande d’exportation pour Azure Data Box (préversion)
+# <a name="tutorial-create-export-order-for-azure-data-box"></a>Tutoriel : Créer une commande d’exportation pour Azure Data Box
 
 Azure Data Box est une solution hybride qui vous permet de déplacer des données à partir d’Azure vers votre emplacement. Ce tutoriel explique comment créer une commande d’exportation pour Azure Data Box. La raison principale pour créer une commande d’exportation est la récupération d’urgence, dans le cas où le stockage local est compromis et qu’une sauvegarde doit être restaurée.
 
@@ -27,8 +27,6 @@ Ce tutoriel vous fournira des informations sur :
 > * Commander un Data Box pour l’exportation
 > * Suivre la commande d’exportation
 > * Annuler la commande d’exportation
-
-[!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 

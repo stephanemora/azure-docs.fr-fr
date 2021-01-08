@@ -1,18 +1,18 @@
 ---
-title: Bien démarrer avec l’interopérabilité de Teams sur Azure Communication Services
+title: Démarrage rapide - Interopérabilité de Teams sur Azure Communication Services
 titleSuffix: An Azure Communication Services quickstart
-description: Dans ce guide de démarrage rapide, vous allez apprendre à rejoindre une réunion Teams avec le SDK Azure Communication Calling
+description: Dans ce guide de démarrage rapide, vous allez découvrir comment rejoindre une réunion Teams avec le SDK Azure Communication Calling.
 author: matthewrobertson
 ms.author: chpalm
 ms.date: 10/10/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: a51833088ad10fc261405d350bb8d0ba61cbcb66
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 48b9e1139ecae3deed513c954bf4faa7022a88a1
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114566"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936683"
 ---
 # <a name="quickstart-join-your-calling-app-to-a-teams-meeting"></a>Démarrage rapide : Joindre votre application d’appel à une réunion Teams
 
@@ -24,7 +24,7 @@ Démarrez avec Azure Communication Services en connectant votre solution d’app
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Si vous voulez nettoyer et supprimer un abonnement Communication Services, vous pouvez supprimer la ressource ou le groupe de ressources. La suppression du groupe de ressources efface également les autres ressources qui y sont associées. Découvrez-en plus sur le [nettoyage des ressources](../create-communication-resource.md#clean-up-resources).
+Si vous voulez nettoyer et supprimer un abonnement Communication Services, vous pouvez supprimer la ressource ou le groupe de ressources. La suppression du groupe de ressources efface également les autres ressources qui y sont associées. Apprenez-en davantage sur le [nettoyage des ressources](../create-communication-resource.md#clean-up-resources).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

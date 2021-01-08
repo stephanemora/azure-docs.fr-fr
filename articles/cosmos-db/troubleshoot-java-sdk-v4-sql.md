@@ -9,12 +9,12 @@ ms.devlang: java
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.custom: devx-track-java
-ms.openlocfilehash: 4753f7c0b8b5e515d33da3f9df48a2cdd9d921cc
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: d6b23a831426a3308a0b47946d5a82679e937bbe
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96017574"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97683120"
 ---
 # <a name="troubleshoot-issues-when-you-use-azure-cosmos-db-java-sdk-v4-with-sql-api-accounts"></a>Résoudre les problèmes liés à l’utilisation du kit SDK Java v4 Azure Cosmos DB avec des comptes d’API SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -38,6 +38,13 @@ Commencez par cette liste :
 * Consultez le kit SDK Java dans le dépôt centralisé Azure Cosmos DB, disponible en [open source sur GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-cosmos). Il contient une [section Problèmes](https://github.com/Azure/azure-sdk-for-java/issues) qui est activement tenue à jour. Vérifiez si un problème similaire au vôtre dispose déjà d’une solution de contournement. Une astuce intéressante consiste à filtrer les problèmes par l’étiquette *cosmos:v4-item*.
 * Consultez les [conseils sur les performances](performance-tips-java-sdk-v4-sql.md) pour le kit SDK Java v4 Azure Cosmos DB et suivez les pratiques suggérées.
 * Lisez le reste de cet article, si vous n’avez pas trouvé de solution. Ensuite, consignez un [problème GitHub](https://github.com/Azure/azure-sdk-for-java/issues). Si vous avez la possibilité d’ajouter des étiquettes à votre problème GitHub, ajoutez l’étiquette *cosmos:v4-item*.
+
+### <a name="retry-logic"></a>Logique de nouvelle tentative <a id="retry-logics"></a>
+Le kit de développement logiciel (SDK) Cosmos DB, en cas d’échec d’e/s, retente l’opération en cas de nouvelle tentative dans le SDK. Une nouvelle tentative de mise en place d’un échec est une bonne pratique, mais la gestion et la nouvelle tentative d’écriture échouent. Il est recommandé d’utiliser le dernier kit de développement logiciel (SDK), car la logique de nouvelle tentative est continuellement améliorée.
+
+1. Les échecs d’e/s de lecture et d’interrogation sont retentés par le kit de développement logiciel sans les exposer à l’utilisateur final.
+2. Les écritures (créer, upsert, remplacer, supprimer) ne sont pas des idempotent et, par conséquent, le kit de développement logiciel (SDK) ne peut pas toujours retenter les opérations d’écriture ayant échoué. Il est nécessaire que la logique de l’application de l’utilisateur gère l’échec et lance une nouvelle tentative.
+3. [Résolution des problèmes de disponibilité du SDK](troubleshoot-sdk-availability.md) explique les nouvelles tentatives pour les comptes de Cosmos DB à plusieurs régions.
 
 ## <a name="common-issues-and-workarounds"></a><a name="common-issues-workarounds"></a>Problèmes courants et solutions de contournement
 

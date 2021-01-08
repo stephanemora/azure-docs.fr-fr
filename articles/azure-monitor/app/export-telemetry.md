@@ -3,12 +3,12 @@ title: Exportation continue des données de télémétrie d’Application Insig
 description: Exportez les données de diagnostic et les données d’utilisation dans le stockage Microsoft Azure et téléchargez-les à partir de là.
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.openlocfilehash: f67a5c555c438298cee701ca065aaf8c01c6406e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a6f636ce9fe30c666f08935d5830eb0c12e6cb5e
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87324333"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674135"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exporter la télémétrie depuis Application Insights
 Vous souhaitez conserver votre télémétrie plus longtemps que la période de rétention standard ? Ou la traiter d’une façon spécialisée ? L’exportation continue est idéale dans ce cas. Les événements que vous voyez dans le portail Application Insights peuvent être exportés vers le stockage Microsoft Azure au format JSON. À partir de là, vous pouvez télécharger vos données et écrire le code dont vous avez besoin pour les traiter.  
@@ -37,6 +37,9 @@ L’exportation continue **ne prend pas en charge** les fonctionnalités/configu
 * [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md).
 
 ## <a name="create-a-continuous-export"></a><a name="setup"></a> Créez une exportation continue.
+
+> [!NOTE]
+> Une application ne peut pas exporter plus de 3 To de données par jour. Si plus de 3 To par jour sont exportés, l’exportation est désactivée. Pour exporter sans limite, utilisez l’[exportation basée sur les paramètres de diagnostic](#diagnostic-settings-based-export).
 
 1. Dans la ressource Application Insights de votre application, sous Configurer, à gauche, ouvrez Exportation continue et choisissez **Ajouter** :
 
@@ -207,6 +210,19 @@ L’exportation continue redémarre.
 * [Stream Analytics - Exemple](export-stream-analytics.md)
 * [Exporter vers SQL à l’aide de Stream Analytics][exportasa]
 * [Référence de modèle de données détaillé pour les valeurs et types de propriétés.](export-data-model.md)
+
+## <a name="diagnostic-settings-based-export"></a>Exportation basée sur les paramètres de diagnostic
+
+L’exportation basée sur les paramètres de diagnostic utilise un schéma différent de celui de l’exportation continue. Elle prend également en charge les fonctionnalités que l’exportation continue n’a pas :
+
+* Comptes de stockage Azure avec des réseaux virtuels, des pare-feu et des liens privés.
+* Exportez vers Event Hub.
+
+Pour migrer vers l’exportation basée sur les paramètres de diagnostic :
+
+1. Désactivez l’exportation continue actuelle.
+2. [Migrez l’application vers l’espace de travail](convert-classic-resource.md).
+3. [Activez les paramètres de diagnostic d’exportation](create-workspace-resource.md#export-telemetry). Sélectionnez **Paramètres de diagnostic > Ajouter des paramètres de diagnostic** à partir de votre ressource Application Insights.
 
 <!--Link references-->
 

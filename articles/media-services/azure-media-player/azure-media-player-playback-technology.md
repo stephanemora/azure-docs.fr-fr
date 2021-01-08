@@ -7,12 +7,12 @@ ms.service: media-services
 ms.topic: overview
 ms.date: 04/20/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: b9772f89f78f21cfb0f2f9baa7c6b9915fbacf37
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 24a38fde3d1b6bbe1efef9241458da846c186112
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91275691"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916335"
 ---
 # <a name="playback-technology-tech"></a>Technologie de lecture (« tech ») #
 
@@ -44,8 +44,8 @@ ou
 
 | Browser        | Système d’exploitation                                                       | Tech. attendue (Clear)  | Tech. attendue (AES)  | Tech. attendue (DRM)          |
 |----------------|----------------------------------------------------------|------------------------|----------------------|------------------------------|
-| EdgeIE 11      | Windows 10, Windows 8.1, Windows Phone 101               | azureHtml5JS           | azureHtml5JS         | azureHtml5JS (PlayReady)     |
-| IE 11IE 9-101  | Windows 7, Windows Vista<sup>1</sup>                     | flashSS                | flashSS              | silverlightSS (PlayReady)    |
+| EdgeIE 11      | Windows 10, Windows 8.1, Windows Phone 10<sup>1</sup>               | azureHtml5JS           | azureHtml5JS         | azureHtml5JS (PlayReady)     |
+| IE 11          | Windows 7, Windows Vista<sup>1</sup>                     | flashSS                | flashSS              | silverlightSS (PlayReady)    |
 | IE 11          | Windows Phone 8.1                                        | azureHtml5JS           | azureHtml5JS         | non pris en charge                |
 | Edge           | Xbox One<sup>1</sup> (mise à jour nov. 2015)                   | azureHtml5JS           | azureHtml5JS         | non pris en charge                |
 | Chrome 37+     | Windows 10, Windows 8.1, macOS X Yosemite<sup>1</sup>   | azureHtml5JS           | azureHtml5JS         | azureHtml5JS (Widevine)      |
@@ -58,7 +58,7 @@ ou
 | Chrome 37+     | Android 4.4.4+<sup>2</sup>                               | azureHtml5JS           | azureHtml5JS         | azureHtml5JS (Widevine)      |
 | Chrome 37+     | Android 4.02                                             | html5                  | html5 (aucun jeton)<sup>3</sup>    | non pris en charge                |
 | Firefox 42+    | Android 5.0+<sup>2</sup>                                 | azureHtml5JS           | azureHtml5JS         | non pris en charge                |
-| IE 8           | Windows                                                  | non pris en charge          | non pris en charge        | non pris en charge                |
+| IE 8, IE 9, IE 10  | Windows                                                  | non pris en charge          | non pris en charge        | non pris en charge                |
 
 <sup>1</sup> Configuration non prise en charge ou testée ; listé comme référence à achever.
 

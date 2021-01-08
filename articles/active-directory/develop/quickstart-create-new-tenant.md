@@ -13,12 +13,12 @@ ms.date: 03/12/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 60d789c4297c400b812cd6c5c19c8c6148cb347d
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: f43cb80a148f5dadb409f506f237cb1210a2000a
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91575977"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97933997"
 ---
 # <a name="quickstart-set-up-a-tenant"></a>Démarrage rapide : Configurer un locataire
 
@@ -55,7 +55,7 @@ De nombreux développeurs disposent déjà de locataires grâce à des services 
 > [!TIP]
 > Deux options s’offrent à vous si vous avez besoin de trouver l’ID du locataire :
 > * Survolez le nom de votre compte avec la souris pour obtenir le répertoire/ID du locataire.
-> * Sélectionnez **Azure Active Directory > Propriétés > ID de répertoire** dans le Portail Azure.
+> * Recherchez et sélectionnez **Azure Active Directory > Propriétés > ID de locataire** dans le portail Azure
 
 Si vous ne disposez pas de locataire associé à votre compte, vous voyez un GUID sous le nom de votre compte et vous ne pouvez pas effectuer certaines actions comme l’inscription d’applications tant que vous n’avez pas suivi les étapes de la prochaine section.
 

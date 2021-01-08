@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/02/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 3225fff1c82822dee990804f934ada86068841e8
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 96533c1742e8ad5fde9796ea2073f6e402ac8dcf
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011256"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97862371"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Tutoriel : Codage avec les API Azure Digital Twins
 
@@ -57,9 +57,12 @@ Plusieurs fichiers seront alors créés dans votre répertoire, notamment un nom
 
 Laissez la fenêtre de commande ouverte parce que vous allez l’utiliser tout au long du tutoriel.
 
-Ensuite, **ajouter deux dépendances à votre projet** qui seront nécessaires pour utiliser Azure Digital Twins. Vous pouvez utiliser les liens ci-dessous pour accéder aux packages sur NuGet ; vous y trouverez les commandes de console (y compris pour l’interface CLI .NET) qui permettent d’ajouter à votre projet la dernière version de chaque package.
-* [**Azure.DigitalTwins.Core**](https://www.nuget.org/packages/Azure.DigitalTwins.Core). Il s’agit du package pour le [SDK Azure Digital Twins pour .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true). 
-* [**Azure.Identity**](https://www.nuget.org/packages/Azure.Identity). Cette bibliothèque fournit des outils pour faciliter l’authentification auprès d’Azure.
+Ensuite, **ajouter deux dépendances à votre projet** qui seront nécessaires pour utiliser Azure Digital Twins. Vous pouvez utiliser les liens ci-dessous pour accéder aux packages sur NuGet, où vous pouvez trouver les commandes de la console (y compris pour l’interface CLI de .NET) qui permettent d’ajouter chacun d’eux à votre projet.
+* [**Azure.DigitalTwins.Core**](https://www.nuget.org/packages/Azure.DigitalTwins.Core). Il s’agit du package pour le [SDK Azure Digital Twins pour .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true). Ajoutez la version la plus récente.
+* [**Azure.Identity**](https://www.nuget.org/packages/Azure.Identity). Cette bibliothèque fournit des outils pour faciliter l’authentification auprès d’Azure. Ajoutez la version 1.2.2.
+
+>[!NOTE]
+> Il existe actuellement un [problème connu](troubleshoot-known-issues.md#issue-with-default-azure-credential-authentication-on-azureidentity-130) qui affecte la possibilité d’utiliser Azure.Identity version 1.3.0 avec ce tutoriel. Utilisez la version 1.2.2 tant que le problème persiste.
 
 ## <a name="get-started-with-project-code"></a>Démarrer avec le code de projet
 

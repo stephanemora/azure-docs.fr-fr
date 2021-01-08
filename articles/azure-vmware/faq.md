@@ -2,18 +2,17 @@
 title: Forum aux questions
 description: Apporte des réponses à des questions récurrentes à propos d’Azure VMware Solution.
 ms.topic: conceptual
-ms.date: 11/19/2020
-ms.author: dikamath
-ms.openlocfilehash: 3033df2021a8d1780caf9b0b7cd4dbe8de2a6050
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.date: 12/22/2020
+ms.openlocfilehash: 941708003558dda601aa43459bc83133788687fd
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861406"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97835191"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Questions fréquentes sur Azure VMware Solution
 
-Cette page répond aux questions fréquentes à propos d’Azure VMware Solution.
+Dans cet article, nous répondrons aux questions fréquemment posées sur la solution VMware Azure.
 
 ## <a name="general"></a>Général
 
@@ -59,25 +58,23 @@ Les mises à jour apportées au service proprement dit suivent le processus de g
 
 Avec la nouvelle solution Azure VMware, Microsoft et VMware sont partenaires directs pour la prestation de services cloud. La nouvelle solution est entièrement conçue et prise en charge par Microsoft, et approuvée par VMware. Du point de l’architecture, les solutions sont cohérentes, la pile de technologies VMware s’exécutant sur une infrastructure Azure dédiée.
 
-
-
 #### <a name="can-azure-vmware-solution-vms-be-managed-by-vmrc"></a>Les machines virtuelles Azure VMware Solution peuvent-elles être gérées par VMRC ?
-Oui, à condition que le système sur lequel elles sont installées puisse accéder au cloud privé vCenter et qu’il utilise le service DNS public pour résoudre les noms d’hôtes ESXi.
+Oui. À condition que le système sur lequel elles sont installées puisse accéder au cloud privé vCenter et qu’il utilise le service DNS public pour résoudre les noms d’hôtes ESXi.
 
 #### <a name="are-there-special-instructions-for-installing-and-using-vmrc-with-azure-vmware-solution-vms"></a>Existe-t-il des instructions spéciales pour l’installation et l’utilisation de VMRC avec les machines virtuelles Azure VMware Solution ?
-Non. Utilisez les [instructions fournies par VMware](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-89E7E8F0-DB2B-437F-8F70-BA34C505053F.html) pour remplir les conditions préalables des machines virtuelles spécifiés dans ces instructions. 
+Non. Pour respecter les conditions préalables requises pour les machines virtuelles, suivez les [instructions fournies par VMware](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-89E7E8F0-DB2B-437F-8F70-BA34C505053F.html). 
 
 #### <a name="is-vmware-hcx-supported-on-vpns"></a>VMware HCX est-il pris en charge sur les réseaux VPN ?
 Non, en raison de la bande passante et de la latence requises.
 
 #### <a name="can-azure-bastion-be-used-for-connecting-to-azure-vmware-solution-vms"></a>Le service Azure Bastion peut-il être utilisé pour la connexion à des machines virtuelles Azure VMware Solution ?
-Azure Bastion est le service recommandé pour se connecter au serveur de rebond afin d’empêcher l’exposition à Internet d’Azure VMware Solution. Vous ne pouvez pas utiliser Azure Bastion pour vous connecter à des machines virtuelles Azure VMware Solution, car il ne s’agit pas d’objets IaaS Azure.
+Azure Bastion est le service recommandé pour se connecter au serveur de rebond afin d’empêcher l’exposition à Internet d’Azure VMware Solution. Vous ne pouvez pas utiliser Azure Bastion pour vous connecter à des machines virtuelles Azure VMware Solution, car il ne s’agit pas d’objets Azure IaaS.
 
 #### <a name="can-azure-load-balancer-internal-be-used-for-azure-vmware-solution-vms"></a>Azure Load Balancer interne peut-il être utilisé pour des machines virtuelles Azure VMware Solution ?
 Non. Azure Load Balancer interne ne prend en charge que des machines virtuelles Azure IaaS. Azure Load Balancer ne prend pas en charge les pools principaux basés sur IP, mais uniquement des machines virtuelles Azure ou des objets de groupes de machines virtuelles identiques dans lesquels les machines virtuelles Azure VMware Solution ne sont pas des objets Azure.
 
 #### <a name="can-an-existing-expressroute-gateway-be-used-to-connect-to-azure-vmware-solution"></a>Une passerelle ExpressRoute existante peut-elle être utilisée pour la connexion à Azure VMware Solution ?
-Oui, vous pouvez utiliser une passerelle ExpressRoute existante pour vous connecter à Azure VMware Solution, à condition qu’elle ne dépasse pas la limite de quatre circuits ExpressRoute par réseau virtuel.  Toutefois, pour accéder à Azure VMware Solution à partir d’un site local via ExpressRoute, vous devez disposer d’ExpressRoute Global Reach, car la passerelle ExpressRoute ne fournit pas de routage transitif entre ses circuits connectés.
+Oui. Utilisez une passerelle ExpressRoute existante pour vous connecter à Azure VMware Solution, à condition qu’elle ne dépasse pas la limite de quatre circuits ExpressRoute par réseau virtuel. Pour accéder à Azure VMware Solution à partir d’un site local via ExpressRoute, vous devez disposer d’ExpressRoute Global Reach, car la passerelle ExpressRoute ne fournit pas de routage transitif entre ses circuits connectés.
 
 ## <a name="compute-network-storage-and-backup"></a>Calcul, réseau, stockage et sauvegarde
 
@@ -105,9 +102,9 @@ Chaque hôte ESXi dans Azure VMware Solution est configuré avec quatre cartes 
 
 Oui, toutes les données vSAN sont chiffrées par défaut à l’aide de clés stockées dans Azure Key Vault.
 
-#### <a name="you-document-that-commvault-veritas-and-veeam-have-extended-their-backup-solutions-to-work-with-azure-vmware-solution-what-about-other-independent-software-vendors-isvs-backup-solutions"></a>Vous indiquez que Commvault, Veritas et Veeam ont étendu leurs solutions de sauvegarde pour fonctionner avec Azure VMware Solution. Qu’en est-il des solutions de sauvegarde des autres éditeurs de logiciels indépendants (ISV) ?
+####  <a name="what-independent-software-vendors-isvs-backup-solutions-work-with-azure-vmware-solution"></a>Quelles solutions de sauvegarde des éditeurs de logiciels indépendants fonctionnent avec la solution VMware Azure ?
 
-À notre connaissance, toute solution de sauvegarde qui utilise VMware VADP avec le mode de transport HotAdd doit fonctionner d’emblée sur Azure VMware Solution.
+Commvault, Veritas et Veeam ont étendu leurs solutions de sauvegarde pour fonctionner avec Azure VMware Solution.  Cependant, toute solution de sauvegarde qui utilise VMware VADP avec le mode de transport HotAdd doit fonctionner d’emblée sur Azure VMware Solution.
 
 #### <a name="what-about-support-for-isv-backup-solutions"></a>Qu’en est-il de la prise en charge des solutions de sauvegarde des ISV ?
 
@@ -127,7 +124,7 @@ Non.
 
 Non, les clusters et hôtes de cloud privé sont dédiés, et effacés en toute sécurité avant et après usage.
 
-#### <a name="what-are-the-minimum-and-the-maximum-number-of-hosts-per-cluster"></a>Quels est le nombre minimal et maximal d’hôtes par cluster ?
+#### <a name="what-are-the-minimum-and-maximum-number-of-hosts-per-cluster"></a>Quels sont les nombres minimal et maximal d’hôtes par cluster ?
 
 L’échelle possible des clusters est comprise entre 3 et 16 hôtes ESXi. Les clusters d’évaluation sont limités à trois hôtes.
 
@@ -147,7 +144,8 @@ Non. Les hôtes ESXi haut de gamme sont réservés à une utilisation dans des c
 
 #### <a name="what-versions-of-vmware-software-is-used-in-private-clouds"></a>Quelles sont les versions des logiciels VMware utilisées dans les clouds privés ?
 
-Les clouds privés utilisent vSphere 6.7 U3, vSAN 6.7 U3, VMware HCX et NSX-T 2.5.  Pour plus d’informations, consultez la [configuration requise pour la version du logiciel VMware](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-54E5293B-8707-4D29-BFE8-EE63539CC49B.html).
+[!INCLUDE [vmware-software-versions](includes/vmware-software-versions.md)]
+
 
 #### <a name="do-private-clouds-use-vmware-nsx"></a>Les clouds privés utilisent-ils VMware NSX ?
 
@@ -201,6 +199,9 @@ Oui.
 #### <a name="can-transit-connectivity-be-established-between-on-premises-and-azure-vmware-solution-through-azure-virtual-wan-over-expressroute-global-reach"></a>La connectivité de transit peut-elle être établie entre la solution locale et VMware Azure via le réseau WAN virtuel Azure avec ExpressRoute Global Reach ?
 Le réseau WAN virtuel Azure ne fournit pas de routage transitif entre deux circuits ExpressRoute connectés et une passerelle ExpressRoute WAN non virtuelle. L’utilisation d’ExpressRoute Global Reach permet la connectivité entre la solution locale et Azure VMware, mais transite par le réseau global Microsoft au lieu du hub WAN virtuel.
 
+#### <a name="could-i-use-hcx-through-public-internet-communications-as-a-workaround-for-the-non-supportability-of-hcx-when-using-vpn-s2s-with-vwan-for-on-premises-communications"></a>Puis-je utiliser HCX via des communications Internet publiques comme solution de contournement pour la non-prise en charge de HCX lors de l’utilisation de VPN S2S avec vWAN pour les communications locales ?
+
+Actuellement, la seule méthode prise en charge pour HCX est de ExpressRoute.
 
 ## <a name="accounts-and-privileges"></a>Comptes et privilèges
 
@@ -245,7 +246,7 @@ Vous devez disposer d’un compte Azure dans un abonnement Azure.
 
 #### <a name="are-red-hat-solutions-supported-on-azure-vmware-solution"></a>Les solutions Red Hat sont-elles prises en charge sur Azure VMware Solution ?
 
-Microsoft et Red Hat partagent une équipe de support intégrée colocalisée qui fournit un point de contact unifié pour les écosystèmes Red Hat s’exécutant sur la plateforme Azure.  Comme les autres services de la plateforme Azure qui fonctionnent avec Red Hat Enterprise Linux, Azure VMware Solution s’inscrit sous la protection de Cloud Access et du support intégré. Red Hat Enterprise Linux est pris en charge pour s’exécuter par-dessus Azure VMware Solution dans Azure.
+Microsoft et Red Hat partagent une équipe de support intégrée colocalisée qui fournit un point de contact unifié pour les écosystèmes Red Hat s’exécutant sur la plateforme Azure.  Comme les autres services de la plateforme Azure qui fonctionnent avec Red Hat Enterprise Linux, Azure VMware Solution s’inscrit sous la protection de Cloud Access et du support intégré. Red Hat Enterprise Linux est pris en charge pour s’exécuter par-dessus Azure VMware Solution dans Azure.
 
 #### <a name="is-vmware-hcx-enterprise-available-and-if-so-how-much-does-it-cost"></a>Est-ce que VMware HCX Enterprise est disponible ? Si oui, quel est son prix ?
 
@@ -298,7 +299,7 @@ Avant de pouvoir créer votre ressource Azure VMware Solution, vous devez soumet
 
 #### <a name="are-reserved-instances-available-for-purchasing-through-the-cloud-solution-provider-csp-program"></a>Les instances réservées sont-elles disponibles pour l’achat via le programme des fournisseurs de solutions Cloud (CSP) ?
 
-Oui. Le CSP peut acheter des instances réservées pour ses clients. Pour plus d’informations, consultez l’article [Faire des économies avec une instance réservée](reserved-instance.md). 
+Oui. Le CSP peut acheter des instances réservées pour ses clients. Pour plus d’informations, consultez [Réduire les coûts avec une instance réservée](reserved-instance.md). 
 
 #### <a name="does-azure-vmware-solution-offer-multi-tenancy-for-hosting-csp-partners"></a>Azure VMware Solution offre-t-elle une architecture mutualisée pour héberger des partenaires CSP ?
 

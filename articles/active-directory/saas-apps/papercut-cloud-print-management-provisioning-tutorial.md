@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2020
 ms.author: Zhchia
-ms.openlocfilehash: 860b880faae9c5fe37a2c7eab2ef3a068ed4da3e
-ms.sourcegitcommit: 236014c3274b31f03e5fcee5de510f9cacdc27a0
+ms.openlocfilehash: 127a9568d4f129763bee26210efedeaee8fe4aa1
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96299088"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97709370"
 ---
 # <a name="tutorial-configure-papercut-cloud-print-management-for-automatic-user-provisioning"></a>Tutoriel : Configurer PaperCut Cloud Print Management pour l’approvisionnement automatique d’utilisateurs
 
@@ -37,9 +37,9 @@ Ce tutoriel décrit les étapes à suivre dans PaperCut Cloud Print Management e
 
 Le scénario décrit dans ce tutoriel part du principe que vous disposez des prérequis suivants :
 
-* [Un locataire Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
+* [Un locataire Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant). 
 * Un compte d’utilisateur dans Azure AD avec l’[autorisation](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) de configurer l’approvisionnement (par exemple, administrateur d’application, administrateur d’application Cloud, propriétaire d’application ou administrateur général). 
-* Un compte d’utilisateur dans PaperCut Cloud Print Management avec des autorisations d’administrateur
+* Un compte d’administrateur de PaperCut Cloud Print Management.
 
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Étape 1. Planifier votre déploiement de l’approvisionnement
@@ -76,7 +76,7 @@ Le service d’approvisionnement Azure AD vous permet de définir l’étendue d
 
 ## <a name="step-5-configure-automatic-user-provisioning-to-papercut-cloud-print-management"></a>Étape 5. Configurer l’approvisionnement automatique d’utilisateurs pour PaperCut Cloud Print Management
 
-Cette section vous guide tout au long des étapes de configuration du service d’approvisionnement d’Azure AD pour créer, mettre à jour et désactiver des utilisateurs et/ou des groupes dans TestApp en fonction des assignations d’utilisateurs et/ou de groupes dans Azure AD.
+Cette section vous guide tout au long des étapes de configuration du service de provisionnement Azure AD pour créer, mettre à jour et désactiver des utilisateurs et/ou des groupes dans PaperCut cloud Print Management en fonction des affectations d’utilisateurs et/ou de groupes dans Azure AD.
 
 ### <a name="to-configure-automatic-user-provisioning-for-papercut-cloud-print-management-in-azure-ad"></a>Pour configurer l’approvisionnement automatique d’utilisateurs pour PaperCut Cloud Print Management dans Azure AD :
 
@@ -106,7 +106,8 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 7. Sélectionnez **Enregistrer**.
 
-8. Dans la section **Mappages**, sélectionnez **Synchronize Azure Active Directory Users to PaperCut Cloud Print Management** (Synchroniser les utilisateurs Azure Active Directory avec PaperCut Cloud Print Management).
+8. Dans la section **Mappages**, sélectionnez **Provisionner les utilisateurs Azure Active Directory**.
+   ![Mappage AAD](media/papercut-cloud-print-management-provisioning-tutorial/mapping.png)
 
 9. Dans la section **Mappages d’attributs**, passez en revue les attributs d’utilisateur qui sont synchronisés entre Azure AD et PaperCut Cloud Print Management. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour établir une correspondance avec les comptes d’utilisateur d’PaperCut Cloud Print Management en vue de mises à jour ultérieures. Si vous choisissez de modifier l’[attribut cible correspondant](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes), vérifiez que l’API PaperCut Cloud Print Management prend en charge le filtrage des utilisateurs en fonction de cet attribut. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 

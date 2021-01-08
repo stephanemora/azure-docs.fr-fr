@@ -4,12 +4,12 @@ description: Découvrez comment créer un cluster Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
 ms.date: 7/17/2020
-ms.openlocfilehash: 450d68e26c5a3fc1ecfbaf6a3be6b5f698ee65e3
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 696ba785abb317a29de38160440dc06487ff5bca
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183258"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673883"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Créer un cluster Azure Kubernetes Service privé
 
@@ -27,6 +27,8 @@ Le cluster privé est disponible dans les régions public Azure Government et Az
 ## <a name="prerequisites"></a>Prérequis
 
 * Azure CLI version 2.2.0 ou ultérieure
+* Le service Liaison privée est pris en charge uniquement sur Azure Load Balancer Standard. Azure Load Balancer De base n’est pas pris en charge.  
+* Pour utiliser un serveur DNS personnalisé, ajoutez l’IP Azure DNS 168.63.129.16 en tant que serveur DNS en amont dans le serveur DNS personnalisé.
 
 ## <a name="create-a-private-aks-cluster"></a>Créer un cluster AKS privé
 
@@ -64,6 +66,20 @@ Où `--enable-private-cluster` est un indicateur obligatoire pour un cluster pri
 > [!NOTE]
 > Si le CIDR d’adresse de pont Docker (172.17.0.1/16) est en conflit avec le CIDR de sous-réseau, changez l’adresse de pont Docker en conséquence.
 
+### <a name="configure-private-dns-zone"></a>Configurer une zone de DNS privé
+
+La valeur par défaut est « System », si l’argument--private-dns-zone est omis. AKS crée une zone de DNS privé dans le groupe de ressources de nœud. Le fait de passer le paramètre « None » signifie que AKS ne crée pas de zone DNS privé.  Cela s’appuie sur l’apport de votre propre serveur DNS et la configuration de la résolution DNS pour le nom de domaine complet privé.  Si vous ne configurez pas la résolution DNS, le DNS ne peut être résolu qu’au sein des nœuds de l’agent et provoquera des problèmes de cluster après le déploiement.
+
+## <a name="no-private-dns-zone-prerequisites"></a>Aucune configuration requise pour la zone de DNS privé
+Aucun PrivateDNSZone
+* Azure CLI 0.4.67 ou version ultérieure
+* API version 2020-11-01 ou ultérieure
+
+## <a name="create-a-private-aks-cluster-with-private-dns-zone"></a>Créer un cluster AKS privé avec zone DNS privé
+
+```azurecli-interactive
+az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --private-dns-zone [none|system]
+```
 ## <a name="options-for-connecting-to-the-private-cluster"></a>Options de connexion au cluster privé
 
 Le point de terminaison du serveur d’API n’a pas d’adresse IP publique. Pour gérer le serveur d’API, vous devez utiliser une machine virtuelle qui a accès au réseau virtuel (VNet) Azure du cluster AKS. Il existe plusieurs options pour établir une connectivité réseau avec le cluster privé.
@@ -100,23 +116,19 @@ Comme indiqué, l’appairage de réseaux virtuels est un moyen d’accéder à 
 
 3. Dans les scénarios où le réseau virtuel contenant votre cluster présente des paramètres DNS personnalisés (4), le déploiement du cluster échoue, sauf si la zone DNS privée est liée au réseau virtuel qui contient les programmes de résolution DNS personnalisés (5). Ce lien peut être créé manuellement après la création de la zone privée lors de l’approvisionnement du cluster ou via l’automatisation lors de la détection de la création de la zone à l’aide de mécanismes de déploiement basés sur les événements (par exemple, Azure Event Grid et Azure Functions).
 
-## <a name="dependencies"></a>Les dépendances  
-
-* Le service Liaison privée est pris en charge uniquement sur Azure Load Balancer Standard. Azure Load Balancer De base n’est pas pris en charge.  
-* Pour utiliser un serveur DNS personnalisé, ajoutez l’IP Azure DNS 168.63.129.16 en tant que serveur DNS en amont dans le serveur DNS personnalisé.
+> [!NOTE]
+> Si vous utilisez [Apporter votre propre table de routage avec kubenet](https://docs.microsoft.com/azure/aks/configure-kubenet#bring-your-own-subnet-and-route-table-with-kubenet) et Apporte votre propre DNS avec un cluster privé, la création du cluster échouera. Vous devez associer le [RouteTable](https://docs.microsoft.com/azure/aks/configure-kubenet#bring-your-own-subnet-and-route-table-with-kubenet) dans le groupe de ressources du nœud au sous-réseau après l’échec de la création du cluster, afin que la création réussisse.
 
 ## <a name="limitations"></a>Limites 
 * Les plages d’adresses IP autorisées ne peuvent pas être appliquées au point de terminaison du serveur d’API privé, elles sont uniquement applicables au serveur d’API public.
-* Les [zones de disponibilité][availability-zones] sont actuellement prises en charge pour certaines régions. 
 * Les [limitations du service Azure Private Link][private-link-service] s’appliquent aux clusters privés.
-* Aucune prise en charge des agents hébergés par Microsoft Azure DevOps avec des clusters privés. Envisagez d’utiliser des [agents auto-hébergés][devops-agents]. 
+* Aucune prise en charge des agents hébergés par Microsoft Azure DevOps avec des clusters privés. Envisagez d’utiliser des [agents auto-hébergés](https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=azure-devops&tabs=browser&preserve-view=true). 
 * Pour les clients qui doivent activer Azure Container Registry afin d’utiliser des clusters AKS privés, le réseau virtuel Container Registry doit être appairé avec le réseau virtuel du cluster d’agent.
-* Aucune prise en charge de Azure Dev Spaces
 * Aucune prise en charge de la conversion de clusters AKS existants en clusters privés
 * La suppression ou la modification du point de terminaison privé dans le sous-réseau du client entraîne l’arrêt du fonctionnement du cluster. 
 * Les données actives Azure Monitor pour conteneurs ne sont actuellement pas prises en charge.
-* Le Contrat SLA de durée de fonctionnement n’est pas pris en charge.
-
+* Une fois que les clients ont mis à jour l’enregistrement A sur leurs propres serveurs DNS, ces pods continuent de résoudre le nom de domaine complet apiserver avec l’ancienne adresse IP après la migration jusqu’à ce qu’ils soient redémarrés. Les clients doivent redémarrer les pods hostNetwork et -DNSPolicy par défaut après la migration du plan de contrôle.
+* Dans le cas d’une maintenance sur le plan de contrôle, votre adresse [IP AKS](https://docs.microsoft.com/azure/aks/limit-egress-traffic#:~:text=By%20default%2C%20AKS%20clusters%20have%20unrestricted%20outbound%20%28egress%29,be%20accessible%20to%20maintain%20healthy%20cluster%20maintenance%20tasks.) peut changer. Dans ce cas, vous devez mettre à jour l’enregistrement A pointant vers l’adresse IP privée du serveur d’API sur votre serveur DNS personnalisé et redémarrer les modules ou les déploiements personnalisés à l’aide de hostNetwork.
 
 <!-- LINKS - internal -->
 [az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register

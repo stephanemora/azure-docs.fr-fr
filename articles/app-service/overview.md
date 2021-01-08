@@ -5,12 +5,12 @@ ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.topic: overview
 ms.date: 07/06/2020
 ms.custom: devx-track-dotnet, mvc, seodec18
-ms.openlocfilehash: e9c49d472f6cf0b9f0e5b3e2f7728417034059b1
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: d59dfe5b0fe3268dcda20fbc83aa31bba8a8713b
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97007091"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936207"
 ---
 # <a name="app-service-overview"></a>Vue d'ensemble d'App Service
 
@@ -45,6 +45,12 @@ App Service sur Linux peut aussi héberger des applications web en mode natif su
 ### <a name="built-in-languages-and-frameworks"></a>Langages et infrastructures intégrés
 
 App Service sur Linux prend en charge un certain nombre d’images intégrées spécifiques à au langage. Déployez simplement votre code. Les langages pris en charge incluent : Node.js, Java (JRE 8 et JRE 11), PHP, Python, .NET Core et Ruby. Exécutez [`az webapp list-runtimes --linux`](/cli/azure/webapp#az-webapp-list-runtimes) pour afficher les derniers langages et versions pris en charge. Si le runtime requis par votre application n’est pas pris en charge dans les images intégrées, vous pouvez la déployer avec un conteneur personnalisé.
+
+Les runtimes obsolètes sont régulièrement supprimés des panneaux Créer et Configuration de Web Apps dans le portail. Ces runtimes sont masqués dans le portail quand ils sont dépréciés par l’organisation qui en fait la maintenance ou quand ils ont des vulnérabilités significatives. Ces options sont masquées pour guider les clients vers les runtimes les plus récents qui fonctionneront le mieux. 
+
+Quand un runtime obsolète est masqué dans le portail, tous vos sites existants utilisant cette version vont continuer de fonctionner. Si un runtime est entièrement supprimé de la plateforme App Service, le ou les propriétaires de votre abonnement Azure recevront une notification par e-mail avant la suppression.
+
+Si vous devez créer une autre application web avec une version obsolète du runtime qui n’est plus affichée sur le portail, consultez les guides de configuration du langage pour des instructions sur la façon d’obtenir la version du runtime de votre site. Vous pouvez utiliser Azure CLI pour créer un autre site avec le même runtime. Vous pouvez aussi utiliser le bouton **Exporter le modèle** sur le panneau de l’application web dans le portail pour exporter un modèle ARM du site. Vous pouvez réutiliser ce modèle pour déployer un nouveau site avec le même runtime et la même configuration.
 
 ### <a name="limitations"></a>Limites
 

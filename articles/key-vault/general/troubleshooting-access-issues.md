@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 78b42a8ad3685d07b61c4faca384c7ee8f5a5f94
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 8e4e64cd872794354479c29d4aaa000cee45c5a3
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97616386"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901213"
 ---
 # <a name="troubleshooting-azure-key-vault-access-policy-issues"></a>Résolution des problèmes de stratégie d’accès au coffre de clés Azure
 
@@ -32,10 +32,10 @@ Plus votre service se développera, plus le nombre de demandes envoyées à votr
 ### <a name="i-am-not-able-to-modify-access-policy-how-can-it-be-enabled"></a>Je ne parviens pas à modifier la stratégie d’accès, comment l’activer ?
 L’utilisateur doit disposer d’autorisations AAD suffisantes pour modifier la stratégie d’accès. Dans le cas présent, l’utilisateur doit détenir un rôle Contributeur supérieur.
 
-### <a name="i-am-seeing-unkwown-policy-error-what-does-that-mean"></a>Je vois une erreur « Stratégie inconnue ». Qu’est-ce que cela signifie ?
+### <a name="i-am-seeing-unknown-policy-error-what-does-that-mean"></a>Je vois une erreur « Stratégie inconnue ». Qu’est-ce que cela signifie ?
 Il y a deux explications différentes à la présence de la stratégie d’accès dans la section Inconnu :
 * Un ancien utilisateur avait un accès et, pour une raison ou une autre, celui-ci n’existe pas.
-* Si la stratégie d’accès est ajoutée via PowerShell, et qu’elle est ajoutée pour l’ObjectID de l’application au lieu du principal du service
+* Si la stratégie d’accès est ajoutée via PowerShell et qu’elle est ajoutée pour l’objectid de l’application au lieu du principal de service.
 
 ### <a name="how-can-i-assign-access-control-per-key-vault-object"></a>Comment faire pour attribuer le contrôle d’accès par objet du coffre de clés ? 
 

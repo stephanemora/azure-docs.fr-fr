@@ -3,15 +3,15 @@ title: Gérer des packages Python 2 dans Azure Automation
 description: Cet article explique comment gérer des packages Python 2 dans Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 02/25/2019
+ms.date: 12/17/2020
 ms.topic: conceptual
 ms.custom: devx-track-python
-ms.openlocfilehash: 1ab0b2def1a22470c1d0b6339e1525cd683b4a0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd830afd5628591019902ca583f9cbc8e2a7ecad
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90987571"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97683392"
 ---
 # <a name="manage-python-2-packages-in-azure-automation"></a>Gérer des packages Python 2 dans Azure Automation
 
@@ -25,11 +25,11 @@ Dans votre compte Automation, sélectionnez **Packages Python 2** sous **Ressour
 
 Sur la page Ajouter un package Python 2, sélectionnez un package local à charger. Le package peut être un fichier **.whl** ou **.tar.gz**. Lorsque le package est sélectionné, cliquez sur **OK** pour le charger.
 
-:::image type="content" source="media/python-packages/upload-package.png" alt-text="Capture d’écran de la page des packages Python 2 qui montre les packages Python 2 dans le menu de gauche et Ajouter un package Python 2 mis en évidence.":::
+:::image type="content" source="media/python-packages/upload-package.png" alt-text="Capture d’écran qui montre la page Ajouter un package Python 2 avec un fichier tar.gz chargé sélectionné.":::
 
 Une fois qu’un package a été importé, il est listé dans la page Packages Python 2 de votre compte Automation. Pour supprimer un package, intervenez sur sa page, sélectionnez-le, puis cliquez sur **Supprimer**.
 
-:::image type="content" source="media/python-packages/package-list.png" alt-text="Capture d’écran de la page des packages Python 2 qui montre les packages Python 2 dans le menu de gauche et Ajouter un package Python 2 mis en évidence.":::
+:::image type="content" source="media/python-packages/package-list.png" alt-text="Capture d’écran qui montre la page des packages Python 2 après l’importation d’un package.":::
 
 ## <a name="import-packages-with-dependencies"></a>Importer des packages avec des dépendances
 
@@ -47,14 +47,14 @@ Une fois les packages téléchargés, vous pouvez les importer dans votre compte
 
 ### <a name="runbook"></a>Runbook
 
- Pour obtenir un runbook, [importez les packages Python 2 de pypi dans le compte Azure Automation](https://gallery.technet.microsoft.com/scriptcenter/Import-Python-2-packages-57f7d509) dans votre compte Automation à partir de la galerie. Vérifiez que les paramètres d’exécution sont définis sur **Azure**, puis démarrez le runbook avec les paramètres. Pour que le compte Automation fonctionne, le runbook a besoin d’un compte d’identification. Veillez à démarrer chaque paramètre avec le commutateur, comme indiqué dans la liste et la capture d’écran suivantes :
+ Pour obtenir un runbook, [importer des packages Python 2 à partir de Pypi dans Azure Automation](https://github.com/azureautomation/import-python-2-packages-from-pypi-into-azure-automation-account) de compte à partir de l’organisation Azure Automation GitHub dans votre compte Automation. Vérifiez que les paramètres d’exécution sont définis sur **Azure**, puis démarrez le runbook avec les paramètres. Pour que le compte Automation fonctionne, le runbook a besoin d’un compte d’identification. Veillez à démarrer chaque paramètre avec le commutateur, comme indiqué dans la liste et la capture d’écran suivantes :
 
 * -s \<subscriptionId\>
 * -g \<resourceGroup\>
 * -a \<automationAccount\>
 * -m \<modulePackage\>
 
-:::image type="content" source="media/python-packages/import-python-runbook.png" alt-text="Capture d’écran de la page des packages Python 2 qui montre les packages Python 2 dans le menu de gauche et Ajouter un package Python 2 mis en évidence.":::
+:::image type="content" source="media/python-packages/import-python-runbook.png" alt-text="Capture d’écran qui montre la page de vue d’ensemble pour import_py2package_from_pypi avec le volet Démarrer le Runbook sur le côté droit.":::
 
 Le runbook vous permet de spécifier le package à télécharger. Par exemple, l’utilisation du paramètre `Azure` permet de télécharger tous les modules Azure et toutes les dépendances (environ 105).
 
