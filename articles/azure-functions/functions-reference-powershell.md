@@ -235,7 +235,7 @@ La journalisation dans des fonctions PowerShell fonctionne comme la journalisati
 | ------------- | -------------- |
 | Error | **`Write-Error`** |
 | Avertissement | **`Write-Warning`**  | 
-| Information | **`Write-Information`** <br/> **`Write-Host`** <br /> **`Write-Output`**      | Information | Écrit dans la journalisation du niveau d’ _information_. |
+| Information | **`Write-Information`** <br/> **`Write-Host`** <br /> **`Write-Output`**      | Information | Écrit dans la journalisation du niveau d’_information_. |
 | Débogage | **`Write-Debug`** |
 | Trace | **`Write-Progress`** <br /> **`Write-Verbose`** |
 
@@ -246,7 +246,7 @@ En plus de ces cmdlets, tout de qui est écrit dans le pipeline est redirigé ve
 
 ### <a name="configure-the-function-app-log-level"></a>Configurer le niveau de journal de Function App
 
-Azure Functions vous permet de définir le niveau de seuil pour contrôler plus facilement comment Azure Functions écrit dans les journaux. Pour définir le seuil de toutes les traces écrites dans la console, utilisez la propriété `logging.logLevel.default` dans le [`host.json` fichier][informations de référence sur host.json]. Ce paramètre s’applique à toutes les fonctions dans votre Function App.
+Azure Functions vous permet de définir le niveau de seuil pour contrôler plus facilement comment Azure Functions écrit dans les journaux. Pour définir le seuil de toutes les traces écrites dans la console, utilisez la propriété `logging.logLevel.default` dans le [`host.json` fichier][host.json reference]. Ce paramètre s’applique à toutes les fonctions dans votre Function App.
 
 L’exemple suivant définit le seuil d’activation de la journalisation commentée pour toutes les fonctions, mais définit le seuil d’activation la journalisation du débogage pour une fonction nommée `MyFunction` :
 
@@ -261,7 +261,7 @@ L’exemple suivant définit le seuil d’activation de la journalisation commen
 }  
 ```
 
-Pour plus d’informations, consultez l’article de référence sur [Informations de référence sur host.json].
+Pour plus d’informations, consultez l’article de référence sur [host.json reference].
 
 ### <a name="viewing-the-logs"></a>Affichage des journaux
 
@@ -418,7 +418,7 @@ Procédez comme suit pour modifier la version de PowerShell utilisée par votre 
 
 1. Dans le [portail Azure](https://portal.azure.com), accédez à une application de fonction.
 
-1. Sous **Paramètres** , sélectionnez **Configuration**. Dans l’onglet **Paramètres généraux** , recherchez la **version de PowerShell**. 
+1. Sous **Paramètres**, sélectionnez **Configuration**. Dans l’onglet **Paramètres généraux**, recherchez la **version de PowerShell**. 
 
     :::image type="content" source="media/functions-reference-powershell/change-powershell-version-portal.png" alt-text="Choisir la version de PowerShell utilisée par l’application de fonction"::: 
 

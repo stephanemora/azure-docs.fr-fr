@@ -43,21 +43,21 @@ Un enregistrement CNAME mappe un domaine à un autre. Vous pouvez utiliser un en
 
 1. Rechercher et sélectionner **Static Web Apps**
 
-1. Dans la page _Static Web Apps_ , sélectionnez le nom de votre application web.
+1. Dans la page _Static Web Apps_, sélectionnez le nom de votre application web.
 
 1. Cliquez sur **Domaines personnalisés** dans le menu.
 
-1. Cliquez sur le bouton **Ajouter** .
+1. Cliquez sur le bouton **Ajouter**.
 
-1. Dans la fenêtre _Domaines personnalisés_ , copiez l’URL dans le champ **Valeur** .
+1. Dans la fenêtre _Domaines personnalisés_, copiez l’URL dans le champ **Valeur**.
 
 ### <a name="configure-dns-provider"></a>Configurer un fournisseur DNS
 
 1. Connectez-vous au site web de votre fournisseur de domaine.
 
-2. Trouvez la page de gestion des enregistrements DNS. Chaque fournisseur de domaine ayant sa propre interface d’enregistrements DNS, consultez la documentation de votre fournisseur. Recherchez les zones du site qui portent les mentions **Nom de domaine** , **DNS** ou **Gestion du nom de serveur** .
+2. Trouvez la page de gestion des enregistrements DNS. Chaque fournisseur de domaine ayant sa propre interface d’enregistrements DNS, consultez la documentation de votre fournisseur. Recherchez les zones du site qui portent les mentions **Nom de domaine**, **DNS** ou **Gestion du nom de serveur**.
 
-3. Vous trouvez généralement la page des enregistrements DNS en affichant vos informations de compte, puis en recherchant un lien comme **Mes domaines** . Accédez à cette page et recherchez un lien nommé **Fichier de zone** , **Enregistrements DNS** ou **Configuration avancée** .
+3. Vous trouvez généralement la page des enregistrements DNS en affichant vos informations de compte, puis en recherchant un lien comme **Mes domaines**. Accédez à cette page et recherchez un lien nommé **Fichier de zone**, **Enregistrements DNS** ou **Configuration avancée**.
 
     La capture d’écran suivante est un exemple d’une page d’enregistrements DNS :
 
@@ -78,13 +78,13 @@ Un enregistrement CNAME mappe un domaine à un autre. Vous pouvez utiliser un en
 
 1. Revenez à la fenêtre _Domaines personnalisés_ dans le Portail Azure.
 
-1. Entrez votre domaine, y compris la partie `www` dans la section _Valider le domaine personnalisé_ .
+1. Entrez votre domaine, y compris la partie `www` dans la section _Valider le domaine personnalisé_.
 
-1. Cliquez sur le bouton **Valider** .
+1. Cliquez sur le bouton **Valider**.
 
-À présent que le domaine personnalisé est configuré, le fournisseur DNS peut prendre plusieurs heures pour propager les modifications dans le monde entier. Vous pouvez vérifier l’état de la propagation en accédant à [dnspropagation.net](https://dnspropagation.net). Entrez votre domaine personnalisé, y compris la partie `www`, sélectionnez CNAME dans la liste déroulante, puis sélectionnez **Démarrer** .
+À présent que le domaine personnalisé est configuré, le fournisseur DNS peut prendre plusieurs heures pour propager les modifications dans le monde entier. Vous pouvez vérifier l’état de la propagation en accédant à [dnspropagation.net](https://dnspropagation.net). Entrez votre domaine personnalisé, y compris la partie `www`, sélectionnez CNAME dans la liste déroulante, puis sélectionnez **Démarrer**.
 
-Si vos modifications DNS sont indiquées, le site web renvoie l’URL générée automatiquement de votre application Static Web App (par exemple, _random-name-123456789c.azurestaticapps.net_ ).
+Si vos modifications DNS sont indiquées, le site web renvoie l’URL générée automatiquement de votre application Static Web App (par exemple, _random-name-123456789c.azurestaticapps.net_).
 
 ## <a name="configure-a-root-domain"></a>Configurer un domaine racine
 
@@ -100,9 +100,9 @@ Parfois, vous souhaitez que tout le trafic envoyé à un sous-domaine soit achem
 
 1. Connectez-vous au site web de votre fournisseur de domaine.
 
-2. Trouvez la page de gestion des enregistrements DNS. Chaque fournisseur de domaine ayant sa propre interface d’enregistrements DNS, consultez la documentation de votre fournisseur. Recherchez les zones du site qui portent les mentions **Nom de domaine** , **DNS** ou **Gestion du nom de serveur** .
+2. Trouvez la page de gestion des enregistrements DNS. Chaque fournisseur de domaine ayant sa propre interface d’enregistrements DNS, consultez la documentation de votre fournisseur. Recherchez les zones du site qui portent les mentions **Nom de domaine**, **DNS** ou **Gestion du nom de serveur**.
 
-3. Vous trouvez généralement la page des enregistrements DNS en affichant vos informations de compte, puis en recherchant un lien comme **Mes domaines** . Accédez à cette page et recherchez un lien nommé **Fichier de zone** , **Enregistrements DNS** ou **Configuration avancée** .
+3. Vous trouvez généralement la page des enregistrements DNS en affichant vos informations de compte, puis en recherchant un lien comme **Mes domaines**. Accédez à cette page et recherchez un lien nommé **Fichier de zone**, **Enregistrements DNS** ou **Configuration avancée**.
 
     La capture d’écran suivante est un exemple d’une page d’enregistrements DNS :
 
@@ -119,7 +119,7 @@ Parfois, vous souhaitez que tout le trafic envoyé à un sous-domaine soit achem
 
 5. Enregistrez les modifications avec votre fournisseur DNS.
 
-À présent que le domaine générique est configuré, la propagation des changements à travers le monde peut prendre plusieurs heures. Vous pouvez vérifier l’état de la propagation en accédant à [dnspropagation.net](https://dnspropagation.net). Entrez votre domaine personnalisé de domaine avec n’importe quel sous-domaine (sauf `www`), sélectionnez CNAME dans la liste déroulante, puis sélectionnez **Démarrer** .
+À présent que le domaine générique est configuré, la propagation des changements à travers le monde peut prendre plusieurs heures. Vous pouvez vérifier l’état de la propagation en accédant à [dnspropagation.net](https://dnspropagation.net). Entrez votre domaine personnalisé de domaine avec n’importe quel sous-domaine (sauf `www`), sélectionnez CNAME dans la liste déroulante, puis sélectionnez **Démarrer**.
 
 Si vos modifications DNS sont renseignées, le site web renvoie votre domaine personnalisé configuré pour votre application Static Web App (par exemple, `www.example.com`).
 

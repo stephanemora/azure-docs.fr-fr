@@ -161,6 +161,6 @@
     - name: Disponibilité régionale
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Tarifs
-      href: 'https://azure.microsoft.com/pricing/details/machine-learning/'
+      href: 'https://azure.microsoft.com/pricing/details/machine-learning-studio/'
     - name: Réseaux neuronaux personnalisés (Net#)
       href: azure-ml-netsharp-reference-guide.md
