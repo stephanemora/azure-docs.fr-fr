@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 10/26/2020
+ms.date: 12/18/2020
 ms.author: alkohli
-ms.openlocfilehash: ac3f2cc1c68ea552b2858d932217a28055fee0fd
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 627196c0a76f1de23f7e5421c47a33356a73967f
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96465371"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97709434"
 ---
 # <a name="azure-stack-edge-pro-r-safety-instructions"></a>Instructions de sécurité pour Azure Stack Edge Pro R
 
@@ -86,6 +86,7 @@ Les icônes de danger suivantes doivent être observées lors de la configuratio
   * Isolé des champs électromagnétiques forts produits par des appareils électriques.
   * Muni de prises correctement mises à la terre.
   * Dotés d’un espace adéquat pour accéder au(x) cordon(s) d’alimentation, car ils servent de sectionneur d’alimentation principal de l’appareil.
+* Les câbles Ethernet ne sont pas fournis avec le produit. Pour réduire les interférences électromagnétiques, il est recommandé d’utiliser le câblage de paire torsadée (STP) blindée Cat 6.
 * Installez l’équipement dans une zone de travail suffisamment aérée. Vérifiez que les capots avant et arrière sont entièrement retirés pendant que l’appareil est en cours de fonctionnement.
 * Installez l’équipement dans une zone à température contrôlée exempte de particules conductrices, et veillez à ce que la circulation d’air autour de l’équipement soit adéquate.
 * Conservez l’équipement à l’écart de sources de liquide et d’environnements excessivement humides.
@@ -115,6 +116,11 @@ Les icônes de danger suivantes doivent être observées lors de la configuratio
   * L’appareil a chuté et son boîtier est endommagé.
   * Vous pensez que l’appareil doit faire l’objet d’une maintenance ou d’une réparation.
 * Débranchez l’unité de façon permanente avant de la déplacer ou si vous pensez qu’elle a été endommagée d’une quelconque façon.
+* Pour éviter les pertes importantes, lorsqu’un seul cas de transit a plus d’une alimentation ininterrompue, il est recommandé de connecter chaque onduleur à un circuit de branchement indépendant. Toutefois, en cas d’utilisation d’une unité de distribution de l’alimentation (PDU) ou d’un autre appareil lorsque le sol de sécurité de chaque onduleur s’appuie sur un conducteur de mise à la terre d’un seul alimenteur, le terminal de mise à la terre situé à l’extérieur de chaque onduleur doit également être utilisé avec un conducteur de sol supplémentaire.
+
+  > [!NOTE]
+  > Si une PDU est utilisée et qu’elle est déjà dotée d’un conducteur de masse supplémentaire, il n’est pas nécessaire d’utiliser le terminal de mise à la terre supplémentaire sur l’UPS.
+
 * Prévoyez une source d’alimentation appropriée offrant une protection contre les surcharges, conforme aux spécifications d’alimentation suivantes :
 
   * Tension : 100 à 240 volts CA
@@ -157,7 +163,7 @@ L’appareil est conçu pour fonctionner dans les environnements suivants :
 |:--- |:--- |
 |Spécifications relatives à la température | <ul><li>Température de stockage : -33&deg;C–63&deg;C (-28&deg;F–145&deg;F) </li><li>En régime continu : 5&deg;C–43&deg;C (41&deg;F–110&deg;F)</li><li>Gradient de température maximal (fonctionnement et stockage) : 20&deg;C/h (68&deg;F/h)</li></ul> |
 |Spécifications relatives à l’humidité relative | <ul><li>Stockage : De 5 à 95 % d’humidité relative avec un point de rosée maximal de 33&deg;C (91&deg;F). L’atmosphère doit être en permanence sans condensation.</li><li>En fonctionnement : De 5 à 85 % d’humidité relative avec un point de rosée maximal de 29&deg;C (84,2&deg;F)</li></ul> |
-| Spécifications relatives à l’altitude maximale | <ul><li>En fonctionnement (sans onduleur) : 15 000 pieds (4 572 mètres)</li><li>En fonctionnement (avec onduleur) : 6 561 pieds (2 000 mètres)</li><li>Stockage : 40 000 pieds (12 192 mètres)</li></ul> |
+| Spécifications relatives à l’altitude maximale | <ul><li>En fonctionnement (sans onduleur) : 15 000 pieds (4 572 mètres)</li><li>En fonctionnement (avec onduleur) : 10 000 pieds (3 048 mètres)</li><li>Stockage : 40 000 pieds (12 192 mètres)</li></ul> |
 
 <!--|Standard operating temperature specifications | <ul>Continuous operation (for altitude less than 950 m or 3117 ft): +5&deg;C–45&deg;C (41&deg;F–113&deg;F) with no direct sunlight on the equipment</ui>
 |Expanded operating temperature specifications | <ul><li>Continuous operation: 5&deg;C to 45&deg;C at 5% to 85% RH with 29&deg;C dew point.</li><li></= 1% of annual operating hours: –5&deg;C to 55&deg;C at 5% to 90% RH with 29&deg;C dew point. |

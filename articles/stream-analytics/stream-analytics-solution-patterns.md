@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: b82dd4ea8a74c51606b7a388b8d6ede07b1057c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02276ebf8e8a2289db2a1f6eac506443cea61c31
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89461542"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97682715"
 ---
 # <a name="azure-stream-analytics-solution-patterns"></a>Modèles de solution Azure Stream Analytics
 
@@ -20,7 +20,7 @@ Comme de nombreux autres services présents dans Azure, Stream Analytics trouve 
 
 ## <a name="create-a-stream-analytics-job-to-power-real-time-dashboarding-experience"></a>Créer un travail Stream Analytics pour alimenter l’expérience des tableaux de bord en temps réel
 
-Avec Azure Stream Analytics, vous pouvez rapidement mettre en place des alertes et des tableaux de bord en temps réel. Une solution simple ingère des événements à partir d’Event Hubs ou d’IoT Hub, puis [alimente le tableau de bord Power BI avec un jeu de données en streaming](/power-bi/service-real-time-streaming). Pour plus d’informations, consultez le tutoriel détaillé [Analyser les données d’appel téléphonique avec Stream Analytics et visualiser les résultats dans un tableau de bord Power BI](stream-analytics-manage-job.md).
+Avec Azure Stream Analytics, vous pouvez rapidement mettre en place des alertes et des tableaux de bord en temps réel. Une solution simple ingère des événements à partir d’Event Hubs ou d’IoT Hub, puis [alimente le tableau de bord Power BI avec un jeu de données en streaming](/power-bi/service-real-time-streaming). Pour plus d’informations, consultez le tutoriel détaillé [Analyser les données d’appel frauduleux avec Stream Analytics et visualiser les résultats dans un tableau de bord Power BI](stream-analytics-real-time-fraud-detection.md).
 
 ![Tableau de bord Power BI ASA](media/stream-analytics-solution-patterns/power-bi-dashboard.png)
 

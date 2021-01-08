@@ -6,12 +6,12 @@ ms.author: noakuper
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.subservice: ''
-ms.openlocfilehash: a85619b4947808ba1c13df3c1543102eea7273fd
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: e8d0dcae81944d5799841c22093585b942934b79
+ms.sourcegitcommit: a89a517622a3886b3a44ed42839d41a301c786e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96853921"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97732102"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Utiliser Azure Private Link pour connecter en toute sécurité des réseaux à Azure Monitor
 
@@ -215,9 +215,9 @@ Cette restriction d’accès ne s’applique qu’aux données de la ressource A
 
 ## <a name="use-apis-and-command-line"></a>Utiliser des API et une ligne de commande
 
-Vous pouvez automatiser le processus décrit précédemment en utilisant des modèles Azure Resource Manager et des interfaces de ligne de commande.
+Vous pouvez automatiser le processus décrit précédemment à l’aide de modèles de Azure Resource Manager, d’interfaces REST et de ligne de commande.
 
-Pour créer et gérer des étendues de liaison privée, utilisez [az monitor private-link-scope](/cli/azure/monitor/private-link-scope?view=azure-cli-latest). À l’aide de cette commande, vous pouvez créer des étendues, associer des espaces de travail Log Analytics et des composants Application Insights et ajouter/supprimer/approuver des points de terminaison privés.
+Pour créer et gérer des étendues de liens privés, utilisez l’[API REST](https://docs.microsoft.com/rest/api/monitor/private%20link%20scopes%20(preview)) ou [Azure CLI (AZ Monitor private-link-scope)](/cli/azure/monitor/private-link-scope?view=azure-cli-latest).
 
 Pour gérer l’accès au réseau, utilisez les indicateurs `[--ingestion-access {Disabled, Enabled}]` et `[--query-access {Disabled, Enabled}]` sur les [espaces de travail Log Analytics ](/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest) ou les [composants Application Insights](/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest).
 

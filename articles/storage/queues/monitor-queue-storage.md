@@ -1,20 +1,21 @@
 ---
-title: Surveiller le service Stockage File d'attente | Microsoft Docs
+title: Surveiller le service Stockage File d'attente
 description: Apprenez à surveiller les performances et la disponibilité du service Stockage File d'attente Azure. Surveillez les données du service Stockage File d'attente Azure, apprenez-en plus sur la configuration, et analysez les métriques et les données de journal.
 author: normesta
 services: storage
-ms.service: storage
-ms.topic: conceptual
-ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
+ms.date: 10/26/2020
+ms.topic: conceptual
+ms.service: storage
+ms.subservice: queues
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 15bc943052218761327fa57ce8ff6f5d32bfb116
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 18991f83bfb365d1ced141fa44267502671854b8
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96855088"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588292"
 ---
 # <a name="monitoring-azure-queue-storage"></a>Surveiller le service Stockage File d'attente
 
@@ -31,7 +32,7 @@ Sur le portail Azure, la page **Vue d'ensemble** de chaque ressource du service 
 
 Le service Stockage File d'attente Azure crée les données de surveillance à l'aide d'[Azure Monitor](../../azure-monitor/overview.md), qui est lui-même un service de surveillance de pile complète d'Azure. Azure Monitor fournit un ensemble complet de fonctionnalités pour superviser vos ressources Azure, ainsi que les ressources locales et celles présentes dans d’autres clouds.
 
-Commencez avec l’article [Supervision de ressources Azure avec Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md) qui décrit les éléments suivants :
+Commencez avec [Superviser les ressources Azure avec Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md), qui décrit les éléments suivants :
 
 - Qu’est-ce qu’Azure Monitor ?
 - Coûts associés à la supervision
@@ -53,15 +54,15 @@ Vous pouvez continuer à utiliser les métriques et les journaux classiques si v
 
 ## <a name="collection-and-routing"></a>Collecte et routage
 
-Les métriques de plateforme et le journal d'activité sont collectés automatiquement, mais ils peuvent être acheminés vers d'autres emplacements à l'aide d'un paramètre de diagnostic.
+Les métriques de plateforme et le journal d’activité sont collectés automatiquement, mais ils peuvent être routés vers d’autres emplacements à l’aide d’un paramètre de diagnostic.
 
 Pour collecter des journaux de ressources, vous devez créer un paramètre de diagnostic. Lorsque vous créez le paramètre, choisissez **File d’attente** comme type de stockage pour lequel vous souhaitez activer les journaux. Ensuite, spécifiez l’une des catégories d’opérations suivantes pour laquelle vous souhaitez collecter les journaux.
 
 | Category | Description |
 |:---|:---|
-| StorageRead | Opérations de lecture sur des objets. |
-| StorageWrite | Opérations d’écriture sur des objets. |
-| StorageDelete | Opérations de suppression sur des objets. |
+| **StorageRead** | Opérations de lecture sur des objets. |
+| **StorageWrite** | Opérations d’écriture sur des objets. |
+| **StorageDelete** | Opérations de suppression sur des objets. |
 
 ## <a name="creating-a-diagnostic-setting"></a>Création d’un paramètre de diagnostic
 
@@ -95,7 +96,7 @@ Pour obtenir des instructions générales, consultez [Créer un paramètre de di
    > [!div class="mx-imgBorder"]
    > ![Page Journaux de ressources](media/monitor-queue-storage/diagnostic-logs-page.png)
 
-6. Dans le champ **Nom** de la page, entrez un nom pour ce paramètre de journal des ressources. Sélectionnez ensuite les opérations que vous souhaitez consigner (opérations de lecture, d’écriture et de suppression), ainsi que l’emplacement où vous souhaitez que les journaux soient envoyés.
+6. Dans le champ **Nom** de la page, entrez un nom pour ce paramètre Journal de ressources. Sélectionnez ensuite les opérations que vous souhaitez consigner (opérations de lecture, d’écriture et de suppression), ainsi que l’emplacement où vous souhaitez que les journaux soient envoyés.
 
 #### <a name="archive-logs-to-a-storage-account"></a>Archiver les journaux dans un compte de stockage
 
@@ -152,10 +153,10 @@ Si vous choisissez d’archiver vos journaux dans un compte de stockage, vous pa
 Activez les journaux à l’aide de la cmdlet PowerShell [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) avec le paramètre `StorageAccountId`.
 
 ```powershell
-Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -StorageAccountId <storage-account-resource-id> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
+Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -StorageAccountId <storage-account-resource-id> -Enabled $true -Category <operations-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
 ```
 
-Remplacez l’espace réservé `<storage-service-resource--id>` de cet extrait de code par l’ID de ressource du service File d’attente. Vous pouvez trouver l’ID de ressource dans le portail Azure en ouvrant la page **Propriétés** de votre compte de stockage.
+Remplacez l’espace réservé `<storage-service-resource--id>` de cet extrait de code par l’ID de ressource de la file d’attente. Vous pouvez trouver l’ID de ressource dans le portail Azure en ouvrant la page **Propriétés** de votre compte de stockage.
 
 Vous pouvez utiliser `StorageRead`, `StorageWrite` et `StorageDelete` comme valeur du paramètre **Category**.
 
@@ -172,7 +173,7 @@ Si vous choisissez de diffuser vos journaux vers un hub d’événements, vous p
 Activez les journaux à l’aide de la cmdlet PowerShell [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) avec le paramètre `EventHubAuthorizationRuleId`.
 
 ```powershell
-Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -EventHubAuthorizationRuleId <event-hub-namespace-and-key-name> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
+Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -EventHubAuthorizationRuleId <event-hub-namespace-and-key-name> -Enabled $true -Category <operations-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
 ```
 
 Voici un exemple :
@@ -186,7 +187,7 @@ Pour obtenir une description de chaque paramètre, consultez [Diffuser des donn�
 Activez les journaux à l’aide de la cmdlet PowerShell [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) avec le paramètre `WorkspaceId`.
 
 ```powershell
-Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -WorkspaceId <log-analytics-workspace-resource-id> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
+Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -WorkspaceId <log-analytics-workspace-resource-id> -Enabled $true -Category <operations-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
 ```
 
 Voici un exemple :
@@ -197,7 +198,7 @@ Pour plus d’informations, consultez [Diffuser des journaux de ressources Azure
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-1. Commencez par ouvrir [Azure Cloud Shell](../../cloud-shell/overview.md) ou, si vous avez [installé](/cli/azure/install-azure-cli) Azure CLI localement, ouvrez une application console de commandes telle que Windows PowerShell.
+1. Commencez par ouvrir [Azure Cloud Shell](../../cloud-shell/overview.md) ou, si vous avez [installé](/cli/azure/install-azure-cli) Azure CLI localement, ouvrez une application console de commandes telle que PowerShell.
 
 2. Si votre identité est associée à plusieurs abonnements, définissez l’abonnement du compte de stockage pour lequel vous souhaitez activer les journaux comme abonnement actif.
 
@@ -211,15 +212,15 @@ Pour plus d’informations, consultez [Diffuser des journaux de ressources Azure
 
 Si vous choisissez d’archiver vos journaux dans un compte de stockage, vous paierez pour le volume des journaux qui sont envoyés au compte de stockage. Pour connaître les tarifs spécifiques, consultez la section **Journaux de la plateforme** de la page sur la [Tarification Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/#platform-logs).
 
-Activez les journaux à l’aide de la commande [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
+Activez les journaux à l’aide de la commande [`az monitor diagnostic-settings create`](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --name <setting-name> --storage-account <storage-account-name> --resource <storage-service-resource-id> --resource-group <resource-group> --logs '[{"category": <operations>, "enabled": true "retentionPolicy": {"days": <number-days>, "enabled": <retention-bool}}]'
 ```
 
-Remplacez l’espace réservé `<storage-service-resource--id>` de cet extrait de code par l’ID de ressource du service Stockage File d’attente. Vous pouvez trouver l’ID de ressource dans le portail Azure en ouvrant la page **Propriétés** de votre compte de stockage.
+Remplacez l’espace réservé `<storage-service-resource--id>` de cet extrait de code par l’ID de ressource de la file d’attente. Vous pouvez trouver l’ID de ressource dans le portail Azure en ouvrant la page **Propriétés** de votre compte de stockage.
 
-Vous pouvez utiliser `StorageRead`, `StorageWrite` et `StorageDelete` comme valeur du paramètre **Category**.
+Vous pouvez utiliser `StorageRead`, `StorageWrite` et `StorageDelete` comme valeur du paramètre `category`.
 
 Voici un exemple :
 
@@ -231,7 +232,7 @@ Pour obtenir une description de chaque paramètre, consultez [Archiver des journ
 
 Si vous choisissez de diffuser vos journaux vers un hub d’événements, vous paierez pour le volume des journaux envoyés au hub d’événements. Pour connaître les tarifs spécifiques, consultez la section **Journaux de la plateforme** de la page sur la [Tarification Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/#platform-logs).
 
-Activez les journaux à l’aide de la commande [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
+Activez les journaux à l’aide de la commande [`az monitor diagnostic-settings create`](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --name <setting-name> --event-hub <event-hub-name> --event-hub-rule <event-hub-namespace-and-key-name> --resource <storage-account-resource-id> --logs '[{"category": <operations>, "enabled": true "retentionPolicy": {"days": <number-days>, "enabled": <retention-bool}}]'
@@ -245,7 +246,7 @@ Pour obtenir une description de chaque paramètre, consultez [Diffuser des donn�
 
 #### <a name="send-logs-to-log-analytics"></a>Envoyer des journaux d’activité à Log Analytics
 
-Activez les journaux à l’aide de la commande [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
+Activez les journaux à l’aide de la commande [`az monitor diagnostic-settings create`](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --name <setting-name> --workspace <log-analytics-workspace-resource-id> --resource <storage-account-resource-id> --logs '[{"category": <category name>, "enabled": true "retentionPolicy": {"days": <days>, "enabled": <retention-bool}}]'
@@ -265,7 +266,7 @@ Pour afficher un modèle Azure Resource Manager qui crée un paramètre de diagn
 
 ## <a name="analyzing-metrics"></a>Analyse des métriques
 
-Vous pouvez analyser les métriques de Stockage Azure avec des métriques issues d’autres services Azure à l’aide de Metrics Explorer. Ouvrez Metrics Explorer en choisissant **Métriques** dans le menu **Azure Monitor**. Pour plus d’informations sur l’utilisation de cet outil, consultez [Prise en main d’Azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md).
+Vous pouvez analyser les métriques de Stockage Azure avec des métriques issues d’autres services Azure à l’aide de Azure Metrics Explorer. Ouvrez Metrics Explorer en choisissant **Métriques** dans le menu **Azure Monitor**. Pour plus d’informations sur l’utilisation de cet outil, consultez [Prise en main d’Azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md).
 
 Cet exemple montre comment afficher les **Transactions** au niveau du compte.
 
@@ -295,7 +296,7 @@ Pour obtenir la liste de toutes les métriques de prise en charge d'Azure Monito
 
 Vous pouvez dresser la liste de la définition des métriques de votre compte de stockage ou du service de Stockage File d'attente. Utilisez l’applet de commande [Get-AzMetricDefinition](/powershell/module/az.monitor/get-azmetricdefinition).
 
-Dans cet exemple, remplacez l'espace réservé `<resource-ID>` par l'ID de ressource du compte de stockage complet ou par l'ID de ressource du service Stockage File d'attente. Vous pouvez trouver les ID de ces ressources sur les pages **Propriétés** de votre compte de stockage sur le Portail Azure.
+Dans cet exemple, remplacez l'espace réservé `<resource-ID>` par l'ID de ressource du compte de stockage complet ou par l'ID de ressource de la file d'attente. Vous pouvez trouver les ID de ces ressources sur les pages **Propriétés** de votre compte de stockage sur le Portail Azure.
 
 ```powershell
    $resourceId = "<resource-ID>"
@@ -304,7 +305,7 @@ Dans cet exemple, remplacez l'espace réservé `<resource-ID>` par l'ID de resso
 
 #### <a name="reading-metric-values"></a>Lecture des valeurs des métriques
 
-Vous pouvez lire les valeurs des métriques au niveau de votre compte de stockage ou du service Stockage File d'attente. Utilisez l’applet de commande [Get-AzMetric](/powershell/module/Az.Monitor/Get-AzMetric).
+Vous pouvez lire les valeurs des métriques au niveau de votre compte de stockage ou du service Stockage File d'attente. Utilisez l’applet de commande [Get-AzMetric](/powershell/module/az.monitor/get-azmetric).
 
 ```powershell
    $resourceId = "<resource-ID>"
@@ -315,9 +316,9 @@ Vous pouvez lire les valeurs des métriques au niveau de votre compte de stockag
 
 #### <a name="list-the-account-level-metric-definition"></a>Dresser la liste de la définition des métriques de niveau compte
 
-Vous pouvez dresser la liste de la définition des métriques de votre compte de stockage ou du service de Stockage File d'attente. Utilisez la commande [az monitor metrics list-definitions](/cli/azure/monitor/metrics#az-monitor-metrics-list-definitions).
+Vous pouvez dresser la liste de la définition des métriques de votre compte de stockage ou du service de Stockage File d'attente. Utilisez la commande [`az monitor metrics list-definitions`](/cli/azure/monitor/metrics#az-monitor-metrics-list-definitions).
 
-Dans cet exemple, remplacez l'espace réservé `<resource-ID>` par l'ID de ressource du compte de stockage complet ou par l'ID de ressource du service Stockage File d'attente. Vous pouvez trouver les ID de ces ressources sur les pages **Propriétés** de votre compte de stockage sur le Portail Azure.
+Dans cet exemple, remplacez l'espace réservé `<resource-ID>` par l'ID de ressource du compte de stockage complet ou par l'ID de ressource de la file d'attente. Vous pouvez trouver les ID de ces ressources sur les pages **Propriétés** de votre compte de stockage sur le Portail Azure.
 
 ```azurecli-interactive
    az monitor metrics list-definitions --resource <resource-ID>
@@ -325,7 +326,7 @@ Dans cet exemple, remplacez l'espace réservé `<resource-ID>` par l'ID de resso
 
 #### <a name="read-account-level-metric-values"></a>Lire les valeurs des métriques de niveau compte
 
-Vous pouvez lire les valeurs des métriques de votre compte de stockage ou du service Stockage File d'attente. Utilisez la commande [az monitor metrics list](/cli/azure/monitor/metrics#az-monitor-metrics-list).
+Vous pouvez lire les valeurs des métriques de votre compte de stockage ou du service Stockage File d'attente. Utilisez la commande [`az monitor metrics list`](/cli/azure/monitor/metrics#az-monitor-metrics-list).
 
 ```azurecli-interactive
    az monitor metrics list --resource <resource-ID> --metric "UsedCapacity" --interval PT1H
@@ -333,9 +334,9 @@ Vous pouvez lire les valeurs des métriques de votre compte de stockage ou du se
 
 ### <a name="net"></a>[.NET](#tab/azure-portal)
 
-Azure Monitor fournit des [kits de développement logiciel (SDK) .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) pour lire des définitions et valeurs de mesures. L’[exemple de code](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) montre comment utiliser le kit de développement logiciel (SDK) avec des paramètres différents. Vous devez utiliser `0.18.0-preview` ou une version ultérieure pour les mesures de stockage.
+Azure Monitor fournit des [kits de développement logiciel (SDK) .NET](https://www.nuget.org/packages/microsoft.azure.management.monitor/) pour lire des définitions et valeurs de mesures. L’[exemple de code](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) montre comment utiliser le kit de développement logiciel (SDK) avec des paramètres différents. Vous devez utiliser `0.18.0-preview` ou une version ultérieure pour les mesures de stockage.
 
-Dans ces exemples, remplacez l'espace réservé `<resource-ID>` par l'ID de ressource du compte de stockage complet ou du service Stockage File d'attente. Vous pouvez trouver les ID de ces ressources sur les pages **Propriétés** de votre compte de stockage sur le Portail Azure.
+Dans ces exemples, remplacez l'espace réservé `<resource-ID>` par l'ID de ressource du compte de stockage complet ou de la file d'attente. Vous pouvez trouver les ID de ces ressources sur les pages **Propriétés** de votre compte de stockage sur le Portail Azure.
 
 Remplacez la variable `<subscription-ID>` par l’ID de votre abonnement. Pour obtenir des conseils sur la façon d’obtenir des valeurs pour `<tenant-ID>`, `<application-ID>` et `<AccessKey>`, consultez [Utiliser le portail pour créer une application et un principal du service Azure AD pouvant accéder aux ressources](../../active-directory/develop/howto-create-service-principal-portal.md).
 
@@ -485,11 +486,11 @@ Pour obtenir des informations de référence détaillées sur les champs qui app
 > [!NOTE]
 > Les journaux de stockage Azure dans Azure Monitor sont en préversion publique et sont disponibles pour le test en préversion dans toutes les régions de cloud public. Cette préversion active les journaux pour les objets blob (qui comprennent Azure Data Lake Storage Gen2), les fichiers, les files d’attente, les tables, les comptes de stockage Premium dans les comptes de stockage à usage général v1 et à usage général v2. Les comptes de stockage classiques ne sont pas pris en charge.
 
-Les entrées de journal sont créées uniquement si des demandes sont effectuées sur le point de terminaison de service. Par exemple, si un compte de stockage présente une activité au niveau de son point de terminaison de file d'attente, mais pas au niveau de ses points de terminaison de table ou de blob, seuls les journaux d'activité qui appartiennent au service de file d'attente sont créés. Les journaux de stockage Azure contiennent des informations détaillées sur les demandes ayant réussi ou échoué pour un service de stockage. Ces informations peuvent servir à analyser des demandes individuelles et à diagnostiquer les problèmes au niveau d'un service de stockage. Les demandes sont enregistrées sur la base du meilleur effort.
+Les entrées de journal sont créées uniquement si des demandes sont effectuées sur le point de terminaison de service. Par exemple, si un compte de stockage présente une activité au niveau de son point de terminaison de file d'attente, mais pas au niveau de ses points de terminaison de table ou de blob, seuls les journaux d'activité qui appartiennent au Stockage File d'attente sont créés. Les journaux de stockage Azure contiennent des informations détaillées sur les demandes ayant réussi ou échoué pour un service de stockage. Ces informations peuvent servir à analyser des demandes individuelles et à diagnostiquer les problèmes au niveau d'un service de stockage. Les demandes sont enregistrées sur la base du meilleur effort.
 
 ### <a name="log-authenticated-requests"></a>Journaliser des requêtes authentifiées
 
- Les types de demandes authentifiées suivants sont enregistrés :
+Les types de demandes authentifiées suivants sont enregistrés :
 
 - Demandes ayant réussi
 - Demandes ayant échoué, y compris les erreurs de délai d’expiration, limitation, réseau, autorisation et autres erreurs
@@ -500,12 +501,12 @@ Les demandes effectuées par le service Stockage File d'attente lui-même, telle
 
 ### <a name="log-anonymous-requests"></a>Journaliser des requêtes anonymes
 
- Les types de demandes anonymes suivants sont enregistrés :
+Les types de demandes anonymes suivants sont enregistrés :
 
 - Demandes ayant réussi
 - Erreurs de serveur
 - Erreurs d’expiration pour le client et le serveur
-- Demandes GET ayant échoué avec le code d’erreur 304 (non modifié)
+- Échec des requêtes `GET` avec le code d’erreur 304 (`Not Modified`)
 
 Aucune autre demande anonyme ayant échoué n'est enregistrée. Pour obtenir une liste complète des données enregistrées, consultez [Opérations et messages d’état enregistrés de stockage](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) et [Format de journal de stockage](monitor-queue-storage-reference.md).
 
@@ -521,7 +522,7 @@ Voici un exemple :
 
 ### <a name="accessing-logs-in-an-event-hub"></a>Accès aux journaux dans un hub d’événements
 
-Les journaux envoyés à un hub d’événements ne sont pas stockés en tant que fichier, mais vous pouvez vérifier que le hub d’événements a reçu les informations du journal. Dans le Portail Azure, accédez à votre Event Hub et vérifiez que le nombre de **messages entrants** est supérieur à zéro.
+Les journaux envoyés à un hub d’événements ne sont pas stockés en tant que fichier, mais vous pouvez vérifier que le hub d’événements a reçu les informations du journal. Dans le Portail Azure, accédez à votre Event Hub et vérifiez que le nombre de `incoming requests` est supérieur à zéro.
 
 ![Journaux d’audit](media/monitor-queue-storage/event-hub-log.png)
 
@@ -533,11 +534,11 @@ Vous pouvez accéder aux journaux envoyés à un espace de travail Log Analytics
 
 Pour plus d’informations, voir [Bien démarrer avec Log Analytics dans Azure Monitor](../../azure-monitor/log-query/log-analytics-tutorial.md).
 
-Les données sont stockées dans la table **StorageQueueLogs**.
+Les données sont stockées dans la table `StorageQueueLogs`.
 
 #### <a name="sample-kusto-queries"></a>Exemples de requêtes Kusto
 
-Voici quelques requêtes que vous pouvez entrer sur la barre **Recherche dans les journaux**. Elles vous aideront à surveiller votre Stockage File d'attente. Ces requêtes fonctionnent avec le [nouveau langage](../../azure-monitor/log-query/log-query-overview.md).
+Voici quelques requêtes que vous pouvez entrer sur la barre **Recherche dans les journaux**. Elles vous aideront à surveiller vos files d'attente. Ces requêtes fonctionnent avec le [nouveau langage](../../azure-monitor/log-query/log-query-overview.md).
 
 > [!IMPORTANT]
 > Quand vous sélectionnez **Journaux** dans le menu du groupe de ressources du compte de stockage, Log Analytics est ouvert avec l’étendue de requête définie sur le groupe de ressources actuel. Cela signifie que les requêtes de journal n’incluront que les données de ce groupe de ressources. Si vous voulez exécuter une requête qui inclut des données provenant d’autres ressources ou d’autres services Azure, sélectionnez **Journaux** dans le menu **Azure Monitor**. Pour plus d’informations, consultez [Étendue de requête de journal et intervalle de temps dans la fonctionnalité Log Analytics d’Azure Monitor](../../azure-monitor/log-query/scope.md).
@@ -601,7 +602,7 @@ Utilisez ces requêtes pour mieux superviser vos comptes de Stockage Azure :
 
 **Le stockage Azure prend-il en charge les métriques de disques managés ou de disques non managés ?**
 
-Non. Azure Compute prend en charge les métriques sur les disques. Pour obtenir davantage d’informations, consultez [Métriques par disque pour les disques managés et non managés](https://azure.microsoft.com/blog/per-disk-metrics-managed-disks/).
+Non. Les instances de calcul prennent en charge les métriques sur les disques. Pour obtenir davantage d’informations, consultez [Métriques par disque pour les disques managés et non managés](https://azure.microsoft.com/blog/per-disk-metrics-managed-disks/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

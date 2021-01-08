@@ -9,12 +9,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 68d9a64e388d24f2067f47282945b9561d807535
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 6a78b38bd71a2822d94e58834ab17824c9ef6ec6
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96545925"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97683103"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Diagnostiquer et résoudre des problèmes lors de l’utilisation du Kit de développement logiciel (SDK) Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -53,6 +53,13 @@ Consultez la [section des problèmes GitHub](https://github.com/Azure/azure-cosm
 
 ### <a name="check-the-portal-metrics"></a>Consulter les métriques du portail
 Les [métriques du portail](./monitor-cosmos-db.md) vous aident à déterminer si un problème est lié au client ou au service. Par exemple, si les métriques contiennent un taux important de requêtes à débit limité (code d’état HTTP 429), ce qui signifie que la requête est limitée, voir la section [Taux de requêtes trop élevé](troubleshoot-request-rate-too-large.md). 
+
+## <a name="retry-logic"></a>Logique de nouvelle tentative<a id="retry-logics"></a>
+Le kit de développement logiciel (SDK) Cosmos DB, en cas d’échec d’e/s, retente l’opération en cas de nouvelle tentative dans le SDK. Une nouvelle tentative de mise en place d’un échec est une bonne pratique, mais la gestion et la nouvelle tentative d’écriture échouent. Il est recommandé d’utiliser le dernier kit de développement logiciel (SDK), car la logique de nouvelle tentative est continuellement améliorée.
+
+1. Les échecs d’e/s de lecture et d’interrogation sont retentés par le kit de développement logiciel sans les exposer à l’utilisateur final.
+2. Les écritures (créer, upsert, remplacer, supprimer) ne sont pas des idempotent et, par conséquent, le kit de développement logiciel (SDK) ne peut pas toujours retenter les opérations d’écriture ayant échoué. Il est nécessaire que la logique de l’application de l’utilisateur gère l’échec et lance une nouvelle tentative.
+3. [Résolution des problèmes de disponibilité du SDK](troubleshoot-sdk-availability.md) explique les nouvelles tentatives pour les comptes de Cosmos DB à plusieurs régions.
 
 ## <a name="common-error-status-codes"></a><a id="error-codes"></a> Codes d’état d’erreur courants
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: conceptual
-ms.date: 12/14/2020
+ms.date: 12/17/2020
 ms.author: alkohli
-ms.openlocfilehash: acaa0fdb1fa0e9a338f4e249622cad0115c6b58e
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 3df8f75a726639e87157a1aa7fd9ff4d35c0ef4f
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516444"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654623"
 ---
 # <a name="azure-data-box-disk-frequently-asked-questions"></a>Azure Data Box Disk : Forum Aux Questions (FAQ)
 
@@ -100,13 +100,11 @@ Ces délais sont des *estimations*. Le temps nécessaire à chaque étape du tra
 **Délais estimés pour une commande Data Box Disk :**
 
 1. Commande d’un appareil Data Box Disk : quelques minutes, à partir du portail
-2. Allocation et préparation du disque : 1 à 2 jours ouvrables
+2. Allocation et préparation du disque : Jusqu’à 5 jours ouvrables, en fonction de la disponibilité du stock et du nombre de commandes en attente à traiter
 3. Expédition : 2 à 3 jours ouvrables
-4. Copie des données sur le site du client : dépend de la nature des données, de la taille et du nombre de fichiers
+4. Copie des données sur le site du client : Dépend de la nature des données, de la taille et du nombre de fichiers.
 5. Réexpédition : 2 à 3 jours ouvrables
-6. Traitement du disque au centre de données : 1 à 2 jours ouvrables
-7. Charger les données sur Azure : commence dès que le traitement est terminé et que le disque est connecté. Le temps de chargement dépend de la nature des données, de la taille et du nombre de fichiers.
-
+6. Traitement dans le centre de connaissances et téléchargement vers Azure : Le téléchargement de données commence dans le centre de données dès que le traitement opérationnel est terminé et que le disque est connecté. Le temps de chargement dépend de la nature des données, de la taille et du nombre de fichiers.
 
 ## <a name="configure-and-connect"></a>Configuration et connexion
  

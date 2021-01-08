@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: 02919c8e31e556ab7b5e7e04fcbde27dcf981736
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 2a557bb436b3bc10cf83beb450761465b43f621f
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97511567"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655354"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mysql"></a>Architecture de connectivité dans Azure Database pour MySQL
 Cet article présente l’architecture de connectivité d’Azure Database pour MySQL, ainsi que la façon dont le trafic est dirigé vers l’instance Azure Database pour MySQL des clients dans Azure et en dehors.
@@ -21,7 +21,7 @@ La connexion à l’instance Azure Database pour MySQL est établie via une pass
 
 :::image type="content" source="./media/concepts-connectivity-architecture/connectivity-architecture-overview-proxy.png" alt-text="Vue d’ensemble de l’architecture de connectivité":::
 
-Quand un client se connecte à la base de données, la chaîne de connexion au serveur correspond à l’adresse IP de la passerelle. La passerelle écoute sur l’adresse IP sur le port 3306. À l’intérieur du cluster de bases de données, le trafic est transféré vers l’instance Azure Database pour MySQL appropriée. Par conséquent, pour vous connecter à votre serveur, notamment à partir de réseaux d’entreprise, il est nécessaire d’ouvrir le **pare-feu côté client pour autoriser le trafic sortant à atteindre nos passerelles**. Vous trouverez ci-dessous une liste complète des adresses IP utilisées par nos passerelles en fonction de la région.
+Lorsque le client se connecte à la base de données, la chaîne de connexion au serveur correspond à l’adresse IP de la passerelle. La passerelle écoute sur l’adresse IP sur le port 3306. À l’intérieur du cluster de bases de données, le trafic est transféré vers l’instance Azure Database pour MySQL appropriée. Par conséquent, pour vous connecter à votre serveur, notamment à partir de réseaux d’entreprise, il est nécessaire d’ouvrir le **pare-feu côté client pour autoriser le trafic sortant à atteindre nos passerelles**. Vous trouverez ci-dessous une liste complète des adresses IP utilisées par nos passerelles en fonction de la région.
 
 ## <a name="azure-database-for-mysql-gateway-ip-addresses"></a>Adresses IP de passerelle Azure Database pour MySQL
 
@@ -29,7 +29,7 @@ Le service de passerelle est hébergé sur un groupe de nœuds de calcul sans é
 
 Dans le cadre de la maintenance de service en cours, nous allons actualiser régulièrement le matériel de calcul hébergeant les passerelles pour nous assurer que nous proposons l’expérience la plus sûre et la plus performante. Lorsque le matériel de passerelle est actualisé, un nouvel anneau des nœuds de calcul est créé en premier. Ce nouvel anneau gère le trafic pour tous les serveurs Azure Database pour MySQL nouvellement créés. Il a une adresse IP différente des anneaux de passerelle plus anciens dans la même région pour différencier le trafic. Une fois que le nouvel anneau est entièrement fonctionnel, la mise hors service de l’ancien matériel de passerelle desservant les serveurs existants est planifiée. Avant de mettre hors service un matériel de passerelle, les clients qui exécutent leurs serveurs et se connectent à des anneaux de passerelle plus anciens sont avertis par e-mail et dans le portail Azure, trois mois avant la mise hors service. La mise hors service des passerelles peut avoir un impact sur la connectivité de vos serveurs si 
 
-* Vous codez en dur les adresses IP de la passerelle dans la chaîne de connexion de votre application. Cela **n’est pas recommandé**. 
+* Vous codez en dur les adresses IP de la passerelle dans la chaîne de connexion de votre application. Cela **n’est pas recommandé**. Vous devez utiliser le nom de domaine complet (FQDN) de votre serveur au format <servername>.mysql.database.azure.com dans la chaîne de connexion de votre application. 
 * Vous ne mettez pas à jour les adresses IP de passerelle les plus récentes dans le pare-feu côté client pour autoriser le trafic sortant à atteindre nos nouveaux anneaux de passerelle.
 
 Le tableau suivant répertorie les adresses IP de la passerelle Azure Database pour MySQL pour toutes les régions de données. Les informations les plus récentes des adresses IP de la passerelle pour chaque région sont indiquées dans le tableau ci-dessous. Dans le tableau ci-dessous, les colonnes représentent les éléments suivants :
@@ -48,7 +48,7 @@ Le tableau suivant répertorie les adresses IP de la passerelle Azure Database p
 | Brésil Sud |191.233.201.8, 191.233.200.16    |  | 104.41.11.5|
 | Centre du Canada |40.85.224.249  | | |
 | Est du Canada | 40.86.226.166    | | |
-| USA Centre | 23.99.160.139, 13.67.215.62, 52.182.136.37, 52.182.136.38     | | |
+| USA Centre | 23.99.160.139, 13.67.215.62, 52.182.136.37, 52.182.136.38 | | |
 | Chine orientale | 139.219.130.35    | | |
 | Chine orientale 2 | 40.73.82.1  | | |
 | Chine du Nord | 139.219.15.17    | | |

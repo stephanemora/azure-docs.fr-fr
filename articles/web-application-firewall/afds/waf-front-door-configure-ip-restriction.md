@@ -5,20 +5,20 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
-ms.date: 03/26/2020
+ms.date: 12/22/2020
 ms.author: tyao
-ms.openlocfilehash: f260bfc7b097931cc1a978e790c1d9dd966703ac
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 60a4ef47bc30955c918983d54f613cbdb5cbed73
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94563509"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746760"
 ---
 # <a name="configure-an-ip-restriction-rule-with-a-web-application-firewall-for-azure-front-door"></a>Configurer une règle de restriction IP avec un Pare-feu d’applications web pour Azure Front Door
 
 Cet article vous montre comment configurer des règles de restriction IP dans un Pare-feu d’applications web (WAF) pour Azure Front Door à l’aide du portail Azure, d’Azure CLI, d’Azure PowerShell ou d’un modèle Azure Resource Manager.
 
-Une règle de contrôle d’accès basé sur l’adresse IP est une règle WAF personnalisée qui vous permet de contrôler l’accès à vos applications web. Elle remplit cette fonction en spécifiant une liste d’adresses IP ou de plages d’adresses IP dans un format CIDR (Classless Inter-Domain Routing).
+Une règle de contrôle d’accès basé sur l’adresse IP est une règle WAF personnalisée qui vous permet de contrôler l’accès à vos applications web. Elle remplit cette fonction en spécifiant une liste d’adresses IP ou de plages d’adresses IP dans un format CIDR (Classless Inter-Domain Routing). Il existe deux types de variables de correspondance d’adresses IP, **RemoteAddr** et **SocketAddr**. RemoteAddr est l’adresse IP du client d’origine qui est généralement envoyée via l’en-tête de requête X-Forwarded-For. SocketAddr est l’adresse IP source que WAF voit. Si votre utilisateur se trouve derrière un proxy, SocketAddr est souvent l’adresse du serveur proxy.
 
 Par défaut, votre application web est accessible depuis Internet. Si vous souhaitez limiter l’accès aux clients à partir d’une liste d’adresses IP ou de plages d’adresses IP connues, vous pouvez créer une règle de correspondance IP qui contient la liste des adresses IP en tant que valeurs correspondantes et définit l’opérateur sur « Non » (en attribuant au paramètre negate la valeur true) et l’action sur **Block**. Une fois une règle de restriction IP appliquée, les demandes provenant d’adresses qui ne figurent pas dans cette liste autorisée recevront une réponse 403 Interdit.
 
@@ -28,7 +28,7 @@ Par défaut, votre application web est accessible depuis Internet. Si vous souha
 
 Créez un profil Azure Front Door en suivant les instructions décrites dans [Démarrage rapide : Créer une porte d’entrée pour une application web globale hautement disponible](../../frontdoor/quickstart-create-front-door.md).
 
-### <a name="create-a-waf-policy"></a>Créer une stratégie de pare-feu d’applications web (WAF)
+### <a name="create-a-waf-policy"></a>Créer une stratégie de pare-feu d’applications web (WAF).
 
 1. Dans le portail Azure, sélectionnez **Créer une ressource**, saisissez **Pare-feu d’applications web** dans la zone de recherche, puis sélectionnez **Pare-feu d’applications web (WAF)** .
 2. Sélectionnez **Create** (Créer).
@@ -54,7 +54,7 @@ Créez un profil Azure Front Door en suivant les instructions décrites dans [D�
    |---------|---------|
    |Nom de la règle personnalisée     |FdWafCustRule|
    |Statut     |activé|
-   |Type de règle     |Correspond|
+   |Type de règle     |Faire correspondre|
    |Priority    |100|
    |Type de correspondance     |Adresse IP|
    |Variable de correspondance|RemoteAddr|
@@ -93,7 +93,7 @@ Avant de commencer à configurer une stratégie de restriction d’IP, configure
 #### <a name="create-an-azure-front-door-profile"></a>Créer un profil Azure Front Door
 Créez un profil Azure Front Door en suivant les instructions décrites dans [Démarrage rapide : Créer une porte d’entrée pour une application web globale hautement disponible](../../frontdoor/quickstart-create-front-door.md).
 
-### <a name="create-a-waf-policy"></a>Créer une stratégie de pare-feu d’applications web (WAF)
+### <a name="create-a-waf-policy"></a>Créer une stratégie de pare-feu d’applications web (WAF).
 
 Créer une stratégie WAF à l’aide de la commande [az network front-door waf-policy create](/cli/azure/ext/front-door/network/front-door/waf-policy?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-create). Dans l’exemple suivant, remplacez le nom de la stratégie *IPAllowPolicyExampleCLI* par un nom unique.
 
@@ -156,7 +156,7 @@ Définissez l’ID *WebApplicationFirewallPolicyLink* d’Azure Front Door sur l
      --name <frontdoor-name>
      --resource-group <resource-group-name>
    ```
-Dans cet exemple, la stratégieWAF est appliquée à **FrontendEndpoints [0]** . Vous pouvez lier la stratégie WAF à n’importe quel front-end en votre possession.
+Dans cet exemple, la stratégieWAF est appliquée à **FrontendEndpoints [0]**. Vous pouvez lier la stratégie WAF à n’importe quel front-end en votre possession.
 > [!Note]
 > Vous devez définir la propriété **WebApplicationFirewallPolicyLink** une seule fois pour lier une stratégie WAF à un front-end Azure Front Door. Les mises à jour de stratégie suivantes sont automatiquement appliquées au front-end.
 
@@ -236,7 +236,7 @@ Liez un objet de stratégie WAF à un hôte front-end existant et mettez à jour
 ```
 
 > [!NOTE]
-> Dans cet exemple, la stratégieWAF est appliquée à **FrontendEndpoints [0]** . Vous pouvez lier une stratégie WAF à n’importe quel front-end en votre possession. Vous devez définir la propriété **WebApplicationFirewallPolicyLink** une seule fois pour lier une stratégie WAF à un front-end Azure Front Door. Les mises à jour de stratégie suivantes sont automatiquement appliquées au front-end.
+> Dans cet exemple, la stratégieWAF est appliquée à **FrontendEndpoints [0]**. Vous pouvez lier une stratégie WAF à n’importe quel front-end en votre possession. Vous devez définir la propriété **WebApplicationFirewallPolicyLink** une seule fois pour lier une stratégie WAF à un front-end Azure Front Door. Les mises à jour de stratégie suivantes sont automatiquement appliquées au front-end.
 
 
 ## <a name="configure-a-waf-policy-with-a-resource-manager-template"></a>Configurer une stratégie WAF avec un modèle Resource Manager

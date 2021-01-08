@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/22/2020
 ms.author: aahi
-ms.openlocfilehash: 80e0de73bbeae2ee1a79199fde34a3c430959ac8
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: cc6bcef77ca1601b76468586aa6af202836f1438
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356703"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631990"
 ---
 # <a name="batch-processing-kit-for-speech-containers"></a>Kit de traitement par lots pour des conteneurs Speech
 
@@ -86,13 +86,13 @@ docker run --rm -ti -v  /mnt/my_nfs:/my_nfs --entrypoint /bin/bash /mn
 Pour exécuter le client par lot :  
 
 ```Docker
-run-batch-client -config /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -log_level DEBUG -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config   
+run-batch-client -config /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -file_log_level DEBUG -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config   
 ```
 
 Pour exécuter le client et le conteneur par lot dans une commande unique :
 
 ```Docker
-docker run --rm -ti -v  /mnt/my_nfs:/my_nfs docker.io/batchkit/speech-batch-kit:latest  -config /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -log_level DEBUG -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config   
+docker run --rm -ti -v  /mnt/my_nfs:/my_nfs docker.io/batchkit/speech-batch-kit:latest  -config /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -file_log_level DEBUG -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config   
 ```
 
 
@@ -156,7 +156,7 @@ Le mode `REST` est un mode de serveur d’API qui fournit un ensemble de base de
 > [!NOTE]
 > Le client par lot peut remplacer périodiquement le fichier *run.log* s’il est trop volumineux.
 
-Le client crée un fichier *run.log* dans le répertoire spécifié par l’argument `-log_folder` dans la commande `run` du Docker. Les journaux sont capturés au niveau DEBUG par défaut. Les mêmes journaux sont envoyés au `stdout/stderr` et filtrés en fonction de l’argument `-log_level`. Ce journal est uniquement nécessaire pour le débogage ou si vous devez envoyer une trace pour le support. Le dossier de journalisation contient également les journaux du kit de développement logiciel (SDK) Speech pour chaque fichier audio.
+Le client crée un fichier *run.log* dans le répertoire spécifié par l’argument `-log_folder` dans la commande `run` du Docker. Les journaux sont capturés au niveau DEBUG par défaut. Les mêmes journaux sont envoyés au `stdout/stderr` et filtrés en fonction des arguments `-file_log_level` ou `console_log_level`. Ce journal est uniquement nécessaire pour le débogage ou si vous devez envoyer une trace pour le support. Le dossier de journalisation contient également les journaux du kit de développement logiciel (SDK) Speech pour chaque fichier audio.
 
 Le répertoire de sortie spécifié par `-output_folder` contient un fichier *run_summary.json* , régulièrement réécrit toutes les 30 secondes ou chaque fois que de nouvelles transcriptions sont terminées. Vous pouvez utiliser ce fichier pour vérifier la progression de l’exécution du lot. Elle contient également les statistiques d’exécution finale et l’état final de chaque fichier lorsque le lot est terminé. Le traitement est terminé lorsque le processus a une sortie normale. 
 

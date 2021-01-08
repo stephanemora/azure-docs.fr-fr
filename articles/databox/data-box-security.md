@@ -1,23 +1,23 @@
 ---
 title: Présentation de la sécurité concernant Microsoft Azure Data Box | Microsoft Docs sur les données
-description: Décrit les fonctionnalités de sécurité Azure Data Box sur l’appareil, le service et les données qui se trouvent sur Data Box
+description: Décrit les fonctionnalités de sécurité Azure Data Box sur l’appareil, le service et les données qui se trouvent sur Data Box.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: conceptual
-ms.date: 06/16/2020
+ms.date: 12/16/2020
 ms.author: alkohli
-ms.openlocfilehash: f9330f99a0473aa38da2fcbb8ae0624a37746613
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 4d6c77b3e8920cabc397cdcbc235baefa031e5ab
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444756"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655490"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Protection des données et sécurité Azure Data Box
 
-Data Box fournit une solution sécurisée pour la protection des données en veillant à ce que seules les entités autorisées affichent, modifient ou suppriment vos données. Cet article décrit les fonctionnalités de sécurité du disque Azure Data Box qui permettent de protéger chacun des composants de la solution Data Box et les données stockées sur ces derniers. 
+Data Box fournit une solution sécurisée pour la protection des données en veillant à ce que seules les entités autorisées affichent, modifient ou suppriment vos données. Cet article décrit les fonctionnalités de sécurité du disque Azure Data Box qui permettent de protéger chacun des composants de la solution Data Box et les données stockées sur ces derniers.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
@@ -26,9 +26,9 @@ Data Box fournit une solution sécurisée pour la protection des données en vei
 La solution Microsoft Azure Data Box repose sur l’interaction de quatre composants principaux :
 
 - **Service Azure Data Box hébergé dans Azure** : le service de gestion qui vous permet de créer la commande de l’appareil, de configurer l’appareil et de suivre la commande jusqu'à son achèvement.
-- **Appareil Data Box** : appareil de transfert qui vous est livré pour importer vos données locales dans Azure. 
+- **Appareil Data Box** : appareil de transfert qui vous est livré pour importer vos données locales dans Azure.
 - **Les clients/hôtes connectés à l’appareil** : les clients de votre infrastructure se connectant à l’appareil Data Box et contenant des données devant être protégées.
-- **Le stockage cloud** : emplacement dans le cloud Azure où les données sont stockées. Il s’agit généralement du compte de stockage lié à la ressource Azure Data Box que vous avez créée.
+- **Le stockage cloud** : emplacement dans le cloud Azure où les données sont stockées. Cet emplacement correspond généralement au compte de stockage lié à la ressource Azure Data Box que vous avez créée.
 
 Le diagramme suivant indique le flux de données à travers la solution de Azure Data Box de l’environnement local vers Azure, et les différentes fonctionnalités de sécurité en place quand les données transitent par la solution. Ce flux est destiné à une commande d’importation pour votre Data Box.
 
@@ -45,7 +45,7 @@ Comme les données circulent dans cette solution, les événements sont enregist
 
 ## <a name="security-features"></a>Fonctionnalités de sécurité
 
-Data Box fournit une solution sécurisée pour la protection des données en veillant à ce que seules les entités autorisées affichent, modifient ou suppriment vos données. Les fonctionnalités de sécurité de cette solution pour le disque et le service associé, garantissent la sécurité des données stockées sur ces derniers. 
+Data Box fournit une solution sécurisée pour la protection des données en veillant à ce que seules les entités autorisées affichent, modifient ou suppriment vos données. Les fonctionnalités de sécurité de cette solution pour le disque et le service associé, garantissent la sécurité des données stockées sur ces derniers.
 
 ### <a name="data-box-device-protection"></a>Protection de l’appareil Data Box
 
@@ -55,14 +55,19 @@ Le service Data Box est protégé par les fonctionnalités suivantes :
 - Un système de détection des altérations matérielles et logicielles empêchant d’autres opérations sur l’appareil.
 - Exécute uniquement des logiciels spécifiques à Data Box.
 - Démarre dans un état verrouillé.
-- Contrôle l’accès à l’appareil via un mot de passe de déverrouillage.
+- Contrôle l’accès à l’appareil via une clé d'accès de déverrouillage. Cette clé d’accès est protégée par une clé de chiffrement. Vous pouvez utiliser votre propre clé gérée par le client pour protéger la clé d’accès. Pour plus d’informations, consultez [Utiliser des clés gérées par le client dans Azure Key Vault pour Azure Data Box](data-box-customer-managed-encryption-key-portal.md).
 - Identifiants d’accès pour copier des données vers et depuis l’appareil. Tous les accès à la page **Informations d’identification de l’appareil** dans le portail Azure sont consignés dans les [journaux d’activité](data-box-logs.md#query-activity-logs-during-setup).
+- Vous pouvez utiliser vos propres mots de passe pour l’accès aux appareils et aux partages. Pour plus d’informations, consultez [Didacticiel : Commander Azure Data Box](data-box-deploy-ordered.md).
+
+### <a name="establish-trust-with-the-device-via-certificates"></a>Établir une relation de confiance avec l’appareil via des certificats
+
+Un appareil Data Box vous permet d’apporter vos propres certificats et d’installer ceux qui seront utilisés pour la connexion à l’interface utilisateur Web locale et au stockage d’objets BLOB. Pour plus d’informations, consultez [Utiliser vos propres certificats avec des appareils Data Box et Data Box Heavy](data-box-bring-your-own-certificates.md).
 
 ### <a name="data-box-data-protection"></a>Protection des données Data Box
 
 Les données qui circulent vers et depuis Data Box sont protégées par les fonctionnalités suivantes :
 
-- Chiffrement AES 256 bits pour les données au repos.
+- Chiffrement AES 256 bits pour les données au repos. Dans un environnement de haute sécurité, vous pouvez utiliser le double chiffrement basé sur logiciel. Pour plus d’informations, consultez [Didacticiel : Commander Azure Data Box](data-box-deploy-ordered.md).
 - Des protocoles chiffrés peuvent être utilisés pour les données en transit. Nous vous recommandons d’utiliser SMB 3.0 avec chiffrement pour protéger les données lorsque vous les copiez depuis vos serveurs de données.
 - Effacement sécurisé des données de l’appareil une fois le chargement des données vers Azure terminé. L’effacement des données est conforme aux instructions de l’[annexe A relative aux lecteurs de disque dur ATA dans les normes NIST 800-88r1](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf). L’événement d’effacement de données est enregistré dans le [l’historique des commandes](data-box-logs.md#download-order-history).
 
@@ -104,7 +109,7 @@ Pour plus d’informations, consultez la [Politique de confidentialité Microsof
 
 ## <a name="security-guidelines-reference"></a>Référence des instructions de sécurité
 
-Les consignes de sécurité suivantes sont implémentées dans Data Box : 
+Les consignes de sécurité suivantes sont implémentées dans Data Box :
 
 |Instruction   |Description   |
 |---------|---------|

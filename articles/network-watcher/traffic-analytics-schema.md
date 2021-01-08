@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: vinigam
-ms.openlocfilehash: ccfbb92c27e4508595f19c2ea6900730cde609b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 015b8e400e9d386fff8f35756a77139e61bbaff1
+ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74666373"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97809290"
 ---
 # <a name="schema-and-data-aggregation-in-traffic-analytics"></a>Schéma et agrégation de données dans Traffic Analytics
 
@@ -39,11 +39,11 @@ Traffic Analytics est une solution cloud qui offre une visibilité de l’activi
 5. Le champ FlowStartTime_t indique la première occurrence de ce type de flux agrégé (même tuple de quatre éléments) dans l’intervalle de traitement des journaux de flux entre « FlowIntervalStartTime_t » et « FlowIntervalEndTime_t ».
 6. Pour les ressources dans Traffic Analytics, les flux indiqués dans l’interface utilisateur correspondent à tous les flux vus par le groupe de sécurité réseau. Toutefois, dans Log Analytics, l’utilisateur voit uniquement l’enregistrement unique, réduit. Pour voir tous les flux, utilisez le champ blob_id, qui peut être référencé à partir du stockage. Le nombre total de flux pour cet enregistrement correspond à l’ensemble des flux individuels visibles dans l’objet blob.
 
-La requête ci-dessous vous aide à examiner l’ensemble des journaux de flux des 30 derniers jours en local.
+La requête ci-dessous vous aide à examiner tous les sous-réseaux qui interagissent avec des adresses IP publiques non-Azure au cours des 30 derniers jours.
 ```
 AzureNetworkAnalytics_CL
 | where SubType_s == "FlowLog" and FlowStartTime_t >= ago(30d) and FlowType_s == "ExternalPublic"
-| project Subnet_s  
+| project Subnet1_s, Subnet2_s  
 ```
 Pour afficher le chemin d’accès de l’objet blob pour les flux dans la requête susmentionnée, utilisez la requête ci-dessous :
 

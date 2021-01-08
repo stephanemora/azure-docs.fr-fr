@@ -1,5 +1,5 @@
 ---
-title: Configurer des clusters pour l’intégration à Active Directory
+title: Configurer des clusters pour l’intégration de Azure Active Directory
 titleSuffix: Azure HDInsight
 description: Découvrez comment configurer un cluster HDInsight intégré à Active Directory en utilisant Azure Active Directory Domain Services et la fonctionnalité Pack Sécurité Entreprise.
 author: hrasheed-msft
@@ -9,18 +9,18 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seodec18,seoapr2020, contperf-fy21q2
 ms.date: 10/30/2020
-ms.openlocfilehash: 248d909e633607271aec7c2c9b8a373f111f7d98
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: c5c5db892f417f2e2ef3fde3535d806d39342327
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97031480"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631548"
 ---
-# <a name="configure-hdinsight-clusters-for-active-directory-integration-with-enterprise-security-package"></a>Configurer des clusters HDInsight pour l’intégration à Active Directory avec le Pack Sécurité Entreprise
+# <a name="configure-hdinsight-clusters-for-azure-active-directory-integration-with-enterprise-security-package"></a>Configurer des clusters HDInsight pour l’intégration à Azure Active Directory avec le Pack Sécurité Entreprise
 
-Dans cet article, vous allez découvrir comment créer et configurer un cluster HDInsight intégré à Active Directory en utilisant une fonctionnalité appelée Pack Sécurité Entreprise (ESP), Azure Active Directory Domain Services (Azure AD-DS) et votre annuaire Active Directory local existant.
+Cet article fournit un récapitulatif et une vue d’ensemble du processus de création et de configuration d’un cluster HDInsight intégré à Azure Active Directory. Cette intégration repose sur une fonctionnalité HDInsight appelée Pack Sécurité Entreprise (ESP), Azure Active Directory Domain Services (Azure AD-DS) et votre Active Directory local existant.
 
-Si vous recherchez un tutoriel sur l’installation et la configuration d’un domaine dans Azure et la création d’un cluster compatible ESP, consultez [Créer et configurer des clusters Pack Sécurité Entreprise dans Azure HDInsight](apache-domain-joined-create-configure-enterprise-security-cluster.md).
+Pour obtenir un tutoriel pas à pas sur la configuration d’un domaine dans Azure et sur la création d’un cluster compatible ESP, puis sur la synchronisation des utilisateurs locaux, voir [Créer et configurer des clusters Pack Sécurité Entreprise dans Azure HDInsight](apache-domain-joined-create-configure-enterprise-security-cluster.md).
 
 ## <a name="background"></a>Arrière-plan
 
@@ -33,12 +33,13 @@ Pack Sécurité Entreprise (ESP) fournit l’intégration à Active Directory po
 
 Quelques conditions préalables doivent être remplies pour pouvoir créer un cluster HDInsight compatible ESP :
 
+- Une instance Active Directory et une instance Azure Active Directory locales existantes.
 - Activez Azure AD-DS.
 - Vérifiez l’état d’intégrité d’Azure AD-DS pour vous assurer que la synchronisation est terminée.
 - Créez et autorisez une identité managée.
 - Effectuez la configuration de la mise en réseau pour le DNS et les problèmes connexes.
 
-Chacun de ces éléments sera traité en détail ci-dessous.
+Chacun de ces éléments sera traité en détail ci-dessous. Pour obtenir une procédure pas à pas pour effectuer toutes ces étapes, consultez [Créer et configurer des clusters Pack Sécurité Entreprise dans Azure HDInsight](apache-domain-joined-create-configure-enterprise-security-cluster.md).
 
 ### <a name="enable-azure-ad-ds"></a>Activer Azure AD DS
 

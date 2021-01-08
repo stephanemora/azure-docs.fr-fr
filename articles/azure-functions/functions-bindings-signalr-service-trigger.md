@@ -6,16 +6,18 @@ ms.topic: reference
 ms.custom: devx-track-csharp
 ms.date: 05/11/2020
 ms.author: chenyl
-ms.openlocfilehash: e2651afbcdc3bae71bb531aa0e821f83264c295d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2482a26987ec142880acc51bf470d844655b6e3f
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88212594"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97763509"
 ---
 # <a name="signalr-service-trigger-binding-for-azure-functions"></a>Liaison de déclencheur SignalR Service pour Azure Functions
 
 Utilisez la liaison de déclencheur *SignalR* pour répondre aux messages envoyés par Azure SignalR Service. Quand la fonction est déclenchée, les messages passés à la fonction sont analysés en tant qu’objets JSON.
+
+Dans le mode sans serveur du service SignaIR, le service SignaIR utilise la fonctionnalité en [amont](../azure-signalr/concept-upstream.md) pour envoyer des messages du client vers Function App. Et Function App utilise la liaison de déclencheur de service SignalR pour gérer ces messages. L’architecture générale est illustrée ci-dessous : :::image type="content" source="media/functions-bindings-signalr-service/signalr-trigger.png" alt-text="Architecture du déclencheur signalR":::
 
 Pour plus d’informations sur les détails d’installation et de configuration, consultez la [vue d’ensemble](functions-bindings-signalr-service.md).
 
@@ -203,15 +205,22 @@ InvocationContext comporte tout le contenu du message envoyé par SignalR Servic
 
 ## <a name="using-parameternames"></a>Utilisation de `ParameterNames`
 
-La propriété `ParameterNames` dans `SignalRTrigger` vous permet de lier les arguments des messages d’appel aux paramètres des fonctions. C’est un moyen plus pratique d’accéder aux arguments de `InvocationContext`.
+La propriété `ParameterNames` dans `SignalRTrigger` vous permet de lier les arguments des messages d’appel aux paramètres des fonctions. Le nom que vous avez défini peut être utilisé dans le cadre des [expressions de liaison](../azure-functions/functions-bindings-expressions-patterns.md) dans d’autres liaisons ou en tant que paramètres dans votre code. C’est un moyen plus pratique d’accéder aux arguments de `InvocationContext`.
 
-Imaginons que vous ayez un client JavaScript SignalR qui tente d’appeler la méthode `broadcast` dans Azure Function avec deux arguments.
+Imaginons que vous ayez un client JavaScript SignalR qui tente d’appeler la méthode `broadcast` dans Azure Function avec deux arguments `message1`, `message2`.
 
 ```javascript
 await connection.invoke("broadcast", message1, message2);
 ```
 
-Vous pouvez accéder à ces deux arguments à partir du paramètre et leur affecter un type de paramètre en utilisant `ParameterNames`.
+Une fois que vous avez défini `parameterNames`, le nom que vous avez défini correspond respectivement aux arguments envoyés côté client. 
+
+```cs
+[SignalRTrigger(parameterNames: new string[] {"arg1, arg2"})]
+```
+
+Ensuite, le `arg1` contiendra le contenu de `message1` et `arg2` contiendra le contenu de `message2`.
+
 
 ### <a name="remarks"></a>Notes
 
@@ -219,20 +228,28 @@ L’ordre de la liaison de paramètre est important. Si vous utilisez `Parameter
 
 `ParameterNames` et l’attribut `[SignalRParameter]` **ne peuvent pas** être utilisés simultanément ; sinon, une exception sera générée.
 
-## <a name="send-messages-to-signalr-service-trigger-binding"></a>Envoyer des messages à la liaison de déclencheur SignalR Service
+## <a name="signalr-service-integration"></a>Intégration du service signalR
 
-Azure Function génère une URL pour la liaison de déclencheur SignalR Service. Le format de l’URL est le suivant :
+Le service signalR a besoin d’une URL pour accéder à Function App lorsque vous utilisez la liaison de déclencheur de service SignalR. L’URL doit être configurée dans **paramètres en amont** du côté service SignalR. 
+
+:::image type="content" source="../azure-signalr/media/concept-upstream/upstream-portal.png" alt-text="Portail en amont":::
+
+Lorsque vous utilisez le déclencheur de service SignalR, l’URL peut être simple et mise en forme comme indiqué ci-dessous :
 
 ```http
-https://<APP_NAME>.azurewebsites.net/runtime/webhooks/signalr?code=<API_KEY>
+<Function_App_URL>/runtime/webhooks/signalr?code=<API_KEY>
 ```
 
-La clé API (`API_KEY`) est générée par Azure Function. Vous pouvez obtenir la valeur `API_KEY` dans le portail Azure quand vous utilisez la liaison de déclencheur SignalR Service.
+Le `Function_App_URL` se trouve sur la page Vue d’ensemble de Function App et la `API_KEY` est générée par Azure Function. Vous pouvez récupérer `API_KEY` à partir de `signalr_extension` dans le panneau **Clés d’application** de Function App.
 :::image type="content" source="media/functions-bindings-signalr-service/signalr-keys.png" alt-text="Clé API":::
 
-Vous devez définir cette URL dans `UrlTemplate` dans les paramètres en amont de SignalR Service.
+Si vous souhaitez utiliser plusieurs Function App avec un service SignalR, les règles de routage complexes peuvent être prises en charge en amont. Pour plus d’informations, consultez [Paramètres en amont](../azure-signalr/concept-upstream.md).
+
+## <a name="step-by-step-sample"></a>Exemple de procédure pas à pas
+
+Vous pouvez suivre l’exemple dans GitHub pour déployer une salle de conversation sur Function App avec la liaison de déclencheur du service SignalR et la fonctionnalité en amont : [Exemple de salle de conversation bidirectionnelle](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/BidirectionChat)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Développement et configuration Azure Functions avec Azure SignalR Service](../azure-signalr/signalr-concept-serverless-development-config.md)
-* [Exemple de liaison de déclencheur SignalR Service](https://github.com/Azure/azure-functions-signalrservice-extension/tree/dev/samples/bidirectional-chat)
+* [Exemple de liaison de déclencheur SignalR Service](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/BidirectionChat)

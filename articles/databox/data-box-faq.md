@@ -6,14 +6,14 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/14/2020
+ms.date: 12/17/2020
 ms.author: alkohli
-ms.openlocfilehash: 18a1fc7f42884dcc194256e1f51ddecb62d2708c
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 87ec1f03a1f2294a4423e26129644eafcf7c915c
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516394"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655473"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box : Forum Aux Questions (FAQ)
 
@@ -97,11 +97,11 @@ Ces délais sont des *estimations*. Le temps nécessaire à chaque étape du tra
 **Délais estimés pour une commande Data Box :**
 
 1. Commande d’un appareil Data Box : quelques minutes, à partir du portail
-2. Allocation et préparation des appareils : 1 à 2 jours ouvrables
+2. Allocation et préparation des appareils : 1-2 jours ouvrables, sous réserve de disponibilité du stock et d’autres commandes en attente
 3. Expédition : 2 à 3 jours ouvrables
 4. Copie des données sur le site du client : dépend de la nature des données, de la taille et du nombre de fichiers
 5. Réexpédition : 2 à 3 jours ouvrables
-6. Traitement de l’appareil au centre de données : 1 à 2 jours ouvrables
+6. Traitement de l’appareil au centre de données : 1-2 jours ouvrables, sous réserve d’autres commandes en attente de traitement
 7. Charger les données sur Azure : commence dès que le traitement est terminé et que l’appareil est connecté. Le temps de chargement dépend de la nature des données, de la taille et du nombre de fichiers.
 
 ### <a name="q-i-ordered-a-couple-of-data-box-devices-i-cant-create-any-additional-orders-why"></a>Q. J’ai commandé deux appareils Data Box. Mais je ne peux pas créer d’autres commandes. Pourquoi ?

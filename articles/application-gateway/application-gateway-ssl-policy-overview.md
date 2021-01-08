@@ -5,14 +5,14 @@ services: application gateway
 author: amsriva
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 11/16/2019
+ms.date: 12/17/2020
 ms.author: amsriva
-ms.openlocfilehash: 16c6dd28d47573c2ad5b0d5a331b0dc48e7aacef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77239cd8586b8fb07abf6862be436979541bdb99
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85253628"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631688"
 ---
 # <a name="application-gateway-tls-policy-overview"></a>Présentation de la stratégie TLS Application Gateway
 
@@ -23,6 +23,18 @@ La stratégie TLS inclut le contrôle de la version du protocole TLS ainsi que d
 ## <a name="predefined-tls-policy"></a>Stratégie TLS prédéfinie
 
 Application Gateway comporte trois stratégies de sécurité prédéfinies. Vous pouvez configurer votre passerelle avec n’importe laquelle de ces stratégies pour obtenir le niveau de sécurité approprié. Les noms de stratégie sont annotés en fonction de leur année et leur mois de configuration. Chaque stratégie offre différentes versions de protocole TLS et de suites de chiffrement. Nous vous recommandons d’utiliser les dernières stratégies TLS pour garantir la meilleure sécurité TLS.
+
+## <a name="known-issue"></a>Problème connu
+Application Gateway v2 ne prend pas en charge les chiffrements DHE suivants et ceux-ci ne sont pas utilisés pour les connexions TLS avec les clients, même s’ils sont mentionnés dans les stratégies prédéfinies. Au lieu de chiffrements DHE, les chiffrements ECDHE sécurisés et plus rapides sont recommandés.
+
+- TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+- TLS_DHE_RSA_WITH_AES_128_CBC_SHA
+- TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
+- TLS_DHE_RSA_WITH_AES_256_CBC_SHA
+- TLS_DHE_DSS_WITH_AES_128_CBC_SHA256
+- TLS_DHE_DSS_WITH_AES_128_CBC_SHA
+- TLS_DHE_DSS_WITH_AES_256_CBC_SHA256
+- TLS_DHE_DSS_WITH_AES_256_CBC_SHA
 
 ### <a name="appgwsslpolicy20150501"></a>AppGwSslPolicy20150501
 
@@ -54,6 +66,10 @@ Application Gateway comporte trois stratégies de sécurité prédéfinies. Vous
 ## <a name="custom-tls-policy"></a>Stratégie TLS personnalisée
 
 Si une stratégie TLS prédéfinie doit être configurée pour vos besoins, vous devez définir votre propre stratégie TLS personnalisée. Avec une stratégie TLS personnalisée, vous contrôlez totalement la version minimale du protocole TLS à prendre en charge, ainsi que les suites de chiffrement prises en charge et leur ordre de priorité.
+
+> [!IMPORTANT]
+> Si vous utilisez une stratégie SSL personnalisée dans le SKU Application Gateway v1 (standard ou WAF), assurez-vous d’ajouter le chiffrement obligatoire « TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 » à la liste. Ce chiffrement est requis pour activer les métriques et la journalisation dans la référence (SKU) Application Gateway v1.
+> Cela n’est pas obligatoire pour la référence SKU Application Gateway v2 (Standard_v2 ou WAF_v2).
  
 ### <a name="tlsssl-protocol-versions"></a>Versions du protocole TLS/SSL
 
@@ -97,17 +113,6 @@ Application Gateway prend en charge les suites de chiffrement suivantes à parti
 
 > [!NOTE]
 > Les suites de chiffrement TLS utilisées pour la connexion sont également basées sur le type de certificat utilisé. Dans les connexions client-passerelle Application Gateway, les suites de chiffrement utilisées sont basées sur le type de certificats de serveur sur l’écouteur Application Gateway. Dans Application Gateway aux connexions du pool principal, les suites de chiffrement utilisées sont basées sur le type de certificats de serveur sur les serveurs du pool principal.
-
-## <a name="known-issue"></a>Problème connu
-Application Gateway v2 ne prend pas actuellement en charge les chiffrements suivants :
-- DHE-RSA-AES128-GCM-SHA256
-- DHE-RSA-AES128-SHA
-- DHE-RSA-AES256-GCM-SHA384
-- DHE-RSA-AES256-SHA
-- DHE-DSS-AES128-SHA256
-- DHE-DSS-AES128-SHA
-- DHE-DSS-AES256-SHA256
-- DHE-DSS-AES256-SHA
 
 ## <a name="next-steps"></a>Étapes suivantes
 

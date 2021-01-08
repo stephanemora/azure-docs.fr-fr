@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 334cbef7460306ef2954881a1cab918573e1e371
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: fb2a8a7bb14758ab21eb2183a119f456b53c8562
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91400636"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654947"
 ---
 # <a name="set-up-vmware-disaster-recovery-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>Configurer la récupération d'urgence VMware dans un environnement multilocataire avec le programme du fournisseur de solutions cloud
 
@@ -65,22 +65,22 @@ Vous pouvez maintenant effectuer et gérer toutes les opérations Site Recovery 
 ## <a name="assign-tenant-access-to-the-subscription"></a>Affecter un accès locataire à l’abonnement
 
 1. Vérifiez que l’infrastructure de récupération d’urgence est configurée. Les partenaires accèdent aux abonnements du locataire par le biais du portail du fournisseur de solutions cloud, que la récupération d’urgence soit gérée ou en libre-service. Configurez votre coffre, puis inscrivez l’infrastructure auprès des abonnements du locataire.
-2. Fournir au locataire le [compte que vous avez créé](#create-a-tenant-account).
-3. Vous pouvez ajouter un nouvel utilisateur à l’abonnement du locataire par le biais du portail du fournisseur de solutions cloud comme suit :
+1. Fournir au locataire le [compte que vous avez créé](#create-a-tenant-account).
+1. Vous pouvez ajouter un nouvel utilisateur à l’abonnement du locataire par le biais du portail du fournisseur de solutions cloud comme suit :
 
-    a) Accédez à la page d’abonnement du fournisseur de solutions cloud du locataire, puis sélectionnez l’option **Utilisateurs et licences**.
+    1. Accédez à la page d’abonnement CSP du locataire, puis sélectionnez l’option **Utilisateurs et licences**.
 
-      ![La page d’abonnement CSP du locataire](./media/vmware-azure-multi-tenant-csp-disaster-recovery/users-and-licences.png)
+       ![La page d’abonnement CSP du locataire](./media/vmware-azure-multi-tenant-csp-disaster-recovery/users-and-licences.png)
 
-    b) Créez maintenant un utilisateur en entrant les informations adéquates et en sélectionnant des autorisations ou en chargeant la liste des utilisateurs dans un fichier CSV.
-    
-    c) Une fois que vous avez créé un utilisateur, revenez au portail Azure. Dans la page **Abonnement**, sélectionnez l’abonnement approprié.
+    1. Créez maintenant un utilisateur en entrant les informations adéquates et en sélectionnant des autorisations ou en chargeant la liste des utilisateurs dans un fichier CSV.
 
-    d) Sélectionnez **Contrôle d’accès (IAM)** , puis cliquez sur **Attributions de rôle**.
+    1. Une fois que vous avez créé un utilisateur, revenez au portail Azure. Dans la page **Abonnement**, sélectionnez l’abonnement approprié.
 
-    (e) Cliquez sur **Ajouter une attribution de rôle** pour ajouter un utilisateur avec le niveau d’accès approprié. Les utilisateurs qui ont été créés via le portail CSP apparaissent sous l’onglet Attributions de rôle.
+    1. Sélectionnez **Contrôle d’accès (IAM)** , puis cliquez sur **Attributions de rôle**.
 
-      ![Ajouter un utilisateur](./media/vmware-azure-multi-tenant-csp-disaster-recovery/add-user-subscription.png)
+    1. Cliquez sur **Ajouter une attribution de rôle** pour ajouter un utilisateur avec le niveau d’accès approprié. Les utilisateurs qui ont été créés via le portail CSP apparaissent sous l’onglet Attributions de rôle.
+
+        ![Ajouter un utilisateur](./media/vmware-azure-multi-tenant-csp-disaster-recovery/add-user-subscription.png)
 
 - Le rôle *Contributeur* suffit pour la plupart des opérations de gestion. Les utilisateurs disposant de ce niveau d’accès peuvent effectuer toutes les opérations sur un abonnement, à l’exception du changement de niveau d’accès (pour cette opération, le niveau d’accès *Propriétaire* est nécessaire).
 - Site Recovery propose en outre trois [rôles d’utilisateur prédéfinis](site-recovery-role-based-linked-access-control.md), qui peuvent être utilisés pour limiter davantage les niveaux d’accès en fonction des besoins.
