@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 08/12/2020
+ms.date: 12/18/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 0b48b8d954b132caab96e5978c90687899ea04c2
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 59acbc545e6bb37ebd090ec458d98586de882133
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96549223"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97696274"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Kit de développement logiciel (SDK) Java Azure Cosmos DB pour API SQL : Notes de publication et ressources
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -53,6 +53,12 @@ Il s’agit du kit de développement logiciel (SDK) Java synchrone v2 d’origin
 |**Runtime minimal pris en charge**|[Kit de développement Java (JDK) 7+](/java/azure/jdk/?view=azure-java-stable&preserve-view=true)|
 
 ## <a name="release-notes"></a>Notes de publication
+
+### <a name="261"></a><a name="2.6.1"></a>2.6.1
+* Correction d’un bogue dans la gestion d’une requête via l’interopérabilité du service.
+
+### <a name="260"></a><a name="2.6.0"></a>2.6.0
+* Ajout de la prise en charge de l’interrogation du flux de modification à partir d’un point dans le temps.
 
 ### <a name="251"></a><a name="2.5.1"></a>2.5.1
 * Corrige le problème de cache de partition principale sur la requête documentCollection.
@@ -271,6 +277,8 @@ Microsoft fournira une notification au moins **12 mois** avant le retrait d’u
 
 | Version | Date de sortie | Date de suppression |
 | --- | --- | --- |
+| [2.6.1](#2.6.1) |17 décembre 2020 |--- |
+| [2.6.0](#2.6.0) |16 juillet 2020 |--- |
 | [2.5.1](#2.5.1) |03 juin 2020 |--- |
 | [2.5.0](#2.5.0) |12 mai 2020 |--- |
 | [2.4.7](#2.4.7) |20 février 2020 |--- |

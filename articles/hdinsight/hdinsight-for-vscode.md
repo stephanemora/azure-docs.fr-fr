@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 10/20/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 302f1a081ca44cf6436f2c318b03e227f6640489
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 1bbc3b3cd755aabd348a238ad65cda132b9a7547
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96001964"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746607"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Utilisez les outils Spark et Hive pour Visual Studio Code
 
@@ -211,29 +211,31 @@ En utilisant la commande interactive PySpark pour envoyer les requêtes, suivez 
 
    ![PySpark a été installé](./media/hdinsight-for-vscode/pyspark-kernel-installed-successfully.png)
 
-7. Dans la barre de menus, accédez à **Afficher** > **Palette de commandes...** ou utilisez le raccourci **Maj + Ctrl + P**, puis entrez **Python : Sélectionnez Interpréteur pour démarrer le serveur Jupyter**.
+7. Utilisez l’invite de commandes pour exécuter **pip install numpy == 1.19.3**, puis rechargez la fenêtre VSCode.
+
+8. Dans la barre de menus, accédez à **Afficher** > **Palette de commandes...** ou utilisez le raccourci **Maj + Ctrl + P**, puis entrez **Python : Sélectionnez Interpréteur pour démarrer le serveur Jupyter**.
 
    ![sélectionner Interpréteur pour démarrer le serveur Jupyter](./media/hdinsight-for-vscode/select-interpreter-to-start-jupyter-server.png)
 
-8. Sélectionnez l’option Python ci-dessous.
+9. Sélectionnez l’option Python ci-dessous.
 
    ![choisit l’option ci-dessous](./media/hdinsight-for-vscode/choose-the-below-option.png)
     
-9. Dans la barre de menus, accédez à **Afficher** > **Palette de commandes...** ou utilisez le raccourci **Maj + Ctrl + P**, puis entrez **Développeur : Recharger la fenêtre**.
+10. Dans la barre de menus, accédez à **Afficher** > **Palette de commandes...** ou utilisez le raccourci **Maj + Ctrl + P**, puis entrez **Développeur : Recharger la fenêtre**.
 
-   ![recharger la fenêtre](./media/hdinsight-for-vscode/reload-window.png)
+    ![recharger la fenêtre](./media/hdinsight-for-vscode/reload-window.png)
 
-10. [Connectez-vous](#connect-to-an-azure-account) à votre compte Azure ou liez un cluster si ce n’est déjà fait.
+11. [Connectez-vous](#connect-to-an-azure-account) à votre compte Azure ou liez un cluster si ce n’est déjà fait.
 
-11. Sélectionnez l’ensemble du code, cliquez avec le bouton droit sur l’éditeur de script, puis sélectionnez **Spark: PySpark Interactive/Synapse : PySpark Interactive** pour envoyer la requête. 
+12. Sélectionnez l’ensemble du code, cliquez avec le bouton droit sur l’éditeur de script, puis sélectionnez **Spark: PySpark Interactive/Synapse : PySpark Interactive** pour envoyer la requête. 
 
     ![Menu contextuel pyspark interactive](./media/hdinsight-for-vscode/pyspark-interactive-right-click.png)
 
-12. Si vous n’avez pas spécifié de cluster par défaut, sélectionnez le cluster. Après quelques instants, les résultats **Python Interactive** s’affichent sous un nouvel onglet. Cliquez sur PySpark pour choisir le noyau **PySpark/Synapse Pyspark**. Le code s’exécute sans erreur. Si vous souhaitez basculer vers le noyau Synapse Pyspark, il est recommandé de désactiver la configuration automatique dans le portail Azure. Dans le cas contraire, la relance du cluster et la définition du noyau de Synapse peuvent prendre un certain temps lors de la première utilisation. Les outils vous permettent également d’envoyer un bloc de code au lieu du fichier de script entier à partir du menu contextuel :
+13. Si vous n’avez pas spécifié de cluster par défaut, sélectionnez le cluster. Après quelques instants, les résultats **Python Interactive** s’affichent sous un nouvel onglet. Cliquez sur PySpark pour choisir le noyau **PySpark/Synapse Pyspark**. Le code s’exécute sans erreur. Si vous souhaitez basculer vers le noyau Synapse Pyspark, il est recommandé de désactiver la configuration automatique dans le portail Azure. Dans le cas contraire, la relance du cluster et la définition du noyau de Synapse peuvent prendre un certain temps lors de la première utilisation. Les outils vous permettent également d’envoyer un bloc de code au lieu du fichier de script entier à partir du menu contextuel :
 
     ![Fenêtre Python interactive dans PySpark Interactive](./media/hdinsight-for-vscode/pyspark-interactive-python-interactive-window.png)
 
-13. Entrez **%%info**, puis appuyez sur Maj+Entrée pour afficher les informations sur le travail (facultatif) :
+14. Entrez **%%info**, puis appuyez sur Maj+Entrée pour afficher les informations sur le travail (facultatif) :
 
     ![informations travail d’affichage interactif pyspark](./media/hdinsight-for-vscode/pyspark-interactive-view-job-information.png)
 
@@ -266,7 +268,8 @@ L’outil prend également en charge la requête **Spark SQL** :
 
 
 > [!NOTE]
-> La version 2020.5.78807 de ms-python et les versions ultérieures ne sont pas prises en charge sur cette extension. Il s’agit d’un [problème connu](#known-issues).
+>
+> L’erreur [« La version MS-python >= 2020.5.78807 n’est pas prise en charge sur cette extension »](#issues-changed) a été résolue. La dernière version de ms-python peut être utilisée pour l’instant.
 
 ## <a name="submit-pyspark-batch-job"></a>Envoyer le travail de traitement par lots PySpark
 
@@ -486,13 +489,10 @@ Envoyez un travail à un cluster HDInsight à l’aide de Data Lake Storage Gen2
 
 À partir de la barre de menus, accédez à **Afficher** > **Palette de commandes**, puis entrez **Azure: Se déconnecter**.
 
-## <a name="known-issues"></a>Problèmes connus
+## <a name="issues-changed"></a>Problèmes modifiés
 
-### <a name="ms-python-2020578807-version-is-not-supported-on-this-extention"></a>La version 2020.5.78807 de ms-python et les versions ultérieures ne sont pas prises en charge sur cette extension 
+Le problème « La version MS-python >= 2020.5.78807 n’est pas pris en charge sur cette extension » a été résolu. La **version de ms-python la plus récente** peut être utilisée pour l’instant.
 
-« Échec de la connexion au notebook Jupyter » est un problème connu pour la version 2020.5.78807 de Python et les versions ultérieures. Nous recommandons aux utilisateurs d’opter pour la version **[2020.4.76186](https://github.com/microsoft/vscode-python/releases/download/2020.4.76186/ms-python-release.vsix)** de ms-python pour éviter ce problème.
-
-![Problèmes connus](./media/hdinsight-for-vscode/known-issue.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

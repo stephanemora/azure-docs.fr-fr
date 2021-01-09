@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 7e8e2f3f9dd49693faa26eaaab309fcad58f6f9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9721685fc3ccd2c1c80b55e9118d6d347cc97a9c
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89076155"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830698"
 ---
 # <a name="get-service-access-tokens"></a>Obtenir des jetons d’accès au service
 
@@ -25,7 +25,7 @@ Cet article explique comment créer ce type de jeton d’accès.
 
 ## <a name="token-service-rest-api"></a>API REST du service de jetons
 
-Le *service d’émission de jeton de sécurité* fournit une API REST unique pour la création de jetons d’accès. L’URL du service STS ARR est https:\//sts.mixedreality.azure.com.
+Le *service d’émission de jeton de sécurité* fournit une API REST unique pour la création de jetons d’accès. L’URL du service STS dépend du domaine de compte du compte de rendu distant. Elle se présente sous la forme https://sts.[domaine du compte], par exemple `https://sts.southcentralus.mixedreality.azure.com`
 
 ### <a name="get-token-request"></a>Demande d’obtention de jeton
 
@@ -56,9 +56,10 @@ Le code PowerShell ci-dessous montre comment envoyer la demande REST nécessaire
 ```PowerShell
 $accountId = "<account_id_from_portal>"
 $accountKey = "<account_key_from_portal>"
+$accountDomain = "<account_domain_from_portal>
 
 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12;
-$webResponse = Invoke-WebRequest -Uri "https://sts.mixedreality.azure.com/accounts/$accountId/token" -Method Get -Headers @{ Authorization = "Bearer ${accountId}:$accountKey" }
+$webResponse = Invoke-WebRequest -Uri "https://sts.$accountDomain/accounts/$accountId/token" -Method Get -Headers @{ Authorization = "Bearer ${accountId}:$accountKey" }
 $response = ConvertFrom-Json -InputObject $webResponse.Content
 
 Write-Output "Token: $($response.AccessToken)"
