@@ -131,6 +131,7 @@
           href: add-profile-editing-policy.md
         - name: Stratégie d’informations d’identification de mot de passe du propriétaire de ressource
           href: add-ropc-policy.md
+          displayName: ROPC
         - name: Stratégie de configuration de réinitialisation de mot de passe en libre-service (dépréciée)
           href: user-flow-self-service-password-reset.md
         - name: Inscription et connexion par téléphone
@@ -163,6 +164,8 @@
           href: identity-provider-microsoft-account.md
         - name: QQ
           href: identity-provider-qq.md
+        - name: Salesforce
+          href: identity-provider-salesforce.md
         - name: Salesforce (SAML)
           href: identity-provider-salesforce-saml.md
         - name: Twitter
@@ -484,5 +487,5 @@
     - name: Support
       href: support-options.md
       displayName: technical
-    - name: Vidéos
+    - name: Videos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c'

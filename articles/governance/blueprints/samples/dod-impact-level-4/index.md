@@ -1,14 +1,14 @@
 ---
 title: Vue d’ensemble de l’exemple de blueprint DoD Impact Level 4
 description: Vue d’ensemble de l’exemple DoD Impact Level 4. Cet exemple de blueprint permet aux clients d’évaluer des contrôles DoD Impact Level 4 spécifiques.
-ms.date: 10/26/2020
+ms.date: 01/08/2021
 ms.topic: sample
-ms.openlocfilehash: faea02bc63b1c05526652b7a27b2339f00106ad7
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 3fdb14d1abdac182dceed844fe8b9ab65bed3210
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92669417"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98035085"
 ---
 # <a name="overview-of-the-dod-impact-level-4-blueprint-sample"></a>Vue d’ensemble de l’exemple de blueprint DoD Impact Level 4
 

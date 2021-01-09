@@ -110,7 +110,7 @@
 - name: Ressources
   items:
     - name: Questions fréquentes (FAQ)
-      href: firewall-faq.md
+      href: firewall-faq.yml
     - name: Créer des modèles
       href: ../azure-resource-manager/templates/template-syntax.md
     - name: Feuille de route Azure

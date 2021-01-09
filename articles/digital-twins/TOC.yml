@@ -49,6 +49,8 @@
               href: how-to-set-up-instance-portal.md
             - name: Version de la CLI
               href: how-to-set-up-instance-cli.md
+            - name: Version de PowerShell
+              href: how-to-set-up-instance-powershell.md
             - name: Version scriptée
               href: how-to-set-up-instance-scripted.md
         - name: Écrire le code d’authentification de l’application
