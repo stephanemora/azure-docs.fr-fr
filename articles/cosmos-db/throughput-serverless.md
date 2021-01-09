@@ -5,13 +5,13 @@ author: ThomasWeiss
 ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/25/2020
-ms.openlocfilehash: 1943aae3a2b01490dca687bcdea99d76da238d51
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.date: 12/23/2020
+ms.openlocfilehash: a6f8b79ecc8dcac71dc8f5d1be2bb58a0288a307
+ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187253"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97760246"
 ---
 # <a name="how-to-choose-between-provisioned-throughput-and-serverless"></a>Comment choisir entre le mode débit approvisionné et le mode serverless
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -25,7 +25,7 @@ Azure Cosmos DB est disponible en deux modes de capacité différents : [débit
 | Critères | Débit approvisionné | Sans serveur |
 | --- | --- | --- |
 | Statut | Mise à la disposition générale | En préversion |
-| Idéale pour | Charges de travail stratégiques nécessitant des performances prévisibles | Charges de travail non critiques de taille petite à moyenne avec trafic léger et intermittent |
+| Idéale pour | Charges de travail stratégiques nécessitant des performances prévisibles | Charges de travail de taille petite à moyenne avec un trafic léger et intermittent difficile à prévoir |
 | Fonctionnement | Pour chacun de vos conteneurs, vous approvisionnez un débit exprimé en [unités de requête](request-units.md) par seconde. Chaque seconde, cette quantité d’unités de requête est disponible pour vos opérations de base de données. Le débit approvisionné peut être mis à jour manuellement ou ajusté automatiquement avec une [mise à l’échelle automatique](provision-throughput-autoscale.md). | Vous exécutez vos opérations de base de données sur vos conteneurs sans avoir à approvisionner de capacité. |
 | Géo-distribution | Disponible (nombre illimité de régions Azure) | Non disponible (les comptes serverless ne peuvent s’exécuter que dans 1 région Azure) |
 | Volume de stockage maximal par conteneur | Illimité | 50 Go |

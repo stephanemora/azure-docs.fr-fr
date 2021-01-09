@@ -3,19 +3,19 @@ title: Lancer manuellement un basculement sur SQL Managed Instance
 description: Découvrez comment basculer manuellement les réplicas principaux et secondaires sur Azure SQL Managed Instance.
 services: sql-database
 ms.service: sql-managed-instance
-ms.custom: seo-lt-2019, sqldbrb=1, devx-track-azurecli
+ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: ''
 ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: douglas, sstein
-ms.date: 08/31/2020
-ms.openlocfilehash: 51e9e66e2fd8ff60dd20c275a66fd13c047cc629
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.date: 12/16/2020
+ms.openlocfilehash: 4b1c98d8621267b300a82b697bce66a6b94e82f3
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94985516"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825915"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Basculement manuel initié par l’utilisateur sur SQL Managed Instance
 
@@ -140,7 +140,7 @@ Vous ne serez pas en mesure de voir la même sortie avec le niveau de service de
 
 > [!IMPORTANT]
 > Les limitations fonctionnelles du basculement manuel initié par l’utilisateur sont les suivantes :
-> - Un (1) basculement peut être initié sur la même Managed Instance toutes les **30 minutes**.
+> - Un (1) basculement peut être initié sur la même instance gérée toutes les **15 minutes**.
 > - Pour les instances BC, il doit exister un quorum de réplicas pour que la requête de basculement soit acceptée.
 > - Pour les instances BC, il n’est pas possible de spécifier le réplica secondaire accessible en lecture sur lequel initier le basculement.
 
