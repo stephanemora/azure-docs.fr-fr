@@ -4,16 +4,16 @@ description: Problèmes courants, solutions de contournement et procédures de d
 author: ealsur
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 03/13/2020
+ms.date: 12/29/2020
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 9fc5da214a50cb000d2154d08bb9b6f6f98ac5ec
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 1b7b82ea07b7e00d281739011c9c9f83ab4dff73
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340527"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825620"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-functions-trigger-for-cosmos-db"></a>Diagnostiquer et résoudre les problèmes lors de l’utilisation du déclencheur Azure Functions pour Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -85,16 +85,18 @@ Le concept de « modification » correspond à une opération sur un document.
 
 ### <a name="some-changes-are-missing-in-my-trigger"></a>Il manque certaines modifications dans mon déclencheur
 
-Si vous découvrez que certaines modifications dans votre conteneur Azure Cosmos ne sont pas récupérées par la fonction Azure, vous devez suivre une étape pour inspecter en amont.
+Si vous constatez que certaines des modifications qui se sont produites dans votre conteneur Azure Cosmos ne sont pas récupérées par la fonction Azure ou que des modifications sont manquantes dans la destination lors de la copie, suivez les étapes ci-dessous.
 
 Lorsque votre fonction Azure reçoit les modifications, elle les traite souvent et peut éventuellement envoyer les résultats à une autre destination. Lorsque vous recherchez des modifications manquantes, assurez-vous de **mesurer les modifications qui sont reçues au niveau du point d’ingestion** (au démarrage de la fonction Azure) et non à la destination.
 
 S’il manque des modifications à la destination, cela peut signifier que des erreurs se produisent lors de l’exécution de la fonction Azure après la réception des modifications.
 
-Dans ce scénario, la meilleure méthode consiste à ajouter des blocs `try/catch` dans votre code et à l’intérieur de boucles susceptibles de traiter les modifications afin de détecter tout échec au niveau d’un sous-ensemble d’éléments particulier, puis de s’en occuper de manière appropriée (envoyez-les vers un autre stockage pour les analyser davantage ou réessayez). 
+Dans ce scénario, la meilleure méthode consiste à ajouter des blocs `try/catch` dans votre code et à l’intérieur de boucles susceptibles de traiter les modifications afin de détecter tout échec au niveau d’un sous-ensemble d’éléments particulier, puis de s’en occuper de manière appropriée (envoyez-les vers un autre stockage pour les analyser davantage ou réessayez).
 
 > [!NOTE]
 > Par défaut, le déclencheur Azure Functions pour Cosmos DB n’essaiera pas de traiter à nouveau les modifications si une exception non prise en charge est survenue lors de l’exécution du code. Cela signifie que les modifications ne sont pas arrivées à destination en raison d’une erreur lors de leur traitement.
+
+Si la destination est un autre conteneur Cosmos et que vous effectuez des opérations upsert pour copier les éléments, **vérifiez que la définition de la clé de partition sur le conteneur de destination et le conteneur surveillé est la même**. Les opérations upsert peuvent enregistrer plusieurs éléments sources comme étant un seul élément dans la destination en raison de cette différence de configuration.
 
 Si vous découvrez que votre déclencheur n’a pas reçu du tout certaines modifications, le scénario le plus courant est qu’il existe une **autre fonction Azure en cours d’exécution** . Il peut s’agir d’une autre fonction Azure déployée dans Azure ou exécutée en local sur la machine d’un développeur qui a **exactement la même configuration** (conteneurs surveillés et de baux identiques). Dans ce dernier cas, cette fonction Azure vole un sous-ensemble des modifications que votre fonction Azure est censée traiter.
 

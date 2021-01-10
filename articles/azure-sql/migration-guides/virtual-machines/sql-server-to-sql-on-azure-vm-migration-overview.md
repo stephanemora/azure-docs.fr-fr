@@ -10,12 +10,12 @@ author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 11/06/2020
-ms.openlocfilehash: 4979902853602073e6230ef7387d6c6596fe77da
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: d08cb2761a8d8010c455ff959d6c247e8b64ef20
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325914"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746573"
 ---
 # <a name="migration-overview-sql-server-to-sql-server-on-azure-vms"></a>Vue d’ensemble de la migration : SQL Server vers SQL Server sur les machines virtuelles Azure
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
@@ -127,6 +127,20 @@ Ces services comprennent :
 
 Lorsque vous vous préparez à migrer des bases de données SQL Server vers SQL Server sur les machines virtuelles Azure, veillez à prendre en compte les versions de SQL Server qui sont prises en charge. Pour obtenir la liste des versions de SQL Server actuellement prises en charge sur les machines virtuelles Azure, consultez [SQL Server sur les machines virtuelles Azure](../../virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-server-vms).
 
+## <a name="migration-assets"></a>Ressources de migration 
+
+Pour obtenir une aide supplémentaire, consultez les ressources suivantes qui ont été développées pour des projets de migration concrets.
+
+|Asset  |Description  |
+|---------|---------|
+|[Outil et modèle d’évaluation d’une charge de travail de données](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Data%20Workload%20Assessment%20Model%20and%20Tool)| Cet outil fournit les plateformes cibles, la préparation du cloud et le niveau de correction des applications/bases de données « les mieux adaptés » pour une charge de travail donnée. Il propose une génération de rapports et des calculs simples en un clic qui permettent d’accélérer les évaluations d’un vaste domaine en fournissant un processus de décision de plateforme cible automatisé et uniforme.|
+|[Automatisation de la collecte des données perfmon à l’aide de Logman](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Perfmon%20Data%20Collection%20Automation%20Using%20Logman)|Outil qui collecte les données perfmon pour comprendre le niveau de performance de la ligne de base et qui contribue à la recommandation de la cible de migration. Cet outil se sert de logman.exe pour créer la commande qui va créer, démarrer, arrêter et supprimer les compteurs de performances définis sur un serveur SQL distant.|
+|[Déploiement SQL Server dans Azure](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/SQL%20Server%20Deployment%20in%20Azure%20.pdf)|Ce livre blanc répertorie les différentes options permettant de déplacer vos charges de travail SQL Server vers Azure, notamment des considérations relatives à la comparaison des fonctionnalités, à la haute disponibilité et à la sauvegarde/au stockage. |
+|[SQL Server en local sur une machine virtuelle Azure](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/OnPremise%20SQL%20Server%20to%20Azure%20VM.pdf)|Ce livre blanc décrit les étapes de sauvegarde et de restauration de bases de données d’un serveur SQL Server local vers SQL Server sur une machine virtuelle Azure à l’aide d’exemples de scripts.|
+|[Multiple-SQL-VM-VNet-ILB](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/ARM%20Templates/Multiple-SQL-VM-VNet-ILB)|Ce livre blanc décrit les étapes à suivre pour configurer plusieurs machines virtuelles Azure dans une configuration de groupe de disponibilité Always On SQL Server.|
+|[Machines virtuelles Azure prenant en charge les disques SSD Ultra par région](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Find%20Azure%20VMs%20supporting%20Ultra%20SSD)|Ces scripts PowerShell fournissent une option de programmation permettant de récupérer la liste des régions qui prennent en charge les machines virtuelles Azure prenant en charge les disques SSD Ultra.|
+
+Ces ressources ont été développées dans le cadre du programme Data SQL Ninja, qui est sponsorisé par l’équipe d’ingénierie Groupe de données Azure. La charte fondamentale du programme Data SQL Ninja a pour objet d’initier et d’accélérer une modernisation complexe et de faire face aux opportunités de migration de plateforme de données vers la plateforme de données Azure de Microsoft. Si vous pensez que votre organisation aimerait participer au programme Data SQL Ninja, contactez votre équipe en charge des compte et demandez-lui de soumettre une candidature.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

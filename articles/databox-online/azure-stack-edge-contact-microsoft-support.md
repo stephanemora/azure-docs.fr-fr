@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/11/2019
+ms.date: 12/17/2020
 ms.author: alkohli
-ms.openlocfilehash: dbdd4c7d23f56618c0e76649abe4faad86c5804c
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: a457c2816d4075190a2174339f7e52a2ea41730a
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743299"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97696026"
 ---
 # <a name="open-a-support-ticket-for-azure-stack-edge-pro-and-azure-data-box-gateway"></a>Ouvrir un ticket de support pour Azure Stack Edge Pro et Azure Data Box Gateway
 
@@ -24,7 +24,7 @@ Cet article s’applique aux services Azure Stack Edge Pro et Azure Data Box 
 
 ## <a name="create-a-support-request"></a>Création d’une demande de support
 
-Procédez comme suit pour créer une demande de support.
+Procédez comme suit pour créer une demande de support :
 
 1. Accédez à votre commande Azure Stack Edge Pro ou Data Box Gateway. Accédez à la section **Support + dépannage**, puis cliquez sur **Nouvelle demande de support**.
 
@@ -73,12 +73,12 @@ Ces informations ne s'appliquent qu'à l’appareil Azure Stack. Le processus de
 
     Une fois votre ticket de support créé, un ingénieur de support vous contactera dès que possible pour traiter votre demande.
 
-2. Si le support Microsoft détermine qu'il s'agit d'un problème matériel, l'une des actions suivantes se produit :
+2. Si le Support Microsoft détermine qu’il s’agit d’un problème matériel, l’une des actions suivantes se produit :
 
-    * Une unité de remplacement de champ (FRU) pour la pièce défectueuse est envoyée. Actuellement, les blocs d’alimentation et les disques durs sont les seules unités remplaçables sur site (FRU) prises en charge.
+    * Une unité de remplacement de champ (FRU) pour la pièce défectueuse est envoyée. Actuellement, les blocs d’alimentation et les disques durs SSD sont les seules unités remplaçables sur site (FRU) prises en charge.
     * Seules les unités remplaçables sur site sont remplacées le jour ouvrable suivant, tout le reste nécessite le remplacement complet du système (FSR).
 
-3. Si un ticket de support est envoyé avant 16h30, heure locale (du lundi au vendredi), un technicien est dépêché sur place le jour ouvrable pour procéder à un remplacement de la FRU ou à un remplacement complet du système.
+3. Si un ticket de support est envoyé avant 16h30, heure locale (du lundi au vendredi), un technicien est dépêché sur place le jour ouvrable pour procéder à un remplacement de la FRU. Un remplacement complet du système prend généralement plus de temps, car les pièces sont expédiées à partir de notre usine et peuvent faire l’objet de retards de transport et de douane.
 
 ## <a name="manage-a-support-request"></a>Gérer une demande de support
 

@@ -6,14 +6,14 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 12/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: 9763a0ac3cba15dcfd66b8fad83230e2b0eb356b
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 7239c2e3cb42cb17b01904e8fc226ae2408dbb47
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96491670"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617423"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Partitionnement personnalisé de sortie BLOB dans Azure Stream Analytics
 
@@ -25,7 +25,13 @@ Des champs ou attributs d’entrée personnalisés améliorent en aval le traite
 
 ### <a name="partition-key-options"></a>Options de clé de partition
 
-La clé de partition ou le nom de colonne utilisés pour partitionner des données d’entrée peuvent contenir des caractères alphanumériques avec des traits d’union, des traits de soulignement et des espaces. Il n’est pas possible d’utiliser des champs imbriqués en tant que clé de partition, sauf conjointement avec des alias. La clé de partition doit être de type NVARCHAR (MAX), BIGINT, FLOAT ou BIT (niveau de compatibilité 1.2 ou supérieur). Pour plus d’informations, consultez [Types de données Azure Stream Analytics](/stream-analytics-query/data-types-azure-stream-analytics).
+La clé de partition, ou nom de colonne, utilisée pour partitionner les données d’entrée peut contenir n’importe quel caractère accepté pour les [noms d’objets blob](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata). Il n’est pas possible d’utiliser des champs imbriqués comme clé de partition, sauf s’ils sont utilisés conjointement à des alias, mais vous pouvez utiliser certains caractères pour créer une hiérarchie de fichiers. Par exemple, vous pouvez utiliser la requête suivante pour créer une colonne qui combine des données de deux autres colonnes afin de créer une clé de partition unique.
+
+```sql
+SELECT name, id, CONCAT(name, "/", id) AS nameid
+```
+
+La clé de partition doit être de type NVARCHAR (MAX), BIGINT, FLOAT ou BIT (niveau de compatibilité 1.2 ou supérieur). Les types DateTime, Array et Records ne sont pas pris en charge, mais peuvent être utilisés comme clés de partition s’ils sont convertis en chaînes. Pour plus d’informations, consultez [Types de données Azure Stream Analytics](/stream-analytics-query/data-types-azure-stream-analytics).
 
 ### <a name="example"></a>Exemple
 
