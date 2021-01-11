@@ -109,7 +109,7 @@
     - name: Compréhension de la tarification
       href: understanding-pricing.md
     - name: Questions fréquentes (FAQ)
-      href: application-gateway-faq.md
+      href: application-gateway-faq.yml
 - name: Guides pratiques
   items:
     - name: Héberger un seul site
