@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 10/01/2020
 ms.author: ccompy
-ms.openlocfilehash: 93b92da999c15255f543abca346fc2bf8840006c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0b93111357cf0d6e57eeb5495d50bd18a15dca77
+ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95999430"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97812796"
 ---
 * Les systèmes multilocataires qui prennent en charge l’ensemble des plans de tarification, excepté « Isolé ».
 * La fonctionnalité App Service Environment qui opère un déploiement dans votre réseau virtuel et prend en charge les applications à plan tarifaire Isolé.
@@ -33,7 +33,7 @@ L’intégration au réseau virtuel ne prend pas en charge certaines choses, not
 * Intégration d’Active Directory.
 * NetBIOS.
 
-L’intégration au réseau virtuel avec passerelle obligatoire fournit un accès aux ressources uniquement du réseau virtuel cible, ou des réseaux connectés au réseau virtuel cible avec un peering ou des réseaux privés virtuels. L’intégration au réseau virtuel avec passerelle obligatoire n’autorise pas l’accès aux ressources disponibles sur les connexions ExpressRoute Azure ou fonctionne avec des points de terminaison de service.
+L’intégration au réseau virtuel avec passerelle obligatoire fournit un accès aux ressources uniquement du réseau virtuel cible, ou des réseaux connectés au réseau virtuel cible avec un peering ou des réseaux privés virtuels. L’intégration au réseau virtuel avec passerelle obligatoire n’autorise pas l’accès aux ressources disponibles sur les connexions Azure ExpressRoute ni ne fonctionne avec des points de terminaison de service.
 
 Quelle que soit la version utilisée, l’intégration au réseau virtuel permet à votre application d’accéder aux ressources de votre réseau virtuel, mais n’accorde pas d’accès privé entrant à votre application à partir du réseau virtuel. L’accès à un site privé fait référence au fait de rendre votre application accessible uniquement à partir d’un réseau privé tel qu’un réseau virtuel Azure. L'intégration au réseau virtuel sert uniquement à passer des appels sortants de votre application vers votre réseau virtuel.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2019
 ms.author: kumud
-ms.openlocfilehash: fc60ca462a2891cc022847e056e32239f2675f70
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: fd154ec40ed4d1650e44a67fd5d362a2bc0c519d
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93094572"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97813936"
 ---
 # <a name="quickstart-create-and-configure-azure-ddos-protection-standard"></a>Démarrage rapide : Créer et configurer Azure DDoS Protection Standard
 
@@ -40,7 +40,7 @@ Dans ce démarrage rapide, vous allez créer un plan de protection DDoS et le li
 1. Sélectionnez **Créer une ressource** en haut à gauche du portail Azure.
 2. Recherchez le terme *DDoS*. Lorsque **Plan de protection DDoS** apparaît dans les résultats de la recherche, sélectionnez cette entrée.
 3. Sélectionnez **Create** (Créer).
-4. Entrez ou sélectionnez les valeurs suivantes, puis sélectionnez **Créer**  :
+4. Entrez ou sélectionnez les valeurs suivantes, puis sélectionnez **Créer** :
 
     |Paramètre        |Valeur                                              |
     |---------      |---------                                          |
@@ -54,14 +54,14 @@ Dans ce démarrage rapide, vous allez créer un plan de protection DDoS et le li
 ### <a name="enable-ddos-protection-for-a-new-virtual-network"></a>Activer la protection DDoS pour un nouveau réseau virtuel
 
 1. Sélectionnez **Créer une ressource** en haut à gauche du portail Azure.
-2. Sélectionnez **Mise en réseau** , puis **Réseau virtuel**.
-3. Entrez ou sélectionnez les valeurs suivantes, acceptez les autres valeurs par défaut, puis sélectionnez **Créer**  :
+2. Sélectionnez **Mise en réseau**, puis **Réseau virtuel**.
+3. Entrez ou sélectionnez les valeurs suivantes, acceptez les autres valeurs par défaut, puis sélectionnez **Créer** :
 
     | Paramètre         | Valeur                                           |
     | ---------       | ---------                                       |
     | Nom            | Entrez _MyVnet_.                                 |
     | Abonnement    | Sélectionnez votre abonnement.                                    |
-    | Resource group  | Sélectionnez **Utiliser l’existant** , puis **MyResourceGroup**. |
+    | Resource group  | Sélectionnez **Utiliser l’existant**, puis **MyResourceGroup**. |
     | Emplacement        | Entrez _USA Est_.                                                    |
     | DDoS Protection Standard | Sélectionnez **Activer**. Le plan que vous sélectionnez peut se trouver dans le même abonnement que le réseau virtuel, ou dans un abonnement différent, mais les deux abonnements doivent être associés au même locataire Azure Active Directory.|
 
@@ -72,8 +72,12 @@ Vous ne pouvez pas déplacer un réseau virtuel vers un autre groupe de ressourc
 1. Créez un plan de protection DDoS en effectuant les étapes décrites dans [Créer un plan de protection DDoS](#create-a-ddos-protection-plan), si vous n’avez pas de plan de protection DDoS.
 2. Sélectionnez **Créer une ressource** en haut à gauche du portail Azure.
 3. Entrez le nom du réseau virtuel pour lequel vous souhaitez activer le service DDoS Protection Standard dans la zone **Rechercher dans les ressources, les services et les documents** en haut du portail. Quand le nom du réseau virtuel apparaît dans les résultats de la recherche, sélectionnez-le.
-4. Sélectionnez **Protection DDoS** , sous **PARAMÈTRES**.
-5. Sélectionnez **Standard**. Sous **Plan de protection DDoS** , sélectionnez un plan de protection DDoS existant, ou le plan que vous avez créé à l’étape 1, puis sélectionnez **Enregistrer**. Le plan que vous sélectionnez peut se trouver dans le même abonnement que le réseau virtuel, ou dans un abonnement différent, mais les deux abonnements doivent être associés au même locataire Azure Active Directory.
+4. Sélectionnez **Protection DDoS**, sous **PARAMÈTRES**.
+5. Sélectionnez **Standard**. Sous **Plan de protection DDoS**, sélectionnez un plan de protection DDoS existant, ou le plan que vous avez créé à l’étape 1, puis sélectionnez **Enregistrer**. Le plan que vous sélectionnez peut se trouver dans le même abonnement que le réseau virtuel, ou dans un abonnement différent, mais les deux abonnements doivent être associés au même locataire Azure Active Directory.
+
+### <a name="enable-ddos-protection-for-all-virtual-networks"></a>Activer la protection DDoS pour tous les réseaux virtuels
+
+Cette [stratégie](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/Policy%20-%20Virtual%20Networks%20should%20be%20associated%20with%20an%20Azure%20DDoS%20Protection%20Standard%20plan) détecte tous les réseaux virtuels dans une étendue définie pour lesquels Azure DDoS Protection standard n’est pas activé, puis crée éventuellement une tâche de correction qui crée l’association pour protéger le réseau virtuel. Pour obtenir des instructions pas à pas détaillées sur le déploiement de cette stratégie, consultez https://aka.ms/ddosvnetpolicy-techcommunity.
 
 ## <a name="validate-and-test"></a>Valider et tester
 
@@ -103,7 +107,7 @@ Vous pouvez conserver vos ressources pour le tutoriel suivant. Si vous n’en av
 Pour désactiver la protection DDoS pour un réseau virtuel : 
 
 1. Entrez le nom du réseau virtuel pour lequel vous souhaitez désactiver le service DDoS Protection Standard dans la zone **Rechercher dans les ressources, les services et les documents** en haut du portail. Quand le nom du réseau virtuel apparaît dans les résultats de la recherche, sélectionnez-le.
-2. Sélectionnez **Sous protection DDoS standard** , puis **Désactiver**.
+2. Sélectionnez **Sous protection DDoS standard**, puis **Désactiver**.
 
 Si vous souhaitez supprimer un plan de protection DDoS, vous devez d’abord dissocier tous les réseaux virtuels de celui-ci. 
 
@@ -112,4 +116,4 @@ Si vous souhaitez supprimer un plan de protection DDoS, vous devez d’abord dis
 Pour savoir comment consulter et configurer la télémétrie pour votre plan de protection DDoS, passez aux tutoriels.
 
 > [!div class="nextstepaction"]
-> [Consulter et configurer la télémétrie de la protection DDoS](telemetry-monitoring-alerting.md)
+> [Consulter et configurer la télémétrie de la protection DDoS](telemetry.md)

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 11/21/2019
+ms.date: 12/17/2020
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8633ae0d23650eb12ee2e1fdcd355864dfd8b6c3
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: bfff8d450a6506cb37730838e4f70609080ca7b1
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743630"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97670789"
 ---
 # <a name="authentication-methods-usage--insights-preview"></a>Utilisation de méthodes d’authentification et informations (préversion)
 
@@ -31,7 +31,7 @@ Les rôles suivants peuvent accéder à l’utilisation et aux informations :
 - Security Administrator
 - Lecteur de rapports
 
-Aucune licence supplémentaire n’est nécessaire pour l’utilisation de l’utilisation et des informations. Les informations de licence relatives à Azure AD Multi-Factor Authentication et à la réinitialisation de mot de passe en libre-service sont disponibles sur le [Site de tarification d'Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+ Une licence Azure AD Premium P1 ou P2 est nécessaire pour accéder à l’utilisation et aux informations. Les informations de licence relatives à Azure AD Multi-Factor Authentication et à la réinitialisation de mot de passe en libre-service sont disponibles sur le [Site de tarification d'Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="how-it-works"></a>Fonctionnement
 

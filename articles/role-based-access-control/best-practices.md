@@ -7,14 +7,14 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/30/2020
+ms.date: 12/16/2020
 ms.author: rolyon
-ms.openlocfilehash: 4cb3e1fe0275c676e2ce54ff9201502fc3595937
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: 00fd00112dad9efc31cea83f69bb458a8e1ca935
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91595486"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617372"
 ---
 # <a name="best-practices-for-azure-rbac"></a>Meilleures pratiques pour Azure RBAC
 
@@ -24,7 +24,7 @@ Cet article décrit quelques-unes des meilleures pratiques d'utilisation du cont
 
 Avec Azure RBAC, vous pouvez séparer les tâches au sein de votre équipe et accorder aux utilisateurs uniquement les accès nécessaires pour accomplir leur travail. Plutôt que de donner à tous des autorisations illimitées au sein de votre abonnement ou de vos ressources Azure, vous pouvez autoriser uniquement certaines actions sur une étendue donnée.
 
-Lorsque vous planifiez votre stratégie de contrôle d’accès, vous pouvez accorder aux utilisateurs les privilèges minimaux pour effectuer leur travail. Évitez d’attribuer des rôles plus larges à des étendues plus importantes, même s’ils semblent plus pratiques dans un premier temps. En limitant les rôles et les étendues, vous limitez les ressources menacées si le principal de sécurité est compromis.
+Lorsque vous planifiez votre stratégie de contrôle d’accès, vous pouvez accorder aux utilisateurs les privilèges minimaux pour effectuer leur travail. Évitez d’attribuer des rôles plus larges à des étendues plus importantes, même s’ils semblent plus pratiques dans un premier temps. Lorsque vous créez des rôles personnalisés, incluez uniquement les autorisations dont les utilisateurs ont besoin. En limitant les rôles et les étendues, vous limitez les ressources menacées en cas de compromission du principal de sécurité.
 
 Le diagramme suivant illustre un modèle suggéré pour l’utilisation d’Azure RBAC.
 

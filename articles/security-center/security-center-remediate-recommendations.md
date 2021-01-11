@@ -1,6 +1,6 @@
 ---
 title: Appliquer des recommandations dans Azure Security Center | Microsoft Docs
-description: Ce article explique comment appliquer les recommandations d’Azure Security Center pour protéger vos ressources et être conforme avec les stratégies de sécurité.
+description: Ce article explique comment appliquer les recommandations d’Azure Security Center pour protéger vos ressources et respecter les stratégies de sécurité.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/08/2020
 ms.author: memildin
-ms.openlocfilehash: 3d4b968d0d5e091d72cf718d58b11ade68ddf8c6
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: dabd7e9e2c3c74225efc4611c7ad3523a6c76ba5
+ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94637084"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97807988"
 ---
 # <a name="remediate-recommendations-in-azure-security-center"></a>Appliquer les recommandations d’Azure Security Center
 
@@ -26,41 +26,41 @@ Les recommandations fournissent des suggestions visant à mieux sécuriser vos r
 
 ## <a name="remediation-steps"></a>Étapes de correction <a name="remediation-steps"></a>
 
-Après avoir lu toutes les recommandations, vous devez décider laquelle appliquer en premier. Nous vous recommandons de vous baser sur l’[impact du niveau de sécurité](security-center-recommendations.md#monitor-recommendations) pour hiérarchiser les actions à effectuer en priorité.
+Après avoir lu toutes les recommandations, vous devez décider laquelle appliquer en premier. Nous vous recommandons de traiter en priorité les contrôles de sécurité qui sont le plus susceptibles d’augmenter votre degré de sécurisation.
 
-1. Dans la liste, cliquez sur la recommandation.
+1. Sélectionnez une recommandation dans la liste.
 
 1. Suivez les instructions dans la section **Étapes de correction**. Chaque recommandation comprend un ensemble d’instructions. La capture d’écran suivante montre les étapes de correction permettant de configurer les applications de manière à autoriser uniquement le trafic via HTTPS.
 
-    ![Détails de la recommandation](./media/security-center-remediate-recommendations/security-center-remediate-recommendation.png)
+    :::image type="content" source="./media/security-center-remediate-recommendations/security-center-remediate-recommendation.png" alt-text="Étapes de correction manuelle pour une recommandation" lightbox="./media/security-center-remediate-recommendations/security-center-remediate-recommendation.png":::
 
-1. Une fois l’opération terminée, une notification s’affiche pour vous informer si la mise à jour a réussi.
+1. Une fois l’opération terminée, une notification vous indique si le problème est résolu.
 
-## <a name="quick-fix-remediation"></a>Application d’un correctif rapide<a name="one-click"></a>
+## <a name="quick-fix-remediation"></a>Application d’un correctif rapide
 
-Le correctif rapide simplifie le processus de correction et vous permet d’accroître rapidement votre niveau de sécurité, ce qui entraîne ainsi une amélioration de la sécurité de votre environnement.
+Pour simplifier la correction et améliorer la sécurité de votre environnement (et ainsi votre degré de sécurisation), de nombreuses recommandations comportent une option de correctif rapide.
 
-Le correctif rapide vous permet d’appliquer rapidement une recommandation à plusieurs ressources. 
+Le correctif rapide vous permet d’appliquer rapidement une recommandation à plusieurs ressources.
 
 > [!TIP]
-> Le correctif rapide est disponible uniquement pour des recommandations spécifiques. Pour trouver les recommandations incluant l’option de correctif rapide, utilisez le filtre dédié en haut de la liste des recommandations :
+> Les solutions de correctif rapide sont disponibles uniquement pour des recommandations spécifiques. Pour connaître les recommandations concernées, utilisez le filtre **Actions de réponse** dans la liste des recommandations :
 > 
 > :::image type="content" source="media/security-center-remediate-recommendations/quick-fix-filter.png" alt-text="Utilisez les filtres au-dessus de la liste des recommandations pour rechercher des recommandations incluant l’option correctif rapide":::
 
-Pour mettre en œuvre une application rapide des correctifs :
+Pour mettre en œuvre une solution de correctif rapide :
 
-1. Dans la liste des recommandations qui ont l’étiquette **Correctif rapide !** , cliquez sur la recommandation.
+1. Dans la liste des recommandations qui ont l’étiquette **Correctif rapide !** , sélectionnez une recommandation.
 
-    [![Sélectionnez Correctif rapide !](media/security-center-remediate-recommendations/security-center-one-click-fix-select.png)](media/security-center-remediate-recommendations/security-center-one-click-fix-select.png#lightbox)
+    [![Sélectionnez Correctif rapide !](media/security-center-remediate-recommendations/security-center-quick-fix-select.png)](media/security-center-remediate-recommendations/security-center-quick-fix-select.png#lightbox)
 
-1. Sous l’onglet **Ressources défectueuses**, sélectionnez les ressources auxquelles vous souhaitez implémenter la recommandation, puis cliquez sur **Corriger**.
+1. Sous l’onglet **Ressources défectueuses**, sélectionnez les ressources auxquelles vous souhaitez implémenter la recommandation, puis sélectionnez **Corriger**.
 
     > [!NOTE]
     > Certaines des ressources listées peuvent être désactivées, ce qui est le cas si vous n’avez pas les autorisations appropriées pour les modifier.
 
 1. Dans la zone de confirmation, lisez les détails et les implications de la correction.
 
-    ![Correctif rapide](./media/security-center-remediate-recommendations/security-center-one-click-fix-view.png)
+    ![Correctif rapide](./media/security-center-remediate-recommendations/security-center-quick-fix-view.png)
 
     > [!NOTE]
     > Les implications sont listées dans la zone grise de la fenêtre **Corriger les ressources** qui s’ouvre après que vous avez cliqué sur **Corriger**. Elles indiquent les changements apportés si vous implémentez le correctif rapide.
@@ -79,7 +79,7 @@ L’opération de correction applique la configuration à la ressource à l’ai
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Ce document vous a montré comment appliquer les recommandations fournies par Security Center. Pour plus d’informations sur Security Center, consultez les rubriques suivantes :
+Ce document vous a montré comment appliquer les recommandations fournies par Security Center. Pour plus d’informations sur Security Center, consultez les pages suivantes :
 
 * [Définition des stratégies de sécurité dans Azure Security Center](tutorial-security-policy.md) : découvrez comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure.
 * [Surveillance de l’intégrité de la sécurité dans Azure Security Center](security-center-monitoring.md) : découvrez comment surveiller l’intégrité de vos ressources Azure.

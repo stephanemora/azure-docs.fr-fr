@@ -1,18 +1,18 @@
 ---
 title: Inscrire et analyser un locataire Power BI (préversion)
 description: Découvrez comment inscrire et analyser un locataire Power BI à l’aide du portail Azure Purview.
-author: viseshag
-ms.author: viseshag
+author: chanuengg
+ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/19/2020
-ms.openlocfilehash: 1f08bfd6b7c0439dd08a3091b5ea927781af9b84
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: 3d8107e980b9cad9bc55cb51cc78b63985986ba5
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97387579"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97696236"
 ---
 # <a name="register-and-scan-a-power-bi-tenant-preview"></a>Inscrire et analyser un locataire Power BI (préversion)
 
@@ -50,6 +50,7 @@ Pour configurer l’authentification, créez un groupe de sécurité et ajoutez-
 ## <a name="associate-the-security-group-with-the-tenant"></a>Associer le groupe de sécurité au locataire
 
 1. Connectez-vous au [portail d’administration Power BI](https://app.powerbi.com/admin-portal/tenantSettings).
+1. Sélectionnez la page **Paramètres du locataire**.
 
     > [!Important]
     > Vous devez être Administrateur Power BI pour voir la page des paramètres du locataire.
@@ -70,8 +71,6 @@ Pour configurer l’authentification, créez un groupe de sécurité et ajoutez-
 Maintenant que vous avez accordé au catalogue les autorisations nécessaires pour se connecter à l’API d’administration de votre locataire Power BI, vous pouvez configurer votre analyse à partir du portail du catalogue.
 
 Tout d’abord, ajoutez un indicateur de fonctionnalité spécial à votre URL Purview. 
-
-1. Ajoutez la chaîne suivante à la fin de l’URI de votre instance Purview : `?feature.ext.catalog={"pbi":"true"}`. Cela active l’option d’inscription Power BI dans votre catalogue.
 
 1. Sélectionnez l’icône **Centre de gestion**.
 
@@ -111,6 +110,5 @@ Tout d’abord, ajoutez un indicateur de fonctionnalité spécial à votre URL P
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour découvrir comment inscrire et analyser un locataire Power BI à l’aide d’applets de commande PowerShell, consultez :
-  
-- [Utiliser PowerShell pour inscrire et analyser Power BI](powershell-register-scan-power-bi.md)
+- [Navigation dans le catalogue de données Azure Purview](how-to-browse-catalog.md)
+- [Recherche dans le catalogue de données Azure Purview](how-to-search-catalog.md)

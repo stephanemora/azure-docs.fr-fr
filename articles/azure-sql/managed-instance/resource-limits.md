@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, jovanpop, sachinp
 ms.date: 09/14/2020
-ms.openlocfilehash: 47c837e7a2ee859c7805d6b2e11058bcc02e6c22
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 9a96da607ceea5a6d5cb6ef02df5a9a4db24562e
+ms.sourcegitcommit: e8bd58dbcfe0eae45979d86e071778b9aec40b6c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400571"
+ms.lasthandoff: 12/25/2020
+ms.locfileid: "97770959"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Vue d’ensemble des limites de ressources Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -84,7 +84,7 @@ SQL Managed Instance a deux niveaux de service : [Usage général](../database/
 | Nombre maximal de sessions | 30000 | 30000 |
 | Nombre maximal d’ouvriers simultanés (demandes) | Gen4 : 210 * nombre de vCores + 800<br>Gen5 : 105 * nombre de vCores + 800 | Gen4 : 210 * nombre de vCores + 800<br>Gen5 : 105 * nombre de vCores + 800 |
 | [Réplicas en lecture seule](../database/read-scale-out.md) | 0 | 1 (inclus dans le prix) |
-| Isolation du calcul | Gen5 :<br/>\- Pris en charge pour 80 vCores<br/>\- Non pris en charge pour les autres tailles<br/><br/>Gen4 n’est pas pris en charge en raison d’une dépréciation|Gen5 :<br/>\- Pris en charge pour 60, 64, 80 vCores<br/>\- Non pris en charge pour les autres tailles<br/><br/>Gen4 n’est pas pris en charge en raison d’une dépréciation|
+| Isolation du calcul | Gen5 n’est pas pris en charge, car des instances à usage général peuvent partager du matériel physique avec d’autres instances<br/>Gen4 n’est pas pris en charge en raison d’une dépréciation|Gen5 :<br/>\- Pris en charge pour 40, 64, 80 vCores<br/>\- Non pris en charge pour les autres tailles<br/><br/>Gen4 n’est pas pris en charge en raison d’une dépréciation|
 
 
 Quelques considérations supplémentaires : 
@@ -150,7 +150,7 @@ Le tableau suivant montre les **limites régionales par défaut** pour les types
 |Visual Studio Enterprise|2 |64|
 |Visual Studio Professional et plateformes MSDN|2|32|
 
-\* Lors de la planification de déploiements, prenez en considération le fait que le niveau de service critique pour l’entreprise (BC) requiert quatre (4) fois plus de capacité vCore que le niveau de service usage général (GP). Par exemple : 1 GP vCore = 1 unité vCore et 1 BC vCore = 4 unités vCore. Pour simplifier votre analyse de la consommation par rapport aux limites par défaut, récapitulez les unités vCore de tous les sous-réseaux de la région où SQL Managed Instance est déployé et comparez les résultats avec les limites d’unités d’instance pour votre type d’abonnement. La limite **Nombre maximal d’unités de vCore** s’applique à chaque abonnement dans une région. Il n’y a pas de limite par sous-réseau individuel sauf que la somme de tous les vCores déployés sur plusieurs sous-réseaux doit être inférieure ou égale à **nombre maximum d’unités vCore**.
+\* Lors de la planification de déploiements, prenez en considération le fait que le niveau de service critique pour l’entreprise (BC) requiert quatre (4) fois plus de capacité vCore que le niveau de service usage général (GP). Exemple : 1 vCore GP = 1 unité vCore et 1 vCore BC = 4 vCore. Pour simplifier votre analyse de la consommation par rapport aux limites par défaut, récapitulez les unités vCore de tous les sous-réseaux de la région où SQL Managed Instance est déployé et comparez les résultats avec les limites d’unités d’instance pour votre type d’abonnement. La limite **Nombre maximal d’unités de vCore** s’applique à chaque abonnement dans une région. Il n’y a pas de limite par sous-réseau individuel sauf que la somme de tous les vCores déployés sur plusieurs sous-réseaux doit être inférieure ou égale à **nombre maximum d’unités vCore**.
 
 \*\* Des limites de sous-réseau et de vCore plus importantes s’appliquent dans les régions suivantes : Australie Est, USA Est, USA Est 2, Europe Nord, USA Centre Sud, Asie Sud-Est, Royaume-Uni Sud, Europe Ouest, USA Ouest 2.
 

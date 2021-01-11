@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 0bbf70016dc9b93120b3158e8954c336095ea211
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 0d1cbb8efe0882f48a345d44a650eb711a44d570
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832685"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739183"
 ---
 # <a name="create-an-azure-machine-learning-compute-cluster"></a>Créer un cluster de calcul Azure Machine Learning
 
@@ -211,6 +211,14 @@ Consultez [Configurer une identité managée dans le studio](how-to-create-attac
 ### <a name="managed-identity-usage"></a>Utilisation de l’identité managée
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-managed-identity-default.md)]
+
+## <a name="troubleshooting"></a>Résolution des problèmes
+
+Il peut arriver que des utilisateurs ayant créé leur espace de travail Azure Machine Learning sur le portail Azure avant la disponibilité générale ne puissent pas créer de capacité AmlCompute dans cet espace de travail. Vous pouvez créer une demande de support auprès du service ou créer un espace de travail sur le Portail ou avec le Kit de développement logiciel (SDK) pour vous débloquer sans délai.
+
+Si votre cluster de calcul Azure Machine Learning semble bloqué au niveau du redimensionnement (0 -> 0) pour l’état du nœud, cela peut être dû à des verrous de ressources Azure.
+
+[!INCLUDE [resource locks](../../includes/machine-learning-resource-lock.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

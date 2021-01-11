@@ -8,18 +8,18 @@ ms.workload: infrastructure
 ms.topic: troubleshooting
 ms.date: 09/04/2020
 ms.author: deanwe
-ms.openlocfilehash: 89ad5c2b973a74bc9fa0f6ca2f59f92a26b666e7
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 2b15389ae35a63c71ac4cb9e167e578e7e1e690e
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92891458"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695778"
 ---
 # <a name="frequently-asked-questions-for-azure-automanage-for-vms"></a>Forum aux questions sur Azure Automanage pour machines virtuelles
 
 Cet article fournit des réponses à certaines des questions les plus courantes sur [Azure Automanage pour machines virtuelles](automanage-virtual-machines.md).
 
-Si le problème lié à Azure n’est pas traité dans cet article, parcourez les forums Azure sur [MSDN et Stack Overflow](https://azure.microsoft.com/support/forums/). Vous pouvez publier votre problème sur ces forums ou [@AzureSupport sur Twitter](https://twitter.com/AzureSupport). Vous pouvez également soumettre une demande de support Azure. Pour soumettre une demande de support, sur la [page de support Azure](https://azure.microsoft.com/support/options/), sélectionnez **Obtenir de l’aide** .
+Si le problème lié à Azure n’est pas traité dans cet article, parcourez les forums Azure sur [MSDN et Stack Overflow](https://azure.microsoft.com/support/forums/). Vous pouvez publier votre problème sur ces forums ou [@AzureSupport sur Twitter](https://twitter.com/AzureSupport). Vous pouvez également soumettre une demande de support Azure. Pour soumettre une demande de support, sur la [page de support Azure](https://azure.microsoft.com/support/options/), sélectionnez **Obtenir de l’aide**.
 
 
 ## <a name="azure-automanage-for-virtual-machines"></a>Azure Automanage pour machines virtuelles
@@ -43,7 +43,7 @@ Si vous utilisez un nouveau compte Automanage lors de l’activation, vous devez
 
 **Quelles sont les régions prises en charge ?**
 
-Les machines virtuelles prises en charge sont situées dans les régions suivantes : Europe Ouest, USA Est, USA Ouest 2, Canada Centre, USA Centre-Ouest.
+Les machines virtuelles prises en charge sont situées dans les régions suivantes : Europe Ouest, USA Est, USA Ouest 2, Canada Centre, USA Centre-Ouest, Japon Est.
 
 
 **Quelles sont les fonctionnalités qu’Azure Automanage automatise ?**
@@ -105,11 +105,11 @@ Non, Automanage ne va pas la reconfigurer. Nous allons commencer à surveiller l
 
 **Pourquoi l’état de ma machine virtuelle est-il Échec dans le portail Automanage ?**
 
-Si vous voyez l’état *Échec* , vous pouvez résoudre des problèmes de déploiement via le groupe de ressources dans lequel se trouve votre machine virtuelle. Accédez à **Groupes de ressources** , sélectionnez votre groupe de ressources, cliquez sur **Déploiements** , puis consultez l’état *Échec* contenant tous les détails de l’erreur.
+Si vous voyez l’état *Échec*, vous pouvez résoudre des problèmes de déploiement via le groupe de ressources dans lequel se trouve votre machine virtuelle. Accédez à **Groupes de ressources**, sélectionnez votre groupe de ressources, cliquez sur **Déploiements**, puis consultez l’état *Échec* contenant tous les détails de l’erreur.
 
 **Comment puis-je obtenir une assistance pour la résolution des problèmes en lien avec Automanage ?**
 
-Vous pouvez créer un [ticket de cas de support technique](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Pour l’option **Service** , recherchez et sélectionnez *Automanage* dans la section *Surveillance et gestion* .
+Vous pouvez créer un [ticket de cas de support technique](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Pour l’option **Service**, recherchez et sélectionnez *Automanage* dans la section *Surveillance et gestion*.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

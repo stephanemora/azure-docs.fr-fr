@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 12/05/2020
-ms.openlocfilehash: 783431c4888a68e24cf3d2603c541c4797ea65d8
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.date: 12/29/2020
+ms.openlocfilehash: 34a5dfb44ee78245b56c1774701f48b3b8a494df
+ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741097"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97827476"
 ---
 # <a name="create-an-integration-service-environment-ise-by-using-the-logic-apps-rest-api"></a>Créer un environnement de service d'intégration (ISE) à l'aide de l'API REST Logic Apps
 
@@ -69,9 +69,7 @@ Dans l’en-tête de la requête, incluez les propriétés suivantes :
 
 Dans le corps de la demande, indiquez la définition de ressource à utiliser pour créer votre ISE, y compris les informations relatives aux capacités supplémentaires que vous souhaitez activer sur votre ISE, par exemple :
 
-* Pour créer un ISE qui autorise l’utilisation d’un certificat auto-signé installé à l’emplacement `TrustedRoot`, incluez l’objet `certificates` à l’intérieur de la section `properties` de la définition d’ISE, comme le décrit cet article ultérieurement.
-
-  Pour activer cette capacité sur un ISE existant, vous pouvez envoyer une requête PATCH pour l’objet `certificates` seulement. Pour plus d’informations sur l’utilisation de certificats auto-signés, consultez [Sécuriser l’accès et les données – Accès pour les appels sortants à d’autres services et systèmes](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests).
+* Pour créer un ISE qui autorise l’utilisation d’un certificat auto-signé et d’un certificat émis par l’autorité de certification d’entreprise qui est installé à l’emplacement `TrustedRoot`, incluez l’objet `certificates` à l’intérieur de la section `properties` de la définition d’ISE, comme le décrit cet article ultérieurement.
 
 * Pour créer un ISE qui utilise une identité managée affectée par le système ou par l’utilisateur, incluez l’objet `identity` avec le type d’identité managée et d’autres informations requises dans la définition d’ISE, comme le décrit cet article ultérieurement.
 
@@ -123,7 +121,7 @@ Voici la syntaxe du corps de la requête, qui décrit les propriétés à utilis
             }
          ]
       },
-      // Include `certificates` object to enable self-signed certificate support
+      // Include `certificates` object to enable self-signed certiificate and certificate issued by Enterprise Certificate Authority
       "certificates": {
          "testCertificate": {
             "publicCertificate": "{base64-encoded-certificate}",
@@ -183,6 +181,45 @@ Cet exemple de corps de requête montre les exemples de valeurs :
             "publicCertificate": "LS0tLS1CRUdJTiBDRV...",
             "kind": "TrustedRoot"
          }
+      }
+   }
+}
+```
+## <a name="add-custom-root-certificates"></a>Ajouter des certificats racines personnalisés
+
+Vous utilisez souvent ISE pour vous connecter à des services personnalisés sur votre réseau virtuel ou localement. Ces services personnalisés sont souvent protégés par un certificat émis par une autorité de certification racine personnalisée, telle qu’une autorité de certification d’entreprise ou un certificat auto-signé. Pour plus d’informations sur l’utilisation de certificats auto-signés, consultez [Sécuriser l’accès et les données – Accès pour les appels sortants à d’autres services et systèmes](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests). Pour que votre environnement ISE se connecte correctement à ces services via le protocole TLS (Transport Layer Security), votre ISE doit accéder à ces certificats racines. Pour mettre à jour votre ISE avec un certificat racine approuvé personnalisé, effectuez cette demande `PATCH` HTTPS :
+
+`PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationServiceEnvironments/{integrationServiceEnvironmentName}?api-version=2019-05-01`
+
+Avant d’effectuer cette opération, passez en revue les considérations suivantes :
+
+* Veillez à charger le certificat racine *et* tous les certificats intermédiaires. Le nombre maximal de certificats est de 20.
+
+* Le chargement des certificats racines est une opération de remplacement dans laquelle le chargement le plus récent remplace les chargements précédents. Par exemple, si vous envoyez une requête qui charge un certificat, puis envoyez une autre demande pour charger un autre certificat, votre ISE utilise uniquement le deuxième certificat. Si vous devez utiliser les deux certificats, ajoutez-les ensemble dans la même demande.  
+
+* Le chargement des certificats racines est une opération asynchrone qui peut prendre un certain temps. Pour vérifier l’état ou le résultat, vous pouvez envoyer une demande `GET` à l’aide du même URI. Le message de réponse contient un champ `provisioningState` qui renvoie la valeur `InProgress` lorsque l’opération de chargement est encore en cours. Lorsque la valeur `provisioningState` correspond à `Succeeded`, l’opération de chargement est terminée.
+
+#### <a name="request-body-syntax-for-adding-custom-root-certificates"></a>Syntaxe du corps de la demande pour l’ajout de certificats racines personnalisés
+
+Voici la syntaxe du corps de la demande, qui décrit les propriétés à utiliser lorsque vous ajoutez des certificats racines :
+
+```json
+{
+   "id": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group}/providers/Microsoft.Logic/integrationServiceEnvironments/{ISE-name}",
+   "name": "{ISE-name}",
+   "type": "Microsoft.Logic/integrationServiceEnvironments",
+   "location": "{Azure-region}",
+   "properties": {
+      "certificates": {
+         "testCertificate1": {
+            "publicCertificate": "{base64-encoded-certificate}",
+            "kind": "TrustedRoot"
+         },
+         "testCertificate2": {
+            "publicCertificate": "{base64-encoded-certificate}",
+            "kind": "TrustedRoot"
+         }
+      }
    }
 }
 ```

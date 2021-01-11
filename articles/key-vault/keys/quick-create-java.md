@@ -1,29 +1,29 @@
 ---
-title: Démarrage rapide – Bibliothèque de client de certificats Azure Key Vault pour Java
-description: Fournit un guide de démarrage rapide pour la bibliothèque de client de certificats Azure Key Vault pour Java.
+title: Démarrage rapide - Bibliothèque de client de clés Azure Key Vault pour Java
+description: Fournit un guide de démarrage rapide pour la bibliothèque de client de clés Azure Key Vault pour Java.
 author: msmbaldwin
 ms.custom: devx-track-java, devx-track-azurecli
 ms.author: mbaldwin
-ms.date: 12/18/2020
+ms.date: 01/05/2021
 ms.service: key-vault
-ms.subservice: certificates
+ms.subservice: keys
 ms.topic: quickstart
-ms.openlocfilehash: 1890c2a3d4043d43dd890f06942dbe704e3f7689
-ms.sourcegitcommit: a89a517622a3886b3a44ed42839d41a301c786e0
+ms.openlocfilehash: cb5abf59c446ef0835375bac45d1e852144a6f28
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97733471"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935272"
 ---
-# <a name="quickstart-azure-key-vault-certificate-client-library-for-java"></a>Démarrage rapide : Bibliothèque de client de certificats Azure Key Vault pour Java
-Découvrez comment démarrer avec la bibliothèque de client de certificats Azure Key Vault pour Java. Suivez les étapes ci-dessous pour installer le package et tester un exemple de code relatif à des tâches de base.
+# <a name="quickstart-azure-key-vault-key-client-library-for-java"></a>Démarrage rapide : Bibliothèque de client de clés Azure Key Vault pour Java
+Découvrez comment démarrer avec la bibliothèque de client de clés Azure Key Vault pour Java. Suivez les étapes ci-dessous pour installer le package et tester un exemple de code relatif à des tâches de base.
 
 Ressources supplémentaires :
 
-* [Code source](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-certificates)
+* [Code source](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-keys)
 * [Documentation de référence de l’API](https://azure.github.io/azure-sdk-for-java/keyvault.html)
 * [Documentation du produit](index.yml)
-* [Exemples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-certificates/src/samples/java/com/azure/security/keyvault/certificates)
+* [Exemples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-keys/src/samples/java/com/azure/security/keyvault/keys)
 
 ## <a name="prerequisites"></a>Prérequis
 - Un abonnement Azure - [En créer un gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
@@ -50,11 +50,11 @@ Ce guide de démarrage rapide utilise la bibliothèque Azure Identity avec Azure
 2. Dans le navigateur, connectez-vous avec les informations d’identification de votre compte.
 
 ### <a name="create-a-new-java-console-app"></a>Créer une application console Java
-Dans une fenêtre de console, utilisez la commande `mvn` pour créer une application console Java nommée `akv-certificates-java`.
+Dans une fenêtre de console, utilisez la commande `mvn` pour créer une application console Java nommée `akv-keys-java`.
 
 ```console
-mvn archetype:generate -DgroupId=com.keyvault.certificates.quickstart
-                       -DartifactId=akv-certificates-java
+mvn archetype:generate -DgroupId=com.keyvault.keys.quickstart
+                       -DartifactId=akv-keys-java
                        -DarchetypeArtifactId=maven-archetype-quickstart
                        -DarchetypeVersion=1.4
                        -DinteractiveMode=false
@@ -66,16 +66,16 @@ Le résultat de la génération du projet doit ressembler à ceci :
 [INFO] ----------------------------------------------------------------------------
 [INFO] Using following parameters for creating project from Archetype: maven-archetype-quickstart:1.4
 [INFO] ----------------------------------------------------------------------------
-[INFO] Parameter: groupId, Value: com.keyvault.certificates.quickstart
-[INFO] Parameter: artifactId, Value: akv-certificates-java
+[INFO] Parameter: groupId, Value: com.keyvault.keys.quickstart
+[INFO] Parameter: artifactId, Value: akv-keys-java
 [INFO] Parameter: version, Value: 1.0-SNAPSHOT
-[INFO] Parameter: package, Value: com.keyvault.certificates.quickstart
+[INFO] Parameter: package, Value: com.keyvault.keys.quickstart
 [INFO] Parameter: packageInPathFormat, Value: com/keyvault/quickstart
-[INFO] Parameter: package, Value: com.keyvault.certificates.quickstart
-[INFO] Parameter: groupId, Value: com.keyvault.certificates.quickstart
-[INFO] Parameter: artifactId, Value: akv-certificates-java
+[INFO] Parameter: package, Value: com.keyvault.keys.quickstart
+[INFO] Parameter: groupId, Value: com.keyvault.keys.quickstart
+[INFO] Parameter: artifactId, Value: akv-keys-java
 [INFO] Parameter: version, Value: 1.0-SNAPSHOT
-[INFO] Project created from Archetype in dir: /home/user/quickstarts/akv-certificates-java
+[INFO] Project created from Archetype in dir: /home/user/quickstarts/akv-keys-java
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
@@ -84,10 +84,10 @@ Le résultat de la génération du projet doit ressembler à ceci :
 [INFO] ------------------------------------------------------------------------
 ```
 
-Changez de répertoire pour le dossier `akv-certificates-java/` créé.
+Changez de répertoire pour le dossier `akv-keys-java/` créé.
 
 ```console
-cd akv-certificates-java
+cd akv-keys-java
 ```
 
 ### <a name="install-the-package"></a>Installer le package
@@ -96,8 +96,8 @@ Ouvrez le fichier *pom.xml* dans votre éditeur de texte. Ajoutez les éléments
 ```xml
     <dependency>
       <groupId>com.azure</groupId>
-      <artifactId>azure-security-keyvault-certificates</artifactId>
-      <version>4.1.3</version>
+      <artifactId>azure-security-keyvault-keys</artifactId>
+      <version>4.2.3</version>
     </dependency>
 
     <dependency>
@@ -111,10 +111,10 @@ Ouvrez le fichier *pom.xml* dans votre éditeur de texte. Ajoutez les éléments
 [!INCLUDE [Create a resource group and key vault](../../../includes/key-vault-rg-kv-creation.md)]
 
 #### <a name="grant-access-to-your-key-vault"></a>Accorder l’accès à votre coffre de clés
-Créez une stratégie d’accès pour votre coffre de clés, qui accorde des autorisations de certificat à votre compte d’utilisateur.
+Créez une stratégie d’accès pour votre coffre de clés, qui accorde des autorisations de clé à votre compte d’utilisateur.
 
 ```console
-az keyvault set-policy --name <your-key-vault-name> --upn user@domain.com --certificate-permissions delete get list create purge
+az keyvault set-policy --name <your-key-vault-name> --upn user@domain.com --key-permissions delete get list create purge
 ```
 
 #### <a name="set-environment-variables"></a>Définir des variables d’environnement
@@ -126,7 +126,7 @@ set KEY_VAULT_NAME=<your-key-vault-name>
 ````
 Windows PowerShell
 ```powershell
-$Env:KEY_VAULT_NAME=<your-key-vault-name>
+$Env:KEY_VAULT_NAME="<your-key-vault-name>"
 ```
 
 macOS ou Linux
@@ -135,7 +135,7 @@ export KEY_VAULT_NAME=<your-key-vault-name>
 ```
 
 ## <a name="object-model"></a>Modèle objet
-La bibliothèque de client de certificats Azure Key Vault pour Java vous permet de gérer les certificats. La section [Exemples de code](#code-examples) montre comment créer un client et comment créer, récupérer et supprimer un certificat.
+La bibliothèque de client de clés Azure Key Vault pour Java vous permet de gérer des clés. La section [Exemples de code](#code-examples) montre comment créer un client et créer, récupérer et supprimer une clé.
 
 L’application console complète est [ci-dessous](#sample-code).
 
@@ -147,13 +147,11 @@ Ajoutez les directives suivantes en haut de votre code :
 import com.azure.core.util.polling.SyncPoller;
 import com.azure.identity.DefaultAzureCredentialBuilder;
 
-import com.azure.security.keyvault.certificates.CertificateClient;
-import com.azure.security.keyvault.certificates.CertificateClientBuilder;
-import com.azure.security.keyvault.certificates.models.CertificateOperation;
-import com.azure.security.keyvault.certificates.models.CertificatePolicy;
-import com.azure.security.keyvault.certificates.models.DeletedCertificate;
-import com.azure.security.keyvault.certificates.models.KeyVaultCertificate;
-import com.azure.security.keyvault.certificates.models.KeyVaultCertificateWithPolicy;
+import com.azure.security.keyvault.keys.KeyClient;
+import com.azure.security.keyvault.keys.KeyClientBuilder;
+import com.azure.security.keyvault.keys.models.DeletedKey;
+import com.azure.security.keyvault.keys.models.KeyType;
+import com.azure.security.keyvault.keys.models.KeyVaultKey;
 ```
 
 ### <a name="authenticate-and-create-a-client"></a>Authentifier et créer un client
@@ -165,44 +163,48 @@ Dans l’exemple ci-dessous, le nom de votre coffre de clés est étendu à l’
 String keyVaultName = System.getenv("KEY_VAULT_NAME");
 String keyVaultUri = "https://" + keyVaultName + ".vault.azure.net";
 
-CertificateClient certificateClient = new CertificateClientBuilder()
+KeyClient keyClient = new KeyClientBuilder()
     .vaultUrl(keyVaultUri)
     .credential(new DefaultAzureCredentialBuilder().build())
     .buildClient();
 ```
 
-### <a name="save-a-secret"></a>Enregistrer un secret
-Votre application étant authentifiée, vous pouvez créer un certificat dans votre coffre de clés en utilisant la méthode `certificateClient.beginCreateCertificate`. Cette opération nécessite un nom pour le certificat et une stratégie de certificat : nous avons affecté la valeur « myCertificate » à la variable `certificateName` dans cet exemple et utilisons une stratégie par défaut.
-
-La création du certificat est une opération longue, dont vous pouvez interroger la progression ou attendre la fin.
+### <a name="create-a-key"></a>Créer une clé
+Votre application étant authentifiée, vous pouvez créer une clé dans votre coffre de clés en utilisant la méthode `keyClient.createKey`. Cela nécessite un nom pour la clé et un type de clé. Nous avons affecté la valeur « myKey » à la variable `keyName` et utilisons un `KeyType` RSA dans cet exemple.
 
 ```java
-SyncPoller<CertificateOperation, KeyVaultCertificateWithPolicy> certificatePoller =
-    certificateClient.beginCreateCertificate(certificateName, CertificatePolicy.getDefault());
-certificatePoller.waitForCompletion();
+keyClient.createKey(keyName, KeyType.RSA);
 ```
 
-Une fois la création terminée, vous pouvez obtenir le certificat par le biais de l’appel suivant :
+Vous pouvez vérifier que la clé a été définie à l’aide de la commande [az keyvault key show](/cli/azure/keyvault/key?#az-keyvault-key-show) :
 
-```java
-KeyVaultCertificate createdCertificate = certificatePoller.getFinalResult();
+```azurecli
+az keyvault key show --vault-name <your-unique-key-vault-name> --name myKey
 ```
 
-### <a name="retrieve-a-certificate"></a>Récupérer un certificat
-Vous pouvez maintenant récupérer le certificat créé précédemment à l’aide de la méthode `certificateClient.getCertificate`.
+### <a name="retrieve-a-key"></a>Récupérer une clé
+Vous pouvez maintenant récupérer la clé créée précédemment à l’aide de la méthode `keyClient.getKey`.
 
 ```java
-KeyVaultCertificate retrievedCertificate = certificateClient.getCertificate(certificateName);
+KeyVaultKey retrievedKey = keyClient.getKey(keyName);
  ```
 
-Vous pouvez maintenant accéder aux détails du certificat récupéré à l’aide d’opérations telles que `retrievedCertificate.getName`, `retrievedCertificate.getProperties`, etc. Ainsi qu’à son contenu (`retrievedCertificate.getCer`).
+Vous pouvez maintenant accéder aux détails de la clé récupérée avec les opérations comme `retrievedKey.getProperties`, `retrievedKey.getKeyOperations`, etc.
 
-### <a name="delete-a-certificate"></a>Supprimer un certificat
-Enfin, nous allons supprimer le certificat de votre coffre de clés avec la méthode `certificateClient.beginDeleteCertificate`, qui est également une opération longue.
+### <a name="delete-a-key"></a>Supprimer une clé
+Enfin, nous allons supprimer la clé de votre coffre de clés avec la méthode `keyClient.beginDeleteKey`.
+
+La suppression de clé est une opération longue, dont vous pouvez interroger la progression ou attendre la fin.
 
 ```java
-SyncPoller<DeletedCertificate, Void> deletionPoller = certificateClient.beginDeleteCertificate(certificateName);
+SyncPoller<DeletedKey, Void> deletionPoller = keyClient.beginDeleteKey(keyName);
 deletionPoller.waitForCompletion();
+```
+
+Vous pouvez vérifier que la clé a été supprimée avec la commande [az keyvault key show](/cli/azure/keyvault/key?#az-keyvault-key-show) :
+
+```azurecli
+az keyvault key show --vault-name <your-unique-key-vault-name> --name myKey
 ```
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
@@ -218,48 +220,44 @@ Remove-AzResourceGroup -Name "myResourceGroup"
 
 ## <a name="sample-code"></a>Exemple de code
 ```java
-package com.keyvault.certificates.quickstart;
+package com.keyvault.keys.quickstart;
 
 import com.azure.core.util.polling.SyncPoller;
 import com.azure.identity.DefaultAzureCredentialBuilder;
 
-import com.azure.security.keyvault.certificates.CertificateClient;
-import com.azure.security.keyvault.certificates.CertificateClientBuilder;
-import com.azure.security.keyvault.certificates.models.CertificateOperation;
-import com.azure.security.keyvault.certificates.models.CertificatePolicy;
-import com.azure.security.keyvault.certificates.models.DeletedCertificate;
-import com.azure.security.keyvault.certificates.models.KeyVaultCertificate;
-import com.azure.security.keyvault.certificates.models.KeyVaultCertificateWithPolicy;
+import com.azure.security.keyvault.keys.KeyClient;
+import com.azure.security.keyvault.keys.KeyClientBuilder;
+import com.azure.security.keyvault.keys.models.DeletedKey;
+import com.azure.security.keyvault.keys.models.KeyType;
+import com.azure.security.keyvault.keys.models.KeyVaultKey;
 
 public class App {
     public static void main(String[] args) throws InterruptedException, IllegalArgumentException {
         String keyVaultName = System.getenv("KEY_VAULT_NAME");
         String keyVaultUri = "https://" + keyVaultName + ".vault.azure.net";
 
-        System.out.printf("key vault name = %s and kv uri = %s \n", keyVaultName, keyVaultUri);
+        System.out.printf("key vault name = %s and key vault URI = %s \n", keyVaultName, keyVaultUri);
 
-        CertificateClient certificateClient = new CertificateClientBuilder()
+        KeyClient keyClient = new KeyClientBuilder()
                 .vaultUrl(keyVaultUri)
                 .credential(new DefaultAzureCredentialBuilder().build())
                 .buildClient();
 
-        String certificateName = "myCertificate";
+        String keyName = "myKey";
 
-        System.out.print("Creating a certificate in " + keyVaultName + " called '" + certificateName + " ... ");
+        System.out.print("Creating a key in " + keyVaultName + " called '" + keyName + " ... ");
 
-        SyncPoller<CertificateOperation, KeyVaultCertificateWithPolicy> certificatePoller =
-                certificateClient.beginCreateCertificate(certificateName, CertificatePolicy.getDefault());
-        certificatePoller.waitForCompletion();
+        keyClient.createKey(keyName, KeyType.RSA);
 
         System.out.print("done.");
-        System.out.println("Retrieving certificate from " + keyVaultName + ".");
+        System.out.println("Retrieving key from " + keyVaultName + ".");
 
-        KeyVaultCertificate retrievedCertificate = certificateClient.getCertificate(certificateName);
+        KeyVaultKey retrievedKey = keyClient.getKey(keyName);
 
-        System.out.println("Your certificate's ID is '" + retrievedCertificate.getId() + "'.");
-        System.out.println("Deleting your certificate from " + keyVaultName + " ... ");
+        System.out.println("Your key's ID is '" + retrievedKey.getId() + "'.");
+        System.out.println("Deleting your key from " + keyVaultName + " ... ");
 
-        SyncPoller<DeletedCertificate, Void> deletionPoller = certificateClient.beginDeleteCertificate(certificateName);
+        SyncPoller<DeletedKey, Void> deletionPoller = keyClient.beginDeleteKey(keyName);
         deletionPoller.waitForCompletion();
 
         System.out.print("done.");
@@ -268,8 +266,9 @@ public class App {
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce guide de démarrage rapide, vous avez créé un coffre de clés et créé, récupéré, puis supprimé un certificat. Pour en savoir plus sur Key Vault et sur la manière de l’intégrer à vos applications, consultez les articles ci-dessous.
+Dans ce guide de démarrage rapide, vous avez créé un coffre de clés et créé, récupéré, puis supprimé une clé. Pour en savoir plus sur Key Vault et sur la manière de l’intégrer à vos applications, consultez les articles ci-dessous.
 
 - Lire la [vue d’ensemble Azure Key Vault](../general/overview.md)
+- Consultez la [Vue d’ensemble de la sécurité de Key Vault](../general/security-overview.md)
 - Consulter le [Guide du développeur Azure Key Vault](../general/developers-guide.md)
 - Découvrir comment [Sécuriser l’accès à un coffre de clés](../general/secure-your-key-vault.md)

@@ -1,18 +1,18 @@
 ---
 title: Meilleures pratiques relatives aux modèles
-description: Décrit les approches recommandées pour la création de modèles Azure Resource Manager. Fournit des suggestions pour éviter des problèmes qui se produisent couramment lors de l’utilisation de modèles.
+description: Décrit les approches recommandées pour la création de modèles Azure Resource Manager (modèles ARM). Fournit des suggestions pour éviter des problèmes qui se produisent couramment lors de l’utilisation de modèles.
 ms.topic: conceptual
 ms.date: 12/01/2020
-ms.openlocfilehash: c62bde8fc8cfc79330d13b7b2ff4f778dadf1339
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 85d58098508d5ac7cad6c1cb3cb68ad6c7f179f9
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96497977"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724984"
 ---
 # <a name="arm-template-best-practices"></a>Bonnes pratiques de modèle ARM
 
-Cet article explique comment utiliser les pratiques recommandées lors de la construction de votre modèle ARM. Celles-ci vous aident à éviter des problèmes qui se produisent couramment en cas d’utilisation d’un modèle ARM pour déployer une solution.
+Cet article explique comment utiliser les pratiques recommandées lors de la construction de votre modèle Azure Resource Manager (modèle ARM). Celles-ci vous aident à éviter des problèmes qui se produisent couramment en cas d’utilisation d’un modèle ARM pour déployer une solution.
 
 ## <a name="template-limits"></a>Limites de modèle
 
@@ -26,7 +26,7 @@ Vous devez également respecter les limites suivantes :
 * 64 valeurs de sortie
 * 24 576 caractères dans une expression de modèle
 
-Vous pouvez dépasser certaines limites de modèle en utilisant un modèle imbriqué. Pour plus d’informations, consultez l’article [Utilisation de modèles liés lors du déploiement des ressources Azure](linked-templates.md). Pour réduire le nombre de paramètres, de variables ou de sorties, vous pouvez combiner plusieurs valeurs dans un même objet. Pour plus d’informations, consultez l’article [Objects as parameters](/azure/architecture/building-blocks/extending-templates/objects-as-parameters) (Utiliser un objet en tant que paramètre).
+Vous pouvez dépasser certaines limites de modèle en utilisant un modèle imbriqué. Pour plus d’informations, consultez [Utilisation de modèles liés et imbriqués durant le déploiement de ressources Azure](linked-templates.md). Pour réduire le nombre de paramètres, de variables ou de sorties, vous pouvez combiner plusieurs valeurs dans un même objet. Pour plus d’informations, consultez l’article [Objects as parameters](/azure/architecture/building-blocks/extending-templates/objects-as-parameters) (Utiliser un objet en tant que paramètre).
 
 ## <a name="resource-group"></a>Resource group
 
@@ -48,32 +48,32 @@ Les informations de cette section peuvent être utiles lorsque vous travaillez a
 
 * Utilisez des les paramètres pour les noms de ressources que vous souhaitez spécifier afin d’en faciliter l’identification.
 
-* Fournissez une description dans les métadonnées pour chaque paramètre :
+* Fournissez une description de chaque paramètre dans les métadonnées.
 
-   ```json
-   "parameters": {
-       "storageAccountType": {
-           "type": "string",
-           "metadata": {
-               "description": "The type of the new storage account created to store the VM disks."
-           }
-       }
-   }
-   ```
-
-* Définissez les valeurs par défaut pour les paramètres non sensibles. La spécification d’une valeur par défaut facilite le déploiement du modèle, et les utilisateurs de celui-ci peuvent voir un exemple de valeur appropriée. Toute valeur par défaut pour un paramètre doit être valide pour tous les utilisateurs dans la configuration de déploiement par défaut. 
-   
-   ```json
-   "parameters": {
-        "storageAccountType": {
-            "type": "string",
-            "defaultValue": "Standard_GRS",
-            "metadata": {
-                "description": "The type of the new storage account created to store the VM disks."
-            }
+    ```json
+    "parameters": {
+      "storageAccountType": {
+        "type": "string",
+        "metadata": {
+          "description": "The type of the new storage account created to store the VM disks."
         }
-   }
-   ```
+      }
+    }
+    ```
+
+* Définissez les valeurs par défaut pour les paramètres non sensibles. La spécification d’une valeur par défaut facilite le déploiement du modèle, et les utilisateurs de celui-ci peuvent voir un exemple de valeur appropriée. Toute valeur par défaut pour un paramètre doit être valide pour tous les utilisateurs dans la configuration de déploiement par défaut.
+
+    ```json
+    "parameters": {
+      "storageAccountType": {
+        "type": "string",
+        "defaultValue": "Standard_GRS",
+        "metadata": {
+          "description": "The type of the new storage account created to store the VM disks."
+        }
+      }
+    }
+    ```
 
 * Pour spécifier un paramètre facultatif, n’utilisez pas de chaîne vide comme valeur par défaut. Au lieu de cela, utilisez une valeur littérale ou une expression de langage pour construire une valeur.
 
@@ -84,7 +84,7 @@ Les informations de cette section peuvent être utiles lorsque vous travaillez a
      "metadata": {
        "description": "Name of the storage account"
      }
-   },
+   }
    ```
 
 * Utilisez `allowedValues` avec parcimonie. Ne l’utilisez que lorsque vous devez vous assurer que certaines valeurs ne sont pas incluses dans les options autorisées. Si vous utilisez `allowedValues` trop abondamment, vous risquez de bloquer des déploiements valides en ne tenant pas votre liste à jour.
@@ -95,18 +95,18 @@ Les informations de cette section peuvent être utiles lorsque vous travaillez a
 
 * Utilisez toujours des paramètres pour les noms d’utilisateur et les mots de passe (ou secrets).
 
-* Utilisez `securestring` pour tous les mots de passe et secrets. Si vous transmettez des données sensibles dans un objet JSON, utilisez le type `secureObject`. Il est impossible de lire les paramètres du modèle de types chaîne et objet sécurité après le déploiement de la ressource. 
-   
-   ```json
-   "parameters": {
-       "secretValue": {
-           "type": "securestring",
-           "metadata": {
-               "description": "The value of the secret to store in the vault."
-           }
-       }
-   }
-   ```
+* Utilisez `securestring` pour tous les mots de passe et secrets. Si vous transmettez des données sensibles dans un objet JSON, utilisez le type `secureObject`. Il est impossible de lire les paramètres du modèle de types chaîne et objet sécurité après le déploiement de la ressource.
+
+    ```json
+    "parameters": {
+      "secretValue": {
+        "type": "securestring",
+        "metadata": {
+          "description": "The value of the secret to store in the vault."
+        }
+      }
+    }
+    ```
 
 * Ne fournissez pas de valeurs par défaut pour les noms d’utilisateur, mots de passe ou toute valeur nécessitant un type `secureString`.
 
@@ -114,7 +114,7 @@ Les informations de cette section peuvent être utiles lorsque vous travaillez a
 
 ### <a name="location-recommendations-for-parameters"></a>Suggestions en matière d’emplacement pour les paramètres
 
-* Utilisez un paramètre pour spécifier l’emplacement des ressources, et définissez la valeur par défaut sur `resourceGroup().location`. La fourniture d’un paramètre d’emplacement permet aux utilisateurs du modèle de spécifier un emplacement vers lequel ils sont autorisés à déployer.
+* Utilisez un paramètre pour spécifier l’emplacement des ressources, et définissez la valeur par défaut sur `resourceGroup().location`. La fourniture d’un paramètre d’emplacement permet aux utilisateurs du modèle de spécifier un emplacement où ils sont autorisés à déployer des ressources.
 
    ```json
    "parameters": {
@@ -125,7 +125,7 @@ Les informations de cette section peuvent être utiles lorsque vous travaillez a
          "description": "The location in which the resources should be deployed."
        }
      }
-   },
+   }
    ```
 
 * Ne spécifiez pas `allowedValues` pour le paramètre d’emplacement. Les emplacements que vous spécifiez pourraient ne pas être disponibles dans tous les clouds.
@@ -144,7 +144,7 @@ Les informations suivantes peuvent être utiles lorsque vous travaillez avec des
 
 * Utilisez des variables pour les valeurs que vous construisez à partir d’un arrangement complexe de fonctions de modèle. Votre modèle est plus facile à lire quand l’expression complexe apparaît uniquement dans des variables.
 
-* Vous ne pouvez pas utiliser la fonction [référence](template-functions-resource.md#reference) dans la section **variables** du modèle. La fonction **référence** dérive sa valeur de l’état d’exécution de la ressource. Toutefois, les variables sont résolues lors de l’analyse initiale du modèle. Construisez des valeurs qui ont besoin de la fonction **référence** directement dans la section **ressources** ou **outputs** du modèle.
+* Vous ne pouvez pas utiliser la fonction [référence](template-functions-resource.md#reference) dans la section `variables` du modèle. La fonction `reference` dérive sa valeur de l’état d’exécution de la ressource. Toutefois, les variables sont résolues lors de l’analyse initiale du modèle. Construisez des valeurs qui ont besoin de la fonction `reference` directement dans la section `resources` ou `outputs` du modèle.
 
 * Ajoutez des variables pour les noms de ressource qui doivent être uniques.
 
@@ -166,7 +166,7 @@ N’utilisez pas de variables pour la version de l’API. En particulier, n’ut
 
 Lorsque vous décidez des [dépendances](define-resource-dependency.md) à définir, respectez les recommandations suivantes :
 
-* Utilisez la fonction **référence** et transmettez le nom de la ressource pour définir une dépendance implicite entre des ressources qui doivent partager une propriété. N’ajoutez pas d’élément `dependsOn` explicite lorsque vous avez déjà défini une dépendance implicite. Cette approche permet de réduire le risque d’avoir des dépendances inutiles. Pour obtenir un exemple de paramétrage d’une dépendance implicite, consultez [dépendance implicite](define-resource-dependency.md#reference-and-list-functions).
+* Utilisez la fonction `reference` et transmettez le nom de la ressource pour définir une dépendance implicite entre des ressources qui doivent partager une propriété. N’ajoutez pas d’élément `dependsOn` explicite lorsque vous avez déjà défini une dépendance implicite. Cette approche permet de réduire le risque d’avoir des dépendances inutiles. Pour obtenir un exemple de définition de dépendance implicite, consultez les [fonctions reference et list](define-resource-dependency.md#reference-and-list-functions).
 
 * Définissez une ressource enfant comme dépendante de sa ressource parent.
 
@@ -180,109 +180,108 @@ Lorsque vous décidez des [dépendances](define-resource-dependency.md) à défi
 
 Les informations suivantes peuvent être utiles lorsque vous travaillez avec des [ressources](template-syntax.md#resources) :
 
-* Spécifiez des **commentaires** pour chaque ressource dans le modèle pour aider les autres contributeurs à comprendre l’objectif de la ressource :
-   
-   ```json
-   "resources": [
-     {
-         "name": "[variables('storageAccountName')]",
-         "type": "Microsoft.Storage/storageAccounts",
-         "apiVersion": "2019-06-01",
-         "location": "[resourceGroup().location]",
-         "comments": "This storage account is used to store the VM disks.",
-         ...
-     }
-   ]
-   ```
+* Spécifiez des `comments` pour chaque ressource dans le modèle pour aider les autres contributeurs à comprendre l’objectif de la ressource :
 
-* Si vous utilisez un *point de terminaison public* dans votre modèle (par exemple, un point de terminaison public Azure Blob Storage), *ne codez pas en dur* l’espace de noms. Utilisez la fonction **référence** pour récupérer l’espace de noms dynamiquement. Cette approche vous permet de déployer le modèle dans différents environnements d’espace de noms publics sans modifier manuellement le point de terminaison dans le modèle. Définissez la version d’API sur la version que vous utilisez pour le compte de stockage dans votre modèle :
-   
-   ```json
-   "diagnosticsProfile": {
-       "bootDiagnostics": {
-           "enabled": "true",
-           "storageUri": "[reference(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2019-06-01').primaryEndpoints.blob]"
-       }
-   }
-   ```
-   
-   Si le compte de stockage est déployé dans le même modèle que celui que vous créez et que le nom du compte de stockage n’est pas partagé avec une autre ressource dans le modèle, vous n’avez pas besoin de spécifier l’espace de noms du fournisseur ou la valeur apiVersion quand vous référencez la ressource. L’exemple suivant montre la syntaxe simplifiée :
-   
-   ```json
-   "diagnosticsProfile": {
-       "bootDiagnostics": {
-           "enabled": "true",
-           "storageUri": "[reference(variables('storageAccountName')).primaryEndpoints.blob]"
-       }
-   }
-   ```
-     
-   Vous pouvez également référencer un compte de stockage existant dans un autre groupe de ressources :
+    ```json
+    "resources": [
+      {
+        "name": "[variables('storageAccountName')]",
+        "type": "Microsoft.Storage/storageAccounts",
+        "apiVersion": "2019-06-01",
+        "location": "[resourceGroup().location]",
+        "comments": "This storage account is used to store the VM disks.",
+          ...
+      }
+    ]
+    ```
 
-   ```json
-   "diagnosticsProfile": {
-       "bootDiagnostics": {
-           "enabled": "true",
-           "storageUri": "[reference(resourceId(parameters('existingResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('existingStorageAccountName')), '2019-06-01').primaryEndpoints.blob]"
-       }
-   }
-   ```
+* Si vous utilisez un *point de terminaison public* dans votre modèle (par exemple, un point de terminaison public Azure Blob Storage), *ne codez pas en dur* l’espace de noms. Utilisez la fonction `reference` pour récupérer l’espace de noms dynamiquement. Cette approche vous permet de déployer le modèle dans différents environnements d’espace de noms publics sans modifier manuellement le point de terminaison dans le modèle. Définissez la version d’API sur la version que vous utilisez pour le compte de stockage dans votre modèle.
+
+    ```json
+    "diagnosticsProfile": {
+      "bootDiagnostics": {
+        "enabled": "true",
+        "storageUri": "[reference(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2019-06-01').primaryEndpoints.blob]"
+      }
+    }
+    ```
+
+   Si le compte de stockage est déployé dans le modèle que vous créez et si le nom du compte de stockage n’est pas partagé avec une autre ressource dans le modèle, vous n’avez pas besoin de spécifier l’espace de noms du fournisseur ou la valeur `apiVersion` quand vous référencez la ressource. L’exemple suivant montre la syntaxe simplifiée.
+
+    ```json
+    "diagnosticsProfile": {
+      "bootDiagnostics": {
+        "enabled": "true",
+        "storageUri": "[reference(variables('storageAccountName')).primaryEndpoints.blob]"
+      }
+    }
+    ```
+
+   Vous pouvez également référencer un compte de stockage existant dans un autre groupe de ressources.
+
+    ```json
+    "diagnosticsProfile": {
+      "bootDiagnostics": {
+        "enabled": "true",
+        "storageUri": "[reference(resourceId(parameters('existingResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('existingStorageAccountName')), '2019-06-01').primaryEndpoints.blob]"
+      }
+    }
+    ```
 
 * Affectez des adresses IP publiques à une machine virtuelle uniquement si une application le nécessite. Pour vous connecter à une machine virtuelle (VM) pour le débogage, ou à des fins d’administration ou de gestion, utilisez les règles NAT entrantes, une passerelle de réseau virtuel ou une jumpbox.
-   
+
      Pour plus d’informations sur la connexion aux machines virtuelles, consultez :
-   
+
    * [Exécuter des machines virtuelles pour une architecture à plusieurs niveaux dans Azure](/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)
    * [Configurer l’accès WinRM pour les machines virtuelles dans Azure Resource Manager](../../virtual-machines/windows/winrm.md)
    * [Autoriser l’accès externe à votre machine virtuelle à l’aide du portail Azure](../../virtual-machines/windows/nsg-quickstart-portal.md)
    * [Autoriser l’accès externe à votre machine virtuelle à l’aide de PowerShell](../../virtual-machines/windows/nsg-quickstart-powershell.md)
    * [Autoriser l’accès externe à votre machine virtuelle Linux à l’aide de l’interface de ligne de commande Azure](../../virtual-machines/linux/nsg-quickstart.md)
 
-* La propriété **domainNameLabel** pour les adresses IP publiques doit être unique. La valeur **domainNameLabel** doit comporter entre 3 et 63 caractères et respecter les règles spécifiées par cette expression régulière : `^[a-z][a-z0-9-]{1,61}[a-z0-9]$`. Comme la fonction **uniqueString** génère une chaîne de 13 caractères, le paramètre **dnsPrefixString** est limité à 50 caractères :
+* La propriété `domainNameLabel` pour les adresses IP publiques doit être unique. La valeur `domainNameLabel` doit comporter entre 3 et 63 caractères et respecter les règles spécifiées par cette expression régulière : `^[a-z][a-z0-9-]{1,61}[a-z0-9]$`. Comme la fonction `uniqueString` génère une chaîne de 13 caractères, le paramètre `dnsPrefixString` est limité à 50 caractères.
 
-   ```json
-   "parameters": {
-       "dnsPrefixString": {
-           "type": "string",
-           "maxLength": 50,
-           "metadata": {
-               "description": "The DNS label for the public IP address. It must be lowercase. It should match the following regular expression, or it will raise an error: ^[a-z][a-z0-9-]{1,61}[a-z0-9]$"
-           }
-       }
-   },
-   "variables": {
-       "dnsPrefix": "[concat(parameters('dnsPrefixString'),uniquestring(resourceGroup().id))]"
-   }
-   ```
+    ```json
+    "parameters": {
+      "dnsPrefixString": {
+        "type": "string",
+        "maxLength": 50,
+        "metadata": {
+          "description": "The DNS label for the public IP address. It must be lowercase. It should match the following regular expression, or it will raise an error: ^[a-z][a-z0-9-]{1,61}[a-z0-9]$"
+        }
+      }
+    },
+    "variables": {
+      "dnsPrefix": "[concat(parameters('dnsPrefixString'),uniquestring(resourceGroup().id))]"
+    }
+    ```
 
-* Lors de l’ajout d’un mot de passe à une extension de script personnalisé, utilisez la propriété **commandToExecute** dans la propriété **protectedSettings** :
-   
-   ```json
-   "properties": {
-       "publisher": "Microsoft.Azure.Extensions",
-       "type": "CustomScript",
-       "typeHandlerVersion": "2.0",
-       "autoUpgradeMinorVersion": true,
-       "settings": {
-           "fileUris": [
-               "[concat(variables('template').assets, '/lamp-app/install_lamp.sh')]"
-           ]
-       },
-       "protectedSettings": {
-           "commandToExecute": "[concat('sh install_lamp.sh ', parameters('mySqlPassword'))]"
-       }
-   }
-   ```
-   
+* Lorsque vous ajoutez un mot de passe à une extension de script personnalisé, utilisez la propriété `commandToExecute` dans la propriété `protectedSettings`.
+
+    ```json
+    "properties": {
+      "publisher": "Microsoft.Azure.Extensions",
+      "type": "CustomScript",
+      "typeHandlerVersion": "2.0",
+      "autoUpgradeMinorVersion": true,
+      "settings": {
+        "fileUris": [
+          "[concat(variables('template').assets, '/lamp-app/install_lamp.sh')]"
+        ]
+      },
+      "protectedSettings": {
+        "commandToExecute": "[concat('sh install_lamp.sh ', parameters('mySqlPassword'))]"
+      }
+    }
+    ```
+
    > [!NOTE]
-   > Pour garantir que les clés secrètes sont chiffrées lorsqu’elles sont transmises comme paramètres à des machines virtuelles et à des extensions, utilisez la propriété **protectedSettings** des extensions appropriées.
-   > 
+   > Pour garantir que les clés secrètes sont chiffrées lorsqu’elles sont transmises comme paramètres à des machines virtuelles et à des extensions, utilisez la propriété `protectedSettings` des extensions appropriées.
 
 ## <a name="use-test-toolkit"></a>Utiliser le kit de ressources de test
 
 Le kit de test du modèle ARM est un script qui vérifie si votre modèle utilise les pratiques recommandées. Lorsque votre modèle n’est pas conforme aux pratiques recommandées, il retourne une liste d’avertissements avec les modifications suggérées. Le kit à outils de test vous permet d’apprendre à implémenter les meilleures pratiques dans votre modèle.
 
-Une fois que vous avez terminé votre modèle, exécutez le kit de test pour voir s’il existe des moyens d’améliorer l’implémentation informatique. Pour plus d’informations, consultez [Kit à outils des modèles ARM](test-toolkit.md)
+Une fois votre modèle terminé, exécutez le kit de test pour voir s’il existe des moyens d’améliorer son implémentation. Pour plus d’informations, consultez [Utiliser un kit de ressources de test de modèle ARM](test-toolkit.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

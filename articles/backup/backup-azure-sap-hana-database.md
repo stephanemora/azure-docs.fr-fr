@@ -3,12 +3,12 @@ title: Sauvegarder une base de données SAP HANA sur Azure avec Sauvegarde Azure
 description: Dans cet article, découvrez comment sauvegarder des bases de données SAP HANA sur des machines virtuelles Azure avec le service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: f7957670b3ba98c640ebc53c6427273ca75a4e6d
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 87111660983e2626d8f61ddc65fdc13394509a4f
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682845"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97831633"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Sauvegarder des bases de données SAP HANA dans des machines virtuelles Azure
 
@@ -90,6 +90,9 @@ Vous pouvez également utiliser les FQDN suivants pour autoriser l’accès aux 
 #### <a name="use-an-http-proxy-server-to-route-traffic"></a>Utiliser un serveur proxy HTTP pour acheminer le trafic
 
 Lorsque vous sauvegardez une base de données SAP HANA qui s’exécute sur une machine virtuelle Azure, l’extension de sauvegarde sur la machine virtuelle utilise les API HTTPS pour envoyer des commandes de gestion à Sauvegarde Azure et des données à Stockage Azure. L’extension de sauvegarde utilise également Azure AD pour l’authentification. Acheminez le trafic de l’extension de sauvegarde pour ces trois services via le proxy HTTP. Utilisez la liste des adresses IP et des FQDN ci-dessus pour autoriser l’accès aux services requis. Les serveurs proxy authentifiés ne sont pas pris en charge.
+
+> [!NOTE]
+> Il n’existe aucune prise en charge de proxy de niveau de service. Autrement dit, le trafic via le proxy à partir de certains ou peu de services (services de sauvegarde Azure) n’est pas pris en charge. La totalité du trafic ou des données peut être routée par proxy ou non.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 

@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 10/30/2020
-ms.openlocfilehash: 1fdf026e9271ef6eb30c2b4ca96a04880b65be75
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.date: 12/17/2020
+ms.openlocfilehash: 4e62645dd5a7a8336df4fccf12daebc730a91168
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578091"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97678424"
 ---
 # <a name="security-overview-for-azure-data-share"></a>Vue d’ensemble de la sécurité pour Azure Data Share
 
@@ -23,7 +23,11 @@ Azure Data Share s’appuie sur la sécurité sous-jacente fournie par Azure pou
 
 Azure Data Share tire parti de l’identité managée (anciennement MSI) pour accéder aux magasins de données utilisés pour le partage de données. Il n’y a pas d’échange d’informations d’identification entre un fournisseur de données et un consommateur de données. Pour plus d’informations sur l’identité managée, consultez [Identités managées pour les ressources Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md). Pour plus d’informations sur les rôles et les autorisations nécessaires pour partager des données, reportez-vous à [Rôles et conditions requises](concepts-roles-permissions.md).
 
-Les contrôles d’accès à Azure Data Share peuvent être définis au niveau des ressources Data Share, afin que seules les personnes autorisées puissent y accéder. 
+## <a name="access-control"></a>Contrôle d’accès
+
+Les contrôles d’accès à Azure Data Share peuvent être définis au niveau des ressources Data Share, afin que seules les personnes autorisées puissent y accéder. Les propriétaires et contributeurs d’une ressource Data Share peuvent partager des données, recevoir des partages et modifier les partages existants. Les lecteurs d’une ressource Data Share peuvent afficher les partages, mais pas les modifier. 
+
+Une fois qu’un partage a été créé ou reçu, les utilisateurs disposant des autorisations appropriées sur la ressource Data Share peuvent y apporter des modifications. Si un utilisateur ayant créé ou reçu un partage quitte l’organisation, cela n’entraine pas l’interruption du partage ou l’arrêt du flux des données. Les autres utilisateurs disposant des autorisations appropriées sur la ressource Data Share peuvent continuer à gérer le partage.
 
 ## <a name="share-data-from-or-to-data-stores-with-firewall-enabled"></a>Partager des données à partir de ou vers des magasins de données avec le pare-feu activé
 Pour partager des données à partir de ou vers des comptes de stockage avec le pare-feu activé, vous devez sélectionner **Autoriser les services Microsoft approuvés** dans votre compte de stockage. Consultez [Configurer des pare-feu Stockage Azure et des réseaux virtuels](

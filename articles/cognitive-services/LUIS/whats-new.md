@@ -4,13 +4,13 @@ description: Cet article est régulièrement mis à jour avec des informations n
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
-ms.date: 06/15/2020
-ms.openlocfilehash: 52f8aad0a429d3378d46265fab719b1cb9f07fd0
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.date: 01/05/2021
+ms.openlocfilehash: 4591bc26c848032d1c0f8b96720c4ec66b9b064d
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97813188"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916352"
 ---
 # <a name="whats-new-in-language-understanding"></a>Nouveauté du service Language Understanding
 
@@ -20,7 +20,8 @@ Découvrir les nouveautés du service. Ces éléments incluent des notes de publ
 
 ### <a name="december-2020"></a>Décembre 2020
 
-* Tous les utilisateurs de LUIS doivent [migrer vers une ressource LUIS authorint](luis-migration-authoring.md)
+* Tous les utilisateurs de LUIS doivent [migrer vers une ressource de création LUIS](luis-migration-authoring.md)
+* Nouveaux [points de terminaison d’évaluation](luis-how-to-batch-test.md#batch-testing-using-the-rest-api) qui vous permettent d’envoyer des tests par lots en utilisant l’API REST et d’obtenir des résultats de justesse pour vos intentions et entités. Disponibles à compter des points de terminaison LUIS v3.0-Preview.
 
 ### <a name="june-2020"></a>Juin 2020
 
@@ -119,7 +120,7 @@ Les fonctionnalités suivantes ont été publiées lors de la conférence Build�
 
 [Bot Framework](https://blog.botframework.com/)
 
-## <a name="videos"></a>Videos
+## <a name="videos"></a>Vidéos
 
 ### <a name="2019-ignite-videos"></a>Vidéos Ignite 2019
 

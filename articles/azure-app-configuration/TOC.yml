@@ -54,7 +54,7 @@
           href: enable-dynamic-configuration-java-spring-app.md
     - name: Utiliser des indicateurs de fonctionnalité
       items:
-        - name: .NET Core
+        - name: ASP.NET Core
           href: use-feature-flags-dotnet-core.md
         - name: Spring Boot
           href: use-feature-flags-spring-boot.md
@@ -110,7 +110,7 @@
           href: concept-disaster-recovery.md
 - name: Guides pratiques
   items:
-    - name: Activer une fonctionnalité pour un pourcentage d’utilisateurs
+    - name: Utiliser des indicateurs de fonctionnalité conditionnels
       href: howto-feature-filters-aspnet-core.md
     - name: Activer une fonctionnalité pour des utilisateurs/groupes spécifiés
       href: howto-targetingfilter-aspnet-core.md

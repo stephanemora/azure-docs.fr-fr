@@ -25,7 +25,7 @@
   items:
     - name: Sécurité
       items:
-        - name: Accès externe sécurisé aux ressources
+        - name: Collaboration externe sécurisée
           items:
             - name: Vue d’ensemble de l’accès externe sécurisé
               href: secure-external-access-resources.md
@@ -47,6 +47,8 @@
               href: 8-secure-access-sensitivity-labels.md
             - name: '9 Sécuriser l’accès à Teams, SharePoint et OneDrive'
               href: 9-secure-access-teams-sharepoint.md
+        - name: "Protéger Microsoft\_365 contre les attaques locales"
+          href: protect-m365-from-on-premises-attacks.md
         - name: "Activer la\_MFA"
           href: concept-fundamentals-mfa-get-started.md
         - name: Paramètres de sécurité par défaut

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: 0a80f03ee82e8d1216353482dc867402adcf7d09
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 2b31a8aa8b126c228ac7e9c3ca182300c710b098
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94992231"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814055"
 ---
 # <a name="components-of-a-ddos-response-strategy"></a>Composants d’une stratégie de réponse DDoS
 
@@ -56,7 +56,7 @@ Nous vous recommandons d’utiliser des exercices de simulation comme composant 
 
 ## <a name="alerts-during-an-attack"></a>Alertes durant une attaque
 
-Azure DDoS Protection Standard identifie et atténue les attaques DDoS sans aucune intervention de l’utilisateur. Pour être averti en cas d’atténuation active pour une adresse IP publique protégée, vous pouvez [configurer une alerte](telemetry-monitoring-alerting.md) sur la métrique **Sous attaque DDoS ou non**. Vous pouvez choisir de créer des alertes pour les autres métriques DDoS afin de comprendre l’échelle des attaques, le trafic abandonné, etc.
+Azure DDoS Protection Standard identifie et atténue les attaques DDoS sans aucune intervention de l’utilisateur. Pour être averti en cas d’atténuation active pour une adresse IP publique protégée, vous pouvez [configurer des alertes](alerts.md).
 
 ### <a name="when-to-contact-microsoft-support"></a>Quand contacter le support Microsoft
 

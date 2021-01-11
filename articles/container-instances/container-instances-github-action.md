@@ -4,16 +4,16 @@ description: Configurez une action GitHub qui automatise les étapes de créatio
 ms.topic: article
 ms.date: 08/20/2020
 ms.custom: github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: 0068b9869e5ef7a3b6c0fd21c1b69cdae1d4ab4b
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: c6c030e05953dc98c82c573704018c3b482d2fea
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96454819"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814276"
 ---
 # <a name="configure-a-github-action-to-create-a-container-instance"></a>Configurer une action GitHub pour créer une instance de conteneur
 
-[GitHub Actions](https://help.github.com/actions/getting-started-with-github-actions/about-github-actions) est une suite de fonctionnalités dans GitHub permettant d’automatiser vos workflows de développement logiciel dans le même emplacement que celui où vous stockez le code et collaborez sur les demandes de tirage (pull requests) et les problèmes.
+[GitHub Actions](https://docs.github.com/en/free-pro-team@latest/actions) est une suite de fonctionnalités dans GitHub permettant d’automatiser vos workflows de développement logiciel dans le même emplacement que celui où vous stockez le code et collaborez sur les demandes de tirage (pull requests) et les problèmes.
 
 Utilisez l’action GitHub [Déployer sur Azure Container Instances](https://github.com/azure/aci-deploy) pour automatiser le déploiement d’un seul conteneur sur Azure Container Instances. L’action vous permet de définir les propriétés d’une instance de conteneur similaire à celles de la commande [az container create][az-container-create].
 
@@ -56,7 +56,7 @@ Dans le workflow GitHub, vous devez fournir des informations d’identification 
 Tout d’abord, récupérez l’ID de ressource de votre groupe de ressources. Substituez le nom de votre groupe dans la commande [az group show][az-group-show] suivante :
 
 ```azurecli
-$groupId=$(az group show \
+groupId=$(az group show \
   --name <resource-group-name> \
   --query id --output tsv)
 ```
@@ -141,7 +141,7 @@ jobs:
         steps:
         # checkout the repo
         - name: 'Checkout GitHub Action'
-          uses: actions/checkout@master
+          uses: actions/checkout@main
           
         - name: 'Login via Azure CLI'
           uses: azure/login@v1
@@ -177,7 +177,7 @@ Une fois que vous avez validé le fichier du workflow, le workflow est déclench
 
 ![Afficher la progression du workflow](./media/container-instances-github-action/github-action-progress.png)
 
-Pour plus d’informations sur l’affichage de l’état et des résultats de chaque étape de workflow, consultez [Gestion d’une exécution de workflow](https://help.github.com/actions/configuring-and-managing-workflows/managing-a-workflow-run). Si le workflow ne se termine pas, consultez [Consultation des journaux pour diagnostiquer les défaillances](https://docs.github.com/actions/configuring-and-managing-workflows/managing-a-workflow-run#viewing-logs-to-diagnose-failures).
+Pour plus d’informations sur l’affichage de l’état et des résultats de chaque étape de workflow, consultez [Affichage de l’historique des exécutions de workflow](https://docs.github.com/en/free-pro-team@latest/actions/managing-workflow-runs/viewing-workflow-run-history). Si le workflow ne se termine pas, consultez [Consultation des journaux pour diagnostiquer les défaillances](https://docs.github.com/en/free-pro-team@latest/actions/managing-workflow-runs/using-workflow-run-logs#viewing-logs-to-diagnose-failures).
 
 Une fois le workflow terminé, récupérez des informations sur l’instance de conteneur nommée *aci-sampleapp* en exécutant la commande [az container show][az-container-show]. Substituez le nom de votre groupe de ressources : 
 
@@ -237,7 +237,7 @@ az container app up \
 
 ### <a name="command-progress"></a>Progression de la commande
 
-* Lorsque vous y êtes invité, fournissez vos informations d’identification GitHub ou un [jeton d’accès personnel (PAT) GitHub](https://help.github.com/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) doté des étendues *dépôt* et *utilisateur* pour vous authentifier auprès de votre compte GitHub. Si vous fournissez des informations d’identification GitHub, la commande crée un PAT pour vous. Suivez les invites supplémentaires pour configurer le workflow.
+* Lorsque vous y êtes invité, fournissez vos informations d’identification GitHub ou un [jeton d’accès personnel (PAT) GitHub](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token) doté des étendues *dépôt* et *utilisateur* pour vous authentifier auprès de votre compte GitHub. Si vous fournissez des informations d’identification GitHub, la commande crée un PAT pour vous. Suivez les invites supplémentaires pour configurer le workflow.
 
 * La commande crée des secrets de référentiel pour le workflow :
 
@@ -258,7 +258,7 @@ Workflow succeeded
 Your app is deployed at:  http://acr-build-helloworld-node.eastus.azurecontainer.io:8080/
 ```
 
-Pour afficher l’état du workflow et les résultats de chaque étape dans l’interface utilisateur GitHub, consultez [Gestion d’une exécution de workflow](https://help.github.com/actions/configuring-and-managing-workflows/managing-a-workflow-run).
+Pour afficher l’état du workflow et les résultats de chaque étape dans l’interface utilisateur GitHub, consultez [Affichage de l’historique des exécutions de workflow](https://docs.github.com/en/free-pro-team@latest/actions/managing-workflow-runs/viewing-workflow-run-history).
 
 ### <a name="validate-workflow"></a>Valider le workflow
 

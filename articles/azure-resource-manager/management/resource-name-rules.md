@@ -2,13 +2,13 @@
 title: Restrictions concernant le nommage des ressources
 description: Affiche les règles et restrictions concernant le nommage des ressources Azure.
 ms.topic: conceptual
-ms.date: 12/04/2020
-ms.openlocfilehash: a6aac03277a11cf671f5a618bc85ff987cfdc2dd
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.date: 12/29/2020
+ms.openlocfilehash: edcf3f09b57ed7628611c482effddb210ef8e456
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608314"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814378"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Règles de nommage et restrictions pour les ressources Azure
 
@@ -170,7 +170,7 @@ Dans les tableaux suivants, le terme « alphanumérique » fait référence au
 > | galleries | resource group | 1-80 | Caractères alphanumériques et points.<br><br>Doit commencer et se terminer par un caractère alphanumérique. |
 > | galleries / applications | galerie | 1-80 | Caractères alphanumériques, traits d’union et points.<br><br>Doit commencer et se terminer par un caractère alphanumérique. |
 > | galleries / applications/versions | application | Entier de 32 bits | Chiffres et points. |
-> | galleries / images | galerie | 1-80 | Caractères alphanumériques, traits d’union et points.<br><br>Doit commencer et se terminer par un caractère alphanumérique. |
+> | galleries / images | galerie | 1-80 | Caractères alphanumériques, traits de soulignement, traits d’union et points.<br><br>Doit commencer et se terminer par un caractère alphanumérique. |
 > | galleries / images / versions | image | Entier de 32 bits | Chiffres et points. |
 > | images | resource group | 1-80 | Caractères alphanumériques, traits de soulignement, points et traits d’union.<br><br>Doit commencer par un caractère alphanumérique. Doit se terminer par un caractère alphanumérique ou un trait de soulignement. |
 > | snapshots | resource group | 1-80 | Caractères alphanumériques, traits de soulignement, points et traits d’union.<br><br>Doit commencer par un caractère alphanumérique. Doit se terminer par un caractère alphanumérique ou un trait de soulignement. |
@@ -537,7 +537,7 @@ Dans les tableaux suivants, le terme « alphanumérique » fait référence au
 > | Entité | Étendue | Longueur | Caractères valides |
 > | --- | --- | --- | --- |
 > | clusters | resource group | 4-63 | Caractères alphanumériques et traits d’union.<br><br>Doit commencer et se terminer par un caractère alphanumérique. |
-> | workspaces | resource group | 4-63 | Caractères alphanumériques et traits d’union.<br><br>Doit commencer et se terminer par un caractère alphanumérique. |
+> | workspaces | globale | 4-63 | Caractères alphanumériques et traits d’union.<br><br>Doit commencer et se terminer par un caractère alphanumérique. |
 
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
 

@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/23/2020
+ms.date: 12/28/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 2350177373bc99907c437d814d8f01193f18f3fd
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7bd85c60025475e8208847a12ccc2729743a975a
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95895721"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97803916"
 ---
 # <a name="perform-a-point-in-time-restore-on-block-blob-data"></a>Effectuer une restauration jusqu’à une date et heure sur les données d’objet blob de blocs
 
@@ -23,7 +23,7 @@ Vous pouvez utiliser la récupération jusqu`à une date et heure pour restaurer
 Pour en savoir plus sur la restauration jusqu’à une date et heure, consultez [Restauration dans le temps pour les objets blob de blocs](point-in-time-restore-overview.md).
 
 > [!CAUTION]
-> La limite de restauration dans le temps prend en charge la restauration des opérations sur les objets blob de blocs uniquement. Les opérations sur les conteneurs ne peuvent pas être restaurées. Si vous supprimez un conteneur du compte de stockage en appelant l’opération [Supprimer le conteneur](/rest/api/storageservices/delete-container), ce conteneur ne peut pas être restauré à l’aide d’une opération de restauration. Au lieu de supprimer un conteneur, supprimez chacun des objets blob si vous souhaitez les restaurer.
+> La limite de restauration dans le temps prend en charge la restauration des opérations sur les objets blob de blocs uniquement. Les opérations sur les conteneurs ne peuvent pas être restaurées. Si vous supprimez un conteneur du compte de stockage en appelant l’opération [Supprimer le conteneur](/rest/api/storageservices/delete-container), ce conteneur ne peut pas être restauré à l’aide d’une opération de restauration. Au lieu de supprimer un conteneur entier, supprimez chacun des objets blob si vous souhaitez les restaurer plus tard.
 
 ## <a name="enable-and-configure-point-in-time-restore"></a>Activer et configurer la restauration dans le temps
 
@@ -107,6 +107,8 @@ Seuls les objets blob de blocs sont restaurés. Les objets blob de pages et les 
 > Lorsque vous effectuez une opération de restauration, Stockage Azure bloque les opérations de données sur les objets blob de la plage en cours de restauration pendant toute la durée de l'opération. Les opérations de lecture, d’écriture et de suppression sont bloquées dans l’emplacement principal. C’est la raison pour laquelle les opérations telles que l’énumération des conteneurs sur le portail Azure peuvent ne pas se dérouler comme prévu pendant que l’opération de restauration est en cours.
 >
 > Les opérations de lecture à partir de l’emplacement secondaire peuvent se poursuivre pendant l’opération de restauration si le compte de stockage est géorépliqué.
+>
+> Le temps nécessaire à la restauration d’un jeu de données dépend du nombre d’opérations d’écriture et de suppression effectuées au cours de la période de restauration. Par exemple, la restauration à un point situé 30 jours auparavant d’un compte avec 1 million d’objets, 3 000 objets ajoutés par jour et 1 000 objets supprimés par jour nécessite environ deux heures. Une période de rétention et une restauration à plus de 90 jours dans le passé ne sont pas recommandées pour un compte avec ce taux de changement.
 
 ### <a name="restore-all-containers-in-the-account"></a>Restaurer tous les conteneurs du compte
 

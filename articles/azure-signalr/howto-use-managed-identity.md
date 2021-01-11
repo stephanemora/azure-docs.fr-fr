@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: article
 ms.date: 06/8/2020
 ms.author: chenyl
-ms.openlocfilehash: 9b6141e6009cb868d63429836f8c8f050c792ee5
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 4f70cbacf686210c1188cb0a87e6116af8ed4b01
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152307"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97763148"
 ---
 # <a name="managed-identities-for-azure-signalr-service"></a>Identités managées pour Azure SignalR Service
 
@@ -26,9 +26,9 @@ Pour configurer une identité managée dans le portail Azure, vous allez d’abo
 
 1. Créez une instance Azure SignalR Service dans le portail comme vous le faites en temps normal. Accédez-y dans le portail.
 
-2. Sélectionnez **Identité** .
+2. Sélectionnez **Identité**.
 
-4. Dans l’onglet **Attribuée par le système** , définissez **État** sur **Activé** . Sélectionnez **Enregistrer** .
+4. Dans l’onglet **Attribuée par le système**, définissez **État** sur **Activé**. Sélectionnez **Enregistrer**.
 
     :::image type="content" source="media/signalr-howto-use-managed-identity/system-identity-portal.png" alt-text="Ajouter une identité attribuée par le système dans le portail":::
 
@@ -40,13 +40,13 @@ La création d’une instance Azure SignalR Service avec une identité attribué
 
 2. Créez une instance Azure SignalR Service dans le portail comme vous le faites en temps normal. Accédez-y dans le portail.
 
-3. Sélectionnez **Identité** .
+3. Sélectionnez **Identité**.
 
-4. Dans l’onglet **Attribuée par l’utilisateur** , sélectionnez **Ajouter** .
+4. Dans l’onglet **Attribuée par l’utilisateur**, sélectionnez **Ajouter**.
 
-5. Recherchez l’identité que vous avez créée précédemment et sélectionnez-la. Sélectionnez **Ajouter** .
+5. Recherchez l’identité que vous avez créée précédemment et sélectionnez-la. Sélectionnez **Ajouter**.
 
-    :::image type="content" source="media/signalr-howto-use-managed-identity/user-identity-portal.png" alt-text="Ajouter une identité attribuée par le système dans le portail":::
+    :::image type="content" source="media/signalr-howto-use-managed-identity/user-identity-portal.png" alt-text="Ajouter une identité attribuée par l’utilisateur dans le portail":::
 
 ## <a name="use-a-managed-identity-in-serverless-scenarios"></a>Utilisation d’une identité managée dans les scénarios serverless
 
@@ -56,16 +56,19 @@ Azure SignalR Service est un service entièrement managé et vous ne pouvez donc
 
 1. Ajoutez une identité affectée par le système ou une identité affectée par l’utilisateur.
 
-2. Configurez les paramètres en amont et utilisez **ManagedIdentity** comme paramètres de l’ **authentification** . Pour savoir comment créer des paramètres en amont avec l’authentification, consultez [Paramètres en amont](concept-upstream.md).
+2. Ajoutez un paramètre en amont et cliquez sur un astérisque pour accéder à une page détaillée comme illustré ci-dessous.
+    :::image type="content" source="media/signalr-howto-use-managed-identity/pre-msi-settings.png" alt-text="pre-msi-setting":::
+    
+    :::image type="content" source="media/signalr-howto-use-managed-identity/msi-settings.png" alt-text="msi-setting":::
 
-3. Dans les paramètres d’authentification de l’identité managée, pour dans **Ressource** , vous pouvez spécifier la ressource cible. La ressource devient une revendication `aud` dans le jeton d’accès obtenu, qui peut être utilisé dans le cadre de la validation dans vos points de terminaison en amont. La ressource peut prendre l’une des valeurs suivantes :
+3. Dans les paramètres d’authentification de l’identité managée, pour dans **Ressource**, vous pouvez spécifier la ressource cible. La ressource devient une revendication `aud` dans le jeton d’accès obtenu, qui peut être utilisé dans le cadre de la validation dans vos points de terminaison en amont. La ressource peut prendre l’une des valeurs suivantes :
     - Vide
     - ID d’application (client) du principal de service
     - URI de l’ID d’application du principal de service
     - [ID de ressource d’un service Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)
 
     > [!NOTE]
-    > Si vous validez un jeton d’accès par vous-même dans votre service, vous pouvez choisir un des formats de ressources. Assurez-vous simplement que la valeur **Ressource** dans les paramètres d’ **authentification** et que la validation est cohérente. Si vous utilisez le Contrôle d'accès en fonction du rôle Azure (Azure RBAC) pour un plan de données, vous devez utiliser la ressource demandée par le fournisseur de services.
+    > Si vous validez un jeton d’accès par vous-même dans votre service, vous pouvez choisir un des formats de ressources. Assurez-vous simplement que la valeur **Ressource** dans les paramètres d’**authentification** et que la validation est cohérente. Si vous utilisez le Contrôle d'accès en fonction du rôle Azure (Azure RBAC) pour un plan de données, vous devez utiliser la ressource demandée par le fournisseur de services.
 
 ### <a name="validate-access-tokens"></a>Validation des jetons d’accès
 
@@ -76,6 +79,37 @@ Afin de valider les jetons d’accès, votre application doit également valider
 L’intergiciel Azure Active Directory (Azure AD) intègre des fonctionnalités permettant de valider les jetons d’accès. Vous pouvez parcourir nos [exemples](../active-directory/develop/sample-v2-code.md) pour en trouver un dans le langage de votre choix.
 
 Nous fournissons des bibliothèques et des exemples de code qui montrent comment gérer la validation des jetons. Il existe également plusieurs bibliothèques de partenaire open source disponibles pour la validation de JSON Web Token (JWT). Il existe au moins une option pour la plupart des plateformes et des langues. Pour plus d’informations sur les exemples de code et les bibliothèques d’authentification d’Azure AD, consultez [Bibliothèques d’authentification de plateforme d’identité Microsoft](../active-directory/develop/reference-v2-libraries.md).
+
+#### <a name="authentication-in-function-app"></a>Authentification dans application de fonction
+
+La définition de la validation de jeton d’accès dans une application de fonction est facile et efficace sans que le code fonctionne.
+
+1. Dans la page **Authentification / Autorisation**, basculez **Authentification App Service** sur **Activée**.
+
+2. Dans **Mesure à prendre quand une demande n’est pas authentifiée**, sélectionnez **Se connecter avec Azure Active Directory**.
+
+3. Dans Fournisseur d’authentification, cliquez sur **Azure Active Directory**
+
+4. Dans la nouvelle page. Sélectionnez **Express**, **Créer une application AD**, puis cliquez sur **OK** :::image type="content" source="media/signalr-howto-use-managed-identity/function-aad.png" alt-text="Fonction Aad":::
+
+5. Accédez à SignalR Service, puis suivez les [étapes](howto-use-managed-identity.md#add-a-system-assigned-identity) pour ajouter une identité affectée par le système ou une identité affectée par l’utilisateur.
+
+6. Dans SignalR Service, accédez à **Paramètres en amont**, puis choisissez **Utiliser une identité gérée** et **Sélectionner des applications existantes**. Sélectionnez l’application que vous avez créée.
+
+Après ce paramétrage, l’application de fonction rejette les demandes sans jeton d’accès dans l’en-tête.
+
+## <a name="use-a-managed-identity-for-key-vault-reference"></a>Utiliser une identité managée pour une référence Azure Key Vault
+
+SignalR Service peut accéder à Azure Key Vault pour recevoir un secret en utilisant l’identité managée.
+
+1. Ajoutez une identité affectée par le système ou une identité affectée par l’utilisateur pour Azure SignalR Service.
+
+2. Accordez une autorisation de lecture de secret pour l’identité managée dans les stratégies d’accès du Key Vault. Consultez [Attribuer une stratégie d’accès Key Vault à l’aide du portail Azure](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal)
+
+Actuellement, cette fonctionnalité peut être utilisée dans les scénarios suivants :
+
+- [Référencer un secret dans un modèle d’URL en amont](./concept-upstream.md#key-vault-secret-reference-in-url-template-settings)
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

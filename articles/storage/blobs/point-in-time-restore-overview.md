@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 12/28/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ca09e41e6d5b83f14d2dfee4107135585b7e945a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 518df665db0ba3770bee757f45d02b6ccd303a00
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95908793"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97803865"
 ---
 # <a name="point-in-time-restore-for-block-blobs"></a>Restauration dans le temps pour les objets blob de blocs
 
@@ -43,7 +43,7 @@ L’opération **Restaurer les plages d'objets blob** retourne un ID de restaura
 > Les opérations de lecture à partir de l’emplacement secondaire peuvent se poursuivre pendant l’opération de restauration si le compte de stockage est géorépliqué.
 
 > [!CAUTION]
-> La limite de restauration dans le temps prend en charge la restauration des opérations sur les objets blob de blocs uniquement. Les opérations sur les conteneurs ne peuvent pas être restaurées. Si vous supprimez un conteneur du compte de stockage en appelant l’opération [Supprimer le conteneur](/rest/api/storageservices/delete-container), ce conteneur ne peut pas être restauré à l’aide d’une opération de restauration. Au lieu de supprimer un conteneur, supprimez chacun des objets blob si vous souhaitez les restaurer.
+> La limite de restauration dans le temps prend en charge la restauration des opérations sur les objets blob de blocs uniquement. Les opérations sur les conteneurs ne peuvent pas être restaurées. Si vous supprimez un conteneur du compte de stockage en appelant l’opération [Supprimer le conteneur](/rest/api/storageservices/delete-container), ce conteneur ne peut pas être restauré à l’aide d’une opération de restauration. Au lieu de supprimer un conteneur entier, supprimez chacun des objets blob si vous souhaitez les restaurer plus tard.
 
 ### <a name="prerequisites-for-point-in-time-restore"></a>Conditions préalables pour une restauration dans le temps
 
@@ -57,9 +57,12 @@ La limite de restauration dans le temps implique que les fonctionnalités Stocka
 
 Lorsque vous activez la restauration dans le temps pour un compte de stockage, vous spécifiez une période de rétention. Les objets blob de blocs de votre compte de stockage peuvent être restaurés au cours de la période de rétention.
 
-La période de rétention commence lorsque vous activez la restauration dans le temps. N’oubliez pas que vous ne pouvez pas restaurer des objets blob dans un état antérieur au début de la période de rétention. Par exemple, si vous avez activé la restauration dans le temps le 1er mai avec une rétention de 30 jours, alors le 15 mai, vous pouvez effectuer une restauration pour maximum de 15 jours. Le 1er juin, vous pouvez restaurer les données entre 1 et 30 jours.
+La période de rétention commence quelques minutes après l’activation de la récupération jusqu’à une date et heure. N’oubliez pas que vous ne pouvez pas restaurer des objets blob dans un état antérieur au début de la période de rétention. Par exemple, si vous avez activé la restauration dans le temps le 1er mai avec une rétention de 30 jours, alors le 15 mai, vous pouvez effectuer une restauration pour maximum de 15 jours. Le 1er juin, vous pouvez restaurer les données entre 1 et 30 jours.
 
 La période de rétention pour la restauration dans le temps doit être inférieure ou égale à la période de rétention spécifiée pour la suppression réversible. Par exemple, si la période de rétention de la suppression réversible est définie sur 7 jours, la période de rétention de la restauration dans le temps peut être comprise entre 1 et 6 jours.
+
+> [!IMPORTANT]
+> Le temps nécessaire à la restauration d’un jeu de données dépend du nombre d’opérations d’écriture et de suppression effectuées au cours de la période de restauration. Par exemple, la restauration à un point situé 30 jours auparavant d’un compte avec 1 million d’objets, 3 000 objets ajoutés par jour et 1 000 objets supprimés par jour nécessite environ deux heures. Une période de rétention et une restauration à plus de 90 jours dans le passé ne sont pas recommandées pour un compte avec ce taux de changement.
 
 ### <a name="permissions-for-point-in-time-restore"></a>Autorisations pour une restauration dans le temps
 

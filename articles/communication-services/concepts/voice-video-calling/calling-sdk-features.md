@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: c801a276f3a116f00b34d750ca8bfec7e56d377b
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: e0fff67d6998e55854d4dc3c8db261bc4499f0be
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97680736"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936054"
 ---
 # <a name="calling-client-library-overview"></a>Vue d’ensemble de la bibliothèque cliente d’appel
 
@@ -58,7 +58,7 @@ La liste suivante présente l’ensemble des fonctionnalités actuellement dispo
 |                   | Composer un numéro à partir d’un appel de groupe en tant que participant RTPC                                                                    | ✔️   | ✔️            | ✔️   
 | Général           | Tester votre micro, votre haut-parleur et votre caméra avec un service de test audio (disponible en appelant 8:echo123)                   |  ✔️  | ✔️            | ✔️   
 
-## <a name="javascript-calling-client-library-support-by-os-and-browser"></a>Prise en charge de la bibliothèque cliente d’appel JavaScript par système d’exploitation et navigateur
+## <a name="javascript-calling-client-library-support-by-os-and-browser"></a>Prise en charge de la bibliothèque de client d’appel JavaScript par système d’exploitation et navigateur
 
 Le tableau suivant représente l’ensemble des navigateurs pris en charge et des versions actuellement disponibles.
 
@@ -96,8 +96,8 @@ La bibliothèque de client d’appel de Communication Services prend en charge l
 
 |           |Web | Android/iOS|
 |-----------|----|------------|
-|Nombre de flux sortants qui peuvent être envoyés simultanément |1 vidéo + 1 partage d’écran | 1 vidéo + 1 partage d’écran|
-|Nombre de flux entrants qui peuvent être restitués simultanément |1 vidéo + 1 partage d’écran| 6 vidéos + 1 partage d’écran |
+|**Nombre de flux sortants qui peuvent être envoyés simultanément** |1 vidéo + 1 partage d’écran | 1 vidéo + 1 partage d’écran|
+|**Nombre de flux entrants qui peuvent être restitués simultanément** |1 vidéo + 1 partage d’écran| 6 vidéos + 1 partage d’écran |
 
 
 ## <a name="next-steps"></a>Étapes suivantes

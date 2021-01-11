@@ -2,13 +2,13 @@
 title: Déployer plusieurs instances de ressources
 description: Utilisez l’opération copy et les tableaux dans un modèle Azure Resource Manager (modèle ARM) pour déployer un même type de ressource plusieurs fois.
 ms.topic: conceptual
-ms.date: 09/21/2020
-ms.openlocfilehash: 47f3d693b84347973889a6003360d7113c427f4d
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.date: 12/21/2020
+ms.openlocfilehash: c9bcb22ec53129520fd9574d0eb58b1e5777531e
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905908"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724491"
 ---
 # <a name="resource-iteration-in-arm-templates"></a>Itération de ressource dans les modèles ARM
 
@@ -189,43 +189,6 @@ Par exemple, pour déployer en série des comptes de stockage deux à la fois, u
 
 La propriété `mode` accepte également **parallel**, qui est la valeur par défaut.
 
-## <a name="depend-on-resources-in-a-loop"></a>En fonction des ressources dans une boucle
-
-Vous spécifiez qu’une ressource est déployée après une autre ressource à l’aide de l’élément `dependsOn`. Pour déployer une ressource qui dépend de la collection de ressources dans une boucle, vous pouvez utiliser le nom de la boucle de copie dans l’élément dependsOn. L’exemple suivant montre comment déployer trois comptes de stockage avant de déployer la machine virtuelle. La définition complète de la machine virtuelle n’est pas affichée. Notez que le nom de l’élément copy a la valeur `storagecopy` et que l’élément dependsOn pour la machine virtuelle est également défini sur `storagecopy`.
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {},
-  "resources": [
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2019-04-01",
-      "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
-      "location": "[resourceGroup().location]",
-      "sku": {
-        "name": "Standard_LRS"
-      },
-      "kind": "Storage",
-      "copy": {
-        "name": "storagecopy",
-        "count": 3
-      },
-      "properties": {}
-    },
-    {
-      "type": "Microsoft.Compute/virtualMachines",
-      "apiVersion": "2015-06-15",
-      "name": "[concat('VM', uniqueString(resourceGroup().id))]",
-      "dependsOn": ["storagecopy"],
-      ...
-    }
-  ],
-  "outputs": {}
-}
-```
-
 ## <a name="iteration-for-a-child-resource"></a>Itération d’une ressource enfant
 
 Vous ne pouvez pas utiliser une boucle de copie pour une ressource enfant. Pour créer plusieurs instances d’une ressource que l’on définit en général comme imbriquée dans une autre ressource, vous devez au contraire la créer sous la forme d’une ressource de premier niveau. Vous définissez la relation avec la ressource parente par le biais des propriétés type et name.
@@ -286,16 +249,14 @@ Les exemples suivants montrent des scénarios courants de création de plusieurs
 |[Copie de stockage](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) |Déploie plusieurs comptes de stockage dont le nom comporte un numéro d’index . |
 |[Copie de stockage en série](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) |Déploie plusieurs comptes de stockage un par un. Le nom inclut le numéro d’index. |
 |[Copie de stockage avec tableau](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystoragewitharray.json) |Déploie plusieurs comptes de stockage. Le nom contient une valeur tirée d’un tableau. |
-|[Déploiement de machine virtuelle avec un nombre variable de disques de données](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-windows-copy-datadisks) |Déploie plusieurs disques de données avec une machine virtuelle. |
-|[Règles de sécurité multiples](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |Déploie plusieurs règles de sécurité sur un groupe de sécurité réseau. Crée les règles de sécurité à partir d’un paramètre. Pour le paramètre, consultez [plusieurs fichiers de paramètre NSG](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json). |
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+* Pour définir des dépendances sur les ressources créées dans une boucle de copie, consultez [Définir l’ordre de déploiement des ressources dans les modèles ARM](define-resource-dependency.md).
 * Pour suivre un tutoriel, consultez [Tutoriel : Créer plusieurs instances de ressources grâce à des modèles ARM](template-tutorial-create-multiple-instances.md).
+* Pour lire un module Microsoft Learn qui aborde la copie des ressources, consultez [Gérer des déploiements cloud complexes à l’aide des fonctionnalités avancées de modèle ARM](/learn/modules/manage-deployments-advanced-arm-template-features/).
 * Pour connaître les autres utilisations de l’élément copy, consultez :
   * [Itération de propriété dans les modèles ARM](copy-properties.md)
   * [Itération de variable dans les modèles ARM](copy-variables.md)
   * [Itération de sortie dans les modèles ARM](copy-outputs.md)
 * Pour plus d’informations sur l’utilisation de l’élément copy avec les modèles imbriqués, consultez [Utilisation de l’élément copy](linked-templates.md#using-copy).
-* Pour plus d’informations sur les différentes sections d’un modèle, consultez [Présentation de la structure et de la syntaxe des modèles ARM](template-syntax.md).
-* Pour savoir comment déployer votre modèle, consultez [Déployer des ressources avec des modèles ARM et Azure PowerShell](deploy-powershell.md).

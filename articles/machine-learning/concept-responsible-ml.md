@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
-ms.date: 11/16/2020
-ms.openlocfilehash: ff85ed669fb7c3ac43e322eb747c537a30801920
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.date: 12/21/2020
+ms.openlocfilehash: 83bca8a2a81823cd0a8bda1633599292460ddd30
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701430"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724325"
 ---
 # <a name="what-is-responsible-machine-learning-preview"></a>Qu’est-ce que l’apprentissage automatique responsable ? (préversion)
 
@@ -62,10 +62,7 @@ Lorsque des données sont utilisées à des fins d’analyse, il est important q
 
 Dans les scénarios traditionnels, les données brutes sont stockées dans des fichiers et des bases de données. Lorsque des utilisateurs analysent des données, ils utilisent généralement des données brutes. C’est problématique, car cela peut entraîner une violation de données à caractère personnel. La confidentialité différentielle tente de résoudre ce problème en ajoutant du « bruit » ou une composante aléatoire aux données afin que les utilisateurs ne puissent pas identifier des points de données individuels.
 
-L’implémentation de systèmes de confidentialité différentielle est difficile. [WhiteNoise](https://github.com/opendifferentialprivacy/whitenoise-core) est un projet open source contenant différents composants pour la création de systèmes globaux assortis d’une confidentialité différentielle. Pour en savoir plus sur la confidentialité différentielle et le projet WhiteNoise, consultez l’article [Préserver la confidentialité des données à l’aide de la confidentialité différentielle et de WhiteNoise](./concept-differential-privacy.md).
-
-> [!NOTE]
-> Veuillez noter que nous allons renommer le kit de ressources et présenterons le nouveau nom dans les semaines à venir. 
+L’implémentation de systèmes de confidentialité différentielle est difficile. [SmartNoise](https://github.com/opendifferentialprivacy/smartnoise-core) est un projet open source contenant différents composants pour la création de systèmes globaux assortis d’une confidentialité différentielle. Pour en savoir plus sur la confidentialité différentielle et le projet SmartNoise, consultez l’article [Préserver la confidentialité des données à l’aide de la confidentialité différentielle et de SmartNoise](./concept-differential-privacy.md).
 
 ## <a name="work-on-encrypted-data-with-homomorphic-encryption"></a>Travailler sur des données chiffrées à l’aide du chiffrement homomorphe
 

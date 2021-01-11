@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/9/2020
 ms.author: yitoh
-ms.openlocfilehash: c3931cafb6c755c6119bf8deb4ecc6b58ea7bc51
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 5e633b5e4b2ff2ce884bfaf99e3730968150cbed
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938441"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746369"
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Vue d’ensemble du service Protection DDos Standard Azure
 
@@ -33,8 +33,8 @@ La protection DDoS d’Azure ne stocke pas les données client.
 ## <a name="features"></a>Fonctionnalités
 
 - **Intégration de la plateforme native :** Intégré en natif dans Azure. Inclut la configuration par le biais du portail Azure. Le service Protection DDos Standard comprend vos ressources et leur configuration.
-- **Protection clé en main :** La configuration simplifiée protège immédiatement toutes les ressources situées sur un réseau virtuel dès que DDoS Protection Standard est activé. Aucune définition ou intervention de l’utilisateur n’est nécessaire. Le service Protection DDoS Standard atténue de façon instantanée et automatique l’attaque une fois que celle-ci est détectée.
-- **Surveillance permanente du trafic :** Vos modèles de trafic d’application sont surveillés 24h/24 et 7j/7, à la recherche d’indicateurs d’attaques DDoS. L’atténuation est effectuée en cas de dépassement des stratégies de protection.
+- **Protection clé en main :** La configuration simplifiée protège immédiatement toutes les ressources situées sur un réseau virtuel dès que DDoS Protection Standard est activé. Aucune définition ou intervention de l’utilisateur n’est nécessaire. 
+- **Surveillance permanente du trafic :** Vos modèles de trafic d’application sont surveillés 24h/24 et 7j/7, à la recherche d’indicateurs d’attaques DDoS. Le service Protection DDoS Standard atténue de façon instantanée et automatique l’attaque une fois que celle-ci est détectée.
 - **Optimisation adaptative :** Le profilage intelligent du trafic étudie le trafic de votre application au fil du temps pour sélectionner et mettre à jour le profil le plus adapté pour votre service. Le profil s’ajuste en fonction des modifications du trafic au fil du temps.
 - **Protection multi-couches :** Fournit une protection DDoS complète par empilement, lorsqu’elle est utilisée avec un pare-feu d’applications web, pour obtenir une protection à la fois au niveau de la couche réseau (couche 3 et 4, proposée par Azure DDoS Protection Standard) et au niveau de la couche application (couche 7, proposée par un pare-feu d’applications web). Les offres WAF incluent [la référence SKU du pare-feu d’applications web Azure Application Gateway](../web-application-firewall/ag/ag-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), ainsi que des offres tierces de pare-feu d’applications web disponibles sur [Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=web%20application%20firewall).
 - **Échelle de prévention étendue :** Plus de 60 types d’attaques différents peuvent être contrées, avec une protection globale contre les attaques DDoS les plus connues.
@@ -42,7 +42,7 @@ La protection DDoS d’Azure ne stocke pas les données client.
 - **Métriques des attaques :** Des métriques récapitulatives de chaque attaque sont accessibles via Azure Monitor.
 - **Alerte d’attaque :** Vous pouvez configurer des alertes pour le début et la fin d’une attaque, ainsi que pendant qu’elle se produit, avec des métriques d’attaque intégrées. Les alertes s’intègrent à vos logiciels opérationnels, comme les journaux d’activité Microsoft Azure Monitor, Splunk, Stockage Azure, votre messagerie électronique et le portail Azure.
 - **DDoS Rapid Response** : Faites appel à l’équipe de réponse rapide de la protection DDoS (DRR) pour faciliter l’étude et l’analyse des attaques. Pour en savoir plus, consultez [DDoS Rapid Response](ddos-rapid-response.md).
-- **Maîtrise des coûts :** Si vous documentez les attaques DDoS, vous bénéficiez en retour de crédits pour les services de scale-out d’application et de transfert de données.
+- **Maîtrise des coûts :** Recevez un crédit de service de transfert de données et de mise à l’échelle des applications pour les coûts de ressources résultant d’attaques DDoS documentées.
 
 ## <a name="pricing"></a>Tarifs
 

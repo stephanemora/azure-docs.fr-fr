@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: ff9eca855269597477bc42a319c99c886576d92c
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: d50ce842a1b2bca26ef14dfbc81aab90d4ac2d8c
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94482602"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97691967"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
@@ -53,7 +53,7 @@ Pour accéder à `DeviceManager`, une instance callAgent doit d’abord être cr
 const userToken = '<user token>';
 callClient = new CallClient(options);
 const tokenCredential = new AzureCommunicationUserCredential(userToken);
-const callAgent = await callClient.createCallAgent(tokenCredential);
+const callAgent = await callClient.createCallAgent(tokenCredential, { displayName: 'optional ACS user name' });
 const deviceManager = await callClient.getDeviceManager()
 ```
 
@@ -89,7 +89,9 @@ const groupCall = callAgent.call([userCallee, pstnCallee], placeCallOptions);
 > Il ne peut actuellement y avoir qu’un seul flux vidéo local sortant.
 Pour passer un appel vidéo, vous devez énumérer des caméras locales à l’aide de l’API `getCameraList` de DeviceManager.
 Une fois la caméra souhaitée sélectionnée, utilisez-la pour construire une instance `LocalVideoStream` et passer celle-ci dans `videoOptions` en tant qu’élément du tableau `localVideoStream` à la méthode `call`.
-Une fois votre appel connecté, il commence automatiquement à envoyer un flux vidéo aux autres participants à partir de la caméra sélectionnée
+Une fois votre appel connecté, il commence automatiquement à envoyer un flux vidéo aux autres participants à partir de la caméra sélectionnée.
+
+Cela s’applique également aux options vidéo Call.accept() et aux options vidéo CallAgent.join().
 ```js
 const deviceManager = await callClient.getDeviceManager();
 const videoDeviceInfo = deviceManager.getCameraList()[0];
@@ -99,13 +101,41 @@ const call = callAgent.call(['acsUserId'], placeCallOptions);
 
 ```
 
+### <a name="receiving-an-incoming-call"></a>Réception d’un appel entrant
+```js
+callAgent.on('callsUpdated', e => {
+    e.added.forEach(addedCall => {
+        if(addedCall.isIncoming) {
+        addedCall.accept();
+    }
+    });
+})
+```
+
 ### <a name="join-a-group-call"></a>Rejoindre un appel de groupe
 Pour démarrer un nouvel appel de groupe ou rejoindre un appel de groupe, utilisez la méthode « join » et transmettez un objet avec une propriété `groupId`. La valeur doit être un GUID.
 ```js
 
-const context = { groupId: <GUID>}
-const call = callAgent.join(context);
+const locator = { groupId: <GUID>}
+const call = callAgent.join(locator);
 
+```
+
+### <a name="join-a-teams-meeting"></a>Participer à une réunion Teams
+Pour participer à une réunion Teams, utilisez la méthode « join » et transmettez un lien de réunion ou les coordonnées d’une réunion
+```js
+// Join using meeting link
+const locator = { meetingLink: <meeting link>}
+const call = callAgent.join(locator);
+
+// Join using meeting coordinates
+const locator = {
+    threadId: <thread id>,
+    organizerId: <organizer id>,
+    tenantId: <tenant id>,
+    messageId: <message id>
+}
+const call = callAgent.join(locator);
 ```
 
 ## <a name="call-management"></a>Gestion des appels
@@ -162,6 +192,11 @@ const callEndReason = call.callEndReason;
 * Pour savoir si l’appel en cours est un appel entrant, inspectez la propriété `isIncoming`. Elle retourne un `Boolean`.
 ```js
 const isIncoming = call.isIncoming;
+```
+
+* Pour vérifier si l’appel est en train d’être enregistré, inspectez la propriété `isRecordingActive`. Elle retourne un `Boolean`.
+```js
+const isResordingActive = call.isRecordingActive;
 ```
 
 *  Pour vérifier si le microphone actuel est désactivé, inspectez la propriété `muted`. Elle retourne un `Boolean`.

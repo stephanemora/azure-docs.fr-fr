@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2020
 ms.author: rdhillon
-ms.openlocfilehash: 14ecb30af11bf750c90e45c3fb6b443d861a1445
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13535a82f8aca741a1e25755e5a2d971ce45514e
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89400753"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739295"
 ---
 # <a name="virtual-network-service-endpoint-policies-for-azure-storage"></a>Stratégies de points de terminaison de service de réseau virtuel pour le stockage Azure
 
@@ -122,7 +122,7 @@ Les réseaux virtuels et les comptes de stockage Azure peuvent se trouver dans d
 - Les réseaux virtuels doivent se trouver dans la même région que la stratégie de point de terminaison de service.
 - Vous pouvez uniquement appliquer la stratégie de point de terminaison de service sur un sous-réseau si les points de terminaison de service sont configurés pour les services Azure répertoriés dans la stratégie.
 - Vous ne pouvez pas utiliser les stratégies de points de terminaison de service pour le trafic allant de votre réseau local aux services Azure.
-- Les services managés Azure ne prennent actuellement pas en charge les stratégies de points de terminaison. Cela inclut les services managés déployés dans les sous-réseaux partagés (par exemple, *Azure HDInsight, Azure Batch, Azure ADDS, Azure Application Gateway, Azure VPN Gateway, Azure Firewall*) ou dans les sous-réseaux dédiés (par exemple, *Azure App Service Environment, Azure Cache pour Redis, Azure API Management, Azure SQL Managed Instance, les services managés classiques*).
+- Les services managés Azure ne prennent actuellement pas en charge les stratégies de points de terminaison. Cela inclut les services managés déployés dans les sous-réseaux partagés (par exemple, *Azure Batch, Azure ADDS, Azure Application Gateway, Azure VPN Gateway, Azure Firewall*) ou dans les sous-réseaux dédiés (par exemple, *Azure App Service Environment, Azure Cache pour Redis, Azure API Management, Azure SQL Managed Instance, les services managés classiques*).
 
  > [!WARNING]
  > Les services Azure déployés dans votre réseau virtuel, comme Azure HDInsight, accèdent aux autres services Azure, comme Stockage Azure, pour les besoins de l’infrastructure. La restriction de stratégie de point de terminaison à des ressources spécifiques peut bloquer l’accès à ces ressources d’infrastructure pour les services Azure déployés dans votre réseau virtuel.

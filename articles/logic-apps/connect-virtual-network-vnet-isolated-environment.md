@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 11/12/2020
-ms.openlocfilehash: 6c5badf4760bff559fb050278df84c7ad6e703bd
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.date: 12/18/2020
+ms.openlocfilehash: 315de18539bf083515658b40fa70f3c214d7c909
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616941"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739737"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Connexion à des réseaux virtuels Azure à partir d’Azure Logic Apps à l'aide d'un environnement de service d’intégration (ISE)
 
@@ -44,24 +44,14 @@ Vous pouvez également créer un environnement ISE en utilisant l’[exemple de 
   > [!IMPORTANT]
   > Les applications logiques, les déclencheurs et actions intégrés et les connecteurs qui s’exécutent dans votre ISE utilisent un autre plan de tarification que celui basé sur la consommation. Pour plus d’informations sur la tarification et la facturation des environnements de service d’intégration, consultez le [modèle de tarif pour Logic Apps](../logic-apps/logic-apps-pricing.md#fixed-pricing). Pour connaître la tarification, consultez [Tarification Logic Apps](../logic-apps/logic-apps-pricing.md).
 
-* Un [réseau virtuel Azure](../virtual-network/virtual-networks-overview.md). Votre réseau virtuel doit avoir quatre sous-réseaux *vides*, nécessaires à la création et au déploiement de ressources dans votre environnement ISE et utilisés par ces composants internes et masqués :
+* Un *réseau virtuel doit Azure* ayant quatre sous-réseaux [vides](../virtual-network/virtual-networks-overview.md), nécessaires à la création et au déploiement de ressources dans votre environnement ISE, et utilisés par ces composants internes et masqués :
 
   * Logic Apps Compute
   * App Service Environment interne (connecteurs)
   * Gestion des API interne (connecteurs)
   * Redis interne pour la mise en cache et les performances
   
-  Vous pouvez créer ces sous-réseaux à l’avance, ou vous pouvez attendre jusqu’à la création de votre ISE afin de créer les sous-réseaux en même temps. Toutefois, avant de créer vos sous-réseaux, examinez les [exigences relatives aux sous-réseaux](#create-subnet).
-
-  > [!IMPORTANT]
-  >
-  > N’utilisez pas les espaces d’adressage IP suivants pour votre ou vos sous-réseaux virtuels, car ils ne peuvent pas être résolus par Azure Logic Apps :<p>
-  > 
-  > * 0.0.0.0/8
-  > * 100.64.0.0/10
-  > * 127.0.0.0/8
-  > * 168.63.129.16/32
-  > * 169.254.169.254/32
+  Vous pouvez créer les sous-réseaux à l’avance ou quand vous créez votre ISE afin de pouvoir créer les sous-réseaux en même temps. Toutefois, avant de créer vos sous-réseaux, veillez à examiner les [exigences relatives aux sous-réseaux](#create-subnet).
 
   * Assurez-vous que votre réseau virtuel [permet d’accéder à votre ISE](#enable-access) afin que votre environnement ISE puisse fonctionner correctement et rester accessible.
 
@@ -71,7 +61,7 @@ Vous pouvez également créer un environnement ISE en utilisant l’[exemple de 
     **Préfixe de l’adresse** : 0.0.0.0/0<br>
     **Tronçon suivant** : Internet
     
-    Cette table de route est requise pour que les composants Logic Apps puissent communiquer avec d’autres services Azure dépendants, par exemple Stockage Azure et Azure SQL DB. Pour plus d’informations sur cet itinéraire, consultez [le préfixe d’adresse 0.0.0.0/0](../virtual-network/virtual-networks-udr-overview.md#default-route). Si vous n’utilisez pas le tunneling forcé avec ExpressRoute, vous n’avez pas besoin de cette table de routage spécifique.
+    Cette table de routage spécifique est requise pour que les composants Logic Apps puissent communiquer avec d’autres services Azure dépendants, tels que Stockage Azure et Azure SQL DB. Pour plus d’informations sur cet itinéraire, consultez [le préfixe d’adresse 0.0.0.0/0](../virtual-network/virtual-networks-udr-overview.md#default-route). Si vous n’utilisez pas le tunneling forcé avec ExpressRoute, vous n’avez pas besoin de cette table de routage spécifique.
     
     ExpressRoute vous permet d’étendre vos réseaux locaux au cloud de Microsoft et à vous connecter aux services de cloud computing Microsoft via une connexion privée assurée par le fournisseur de connectivité. Plus précisément, ExpressRoute est un réseau privé virtuel qui achemine le trafic sur un réseau privé plutôt que sur l’Internet public. Les applications logiques peuvent se connecter à des ressources locales qui se trouvent dans le même réseau virtuel lorsqu’elles se connectent via ExpressRoute ou un réseau privé virtuel.
    
@@ -156,21 +146,29 @@ En outre, vous devez ajouter des règles de trafic sortant pour [App Service Env
 
 Si vous configurez ou utilisez un [tunneling forcé](../firewall/forced-tunneling.md) via votre pare-feu, vous devez autoriser des dépendances externes supplémentaires pour votre environnement ISE. Un tunneling forcé vous permet de rediriger le trafic Internet vers un tronçon suivant désigné, tel que votre réseau privé virtuel (VPN) ou vers une appliance virtuelle, plutôt que vers Internet afin que vous puissiez inspecter et auditer le trafic réseau sortant.
 
-En règle générale, tout le trafic de dépendance sortant ISE transite par l’adresse IP virtuelle (VIP) approvisionnée avec votre environnement ISE. Toutefois, si vous modifiez le routage du trafic vers ou à partir de votre environnement ISE, vous devez autoriser les dépendances sortantes suivantes sur votre pare-feu en définissant leur tronçon suivant sur `Internet`. Si vous utilisez le Pare-feu Azure, suivez les [instructions pour configurer votre pare-feu avec App Service Environment](../app-service/environment/firewall-integration.md#configuring-azure-firewall-with-your-ase).
+Si vous n’autorisez pas l’accès pour ces dépendances, votre déploiement ISE échoue et votre environnement ISE déployé cesse de fonctionner.
 
-Si vous n’autorisez pas l’accès à ces dépendances, votre déploiement ISE échoue et votre environnement ISE déployé cesse de fonctionner :
+* itinéraires définis par l’utilisateur
 
-* [Adresses de gestion App Service Environment](../app-service/environment/management-addresses.md)
+  Pour empêcher un routage asymétrique, vous devez définir un itinéraire pour chaque adresse IP répertoriée ci-dessous avec **Internet** en guide de tronçon suivant.
+  
+  * [Adresses de gestion App Service Environment](../app-service/environment/management-addresses.md)
+  * [Adresses IP Azure pour les connecteurs de la région ISE, disponibles dans ce fichier de téléchargement](https://www.microsoft.com/download/details.aspx?id=56519)
+  * [Adresses de gestion d’Azure Traffic Manager](https://azuretrafficmanagerdata.blob.core.windows.net/probes/azure/probe-ip-ranges.json)
+  * [Adresses entrantes et sortantes Logic Apps pour la région ISE](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses-and-service-tags)
+  * [Adresses IP Azure pour les connecteurs de la région ISE, disponibles dans ce fichier de téléchargement](https://www.microsoft.com/download/details.aspx?id=56519)
 
-* [Adresses de gestion des API Azure](../api-management/api-management-using-with-vnet.md#control-plane-ips)
+* Points de terminaison de service
 
-* [Adresses de gestion d’Azure Traffic Manager](https://azuretrafficmanagerdata.blob.core.windows.net/probes/azure/probe-ip-ranges.json)
+  Vous devez activer des points de terminaison de service pour Azure SQL, Stockage Azure, Service Bus, Key Vault et Event Hub, car vous ne pouvez pas envoyer de trafic à ces services via un pare-feu.
 
-* [Adresses entrantes et sortantes Logic Apps pour la région ISE](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses-and-service-tags)
+*  Autres dépendances entrantes et sortantes
 
-* [Adresses IP Azure pour les connecteurs de la région ISE, disponibles dans ce fichier de téléchargement](https://www.microsoft.com/download/details.aspx?id=56519)
-
-* Vous devez activer des points de terminaison de service pour Azure SQL, le Stockage Azure, Service Bus et Event Hub, car vous ne pouvez pas envoyer de trafic via un pare-feu à ces services.
+   Votre pare-feu *doit* autoriser les dépendances entrantes et sortantes suivantes :
+   
+   * [Dépendances d’Azure App Service](../app-service/environment/firewall-integration.md#deploying-your-ase-behind-a-firewall)
+   * [Dépendances d’Azure Cache Service](../azure-cache-for-redis/cache-how-to-premium-vnet.md#what-are-some-common-misconfiguration-issues-with-azure-cache-for-redis-and-virtual-networks)
+   * [Dépendances de Gestion des API Azure](../api-management/api-management-using-with-vnet.md#-common-network-configuration-issues)
 
 <a name="create-environment"></a>
 
@@ -211,7 +209,7 @@ Si vous n’autorisez pas l’accès à ces dépendances, votre déploiement ISE
 
    * Utilise un nom qui commence par un caractère alphabétique ou par un trait de soulignement (aucun chiffre), et n’utilise pas ces caractères : `<`, `>`, `%`, `&`, `\\`, `?`, `/`.
 
-   * Il utilise le format [CIDR (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) et un espace d’adressage de Classe B.
+   * Utilise le [format CIDR (Classless InterDomain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
    
      > [!IMPORTANT]
      >

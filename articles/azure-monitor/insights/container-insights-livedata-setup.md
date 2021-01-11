@@ -4,12 +4,12 @@ description: Cet article décrit la configuration de la vue en temps réel des �
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: references_regions
-ms.openlocfilehash: 45ed931f734e874e81af837fff5c4a326349cb21
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 62bc7613995296504dfba551cdb631ac3386aa75
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95530180"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830783"
 ---
 # <a name="how-to-set-up-the-live-data-preview-feature"></a>Guide pratique pour configurer la fonctionnalité Live Data (préversion)
 
@@ -48,7 +48,7 @@ Le portail Azure vous invite à valider vos informations d’identification de c
 
 Pour éviter d’avoir à appliquer des modifications de configuration supplémentaires afin de permettre à la liaison de rôle d’utilisateur Kubernetes **clusterUser** d’accéder à la fonctionnalité Live Data (préversion) après l’[activation de l’autorisation Kubernetes RBAC](#configure-kubernetes-rbac-authorization), AKS a ajouté une nouvelle liaison de rôle de cluster Kubernetes appelée **clusterMonitoringUser**. Cette liaison de rôle de cluster dispose par défaut de toutes les autorisations nécessaires pour accéder à l’API Kubernetes et aux points de terminaison en vue de l’utilisation de la fonctionnalité Live Data (préversion).
 
-Pour utiliser la fonctionnalité Live Data (préversion) avec ce nouvel utilisateur, vous devez être membre du rôle [Contributeur](../../role-based-access-control/built-in-roles.md#contributor) sur la ressource de cluster AKS. Quand la fonctionnalité Azure Monitor pour conteneurs est activée, elle est configurée pour s’authentifier à l’aide de cet utilisateur par défaut. Si la liaison de rôle clusterMonitoringUser n’existe pas sur un cluster, **clusterUser** est utilisée à des fins d’authentification à la place.
+Pour utiliser la fonctionnalité Live Data (préversion) avec ce nouvel utilisateur, vous devez être membre du rôle [Utilisateur de cluster Azure Kubernetes Service](../../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-user-role) ou [Contributeur](../../role-based-access-control/built-in-roles.md#contributor) sur la ressource de cluster AKS. Quand la fonctionnalité Azure Monitor pour conteneurs est activée, elle est configurée pour s’authentifier à l’aide de l’utilisateur clusterMonitoringUser par défaut. Si la liaison de rôle clusterMonitoringUser n’existe pas sur un cluster, **clusterUser** est utilisée à des fins d’authentification à la place. Le rôle de contributeur vous donne accès à clusterMonitoringUser (s’il existe) et le rôle d’utilisateur de cluster Azure Kuberenetes Service vous donne accès à clusterUser. Chacun de ces deux rôles donne un accès suffisant pour utiliser cette fonctionnalité.
 
 AKS ayant publié cette nouvelle liaison de rôle en janvier 2020, les clusters créés avant janvier 2020 ne l’ont pas. Si vous avez un cluster qui a été créé avant janvier 2020, vous pouvez y ajouter la nouvelle liaison **clusterMonitoringUser** en y effectuant une opération PUT, ou en effectuant toute autre opération sur le cluster qui opère une opération PUT sur ce dernier, telle que la mise à jour de la version du cluster.
 

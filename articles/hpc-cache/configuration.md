@@ -4,14 +4,14 @@ description: Explique comment configurer des paramètres supplémentaires pour l
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 05/06/2020
+ms.date: 12/21/2020
 ms.author: v-erkel
-ms.openlocfilehash: b01c4d896d5ec600e0fe22e3ca7b7816141776a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02bf862cdc3b20ef3e5fdb024f474267efa0c70d
+ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86497197"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97760501"
 ---
 # <a name="configure-additional-azure-hpc-cache-settings"></a>Configurer des paramètres Azure HPC Cache supplémentaires
 
@@ -43,7 +43,7 @@ Si vous ne souhaitez pas modifier les paramètres MTU sur d’autres composants 
 Pour plus d’informations sur les paramètres MTU dans les réseaux virtuels Azure, consultez [Optimisation des performances TCP/IP pour les machines virtuelles Azure](../virtual-network/virtual-network-tcpip-performance-tuning.md).
 
 ## <a name="configure-root-squash"></a>Configurer le squash racine
-<!-- linked from troubleshoot -->
+<!-- linked from troubleshoot and from access policies -->
 
 Le paramètre **Activer le squash racine** contrôle la manière dont Azure HPC Cache traite les requêtes de l’utilisateur racine sur les ordinateurs clients.
 
@@ -54,6 +54,9 @@ Si le squash racine est désactivé, une requête de l’utilisateur racine clie
 La définition du squash racine sur le cache peut aider à compenser le paramètre ``no_root_squash`` requis sur les systèmes NAS utilisés comme cibles de stockage. (En savoir plus sur la [configuration requise pour les cibles de stockage NFS](hpc-cache-prerequisites.md#nfs-storage-requirements).) Il peut également améliorer la sécurité lorsqu’il est utilisé avec des cibles de stockage Blob Azure.
 
 Le paramètre par défaut est **Oui**. (Les caches créés avant avril 2020 peuvent avoir le paramètre par défaut **Non**.)
+
+> [!TIP]
+> Vous pouvez également définir le squash racine pour certaines exportations de stockage en personnalisant les [stratégies d’accès du client](access-policies.md#root-squash).
 
 ## <a name="view-snapshots-for-blob-storage-targets"></a>Afficher les instantanés pour les cibles de stockage blob
 
