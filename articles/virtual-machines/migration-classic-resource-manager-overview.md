@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 219fe2d9d8ac46ba3dbeebe6aaae9dddc0883aa0
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: e7d013775861f290d532e0d7c132896ebeff8ae8
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500408"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680212"
 ---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager-in-linux"></a>Migration prise en charge par la plateforme de ressources IaaS Classic vers Azure Resource Manager sous Linux
 
@@ -22,7 +22,7 @@ ms.locfileid: "96500408"
 
 
 
-Cet article décrit comment migrer des ressources infrastructure as a service (IaaS) de modèles de déploiement Classic vers Resource Manager et détaille comment connecter les ressources des deux modèles qui coexistent dans votre abonnement avec des passerelles de site à site de réseau virtuel. Pour en savoir plus, voir [Fonctionnalités et avantages d’Azure Resource Manager](../azure-resource-manager/management/overview.md). 
+Cet article fournit une vue d’ensemble de l’outil de migration pris en charge par la plateforme, explique comment migrer des ressources d’Azure Service Manager (ASM) vers des modèles de déploiement Resource Manager (ARM) et explique comment connecter des ressources à partir des deux modèles de déploiement qui coexistent dans votre abonnement à l’aide de passerelles entre sites de réseau virtuel. Pour en savoir plus, voir [Fonctionnalités et avantages d’Azure Resource Manager](../azure-resource-manager/management/overview.md). 
 
 ## <a name="goal-for-migration"></a>Objectif de la migration
 Resource Manager autorise le déploiement d’applications complexes à l’aide de modèles, configure les machines virtuelles au moyen d’extensions de machines virtuelles et intègre la gestion des accès et le balisage. Azure Resource Manager inclut un déploiement extensible, en parallèle, de machines virtuelles dans des groupes à haute disponibilité. Le nouveau modèle de déploiement assure également la gestion de façon indépendante du cycle de vie des services de calcul, de réseau et de stockage. Enfin, il applique la sécurité par défaut grâce à la mise en œuvre de machines virtuelles dans un réseau virtuel.
@@ -37,7 +37,7 @@ Pratiquement toutes les fonctionnalités du modèle de déploiement Classic sont
 * Comptes de stockage
 * Virtual Network
 * Passerelles VPN
-* Passerelles ExpressRoute _(dans le même abonnement que Réseau virtuel uniquement)_
+* [Passerelles Express Route](https://docs.microsoft.com/azure/expressroute/expressroute-howto-move-arm) _(dans le même abonnement que Réseau virtuel uniquement)_
 * Network Security Group
 * Tables de routage
 * IP réservées

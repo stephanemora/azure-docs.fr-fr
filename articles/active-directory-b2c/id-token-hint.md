@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 79a99d9f0ca117d8f47d56d76399210a72b91bb7
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: d77e145cabcef2931d5fe6e76599da7931e576e8
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94951653"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97669157"
 ---
 # <a name="define-an-id-token-hint-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique id_token_hint dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -36,10 +36,10 @@ id_token_hint doit être un jeton JWT valide. Le tableau suivant répertorie les
 
 | Name | Revendication | Valeur d'exemple | Description |
 | ---- | ----- | ------------- | ----------- |
-| Public visé | `aud` | `a489fc44-3cc0-4a78-92f6-e413cd853eae` | Identifie le destinataire du jeton. Il s’agit d’une chaîne arbitraire définie par l’émetteur du jeton. Azure AD B2C valide cette valeur et rejette le jeton si elle ne correspond pas.  |
-| Émetteur | `iss` |`https://localhost` | Identifie le service de jeton de sécurité (émetteur de jeton). Il s’agit d’un URI arbitraire défini par l’émetteur du jeton. Azure AD B2C valide cette valeur et rejette le jeton si elle ne correspond pas.  |
-| Heure d’expiration | `exp` | `1600087315` | Heure à laquelle le jeton n’est plus valide, représentée en heure epoch. Azure AD B2C ne valide pas cette revendication. |
-| Pas avant | `nbf` | `1599482515` | Heure à laquelle le jeton est valide, représentée en heure epoch. Cette heure correspond généralement à l’heure à laquelle le jeton a été émis. Azure AD B2C ne valide pas cette revendication. |
+| Public visé | `aud` | `a489fc44-3cc0-4a78-92f6-e413cd853eae` | Identifie le destinataire du jeton. L’audience est une chaîne arbitraire définie par l’émetteur du jeton. Azure AD B2C valide cette valeur et rejette le jeton si elle ne correspond pas.  |
+| Émetteur | `iss` |`https://localhost` | Identifie le service de jeton de sécurité (émetteur de jeton). L’émetteur est un URI arbitraire défini par l’émetteur du jeton. Azure AD B2C valide cette valeur et rejette le jeton si elle ne correspond pas.  |
+| Heure d’expiration | `exp` | `1600087315` | Heure à laquelle le jeton n’est plus valide, représentée en heure epoch. Azure AD B2C valide cette valeur et rejette le jeton s’il a expiré.|
+| Pas avant | `nbf` | `1599482515` | Heure à laquelle le jeton est valide, représentée en heure epoch. Cette heure correspond généralement à l’heure à laquelle le jeton a été émis. Azure AD B2C valide cette valeur et rejette le jeton si sa durée de vie n’est pas valide. |
 
  Le jeton suivant est un exemple de jeton d’ID valide :
 
@@ -272,7 +272,7 @@ Pour les approches symétriques et asymétriques, le profil technique `id_token_
     </RelyingParty>
     ```
 
-Selon les besoins de votre entreprise, vous devrez peut-être ajouter des validations de jeton, par exemple pour vérifier l’expiration du jeton, le format de l’adresse de messagerie et bien plus encore. Pour ce faire, ajoutez des étapes d’orchestration qui appellent un [profil technique de transformation des revendications](claims-transformation-technical-profile.md). Ajoutez également un [profil technique autodéclaré](self-asserted-technical-profile.md) pour présenter un message d’erreur. 
+En fonction des besoins de votre entreprise, vous devrez peut-être ajouter des validations de jeton, par exemple pour vérifier le format de l’adresse email. Pour ce faire, ajoutez des étapes d’orchestration qui appellent un [profil technique de transformation des revendications](claims-transformation-technical-profile.md). Ajoutez également un [profil technique autodéclaré](self-asserted-technical-profile.md) pour présenter un message d’erreur. 
 
 ### <a name="create-and-sign-a-token"></a>Créer et signer un jeton
 

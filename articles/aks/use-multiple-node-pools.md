@@ -4,12 +4,12 @@ description: Découvrez comment créer et gérer plusieurs pools de nœuds pour 
 services: container-service
 ms.topic: article
 ms.date: 04/08/2020
-ms.openlocfilehash: 39c2fe177d0a6d913d7bf2b2baf44af3c69c0868
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: db153123622a59bbdde71afca4ea30e03a6fbf98
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96006931"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97694240"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Créer et gérer plusieurs pools de nœuds pour un cluster dans Azure Kubernetes Service (AKS)
 
@@ -685,10 +685,10 @@ Modifiez ces valeurs en fonction des besoins pour mettre à jour, ajouter ou sup
 }
 ```
 
-Déployez ce modèle à l’aide de la commande [az group deployment create][az-group-deployment-create], comme indiqué dans l’exemple suivant. Vous êtes invité à fournir le nom et l’emplacement du cluster AKS existant :
+Déployez ce modèle à l’aide de la commande [az deployment group create][az-deployment-group-create], comme indiqué dans l’exemple suivant. Vous êtes invité à fournir le nom et l’emplacement du cluster AKS existant :
 
 ```azurecli-interactive
-az group deployment create \
+az deployment group create \
     --resource-group myResourceGroup \
     --template-file aks-agentpools.json
 ```
@@ -829,7 +829,7 @@ Utilisez les [groupes de placement de proximité][reduce-latency-ppg] pour rédu
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [az-group-create]: /cli/azure/group#az-group-create
 [az-group-delete]: /cli/azure/group#az-group-delete
-[az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create
+[az-deployment-group-create]: /cli/azure/deployment/group#az_deployment_group_create
 [gpu-cluster]: gpu-cluster.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md

@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment résoudre les erreurs rencontr
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: cb25d9263648fbd92bc075751c1a8e627d03bd44
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 2cda13ea089ac08dff7c1ba5ca93ba56ab3c23cf
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325211"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97831548"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Résolution des échecs de sauvegarde sur les machines virtuelles Azure
 
@@ -73,6 +73,16 @@ Message d’erreur : Impossible de figer un ou plusieurs points de montage de l
 * Démontez les appareils dont l’état du système de fichiers n’a pas été nettoyé à l’aide de la commande **unmount**.
 * Effectuez une vérification de cohérence de système de fichiers sur ces appareils à l’aide de la commande **fsck**.
 * Remontez les appareils, puis retentez l’opération de sauvegarde.</ol>
+
+Si vous ne pouvez pas annuler le montage, vous pouvez mettre à jour la configuration de la sauvegarde de machine virtuelle pour ignorer certains points de montage. Par exemple, si le point de montage « /mnt/Resource » ne peut pas être annulé et provoque des échecs de sauvegarde de la machine virtuelle, vous pouvez mettre à jour les fichiers de configuration de la sauvegarde de machine virtuelle avec la propriété ```MountsToSkip``` comme suit.
+
+```bash
+cat /var/lib/waagent/Microsoft.Azure.RecoveryServices.VMSnapshotLinux-1.0.9170.0/main/tempPlugin/vmbackup.conf[SnapshotThread]
+fsfreeze: True
+MountsToSkip = /mnt/resource
+SafeFreezeWaitInSeconds=600
+```
+
 
 ### <a name="extensionsnapshotfailedcom--extensioninstallationfailedcom--extensioninstallationfailedmdtc---extension-installationoperation-failed-due-to-a-com-error"></a>ExtensionSnapshotFailedCOM / ExtensionInstallationFailedCOM / ExtensionInstallationFailedMDTC – Échec de l’installation/opération d’extension en raison d’une erreur COM+
 

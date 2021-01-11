@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 769dea079339af2c6307d9230e047a654dc3d5dd
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 82f6c5989149b50a1ef5e6c6fb5350d474476436
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95492208"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845469"
 ---
 # <a name="receipt-concepts"></a>Concepts relatifs aux reçus
 
@@ -456,12 +456,11 @@ La sortie de Receipt est également utile pour la gestion générale des livres 
 
 Les tickets de caisse contiennent des données utiles vous permettant d’analyser le comportement des consommateurs et les tendances d’achat.
 
-L’API Receipt alimente également la [fonctionnalité de traitement de tickets de caisse AIBuilder](/ai-builder/prebuilt-receipt-processing).
+L’API Receipt alimente également la [fonctionnalité de traitement de tickets de caisse AI Builder](/ai-builder/prebuilt-receipt-processing).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Suivez un guide de [démarrage rapide : bibliothèque de client Form Recognizer](quickstarts/client-library.md) pour commencer à écrire une application de traitement de tickets de caisse avec Form Recognizer dans le langage de votre choix.
-- Ou, suivez le guide de [Démarrage rapide Python de l’API Receipt](./quickstarts/python-receipts.md) pour reconnaître les tickets de caisse à l’aide de l’API REST.
+- Suivez un guide de [démarrage rapide de Form Recognizer](quickstarts/client-library.md) pour commencer à écrire une application de traitement de tickets avec Form Recognizer dans le langage de votre choix.
 
 ## <a name="see-also"></a>Voir aussi
 

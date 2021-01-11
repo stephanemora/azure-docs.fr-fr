@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: e5d360933cbeb611046aede6164ec2e2fa497664
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 7ed7c3a586f5671191e3c517b5925cab888caefb
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347793"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724304"
 ---
 # <a name="sentence-pairing-and-alignment-in-parallel-documents"></a>Appairage et alignement des phrases dans des documents parallèles
 
@@ -22,7 +22,7 @@ Une fois les documents chargés, les phrases présentes dans les documents paral
 
 ## <a name="pairing-and-alignment-process"></a>Processus d’appairage et d’alignement
 
-Custom Translator apprend la traduction de phrases à raison d’une phrase à la fois. Il lit une phrase de la source, puis la traduction de cette phrase de la cible. Ensuite, il aligne les mots et les phrases de ces deux phrases les uns avec les autres. Ce processus lui permet de créer un mappage des mots et des phrases en une phrase avec les mots et les phrases équivalents dans la traduction de cette phrase. L’alignement vise à garantir que le système effectue son apprentissage sur des phrases qui sont des traductions les unes des autres.
+Custom Translator apprend la traduction de phrases à raison d’une phrase à la fois. Il lit une phrase du texte source, puis la traduction de cette phrase dans le texte cible. Ensuite, il aligne les mots et les phrases de ces deux phrases les uns avec les autres. Ce processus lui permet de créer un mappage des mots et des phrases en une phrase avec les mots et les phrases équivalents dans la traduction de cette phrase. L’alignement vise à garantir que le système effectue son apprentissage sur des phrases qui sont des traductions les unes des autres.
 
 ## <a name="pre-aligned-documents"></a>Documents préalignés
 

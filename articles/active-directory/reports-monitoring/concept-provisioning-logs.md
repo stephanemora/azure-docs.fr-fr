@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 10/07/2020
+ms.date: 12/28/2020
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2408db2d91740350405f11e2a1250ab9b3a4fe31
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 56818862b6bc4eb38b819185aceb121e6e78488e
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181201"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97803525"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Approvisionnement des rapports dans le portail Azure Active Directory (version préliminaire)
 
@@ -44,6 +44,7 @@ Cette rubrique présente une vue d’ensemble du rapport d’approvisionnement.
 ### <a name="who-can-access-the-data"></a>Qui peut accéder aux données ?
 * Propriétaires d’applications (peuvent afficher les journaux des applications qu’ils possèdent)
 * Utilisateurs des rôles Administrateur de la sécurité, Lecteur de sécurité, Lecteur de rapports, Administrateur d’application et Administrateur d’application cloud
+* Utilisateurs dans un rôle personnalisé avec l’[autorisation provisioningLogs](https://docs.microsoft.com/azure/active-directory/roles/custom-enterprise-app-permissions#full-list-of-permissions)
 * Les administrateurs généraux
 
 
@@ -56,7 +57,7 @@ Votre client doit avoir une licence Azure AD Premium associée pour afficher to
 Les journaux d’approvisionnement fournissent des réponses aux questions suivantes :
 
 * Quels groupes ont été créés avec succès dans ServiceNow ?
-* Quels rôles ont été importés d’Amazon Web Services ?
+* Quels utilisateurs ont été correctement supprimés d’Adobe ?
 * Quels utilisateurs n’ont pas été créés avec succès dans DropBox ?
 
 Vous pouvez accéder aux journaux d’approvisionnement en sélectionnant **Provisionner des journaux** dans la section **Surveillance** du panneau **Azure Active Directory** dans le [Portail Azure](https://portal.azure.com). L’affichage de certains enregistrements d’approvisionnement dans le portail peut prendre jusqu’à deux heures.
@@ -219,7 +220,9 @@ L’onglet **résumé** fournit une vue d’ensemble des événements et des ide
 
 - Vous pouvez voir des événements ignorés pour les utilisateurs qui ne sont pas dans l’étendue. Cela est prévu, en particulier lorsque l’étendue de synchronisation est définie sur tous les utilisateurs et groupes. Notre service évalue tous les objets du locataire, y compris ceux qui sont en dehors de l’étendue. 
 
-- Les journaux d’approvisionnement ne sont actuellement pas disponibles dans le cloud Government. Si vous ne parvenez pas à accéder aux journaux d’approvisionnement, utilisez les journaux d’audit comme solution temporaire de contournement.  
+- Les journaux d’approvisionnement ne sont actuellement pas disponibles dans le cloud Government. Si vous ne parvenez pas à accéder aux journaux d’approvisionnement, utilisez les journaux d’audit comme solution temporaire de contournement. 
+
+- Les journaux d’approvisionnement n’affichent pas les importations de rôle (s’appliquent à AWS, SalesForce et ZenDesk). Les journaux des importations de rôle se trouvent dans les journaux d’audit. 
 
 ## <a name="error-codes"></a>Codes d’erreur
 

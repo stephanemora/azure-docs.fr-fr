@@ -5,21 +5,21 @@ description: Les clients effectuant des requêtes auprès du stockage d’objets
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 09/17/2020
+ms.date: 12/14/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: abdc83019205fc39e1e85a53da7e49f8a7d4f11c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fcc5c02c4a37e205622470260d3c620ad76d07d8
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91618724"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97694699"
 ---
 # <a name="provide-an-encryption-key-on-a-request-to-blob-storage"></a>Fournir une clé de chiffrement lors d’une requête au stockage d’objets blob
 
-Les clients effectuant des requêtes auprès du stockage d’objets blob Azure ont la possibilité de fournir une clé de chiffrement lors de chaque requête. L’inclusion de la clé de chiffrement dans la requête offre un contrôle précis des paramètres de chiffrement pour les opérations de stockage d’objets blob. Les clés fournies par le client peuvent être stockées dans Azure Key Vault ou dans un autre magasin de clés.
+Les clients effectuant des requêtes auprès du stockage d’objets blob Azure ont la possibilité de fournir une clé de chiffrement AES-256 lors de chaque requête. L’inclusion de la clé de chiffrement dans la requête offre un contrôle précis des paramètres de chiffrement pour les opérations de stockage d’objets blob. Les clés fournies par le client peuvent être stockées dans Azure Key Vault ou dans un autre magasin de clés.
 
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
@@ -45,7 +45,7 @@ Pour les appels REST, les clients peuvent utiliser les en-têtes suivants pour t
 |---------------|-------------|
 |`x-ms-encryption-key` |Nécessaire pour les requêtes d’écriture et de lecture. Valeur de clé de chiffrement AES-256 encodée en base64. |
 |`x-ms-encryption-key-sha256`| Nécessaire pour les requêtes d’écriture et de lecture. Valeur SHA256 encodée en base64 de la clé de chiffrement. |
-|`x-ms-encryption-algorithm` | Nécessaire pour les requêtes d’écriture, facultatif pour les requêtes de lecture. Spécifie l’algorithme à utiliser lors du chiffrement des données à l’aide de la clé donnée. Doit être AES256. |
+|`x-ms-encryption-algorithm` | Nécessaire pour les requêtes d’écriture, facultatif pour les requêtes de lecture. Spécifie l’algorithme à utiliser lors du chiffrement des données à l’aide de la clé donnée.  La valeur de cet en-tête doit être définie `AES256`. |
 
 La spécification de clés de chiffrement dans la requête est facultative. Toutefois, si vous spécifiez l’un des en-têtes listés ci-dessus pour une opération d’écriture, vous devez les spécifier tous.
 

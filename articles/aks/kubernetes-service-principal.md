@@ -4,12 +4,12 @@ description: Créer et gérer un principal de service Azure Active Directory pou
 services: container-service
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: e95eae3ab8d992bc169e54700e7e31715e72102e
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: c6f50b152174cee1ee2cc37baa22432957107d2c
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96607821"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97614793"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Principaux de service avec Azure Kubernetes Service (AKS)
 
@@ -100,18 +100,7 @@ Si vous utilisez Azure Container Registry (ACR) comme magasin d’images contene
 
 ### <a name="networking"></a>Mise en réseau
 
-Vous pouvez utiliser un réseau avancé dans lequel le réseau virtuel et le sous-réseau, ou les adresses IP publiques, se trouvent dans un autre groupe de ressources. Assignez un des ensembles d’autorisations de rôle suivants :
-
-- Créez un [rôle personnalisé][rbac-custom-role] et définissez les autorisations de rôle suivantes :
-  - *Microsoft.Network/virtualNetworks/subnets/join/action*
-  - *Microsoft.Network/virtualNetworks/subnets/read*
-  - *Microsoft.Network/publicIPAddresses/join/action*
-  - *Microsoft.Network/publicIPAddresses/read*
-  - *Microsoft.Network/publicIPAddresses/write*
-  - Si vous utilisez [des tables de routage personnalisées sur des clusters Kubenet](configure-kubenet.md#bring-your-own-subnet-and-route-table-with-kubenet) ajoutez ces autorisations supplémentaires :
-    - *Microsoft.Network/routeTables/write*
-    - *Microsoft.Network/routeTables/read*
-- Ou attribuez le rôle intégré [Contributeur de réseaux][rbac-network-contributor] sur le sous-réseau dans le réseau virtuel
+Vous pouvez utiliser un réseau avancé dans lequel le réseau virtuel et le sous-réseau, ou les adresses IP publiques, se trouvent dans un autre groupe de ressources. Attribuez le rôle intégré [Contributeur de réseaux][rbac-network-contributor] sur le sous-réseau dans le réseau virtuel. Vous pouvez également créer un [rôle personnalisé][rbac-custom-role] avec des autorisations d’accès aux ressources réseau dans ce groupe de ressources. Pour plus d’informations, consultez [les autorisations du service AKS][aks-permissions].
 
 ### <a name="storage"></a>Stockage
 
@@ -188,3 +177,4 @@ Pour plus d’informations sur la mise à jour des informations d’identificati
 [aks-to-acr]: cluster-container-registry-integration.md
 [update-credentials]: update-credentials.md
 [azure-ad-permissions]: ../active-directory/fundamentals/users-default-permissions.md
+[aks-permissions]: concepts-identity.md#aks-service-permissions

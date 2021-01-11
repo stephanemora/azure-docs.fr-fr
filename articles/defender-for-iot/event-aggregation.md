@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/03/2020
 ms.author: mlottner
-ms.openlocfilehash: 7f7575697706363c082a4e6374b3df7a49e65cdf
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: c823f0034db7d5fbe1f6b46f6af74e9fa374a6de
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548849"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97832367"
 ---
 # <a name="defender-for-iot-event-aggregation"></a>Agrégation d’événements Defender pour IoT
 
@@ -97,6 +97,6 @@ Pour poursuivre votre prise en main du déploiement de Defender pour IoT, lisez 
 
 - Comprendre les [méthodes d’authentification de l’agent de sécurité](concept-security-agent-authentication-methods.md)
 - Sélectionner et déployer un [agent de sécurité](how-to-deploy-agent.md)
-- Consulter les [Prérequis du service](service-prerequisites.md) Defender pour IoT
+- Consulter les [Prérequis système](quickstart-system-prerequisites.md) Defender pour IoT
 - Apprendre à [activer le service Defender pour IoT dans votre hub IoT](quickstart-onboard-iot-hub.md)
 - En savoir plus sur le service dans la [FAQ Defender pour IoT](resources-frequently-asked-questions.md)

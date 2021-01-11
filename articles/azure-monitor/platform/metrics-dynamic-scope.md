@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/14/2020
 ms.author: riroloff
 ms.subservice: metrics
-ms.openlocfilehash: 724809dbce3ca1b5a36f4da0ba5c03d0f78897f5
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 9d1460a8bebe75a3ee471eb304fcf642d566b5dd
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97577544"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97614640"
 ---
 # <a name="viewing-multiple-resources-in-metrics-explorer"></a>Affichage de plusieurs ressources dans Metrics Explorer
 
@@ -71,7 +71,7 @@ Par exemple, voici un graphique du pourcentage d’utilisation du processeur sur
 
 ![Capture d’écran montrant comment vous pouvez utiliser la division pour voir le pourcentage d’utilisation du processeur par machine virtuelle](./media/metrics-charts/026.png)
 
-En plus de la division, vous pouvez utiliser la fonctionnalité de filtrage pour afficher uniquement les groupes de ressources qui vous intéressent.  Par exemple, si vous souhaitez afficher le pourcentage d’utilisation du processeur des machines virtuelles pour un groupe de ressources spécifique, vous pouvez utiliser l’outil « Ajouter un filtre » pour filtrer par groupe de ressources. Dans cet exemple, nous filtrons par TailspinToys, ce qui a pour effet de supprimer les métriques associées aux ressources dans TailspinToysDemo. 
+En plus de la division, vous pouvez utiliser la fonctionnalité de filtrage pour afficher uniquement les groupes de ressources qui vous intéressent.  Par exemple, si vous souhaitez afficher le pourcentage d’utilisation du processeur des machines virtuelles pour un groupe de ressources spécifique, vous pouvez utiliser l’outil « Ajouter un filtre » pour filtrer par groupe de ressources. Dans cet exemple, nous filtrons par TailspinToysDemo, ce qui a pour effet de supprimer les métriques associées aux ressources dans TailspinToys. 
 
 ![Capture d’écran montrant comment filtrer par groupe de ressources](./media/metrics-charts/027.png)
 
@@ -80,7 +80,7 @@ En plus de la division, vous pouvez utiliser la fonctionnalité de filtrage pour
 > [!WARNING] 
 > Vous devez disposer de l’autorisation Lecteur d’analyse au niveau de l’abonnement pour visualiser les métriques sur plusieurs ressources, groupes de ressources ou un abonnement. Pour ce faire, suivez les instructions de [ce document](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal). 
 
-Pour épingler votre graphique multi-ressource, suivez les instructions [ici](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts#create-alert-rules). 
+Pour épingler votre graphique multi-ressource, suivez les instructions [ici](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts#pin-charts-to-dashboards). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

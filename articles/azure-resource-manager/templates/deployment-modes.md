@@ -3,12 +3,12 @@ title: Modes de déploiement
 description: Explique comment spécifier s’il faut utiliser un mode de déploiement complet ou incrémentiel avec Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: bc499be4185905af7eaf71b3515895de9bee46d3
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 45eee255cec06925095ed0696c669b5c205f8b56
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184040"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724406"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Modes de déploiement Azure Resource Manager
 
@@ -33,7 +33,7 @@ Si vous déployez sur [plusieurs groupes de ressources dans un modèle](./deploy
 
 Il existe des différences dans la manière dont les types de ressources traitent les suppressions en mode complet. Les ressources parentes sont automatiquement supprimées lorsqu'elles ne figurent pas dans un modèle déployé en mode complet. Certaines ressources enfants ne sont pas automatiquement supprimées lorsqu'elles ne figurent pas dans le modèle. Toutefois, ces ressources enfants sont supprimées si la ressource parent est supprimée.
 
-Par exemple, si votre groupe de ressources contient une zone DNS (type de ressource Microsoft.Network/dnsZones) et un enregistrement CNAME (type de ressource Microsoft.Network/dnsZones/CNAME), la zone DNS est la ressource parente de l'enregistrement CNAME. Si vous procédez à un déploiement en mode complet et que vous n'incluez pas la zone DNS dans votre modèle, la zone DNS et l'enregistrement CNAME sont tous deux supprimés. Si vous incluez la zone DNS dans votre modèle mais pas l’enregistrement CNAME, ce dernier n’est pas supprimé.
+Par exemple, si votre groupe de ressources contient une zone DNS (type de ressource `Microsoft.Network/dnsZones`) et un enregistrement CNAME (type de ressource `Microsoft.Network/dnsZones/CNAME`), la zone DNS est la ressource parente de l’enregistrement CNAME. Si vous procédez à un déploiement en mode complet et que vous n'incluez pas la zone DNS dans votre modèle, la zone DNS et l'enregistrement CNAME sont tous deux supprimés. Si vous incluez la zone DNS dans votre modèle mais pas l’enregistrement CNAME, ce dernier n’est pas supprimé.
 
 Pour plus d'informations sur la façon dont les types de ressources gèrent la suppression, consultez [Suppression de ressources Azure pour les déploiements en mode complet](complete-mode-deletion.md).
 
@@ -113,19 +113,19 @@ L’exemple suivant montre un modèle lié dans le mode de déploiement incréme
 ```json
 "resources": [
   {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2017-05-10",
-      "name": "linkedTemplate",
-      "properties": {
-          "mode": "Incremental",
+    "type": "Microsoft.Resources/deployments",
+    "apiVersion": "2017-05-10",
+    "name": "linkedTemplate",
+    "properties": {
+      "mode": "Incremental",
           <nested-template-or-external-template>
-      }
+    }
   }
 ]
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour en savoir plus sur la création de modèles Resource Manager, consultez [Création de modèles Azure Resource Manager](template-syntax.md).
-* Pour en savoir plus sur le déploiement de ressources, consultez [Déploiement d’une application avec un modèle Azure Resource Manager](deploy-powershell.md).
+* Pour apprendre à créer des modèles Resource Manager, consultez [Comprendre la structure et la syntaxe des modèles Resource Manager](template-syntax.md).
+* Pour savoir comment déployer des ressources, consultez [Déployer des ressources avec des modèles ARM et Azure PowerShell](deploy-powershell.md).
 * Pour afficher les opérations pour un fournisseur de ressources, consultez [API REST Azure](/rest/api/).

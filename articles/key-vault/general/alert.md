@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/06/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to learn the options available to monitor the health of my vaults
-ms.openlocfilehash: 9195bb59264731914740e1cca902707603e3502d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7ff3daded48612fd308396420dca65cd81d9fafc
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96018118"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724695"
 ---
 # <a name="monitoring-and-alerting-for-azure-key-vault"></a>Surveillance et alertes Azure Key Vault
 
@@ -40,7 +40,7 @@ Lorsque vous commencez à utiliser un coffre de clés pour stocker vos secrets d
 
 **Saturation du coffre** : le nombre de requêtes par seconde qu'un coffre de clés peut traiter repose sur le type d'opération effectuée. Pour certaines opérations relatives au coffre, le seuil de requêtes par seconde est plus bas. Cette métrique agrège l'utilisation totale de votre coffre de clés, tous types d'opérations confondus, pour fournir une valeur en pourcentage qui indique votre utilisation actuelle du coffre. Pour obtenir la liste complète des limites du service Key Vault, consultez le document suivant. [Limites du service Azure Key Vault](service-limits.md)
 
-**Latence de l'API de service** : cette métrique indique la latence moyenne d'un appel au coffre de clés. Même si votre coffre de clés se trouve dans les limites de service, une utilisation intensive de celui-ci peut entraîner une latence qui fait échouer les applications situées en aval. 
+**Latence de l’API de service** : cette métrique indique la latence moyenne d’un appel au coffre de clés, telle que mesurée au niveau du service. Elle n’inclut pas le temps consommé par le client ou par le réseau entre le client et le service.
 
 **Nombre total d'accès à l'API** : cette métrique affiche tous les appels passés à votre coffre de clés. Vous pouvez ainsi identifier les applications qui appellent votre coffre de clés. 
 

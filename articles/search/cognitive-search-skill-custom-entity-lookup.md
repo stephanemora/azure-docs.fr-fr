@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 5511551f240fe4fdd2f2aa3bc8a3a2615505f35f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 704763e8e6e7c5336d0ed3e1c28791fb96c77aba
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88936110"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97844927"
 ---
 #     <a name="custom-entity-lookup-cognitive-skill-preview"></a>Compétence cognitive Recherche d'entité personnalisée (préversion)
 
@@ -41,7 +41,9 @@ Les paramètres respectent la casse.
 | `entitiesDefinitionUri`    | Chemin d'accès à un fichier JSON ou CSV contenant tout le texte cible à comparer. Cette définition d'entité est lue au début de l'exécution d'un indexeur ; les mises à jour de ce fichier à mi-parcours ne seront pas réalisées avant l'exécution suivante. Cette configuration doit être accessible via HTTPS. Reportez-vous à la section Format de [définition d'entité personnalisée](#custom-entity-definition-format) ci-dessous pour en savoir plus sur le schéma CSV ou JSON attendu.|
 |`inlineEntitiesDefinition` | Définitions d'entités JSON au format inline. Ce paramètre remplace le paramètre entitiesDefinitionUri s'il est présent. Un maximum de 10 Ko de configuration peut être fourni au format inline. Reportez-vous à la section [Définition d'entité personnalisée](#custom-entity-definition-format) ci-dessous pour en savoir plus sur le schéma JSON attendu. |
 |`defaultLanguageCode` |    (Facultatif) Code langue du texte d'entrée utilisé pour « tokeniser » et délimiter le texte. Langues prises en charge : `da, de, en, es, fi, fr, it, ko, pt`. La langue par défaut est l'anglais (`en`). Si vous utilisez un format codelangue-codepays, seule la partie codelangue du format est utilisée.  |
-
+|`globalDefaultCaseSensitive` | (Facultatif) Valeur de la casse par défaut pour cette compétence. Si la valeur `defaultCaseSensitive` d’une entité n’est pas spécifiée, cette valeur devient la valeur `defaultCaseSensitive` de cette entité. |
+|`globalDefaultAccentSensitive` | (Facultatif) Valeur de l’accent par défaut pour cette compétence. Si la valeur `defaultAccentSensitive` d’une entité n’est pas spécifiée, cette valeur devient la valeur `defaultAccentSensitive` de cette entité. |
+|`globalDefaultFuzzyEditDistance` | (Facultatif) Valeur de la distance d’édition par défaut pour cette compétence. Si la valeur `defaultFuzzyEditDistance` d’une entité n’est pas spécifiée, cette valeur devient la valeur `defaultFuzzyEditDistance` de cette entité. |
 
 ## <a name="skill-inputs"></a>Entrées de la compétence
 
@@ -151,8 +153,10 @@ Les tableaux ci-dessous décrivent plus en détail les différents paramètres d
 | `subtype` | (Facultatif) Ce champ peut être utilisé pour transmettre des métadonnées personnalisées au sujet du(des) texte(s) comparés. La valeur de ce champ apparaîtra avec chaque correspondance de son entité dans la sortie de la compétence. |
 | `id` | (Facultatif) Ce champ peut être utilisé pour transmettre des métadonnées personnalisées au sujet du(des) texte(s) comparés. La valeur de ce champ apparaîtra avec chaque correspondance de son entité dans la sortie de la compétence. |
 | `caseSensitive` | (Facultatif) La valeur par défaut est « False ». Valeur booléenne indiquant si les comparaisons avec le nom de l'entité doivent respecter la casse des caractères. Exemples de correspondances qui ne respectent pas la casse de « Microsoft » : microsoft, microSoft, MICROSOFT |
+| `accentSensitive` | (Facultatif) La valeur par défaut est « False ». Valeur booléenne indiquant si les lettres accentuées et non accentuées comme « é » et « e » doivent être identiques. |
 | `fuzzyEditDistance` | (Facultatif) La valeur par défaut est 0. La valeur maximale est 5. Indique le nombre acceptable de caractères divergents qui constitueraient encore une correspondance avec le nom de l'entité. La plus petite approximation possible d'une correspondance donnée est renvoyée.  Par exemple, si la distance de modification est définie sur 3, « Windows 10 » correspondra encore à « Windows », « Windows10 » et « windows 7 ». <br/> Lorsque le respect de la casse est défini sur « False », les différences de casse ne comptent PAS dans le cadre de la tolérance aux approximations, mais sinon elles comptent. |
 | `defaultCaseSensitive` | (Facultatif) Modifie la valeur de respect de la casse par défaut pour cette entité. Elle peut être utilisée pour modifier les valeurs caseSensitive par défaut de tous les alias. |
+| `defaultAccentSensitive` | (Facultatif) Modifie la valeur de respect de l’accent par défaut pour cette entité. Elle peut être utilisée pour modifier les valeurs accentSensitive par défaut de tous les alias.|
 | `defaultFuzzyEditDistance` | (Facultatif) Modifie la valeur par défaut de la distance de modification approximative pour cette entité. Elle peut être utilisée pour modifier les valeurs fuzzyEditDistance par défaut de tous les alias. |
 | `aliases` | (Facultatif) Groupe d'objets complexes qui peut être utilisé pour spécifier d'autres orthographes ou des synonymes au nom de l'entité racine. |
 
@@ -160,6 +164,7 @@ Les tableaux ci-dessous décrivent plus en détail les différents paramètres d
 |------------------|-------------|
 | `text`  | Autre orthographe ou représentation d'un nom d'entité cible.  |
 | `caseSensitive` | (Facultatif) Agit de la même manière que le paramètre « caseSensitive » de l'entité racine ci-dessus, mais ne s'applique qu'à cet alias. |
+| `accentSensitive` | (Facultatif) Agit de la même manière que le paramètre « accentSensitive » de l’entité racine ci-dessus, mais ne s’applique qu’à cet alias. |
 | `fuzzyEditDistance` | (Facultatif) Agit de la même manière que le paramètre « fuzzyEditDistance » de l'entité racine ci-dessus, mais ne s'applique qu'à cet alias. |
 
 

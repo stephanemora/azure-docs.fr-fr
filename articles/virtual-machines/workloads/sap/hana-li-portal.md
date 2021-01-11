@@ -13,17 +13,21 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/15/2019
+ms.date: 12/31/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 550e22ac861b92994f2695594d09fc2935d273d1
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: e5adb8edbeafa4d77e24bf865338e111c455cb80
+ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967752"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97827510"
 ---
 # <a name="azure-hana-large-instances-control-through-azure-portal"></a>Contrôle des grandes instances Azure HANA à l’aide du portail Azure
+
+>[!NOTE]
+>Pour la version Rev 4.2, suivez les instructions de la rubrique [Gestion des instances BareMetal via le Portail Azure](../../../baremetal-infrastructure/workloads/sap/baremetal-infrastructure-portal.md).
+
 Ce document décrit la façon dont [HANA - Grandes instances](./hana-overview-architecture.md) est présenté dans le [portail Azure](https://portal.azure.com) et les activités qui peuvent être effectuées par le biais du portail Azure avec des unités de Grande instance HANA qui sont automatiquement déployées. La visibilité de la fonctionnalité HANA - Grandes instances dans le portail Azure est fournie par le biais d’un fournisseur de ressources Azure pour HANA - Grandes instances, qui est actuellement en préversion publique
 
 ## <a name="register-hana-large-instance-resource-provider"></a>Inscrire le fournisseur de ressources Grande instance HANA

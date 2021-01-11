@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 2011fa8e85f10f12ae914b02710bbd65f5700403
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f0f64d910d03e42008c5fe6fef28a5b9c0917abd
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95913043"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814463"
 ---
 # <a name="optimize-azure-data-lake-storage-gen2-for-performance"></a>Optimiser Azure Data Lake Storage Gen2 pour les performances
 
@@ -21,11 +21,11 @@ Azure Data Lake Storage Gen2 prend en charge un débit élevé pour l’analytiq
 
 ![Performances de Data Lake Storage Gen2](./media/data-lake-storage-performance-tuning-guidance/throughput.png)
 
-Data Lake Storage Gen2 peut être mis à l’échelle afin de fournir le débit nécessaire pour tous les scénarios d’analytique. Par défaut, un compte Data Lake Storage Gen2 fournit automatiquement suffisamment de débit pour répondre aux besoins d’une vaste catégorie de cas d’usage. Pour les cas où les clients atteignent la limite par défaut, vous pouvez configurer le compte Data Lake Storage Gen2 de manière à fournir un débit plus important en contactant le [support Azure](https://azure.microsoft.com/support/faq/).
+Data Lake Storage Gen2 peut être mis à l’échelle afin de fournir le débit nécessaire pour tous les scénarios d’analytique. Par défaut, un compte Data Lake Storage Gen2 fournit suffisamment de débit dans sa configuration par défaut pour répondre aux besoins d’une vaste catégorie de cas d’usage. Pour les cas où les clients atteignent la limite par défaut, vous pouvez configurer le compte Data Lake Storage Gen2 de manière à fournir un débit plus important en contactant le [support Azure](https://azure.microsoft.com/support/faq/).
 
 ## <a name="data-ingestion"></a>Ingestion de données
 
-Lors de l’ingestion de données à partir d’un système source dans Data Lake Storage Gen2, vous devez impérativement tenir compte du fait que le matériel source, le matériel réseau source et la connectivité réseau à Data Lake Storage Gen2 peuvent agir comme goulot d’étranglement.  
+Lors de l’ingestion de données à partir d’un système source dans Data Lake Storage Gen2, vous devez impérativement tenir compte du fait que le matériel source, le matériel réseau source ou la connectivité réseau à Data Lake Storage Gen2 peuvent agir comme goulot d’étranglement.  
 
 ![Diagramme montrant les facteurs à prendre en compte lors de l’ingestion de données d’un système source dans Data Lake Storage Gen2.](./media/data-lake-storage-performance-tuning-guidance/bottleneck.png)
 
@@ -43,7 +43,7 @@ La connectivité réseau entre vos données sources et Data Lake Storage Gen2 pe
 
 Après avoir traité les goulots d’étranglement du matériel source et de la connectivité réseau susmentionnés, vous pouvez configurer vos outils d’ingestion. Le tableau suivant résume les paramètres clés de plusieurs outils d’ingestion populaires et fournit des articles détaillés concernant le réglage des performances.  Pour en savoir plus sur l’outil à utiliser pour votre scénario, consultez cet [article](data-lake-storage-data-scenarios.md).
 
-| Outil               | Paramètres     | Détails supplémentaires                                                                 |
+| Outil               | Paramètres | Détails supplémentaires                                                                 |
 |--------------------|------------------------------------------------------|------------------------------|
 | DistCp            | -m (mappeur)   | [Lien](data-lake-storage-use-distcp.md#performance-considerations-while-using-distcp)                             |
 | Azure Data Factory| parallelCopies    | [Lien](../../data-factory/copy-activity-performance.md)                          |

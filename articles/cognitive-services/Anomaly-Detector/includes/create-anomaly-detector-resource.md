@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/10/2020
 ms.author: mbullwin
-ms.openlocfilehash: d1add17c1c84d2a22d76aaa1f96aeca4db645ba7
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 037b9746571678e24e80bd76e7e2ed173ab8eb90
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97506327"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97677620"
 ---
 ## <a name="create-an-anomaly-detector-resource"></a>Créer une ressource Détecteur d’anomalies
 
@@ -26,7 +26,7 @@ ms.locfileid: "97506327"
     |Name|Nom de votre choix (2-64 caractères)|
     |Subscription|Sélectionner l’abonnement approprié|
     |Location|Sélectionnez n’importe quel emplacement disponible et proche|
-    |Niveau de tarification|`F0` - 100 appels par seconde, 20 000 transactions par mois. <br> Ou :<br> `S0` - 80 appels par seconde|
+    |Niveau de tarification|`F0` - 10 appels par seconde, 20 000 transactions par mois. <br> Ou :<br> `S0` - 80 appels par seconde|
     |Groupe de ressources|Sélectionner un groupe de ressources disponible|
 
 1. Cliquez sur **Créer** et attendez que la ressource soit créée. Après sa création, accédez à la page de ressources

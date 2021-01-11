@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 787380dbf6f739d4b88f18a836da2146b06024c3
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 7c0623d58bf88b8bcc5f19665a081ce012b560b6
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443141"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97614867"
 ---
 # <a name="desktop-app-that-calls-web-apis-app-registration"></a>Application de bureau qui appelle des API web : Inscription d'application
 
@@ -49,7 +49,7 @@ Les URI de redirection à utiliser dans une application de bureau dépendent du 
 - Pour différencier le [flux de code d’appareil](scenario-desktop-acquire-token.md#device-code-flow), l’[authentification Windows intégrée](scenario-desktop-acquire-token.md#integrated-windows-authentication) et un [mot de passe associé à un nom d’utilisateur](scenario-desktop-acquire-token.md#username-and-password) d’une application cliente confidentielle à l’aide d’un flux d’informations d’identification client utilisé dans les [applications démon](scenario-daemon-overview.md), dont aucune ne demande d’URI de redirection, vous devez la configurer en tant qu’application cliente publique. Pour obtenir cette configuration :
 
     1. Dans le [portail Azure](https://portal.azure.com), sélectionnez votre application dans **Inscriptions d’applications**, puis sélectionnez **Authentification**.
-    1. Dans **Paramètres avancés** > **Type de client par défaut** > **Considérer l’application comme un client public**, sélectionnez **Oui**.
+    1. Dans **Paramètres avancés** > **Autoriser les flux de clients publics** > **Activer les flux mobiles et de bureau suivants**, sélectionnez **Oui**.
 
         :::image type="content" source="media/scenarios/default-client-type.png" alt-text="Activer le paramètre client public dans le volet Authentification du portail Azure":::
 

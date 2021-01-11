@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 35c1ffb370a158acc91e2378119055337e28580d
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 2af79efa2bd1685d0e7bd621e2ddb8930425dee1
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443090"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97614895"
 ---
 # <a name="register-mobile-apps-that-call-web-apis"></a>Inscrire des applications mobiles appelant des API web
 
@@ -81,7 +81,12 @@ Si vous préférez configurer manuellement l'URI de redirection, utilisez le man
 
 Si votre application utilise exclusivement l'authentification par nom d'utilisateur/mot de passe, il n'est pas nécessaire d'inscrire un URI de redirection pour votre application. Ce flux effectue un aller-retour vers le point de terminaison de la plateforme d'identités Microsoft version 2.2.0. Votre application ne sera pas rappelée sur un URI spécifique.
 
-Toutefois, vous devez identifier votre application en tant qu'application cliente publique. Pour ce faire, commencez à la section **Authentification** de votre application. Dans la sous-section **Paramètres avancés**, accédez au paragraphe **Type de client par défaut** et répondez **Oui** à la question **Considérer l'application comme un client public**.
+Toutefois, vous devez identifier votre application en tant qu'application cliente publique. Pour ce faire :
+
+1. Toujours dans le [portail Azure](https://portal.azure.com), sélectionnez votre application dans **Inscriptions d’applications**, puis sélectionnez **Authentification**.
+1. Dans **Paramètres avancés** > **Autoriser les flux de clients publics** > **Activer les flux mobiles et de bureau suivants**, sélectionnez **Oui**.
+
+   :::image type="content" source="media/scenarios/default-client-type.png" alt-text="Activer le paramètre client public dans le volet Authentification du portail Azure":::
 
 ## <a name="api-permissions"></a>Autorisations des API
 

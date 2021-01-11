@@ -2,13 +2,13 @@
 title: Secret Azure Key Vault avec modèle
 description: Montre comment passer une clé secrète à partir d’un coffre de clés en tant que paramètre lors du déploiement.
 ms.topic: conceptual
-ms.date: 01/06/2020
-ms.openlocfilehash: eb57e680090a38a5be725daa7b3a118039aa35f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/17/2020
+ms.openlocfilehash: 8983d51d90e07e21ac4c9489c7ed553530278d3c
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84677863"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672703"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Utiliser Azure Key Vault pour transmettre une valeur de paramètre sécurisée pendant le déploiement
 
@@ -377,3 +377,4 @@ Le modèle suivant crée de façon dynamique l’ID du coffre de clés et le pas
 
 - Pour obtenir des informations générales sur les coffres de clés, consultez [Présentation d’Azure Key Vault](../../key-vault/general/overview.md).
 - Pour obtenir des exemples complets de référencement de clés secrètes, consultez [Exemples de coffres de clés](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
+- Pour lire un module Microsoft Learn dans lequel est utilisée une valeur sécurisée issue d’un coffre de clés, consultez [Gérer des déploiements cloud complexes à l’aide des fonctionnalités avancées de modèle ARM](/learn/modules/manage-deployments-advanced-arm-template-features/).

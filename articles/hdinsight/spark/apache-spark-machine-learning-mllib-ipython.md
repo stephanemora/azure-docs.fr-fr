@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020, devx-track-python
 ms.date: 04/27/2020
-ms.openlocfilehash: bd61c6812d794d30e28f087dabf58db51e9c3296
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a6407f7c3b1e8570cdc6b36dceec79fba58689c7
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89230413"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822180"
 ---
 # <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Utiliser Apache Spark MLlib pour créer une application de Machine Learning et analyser un jeu de données
 
@@ -32,7 +32,7 @@ MLLib est une bibliothèque Spark de base qui fournit de nombreux utilitaires tr
 
 Une *classification*, tâche de Machine Learning très courante, est le processus de tri de données d’entrée par catégories. La fonction d'un algorithme de classification consiste à déterminer comment attribuer des « étiquettes » aux données d'entrée que vous fournissez. Par exemple, vous pourriez penser à un algorithme de Machine Learning qui accepte les informations relatives à un stock comme données d'entrée. Puis qui divise le stock en deux catégories : le stock que vous devez vendre et le stock que vous devez conserver.
 
-La régression logistique correspond à l’algorithme que vous utilisez pour la classification. L’API de régression logistique de Spark est utile pour la *classification binaire*ou pour classer les données d’entrée dans un des deux groupes. Pour plus d’informations sur la régression logistique, consultez [Wikipedia](https://en.wikipedia.org/wiki/Logistic_regression).
+La régression logistique correspond à l’algorithme que vous utilisez pour la classification. L’API de régression logistique de Spark est utile pour la *classification binaire* ou pour classer les données d’entrée dans un des deux groupes. Pour plus d’informations sur la régression logistique, consultez [Wikipedia](https://en.wikipedia.org/wiki/Logistic_regression).
 
 En résumé, le processus de régression logistique produit une *fonction logistique*. Utilisez cette fonction pour prédire la probabilité qu'un vecteur d'entrée appartienne à l'un ou l'autre des groupes.  
 
@@ -44,7 +44,7 @@ Dans la procédure ci-dessous, vous développez un modèle pour voir ce qui est 
 
 ## <a name="create-an-apache-spark-mllib-machine-learning-app"></a>Créer une application de Machine Learning Apache Spark MLlib
 
-1. Créez un bloc-notes Jupyter à l’aide du noyau PySpark. Pour obtenir des instructions, consultez [Créer un fichier bloc-notes Jupyter](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook-file).
+1. Créez un fichier Jupyter Notebook en utilisant le noyau PySpark. Pour obtenir des instructions, consultez [Créer un fichier Jupyter Notebook](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook-file).
 
 2. Importez les types requis pour cette application. Copiez et collez le code suivant dans une cellule vide, puis appuyez sur **MAJ + ENTRÉE**.
 
@@ -174,7 +174,7 @@ Commençons par nous faire une idée de ce que contient le jeu de données.
     SELECT COUNT(results) AS cnt, results FROM CountResults GROUP BY results
     ```
 
-    La méthode `%%sql` suivie par `-o countResultsdf` garantit que le résultat de la requête est conservé localement sur le serveur Jupyter (généralement le nœud principal du cluster). Le résultat est conservé sous la forme d’une trame de données [Pandas](https://pandas.pydata.org/) avec le nom spécifié **countResultsdf**. Pour plus d’informations sur la méthode magique `%%sql` et d’autres méthodes magiques disponibles avec le noyau PySpark, consultez [Noyaux disponibles sur les blocs-notes Jupyter avec clusters Apache Spark HDInsight](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
+    La méthode `%%sql` suivie par `-o countResultsdf` garantit que le résultat de la requête est conservé localement sur le serveur Jupyter (généralement le nœud principal du cluster). Le résultat est conservé sous la forme d’une trame de données [Pandas](https://pandas.pydata.org/) avec le nom spécifié **countResultsdf**. Pour plus d’informations sur la méthode magique `%%sql` et d’autres méthodes magiques disponibles avec le noyau PySpark, consultez [Noyaux disponibles sur Jupyter Notebooks avec clusters Apache Spark HDInsight](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
 
     La sortie est la suivante :
 

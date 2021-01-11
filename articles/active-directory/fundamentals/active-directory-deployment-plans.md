@@ -12,12 +12,12 @@ ms.date: 12/01/2020
 ms.author: baselden
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 069cf348bb6d0432d02a8350bc0847c2b155f90a
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 0ca2ade1775d7224ce55ee1c51dfdd2ae417151e
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498079"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672379"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Plans de déploiement Azure Active Directory
 Vous souhaitez des conseils de bout en bout sur le déploiement des fonctionnalités Azure Active Directory (Azure AD) ? Les plans de déploiement Azure AD abordent les notions de base (valeur commerciale, planification et procédures opérationnelles) nécessaires pour réussir à déployer les fonctionnalités Azure AD les plus courantes.
@@ -29,7 +29,7 @@ Vous souhaitez des conseils de bout en bout sur le déploiement des fonctionnali
 
 | Fonctionnalité | Description|
 | -| -|
-| [Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)| Azure AD Multi-Factor Authentication (MFA) est la solution de vérification en deux étapes de Microsoft. À l’aide des méthodes d’authentification approuvées par l’administrateur, Azure AD MFA contribue à sécuriser l’accès à vos données et à vos applications, tout en répondant à la nécessité de mettre en place un processus d’authentification simple. |
+| [Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)| Azure AD Multi-Factor Authentication (MFA) est la solution de vérification en deux étapes de Microsoft. À l’aide des méthodes d’authentification approuvées par l’administrateur, Azure AD MFA contribue à sécuriser l’accès à vos données et à vos applications, tout en répondant à la nécessité de mettre en place un processus d’authentification simple. Regardez cette vidéo sur [comment configurer et appliquer l’authentification multifacteur dans votre locataire](https://www.youtube.com/watch?v=qNndxl7gqVM)|
 | [Accès conditionnel](../conditional-access/plan-conditional-access.md)| Avec l’accès conditionnel, vous pouvez mettre en œuvre des décisions de contrôle d’accès automatisées pour déterminer qui peut accéder à vos applications cloud, sur la base de conditions. |
 | [Réinitialisation de mot de passe en libre service](../authentication/howto-sspr-deployment.md)| La réinitialisation de mot de passe en libre-service offre à vos utilisateurs la possibilité de réinitialiser leur mot de passe, sans intervention de l’administrateur, quand et où ils en ont besoin. |
 | [Sans mot de passe](../authentication/howto-authentication-passwordless-deployment.md) | Implémenter l’authentification par mot de passe à l’aide de l’application Microsoft Authenticator ou de clés de sécurité FIDO2 dans votre organisation |

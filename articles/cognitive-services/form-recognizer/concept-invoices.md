@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: pafarley
-ms.openlocfilehash: 9a3a6bd6489baea90ed4143b42a09e7d697bbc50
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 7acfa9c2ffdd4cdd62e965041cdc42dc44d469c5
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602442"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845584"
 ---
 # <a name="form-recognizer-prebuilt-invoice-model"></a>Modèle de facture prédéfini Form Recognizer
 
@@ -79,7 +79,7 @@ Le service Invoice extrait le texte, les tables et 26 champs de facture. Voici l
 | CustomerName | string | Client destinataire de la facture | Microsoft Corp |  |
 | CustomerId | string | ID de référence du client | CID-12345 |  |
 | PurchaseOrder | string | Numéro de référence du bon de commande | PO-3333 | |  |
-| InvoiceId | string | ID de cette facture spécifique (souvent appelé « numéro de facture ») | INV-100 | |  |
+| InvoiceId | string | ID de cette facture (souvent appelé « numéro de facture ») | INV-100 | |  |
 | InvoiceDate | Date | Date d’émission de la facture | 15/11/2019 | 
 | DueDate | Date | Date d’échéance du paiement de cette facture | 15/12/2019 | 2019-12-15 | 2019-11-15 |
 | VendorName | string | Fournisseur qui a créé cette facture | CONTOSO LTD. | |
@@ -107,8 +107,8 @@ Le service Invoice extrait le texte, les tables et 26 champs de facture. Voici l
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Essayez vos propres factures et exemples dans l’[exemple d’interface utilisateur de Form Recognizer](https://fott-preview.azurewebsites.net/).
-- Suivez un guide de [démarrage rapide de la bibliothèque de client Form Recognizer](quickstarts/client-library.md) pour commencer à écrire une application de traitement de factures avec Form Recognizer dans le langage de votre choix.
-- Ou, suivez le guide de démarrage rapide sur l’[extraction de données de facture](./quickstarts/python-invoices.md) pour implémenter une telle extraction à l’aide de Python et de l’API REST.
+- Suivez un guide de [démarrage rapide de Form Recognizer](quickstarts/client-library.md) pour commencer à écrire une application de traitement de factures avec Form Recognizer dans le langage de votre choix.
+
 ## <a name="see-also"></a>Voir aussi
 
 * [Qu’est-ce que Form Recognizer ?](./overview.md)

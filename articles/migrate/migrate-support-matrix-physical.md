@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: cfbbc1d218f590241fab804e389acd689c009dac
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 2be77a47c4b111dd2f25a8fc9ca35690d1b2d80c
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96754009"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97796752"
 ---
 # <a name="support-matrix-for-physical-server-assessment"></a>Tableau de prise en charge pour l’évaluation de serveurs physiques 
 
@@ -67,7 +67,7 @@ Le tableau suivant résume les exigences du port pour l’évaluation.
 **Appareil** | **Connection**
 --- | ---
 **Appliance** | Connexions entrantes sur le port TCP 3389 pour permettre des connexions Bureau à distance avec l’appliance.<br/><br/> Connexions entrantes sur le port 44368 pour accéder à distance à l’application de gestion de l’appliance via l’URL : ``` https://<appliance-ip-or-name>:44368 ```.<br/><br/> Connexions sortantes sur les ports 443 (HTTPS) pour envoyer les métadonnées de découverte et de performances à Azure Migrate.
-**Serveurs physiques** | **Windows :** Connexion entrante sur le port WinRM 5985 (HTTP) pour extraire les métadonnées de configuration et de performances des serveurs Windows. <br/><br/> **Linux :**  Connexions entrantes sur le port 22 (TCP) pour extraire les métadonnées de configuration et de performances des serveurs Linux. |
+**Serveurs physiques** | **Windows :** Connexion entrante sur le port WinRM 5985 (HTTP) ou 5986 pour extraire les métadonnées de configuration et de performances des serveurs Windows. <br/><br/> **Linux :**  Connexions entrantes sur le port 22 (TCP) pour extraire les métadonnées de configuration et de performances des serveurs Linux. |
 
 ## <a name="agent-based-dependency-analysis-requirements"></a>Conditions requises de l’analyse des dépendances basées sur un agent
 

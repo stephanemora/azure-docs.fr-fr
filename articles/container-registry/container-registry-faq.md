@@ -5,12 +5,12 @@ author: sajayantony
 ms.topic: article
 ms.date: 09/18/2020
 ms.author: sajaya
-ms.openlocfilehash: a2cddc9bbe868a2d18ee8111aabf6db7dc8643cf
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 055f039d5bba0dba2906e1d3b8410af00c5600ef
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93346993"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606281"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Forum aux questions sur Azure Container Registry
 
@@ -111,6 +111,7 @@ La propagation des modifications apportées aux règles de pare-feu prend un cer
 - [Comment octroyer l’accès au tirage (pull) ou à l’envoi (push) d’images sans autorisation de gérer la ressource du registre ?](#how-do-i-grant-access-to-pull-or-push-images-without-permission-to-manage-the-registry-resource)
 - [Comment activer le contrôle automatique des images pour un registre ?](#how-do-i-enable-automatic-image-quarantine-for-a-registry)
 - [Comment activer l’accès par tirage (pull) anonyme ?](#how-do-i-enable-anonymous-pull-access)
+- [Comment faire envoyer des couches non distribuable à un registre ?](#how-do-i-push-non-distributable-layers-to-a-registry)
 
 ### <a name="how-do-i-access-docker-registry-http-api-v2"></a>Comment accéder à Docker Registry HTTP API V2 ?
 
@@ -264,6 +265,33 @@ La configuration d’un registre de conteneurs Azure pour l’accès par tirage 
 > [!NOTE]
 > * Seules les API requises pour extraire une image connue sont accessibles de façon anonyme. Aucune autre API destinée à des opérations comme une liste d’étiquettes ou une liste de référentiels n’est accessible de manière anonyme.
 > * Avant de tenter une opération d’extraction anonyme, exécutez `docker logout` pour vous assurer que vous effacez les informations d’identification existantes de Docker.
+
+### <a name="how-do-i-push-non-distributable-layers-to-a-registry"></a>Comment faire envoyer des couches non distribuable à un registre ?
+
+Les couches non distribuables dans un manifeste contiennent un paramètre d’URL à partir duquel le contenu peut être extrait. Certains cas d’utilisation possibles pour l’activation des pushs de couche non distribuable sont pour les registres restreints du réseau, les registres d’accès direct $$$à l’air avec accès restreint ou pour les registres sans connectivité Internet.
+
+Par exemple, si vous avez configuré des règles de groupe de sécurité réseau de manière à ce qu’une machine virtuelle puisse extraire des images uniquement de votre registre de conteneurs Azure, Docker extrait des échecs pour les couches étrangères/non distribuable. Par exemple, une image Windows Server Core peut contenir des références de couche étrangère à Azure Container Registry dans son manifeste et ne pas parvenir à effectuer une extraction dans ce scénario.
+
+Pour activer le push de couches non distribuables :
+
+1. Modifiez le fichier `daemon.json`, qui se trouve dans `/etc/docker/` sur les hôtes Linux et sur `C:\ProgramData\docker\config\daemon.json` dans Windows Server. En supposant que le fichier était déjà vide, ajoutez le contenu suivant :
+
+   ```json
+   {
+     "allow-nondistributable-artifacts": ["myregistry.azurecr.io"]
+   }
+   ```
+   > [!NOTE]
+   > La valeur est un tableau d’adresses du registre, séparées par des virgules.
+
+2. Enregistrez et fermez le fichier.
+
+3. Redémarrez Docker.
+
+Lorsque vous envoyez des images aux registres de la liste, leurs couches non distribuables sont envoyées au registre.
+
+> [!WARNING]
+> Les artefacts non distribuable sont généralement soumis à des restrictions quant à la façon dont ils peuvent être distribués et partagés. Utilisez cette fonctionnalité uniquement pour envoyer des artefacts vers des registres privés. Assurez-vous que vous respectez toutes les conditions régissant la redistribution des artefacts non distribuables.
 
 ## <a name="diagnostics-and-health-checks"></a>Diagnostics et contrôles d’intégrité
 

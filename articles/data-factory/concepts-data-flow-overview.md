@@ -7,17 +7,17 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 09/02/2020
-ms.openlocfilehash: 32f1602c91d17ef2ad3283d4bc03d00d432641aa
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.date: 12/10/2020
+ms.openlocfilehash: 01ee890fe77abebfdec8d3d643773b42cb54187e
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027599"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606179"
 ---
 # <a name="mapping-data-flows-in-azure-data-factory"></a>Flux de données de mappage dans Azure Data Factory
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 ## <a name="what-are-mapping-data-flows"></a>Que sont les flux de données de mappage ?
 
@@ -27,9 +27,9 @@ Le flux de données de mappage fournit une expérience entièrement visuelle san
 
 ## <a name="getting-started"></a>Prise en main
 
-Les flux de données sont créés à partir du volet Ressources de la fabrique, comme les pipelines et jeux de données. Pour créer un flux de données, sélectionnez le signe plus (+) en regard de **Ressources Factory** , puis sélectionnez **Flux de données**. 
+Les flux de données sont créés à partir du volet Ressources de la fabrique, comme les pipelines et jeux de données. Pour créer un flux de données, sélectionnez le signe plus (+) en regard de **Ressources Factory**, puis sélectionnez **Flux de données**. 
 
-![Nouveau flux de données](media/data-flow/new-data-flow.png "nouveau flux de données")
+![Nouveau flux de données](media/data-flow/new-data-flow.png)
 
 Vous accédez au canevas du flux de données dans lequel vous pouvez créer votre logique de transformation. Sélectionnez **Ajouter une source** pour commencer à configurer votre transformation de la source. Pour plus d’informations, consultez [Transformation de la source](data-flow-source.md).
 
@@ -37,17 +37,17 @@ Vous accédez au canevas du flux de données dans lequel vous pouvez créer votr
 
 Le flux de données de mappage a un canevas de création unique conçu pour faciliter la création de logique de transformation. Le canevas de flux de données est divisé en trois parties : la barre supérieure, le graphe et le panneau de configuration. 
 
-![Capture d’écran montrant le canevas du flux de données avec la barre supérieure, le graphique et le panneau de configuration étiquetés.](media/data-flow/canvas1.png "Canevas")
+![Capture d’écran montrant le canevas du flux de données avec la barre supérieure, le graphique et le panneau de configuration étiquetés.](media/data-flow/canvas-1.png "Canevas")
 
 ### <a name="graph"></a>Graph
 
 Le graphe affiche le flux de transformation. Il montre la traçabilité des données sources à mesure qu’elles sont transmises à un ou plusieurs récepteurs. Pour ajouter une nouvelle source, sélectionnez **Ajouter une source**. Pour ajouter une nouvelle transformation, sélectionnez le signe plus (+) situé dans la partie inférieure droite d’une transformation existante. Apprenez à [gérer le graphique des flux de données](concepts-data-flow-manage-graph.md).
 
-![Capture d’écran montrant la partie graphique du canevas avec une zone de texte de recherche.](media/data-flow/canvas2.png "Canevas")
+![Capture d’écran montrant la partie graphique du canevas avec une zone de texte de recherche.](media/data-flow/canvas-2.png)
 
 ### <a name="configuration-panel"></a>Panneau de configuration
 
-Le panneau de configuration affiche les paramètres spécifiques à la transformation actuellement sélectionnée. Si aucune transformation n’est sélectionnée, le flux de données est affiché. Dans la configuration globale du flux de données, vous pouvez modifier le nom et la description sous l’onglet **Général** ou ajouter des paramètres à l’aide de l’onglet **Paramètres**. Pour plus d’informations, consultez [Paramètres du mappage de flux de données](parameters-data-flow.md).
+Le panneau de configuration affiche les paramètres spécifiques à la transformation actuellement sélectionnée. Si aucune transformation n’est sélectionnée, le flux de données est affiché. Dans la configuration globale du flux de données, vous pouvez ajouter des paramètres via l’onglet **Paramètres**. Pour plus d’informations, consultez [Paramètres du mappage de flux de données](parameters-data-flow.md).
 
 Chaque transformation contient au moins quatre onglets de configuration.
 
@@ -99,63 +99,63 @@ L’équipe Azure Data Factory a créé un [guide de réglage des performances](
 
 ## <a name="available-regions"></a>Régions disponibles
 
-Le mappage des flux de données est disponible dans les régions suivantes :
+======= Les flux de données de mappage sont disponibles dans les régions suivantes dans ADF :
 
-| Région Azure | Flux de données dans ADF | Flux de données dans Synapse Studio |
-| ------------ | ----------------- | ---------------------------- |
-|  Centre de l’Australie | | |  
-| Centre de l’Australie 2 | | |
-| Australie Est | ✓ |  ✓ |
-| Sud-Australie Est   | ✓ | ✓ |
-| Brésil Sud  | ✓ |  |
-| Centre du Canada | ✓ |  |
-| Inde centrale | ✓ |   ✓ |
-| USA Centre    | ✓ |   ✓ |
-| Chine orientale |      | ✓ |
-| Chine orientale 2  |   |    |
-| Chine Non-régional | | |
-| Chine du Nord |     | |
-| Chine Nord 2 | |  |
-| Asie Est | ✓ | |
-| USA Est   | ✓ | ✓ |
-| USA Est 2 | ✓ | ✓ |
-| France Centre | ✓ | ✓ |
-| France Sud  | | |
-| Allemagne Centre (souverain) | | |
-| Allemagne Non-régional (souverain) | | |
-| Allemagne Nord (public) | | |
-| Allemagne Nord-Est (souverain) | | |
-| Allemagne Centre-Ouest (public) |  | ✓ |
-| Japon Est | ✓ |  |
-| OuJapon Est |  | |
-| Centre de la Corée | ✓ |  |
-| Corée du Sud | | |
-| Centre-Nord des États-Unis  | ✓ | ✓ |
-| Europe Nord  | ✓ |    |
-| Norvège Est | | |
-| Norvège Ouest | | |
-| Afrique du Sud Nord    | ✓ | |
-| Afrique du Sud Ouest |  |    |
-| États-Unis - partie centrale méridionale  | | ✓ |
-| Inde Sud | | |
-| Asie Sud-Est    | ✓ | ✓ |
-| Suisse Nord |   |  |
-| Suisse Ouest | | |
-| Émirats arabes unis Centre | | |
-| Émirats arabes unis Nord |  |    |
-| Sud du Royaume-Uni  | ✓ |   | ✓ |
-| Ouest du Royaume-Uni |     | ✓ |
-| Centre des États-Unis – US DoD | |  |
-| Est des États-Unis – US DoD | |  |
-| Gouvernement des États-Unis – Arizona |      |  |
-| US Gov Non-Régional | |  |
-| Gouvernement des États-Unis – Texas | |  |
-| Gouvernement américain - Virginie |     |  |
-| Centre-USA Ouest |     | ✓ |
-| Europe Ouest   | ✓ |   ✓ |
-| Inde Ouest | | |
-| USA Ouest   | ✓ |   |
-| USA Ouest 2 | ✓ |   ✓ | 
+| Région Azure | Flux de données dans ADF |
+| ------------ | ----------------- |
+|  Centre de l’Australie | |
+| Centre de l’Australie 2 | |
+| Australie Est | ✓ |
+| Sud-Australie Est   | ✓ |
+| Brésil Sud  | ✓ |
+| Centre du Canada | ✓ |
+| Inde centrale | ✓ |
+| USA Centre    | ✓ |
+| Chine orientale |      |
+| Chine orientale 2  |   |
+| Chine Non-régional | |
+| Chine du Nord |     |
+| Chine Nord 2 | |
+| Asie Est | ✓ |
+| USA Est   | ✓ |
+| USA Est 2 | ✓ |
+| France Centre | ✓ |
+| France Sud  | |
+| Allemagne Centre (souverain) | |
+| Allemagne Non-régional (souverain) | |
+| Allemagne Nord (public) | |
+| Allemagne Nord-Est (souverain) | |
+| Allemagne Centre-Ouest (public) |  |
+| Japon Est | ✓ |
+| OuJapon Est |  |
+| Centre de la Corée | ✓ |
+| Corée du Sud | |
+| Centre-Nord des États-Unis  | ✓ |
+| Europe Nord  | ✓ |
+| Norvège Est | |
+| Norvège Ouest | |
+| Afrique du Sud Nord    | ✓ |
+| Afrique du Sud Ouest |  |
+| États-Unis - partie centrale méridionale  | |
+| Inde Sud | |
+| Asie Sud-Est    | ✓ |
+| Suisse Nord |   |
+| Suisse Ouest | |
+| Émirats arabes unis Centre | |
+| Émirats arabes unis Nord |  |
+| Sud du Royaume-Uni  | ✓ |
+| Ouest du Royaume-Uni |     |
+| Centre des États-Unis – US DoD | |
+| Est des États-Unis – US DoD | |
+| Gouvernement des États-Unis – Arizona |      |
+| US Gov Non-Régional | |
+| Gouvernement des États-Unis – Texas | |
+| Gouvernement américain - Virginie |     |
+| Centre-USA Ouest |     |
+| Europe Ouest   | ✓ |
+| Inde Ouest | |
+| USA Ouest   | ✓ |
+| USA Ouest 2 | ✓ |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

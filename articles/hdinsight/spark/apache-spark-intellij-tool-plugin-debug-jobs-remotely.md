@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 11/28/2017
-ms.openlocfilehash: afe92351fe82a4e07665789c2ed4d4631be8731f
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 2e6da1783c3bec4958783494cb6928f5a6a69a58
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547450"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822350"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-apache-spark-applications-remotely-in-hdinsight-through-vpn"></a>Utiliser Azure Toolkit for IntelliJ pour déboguer des applications Apache Spark à distance dans HDInsight via VPN
 
@@ -35,7 +35,7 @@ Cet article fournit des instructions pas à pas sur l’utilisation d’HDInsigh
 * **IntelliJ IDEA**. Cet article utilise la version 2017.1. Vous pouvez l’installer à partir du [site web JetBrains](https://www.jetbrains.com/idea/download/).
 * **Outils HDInsight dans le kit de ressources Azure pour IntelliJ**. HDInsight Tools pour IntelliJ est disponible dans le cadre du kit de ressources Azure pour IntelliJ. Pour obtenir des instructions sur l’installation du kit de ressources Azure, consultez [Installer le kit de ressources Azure pour IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij-installation).
 * **Connectez-vous à votre abonnement Azure à partir d’IntelliJ IDEA**. Suivez les instructions dans [Utiliser Azure Toolkit for IntelliJ pour créer des applications Apache Spark pour un cluster HDInsight](apache-spark-intellij-tool-plugin.md).
-* **Solution de contournement pour une exception**. Quand l’application Spark Scala s’exécute pour le débogage à distance sur un ordinateur Windows, vous pouvez obtenir une exception. Cette exception est expliquée dans le document [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356) et se produit en raison d’un fichier WinUtils.exe manquant dans Windows. Pour contourner cette erreur, vous devez télécharger [Winutils.exe](https://github.com/steveloughran/winutils) vers un emplacement tel que **C:\WinUtils\bin**. Ajoutez une variable d’environnement **HADOOP_HOME** , puis définissez la valeur de la variable sur **C\WinUtils**.
+* **Solution de contournement pour une exception**. Quand l’application Spark Scala s’exécute pour le débogage à distance sur un ordinateur Windows, vous pouvez obtenir une exception. Cette exception est expliquée dans le document [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356) et se produit en raison d’un fichier WinUtils.exe manquant dans Windows. Pour contourner cette erreur, vous devez télécharger [Winutils.exe](https://github.com/steveloughran/winutils) vers un emplacement tel que **C:\WinUtils\bin**. Ajoutez une variable d’environnement **HADOOP_HOME**, puis définissez la valeur de la variable sur **C\WinUtils**.
 
 ## <a name="step-1-create-an-azure-virtual-network"></a>Étape 1 : Création d'un réseau virtuel Azure
 
@@ -69,7 +69,7 @@ Nous vous recommandons également de créer dans Azure HDInsight un cluster Apac
 
 1. Ajoutez l’adresse IP et le nom d’hôte du nœud principal au fichier **hosts** de l’ordinateur sur lequel vous souhaitez exécuter et déboguer à distance le travail Spark. Cela vous permet de communiquer avec le nœud principal à l’aide de l’adresse IP et du nom d’hôte.
 
-   a. Ouvrez un fichier Bloc-notes avec des autorisations élevées. Dans le menu **Fichier** , sélectionnez **Ouvrir** et recherchez l’emplacement du fichier hosts. Sur un ordinateur Windows, l’emplacement est **C:\Windows\System32\Drivers\etc\hosts**.
+   a. Ouvrez un fichier Bloc-notes avec des autorisations élevées. Dans le menu **Fichier**, sélectionnez **Ouvrir** et recherchez l’emplacement du fichier hosts. Sur un ordinateur Windows, l’emplacement est **C:\Windows\System32\Drivers\etc\hosts**.
 
    b. Ajoutez les informations suivantes au fichier **hosts** :
 
@@ -101,29 +101,29 @@ Nous vous recommandons également de créer dans Azure HDInsight un cluster Apac
     a. Sélectionnez **HDInsight** > **Spark sur HDInsight (Scala)** .
 
     b. Sélectionnez **Suivant**.
-1. Dans la boîte de dialogue **Nouveau projet** , effectuez les opérations suivantes, puis sélectionnez **Terminer** :
+1. Dans la boîte de dialogue **Nouveau projet**, effectuez les opérations suivantes, puis sélectionnez **Terminer** :
 
     - Entrez un nom et un emplacement pour le projet.
 
     - Dans la liste déroulante **Project SDK** (SDK du projet), sélectionnez **Java 1.8** pour le cluster Spark 2.x, ou sélectionnez **Java 1.7** pour le cluster Spark 1.x.
 
-    - Dans la liste déroulante **Version Spark** , l’Assistant de création de projets Scala intègre la version correcte pour le SDK Spark et le SDK Scala. Si la version du cluster Spark est antérieure à la version 2.0, sélectionnez **Spark 1.x**. Sinon, sélectionnez **Spark 2.x**. Cet exemple utilise **Spark 2.0.2 (Scala 2.11.8)** .
+    - Dans la liste déroulante **Version Spark**, l’Assistant de création de projets Scala intègre la version correcte pour le SDK Spark et le SDK Scala. Si la version du cluster Spark est antérieure à la version 2.0, sélectionnez **Spark 1.x**. Sinon, sélectionnez **Spark 2.x**. Cet exemple utilise **Spark 2.0.2 (Scala 2.11.8)** .
   
    ![Sélectionner le SDK et la version Spark du projet](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/hdi-scala-project-details.png)
   
 1. Le projet Spark crée automatiquement un artefact. Pour afficher l’artefact, procédez comme suit :
 
-    a. Dans le menu **Fichier** , sélectionnez **Structure de projet**.
+    a. Dans le menu **Fichier**, sélectionnez **Structure de projet**.
 
-    b. Dans la boîte de dialogue **Project Structure** , sélectionnez **Artifacts** pour voir l’artefact par défaut qui a été créé. Vous pouvez également créer votre propre artefact en sélectionnant le signe plus ( **+** ).
+    b. Dans la boîte de dialogue **Project Structure**, sélectionnez **Artifacts** pour voir l’artefact par défaut qui a été créé. Vous pouvez également créer votre propre artefact en sélectionnant le signe plus ( **+** ).
 
    ![IntelliJ IDEA - Artefacts - Créer un fichier JAR](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/create-default-artifact.png)
 
 1. Ajoutez des bibliothèques à votre projet. Pour ajouter une bibliothèque, effectuez les opérations suivantes :
 
-    a. Cliquez avec le bouton droit sur le nom du projet dans l’arborescence du projet, puis sélectionnez **Open Module Settings** (Ouvrir les paramètres du module).
+    a. Cliquez avec le bouton droit sur le nom du projet dans l’arborescence du projet, puis sélectionnez **Open Module Settings**(Ouvrir les paramètres du module).
 
-    b. Dans la boîte de dialogue **Project Structure** (Structure de projet), sélectionnez **Libraries** (Bibliothèques), sélectionnez le symbole ( **+** ), puis sélectionnez **From Maven** (À partir de Maven).
+    b. Dans la boîte de dialogue **Project Structure** (Structure de projet), sélectionnez **Libraries** (Bibliothèques), sélectionnez le symbole ( **+** ), puis sélectionnez **From Maven**(À partir de Maven).
 
     ![IntelliJ IDEA - Télécharger une bibliothèque](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/intellij-add-library.png)
 
@@ -179,11 +179,11 @@ Nous vous recommandons également de créer dans Azure HDInsight un cluster Apac
 
    c. Enregistrez le fichier .
 
-1. Ajoutez la classe principale pour votre application. Dans **l’Explorateur de projets** , cliquez avec le bouton droit sur **src** , pointez sur **Nouveau** , puis sélectionnez **Scala class** (Classe Scala).
+1. Ajoutez la classe principale pour votre application. Dans **l’Explorateur de projets**, cliquez avec le bouton droit sur **src**, pointez sur **Nouveau**, puis sélectionnez **Scala class** (Classe Scala).
 
     ![IntelliJ IDEA - Sélectionner la classe principale](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/hdi-spark-scala-code.png)
 
-1. Dans la boîte de dialogue **Create New Scala Class** (Créer une classe Scala), indiquez un nom, dans la zone **Kind** (Genre), sélectionnez **Objet** , puis **OK**.
+1. Dans la boîte de dialogue **Create New Scala Class** (Créer une classe Scala), indiquez un nom, dans la zone **Kind** (Genre), sélectionnez **Objet**, puis **OK**.
 
     ![IntelliJ IDEA - Créer une classe Scala](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/hdi-spark-scala-code-object.png)
 
@@ -259,7 +259,7 @@ Nous vous recommandons également de créer dans Azure HDInsight un cluster Apac
 
     ![IntelliJ IDEA - Créer une configuration distante](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/create-remote-config.png)
 
-1. Dans la boîte de dialogue **Create RemoteClusterDebugging Configuration** (Créer une configuration RemoteClusterDebugging), fournissez un nom pour la configuration, puis sélectionnez **Test kind** (Type de test) pour **Test name** (Nom de test). Conservez les autres valeurs par défaut. Sélectionnez **Apply** (Appliquer), puis **OK**.
+1. Dans la boîte de dialogue **Create RemoteClusterDebugging Configuration** (Créer une configuration RemoteClusterDebugging), fournissez un nom pour la configuration, puis sélectionnez **Test kind**(Type de test) pour **Test name** (Nom de test). Conservez les autres valeurs par défaut. Sélectionnez **Apply** (Appliquer), puis **OK**.
 
     ![Créer une configuration RemoteClusterDebugging](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/provide-config-value.png)
 
@@ -327,7 +327,7 @@ Nous vous recommandons également de créer dans Azure HDInsight un cluster Apac
 * [Utiliser HDInsight Tools dans Azure Toolkit for Eclipse pour créer des applications Apache Spark](./apache-spark-eclipse-tool-plugin.md)
 * [Utiliser des blocs-notes Apache Zeppelin avec un cluster Apache Spark sur HDInsight](apache-spark-zeppelin-notebook.md)
 * [Noyaux accessibles à Jupyter Notebook dans un cluster Apache Spark pour HDInsight](apache-spark-jupyter-notebook-kernels.md)
-* [Utiliser des packages externes avec les blocs-notes Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)
+* [Utiliser des packages externes avec des blocs-notes Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Install Jupyter on your computer and connect to an HDInsight Spark cluster (Installer Jupyter sur un ordinateur et se connecter au cluster Spark sur HDInsight)](apache-spark-jupyter-notebook-install-locally.md)
 
 ### <a name="manage-resources"></a>Gestion des ressources

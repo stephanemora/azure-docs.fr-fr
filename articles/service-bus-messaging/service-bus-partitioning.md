@@ -4,12 +4,12 @@ description: Décrit comment partitionner des files d’attente et des rubriques
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8fd845ba24fd96ad6de566a7f55b25bd7129074d
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 9c500a69f853b11437a0dcaa48213fe3a84da53b
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96930430"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97796633"
 ---
 # <a name="partitioned-queues-and-topics"></a>Files d’attente et rubriques partitionnées
 
@@ -29,8 +29,9 @@ Lorsqu’un client souhaite recevoir un message à partir d’une file d’atten
 L’opération de lecture sur une entité non partitionnée renvoie toujours le message le plus ancien, mais pas sur une entité partitionnée. Au lieu de cela, elle renvoie le message le plus ancien dans l’une des partitions dont le courtier de messages a répondu en premier. Rien ne garantit que le message retourné est le plus ancien sur toutes les partitions. 
 
 Il n’existe aucun coût supplémentaire lors de l’envoi d’un message à, ou lors de la réception d’un message depuis, une file d’attente ou une rubrique partitionnée.
->[!NOTE]
-> L’opération de lecture retourne le plus ancien message de la partition en fonction de son SequenceNumber. Pour les entités partitionnées, le numéro de séquence est déterminé par rapport à la partition. Pour plus d’informations, consultez [Timestamps et séquencement de message](../service-bus-messaging/message-sequencing.md).
+
+> [!NOTE]
+> L’opération de lecture retourne le plus ancien message de la partition en fonction de son numéro de séquence. Pour les entités partitionnées, le numéro de séquence est déterminé par rapport à la partition. Pour plus d’informations, consultez [Timestamps et séquencement de message](../service-bus-messaging/message-sequencing.md).
 
 ## <a name="enable-partitioning"></a>Activation du partitionnement
 

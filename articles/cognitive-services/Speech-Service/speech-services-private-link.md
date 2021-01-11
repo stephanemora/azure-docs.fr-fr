@@ -1,69 +1,87 @@
 ---
-title: Utilisation de Speech Services avec des points de terminaison privés
+title: Comment utiliser des points de terminaison privés avec le service Speech
 titleSuffix: Azure Cognitive Services
-description: Guide pratique de l’utilisation de Speech Services avec des points de terminaison privés fournis par Azure Private Link
+description: Découvrir comment utiliser le service Speech avec des points de terminaison privés fournis par Azure Private Link
 services: cognitive-services
 author: alexeyo26
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/04/2020
+ms.date: 12/15/2020
 ms.author: alexeyo
-ms.openlocfilehash: 01a0171ed2b660fbabebf4276a74f8a3ea631bde
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: f905582615b16780fae179ba6a21bd4343bd47f3
+ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516539"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97755801"
 ---
-# <a name="using-speech-services-with-private-endpoints-provided-by-azure-private-link"></a>Utilisation de Speech Services avec des points de terminaison privés fournis par Azure Private Link
+# <a name="use-speech-service-through-a-private-endpoint"></a>Utiliser le service Speech via un point de terminaison privé
 
-[Azure Private Link](../../private-link/private-link-overview.md) vous permet de vous connecter à différents services PaaS dans Azure par le biais d’un [point de terminaison privé](../../private-link/private-endpoint-overview.md). Un point de terminaison privé est une adresse IP privée au sein d’un [réseau virtuel](../../virtual-network/virtual-networks-overview.md) et d’un sous-réseau spécifiques.
+[Azure Private Link](../../private-link/private-link-overview.md) vous permet de vous connecter aux services dans Azure à l’aide d’un [point de terminaison privé](../../private-link/private-endpoint-overview.md).
+Un point de terminaison privé est une adresse IP privée uniquement accessible au sein d’un [réseau virtuel](../../virtual-network/virtual-networks-overview.md) et d’un sous-réseau spécifiques.
 
-Cet article explique comment configurer et utiliser Private Link et des points de terminaison privés avec Azure Cognitive Speech Services. 
+Cet article explique comment configurer et utiliser Private Link et des points de terminaison privés avec Azure Cognitive Speech Services.
 
 > [!NOTE]
-> Cet article explique les spécificités de la configuration et de l’utilisation de Private Link avec Azure Cognitive Speech Services. Avant de poursuivre, familiarisez-vous avec l’article général sur l’[utilisation de réseaux virtuels avec Cognitive Services](../cognitive-services-virtual-networks.md).
+> Cet article explique les spécificités de la configuration et de l’utilisation de Private Link avec Azure Cognitive Speech Services. Avant de continuer, consultez comment [utiliser des réseaux virtuels avec Cognitive Services](../cognitive-services-virtual-networks.md).
 
-L’activation d’une ressource Speech pour les scénarios de point de terminaison privé requiert l’exécution des tâches suivantes :
-- [Créer un nom de domaine personnalisé de ressource Speech](#create-custom-domain-name)
-- [Créer et configurer un ou plusieurs points de terminaison privés](#enabling-private-endpoints)
-- [Ajuster les solutions et applications existantes](#using-speech-resource-with-custom-domain-name-and-private-endpoint-enabled)
+Effectuez les tâches suivantes pour utiliser un service Speech via un point de terminaison privé :
 
-Si vous décidez ultérieurement de supprimer tous les points de terminaison privés, mais de continuer à utiliser la ressource, effectuez les actions décrites dans [cette section](#using-speech-resource-with-custom-domain-name-without-private-endpoints).
+1. [Créer un nom de domaine personnalisé de ressource Speech](#create-a-custom-domain-name)
+2. [Créer et configurer un ou plusieurs points de terminaison privés](#enable-private-endpoints)
+3. [Ajuster les solutions et applications existantes](#use-speech-resource-with-custom-domain-name-and-private-endpoint-enabled)
 
-## <a name="create-custom-domain-name"></a>Créer un nom de domaine personnalisé
+Pour supprimer des points de terminaison privés ultérieurement, tout en continuant à utiliser la ressource Speech, vous allez effectuer les tâches qui se trouvent dans [cette section](#use-speech-resource-with-custom-domain-name-without-private-endpoints).
 
-Les points de terminaison privés requièrent l’utilisation de [noms de sous-domaines personnalisés Cognitive Services](../cognitive-services-custom-subdomains.md). Suivez les instructions ci-dessous pour en créer un pour votre ressource Speech.
+## <a name="create-a-custom-domain-name"></a>Créer un nom de domaine personnalisé
 
-> [!WARNING]
-> Une ressource Speech avec un nom de domaine personnalisé activé utilise un autre moyen d’interagir avec Speech Services. Il est probable que vous deviez ajuster le votre code d’application pour des scénarios [avec point de terminaison privé](#using-speech-resource-with-custom-domain-name-and-private-endpoint-enabled) et [**sans** point de terminaison privé](#using-speech-resource-with-custom-domain-name-without-private-endpoints).
+Les points de terminaison privés requièrent un [nom de sous-domaine personnalisé Cognitive Services](../cognitive-services-custom-subdomains.md). Suivez les instructions ci-dessous pour en créer un pour votre ressource Speech.
+
+> [!CAUTION]
+> Une ressource Speech avec un nom de domaine personnalisé activé utilise un autre moyen d’interagir avec les service Speech.
+> Il est probable que vous deviez ajuster votre code d’application pour des scénarios [avec point de terminaison privé](#use-speech-resource-with-custom-domain-name-and-private-endpoint-enabled) et [**sans** point de terminaison privé](#use-speech-resource-with-custom-domain-name-without-private-endpoints).
 >
-> L’opération d’activation de nom de domaine personnalisé n’est [**pas réversible**](../cognitive-services-custom-subdomains.md#can-i-change-a-custom-domain-name). La seule façon de revenir au [nom régional](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) consiste à créer une ressource Speech. 
+> Lorsque vous activez un nom de domaine personnalisé, l’opération n’est [**pas réversible**](../cognitive-services-custom-subdomains.md#can-i-change-a-custom-domain-name). La seule façon de revenir au [nom régional](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) consiste à créer une ressource Speech.
 >
-> En particulier, dans les cas où votre ressource Speech dispose d’un grand nombre de modèles et projets personnalisés associés créés avec [Speech Studio](https://speech.microsoft.com/) nous recommandons **vivement** d’essayer la configuration avec une ressource test avant de modifier la ressource utilisée en production.
+> Si votre ressource Speech dispose d’un grand nombre de modèles et de projets personnalisés associés créés avec [Speech Studio](https://speech.microsoft.com/) nous recommandons **vivement** d’essayer la configuration avec une ressource test avant de modifier la ressource utilisée en production.
 
 # <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
-- Accédez au [portail Azure](https://portal.azure.com/) et connectez-vous à votre compte Azure.
-- Sélectionnez la ressource Speech requise.
-- Sélectionnez *Mise en réseau* (groupe *Gestion des ressources*). 
-- Sous l’onglet *Pare-feu et réseaux virtuels* (par défaut), cliquez sur le bouton **Générer un nom de domaine personnalisé**.
-- Cela a pour effet d’ouvrir un nouveau panneau contenant des instructions pour créer un sous-domaine personnalisé unique pour votre ressource.
-> [!WARNING]
-> Après avoir créé un nom de domaine personnalisé, vous ne pouvez **pas** le modifier. Pour plus d’informations, consultez la section Avertissement précédente.
-- Une fois l’opération terminée, vous pouvez sélectionner *Clés et points de terminaison* (groupe *Gestion des ressources*) et vérifier le nouveau nom de point de terminaison de votre ressource au format <p />`{your custom name}.cognitiveservices.azure.com`
+Pour créer un nom de domaine personnalisé à l’aide du Portail Azure, procédez comme suit :
+
+1. Accédez au [Portail Azure](https://portal.azure.com/) et connectez-vous à votre compte Azure.
+1. Sélectionnez la ressource Speech requise.
+1. Dans le groupe **Gestion des ressources**, dans le volet de navigation de gauche, cliquez sur **Mise en réseau**.
+1. Sous l’onglet **Pare-feux et réseaux virtuels**, cliquez sur **Générer un nom de domaine personnalisé**. Cela a pour effet d’ouvrir un nouveau panneau contenant des instructions pour créer un sous-domaine personnalisé unique pour votre ressource.
+1. Dans le panneau Générer un nom de domaine personnalisé, entrez une partie du nom de domaine personnalisé. Votre domaine personnalisé complet ressemble à ce qui suit : `https://{your custom name}.cognitiveservices.azure.com`. 
+    **Après avoir créé un nom de domaine personnalisé, vous ne pouvez _plus_ le modifier ! Relisez l’alerte d’avertissement ci-dessus.** Une fois que vous avez entré votre nom de domaine personnalisé, cliquez sur **Enregistrer**.
+1. Une fois l’opération terminée, dans le groupe **Gestion des ressources**, cliquez sur **Clés et point de terminaison**. Confirmez que le nouveau nom de point de terminaison de votre ressource démarre de la façon suivante :
+
+    `https://{your custom name}.cognitiveservices.azure.com`
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Cette section nécessite d’exécuter localement PowerShell version 7.x ou ultérieure avec le module Azure PowerShell version 5.1.0 ou ultérieure. Exécutez `Get-Module -ListAvailable Az` pour rechercher la version installée. Si vous devez installer ou mettre à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-Az-ps).
+Pour créer un nom de domaine personnalisé à l’aide de PowerShell, vérifiez que votre ordinateur dispose de PowerShell version 7.x ou ultérieure avec le module Azure PowerShell version 5.1.0 ou ultérieure. pour afficher les versions de ces outils, procédez comme suit :
+
+1. Dans une fenêtre PowerShell, saisissez :
+
+    `$PSVersionTable`
+
+    Confirmer que la valeur PSVersion est supérieure à 7.x. Pour mettre à niveau PowerShell, suivez les instructions sur [installation des différentes versions de PowerShell](/powershell/scripting/install/installing-powershell) à mettre à niveau.
+
+1. Dans une fenêtre PowerShell, saisissez :
+
+    `Get-Module -ListAvailable Az`
+
+    Si rien ne s’affiche ou si la version du module Azure PowerShell est antérieure à 5.1.0, suivez les instructions sur [Installer le module Azure PowerShell](/powershell/azure/install-Az-ps) à mettre à niveau.
 
 Avant de poursuivre, exécutez `Connect-AzAccount` pour créer une connexion avec Azure.
 
-## <a name="verify-custom-domain-name-availability"></a>Vérifier la disponibilité du nom de domaine personnalisé
+## <a name="verify-custom-domain-name-is-available"></a>Vérifier la disponibilité du nom de domaine personnalisé
 
-Vous devez vérifier si le domaine personnalisé que vous souhaitez utiliser est libre. Nous allons utiliser la méthode [Vérifier la disponibilité du domaine](/rest/api/cognitiveservices/accountmanagement/checkdomainavailability/checkdomainavailability) de l’API REST Cognitive Services. Consultez les commentaires dans le bloc de code ci-dessous expliquant les étapes à suivre.
+Vous devez vérifier si le domaine personnalisé que vous souhaitez utiliser est disponible. Procédez comme suit pour confirmer que le domaine est disponible à l’aide de l’opération [Vérifier la disponibilité du domaine](/rest/api/cognitiveservices/accountmanagement/checkdomainavailability/checkdomainavailability) dans l’API REST Cognitive Services.
 
 > [!TIP]
 > Le code ci-dessous ne fonctionne **PAS** dans Azure Cloud Shell.
@@ -72,18 +90,16 @@ Vous devez vérifier si le domaine personnalisé que vous souhaitez utiliser est
 $subId = "Your Azure subscription Id"
 $subdomainName = "custom domain name"
 
-# Select the Azure subscription containing Speech resource
-# If your Azure account has only one active subscription
-# you can skip this step
+# Select the Azure subscription that contains Speech resource.
+# You can skip this step if your Azure account has only one active subscription.
 Set-AzContext -SubscriptionId $subId
 
-# Preparing OAuth token which is used in request
-# to Cognitive Services REST API
+# Prepare OAuth token to use in request to Cognitive Services REST API.
 $Context = Get-AzContext
 $AccessToken = (Get-AzAccessToken -TenantId $Context.Tenant.Id).Token
 $token = ConvertTo-SecureString -String $AccessToken -AsPlainText -Force
 
-# Preparing and executing the request to Cognitive Services REST API
+# Prepare and send the request to Cognitive Services REST API.
 $uri = "https://management.azure.com/subscriptions/" + $subId + `
     "/providers/Microsoft.CognitiveServices/checkDomainAvailability?api-version=2017-04-18"
 $body = @{
@@ -108,26 +124,26 @@ reason               : Sub domain name 'my-custom-name' is already used. Please 
 type                 :
 subdomainName        : my-custom-name
 ```
-## <a name="enabling-custom-domain-name"></a>Activation d’un nom de domaine personnalisé
+## <a name="create-your-custom-domain-name"></a>Créer votre nom de domaine personnalisé
 
-Pour activer un nom de domaine personnalisé pour la ressource Speech sélectionnée, nous utilisons la cmdlet [Set-AzCognitiveServicesAccount](/powershell/module/az.cognitiveservices/set-azcognitiveservicesaccount). Consultez les commentaires dans le bloc de code ci-dessous expliquant les étapes à suivre.
+Pour activer un nom de domaine personnalisé pour la ressource Speech sélectionnée, nous utilisons la cmdlet [Set-AzCognitiveServicesAccount](/powershell/module/az.cognitiveservices/set-azcognitiveservicesaccount).
 
-> [!WARNING]
-> Après avoir exécuté avec succès le code ci-dessous, vous allez créer un nom de domaine personnalisé pour votre ressource Speech. Il n’est **pas possible** de modifier ce nom. Pour plus d’informations, consultez la section Avertissement précédente.
+> [!CAUTION]
+> Une fois que le code ci-dessous est exécuté avec succès, vous allez créer un nom de domaine personnalisé pour votre ressource Speech.
+> Il n’est **pas possible** de modifier ce nom. Consultez plus d’informations dans l’alerte **Attention** ci-dessus.
 
 ```azurepowershell
 $resourceGroup = "Resource group name where Speech resource is located"
 $speechResourceName = "Your Speech resource name"
 $subdomainName = "custom domain name"
 
-# Select the Azure subscription containing Speech resource
-# If your Azure account has only one active subscription
-# you can skip this step
+# Select the Azure subscription that contains Speech resource.
+# You can skip this step if your Azure account has only one active subscription.
 $subId = "Your Azure subscription Id"
 Set-AzContext -SubscriptionId $subId
 
-# Set the custom domain name to the selected resource
-# WARNING! THIS IS NOT REVERSIBLE!
+# Set the custom domain name to the selected resource.
+# CAUTION: THIS CANNOT BE CHANGED OR UNDONE!
 Set-AzCognitiveServicesAccount -ResourceGroupName $resourceGroup `
     -Name $speechResourceName -CustomSubdomainName $subdomainName
 ```
@@ -138,9 +154,9 @@ Set-AzCognitiveServicesAccount -ResourceGroupName $resourceGroup `
 
 - Cette section nécessite la dernière version d’Azure CLI. Si vous utilisez Azure Cloud Shell, la version la plus récente est déjà installée.
 
-## <a name="verify-custom-domain-name-availability"></a>Vérifier la disponibilité du nom de domaine personnalisé
+## <a name="verify-the-custom-domain-name-is-available"></a>Vérifier la disponibilité du nom de domaine personnalisé
 
-Vous devez vérifier si le domaine personnalisé que vous souhaitez utiliser est libre. Nous allons utiliser la méthode [Vérifier la disponibilité du domaine](/rest/api/cognitiveservices/accountmanagement/checkdomainavailability/checkdomainavailability) de l’API REST Cognitive Services. 
+Vous devez vérifier si le domaine personnalisé que vous souhaitez utiliser est libre. Nous allons utiliser la méthode [Vérifier la disponibilité du domaine](/rest/api/cognitiveservices/accountmanagement/checkdomainavailability/checkdomainavailability) de l’API REST Cognitive Services.
 
 Copiez le bloc de code ci-dessous, insérez le nom de domaine personnalisé, puis enregistrez le tout dans le fichier `subdomain.json`.
 
@@ -151,7 +167,7 @@ Copiez le bloc de code ci-dessous, insérez le nom de domaine personnalisé, pui
 }
 ```
 
-Copiez le fichier dans votre dossier actif ou chargez-le dans Azure Cloud Shell et exécutez la commande suivante (remplacez `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` par l’identifiant de votre abonnement Azure).
+Copiez le fichier dans votre dossier actif ou chargez-le dans Azure Cloud Shell et exécutez la commande suivante. (remplacez `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` par l’identifiant de votre abonnement Azure).
 
 ```azurecli-interactive
 az rest --method post --url "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/Microsoft.CognitiveServices/checkDomainAvailability?api-version=2017-04-18" --body @subdomain.json
@@ -175,7 +191,7 @@ Si le nom est déjà utilisé, vous obtenez la réponse suivante :
   "type": null
 }
 ```
-## <a name="enabling-custom-domain-name"></a>Activation d’un nom de domaine personnalisé
+## <a name="enable-custom-domain-name"></a>Activer le nom de domaine personnalisé
 
 Pour activer le nom de domaine personnalisé pour la ressource Speech sélectionnée, nous utilisons la commande [az cognitiveservices account update](/cli/azure/cognitiveservices/account#az_cognitiveservices_account_update).
 
@@ -184,15 +200,17 @@ Sélectionnez l’abonnement Azure contenant la ressource Speech. Si votre compt
 az account set --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 Définissez le nom de domaine personnalisé pour la ressource sélectionnée. Remplacez les exemples de valeurs de paramètre par les valeurs réelles, puis exécutez la commande ci-dessous.
-> [!WARNING]
-> Une fois l’exécution de la commande ci-dessous terminée, vous allez créer un nom de domaine personnalisé pour votre ressource Speech. Il n’est **pas possible** de modifier ce nom. Pour plus d’informations, consultez la section Avertissement précédente.
+
+> [!CAUTION]
+> Une fois l’exécution de la commande ci-dessous terminée, vous allez créer un nom de domaine personnalisé pour votre ressource Speech. Il n’est **pas possible** de modifier ce nom. Consultez plus d’informations dans l’alerte Attention ci-dessus.
+
 ```azurecli
 az cognitiveservices account update --name my-speech-resource-name --resource-group my-resource-group-name --custom-domain my-custom-name
 ```
 
 **_
 
-## <a name="enabling-private-endpoints"></a>Activation de points de terminaison privés
+## <a name="enable-private-endpoints"></a>Activer les points de terminaison privés
 
 Activez un point de terminaison privé à l’aide du portail Azure, d’Azure PowerShell ou d’Azure CLI.
 
@@ -218,7 +236,7 @@ Familiarisez-vous avec les principes généraux de [DNS pour points de terminais
 
 Nous allons utiliser `my-private-link-speech.cognitiveservices.azure.com` comme exemple de nom DNS de ressource Speech pour cette section.
 
-Connectez-vous à une machine virtuelle située dans le réseau virtuel auquel vous avez attaché votre point de terminaison privé. Ouvrez l’invite de commandes Windows ou l’interpréteur de commandes Bash, exécutez la commande « nslookup » et assurez-vous qu’elle résout correctement le nom de domaine personnalisé de votre ressource :
+Connectez-vous à une machine virtuelle située dans le réseau virtuel auquel vous avez attaché votre point de terminaison privé. Ouvrez l’invite de commandes Windows ou l’interpréteur de commandes Bash, exécutez `nslookup` et assurez-vous qu’elle résout correctement le nom de domaine personnalisé de votre ressource :
 ```dos
 C:\>nslookup my-private-link-speech.cognitiveservices.azure.com
 Server:  UnKnown
@@ -235,9 +253,9 @@ Vérifiez que l’adresse IP résolue correspond à l’adresse de votre point d
 
 Cette vérification est nécessaire si vous envisagez d’utiliser la ressource Speech activée de votre point de terminaison privé en mode « hybride », c’est-à-dire si vous avez activé l’option d’accès *Tous les réseaux* ou *Réseaux sélectionnés et points de terminaison privés* dans la section *Mise en réseau* de votre ressource. Si vous envisagez d’accéder à la ressource en utilisant uniquement un point de terminaison privé, vous pouvez ignorer cette section.
 
-Nous allons utiliser `my-private-link-speech.cognitiveservices.azure.com` comme exemple de nom DNS de ressource Speech pour cette section.
+Nous utilisons `my-private-link-speech.cognitiveservices.azure.com` comme exemple de nom DNS de ressource Speech pour cette section.
 
-Sur un ordinateur connecté à un réseau à partir duquel vous autorisez l’accès à la ressource, ouvrez l’invite de commandes Windows ou l’interpréteur de commandes Bash, exécutez la commande « nslookup » et assurez-vous qu’elle résout correctement le nom de domaine personnalisé de votre ressource :
+Sur un ordinateur connecté à un réseau à partir duquel vous autorisez l’accès à la ressource, ouvrez l’invite de commandes Windows ou l’interpréteur de commandes Bash, exécutez la commande `nslookup` et assurez-vous qu’elle résout correctement le nom de domaine personnalisé de votre ressource :
 ```dos
 C:\>nslookup my-private-link-speech.cognitiveservices.azure.com
 Server:  UnKnown
@@ -251,18 +269,18 @@ Aliases:  my-private-link-speech.cognitiveservices.azure.com
           westeurope.prod.vnet.cog.trafficmanager.net
 ```
 
-Notez que l’adresse IP résolue pointe vers un point de terminaison proxy de réseau virtuel qui est utilisé pour distribuer le trafic réseau vers la ressource Cognitive Services avec point de terminaison privé. Ce comportement est différent pour une ressource avec un nom de domaine personnalisé activé, mais *sans* point de terminaison privé configuré. Consultez [cette section](#dns-configuration).
+Notez que l’adresse IP résolue pointe vers un point de terminaison proxy du réseau virtuel qui est utilisé pour distribuer le trafic réseau vers le point de terminaison privé pour la ressource Cognitive Services. Le comportement est différent pour une ressource avec un nom de domaine personnalisé activé, mais *sans* point de terminaison privé. Consultez [cette section](#dns-configuration) pour plus d’informations.
 
-## <a name="adjusting-existing-applications-and-solutions"></a>Ajustement d’applications et de solutions existantes 
+## <a name="adjust-existing-applications-and-solutions"></a>Ajuster les solutions et applications existantes
 
-Une ressource Speech avec un domaine personnalisé activé utilise un autre moyen pour interagir avec Speech Services. Cela est vrai pour une ressource Speech avec domaine personnalisé activé [avec](#using-speech-resource-with-custom-domain-name-and-private-endpoint-enabled) et [sans](#using-speech-resource-with-custom-domain-name-without-private-endpoints) point de terminaison privé. Cette section fournit les informations nécessaires pour les deux cas.
+Une ressource Speech avec un domaine personnalisé activé utilise un autre moyen pour interagir avec Speech Services. Cela est vrai pour une ressource Speech avec domaine personnalisé activé [avec](#use-speech-resource-with-custom-domain-name-and-private-endpoint-enabled) et [sans](#use-speech-resource-with-custom-domain-name-without-private-endpoints) point de terminaison privé. Cette section fournit les informations nécessaires pour les deux cas.
 
-### <a name="using-speech-resource-with-custom-domain-name-and-private-endpoint-enabled"></a>Utilisation de ressource Speech avec nom de domaine personnalisé et point de terminaison privé activé
+### <a name="use-speech-resource-with-custom-domain-name-and-private-endpoint-enabled"></a>Utiliser la ressource Speech avec nom de domaine personnalisé et point de terminaison privé activés
 
 Une ressource Speech avec un nom de domaine personnalisé et un point de terminaison privé activé utilise un autre moyen d’interagir avec Speech Services. Cette section explique comment utiliser une telle ressource avec l’API REST Speech Services et le [Kit de développement logiciel (SDK) Speech](speech-sdk.md).
 
 > [!NOTE]
-> Notez qu’une ressource Speech sans point de terminaison privé mais avec un **nom de domaine personnalisé** activé utilise également un moyen spécial d’interagir avec Speech Services, mais que ce moyen diffère du scénario d’une ressource Speech avec point de terminaison privé. Si vous avez une telle ressource (par exemple, si vous aviez une ressource avec points de terminaison privés avant de décider de supprimer ceux-ci), consultez la [section correspondante](#using-speech-resource-with-custom-domain-name-without-private-endpoints).
+> Notez qu’une ressource Speech sans point de terminaison privé mais avec un **nom de domaine personnalisé** activé utilise également un moyen spécial d’interagir avec Speech Services, mais que ce moyen diffère du scénario d’une ressource Speech avec point de terminaison privé. Si vous avez une telle ressource (par exemple, si vous aviez une ressource avec points de terminaison privés avant de décider de supprimer ceux-ci), consultez la [section correspondante](#use-speech-resource-with-custom-domain-name-without-private-endpoints).
 
 #### <a name="speech-resource-with-custom-domain-name-and-private-endpoint-usage-with-rest-api"></a>Ressource Speech avec nom de domaine personnalisé et point de terminaison privé. Utilisation avec API REST
 
@@ -330,11 +348,11 @@ Nous allons utiliser la région Europe Ouest comme exemple de région Azure et `
 
 Pour obtenir la liste des voix prises en charge dans la région, vous devez effectuer les deux opérations suivantes :
 
-- Obtenir un jeton d’autorisation via
+- Obtenir un jeton d’autorisation :
 ```http
 https://westeurope.api.cognitive.microsoft.com/sts/v1.0/issuetoken
 ```
-- À l’aide du jeton obtenu, obtenir la liste des voix via
+- À l’aide du jeton, obtenir la liste des voix :
 ```http
 https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list
 ```
@@ -413,7 +431,7 @@ Pour appliquer le principe décrit dans la section précédente à votre code d�
 - Déterminez l’URL de point de terminaison que votre application utilise.
 - Modifiez votre URL de point de terminaison comme décrit dans la section précédente, et créez votre instance de classe `SpeechConfig` à l’aide de cette URL modifiée explicitement.
 
-###### <a name="determining-application-endpoint-url"></a>Détermination de l’URL de point de terminaison de l’application
+###### <a name="determine-application-endpoint-url"></a>Déterminer l’URL du point de terminaison d'application
 
 - [Activez la journalisation pour votre application](how-to-use-logging.md), puis exécutez-la pour générer le journal.
 - Dans le fichier journal, recherchez `SPEECH-ConnectionUrl`. La chaîne contient le paramètre `value` qui contient à son tour l’URL complète que votre application utilisait.
@@ -426,7 +444,7 @@ Par conséquent, l’URL que l’application utilise dans cet exemple est :
 ```
 wss://westeurope.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US
 ```
-###### <a name="creating-speechconfig-instance-using-full-endpoint-url"></a>Création d’une instance `SpeechConfig` à l’aide d’une URL de point de terminaison complète
+###### <a name="create-speechconfig-instance-using-full-endpoint-url"></a>Créer une instance `SpeechConfig` à l’aide de l’URL complète du point de terminaison
 
 Modifiez le point de terminaison que vous avez déterminé dans la section précédente en procédant de la manière décrite dans la sous-section [Principe général](#general-principle).
 
@@ -464,7 +482,7 @@ SPXSpeechConfiguration *speechConfig = [[SPXSpeechConfiguration alloc] initWithE
 
 Après cette modification, votre application doit fonctionner avec les ressources Speech avec point de terminaison privé. Nous travaillons sur une prise en charge plus transparente du scénario avec point de terminaison privé.
 
-### <a name="using-speech-resource-with-custom-domain-name-without-private-endpoints"></a>Utilisation d’une ressource Speech avec un nom de domaine personnalisé sans point de terminaison privé
+### <a name="use-speech-resource-with-custom-domain-name-without-private-endpoints"></a>Utiliser la ressource Speech avec nom de domaine personnalisé sans point de terminaison privé
 
 Dans cet article, nous avons indiqué plusieurs fois que l’activation d’un domaine personnalisé pour une ressource Speech est **irréversible** et qu’une telle ressource utilise un autre moyen de communiquer avec Speech Services, comparée aux ressources « habituelles » (c’est-à-dire celles qui utilisent des [noms de point de terminaison régionaux](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints)).
 
@@ -529,7 +547,7 @@ Pour activer votre application pour le scénario de ressource Speech avec nom de
 - Demandez un jeton d’autorisation via l’API REST Cognitive Services.
 - Instanciez la classe `SpeechConfig` à l’aide de la méthode « à partir du jeton d’autorisation »/« avec jeton d’autorisation ». 
 
-###### <a name="requesting-authorization-token"></a>Demande de jeton d’autorisation
+###### <a name="request-authorization-token"></a>Requête de jeton d’autorisation
 
 Consultez [cet article](../authentication.md#authenticate-with-an-authentication-token) pour savoir comment obtenir le jeton via l’API REST Cognitive Services. 
 
@@ -540,7 +558,7 @@ https://my-private-link-speech.cognitiveservices.azure.com/sts/v1.0/issueToken
 > [!TIP]
 > Vous pouvez trouver cette URL dans la section *Clés et points de terminaison* (groupe *Gestion des ressources*) de votre ressource Speech dans le portail Azure.
 
-###### <a name="creating-speechconfig-instance-using-authorization-token"></a>Création d’une instance `SpeechConfig` à l’aide d’un jeton d’autorisation
+###### <a name="create-speechconfig-instance-using-authorization-token"></a>Créer une instance `SpeechConfig` à l’aide d’un jeton d’autorisation
 
 Vous devez instancier la classe `SpeechConfig` à l’aide du jeton d’autorisation que vous avez obtenu dans la section précédente. Supposons que les variables suivantes sont définies :
 

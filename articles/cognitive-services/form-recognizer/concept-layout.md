@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: pafarley
-ms.openlocfilehash: 60ef490bbba4dca4f01b82967ad6ea8636e7bd4e
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: a63f910b3a939e33b8c71d8f22d15f6d610a12cc
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353695"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845554"
 ---
 # <a name="form-recognizer-layout-service"></a>Service Layout de Form Recognizer
 
@@ -89,8 +89,7 @@ Layout extrait aussi les marques de sélection des documents. Les marques de sé
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Testez l’extraction de votre propre disposition à l’aide de l’[exemple d’interface utilisateur de Form Recognizer](https://fott-preview.azurewebsites.net/).
-- Suivez un guide de [démarrage rapide de la bibliothèque de client Form Recognizer](quickstarts/client-library.md) pour commencer à extraire des dispositions dans le langage de votre choix.
-- Ou, suivez le guide de démarrage rapide sur l’[extraction de données de disposition](./QuickStarts/python-layout.md) pour implémenter une telle extraction à l’aide de Python et de l’API REST.
+- Renseignez un [démarrage rapide Form Recognizer](quickstarts/client-library.md) pour commencer à extraire des layouts dans le langage de votre choix.
 
 ## <a name="see-also"></a>Voir aussi
 

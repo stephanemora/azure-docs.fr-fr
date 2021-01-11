@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 3e5514c4a54083bcc6ef8187f2cd97515d2dd680
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 710de93a24037031784ca8d37a8ae0be76bff9e6
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88590181"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97614587"
 ---
 # <a name="getting-started-with-azure-metrics-explorer"></a>Prise en main d’Azure Metrics Explorer
 
@@ -29,15 +29,14 @@ Azure Monitor Metrics Explorer est un composant du portail Microsoft Azure qui p
 
 Pour créer un graphique de métrique, à partir de votre ressource, groupe de ressources, abonnement ou vue Azure Monitor, ouvrez l’onglet **Métriques** et procédez comme suit :
 
-1. À l’aide du sélecteur de ressources, sélectionnez la ressource dont vous souhaitez voir les métriques. (La ressource est présélectionnée si vous avez ouvert **Métriques** dans le contexte d’une ressource spécifique).
-
-    > ![Sélectionner une ressource](./media/metrics-getting-started/resource-picker.png)
+1. Cliquez sur le bouton « Sélectionner une étendue » pour ouvrir le sélecteur d’étendues de ressources. Ceci vous permettra de sélectionner la ou les ressources pour lesquelles vous souhaitez voir les métriques. La ressource doit être déjà remplie si vous avez ouvert Metrics Explorer à partir du menu de la ressource. Pour savoir comment voir les métriques de plusieurs ressources, [lisez cet article](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-dynamic-scope).
+    > ![Sélectionner une ressource](./media/metrics-getting-started/scope-picker.png)
 
 2. Pour certaines ressources, vous devez choisir un espace de noms. L’espace de noms est simplement une méthode d’organisation des métriques pour que vous puissiez les retrouver facilement. Par exemple, les comptes de stockage ont des espaces de noms distincts pour le stockage des métriques de fichiers, tables, objets Blob et files d’attente. Plusieurs types de ressources n’ont qu’un seul espace de noms.
 
 3. Sélectionnez une métrique dans la liste des métriques disponibles.
 
-    > ![Sélectionner une métrique](./media/metrics-getting-started/metric-picker.png)
+    > ![Sélectionner une métrique](./media/metrics-getting-started/metrics-dropdown.png)
 
 4. Vous pouvez également, si vous le souhaitez, [modifier l’agrégation des métriques](metrics-charts.md#changing-aggregation). Par exemple, vous souhaiterez peut-être que votre graphique représente les valeurs minimale, maximale ou moyenne de la métrique.
 
@@ -51,7 +50,7 @@ Pour créer un graphique de métrique, à partir de votre ressource, groupe de r
 
 Par défaut, le graphique affiche les dernières 24 heures de données de métriques. Utilisez le panneau du **sélecteur d’heure** pour modifier l’intervalle de temps, effectuer un zoom avant ou arrière sur votre graphique. 
 
-![Modifier le panneau d’intervalle de temps](./media/metrics-getting-started/time-picker.png)
+![Modifier le panneau d’intervalle de temps](./media/metrics-getting-started/time.png)
 
 > [!TIP]
 > Utilisez l’outil **Balayage temporel** pour étudier une zone intéressante du graphique (pic ou baisse). Placez le pointeur de la souris au début de la zone, cliquez et maintenez le bouton gauche de la souris enfoncé, faites-le glisser de l'autre côté de la zone, puis relâchez le bouton. Cet intervalle de temps sera agrandi dans le graphique. 
@@ -73,6 +72,7 @@ Vous pouvez personnaliser le style et le titre du graphique, et modifier les par
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Découvrir les fonctionnalités avancées de Metrics Explorer](metrics-charts.md)
+* [Affichage de plusieurs ressources dans Metrics Explorer](metrics-dynamic-scope.md)
 * [Résolution des problèmes de Metrics Explorer](metrics-troubleshoot.md)
 * [Consulter la liste des métriques disponibles pour les services Azure](metrics-supported.md)
 * [Consulter des exemples de graphiques configurés](metric-chart-samples.md)

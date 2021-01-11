@@ -1,6 +1,6 @@
 ---
-title: Noyaux pour bloc-notes Jupyter sur les clusters Spark dans Azure HDInsight
-description: Découvrez les noyaux PySpark, PySpark3 et Spark pour bloc-notes Jupyter qui sont disponibles avec les clusters Spark sur Azure HDInsight.
+title: Noyaux pour Jupyter Notebook sur les clusters Spark dans Azure HDInsight
+description: Découvrez les noyaux PySpark, PySpark3 et Spark pour Jupyter Notebook qui sont disponibles avec les clusters Spark sur Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,14 +8,14 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: 8c3993d8208a9a9e2ab54be44d88de0b20a2e586
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b1139ce2358d5e5b3b52376892524e7ee0dd5611
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86084713"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822231"
 ---
-# <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Noyaux pour Jupyter Notebook sur des clusters Apache Spark dans Azure HDInsight
+# <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Noyaux pour Jupyter Notebook sur les clusters Apache Spark dans Azure HDInsight
 
 Les clusters Spark HDInsight fournissent des noyaux utilisables avec Jupyter Notebook sur [Apache Spark](./apache-spark-overview.md) pour tester des applications. Un noyau est un programme qui exécute et interprète votre code. Les trois noyaux sont les suivants :
 
@@ -29,28 +29,28 @@ Dans cet article, vous allez apprendre à utiliser ces noyaux et découvrir les 
 
 Un cluster Apache Spark dans HDInsight. Pour obtenir des instructions, consultez [Création de clusters Apache Spark dans Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
-## <a name="create-a-jupyter-notebook-on-spark-hdinsight"></a>Créer un bloc-notes Jupyter sur Spark HDInsight
+## <a name="create-a-jupyter-notebook-on-spark-hdinsight"></a>Créer un Jupyter Notebook sur Spark HDInsight
 
 1. Dans le [portail Azure](https://portal.azure.com/), sélectionnez votre projet Spark.  Pour obtenir des instructions, consultez la page [Énumération et affichage des clusters](../hdinsight-administer-use-portal-linux.md#showClusters). La page **Vue d’ensemble** s’ouvre.
 
 2. Dans la zone **Tableaux de bord du cluster** de la page **Vue d’ensemble**, sélectionnez **Jupyter Notebook**. Si vous y êtes invité, entrez les informations d’identification d’administrateur pour le cluster.
 
-    ![Notebook Jupyter sur Apache Spark](./media/apache-spark-jupyter-notebook-kernels/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png "Notebook Jupyter sur Spark")
+    ![Jupyter Notebook sur Apache Spark](./media/apache-spark-jupyter-notebook-kernels/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png "Jupyter Notebook sur Spark")
   
    > [!NOTE]  
-   > Vous pouvez également atteindre le bloc-notes Jupyter sur le cluster Spark en ouvrant l’URL suivante dans votre navigateur. Remplacez **CLUSTERNAME** par le nom de votre cluster.
+   > Vous pouvez également atteindre Jupyter Notebook sur le cluster Spark en ouvrant l’URL suivante dans votre navigateur. Remplacez **CLUSTERNAME** par le nom de votre cluster.
    >
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
 3. Sélectionnez **Nouveau**, puis **Pyspark**, **PySpark3** ou **Spark** pour créer un notebook. Utilisez le noyau Spark pour les applications Scala, le noyau PySpark pour les applications Python2 et le noyau PySpark3 pour les applications Python3.
 
-    ![Noyaux pour le Notebook Jupyter sur Spark](./media/apache-spark-jupyter-notebook-kernels/kernel-jupyter-notebook-on-spark.png "Noyaux pour le Notebook Jupyter sur Spark")
+    ![Noyaux pour Jupyter Notebook sur Spark](./media/apache-spark-jupyter-notebook-kernels/kernel-jupyter-notebook-on-spark.png "Noyaux pour le Jupyter Notebook sur Spark")
 
 4. Un bloc-notes s’ouvre avec le noyau que vous avez sélectionné.
 
 ## <a name="benefits-of-using-the-kernels"></a>Avantages de l’utilisation des noyaux
 
-Voici quelques avantages liés à l’utilisation des nouveaux noyaux avec bloc-notes Jupyter sur des clusters Spark HDInsight.
+Voici quelques avantages liés à l’utilisation des nouveaux noyaux avec Jupyter Notebook sur des clusters Spark HDInsight.
 
 - **Contextes prédéfinis**. Avec les noyaux **PySpark**, **PySpark3** ou **Spark**, vous n’avez pas besoin de définir les contextes Spark ou Hive explicitement avant de commencer à utiliser vos applications. Ces contextes sont disponibles par défaut. Ces contextes sont les suivants :
 
@@ -118,7 +118,7 @@ Quel que soit le noyau que vous utilisez, laisser les blocs-notes s’exécuter 
 
 ## <a name="where-are-the-notebooks-stored"></a>Où sont stockés les blocs-notes ?
 
-Si votre cluster utilise le stockage Azure comme compte de stockage par défaut, les bloc-notes Jupyter sont enregistrés dans le compte de stockage sous le dossier **/HdiNotebooks**.  Les blocs-notes, les fichiers texte et les dossiers que vous créez dans Jupyter sont accessibles à partir du compte de stockage.  Par exemple, si vous utilisez Jupyter pour créer un dossier **`myfolder`** et un bloc-notes **myfolder/mynotebook.ipynb**, vous pouvez accéder à ce bloc-notes dans `/HdiNotebooks/myfolder/mynotebook.ipynb` au sein du compte de stockage.  L’inverse est également vrai : si vous chargez un bloc-notes directement dans votre compte de stockage dans `/HdiNotebooks/mynotebook1.ipynb`, le bloc-notes est également accessible à partir de Jupyter.  Les blocs-notes sont conservés dans le compte de stockage même après la suppression du cluster.
+Si votre cluster utilise le stockage Azure comme compte de stockage par défaut, les notebooks Jupyter Notebook sont enregistrés dans le compte de stockage sous le dossier **/HdiNotebooks**.  Les blocs-notes, les fichiers texte et les dossiers que vous créez dans Jupyter sont accessibles à partir du compte de stockage.  Par exemple, si vous utilisez Jupyter pour créer un dossier **`myfolder`** et un bloc-notes **myfolder/mynotebook.ipynb**, vous pouvez accéder à ce bloc-notes dans `/HdiNotebooks/myfolder/mynotebook.ipynb` au sein du compte de stockage.  L’inverse est également vrai : si vous chargez un bloc-notes directement dans votre compte de stockage dans `/HdiNotebooks/mynotebook1.ipynb`, le bloc-notes est également accessible à partir de Jupyter.  Les blocs-notes sont conservés dans le compte de stockage même après la suppression du cluster.
 
 > [!NOTE]  
 > Les clusters HDInsight utilisant Azure Data Lake Storage comme stockage par défaut ne stockent pas les bloc-notes dans le stockage associé.
@@ -135,7 +135,7 @@ Que le cluster utilise le stockage Azure ou Azure Data Lake Storage comme compte
 
 ## <a name="supported-browser"></a>Navigateur pris en charge
 
-Les blocs-notes Jupyter sur clusters Spark HDInsight sont pris en charge uniquement sur Google Chrome.
+Les notebooks Jupyter Notebook sur clusters Spark HDInsight sont pris en charge uniquement sur Google Chrome.
 
 ## <a name="suggestions"></a>Suggestions
 
@@ -145,5 +145,5 @@ Les nouveaux noyaux sont en phase d’évolution et gagneront en maturité avec 
 
 - [Vue d’ensemble : Apache Spark sur Azure HDInsight](apache-spark-overview.md)
 - [Utiliser des blocs-notes Apache Zeppelin avec un cluster Apache Spark sur HDInsight](apache-spark-zeppelin-notebook.md)
-- [Utiliser des packages externes avec les blocs-notes Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)
+- [Utiliser des packages externes avec des blocs-notes Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)
 - [Install Jupyter on your computer and connect to an HDInsight Spark cluster (Installer Jupyter sur un ordinateur et se connecter au cluster Spark sur HDInsight)](apache-spark-jupyter-notebook-install-locally.md)

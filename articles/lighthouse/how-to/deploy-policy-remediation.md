@@ -1,14 +1,14 @@
 ---
 title: Déployer une stratégie pouvant être corrigée
 description: Pour déployer des stratégies qui utilisent une tâche de correction via Azure Lighthouse, vous devez créer une identité managée dans le locataire client.
-ms.date: 08/12/2020
+ms.date: 12/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 998576d06d470c525a551463861f7a25d4ab9d8f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: eb473fe2f589cf719e3944c887d46e75e9e7fdbf
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010093"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97670489"
 ---
 # <a name="deploy-a-policy-that-can-be-remediated-within-a-delegated-subscription"></a>Déployer une stratégie pouvant être corrigée dans un abonnement délégué
 
@@ -41,7 +41,7 @@ L’exemple ci-dessous montre un **principalId** qui aura le rôle Administrateu
 
 ## <a name="deploy-policies-that-can-be-remediated"></a>Déployer des stratégies pouvant être corrigées
 
-Une fois que vous avez créé l’utilisateur avec les autorisations nécessaires comme indiqué ci-dessus, cet utilisateur peut déployer des stratégies dans le locataire du client qui utilisent des tâches de correction.
+Une fois que vous avez créé l’utilisateur avec les autorisations nécessaires comme indiqué ci-dessus, cet utilisateur peut déployer des stratégies dans les abonnements du client délégué.
 
 Par exemple, supposons que vous vouliez activer les diagnostics sur des ressources Azure Key Vault dans le locataire du client, comme illustré dans cet [exemple](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/policy-enforce-keyvault-monitoring). Un utilisateur du client gestionnaire disposant des autorisations appropriées (comme décrit ci-dessus) déploierait un [modèle Azure Resource Manager](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/policy-enforce-keyvault-monitoring/enforceAzureMonitoredKeyVault.json) pour activer ce scénario.
 

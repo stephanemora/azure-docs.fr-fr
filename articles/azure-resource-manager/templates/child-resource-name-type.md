@@ -2,19 +2,21 @@
 title: Ressources enfants dans les modèles
 description: Décrit comment définir le nom et le type des ressources enfants dans un modèle de Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 08/26/2019
-ms.openlocfilehash: 3a69829e674925982c618807f49433a033d8c5f9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/21/2020
+ms.openlocfilehash: c594096fd95f663db2120b29c575b341924dcc36
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80743840"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97721941"
 ---
 # <a name="set-name-and-type-for-child-resources"></a>Définir le nom et le type des ressources enfants
 
-Les ressources enfants sont des ressources qui existent uniquement dans le contexte d’une autre ressource. Par exemple, une [extension de machine virtuelle](/azure/templates/microsoft.compute/2019-03-01/virtualmachines/extensions) ne peut pas exister sans [machine virtuelle](/azure/templates/microsoft.compute/2019-03-01/virtualmachines). La ressource d’extension est un enfant de la machine virtuelle.
+Les ressources enfants sont des ressources qui existent uniquement dans le contexte d’une autre ressource. Par exemple, une [extension de machine virtuelle](/azure/templates/microsoft.compute/virtualmachines/extensions) ne peut pas exister sans [machine virtuelle](/azure/templates/microsoft.compute/virtualmachines). La ressource d’extension est un enfant de la machine virtuelle.
 
-Dans un modèle Resource Manager, vous pouvez spécifier la ressource enfant dans la ressource parent ou en dehors de la ressource parent. L’exemple suivant illustre la ressource enfant incluse dans la propriété Ressources de la ressource parent.
+Chaque ressource parente accepte uniquement certains types de ressources comme ressources enfants. Le type de ressource de la ressource enfant comprend le type de ressource de la ressource parent. Par exemple, **Microsoft.Web/sites/config** et **Microsoft.Web/sites/extensions** sont des ressources enfant de la ressource **Microsoft.Web/sites**. Les types de ressource acceptés sont spécifiés dans le [schéma de modèle](https://github.com/Azure/azure-resource-manager-schemas) de la ressource parente.
+
+Dans un modèle Azure Resource Manager (modèle ARM), vous pouvez spécifier la ressource enfant dans la ressource parent ou en dehors de la ressource parent. L’exemple suivant illustre la ressource enfant incluse dans la propriété Ressources de la ressource parent.
 
 ```json
 "resources": [
@@ -26,6 +28,8 @@ Dans un modèle Resource Manager, vous pouvez spécifier la ressource enfant dan
   }
 ]
 ```
+
+Les ressources enfants peuvent uniquement être définies sur cinq niveaux.
 
 L’exemple suivant montre la ressource enfant en dehors de la ressource parent. Vous pouvez utiliser cette approche si la ressource parent n’est pas déployée dans le même modèle ou si voulez utiliser une[copie](copy-resources.md) pour créer plusieurs ressources enfants.
 
@@ -132,6 +136,6 @@ L’exemple suivant montre un réseau virtuel et un sous-réseau qui sont tous d
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour en savoir plus sur la création de modèles Azure Resource Manager, consultez [Création de modèles](template-syntax.md).
+* Pour en savoir plus sur la création de modèles ARM, consultez [Création de modèles](template-syntax.md).
 
 * Pour en savoir plus sur le format du nom de la ressource lors du référencement de la ressource, consultez la [fonction de référence](template-functions-resource.md#reference).

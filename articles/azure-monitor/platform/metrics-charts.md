@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: be3d3f11e90c17bd8c4792418500da651039e480
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: a80eaecc02fa3c8c6618341c02e22241f0dc7faf
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562801"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845029"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Fonctionnalités avancées d’Azure Metrics Explorer
 
@@ -22,6 +22,35 @@ ms.locfileid: "97562801"
 ## <a name="metrics-in-azure"></a>Métriques dans Azure
 
 Les [métriques dans Azure Monitor](data-platform-metrics.md) sont les séries de valeurs et de comptes mesurés qui sont collectées et stockées au fil du temps. Il existe des métriques standard (ou de « plateforme ») et des métriques personnalisées. Les métriques standards vous sont fournies par la plateforme Azure elle-même. Les métriques standards reflètent les statistiques d’intégrité et d’utilisation de vos ressources Azure. Tandis que vos applications envoient les mesures personnalisées à Azure à l’aide de l’[API Application Insights pour les événements et mesures personnalisés](../app/api-custom-events-metrics.md), [Extension Windows Azure Diagnostics (WAD)](./diagnostics-extension-overview.md), ou par l’[API REST Azure Monitor](./metrics-store-custom-rest-api.md).
+
+## <a name="resource-scope-picker"></a>Sélecteur d’étendue des ressources
+Le sélecteur d’étendue des ressources vous permet d’afficher les métriques sur une ou plusieurs ressources. Vous trouverez ci-dessous des instructions sur l’utilisation du sélecteur d’étendue des ressources. 
+
+### <a name="selecting-a-single-resource"></a>Sélection d’une seule ressource
+Sélectionnez **Métriques** dans le menu **Azure Monitor** ou dans la section **Supervision** du menu d’une ressource. Cliquez sur le bouton Sélectionner une étendue pour ouvrir le sélecteur d’étendue des ressources, ce qui vous permettra de sélectionner la ou les ressources dont vous souhaitez afficher les métriques. Le sélecteur doit être déjà rempli si vous avez ouvert Metrics Explorer à partir du menu d’une ressource. 
+
+![Capture d’écran du sélecteur d’étendue des ressources](./media/metrics-charts/scope-picker.png)
+
+Pour certaines ressources, vous ne pouvez afficher que les métriques d’une seule ressource à la fois. Ces ressources se trouvent sous la section Tous les types de ressources dans la liste déroulante des types de ressources.
+
+![Capture d’écran d’une ressource unique](./media/metrics-charts/single-resource-scope.png)
+
+Après avoir cliqué sur la ressource souhaitée, vous verrez tous les abonnements et les groupes de ressources qui contiennent cette ressource.
+
+![Capture d’écran des ressources disponibles](./media/metrics-charts/available-single-resource.png)
+
+> [!TIP]
+> Si vous souhaitez voir les métriques de plusieurs ressources en même temps ou les métriques d’un abonnement ou d’un groupe de ressources, cliquez sur le bouton de vote.
+
+Une fois que vous êtes satisfait de votre sélection, cliquez sur Appliquer.
+
+### <a name="viewing-metrics-across-multiple-resources"></a>Affichage des métriques sur plusieurs ressources
+Certains types de ressources permettent d’interroger des métriques sur plusieurs ressources, à condition que celles-ci se trouvent dans les mêmes abonnement et localisation. Ces types de ressources se trouvent en haut de la liste déroulante « Types de ressources ». Pour plus d’informations sur la façon d’afficher les métriques sur plusieurs ressources, voir [ce document](metrics-dynamic-scope.md#selecting-multiple-resources).
+
+![Capture d’écran des types de ressources croisées](./media/metrics-charts/multi-resource-scope.png)
+
+Pour les types compatibles avec plusieurs ressources, vous pouvez également interroger les métriques sur un abonnement ou plusieurs groupes de ressources. Pour savoir comment procéder, lisez [cet article](metrics-dynamic-scope.md#selecting-a-resource-group-or-subscription).
+
 
 ## <a name="create-views-with-multiple-metrics-and-charts"></a>Créer des vues contenant plusieurs métriques et graphiques
 
@@ -61,11 +90,25 @@ Par exemple, supposons que le graphique indique la métrique **Temps de réponse
 
 Metrics Explorer propose cinq types d’agrégation de statistiques de base : **Somme**, **Nombre**, **Min**, **Max** et **Moyenne**. L’agrégation **Somme** est parfois appelée l’agrégation **Total**. Pour de nombreuses mesures, Metrics Explorer masque les agrégations qui sont totalement inutiles et ne peuvent pas être utilisées.
 
-- **Somme** : somme de toutes les valeurs capturées sur l’intervalle d’agrégation
-- **Nombre** : nombre de mesures capturées au cours de l’intervalle d’agrégation. Notez que **Nombre** sera égal à **Somme** dans le cas où la mesure est toujours capturée avec la valeur 1. Cela est courant lorsque la métrique effectue le suivi du nombre d’événements distincts et que chaque mesure représente un événement (autrement dit, le code déclenche un enregistrement de métrique chaque fois qu’une nouvelle requête arrive)
-- **Moyenne** : moyenne des valeurs métriques capturées sur l’intervalle d’agrégation
-- **Min** : la plus petite valeur capturée sur l’intervalle d’agrégation
-- **Max** : la plus grande valeur capturée sur l’intervalle d’agrégation
+**Somme** : somme de toutes les valeurs capturées sur l’intervalle d’agrégation
+
+![Capture d’écran de la somme de la requête](./media/metrics-charts/request-sum.png)
+
+**Nombre** : nombre de mesures capturées au cours de l’intervalle d’agrégation. Notez que **Nombre** sera égal à **Somme** dans le cas où la mesure est toujours capturée avec la valeur 1. Cela est courant lorsque la métrique effectue le suivi du nombre d’événements distincts et que chaque mesure représente un événement (autrement dit, le code déclenche un enregistrement de métrique chaque fois qu’une nouvelle requête arrive)
+
+![Capture d’écran du nombre de requêtes](./media/metrics-charts/request-count.png)
+
+**Moyenne** : moyenne des valeurs métriques capturées sur l’intervalle d’agrégation
+
+![Capture d’écran du nombre de requêtes](./media/metrics-charts/request-avg.png)
+
+**Min** : la plus petite valeur capturée sur l’intervalle d’agrégation
+
+![Capture d’écran de la requête minimale](./media/metrics-charts/request-min.png)
+
+**Max** : la plus grande valeur capturée sur l’intervalle d’agrégation
+
+![Capture d’écran de la requête maximale](./media/metrics-charts/request-max.png)
 
 ## <a name="apply-filters-to-charts"></a>Appliquer des filtres aux graphiques
 

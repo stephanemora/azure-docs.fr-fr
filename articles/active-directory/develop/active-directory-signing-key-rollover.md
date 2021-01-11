@@ -12,12 +12,12 @@ ms.date: 8/11/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 981ac775e7153cfd03dc1760bbbc4e50fd9ecc57
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: a8c9a15761a4b37dfcf5ba7cc4cf046390092145
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96169543"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672143"
 ---
 # <a name="signing-key-rollover-in-microsoft-identity-platform"></a>Substitution de clé de signature dans la plateforme d’identités Microsoft
 Cet article explique ce que vous devez savoir sur les clés publiques utilisées par la plateforme d’identités Microsoft pour la signature des jetons de sécurité. Il est important de noter que ces clés sont substituées régulièrement, voire immédiatement en cas d’urgence. Toutes les applications qui utilisent la plateforme d’identités Microsoft doivent être en mesure de gérer par programme le processus de substitution de clé. En lisant cet article, vous allez comprendre le fonctionnement des clés, savoir comment évaluer l’impact de la substitution de votre application et comment mettre à jour votre application ou établir un processus périodique de substitution manuelle de clé pour gérer la substitution de clé si nécessaire.
@@ -68,28 +68,30 @@ La fonctionnalité d’authentification/d’autorisation d’Azure App Services 
 ### <a name="web-applications--apis-protecting-resources-using-net-owin-openid-connect-ws-fed-or-windowsazureactivedirectorybearerauthentication-middleware"></a><a name="owin"></a>Applications web/API protégeant les ressources à l’aide du middleware .NET OWIN OpenID Connect, WS-Fed ou WindowsAzureActiveDirectoryBearerAuthentication
 Si votre application utilise le middleware .NET OWIN OpenID Connect, WS-Fed ou WindowsAzureActiveDirectoryBearerAuthentication, elle possède déjà la logique nécessaire pour gérer automatiquement la substitution de clé.
 
-Vous pouvez vérifier que votre application utilise l’un de ces middlewares en recherchant les extraits de code suivants dans le fichier Startup.cs ou Startup.Auth.cs de l’application.
+Vous pouvez vérifier que votre application utilise l’un de ces middlewares en recherchant les extraits de code suivants dans les fichiers Startup.cs ou Startup.Auth.cs de l’application.
 
-```
+```csharp
 app.UseOpenIdConnectAuthentication(
-     new OpenIdConnectAuthenticationOptions
-     {
-         // ...
-     });
+    new OpenIdConnectAuthenticationOptions
+    {
+        // ...
+    });
 ```
-```
+
+```csharp
 app.UseWsFederationAuthentication(
     new WsFederationAuthenticationOptions
     {
-     // ...
-     });
+        // ...
+    });
 ```
-```
- app.UseWindowsAzureActiveDirectoryBearerAuthentication(
-     new WindowsAzureActiveDirectoryBearerAuthenticationOptions
-     {
-     // ...
-     });
+
+```csharp
+app.UseWindowsAzureActiveDirectoryBearerAuthentication(
+    new WindowsAzureActiveDirectoryBearerAuthenticationOptions
+    {
+        // ...
+    });
 ```
 
 ### <a name="web-applications--apis-protecting-resources-using-net-core-openid-connect-or--jwtbearerauthentication-middleware"></a><a name="owincore"></a>Applications web/API protégeant les ressources à l’aide du middleware .NET Core OpenID Connect ou JwtBearerAuthentication
