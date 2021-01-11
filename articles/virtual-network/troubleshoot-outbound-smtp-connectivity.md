@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/20/2018
+ms.date: 01/04/2021
 ms.author: genli
-ms.openlocfilehash: 0a69df8a20c4e1502de151c38c60b54667c2d4dc
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: e1e7e78cab1f3a240737b5e25e0dff28c420add8
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814480"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883110"
 ---
 # <a name="troubleshoot-outbound-smtp-connectivity-problems-in-azure"></a>Résoudre les problèmes de connectivité SMTP sortante dans Azure
 
@@ -76,10 +76,6 @@ Pour les abonnements des types suivants qui ont été créés après le 15 nove
 Si vous souhaitez pouvoir envoyer des e-mails à partir de machines virtuelles Azure directement à des fournisseurs de messagerie externes (sans utiliser de relais SMTP authentifié), vous pouvez en faire la demande en ouvrant une demande de support en utilisant le type de problème suivant : **Technique** > **Réseau virtuel** > **Connectivité** > **Impossible d’envoyer un e-mail (SMTP/Port 25)** . Veillez à ajouter des informations supplémentaires sur la raison pour laquelle votre déploiement doit envoyer des e-mails directement aux fournisseurs de messagerie au lieu d’utiliser un relais authentifié. Les demandes seront revues et approuvées à la discrétion de Microsoft. Les demandes sont accordées uniquement après l’exécution de contrôles antifraude supplémentaires. 
 
 Lorsqu’un abonnement est exempté et que les machines virtuelles ont été arrêtées et redémarrées dans le portail Azure, toutes les machines virtuelles de cet abonnement sont exemptées. L’exemption s’applique uniquement à l’abonnement demandé et au trafic de machine virtuelle acheminé directement vers Internet.
-
-## <a name="restrictions-and-limitations"></a>Limitations et restrictions
-
-Le routage du trafic du port 25 par le biais de services Azure PaaS comme [Pare-feu Azure](https://azure.microsoft.com/services/azure-firewall/) n’est pas pris en charge.
 
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contacter le support technique
 

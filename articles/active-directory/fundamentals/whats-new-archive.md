@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9e1ae369560fcf8357e6016e1f7e2e438edd8c9
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: e90adcb5312df6e1dfe6d4b58407edeb924a8809
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803219"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97862438"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Archive des nouveautés d’Azure Active Directory
 
@@ -141,7 +141,7 @@ Le service de provisionnement Azure AD fonctionne actuellement de façon cycliq
 **Catégorie de service :** Autres  
 **Fonctionnalité de produit :** Gestion des droits d’utilisation
  
-Une nouvelle autorisation déléguée EntitlementManagement.Read.All est désormais disponible pour une utilisation avec l’API de gestion des droits dans Microsoft Graph version bêta. Pour en savoir plus sur les API disponibles, consultez [Utilisation de l’API de gestion des droits Azure AD](/graph/api/resources/entitlementmanagement-root?view=graph-rest-beta).
+Une nouvelle autorisation déléguée EntitlementManagement.Read.All est désormais disponible pour une utilisation avec l’API de gestion des droits dans Microsoft Graph version bêta. Pour en savoir plus sur les API disponibles, consultez [Utilisation de l’API de gestion des droits Azure AD](/graph/api/resources/entitlementmanagement-root?view=graph-rest-beta&preserve-view=true).
 
 ---
 
@@ -339,7 +339,7 @@ Pour lister votre application dans la galerie d’applications Azure AD, veuille
 **Catégorie de service :** Accès conditionnel  
 **Fonctionnalité de produit :** Protection et sécurité des identités
 
-Le [mode rapport seul pour l’accès conditionnel Azure AD](../conditional-access/concept-conditional-access-report-only.md) vous permet d’évaluer le résultat d’une stratégie sans appliquer de contrôles d’accès. Vous pouvez tester les stratégies de rapport seul au sein de votre organisation afin de bien comprendre leur impact avant de les activer, ce qui rend leur déploiement à la fois plus sûr et plus facile. Ces derniers mois, nous avons constaté une adoption forte du mode rapport seul ; plus de 26 millions d’utilisateurs opèrent déjà dans le cadre d’une stratégie de rapport seul. Faisant suite à l’annonce d’aujourd’hui, les nouvelles stratégies d’accès conditionnel Azure AD seront créées par défaut en mode rapport seul. Cela signifie que vous pouvez surveiller l’impact de vos stratégies à partir du moment de leur création. Et ceux d’entre vous qui utilisent les API MS Graph peuvent également [gérer les stratégies de rapport seul par programmation](/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta). 
+Le [mode rapport seul pour l’accès conditionnel Azure AD](../conditional-access/concept-conditional-access-report-only.md) vous permet d’évaluer le résultat d’une stratégie sans appliquer de contrôles d’accès. Vous pouvez tester les stratégies de rapport seul au sein de votre organisation afin de bien comprendre leur impact avant de les activer, ce qui rend leur déploiement à la fois plus sûr et plus facile. Ces derniers mois, nous avons constaté une adoption forte du mode rapport seul ; plus de 26 millions d’utilisateurs opèrent déjà dans le cadre d’une stratégie de rapport seul. Faisant suite à l’annonce d’aujourd’hui, les nouvelles stratégies d’accès conditionnel Azure AD seront créées par défaut en mode rapport seul. Cela signifie que vous pouvez surveiller l’impact de vos stratégies à partir du moment de leur création. Et ceux d’entre vous qui utilisent les API MS Graph peuvent également [gérer les stratégies de rapport seul par programmation](/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta&preserve-view=true). 
 
 ---
 
@@ -406,7 +406,7 @@ Vous pouvez désormais automatiser la création, la mise à jour et la suppressi
 * [Juno Journey](../saas-apps/juno-journey-provisioning-tutorial.md)
 * [MediusFlow](../saas-apps/mediusflow-provisioning-tutorial.md)
 * [New Relic by Organization](../saas-apps/new-relic-by-organization-provisioning-tutorial.md)
-* [Oracle Cloud Infrastructure Console](../saas-apps/oracle-cloud-infratstructure-console-provisioning-tutorial.md)
+* [Oracle Cloud Infrastructure Console](../saas-apps/oracle-cloud-infrastructure-console-provisioning-tutorial.md)
 
 Pour découvrir comment sécuriser plus efficacement votre organisation à l’aide de l’approvisionnement automatique de comptes utilisateur, voir [Automatisation de l’approvisionnement des utilisateurs pour les applications SaaS avec Azure AD](../app-provisioning/user-provisioning.md).
 
@@ -546,7 +546,7 @@ Nous développons la fonctionnalité d’invitation B2B permettant d’inviter d
 
 **Fonctionnalité de produit :** Protection et sécurité des identités
 
-Le [mode rapport seul pour l’accès conditionnel Azure AD](../conditional-access/concept-conditional-access-report-only.md) vous permet d’évaluer le résultat d’une stratégie sans appliquer de contrôles d’accès. Vous pouvez tester les stratégies de rapport seul au sein de votre organisation afin de bien comprendre leur impact avant de les activer, ce qui rend leur déploiement à la fois plus sûr et plus facile. Ces derniers mois, nous avons constaté une adoption forte du mode rapport seul, avec plus de 26 millions d’utilisateurs opérant déjà dans le cadre d’une stratégie de rapport seul. À la suite de cette annonce, les nouvelles stratégies d’accès conditionnel Azure AD seront créées par défaut en mode rapport seul. Cela signifie que vous pouvez surveiller l’impact de vos stratégies à partir du moment de leur création. Et ceux d’entre vous qui utilisent les API MS Graph peuvent également [gérer les stratégies de rapport seul par programmation](/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta). 
+Le [mode rapport seul pour l’accès conditionnel Azure AD](../conditional-access/concept-conditional-access-report-only.md) vous permet d’évaluer le résultat d’une stratégie sans appliquer de contrôles d’accès. Vous pouvez tester les stratégies de rapport seul au sein de votre organisation afin de bien comprendre leur impact avant de les activer, ce qui rend leur déploiement à la fois plus sûr et plus facile. Ces derniers mois, nous avons constaté une adoption forte du mode rapport seul, avec plus de 26 millions d’utilisateurs opérant déjà dans le cadre d’une stratégie de rapport seul. À la suite de cette annonce, les nouvelles stratégies d’accès conditionnel Azure AD seront créées par défaut en mode rapport seul. Cela signifie que vous pouvez surveiller l’impact de vos stratégies à partir du moment de leur création. Et ceux d’entre vous qui utilisent les API MS Graph peuvent également [gérer les stratégies de rapport seul par programmation](/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta&preserve-view=true). 
 
 ---
 
@@ -598,7 +598,7 @@ Pour plus d’informations sur les applications, consultez [Intégration des app
 
 **Fonctionnalité de produit :** Expérience de développement
 
-La requête delta pour oAuth2PermissionGrant est disponible en préversion publique. Vous pouvez maintenant suivre des modifications sans devoir continuellement interroger Microsoft Graph. [En savoir plus.](/graph/api/oAuth2PermissionGrant-delta?tabs=http&view=graph-rest-beta)
+La requête delta pour oAuth2PermissionGrant est disponible en préversion publique. Vous pouvez maintenant suivre des modifications sans devoir continuellement interroger Microsoft Graph. [En savoir plus.](/graph/api/oAuth2PermissionGrant-delta?tabs=http&view=graph-rest-beta&preserve-view=true)
 
 ---
 
@@ -632,7 +632,7 @@ La requête delta pour les applications est généralement disponible. Vous pouv
 
 **Catégorie de service :** MS Graph
 
-**Fonctionnalité de produit :** La requête delta de l’expérience développeur pour les unités administratives est disponible en préversion publique. Vous pouvez maintenant suivre des modifications sans devoir continuellement interroger Microsoft Graph. [En savoir plus.](/graph/api/administrativeunit-delta?tabs=http&view=graph-rest-beta)
+**Fonctionnalité de produit :** La requête delta de l’expérience développeur pour les unités administratives est disponible en préversion publique. Vous pouvez maintenant suivre des modifications sans devoir continuellement interroger Microsoft Graph. [En savoir plus.](/graph/api/administrativeunit-delta?tabs=http&view=graph-rest-beta&preserve-view=true)
 
 ---
 
@@ -650,7 +650,7 @@ Ces API constituent un outil essentiel pour la gestion des méthodes d’authent
 - Réinitialiser le mot de passe d’un utilisateur
 - Activer et désactiver la connexion par SMS
 
-Pour plus d’informations, consultez [Présentation de l’API Méthodes d’authentification Azure AD](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
+Pour plus d’informations, consultez [Présentation de l’API Méthodes d’authentification Azure AD](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta&preserve-view=true).
 
 ---
 
@@ -1424,7 +1424,7 @@ Pour plus d’informations sur l’utilisation des définitions de rôle spécif
 
 **Type :** Modification planifiée **Catégorie de service :** Protection de l’identité **Fonctionnalité produit :** Protection et sécurité des identités
 
-Suite aux commentaires des développeurs, les abonnés à Azure AD Premium P2 peuvent désormais effectuer des requêtes complexes sur les données de détection des risques d’Azure AD Identity Protection à l’aide de la nouvelle API riskDetection pour Microsoft Graph. La version bêta de l’API [identityRiskEvent](/graph/api/resources/identityriskevent?view=graph-rest-beta) existante cessera de renvoyer des données vers le **10 janvier 2020**. Si votre organisation utilise l’API identityRiskEvent, vous devez passer à la nouvelle API riskDetection.
+Suite aux commentaires des développeurs, les abonnés à Azure AD Premium P2 peuvent désormais effectuer des requêtes complexes sur les données de détection des risques d’Azure AD Identity Protection à l’aide de la nouvelle API riskDetection pour Microsoft Graph. La version bêta de l’API [identityRiskEvent](/graph/api/resources/identityriskevent?view=graph-rest-beta&preserve-view=true) existante cessera de renvoyer des données vers le **10 janvier 2020**. Si votre organisation utilise l’API identityRiskEvent, vous devez passer à la nouvelle API riskDetection.
 
 Pour plus d’informations sur la nouvelle API riskDetection, consultez la [Documentation de référence sur l’API de détection des risques](/graph/api/resources/riskdetection).
 
@@ -2144,7 +2144,7 @@ Pour plus d’informations sur ces mises à jour, voir [Filtrer les journaux d�
 
 Nous sommes heureux d’annoncer que la nouvelle API riskDetections pour Microsoft Graph est désormais disponible en préversion publique. Vous pouvez utiliser cette nouvelle API pour afficher une liste des détections de risque au niveau des utilisateurs et des connexions dans le cadre du dispositif de protection des identités de votre organisation. Vous pouvez également utiliser cette API pour interroger plus efficacement vos détections de risque, avec notamment des détails sur le type de détection, son état, son niveau et bien plus encore.
 
-Pour plus d’informations, voir [Documentation de référence sur l’API de détection des risques](/graph/api/resources/riskdetection?view=graph-rest-beta).
+Pour plus d’informations, voir [Documentation de référence sur l’API de détection des risques](/graph/api/resources/riskdetection?view=graph-rest-beta&preserve-view=true).
 
 ---
 
@@ -2292,7 +2292,7 @@ Pour plus d’informations, consultez [Plateforme d’identités Microsoft](../d
 
 Nous sommes heureux d’annoncer que vous pouvez maintenant utiliser l’API Risky Users pour récupérer l’historique des risques liés aux utilisateurs, ignorer les utilisateurs à risque et confirmer l’état de compromission des utilisateurs. Cette modification vous permet de mettre à jour plus efficacement l’état des risques liés à vos utilisateurs et de comprendre l’historique des risques associé.
 
-Pour plus d’informations, consultez la [documentation de référence sur l’API Risky Users](/graph/api/resources/riskyuser?view=graph-rest-beta).
+Pour plus d’informations, consultez la [documentation de référence sur l’API Risky Users](/graph/api/resources/riskyuser?view=graph-rest-beta&preserve-view=true).
 
 ---
 
