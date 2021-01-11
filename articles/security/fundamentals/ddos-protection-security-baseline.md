@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 1c1a5a96742d380ce42c0aea8c77a199083df47f
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: cbc22f9b55f8d20880b43516a2a5bc8f55d389f5
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492248"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814497"
 ---
 # <a name="azure-security-baseline-for-azure-ddos-protection-standard"></a>Base de référence de sécurité Azure pour Azure DDoS Protection Standard
 
@@ -38,7 +38,7 @@ Cette base de référence de sécurité applique les conseils du [benchmark de s
 
 activez les paramètres de diagnostic des journaux d’activité Azure et envoyez les journaux vers un espace de travail Log Analytics, Event Hub ou un compte de stockage Azure pour archivage. Les journaux d’activité fournissent des insights sur les opérations qui ont été effectuées sur vos instances Azure Cache pour Redis au niveau du plan de contrôle. À l’aide des données des journaux d’activité Azure, vous pouvez déterminer les éléments « qui, quand et quoi » pour toutes les opérations d’écriture (PUT, POST, DELETE) effectuées au niveau du plan de contrôle pour vos instances Azure DDoS Protection.
 
-- [Configurer des alertes pour les métriques du service de protection DDoS](../../ddos-protection/telemetry-monitoring-alerting.md#configure-alerts-for-ddos-protection-metrics)
+- [Afficher et configurer la journalisation des diagnostics DDoS](../../ddos-protection/diagnostic-logging.md)
 
 - [Guide pratique pour activer les paramètres de diagnostic du journal d’activité Azure](../../azure-monitor/platform/activity-log.md)
 
@@ -60,7 +60,7 @@ activez les paramètres de diagnostic des journaux d’activité Azure et envoye
 
 **Aide** : Activez les paramètres de diagnostic des journaux d’activité Azure et envoyez les journaux à un espace de travail Log Analytics. Exécutez des requêtes dans Log Analytics pour rechercher des termes, identifier des tendances, analyser des modèles et fournir de nombreuses autres informations basées sur les données du journal d’activité qui ont pu être collectées pour les coffres Recovery Services.
 
-- [Informations sur l’accès à la télémétrie, aux journaux et à l’analytique des attaques pour le service Azure DDoS Protection Standard](../../ddos-protection/telemetry-monitoring-alerting.md#configure-alerts-for-ddos-protection-metrics)
+- [Informations sur l’accès à la télémétrie, aux journaux et à l’analytique des attaques pour le service Azure DDoS Protection Standard](../../ddos-protection/telemetry.md)
 
 - [Guide pratique pour activer les paramètres de diagnostic du journal d’activité Azure](../../azure-monitor/platform/activity-log.md)
 
@@ -76,7 +76,7 @@ activez les paramètres de diagnostic des journaux d’activité Azure et envoye
 
 Intégrez un espace de travail Log Analytics à Azure Sentinel, car cela fournit une solution SOAR (Security Orchestration Automated Response). Cela permet de créer des playbooks (solutions automatisées) utilisables pour corriger des problèmes de sécurité. En outre, vous pouvez créer des alertes de journal personnalisées dans votre espace de travail Log Analytics à l’aide d’Azure Monitor.
 
-- [Configurer des alertes pour les métriques DDoS](https://azure.microsoft.com/blog/holiday-season-is-ddos-season/)
+- [Configurer des alertes pour les métriques DDoS](../../ddos-protection/alerts.md)
 
 - [Guide pratique pour intégrer Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
@@ -384,7 +384,7 @@ Utilisez Azure Resource Graph pour interroger et découvrir des ressources dans 
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1 : Établir des configurations sécurisées pour toutes les ressources Azure
 
-**Aide** : Définissez et implémentez des configurations de sécurité standard pour Azure DDos Protection avec Azure Policy. Utilisez des alias Azure Policy dans l’espace de noms « Microsoft.Network » pour créer des stratégies personnalisées permettant d’auditer vos coffres Recovery Services ou d’appliquer leur configuration.
+**Conseils** : Définissez et implémentez des configurations de sécurité standard pour Azure DDoS Protection avec Azure Policy. Utilisez des alias Azure Policy dans l’espace de noms « Microsoft.Network » pour créer des stratégies personnalisées permettant d’auditer vos coffres Recovery Services ou d’appliquer leur configuration.
 
 - [Affichage des alias Azure Policy disponibles](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
@@ -524,7 +524,7 @@ Testez vos hypothèses sur la façon dont vos services répondent à une attaque
 
 À l’aide de la configuration des alertes Azure Monitor, sélectionnez les métriques du service Azure DDoS Protection disponibles de votre choix pour être averti quand il existe une atténuation active pendant une attaque. Quand les conditions sont remplies, vous recevez un e-mail d’alerte à l’adresse spécifiée.
 
-- [Configurer des alertes pour les métriques du service de protection DDoS](../../ddos-protection/telemetry-monitoring-alerting.md#configure-alerts-for-ddos-protection-metrics)
+- [Configurer des alertes pour les métriques du service de protection DDoS](../../ddos-protection/alerts.md)
 
 - [Comment configurer l’exportation continue](../../security-center/continuous-export.md)
 

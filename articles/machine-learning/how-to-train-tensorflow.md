@@ -10,12 +10,12 @@ author: mx-iao
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 9b8d48139e6cbabfbc5bf63f85d2d03c64d7efd9
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 41231e19960edfe1a4f0521b8738fa62a463c927
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542284"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97796463"
 ---
 # <a name="train-tensorflow-models-at-scale-with-azure-machine-learning"></a>Entraîner des modèles TensorFlow à grande échelle avec Azure Machine Learning
 
@@ -188,7 +188,7 @@ tf_env.docker.base_image = 'mcr.microsoft.com/azureml/openmpi3.1.2-cuda10.1-cudn
 
 Pour plus d’informations sur la création et l’utilisation d’environnements, consultez [Créer et utiliser des environnements logiciels dans Azure Machine Learning](how-to-use-environments.md).
 
-## <a name="configure-and-submit-your-training-run"></a>Configurer et envoyer votre exécution d’entraînement
+## <a name="configure-and-submit-your-training-run"></a>Configurer et envoyer votre exécution d’entrainement
 
 ### <a name="create-a-scriptrunconfig"></a>Créer un ScriptRunConfig
 
@@ -216,20 +216,20 @@ src = ScriptRunConfig(source_directory=script_folder,
 Pour plus d’informations sur la configuration des travaux avec ScriptRunConfig, consultez [Configurer et envoyer des exécutions d’entraînement](how-to-set-up-training-targets.md).
 
 > [!WARNING]
-> Si vous utilisiez l’estimateur TensorFlow pour configurer vos travaux d’entraînement TensorFlow, notez que les estimateurs seront dépréciés dans une prochaine version du SDK Azure ML. Avec le SDK Azure ML versions 1.15.0 et ultérieures, ScriptRunConfig est la méthode recommandée pour configurer des travaux d’entraînement, y compris ceux utilisant des frameworks DL.
+> Si vous utilisiez l’estimateur TensorFlow pour configurer vos travaux d’apprentissage TensorFlow, veuillez noter que les estimateurs sont déconseillés à partir de la version 1.19.0 du kit de développement logiciel (SDK). Avec la version 1.15.0 et les versions ultérieures du kit SDK Azure ML, ScriptRunConfig est la méthode recommandée pour configurer des tâches d’apprentissage, y compris celles qui utilisent des infrastructures de Deep Learning. Pour les questions courantes sur la migration, consultez le [Guide de migration de l’estimateur à ScriptRunConfig](how-to-migrate-from-estimators-to-scriptrunconfig.md).
 
 ### <a name="submit-a-run"></a>Envoyer une exécution
 
 L’[objet d’exécution](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py) fournit l’interface à l’historique des exécutions pendant et après l’exécution de la tâche.
 
 ```Python
-run = Experiment(workspace=ws, name='tf-mnist').submit(src)
+run = Experiment(workspace=ws, name='Tutorial-TF-Mnist').submit(src)
 run.wait_for_completion(show_output=True)
 ```
 ### <a name="what-happens-during-run-execution"></a>Ce qui se passe lors de l’exécution
 Quand l’exécution est lancée, elle passe par les phases suivantes :
 
-- **Préparation** : une image docker est créée en fonction de l’environnement défini. L’image est chargée dans le registre de conteneurs de l’espace de travail et mise en cache pour des exécutions ultérieures. Les journaux sont également transmis en continu à l’historique des exécutions et peuvent être affichés afin de surveiller la progression. Si un environnement organisé est spécifié à la place, l’image mise en cache qui renferme cet environnement organisé est utilisée.
+- **Préparation** : une image docker est créée en fonction de l’environnement défini. L’image est chargée dans le registre de conteneurs de l’espace de travail et mise en cache pour des exécutions ultérieures. Les journaux sont également transmis en continu à l’historique des exécutions et peuvent être affichés afin de surveiller la progression. Si un environnement organisé est spécifié à la place, l’image mise en cache qui stocke cet environnement organisé est utilisée.
 
 - **Mise à l’échelle** : le cluster tente de monter en puissance si le cluster Batch AI nécessite plus de nœuds pour l’exécution que la quantité disponible actuellement.
 

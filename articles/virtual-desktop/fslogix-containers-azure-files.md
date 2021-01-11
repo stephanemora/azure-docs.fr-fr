@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 669f4baa723b78b8933f3a75fc361c468f9e2df9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3bd667bc7fce8f9fb10b852cae7a6c4ad198d75
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88002392"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97797194"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>Conteneurs de profil FSLogix et fichiers Azure
 
@@ -87,7 +87,7 @@ Pour garantir que votre environnement Windows Virtual Desktop suit les bonnes pr
 
 - Le compte de stockage Azure Files doit se trouver dans la même région que les machines virtuelles hôtes de la session.
 - Les autorisations Azure Files doivent correspondre aux autorisations décrites dans [Exigences - Conteneurs de profil](/fslogix/fslogix-storage-config-ht).
-- Chaque pool d’hôtes doit être généré avec une machine virtuelle de même type et de même taille basée sur la même image principale.
+- Chaque machine virtuelle du pool d’hôtes doit être générée à partir de la même image principale et être de même type et de même taille.
 - Chaque machine virtuelle du pool d’hôtes doit être dans même groupe de ressources afin de faciliter la gestion, la mise à l’échelle et la mise à jour.
 - Pour des performances optimales, la solution de stockage et le conteneur de profil FSLogix doivent se trouver à un même emplacement du centre de données.
 - Le compte de stockage contenant l’image principale doit être dans la même région et le même abonnement où les machines virtuelles sont provisionnées.

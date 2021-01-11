@@ -7,12 +7,12 @@ ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: krsh
 ms.date: 10/19/2020
-ms.openlocfilehash: ead367568762d4b76de7164feb56b7a31cd53e0d
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: e28942a77a1d695a17f3231901f337695e602c64
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129114"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825544"
 ---
 # <a name="how-to-generate-a-sas-uri-for-a-vm-image"></a>Comment générer un URI SAS pour une image de machine virtuelle
 
@@ -29,18 +29,18 @@ La génération d’URI de SAS pour vos disques durs virtuels impose les exigenc
 
 Deux outils sont couramment utilisés pour créer une adresse (URL) de SAS :
 
-1. **Explorateur Stockage Azure**  : disponible sur le Portail Azure.
-2. **Azure CLI**  : outil recommandé pour les systèmes d’exploitation autres que Windows et les environnements d’intégration automatisée ou continue.
+1. **Explorateur Stockage Azure** : disponible sur le Portail Azure.
+2. **Azure CLI** : outil recommandé pour les systèmes d’exploitation autres que Windows et les environnements d’intégration automatisée ou continue.
 
 ### <a name="using-tool-1-azure-storage-explorer"></a>Utilisation de l’outil 1 : Explorateur de stockage Azure
 
 1. Accédez à votre **compte de stockage**.
-1. Ouvrez l’ **explorateur de stockage**.
+1. Ouvrez l’**explorateur de stockage**.
 
     :::image type="content" source="media/create-vm/storge-account-explorer.png" alt-text="Fenêtre du compte de stockage.":::
 
-3. Dans le **conteneur** , cliquez avec le bouton droit sur le fichier de disque dur virtuel, puis sélectionnez **Get Share Access Signature** (Obtenir la signature de partage d’accès).
-4. Dans la boîte de dialogue **Signature d’accès partagé** , renseignez les champs suivants :
+3. Dans le **conteneur**, cliquez avec le bouton droit sur le fichier de disque dur virtuel, puis sélectionnez **Get Share Access Signature** (Obtenir la signature de partage d’accès).
+4. Dans la boîte de dialogue **Signature d’accès partagé**, renseignez les champs suivants :
 
     1. Heure de début : date de début de l’autorisation d’accès au disque dur virtuel. Indiquez une date correspondant à la veille de la date du jour.
     2. Heure d’expiration : date de fin de l’autorisation d’accès au disque dur virtuel. Indiquez une date correspondant au moins à trois semaines après la date du jour.
@@ -62,7 +62,7 @@ Deux outils sont couramment utilisés pour créer une adresse (URL) de SAS :
 1. Téléchargez et installez [Microsoft Azure CLI](/cli/azure/install-azure-cli). Des versions sont disponibles pour Windows, macOS et diverses distributions de Linux.
 2. Créez un fichier PowerShell (extension .ps1), copiez le code suivant, puis enregistrez-le localement.
 
-    ```JSON
+    ```azurecli-interactive
     az storage container generate-sas --connection-string ‘DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net’ --name <vhd-name> --permissions rl --start ‘<start-date>’ --expiry ‘<expiry-date>’
     ```
 
@@ -70,13 +70,14 @@ Deux outils sont couramment utilisés pour créer une adresse (URL) de SAS :
 
     - account-name – nom de votre compte Stockage Azure.
     - account-key – votre clé de compte Stockage Azure.
-    - vhd-name – nom de votre disque dur virtuel.
     - start-date – date de début de l’autorisation d’accès au disque dur virtuel. Indiquez une date correspondant à la veille de la date du jour.
     - expiry-date – date de fin de l’autorisation d’accès au disque dur virtuel. Indiquez une date postérieure d’au moins trois semaines à la date actuelle.
 
     Voici un exemple de valeurs de paramètre appropriées (au moment de la rédaction de cet article) :
 
-    `az storage container generate-sas --connection-string ‘DefaultEndpointsProtocol=https;AccountName=st00009;AccountKey=6L7OWFrlabs7Jn23OaR3rvY5RykpLCNHJhxsbn9ON c+bkCq9z/VNUPNYZRKoEV1FXSrvhqq3aMIDI7N3bSSvPg==;EndpointSuffix=core.windows.net’ --name vhds -- permissions rl --start ‘2020-04-01T00:00:00Z’ --expiry ‘2021-04-01T00:00:00Z’`
+    ```azurecli-interactive
+    az storage container generate-sas --connection-string ‘DefaultEndpointsProtocol=https;AccountName=st00009;AccountKey=6L7OWFrlabs7Jn23OaR3rvY5RykpLCNHJhxsbn9ON c+bkCq9z/VNUPNYZRKoEV1FXSrvhqq3aMIDI7N3bSSvPg==;EndpointSuffix=core.windows.net’ --name vhds -- permissions rl --start ‘2020-04-01T00:00:00Z’ --expiry ‘2021-04-01T00:00:00Z’
+    ```
 
 1. Enregistrez les modifications.
 2. En appliquant l’une des méthodes suivantes, exécutez ce script avec des privilèges d’administrateur pour créer une chaîne de connexion SAS offrant un accès au niveau du conteneur :

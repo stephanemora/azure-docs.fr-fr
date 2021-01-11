@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment récupérer des fichiers et de
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.custom: references_regions
-ms.openlocfilehash: 4d34fc48e5d16275d0225a1cef4b5fa63f0b66d6
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: b4bd64fb00c2f341e474ecb96738fab47d717474
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97511652"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97831667"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Récupérer des fichiers à partir d’une sauvegarde de machine virtuelle Azure
 
@@ -118,6 +118,7 @@ Le script requiert également les composants Python et bash pour exécuter et é
 | --------------- | ---- |
 | bash | 4 et versions ultérieures |
 | python | 2.6.6 et versions ultérieures  |
+| .NET | 4.6.2 et versions ultérieures |
 | TLS | La version 1.2 devrait être prise en charge  |
 
 ## <a name="step-4-access-requirements-to-successfully-run-the-script"></a>Étape 4 : Conditions d’accès pour exécuter correctement le script

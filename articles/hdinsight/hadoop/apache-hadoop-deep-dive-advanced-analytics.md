@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/01/2020
-ms.openlocfilehash: ffc8fcf734877f55210507310849a5746a280c3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13dd960cc7c900882acbcb9b17a5b8a1f32f956c
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89504347"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97821500"
 ---
 # <a name="deep-dive---advanced-analytics"></a>Approfondissement - Analytique avancée
 
@@ -91,7 +91,7 @@ Il existe trois tâches clés dans ce scénario d’analytique avancée :
 
 1. Créer un cluster Azure HDInsight Hadoop avec une distribution Apache Spark 2.1.0.
 2. Exécuter un script personnalisé pour installer Microsoft Cognitive Toolkit sur tous les nœuds d’un cluster Azure HDInsight Spark.
-3. Charger un notebook Jupyter préconfiguré sur votre cluster HDInsight Spark pour voir comment appliquer un modèle d’apprentissage profond Microsoft Cognitive Toolkit aux fichiers d’un compte Stockage Blob Azure avec l’API Spark Python (PySpark).
+3. Charger un notebook Jupyter préconfiguré sur le cluster HDInsight Spark pour appliquer un modèle Deep Learning Microsoft Cognitive Toolkit entraîné aux fichiers d’un compte Stockage Blob Azure avec l’API Spark Python (PySpark).
 
 Cet exemple utilise le jeu d’images CIFAR-10 compilé et distribué par Alex Krizhevsky, Vinod Nair et Geoffrey Hinton. Le jeu de données CIFAR-10 contient 60 000 images en couleur de 32 x 32 pixels appartenant à 10 classes qui s’excluent mutuellement :
 

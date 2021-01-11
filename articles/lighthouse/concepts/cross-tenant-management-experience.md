@@ -1,14 +1,14 @@
 ---
 title: Expériences de la gestion multilocataire
 description: La gestion des ressources déléguées Azure offre une expérience de gestion inter-locataires.
-ms.date: 11/19/2020
+ms.date: 12/16/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4550921fdefdca440b6757e7a3b7a03337599d16
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 111e5310f1dac01053eebc6592d7b56105358c41
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510649"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97630086"
 ---
 # <a name="cross-tenant-management-experiences"></a>Expériences de la gestion multilocataire
 
@@ -78,6 +78,11 @@ La plupart des tâches et des services peuvent être exécutés sur des ressourc
 
 - À partir du locataire de gestion, les fournisseurs de solutions Cloud partenaires peuvent visualiser, gérer et analyser les coûts de consommation hors taxes (hors achats) pour les clients qui relèvent du plan Azure. Le coût est basé sur les tarifs de vente au détail et l’accès Azure RBAC (contrôle d’accès en fonction du rôle Azure) dont dispose le partenaire pour l’abonnement du client.
 
+[Azure Key Vault](../../key-vault/general/index.yml) :
+
+- Créer des coffres de clés dans les locataires clients
+- Utiliser une identité managée pour créer des coffres de clés dans les locataires clients
+
 [Azure Kubernetes Service (AKS)](../../aks/index.yml) :
 
 - Gérer des environnements Kubernetes hébergés, ainsi que déployer et gérer des applications en conteneur au sein des locataires du client
@@ -94,7 +99,7 @@ La plupart des tâches et des services peuvent être exécutés sur des ressourc
 - Afficher les détails du journal d’activité pour des abonnements délégués
 - Log Analytics : Interroger des données à partir d’espaces de travail distants dans plusieurs locataires
 - Créer des alertes dans les locataires du client qui déclenchent une automatisation, par exemple des runbooks Azure Automation ou des fonctions Azure Functions, dans le locataire gérant par le biais de webhooks
-- Créer des paramètres de diagnostic dans des locataires clients pour envoyer des journaux de ressources à des espaces de travail dans le locataire gérant
+- Créer des [paramètres de diagnostic](../..//azure-monitor/platform/diagnostic-settings.md) dans les locataires clients pour envoyer les journaux de ressources à des espaces de travail dans le locataire responsable
 - Pour les charges de travail SAP, [surveiller les métriques des solutions SAP avec une vue agrégée sur les locataires clients](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/using-azure-lighthouse-and-azure-monitor-for-sap-solutions-to/ba-p/1537293)
 
 [Azure Networking](../../networking/networking-overview.md) :

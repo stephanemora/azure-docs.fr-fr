@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 12/03/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: ff9ad659e15a88725e4c3905ab6c623fda7610fd
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 451323058ad743d6e26fc8bcea27d1b44c76f543
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96600902"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674040"
 ---
 # <a name="default-test-cases-for-arm-template-test-toolkit"></a>Cas de test par défaut de la boîte à outils de test de modèle Resource Manager
 
@@ -693,4 +693,5 @@ L’exemple suivant **échoue**, car il utilise une fonction [list*](template-fu
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur l’exécution de la boîte à outils de test, consultez [Utiliser le kit de ressources de test de modèle ARM](test-toolkit.md).
+- Pour en savoir plus sur l’exécution de la boîte à outils de test, consultez [Utiliser le kit de ressources de test de modèle ARM](test-toolkit.md).
+- Pour suivre un module Microsoft Learn couvrant l’utilisation du kit de ressources de test, consultez [Prévisualisation des modifications et validation des ressources Azure à l’aide de simulations et du kit de ressources de test de modèle ARM](/learn/modules/arm-template-test/).

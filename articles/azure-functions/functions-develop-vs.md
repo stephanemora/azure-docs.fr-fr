@@ -4,12 +4,12 @@ description: Découvrez comment développer et tester Azure Functions à l’aid
 ms.custom: vs-azure, devx-track-csharp
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.openlocfilehash: c5164d0757de5011c112a9506979da19d9585790
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 877c82e375b0ea469071402b83fadbd634177f3f
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167795"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655813"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Développer Azure Functions à l’aide de Visual Studio  
 
@@ -85,6 +85,18 @@ Pour plus d’informations, consultez [Projet de bibliothèque de classes Azure 
 Visual Studio ne charge pas automatiquement les paramètres dans le fichier local.settings.json lorsque vous publiez le projet. Pour vous assurer que ces paramètres existent également dans votre application de fonction dans Azure, chargez-les après avoir publié votre projet. Pour plus d’informations, consultez [Paramètres de l’application de fonction](#function-app-settings). Les valeurs d’une collection `ConnectionStrings` ne sont jamais publiées.
 
 Votre code peut aussi lire les valeurs des paramètres d’application de fonction en tant que variables d’environnement. Pour en savoir plus, voir [Variables d’environnement](functions-dotnet-class-library.md#environment-variables).
+
+## <a name="configure-your-build-output-settings"></a>Configuration des paramètres de sortie de la build
+
+Lors de la génération d’un projet Azure Functions, les outils de build optimisent la sortie de façon à ne conserver qu’une seule copie de tous les assemblys partagés avec le runtime Functions. Le résultat en est une build optimisée qui économise autant d’espace que possible. Toutefois, lorsque vous passez à une version plus récente de l’un de vos assemblys de projet, il peut arriver que les outils de génération ne sachent pas que ces assemblys doivent être préservés. Pour faire en sorte qu’ils le soient pendant le processus d’optimisation, vous pouvez les spécifier à l’aide d’éléments `FunctionsPreservedDependencies` dans le fichier projet (.csproj) :
+
+```xml
+  <ItemGroup>
+    <FunctionsPreservedDependencies Include="Microsoft.AspNetCore.Http.dll" />
+    <FunctionsPreservedDependencies Include="Microsoft.AspNetCore.Http.Extensions.dll" />
+    <FunctionsPreservedDependencies Include="Microsoft.AspNetCore.Http.Features.dll" />
+  </ItemGroup>
+```
 
 ## <a name="configure-the-project-for-local-development"></a>Configurer le projet pour un développement local
 

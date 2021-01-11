@@ -1,18 +1,18 @@
 ---
 title: Modèle de syntaxe et d’expressions
-description: Décrit la syntaxe JSON déclarative pour les modèles Azure Resource Manager.
+description: Décrit la syntaxe JSON déclarative pour les modèles Azure Resource Manager (modèles ARM).
 ms.topic: conceptual
 ms.date: 03/17/2020
-ms.openlocfilehash: baddedae1b918502e579d2ed230e0779960f45e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 44a386ed849771dfba717c8d1414e64422d0c7bd
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82203826"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97797041"
 ---
-# <a name="syntax-and-expressions-in-azure-resource-manager-templates"></a>Syntaxe et expressions dans les modèles Azure Resource Manager
+# <a name="syntax-and-expressions-in-arm-templates"></a>Syntaxe et expressions dans les modèles ARM
 
-La syntaxe de base du modèle est JSON. Toutefois, vous pouvez utiliser des expressions et fonctions pour étendre les valeurs JSON disponibles dans le modèle.  Les expressions commencent et se terminent avec des crochets : `[` et `]`, respectivement. La valeur de l’expression est évaluée lorsque le modèle est déployé. Une expression peut retourner une chaîne, un entier, un booléen, un tableau ou un objet.
+La syntaxe de base du modèle Azure Resource Manager (modèle ARM) respecte le format JavaScript Object Notation (JSON). Toutefois, vous pouvez utiliser des expressions et fonctions pour étendre les valeurs JSON disponibles dans le modèle.  Les expressions commencent et se terminent avec des crochets : `[` et `]`, respectivement. La valeur de l’expression est évaluée lorsque le modèle est déployé. Une expression peut retourner une chaîne, un entier, un booléen, un tableau ou un objet.
 
 Une expression de modèle ne peut pas dépasser 24 576 caractères.
 
@@ -31,7 +31,7 @@ Azure Resource Manager fournit des [fonctions](template-functions.md) que vous p
 
 Dans l’expression, la syntaxe `resourceGroup()` appelle une des fonctions fournies par Resource Manager pour une utilisation dans un modèle. Dans ce cas, il s’agit de la fonction [resourceGroup](template-functions-resource.md#resourcegroup). Comme en JavaScript, les appels de fonction sont formatés comme suit : `functionName(arg1,arg2,arg3)`. La syntaxe `.location` récupère une propriété de l’objet retourné par cette fonction.
 
-Les fonctions des modèles et leurs paramètres ne respectent pas la casse. Par exemple, Resource Manager résout **variables('var1')** et **VARIABLES('VAR1')** de la même manière. Lors de l’évaluation, la fonction préserve la casse sauf si elle la modifie expressément (toUpper ou toLower, par exemple). Certains types de ressources peuvent avoir des exigences de casse indépendantes de la façon dont les fonctions sont évaluées.
+Les fonctions des modèles et leurs paramètres ne respectent pas la casse. Par exemple, Azure Resource Manager résout `variables('var1')` et `VARIABLES('VAR1')` comme étant identiques. Lors de l’évaluation, la fonction préserve la casse sauf si elle la modifie expressément (`toUpper` ou `toLower`, par exemple). Certains types de ressources peuvent avoir des exigences de casse indépendantes de la façon dont les fonctions sont évaluées.
 
 Pour passer une valeur de chaîne en tant que paramètre à une fonction, utilisez des guillemets simples.
 
@@ -123,7 +123,7 @@ La même mise en forme s’applique quand il s’agit de transmettre des valeurs
 
 ## <a name="null-values"></a>Valeurs Null
 
-Pour définir une propriété sur la valeur Null, vous pouvez utiliser **null** ou **[json('null')]** . La [fonction json](template-functions-object.md#json) retourne un objet vide quand vous fournissez `null` comme paramètre. Dans les deux cas, les modèles Resource Manager font comme si la propriété n’était pas présente.
+Pour affecter la valeur Null à une propriété, vous pouvez utiliser `null` ou `[json('null')]`. La [fonction json](template-functions-object.md#json) retourne un objet vide quand vous fournissez `null` comme paramètre. Dans les deux cas, les modèles Resource Manager font comme si la propriété n’était pas présente.
 
 ```json
 "stringValue": null,
@@ -132,5 +132,5 @@ Pour définir une propriété sur la valeur Null, vous pouvez utiliser **null** 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour obtenir la liste complète des fonctions de modèle, consultez [Fonctions des modèles Azure Resource Manager](template-functions.md).
-* Pour plus d’informations sur les fichiers de modèle, voir [Comprendre la structure et la syntaxe des modèles Azure Resource Manager](template-syntax.md).
+* Pour obtenir la liste complète des fonctions de modèle, consultez [Fonctions des modèles ARM](template-functions.md).
+* Pour plus d'informations sur les fichiers de modèle, consultez [Comprendre la structure et la syntaxe des modèles Resource Manager](template-syntax.md).

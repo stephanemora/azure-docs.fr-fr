@@ -15,12 +15,12 @@ ms.date: 12/11/2020
 ms.subservice: hybrid
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad3bd938355d138e660958e34d046d7af03e75c7
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: edb602e3d55ae07f49d5448283ae0d2b6da4b0cb
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97370908"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97694146"
 ---
 # <a name="manage-agent-registry-options"></a>Gestion des options du Registre de l’agent
 
@@ -63,6 +63,30 @@ Procédez comme suit pour activer le repérage de références :
     > ![Repérage de références](media/how-to-manage-registry-options/referral-chasing.png)
 1. Redémarrez le service de provisionnement Azure AD Connect à partir de la console *Services*.
 1. Si vous avez déployé plusieurs agents de provisionnement, appliquez cette modification du Registre à la totalité d’entre eux dans un souci de cohérence.
+
+## <a name="skip-gmsa-configuration"></a>Ignorer la configuration GMSA
+Avec la version de l’agent 1.1.281.0 +, par défaut, lorsque vous exécutez l’assistant de configuration de l’agent, vous êtes invité à configurer [le compte de service administré de groupe (gMSA)](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview). Le programme d’installation de gMSA par l’assistant est utilisé lors de l’exécution pour toutes les opérations de synchronisation et d’approvisionnement. 
+
+Si vous effectuez une mise à niveau à partir d’une version antérieure de l’agent et que vous avez configuré un compte de service personnalisé avec des autorisations déléguées au niveau de l’unité d’organisation spécifiques à votre topologie d’Active Directory, vous pouvez ignorer/reporter la configuration gMSA et planifier cette modification. 
+
+> [!NOTE]
+> Cette aide s’applique spécifiquement aux clients qui ont configuré l’approvisionnement entrant RH (jour ouvrable/SuccessFactors) avec des versions d’agent antérieures à 1.1.281.0 et qui ont configuré un compte de service personnalisé pour les opérations de l’agent. À long terme, nous vous recommandons de passer à gMSA en tant que meilleure pratique.  
+
+Dans ce scénario, vous pouvez toujours mettre à niveau les fichiers binaires de l’agent et ignorer la configuration gMSA en procédant comme suit : 
+
+1. Connectez-vous en tant qu’administrateur sur le serveur Windows sur lequel s’exécute l’agent de provisionnement Azure AD Connect.
+1. Exécutez le programme d’installation de l’agent pour installer les nouveaux fichiers binaires de l’agent. Fermez l’assistant de configuration de l’agent qui s’ouvre automatiquement une fois l’installation terminée. 
+1. Utilisez l’élément de menu *Exécuter* pour ouvrir l’Éditeur du Registre (regedit.exe). 
+1. Recherchez le dossier de clé **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure AD Connect Agents\Azure AD Connect Provisioning Agent**.
+1. Cliquez avec le bouton droit, puis sélectionnez « Créer -> Valeur de chaîne »
+1. Indiquez le nom `UseCredentials`.
+1. Double-cliquez sur le **Nom de la valeur** et entrez comme données de valeur `1`.  
+    > [!div class="mx-imgBorder"]
+    > ![Utiliser des informations d'identification](media/how-to-manage-registry-options/use-credentials.png)
+1. Redémarrez le service de provisionnement Azure AD Connect à partir de la console *Services*.
+1. Si vous avez déployé plusieurs agents de provisionnement, appliquez cette modification du Registre à la totalité d’entre eux dans un souci de cohérence.
+1. À partir du raccourci sur le bureau, exécutez l’assistant de configuration de l’agent. L’assistant va ignorer la configuration de gMSA. 
+
 
 > [!NOTE]
 > Vous pouvez vérifier que les options du Registre ont été définies en activant la [journalisation détaillée](how-to-troubleshoot.md#log-files). Les journaux émis pendant le démarrage de l’agent affichent les valeurs de configuration choisies à partir du Registre. 

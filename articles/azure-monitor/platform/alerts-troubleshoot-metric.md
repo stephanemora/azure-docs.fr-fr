@@ -4,14 +4,14 @@ description: Problèmes couramment rencontrés avec les alertes de métrique Azu
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 11/25/2020
+ms.date: 01/03/2021
 ms.subservice: alerts
-ms.openlocfilehash: ef8a07f0360338aeb659942967169b0605b08e51
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 9a05fe509e032681a0bf5ed989595a25f66d33c6
+ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97507215"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857339"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Résolution des problèmes liés aux alertes de métrique dans Azure Monitor 
 
@@ -72,7 +72,7 @@ Pour le bon fonctionnement des alertes relatives aux métriques du système d’
 - [Pour les machines virtuelles Linux](./collect-custom-metrics-linux-telegraf.md)
 
 Pour plus d’informations sur la collecte de données à partir du système d’exploitation invité d’une machine virtuelle, voir [ici](../insights/monitor-vm-azure.md#guest-operating-system).
-    
+
 > [!NOTE] 
 > Si vous avez configuré les métriques invitées pour qu'elles soient envoyées à un espace de travail Log Analytics, ces métriques apparaissent sous la ressource de l'espace de travail Log Analytics. Elles commencent à afficher les données **uniquement** après la création d'une règle d'alerte qui les supervise. Pour ce faire, suivez les étapes permettant de [configurer une alerte de métrique pour les journaux](./alerts-metric-logs.md#configuring-metric-alert-for-logs).
 
@@ -265,6 +265,23 @@ Nous vous recommandons de choisir une *granularité d’agrégation (période)* 
 -   Règle d’alerte métrique qui surveille plusieurs dimensions : quand une combinaison de valeurs de dimension est ajoutée
 -   Règle d’alerte métrique qui surveille plusieurs ressources : quand une ressource est ajoutée à l’étendue
 -   Règle d’alerte métrique qui surveille une métrique qui n’est pas émise en continu (métrique éparse) : lorsque la métrique est émise après une période de plus de 24 heures pendant laquelle elle n’a pas été émise
+
+## <a name="the-dynamic-thresholds-borders-dont-seem-to-fit-the-data"></a>Les bordures de seuil dynamique ne semblent pas correspondre aux données
+
+Les modifications apportées au comportement d’une métrique ne sont pas nécessairement reflétées immédiatement dans les bordures de seuil dynamique (limites supérieure et inférieure). Celles-ci sont en effet calculées en fonction des données de métriques des 10 derniers jours. Lorsque vous affichez les bordures de seuil dynamique d’une métrique donnée, veillez à examiner la tendance de la semaine précédente, et non seulement celle des dernières heures ou des derniers jours.
+
+## <a name="why-is-weekly-seasonality-not-detected-by-dynamic-thresholds"></a>Pourquoi la saisonnalité hebdomadaire n’est-elle pas détectée par les seuils dynamiques ?
+
+Pour identifier la saisonnalité hebdomadaire, le modèle de seuils dynamiques a besoin d’au moins trois semaines de données historiques. Dès que ces données sont disponibles, le caractère saisonnier hebdomadaire des données de métriques est identifié, et le modèle ajusté en conséquence. 
+
+## <a name="dynamic-thresholds-shows-a-negative-lower-bound-for-a-metric-even-though-the-metric-always-has-positive-values"></a>Les seuils dynamiques affichent une limite inférieure négative pour une métrique, même si celle-ci présente toujours des valeurs positives
+
+Lorsqu’une métrique présente des fluctuations importantes, les seuils dynamiques génèrent un modèle plus large autour de ses valeurs. Il peut en résulter une bordure inférieure négative, en particulier dans les cas suivants :
+1. La sensibilité est définie sur faible. 
+2. Les valeurs médianes sont proches de zéro.
+3. La métrique présente un comportement irrégulier avec une forte variance (présence de pics ou de creux dans les données).
+
+Lorsque la limite inférieure indique une valeur négative, cela signifie qu’il est plausible que la métrique atteigne une valeur nulle étant donné son comportement irrégulier. Vous pouvez choisir une sensibilité supérieure ou une *plus grande granularité d’agrégation (période)* pour rendre le modèle moins sensible. Vous avez également la possibilité d’utiliser l’option *Ignorer les données avant* pour exclure une irrégularité récente des données historiques utilisées pour générer le modèle.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

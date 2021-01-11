@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 11/10/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: c18ee43eefe9c6cf9cba7f4e8f6c3fd3f55bba5a
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: e6dc4656e33b55a2cc695874376baf1cd816a838
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368696"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97796293"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Différences T-SQL entre SQL Server et Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -69,6 +69,7 @@ Limites :
 
 - Une instance gérée SQL permet de sauvegarder une base de données d’instance vers une sauvegarde comprenant jusqu’à 32 bandes, ce qui est suffisant pour des bases de données allant jusqu’à 4 To si la compression de sauvegarde est utilisée.
 - Vous ne pouvez pas exécuter `BACKUP DATABASE ... WITH COPY_ONLY` sur une base de données qui est chiffrée avec Transparent Data Encryption (TDE) managé par le service. TDE managé par le service oblige le chiffrement des sauvegardes à l’aide d’une clé de chiffrement TDE interne. La clé ne pouvant pas être exportée, vous ne pouvez pas restaurer la sauvegarde. utilisez des sauvegardes automatiques et la restauration dans le temps, ou utilisez [TDE managé par le client (BYOK)](../database/transparent-data-encryption-tde-overview.md#customer-managed-transparent-data-encryption---bring-your-own-key) à la place. Vous pouvez également désactiver le chiffrement sur la base de données.
+- Les sauvegardes natives effectuées sur une instance gérée ne peuvent pas être restaurées sur un serveur SQL. Cela s’explique par le fait que Managed Instance dispose d’une version de base de données interne supérieure à toute version de SQL Server.
 - La taille maximale de la bande de sauvegarde en utilisant la commande `BACKUP` dans une instance gérée SQL est de 195 Go, ce qui représente la taille maximale des objets blob. Augmentez le nombre de bandes défini dans la commande de sauvegarde pour réduire la taille de chaque bande et ainsi ne pas dépasser cette limite.
 
     > [!TIP]

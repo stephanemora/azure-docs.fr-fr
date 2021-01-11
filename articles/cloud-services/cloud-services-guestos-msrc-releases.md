@@ -10,14 +10,14 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 12/15/2020
+ms.date: 12/21/2020
 ms.author: yohaddad
-ms.openlocfilehash: 2fb1ae2bbda55a04f4e76505a55b28372af00f33
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 7f683b5002fd31b599ae6fadeb82e5c6f5ce56a0
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97606672"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97708904"
 ---
 # <a name="azure-guest-os"></a>Système d’exploitation invité d'Azure
 Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Response Center) appliquées au système d’exploitation invité d'Azure. Parcourez cet article pour déterminer si une mise à jour spécifique s'applique au système d’exploitation invité que vous utilisez. Les mises à jour vont toujours de l'avant pour la [famille][family-explain] spécifique avec laquelle elles ont été présentées.
@@ -79,34 +79,31 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 
 
 ## <a name="november-2020-guest-os"></a>Système d’exploitation invité, novembre 2020
->[!NOTE] 
-
->Le système d’exploitation invité de novembre est en cours de déploiement sur les machines virtuelles de service cloud configurées pour les mises à jour automatiques. Une fois le déploiement terminé, cette version sera disponible pour les mises à jour manuelles via le portail Azure et les fichiers de configuration. Les correctifs suivants sont inclus dans le système d’exploitation invité de novembre. Cette liste est susceptible d’être modifiée. 
 
 | Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
-|  Version 20-11 OOB |  [4594442]  |  Dernière mise à jour cumulative | 6.25 | 17 novembre 2020 |
-|  Version 20-11 OOB |  [4594441]  |  Dernière mise à jour cumulative | 5.49 | 19 novembre 2020 |
-|  Version 20-11 |  [4580325]  |  Mise à jour de Flash | 3.91, 4.84, 5.49, 6.25 | 13 octobre 2020 |
-|  Version 20-11 |  [4586768]  |  Mise à jour cumulative d’IE | 2.104, 3.91, 4.84 | 10 novembre 2020 |
-|  Version 20-11 |  [4578952]  |  Cumul de la sécurité et de la qualité de .NET Framework 3.5 | 2.104 | 10 novembre 2020 |
-|  Version 20-11 |  [4578955]  |  Cumul de la sécurité et de la qualité de .NET Framework 4.5.2 | 2.104 | 10 novembre 2020 |
-|  Version 20-11 |  [4578953]  |  Cumul de la sécurité et de la qualité de .NET Framework 3.5 | 4,84 | 10 novembre 2020 |
-|  Version 20-11 |  [4578956]  |  Cumul de la sécurité et de la qualité de .NET Framework 4.5.2 | 4,84 | 10 novembre 2020 |
-|  Version 20-11 |  [4578950]  |  Cumul de la sécurité et de la qualité de .NET Framework 3.5 | 3,91 | 10 novembre 2020 |
-|  Version 20-11 |  [4578954]  |  Cumul de la sécurité et de la qualité de .NET Framework 4.5.2 | 3,91 | 10 novembre 2020 |
-|  Version 20-11 |  [4578966]  |  Mise à jour cumulative de .NET Framework 3.5 et 4.7.2 | 6.25 | 13 octobre 2020 |
-|  Version 20-11 |  [4586827]  |  Correctif cumulatif mensuel | 2.104 | 10 novembre 2020 |
-|  Version 20-11 |  [4586834]  |  Correctif cumulatif mensuel | 3,91 | 10 novembre 2020 |
-|  Version 20-11 |  [4586845]  |  Correctif cumulatif mensuel | 4,84 | 10 novembre 2020 |
-|  Version 20-11 |  [4566426]  |  Mise à jour de la pile de maintenance | 3,91 | 14 juillet 2020 |
-|  Version 20-11 |  [4566425]  |  Mise à jour de la pile de maintenance | 4,84 | 14 juillet 2020 |
-|  Version 20-11 OOB |  [4578013]  |  Mise à jour de sécurité autonome | 4,84 | 19 août 2020 |
-|  Version 20-11 |  [4576750]  |  Mise à jour de la pile de maintenance | 5.49 | 8 septembre 2020 |
-|  Version 20-11 |  [4580970]  |  Mise à jour de la pile de maintenance | 2.104 | 13 octobre 2020 |
-|  Version 20-11 |  [4587735]  |  Mise à jour de la pile de maintenance | 6.25 | 10 novembre 2020 |
-|  Version 20-11 |  [4494175]  |  Microcode | 5.49 | 1er septembre 2020 |
-|  Version 20-11 |  [4494174]  |  Microcode | 6.25 | 3 septembre 2020 |
+|  Version 20-11 OOB |  [4594442]  |  Dernière mise à jour cumulative | [6.25] | 17 novembre 2020 |
+|  Version 20-11 OOB |  [4594441]  |  Dernière mise à jour cumulative | [5.49] | 19 novembre 2020 |
+|  Version 20-11 |  [4580325]  |  Mise à jour de Flash | [3.91], [4.84], [5.49], [6.25] | 13 octobre 2020 |
+|  Version 20-11 |  [4586768]  |  Mise à jour cumulative d’IE | [2.104], [3.91], [4.84] | 10 novembre 2020 |
+|  Version 20-11 |  [4578952]  |  Cumul de la sécurité et de la qualité de .NET Framework 3.5 | [2.104] | 10 novembre 2020 |
+|  Version 20-11 |  [4578955]  |  Cumul de la sécurité et de la qualité de .NET Framework 4.5.2 | [2.104] | 10 novembre 2020 |
+|  Version 20-11 |  [4578953]  |  Cumul de la sécurité et de la qualité de .NET Framework 3.5 | [4,84] | 10 novembre 2020 |
+|  Version 20-11 |  [4578956]  |  Cumul de la sécurité et de la qualité de .NET Framework 4.5.2 | [4,84] | 10 novembre 2020 |
+|  Version 20-11 |  [4578950]  |  Cumul de la sécurité et de la qualité de .NET Framework 3.5 | [3,91] | 10 novembre 2020 |
+|  Version 20-11 |  [4578954]  |  Cumul de la sécurité et de la qualité de .NET Framework 4.5.2 | [3,91] | 10 novembre 2020 |
+|  Version 20-11 |  [4578966]  |  Mise à jour cumulative de .NET Framework 3.5 et 4.7.2 | [6.25] | 13 octobre 2020 |
+|  Version 20-11 |  [4586827]  |  Correctif cumulatif mensuel | [2.104] | 10 novembre 2020 |
+|  Version 20-11 |  [4586834]  |  Correctif cumulatif mensuel | [3,91] | 10 novembre 2020 |
+|  Version 20-11 |  [4586845]  |  Correctif cumulatif mensuel | [4,84] | 10 novembre 2020 |
+|  Version 20-11 |  [4566426]  |  Mise à jour de la pile de maintenance | [3,91] | 14 juillet 2020 |
+|  Version 20-11 |  [4566425]  |  Mise à jour de la pile de maintenance | [4,84] | 14 juillet 2020 |
+|  Version 20-11 OOB |  [4578013]  |  Mise à jour de sécurité autonome | [4,84] | 19 août 2020 |
+|  Version 20-11 |  [4576750]  |  Mise à jour de la pile de maintenance | [5.49] | 8 septembre 2020 |
+|  Version 20-11 |  [4580970]  |  Mise à jour de la pile de maintenance | [2.104] | 13 octobre 2020 |
+|  Version 20-11 |  [4587735]  |  Mise à jour de la pile de maintenance | [6.25] | 10 novembre 2020 |
+|  Version 20-11 |  [4494175]  |  Microcode | [5.49] | 1er septembre 2020 |
+|  Version 20-11 |  [4494174]  |  Microcode | [6.25] | 3 septembre 2020 |
 
 [4594442]: https://support.microsoft.com/kb/4594442
 [4594441]: https://support.microsoft.com/kb/4594441
@@ -130,6 +127,11 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 [4587735]: https://support.microsoft.com/kb/4587735
 [4494175]: https://support.microsoft.com/kb/4494175
 [4494174]: https://support.microsoft.com/kb/4494174
+[2.104]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3,91]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4,84]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.49]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.25]: ./cloud-services-guestos-update-matrix.md#family-6-releases
 
 
 

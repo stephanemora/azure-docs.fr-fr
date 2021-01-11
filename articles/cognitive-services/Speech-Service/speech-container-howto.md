@@ -12,12 +12,12 @@ ms.date: 11/17/2020
 ms.author: aahi
 ms.custom: cog-serv-seo-aug-2020
 keywords: local, Docker, conteneur
-ms.openlocfilehash: 9ca5229200b39f0a3c68da152f4d89f842d021ca
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 2123098aafb414495f55d557ac1546819c25fdad
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95996411"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822061"
 ---
 # <a name="install-and-run-docker-containers-for-the-speech-service-apis"></a>Installer et exécuter des conteneurs Docker pour les API du service Speech 
 
@@ -312,6 +312,10 @@ Cette commande :
 * Alloue 4 cœurs de processeur et 4 gigaoctets (Go) de mémoire.
 * Expose le port TCP 5000 et alloue un pseudo-TTY pour le conteneur.
 * Supprime automatiquement le conteneur après sa fermeture. L’image conteneur est toujours disponible sur l’ordinateur hôte.
+
+> [!NOTE]
+> Les conteneurs prennent en charge l’entrée audio compressée dans le kit de développement logiciel (SDK) Speech avec GStreamer.
+> Pour installer GStreamer dans un conteneur, suivez les instructions Linux associées dans [Utilisation d’une entrée audio compressée par codec avec le kit SDK Speech](how-to-use-codec-compressed-audio-input-streams.md).
 
 
 #### <a name="analyze-sentiment-on-the-speech-to-text-output"></a>Analyser les sentiments sur la sortie de la reconnaissance vocale 

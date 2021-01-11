@@ -1,77 +1,129 @@
 ---
-title: Définir un style de carte à l’aide d'Android SDK Azure Maps
-description: Découvrez deux façons de définir le style d’une carte. Découvrez comment utiliser le SDK Microsoft Azure Maps Android dans le fichier layout ou la classe d’activité pour ajuster le style.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 11/18/2020
-ms.topic: how-to
+title: Définition d’un style de carte sur les cartes Android | Microsoft Azure Maps
+description: Découvrez deux façons de définir le style d’une carte. Découvrez comment utiliser l’Android SDK de Azure Maps dans le fichier layout ou la classe d’activité pour ajuster le style.
+author: rbrundritt
+ms.author: richbrun
+ms.date: 04/26/2019
+ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
-ms.openlocfilehash: 8c7689fb87575ac6e150f793b43f35e8bf6adc83
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+manager: cpendle
+ms.openlocfilehash: 1cce355c8ffbcd4704bd32b0e4d1739c77c2b623
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96532473"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97678482"
 ---
-# <a name="set-map-style-using-azure-maps-android-sdk"></a>Définir le style de carte à l’aide d'Android SDK Azure Maps
+# <a name="set-map-style-android-sdk"></a>Définition d’un style de carte (Android SDK)
 
-Cet article vous explique comment définir des styles de carte à l’aide d’Android SDK Azure Maps. Azure Maps offre le choix entre six styles de carte. Pour plus d’informations sur les styles de carte pris en charge, consultez [Styles de carte pris en charge dans Azure Maps](./supported-map-styles.md).
+Cet article vous présente deux façons de définir des styles de carte à l’aide d’Android SDK Azure Maps. Azure Maps offre le choix entre six styles de carte. Pour plus d’informations sur les styles de carte pris en charge, consultez [Styles de carte pris en charge dans Azure Maps](supported-map-styles.md).
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
-1. [Créer un compte Azure Maps](quick-demo-map-app.md#create-an-azure-maps-account)
-2. [Obtenir une clé d’abonnement principale](quick-demo-map-app.md#get-the-primary-key-for-your-account), également appelée clé primaire ou clé d’abonnement.
-3. Télécharger et installer le [SDK Azure Maps Android](./how-to-use-android-map-control-library.md).
-
+Veillez à suivre la procédure du document [Démarrage rapide : Création d’une application Android](quick-android-map.md).
 
 ## <a name="set-map-style-in-the-layout"></a>Définir le style de carte dans la disposition
 
-Vous pouvez définir un style de carte dans le fichier de disposition de votre classe d’activité. Modifiez l'élément `res > layout > activity_main.xml` de sorte qu'il se présente comme suit :
+Vous pouvez définir un style de carte dans le fichier de disposition de votre classe d’activité lorsque vous ajoutez le contrôle de carte. Le code suivant définit l’emplacement du centre, le niveau de zoom et le style de carte.
 
 ```XML
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<com.microsoft.azure.maps.mapcontrol.MapControl
+    android:id="@+id/mapcontrol"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
-
-    <com.microsoft.azure.maps.mapcontrol.MapControl
-        android:id="@+id/mapcontrol"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:mapcontrol_centerLat="47.602806"
-        app:mapcontrol_centerLng="-122.329330"
-        app:mapcontrol_zoom="12"
-        app:mapcontrol_style="grayscale_dark"
-        />
-
-</FrameLayout>
+    app:mapcontrol_centerLat="47.602806"
+    app:mapcontrol_centerLng="-122.329330"
+    app:mapcontrol_zoom="12"
+    app:mapcontrol_style="grayscale_dark"
+    />
 ```
 
-L'attribut `mapcontrol_style` ci-dessus définit le style de carte sur **grayscale_dark**.
+La capture d’écran suivante montre le rendu, obtenu avec le code ci-dessus, d’une carte routière avec le style de nuances de gris foncé.
 
-:::image type="content" source="./media/set-android-map-styles/grayscale-dark.png" border="true" alt-text="Azure Maps : image du mappage présentant le style en tant que grayscale_dark":::
+![Carte routière avec un style de nuances de gris foncé](media/set-android-map-styles/android-grayscale-dark.png)
 
-## <a name="set-map-style-in-the-mainactivity-class"></a>Définir le style de carte dans la classe MainActivity
+## <a name="set-map-style-in-code"></a>Définition du style de carte dans le code
 
-Le style de mappage peut également être défini dans la classe MainActivity. Ouvrez le fichier `java > com.example.myapplication > MainActivity.java`, puis copiez l’extrait de code suivant dans la méthode **onCreate()** . Ce code définit le style de carte sur **satellite_road_labels**.
+Le style de carte peut être défini programmatiquement dans le code avec la méthode `setStyle` de la carte. Le code suivant définit l’emplacement du centre et le niveau de zoom à l’aide de la méthode `setCamera` de la carte et spécifie le style de carte `SATELLITE_ROAD_LABELS`.
 
->[!WARNING]
->Android Studio n’a peut-être pas importé les classes requises.  Par conséquent, le code aura des références insolubles. Pour importer les classes requises, pointez simplement sur chaque référence non résolue et appuyez sur`Alt + Enter` (Option + Retour sur un Mac).
-
-```Java
+```java
 mapControl.onReady(map -> {
 
     //Set the camera of the map.
-    map.setCamera(center(47.64, -122.33), zoom(14));
+    map.setCamera(center(Point.fromLngLat(-122.33, 47.64)), zoom(14));
 
     //Set the style of the map.
-    map.setStyle((style(SATELLITE_ROAD_LABELS)));
-       
+    map.setStyle(style(MapStyle.SATELLITE_ROAD_LABELS));
 });
 ```
 
-:::image type="content" source="./media/set-android-map-styles/satellite-road-labels.png" border="true" alt-text="Azure Maps : image du mappage présentant le style en tant que satellite_road_labels":::
+La capture d’écran suivante montre le rendu, obtenu avec le code ci-dessus, d’une carte avec le style des étiquettes de route satellite.
+
+![Carte avec le style des étiquettes de routes satellite](media/set-android-map-styles/android-satellite-road-labels.png)
+
+## <a name="setting-the-map-camera"></a>Définition de la caméra de la carte
+
+La caméra de la carte contrôle les parties de la carte qui sont affichées. Elle peut se trouver dans la disposition ou être spécifiée programmatiquement dans le code. Dans le deuxième cas, il existe deux méthodes principales pour définir la position de la carte : avec center et zoom ou en passant un cadre englobant. Le code suivant montre comment définir toutes les options de caméra facultatives avec `center` et `zoom`.
+
+```java
+//Set the camera of the map using center and zoom.
+map.setCamera(
+    center(Point.fromLngLat(-122.33, 47.64)), 
+
+    //The zoom level. Typically a value between 0 and 22.
+    zoom(14),
+
+    //The amount of tilt in degrees the map where 0 is looking straight down.
+    pitch(45),
+
+    //Direction the top of the map is pointing in degrees. 0 = North, 90 = East, 180 = South, 270 = West
+    bearing(90),
+
+    //The minimum zoom level the map will zoom-out to when animating from one location to another on the map.
+    minZoom(10),
+    
+    //The maximium zoom level the map will zoom-in to when animating from one location to another on the map.
+    maxZoom(14)
+);
+```
+
+Il est souvent souhaitable de concentrer la carte sur un jeu de données. Un cadre englobant peut être calculé à partir des caractéristiques à l’aide de la méthode `MapMath.fromData` et transmis dans l’option `bounds` de la caméra de la carte. Lors de la définition d’une vue cartographique basée sur un cadre englobant, il est souvent utile de spécifier une valeur `padding` pour tenir compte de la taille en pixels des points rendus sous forme de bulles ou de symboles. Le code suivant montre comment définir toutes les options de caméra facultatives lorsqu’un cadre englobant est utilisé pour définir la position de la caméra.
+
+```java
+//Set the camera of the map using a bounding box.
+map.setCamera(
+    //The area to focus the map on.
+    bounds(BoundingBox.fromLngLats(
+        //West
+        -122.4594,
+
+        //South
+        47.4333,
+        
+        //East
+        -122.21866,
+        
+        //North
+        47.75758
+    )),
+
+    //Amount of pixel buffer around the bounding box to provide extra space around the bounding box.
+    padding(20),
+
+    //The maximium zoom level the map will zoom-in to when animating from one location to another on the map.
+    maxZoom(14)
+);
+```
+
+Notez que les proportions d’un cadre englobant ne sont pas forcément les mêmes que celles de la carte. De ce fait, celle-ci affiche souvent le cadre englobant dans sa totalité, mais serré verticalement ou horizontalement seulement.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Pour obtenir plus d’exemples de code à ajouter à vos cartes, consultez les articles suivants :
+
+> [!div class="nextstepaction"]
+> [Ajouter une couche de symboles](how-to-add-symbol-to-android-map.md)
+
+> [!div class="nextstepaction"]
+> [Ajouter une couche de bulles](map-add-bubble-layer-android.md)

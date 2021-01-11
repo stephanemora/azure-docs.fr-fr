@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 9b5b20de1b86eae72de54b3f2c1cf37074fba144
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: b5b6a697e6a5cae064a6a48419246dc12e8d048c
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095166"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695814"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Créer et gérer des groupes d’actions sur le Portail Azure
 Un groupe d’actions est une collection de préférences de notification définies par le propriétaire d’un abonnement Azure. Les alertes Azure Monitor et Service Health utilisent des groupes d’actions pour avertir les utilisateurs qu’une alerte a été déclenchée. Plusieurs alertes peuvent utiliser le même groupe d’actions ou des groupes d’actions différents selon les besoins de l’utilisateur. 
@@ -132,6 +132,18 @@ Vous pouvez avoir un nombre limité d’actions d’e-mail par groupe d’action
 Envoyer un message aux membres du rôle de l’abonnement. L’e-mail sera envoyé uniquement aux **utilisateurs Azure AD** membres du rôle. L’e-mail ne sera pas envoyé aux groupes ou principaux du service Azure AD.
 
 Un e-mail de notification est envoyé uniquement à l’*adresse e-mail principale*.
+
+Si vous ne recevez pas de notifications sur votre *adresse e-mail principale*, vous pouvez essayer de suivre les étapes suivantes :
+
+1. Dans le Portail Azure, accédez à *Active Directory*.
+2. Cliquez sur Tous les utilisateurs (dans le volet gauche). Vous verrez alors une liste d’utilisateurs (dans le volet droit).
+3. Sélectionnez l’utilisateur dont vous souhaitez examiner les informations de *messagerie principale*.
+
+  :::image type="content" source="media/action-groups/active-directory-user-profile.png" alt-text="Exemple sur la façon d’évaluer le profil utilisateur."border="true":::
+
+4. Dans Profil utilisateur, sous Informations sur le contact, si l’onglet « E-mail » est vide, cliquez sur le *bouton Modifier* en haut, puis ajoutez votre *adresse e-mail principale*. Ensuite, appuyez sur le bouton *Enregistrer* en haut.
+
+  :::image type="content" source="media/action-groups/active-directory-add-primary-email.png" alt-text="Exemple d’ajout d’adresse e-mail principale."border="true":::
 
 Vous pouvez avoir un nombre limité d’actions d’e-mail par groupe d’actions. Consultez l’article [Informations de limitation du débit](./alerts-rate-limiting.md).
 

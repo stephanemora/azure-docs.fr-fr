@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 3f71cef19d25a7f987af4147ae0a889280e49bd1
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 7539e896d810a2f0fbf3c07f389f25e2d3c31fe1
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97563158"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845000"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Nouveautés de Form Recognizer
 
@@ -209,7 +209,7 @@ Les réponses JSON pour tous les appels d’API ont de nouveaux formats. Certain
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Suivez un [guide de démarrage rapide sur les bibliothèques de client](quickstarts/client-library.md) pour vous lancer dans l’écriture d’une application de traitement de formulaires avec Form Recognizer dans le langage de votre choix.
+Suivez un [guide de démarrage rapide](quickstarts/client-library.md) pour vous lancer dans l’écriture d’une application de traitement de formulaires avec Form Recognizer dans le langage de votre choix.
 
 ## <a name="see-also"></a>Voir aussi
 

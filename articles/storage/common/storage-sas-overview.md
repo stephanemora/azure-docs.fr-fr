@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/20/2020
+ms.date: 12/28/2020
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: d435ced4c8ec56fae5081ede367b593d2b66ef0f
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 8812ab091037bcb3144a7fed53a449c3f5de353a
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96936537"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97802505"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>Accorder un accès limité aux ressources du Stockage Azure à l’aide des signatures d’accès partagé (SAP)
 
@@ -112,7 +112,7 @@ Le jeton SAS est une chaîne que vous générez côté client, par exemple à l�
 
 Les applications clientes fournissent l’URI SAS au Stockage Azure dans le cadre d’une demande. Ensuite, le service vérifie que les paramètres SAS et la signature sont valides. Si le service vérifie que la signature est valide, la demande est autorisée. Dans le cas contraire, la demande est refusée avec le code d’erreur 403 (Interdit).
 
-Voici un exemple d’URI de SAP de service, montrant l’URI de la ressource et le jeton de la SAP :
+Voici un exemple d’URI SAA de service, montrant l’URI de la ressource et le jeton SAS. Étant donné que le jeton SAS comprend la chaîne de requête URI, l’URI de la ressource doit être suivi d’abord par un point d’interrogation, puis par le jeton SAS :
 
 ![Composants d’une URI de SAP](./media/storage-sas-overview/sas-storage-uri.png)
 

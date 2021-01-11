@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 12/23/2019
-ms.openlocfilehash: 421993ac4aaba551b6fcbd002783d44559ce377d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7a2044e9bb0110eda666d12e29a715547381e2be
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995333"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822333"
 ---
 # <a name="debug-apache-spark-applications-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>Déboguez des applications Apache Spark sur un cluster HDInsight avec le kit de ressources Azure pour IntelliJ via SSH
 
@@ -178,8 +178,8 @@ Cet article propose des instructions étape par étape sur la façon d’utilise
 * [Utiliser Azure Toolkit for IntelliJ pour déboguer des applications Apache Spark à distance par VPN](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Utiliser HDInsight Tools dans Azure Toolkit for Eclipse pour créer des applications Apache Spark](./apache-spark-eclipse-tool-plugin.md)
 * [Utiliser des blocs-notes Apache Zeppelin avec un cluster Apache Spark sur HDInsight](apache-spark-zeppelin-notebook.md)
-* [Noyaux disponibles pour le bloc-notes Jupyter dans le cluster Apache Spark pour HDInsight](apache-spark-jupyter-notebook-kernels.md)
-* [Utiliser des packages externes avec les blocs-notes Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)
+* [Noyaux disponibles pour Jupyter Notebook dans le cluster Apache Spark pour HDInsight](apache-spark-jupyter-notebook-kernels.md)
+* [Utiliser des packages externes avec des blocs-notes Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Install Jupyter on your computer and connect to an HDInsight Spark cluster (Installer Jupyter sur un ordinateur et se connecter au cluster Spark sur HDInsight)](apache-spark-jupyter-notebook-install-locally.md)
 
 ### <a name="manage-resources"></a>Gestion des ressources

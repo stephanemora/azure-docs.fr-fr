@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 12/02/2020
+ms.date: 12/17/2020
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 27af0ffdeb254dbb671a0618d0e9973336a7f529
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: 8159010486371d619aa14a845050a0eb38aaeda8
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96559012"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97683535"
 ---
 # <a name="how-to-use-text-analytics-for-health-preview"></a>Procédure : Utiliser l’Analyse de texte pour la santé (préversion)
 
@@ -68,7 +68,7 @@ La signification du contenu médical est fortement affectée par les modificateu
 
 ---
 
-Consultez les [catégories d’entité](../named-entity-types.md?tabs=health) retournées par l’Analyse de texte pour la santé pour obtenir un liste complète des entités prises en charge.
+Consultez les [catégories d’entité](../named-entity-types.md?tabs=health) retournées par l’Analyse de texte pour la santé pour obtenir un liste complète des entités prises en charge. Pour plus d’informations sur les scores de confiance, consultez la [note de transparence relative à Analyse de texte](/legal/cognitive-services/text-analytics/transparency-note#general-guidelines-to-understand-and-improve-performance?context=/azure/cognitive-services/text-analytics/context/context). 
 
 ### <a name="supported-languages-and-regions"></a>Langues et régions prises en charge
 

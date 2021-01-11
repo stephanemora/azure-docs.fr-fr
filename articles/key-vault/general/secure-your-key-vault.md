@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: sudbalas
-ms.openlocfilehash: 3f28c50be73b2b87ed8b25429cfa2dee9a663f1b
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: ee1c59c71834ab9d80f1ed66a002e211bdcacbbf
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452165"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97796497"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Sécuriser l’accès à un coffre de clés
 
@@ -94,7 +94,7 @@ Vous accordez l’accès à un utilisateur, un groupe ou une application afin d�
 
 Vous pouvez voir la liste complète des opérations de coffre et de secret ici : [Référence relative aux opérations de coffre de clés](/rest/api/keyvault/#vault-operations)
 
-<a id="key-vault-access-policies"></a> Les stratégies d’accès Key Vault accordent des autorisations distinctement aux clés, secrets et certificats.  Les autorisations d’accès aux clés, secrets ou certificats sont définies au niveau du coffre. 
+<a id="key-vault-access-policies"></a> Les stratégies d’accès Key Vault accordent des autorisations distinctes pour les clés, les secrets et les certificats.  Les autorisations d’accès aux clés, secrets ou certificats sont définies au niveau du coffre. 
 
 Pour plus d’informations sur l’utilisation des stratégies d’accès au coffre de clés, consultez [Attribuer une stratégie d’accès Key Vault](assign-access-policy-portal.md)
 
@@ -130,7 +130,7 @@ Pour plus d’informations sur le pare-feu et les réseaux virtuels Key Vault, c
 
 ## <a name="private-endpoint-connection"></a>Connexion de point de terminaison privé
 
-Si vous avez besoin de bloquer complètement l’exposition du Key Vault au public, vous pouvez utiliser un [point de terminaison privé Azure](../../private-link/private-endpoint-overview.md). Un point de terminaison privé Azure est une interface réseau qui vous connecte de façon privée et sécurisée à un service basé sur la technologie Azure Private Link. Le point de terminaison privé utilise une adresse IP privée de votre réseau virtuel, plaçant de fait le service dans votre réseau virtuel. Sachant que l’ensemble du trafic à destination du service peut être routé via le point de terminaison privé, il n’y a aucun besoin de passerelles, d’appareils NAT, de connexions ExpressRoute ou VPN ou d’adresses IP publiques. Le trafic entre votre réseau virtuel et le service transite par le réseau principal de Microsoft, éliminant ainsi toute exposition à l’Internet public. Vous pouvez vous connecter à une instance d’une ressource Azure, ce qui vous donne le plus haut niveau de granularité en matière de contrôle d’accès.
+Si vous avez besoin de bloquer complètement l’exposition de Key Vault au public, vous pouvez utiliser un [point de terminaison privé Azure](../../private-link/private-endpoint-overview.md). Un point de terminaison privé Azure est une interface réseau qui vous connecte de façon privée et sécurisée à un service basé sur la technologie Azure Private Link. Le point de terminaison privé utilise une adresse IP privée de votre réseau virtuel, plaçant de fait le service dans votre réseau virtuel. Sachant que l’ensemble du trafic à destination du service peut être routé via le point de terminaison privé, il n’y a aucun besoin de passerelles, d’appareils NAT, de connexions ExpressRoute ou VPN ou d’adresses IP publiques. Le trafic entre votre réseau virtuel et le service transite par le réseau principal de Microsoft, éliminant ainsi toute exposition à l’Internet public. Vous pouvez vous connecter à une instance d’une ressource Azure, ce qui vous donne le plus haut niveau de granularité en matière de contrôle d’accès.
 
 Scénarios courants d’utilisation d’une liaison privée pour les services Azure :
 
@@ -186,8 +186,8 @@ Le tableau suivant récapitule les autorisations d’accès pour nos rôles et n
 | --- | --- | --- | --- |
 | Équipe de sécurité | [Contributeur Key Vault](../../role-based-access-control/built-in-roles.md#key-vault-contributor) | Certificats : toutes les opérations <br> Clés : toutes les opérations <br> Secrets : toutes les opérations | [Administrateur Key Vault (préversion)](../../role-based-access-control/built-in-roles.md#key-vault-administrator-preview) |
 | Développeurs et&nbsp;opérateurs | Autorisation de déploiement Key Vault<br><br> **Remarque** : Cette autorisation permet aux machines virtuelles déployées de récupérer les secrets d’un coffre de clés. | None | None |
-| Auditeurs | None | Certificates : liste <br> Clés : énumération<br>Secrets : énumération<br><br> **Remarque** : Cette autorisation permet aux auditeurs d’inspecter les attributs (étiquettes, dates d’activation, dates d’expiration) pour les clés et secrets non émis dans les journaux d’activité. | [Lecteur Key Vault (préversion)]https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-reader-preview |
-| Compte Stockage Azure | None | Clés : obtenir, lister, wrapKey, unwrapKey <br> | [Service de chiffrement de Key Vault](../../role-based-access-control/built-in-roles.md#key-vault-crypto-service-encryption-preview) |
+| Auditeurs | None | Certificates : liste <br> Clés : énumération<br>Secrets : énumération<br><br> **Remarque** : Cette autorisation permet aux auditeurs d’inspecter les attributs (étiquettes, dates d’activation, dates d’expiration) pour les clés et secrets non émis dans les journaux d’activité. | [Lecteur de Key Vault (préversion)](../../role-based-access-control/built-in-roles.md#key-vault-reader-preview) |
+| Compte Stockage Azure | None | Clés : obtenir, lister, wrapKey, unwrapKey <br> | [Utilisateur du service de chiffrement de Key Vault](../../role-based-access-control/built-in-roles.md#key-vault-crypto-service-encryption-user-preview) |
 | Application | None | Secrets : obtenir, lister <br> Certificats : obtenir, lister | [Lecteur Key Vault (préversion)](../../role-based-access-control/built-in-roles.md#key-vault-reader-preview), [Utilisateur secret Key Vault (préversion)](../../role-based-access-control/built-in-roles.md#key-vault-secrets-user-preview) |
 
 Une fois les autorisations Key Vault définies, vous devez accorder aux trois rôles d’équipe l’accès à d’autres ressources. Pour déployer des machines virtuelles (ou la fonctionnalité Web Apps d’Azure App Service), les développeurs et opérateurs ont besoin de déployer l’accès. Les auditeurs ont besoin d’un accès en lecture au compte de stockage où les journaux d’activité Key Vault sont stockés.

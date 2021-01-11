@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/05/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 764e0262c8a26511c55740aa1797b5ec9b59cc8e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: cbae833c1b207669e35b467707f946e9bafe31d2
+ms.sourcegitcommit: c538b6e4cf27b992500c079ad9c914c05d55eb7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95999432"
+ms.lasthandoff: 01/03/2021
+ms.locfileid: "97854942"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Intégrer votre application à un réseau virtuel Azure
 
@@ -152,6 +152,7 @@ Trois types de frais sont appliqués en cas d’utilisation de la fonctionnalit�
 
 > [!NOTE]
 > L’intégration au réseau virtuel n’est pas prise en charge pour les scénarios Docker Compose dans App Service.
+> Les restrictions d’accès Azure Functions sont ignorées en présence d’un point de terminaison privé.
 >
 
 [!INCLUDE [app-service-web-vnet-troubleshooting](../../includes/app-service-web-vnet-troubleshooting.md)]

@@ -7,14 +7,14 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/20/2020
+ms.date: 12/18/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 544509a8c90c9273b748591509b1fa86510d71c3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: bbda4268ca00d1c12f851517e2b35add7fba7f9b
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013817"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97694292"
 ---
 # <a name="analyzers-for-text-processing-in-azure-cognitive-search"></a>Analyseurs pour le traitement de texte dans la Recherche cognitive Azure
 
@@ -315,55 +315,61 @@ Si vous utilisez les exemples de code du SDK .NET, vous pouvez ajouter ces exemp
 
 Tout analyseur qui est utilisé tel quel, sans configuration, est spécifié sur une définition de champ. La création d’une entrée dans la section **[analyzers]** de l’index n’est pas obligatoire. 
 
-Cet exemple attribue les analyseurs Anglais et Français de Microsoft aux champs de description. C’est un extrait de code issu d’une définition plus grande de l’index des hôtels, créé à l’aide de la classe Hotel dans le fichier hotels.cs de l’exemple [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo).
+Les analyseurs linguistiques sont utilisés en l’état. Pour vous en servir, appelez [LexicalAnalyzer](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzer) en spécifiant le type [LexicalAnalyzerName](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzername) et en indiquant un analyseur de texte pris en charge dans la Recherche cognitive Azure.
 
-Appelez [LexicalAnalyzer](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzer) en spécifiant le type [LexicalAnalyzerName](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzername) pour fournir un analyseur de texte pris en charge dans Recherche cognitive Azure.
+Les analyseurs personnalisés sont spécifiés de la même façon dans la définition du champ. Pour que cela fonctionne, vous devez néanmoins préciser l’analyseur dans la définition de l’index (cf. section suivante).
 
 ```csharp
     public partial class Hotel
     {
        . . . 
-
-        [IsSearchable]
-        [Analyzer(AnalyzerName.AsString.EnMicrosoft)]
-        [JsonProperty("description")]
+        [SearchableField(AnalyzerName = LexicalAnalyzerName.Values.EnLucene)]
         public string Description { get; set; }
 
-        [IsSearchable]
-        [Analyzer(AnalyzerName.AsString.FrLucene)]
-        [JsonProperty("description_fr")]
+        [SearchableField(AnalyzerName = LexicalAnalyzerName.Values.FrLucene)]
+        [JsonPropertyName("Description_fr")]
         public string DescriptionFr { get; set; }
 
+        [SearchableField(AnalyzerName = "url-analyze")]
+        public string Url { get; set; }
       . . .
     }
 ```
+
 <a name="Define-a-custom-analyzer"></a>
 
 ### <a name="define-a-custom-analyzer"></a>Définir un analyseur personnalisé
 
-Lorsqu’une personnalisation ou configuration est requise, vous devez ajouter une construction de l’analyseur à un index. Une fois que vous la définissez, vous pouvez l’ajouter à la définition de champ comme illustré dans l’exemple précédent.
+Lorsqu’une personnalisation ou une configuration est requise, ajoutez une construction de l’analyseur à un index. Une fois que vous la définissez, vous pouvez l’ajouter à la définition de champ comme illustré dans l’exemple précédent.
 
-Créez un objet [CustomAnalyzer](/dotnet/api/azure.search.documents.indexes.models.customanalyzer). Pour plus d’exemples, consultez [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Microsoft.Azure.Search/tests/Tests/CustomAnalyzerTests.cs).
+Créez un objet [CustomAnalyzer](/dotnet/api/azure.search.documents.indexes.models.customanalyzer). Un analyseur personnalisé est une combinaison définie par l’utilisateur d’un jeton connu, de zéro, un ou plusieurs filtres de jeton et de zéro, un ou plusieurs noms de filtres de caractères :
+
++ [CustomAnalyzer.Tokenizer](/dotnet/api/microsoft.azure.search.models.customanalyzer.tokenizer)
++ [CustomAnalyzer.TokenFilters](/dotnet/api/microsoft.azure.search.models.customanalyzer.tokenfilters)
++ [CustomAnalyzer.CharFilters](/dotnet/api/microsoft.azure.search.models.customanalyzer.charfilters)
+
+Dans l’exemple suivant est créé un analyseur personnalisé nommé « url-analyze » qui utilise le [générateur de jetons uax_url_email](/dotnet/api/microsoft.azure.search.models.customanalyzer.tokenizer) et le [filtre de jeton Lowercase](/dotnet/api/microsoft.azure.search.models.tokenfiltername.lowercase).
 
 ```csharp
+private static void CreateIndex(string indexName, SearchIndexClient adminClient)
 {
-   var definition = new Index()
+   FieldBuilder fieldBuilder = new FieldBuilder();
+   var searchFields = fieldBuilder.Build(typeof(Hotel));
+
+   var analyzer = new CustomAnalyzer("url-analyze", "uax_url_email")
    {
-         Name = "hotels",
-         Fields = FieldBuilder.BuildForType<Hotel>(),
-         Analyzers = new[]
-            {
-               new CustomAnalyzer()
-               {
-                     Name = "url-analyze",
-                     Tokenizer = TokenizerName.UaxUrlEmail,
-                     TokenFilters = new[] { TokenFilterName.Lowercase }
-               }
-            },
+         TokenFilters = { TokenFilterName.Lowercase }
    };
 
-   serviceClient.Indexes.Create(definition);
+   var definition = new SearchIndex(indexName, searchFields);
+
+   definition.Analyzers.Add(analyzer);
+
+   adminClient.CreateOrUpdateIndex(definition);
+}
 ```
+
+Pour plus d’exemples, consultez [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Microsoft.Azure.Search/tests/Tests/CustomAnalyzerTests.cs).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 12/27/2019
-ms.openlocfilehash: 1094235f5bc5cc25cf6d8f3762dc242503952de6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61ec2db1799919eb395996b56d08b77e3be7ff5a
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86083795"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822367"
 ---
 # <a name="analyze-website-logs-using-a-custom-python-library-with-apache-spark-cluster-on-hdinsight"></a>Analyser des journaux d’activité de site web en utilisant une bibliothèque Python personnalisée avec un cluster Apache Spark sur HDInsight
 
@@ -25,7 +25,7 @@ Un cluster Apache Spark sur HDInsight. Pour obtenir des instructions, consultez
 
 ## <a name="save-raw-data-as-an-rdd"></a>Enregistrer des données brutes en tant que RDD
 
-Dans cette section, nous utilisons le bloc-notes [Jupyter](https://jupyter.org) associé à un cluster Apache Spark dans HDInsight pour exécuter les travaux traitant vos exemples de données brutes et les enregistrer dans une table Hive. L’exemple de données est un fichier .csv (hvac.csv), qui est disponible par défaut sur tous les clusters.
+Dans cette section, nous allons utiliser le notebook [Jupyter](https://jupyter.org) associé à un cluster Apache Spark dans HDInsight pour exécuter des travaux qui traitent les exemples de données brutes et les enregistrent dans une table Hive. L’exemple de données est un fichier .csv (hvac.csv), qui est disponible par défaut sur tous les clusters.
 
 Une fois vos données enregistrées dans une table Apache Hive, vous allez vous connecter, dans la prochaine section, à la table Hive à l’aide d’outils de Business Intelligence tels que Power BI et Tableau.
 
@@ -33,7 +33,7 @@ Une fois vos données enregistrées dans une table Apache Hive, vous allez vous 
 
 1. Créer un nouveau bloc-notes. Sélectionnez **Nouveau**, puis **PySpark**.
 
-    ![Créer un notebook Apache Jupyter](./media/apache-spark-custom-library-website-log-analysis/hdinsight-create-jupyter-notebook.png "Créer un bloc-notes Jupyter")
+    ![Création d’un notebook Apache Jupyter](./media/apache-spark-custom-library-website-log-analysis/hdinsight-create-jupyter-notebook.png "Création d’un notebook Jupyter")
 
 1. Un nouveau bloc-notes est créé et ouvert sous le nom Untitled.pynb. Sélectionnez le nom du bloc-notes en haut, puis entrez un nom convivial.
 
@@ -203,5 +203,5 @@ Une fois vos données enregistrées dans une table Apache Hive, vous allez vous 
 Explorez les articles suivants :
 
 * [Vue d’ensemble : Apache Spark sur Azure HDInsight](apache-spark-overview.md)
-* [Utiliser des packages externes avec les blocs-notes Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)
+* [Utiliser des packages externes avec des blocs-notes Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Install Jupyter on your computer and connect to an HDInsight Spark cluster (Installer Jupyter sur un ordinateur et se connecter au cluster Spark sur HDInsight)](apache-spark-jupyter-notebook-install-locally.md)

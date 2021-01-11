@@ -6,14 +6,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 12/08/2020
+ms.date: 12/24/2020
 ms.author: memildin
-ms.openlocfilehash: bdca5a753a49c26587db27892b54c2cb88910c83
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 823992ba6d3b175c8d20a001f8298a5c4af9a1ae
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96862460"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97832707"
 ---
 # <a name="continuously-export-security-center-data"></a>Exporter en continu des données Security Center
 
@@ -24,6 +24,7 @@ Azure Security Center génère des alertes et recommandations de sécurité dét
 - Toutes les alertes de gravité élevée sont envoyées à un Event Hub Azure
 - Tous les résultats de gravité moyenne ou plus élevée issus des analyses d’évaluation des vulnérabilités de vos serveurs SQL sont envoyés à un espace de travail Log Analytics spécifique
 - Les recommandations spécifiques sont transmises à un Event Hub ou à un espace de travail Log Analytics lorsqu’elles sont générées 
+- Le score sécurisé pour un abonnement est envoyé à un espace de travail Log Analytics chaque fois que le score d’un contrôle change de 0,01 ou plus 
 
 Cet article explique comment configurer l’exportation continue vers des espaces de travail Log Analytics ou vers Azure Event Hubs.
 
@@ -45,8 +46,18 @@ Cet article explique comment configurer l’exportation continue vers des espace
 |||
 
 
+## <a name="what-data-types-can-be-exported"></a>Quels types de données peuvent être exportés ?
 
+L’exportation continue peut exporter les types de données suivants à chaque modification :
 
+- Alertes de sécurité
+- Recommandations de sécurité 
+- Certains résultats de sécurité peuvent être considérés comme des « sous-recommandations », par exemple des résultats d’analyses d’évaluation des vulnérabilités ou des mises à jour système spécifiques. Vous pouvez choisir de les inclure avec leurs recommandations « parent », telles que « Des mises à jour système doivent être installées sur vos ordinateurs ».
+- Score sécurisé (par abonnement ou par contrôle)
+- Données de conformité réglementaire
+
+> [!NOTE]
+> L’exportation du score sécurisé et des données de conformité réglementaire est une fonctionnalité d’évaluation qui n’est pas disponible sur les clouds gouvernementaux. 
 
 ## <a name="set-up-a-continuous-export"></a>Configurer une exportation continue 
 
@@ -67,7 +78,7 @@ Les étapes ci-dessous sont nécessaires si vous configurez une exportation cont
     Les options d’exportation sont affichées ici. Il y a un onglet distinct pour chaque cible d’exportation disponible. 
 
 1. Sélectionnez le type de données que vous souhaitez exporter, puis choisissez les filtres à appliquer sur chaque type (par exemple, exporter uniquement les alertes d’un niveau de gravité élevé).
-1. Éventuellement, si votre sélection inclut l’une de ces quatre recommandations, vous pouvez inclure les résultats de l’évaluation des vulnérabilités :
+1. Éventuellement, si votre sélection inclut l’une de ces recommandations, vous pouvez inclure les résultats de l’évaluation des vulnérabilités :
     - Les résultats de l’évaluation des vulnérabilités sur vos bases de données SQL doivent être corrigés
     - Les résultats de l’évaluation des vulnérabilités de vos serveurs SQL sur des machines doivent être corrigés (préversion)
     - Les vulnérabilités dans les images Azure Container Registry doivent être corrigées (avec Qualys)
@@ -216,6 +227,9 @@ Non. L’exportation continue est générée pour le streaming d’**événement
 
 - Les **alertes** reçues avant l’activation de l’exportation ne sont pas exportées.
 - Des **recommandations** sont envoyées dès que l’état de conformité d’une ressource change. Par exemple, lorsqu’une ressource passe de l’état sain à l’état non sain. Par conséquent, comme pour les alertes, les recommandations liées aux ressources dont l’état n’a pas changé depuis l’activation de l’exportation ne sont pas exportées.
+- **Le score sécurisé (préversion)** par contrôle de sécurité ou abonnement est envoyé lorsque le score d’un contrôle de sécurité change de 0,01 ou plus. 
+- **L’état de conformité réglementaire (préversion)** est envoyé lorsque l’état de conformité de la ressource change.
+
 
 
 ### <a name="why-are-recommendations-sent-at-different-intervals"></a>Pourquoi les recommandations sont-elles envoyées à des intervalles différents ?

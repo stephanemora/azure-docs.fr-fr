@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 12/15/2020
+ms.date: 12/17/2020
 ms.author: aahi
-ms.openlocfilehash: 9b90f177432de11f8281d03021b38bae647dadf2
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 0b57629f5c21d933fc898258263199b5fc713fdb
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562529"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97683357"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Comment utiliser une reconnaissance d’entité nommée dans Analyse de texte
 
@@ -35,8 +35,6 @@ La fonctionnalité PII fait partie de la reconnaissance d’entité nommée et p
 
 ## <a name="named-entity-recognition-features-and-versions"></a>Fonctionnalités et versions de la reconnaissance d’entité nommée
 
-[!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
-
 | Fonctionnalité                                                         | NER v3.0 | NER v3.1-preview.3 |
 |-----------------------------------------------------------------|--------|----------|
 | Méthodes pour les requêtes uniques et de lots                          | X      | X        |
@@ -54,7 +52,7 @@ La reconnaissance d’entité nommée v3.1-preview.3 inclut les fonctionnalités
 * Un paramètre `domain=phi` facultatif pour détecter des informations médicales confidentielles (`PHI`).
 * Une [opération asynchrone](text-analytics-how-to-call-api.md) à l’aide du point de terminaison `/analyze`.
 
-Pour plus d’informations, consultez l’article sur les [catégories d’entité](../named-entity-types.md) et la section sur les [points de terminaison de requête](#request-endpoints) ci-dessous. 
+Pour plus d’informations, consultez l’article sur les [catégories d’entité](../named-entity-types.md) et la section sur les [points de terminaison de requête](#request-endpoints) ci-dessous. Pour plus d’informations sur les scores de confiance, consultez la [note de transparence relative à Analyse de texte](/legal/cognitive-services/text-analytics/transparency-note?context=/azure/cognitive-services/text-analytics/context/context). 
 
 ## <a name="sending-a-rest-api-request"></a>Envoie d’une requête d’API REST
 

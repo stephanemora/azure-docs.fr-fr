@@ -10,13 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: panosper
-ms.custom: seodec18
-ms.openlocfilehash: 7b872340c50c800ebe4d4d6c7ca56b3b327bf162
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.custom: seodec18,references_regions
+ms.openlocfilehash: f11ccafd58cc64e6186ef590bbbccbfab3335ea4
+ms.sourcegitcommit: c538b6e4cf27b992500c079ad9c914c05d55eb7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95972643"
+ms.lasthandoff: 01/03/2021
+ms.locfileid: "97854857"
 ---
 # <a name="speech-service-supported-regions"></a>Régions prises en charge pour le service Speech
 
@@ -44,6 +44,8 @@ Le service Speech est disponible dans les régions suivantes pour la **reconnais
 
 Si vous utilisez le [SDK Speech](speech-sdk.md), les régions sont spécifiées par l’**identificateur de région** (par exemple comme paramètre de `SpeechConfig.FromSubscription`). Assurez-vous que la région correspond à la région de votre abonnement.
 
+Si vous envisagez d’entraîner un modèle personnalisé avec des données audio, utilisez l’une des [régions proposant du matériel dédié](custom-speech-overview.md#set-up-your-azure-account) pour bénéficier d’un apprentissage plus rapide. Vous pouvez utiliser [l’API REST](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription) pour pouvoir copier plus tard le modèle entièrement entraîné dans une autre région.
+
 ### <a name="intent-recognition"></a>Reconnaissance de l’intention
 
 Les régions disponibles pour la **reconnaissance de l'intention** via le kit de développement logiciel (SDK) Speech sont les suivantes :
@@ -67,17 +69,21 @@ Il s'agit d'un sous-ensemble des régions de publication prises en charge par le
 
 ### <a name="voice-assistants"></a>Assistants vocaux
 
-Le [Kit de développement logiciel (SDK) Speech](speech-sdk.md) prend en charge les fonctionnalités d’**assistant vocal** dans les régions suivantes :
+Le [kit de développement logiciel (SDK) Speech](speech-sdk.md) prend en charge les fonctionnalités **d’Assistant vocal** par [Direct Line Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/direct-line-speech) dans les régions suivantes :
 
-| Région         | Identificateur de la région |
-| -------------- | -------------------- |
-| USA Ouest        | `westus`             |
-| USA Ouest 2      | `westus2`            |
-| USA Est        | `eastus`             |
-| USA Est 2      | `eastus2`            |
-| Europe Ouest    | `westeurope`         |
-| Europe Nord   | `northeurope`        |
-| Asie Sud-Est | `southeastasia`      |
+| Région globale | Région           | Identificateur de la région    |
+| ------------- | ---------------- | -------------------- |
+| Amérique du Nord | USA Ouest          | `westus`             |
+| Amérique du Nord | USA Ouest 2        | `westus2`            |
+| Amérique du Nord | USA Est          | `eastus`             |
+| Amérique du Nord | USA Est 2        | `eastus2`            |
+| Amérique du Nord | Centre-USA Ouest  | `westcentralus`      |
+| Amérique du Nord | États-Unis - partie centrale méridionale | `southcentralus`     |
+| Europe        | Europe Ouest      | `westeurope`         |
+| Europe        | Europe Nord     | `northeurope`        |
+| Asia          | Asie Est        | `eastasia`           |
+| Asia          | Asie Sud-Est   | `southeastasia`      |
+| Inde         | Inde centrale    | `centralindia`       |
 
 ### <a name="speaker-recognition"></a>Reconnaissance de l’orateur
 

@@ -5,56 +5,65 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/20/2020
+ms.date: 12/18/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 50d592d0020ae1b5a704296ef68f5153f0207714
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: c3096da8b3c83dbfe8cfdd6a5fa4d177241334de
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427573"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97693513"
 ---
 # <a name="specify-a-customer-provided-key-on-a-request-to-blob-storage-with-net"></a>Spécifier une clé fournie par le client sur une demande au stockage d’objets blob avec .NET
 
-Les clients effectuant des requêtes auprès du stockage d’objets blob Azure ont la possibilité de fournir une clé de chiffrement sur une requête individuelle. L’inclusion de la clé de chiffrement dans la requête offre un contrôle précis des paramètres de chiffrement pour les opérations de stockage d’objets blob. Les clés fournies par le client peuvent être stockées dans Azure Key Vault ou dans un autre magasin de clés.
+Les clients qui effectuent des requêtes auprès du Stockage Blob Azure ont la possibilité de fournir une clé de chiffrement AES-256 sur une requête individuelle. L’inclusion de la clé de chiffrement dans la requête offre un contrôle précis des paramètres de chiffrement pour les opérations de stockage d’objets blob. Les clés fournies par le client peuvent être stockées dans Azure Key Vault ou dans un autre magasin de clés.
 
 Cet article explique comment spécifier une clé fournie par le client sur une demande avec .NET.
 
 [!INCLUDE [storage-install-packages-blob-and-identity-include](../../../includes/storage-install-packages-blob-and-identity-include.md)]
 
-Pour en savoir plus sur la façon de s’authentifier avec de la bibliothèque cliente Azure Identity à partir du Stockage Azure, consultez la section intitulée **S’authentifier avec la bibliothèque d’identité Azure** dans [Autoriser l’accès aux objets blob et files d’attente avec Azure Active Directory et les identités managées pour les ressources Azure](../common/storage-auth-aad-msi.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#authenticate-with-the-azure-identity-library).
+Pour savoir comment s’authentifier avec la bibliothèque de client Azure Identity, consultez [Bibliothèque de client Azure Identity pour .NET](/dotnet/api/overview/azure/identity-readme).
 
-## <a name="example-use-a-customer-provided-key-to-upload-a-blob"></a>Exemple : Utiliser une clé fournie par le client pour charger un objet blob
+## <a name="use-a-customer-provided-key-to-write-to-a-blob"></a>Utilisation d’une clé fournie par le client pour écrire dans un objet blob
 
-L’exemple suivant crée une clé fournie par le client et utilise cette clé pour charger un objet blob. Le code charge un bloc, puis valide la liste de blocs pour écrire l’objet blob dans Stockage Azure.
+Dans l’exemple suivant est fournie une clé AES-256 lors du chargement d’un objet blob avec la bibliothèque de client v12 pour le Stockage Blob. Ici, c’est l’objet [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) qui est utilisé pour autoriser la demande d’écriture auprès d’Azure AD, mais il est également possible de se servir à cet effet des informations d’identification de la clé partagée.
 
 ```csharp
-async static Task UploadBlobWithClientKey(string accountName, string containerName,
-    string blobName, Stream data, byte[] key)
+async static Task UploadBlobWithClientKey(Uri blobUri,
+                                          Stream data,
+                                          byte[] key,
+                                          string keySha256)
 {
-    const string blobServiceEndpointSuffix = ".blob.core.windows.net";
-    Uri accountUri = new Uri("https://" + accountName + blobServiceEndpointSuffix);
+    // Create a new customer-provided key.
+    // Key must be AES-256.
+    var cpk = new CustomerProvidedKey(key);
+
+    // Check the key's encryption hash.
+    if (cpk.EncryptionKeyHash != keySha256)
+    {
+        throw new InvalidOperationException("The encryption key is corrupted.");
+    }
 
     // Specify the customer-provided key on the options for the client.
     BlobClientOptions options = new BlobClientOptions()
     {
-        CustomerProvidedKey = new CustomerProvidedKey(key)
+        CustomerProvidedKey = cpk
     };
 
-    // Create a client object for the Blob service, including options.
-    BlobServiceClient serviceClient = new BlobServiceClient(accountUri, 
-        new DefaultAzureCredential(), options);
+    // Create the client object with options specified.
+    BlobClient blobClient = new BlobClient(
+        blobUri,
+        new DefaultAzureCredential(),
+        options);
 
-    // Create a client object for the container.
+    // If the container may not exist yet,
+    // create a client object for the container.
     // The container client retains the credential and client options.
-    BlobContainerClient containerClient = serviceClient.GetBlobContainerClient(containerName);
-
-    // Create a new block blob client object.
-    // The blob client retains the credential and client options.
-    BlobClient blobClient = containerClient.GetBlobClient(blobName);
+    BlobContainerClient containerClient =
+        blobClient.GetParentBlobContainerClient();
 
     try
     {

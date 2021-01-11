@@ -4,12 +4,12 @@ description: Surveillez votre application web en temps réel avec des métriques
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 1b8b4c43c559831810db9b92da6c2743556cd2ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c50f7e57c520321d752d6d46e36c45c615b5e785
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90973594"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97803576"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Flux de métriques temps réel : Surveiller et diagnostiquer avec une latence de 1 seconde
 
@@ -36,6 +36,7 @@ Les métriques temps réel sont actuellement prises en charge pour les applicati
    * [ASP.NET Core](./asp-net-core.md) : les métriques temps réel sont activées par défaut.
    * [Console/Worker .NET/.NET Core](./worker-service.md) : les métriques temps réel sont activées par défaut.
    * [Applications .NET : activer l’utilisation du code](#enable-livemetrics-using-code-for-any-net-application).
+    * [Java](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) : les métriques temps réel sont activées par défaut.
    * [Node.JS](./nodejs.md#live-metrics)
 
 2. Dans le [portail Azure](https://portal.azure.com), ouvrez la ressource Application Insights pour votre application puis ouvrez Flux temps réel.

@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to, contperf-fy21q1, deploy, devx-track-azurecli
+ms.custom: how-to, contperf-fy21q1, deploy
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/01/2020
-ms.openlocfilehash: d7540066ccc0d3a62dbd4012eee100d8e8aea98f
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 7ba01139e365b2f0023ef0784b6ed83e7bde609a
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505084"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97831723"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Déployer un modèle sur un cluster Azure Kubernetes Service
 
@@ -91,6 +91,55 @@ Le composant frontal (azureml-fe) qui achemine les demandes d’inférence entra
 Azureml-fe met à l’échelle aussi bien verticalement, de façon à utiliser plus de cœurs, qu’horizontalement, de façon à utiliser plus de pods. En cas de choix d’un scale-up, on tient compte du temps nécessaire pour acheminer les demandes d’inférence entrantes. Si cette durée dépasse le seuil, un scale-up est effectué. Si le temps nécessaire pour acheminer les demandes entrantes continue de dépasser le seuil, un scale-out est effectué.
 
 En cas de scale-down et de scale-in, on tient compte de l’utilisation du processeur. Si le seuil d’utilisation du processeur est atteint, c’est le serveur frontal qui est mis à l’échelle en premier lieu. Si l’utilisation du processeur tombe au seuil du scale-in, une opération de scale-in est effectuée. Les opérations de scale-up et de scale-out se produisent uniquement si le cluster dispose de ressources suffisantes.
+
+## <a name="understand-connectivity-requirements-for-aks-inferencing-cluster"></a>Comprendre les exigences de connectivité pour le cluster d’inférence AKS
+
+Lorsqu’Azure Machine Learning crée ou rattache un cluster AKS, le cluster AKS est déployé avec l’un des deux modèles de réseau suivants :
+* Mise en réseau Kubenet : les ressources réseau sont généralement créées et configurées quand le cluster AKS est déployé.
+* Mise en réseau Azure CNI (Container Networking Interface) : le cluster AKS est connecté à des configurations et ressources de réseau virtuel existantes.
+
+Pour le premier mode de réseau, la mise en réseau est créée et configurée correctement pour Azure Machine Learning service. Pour le deuxième mode de mise en réseau, étant donné que le cluster est connecté à un réseau virtuel existant, en particulier lorsque le DNS personnalisé est utilisé pour le réseau virtuel existant, le client doit porter une attention particulière aux exigences de connectivité pour le cluster d’inférence AKS et garantir la résolution DNS et la connectivité sortante pour l’inférence AKS.
+
+Le diagramme suivant capture toutes les exigences de connectivité pour l’inférence AKS. Les flèches noires représentent la communication réelle et les flèches bleues représentent les noms de domaine que le DNS contrôlé par le client doit résoudre.
+
+ ![Exigences de connectivité pour l’inférence AKS](./media/how-to-deploy-aks/aks-network.png)
+
+### <a name="overall-dns-resolution-requirements"></a>Exigences globales de la résolution DNS
+La résolution DNS au sein d’un réseau virtuel existant est sous le contrôle du client. Les entrées DNS suivantes doivent pouvoir être résolues :
+* Serveur d’API AKS sous la forme \<cluster\>.hcp.\<region\>.azmk8s.io
+* Microsoft Container Registry (MCR) : mcr.microsoft.com
+* Compte Azure Container Registry (ARC) du client sous la forme \<ACR name\>.azurecr.io
+* Compte de stockage Azure sous la forme \<account\>.table.core.windows.net et \<account\>.blob.core.windows.net
+* (Facultatif) Pour l’authentification AAD : api.azureml.ms
+* Nom de domaine du point de terminaison de scoring, généré automatiquement par Azure Machine Learning ou un nom de domaine personnalisé. Le nom de domaine généré automatiquement ressemble à ce qui suit : \<leaf-domain-label \+ auto-generated suffix\>.\<region\>.cloudapp.azure.com
+
+### <a name="connectivity-requirements-in-chronological-order-from-cluster-creation-to-model-deployment"></a>Exigences de connectivité dans l’ordre chronologique : de la création du cluster au déploiement du modèle
+
+Dans le processus de création ou d’attachement d’AKS, le routeur Azure ML (azureml-fe) est déployé dans le cluster AKS. Pour déployer le routeur Azure ML, le nœud AKS doit être en mesure d’effectuer les opérations suivantes :
+* Résoudre le DNS pour le serveur d’API AKS
+* Résoudre le DNS pour MCR afin de télécharger des images Docker pour le routeur Azure ML
+* Télécharger des images à partir de MCR, où une connectivité sortante est requise
+
+Juste après le déploiement d’azureml-fe, il tentera de démarrer et cela nécessite les opérations suivantes :
+* Résoudre le DNS pour le serveur d’API AKS
+* Interroger le serveur d’API AKS pour découvrir d’autres instances de lui-même (il s’agit d’un service à plusieurs pods)
+* Se connecter à d’autres instances de soi-même
+
+Une fois azureml-fe démarré, il requiert une connectivité supplémentaire pour fonctionner correctement :
+* Se connecter à Stockage Azure pour télécharger la configuration dynamique
+* Résoudre le DNS pour le serveur d’authentification AAD api.azureml.ms et communiquer avec celui-ci lorsque le service déployé utilise l’authentification AAD
+* Interroger le serveur d’API AKS pour découvrir les modèles déployés
+* Communiquer avec les pods du modèle déployé
+
+Au moment du déploiement du modèle, pour que le déploiement du modèle soit réussi, le nœud AKS doit être en mesure d’effectuer les opérations suivantes : 
+* Résoudre le DNS pour l’ACR du client
+* Télécharger des images à partir de l’ACR du client
+* Résoudre le DNS pour les Blobs Azure sur lesquels le modèle est stocké
+* Télécharger des modèles à partir de Blobs Azure
+
+Après le déploiement du modèle et le démarrage du service, azureml-fe le découvrira automatiquement grâce à l’API AKS et sera prêt à acheminer la demande vers celui-ci. Il doit pouvoir communiquer avec les pods du modèle.
+>[!Note]
+>Si le modèle déployé requiert une connectivité (par exemple, pour l’interrogation d’une base de données externe ou d’un autre service REST, le téléchargement d’un Blob, etc.), la résolution DNS et la communication sortante pour ces services doivent être activées.
 
 ## <a name="deploy-to-aks"></a>Déployer sur AKS
 

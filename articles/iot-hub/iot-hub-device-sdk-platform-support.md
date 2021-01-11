@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/08/2019
 ms.author: robinsh
-ms.openlocfilehash: 5df36cdb3c02fd4c813625c4869c21581f009b02
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: b8f8403617a5fc8b442e8a3f74ab9226fe1479fe
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152215"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588758"
 ---
 # <a name="azure-iot-device-sdks-platform-support"></a>Prise en charge des plateformes par les kits Azure IoT device SDK
 
@@ -34,7 +34,7 @@ Microsoft publie des kits SDK open source sur GitHub pour les langages suivants�
 
 Pour chacun des kits SDK listés, Microsoft :
 
-* Crée et exécute en continu des tests de bout en bout sur la branche master du SDK dans GitHub, et ce, sur différentes plateformes connues.  Pour que les tests couvrent différentes versions du compilateur, nous les effectuons généralement sur la version LTS la plus récente et sur la version la plus utilisée.
+* Crée et exécute en continu des tests de bout en bout sur la branche primaire du Kit de développement logiciel (SDK) correspondant dans GitHub, et ce, sur différentes plateformes populaires.  Pour que les tests couvrent différentes versions du compilateur, nous les effectuons généralement sur la version LTS la plus récente et sur la version la plus utilisée.
 
 * Fournit des instructions d’installation ou des packages d’installation, si nécessaire.
 

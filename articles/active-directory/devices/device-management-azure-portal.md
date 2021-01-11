@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4077ade7de93470aaf03acef1dc1cefca8bd3d4
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 7f142aa4ca203a65c45741f87853579ca60e1879
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94837360"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97831752"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Gérer les identités de l’appareil à l’aide du portail Microsoft Azure
 
@@ -165,10 +165,10 @@ Pour afficher ou gérer les paramètres d’un appareil dans le portail Azure, v
 
 - **Administrateurs locaux supplémentaires sur les appareils joints à Azure AD** : vous pouvez sélectionner les utilisateurs qui peuvent disposer de droits d’administrateur local sur un appareil. Ces utilisateurs sont ajoutés au rôle *Administrateurs d’appareils* dans Azure AD. Les administrateurs généraux Azure AD et les propriétaires d’appareils bénéficient de droits d’administrateur local par défaut. Cette option est une fonctionnalité de l’édition Premium disponible dans les produits comme Azure AD Premium ou EMS (Enterprise Mobility Suite).
 - **Les utilisateurs peuvent inscrire leurs appareils sur Azure AD** : vous devez configurer ce paramètre pour permettre l’inscription des appareils Windows 10 Personnel, iOS, Android et macOS dans Azure AD. Si vous sélectionnez **Aucun**, les appareils ne peuvent pas être inscrits dans Azure AD. L’inscription auprès de Microsoft Intune ou de la Gestion des appareils mobiles (MDM) pour Microsoft 365 nécessite l’enregistrement de l’appareil. Si vous avez configuré l’un de ces services, l’option **TOUS** est sélectionnée et l’option **AUCUN** est désactivée.
-- **Exiger Multi-factor Auth pour joindre des appareils** : vous pouvez déterminer si les utilisateurs doivent fournir un facteur d’authentification supplémentaire lorsqu’ils veulent joindre leurs appareils à Azure AD. La valeur par défaut est **No**. Il est recommandé d’exiger une authentification multifacteur au moment de l’inscription d’un appareil. Avant d’activer l’authentification multifacteur pour ce service, vous devez vérifier que l’authentification multifacteur est configurée pour les utilisateurs qui inscrivent leurs appareils. Pour plus d’informations sur les différents services Azure AD Multi-Factor Authentication, consultez [Bien démarrer avec Azure AD Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md). 
+- **Exiger l’authentification multifacteur pour joindre des appareils** : vous pouvez déterminer si les utilisateurs doivent indiquer un facteur d’authentification supplémentaire pour joindre ou inscrire leurs appareils à Azure AD. La valeur par défaut est **No**. Il est recommandé d’exiger l’authentification multifacteur au moment de l’inscription ou de la jointure d’un appareil. Avant d’activer l’authentification multifacteur pour ce service, vous devez vérifier que l’authentification multifacteur est configurée pour les utilisateurs qui inscrivent leurs appareils. Pour plus d’informations sur les différents services Azure AD Multi-Factor Authentication, consultez [Bien démarrer avec Azure AD Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md). 
 
 > [!NOTE]
-> Le paramètre **Exiger Multi-factor Auth pour joindre des appareils** s'applique aux appareils joints à Azure AD ou inscrits à Azure AD. Ce paramètre ne s’applique pas aux appareils hybrides joints à Azure AD.
+> Le paramètre **Exiger l’authentification multifacteur pour joindre des appareils** s’applique aux appareils à jointure Azure AD (sauf exception) et aux appareils inscrits à Azure AD. Il ne s’applique ni aux appareils à jointure hybride Azure AD, ni aux [machines virtuelles à jointure Azure AD dans Azure](/azure/active-directory/devices/howto-vm-sign-in-azure-ad-windows#enabling-azure-ad-login-in-for-windows-vm-in-azure), ni aux appareils à jointure Azure AD suivant le [mode de déploiement automatique Windows Autopilot](/mem/autopilot/self-deploying).
 
 - **Nombre maximal d’appareils par utilisateur** : ce paramètre vous permet de sélectionner le nombre maximal d’appareils joints à Azure AD ou inscrits à Azure AD et qu’un utilisateur peut avoir dans Azure AD. Si un utilisateur atteint ce quota, il ne pourra pas ajouter d’autres appareils tant qu’un ou plusieurs appareils existants n’auront pas été supprimés. La valeur par défaut est de **50**.
 

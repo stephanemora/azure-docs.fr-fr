@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: a5457dc94082f089d3adf02c9614d05d2c5db244
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: af5ed0296ce99a4450fffec6b047285307ed0ff2
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96484003"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97709297"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Préparer des données pour Custom Speech
 
@@ -47,8 +47,10 @@ Ce tableau liste les types de données acceptés, les cas d’utilisation pour c
 | Type de données | Utilisé pour le test | Quantité recommandée | Utilisé pour l’entraînement | Quantité recommandée |
 |-----------|-----------------|----------|-------------------|----------|
 | [Audio](#audio-data-for-testing) | Oui<br>Utilisé pour l’inspection visuelle | 5 fichiers audio et plus | Non | N/A |
-| [Transcriptions audio + étiquetées à la main](#audio--human-labeled-transcript-data-for-testingtraining) | Oui<br>Utilisé pour évaluer la précision | 0,5 - 5 heures d’audio | Oui | 1 -1 000 heures d’audio |
+| [Transcriptions audio + étiquetées à la main](#audio--human-labeled-transcript-data-for-testingtraining) | Oui<br>Utilisé pour évaluer la précision | 0,5 - 5 heures d’audio | Oui | 1 à 20 heures d’audio |
 | [Texte associé](#related-text-data-for-training) | Non | n/a | Oui | 1 – 200 Mo de texte associé |
+
+Lorsque vous effectuez l’apprentissage d’un nouveau modèle, commencez par [le texte associé](#related-text-data-for-training). Ces données permettront déjà d’améliorer la reconnaissance des expressions et termes spéciaux.
 
 Les fichiers doivent être regroupées par type dans un jeu de données et chargés sous forme de fichier .zip. Chaque jeu de données ne peut contenir qu’un seul type de données.
 
@@ -117,7 +119,7 @@ Les fichiers audio peuvent avoir un silence au début et à la fin de l’enregi
 > [!NOTE]
 > Lors du chargement de données de formation et de test, la taille du fichier .zip ne peut pas dépasser 2 Go. Vous ne pouvez effectuer des tests qu’à partir d’un *seul* jeu de données : veillez donc à ce que sa taille de fichier reste appropriée. De plus, chaque fichier d’entraînement ne peut pas dépasser 60 secondes. Dans le cas contraire, il génère une erreur.
 
-Pour résoudre les problèmes comme la suppression ou la substitution de mots, une quantité importante de données est nécessaire pour améliorer la reconnaissance. En règle générale, il est recommandé de fournir des transcriptions mot par mot pour environ 10 à 1 000 heures de contenu audio. Les transcriptions de tous les fichiers WAV doivent se trouver dans un seul fichier en texte brut. Chaque ligne du fichier de transcription doit contenir le nom d’un des fichiers audio, suivi de la transcription correspondante. Le nom de fichier et la transcription doivent être séparés par une tabulation (\t).
+Pour résoudre les problèmes comme la suppression ou la substitution de mots, une quantité importante de données est nécessaire pour améliorer la reconnaissance. En règle générale, il est recommandé de fournir des transcriptions mot par mot pour environ 10 à 20 heures de contenu audio. Les transcriptions de tous les fichiers WAV doivent se trouver dans un seul fichier en texte brut. Chaque ligne du fichier de transcription doit contenir le nom d’un des fichiers audio, suivi de la transcription correspondante. Le nom de fichier et la transcription doivent être séparés par une tabulation (\t).
 
   Par exemple :
 ```
@@ -135,6 +137,8 @@ Une fois que vous avez collecté vos fichiers audio et les transcriptions corres
 
 > [!div class="mx-imgBorder"]
 > ![Sélectionner du contenu audio à partir du portail Speech](./media/custom-speech/custom-speech-audio-transcript-pairs.png)
+
+Consultez [Configurer votre compte Azure](custom-speech-overview.md#set-up-your-azure-account) pour obtenir la liste des régions recommandées pour vos abonnements au service Speech. La configuration des abonnements Speech dans une de ces régions permet de réduire le temps nécessaire à la formation du modèle.
 
 ## <a name="related-text-data-for-training"></a>Données texte associées pour l’entraînement
 

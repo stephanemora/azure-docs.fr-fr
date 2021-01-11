@@ -4,15 +4,15 @@ description: Vous pouvez fournir des informations d’identification d’autoris
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/11/2020
+ms.date: 12/17/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 43002fdfbdce146b52774aa4182445bf34dd7199
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 99e06a36c2afa66f2874c14990d50c6287623efd
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97360286"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672489"
 ---
 # <a name="authorize-access-to-blobs-with-azcopy-and-azure-active-directory-azure-ad"></a>Autoriser l’accès aux objets blob avec AzCopy et Azure Active Directory (Azure AD)
 
@@ -183,9 +183,11 @@ Remplacez l’espace réservé `<path-to-certificate-file>` par le chemin d’ac
 > [!NOTE]
 > Envisagez d’utiliser une invite comme dans cet exemple. De cette façon, votre mot de passe n’apparaîtra pas dans l’historique des commandes de votre console. 
 
-## <a name="authorize-without-a-keyring-linux"></a>Autorisation sans gestionnaire de clés d’authentification (Linux)
+## <a name="authorize-without-a-secret-store"></a>Autoriser sans magasin de secrets
 
-Si votre système d’exploitation ne dispose pas d’un magasin des secrets comme un *gestionnaire de clés d’authentification*, la commande `azcopy login` ne fonctionne pas. Vous pouvez dans ce cas définir des variables d’environnement en mémoire avant d’exécuter une opération. Ces valeurs disparaissent de la mémoire une fois l’opération terminée. Vous devez donc les définir chaque fois que vous exécutez une commande AzCopy.
+La commande `azcopy login` récupère un jeton OAuth, puis place ce jeton dans un magasin de secrets sur votre système. Si votre système d’exploitation ne dispose pas d’un magasin des secrets comme un *porte-clés* Linux, la commande `azcopy login` ne fonctionne pas, car il n’y pas de place pour le jeton. 
+
+Au lieu d’utiliser la commande `azcopy login`, vous pouvez définir des variables d’environnement en mémoire. Exécutez ensuite une commande AzCopy. AzCopy récupère le jeton d’authentification requis pour terminer l’opération. Une fois l’opération terminée, le jeton disparaît de la mémoire. 
 
 ### <a name="authorize-a-user-identity"></a>Autoriser une identité d’utilisateur
 
@@ -248,8 +250,6 @@ Remplacez l'espace réservé `<resource-id>` par l'ID ressource de l’identité
 Après avoir défini ces variables, vous pouvez exécuter n’importe quelle commande AzCopy (par exemple `azcopy list https://contoso.blob.core.windows.net`).
 
 ### <a name="authorize-a-service-principal"></a>Autoriser un principal de service
-
-Avant d’exécuter un script, vous devez vous connecter de manière interactive au moins une fois afin de pouvoir fournir à AzCopy les informations d’identification de votre fournisseur de services.  Ces informations d’identification sont stockées dans un fichier sécurisé et chiffré afin que votre script n’ait pas à fournir ces informations sensibles.
 
 Vous pouvez vous connecter à votre compte en utilisant un secret client ou en utilisant le mot de passe d’un certificat qui est associé à l’enregistrement de l’application de votre directeur de service.
 

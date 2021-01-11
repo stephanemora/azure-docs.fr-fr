@@ -1,6 +1,6 @@
 ---
 title: Action de script pour les packages Python avec Jupyter sur Azure HDInsight
-description: Cette section comporte des instructions détaillées expliquant comment utiliser une action de script pour configurer des blocs-notes Jupyter disponibles avec des clusters HDInsight Spark pour utiliser des packages Python externes.
+description: Cette section comporte des instructions détaillées expliquant comment utiliser une action de script pour configurer les notebooks Jupyter disponibles avec des clusters HDInsight Spark afin d’utiliser des packages Python externes.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-python
 ms.date: 04/29/2020
-ms.openlocfilehash: 5a0f9f9f972ec42987d6152c16e4377e399cdba5
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 21423f7200d25c9a5b3b63d2371e56977cd9d227
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896410"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97821373"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>Gérer en toute sécurité l’environnement Python sur Azure HDInsight avec une action de script
 
@@ -167,5 +167,5 @@ Pour vérifier votre version d’Anaconda, vous pouvez utiliser le protocole SSH
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Vue d’ensemble : Apache Spark sur Azure HDInsight](apache-spark-overview.md)
-* [Packages externes avec des blocs-notes Jupyter dans Apache Stark](apache-spark-jupyter-notebook-use-external-packages.md)
+* [Packages externes avec des notebooks Jupyter dans Apache Stark](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight (Suivi et débogage des tâches en cours d’exécution sur un cluster Apache Spark dans HDInsight)](apache-spark-job-debugging.md)

@@ -13,15 +13,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/29/2020
+ms.date: 12/29/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: aae822665702300064e82e80d74b5c2256423ea1
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 1e6aaf1b37073bf93e0aca8237161bf11af3a872
+ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94957280"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97827221"
 ---
 # <a name="azure-proximity-placement-groups-for-optimal-network-latency-with-sap-applications"></a>Groupes de placement de proximité Azure pour une latence réseau optimale avec les applications SAP
 Les applications SAP basées sur l’architecture SAP NetWeaver ou SAP S/4HANA sont sensibles à la latence réseau entre la couche Application SAP et la couche Base de données SAP. Cette sensibilité est due au fait que la plupart de la logique métier s’exécute dans la couche Application. Étant donné que la couche Application SAP exécute la logique métier, elle émet des requêtes à la base de données à une fréquence élevée (plusieurs milliers ou dizaines de milliers par seconde). Dans la plupart des cas, la nature de ces requêtes est simple. Elles peuvent souvent être exécutées sur la couche Base de données en 500 microsecondes ou moins.
@@ -42,6 +42,8 @@ Pour vous permettre d’optimiser la latence du réseau, Azure propose des [grou
 > - Uniquement lorsque cela est nécessaire
 > - Uniquement sur la granularité d’un seul système SAP et non pour l’ensemble du paysage système ou SAP complet
 > - Pour conserver les différents types de machines virtuelles et un nombre minimum de machines virtuelles dans un groupe de placement de proximité
+
+Supposons que vous déployez des machines virtuelles en spécifiant des Zones de disponibilité et que vous sélectionnez la même Zones de disponibilité : le temps de réponse du réseau entre ces machines virtuelles devrait être suffisant pour exploiter les systèmes SAP NetWeaver et S/4HANA avec un niveau de performance et un débit satisfaisants. Cette hypothèse est indépendante du fait qu’une zone particulière soit créée à partir d’un ou de plusieurs centres de données. Le seul cas justifiant d’utiliser des groupes de placement de proximité dans des déploiements zonaux consiste à allouer des machines virtuelles déployées dans un groupe à haute disponibilité Azure conjointement avec des machines virtuelles en déploiement zonal.
 
 
 ## <a name="what-are-proximity-placement-groups"></a>Définition des groupes de placement de proximité 

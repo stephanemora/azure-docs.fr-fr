@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.author: makromer
-ms.date: 11/24/2020
-ms.openlocfilehash: 1c0ed7cf38cc01623169216ec45e88d198ede3d2
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.date: 01/03/2021
+ms.openlocfilehash: 3eff23a42a6ac5f5360bdebfcc692e13acb3e8b0
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095081"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858776"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Activité de flux de données dans Azure Data Factory
 
@@ -38,6 +38,8 @@ Utilisez l’activité de flux de données pour transformer et déplacer des don
          "computeType": "General"
       },
       "traceLevel": "Fine",
+      "runConcurrently": true,
+      "continueOnError": true,      
       "staging": {
           "linkedService": {
               "referenceName": "MyStagingLinkedService",
@@ -95,6 +97,14 @@ Si vous utilisez Azure Synapse Analytics comme récepteur ou source, vous devez 
 Si vous n’avez pas besoin que chaque exécution du pipeline de vos activités de flux de données journalise entièrement tous les journaux de télémétrie détaillés, vous pouvez définir le niveau de journalisation sur « De base » ou « Aucun ». Lors de l’exécution de vos flux de données en mode « Verbose » (par défaut), vous demandez à ADF d’enregistrer entièrement l’activité à chaque niveau de partition individuel au cours de la transformation des données. Cette opération peut s’avérer coûteuse et dès lors, n’activez l’option Verbose que lorsque la résolution des problèmes permet d’améliorer les performances globales du pipeline et du flux de données. Le mode « De base » ne consigne que les durées de transformation, tandis que le mode « Aucun » ne fournit qu’un résumé des durées.
 
 ![Niveau de journalisation](media/data-flow/logging.png "Définir le niveau de journalisation")
+
+## <a name="sink-properties"></a>Propriétés du récepteur
+
+La fonctionnalité de regroupement dans le flux de données vous permet de configurer l’ordre d’exécution de vos récepteurs et de regrouper les récepteurs ensemble sous le même numéro de groupe. Pour faciliter la gestion des groupes, vous pouvez demander à ADF d’exécuter des récepteurs, dans le même groupe, en parallèle. Vous pouvez également faire en sorte que le groupe récepteur continue même après que l’un des récepteurs a rencontré une erreur.
+
+Le comportement par défaut des récepteurs de flux de données consiste à exécuter chaque récepteur de manière séquentielle, en série, et à faire échouer le flux de données quand une erreur est détectée dans le récepteur. En outre, tous les récepteurs sont définis par défaut dans le même groupe, sauf si vous accédez aux propriétés du flux de données et définissez des priorités différentes pour les récepteurs.
+
+![Propriétés du récepteur](media/data-flow/sink-properties.png "Définir les priorités des récepteurs")
 
 ## <a name="parameterizing-data-flows"></a>Paramétrage de flux de données
 

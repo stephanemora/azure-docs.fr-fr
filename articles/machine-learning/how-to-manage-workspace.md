@@ -10,12 +10,12 @@ author: sdgilley
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: 4425fdf488665ad555c73c59682041cb23a9ca66
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 3fca8e74112b90b3cac70adaa955bbf242999705
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96447326"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739584"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces"></a>Créer et gérer des espaces de travail Azure Machine Learning 
 
@@ -31,6 +31,8 @@ Cet article explique comment créer, afficher et supprimer des [**espaces de tra
 ## <a name="limitations"></a>Limites
 
 [!INCLUDE [register-namespace](../../includes/machine-learning-register-namespace.md)]
+
+Par défaut, la création d’un espace de travail crée également une instance ACR (Azure Container Registry).  Étant donné qu’ACR ne prend actuellement pas en charge les caractères Unicode dans le nom des groupes de ressources, utilisez un groupe de ressources qui n’en contient pas.
 
 ## <a name="create-a-workspace"></a>Créer un espace de travail
 
@@ -154,6 +156,8 @@ Si vous rencontrez des problèmes pour accéder à votre abonnement, consultez [
  1. Pour afficher le nouvel espace de travail, sélectionnez **Accéder à la ressource**.
  
 ---
+
+
 
 ### <a name="networking"></a>Mise en réseau  
 
@@ -368,6 +372,16 @@ Dans le [portail Azure](https://portal.azure.com/), sélectionnez **Supprimer** 
 [!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 
 ## <a name="troubleshooting"></a>Dépannage
+
+* **Navigateurs pris en charge dans Azure Machine Learning studio** : Nous vous recommandons d’utiliser le navigateur le plus récent compatible avec votre système d’exploitation. Les opérateurs suivants sont pris en charge :
+  * Microsoft Edge (le nouveau Microsoft Edge, dernière version. Pas Microsoft Edge hérité)
+  * Safari (dernière version, Mac uniquement)
+  * Chrome (version la plus récente)
+  * Firefox (version la plus récente)
+
+* **Portail Azure**: 
+  * Si vous accédez directement à votre espace de travail à partir d’un lien de partage provenant du kit SDK ou du Portail Azure, vous ne pourrez pas afficher la page **Vue d’ensemble** standard comportant des informations sur l’abonnement dans l’extension. Dans ce scénario, vous ne pouvez pas non plus basculer vers un autre espace de travail. Pour afficher un autre espace de travail, accédez directement à [Azure Machine Learning Studio](https://ml.azure.com), puis recherchez le nom de l’espace de travail.
+  * Toutes les ressources (jeux de données, expériences, calculs, etc.) sont uniquement disponibles dans [Azure Machine Learning Studio](https://ml.azure.com). Ils ne sont *pas* disponibles dans le portail Azure.
 
 ### <a name="resource-provider-errors"></a>Erreurs du fournisseur de ressources
 

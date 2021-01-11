@@ -10,16 +10,19 @@ ms.topic: reference
 ms.custom: devx-track-csharp
 ms.date: 11/08/2019
 ms.author: cshoe
-ms.openlocfilehash: 6a909b246e7cb3695533a75294c523d7c9aeaeda
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 7cefe75eefb746c150b051a7bd1f4513c103d205
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832940"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655856"
 ---
 # <a name="azure-functions-warm-up-trigger"></a>Déclencheur de préchauffage Azure Functions
 
-Cet article explique comment utiliser le déclencheur de préchauffage dans Azure Functions. Le déclencheur de préchauffage est pris en charge uniquement pour les applications de fonction qui s’exécutent dans un [plan Premium](functions-premium-plan.md). Un déclencheur de préchauffage est appelé lorsqu’une instance est ajoutée pour mettre à l’échelle une application de fonction en cours d’exécution. Vous pouvez utiliser un déclencheur de préchauffage pour précharger des dépendances personnalisées pendant le [processus de préchauffage](./functions-premium-plan.md#pre-warmed-instances) afin que vos fonctions soient prêtes à commencer le traitement des requêtes immédiatement. 
+Cet article explique comment utiliser le déclencheur de préchauffage dans Azure Functions. Un déclencheur de préchauffage est appelé lorsqu’une instance est ajoutée pour mettre à l’échelle une application de fonction en cours d’exécution. Vous pouvez utiliser un déclencheur de préchauffage pour précharger des dépendances personnalisées pendant le [processus de préchauffage](./functions-premium-plan.md#pre-warmed-instances) afin que vos fonctions soient prêtes à commencer le traitement des requêtes immédiatement. 
+
+> [!NOTE]
+> Le déclencheur de préchauffage n’est pris en charge que pour les applications de fonction qui s’exécutent dans un plan Consommation.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 

@@ -10,13 +10,13 @@ ms.author: weetok
 ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
-ms.date: 09/23/2020
-ms.openlocfilehash: 84e156074d6db837556ba4ed9febdb43bcdf3318
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.date: 12/17/2020
+ms.openlocfilehash: b5b0f6dcef728f0597e7eac8ba57c8fd240d19c9
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96902300"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680291"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Intégration et livraison continues dans Azure Data Factory
 
@@ -28,7 +28,7 @@ L’intégration continue consiste à tester automatiquement et, dès que possib
 
 Dans Azure Data Factory, l’intégration et la livraison continues (CI/CD) impliquent de déplacer des pipelines Data Factory d’un environnement (développement, test, production) vers un autre. Azure Data Factory utilise des [modèles Azure Resource Manager](../azure-resource-manager/templates/overview.md) pour stocker la configuration de vos diverses entités ADF (pipelines, jeux de données, flux de données, etc.). Deux méthodes sont recommandées pour promouvoir une fabrique de données dans un autre environnement :
 
--    Déploiement automatisé grâce à l’intégration de Data Factory avec [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops).
+-    Déploiement automatisé grâce à l’intégration de Data Factory avec [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines).
 -    Chargement manuel d’un modèle Resource Manager en tirant parti de l’intégration de l’expérience utilisateur de Data Factory avec Azure Resource Manager.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -41,9 +41,9 @@ Vous trouverez ci-dessous une vue d’ensemble du cycle de vie d’intégration 
 
 1.  Un développeur [crée une branche de fonctionnalité](source-control.md#creating-feature-branches) pour apporter une modification. Il débogue les exécutions de son pipeline avec ses modifications les plus récentes. Pour plus d’informations sur le débogage d’une exécution de pipeline, consultez [Développement et débogage itératifs avec Azure Data Factory](iterative-development-debugging.md).
 
-1.  Une fois que le développeur est satisfait de ses modifications, il crée une demande de tirage (pull) à partir de sa branche de fonctionnalité vers la branche principale ou la branche de collaboration pour que ces modifications soient examinées par des pairs.
+1.  Une fois satisfait de ses modifications, le développeur crée une demande de tirage (pull) de sa branche de fonctionnalité vers la branche primaire ou la branche de collaboration pour que ces modifications soient examinées par des pairs.
 
-1.  Une fois qu’une demande de tirage (pull) a été approuvée et que les modifications ont été fusionnées dans la branche principale, les modifications sont publiées dans la fabrique de développement.
+1.  Une fois la demande de tirage (pull) approuvée et les modifications fusionnées dans la branche primaire, les modifications sont publiées dans la fabrique de développement.
 
 1.  Lorsque l’équipe est prête à déployer les modifications dans une fabrique de test ou de test d’acceptation utilisateur (UAT), elle accède à la mise en production sur Azure Pipelines et déploie la version souhaitée de la fabrique de développement vers l’UAT. Ce déploiement a lieu dans le cadre d’une tâche Azure Pipelines et utilise des paramètres de modèle Resource Manager pour appliquer la configuration appropriée.
 
@@ -115,7 +115,7 @@ Vous trouverez ci-après un guide de configuration d’une mise en production Az
 
 1.  Enregistrez le pipeline de mise en production.
 
-1. Pour déclencher une mise en production, sélectionnez **Créer une mise en production**. Pour automatiser la création des mises en production, consultez les [déclencheurs de mise en production Azure DevOps](/azure/devops/pipelines/release/triggers?view=azure-devops).
+1. Pour déclencher une mise en production, sélectionnez **Créer une mise en production**. Pour automatiser la création des mises en production, consultez les [déclencheurs de mise en production Azure DevOps](/azure/devops/pipelines/release/triggers).
 
    ![Sélectionner Créer une mise en production](media/continuous-integration-deployment/continuous-integration-image10.png)
 
@@ -207,6 +207,12 @@ Si votre fabrique de développement dispose d’un dépôt Git associé, vous po
 
 * Vous utilisez CI/CD automatisé et souhaitez modifier certaines propriétés pendant le déploiement de Resource Manager, mais les propriétés ne sont pas paramétrables par défaut.
 * Votre fabrique est si volumineuse que le modèle Resource Manager par défaut n’est pas valide car il dépasse le nombre maximum autorisé de paramètres (256).
+
+    Pour gérer la limite de 256 paramètres personnalisés, il existe trois possibilités :    
+  
+    * Utilisez le fichier de paramètres personnalisés et supprimez les propriétés qui n’ont pas besoin de paramétrage, c.-à-d. celles qui peuvent conserver une valeur par défaut. Vous réduirez ainsi le nombre de paramètres.
+    * Refactorisez la logique dans le flux de données pour réduire les paramètres. Par exemple, si les paramètres de pipeline ont tous la même valeur, vous pouvez utiliser de simples paramètres globaux à la place.
+    * Fractionnez une fabrique de données en plusieurs flux de données.
 
 Pour remplacer le modèle de paramétrage par défaut, accédez au hub de gestion et sélectionnez **Modèle de paramétrage** dans la section de contrôle de code source. Sélectionnez **Modifier le modèle** pour ouvrir l’éditeur de code du modèle de paramétrage. 
 
@@ -639,7 +645,7 @@ Regardez la vidéo ci-dessous, un didacticiel vidéo détaillé sur la façon de
 
 ## <a name="exposure-control-and-feature-flags"></a>Indicateurs de contrôle d’exposition et de fonctionnalité
 
-Lorsque vous travaillez en équipe, vous pouvez souhaiter fusionner des modifications, sans les exécuter dans des environnements élevés tels que PROD et QA. Pour gérer un tel scénario, l’équipe ADF recommande [le concept DevOps utilisant les indicateurs de fonctionnalité](/azure/devops/migrate/phase-features-with-feature-flags?view=azure-devops). Dans ADF, vous pouvez combiner les [paramètres globaux](author-global-parameters.md) et l’[activité IfCondition](control-flow-if-condition-activity.md) pour masquer des ensembles de logique en fonction de ces indicateurs d’environnement.
+Lorsque vous travaillez en équipe, vous pouvez souhaiter fusionner des modifications, sans les exécuter dans des environnements élevés tels que PROD et QA. Pour gérer un tel scénario, l’équipe ADF recommande [le concept DevOps utilisant les indicateurs de fonctionnalité](/azure/devops/migrate/phase-features-with-feature-flags). Dans ADF, vous pouvez combiner les [paramètres globaux](author-global-parameters.md) et l’[activité IfCondition](control-flow-if-condition-activity.md) pour masquer des ensembles de logique en fonction de ces indicateurs d’environnement.
 
 Pour savoir comment configurer un indicateur de fonctionnalité, consultez le tutoriel vidéo ci-dessous :
 

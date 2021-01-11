@@ -7,14 +7,14 @@ ms.date: 4/4/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: cpendleton
+manager: cpendle
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 8f27f7532d074428fafe74e4a453628f5c61d2b8
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 41a117c9ea8b47afcedaa1714abc2031d3be6c21
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895968"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680058"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Expressions de style basé sur les données (SDK web)
 
@@ -24,9 +24,9 @@ Les styles basés sur les données réduisent la quantité de code nécessaire p
 
 Cette vidéo fournit une vue d’ensemble des styles basés sur les données dans le Kit de développement logiciel (SDK) web Azure Maps.
 
-<br/>
+</br>
 
-<iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Data-Driven-Styling-with-Azure-Maps/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Data-Driven-Styling-with-Azure-Maps/player?format=ny]
 
 Les expressions sont représentées sous forme de tableaux JSON. Le premier élément d’une expression dans le tableau est une chaîne qui spécifie le nom de l’opérateur d’expression. Par exemple, « + » ou « case ». Les éléments suivants (le cas échéant) sont les arguments de l’expression. Chaque argument est soit une valeur littérale (une chaîne, le nombre, une valeur booléenne ou `null`), soit un autre tableau d’expressions. Le pseudo-code suivant définit la structure de base d’une expression. 
 
@@ -58,7 +58,7 @@ Le Kit de développement logiciel (SDK) web Azure Maps prend en charge de nombre
 
 Tous les exemples de ce document utilisent la fonctionnalité suivante pour illustrer diverses façons d’utiliser les différents types d’expressions. 
 
-```javascript
+```json
 {
     "type": "Feature",
     "geometry": {
@@ -70,13 +70,13 @@ Tous les exemples de ce document utilisent la fonctionnalité suivante pour illu
         "entityType": "restaurant",
         "revenue": 12345,
         "subTitle": "Building 40", 
-        "temperature": 72,
+        "temperature": 64,
         "title": "Cafeteria", 
-        "zoneColor": "red",
-        "abcArray": ['a', 'b', 'c'],
-        "array2d": [['a', 'b'], ['x', 'y']],
+        "zoneColor": "purple",
+        "abcArray": ["a", "b", "c"],
+        "array2d": [["a", "b"], ["x", "y"]],
         "_style": {
-            "fillColor": 'red'
+            "fillColor": "red"
         }
     }
 }
@@ -88,22 +88,22 @@ Les expressions de données permettent d’accéder aux données de propriété 
 
 | Expression | Type de retour | Description |
 |------------|-------------|-------------|
-| `['at', number, array]` | object | Récupère un élément à partir d’un tableau. |
+| `['at', number, array]` | value | Récupère un élément à partir d’un tableau. |
 | `['geometry-type']` | string | Obtient le type de géométrie de la fonctionnalité : Point, MultiPoint, LineString, MultiLineString, Polygon, MultiPolygon. |
 | `['get', string]` | value | Obtient la valeur de propriété à partir des propriétés de la fonctionnalité actuelle. Retourne la valeur null si la propriété demandée est manquante. |
 | `['get', string, object]` | value | Obtient la valeur de propriété à partir des propriétés de l’objet fourni. Retourne la valeur null si la propriété demandée est manquante. |
 | `['has', string]` | boolean | Détermine si les propriétés d’une fonctionnalité ont la propriété spécifiée. |
 | `['has', string, object]` | boolean | Détermine si les propriétés de l’objet ont la propriété spécifiée. |
 | `['id']` | value | Obtient l’ID de la fonctionnalité, le cas échéant. |
-| `['length', string | array]` | nombre | Obtient la longueur d’une chaîne ou d’un tableau. |
 | `['in', boolean | string | number, array]` | boolean | Détermine si un élément existe dans un tableau |
 | `['in', substring, string]` | boolean | Détermine si une sous-chaîne existe dans une chaîne |
 | `['index-of', boolean | string | number, array | string]`<br/><br/>`['index-of', boolean | string | number, array | string, number]` | nombre | Retourne la première position à laquelle un élément se trouve dans un tableau ou à laquelle une sous-chaîne se trouve dans une chaîne, ou `-1` si l’entrée est introuvable. Accepte un index facultatif à partir duquel commencer la recherche. |
-| `['slice', array | string, number]`<br/><br/>`['slice', array | string, number, number]` | `string` \| tableau | Retourne un élément d’un tableau ou une sous-chaîne d’une chaîne à partir d’un index de début spécifié, ou entre un index de début et un index de fin, s’il est défini. La valeur renvoyée comprend l’index de début, mais pas l’index de fin. |
+| `['length', string | array]` | nombre | Obtient la longueur d’une chaîne ou d’un tableau. |
+| `['slice', array | string, number]`<br/><br/>`['slice', array | string, number, number]` | chaîne \| tableau | Retourne un élément d’un tableau ou une sous-chaîne d’une chaîne à partir d’un index de début spécifié, ou entre un index de début et un index de fin, s’il est défini. La valeur renvoyée comprend l’index de début, mais pas l’index de fin. |
 
 **Exemples**
 
-Les propriétés d’une fonctionnalité sont accessibles directement dans une expression en utilisant une expression `get`. Cet exemple utilise la valeur « zoneColor » de la fonctionnalité pour spécifier la propriété color d’une couche de bulles. 
+Les propriétés d’une fonctionnalité sont accessibles directement dans une expression en utilisant une expression `get`. Cet exemple utilise la valeur `zoneColor` de la fonctionnalité pour spécifier la propriété color d’une couche de bulles. 
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -111,7 +111,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 });
 ```
 
-L’exemple ci-dessus fonctionne correctement si toutes les fonctionnalités de point sont dotées de la propriété `zoneColor`. Si ce n’est pas le cas, la couleur de secours sera probablement « black ». Pour modifier la couleur de secours, utilisez une expression `case` en association avec l’expression `has` pour vérifier si la propriété existe. Si la propriété n’existe pas, retournez une couleur de secours.
+L’exemple ci-dessus fonctionne correctement si toutes les fonctionnalités de point sont dotées de la propriété `zoneColor`. Si ce n’est pas le cas, la couleur de secours sera probablement « black » (noir). Pour modifier la couleur de secours, utilisez une expression `case` en association avec l’expression `has` pour vérifier si la propriété existe. Si la propriété n’existe pas, retournez une couleur de secours.
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -203,7 +203,7 @@ Les expressions mathématiques fournissent des opérateurs mathématiques pour e
 | `['max', number, number, …]` | nombre | Calcule le nombre maximal dans l’ensemble spécifié de nombres. |
 | `['min', number, number, …]` | nombre | Calcule le nombre minimal dans l’ensemble spécifié de nombres. |
 | `['pi']` | nombre | Retourne la constante mathématique `PI`. |
-| `['round', number]` | nombre | Arrondit le nombre à l’entier le plus proche. Les valeurs médianes sont arrondies à la valeur la plus éloignée de zéro. Par exemple, `['round', -1.5]` a pour résultat -2. |
+| `['round', number]` | nombre | Arrondit le nombre à l’entier le plus proche. Les valeurs médianes sont arrondies à la valeur la plus éloignée de zéro. Par exemple, `['round', -1.5]` a pour résultat `-2`. |
 | `['sin', number]` | nombre | Calcule le sinus du nombre spécifié. |
 | `['sqrt', number]` | nombre | Calcule la racine carrée du nombre spécifié. |
 | `['tan', number]` | nombre | Calcule la tangente du nombre spécifié. |
@@ -228,6 +228,16 @@ Une expression d’agrégation accepte trois valeurs : une valeur d’opérateu
 
 Si toutes les fonctionnalités d’un jeu de données possèdent une propriété `revenue`, qui est un nombre. Alors le chiffre d’affaires total de tous les points d’un cluster, lesquels sont créés à partir du jeu de données, peut être calculé. Ce calcul s’effectue à l’aide de l’expression d’agrégation suivante : `['+', 0, ['get', 'revenue']]`.
 
+### <a name="accumulated-expression"></a>Expression accumulée
+
+L’expression `accumulated` récupère la valeur d’une propriété de cluster accumulée jusqu’à présent. Elle ne peut être utilisée que dans l’option `clusterProperties` d’une source `DataSource` en cluster.
+
+**Utilisation**
+
+```javascript
+["accumulated"]
+```
+
 ## <a name="boolean-expressions"></a>Expressions booléennes
 
 Les expressions booléennes fournissent un ensemble d’expressions d’opérateurs booléens pour l’évaluation de comparaisons booléennes.
@@ -245,6 +255,7 @@ Lors de la comparaison de valeurs, la comparaison est strictement typée. Les va
 | `['>=' value, value]` | boolean | Retourne `true` si la première entrée est supérieure ou égale à la deuxième ; `false` dans le cas contraire. Les arguments doivent obligatoirement être tous les deux des chaînes ou des nombres. |
 | `['all', boolean, boolean, …]` | boolean | Retourne `true` si toutes les entrées ont la valeur `true` ; retourne `false` dans le cas contraire. |
 | `['any', boolean, boolean, …]` | boolean | Retourne `true` si l’une des entrées a la valeur `true` ; retourne `false` si ce n’est pas le cas. |
+| `['within', Polygon | MultiPolygon | Feature<Polygon | MultiPolygon>]` | boolean | Retourne `true` si la fonctionnalité évaluée se trouve entièrement à l’intérieur d’une limite de la géométrie d’entrée ; sinon, false. La valeur d’entrée peut être un GeoJSON valide de type `Polygon`, `MultiPolygon`, `Feature` ou `FeatureCollection`. Fonctionnalités prises en charge pour l’évaluation :<br/><br/>- Point : retourne `false` si un point se trouve sur la limite ou en dehors.<br/>- LineString : retourne `false` si une partie d’une ligne se trouve en dehors de la limite, si la ligne croise la limite ou si l’extrémité d’une ligne est située sur la limite. |
 
 ## <a name="conditional-expressions"></a>Expressions conditionnelles
 
@@ -355,28 +366,6 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 });
 ```
 
-L’exemple suivant utilise une expression de correspondance pour effectuer un filtre de type « in array » ou « array contains ». Dans ce cas, l’expression filtre les données qui ont une valeur d’ID figurant dans une liste d’ID autorisés. Lorsque vous utilisez des expressions avec des filtres, le résultat doit être une valeur booléenne.
-
-```javascript
-var layer = new atlas.layer.BubbleLayer(datasource, null, {
-    filter: [
-        'match',  
-
-        //Get the property to match.
-        ['get', 'id'],  
-
-         //List of values to match.
-        [24, 53, 98], 
-
-        //If there is a match, return true.
-        true,
-    
-        //Otherwise return false.
-        false
-    ]
-});
-```
-
 ### <a name="coalesce-expression"></a>Expression coalesce
 
 Une expression `coalesce` parcourt un ensemble d’expressions jusqu’à ce que la première valeur non null soit obtenue, puis retourne cette valeur. 
@@ -394,7 +383,7 @@ Le pseudo-code suivant définit la structure de l’expression `coalesce`.
 
 **Exemple**
 
-L’exemple suivant utilise une expression `coalesce` pour définir l’option `textField` d’une couche de symboles. Si la propriété `title` est manquante dans la fonctionnalité ou qu’elle est définie sur `null`, l’expression tente alors de rechercher la propriété `subtitle` ; si elle est manquante ou `null`, elle utilise une chaîne vide. 
+L’exemple suivant utilise une expression `coalesce` pour définir l’option `textField` d’une couche de symboles. Si la propriété `title` est manquante dans la fonctionnalité ou qu’elle est définie sur `null`, l’expression tente alors de rechercher la propriété `subTitle` ; si elle est manquante ou `null`, elle utilise une chaîne vide. 
 
 ```javascript
 var layer = new atlas.layer.SymbolLayer(datasource, null, {
@@ -405,8 +394,8 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
             //Try getting the title property.
             ['get', 'title'],
 
-            //If there is no title, try getting the subtitle. 
-            ['get', 'subtitle'],
+            //If there is no title, try getting the subTitle. 
+            ['get', 'subTitle'],
 
             //Default to an empty string.
             ''
@@ -439,8 +428,14 @@ Les expressions du type fournissent des outils permettant de tester et de conver
 
 | Expression | Type de retour | Description |
 |------------|-------------|-------------|
+| `['array', value]` \| `['array', type: "string" | "number" | "boolean", value]` | Object[] | Déclare que l’entrée est un tableau. |
+| `['boolean', value]` \| `["boolean", value, fallback: value, fallback: value, ...]` | boolean | Déclare que la valeur d’entrée est un booléen. Si plusieurs valeurs sont fournies, elles sont évaluées dans l’ordre jusqu’à ce qu’un booléen soit obtenu. Si aucune des entrées n’est un booléen, l’expression est une erreur. |
+| `['collator', { 'case-sensitive': boolean, 'diacritic-sensitive': boolean, 'locale': string }]` | collator | Retourne un collator à utiliser dans les opérations de comparaison dépendantes des paramètres régionaux. La valeur par défaut des options case-sensitive et diacritic-sensitive est false. L’argument locale spécifie l’étiquette de langue IETF des paramètres régionaux à utiliser. Si aucune valeur n’est fournie, les paramètres régionaux par défaut sont utilisés. Si les paramètres régionaux demandés ne sont pas disponibles, le collator utilise les paramètres régionaux de base définis par le système. Utilisez resolved-locale pour tester les résultats du comportement des paramètres régionaux de base. |
 | `['literal', array]`<br/><br/>`['literal', object]` | tableau\|objet | Retourne une valeur littérale d’objet ou de tableau. Utilisez cette expression pour empêcher qu’un tableau ou un objet soit évalué en tant qu’expression. Cela est nécessaire quand un tableau ou un objet doit être retourné par une expression. |
 | `['image', string]` | string | Vérifie si un ID d’image spécifié est chargé dans le sprite d’image de mappages. Si c’est le cas, l’ID est retourné ; sinon, la valeur null est retournée. |
+| `['number', value]` \| `["number", value, fallback: value, fallback: value, ...]` | nombre | Déclare que la valeur d’entrée est un nombre. Si plusieurs valeurs sont fournies, elles sont évaluées dans l’ordre jusqu’à ce qu’un nombre soit obtenu. Si aucune des entrées n’est un nombre, l’expression est une erreur. |
+| `['object', value]`  \| `["object", value, fallback: value, fallback: value, ...]` | Object | Déclare que la valeur d’entrée est un objet.  Si plusieurs valeurs sont fournies, elles sont évaluées dans l’ordre jusqu’à ce qu’un objet soit obtenu. Si aucune des entrées n’est un objet, l’expression est une erreur. |
+| `['string', value]` \| `["string", value, fallback: value, fallback: value, ...]` | string | Déclare que la valeur d’entrée est une chaîne. Si plusieurs valeurs sont fournies, elles sont évaluées dans l’ordre jusqu’à ce qu’une chaîne soit obtenue. Si aucune des entrées n’est une chaîne, l’expression est une erreur. |
 | `['to-boolean', value]` | boolean | Convertit la valeur d’entrée en une valeur booléenne. Le résultat est `false` quand l’entrée est une chaîne vide, `0`, `false`, `null` ou `NaN` ; sinon, il prend la valeur `true`. |
 | `['to-color', value]`<br/><br/>`['to-color', value1, value2…]` | color | Convertit la valeur d’entrée en une couleur. Si plusieurs valeurs sont fournies, chacune est évaluée dans l’ordre jusqu’à ce que la première conversion réussie soit obtenue. Si aucune des entrées ne peut être convertie, l’expression est une erreur. |
 | `['to-number', value]`<br/><br/>`['to-number', value1, value2, …]` | nombre | Convertit la valeur d’entrée en un nombre, si cela est possible. Si l’entrée est `null` ou `false`, le résultat est 0. Si l’entrée est `true`, le résultat est 1. Si l’entrée est une chaîne, elle est convertie en un nombre à l’aide de la fonction de chaîne [ToNumber](https://tc39.github.io/ecma262/#sec-tonumber-applied-to-the-string-type) de la spécification de langage ECMAScript. Si plusieurs valeurs sont fournies, chacune est évaluée dans l’ordre jusqu’à ce que la première conversion réussie soit obtenue. Si aucune des entrées ne peut être convertie, l’expression est une erreur. |
@@ -475,13 +470,13 @@ Les expressions de couleur simplifient la création et la manipulation de valeur
 
 | Expression | Type de retour | Description |
 |------------|-------------|-------------|
-| `['rgb', number, number, number]` | color | Crée une valeur de couleur à partir des composants *red* , *green* et *blue* dont les valeurs doivent être comprises entre `0` et `255`, et d’un composant alpha ayant la valeur `1`. Si l’un des composants est hors limites, l’expression est une erreur. |
-| `['rgba', number, number, number, number]` | color | Crée une valeur de couleur à partir des composants *red* , *green* , *blue* dont les valeurs doivent être comprises entre `0` et `255`, et d’un composant alpha dont la valeur est comprise entre `0` et `1`. Si l’un des composants est hors limites, l’expression est une erreur. |
-| `['to-rgba']` | \[nombre, nombre, nombre, nombre\] | Retourne un tableau à quatre éléments contenant les composants *red* , *green* , *blue* et *alpha* de la couleur d’entrée, dans cet ordre. |
+| `['rgb', number, number, number]` | color | Crée une valeur de couleur à partir des composants *red*, *green* et *blue* dont les valeurs doivent être comprises entre `0` et `255`, et d’un composant alpha ayant la valeur `1`. Si l’un des composants est hors limites, l’expression est une erreur. |
+| `['rgba', number, number, number, number]` | color | Crée une valeur de couleur à partir des composants *red*, *green*, *blue* dont les valeurs doivent être comprises entre `0` et `255`, et d’un composant alpha dont la valeur est comprise entre `0` et `1`. Si l’un des composants est hors limites, l’expression est une erreur. |
+| `['to-rgba']` | \[nombre, nombre, nombre, nombre\] | Retourne un tableau à quatre éléments contenant les composants *red*, *green*, *blue* et *alpha* de la couleur d’entrée, dans cet ordre. |
 
 **Exemple**
 
-L’exemple suivant crée une valeur de couleur RVB qui a une valeur *red* égale à `255` et des valeurs *green* et *blue* calculées en multipliant `2.5` par la valeur de la propriété `temperature`. Quand la température change, la couleur est remplacée par différentes nuances de rouge ( *red* ).
+L’exemple suivant crée une valeur de couleur RVB qui a une valeur *red* égale à `255` et des valeurs *green* et *blue* calculées en multipliant `2.5` par la valeur de la propriété `temperature`. Quand la température change, la couleur est remplacée par différentes nuances de rouge (*red*).
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -505,6 +500,8 @@ Les expressions d’opérateur de chaîne effectuent des opérations de conversi
 |------------|-------------|-------------|
 | `['concat', string, string, …]` | string | Concatène plusieurs chaînes. Chaque valeur doit être une chaîne. Utilisez l’expression du type `to-string` pour convertir d’autres types de valeurs en chaîne, si nécessaire. |
 | `['downcase', string]` | string | Convertit la chaîne spécifiée en minuscules. |
+| `['is-supported-script', string]` \| `['is-supported-script', Expression]`| boolean | Détermine si la chaîne d’entrée utilise un jeu de caractères pris en charge par la pile de polices actuelle. Par exemple : `['is-supported-script', 'ಗೌರವಾರ್ಥವಾಗಿ']` |
+| `['resolved-locale', string]` | string | Retourne l’étiquette de langue IETF des paramètres régionaux utilisés par le collator fourni. Vous pouvez vous en servir pour déterminer les paramètres régionaux par défaut du système ou pour savoir si les paramètres régionaux demandés ont bien été chargés. |
 | `['upcase', string]` | string | Convertit la chaîne spécifiée en majuscules. |
 
 **Exemple**
@@ -575,14 +572,10 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
         'interpolate',
         ['linear'],
         ['get', 'temperature'],
-        50,        
-        'blue',
-        60,
-        'yellow',
-        70,
-        'orange',
-        80,
-        'red'
+        50, 'blue',
+        60, 'yellow',
+        70, 'orange',
+        80, 'red'
     ]
 });
 ```
@@ -624,12 +617,9 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
         'step',
         ['get', 'temperature'],
         'blue',
-        60,
-        'yellow',
-        70,
-        'orange',
-        80,
-        'red'
+        60, 'yellow',
+        70, 'orange',
+        80, 'red'
     ]
 });
 ```
@@ -724,7 +714,6 @@ L’expression de format de champ de texte peut être utilisée avec l’option 
 
  * `'font-scale'` : spécifie le facteur d’échelle pour la taille de police. Si elle est spécifiée, cette valeur remplace la propriété `size` des `textOptions` pour la chaîne individuelle.
  * `'text-font'` : spécifie une ou plusieurs familles de polices qui doivent être utilisés pour cette chaîne. Si elle est spécifiée, cette valeur remplace la propriété `font` des `textOptions` pour la chaîne individuelle.
- * `'text-color'` : spécifie une couleur à appliquer à un texte lors du rendu. 
 
 Le pseudo-code suivant définit la structure de l’expression de format de champ de texte. 
 
@@ -734,14 +723,12 @@ Le pseudo-code suivant définit la structure de l’expression de format de cham
     input1: string, 
     options1: { 
         'font-scale': number, 
-        'text-font': string[],
-        'text-color': color
+        'text-font': string[]
     },
     input2: string, 
     options2: { 
         'font-scale': number, 
-        'text-font': string[] ,
-        'text-color': color
+        'text-font': string[]
     },
     …
 ]
@@ -749,7 +736,7 @@ Le pseudo-code suivant définit la structure de l’expression de format de cham
 
 **Exemple**
 
-L’exemple suivant met en forme le champ de texte en ajoutant une police gras et en effectuant un scale-up de la taille de police de la propriété `title` de la fonctionnalité. Cet exemple ajoute également la propriété `subtitle` de la fonctionnalité sur une nouvelle ligne, avec une taille de police Descendre en puissance et de couleur rouge.
+L’exemple suivant met en forme le champ de texte en ajoutant une police gras et en effectuant un scale-up de la taille de police de la propriété `title` de la fonctionnalité. Cet exemple ajoute également la propriété `subTitle` de la fonctionnalité sur une nouvelle ligne, avec un scale-down de la taille de police.
 
 ```javascript
 var layer = new atlas.layer.SymbolLayer(datasource, null, {
@@ -766,11 +753,10 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 
             '\n', {},   //Add a new line without any formatting.
 
-            //Scale the font size down of the subtitle property. 
-            ['get', 'subtitle'],
+            //Scale the font size down of the subTitle property. 
+            ['get', 'subTitle'],
             { 
-                'font-scale': 0.75, 
-                'text-color': 'red' 
+                'font-scale': 0.75
             }
         ]
     }
@@ -817,7 +803,7 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
         textField: [
             'number-format', 
             ['get', 'revenue'], 
-            { ‘currency': 'USD' }
+            { 'currency': 'USD' }
         ],
 
         offset: [0, 0.75]
@@ -885,7 +871,7 @@ var layer = new atlas.layer.HeatMapLayer(datasource, null, {
         ['zoom'],
         
         //For zoom level 1 set the radius to 2 pixels.
-        10, 2,
+        1, 2,
 
         //Between zoom level 1 and 19, exponentially scale the radius from 2 pixels to 2 * Math.pow(2, 19 - 1) pixels (524,288 pixels).
         19, 2 * Math.pow(2, 19 - 1)

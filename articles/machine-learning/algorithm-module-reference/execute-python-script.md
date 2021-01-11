@@ -10,12 +10,12 @@ ms.custom: devx-track-python
 author: likebupt
 ms.author: keli19
 ms.date: 12/02/2020
-ms.openlocfilehash: 360f0ce60a35bc96c6dd8e46d636f07124d01255
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: d1e4ffa525c5628d0b6c9a3ca67f3e069c44e823
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511914"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97679194"
 ---
 # <a name="execute-python-script-module"></a>Module Exécuter un script Python
 
@@ -156,7 +156,7 @@ Le module Exécuter un script Python contient un exemple de code Python que vous
     1. Regroupez le script et d'autres ressources personnalisées dans un fichier zip.
     1. Chargez le fichier zip en tant que **jeu de données** dans Studio. 
     1. Faites glisser le module du jeu de données de la liste *Jeux de données* vers le volet de module de gauche sur la page de création du concepteur. 
-    1. Connectez le module de jeu de données au port **Script Bundle** du module **Exécuter le script R**.
+    1. Connectez le module de jeu de données au port **Script Bundle** du module **Exécuter le script Python**.
     
     Tous les fichiers qui figurent dans l’archive zip chargée sont utilisables lors de l’exécution du pipeline. Si l’archive est contenue dans une structure de répertoires, la structure est conservée.
  

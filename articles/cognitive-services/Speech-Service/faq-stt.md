@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: panosper
-ms.openlocfilehash: 32f6a9dae1a5b0be604b53d814ebc85cb7813b91
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: a78e18de1f495feb6234fa5bfd97162d8b80de4c
+ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353763"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857322"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Forum aux questions sur la reconnaissance vocale
 
@@ -25,7 +25,7 @@ Si vous ne trouvez pas de réponses à vos questions dans ce FAQ, consultez les 
 
 **Q : Quelle est la différence entre un modèle de reconnaissance vocale de référence et un modèle personnalisé ?**
 
-**R** : Un modèle de référence est un modèle formé à l’aide de données appartenant à Microsoft et déjà déployé dans le cloud. Un modèle personnalisé permet d’adapter un modèle à un environnement spécifique se singularisant par un bruit ambiant ou un langage particuliers. Un atelier, une voiture ou une rue bruyante nécessiteraient d’utiliser un modèle acoustique adapté. Des thèmes tels que la biologie, la physique et la radiologie, ou dans le cadre desquels sont utilisés des noms de produits et autres acronymes personnalisés nécessiteraient un modèle linguistique adapté.
+**R** : Un modèle de référence est un modèle formé à l’aide de données appartenant à Microsoft et déjà déployé dans le cloud. Un modèle personnalisé permet d’adapter un modèle à un environnement spécifique se singularisant par un bruit ambiant ou un langage particuliers. Un atelier, une voiture ou une rue bruyante nécessiteraient d’utiliser un modèle acoustique adapté. Des thèmes tels que la biologie, la physique et la radiologie, ou dans le cadre desquels sont utilisés des noms de produits et autres acronymes personnalisés nécessiteraient un modèle linguistique adapté. Si vous entraînez un modèle personnalisé, commencez par du texte connexe pour améliorer la reconnaissance de termes et d’expressions spéciaux.
 
 **Q : Par où commencer si je souhaite utiliser un modèle de référence ?**
 
@@ -49,9 +49,15 @@ Vous pouvez déployer des modèles de référence et personnalisés dans le port
 
 **R** : Actuellement, vous ne pouvez pas restaurer un processus d’adaptation acoustique ou linguistique. Vous pouvez supprimer des données et modèles importés une fois que ceux-ci sont dans un état terminal.
 
-**Q : Quelle est la différence entre les modèles Search (Recherche) ou Dictation (Dictée) et le modèle Conversational (Conversation) ?**
+**Q : J’obtiens plusieurs résultats pour chaque expression avec le format de sortie détaillé. Lequel dois-je utiliser ?**
 
-**R** : Le service vocal vous offre le choix entre plusieurs modèles de référence. Le modèle Conversational (Conversation) est adapté à la reconnaissance vocale de langage familier ou informel. Ce modèle est idéal pour la transcription d’appels téléphoniques. Les modèles Search (Recherche) et Dictation (Dictée) sont idéaux pour les applications déclenchées par la voix. Le modèle Universal (Universel) est un nouveau modèle destiné à couvrir les deux scénarios. Actuellement, le modèle Universal (Universel) répond ou dépasse le niveau de qualité du modèle Conversational (Conversation) dans la plupart des paramètres régionaux.
+**R** : Prenez toujours le premier résultat, même si un autre résultat (« N-Best ») peut avoir une valeur de confiance plus élevée. Le service Speech considère le premier résultat comme le meilleur. Il peut également s’agir d’une chaîne vide si aucun message n’a été reconnu.
+
+Les autres résultats sont vraisemblablement moins bons. Il se peut que les majuscules et la ponctuation ne soient pas entièrement appliquées. Ces résultats sont particulièrement utiles dans des scénarios spéciaux, par exemple pour donner aux utilisateurs la possibilité de choisir des corrections dans une liste ou pour gérer des commandes mal reconnues.
+
+**Q : Pourquoi existe-t-il différents modèles de base ?**
+
+**R** : Le service Speech vous offre le choix entre plusieurs modèles de base. Chaque nom de modèle contient la date à laquelle il a été ajouté. Lorsque vous commencez l’apprentissage d’un modèle personnalisé, utilisez le modèle le plus récent pour obtenir la meilleure précision possible. Les anciens modèles de base restent disponibles pendant un certain temps après qu’un nouveau modèle a été mis à disposition. Vous pouvez continuer à utiliser le modèle avec lequel vous avez travaillé jusqu’à ce qu’il soit mis hors service (cf. [Cycle de vie des modèles](custom-speech-overview.md#model-lifecycle)). Il est néanmoins recommandé de basculer vers le dernier modèle de base pour une meilleure précision.
 
 **Q : Puis-je mettre à jour un modèle existant (empilement de modèles) ?**
 
@@ -59,19 +65,27 @@ Vous pouvez déployer des modèles de référence et personnalisés dans le port
 
 L’ancien et le nouveau jeux de données doivent être combinés dans un seul fichier .zip (pour les données acoustiques) ou dans un fichier .txt (pour les données linguistiques). Une fois les adaptations apportées, le nouveau modèle mis à jour doit être redéployé afin d’obtenir un nouveau point de terminaison.
 
-**Q : Quand une nouvelle version d’une base de référence est disponible, mon déploiement est-il mis à jour automatiquement ?**
+**Q : Quand une nouvelle version d’un modèle de base est disponible, mon déploiement est-il mis à jour automatiquement ?**
 
 **R** : Les déploiements ne sont PAS mis à jour automatiquement.
 
-Si vous avez adapté et déployé un modèle de référence V1.0, ce déploiement reste en l’état. Les clients peuvent désactiver le modèle déployé, le réadapter à l’aide de la version plus récente de la base de référence, puis redéployer leur nouveau modèle.
+Si vous avez adapté et déployé un modèle, ce déploiement reste en l’état. Vous pouvez désactiver le modèle déployé, le réadapter à l’aide de la version plus récente du modèle de base, puis le redéployer pour une meilleure précision.
+
+Les modèles de base et les modèles personnalisés sont mis hors service après un certain temps (cf. [Cycle de vie des modèles](custom-speech-overview.md#model-lifecycle)).
 
 **Q : Puis-je télécharger mon modèle et l’exécuter localement ?**
 
-**R** : Il n’est pas possible de télécharger et d’exécuter des modèles localement.
+**R** : Vous pouvez exécuter un modèle personnalisé localement dans un [conteneur Docker](speech-container-howto.md?tabs=cstt).
+
+**Q : Puis-je copier ou déplacer mes jeux de données, modèles et déploiements dans une autre région ou un autre abonnement ?**
+
+**R** : Vous pouvez utiliser [l’API REST](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription) pour copier un modèle personnalisé dans une autre région ou un autre abonnement. Il n’est possible de copier ni les jeux de données ni les déploiements. Vous pouvez réimporter un jeu de données dans un autre abonnement et y créer des points de terminaison à l’aide des copies du modèle.
 
 **Q : Mes requêtes sont-elles journalisées ?**
 
-**R** : Par défaut, les demandes ne sont pas journalisées (ni audio, ni transcription). Si nécessaire, vous pouvez sélectionner *Journaliser le contenu à partir de ce point de terminaison* lorsque vous [créez un point de terminaison personnalisé](./how-to-custom-speech-train-model.md) pour activer le suivi. Les demandes seront alors consignées dans Azure, dans un stockage sécurisé.
+**R** : Par défaut, les demandes ne sont pas journalisées (ni audio, ni transcription). Si nécessaire, vous pouvez sélectionner *Journaliser le contenu à partir de ce point de terminaison* lorsque vous [créez un point de terminaison personnalisé](./how-to-custom-speech-train-model.md). Il est également possible d’activer la journalisation audio dans le [kit de développement logiciel (SDK) Speech](speech-sdk.md) demande par demande sans créer de point de terminaison personnalisé. Dans les deux cas, les données audio et les résultats de la reconnaissance des demandes sont stockés dans un stockage sécurisé. Dans le cas des abonnements qui utilisent le stockage appartenant à Microsoft, ils sont disponibles pendant 30 jours.
+
+Vous pouvez exporter les fichiers journalisés sur la page de déploiement dans Speech Studio si vous utilisez un point de terminaison personnalisé pour lequel l’option *Journaliser le contenu à partir de ce point de terminaison* est activée. Si la journalisation audio est activée par l’intermédiaire du kit SDK, appelez [l’API](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetBaseModelLogs) pour accéder aux fichiers.
 
 **Q : Mes requêtes sont-elles limitées ?**
 
@@ -92,7 +106,7 @@ Consultez [Quotas et limites des services Speech](speech-services-quotas-and-lim
 
 **Q : Quelle est la limite de taille d’un jeu de données, et pourquoi ?**
 
-**R** : Cette limite découle de la restriction de taille de fichier pour le chargement HTTP. Consultez [Quotas et limites des services Speech](speech-services-quotas-and-limits.md) pour la limite réelle.
+**R** : Cette limite découle de la restriction de taille de fichier pour le chargement HTTP. Consultez [Quotas et limites des services Speech](speech-services-quotas-and-limits.md) pour la limite réelle. Vous pouvez fractionner vos données en plusieurs jeux de données et les sélectionner tous pour entraîner le modèle.
 
 **Q : Puis-je zipper mes fichiers texte afin de charger des fichiers plus volumineux ?**
 
@@ -120,19 +134,17 @@ Consultez [Quotas et limites des services Speech](speech-services-quotas-and-lim
 
 **R** : Oui. Vous pouvez les transcrire vous-même ou utiliser un service de transcription professionnel. Certains utilisateurs se tournent vers des transcripteurs professionnels, d’autres optent pour une externalisation participative, et d’autres encore préfèrent transcrire eux-mêmes.
 
+**Q : Combien de temps faut-il pour entraîner les données audio d’un modèle personnalisé ?**
+
+**R** : L’apprentissage d’un modèle avec des données audio est un processus long. Selon la quantité de données, la création d’un modèle personnalisé peut prendre plusieurs jours. Si elle n’est pas terminée au bout d’une semaine, le service peut abandonner l’opération d’apprentissage et signaler un échec du modèle. Pour obtenir des résultats plus rapides, utilisez l’une des [régions](custom-speech-overview.md#set-up-your-azure-account) dans lesquelles du matériel dédié est disponible pour l’apprentissage. Vous pouvez copier le modèle entièrement entraîné dans une autre région à l’aide de [l’API REST](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription). L’apprentissage sur du simple texte est beaucoup plus rapide : il se termine généralement au bout de quelques minutes.
+
+Certains modèles de base ne sont pas personnalisables avec des données audio. Dans ce cas, le service utilise simplement le texte de la transcription pour l’apprentissage et ignore les données audio. L’apprentissage se révèlera alors beaucoup plus rapide. Les résultats seront les mêmes que pour l’apprentissage sur du simple texte.
+
 ## <a name="accuracy-testing"></a>Tests de précision
-
-**Q : Puis-je tester hors connexion mon modèle acoustique personnalisé à l’aide d’un modèle linguistique personnalisé ?**
-
-**R** : Oui. Sélectionnez simplement le modèle linguistique personnalisé dans le menu déroulant quand vous configurez le test hors connexion.
-
-**Q : Puis-je tester hors connexion mon modèle linguistique personnalisé à l’aide d’un modèle acoustique personnalisé ?**
-
-**R** : Oui. Sélectionnez simplement le modèle acoustique personnalisé dans le menu déroulant quand vous configurez le test hors connexion.
 
 **Q : Qu’est-ce que le taux d’erreur de mots et comment est-il calculé ?**
 
-**R** : Le taux d’erreur de mots est la métrique d’évaluation de la reconnaissance vocale. Il est calculé comme le nombre total d’erreurs d’insertion, de suppression et de remplacement, divisé par le nombre total de mots présents dans la transcription de référence. Pour plus d’informations, voir [taux d’erreur de mots](https://en.wikipedia.org/wiki/Word_error_rate).
+**R** : Le taux d’erreur de mots est la métrique d’évaluation de la reconnaissance vocale. Il est calculé comme le nombre total d’erreurs d’insertion, de suppression et de remplacement, divisé par le nombre total de mots présents dans la transcription de référence. Pour plus d’informations, consultez [Évaluation de la précision de Custom Speech](how-to-custom-speech-evaluate-data.md#evaluate-custom-speech-accuracy).
 
 **Q : Comment faire pour déterminer si les résultats d’un test de précision sont bons ?**
 

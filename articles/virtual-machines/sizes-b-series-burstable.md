@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: sttsinar
-ms.openlocfilehash: ea812df825288eae3822cce01b24ebc82534c541
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 5ba5c6799db6a32bce64a730f4888f59080300dd
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928815"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97657173"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Tailles de machines virtuelles modulables Série B
 

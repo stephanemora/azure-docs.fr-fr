@@ -7,14 +7,14 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/11/2020
+ms.date: 12/15/2020
 ms.author: rolyon
-ms.openlocfilehash: eddbd9cb695f3ff7eabd9f2549d0a868d8826eb9
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 79aaeee942a6d46243ee1c72d5904484b8698ebe
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97369121"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617321"
 ---
 # <a name="azure-custom-roles"></a>Rôles personnalisés Azure
 
@@ -208,6 +208,7 @@ La liste suivante décrit les limites des rôles personnalisés.
 - Chaque annuaire peut avoir jusqu’à **5 000** rôles personnalisés.
 - Azure Allemagne et Azure Chine 21Vianet peuvent avoir jusqu’à 2 000 rôles personnalisés pour chaque annuaire.
 - Vous ne pouvez pas définir `AssignableScopes` à l’étendue racine (`"/"`).
+- Vous ne pouvez pas utiliser de caractères génériques (`*`) dans `AssignableScopes`. Cette restriction de caractère générique permet de garantir qu’un utilisateur ne peut pas obtenir l’accès à une étendue en mettant à jour la définition de rôle.
 - Vous ne pouvez définir qu’un seul groupe d’administration dans `AssignableScopes` d’un rôle personnalisé. L’ajout d’un groupe d’administration à `AssignableScopes` est actuellement en préversion.
 - Les rôles personnalisés avec `DataActions` ne peuvent pas être attribués dans l’étendue du groupe d’administration.
 - Azure Resource Manager ne valide pas le groupe d’administration existant dans l’étendue attribuable de la définition de rôle.

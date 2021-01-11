@@ -11,12 +11,12 @@ ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/02/2020
-ms.openlocfilehash: 75073cd2f0dae9cac12175677427671101813a90
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: e839b8a22da50ce172043f57a4467219a1771175
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97355220"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97584199"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Contrôle de code source dans Azure Data Factory
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -103,7 +103,7 @@ Le volet de configuration affiche les paramètres du dépôt de code Azure Repos
 | **Organisation Azure Repos** | Nom de votre organisation Azure Repos. Vous trouverez le nom de votre organisation Azure Repos sur `https://{organization name}.visualstudio.com`. Vous pouvez vous [connecter à votre organisation Azure Repos](https://www.visualstudio.com/team-services/git/) pour accéder à votre profil Visual Studio et visualiser vos dépôts et projets. | `<your organization name>` |
 | **Nom du projet** | Nom de votre projet Azure Repos. Vous trouverez le nom de votre projet Azure Repos sur `https://{organization name}.visualstudio.com/{project name}`. | `<your Azure Repos project name>` |
 | **RepositoryName** | Nom de votre dépôt de code Azure Repos. Les projets Azure Repos contiennent des dépôts Git pour gérer votre code source à mesure que votre projet se développe. Vous pouvez créer un nouveau référentiel ou utiliser un référentiel existant déjà présent dans le projet. | `<your Azure Repos code repository name>` |
-| **Branche de collaboration** | Votre branche de collaboration Azure Repos utilisée pour la publication. Par défaut, il s’agit de `master`. Modifiez ce paramètre au cas où vous souhaitez publier des ressources à partir d’une autre branche. | `<your collaboration branch name>` |
+| **Branche de collaboration** | Votre branche de collaboration Azure Repos utilisée pour la publication. Par défaut, il s’agit de `main`. Modifiez ce paramètre au cas où vous souhaitez publier des ressources à partir d’une autre branche. | `<your collaboration branch name>` |
 | **Dossier racine** | Votre dossier racine de votre branche de collaboration Azure Repos. | `<your root folder name>` |
 | **Import existing Data Factory resources to repository** (Importer des ressources Data Factory existantes dans le référentiel) | Indique s’il convient d’importer des ressources de fabrique de données existantes à partir du **canevas de création** de l’expérience utilisateur dans un dépôt Azure Repos Git. Activez la case pour importer vos ressources de fabrique de données dans le référentiel Git associé au format JSON. Cette action exporte chaque ressource individuellement (autrement dit, les services et jeux de données liés sont exportés dans des fichiers JSON distincts). Lorsque cette case n’est pas activée, les ressources existantes ne sont pas importées. | Activée (par défaut) |
 | **Branche sur laquelle importer la ressource** | Indique dans quelle branche les ressources de la fabrique de données (pipelines, ensembles de données, services liés, etc.) sont importées. Vous pouvez importer des ressources dans l’une des branches suivantes : a. Collaboration b. Créer c. Utiliser l’existant |  |
@@ -153,7 +153,7 @@ Le volet de configuration affiche les paramètres du dépôt GitHub suivants :
 | **URL GitHub Enterprise** | URL racine de GitHub Enterprise (doit être HTTPS pour un serveur local GitHub Enterprise). Par exemple : `https://github.mydomain.com`. Obligatoire uniquement si l’option **Utiliser GitHub Enterprise** est sélectionnée | `<your GitHub enterprise url>` |                                                           
 | **Compte GitHub** | Le nom de votre compte GitHub. Vous trouverez ce nom dans https:\//github.com/{nom du compte}/{nom du référentiel}. En naviguant sur cette page, vous êtes invité à entrer les informations d’identification GitHub OAuth sur votre compte GitHub. | `<your GitHub account name>` |
 | **Nom du dépôt**  | Le nom de votre référentiel de code GitHub. Les comptes GitHub contiennent des référentiels Git pour gérer votre code source. Vous pouvez créer un nouveau référentiel ou utiliser un référentiel existant déjà présent dans le compte. | `<your repository name>` |
-| **Branche de collaboration** | Votre branche de collaboration GitHub utilisée pour la publication. Par défaut, il s’agit de la branche principale. Modifiez ce paramètre au cas où vous souhaitez publier des ressources à partir d’une autre branche. | `<your collaboration branch>` |
+| **Branche de collaboration** | Votre branche de collaboration GitHub utilisée pour la publication. Par défaut, il s’agit de l’adresse e-mail principale. Modifiez ce paramètre au cas où vous souhaitez publier des ressources à partir d’une autre branche. | `<your collaboration branch>` |
 | **Dossier racine** | Votre dossier racine de votre branche de collaboration GitHub. |`<your root folder name>` |
 | **Import existing Data Factory resources to repository** (Importer des ressources Data Factory existantes dans le référentiel) | Indique s’il faut importer des ressources de fabrique de données existantes à partir de la zone de travail de création de l’expérience en matière d’interface utilisateur dans un dépôt GitHub. Activez la case pour importer vos ressources de fabrique de données dans le référentiel Git associé au format JSON. Cette action exporte chaque ressource individuellement (autrement dit, les services et jeux de données liés sont exportés dans des fichiers JSON distincts). Lorsque cette case n’est pas activée, les ressources existantes ne sont pas importées. | Activée (par défaut) |
 | **Branche sur laquelle importer la ressource** | Indique dans quelle branche les ressources de la fabrique de données (pipelines, ensembles de données, services liés, etc.) sont importées. Vous pouvez importer des ressources dans l’une des branches suivantes : a. Collaboration b. Créer c. Utiliser l’existant |  |
@@ -207,11 +207,11 @@ Les systèmes de contrôle de version (également appelé _contrôle du code sou
 
 ### <a name="creating-feature-branches"></a>Création de branches de fonctionnalités
 
-Chaque dépôt Azure Repos Git associé à une fabrique de données comporte une branche de collaboration. (`main` est la branche de collaboration par défaut). Les utilisateurs peuvent également créer des branches de fonctionnalités en cliquant sur **+ Nouvelle branche** dans la liste déroulante des branches. Une fois le volet de la nouvelle branche affiché, entrez le nom de votre branche de fonctionnalités.
+Chaque dépôt Azure Repos Git associé à une fabrique de données comporte une branche de collaboration. (`main`) est la branche de collaboration par défaut). Les utilisateurs peuvent également créer des branches de fonctionnalités en cliquant sur **+ Nouvelle branche** dans la liste déroulante des branches. Une fois le volet de la nouvelle branche affiché, entrez le nom de votre branche de fonctionnalités.
 
 ![Créer une branche](media/author-visually/new-branch.png)
 
-Lorsque vous êtes prêt à fusionner les modifications de votre branche de fonctionnalités dans votre branche de collaboration, cliquez sur la liste déroulante des branches et sélectionnez **Créer la demande de tirage (pull request)** . Cette action vous dirige vers Azure Repos Git où vous pouvez augmenter les demandes de tirage, procéder à des revues du code et fusionner les modifications dans votre branche de collaboration. (`master` est la valeur par défaut). Vous êtes uniquement autorisé à publier sur le service Data Factory à partir de votre branche de collaboration. 
+Lorsque vous êtes prêt à fusionner les modifications de votre branche de fonctionnalités dans votre branche de collaboration, cliquez sur la liste déroulante des branches et sélectionnez **Créer la demande de tirage (pull request)** . Cette action vous dirige vers Azure Repos Git où vous pouvez augmenter les demandes de tirage, procéder à des revues du code et fusionner les modifications dans votre branche de collaboration. (`main` est la valeur par défaut). Vous êtes uniquement autorisé à publier sur le service Data Factory à partir de votre branche de collaboration. 
 
 ![Créer une nouvelle demande de tirage (pull request)](media/author-visually/create-pull-request.png)
 
@@ -232,7 +232,7 @@ Azure Data Factory ne peut avoir qu’une seule branche de publication à la foi
 
 ### <a name="publish-code-changes"></a>Publier les modifications de code
 
-Après avoir fusionné des modifications dans la branche de collaboration (`master` est la valeur par défaut), cliquez sur **Publier** pour publier manuellement les modifications de votre code dans la branche principale pour le service Data Factory.
+Après avoir fusionné des modifications dans la branche de collaboration (`main` est la valeur par défaut), cliquez sur **Publier** pour publier manuellement les modifications de votre code dans la branche primaire pour le service Data Factory.
 
 ![Publier les modifications apportées au service Data Factory](media/author-visually/publish-changes.png)
 
@@ -241,7 +241,7 @@ Un volet latéral s’ouvre, dans lequel vous confirmez que la branche de public
 ![Confirmer la branche de publication correcte](media/author-visually/configure-publish-branch.png)
 
 > [!IMPORTANT]
-> La branche principale n’est pas représentative de ce qui est déployé dans le service Data Factory. La branche principale *doit* être publiée manuellement sur le service Data Factory.
+> La branche primaire n’est pas représentative de ce qui est déployé dans le service Data Factory. La branche primaire *doit* être publiée manuellement sur le service Data Factory.
 
 ## <a name="best-practices-for-git-integration"></a>Meilleures pratiques d'intégration Git
 
@@ -264,7 +264,7 @@ L’utilisation de Key Vault de l’authentification MSI facilite également l�
 
 ### <a name="stale-publish-branch"></a>Branche de publication obsolète
 
-Si la branche de publication n’est pas synchronisée avec la branche principale et contient des ressources obsolètes malgré une publication récente, essayez d’effectuer les étapes suivantes :
+Si la branche de publication n’est pas synchronisée avec la branche primaire et contient des ressources obsolètes malgré une publication récente, essayez de suivre les étapes suivantes :
 
 1. Supprimez votre dépôt Git actuel
 1. Reconfigurez Git avec les mêmes paramètres, mais vérifiez que l’option **Import existing Data Factory resources to repository** (Importer des ressources Data Factory existantes dans le dépôt) est sélectionnée et choisissez **Nouvelle branche**

@@ -12,12 +12,12 @@ ms.date: 03/30/2020
 ms.author: amishu
 ms.custom: devx-track-csharp
 zone_pivot_groups: programming-languages-set-twenty-two
-ms.openlocfilehash: ace584b51f0aa457e30d8e48d97834aa735a1a57
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 410c0942b9040a6707a51e4ff9f375b9d4728668
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95026571"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97821568"
 ---
 # <a name="use-codec-compressed-audio-input-with-the-speech-sdk"></a>Utiliser une entrée audio compressée par codec avec le SDK Speech
 
@@ -25,7 +25,7 @@ L’API **Compressed Audio Input Stream** du SDK du service Speech permet de dif
 
 Plateforme | Languages | Version de GStreamer prise en charge
 | :--- | ---: | :---:
-Windows (sauf UWP)  | C++, C#, Java, Python | [1.15.1](https://gstreamer.freedesktop.org/data/pkg/windows/1.15.1/)
+Windows (sauf UWP)  | C++, C#, Java, Python | [1.15.1](https://gstreamer.freedesktop.org/releases/gstreamer/1.5.1.html)
 Linux  | C++, C#, Java, Python | [architectures cibles et distributions Linux prises en charge](~/articles/cognitive-services/speech-service/speech-sdk.md)
 Android  | Java | [1.14.4](https://gstreamer.freedesktop.org/data/pkg/android/1.14.4/)
 
@@ -35,7 +35,7 @@ Android  | Java | [1.14.4](https://gstreamer.freedesktop.org/data/pkg/android/1.
 
 [!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="gstreamer-required-to-handle-compressed-audio"></a>GStreamer requis pour gérer l’audio compressé
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/csharp/prerequisites.md)]

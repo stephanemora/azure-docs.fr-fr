@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: ffbf3fa3e2d404b7bc5888ef01707cbd816600b3
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: ab056e0685264b03d35ee6b95afad7c6362f9db6
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182850"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695784"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>Azure Automanage pour machines virtuelles
 
@@ -52,7 +52,7 @@ Vous devez disposer du rôle **Contributeur** sur le groupe de ressources conten
 > [!NOTE]
 > Si vous souhaitez utiliser Automanage sur une machine virtuelle qui est connectée à un espace de travail dans un autre abonnement, vous devez disposer des autorisations décrites ci-dessus pour chaque abonnement.
 
-Il est également important de noter que le service Automanage ne prend en charge que des machines virtuelles Windows situées dans les régions suivantes : Europe Ouest, USA Est, USA Ouest 2, Canada Centre, USA Centre-Ouest.
+Il est également important de noter que le service Automanage ne prend en charge que des machines virtuelles Windows situées dans les régions suivantes : Europe Ouest, USA Est, USA Ouest 2, Canada Centre, USA Centre-Ouest, Japon Est.
 
 ## <a name="participating-services"></a>Services participant
 

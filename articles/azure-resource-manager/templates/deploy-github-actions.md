@@ -4,16 +4,16 @@ description: Explique comment déployer des modèles Azure Resource Manager (mod
 ms.topic: conceptual
 ms.date: 10/13/2020
 ms.custom: github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: 4cda8307d417880469e6043b84c3ac55ed30071c
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 4c1f59e9a18e7359ae543b0311baea0c2a4ab8d6
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905840"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674330"
 ---
 # <a name="deploy-arm-templates-by-using-github-actions"></a>Déployer des modèles ARM à l’aide de GitHub Actions
 
-[GitHub Actions](https://help.github.com/actions/getting-started-with-github-actions/about-github-actions) est une suite de fonctionnalités dans GitHub permettant d’automatiser vos workflows de développement logiciel dans le même emplacement que celui où vous stockez le code et collaborez sur les demandes de tirage (pull requests) et les problèmes.
+[GitHub Actions](https://docs.github.com/en/free-pro-team@latest/actions) est une suite de fonctionnalités dans GitHub permettant d’automatiser vos workflows de développement logiciel dans le même emplacement que celui où vous stockez le code et collaborez sur les demandes de tirage (pull requests) et les problèmes.
 
 Utilisez l’action [Déployer un modèle Azure Resource Manager](https://github.com/marketplace/actions/deploy-azure-resource-manager-arm-template) pour automatiser le déploiement d’un modèle Azure Resource Manager (modèle ARM) sur Azure.
 
@@ -21,7 +21,7 @@ Utilisez l’action [Déployer un modèle Azure Resource Manager](https://github
 
 - Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Un compte GitHub. Si vous n’en avez pas, inscrivez-vous [gratuitement](https://github.com/join).
-    - Un référentiel GitHub pour stocker vos modèles Resource Manager et vos fichiers de workflow. Pour en créer un, consultez [Création d’un référentiel](https://help.github.com/en/enterprise/2.14/user/articles/creating-a-new-repository).
+    - Un référentiel GitHub pour stocker vos modèles Resource Manager et vos fichiers de workflow. Pour en créer un, consultez [Création d’un référentiel](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/creating-a-new-repository).
 
 
 ## <a name="workflow-file-overview"></a>Vue d’ensemble du fichier de workflow
@@ -158,3 +158,6 @@ Lorsque votre groupe de ressource et référentiel ne sont plus nécessaires, ne
 
 > [!div class="nextstepaction"]
 > [Créer votre premier modèle ARM](./template-tutorial-create-first-template.md)
+
+> [!div class="nextstepaction"]
+> [Module d’apprentissage : Automatisation du déploiement de modèles ARM avec GitHub Actions](/learn/modules/deploy-templates-command-line-github-actions/)

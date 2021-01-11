@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2020
-ms.openlocfilehash: 5f7278a688147842b7dbfab79a20afea2b4a9288
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 5b39ccc365575853a4a74a471023989f34ebc577
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621601"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97821483"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>Planifier une offre SaaS pour la place de marché commerciale
 
@@ -250,7 +250,7 @@ Vous trouverez ci-dessous un exemple de ventilation des coûts et des paiements 
 | Microsoft vous verse 80 % des revenus générés par les licences<br>`*` Pour les applications SaaS qualifiées, Microsoft paie 90 % de vos frais de licence| 80 $/mois<br>``*`` 90 $/mois |
 |||
 
-**`*` Frais de service de place de marché réduits** : pour certaines offres SaaS que vous avez publiées sur notre place de marché commerciale, Microsoft réduit ses frais de service de place de marché de 20 % (comme indiqué dans le Contrat d’éditeur Microsoft) à 10 %. Pour que votre offre soit qualifiée, elle doit avoir été désignée par Microsoft comme étant une offre de co-vente Azure IP incitative. L’éligibilité doit être respectée pendant au moins cinq (5) jours ouvrés avant la fin de chaque mois civil pour bénéficier des frais de service réduits sur le marketplace pour le mois en question. Pour plus d’informations sur l’éligibilité à la co-vente IP, consultez [Prérequis relatifs à l’état de co-vente](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status). Les frais de service réduits du marketplace s’appliquent aux machines virtuelles et applications managées incitatives de co-vente Azure IP et à toutes les autres offres IaaS payantes qualifiées qui sont mises à disposition sur le marketplace commercial.
+**`*` Frais de service de place de marché réduits** : pour certaines offres SaaS que vous avez publiées sur notre place de marché commerciale, Microsoft réduit ses frais de service de place de marché de 20 % (comme indiqué dans le Contrat d’éditeur Microsoft) à 10 %. Pour que votre offre soit qualifiée, elle doit avoir été désignée par Microsoft comme étant une offre de co-vente Azure IP incitative. L’éligibilité doit être respectée pendant au moins cinq (5) jours ouvrés avant la fin de chaque mois civil pour bénéficier des frais de service réduits sur le marketplace. Une fois le droit d’éligibilité atteint, les frais de service réduits sont accordés à toutes les transactions effectives le premier jour du mois suivant et appliqués jusqu’à ce que l’état de co-vente Azure IP avec incentives soit perdu. Pour plus d’informations sur l’éligibilité à la co-vente IP, consultez [Prérequis relatifs à l’état de co-vente](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status). Les frais de service réduits du marketplace s’appliquent aux machines virtuelles et applications managées incitatives de co-vente Azure IP et à toutes les autres offres IaaS payantes qualifiées qui sont mises à disposition sur le marketplace commercial.
 
 ## <a name="additional-sales-opportunities"></a>Opportunités de ventes supplémentaires
 

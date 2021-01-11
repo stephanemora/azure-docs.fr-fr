@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 07/20/2020
+ms.date: 12/18/2020
 ms.author: alkohli
-ms.openlocfilehash: 7d2734d386f1e49e2227058b148ee6b591d14a42
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 46a18cb2b6e1682427d5674be28b240f35b120fe
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94336426"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97678655"
 ---
 # <a name="use-the-azure-portal-to-administer-your-azure-data-box-and-azure-data-box-heavy"></a>Utiliser le Portail Azure pour administrer votre Azure Data Box et Azure Data Box Heavy
 
@@ -21,14 +21,11 @@ Cet article s’applique à Azure Data Box et à Azure Data Box Heavy. Cet artic
 
 Cet article se concentre sur les tâches que vous pouvez effectuer à l’aide du portail Azure. Utilisez le Portail Azure pour gérer les commandes et l’appareil Data Box, et suivre l’état des commandes jusqu’à l’étape terminale.
 
-[!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
-
-
 ## <a name="cancel-an-order"></a>Annuler une commande
 
-Il peut vous arriver de devoir annuler, pour diverses raisons, une commande que vous avez passée. 
+Il peut arriver de devoir annuler, pour diverses raisons, une commande après l’avoir passée.
 
-Pour les commandes d’importation et d’exportation, vous ne pouvez annuler la commande qu’avant son traitement. Une fois la commande traitée et l’appareil Data Box préparé, il n’est plus possible d’annuler la commande.
+Dans le cas des commandes d’importation et d’exportation, vous ne pouvez annuler la commande qu’avant son traitement. Une fois la commande traitée et l’appareil Data Box préparé, il n’est plus possible de l’annuler.
 
 Pour annuler une commande, procédez comme suit.
 
@@ -44,10 +41,7 @@ Pour annuler une commande, procédez comme suit.
 
 ## <a name="clone-an-order"></a>Cloner une commande
 
-Le clonage est utile dans certaines situations. Par exemple, un utilisateur a utilisé Data Box pour transférer des données. À mesure qu’il génère de nouvelles données, il a besoin d’un autre appareil Data Box pour transférer ces données vers Azure. Dans ce cas, la commande initiale peut simplement être clonée.
-
-> [!IMPORTANT]
-> Le clonage n’est pas disponible pour les commandes d’exportation. Vous ne pouvez cloner que les commandes d’importation.
+Le clonage est utile dans certaines situations. Par exemple, vous avez utilisé Data Box pour transférer des données. Au bout d’un certain volume de données générées, il vous faut un autre appareil Data Box pour les transférer dans Azure. Dans ce cas, vous pouvez simplement cloner la même commande.
 
 Effectuez les opérations suivantes pour cloner une commande d’importation.
 
@@ -76,7 +70,7 @@ Vous pouvez uniquement supprimer des commandes qui sont terminées ou annulées.
 
 ## <a name="download-shipping-label"></a>Télécharger une étiquette d’expédition
 
-Vous devrez peut-être télécharger l’étiquette d’expédition si l’écran E-ink de votre Data Box ne fonctionne pas et n’affiche pas l’étiquette de retour. Ce flux de travail ne s’applique pas aux Data Box Heavy, car ces appareils ne possèdent pas d’écran E-ink.
+Vous devrez peut-être télécharger l’étiquette d’expédition si l’écran E-ink de votre Data Box ne fonctionne pas et n’affiche pas l’étiquette de retour. Ce flux de travail ne s’applique pas à Data Box Heavy, car ces appareils ne possèdent pas d’écran E-ink.
 
 Procédez comme suit pour télécharger une étiquette d’expédition.
 
@@ -104,7 +98,7 @@ Pour modifier la commande, procédez comme suit.
 
 ## <a name="edit-notification-details"></a>Modifier les détails de notification
 
-Vous devrez peut-être modifier les utilisateurs qui recevront les e-mails indiquant l’état de la commande. Par exemple, un utilisateur doit être informé dès que l’appareil est livré ou récupéré. Un autre utilisateur doit quant à lui être informé lorsque la copie des données est terminée afin qu’il puisse vérifier que les données se trouvent bien dans le compte de stockage Azure avant de les supprimer de la source. Dans ce cas, vous pouvez modifier les détails de notification.
+Vous devrez peut-être modifier les utilisateurs qui recevront les e-mails indiquant le statut de la commande. Par exemple, un utilisateur doit être informé dès que l’appareil est livré ou récupéré. Un autre utilisateur doit quant à lui être informé lorsque la copie des données est terminée afin qu’il puisse vérifier que les données se trouvent bien dans le compte de stockage Azure avant de les supprimer de la source. Dans ce cas, vous pouvez modifier les détails de notification.
 
 Pour modifier les détails de modification, procédez comme suit.
 
@@ -127,10 +121,10 @@ Procédez comme suit pour télécharger l’historique des commandes.
 
     ![Télécharger l’historique des commandes](media/data-box-portal-admin/portal-admin-download-order-history.png)
 
-2. Cliquez sur **Télécharger l’historique des commandes**. Dans l’historique téléchargé, vous verrez un enregistrement des journaux d’activité de suivi de l’opérateur. Il existe deux ensembles de journaux correspondant aux deux nœuds présents sur un Data Box Heavy. Si vous faites défiler jusqu’en bas de ce journal, vous pouvez voir des liens vers :
+2. Cliquez sur **Télécharger l’historique des commandes**. L’historique téléchargé comprend un enregistrement des journaux de suivi de l’opérateur. Il existe deux ensembles de journaux correspondant aux deux nœuds présents sur un appareil Data Box Heavy. Si vous faites défiler jusqu’en bas de ce journal, vous pouvez voir des liens vers :
     
-   - **Copier les journaux d’activité** - affiche la liste des fichiers en erreur pendant la copie des données entre la zone de données et votre compte de stockage Azure (commande d’importation) ou *vice-versa* (commande d’exportation).
-   - **Journaux d’audit** - contiennent des informations sur la façon de mettre sous tension et d’accéder aux partages sur la Data Box lorsqu’elle est hors du centre de données Azure.
+   - **Journaux de copie** : affiche la liste des fichiers en erreur pendant la copie des données entre l’appareil Data Box et le compte de stockage Azure (commande d’importation ou d’exportation).
+   - **Journaux d’audit** : contiennent des informations sur l’allumage de l’appareil Data Box et l’accès aux partages qu’il contient quand il se trouve hors du centre de données Azure.
    - **Fichiers de nomenclature dans une commande d’importation** - obtenez la liste des fichiers (également connue sous le nom de manifeste de fichier) que vous pouvez télécharger pendant **Préparer l’expédition** et qui comporte les noms, les tailles et les sommes de contrôle des fichiers.
    - **Journaux détaillés dans une commande d’exportation**- obtenez la liste des fichiers avec le nom et la taille des tailles des fichiers ainsi qu’un calcul de somme de contrôle lorsque les données ont été copiées à partir des comptes de stockage Azure vers le Data Box.
 
@@ -206,7 +200,7 @@ Procédez comme suit pour télécharger l’historique des commandes.
 
 ## <a name="view-order-status"></a>Afficher l’état de la commande
 
-Vous êtes informé par courrier électronique dès que l’état de l’appareil change dans le portail.
+Vous recevez un e-mail dès que le statut de l’appareil change sur le portail.
 
 ### <a name="statuses-for-import-order"></a>États des commandes d’importation
 
@@ -214,7 +208,7 @@ Voici les états d’une commande d’importation.
 
 |État de la commande |Description |
 |---------|---------|
-|Ordered (Validée)     | La commande a été validée. <br>Si l’appareil est disponible, Microsoft identifie l’appareil à expédier et le prépare. <br> Si l’appareil n’est pas disponible immédiatement, la commande sera traitée lorsque l’appareil devient disponible. Le traitement de la commande peut prendre quelques jours à deux mois. Si elle ne peut pas être traitée sous 90 jours, la commande est annulée et vous en êtes informé.         |
+|Ordered (Validée)     | La commande a été validée. <br>Si l’appareil est disponible, Microsoft identifie l’appareil à expédier et le prépare. <br> Si l’appareil n’est pas disponible immédiatement, la commande sera traitée dès qu’il le sera. Le traitement de la commande peut prendre quelques jours à deux mois. Si elle ne peut pas être traitée dans un délai de 90 jours, la commande est annulée. Vous recevez une notification à ce sujet.         |
 |Processed (Traitée)     | La commande a été traitée. Conformément à votre commande, l’appareil est prêt pour expédition dans le centre de données.         |
 |Dispatched (Distribuée)     | La commande a été expédiée. Utilisez l’ID de suivi affiché sur votre commande dans le portail pour effectuer le suivi de l’expédition.        |
 |Delivered (Livrée)     | Le colis a été livré à l’adresse spécifiée dans la commande.        |
@@ -224,7 +218,7 @@ Voici les états d’une commande d’importation.
 |Completed       |La commande a été terminée avec succès.<br> Vérifiez que vos données se trouvent bien dans Azure avant de supprimer les données locales des serveurs.         |
 |Completed with errors (Terminée avec des erreurs)| La copie des données a été effectuée mais des erreurs se sont produites pendant l’opération. <br> Consultez les journaux d’activité de copie en utilisant le chemin d’accès spécifié dans le portail Azure. Consultez [des exemples de journaux de copie lorsque le téléchargement s’est terminé avec des erreurs](./data-box-logs.md#upload-completed-with-errors).   |
 |Terminé avec des avertissements| La copie des données a été effectuée, mais vos données ont été modifiées. Les données comportaient des erreurs non critiques d’objet BLOB ou de nom de fichier qui ont été corrigées en modifiant les noms des fichiers ou des objets BLOB. <br> Consultez les journaux d’activité de copie en utilisant le chemin d’accès spécifié dans le portail Azure. Prenez note des modifications apportées à vos données. Consultez [des exemples de journaux de copie lorsque le téléchargement s’est terminé avec des avertissements](./data-box-logs.md#upload-completed-with-warnings).   |
-|Opération annulée            |La commande a été annulée. <br> Soit vous avez annulé la commande, soit une erreur s’est produite et le service a annulé la commande. Si elle ne peut pas être traitée sous 90 jours, la commande est également annulée et vous en êtes informé.     |
+|Opération annulée            |La commande a été annulée. <br> Soit vous avez annulé la commande, soit le service l’a fait après qu’une erreur s’est produite. Si elle ne peut pas être traitée dans un délai de 90 jours, la commande est également annulée. Vous recevez une notification à ce sujet.     |
 |Nettoyer | Les données sur les disques de l’appareil sont effacées. Le nettoyage de l’appareil est considéré comme terminé lorsque l’historique de la commande est disponible au téléchargement dans le portail Azure.|
 
 ### <a name="statuses-for-export-order"></a>États des commandes d’exportation
@@ -237,10 +231,10 @@ Voici les états d’une commande d’exportation.
 |Opération annulée            |La commande a été annulée. <br> Soit vous avez annulé la commande (vous ne pouvez annuler qu’avant le traitement de la commande) soit une erreur s’est produite et le service a annulé la commande. Si elle ne peut pas être traitée sous 90 jours, la commande est également annulée et vous en êtes informé.     |
 |Processed (Traitée)     | La commande a été traitée. Conformément à votre commande, l’appareil est prêt pour la copie des données dans le centre de données. Des partages d’appareils sont créés.         |
 |Copie de données en cours     | La copie des données à partir des comptes de Stockage Azure spécifiés sur l’appareil est en cours. Suivez la progression de la copie de votre commande sur le portail Azure. <br> Attendez que la copie des données se termine. |
-|Copie effectuée     | La copie des données à partir des comptes de Stockage Azure spécifiés sur l’appareil est en cours. Un fichier journal détaillé (si l’option a été activée dans la commande) et un journal de copie sont créés dans votre compte de stockage. Le journal détaillé contient les informations sur tous les fichiers (nom, chemin d’accès, somme de contrôle) qui sont copiés sur l’appareil. Le journal de copie contient le résumé du processus de copie, notamment une liste des fichiers qui n’ont pas pu être copiés en raison d’erreurs.<br> Les données du compte de stockage restent telles quelles. |
+|Copie effectuée     | La copie des données à partir des comptes de Stockage Azure spécifiés sur l’appareil est en cours. Un fichier journal détaillé (si l’option a été activée dans la commande) et un journal de copie sont créés dans votre compte de stockage. Le journal détaillé contient les informations sur tous les fichiers (nom, chemin d’accès, somme de contrôle) qui sont copiés sur l’appareil. Le journal de copie contient le résumé du processus de copie, notamment la liste des fichiers qui n’ont pas pu être copiés en raison d’erreurs. <br> Les données du compte de stockage restent telles quelles. |
 |Copie terminée avec des erreurs| La copie des données a été effectuée mais des erreurs se sont produites pendant l’opération. <br> Consultez les journaux d’activité de copie dans le compte de Stockage Azure en utilisant le chemin d’accès spécifié dans le Portail Azure. Consultez [des exemples de journaux de copie lorsque le téléchargement s’est terminé avec des erreurs](./data-box-logs.md#upload-completed-with-errors).   |
 |Copie terminée avec des avertissements| La copie des données à partir du compte de stockage Azure a été effectuée, mais les données comportaient des erreurs non critiques. <br> Consultez les journaux d’activité de copie en utilisant le chemin d’accès spécifié dans le portail Azure. Notez les erreurs non critiques. Consultez [des exemples de journaux de copie lorsque le téléchargement s’est terminé avec des avertissements](./data-box-logs.md#upload-completed-with-warnings).   |
-|La copie a échoué avec des erreurs| La copie de données à partir du compte de stockage Azure a échoué et la commande est annulée. Aucun appareil ne sera expédié.<br> Consultez les journaux d’activité de copie dans le compte de Stockage Azure en utilisant le chemin d’accès spécifié dans le Portail Azure. Consultez [des exemples de journaux de copie lorsque le téléchargement a échoué avec des erreurs](./data-box-logs.md#upload-completed-with-errors).   |
+|La copie a échoué avec des erreurs| La copie de données à partir du compte de stockage Azure a échoué, et la commande est annulée. Aucun appareil ne sera expédié. <br> Consultez les journaux d’activité de copie dans le compte de Stockage Azure en utilisant le chemin d’accès spécifié dans le Portail Azure. Consultez [des exemples de journaux de copie lorsque le téléchargement a échoué avec des erreurs](./data-box-logs.md#upload-completed-with-errors).   |
 |Dispatched (Distribuée)     |La commande a été expédiée. Utilisez l’ID de suivi affiché sur votre commande dans le portail pour effectuer le suivi de l’expédition.        |
 |Delivered (Livrée)     |Le colis a été livré à l’adresse spécifiée dans la commande.        |
 |Picked up (Récupérée)     |Le colis de retour a été récupéré et scanné par le transporteur.         |
@@ -252,14 +246,14 @@ Voici les états d’une commande d’exportation.
 > Si la tâche de copie pour exporter des données à partir de comptes de Stockage Azure vers Data Box se termine avec des erreurs ou des avertissements, l’appareil est expédié quand même. Ce n’est qu’en cas d’échec de copie que la commande est annulée et que l’appareil n’est pas expédié.
 
 
-Si vous utilisez l’expédition à gestion automatique, lorsque la copie est terminée et avant que vous ne receviez l’appareil, les états suivants s’affichent (au lieu de ceux mentionnés dans le tableau précédent) :
+Si vous utilisez l’expédition à gestion automatique, lorsque la copie est terminée et avant que vous ne receviez l’appareil, les statuts suivants s’affichent (au lieu de ceux mentionnés dans le tableau précédent) :
 
 |État de la commande |Description |
 |---------|---------|
 |Prêt pour le retrait au centre de données Azure      |L’appareil est prêt à être récupéré dans le centre de données Azure.        |
 |Picked up (Récupérée)    |Vous avez récupéré l’appareil.         |
 |Prêt pour la réception au centre de données Azure     |L’appareil est prêt à être reçu dans le centre de données Azure.        |
-|Reçu     |L’appareil est prêt est reçu dans le centre de données Azure.      |
+|Reçu     |L’appareil a été reçu dans le centre de données Azure.      |
 
 
 

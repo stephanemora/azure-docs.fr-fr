@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 76e19c36f0fa4096966c5dd23d2384b6b30f2271
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: ed57c496443c9d1541bfa9933e7718213da116d7
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95498858"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845610"
 ---
 # <a name="business-card-concepts"></a>Concepts relatifs aux cartes de visite
 
@@ -374,7 +374,7 @@ Voici un exemple de réponse JSON correcte : Le nœud readResults contient tout
 }
 ```
 
-Pour implémenter l’extraction de données de carte de visite à l’aide de Python et de l’API REST, suivez le guide de démarrage rapide [Extraire des données de cartes de visite](./QuickStarts/python-business-cards.md).
+Suivez le [guide de démarrage rapide](./QuickStarts/client-library.md) pour implémenter l’extraction de données de carte de visite avec Python et l’API REST.
 
 ## <a name="customer-scenarios"></a>Scénarios de client  
 
@@ -385,11 +385,11 @@ Les données extraites avec l’API Carte de visite peuvent être utilisées pou
 * Suivi des prospects.  
 * Extraction d’informations de contact en bloc à partir d’images de carte de visite existantes. 
 
-L’API Carte de visite optimise également la [fonctionnalité de traitement des cartes de visite AI Builder](/ai-builder/prebuilt-business-card).
+La [fonctionnalité de traitement des cartes de visite AI Builder](/ai-builder/prebuilt-business-card) est également basée sur l’API Carte de visite.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Suivez le [Guide de démarrage rapide Python de l’API des cartes de visite](./quickstarts/python-business-cards.md) pour commencer à reconnaître les cartes de visite.
+- Suivez le [guide de démarrage rapide](./quickstarts/client-library.md) pour vous lancer dans la reconnaissance de cartes de visite.
 
 ## <a name="see-also"></a>Voir aussi
 

@@ -1,21 +1,21 @@
 ---
-title: Ajouter un calque de mosaïques à une carte à l’aide de l’Android SDK Azure Maps
-description: Découvrez comment ajouter une couche de mosaïques à une carte. Consultez un exemple qui utilise le SDK Microsoft Azure Maps Android pour ajouter un calque de radar météo à une carte.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 04/26/2019
-ms.topic: how-to
+title: Ajouter un calque de mosaïques à des cartes Android | Microsoft Azure Maps
+description: Découvrez comment ajouter une couche de mosaïques à une carte. Consultez un exemple qui utilise l’Android SDK Azure Maps pour ajouter un calque de radar météo à une carte.
+author: rbrundritt
+ms.author: richbrun
+ms.date: 12/08/2020
+ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
-ms.openlocfilehash: 22618a28f1a87e68c19467aedf639e96ec2fb91e
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+manager: cpendle
+ms.openlocfilehash: 8ea6f44c47c5cd4d223b053640f65827f46db482
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96532674"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97679304"
 ---
-# <a name="add-a-tile-layer-to-a-map-using-the-azure-maps-android-sdk"></a>Ajouter un calque de mosaïques à une carte à l’aide de l’Android SDK Azure Maps
+# <a name="add-a-tile-layer-to-a-map-android-sdk"></a>Ajout d’une couche de mosaïques à une carte (Android SDK)
 
 Cet article explique comment afficher un calque de mosaïques sur une carte à l’aide de l’Android SDK Azure Maps. Les couches de mosaïques vous permettent de superposer des images à des mosaïques de carte de base Azure Maps. Vous trouverez plus d’informations sur le système de mosaïques Azure Maps dans la documentation [Niveaux de zoom et grille mosaïque](zoom-levels-and-tile-grid.md).
 
@@ -23,10 +23,10 @@ Un calque de mosaïques charge des mosaïques à partir d’un serveur. Ces imag
 
 * Notation de zoom X, Y : selon le niveau de zoom, x correspond à la position de colonne et y à la position de ligne de la mosaïque dans la grille mosaïque.
 * Notation Quadkey : combinaison d’informations de zoom x, y au sein d’une valeur de chaîne qui correspond à l’identificateur unique de la mosaïque.
-* Rectangle englobant : les coordonnées du rectangle englobant peuvent servir à spécifier une image au format `{west},{south},{east},{north}`, qui est couramment utilisé par [Web Mapping Services (WMS)](https://www.opengeospatial.org/standards/wms).
+* Rectangle englobant : les coordonnées du rectangle englobant peuvent servir à spécifier une image au format `{west},{south},{east},{north}`, couramment utilisé par [Web Mapping Services (WMS)](https://www.opengeospatial.org/standards/wms).
 
 > [!TIP]
-> Un calque de mosaïques est un excellent moyen de visualiser des jeux de données volumineux sur une carte. Non seulement elle peut être générée à partir d’une image, mais les données vectorielles peuvent également être affichées sous la forme d’une couche de mosaïques. En affichant des données vectorielles sous forme de couche de mosaïques, le contrôle de carte doit uniquement charger les mosaïques, qui peuvent être beaucoup plus petites que les données vectorielles qu’elles représentent. Cette technique est couramment utilisée pour afficher des millions de lignes de données sur une carte.
+> Un calque de mosaïques est un excellent moyen de visualiser des jeux de données volumineux sur une carte. Non seulement elle peut être générée à partir d’une image, mais les données vectorielles peuvent également être affichées sous la forme d’une couche de mosaïques. Lorsque les données vectorielles sont affichées sous forme de couche de mosaïques, il suffit au contrôle de carte de charger les mosaïques, dont la taille de fichier peut être beaucoup plus petite que celle des données vectorielles qu’elles représentent. Cette technique est couramment utilisée pour afficher des millions de lignes de données sur une carte.
 
 L’URL de la mosaïque passée à une couche de mosaïques doit être l’URL HTTP/HTTPS d’une ressource TileJSON ou d’un modèle d’URL de mosaïque qui utilise les paramètres suivants : 
 
@@ -39,144 +39,34 @@ L’URL de la mosaïque passée à une couche de mosaïques doit être l’URL H
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
-Pour suivre la procédure décrite dans cet article, vous devez installer [Android SDK Azure Maps](./how-to-use-android-map-control-library.md) afin de charger une carte.
-
+Pour suivre la procédure décrite dans cet article, vous devez installer [Android SDK Azure Maps](how-to-use-android-map-control-library.md) afin de charger une carte.
 
 ## <a name="add-a-tile-layer-to-the-map"></a>Ajouter un calque de mosaïques à une carte
 
- Cet exemple montre comment créer une couche de mosaïques qui pointe vers un ensemble de mosaïques. Ces mosaïques utilisent le système de mosaïques « x, y, zoom ». La source de cette couche de mosaïques est un calque de radar météo issu de [Iowa Environmental Mesonet of Iowa State University](https://mesonet.agron.iastate.edu/ogc/). 
+Cet exemple montre comment créer une couche de mosaïques qui pointe vers un ensemble de mosaïques. Cet exemple utilise le système de mosaïques « x, y, zoom ». La source de cette couche de mosaïques est le [projet OpenSeaMap](https://openseamap.org/index.php), qui contient des cartes marines crowdsourcées. Souvent, avec les couches de mosaïques, il est souhaitable de pouvoir voir clairement les étiquettes des villes sur la carte. Ce comportement peut être obtenu en insérant la couche de mosaïques sous les couches d’étiquettes de la carte.
 
-Vous pouvez ajouter un calque de mosaïques à la carte en suivant les étapes ci-dessous.
+```java
+TileLayer layer = new TileLayer(
+    tileUrl("https://tiles.openseamap.org/seamark/{z}/{x}/{y}.png"),
+    opacity(0.8f),
+    tileSize(256),
+    minSourceZoom(7),
+    maxSourceZoom(17)
+);
 
-1. Modifiez l'élément **res > layout > activity_main.xml** de sorte qu'il se présente comme suit :
+map.layers.add(layer, "labels");
+```
 
-    ```XML
-    <?xml version="1.0" encoding="utf-8"?>
-    <FrameLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
-    
-        <com.microsoft.azure.maps.mapcontrol.MapControl
-            android:id="@+id/mapcontrol"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:mapcontrol_centerLat="40.75"
-            app:mapcontrol_centerLng="-99.47"
-            app:mapcontrol_zoom="3"
-            />
-    
-    </FrameLayout>
-    ```
+La capture d’écran suivante montre le rendu, obtenu avec le code ci-dessus, d’une couche de mosaïques d’informations marines sur une carte avec un style de nuances de gris foncé.
 
-2. Copiez l’extrait de code suivant dans la méthode **onCreate()** de votre classe `MainActivity.java`.
-
-    ```Java
-    mapControl.onReady(map -> {
-        //Add a tile layer to the map, below the map labels.
-        map.layers.add(new TileLayer(
-            tileUrl("https://mesonet.agron.iastate.edu/cache/tile.py/1.0.0/nexrad-n0q-900913/{z}/{x}/{y}.png"),
-            opacity(0.8f),
-            tileSize(256)
-        ), "labels");
-    });
-    ```
-    
-    L’extrait de code ci-dessus commence par obtenir une instance de contrôle de carte Azure Maps en utilisant la méthode de rappel **onReady()** . Il crée ensuite un objet `TileLayer` et passe une URL de mosaïque **xyz** mise en forme dans l’option `tileUrl`. L’opacité du calque est définie sur `0.8` et, les mosaïques du service de mosaïque utilisé étant des mosaïques de 256 pixels, ces informations sont transmises dans l’option `tileSize`. Le calque de mosaïques est ensuite transmis au gestionnaire de calques Maps.
-
-    Après avoir ajouté l’extrait de code ci-dessus, votre `MainActivity.java` devrait ressembler à celui ci-dessous :
-    
-    ```Java
-    package com.example.myapplication;
-
-    import android.app.Activity;
-    import android.os.Bundle;
-    import android.support.v7.app.AppCompatActivity;
-    import com.microsoft.azure.maps.mapcontrol.layer.TileLayer;
-    import java.util.Arrays;
-    import java.util.List;
-    import com.microsoft.azure.maps.mapcontrol.AzureMaps;
-    import com.microsoft.azure.maps.mapcontrol.MapControl;
-    import static com.microsoft.azure.maps.mapcontrol.options.TileLayerOptions.tileSize;
-    import static com.microsoft.azure.maps.mapcontrol.options.TileLayerOptions.tileUrl;
-        
-    public class MainActivity extends AppCompatActivity {
-    
-        static{
-            AzureMaps.setSubscriptionKey("<Your Azure Maps subscription key>");
-        }
-    
-        MapControl mapControl;
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-    
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_main);
-    
-            mapControl = findViewById(R.id.mapcontrol);
-    
-            mapControl.onCreate(savedInstanceState);
-    
-            mapControl.onReady(map -> {
-
-                //Add a tile layer to the map, below the map labels.
-                map.layers.add(new TileLayer(
-                    tileUrl("https://mesonet.agron.iastate.edu/cache/tile.py/1.0.0/nexrad-n0q-900913/{z}/{x}/{y}.png"),
-                    opacity(0.8f),
-                    tileSize(256)
-                ), "labels");
-            });    
-        }
-    
-        @Override
-        public void onResume() {
-            super.onResume();
-            mapControl.onResume();
-        }
-    
-        @Override
-        public void onPause() {
-            super.onPause();
-            mapControl.onPause();
-        }
-    
-        @Override
-        public void onStop() {
-            super.onStop();
-            mapControl.onStop();
-        }
-    
-        @Override
-        public void onLowMemory() {
-            super.onLowMemory();
-            mapControl.onLowMemory();
-        }
-    
-        @Override
-        protected void onDestroy() {
-            super.onDestroy();
-            mapControl.onDestroy();
-        }
-    
-        @Override
-        protected void onSaveInstanceState(Bundle outState) {
-            super.onSaveInstanceState(outState);
-            mapControl.onSaveInstanceState(outState);
-        }    
-    }
-    ```
-
-À ce stade, si vous exécutez votre application, une ligne s'affiche sur la carte comme illustré ci-dessous :
-
-<center>
-
-![Ligne de carte Android](./media/how-to-add-tile-layer-android-map/xyz-tile-layer-android.png)</center>
+![Carte Android affichant la couche de mosaïques](media/how-to-add-tile-layer-android-map/xyz-tile-layer-android.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur les différentes manières de définir des styles de carte, consultez l'article
 
 > [!div class="nextstepaction"]
-> [Change map styles in Android maps](./set-android-map-styles.md) (Modifier les styles de carte dans les cartes Android)
+> [Modifier le style de carte](set-android-map-styles.md)
+
+> [!div class="nextstepaction"]
+> [Ajouter une carte thermique](map-add-heat-map-layer-android.md)

@@ -9,12 +9,12 @@ ms.subservice: extensions
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 0418c11d84fb82ac4a4b181289f032407a29f92e
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 0b2346ae4777b31ce2e5c396fb03084d38b2008f
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500663"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97678963"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Extension de machine virtuelle Key Vault pour Windows
 
@@ -98,7 +98,7 @@ L’extrait JSON suivant illustre le schéma de l’extension de machine virtuel
 | certificateStoreName | MY | string |
 | linkOnRenewal | false | boolean |
 | certificateStoreLocation  | LocalMachine ou CurrentUser (respect de la casse) | string |
-| requiredInitialSync | true | boolean |
+| requireInitialSync | true | boolean |
 | observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate","https://myvault.vault.azure.net/secrets/mycertificate2"] | tableau de chaînes
 | msiEndpoint | http://169.254.169.254/metadata/identity | string |
 | msiClientId | c7373ae5-91c2-4165-8ab6-7381d6e75619 | string |

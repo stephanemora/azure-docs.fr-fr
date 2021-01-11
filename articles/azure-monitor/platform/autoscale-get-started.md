@@ -4,12 +4,12 @@ description: Découvrez comment mettre à l’échelle votre ressource Applicati
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: bf0194e82acde0406cfeb57af027831f92a90c92
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: ee36db3f657365036bb68f641be53fd434f1b64b
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938305"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97694918"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Bien démarrer avec la mise à l’échelle automatique dans Azure
 Cet article décrit comment configurer vos paramètres de mise à l’échelle automatique pour votre ressource dans le portail Microsoft Azure.
@@ -121,7 +121,7 @@ Pour activer la fonctionnalité avec les modèles ARM, définissez la propriét�
 
 ### <a name="health-check-path"></a>Chemin de contrôle d'intégrité
 
-Le chemin d’accès doit répondre dans un délai d’une minute avec un code d’état compris entre 200 et 299 (inclus). Si le chemin d’accès ne répond pas dans la minute ou s’il retourne un code d’état en dehors de cette plage, l’instance est considérée comme « non saine ». App Service ne suit pas les redirections 302 sur le chemin de contrôle d’intégrité. Le contrôle d’intégrité s’intègre aux fonctionnalités d’authentification et d’autorisation d’App Service. Le système atteindra le point de terminaison même si ces fonctionnalités de sécurité sont activées. Si vous utilisez votre propre système d’authentification, le chemin du contrôle d’intégrité doit autoriser l’accès anonyme. Si HTTP **S** uniquement est activé sur le site, la requête Healthcheck sera envoyée via HTTP **S**.
+Le chemin d’accès doit répondre dans un délai d’une minute avec un code d’état compris entre 200 et 299 (inclus). Si le chemin d’accès ne répond pas dans la minute ou s’il retourne un code d’état en dehors de cette plage, l’instance est considérée comme « non saine ». App Service ne suit pas les redirections de type 300 (301, 302, 307, etc.) sur le chemin du contrôle d’intégrité : ces codes d’état sont considérés comme **non sains**. Le contrôle d’intégrité s’intègre aux fonctionnalités d’authentification et d’autorisation d’App Service. Le système atteindra le point de terminaison même si ces fonctionnalités de sécurité sont activées. Si vous utilisez votre propre système d’authentification, le chemin du contrôle d’intégrité doit autoriser l’accès anonyme. Si HTTP **S** uniquement est activé sur le site, la requête Healthcheck sera envoyée via HTTP **S**.
 
 Le chemin du contrôle d'intégrité doit vérifier les composants critiques de votre application. Par exemple, si votre application dépend d’une base de données et d’un système de messagerie, le point de terminaison de contrôle d’intégrité doit se connecter à ces composants. Si l’application ne peut pas se connecter à un composant critique, le chemin d’accès doit retourner un code de réponse de niveau 500 pour indiquer que l’application n’est pas saine.
 

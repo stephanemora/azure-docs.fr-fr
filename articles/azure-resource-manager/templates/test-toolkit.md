@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 09/02/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 29ebe2f0ec4d4c39154272bbbdf4d0c9ede9fd95
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: e5ad0b6dca7718166517b52148fbc6dd49f38869
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928186"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674010"
 ---
 # <a name="use-arm-template-test-toolkit"></a>Utiliser un kit de ressources de test de modèle ARM
 
@@ -282,4 +282,5 @@ L’exemple suivant illustre la procédure d’exécution des tests.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur les tests par défaut, consultez [Cas de test par défaut pour le kit de ressources de test de modèles ARM](test-cases.md).
+- Pour plus d’informations sur les tests par défaut, consultez [Cas de test par défaut pour le kit de ressources de test de modèles ARM](test-cases.md).
+- Pour obtenir un module Microsoft Learn qui couvre l’utilisation de la boîte à outils de test, consultez [Prévisualisation et validation de ressources Azure à l’aide de la simulation et de la boîte à outils de test de modèle ARM](/learn/modules/arm-template-test/).

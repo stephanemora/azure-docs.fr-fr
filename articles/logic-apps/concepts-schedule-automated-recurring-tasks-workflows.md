@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 03/25/2020
-ms.openlocfilehash: a5f01e81564561fe43ef6e55e6e9b3b67d6e1d77
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 27763536b859b7bc3e9aa0a7c490cb510c0fda41
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84945611"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588452"
 ---
 # <a name="schedule-and-run-recurring-automated-tasks-processes-and-workflows-with-azure-logic-apps"></a>Créer et exécuter des tâches et des workflows récurrents avec Azure Logic Apps
 
@@ -95,7 +95,7 @@ Prenons par exemple le 8 septembre 2017 à 13h comme date et heure actuelles. Vo
 
 | Heure de début | Heure actuelle | Périodicité | Planifier |
 |------------|--------------|------------|----------|
-| 2017-09-**07**T14:00:00Z <br>(**07**-09-2017 à 14h00) | 2017-09-**08**T13:00:00Z <br>(**08**-09-2017 à 13h00) | Tous les deux jours | {aucune} |
+| 2017-09-**07** T14:00:00Z <br>(**07**-09-2017 à 14h00) | 2017-09-**08** T13:00:00Z <br>(**08**-09-2017 à 13h00) | Tous les deux jours | {aucune} |
 |||||
 
 Pour le déclencheur Périodicité, le moteur Logic Apps calcule les heures d’exécution en fonction de l’heure de début, ignore les heures d’exécution passées, utilise l’heure de début suivante pour la première exécution, puis calcule les exécutions futures en fonction de la dernière exécution.
@@ -115,7 +115,7 @@ Voici à quoi ressemble cette périodicité :
 
 | Heure de début | Première heure d'exécution | Heures d’exécution suivantes |
 |------------|----------------|------------------|
-| **07**/09/2017 à 14h00 | **07**/09/2017 à 14h00 | **09**/09/2017 à 14h00 </br>**11**/09/2017 à 14h00 </br>**13**/09/2017 à 14h00 </br>**15**/09/2017 à 14h00 </br>Etc. |
+| **07**/09/2017 à 14h00 | **08**/09/2017 à 13 h (heure actuelle) | **09**/09/2017 à 14h00 </br>**11**/09/2017 à 14h00 </br>**13**/09/2017 à 14h00 </br>**15**/09/2017 à 14h00 </br>Etc. |
 ||||
 
 Par conséquent, peu importe si l’heure de début spécifiée remonte à loin ou pas (par exemple, **05**/09/2017 à 14h00 ou **01**/09/2017 à 14h00), votre première exécution utilise toujours l’heure de début spécifiée.
@@ -129,25 +129,25 @@ Voici divers exemples de périodicité que vous pouvez configurer pour les décl
 | Déclencheur | Périodicité | Intervalle | Fréquence | Heure de début | Aux jours indiqués | Aux heures indiquées | Aux minutes indiquées | Remarque |
 |---------|------------|----------|-----------|------------|---------------|----------------|------------------|------|
 | Périodicité, <br>Fenêtre glissante | Exécution toutes les 15 minutes (sans date ni heure de début) | 15 | Minute | {aucune} | {non disponible} | {aucune} | {aucune} | Cette planification démarre immédiatement, puis calcule les périodicités suivantes en fonction de la dernière heure d’exécution. |
-| Périodicité, <br>Fenêtre glissante | Exécution toutes les 15 minutes (avec date et heure de début) | 15 | Minute | *startDate*T*startTime*Z | {non disponible} | {aucune} | {aucune} | Cette planification ne démarre *pas avant* la date et l’heure de début spécifiées. Les périodicités suivantes sont ensuite calculées en fonction de la dernière heure d’exécution. |
-| Périodicité, <br>Fenêtre glissante | Exécution toutes les heures, à l’heure spécifiée (avec date et heure de début) | 1 | Heure | *startDate*Thh:00:00Z | {non disponible} | {aucune} | {aucune} | Cette planification ne démarre *pas avant* la date et l’heure de début spécifiées. Les prochaines périodicités interviennent toutes les heures à la minute « 00 », valeur calculée à partir de l'heure de début. <p>Si la fréquence est « Semaine » ou « Mois », cette planification s’exécute respectivement un seul jour par semaine ou un seul jour par mois. |
+| Périodicité, <br>Fenêtre glissante | Exécution toutes les 15 minutes (avec date et heure de début) | 15 | Minute | *startDate* T *startTime* Z | {non disponible} | {aucune} | {aucune} | Cette planification ne démarre *pas avant* la date et l’heure de début spécifiées. Les périodicités suivantes sont ensuite calculées en fonction de la dernière heure d’exécution. |
+| Périodicité, <br>Fenêtre glissante | Exécution toutes les heures, à l’heure spécifiée (avec date et heure de début) | 1 | Heure | *startDate* Thh:00:00Z | {non disponible} | {aucune} | {aucune} | Cette planification ne démarre *pas avant* la date et l’heure de début spécifiées. Les prochaines périodicités interviennent toutes les heures à la minute « 00 », valeur calculée à partir de l'heure de début. <p>Si la fréquence est « Semaine » ou « Mois », cette planification s’exécute respectivement un seul jour par semaine ou un seul jour par mois. |
 | Périodicité, <br>Fenêtre glissante | Exécution toutes les heures, tous les jours (sans date ni heure de début) | 1 | Heure | {aucune} | {non disponible} | {aucune} | {aucune} | Cette planification démarre immédiatement et calcule les périodicités suivantes en fonction de la dernière heure d’exécution. <p>Si la fréquence est « Semaine » ou « Mois », cette planification s’exécute respectivement un seul jour par semaine ou un seul jour par mois. |
-| Périodicité, <br>Fenêtre glissante | Exécution toutes les heures, tous les jours (avec date et heure de début) | 1 | Heure | *startDate*T*startTime*Z | {non disponible} | {aucune} | {aucune} | Cette planification ne démarre *pas avant* la date et l’heure de début spécifiées. Les périodicités suivantes sont ensuite calculées en fonction de la dernière heure d’exécution. <p>Si la fréquence est « Semaine » ou « Mois », cette planification s’exécute respectivement un seul jour par semaine ou un seul jour par mois. |
-| Périodicité, <br>Fenêtre glissante | Exécution 15 minutes après l’heure, toutes les heures (avec date et heure de début) | 1 | Heure | *startDate*T00:15:00Z | {non disponible} | {aucune} | {aucune} | Cette planification ne démarre *pas avant* la date et l’heure de début spécifiées. Les prochaines périodicités se produisent à la marque des « 15 » minutes, valeur calculée à partir de l'heure de début, soit à 00:15, 1:15, 2:15, et ainsi de suite. |
+| Périodicité, <br>Fenêtre glissante | Exécution toutes les heures, tous les jours (avec date et heure de début) | 1 | Heure | *startDate* T *startTime* Z | {non disponible} | {aucune} | {aucune} | Cette planification ne démarre *pas avant* la date et l’heure de début spécifiées. Les périodicités suivantes sont ensuite calculées en fonction de la dernière heure d’exécution. <p>Si la fréquence est « Semaine » ou « Mois », cette planification s’exécute respectivement un seul jour par semaine ou un seul jour par mois. |
+| Périodicité, <br>Fenêtre glissante | Exécution 15 minutes après l’heure, toutes les heures (avec date et heure de début) | 1 | Heure | *startDate* T00:15:00Z | {non disponible} | {aucune} | {aucune} | Cette planification ne démarre *pas avant* la date et l’heure de début spécifiées. Les prochaines périodicités se produisent à la marque des « 15 » minutes, valeur calculée à partir de l'heure de début, soit à 00:15, 1:15, 2:15, et ainsi de suite. |
 | Périodicité | Exécution 15 minutes après l’heure, toutes les heures (sans date ni heure de début) | 1 | jour | {aucune} | {non disponible} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 15 | Cette planification s’exécute à 00h15, 1h15, 2h15, etc. Cette planification est en outre l’équivalent d’une fréquence de type « Heure » et d’une heure de début avec « 15 » minutes. |
 | Périodicité | Exécution toutes les 15 minutes à la marque de minutes spécifiée (sans date ni heure de début). | 1 | jour | {aucune} | {non disponible} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 0, 15, 30, 45 | Cette planification ne démarre pas avant la marque de 15 minutes spécifiée suivante. |
 | Périodicité | Exécution quotidienne à 8h00 *plus* la marque de minutes à partir du moment où vous enregistrez votre application logique | 1 | jour | {aucune} | {non disponible} | 8 | {aucune} | Sans date et heure de début, cette planification s’exécute en fonction de l’heure à laquelle vous enregistrez l’application logique (opération PUT). |
-| Périodicité | Exécution quotidienne à 8h00 (avec date et heure de début) | 1 | jour | *startDate*T08:00:00Z | {non disponible} | {aucune} | {aucune} | Cette planification ne démarre *pas avant* la date et l’heure de début spécifiées. Les occurrences ultérieures s’exécutent quotidiennement à 8h00. | 
+| Périodicité | Exécution quotidienne à 8h00 (avec date et heure de début) | 1 | jour | *startDate* T08:00:00Z | {non disponible} | {aucune} | {aucune} | Cette planification ne démarre *pas avant* la date et l’heure de début spécifiées. Les occurrences ultérieures s’exécutent quotidiennement à 8h00. | 
 | Périodicité | Exécution quotidienne à 8 h (sans date et heure de début) | 1 | jour | {aucune} | {non disponible} | 8 | 00 | Cette planification s’exécute à 8 h tous les jours. |
 | Périodicité | Exécution quotidienne à 8 h et à 16 h | 1 | jour | {aucune} | {non disponible} | 8, 16 | 0 | |
 | Périodicité | Exécution quotidienne à 8h30, 8h45, 16h30 et 16h45 | 1 | jour | {aucune} | {non disponible} | 8, 16 | 30, 45 | |
 | Périodicité | Exécution hebdomadaire le samedi à 17 h (sans date ni heure de début) | 1 | Week | {aucune} | Samedi | 17 | 0 | Cette planification s’exécute tous les samedis à 17h00. |
-| Périodicité | Exécution hebdomadaire le samedi à 17 h (avec date et heure de début) | 1 | Week | *startDate*T17:00:00Z | Samedi | {aucune} | {aucune} | Cette planification ne démarre *pas avant* la date et l’heure de début spécifiées, à savoir le 9 septembre 2017 à 17h00 dans cet exemple. Les exécutions périodiques suivantes ont lieu tous les samedis à 17h00. |
+| Périodicité | Exécution hebdomadaire le samedi à 17 h (avec date et heure de début) | 1 | Week | *startDate* T17:00:00Z | Samedi | {aucune} | {aucune} | Cette planification ne démarre *pas avant* la date et l’heure de début spécifiées, à savoir le 9 septembre 2017 à 17h00 dans cet exemple. Les exécutions périodiques suivantes ont lieu tous les samedis à 17h00. |
 | Périodicité | Exécution les mardi et jeudi à 17h00 *plus* la marque de minutes à partir du moment où vous enregistrez votre application logique| 1 | Week | {aucune} | Mardi, Jeudi | 17 | {aucune} | |
 | Périodicité | Exécution toutes les heures pendant les heures de travail | 1 | Week | {aucune} | Sélectionnez tous les jours, sauf le samedi et le dimanche. | Sélectionnez les heures de la journée souhaitées. | Sélectionnez les minutes de l’heure souhaitées. | Par exemple, si vos heures de travail sont de 8 h à 17 h, sélectionnez « 8, 9, 10, 11, 12, 13, 14, 15, 16, 17 » comme heures de la journée *plus* « 0 » pour les minutes. |
 | Périodicité | Exécution une fois par jour le week-end | 1 | Week | {aucune} | Samedi, Dimanche | Sélectionnez les heures de la journée souhaitées. | Sélectionnez les minutes de l’heure souhaitées. | Cette planification s’exécute tous les samedis et dimanches aux heures spécifiées. |
 | Périodicité | Exécution toutes les 15 minutes toutes les deux semaines le lundi uniquement | 2 | Week | {aucune} | Lundi | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 0, 15, 30, 45 | Cette planification s’exécute un lundi sur deux à chaque marque de 15 minutes. |
-| Périodicité | Exécution tous les mois | 1 | Month | *startDate*T*startTime*Z | {non disponible} | {non disponible} | {non disponible} | Cette planification ne démarre *pas avant* la date et l’heure de début spécifiées, puis calcule les prochaines périodicités selon la date et à l’heure de début. Si vous ne spécifiez pas de date et heure de début, cette planification utilise la date et heure de création. |
+| Périodicité | Exécution tous les mois | 1 | Month | *startDate* T *startTime* Z | {non disponible} | {non disponible} | {non disponible} | Cette planification ne démarre *pas avant* la date et l’heure de début spécifiées, puis calcule les prochaines périodicités selon la date et à l’heure de début. Si vous ne spécifiez pas de date et heure de début, cette planification utilise la date et heure de création. |
 | Périodicité | Exécution toutes les heures un jour par mois | 1 | Month | {voir remarque} | {non disponible} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | {voir remarque} | Si vous ne spécifiez pas de date et heure de début, cette planification utilise la date et heure de création. Pour contrôler les minutes pour la planification de la périodicité, spécifiez les minutes de l’heure, une heure de début ou utilisez l’heure de création. Par exemple, si l’heure de début ou l’heure de création est 8h25, cette planification s’exécute à 8h25, 9h25, 10h25, etc. |
 |||||||||
 

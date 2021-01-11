@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/03/2020
+ms.date: 12/23/2020
 ms.author: wolfma
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 426cf78f6b87acf1d8c7551b0b0a6172a30167b1
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 68a129f38e9a94a7e381d11ffa3c3d02791b025b
+ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621093"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97755767"
 ---
 # <a name="how-to-use-batch-transcription"></a>Guide d’utilisation de la transcription par lots
 
-La transcription par lots est un ensemble d’opérations d’API REST qui vous permet de transcrire une grande quantité de données audio dans un stockage. Vous pouvez pointer vers des fichiers audio à l’aide d’un URI type ou d’un URI de signature d’accès partagé (SAP) et recevoir les résultats de la transcription de manière asynchrone. L’API 3.0 vous permet de transcrire un ou plusieurs fichiers audio, ou de traiter un conteneur de stockage entier.
+La transcription par lots est un ensemble d’opérations d’API REST qui vous permet de transcrire une grande quantité de données audio dans un stockage. Vous pouvez pointer vers des fichiers audio à l’aide d’un URI type ou d’un URI de [signature d’accès partagé (SAP)](../../storage/common/storage-sas-overview.md) et recevoir les résultats de la transcription de manière asynchrone. L’API 3.0 vous permet de transcrire un ou plusieurs fichiers audio, ou de traiter un conteneur de stockage entier.
 
 Vous pouvez utiliser des API REST de transcription par lots pour appeler les méthodes suivantes :
 
@@ -66,7 +66,7 @@ Pour créer une transcription finale ordonnée chronologiquement, utilisez les t
 
 ### <a name="configuration"></a>Configuration
 
-Les paramètres de configuration sont fournis au format JSON.
+Les paramètres de configuration sont fournis au format JSON. 
 
 **Transcription d’un ou plusieurs fichiers individuels.** Si vous avez plusieurs fichiers à transcrire, nous vous recommandons de les envoyer dans une seule requête. L’exemple ci-dessous utilise trois fichiers :
 
@@ -85,7 +85,7 @@ Les paramètres de configuration sont fournis au format JSON.
 }
 ```
 
-**Traitement d’un conteneur de stockage entier :**
+**Traitement d’un conteneur de stockage entier.** La [signature SAP](../../storage/common/storage-sas-overview.md) du conteneur doit contenir des autorisations `r` (lecture) et `l` (liste) :
 
 ```json
 {
@@ -177,7 +177,7 @@ Utilisez les propriétés facultatives suivantes pour configurer la transcriptio
       `destinationContainerUrl`
    :::column-end:::
    :::column span="2":::
-      URL facultative avec [SAP ad hoc de service](../../storage/common/storage-sas-overview.md) vers un conteneur accessible en écriture dans Azure. Le résultat est stocké dans ce conteneur. Les SAP avec stratégie d’accès stockée ne sont **pas** prises en charge. Si aucune URL n’est spécifiée, Microsoft stocke les résultats dans un conteneur de stockage géré par Microsoft. Lorsque la transcription est supprimée en appelant [Supprimer la transcription](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription), les données de résultats sont également supprimées.
+      URL facultative avec [signature SAP ad hoc](../../storage/common/storage-sas-overview.md) vers un conteneur accessible en écriture dans Azure. Le résultat est stocké dans ce conteneur. Les SAP avec stratégie d’accès stockée ne sont **pas** prises en charge. Si aucune URL n’est spécifiée, Microsoft stocke les résultats dans un conteneur de stockage géré par Microsoft. Lorsque la transcription est supprimée en appelant [Supprimer la transcription](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription), les données de résultats sont également supprimées.
 :::row-end:::
 
 ### <a name="storage"></a>Stockage

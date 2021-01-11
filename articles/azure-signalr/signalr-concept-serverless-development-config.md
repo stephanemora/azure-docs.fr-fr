@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: antchu
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: acb85a04b8a1ca491058702510079a36b93fc657
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 3d69b72012819e3d9099e447b9048fe07aea86d3
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151044"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858703"
 ---
 # <a name="azure-functions-development-and-configuration-with-azure-signalr-service"></a>Développement et configuration Azure Functions avec Azure SignalR Service
 
@@ -49,11 +49,11 @@ Pour en savoir plus sur la création d’un jeton authentifié, reportez-vous à
 
 ### <a name="handle-messages-sent-from-signalr-service"></a>Gérer les messages envoyés par SignalR Service
 
-Utilisez la liaison de déclencheur *SignalR* pour gérer les messages envoyés par SignalR Service. Le déclenchement peut s’effectuer quand des clients envoient des messages ou quand ils sont connectés ou déconnectés.
+Utilisez la liaison de déclencheur *SignalR* pour gérer les messages envoyés par SignalR Service. Vous pouvez être averti lorsque les clients envoient des messages ou lorsqu’ils se connectent ou se déconnectent.
 
 Pour plus d'informations, consultez les [informations de référence sur la liaison de *déclencheur SignalR*](../azure-functions/functions-bindings-signalr-service-trigger.md).
 
-Vous devez également configurer le point de terminaison de votre fonction en amont afin que le service déclenche la fonction là où il y a un message du client. Pour plus d'informations sur la configuration en amont, consultez ce [document](concept-upstream.md).
+Vous devez également configurer le point de terminaison de votre fonction en amont afin que le service déclenche la fonction lorsqu’il y a un message du client. Pour plus d'informations sur la configuration en amont, consultez ce [document](concept-upstream.md).
 
 ### <a name="sending-messages-and-managing-group-membership"></a>Envoi de messages et gestion de l’appartenance au groupe
 

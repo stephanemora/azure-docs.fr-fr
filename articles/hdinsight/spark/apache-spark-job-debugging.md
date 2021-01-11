@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
-ms.openlocfilehash: 817b8976f5d014d990945816c2df1c7e8ed729fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 366c77ff94773163b71845b1ccbc6072c503734a
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86084883"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822299"
 ---
 # <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>Déboguer des travaux Apache Spark en cours d’exécution sur Azure HDInsight
 
@@ -36,11 +36,11 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
    > [!TIP]  
    > Vous pouvez également lancer l’interface utilisateur de YARN à partir de celle d’Ambari. Pour lancer l’interface utilisateur d’Ambari, sélectionnez **Accueil Ambari** sous **Tableaux de bord du cluster**. À partir de l’interface utilisateur d’Ambari, accédez à **YARN** > **Quick Links** > l’instance active de Resource Manager > **Resource Manager UI**.
 
-2. Étant donné que vous avez démarré le travail Spark à l’aide des notebooks Jupyter, l’application porte le nom **remotesparkmagics** (nom de toutes les applications démarrées à partir des notebooks). Sélectionnez l’ID d’application en regard du nom de l’application pour obtenir plus d’informations sur le travail. Cette action lance la vue de l’application.
+2. Étant donné que vous avez commencé le travail Spark avec des notebooks Jupyter, l’application porte le nom **remotesparkmagics** (comme toutes les applications commencées à partir de notebooks). Sélectionnez l’ID d’application en regard du nom de l’application pour obtenir plus d’informations sur le travail. Cette action lance la vue de l’application.
 
     ![Serveur d’historique Spark - Rechercher l’ID d’application Spark](./media/apache-spark-job-debugging/find-application-id1.png)
 
-    Pour les applications lancées à partir des bloc-notes Jupyter, l’état est toujours **EN COURS D’EXÉCUTION** tant que vous ne fermez pas le bloc-notes.
+    Pour les applications lancées à partir de notebooks Jupyter, l’état est toujours **EN COURS D’EXÉCUTION** tant que le notebook n’est pas fermé.
 
 3. Dans la vue de l’application, vous pouvez descendre pour rechercher les conteneurs associés à l’application et aux journaux d’activité (stdout/stderr). Vous pouvez également lancer l’interface utilisateur Spark en cliquant sur le lien qui correspond à l’ **URL de suivi**, comme indiqué ci-dessous.
 
@@ -50,7 +50,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Dans l’interface utilisateur Spark, vous pouvez explorer les travaux Spark générés par l’application que vous avez démarrée précédemment.
 
-1. Pour lancer l’interface utilisateur Spark, dans la vue de l’application, sélectionnez le lien **URL de suivi**, comme illustré dans la capture d’écran ci-dessus. Vous pouvez y voir tous les travaux Spark lancés par l’application en cours d’exécution dans le bloc-notes Jupyter.
+1. Pour lancer l’interface utilisateur Spark, dans la vue de l’application, sélectionnez le lien **URL de suivi**, comme illustré dans la capture d’écran ci-dessus. Y figurent tous les travaux Spark lancés par l’application en cours d’exécution dans le notebook Jupyter.
 
     ![Serveur d’historique Spark - Onglet Travaux](./media/apache-spark-job-debugging/view-apache-spark-jobs.png)
 

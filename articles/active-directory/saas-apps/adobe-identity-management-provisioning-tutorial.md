@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2020
 ms.author: Zhchia
-ms.openlocfilehash: aafdbe631426b4b0c8c762a81457369bc474f479
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 7b4dd01b74f81318338196a40949d339f13d16da
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181120"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673297"
 ---
 # <a name="tutorial-configure-adobe-identity-management-for-automatic-user-provisioning"></a>Tutoriel : Configurer Adobe Identity Management pour l’approvisionnement automatique d’utilisateurs
 
@@ -57,15 +57,15 @@ Le scénario décrit dans ce tutoriel part du principe que vous disposez des pr�
 
 2. Cliquez sur **Add Sync** (Ajouter une synchronisation).
 
-      ![Ajouter](media/adobe-identity-management-provisioning-tutorial/add-sync.png)
+    ![Ajouter](media/adobe-identity-management-provisioning-tutorial/add-sync.png)
 
 3. Sélectionnez **Sync users from Microsoft Azure** (Synchroniser les utilisateurs à partir de Microsoft Azure) et cliquez sur **Next** (Suivant).
 
-      ![Synchronisation](media/adobe-identity-management-provisioning-tutorial/sync-users.png)
+    ![Capture d’écran montrant l’option « Synchroniser les utilisateurs à partir de Microsoft Azure Active Directory » sélectionnée.](media/adobe-identity-management-provisioning-tutorial/sync-users.png)
 
 4. Copiez et enregistrez l’**URL de locataire** et le **jeton secret**. Ces valeurs doivent être entrées dans les champs **URL de locataire** et **Jeton secret** de l’onglet Approvisionnement, dans votre application Adobe Identity Management sur le portail Azure.
 
-      ![Synchronisation](media/adobe-identity-management-provisioning-tutorial/token.png)
+    ![Synchronisation](media/adobe-identity-management-provisioning-tutorial/token.png)
 
 ## <a name="step-3-add-adobe-identity-management-from-the-azure-ad-application-gallery"></a>Étape 3. Ajouter Adobe Identity Management à partir de la galerie d’applications d’Azure AD
 

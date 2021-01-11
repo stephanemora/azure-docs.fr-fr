@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 09957461fd92114d1181a570550ee1a189edd8ea
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 874d44e3900b1edf24c2f6bee95d787c5fc3988d
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96009864"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704835"
 ---
-## <a name="create-an-azure-container-instance-resource"></a>Créer une ressource d’instance de conteneur Azure
+## <a name="create-an-azure-container-instance-resource-using-the-azure-portal"></a>Création d’une ressource Azure Container Instances avec le Portail Azure
 
 1. Accédez à la page [Créer](https://ms.portal.azure.com/#create/Microsoft.ContainerInstances) de Container Instances.
 
@@ -43,9 +43,9 @@ ms.locfileid: "96009864"
 
     | Clé | Valeur |
     |--|--|
-    |`apikey`|Copiée de la page **Clés** de la ressource. Il s’agit d’une chaîne de 32 caractères alphanumériques sans espaces ni tirets, `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|
-    |`billing`|Copiée de la page **Vue d’ensemble** de la ressource.|
-    |`eula`|`accept`|
+    |`ApiKey`|Copiée sur la page **Clés et point de terminaison** de la ressource. Il s’agit d’une chaîne de 32 caractères alphanumériques sans espaces ni tirets, `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|
+    |`Billing`| URL du point de terminaison copiée sur la page **Clés et point de terminaison** de la ressource.|
+    |`Eula`|`accept`|
 
 5. Cliquez sur **Examiner et créer**
 6. Une fois la validation réussie, cliquez sur **Créer** pour terminer le processus de création

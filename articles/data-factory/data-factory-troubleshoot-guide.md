@@ -5,17 +5,18 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 11/16/2020
+ms.date: 12/30/2020
 ms.author: abnarain
 ms.reviewer: craigg
-ms.openlocfilehash: c9dd39ffa68d8261f5c5d301d4c351c52b3f27c1
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 922ec6c4b579a657e7ee5e872148f8126ce175e2
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94654590"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822282"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>Résoudre les problèmes dans Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Cet article présente des méthodes couramment employées pour résoudre les problèmes liés aux activités de contrôle externes dans Azure Data Factory.
@@ -546,7 +547,6 @@ Le tableau suivant s’applique à Azure Batch.
 
 - **Recommandation** : Spécifiez un principal de service disposant des autorisations nécessaires pour créer un cluster HDInsight dans l’abonnement indiqué, puis réessayez. Vérifiez que les [identités managées sont correctement configurées](../hdinsight/hdinsight-managed-identities.md).
 
-
 ### <a name="error-code-2300"></a>Code d’erreur : 2300
 
 - **Message** : `Failed to submit the job '%jobId;' to the cluster '%cluster;'. Error: %errorMessage;.`
@@ -952,6 +952,16 @@ Le tableau suivant s’applique à Azure Batch.
 
 - **Recommandation** : Spécifiez un compte de stockage blob Azure en tant que stockage supplémentaire pour le service lié HDInsight à la demande.
 
+### <a name="ssl-error-when-adf-linked-service-using-hdinsight-esp-cluster"></a>Erreur SSL pendant que le service lié ADF utilisait le cluster ESP HDInsight
+
+- **Message** : `Failed to connect to HDInsight cluster: 'ERROR [HY000] [Microsoft][DriverSupport] (1100) SSL certificate verification failed because the certificate is missing or incorrect.`
+
+- **Cause** : Le problème est très probablement lié au magasin de confiance système.
+
+- **Résolution** : Vous pouvez accéder au chemin **Microsoft Integration Runtime\4.0\Shared\ODBC Drivers\Microsoft Hive ODBC Driver\lib** et ouvrir DriverConfiguration64.exe pour modifier le paramètre.
+
+    ![Décocher Utiliser le magasin de confiance système](./media/connector-troubleshoot-guide/system-trust-store-setting.png)
+
 ## <a name="web-activity"></a>Activité web
 
 ### <a name="error-code-2128"></a>Code d’erreur : 2128
@@ -1015,9 +1025,9 @@ Si vous remarquez que l’exécution de l’activité dure beaucoup plus longtem
 
 **Message d’erreur :** `The payload including configurations on activity/dataSet/linked service is too large. Please check if you have settings with very large value and try to reduce its size.`
 
-**Cause :** La charge utile pour chaque exécution d’activité comprend la configuration de l’activité, le ou les jeux de données associés et les configurations du ou des services liés le cas échéant, et une petite partie des propriétés système générées par type d’activité. La limite de cette taille de charge utile est de 896 ko, comme indiqué dans [Limites de Data Factory](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits).
+**Cause :** La charge utile pour chaque exécution d’activité comprend la configuration de l’activité, du ou des jeux de données associés et du ou des services liés le cas échéant, ainsi qu’une petite partie des propriétés système générées par type d’activité. La limite de taille de cette charge utile est de 896 Ko (cf. section [Limites de Data Factory](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits)).
 
-**Recommandation :** Vous atteignez cette limite probablement parce que vous transmettez une ou plusieurs grandes valeurs de paramètres à partir de la sortie d’une activité en amont ou d’un élément externe, surtout si vous transmettez des données réelles entre les activités dans le flux de contrôle. Vérifiez si vous pouvez réduire la taille des valeurs de paramètres élevées, ou paramétrez votre logique de pipeline pour éviter de transmettre de telles valeurs entre les activités et pour les gérer plutôt à l’intérieur de l’activité.
+**Recommandation :** Vous atteignez cette limite probablement parce que vous transmettez une ou plusieurs grandes valeurs de paramètres à partir de la sortie d’une activité en amont ou d’un élément externe, surtout si vous transmettez des données réelles entre les activités dans le flux de contrôle. Vérifiez si vous pouvez réduire la taille des valeurs de paramètres élevées. Sinon, paramétrez votre logique de pipeline de façon à gérer ces valeurs à l’intérieur de l’activité plutôt que de les transmettre entre les activités.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

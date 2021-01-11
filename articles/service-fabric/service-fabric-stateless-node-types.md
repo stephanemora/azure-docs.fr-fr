@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: pepogors
-ms.openlocfilehash: 266c04a049cab574576f781c397aee566efe5372
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 0876891e42ce629a3b088d8068c74386d690492d
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516615"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97683198"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-with-stateless-only-node-types-preview"></a>Déployer un cluster Azure Service Fabric avec des types de nœuds sans état (préversion)
 Les types de nœuds Service Fabric sont fournis en supposant qu’à un moment donné, des services avec état peuvent être placés sur les nœuds. Les types de nœuds sans état assouplissent cette hypothèse pour un type de nœud, ce qui permet au type de nœud d’utiliser d’autres fonctionnalités, telles que l’accélération des opérations de scale-out, la prise en charge des mises à niveau automatiques du système d’exploitation sur la durabilité Bronze et le scale-out de plus de 100 nœuds dans un même groupe de machines virtuelles identiques.
@@ -25,7 +25,7 @@ Des exemples de modèles sont disponibles : [Modèle de types de nœuds sans ét
 ## <a name="enabling-stateless-node-types-in-service-fabric-cluster"></a>Activation de types de nœuds sans état dans un cluster Service Fabric
 Pour définir un ou plusieurs types de nœuds comme sans état dans une ressource de cluster, définissez la propriété **isStateless** sur « True ». Lors du déploiement d’un cluster Service Fabric avec des types de nœuds sans état, n’oubliez pas d’avoir au moins un type de nœud principal dans la ressource de cluster.
 
-* La ressource de cluster Service Fabric apiVersion doit être « 2020-12-01-preview » ou une version supérieure.
+* La ressource de cluster Service Fabric apiVersion doit être « 2020-12-01-preview » ou une version ultérieure.
 
 ```json
 {
@@ -37,14 +37,14 @@ Pour définir un ou plusieurs types de nœuds comme sans état dans une ressourc
             "startPort": "[parameters('nt0applicationStartPort')]"
         },
         "clientConnectionEndpointPort": "[parameters('nt0fabricTcpGatewayPort')]",
-        "durabilityLevel": "Bronze",
+        "durabilityLevel": "Silver",
         "ephemeralPorts": {
             "endPort": "[parameters('nt0ephemeralEndPort')]",
             "startPort": "[parameters('nt0ephemeralStartPort')]"
         },
         "httpGatewayEndpointPort": "[parameters('nt0fabricHttpGatewayPort')]",
         "isPrimary": true,
-        "isStateles": false,
+        "isStateless": false,
         "vmInstanceCount": "[parameters('nt0InstanceCount')]"
     },
     {
@@ -54,7 +54,7 @@ Pour définir un ou plusieurs types de nœuds comme sans état dans une ressourc
             "startPort": "[parameters('nt1applicationStartPort')]"
         },
         "clientConnectionEndpointPort": "[parameters('nt1fabricTcpGatewayPort')]",
-        "durabilityLevel": "Silver",
+        "durabilityLevel": "Bronze",
         "ephemeralPorts": {
             "endPort": "[parameters('nt1ephemeralEndPort')]",
             "startPort": "[parameters('nt1ephemeralStartPort')]"
@@ -71,9 +71,9 @@ Pour définir un ou plusieurs types de nœuds comme sans état dans une ressourc
 ## <a name="configuring-virtual-machine-scale-set-for-stateless-node-types"></a>Configuration du groupe de machines virtuelles identiques pour les types de nœuds sans état
 Pour activer les types de nœuds sans état, vous devez configurer la ressource de groupe de machines virtuelles identiques sous-jacente de la façon suivante :
 
-* La propriété **singlePlacementGroup** de la valeur doit être définie sur True/False en fonction de l’exigence de mise à l’échelle sur plus de 100 machines virtuelles.
-* Le groupe identique **upgradeMode** doit être défini sur Continue.
-* Le mode de mise à niveau Continue nécessite la configuration de l’extension Intégrité de l’application ou des sondes d’intégrité. Configurez la sonde d’intégrité avec la configuration par défaut pour les types de nœuds sans état comme indiqué ci-dessous. Une fois les applications déployées sur le nodetype, les ports d’extension de sonde d’intégrité/d’intégrité peuvent être modifiés pour surveiller l’intégrité de l’application.
+* La propriété **singlePlacementGroup** de la valeur doit être définie sur **false** si vous devez effectuer une mise à l’échelle sur plus de 100 machines virtuelles.
+* Le paramètre **upgradePolicy** du groupe identique dont le **mode** doit être défini sur **Continue**.
+* Le mode de mise à niveau Continue nécessite la configuration de l’extension Intégrité de l’application ou des sondes d’intégrité. Configurez la sonde d’intégrité avec la configuration par défaut pour les types de nœuds sans état comme indiqué ci-dessous. Une fois les applications déployées sur le type de nœud, les ports d’extension de sonde d’intégrité/d’intégrité peuvent être modifiés pour surveiller l’intégrité de l’application.
 
 ```json
 {
@@ -103,7 +103,7 @@ Pour activer les types de nœuds sans état, vous devez configurer la ressource 
             "clusterEndpoint": "[reference(parameters('clusterName')).clusterEndpoint]",
             "nodeTypeRef": "[parameters('vmNodeType1Name')]",
             "dataPath": "D:\\\\SvcFab",
-            "durabilityLevel": "Silver",
+            "durabilityLevel": "Bronze",
             "certificate": {
                 "thumbprint": "[parameters('certificateThumbprint')]",
                 "x509StoreName": "[parameters('certificateStoreValue')]"

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 79f442c5ab7db92e69f5396f3f9205212bdf4d4d
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: d6b916ce03c6850f78217f1aac0b63048a6aff3b
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97399245"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858499"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Présentation de la journalisation des flux pour les groupes de sécurité réseau
 
@@ -353,6 +353,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 **Considérations relatives aux comptes de stockage** : 
 
 - Localisation : le compte de stockage doit se trouver dans la même région que le groupe de sécurité réseau.
+- Niveau de performance : actuellement, seuls les comptes de stockage de niveau Standard sont pris en charge.
 - Rotation des clés auto-gérée : si vous modifiez (ou effectuez la rotation) des clés d’accès à votre compte de stockage, les journaux de flux de groupe de sécurité réseau cessent de fonctionner. Pour corriger ce problème, vous devez désactiver puis réactiver les journaux de flux de groupe de sécurité réseau.
 
 **Coûts de la journalisation de flux** : la journalisation de flux NSG est facturée selon le volume de journaux d’activité produits. Un volume de trafic élevé peut entraîner un volume important de journaux de flux avec les coûts associés. Les tarifs des journaux de flux NSG n’incluent pas les coûts de stockage afférents. L’utilisation de la fonctionnalité de stratégie de rétention avec la journalisation de flux NSG implique des coûts de stockage distincts pendant de longues périodes. Si vous n’avez pas besoin de la fonctionnalité de stratégie de conservation, nous vous recommandons de définir cette valeur sur 0. Pour en savoir plus, consultez [Tarifs Network Watcher](https://azure.microsoft.com/pricing/details/network-watcher/) et [Tarifs du stockage Azure](https://azure.microsoft.com/pricing/details/storage/) pour de plus amples informations.
@@ -374,7 +375,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 **Activer la journalisation de flux NSG sur tous les groupes de sécurité réseau associés à une ressource** : la journalisation de flux dans Azure est configurée sur la ressource NSG. Un flux ne peut être associé qu’à une règle de groupe de sécurité réseau. Dans les scénarios où plusieurs groupes de sécurité réseau sont utilisés, nous recommandons d’activer les journaux de flux de groupe de sécurité réseau sur tous les groupes de sécurité réseau appliqués au sous-réseau ou à l’interface réseau de la ressource pour vous assurer que tout le trafic est enregistré. Pour en savoir plus, consultez la section [Évaluation du trafic](../virtual-network/network-security-group-how-it-works.md) dans Groupes de sécurité réseau. 
 
 Quelques scénarios courants :
-1. **Plusieurs groupes de sécurité réseau sur une carte réseau** : Si plusieurs groupes de sécurité réseau sont attachés à une carte réseau, la journalisation de flux doit être activée sur chacun d’eux.
+1. **Plusieurs cartes réseau sur une machine virtuelle** : Si plusieurs cartes réseau sont attachées à une machine virtuelle, la journalisation de flux doit être activée sur chacune d’elles.
 1. **Groupe de sécurité réseau au niveau de la carte réseau et du sous-réseau** : Si le groupe de sécurité réseau est configuré au niveau de la carte réseau ainsi qu’au niveau du sous-réseau, la journalisation de flux doit être activée sur les deux groupes de sécurité réseau. 
 
 **Approvisionnement du stockage** : Le stockage doit être approvisionné dans le paramétrage avec le volume de journal de flux attendu.

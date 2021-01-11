@@ -4,12 +4,12 @@ description: Découvrez comment gérer des erreurs dans l’extension Fonctions 
 ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: azfuncdf
-ms.openlocfilehash: 6650322834d491d78470e2d8dbd24e2c6750ae39
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 023f9dfcc421935c3f7515e847108925d5e5521e
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87081693"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673645"
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>Gestion des erreurs dans Fonctions durables (Azure Functions)
 
@@ -196,7 +196,11 @@ L'appel de fonction de l'activité de l'exemple précédent utilise un paramètr
 * **Coefficient d’interruption** : Coefficient permettant de déterminer le taux d’augmentation de l’interruption. La valeur par défaut est de 1.
 * **Intervalle maximal entre deux nouvelles tentatives** : Durée maximale de l’attente entre deux nouvelles tentatives.
 * **Délai de nouvelle tentative** : Temps que passe le système à effectuer de nouvelles tentatives. Par défaut, le système effectue ces nouvelles tentatives indéfiniment.
-* **Descripteur** : Un rappel défini par l’utilisateur peut être spécifié pour déterminer s’il convient de réessayer une fonction.
+* **Descripteur** : Un rappel défini par l’utilisateur peut être spécifié pour déterminer s’il convient de réessayer une fonction. 
+
+> [!NOTE]
+> Les rappels définis par l’utilisateur ne sont actuellement pas pris en charge par Durable Functions en JavaScript (`context.df.RetryOptions`).
+
 
 ## <a name="function-timeouts"></a>Délais d’expiration des fonctions
 

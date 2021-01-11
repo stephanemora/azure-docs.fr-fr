@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2020
 ms.author: Zhchia
-ms.openlocfilehash: 141dd37dff8403825df713de8f7176d4dd9d20f8
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 4eaac716d06b102a07872059af28da4986889caa
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97008042"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673434"
 ---
 # <a name="tutorial-configure-bizagi-studio-for-digital-process-automation-for-automatic-user-provisioning"></a>Tutoriel : Configurer Bizagi Studio for Digital Process Automation pour le provisionnement automatique d’utilisateurs
 
@@ -46,7 +46,7 @@ Le scénario décrit dans ce didacticiel part du principe que vous disposez des 
 Procédez comme suit pour la planification :
 
 1. En savoir plus sur le [fonctionnement du service d’approvisionnement](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
-2. Déterminez qui sera [concerné par le provisionnement](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
+2. Déterminez qui sera [concerné par l’approvisionnement](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
 3. Déterminez les données à [mapper entre Azure AD et Bizagi Studio for Digital Process Automation](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
 ## <a name="configure-to-support-provisioning-with-azure-ad"></a>Configuration pour prendre en charge le provisionnement avec Azure AD
@@ -132,7 +132,16 @@ Cette section vous guide tout au long de la procédure de configuration du servi
    |name.familyName|String|
    |name.formatted|String|
    |phoneNumbers[type eq "mobile"].value|String|
+
+   Vous pouvez ajouter des attributs d’extension personnalisés en accédant à **Afficher les options avancées > Modifier la liste d’attributs pour Bizagi**. Les attributs d’extension personnalisés doivent être préfixés avec **urn:ietf:params:scim:schemas:extension:bizagi:2.0:UserProperties:** . Par exemple, si l’attribut d’extension personnalisé est **IdentificationNumber**, l’attribut doit être ajouté comme : **urn:ietf:params:scim:schemas:extension:bizagi:2.0:UserProperties:IdentificationNumber**. Sélectionnez **Enregistrer** pour valider les modifications.
    
+    ![Modifiez la liste des attributs.](media/bizagi-studio-for-digital-process-automation-provisioning-tutorial/edit.png)  
+
+   Pour plus d’informations sur l’ajout d’attributs personnalisés, consultez [Personnaliser les attributs d’application](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).
+
+> [!NOTE]
+> Seules les propriétés de type basique sont prises en charge (par exemple, String, Integer, Boolean, DateTime, etc.). Les propriétés liées à des tables paramétriques ou à plusieurs types ne sont pas encore prises en charge.
+
 10. Pour configurer des filtres d’étendue, consultez le [tutoriel sur les filtres d’étendue](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
 11. Pour activer le service de provisionnement Azure AD pour Bizagi Studio for Digital Process Automation, affectez la valeur **Activé** au paramètre **État de provisionnement** dans la section **Paramètres**.
@@ -150,7 +159,7 @@ Cette section vous guide tout au long de la procédure de configuration du servi
 Cette opération démarre le cycle de synchronisation initiale de tous les utilisateurs et groupes définis dans **Étendue** dans la section **Paramètres**. Le cycle de synchronisation initiale prend plus de temps que les cycles de synchronisation suivants, qui se produisent toutes les 40 minutes environ tant que le service de provisionnement Azure AD est en cours d’exécution. 
 
 ## <a name="monitor-your-deployment"></a>Surveiller votre déploiement
-Après avoir configuré le provisionnement, utilisez les ressources suivantes pour superviser votre déploiement :
+Après avoir configuré l’approvisionnement, utilisez les ressources suivantes pour superviser votre déploiement :
 
 - Utilisez les [journaux d’approvisionnement](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) pour déterminer quels utilisateurs ont été configurés avec succès ou ceux pour laquelle la procédure a échoué.
 - Consultez la [barre de progression](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) pour afficher l’état du cycle de provisionnement et sa progression.

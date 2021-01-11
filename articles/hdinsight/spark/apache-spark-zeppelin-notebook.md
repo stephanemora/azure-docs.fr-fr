@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
-ms.openlocfilehash: a692f4dd86d110f7f0a91a862a7b16ac28345de5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 00b9568d03260a9d1ac0b6916e09f3d9ef4da34d
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86084526"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822163"
 ---
 # <a name="use-apache-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Utiliser des blocs-notes Apache Zeppelin avec un cluster Apache Spark sur HDInsight
 
@@ -115,7 +115,7 @@ Les clusters HDInsight Spark incluent des blocs-notes [Apache Zeppelin](https://
 
 Un bloc-notes Zeppelin dans un cluster Apache Spark sur HDInsight peut utiliser des packages externes bénéficiant de la contribution de la communauté, qui ne sont pas inclus dans le cluster. Recherchez le [référentiel Maven](https://search.maven.org/) pour obtenir la liste complète des packages disponibles. Vous pouvez également obtenir une liste des packages disponibles à partir d’autres sources. Par exemple, une liste complète des packages bénéficiant de la contribution de la communauté est disponible sur le site [Spark Packages](https://spark-packages.org/)(Packages Spark).
 
-Dans cet article, vous allez apprendre à utiliser le package [spark-csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) avec le bloc-notes Jupyter.
+Dans cet article, vous allez apprendre à utiliser le package [spark-csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) avec le notebook Jupyter.
 
 1. Ouvrez les paramètres de l’interpréteur. Dans le coin supérieur droit, sélectionnez le nom de l'utilisateur connecté, puis **Interpréteur**.
 
@@ -137,7 +137,7 @@ Dans cet article, vous allez apprendre à utiliser le package [spark-csv](https:
 
     b. À partir du référentiel, rassemblez les valeurs pour **GroupId**, **ArtifactId** et **Version**.
 
-    ![Utiliser des packages externes avec les notebooks Jupyter](./media/apache-spark-zeppelin-notebook/use-external-packages-with-jupyter.png "Utiliser des packages externes avec les blocs-notes Jupyter")
+    ![Utilisation de packages externes avec Jupyter Notebook](./media/apache-spark-zeppelin-notebook/use-external-packages-with-jupyter.png "Utilisation de packages externes avec Jupyter Notebook")
 
     c. Concaténez les trois valeurs séparées par deux-points ( **:** ).
 
@@ -227,5 +227,5 @@ Pour valider le service à partir d’une ligne de commande, utilisez le protoco
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Vue d’ensemble : Apache Spark sur Azure HDInsight](apache-spark-overview.md)
-* [Noyaux accessibles à Jupyter Notebook dans le cluster Apache Spark pour HDInsight](apache-spark-jupyter-notebook-kernels.md)
+* [Noyaux disponibles pour bloc-notes Jupyter dans un cluster Apache Spark pour HDInsight](apache-spark-jupyter-notebook-kernels.md)
 * [Install Jupyter on your computer and connect to an HDInsight Spark cluster (Installer Jupyter sur un ordinateur et se connecter au cluster Spark sur HDInsight)](apache-spark-jupyter-notebook-install-locally.md)

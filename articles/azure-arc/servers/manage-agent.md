@@ -1,14 +1,14 @@
 ---
 title: Gestion de l’agent Azure Arc enabled servers
 description: Cet article décrit les différentes tâches de gestion à effectuer en règle générale pendant le cycle de vie de l’agent Connected Machine Azure Arc enabled servers.
-ms.date: 10/30/2020
+ms.date: 12/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9e17bf58d1e94b64d1cdc6ff0b57b1b6a81be180
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: f408048f61f76d6b258ea8e063630b4e2aa841af
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97107190"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724372"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Gestion et maintenance de l’agent Connected Machine
 
@@ -61,7 +61,7 @@ Le package de mise à jour de l’agent Connected Machine pour Windows est dispo
 
 * [Package Windows Installer de l’agent pour Windows](https://aka.ms/AzureConnectedMachineAgent) à partir du centre de téléchargement Microsoft.
 
-L’agent peut être mis à jour à l’aide de différentes méthodes pour prendre en charge votre processus de gestion des mises à jour logicielles. À part l’obtention depuis Microsoft Update, vous pouvez également procéder au téléchargement et à l’exécution manuels à partir de l’invite de commandes, d’un script ou d’une autre solution d’automatisation, ou à partir de l’Assistant interface utilisateur en exécutant `AzureConnectedMachine.msi`.
+L’agent peut être mis à jour suivant différentes méthodes, ce qui permet de prendre en charge votre processus de gestion des mises à jour de logiciels. À part l’obtention depuis Microsoft Update, vous pouvez également procéder au téléchargement et à l’exécution manuels à partir de l’invite de commandes, d’un script ou d’une autre solution d’automatisation, ou à partir de l’Assistant interface utilisateur en exécutant `AzureConnectedMachine.msi`.
 
 > [!NOTE]
 > * Pour mettre à niveau l’agent, vous devez disposer d’autorisations *Administrateur*.
@@ -189,7 +189,7 @@ Pour vous connecter à l’aide de vos informations d’identification d’ouver
 
 ### <a name="disconnect"></a>Déconnecter
 
-Ce paramètre spécifie une ressource dans Azure Resource Manager, indiquant que la machine est supprimée dans Azure. Il ne supprime pas l’agent de la machine. Cette opération doit être effectuée en tant qu’étape distincte. Une fois la machine déconnectée, si vous souhaitez la réinscrire auprès d’Azure Arc enabled servers, utilisez la commande `azcmagent connect` afin qu’une nouvelle ressource soit créée pour elle dans Azure.
+Ce paramètre spécifie une ressource dans Azure Resource Manager, indiquant que la machine est supprimée dans Azure. Il ne supprime pas l’agent de la machine. L’agent est désinstallé séparément. Une fois la machine déconnectée, si vous souhaitez la réinscrire auprès d’Azure Arc enabled servers, utilisez la commande `azcmagent connect` afin qu’une nouvelle ressource soit créée pour elle dans Azure.
 
 > [!NOTE]
 > Si vous avez déployé une ou plusieurs extensions de machine virtuelle Azure sur votre instance Azure Arc enabled servers et que vous désinscrivez la machine dans Azure, les extensions restent installées. Il est important de comprendre que, en fonction de l’extension installée, elle est exécutée activement. Avant de désinscrire dans Azure une machine que vous souhaitez mettre hors service ou ne plus gérer via Arc enabled servers, vous devez supprimer les extensions qui y sont installées.
@@ -208,7 +208,7 @@ Pour vous déconnecter à l’aide de vos informations d’identification d’ou
 
 ## <a name="remove-the-agent"></a>Supprimer l’agent
 
-Utilisez l’une des méthodes suivantes pour désinstaller l’agent Connected Machine Windows ou Linux de l’ordinateur. La suppression de l’agent n’entraîne pas la désinscription de la machine auprès d’Azure Arc enabled servers ni la suppression des extensions de machine virtuelle Azure installées. Vous devez effectuer ces étapes séparément quand vous n’avez plus besoin de gérer la machine dans Azure, et préalablement à la désinstallation de l’agent.
+Utilisez l’une des méthodes suivantes pour désinstaller l’agent Connected Machine Windows ou Linux de l’ordinateur. La suppression de l’agent n’entraîne pas la désinscription de la machine auprès d’Azure Arc enabled servers ni la suppression des extensions de machine virtuelle Azure installées. Annulez l’inscription de la machine et supprimez les extensions de machine virtuelle installées séparément quand vous n’avez plus besoin de gérer la machine dans Azure. Cette procédure doit être suivie avant la désinstallation de l’agent.
 
 ### <a name="windows-agent"></a>Agent Windows
 
@@ -286,6 +286,10 @@ Si vous prévoyez d’arrêter la gestion de la machine avec les services de pri
 ## <a name="update-or-remove-proxy-settings"></a>Mettre à jour ou supprimer des paramètres de proxy
 
 Pour configurer l’agent afin qu’il communique avec le service via un serveur proxy ou pour supprimer cette configuration après le déploiement, utilisez l’une des méthodes suivantes.
+
+> [!NOTE]
+> Les serveurs avec Arc ne prennent pas en charge l’utilisation d’une [passerelle Log Analytics](../../azure-monitor/platform/gateway.md) comme proxy pour Connected Machine Agent.
+>
 
 ### <a name="windows"></a>Windows
 

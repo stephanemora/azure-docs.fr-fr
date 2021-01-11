@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: pafarley
-ms.openlocfilehash: 513d98ae274c668197b066c742119055248f37f9
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 661b0bbf1aa389dc76567d95ad917548255a1b35
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92911713"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845600"
 ---
 # <a name="build-a-training-data-set-for-a-custom-model"></a>Créer un jeu de données d’apprentissage pour un modèle personnalisé
 
@@ -72,11 +72,8 @@ Si vous ajoutez le contenu suivant au corps de la demande, l’API sera entraîn
 
 Maintenant que vous avez appris à créer un jeu de données d’apprentissage, suivez un guide de démarrage rapide pour entraîner un modèle Form Recognizer personnalisé et commencer à l’utiliser sur vos formulaires.
 
-* [Effectuer l’apprentissage d’un modèle et extraire des données de formulaire à l’aide de la bibliothèque de client](./quickstarts/client-library.md)
-* [Entraînement d’un modèle et extraction de données de formulaire à l’aide de cURL](./quickstarts/curl-train-extract.md)
-* [Entraînement d’un modèle et extraction de données de formulaire à l’aide de l’API REST et de Python](./quickstarts/python-train-extract.md)
+* [Entraîner un modèle et extraire des données de formulaire avec la bibliothèque de client ou l’API REST](./quickstarts/client-library.md)
 * [Entraînement avec des étiquettes à l’aide de l’outil Exemple d’étiquetage](./quickstarts/label-tool.md)
-* [Entraîner avec des étiquettes en utilisant l’API REST et Python](./quickstarts/python-labeled-data.md)
 
 ## <a name="see-also"></a>Voir aussi
 

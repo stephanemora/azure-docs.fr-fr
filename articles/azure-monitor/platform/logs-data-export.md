@@ -7,12 +7,12 @@ ms.custom: references_regions, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
-ms.openlocfilehash: 8fa823620d6d1306260d719cbabaa3d815cc0d09
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 8e310ea487818f6d82869fe1973c8e9ed0b04195
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505441"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97797109"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Exportation des données de l’espace de travail Log Analytics dans Azure Monitor (préversion)
 L’exportation des données de l’espace de travail Log Analytics dans Azure Monitor vous permet d’exporter en continu des données de tables sélectionnées dans votre espace de travail Log Analytics vers un compte de stockage Azure ou Azure Event Hubs à mesure qu’elles sont collectées. Cet article fournit des informations détaillées sur cette fonctionnalité et les étapes à suivre pour configurer l’exportation de données dans vos espaces de travail.
@@ -216,6 +216,186 @@ Voici un exemple de corps pour la requête REST pour Event Hub pour laquelle un 
   }
 }
 ```
+
+# <a name="template"></a>[Modèle](#tab/json)
+
+Utilisez la commande suivante pour créer une règle d’exportation de données vers un compte de stockage à l’aide d’un modèle.
+
+```
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "workspaceName": {
+            "defaultValue": "workspace-name",
+            "type": "String"
+        },
+        "workspaceLocation": {
+            "defaultValue": "workspace-region",
+            "type": "string"
+        },
+        "storageAccountRuleName": {
+            "defaultValue": "storage-account-rule-name",
+            "type": "string"
+        },
+        "storageAccountResourceId": {
+            "defaultValue": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.Storage/storageAccounts/storage-account-name",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "microsoft.operationalinsights/workspaces",
+            "apiVersion": "2020-08-01",
+            "name": "[parameters('workspaceName')]",
+            "location": "[parameters('workspaceLocation')]",
+            "resources": [
+                {
+                  "type": "microsoft.operationalinsights/workspaces/dataexports",
+                  "apiVersion": "2020-08-01",
+                  "name": "[concat(parameters('workspaceName'), '/' , parameters('storageAccountRuleName'))]",
+                  "dependsOn": [
+                      "[resourceId('microsoft.operationalinsights/workspaces', parameters('workspaceName'))]"
+                  ],
+                  "properties": {
+                      "destination": {
+                          "resourceId": "[parameters('storageAccountResourceId')]"
+                      },
+                      "tableNames": [
+                          "Heartbeat",
+                          "InsightsMetrics",
+                          "VMConnection",
+                          "Usage"
+                      ],
+                      "enable": true
+                  }
+              }
+            ]
+        }
+    ]
+}
+```
+
+Utilisez la commande suivante pour créer une règle d’exportation de données vers un Event Hub à l’aide d’un modèle. Un Event Hub distinct est créée pour chaque table.
+
+```
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "workspaceName": {
+            "defaultValue": "workspace-name",
+            "type": "String"
+        },
+        "workspaceLocation": {
+            "defaultValue": "workspace-region",
+            "type": "string"
+        },
+        "eventhubRuleName": {
+            "defaultValue": "event-hub-rule-name",
+            "type": "string"
+        },
+        "namespacesResourceId": {
+            "defaultValue": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/microsoft.eventhub/namespaces/namespaces-name",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "microsoft.operationalinsights/workspaces",
+            "apiVersion": "2020-08-01",
+            "name": "[parameters('workspaceName')]",
+            "location": "[parameters('workspaceLocation')]",
+            "resources": [
+              {
+                  "type": "microsoft.operationalinsights/workspaces/dataexports",
+                  "apiVersion": "2020-08-01",
+                  "name": "[concat(parameters('workspaceName'), '/', parameters('eventhubRuleName'))]",
+                  "dependsOn": [
+                      "[resourceId('microsoft.operationalinsights/workspaces', parameters('workspaceName'))]"
+                  ],
+                  "properties": {
+                      "destination": {
+                          "resourceId": "[parameters('namespacesResourceId')]"
+                      },
+                      "tableNames": [
+                          "Usage",
+                          "Heartbeat"
+                      ],
+                      "enable": true
+                  }
+              }
+            ]
+        }
+    ]
+}
+```
+
+Utilisez la commande suivante pour créer une règle d’exportation de données vers un Event Hub spécifique à l’aide d’un modèle. Toutes les tables sont exportées vers le nom d’Event Hub fourni.
+
+```
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "workspaceName": {
+            "defaultValue": "workspace-name",
+            "type": "String"
+        },
+        "workspaceLocation": {
+            "defaultValue": "workspace-region",
+            "type": "string"
+        },
+        "eventhubRuleName": {
+            "defaultValue": "event-hub-rule-name",
+            "type": "string"
+        },
+        "namespacesResourceId": {
+            "defaultValue": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/microsoft.eventhub/namespaces/namespaces-name",
+            "type": "String"
+        },
+        "eventhubName": {
+            "defaultValue": "event-hub-name",
+            "type": "string"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "microsoft.operationalinsights/workspaces",
+            "apiVersion": "2020-08-01",
+            "name": "[parameters('workspaceName')]",
+            "location": "[parameters('workspaceLocation')]",
+            "resources": [
+              {
+                  "type": "microsoft.operationalinsights/workspaces/dataexports",
+                  "apiVersion": "2020-08-01",
+                  "name": "[concat(parameters('workspaceName'), '/', parameters('eventhubRuleName'))]",
+                  "dependsOn": [
+                      "[resourceId('microsoft.operationalinsights/workspaces', parameters('workspaceName'))]"
+                  ],
+                  "properties": {
+                      "destination": {
+                          "resourceId": "[parameters('namespacesResourceId')]",
+                          "metaData": {
+                              "eventHubName": "[parameters('eventhubName')]"
+                          }
+                      },
+                      "tableNames": [
+                          "Usage",
+                          "Heartbeat"
+                      ],
+                      "enable": true
+                  }
+              }
+            ]
+        }
+    ]
+}
+```
+
 ---
 
 ## <a name="view-data-export-rule-configuration"></a>Afficher la configuration de règle d’exportation de données
@@ -243,6 +423,11 @@ Utilisez la requête suivante pour afficher la configuration d’une règle d’
 ```rest
 GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.operationalInsights/workspaces/<workspace-name>/dataexports/<data-export-name>?api-version=2020-08-01
 ```
+
+# <a name="template"></a>[Modèle](#tab/json)
+
+N/A
+
 ---
 
 ## <a name="disable-an-export-rule"></a>Désactiver une règle d’exportation
@@ -265,7 +450,7 @@ az monitor log-analytics workspace data-export update --resource-group resourceG
 
 # <a name="rest"></a>[REST](#tab/rest)
 
-Utilisez la requête suivante pour désactiver une règle d’exportation de données à l’aide de l’API REST. La requête doit utiliser l’autorisation du jeton du porteur.
+Les règles d’exportation peuvent être désactivées pour vous permettre d’arrêter l’exportation lorsque vous n’avez pas besoin de conserver des données pendant un certain temps, par exemple lorsque des tests sont en cours. Utilisez la requête suivante pour désactiver une règle d’exportation de données à l’aide de l’API REST. La requête doit utiliser l’autorisation du jeton du porteur.
 
 ```rest
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.operationalInsights/workspaces/<workspace-name>/dataexports/<data-export-name>?api-version=2020-08-01
@@ -285,6 +470,11 @@ Content-type: application/json
     }
 }
 ```
+
+# <a name="template"></a>[Modèle](#tab/json)
+
+Les règles d’exportation peuvent être désactivées pour vous permettre d’arrêter l’exportation lorsque vous n’avez pas besoin de conserver des données pendant un certain temps, par exemple lorsque des tests sont en cours. Dans le modèle, définissez ```"enable": false``` pour désactiver une exportation de données.
+
 ---
 
 ## <a name="delete-an-export-rule"></a>Supprimer une règle d’exportation
@@ -312,6 +502,11 @@ Utilisez la requête suivante pour supprimer une règle d’exportation de donn�
 ```rest
 DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.operationalInsights/workspaces/<workspace-name>/dataexports/<data-export-name>?api-version=2020-08-01
 ```
+
+# <a name="template"></a>[Modèle](#tab/json)
+
+N/A
+
 ---
 
 ## <a name="view-all-data-export-rules-in-a-workspace"></a>Afficher toutes les règles d’exportation de données dans un espace de travail
@@ -339,6 +534,11 @@ Utilisez la requête suivante pour afficher toutes les règles d’exportation d
 ```rest
 GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.operationalInsights/workspaces/<workspace-name>/dataexports?api-version=2020-08-01
 ```
+
+# <a name="template"></a>[Modèle](#tab/json)
+
+N/A
+
 ---
 
 ## <a name="unsupported-tables"></a>Tables non prises en charge

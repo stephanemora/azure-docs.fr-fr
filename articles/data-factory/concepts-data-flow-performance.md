@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 11/24/2020
-ms.openlocfilehash: cc06f12317f5e30721452e07bd4dc5f50dfdb7ec
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 12/18/2020
+ms.openlocfilehash: d23b2f65f25b704beaee12c53e47706653dcc208
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96022358"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858571"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guide des performances et du réglage du mappage de flux de données
 
@@ -169,7 +169,7 @@ Vous pouvez lire à partir d’Azure SQL Database à l’aide d’une table ou d
 
 ### <a name="azure-synapse-analytics-sources"></a>Sources d’Azure Synapse Analytics
 
-Quand vous utilisez Azure Synapse Analytics, un paramètre appelé **Activer le mode de préproduction** existe dans les options de source. Cela permet à ADF de lire à partir de Synapse à l’aide de ```Polybase```, ce qui améliore considérablement les performances de lecture. L’activation de ```Polybase``` nécessite que vous spécifiiez un Stockage Blob Azure ou un emplacement de préproduction Azure Data Lake Storage Gen2 dans les paramètres d’activité du flux de données.
+Quand vous utilisez Azure Synapse Analytics, un paramètre appelé **Activer le mode de préproduction** existe dans les options de source. Cela permet à ADF de lire à partir de Synapse à l’aide de ```Staging```, ce qui améliore considérablement les performances de lecture. L’activation de ```Staging``` nécessite que vous spécifiiez un Stockage Blob Azure ou un emplacement de préproduction Azure Data Lake Storage Gen2 dans les paramètres d’activité du flux de données.
 
 ![Activer le mode de préproduction](media/data-flow/enable-staging.png "Activer le mode de préproduction")
 
@@ -216,9 +216,9 @@ Planifiez un redimensionnement de vos bases de données Azure SQL DB et Azure S
 
 ### <a name="azure-synapse-analytics-sinks"></a>Récepteurs Azure Synapse Analytics
 
-Lors de l’écriture dans Azure Synapse Analytics, assurez-vous que l’option **Activer le mode de préproduction** est définie sur true. Cela permet à ADF d’écrire à l’aide de [Polybase](/sql/relational-databases/polybase/polybase-guide) qui charge les données en bloc. Vous devrez référencer un référentiel Azure Data Lake Storage Gen2 ou un compte de Stockage Blob Azure pour la préproduction des données lors de l’utilisation de Polybase.
+Lors de l’écriture dans Azure Synapse Analytics, assurez-vous que l’option **Activer le mode de préproduction** est définie sur true. Cela permet à ADF d’écrire à l’aide de la [commande SQL COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql) qui charge les données en bloc. Vous devrez référencer un compte Azure Data Lake Storage Gen2 ou Stockage Blob Azure pour la mise en lots des données lors de l’utilisation de Mise en lots.
 
-Outre Polybase, les mêmes meilleures pratiques s’appliquent à Azure Synapse Analytics qu’à Azure SQL Database.
+Outre Mise en lots, les mêmes meilleures pratiques s’appliquent à Azure Synapse Analytics qu’à Azure SQL Database.
 
 ### <a name="file-based-sinks"></a>Récepteurs basés sur des fichiers 
 
@@ -309,6 +309,14 @@ L’exécution des travaux dans l’ordre prendra probablement le plus de temps 
 ### <a name="overloading-a-single-data-flow"></a>Surcharge d’un seul flux de données
 
 Si vous placez toute votre logique au sein d’un même flux de données, ADF exécute l’intégralité du travail sur une seule instance Spark. Bien que cela puisse sembler être un moyen de réduire les coûts, cette approche combine des flux logiques différents et peut être difficile à surveiller et à déboguer. En cas de défaillance d’un composant, toutes les autres parties du travail échouent également. L’équipe Azure Data Factory recommande d’organiser les flux de données en flux indépendants de logique métier. Si votre flux de données devient trop volumineux, le fractionnement en composants distincts facilite la surveillance et le débogage. Bien qu’il n’y ait pas de limite inconditionnelle sur le nombre de transformations dans un flux de données, un trop grand nombre de transformations rend le travail complexe.
+
+### <a name="execute-sinks-in-parallel"></a>Exécuter des récepteurs en parallèle
+
+Le comportement par défaut des récepteurs de flux de données consiste à exécuter chaque récepteur de manière séquentielle, en série, et à faire échouer le flux quand une erreur est détectée dans le récepteur. En outre, tous les récepteurs sont définis par défaut dans le même groupe, sauf si vous accédez aux propriétés du flux de données et définissez des priorités différentes pour les récepteurs.
+
+Les flux de données vous permettent de regrouper des récepteurs dans des groupes à partir de l’onglet des propriétés des flux de données dans le concepteur d’interface utilisateur. Vous pouvez définir l’ordre d’exécution de vos récepteurs et regrouper les récepteurs en utilisant le même numéro de groupe. Pour faciliter la gestion des groupes, vous pouvez demander à ADF d’exécuter des récepteurs dans le même groupe pour qu’ils s’exécutent en parallèle.
+
+Dans l’activité Exécuter le flux de données du pipeline, sous la section « Propriétés du récepteur », vous avez la possibilité d’activer le chargement parallèle des récepteurs. Lorsque vous activez « exécuter en parallèle », vous donnez aux flux de données l’instruction d’écrire sur les récepteurs connectés en même temps plutôt que de manière séquentielle. Pour pouvoir utiliser l’option d’exécution en parallèle, les récepteurs doivent être regroupés et connectés au même flux via une nouvelle branche ou un nouveau fractionnement conditionnel.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

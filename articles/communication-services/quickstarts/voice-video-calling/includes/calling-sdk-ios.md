@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: a9af249aac18c847bf353f22b23ee67ab6e264c4
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: a8cfdc76694d52acee70cde0e3f1697cd8129d06
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94915531"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97691905"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
@@ -106,12 +106,16 @@ public func fetchTokenSync(then onCompletion: TokenRefreshOnCompletion) {
 }
 ```
 
-Passe l’objet CommunicationUserCredential créé ci-dessus à ACSCallClient
+Passez l’objet CommunicationUserCredential créé ci-dessus à ACSCallClient et définissez le nom d’affichage.
 
 ```swift
 
 callClient = CallClient()
-callClient?.createCallAgent(with: userCredential!,
+let callAgentOptions:CallAgentOptions = CallAgentOptions()
+options.displayName = "ACS iOS User"
+
+callClient?.createCallAgent(userCredential: userCredential!,
+    options: callAgentOptions,
     completionHandler: { (callAgent, error) in
         if error == nil {
             print("Create agent succeeded")
@@ -174,6 +178,39 @@ let groupCallContext = GroupCallContext()
 groupCallContext?.groupId = UUID(uuidString: "uuid_string")!
 let call = self.callAgent?.join(with: groupCallContext, joinCallOptions: JoinCallOptions())
 
+```
+
+### <a name="accept-an-incoming-call"></a>Acceptation d’un appel entrant
+Pour accepter un appel, appelez la méthode « accept » sur un objet call.
+Définition d’un délégué sur CallAgent 
+```swift
+final class CallHandler: NSObject, CallAgentDelegate
+{
+    public var incomingCall: Call?
+ 
+    public func onCallsUpdated(_ callAgent: CallAgent!, args: CallsUpdatedEventArgs!) {
+        if let incomingCall = args.addedCalls?.first(where: { $0.isIncoming }) {
+            self.incomingCall = incomingCall
+        }
+    }
+}
+
+let firstCamera: VideoDeviceInfo? = self.deviceManager?.getCameraList()![0]
+let localVideoStream = LocalVideoStream(camera: firstCamera)
+let acceptCallOptions = AcceptCallOptions()
+acceptCallOptions!.videoOptions = VideoOptions(localVideoStream:localVideoStream!)
+if let incomingCall = CallHandler().incomingCall {
+   incomingCall.accept(options: acceptCallOptions,
+                          completionHandler: { (error) in
+                           if error == nil {
+                               print("Incoming call accepted")
+                           } else {
+                               print("Failed to accept incoming call")
+                           }
+                       })
+} else {
+   print("No incoming call found to accept")
+}
 ```
 
 ## <a name="push-notification"></a>Notification Push
