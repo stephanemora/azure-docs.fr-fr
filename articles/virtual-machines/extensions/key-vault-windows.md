@@ -9,12 +9,12 @@ ms.subservice: extensions
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 0b2346ae4777b31ce2e5c396fb03084d38b2008f
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 7926f4023b64feff33ae55fc6c8726a605773fef
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97678963"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895034"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Extension de machine virtuelle Key Vault pour Windows
 
@@ -37,9 +37,23 @@ L’extension de machine virtuelle Key Vault est également prise en charge sur 
 
 ## <a name="prerequisities"></a>Conditions préalables
   - Instance Key Vault avec un certificat. Consultez [Créer un Key Vault](../../key-vault/general/quick-create-portal.md)
-  - Une [identité managée](../../active-directory/managed-identities-azure-resources/overview.md) doit être attribuée à la machine virtuelle/VMSS
+  - Une [identité managée](../../active-directory/managed-identities-azure-resources/overview.md) doit être attribuée à la machine virtuelle
   - La stratégie d’accès à Key Vault doit être définie avec des secrets `get` et l’autorisation `list` pour l’identité managée de machine virtuelle/VMSS afin de récupérer la partie du secret d’un certificat. Consultez [Comment s’authentifier auprès de Key Vault](../../key-vault/general/authentication.md) et [Attribuer une stratégie d’accès Key Vault](../../key-vault/general/assign-access-policy-cli.md).
-
+  -  VMSS doit avoir le paramètre d’identité suivant : ` 
+  "identity": {
+  "type": "UserAssigned",
+  "userAssignedIdentities": {
+  "[parameters('userAssignedIdentityResourceId')]": {}
+  }
+  }
+  `
+  
+- L’extension AKV doit avoir ce paramètre : `
+                  "authenticationSettings": {
+                    "msiEndpoint": "[parameters('userAssignedIdentityEndpoint')]",
+                    "msiClientId": "[reference(parameters('userAssignedIdentityResourceId'), variables('msiApiVersion')).clientId]"
+                  }
+   `
 ## <a name="extension-schema"></a>Schéma d’extensions
 
 L’extrait JSON suivant illustre le schéma de l’extension de machine virtuelle Key Vault. L’extension ne nécessite pas de paramètres protégés, car tous ses paramètres sont considérés comme des informations publiques. L’extension requiert une liste de certificats surveillés, une fréquence d’interrogation et le magasin de certificats de destination. Plus précisément :  
@@ -140,6 +154,17 @@ La configuration JSON d’une extension de machine virtuelle doit être imbriqu�
     }
 ```
 
+### <a name="extension-dependency-ordering"></a>Tri des dépendances d’extension
+L’extension de machine virtuelle Key Vault prend en charge le tri des extensions si elle est configurée. Par défaut, l’extension signale qu’elle a démarré correctement dès qu’elle a démarré l’interrogation. Toutefois, elle peut être configurée de façon à attendre d’avoir téléchargé la liste complète des certificats avant de signaler un démarrage réussi. Si d’autres extensions dépendent de l’installation du jeu complet de certificats avant de démarrer, alors l’activation de ce paramètre permettra à ces extensions de déclarer une dépendance vis-à-vis de l’extension Key Vault. Cela empêchera ces extensions de démarrer avant que tous les certificats dont elles dépendent aient été installés. L’extension retentera le téléchargement initial indéfiniment et restera à l’état `Transitioning`.
+
+Pour activer cette fonction, définissez ce qui suit :
+```
+"secretsManagementSettings": {
+    "requireInitialSync": true,
+    ...
+}
+```
+> [Note] L’utilisation de cette fonctionnalité n’est pas compatible avec un modèle ARM qui crée une identité affectée par le système et met à jour une stratégie d’accès Key Vault avec celle-ci. Cela conduit à une impasse, car la stratégie d’accès du coffre ne peut pas être mise à jour tant que toutes les extensions n’ont pas démarré. Vous devez utiliser à la place une *identité MSI unique affectée par l’utilisateur* et inscrire vos coffres au préalable sur une liste de contrôle d’accès en utilisant cette identité avant de les déployer.
 
 ## <a name="azure-powershell-deployment"></a>Déploiement d’Azure PowerShell
 > [!WARNING]

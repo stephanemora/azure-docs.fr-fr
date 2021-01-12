@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: a9735e355244d51464c66c10e02f97f03d2e67cd
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: db29fbda404900c29f85fa876e9427994ee9a093
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673464"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915910"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Problèmes connus dans Azure Digital Twins
 
@@ -37,13 +37,21 @@ Cet article fournit des informations sur les problèmes connus associés à Azur
 | --- | --- | --- |
 | Pour déterminer si votre attribution de rôle a été correctement configurée après l’exécution du script, suivez les instructions de la section [*Vérifier l’attribution du rôle utilisateur*](how-to-set-up-instance-scripted.md#verify-user-role-assignment) de l’article sur l’installation. Si votre utilisateur n’est pas associé à ce rôle, ce problème vous concerne. | Pour les utilisateurs connectés avec un [compte Microsoft (MSA)](https://account.microsoft.com/account) personnel, l’ID principal d’utilisateur qui vous identifie dans des commandes comme celle-ci peut être différent de votre e-mail de connexion d’utilisateur, ce qui rend difficile la découverte et l’utilisation du script pour attribuer le rôle correctement. | Pour résoudre ce problème, vous pouvez configurer manuellement votre attribution de rôle à l’aide d’[instructions CLI](how-to-set-up-instance-cli.md#set-up-user-access-permissions) ou d’[instructions sur le portail Azure](how-to-set-up-instance-portal.md#set-up-user-access-permissions). |
 
-## <a name="issue-with-interactive-browser-authentication"></a>Problème avec l’authentification interactive du navigateur
+## <a name="issue-with-interactive-browser-authentication-on-azureidentity-120"></a>Problème avec l’authentification interactive du navigateur sur Azure.Identity 1.2.0
 
 **Description du problème :** Lorsque vous écrivez du code d’authentification dans vos applications Azure Digital Twins à l’aide de la version **1.2.0** de la bibliothèque **[Azure.Identity](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true)** , vous pouvez rencontrer des problèmes avec la méthode [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true). Cela se présente comme une réponse d’erreur « Azure.Identity.AuthenticationFailedException » lors de la tentative d’authentification dans une fenêtre du navigateur. La fenêtre du navigateur peut ne pas démarrer complètement ou sembler réussir à authentifier l’utilisateur, alors que l’application cliente échoue toujours avec l’erreur.
 
 | Cela me concerne-t-il ? | Cause | Résolution |
 | --- | --- | --- |
-| La&nbsp;méthode&nbsp;concernée&nbsp;est&nbsp;utilisée&nbsp;dans&nbsp;les&nbsp;articles suivants :<br><br>[*Tutoriel : Coder une application cliente*](tutorial-code.md)<br><br>[*Guide pratique : Écrire le code d’authentification de l’application*](how-to-authenticate-client.md)<br><br>[*Guide pratique : Utiliser les API et les Kits de développement logiciel (SDK) Azure Digital Twins*](how-to-use-apis-sdks.md) | Certains utilisateurs ont rencontré ce problème avec la version **1.2.0** de la bibliothèque `Azure.Identity`. | Pour résoudre ce problème, mettez à jour vos applications afin d’utiliser la [version la plus récente](https://www.nuget.org/packages/Azure.Identity) de `Azure.Identity`. Après la mise à jour de la version de la bibliothèque, le navigateur doit se charger et s’authentifier comme prévu. |
+| La&nbsp;méthode&nbsp;concernée&nbsp;est&nbsp;utilisée&nbsp;dans&nbsp;les&nbsp;articles suivants :<br><br>[*Tutoriel : Coder une application cliente*](tutorial-code.md)<br><br>[*Guide pratique : Écrire le code d’authentification de l’application*](how-to-authenticate-client.md)<br><br>[*Guide pratique : Utiliser les API et les Kits de développement logiciel (SDK) Azure Digital Twins*](how-to-use-apis-sdks.md) | Certains utilisateurs ont rencontré ce problème avec la version **1.2.0** de la bibliothèque `Azure.Identity`. | Pour résoudre ce problème, mettez à jour vos applications afin d’utiliser une [version ultérieure](https://www.nuget.org/packages/Azure.Identity) de `Azure.Identity`. Après la mise à jour de la version de la bibliothèque, le navigateur doit se charger et s’authentifier comme prévu. |
+
+## <a name="issue-with-default-azure-credential-authentication-on-azureidentity-130"></a>Problème d’authentification avec les informations d’identification Azure par défaut sur Azure.Identity 1.3.0
+
+**Description du problème :** Lors de l’écriture du code d’authentification en utilisant la version **1.3.0** de la **bibliothèque [Azure.Identity](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true)** , certains utilisateurs ont rencontré des problèmes avec la méthode [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet?view=azure-dotnet&preserve-view=true) utilisée dans de nombreux exemples de ces documents Azure Digital Twins. Cela se présente comme une réponse d’erreur « Azure.Identity.AuthenticationFailedException : Échec de l’authentification SharedTokenCacheCredential » lorsque le code tente de s’authentifier.
+
+| Cela me concerne-t-il ? | Cause | Résolution |
+| --- | --- | --- |
+| `DefaultAzureCredential` est utilisée dans la plupart des exemples de documentation pour ce service qui incluent l’authentification. Si vous écrivez du code d’authentification en utilisant `DefaultAzureCredential` avec la version 1.3.0 de la bibliothèque `Azure.Identity` et que vous voyez ce message d’erreur, cela vous concerne. | Cela est probablement dû à un problème de configuration avec `Azure.Identity`. | L’une des stratégies permettant de résoudre ce problème consiste à exclure `SharedTokenCacheCredential` de vos informations d’identification, comme décrit dans ce [problème DefaultAzureCredential](https://github.com/Azure/azure-sdk/issues/1970) qui est actuellement ouvert concernant `Azure.Identity`.<br>Une autre option consiste à modifier votre application pour qu’elle utilise une version antérieure de `Azure.Identity`, comme la [version 1.2.3](https://www.nuget.org/packages/Azure.Identity/1.2.3). Cela n’a aucun impact sur le fonctionnement d’Azure Digital Twins et constitue donc une solution acceptable. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

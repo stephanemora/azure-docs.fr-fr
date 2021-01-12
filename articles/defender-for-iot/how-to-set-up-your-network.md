@@ -4,15 +4,15 @@ description: En savoir plus sur l’architecture de la solution, la préparation
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/06/2020
+ms.date: 01/03/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 3e9380f067b091c4473b8c29bda3d31bb93cbc6d
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: b5cb7d0e421657b84c365d8dca536191cafd4e72
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97835805"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861971"
 ---
 # <a name="about-azure-defender-for-iot-network-setup"></a>À propos de la configuration du réseau d’Azure Defender pour IoT
 
@@ -54,7 +54,7 @@ Enregistrez les informations du site telles que celles ci-dessous :
 
 - Station de travail de configuration.
 
-- Certificats SSL (facultatif).
+- Certificats SSL (facultatif, mais recommandé).
 
 - Authentification SMTP (facultatif). Pour utiliser le serveur SMTP avec l’authentification, préparez les informations d’identification requises pour votre serveur.
 
@@ -101,14 +101,14 @@ Vérifiez que la stratégie de sécurité de votre organisation autorise l’acc
 | **Connexion entre la plateforme Defender pour IoT et la console de gestion locale** | SSL | TCP | Entrant ou sortant | 443 | Capteur et console de gestion locale|
 | **Console de gestion locale utilisée comme NTP sur le capteur** | NTP | UDP| Entrant sur CM | 123 | Synchronisation de l’heure | 
 | **Capteur connecté au serveur NTP externe (le cas échéant)** | NTP | UDP | Entrant ou sortant| 123 | Synchronisation de l’heure |
-| **Connexion entre la plateforme Defender pour IoT, la plateforme de gestion et le serveur de messagerie (le cas échéant)** | SMTP | TCP | Sortant de la plateforme de gestion du capteur | 25 | E-mail |
+| **Connexion entre la plateforme Defender pour IoT, la plateforme de gestion et le serveur de messagerie (le cas échéant)** | SMTP | TCP | Sortant de la plateforme de gestion du capteur | 25 | Courrier |
 | **Journaux envoyés de la console de gestion locale au serveur Syslog (le cas échéant)** | syslog | UDP | Sortant de la plateforme de gestion du capteur| 514 | LEEF |
 | **Port du serveur DNS (le cas échéant)** | DNS | N/A | Entrant ou sortant| 53 | DNS |
 | **Connexion entre la plateforme Defender pour IoT et la console de gestion locale vers Active Directory (le cas échéant)** | LDAPS | TCP | Entrant ou sortant | 636 <br />389 | Active Directory |
-| **Collecteurs SNMP distants (le cas échéant)** | SNMP | UDP | Sortant de la plateforme de gestion du capteur| 161 | Supervision |
-| **Surveillance des points de terminaison Windows (le cas échéant)** | WMI | UDP | Sortant de la plateforme de gestion du capteur| 135 | Supervision |
-| **Surveillance des points de terminaison Windows (le cas échéant)** | WMI | TCP | Sortant de la plateforme de gestion du capteur| 1024 et plus | Supervision |
-| **Tunneling (le cas échéant)** | Tunneling | TCP | Entrant sur CM | 9000<br />En plus du port 443<br />De l’utilisateur final à la console de gestion locale <br />Port 22 du capteur à la console de gestion locale | Supervision |
+| **Collecteurs SNMP distants (le cas échéant)** | SNMP | UDP | Sortant de la plateforme de gestion du capteur| 161 | Surveillance |
+| **Surveillance des points de terminaison Windows (le cas échéant)** | WMI | UDP | Sortant de la plateforme de gestion du capteur| 135 | Surveillance |
+| **Surveillance des points de terminaison Windows (le cas échéant)** | WMI | TCP | Sortant de la plateforme de gestion du capteur| 1024 et plus | Surveillance |
+| **Tunneling (le cas échéant)** | Tunneling | TCP | Entrant sur CM | 9000<br />En plus du port 443<br />De l’utilisateur final à la console de gestion locale <br />Port 22 du capteur à la console de gestion locale | Surveillance |
 | **Sortant vers le hub Defender pour IoT** | HTTPS | TCP | Sortant de la plateforme de gestion du capteur| **URL**<br />*.azure-devices.net:443<br />ou si les caractères génériques ne sont pas pris en charge :<br />{nom de votre hub IoT}.azure-devices.net:443 |
 
 ### <a name="planning-rack-installation"></a>Planifier l’installation de racks
@@ -562,14 +562,14 @@ Passez en revue cette liste avant le déploiement à l’échelle du site :
 
 Une vue d’ensemble du diagramme du réseau industriel vous permet de définir l’emplacement approprié pour l’équipement Defender pour IoT.
 
-1.  Consultez un diagramme du réseau global de l’environnement OT industriel. Par exemple :
+1.  Consultez un diagramme du réseau global de l’environnement OT industriel. Exemple :
 
     :::image type="content" source="media/how-to-set-up-your-network/ot-global-network-diagram.png" alt-text="Diagramme de l’environnement OT industriel pour le réseau global.":::
 
     > [!NOTE]
     > L’appliance Defender pour IoT doit être connectée à un commutateur de niveau inférieur qui voit le trafic entre les ports du commutateur.  
 
-2. Indiquez le nombre approximatif d’appareils dans les réseaux (facultatif).
+2. Indiquez le nombre approximatif de périphériques réseau qui seront analysés. Vous aurez besoin de ces informations lors de l’intégration de votre abonnement au portail Azure Defender pour IoT. Pendant le processus d’intégration, vous serez invité à entrer le nombre d’appareils par incréments de 1000.
 
 3. Fournissez une liste de sous-réseaux pour les réseaux de production et une description (facultatif). 
 
@@ -604,7 +604,7 @@ Une vue d’ensemble du diagramme du réseau industriel vous permet de définir 
 
     Quelle est sa stratégie ? __________________________________ 
 
-    Par exemple :
+    Exemple :
 
     - Siemens
 

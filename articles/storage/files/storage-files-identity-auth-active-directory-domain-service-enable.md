@@ -8,12 +8,12 @@ ms.date: 01/03/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: contperf-fy21q1, devx-track-azurecli
-ms.openlocfilehash: 340455450cd6a18adfd8d0843fee423f82f10a45
-ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
+ms.openlocfilehash: 153ffd699b22a6379758bf66b896a2b37a19fdf3
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97858397"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883280"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-on-azure-files"></a>Activer l’authentification Azure Active Directory Domain Services sur Azure Files
 
@@ -22,7 +22,8 @@ ms.locfileid: "97858397"
 Si vous débutez avec les partages de fichiers Azure, nous vous recommandons de lire notre [guide de planification](storage-files-planning.md) avant de vous lancer dans les articles suivants.
 
 > [!NOTE]
-> Azure Files prend en charge l’authentification Kerberos à l’aide d’Azure AD DS avec le chiffrement RC4-HMAC et AES 256. Azure Files prend en charge l’authentification pour Azure AD DS avec une synchronisation complète avec Azure AD. Si vous avez activé la synchronisation délimitée dans Azure AD DS qui synchronise uniquement un ensemble limité d’identités d’Azure AD, l’authentification et l’autorisation ne sont pas prises en charge.
+> Azure Files prend en charge l’authentification Kerberos avec Azure AD DS uniquement avec RC4-HMAC. Le chiffrement Kerberos AES n’est pas encore pris en charge.
+> Azure Files prend en charge l’authentification pour Azure AD DS avec une synchronisation complète avec Azure AD. Si vous avez activé la synchronisation délimitée dans Azure AD DS qui synchronise uniquement un ensemble limité d’identités d’Azure AD, l’authentification et l’autorisation ne sont pas prises en charge.
 
 ## <a name="prerequisites"></a>Prérequis
 

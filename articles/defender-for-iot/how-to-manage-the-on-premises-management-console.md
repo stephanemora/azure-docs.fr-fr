@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/12/2020
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 34efef4a01b58cc26fd1567336184837a703ade2
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 7bbac0d8593d47c3162a8ea43e928343a88f2de4
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97835567"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861436"
 ---
 # <a name="manage-the-on-premises-management-console"></a>Gérer la console de gestion locale
 
@@ -112,7 +112,7 @@ Les paramètres suivants sont pris en charge :
 - Le certificat de l’autorité de certification qui a émis le certificat du serveur doit apparaître en premier dans le fichier, suivi de tous les autres éléments jusqu’à la racine. 
 - La chaîne peut inclure des attributs de conteneur.
 
-**Passphrase**
+**Phrase secrète**
 
 - Une clé est prise en charge.
 - Configurez-la lorsque vous importez le certificat.
@@ -298,6 +298,26 @@ Pour réinitialiser votre mot de passe :
 
 > [!NOTE]
 > Le capteur est lié à l’abonnement auquel il était connecté à l’origine. Vous pouvez récupérer le mot de passe uniquement en utilisant le même abonnement que celui auquel il est rattaché.
+
+## <a name="update-the-software-version"></a>Mettre à jour la version du logiciel
+
+La procédure suivante décrit la mise à jour de la version du logiciel de la console de gestion locale. Le processus de mise à jour prend environ 30 minutes.
+
+1. Accédez au [portail Azure](https://portal.azure.com/).
+
+1. Accédez à Defender pour IoT.
+
+1. Accédez à la page **Mises à jour**.
+
+1. Sélectionnez une version dans la section relative à la console de gestion locale.
+
+1. Sélectionnez **Télécharger** et enregistrez le fichier.
+
+1. Connectez-vous à la console de gestion locale et sélectionnez **Paramètres système** dans le menu latéral.
+
+1. Dans le volet **Mise à jour de la version**, sélectionnez **Mettre à jour**.
+
+1. Sélectionnez le fichier que vous avez téléchargé à partir de la page **Mises à jour** de Defender pour IoT.
 
 ## <a name="see-also"></a>Voir aussi
 
