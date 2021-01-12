@@ -2,20 +2,22 @@
 title: Unités d’instance BareMetal dans Azure
 description: Découvrez comment identifier et interagir avec les unités d’instance BareMetal par le biais du portail Azure.
 ms.topic: how-to
-ms.date: 12/31/2020
-ms.openlocfilehash: 927baa79519781ef74920b17bc9fcd858f0f6c6f
-ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
+ms.date: 1/4/2021
+ms.openlocfilehash: 30e1661e82546dbaf6d8dc4288ad896df89f401e
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97829038"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861028"
 ---
 # <a name="manage-baremetal-instances-through-the-azure-portal"></a>Gérer des instances nues via le portail Azure
  
 Cet article montre comment le [portail Azure](https://portal.azure.com/) affiche les [instances BareMetal](baremetal-overview-architecture.md). Cet article vous montre également les activités que vous pouvez effectuer dans le portail Azure avec les unités d’instance BareMetal déployées. 
  
 ## <a name="register-the-resource-provider"></a>Inscrire le fournisseur de ressources
-Un fournisseur de ressources Azure pour les instances BareMetal fournit la visibilité des instances dans le portail Azure, actuellement en version préliminaire publique. Par défaut, l’abonnement Azure que vous utilisez pour les déploiements d’instance BareMetal inscrit le fournisseur de ressources *BareMetalInfrastructure*. Si vous ne voyez pas vos unités d’instance BareMetal déployées, vous devez inscrire le fournisseur de ressources auprès de votre abonnement. Il existe deux façons d’inscrire le fournisseur de ressources d’instance BareMetal :
+Un fournisseur de ressources Azure pour les instances BareMetal fournit la visibilité des instances dans le portail Azure, actuellement en version préliminaire publique. Par défaut, l’abonnement Azure que vous utilisez pour les déploiements d’instance BareMetal inscrit le fournisseur de ressources *BareMetalInfrastructure*. Si vous ne voyez pas vos unités d’instance BareMetal déployées, vous devez inscrire le fournisseur de ressources auprès de votre abonnement. 
+
+Il existe deux façons d’inscrire le fournisseur de ressources d’instance BareMetal :
  
 * [Azure CLI](#azure-cli)
  
@@ -85,15 +87,15 @@ Les attributs de l’image ne sont pas très différents des attributs des machi
 À droite, vous verrez le nom de l’unité, le système d’exploitation, l’adresse IP et la référence SKU indiquant la mémoire et le nombre de threads de l’UC. Vous verrez également l’état d’alimentation et la version du matériel (révision du tampon d’instance BareMetal). L’état d’alimentation indique si l’unité matérielle est sous tension ou hors tension. Toutefois, les détails du système d’exploitation n’indiquent pas s’il est en cours d’exécution.
  
 Les révisions matérielles possibles sont les suivantes :
+
+* Révision 3 (Rév. 3)
+
+* Révision 4 (Rév. 4)
  
-* Révision 3
- 
-* Révision 4
- 
-* Révision 4.2
+* Révision 4.2 (Rév. 4.2)
  
 >[!NOTE]
->La révision 4.2 est la dernière infrastructure BareMetal rebaptisée à l’aide de l’architecture Révision 4. Elle présente des améliorations significatives de latence réseau entre les machines virtuelles Azure et les unités d’instance BareMetal déployées dans les tampons ou lignes Révision 4. Pour plus d’informations sur les différentes révisions, consultez [Infrastructure BareMetal sur Azure](baremetal-overview-architecture.md).
+>Rev 4.2 est la dernière infrastructure BareMetal rebaptisée qui utilise l’architecture Rev 4 existante. Rev 4 assure une plus grande proximité des hôtes de machine virtuelle Azure. Elle présente des améliorations significatives de latence réseau entre les machines virtuelles Azure et les unités d’instance BareMetal déployées dans les tampons ou lignes Rev 4. Vous pouvez accéder à vos instances BareMetal et les gérer via le portail Azure. Pour plus d’informations, consultez l’article [Infrastructure BareMetal sur Azure](baremetal-overview-architecture.md).
  
 En outre, sur le côté droit, vous trouverez le [Nom du groupe de placement de proximité Azure](../../../virtual-machines/linux/co-location.md), qui est créé automatiquement pour chaque unité d’instance BareMetal déployée. Référencez le groupe de placement de proximité lorsque vous déployez les machines virtuelles Azure qui hébergent la couche application. Lorsque vous utilisez le groupe de placement de proximité associé à l’unité d’instance BareMetal, vous vous assurez que les machines virtuelles Azure sont déployées près de l’unité d’instance BareMetal.
  

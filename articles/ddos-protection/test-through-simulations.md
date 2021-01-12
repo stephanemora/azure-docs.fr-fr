@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: 55692122461ef1b22b43b0def43e826ac7aeae30
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: e3a665e3615c9ff3a68cf13eeaef5e8f41632f6a
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97813783"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900358"
 ---
 # <a name="test-through-simulations"></a>Tester à l’aide de simulations
 
@@ -42,9 +42,9 @@ Nous travaillons en collaboration avec [BreakingPoint Cloud](https://www.ixiacom
     |---------      |---------                                          |
     |Adresse IP cible           | Entrez l’une de vos adresses IP publiques que vous voulez tester.                     |
     |Numéro de port   | Entrez _443_.                       |
-    |Profil DDoS | Sélectionnez **TCP SYN Flood**.|
-    |Taille du test       | Sélectionnez **200 000 pps, 100 Mbits/s et 8 adresses IP sources.**                                  |
-    |Durée du test | Sélectionnez **10 minutes**.|
+    |Profil DDoS | Les valeurs possibles incluent **DNS Flood**, **NTPv2 Flood**, **SSDP Flood**, **TCP SYN Flood**, **UDP 64B Flood**, **UDP 128B Flood**, **UDP 256B Flood**, **UDP 512B Flood**, **UDP 1024B Flood**, **UDP 1514B Flood**, **UDP Fragmentation** **UDP Memcached**.|
+    |Taille du test       | Les valeurs possibles incluent **100 000 pps, 50 Mbits/s et 4 adresses IP sources**, **200 000 pps, 100 Mbits/s et 8 adresses IP sources**, **400 000 pps, 200 Mbits/s et 16 adresses IP sources**, **800 000 pps, 400 Mbits/s et 32 adresses IP sources**.                                  |
+    |Durée du test | Les valeurs possibles incluent **10 minutes**, **15 minutes**, **20 minutes**, **25 minutes**, **30 minutes**.|
 
 Cela devrait maintenant ressembler à ceci :
 

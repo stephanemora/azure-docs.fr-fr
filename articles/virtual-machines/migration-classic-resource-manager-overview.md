@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: e7d013775861f290d532e0d7c132896ebeff8ae8
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 137670715af8b90d8a867459fa50249cd9be8e70
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97680212"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97897114"
 ---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager-in-linux"></a>Migration prise en charge par la plateforme de ressources IaaS Classic vers Azure Resource Manager sous Linux
 
@@ -23,6 +23,8 @@ ms.locfileid: "97680212"
 
 
 Cet article fournit une vue d’ensemble de l’outil de migration pris en charge par la plateforme, explique comment migrer des ressources d’Azure Service Manager (ASM) vers des modèles de déploiement Resource Manager (ARM) et explique comment connecter des ressources à partir des deux modèles de déploiement qui coexistent dans votre abonnement à l’aide de passerelles entre sites de réseau virtuel. Pour en savoir plus, voir [Fonctionnalités et avantages d’Azure Resource Manager](../azure-resource-manager/management/overview.md). 
+
+ASM prend en charge deux produits de calcul différents : les machines virtuelles Azure (classiques), également appelées machines virtuelles IaaS, et [Azure Cloud Services (classique)](https://docs.microsoft.com/azure/cloud-services/), également appelés machines virtuelles PaaS ou rôles de travail/web. Ce document traite uniquement de la migration de machines virtuelles Azure (classiques).
 
 ## <a name="goal-for-migration"></a>Objectif de la migration
 Resource Manager autorise le déploiement d’applications complexes à l’aide de modèles, configure les machines virtuelles au moyen d’extensions de machines virtuelles et intègre la gestion des accès et le balisage. Azure Resource Manager inclut un déploiement extensible, en parallèle, de machines virtuelles dans des groupes à haute disponibilité. Le nouveau modèle de déploiement assure également la gestion de façon indépendante du cycle de vie des services de calcul, de réseau et de stockage. Enfin, il applique la sécurité par défaut grâce à la mise en œuvre de machines virtuelles dans un réseau virtuel.
