@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 01/05/2021
 ms.author: alkohli
-ms.openlocfilehash: 66967c1fa8f6ca42459559caf46bffb0e5afe925
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0bef344414a9ba27d5808fcd17ed664b7f51bddc
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743588"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915960"
 ---
 # <a name="use-the-azure-portal-to-manage-users-on-your-azure-stack-edge-pro"></a>Utiliser le portail Azure pour gérer les utilisateurs sur Azure Stack Edge Pro
 
@@ -30,19 +30,19 @@ Dans cet article, vous apprendrez comment :
 
 ## <a name="about-users"></a>À propos des utilisateurs
 
-Les utilisateurs peuvent être en lecture seule ou disposer de toutes les autorisations. Comme indiqué par les noms, les utilisateurs en lecture seule ne peuvent consulter que les données partagées. Les utilisateurs disposant de toutes les autorisations peuvent consulter les données de partage, écrire dessus, et les modifier ou les supprimer.
+Les utilisateurs peuvent être en lecture seule ou disposer de toutes les autorisations. Les utilisateurs en lecture seule ne peuvent consulter que les données partagées. Les utilisateurs disposant de toutes les autorisations peuvent consulter les données de partage, écrire dessus, et les modifier ou les supprimer.
 
  - **Utilisateur disposant de toutes les autorisations** - Utilisateur local disposant de tous les droits d’accès.
  - **Utilisateur en lecture seule** - Utilisateur local disposant d’un accès en lecture seule. Ces utilisateurs sont associés à des partages permettant des opérations en lecture seule.
 
-Les autorisations des utilisateurs sont d’abord définies à la création de l’utilisateur lors de la création du partage. Une fois que les autorisations associées à un utilisateur sont définies, elles peuvent être modifiées à l’aide de l’explorateur de fichiers.
+Les autorisations des utilisateurs sont d’abord définies à la création de l’utilisateur lors de la création du partage. Elles peuvent être modifiées à l’aide de l’Explorateur de fichiers.
 
 
 ## <a name="add-a-user"></a>Ajouter un utilisateur
 
 Pour ajouter une planification, procédez comme suit dans le Portail Azure.
 
-1. Sur le portail Azure, accédez à votre ressource Azure Stack Edge, puis à **Vue d’ensemble > Utilisateurs**. Sélectionnez **+ Ajouter un utilisateur** dans la barre de commandes.
+1. Sur le portail Azure, accédez à votre ressource Azure Stack Edge, puis à **Utilisateurs**. Sélectionnez **+ Ajouter un utilisateur** dans la barre de commandes.
 
     ![Sélectionner Ajouter un utilisateur](media/azure-stack-edge-j-series-manage-users/add-user-1.png)
 
@@ -59,7 +59,7 @@ Pour ajouter une planification, procédez comme suit dans le Portail Azure.
 ## <a name="modify-user"></a>Modification d’une planification
 
 Vous pouvez modifier le mot de passe associé à un utilisateur une fois l’utilisateur créé. Sélectionnez dans la liste des utilisateurs. Entrez et confirmez le nouveau mot de passe. Enregistrez les modifications.
- 
+
 ![Modification d’une planification](media/azure-stack-edge-j-series-manage-users/modify-user-1.png)
 
 
@@ -68,7 +68,7 @@ Vous pouvez modifier le mot de passe associé à un utilisateur une fois l’uti
 Pour supprimer un utilisateur, effectuez les étapes suivantes dans le Portail Azure.
 
 
-1. Sur le portail Azure, accédez à votre ressource Azure Stack Edge, puis à **Vue d’ensemble > Utilisateurs**.
+1. Sur le portail Azure, accédez à votre ressource Azure Stack Edge, puis à **Utilisateurs**.
 
     ![Sélectionner un utilisateur à supprimer](media/azure-stack-edge-j-series-manage-users/delete-user-1.png)
 

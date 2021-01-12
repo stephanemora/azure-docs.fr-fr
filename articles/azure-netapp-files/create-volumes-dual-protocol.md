@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 12/15/2020
+ms.date: 01/05/2020
 ms.author: b-juche
-ms.openlocfilehash: ceaf0209dd14c8d97088d7f8e8e6990429607089
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: d296f80d85bb5081c466b27e6a8624e8b3f2c924
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97591820"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97914985"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Créer un volume double protocole (NFSv3 et SMB) pour Azure NetApp Files
 
@@ -39,7 +39,7 @@ Azure NetApp Files prend en charge la création de volumes en utilisant NFS (NFS
 * Créez une zone de recherche inversée sur le serveur DNS, puis ajoutez un enregistrement pointeur (PTR) de l’ordinateur hôte AD dans cette zone de recherche inversée. Sinon, la création du volume à deux protocoles échoue.
 * Vérifiez que le client NFS est à jour et qu’il exécute les mises à jour les plus récentes du système d’exploitation.
 * Assurez-vous que le serveur LDAP Active Directory (AD) est en cours d’exécution sur AD. Vous pouvez le faire en installant et en configurant le rôle [Active Directory Lightweight Directory Services (AD LDS)](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)) sur l’ordinateur AD.
-* Assurez-vous qu’une autorité de certification (CA) est créée sur l’annuaire Active Directory à l’aide du rôle [Active Directory Certificate Services (AD CS)](/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority) pour générer et exporter le certificat d’autorité de certification racine autosigné.   
+* Assurez-vous qu’une autorité de certification est créée pour l’ordinateur AD à l’aide du rôle [Active Directory Certificate Services (AD CS)](/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority) pour générer et exporter le certificat d’autorité de certification racine autosigné.   
 * Pour le moment, les volumes à deux protocoles ne prennent pas en charge Azure Active Directory Domain Services (AADDS).  
 * La version de NFS utilisée par un volume à deux protocoles est NFSv3. Par conséquent, les considérations suivantes s'appliquent :
     * Le double protocole ne prend pas en charge les attributs étendus des ACL Windows `set/get` provenant des clients NFS.
@@ -132,7 +132,11 @@ Azure NetApp Files prend en charge la création de volumes en utilisant NFS (NFS
     * Un client Windows joint au domaine et sur lequel le certificat racine est installé 
     * un autre ordinateur du domaine contenant le certificat racine.  
 
-3. Exportez le certificat racine.  
+3. Exportez le certificat d’autorité de certification racine.  
+    Les certificats d’autorité de certification racine peuvent être exportés à partir du répertoire Personnel ou Autorités de certification racines de confiance, comme indiqué dans les exemples suivants :   
+    ![capture d’écran montrant les certificats personnels](../media/azure-netapp-files/personal-certificates.png)   
+    ![capture d’écran montrant les autorités de certification racines de confiance](../media/azure-netapp-files/trusted-root-certification-authorities.png)    
+
     Assurez-vous que le certificat est exporté au format X.509 encodé en base 64 (.CER) : 
 
     ![Assistant Exportation de certificat](../media/azure-netapp-files/certificate-export-wizard.png)

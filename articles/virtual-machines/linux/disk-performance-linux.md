@@ -1,20 +1,20 @@
 ---
-title: Performances des disques et des machines virtuelles
-description: Découvrir plus d’informations sur la façon dont les machines virtuelles et leurs disques attachés fonctionnent en combinaison pour les meilleures performances
+title: Performances des disques et des machines virtuelles - Linux
+description: Découvrez-en plus sur le fonctionnement combiné des machines virtuelles et des disques qui leur sont attachés pour optimiser les performances sur Linux.
 author: albecker1
 ms.author: albecker
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 092368bb66784a00d5116da0b6be6513f8ebb261
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 2c48672bcfd8c552b36e3ae0807135924669c1d9
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518057"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591852"
 ---
-# <a name="virtual-machine-and-disk-performance"></a>Performances des disques et des machines virtuelles
+# <a name="virtual-machine-and-disk-performance-linux"></a>Performances des disques et des machines virtuelles (Linux)
 [!INCLUDE [VM and Disk Performance](../../../includes/virtual-machine-disk-performance.md)]
 
 ## <a name="virtual-machine-uncached-vs-cached-limits"></a>Limites des machines virtuelles sans mise en cache et avec mise en cache

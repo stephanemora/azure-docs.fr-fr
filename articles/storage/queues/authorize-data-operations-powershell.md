@@ -1,21 +1,21 @@
 ---
 title: Exécuter des commandes PowerShell avec des informations d’identification Azure AD pour accéder aux données en file d’attente
 titleSuffix: Azure Storage
-description: PowerShell prend en charge la connexion avec des informations d’identification Azure AD pour exécuter des commandes sur les données en file d’attente de Stockage Azure. Un jeton d’accès est fourni pour la session et utilisé pour autoriser les opérations d’appel. Les autorisations dépendent du rôle Azure attribué au principal de sécurité Azure AD.
-services: storage
+description: PowerShell prend en charge la connexion à l’aide d’informations d’identification Azure AD pour exécuter des commandes sur les données du Stockage File d’attente Azure. Un jeton d’accès est fourni pour la session et utilisé pour autoriser les opérations d’appel. Les autorisations dépendent du rôle Azure attribué au principal de sécurité Azure AD.
 author: tamram
-ms.service: storage
-ms.topic: how-to
-ms.date: 09/14/2020
+services: storage
 ms.author: tamram
 ms.reviewer: ozgun
+ms.date: 09/14/2020
+ms.topic: how-to
+ms.service: storage
 ms.subservice: queues
-ms.openlocfilehash: 3636b0366dfe687c4825ec1a16c5e8094a7db10b
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: bf2696d329f852741c42219219600dc773090623
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94637193"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590713"
 ---
 # <a name="run-powershell-commands-with-azure-ad-credentials-to-access-queue-data"></a>Exécuter des commandes PowerShell avec des informations d’identification Azure AD pour accéder aux données en file d’attente
 
@@ -25,7 +25,7 @@ Vous pouvez attribuer des autorisations sur les données de file d’attente à 
 
 ## <a name="supported-operations"></a>Opérations prises en charge
 
-Les extensions Stockage Azure sont prises en charge pour les opérations sur les données en file d’attente. Les opérations que vous pouvez appeler dépendent des autorisations accordées au principal de sécurité Azure AD avec lequel vous vous connectez à PowerShell. Les autorisations sur les files d’attente Stockage Azure sont attribuées via Azure RBAC. Par exemple, si le rôle **Lecteur des données en file d’attente** vous a été attribué, vous pouvez exécuter des commandes de script qui lisent les données d’une file d’attente. Si le rôle **Contributeur aux données en file d’attente** vous a été attribué, vous pouvez exécuter des commandes de script qui lisent, écrivent ou suppriment une file d’attente ou les données qu’elle contient.
+Les extensions Stockage Azure sont prises en charge pour les opérations sur les données en file d’attente. Les opérations que vous pouvez appeler dépendent des autorisations accordées au principal de sécurité Azure AD avec lequel vous vous connectez à PowerShell. Les autorisations sur les files d’attente sont attribuées via Azure RBAC. Par exemple, si le rôle **Lecteur des données en file d’attente** vous a été attribué, vous pouvez exécuter des commandes de script qui lisent les données d’une file d’attente. Si le rôle **Contributeur aux données en file d’attente** vous a été attribué, vous pouvez exécuter des commandes de script qui lisent, écrivent ou suppriment une file d’attente ou les données qu’elle contient.
 
 Pour plus d’informations sur les autorisations requises pour chaque opération Stockage Azure sur une file d’attente, consultez [Appeler des opérations de stockage avec des jetons OAuth](/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens).
 

@@ -1,22 +1,22 @@
 ---
 title: Lier des modèles pour déploiement
-description: Décrit comment utiliser des modèles liés dans un modèle Azure Resource Manager afin de créer une solution de modèle modulaire. Indique comment transmettre des valeurs de paramètres, spécifier un fichier de paramètres et créer dynamiquement des URL.
+description: Décrit l’utilisation des modèles liés dans un modèle ARM (Azure Resource Manager) pour créer une solution de modèle modulaire. Indique comment transmettre des valeurs de paramètres, spécifier un fichier de paramètres et créer dynamiquement des URL.
 ms.topic: conceptual
 ms.date: 12/07/2020
-ms.openlocfilehash: 1e2ccc57b42f8072c9aa28612d534507b9a674ed
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: cac63ccdd13e245baf97695e9b138c29d3db4958
+ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96852096"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97760620"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Utilisation de modèles liés et imbriqués durant le déploiement de ressources Azure
 
-Pour déployer des solutions complexes, vous pouvez diviser votre modèle en plusieurs modèles associés, puis les déployer ensemble au moyen d’un modèle principal. Les modèles associés peuvent être des fichiers distincts ou une syntaxe de modèle incorporée dans le modèle principal. Cet article utilise le terme **modèle lié** pour faire référence à un modèle de fichier distinct référencé par un lien à partir du modèle principal, et le terme **modèle imbriqué** pour désigner la syntaxe de modèle incorporé dans le modèle principal.
+Pour déployer des solutions complexes, vous pouvez diviser votre modèle ARM (Azure Resource Manager) en plusieurs modèles associés avant de les déployer ensemble via un modèle principal. Les modèles associés peuvent être des fichiers distincts ou une syntaxe de modèle incorporée dans le modèle principal. Cet article utilise le terme **modèle lié** pour faire référence à un modèle de fichier distinct référencé par un lien à partir du modèle principal, et le terme **modèle imbriqué** pour désigner la syntaxe de modèle incorporé dans le modèle principal.
 
 Pour les solutions petites et moyennes, un modèle unique est plus facile à comprendre et à gérer. Vous pouvez voir toutes les ressources et valeurs dans un même fichier. Pour des scénarios avancés, les modèles liés permettent de diviser la solution en composants ciblés. Vous pouvez facilement réutiliser ces modèles pour d’autres scénarios.
 
-Pour obtenir un tutoriel, consultez [Tutoriel : Créer des modèles Azure Resource Manager liés](./deployment-tutorial-linked-template.md).
+Pour suivre un tutoriel, consultez [Tutoriel : Déployer un modèle lié](./deployment-tutorial-linked-template.md).
 
 > [!NOTE]
 > Pour les modèles liés ou imbriqués, vous pouvez définir le mode de déploiement seulement sur [Incrémentiel](deployment-modes.md). Toutefois, le modèle principal peut être déployé en mode complet. Si vous déployez le modèle principal en mode complet, et que le modèle lié ou imbriqué cible le même groupe de ressources, les ressources déployées dans le modèle lié ou imbriqué sont incluses dans l’évaluation pour le déploiement en mode complet. La collection combinée de ressources déployées dans le modèle principal et les modèles liés ou imbriqués est comparée aux ressources existantes dans le groupe de ressources. Les ressources qui ne sont pas incluses dans cette collection combinée sont supprimées.
@@ -26,7 +26,7 @@ Pour obtenir un tutoriel, consultez [Tutoriel : Créer des modèles Azure Resour
 
 ## <a name="nested-template"></a>Modèle imbriqué
 
-Pour imbriquer un modèle, ajoutez une [ressource de déploiement](/azure/templates/microsoft.resources/deployments) à votre modèle principal. Dans la propriété **template**, spécifiez la syntaxe du modèle.
+Pour imbriquer un modèle, ajoutez une [ressource de déploiement](/azure/templates/microsoft.resources/deployments) à votre modèle principal. Dans la propriété `template`, spécifiez la syntaxe du modèle.
 
 ```json
 {
@@ -283,7 +283,7 @@ L’exemple suivant déploie un serveur SQL et récupère un secret de coffre de
 
 ## <a name="linked-template"></a>Modèle lié
 
-Pour lier un modèle, ajoutez une [ressource de déploiement](/azure/templates/microsoft.resources/deployments) à votre modèle principal. Dans la propriété **templateLink**, spécifiez l’URI du modèle à inclure. L’exemple suivant établit un lien vers un modèle qui se trouve dans un compte de stockage.
+Pour lier un modèle, ajoutez une [ressource de déploiement](/azure/templates/microsoft.resources/deployments) à votre modèle principal. Dans la propriété `templateLink`, spécifiez l’URI du modèle à inclure. L’exemple suivant établit un lien vers un modèle qui se trouve dans un compte de stockage.
 
 ```json
 {
@@ -310,9 +310,9 @@ Pour lier un modèle, ajoutez une [ressource de déploiement](/azure/templates/m
 }
 ```
 
-Lors du référencement d’un modèle lié, la valeur de `uri` ne peut pas être un fichier local ou un fichier disponible uniquement sur votre réseau local. Azure Resource Manager doit être en mesure d’accéder au modèle. Fournissez une valeur d’URI téléchargeable utilisant le protocole **http** ou **https**. 
+Lors du référencement d’un modèle lié, la valeur de `uri` ne peut pas être un fichier local ou un fichier disponible uniquement sur votre réseau local. Azure Resource Manager doit être en mesure d’accéder au modèle. Fournissez une valeur d’URI téléchargeable via HTTP ou HTTPS.
 
-Vous pouvez référencer des modèles à l’aide de paramètres qui incluent **http** ou **https**. Par exemple, un modèle courant consiste à utiliser le paramètre `_artifactsLocation`. Vous pouvez définir le modèle lié avec une expression telle que la suivante :
+Vous pouvez référencer des modèles à l’aide de paramètres qui incluent HTTP or HTTPS. Par exemple, un modèle courant consiste à utiliser le paramètre `_artifactsLocation`. Vous pouvez définir le modèle lié avec une expression telle que la suivante :
 
 ```json
 "uri": "[concat(parameters('_artifactsLocation'), '/shared/os-disk-parts-md.json', parameters('_artifactsLocationSasToken'))]"
@@ -324,47 +324,49 @@ Si vous établissez un lien vers un modèle dans GitHub, utilisez l’URL brute.
 
 ### <a name="parameters-for-linked-template"></a>Paramètres du modèle lié
 
-Les paramètres du modèle lié peuvent être indiqués dans un fichier externe ou inline. Lorsque vous fournissez un fichier de paramètres externe, utilisez la propriété **parametersLink** :
+Les paramètres du modèle lié peuvent être indiqués dans un fichier externe ou inline. Lorsque vous fournissez un fichier de paramètres externe, utilisez la propriété `parametersLink` :
 
 ```json
 "resources": [
   {
-  "type": "Microsoft.Resources/deployments",
-  "apiVersion": "2019-10-01",
-  "name": "linkedTemplate",
-  "properties": {
-    "mode": "Incremental",
-    "templateLink": {
-      "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.json",
-      "contentVersion":"1.0.0.0"
-    },
-    "parametersLink": {
-      "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.parameters.json",
-      "contentVersion":"1.0.0.0"
+    "type": "Microsoft.Resources/deployments",
+    "apiVersion": "2019-10-01",
+    "name": "linkedTemplate",
+    "properties": {
+      "mode": "Incremental",
+      "templateLink": {
+        "uri": "https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.json",
+        "contentVersion": "1.0.0.0"
+      },
+      "parametersLink": {
+        "uri": "https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.parameters.json",
+        "contentVersion": "1.0.0.0"
+      }
     }
-  }
   }
 ]
 ```
 
-Pour passer des valeurs de paramètre inline, utilisez la propriété **parameters**.
+Pour passer des valeurs de paramètre inline, utilisez la propriété `parameters`.
 
 ```json
 "resources": [
   {
-   "type": "Microsoft.Resources/deployments",
-   "apiVersion": "2019-10-01",
-   "name": "linkedTemplate",
-   "properties": {
-     "mode": "Incremental",
-     "templateLink": {
-      "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.json",
-      "contentVersion":"1.0.0.0"
-     },
-     "parameters": {
-      "storageAccountName":{"value": "[parameters('storageAccountName')]"}
+    "type": "Microsoft.Resources/deployments",
+    "apiVersion": "2019-10-01",
+    "name": "linkedTemplate",
+    "properties": {
+      "mode": "Incremental",
+      "templateLink": {
+        "uri": "https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.json",
+        "contentVersion": "1.0.0.0"
+      },
+      "parameters": {
+        "storageAccountName": {
+          "value": "[parameters('storageAccountName')]"
+        }
+      }
     }
-   }
   }
 ]
 ```
@@ -394,7 +396,7 @@ Vous n’avez pas besoin de fournir la propriété `contentVersion` pour la prop
 
 Les exemples précédents représentaient des valeurs d’URL codées en dur pour les liens de modèle. Cette approche peut fonctionner pour un modèle simple, mais elle ne fonctionne pas bien pour un grand ensemble de modèles modulaires. Au lieu de cela, vous pouvez créer une variable statique qui stocke une URL de base pour le modèle principal, avant de créer dynamiquement les URL pour les modèles liés à partir de cette URL de base. Cette approche permet notamment de déplacer ou de répliquer facilement le modèle. En effet, vous devez modifier uniquement la variable statique dans le modèle principal. Le modèle principal transmet les URI appropriés au modèle décomposé.
 
-L’exemple suivant indique comment utiliser une URL de base afin de créer deux URL pour des modèles liés (**sharedTemplateUrl** et **vmTemplate**).
+L’exemple suivant indique comment utiliser une URL de base afin de créer deux URL pour des modèles liés (`sharedTemplateUrl` et `vmTemplateUrl`).
 
 ```json
 "variables": {
@@ -404,7 +406,7 @@ L’exemple suivant indique comment utiliser une URL de base afin de créer deux
 }
 ```
 
-Vous pouvez également utiliser [deployment()](template-functions-deployment.md#deployment) pour obtenir l’URL de base pour le modèle actuel, qui permet d’obtenir l’URL d’autres modèles dans le même emplacement. Cette approche est pratique si l’emplacement des modèles change ou si vous voulez éviter de coder en dur les URL dans le fichier du modèle. La propriété templateLink n’est renvoyée qu’en cas de liaison à un modèle distant avec une URL. Si vous utilisez un modèle local, cette propriété n’est pas disponible.
+Vous pouvez également utiliser [deployment()](template-functions-deployment.md#deployment) pour obtenir l’URL de base pour le modèle actuel, qui permet d’obtenir l’URL d’autres modèles dans le même emplacement. Cette approche est pratique si l’emplacement des modèles change ou si vous voulez éviter de coder en dur les URL dans le fichier du modèle. La propriété `templateLink` est retournée uniquement quand un modèle distant est lié à l’aide d’une URL. Si vous utilisez un modèle local, cette propriété n’est pas disponible.
 
 ```json
 "variables": {
@@ -423,49 +425,49 @@ Au final, vous utiliseriez la variable dans la propriété `uri` d’une propri�
 
 ## <a name="using-copy"></a>Utilisation de la copie
 
-Pour créer plusieurs instances d’une ressource avec un modèle imbriqué, ajoutez l’élément copy au niveau de la ressource **Microsoft.Resources/deployments**. Si la portée est interne, vous pouvez ajouter la copie dans le modèle imbriqué.
+Pour créer plusieurs instances d’une ressource avec un modèle imbriqué, ajoutez l’élément `copy` au niveau de la ressource `Microsoft.Resources/deployments`. Si l’étendue est `inner`, vous pouvez ajouter la copie dans le modèle imbriqué.
 
-L’exemple de modèle suivant montre comment utiliser copy avec un modèle imbriqué.
+L’exemple de modèle suivant montre comment utiliser `copy` avec un modèle imbriqué.
 
 ```json
 "resources": [
   {
-  "type": "Microsoft.Resources/deployments",
-  "apiVersion": "2019-10-01",
-  "name": "[concat('nestedTemplate', copyIndex())]",
-  // yes, copy works here
-  "copy":{
-    "name": "storagecopy",
-    "count": 2
-  },
-  "properties": {
-    "mode": "Incremental",
-    "expressionEvaluationOptions": {
-    "scope": "inner"
+    "type": "Microsoft.Resources/deployments",
+    "apiVersion": "2019-10-01",
+    "name": "[concat('nestedTemplate', copyIndex())]",
+    // yes, copy works here
+    "copy": {
+      "name": "storagecopy",
+      "count": 2
     },
-    "template": {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [
-      {
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2019-04-01",
-      "name": "[concat(variables('storageName'), copyIndex())]",
-      "location": "West US",
-      "sku": {
-        "name": "Standard_LRS"
+    "properties": {
+      "mode": "Incremental",
+      "expressionEvaluationOptions": {
+        "scope": "inner"
       },
-      "kind": "StorageV2"
-      // Copy works here when scope is inner
-      // But, when scope is default or outer, you get an error
-      //"copy":{
-      //  "name": "storagecopy",
-      //  "count": 2
-      //}
+      "template": {
+        "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "resources": [
+          {
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2019-04-01",
+            "name": "[concat(variables('storageName'), copyIndex())]",
+            "location": "West US",
+            "sku": {
+              "name": "Standard_LRS"
+            },
+            "kind": "StorageV2"
+            // Copy works here when scope is inner
+            // But, when scope is default or outer, you get an error
+            //"copy":{
+            //  "name": "storagecopy",
+            //  "count": 2
+            //}
+          }
+        ]
       }
-    ]
     }
-  }
   }
 ]
 ```
@@ -476,7 +478,7 @@ Pour obtenir une valeur de sortie d’un modèle lié, récupérez la valeur de 
 
 Lors de l’obtention d’une propriété de sortie à partir d’un modèle lié, le nom de propriété ne doit pas inclure de tiret.
 
-Les exemples suivants montrent comment faire référence à un modèle lié pour récupérer une valeur de sortie. Le modèle lié retourne un message simple.  Tout d’abord, le modèle lié :
+Les exemples suivants montrent comment faire référence à un modèle lié pour récupérer une valeur de sortie. Le modèle lié retourne un message simple. Tout d’abord, le modèle lié :
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/linkedtemplates/helloworld.json":::
 
@@ -613,28 +615,28 @@ L’exemple suivant montre comment passer un jeton SAP lors de la liaison à un 
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-  "containerSasToken": { "type": "securestring" }
+    "containerSasToken": { "type": "securestring" }
   },
   "resources": [
-  {
-    "type": "Microsoft.Resources/deployments",
-    "apiVersion": "2019-10-01",
-    "name": "linkedTemplate",
-    "properties": {
-    "mode": "Incremental",
-    "templateLink": {
-      "uri": "[concat(uri(deployment().properties.templateLink.uri, 'helloworld.json'), parameters('containerSasToken'))]",
-      "contentVersion": "1.0.0.0"
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2019-10-01",
+      "name": "linkedTemplate",
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "uri": "[concat(uri(deployment().properties.templateLink.uri, 'helloworld.json'), parameters('containerSasToken'))]",
+          "contentVersion": "1.0.0.0"
+        }
+      }
     }
-    }
-  }
   ],
   "outputs": {
   }
 }
 ```
 
-Dans PowerShell, vous obtenez un jeton pour le conteneur et déployez les modèles avec les commandes suivantes. Notez que le paramètre **containerSasToken** est défini dans le modèle. Il ne s'agit pas d'un paramètre de la commande **New-AzResourceGroupDeployment**.
+Dans PowerShell, vous obtenez un jeton pour le conteneur et déployez les modèles avec les commandes suivantes. Notez que le paramètre `containerSasToken` est défini dans le modèle. Il ne s'agit pas d'un paramètre de la commande `New-AzResourceGroupDeployment`.
 
 ```azurepowershell-interactive
 Set-AzCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
@@ -680,7 +682,7 @@ Les exemples suivants montrent des utilisations courantes des modèles liés.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour obtenir un tutoriel, consultez [Tutoriel : Créer des modèles Azure Resource Manager liés](./deployment-tutorial-linked-template.md).
-* Pour obtenir des informations sur la définition de l’ordre de déploiement de vos ressources, consultez [Définition de dépendances dans les modèles Azure Resource Manager](define-resource-dependency.md).
-* Pour savoir comment définir une seule ressource mais également créer de nombreuses instances de cette dernière, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](copy-resources.md).
-* Pour connaître les étapes de configuration d’un modèle dans un compte de stockage et de génération d’un jeton SAP, consultez [Déployer des ressources avec des modèles Resource Manager et Azure PowerShell](deploy-powershell.md) ou [Déployer des ressources avec des modèles Resource Manager et l’interface de ligne de commande Azure](deploy-cli.md).
+* Pour suivre un tutoriel, consultez [Tutoriel : Déployer un modèle lié](./deployment-tutorial-linked-template.md).
+* Pour en savoir plus sur la définition de l’ordre de déploiement de vos ressources, consultez [Définir l’ordre de déploiement des ressources dans les modèles ARM](define-resource-dependency.md).
+* Pour savoir comment définir une seule ressource mais également comment créer de nombreuses instances de cette dernière, consultez [Itération de ressource dans les modèles ARM](copy-resources.md).
+* Pour connaître les étapes permettant de configurer un modèle dans un compte de stockage et de générer un jeton SAS, consultez [Déployer des ressources avec des modèles ARM et Azure PowerShell](deploy-powershell.md) ou [Déployer des ressources avec des modèles ARM et Azure CLI](deploy-cli.md).

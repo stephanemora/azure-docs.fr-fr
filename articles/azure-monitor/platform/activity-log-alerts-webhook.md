@@ -4,12 +4,12 @@ description: Découvrez le schéma du JSON publié sur une URL de Webhook en cas
 ms.topic: conceptual
 ms.date: 03/31/2017
 ms.subservice: alerts
-ms.openlocfilehash: 026613c3f5710137fb110153b34f9ed74bbf8a7b
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: b48f094b460a2871b502c72b39b849ed68b9c085
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95522785"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916629"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhook des alertes du journal d’activité Azure
 Dans le cadre de la définition d’un groupe d’actions, vous pouvez configurer des points de terminaison Webhook pour qu’ils reçoivent des notifications d’alerte du journal d’activité. Grâce aux Webhooks, vous pouvez acheminer ces notifications vers d’autres systèmes à des fins de post-traitement ou d’exécution d’actions personnalisées. Cet article montre également à quoi ressemble la charge utile d’une requête HTTP POST pour un webhook.
@@ -27,6 +27,20 @@ Le Webhook peut éventuellement utiliser l’autorisation par jeton à des fins 
 
 ## <a name="payload-schema"></a>Schéma de la charge utile
 La charge utile JSON contenue dans l’opération POST varie en fonction de champ data.context.activityLog.eventSource de la charge utile.
+
+> [!NOTE]
+> Actuellement, la description faisant partie de l’événement du journal d’activité est copiée dans la propriété **« Description de l’alerte »** déclenchée.
+>
+> Afin d’aligner la charge utile du journal d’activité avec d’autres types d’alertes, à partir du 1er avril 2021, la propriété d’alerte déclenchée **« Description »** contiendra la description de la règle d’alerte.
+>
+> En vue de cette modification, nous avons créé une nouvelle propriété **« Description de l’événement du journal d’activité »** pour l’alerte du journal d’activité déclenchée. Cette nouvelle propriété sera remplie avec la propriété **« Description »** qui est déjà disponible. Cela signifie que le nouveau champ **« Description de l’événement du journal d’activité »** contient la description qui fait partie de l’événement du journal d’activité.
+>
+> Passez en revue vos règles d’alerte, règles d’action, webhooks, application logique ou toute autre configuration dans laquelle vous pouvez utiliser la propriété **« Description »** de l’alerte déclenchée et remplacez-la par la propriété **« Description de l’événement du journal d’activité »** .
+>
+> Si votre condition (dans vos règles d’action, webhooks, application logique ou toute autre configuration) est actuellement basée sur la propriété **« Description »** pour les alertes de journal d’activité, vous devrez peut-être la modifier pour qu’elle soit basée sur la propriété **« Description de l’événement du journal d’activité »** .
+>
+> Pour remplir la nouvelle propriété **« Description »** , vous pouvez ajouter une description dans la définition de la règle d’alerte.
+> ![Alertes du journal d’activité déclenchées](media/activity-log-alerts-webhook/activity-log-alert-fired.png)
 
 ### <a name="common"></a>Courant
 

@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 10/05/2019
 ms.author: allensu
-ms.openlocfilehash: 2e5edb0ccf20ab0dba14864487f2b2ddef7d57e7
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: c074c29b7a37f49d5a4c7a5fab00b9a3e41c6893
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95544205"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901536"
 ---
 # <a name="azure-private-link-frequently-asked-questions-faq"></a>Questions fréquentes (FAQ) sur Azure Private Link
 
@@ -43,8 +43,8 @@ Oui. Il est possible d’avoir plusieurs points de terminaison privés dans un m
 ### <a name="do-i-require-a-dedicated-subnet-for-private-endpoints"></a>Ai-je besoin d’un sous-réseau dédié pour les points de terminaison privés ? 
 Non. Vous n’avez pas besoin d’un sous-réseau dédié pour les points de terminaison privés. Vous pouvez choisir l’adresse IP d’un point de terminaison privé sur n’importe quel sous-réseau du réseau virtuel où est déployé votre service.  
  
-### <a name="can-private-endpoint-connect-to-private-link-service-across-azure-active-directory-tenants"></a>Private Endpoint peut-il se connecter au service Private Link si celui-ci se trouve sur un locataire Azure Active Directory différent ? 
-Oui. Les points de terminaison privés peuvent se connecter à des services Private Link ou Azure PaaS qui se trouvent sur des locataires AD différents.  
+### <a name="can-a-private-endpoint-connect-to-private-link-services-across-azure-active-directory-tenants"></a>Un point de terminaison privé peut-il se connecter aux services Private Link sur des locataires Azure Active Directory différents ? 
+Oui. Les points de terminaison privés peuvent se connecter à des services Private Link ou à un service Azure PaaS se trouvant sur des locataires Azure Active Directory différents. Les points de terminaison privés qui se connectent à plusieurs locataires nécessitent une approbation manuelle des demandes. 
  
 ### <a name="can-private-endpoint-connect-to-azure-paas-resources-across-azure-regions"></a>Private Endpoint peut-il se connecter à des ressources Azure PaaS situées dans une région Azure différente ?
 Oui. Les points de terminaison privés peuvent se connecter à des ressources Azure PaaS situées dans une région Azure différente.

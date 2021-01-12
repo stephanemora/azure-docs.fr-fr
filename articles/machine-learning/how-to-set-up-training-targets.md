@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: 2197d5be91af4c93e9691e1dc2b953198669deaf
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: d8918181024715a57c6029d3ad0a36ea75140fcb
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027405"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739941"
 ---
 # <a name="configure-and-submit-training-runs"></a>Configurer et soumettre des exécutions d’entraînement
 
@@ -172,6 +172,38 @@ Consultez ces notebooks pour obtenir des exemples de configuration d’exécutio
 * [tutorials/img-classification-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/image-classification-mnist-data/img-classification-part1-training.ipynb)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
+
+## <a name="troubleshooting"></a>Résolution des problèmes
+
+ * **ModuleErrors (aucun module nommé)**  :  Si vous rencontrez des erreurs de module (ModuleErrors) lors de l’envoi d’expériences dans Azure ML, le script d’entraînement attend qu’un package soit installé, mais il n’est pas ajouté. Une fois que vous avez fourni le nom du package, Azure ML installe ce dernier dans l’environnement utilisé pour l’entraînement.
+
+    Si vous utilisez des Estimateurs pour soumettre des expériences, vous pouvez spécifier un nom de package à l’aide du paramètre `pip_packages` ou `conda_packages` dans l’estimateur en fonction de la source à partir de laquelle vous souhaitez installer le package. Vous pouvez également spécifier un fichier yml avec toutes vos dépendances à l’aide de `conda_dependencies_file` ou répertorier toutes vos exigences PIP dans un fichier txt à l’aide du paramètre `pip_requirements_file`. Si vous souhaitez remplacer l’image par défaut utilisée par l’estimateur dans votre propre objet d’environnement Azure ML, vous pouvez spécifier cet environnement par le bais du paramètre `environment` du constructeur estimateur.
+    
+    Azure ML a géré les images Docker dont le contenu est visible dans [AzureML Containers](https://github.com/Azure/AzureML-Containers).
+    Les dépendances spécifiques au framework sont listées dans la documentation correspondante du framework :
+    *  [Chainer](/python/api/azureml-train-core/azureml.train.dnn.chainer?preserve-view=true&view=azure-ml-py#&preserve-view=trueremarks)
+    * [PyTorch](/python/api/azureml-train-core/azureml.train.dnn.pytorch?preserve-view=true&view=azure-ml-py#&preserve-view=trueremarks)
+    * [TensorFlow](/python/api/azureml-train-core/azureml.train.dnn.tensorflow?preserve-view=true&view=azure-ml-py#&preserve-view=trueremarks)
+    *  [SKLearn](/python/api/azureml-train-core/azureml.train.sklearn.sklearn?preserve-view=true&view=azure-ml-py#&preserve-view=trueremarks)
+    
+    > [!Note]
+    > Si vous pensez qu’un package particulier est suffisamment courant pour être ajouté dans des environnements et images gérés par Azure ML, signalez un problème GitHub dans [AzureML Containers](https://github.com/Azure/AzureML-Containers). 
+ 
+* **NameError (nom non défini), AttributeError (objet sans attribut)**  : Cette exception doit provenir de vos scripts d’apprentissage. Vous pouvez consulter les fichiers journaux du portail Azure pour obtenir des informations supplémentaire sur l’erreur de nom non défini ou d’attribut. À partir du Kit de développement logiciel (SDK), vous pouvez utiliser `run.get_details()` pour examiner le message d’erreur. Cette opération répertorie également tous les fichiers journaux générés pour votre exécution. Veillez à examiner votre script d’apprentissage et à corriger l’erreur avant de soumettre à nouveau votre exécution. 
+
+
+* **Exécuter ou expérimenter la suppression** :  Les expériences peuvent être archivées à l’aide de la méthode [Experiment.archive](/python/api/azureml-core/azureml.core.experiment%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truearchive--) ou à partir de l’onglet Expérience dans le client Azure Machine Learning Studio via le bouton « Archiver l’expérience ». Cette action masque l’expérience des requêtes et des vues de liste, mais elle ne la supprime pas.
+
+    La suppression définitive d’expériences ou d’exécutions individuelles n’est actuellement pas prise en charge. Pour plus d’informations sur la suppression de ressources d’espace de travail, consultez [Exporter ou supprimer vos données d’espace de travail du service Machine Learning](how-to-export-delete-data.md).
+
+* **Le document de métriques est trop volumineux** : Azure Machine Learning comporte des limites internes sur la taille des objets métriques qui peuvent être consignés simultanément dans une exécution d’entraînement. Si vous rencontrez une erreur « Le document de métrique est trop volumineux » lors de l’enregistrement d’une mesure de liste, essayez de fractionner la liste en segments plus petits, par exemple :
+
+    ```python
+    run.log_list("my metric name", my_metric[:N])
+    run.log_list("my metric name", my_metric[N:])
+    ```
+
+    En interne, Azure ML concatène les blocs portant le même nom de métrique dans une liste contiguë.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

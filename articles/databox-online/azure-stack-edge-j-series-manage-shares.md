@@ -6,20 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 01/04/2021
 ms.author: alkohli
-ms.openlocfilehash: 413a93a145ae063a3aab4066ed62365e154d744a
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: b1ff10290e0059295f14b55e90ed05e9690c9f5c
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96454114"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97896680"
 ---
 # <a name="use-azure-portal-to-manage-shares-on-your-azure-stack-edge-pro"></a>Utiliser le portail Azure pour gérer les partages sur votre instance Azure Stack Edge Pro
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-Cet article explique comment gérer les partages sur votre instance Azure Stack Edge Pro. Vous pouvez gérer la ressource Azure Stack Edge Pro par le biais du portail Azure ou de l’interface utilisateur web locale. Utilisez le Portail Azure pour ajouter, supprimer, actualiser les partages ou synchroniser la clé de stockage du compte de stockage associé aux partages.
+Cet article explique comment gérer les partages sur votre instance Azure Stack Edge Pro. Vous pouvez gérer la ressource Azure Stack Edge Pro par le biais du portail Azure ou de l’interface utilisateur web locale. Utilisez le Portail Azure pour ajouter, supprimer, actualiser les partages ou synchroniser la clé de stockage du compte de stockage associé aux partages. Cet article s'applique aux appareils Azure Stack Edge Pro GPU, Azure Stack Edge Pro R et Azure Stack Edge Mini R.
 
 ## <a name="about-shares"></a>À propos des partages
 
@@ -33,7 +33,7 @@ Pour transférer des données vers Azure, vous devez créer des partages sur vot
 
 Pour créer un partage, procédez comme suit dans le Portail Azure.
 
-1. Sur le Portail Azure, accédez à votre ressource Azure Stack Edge, puis à **Passerelle > Partages**. Sélectionnez **+ Ajouter un partage** dans la barre de commandes.
+1. Sur le portail Azure, accédez à votre ressource Azure Stack Edge, puis à **Passerelle de stockage cloud > Partages**. Sélectionnez **+ Ajouter un partage** dans la barre de commandes.
 
     ![Sélectionner Ajouter un partage](media/azure-stack-edge-j-series-manage-shares/add-share-1.png)
 
@@ -63,7 +63,7 @@ Pour créer un partage, procédez comme suit dans le Portail Azure.
 
 ## <a name="add-a-local-share"></a>Ajouter un partage local
 
-1. Sur le Portail Azure, accédez à votre ressource Azure Stack Edge, puis à **Passerelle > Partages**. Sélectionnez **+ Ajouter un partage** dans la barre de commandes.
+1. Sur le portail Azure, accédez à votre ressource Azure Stack Edge, puis à **Passerelle de stockage cloud > Partages**. Sélectionnez **+ Ajouter un partage** dans la barre de commandes.
 
     ![Sélectionner Ajouter un partage 2](media/azure-stack-edge-j-series-manage-shares/add-local-share-1.png)
 
@@ -99,7 +99,7 @@ Pour créer un partage, procédez comme suit dans le Portail Azure.
 Si vous avez créé un partage avant de configurer le calcul sur votre appareil Azure Stack Edge Pro, vous devez monter le partage. Effectuez les étapes suivantes pour monter un partage.
 
 
-1. Sur le Portail Azure, accédez à votre ressource Azure Stack Edge, puis à **Passerelle > Partages**. Dans la liste des partages, sélectionnez le partage que vous souhaitez monter. La colonne **Utilisé pour le computing** affiche l’état **Désactivé** pour le partage sélectionné.
+1. Sur le portail Azure, accédez à votre ressource Azure Stack Edge, puis à **Passerelle de stockage cloud > Partages**. Dans la liste des partages, sélectionnez le partage que vous souhaitez monter. La colonne **Utilisé pour le computing** affiche l’état **Désactivé** pour le partage sélectionné.
 
     ![Sélectionner un partage](media/azure-stack-edge-j-series-manage-shares/mount-share-1.png)
 
@@ -123,11 +123,11 @@ Si vous avez créé un partage avant de configurer le calcul sur votre appareil 
 
 Effectuez les étapes suivantes dans le portail Azure pour démonter un partage.
 
-1. Sur le Portail Azure, accédez à votre ressource Azure Stack Edge, puis à **Passerelle > Partages**.
+1. Sur le portail Azure, accédez à votre ressource Azure Stack Edge, puis à **Passerelle de stockage cloud > Partages**. Dans la liste des partages, sélectionnez le partage que vous souhaitez démonter. Vous devez vous assurer que le partage à démonter n’est pas utilisé par un module. Si le partage est utilisé par un module, vous verrez apparaître des problèmes avec le module correspondant.
 
     ![Sélectionner un partage 2](media/azure-stack-edge-j-series-manage-shares/unmount-share-1.png)
 
-2. Dans la liste des partages, sélectionnez le partage que vous souhaitez démonter. Vous devez vous assurer que le partage à démonter n’est pas utilisé par un module. Si le partage est utilisé par un module, vous verrez apparaître des problèmes avec le module correspondant. Sélectionnez **Démonter**.
+2.  Sélectionnez **Démonter**.
 
     ![Sélectionner l’option de démontage](media/azure-stack-edge-j-series-manage-shares/unmount-share-2.png)
 
@@ -229,7 +229,7 @@ Procédez comme suit dans le Portail Azure pour synchroniser votre clé d’acc�
 
     ![Sélectionner le partage avec le compte de stockage adéquat](media/azure-stack-edge-j-series-manage-shares/sync-storage-key-1.png)
 
-2. Cliquez sur **Sync storage key** (Synchroniser une clé de stockage). Cliquez sur **Oui** lorsque vous êtes invité à confirmer.
+2. Cliquez sur **Sync storage key** (Synchroniser une clé de stockage). Cliquez sur **Oui** lorsque vous êtes invité à confirmer l’opération.
 
      ![Sélectionner Sync storage key (Synchroniser une clé de stockage)](media/azure-stack-edge-j-series-manage-shares/sync-storage-key-2.png)
 

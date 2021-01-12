@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2020
 ms.author: yelevin
-ms.openlocfilehash: ba872f221f3bde29f0bb48b04dc2259d3ab4938a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c715804693571bc421951de1288fc884d2eae8d
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906280"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746182"
 ---
 # <a name="advanced-multistage-attack-detection-in-azure-sentinel"></a>Détection avancée des attaques multiphases dans Azure Sentinel
 
@@ -49,7 +49,7 @@ Cette détection est activée par défaut dans Azure Sentinel. Pour vérifier l�
  Étant donné que le type de règle **Fusion** ne contient qu’une seule règle qui ne peut pas être modifiée, les modèles de règles ne s’appliquent pas pour ce type de règle.
 
 > [!NOTE]
-> Azure Sentinel utilise actuellement 30 jours de données historiques pour former les systèmes de Machine Learning. Ces données sont toujours chiffrées à l’aide des clés de Microsoft à mesure qu’elles passent par le pipeline de Machine Learning. Cependant, les données d’apprentissage ne sont pas chiffrées à l’aide de [clés gérées par le client (CMK)](customer-managed-keys.md) si vous avez activé CMK dans votre espace de travail Azure Sentinel. Pour désactiver la technologie Fusion, accédez à **Azure Sentinel** \> **Configuration** \> **Analytics \> Règles actives \>Détection avancée des attaques multiphases**, puis, dans la colonne **État**, sélectionnez **Désactiver**.
+> Azure Sentinel utilise actuellement 30 jours de données historiques pour former les systèmes de Machine Learning. Ces données sont toujours chiffrées à l’aide des clés de Microsoft à mesure qu’elles passent par le pipeline de Machine Learning. Cependant, les données d’apprentissage ne sont pas chiffrées à l’aide de [clés gérées par le client (CMK)](customer-managed-keys.md) si vous avez activé CMK dans votre espace de travail Azure Sentinel. Pour désactiver la technologie Fusion, accédez à **Azure Sentinel** \> **Configuration** \> **Analytics \> Règles actives \>Détection avancée des attaques multiphases**, puis, dans la colonne **État**, sélectionnez **Désactiver**.
 
 ## <a name="attack-detection-scenarios"></a>Scénarios de détection des attaques
 
@@ -84,6 +84,70 @@ Ce scénario est actuellement en **préversion publique**.
 - **Événement de connexion à partir d’une adresse IP anonyme, à l’origine d’activités multiples de création de machines virtuelles**
 
 - **Événement de connexion d’un utilisateur à l’aide d’informations d’identification ayant fuité, à l’origine d’activités multiples de création de machines virtuelles**
+
+## <a name="credential-harvesting-new-threat-classification"></a>Collecte des informations d’identification (nouvelle classification des menaces)
+
+### <a name="malicious-credential-theft-tool-execution-following-suspicious-sign-in"></a>Exécution de l’outil contre le vol d’informations d’identification suite à une connexion suspecte
+
+**Tactiques MITRE ATT&CK :** Accès initial, accès aux informations d’identification
+
+**Techniques MITRE ATT&CK :** Compte valide (T1078), vidage des informations d’identification du système d’exploitation (T1003)
+
+**Sources de connecteur de données :** Azure Active Directory Identity Protection | Microsoft Defender for Endpoint
+
+**Description :** Les incidents de fusion de ce type indiquent qu’un outil de vol d’informations d’identification connu a été exécuté à la suite d’une connexion Azure AD suspecte. Cela fournit une indication très fiable que le compte d’utilisateur mentionné dans la description de l’alerte a été compromis et a peut-être utilisé un outil tel que **Mimikatz** pour collecter des informations d’identification telles que des clés, des mots de passe en texte en clair et/ou des hachages de mot de passe à partir du système. Les informations d’identification collectées peuvent permettre à une personne malveillante d’accéder à des données sensibles, d’escalader des privilèges et/ou de se déplacer latéralement sur le réseau. Les permutations d’alertes de connexion suspecte à Azure AD avec l’alerte d’outil de vol d’informations d’identification sont les suivantes :
+
+- **Voyage impossible vers des emplacements inhabituels entraînant l’exécution de l’outil de vol d’informations d’identification**
+
+- **Événement de connexion à partir d’un lieu inconnu entraînant l’exécution de l’outil de vol d’informations d’identification**
+
+- **Événement de connexion à partir d’un appareil infecté entraînant l’exécution de l’outil de vol d’informations d’identification**
+
+- **Événement de connexion à partir d’une adresse IP anonyme entraînant l’exécution de l’outil de vol d’informations d’identification**
+
+- **Événement de connexion de l’utilisateur avec des informations d’identification fuitées entraînant l’exécution de l’outil de vol d’informations d’identification**
+
+### <a name="suspected-credential-theft-activity-following-suspicious-sign-in"></a>Activité suspecte de vol d’informations d’identification suite à une connexion suspecte
+
+**Tactiques MITRE ATT&CK :** Accès initial, accès aux informations d’identification
+
+**Techniques MITRE ATT&CK :** Compte valide (T1078), informations d’identification de magasins de mots de passe (T1555), vidage des informations d’identification du système d’exploitation (T1003)
+
+**Sources de connecteur de données :** Azure Active Directory Identity Protection | Microsoft Defender for Endpoint
+
+**Description :** Les incidents de fusion de ce type indiquent qu’une activité associée à des modèles de vols d’informations d’identification s’est produite à la suite d’une connexion Azure AD suspecte. Cela fournit une indication très fiable que le compte d’utilisateur mentionné dans la description de l’alerte a été compromis et utilisé pour voler des informations d’identification telles que des clés, des mots de passe en texte brut, des hachages de mot de passe, et ainsi de suite. Les informations d’identification volées peuvent permettre à une personne malveillante d’accéder à des données sensibles, d’escalader des privilèges et/ou de se déplacer latéralement sur le réseau. Les permutations d’alertes de connexion suspecte à Azure AD avec l’alerte d’activité de vol d’informations d’identification sont les suivantes :
+
+- **Voyage impossible vers des emplacements inhabituels entraînant une activité suspecte de vol d’informations d’identification**
+
+- **Événement de connexion à partir d’un lieu inconnu entraînant une activité suspecte de vol d’informations d’identification**
+
+- **Événement de connexion à partir d’un appareil infecté entraînant une activité suspecte de vol d’informations d’identification**
+
+- **Événement de connexion à partir d’une adresse IP anonyme entraînant une activité suspecte de vol d’informations d’identification**
+
+- **Événement de connexion de l’utilisateur avec des informations d’identification fuitées entraînant une activité suspecte de vol d’informations d’identification**
+
+## <a name="crypto-mining-new-threat-classification"></a>Exploration crypto (nouvelle classification des menaces)
+
+### <a name="crypto-mining-activity-following-suspicious-sign-in"></a>Activité d’exploration crypto à la suite d’une connexion suspecte
+
+**Tactiques MITRE ATT&CK :** Accès initial, accès aux informations d’identification
+
+**Techniques MITRE ATT&CK :** Compte valide (T1078), Détournement de ressource (T1496)
+
+**Sources de connecteur de données :** Azure Active Directory Identity Protection, Azure Defender (Azure Security Center)
+
+**Description :** Les incidents de fusion de ce type indiquent une activité d’exploration crypto associée à une connexion suspecte à un compte Azure AD. Cela fournit une indication très fiable que le compte d’utilisateur mentionné dans la description de l’alerte a été compromis et utilisé pour détourner des ressources de votre environnement afin d’explorer des crypto-monnaies. Cela peut priver vos ressources de puissance de calcul et/ou entraîner des factures d’utilisation du cloud beaucoup plus élevées que prévu. Les permutations d’alertes de connexion suspecte à Azure AD avec l’alerte d’activité d’exploration crypto sont les suivantes :  
+
+- **Voyage impossible vers des emplacements inhabituels entraînant une activité d’exploration crypto**
+
+- **Événement de connexion à partir d’un lieu inconnu entraînant une activité d’exploration crypto**
+
+- **Événement de connexion à partir d’un appareil infecté entraînant une activité d’exploration crypto**
+
+- **Événement de connexion à partir d’une adresse IP anonyme entraînant une activité d’exploration crypto**
+
+- **Événement de connexion d’utilisateur avec des informations d’identification fuitées entraînant une activité d’exploration crypto**
 
 ## <a name="data-exfiltration"></a>Exfiltration de données
 
@@ -368,6 +432,26 @@ Ce scénario est actuellement en **préversion publique**.
 **Sources de connecteur de données :** Microsoft Defender for Endpoint (anciennement MDATP), Palo Alto Networks 
 
 **Description :** Les incidents de ce type signalés par Fusion indiquent que des commandes Windows Management Instrumentation (WMI) ont été exécutées à distance sur un système, et qu’une activité entrante suspecte a été détectée par le pare-feu Palo Alto Networks. Cela indique qu’un attaquant a peut-être eu accès à votre réseau et tente de se déplacer latéralement, d’élever les privilèges et/ou d’exécuter des charges utiles malveillantes. Comme toutes les attaques « vivant de la terre », cette activité pourrait être une utilisation légitime de WMI. Toutefois, l’exécution de la commande WMI suivie d’une activité de pare-feu entrante suspecte renforce la suspicion que WMI est utilisé de manière malveillante et doit être examiné de plus près. Dans les journaux Palo Alto, Azure Sentinel se concentre sur les [journaux des menaces](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/view-and-manage-logs/log-types-and-severity-levels/threat-logs), et le trafic est considéré comme suspect lorsque des menaces sont autorisées (données, fichiers, saturations, paquets, analyses, logiciels espions, URL, virus, vulnérabilités, virus d’incendie, incendies suspects). Référencez également le journal des menaces Palo Alto correspondant au [type de menace/contenu](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/threat-log-fields.html) indiqué dans la description de l’incident par Fusion pour obtenir des détails supplémentaires sur l’alerte.
+
+### <a name="suspicious-powershell-command-line-following-suspicious-sign-in"></a>Ligne de commande PowerShell suspecte après une connexion suspecte
+
+**Tactiques MITRE ATT&CK :** Accès initial, Exécution
+
+**Techniques MITRE ATT&CK :** Compte valide (T1078), Interpréteur de commandes et de scripts (T1059)
+
+**Sources de connecteur de données :** Azure Active Directory Identity Protection, Microsoft Defender for Endpoint (anciennement MDATP)
+
+**Description :** Les incidents de fusion de ce type indiquent qu’un utilisateur a exécuté des commandes PowerShell potentiellement malveillantes suite à une connexion suspecte à un compte Azure AD. Cela fournit une indication très fiable que le compte mentionné dans la description de l’alerte a été compromis et que des actions malveillantes supplémentaires ont été effectuées. Les attaquants exploitent souvent PowerShell pour exécuter des charges utiles malveillantes en mémoire sans laisser d’artefacts sur le disque, afin d’éviter la détection par des mécanismes de sécurité sur disque tels que les antivirus. Les permutations d’alertes de connexion suspecte à Azure AD avec l’alerte de commande PowerShell suspecte sont les suivantes :
+
+- **Voyage impossible vers des emplacements inhabituels entraînant une ligne de commande PowerShell suspecte**
+
+- **Événement de connexion à partir d’un lieu inconnu entraînant une ligne de commande PowerShell suspecte**
+
+- **Événement de connexion à partir d’un appareil infecté entraînant une ligne de commande PowerShell suspecte**
+
+- **Événement de connexion à partir d’une adresse IP anonyme entraînant une ligne de commande PowerShell suspecte**
+
+- **Événement de connexion d’utilisateur avec des informations d’identification fuitées entraînant une ligne de commande PowerShell suspecte**
 
 ## <a name="malware-c2-or-download"></a>Logiciel malveillant C2 ou téléchargement
 

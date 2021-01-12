@@ -10,14 +10,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 01/05/2021
 ms.author: inhenkel
-ms.openlocfilehash: f37b453a294a0d0a7b9a99bfebe8f3eff09e8956
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36593efd4f2583f28dffbb4f5b491fbeec7ba21d
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89291192"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916318"
 ---
 # <a name="azure-storage-accounts"></a>Comptes de stockage Azure
 
@@ -54,6 +54,9 @@ Pour protéger vos éléments multimédias au repos, les ressources doivent êtr
 |[Chiffrement du stockage côté client](../../storage/common/storage-client-side-encryption.md)|Chiffrement côté client proposé par le stockage Azure, clé gérée par un client dans un coffre de clés.|Non pris en charge.|
 
 <sup>1</sup> Dans Media Services v3, le chiffrement de stockage (chiffrement AES-256) est uniquement pris en charge pour la compatibilité descendante lorsque vos ressources ont été créées avec Media Services v2. Cela signifie que v3 fonctionne avec les ressources chiffrées du stockage existant, mais n’autorise pas la création de nouveaux éléments.
+
+## <a name="double-encryption"></a>Double chiffrement
+Media Services prend en charge le double chiffrement.  Pour en savoir plus sur le double chiffrement, consultez [Double chiffrement Azure](https://docs.microsoft.com/azure/security/fundamentals/double-encryption).
 
 ## <a name="storage-account-errors"></a>Erreurs relatives au compte de stockage
 

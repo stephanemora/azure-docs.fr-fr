@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: f1e4e288b5b95f355221188a45f1e6c764fde77c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4dedbcf58e76b8c969f8607db6922e87a85f08e5
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86187334"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591871"
 ---
 # <a name="use-source-control-integration-in-azure-automation---legacy"></a>Utiliser l’intégration du contrôle de code source dans Azure Automation – Hérité
 
@@ -43,7 +43,7 @@ Si vous possédez déjà un compte GitHub et un référentiel que vous souhaitez
    | Choisir une source |Sélectionnez la source. Actuellement, seul **GitHub** est pris en charge. |
    | Autorisation |Cliquez sur le bouton **Autoriser** pour accorder à Azure Automation l'accès à votre référentiel GitHub. Si vous êtes déjà connecté à votre compte GitHub dans une autre fenêtre, les informations d’identification de ce compte sont utilisées. Une fois que l’autorisation est accordée, la page affiche votre nom d’utilisateur GitHub sous **Propriété d’autorisation**. |
    | Choisir un référentiel |Sélectionnez un référentiel GitHub à partir de la liste des référentiels disponibles. |
-   | Choisir une branche |Sélectionnez la branche à partir de la liste des branches disponibles. Seule la branche **master** s'affiche si vous n'avez pas créé de branches. |
+   | Choisir une branche |Sélectionnez la branche à partir de la liste des branches disponibles. Seule la branche **primaire** s’affiche si vous n’avez pas créé de branches. |
    | Chemin d’accès au dossier de runbooks |Le chemin d’accès au dossier de runbooks spécifie le chemin d’accès dans le référentiel GitHub à partir duquel vous souhaitez transmettre ou extraire votre code. Il doit être saisi au format **/nomdossier/nomsous-dossier**. Seuls les runbooks du chemin d’accès au dossier de runbooks seront synchronisés avec votre compte Automation. Les runbooks des sous-dossiers du chemin d’accès au dossier de runbooks ne seront **PAS** synchronisés. Utilisez **/** pour synchroniser tous les runbooks dans le référentiel. |
 3. Par exemple, si vous disposez d’un référentiel nommé **PowerShellScripts** qui contient un dossier nommé **RootFolder**, lequel contient un dossier nommé **SubFolder**. Vous pouvez utiliser les chaînes suivantes pour synchroniser chaque niveau de dossier :
 
@@ -66,7 +66,7 @@ Si vous possédez déjà un compte GitHub et un référentiel que vous souhaitez
      | `Type`  |String |
      | `Value` |{"Branch":\<*Your branch name*>,"RunbookFolderPath":\<*Runbook folder path*>,"ProviderType":\<*has a value 1 for GitHub*>,"Repository":\<*Name of your repository*>,"Username":\<*Your GitHub user name*>} |
 
-   * La variable **Microsoft.Azure.Automation.SourceControl.OauthToken**contient la valeur chiffrée sécurisée de votre OAuthToken.  
+   * La variable **Microsoft.Azure.Automation.SourceControl.OauthToken** contient la valeur chiffrée sécurisée de votre OAuthToken.  
 
      |**Paramètre**            |**Valeur** |
      |:---|:---|

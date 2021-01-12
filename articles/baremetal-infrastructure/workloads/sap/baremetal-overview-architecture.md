@@ -1,15 +1,15 @@
 ---
 title: Vue d’ensemble de la préversion de BareMetal Infrastructure dans Azure
-description: Vue d’ensemble du déploiement de l’infrastructure BareMetal dans Azure.
+description: Vue d’ensemble de l’infrastructure BareMetal dans Azure.
 ms.custom: references_regions
 ms.topic: conceptual
-ms.date: 12/31/2020
-ms.openlocfilehash: db974d9260344d1f6050235bb2a9fbaa0420659b
-ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
+ms.date: 1/4/2021
+ms.openlocfilehash: eb4dc129719dc410f7101598e3d72e68f17809c1
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97829041"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97860986"
 ---
 #  <a name="what-is-baremetal-infrastructure-preview-on-azure"></a>Présentation de la préversion de BareMetal Infrastructure dans Azure
 
@@ -25,7 +25,7 @@ L’infrastructure BareMetal pour les charges de travail spécialisées et à us
 - États-Unis - partie centrale méridionale
 
 >[!NOTE]
->La **Rev 4.2** est la dernière infrastructure BareMetal rebaptisée à l’aide de l’architecture Révision 4.  La Rev 4 assure une plus grande proximité des hôtes de machine virtuelle Azure et réduit la latence entre les machines virtuelles Azure et les unités d’instance BareMetal. Vous pouvez accéder à vos instances BareMetal et les gérer via le portail Azure. 
+>**Rev 4.2** est la dernière infrastructure BareMetal rebaptisée qui utilise l’architecture Rev 4 existante.  Rev 4 assure une plus grande proximité des hôtes de machine virtuelle Azure. Elle présente des améliorations significatives de latence réseau entre les machines virtuelles Azure et les unités d’instance BareMetal déployées dans les tampons ou lignes Rev 4.  Vous pouvez accéder à vos instances BareMetal et les gérer via le portail Azure. 
 
 ## <a name="support"></a>Support
 BareMetal Infrastructure est conforme aux normes ISO 27001, ISO 27017, SOC 1 et SOC 2.  Elle utilise également un modèle BYOL : système d’exploitation, charge de travail spécialisée et applications tierces.  
@@ -35,13 +35,13 @@ Dès que vous recevez un accès racine et le contrôle total, vous assumez la re
 - Licences, sécurité et support pour le système d’exploitation et les logiciels tiers
 
 Microsoft est responsable des éléments suivants :
-- Fourniture de matériel certifié pour les charges de travail spécialisées 
+- Fourniture du matériel pour les charges de travail spécialisées 
 - Configuration du système d’exploitation
 
 :::image type="content" source="media/baremetal-support-model.png" alt-text="Modèle de support de BareMetal Infrastructure" border="false":::
 
-## <a name="compute"></a>Calcul
-L’infrastructure BareMetal offre plusieurs références SKU certifiées pour les charges de travail spécialisées. Les références SKU disponibles vont des petits systèmes à deux sockets aux systèmes à 24 Sockets. Utilisez les références SKU certifiées spécifiques à votre charge de travail.
+## <a name="compute"></a>Compute
+L’infrastructure BareMetal offre plusieurs références SKU pour les charges de travail spécialisées. Les références SKU disponibles vont des petits systèmes à deux sockets aux systèmes à 24 Sockets. Utilisez les références SKU spécifiques à votre charge de travail.
 
 Le tampon d’instance BareMetal combine les composants suivants :
 
@@ -56,7 +56,7 @@ Dans l’infrastructure multilocataire du tampon BareMetal, les clients sont dé
 >[!NOTE]
 >Un client déployé dans l’instance BareMetal est isolé dans un locataire. Un locataire est isolé des autres locataires dans la couche de mise en réseau, de stockage et de calcul. Les unités de stockage et de calcul assignées aux différents locataires ne peuvent pas se voir les unes les autres ni communiquer sur les instances BareMetal.
 
-## <a name="os"></a>Système d''exploitation
+## <a name="os"></a>Système d’exploitation
 Pendant l’approvisionnement de l’instance BareMetal, vous pouvez sélectionner le système d’exploitation que vous souhaitez installer sur les ordinateurs. 
 
 >[!NOTE]
@@ -72,10 +72,10 @@ Les versions disponibles du système d’exploitation Linux sont les suivantes 
    - SLES 15 SP1
 
 ## <a name="storage"></a>Stockage
-Les instances BareMetal basées sur un type de référence SKU spécifique sont fournies avec un stockage NFS prédéfini basé sur un type de charge de travail spécifique. Lorsque vous approvisionnez BareMetal, vous pouvez approvisionner un stockage supplémentaire en fonction de la croissance estimée en soumettant une demande de support. Tout le stockage est fourni avec un disque tout Flash dans la révision 4.2 avec prise en charge de NFSv3 et NFSv4. La révision 4.5 NVMe SSD plus récente sera disponible. Pour plus d’informations sur le dimensionnement du stockage, consultez la section [Type de charge de travail BareMetal](../../../virtual-machines/workloads/sap/get-started.md).
+Les instances BareMetal basées sur un type de référence SKU spécifique sont fournies avec un stockage NFS prédéfini pour le type de charge de travail spécifique. Lorsque vous approvisionnez BareMetal, vous pouvez approvisionner davantage de stockage en fonction de la croissance estimée en soumettant une demande de support. Tout le stockage est fourni avec un disque tout Flash dans la révision 4.2 avec prise en charge de NFSv3 et NFSv4. La révision 4.5 NVMe SSD plus récente sera disponible. Pour plus d’informations sur le dimensionnement du stockage, consultez la section [Type de charge de travail BareMetal](../../../virtual-machines/workloads/sap/get-started.md).
 
 >[!NOTE]
->Le stockage utilisé pour BareMetal est conforme aux exigences de sécurité FIPS 140-2 qui offrent le chiffrement au repos par défaut. Les données sont stockées de manière sécurisée sur les disques.
+>Le stockage utilisé pour BareMetal répond aux exigences [de la publication 140-2 des normes FIPS (Federal Information Processing Standard)](/microsoft-365/compliance/offering-fips-140-2), qui propose par défaut le chiffrement au repos. Les données sont stockées de manière sécurisée sur les disques.
 
 ## <a name="networking"></a>Mise en réseau
 L’architecture des services réseau Azure est un composant clé de la réussite du déploiement des charges de travail spécialisées sur les instances BareMetal. Il est probable que certains systèmes informatiques ne trouvent pas encore dans Azure. Azure offre une technologie réseau qui lui permet de se présenter comme un centre de données virtuel pour vos déploiements de logiciels locaux. Les fonctionnalités réseau Azure requises pour les instances BareMetal sont les suivantes :
@@ -91,10 +91,10 @@ Les instances BareMetal sont approvisionnées dans votre plage d’adresses IP 
 :::image type="content" source="media/baremetal-infrastructure-portal/baremetal-infrastructure-diagram.png" alt-text="Schéma de l’infrastructure Azure BareMetal Infrastructure" lightbox="media/baremetal-infrastructure-portal/baremetal-infrastructure-diagram.png" border="false":::
 
 L’architecture présentée est divisée en trois sections :
-- **À gauche :** Montre l’infrastructure locale du client qui exécute différentes applications en se connectant via le routeur ou le routeur de périphérie local comme Equinix. Pour plus d’informations, consultez [Fournisseurs de connectivité et emplacements : Azure ExpressRoute](../../../expressroute/expressroute-locations.md).
-- **Au centre :** Montre [ExpressRoute](../../../expressroute/expressroute-introduction.md) approvisionné à l’aide de votre abonnement Azure et qui offre la connectivité au réseau Azure Edge.
-- **À droite :** Montre Azure IaaS et, dans ce cas, l’utilisation de machines virtuelles pour héberger vos applications, qui sont approvisionnées au sein de votre réseau virtuel Azure.
-- **En bas :** Montre l’utilisation de votre passerelle ExpressRoute activée avec [ExpressRoute FastPath](../../../expressroute/about-fastpath.md) pour la connectivité BareMetal à faible latence.   
+- **Gauche :** montre l’infrastructure locale du client qui exécute différentes applications en se connectant via le serveur partenaire ou le routeur de périphérie local comme Equinix. Pour plus d’informations, consultez [Fournisseurs de connectivité et emplacements : Azure ExpressRoute](../../../expressroute/expressroute-locations.md).
+- **Centre :** montre [ExpressRoute](../../../expressroute/expressroute-introduction.md) approvisionné à l’aide de votre abonnement Azure et qui offre la connectivité au réseau de périmètre Azure.
+- **Droite :** montre Azure IaaS et, dans ce cas, l’utilisation de machines virtuelles pour héberger vos applications, qui sont approvisionnées au sein de votre réseau virtuel Azure.
+- **Bas :** montre l’utilisation de votre passerelle ExpressRoute activée avec [ExpressRoute FastPath](../../../expressroute/about-fastpath.md) pour la connectivité BareMetal à faible latence.   
    >[!TIP]
    >Pour prendre tout cela en charge, votre passerelle ExpressRoute doit être UltraPerformance.  Pour plus d’informations, consultez [À propos des passerelles de réseau virtuel ExpressRoute](../../../expressroute/expressroute-about-virtual-network-gateways.md).
 

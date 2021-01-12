@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 01/05/2021
 ms.author: alkohli
-ms.openlocfilehash: a0d596c7c1046ea26ac389a48c17fa5abccbfd12
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 3182258245701903e7b3d6d6163cf3e2bd55c1fc
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951602"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915452"
 ---
 # <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-stack-edge-pro-gpu"></a>Utiliser le portail Azure pour gérer les planifications de bande passante sur votre appareil Azure Stack Edge Pro avec GPU 
 
@@ -40,12 +40,12 @@ Pour ajouter une planification, effectuez les étapes suivantes sur le portail A
 
     ![Sélectionner la bande passante](media/azure-stack-edge-j-series-manage-bandwidth-schedules/add-schedule-1.png)
 
-3. Dans le volet **Ajouter une planification** : 
+3. Dans le volet **Ajouter une planification** :
 
    1. Renseignez les champs **Jour de début**, **Jour de fin**, **Heure de début** et **Heure de fin** de la planification.
    2. Cochez l’option **Toute la journée** si cette planification doit s’exécuter toute la journée.
    3. Le champ **Débit de bande passante** indique la bande passante en mégabits par seconde (Mbits/s) utilisée par votre appareil dans les opérations impliquant le cloud (à la fois pour les chargements et pour les téléchargements). Fournissez un nombre compris entre 20 et 2 147 483 647 pour ce champ.
-   4. Si vous ne souhaitez pas limiter le chargement et le téléchargement de données, cochez la case **Bande passante illimitée**.
+   4. Si vous ne souhaitez pas limiter le chargement et le téléchargement de données, sélectionnez **Bande passante illimitée**.
    5. Sélectionnez **Ajouter**.
 
       ![Ajouter une planification](media/azure-stack-edge-j-series-manage-bandwidth-schedules/add-schedule-2.png)
@@ -58,9 +58,10 @@ Pour ajouter une planification, effectuez les étapes suivantes sur le portail A
 
 Pour modifier une planification de bande passante, procédez comme suit.
 
-1. Sur le portail Azure, accédez à votre ressource Azure Stack Edge, puis à **Bande passante**. 
+1. Sur le portail Azure, accédez à votre ressource Azure Stack Edge, puis à **Bande passante**.
 2. Dans la liste des planifications de bande passante, sélectionnez la planification que vous souhaitez modifier.
-    ![Sélectionner une planification de bande passante](media/azure-stack-edge-j-series-manage-bandwidth-schedules/modify-schedule-1.png)
+
+   ![Sélectionner une planification de bande passante](media/azure-stack-edge-j-series-manage-bandwidth-schedules/modify-schedule-1.png)
 
 3. Apportez les modifications souhaitées, puis enregistrez les modifications.
 

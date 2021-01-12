@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 99ed7d3ad81202ab6fe67bf52888bbdbf0b28d2a
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: b7bd04790c7ac124afe3e9b503803f27118ae959
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97387086"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861866"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -52,7 +52,7 @@ Tous les types de profils techniques partagent le même concept. Vous pouvez env
 ![Schéma illustrant le workflow du profil technique](./media/technical-profiles/technical-profile-flow.png)
 
 1. **Gestion de session d’authentification unique (SSO)**  : restaure l’état de session du profil technique à l’aide de la [gestion de session d’authentification unique](custom-policy-reference-sso.md).
-1. **Transformation de revendications d’entrée** : avant le démarrage du profil technique, Azure AD B2C exécute [la transformation de revendications ] d’entrée (claimstransformations.md).
+1. **Transformation de revendications d’entrée** : avant le démarrage du profil technique, Azure AD B2C exécute la [transformation de revendications](claimstransformations.md) d’entrée.
 1. **Revendications d’entrée** : les revendications sont récupérées auprès du conteneur de revendications et sont utilisées pour le profil technique.
 1. **Exécution du profil technique** : le profil technique échange les revendications avec le tiers configuré. Par exemple :
     - Redirigez l’utilisateur vers le fournisseur d’identité pour finaliser la connexion. Une fois connecté, l’utilisateur revient et l’exécution du profil technique se poursuit.

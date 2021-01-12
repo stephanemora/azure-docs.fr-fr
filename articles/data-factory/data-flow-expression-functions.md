@@ -6,13 +6,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/01/2020
-ms.openlocfilehash: 875b84613bede922b01b1043f2d6dab9aedbc2e8
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.date: 12/18/2020
+ms.openlocfilehash: f715a51367a82f190d394ecb8e10dea24ca70e97
+ms.sourcegitcommit: 0830e02635d2f240aae2667b947487db01f5fdef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436927"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97706913"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>Expressions de transformation de données dans le flux de données de mappage
 
@@ -1884,6 +1884,28 @@ Sélectionne une valeur de colonne selon sa position relative (base 1) dans le f
 * ``toBoolean(byName(4))``  
 * ``toString(byName($colName))``  
 * ``toString(byPosition(1234))``  
+
+## <a name="cached-lookup-functions"></a>Fonctions de recherche mise en cache
+Les fonctions suivantes sont disponibles uniquement lors de l’utilisation d’une recherche mise en cache quand vous avez inclus un récepteur mis en cache.
+___
+### <code>lookup</code>
+<code><b>lookup(key, key2, ...) => complex[]</b></code><br/><br/>
+Recherche la première ligne du récepteur mis en cache en utilisant les clés spécifiées qui correspondent aux clés du récepteur mis en cache.
+* ``cacheSink#lookup(movieId)``  
+___
+### <code>mlookup</code>
+<code><b>mlookup(key, key2, ...) => complex[]</b></code><br/><br/>
+Recherche toutes les lignes correspondantes du récepteur mis en cache en utilisant les clés spécifiées qui correspondent aux clés du récepteur mis en cache.
+* ``cacheSink#mlookup(movieId)``  
+___
+### <code>output</code>
+<code><b>output() => any</b></code><br/><br/>
+Retourne la première ligne des résultats du récepteur de cache * ``cacheSink#output()``  
+___
+### <code>outputs</code>
+<code><b>output() => any</b></code><br/><br/>
+Retourne la totalité des lignes de sortie des résultats du récepteur de cache * ``cacheSink#outputs()``
+___
 
 ## <a name="window-functions"></a>Fonctions Windows
 Les fonctions suivantes ne sont disponibles que dans des transformations de fenêtres.

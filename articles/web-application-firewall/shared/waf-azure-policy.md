@@ -7,12 +7,12 @@ services: web-application-firewall
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: rimansdo
-ms.openlocfilehash: fd474a32b4a517230a82615065d7815c04140045
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 7798d7e960286d4f8aa971eb2eb0b03d24bd6360
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432966"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589455"
 ---
 # <a name="azure-web-application-firewall-and-azure-policy"></a>Pare-feu d’applications web Azure et Azure Policy
 
@@ -47,7 +47,7 @@ Il existe plusieurs définitions Azure Policy intégrées pour gérer les ressou
     2.  **Exclusions** : sélectionnez toutes les ressources de l’étendue à exclure de l’affectation de stratégie.
     3.  **Définition de la stratégie** : sélectionnez la définition de stratégie à appliquer à l’étendue avec des exclusions. Tapez « Web Application Firewall » dans la barre de recherche pour choisir la stratégie Azure Web Application Firewall appropriée.
 
-:::image type="content" source="../media/waf-azure-policy/policy-listing.png" alt-text="Onglet Informations de base sur la page Affecter une stratégie":::
+:::image type="content" source="../media/waf-azure-policy/policy-listing.png" alt-text="Capture d’écran montrant l’onglet « Définitions de stratégie » dans la page « Définitions disponibles ».":::
 
 5.  Sélectionnez l’onglet **Paramètres** et mettez à jour les paramètres d’affectation de stratégie. Pour plus de précisions sur la fonction du paramètre, survolez l’icône d’informations à côté du nom du paramètre.
 

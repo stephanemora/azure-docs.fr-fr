@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 7af115d8f1244253e461f796c5665609d3b84b21
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 6af4fba8ddf50b795d847a2c7b4e2fbc02fe593f
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517442"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587177"
 ---
 # <a name="security-frame-cryptography--mitigations"></a>Infrastructure de sécurité : chiffrement | Atténuation des risques 
 
@@ -109,7 +109,7 @@ ms.locfileid: "94517442"
 | **Technologies applicables** | Générique |
 | **Attributs**              | N/A  |
 | **Informations de référence**              | N/A  |
-| **Étapes** | <p>Les produits doivent utiliser la famille d’algorithmes de hachage SHA-2 (SHA256, SHA384 et SHA512). Si un hachage plus court est nécessaire, par exemple une longueur de sortie de 128 bits pour s’adapter à une structure de données conçue avec le hachage MD5 plus court à l’esprit, les équipes produit peuvent tronquer l’un des hachages SHA2 (généralement SHA256). Notez que SHA384 est une version tronquée de SHA512. La troncation des hachages de chiffrement pour des raisons de sécurité à moins de 128 bits n’est pas autorisée. Le nouveau code ne doit pas utiliser les algorithmes de hachage MD2, MD4, MD5, SHA-0, SHA-1 ou RIPEMD. Les conflits de hachage sont possibles en termes de calculs pour ces algorithmes, qui les brisent efficacement.</p><p>Algorithmes de hachage .NET autorisés pour l’agilité de chiffrement géré (par ordre de préférence) :</p><ul><li>SHA512Cng (compatible FIPS)</li><li>SHA384Cng (compatible FIPS)</li><li>SHA256Cng (compatible FIPS)</li><li>SHA512Managed (non compatible FIPS) (utilisez SHA512 en tant que nom d’algorithme dans les appels à HashAlgorithm.Create ou CryptoConfig.CreateFromName)</li><li>SHA384Managed (non compatible FIPS) (utilisez SHA384 en tant que nom d’algorithme dans les appels à HashAlgorithm.Create ou CryptoConfig.CreateFromName)</li><li>SHA256Managed (non compatible FIPS) (utilisez SHA256 en tant que nom d’algorithme dans les appels à HashAlgorithm.Create ou CryptoConfig.CreateFromName)</li><li>SHA512CryptoServiceProvider (compatible FIPS)</li><li>SHA256CryptoServiceProvider (compatible FIPS)</li><li>SHA384CryptoServiceProvider (compatible FIPS)</li></ul>| 
+| **Étapes** | <p>Les produits doivent utiliser la famille d’algorithmes de hachage SHA-2 (SHA256, SHA384 et SHA512). Si un hachage plus court est nécessaire, par exemple une longueur de sortie de 128 bits pour s’adapter à une structure de données conçue avec le hachage MD5 plus court à l’esprit, les équipes produit peuvent tronquer l’un des hachages SHA2 (généralement SHA256). Notez que SHA384 est une version tronquée de SHA512. La troncation des hachages de chiffrement pour des raisons de sécurité à moins de 128 bits n’est pas autorisée. Le nouveau code ne doit pas utiliser les algorithmes de hachage MD2, MD4, MD5, SHA-0, SHA-1 ou RIPEMD. Les conflits de hachage sont possibles en termes de calculs pour ces algorithmes, qui les brisent efficacement.</p><p>Algorithmes de hachage .NET autorisés pour l’agilité de chiffrement géré (par ordre de préférence) :</p><ul><li>SHA512Cng (compatible FIPS)</li><li>SHA384Cng (compatible FIPS)</li><li>SHA256Cng (compatible FIPS)</li><li>SHA512Managed (non compatible FIPS) (utilisez SHA512 comme nom d’algorithme dans les appels à HashAlgorithm.Create ou CryptoConfig.CreateFromName)</li><li>SHA384Managed (non compatible FIPS) (utilisez SHA384 comme nom d’algorithme dans les appels à HashAlgorithm.Create ou CryptoConfig.CreateFromName)</li><li>SHA256Managed (non compatible FIPS) (utilisez SHA256 comme nom d’algorithme dans les appels à HashAlgorithm.Create ou CryptoConfig.CreateFromName)</li><li>SHA512CryptoServiceProvider (compatible FIPS)</li><li>SHA256CryptoServiceProvider (compatible FIPS)</li><li>SHA384CryptoServiceProvider (compatible FIPS)</li></ul>| 
 
 ## <a name="use-strong-encryption-algorithms-to-encrypt-data-in-the-database"></a><a id="strong-db"></a>Utiliser des algorithmes de chiffrement fort pour chiffrer les données dans la base de données
 

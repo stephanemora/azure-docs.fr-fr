@@ -6,14 +6,14 @@ author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 12/10/2020
+ms.date: 01/05/2021
 ms.author: duau
-ms.openlocfilehash: dab480012ced3a8fc50fd5f4295272c0eccc4307
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: c68d9654c673b75742205853ec186caa5d6a3ce5
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97831854"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916148"
 ---
 # <a name="expressroute-connectivity-partners-and-peering-locations"></a>Partenaires de connectivité ExpressRoute et localisations de peering
 
@@ -105,7 +105,7 @@ Le tableau suivant présente les emplacements, en fonction de chaque fournisseur
 | **du datamena** |Prise en charge |Prise en charge | Dubaï2 |
 | **eir** |Prise en charge |Prise en charge |Dublin|
 | **[Communications globales EPSILON](https://www.epsilontel.com/solutions/direct-cloud-connect)** |Prise en charge |Prise en charge |Singapour, Singapour2 |
-| **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |Prise en charge |Prise en charge |Amsterdam, Atlanta, Berlin, Canberra2, Chicago, Dallas, Dubaï2, Dublin, Francfort, Genève, Hong Kong (R.A.S), Londres, Londres2, Los Angeles, Los Angeles2, Melbourne, Miami, Milan, New York, Osaka, Paris, Sao Paulo, Seattle, Séoul, Silicon Valley, Singapour, Stockholm, Sydney, Tokyo, Toronto, Washington DC, Zurich |
+| **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |Prise en charge |Prise en charge |Amsterdam, Amsterdam2, Atlanta, Berlin, Canberra2, Chicago, Dallas, Dubaï2, Dublin, Francfort, Genève, Hong Kong (R.A.S), Londres, Londres2, Los Angeles, Los Angeles2, Melbourne, Miami, Milan, New York, Osaka, Paris, Sao Paulo, Seattle, Séoul, Silicon Valley, Singapour, Stockholm, Sydney, Tokyo, Toronto, Washington DC, Zurich |
 | **Etisalat UAE** |Prise en charge |Prise en charge |Dubaï|
 | **[euNetworks](https://eunetworks.com/services/solutions/cloud-connect/microsoft-azure-expressroute/)** |Prise en charge |Prise en charge |Amsterdam, Amsterdam2, Dublin, Francfort, Londres |
 | **[FarEasTone](https://www.fetnet.net/corporate/en/Enterprise.html)** |Prise en charge |Prise en charge |Taipei|

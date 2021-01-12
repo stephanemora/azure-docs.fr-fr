@@ -3,18 +3,27 @@ title: Géorécupération d’urgence - Azure Event Hubs | Microsoft Docs
 description: Découvrez comment utiliser les régions géographiques pour le basculement et la récupération d’urgence dans Azure Event Hubs.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 6dd2385a6f6e61136a1284171532aedd70a9cc96
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: e10ac5847a38190c8feaae5e51f9b55bee4c4fbc
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608348"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861476"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs - Géorécupération d’urgence 
-Quand un centre de données ou une région Azure tout entiers (et qu’aucune [zone de disponibilité](../availability-zones/az-overview.md) n’est utilisée) connaissent un temps d’arrêt, il est essentiel que le traitement des données continue dans un autre centre de données ou une autre région. Pour cette raison, la *géorécupération d’urgence* et la *géoréplication* sont des fonctionnalités importantes pour les entreprises. Azure Event Hubs prend en charge la géorécupération d’urgence et la géoréplication au niveau de l’espace de noms. 
 
-> [!NOTE]
-> La fonctionnalité de géorécupération d’urgence est disponible uniquement pour les [références SKU standard et dédiées](https://azure.microsoft.com/pricing/details/event-hubs/).  
+La résilience contre les pannes désastreuses des ressources de traitement des données constitue une exigence pour de nombreuses entreprises. Dans certains cas, elle est même requise par les réglementations du secteur. 
+
+Azure Event Hubs répartit déjà le risque de défaillances catastrophiques d’ordinateurs individuels ou même de racks complets sur différents clusters couvrant plusieurs domaines d’échec au sein d’un centre de données. Le service implémente des mécanismes transparents de détection des défaillances et de basculement. Il continue ainsi de fonctionner selon les niveaux de service garantis et, en général, sans interruptions perceptibles en cas de défaillance. Si un espace de noms Event Hubs a été créé avec l’option [Zones de disponibilité](../availability-zones/az-overview.md) activée, le risque de panne est davantage réparti dans trois sites physiquement séparés. Le service dispose par ailleurs de réserves de capacité suffisantes pour faire face instantanément à la perte complète et irrémédiable de l’ensemble du site. 
+
+Le modèle de cluster Azure Event Hubs tout actif avec prise en charge des zones de disponibilité offre une résilience face à des défaillances matérielles graves, voire à une perte catastrophique de centres de données entiers. Il peut néanmoins se produire des situations graves impliquant une destruction physique généralisée contre laquelle même ces mesures ne suffisent pas. 
+
+La fonctionnalité de géo-reprise d’activité après sinistre d’Event Hubs est conçue pour faciliter la récupération après un sinistre de cette ampleur et l’abandon définitif d’une région Azure défaillante, sans qu’il soit nécessaire de modifier la configuration de vos applications. L’abandon d’une région Azure implique généralement plusieurs services. Cette fonctionnalité vise principalement à préserver l’intégrité de la configuration des applications composites.  
+
+La fonctionnalité de géo-reprise d’activité après sinistre garantit que la totalité de la configuration d’un espace de noms (Event Hubs, groupes de consommateurs et paramètres) est répliquée en continu d’un espace de noms principal vers un espace de noms secondaire quand ils sont jumelés. Elle permet également de lancer à tout moment un basculement ponctuel vers l’espace de noms secondaire. L’action de basculement fait pointer le nom d’alias choisi pour l’espace de noms vers l’espace de noms secondaire, puis arrête le jumelage. Le basculement est presque instantané une fois lancé. 
+
+> [!IMPORTANT]
+> La fonctionnalité permet une continuité instantanée des opérations avec la même configuration, mais **ne réplique pas les données d’événement**. À moins que l’incident ne soit à l’origine de la perte de toutes les zones, les données d’événement sont conservées dans l’Event Hub principal et seront récupérables après le basculement. De là, les événements historiques peuvent être obtenus une fois l’accès restauré. Pour répliquer des données d’événement et gérer les espaces de noms correspondants dans des configurations actives/actives de façon à faire face aux pannes et aux sinistres, ne vous contentez pas d’utiliser cette fonctionnalité de géo-reprise d’activité après sinistre. Suivez les [conseils de réplication](event-hubs-federation-overview.md).  
 
 ## <a name="outages-and-disasters"></a>Pannes et sinistres
 

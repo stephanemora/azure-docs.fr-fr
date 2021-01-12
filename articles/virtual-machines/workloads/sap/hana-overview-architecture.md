@@ -11,15 +11,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/12/2019
+ms.date: 01/04/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0144c57549e374404d3dde0fe997ba41adc8606b
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: c06988bf9c3558f5ef82862bdbcd821dc42ca28a
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967582"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97880985"
 ---
 #  <a name="what-is-sap-hana-on-azure-large-instances"></a>Qu’est-ce que SAP HANA sur Azure (grandes instances) ?
 
@@ -35,12 +35,14 @@ L’isolation du client dans le tampon d’infrastructure s’effectue dans le c
 
 Ces unités de serveur nues exécutent uniquement SAP HANA. La couche Application SAP ou la couche intermédiaire de la charge de travail est en cours d’exécution dans les machines virtuelles. Les tampons d’infrastructure qui exécutent SAP HANA sur des unités Azure (grandes instances) sont connectés aux principaux fournisseurs de services réseau Azure. De cette façon, la connectivité à faible latence entre des unités SAP HANA sur Azure (grandes instances) et des machines virtuelles est fournie.
 
-Depuis juillet 2019, nous faisons la distinction entre deux révisions différentes des tampons Grande instance HANA et les emplacements des déploiements :
+Depuis janvier 2021, nous faisons la distinction entre deux révisions différentes des tampons Grande instance HANA et les emplacements des déploiements :
 
 - « Révision 3 » (Rév. 3) : il s’agit des tampons mis à disposition du client pour le déploiement avant juillet 2019
 - « Révision 4 » (Rév. 4) : nouvelle conception de tampon déployée à proximité des hôtes de machine virtuelle Azure et qui jusqu’à présent sont disponibles dans les régions Azure suivantes :
     -  USA Ouest 2 
-    -  USA Est 
+    -  USA Est
+    -  USA Est 2 (entre deux zones de disponibilité)
+    -  USA Centre Sud (entre deux zones de disponibilité)
     -  Europe Ouest
     -  Europe Nord
 

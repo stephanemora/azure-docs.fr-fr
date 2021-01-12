@@ -6,13 +6,13 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/2/2020
-ms.openlocfilehash: 2cfd391daa13a100a56bb10b79b27eda80902374
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.date: 12/18/2020
+ms.openlocfilehash: e7f5b3ae0a4dc7faa67a361b210b1d014e1f1b93
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96533603"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97722128"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Utiliser des données de référence pour effectuer des recherches dans Stream Analytics
 
@@ -137,6 +137,18 @@ INTO    output
 FROM    Step1
 JOIN    refData2 ON refData2.Desc = Step1.Desc 
 ``` 
+
+## <a name="iot-edge-jobs"></a>Travaux IoT Edge
+
+Seules les données de référence locales sont prises en charge pour les travaux de périphérie Stream Analytics. Lorsqu'une tâche est déployée sur un appareil IoT Edge, il charge les données de référence à partir du chemin de fichier défini par l'utilisateur. Préparez un fichier de données de référence sur l'appareil. Pour un conteneur Windows, placez le fichier de données de référence sur le lecteur local et partagez ce lecteur avec le conteneur Docker. Pour un conteneur Linux, créez un volume Docker et renseignez le fichier de données sur le volume.
+
+Les données de référence situées sur une mise à jour d’IoT Edge sont déclenchées par un déploiement. Une fois déclenché, le module Stream Analytics sélectionne les données mises à jour sans arrêter la tâche en cours d’exécution.
+
+Deux méthodes sont disponibles pour mettre à jour les données de référence :
+
+* Mettre à jour le chemin des données de référence de votre tâche Stream Analytics à partir du portail Azure.
+
+* En mettant à jour le déploiement IoT Edge
 
 ## <a name="next-steps"></a>Étapes suivantes
 > [!div class="nextstepaction"]

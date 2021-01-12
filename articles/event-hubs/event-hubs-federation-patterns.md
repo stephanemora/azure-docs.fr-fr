@@ -3,12 +3,12 @@ title: Modèles de tâches de réplication des événements – Azure Event Hubs
 description: Cet article fournit des instructions détaillées concernant l’implémentation de modèles de tâches de réplication d’événements spécifiques.
 ms.topic: article
 ms.date: 12/12/2020
-ms.openlocfilehash: 7702b1987faabfce8d97e7b5c9b18766df72caad
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 494de442b636d535fa1ed6fdeeeda28db9783952
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803984"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861367"
 ---
 # <a name="event-replication-tasks-patterns"></a>Modèles de tâches de réplication des événements
 
@@ -20,7 +20,7 @@ Dans cet article, nous détaillons les recommandations d’implémentation pour 
 
 Le modèle de réplication copie les événements d’un Event Hub vers le suivant, ou d’un Event Hub vers une autre destination, telle qu’une file d’attente Service Bus. Les événements sont transférés sans apporter de modifications à la charge utile d’événement.
 
-L’implémentation de ce modèle est couverte par les exemples de [réplication d’événements entre Event Hubs](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopy) et de [réplication d’événements entre Event Hubs et Service Bus](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopyToServiceBus).
+L’implémentation de ce modèle est couverte par les exemples de [réplication d’événements entre les Event Hubs](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopy) et de [réplication d’événements entre les Event Hubs et Service Bus](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopyToServiceBus) et par le tutoriel [Utiliser Apache Kafka MirrorMaker avec Event Hubs](event-hubs-kafka-mirror-maker-tutorial.md) pour le cas spécifique de la réplication des données d’un répartiteur Apache Kafka dans des Event Hubs.
 
 ### <a name="streams-and-order-preservation"></a>Flux et conservation de l’ordre
 
@@ -124,7 +124,7 @@ Pour réaliser l’un ou l’autre scénario et utiliser le processeur d’évé
 
 Si vous avez toujours accès au magasin de points de contrôle du Event Hub que vous quittez, les [métadonnées propagées](#service-assigned-metadata) abordées ci-dessus vous aideront à ignorer les événements qui ont déjà été traités et à reprendre précisément là où vous vous êtes arrêté.
 
-## <a name="merge"></a>Fusionner
+## <a name="merge"></a>Fusionner (Merge)
 
 Le modèle de fusion a une ou plusieurs tâches de réplication pointant vers une cible, éventuellement en même temps que les producteurs normaux envoient des événements à la même cible.
 

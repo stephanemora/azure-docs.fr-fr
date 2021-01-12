@@ -3,12 +3,12 @@ title: Créer des stratégies Guest Configuration pour Windows
 description: Découvrez comment créer une stratégie Guest Configuration pour des machines virtuelles Windows.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 124f747a1e7c7925efc2519ee826d62034e69cc5
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: d01f4fff28debc3fabcfb32b32b02c5029ce7323
+ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302684"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97755971"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Créer des stratégies Guest Configuration pour Windows
 
@@ -491,10 +491,15 @@ New-GuestConfigurationPackage `
 
 ## <a name="policy-lifecycle"></a>Cycle de vie de la stratégie
 
-Si vous souhaitez publier une mise à jour de la stratégie, votre attention est requise dans trois domaines.
+Si vous souhaitez publier une mise à jour de la stratégie, effectuez la modification pour le package Guest Configuration et les détails de la définition Azure Policy.
 
 > [!NOTE]
 > La propriété `version` de l’affectation de configuration invité n’a d’influence que sur les packages qui sont hébergés par Microsoft. La meilleure pratique pour le contenu personnalisé du contrôle de version consiste à inclure la version dans le nom de fichier.
+
+Tout d’abord, lors de l’exécution de `New-GuestConfigurationPackage`, spécifiez un nom pour le package qui le rend unique par rapport aux versions précédentes. Vous pouvez inclure un numéro de version dans le nom, par exemple `PackageName_1.0.0`.
+Le numéro dans cet exemple est utilisé uniquement pour rendre le package unique, et non pour spécifier que le package doit être considéré comme plus récent ou plus ancien que les autres packages.
+
+Ensuite, mettez à jour les paramètres utilisés avec l’applet de commande `New-GuestConfigurationPolicy` en suivant chacune des explications ci-dessous.
 
 - **Version** : Lorsque vous exécutez l’applet de commande `New-GuestConfigurationPolicy`, vous devez spécifier un numéro de version supérieur à celui actuellement publié.
 - **contentUri** : Lorsque vous exécutez la cmdlet `New-GuestConfigurationPolicy`, vous devez spécifier un URI vers l’emplacement du package. L’inclusion d’une version de package dans le nom de fichier garantit que la valeur de cette propriété change dans chaque version.

@@ -6,12 +6,13 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/16/2020
-ms.openlocfilehash: 20d38e5caee67ca8bb13877d3162401fa245dc2d
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.custom: references_regions
+ms.openlocfilehash: 78ce082c6e90cfc9c67ddcfa00926d292b9ed7ea
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96444773"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740468"
 ---
 # <a name="enable-azure-monitor-for-vms-guest-health-preview"></a>Activer l’intégrité des invités d’Azure Monitor pour machines virtuelles (préversion)
 L’intégrité des invités d’Azure Monitor pour machines virtuelles vous permet de voir l’état d’intégrité d’une machine virtuelle tel que défini par un ensemble de mesures de performances échantillonnées à des intervalles réguliers. Cet article explique comment activer cette fonctionnalité dans votre abonnement et comment activer la supervision des invités pour chaque machine virtuelle.
@@ -20,31 +21,51 @@ L’intégrité des invités d’Azure Monitor pour machines virtuelles vous per
 L’intégrité des invités d’Azure Monitor pour machines virtuelles présente les limitations suivantes dans la préversion publique :
 
 - Seules les machines virtuelles Azure sont actuellement prises en charge. Azure Arc pour serveurs n’est pas pris en charge actuellement.
-- La machine virtuelle doit exécuter l’un des systèmes d’exploitation suivants : 
+
+
+## <a name="supported-operating-systems"></a>Systèmes d’exploitation pris en charge
+La machine virtuelle doit exécuter l’un des systèmes d’exploitation suivants : 
+
   - Ubuntu 16.04 LTS, Ubuntu 18.04 LTS
   - Windows Server 2012 ou version ultérieure
-- La machine virtuelle doit se trouver dans l’une des régions suivantes :
-  - Australie Est
-  - Australie Sud-Est
-  - Inde centrale
-  - USA Centre
-  - USA Est
-  - USA Est 2
-  - USA Est 2 (EUAP)
-  - Allemagne Centre-Ouest
-  - Japon Est
-  - Centre-Nord des États-Unis
-  - Europe Nord
-  - États-Unis - partie centrale méridionale
-  - Asie Sud-Est
-  - Sud du Royaume-Uni
-  - Europe Ouest
-  - USA Ouest
-  - USA Ouest 2
-- L’espace de travail Log Analytics doit se trouver dans l’une des régions suivantes :
-  - USA Est
-  - USA Est 2 (EUAP)
-  - Région Europe Ouest
+
+## <a name="supported-regions"></a>Régions prises en charge
+
+La machine virtuelle doit se trouver dans l’une des régions suivantes :
+
+- Centre de l’Australie
+- Australie Est
+- Australie Sud-Est
+- Inde centrale
+- USA Centre
+- Asie Est
+- USA Est
+- USA Est 2
+- USA Est 2 (EUAP)
+- Allemagne Centre-Ouest
+- Japon Est
+- Centre-Nord des États-Unis
+- Europe Nord
+- États-Unis - partie centrale méridionale
+- Asie Sud-Est
+- Sud du Royaume-Uni
+- Centre-USA Ouest
+- Europe Ouest
+- USA Ouest
+- USA Ouest 2
+
+
+L’espace de travail Log Analytics doit se trouver dans l’une des régions suivantes :
+
+- USA Centre
+- USA Est
+- USA Est 2
+- USA Est 2 (EUAP)
+- Europe Nord
+- Asie Sud-Est
+- Sud du Royaume-Uni
+- Région Europe Ouest
+- USA Ouest 2
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -52,9 +73,8 @@ L’intégrité des invités d’Azure Monitor pour machines virtuelles présent
 - L’utilisateur qui exécute les étapes d’intégration doit avoir un accès minimal de niveau contributeur à l’abonnement dans lequel se trouvent la machine virtuelle et la règle de collecte de données.
 - Les fournisseurs de ressources Azure requis doivent être inscrits comme décrit dans la section suivante.
 
-
 ## <a name="register-required-azure-resource-providers"></a>Inscrire les fournisseurs de ressources Azure requis
-Les fournisseurs de ressources Azure suivants doivent être inscrits pour votre abonnement afin d’activer l’intégrité des invités d’Azure Monitor pour machines virtuelles. 
+Si vous souhaitez activer le suivi de l’intégrité des invités d’Azure Monitor pour machines virtuelles, les fournisseurs de ressources Azure suivants doivent être inscrits dans le cadre de votre abonnement. 
 
 - Microsoft.WorkloadMonitor
 - Microsoft.Insights

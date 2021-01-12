@@ -1,19 +1,19 @@
 ---
 title: Création et téléchargement d'un disque dur virtuel SUSE Linux dans Azure
 description: Apprenez à créer et à télécharger un disque dur virtuel (VHD) Azure contenant un système d'exploitation SUSE Linux.
-author: gbowerman
+author: danielsollondon
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 03/12/2018
-ms.author: guybo
-ms.openlocfilehash: 6a8c60c51842ae67c12101189a4e265b775bcb77
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 12/01/2020
+ms.author: danis
+ms.openlocfilehash: 36af60082c575dfb19e71710fbdd8e3bf181bf96
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498453"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97896217"
 ---
 # <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>Préparation d'une machine virtuelle SLES ou openSUSE pour Azure
 
@@ -30,7 +30,7 @@ Cet article suppose que vous avez déjà installé un système d'exploitation S
 ## <a name="use-suse-studio"></a>Utilisation de SUSE Studio
 [SUSE Studio](https://studioexpress.opensuse.org/) peut facilement créer et gérer vos images SLES et openSUSE pour Azure et Hyper-V. Cette approche est recommandée pour personnaliser vos propres images SLES et openSUSE.
 
-Comme alternative à la création de votre propre disque dur virtuel, SUSE publie également des images BYOS (« Bring Your Own Subscription ») pour SLES sur [VMDepot](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/04/using-and-contributing-vms-to-vm-depot.pdf).
+Pour vous éviter de créer votre propre disque dur virtuel, SUSE publie également des images BYOS (« 	Apportez votre propre abonnement ») pour SLES sur [VM Depot](https://www.microsoft.com/research/wp-content/uploads/2016/04/using-and-contributing-vms-to-vm-depot.pdf).
 
 ## <a name="prepare-suse-linux-enterprise-server-for-azure"></a>Préparation de SUSE Linux Enterprise Server pour Azure
 1. Dans le panneau central de Hyper-V Manager, sélectionnez la machine virtuelle.
@@ -46,6 +46,7 @@ Comme alternative à la création de votre propre disque dur virtuel, SUSE publi
 
     ```console
     # SUSEConnect -p sle-module-public-cloud/15.2/x86_64  (SLES 15 SP2)
+    # sudo zypper refresh
     # sudo zypper install python-azure-agent
     # sudo zypper install cloud-init
     ```
@@ -65,8 +66,8 @@ Comme alternative à la création de votre propre disque dur virtuel, SUSE publi
 7. Mise à jour de waagent et configuration de cloud-init
 
     ```console
-    # sudo sed -i 's/ResourceDisk.Format=y/ResourceDisk.Format=n/g' /etc/waagent.conf
-    # sudo sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.conf
+    # sed -i 's/Provisioning.UseCloudInit=n/Provisioning.UseCloudInit=y/g' /etc/waagent.conf
+    # sed -i 's/Provisioning.Enabled=y/Provisioning.Enabled=n/g' /etc/waagent.conf
 
     # sudo sh -c 'printf "datasource:\n  Azure:" > /etc/cloud/cloud.cfg.d/91-azure_datasource.cfg'
     # sudo sh -c 'printf "reporting:\n  logging:\n    type: log\n  telemetry:\n    type: hyperv" > /etc/cloud/cloud.cfg.d/10-azure-kvp.cfg'
@@ -103,23 +104,53 @@ Comme alternative à la création de votre propre disque dur virtuel, SUSE publi
 
 13. Vérifiez que le serveur SSH est installé et configuré pour démarrer au moment prévu. C'est généralement le cas par défaut.
 
-14. Ne créez pas d'espace swap sur le disque du système d'exploitation.
-    
-    L'agent Linux Azure peut configurer automatiquement un espace swap à l'aide du disque local de ressources connecté à la machine virtuelle après déploiement sur Azure. Notez que le disque de ressources local est un disque *temporaire* et qu'il peut être vidé lors de l'annulation de l'approvisionnement de la machine virtuelle. Après avoir installé l'agent Linux Azure (voir l'étape précédente), modifiez les paramètres suivants dans le fichier /etc/waagent.conf :
+14. Permutez la configuration.
+ 
+    Ne créez pas d’espace d’échange sur le disque du système d’exploitation.
 
-    ```config-conf
-    ResourceDisk.Format=y
-    ResourceDisk.Filesystem=ext4
-    ResourceDisk.MountPoint=/mnt/resource
-    ResourceDisk.EnableSwap=y
-    ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
+    Auparavant, l’agent Linux Azure était utilisé pour configurer automatiquement un espace d’échange à l’aide du disque de ressources local attaché à la machine virtuelle après le provisionnement de cette dernière sur Azure. Cet aspect est désormais géré par cloud-init. Vous **ne devez pas** utiliser l’agent Linux pour formater le disque de ressources. Créez le fichier d’échange et modifiez les paramètres suivants dans `/etc/waagent.conf` :
+
+    ```console
+    # sed -i 's/ResourceDisk.Format=y/ResourceDisk.Format=n/g' /etc/waagent.conf
+    # sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.conf
     ```
+
+    Si vous souhaitez monter, formater et créer un échange, vous avez deux possibilités :
+    * Transmettez ces paramètres dans une configuration cloud-init chaque fois que vous créez une machine virtuelle.
+    * Utilisez une directive cloud-init intégrée à l’image qui effectuera cette opération chaque fois que la machine virtuelle sera créée :
+
+        ```console
+        cat > /etc/cloud/cloud.cfg.d/00-azure-swap.cfg << EOF
+        #cloud-config
+        # Generated by Azure cloud image build
+        disk_setup:
+          ephemeral0:
+            table_type: mbr
+            layout: [66, [33, 82]]
+            overwrite: True
+        fs_setup:
+          - device: ephemeral0.1
+            filesystem: ext4
+          - device: ephemeral0.2
+            filesystem: swap
+        mounts:
+          - ["ephemeral0.1", "/mnt"]
+          - ["ephemeral0.2", "none", "swap", "sw", "0", "0"]
+        EOF
+        ```
 
 15. Exécutez les commandes suivantes pour annuler le déploiement de la machine virtuelle et préparer son déploiement sur Azure :
 
     ```console
-    # sudo waagent -force -deprovision
+    # sudo rm -rf /var/lib/waagent/
+    # sudo rm -f /var/log/waagent.log
+
+    # waagent -force -deprovision+user
+    # rm -f ~/.bash_history
+    
+
     # export HISTSIZE=0
+
     # logout
     ```
 16. Cliquez sur **Action -> Arrêter** dans le Gestionnaire Hyper-V. Votre disque dur virtuel Linux est alors prêt pour le téléchargement dans Azure.

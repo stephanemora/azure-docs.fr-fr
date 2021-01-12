@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
-ms.date: 11/18/2020
+ms.date: 01/04/2021
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 86cd5a5cbbb17dc3d3e4d56e4267be2718f6081d
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: 14e4fda6ef36dd8fc57529046473d8afa916ef2c
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97830868"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97880968"
 ---
 # <a name="use-tls-to-secure-a-web-service-through-azure-machine-learning"></a>Utiliser TLS pour sécuriser un service web par le biais d’Azure Machine Learning
 
@@ -168,7 +168,7 @@ Les certificats TLS/SSL expirent et doivent être renouvelés. En général, cel
 
 ### <a name="update-a-microsoft-generated-certificate"></a>Mettre à jour un certificat généré par Microsoft
 
-Si le certificat a été initialement généré par Microsoft (avec *leaf_domain_label* pour créer le service), utilisez un des exemples suivants pour mettre à jour le certificat :
+Si le certificat a été à l’origine généré par Microsoft (avec *leaf_domain_label* pour créer le service), **il se renouvellera automatiquement** quand ce sera nécessaire. Si vous souhaitez le renouveler manuellement, utilisez l’un des exemples suivants pour le mettre à jour :
 
 > [!IMPORTANT]
 > * Si le certificat existant est toujours valide, utilisez `renew=True` (Kit de développement logiciel [SDK]) ou `--ssl-renew` (CLI) pour forcer la configuration à le renouveler. Par exemple, si le certificat existant est encore valide pendant 10 jours et que vous n’utilisez pas `renew=True`, le certificat ne peut pas être renouvelé.

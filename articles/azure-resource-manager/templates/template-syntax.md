@@ -2,19 +2,19 @@
 title: Structure et syntaxe des modèles
 description: Décrit la structure et les propriétés des modèles Azure Resource Manager (modèles ARM) à l’aide de la syntaxe JSON déclarative.
 ms.topic: conceptual
-ms.date: 12/01/2020
-ms.openlocfilehash: ce36d725b3844fcd4c8d43a9f044423611d44fbd
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 12/17/2020
+ms.openlocfilehash: 698309c5aa0817c4b758ec81133d4c98061aa355
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96497875"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97653127"
 ---
 # <a name="understand-the-structure-and-syntax-of-arm-templates"></a>Comprendre la structure et la syntaxe des modèles ARM
 
 Cet article décrit la structure d’un modèle ARM (Azure Resource Manager). Il présente les différentes sections d''un modèle et les propriétés disponibles dans ces sections.
 
-Cet article est destiné aux utilisateurs qui possèdent des connaissances sur les modèles ARM. Il fournit des informations détaillées sur la structure du modèle. Pour obtenir un didacticiel pas à pas vous guidant tout au long du processus de création d’un modèle, consultez :[Totoriel : Créer et déployer votre premier modèle ARM](template-tutorial-create-first-template.md).
+Cet article est destiné aux utilisateurs qui possèdent des connaissances sur les modèles ARM. Il fournit des informations détaillées sur la structure du modèle. Pour obtenir un didacticiel pas à pas vous guidant tout au long du processus de création d’un modèle, consultez :[Totoriel : Créer et déployer votre premier modèle ARM](template-tutorial-create-first-template.md). Pour en savoir plus sur les modèles ARM par le biais d’un ensemble prédéfini de modules Microsoft Learn, consultez [Déployer et gérer des ressources dans Azure en utilisant des modèles ARM](/learn/paths/deploy-manage-resource-manager-templates/).
 
 ## <a name="template-format"></a>Format de modèle
 

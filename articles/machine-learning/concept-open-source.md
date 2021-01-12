@@ -1,7 +1,7 @@
 ---
 title: Intégration du Machine Learning open source
 titleSuffix: Azure Machine Learning
-description: Découvrez comment utiliser les infrastructures de Machine Learning open source Python pour effectuer l'apprentissage, déployer et gérer des solutions de Machine Learning de bout en bout dans Azure Machine Learning.
+description: Découvrez comment utiliser les infrastructures de Machine Learning open source Python pour entraîner, déployer et gérer des solutions de Machine Learning de bout en bout dans Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 12/16/2020
-ms.openlocfilehash: b3fa9767310bfc300087c9dc7384f33993aca70d
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: d987d21700e5f19ad8228b08508e8da842cc39eb
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97675708"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97914108"
 ---
 # <a name="open-source-integration-with-azure-machine-learning-projects"></a>Intégration open source aux projets Azure Machine Learning
 
@@ -52,7 +52,7 @@ La formation d’un modèle Deep Learning à partir de zéro nécessite souvent 
 
 L’apprentissage par renforcement est une technique d’intelligence artificielle qui effectue l’apprentissage des modèles à l’aide d’actions, d’états et de récompenses : Les agents d’apprentissage par renforcement apprennent à suivre un ensemble d’actions prédéfinies qui optimisent les récompenses spécifiées en fonction de l’état actuel de leur environnement. 
 
-Le projet [Ray RLLib](https://github.com/ray-project/ray) dispose d’une série de fonctionnalités qui permettent une évolutivité élevée tout au long du processus de formation. Le processus itératif est à la fois fastidieux et gourmand en ressources, car les agents d’apprentissage par renforcement essaient d’apprendre la meilleure façon d’effectuer une tâche.  Ray RLLib prend également en charge en mode natif des infrastructures de Deep Learning telles que TensorFlow et PyTorch.  
+Le projet [Ray RLLib](https://github.com/ray-project/ray) comporte une série de fonctionnalités qui permettent une scalabilité élevée tout au long du processus d’apprentissage. Le processus itératif est à la fois fastidieux et gourmand en ressources, car les agents d’apprentissage par renforcement essaient d’apprendre la meilleure façon d’effectuer une tâche.  Ray RLLib prend également en charge en mode natif des infrastructures de Deep Learning telles que TensorFlow et PyTorch.  
 
 Pour savoir comment utiliser Ray RLLib avec Azure Machine Learning, consultez [Comment effectuer l'apprentissage d’un modèle d’apprentissage par renforcement](how-to-use-reinforcement-learning.md).
 
@@ -101,4 +101,4 @@ Les opérations de Machine Learning (MLOps), généralement considérées comme 
 
 À l’aide de pratiques DevOps comme l’intégration continue (CI) et le déploiement continu (CD), vous pouvez automatiser le cycle de vie de Machine Learning de bout en bout et capturer les données de gouvernance connexes. Vous pouvez définir votre [pipeline CI/CD de Machine Learning dans des actions GitHub](./how-to-github-actions-machine-learning.md) pour exécuter les tâches de formation et de déploiement Azure Machine Learning. 
 
-La capture des dépendances logicielles, des métriques, des métadonnées, des données et du contrôle de version des modèles constitue une partie importante du processus MLOps, afin de générer des pipelines transparents, reproductibles et pouvant être audités. Pour cette tâche, vous pouvez [utiliser MLFlow dans Azure Machine Learning](how-to-use-mlflow.md), ainsi que lorsque vous [effectuez l’apprentissage de modèles Machine Learning dans Azure Databricks](./how-to-use-mlflow-azure-databricks.md).
+La capture des dépendances logicielles, des métriques, des métadonnées, des données et du contrôle de version des modèles constitue une partie importante du processus MLOps, afin de générer des pipelines transparents, reproductibles et pouvant être audités. Pour cette tâche, vous pouvez [utiliser MLFlow dans Azure Machine Learning](how-to-use-mlflow.md), ainsi que lorsque vous [effectuez l’apprentissage de modèles Machine Learning dans Azure Databricks](./how-to-use-mlflow-azure-databricks.md). Vous pouvez également [déployer des modèles MLflow sous forme de service web Azure](how-to-deploy-mlflow-models.md). 

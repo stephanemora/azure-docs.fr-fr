@@ -4,12 +4,12 @@ description: Présentation du modèle de communication Reliable Services, notamm
 ms.topic: conceptual
 ms.date: 11/01/2017
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e7dc10055633c8e6dd2c645f28b774d5d5f3ac3f
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 3436d29446e963faea9bda47f5a5247b7de7d859
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96574324"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97912612"
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>Utilisation des API de communication de Reliable Services
 Azure Service Fabric, en tant que plateforme, est totalement indépendant de la communication entre les services. Tous les protocoles et toutes les piles sont acceptables, de UDP à HTTP. C'est au développeur de services de choisir comment les services doivent communiquer. L’infrastructure d’application de Reliable Services fournit des piles de communication intégrées, ainsi que des API que vous pouvez utiliser pour générer vos composants de communication personnalisés.
@@ -288,7 +288,7 @@ public class MyCommunicationClient implements CommunicationClient {
 }
 ```
 
-La fabrique de clients est principalement responsable de la création de clients de communication. Pour les clients qui ne maintiennent de connexion permanente, tel un client HTTP, la fabrique doit uniquement créer et retourner le client. D’autres protocoles qui maintiennent une connexion permanente, tels certains protocoles binaires, doivent également être validés par la fabrique pour déterminer si la connexion doit être recréée.  
+La fabrique de clients est principalement responsable de la création de clients de communication. Pour les clients qui ne maintiennent de connexion permanente, tel un client HTTP, la fabrique doit uniquement créer et retourner le client. D’autres protocoles qui maintiennent une connexion permanente (notamment certains protocoles binaires) doivent également être validés (`ValidateClient(string endpoint, MyCommunicationClient client)`) par la fabrique pour déterminer s’il faut recréer la connexion.  
 
 ```csharp
 public class MyCommunicationClientFactory : CommunicationClientFactoryBase<MyCommunicationClient>

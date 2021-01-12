@@ -8,16 +8,32 @@ ms.date: 09/15/2020
 ms.author: jeffpatt
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 661cfd5bb410a714bc42e0cd9676ac2ec08f8a45
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a37c86268d2424971058021044c60185a25348f
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90708335"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916454"
 ---
 # <a name="troubleshoot-azure-nfs-file-shares"></a>Dépanner les partages de fichiers Azure NFS
 
 Cet article liste certains problèmes courants liés aux partages de fichiers Azure NFS. Il indique des causes potentielles et des solutions de contournement lorsque ces problèmes surviennent.
+
+## <a name="chgrp-filename-failed-invalid-argument-22"></a>chgrp "filename" failed: Invalid argument (22)
+
+### <a name="cause-1-idmapping-is-not-disabled"></a>Cause 1 : idmapping n’est pas désactivé
+Azure Files interdit les UID/GID alphanumériques. idmapping doit donc être désactivé. 
+
+### <a name="cause-2-idmapping-was-disabled-but-got-re-enabled-after-encountering-bad-filedir-name"></a>Cause 2 : idmapping a été désactivé, mais a été réactivé après avoir rencontré un nom de fichier/répertoire incorrect
+Même si idmapping a été correctement désactivé, les paramètres de désactivation d’idmapping sont remplacés dans certains cas. Par exemple, si Azure Files rencontre un nom de fichier incorrect, il renvoie une erreur. À l’affichage de ce code d’erreur particulier, le client Linux NFS v 4.1 décide de réactiver idmapping et les demandes ultérieures sont renvoyées avec un UID/GID alphanumérique. Pour obtenir la liste des caractères non pris en charge sur Azure Files, consultez cet [article](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#:~:text=The%20Azure%20File%20service%20naming%20rules%20for%20directory,be%20no%20more%20than%20255%20characters%20in%20length). Le signe deux-points est l’un des caractères non pris en charge. 
+
+### <a name="workaround"></a>Solution de contournement
+Vérifiez qu’idmapping est désactivé et que rien n’est réactivé, puis procédez comme suit :
+
+- Démonter le partage
+- Désactiver id-mapping avec # echo Y > /sys/module/nfs/parameters/nfs4_disable_idmapping
+- Remonter le partage
+- Si vous exécutez rsync, exécutez rsync avec l’argument « —numeric-ids » à partir d’un répertoire ne contenant aucun nom de répertoire/fichier incorrect.
 
 ## <a name="unable-to-create-an-nfs-share"></a>Incapacité à créer un partage NFS
 
@@ -52,7 +68,7 @@ NFS est disponible uniquement sur les comptes de stockage avec la configuration 
 - Niveau – Premium
 - Type de compte – FileStorage
 - Redondance – LRS
-- Régions – USA Est, USA Est 2, Royaume-Uni Sud, Asie Sud-Est
+- Régions : [liste des régions prises en charge](https://docs.microsoft.com/azure/storage/files/storage-files-how-to-create-nfs-shares?tabs=azure-portal#regional-availability)
 
 #### <a name="solution"></a>Solution
 
@@ -90,7 +106,7 @@ Le diagramme suivant illustre la connectivité à l’aide de points de terminai
     - Le peering de réseaux virtuels avec des réseaux virtuels hébergés dans le point de terminaison privé permet au partage NFS d’accéder aux clients dans les réseaux virtuels appairés.
     - Les points de terminaison privés peuvent être utilisés avec des réseaux privés virtuels de site à site, de point à site et ExpressRoute.
 
-:::image type="content" source="media/storage-troubleshooting-files-nfs/connectivity-using-private-endpoints.jpg" alt-text="Diagramme de connectivité des points de terminaison publics." lightbox="media/storage-troubleshooting-files-nfs/connectivity-using-private-endpoints.jpg":::
+:::image type="content" source="media/storage-troubleshooting-files-nfs/connectivity-using-private-endpoints.jpg" alt-text="Diagramme de connectivité des points de terminaison privés." lightbox="media/storage-troubleshooting-files-nfs/connectivity-using-private-endpoints.jpg":::
 
 ### <a name="cause-2-secure-transfer-required-is-enabled"></a>Cause 2 : Le transfert sécurisé requis est activé
 
@@ -100,7 +116,7 @@ Le chiffrement double n’est pas encore pris en charge pour les partages NFS. A
 
 Désactivez le transfert sécurisé requis dans le panneau de configuration de votre compte de stockage.
 
-:::image type="content" source="media/storage-files-how-to-mount-nfs-shares/storage-account-disable-secure-transfer.png" alt-text="Diagramme de connectivité des points de terminaison publics.":::
+:::image type="content" source="media/storage-files-how-to-mount-nfs-shares/storage-account-disable-secure-transfer.png" alt-text="Capture d’écran du panneau de configuration du compte de stockage : désactivation du transfert sécurisé requis.":::
 
 ### <a name="cause-3-nfs-common-package-is-not-installed"></a>Cause 3 : Le package nfs-common n’est pas installé
 Avant d’exécuter la commande de montage, installez le package en exécutant la commande spécifique à la distribution, ci-dessous.

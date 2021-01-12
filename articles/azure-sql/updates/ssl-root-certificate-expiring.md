@@ -7,12 +7,12 @@ ms.service: sql-db-mi
 ms.subservice: service
 ms.topic: conceptual
 ms.date: 09/13/2020
-ms.openlocfilehash: b0a10744d2b48fa620b48b731144222199f711c7
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 96367b143711c4ec5f3f8d609f048c72c6fded16
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792529"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590849"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-sql-database--sql-managed-instance"></a>Comprendre les modifications liées au changement d’autorité de certification racine pour Azure SQL Database et SQL Managed Instance
 
@@ -72,7 +72,7 @@ Pour les serveurs créés après le 26 octobre 2020, vous pouvez utiliser le c
 ### <a name="how-often-does-microsoft-update-their-certificates-or-what-is-the-expiry-policy"></a>Quelle est la fréquence à laquelle Microsoft met à jour ses certificats ou quelle est la stratégie d’expiration ?
 Les certificats utilisés par Azure SQL Database et SQL Managed Instance sont fournis par des autorités de certification approuvées. Par conséquent, la prise en charge de ces certificats sur Azure SQL Database et SQL Managed Instance est liée à la prise en charge de ces certificats par l’autorité de certification. Toutefois, comme dans le cas présent, il peut y avoir des bogues imprévus dans ces certificats prédéfinis et ceux-ci doivent être corrigés au plus tôt.
 
-### <a name="if-i-am-using-read-replicas-do-i-need-to-perform-this-update-only-on-master-server-or-all-the-read-replicas"></a>Si j’utilise des réplicas en lecture, dois-je effectuer cette mise à jour uniquement sur le serveur maître ou sur tous les réplicas en lecture ?
+### <a name="if-i-am-using-read-replicas-do-i-need-to-perform-this-update-only-on-primary-server-or-all-the-read-replicas"></a>Si j’utilise des réplicas en lecture, dois-je effectuer cette mise à jour uniquement sur le serveur principal ou sur les réplicas en lecture ?
 Étant donné que cette mise à jour est une modification côté client, si le client avait l’habitude de lire les données du serveur de réplica, nous devons également appliquer les modifications pour ces clients. 
 
 ### <a name="do-we-have-server-side-query-to-verify-if-ssl-is-being-used"></a>Existe-t-il une requête côté serveur pour vérifier si SSL est utilisé ?

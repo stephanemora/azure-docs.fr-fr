@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f76f4a3e5fc87420c242c693e3c48a91244641e0
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 51602e97a8424bade542eec6f88b673130fee8b5
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560031"
+ms.locfileid: "97586021"
 ---
 # <a name="add-a-self-service-sign-up-user-flow-to-an-app-preview"></a>Ajouter un flux utilisateur d’inscription en libre-service à une application (préversion)
 > [!NOTE]
@@ -70,6 +70,9 @@ Ensuite, vous allez créer le flux utilisateur pour l’inscription en libre-ser
 7. Sous **Attributs utilisateur**, choisissez les attributs à collecter auprès de l’utilisateur. Pour Attributs supplémentaires, sélectionnez **Afficher plus**. Par exemple, sélectionnez **Afficher plus**, puis choisissez des attributs et des revendications pour **Pays/région**, **Nom d’affichage** et **Code postal**. Sélectionnez **OK**.
 
    ![Page Créer un nouveau flux utilisateur](media/self-service-sign-up-user-flow/create-user-flow.png)
+
+> [!NOTE]
+> Vous ne pouvez collecter des attributs que lorsqu’un utilisateur s’inscrit pour la première fois. Une fois qu’un utilisateur s’est inscrit, il n’est plus invité à collecter des informations sur les attributs, même si vous modifiez le flux d’utilisateur.
 
 8. Sélectionnez **Create** (Créer).
 9. Le nouveau flux utilisateur s’affiche dans la liste **Flux utilisateur (préversion)** . Si nécessaire, actualisez la page.

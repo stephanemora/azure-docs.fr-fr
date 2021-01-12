@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/16/2020
+ms.date: 01/05/2020
 ms.author: b-juche
-ms.openlocfilehash: 1537a87999f9a8eecf83a2431b2f53d3ceaedacb
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 913d61c506505d18fff416291e7f3b718f1d92f3
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96854697"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97913496"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Questions fréquentes (FAQ) sur Azure NetApp Files
 
@@ -137,6 +137,16 @@ Vous pouvez spécifier si le compte racine peut accéder ou non au volume à l�
 Oui, vous pouvez. Toutefois, le chemin d’accès du fichier doit être utilisé dans un autre abonnement ou dans une autre région.   
 
 Par exemple, vous créez un volume appelé `vol1`. Puis, vous créez un autre volume également appelé `vol1` dans un autre pool de capacité, mais dans le même abonnement et la même région. Dans ce cas, l’utilisation du même nom de volume `vol1` génère une erreur. Pour utiliser le même chemin d’accès du fichier, l’autre nom doit se trouver dans une région ou un abonnement différent.
+
+### <a name="when-i-try-to-access-nfs-volumes-through-a-windows-client-why-does-the-client-take-a-long-time-to-search-folders-and-subfolders"></a>Lorsque j’essaie d’accéder à des volumes NFS via un client Windows, pourquoi le client met-il beaucoup de temps à rechercher des dossiers et des sous-dossiers ?
+
+Assurez-vous que `CaseSensitiveLookup` est activé sur le client Windows pour accélérer la recherche de dossiers et de sous-dossiers :
+
+1. Utilisez la commande PowerShell suivante pour activer CaseSensitiveLookup :   
+    `Set-NfsClientConfiguration -CaseSensitiveLookup 1`    
+2. Montez le volume sur le serveur Windows.   
+    Exemple :   
+    `Mount -o rsize=1024 -o wsize=1024 -o mtype=hard \\10.x.x.x\testvol X:*`
 
 ## <a name="smb-faqs"></a>Questions fréquentes sur SMB
 

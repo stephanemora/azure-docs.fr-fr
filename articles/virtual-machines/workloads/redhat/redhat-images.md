@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/10/2020
 ms.author: alsin
 ms.reviewer: cynthn
-ms.openlocfilehash: 5cac21046b6b4afdefc4213f6a1fab438d62cca3
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: dbff136ac5787ef9549cca9dc8f946c56a138986
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94957535"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900499"
 ---
 # <a name="overview-of-red-hat-enterprise-linux-images"></a>Vue d’ensemble des images Red Hat Enterprise Linux
 
@@ -22,7 +22,7 @@ Cet article décrit les images Red Hat Enterprise Linux (RHEL) disponibles sur l
 Pour obtenir des informations sur les stratégies de prise en charge de Red Hat pour toutes les versions de RHEL, consultez la page [Cycle de vie de Red Hat Enterprise Linux](https://access.redhat.com/support/policy/updates/errata). Pour plus d’informations sur les tarifs, consultez [Calculatrice de prix Azure](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
 >[!IMPORTANT]
-> Les images RHEL actuellement disponibles dans la Place de marché Azure prennent en charge les modèles de licence BYOS (Apportez votre propre abonnement) ou Paiement à l’utilisation. [Azure Hybrid Use Benefit](../../windows/hybrid-use-benefit-licensing.md) et le changement dynamique entre les licences BYOS et les licences de paiement à l’utilisation ne sont pas pris en charge. Pour changer de mode de licence, vous devez redéployer la machine virtuelle à partir de l’image correspondante.
+> Les images RHEL actuellement disponibles dans la Place de marché Azure prennent en charge les modèles de licence BYOS (Apportez votre propre abonnement) ou Paiement à l’utilisation. Le changement dynamique entre les licences BYOS et les licences de paiement à l’utilisation peut être effectué par l’intermédiaire d’[Azure Hybrid Use Benefit](../../linux/azure-hybrid-benefit-linux.md).
 
 >[!NOTE]
 > Pour tout problème lié aux images RHEL sur la Place de marché Azure, ouvrez un ticket de support auprès de Microsoft.

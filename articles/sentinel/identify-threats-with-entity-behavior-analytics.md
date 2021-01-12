@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/19/2020
 ms.author: yelevin
-ms.openlocfilehash: a0a677342534cd92d5530199076e3d2e7084134d
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 2326746d274c68225cd4c8569df6a20d6050ec1a
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95494775"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900890"
 ---
 # <a name="identify-advanced-threats-with-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Identifier les menaces avancées avec l’analyse du comportement des utilisateurs et des entités (User and Entity Behavior Analytics, UEBA) dans Azure Sentinel
 
@@ -177,6 +177,8 @@ Les pages d’entité sont conçues pour faire partie de plusieurs scénarios d�
 | **ActivityInsights**      | Analyse contextuelle de l’activité basée sur notre profilage              |
 | **InvestigationPriority** | Score d’anomalie, entre 0 et 10 (0 = bénigne, 10 = très anormale)         |
 |
+
+Vous pouvez voir l’ensemble complet des enrichissements contextuels référencés dans **UsersInsights**, **DevicesInsights** et **ActivityInsights** dans le [document de référence sur les enrichissements UEBA](ueba-enrichments.md).
 
 ### <a name="querying-behavior-analytics-data"></a>Interrogation des données d’analyse du comportement
 

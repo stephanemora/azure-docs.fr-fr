@@ -3,12 +3,12 @@ title: Informations de référence sur les paramètres d’application d’Azure
 description: Documentation de référence pour les paramètres d’application ou les variables d’environnement d’Azure Functions.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 2b71bee620ab7d5b1ef98b60013d1978f49d127f
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 3d7292999fc4b53fed06822461857185127dc793
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505884"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97898723"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Informations de référence sur les paramètres d’application d’Azure Functions
 
@@ -185,6 +185,14 @@ Spécifie le nombre maximal de processus de traitement de langue, avec la valeur
 |Clé|Exemple de valeur|
 |---|------------|
 |FUNCTIONS\_WORKER\_PROCESS\_COUNT|2|
+
+## <a name="python_threadpool_thread_count"></a>PYTHON\_THREADPOOL\_THREAD\_COUNT
+
+Spécifie le nombre maximal de threads qu’un processus de travail du langage Python utiliserait pour exécuter des appels de fonction. La valeur par défaut est `1` pour la version `3.8` et les versions antérieures de Python. Dans la version `3.9` et les versions ultérieures de Python, elle est définie sur `None`. Notez que ce paramètre ne garantit pas le nombre de threads qui seraient définis pendant les exécutions. Il permet à Python d’étendre le nombre de threads jusqu’à la valeur spécifiée. Il ne s’applique qu’aux applications de fonction Python. En outre, il concerne l’appel de fonctions synchrones et non les coroutines.
+
+|Clé|Exemple de valeur|Valeur maximale|
+|---|------------|---------|
+|PYTHON\_THREADPOOL\_THREAD\_COUNT|2|32|
 
 
 ## <a name="functions_worker_runtime"></a>FUNCTIONS\_WORKER\_RUNTIME

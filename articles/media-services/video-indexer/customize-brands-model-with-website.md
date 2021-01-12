@@ -8,14 +8,14 @@ manager: johndeu
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 12/15/2019
 ms.author: kumud
-ms.openlocfilehash: 5bd88493324867dc957922a732506f5cfb8bbc20
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a2de9dbb479f43d6b646cd9f6cf604d6a08c8b6a
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361232"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586100"
 ---
 # <a name="customize-a-brands-model-with-the-video-indexer-website"></a>Personnaliser un modèle de marques avec le site web Video Indexer
 
@@ -24,27 +24,30 @@ Video Indexer prend en charge la détection de marques dans les messages vocaux 
 Un modèle de marques personnalisé vous permet d’effectuer les opérations suivantes :
 
 - Sélectionnez cette option si vous souhaitez que Video Indexer détecte des marques dans la base de données des marques Bing.
-- Sélectionnez cette option si vous souhaitez que Video Indexer empêche certaines marques d’être détectées (en créant essentiellement une liste rouge de marques).
+- Sélectionnez cette option si vous souhaitez que Video Indexer empêche certaines marques d’être détectées (en créant essentiellement une liste noire de marques).
 - Sélectionnez cette option si vous souhaitez que Video Indexer inclue les marques qui doivent faire partie de votre modèle qui ne se trouvent pas nécessairement dans la base de données des marques de Bing (en créant essentiellement une liste verte de marques).
 
 Pour un aperçu détaillé, consultez cette [Vue d’ensemble](customize-brands-model-overview.md).
 
 Vous pouvez utiliser le site web Video Indexer pour créer, utiliser et modifier des modèles personnalisés de marques détectées dans une vidéo, comme décrit dans cette rubrique. Vous pouvez également utiliser l'API, comme décrit dans [Personnaliser le modèle de marques à l'aide des API](customize-brands-model-with-api.md).
 
+> [!NOTE]
+> Si votre vidéo a été indexée avant l’ajout d’une marque, vous devez la réindexer. Vous trouverez l’élément **Réindexer** dans le menu déroulant associé à la vidéo. Sélectionnez **Options avancées** -> **Catégories de marques** et cochez **Toutes les marques**.
+
 ## <a name="edit-brands-model-settings"></a>Modifier les paramètres du modèle de marques
 
 Vous pouvez déterminer si vous souhaitez ou non que les marques de la base de données de marques Bing soient détectées. Pour définir cette option, vous devez modifier les paramètres de votre modèle de marques. Procédez comme suit :
 
 1. Accédez au site web [Video Indexer](https://www.videoindexer.ai/) et connectez-vous.
-2. Pour personnaliser un modèle à partir de votre compte, sélectionnez le bouton **Personnalisation du modèle de contenu** en haut à droite de la page.
+1. Pour personnaliser un modèle dans votre compte, sélectionnez le bouton **Personnalisation du modèle de contenu** à gauche de la page.
 
-   ![Personnaliser le modèle de contenu dans Video Indexer](./media/content-model-customization/content-model-customization.png)
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/content-model-customization/content-model-customization.png" alt-text="Personnaliser le modèle de contenu dans Video Indexer":::
+1. Pour modifier des marques, sélectionnez l'onglet **Marques**.
 
-3. Pour modifier des marques, sélectionnez l'onglet **Marques**.
-
-    ![Capture d’écran représentant l’onglet Marques de la boîte de dialogue Personnalisation du modèle de contenu.](./media/customize-brand-model/customize-brand-model.png)
-
-4. Activez la case à cocher **Afficher les marques suggérées par Bing** si vous souhaitez que Video Indexer détecte les marques suggérées par Bing : laissez l’option désactivée dans le cas contraire.
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/customize-brand-model/customize-brand-model.png" alt-text="Capture d’écran montrant l’onglet Marques de la boîte de dialogue Personnalisation du modèle de contenu":::
+1. Activez la case à cocher **Afficher les marques suggérées par Bing** si vous souhaitez que Video Indexer détecte les marques suggérées par Bing : laissez l’option désactivée dans le cas contraire.
 
 ## <a name="include-brands-in-the-model"></a>Inclure des marques dans le modèle
 
@@ -52,16 +55,14 @@ La section **Inclure des marques** représente les marques personnalisées que v
 
 ### <a name="add-a-brand-to-include-list"></a>Ajouter une personnalisation à la liste d’inclusion
 
-1. Sélectionnez **+ Ajouter une marque**.
-
-    ![Capture d’écran représentant la boîte de dialogue Include brands (Inclure des marques), dans laquelle vous pouvez ajouter des marques.](./media/customize-brand-model/add-brand.png)
+1. Sélectionnez **+ Créer une marque**.
 
     Indiquez un nom (obligatoire), une catégorie (facultatif), une description (facultatif) et une URL de référence (facultatif).
     Le champ Catégorie a pour but de vous aider à étiqueter vos marques. Ce champ apparaît sous la forme d'*étiquettes* de la marque lors de l'utilisation des API Video Indexer. Par exemple, la marque « Azure » peut être étiquetée ou classée dans la catégorie « Cloud ».
 
     Le champ URL de référence peut correspondre à n'importe quel site web de référence de la marque (comme un lien vers sa page Wikipédia).
 
-2. Sélectionnez **Ajouter une marque**. La marque est alors ajoutée à la liste **Inclure des marques**.
+2. Sélectionnez **Enregistrer** et vous verrez que la marque a été ajoutée à la liste **Inclure des marques**.
 
 ### <a name="edit-a-brand-on-the-include-list"></a>Modifier une marque dans la liste d’inclusion
 
@@ -82,11 +83,11 @@ La section **Exclure des marques** représente les marques que vous souhaitez qu
 
 ### <a name="add-a-brand-to-exclude-list"></a>Ajouter une marque à la liste d’exclusion
 
-1. Sélectionnez **+ Ajouter une marque.**
+1. Sélectionnez **+ Créer une marque**.
 
     Indiquez un nom (obligatoire) et une catégorie (facultatif).
 
-2. Sélectionnez **Ajouter une marque**. La marque est alors ajoutée à la liste *Exclure des marques*.
+2. Sélectionnez **Enregistrer** et vous verrez que la marque a été ajoutée à la liste *Exclure des marques*.
 
 ### <a name="edit-a-brand-on-the-exclude-list"></a>Modifier une marque dans la liste d’exclusion
 

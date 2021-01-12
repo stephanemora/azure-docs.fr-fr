@@ -4,12 +4,12 @@ description: Développer des fonctions avec Python
 ms.topic: article
 ms.date: 11/4/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 8254abda68949e6884143316d4b29b07ade129dc
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: cf1d8f89de61a548f6c542d6d8a73fde93675e95
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96167843"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895408"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guide des développeurs Python sur Azure Functions
 
@@ -299,87 +299,7 @@ De même, vous pouvez définir les `status_code` et `headers` pour le message de
 
 ## <a name="scaling-and-performance"></a>Mise à l'échelle et niveau de performance
 
-Il est important de bien comprendre le fonctionnement des fonctions et la façon dont les performances affectent la mise à l'échelle de l'application de fonction, en particulier lors de la conception d'applications hautement performantes. Voici quelques facteurs à prendre en compte lors de la conception, de l'écriture et de la configuration de vos applications de fonction.
-
-### <a name="horizontal-scaling"></a>Mise à l’échelle horizontale
-Par défaut, Azure Functions surveille automatiquement la charge sur votre application et crée des instances d’hôte supplémentaires pour Python, si nécessaire. Functions utilise des seuils intégrés pour différents types de déclencheurs afin de décider quand ajouter des instances, comme l'ancienneté des messages et la taille de la file d'attente pour QueueTrigger. Ces seuils ne sont pas configurables par l'utilisateur. Pour plus d’informations, consultez [Fonctionnement des plans Consommation et Premium](functions-scale.md#how-the-consumption-and-premium-plans-work).
-
-### <a name="improving-throughput-performance"></a>Améliorer les performances de débit
-
-Pour améliorer les performances, vous devez comprendre comment votre application utilise les ressources et être en mesure de configurer votre application de fonction en conséquence.
-
-#### <a name="understanding-your-workload"></a>Comprendre votre charge de travail
-
-Les configurations par défaut conviennent à la plupart des applications Azure Functions. Cependant, vous pouvez améliorer les performances de débit de vos applications en utilisant des configurations basées sur votre profil de charge de travail. La première étape consiste à identifier le type de charge de travail que vous exécutez.
-
-| | Charge de travail liée aux E/S | Charge de travail liée au processeur |
-|--| -- | -- |
-|**Caractéristiques de l'application de fonction**| <ul><li>L'application doit gérer un grand nombre d'appels simultanés.</li> <li> L'application traite un grand nombre d'événements d'E/S, tels que les appels réseau et les lectures/écritures sur le disque.</li> </ul>| <ul><li>L'application effectue des calculs de longue durée, tels que le redimensionnement d'images.</li> <li>L'application procède à une transformation des données.</li> </ul> |
-|**Exemples**| <ul><li>API Web</li><ul> | <ul><li>Traitement des données</li><li> Inférence par Machine Learning</li><ul>|
-
-
-> [!NOTE]
->  Comme la charge de travail des fonctions réelles est souvent une combinaison de charges de travail liées aux E/S et au processeur, nous recommandons de profiler la charge de travail sur la base de charges de production réalistes.
-
-
-#### <a name="performance-specific-configurations"></a>Configurations spécifiques aux performances
-
-Après avoir identifié le profil de charge de travail de votre application de fonction, voici les configurations que vous pouvez utiliser pour améliorer les performances de débit de vos fonctions.
-
-##### <a name="async"></a>Async
-
-Étant donné que [Python est un runtime à thread unique](https://wiki.python.org/moin/GlobalInterpreterLock), une instance de l'hôte pour Python ne peut traiter qu'un seul appel de fonction à la fois. Pour les applications qui traitent un grand nombre d'événements d'E/S et/ou qui sont liées aux E/S, vous pouvez considérablement améliorer les performances en exécutant des fonctions de manière asynchrone.
-
-Pour exécuter une fonction de manière asynchrone, utilisez l’instruction `async def`, qui exécute la fonction avec [asyncio](https://docs.python.org/3/library/asyncio.html) directement :
-
-```python
-async def main():
-    await some_nonblocking_socket_io_op()
-```
-Voici un exemple de fonction avec déclencheur HTTP qui utilise le client http [aiohttp](https://pypi.org/project/aiohttp/) :
-
-```python
-import aiohttp
-
-import azure.functions as func
-
-async def main(req: func.HttpRequest) -> func.HttpResponse:
-    async with aiohttp.ClientSession() as client:
-        async with client.get("PUT_YOUR_URL_HERE") as response:
-            return func.HttpResponse(await response.text())
-
-    return func.HttpResponse(body='NotFound', status_code=404)
-```
-
-
-Une fonction sans le mot clé `async` est exécutée automatiquement dans un pool de threads asyncio :
-
-```python
-# Runs in an asyncio thread-pool
-
-def main():
-    some_blocking_socket_io()
-```
-
-Afin de tirer pleinement parti de l'exécution asynchrone des fonctions, l'opération/la bibliothèque d'E/S utilisée dans votre code doit également être implémentée de manière asynchrone. L'utilisation d'opérations d'E/S synchrones dans des fonctions définies comme asynchrones **peut nuire** aux performances globales.
-
-Voici quelques exemples de bibliothèques clientes qui ont implémenté un modèle asynchrone :
-- [aiohttp](https://pypi.org/project/aiohttp/) : client/serveur HTTP pour asyncio 
-- [Streams API](https://docs.python.org/3/library/asyncio-stream.html) : primitives de haut niveau, asynchrones et prêtes à l'emploi destinées à fonctionner avec une connexion réseau
-- [Janus Queue](https://pypi.org/project/janus/) : file d'attente thread-safe et compatible asyncio pour Python
-- [pyzmq](https://pypi.org/project/pyzmq/) : liaisons Python pour ZeroMQ
- 
-
-##### <a name="use-multiple-language-worker-processes"></a>Utiliser plusieurs processus Worker de langage
-
-Par défaut, chaque instance d’hôte Functions a un seul processus Worker de langage. Vous pouvez augmenter le nombre de processus Worker par hôte (jusqu’à 10) à l’aide du paramètre d’application [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count). Azure Functions essaie ensuite de distribuer uniformément les appels de fonction simultanés à ces différents Workers.
-
-Pour les applications liées au processeur, vous devez définir le nombre de Workers de langage de manière à ce qu'il soit supérieur ou égal au nombre de cœurs disponibles par application de fonction. Pour en savoir plus, consultez [Références SKU des instances disponibles](functions-premium-plan.md#available-instance-skus). 
-
-Les applications liées aux E/S peuvent également bénéficier de l'augmentation du nombre de processus Worker au-delà du nombre de cœurs disponibles. Gardez à l'esprit que la définition d'un nombre de Workers trop élevé peut avoir un impact sur les performances globales en raison du nombre accru de changements de contexte requis. 
-
-FUNCTIONS_WORKER_PROCESS_COUNT s’applique à chaque hôte créé par Functions lors du scale-out de votre application pour répondre à la demande.
-
+Pour connaître les meilleures pratiques en matière de mise à l’échelle et de niveau de performance pour les applications de fonction Python, reportez-vous à l’[article sur la mise à l'échelle et le niveau de performance Python](python-scale-performance-reference.md).
 
 ## <a name="context"></a>Context
 

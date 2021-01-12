@@ -11,16 +11,19 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 11/18/2020
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 8560acd9c5a11004c5144441d395863c8b85edba
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 0fa3492555b2870ae7b95abec08bbd3280cdc985
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461405"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705062"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>Utiliser l’espace de travail derrière un Pare-feu pour Azure Machine Learning
 
-Dans cet article, découvrez comment configurer Pare-feu Azure pour contrôler l’accès à votre espace de travail Azure Machine Learning et à l’Internet public. Pour en savoir plus sur la sécurisation d’Azure Machine Learning, consultez [Sécurité de l’entreprise pour Azure Machine Learning](concept-enterprise-security.md)
+Dans cet article, découvrez comment configurer Pare-feu Azure pour contrôler l’accès à votre espace de travail Azure Machine Learning et à l’Internet public. Pour en savoir plus sur la sécurisation d’Azure Machine Learning, consultez [Sécurité de l’entreprise pour Azure Machine Learning](concept-enterprise-security.md).
+
+> [!WARNING]
+> L’accès au stockage des données derrière un pare-feu est pris en charge uniquement dans les premières expériences de code. L’utilisation d’[Azure Machine Learning Studio](overview-what-is-machine-learning-studio.md) pour accéder aux données derrière un pare-feu n’est pas prise en charge. Pour travailler avec le stockage de données sur un réseau privé avec Studio, vous devez d’abord [configurer un réseau virtuel](../virtual-network/quick-create-portal.md) et [autoriser Studio à accéder aux données stockées au sein d’un réseau virtuel](how-to-enable-studio-virtual-network.md).
 
 ## <a name="azure-firewall"></a>Pare-feu Azure
 

@@ -3,12 +3,12 @@ title: Déployer Live Video Analytics sur un appareil IoT Edge - Azure
 description: Cet article répertorie les étapes permettant de déployer Live Video Analytics sur votre appareil IoT Edge. C’est utile si, par exemple, vous disposez d’un accès à un ordinateur local Linux et que vous avez déjà crée un compte Azure Media Services.
 ms.topic: how-to
 ms.date: 09/09/2020
-ms.openlocfilehash: 4fa4a9643976ba513b025706cacec26b2a50afb5
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 38d138b43441016e06fca5003bc09c940cb23efe
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498317"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883314"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Déployer Live Video Analytics sur un appareil IoT Edge
 
@@ -108,7 +108,7 @@ Un manifeste de déploiement est un document JSON qui décrit les modules à dé
     Exemples :
     
     * **Nom du module IoT Edge** : IvaEdge
-    * **URI de l’image** : mcr.microsoft.com/media/live-video-analytics:1.0    
+    * **URI de l’image** : mcr.microsoft.com/media/live-video-analytics:2.0    
     
     ![La capture d’écran montre l’onglet Paramètres du module.](./media/deploy-iot-edge-device/add.png)
     

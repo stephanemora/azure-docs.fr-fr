@@ -1,7 +1,7 @@
 ---
-title: Comment préserver la confidentialité des données à l’aide des packages WhiteNoise (préversion)
+title: Comment préserver la confidentialité des données à l’aide des packages SmartNoise (préversion)
 titleSuffix: Azure Machine Learning
-description: Découvrez comment appliquer les meilleures pratiques en matière de confidentialité différentielle aux modèles Azure Machine Learning à l’aide des packages WhiteNoise.
+description: Découvrez comment appliquer les bonnes pratiques en matière de confidentialité différentielle aux modèles Azure Machine Learning à l’aide des packages SmartNoise.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,31 +10,27 @@ ms.custom: how-to
 ms.author: slbird
 author: slbird
 ms.reviewer: luquinta
-ms.date: 07/09/2020
-ms.openlocfilehash: 355d96fe5a617effab89fbd038f7f1785215f88f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/21/2020
+ms.openlocfilehash: f004f0f052e466441999c1bfd511823edd6b907e
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90897694"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97722434"
 ---
 # <a name="use-differential-privacy-in-azure-machine-learning-preview"></a>Utiliser la confidentialité différentielle dans Azure Machine Learning (préversion)
 
-
-
-Découvrez comment appliquer les meilleures pratiques en matière de confidentialité différentielle aux modèles Azure Machine Learning à l’aide des packages Python WhiteNoise.
+Découvrez comment appliquer les bonnes pratiques en matière de confidentialité différentielle aux modèles Azure Machine Learning à l’aide des packages Python SmartNoise.
 
 La confidentialité différentielle est la définition de référence de la confidentialité. Les systèmes qui adhèrent à cette définition de la confidentialité fournissent de solides garanties contre un large éventail d’attaques de reconstruction et de réidentification des données, notamment les attaques par des adversaires qui possèdent des informations auxiliaires. En savoir plus sur le [fonctionnement de la confidentialité différentielle](./concept-differential-privacy.md).
 
-> [!NOTE]
-> Veuillez noter que nous allons renommer le kit de ressources et présenterons le nouveau nom dans les semaines à venir. 
 
 ## <a name="prerequisites"></a>Prérequis
 
 - Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree) dès aujourd’hui.
 - [Python 3](https://www.python.org/downloads/)
 
-## <a name="install-whitenoise-packages"></a>Installer les packages WhiteNoise
+## <a name="install-smartnoise-packages"></a>Installer les packages SmartNoise
 
 ### <a name="standalone-installation"></a>Installation autonome
 
@@ -42,45 +38,45 @@ Les bibliothèques sont conçues pour fonctionner à partir de clusters Spark di
 
 Les instructions ci-dessous supposent que vos commandes `python` et `pip` sont mappées à `python3` et `pip3`.
 
-Utilisez pip pour installer les [packages Python WhiteNoise](https://pypi.org/project/opendp-whitenoise/).
+Utilisez pip pour installer les [packages Python SmartNoise](https://pypi.org/project/opendp-smartnoise/).
 
-`pip install opendp-whitenoise`
+`pip install opendp-smartnoise`
 
 Pour vérifier que les packages sont installés, lancez une invite Python et saisissez :
 
 ```python
-import opendp.whitenoise.core
-import opendp.whitenoise.sql
+import opendp.smartnoise.core
+import opendp.smartnoise.sql
 ```
 
 Si les importations ont été effectuées correctement, les bibliothèques sont installées et prêtes à l’emploi.
 
 ### <a name="docker-image"></a>Image Docker
 
-Vous pouvez également utiliser des packages WhiteNoise avec Docker.
+Vous pouvez également utiliser des packages SmartNoise avec Docker.
 
-Extrayez l’image `opendp/whitenoise` pour utiliser les bibliothèques à l’intérieur d’un conteneur Docker qui comprend Spark, Jupyter et un exemple de code.
+Extrayez l’image `opendp/smartnoise` pour utiliser les bibliothèques à l’intérieur d’un conteneur Docker qui comprend Spark, Jupyter et un exemple de code.
 
 ```sh
-docker pull opendp/whitenoise:privacy
+docker pull opendp/smartnoise:privacy
 ```
 
 Une fois que vous avez extrait l’image, lancez le serveur Jupyter :
 
 ```sh
-docker run --rm -p 8989:8989 --name whitenoise-run opendp/whitenoise:privacy
+docker run --rm -p 8989:8989 --name smartnoise-run opendp/smartnoise:privacy
 ```
 
-Cela démarre un serveur Jupyter sur le port `8989` de votre `localhost`, avec le mot de passe `pass@word99`. En supposant que vous avez utilisé la ligne de commande ci-dessus pour démarrer le conteneur portant le nom `whitenoise-privacy`, vous pouvez ouvrir un terminal bash dans le serveur Jupyter en exécutant :
+Cela démarre un serveur Jupyter sur le port `8989` de votre `localhost`, avec le mot de passe `pass@word99`. En supposant que vous avez utilisé la ligne de commande ci-dessus pour démarrer le conteneur portant le nom `smartnoise-privacy`, vous pouvez ouvrir un terminal bash dans le serveur Jupyter en exécutant :
 
 ```sh
-docker exec -it whitenoise-run bash
+docker exec -it smartnoise-run bash
 ```
 
 L’instance Docker efface tous les états à l’arrêt. Vous perdez donc tous les notebooks que vous créez dans l’instance en cours d’exécution. Pour y remédier, vous pouvez lier le montage d’un dossier local au conteneur lors de son lancement :
 
 ```sh
-docker run --rm -p 8989:8989 --name whitenoise-run --mount type=bind,source=/Users/your_name/my-notebooks,target=/home/privacy/my-notebooks opendp/whitenoise:privacy
+docker run --rm -p 8989:8989 --name smartnoise-run --mount type=bind,source=/Users/your_name/my-notebooks,target=/home/privacy/my-notebooks opendp/smartnoise:privacy
 ```
 
 Tous les notebooks que vous créez dans le dossier *my-notebooks* sont stockés dans votre système de fichiers local.
@@ -95,7 +91,7 @@ Cet exemple fait référence aux microdonnées à usage public de Californie (PU
 import os
 import sys
 import numpy as np
-import opendp.whitenoise.core as wn
+import opendp.smartnoise.core as sn
 
 data_path = os.path.join('.', 'data', 'PUMS_california_demographics_1000', 'data.csv')
 var_names = ["age", "sex", "educ", "race", "income", "married", "pid"]
@@ -104,19 +100,19 @@ var_names = ["age", "sex", "educ", "race", "income", "married", "pid"]
 Dans cet exemple, nous calculons la moyenne et la variance de l’âge.  Nous utilisons une `epsilon` totale de 1 (epsilon est notre paramètre de confidentialité, en répartissant notre budget dédié à la confidentialité sur les deux quantités que nous voulons calculer). En savoir plus sur les [métriques de confidentialité](concept-differential-privacy.md#differential-privacy-metrics).
 
 ```python
-with wn.Analysis() as analysis:
+with sn.Analysis() as analysis:
     # load data
-    data = wn.Dataset(path = data_path, column_names = var_names)
+    data = sn.Dataset(path = data_path, column_names = var_names)
 
     # get mean of age
-    age_mean = wn.dp_mean(data = wn.cast(data['age'], type="FLOAT"),
+    age_mean = sn.dp_mean(data = sn.cast(data['age'], type="FLOAT"),
                           privacy_usage = {'epsilon': .65},
                           data_lower = 0.,
                           data_upper = 100.,
                           data_n = 1000
                          )
     # get variance of age
-    age_var = wn.dp_variance(data = wn.cast(data['age'], type="FLOAT"),
+    age_var = sn.dp_variance(data = sn.cast(data['age'], type="FLOAT"),
                              privacy_usage = {'epsilon': .35},
                              data_lower = 0.,
                              data_upper = 100.,
@@ -156,19 +152,19 @@ Vous pouvez utiliser la bibliothèque pour composer des graphiques d’analyse p
 | SUM           |            | Imputer |
 | Variance/covariance |      | Transformer  |
 
-Pour plus d’informations, consultez le [notebook relatif à l’analyse des données](https://github.com/opendifferentialprivacy/whitenoise-samples/blob/master/analysis/basic_data_analysis.ipynb).
+Pour plus d’informations, consultez le [notebook relatif à l’analyse des données](https://github.com/opendifferentialprivacy/smartnoise-samples/blob/master/analysis/basic_data_analysis.ipynb).
 
 ## <a name="approximate-utility-of-differentially-private-releases"></a>Utilitaire approximatif de versions privées différentielles
 
 Comme la confidentialité différentielle fonctionne par calibrage du bruit, l’utilitaire des versions peut varier en fonction du risque pour la confidentialité.  En règle générale, le bruit nécessaire à la protection de chaque individu devient négligeable à mesure que la taille des échantillons augmente, mais le résultat submerge les versions qui ciblent une seule personne.  Les analystes peuvent examiner les informations relatives à l’exactitude d’une version pour déterminer l’utilité de cette dernière :
 
 ```python
-with wn.Analysis() as analysis:
+with sn.Analysis() as analysis:
     # load data
-    data = wn.Dataset(path = data_path, column_names = var_names)
+    data = sn.Dataset(path = data_path, column_names = var_names)
 
     # get mean of age
-    age_mean = wn.dp_mean(data = wn.cast(data['age'], type="FLOAT"),
+    age_mean = sn.dp_mean(data = sn.cast(data['age'], type="FLOAT"),
                           privacy_usage = {'epsilon': .65},
                           data_lower = 0.,
                           data_upper = 100.,
@@ -202,11 +198,11 @@ Voici un exemple d’une `Analysis` spécifiant des compartiments pour un histog
 ```python
 income_edges = list(range(0, 100000, 10000))
 
-with wn.Analysis() as analysis:
-    data = wn.Dataset(path = data_path, column_names = var_names)
+with sn.Analysis() as analysis:
+    data = sn.Dataset(path = data_path, column_names = var_names)
 
-    income_histogram = wn.dp_histogram(
-            wn.cast(data['income'], type='int', lower=0, upper=100),
+    income_histogram = sn.dp_histogram(
+            sn.cast(data['income'], type='int', lower=0, upper=100),
             edges = income_edges,
             upper = 1000,
             null_value = 150,
@@ -216,11 +212,11 @@ with wn.Analysis() as analysis:
 
 Comme les individus sont répartis de manière disjointe entre les compartiments de l’histogramme, le coût de la confidentialité n’est encouru qu’une seule fois par histogramme, même si l’histogramme comprend de nombreux compartiments.
 
-Pour plus d’informations sur les histogrammes, consultez le [notebook relatif aux histogrammes](https://github.com/opendifferentialprivacy/whitenoise-samples/blob/master/analysis/histograms.ipynb).
+Pour plus d’informations sur les histogrammes, consultez le [notebook relatif aux histogrammes](https://github.com/opendifferentialprivacy/smartnoise-samples/blob/master/analysis/histograms.ipynb).
 
 ## <a name="generate-a-covariance-matrix"></a>Générer une matrice de covariance
 
-WhiteNoise propose trois fonctionnalités différentes avec sa fonction `dp_covariance` :
+SmartNoise propose trois fonctionnalités différentes avec sa fonction `dp_covariance` :
 
 - Covariance entre deux vecteurs
 - Matrice de covariance d’une matrice
@@ -229,13 +225,13 @@ WhiteNoise propose trois fonctionnalités différentes avec sa fonction `dp_cova
 Voici un exemple de calcul d’une covariance scalaire :
 
 ```python
-with wn.Analysis() as analysis:
-    wn_data = wn.Dataset(path = data_path, column_names = var_names)
+with sn.Analysis() as analysis:
+    wn_data = sn.Dataset(path = data_path, column_names = var_names)
 
-    age_income_cov_scalar = wn.dp_covariance(
-      left = wn.cast(wn_data['age'], 
+    age_income_cov_scalar = sn.dp_covariance(
+      left = sn.cast(wn_data['age'], 
       type = "FLOAT"), 
-      right = wn.cast(wn_data['income'], 
+      right = sn.cast(wn_data['income'], 
       type = "FLOAT"), 
       privacy_usage = {'epsilon': 1.0},
       left_lower = 0., 
@@ -247,8 +243,8 @@ with wn.Analysis() as analysis:
 ```
 
 Pour plus d’informations, consultez le [notebook relatif à la covariance](
-https://github.com/opendifferentialprivacy/whitenoise-samples/blob/master/analysis/covariance.ipynb).
+https://github.com/opendifferentialprivacy/smartnoise-samples/blob/master/analysis/covariance.ipynb).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Explorez des [exemples de notebooks WhiteNoise](https://github.com/opendifferentialprivacy/whitenoise-samples/tree/master/analysis).
+- Explorez des [exemples de notebooks SmartNoise](https://github.com/opendifferentialprivacy/smartnoise-samples/tree/master/analysis).

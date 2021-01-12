@@ -1,7 +1,7 @@
 ---
-title: Résoudre les problèmes de déploiement d’un service web distant
+title: Résolution des problèmes de déploiement de modèle distant
 titleSuffix: Azure Machine Learning
-description: Découvrez comment contourner et résoudre les erreurs courantes de déploiement Docker avec Azure Kubernetes Service et Azure Container Instances.
+description: Découvrez comment contourner, résoudre et dépanner certaines erreurs courantes de déploiement Docker avec Azure Kubernetes Service et Azure Container Instances.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,16 +11,16 @@ ms.reviewer: jmartens
 ms.date: 11/25/2020
 ms.topic: troubleshooting
 ms.custom: contperf-fy20q4, devx-track-python, deploy, contperf-fy21q2
-ms.openlocfilehash: 92cd70e864ae0490ce3f9e7435d9518241f93c8e
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 4224e301d6410fc97da1f98cd0dd9577c6341cd3
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97031502"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740621"
 ---
-# <a name="troubleshoot-model-deployment"></a>Résoudre les problèmes de déploiement de modèle
+# <a name="troubleshooting-remote-model-deployment"></a>Résolution des problèmes de déploiement de modèle distant 
 
-Découvrez comment contourner et résoudre les erreurs courantes de déploiement Docker distant avec Azure Container Instances (ACI) et Azure Kubernetes Service (AKS) à l’aide d’Azure Machine Learning.
+Découvrez comment dépanner, résoudre ou contourner les erreurs courantes que vous pouvez rencontrer lors du déploiement d’un modèle sur Azure Container Instances (ACI) et Azure Kubernetes Service (AKS) à l’aide d’Azure Machine Learning.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -36,7 +36,7 @@ Lorsque vous déployez un modèle vers un calcul non local dans Azure Machine Le
 1. Le Dockerfile que vous avez spécifié dans votre objet Environments dans votre InferenceConfig est envoyé au cloud, ainsi que le contenu de votre répertoire source.
 1. Si une image précédemment générée n’est pas disponible dans votre registre de conteneurs, une nouvelle image Docker est générée dans le cloud et stockée dans le registre de conteneurs par défaut de votre espace de travail.
 1. L’image Docker de votre registre de conteneurs est téléchargée sur votre cible de calcul.
-1. Le magasin Blob par défaut de votre espace de travail est monté sur votre cible de calcul, ce qui vous donne accès aux modèles inscrits.
+1. Le magasin d’objets blob par défaut de votre espace de travail est monté sur votre cible de calcul, ce qui vous donne accès aux modèles inscrits.
 1. Votre serveur web est initialisé en exécutant la fonction `init()` de votre script d’entrée.
 1. Lorsque votre modèle déployé reçoit une requête, votre fonction `run()` la gère.
 
@@ -177,6 +177,16 @@ Pour plus d’informations sur la configuration de `autoscale_target_utilization
 Un code d’état 504 indique que la requête a expiré. Le délai d’expiration par défaut est de une minute.
 
 Vous pouvez augmenter le délai d’expiration ou essayer d’accélérer le service en modifiant le fichier score.py pour supprimer les appels inutiles. Si ces actions ne corrigent pas le problème, utilisez les informations de cet article pour déboguer le fichier score.py. Le code peut être dans un état sans réponse ou une boucle infinie.
+
+## <a name="other-error-messages"></a>Autres messages d’erreur
+
+Effectuez ces actions pour les erreurs suivantes :
+
+|Error  | Résolution  |
+|---------|---------|
+|Échec de génération d’image lors du déploiement de service web     |  Ajoutez « pynacl==1.2.1 » en tant que dépendance pip au fichier Conda pour la configuration d’image       |
+|`['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`     |   Remplacez la référence SKU des machines virtuelles utilisées dans votre déploiement par une référence SKU disposant de plus de mémoire. |
+|Échec FPGA     |  Vous ne serez pas en mesure de déployer des modèles sur des FPGA tant que vous n’aurez pas demandé un quota FPGA et qu’il n’aura pas été approuvé. Pour demander un accès, remplissez le formulaire de demande de quota : https://aka.ms/aml-real-time-ai       |
 
 ## <a name="advanced-debugging"></a>Débogage avancé
 

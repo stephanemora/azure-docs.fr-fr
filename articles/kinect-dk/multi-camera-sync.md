@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 02/20/2020
 ms.topic: article
 keywords: azure, kinect, spécifications, matériel, DK, fonctionnalités, profondeur, couleur, RVB, capteur de mouvement, contrôleur, synchronisation
-ms.openlocfilehash: 7c79101de5e5455ae2ff9fd8b5d8369a3832631c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30961152b31a659cb27e91a99d6806490998d18d
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361158"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97592277"
 ---
 # <a name="synchronize-multiple-azure-kinect-dk-devices"></a>Synchroniser plusieurs appareils Azure Kinect DK
 
@@ -88,6 +88,9 @@ De plus, les différences entre l’horloge de la caméra et celle du microprogr
 En utilisant un décalage de 160&mu;s, vous pouvez configurer jusqu’à neuf caméras de profondeur supplémentaires de façon à ce que chaque laser s’allume alors que les autres sont inactifs.
 
 Dans votre logiciel, utilisez ```depth_delay_off_color_usec``` ou ```subordinate_delay_off_master_usec``` pour vous assurer que chaque laser IR s’exécute dans sa fenêtre de 160&mu;s ou ait un champ de vision différent.
+
+> [!NOTE]  
+> La largeur d’impulsion réelle est de 125 µs, mais nous indiquons 160 µs pour fournir une certaine marge de manœuvre. En utilisant NFOV UNBINNED comme exemple, chaque impulsion de 125 µs est suivie d’une inactivité de 1 450 µs. Le cumul de ces valeurs, (9 x 125) + (8 x 1450), fournit le temps d’exposition de 12,8 ms. La façon la plus proche d’entrelacer l’exposition de 2 appareils consiste à placer la première impulsion de la deuxième caméra dans la première période d’inactivité de la première caméra. Le délai entre la première caméra et la deuxième peut être réduit jusqu’à 125 µs (la largeur d’une impulsion), mais nous vous recommandons de ménager une certaine marge de manœuvre en utilisant 160 µs. Avec 160 µs, vous pouvez entrelacer les périodes d’exposition d’un maximum de 10 caméras.
 
 ## <a name="prepare-your-devices-and-other-hardware"></a>Préparer vos appareils et autres composants matériels
 

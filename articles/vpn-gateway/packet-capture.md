@@ -5,14 +5,14 @@ services: vpn-gateway
 author: radwiv
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/03/2020
+ms.date: 12/2/2020
 ms.author: radwiv
-ms.openlocfilehash: c6aa2b63344ef629d55f5a4efb66e4ee0e55975e
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: caa9a0869d7d4bca58b91a0c682177e1408f8300
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94661033"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97733804"
 ---
 # <a name="configure-packet-capture-for-vpn-gateways"></a>Configurer la capture de paquets pour les passerelles VPN
 
@@ -31,6 +31,7 @@ Les exemples suivants de code JSON et d’un schéma JSON permettent d’expliqu
 - Vous ne pouvez pas effectuer plusieurs captures de paquets à l’échelle de la passerelle en même temps.
 - Vous ne pouvez pas non plus effectuer plusieurs captures de paquets simultanément sur la même connexion. En revanche, vous pouvez effectuer plusieurs captures de paquets à la fois sur des connexions différentes.
 - Cinq captures de paquets au maximum peuvent être exécutées en parallèle par passerelle. Ces captures de paquets peuvent être une combinaison de captures de paquets à l’échelle de la passerelle et de captures de paquets par connexion.
+- La valeur MaxPacketBufferSize est exprimée en octets et la valeur MaxFileSize est exprimée en mégaoctets
 
 ### <a name="example-json"></a>Exemple JSON
 ```JSON-interactive

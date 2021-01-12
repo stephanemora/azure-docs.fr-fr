@@ -11,12 +11,12 @@ ms.reviewer: peterlu
 ms.date: 12/10/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: ed368615395614bc0d3e9a6f06727da8c64d8486
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: e3bf77406df302c4ba83cb7a8f1a30fba9f6339e
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97559639"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97795935"
 ---
 # <a name="train-pytorch-models-at-scale-with-azure-machine-learning"></a>Entraîner des modèles PyTorch à grande échelle avec Azure Machine Learning
 
@@ -199,14 +199,14 @@ src = ScriptRunConfig(source_directory=project_folder,
 Pour plus d’informations sur la configuration des travaux avec ScriptRunConfig, consultez [Configurer et envoyer des exécutions d’entraînement](how-to-set-up-training-targets.md).
 
 > [!WARNING]
-> Si vous utilisiez l’estimateur PyTorch pour configurer vos travaux d’entraînement PyTorch, notez que les estimateurs seront dépréciés dans une prochaine version du SDK Azure ML. Avec le SDK Azure ML versions 1.15.0 et ultérieures, ScriptRunConfig est la méthode recommandée pour configurer des travaux d’entraînement, y compris ceux utilisant des frameworks DL.
+> Si vous utilisiez précédemment l’estimateur PyTorch pour configurer vos travaux d’entraînement PyTorch, veuillez noter que les estimateurs sont déconseillés depuis la version du kit SDK 1.19.0. Avec la version 1.15.0 et les versions ultérieures du kit SDK Azure ML, ScriptRunConfig correspond à la méthode recommandée pour configurer des tâches d’entraînement, y compris celles qui utilisent des frameworks de Deep Learning. Pour les questions courantes sur la migration, consultez le [Guide de migration de l’estimateur vers ScriptRunConfig](how-to-migrate-from-estimators-to-scriptrunconfig.md).
 
 ## <a name="submit-your-run"></a>Envoyer votre exécution
 
 L’[objet d’exécution](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py) fournit l’interface à l’historique des exécutions pendant et après l’exécution de la tâche.
 
 ```Python
-run = Experiment(ws, name='pytorch-birds').submit(src)
+run = Experiment(ws, name='Tutorial-pytorch-birds').submit(src)
 run.wait_for_completion(show_output=True)
 ```
 
@@ -314,6 +314,10 @@ src = ScriptRunConfig(source_directory=project_folder,
 Si vous préférez utiliser le back-end Gloo pour l’entraînement distribué, spécifiez `communication_backend='Gloo'` à la place. Le back-end Gloo est recommandé pour l’entraînement sur processeur distribué.
 
 Pour un tutoriel complet sur l’exécution d’un entraînement PyTorch distribué sur Azure ML, consultez [Entraînement PyTorch distribué avec DistributedDataParallel](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/pytorch/distributed-pytorch-with-nccl-gloo).
+
+### <a name="troubleshooting"></a>Résolution des problèmes
+
+* **Horovod a été arrêté** : Dans la plupart des cas, si vous rencontrez le message « AbortedError : Horovod a été arrêté », une exception sous-jacente dans l’un des processus a entraîné l’arrêt de Horovod. Chaque rang dans le travail MPI obtient son propre fichier journal dédié dans Azure ML. Ces journaux sont nommés `70_driver_logs`. Dans le cas d’une formation distribuée, les noms de journaux sont suivis du suffixe `_rank` pour faciliter leur différenciation. Pour trouver l’erreur exacte qui a provoqué l’arrêt de Horovod, parcourez tous les fichiers journaux et recherchez `Traceback` à la fin des fichiers driver_log. L’un de ces fichiers indiquera l’exception sous-jacente réelle. 
 
 ## <a name="export-to-onnx"></a>Exporter dans ONNX
 

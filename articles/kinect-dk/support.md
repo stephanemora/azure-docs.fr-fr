@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: article
 keywords: azure, kinect, rvb, ir, enregistrement, capteur, sdk, accès, profondeur, vidéo, caméra, imu, mouvement, capteur, audio, microphone, matroska, kit de développement logiciel (sdk) de capteur, téléchargement, corps, suivi, support
-ms.openlocfilehash: 2fbfe9c52a46cbf7058e6d5ca91008f1f289bfd2
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 9bb6e0ad8ebbb763389f13e317036eacc5c7d074
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357043"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587092"
 ---
 # <a name="azure-kinect-support-options-and-resources"></a>Options et ressources de support Azure Kinect
 
@@ -56,6 +56,8 @@ Vous pouvez également consulter les [problèmes connus et leur résolution](tro
 [Obtenez de l’aide](https://support.microsoft.com/supportforbusiness/productselection?sapId=f77b1b95-721e-43a0-2db8-b01e81a3f813) concernant une fonctionnalité d’appareil ou de capteur, des mises à jour de microprogramme ou des options d’achat.
 
 Pour plus d’informations sur les offres de support, consultez [Support Microsoft pour l’entreprise](https://support.microsoft.com/help/4341255/support-for-business).
+
+Les déclarations de conformité UE pour les produits matériels Microsoft sont [ici](https://www.microsoft.com/en-us/eu-declarations-compliance?activetab=pivot1:primaryr3).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

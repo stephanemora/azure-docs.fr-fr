@@ -3,12 +3,12 @@ title: Résolution des erreurs courantes
 description: Découvrez comment résoudre les problèmes liés à la création de définitions de stratégie, aux divers Kits de développement logiciel (SDK) et au module complémentaire pour Kubernetes.
 ms.date: 12/01/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: f3667988d527100507d308887338278e1200d454
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: b88d00575adb571c59b562d25067c4a1716fb50f
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96510996"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882974"
 ---
 # <a name="troubleshoot-errors-using-azure-policy"></a>Résoudre les erreurs à l’aide d’Azure Policy
 
@@ -36,7 +36,7 @@ Un alias incorrect ou inexistant est utilisé dans une définition de stratégie
 
 #### <a name="resolution"></a>Résolution
 
-Tout d’abord, vérifiez que la propriété Resource Manager est dotée d’un alias. Utilisez l’[extension Azure Policy pour Visual Studio Code](../how-to/extension-for-vscode.md), [Azure Resource Graph](../../resource-graph/samples/starter.md#distinct-alias-values) ou le Kit de développement logiciel (SDK) pour rechercher les alias disponibles. Si l’alias d’une propriété Resource Manager n’existe pas, créez un ticket de support.
+Tout d’abord, vérifiez que la propriété Resource Manager est dotée d’un alias. Utilisez l’[extension Azure Policy pour Visual Studio Code](../how-to/extension-for-vscode.md) ou le Kit de développement logiciel (SDK) pour rechercher les alias disponibles. Si l’alias d’une propriété Resource Manager n’existe pas, créez un ticket de support.
 
 ### <a name="scenario-evaluation-details-not-up-to-date"></a>Scénario : Les détails de l’évaluation ne sont pas à jour
 

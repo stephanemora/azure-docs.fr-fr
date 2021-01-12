@@ -1,14 +1,14 @@
 ---
 title: Découvrez comment auditer le contenu des machines virtuelles
-description: Découvrez comment Azure Policy utilise l’agent Configuration d’invité pour auditer les paramètres à l’intérieur des machines virtuelles.
+description: Découvrez comment Azure Policy utilise le client Guest Configuration pour auditer les paramètres à l’intérieur des machines virtuelles.
 ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7d7aa14038c834747240d17441c61d000ac6bb74
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 58fe1c630de4abfb2fe04ddedb45b360cfebd423
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347878"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97862328"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Comprendre la configuration d’invité d’Azure Policy
 
@@ -58,7 +58,7 @@ Le client de configuration d'invité vérifie le nouveau contenu toutes les 5 m
 
 ## <a name="supported-client-types"></a>Types de clients pris en charge
 
-Les définitions de stratégie Guest Configuration sont incluses dans les nouvelles versions. Les versions antérieures des systèmes d’exploitation disponibles dans la Place de marché Azure sont exclues si l’agent de configuration d’invité n’est pas compatible. Le tableau suivant affiche une liste des systèmes d’exploitation pris en charge sur des images Azure :
+Les définitions de stratégie Guest Configuration sont incluses dans les nouvelles versions. Les versions antérieures des systèmes d’exploitation disponibles dans Place de marché Azure sont exclues si le client Guest Configuration n’est pas compatible. Le tableau suivant affiche une liste des systèmes d’exploitation pris en charge sur des images Azure :
 
 |Serveur de publication|Nom|Versions|
 |-|-|-|

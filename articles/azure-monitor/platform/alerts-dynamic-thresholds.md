@@ -4,13 +4,13 @@ description: Créer des alertes avec des seuils dynamiques basés sur un apprent
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
-ms.date: 02/16/2020
-ms.openlocfilehash: 110d4a3219b4898fa6f138e29f1112d7134f674c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 01/04/2021
+ms.openlocfilehash: 92fafc9357ca08cd31c9ba7badbf7f6433f44f86
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012337"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97862572"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>Alertes de métrique avec seuils dynamiques dans Azure Monitor
 
@@ -39,7 +39,7 @@ Les seuils dynamiques apprennent sans discontinuer les données de la série de 
 Les seuils sont sélectionnés de manière à ce qu’un écart par rapport à ces seuils indique une anomalie dans le comportement de la métrique.
 
 > [!NOTE]
-> La détection des modèles saisonniers est définie sur un intervalle d'une heure, d'un jour ou d'une semaine. Cela signifie que d'autres modèles, bihoraires ou bihebdomadaires par exemple, peuvent ne pas être détectés.
+> Les seuils dynamiques peuvent détecter la saisonnalité des modèles horaires, quotidiens ou hebdomadaires. D’autres modèles comme la saisonnalité bi-horaire ou semi-hebdomadaire peuvent ne pas être détectés. Pour détecter une saisonnalité hebdomadaire, au moins trois semaines de données historiques sont nécessaires. 
 
 ## <a name="what-does-sensitivity-setting-in-dynamic-thresholds-mean"></a>Que signifie le paramètre « Sensibilité » dans les seuils dynamiques ?
 

@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/30/2020
+ms.date: 1/04/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: e0185cc8786dc101375262ddfd187c5d8e7e054f
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 6f95b4eca8dbaf6cfaa7546fddada7577a1541b3
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509561"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916250"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Procédure : Fournir des revendications facultatives à votre application
 
@@ -66,7 +66,7 @@ L’ensemble de revendications facultatives disponible par défaut pour les appl
 | `ztdid`                    | ID de déploiement sans intervention | JWT | | Identité d’appareil utilisée pour [Windows AutoPilot](/windows/deployment/windows-autopilot/windows-10-autopilot) |
 | `email`                    | Adresse e-mail de l'utilisateur, le cas échéant.  | JWT, SAML | MSA, Azure AD | Cette valeur est incluse par défaut si l’utilisateur est un invité du locataire.  Pour les utilisateurs gérés (à l’intérieur du locataire), elle doit être demandée via cette revendication facultative ou, sur la version 2.0 uniquement, avec l’étendue OpenID.  Pour les utilisateurs gérés, l’adresse e-mail doit être définie dans le [portail d’administration Office](https://portal.office.com/adminportal/home#/users).|
 | `acct`                | Statut du compte utilisateur dans le locataire | JWT, SAML | | Si l’utilisateur est membre du client, la valeur est `0`. S’il est un invité, la valeur est `1`. |
-| `groups`| Mise en forme facultative des revendications de groupe |JWT, SAML| |Utilisé conjointement avec le paramètre GroupMembershipClaims dans le [manifeste d’application](reference-app-manifest.md) qui doit également être défini. Pour plus d’informations, voir [Revendications de groupe](#configuring-groups-optional-claims) ci-dessous. Pour plus d’informations sur les revendications de groupe, voir [Comment configurer des revendications de groupe](../hybrid/how-to-connect-fed-group-claims.md)
+| `groups`| Mise en forme facultative des revendications de groupe |JWT, SAML| |Utilisé avec le paramètre GroupMembershipClaims dans le [manifeste de l’application](reference-app-manifest.md) qui doit également être défini. Pour plus d’informations, voir [Revendications de groupe](#configuring-groups-optional-claims) ci-dessous. Pour plus d’informations sur les revendications de groupe, voir [Comment configurer des revendications de groupe](../hybrid/how-to-connect-fed-group-claims.md)
 | `upn`                      | UserPrincipalName | JWT, SAML  |           | Identificateur de l'utilisateur qui peut être utilisé avec le paramètre username_hint.  Il ne s’agit pas d’un identificateur durable pour l’utilisateur et il ne doit pas être utilisé pour identifier de manière unique les informations utilisateur (par exemple, comme clé de base de données). Utilisez plutôt l’ID d’objet utilisateur (`oid`) comme clé de base de données. Les utilisateurs qui se connectent avec un [autre ID de connexion](../authentication/howto-authentication-use-email-signin.md) ne doivent pas voir leur nom d’utilisateur principal (UPN). Utilisez plutôt les revendications de jeton d’ID suivantes pour afficher l’état de connexion à l’utilisateur : `preferred_username` ou `unique_name` pour les jetons v1 et `preferred_username` pour les jetons v2. Bien que cette revendication soit incluse automatiquement, vous pouvez la spécifier en tant que revendication facultative pour attacher des propriétés supplémentaires afin de modifier son comportement en cas d’utilisateur invité.  |
 | `idtyp`                    | Type de jeton   | Jetons d’accès JWT | Spécial : uniquement dans les jetons d’accès à l’application uniquement |  La valeur est `app` lorsque le jeton est un jeton uniquement de l’application. Il s’agit de la façon la plus précise pour une API de déterminer si un jeton est un jeton d’application ou un jeton d’application + un jeton d’utilisateur.|
 
@@ -85,7 +85,17 @@ Ces revendications sont toujours incluses dans les jetons Azure AD v1.0, mais pa
 | `in_corp`     | Dans le périmètre du réseau d’entreprise        | Indique si le client se connecte à partir du réseau d’entreprise. Dans le cas contraire, la revendication n’est pas incluse.   |  Basé sur les [adresses IP approuvées](../authentication/howto-mfa-mfasettings.md#trusted-ips) définies dans MFA.    |
 | `family_name` | Nom                       | Fournit le nom de famille de l’utilisateur, tel que défini sur l’objet utilisateur. <br>"family_name":"Miller" | Pris en charge dans MSA et Azure AD. Nécessite l’étendue `profile`.   |
 | `given_name`  | Prénom                      | Fournit le prénom de l’utilisateur, tel que défini sur l’objet utilisateur.<br>"given_name": "Frank"                   | Pris en charge dans MSA et Azure AD.  Nécessite l’étendue `profile`. |
-| `upn`         | Nom d’utilisateur principal | Identificateur de l'utilisateur qui peut être utilisé avec le paramètre username_hint.  Il ne s’agit pas d’un identificateur durable pour l’utilisateur et il ne doit pas être utilisé pour identifier de manière unique les informations utilisateur (par exemple, comme clé de base de données). Utilisez plutôt l’ID d’objet utilisateur (`oid`) comme clé de base de données. Les utilisateurs qui se connectent avec un [autre ID de connexion](../authentication/howto-authentication-use-email-signin.md) ne doivent pas voir leur nom d’utilisateur principal (UPN). Utilisez plutôt les revendications de jeton d’ID suivantes pour afficher l’état de connexion à l’utilisateur : `preferred_username` ou `unique_name` pour les jetons v1 et `preferred_username` pour les jetons v2. | Consultez les [propriétés supplémentaires](#additional-properties-of-optional-claims) ci-dessous pour en savoir plus sur la configuration de la revendication. Nécessite l’étendue `profile`.|
+| `upn`         | Nom d’utilisateur principal | Identificateur de l'utilisateur qui peut être utilisé avec le paramètre username_hint.  Il ne s’agit pas d’un identificateur durable pour l’utilisateur et il ne doit pas être utilisé pour identifier de manière unique les informations utilisateur (par exemple, comme clé de base de données). Utilisez plutôt l’ID d’objet utilisateur (`oid`) comme clé de base de données. Les utilisateurs qui se connectent avec un [autre ID de connexion](../authentication/howto-authentication-use-email-signin.md) ne doivent pas voir leur nom d’utilisateur principal (UPN). Utilisez plutôt la revendication `preferred_username` suivante pour indiquer l’état de connexion à l’utilisateur. | Consultez les [propriétés supplémentaires](#additional-properties-of-optional-claims) ci-dessous pour en savoir plus sur la configuration de la revendication. Nécessite l’étendue `profile`.|
+
+
+**Tableau 4 : Revendications facultatives propres à la v1.0**
+
+Certaines des améliorations apportées au format de jeton v2 sont disponibles pour les applications qui utilisent le format de jeton v1, car elles contribuent à développer la sécurité et la fiabilité. Elles ne sont prises en compte ni pour les jetons d’ID demandés par le point de terminaison v2, ni pour les jetons d’accès des API qui appliquent le format de jeton v2. 
+
+| Revendication JWT     | Nom                            | Description | Notes |
+|---------------|---------------------------------|-------------|-------|
+|`aud`          | Public visé | Toujours présente dans les jetons JWT. Dans les jetons d’accès v1 cependant, elle peut être émise de différentes façons, ce qui peut être difficile à coder lors de l’exécution de la validation du jeton.  Utilisez les [propriétés supplémentaires de cette revendication](#additional-properties-of-optional-claims) pour qu’elle soit toujours définie sur un GUID dans les jetons d’accès v1. | Jetons d’accès JWT v1 uniquement|
+|`preferred_username` | Nom d’utilisateur par défaut        | Indique la revendication de nom d’utilisateur par défaut dans les jetons v1. Les applications peuvent ainsi fournir plus facilement des indications de nom d’utilisateur et présenter des noms d’affichage lisibles par les utilisateurs, quel que soit leur type de jeton.  Il est recommandé d’utiliser cette revendication facultative au lieu de, par exemple, `upn` ou `unique_name`. | Jetons d’ID et jetons d’accès v1 |
 
 ### <a name="additional-properties-of-optional-claims"></a>Propriétés supplémentaires des revendications facultatives
 
@@ -97,7 +107,9 @@ Certaines revendications facultatives peuvent être configurées pour modifier l
 |----------------|--------------------------|-------------|
 | `upn`          |                          | Peut être utilisée pour les réponses SAML et JWT, ainsi que pour les jetons v1.0 et v2.0. |
 |                | `include_externally_authenticated_upn`  | Inclut l’UPN de l’invité tel que stocké dans le locataire de ressource. Par exemple : `foo_hometenant.com#EXT#@resourcetenant.com` |
-|                | `include_externally_authenticated_upn_without_hash` | Comme ci-dessus, sauf que les signes dièse (`#`) sont remplacés par des traits de soulignement (`_`), par exemple `foo_hometenant.com_EXT_@resourcetenant.com`. |
+|                | `include_externally_authenticated_upn_without_hash` | Comme ci-dessus, sauf que les signes dièse (`#`) sont remplacés par des traits de soulignement (`_`), par exemple `foo_hometenant.com_EXT_@resourcetenant.com`.|
+| `aud`          |                          | Dans les jetons d’accès v1, permet de modifier le format de la revendication `aud`.  Elle n’a aucun effet dans les jetons v2 et les jetons d’ID, où la revendication `aud` correspond toujours à l’ID client. Utilisez-la pour que votre API puisse effectuer plus facilement la validation de l’audience. À l’instar de toutes les revendications facultatives qui affectent le jeton d’accès, la ressource indiquée dans la demande doit définir cette revendication facultative. Ce sont en effet les ressources qui possèdent le jeton d’accès.|
+|                | `use_guid`               | Émet l’ID client de la ressource (API) au format GUID sous forme de revendication `aud` au lieu d’un URI ou d’un GUID appid. Par conséquent, si l’ID client d’une ressource est `bb0a297b-6a42-4a55-ac40-09a501456577`, toute application qui demande un jeton d’accès pour cette ressource reçoit un jeton d’accès avec `aud` : `bb0a297b-6a42-4a55-ac40-09a501456577`.|
 
 #### <a name="additional-properties-example"></a>Exemple de propriétés supplémentaires
 

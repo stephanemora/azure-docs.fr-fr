@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.subservice: logs
-ms.openlocfilehash: 950fcdc5cd6a5bbf3fa61ebd5e23be89691c4370
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 29e50a5c9b306d0e4491852fd08ecdf73026ebc2
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95535790"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882243"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Créer des paramètres de diagnostic pour envoyer des journaux et des métriques de plateforme à différentes destinations
 Les [journaux de plateforme](platform-logs-overview.md) dans Azure, y compris le journal d’activité Azure et les journaux de ressources, fournissent des informations de diagnostic et d’audit détaillées pour les ressources Azure et la plateforme Azure dont elles dépendent. Les [métriques de plateforme](data-platform-metrics.md) sont collectées par défaut et généralement stockées dans la base de données de métriques Azure Monitor. Cet article fournit des détails sur la création et la configuration de paramètres de diagnostic pour envoyer les journaux de plateforme et les métriques de plateforme vers différentes destinations.
@@ -34,7 +34,7 @@ La vidéo suivante vous guide dans l’acheminement des journaux de plateforme a
 > Les [métriques de plateforme](metrics-supported.md) sont envoyées automatiquement vers les [métriques Azure Monitor](data-platform-metrics.md). Vous pouvez utiliser des paramètres de diagnostic pour envoyer des métriques pour certains services Azure vers des journaux Azure Monitor à des fins d’analyse avec d’autres données de supervision en utilisant des [requêtes de journal](../log-query/log-query-overview.md) dans certaines limites. 
 >  
 >  
-> L’envoi de métriques multidimensionnelles via les paramètres de diagnostic n’est pas pris en charge actuellement. Les métriques à plusieurs dimensions sont exportées en tant que métriques dimensionnelles uniques aplaties, puis agrégées dans les valeurs de la dimension. *Par exemple* : La métrique « IOReadBytes » sur un blockchain peut être explorée et représentée sur un graphique par niveau de nœud. Toutefois, lorsque la métrique est exportée par le biais de paramètres de diagnostic, elle représente tous les octets lus pour tous les nœuds. En outre, en raison de limitations internes, certaines métriques ne sont pas exportables vers des journaux Azure Monitor ou Log Analytics. Pour plus d’informations, consultez la [liste des mesures exportables](metrics-supported-export-diagnostic-settings.md). 
+> L’envoi de métriques multidimensionnelles via les paramètres de diagnostic n’est pas pris en charge actuellement. Les métriques à plusieurs dimensions sont exportées en tant que métriques dimensionnelles uniques aplaties, puis agrégées dans les valeurs de la dimension. *Par exemple* : la métrique « IOReadBytes » sur un blockchain peut être explorée et représentée sur un graphique par niveau de nœud. Toutefois, lorsque la métrique est exportée par le biais de paramètres de diagnostic, elle représente tous les octets lus pour tous les nœuds. En outre, en raison de limitations internes, certaines métriques ne sont pas exportables vers des journaux Azure Monitor ou Log Analytics. Pour plus d’informations, consultez la [liste des mesures exportables](metrics-supported-export-diagnostic-settings.md). 
 >  
 >  
 > Pour contourner ces limitations pour des mesures spécifiques, nous vous suggérons d’extraire celles-ci manuellement à l’aide de l’[API REST Métriques](/rest/api/monitor/metrics/list) et de les importer dans des journaux Azure Monitor à l’aide de l’[API Collecteur de données d’Azure Monitor](data-collector-api.md).  

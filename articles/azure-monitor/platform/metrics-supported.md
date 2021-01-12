@@ -4,15 +4,15 @@ description: Liste des métriques disponibles pour chaque type de ressource avec
 author: rboucher
 services: azure-monitor
 ms.topic: reference
-ms.date: 12/09/2020
+ms.date: 01/04/2021
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: 04f6cdae8a7601f94251516cf5c3c1fab07994a6
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 54ef00d32cea26a41581fc0bbd89d2be34919c02
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96929104"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883025"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métriques prises en charge avec Azure Monitor
 
@@ -618,8 +618,8 @@ Pour obtenir des informations complémentaires importantes, consultez [Vue d’e
 
 |Métrique|Exportable par le biais des paramètres de diagnostic ?|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|Crédits de processeur consommés|Oui|Crédits de processeur consommés|Count|Average|Nombre total de crédits consommés par la machine virtuelle|Aucune dimension|
-|Crédits de processeurs restants|Oui|Crédits de processeurs restants|Count|Average|Nombre total de crédits pouvant être consommés|Aucune dimension|
+|Crédits de processeur consommés|Oui|Crédits de processeur consommés|Count|Average|Nombre total de crédits consommés par la machine virtuelle. Disponible uniquement sur les [machines virtuelles extensibles de la série B](../../virtual-machines/sizes-b-series-burstable.md). Consultez |Aucune dimension|
+|Crédits de processeurs restants|Oui|Crédits de processeurs restants|Count|Average|Nombre total de crédits pouvant être consommés. Disponible uniquement sur les [machines virtuelles extensibles de la série B](../../virtual-machines/sizes-b-series-burstable.md).|Aucune dimension|
 |Pourcentage de bande passante du disque de données consommée|Oui|Pourcentage de bande passante du disque de données consommée|Pourcentage|Average|Pourcentage de bande passante du disque de données consommée|Numéro d'unité logique|
 |Pourcentage d’IOPS du disque de données consommées|Oui|Pourcentage d’IOPS du disque de données consommées|Pourcentage|Average|Pourcentage d'E/S de disque de données consommées par minute|Numéro d'unité logique|
 |Longueur de file d’attente du disque de données|Oui|Longueur de file d’attente du disque de données (préversion)|Count|Average|Longueur de file d’attente (ou QD) du disque de données|Numéro d'unité logique|
@@ -671,8 +671,8 @@ Pour obtenir des informations complémentaires importantes, consultez [Vue d’e
 
 |Métrique|Exportable par le biais des paramètres de diagnostic ?|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|Crédits de processeur consommés|Oui|Crédits de processeur consommés|Count|Average|Nombre total de crédits consommés par la machine virtuelle|Aucune dimension|
-|Crédits de processeurs restants|Oui|Crédits de processeurs restants|Count|Average|Nombre total de crédits pouvant être consommés|Aucune dimension|
+|Crédits de processeur consommés|Oui|Crédits de processeur consommés|Count|Average|Nombre total de crédits consommés par la machine virtuelle. Disponible uniquement sur les [machines virtuelles extensibles de la série B](../../virtual-machines/sizes-b-series-burstable.md).|Aucune dimension|
+|Crédits de processeurs restants|Oui|Crédits de processeurs restants|Count|Average|Nombre total de crédits pouvant être consommés. Disponible uniquement sur les [machines virtuelles extensibles de la série B](../../virtual-machines/sizes-b-series-burstable.md).|Aucune dimension|
 |Longueur de file d’attente du disque de données|Oui|Longueur de file d’attente du disque de données (préversion)|Count|Average|Longueur de file d’attente (ou QD) du disque de données|Numéro d'unité logique, VMName|
 |Octets lus/s sur disque de données|Oui|Octets lus/s sur disque de données (préversion)|CountPerSecond|Average|Octets/s lus sur un seul disque pendant la période d'analyse|Numéro d'unité logique, VMName|
 |Opérations de lecture/s sur disque de données|Oui|Opérations de lecture/s sur disque de données (préversion)|CountPerSecond|Average|IOPS en lecture effectuées sur un seul disque pendant la période d'analyse|Numéro d'unité logique, VMName|

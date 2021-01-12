@@ -3,14 +3,14 @@ title: Supprimer des machines virtuelles d’Azure Automation Update Management
 description: Cet article explique comment supprimer des machines gérées avec Update Management.
 services: automation
 ms.topic: conceptual
-ms.date: 09/09/2020
+ms.date: 01/05/2021
 ms.custom: mvc
-ms.openlocfilehash: 774dbe29cbb6b4d063d3619d0c710efb1949b99a
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: d0399aed9be8d81abb2aa55190225570ddcc1a4e
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92221564"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97913190"
 ---
 # <a name="remove-vms-from-update-management"></a>Supprimer des machines virtuelles d’Update Management
 
@@ -32,13 +32,20 @@ Connectez-vous au [portail Azure](https://portal.azure.com).
 
 3. Dans le portail Azure, accédez à **Espaces de travail Log Analytics**. Sélectionnez votre espace de travail dans la liste.
 
-4. Dans votre espace de travail Log Analytics, sélectionnez **Journaux** puis, dans le menu d’actions en haut, choisissez **Explorateur de requêtes**.
+4. Dans votre espace de travail Log Analytics, sélectionnez **Paramètres avancés** puis sélectionnez **Groupes d’ordinateurs** dans le menu de gauche.
 
-5. Dans **Explorateur de requêtes** dans le volet de droite, développez **Requêtes enregistrées/Mises à jour** et sélectionnez la requête de recherche enregistrée `MicrosoftDefaultComputerGroup` pour la modifier.
+5. À partir de **Groupes d’ordinateurs** dans le volet de droite, sélectionnez **Groupes sauvegardés**.
 
-6. Dans l’éditeur de requêtes, passez en revue la requête et recherchez l’UUID de la machine virtuelle. Supprimez l’UUID de la machine virtuelle et répétez les étapes pour toutes les machines virtuelles que vous souhaitez supprimer.
+6. Dans le tableau, pour la requête de recherche enregistrée **Updates:MicrosoftDefaultComputerGroup**, cliquez sur l’icône **Afficher les membres** pour lancer l’exécution et voir ses membres.
 
-7. Sauvegardez la recherche enregistrée une fois que vous avez fini de la modifier en sélectionnant **Enregistrer** dans la barre supérieure.
+7. Dans l’éditeur de requêtes, passez en revue la requête et recherchez l’UUID de la machine virtuelle. Supprimez l’UUID de la machine virtuelle et répétez les étapes pour toutes les machines virtuelles que vous souhaitez supprimer.
+
+8. Sauvegardez la recherche enregistrée une fois que vous avez fini de la modifier en sélectionnant **Enregistrer** dans la barre supérieure. Lorsque vous y êtes invité, spécifiez les éléments suivants :
+
+    * **Nom** : MicrosoftDefaultComputerGroup
+    * **Enregistrer sous** : Fonction
+    * **Alias** : Updates__MicrosoftDefaultComputerGroup
+    * **Catégorie** : Mises à jour
 
 >[!NOTE]
 >Les machines s’affichent toujours une fois que vous les avez désinscrites, car nous effectuons des rapports pour toutes les machines évaluées au cours des dernières 24 heures. Une fois la machine supprimée, vous devez attendre 24 heures avant qu’elle ne soit plus listée.

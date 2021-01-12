@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/28/2019
 ms.author: cshoe
-ms.openlocfilehash: 1446808b77e5eea78a9912db4c7a8e2dd783f33a
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 9e60fd9a20720d75f96a0b78ee783bd5509a8f90
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104374"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97763487"
 ---
 # <a name="signalr-service-bindings-for-azure-functions"></a>Liaisons de service SignalR pour Azure Functions
 
@@ -18,6 +18,7 @@ Cet ensemble d’articles explique comment authentifier et envoyer des messages 
 
 | Action | Type |
 |---------|---------|
+| Prendre en charge les messages de SignalR Service | [Liaison de déclencheur](./functions-bindings-signalr-service-trigger.md) |
 | Retourner l’URL du point de terminaison de service et le jeton d’accès | [Liaison d’entrée](./functions-bindings-signalr-service-input.md) |
 | Envoyer des messages SignalR Service |[Liaison de sortie](./functions-bindings-signalr-service-output.md) |
 
@@ -55,5 +56,6 @@ Pour utiliser les annotations SignalR Service dans les fonctions Java, vous deve
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+- [Prendre en charge les messages de SignalR Service (liaison de déclencheur)](./functions-bindings-signalr-service-trigger.md)
 - [Retourner l’URL du point de terminaison de service et le jeton d’accès (Liaison d’entrée)](./functions-bindings-signalr-service-input.md)
 - [Envoyer des messages SignalR Service (Liaison de sortie)](./functions-bindings-signalr-service-output.md)

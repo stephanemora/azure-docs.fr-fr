@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: bonova, sstein
-ms.date: 11/10/2020
-ms.openlocfilehash: b40f618b65af6fd7a6d283431aaf63c2cc1dcd1a
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.reviewer: bonova, sstein, danil
+ms.date: 12/25/2020
+ms.openlocfilehash: 7bdde57c1d33118fd7d3c8e04a2507d8997c36d0
+ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368458"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97809511"
 ---
 # <a name="features-comparison-azure-sql-database-and-azure-sql-managed-instance"></a>Comparaison des fonctionnalités : Azure SQL Database et Azure SQL Managed Instance
 
@@ -51,7 +51,7 @@ Le tableau suivant répertorie les principales fonctionnalités de SQL Server et
 | [Classement - serveur/instance](/sql/relational-databases/collations/set-or-change-the-server-collation) | Non, par défaut, le classement du serveur `SQL_Latin1_General_CP1_CI_AS` est toujours utilisé. | Oui, peut être défini lorsque l’[instance est créée](../managed-instance/scripts/create-powershell-azure-resource-manager-template.md), mais pas mis à jour ultérieurement. |
 | [Index Columnstore](/sql/relational-databases/indexes/columnstore-indexes-overview) | Oui - [niveau Premium, niveau Standard - S3 et supérieur, niveau Usage général, et niveaux Critique pour l’entreprise et HyperScale](/sql/relational-databases/indexes/columnstore-indexes-overview) |Oui |
 | [Common Language Runtime – CLR](/sql/relational-databases/clr-integration/common-language-runtime-clr-integration-programming-concepts) | Non | Oui, mais sans accès au système de fichiers dans l'instruction `CREATE ASSEMBLY` - Voir [Différences entre CLR](../managed-instance/transact-sql-tsql-differences-sql-server.md#clr) |
-| [Informations d'identification](/sql/relational-databases/security/authentication-access/credentials-database-engine) | Oui, mais les [informations d’identification de la base de données](/sql/t-sql/statements/create-database-scoped-credential-transact-sql) uniquement. | Oui, mais seuls **Azure Key Vault** et `SHARED ACCESS SIGNATURE` sont pris en charge - voir [Détails](../managed-instance/transact-sql-tsql-differences-sql-server.md#credential) |
+| [Informations d'identification](/sql/relational-databases/security/authentication-access/credentials-database-engine) | Oui, mais les [informations d’identification de la base de données](/sql/t-sql/statements/create-database-scoped-credential-transact-sql) uniquement. | Oui, mais seuls **Azure Key Vault** et `SHARED ACCESS SIGNATURE` sont pris en charge. Voir [Détails](../managed-instance/transact-sql-tsql-differences-sql-server.md#credential). |
 | [Requêtes de noms entre plusieurs bases de données/en trois parties](/sql/relational-databases/linked-servers/linked-servers-database-engine) | Non - voir [Requêtes élastiques](elastic-query-overview.md) | Oui, plus [Requêtes élastiques](elastic-query-overview.md) |
 | [Transactions entre bases de données](/sql/relational-databases/linked-servers/linked-servers-database-engine) | Non | Oui, dans l’instance. Voir [Différences entre serveurs liés](../managed-instance/transact-sql-tsql-differences-sql-server.md#linked-servers) pour les requêtes entre instances. |
 | [Database mail – DbMail](/sql/relational-databases/database-mail/database-mail) | Non | Oui |
@@ -64,6 +64,7 @@ Le tableau suivant répertorie les principales fonctionnalités de SQL Server et
 | [Transactions distribuées - MS DTC](/sql/relational-databases/native-client-ole-db-transactions/supporting-distributed-transactions) | Non - voir [Transactions élastiques](elastic-transactions-overview.md) |  Non - voir [Différences entre serveurs liés](../managed-instance/transact-sql-tsql-differences-sql-server.md#linked-servers) Essayez de consolider des bases de données de plusieurs instances SQL Server distribuées dans une seule instance gérée SQL pendant une migration. |
 | [Déclencheurs DML](/sql/relational-databases/triggers/create-dml-triggers) | La plupart - voir Instructions individuelles |  Oui |
 | [DMV](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) | La plupart - voir DMV individuels |  Oui - voir [Différences de T-SQL](../managed-instance/transact-sql-tsql-differences-sql-server.md) |
+| [Requête élastique](elastic-query-overview.md) (en préversion publique) | Oui, avec le type de SGBDR requis. | Oui, avec le type de SGBDR requis. |
 | [Notifications d’événement](/sql/relational-databases/service-broker/event-notifications) | Non - voir [Alertes](alerts-insights-configure-portal.md) | Non |
 | [Expressions](/sql/t-sql/language-elements/expressions-transact-sql) |Oui | Oui |
 | [Événements étendus (XEvent)](/sql/relational-databases/extended-events/extended-events) | Certains - voir [Événements étendus dans SQL Database](xevent-db-diff-from-svr.md) | Oui - voir [Différences des événements étendus](../managed-instance/transact-sql-tsql-differences-sql-server.md#extended-events) |
@@ -127,6 +128,7 @@ La plateforme Azure fournit un certain nombre de fonctionnalités PaaS qui sont 
 | [Azure Resource Health](../../service-health/resource-health-overview.md) | Oui | Non |
 | Rétention des sauvegardes | Oui. 7 jours par défaut, maximum 35 jours. | Oui. 7 jours par défaut, maximum 35 jours. |
 | [Service de migration de données (DMS)](/sql/dma/dma-overview) | Oui | Oui |
+| [Tâches élastiques](elastic-jobs-overview.md) | Oui, voir [Travaux élastiques (préversion)](elastic-jobs-overview.md). | Non ([SQL Agent](../managed-instance/transact-sql-tsql-differences-sql-server.md#sql-server-agent) peut être utilisé à la place). |
 | Accès au système de fichiers | Non. Utilisez [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) ou [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#i-accessing-data-from-a-file-stored-on-azure-blob-storage) pour accéder à des données et les charger à partir d'un Stockage Blob Azure en alternative. | Non. Utilisez [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) ou [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#i-accessing-data-from-a-file-stored-on-azure-blob-storage) pour accéder à des données et les charger à partir d'un Stockage Blob Azure en alternative. |
 | [Géorestauration](recovery-using-backups.md#geo-restore) | Oui | Oui |
 | [Architecture Hyperscale](service-tier-hyperscale.md) | Oui | Non |
@@ -146,7 +148,7 @@ La plateforme Azure fournit un certain nombre de fonctionnalités PaaS qui sont 
 | [Query Performance Insights (QPI)](query-performance-insight-use.md) | Oui | Non. Utilisez des rapports intégrés dans SQL Server Management Studio et Azure Data Studio. |
 | [Réseau virtuel](../../virtual-network/virtual-networks-overview.md) | Partielle, elle permet un accès restreint à l’aide de [points de terminaison VNet](vnet-service-endpoint-rule-overview.md) | Oui, SQL Managed Instance est injecté dans le réseau virtuel du client. Voir le [sous-réseau](../managed-instance/transact-sql-tsql-differences-sql-server.md#subnet) et le [réseau virtuel](../managed-instance/transact-sql-tsql-differences-sql-server.md#vnet) |
 | Point de terminaison de service de réseau virtuel | [Oui](vnet-service-endpoint-rule-overview.md) | Non |
-| Peering mondial de réseau virtuel | Oui, en utilisant [une adresse IP et des points de terminaison de service privés](vnet-service-endpoint-rule-overview.md) | Non, [SQL Managed Instance n’est pas pris en charge](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) en raison d’une [contrainte d’équilibreur de charge dans le peering mondial de réseau virtuel ](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints).
+| Peering mondial de réseau virtuel | Oui, en utilisant [une adresse IP et des points de terminaison de service privés](vnet-service-endpoint-rule-overview.md) | Oui, en utilisant l’[appairage de réseaux virtuels](https://techcommunity.microsoft.com/t5/azure-sql/new-feature-global-vnet-peering-support-for-azure-sql-managed/ba-p/1746913). |
 
 ## <a name="tools"></a>Outils
 

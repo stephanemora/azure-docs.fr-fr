@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: 8bffe0c3871eae12f3b875a96301136d11dfc516
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 4e87e99f16a89cab95f9bd07b75b80f1c13d47f1
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92783791"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900652"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guide de résolution des problèmes de l’Explorateur de stockage Azure
 
@@ -23,7 +23,7 @@ Ce guide résume les solutions aux problèmes couramment rencontrés dans l’Ex
 
 ## <a name="azure-rbac-permissions-issues"></a>Problèmes d’autorisations Azure RBAC
 
-Le [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../role-based-access-control/overview.md) permet une gestion d’accès très précise pour les ressources Azure en combinant des jeux d’autorisations dans des _rôles_ . Voici quelques stratégies permettant d’optimiser le fonctionnement d’Azure RBAC dans Explorateur Stockage.
+Le [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../role-based-access-control/overview.md) permet une gestion d’accès très précise pour les ressources Azure en combinant des jeux d’autorisations dans des _rôles_. Voici quelques stratégies permettant d’optimiser le fonctionnement d’Azure RBAC dans Explorateur Stockage.
 
 ### <a name="how-do-i-access-my-resources-in-storage-explorer"></a>Comment accéder à mes ressources dans l’Explorateur Stockage ?
 
@@ -35,18 +35,18 @@ Vous devez être autorisé à lister les comptes de stockage. Pour obtenir cette
 
 #### <a name="list-storage-account-keys"></a>Répertorier les clés de compte de stockage
 
-L’Explorateur Stockage peut également utiliser des clés de compte pour authentifier les requêtes. Vous pouvez accéder aux clés de compte par le biais de rôles plus puissants, comme le rôle _Contributeur_ .
+L’Explorateur Stockage peut également utiliser des clés de compte pour authentifier les requêtes. Vous pouvez accéder aux clés de compte par le biais de rôles plus puissants, comme le rôle _Contributeur_.
 
 > [!NOTE]
 > Les clés d’accès accordent des autorisations illimitées à toute personne qui les détient. Par conséquent, nous vous déconseillons de transmettre ces clés aux utilisateurs du compte. Si vous devez révoquer des clés d’accès, vous pouvez les regénérer à partir du [portail Azure](https://portal.azure.com/).
 
 #### <a name="data-roles"></a>Rôles de données
 
-Vous devez disposer d’au moins un rôle qui accorde l’accès en lecture aux données à partir des ressources. Par exemple, si vous voulez lister ou télécharger des objets blob, vous devez au moins détenir le rôle _Lecteur des données Blob du stockage_ .
+Vous devez disposer d’au moins un rôle qui accorde l’accès en lecture aux données à partir des ressources. Par exemple, si vous voulez lister ou télécharger des objets blob, vous devez au moins détenir le rôle _Lecteur des données Blob du stockage_.
 
 ### <a name="why-do-i-need-a-management-layer-role-to-see-my-resources-in-storage-explorer"></a>Pourquoi ai-je besoin d’un rôle d’accès à la couche de gestion pour voir mes ressources dans l’Explorateur Stockage ?
 
-Le stockage Azure présente deux couches d’accès : _gestion_ et _données_ . Les abonnements et les comptes de stockage sont accessibles via la couche de gestion. Les conteneurs, objets blob et autres ressources de données sont accessibles via la couche de données. Par exemple, si vous souhaitez obtenir la liste de vos comptes de stockage depuis Azure, vous devez envoyer une requête au point de terminaison de gestion. Si vous voulez consulter la liste des conteneurs d’objets blob dans un compte, vous envoyez une requête au point de terminaison du service approprié.
+Le stockage Azure présente deux couches d’accès : _gestion_ et _données_. Les abonnements et les comptes de stockage sont accessibles via la couche de gestion. Les conteneurs, objets blob et autres ressources de données sont accessibles via la couche de données. Par exemple, si vous souhaitez obtenir la liste de vos comptes de stockage depuis Azure, vous devez envoyer une requête au point de terminaison de gestion. Si vous voulez consulter la liste des conteneurs d’objets blob dans un compte, vous envoyez une requête au point de terminaison du service approprié.
 
 Les rôles Azure peuvent vous octroyer des autorisations d’accès à ces couches de données ou de gestion. Le rôle Lecteur vous accorde, par exemple, un accès en lecture seule aux ressources de la couche de gestion.
 
@@ -61,34 +61,37 @@ Si vous ne disposez d’un rôle qui accorde une autorisation d’accès à la c
 Si vous souhaitez accéder à des files d’attente ou des conteneurs d’objets BLOB, vous pouvez les attacher à ces ressources à l’aide de vos informations d’identification Azure.
 
 1. Ouvrez la boîte de dialogue de connexion.
-2. Sélectionnez Ajouter une ressource via Azure Active Directory (Azure AD). Cliquez sur Suivant.
-3. Sélectionnez le compte d’utilisateur et le locataire associés à la ressource à laquelle vous effectuez l’attachement. Cliquez sur Suivant.
-4. Sélectionnez le type de ressource, entrez l’URL de la ressource, puis entrez un nom d’affichage unique pour la connexion. Cliquez sur Suivant. Cliquez sur Se connecter.
+2. Sélectionnez « Ajouter une ressource avec Azure Active Directory (Azure AD) ». Sélectionnez Suivant.
+3. Sélectionnez le compte d’utilisateur et le locataire associés à la ressource à laquelle vous effectuez l’attachement. Sélectionnez Suivant.
+4. Sélectionnez le type de ressource, entrez l’URL de la ressource, puis entrez un nom d’affichage unique pour la connexion. Sélectionnez Suivant, puis Se connecter.
 
 Pour les autres types de ressource, nous n’avons actuellement pas de solution liée à Azure RBAC. En guise de moyen de contournement, vous pouvez demander un URI SAP à [attacher à votre ressource](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=linux#use-a-shared-access-signature-uri).
 
 ### <a name="recommended-azure-built-in-roles"></a>Rôles intégrés Azure recommandés
 
 Il existe plusieurs rôles Azure intégrés qui peuvent fournir les autorisations nécessaires pour utiliser l’Explorateur Stockage. Certains de ces rôles sont les suivants :
-- [Propriétaire](../../role-based-access-control/built-in-roles.md#owner) : Gérez tout, notamment l’accès aux ressources. **Remarque**  : Ce rôle vous donne accès aux clés.
-- [Collaborateur](../../role-based-access-control/built-in-roles.md#contributor) : Gérez tout, à l’exception de l’accès aux ressources. **Remarque**  : Ce rôle vous donne accès aux clés.
-- [Lecteur](../../role-based-access-control/built-in-roles.md#reader) : Lisez et listez les ressources.
-- [Contributeur de compte de stockage](../../role-based-access-control/built-in-roles.md#storage-account-contributor) : Gérez en totalité les comptes de stockage. **Remarque**  : Ce rôle vous donne accès aux clés.
-- [Propriétaire des données Blob du stockage](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) : Ayez un accès total aux données et conteneurs d’objets blob du Stockage Azure.
-- [Contributeur aux données Blob du stockage](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) : Lire, écrire et supprimer des conteneurs et objets blob du stockage Azure.
-- [Lecteur des données blob du stockage](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader) : Lire et répertorier des conteneurs et objets blob du stockage Azure.
+- [Propriétaire](/azure/role-based-access-control/built-in-roles#owner) : Gérez tout, notamment l’accès aux ressources.
+- [Collaborateur](/azure/role-based-access-control/built-in-roles#contributor) : Gérez tout, à l’exception de l’accès aux ressources.
+- [Lecteur](/azure/role-based-access-control/built-in-roles#reader) : Lisez et listez les ressources.
+- [Contributeur de compte de stockage](/azure/role-based-access-control/built-in-roles#storage-account-contributor) : Gérez en totalité les comptes de stockage.
+- [Propriétaire des données Blob du stockage](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) : Ayez un accès total aux données et conteneurs d’objets blob du Stockage Azure.
+- [Contributeur aux données Blob du stockage](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) : Lire, écrire et supprimer des conteneurs et objets blob du stockage Azure.
+- [Lecteur des données blob du stockage](/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) : Lire et répertorier des conteneurs et objets blob du stockage Azure.
+
+> [!NOTE]
+> Les rôles Propriétaire, Contributeur et Contributeur de compte de stockage donnent accès à la clé de compte.
 
 ## <a name="error-self-signed-certificate-in-certificate-chain-and-similar-errors"></a>Erreur : Certificat auto-signé dans la chaîne de certificats (et erreurs similaires)
 
 Les erreurs de certificat se produisent généralement dans l’une des situations suivantes :
 
-- L’application est connectée via un _proxy transparent_ , ce qui signifie qu’un serveur (par exemple, le serveur de votre société) intercepte le trafic HTTPS, le déchiffre, puis le chiffre à l’aide d’un certificat auto-signé.
+- L’application est connectée via un _proxy transparent_, ce qui signifie qu’un serveur (par exemple, le serveur de votre société) intercepte le trafic HTTPS, le déchiffre, puis le chiffre à l’aide d’un certificat auto-signé.
 - Vous exécutez une application qui injecte un certificat TLS/SSL auto-signé dans les messages HTTPS que vous recevez. Les antivirus et les logiciels d’inspection du trafic réseau sont des exemples de ce type d’application.
 
 Quand l’Explorateur Stockage voit un certificat auto-signé ou non approuvé, il ne sait plus si le message HTTPS reçu a été modifié. Si vous avez une copie du certificat auto-signé, vous pouvez donner instruction à l’Explorateur Stockage de lui faire confiance en effectuant les étapes suivantes :
 
 1. Obtenez une copie X.509 encodée en base 64 du certificat (.cer).
-2. Accédez à **Modifier** > **Certificats SSL** > **Importer les certificats** , puis utilisez le sélecteur de fichiers pour rechercher, sélectionner et ouvrir le fichier .cer.
+2. Accédez à **Modifier** > **Certificats SSL** > **Importer les certificats**, puis utilisez le sélecteur de fichiers pour rechercher, sélectionner et ouvrir le fichier .cer.
 
 Ce problème peut aussi se produire s’il existe plusieurs certificats (racine et intermédiaire). Pour corriger cette erreur, les deux certificats doivent être ajoutés.
 
@@ -98,12 +101,12 @@ Si vous ne savez pas d’où provient le certificat, déterminez-le en suivant c
     * [Windows](https://slproweb.com/products/Win32OpenSSL.html) : n’importe quelle version légère devrait suffire.
     * Mac et Linux : normalement fourni avec votre système d’exploitation.
 2. Exécutez OpenSSL.
-    * Windows : ouvrez le répertoire d’installation, sélectionnez **/bin/** , puis double-cliquez sur **openssl.exe** .
+    * Windows : ouvrez le répertoire d’installation, sélectionnez **/bin/** , puis double-cliquez sur **openssl.exe**.
     * Mac et Linux : exécutez `openssl` à partir d’un terminal.
 3. Exécutez `s_client -showcerts -connect microsoft.com:443`.
 4. Recherchez les certificats auto-signés. Si vous ne parvenez pas à identifier les certificats auto-signés avec certitude, notez les endroits où le sujet `("s:")` et l’émetteur `("i:")` sont identiques.
 5. Chaque fois que vous trouvez un certificat auto-signé, copiez et collez tout ce qui compris entre `-----BEGIN CERTIFICATE-----` et `-----END CERTIFICATE-----` dans un nouveau fichier .cer.
-6. Ouvrez l’Explorateur Stockage, puis accédez à **Modifier** > **Certificats SSL** > **Importer des certificats** . Servez-vous ensuite du sélecteur de fichiers pour rechercher, sélectionner et ouvrir les fichiers .cer que vous avez créés.
+6. Ouvrez l’Explorateur Stockage, puis accédez à **Modifier** > **Certificats SSL** > **Importer des certificats**. Servez-vous ensuite du sélecteur de fichiers pour rechercher, sélectionner et ouvrir les fichiers .cer que vous avez créés.
 
 Si vous ne trouvez aucun certificat auto-signé en suivant ces étapes, contactez-nous via l’outil de commentaires. Vous pouvez aussi ouvrir l’Explorateur Stockage à partir de la ligne de commande en utilisant l’indicateur `--ignore-certificate-errors`. Quand il est ouvert avec cet indicateur, l’Explorateur Stockage ignore les erreurs de certificat.
 
@@ -113,10 +116,10 @@ Si vous ne trouvez aucun certificat auto-signé en suivant ces étapes, contacte
 
 Les boîtes de dialogue de connexion vides apparaissent le plus souvent quand les services ADFS (Active Directory Federation Services) demandent à l’Explorateur Stockage d’effectuer une redirection, ce qui n’est pas pris en charge par Electron. Pour contourner ce problème, vous pouvez essayer d’utiliser le Flux de code d’appareil pour la connexion. Pour ce faire, procédez comme suit :
 
-1. Dans la barre d’outils verticale gauche, ouvrez **Paramètres** . Dans le panneau Paramètres, accédez à **Application** > **Se connecter** . Activez **Utiliser la connexion via le flux de code de l’appareil** .
+1. Dans la barre d’outils verticale gauche, ouvrez **Paramètres**. Dans le panneau Paramètres, accédez à **Application** > **Se connecter**. Activez **Utiliser la connexion via le flux de code de l’appareil**.
 2. Ouvrez la boîte de dialogue **Connecter** (via l’icône de fiche dans la barre verticale à gauche ou en sélectionnant **Ajouter un compte** dans le panneau de compte).
 3. Choisissez l’environnement auquel vous voulez vous connecter.
-4. Sélectionnez **Connexion** .
+4. Sélectionnez **Connexion**.
 5. Suivez les instructions figurant sur le panneau.
 
 Si vous ne parvenez pas à vous connecter au compte que vous voulez utiliser parce que votre navigateur par défaut est déjà connecté à un autre compte, effectuez l’une des tâches suivantes :
@@ -130,7 +133,7 @@ Si vous êtes dans une boucle de réauthentification ou que vous avez changé le
 
 1. Supprimez tous les comptes, puis fermez l’Explorateur Stockage.
 2. Supprimez le dossier .IdentityService de votre ordinateur. Sur Windows, le dossier se situe dans `C:\users\<username>\AppData\Local`. Pour Mac et Linux, vous pouvez trouver le dossier à la racine de votre répertoire utilisateur.
-3. Si vous exécutez Mac ou Linux, vous devez aussi supprimer l’entrée Microsoft.Developer.IdentityService du magasin de clés de votre système d’exploitation. Sur Mac, le magasin de clés est l’application *Gnome Keychain* . Dans Linux, l’application est généralement appelée _Keyring_ , mais le nom peut être différent selon votre distribution.
+3. Si vous exécutez Mac ou Linux, vous devez aussi supprimer l’entrée Microsoft.Developer.IdentityService du magasin de clés de votre système d’exploitation. Sur Mac, le magasin de clés est l’application *Gnome Keychain*. Dans Linux, l’application est généralement appelée _Keyring_, mais le nom peut être différent selon votre distribution.
 
 ### <a name="conditional-access"></a>Accès conditionnel
 
@@ -141,7 +144,7 @@ En raison d’une limitation de la bibliothèque Azure AD utilisée par l’Expl
 Il peut arriver que le trousseau macOS entre dans un état qui s’avère problématique pour la bibliothèque d’authentification de l’Explorateur Stockage. Pour sortir le trousseau de cet état, suivez ces étapes :
 
 1. Fermez l’Explorateur Stockage.
-2. Ouvrez le trousseau (appuyez sur Commande + Barre d’espace, tapez **trousseau** , puis appuyez sur Entrée).
+2. Ouvrez le trousseau (appuyez sur Commande + Barre d’espace, tapez **trousseau**, puis appuyez sur Entrée).
 3. Sélectionnez le trousseau « login ».
 4. Sélectionnez l’icône de cadenas pour verrouiller le trousseau. (À la fin du processus, le cadenas est fermé. Cette opération peut prendre quelques secondes, selon les applications qui sont ouvertes).
 
@@ -153,7 +156,7 @@ Il peut arriver que le trousseau macOS entre dans un état qui s’avère probl�
 
 ### <a name="general-sign-in-troubleshooting-steps"></a>Étapes générales de résolution des problèmes de connexion
 
-* Si vous êtes sur macOS et que la fenêtre de connexion n’apparaît jamais sur la boîte de dialogue **En attente d’authentification** , essayez [ces étapes](#mac-keychain-errors).
+* Si vous êtes sur macOS et que la fenêtre de connexion n’apparaît jamais sur la boîte de dialogue **En attente d’authentification**, essayez [ces étapes](#mac-keychain-errors).
 * Redémarrez l’Explorateur Stockage.
 * Si la fenêtre d’authentification est vide, patientez au moins une minute avant de fermer la boîte de dialogue d’authentification.
 * Vérifiez que vos paramètres de proxy et de certificat sont correctement configurés pour votre ordinateur et pour l’Explorateur Stockage.
@@ -187,50 +190,66 @@ Si vous ne pouvez pas supprimer un compte ou une ressource de stockage attachés
 
 ## <a name="proxy-issues"></a>Problèmes de proxy
 
-Dans un premier temps, vérifiez que les informations suivantes que vous avez entrées sont correctes :
+L’Explorateur Stockage prend en charge la connexion aux ressources de Stockage Azure via un serveur proxy. Si vous rencontrez des problèmes de connexion à Azure par proxy, voici quelques suggestions.
 
-* URL de proxy et numéro de port
-* Nom d’utilisateur et mot de passe si le proxy les demande
+> [!NOTE]
+> L’Explorateur Stockage ne gère que l’authentification de base avec les serveurs proxy. Les autres méthodes d’authentification (par exemple NTLM) ne sont pas prises en charge.
 
 > [!NOTE]
 > L’Explorateur Stockage ne prend pas en charge les fichiers de configuration automatique du proxy pour la configuration des paramètres de proxy.
 
-### <a name="common-solutions"></a>Solutions courantes
+### <a name="verify-storage-explorer-proxy-settings"></a>Vérification des paramètres de proxy de l’Explorateur Stockage
+
+Le paramètre **Application → Proxy → Configuration du proxy** détermine la source dont l’Explorateur Stockage tire la configuration du proxy.
+
+Si vous sélectionnez « Utiliser des variables d’environnement », veillez à définir la variable d’environnement `HTTPS_PROXY` ou `HTTP_PROXY` (les variables d’environnement étant sensibles à la casse, veillez à définir les bonnes variables). Si ces variables ne sont pas définies ou ne sont pas valides, l’Explorateur Stockage n’utilisera pas de proxy. Redémarrez l’Explorateur Stockage après avoir modifié les variables d’environnement.
+
+Si vous sélectionnez « Utiliser les paramètres du proxy d’application », vérifiez que les paramètres de proxy dans l’application sont corrects.
+
+### <a name="steps-for-diagnosing-issues"></a>Procédure de diagnostic des problèmes
 
 Si vous rencontrez encore des problèmes, essayez les méthodes de résolution des problèmes suivantes :
 
-* Si vous pouvez vous connecter à Internet sans utiliser votre proxy, vérifiez que l’Explorateur Stockage fonctionne sans les paramètres de proxy activés. Si c’est le cas, le dysfonctionnement est peut-être lié à vos paramètres de proxy. Contactez votre administrateur pour identifier les problèmes.
-* Vérifiez que les autres applications qui utilisent le serveur proxy fonctionnent normalement.
-* Vérifiez que vous pouvez vous connecter au portail correspondant à l’environnement Azure que vous essayez d’utiliser.
-* Vérifiez que vous pouvez recevoir des réponses de vos points de terminaison de service. Entrez une des URL de point de terminaison dans votre navigateur. Si vous pouvez vous connecter, vous devez recevoir InvalidQueryParameterValue ou une réponse XML équivalente.
-* Si quelqu’un d’autre utilise également l’Explorateur de stockage avec votre serveur proxy, vérifiez que cette personne peut se connecter. Si c’est le cas, vous devrez peut-être contacter l’administrateur de votre serveur proxy.
+1. Si vous pouvez vous connecter à Internet sans utiliser votre proxy, vérifiez que l’Explorateur Stockage fonctionne sans les paramètres de proxy activés. Si l’Explorateur Stockage parvient à se connecter, il se peut qu’il y ait un problème avec votre serveur proxy. Contactez votre administrateur pour identifier les problèmes.
+2. Vérifiez que les autres applications qui utilisent le serveur proxy fonctionnent normalement.
+3. Vérifiez que vous pouvez vous connecter au portail correspondant à l’environnement Azure que vous essayez d’utiliser.
+4. Vérifiez que vous pouvez recevoir des réponses de vos points de terminaison de service. Entrez une des URL de point de terminaison dans votre navigateur. Si vous parvenez à vous connecter, vous recevez normalement une réponse XML du type `InvalidQueryParameterValue`.
+5. Vérifiez si une autre personne qui utilise l’Explorateur Stockage avec le même serveur proxy peut se connecter. Si c’est le cas, vous devrez peut-être contacter l’administrateur de votre serveur proxy.
 
 ### <a name="tools-for-diagnosing-issues"></a>Outils pour diagnostiquer les problèmes
 
-Si vous disposez d’outils de mise en réseau, tels que Fiddler pour Windows, vous pouvez diagnostiquer les problèmes comme suit :
+Un outil de mise en réseau comme Fiddler peut vous aider à diagnostiquer les problèmes.
 
-* Si vous devez passer par votre serveur proxy, vous devez peut-être configurer votre outil de mise en réseau pour vous connecter via le proxy.
-* Vérifiez le numéro de port utilisé par votre outil de mise en réseau.
-* Entrez l’URL de l’hôte local et le numéro de port de l’outil de mise en réseau en tant que paramètres de proxy dans l’Explorateur de stockage. Si vous faites cela correctement, votre outil réseau commence à journaliser les demandes réseau que l’Explorateur Stockage a adressées aux points de terminaison de service et de gestion. Par exemple, si vous entrez `https://cawablobgrs.blob.core.windows.net/` pour votre point de terminaison d’objet blob dans un navigateur, vous recevez une réponse qui ressemble à la suivante :
+1. Configurez votre outil de mise en réseau comme serveur proxy s’exécutant sur l’hôte local. Si vous devez continuer de travailler derrière un proxy réel, il vous faudra peut-être configurer votre outil de mise en réseau pour vous connecter via le proxy.
+2. Vérifiez le numéro de port utilisé par votre outil de mise en réseau.
+3. Configurez le proxy de l’Explorateur Stockage de façon à utiliser l’hôte local et le numéro de port de l’outil de mise en réseau (par exemple « localhost:8888 »).
+ 
+Si ces paramètres sont définis correctement, l’outil de mise en réseau consignera les demandes réseau effectuées par l’Explorateur Stockage sur les points de terminaison de gestion et de service.
+ 
+Si votre outil de mise en réseau ne semble pas consigner le trafic de l’Explorateur Stockage, essayez de le tester avec une autre application. Par exemple, entrez l’URL du point de terminaison de l’une de vos ressources de stockage (par exemple `https://contoso.blob.core.windows.net/`) dans un navigateur web. Vous recevrez une réponse de ce type :
 
   ![Exemple de code](./media/storage-explorer-troubleshooting/4022502_en_2.png)
 
-  Cette réponse sous-entend que la ressource existe, même si vous ne pouvez pas y accéder.
+  La réponse indique que la ressource existe, même si vous ne pouvez pas y accéder.
+
+Si votre outil de mise en réseau n’affiche que le trafic provenant d’autres applications, vous devrez peut-être ajuster les paramètres du proxy dans l’Explorateur Stockage. Sinon, il vous faudra potentiellement ajuster les paramètres de votre outil.
 
 ### <a name="contact-proxy-server-admin"></a>Contacter l’administrateur du serveur proxy
 
-Si les paramètres de votre proxy sont corrects, vous devrez peut-être contacter l’administrateur de votre serveur proxy en vue de :
+Si les paramètres de votre proxy sont corrects, vous devrez peut-être contacter l’administrateur de votre serveur proxy pour effectuer les vérifications suivantes :
 
 * Vérifier que votre proxy ne bloque pas le trafic vers les points de terminaison de gestion ou de ressources Azure.
-* Vérifier le protocole d’authentification utilisé par votre serveur proxy. L’Explorateur Stockage ne prend pas actuellement en charge les proxies NTLM.
+* Vérifier le protocole d’authentification utilisé par votre serveur proxy. L’Explorateur Stockage ne prend en charge que les protocoles d’authentification de base. Il ne gère pas les proxys NTLM.
 
 ## <a name="unable-to-retrieve-children-error-message"></a>Message d’erreur indiquant qu’il est impossible de récupérer les enfants
 
-Si vous êtes connecté à Azure par le biais d’un proxy, vérifiez que vos paramètres de proxy sont corrects. Si le propriétaire de l’abonnement ou du compte vous a accordé l’accès à une ressource, vérifiez que vous êtes habilité à lire ou à lister cette ressource.
+Si vous êtes connecté à Azure par le biais d’un proxy, vérifiez que vos paramètres de proxy sont corrects.
+
+Si le propriétaire d’un abonnement ou d’un compte vous a donné accès à une ressource, vérifiez que vous disposez des autorisations d’accès en lecture et de liste la concernant.
 
 ## <a name="connection-string-doesnt-have-complete-configuration-settings"></a>La chaîne de connexion n’a pas de paramètres de configuration complets
 
-Si vous obtenez ce message d’erreur, il est possible que vous n’avez pas les autorisations nécessaires pour obtenir les clés de votre compte de stockage. Pour vérifier que c’est le cas, accédez au portail et recherchez votre compte de stockage. Pour cela, vous pouvez cliquer avec le bouton droit sur le nœud de votre compte de stockage et sélectionner **Ouvrir dans le portail** . Accédez ensuite au panneau **Clé d’accès** . Si vous n’avez pas les autorisations permettant d’afficher les clés, vous obtenez le message : « Vous n’avez pas accès ». Pour contourner ce problème, vous pouvez soit obtenir la clé du compte auprès de quelqu’un d’autre et attacher le nom et la clé, soit demander à quelqu’un une signature d’accès partagé pour le compte de stockage et l’utiliser pour attacher le compte de stockage.
+Si vous obtenez ce message d’erreur, il est possible que vous n’avez pas les autorisations nécessaires pour obtenir les clés de votre compte de stockage. Pour vérifier que c’est le cas, accédez au portail et recherchez votre compte de stockage. Pour cela, vous pouvez cliquer avec le bouton droit sur le nœud de votre compte de stockage et sélectionner **Ouvrir dans le portail**. Accédez ensuite au panneau **Clé d’accès**. Si vous n’avez pas les autorisations permettant d’afficher les clés, vous obtenez le message : « Vous n’avez pas accès ». Pour contourner ce problème, vous pouvez soit obtenir la clé du compte auprès de quelqu’un d’autre et attacher le nom et la clé, soit demander à quelqu’un une signature d’accès partagé pour le compte de stockage et l’utiliser pour attacher le compte de stockage.
 
 Si vous ne voyez pas les clés du compte, signalez un problème dans GitHub pour nous permettre de vous aider à le résoudre.
 
@@ -238,8 +257,8 @@ Si vous ne voyez pas les clés du compte, signalez un problème dans GitHub pour
 
 Si vous obtenez ce message d’erreur pendant que vous essayez d’ajouter une connexion personnalisée, il se peut que les données de connexion stockées dans le gestionnaire d’informations d’identification local sont endommagées. Pour contourner ce problème, essayez de supprimer vos connexions locales endommagées, puis rajoutez-les :
 
-1. Démarrez l’Explorateur Stockage. Dans le menu, accédez à **Aide** > **Activer/désactiver les outils de développement** .
-2. Dans la fenêtre ouverte, sous l’onglet **Application** , accédez à **Stockage local** (côté gauche) > **file://** .
+1. Démarrez l’Explorateur Stockage. Dans le menu, accédez à **Aide** > **Activer/désactiver les outils de développement**.
+2. Dans la fenêtre ouverte, sous l’onglet **Application**, accédez à **Stockage local** (côté gauche) > **file://** .
 3. Selon le type de la connexion avec laquelle vous rencontrez un problème, recherchez sa clé, puis copiez sa valeur dans un éditeur de texte. La valeur est un tableau constitué de vos noms de connexion personnalisés qui se présente comme suit :
     * Comptes de stockage
         * `StorageExplorer_CustomConnections_Accounts_v1`
@@ -264,14 +283,14 @@ Une fois que vous les avez toutes passées en revue, pour tous les noms de conne
 
 # <a name="windows"></a>[Windows](#tab/Windows)
 
-1. Dans le menu **Démarrer** , recherchez le **Gestionnaire d’informations d’identification** et ouvrez-le.
-2. Accédez à **Informations d’identification Windows** .
-3. Sous **Informations d’identification génériques** , recherchez les entrées qui comportent la clé `<connection_type_key>/<corrupted_connection_name>` (par exemple, `StorageExplorer_CustomConnections_Accounts_v1/account1`).
+1. Dans le menu **Démarrer**, recherchez le **Gestionnaire d’informations d’identification** et ouvrez-le.
+2. Accédez à **Informations d’identification Windows**.
+3. Sous **Informations d’identification génériques**, recherchez les entrées qui comportent la clé `<connection_type_key>/<corrupted_connection_name>` (par exemple, `StorageExplorer_CustomConnections_Accounts_v1/account1`).
 4. Supprimez ces entrées et rajoutez les connexions.
 
 # <a name="macos"></a>[macOS](#tab/macOS)
 
-1. Ouvrez Spotlight (Commande + Barre d’espace) et recherchez **Trousseau d’accès** .
+1. Ouvrez Spotlight (Commande + Barre d’espace) et recherchez **Trousseau d’accès**.
 2. Recherchez les entrées qui comportent la clé `<connection_type_key>/<corrupted_connection_name>` (par exemple, `StorageExplorer_CustomConnections_Accounts_v1/account1`).
 3. Supprimez ces entrées et rajoutez les connexions.
 
@@ -297,7 +316,7 @@ Si vous vous connectez à un service via une URL de signature d’accès partag�
 Si vous avez accidentellement procédé à un attachement au moyen d’une URL SAP non valide et que vous ne pouvez pas maintenant effectuer de détachement, suivez ces étapes :
 
 1. Pendant que vous exécutez l’Explorateur Stockage, appuyez sur F12 pour ouvrir la fenêtre Outils de développement.
-2. Sous l’onglet **Application** , sélectionnez **Stockage local** > **file://** dans l’arborescence située à gauche.
+2. Sous l’onglet **Application**, sélectionnez **Stockage local** > **file://** dans l’arborescence située à gauche.
 3. Recherchez la clé associée au type de service de l’URI SAS problématique. Par exemple, si l’URI SAS incorrect concerne un conteneur d’objets blob, recherchez la clé nommée `StorageExplorer_AddStorageServiceSAS_v1_blob`.
 4. La valeur de la clé doit être un tableau JSON. Recherchez l’objet associé à l’URI incorrect, puis supprimez-le.
 5. Appuyez sur Ctrl+R pour recharger l’Explorateur de stockage.

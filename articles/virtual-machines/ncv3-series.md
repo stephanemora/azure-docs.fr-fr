@@ -7,22 +7,23 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 854c988346bce9be06811d386b3798d2d0427dd7
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 0e3aa70a1a40e3878aea7b4f42f5aa167e4204c5
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92095923"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97585380"
 ---
 # <a name="ncv3-series"></a>Série NCv3
 
 Les machines virtuelles de série NCv3 sont optimisées par les GPU NVIDIA Tesla V100. Ces GPU peuvent fournir des performances de calcul une fois et demie supérieures à celles de la série NCv2. Les clients peuvent tirer parti de ces GPU mis à jour pour les charges de travail HPC traditionnelles telles que la modélisation de gisements, le séquençage de l’ADN, l’analyse des protéines, les simulations de Monte-Carlo, etc. La configuration NC24rs v3 fournit une interface réseau à haut débit et à faible latence optimisée pour les charges de travail d’informatique parallèle fortement couplées. Outre les GPU, les machines virtuelles de la série NCv3 sont également pilotées par des processeurs Intel Xeon E5-2690 v4 (Broadwell).
 
 [Stockage Premium](premium-storage-performance.md) : Pris en charge<br>
-[Mise en cache du Stockage Premium](premium-storage-performance.md) : Pris en charge<br>
+[Mise en cache du Stockage Premium](premium-storage-performance.md) : Pris(e) en charge<br>
 [Migration dynamique](maintenance-and-updates.md) : Non pris en charge<br>
 [Mises à jour avec préservation de la mémoire](maintenance-and-updates.md) : Non pris en charge<br>
-[Génération de machine virtuelle prise en charge](generation-2.md) : Générations 1 et 2<br>
+[Génération de machine virtuelle prise en charge](generation-2.md) : Génération 1 et 2<br>
+Interconnexion Nvidia/NVLink : Non pris en charge<br>
 
 > [!IMPORTANT]
 > Pour cette série de machines virtuelles, le quota de processeurs virtuels (cœurs) dans votre abonnement est initialement défini sur 0 dans chaque région. [Demandez une augmentation du quota de processeurs virtuels](../azure-portal/supportability/resource-manager-core-quotas-request.md) pour cette série dans une [région disponible](https://azure.microsoft.com/regions/services/). Ces références SKU ne sont pas disponibles pour évaluation ou les abonnements Azure Visual Studio. Votre niveau d’abonnement ne prend peut-être pas en charge la sélection ou le déploiement de ces références (SKU). 

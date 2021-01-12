@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 12/14/2020
 ms.author: jgao
-ms.openlocfilehash: 4a7f21410bb97db0a7974870efb812c9954ac241
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: d12ec5e3fef45429741fff1665f435d68e6c83f6
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97503554"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734179"
 ---
 # <a name="configure-development-environment-for-deployment-scripts-in-templates"></a>Configurer l’environnement de développement pour les scripts de déploiement dans les modèles
 
@@ -155,7 +155,10 @@ Le modèle ARM suivant crée une instance de conteneur et un partage de fichiers
 ```
 La valeur par défaut du chemin de montage est **deploymentScript**.  Il s’agit du chemin dans l’instance de conteneur où il est monté dans le partage de fichiers.
 
-L’image de conteneur par défaut spécifiée dans le modèle est **mcr.microsoft.com/azuredeploymentscripts-powershell:az4.3"** .  Pour obtenir la liste des versions prises en charge d’Azure PowerShell et d’Azure CLI, consultez [Azure PowerShell ou Azure CLI](./deployment-script-template.md#prerequisites).
+L’image de conteneur par défaut spécifiée dans le modèle est **mcr.microsoft.com/azuredeploymentscripts-powershell:az4.3"** .   Consultez la liste des versions de [Azure PowerShell prises en charge](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list). Consultez la liste des versions de [Azure CLI prises en charge](https://mcr.microsoft.com/v2/azure-cli/tags/list).
+
+  >[!IMPORTANT]
+  > Le script de déploiement utilise les images CLI disponibles à partir de Microsoft Container Registry (MCR). Il faut environ un mois pour certifier une image CLI pour le script de déploiement. N’utilisez pas les versions de l’interface CLI qui ont été publiées il y a moins de 30 jours. Pour trouver les dates de publication des images, consultez les [Notes de publication d’Azure CLI](/cli/azure/release-notes-azure-cli?view=azure-cli-latest&preserve-view=true). Si une version non prise en charge est utilisée, le message d’erreur répertorie les versions prises en charge.
 
 Le modèle interrompt l’instance de conteneur 1 800 secondes. Il faut compter 30 minutes avant que l’instance de conteneur passe à l’état terminal et que la session prenne fin.
 
@@ -200,7 +203,7 @@ Vous pouvez aussi charger le fichier à partir du portail Azure et d’Azure CLI
 1. Sélectionnez **Connecter**, puis **Connecter**. Si vous ne pouvez pas vous connecter à l’instance de conteneur, redémarrez le groupe de conteneurs, puis réessayez.
 1. Dans le volet de la console, exécutez la commande suivante :
 
-    ```
+    ```console
     cd deploymentScript
     ls
     pwsh ./hello.ps1 "John Dole"
@@ -209,6 +212,14 @@ Vous pouvez aussi charger le fichier à partir du portail Azure et d’Azure CLI
     La sortie est **Hello John Dole**.
 
     ![script de déploiement instance de conteneur test](./media/deployment-script-template-configure-dev/deployment-script-container-instance-test.png)
+
+1. Si vous utilisez l’image conteneur AZ CLI, exécutez le code suivant :
+
+   ```console
+   cd /mnt/azscripts/azscriptinput
+   ls
+   ./userscript.sh
+   ```
 
 ## <a name="use-docker"></a>Utiliser Docker
 

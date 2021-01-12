@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: dépannage, mise à jour, bogue, Kinect, commentaires, récupération, journalisation, conseils
-ms.openlocfilehash: 9711968de061956a945fca183444dd6ebde4ca9c
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: a6e00b6c5e9e4f82bb668769aade8311896bef32
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94356380"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587279"
 ---
 # <a name="azure-kinect-known-issues-and-troubleshooting"></a>Problèmes connus et résolution des problèmes liés à Azure Kinect
 
@@ -144,7 +144,7 @@ L’appel de la fonction ```k4a_device_set_color_control``` peut entraîner des 
 
 Si le gestionnaire de périphériques n’énumère pas l’appareil, cela peut être dû au fait qu’il est connecté à un contrôleur USB3 non pris en charge. 
 
-Pour l’appareil Azure Kinect DK sur **Windows, *les seuls contrôleurs hôtes pris en charge* sont Intel** , **Texas Instruments (TI)** et **Renesas**. Le Kit de développement logiciel (SDK) Azure Kinect sous Windows s’appuie sur un ID de conteneur unifié. Celui-ci doit s’étendre aux périphériques USB 2.0 et 3.0 afin que le Kit de développement logiciel (SDK) puisse détecter les périphériques de profondeur, de couleur et audio qui se trouvent physiquement sur le même appareil. Sous Linux, un plus grand nombre de contrôleurs hôtes peuvent être pris en charge, car cette plateforme s’appuie moins sur l’ID de conteneur et davantage sur les numéros de série des appareils. 
+Pour l’appareil Azure Kinect DK sur **Windows, *les seuls contrôleurs hôtes pris en charge* sont Intel**, **Texas Instruments (TI)** et **Renesas**. Le Kit de développement logiciel (SDK) Azure Kinect sous Windows s’appuie sur un ID de conteneur unifié. Celui-ci doit s’étendre aux périphériques USB 2.0 et 3.0 afin que le Kit de développement logiciel (SDK) puisse détecter les périphériques de profondeur, de couleur et audio qui se trouvent physiquement sur le même appareil. Sous Linux, un plus grand nombre de contrôleurs hôtes peuvent être pris en charge, car cette plateforme s’appuie moins sur l’ID de conteneur et davantage sur les numéros de série des appareils. 
 
 La question des contrôleurs hôtes USB se complique encore davantage quand plusieurs contrôleurs hôtes sont installés sur un PC. Lorsque les contrôleurs hôtes sont mélangés, l’utilisateur peut rencontrer des problèmes quand certains ports fonctionnent correctement et d’autres pas du tout. Selon la façon dont les ports sont connectés au boîtier, vous pouvez voir tous les ports frontaux qui rencontrent des problèmes avec Azure Kinect.
 
@@ -165,6 +165,21 @@ Le laser que la caméra profondeur utilise pour calculer les données de profond
 ## <a name="using-body-tracking-sdk-with-unreal"></a>Utilisation du Kit de développement logiciel (SDK) de suivi de corps avec Unreal
 
 Pour utiliser le Kit de développement logiciel (SDK) de suivi de corps avec Unreal, assurez-vous que vous avez ajouté `<SDK Installation Path>\tools` à la variable d’environnement `PATH` et copié `dnn_model_2_0.onnx` et `cudnn64_7.dll` sur `Program Files/Epic Games/UE_4.23/Engine/Binaries/Win64`.
+
+## <a name="using-azure-kinect-on-headless-linux-system"></a>Utilisation d’Azure Kinect sur un système Linux sans périphérique de contrôle
+
+Le moteur de profondeur Azure Kinect sur Linux utilise OpenGL. OpenGL requiert une instance de fenêtre, laquelle requiert la connexion d’un moniteur au système. Solution de contournement pour ce problème :
+
+1. Activez la connexion automatique pour le compte d’utilisateur que vous prévoyez d’utiliser. Reportez-vous à [cet article](https://vitux.com/how-to-enable-disable-automatic-login-in-ubuntu-18-04-lts/) pour obtenir des instructions sur l’activation de la connexion automatique.
+2. Mettez le système hors tension, déconnectez le moniteur et mettez le système sous tension. La connexion automatique force la création d’une session x-server.
+2. Connectez-vous via SSH et définissez la variable d’environnement DISPLAY `export DISPLAY=:0`
+3. Démarrez votre application Azure Kinect.
+
+## <a name="missing-c-documentation"></a>Documentation C# manquante
+
+La documentation C# du kit SDK du capteur est disponible [ici](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/namespace_microsoft_1_1_azure_1_1_kinect_1_1_sensor.html).
+
+La documentation C# du kit SDK de suivi des corps est disponible [ici](https://microsoft.github.io/Azure-Kinect-Body-Tracking/release/1.x.x/namespace_microsoft_1_1_azure_1_1_kinect_1_1_body_tracking.html).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

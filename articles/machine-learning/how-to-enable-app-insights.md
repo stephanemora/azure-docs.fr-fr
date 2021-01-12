@@ -11,12 +11,12 @@ author: blackmist
 ms.date: 09/15/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: 5d49a88b89f9e2f4e2c2e6fa8ef18a01c803e3f7
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 13b99fe129191b89b5bb2d7f5473e910fa619ce7
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94536589"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739839"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Superviser et collecter des données à partir des points de terminaison de service web Machine Learning
 
@@ -157,14 +157,24 @@ Vous pouvez également activer Application Insights à partir du studio Azure Ma
 
 ### <a name="query-logs-for-deployed-models"></a>Interroger les journaux pour les modèles déployés
 
-La fonction `get_logs()` permet de récupérer les journaux d’un service web déjà déployé. Les journaux d’activité peuvent contenir des informations détaillées sur les éventuelles erreurs qui se seraient produites au cours du déploiement.
+Les journaux des points de terminaison en temps réel sont des données client. La fonction `get_logs()` permet de récupérer les journaux d’un service web déjà déployé. Les journaux d’activité peuvent contenir des informations détaillées sur les éventuelles erreurs qui se seraient produites au cours du déploiement.
 
 ```python
+from azureml.core import Workspace
 from azureml.core.webservice import Webservice
+
+ws = Workspace.from_config()
 
 # load existing web service
 service = Webservice(name="service-name", workspace=ws)
 logs = service.get_logs()
+```
+
+Si vous avez plusieurs locataires, vous devrez peut-être ajouter le code d’authentification suivant devant `ws = Workspace.from_config()`
+
+```python
+from azureml.core.authentication import InteractiveLoginAuthentication
+interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in which your workspace resides")
 ```
 
 ### <a name="view-logs-in-the-studio"></a>Afficher les journaux dans le studio

@@ -5,13 +5,13 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 11/30/2020
-ms.openlocfilehash: c65833e5bf581c6326bf9362c7e5fc00a985d301
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.date: 01/04/2021
+ms.openlocfilehash: ca27df7188c5edd1da94fc41707f6c25eb4034bf
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96354868"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895136"
 ---
 # <a name="use-managed-identities-to-access-event-hubfrom-an-azure-stream-analytics-job-preview"></a>Accès à Event Hubs à partir d’un travail Azure Stream Analytics à l’aide des identités managées (préversion)
 
@@ -20,6 +20,9 @@ Azure Stream Analytics prend en charge l’authentification d’identité manag�
 Une identité managée est une application managée inscrite auprès d’Azure Active Directory qui représente un travail Stream Analytics. L’application gérée est utilisée pour l’authentification auprès d’une ressource ciblée, y compris les ressources Event Hubs qui se trouvent derrière un pare-feu ou un réseau virtuel. Pour savoir comment contourner les pare-feu, consultez [Autorisation de l’accès aux espaces de noms Azure Event Hubs via des points de terminaison privés](../event-hubs/private-link-service.md#trusted-microsoft-services).
 
 Cet article montre comment activer une identité managée pour l’entrée ou la sortie Event Hubs d’un travail Stream Analytics par le biais du Portail Azure. Pour pouvoir activer l’identité managée, vous devez disposer d’un travail Stream Analytics et d’une ressource Event Hubs.
+
+### <a name="limitation"></a>Limitation
+Pendant la préversion, l’échantillonnage d’entrées d’Event Hubs à Portail Azure ne fonctionne pas si vous utilisez le mode d’authentification par identité managée.
 
 ## <a name="create-a-managedidentity"></a>Création d’une identité managée  
 

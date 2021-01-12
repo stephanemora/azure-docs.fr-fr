@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/16/2020
 ms.author: mathapli
 ms.reviewer: cynthn
-ms.openlocfilehash: 1f31cc982e5e7f92cfe7e8adf588dd96628f2c6f
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: fd36d365eb02819352bc14caf9d8e258a8663c70
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95744039"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861394"
 ---
 # <a name="red-hat-enterprise-linux-rhel-extended-lifecycle-support"></a>Support du cycle de vie étendu de Red Hat Enterprise Linux (RHEL)
 Cet article fournit des informations sur le support du cycle de vie étendu des images Red Hat Enterprise :
@@ -38,6 +38,12 @@ Cet article fournit des informations sur le support du cycle de vie étendu des 
 
 #### <a name="what-is-the-additional-charge-for-using-red-hat-enterprise-linux-extended-life-cycle-support-els-add-on"></a>Quels sont les frais supplémentaires liés à l’utilisation du module complémentaire de support du cycle de vie étendu (ELS) de Red Hat Enterprise Linux ?
 Les coûts liés à la prise en charge du cycle de vie étendu sont disponibles dans le [formulaire ELS](https://aka.ms/els-form)
+
+#### <a name="ive-deployed-a-vm-by-using-custom-image-how-can-i-add-extended-lifecycle-support-to-this-vm"></a>J’ai déployé une machine virtuelle en utilisant une image personnalisée. Comment ajouter l’ELS à cette machine virtuelle ?
+Vous devez contacter Red Hat directement et obtenir de l’aide directement de sa part.
+
+#### <a name="ive-deployed-a-vm-by-using-custom-image-can-i-convert-this-vm-to-a-payg-vm"></a>J’ai déployé une machine virtuelle en utilisant une image personnalisée. Puis-je convertir cette machine virtuelle en machine virtuelle PAYG ?
+Non, vous ne pouvez pas. La conversion n’est pas actuellement prise en charge sur Azure.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

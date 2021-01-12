@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/15/2020
-ms.openlocfilehash: d6936d6c72855bc22e3fc9323028fd0b8cd0fb29
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 4ffe663c1a1651891af5f6e65ee231cbe3e8d650
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097573"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882300"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Limites de ressources pour des bases de données uniques suivant le modèle d’achat vCore
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -227,9 +227,9 @@ Le [niveau de calcul serverless](serverless-tier-overview.md) est actuellement d
 
 #### <a name="notes"></a>Notes
 
-**Remarque 1**  : Hyperscale est une architecture à plusieurs niveaux avec des composants de calcul et de stockage distincts : [Architecture de niveau de service Hyperscale](service-tier-hyperscale.md#distributed-functions-architecture)
+**Remarque 1** : Hyperscale est une architecture à plusieurs niveaux avec des composants de calcul et de stockage distincts : [Architecture de niveau de service Hyperscale](service-tier-hyperscale.md#distributed-functions-architecture)
 
-**Remarque 2**  : La latence est de 1 ms ou 2 ms pour les données du disque SSD de réplica
+**Remarque 2** : La latence est de 1 ms ou 2 ms pour les données du disque SSD de réplica
 de calcul local, qui met en cache la plupart des pages de données utilisées. Elle est plus élevée pour les données récupérées à partir des serveurs de pages.
 
 ## <a name="general-purpose---provisioned-compute---gen4"></a>Usage général - calcul provisionné - Gen4
@@ -308,7 +308,7 @@ de calcul local, qui met en cache la plupart des pages de données utilisées. E
 |Nombre maximal d’ouvriers simultanés (demandes)|200|400|600|800|1 000|1200|1400|
 |Nombre maximal de sessions simultanées|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
 |Nombre de réplicas|1|1|1|1|1|1|1|
-|Plusieurs zones de disponibilités|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
+|Plusieurs zones de disponibilités|[Disponible en préversion](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponible en préversion](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponible en préversion](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponible en préversion](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponible en préversion](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponible en préversion](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponible en préversion](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|
 |Lecture du Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
 
@@ -333,7 +333,7 @@ de calcul local, qui met en cache la plupart des pages de données utilisées. E
 |Nombre maximal d’ouvriers simultanés (demandes)|1 600|1800|2000|2 400|3200|4000|8000|
 |Nombre maximal de sessions simultanées|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
 |Nombre de réplicas|1|1|1|1|1|1|1|
-|Plusieurs zones de disponibilités|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
+|Plusieurs zones de disponibilités|[Disponible en préversion](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponible en préversion](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponible en préversion](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponible en préversion](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponible en préversion](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponible en préversion](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|[Disponible en préversion](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)|
 |Lecture du Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
 

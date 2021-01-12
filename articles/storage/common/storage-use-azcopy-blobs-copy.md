@@ -8,12 +8,12 @@ ms.date: 12/08/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: f536e163e3d19d91c150506ab44fdd9cbc02c693
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 524e3f70f9588cfae2c739722fc1a44e683f9a7f
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96907382"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617287"
 ---
 # <a name="copy-blobs-between-azure-storage-accounts-by-using-azcopy-v10"></a>Copier des objets blob entre des comptes Stockage Azure à l’aide d’AzCopy v10
 
@@ -28,6 +28,8 @@ Pour télécharger AzCopy et découvrir comment fournir des informations d’ide
 ## <a name="guidelines"></a>Consignes
 
 Respectez les consignes suivantes lors de l’exécution de commandes AzCopy. 
+
+- Votre client doit disposer d’un accès réseau à la fois au compte de stockage source et au compte de stockage de destination. Pour savoir comment configurer les paramètres réseau de chaque compte de stockage, consultez [Configurer des pare-feux et des réseaux virtuels dans Stockage Azure](storage-network-security.md?toc=/azure/storage/blobs/toc.json).
 
 - Ajoutez un jeton SAS à chaque URL source. 
 
@@ -149,7 +151,7 @@ Vous trouverez plus d’exemples dans ces articles :
 - [Exemples : Charger](storage-use-azcopy-blobs-upload.md)
 - [Exemples : Téléchargement](storage-use-azcopy-blobs-download.md)
 - [Exemples : Synchroniser](storage-use-azcopy-blobs-synchronize.md)
-- [Exemples : Compartiments Amazon S3](storage-use-azcopy-s3.md)
+- [Exemples : Compartiments Amazon S3](storage-use-azcopy-s3.md)
 - [Exemples : Azure Files](storage-use-azcopy-files.md)
 - [Tutoriel : Migrer des données locales vers un stockage cloud à l’aide d’AzCopy](storage-use-azcopy-migrate-on-premises-data.md)
 - [Configurer, optimiser et dépanner AzCopy](storage-use-azcopy-configure.md)

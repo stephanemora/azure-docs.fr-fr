@@ -2,14 +2,14 @@
 title: Baliser les ressources, les groupes de ressources et les abonnements pour l’organisation logique
 description: Indique comment appliquer des étiquettes afin d'organiser des ressources Azure dédiées à la facturation et à la gestion.
 ms.topic: conceptual
-ms.date: 12/03/2020
+ms.date: 01/04/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e47d3acf15ce5e4f5cb70444419b76beb21ae98b
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: 3d1161eb99e1145c7a003326310db1922ec3d55c
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96558145"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881746"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Utiliser des étiquettes pour organiser vos ressources Azure et votre hiérarchie de gestion
 
@@ -438,9 +438,12 @@ Si les noms ou les valeurs de vos étiquettes comportent des espaces, mettez-les
 az tag update --resource-id $group --operation Merge --tags "Cost Center"=Finance-1222 Location="West US"
 ```
 
-## <a name="templates"></a>Modèles
+## <a name="arm-templates"></a>Modèles ARM
 
-Vous pouvez baliser les ressources, les groupes de ressources et les abonnements pendant le déploiement avec un modèle Resource Manager.
+Vous pouvez étiqueter les ressources, les groupes de ressources et les abonnements pendant le déploiement avec un modèle Azure Resource Manager (modèle ARM).
+
+> [!NOTE]
+> Les étiquettes que vous appliquez via le modèle ARM remplacent toutes les étiquettes existantes.
 
 ### <a name="apply-values"></a>Appliquer les valeurs
 
@@ -448,7 +451,7 @@ L’exemple suivant déploie un compte de stockage avec trois étiquettes. Deux 
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "utcShort": {
@@ -487,7 +490,7 @@ Vous pouvez définir un paramètre d’objet qui stocke plusieurs balises et app
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "location": {
@@ -525,7 +528,7 @@ Pour stocker plusieurs valeurs dans une seule balise, appliquez une chaîne JSON
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "location": {
@@ -558,7 +561,7 @@ Pour appliquer des balises d’un groupe de ressources à une ressource, utilise
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "location": {

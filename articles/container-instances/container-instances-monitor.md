@@ -2,13 +2,13 @@
 title: Surveiller les instances de conteneur
 description: Comment superviser la consommation des ressources de calcul comme le processeur et la mémoire par vos conteneurs dans Azure Container Instances
 ms.topic: article
-ms.date: 04/24/2019
-ms.openlocfilehash: b10c370b599233d00b2b4a65268f6c61a11cbd5c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 12/17/2020
+ms.openlocfilehash: 83a8a5ab2c8c49f4044564c2d899685914103b0b
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96007254"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916074"
 ---
 # <a name="monitor-container-resources-in-azure-container-instances"></a>Surveiller les ressources des conteneurs dans Azure Container Instances
 
@@ -27,11 +27,11 @@ Ce document décrit en détail la collecte des métriques Azure Monitor pour les
 
 Azure Monitor fournit les [métriques suivantes pour Azure Container Instances][supported-metrics]. Ces métriques sont disponibles pour un groupe de conteneurs et des conteneurs individuels. Par défaut, les métriques sont agrégées en tant que moyennes.
 
-* **Utilisation de l’UC** : mesurée en **millicœurs**. Un millicœur représente 1/1000e de cœur de processeur, donc 500 millicœurs représentent une utilisation de 0,5 cœur de processeur.
-
-* **Utilisation de la mémoire** : en octets.
-
-* **Octets réseau reçus par seconde** et **Octets réseau transmis par seconde**. 
+- **Utilisation du processeur** mesurée en **millicœurs** 
+  - Un millicœur représente 1/1000e de cœur de processeur, donc 500 millicœurs représentent une utilisation de 0,5 cœur de processeur.
+- **Utilisation de la mémoire** en octets
+- **Octets réseau reçus** par seconde
+- **Octets réseau transmis** par seconde 
 
 ## <a name="get-metrics---azure-portal"></a>Obtenir des métriques : portail Azure
 
@@ -39,7 +39,7 @@ Lorsqu’un groupe de conteneurs est créé, les données Azure Monitor sont dis
 
 ![double graphique][dual-chart]
 
-Dans un groupe de conteneurs comportant plusieurs conteneurs, utilisez une [dimension][monitor-dimension] afin de présenter les métriques par conteneur. Pour créer un graphique avec des métriques de conteneur individuel, procédez comme suit :
+Dans un groupe de conteneurs comportant plusieurs conteneurs, utilisez une [dimension][monitor-dimension] pour afficher les métriques par conteneur. Pour créer un graphique avec des métriques de conteneur individuel, procédez comme suit :
 
 1. Dans la page **Vue d’ensemble**, sélectionnez un des graphiques de métriques, par exemple **UC**. 
 1. Sélectionnez le bouton **Appliquer la division**, puis sélectionnez **Nom du conteneur**.
@@ -64,18 +64,11 @@ az monitor metrics list --resource $CONTAINER_GROUP --metric CPUUsage --output t
 ```output
 Timestamp            Name       Average
 -------------------  ---------  ---------
-2019-04-23 22:59:00  CPU Usage
-2019-04-23 23:00:00  CPU Usage
-2019-04-23 23:01:00  CPU Usage  0.0
-2019-04-23 23:02:00  CPU Usage  0.0
-2019-04-23 23:03:00  CPU Usage  0.5
-2019-04-23 23:04:00  CPU Usage  0.5
-2019-04-23 23:05:00  CPU Usage  0.5
-2019-04-23 23:06:00  CPU Usage  1.0
-2019-04-23 23:07:00  CPU Usage  0.5
-2019-04-23 23:08:00  CPU Usage  0.5
-2019-04-23 23:09:00  CPU Usage  1.0
-2019-04-23 23:10:00  CPU Usage  0.5
+2020-12-17 23:34:00  CPU Usage
+. . .
+2020-12-18 00:25:00  CPU Usage
+2020-12-18 00:26:00  CPU Usage  0.4
+2020-12-18 00:27:00  CPU Usage  0.0
 ```
 
 Changez la valeur du paramètre `--metric` dans la commande pour obtenir d’autres [métriques prises en charge][supported-metrics]. Par exemple, utilisez la commande suivante pour obtenir les métriques d’utilisation de la **mémoire**. 

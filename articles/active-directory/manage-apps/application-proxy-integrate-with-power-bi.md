@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c3188571e9188add7bc8f4f4d07ea5a562a79b3
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 8d4515d6140123e8e8784fc2d828242d49c59fc4
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658109"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97616896"
 ---
 # <a name="enable-remote-access-to-power-bi-mobile-with-azure-ad-application-proxy"></a>Activer l’accès distant à Power BI Mobile avec le proxy d’application Azure AD
 
@@ -153,6 +153,8 @@ Vous pouvez utiliser Microsoft Intune pour gérer les applications clientes que 
 ## <a name="troubleshooting"></a>Dépannage
 
 Si l’application retourne une page d’erreur après avoir essayé de charger un rapport pendant plusieurs minutes, vous devrez peut-être modifier le paramètre du délai d’expiration. Par défaut, le proxy d’application prend en charge les applications qui mettent jusqu’à 85 secondes pour répondre à une requête. Pour allonger ce paramètre à 180 secondes, sélectionnez le délai d’expiration du serveur principal **Long** dans la page des paramètres du proxy d’application pour l’application. Pour obtenir des conseils sur la création de rapports rapides et fiables, consultez [Power BI Reports Best Practices](/power-bi/power-bi-reports-performance) (Meilleures pratiques de rapports Power BI).
+
+L’utilisation du Proxy d’application Azure AD pour permettre à l’application mobile Power BI de se connecter à un serveur Power BI Report Server local n’est pas prise en charge avec les stratégies d’accès conditionnel qui nécessitent l’application Microsoft Power BI comme application cliente approuvée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -7,25 +7,25 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/14/2020
-ms.openlocfilehash: f3763857af1df8f34f38b36835a667c6610e1909
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.date: 12/15/2020
+ms.openlocfilehash: 5d265fe02d801cf0d2d66be37a8dc2a220e19b34
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107825"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591342"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Limites de service de la Recherche cognitive Azure
 
-Les limites maximales du stockage, des charges de travail et des quantités d’index et autres objets varient selon que vous [approvisionnez le service Recherche cognitive Azure](search-create-service-portal.md) avec les niveaux tarifaires **Gratuit** , **De base** , **Standard** ou **Stockage optimisé** .
+Les limites maximales du stockage, des charges de travail et des quantités d’index et autres objets varient selon que vous [approvisionnez le service Recherche cognitive Azure](search-create-service-portal.md) avec les niveaux tarifaires **Gratuit**, **De base**, **Standard** ou **Stockage optimisé**.
 
 + **Gratuit** est un service partagé multi-locataire qui est fourni avec votre abonnement Azure. 
 
-+ **De base**  : fournit des ressources de calcul dédiées pour des charges de travail de production à plus petite échelle, mais partage une infrastructure réseau avec d’autres locataires.
++ **De base** : fournit des ressources de calcul dédiées pour des charges de travail de production à plus petite échelle, mais partage une infrastructure réseau avec d’autres locataires.
 
 + Le niveau **Standard** est exécuté sur des ordinateurs dédiés, avec une capacité de stockage et de traitement beaucoup plus grande, et ce, à chaque niveau. Le niveau Standard se décompose en quatre catégories : S1, S2, S3 et S3 HD. La catégorie S3 HD (S3 High Density) est conçue pour des [utilisateurs multiples](search-modeling-multitenant-saas-applications.md) et de grandes quantités de petits index (trois mille index par service). S3 HD ne fournit pas la [fonctionnalité d’indexeur](search-indexer-overview.md) et l’ingestion des données doit tirer parti des API qui envoient (push) les données de la source vers l’index. 
 
-+ **Stockage optimisé** s’exécute sur des ordinateurs dédiés avec plus de stockage total, de bande passante de stockage et de mémoire que **Standard** . Ce niveau cible les index volumineux et à variation lente. Stockage optimisé est disponible en deux niveaux : L1 et L2.
++ **Stockage optimisé** s’exécute sur des ordinateurs dédiés avec plus de stockage total, de bande passante de stockage et de mémoire que **Standard**. Ce niveau cible les index volumineux et à variation lente. Stockage optimisé est disponible en deux niveaux : L1 et L2.
 
 ## <a name="subscription-limits"></a>Limites d’abonnement
 [!INCLUDE [azure-search-limits-per-subscription](../../includes/azure-search-limits-per-subscription.md)]
@@ -143,7 +143,7 @@ Les requêtes de recherche et les demandes d’indexation sont limitées dès qu
 
 Limites de taux de requêtes statiques pour les opérations liées à un index :
 
-+ Lister les index (GET /indexes) : 5 par seconde par unité de recherche
++ Lister les index (GET /indexes) : 3 par seconde par unité de recherche
 + Obtenir un index (GET /indexes/myindex) : 10 par seconde par unité de recherche
 + Créer un index (POST /indexes) : 12 par minute par unité de recherche
 + Créer ou mettre à jour un index (PUT /indexes/myindex) : 6 par seconde par unité de recherche

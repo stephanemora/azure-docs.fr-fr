@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: fa8f9ad2d15730d2a0a2c1a722aa3970bbc8f173
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 6e80b1446142786cbd77245a2b6696cac1bb9272
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033984"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97897091"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Tableau de prise en charge pour la migration VMware
 
@@ -59,7 +59,7 @@ Le tableau récapitule les exigences de la migration sans agent concernant les m
 **Machines virtuelles Linux dans Azure** | Certaines machines virtuelles peuvent nécessiter des modifications pour fonctionner dans Azure.<br/><br/> Azure Migrate effectue automatiquement les modifications pour les systèmes d’exploitation Linux suivants :<br/> - Red Hat Enterprise Linux 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x<br/> - CentOS 7.7, 7.6, 7.5, 7.4, 6.x</br> - SUSE Linux Enterprise Server 12 SP1+<br/> - SUSE Linux Enterprise Server 15 SP1 <br/>- Ubuntu 19.04, 19.10, 14.04LTS, 16.04LTS, 18.04LTS<br/> - Debian 7, 8 <br/> Oracle Linux 7.7, 7.7-CI<br/> Pour les autres systèmes d’exploitation, les [modifications requises](prepare-for-migration.md#verify-required-changes-before-migrating) sont à effectuer manuellement.
 **Démarrage Linux** | Si /boot se trouve sur une partition dédiée, il doit être le disque du système d’exploitation et ne pas être réparti sur plusieurs disques.<br/> Si /boot fait partie de la partition racine (/), la partition « / » doit se trouver sur le disque du système d’exploitation et ne pas s’étendre sur d’autres disques.
 **Démarrage UEFI** | Pris en charge. Les machines virtuelles UEFI seront migrées vers des machines virtuelles Azure de 2e génération. 
-**Taille du disque** | Disque de système d’exploitation de 2 To (démarrage du BIOS) ; disque de système d’exploitation de 4 To (démarrage d’UEFI) ; 32 To pour les disques de données.
+**Taille du disque** | Disque de système d’exploitation de 2 To ; 32 To pour des disques de données.
 **Limites du disque** |  Jusqu'à 60 disques par machine virtuelle.
 **Disques/volumes chiffrés** | Les machines virtuelles avec des disques/volumes chiffrés ne sont pas prises en charge pour la migration.
 **Cluster de disque partagé** | Non pris en charge.
@@ -122,7 +122,7 @@ Le tableau résume la prise en charge de machines virtuelles VMware pour les mac
 **Démarrage UEFI** | Pris en charge. Les machines virtuelles UEFI seront migrées vers des machines virtuelles Azure de 2e génération. 
 **UEFI – Démarrage sécurisé**         | Non pris en charge pour la migration.
 **Disque cible** | Les machines virtuelles peuvent uniquement être migrées vers des disques managés (disques HDD standard, disques SSD standard, disques SSD premium) dans Azure.
-**Taille du disque** | Disque de système d’exploitation de 2 To (démarrage du BIOS) ; disque de système d’exploitation de 4 To (démarrage d’UEFI) ; 8 To pour les disques de données.
+**Taille du disque** | Disque de système d’exploitation de 2 To ; 32 To pour des disques de données.
 **Limites du disque** |  Jusqu'à 63 disques par machine virtuelle.
 **Disques/volumes chiffrés** | Les machines virtuelles avec des disques/volumes chiffrés ne sont pas prises en charge pour la migration.
 **Cluster de disque partagé** | Non pris en charge.

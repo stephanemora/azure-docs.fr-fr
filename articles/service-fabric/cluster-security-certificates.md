@@ -3,12 +3,12 @@ title: Authentification basée sur un certificat X.509 dans un cluster Service F
 description: Découvrez-en davantage sur l’authentification basée sur les certificats dans les clusters Service Fabric et sur la façon de détecter, atténuer et résoudre les problèmes liés aux certificats.
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: 4d81cb9d224bdc2e3002c621c86729df235e0d81
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 8af0246e0e576f9877c4c5e3b1f1a4314ae29827
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96574766"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901247"
 ---
 # <a name="x509-certificate-based-authentication-in-service-fabric-clusters"></a>Authentification basée sur un certificat X.509 dans des clusters Service Fabric
 
@@ -170,7 +170,10 @@ Les certificats de type de nœud peuvent également être déclarés par nom com
   </NodeTypes>
 ```
 
-Pour les deux types de déclaration, un nœud Service Fabric lit la configuration au démarrage, localise et charge les certificats spécifiés, puis les trie dans l’ordre décroissant de leur attribut NotAfter. Les certificats arrivés à expiration sont ignorés, et le premier élément de la liste est sélectionné comme informations d’identification du client pour toute connexion Service Fabric tentée par ce nœud. (En fait, Service Fabric favorise le certificat arrivant à la date d’expiration la plus lointaine.)
+Pour les deux types de déclaration, un nœud Service Fabric lit la configuration au démarrage, localise et charge les certificats spécifiés, puis les trie dans l’ordre décroissant de leur attribut NotBefore. Les certificats arrivés à expiration sont ignorés, et le premier élément de la liste est sélectionné comme informations d’identification du client pour toute connexion Service Fabric tentée par ce nœud. (De fait, Service Fabric privilégie le dernier certificat émis.)
+
+> [!NOTE]
+> Avant la version 7.2.445 (7.2 CU4), Service Fabric sélectionnait le certificat dont l’expiration était la plus éloignée (le certificat avec la propriété « NotAfter » la plus ancienne).
 
 Notez que, pour les déclarations de présentation basées sur un nom commun, un certificat est considéré comme une correspondance si son nom commun d’objet est égal au champ X509FindValue (ou X509FindValueSecondary) de la déclaration par comparaison exacte de chaînes respectant la casse. Cela diffère avec les règles de validation, qui prennent en charge la correspondance avec caractères génériques, ainsi que les comparaisons de chaînes ne respectant pas la casse.  
 

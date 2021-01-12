@@ -10,12 +10,12 @@ ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 12/15/2020
 ms.custom: contperf-fy21q1,contperfq1
-ms.openlocfilehash: f7c4529c68f79c6ad19f22054fd0b7d2ba5116db
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 17c5cc265b4199d745325bf2c9d9fbca24cc6506
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562835"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617117"
 ---
 # <a name="deep-learning-vs-machine-learning-in-azure-machine-learning"></a>Apprentissage profond et apprentissage automatique dans Azure Machine Learning
 
@@ -57,9 +57,9 @@ Le tableau suivant compare les deux techniques de manière plus détaillée :
 |  **Temps d’exécution** | Nécessite relativement peu de temps pour apprendre, de quelques secondes à quelques heures. | Nécessite généralement un temps d’entraînement assez long, car un algorithme de deep learning implique de nombreuses couches. |
 |  **Sortie** | La sortie est généralement une valeur numérique, telle qu’une note ou une classification. | La sortie peut avoir plusieurs formats, comme un texte, un score ou un son. |
 
-## <a name="transfer-learning"></a>Apprentissage de transfert
+## <a name="transfer-learning"></a>Transfer learning
 
-La formation de modèles Deep Learning nécessite souvent de grandes quantités de données de formation, des ressources de calcul haut de gamme (GPU, TPU) et un temps de formation plus long. Dans les cas où vous ne disposez pas de ces ressources, vous pouvez raccourcir le processus de formation à l’aide d’une technique appelée apprentissage de transfert.
+La formation de modèles Deep Learning nécessite souvent de grandes quantités de données de formation, des ressources de calcul haut de gamme (GPU, TPU) et un temps de formation plus long. Dans les cas où vous ne disposez pas de ces ressources, vous pouvez raccourcir le processus d’entraînement à l’aide d’une technique appelée *apprentissage de transfert*.
 
 L’apprentissage de transfert est une technique qui applique les connaissances acquises lors de la résolution d’un problème à un problème différent, mais connexe.
 

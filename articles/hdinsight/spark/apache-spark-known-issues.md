@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: 1dbf6478a62675c8b514298007a7663239d8f7cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 65163225853037ac4cb97a02c0bdaf554b509fb1
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86084640"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822197"
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>Problèmes connus du cluster Apache Spark sur Azure HDInsight
 
@@ -81,7 +81,7 @@ Voici certains problèmes connus liés aux notebooks Jupyter.
 
 ### <a name="notebooks-with-non-ascii-characters-in-filenames"></a>Notebooks avec des caractères non-ASCII dans les noms de fichiers
 
-N’utilisez pas de caractères non-ASCII dans les noms de fichiers des bloc-notes Jupyter. Si vous essayez de charger un fichier via l’IU Jupyter, qui a un nom de fichier non-ASCII, le téléchargement échoue sans message d’erreur. Jupyter ne vous permet pas de charger le fichier, mais il ne lance pas d’erreur visible non plus.
+N’utilisez pas de caractères non-ASCII dans les noms de fichiers des notebooks Jupyter. Si vous essayez de charger un fichier via l’IU Jupyter, qui a un nom de fichier non-ASCII, le téléchargement échoue sans message d’erreur. Jupyter ne vous permet pas de charger le fichier, mais il ne lance pas d’erreur visible non plus.
 
 ### <a name="error-while-loading-notebooks-of-larger-sizes"></a>Erreur lors du chargement de notebooks de taille supérieure
 
@@ -100,15 +100,15 @@ Pour éviter cette erreur à l’avenir, gardez en tête les conseils suivants 
 
 ### <a name="notebook-initial-startup-takes-longer-than-expected"></a>Démarrage du bloc-notes plus long que prévu
 
-La première instruction de code du bloc-notes Jupyter avec Spark Magic peut nécessiter plusieurs minutes.  
+La première instruction de code du notebook Jupyter avec Spark Magic peut nécessiter plusieurs minutes.  
 
 **Explication :**
 
 Cela se produit lorsque la première cellule du code est exécutée. En arrière-plan, la configuration de la session est lancée, et les contextes Spark, SQL et Hive sont définis. Une fois ces contextes définis, la première instruction est exécutée et donne l'impression que l'instruction prend beaucoup de temps.
 
-### <a name="jupyter-notebook-timeout-in-creating-the-session"></a>Délai d’attente du bloc-notes Jupyter lors de la création de la session
+### <a name="jupyter-notebook-timeout-in-creating-the-session"></a>Délai d’attente du notebook Jupyter lors de la création de la session
 
-Lorsque le cluster Spark manque de ressources, les noyaux Spark et PySpark du bloc-notes Jupyter expirent en essayant de créer la session.
+Quand le cluster Spark manque de ressources, les noyaux Spark et PySpark du notebook Jupyter expirent en essayant de créer la session.
 
 **Atténuations :**
 
@@ -140,8 +140,8 @@ Lorsque le cluster Spark manque de ressources, les noyaux Spark et PySpark du bl
 * [Utilisation du plugin d’outils HDInsight pour IntelliJ IDEA pour créer et soumettre des applications Spark Scala](apache-spark-intellij-tool-plugin.md)
 * [Utiliser le plug-in Azure HDInsight Tools pour IntelliJ IDEA afin de déboguer des applications Apache Spark à distance](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Utiliser des blocs-notes Apache Zeppelin avec un cluster Apache Spark sur HDInsight](apache-spark-zeppelin-notebook.md)
-* [Noyaux accessibles à Jupyter Notebook dans le cluster Apache Spark pour HDInsight](apache-spark-jupyter-notebook-kernels.md)
-* [Utiliser des packages externes avec les blocs-notes Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)
+* [Noyaux disponibles pour bloc-notes Jupyter dans un cluster Apache Spark pour HDInsight](apache-spark-jupyter-notebook-kernels.md)
+* [Utiliser des packages externes avec des blocs-notes Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Install Jupyter on your computer and connect to an HDInsight Spark cluster (Installer Jupyter sur un ordinateur et se connecter au cluster Spark sur HDInsight)](apache-spark-jupyter-notebook-install-locally.md)
 
 ### <a name="manage-resources"></a>Gestion des ressources

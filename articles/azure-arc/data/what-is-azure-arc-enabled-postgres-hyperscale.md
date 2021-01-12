@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 7e8746d9b29b0b4af30ba799628328acc3fd8bc0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17c0e63b02d61b3aecf70624bc97a468d18f66fe
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90930173"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607505"
 ---
 # <a name="what-is-azure-arc-enabled-postgresql-hyperscale"></a>Qu’est-ce qu’Azure Arc enabled PostgreSQL Hyperscale ?
 
@@ -43,14 +43,14 @@ Il s’agit du facteur de forme hyperscale du moteur de base de données Postgre
 
 ## <a name="azure-arc-enabled-postgresql-hyperscale"></a>Azure Arc enabled PostgreSQL Hyperscale
 
-:::image type="content" source="media/postgres-hyperscale/postgresql-hyperscale-arc.png" alt-text="Azure SQL Database pour PostgreSQL Hyperscale (Citus)":::
+:::image type="content" source="media/postgres-hyperscale/postgresql-hyperscale-arc.png" alt-text="Azure Arc enabled PostgreSQL Hyperscale":::
 
 Il s’agit du facteur de forme hyperscale du moteur de base de données Postgres disponible avec les services de données activés pour Azure Arc. Il s’appuie également sur l’extension Citus qui permet l’expérience hyperscale. Dans ce facteur de forme, nos clients fournissent l’infrastructure qui héberge les systèmes et les exploitent.
 
 ## <a name="next-steps"></a>Étapes suivantes
 - **Créer**
-   > **Vous voulez juste l’essayer ?**  
-   > Démarrez rapidement avec [Démarrage rapide d'Azure Arc](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services) sur Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) ou sur une machine virtuelle Azure.
+   > **Vous voulez juste essayer ? Vous n’avez pas de cluster Kubernetes disponible ? Nous vous fournissons un bac à sable (sandbox) :**  
+   > Démarrez rapidement avec [Démarrage rapide d'Azure Arc](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/) sur Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) ou sur une machine virtuelle Azure.
 
    - **Créer :**
       - [Installer les outils clients](install-client-tools.md)

@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/3/2019
+ms.date: 12/18/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 7de97fd775853f64803ab62ac397e754d065e4df
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 353c349ebe348addac60c5f9f7b1bf0fbb1fc425
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509323"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97703312"
 ---
 # <a name="admin-consent-on-the-microsoft-identity-platform"></a>Consentement administrateur sur la plateforme d’identités Microsoft
 
@@ -50,10 +50,9 @@ https://graph.microsoft.com/mail.send
 | `client_id` | Obligatoire | L’**ID (client) d’application** attribué à votre application par l’environnement [Inscriptions d’applications du portail Azure](https://go.microsoft.com/fwlink/?linkid=2083908). |
 | `redirect_uri` | Obligatoire |L'URI de redirection où vous souhaitez que la réponse soit envoyée pour être gérée par votre application. Il doit correspondre exactement à l’un des URI de redirection que vous avez inscrits dans le portail d’inscription des applications. |
 | `state` | Recommandé | Une valeur incluse dans la requête, qui sera également renvoyée dans la réponse de jeton. Il peut s’agir d’une chaîne du contenu de votre choix. Utilisez l’état pour encoder les informations sur l’état de l’utilisateur dans l’application avant la requête d’authentification, comme la page ou la vue sur laquelle ou laquelle il était positionné. |
-|`scope` | Obligatoire | Définit l’ensemble des autorisations demandées par l’application. Il peut s’agir d’étendues statiques (utilisant /.default) ou dynamiques. Cela peut inclure les étendues OIDC (`openid`, `profile`, `email`). |
+|`scope` | Obligatoire | Définit l’ensemble des autorisations demandées par l’application. Il peut s’agir d’étendues statiques (utilisant `/.default`) ou dynamiques. Cela peut inclure les étendues OIDC (`openid`, `profile`, `email`). |
 
-
-À ce stade, Azure AD nécessite qu’un administrateur client se connecte pour terminer la demande. L’administrateur est invité à approuver toutes les autorisations que vous avez demandées dans le paramètre `scope`.  Si vous avez utilisé une valeur (`/.default`) statique, celle-ci fonctionne comme le point de terminaison de consentement administrateur v 1.0 et demande un consentement pour toutes les étendues trouvées dans les autorisations requises pour l’application.
+À ce stade, Azure AD nécessite qu’un administrateur client se connecte pour terminer la demande. L’administrateur est invité à approuver toutes les autorisations que vous avez demandées dans le paramètre `scope`.  Si vous avez utilisé une valeur statique (`/.default`), celle-ci fonctionne comme point de terminaison de consentement administrateur v1.0 et demande un consentement pour toutes les étendues trouvées dans les autorisations requises (utilisateur et application). Pour demander des autorisations d’application, vous devez utiliser la valeur `/.default`. Si vous ne souhaitez pas que les administrateurs voient une autorisation donnée dans l’écran de consentement administrateur quand vous utilisez `/.default`, la bonne pratique consiste à ne pas placer l’autorisation dans la section des autorisations requises. Au lieu de cela, vous pouvez utiliser le consentement dynamique pour ajouter les autorisations que vous souhaitez voir dans l’écran de consentement au moment de l’exécution, au lieu d’utiliser `/.default`.
 
 ### <a name="successful-response"></a>Réponse correcte
 

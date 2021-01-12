@@ -3,12 +3,12 @@ title: Mettre à jour un cluster pour utiliser le nom commun du certificat
 description: Découvrez comment convertir un certificat de cluster Azure Service Fabric de déclarations basées sur l’empreinte en noms communs.
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: 013b8190390a4b05791b0a56072487f249956ec5
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: f719b1eb39da776827c6babec61e9e6701bb4602
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495200"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900788"
 ---
 # <a name="convert-cluster-certificates-from-thumbprint-based-declarations-to-common-names"></a>Convertir des certificats de cluster de déclarations basées sur l’empreinte en noms communs
 
@@ -34,7 +34,7 @@ Un certificat déclaré par nom commun est généralement considéré comme vali
 
 Service Fabric prend en charge la déclaration de certificats par nom commun de deux manières :
 
-* Avec des émetteurs *implicites* , ce qui signifie que la chaîne doit se terminer par une ancre d’approbation.
+* Avec des émetteurs *implicites*, ce qui signifie que la chaîne doit se terminer par une ancre d’approbation.
 * Avec des émetteurs déclarés par empreinte, ce qui est connu sous le nom d’épinglage de l’émetteur.
 
 Pour plus d’informations, consultez [Déclarations de validation de certificat basées sur un nom commun](cluster-security-certificates.md#common-name-based-certificate-validation-declarations).
@@ -63,8 +63,11 @@ Il existe plusieurs états initiaux valides pour une conversion. L’invariant e
 #### <a name="valid-starting-states"></a>États initiaux valides
 
 - `Thumbprint: GoalCert, ThumbprintSecondary: None`
-- `Thumbprint: GoalCert, ThumbprintSecondary: OldCert1`, où `GoalCert` a une date `NotAfter` ultérieure à celle de `OldCert1`
-- `Thumbprint: OldCert1, ThumbprintSecondary: GoalCert`, où `GoalCert` a une date `NotAfter` ultérieure à celle de `OldCert1`
+- `Thumbprint: GoalCert, ThumbprintSecondary: OldCert1`, où `GoalCert` a une date `NotBefore` ultérieure à celle de `OldCert1`
+- `Thumbprint: OldCert1, ThumbprintSecondary: GoalCert`, où `GoalCert` a une date `NotBefore` ultérieure à celle de `OldCert1`
+
+> [!NOTE]
+> Avant la version 7.2.445 (7.2 CU4), Service Fabric sélectionnait le certificat dont l’expiration était la plus éloignée (le certificat avec la propriété « NotAfter » la plus ancienne). Par conséquent, les états initiaux ci-dessus avant 7.2 CU4 requièrent que GoalCert ait une date `NotAfter` ultérieure à `OldCert1`.
 
 Si votre cluster n’est pas dans l’un des états valides décrits précédemment, consultez les informations relatives à l’obtention de cet état dans la section à la fin de cet article.
 
@@ -79,7 +82,7 @@ Veillez à bien comprendre les différences et les implications du choix de l’
    >
    > Si aucun émetteur n’est spécifié ou si la liste est vide, l’authentification du certificat est acceptée si sa chaîne peut être générée. Le certificat se retrouve alors dans une racine approuvée par le validateur. Si une ou plusieurs empreintes d’émetteur sont spécifiées, le certificat sera accepté si l’empreinte de son émetteur direct, telle qu’extraite de la chaîne, correspond à l’une des valeurs spécifiées dans ce champ. Le certificat sera accepté, que la racine soit approuvée ou non.
    >
-   > Une infrastructure à clé publique peut utiliser différentes autorités de certification (également appelées *émetteurs* ) pour signer des certificats avec un sujet donné. C’est pourquoi il est important de spécifier toutes les empreintes d’émetteur attendues pour ce sujet. En d’autres termes, le renouvellement d’un certificat n’est pas garanti d’être signé par le même émetteur que le certificat en cours de renouvellement.
+   > Une infrastructure à clé publique peut utiliser différentes autorités de certification (également appelées *émetteurs*) pour signer des certificats avec un sujet donné. C’est pourquoi il est important de spécifier toutes les empreintes d’émetteur attendues pour ce sujet. En d’autres termes, le renouvellement d’un certificat n’est pas garanti d’être signé par le même émetteur que le certificat en cours de renouvellement.
    >
    > La meilleure pratique consiste à spécifier l’émetteur. Le chaînage des certificats jusqu’à une racine approuvée continuera de fonctionner même si l’émetteur est omis, mais ce comportement présente des limitations et risque d’être progressivement supprimé dans un avenir proche. Les clusters déployés dans Azure, sécurisés à l’aide de certificats X509 émis par une infrastructure privée à clé publique et déclarés par sujet, risquent de ne pas pouvoir être validés par Service Fabric (pour la communication entre le cluster et le service). La validation nécessite que la stratégie de certificat de l’infrastructure à clé publique soit détectable, disponible et accessible.
 
@@ -152,7 +155,7 @@ Par :
 
 ### <a name="update-the-cluster-resource"></a>Mettre à jour la ressource de cluster
 
-Dans la ressource **Microsoft.ServiceFabric/clusters** , ajoutez une propriété **certificateCommonNames** avec un paramètre **commonNames** et supprimez complètement la propriété **certificate** (tous ses paramètres).
+Dans la ressource **Microsoft.ServiceFabric/clusters**, ajoutez une propriété **certificateCommonNames** avec un paramètre **commonNames** et supprimez complètement la propriété **certificate** (tous ses paramètres).
 
 De :
 ```json
@@ -217,11 +220,14 @@ New-AzResourceGroupDeployment -ResourceGroupName $groupname -Verbose `
 
 | État initial | Mise à niveau 1 | Mise à niveau 2 |
 | :--- | :--- | :--- |
-| `Thumbprint: OldCert1, ThumbprintSecondary: None` et `GoalCert` ont une date `NotAfter` ultérieure à celle de `OldCert1` | `Thumbprint: OldCert1, ThumbprintSecondary: GoalCert` | - |
-| `Thumbprint: OldCert1, ThumbprintSecondary: None` et `OldCert1` ont une date `NotAfter` ultérieure à celle de `GoalCert` | `Thumbprint: GoalCert, ThumbprintSecondary: OldCert1` | `Thumbprint: GoalCert, ThumbprintSecondary: None` |
-| `Thumbprint: OldCert1, ThumbprintSecondary: GoalCert`, où `OldCert1` a une date `NotAfter` ultérieure à celle de `GoalCert` | Mettre à niveau vers `Thumbprint: GoalCert, ThumbprintSecondary: None` | - |
-| `Thumbprint: GoalCert, ThumbprintSecondary: OldCert1`, où `OldCert1` a une date `NotAfter` ultérieure à celle de `GoalCert` | Mettre à niveau vers `Thumbprint: GoalCert, ThumbprintSecondary: None` | - |
+| `Thumbprint: OldCert1, ThumbprintSecondary: None` et `GoalCert` ont une date `NotBefore` ultérieure à celle de `OldCert1` | `Thumbprint: OldCert1, ThumbprintSecondary: GoalCert` | - |
+| `Thumbprint: OldCert1, ThumbprintSecondary: None` et `OldCert1` ont une date `NotBefore` ultérieure à celle de `GoalCert` | `Thumbprint: GoalCert, ThumbprintSecondary: OldCert1` | `Thumbprint: GoalCert, ThumbprintSecondary: None` |
+| `Thumbprint: OldCert1, ThumbprintSecondary: GoalCert`, où `OldCert1` a une date `NotBefore` ultérieure à celle de `GoalCert` | Mettre à niveau vers `Thumbprint: GoalCert, ThumbprintSecondary: None` | - |
+| `Thumbprint: GoalCert, ThumbprintSecondary: OldCert1`, où `OldCert1` a une date `NotBefore` ultérieure à celle de `GoalCert` | Mettre à niveau vers `Thumbprint: GoalCert, ThumbprintSecondary: None` | - |
 | `Thumbprint: OldCert1, ThumbprintSecondary: OldCert2` | Supprimer `OldCert1` ou `OldCert2` pour accéder à l’état `Thumbprint: OldCertx, ThumbprintSecondary: None` | Continuer à partir du nouvel état initial |
+
+> [!NOTE]
+> Pour un cluster sur une version antérieure à la version 7.2.445 (7.2 CU4), remplacez `NotBefore` par `NotAfter` dans les états ci-dessus.
 
 Pour obtenir des instructions sur la façon d’effectuer ces mises à niveau, consultez [Gérer des certificats dans un cluster Azure Service Fabric](service-fabric-cluster-security-update-certs-azure.md).
 

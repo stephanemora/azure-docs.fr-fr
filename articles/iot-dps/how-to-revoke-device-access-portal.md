@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 120446472038076e34f62b47ba79348e5de8b972
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c75fcd1fd20e41df5018fcaa07fe83051d7e5f1a
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010926"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740366"
 ---
 # <a name="how-to-disenroll-a-device-from-azure-iot-hub-device-provisioning-service"></a>Révoquer l’accès d’un appareil du service Azure IoT Hub Device Provisioning Service
 
@@ -26,7 +26,7 @@ En inscrivant un appareil dans le service Device Provisioning, vous activez son 
 
 ## <a name="disallow-devices-by-using-an-individual-enrollment-entry"></a>Bloquer des appareils à l’aide d’une entrée d’inscription individuelle
 
-Les inscriptions individuelles s’appliquent à un appareil unique et peuvent utiliser des certificats X.509 ou des jetons SAP (dans un module TPM réel ou virtuel) comme mécanisme d’attestation. (Les appareils qui utilisent des jetons SAP comme mécanisme d’attestation ne peuvent être provisionnés que par le biais d’une inscription individuelle.) Pour bloquer un appareil disposant d’une inscription individuelle, vous pouvez désactiver ou supprimer son entrée d’inscription. 
+Les inscriptions individuelles s’appliquent à un appareil unique et peuvent utiliser des certificats X.509, des clés de type EK (Endorsement Key) TPM (dans un module TPM réel ou virtuel) ou des jetons SAS comme mécanisme d’attestation. Pour bloquer un appareil disposant d’une inscription individuelle, vous pouvez désactiver ou supprimer son entrée d’inscription. 
 
 Pour bloquer provisoirement l’appareil en désactivant son entrée d’inscription : 
 

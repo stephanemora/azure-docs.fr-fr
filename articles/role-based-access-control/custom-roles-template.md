@@ -1,6 +1,6 @@
 ---
-title: Créer un rôle Azure personnalisé à l’aide d’un modèle Azure Resource Manage - Azure RBAC
-description: Découvrez comment créer un rôle personnalisé Azure à l’aide d’un modèle Azure Resource Manager et du contrôle d’accès en fonction du rôle Azure (Azure RBAC).
+title: Créer ou mettre à jour des rôles personnalisés Azure à l’aide d’un modèle Azure Resource Manager – Azure RBAC
+description: Découvrez comment créer ou mettre à jour des rôles personnalisés Azure à l’aide d’un modèle Azure Resource Manager (modèle ARM) et du contrôle d’accès en fonction du rôle Azure (Azure RBAC).
 services: role-based-access-control,azure-resource-manager
 author: rolyon
 manager: mtillman
@@ -8,18 +8,18 @@ ms.service: role-based-access-control
 ms.topic: how-to
 ms.custom: subject-armqs
 ms.workload: identity
-ms.date: 06/25/2020
+ms.date: 12/16/2020
 ms.author: rolyon
-ms.openlocfilehash: 96dfdc0a1c32237c55d4e65bb25989656e2a4ad2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: beea0c5cecd7bb99973a4692a4cce17e7a69d708
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097020"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631310"
 ---
-# <a name="create-an-azure-custom-role-using-an-arm-template"></a>Créer un rôle personnalisé Azure à l’aide d’un modèle Resource Manager
+# <a name="create-or-update-azure-custom-roles-using-an-arm-template"></a>Créer ou mettre à jour des rôles personnalisés Azure à l’aide d’un modèle ARM
 
-Si les [rôles intégrés Azure](built-in-roles.md) ne répondent pas aux besoins spécifiques de votre organisation, vous pouvez créer vos propres [rôles personnalisés](custom-roles.md). Cet article décrit la procédure de création d’un rôle personnalisé à l’aide d’un modèle Azure Resource Manager.
+Si les [rôles intégrés Azure](built-in-roles.md) ne répondent pas aux besoins spécifiques de votre organisation, vous pouvez créer vos propres [rôles personnalisés](custom-roles.md). Cet article décrit la procédure de création ou de mise à jour d’un rôle personnalisé à l’aide d’un modèle Azure Resource Manager (modèle ARM).
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -66,15 +66,13 @@ Procédez comme suit pour déployer le modèle précédent.
     $location = Read-Host -Prompt "Enter a location (i.e. centralus)"
     [string[]]$actions = Read-Host -Prompt "Enter actions as a comma-separated list (i.e. action1,action2)"
     $actions = $actions.Split(',')
-
     $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/subscription-deployments/create-role-def/azuredeploy.json"
-
     New-AzDeployment -Location $location -TemplateUri $templateUri -actions $actions
     ```
 
-1. Entrez un emplacement pour le déploiement, tel que *centralus*.
+1. Entrez un emplacement pour le déploiement, tel que `centralus`.
 
-1. Entrez une liste d’actions pour le rôle personnalisé sous la forme d’une liste séparée par des virgules, telle que *Microsoft.Resources/resources/read,Microsoft.Resources/subscriptions/resourceGroups/read*.
+1. Entrez une liste d’actions pour le rôle personnalisé sous la forme d’une liste séparée par des virgules, telle que `Microsoft.Resources/resources/read,Microsoft.Resources/subscriptions/resourceGroups/read`.
 
 1. Si nécessaire, appuyez sur Entrée pour exécuter la commande `New-AzDeployment`.
 
@@ -152,6 +150,47 @@ Procédez comme suit pour vérifier que le rôle personnalisé a été créé.
 1. Vérifiez que **Rôle personnalisé - Lecteur RG** est listé.
 
    ![Nouveau rôle personnalisé dans le portail Azure](./media/custom-roles-template/custom-role-template-portal.png)
+
+## <a name="update-a-custom-role"></a>Mettre à jour un rôle personnalisé
+
+À l’instar de la création d’un rôle personnalisé, vous pouvez mettre à jour un rôle personnalisé existant à l’aide d’un modèle. Pour mettre à jour un rôle personnalisé, vous devez spécifier le rôle que vous souhaitez mettre à jour.
+
+Voici les modifications que vous devez apporter au modèle de démarrage rapide précédent pour mettre à jour le rôle personnalisé.
+
+- Incluez l’ID de rôle en tant que paramètre.
+    ```json
+        ...
+        "roleDefName": {
+          "type": "string",
+          "metadata": {
+            "description": "ID of the role definition"
+          }
+        ...
+    ```
+
+- Incluez le paramètre ID de rôle dans la définition du rôle.
+
+    ```json
+      ...
+      "resources": [
+        {
+          "type": "Microsoft.Authorization/roleDefinitions",
+          "apiVersion": "2018-07-01",
+          "name": "[parameters('roleDefName')]",
+          "properties": {
+            ...
+    ```
+
+Voici un exemple montrant comment déployer le modèle.
+
+```azurepowershell
+$location = Read-Host -Prompt "Enter a location (i.e. centralus)"
+[string[]]$actions = Read-Host -Prompt "Enter actions as a comma-separated list (i.e. action1,action2)"
+$actions = $actions.Split(',')
+$roleDefName = Read-Host -Prompt "Enter the role ID to update"
+$templateFile = "rg-reader-update.json"
+New-AzDeployment -Location $location -TemplateFile $templateFile -actions $actions -roleDefName $roleDefName
+```
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

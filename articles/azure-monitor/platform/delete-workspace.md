@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/26/2020
-ms.openlocfilehash: 0858d448cf768dbe6ea48f07247725fac30da860
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.date: 12/20/2020
+ms.openlocfilehash: ed5e4d05a693ff9b0bf8823ba31de17d000d0fb6
+ms.sourcegitcommit: 0830e02635d2f240aae2667b947487db01f5fdef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95758893"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97706879"
 ---
 # <a name="delete-and-recover-azure-log-analytics-workspace"></a>Supprimer et récupérer un espace de travail Azure Log Analytics
 
@@ -19,7 +19,7 @@ Cet article décrit le concept de suppression réversible d'un espace de travail
 
 ## <a name="considerations-when-deleting-a-workspace"></a>Considérations relatives à la suppression d'un espace de travail
 
-Lorsque vous supprimez un espace de travail Log Analytics, une opération de suppression réversible est lancée pour permettre la récupération de l'espace de travail, y compris de ses données et des agents connectés, dans un délai de 14 jours, que la suppression ait été accidentelle ou intentionnelle. À l’issue de cette période de suppression réversible, la ressource d’espace de travail et ses données deviennent irrécupérables : ses données sont mises en file d’attente pour une suppression définitive et sont complètement supprimées dans un délai de 30 jours. Le nom de l’espace de travail est « libéré » et vous pouvez l’utiliser pour créer un espace de travail.
+Lorsque vous supprimez un espace de travail Log Analytics, une opération de suppression réversible est lancée pour permettre la récupération de l'espace de travail, y compris de ses données et des agents connectés, dans un délai de 14 jours, que la suppression ait été accidentelle ou intentionnelle. À l’issue de cette période de suppression réversible, la ressource d’espace de travail et ses données deviennent irrécupérables et sont mises en file d’attente pour une suppression définitive dans un délai de 30 jours. Le nom de l’espace de travail est « libéré » et vous pouvez l’utiliser pour créer un espace de travail.
 
 > [!NOTE]
 > Si vous souhaitez modifier le comportement de suppression réversible et supprimer définitivement votre espace de travail, suivez les étapes décrites dans [Suppression définitive de l’espace de travail](#permanent-workspace-delete).
@@ -76,12 +76,15 @@ PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-
 ## <a name="recover-workspace"></a>Récupérer un espace de travail
 Lorsque vous supprimez un espace de travail Log Analytics accidentellement ou intentionnellement, le service place l’espace de travail dans un état de suppression réversible, ce qui le rend inaccessible à toute opération. Le nom de l’espace de travail supprimé est conservé pendant la période de suppression réversible et ne peut pas être utilisé pour créer un espace de travail. Après la période de suppression réversible, l’espace de travail n’est plus récupérable. Il est planifié pour une suppression définitive, tandis que son nom est libéré et peut être utilisé pour créer un nouvel espace de travail.
 
-Pendant la période de suppression réversible, vous pouvez récupérer votre espace de travail, notamment ses agents, sa configuration et ses agents connectés. Vous devez disposer d’autorisations de contributeur sur l’abonnement et le groupe de ressources où l’espace de travail se trouvait avant l’opération de suppression réversible. La récupération de l’espace de travail est effectuée en créant un espace de travail Log Analytics avec les détails de l’espace de travail supprimé, qui inclut les éléments suivant :
+Pendant la période de suppression réversible, vous pouvez récupérer votre espace de travail, notamment ses agents, sa configuration et ses agents connectés. Vous devez disposer d’autorisations de contributeur sur l’abonnement et le groupe de ressources où l’espace de travail se trouvait avant l’opération de suppression réversible. L’opération de récupération consiste à recréer l’espace de travail Log Analytics avec les détails de l’espace de travail supprimé, notamment :
 
 - Identifiant d’abonnement
 - Nom du groupe ressources
 - Nom de l’espace de travail
 - Région
+
+> [!IMPORTANT]
+> Si votre espace de travail a été supprimé dans le cadre de l’opération de suppression d’un groupe de ressources, vous devez d’abord recréer le groupe de ressources.
 
 ### <a name="azure-portal"></a>Portail Azure
 
@@ -104,20 +107,19 @@ PS C:\>New-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-nam
 
 L’espace de travail et toutes ses données sont restaurés après l’opération de récupération. Les solutions et les services liés ont été définitivement supprimés de l’espace de travail lors de la suppression de ce dernier. Ils doivent être reconfigurés pour ramener l’espace de travail à son état précédemment configuré. Certaines des données peuvent ne pas être disponibles pour la requête après la récupération de l’espace de travail jusqu’à ce que les solutions associées soient réinstallées et que leurs schémas soient ajoutés à l’espace de travail.
 
-> [!NOTE]
-> * La recréation d’un espace de travail pendant la période de suppression réversible indique que le nom de cet espace de travail est déjà utilisé. 
- 
 ## <a name="troubleshooting"></a>Dépannage
 
 Vous devez disposer au moins des autorisations *Contributeur Log Analytics* pour supprimer un espace de travail.
 
-* Si vous ignorez si l’espace de travail supprimé est ou non dans un état de suppression réversible et peut être récupéré, cliquez sur [Récupérer](#recover-workspace) dans la page *Espaces de travail Log Analytics* pour afficher la liste des espaces de travail supprimés de manière réversible par abonnement. Les espaces de travail définitivement supprimés ne figurent pas dans la liste.
+* Si vous ignorez si l’espace de travail supprimé est dans un état de suppression réversible et s’il est récupérable, cliquez sur [Open recycle bin](#recover-workspace) (Ouvrir la Corbeille) dans la page *Espaces de travail Log Analytics* afin d’afficher la liste des espaces de travail supprimés de manière réversible pour chaque abonnement. Les espaces de travail définitivement supprimés ne figurent pas dans la liste.
 * Si vous obtenez le message d’erreur *Ce nom d’espace de travail est déjà utilisé* ou un *conflit* s’est produit pendant la création d’un espace de travail ; en voici les raisons possibles :
   * Le nom de l’espace de travail n’est pas disponible et qu’il est utilisé par une personne de votre organisation ou par un autre client.
-  * L’espace de travail a été supprimé au cours des 14 derniers jours et son nom est réservé pour la période de suppression réversible. Pour annuler la suppression réversible et supprimer définitivement votre espace de travail pour en créer un nouveau sous le même nom, suivez ces étapes afin de récupérer d’abord l’espace de travail et effectuer la suppression définitive :<br>
+  * L’espace de travail a été supprimé au cours des 14 derniers jours et son nom est réservé pour la période de suppression réversible. Si vous souhaitez remplacer la suppression réversible par une suppression définitive de votre espace de travail afin d’en créer un autre ayant le même nom, suivez ces étapes pour récupérer d’abord l’espace de travail avant d’effectuer la suppression définitive :<br>
     1. [Récupérez](#recover-workspace) votre espace de travail.
     2. [Supprimez définitivement](#permanent-workspace-delete) votre espace de travail.
     3. Créez un espace de travail en reprenant le même nom d’espace de travail.
-* Si vous voyez un code de réponse 204 qui indique *Ressource introuvable*, la cause peut être des tentatives répétées d’utiliser l’opération de suppression de l’espace de travail. 204 est une réponse vide, ce qui signifie généralement que la ressource n’existe pas. La suppression est donc terminée sans rien faire.
-  Une fois l’appel de suppression terminé sur la back end, vous pouvez restaurer l’espace de travail et terminer l’opération de suppression permanente dans l’une des méthodes suggérées précédemment.
+ 
+      Une fois l’appel de suppression terminé sur la back end, vous pouvez restaurer l’espace de travail et terminer l’opération de suppression permanente dans l’une des méthodes suggérées précédemment.
 
+* Si vous recevez le code de réponse 204 avec un message indiquant *Ressource introuvable* au moment de la suppression d’un espace de travail, de nouvelles tentatives consécutives ont peut-être eu lieu. 204 est une réponse vide, ce qui signifie généralement que la ressource n’existe pas. La suppression est donc terminée sans rien faire.
+* Si vous supprimez votre groupe de ressources et l’espace de travail inclus, vous pouvez voir l’espace de travail supprimé dans la page [Open recycle bin](#recover-workspace). Toutefois, l’opération de récupération échoue et le code d’erreur 404 s’affiche, car le groupe de ressources n’existe pas. Recréez votre groupe de ressources, puis recommencez la récupération.

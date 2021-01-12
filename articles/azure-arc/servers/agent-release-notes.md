@@ -1,14 +1,14 @@
 ---
 title: Nouveautés de l’agent des serveurs activés par Azure Arc
-description: Cet article contient les notes de publication de l’agent des serveurs activés par Azure Arc. Pour la plupart des problèmes résumés ici, il existe des liens menant à des informations supplémentaires.
+description: Cet article contient les notes de publication de l’agent des serveurs activés par Azure Arc. Pour la plupart des problèmes résumés, des liens mènent à des informations supplémentaires.
 ms.topic: conceptual
-ms.date: 12/14/2020
-ms.openlocfilehash: 3a01113d0d6416fb050f5c66191d5c420b7ac137
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.date: 12/21/2020
+ms.openlocfilehash: 4b7fd97d5b7e1cddc1d78e0d24205890e74c45c1
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505645"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97722519"
 ---
 # <a name="whats-new-with-azure-arc-enabled-servers-agent"></a>Nouveautés de l’agent des serveurs activés par Azure Arc
 
@@ -20,6 +20,8 @@ L’agent Connected Machine des serveurs activés par Azure Arc reçoit des amé
 
 ## <a name="december-2020"></a>Décembre 2020
 
+Version : 1.3
+
 ### <a name="new-feature"></a>Nouvelle fonctionnalité
 
 Ajout de la prise en charge de Windows Server 2008 R2
@@ -30,11 +32,15 @@ Résolution d’un problème empêchant l’installation de l’extension de scr
 
 ## <a name="november-2020"></a>Novembre 2020
 
+Version : 1.2
+
 ### <a name="fixed"></a>Fixe
 
 Résolution d’un problème où la configuration du proxy pouvait être perdue après la mise à niveau des distributions RPM.
 
 ## <a name="october-2020"></a>Octobre 2020
+
+Version : 1.1
 
 ### <a name="fixed"></a>Fixe
 
@@ -61,7 +67,7 @@ Version : 1.0 (Disponibilité générale)
 - Ajout de l’option `azcmagent show --json` pour sortir l’état de l’agent dans un format facile à analyser.
 - Ajout de l’indicateur dans la sortie `azcmagent show` pour indiquer si le serveur se trouve sur une machine virtuelle hébergée dans Azure.
 - Ajout de l’option `azcmagent disconnect --force-local-only` pour autoriser la réinitialisation de l’état de l’agent local lorsque le service Azure est inaccessible.
-- Ajout de l’option `azcmagent connect --cloud` pour prendre en charge des clouds supplémentaires. Dans cette version, seul Azure est pris en charge par le service au moment de la mise en production de l’agent.
+- Ajout de l’option `azcmagent connect --cloud` pour prendre en charge d’autres clouds. Dans cette version, seul Azure est pris en charge par le service au moment de la mise en production de l’agent.
 - L’agent a été localisé dans les langues prises en charge par Azure.
 
 ### <a name="fixed"></a>Fixe

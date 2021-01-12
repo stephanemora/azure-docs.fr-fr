@@ -3,12 +3,12 @@ title: Restaurer des bases de données SQL Server sur une machine virtuelle Azur
 description: Cet article explique comment restaurer des bases de données SQL Server exécutées sur une machine virtuelle Azure et sauvegardées avec Sauvegarde Azure. Vous pouvez également utiliser la restauration inter-régions pour restaurer vos bases de données dans une région secondaire.
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: bbafd179f4b2f4e91a4bf19da41ffc14e4775e5c
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 7dd8d8d54fa7d33bb4a0935357597d19dd2368c5
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172178"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734400"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Restaurer des bases de données SQL Server sur des machines virtuelles Azure
 
@@ -23,12 +23,13 @@ Sauvegarde Azure peut restaurer des bases de données SQL Server s’exécutant 
 - Restaurer à une date ou une heure spécifique (à la seconde), en utilisant les sauvegardes de fichiers journaux. Sauvegarde Azure détermine automatiquement la sauvegarde différentielle complète appropriée, et la chaîne des sauvegardes de fichiers journaux nécessaires pour restaurer en fonction de la date/heure sélectionnée.
 - Restaurez une sauvegarde complète ou différentielle spécifique sur un point de récupération spécifique.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="restore-prerequisites"></a>Prérequis pour la restauration
 
 Avant de restaurer une base de données, notez les points suivants :
 
 - Vous pouvez restaurer la base de données vers une instance SQL Server dans la même région Azure.
 - Le serveur de destination doit être inscrit auprès du même coffre que la source.
+- Si plusieurs instances sont en cours d’exécution sur un serveur, elles doivent toutes être opérationnelles. Sinon, le serveur n’apparaît pas dans la liste des serveurs de destination sur lesquels vous pouvez restaurer la base de données. Pour plus d’informations, reportez-vous aux [étapes de dépannage](backup-sql-server-azure-troubleshoot.md#faulty-instance-in-a-vm-with-multiple-sql-server-instances).
 - Pour restaurer une base de données chiffrée avec TDE sur un autre serveur SQL Server, vous devez d’abord [restaurer le certificat sur le serveur de destination](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server).
 - Les bases de données compatibles avec la [capture des changements de données (CDC)](/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server) doivent être restaurées en utilisant l’option [Restaurer en tant que fichiers](#restore-as-files).
 - Avant de restaurer la base de données « master », démarrez l’instance SQL Server en mode mono-utilisateur, avec l’option de démarrage **-m AzureWorkloadBackup**.
@@ -36,7 +37,6 @@ Avant de restaurer une base de données, notez les points suivants :
   - Seul le nom du client spécifié peut ouvrir la connexion.
 - Pour toutes les bases de données système (model, master, msdb), arrêtez le service SQL Server Agent avant de déclencher la restauration.
 - Fermez toutes les applications qui tentent de voler une connexion à l’une de ces bases de données.
-- Si plusieurs instances sont en cours d’exécution sur un serveur, toutes les instances doivent fonctionner. Dans le cas contraire, le serveur n’apparaîtra pas dans la liste des serveurs de destination pour vous permettre d’y restaurer la base de données.
 
 ## <a name="restore-a-database"></a>Restaurer une base de données
 

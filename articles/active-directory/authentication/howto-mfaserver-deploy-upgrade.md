@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1755404a06d8586968801aa22f2af532da278802
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: fbddd2eb52414827561d8896dfc8bc9ff705f41b
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96742321"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97584389"
 ---
 # <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>Mise à niveau du serveur Azure Multi-Factor Authentication vers la dernière version
 
@@ -33,16 +33,16 @@ Si vous passez de la v6.x ou d’une version antérieure à la version 7.x ou un
 
 Aperçu des étapes de mise à niveau :
 
-* Mettre à niveau les serveurs Azure MFA (subordonnés puis Master)
+* Mettre à niveau les serveurs Azure MFA (subordonnés puis principal)
 * Mettre à niveau les instances du portail utilisateur
 * Mettre à niveau les instances de l’adaptateur AD FS
 
 ## <a name="upgrade-azure-mfa-server"></a>Mettre à niveau le serveur Azure MFA
 
 1. Suivez les instructions de la page [Télécharger le serveur Azure Multi-Factor Authentication](howto-mfaserver-deploy.md#download-the-mfa-server) pour obtenir la dernière version du programme d’installation du serveur Azure MFA.
-2. Effectuez une sauvegarde du fichier de données du serveur MFA situé dans C:\Program Files\Multi-Factor Authentication Server\Data\PhoneFactor.pfdata (emplacement d’installation par défaut) sur votre serveur MFA maître.
+2. Effectuez une sauvegarde du fichier de données du serveur MFA situé dans C:\Program Files\Multi-Factor Authentication Server\Data\PhoneFactor.pfdata (emplacement d’installation par défaut) sur votre serveur MFA principal.
 3. Si vous exécutez plusieurs serveurs à des fins de haute disponibilité, modifiez les systèmes clients qui s’authentifient auprès du serveur MFA afin qu’ils arrêtent d’envoyer du trafic aux serveurs en cours de mise à niveau. Si vous utilisez un équilibreur de charge, supprimez un serveur MFA subordonné de l’équilibreur de charge, effectuez la mise à niveau, puis rajoutez le serveur à la batterie de serveurs.
-4. Exécutez le nouveau programme d’installation sur chaque serveur MFA. Mettez à niveau les serveurs subordonnés en premier, car ils peuvent lire l’ancien fichier de données que le maître est en train de répliquer.
+4. Exécutez le nouveau programme d’installation sur chaque serveur MFA. Mettez à niveau les serveurs subordonnés en premier, car ils peuvent lire l’ancien fichier de données que le serveur principal est en train de répliquer.
 
    > [!NOTE]
    > Lorsqu’un serveur est mis à niveau, il doit être supprimé de tous les équilibrages de charge ou des partages de trafic avec d’autres serveurs MFA.
@@ -51,7 +51,7 @@ Aperçu des étapes de mise à niveau :
   
 5. Si vous êtes invité à installer un package de mise à jour Redistribuable Microsoft Visual C++ 2015, acceptez l’invite. La version x86 et la version x64 du package sont toutes deux installées.
 6. Si vous utilisez le Kit de développement logiciel (SDK) du service web, vous êtes invité à installer le nouveau Kit de développement logiciel (SDK) du service web. Lorsque vous installez le nouveau Kit SDK du service web, assurez-vous que le nom du répertoire virtuel correspond à celui du répertoire virtuel déjà installé (par exemple, MultiFactorAuthWebServiceSdk).
-7. Répétez les étapes sur tous les serveurs subordonnés. Promouvez l’un des subordonnés comme nouveau maître, puis mettez à niveau l’ancien serveur maître.
+7. Répétez les étapes sur tous les serveurs subordonnés. Promouvez l’un des subordonnés comme nouveau serveur principal, puis mettez à niveau l’ancien serveur principal.
 
 ## <a name="upgrade-the-user-portal"></a>Mettre à niveau le portail utilisateur
 

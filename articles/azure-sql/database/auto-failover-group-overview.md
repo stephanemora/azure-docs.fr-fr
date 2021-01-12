@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
-ms.date: 11/16/2020
-ms.openlocfilehash: 0d2248b9c0a289f5e4f9f2f8e987365ab58c49c0
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.date: 12/26/2020
+ms.openlocfilehash: 91375f4460b55617ace0b18b60d59d961a762f4c
+ms.sourcegitcommit: 00aa5afaa9fac91f1059cfed3d8dbc954caaabe2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94988542"
+ms.lasthandoff: 12/27/2020
+ms.locfileid: "97792498"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Utiliser les groupes de basculement automatique pour permettre le basculement transparent et coordonné de plusieurs bases de données
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -229,7 +229,7 @@ Si votre application utilise une instance SQL Managed Instance en tant que couch
 
 ### <a name="creating-the-secondary-instance"></a>Création de l’instance secondaire
 
-Pour garantir une connectivité ininterrompue à l’instance SQL Managed Instance principale après le basculement, les instances principale et secondaire doivent se trouver dans la même zone DNS. Cela garantit que le même certificat multidomaine (SAN) peut être utilisé pour authentifier les connexions clientes avec les deux instances du groupe de basculement. Lorsque votre application est prête pour le déploiement en production, créez une instance SQL Managed Instance secondaire dans une autre région et assurez-vous qu’elle partage la même zone DNS que l’instance SQL Managed Instance principale. Pour cela, vous pouvez spécifier un paramètre `DNS Zone Partner` facultatif à l’aide du Portail Azure, de PowerShell ou de l’API REST.
+Pour garantir une connectivité ininterrompue à l’instance SQL Managed Instance principale après le basculement, les instances principale et secondaire doivent se trouver dans la même zone DNS. Cela garantit que le même certificat multidomaine (SAN) peut être utilisé pour authentifier les connexions clientes avec les deux instances du groupe de basculement. Lorsque votre application est prête pour le déploiement en production, créez une instance SQL Managed Instance secondaire dans une autre région et assurez-vous qu’elle partage la même zone DNS que l’instance SQL Managed Instance principale. Vous pouvez y parvenir en spécifiant le paramètre facultatif au moment de la création. Si vous utilisez PowerShell ou l’API REST, le nom du paramètre facultatif est `DNS Zone Partner`, et le nom du champ facultatif correspondant dans le portail Azure est Instance managée principale.
 
 > [!IMPORTANT]
 > La première instance gérée créée dans le sous-réseau détermine la zone DNS pour toutes les instances suivantes de ce même sous-réseau. Cela signifie que deux instances d'un même sous-réseau ne peuvent pas appartenir à des zones DNS différentes.

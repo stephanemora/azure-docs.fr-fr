@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: 1f7a493c071e86114afd7d4a9e08e204bbab509d
-ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
+ms.openlocfilehash: b26643daede9e26f2bf1807ae99a6ced5d1cb08c
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97809477"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901570"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-connector"></a>Connecter Azure aux outils ITSM à l’aide du connecteur de gestion des services informatiques
 
@@ -127,14 +127,31 @@ Exécutez la procédure suivante pour créer des groupes d’actions :
 
 8. Si vous voulez remplir des champs prêts à l’emploi avec des valeurs fixes, sélectionnez **Utiliser un modèle personnalisé**. Sinon, choisissez un [modèle](#template-definitions) existant dans la liste **Modèles**, puis entrez les valeurs fixes dans les champs du modèle.
 
-9. Si vous sélectionnez **Créer des éléments de travail individuels pour chaque élément de configuration**, chaque élément de configuration dispose de son propre élément de travail. Cela signifie qu’il y a un élément de travail par élément de configuration.
+9. Dans la dernière section de la définition de groupe ITSM, vous pouvez définir le nombre d’alertes à créer à partir de chaque alerte. Cette section ne concerne que les alertes de recherche dans les journaux.
 
-    * Dans un cas, vous sélectionnez dans la liste déroulante de l’élément de travail « Incident » ou « Alert » : Si vous décochez la case **Créer des éléments de travail individuels pour chaque élément de configuration**, chaque alerte crée un élément de travail. Il peut y avoir plusieurs alertes par élément de configuration.
+    * Dans un cas, vous sélectionnez dans la liste déroulante de l’élément de travail « Incident » ou « Alert » :
+        * Si vous cochez la case **Créer des éléments de travail individuels pour chaque élément de configuration**, chaque élément de configuration de chaque alerte crée un élément de travail. Il peut y avoir plusieurs éléments de travail par élément de configuration dans le système ITSM.
+
+            Exemple :
+            1) L’alerte 1 avec trois éléments de configuration, A, B et C, crée trois éléments de travail.
+            2) L’alerte 2 avec un élément de configuration, D, crée un élément de travail.
+
+                **À la fin de ce workflow, il y aura quatre alertes.**
+        * Si vous décochez la case **Créer des éléments de travail individuels pour chaque élément de configuration**, certaines alertes ne créent pas d’élément de travail. Les éléments de travail seront fusionnés en fonction de la règle d’alerte.
+
+            Exemple :
+            1) L’alerte 1 avec trois éléments de configuration, A, B et C, crée un élément de travail.
+            2) L’alerte 2 pour la même règle d’alerte que la phase 1 avec un élément de configuration, D, sera fusionnée avec l’élément de travail de la phase 1.
+            3) L’alerte 3 pour une autre règle d’alerte avec un élément de configuration, E, crée un élément de travail.
+
+                **À la fin de ce workflow, il y aura deux alertes.**
 
        ![Capture d’écran montrant la fenêtre Incident ITSM.](media/itsmc-overview/itsm-action-configuration.png)
 
-    * Dans un cas, vous sélectionnez dans la liste déroulante de l’élément de travail « Event » : Si vous sélectionnez **Créer des éléments de travail distincts pour chaque entrée de journal** dans la sélection des cases d’option, chaque alerte crée un élément de travail. Si vous sélectionnez **Créer des éléments de travail individuels pour chaque élément de configuration** dans la sélection des cases d’option, chaque élément de configuration dispose de son propre élément de travail.
-   ![Capture d’écran montrant la fenêtre Événement ITSM.](media/itsmc-overview/itsm-action-configuration-event.png)
+    * Dans un cas, vous sélectionnez dans la liste déroulante de l’élément de travail « Event » :
+        * Si vous sélectionnez **Créer des éléments de travail individuels pour chaque entrée du journal** dans la sélection des cases d’option, une alerte est créée pour chaque ligne dans les résultats de recherche de la requête d’alerte de recherche dans les journaux. Dans la charge utile de l’alerte, la propriété Description contient la ligne des résultats de la recherche.
+        * Si vous sélectionnez **Créer des éléments de travail individuels pour chaque élément de configuration** dans la sélection des cases d’option, chaque élément de configuration de chaque alerte crée un élément de travail. Il peut y avoir plusieurs éléments de travail par élément de configuration dans le système ITSM. Le comportement est le même qu’en cochant la case dans la section Incident/alerte.
+    ![Capture d’écran montrant la fenêtre Événement ITSM.](media/itsmc-overview/itsm-action-configuration-event.png)
 
 10. Sélectionnez **OK**.
 
@@ -149,4 +166,4 @@ Quand vous créez ou modifiez une règle d’alerte Azure, utilisez un groupe d�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Résolution des problèmes liés au connecteur ITSM](./itsmc-resync-servicenow.md)
+* [Résolution des problèmes dans le connecteur ITSM](./itsmc-resync-servicenow.md)

@@ -12,12 +12,12 @@ ms.reviewer: nibaccam
 ms.date: 07/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: b6ec9d7035194efc471fc06befad9822c8684a5d
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 8b95c5a45992c895713e0be056856172b14b830d
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685577"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740672"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>Entraîner avec des jeux de données dans Azure Machine Learning
 
@@ -220,6 +220,7 @@ print(os.listdir(mounted_path))
 print (mounted_path)
 ```
 
+
 ## <a name="directly-access-datasets-in-your-script"></a>Accéder directement aux jeux de données dans votre script
 
 Les jeux de données inscrits sont accessibles localement et à distance sur des clusters de calcul comme la capacité de calcul Azure Machine Learning. Pour accéder à votre jeu de données inscrit dans plusieurs expériences, utilisez le code suivant afin d’accéder à votre espace de travail et à votre jeu de données inscrit en utilisant son nom. Par défaut, la méthode [`get_by_name()`](/python/api/azureml-core/azureml.core.dataset.dataset?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-by-name-workspace--name--version--latest--) sur la classe `Dataset` retourne la dernière version du jeu de données inscrit auprès de l’espace de travail.
@@ -256,6 +257,33 @@ src.run_config.source_directory_data_store = "workspaceblobstore"
 
 + Les [notebooks de jeux de données](https://aka.ms/dataset-tutorial) illustrent et développent les concepts abordés dans cet article.
 + Découvrez comment [paramétrer des jeux de données dans vos pipelines ML](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-showcasing-dataset-and-pipelineparameter.ipynb).
+
+## <a name="troubleshooting"></a>Résolution des problèmes
+
+* **Échec de l'initialisation du jeu de données :  le délai d'attente lié à la préparation du point de montage a expiré** : 
+  * Si vous n’avez pas de règles de trafic sortant pour le [groupe de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview) et que vous utilisez `azureml-sdk>=1.12.0`, mettez à jour `azureml-dataset-runtime` et ses dépendances pour qu’ils disposent des améliorations les plus récentes de la version mineure spécifique ou, si vous l’utilisez dans une exécution, recréez votre environnement pour qu’il puisse disposer du patch le plus récent avec le correctif. 
+  * Si vous utilisez `azureml-sdk<1.12.0`, effectuez une mise à niveau vers la version la plus récente.
+  * Si vous avez des règles de trafic sortant NSG, assurez-vous qu’il existe une règle de trafic sortant qui autorise tout le trafic pour l’étiquette de service `AzureResourceMonitor`.
+
+### <a name="overloaded-azurefile-storage"></a>Stockage Fichier Azure surchargé
+
+Si vous recevez une erreur `Unable to upload project files to working directory in AzureFile because the storage is overloaded`, appliquez les solutions de contournement suivantes.
+
+Si vous utilisez le partage de fichiers pour d’autres charges de travail, telles que le transfert de données, il est recommandé d’utiliser des objets blob afin de permettre l’utilisation du partage de fichiers pour l’envoi des exécutions. Vous pouvez également répartir la charge de travail entre deux espaces de travail.
+
+### <a name="passing-data-as-input"></a>Passer des données en tant qu’entrée
+
+*  **Type d’erreur : FileNotFound: Pas de fichier ou de répertoire correspondant** : Cette erreur se produit si le chemin d’accès au fichier que vous fournissez n’est pas l’emplacement du fichier. Vous devez vous assurer que la façon dont vous faites référence au fichier est cohérente avec l’emplacement où vous avez monté votre jeu de données sur votre cible de calcul. Pour garantir un état déterministe, nous vous recommandons d’utiliser le chemin d’accès abstrait lors du montage d’un jeu de données sur une cible de calcul. Par exemple, dans le code suivant, nous montons le jeu de données sous la racine du système de fichiers de la cible de calcul, `/tmp`. 
+    
+    ```python
+    # Note the leading / in '/tmp/dataset'
+    script_params = {
+        '--data-folder': dset.as_named_input('dogscats_train').as_mount('/tmp/dataset'),
+    } 
+    ```
+
+    Si vous n’incluez pas la barre oblique « / » de début, vous devez préfixer le répertoire de travail, par exemple `/mnt/batch/.../tmp/dataset`, sur la cible de calcul pour indiquer l’emplacement où vous souhaitez monter le jeu de données.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

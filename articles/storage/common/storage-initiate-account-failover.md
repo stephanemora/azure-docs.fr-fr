@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/11/2020
+ms.date: 12/29/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 300b9b6279231079807f8c923570bddab657ff56
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 93bcbab9445d83bf17b37b6affc1d2bc70703bbf
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92095889"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814327"
 ---
 # <a name="initiate-a-storage-account-failover"></a>Lancer un basculement de compte de stockage
 
@@ -38,6 +38,13 @@ Avant de pouvoir effectuer un basculement de compte sur votre compte de stockage
 
 Pour plus d’informations sur la redondance du Stockage Azure, consultez [Redondance du Stockage Azure](storage-redundancy.md).
 
+N’oubliez pas que les fonctionnalités et services suivants ne sont pas pris en charge pour le basculement de compte :
+
+- Azure File Sync ne prend pas en charge le basculement de compte de stockage. Les comptes de stockage contenant des partages de fichiers Azure utilisés en tant que points de terminaison cloud dans Azure File Sync ne doivent pas être basculés. Cela provoquera en effet un arrêt de la synchronisation et pourra entraîner une perte inattendue de données dans le cas de fichiers nouvellement hiérarchisés.
+- Les comptes de stockage ADLS Gen2 (comptes dans lesquels est activé un espace de noms hiérarchique) ne sont pas pris en charge pour l’instant.
+- Un compte de stockage contenant des objets blob de blocs premium ne peut pas être basculé. Les comptes de stockage qui prennent en charge les objets blob de blocs premium ne prennent pas en charge la géoredondance.
+- Un compte de stockage incluant des conteneurs avec une [stratégie d’immuabilité WORM](../blobs/storage-blob-immutable-storage.md) ne peut pas être basculé. Les stratégies de rétention temporelles ou les stratégies de conservation légale déverrouillées/verrouillées empêchent le basculement afin de maintenir la conformité.
+
 ## <a name="initiate-the-failover"></a>Lancez le basculement
 
 ## <a name="portal"></a>[Portail](#tab/azure-portal)
@@ -45,16 +52,16 @@ Pour plus d’informations sur la redondance du Stockage Azure, consultez [Redon
 Pour lancer un basculement de compte à partir du portail Azure, procédez comme suit :
 
 1. Accédez à votre compte de stockage.
-1. Sous **Paramètres** , sélectionnez **Géoréplication** . L'illustration suivante représente l'état de géoréplication et de basculement d'un compte de stockage.
+1. Sous **Paramètres**, sélectionnez **Géoréplication**. L'illustration suivante représente l'état de géoréplication et de basculement d'un compte de stockage.
 
     :::image type="content" source="media/storage-initiate-account-failover/portal-failover-prepare.png" alt-text="Capture d’écran représentant l’état de géoréplication et de basculement":::
 
 1. Vérifiez que votre compte de stockage est configuré en tant que stockage géoredondant (GRS) ou stockage géographiquement redondant avec accès en lecture (RA-GRS). Si ce n'est pas le cas, sélectionnez **Configuration** sous **Paramètres** pour mettre à jour votre compte et le rendre géoredondant.
-1. La propriété **Heure de la dernière de synchronisation** indique le décalage entre le secondaire et le primaire. **Heure de la dernière de synchronisation** fournit une estimation de l'étendue de la perte de données que vous connaîtrez une fois le basculement terminé. Pour plus d’informations sur la vérification de la propriété **Heure de la dernière synchronisation** , consultez [Vérification de la propriété Heure de la dernière synchronisation d’un compte de stockage](last-sync-time-get.md).
-1. Sélectionnez **Préparer un basculement** .
+1. La propriété **Heure de la dernière de synchronisation** indique le décalage entre le secondaire et le primaire. **Heure de la dernière de synchronisation** fournit une estimation de l'étendue de la perte de données que vous connaîtrez une fois le basculement terminé. Pour plus d’informations sur la vérification de la propriété **Heure de la dernière synchronisation**, consultez [Vérification de la propriété Heure de la dernière synchronisation d’un compte de stockage](last-sync-time-get.md).
+1. Sélectionnez **Préparer un basculement**.
 1. Passez en revue la boîte de dialogue de confirmation. Lorsque vous êtes prêt, entrez **Oui** pour confirmer votre choix et lancer le basculement.
 
-    :::image type="content" source="media/storage-initiate-account-failover/portal-failover-confirm.png" alt-text="Capture d’écran représentant l’état de géoréplication et de basculement":::
+    :::image type="content" source="media/storage-initiate-account-failover/portal-failover-confirm.png" alt-text="Capture d’écran représentant la boîte de dialogue de confirmation d’un basculement de compte":::
 
 ## <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -62,7 +69,7 @@ La fonctionnalité de basculement de compte est généralement disponible, mais 
 
 1. Désinstallez les installations précédentes d'Azure PowerShell :
 
-    - Supprimez toutes les anciennes installations d'Azure PowerShell de Windows à l'aide du paramètre **Applications et fonctionnalités** situé sous **Paramètres** .
+    - Supprimez toutes les anciennes installations d'Azure PowerShell de Windows à l'aide du paramètre **Applications et fonctionnalités** situé sous **Paramètres**.
     - Supprimez tous les modules **Azure** de `%Program Files%\WindowsPowerShell\Modules`.
 
 1. Vérifiez que la dernière version de PowerShellGet est installée. Ouvrez une fenêtre Windows PowerShell et exécutez la commande suivante pour installer la dernière version :
@@ -106,7 +113,7 @@ az storage account failover \ --name accountName
 
 Lorsque vous lancez un basculement de compte pour votre compte de stockage, les enregistrements DNS du point de terminaison secondaire sont mis à jour pour que le point de terminaison secondaire devienne le point de terminaison principal. Assurez-vous de bien comprendre les conséquences possibles sur votre compte de stockage avant de procéder à un basculement.
 
-Pour estimer l'étendue de la perte de données probable avant de procéder à un basculement, consultez la propriété **Heure de la dernière synchronisation** . Pour plus d’informations sur la vérification de la propriété **Heure de la dernière synchronisation** , consultez [Vérification de la propriété Heure de la dernière synchronisation d’un compte de stockage](last-sync-time-get.md).
+Pour estimer l'étendue de la perte de données probable avant de procéder à un basculement, consultez la propriété **Heure de la dernière synchronisation**. Pour plus d’informations sur la vérification de la propriété **Heure de la dernière synchronisation**, consultez [Vérification de la propriété Heure de la dernière synchronisation d’un compte de stockage](last-sync-time-get.md).
 
 Le temps nécessaire au basculement après l’initiation peut varier et dure en général moins d’une heure.
 

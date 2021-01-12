@@ -2,13 +2,13 @@
 title: Fonctions de modèle - Ressources
 description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager (modèle ARM) pour récupérer des valeurs sur les ressources.
 ms.topic: conceptual
-ms.date: 11/18/2020
-ms.openlocfilehash: 166e9104a9d791ac6d82ed0e8e2d3659efd2ae0d
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.date: 01/04/2021
+ms.openlocfilehash: f16e8e06bf5deb2b66af7758f2944fe256cfa268
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96919983"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861423"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Fonctions de ressource pour les modèles ARM
 
@@ -175,7 +175,7 @@ Les définitions de stratégie intégrées sont des ressources de niveau locatai
 
 `list{Value}(resourceName or resourceIdentifier, apiVersion, functionValues)`
 
-La syntaxe de cette fonction varie en fonction du nom des opérations de liste. Chaque implémentation retourne des valeurs pour le type de ressource qui prend en charge une opération de liste. Le nom de l’opération doit commencer par `list`. Voici quelques utilisations courantes : `listKeys`, `listKeyValue` et `listSecrets`.
+La syntaxe de cette fonction varie en fonction du nom des opérations de liste. Chaque implémentation retourne des valeurs pour le type de ressource qui prend en charge une opération de liste. Le nom de l’opération doit commencer par `list` et peut avoir un suffixe. Voici quelques utilisations courantes : `list`, `listKeys`, `listKeyValue` et `listSecrets`.
 
 ### <a name="parameters"></a>Paramètres
 

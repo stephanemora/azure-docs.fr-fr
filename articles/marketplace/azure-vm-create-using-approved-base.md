@@ -7,12 +7,12 @@ ms.topic: how-to
 author: emuench
 ms.author: krsh
 ms.date: 10/20/2020
-ms.openlocfilehash: c28595458fea61f66b6930ce72fa0702e00aecd9
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 74cab14cd162ba608a9c5d0168485e9055661f55
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129294"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590786"
 ---
 # <a name="how-to-create-a-virtual-machine-using-an-approved-base"></a>Création d’une machine virtuelle à l’aide d’une base approuvée
 
@@ -40,11 +40,15 @@ Azure offre toute une gamme de distributions de Linux approuvées. Pour obtenir 
 2. Sélectionnez **Machines virtuelles**.
 3. Sélectionnez **+ ajouter**  pour ouvrir l’écran **Créer une machine virtuelle** .
 4. Sélectionnez l’image dans la liste déroulante ou sélectionnez **Parcourir toutes les images publiques et privées** pour rechercher ou parcourir toutes les images de machines virtuelles disponibles.
-5. Pour créer une machine virtuelle **Gen 2** , accédez à l’onglet **avancé** et sélectionnez l’option **Gen 2** .
+5. Si vous souhaitez créer une machine virtuelle **Gen 1**, accédez à l’onglet **Disques** et définissez l’option **Utiliser un disque managé** sur **NON** afin de pouvoir obtenir le disque dur virtuel de votre machine virtuelle dans le compte de stockage spécifié.
+
+   :::image type="content" source="media/create-vm/create-virtual-machine-sizes-2.png" alt-text="Sélection d’un disque non managé":::
+   
+6. Pour créer une machine virtuelle **Gen 2** , accédez à l’onglet **avancé** et sélectionnez l’option **Gen 2** .
 
     :::image type="content" source="media/create-vm/vm-gen-option.png" alt-text="Sélectionnez GEN 1 ou Gen 2.":::
 
-6. Sélectionnez la taille de la machine virtuelle à déployer.
+7. Sélectionnez la taille de la machine virtuelle à déployer.
 
     :::image type="content" source="media/create-vm/create-virtual-machine-sizes.png" alt-text="Sélectionnez une taille de machine virtuelle recommandée pour l’image sélectionnée.":::
 

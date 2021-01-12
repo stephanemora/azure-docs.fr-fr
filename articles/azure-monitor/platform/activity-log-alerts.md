@@ -4,12 +4,12 @@ description: Recevez des notifications par SMS, webhook, e-mail, etc. lors de la
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.openlocfilehash: 836fc20b6c3d46766801dce0e2aeda83a217d6a3
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: e0d71c014780637b490c745ed829078d138df675
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95536079"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97708430"
 ---
 # <a name="alerts-on-activity-log"></a>Alertes sur le journal d’activité
 
@@ -18,7 +18,8 @@ ms.locfileid: "95536079"
 Les alertes du journal d’activité s’activent quand un nouvel [événement du journal d’activité](activity-log-schema.md) correspond aux conditions spécifiées dans l’alerte. La règle d’alerte se déclenche en fonction de l’ordre et du volume des événements enregistrés dans le [journal d’activité Azure](platform-logs-overview.md). Les règles d’alerte du journal d’activité étant des ressources Azure, elles peuvent être créées à l’aide d’un modèle Azure Resource Manager. Elles peuvent également être créées, mises à jour ou supprimées dans le portail Azure. Cet article présente les concepts qui sous-tendent les alertes de journal d’activité. Pour plus d’informations sur la création ou l’utilisation des règles d’alerte du journal d’activité, consultez [Créer et gérer des alertes du journal d’activité](alerts-activity-log.md).
 
 > [!NOTE]
-> Les alertes **ne peuvent pas** être créées pour des événements dans la catégorie d’alerte du journal d’activité.
+> * Les alertes **ne peuvent pas** être créées pour des événements dans la catégorie d’alerte du journal d’activité.
+> * Les alertes du journal d’activité qui font partie de la catégorie Sécurité peuvent également être définies dans un [nouveau flux mis à niveau](https://docs.microsoft.com/azure/security-center/continuous-export?tabs=azure-portal) vers [ServiceNow](https://docs.microsoft.com/azure/security-center/export-to-siem)
 
 En général, vous créez des alertes du journal d’activité pour recevoir des notifications lorsque :
 

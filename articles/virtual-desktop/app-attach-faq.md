@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 73fb9bf436c043e903977fafbb5a502e2edc5488
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: 78c21e9515965f1c15315967f6a19a0df2838dc2
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96518683"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591193"
 ---
 # <a name="msix-app-attach-faq"></a>FAS sur l’attachement d’application MSIX
 
@@ -27,7 +27,7 @@ MSIX est un format d’empaquetage pour les applications, tandis que l’attache
 
 L’attachement d’application MSIX n’utilise pas FSLogix. En revanche, l’attachement d’application MSIX et FSLogix sont conçus pour fonctionner ensemble afin de fournir une expérience utilisateur transparente.
 
-## <a name="can-i-use-msix-app-attach-outside-of-windows-virtual-desktop"></a>Puis-je utiliser l’attachement d’application MSIX en dehors de Windows Virtual Desktop ?
+## <a name="can-i-use-the-msix-app-attach-outside-of-windows-virtual-desktop"></a>Puis-je utiliser l’attachement d’application MSIX en dehors de Windows Virtual Desktop ?
 
 Les API sur lesquelles repose l’attachement d’application MSIX sont disponibles pour Windows 10 Entreprise. Ces API peuvent être utilisées en dehors de Windows Virtual Desktop. Toutefois, il n’existe aucun plan de gestion pour l’attachement d’application MSIX en dehors de Windows Virtual Desktop.
 

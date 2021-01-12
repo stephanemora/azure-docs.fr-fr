@@ -9,14 +9,14 @@ ms.subservice: monitoring
 ms.date: 11/30/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: c1545efc43d034dba5b8ffe8d19b9bbee95dff68
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 5f9733866e85d79bdb85b8a24d1878e1169c2479
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96455467"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586038"
 ---
-# <a name="use-synapse-studio-to-monitor-your-apache-spark-applications"></a>Utiliser Synapse Studio pour surveiller vos applications Apache Spark
+# <a name="how-to-use-synapse-studio-to-monitor-your-apache-spark-applications"></a>Guide pratique pour utiliser Synapse Studio afin de superviser vos applications Apache Spark
 
 Azure Synapse Analytics vous permet d’utiliser Spark pour exécuter des bloc-notes, des travaux et d’autres types d’applications sur vos pools Spark dans votre espace de travail.
 

@@ -150,19 +150,19 @@ GO
 BULK INSERT Sales.Invoices FROM 'inv-2017-12-08.csv' WITH (DATA_SOURCE = 'MyAzureBlobStorage');
 ```
 
-**Solution de contournement**  : Utilisez la [signature d'accès partagé pour vous authentifier auprès du service de stockage](/sql/t-sql/statements/bulk-insert-transact-sql?view=sql-server-ver15#f-importing-data-from-a-file-in-azure-blob-storage).
+**Solution de contournement** : Utilisez la [signature d'accès partagé pour vous authentifier auprès du service de stockage](/sql/t-sql/statements/bulk-insert-transact-sql?view=sql-server-ver15#f-importing-data-from-a-file-in-azure-blob-storage).
 
 ### <a name="service-principal-cannot-access-azure-ad-and-akv"></a>Le principal du service ne peut pas accéder à Azure AD et à AKV
 
 Dans certains cas, il existe peut exister un problème avec le principal de service utilisé pour accéder aux services Azure AD et Azure Key Vault (AKV). Par conséquent, ce problème a un impact sur l’utilisation de l’authentification Azure AD et le chiffrement transparent de base de données (TDE) avec SQL Managed Instance. Cela peut être vécu comme un problème de connectivité intermittente ou l’impossibilité d’exécuter des instructions telles que CREATE LOGIN/USER FROM EXTERNAL PROVIDER ou EXECUTE AS LOGIN/USER. La configuration de TDE avec une clé gérée par le client sur un nouveau service Azure SQL Managed Instance peut également ne pas fonctionner dans certaines circonstances.
 
-**Solution de contournement**  : Pour éviter que ce problème ne se produise sur votre service SQL Managed Instance avant d'exécuter des commandes de mise à jour, ou si vous avez déjà rencontré ce problème après l'exécution de commandes de mise à jour, accédez au portail Azure, puis au [panneau d'administration Active Directory](./authentication-aad-configure.md?tabs=azure-powershell#azure-portal) du service SQL Managed Instance. Vérifiez si vous pouvez voir le message d’erreur « Managed Instance a besoin d’un principal du service pour accéder à Azure Active Directory. Cliquez ici pour créer un principal du service ». Si vous rencontrez ce message d’erreur, cliquez dessus, puis suivez les instructions pas à pas fournies jusqu’à ce que cette erreur soit résolue.
+**Solution de contournement** : Pour éviter que ce problème ne se produise sur votre service SQL Managed Instance avant d'exécuter des commandes de mise à jour, ou si vous avez déjà rencontré ce problème après l'exécution de commandes de mise à jour, accédez au portail Azure, puis au [panneau d'administration Active Directory](./authentication-aad-configure.md?tabs=azure-powershell#azure-portal) du service SQL Managed Instance. Vérifiez si vous pouvez voir le message d’erreur « Managed Instance a besoin d’un principal du service pour accéder à Azure Active Directory. Cliquez ici pour créer un principal du service ». Si vous rencontrez ce message d’erreur, cliquez dessus, puis suivez les instructions pas à pas fournies jusqu’à ce que cette erreur soit résolue.
 
 ### <a name="restoring-manual-backup-without-checksum-might-fail"></a>La restauration d’une sauvegarde manuelle sans CHECKSUM peut échouer
 
 Dans certains cas, la restauration d’une copie de sauvegarde manuelle de bases de données effectuée sur une instance gérée sans CHECKSUM peut échouer. Vous devez alors réessayer de restaurer la copie de sauvegarde jusqu’à ce que l’opération réussisse.
 
-**Solution de contournement**  : Effectuez des copies de sauvegarde manuelles des bases de données sur une instance gérée avec activation de la CHECKSUM.
+**Solution de contournement** : Effectuez des copies de sauvegarde manuelles des bases de données sur une instance gérée avec activation de la CHECKSUM.
 
 ### <a name="agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs"></a>L’agent ne répond plus lors de la modification, la désactivation ou l’activation de travaux existants
 
@@ -172,19 +172,19 @@ Dans certaines circonstances, la modification d’un travail existant, sa désac
 
 Si le rôle Azure Contributeur SQL Managed Instance est appliqué à un groupe de ressources, il n’est pas appliqué à SQL Managed Instance et n’a aucun effet.
 
-**Solution de contournement**  : Configurez le rôle Contributeur SQL Managed Instance pour les utilisateurs au niveau de l’abonnement.
+**Solution de contournement** : Configurez le rôle Contributeur SQL Managed Instance pour les utilisateurs au niveau de l’abonnement.
 
 ### <a name="limitation-of-manual-failover-via-portal-for-failover-groups"></a>Limitation du basculement manuel via le portail pour les groupes de basculement
 
 Si le groupe de basculement s’étend sur plusieurs instances dans différents abonnements ou groupes de ressources Azure, le basculement manuel ne peut pas être initié à partir de l’instance principale dans le groupe de basculement.
 
-**Solution de contournement**  : Lancez le basculement via le portail à partir de l’instance géographique secondaire.
+**Solution de contournement** : Lancez le basculement via le portail à partir de l’instance géographique secondaire.
 
 ### <a name="sql-agent-roles-need-explicit-execute-permissions-for-non-sysadmin-logins"></a>Les rôles d’agent SQL requièrent des autorisations d’exécution explicites pour les connexions non-sysadmin
 
 Si des connexions non-sysadmin sont ajoutées à un [rôle de base de données fixe de SQL Agent](/sql/ssms/agent/sql-server-agent-fixed-database-roles), il y a un problème du fait que des autorisations EXECUTE explicites doivent être accordées aux procédures stockées principales pour que ces connexions fonctionnent. Si ce problème survient, le message d’erreur « L’autorisation EXECUTE a été refusée sur l’objet <object_name> (Microsoft SQL Server, erreur : 229) » s’affiche.
 
-**Solution de contournement**  : Une fois que vous avez ajouté des connexions à un rôle de base de données fixe SQL Agent (SQLAgentUserRole, SQLAgentReaderRole, ou SQLAgentOperatorRole) pour chaque connexion ajoutée à ces rôles, exécutez le script T-SQL ci-dessous pour autoriser explicitement l’accès EXÉCUTER aux procédures stockées listées.
+**Solution de contournement** : Une fois que vous avez ajouté des connexions à un rôle de base de données fixe SQL Agent (SQLAgentUserRole, SQLAgentReaderRole, ou SQLAgentOperatorRole) pour chaque connexion ajoutée à ces rôles, exécutez le script T-SQL ci-dessous pour autoriser explicitement l’accès EXÉCUTER aux procédures stockées listées.
 
 ```tsql
 USE [master]
@@ -204,13 +204,13 @@ GRANT EXECUTE ON master.dbo.xp_sqlagent_notify TO [login_name]
 
 Le niveau de service critique pour l'entreprise n’appliquera pas correctement les [limites max de mémoire pour les objets à mémoire optimisée ](../managed-instance/resource-limits.md#in-memory-oltp-available-space) dans certains cas. SQL Managed Instance peut permettre à la charge de travail d’utiliser davantage de mémoire pour les opérations OLTP en mémoire, ce qui peut affecter la disponibilité et la stabilité de l’instance. Les requêtes OLTP en mémoire qui atteignent les limites peuvent ne pas échouer immédiatement. Ce problème sera corrigé bientôt. Les requêtes qui utilisent plus de mémoire OLTP en mémoire échoueront plus tôt si elles atteignent les [limites](../managed-instance/resource-limits.md#in-memory-oltp-available-space).
 
-**Solution de contournement**  : [Surveillez l’utilisation du stockage OLTP en mémoire](../in-memory-oltp-monitor-space.md) à l’aide de [SQL Server Management Studio](/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage#bkmk_Monitoring) pour vous assurer que la charge de travail n’utilise pas plus que la mémoire disponible. Augmentez les limites de mémoire qui dépendent du nombre de vCores ou optimisez votre charge de travail pour utiliser moins de mémoire.
+**Solution de contournement** : [Surveillez l’utilisation du stockage OLTP en mémoire](../in-memory-oltp-monitor-space.md) à l’aide de [SQL Server Management Studio](/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage#bkmk_Monitoring) pour vous assurer que la charge de travail n’utilise pas plus que la mémoire disponible. Augmentez les limites de mémoire qui dépendent du nombre de vCores ou optimisez votre charge de travail pour utiliser moins de mémoire.
  
 ### <a name="wrong-error-returned-while-trying-to-remove-a-file-that-is-not-empty"></a>Erreur retournée lors de la tentative de suppression d’un fichier qui n’est pas vide
 
 SQL Server et SQL Managed Instance [ne permettent pas à l’utilisateur de déposer un fichier qui n’est pas vide](/sql/relational-databases/databases/delete-data-or-log-files-from-a-database#Prerequisites). Si vous tentez de supprimer un fichier de données non vide à l’aide d’une instruction; `ALTER DATABASE REMOVE FILE`l’erreur `Msg 5042 – The file '<file_name>' cannot be removed because it is not empty` n’est pas retournée immédiatement. SQL Managed Instance continue d’essayer de déposer le fichier et l’opération échoue après 30 minutes avec `Internal server error`.
 
-**Solution de contournement**  : Supprimez les contenus du fichier à l’aide de la commande `DBCC SHRINKFILE (N'<file_name>', EMPTYFILE)`. S’il s’agit du seul fichier dans le groupe de fichiers, vous devez supprimer les données de la table ou de la partition associées à ce groupe de fichiers avant de réduire le fichier, et éventuellement charger ces données dans un autre tableau/partition.
+**Solution de contournement** : Supprimez les contenus du fichier à l’aide de la commande `DBCC SHRINKFILE (N'<file_name>', EMPTYFILE)`. S’il s’agit du seul fichier dans le groupe de fichiers, vous devez supprimer les données de la table ou de la partition associées à ce groupe de fichiers avant de réduire le fichier, et éventuellement charger ces données dans un autre tableau/partition.
 
 ### <a name="change-service-tier-and-create-instance-operations-are-blocked-by-ongoing-database-restore"></a>Les opérations de changement de niveau de service et de création d’instance sont bloquées par la restauration de base de données en cours
 
@@ -218,19 +218,19 @@ Les instructions `RESTORE` en cours, le processus de migration Data Migration Se
 
 Le processus de restauration bloquera ces opérations sur les instances managées et les pools d’instances sur le sous-réseau où le processus de restauration est en cours d’exécution. Les instances dans les pools d’instances ne sont pas affectées. Les opérations de création ou de modification du niveau de service n’échouent pas ou expirent. Elles se poursuivront une fois le processus de restauration terminé ou annulé.
 
-**Solution de contournement**  : Attendez la fin du processus de restauration ou annulez-le si l’opération de création ou de mise à jour du niveau de service a une priorité plus élevée.
+**Solution de contournement** : Attendez la fin du processus de restauration ou annulez-le si l’opération de création ou de mise à jour du niveau de service a une priorité plus élevée.
 
 ### <a name="resource-governor-on-business-critical-service-tier-might-need-to-be-reconfigured-after-failover"></a>Il peut être nécessaire de reconfigurer Resource Governor sur le niveau de service Critique pour l’entreprise après le basculement
 
 Il se peut que la fonctionnalité [Resource Governor](/sql/relational-databases/resource-governor/resource-governor) qui permet de limiter les ressources affectées aux charges de travail utilisateur classe erronément une charge de travail utilisateur après un basculement ou une modification du niveau de service apportée par un utilisateur (par exemple, la modification du nombre maximal de vCores ou de la taille maximale de stockage d’instance).
 
-**Solution de contournement**  : Exécutez `ALTER RESOURCE GOVERNOR RECONFIGURE` régulièrement ou dans le cadre du travail du SQL Agent qui exécute la tâche SQL lorsque l’instance démarre si vous utilisez [Resource Governor](/sql/relational-databases/resource-governor/resource-governor).
+**Solution de contournement** : Exécutez `ALTER RESOURCE GOVERNOR RECONFIGURE` régulièrement ou dans le cadre du travail du SQL Agent qui exécute la tâche SQL lorsque l’instance démarre si vous utilisez [Resource Governor](/sql/relational-databases/resource-governor/resource-governor).
 
 ### <a name="cross-database-service-broker-dialogs-must-be-reinitialized-after-service-tier-upgrade"></a>Les boîtes de dialogue Service Broker utilisées entre plusieurs bases de données doivent être réinitialisées après la mise à niveau du niveau de service
 
 Les boîtes de dialogue Service Broker utilisées entre plusieurs bases de données cessent de transmettre les messages aux services dans d’autres bases de données après un changement du niveau de service. Les messages ne sont *pas perdus* et peuvent être retrouvés dans la file d’attente de l’expéditeur. Toute modification du nombre de vCores ou de la taille de stockage des instances dans SQL Managed Instance entraîne le changement de la valeur `service_broke_guid` affichée dans [sys.databases](/sql/relational-databases/system-catalog-views/sys-databases-transact-sql) pour toutes les bases de données. Tout élément `DIALOG` créé à l’aide de l’instruction [COMMENCER LE DIALOGUE](/sql/t-sql/statements/begin-dialog-conversation-transact-sql) qui référence des répartiteurs Service Brokers dans une autre base de données cesse de remettre les messages au service cible.
 
-**Solution de contournement**  : Arrêtez toutes les activités qui utilisent des conversations de boîtes de dialogue Service Broker entre plusieurs bases de données avant de mettre à jour le niveau de service et réinitialisez-les ensuite. S’il reste des messages non transmis après le changement de niveau de service, consultez les messages en question dans la file d’attente source et renvoyez-les à la file d’attente cible.
+**Solution de contournement** : Arrêtez toutes les activités qui utilisent des conversations de boîtes de dialogue Service Broker entre plusieurs bases de données avant de mettre à jour le niveau de service et réinitialisez-les ensuite. S’il reste des messages non transmis après le changement de niveau de service, consultez les messages en question dans la file d’attente source et renvoyez-les à la file d’attente cible.
 
 ### <a name="impersonation-of-azure-ad-login-types-is-not-supported"></a>L’emprunt d’identité des types de connexion Azure AD n’est pas pris en charge
 
@@ -258,7 +258,7 @@ Une valeur GUID aléatoire est allouée temporairement, plutôt qu’un nom, à 
 
 Au cours de la phase initiale, un utilisateur peut accéder à la base de données vide et même créer des tableaux ou charger des données dans celui-ci. Cette base de données temporaire est supprimée lorsque le service de restauration démarre la deuxième phase.
 
-**Solution de contournement**  : N’accédez pas à la base de données que vous restaurez tant que la restauration n’est pas terminée.
+**Solution de contournement** : N’accédez pas à la base de données que vous restaurez tant que la restauration n’est pas terminée.
 
 ### <a name="tempdb-structure-and-content-is-re-created"></a>La structure et le contenu de TEMPDB sont recréés
 
@@ -285,7 +285,7 @@ Vous pouvez [identifier le nombre de fichiers restants](https://medium.com/azure
 
 Plusieurs vues système, compteurs de performances, messages d’erreur, événements XEvent et entrées du journal des erreurs affichent des identificateurs de base de données GUID au lieu d’afficher les noms des bases de données. Ne prenez pas en compte ces identificateurs GUID, car ils vont être remplacés à l’avenir par les noms des bases de données.
 
-**Solution de contournement**  : Utilisez l’affichage sys.databases pour résoudre le nom de la base de données à partir du nom de la base de données physique, spécifié sous forme d’identificateurs de base de données GUID :
+**Solution de contournement** : Utilisez l’affichage sys.databases pour résoudre le nom de la base de données à partir du nom de la base de données physique, spécifié sous forme d’identificateurs de base de données GUID :
 
 ```tsql
 SELECT name as ActualDatabaseName, physical_database_name as GUIDDatabaseIdentifier 
@@ -330,7 +330,7 @@ using (var scope = new TransactionScope())
 
 Il arrive que des modules CLR placés dans une instance SQL Managed Instance et que des serveurs liés ou des requêtes distribuées référençant une instance active ne parviennent pas à résoudre l’adresse IP d’une instance locale. Cette erreur est un problème temporaire.
 
-**Solution de contournement**  : utilisez des connexions contextuelles dans un module CLR, si possible.
+**Solution de contournement** : utilisez des connexions contextuelles dans un module CLR, si possible.
 
 ## <a name="updates"></a>Mises à jour
 

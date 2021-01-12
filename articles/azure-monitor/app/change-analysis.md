@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/04/2020
-ms.openlocfilehash: 36e73ceddaa5e3f9cbbf4a41f76a4ba6d70eed0f
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 50e199d2d56016086bb409f8690e9828f1d19984
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94979961"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881507"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Utilise l’analyse des changements applicatifs (préversion) dans Azure Monitor
 
@@ -183,7 +183,6 @@ Si vous affichez l’historique des modifications pour la première fois après 
     ```
 
 - **Échec de l’inscription du fournisseur de ressources Microsoft.ChangeAnalysis**. Ce message signifie que l’opération a échoué immédiatement quand l’interface utilisateur a envoyé la demande d’inscription du fournisseur de ressources, et que ce problème n’est pas lié à un problème d’autorisation. Il peut s’agir d’un problème de connectivité à Internet temporaire. Essayez d’actualiser la page et de vérifier votre connexion Internet. Si l’erreur persiste, contactez changeanalysishelp@microsoft.com
-- **Échec de l’interrogation du fournisseur de ressources Microsoft.ChangeAnalysis** avec le message *L’abonnement à Azure Lighthouse n’est pas pris en charge, les modifications ne sont disponibles que dans le locataire d’accueil de l’abonnement*. Il existe actuellement une limite pour le fournisseur de ressources Analyse des changements pour s’inscrire par le biais d’un abonnement à Azure Lighthouse pour les utilisateurs qui ne sont pas dans le locataire d’accueil. Nous pensons que cette limite sera résolue dans un avenir proche. Si ce problème vous bloque, il existe une solution de contournement qui implique la création d’un principal de service et l’attribution explicite du rôle pour autoriser l’accès.  Pour en savoir plus, contactez changeanalysishelp@microsoft.com.
 
 - **Cela prend plus de temps que prévu.** Ce message signifie que l’inscription prend plus de 2 minutes. Cela est inhabituel, mais cela ne signifie pas nécessairement qu’une erreur s’est produite. Vous pouvez accéder à **Abonnements | Fournisseur de ressources** pour vérifier l’état d’inscription du fournisseur de ressources **Microsoft.ChangeAnalysis**. Vous pouvez essayer d’utiliser l’interface utilisateur pour annuler l’inscription, procéder à une nouvelle inscription ou actualiser pour voir si cela vous aide. Si le problème persiste, contactez changeanalysishelp@microsoft.com pour obtenir de l’aide.
     ![Résolution des problèmes d’inscription de RP trop longue](./media/change-analysis/troubleshoot-registration-taking-too-long.png)
@@ -191,6 +190,10 @@ Si vous affichez l’historique des modifications pour la première fois après 
 ![Capture d’écran de l’outil Diagnostiquer et résoudre les problèmes d’une machine virtuelle avec Outils de dépannage sélectionné.](./media/change-analysis/vm-dnsp-troubleshootingtools.png)
 
 ![Capture d’écran de la vignette de l’outil de dépannage Analyser les changements récents d’une machine virtuelle.](./media/change-analysis/analyze-recent-changes.png)
+
+### <a name="azure-lighthouse-subscription-is-not-supported"></a>L’abonnement Azure Lighthouse n’est pas pris en charge
+
+- **Échec de l’interrogation du fournisseur de ressources Microsoft.ChangeAnalysis** avec le message *L’abonnement à Azure Lighthouse n’est pas pris en charge, les modifications ne sont disponibles que dans le locataire d’accueil de l’abonnement*. Il existe actuellement une limite pour le fournisseur de ressources Analyse des changements pour s’inscrire par le biais d’un abonnement à Azure Lighthouse pour les utilisateurs qui ne sont pas dans le locataire d’accueil. Nous pensons que cette limite sera résolue dans un avenir proche. Si ce problème vous bloque, il existe une solution de contournement qui implique la création d’un principal de service et l’attribution explicite du rôle pour autoriser l’accès.  Pour en savoir plus, contactez changeanalysishelp@microsoft.com.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

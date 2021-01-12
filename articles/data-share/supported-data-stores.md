@@ -5,13 +5,13 @@ ms.service: data-share
 author: jifems
 ms.author: jife
 ms.topic: conceptual
-ms.date: 12/7/2020
-ms.openlocfilehash: 566fd2c9c31933420769f7200a0434cc53f8c2f3
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.date: 12/16/2020
+ms.openlocfilehash: d45d9a29f671e66c6caba689f49e1748780545e0
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96853138"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97616743"
 ---
 # <a name="supported-data-stores-in-azure-data-share"></a>Magasins de données pris en charge dans Azure Data Share
 
@@ -50,7 +50,7 @@ Le tableau ci-dessous détaille les différentes combinaisons et choix à la dis
 | Explorateur de données Azure ||||||| ✓ |
 
 ## <a name="share-from-a-storage-account"></a>Partager à partir d’un compte de stockage
-Azure Data Share prend en charge le partage de fichiers, dossiers et de systèmes de fichiers à partir d’Azure Data Lake Gen1 et Azure Data Lake Gen2. Le service prend également en charge le partage de blobs, de dossiers et de conteneurs à partir de Stockage Blob Azure. Seul l’objet blob de blocs est actuellement pris en charge. Lorsque les systèmes de fichiers, les conteneurs ou les dossiers sont partagés dans un partage basé sur une capture instantanée, le consommateur de données peut choisir d’effectuer une copie complète des données de partage ou de tirer parti de la capacité de capture instantanée incrémentielle pour copier uniquement les fichiers nouveaux ou mis à jour. L’instantané incrémentiel est basé sur l’heure de la dernière modification des fichiers. Les fichiers existants portant le même nom seront remplacés.
+Azure Data Share prend en charge le partage de fichiers, dossiers et de systèmes de fichiers à partir d’Azure Data Lake Gen1 et Azure Data Lake Gen2. Le service prend également en charge le partage de blobs, de dossiers et de conteneurs à partir de Stockage Blob Azure. Seul l’objet blob de blocs est actuellement pris en charge. Lorsque les systèmes de fichiers, les conteneurs ou les dossiers sont partagés dans un partage basé sur une capture instantanée, le consommateur de données peut choisir d’effectuer une copie complète des données de partage ou de tirer parti de la capacité de capture instantanée incrémentielle pour copier uniquement les fichiers nouveaux ou mis à jour. L’instantané incrémentiel est basé sur l’heure de la dernière modification des fichiers. Les fichiers existants portant le même nom seront remplacés lors de la capture instantanée. Le fichier supprimé de la source n’est pas supprimé de la cible. 
 
 Pour plus d’informations, consultez [Partager et recevoir des données à partir de Stockage Blob Azure et d’Azure Data Lake Storage](how-to-share-from-storage.md).
 

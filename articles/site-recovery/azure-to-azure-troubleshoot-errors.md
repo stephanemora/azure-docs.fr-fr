@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: rochakm
-ms.openlocfilehash: b71c6b834a6217007134b3be961a0ffa103e2706
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 6d61a44e671c43754fa7cccbe8ea8fe54eeba387
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368041"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900414"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Résoudre les erreurs rencontrées lors de la réplication de machines virtuelles Azure vers Azure
 
@@ -73,7 +73,7 @@ Suivez les instructions fournies par le distributeur de votre version du systèm
 
 Étant donné que SuSE Linux utilise des liens symboliques pour tenir à jour une liste de certificats, vous devez effectuer les étapes suivantes :
 
-1. Connectez-vous en tant qu’utilisateur **racine** . Le symbole dièse (`#`) est l’invite de commandes par défaut.
+1. Connectez-vous en tant qu’utilisateur **racine**. Le symbole dièse (`#`) est l’invite de commandes par défaut.
 
 1. Exécutez cette commande pour changer de répertoire :
 
@@ -143,15 +143,15 @@ Suivez les instructions fournies par le distributeur de votre version du systèm
    -rw-r--r-- 1 root root 1380 Jun  5  2014 DigiCert_Global_Root_CA.pem
    ```
 
-1. Créez une copie du fichier _VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem_ et donnez-lui le nom _b204d74a.0_  :
+1. Créez une copie du fichier _VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem_ et donnez-lui le nom _b204d74a.0_ :
 
    `cp VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem b204d74a.0`
 
-1. Créez une copie du fichier _Baltimore_CyberTrust_Root.pem_ et donnez-lui le nom _653b494a.0_  :
+1. Créez une copie du fichier _Baltimore_CyberTrust_Root.pem_ et donnez-lui le nom _653b494a.0_ :
 
    `cp Baltimore_CyberTrust_Root.pem 653b494a.0`
 
-1. Créez une copie du fichier _DigiCert_Global_Root_CA.pem_ et donnez-lui le nom _3513523f.0_  :
+1. Créez une copie du fichier _DigiCert_Global_Root_CA.pem_ et donnez-lui le nom _3513523f.0_ :
 
    `cp DigiCert_Global_Root_CA.pem 3513523f.0`
 
@@ -185,11 +185,14 @@ Si vous utilisez DNS personnalisé, assurez-vous que le serveur DNS est accessib
 Pour vérifier si la machine virtuelle utilise un paramètre DNS personnalisé :
 
 1. Ouvrez **Machines virtuelles** et sélectionnez la machine virtuelle.
-1. Accédez aux **Paramètres** de la machine virtuelle et sélectionnez **Réseau** .
-1. Dans **Réseau/sous-réseau virtuel** , sélectionnez le lien pour ouvrir la page des ressources du réseau virtuel.
-1. Accédez à **Paramètres** et sélectionnez **Serveurs DNS** .
+1. Accédez aux **Paramètres** de la machine virtuelle et sélectionnez **Réseau**.
+1. Dans **Réseau/sous-réseau virtuel**, sélectionnez le lien pour ouvrir la page des ressources du réseau virtuel.
+1. Accédez à **Paramètres** et sélectionnez **Serveurs DNS**.
 
 Essayez d’accéder au serveur DNS à partir de la machine virtuelle. Si le serveur DNS n’est pas accessible, rendez-le accessible en faisant basculer le serveur DNS ou en créant la ligne de site entre le réseau de récupération d’urgence et le DNS.
+
+> [!NOTE]
+> Si vous utilisez des points de terminaison privés, vérifiez que les machines virtuelles peuvent résoudre les enregistrements DNS privés.
 
 :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/custom_dns.png" alt-text="com-error.":::
 
@@ -237,7 +240,7 @@ Les paramètres de proxy personnalisés sont incorrects, et l’agent Mobility S
    ```
 
 > [!NOTE]
-> L’agent du service Mobility ne prend en charge que les **proxys non authentifiés** .
+> L’agent du service Mobility ne prend en charge que les **proxys non authentifiés**.
 
 ### <a name="more-information"></a>Informations complémentaires
 
@@ -260,8 +263,8 @@ Azure data disk <DiskName> <DiskURI> with logical unit number <LUN> <LUNValue> w
 
 Vérifiez que les disques de données sont initialisés, puis retentez l’opération.
 
-- **Windows**  : [Attacher et initialiser un nouveau disque](../virtual-machines/windows/attach-managed-disk-portal.md).
-- **Linux**  : [Initialiser un nouveau disque de données sous Linux](../virtual-machines/linux/add-disk.md).
+- **Windows** : [Attacher et initialiser un nouveau disque](../virtual-machines/windows/attach-managed-disk-portal.md).
+- **Linux** : [Initialiser un nouveau disque de données sous Linux](../virtual-machines/linux/add-disk.md).
 
 Si le problème persiste, contactez le support technique.
 
@@ -278,17 +281,17 @@ Pour rétablir l’intégrité de l’état de réplication à la machine virtue
 
 #### <a name="to-protect-the-disks"></a>Pour protéger les disques
 
-1. Accédez à **Éléments répliqués** > _Nom de la machine virtuelle_ > **Disques** .
-1. Sélectionnez le disque non protégé, puis sélectionnez **Activer la réplication**  :
+1. Accédez à **Éléments répliqués** > _Nom de la machine virtuelle_ > **Disques**.
+1. Sélectionnez le disque non protégé, puis sélectionnez **Activer la réplication** :
 
-   :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/add-disk.png" alt-text="com-error.":::
+   :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/add-disk.png" alt-text="Activez la réplication sur des disques de machine virtuelle.":::
 
 #### <a name="to-dismiss-the-warning"></a>Pour ignorer l’avertissement
 
-1. Accédez à **Éléments répliqués** > _Nom de la machine virtuelle_ .
-1. Sélectionnez l’avertissement dans la section **Vue d’ensemble** , puis sélectionnez **OK** .
+1. Accédez à **Éléments répliqués** > _Nom de la machine virtuelle_.
+1. Sélectionnez l’avertissement dans la section **Vue d’ensemble**, puis sélectionnez **OK**.
 
-   :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png" alt-text="com-error.":::
+   :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png" alt-text="Ignorez l’avertissement relatif au nouveau disque.":::
 
 ## <a name="vm-removed-from-vault-completed-with-information-error-code-150225"></a>Suppression de la machine virtuelle du coffre terminée avec des informations (code d'erreur 150225)
 
@@ -300,7 +303,7 @@ Vous pouvez ignorer cet avertissement si vous n’envisagez pas de protéger à 
 > Si vous ne faites pas le nettoyage :
 >
 > - Quand vous activerez la réplication au moyen du coffre Recovery Services, la machine virtuelle ne sera pas listée.
-> - Si vous essayez de protéger la machine virtuelle en utilisant **Machine virtuelle** > **Paramètres** > **Reprise d’activité** , l’opération échouera avec le message **Impossible d’activer la réplication en raison de liens de ressource périmés existants sur la machine virtuelle** .
+> - Si vous essayez de protéger la machine virtuelle en utilisant **Machine virtuelle** > **Paramètres** > **Reprise d’activité**, l’opération échouera avec le message **Impossible d’activer la réplication en raison de liens de ressource périmés existants sur la machine virtuelle**.
 
 ### <a name="fix-the-problem"></a>Résoudre le problème
 
@@ -309,10 +312,10 @@ Vous pouvez ignorer cet avertissement si vous n’envisagez pas de protéger à 
 
 1. Supprimez le verrou de la machine virtuelle ou du groupe de ressources. Par exemple, dans l’image suivante, le verrou de ressource sur la machine virtuelle nommée `MoveDemo` doit être supprimé :
 
-   :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="com-error.":::
+   :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="Supprimez un verrou d’une machine virtuelle.":::
 
 1. Téléchargez le script pour [retirer une configuration Site Recovery obsolète](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1).
-1. Exécutez le script, _Cleanup-stale-asr-config-Azure-VM.ps1_ . Indiquez **l’ID d’abonnement** , le **groupe de ressources de la machine virtuelle** et le **nom de la machine virtuelle** en tant que paramètres.
+1. Exécutez le script, _Cleanup-stale-asr-config-Azure-VM.ps1_. Indiquez **l’ID d’abonnement**, le **groupe de ressources de la machine virtuelle** et le **nom de la machine virtuelle** en tant que paramètres.
 1. Si vous êtes invité à fournir des informations d’identification Azure, indiquez-les. Vérifiez ensuite que le script s’exécute sans échec.
 
 ## <a name="replication-not-enabled-on-vm-with-stale-resources-error-code-150226"></a>Réplication non activée sur la machine virtuelle avec ressources périmées (code d'erreur 150226)
@@ -334,10 +337,10 @@ Une configuration obsolète peut se produire sur une machine virtuelle Azure si 
 
 1. Supprimez le verrou de la machine virtuelle ou du groupe de ressources. Par exemple, dans l’image suivante, le verrou de ressource sur la machine virtuelle nommée `MoveDemo` doit être supprimé :
 
-   :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="com-error.":::
+   :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="Supprimez un verrou d’une machine virtuelle.":::
 
 1. Téléchargez le script pour [retirer une configuration Site Recovery obsolète](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1).
-1. Exécutez le script, _Cleanup-stale-asr-config-Azure-VM.ps1_ . Indiquez **l’ID d’abonnement** , le **groupe de ressources de la machine virtuelle** et le **nom de la machine virtuelle** en tant que paramètres.
+1. Exécutez le script, _Cleanup-stale-asr-config-Azure-VM.ps1_. Indiquez **l’ID d’abonnement**, le **groupe de ressources de la machine virtuelle** et le **nom de la machine virtuelle** en tant que paramètres.
 1. Si vous êtes invité à fournir des informations d’identification Azure, indiquez-les. Vérifiez ensuite que le script s’exécute sans échec.
 
 ## <a name="cant-select-vm-or-resource-group-in-enable-replication-job"></a>Impossible de sélectionner la machine virtuelle ou le groupe de ressources dans le travail d'activation de la réplication
@@ -346,7 +349,7 @@ Une configuration obsolète peut se produire sur une machine virtuelle Azure si 
 
 Site Recovery exige actuellement que le groupe de ressources et les machines virtuelles de la région source se trouvent dans le même emplacement. Si ce n’est pas le cas, vous ne pourrez pas trouver la machine virtuelle ou le groupe de ressources quand vous essaierez d’appliquer la protection.
 
-Comme solution de contournement, vous pouvez activer la réplication à partir de la machine virtuelle plutôt qu’à partir du coffre Recovery Services. Accédez à **Machine virtuelle source** > **Propriétés** > **Reprise d’activité** , puis activez la réplication.
+Comme solution de contournement, vous pouvez activer la réplication à partir de la machine virtuelle plutôt qu’à partir du coffre Recovery Services. Accédez à **Machine virtuelle source** > **Propriétés** > **Reprise d’activité**, puis activez la réplication.
 
 ### <a name="issue-2-the-resource-group-isnt-part-of-the-selected-subscription"></a>Problème2 : Le groupe de ressources ne fait pas partie de l’abonnement sélectionné
 
@@ -367,10 +370,10 @@ Il est possible que la machine virtuelle que vous voulez activer pour la réplic
 
 1. Supprimez le verrou, le cas échéant, de la machine virtuelle ou du groupe de ressources. Par exemple, dans l’image suivante, le verrou de ressource sur la machine virtuelle nommée `MoveDemo` doit être supprimé :
 
-   :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="com-error.":::
+   :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="Supprimez un verrou d’une machine virtuelle.":::
 
 1. Téléchargez le script pour [retirer une configuration Site Recovery obsolète](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1).
-1. Exécutez le script, _Cleanup-stale-asr-config-Azure-VM.ps1_ . Indiquez **l’ID d’abonnement** , le **groupe de ressources de la machine virtuelle** et le **nom de la machine virtuelle** en tant que paramètres.
+1. Exécutez le script, _Cleanup-stale-asr-config-Azure-VM.ps1_. Indiquez **l’ID d’abonnement**, le **groupe de ressources de la machine virtuelle** et le **nom de la machine virtuelle** en tant que paramètres.
 1. Si vous êtes invité à fournir des informations d’identification Azure, indiquez-les. Vérifiez ensuite que le script s’exécute sans échec.
 
 ## <a name="unable-to-select-a-vm-for-protection"></a>Impossible de sélectionner une machine virtuelle pour la protection
@@ -381,22 +384,22 @@ La machine virtuelle a une extension installée dans un état d’échec ou sans
 
 ### <a name="fix-the-problem"></a>Résoudre le problème
 
-Accédez à **Machines virtuelles** > **Paramètres** > **Extensions** , puis recherchez les éventuelles extensions en état d’échec. Désinstallez toute extension en état d’échec, puis réessayez de protéger la machine virtuelle.
+Accédez à **Machines virtuelles** > **Paramètres** > **Extensions**, puis recherchez les éventuelles extensions en état d’échec. Désinstallez toute extension en état d’échec, puis réessayez de protéger la machine virtuelle.
 
 ## <a name="vm-provisioning-state-isnt-valid-error-code-150019"></a>L'état d'approvisionnement de la machine virtuelle n'est pas valide (code d'erreur 150019)
 
-Pour activer la réplication sur la machine virtuelle, son état de provisionnement doit être **Réussi** . Pour vérifier l’état de provisionnement, effectuez les étapes suivantes :
+Pour activer la réplication sur la machine virtuelle, son état de provisionnement doit être **Réussi**. Pour vérifier l’état de provisionnement, effectuez les étapes suivantes :
 
-1. Dans le portail Azure, sélectionnez l’ **Explorateur de ressources** sous **Tous les services** .
+1. Dans le portail Azure, sélectionnez l’**Explorateur de ressources** sous **Tous les services**.
 1. Développez la liste **Abonnements** et sélectionnez votre abonnement.
 1. Développez la liste **Groupes de ressources** et sélectionnez le groupe de ressources de la machine virtuelle.
-1. Développez la liste **Ressources** , puis sélectionnez votre machine virtuelle.
+1. Développez la liste **Ressources**, puis sélectionnez votre machine virtuelle.
 1. Vérifiez le champ **provisioningState** dans la vue Instance sur le côté droit.
 
 ### <a name="fix-the-problem"></a>Résoudre le problème
 
-- Si **provisioningState** a la valeur **Échec** , contactez le support avec les détails pour résoudre les problèmes.
-- Si **provisioningState** a la valeur **Mise à jour** , une autre extension est peut-être en cours de déploiement. Vérifiez si des opérations sont en cours sur la machine virtuelle, attendez qu’elles se terminent, puis réessayez la tâche Site Recovery pour activer la réplication ayant échoué.
+- Si **provisioningState** a la valeur **Échec**, contactez le support avec les détails pour résoudre les problèmes.
+- Si **provisioningState** a la valeur **Mise à jour**, une autre extension est peut-être en cours de déploiement. Vérifiez si des opérations sont en cours sur la machine virtuelle, attendez qu’elles se terminent, puis réessayez la tâche Site Recovery pour activer la réplication ayant échoué.
 
 ## <a name="unable-to-select-target-vm"></a>Impossible de sélectionner la machine virtuelle cible
 
@@ -404,17 +407,17 @@ Pour activer la réplication sur la machine virtuelle, son état de provisionnem
 
 Lors de la configuration de la récupération d'urgence, si la machine virtuelle source fait partie d'un réseau virtuel et qu'une autre machine virtuelle du même réseau virtuel est déjà mappée à un réseau dans le groupe de ressources cible, la zone de liste déroulante de sélection du réseau est indisponible (grisée) par défaut.
 
-:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/unabletoselectnw.png" alt-text="com-error.":::
+:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/unabletoselectnw.png" alt-text="Liste de sélection du réseau non disponible.":::
 
 ### <a name="issue-2-you-previously-protected-the-vm-and-then-you-disabled-the-replication"></a>Problème2 : Vous avez précédemment protégé la machine virtuelle, puis désactivé la réplication
 
-La désactivation de la réplication d’une machine virtuelle ne supprime pas le mappage réseau. Le mappage doit être supprimé du coffre Recovery Services dans lequel la machine virtuelle a été protégée. Sélectionnez le **coffre Recovery Services** et accédez à **Gérer** > **Infrastructure Site Recovery** > **Pour les machines virtuelles Azure** > **Mappage réseau** .
+La désactivation de la réplication d’une machine virtuelle ne supprime pas le mappage réseau. Le mappage doit être supprimé du coffre Recovery Services dans lequel la machine virtuelle a été protégée. Sélectionnez le **coffre Recovery Services** et accédez à **Gérer** > **Infrastructure Site Recovery** > **Pour les machines virtuelles Azure** > **Mappage réseau**.
 
-:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/delete_nw_mapping.png" alt-text="com-error.":::
+:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/delete_nw_mapping.png" alt-text="Supprimez un mappage réseau.":::
 
-Le réseau cible qui a été défini lors de la configuration de la récupération d'urgence peut être modifié après la configuration initiale, une fois la machine virtuelle protégée. Pour **modifier le mappage réseau** , sélectionnez le nom du réseau :
+Le réseau cible qui a été défini lors de la configuration de la récupération d'urgence peut être modifié après la configuration initiale, une fois la machine virtuelle protégée. Pour **modifier le mappage réseau**, sélectionnez le nom du réseau :
 
-:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/modify_nw_mapping.png" alt-text="com-error.":::
+:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/modify_nw_mapping.png" alt-text="Modifiez un mappage réseau.":::
 
 
 ## <a name="com-or-vss-error-code-151025"></a>COM+ ou VSS (code d'erreur 151025)
@@ -435,9 +438,9 @@ Site Recovery extension failed to install.
 Définissez les services Application système COM+ et Cliché instantané de volume en mode de démarrage manuel ou automatique.
 
 1. Ouvrez la console Services dans Windows.
-1. Vérifiez que les services Application système COM+ et Cliché instantané de volume ne sont pas définis sur **Désactivé** pour leur **Type de démarrage** .
+1. Vérifiez que les services Application système COM+ et Cliché instantané de volume ne sont pas définis sur **Désactivé** pour leur **Type de démarrage**.
 
-   :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/com-error.png" alt-text="com-error.":::
+   :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/com-error.png" alt-text="Vérifiez le type de démarrage des services Application système COM+ et Cliché instantané de volume.":::
 
 ## <a name="unsupported-managed-disk-size-error-code-150172"></a>Taille de disque managé non prise en charge (code d’erreur 150172)
 
@@ -459,11 +462,11 @@ Vérifiez que la taille de disque est dans la plage des tailles prises en charge
 
 ### <a name="possible-causes"></a>Causes possibles
 
-Les fichiers de configuration GRUB Linux ( _/boot/grub/menu.lst_ , _/boot/grub/grub.cfg_ , _/boot/grub2/grub.cfg_ ou _/etc/default/grub_ ) peuvent spécifier le nom réel des appareils au lieu des valeurs UUID pour les paramètres `root` et `resume`. Site Recovery exige les UUID car les noms d’appareils peuvent changer. Au redémarrage, une machine virtuelle peut ne pas trouver le même nom lors du basculement, ce qui entraîne des problèmes.
+Les fichiers de configuration GRUB Linux ( _/boot/grub/menu.lst_, _/boot/grub/grub.cfg_, _/boot/grub2/grub.cfg_ ou _/etc/default/grub_) peuvent spécifier le nom réel des appareils au lieu des valeurs UUID pour les paramètres `root` et `resume`. Site Recovery exige les UUID car les noms d’appareils peuvent changer. Au redémarrage, une machine virtuelle peut ne pas trouver le même nom lors du basculement, ce qui entraîne des problèmes.
 
 Les exemples suivants sont des lignes de fichiers GRUB où les noms d’appareils apparaissent à la place des UUID nécessaires :
 
-- Fichier _/boot/grub2/grub.cfg_ :
+- Fichier _/boot/grub2/grub.cfg_:
 
   `linux /boot/vmlinuz-3.12.49-11-default root=/dev/sda2  ${extra_cmdline} resume=/dev/sda1 splash=silent quiet showopts`
 
@@ -494,7 +497,7 @@ Remplacez chaque nom de l’appareil par l’UUID correspondant :
 
 ### <a name="possible-cause"></a>Cause probable
 
-Les fichiers de configuration GRUB ( _/boot/grub/menu.lst_ , _/boot/grub/grub.cfg_ , _/boot/grub2/grub.cfg_ ou _/etc/default/grub_ ) peuvent contenir les paramètres `rd.lvm.lv` ou `rd_LVM_LV`. Ces paramètres identifient les appareils LVM (Logical Volume Manager) qui doivent être découverts au démarrage. Si ces appareils LVM n’existent pas, le système protégé proprement dit ne démarrera pas et sera bloqué lors du processus de démarrage. Le même problème sera également observé avec la machine virtuelle de basculement. Voici quelques exemples :
+Les fichiers de configuration GRUB ( _/boot/grub/menu.lst_, _/boot/grub/grub.cfg_, _/boot/grub2/grub.cfg_ ou _/etc/default/grub_) peuvent contenir les paramètres `rd.lvm.lv` ou `rd_LVM_LV`. Ces paramètres identifient les appareils LVM (Logical Volume Manager) qui doivent être découverts au démarrage. Si ces appareils LVM n’existent pas, le système protégé proprement dit ne démarrera pas et sera bloqué lors du processus de démarrage. Le même problème sera également observé avec la machine virtuelle de basculement. Voici quelques exemples :
 
 - Fichier : _/boot/grub2/grub.cfg_ sur RHEL7 :
 

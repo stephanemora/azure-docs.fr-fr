@@ -10,17 +10,19 @@ author: likebupt
 ms.reviewer: peterlu
 ms.date: 10/29/2020
 ms.topic: conceptual
-ms.custom: how-to, deploy, studio
-ms.openlocfilehash: 23c6417741d0753fcdaaf30c89c8f51348cc5dc5
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.custom: how-to, deploy, studio, designer
+ms.openlocfilehash: 35acfc51ae76fdacef11f03b1fbd91ad58650ae6
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94554680"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97722621"
 ---
 # <a name="use-the-studio-to-deploy-models-trained-in-the-designer"></a>Utiliser Studio pour déployer des modèles entraînés dans le concepteur
 
-Dans cet article, découvrez comment déployer un modèle entraîné à partir du concepteur en tant que point de terminaison en temps réel dans Azure Machine Learning Studio.
+Dans cet article, découvrez comment déployer un modèle de concepteur en tant que point de terminaison en temps réel dans Azure Machine Learning Studio.
+
+Une fois inscrits ou téléchargés, vous pouvez utiliser les modèles entraînés par le concepteur comme n’importe quel autre modèle. Les modèles exportés peuvent être déployés dans des cas d’utilisation tels que l’Internet des objets (IoT) et les déploiements locaux.
 
 Le déploiement dans Studio se compose des étapes suivantes :
 
@@ -61,7 +63,6 @@ Une fois le pipeline d’entraînement terminé, inscrivez le modèle entraîné
 Lorsque vous avez inscrit votre modèle, vous pouvez le retrouver dans la page de ressources **Modèles** dans Studio.
     
 ![Capture d’écran du modèle inscrit dans la page de ressources Modèles](./media/how-to-deploy-model-designer/models-asset-page.png)
-
 
 ## <a name="download-the-entry-script-file-and-conda-dependencies-file"></a>Télécharger le fichier de script d’entrée et le fichier de dépendances Conda
 

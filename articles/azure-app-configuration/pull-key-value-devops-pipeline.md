@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 11/17/2020
 ms.author: drewbat
-ms.openlocfilehash: 1c28b4e9821f31f927ef4f640aa664d330cf8792
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: fbe517c766b3835bf4265a1309b8737a25925b7c
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96570992"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97914958"
 ---
 # <a name="pull-settings-to-app-configuration-with-azure-pipelines"></a>Extraire des paramètres d’App Configuration à l’aide d’Azure Pipelines
 
@@ -103,6 +103,9 @@ Par exemple, si une tâche à venir exécute un script PowerShell, elle peut con
 echo "$env:myBuildSetting"
 ```
 La valeur s’affiche ensuite sur la console.
+
+> [!NOTE]
+> Les références à Azure Key Vault dans App Configuration seront résolues et définies comme des [variables secrètes](/azure/devops/pipelines/process/variables#secret-variables). Dans les pipelines Azure, les variables secrètes sont masquées dans le journal. Elles ne sont pas transmises aux tâches en tant que variables d’environnement et doivent plutôt être transmises en tant qu’entrées. 
 
 ## <a name="troubleshooting"></a>Dépannage
 

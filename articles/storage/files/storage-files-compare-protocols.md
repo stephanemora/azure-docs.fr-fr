@@ -8,12 +8,12 @@ ms.date: 12/04/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 288d1740c1c4c67dd8756de5fc0652966ae89488
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: e914bcece9a30270d12d5c2cc09d3fd1014783c6
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96620972"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916505"
 ---
 # <a name="azure-file-share-protocols"></a>Protocoles de partage de fichiers Azure
 
@@ -24,7 +24,7 @@ Azure Files offre deux protocoles pour la connexion et le montage de vos partage
 |Fonctionnalité  |NFS (préversion)  |SMB  |
 |---------|---------|---------|
 |Protocoles d’accès     |NFS 4.1         |SMB 2.1, SMB 3.0         |
-|Systèmes d’exploitation pris en charge     |Noyau Linux version 4.3+         |Windows 2008 R2+, noyau Linux version 4.11+         |
+|Système d’exploitation recommandé     |Noyau Linux version 4.3+         |Windows 2008 R2+, noyau Linux version 4.11+         |
 |[Niveaux disponibles](storage-files-planning.md#storage-tiers)     |Stockage Premium         |Stockage Premium, transaction optimisée, accès chaud, accès froid         |
 |[Redondance](storage-files-planning.md#redundancy)     |LRS, ZRS         |LRS, ZRS, GRS         |
 |Authentification     |Authentification basée sur l’hôte uniquement        |Authentification basée sur l’identité, authentification basée sur l’utilisateur         |

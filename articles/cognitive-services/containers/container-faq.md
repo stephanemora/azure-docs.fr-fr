@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: aahi
-ms.openlocfilehash: 188a348b497a485be0a8091b50a3f2c11b6493c0
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 71b57eae1a66e6966f61123e638c4790410ef445
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94960748"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97862521"
 ---
 # <a name="azure-cognitive-services-containers-frequently-asked-questions-faq"></a>Questions fréquentes (FAQ) sur les conteneurs Azure Cognitive Services
 
@@ -22,7 +22,7 @@ ms.locfileid: "94960748"
 
 **Q : Qu’est-ce qui est disponible ?**
 
-**R :** Les conteneurs Azure Cognitive Services permettent aux développeurs d’utiliser les mêmes API intelligentes que celles disponibles dans Azure, avec les [avantages](../cognitive-services-container-support.md#features-and-benefits) de la mise en conteneur. Certains conteneurs sont disponibles sous la forme d’une préversion contrôlée, dont l’accès peut nécessiter une application. D’autres conteneurs sont disponibles publiquement en préversion non contrôlée, ou sont mises en disponibilité générale. Pour obtenir la liste complète des conteneurs et leur disponibilité, consultez l’article [Prise en charge des conteneurs dans Azure Cognitive Services](../cognitive-services-container-support.md#container-availability-in-azure-cognitive-services). Vous pouvez également afficher les conteneurs dans le [Docker Hub](https://hub.docker.com/_/microsoft-azure-cognitive-services).
+**R :** Les conteneurs Azure Cognitive Services permettent aux développeurs d’utiliser les mêmes API intelligentes que celles disponibles dans Azure, avec les [avantages](../cognitive-services-container-support.md#features-and-benefits) de la mise en conteneur. Certains conteneurs sont disponibles sous la forme d’une préversion contrôlée, dont l’accès peut nécessiter une application. D’autres conteneurs sont disponibles publiquement en préversion non contrôlée, ou sont mises en disponibilité générale. Pour obtenir la liste complète des conteneurs et leur disponibilité, consultez l’article [Prise en charge des conteneurs dans Azure Cognitive Services](../cognitive-services-container-support.md). Vous pouvez également afficher les conteneurs dans le [Docker Hub](https://hub.docker.com/_/microsoft-azure-cognitive-services).
 
 **Q : Existe-t-il des différences entre le cloud Cognitive Services et les conteneurs Cognitive Services ?**
 
@@ -164,7 +164,7 @@ Explorez les étiquettes suivantes pour trouver des questions et des réponses c
  
 **Q : Comment découvrir les conteneurs ?**
 
-**R :** Les conteneurs Cognitive Services sont disponibles dans différents emplacements, notamment le Portail Azure, le hub Docker et les registres de conteneurs Azure. Pour obtenir les emplacements de conteneur les plus récents, reportez-vous aux [images et référentiels de conteneurs](../cognitive-services-container-support.md#container-repositories-and-images).
+**R :** Les conteneurs Cognitive Services sont disponibles dans différents emplacements, notamment le Portail Azure, le hub Docker et les registres de conteneurs Azure. Pour obtenir les emplacements de conteneur les plus récents, reportez-vous aux [images de conteneurs](container-image-tags.md).
 
 **Q : Quelles sont les différences entre les conteneurs Cognitive Services et les offres AWS et Google ?**
 

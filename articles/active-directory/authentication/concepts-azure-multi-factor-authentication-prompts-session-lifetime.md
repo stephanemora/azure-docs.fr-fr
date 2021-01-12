@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 14a65b83195bff48934668ff029f925e13884bad
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 8789015c239aae58ec25f0f644d4c497da477c2b
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743698"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881240"
 ---
 # <a name="optimize-reauthentication-prompts-and-understand-session-lifetime-for-azure-ad-multi-factor-authentication"></a>Optimiser les invites de réauthentification et comprendre le fonctionnement de la durée de vie des sessions Azure AD Multi-Factor Authentication
 
@@ -108,7 +108,7 @@ Pour configurer ou vérifier l’option *Rester connecté*, effectuez les étape
 1. Sélectionnez **Marque de société** et, pour chaque paramètre régional, choisissez **Afficher l’option permettant de rester connecté**.
 1. Choisissez *Oui*, puis sélectionnez **Enregistrer**.
 
-Pour mémoriser les paramètres Multi-Factor Authentication, effectuez les étapes suivantes :
+Pour mémoriser les paramètres Multi-Factor Authentication sur les appareils approuvés, effectuez les étapes suivantes :
 
 1. Dans le portail Azure AD, recherchez et sélectionnez *Azure Active Directory*.
 1. Sélectionnez **Sécurité**, puis **MFA**.

@@ -7,12 +7,12 @@ description: Passez en revue et testez les modifications à partir d’une deman
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Actions GitHub, Helm, service Mesh, routage du service Mesh, kubectl, k8s
 manager: gwallace
 ms.custom: devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 9bed61861c80f141270e50b644b32ae42fbe8e77
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 447c41055ededfc55e44bebd92de89b3d23de3c7
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995560"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591563"
 ---
 # <a name="github-actions--azure-kubernetes-service-preview"></a>Actions GitHub & Azure Kubernetes Service (préversion)
 
@@ -103,7 +103,7 @@ Accédez à votre référentiel dupliqué, puis cliquez sur *Paramètres*. Cliqu
 > [!NOTE]
 > Tous ces secrets sont utilisés par l’action GitHub et sont configurés dans [.gitHub/workflows/bikes.yml][github-action-yaml].
 
-Si vous souhaitez mettre à jour l’espace maître après la fusion de votre demande de tirage (pull request), ajoutez le secret *GATEWAY_HOST* au format *<ESPACE_MAÎTRE>.gateway.<SUFFIXE_HÔTE>* , comme dans l’exemple *dev.gateway.fedcab0987.eus.azds.io*. Une fois que vous avez fusionné vos modifications dans la branche maître de votre duplication (fork), une autre action est exécutée pour regénérer et exécuter l’intégralité de votre application dans l’espace de développement maître. Dans cet exemple, l’espace maître est *dev*. Cette action est configurée dans [.gitHub/workflows/bikesharing.yml][github-action-bikesharing-yaml].
+Si vous souhaitez mettre à jour l’espace maître après la fusion de votre demande de tirage (pull request), ajoutez le secret *GATEWAY_HOST* au format *<ESPACE_MAÎTRE>.gateway.<SUFFIXE_HÔTE>* , comme dans l’exemple *dev.gateway.fedcab0987.eus.azds.io*. Une fois que vous avez fusionné vos modifications dans la branche primaire de votre duplication (fork), une autre action est exécutée pour regénérer et exécuter l’intégralité de votre application dans l’espace de développement maître. Dans cet exemple, l’espace maître est *dev*. Cette action est configurée dans [.gitHub/workflows/bikesharing.yml][github-action-bikesharing-yaml].
 
 En outre, si vous souhaitez que les modifications apportées à votre demande de tirage s’exécutent dans un espace petit-enfant, mettez à jour les secrets *MASTER_SPACE* et *HOST*. Par exemple, si votre application s’exécute dans *dev* avec un espace enfant *dev/azureuser1*, pour que la demande de tirage s’exécute dans un espace enfant de *dev/azureuser1* :
 
@@ -149,7 +149,7 @@ Utilisez `git push` pour pousser votre nouvelle branche vers votre référentiel
 git push origin bike-images
 ```
 
-Une fois l’opération Push terminée, accédez à votre référentiel dupliqué sur GitHub afin de créer une demande de tirage (pull request) avec la branche *master* dans votre référentiel dupliqué comme branche de base, par rapport à la branche *bike-images*.
+Une fois l’opération Push terminée, accédez à votre dépôt dupliqué sur GitHub afin de créer une demande de tirage (pull request) avec la branche *primaire* dans votre dépôt dupliqué comme branche de base, par rapport à la branche *bike-images*.
 
 Une fois la requête de tirage ouverte, accédez à l’onglet *Actions*. Vérifiez qu’une nouvelle action a démarré et qu’elle est en train de créer le service *Bikes*.
 
@@ -162,7 +162,7 @@ Une fois l’action terminée, vous verrez un commentaire avec une URL vers votr
 
 Accédez au service *bikesharingweb* en ouvrant l’URL à partir du commentaire. Sélectionnez *Aurelia Briggs (client)* en tant qu’utilisateur, puis sélectionnez un vélo à louer. Vérifiez que l’image d’espace réservé du vélo n’est plus visible.
 
-Si vous fusionnez vos modifications dans la branche *master* de votre fourche, une autre action est exécutée pour régénérer et exécuter l’intégralité de votre application dans l’espace de développement parent. Dans cet exemple, l’espace parent est *dev*. Cette action est configurée dans [.gitHub/workflows/bikesharing.yml][github-action-bikesharing-yaml].
+Si vous fusionnez vos modifications dans la branche *primaire* de votre fourche, une autre action est exécutée pour régénérer et exécuter l’intégralité de votre application dans l’espace de développement parent. Dans cet exemple, l’espace parent est *dev*. Cette action est configurée dans [.gitHub/workflows/bikesharing.yml][github-action-bikesharing-yaml].
 
 ## <a name="clean-up-your-azure-resources"></a>Nettoyer vos ressources Azure
 

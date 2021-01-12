@@ -11,30 +11,23 @@ ms.workload: infrastructure-services
 ms.date: 04/29/2020
 ms.author: sukumari
 ms.reviewer: azmetadatadev
-ms.openlocfilehash: c9a4f5697fb667cde2cf3b4ddc3d637ff58149c9
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.custom: references_regions
+ms.openlocfilehash: baf0284198f8d30867ea722a4e0057b6d07c91bd
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436587"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883144"
 ---
 # <a name="azure-instance-metadata-service-imds"></a>Azure Instance Metadata Service (IMDS)
 
 Azure Instance Metadata Service fournit des informations sur les instances de machine virtuelle en cours d’exécution. Vous pouvez l’utiliser pour gérer et configurer vos machines virtuelles.
-Ces information comprennent la référence SKU, le stockage, les configurations réseau et les événements de maintenance à venir. Pour obtenir la liste complète des données disponibles, consultez [API de métadonnées](#metadata-apis).
+Ces information comprennent la référence SKU, le stockage, les configurations réseau et les événements de maintenance à venir. Pour connaître la liste complète des données disponibles, consultez le [Résumé des catégories de points de terminaison](#endpoint-categories).
 
-IMDS est disponible pour les instances de machine virtuelle en cours d’exécution et pour les instances de groupe de machines virtuelles identiques. Toutes les API prennent en charge les machines virtuelles créées et gérées avec [Azure Resource Manager](/rest/api/resources/). Seuls les points de terminaison attestés et réseau prennent en charge les machines virtuelles créées en utilisant le modèle de déploiement classique. Le point de terminaison attesté le fait seulement dans une certaine mesure.
+IMDS est disponible pour les instances de machine virtuelle en cours d’exécution et pour les instances de groupe de machines virtuelles identiques. Tous les points de terminaison prennent en charge les machines virtuelles créées et gérées avec [Azure Resource Manager](/rest/api/resources/). Seules la catégorie Attesté et la partie Réseau de la catégorie Instance prennent en charge les machines virtuelles créées avec le modèle de déploiement Classic. Le point de terminaison Attesté le fait seulement dans une certaine mesure.
 
-IMDS est un point de terminaison REST disponible à une adresse IP connue et non routable (`169.254.169.254`). Vous y accédez uniquement à partir de la machine virtuelle. La communication entre la machine virtuelle et IMDS ne quitte jamais l’hôte.
+IMDS est une API REST disponible à une adresse IP connue et non routable (`169.254.169.254`). On ne peut y accéder qu’à partir de la machine virtuelle. La communication entre la machine virtuelle et IMDS ne quitte jamais l’hôte.
 Faites en sorte que vos clients HTTP contournent les proxys web au sein de la machine virtuelle lors de l’interrogation d’IMDS et traitent `169.254.169.254` de la même façon que [`168.63.129.16`](../../virtual-network/what-is-ip-address-168-63-129-16.md).
-
-## <a name="security"></a>Sécurité
-
-Le point de terminaison IMDS est accessible seulement depuis l’instance de machine virtuelle en cours d’exécution sur une adresse IP non routable. En outre, toute demande contenant un en-tête `X-Forwarded-For` est rejetée par le service.
-Les demandes doivent aussi contenir un en-tête `Metadata: true` garantissant que la demande réelle est bien directement délibérée et ne fait pas partie d’une redirection non intentionnelle.
-
-> [!IMPORTANT]
-> IMDS n’est pas un canal pour les données sensibles. Le point de terminaison est ouvert à tous les processus sur la machine virtuelle. Considérez les informations exposées via ce service doivent être considérées comme des informations partagées pour toutes les applications s’exécutant dans la machine virtuelle.
 
 ## <a name="usage"></a>Usage
 
@@ -43,9 +36,12 @@ Les demandes doivent aussi contenir un en-tête `Metadata: true` garantissant qu
 Pour accéder à IMDS, créez une machine virtuelle à partir d’[Azure Resource Manager](/rest/api/resources/) ou du [portail Azure](https://portal.azure.com), puis utilisez les exemples suivants.
 Pour obtenir plus d’exemples, consultez [Exemples Azure Instance Metadata](https://github.com/microsoft/azureimds).
 
-Voici l’exemple de code permettant de récupérer toutes les métadonnées d’une instance. Pour accéder à une source de données spécifique, consultez la section [API de métadonnées](#metadata-apis). 
+Voici un exemple de code permettant de récupérer toutes les métadonnées d’une instance. Pour obtenir une vue d’ensemble de toutes les fonctionnalités disponibles dans le but d’accéder à une source de données spécifique, consultez [Catégories de points de terminaison](#endpoint-categories).
 
 **Requête**
+
+> [!IMPORTANT]
+> Dans cet exemple, les proxys sont contournés. Vous **devez** contourner les proxys lorsque vous interrogez IMDS. Pour plus d’informations, consultez [Proxys](#proxies).
 
 ```bash
 curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance?api-version=2020-09-01"
@@ -177,17 +173,136 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance?ap
 }
 ```
 
-### <a name="data-output"></a>Sortie des données
+## <a name="security-and-authentication"></a>Sécurité et authentification
 
-Par défaut, IMDS retourne les données au format JSON (`Content-Type: application/json`). Cependant, certaines API peuvent retourner à la demande des données dans d’autres formats.
-Le tableau suivant liste les autres formats de données que les API peuvent prendre en charge.
+Instance Metadata Service n’est accessible qu’à partir d’une instance de machine virtuelle en cours d’exécution sur une adresse IP non routable. Les interactions des machines virtuelles sont limitées aux métadonnées/fonctionnalités qui se rapportent à elles-mêmes. L’API est HTTP uniquement. Elle ne quitte jamais l’hôte.
 
-API | Format de données par défaut | Autres formats
---------|---------------------|--------------
-/attested | json | Aucun
-/identity | json | Aucun
-/instance | json | text
-/scheduledevents | json | Aucun
+Les demandes doivent respecter les conditions suivantes pour être directement destinées à IMDS et éviter toute redirection involontaire ou indésirable :
+- Elles **doivent** contenir l’en-tête `Metadata: true`.
+- Elles ne doivent **pas** contenir l’en-tête `X-Forwarded-For`.
+
+Toutes les demandes qui ne respectent pas **ces deux** exigences sont rejetées par le service.
+
+> [!IMPORTANT]
+> IMDS n’est **pas** un canal pour les données sensibles. L’API n’est pas authentifiée. Elle est ouverte à tous les processus de la machine virtuelle. Les informations exposées par le biais de ce service doivent être considérées comme des informations partagées pour toutes les applications exécutées dans la machine virtuelle.
+
+## <a name="proxies"></a>Proxies
+
+IMDS n’est **pas** destiné à être utilisé derrière un proxy, ce qui n’est pas pris en charge. La plupart des clients HTTP proposent une option vous permettant de désactiver les proxys sur vos demandes. Cette fonctionnalité doit être utilisée lors de la communication avec IMDS. Pour plus d’informations, consultez la documentation de votre client.
+
+> [!IMPORTANT]
+> Même si vous n’avez connaissance d’aucune configuration de proxy dans votre environnement, **vous devez toujours remplacer les paramètres de proxy client par défaut**. Les configurations de proxy peuvent être découvertes automatiquement. Si vous ne les contournez pas, vous vous exposez à des risques d’infraction en cas de modification ultérieure de la configuration de la machine.
+
+## <a name="rate-limiting"></a>Limitation du débit
+
+En général, les demandes adressées à IMDS sont limitées à 5 par seconde. Celles qui dépassent ce seuil sont rejetées avec une réponse 429. Les demandes adressées à la catégorie [Identité managée](#managed-identity) sont limitées à 20 par seconde et à 5 simultanément.
+
+## <a name="http-verbs"></a>Verbes HTTP
+
+Sont actuellement pris en charge les verbes HTTP suivants :
+
+| Verbe | Description |
+|------|-------------|
+| `GET` | Récupère la ressource demandée
+
+## <a name="parameters"></a>Paramètres
+
+Les points de terminaison peuvent prendre en charge les paramètres obligatoires et facultatifs. Pour plus d’informations, consultez [Schéma](#schema) et la documentation du point de terminaison en question.
+
+### <a name="query-parameters"></a>Paramètres de requête
+
+Les points de terminaison IMDS prennent en charge les paramètres de chaîne de requête HTTP. Exemple : 
+
+```bash
+http://169.254.169.254/metadata/instance/compute?api-version=2019-06-04&format=json
+```
+
+Spécifie les paramètres :
+
+| Nom | Valeur |
+|------|-------|
+| `api-version` | `2019-06-04`
+| `format` | `json`
+
+Les demandes comportant des noms de paramètres de requête en double sont rejetées.
+
+### <a name="route-parameters"></a>Paramètres d’itinéraire
+
+Dans le cas de certains points de terminaison qui retournent des objets blob JSON volumineux, l’ajout de paramètres d’itinéraire au point de terminaison de la demande est pris en charge pour filtrer la réponse sur un sous-ensemble : 
+
+```bash
+http://169.254.169.254/metadata/<endpoint>/[<filter parameter>/...]?<query parameters>
+```
+Les paramètres correspondent aux index/clés qui seraient utilisés pour parcourir l’objet JSON si l’on interagissait avec une représentation analysée.
+
+Par exemple, `/metatadata/instance` retourne l’objet JSON suivant :
+```json
+{
+    "compute": { ... },
+    "network": {
+        "interface": [
+            {
+                "ipv4": {
+                   "ipAddress": [{
+                        "privateIpAddress": "10.144.133.132",
+                        "publicIpAddress": ""
+                    }],
+                    "subnet": [{
+                        "address": "10.144.133.128",
+                        "prefix": "26"
+                    }]
+                },
+                "ipv6": {
+                    "ipAddress": [
+                     ]
+                },
+                "macAddress": "0011AAFFBB22"
+            },
+            ...
+        ]
+    }
+}
+```
+
+Pour filtrer la réponse sur la propriété compute, la demande envoyée serait la suivante : 
+```bash
+http://169.254.169.254/metadata/instance/compute?api-version=<version>
+```
+
+De même, pour appliquer un filtre sur une propriété imbriquée ou un élément de tableau spécifique, des clés seraient encore ajoutées : 
+```bash
+http://169.254.169.254/metadata/instance/network/interface/0?api-version=<version>
+```
+Cette demande appliquerait un filtre sur le premier élément de la propriété `Network.interface` et retournerait la réponse suivante :
+
+```json
+{
+    "ipv4": {
+       "ipAddress": [{
+            "privateIpAddress": "10.144.133.132",
+            "publicIpAddress": ""
+        }],
+        "subnet": [{
+            "address": "10.144.133.128",
+            "prefix": "26"
+        }]
+    },
+    "ipv6": {
+        "ipAddress": [
+         ]
+    },
+    "macAddress": "0011AAFFBB22"
+}
+```
+
+> [!NOTE]
+> En cas de filtrage sur un nœud terminal, `format=json` ne fonctionne pas. Pour ces requêtes, `format=text` doit être spécifié explicitement si le format par défaut est json.
+
+## <a name="schema"></a>schéma
+
+### <a name="data-format"></a>Format de données
+
+Par défaut, IMDS retourne les données au format JSON (`Content-Type: application/json`). Toutefois, les points de terminaison qui prennent en charge le filtrage de réponse (cf. [Paramètres d’itinéraire](#route-parameters)) prennent également en charge le format `text`.
 
 Pour accéder à un format de réponse autre que le format par défaut, spécifiez le format demandé en tant que paramètre de chaîne de requête dans la demande. Par exemple :
 
@@ -195,14 +310,27 @@ Pour accéder à un format de réponse autre que le format par défaut, spécifi
 curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
 ```
 
-> [!NOTE]
-> Pour les nœuds terminaux dans `/metadata/instance`, `format=json` ne fonctionne pas. Pour ces requêtes, vous devez spécifier explicitement `format=text` si le format par défaut est JSON.
+Dans les réponses JSON, toutes les primitives sont de type `string`. Les valeurs manquantes et les valeurs non applicables sont toujours incluses, mais définies sur une chaîne vide.
 
-### <a name="version"></a>Version
+### <a name="versioning"></a>Contrôle de version
 
-IMDS est versionné et la spécification de la version de l’API dans la requête HTTP est obligatoire.
+IMDS est versionné. Il est obligatoire de spécifier la version de l’API dans la requête HTTP. La seule exception à cette exigence est le point de terminaison [versions](#versions), qui peut être utilisé pour récupérer dynamiquement les versions d’API disponibles.
 
-Les versions d’API prises en charge sont : 
+Au fur et à mesure que des versions plus récentes sont ajoutées, les versions antérieures sont toujours accessibles pour des questions de compatibilité si vos scripts ont des dépendances sur des formats de données spécifiques.
+
+Si vous ne spécifiez pas de version, vous recevez une erreur accompagnée de la liste des dernières versions prises en charge :
+```json
+{
+    "error": "Bad request. api-version was not specified in the request. For more information refer to aka.ms/azureimds",
+    "newest-versions": [
+        "2020-10-01",
+        "2020-09-01",
+        "2020-07-15"
+    ]
+}
+```
+
+#### <a name="supported-api-versions"></a>Versions d'API prises en charge
 - 2017-03-01
 - 2017-04-02
 - 2017-08-01 
@@ -225,87 +353,309 @@ Les versions d’API prises en charge sont :
 - 2020-10-01
 
 > [!NOTE]
-> La version 2020-10-01 peut ne pas être encore disponible dans chaque région.
+> La version 2020-10-01 est actuellement déployée et n’est peut-être pas encore disponible dans chaque région.
 
-Quand des versions plus récentes sont ajoutées, vous pouvez néanmoins toujours accéder aux versions antérieures pour des questions de compatibilité si vos scripts ont des dépendances vis-à-vis de formats de données spécifiques.
+### <a name="swagger"></a>Fichier Swagger
 
-Si vous ne spécifiez pas de version, vous recevez une erreur, avec la liste des versions les plus récentes prises en charge.
+Une définition Swagger complète pour IMDS est disponible à l’adresse https://github.com/Azure/azure-rest-api-specs/blob/master/specification/imds/data-plane/readme.md.
+
+## <a name="regional-availability"></a>Disponibilité régionale
+
+Le service est **en disponibilité générale** dans tous les clouds Azure.
+
+## <a name="root-endpoint"></a>Point de terminaison racine
+
+Le point de terminaison racine est `http://169.254.169.254/metadata`.
+
+## <a name="endpoint-categories"></a>Catégories de points de terminaison
+
+L’API IMDS contient plusieurs catégories de points de terminaison qui représentent des sources de données différentes, chacune contenant un ou plusieurs points de terminaison. Examinez chaque catégorie pour plus de détails.
+
+| Racine de la catégorie | Description | Version introduite |
+|---------------|-------------|--------------------|
+| `/metadata/attested` | Voir [Données attestées](#attested-data) | 2018-10-01
+| `/metadata/identity` | Voir [Identité managée via IMDS](#managed-identity) | 2018-02-01
+| `/metadata/instance` | Voir [Métadonnées d’instance](#instance-metadata) | 2017-04-02
+| `/metadata/scheduledevents` | Voir [Scheduled Events via IMDS](#scheduled-events) | 2017-08-01
+| `/metadata/versions` | Voir [Versions](#versions) | N/A
+
+## <a name="versions"></a>Versions
 
 > [!NOTE]
-> La réponse est une chaîne JSON. L’exemple suivant indique la condition d’erreur quand la version n’est pas spécifiée. L’affichage de la réponse est amélioré par souci de lisibilité.
+> Cette fonctionnalité a été publiée avec la version 2020-10-01, qui est actuellement en cours de déploiement et n’est peut-être pas encore disponible dans toutes les régions.
 
-**Requête**
+### <a name="list-api-versions"></a>Liste des versions d’API
+
+Retourne l’ensemble des versions d’API prises en charge.
 
 ```bash
-curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance"
+GET /metadata/versions
 ```
 
-**Réponse**
+#### <a name="parameters"></a>Paramètres
+
+Aucun (ce point de terminaison n’est pas versionné).
+
+#### <a name="response"></a>response
 
 ```json
 {
-    "error": "Bad request. api-version was not specified in the request. For more information refer to aka.ms/azureimds",
-    "newest-versions": [
-        "2020-10-01",
-        "2020-09-01",
-        "2020-07-15"
-    ]
+  "apiVersions": [
+    "2017-03-01",
+    "2017-04-02",
+    ...
+  ]
 }
 ```
 
-## <a name="metadata-apis"></a>API de métadonnées
+## <a name="instance-metadata"></a>Métadonnées d’instance
 
-IMDS contient plusieurs API représentant des sources de données différentes.
+### <a name="get-vm-metadata"></a>Récupération des métadonnées de machine virtuelle
 
-API | Description | Version introduite
-----|-------------|-----------------------
-/attested | Voir [Données attestées](#attested-data) | 2018-10-01
-/identity | Consulter [Obtenir un jeton d’accès](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
-/instance | Consulter [API Instance](#instance-api) | 2017-04-02
-/scheduledevents | Voir [Événements planifiés](scheduled-events.md) | 2017-08-01
+Expose les métadonnées importantes pour l’instance de machine virtuelle, notamment le calcul, le réseau et le stockage. 
 
-## <a name="instance-api"></a>API Instance
+```bash
+GET /metadata/instance
+```
 
-L’API d’instance expose les métadonnées importantes pour les instances de machine virtuelle, notamment la machine virtuelle, le réseau et le stockage. Vous pouvez accéder aux catégories suivantes via `instance/compute` :
+#### <a name="parameters"></a>Paramètres
 
-Données | Description | Version introduite
------|-------------|-----------------------
-azEnvironment | Environnement Azure où la machine virtuelle est en cours d’exécution. | 2018-10-01
-customData | Cette fonctionnalité est actuellement désactivée. | 2019-02-01
-isHostCompatibilityLayerVm | Indique si la machine virtuelle s’exécute sur la couche de compatibilité de l’hôte. | 2020-06-01
-licenseType | Type de licence pour [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit). Présent seulement pour les machines virtuelles activées pour Azure Hybrid Benefit. | 2020-09-01
-location | Région Azure où la machine virtuelle s’exécute. | 2017-04-02
-name | nom de la machine virtuelle. | 2017-04-02
-offer | Offrent des informations pour l’image de machine virtuelle. Présent seulement pour les images déployées à partir de la galerie d’images Azure. | 2017-04-02
-osProfile.adminUsername | Spécifie le nom du compte administrateur. | 2020-07-15
-osProfile.computerName | Spécifie le nom de l'ordinateur. | 2020-07-15
-osProfile.disablePasswordAuthentication | Spécifie si l'authentification par mot de passe est désactivée. Présent seulement pour les machines virtuelles Linux. | 2020-10-01
-osType | Linux ou Windows. | 2017-04-02
-placementGroupId | [Groupe de placement](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) de votre groupe de machines virtuelles identiques. | 2017-08-01
-Plan | [Plan](/rest/api/compute/virtualmachines/createorupdate#plan) contenant le nom, le produit et l’éditeur pour une machine virtuelle s’il s’agit d’une image de la Place de marché Azure. | 2018-04-02
-platformUpdateDomain |  [Domaine de mise à jour](../manage-availability.md) dans lequel la machine virtuelle s’exécute. | 2017-04-02
-platformFaultDomain | [Domaine d’erreur](../manage-availability.md) dans lequel la machine virtuelle s’exécute. | 2017-04-02
-provider | Fournisseur de la machine virtuelle. | 2018-10-01
-publicKeys | [Collection de clés publiques](/rest/api/compute/virtualmachines/createorupdate#sshpublickey) affectée à la machine virtuelle et aux chemins. | 2018-04-02
-publisher | Éditeur de l’image de machine virtuelle. | 2017-04-02
-resourceGroupName | [Groupe de ressources](../../azure-resource-manager/management/overview.md) pour votre machine virtuelle. | 2017-08-01
-resourceId | ID [complet](/rest/api/resources/resources/getbyid) de la ressource. | 2019-03-11
-sku | Référence SKU spécifique pour l’image de machine virtuelle. | 2017-04-02
-securityProfile.secureBootEnabled | Indique si le démarrage sécurisé UEFI est activé sur la machine virtuelle. | 2020-06-01
-securityProfile.virtualTpmEnabled | Indique si le Module de plateforme sécurisée (TPM) virtuel est activé sur la machine virtuelle. | 2020-06-01
-storageProfile | Voir [Profil de stockage](#storage-metadata). | 2019-06-01
-subscriptionId | Abonnement Azure pour la machine virtuelle. | 2017-08-01
-tags | [Étiquettes](../../azure-resource-manager/management/tag-resources.md) pour votre machine virtuelle.  | 2017-08-01
-tagsList | Étiquettes mises en forme en tant que tableau JSON pour faciliter l’analyse programmatique.  | 2019-06-04
-version | Version de l’image de machine virtuelle. | 2017-04-02
-vmId | [Identificateur unique](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) de la machine virtuelle. | 2017-04-02
-vmScaleSetName | [Nom du groupe de machines virtuelles identiques](../../virtual-machine-scale-sets/overview.md) de votre groupe de machines virtuelles identiques. | 2017-12-01
-vmSize | Voir [Taille de machine virtuelle](../sizes.md). | 2017-04-02
-zone | [Zone de disponibilité](../../availability-zones/az-overview.md) de votre machine virtuelle. | 2017-12-01
+| Nom | Obligatoire ou facultatif | Description |
+|------|-------------------|-------------|
+| `api-version` | Obligatoire | Version utilisée pour traiter la demande.
+| `format` | Facultatif* | Format (`json` ou `text`) de la réponse. *Remarque : Peut être obligatoire si les paramètres de demande sont utilisés.
 
-### <a name="sample-1-track-a-vm-running-on-azure"></a>Exemple 1 : Faire le suivi d’une machine virtuelle s’exécutant sur Azure
+Ce point de terminaison prend en charge le filtrage de la réponse avec les [paramètres de routage](#route-parameters).
 
-En tant que fournisseur de service, il peut être nécessaire de suivre le nombre de machines virtuelles exécutant votre logiciel ou d’avoir des agents effectuant le suivi de l’unicité de la machine virtuelle. Pour pouvoir obtenir un ID unique pour une machine virtuelle, utilisez le champ `vmId` d’IMDS.
+#### <a name="response"></a>response
+
+```json
+{
+    "compute": {
+        "azEnvironment": "AZUREPUBLICCLOUD",
+        "isHostCompatibilityLayerVm": "true",
+        "licenseType":  "Windows_Client",
+        "location": "westus",
+        "name": "examplevmname",
+        "offer": "Windows",
+        "osProfile": {
+            "adminUsername": "admin",
+            "computerName": "examplevmname",
+            "disablePasswordAuthentication": "true"
+        },
+        "osType": "linux",
+        "placementGroupId": "f67c14ab-e92c-408c-ae2d-da15866ec79a",
+        "plan": {
+            "name": "planName",
+            "product": "planProduct",
+            "publisher": "planPublisher"
+        },
+        "platformFaultDomain": "36",
+        "platformUpdateDomain": "42",
+        "publicKeys": [{
+                "keyData": "ssh-rsa 0",
+                "path": "/home/user/.ssh/authorized_keys0"
+            },
+            {
+                "keyData": "ssh-rsa 1",
+                "path": "/home/user/.ssh/authorized_keys1"
+            }
+        ],
+        "publisher": "RDFE-Test-Microsoft-Windows-Server-Group",
+        "resourceGroupName": "macikgo-test-may-23",
+        "resourceId": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/virtualMachines/examplevmname",
+        "securityProfile": {
+            "secureBootEnabled": "true",
+            "virtualTpmEnabled": "false"
+        },
+        "sku": "Windows-Server-2012-R2-Datacenter",
+        "storageProfile": {
+            "dataDisks": [{
+                "caching": "None",
+                "createOption": "Empty",
+                "diskSizeGB": "1024",
+                "image": {
+                    "uri": ""
+                },
+                "lun": "0",
+                "managedDisk": {
+                    "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
+                    "storageAccountType": "Standard_LRS"
+                },
+                "name": "exampledatadiskname",
+                "vhd": {
+                    "uri": ""
+                },
+                "writeAcceleratorEnabled": "false"
+            }],
+            "imageReference": {
+                "id": "",
+                "offer": "UbuntuServer",
+                "publisher": "Canonical",
+                "sku": "16.04.0-LTS",
+                "version": "latest"
+            },
+            "osDisk": {
+                "caching": "ReadWrite",
+                "createOption": "FromImage",
+                "diskSizeGB": "30",
+                "diffDiskSettings": {
+                    "option": "Local"
+                },
+                "encryptionSettings": {
+                    "enabled": "false"
+                },
+                "image": {
+                    "uri": ""
+                },
+                "managedDisk": {
+                    "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
+                    "storageAccountType": "Standard_LRS"
+                },
+                "name": "exampleosdiskname",
+                "osType": "Linux",
+                "vhd": {
+                    "uri": ""
+                },
+                "writeAcceleratorEnabled": "false"
+            }
+        },
+        "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
+        "tags": "baz:bash;foo:bar",
+        "version": "15.05.22",
+        "vmId": "02aab8a4-74ef-476e-8182-f6d2ba4166a6",
+        "vmScaleSetName": "crpteste9vflji9",
+        "vmSize": "Standard_A3",
+        "zone": ""
+    },
+    "network": {
+        "interface": [{
+            "ipv4": {
+               "ipAddress": [{
+                    "privateIpAddress": "10.144.133.132",
+                    "publicIpAddress": ""
+                }],
+                "subnet": [{
+                    "address": "10.144.133.128",
+                    "prefix": "26"
+                }]
+            },
+            "ipv6": {
+                "ipAddress": [
+                 ]
+            },
+            "macAddress": "0011AAFFBB22"
+        }]
+    }
+}
+```
+
+Décomposition du schéma :
+
+**Calcul**
+
+| Données | Description | Version introduite |
+|------|-------------|--------------------|
+| `azEnvironment` | Environnement Azure dans lequel s’exécute la machine virtuelle | 2018-10-01
+| `customData` | Cette fonctionnalité est actuellement désactivée. Nous mettrons à jour cette documentation dès qu’elle sera disponible. | 2019-02-01
+| `isHostCompatibilityLayerVm` | Indique si la machine virtuelle s’exécute sur la couche de compatibilité de l’ordinateur hôte | 2020-06-01
+| `licenseType` | Type de licence pour [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit). Présent seulement pour les machines virtuelles dotées d’AHB | 2020-09-01
+| `location` | Région Azure dans laquelle la machine virtuelle est en cours d’exécution | 2017-04-02
+| `name` | Nom de la machine virtuelle | 2017-04-02
+| `offer` | Fournit des informations pour l’image de machine virtuelle et ne sont présentes que pour les images déployées à partir de la galerie d’images Azure | 2017-04-02
+| `osProfile.adminUsername` | Spécifie le nom du compte administrateur | 2020-07-15
+| `osProfile.computerName` | Spécifie le nom de l’ordinateur | 2020-07-15
+| `osProfile.disablePasswordAuthentication` | Spécifie si l'authentification par mot de passe est désactivée. Présent seulement pour les machines virtuelles Linux | 2020-10-01
+| `osType` | Linux ou Windows | 2017-04-02
+| `placementGroupId` | [Groupe de placement](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) de votre groupe de machines virtuelles identiques | 2017-08-01
+| `plan` | [Plan](/rest/api/compute/virtualmachines/createorupdate#plan) contenant le nom, le produit et l’éditeur d’une machine virtuelle s’il s’agit d’une image de la Place de marché Azure | 2018-04-02
+| `platformUpdateDomain` |  [Domaine de mise à jour](../manage-availability.md) dans lequel la machine virtuelle est en cours d’exécution | 2017-04-02
+| `platformFaultDomain` | [Domaine par défaut](../manage-availability.md) dans lequel la machine virtuelle est en cours d’exécution | 2017-04-02
+| `provider` | Fournisseur de la machine virtuelle | 2018-10-01
+| `publicKeys` | [Collection de clés publiques](/rest/api/compute/virtualmachines/createorupdate#sshpublickey) affectée à la machine virtuelle et aux chemins | 2018-04-02
+| `publisher` | Éditeur de l’image de machine virtuelle | 2017-04-02
+| `resourceGroupName` | [Groupe de ressources](../../azure-resource-manager/management/overview.md) de votre machine virtuelle | 2017-08-01
+| `resourceId` | L’ID [complet](/rest/api/resources/resources/getbyid) de la ressource | 2019-03-11
+| `sku` | Référence (SKU) spécifique pour l’image de machine virtuelle | 2017-04-02
+| `securityProfile.secureBootEnabled` | Indique si le démarrage sécurisé UEFI est activé sur la machine virtuelle | 2020-06-01
+| `securityProfile.virtualTpmEnabled` | Indique si le Module de plateforme sécurisée (TPM) virtuel est activé sur la machine virtuelle | 2020-06-01
+| `storageProfile` | Voir Profil de stockage ci-dessous | 2019-06-01
+| `subscriptionId` | Abonnement Azure pour la machine virtuelle | 2017-08-01
+| `tags` | [Étiquettes](../../azure-resource-manager/management/tag-resources.md) de votre machine virtuelle  | 2017-08-01
+| `tagsList` | Balises mises en forme en tant que tableau JSON pour faciliter l’analyse programmatique  | 2019-06-04
+| `version` | Version de l’image de machine virtuelle | 2017-04-02
+| `vmId` | [Identificateur unique](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) de la machine virtuelle | 2017-04-02
+| `vmScaleSetName` | [Nom du groupe de machines virtuelles identiques](../../virtual-machine-scale-sets/overview.md) de votre groupe de machines virtuelles identiques | 2017-12-01
+| `vmSize` | [Taille de la machine virtuelle](../sizes.md) | 2017-04-02
+| `zone` | [Zone de disponibilité](../../availability-zones/az-overview.md) de votre machine virtuelle | 2017-12-01
+
+**Profil de stockage**
+
+Le profil de stockage d’une machine virtuelle est divisé en trois catégories : référence de l’image, disque du système d’exploitation et disques de données.
+
+L’objet de référence d’image contient les informations suivantes sur l’image du système d’exploitation :
+
+| Données | Description |
+|------|-------------|
+| `id` | ID de ressource
+| `offer` | Offre de la plateforme ou de l’image de la Place de marché
+| `publisher` | Éditeur de l’image
+| `sku` | Référence SKU de l’image
+| `version` | Version de la plateforme ou de l’image de la Place de marché
+
+L’objet de disque du système d’exploitation contient les informations suivantes sur le disque du système d’exploitation utilisé par la machine virtuelle :
+
+| Données | Description |
+|------|-------------|
+| `caching` | Exigences de la mise en cache
+| `createOption` | Informations sur la façon dont la machine virtuelle a été créée
+| `diffDiskSettings` | Paramètres du disque éphémère
+| `diskSizeGB` | Taille du disque en Go
+| `image`   | Disque dur virtuel de l’image utilisateur source
+| `lun`     | Numéro d’unité logique du disque
+| `managedDisk` | Paramètres des disques managés
+| `name`    | Nom du disque
+| `vhd`     | Disque dur virtuel
+| `writeAcceleratorEnabled` | Indique si writeAccelerator est activé ou non sur le disque
+
+Le tableau des disques de données contient la liste des disques de données attachés à la machine virtuelle. Chaque objet de disque de données contient les informations suivantes :
+
+Données | Description |
+-----|-------------|
+| `caching` | Exigences de la mise en cache
+| `createOption` | Informations sur la façon dont la machine virtuelle a été créée
+| `diffDiskSettings` | Paramètres du disque éphémère
+| `diskSizeGB` | Taille du disque en Go
+| `encryptionSettings` | Paramètres de chiffrement du disque
+| `image` | Disque dur virtuel de l’image utilisateur source
+| `managedDisk` | Paramètres des disques managés
+| `name` | Nom du disque
+| `osType` | Type de système d’exploitation inclus dans le disque
+| `vhd` | Disque dur virtuel
+| `writeAcceleratorEnabled` | Indique si writeAccelerator est activé ou non sur le disque
+
+**Réseau**
+
+| Données | Description | Version introduite |
+|------|-------------|--------------------|
+| `ipv4.privateIpAddress` | Adresse IPv4 locale de la machine virtuelle | 2017-04-02
+| `ipv4.publicIpAddress` | Adresse IPv4 publique de la machine virtuelle | 2017-04-02
+| `subnet.address` | Adresse de sous-réseau de la machine virtuelle | 2017-04-02
+| `subnet.prefix` | Préfixe de sous-réseau, par exemple 24 | 2017-04-02
+| `ipv6.ipAddress` | Adresse IPv6 locale de la machine virtuelle | 2017-04-02
+| `macAddress` | Adresse MAC de la machine virtuelle | 2017-04-02
+
+**Étiquettes de machines virtuelles**
+
+Les balises de machine virtuelle sont incluses dans l’API d’instance sous le point de terminaison instance/compute/tags.
+Des balises peuvent être appliqués à votre machine virtuelle Azure pour les organiser de manière logique dans une taxonomie. Les balises affectées à une machine virtuelle peuvent être récupérées à l’aide de la requête ci-dessous.
+
+Le champ `tags` est une chaîne dont les étiquettes sont délimitées par des points-virgules. Cette sortie peut constituer un problème si des points-virgules sont utilisés dans les étiquettes proprement dites. Si un analyseur est écrit pour extraire les balises par programmation, vous devez vous appuyer sur le champ `tagsList`. Le champ `tagsList` est un tableau JSON sans délimiteur et, par conséquent plus facile à analyser.
+
+
+#### <a name="sample-1-tracking-vm-running-on-azure"></a>Exemple 1 : Suivi de la machine virtuelle s’exécutant sur Azure
+
+En tant que fournisseur de service, vous aurez peut-être besoin de suivre le nombre de machines virtuelles s’exécutant sur votre logiciel ou de disposer d’agents effectuant le suivi de l’unicité de la machine virtuelle. Pour pouvoir obtenir un ID unique pour une machine virtuelle, utilisez le champ `vmId` du service de métadonnées d’instance.
 
 **Requête**
 
@@ -319,7 +669,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
 5c08b38e-4d57-4c23-ac45-aca61037f084
 ```
 
-### <a name="sample-2-placement-of-different-data-replicas"></a>Exemple 2 : Positionnement de différents réplicas de données
+#### <a name="sample-2-placement-of-different-data-replicas"></a>Exemple 2 : Positionnement de différents réplicas de données
 
 Pour certains scénarios, le positionnement des différents réplicas de données est de première importance. Par exemple, pour le [positionnement du réplica HDFS](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html#Replica_Placement:_The_First_Baby_Steps) ou le positionnement des conteneurs via un [orchestrateur](https://kubernetes.io/docs/user-guide/node-selection/), vous devez connaître les domaines `platformFaultDomain` et `platformUpdateDomain` sur lesquels la machine virtuelle s’exécute.
 Vous pouvez également utiliser les [Zones de disponibilité](../../availability-zones/az-overview.md) pour les instances pour prendre ces décisions.
@@ -337,9 +687,9 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
 0
 ```
 
-### <a name="sample-3-get-more-information-about-the-vm-during-support-case"></a>Exemple 3 : Obtenir plus d’informations sur la machine virtuelle dans le cadre du support technique
+#### <a name="sample-3-get-more-information-about-the-vm-during-support-case"></a>Exemple 3 : Obtenir plus d’informations sur la machine virtuelle dans le cadre du support technique
 
-En tant que fournisseur de services, vous pouvez recevoir un appel dans le cadre du support technique, pour lequel vous voulez connaître plus d’informations sur la machine virtuelle. Demander au client de partager les métadonnées de calcul peut être utile dans ce cas.
+En tant que fournisseur de services, vous recevrez peut-être un appel du support pour lequel vous devrez connaître les informations de la machine virtuelle. Demandez au client de partager les métadonnées de calcul afin que l’équipe du support dispose des informations de base concernant le type de machine virtuelle sur Azure.
 
 **Requête**
 
@@ -452,9 +802,9 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
 }
 ```
 
-### <a name="sample-4-get-the-azure-environment-where-the-vm-is-running"></a>Exemple 4 : Obtenir l’environnement Azure où la machine virtuelle s’exécute
+#### <a name="sample-4-get-the-azure-environment-where-the-vm-is-running"></a>Exemple 4 : Obtenir l’environnement Azure dans lequel s’exécute la machine virtuelle
 
-Azure a plusieurs clouds souverains, comme [Azure Government](https://azure.microsoft.com/overview/clouds/government/). Vous avez parfois besoin de l’environnement Azure pour prendre certaines décisions liées au runtime. L’exemple suivant vous montre comment obtenir ce comportement.
+Azure dispose de plusieurs clouds souverains comme [Azure Government](https://azure.microsoft.com/overview/clouds/government/). Vous avez parfois besoin de l’environnement Azure pour prendre certaines décisions liées au runtime. L’exemple suivant vous montre comment obtenir ce comportement.
 
 **Requête**
 
@@ -470,30 +820,15 @@ AzurePublicCloud
 
 Le cloud et les valeurs de l’environnement Azure sont listés ici.
 
- Cloud   | Environnement Azure
----------|-----------------
-[Toutes les régions Azure mondiales en disponibilité générale](https://azure.microsoft.com/regions/)     | AzurePublicCloud
-[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | AzureUSGovernmentCloud
-[Azure China 21Vianet](https://azure.microsoft.com/global-infrastructure/china/)         | AzureChinaCloud
-[Azure Allemagne](https://azure.microsoft.com/overview/clouds/germany/)                    | AzureGermanCloud
+| Cloud | Environnement Azure |
+|-------|-------------------|
+| [Toutes les régions Azure mondiales en disponibilité générale](https://azure.microsoft.com/regions/) | AzurePublicCloud
+| [Azure Government](https://azure.microsoft.com/overview/clouds/government/) | AzureUSGovernmentCloud
+| [Azure China 21Vianet](https://azure.microsoft.com/global-infrastructure/china/) | AzureChinaCloud
+| [Azure Allemagne](https://azure.microsoft.com/overview/clouds/germany/) | AzureGermanCloud
 
-## <a name="network-metadata"></a>Métadonnées du réseau 
 
-Les métadonnées du réseau font partie de l’API d’instance. Les catégories de réseau suivantes sont disponibles via le point de terminaison `instance/network`.
-
-Données | Description | Version introduite
------|-------------|-----------------------
-ipv4/privateIpAddress | Adresse IPv4 locale de la machine virtuelle. | 2017-04-02
-ipv4/publicIpAddress | Adresse IPv4 publique de la machine virtuelle. | 2017-04-02
-subnet/address | Adresse de sous-réseau de la machine virtuelle. | 2017-04-02
-subnet/prefix | Préfixe du sous-réseau. Exemple : 24 | 2017-04-02
-ipv6/ipAddress | Adresse IPv6 locale de la machine virtuelle. | 2017-04-02
-macAddress | Adresse MAC de la machine virtuelle. | 2017-04-02
-
-> [!NOTE]
-> Toutes les réponses de l’API sont des chaînes JSON. Tous les exemples de réponses suivants sont imprimés avec soin par souci de lisibilité.
-
-#### <a name="sample-1-retrieve-network-information"></a>Exemple 1 : Récupérer des informations sur le réseau
+#### <a name="sample-5-retrieve-network-information"></a>Exemple 5 : Récupérer des informations sur le réseau
 
 **Requête**
 
@@ -528,232 +863,93 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/ne
     }
   ]
 }
-
 ```
 
-#### <a name="sample-2-retrieve-public-ip-address"></a>Exemple 2 : Récupérer l’adresse IP publique
+#### <a name="sample-6-retrieve-public-ip-address"></a>Exemple 6 : Récupérer l’adresse IP publique
 
 ```bash
 curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-08-01&format=text"
 ```
 
-## <a name="storage-metadata"></a>Métadonnées du stockage
-
-Les métadonnées du stockage font partie de l’API d’instance, sous le point de terminaison `instance/compute/storageProfile`.
-Elles peuvent fournir des détails sur les disques de stockage associés à la machine virtuelle. 
-
-Le profil de stockage d’une machine virtuelle est divisé en trois catégories : référence de l’image, disque du système d’exploitation et disques de données.
-
-L’objet de référence d’image contient les informations suivantes sur l’image du système d’exploitation :
-
-Données    | Description
---------|-----------------
-id      | ID de ressource
-offer   | Offre de la plateforme ou de l’image
-publisher | Éditeur de l’image
-sku     | Référence d’image
-version | Version de la plateforme ou de l’image
-
-L’objet de disque du système d’exploitation contient les informations suivantes sur le disque du système d’exploitation utilisé par la machine virtuelle :
-
-Données    | Description
---------|-----------------
-caching | Exigences de la mise en cache
-createOption | Informations sur la façon dont la machine virtuelle a été créée
-diffDiskSettings | Paramètres du disque éphémère
-diskSizeGB | Taille du disque en Go
-image   | Disque dur virtuel de l’image utilisateur source
-lun     | Numéro d’unité logique du disque
-managedDisk | Paramètres des disques managés
-name    | Nom du disque
-vhd     | Disque dur virtuel
-writeAcceleratorEnabled | Indique si `writeAccelerator` est activé ou non sur le disque
-
-Le tableau des disques de données contient la liste des disques de données attachés à la machine virtuelle. Chaque objet de disque de données contient les informations suivantes :
-
-Données    | Description
---------|-----------------
-caching | Exigences de la mise en cache
-createOption | Informations sur la façon dont la machine virtuelle a été créée
-diffDiskSettings | Paramètres du disque éphémère
-diskSizeGB | Taille du disque en Go
-encryptionSettings | Paramètres de chiffrement du disque
-image   | Disque dur virtuel de l’image utilisateur source
-managedDisk | Paramètres des disques managés
-name    | Nom du disque
-osType  | Type de système d’exploitation inclus dans le disque
-vhd     | Disque dur virtuel
-writeAcceleratorEnabled | Indique si `writeAccelerator` est activé ou non sur le disque
-
-L’exemple suivant montre comment interroger les informations de stockage de la machine virtuelle.
-
-**Requête**
-
-```bash
-curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/compute/storageProfile?api-version=2019-06-01"
-```
-
-**Réponse**
-
-> [!NOTE]
-> La réponse est une chaîne JSON. L’exemple de réponse suivant est imprimé avec soin par souci de lisibilité.
-
-```json
-{
-    "dataDisks": [
-      {
-        "caching": "None",
-        "createOption": "Empty",
-        "diskSizeGB": "1024",
-        "image": {
-          "uri": ""
-        },
-        "lun": "0",
-        "managedDisk": {
-          "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
-          "storageAccountType": "Standard_LRS"
-        },
-        "name": "exampledatadiskname",
-        "vhd": {
-          "uri": ""
-        },
-        "writeAcceleratorEnabled": "false"
-      }
-    ],
-    "imageReference": {
-      "id": "",
-      "offer": "UbuntuServer",
-      "publisher": "Canonical",
-      "sku": "16.04.0-LTS",
-      "version": "latest"
-    },
-    "osDisk": {
-      "caching": "ReadWrite",
-      "createOption": "FromImage",
-      "diskSizeGB": "30",
-      "diffDiskSettings": {
-        "option": "Local"
-      },
-      "encryptionSettings": {
-        "enabled": "false"
-      },
-      "image": {
-        "uri": ""
-      },
-      "managedDisk": {
-        "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
-        "storageAccountType": "Standard_LRS"
-      },
-      "name": "exampleosdiskname",
-      "osType": "Linux",
-      "vhd": {
-        "uri": ""
-      },
-      "writeAcceleratorEnabled": "false"
-    }
-}
-```
-
-## <a name="vm-tags"></a>Étiquettes de machines virtuelles
-
-Les étiquettes de machine virtuelle sont incluses dans l’API d’instance, sous le point de terminaison `instance/compute/tags`.
-Des étiquettes peuvent avoir été appliquées à votre machine virtuelle Azure pour les organiser de manière logique dans une taxonomie. Vous pouvez récupérer les étiquettes affectées à une machine virtuelle en utilisant la requête suivante.
-
-**Requête**
-
-```bash
-curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/compute/tags?api-version=2018-10-01&format=text"
-```
-
-**Réponse**
-
-```text
-Department:IT;Environment:Test;Role:WebRole
-```
-
-Le champ `tags` est une chaîne dont les étiquettes sont délimitées par des points-virgules. Cette sortie peut constituer un problème si des points-virgules sont utilisés dans les étiquettes proprement dites. Si un analyseur est écrit pour extraire les étiquettes programmatiquement, vous devez vous appuyer sur le champ `tagsList`. Le champ `tagsList` est un tableau JSON sans délimiteurs et par conséquent plus facile à analyser.
-
-**Requête**
-
-```bash
-curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/compute/tagsList?api-version=2019-06-04"
-```
-
-**Réponse**
-
-```json
-[
-  {
-    "name": "Department",
-    "value": "IT"
-  },
-  {
-    "name": "Environment",
-    "value": "Test"
-  },
-  {
-    "name": "Role",
-    "value": "WebRole"
-  }
-]
-```
-
 ## <a name="attested-data"></a>Données attestées
+
+### <a name="get-attested-data"></a>Récupération de données attestées
 
 IMDS permet de garantir que les données fournies proviennent d’Azure. Microsoft signe une partie de ces informations : vous pouvez donc vérifier qu’une image de la Place de marché Azure est celle que vous exécutez sur Azure.
 
-### <a name="sample-1-get-attested-data"></a>Exemple 1 : Obtenir des données attestées
-
-> [!NOTE]
-> Toutes les réponses de l’API sont des chaînes JSON. Les exemples de réponses suivants sont imprimés avec soin par souci de lisibilité.
-
-**Requête**
-
 ```bash
-curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/attested/document?api-version=2018-10-01&nonce=1234567890"
+GET /metadata/attested/document
 ```
 
-`Api-version` est un champ obligatoire. Reportez-vous à la [section utilisation](#usage) pour obtenir les versions d’API prises en charge.
-`Nonce`est une chaîne facultative de 10 chiffres. Si elle n’est pas fournie, IMDS retourne à la place l’horodatage UTC actuel.
+#### <a name="parameters"></a>Paramètres
 
-> [!NOTE]
-> En raison du mécanisme de mise en cache d’IMDS, une valeur `nonce` précédemment mise en cache peut être retournée.
+| Nom | Obligatoire ou facultatif | Description |
+|------|-------------------|-------------|
+| `api-version` | Obligatoire | Version utilisée pour traiter la demande.
+| `nonce` | Facultatif | Chaîne à 10 chiffres servant de nonce de chiffrement. Si aucune valeur n’est fournie, IMDS utilise l’horodatage UTC actuel.
 
-**Réponse**
+#### <a name="response"></a>response
 
 ```json
 {
- "encoding":"pkcs7","signature":"MIIEEgYJKoZIhvcNAQcCoIIEAzCCA/8CAQExDzANBgkqhkiG9w0BAQsFADCBugYJKoZIhvcNAQcBoIGsBIGpeyJub25jZSI6IjEyMzQ1NjY3NjYiLCJwbGFuIjp7Im5hbWUiOiIiLCJwcm9kdWN0IjoiIiwicHVibGlzaGVyIjoiIn0sInRpbWVTdGFtcCI6eyJjcmVhdGVkT24iOiIxMS8yMC8xOCAyMjowNzozOSAtMDAwMCIsImV4cGlyZXNPbiI6IjExLzIwLzE4IDIyOjA4OjI0IC0wMDAwIn0sInZtSWQiOiIifaCCAj8wggI7MIIBpKADAgECAhBnxW5Kh8dslEBA0E2mIBJ0MA0GCSqGSIb3DQEBBAUAMCsxKTAnBgNVBAMTIHRlc3RzdWJkb21haW4ubWV0YWRhdGEuYXp1cmUuY29tMB4XDTE4MTEyMDIxNTc1N1oXDTE4MTIyMDIxNTc1NlowKzEpMCcGA1UEAxMgdGVzdHN1YmRvbWFpbi5tZXRhZGF0YS5henVyZS5jb20wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAML/tBo86ENWPzmXZ0kPkX5dY5QZ150mA8lommszE71x2sCLonzv4/UWk4H+jMMWRRwIea2CuQ5RhdWAHvKq6if4okKNt66fxm+YTVz9z0CTfCLmLT+nsdfOAsG1xZppEapC0Cd9vD6NCKyE8aYI1pliaeOnFjG0WvMY04uWz2MdAgMBAAGjYDBeMFwGA1UdAQRVMFOAENnYkHLa04Ut4Mpt7TkJFfyhLTArMSkwJwYDVQQDEyB0ZXN0c3ViZG9tYWluLm1ldGFkYXRhLmF6dXJlLmNvbYIQZ8VuSofHbJRAQNBNpiASdDANBgkqhkiG9w0BAQQFAAOBgQCLSM6aX5Bs1KHCJp4VQtxZPzXF71rVKCocHy3N9PTJQ9Fpnd+bYw2vSpQHg/AiG82WuDFpPReJvr7Pa938mZqW9HUOGjQKK2FYDTg6fXD8pkPdyghlX5boGWAMMrf7bFkup+lsT+n2tRw2wbNknO1tQ0wICtqy2VqzWwLi45RBwTGB6DCB5QIBATA/MCsxKTAnBgNVBAMTIHRlc3RzdWJkb21haW4ubWV0YWRhdGEuYXp1cmUuY29tAhBnxW5Kh8dslEBA0E2mIBJ0MA0GCSqGSIb3DQEBCwUAMA0GCSqGSIb3DQEBAQUABIGAld1BM/yYIqqv8SDE4kjQo3Ul/IKAVR8ETKcve5BAdGSNkTUooUGVniTXeuvDj5NkmazOaKZp9fEtByqqPOyw/nlXaZgOO44HDGiPUJ90xVYmfeK6p9RpJBu6kiKhnnYTelUk5u75phe5ZbMZfBhuPhXmYAdjc7Nmw97nx8NnprQ="
+    "encoding":"pkcs7",
+    "signature":"MIIEEgYJKoZIhvcNAQcCoIIEAzCCA/8CAQExDzANBgkqhkiG9w0BAQsFADCBugYJKoZIhvcNAQcBoIGsBIGpeyJub25jZSI6IjEyMzQ1NjY3NjYiLCJwbGFuIjp7Im5hbWUiOiIiLCJwcm9kdWN0IjoiIiwicHVibGlzaGVyIjoiIn0sInRpbWVTdGFtcCI6eyJjcmVhdGVkT24iOiIxMS8yMC8xOCAyMjowNzozOSAtMDAwMCIsImV4cGlyZXNPbiI6IjExLzIwLzE4IDIyOjA4OjI0IC0wMDAwIn0sInZtSWQiOiIifaCCAj8wggI7MIIBpKADAgECAhBnxW5Kh8dslEBA0E2mIBJ0MA0GCSqGSIb3DQEBBAUAMCsxKTAnBgNVBAMTIHRlc3RzdWJkb21haW4ubWV0YWRhdGEuYXp1cmUuY29tMB4XDTE4MTEyMDIxNTc1N1oXDTE4MTIyMDIxNTc1NlowKzEpMCcGA1UEAxMgdGVzdHN1YmRvbWFpbi5tZXRhZGF0YS5henVyZS5jb20wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAML/tBo86ENWPzmXZ0kPkX5dY5QZ150mA8lommszE71x2sCLonzv4/UWk4H+jMMWRRwIea2CuQ5RhdWAHvKq6if4okKNt66fxm+YTVz9z0CTfCLmLT+nsdfOAsG1xZppEapC0Cd9vD6NCKyE8aYI1pliaeOnFjG0WvMY04uWz2MdAgMBAAGjYDBeMFwGA1UdAQRVMFOAENnYkHLa04Ut4Mpt7TkJFfyhLTArMSkwJwYDVQQDEyB0ZXN0c3ViZG9tYWluLm1ldGFkYXRhLmF6dXJlLmNvbYIQZ8VuSofHbJRAQNBNpiASdDANBgkqhkiG9w0BAQQFAAOBgQCLSM6aX5Bs1KHCJp4VQtxZPzXF71rVKCocHy3N9PTJQ9Fpnd+bYw2vSpQHg/AiG82WuDFpPReJvr7Pa938mZqW9HUOGjQKK2FYDTg6fXD8pkPdyghlX5boGWAMMrf7bFkup+lsT+n2tRw2wbNknO1tQ0wICtqy2VqzWwLi45RBwTGB6DCB5QIBATA/MCsxKTAnBgNVBAMTIHRlc3RzdWJkb21haW4ubWV0YWRhdGEuYXp1cmUuY29tAhBnxW5Kh8dslEBA0E2mIBJ0MA0GCSqGSIb3DQEBCwUAMA0GCSqGSIb3DQEBAQUABIGAld1BM/yYIqqv8SDE4kjQo3Ul/IKAVR8ETKcve5BAdGSNkTUooUGVniTXeuvDj5NkmazOaKZp9fEtByqqPOyw/nlXaZgOO44HDGiPUJ90xVYmfeK6p9RpJBu6kiKhnnYTelUk5u75phe5ZbMZfBhuPhXmYAdjc7Nmw97nx8NnprQ="
 }
 ```
 
-L’objet blob de signature est une version du document signée par [pkcs7](https://aka.ms/pkcs7). Il contient le certificat utilisé pour la signature ainsi que certains détails spécifiques à la machine virtuelle. 
+> [!NOTE]
+> En raison du mécanisme de mise en cache d’IMDS, une valeur nonce précédemment mise en cache peut être retournée.
 
-Pour les machines virtuelles créées en utilisant Azure Resource Manager, cela comprend `vmId`, `sku`, `nonce`, `subscriptionId` et `timeStamp` pour la création et l’expiration du document, et les informations de plan relatives à l’image. Les informations du plan ne sont fournies que pour les images de la Place de marché Azure. 
+L’objet blob de signature est une version signée [pkcs7](https://aka.ms/pkcs7) du document. Il contient le certificat utilisé pour la signature, ainsi que certains détails spécifiques de la machine virtuelle.
 
-Pour les machines virtuelles créées en utilisant le modèle de déploiement classique, seule l’indication de la valeur de `vmId` est garantie. Vous pouvez extraire le certificat de la réponse et l’utiliser pour vérifier que la réponse est valide et qu’elle provient d’Azure.
+Pour les machines virtuelles créées avec Azure Resource Manager, le document comprend `vmId`, `sku`, `nonce`, `subscriptionId` et `timeStamp` pour la création et l’expiration du document, et les informations de plan de l’image. Les informations du plan ne sont fournies que pour les images de la Place de marché Azure.
 
-Le document contient les champs suivants :
+Pour les machines virtuelles créées avec le modèle de déploiement Classic, seul le remplissage de `vmId` est garanti. Vous pouvez extraire le certificat de la réponse et l’utiliser pour vérifier que la réponse est valide et qu’elle provient d’Azure.
 
-Données | Description | Version introduite
------|-------------|-----------------------
-licenseType | Type de licence pour [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit). Présent seulement pour les machines virtuelles activées pour Azure Hybrid Benefit. | 2020-09-01
-nonce | Chaîne qui peut être éventuellement fournie avec la requête. Si la valeur de `nonce` n’a pas été fournie, l’horodatage UTC actuel est utilisé. | 2018-10-01
-plan | [Plan d’image de la Place de marché Azure](/rest/api/compute/virtualmachines/createorupdate#plan). Contient l’ID de plan (name), l’image de produit ou l’offre (product) et l’ID d’éditeur (publisher). | 2018-10-01
-timestamp/createdOn | Horodatage UTC du moment où le document signé a été créé. | 2018-20-01
-timestamp/expiresOn | Horodatage UTC du moment où le document signé expirer. | 2018-10-01
-vmId |  [Identificateur unique](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) de la machine virtuelle. | 2018-10-01
-subscriptionId | Abonnement Azure pour la machine virtuelle. | 2019-04-30
-sku | Référence SKU spécifique pour l’image de machine virtuelle. | 2019-11-01
+Le document décodé contient les champs suivants :
 
-### <a name="sample-2-validate-that-the-vm-is-running-in-azure"></a>Exemple 2 : Vérifier que la machine virtuelle s’exécute dans Azure
+| Données | Description | Version introduite |
+|------|-------------|--------------------|
+| `licenseType` | Type de licence pour [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit). Présent seulement pour les machines virtuelles dotées d’AHB | 2020-09-01
+| `nonce` | Chaîne qui peut être éventuellement fournie avec la requête. Si la valeur de `nonce` n’a pas été fournie, l’horodatage UTC actuel est utilisé. | 2018-10-01
+| `plan` | [Plan d’image de la Place de marché Azure](/rest/api/compute/virtualmachines/createorupdate#plan). Contient l’ID de plan (name), l’image de produit ou l’offre (product) et l’ID d’éditeur (publisher). | 2018-10-01
+| `timestamp.createdOn` | Horodatage UTC de création du document signé. | 2018-20-01
+| `timestamp.expiresOn` | Horodatage UTC d’expiration du document signé. | 2018-10-01
+| `vmId` | [Identificateur unique](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) de la machine virtuelle | 2018-10-01
+| `subscriptionId` | Abonnement Azure pour la machine virtuelle | 2019-04-30
+| `sku` | Référence (SKU) spécifique pour l’image de machine virtuelle | 2019-11-01
+
+> [!NOTE]
+> Pour les machines virtuelles Classic (hors Azure Resource Manager), seul le remplissage de vmId est garanti.
+
+Exemple de document :
+```json
+{
+   "nonce":"20201130-211924",
+   "plan":{
+      "name":"planName",
+      "product":"planProduct",
+      "publisher":"planPublisher"
+   },
+   "sku":"Windows-Server-2012-R2-Datacenter",
+   "subscriptionId":"8d10da13-8125-4ba9-a717-bf7490507b3d",
+   "timeStamp":{
+      "createdOn":"11/30/20 21:19:19 -0000",
+      "expiresOn":"11/30/20 21:19:24 -0000"
+   },
+   "vmId":"02aab8a4-74ef-476e-8182-f6d2ba4166a6"
+}
+```
+
+
+#### <a name="sample-1-validate-that-the-vm-is-running-in-azure"></a>Exemple 1 : Vérifier que la machine virtuelle s’exécute dans Azure
 
 Les fournisseurs de la Place de marché Azure veulent être sûrs que la licence de leur logiciel autorise l’exécution seulement dans Azure. Si quelqu’un copie le disque dur virtuel dans un environnement local, le fournisseur doit pouvoir le détecter. Via IMDS, ces fournisseurs peuvent recevoir des données signées qui garantissent une réponse seulement depuis Azure.
 
 > [!NOTE]
 > Cet exemple nécessite l’installation de l’utilitaire jq.
 
-**Requête**
+**Validation**
 
 ```bash
 # Get the signature
@@ -771,7 +967,7 @@ openssl x509 -inform der -in intermediate.cer -out intermediate.pem
 openssl smime -verify -in sign.pk7 -inform pem -noverify
 ```
 
-**Réponse**
+**Résultats**
 
 ```json
 Verification successful
@@ -818,23 +1014,24 @@ La valeur de `nonce` dans le document signé peut être comparée si vous avez f
 > [!NOTE]
 > Le certificat est différent pour le cloud public et pour chaque cloud souverain.
 
-Cloud | Certificat
-------|------------
-[Toutes les régions Azure mondiales en disponibilité générale](https://azure.microsoft.com/regions/) | *.metadata.azure.com
-[Azure Government](https://azure.microsoft.com/overview/clouds/government/)          | *.metadata.azure.us
-[Azure China 21Vianet](https://azure.microsoft.com/global-infrastructure/china/)     | *.metadata.azure.cn
-[Azure Allemagne](https://azure.microsoft.com/overview/clouds/germany/)                | *.metadata.microsoftazure.de
+| Cloud | Certificat |
+|-------|-------------|
+| [Toutes les régions Azure mondiales en disponibilité générale](https://azure.microsoft.com/regions/) | *.metadata.azure.com
+| [Azure Government](https://azure.microsoft.com/overview/clouds/government/) | *.metadata.azure.us
+| [Azure China 21Vianet](https://azure.microsoft.com/global-infrastructure/china/) | *.metadata.azure.cn
+| [Azure Allemagne](https://azure.microsoft.com/overview/clouds/germany/) | *.metadata.microsoftazure.de
 
 > [!NOTE]
 > Les certificats peuvent ne pas avoir une correspondance exacte de `metadata.azure.com` pour le cloud public. Pour cette raison, la validation de la certification doit autoriser un nom commun provenant de n’importe quel sous-domaine de `.metadata.azure.com`.
 
-Si le certificat intermédiaire ne peut pas être téléchargé en raison de contraintes réseau lors de la validation, vous pouvez épingler le certificat intermédiaire. Notez qu’Azure effectue une rotation des certificats, ce qui correspond à la pratique dans l’infrastructure à clé publique standard. Vous devez mettre à jour les certificats épinglés quand la rotation se produit. Si une modification pour mettre à jour le certificat intermédiaire est planifiée, le blog Azure est mis à jour et les clients Azure en sont informés. 
+Si le certificat intermédiaire ne peut pas être téléchargé en raison de contraintes réseau lors de la validation, vous pouvez épingler le certificat intermédiaire. Azure effectue une substitution des certificats, pratique standard dans l’infrastructure PKI. Vous devez mettre à jour les certificats épinglés au moment de la substitution. Si une modification pour mettre à jour le certificat intermédiaire est planifiée, le blog Azure est mis à jour et les clients Azure en sont informés. 
 
 Vous pouvez trouver les certificats intermédiaires dans le référentiel [PKI](https://www.microsoft.com/pki/mscorp/cps/default.htm). Les certificats intermédiaires de chaque région peuvent être différents.
 
 > [!NOTE]
 > Le certificat intermédiaire pour Azure Chine 21Vianet sera issu de l’autorité de certification racine globale DigiCert, au lieu de Baltimore.
 Si vous avez épinglé les certificats intermédiaires pour Azure Chine dans le cadre du changement de l’autorité de chaîne racine, les certificats intermédiaires doivent être mis à jour.
+
 
 ## <a name="managed-identity"></a>Identité managée
 
@@ -846,42 +1043,38 @@ Pour plus d’informations sur la procédure d’activation de cette fonctionnal
 ## <a name="scheduled-events"></a>Événements planifiés
 Vous pouvez obtenir l’état des événements planifiés en utilisant IMDS. L’utilisateur peut ensuite spécifier un ensemble d’actions à exécuter pour ces événements. Pour plus d’informations, consultez [Événements planifiés](scheduled-events.md).
 
-## <a name="regional-availability"></a>Disponibilité régionale
-
-Le service est en disponibilité générale dans tous les clouds Azure.
-
 ## <a name="sample-code-in-different-languages"></a>Exemple de code dans différents langages
 
 Le tableau suivant liste des exemples d’appel d’IMDS avec différents langages dans la machine virtuelle :
 
-Langage      | Exemple
---------------|----------------
-Bash          | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
-C#            | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.cs
-Go            | https://github.com/Microsoft/azureimds/blob/master/imdssample.go
-Java          | https://github.com/Microsoft/azureimds/blob/master/imdssample.java
-NodeJS        | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.js
-Perl          | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.pl
-PowerShell    | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.ps1
-Puppet        | https://github.com/keirans/azuremetadata
-Python        | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
-Ruby          | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
+| Langage | Exemple |
+|----------|---------|
+| Bash | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
+| C# | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.cs
+| Go | https://github.com/Microsoft/azureimds/blob/master/imdssample.go
+| Java | https://github.com/Microsoft/azureimds/blob/master/imdssample.java
+| NodeJS | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.js
+| Perl | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.pl
+| PowerShell | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.ps1
+| Puppet | https://github.com/keirans/azuremetadata
+| Python | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
+| Ruby | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
 
 ## <a name="errors-and-debugging"></a>Erreurs et débogage
 
 S’il existe un élément de données introuvable ou une requête mal formée, le service de métadonnées d’instance retourne des erreurs HTTP standard. Par exemple :
 
-Code d'état HTTP | Motif
------------------|-------
-200 OK |
-400 Demande incorrecte | En-tête `Metadata: true` manquant ou paramètre `format=json` manquant lors de l’interrogation d’un nœud terminal.
-404 Introuvable  | L’élément demandé n’existe pas.
-405 Méthode non autorisée | Seules les requêtes `GET` sont prises en charge.
-410 Supprimé | Recommencez l’opération dans un délai maximum de 70 secondes.
-429 Trop de demandes | L’API prend actuellement en charge un maximum de 5 requêtes par seconde.
-500 Erreur de service     | Recommencez l’opération un peu plus tard.
+| Code d'état HTTP | Motif |
+|------------------|--------|
+| `200 OK` | La demande a abouti.
+| `400 Bad Request` | En-tête `Metadata: true` manquant ou paramètre `format=json` manquant lors de l’interrogation d’un nœud terminal
+| `404 Not Found` | L’élément demandé n’existe pas
+| `405 Method Not Allowed` | La méthode HTTP (verbe) n’est pas prise en charge sur le point de terminaison.
+| `410 Gone` | Recommencez l’opération dans un délai maximum de 70 secondes
+| `429 Too Many Requests` | Les [Limites de débit](#rate-limiting) de l’API ont été dépassées
+| `500 Service Error` | Recommencez l’opération plus tard
 
-### <a name="frequently-asked-questions"></a>Forum aux questions
+## <a name="frequently-asked-questions"></a>Forum aux questions
 
 **J’obtiens l’erreur `400 Bad Request, Required metadata header not specified`. Qu’est-ce que cela signifie ?**
 
@@ -915,62 +1108,59 @@ Actuellement, les étiquettes pour les groupes de machines virtuelles identiques
 
 Les appels de métadonnées doivent être effectués à partir de l’adresse IP principale affectée à la carte réseau principale de la machine virtuelle. De plus, si vous avez changé vos routes, il doit y avoir une route pour l’adresse 169.254.169.254/32 dans la table de routage locale de votre machine virtuelle.
 
-   * <details>
-        <summary>Vérification de votre table de routage</summary>
-
-        1. Produisez une image mémoire de votre table de routage locale et recherchez l’entrée IMDS. Par exemple :
-            ```console
-            > route print
-            IPv4 Route Table
-            ===========================================================================
-            Active Routes:
-            Network Destination        Netmask          Gateway       Interface  Metric
-                      0.0.0.0          0.0.0.0      172.16.69.1      172.16.69.7     10
-                    127.0.0.0        255.0.0.0         On-link         127.0.0.1    331
-                    127.0.0.1  255.255.255.255         On-link         127.0.0.1    331
-              127.255.255.255  255.255.255.255         On-link         127.0.0.1    331
-                168.63.129.16  255.255.255.255      172.16.69.1      172.16.69.7     11
-              169.254.169.254  255.255.255.255      172.16.69.1      172.16.69.7     11
-            ... (continues) ...
-            ```
-        1. Vérifiez qu’il existe une route pour `169.254.169.254` et notez l’interface réseau correspondante (par exemple `172.16.69.7`).
-        1. Produisez une image mémoire de la configuration de l’interface et recherchez l’interface qui correspond à celle référencée dans la table de routage, en notant l’adresse MAC (physique).
-            ```console
-            > ipconfig /all
-            ... (continues) ...
-            Ethernet adapter Ethernet:
-
-               Connection-specific DNS Suffix  . : xic3mnxjiefupcwr1mcs1rjiqa.cx.internal.cloudapp.net
-               Description . . . . . . . . . . . : Microsoft Hyper-V Network Adapter
-               Physical Address. . . . . . . . . : 00-0D-3A-E5-1C-C0
-               DHCP Enabled. . . . . . . . . . . : Yes
-               Autoconfiguration Enabled . . . . : Yes
-               Link-local IPv6 Address . . . . . : fe80::3166:ce5a:2bd5:a6d1%3(Preferred)
-               IPv4 Address. . . . . . . . . . . : 172.16.69.7(Preferred)
-               Subnet Mask . . . . . . . . . . . : 255.255.255.0
-            ... (continues) ...
-            ```
-        1. Vérifiez que l’interface correspond à la carte réseau principale et à l’adresse IP principale de la machine virtuelle. Vous pouvez trouver la carte réseau et l’adresse IP principales en examinant la configuration réseau dans le portail Azure ou en la recherchant avec Azure CLI. Notez l’adresse IP publique et l’adresse IP privée (et l’adresse MAC si vous utilisez l’interface CLI). Voici un exemple PowerShell CLI :
-            ```powershell
-            $ResourceGroup = '<Resource_Group>'
-            $VmName = '<VM_Name>'
-            $NicNames = az vm nic list --resource-group $ResourceGroup --vm-name $VmName | ConvertFrom-Json | Foreach-Object { $_.id.Split('/')[-1] }
-            foreach($NicName in $NicNames)
-            {
-                $Nic = az vm nic show --resource-group $ResourceGroup --vm-name $VmName --nic $NicName | ConvertFrom-Json
-                Write-Host $NicName, $Nic.primary, $Nic.macAddress
-            }
-            # Output: wintest767 True 00-0D-3A-E5-1C-C0
-            ```
-        1. Si elles ne correspondent pas, mettez à jour la table de routage afin de cibler la carte réseau et l’adresse IP principales.
-    </details>
+1. Produisez une image mémoire de votre table de routage locale et recherchez l’entrée IMDS. Par exemple :         
+    ```console
+      > route print
+      IPv4 Route Table
+      ===========================================================================
+      Active Routes:
+      Network Destination        Netmask          Gateway       Interface  Metric
+                0.0.0.0          0.0.0.0      172.16.69.1      172.16.69.7     10
+              127.0.0.0        255.0.0.0         On-link         127.0.0.1    331
+              127.0.0.1  255.255.255.255         On-link         127.0.0.1    331
+        127.255.255.255  255.255.255.255         On-link         127.0.0.1    331
+          168.63.129.16  255.255.255.255      172.16.69.1      172.16.69.7     11
+        169.254.169.254  255.255.255.255      172.16.69.1      172.16.69.7     11
+      ... (continues) ...
+    ```
+1. Vérifiez qu’il existe un itinéraire pour `169.254.169.254` et notez l’interface réseau correspondante (par exemple `172.16.69.7`).
+1. Produisez une image mémoire de la configuration de l’interface et recherchez l’interface correspondant à celle à laquelle la table de routage fait référence, en notant l’adresse MAC (physique).
+    ```console
+      > ipconfig /all
+      ... (continues) ...
+      Ethernet adapter Ethernet:
+  
+                 Connection-specific DNS Suffix  . : xic3mnxjiefupcwr1mcs1rjiqa.cx.internal.cloudapp.net
+                 Description . . . . . . . . . . . : Microsoft Hyper-V Network Adapter
+                 Physical Address. . . . . . . . . : 00-0D-3A-E5-1C-C0
+                 DHCP Enabled. . . . . . . . . . . : Yes
+                 Autoconfiguration Enabled . . . . : Yes
+                 Link-local IPv6 Address . . . . . : fe80::3166:ce5a:2bd5:a6d1%3(Preferred)
+                 IPv4 Address. . . . . . . . . . . : 172.16.69.7(Preferred)
+                 Subnet Mask . . . . . . . . . . . : 255.255.255.0
+              ... (continues) ...
+    ```
+1. Vérifiez que l’interface correspond à la carte réseau principale et à l’adresse IP principale de la machine virtuelle. Vous pouvez trouver la carte réseau et l’adresse IP principales en examinant la configuration réseau dans le portail Azure ou en la recherchant avec Azure CLI. Notez l’adresse IP publique et l’adresse IP privée (et l’adresse MAC si vous utilisez l’interface CLI). Voici un exemple PowerShell CLI :
+    ```powershell
+    $ResourceGroup = '<Resource_Group>'
+    $VmName = '<VM_Name>'
+    $NicNames = az vm nic list --resource-group $ResourceGroup --vm-name $VmName | ConvertFrom-Json |Foreach-Object { $_.  id.Split('/')[-1] }
+    foreach($NicName in $NicNames)
+    {
+        $Nic = az vm nic show --resource-group $ResourceGroup --vm-name $VmName --nic $NicName ConvertFrom-Json
+        Write-Host $NicName, $Nic.primary, $Nic.macAddress
+    }
+    # Output: wintest767 True 00-0D-3A-E5-1C-C0
+    ```
+1. Si elles ne correspondent pas, mettez à jour la table de routage afin de cibler la carte réseau et l’adresse IP principales.
 
 ## <a name="support"></a>Support
 
 Si vous ne pouvez pas obtenir une réponse de métadonnées après plusieurs tentatives, vous pouvez créer un ticket de support dans le portail Azure.
-Pour **Type de problème**, sélectionnez **Gestion**. Pour **Catégorie**, sélectionnez **Instance Metadata Service**.
 
-![Capture du support technique pour Instance Metadata Service](./media/instance-metadata-service/InstanceMetadata-support.png)
+## <a name="product-feedback"></a>Commentaires sur le produit
+
+Vous pouvez apporter des commentaires sur le produit et partager des idées sur notre canal de commentaires des utilisateurs sous Machines virtuelles > Instance Metadata Service, à l’adresse https://feedback.azure.com/forums/216843-virtual-machines?category_id=394627.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

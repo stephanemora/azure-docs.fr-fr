@@ -13,12 +13,12 @@ ms.date: 11/13/2020
 ms.author: kkrishna
 ms.reviewer: marsma, kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 96c52c46a75d6d5810dfddf91439c275d14e85f1
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: bae8f0955ef45e21d38797789bdea4f62bf5ea28
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616135"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97614929"
 ---
 # <a name="how-to-add-app-roles-to-your-application-and-receive-them-in-the-token"></a>Procédure : ajouter des rôles d’application dans votre application et les recevoir dans le jeton
 
@@ -30,7 +30,10 @@ Une autre approche consiste à utiliser des groupes Azure AD et des revendicati
 
 ## <a name="declare-roles-for-an-application"></a>Déclarer des rôles pour une application
 
-Vous définissez des rôles d’application à l’aide du [portail Azure](https://portal.azure.com). Quand un utilisateur se connecte à l’application, Azure AD émet une revendication `roles` pour chaque rôle qui lui a été accordé individuellement ou de par son appartenance à un groupe.
+Vous définissez des rôles d’application à l’aide du [portail Azure](https://portal.azure.com). Les rôles d’application sont généralement définis sur une inscription d’application qui représente un service, une application ou une API. Quand un utilisateur se connecte à l’application, Azure AD émet une revendication `roles` pour chaque rôle qui a été octroyé à l’utilisateur ou au principal de service, individuellement ou de par son appartenance à un groupe. Cela peut être utilisé pour implémenter l’autorisation basée sur les revendications. Les rôles d’application peuvent être affectés [à un utilisateur ou à un groupe d’utilisateurs](../manage-apps/add-application-portal-assign-users.md#assign-users-to-an-app). Les rôles d’application peuvent également être affectés au principal du service pour une autre application, ou [au principal du service pour une identité managée](../managed-identities-azure-resources/how-to-assign-app-role-managed-identity-powershell.md).
+
+> [!IMPORTANT]
+> Actuellement, si vous ajoutez un principal de service à un groupe, puis affectez un rôle d’application à ce groupe, Azure AD n’ajoute pas la revendication `roles` aux jetons qu’il émet.
 
 Il existe deux façons de déclarer des rôles d’application à l’aide du portail Azure :
 

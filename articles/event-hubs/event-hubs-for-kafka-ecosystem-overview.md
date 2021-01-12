@@ -3,12 +3,12 @@ title: Utiliser un hub d’événements à partir de l’application Apache Kafk
 description: Cet article fournit des informations sur la prise en charge d’Apache Kafka par Azure Event Hubs.
 ms.topic: article
 ms.date: 09/25/2020
-ms.openlocfilehash: d9aa8af30d5ef5e1a985e4d73a9d4a8921ac7d45
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b0f0da76bba68f8a66695700d530e871cbd35e3c
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369588"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861333"
 ---
 # <a name="use-azure-event-hubs-from-apache-kafka-applications"></a>Utiliser Azure Event Hubs à partir d’applications Apache Kafka
 Event Hubs fournit un point de terminaison compatible avec les API de producteur et de consommateur Apache Kafka® que la plupart des applications clientes Apache Kafka existantes peuvent utiliser comme alternative à l'exécution de votre propre cluster Apache Kafka. Event Hubs prend en charge les clients d'API de producteur et de consommateur Apache Kafka à partir de la version 1.0.
@@ -90,7 +90,7 @@ sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule require
 #### <a name="samples"></a>Exemples 
 Pour consulter un **tutoriel** avec des instructions pas à pas afin de créer un Event Hub et y accéder à l’aide d’une signature d’accès partagé ou OAuth, consultez [Démarrage rapide : Streaming de données avec Event Hubs en utilisant le protocole Kafka](event-hubs-quickstart-kafka-enabled-event-hubs.md).
 
-Pour plus d' **exemples** montrant comment utiliser OAuth avec Event Hubs pour Kafka, consultez les [exemples sur GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth).
+Pour plus d'**exemples** montrant comment utiliser OAuth avec Event Hubs pour Kafka, consultez les [exemples sur GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth).
 
 ## <a name="other-event-hubs-features"></a>Autres fonctionnalités Event Hubs 
 
@@ -118,9 +118,7 @@ La charge utile de tout événement Event Hub est un flux d'octets, et le conten
 
 ### <a name="log-compaction"></a>Compactage des journaux
 
-La fonctionnalité de compactage des journaux Apache Kafka permet de supprimer d'une partition tous les enregistrements à l'exception du dernier de chaque clé, ce qui transforme une rubrique Apache Kafka en magasin de paires clé-valeur où la dernière valeur ajoutée remplace la précédente. Le modèle de magasin de paires clé-valeur, même avec des mises à jour fréquentes, est bien mieux pris en charge par les services de base de données comme [Azure Cosmos DB](../cosmos-db/introduction.md).
-
-La fonctionnalité de compactage des journaux est utilisée par les frameworks clients Kafka Connect et Kafka Streams.
+La fonctionnalité de compactage des journaux Apache Kafka permet de supprimer d'une partition tous les enregistrements à l'exception du dernier de chaque clé, ce qui transforme une rubrique Apache Kafka en magasin de paires clé-valeur où la dernière valeur ajoutée remplace la précédente. Actuellement, cette fonctionnalité n’est pas implémentée par Azure Event Hubs. Le modèle de magasin de paires clé-valeur, même avec des mises à jour fréquentes, est bien mieux pris en charge par les services de base de données comme [Azure Cosmos DB](../cosmos-db/introduction.md). Pour plus d’informations, consultez la rubrique [Projection de journaux](event-hubs-federation-overview.md#log-projections) dans les conseils de fédération Event Hubs. 
 
 ### <a name="kafka-streams"></a>Kafka Streams
 

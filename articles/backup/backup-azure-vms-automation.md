@@ -3,12 +3,12 @@ title: Sauvegarder et récupérer des machines virtuelles Azure avec PowerShell
 description: Décrit comment sauvegarder et restaurer des machines virtuelles Azure à l’aide de Sauvegarde Azure avec PowerShell
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: ded2bc8a71bf564e31f40ca9f0d6c8049188768b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 610049ec14243abb296aef431eb37533c6169817
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95978367"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97797058"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Sauvegarder et restaurer des machines virtuelles Azure avec PowerShell
 
@@ -259,6 +259,8 @@ Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGro
 > Si vous êtes sur le cloud Azure Government, utilisez la valeur `ff281ffe-705c-4f53-9f37-a40e6f2c68f3` pour le paramètre **ServicePrincipalName** dans l’applet de commande [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy).
 >
 
+Si vous souhaitez sauvegarder de manière sélective quelques disques et exclure les autres comme indiqué dans [ces scénarios](selective-disk-backup-restore.md#scenarios), vous pouvez configurer la protection et sauvegarder uniquement les disques appropriés comme indiqué [ici](selective-disk-backup-restore.md#enable-backup-with-powershell).
+
 ## <a name="monitoring-a-backup-job"></a>Surveillance d’une tâche de sauvegarde
 
 Vous pouvez surveiller les opérations à exécution longue, comme les tâches de sauvegarde, sans utiliser le portail Azure. Pour obtenir l’état d’une tâche en cours d’exécution, utilisez la cmdlet [Get-AzRecoveryservicesBackupJob](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob). Cette applet de commande obtient les tâches de sauvegarde pour un coffre spécifique, et ce coffre est spécifié dans le contexte du coffre. L’exemple suivant obtient l’état d’une tâche en cours d’exécution sous forme de tableau et stocke l’état dans la variable $joblist.
@@ -338,6 +340,10 @@ $bkpPol.AzureBackupRGName="Contosto_"
 $bkpPol.AzureBackupRGNameSuffix="ForVMs"
 Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
 ```
+
+### <a name="exclude-disks-for-a-protected-vm"></a>Exclure des disques pour une machine virtuelle protégée
+
+La sauvegarde de machines virtuelles Azure permet d’exclure ou d’inclure des disques de manière sélective, ce qui est utile dans [ces scénarios](selective-disk-backup-restore.md#scenarios). Si la machine virtuelle est déjà protégée par la sauvegarde de machine virtuelle Azure et que tous les disques sont sauvegardés, vous pouvez modifier la protection afin d’inclure ou d’exclure des disques de manière sélective comme indiqué [ici](selective-disk-backup-restore.md#modify-protection-for-already-backed-up-vms-with-powershell).
 
 ### <a name="trigger-a-backup"></a>Déclencher une sauvegarde
 
@@ -511,6 +517,13 @@ Une fois le travail de restauration terminé, utilisez la cmdlet [Get-AzRecovery
 $restorejob = Get-AzRecoveryServicesBackupJob -Job $restorejob -VaultId $targetVault.ID
 $details = Get-AzRecoveryServicesBackupJobDetails -Job $restorejob -VaultId $targetVault.ID
 ```
+
+#### <a name="restore-selective-disks"></a>Restaurer des disques de manière sélective
+
+Un utilisateur peut restaurer de manière sélective quelques disques au lieu de l’ensemble de la sauvegarde. Fournissez comme paramètre les numéros d’unités logiques de disques nécessaires afin de ne restaurer que ces disques au lieu du jeu entier, comme indiqué [ici](selective-disk-backup-restore.md#restore-selective-disks-with-powershell).
+
+> [!IMPORTANT]
+> Pour restaurer des disques de manière sélective, il faut les avoir sauvegardés de manière sélective. Des informations supplémentaires sont fournies [ici](selective-disk-backup-restore.md#selective-disk-restore).
 
 Une fois que vous avez restauré les disques, accédez à la section suivante pour créer la machine virtuelle.
 

@@ -6,14 +6,14 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/19/2020
+ms.date: 12/21/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 14f7462aec65d2a13eb36b291331c347b995d281
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 01c85311c9ea49be3543edee405cdd66a0659797
+ms.sourcegitcommit: a89a517622a3886b3a44ed42839d41a301c786e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130678"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97733003"
 ---
 # <a name="integrate-azure-stream-analytics-with-azure-machine-learning-preview"></a>Intégration d’Azure Stream Analytics avec Azure Machine Learning (préversion)
 
@@ -83,7 +83,7 @@ INTO output
 FROM input
 ```
 
-Stream Analytics prend en charge uniquement le passage d’un paramètre pour les fonctions Azure Machine Learning. Vous devrez peut-être préparer vos données avant de les transmettre en tant qu’entrée à la FDU Machine Learning.
+Stream Analytics prend en charge uniquement le passage d’un paramètre pour les fonctions Azure Machine Learning. Vous devrez peut-être préparer vos données avant de les transmettre en tant qu’entrée à la FDU Machine Learning. Vous devez garantir que l’entrée dans la FDU (fonction définie par l’utilisateur) ML n’a pas la valeur Null, car les entrées Null entraînent l’échec de la tâche.
 
 ## <a name="pass-multiple-input-parameters-to-the-udf"></a>Passer plusieurs paramètres d’entrée à la FDU
 
@@ -104,11 +104,18 @@ function createArray(vendorid, weekday, pickuphour, passenger, distance) {
 Une fois que vous avez ajouté la FDU JavaScript à votre tâche, vous pouvez appeler votre FDU Azure Machine Learning à l’aide de la requête suivante :
 
 ```SQL
-SELECT udf.score(
-udf.createArray(vendorid, weekday, pickuphour, passenger, distance)
-)
-INTO output
+WITH 
+ModelInput AS (
+#use JavaScript UDF to construct array that will be used as input to ML UDF
+SELECT udf.createArray(vendorid, weekday, pickuphour, passenger, distance) as inputArray
 FROM input
+)
+
+SELECT udf.score(inputArray)
+INTO output
+FROM ModelInput
+#validate inputArray is not null before passing it to ML UDF to prevent job from failing
+WHERE inputArray is not null
 ```
 
 L’extrait JSON ci-dessous est un exemple de requête :

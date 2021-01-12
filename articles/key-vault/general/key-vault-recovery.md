@@ -3,27 +3,39 @@ title: Présentation de la récupération Azure Key Vault | Microsoft Docs
 description: Les fonctionnalités de récupération Key Vault sont conçues pour empêcher la suppression accidentelle ou malveillante de votre coffre de clés et des secrets, clés et certificats qui y sont stockés.
 ms.service: key-vault
 ms.subservice: general
-ms.topic: conceptual
-author: ShaneBala-keyvault
-ms.author: sudbalas
-manager: ravijan
+ms.topic: how-to
+ms.author: mbaldwin
+author: msmbaldwin
+manager: rkarlin
 ms.date: 09/30/2020
-ms.openlocfilehash: 86190fa307133360c411aafc070412e7d527039e
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 258d100276b20ea2437ebffb1473492a247657e8
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96324956"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704212"
 ---
-# <a name="how-to-enable-soft-delete-and-purge-protection"></a>Guide pratique pour activer la suppression réversible et la protection contre le vidage
+# <a name="azure-key-vault-recovery-management-with-soft-delete-and-purge-protection"></a>Gestion de la récupération d’Azure Key Vault avec suppression réversible et protection contre la suppression définitive
 
 Cet article traite de deux fonctionnalités de récupération d’Azure Key Vault : la suppression réversible et de la protection contre le vidage. Ce document fournit une vue d’ensemble de ces fonctionnalités et vous montre comment les gérer via le portail Azure, Azure CLI et Azure PowerShell.
 
+Pour plus d’informations sur Key Vault, consultez
+- [Vue d'ensemble de Key Vault](overview.md)
+- [Vue d’ensemble des clés, secrets et certificats Azure Key Vault](about-keys-secrets-certificates.md)
+
+## <a name="prerequisites"></a>Prérequis
+
+* Un abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/dotnet)
+* [Module PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+* [Azure CLI](/cli/azure/install-azure-cli)
+* Un coffre de clés. Vous pouvez en créer un en utilisant le [portail Azure](../general/quick-create-portal.md), [Azure CLI](../general/quick-create-cli.md) ou [Azure PowerShell](../general/quick-create-powershell.md).
+
 ## <a name="what-are-soft-delete-and-purge-protection"></a>Définition de la suppression réversible et la protection contre le vidage
 
-La suppression réversible et la protection contre le vidage sont deux fonctionnalités différentes de récupération de coffre de clés.
+La [suppression réversible](soft-delete-overview.md) et la protection contre le vidage sont deux fonctionnalités différentes de récupération de coffre de clés.
+
 > [!IMPORTANT]
-> La protection contre la suppression réversible doit être activée sur tous les coffres de clés. La possibilité de désactiver la protection contre la suppression réversible sera déconseillée par d’ici décembre 2020. Vous trouverez plus de détails [**ici**](soft-delete-change.md).
+> L’activation de la suppression réversible est essentielle pour que vos coffres de clés et vos informations d’identification soient protégés contre les suppressions accidentelles. Toutefois, l’activation de la suppression réversible est considérée comme un changement cassant, car elle peut vous obliger à changer la logique de votre application ou à fournir des autorisations supplémentaires à vos principaux de service. Avant d’activer la suppression réversible à l’aide des instructions ci-dessous, vérifiez que votre application est compatible avec le changement à l’aide de [**ce document** .](soft-delete-change.md)
 
 **La suppression réversible** est conçue pour empêcher la suppression accidentelle de votre coffre de clés et de vos clés, secrets et certificats qui y sont stockés. Pensez à la suppression réversible comme à une corbeille. Lorsque vous supprimez un coffre de clés ou un objet de coffre de clés, il reste récupérable pendant une période de rétention configurable par l’utilisateur ou une durée par défaut de 90 jours. Les coffres de clés supprimés de manière réversible peuvent également être **vidés**, ce qui signifie qu’ils sont supprimés définitivement. Cela vous permet de recréer des coffres de clés et des objets de coffre de clés portant le même nom. La récupération et la suppression des coffres de clés et des objets nécessitent des autorisations d’accès élevées. **Une fois la suppression réversible activée, elle ne peut pas être désactivée.**
 
@@ -33,6 +45,8 @@ Il est important de noter que **les noms des coffres de clés sont généralemen
 
 > [!NOTE]
 > La protection contre le vidage est conçue de sorte qu’aucun rôle ni aucune autorisation d’administrateur ne peut remplacer, désactiver ou déjouer la protection contre le vidage. **Une fois la protection contre le vidage activée, elle ne peut pas être désactivée ni remplacée par quiconque, y compris Microsoft.** Cela signifie que vous devez récupérer un coffre de clés supprimé ou attendre la fin de la période de rétention avant de réutiliser le nom du coffre de clés.
+
+Pour plus d’informations sur la suppression réversible, consultez [Vue d’ensemble de la suppression réversible d’Azure Key Vault](soft-delete-overview.md).
 
 # <a name="azure-portal"></a>[Azure portal](#tab/azure-portal)
 
@@ -370,3 +384,14 @@ Il est important de noter que **les noms des coffres de clés sont généralemen
   ```powershell
   Remove-AzKeyVaultSecret -VaultName ContosoVault -InRemovedState -name SQLPassword
   ```
+---
+
+## <a name="next-steps"></a>Étapes suivantes
+
+- [Applets de commande PowerShell d’Azure Key Vault](https://docs.microsoft.com/powershell/module/az.keyvault)
+- [Commandes Azure CLI pour Key Vault](https://docs.microsoft.com/cli/azure/keyvault)
+- [Sauvegarde Azure Key Vault](backup.md)
+- [Guide pratique pour activer la journalisation de Key Vault](howto-logging.md)
+- [Sécuriser l’accès à un coffre de clés](secure-your-key-vault.md)
+- [Guide du développeur Azure Key Vault](developers-guide.md)
+- [Bonnes pratiques pour utiliser un coffre de clés](best-practices.md)

@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 09/18/2019
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 9884b109db3f3a34ceb323bef9fba1d5bfc23147
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: ce8c32b1afdf4178e3ffdc09e9c9176436fa771b
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150264"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97605074"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Déployer votre application dans Azure App Service avec FTP/S
 
@@ -85,9 +85,18 @@ Pour le déploiement FTP à l’aide d’[Azure PowerShell](/cli/azure), consult
 
 ## <a name="troubleshoot-ftp-deployment"></a>Résoudre les problèmes d’un déploiement FTP
 
-- [Comment puis-je résoudre les problèmes d’un déploiement FTP ?](#how-can-i-troubleshoot-ftp-deployment)
-- [Je ne peux pas envoyer par FTP et publier mon code. Comment puis-je résoudre le problème ?](#im-not-able-to-ftp-and-publish-my-code-how-can-i-resolve-the-issue)
-- [Comment puis-je me connecter à FTP dans Azure App Service via le mode passif ?](#how-can-i-connect-to-ftp-in-azure-app-service-via-passive-mode)
+- [Déployer votre application dans Azure App Service avec FTP/S](#deploy-your-app-to-azure-app-service-using-ftps)
+  - [Ouvrir le tableau de bord FTP](#open-ftp-dashboard)
+  - [Obtention des informations de connexion FTP](#get-ftp-connection-information)
+  - [Déployer des fichiers sur Azure](#deploy-files-to-azure)
+  - [Appliquer le protocole FTPS](#enforce-ftps)
+  - [Automatiser des tâches à l’aide de scripts](#automate-with-scripts)
+  - [Résoudre les problèmes d’un déploiement FTP](#troubleshoot-ftp-deployment)
+    - [Comment puis-je résoudre les problèmes d’un déploiement FTP ?](#how-can-i-troubleshoot-ftp-deployment)
+    - [Je ne peux pas envoyer par FTP et publier mon code. Comment puis-je résoudre le problème ?](#im-not-able-to-ftp-and-publish-my-code-how-can-i-resolve-the-issue)
+    - [Comment puis-je me connecter à FTP dans Azure App Service via le mode passif ?](#how-can-i-connect-to-ftp-in-azure-app-service-via-passive-mode)
+  - [Étapes suivantes](#next-steps)
+  - [Plus de ressources](#more-resources)
 
 ### <a name="how-can-i-troubleshoot-ftp-deployment"></a>Comment puis-je résoudre les problèmes d’un déploiement FTP ?
 

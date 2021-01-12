@@ -4,12 +4,12 @@ description: Trouvez des réponses aux questions courantes sur la sauvegarde de 
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 89316770dc137bff031e6268db5ece156edd4f25
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 7518fc49f7d6d728bd8faa0de4cf0edc1c6d5831
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172381"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734111"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Forum aux questions sur les bases de données SQL Server qui s'exécutent sur une sauvegarde de machines virtuelles Azure
 
@@ -104,7 +104,12 @@ Une base de données que vous [ajoutez à une instance protégée automatiquemen
   
 ## <a name="can-i-protect-databases-that-have-tde-transparent-data-encryption-turned-on-and-will-the-database-stay-encrypted-through-the-entire-backup-process"></a>Puis-je protéger les bases de données pour lesquelles l’option TDE (Transparent Data Encryption) est activée, et les base de données resteront-elles chiffrées tout au long du processus de sauvegarde ?
 
-Oui. Le service Sauvegarde Azure prend en charge la sauvegarde de bases de données SQL Server ou de serveur avec le chiffrement TDE activé. La sauvegarde prend en charge le chiffrement [TDE](/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017) avec des clés gérées par Azure, ou avec des clés gérées par le client (BYOK).  Le processus de sauvegarde n’effectuant pas de chiffrement SQL, la base de données reste chiffrée lors de la sauvegarde.
+Oui. Le service Sauvegarde Azure prend en charge la sauvegarde de bases de données SQL Server ou de serveur avec le chiffrement TDE activé. La sauvegarde prend en charge le chiffrement [TDE](/sql/relational-databases/security/encryption/transparent-data-encryption) avec des clés gérées par Azure, ou avec des clés gérées par le client (BYOK).  Le processus de sauvegarde n’effectuant pas de chiffrement SQL, la base de données reste chiffrée lors de la sauvegarde.
+
+## <a name="does-azure-backup-perform-a-checksum-operation-on-the-data-stream"></a>Le service Sauvegarde Azure effectue-t-il une opération de somme de contrôle sur le flux de données ?
+
+Nous effectuons une opération de somme de contrôle sur le flux de données. Toutefois, cette opération ne doit pas être confondue avec une [somme de contrôle SQL](https://docs.microsoft.com/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server).
+La sauvegarde de la charge de travail Azure calcule la somme de contrôle sur le flux de données et la stocke explicitement au cours de l’opération de sauvegarde. Ce flux de somme de contrôle est ensuite pris comme référence et vérifié avec la somme de contrôle du flux de données pendant l’opération de restauration pour s’assurer que les données sont cohérentes.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

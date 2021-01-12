@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 11/06/2020
+ms.date: 01/04/2021
 ms.author: victorh
-ms.openlocfilehash: 197d48a2f5368111ec194a18f86aedf5ad78e1b2
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 855c06b610fb8166f6f2dfcf37af34efb3713ffe
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565617"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883217"
 ---
 # <a name="azure-firewall-dns-settings"></a>Paramètres DNS du Pare-feu Azure
 
@@ -64,6 +64,9 @@ $azFw | Set-AzFirewall
 ## <a name="dns-proxy"></a>Proxy DNS
 
 Vous pouvez configurer le Pare-feu Azure pour qu’il agisse comme proxy DNS. Un proxy DNS est un intermédiaire pour les requêtes DNS entre des machines virtuelles clientes et un serveur DNS. Si vous configurez un serveur DNS personnalisé, activez le proxy DNS pour éviter les incompatibilités de résolution DNS et activez le filtrage de nom de domaine complet (FQDN) dans les règles de réseau.
+
+:::image type="content" source="media/dns-settings/dns-proxy-2.png" alt-text="Configuration du proxy DNS à l’aide d’un serveur DNS personnalisé.":::
+
 
 Si vous n’activez pas le proxy DNS, les requêtes DNS du client peuvent se déplacer vers un serveur DNS à une heure différente ou retourner une réponse différente de celle du pare-feu. Le proxy DNS place le Pare-feu Azure sur le trajet des demandes du client pour éviter toute incohérence.
 

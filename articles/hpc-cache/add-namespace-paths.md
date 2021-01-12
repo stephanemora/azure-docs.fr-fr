@@ -4,14 +4,14 @@ description: Création de chemins d’accès côté client pour le stockage prin
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 12/22/2020
 ms.author: v-erkel
-ms.openlocfilehash: e525fc0705dffcd4765e6a1f6c5235bdef260fcd
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 5549670dbd1f302bdb17b8b94cbd1fb5c4c1a1d9
+ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96339674"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97760533"
 ---
 # <a name="set-up-the-aggregated-namespace"></a>Configurer l’espace de noms agrégé
 
@@ -21,13 +21,13 @@ Pour en savoir plus sur cette fonctionnalité, consultez [Planifier l’espace d
 
 La page **Espace de noms** du portail Azure présente les chemins d’accès que les clients utilisent pour accéder à vos données via le cache. Utilisez cette page pour créer, supprimer ou modifier les chemins d’espace de noms. Vous pouvez également configurer des chemins d’espace de noms à l’aide d’Azure CLI.
 
-Tous les chemins d’accès côté client existants sont répertoriés dans la page **Espace de noms**. Si une cible de stockage n’a pas de chemin d’accès, elle n’apparaît pas dans le tableau.
+Tous les chemins côté client qui ont été définis pour ce cache sont listés dans la page **Espace de noms**. Les cibles de stockage pour lesquelles aucun chemin d’espace de noms n’est défini n’apparaissent pas dans le tableau.
 
-Vous pouvez trier les colonnes du tableau en cliquant sur les flèches afin de mieux comprendre l’espace de noms agrégé de votre cache.
+Vous pouvez trier les colonnes du tableau afin de mieux comprendre l’espace de noms agrégé de votre cache. Cliquez sur les flèches dans les en-têtes de colonne pour trier les chemins.
 
-![Capture d’écran de la page Espace de noms du portail avec un tableau contenant deux chemins d’accès. En-têtes de colonne : Chemin d’espace de noms, Cible de stockage, Chemin d’exportation et Sous-répertoire d’exportation. Les éléments de la première colonne sont des liens sur lesquels vous pouvez cliquer. Boutons principaux : Ajouter un chemin d’espace de noms, Actualiser, Supprimer](media/namespace-page.png)
+[![Capture d’écran de la page Espace de noms du portail avec un tableau contenant deux chemins. En-têtes de colonne : Chemin d’espace de noms, Cible de stockage, Chemin d’exportation, Sous-répertoire d’exportation et Stratégie d’accès client. Les noms de chemin de la première colonne sont des liens sur lesquels vous pouvez cliquer. Boutons principaux : Ajouter un chemin d’espace de noms, Actualiser, Supprimer](media/namespace-page.png) ](media/namespace-page.png#lightbox)
 
-## <a name="add-or-edit-client-facing-namespace-paths"></a>Ajouter ou modifier des chemins d’espace de noms côté client
+## <a name="add-or-edit-namespace-paths"></a>Ajouter ou modifier des chemins d’espace de noms
 
 Vous devez créer au moins un chemin d’espace de noms pour que les clients puissent accéder à la cible de stockage. (Pour en savoir plus sur l’accès client, consultez [Monter le cache Azure HPC Cache](hpc-cache-mount.md).)
 
@@ -43,15 +43,17 @@ Dans le portail Azure, chargez la page de paramètres **Espace de noms**. Vous p
 
 * **Ajouter un nouveau chemin d’accès :** Cliquez sur le bouton **+ Ajouter** situé en haut et complétez les informations dans le panneau de modification.
 
-  * Sélectionnez la cible de stockage dans la liste déroulante. (Dans cette capture d’écran, la cible de stockage blob ne peut pas être sélectionnée, car elle possède déjà un chemin d’espace de noms.)
+  ![Capture d’écran des champs de modification de l’ajout d’un espace de noms avec sélection d’une cible de stockage d’objets blob Les chemins d’exportation et de sous-répertoire sont définis sur / et ne peuvent pas être modifiables.](media/namespace-add-blob.png)
 
-    ![Capture d’écran des champs de modification du nouvel espace de noms avec le sélecteur de cible de stockage mis en évidence](media/namespace-select-storage-target.png)
+  * Entrez le chemin que les clients doivent utiliser pour accéder à cette cible de stockage.
+
+  * Sélectionnez la stratégie d’accès à utiliser pour ce chemin. Pour plus d’informations sur la personnalisation de l’accès client, consultez [Utiliser des stratégies d’accès client](access-policies.md).
+
+  * Sélectionnez la cible de stockage dans la liste déroulante. Si une cible de stockage d’objets blob a déjà un chemin d’espace de noms, elle ne peut pas être sélectionnée.
 
   * Pour une cible Stockage blob Azure, les chemins d’exportation et de sous-répertoire sont automatiquement définis sur ``/``.
 
-* **Modifier un chemin d’accès existant :** Cliquez sur le chemin d’espace de noms. Le panneau de modification apparaît et vous pouvez modifier le chemin.
-
-  ![Capture d’écran de la page Espace de noms après sélection d’un chemin d’espace de noms Blob. Les champs de modification s’affichent dans un volet à droite.](media/edit-namespace-blob.png)
+* **Modifier un chemin d’accès existant :** Cliquez sur le chemin d’espace de noms. Le panneau d’édition s’ouvre. Vous pouvez modifier le chemin et la stratégie d’accès, mais vous ne pouvez pas passer à une autre cible de stockage.
 
 * **Suppression d’un chemin d’espace de noms :** Activez la case à cocher à gauche du chemin et cliquez sur le bouton **Supprimer**.
 
@@ -81,7 +83,7 @@ Cette liste montre le nombre maximum de chemins d’espace de noms par configura
 
   * Cache de 3 To - 10 chemins d’espace de noms
   * Cache de 6 To - 10 chemins d’espace de noms
-  * Cache de 23 To - 20 chemins d’espace de noms
+  * Cache de 12 To - 20 chemins d’espace de noms
 
 * Débit jusqu’à 4 Go/s :
 
@@ -109,13 +111,15 @@ Renseignez ces valeurs pour chaque chemin d’espace de noms :
 
 * **Chemin d’espace de noms** - Chemin d’accès du fichier côté client.
 
+* **Stratégie d’accès client** - Sélectionnez la stratégie d’accès à utiliser pour ce chemin. Pour plus d’informations sur la personnalisation de l’accès client, consultez [Utiliser des stratégies d’accès client](access-policies.md).
+
 * **Cible de stockage** - Si vous créez un nouveau chemin d’espace de noms, sélectionnez une cible de stockage dans le menu déroulant.
 
 * **Chemin d’exportation** - Entrez le chemin de l’exportation NFS. Veillez à ne pas faire d’erreur dans le nom du chemin d’exportation. Le portail valide la syntaxe pour ce champ mais ne vérifie pas le chemin d’exportation tant que vous n’avez pas validé la modification.
 
 * **Sous-répertoire d’exportation** - Si vous souhaitez que ce chemin monte un sous-répertoire spécifique de l’exportation, entrez-le ici. Sinon, laissez ce champ vide.
 
-![Capture d’écran de la page Espace de noms du portail avec la page de mise à jour ouverte à droite](media/update-namespace-nfs.png)
+![Capture d’écran de la page Espace de noms du portail avec la page de modification ouverte à droite. Le formulaire de modification affiche les paramètres du chemin d’espace de noms d’une cible de stockage NFS](media/namespace-edit-nfs.png)
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 

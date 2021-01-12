@@ -1,18 +1,21 @@
 ---
 title: Partitionnement des services Service Fabric
-description: Explique comment partitionner les services Service Fabric avec état. Les partitions permettent le stockage des données sur les ordinateurs locaux pour que les données et le calcul puissent être mis à l’échelle ensemble.
+description: Découvrez comment partitionner les services Service Fabric avec et sans état.
 ms.topic: conceptual
 ms.date: 06/30/2017
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d33e7b5ee293cf9dfb49e509bec2e1950033a956
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 199ae9d9844149c1931da638633110f717fe0517
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89005426"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915893"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Partitionnement des services fiables Service Fabric
-Cet article présente les concepts de base pour le partitionnement des services fiables d’Azure Service Fabric. Le code source utilisé dans cet article est également disponible sur [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
+Cet article présente les concepts de base pour le partitionnement des services fiables d’Azure Service Fabric. Le partitionnement permet le stockage des données sur les ordinateurs locaux pour que les données et le calcul puissent être mis à l’échelle ensemble.
+
+> [!TIP]
+> Un [exemple complet](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions) du code utilisé dans cet article est disponible sur GitHub.
 
 ## <a name="partitioning"></a>Partitionnement
 Le partitionnement n’est pas propre à Service Fabric. En réalité, il s’agit d’un modèle de base de création de services évolutifs. Dans un sens plus large, le partitionnement peut être considéré comme un concept de division d’état (données) et de calcul en plus petites unités accessibles dans un souci d’amélioration de l’évolutivité et des performances. Le [partitionnement des données][wikipartition] constitue une forme bien connue de partitionnement.
@@ -348,14 +351,14 @@ Comme nous ne voulons littéralement qu’une partition par lettre, nous pouvons
     
     ![Capture d’écran du navigateur](./media/service-fabric-concepts-partitioning/samplerunning.png)
 
-Le code source complet de cet exemple est disponible sur [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
+La solution complète du code utilisé dans cet article est disponible ici : https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d'informations sur les concepts propres à Service Fabric, consultez les articles suivants :
+Pour plus d’informations sur les services Service Fabric :
 
+* [Se connecter aux services et communiquer avec eux dans Service Fabric.](service-fabric-connect-and-communicate-with-services.md)
 * [Disponibilité des services Service Fabric](service-fabric-availability-services.md)
 * [Extensibilité des services Service Fabric](service-fabric-concepts-scalability.md)
-* [Planification de la capacité pour les applications Service Fabric](service-fabric-capacity-planning.md)
 
 [wikipartition]: https://en.wikipedia.org/wiki/Partition_(database)
 

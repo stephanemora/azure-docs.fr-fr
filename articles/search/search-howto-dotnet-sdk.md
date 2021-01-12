@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3ceead297ea726e256d806c08c22810b39296793
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 15a878eb863b71a4519e75def2598f013152dfb7
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917169"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881631"
 ---
 # <a name="how-to-use-azuresearchdocuments-in-a-c-net-application"></a>Utilisation d’Azure.Search.Documents dans une application .NET C#
 
@@ -31,7 +31,7 @@ Comme avec les versions précédentes, vous pouvez utiliser cette bibliothèque 
 + Charger et gérer des documents de recherche dans un index
 + Exécuter des requêtes, tout cela sans avoir à gérer les détails de HTTP et JSON
 
-La bibliothèque est distribuée sous forme de [package NuGet Azure.Search.Document](https://www.nuget.org/packages/Azure.Search.Documents/) unique, qui comprend toutes les API utilisées pour l’accès par programme à un service de recherche.
+La bibliothèque est distribuée sous forme de [package NuGet Azure.Search.Documents](https://www.nuget.org/packages/Azure.Search.Documents/) unique, qui comprend toutes les API utilisées pour l’accès par programme à un service de recherche.
 
 La bibliothèque cliente définit des classes comme `SearchIndex`, `SearchField` et `SearchDocument`, ainsi que des opérations telles que `SearchIndexClient.CreateIndex` et `SearchClient.Search` sur les classes `SearchIndexClient` et `SearchClient`. Ces classes sont organisées dans les espaces de noms suivants :
 

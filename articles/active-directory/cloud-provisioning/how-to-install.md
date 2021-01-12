@@ -1,6 +1,6 @@
 ---
 title: Installer l’agent de provisionnement cloud Azure AD Connect
-description: Cet article explique comment installer l’agent d’approvisionnement Azure AD Connect.
+description: Découvrez comment installer l’agent de provisionnement cloud Azure AD Connect et comment le configurer dans le portail Azure.
 services: active-directory
 author: billmath
 manager: daveba
@@ -11,12 +11,12 @@ ms.date: 11/16/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c4ba11dabc8e805f3604afc2fc4388840ac67cf
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 9553608fdd72d4dec4c1572e0d38cd460018a469
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348532"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97584338"
 ---
 # <a name="install-the-azure-ad-connect-cloud-provisioning-agent"></a>Installer l’agent de provisionnement cloud Azure AD Connect
 Ce document vous guide tout au long du processus d’installation de l’agent d’approvisionnement Azure Active Directory (Azure AD) Connecte, et explique comment le configurer au départ dans le portail Azure.

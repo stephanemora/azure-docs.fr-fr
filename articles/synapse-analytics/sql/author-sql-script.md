@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: pimorano
 ms.reviewer: omafnan
-ms.openlocfilehash: 077815d117af0328a3466346727e135caaf8ff21
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 8d4c1928ae1fac9b840245756c4bf5fe22a83f0f
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96458002"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590509"
 ---
 # <a name="synapse-studio-sql-scripts-in-azure-synapse-analytics"></a>Scripts SQL Synapse Studio dans Azure Synapse Analytics 
 
@@ -79,7 +79,7 @@ Explorez les mouvements disponibles en cliquant avec le bouton droit sur les nœ
 Dans le menu Actions, sous Développer des scripts SQL, choisissez « Nouveau dossier ». Saisissez ensuite le nom du nouveau dossier dans la fenêtre contextuelle. 
 
 > [!div class="mx-imgBorder"] 
-> ![newsqlscript](./media/author-sql-script/new-sql-script-create-folder.png)
+> ![Capture d’écran montrant un exemple de script SQL avec l’option « Nouveau dossier » sélectionnée.](./media/author-sql-script/new-sql-script-create-folder.png)
 
 Pour déplacer un script SQL dans un dossier, vous pouvez sélectionner le script SQL et choisir « Déplacer vers » dans le menu Actions. Recherchez ensuite le dossier de destination dans la nouvelle fenêtre et déplacez le script SQL dans le dossier sélectionné. Vous pouvez également faire glisser rapidement le script SQL et le déposer dans un dossier.  
 

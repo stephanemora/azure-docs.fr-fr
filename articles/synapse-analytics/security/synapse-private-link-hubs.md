@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/01/2020
 ms.author: NanditaV
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2613a4fd931ad49a4f40a4221ea20e8c25f185fe
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d49868199d8f9f2da97f08dd06f29afd8f553bd9
+ms.sourcegitcommit: 17e9cb8d05edaac9addcd6e0f2c230f71573422c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96501295"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97586973"
 ---
 # <a name="connect-to-azure-synapse-studio-using-azure-private-link-hubs"></a>Se connecter à Azure Synapse Studio à l’aide de hubs Azure Private Link 
 
@@ -35,9 +35,9 @@ Vous pouvez créer votre hub de liaison privée en recherchant des *hubs de liai
 ## <a name="azure-private-links-hubs-and-azure-virtual-network"></a>Hubs de liaisons privées Azure et Réseau virtuel Azure
 Vous devez connecter votre réseau virtuel Azure à la ressource de hub de liaison privée Synapse pour sécuriser la connexion de bout en bout à Synapse Studio. Pour ce faire, vous devez créer un point de terminaison privé à partir de votre réseau virtuel vers le hub de liaison privée que vous avez créé. Vous pouvez utiliser le portail Azure pour votre hub de liaison privée et accéder à la section Point de terminaison privé. Sélectionnez « + Point de terminaison privé » pour créer un nouveau point de terminaison privé qui se connecte à votre hub de liaison privée.
 
-:::image type="content" source="./media/synapse-private-link-hubs/synapse-private-links-private-endpoint.png" alt-text="Créer un point de terminaison privé au hub de liaison privée":::
+:::image type="content" source="./media/synapse-private-link-hubs/synapse-private-links-private-endpoint.png" alt-text="Capture d’écran montrant la page Connexions des points de terminaison privés.":::
 
-Veillez à choisir le type de ressource « Microsoft.Synapse/privateLinkHubs » sous l’onglet « Ressource ». :::image type="content" source="./media/synapse-private-link-hubs/synapse-private-links-resource-type.png" alt-text="Créer un point de terminaison privé au hub de liaison privée":::
+Veillez à choisir le type de ressource « Microsoft.Synapse/privateLinkHubs » sous l’onglet « Ressource ». :::image type="content" source="./media/synapse-private-link-hubs/synapse-private-links-resource-type.png" alt-text="Capture d’écran montrant la page « Créer un point de terminaison privé » avec « Type de ressource » sélectionné.":::
 
 Dans l’onglet « Configuration », sélectionnez « privatelink.azuresynapse.net » pour Zones DNS privé lors de l’intégration avec votre réseau virtuel et votre zone DNS privée.
 

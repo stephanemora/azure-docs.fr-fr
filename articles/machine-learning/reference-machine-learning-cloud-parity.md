@@ -9,14 +9,14 @@ ms.topic: reference
 ms.reviewer: larryfr
 ms.author: andzha
 author: Anurzeuii
-ms.date: 08/24/2020
+ms.date: 12/21/2020
 ms.custom: references_regions
-ms.openlocfilehash: 0300dab1fa7d0ef0d20c4236cc452135b3ade20e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 88240f9b46997d11f1e7c2d93fa880b004615a11
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305742"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97725018"
 ---
 # <a name="azure-machine-learning-sovereign-cloud-parity"></a>Parité du cloud souverain Azure Machine Learning
 
@@ -92,7 +92,7 @@ Nous entendons fournir une parité maximale entre notre cloud public et les rég
 | Étiquetage assisté par ML (classification des images et détection des objets)           | Version préliminaire publique       | YES                | YES         |
 | **ML responsable** |   | | |
 | Explicabilité dans l’interface utilisateur                                                       | Version préliminaire publique       | Non                 | Non          |
-| Boîte à outils WhiteNoise de confidentialité différentielle                                    | OSS                  | Non                 | Non          |
+| Boîte à outils SmartNoise de confidentialité différentielle                                    | OSS                  | Non                 | Non          |
 | Balises personnalisées dans Azure Machine Learning pour implémenter des feuilles de données              | GA                   | Non                 | Non          |
 | Intégration d’impartialité AzureML                                               | Version préliminaire publique       | Non                 | Non          |
 | Kit de développement logiciel (SDK) d’interprétabilité                                                      | GA                   | YES                | YES         |
@@ -205,7 +205,7 @@ Nous entendons fournir une parité maximale entre notre cloud public et les rég
 | Étiquetage assisté par ML (classification des images et détection des objets)           | Version préliminaire publique   | YES       | N/A        |
 | **ML responsable** |    | | |
 | Explicabilité dans l’interface utilisateur                                                       | Version préliminaire publique   | Non        | N/A        |
-| Boîte à outils WhiteNoise de confidentialité différentielle                                    | OSS              | Non        | N/A        |
+| Boîte à outils SmartNoise de confidentialité différentielle                                    | OSS              | Non        | N/A        |
 | Balises personnalisées dans Azure Machine Learning pour implémenter des feuilles de données              | GA               | Non        | N/A        |
 | Intégration d’impartialité AzureML                                               | Version préliminaire publique   | Non        | N/A        |
 | Kit de développement logiciel (SDK) d’interprétabilité                                                      | GA               | YES       | N/A        |

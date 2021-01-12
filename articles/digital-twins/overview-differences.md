@@ -7,19 +7,19 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: af8d768ceeaacdf1c8a0f6cdc8be0041e4ae4ed1
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: fb0d3e3c57a26f7ca14b74edc42cb657ba6074c3
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099077"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97604994"
 ---
 # <a name="what-is-the-new-azure-digital-twins-how-is-it-different-from-the-previous-version-2018"></a>Qu’est-ce que la nouvelle version Azure Digital Twins ? En quoi est-elle différente de la version précédente (2018) ?
 
 La première préversion publique d’Azure Digital Twins a été publiée en octobre 2018. Bien que les principaux concepts de cette première version soient toujours valables dans le nouveau service, la plupart des interfaces et détails d’implémentation ont été modifiés et le service a ainsi gagné en flexibilité et en accessibilité. Ces modifications ont été motivées par les commentaires envoyés par les clients.
 
 > [!IMPORTANT]
-> En raison des capacités étendues du nouveau service, le précédent service Azure Digital Twins sera supprimé à la fin de l’année 2020.
+> À la lumière des capacités étendues du nouveau service, le précédent service Azure Digital Twins sera mis hors service, avec ses API et les données associées qui ne seront plus disponibles à partir du 18 janvier 2021.
 
 Si vous avez utilisé la première version d’Azure Digital Twins au cours de la première préversion publique, utilisez les informations et les bonnes pratiques de cet article pour savoir comment utiliser le nouveau service et tirer parti de ses fonctionnalités.
 

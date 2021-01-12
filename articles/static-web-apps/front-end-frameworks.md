@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 07/18/2020
 ms.author: cshoe
-ms.openlocfilehash: 4b1bc58b6b4a87cd6e5e09e83020a38261b8746f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14564b0591ef0146131b3f9324556b613e25daac
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905371"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901230"
 ---
 # <a name="configure-front-end-frameworks-and-libraries-with-azure-static-web-apps-preview"></a>Configurer des infrastructures et bibliothèques frontales avec Azure Static Web Apps en préversion
 
@@ -24,7 +24,7 @@ Le tableau suivant répertorie les paramètres d’une série d’infrastructure
 
 Les éléments suivants expliquent la présence des colonnes du tableau :
 
-- **Emplacement de l’artefact de l’application** : Répertorie la valeur de `app_artifact_location`, qui est le [dossier des versions générées des fichiers d’application](github-actions-workflow.md#build-and-deploy).
+- **Emplacement de sortie** : Répertorie la valeur de `output_location`, qui est le [dossier des versions générées des fichiers d’application](github-actions-workflow.md#build-and-deploy).
 
 - **Commande de compilation personnalisée** : Lorsque l’infrastructure requiert une commande différente de `npm run build` ou `npm run azure:build`, vous pouvez définir une [commande de compilation personnalisée](github-actions-workflow.md#custom-build-commands).
 

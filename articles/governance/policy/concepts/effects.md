@@ -3,12 +3,12 @@ title: Comprendre le fonctionnement des effets
 description: Les définitions Azure Policy ont différents effets qui déterminent la manière dont la conformité est gérée et rapportée.
 ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 19811eca33be7dff4d9bee5b8bd89dd38f185a57
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: e72e94766dce2660409e729bc43eb107fb9ab39a
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873946"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883076"
 ---
 # <a name="understand-azure-policy-effects"></a>Comprendre les effets d’Azure Policy
 
@@ -42,6 +42,8 @@ Les demandes de création ou de mise à jour d’une ressource sont évaluées e
 - L’**audit** est évalué en dernier.
 
 Une fois que le fournisseur de ressources a retourné un code de réussite sur une demande en mode Gestionnaire des ressources, **AuditIfNotExists** et **DeployIfNotExists** effectuent une évaluation pour déterminer si une journalisation ou une action de conformité supplémentaire est nécessaire.
+
+En outre, les demandes `PATCH` qui modifient uniquement `tags` champs associés limitent l’évaluation de la stratégie aux stratégies contenant des conditions qui inspectent `tags` champs associés.
 
 ## <a name="append"></a>Ajouter
 

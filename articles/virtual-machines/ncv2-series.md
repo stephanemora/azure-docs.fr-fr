@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 19ed565cbc68cc49da9daa5460e4dca41ce01cbc
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: 97fa5148d7de7cac67a69c8d9c21721cb57951d3
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91653483"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97585381"
 ---
 # <a name="ncv2-series"></a>Série NCv2
 
@@ -21,10 +21,11 @@ Les machines virtuelles de série NCv2 sont optimisées par les GPU NVIDIA Tesl
 La configuration NC24rs v2 fournit une interface réseau à haut débit et à faible latence optimisée pour les charges de travail d’informatique parallèle fortement couplées.
 
 [Stockage Premium](premium-storage-performance.md) : Pris en charge<br>
-[Mise en cache du Stockage Premium](premium-storage-performance.md) : Pris en charge<br>
+[Mise en cache du Stockage Premium](premium-storage-performance.md) : Pris(e) en charge<br>
 [Migration dynamique](maintenance-and-updates.md) : Non pris en charge<br>
 [Mises à jour avec préservation de la mémoire](maintenance-and-updates.md) : Non pris en charge<br>
-[Génération de machine virtuelle prise en charge](generation-2.md) : Générations 1 et 2<br>
+[Génération de machine virtuelle prise en charge](generation-2.md) : Génération 1 et 2<br>
+Interconnexion Nvidia/NVLink : Non pris en charge
 
 > [!IMPORTANT]
 > Pour cette série de machines virtuelles, le quota de processeurs virtuels (cœurs) dans votre abonnement est initialement défini sur 0 dans chaque région. [Demandez une augmentation du quota de processeurs virtuels](../azure-portal/supportability/resource-manager-core-quotas-request.md) pour cette série dans une [région disponible](https://azure.microsoft.com/regions/services/).

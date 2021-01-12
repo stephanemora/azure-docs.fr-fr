@@ -9,17 +9,29 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: b11b0b46e57247d09e576795079e20c679e519d5
-ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
+ms.openlocfilehash: 695702c04e2eeb74ee27b7d4276a3be94d9d1cf7
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97760110"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881818"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notes de publication d’Azure Machine Learning
 
 Dans cet article, découvrez les versions d’Azure Machine Learning.  Pour obtenir le contenu complet de la référence SDK, consultez la page de référence du [**SDK principal pour Python**](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) d’Azure Machine Learning.
 
+## <a name="2020-12-31"></a>2020-12-31
+### <a name="azure-machine-learning-studio-notebooks-experience-december-update"></a>Expérience Azure Machine Learning Studio avec les notebooks (mise à jour de décembre)
++ **Nouvelles fonctionnalités**
+  + Recherche de nom de fichier par l’utilisateur. Les utilisateurs peuvent désormais effectuer une recherche dans tous les fichiers enregistrés dans un espace de travail.
+  + Support côte à côte de Markdown par cellule de notebook. Dans une cellule de notebook, les utilisateurs peuvent désormais choisir d’afficher côte à côte la syntaxe Markdown et Markdown rendue.
+  + Barre d’état de la cellule. La barre d’état indique l’état dans lequel se trouve une cellule de code, si l’exécution d’une cellule a réussi et le temps nécessaire à son exécution. 
+   
++ **Résolutions de bogue et améliorations**
+  + Amélioration des temps de chargement des pages
+  + performances améliorées 
+  + Amélioration de la vitesse et de la fiabilité du noyau
+  
 ## <a name="2020-12-07"></a>2020-12-07
 
 ### <a name="azure-machine-learning-sdk-for-python-v1190"></a>Kit de développement logiciel (SDK) Azure Machine Learning pour Python v1.19.0
@@ -83,7 +95,19 @@ Dans cet article, découvrez les versions d’Azure Machine Learning.  Pour obte
     + Dépréciation de l’utilisation de Nccl et Gloo comme type d’entrée valide pour les classes Estimator en faveur de l’utilisation de PyTorchConfiguration avec ScriptRunConfig. 
     + Dépréciation de l’utilisation de Mpi comme type d’entrée valide pour les classes Estimator en faveur de l’utilisation de MpiConfiguration avec ScriptRunConfig.
 
+## <a name="2020-11-30"></a>2020-11-30
+### <a name="azure-machine-learning-studio-notebooks-experience-november-update"></a>Expérience Azure Machine Learning Studio avec les notebooks (mise à jour de novembre)
++ **Nouvelles fonctionnalités**
+   + Terminal natif. Les utilisateurs ont désormais accès à un terminal intégré et à l’opération Git via le [terminal intégré](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#terminal)
+  + Dossier dupliqué 
+  + Baisse des coûts de calcul 
+  + Calcul Pylance hors connexion 
 
++ **Résolutions de bogue et améliorations**
+  + Amélioration des temps de chargement des pages
+  + performances améliorées 
+  + Amélioration de la vitesse et de la fiabilité du noyau
+  + Chargement de fichiers volumineux. Vous pouvez maintenant charger les fichiers d’une taille supérieure à 95 Mo
 
 ## <a name="2020-11-09"></a>09-11-2020
 

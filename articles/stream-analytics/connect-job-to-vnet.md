@@ -6,14 +6,14 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/23/2020
+ms.date: 01/04/2021
 ms.custom: devx-track-js
-ms.openlocfilehash: a2d26689a3036f05d7c8e7f417fbbb447402aedc
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: f140384ee2c78b38982c99dab5912bc451584a42
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97762858"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97898145"
 ---
 # <a name="connect-stream-analytics-jobs-to-resources-in-an-azure-virtual-network-vnet"></a>Connecter les tâches Stream Analytics aux ressources d’un réseau virtuel Azure (VNet)
 
@@ -41,7 +41,7 @@ Grâce à cette technique, vos tâches peuvent se connecter aux services Azure s
 1. [Stockage Blob ou Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/stream-analytics/blob-output-managed-identity) : il peut s’agir du compte de stockage de votre tâche, d’une entrée ou d’une sortie de diffusion en continu.
 2. [Azure Event Hubs](https://docs.microsoft.com/azure/stream-analytics/event-hubs-managed-identity) : il peut s’agir de l’entrée ou de la sortie de diffusion en continu de votre tâche.
 
-Si vos tâches doivent se connecter à d’autres types d’entrées ou de sorties, la seule option consiste à utiliser des points de terminaison privés dans des clusters Stream Analytics.
+Si vos travaux doivent se connecter à d’autres types d’entrée ou de sortie, vous pouvez d’abord écrire de Stream Analytics vers la sortie Event Hubs, puis vers la destination de votre choix avec Azure Functions. Si vous souhaitez écrire directement de Stream Analytics vers d’autres types de sortie sécurisés dans un réseau virtuel ou un pare-feu, la seule possibilité consiste à utiliser des points de terminaison privés dans des clusters Stream Analytics.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

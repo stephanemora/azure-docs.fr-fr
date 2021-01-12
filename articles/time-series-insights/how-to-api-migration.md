@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.custom: shresha
-ms.openlocfilehash: 3aedbef079ba62f42ea79afdcd9995d7ee23d9fa
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 15f1a814b302611029cf6459b8d2df93a32a2d36
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95020723"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740553"
 ---
 # <a name="migrating-to-new-azure-time-series-insights-gen2-api-versions"></a>Migration vers les nouvelles versions d’API d’Azure Time Series Insights Gen2
 
@@ -76,7 +76,7 @@ Si vous avez généré des requêtes à l’aide du connecteur Power BI, elles e
 Pour mettre à jour les requêtes afin d’utiliser la nouvelle version de l’API et la nouvelle syntaxe d’expression de série chronologique, les requêtes doivent être régénérées à partir de l’Explorateur. Plus d’informations sur la [création de requêtes à l’aide du connecteur Power BI](./how-to-connect-power-bi.md).
 
 > [!NOTE]
-> Vous devez utiliser la version de juillet 2020 de Power BI Desktop. Sinon, une [erreur de version de charge utile de requête non valide](./how-to-diagnose-troubleshoot.md#problem-power-bi-connector-shows-unable-to-connect) pourrait s’afficher.
+> Vous devez utiliser au moins la version de juillet 2020 de Power BI Desktop. Si ce n’est pas le cas, une erreur de version de charge utile de requête non valide peut s’afficher.
 
 ## <a name="migrate-custom-applications"></a>Migrer des applications personnalisées
 

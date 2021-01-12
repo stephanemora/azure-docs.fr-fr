@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 09/30/2020
-ms.openlocfilehash: 12163419ad779acfa116f1dee66284623e2d45fb
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: e572f1f6a9452ccab9deddb62a5e219a81df5d47
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616108"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739992"
 ---
 # <a name="interactive-debugging-with-visual-studio-code"></a>Débogage interactif avec Visual Studio Code
 
@@ -355,9 +355,9 @@ Les déploiements de service web locaux nécessitent l’installation d’un Doc
 
 1. Pour configurer VS Code pour communiquer avec l’image Docker, créez une nouvelle configuration de débogage :
 
-    1. Dans VS Code, sélectionnez le menu __Déboguer__, puis sélectionnez __Ouvrir les configurations__. Un fichier nommé __launch.json__ s’ouvre.
+    1. Dans VS Code, sélectionnez le menu __Déboguer__ dans l’extension __Exécuter__, puis sélectionnez __Ouvrir les configurations__. Un fichier nommé __launch.json__ s’ouvre.
 
-    1. Dans le fichier __launch.json__, recherchez la ligne qui contient `"configurations": [` et insérez le texte suivant après celle-ci :
+    1. Dans le fichier __launch.json__, recherchez l’élément __« configurations »__ (la ligne contenant `"configurations": [`) et insérez le texte suivant après celui-ci. 
 
         ```json
         {
@@ -376,11 +376,44 @@ Les déploiements de service web locaux nécessitent l’installation d’un Doc
             ]
         }
         ```
+        Après l’insertion, le fichier __launch.json__ doit ressembler à ce qui suit :
+        ```json
+        {
+        // Use IntelliSense to learn about possible attributes.
+        // Hover to view descriptions of existing attributes.
+        // For more information, visit: https://go.microsoft.com/fwlink/linkid=830387
+        "version": "0.2.0",
+        "configurations": [
+            {
+                "name": "Python: Current File",
+                "type": "python",
+                "request": "launch",
+                "program": "${file}",
+                "console": "integratedTerminal"
+            },
+            {
+                "name": "Azure Machine Learning Deployment: Docker Debug",
+                "type": "python",
+                "request": "attach",
+                "connect": {
+                    "port": 5678,
+                    "host": "0.0.0.0"
+                    },
+                "pathMappings": [
+                    {
+                        "localRoot": "${workspaceFolder}",
+                        "remoteRoot": "/var/azureml-app"
+                    }
+                ]
+            }
+            ]
+        }
+        ```
 
         > [!IMPORTANT]
-        > Si la section des configurations contient déjà d’autres entrées, ajoutez une virgule (,) après le code que vous avez inséré.
+        > Si la section des configurations contient déjà d’autres entrées, ajoutez une virgule ( __,__ ) après le code que vous avez inséré.
 
-        Cette section est attachée au conteneur Docker à l’aide du port 5678.
+        Cette section est attachée au conteneur Docker à l’aide du port __5678__.
 
     1. Enregistrez le fichier __launch.json__.
 
@@ -433,13 +466,13 @@ Les déploiements de service web locaux nécessitent l’installation d’un Doc
     package.pull()
     ```
 
-    Une fois l’image créée et téléchargée, le chemin de l’image (y compris le référentiel, le nom et la balise, qui dans ce cas est également son code de hachage) s’affiche dans un message semblable au suivant :
+    Une fois l’image créée et téléchargée (ce processus peut prendre plus de 10 minutes, veuillez patienter), le chemin de l’image (y compris le référentiel, le nom et l’étiquette, qui dans ce cas est également son code de hachage) est finalement affiché dans un message semblable au suivant :
 
     ```text
     Status: Downloaded newer image for myregistry.azurecr.io/package@sha256:<image-digest>
     ```
 
-1. Pour faciliter le travail sur l’image, utilisez la commande suivante pour ajouter une balise. Remplacez `myimagepath` par la valeur d’emplacement de l’étape précédente.
+1. Pour faciliter le travail local sur l’image, vous pouvez utiliser la commande suivante pour ajouter une étiquette pour cette image. Remplacez `myimagepath` dans la commande suivante par la valeur d’emplacement issue de l’étape précédente.
 
     ```bash
     docker tag myimagepath debug:1
@@ -457,22 +490,37 @@ Les déploiements de service web locaux nécessitent l’installation d’un Doc
 1. Pour démarrer un conteneur Docker à l’aide de l’image, utilisez la commande suivante :
 
     ```bash
-    docker run -it --name debug -p 8000:5001 -p 5678:5678 -v <my_path_to_score.py>:/var/azureml-apps/score.py debug:1 /bin/bash
+    docker run -it --name debug -p 8000:5001 -p 5678:5678 -v <my_local_path_to_score.py>:/var/azureml-app/score.py debug:1 /bin/bash
     ```
 
-    Cela permet de joindre votre `score.py` localement à celui du conteneur. Par conséquent, toute modification effectuée dans l’éditeur est automatiquement répercutée dans le conteneur.
+    Cela permet de joindre votre `score.py` localement à celui du conteneur. Par conséquent, toute modification effectuée dans l’éditeur se reflète automatiquement dans le conteneur.
 
-1. Dans le conteneur, exécutez la commande suivante dans l’interpréteur de commandes.
+2. Pour une meilleure expérience, vous pouvez accéder au conteneur avec une nouvelle interface VS Code. Sélectionnez l’extension `Docker` dans la barre latérale VS Code et recherchez le conteneur local que vous avez créé. Dans cette documentation, il s’agit de `debug:1`. Cliquez avec le bouton droit sur ce conteneur et sélectionnez `"Attach Visual Studio Code"`, puis une nouvelle interface VS Code s’ouvre automatiquement et cette interface affiche l’intérieur du conteneur que vous avez créé.
+
+    ![Interface VS Code du conteneur](./media/how-to-troubleshoot-deployment/container-interface.png)
+
+3. Dans le conteneur, exécutez la commande suivante dans l’interpréteur de commandes.
 
     ```bash
     runsvdir /var/runit
     ```
+    Vous pouvez ensuite voir la sortie suivante dans l’interpréteur à l’intérieur de votre conteneur :
 
-1. Pour attacher VS Code à debugpy à l’intérieur du conteneur, ouvrez VS Code et utilisez la touche F5 ou sélectionnez __Déboguer__. Lorsque vous y êtes invité, sélectionnez la configuration __Déploiement Azure Machine Learning : Configuration du débogage Docker__. Vous pouvez également sélectionner l’icône de débogage dans la barre latérale, l’entrée __Déploiement Azure Machine Learning : entrée de débogage__ Docker dans le menu déroulant Déboguer, puis utiliser la flèche verte pour attacher le débogueur.
+    ![Sortie de la console d’exécution du conteneur](./media/how-to-troubleshoot-deployment/container-run.png)
+
+4. Pour attacher VS Code à debugpy à l’intérieur du conteneur, ouvrez VS Code et utilisez la touche F5 ou sélectionnez __Déboguer__. Lorsque vous y êtes invité, sélectionnez la configuration __Déploiement Azure Machine Learning : Configuration du débogage Docker__. Vous pouvez également sélectionner l’icône de l’extension __Exécuter__ dans la barre latérale, l’entrée __Déploiement Azure Machine Learning : entrée de débogage__ Docker dans le menu déroulant Déboguer, puis utiliser la flèche verte pour attacher le débogueur.
 
     ![Icône de débogage, bouton Démarrer le débogage et sélecteur de configuration](./media/how-to-troubleshoot-deployment/start-debugging.png)
+    
+    Après avoir cliqué sur la flèche verte et attaché le débogueur, dans l’interface VS Code du conteneur, vous pouvez voir de nouvelles informations :
+    
+    ![Informations attachées au débogueur du conteneur](./media/how-to-troubleshoot-deployment/debugger-attached.png)
+    
+    Dans votre interface VS Code principale, vous pouvez aussi voir ce qui suit :
 
-À ce stade, VS Code se connecte à debugpy à l’intérieur du conteneur Docker et s’arrête au point d’arrêt que vous avez préalablement défini. Vous pouvez maintenant parcourir le code au fur et à mesure de son exécution, afficher des variables etc.
+    ![Point d’arrêt VS Code dans score.py](./media/how-to-troubleshoot-deployment/local-debugger.png)
+
+Désormais, le `score.py` local qui est attaché au conteneur s’est déjà arrêté aux points d’arrêt que vous avez définis. À ce stade, VS Code se connecte à debugpy à l’intérieur du conteneur Docker et arrête le conteneur Docker au point d’arrêt que vous avez précédemment défini. Vous pouvez maintenant parcourir le code au fur et à mesure de son exécution, afficher des variables etc.
 
 Pour plus d’informations sur l’utilisation de VS Code pour déboguer Python, consultez [Déboguer votre code Python](https://code.visualstudio.com/docs/python/debugging).
 
@@ -488,4 +536,10 @@ docker stop debug
 
 À présent que vous avez configuré VS Code Remote, vous pouvez utiliser une instance de calcul en tant que calcul à distance de VS Code pour déboguer votre code de manière interactive. 
 
-[Tutoriel : Effectuer l’apprentissage de votre premier modèle ML](tutorial-1st-experiment-sdk-train.md) montre comment utiliser une instance de calcul avec un notebook intégré.
+Apprenez-en davantage sur la résolution des problèmes :
+
+* [Déploiement de modèle local](how-to-troubleshoot-deployment-local.md)
+* [Déploiement de modèle distant](how-to-troubleshoot-deployment.md)
+* [Pipelines d’apprentissage automatique](how-to-debug-pipelines.md)
+* [ParallelRunStep](how-to-debug-parallel-run-step.md)
+

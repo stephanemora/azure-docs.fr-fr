@@ -17,12 +17,12 @@ ms.topic: how-to
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b680c275b92340cc7efba187769cb17602b08b45
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 365c9a990f16e9077450ae15f6677ab716fc45ba
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95973284"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900448"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Installation de l’agent Azure AD Connect Health
 
@@ -283,6 +283,17 @@ Après avoir installé le fichier *setup.exe* de l’agent approprié, vous pouv
     Register-AzureADConnectHealthSyncAgent
 
 ```
+
+> [!NOTE]
+> Pour vous inscrire auprès de clouds souverains, utilisez les lignes de commande suivantes :
+>
+> ```powershell
+> Register-AzureADConnectHealthADFSAgent -UserPrincipalName upn-of-the-user
+> Register-AzureADConnectHealthADDSAgent -UserPrincipalName upn-of-the-user
+> Register-AzureADConnectHealthSyncAgent -UserPrincipalName upn-of-the-user
+> ```
+>
+
 
 Ces commandes acceptent `Credential` en tant que paramètre pour terminer l’inscription de manière non interactive ou pour terminer l’inscription sur un ordinateur qui exécute Server Core. N’oubliez pas les points suivants :
 * Vous pouvez capturer `Credential` dans une variable PowerShell qui est transmise en tant que paramètre.

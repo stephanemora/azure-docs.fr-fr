@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 06/25/2020
 ms.author: osamaz
-ms.openlocfilehash: 4f513da4e7883cd273098039c9c4a4645d849f0f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e13dc868512dba15c5b335c1774aaa540eef8157
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85515914"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861402"
 ---
 # <a name="azure-for-network-engineers"></a>Azure pour les ingénieurs réseau
 En tant qu’ingénieur réseau classique, vous avez eu affaire à des biens matériels tels que des routeurs, des commutateurs, des câbles et des pare-feu pour créer une infrastructure. Dans une couche logique, vous avez configuré le réseau local virtuel (VLAN), le protocole STP (Spanning Tree Protocol) et des protocoles de routage (RIP, OSPF, BGP). Vous avez géré votre réseau à l’aide d’outils de gestion et de l’interface CLI. La mise en réseau dans le cloud est différente lorsque les points de terminaison réseau sont logiques et que l’utilisation de protocoles de routage est minimale. Vous utiliserez l’API Azure Resource Manager, Azure CLI et PowerShell pour configurer et gérer des ressources dans Azure. Vous allez commencer votre parcours réseau dans le cloud en comprenant les tenants fondamentaux du réseau Azure. 

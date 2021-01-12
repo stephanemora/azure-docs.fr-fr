@@ -1,30 +1,29 @@
 ---
-title: Mise à l’échelle automatique des clusters Azure HDInsight
-description: Utilisez la fonction Azure HDInsight de mise à l’échelle automatique pour les clusters Apache Hadoop.
+title: Mettre à l’échelle automatiquement les clusters Azure HDInsight
+description: Utilisez la fonctionnalité de mise à l’échelle automatique pour mettre automatiquement à l’échelle les clusters Azure HDInsight en fonction d’une planification ou de métriques de performances.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: contperf-fy21q1
-ms.date: 09/14/2020
-ms.openlocfilehash: 09e4412128a3b13abfa91bf0c128372b30b3e686
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.custom: contperf-fy21q1, contperf-fy21q2
+ms.date: 12/14/2020
+ms.openlocfilehash: 2b23b4256e79723ce0b5edafd59186dc345eb791
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033134"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97629253"
 ---
-# <a name="autoscale-azure-hdinsight-clusters"></a>Mettre à l’échelle automatiquement des clusters Azure HDInsight
+# <a name="automatically-scale-azure-hdinsight-clusters"></a>Mettre à l’échelle automatiquement les clusters Azure HDInsight
 
-La fonctionnalité de mise à l’échelle automatique gratuite d’Azure HDInsight augmente ou diminue automatiquement le nombre de nœuds Worker dans votre cluster en fonction de critères définis au préalable. Vous définissez un nombre minimal et maximal de nœuds au moment de la création du cluster, vous établissez les critères de mise à l’échelle selon une planification quotidienne ou des métriques de performances spécifiques, et la plateforme HDInsight fait le reste.
+La fonctionnalité de mise à l’échelle automatique gratuite d’Azure HDInsight augmente ou diminue automatiquement le nombre de nœuds Worker dans votre cluster en fonction de critères définis au préalable. La fonctionnalité de mise à l’échelle automatique consiste à mettre à l’échelle le nombre de nœuds dans des limites prédéfinies, en fonction des métriques de performances ou d’une planification d’opérations de scale-up et de scale-down.
 
 ## <a name="how-it-works"></a>Fonctionnement
 
-La fonctionnalité de mise à l’échelle automatique utilise deux types de conditions pour déclencher des événements de mise à l’échelle : des seuils pour diverses métriques de performances de cluster (*mise à l’échelle basée sur la charge*) et des déclencheurs temporels (*mise à l’échelle basée sur la planification*). Une mise à l’échelle basée sur la charge modifie le nombre de nœuds dans votre cluster, selon une plage que vous définissez, pour assurer une utilisation optimale de l’UC et réduire les coûts d’exécution. La mise à l’échelle basée sur la planification change le nombre de nœuds dans votre cluster en fonction des opérations que vous associez à des dates et heures spécifiques.
+La fonctionnalité de mise à l’échelle automatique utilise deux types de conditions pour déclencher des événements de mise à l’échelle : des seuils pour diverses métriques de performances de cluster (*mise à l’échelle basée sur la charge*) et des déclencheurs temporels (*mise à l’échelle basée sur la planification*). Une mise à l’échelle basée sur la charge modifie le nombre de nœuds dans votre cluster, selon une plage que vous définissez, pour assurer une utilisation optimale de l’UC et réduire les coûts d’exécution. Une mise à l’échelle basée sur la planification change le nombre de nœuds de votre cluster en fonction d’une planification d’opérations de scale-up et de scale-down.
 
 La vidéo suivante fournit une vue d’ensemble des défis que la mise à l’échelle automatique permet de résoudre et comment elle peut vous aider à contrôler les coûts avec HDInsight.
-
 
 > [!VIDEO https://www.youtube.com/embed/UlZcDGGFlZ0?WT.mc_id=dataexposed-c9-niner]
 

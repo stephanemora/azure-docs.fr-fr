@@ -5,15 +5,15 @@ services: data-factory
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 11/19/2020
+ms.date: 01/05/2021
 ms.author: lle
 ms.reviewer: craigg
-ms.openlocfilehash: 51cb1a1a8151748fc9c6cd4c81da967424b52868
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: fac4f3029d783e9257d00466ddb9fc9741b0f5a2
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505152"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895646"
 ---
 # <a name="troubleshoot-azure-data-factory-security-and-access-control-issues"></a>Résoudre les problèmes de sécurité et de contrôle d’accès dans Azure Data Factory
 
@@ -151,6 +151,16 @@ Pour résoudre le problème, accédez à [Azure Private Link pour Azure Data Fac
 Essayez d’activer l’accès au réseau public sur l’interface utilisateur, comme illustré dans la capture d’écran suivante :
 
 ![Capture d’écran du contrôle « Activé » pour « Autoriser l’accès au réseau public » dans le volet Mise en réseau.](media/self-hosted-integration-runtime-troubleshoot-guide/enable-public-network-access.png)
+
+### <a name="pipeline-runtime-varies-when-basing-on-different-ir"></a>Le runtime du pipeline varie en fonction d’un autre runtime d'intégration
+
+#### <a name="symptoms"></a>Symptômes
+
+L’activation/désactivation de la liste déroulante Service lié dans le jeu de données effectue les mêmes activités de pipeline, mais avec des délais d’exécution radicalement différents. Lorsque le jeu de données est basé sur le runtime d'intégration de réseau virtuel géré, il faut plus de 2 minutes en moyenne pour terminer l’exécution, mais environ 20 secondes en fonction du runtime d'intégration par défaut.
+
+#### <a name="cause"></a>Cause
+
+Dans les détails des exécutions du pipeline, vous pouvez constater que le pipeline lent s’exécute sur le runtime d’intégration du réseau virtuel géré, alors que le pipeline normal s’exécute sur le runtime d'intégration Azure. De par sa conception, le runtime d'intégration du réseau virtuel géré prend plus de temps que le runtime d'intégration Azure car nous ne réservons aucun nœud de calcul par fabrique de données. Par conséquent, le démarrage de chaque activité de copie prend environ 2 minutes, ce qui se produit principalement à la jonction du réseau virtuel plutôt que dans le runtime d'intégration Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

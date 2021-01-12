@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: troubleshooting
 ms.date: 10/16/2019
 ms.author: charwen
-ms.openlocfilehash: f3c142491363f30513877ae4368f291430aa3675
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4f5d4b7fed8f14f048794616ee272342d1e8343
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85831928"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915553"
 ---
 # <a name="troubleshoot-azure-bastion"></a>Dépanner Azure Bastion
 
@@ -81,7 +81,7 @@ The key's randomart image is:
 
 ## <a name="black-screen-in-the-azure-portal"></a><a name="blackscreen"></a>Écran noir dans le portail Azure
 
-**Q :** Lorsque j’essaie de me connecter avec Azure Bastion, j’obtiens un écran noir dans le portail Azure.
+**Q :** Lorsque j’essaie de me connecter à l’aide d’Azure Bastion, je ne peux pas me connecter à la machine virtuelle cible et j’obtiens un écran noir dans le portail Azure.
 
 **R :** Cela se produit lorsqu’il y a un problème de connectivité réseau entre votre navigateur web et Azure Bastion (votre pare-feu Internet client peut bloquer le trafic WebSocket ou un problème similaire) ou entre Azure Bastion et votre machine virtuelle cible. La plupart des cas comprennent un groupe de sécurité réseau appliqué soit à AzureBastionSubnet, soit au sous-réseau de votre machine virtuelle cible qui bloque le trafic RDP/SSH dans votre réseau virtuel. Autorisez le trafic WebSocket sur le pare-feu Internet de votre client et vérifiez les groupes de sécurité réseau du sous-réseau de votre machine virtuelle cible.
 

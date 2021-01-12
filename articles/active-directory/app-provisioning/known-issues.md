@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 12/14/2020
+ms.date: 01/05/2021
 ms.reviewer: arvinh
-ms.openlocfilehash: 78e9d7355b8c96295456f8aa9cb80b1d3bdd2fab
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: bde5cecc4052724f795cac03f6efceb3451ea2ee
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509544"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97914346"
 ---
 # <a name="known-issues-application-provisioning"></a>Problèmes connus : Approvisionnement d’applications
 Problèmes connus à prendre en compte lors de l’utilisation de l’approvisionnement d’applications. Vous pouvez fournir des retours sur le service d’approvisionnement d’applications sur UserVoice ; voir [UserVoice pour l’approvisionnement d’applications Azure AD](https://aka.ms/appprovisioningfeaturerequest). Nous surveillons étroitement le service UserVoice pour améliorer le service. 
@@ -82,6 +82,10 @@ Le [temps](./application-provisioning-when-will-provisioning-finish-specific-use
 **Les modifications ne se déplacent pas de l’application cible vers Azure AD**
 
 Le service d’approvisionnement d’application n’a pas connaissance des modifications apportées aux applications externes. Par conséquent, aucune action n’est effectuée pour la restauration. Le service d’approvisionnement d’application s’appuie sur les modifications apportées à Azure AD. 
+
+**Le basculement de la synchronisation de tous les utilisateurs à la synchronisation des utilisateurs affectés ne fonctionne pas**
+
+Après avoir modifié l’étendue de « Synchroniser tous les utilisateur » en « Synchroniser les utilisateurs affectés », veillez à effectuer un redémarrage pour que le changement prenne effet. Vous pouvez effectuer le redémarrage à partir de l’interface utilisateur.
 
 **Le cycle d’approvisionnement continue jusqu’à la fin**
 

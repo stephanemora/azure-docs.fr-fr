@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/01/2020
 ms.author: NanditaV
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8f11f104e8d3d0a4f3a004ebe9f149cb4132d910
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: f8ebbdf70836f3f2613183268f03dc43da1f0671
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96501270"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590558"
 ---
 # <a name="create-a-workspace-with-data-exfiltration-protection-enabled"></a>Créer un espace de travail avec la protection contre l’exfiltration de données activée
 Cet article explique comment créer un espace de travail avec la protection contre l’exfiltration des données activée et comment gérer les locataires Azure AD approuvés pour cet espace de travail.
@@ -33,7 +33,7 @@ Suivez les étapes figurant dans [Démarrage rapide : Créer un espace de trava
 1. Sélectionnez « Oui » pour l’option « Autoriser le trafic de données sortantes uniquement vers les cibles approuvées ».
 1. Choisissez les locataires Azure AD approuvés pour cet espace de travail.
 1. Passez en revue la configuration et créez l’espace de travail.
-:::image type="content" source="./media/how-to-create-a-workspace-with-data-exfiltration-protection/workspace-creation-data-exfiltration-protection.png" alt-text="Créer un espace de travail avec la protection contre l’exfiltration de données":::
+:::image type="content" source="./media/how-to-create-a-workspace-with-data-exfiltration-protection/workspace-creation-data-exfiltration-protection.png" alt-text="Capture d’écran montrant la création d’un espace de travail Synapse, avec l’option « Activer le réseau virtuel managé » sélectionnée.":::
 
 ## <a name="manage-approved-azure-active-directory-tenants-for-the-workspace"></a>Gérer les locataires Azure Active Directory approuvés pour l’espace de travail
 1. À partir du Portail Azure de l’espace de travail, accédez à « Locataires Azure AD approuvés ». La liste des locataires Azure AD approuvés pour l’espace de travail est répertoriée ici. Le locataire de l’espace de travail est inclus par défaut et n’est pas répertorié.

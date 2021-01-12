@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/05/2020
-ms.openlocfilehash: 8fabf8169270c3162604b6535a6cf2fb07cd9a9d
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: dc19b95e891235ac35c703adef50a23a9f70fbdb
+ms.sourcegitcommit: 0830e02635d2f240aae2667b947487db01f5fdef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422142"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97706794"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Réplicas en lecture dans Azure Database pour PostgreSQL - Serveur unique
 
@@ -71,6 +71,8 @@ Chaque réplica est activé pour la [croissance automatique](concepts-pricing-ti
 La fonctionnalité de réplica en lecture utilise la réplication physique PostgreSQL, et non la réplication logique. Le streaming de réplication à l’aide des slots de réplication est le mode de fonctionnement par défaut. Quand cela est nécessaire, la copie des journaux de transaction permet de rattraper le retard.
 
 Découvrez comment [créer un réplica en lecture dans le portail Azure](howto-read-replicas-portal.md).
+
+Si votre serveur PostgreSQL source est chiffré avec des clés gérées par le client, consultez la [documentation](concepts-data-encryption-postgresql.md) pour obtenir des informations supplémentaires.
 
 ## <a name="connect-to-a-replica"></a>Se connecter à un réplica
 Lorsque vous créez un réplica, il n’hérite pas des règles de pare-feu ni du point de terminaison de service VNet (réseau virtuel) du serveur principal. Ces règles doivent être configurés indépendamment pour le réplica.

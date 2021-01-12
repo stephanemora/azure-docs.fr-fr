@@ -3,12 +3,12 @@ title: FAQ Azure DevTest Labs | Microsoft Docs
 description: Cet article fournit des réponses aux questions fréquemment posées (FAQ) sur Azure DevTest Labs.
 ms.topic: article
 ms.date: 07/17/2020
-ms.openlocfilehash: 1cbea3628d6c8c1b43766140d201ce46964a60b5
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 9fcdc160754822d5c6f22b7349d0e72f0cf22633
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92328383"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590271"
 ---
 # <a name="azure-devtest-labs-faq"></a>FAQ d’Azure DevTest Labs
 Obtenez des réponses aux questions les plus fréquemment posées sur Azure DevTest Labs.
@@ -70,14 +70,14 @@ DevTest Labs est un service gratuit. La création de laboratoires et la configur
 ### <a name="what-are-the-different-security-levels-in-devtest-labs"></a>Quels sont les différents niveaux de sécurité dans DevTest Labs ?
 L’accès à la sécurité est déterminé par le contrôle d’accès en fonction du rôle Azure (Azure RBAC). Pour savoir comment l’accès est déterminé, vous devez saisir les différences entre une autorisation, un rôle et une étendue tels que définis par Azure RBAC.
 
-- **Permission**  : Une autorisation est un accès défini pour une action spécifique. Par exemple, une autorisation peut être en lecture seule pour toutes les machines virtuelles.
-- **Rôle**  : Un rôle est un jeu d’autorisations qui peuvent être regroupées et attribuées à un utilisateur. Par exemple, un utilisateur détenteur du rôle propriétaire de l’abonnement a accès à toutes les ressources au sein d’un abonnement.
-- **Étendue**  : Une étendue est un niveau dans la hiérarchie d’une ressource Azure. Par exemple, une étendue peut être un groupe de ressources, un même laboratoire ou l’ensemble de l’abonnement.
+- **Permission** : Une autorisation est un accès défini pour une action spécifique. Par exemple, une autorisation peut être en lecture seule pour toutes les machines virtuelles.
+- **Rôle** : Un rôle est un jeu d’autorisations qui peuvent être regroupées et attribuées à un utilisateur. Par exemple, un utilisateur détenteur du rôle propriétaire de l’abonnement a accès à toutes les ressources au sein d’un abonnement.
+- **Étendue** : Une étendue est un niveau dans la hiérarchie d’une ressource Azure. Par exemple, une étendue peut être un groupe de ressources, un même laboratoire ou l’ensemble de l’abonnement.
 
 Dans l’étendue de DevTest Labs, il existe deux types de rôles qui définissent des autorisations utilisateur :
 
-- **Propriétaire de laboratoire**  : Un propriétaire de laboratoire a accès à toutes les ressources du laboratoire. Le propriétaire d’un laboratoire peut modifier les stratégies, lire et écrire sur toutes les machines virtuelles, changer le réseau virtuel et ainsi de suite.
-- **Utilisateur de laboratoire**  : Un utilisateur de laboratoire peut afficher toutes les ressources de laboratoire, telles que les machines virtuelles, les stratégies et les réseaux virtuels. Cependant, il ne peut pas modifier les stratégies ou les machines virtuelles créées par d’autres utilisateurs.
+- **Propriétaire de laboratoire** : Un propriétaire de laboratoire a accès à toutes les ressources du laboratoire. Le propriétaire d’un laboratoire peut modifier les stratégies, lire et écrire sur toutes les machines virtuelles, changer le réseau virtuel et ainsi de suite.
+- **Utilisateur de laboratoire** : Un utilisateur de laboratoire peut afficher toutes les ressources de laboratoire, telles que les machines virtuelles, les stratégies et les réseaux virtuels. Cependant, il ne peut pas modifier les stratégies ou les machines virtuelles créées par d’autres utilisateurs.
 
 Vous pouvez également créer des rôles personnalisés dans DevTest Labs. Pour découvrir comment créer des rôles personnalisés dans DevTest Labs, consultez [Accorder des autorisations à des utilisateurs sur des stratégies de laboratoire spécifiques](devtest-lab-grant-user-permissions-to-specific-lab-policies.md).
 
@@ -92,13 +92,13 @@ Un sous-ensemble d’utilisateurs peut nécessiter un accès à un abonnement, c
 
 La ressource DevTest Labs doit appartenir à des propriétaires proches de l’équipe de projet/d’application, car ils comprennent leurs exigences en matière de machines et de logiciels requis. Dans la plupart des organisations, le propriétaire de cette ressource DevTest Labs est souvent le responsable de projet/développement. Ce propriétaire peut gérer les utilisateurs et les stratégies dans l’environnement de laboratoire, ainsi que toutes les machines virtuelles dans l’environnement DevTest Labs.
 
-Les membres de l’équipe de projet/d’application doivent être ajoutés au rôle **Utilisateur de DevTest Labs** . Ces utilisateurs peuvent créer des machines virtuelles (alignées sur les stratégies du laboratoire et de l’abonnement). Ils peuvent également gérer leurs propres machines virtuelles. Ils ne peuvent pas gérer les machines virtuelles qui appartiennent à d’autres utilisateurs.
+Les membres de l’équipe de projet/d’application doivent être ajoutés au rôle **Utilisateur de DevTest Labs**. Ces utilisateurs peuvent créer des machines virtuelles (alignées sur les stratégies du laboratoire et de l’abonnement). Ils peuvent également gérer leurs propres machines virtuelles. Ils ne peuvent pas gérer les machines virtuelles qui appartiennent à d’autres utilisateurs.
 
 Pour plus d’informations, consultez la documentation [Structure d’entreprise Azure : gouvernance normative de l’abonnement](/azure/architecture/cloud-adoption/appendix/azure-scaffold).
 
 
 ### <a name="how-do-i-create-a-role-to-allow-users-to-do-a-specific-task"></a>Comment faire pour créer un rôle pour permettre aux utilisateurs d’effectuer une tâche spécifique ?
-Pour savoir comment créer des rôles personnalisés et assigner des autorisations à un rôle, consultez l’article complet [Accorder des autorisations à des utilisateurs sur des stratégies de laboratoire spécifiques](devtest-lab-grant-user-permissions-to-specific-lab-policies.md). Voici un exemple de script qui crée le rôle **Utilisateur avancé DevTest Labs** , qui a l’autorisation de démarrer et d’arrêter toutes les machines virtuelles dans le laboratoire :
+Pour savoir comment créer des rôles personnalisés et assigner des autorisations à un rôle, consultez l’article complet [Accorder des autorisations à des utilisateurs sur des stratégies de laboratoire spécifiques](devtest-lab-grant-user-permissions-to-specific-lab-policies.md). Voici un exemple de script qui crée le rôle **Utilisateur avancé DevTest Labs**, qui a l’autorisation de démarrer et d’arrêter toutes les machines virtuelles dans le laboratoire :
 
 
 ```powershell
@@ -170,7 +170,7 @@ Nous vous recommandons de définir des autorisations appropriées au niveau du l
 ### <a name="how-do-i-share-a-direct-link-to-my-lab"></a>Comment partager un lien direct vers mon laboratoire ?
 
 1. Dans le [Portail Microsoft Azure](https://portal.azure.com), accédez au laboratoire.
-2. Copiez l’ **URL du laboratoire** dans votre navigateur, puis partagez-la avec les utilisateurs de votre laboratoire.
+2. Copiez l’**URL du laboratoire** dans votre navigateur, puis partagez-la avec les utilisateurs de votre laboratoire.
 
 > [!NOTE]
 > Si un utilisateur du laboratoire est un utilisateur externe qui a un compte Microsoft, mais qui n’est pas membre de l’instance Active Directory de votre organisation, il peut voir un message d’erreur quand il tente d’accéder au lien partagé. Si un utilisateur externe voit un message d’erreur, demandez-lui de sélectionner d’abord son nom dans le coin supérieur droit du portail Azure. Ensuite, dans la section Annuaire du menu, l’utilisateur peut sélectionner l’annuaire où se trouve le laboratoire.
@@ -178,7 +178,7 @@ Nous vous recommandons de définir des autorisations appropriées au niveau du l
 ## <a name="virtual-machines"></a>Machines virtuelles
 
 ### <a name="why-cant-i-see-vms-on-the-virtual-machines-page-that-i-see-in-devtest-labs"></a>Pourquoi ne puis-je pas voir certaines machines virtuelles dans la page Machines virtuelles alors que je peux les voir dans DevTest Labs ?
-Quand vous créez une machine virtuelle dans DevTest Labs, l’autorisation d’accéder à cette machine virtuelle vous est accordée. Vous pouvez voir la machine virtuelle à la fois dans la page Laboratoires et dans la page **Machines virtuelles** . Les utilisateurs assignés au rôle **DevTest Labs Owner** (Propriétaire DevTest Labs) peuvent voir toutes les machines virtuelles qui ont été créées dans le laboratoire dans la page panneau **All Virtual Machines** (Toutes les machines virtuelles) du laboratoire. Toutefois, les utilisateurs détenteurs du rôle **DevTest Labs User** (Utilisateur de laboratoire DevTest Labs) ne reçoivent pas automatiquement l’accès en lecture aux ressources des machines virtuelles créées par d’autres utilisateurs. Ainsi, ces machines virtuelles ne sont pas affichées dans la page **Machines virtuelles** .
+Quand vous créez une machine virtuelle dans DevTest Labs, l’autorisation d’accéder à cette machine virtuelle vous est accordée. Vous pouvez voir la machine virtuelle à la fois dans la page Laboratoires et dans la page **Machines virtuelles**. Les utilisateurs assignés au rôle **DevTest Labs Owner** (Propriétaire DevTest Labs) peuvent voir toutes les machines virtuelles qui ont été créées dans le laboratoire dans la page panneau **All Virtual Machines** (Toutes les machines virtuelles) du laboratoire. Toutefois, les utilisateurs détenteurs du rôle **DevTest Labs User** (Utilisateur de laboratoire DevTest Labs) ne reçoivent pas automatiquement l’accès en lecture aux ressources des machines virtuelles créées par d’autres utilisateurs. Ainsi, ces machines virtuelles ne sont pas affichées dans la page **Machines virtuelles**.
 
 
 ### <a name="how-do-i-create-multiple-vms-from-the-same-template-at-once"></a>Comment puis-je créer plusieurs machines virtuelles à partir du même modèle en une seule fois ?
@@ -278,10 +278,10 @@ Pour automatiser le chargement des fichiers de VHD afin de créer des images per
 Pour trouver le compte de stockage de destination associé à votre laboratoire :
 
 1.  Connectez-vous au [portail Azure](https://portal.azure.com).
-2.  Dans le menu de gauche, sélectionnez **Groupes de ressources** .
+2.  Dans le menu de gauche, sélectionnez **Groupes de ressources**.
 3.  Recherchez et sélectionnez le groupe de ressources associé à votre laboratoire.
-4.  Sous **Vue d’ensemble** , sélectionnez l’un des comptes de stockage.
-5.  Sélectionnez **Objets Blob** .
+4.  Sous **Vue d’ensemble**, sélectionnez l’un des comptes de stockage.
+5.  Sélectionnez **Objets Blob**.
 6.  Recherchez les téléchargements dans la liste. S’il n’y en a aucun, revenez à l’étape 4 et essayez un autre compte de stockage.
 7.  Utilisez **l’URL** en tant que destination dans votre commande AzCopy.
 
@@ -318,7 +318,7 @@ Dans le cadre de la stratégie générale de gouvernance et de la gestion des co
 - Associez Azure Repos au même locataire Azure Active Directory que celui utilisé par l’abonnement Azure pour l’authentification et l’autorisation.
 - Créez un groupe nommé `All DevTest Labs Developers` dans Azure Active Directory qui est managé de manière centralisée. Tous les développeurs qui contribuent au développement d’artefacts doivent être placés dans ce groupe.
 - Le même groupe Azure Active Directory peut être utilisé pour donner accès au dépôt Azure Repos et au lab.
-- Dans Azure Repos, la création de branches ou la duplication doit permettre de séparer un dépôt de développement du dépôt de production principal. Le contenu n’est ajouté à la branche maître qu’avec une requête d’extraction après un examen approprié du code. Une fois la modification approuvée par l’examinateur du code, le code actualisé est fusionné par un développeur principal responsable de la maintenance de la branche maître.
+- Dans Azure Repos, la création de branches ou la duplication doit permettre de séparer un dépôt de développement du dépôt de production principal. Le contenu n’est ajouté à la branche primaire qu’avec une requête d’extraction après un examen approprié du code. Une fois la modification approuvée par l’examinateur du code, le code actualisé est fusionné par un développeur principal responsable de la maintenance de la branche primaire.
 
 ## <a name="cicd-integration"></a>Intégration CI/CD
 
@@ -359,8 +359,8 @@ Si vous utilisez des adresses IP publiques partagées, les machines virtuelles d
 
 Oui. Deux aspects sont à prendre en compte : le trafic entrant et le trafic sortant.
 
-- **Trafic entrant**  : si la machine virtuelle n’a pas d’adresse IP publique, elle n’est pas accessible par Internet. L’approche la plus courant consiste à définir une stratégie par abonnement, pour qu’aucun utilisateur ne puisse créer une adresse IP publique.
-- **Trafic sortant**  : pour éviter que les machines virtuelles accèdent directement à l’Internet public et forcer le trafic à passer par un pare-feu d’entreprise, vous pouvez acheminer le trafic localement via ExpressRoute ou un VPN, en utilisant le routage forcé.
+- **Trafic entrant** : si la machine virtuelle n’a pas d’adresse IP publique, elle n’est pas accessible par Internet. L’approche la plus courant consiste à définir une stratégie par abonnement, pour qu’aucun utilisateur ne puisse créer une adresse IP publique.
+- **Trafic sortant** : pour éviter que les machines virtuelles accèdent directement à l’Internet public et forcer le trafic à passer par un pare-feu d’entreprise, vous pouvez acheminer le trafic localement via ExpressRoute ou un VPN, en utilisant le routage forcé.
 
 > [!NOTE]
 > Si vous avez un serveur proxy qui bloque le trafic sans paramètres proxy, n’oubliez pas d’ajouter des exceptions dans le compte de stockage d’artefacts du labo.
@@ -373,14 +373,14 @@ Vous pouvez également utiliser des groupes de sécurité réseau pour les machi
 Il se peut que votre nom de réseau virtuel contienne des points. Dans ce cas, essayez de supprimer les points ou de les remplacer par des traits d’union. Ensuite, réessayez d’enregistrer le réseau virtuel.
 
 ### <a name="why-do-i-get-a-parent-resource-not-found-error-when-i-provision-a-vm-from-powershell"></a>Pourquoi l’erreur signalant que la ressource parente est introuvable s’affiche-t-elle quand j’approvisionne une machine virtuelle à partir de PowerShell ?
-Quand une ressource est parent d’une autre ressource, la ressource parente doit exister pour que vous puissiez créer la ressource enfant. Si la ressource parente n’existe pas, vous voyez un message **ParentResourceNotFound** . Si vous ne spécifiez pas de dépendance sur la ressource parente, la ressource enfant peut être déployée avant cette dernière.
+Quand une ressource est parent d’une autre ressource, la ressource parente doit exister pour que vous puissiez créer la ressource enfant. Si la ressource parente n’existe pas, vous voyez un message **ParentResourceNotFound**. Si vous ne spécifiez pas de dépendance sur la ressource parente, la ressource enfant peut être déployée avant cette dernière.
 
 Les machines virtuelles sont des ressources enfants se trouvant dans un laboratoire d’un groupe de ressources. Quand vous utilisez des modèles Resource Manager pour déployer des machines virtuelles à l’aide de PowerShell, le nom du groupe de ressources fourni dans le script PowerShell doit être le nom du groupe de ressources du laboratoire. Pour plus d’informations, consultez la rubrique [Résolution des erreurs courantes dans des déploiements Azure](../azure-resource-manager/templates/common-deployment-errors.md).
 
 ### <a name="where-can-i-find-more-error-information-if-a-vm-deployment-fails"></a>Où puis-je trouver plus d’informations d’erreur si le déploiement d’une machine virtuelle échoue ?
 Les erreurs de déploiement de machine virtuelle sont capturées dans des journaux d’activité. Vous pouvez trouver les journaux d’activité des machines virtuelles du laboratoire sous **Journaux d’audit** ou **Diagnostics de machine virtuelle** dans le menu de la ressource dans la page Machine virtuelle du laboratoire (la page s’affiche une fois que vous sélectionnez la machine virtuelle dans la liste Mes machines virtuelles).
 
-Parfois, l’erreur de déploiement se produit avant que ne commence le déploiement de la machine virtuelle. C’est par exemple le cas quand la limite d’abonnement pour une ressource qui a été créée avec la machine virtuelle est dépassée. Dans ce cas, les détails de l’erreur sont capturés dans les journaux d’activité au niveau du laboratoire. Les journaux d’activité sont situés en bas des paramètres **Configuration et stratégies** . Pour plus d’informations sur l’utilisation des journaux d’activité dans Azure, consultez [Afficher les journaux d’activité pour auditer les actions sur les ressources](../azure-resource-manager/management/view-activity-logs.md).
+Parfois, l’erreur de déploiement se produit avant que ne commence le déploiement de la machine virtuelle. C’est par exemple le cas quand la limite d’abonnement pour une ressource qui a été créée avec la machine virtuelle est dépassée. Dans ce cas, les détails de l’erreur sont capturés dans les journaux d’activité au niveau du laboratoire. Les journaux d’activité sont situés en bas des paramètres **Configuration et stratégies**. Pour plus d’informations sur l’utilisation des journaux d’activité dans Azure, consultez [Afficher les journaux d’activité pour auditer les actions sur les ressources](../azure-resource-manager/management/view-activity-logs.md).
 
 ### <a name="why-do-i-get-location-is-not-available-for-resource-type-error-when-trying-to-create-a-lab"></a>Pourquoi l’erreur « L’emplacement n’est pas disponible pour le type de ressource » s’affiche-t-elle quand j’essaie de créer un laboratoire ?
 Un message d’erreur semblable au suivant peut s’afficher lorsque vous essayez de créer un laboratoire :

@@ -1,29 +1,26 @@
 ---
-title: Implémenter la confidentialité différentielle avec le package WhiteNoise (version préliminaire)
+title: Implémenter la confidentialité différentielle avec le package SmartNoise (préversion)
 titleSuffix: Azure Machine Learning
-description: Découvrez ce qu’est la confidentialité différentielle et comment le package WhiteNoise peut vous aider à implémenter des systèmes privés différentiels qui préservent la confidentialité des données.
+description: Découvrez ce qu’est la confidentialité différentielle et comment le package SmartNoise peut vous aider à implémenter des systèmes privés différentiels qui préservent la confidentialité des données.
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 07/09/2020
+ms.date: 12/21/2020
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.openlocfilehash: 9728bf2c86c0629b09e2325650ce288cf9b3cc7e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 307786c0df744751122487b8c931d0e9572d5f22
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86199795"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97723488"
 ---
-# <a name="preserve-data-privacy-by-using-differential-privacy-and-the-whitenoise-package-preview"></a>Préserver la confidentialité des données en utilisant la confidentialité différentielle et le package WhiteNoise (version préliminaire)
+# <a name="preserve-data-privacy-by-using-differential-privacy-and-the-smartnoise-package-preview"></a>Préserver la confidentialité des données en utilisant la confidentialité différentielle et le package SmartNoise (préversion)
 
-Découvrez ce qu’est la confidentialité différentielle et comment le package WhiteNoise peut vous aider à implémenter des systèmes offrant une confidentialité différentielle.
+Découvrez ce qu’est la confidentialité différentielle et comment le package SmartNoise peut vous aider à implémenter des systèmes de confidentialité différentielle.
 
 Les préoccupations liées à la confidentialité et à la sécurité augmentent à mesure qu’augmente la quantité de données qu’une organisation collecte et utilise à des fins d’analyse. Les analyses requièrent des données. En règle générale, plus il y a de données utilisées pour effectuer l’apprentissage des modèles, plus ceux-ci sont précis. Lorsque des informations personnelles sont utilisées pour ces analyses, il est particulièrement important que les données restent confidentielles tout au long de leur utilisation.
-
-> [!NOTE]
-> Veuillez noter que nous allons renommer le kit de ressources et que nous présenterons le nouveau nom dans les semaines à venir. 
 
 ## <a name="how-differential-privacy-works"></a>Fonctionnement de la confidentialité différentielle
 
@@ -54,10 +51,10 @@ Même si la préservation de la confidentialité doit être l’objectif, il exi
 
 ## <a name="implementing-differentially-private-systems"></a>Implémentation de systèmes de confidentialité différentielle
 
-L’implémentation de systèmes de confidentialité différentielle est difficile. WhiteNoise est un projet open source contenant différents composants pour la création de systèmes globaux assortis d’une confidentialité différentielle. WhiteNoise est constitué des composants de niveau supérieur suivants :
+L’implémentation de systèmes de confidentialité différentielle est difficile. SmartNoise est un projet open source contenant différents composants pour la création de systèmes globaux assortis d’une confidentialité différentielle. SmartNoise est constitué des composants de niveau supérieur suivants :
 
-- Core
-- Système
+- Base
+- Kit SDK
 
 ### <a name="core"></a>Core
 
@@ -68,9 +65,9 @@ La bibliothèque principale comprend les mécanismes de confidentialité suivant
 |Analyse     | Description graphique des calculs arbitraires. |
 |Validateur     | Bibliothèque Rust contenant un ensemble d’outils permettant de vérifier et dériver les conditions nécessaires pour qu’une analyse bénéficie d’une confidentialité différentielle.          |
 |Runtime     | Moyen d’exécuter l’analyse. Le runtime de référence est écrit en Rust, mais vous pouvez écrire des runtimes à l’aide de n’importe quelle infrastructure de calcul telle que SQL ou Spark, en fonction de vos besoins en matière de données.        |
-|Liaisons     | Liaisons de langage et bibliothèques d’assistance pour générer des analyses. Actuellement, WhiteNoise fournit des liaisons Python. |
+|Liaisons     | Liaisons de langage et bibliothèques d’assistance pour générer des analyses. Actuellement, SmartNoise fournit des liaisons Python. |
 
-### <a name="system"></a>Système
+### <a name="sdk"></a>Kit SDK
 
 La bibliothèque système fournit les outils et services suivants pour travailler avec des données tabulaires et relationnelles :
 
@@ -84,4 +81,4 @@ La bibliothèque système fournit les outils et services suivants pour travaille
 
 [Préserver la confidentialité des données](how-to-differential-privacy.md) dans Azure Machine Learning.
 
-Pour en savoir plus sur les composants de WhiteNoise, consultez les référentiels GitHub pour [Package principal WhiteNoise](https://github.com/opendifferentialprivacy/whitenoise-core), [Package système WhiteNoise](https://github.com/opendifferentialprivacy/whitenoise-system) et [Exemples WhiteNoise](https://github.com/opendifferentialprivacy/whitenoise-samples) (disponibles en anglais uniquement).
+Pour en savoir plus sur les composants de SmartNoise, consultez les dépôts GitHub et recherchez le [package principal SmartNoise](https://github.com/opendifferentialprivacy/smartnoise-core), le [kit SDK SmartNoise](https://github.com/opendifferentialprivacy/smartnoise-sdk) et des [exemples SmartNoise](https://github.com/opendifferentialprivacy/smartnoise-samples).

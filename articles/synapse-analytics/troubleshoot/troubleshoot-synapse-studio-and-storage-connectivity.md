@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: xujiang1
 ms.reviewer: jrasnick
-ms.openlocfilehash: cee6d030a9639a7203a32a3c0957733cecb1f8b6
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 8cf440a517c1a3496b3df438fdd0d2534609908f
+ms.sourcegitcommit: a89a517622a3886b3a44ed42839d41a301c786e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96445321"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97733108"
 ---
 # <a name="troubleshoot-connectivity-between-azure-synapse-analytics-synapse-studio-and-storage"></a>Résoudre les problèmes de connectivité entre Azure Synapse Analytics Synapse Studio et Stockage
 
@@ -24,7 +24,11 @@ Si votre compte de stockage ne dispose pas des autorisations appropriées, vous 
 
 Le message d’erreur détaillé peut varier, mais la signification générale du message d’erreur est celle-ci : « Cette requête n’est pas autorisée à effectuer cette opération. »
 
-![Problème de connectivité de stockage 1](media/troubleshoot-synapse-studio-and-storage-connectivity/storage-connectivity-issue.1.png)
+Dans le nœud de stockage lié :  
+![Problème de connectivité de stockage 1](media/troubleshoot-synapse-studio-and-storage-connectivity/storage-connectivity-issue-1.png)
+
+Dans le nœud de conteneur de stockage :  
+![Problème de connectivité de stockage 1a](media/troubleshoot-synapse-studio-and-storage-connectivity/storage-connectivity-issue-1a.png)
 
 **SOLUTION** : Pour affecter votre compte au rôle approprié, consultez [Utiliser le portail Azure afin d’attribuer un rôle Azure pour l’accès aux données blob et de file d’attente](../../storage/common/storage-auth-aad-rbac-portal.md).
 
@@ -33,7 +37,11 @@ Le message d’erreur détaillé peut varier, mais la signification générale d
 
 Quand vous sélectionnez la flèche pour développer la structure de stockage dans « Données » --> « Lié » dans Synapse Studio, le problème « REQUEST_SEND_ERROR » peut s’afficher dans le volet gauche. Voir la capture d’écran des symptômes du problème ci-dessous :
 
-![Problème de connectivité de stockage 2](media/troubleshoot-synapse-studio-and-storage-connectivity/storage-connectivity-issue.2.png)
+Dans le nœud de stockage lié :  
+![Problème de connectivité de stockage 2](media/troubleshoot-synapse-studio-and-storage-connectivity/storage-connectivity-issue-2.png)
+
+Dans le nœud de conteneur de stockage :  
+![Problème de connectivité de stockage 2a](media/troubleshoot-synapse-studio-and-storage-connectivity/storage-connectivity-issue-2a.png)
 
 Plusieurs raisons peuvent être à l’origine de ce problème :
 
@@ -51,6 +59,7 @@ Vous pouvez utiliser la commande « nslookup \<storage-account-name\>.dfs.core.
 
 * La ressource de stockage à laquelle vous accédez est Azure Data Lake Storage Gen2 et se trouve derrière un pare-feu et un réseau virtuel (avec un point de terminaison privé de stockage configuré) en même temps.
 * La ressource conteneur à laquelle vous accédez a été supprimée ou n’existe pas.
+* Locataire de croisement : le locataire d’espace de travail que l’utilisateur a utilisé pour se connecter n’est pas le même que le locataire du compte de stockage. 
 
 
 ## <a name="next-steps"></a>Étapes suivantes

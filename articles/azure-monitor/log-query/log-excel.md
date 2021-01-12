@@ -6,16 +6,16 @@ ms.topic: conceptual
 author: roygalMS
 ms.author: roygal
 ms.date: 11/03/2020
-ms.openlocfilehash: d903d1bb16ba3576d0092979f1cc6b82fac1c0be
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 6fa181a35c46ed16e4e8c1884e66c54984c418ca
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94507375"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97703447"
 ---
 # <a name="integrate-log-analytics-and-excel"></a>Intégrer Log Analytics et Excel
 
-Vous pouvez intégrer Azure Monitor Log Analytics et Microsoft Excel à l’aide d’une requête M et de l’API Log Analytics.  Cette intégration vous permet d’envoyer 500 000 enregistrements à Excel.
+Vous pouvez intégrer Azure Monitor Log Analytics et Microsoft Excel à l’aide d’une requête M et de l’API Log Analytics. Cette intégration vous permet d’envoyer jusqu’à 500 000 enregistrements à Excel, à condition que le volume total des résultats ne dépasse pas 61 Mio.
 
 > [!NOTE]
 > Excel étant une application cliente locale, les limitations matérielles et logicielles locales ont un impact sur ses performances et sa capacité à traiter de grands ensembles de données.
@@ -97,6 +97,9 @@ Pour importer la requête.
  
 
    :::image type="content" source="media/log-excel/excel-query-result.png" alt-text="Résultats de la requête dans Excel" border="true":::
+
+> [!Note]
+> Si le nombre d’enregistrements est inférieur à ce qui est attendu, le volume des résultats peut dépasser la limite des 61 Mio. Essayez d’utiliser `project` ou `project-away` dans votre requête pour limiter les colonnes à celle dont vous avez besoin.
 
 ##  <a name="refreshing--data"></a>Actualisation des données
 

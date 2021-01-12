@@ -5,12 +5,13 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: article
-ms.openlocfilehash: 536f5e7d2fa12d1f9a9f09a31b463d2096dcad37
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.custom: references_regions
+ms.openlocfilehash: 4380f14610fb0775c82aa79ec7cda9dc70cf0715
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207408"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97722689"
 ---
 # <a name="system-requirements"></a>Configuration système requise
 
@@ -64,7 +65,32 @@ Consultez le chapitre dédié à la [configuration réseau requise](../reference
 
 Pour résoudre les problèmes de réseau, reportez-vous au [Guide de résolution des problèmes](../resources/troubleshoot.md#unstable-holograms).
 
-### <a name="network-ports"></a>Ports réseau
+### <a name="network-firewall"></a>Pare-feu réseau
+
+### <a name="sdk-version--0176"></a>Version du kit SDK >= 0.1.76
+
+Les machines virtuelles de rendu distant utilisent des adresses IP partagées issues des plages d’adresses IP suivantes :
+
+| Nom             | Région         | Préfixe IP         |
+|------------------|:---------------|:------------------|
+| Australie Est   | australiaeast  | 20.53.44.240/28   |
+| USA Est          | eastus         | 20.62.129.224/28  |
+| USA Est 2        | eastus2        | 20.49.103.240/28  |
+| Japon Est       | japaneast      | 20.191.165.112/28 |
+| Europe Nord     | northeurope    | 52.146.133.64/28  |
+| États-Unis - partie centrale méridionale | southcentralus | 20.65.132.80/28   |
+| Asie Sud-Est   | southeastasia  | 20.195.64.224/28  |
+| Sud du Royaume-Uni         | uksouth        | 51.143.209.144/28 |
+| Europe Ouest      | westeurope     | 20.61.99.112/28   |
+| USA Ouest 2        | westus2        | 20.51.9.64/28     |
+
+Veillez à ce que vos pare-feu (sur l’appareil, dans les routeurs, etc.) ne bloquent pas ces plages d’adresses IP ni les plages de ports suivantes :
+
+| Port              | Protocol  | Allow    |
+|-------------------|---------- |----------|
+| 49152-65534       | TCP / UDP | Sortant |
+
+#### <a name="sdk-version--0176"></a>Version du kit SDK < 0.1.76
 
 Vérifiez que vos pare-feu (sur l’appareil, dans les routeurs, etc.) ne bloquent pas les ports suivants :
 

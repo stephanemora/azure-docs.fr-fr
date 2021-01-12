@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: reference
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 72d7a40c38f3629a70260f223074b456dff9ce38
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 3ae3e12c11f194b3efcc149382dc952bd74d38b5
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182833"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704314"
 ---
 # <a name="microsoft-azure-attestation-troubleshooting-guide"></a>Guide de résolution des problèmes Microsoft Azure Attestation
 
@@ -280,7 +280,7 @@ Pour continuer à interagir avec PowerShell Gallery, exécutez la commande suiva
 Utilisateur affecté aux rôles appropriés, mais faisant face à des problèmes d’autorisation lors de la gestion des stratégies d’attestation via PowerShell.
 
 ### <a name="error"></a>Error
-Le client ayant l’ID d’objet <object Id> n’a pas l’autorisation d’effectuer l’action Microsoft.Authorization/roleassignments/write sur l’étendue « subcriptions/<subscriptionId>resourcegroups/secure_enclave_poc/providers/Microsoft.Authorization/roleassignments/<role assignmentId> », ou l’étendue n’est pas valide. Si l’accès a été accordé récemment, actualisez vos informations d’identification.
+Le client doté de l’ID d’objet &lt;object Id&gt; n’a pas l’autorisation d’effectuer l’action Microsoft.Authorization/roleassignments/write over scope ‘subcriptions/&lt;subscriptionId&gt;resourcegroups/secure_enclave_poc/providers/Microsoft.Authorization/roleassignments/&lt;role assignmentId&gt;’ ou l’étendue est non valide. Si l’accès a été accordé récemment, actualisez vos informations d’identification.
 
 ### <a name="troubleshooting-steps"></a>Étapes de dépannage
 

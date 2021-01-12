@@ -8,19 +8,18 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 1cefb5a7b554b9a477f6a51eab3b22b0e8f55378
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 691cbd79e82432c8e919dcbb51642a76000296dc
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88958420"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607607"
 ---
 # <a name="troubleshoot-domain-and-tlsssl-certificate-problems-in-azure-app-service"></a>Résoudre les problèmes de domaine et TLS/SSL dans Azure App Service
 
 Cet article liste les problèmes courants que vous êtes susceptible de rencontrer au moment de configurer un certificat de domaine ou TLS/SSL pour vos applications web dans Azure App Service. Il décrit également les causes possibles et les solutions à ces problèmes.
 
 Si vous avez besoin d’une aide supplémentaire à quelque étape que ce soit dans cet article, vous pouvez contacter les experts Azure sur les [forums MSDN et Stack Overflow](https://azure.microsoft.com/support/forums/). Vous pouvez également signaler un incident au support Azure. Accédez au [site du support Azure](https://azure.microsoft.com/support/options/), puis sélectionnez **Obtenir un support**.
-
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -120,7 +119,7 @@ Le navigateur Internet met peut-être en cache l’ancienne adresse IP de votre 
 
 **Solution pour la cause 2**
 
-Effacez le cache du navigateur. Pour les appareils Windows, vous pouvez exécuter la commande `ipconfig /flushdns`. Utilisez [WhatsmyDNS.net](https://www.whatsmydns.net/) pour vérifier que votre domaine pointe vers l’adresse IP de l’application. 
+Effacez le cache du navigateur. Pour les appareils Windows, vous pouvez exécuter la commande `ipconfig /flushdns`. Utilisez [WhatsmyDNS.net](https://www.whatsmydns.net/) pour vérifier que votre domaine pointe vers l’adresse IP de l’application.
 
 ### <a name="you-cant-add-a-subdomain"></a>Vous n’arrivez pas à ajouter un sous-domaine 
 
@@ -185,7 +184,7 @@ Le certificat App Service a été renouvelé, mais l’application qui l’utili
 
 #### <a name="cause"></a>Cause 
 App Service synchronise automatiquement votre certificat sous 48 heures. Lorsque vous assurez la rotation ou la mise à jour d’un certificat, il arrive que l’application récupère toujours l’ancien certificat et non le certificat qui vient d’être mis à jour. Cela est dû au fait que le travail de synchronisation de la ressource de certificat n’a pas encore été exécuté. Cliquez sur Synchroniser. L’opération de synchronisation met à jour automatiquement les liaisons de nom d’hôte pour le certificat dans App Service sans perturber le fonctionnement de vos applications.
- 
+
 #### <a name="solution"></a>Solution
 
 Vous pouvez forcer une synchronisation du certificat :
@@ -201,17 +200,17 @@ Le certificat App Service requiert une vérification du domaine avant que le cer
 
 #### <a name="solution"></a>Solution
 Vérifiez manuellement votre domaine en ajoutant un enregistrement TXT :
- 
-1.  Accédez au fournisseur de service de noms de domaine (DNS) qui héberge votre nom de domaine.
-2.  Ajoutez à votre domaine un enregistrement TXT qui utilise la valeur du jeton de domaine affiché dans le portail Azure. 
+
+1. Accédez au fournisseur de service de noms de domaine (DNS) qui héberge votre nom de domaine.
+1. Ajoutez à votre domaine un enregistrement TXT qui utilise la valeur du jeton de domaine affiché dans le portail Azure. 
 
 Patientez quelques minutes pendant la propagation DNS, puis sélectionnez le bouton **Actualiser** pour déclencher la vérification. 
 
 En guise d’alternative, vous pouvez utiliser la méthode de la page web HTML pour vérifier manuellement votre domaine. Cette méthode peut être utilisée pour permettre à l'autorité de certification de vérifier la propriété du domaine pour lequel le certificat est émis.
 
-1.  Créez un fichier HTML nommé {Jeton de vérification du domaine}.html. Le contenu de ce fichier doit être la valeur du jeton de vérification du domaine.
-3.  Chargez ce fichier à la racine du serveur web qui héberge votre domaine.
-4.  Sélectionnez **Actualiser** pour vérifier l’état du certificat. Cette vérification peut prendre quelques minutes.
+1. Créez un fichier HTML nommé {Jeton de vérification du domaine}.html. Le contenu de ce fichier doit être la valeur du jeton de vérification du domaine.
+1. Chargez ce fichier à la racine du serveur web qui héberge votre domaine.
+1. Sélectionnez **Actualiser** pour vérifier l’état du certificat. Cette vérification peut prendre quelques minutes.
 
 Par exemple, si vous achetez un certificat standard pour azure.com avec le jeton de vérification du domaine 1234abcd, une requête web effectuée auprès de https://azure.com/1234abcd.html doit retourner 1234abcd. 
 
@@ -288,7 +287,7 @@ Si le renouvellement automatique est activé, vous n’avez aucune action suppl�
 
 Le coût initial de l’achat du domaine concerne l’inscription du domaine uniquement. En plus du coût d’inscription, il y a des frais pour Azure DNS en fonction de votre utilisation. Pour plus d’informations, consultez la [tarification d’Azure DNS](https://azure.microsoft.com/pricing/details/dns/).
 
-**J’ai acheté un domaine il y a peu depuis le portail Azure et je souhaite passer d’un hébergement par GoDaddy à un hébergement par Azure DNS. Comment procéder ?**
+**J’ai acheté un domaine il y a peu depuis le portail Azure et je souhaite passer d’un hébergement par GoDaddy à un hébergement par Azure DNS. Comment procéder ?**
 
 Vous n’êtes pas obligé de migrer vers Azure DNS. Si vous ne souhaitez pas migrer vers Azure DNS, l’expérience de gestion de domaine dans le portail Azure offre des informations sur les étapes à suivre pour passer à Azure DNS. Si le domaine a été acheté via App Service, la migration de l’hébergement GoDaddy à Azure DNS est relativement fluide.
 

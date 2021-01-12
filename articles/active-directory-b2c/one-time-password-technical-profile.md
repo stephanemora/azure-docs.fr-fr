@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/19/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6978afc802bddd536c56fcb4e06a40ccc58867fe
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 12b9639342e2e35b9229aa15bb9cfb4695427606
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172671"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881189"
 ---
 # <a name="define-a-one-time-password-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Définir un profil technique de mot de passe à usage unique dans une stratégie personnalisée Azure AD B2C
 
@@ -24,7 +24,7 @@ ms.locfileid: "92172671"
 
 Azure Active Directory B2C (Azure AD B2C) gère la génération et la vérification d'un mot de passe à usage unique. Utilisez un profil technique pour générer un code, puis vérifiez ce code plus tard.
 
-Le profil technique de mot de passe à usage unique peut également renvoyer un message d'erreur pendant la vérification du code. Concevez l’intégration avec le mot de passe à usage unique en utilisant un **profil technique de validation** . Un profil technique de validation appelle le profil technique de mot de passe à usage unique pour vérifier le code. Le profil technique de validation valide les données fournies par l’utilisateur avant la poursuite du parcours de celui-ci. Avec le profil technique de validation, un message d’erreur apparaît sur une page déclarée automatiquement.
+Le profil technique de mot de passe à usage unique peut également renvoyer un message d'erreur pendant la vérification du code. Concevez l’intégration avec le mot de passe à usage unique en utilisant un **profil technique de validation**. Un profil technique de validation appelle le profil technique de mot de passe à usage unique pour vérifier le code. Le profil technique de validation valide les données fournies par l’utilisateur avant la poursuite du parcours de celui-ci. Avec le profil technique de validation, un message d’erreur apparaît sur une page déclarée automatiquement.
 
 ## <a name="protocol"></a>Protocol
 
@@ -45,7 +45,7 @@ L’exemple suivant montre un profil technique de mot de passe à usage unique 
 
 ## <a name="generate-code"></a>Générer le code
 
-Le premier mode de ce profil technique consiste à générer un code. Vous trouverez ci-dessous les options qui peuvent être configurées pour ce mode.
+Le premier mode de ce profil technique consiste à générer un code. Vous trouverez ci-dessous les options qui peuvent être configurées pour ce mode. Les codes générés et les tentatives sont suivis dans la session. 
 
 ### <a name="input-claims"></a>Revendications d’entrée
 
@@ -73,7 +73,7 @@ Les paramètres suivants peuvent être utilisés pour configurer le mode de gén
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| CodeExpirationInSeconds | Non | Délai d’expiration du code, en secondes. Minimum : `60` ; maximum : `1200` ; par défaut : `600`. Chaque fois qu'un code est fourni (même code à l'aide de `ReuseSameCode`, ou nouveau code), le délai d'expiration du code est prolongée.  |
+| CodeExpirationInSeconds | Non | Délai d’expiration du code, en secondes. Minimum : `60` ; maximum : `1200` ; par défaut : `600`. Chaque fois qu'un code est fourni (même code à l'aide de `ReuseSameCode`, ou nouveau code), le délai d'expiration du code est prolongée. Ce délai est également utilisé pour définir le délai d’expiration des nouvelles tentatives (une fois le nombre maximum de nouvelles tentatives atteint, l’utilisateur ne peut plus essayer d’obtenir de nouveaux codes jusqu’à l’expiration de ce délai). |
 | CodeLength | Non | Longueur du code. La valeur par défaut est `6`. |
 | CharacterSet | Non | Jeu de caractères pour le code, formaté pour être utilisé dans une expression régulière. Par exemple : `a-z0-9A-Z`. La valeur par défaut est `0-9`. Le jeu de caractères doit comprendre un minimum de 10 caractères différents dans le jeu spécifié. |
 | NumRetryAttempts | Non | Nombre de tentatives de vérification avant que le code soit considéré comme non valide. La valeur par défaut est `5`. |

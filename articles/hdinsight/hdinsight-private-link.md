@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: fac26c616c977eedc466f004a9455297ec995fb8
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 9fe1b7a077142b00aaf2a8502faa0e166c4311c4
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352539"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915621"
 ---
 # <a name="secure-and-isolate-azure-hdinsight-clusters-with-private-link-preview"></a>Sécuriser et isoler les clusters Azure HDInsight avec Azure Private Link (préversion)
 
@@ -29,7 +29,7 @@ Par défaut, le fournisseur de ressources HDInsight utilise une connexion *entra
 
 Les équilibreurs de charge de base utilisés dans l’architecture de réseau virtuel par défaut fournissent automatiquement une traduction d’adresses réseau (NAT) publique pour accéder aux dépendances sortantes requises, telles que le fournisseur de ressources HDInsight. Si vous souhaitez restreindre la connectivité sortante à l’Internet public, vous pouvez [configurer un pare-feu](./hdinsight-restrict-outbound-traffic.md), mais ce n’est pas obligatoire.
 
-La configuration de `resourceProviderConnection` sur Sortante vous permet également d’accéder à des ressources spécifiques au cluster, telles que des metastores Azure Data Lake Storage Gen2 ou externes, en utilisant des points de terminaison privés. L’utilisation de points de terminaison privés pour ces ressources n’est pas obligatoire, mais si vous prévoyez d’avoir des points de terminaison privés pour ces ressources, vous devez configurer des points de terminaison privés et les entrées DNS `before` de créer le cluster HDInsight. Nous vous recommandons de créer et de fournir toutes les bases de données SQL externes dont vous avez besoin, comme Apache Ranger, Ambari, Oozie et les metastores Hive, au moment de la création du cluster. Toutes ces ressources doivent être accessibles depuis l’intérieur du sous-réseau du cluster, par le biais de leur propre point de terminaison privé ou d’une autre manière.
+La configuration de `resourceProviderConnection` sur Sortante vous permet également d’accéder à des ressources spécifiques au cluster, telles que des metastores Azure Data Lake Storage Gen2 ou externes, en utilisant des points de terminaison privés. L’utilisation de points de terminaison privés pour ces ressources n’est pas obligatoire, mais si vous prévoyez d’avoir des points de terminaison privés pour ces ressources, vous devez configurer des points de terminaison privés et les entrées DNS `before` (avant) de créer le cluster HDInsight. Nous vous recommandons de créer et de fournir toutes les bases de données SQL externes dont vous avez besoin, comme Apache Ranger, Ambari, Oozie et les metastores Hive, au moment de la création du cluster. Toutes ces ressources doivent être accessibles depuis l’intérieur du sous-réseau du cluster, par le biais de leur propre point de terminaison privé ou d’une autre manière.
 
 L’utilisation de points de terminaison privés pour Azure Key Vault n’est pas prise en charge. Si vous utilisez Azure Key Vault pour le chiffrement CMK au repos, le point de terminaison Azure Key Vault doit être accessible à partir du sous-réseau HDInsight sans point de terminaison privé.
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a4e8ec75d6610e19f241d2047518c3a43132a6e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 057ff064264485a9aea6fc2b31fe57ce37c805ce
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93079017"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895612"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Dépanner des appareils hybrides de bas niveau joints à Azure Active Directory 
 
@@ -44,6 +44,7 @@ Cet article vous fournit des conseils sur la façon de résoudre les problèmes 
 - Vous pouvez également obtenir plusieurs entrées pour un appareil dans l’onglet Informations utilisateur en raison d’une réinstallation du système d’exploitation ou d’une réinscription manuelle.
 - L’inscription / jointure d’appareils initiale est configurée pour effectuer une tentative à la connexion ou au verrouillage / déverrouillage. Un délai de cinq minutes peut être déclenché par une tâche du Planificateur de tâches. 
 - Si le système d’exploitation est Windows 7 SP1 ou Windows Server 2008 R2 SP1, vérifiez que [KB4284842](https://support.microsoft.com/help/4284842) est installé. Cette mise à jour empêche les échecs d’authentification qui se produisent lorsque le client perd l’accès aux clés protégées après avoir modifié le mot de passe.
+- La jointure Azure AD Hybride peut échouer après qu’un utilisateur a changé son nom d’utilisateur principal, rompant ainsi le processus d’authentification unique transparente. Pendant le processus de jointure, vous pouvez constater que l’ancien nom d’utilisateur principal est toujours envoyé à Azure AD, sauf si les cookies de session du navigateur sont effacés ou si l’utilisateur se déconnecte explicitement et supprime l’ancien nom d’utilisateur principal.
 
 ## <a name="step-1-retrieve-the-registration-status"></a>Étape 1 : Récupérer l’état de l’inscription 
 

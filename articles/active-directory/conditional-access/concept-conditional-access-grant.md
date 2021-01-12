@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8915ae349e33390ce5bb687d7c07a21665a0258
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 34f82fc060586e2df5acefa6b0836171e558aa4a
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96029402"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97615765"
 ---
 # <a name="conditional-access-grant"></a>Accès conditionnel : Accorder
 
@@ -110,6 +110,7 @@ Ce paramètre s’applique aux applications iOS et Android suivantes :
    - elle prend uniquement en charge iOS et Android pour la condition de plateforme d’appareil.
    - Une application de répartiteur est nécessaire pour inscrire l’appareil. L’application de répartiteur peut être Microsoft Authenticator pour iOS ou bien Microsoft Authenticator ou le portail d’entreprise Microsoft pour appareils Android.
 - L’accès conditionnel ne peut considérer Microsoft Edge en mode InPrivate en tant qu'application cliente approuvée.
+- L’utilisation du proxy d’application Azure AD pour permettre à l’application mobile Power BI de se connecter à un serveur Power BI Report Server local n’est pas prise en charge avec les stratégies d’accès conditionnel qui nécessitent l’application Microsoft Power BI comme application cliente approuvée.
 
 Consultez l’article [Guide pratique pour exiger des applications clientes approuvées pour l’accès aux applications cloud avec l’accès conditionnel](app-based-conditional-access.md) donnant des exemples de configuration.
 

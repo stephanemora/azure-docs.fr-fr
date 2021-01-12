@@ -11,12 +11,12 @@ ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: c9ee57baf63867e4dca4236d484321586cfb3b17
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 14d15f54befba162b071b40e06e589f980708fd3
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96862341"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740485"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python-preview"></a>Utiliser le package d’interprétabilité pour expliquer les modèles ML et les prédictions dans Python (préversion)
 
@@ -296,41 +296,7 @@ L’exemple suivant montre comment vous pouvez utiliser la classe `ExplanationCl
 
 ## <a name="visualizations"></a>Visualisations
 
-Une fois que vous avez téléchargé les explications dans votre notebook Jupyter local, vous pouvez utiliser le tableau de bord de visualisation pour comprendre et interpréter votre modèle.
-
-### <a name="understand-entire-model-behavior-global-explanation"></a>Comprendre le comportement de la totalité du modèle (explication globale) 
-
-Les tracés suivants fournissent une vue générale du modèle entraîné ainsi que ses prédictions et explications.
-
-|Tracé|Description|
-|----|-----------|
-|Exploration des données| Affiche une vue d’ensemble du jeu de données avec des valeurs de prédiction.|
-|Importance globale|Agrège les valeurs d’importance de caractéristique de points de donnée individuels pour montrer les K premières caractéristiques importantes (configurables) globales du modèle. Aide à comprendre le comportement général du modèle sous-jacent.|
-|Exploration d’explication|Montre comment une fonctionnalité affecte les valeurs de prédiction du modèle, ou la probabilité des valeurs de prédiction. Indique l’impact de l’interaction des fonctionnalités.|
-|Importance du résumé|Utilise des valeurs d’importance de caractéristiques individuelles sur tous les points de données pour montrer la distribution de l’impact de chaque caractéristique sur la valeur de prédiction. À l’aide de ce diagramme, vous examinez dans quelle direction les valeurs de caractéristique affectent les valeurs de prédiction.
-|
-
-[![Tableau de bord de visualisation - Global](./media/how-to-machine-learning-interpretability-aml/global-charts.png)](./media/how-to-machine-learning-interpretability-aml/global-charts.png#lightbox)
-
-### <a name="understand-individual-predictions-local-explanation"></a>Comprendre les prédictions individuelles (explication locale) 
-
-Vous pouvez charger le tracé des importances de caractéristique individuelle pour n’importe quel point de données en cliquant sur l’un des points de données individuels dans l’un des tracés globaux.
-
-|Tracé|Description|
-|----|-----------|
-|Importance locale|Montre les K premières caractéristiques importantes (configurables) pour une prédiction individuelle. Permet d’illustrer le comportement local du modèle sous-jacent sur un point de données spécifique.|
-|Exploration de la perturbation (analyse de simulation)|Autorise les modifications apportées aux valeurs de fonctionnalités du point de données sélectionné et observe les modifications résultantes de la valeur de prédiction.|
-|Attente conditionnelle individuelle (ICE)| Autorise les modifications de valeur de fonctionnalité d’une valeur minimale à une valeur maximale. Permet d’illustrer la façon dont la prédiction du point de données change en cas de modification d’une fonctionnalité.|
-
-[![Tableau de bord de visualisation - Importance de fonctionnalité locale](./media/how-to-machine-learning-interpretability-aml/local-charts.png)](./media/how-to-machine-learning-interpretability-aml/local-charts.png#lightbox)
-
-
-[![Tableau de bord de visualisation - Perturbation de fonctionnalité](./media/how-to-machine-learning-interpretability-aml/perturbation.gif)](./media/how-to-machine-learning-interpretability-aml/perturbation.gif#lightbox)
-
-
-[![Tableau de bord de visualisation - Tracés ICE](./media/how-to-machine-learning-interpretability-aml/ice-plot.png)](./media/how-to-machine-learning-interpretability-aml/ice-plot.png#lightbox)
-
-Pour charger le tableau de bord de visualisation, utilisez le code suivant.
+Une fois que vous avez téléchargé les explications dans votre notebook Jupyter local, vous pouvez utiliser le tableau de bord de visualisation pour comprendre et interpréter votre modèle. Pour charger le widget de tableau de bord de visualisation dans votre notebook Jupyter, utilisez le code suivant :
 
 ```python
 from interpret_community.widget import ExplanationDashboard
@@ -338,11 +304,58 @@ from interpret_community.widget import ExplanationDashboard
 ExplanationDashboard(global_explanation, model, datasetX=x_test)
 ```
 
+La visualisation prend en charge les explications sur les caractéristiques de conception et brutes. Les explications brutes sont basées sur les caractéristiques issues du jeu de données d’origine et les explications de conception sont basées sur les caractéristiques issues du jeu de données auquel s’applique l’ingénierie des caractéristiques.
+
+Lorsque vous tentez d’interpréter un modèle par rapport au jeu de données d’origine, il est recommandé d’utiliser des explications brutes, car l’importance de chaque caractéristique correspond à une colonne du jeu de données d’origine. L’examen de l’impact des catégories individuelles à partir d’une caractéristique catégorielle est un scénario dans lequel les explications de conception peuvent être utiles. Si un encodage à chaud est appliqué à une caractéristique catégorielle, les explications de conception qui en résultent comportent une valeur d’importance différente par catégorie, une par caractéristique de conception à chaud. Cela peut être utile lorsque vous vous concentrez sur la partie du jeu de données qui fournit le plus d’informations au modèle.
+
+> [!NOTE]
+> Les explications de conception et brutes sont calculées séquentiellement. En premier lieu, une explication de conception est créée sur la base du modèle et du pipeline de caractérisation. Ensuite, l’explication brute est créée sur la base de cette explication de conception, en agrégeant l’importance des caractéristiques de conception issues de la même caractéristique brute.
+
+### <a name="create-edit-and-view-dataset-cohorts"></a>Créer, modifier et afficher des cohortes de jeu de données
+
+Le ruban supérieur affiche des statistiques globales sur votre modèle et vos données. Vous pouvez segmenter et découper vos données en cohortes de jeu de données, ou sous-groupes, pour examiner ou comparer les performances et les explications de votre modèle dans ces sous-groupes définis. En comparant les statistiques et les explications de votre jeu de données entre ces sous-groupes, vous pouvez vous faire une idée de la raison pour laquelle des erreurs peuvent se produire dans un groupe plutôt qu’un autre.
+
+[![Création, modification et affichage de cohortes de jeu de données](./media/how-to-machine-learning-interpretability-aml/dataset-cohorts.gif)](./media/how-to-machine-learning-interpretability-aml/dataset-cohorts.gif#lightbox)
+
+### <a name="understand-entire-model-behavior-global-explanation"></a>Comprendre le comportement de la totalité du modèle (explication globale) 
+
+Les trois premiers onglets du tableau de bord d’explication fournissent une analyse globale du modèle entraîné, avec ses prédictions et explications.
+
+#### <a name="model-performance"></a>Performances du modèle
+Évaluez les performances de votre modèle en explorant la distribution de vos valeurs de prédiction et les valeurs des métriques de performances de votre modèle. Vous pouvez approfondir l’étude de votre modèle en examinant une analyse comparative de ses performances entre différentes cohortes ou sous-groupes de votre jeu de données. Sélectionnez des filtres le long de la valeur y et de la valeur x pour couper différentes dimensions. Affichez les métriques telles que la justesse, la précision, le rappel, le taux de faux positifs (FPR) et le taux de faux négatif (FNR).
+
+[![Onglet des performances du modèle dans la visualisation des explications](./media/how-to-machine-learning-interpretability-aml/model-performance.gif)](./media/how-to-machine-learning-interpretability-aml/model-performance.gif#lightbox)
+
+#### <a name="dataset-explorer"></a>Explorateur de jeu de données
+Explorez les statistiques de votre jeu de données en sélectionnant différents filtres le long des axes X, Y et des couleurs pour découper vos données selon différentes dimensions. Créez les cohortes de jeu de données ci-dessus pour analyser les statistiques du jeu de données à l’aide de filtres, tels que le résultat prédit, les caractéristiques du jeu de données et les groupes d’erreurs. Utilisez l’icône d’engrenage en haut à droite du graphique pour changer les types de graphique.
+
+[![Onglet de l’explorateur de jeu de données dans la visualisation des explications](./media/how-to-machine-learning-interpretability-aml/dataset-explorer.gif)](./media/how-to-machine-learning-interpretability-aml/dataset-explorer.gif#lightbox)
+
+#### <a name="aggregate-feature-importance"></a>Agréger l’importance des caractéristiques
+Explorez les k caractéristiques les plus importantes qui ont un impact sur vos prédictions de modèle globales (également appelées explication globale). Utilisez le curseur pour afficher les valeurs d’importance des caractéristiques décroissantes. Sélectionnez jusqu’à trois cohortes pour voir leurs valeurs d’importance de caractéristiques côte à côte. Cliquez sur l’une des barres de caractéristiques du graphique pour voir comment les valeurs de la caractéristique sélectionnée influencent la prédiction de modèle dans le tracé des dépendances ci-dessous.
+
+[![Onglet Agréger l’importance des caractéristiques dans la visualisation des explications](./media/how-to-machine-learning-interpretability-aml/aggregate-feature-importance.gif)](./media/how-to-machine-learning-interpretability-aml/aggregate-feature-importance.gif#lightbox)
+
+### <a name="understand-individual-predictions-local-explanation"></a>Comprendre les prédictions individuelles (explication locale) 
+
+Le quatrième onglet des explications vous permet d’explorer un point de données individuel et l’importance de ses caractéristiques individuelles. Vous pouvez charger le tracé de l’importance des caractéristiques individuelles pour n’importe quel point de données en cliquant sur l’un des points de données individuels dans le nuage de points principal ou en sélectionnant un point de données spécifique dans le volet d’Assistant de droite.
+
+|Tracé|Description|
+|----|-----------|
+|Importance des caractéristiques individuelles|Montre les k caractéristiques les plus importantes pour une prédiction individuelle. Permet d’illustrer le comportement local du modèle sous-jacent sur un point de données spécifique.|
+|Analyse de simulation|Autorise les modifications des valeurs de caractéristiques du point de données réel sélectionné et observe les modifications résultantes de la valeur de prédiction en générant un point de données hypothétique avec les nouvelles valeurs de caractéristiques.|
+|Attente conditionnelle individuelle (ICE)|Autorise les modifications de valeur de fonctionnalité d’une valeur minimale à une valeur maximale. Permet d’illustrer la façon dont la prédiction du point de données change en cas de modification d’une fonctionnalité.|
+
+[![Importance des caractéristiques individuelles et onglet Simulation dans le tableau de bord d’explication](./media/how-to-machine-learning-interpretability-aml/individual-tab.gif)](./media/how-to-machine-learning-interpretability-aml/individual-tab.gif#lightbox)
+
+> [!NOTE]
+> Il s’agit d’explications basées sur de nombreuses approximations et non pas de la « cause » des prédictions. Sans une robustesse mathématique stricte de l’inférence de causalité, nous ne conseillons pas aux utilisateurs de prendre des décisions concrètes en fonction des perturbations des caractéristiques de l’outil de simulation. Cet outil est principalement destiné à la compréhension de votre modèle et au débogage.
+
 ### <a name="visualization-in-azure-machine-learning-studio"></a>Visualisation dans Azure Machine Learning Studio
 
-Si vous effectuez les étapes décrites dans l’[interprétabilité à distance](how-to-machine-learning-interpretability-aml.md#generate-feature-importance-values-via-remote-runs) (chargement de l’explication générée sur l’historique des exécutions d’Azure Machine Learning), vous pouvez voir le tableau de bord de visualisation dans [Azure Machine Learning Studio](https://ml.azure.com). Ce tableau de bord est une version plus simple du tableau de bord de visualisation décrit ci-dessus (les tracés de l’exploration de l’explication et ICE sont désactivés, car il n’y a pas de calcul actif dans le studio à même d’effectuer leurs calculs en temps réel).
+Si vous effectuez les étapes décrites dans l’[interprétabilité à distance](how-to-machine-learning-interpretability-aml.md#generate-feature-importance-values-via-remote-runs) (chargement de l’explication générée sur l’historique des exécutions d’Azure Machine Learning), vous pouvez voir le tableau de bord de visualisation dans [Azure Machine Learning Studio](https://ml.azure.com). Ce tableau de bord est une version plus simple du tableau de bord de visualisation décrit ci-dessus. Les tracés ICE et de génération de point de données de simulation sont désactivés, car il n’existe aucun calcul actif dans Azure Machine Learning Studio à même d’effectuer leurs calculs en temps réel.
 
-Si les explications de jeu de données, globales et locales sont disponibles, les données remplissent tous les onglets (sauf celui de l’exploration de la perturbation et ICE). Si seule l’explication globale est disponible, l’onglet Importance du résumé et tous les onglets des explications locales sont désactivés.
+Si les explications de jeu de données, globales et locales sont disponibles, les données remplissent tous les onglets. Si seule une explication globale est disponible, l’onglet Importance des caractéristiques individuelles est désactivé.
 
 Suivez un de ces parcours pour accéder au tableau de bord de visualisation dans Azure Machine Learning Studio :
 
@@ -351,7 +364,7 @@ Suivez un de ces parcours pour accéder au tableau de bord de visualisation dans
   1. Sélectionnez une expérience particulière pour afficher toutes les exécutions de cette expérience.
   1. Sélectionnez une exécution, puis l'onglet **Explications** pour voir le tableau de bord de visualisation des explications.
 
-   [![Tableau de bord de visualisation - Importance d’une caractéristique locale dans AzureML Studio au sein des expériences](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png)](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png#lightbox)
+   [![Tableau de bord de visualisation avec Agréger l’importance des caractéristiques dans AzureML Studio dans les expériences](./media/how-to-machine-learning-interpretability-aml/model-explanation-dashboard-aml-studio.png)](./media/how-to-machine-learning-interpretability-aml/model-explanation-dashboard-aml-studio.png#lightbox)
 
 * Volet **Modèles**
   1. Si vous avez enregistré votre modèle d’origine en suivant les étapes décrites dans [Déployer des modèles avec Azure Machine Learning](./how-to-deploy-and-where.md), vous pouvez sélectionner **Modèles** dans le volet gauche pour l’afficher.
@@ -359,7 +372,7 @@ Suivez un de ces parcours pour accéder au tableau de bord de visualisation dans
 
 ## <a name="interpretability-at-inference-time"></a>Interprétabilité au moment de l’inférence
 
-Vous pouvez déployer l’explicatif avec le modèle d’origine et l’utiliser au moment de l’inférence pour fournir les valeurs d’importance de caractéristique individuelle (explication locale) pour tout nouveau point de donnée. Nous proposons également des explicatifs de scoring plus légers pour améliorer les performances de l’interprétabilité au moment de l’inférence. Le processus de déploiement d’un explicatif de scoring plus léger est similaire au déploiement d’un modèle et comprend les étapes suivantes :
+Vous pouvez déployer l’explicatif avec le modèle d’origine et l’utiliser au moment de l’inférence pour fournir les valeurs d’importance des caractéristiques individuelles (explication locale) pour tout nouveau point de donnée. Nous proposons également des explicatifs de scoring plus légers pour améliorer les performances d’interprétabilité au moment de l’inférence, qui sont actuellement pris en charge uniquement dans le kit SDK Azure Machine Learning. Le processus de déploiement d’un explicatif de scoring plus léger est similaire au déploiement d’un modèle et comprend les étapes suivantes :
 
 1. Créez un objet d’explication. Par exemple, vous pouvez utiliser `TabularExplainer` :
 
@@ -547,6 +560,17 @@ Vous pouvez déployer l’explicatif avec le modèle d’origine et l’utiliser
 1. Nettoyer.
 
    Pour supprimer un service web déployé, utilisez `service.delete()`.
+
+## <a name="troubleshooting"></a>Résolution des problèmes
+
+* **Données éparses non prises en charge** : Le tableau de bord d’explication de modèle s’interrompt/ralentit considérablement avec un grand nombre de caractéristiques. Par conséquent, nous ne prenons actuellement pas en charge le format de données éparses. En outre, des problèmes de mémoire générale surviendront avec les jeux de données volumineux et un grand nombre de caractéristiques. 
+
+* **Modèles de prévision non pris en charge avec les explications de modèle** : L’interprétabilité, la meilleure explication du modèle, n’est pas disponible pour les expériences de prévision AutoML, qui recommandent les algorithmes suivants comme modèle optimal : TCNForecaster, AutoArima, Prophet, ExponentialSmoothing, Moyenne, Naïf, Moyenne saisonnière et Naïf saisonnier. La prévision AutoML a des modèles de régression qui prennent en charge les explications. Toutefois, dans le tableau de bord d’explication, l’onglet « Importance des caractéristiques individuelles » n’est simplement pas pris en charge pour la prévision en raison de la complexité des pipelines de données.
+
+* **Explication locale d’index de données** : Le tableau de bord d’explication ne prend pas en charge l’association des valeurs d’importance locale à un identificateur de ligne issu du jeu de données de validation d’origine si ce jeu de données dépasse les 5 000 points de données, car le tableau de bord sous-échantillonne les données de manière aléatoire. Toutefois, le tableau de bord affiche les valeurs de caractéristiques de jeu de données brutes pour chaque point de données transmis dans le tableau de bord sous l’onglet Importance des caractéristiques individuelles. Les utilisateurs peuvent mapper les importantes locales en retour sur le jeu de données d’origine en faisant correspondre les valeurs de caractéristiques de jeu de données brutes. Si la taille du jeu de données de validation est inférieure à 5 000 échantillons, la caractéristique `index` dans AzureML Studio correspond à l’index dans le jeu de données de validation.
+
+* **Tracés de simulation/ICE non pris en charge dans Studio** : Les tracés de simulation et d’attente conditionnelle individuelle (ICE) ne sont pas pris en charge dans Azure Machine Learning Studio sous l’onglet Explications puisque l’explication chargée a besoin d’un calcul actif pour recalculer les prédictions et les probabilités des caractéristiques perturbées. Ils sont actuellement pris en charge dans les notebooks Jupyter lorsqu’ils sont exécutés en tant que widget à l’aide du kit SDK.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

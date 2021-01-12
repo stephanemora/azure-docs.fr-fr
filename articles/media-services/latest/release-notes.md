@@ -11,18 +11,18 @@ ms.workload: na
 ms.topic: article
 ms.date: 10/21/2020
 ms.author: inhenkel
-ms.openlocfilehash: 4ddb02bbcf284566550517f8fa343a728e2275a9
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 895b4529a8b99ecc66e3566b4696a0e61c337153
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96483625"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881903"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notes de publication Azure Media Services v3
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
->Soyez notifié de la disponibilité des mises à jour sur cette page en faisant un copier-coller de cette URL : `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+v3+release+notes%22&locale=en-us` dans votre lecteur de flux RSS.
+>Soyez notifié de la disponibilité des mises à jour sur cette page en faisant un copier-coller de cette URL : `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+v3+release+notes%22&locale=en-us` dans votre lecteur de flux RSS.
 
 Pour vous informer des développements les plus récents, cet article détaille les thèmes suivants :
 
@@ -38,16 +38,23 @@ Pour vous informer des développements les plus récents, cet article détaille 
 >
 > Pour plus d’informations, consultez [les limitations du portail Azure pour Media Services v3](frequently-asked-questions.md#what-are-the-azure-portal-limitations-for-media-services-v3).
 
+## <a name="december-2020"></a>Décembre 2020
+
+### <a name="regional-availability"></a>Disponibilité régionale
+
+Azure Media Services est désormais disponible dans la région Norvège Est sur le Portail Azure.  RESTv2 n’existe pas dans cette région.
+
 ## <a name="october-2020"></a>Octobre 2020
 
 ### <a name="basic-audio-analysis"></a>Analyse audio De base
+
 La présélection de l’analyse audio comprend désormais un niveau de tarification en mode De base. Le nouveau mode De base de l’analyseur audio offre une option plus économique pour extraire la transcription vocale et mettre en forme les légendes et les sous-titres de sortie. Ce mode effectue une transcription de la parole en texte et la génération d’un fichier de sous-titres/CC au format VTT. La sortie de ce mode comprend un fichier JSON Insights incluant uniquement les mots clés, la transcription et les informations relatives au minutage. La détection automatique de la langue et la diarisation de l’orateur ne sont pas incluses dans ce mode. Consultez la [liste des langues prises en charge](analyzing-video-audio-files-concept.md#built-in-presets).
 
 Les clients utilisant Indexer v1 et Indexer v2 doivent migrer vers la présélection de l’analyse audio De base.
 
 Pour plus d’informations sur le mode De base de l’analyseur audio, consultez [Analyse des fichiers vidéo et audio](analyzing-video-audio-files-concept.md).  Pour savoir comment utiliser le mode De base de l’analyseur audio avec l’API REST, consultez [Créer une transformation audio De base](how-to-create-basic-audio-transform.md).
 
-## <a name="live-events"></a>Événements en direct
+### <a name="live-events"></a>Événements en direct
 
 Les mises à jour de la plupart des propriétés sont désormais autorisées lorsque les événements en direct sont arrêtés. En outre, les utilisateurs sont autorisés à spécifier un préfixe pour le nom d’hôte statique des URL d’entrée et d’aperçu de l’événement en direct. VanityUrl est désormais appelé `useStaticHostName` pour mieux refléter l’objectif de la propriété.
 
@@ -57,7 +64,7 @@ Un événement en direct prend en charge la réception de différentes proportio
 
 L’encodage en direct permet désormais de générer des fragments de fréquence d’images clés fixes entre 0,5 à 20 secondes.
 
-## <a name="accounts"></a>Comptes
+### <a name="accounts"></a>Comptes
 
 > [!WARNING]
 > Si vous créez un compte Media Services avec la version d’API du 5 janvier 2020, il ne fonctionnera pas avec RESTv2. 

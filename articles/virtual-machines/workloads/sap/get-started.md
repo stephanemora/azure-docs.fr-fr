@@ -14,15 +14,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 12/12/2020
+ms.date: 12/21/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 75ea3eec50516c9ba08504dd149d4bd08f8abbb6
-ms.sourcegitcommit: 287c20509c4cf21d20eea4619bbef0746a5cd46e
+ms.openlocfilehash: 9e842e4d2a4dbd118840498587696df085b07700
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97371932"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97722893"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Utiliser Azure pour héberger et exécuter des scénarios de charge de travail SAP
 
@@ -48,7 +48,8 @@ Si vous avez des questions précises, nous allons vous orienter vers des documen
 - Outre Windows et le Pacemaker, les frameworks de haute disponibilité tiers sont-ils pris en charge ? Consultez la deuxième moitié de la [note de support SAP #1928533](https://launchpad.support.sap.com/#/notes/1928533).
 - Quel stockage Azure est le mieux adapté à mon scénario ? Lisez [Types de stockage Azure pour une charge de travail SAP](./planning-guide-storage.md)
 - Le noyau Red Hat dans Oracle Enterprise Linux est-il pris en charge par SAP ? Consultez la [note de support SAP n°1565179](https://launchpad.support.sap.com/#/notes/1565179)
-- Pourquoi les familles de machines virtuelles Azure [Da(s) v4](https://docs.microsoft.com/azure/virtual-machines/dav4-dasv4-series)/[Ea(s)](https://docs.microsoft.com/azure/virtual-machines/eav4-easv4-series) ne sont-elles pas certifiées pour SAP HANA ? Les familles de machines virtuelles Azure Das/Eas sont basées sur du matériel piloté par un processeur AMD. SAP HANA ne prend pas en charge les processeurs AMD, même dans des scénarios virtualisés.
+- Pourquoi les familles de machines virtuelles Azure [Da(s) v4](https://docs.microsoft.com/azure/virtual-machines/dav4-dasv4-series)/[Ea(s)](https://docs.microsoft.com/azure/virtual-machines/eav4-easv4-series) ne sont-elles pas certifiées pour SAP HANA ? Les familles de machines virtuelles Azure Das/Eas sont basées sur du matériel piloté par un processeur AMD. SAP HANA ne prend pas en charge les processeurs AMD, même dans des scénarios virtualisés
+- Pourquoi est-ce que le message indiquant que « Les indicateurs de processeur pour l’instruction RDTSCP ou les indicateurs de processeur pour constant_tsc ou nonstop_tsc ne sont pas définis, ou current_clocksource et available_clocksource ne sont pas correctement configurés » continue de s’afficher avec SAP HANA, bien que j’exécute les noyaux Linux les plus récents. Pour le savoir, consultez la [Note de support SAP n° #2791572](https://launchpad.support.sap.com/#/notes/2791572) 
 
  
 ## <a name="sap-hana-on-azure-large-instances"></a>SAP HANA sur Azure (grandes instances)
@@ -82,6 +83,7 @@ Cette section contient des documents concernant l’intégration de Microsoft Po
 
 ## <a name="change-log"></a>Journal des modifications
 
+- 21/12/2020 : Ajout de nouvelles certifications aux références SKU des grandes instances HANA dans [Références SKU disponibles pour HLI](./hana-available-skus.md)
 - 12/12/2020 : ajout d’un pointeur vers une note de SAP clarifiant certains détails sur la prise en charge d’Oracle Enterprise Linux par SAP pour [les logiciels SAP pris en charge pour les déploiements Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure#oracle-dbms-support)
 - 26/11/2020 : Adaptez les [configurations de stockage des machines virtuelles Azure SAP HANA](./hana-vm-operations-storage.md) et les [types de stockage Azure pour la charge de travail SAP](./planning-guide-storage.md) aux [contrats SLA des machines virtuelles](https://azure.microsoft.com/support/legal/sla/virtual-machines) uniques modifiés
 - 05/11/2020 : Modification du lien vers la nouvelle note SAP concernant les types de systèmes de fichiers pris en charge par HANA dans [Configurations du stockage des machines virtuelles SAP HANA Azure](./hana-vm-operations-storage.md) 
@@ -179,9 +181,3 @@ Cette section contient des documents concernant l’intégration de Microsoft Po
 - 10 janvier 2020 : Modifications apportées à [Haute disponibilité pour SAP NetWeaver sur des machines virtuelles Azure sur SLES avec Azure NetApp Files pour les applications SAP](./high-availability-guide-suse-netapp-files.md) et à [Haute disponibilité des machines virtuelles Azure pour SAP NetWeaver sur RHEL avec Azure NetApp Files pour les applications SAP](./high-availability-guide-rhel-netapp-files.md) pour ajouter des instructions sur le montage des volumes NFSv4 d’Azure NetApp Files.
 - 23 décembre 2019 : Publication du [Guide de haute disponibilité pour SAP NetWeaver sur des machines virtuelles Azure sur SLES multi-SID](./high-availability-guide-suse-multi-sid.md)
 - 18 décembre 2019 : Publication de [Scale-out de SAP HANA avec le nœud de secours sur les machines virtuelles Azure avec Azure NetApp Files sur RHEL](./sap-hana-scale-out-standby-netapp-files-rhel.md)
-- 21 novembre 2019 : Modifications apportées dans [Scale-out de SAP HANA avec le nœud de secours sur les machines virtuelles Azure avec Azure NetApp Files sur SUSE Linux Enterprise Server](./sap-hana-scale-out-standby-netapp-files-suse.md) pour simplifier la configuration du mappage d’ID NFS et changer l’interface réseau principale recommandée afin de simplifier le routage.
-- 15 novembre 2019 : Modifications mineures apportées dans [Haute disponibilité pour SAP NetWeaver sur SUSE Linux Enterprise Server avec Azure NetApp Files pour les applications SAP](high-availability-guide-suse-netapp-files.md) et [Haute disponibilité pour SAP NetWeaver sur Red Hat Enterprise Linux avec Azure NetApp Files pour les applications SAP](high-availability-guide-rhel-netapp-files.md) pour clarifier les restrictions de taille du pool de capacité et supprimer la déclaration stipulant que seule la version NFSv3 est prise en charge.
-- 12 novembre 2019 : Publication de [Haute disponibilité pour SAP NetWeaver sur Windows avec Azure NetApp Files (SMB)](high-availability-guide-windows-netapp-files-smb.md)
-- 8 novembre 2019 : Modifications apportées à [Haute disponibilité de SAP HANA sur les machines virtuelles Azure sur SUSE Linux Enterprise Server](sap-hana-high-availability.md), [Configurer la réplication système SAP HANA sur les machines virtuelles Azure](sap-hana-high-availability-rhel.md), [Haute disponibilité des machines virtuelles Azure pour SAP NetWeaver sur SUSE Linux Enterprise Server pour les applications SAP](high-availability-guide-suse.md), [Haute disponibilité des machines virtuelles Azure pour SAP NetWeaver sur SUSE Linux Enterprise Server avec Azure NetApp Files](high-availability-guide-suse-netapp-files.md), [Haute disponibilité des machines virtuelles Azure pour SAP NetWeaver sur Red Hat Enterprise Linux](high-availability-guide-rhel.md), [Haute disponibilité des machines virtuelles Azure pour SAP NetWeaver sur Red Hat Enterprise Linux avec Azure NetApp Files](high-availability-guide-rhel-netapp-files.md), [Haute disponibilité pour NFS sur les machines virtuelles Azure sur SUSE Linux Enterprise Server](high-availability-guide-suse-nfs.md), [GlusterFS sur les machines virtuelles Azure sur Red Hat Enterprise Linux pour SAP NetWeaver](high-availability-guide-rhel-glusterfs.md) pour recommander l’équilibreur de charge standard Azure  
-- 8 novembre 2019 : Modifications apportées à [Check-list relative à la planification et au déploiement de la charge de travail SAP sur Azure](sap-deployment-checklist.md) pour clarifier la recommandation de chiffrement  
-- 4 novembre 2019 : Modifications apportées à la [configuration de Pacemaker sur SUSE Linux Enterprise Server dans Azure](high-availability-guide-suse-pacemaker.md) pour créer le cluster directement avec la configuration de monodiffusion

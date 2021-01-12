@@ -5,17 +5,17 @@ author: memildin
 manager: rkarlin
 services: security-center
 ms.author: memildin
-ms.date: 09/22/2020
+ms.date: 12/22/2020
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: d15d73b0f2b87b8e6f66c7bd4e7fb34f6b06e1a0
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: d5820af1efd91efd79fb2a860d6aad8d2eeed80d
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341921"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740876"
 ---
-# <a name="explore-and-manage-your-resources-with-asset-inventory-and-management-tools"></a>Explorez et gérez vos ressources à l’aide des outils d’inventaire et de gestion des ressources
+# <a name="explore-and-manage-your-resources-with-asset-inventory"></a>Explorer et gérer vos ressources avec l’inventaire des ressources
 
 La page d’inventaire des ressources d’Azure Security Center fournit une page unique pour visualiser la posture de sécurité des ressources que vous avez connectées à Security Center. 
 
@@ -43,7 +43,7 @@ Les possibilités de gestion des ressources de cet outil sont considérables et 
 |État de sortie :|Disponibilité générale (GA)|
 |Prix :|Gratuit|
 |Rôles et autorisations obligatoires :|tous les utilisateurs|
-|Clouds :|![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Non](./media/icons/no-icon.png) National/souverain (US Gov, Chine Gov, autres Gov)|
+|Clouds :|![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Oui](./media/icons/yes-icon.png) National/souverain (US Gov, Chine Gov, autres Gov)|
 |||
 
 
@@ -63,9 +63,9 @@ La page d’inventaire fournit les outils suivants :
 
     Dès que vous avez appliqué des filtres, les valeurs récapitulatives sont mises à jour pour se rapporter aux résultats de la requête. 
 
-- **Options d’exportation** : L’inventaire offre la possibilité d’exporter les résultats des options de filtrage que vous avez sélectionnées dans un fichier CSV. En outre, vous pouvez exporter la requête elle-même vers Azure Resource Graph Explorer pour affiner, enregistrer ou modifier la requête KQL.
+- **Options d’exportation** : L’inventaire offre la possibilité d’exporter les résultats des options de filtrage que vous avez sélectionnées dans un fichier CSV. En outre, vous pouvez exporter la requête elle-même vers Azure Resource Graph Explorer pour affiner, enregistrer ou modifier la requête KQL (Kusto Query Language).
 
-    ![Options d’exportation de l’inventaire](./media/asset-inventory/inventory-export-options.png)
+    :::image type="content" source="./media/asset-inventory/inventory-export-options.png" alt-text="Options d’exportation de l’inventaire":::
 
     > [!TIP]
     > La documentation KQL fournit une base de données avec quelques exemples de données ainsi que quelques requêtes simples pour vous faire une idée du langage. [Pour en savoir plus, consultez ce didacticiel KQL](/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer).
@@ -94,7 +94,7 @@ Grâce au [langage de requête Kusto (KQL)](/azure/data-explorer/kusto/query/), 
 
 1. Sélectionnez les options pertinentes dans les filtres pour créer la requête spécifique que vous souhaitez effectuer.
 
-    :::image type="content" source="./media/asset-inventory/inventory-filters.png" alt-text="Filtrage des ressources de production qui ne sont pas analysées" lightbox="./media/asset-inventory/inventory-filters.png":::
+    :::image type="content" source="./media/asset-inventory/inventory-filters.png" alt-text="Options de filtrage de l’inventaire" lightbox="./media/asset-inventory/inventory-filters.png":::
 
     Par défaut, les ressources sont triées selon le nombre de recommandations de sécurité actives.
 
@@ -114,16 +114,16 @@ Grâce au [langage de requête Kusto (KQL)](/azure/data-explorer/kusto/query/), 
 
     - **Désactivé** : ressources non protégées par un plan Azure Defender. Vous pouvez cliquer avec le bouton droit sur l’un de ces éléments et les mettre à niveau :
 
-        :::image type="content" source="./media/asset-inventory/upgrade-resource-inventory.png" alt-text="Filtrage des ressources de production qui ne sont pas analysées" lightbox="./media/asset-inventory/upgrade-resource-inventory.png":::
+        :::image type="content" source="./media/asset-inventory/upgrade-resource-inventory.png" alt-text="Mettre à niveau une ressource vers Azure Defender à l’aide d’un clic droit" lightbox="./media/asset-inventory/upgrade-resource-inventory.png":::
 
     - **Activé** : ressources protégées par un plan Azure Defender
     - **Partiel** : s’applique aux **abonnements** pour lesquels certains plans Azure Defender ont été désactivés (mais pas en totalité). Par exemple, l’abonnement suivant comporte cinq plans Azure Defender désactivés. 
 
-        :::image type="content" source="./media/asset-inventory/pricing-tier-partial.png" alt-text="Filtrage des ressources de production qui ne sont pas analysées":::
+        :::image type="content" source="./media/asset-inventory/pricing-tier-partial.png" alt-text="Abonnement partiel sur Azure Defender":::
 
 1. Pour examiner plus en détail les résultats de votre requête, sélectionnez les ressources qui vous intéressent.
 
-1. Pour afficher les options de filtre actuellement sélectionnées en tant que requête dans l’Explorateur Resource Graph, sélectionnez **Afficher dans l’Explorateur Resource Graph**.
+1. Pour afficher les options de filtre actuellement sélectionnées en tant que requête dans l’Explorateur Resource Graph, sélectionnez **Ouvrir la requête**.
 
     ![Requête d’inventaire dans ARG](./media/asset-inventory/inventory-query-in-resource-graph-explorer.png)
 
@@ -140,7 +140,7 @@ La vue de l’inventaire répertorie vos ressources connectées Security Center 
 
 Par exemple, la capture d’écran suivante montre un utilisateur ayant accès à 38 abonnements, mais seulement 10 de ces abonnements ont des recommandations. Ainsi, si l’on applique le filtre **Type de ressource = Abonnements**, seuls ces 10 abonnements avec des recommandations actives apparaissent dans l’inventaire :
 
-:::image type="content" source="./media/asset-inventory/filtered-subscriptions-some.png" alt-text="Filtrage des ressources de production qui ne sont pas analysées":::
+:::image type="content" source="./media/asset-inventory/filtered-subscriptions-some.png" alt-text="Tous les abonnements ne sont pas retournés lorsqu’il n’y a pas de recommandations actives":::
 
 ### <a name="why-do-some-of-my-resources-show-blank-values-in-the-azure-defender-or-agent-monitoring-columns"></a>Pourquoi certaines de mes ressources affichent-elles des valeurs vides dans les colonnes d’Azure Defender ou d’analyse de l’agent ?
 
@@ -148,7 +148,7 @@ Toutes les ressources analysées par Security Center n’ont pas d’agents. Par
 
 Lorsque la tarification ou l’analyse de l’agent ne sont pas pertinentes pour une ressource, rien n’est indiqué dans ces colonnes d’inventaire.
 
-:::image type="content" source="./media/asset-inventory/agent-pricing-blanks.png" alt-text="Filtrage des ressources de production qui ne sont pas analysées":::
+:::image type="content" source="./media/asset-inventory/agent-pricing-blanks.png" alt-text="Certaines ressources affichent des informations vides dans les colonnes d’analyse de l’agent ou d’Azure Defender":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

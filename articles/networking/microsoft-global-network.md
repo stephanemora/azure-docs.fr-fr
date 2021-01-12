@@ -10,15 +10,15 @@ ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/13/2019
+ms.date: 01/05/2020
 ms.author: kumud
 ms.reviewer: ypitsch
-ms.openlocfilehash: 05e966d3f4631e3c344bd97c0faec99cc3c6dd66
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: a33c7e7d637b519b249c250481a73d04c661d4d5
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91819900"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915842"
 ---
 # <a name="microsoft-global-network"></a>Réseau Microsoft mondial
 
@@ -71,4 +71,5 @@ Ces principes s’appliquent à toutes les couches du réseau, depuis l’interf
 La croissance exponentielle d’Azure et de son réseau a atteint un point où nous avons finalement compris qu’il n’était plus possible de s’appuyer sur l’intuition humaine pour gérer les opérations du réseau mondial. Pour répondre à la nécessité de valider les changements à long terme, moyen terme et court terme apportés au réseau, nous avons développé une plateforme permettant de mettre en miroir et d’émuler notre réseau de production de façon synthétique. La possibilité de créer des environnements en miroir et d’exécuter des millions de simulations nous permet de tester des changements logiciels et matériels avant de les valider sur notre plateforme de production et notre réseau. 
 
 ## <a name="next-steps"></a>Étapes suivantes
+- [En savoir plus sur la manière dont Microsoft fait progresser la fiabilité de son réseau mondial grâce à des logiciels intelligents](https://azure.microsoft.com/blog/advancing-global-network-reliability-through-intelligent-software-part-1-of-2/)
 - [En savoir plus sur les services réseau fournis dans Azure](https://azure.microsoft.com/product-categories/networking/)

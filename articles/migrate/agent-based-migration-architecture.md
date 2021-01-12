@@ -6,12 +6,12 @@ ms.author: rahugup
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 1389b03d87beb24cba50fec0a782de8b7f935557
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: c605c21307cda874f34ae5ea9f4e4959e5e6c183
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753890"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861947"
 ---
 # <a name="agent-based-migration-architecture"></a>Architecture de la migration basée sur agent
 
@@ -92,14 +92,14 @@ Si vous répliquez des machines virtuelles VMware, vous pouvez utiliser le [Plan
 
 Utilisez les valeurs de ce tableau pour déterminer si vous avez besoin d'un serveur de processus supplémentaire dans votre déploiement.
 
-- Si votre taux de modification quotidien (taux de variation) est supérieur à 2 To, déployez un serveur de processus supplémentaire.
+- Si le taux de modification quotidien (taux de variation) est supérieur à 2 To, déployez un serveur de processus supplémentaire.
 - Si vous répliquez plus de 200 machines, déployez une appliance de réplication supplémentaire.
 
 **UC** | **Mémoire** | **Espace libre de mise en cache des données** | **Taux de variation** | **Limites de réplication**
 --- | --- | --- | --- | ---
 8 processeurs virtuels (2 sockets * 4 cœurs \@ 2,5 GHz) | 16 Go | 300 Go | 500 Go ou moins | < 100 machines 
 12 processeurs virtuels (2 sockets * 6 cœurs \@ 2,5 GHz) | 18 Go | 600 Go | 501 Go à 1 To | 100-150 machines.
-16 processeurs virtuels (2 sockets * 8 cœurs \@ 2,5 GHz) | 32 G1 |  1 To | 1 To à 2 To | 151-200 machines.
+16 processeurs virtuels (2 sockets * 8 cœurs \@ 2,5 GHz) | 32 Go |  1 To | 1 To à 2 To | 151-200 machines.
 
 ### <a name="sizing-scale-out-process-servers"></a>Dimensionnement des serveurs de traitement de scale-out
 
@@ -108,7 +108,7 @@ S'il vous faut de déployer un serveur de traitement de scale-out, utilisez ce t
 **Serveur de traitement** | **Espace libre pour la mise en cache des données** | **Taux de variation** | **Limites de réplication**
 --- | --- | --- | --- 
 4 processeurs virtuels (2 sockets * 2 cœurs \@ 2,5 GHz), 8 Go de mémoire | 300 Go | 250 Go ou moins | Jusqu'à 85 machines 
-8 processeurs virtuels (2 sockets * 4 cœurs \@ 2,5 GHz), 12 Go de mémoire | 600 Go | 251 Go à 1 To    | 86-150 machines.
+8 processeurs virtuels (2 sockets * 4 cœurs \@ 2,5 GHz), 12 Go de mémoire | 600 Go | 251 Go à 1 To | 86-150 machines.
 12 processeurs virtuels (2 sockets * 6 cœurs \@ 2,5 GHz), 24 Go de mémoire | 1 To | 1 à 2 To | 151-225 machines.
 
 ## <a name="throttle-upload-bandwidth"></a>Limitez la bande passante de chargement.

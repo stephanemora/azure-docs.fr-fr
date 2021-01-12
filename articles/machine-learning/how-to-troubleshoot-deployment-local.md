@@ -1,7 +1,7 @@
 ---
-title: Résoudre les problèmes de déploiement d’un service web localement
+title: Dépannage du déploiement de modèle local
 titleSuffix: Azure Machine Learning
-description: Découvrez comment contourner, résoudre et traiter localement les erreurs courantes de déploiement Docker liées à Azure Machine Learning.
+description: Essayez un déploiement de modèle local comme première étape de dépannage des erreurs de déploiement de modèle.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,16 +11,16 @@ ms.reviewer: luquinta
 ms.date: 11/25/2020
 ms.topic: troubleshooting
 ms.custom: devx-track-python, deploy, contperf-fy21q2
-ms.openlocfilehash: 4f70978e7b7c2315aff4c51d8b019933df78e7e8
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: a879a81ae2bcb4e659c69a801f7c299c10ab3d77
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97028799"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740638"
 ---
-# <a name="troubleshoot-model-deployment-locally"></a>Résoudre les problèmes de déploiement de modèle localement
+# <a name="troubleshooting-with-a-local-model-deployment"></a>Dépannage avec un déploiement de modèle local
 
-Découvrez comment dépanner et résoudre, ou contourner localement les erreurs courantes de déploiement Docker liées au service web Azure Machine Learning.
+Essayez un déploiement de modèle local comme première étape de dépannage d’un déploiement sur Azure Container Instances (ACI) ou Azure Kubernetes service (AKS).  L’utilisation d’un service web local facilite la localisation et la correction des erreurs courantes de déploiement Docker liées au service web Azure Machine Learning.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -28,13 +28,11 @@ Découvrez comment dépanner et résoudre, ou contourner localement les erreurs 
 * Le [Kit de développement logiciel (SDK) Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
 * [Interface de ligne de commande Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 * [Extension CLI pour Azure Machine Learning](reference-azure-machine-learning-cli.md).
-* Pour déboguer localement, vous devez avoir une installation opérationnelle de Docker sur votre système local.
+* Pour effectuer un débogage local, vous pouvez déployer le modèle sur une [instance de calcul Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-local-container-notebook-vm) ou disposer d’une installation Docker opérationnelle sur votre système local.
 
     Pour vérifier votre installation de Docker, utilisez la commande `docker run hello-world` à partir d’un terminal ou d’une invite de commandes. Pour obtenir des informations sur l’installation de Docker ou sur la résolution des erreurs Docker, consultez la [documentation Docker](https://docs.docker.com/).
 
 ## <a name="debug-locally"></a>Déboguer en local
-
-Si vous rencontrez des problèmes lors du déploiement d'un modèle sur ACI ou AKS, déployez-le en tant que service web local. L’utilisation d’un service web local facilite la résolution des problèmes.
 
 Vous trouverez un exemple exécutable de [notebook de déploiement local](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/deploy-to-local/register-model-deploy-local.ipynb) dans le référentiel [MachineLearningNotebooks](https://github.com/Azure/MachineLearningNotebooks).
 

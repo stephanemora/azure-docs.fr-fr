@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 08/10/2020
 ms.author: vikancha
-ms.openlocfilehash: edbd8b2fefb90bb95bfcd08c126a42c810ad081b
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 2de6cceb1e3b85060a146b18a689b57573bc932e
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511596"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97585426"
 ---
 # <a name="ncast4_v3-series-in-preview"></a>Série NCasT4_v3 (en préversion) 
 
@@ -30,6 +30,8 @@ Les machines virtuelles de la série NCasT4_v3 sont alimentées par [processeurs
 [Migration dynamique](maintenance-and-updates.md) : Non pris en charge<br>
 [Mises à jour avec préservation de la mémoire](maintenance-and-updates.md) : Non pris en charge<br>
 [Génération de machine virtuelle prise en charge](generation-2.md) : Génération 1<br>
+Mise en réseau accélérée : Pris en charge<br>
+Interconnexion Nvidia/NVLink : Non pris en charge<br>
 <br>
 
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | GPU | Mémoire GPU : Gio | Disques de données max. | Nombre max de cartes réseau / Bande passante réseau attendue (MBps) |

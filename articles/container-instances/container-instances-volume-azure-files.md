@@ -4,12 +4,12 @@ description: Découvrir comment monter un volume Azure Files pour conserver l’
 ms.topic: article
 ms.date: 07/02/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 5ca619ac3ae93ee238d019b64ecccc975b7c8e3b
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: afebdcdc9d9c5852d7fe66ed06ac457c1dbb0afb
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746862"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881801"
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Monter un partage de fichiers Azure dans Azure Container Instances
 
@@ -20,6 +20,9 @@ Par défaut, les conteneurs Azure Container Instances sont sans état. Si le con
 >
 > Le montage d’un partage Azure Files vers une instance de conteneur est similaire à un [montage de liaison](https://docs.docker.com/storage/bind-mounts/) Docker. Sachez que si vous montez un partage dans un répertoire de conteneur dans lequel des fichiers ou des répertoires existent, ces fichiers ou répertoires sont masqués par le montage et ne sont pas accessibles pendant l’exécution du conteneur.
 >
+
+> [!IMPORTANT]
+> Si vous déployez des groupes de conteneurs dans un réseau virtuel Azure, vous devez ajouter un [point de terminaison de service](../virtual-network/virtual-network-service-endpoints-overview.md) à votre compte de stockage Azure.
 
 ## <a name="create-an-azure-file-share"></a>Crée un partage de fichiers Azure
 
@@ -49,15 +52,15 @@ az storage share create \
 
 Pour monter un partage de fichiers Azure en tant que volume dans Azure Container Instances, vous avez besoin de trois valeurs : le nom du compte de stockage, le nom du partage et la clé d’accès de stockage.
 
-* **Nom du compte de stockage**  : si vous avez utilisé le script précédent, le nom du compte de stockage a été stocké dans la variable `$ACI_PERS_STORAGE_ACCOUNT_NAME`. Pour afficher le nom du compte, entrez :
+* **Nom du compte de stockage** : si vous avez utilisé le script précédent, le nom du compte de stockage a été stocké dans la variable `$ACI_PERS_STORAGE_ACCOUNT_NAME`. Pour afficher le nom du compte, entrez :
 
   ```console
   echo $ACI_PERS_STORAGE_ACCOUNT_NAME
   ```
 
-* **Nom de partage**  : cette valeur est déjà connue (définie comme `acishare` dans le script précédent)
+* **Nom de partage** : cette valeur est déjà connue (définie comme `acishare` dans le script précédent)
 
-* **Clé de compte de stockage**  : cette valeur est disponible à l’aide de la commande suivante :
+* **Clé de compte de stockage** : cette valeur est disponible à l’aide de la commande suivante :
 
   ```azurecli-interactive
   STORAGE_KEY=$(az storage account keys list --resource-group $ACI_PERS_RESOURCE_GROUP --account-name $ACI_PERS_STORAGE_ACCOUNT_NAME --query "[0].value" --output tsv)
@@ -235,7 +238,7 @@ az deployment group create --resource-group myResourceGroup --template-file depl
 
 Pour monter plusieurs volumes dans une instance de conteneur, vous devez effectuer le déploiement à l’aide d’un [modèle Azure Resource Manager](/azure/templates/microsoft.containerinstance/containergroups), d’un fichier YAML ou d’une autre méthode programmatique. Pour utiliser un modèle ou fichier YAML, fournissez les détails de partage et définissez les volumes en remplissant le tableau `volumes` dans la section `properties` du fichier. 
 
-Par exemple, si vous avez créé deux partages de fichiers Azure nommés *share1* et *share2* dans le compte de stockage *myStorageAccount* , le tableau `volumes` dans un modèle Resource Manager ressemblerait à ceci :
+Par exemple, si vous avez créé deux partages de fichiers Azure nommés *share1* et *share2* dans le compte de stockage *myStorageAccount*, le tableau `volumes` dans un modèle Resource Manager ressemblerait à ceci :
 
 ```JSON
 "volumes": [{
@@ -256,7 +259,7 @@ Par exemple, si vous avez créé deux partages de fichiers Azure nommés *share1
 }]
 ```
 
-Ensuite, pour chaque conteneur du groupe de conteneurs dans lequel vous souhaitez monter les volumes, remplissez le tableau `volumeMounts` dans la section `properties` de la définition de conteneur. Ainsi, nous obtenons les deux volumes montés, *myvolume1* et *myvolume2* , définis précédemment :
+Ensuite, pour chaque conteneur du groupe de conteneurs dans lequel vous souhaitez monter les volumes, remplissez le tableau `volumeMounts` dans la section `properties` de la définition de conteneur. Ainsi, nous obtenons les deux volumes montés, *myvolume1* et *myvolume2*, définis précédemment :
 
 ```JSON
 "volumeMounts": [{

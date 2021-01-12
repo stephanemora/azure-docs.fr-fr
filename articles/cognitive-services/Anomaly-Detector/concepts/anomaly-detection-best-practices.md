@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: mbullwin
-ms.openlocfilehash: b02ccea396fc65f9ecfe1d59e953da7440e87951
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 9457c610b256dd4602ef0dc51a47eeffb3c63b49
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94363641"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705147"
 ---
 # <a name="best-practices-for-using-the-anomaly-detector-api"></a>Bonnes pratiques pour l’utilisation de l’API Détecteur d’anomalies
 
@@ -104,4 +104,4 @@ Si vos données de diffusion en continu sont échantillonnées à courts interva
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Présentation de l’API Détecteur d’anomalies](../overview.md)
-* [Démarrage rapide : Détecter des anomalies dans vos données de séries chronologiques avec l’API Détecteur d’anomalies](../quickstarts/detect-data-anomalies-csharp.md)
+* [Démarrage rapide : Détecter des anomalies dans vos données de séries chronologiques avec le Détecteur d’anomalies](../quickstarts/client-libraries.md)

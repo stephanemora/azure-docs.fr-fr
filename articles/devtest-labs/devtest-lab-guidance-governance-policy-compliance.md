@@ -4,12 +4,12 @@ description: Cet article fournit des conseils concernant la stratégie de l’en
 ms.topic: article
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: fe370ec882fd0462bba6afdf11c718cf46618f0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89fe380c3a8e0e0a82cc806bf19f9a3454041d94
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85480930"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97592345"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---company-policy-and-compliance"></a>Gouvernance de l’infrastructure Azure DevTest Labs : stratégie d’entreprise et conformité
 Cet article fournit des conseils concernant la stratégie de l’entreprise et la conformité de l’infrastructure Azure DevTest Labs. 
@@ -37,7 +37,7 @@ Dans le cadre de la stratégie générale de gouvernance et de la gestion des co
 - Associez Azure Repos au même locataire Azure Active Directory que celui utilisé par l’abonnement Azure pour l’authentification et l’autorisation.
 - Dans Azure Active Directory, créez un groupe nommé **Tous les développeurs DevTest Labs** qui soit géré de façon centralisée. Tous les développeurs qui contribuent au développement d’artefacts doivent être placés dans ce groupe.
 - Le même groupe Azure Active Directory peut être utilisé pour donner accès au dépôt Azure Repos et au lab.
-- Dans Azure Repos, la création de branches ou la duplication doit permettre de séparer un dépôt de développement du dépôt de production principal. Le contenu n’est ajouté à la branche maître qu’avec une requête d’extraction après un examen approprié du code. Une fois la modification approuvée par l’examinateur du code, le code actualisé est fusionné par un développeur principal responsable de la maintenance de la branche maître. 
+- Dans Azure Repos, la création de branches ou la duplication doit permettre de séparer un dépôt de développement du dépôt de production principal. Le contenu n’est ajouté à la branche primaire qu’avec une requête d’extraction après un examen approprié du code. Une fois la modification approuvée par l’examinateur du code, le code actualisé est fusionné par un développeur principal responsable de la maintenance de la branche primaire. 
 
 ## <a name="corporate-security-policies"></a>Stratégies de sécurité de l’entreprise
 

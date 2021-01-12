@@ -6,13 +6,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: troubleshooting
-ms.date: 10/15/2020
-ms.openlocfilehash: e29c640494a18bb3be2125a5b53b4f943521fe6c
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.date: 12/16/2020
+ms.openlocfilehash: c93ce9c81ada3c30128846b43041603e132abd88
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579145"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617236"
 ---
 # <a name="troubleshoot-common-issues-in-azure-data-share"></a>Résoudre les problèmes courants dans Azure Data Share 
 
@@ -67,6 +67,10 @@ La capture instantanée peut échouer pour différentes raisons. Vous trouverez 
 * La connexion de Data Share au magasin de données source ou cible est bloquée par le pare-feu.
 * Le jeu de données partagé, ou le magasin de données source ou cible, est supprimé.
 
+Pour le compte de stockage, les autres causes des échecs d’instantanés sont les suivantes.
+
+* Le fichier est en cours de mise à jour sur la source lors de la prise de l’instantané. Cela peut entraîner un fichier de 0 octet au niveau de la cible. Une fois la mise à jour terminée, l’instantané suivant au niveau de la source doit aboutir.
+
 Pour les sources SQL, les autres causes des échecs d’instantanés sont les suivantes. 
 
 * Le script SQL source ou cible pour accorder l’autorisation de partage de données n’est pas exécuté. Ou, pour Azure SQL Database ou Azure Synapse Analytics (anciennement Azure SQL DW), il est exécuté à l’aide de l’authentification SQL au lieu de l’authentification Azure Active Directory.  
@@ -75,6 +79,9 @@ Pour les sources SQL, les autres causes des échecs d’instantanés sont les su
 * Le magasin de données SQL source ou cible est verrouillé par d’autres processus. Azure Data Share n’applique pas de verrous aux magasins de données SQL source et cible. Toutefois, les verrous existants sur les magasins de données SQL source et cible entraînent un échec de l’instantané.
 * La table SQL cible est référencée par une contrainte de clé étrangère. Pendant l’instantané, si une table cible portant le même nom existe, Azure Data Share supprime la table et en crée une nouvelle. Si la table SQL cible est référencée par une contrainte de clé étrangère, elle ne peut pas être supprimée.
 * Le fichier CSV cible est généré, mais les données ne peuvent pas être lues dans Excel. Cela peut se produire lorsque la table SQL source contient des données avec des caractères non anglais. Dans Excel, sélectionnez l’onglet « Obtenir les données » et choisissez le fichier CSV, puis sélectionnez l’origine du fichier 65001 : Unicode (UTF-8) et chargez les données.
+
+## <a name="snapshot-issue-after-updating-snapshot-schedule"></a>Problème d’instantané après la mise à jour de la planification d’instantanés
+Une fois que le fournisseur de données a mis à jour la planification d’instantanés pour le partage envoyé, le consommateur de données doit désactiver la planification d’instantanés précédente et réactiver la planification d’instantanés mise à jour pour le partage reçu. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 10/22/2020
-ms.openlocfilehash: e67376e2ef79f9711f54ce54d0d91623593ca8ea
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 9a35c0dc8a3b994b015d7a8d64f76f7e10d95a00
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96853286"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97722400"
 ---
 # <a name="connectivity-architecture-for-azure-sql-managed-instance"></a>Architecture de connectivité d’Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -311,12 +311,13 @@ Si le réseau virtuel comprend un DNS personnalisé, le serveur DNS personnalis�
 
 **TLS 1.2 est appliqué aux connexions sortantes** : En janvier 2020, Microsoft a appliqué TLS 1.2 pour le trafic intra-service dans tous les services Azure. Pour Azure SQL Managed Instance, cela a eu pour effet que TLS 1.2 était appliqué aux connexions sortantes utilisées pour la réplication et aux connexions de serveur lié à SQL Server. Si vous utilisez des versions de SQL Server antérieures à 2016 avec SQL Managed Instance, vérifiez que les [mises à jour spécifiques de TLS 1.2](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) ont été appliquées.
 
-Les fonctionnalités de réseau virtuel suivantes ne sont actuellement pas prises en charge avec SQL Managed Instance :
+Les fonctionnalités de réseau virtuel suivantes *ne sont pas prises en charge* avec SQL Managed Instance :
 
 - **Homologation Microsoft** : l’activation du [peering Microsoft](../../expressroute/expressroute-faqs.md#microsoft-peering) sur des circuits ExpressRoute appairés, directement ou transitivement, avec un réseau virtuel sur lequel SQL Managed Instance réside, affecte le flux de trafic entre les composants SQL Managed Instance au sein du réseau virtuel et les services dont il dépend, ce qui engendre des problèmes de disponibilité. Des déploiements de SQL Managed Instance sur un réseau virtuel avec une homologation Microsoft déjà activée sont supposés échouer.
 - **Homologation de réseau virtuel mondial** : La connectivité de [peering de réseau virtuel](../../virtual-network/virtual-network-peering-overview.md) entre régions Azure ne fonctionne pas pour les instances SQL Managed Instance placées dans des sous-réseaux créés avant le 22/9/2020.
 - **AzurePlatformDNS** : L’utilisation de l’[étiquette de service](../../virtual-network/service-tags-overview.md) AzurePlatformDNS pour bloquer la résolution DNS de plateforme rendrait SQL Managed Instance indisponible. Même si SQL Managed Instance prend en charge le DNS défini par le client pour la résolution DNS à l’intérieur du moteur, il existe une dépendance envers le système DNS de plateforme pour les opérations de plateforme.
 - **Passerelle NAT** : L’utilisation du service [NAT de réseau virtuel Azure](../../virtual-network/nat-overview.md) pour contrôler la connectivité sortante avec une adresse IP publique spécifique rendrait SQL Managed Instance indisponible. Le service SQL Managed Instance est actuellement limité à l’utilisation d’un équilibreur de charge de base qui ne permet pas la coexistence de flux entrants et sortants avec le service NAT de réseau virtuel.
+- **IPv6 pour réseau virtuel Azure** : Le déploiement de SQL Managed Instance sur des [réseaux virtuels IPv4/IPv6 à double pile](../../virtual-network/ipv6-overview.md) se solde par un échec. L’association d’un groupe NSG (groupe de sécurité réseau) ou d’une table UDR (table de routage) contenant des préfixes d’adresses IPv6 à un sous-réseau SQL Managed Instance, ou l’ajout de préfixes d’adresses IPv6 à un groupe NSG ou une table UDR déjà associé(e) à un sous-réseau Managed Instance, ne permet pas d’utiliser SQL Managed Instance. Les déploiements de SQL Managed Instance sur un sous-réseau avec un groupe NSG et une table UDR disposant déjà de préfixes IPv6 se soldent par un échec.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

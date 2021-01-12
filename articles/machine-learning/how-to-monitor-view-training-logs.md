@@ -11,18 +11,22 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 845160d92100a27c32f16eddcd1f36e9e8624e80
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: ea96e1056e6157cfddbdc2f0b6451ed55a74d1de
+ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360596"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97756056"
 ---
 # <a name="monitor-and-view-ml-run-logs-and-metrics"></a>Surveiller et consulter les journaux d’exécution et les métriques de Machine Learning
 
-Dans cet article, vous allez apprendre à surveiller les exécutions d’Azure Machine Learning et à en consulter les journaux. Avant de pouvoir afficher les journaux, vous devez les activer. Pour plus d’informations, consultez [Activer la journalisation dans les exécutions de formation d’Azure ML](how-to-track-experiments.md).
+Découvrez comment superviser les exécutions Azure Machine Learning et en consulter les journaux. 
 
-Les journaux peuvent vous aider à diagnostiquer les erreurs et les avertissements, ou à effectuer le suivi des métriques de performances, telles que les paramètres et la précision du modèle. Cet article vous montre comment consulter les journaux à l’aide des méthodes suivantes :
+Quand vous exécutez une expérience, les journaux et les métriques sont envoyés en streaming pour vous.  Vous pouvez aussi ajouter les vôtres.  Pour savoir comment procéder, consultez [Activer la journalisation dans les exécutions d’entraînement Azure Machine Learning](how-to-track-experiments.md).
+
+Les journaux peuvent vous aider à diagnostiquer les erreurs et les avertissements pour votre exécution. Les métriques de performances, telles que les paramètres et la justesse du modèle, vous aident à suivre et à superviser vos exécutions.
+
+Cet article vous montre comment consulter les journaux à l’aide des méthodes suivantes :
 
 > [!div class="checklist"]
 > * Surveiller les exécutions dans le studio
@@ -32,27 +36,6 @@ Les journaux peuvent vous aider à diagnostiquer les erreurs et les avertissemen
 > * Afficher les journaux de sortie dans le studio
 
 Pour obtenir des informations générales sur la gestion de vos expériences, consultez [Démarrer, surveiller et annuler des exécutions de formation](how-to-manage-runs.md).
-
-## <a name="monitor-runs-in-the-studio"></a>Surveiller les exécutions dans le studio
-
-Pour surveiller les exécutions d’une cible de calcul spécifique dans votre navigateur, procédez comme suit :
-
-1. Dans le [studio Azure Machine Learning](https://ml.azure.com/), sélectionnez votre espace de travail, puis sélectionnez __Calcul__ sur le côté gauche de la page.
-
-1. Sélectionnez __Clusters d’entraînement__ pour afficher la liste des cibles de calcul utilisées pour l’entraînement. Ensuite, sélectionnez le cluster.
-
-    ![Sélectionner le cluster d’entraînement](./media/how-to-track-experiments/select-training-compute.png)
-
-1. Sélectionnez __Exécutions__. La liste des exécutions qui utilisent ce cluster s’affiche. Pour voir les détails d’une exécution, utilisez le lien qui se trouve dans la colonne __Exécution__. Pour voir les détails d’une expérience, utilisez le lien qui se trouve dans la colonne __Expérience__.
-
-    ![Sélectionner des exécutions pour le cluster d’entraînement](./media/how-to-track-experiments/show-runs-for-compute.png)
-    
-    > [!TIP]
-    > Étant donné que les cibles de calcul de formation sont des ressources partagées, elles peuvent avoir plusieurs exécutions mises en file d’attente ou actives à un moment donné.
-    > 
-    > Une exécution peut contenir des exécutions enfants. De fait, une tâche d’entraînement peut créer plusieurs entrées.
-
-Une fois l’exécution terminée, elle n’est plus affichée dans cette page. Pour voir des informations sur les exécutions terminées, consultez la section __Expériences__ dans le studio, puis sélectionnez l’expérience et l’exécution. Pour plus d’informations, consultez la section [Consulter les métriques pour les exécutions terminées](#view-the-experiment-in-the-web-portal).
 
 ## <a name="monitor-runs-using-the-jupyter-notebook-widget"></a>Surveiller les exécutions avec le widget Jupyter Notebook
 
@@ -94,28 +77,28 @@ RunDetails(run).show()
 Quand vous utilisez **ScriptRunConfig**, vous pouvez employer ```run.wait_for_completion(show_output = True)``` pour indiquer quand l’entraînement du modèle est terminé. L’indicateur ```show_output``` vous donne une sortie détaillée. Pour plus d’informations, consultez la section ScriptRunConfig de [Procédure d’activation de la journalisation](how-to-track-experiments.md#scriptrun-logs).
 
 <a id="queryrunmetrics"></a>
+
 ## <a name="query-run-metrics"></a>Interroger les métriques d’exécution
 
 Vous pouvez afficher les métriques d’un modèle entraîné à l’aide de ```run.get_metrics()```. Par exemple, vous pouvez l’utiliser avec l’exemple ci-dessus pour déterminer le meilleur modèle en recherchant le modèle avec la valeur d’erreur quadratique moyenne (MSE) la plus faible.
 
 <a name="view-the-experiment-in-the-web-portal"></a>
+
 ## <a name="view-run-records-in-the-studio"></a>Consulter les enregistrements d’exécution dans le studio
 
 Vous pouvez parcourir les enregistrements d’exécution terminés, notamment les mesures journalisées, dans le [studio Azure Machine Learning](https://ml.azure.com).
 
-Accédez à l’onglet **Expériences**. Pour afficher toutes les exécutions de votre espace de travail dans Expériences, sélectionnez l’onglet **Toutes les exécutions**. Vous pouvez explorer les exécutions au niveau du détail pour des Expériences spécifiques en appliquant le filtre Expérience dans la barre de menus supérieure. 
+Accédez à l’onglet **Expériences**. Pour afficher toutes les exécutions de votre espace de travail dans Expériences, sélectionnez l’onglet **Toutes les exécutions**. Vous pouvez explorer les exécutions au niveau du détail pour des Expériences spécifiques en appliquant le filtre Expérience dans la barre de menus supérieure.
 
 Pour l’affichage individuel de l’Expérience, sélectionnez l’onglet **Toutes les expériences**. Dans le tableau de bord d’exécution d’expérience, vous pouvez voir les journaux et les métriques suivis pour chaque exécution. 
 
-Vous pouvez descendre dans la hiérarchie jusqu’à une exécution spécifique pour en afficher les sorties ou les journaux, ou télécharger la capture instantanée de l’expérience afin de pouvoir partager le dossier de l’expérience avec d’autres utilisateurs.
-
-Vous pouvez également modifier la table de la liste d’exécution pour sélectionner plusieurs exécutions et afficher la valeur la plus récente, la valeur minimale ou la valeur maximale du journal pour vos exécutions. Personnalisez vos graphiques pour comparer les valeurs des mesures journalisées et les agrégats sur plusieurs exécutions.
+Vous pouvez également modifier la table de la liste d’exécution pour sélectionner plusieurs exécutions et afficher la valeur la plus récente, la valeur minimale ou la valeur maximale du journal pour vos exécutions. Personnalisez vos graphiques pour comparer les valeurs des mesures journalisées et les agrégats sur plusieurs exécutions. 
 
 ![Exécution des détails dans Azure Machine Learning Studio](media/how-to-track-experiments/experimentation-tab.gif)
 
-### <a name="format-charts-in-the-studio"></a>Mettre en forme les graphiques dans le studio
+### <a name="format-charts"></a>Mettre en forme les graphiques 
 
-Utilisez les méthodes suivantes dans les API de journalisation pour influencer la visualisation de vos métriques par le studio.
+Utilisez les méthodes suivantes dans les API de journalisation pour influencer les visualisations des métriques.
 
 |Valeur connectée|Exemple de code| Format dans le portail|
 |----|----|----|
@@ -123,6 +106,80 @@ Utilisez les méthodes suivantes dans les API de journalisation pour influencer 
 |Journaliser une valeur numérique avec le même nom de métrique utilisé à plusieurs reprises (comme à l’intérieur d’une boucle for)| `for i in tqdm(range(-10, 10)):    run.log(name='Sigmoid', value=1 / (1 + np.exp(-i))) angle = i / 2.0`| Graphique en courbes à variable unique|
 |Journaliser une ligne avec 2 colonnes numériques à plusieurs reprises|`run.log_row(name='Cosine Wave', angle=angle, cos=np.cos(angle))   sines['angle'].append(angle)      sines['sine'].append(np.sin(angle))`|Graphique en courbes à deux variables|
 |Journaliser un table avec 2 colonnes numériques|`run.log_table(name='Sine Wave', value=sines)`|Graphique en courbes à deux variables|
+
+
+### <a name="view-log-files-for-a-run"></a>Afficher les fichiers journaux d’une exécution 
+
+Les fichiers journaux sont une ressource essentielle pour déboguer les charges de travail Azure ML. Vous pouvez descendre dans la hiérarchie jusqu’à une exécution spécifique pour afficher ses journaux et sorties :  
+
+1. Accédez à l’onglet **Expériences**.
+1. Sélectionnez le runID associé à une exécution spécifique.
+1. Sélectionnez **Sorties + journaux** en haut de la page.
+
+:::image type="content" source="media/how-to-monitor-view-training-logs/view-logs.png" alt-text="Capture d’écran de la section Sorties + journaux d’une exécution":::
+
+Les tableaux ci-dessous montrent le contenu des fichiers journaux dans les dossiers qui apparaissent dans cette section.
+
+> [!NOTE]
+> Chaque fichier pour chaque exécution n’est pas nécessairement présent. Par exemple, le fichier 20_image_build_log*.txt apparaît uniquement quand une image est créée (par exemple, quand vous changez l’environnement).
+
+#### <a name="azureml-logs-folder"></a>`azureml-logs`
+
+|Fichier  |Description  |
+|---------|---------|
+|20_image_build_log.txt     | Journal de génération d’image Docker pour l’environnement d’entraînement (facultatif, un par exécution). Applicable uniquement lors de la mise à jour de votre environnement. Sinon, AML réutilise l’image mise en cache. En cas de réussite, contient les détails du registre d’images pour l’image correspondante.         |
+|55_azureml-execution-<node_id>.txt     | Journal stdout/stderr de l’outil hôte, un par nœud. Extrait l’image vers la cible de calcul. Notez que ce journal s’affiche uniquement quand vous avez sécurisé les ressources de calcul.         |
+|65_job_prep-<node_id>.txt     |   Journal stdout/stderr du script de préparation de travail, un par nœud. Téléchargez votre code vers la cible de calcul et les magasins de données (le cas échéant).       |
+|70_driver_log(_x).txt      |  Journal stdout/stderr du script de contrôle AML et du script d’entraînement de client, un par processus. **Il s’agit de la sortie standard de votre script. C’est là que résident les journaux de votre code (par exemple, les instructions print).** Dans la majorité des cas, c’est là que vous supervisez les journaux.       |
+|70_mpi_log.txt     |   Journal du framework MPI (facultatif, un par exécution). Uniquement pour une exécution MPI.   |
+|75_job_post-<node_id>.txt     |  Journal stdout/stderr du script de fin de travail, un par nœud. Envoyer les journaux, libérer les ressources de calcul dans Azure.        |
+|process_info.json      |   Indique le processus en cours d’exécution sur le nœud.  |
+|process_status.json      | Indique l’état du processus, c.-à-d., si un processus n’est pas démarré, en cours d’exécution ou terminé.         |
+
+#### <a name="logs--azureml-folder"></a>`logs > azureml`
+
+|Fichier  |Description  |
+|---------|---------|
+|110_azureml.log      |         |
+|job_prep_azureml.log     |   Journal système pour la préparation des travaux        |
+|job_release_azureml.log     | Journal système pour la fin des travaux        |
+
+#### <a name="logs--azureml--sidecar--node_id-folder"></a>`logs > azureml > sidecar > node_id`
+
+Quand le sidecar est activé, les scripts de préparation de travail et de fin de travail sont exécutés dans le conteneur sidecar.  Il existe un dossier pour chaque nœud. 
+
+|Fichier  |Description  |
+|---------|---------|
+|start_cms.txt     |  Journal de processus qui démarre quand le conteneur sidecar démarre       |
+|prep_cmd.txt      |   Journal des ContextManagers entrés lors de l’exécution de `job_prep.py` (partiellement envoyé en streaming vers `azureml-logs/65-job_prep`)       |
+|release_cmd.txt     |  Journal des ComtextManagers quittés lors de l’exécution de `job_release.py`        |
+
+#### <a name="other-folders"></a>Autres dossiers
+
+Pour les travaux qui effectuent un entraînement sur des clusters multicalculs, les journaux sont présents pour chaque adresse IP de nœud. La structure de chaque nœud est identique à celle des travaux mononœuds. Il existe un dossier de journaux supplémentaire pour les journaux stderr, stdout et d’exécution générale.
+
+Azure Machine Learning consigne des informations de diverses sources pendant la formation, telles que AutoML ou le conteneur Docker qui exécute le travail de formation. La plupart de ces journaux ne sont pas documentés. Si vous rencontrez des problèmes et que vous contactez le support Microsoft, il pourra peut-être utiliser ces journaux pendant la résolution des problèmes.
+
+## <a name="monitor-a-compute-cluster"></a>Superviser un cluster de calcul
+
+Pour surveiller les exécutions d’une cible de calcul spécifique dans votre navigateur, procédez comme suit :
+
+1. Dans le [studio Azure Machine Learning](https://ml.azure.com/), sélectionnez votre espace de travail, puis sélectionnez __Calcul__ sur le côté gauche de la page.
+
+1. Sélectionnez __Clusters d’entraînement__ pour afficher la liste des cibles de calcul utilisées pour l’entraînement. Ensuite, sélectionnez le cluster.
+
+    ![Sélectionner le cluster d’entraînement](./media/how-to-track-experiments/select-training-compute.png)
+
+1. Sélectionnez __Exécutions__. La liste des exécutions qui utilisent ce cluster s’affiche. Pour voir les détails d’une exécution, utilisez le lien qui se trouve dans la colonne __Exécution__. Pour voir les détails d’une expérience, utilisez le lien qui se trouve dans la colonne __Expérience__.
+
+    ![Sélectionner des exécutions pour le cluster d’entraînement](./media/how-to-track-experiments/show-runs-for-compute.png)
+    
+    > [!TIP]
+    > Étant donné que les cibles de calcul de formation sont des ressources partagées, elles peuvent avoir plusieurs exécutions mises en file d’attente ou actives à un moment donné.
+    > 
+    > Une exécution peut contenir des exécutions enfants. De fait, une tâche d’entraînement peut créer plusieurs entrées.
+
+Une fois l’exécution terminée, elle n’est plus affichée dans cette page. Pour voir des informations sur les exécutions terminées, consultez la section __Expériences__ dans le studio, puis sélectionnez l’expérience et l’exécution. Pour plus d’informations, consultez la section [Consulter les métriques pour les exécutions terminées](#view-the-experiment-in-the-web-portal).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

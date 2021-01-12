@@ -16,12 +16,12 @@ ms.date: 09/16/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e36b2d4576b43544bec89efd326363344b35be9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48b5260e883d85899953240f6ee4f83127681c9e
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90992714"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591296"
 ---
 # <a name="change-approval-and-requestor-information-preview-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>Modifier les paramètres d'approbation et d'informations sur le demandeur (préversion) d'un package d'accès dans la fonctionnalité de gestion des droits d'utilisation Azure AD
 
@@ -132,13 +132,15 @@ Par exemple, si vous avez mentionné Alice et Bob comme premier et deuxième app
 
 1. Sous Premier approbateur, Deuxième approbateur, ou les deux, cliquez sur **Afficher les paramètres de demande avancés**.
 
-    ![Package d’accès – Stratégie – Afficher les paramètres de demande avancés](./media/entitlement-management-access-package-approval-policy/alternate-approvers-click-advanced-request.png)
+    :::image type="content" source="media/entitlement-management-access-package-approval-policy/alternate-approvers-click-advanced-request.png" alt-text="Package d’accès – Stratégie – Afficher les paramètres de demande avancés":::
 
 1. Définissez l’option **En l’absence d’action, transférer à d’autres approbateurs ?** sur **Oui**.
 
 1. Cliquez sur **Ajouter des approbateurs de substitution**, puis sélectionnez les approbateurs de substitution dans la liste.
 
     ![Package d’accès – Stratégie – Ajouter des approbateurs de substitution](./media/entitlement-management-access-package-approval-policy/alternate-approvers-add.png)
+
+    Si vous sélectionnez Gestionnaire en tant qu’approbateur pour le premier approbateur, vous disposez d’une option supplémentaire, **Gestionnaire de second niveau en tant qu’approbateur de substitution**, sélectionnable dans le champ d’approbateur de substitution. Si vous sélectionnez cette option, vous devez ajouter un approbateur de secours auquel transférer la demande au cas où le système ne peut pas trouver le gestionnaire de second niveau.
 
 1. Dans la zone **Passer aux autres approbateurs après combien de jours ?** , entrez le nombre de jours dont les approbateurs disposent pour approuver ou refuser une demande. Si aucun approbateur n’a approuvé ou refusé la demande pendant la durée de validité de celle-ci, la demande expire (délai d’expiration) et l’utilisateur doit soumettre une autre demande pour le package d’accès. 
 
@@ -162,27 +164,27 @@ Pour veiller à ce que les utilisateurs aient accès aux packages d'accès appro
 
 1. Accédez à l'onglet **Informations sur le demandeur**, puis cliquez sur le sous-onglet **Questions**.
  
-1. Entrez la question que vous souhaitez poser au demandeur, également appelée « chaîne d'affichage », dans la zone **Question**.
+1. Tapez ce que vous souhaitez demander au demandeur, également appelé « chaîne d’affichage », pour la question dans la zone **Question**.
 
     ![Package d'accès - Stratégie - Activation du paramètre Informations sur le demandeur](./media/entitlement-management-access-package-approval-policy/add-requestor-info-question.png)
 
 1. Si les utilisateurs qui auront besoin d'accéder au package d'accès ne parlent pas tous la même langue, vous pouvez améliorer leur expérience sur myaccess.microsoft.com. Pour ce faire, vous pouvez fournir des chaînes d'affichage alternatives dans différentes langues. Par exemple, si le navigateur web d'un utilisateur est défini sur Espagnol et que vous avez configuré des chaînes d'affichage en espagnol, ces chaînes apparaîtront sur l'écran de l'utilisateur demandeur. Pour configurer la localisation des demandes, cliquez sur **Ajouter une localisation**.
     1. Une fois dans le volet **Ajouter des localisations pour les questions**, sélectionnez le **code de la langue** dans laquelle vous localisez la question.
-    1. Dans la langue que vous avez configurée, entrez la question dans la zone **Texte localisé**.
+    1. Dans la langue que vous avez configurée, tapez la question dans la zone **Texte localisé**.
     1. Une fois que vous avez ajouté toutes les localisations nécessaires, cliquez sur **Enregistrer**.
 
-    ![Package d'accès - Stratégie - Configuration du texte localisé](./media/entitlement-management-access-package-approval-policy/add-localization-question.png)
+    ![Package d’accès – Stratégie – Configuration du texte localisé](./media/entitlement-management-access-package-approval-policy/add-localization-question.png)
 
-1. Sélectionnez le **Format de réponse** dans lequel vous souhaitez que les demandeurs répondent : *texte court*, *choix multiples* et *texte long*.
+1. Sélectionnez le **Format de la réponse** dans lequel vous souhaitez que les demandeurs répondent : *texte court*, *choix multiples* et *texte long*.
  
-    ![Package d'accès - Stratégie - Sélection du bouton Afficher et modifier le format de réponse Choix multiples](./media/entitlement-management-access-package-approval-policy/answer-format-view-edit.png)
+    ![Package d’accès – Stratégie – Sélection du bouton Afficher et modifier le format de réponse Choix multiples](./media/entitlement-management-access-package-approval-policy/answer-format-view-edit.png)
  
 1. Si vous sélectionnez Choix multiples, cliquez sur le bouton **Afficher et modifier** pour configurer les options de réponse.
-    1. Une fois que vous avez sélectionné Afficher et modifier, le volet **Afficher/modifier la question** s'ouvre.
-    1. Entrez les options de réponse que vous souhaitez proposer au demandeur lorsqu'il répond à la question dans les zones **Valeurs de réponse**.
-    1. Entrez le nombre de réponses dont vous avez besoin, puis cliquez sur **Enregistrer**.
+    1. Une fois que vous avez sélectionné Afficher et modifier, le volet **Afficher/modifier la question** s’ouvre.
+    1. Tapez les options de réponse que vous souhaitez donner au demandeur lorsqu’il répond à la question dans les zones **Valeurs de réponse** .
+    1. Tapez le nombre de réponses dont vous avez besoin, puis cliquez sur **Enregistrer**.
     
-    ![Package d'accès - Stratégie - Saisie des options de choix multiples](./media/entitlement-management-access-package-approval-policy/answer-multiple-choice.png)
+    ![Package d’accès – Stratégie –Saisie des options de choix multiples](./media/entitlement-management-access-package-approval-policy/answer-multiple-choice.png)
   
 1. Pour exiger que les demandeurs répondent à cette question lorsqu'ils demandent l'accès à un package d'accès, cochez la case située sous **Obligatoire**.
 

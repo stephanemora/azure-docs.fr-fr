@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 12/07/2020
-ms.openlocfilehash: ee314708f0d564bf1af639a3d864ea19472425cf
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 7122c960dc7921e833329d528f96f0efe0347bda
+ms.sourcegitcommit: 17e9cb8d05edaac9addcd6e0f2c230f71573422c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96937625"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97707467"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites et informations de configuration pour Azure Logic Apps
 
@@ -305,12 +305,12 @@ Chaque abonnement Azure a les limites de compte d’intégration suivantes :
 
 * 1 000 comptes d’intégration au total, notamment des comptes d’intégration dans des [environnements de service d’intégration](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) sur les [références SKU Développeur et Premium](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level).
 
-* Chaque environnement de service d’intégration, [Développeur ou Premium](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level), est limité à un nombre total de comptes d’intégration, mais [vous pouvez augmenter cette limite pour un coût supplémentaire](logic-apps-pricing.md#fixed-pricing) :
+* Chaque environnement de service d’intégration, qu’il s’agisse de [Developer ou Premium](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level), peut utiliser un seul compte d’intégration sans coût supplémentaire, bien que le type de compte inclus varie selon la référence SKU de l’environnement de service d’intégration. Vous pouvez créer davantage de comptes d’intégration pour votre environnement de service d’intégration jusqu’à la limite totale d’un [coût supplémentaire](logic-apps-pricing.md#fixed-pricing) :
 
   | Référence (SKU) de l’environnement de service d’intégration | Limites du compte d’intégration |
   |---------|----------------------------|
-  | **Premium** | 20 comptes [Standard](../logic-apps/logic-apps-pricing.md#integration-accounts) au total, y compris un compte standard gratuit. Vous pouvez avoir [plus de comptes d’intégration contre un supplément](logic-apps-pricing.md#fixed-pricing). Aucun compte Gratuit ou De base n’est autorisé. |
-  | **Développeur** | 20 comptes [Gratuits](../logic-apps/logic-apps-pricing.md#integration-accounts) au total (limité à 1 compte) et [Standard](../logic-apps/logic-apps-pricing.md#integration-accounts) combinés, ou tous les comptes standard. Vous pouvez avoir [plus de comptes d’intégration contre un supplément](logic-apps-pricing.md#fixed-pricing). Aucun compte De base n’est autorisé. Utilisez la [référence SKU du développeur](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) à des fins d’expérimentation, de développement et de test, mais pas pour la production ou les tests de performances. |
+  | **Premium** | 20 comptes au total, y compris un compte Standard sans coût supplémentaire. Avec cette référence SKU, vous ne pouvez avoir que des comptes [Standard](../logic-apps/logic-apps-pricing.md#integration-accounts). Aucun compte Gratuit ou De base n’est autorisé. |
+  | **Développeur** | 20 comptes au total, y compris un compte [Gratuit](../logic-apps/logic-apps-pricing.md#integration-accounts) (limité à 1). Avec cette référence SKU, vous pouvez avoir l’une des combinaisons suivantes : <p>- Un compte Gratuit et jusqu’à 19 comptes [Standard](../logic-apps/logic-apps-pricing.md#integration-accounts). <br>- Aucun compte Gratuit et jusqu’à 20 comptes Standard. <p>Aucun compte Gratuit supplémentaire ou De base n’est autorisé. <p><p>**Important !** Utilisez la [référence SKU du développeur](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) à des fins d’expérimentation, de développement et de test, mais pas pour la production ou les tests de performances. |
   |||
 
 Pour plus d’informations sur la tarification et la facturation des environnements de service d’intégration, consultez le [modèle de tarif pour Logic Apps](../logic-apps/logic-apps-pricing.md#fixed-pricing). Pour connaître la tarification, consultez [Tarification Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/).
@@ -319,8 +319,7 @@ Pour plus d’informations sur la tarification et la facturation des environneme
 
 ### <a name="artifact-limits-per-integration-account"></a>Limites du nombre d’artefacts par compte d’intégration
 
-Les limites du nombre d’artefacts pour chaque niveau de compte d’intégration sont les suivantes.
-Pour connaître la tarification, consultez [Tarification Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/). Pour plus d’informations sur la tarification et la facturation des comptes d’intégration, consultez [Modèle de tarification Logic apps](../logic-apps/logic-apps-pricing.md#integration-accounts).
+Les limites du nombre d’artefacts pour chaque niveau de compte d’intégration sont les suivantes. Pour connaître la tarification, consultez [Tarification Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/). Pour plus d’informations sur la tarification et la facturation des comptes d’intégration, consultez [Modèle de tarification Logic apps](../logic-apps/logic-apps-pricing.md#integration-accounts).
 
 > [!NOTE]
 > Utilisez le niveau gratuit uniquement pour les scénarios exploratoires, pas pour les scénarios de production. Ce niveau limite le débit et l’utilisation et n’inclut aucun contrat de niveau de service (SLA).
@@ -413,7 +412,9 @@ Cette section répertorie les adresses IP entrantes pour le service Azure Logic
 
 > [!TIP]
 > Pour réduire la complexité de la création des règles de sécurité, vous pouvez éventuellement utiliser la [balise de service](../virtual-network/service-tags-overview.md), **LogicAppsManagement**, au lieu de spécifier les préfixes d’adresses IP Logic Apps entrants pour chaque région.
-> Cette balise fonctionne dans les régions où le service Logic Apps est disponible.
+> Pour les connecteurs gérés, vous pouvez éventuellement utiliser la balise de service **AzureConnectors**, plutôt que de spécifier des préfixes d’adresse IP entrants de connecteur géré pour chaque région.
+> Ces balises fonctionnent dans les régions où le service Logic Apps est disponible.
+
 
 <a name="multi-tenant-inbound"></a>
 
@@ -477,7 +478,7 @@ Cette section répertorie les adresses IP sortantes pour le service Azure Logic
 
 > [!TIP]
 > Pour réduire la complexité de la création des règles de sécurité, vous pouvez éventuellement utiliser la [balise de service](../virtual-network/service-tags-overview.md), **LogicApps**, au lieu de spécifier les préfixes d’adresses IP Logic Apps sortants pour chaque région.
-> Pour les connecteurs gérés, vous pouvez éventuellement utiliser la balise de service **AzureConnectors**, plutôt que de spécifier des préfixes d’adresse IP sortants de connecteur géré pour chaque région. Ces balises fonctionnent dans les régions où le service Logic Apps est disponible. 
+> Cette balise fonctionne dans les régions où le service Logic Apps est disponible. 
 
 <a name="multi-tenant-outbound"></a>
 

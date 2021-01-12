@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 6/30/2020
-ms.openlocfilehash: debdbf6e08af7b9005336231abd6c998a871c525
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 82cec4cc448f0ec30aecf6f8a69f399e0abbdde0
+ms.sourcegitcommit: 0830e02635d2f240aae2667b947487db01f5fdef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708082"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97706947"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Comment sauvegarder et restaurer un serveur Azure Database pour PostgreSQL - Serveur unique avec le Portail Azure
 
@@ -37,7 +37,7 @@ La période de rétention de sauvegarde d’un serveur peut être modifiée en s
 2. Sélectionnez votre serveur Azure Database pour PostgreSQL. Cette action ouvre la page **Vue d’ensemble**.
 3. Sélectionnez **Niveau tarifaire** dans le menu, sous **PARAMÈTRES**. Le curseur vous permet de modifier la **période de rétention de sauvegarde** selon vos préférences entre 7 et 35 jours.
 Dans la capture d’écran ci-dessous, elle a été augmentée à 34 jours.
-:::image type="content" source="./media/howto-restore-server-portal/3-increase-backup-days.png" alt-text="Niveau tarifaire - Choisir la redondance de sauvegarde":::
+:::image type="content" source="./media/howto-restore-server-portal/3-increase-backup-days.png" alt-text="Période de rétention de sauvegarde augmentée":::
 
 4. Cliquez sur **OK** pour confirmer la modification.
 
@@ -53,11 +53,11 @@ Les étapes suivantes restaurent l’exemple de serveur à un point dans le temp
 
 2. Dans la barre d’outils de la page **Vue d’ensemble** du serveur, sélectionnez **Restaurer**.
 
-   :::image type="content" source="./media/howto-restore-server-portal/2-server.png" alt-text="Niveau tarifaire - Choisir la redondance de sauvegarde":::
+   :::image type="content" source="./media/howto-restore-server-portal/2-server.png" alt-text="Azure Database pour PostgreSQL - Vue d’ensemble - Bouton Restaurer":::
 
 3. Remplissez le formulaire Restaurer avec les informations requises :
 
-   :::image type="content" source="./media/howto-restore-server-portal/3-restore.png" alt-text="Niveau tarifaire - Choisir la redondance de sauvegarde":::
+   :::image type="content" source="./media/howto-restore-server-portal/3-restore.png" alt-text="Azure Database pour PostgreSQL - Informations de restauration":::
    - **Point de restauration** : sélectionnez le point dans le temps vers lequel vous souhaitez restaurer.
    - **Serveur cible** : Entrez un nom pour le nouveau serveur.
    - **Emplacement** : vous ne pouvez pas sélectionner la région. Par défaut, elle est identique à celle du serveur source.
@@ -71,23 +71,25 @@ Le serveur créé par la restauration à un point dans le temps a les mêmes nom
 
 Le nouveau serveur créé lors d’une restauration ne dispose pas des règles de pare-feu ou des points de terminaison de service de réseau virtuel qui se trouvaient sur le serveur d’origine. Ces règles doivent être définies séparément pour ce nouveau serveur.
 
+Si votre serveur PostgreSQL source est chiffré avec des clés gérées par le client, consultez la [documentation](concepts-data-encryption-postgresql.md) pour obtenir des informations supplémentaires.
+
 ## <a name="geo-restore"></a>Restauration géographique
 
 Si vous avez configuré votre serveur pour les sauvegardes redondantes géographiquement, un serveur peut être créé à partir de la sauvegarde de ce serveur existant. Ce serveur peut être créé dans toutes les régions dans lesquelles Azure Database pour PostgreSQL est disponible.  
 
 1. Cliquez sur le bouton **Créer une ressource** (+) dans le coin supérieur gauche du portail. Sélectionnez **Bases de données** > **Azure Database pour PostgreSQL**.
 
-   :::image type="content" source="./media/howto-restore-server-portal/1-navigate-to-postgres.png" alt-text="Niveau tarifaire - Choisir la redondance de sauvegarde":::
+   :::image type="content" source="./media/howto-restore-server-portal/1-navigate-to-postgres.png" alt-text="Accédez à Azure Database pour PostgreSQL.":::
 
 2. Sélectionnez l’option de déploiement **Serveur unique**.
 
-   :::image type="content" source="./media/howto-restore-server-portal/2-select-deployment-option.png" alt-text="Niveau tarifaire - Choisir la redondance de sauvegarde":::
+   :::image type="content" source="./media/howto-restore-server-portal/2-select-deployment-option.png" alt-text="Sélectionnez Azure Database pour PostgreSQL - option de déploiement de serveur unique.":::
  
 3. Indiquez l’abonnement, le groupe de ressources et le nom du nouveau serveur. 
 
 4. Sélectionnez **Sauvegarde** comme **Source de données**. Cette action charge une liste déroulante des serveurs pour lesquels les sauvegardes géoredondantes sont activées.
    
-   :::image type="content" source="./media/howto-restore-server-portal/4-geo-restore.png" alt-text="Niveau tarifaire - Choisir la redondance de sauvegarde":::
+   :::image type="content" source="./media/howto-restore-server-portal/4-geo-restore.png" alt-text="Sélectionnez la source de données.":::
     
    > [!NOTE]
    > Lorsqu’un serveur est créé, il est possible qu’il ne soit pas immédiatement disponible pour la restauration géographique. Le remplissage des métadonnées nécessaires peut prendre quelques heures.
@@ -95,21 +97,21 @@ Si vous avez configuré votre serveur pour les sauvegardes redondantes géograph
 
 5. Sélectionnez la liste déroulante **Sauvegarde**.
    
-   :::image type="content" source="./media/howto-restore-server-portal/5-geo-restore-backup.png" alt-text="Niveau tarifaire - Choisir la redondance de sauvegarde":::
+   :::image type="content" source="./media/howto-restore-server-portal/5-geo-restore-backup.png" alt-text="Sélectionnez la liste déroulante de sauvegarde.":::
 
 6. Sélectionnez le serveur source à partir duquel effectuer la restauration.
    
-   :::image type="content" source="./media/howto-restore-server-portal/6-select-backup.png" alt-text="Niveau tarifaire - Choisir la redondance de sauvegarde":::
+   :::image type="content" source="./media/howto-restore-server-portal/6-select-backup.png" alt-text="Sélectionnez une sauvegarde.":::
 
 7. Le serveur utilisera par défaut les valeurs pour le nombre de **vCores**, la **période de conservation de sauvegarde**, l’**option de redondance de sauvegarde**, la **version du moteur** et les **informations d’identification d’administrateur**. Sélectionnez **Continuer**. 
    
-   :::image type="content" source="./media/howto-restore-server-portal/7-accept-backup.png" alt-text="Niveau tarifaire - Choisir la redondance de sauvegarde":::
+   :::image type="content" source="./media/howto-restore-server-portal/7-accept-backup.png" alt-text="Poursuivez la sauvegarde.":::
 
 8. Renseignez le reste du formulaire avec vos préférences. Vous pouvez sélectionner n’importe quel **Emplacement**.
 
-    Après avoir sélectionné l’emplacement, vous pouvez sélectionner **Configurer le serveur** pour mettre à jour la **génération de calcul** (si disponible dans la région choisie), le nombre de **vCores**, la **période de conservation de sauvegarde** et l’**option de redondance de sauvegarde**. La modification du **niveau tarifaire** (De base, Usage général ou À mémoire optimisée) ou de la taille du**stockage** pendant la restauration n’est pas prise en charge.
+    Après avoir sélectionné l’emplacement, vous pouvez sélectionner **Configurer le serveur** pour mettre à jour la **génération de calcul** (si disponible dans la région choisie), le nombre de **vCores**, la **période de conservation de sauvegarde** et l’**option de redondance de sauvegarde**. La modification du **niveau tarifaire** (De base, Usage général ou À mémoire optimisée) ou de la taille du **stockage** pendant la restauration n’est pas prise en charge.
 
-   :::image type="content" source="./media/howto-restore-server-portal/8-create.png" alt-text="Niveau tarifaire - Choisir la redondance de sauvegarde"::: 
+   :::image type="content" source="./media/howto-restore-server-portal/8-create.png" alt-text="Remplissez le formulaire."::: 
 
 9. Sélectionnez **Vérifier + créer** pour passer en revue vos sélections. 
 
@@ -118,6 +120,8 @@ Si vous avez configuré votre serveur pour les sauvegardes redondantes géograph
 Le serveur créé par la restauration géographique a les mêmes nom de connexion administrateur de serveur et mot de passe qui étaient valides pour le serveur existant au moment où la restauration a été initiée. Le mot de passe peut être modifié sur la page **Vue d’ensemble** du nouveau serveur.
 
 Le nouveau serveur créé lors d’une restauration ne dispose pas des règles de pare-feu ou des points de terminaison de service de réseau virtuel qui se trouvaient sur le serveur d’origine. Ces règles doivent être définies séparément pour ce nouveau serveur.
+
+Si votre serveur PostgreSQL source est chiffré avec des clés gérées par le client, consultez la [documentation](concepts-data-encryption-postgresql.md) pour obtenir des informations supplémentaires.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

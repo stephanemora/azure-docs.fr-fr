@@ -1,7 +1,7 @@
 ---
-title: Réentraîner des modèles à l’aide du concepteur Azure Machine Learning
+title: Utiliser des paramètres de pipeline pour réentraîner des modèles dans le concepteur
 titleSuffix: Azure Machine Learning
-description: Découvrez comment réentraîner des modèles de machine learning avec des pipelines publiés dans le concepteur Azure Machine Learning.
+description: Réentraînez des modèles avec des pipelines publiés et des paramètres de pipeline dans le concepteur Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,17 +10,17 @@ author: likebupt
 ms.date: 04/06/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: d754674fe3aa65fa9fd8540b05083979ce96aff8
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 6efb0f095f8a157f723a3b7c0c2b229546ebb36b
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96437114"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97708464"
 ---
-# <a name="retrain-models-with-azure-machine-learning-designer"></a>Réentraîner des modèles avec le concepteur Azure Machine Learning
+# <a name="use-pipeline-parameters-to-retrain-models-in-the-designer"></a>Utiliser des paramètres de pipeline pour réentraîner des modèles dans le concepteur
 
 
-Ce guide pratique explique comment utiliser le concepteur Azure Machine Learning pour réentraîner un modèle Machine Learning. Vous allez utiliser des pipelines publiés pour automatiser votre flux de travail et définir des paramètres pour effectuer l’apprentissage de votre modèle sur de nouvelles données. 
+Ce guide pratique explique comment utiliser le concepteur Azure Machine Learning pour réentraîner un modèle Machine Learning à l’aide de paramètres de pipeline. Vous allez utiliser des pipelines publiés pour automatiser votre flux de travail et définir des paramètres pour effectuer l’apprentissage de votre modèle sur de nouvelles données. Les paramètres de pipeline vous permettent de réutiliser des pipelines existants pour différents travaux.  
 
 Dans cet article, vous apprendrez comment :
 

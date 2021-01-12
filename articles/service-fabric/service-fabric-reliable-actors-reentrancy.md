@@ -4,12 +4,12 @@ description: Présentation de la réentrance pour Service Fabric Reliable Actors
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c2356db0eee82a133afad6aa95299ced0595db32
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 9578b676e46d21fe5d30de92ad59c852a8b05f70
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576058"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915876"
 ---
 # <a name="reliable-actors-reentrancy"></a>Réentrance Reliable Actors
 Par défaut, le runtime Reliable Actors autorise la réentrance des appels logiques selon le contexte. Cela permet de réentrer des acteurs s'ils se trouvent dans la même chaîne de contexte d'appel. Par exemple, un acteur A envoie un message à un acteur B qui envoie le message à un acteur C. Dans le cadre du traitement du message, si l’acteur C appelle l’acteur A, le message est réentrant et donc autorisé. Tout autre message faisant partie d’un contexte d’appel différent est bloqué au niveau de l’acteur A jusqu’à ce qu’il termine le traitement.
@@ -101,4 +101,4 @@ static class Program
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-* En savoir plus sur la réentrance dans la [documentation de référence de l’API Actor](/previous-versions/azure/dn971626(v=azure.100))
+* Pour plus d’informations sur la réentrance, consultez la [documentation de référence de l’API Actor](/dotnet/api/microsoft.servicefabric.actors?view=azure-dotnet).

@@ -12,16 +12,18 @@ ms.date: 07/19/2017
 ms.author: kenwith
 ms.custom: aaddev
 ms.reviewer: paulgarn
-ms.openlocfilehash: 1d09355993af96e9e0cd334c57174cdaa771b388
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2064ab7e759798d8934facb8d293e8ac60ec6c82
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88118261"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97703413"
 ---
 # <a name="single-sign-out-saml-protocol"></a>Protocole SAML de déconnexion unique
 
 Azure Active Directory (Azure AD) prend en charge le profil de déconnexion unique du navigateur web SAML 2.0. Pour que la déconnexion unique fonctionne correctement, l’élément **LogoutURL** de l’application doit être explicitement inscrit auprès d’Azure AD pendant l’inscription de l’application. Azure AD utilise LogoutURL pour rediriger les utilisateurs une fois qu’ils sont déconnectés.
+
+Azure AD prend en charge la liaison de redirection (HTTP GET) et non pas la liaison HTTP POST.
 
 Le diagramme suivant illustre le workflow du processus de déconnexion unique Azure AD.
 

@@ -3,12 +3,12 @@ title: Scénarios d’utilisation d’un réseau virtuel
 description: Scénarios, ressources et limitations relatifs au déploiement de groupes de conteneurs sur un réseau virtuel Azure.
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: 5e9c1d1606a9ad491ba7a7e623f1606717aa5b1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2fb468a6a860bcc076043c30606922f43fbdb1ad
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89569167"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882430"
 ---
 # <a name="virtual-network-scenarios-and-resources"></a>Ressources et scénarios relatifs aux réseaux virtuels
 
@@ -41,6 +41,7 @@ Les groupes de conteneurs déployés dans un réseau virtuel Azure autorisent le
 * Vous ne pouvez pas utiliser une [identité managée](container-instances-managed-identity.md) dans un groupe de conteneurs déployé sur un réseau virtuel.
 * Vous ne pouvez pas activer de [probe liveness](container-instances-liveness-probe.md) ni de [probe readiness](container-instances-readiness-probe.md) dans un groupe de conteneurs déployé sur un réseau virtuel.
 * En raison des ressources réseau supplémentaires impliquées, les déploiements sur un réseau virtuel sont généralement plus lents que les déploiements d’une instance de conteneur standard.
+* Si vous connectez votre groupe de conteneurs à un compte Stockage Azure, vous devez ajouter un [point de terminaison de service](../virtual-network/virtual-network-service-endpoints-overview.md) à cette ressource.
 
 [!INCLUDE [container-instances-restart-ip](../../includes/container-instances-restart-ip.md)]
 

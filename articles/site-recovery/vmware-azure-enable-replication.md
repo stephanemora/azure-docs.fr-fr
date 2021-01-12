@@ -3,15 +3,15 @@ title: Activer des machines virtuelles VMware pour la reprise d’activité apr�
 description: Cet article explique comment activer la réplication des machines virtuelles VMware pour effectuer une reprise d’activité après sinistre à l’aide du service Azure Site Recovery.
 author: Rajeswari-Mamilla
 ms.service: site-recovery
-ms.date: 04/01/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: 74870d10348421bf726b9bdc58504a74cf4105a9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7e4f18b5d4f074d6596b375cbc11f40c2ab69d68
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004209"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97616607"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Activer la réplication des machines virtuelles VMware dans Azure
 
@@ -94,6 +94,41 @@ Pour activer la réplication, procédez comme suit :
    :::image type="content" source="./media/vmware-azure-enable-replication/enable-replication7.png" alt-text="Fenêtre d’activation de la réplication":::
 
 1. Sélectionnez **Activer la réplication**. Vous pouvez suivre la progression du travail **Activer la protection** en sélectionnant **Paramètres** > **Travaux** > **Travaux Site Recovery**. Lorsque la tâche **Finaliser la protection** s’exécute, la machine virtuelle est prête à être basculée.
+
+## <a name="monitor-initial-replication"></a>Superviser la réplication initiale
+
+Une fois l’opération « Activer la réplication » de l’élément protégé terminée, Azure Site Recovery lance la réplication (synonyme de synchronisation) des données de la machine source vers la région cible. Pendant ce temps, des réplicas des disques source sont créés. Ce n’est qu’une fois la copie des disques originaux terminée que les modifications delta sont copiées dans la région cible. Le temps nécessaire à la copie des disques d’origine dépend de plusieurs paramètres tels que :
+
+- La taille des disques de la machine source.
+- La bande passante disponible pour transférer les données vers Azure (vous pouvez tirer parti du planificateur de déploiement pour identifier la bande passante optimale requise).
+- Les ressources de serveur de processus, telles que la mémoire, l’espace disque disponible, le processeur disponible pour mettre en cache et traiter les données reçues des éléments protégés (vérifiez que le serveur de processus est [sain](vmware-physical-azure-monitor-process-server.md#monitor-proactively)).
+
+Pour suivre la progression de la réplication initiale, accédez au coffre Recovery Services dans le portail Azure > éléments répliqués -> supervisez la valeur de la colonne « État » de l’élément répliqué. L’état indique le pourcentage d’achèvement de la réplication initiale. Lorsque vous pointez sur l’état, le « Volume total de données transférées » est affiché. Lorsque vous cliquez sur l’état, une page contextuelle s’ouvre et affiche les paramètres suivants :
+
+- Dernière actualisation : indique l’heure la plus récente à laquelle les informations de réplication de l’ensemble de la machine ont été actualisées par le service.
+- Pourcentage terminé : indique le pourcentage de réplication initiale terminé pour la machine virtuelle
+- Volume total de données transférées : quantité de données transférées de la machine virtuelle vers Azure
+
+    :::image type="content" source="media/vmware-azure-enable-replication/initial-replication-state.png" alt-text="état-de-réplication" lightbox="media/vmware-azure-enable-replication/initial-replication-state.png":::
+
+- Progression de la synchronisation (pour suivre les détails au niveau du disque)
+    - État de la réplication
+      - Si la réplication n’a pas encore commencé, l’état est mis à jour avec la valeur « En file d’attente ». Pendant la réplication initiale, seuls trois disques sont répliqués à la fois. Ce mécanisme a pour but d’éviter la limitation au niveau du serveur de processus.
+      - Après le démarrage de la réplication, l’état est mis à jour avec la valeur « En cours ».
+      - Une fois la réplication initiale terminée, l’état devient « Terminé ».        
+   - Site Recovery lit le disque d’origine, transfère les données vers Azure et capture la progression au niveau du disque. Notez que Site Recovery ignore la réplication de la taille inoccupée du disque et l’ajoute aux données terminées. Par conséquent, la somme des données transférées sur tous les disques peut ne pas correspondre au « Volume total de données transférées » au niveau de la machine virtuelle.
+   - Un clic sur la bulle d’informations d’un disque vous permet d’obtenir plus d’informations sur le moment où la réplication (synonyme de synchronisation) a été déclenchée pour le disque, les données transférées vers Azure au cours des 15 dernières minutes, suivies de l’horodatage de la dernière actualisation. Cet horodatage indique la dernière heure à laquelle les informations ont été reçues par le service Azure à partir de la machine source :::image type="content" source="media/vmware-azure-enable-replication/initial-replication-info-balloon.png" alt-text="détails-bulle-info-réplication-initiale" lightbox="media/vmware-azure-enable-replication/initial-replication-info-balloon.png":::
+   - L’intégrité de chaque disque s’affiche
+      - Si la réplication est plus lente que prévu, l’état du disque devient Avertissement
+      - Si la réplication ne progresse pas, l’état du disque devient Critique
+
+Si l’intégrité est à l’état critique/avertissement, vérifiez que l’état d’intégrité de la réplication de la machine et du [serveur de processus](vmware-physical-azure-monitor-process-server.md) est bon. 
+
+Dès que le travail d’activation de la réplication est terminé, la progression de la réplication est égale à 0 % et le Volume total de données transférées est NA. Quand vous cliquez dessus, les données de chaque disque identifié sont « NA ». Cela indique que la réplication n’a pas encore commencé et qu’Azure Site Recovery n’a pas encore reçu les statistiques les plus récentes. La progression est actualisée à un intervalle de 30 minutes.
+
+> [!NOTE]
+> Veillez à mettre à jour les serveurs de configuration, les serveurs de processus de scale-out et les agents de mobilité vers la version 9.36 ou ultérieures afin de garantir que la valeur de progression correcte est capturée et envoyée aux services Site Recovery.
+
 
 ## <a name="view-and-manage-vm-properties"></a>Afficher et gérer les propriétés des machines virtuelles
 

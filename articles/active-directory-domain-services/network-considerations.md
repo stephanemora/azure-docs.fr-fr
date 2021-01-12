@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/06/2020
+ms.date: 12/16/2020
 ms.author: justinha
-ms.openlocfilehash: 246da3a35396430bbda86e5a5e927a456618ac05
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: d1a3ab5face03754bf84f442ac0fa73768b0fc80
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96619281"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97615815"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-active-directory-domain-services"></a>Considérations relatives à la conception du réseau virtuel et options de configuration pour Azure Active Directory Domain Services
 
@@ -110,9 +110,8 @@ Les règles de groupe de sécurité réseau suivantes sont requises pour permett
 
 | Numéro de port | Protocol | Source                             | Destination | Action | Obligatoire | Objectif |
 |:-----------:|:--------:|:----------------------------------:|:-----------:|:------:|:--------:|:--------|
-| 443         | TCP      | AzureActiveDirectoryDomainServices | Quelconque         | Allow  | Oui      | Synchronisation avec votre locataire Azure AD. |
-| 3389        | TCP      | CorpNetSaw                         | Quelconque         | Allow  | Oui      | Gestion de votre domaine. |
 | 5986        | TCP      | AzureActiveDirectoryDomainServices | Quelconque         | Allow  | Oui      | Gestion de votre domaine. |
+| 3389        | TCP      | CorpNetSaw                         | Quelconque         | Allow  | Facultatif      | Débogage pour la prise en charge. |
 
 Un équilibreur Azure Standard Load Balancer, pour lequel ces règles doivent être en place, est créé. Ce groupe de sécurité réseau, qui sécurise Azure AD DS, est nécessaire pour que le domaine managé fonctionne correctement. Ne supprimez pas ce groupe de sécurité réseau. L’équilibreur de charge ne fonctionnera pas correctement sans ce groupe.
 
@@ -127,12 +126,17 @@ Si nécessaire, vous pouvez [créer le groupe de sécurité réseau et les règl
 >
 > Le SLA Azure ne s’applique pas aux déploiements dans lesquels un groupe de sécurité réseau mal configuré et/ou des tables d’itinéraire définies par l’utilisateur ont été appliqués et empêchent Azure AD DS de mettre à jour et de gérer votre domaine.
 
-### <a name="port-443---synchronization-with-azure-ad"></a>Port 443 – synchronisation avec Azure AD
+### <a name="port-5986---management-using-powershell-remoting"></a>Port 5986 – -gestion à l’aide de la communication à distance PowerShell
 
-* Utilisé pour synchroniser votre locataire Azure AD avec votre domaine managé.
-* Sans accès à ce port, votre domaine managé ne peut pas être synchronisé avec votre locataire Azure AD. Les utilisateurs risquent de ne pas pouvoir se connecter, car les modifications apportées à leurs mots de passe ne sont pas synchronisées avec votre domaine managé.
-* L’accès entrant à ce port aux adresses IP est limité par défaut à l'aide de la balise de service **AzureActiveDirectoryDomainServices**.
-* Ne limitez pas l’accès sortant à partir de ce port.
+* Utilisé pour effectuer des tâches de gestion à l’aide de la communication à distance PowerShell sur votre domaine managé.
+* Sans accès à ce port, votre domaine managé ne peut pas être mis à jour, configuré, sauvegardé ou surveillé.
+* Pour les domaines managés qui utilisent un réseau virtuel basé sur Resource Manager, vous pouvez restreindre l’accès entrant à ce port à la balise de service *AzureActiveDirectoryDomainServices*.
+    * Pour les domaines managés hérités utilisant un réseau virtuel classique, vous pouvez restreindre l’accès entrant à ce port aux adresses IP sources suivantes : *52.180.183.8*, *23.101.0.70*, *52.225.184.198*, *52.179.126.223*, *13.74.249.156*, *52.187.117.83*, *52.161.13.95*, *104.40.156.18*, et *104.40.87.209*.
+
+    > [!NOTE]
+    > En 2017, le service Azure AD Domain Services est devenu disponible pour l’hébergement dans un réseau Azure Resource Manager. Depuis lors, nous avons pu créer un service plus sécurisé utilisant les fonctionnalités modernes d’Azure Resource Manager. Étant donné que les déploiements d’Azure Resource Manager remplacent entièrement les déploiements d’Azure Classic, les déploiements de réseau virtuel Classic d’Azure AD DS seront mis hors service le 1er mars 2023.
+    >
+    > Pour plus d’informations, voir l’[avis de désapprobation officiel](https://azure.microsoft.com/updates/we-are-retiring-azure-ad-domain-services-classic-vnet-support-on-march-1-2023/)
 
 ### <a name="port-3389---management-using-remote-desktop"></a>Port 3389 – gestion à l’aide du bureau à distance
 
@@ -148,18 +152,6 @@ Si nécessaire, vous pouvez [créer le groupe de sécurité réseau et les règl
 > Par exemple, vous pouvez utiliser le script suivant pour créer une règle autorisant le protocole RDP : 
 >
 > `Get-AzureRmNetworkSecurityGroup -Name "nsg-name" -ResourceGroupName "resource-group-name" | Add-AzureRmNetworkSecurityRuleConfig -Name "new-rule-name" -Access "Allow" -Protocol "TCP" -Direction "Inbound" -Priority "priority-number" -SourceAddressPrefix "CorpNetSaw" -SourcePortRange "" -DestinationPortRange "3389" -DestinationAddressPrefix "" | Set-AzureRmNetworkSecurityGroup`
-
-### <a name="port-5986---management-using-powershell-remoting"></a>Port 5986 – -gestion à l’aide de la communication à distance PowerShell
-
-* Utilisé pour effectuer des tâches de gestion à l’aide de la communication à distance PowerShell sur votre domaine managé.
-* Sans accès à ce port, votre domaine managé ne peut pas être mis à jour, configuré, sauvegardé ou surveillé.
-* Pour les domaines managés qui utilisent un réseau virtuel basé sur Resource Manager, vous pouvez restreindre l’accès entrant à ce port à la balise de service *AzureActiveDirectoryDomainServices*.
-    * Pour les domaines managés hérités utilisant un réseau virtuel classique, vous pouvez restreindre l’accès entrant à ce port aux adresses IP sources suivantes : *52.180.183.8*, *23.101.0.70*, *52.225.184.198*, *52.179.126.223*, *13.74.249.156*, *52.187.117.83*, *52.161.13.95*, *104.40.156.18*, et *104.40.87.209*.
-
-    > [!NOTE]
-    > En 2017, le service Azure AD Domain Services est devenu disponible pour l’hébergement dans un réseau Azure Resource Manager. Depuis lors, nous avons pu créer un service plus sécurisé utilisant les fonctionnalités modernes d’Azure Resource Manager. Étant donné que les déploiements d’Azure Resource Manager remplacent entièrement les déploiements d’Azure Classic, les déploiements de réseau virtuel Classic d’Azure AD DS seront mis hors service le 1er mars 2023.
-    >
-    > Pour plus d’informations, voir l’[avis de désapprobation officiel](https://azure.microsoft.com/updates/we-are-retiring-azure-ad-domain-services-classic-vnet-support-on-march-1-2023/)
 
 ## <a name="user-defined-routes"></a>Itinéraires définis par l’utilisateur
 

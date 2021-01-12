@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.openlocfilehash: b267a97b640c9d069f83223206200fc4814c86b9
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c712af41fdc191cab4fd08c9d8175a849d4f286a
+ms.sourcegitcommit: 0830e02635d2f240aae2667b947487db01f5fdef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488008"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97706768"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---single-server"></a>Sauvegarde et restauration dans Azure Database pour PostgreSQL - Single Server
 
@@ -59,7 +59,7 @@ Le principal moyen de contrôler le coût fu stockage de sauvegarde consiste à 
 
 ## <a name="restore"></a>Restaurer
 
-Dans Azure Database pour PostgreSQL, l’exécution d’une restauration crée un serveur à partir de sauvegardes de serveur d’origine.
+Dans Azure Database pour PostgreSQL, l’exécution d’une restauration crée un serveur à partir de sauvegardes de serveur d’origine. 
 
 Deux types de restauration sont disponibles :
 
@@ -68,8 +68,11 @@ Deux types de restauration sont disponibles :
 
 Le délai estimé de récupération dépend de plusieurs facteurs, notamment du nombre total de bases de données à récupérer dans la même région au même moment, de la taille des bases de données, de la taille du journal des transactions et de la bande passante réseau. Le délai de récupération est généralement inférieur à 12 heures.
 
-> [!IMPORTANT]
-> Il n’est **pas** possible de restaurer des serveurs supprimés. Si vous supprimez le serveur, toutes les bases de données qui appartiennent au serveur sont également supprimées, sans pouvoir être restaurées. À l'issue du déploiement, pour protéger les ressources du serveur d'une suppression accidentelle ou de changements inattendus, les administrateurs peuvent utiliser des [verrous de gestion](../azure-resource-manager/management/lock-resources.md).
+> [!NOTE] 
+> Si votre serveur PostgreSQL source est chiffré avec des clés gérées par le client, consultez cette [documentation](concepts-data-encryption-postgresql.md) pour obtenir des informations supplémentaires. 
+
+> [!NOTE]
+> Si vous souhaitez restaurer un serveur PostgreSQL supprimé, suivez la procédure décrite [ici](howto-restore-dropped-server.md).
 
 ### <a name="point-in-time-restore"></a>Restauration dans le temps
 
@@ -81,11 +84,14 @@ Vous devez peut-être attendre la prochaine sauvegarde du journal des transactio
 
 ### <a name="geo-restore"></a>La géorestauration
 
-Vous pouvez restaurer un serveur dans une autre région Azure où le service est disponible si vous avez configuré votre serveur pour les sauvegardes géoredondantes. Les serveurs qui prennent en charge jusqu’à 4 To de stockage peuvent être restaurés dans la région géographiquement associée ou dans n’importe quelle région qui prend en charge jusqu’à 16 To de stockage. Pour les serveurs prenant en charge jusqu’à 16 To de stockage, les géo-sauvegardes peuvent être restaurées dans n’importe quelle région qui prend également en charge les serveurs de 16 To. Passez en revue [Niveaux tarifaires d’Azure Database pour PostgeSQL](concepts-pricing-tiers.md) pour obtenir la liste des régions prises en charge.
+Vous pouvez restaurer un serveur dans une autre région Azure où le service est disponible si vous avez configuré votre serveur pour les sauvegardes géoredondantes. Les serveurs qui prennent en charge jusqu’à 4 To de stockage peuvent être restaurés dans la région géographiquement associée ou dans n’importe quelle région qui prend en charge jusqu’à 16 To de stockage. Pour les serveurs prenant en charge jusqu’à 16 To de stockage, les géo-sauvegardes peuvent être restaurées dans n’importe quelle région qui prend également en charge les serveurs de 16 To. Passez en revue [Niveaux tarifaires d’Azure Database pour PostgreSQL](concepts-pricing-tiers.md) pour obtenir la liste des régions prises en charge.
 
 La géorestauration constitue l’option de récupération par défaut lorsque votre serveur est indisponible en raison d’un incident dans la région où il est hébergé. Si un incident à grande échelle dans une région entraîne l’indisponibilité de votre application de base de données, vous pouvez restaurer un serveur à partir des sauvegardes géoredondantes sur un serveur situé dans n’importe quelle autre région. Il peut y avoir un délai entre le moment où une sauvegarde est effectuée et celui où elle est répliquée dans une autre région. Ce délai peut atteindre une heure. En cas d’incident, il peut donc y avoir jusqu’à une heure de pertes de données.
 
 Pendant la géorestauration, les configurations de serveur qui peuvent être changées incluent la génération de calcul, les vCores, la période de conservation des sauvegardes et les options de redondance de sauvegarde. La modification du niveau tarifaire (De base, Usage général ou À mémoire optimisée) ou de la taille du stockage n’est pas prise en charge.
+
+> [!NOTE]
+> Si votre serveur source utilise le chiffrement double de l’infrastructure, pour la restauration du serveur, il existe des limitations, y compris les régions disponibles. Pour plus d’informations, reportez-vous au [chiffrement double de l’infrastructure](concepts-infrastructure-double-encryption.md).
 
 ### <a name="perform-post-restore-tasks"></a>Effectuer des tâches de post-restauration
 

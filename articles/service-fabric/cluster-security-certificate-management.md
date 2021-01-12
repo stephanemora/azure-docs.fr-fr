@@ -4,12 +4,12 @@ description: En savoir plus sur la gestion des certificats dans un cluster Servi
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.custom: sfrev
-ms.openlocfilehash: aba681157d71f94914462b8d9fc13b90d4d6b153
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 722c84c25cb5188e45dd96363bab9af6ff93f6dc
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88653662"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901264"
 ---
 # <a name="certificate-management-in-service-fabric-clusters"></a>Gestion des certificats dans des clusters Service Fabric
 
@@ -109,9 +109,12 @@ Remarque : La norme [RFC 3647](https://tools.ietf.org/html/rfc3647) de l’IET
 
 Nous avons vu précédemment qu’Azure Key Vault prend en charge la rotation automatique des certificats. La stratégie de certificat associée définit le moment (point dans le temps exprimé en jours avant l’expiration du certificat ou en pourcentage de la durée de vie totale de celui-ci) auquel a lieu la rotation du certificat dans le coffre. L’agent d’approvisionnement doit être appelé après ce point dans le temps et avant l’expiration du certificat désormais précédent, afin de distribuer ce nouveau certificat à tous les nœuds du cluster. Service Fabric vous aide en déclenchant un avertissement d’intégrité lorsque la date d’expiration d’un certificat (actuellement utilisé dans le cluster) est antérieure à la fin d’un intervalle prédéterminé. Un agent d’approvisionnement automatique (à savoir, l’extension de machine virtuelle de KeyVault) configuré pour observer le certificat du coffre interroge périodiquement celui-ci, détecte la rotation, puis récupère et installe le nouveau certificat. L’approvisionnement effectué via la fonction « secrets » de machine virtuelle/groupe de machines virtuelles identiques nécessite qu’un opérateur autorisé mette à jour l’instance de machine virtuelle/groupe de machines virtuelles identiques avec l’URI de KeyVault (version gérée) correspondant au nouveau certificat.
 
-Dans les deux cas, le certificat après rotation est approvisionné sur tous les nœuds, et nous avons décrit le mécanisme que Service Fabric utilise pour détecter les rotations. Voyons ce qui se passe ensuite, en supposant que la rotation a été appliquée au certificat de cluster déclaré par le nom commun de l’objet (tout cela étant applicable au moment de la rédaction de ce document et dans le runtime Service Fabric 7.1.409) :
-  - pour les nouvelles connexions au cluster et à l’intérieur de celui-ci, le runtime Service Fabric trouve et sélectionne le certificat correspondant dont la date d’expiration est la plus lointaine (propriété « NotAfter » du certificat, souvent abrégée en « na ») ;
+Dans les deux cas, le certificat permuté est approvisionné sur tous les nœuds, et nous avons décrit le mécanisme que Service Fabric utilise pour détecter les permutations. Voyons ce qui se passe ensuite : en supposant que la permutation a été appliquée au certificat de cluster déclaré par le nom commun de l’objet
+  - pour les nouvelles connexions qui s’y trouvent, ainsi que dans le cluster, le runtime Service Fabric trouvera et sélectionnera le dernier certificat émis correspondant (valeur de la propriété « NotBefore » la plus élevée). Notez qu’il s’agit d’une modification par rapport aux versions précédentes du runtime Service Fabric.
   - les connexions existantes sont maintenues en vie/autorisées à expirer naturellement ou à prendre fin autrement (un gestionnaire interne aura été informé de l’existence d’une nouvelle correspondance).
+
+> [!NOTE] 
+> Avant la version 7.2.445 (7.2 CU4), Service Fabric sélectionnait le certificat dont l’expiration était la plus éloignée (le certificat avec la propriété « NotAfter » la plus ancienne).
 
 Cela se traduit par les observations importantes suivantes :
   - Le certificat de renouvellement peut être ignoré si sa date d’expiration est antérieure à celle du certificat actuellement utilisé.
@@ -134,8 +137,11 @@ Nous avons décrit des mécanismes et restrictions, exposé des règles et déf
 
 La séquence, qui peut être entièrement consignée dans un script et automatisée, permet un déploiement initial sans intervention de l’utilisateur d’un cluster configuré pour la substitution automatique de certificat. Des étapes détaillées sont fournies ci-dessous. Nous allons utiliser un mélange de cmdlets PowerShell et de fragments de modèles json. Il est possible d’obtenir la même fonctionnalité avec tous les moyens pris en charge d’interaction avec Azure.
 
-[!NOTE] Cet exemple part du principe qu’il existe déjà un certificat dans le coffre. L’inscription et le renouvellement d’un certificat géré par KeyVault nécessitent l’exécution des étapes manuelles préalables décrites plus haut dans cet article. Pour les environnements de production, utilisez des certificats gérés par KeyVault. Vous trouverez ci-dessous un exemple de script spécifique d’une infrastructure de clé publique (PKI) interne de Microsoft.
-La substitution automatique de certificat n’a de sens que pour des certificats émis par une autorité de certification. L’utilisation de certificats auto-signés, y compris de ceux générés lors du déploiement d’un cluster Service Fabric dans le portail Azure, est dénuée de sens, mais toujours possible, pour des déploiements locaux ou hébergés par un développeur, en déclarant que l’empreinte de l’émetteur est la même que celle du certificat feuille.
+> [!NOTE]
+> Cet exemple part du principe qu’il existe déjà un certificat dans le coffre. L’inscription et le renouvellement d’un certificat géré par KeyVault nécessitent l’exécution des étapes manuelles préalables décrites plus haut dans cet article. Pour les environnements de production, utilisez des certificats gérés par KeyVault. Vous trouverez ci-dessous un exemple de script spécifique d’une infrastructure de clé publique (PKI) interne de Microsoft.
+
+> [!NOTE]
+> La substitution automatique de certificat n’a de sens que pour des certificats émis par une autorité de certification. L’utilisation de certificats auto-signés, y compris de ceux générés lors du déploiement d’un cluster Service Fabric dans le portail Azure, est dénuée de sens, mais toujours possible, pour des déploiements locaux ou hébergés par un développeur, en déclarant que l’empreinte de l’émetteur est la même que celle du certificat feuille.
 
 ### <a name="starting-point"></a>Point de départ
 Par souci de concision, nous partons du principe que l’état de départ est le suivant :

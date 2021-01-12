@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.date: 08/15/2020
 ms.author: glenga
 ms.reviewer: jehollan
-ms.openlocfilehash: ee2e7dc577e000878884655c0ed5f4bcb1aabab5
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 70ec9248db002823e969fa5f4fba8bf1074a9af7
+ms.sourcegitcommit: 0830e02635d2f240aae2667b947487db01f5fdef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167693"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97706930"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Utiliser l’injection de dépendances dans .NET Azure Functions
 
@@ -29,6 +29,8 @@ Avant de pouvoir utiliser l’injection de dépendances, vous devez installer le
 - [Microsoft.Azure.Functions.Extensions](https://www.nuget.org/packages/Microsoft.Azure.Functions.Extensions/)
 
 - Package [Microsoft.NET.Sdk.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) version 1.0.28 ou ultérieure
+
+- [Microsoft.Extensions.DependencyInjection](https://www.nuget.org/packages/Microsoft.Extensions.DependencyInjection/) (seules les versions 3.x et antérieures sont prises en charge)
 
 ## <a name="register-services"></a>Inscrire des services
 
@@ -68,7 +70,7 @@ Des étapes d’inscription s’exécutent avant et après le traitement de la c
 
 - *La classe de démarrage est destinée uniquement à la configuration et à l’inscription.* Évitez d’utiliser des services inscrits au cours du processus de démarrage. Par exemple, n’essayez pas de consigner un message dans un enregistreur d’événements inscrit lors du démarrage. Cette étape du processus d’inscription est trop précoce pour que vos services soient disponibles. Une fois la méthode `Configure` exécutée, le runtime Functions continue d’inscrire des dépendances supplémentaires, ce qui peut affecter le fonctionnement de vos services.
 
-- *Le conteneur d’injection de dépendances contient uniquement des types inscrits explicitement* . Les seuls services disponibles en tant que types injectables sont ceux qui sont configurés dans la méthode `Configure`. Par conséquent, des types spécifiques d’Azure Functions, tels que `BindingContext` et `ExecutionContext`, ne sont pas disponibles pendant la configuration ou en tant que types injectables.
+- *Le conteneur d’injection de dépendances contient uniquement des types inscrits explicitement*. Les seuls services disponibles en tant que types injectables sont ceux qui sont configurés dans la méthode `Configure`. Par conséquent, des types spécifiques d’Azure Functions, tels que `BindingContext` et `ExecutionContext`, ne sont pas disponibles pendant la configuration ou en tant que types injectables.
 
 ## <a name="use-injected-dependencies"></a>Utiliser les dépendances injectées
 
@@ -118,9 +120,9 @@ Cet exemple utilise le package [Microsoft.Extensions.Http](https://www.nuget.org
 
 Les durées de service des applications Azure Functions sont identiques à celles du service d’[injection de dépendance ASP.NET](/aspnet/core/fundamentals/dependency-injection#service-lifetimes). Pour une application Azure Functions, les différentes durées de vie de service se comportent comme suit :
 
-- **Temporaire**  : Des services temporaires sont créés à chaque demande du service.
-- **Inclus dans l’étendue**  : La durée de vie du service étendu correspond à celle d’exécution de la fonction. Les services délimités sont créés une fois par exécution. Les demandes ultérieures pour ce service pendant l’exécution réutilisent l’instance de service existante.
-- **Singleton**  : La durée de vie de service singleton correspond à celle de l’hôte, et est réutilisée entre les exécutions de la fonction sur cette instance. Les services à durée de vie singleton sont recommandés pour des connexions et des clients, par exemple, pour des instances `DocumentClient` ou `HttpClient`.
+- **Temporaire** : Des services temporaires sont créés à chaque résolution du service.
+- **Inclus dans l’étendue** : La durée de vie du service étendu correspond à celle d’exécution de la fonction. Des services à étendue délimitée sont créés une fois, à chaque exécution de la fonction. Les demandes ultérieures pour ce service pendant l’exécution réutilisent l’instance de service existante.
+- **Singleton** : La durée de vie de service singleton correspond à celle de l’hôte, et est réutilisée entre les exécutions de la fonction sur cette instance. Les services à durée de vie singleton sont recommandés pour des connexions et des clients, par exemple, pour des instances `DocumentClient` ou `HttpClient`.
 
 Affichez ou téléchargez un exemple [des différentes durées de vie de service](https://github.com/Azure/azure-functions-dotnet-extensions/tree/main/src/samples/DependencyInjection/Scopes) sur GitHub.
 
@@ -181,6 +183,8 @@ L’exemple suivant de fichier `host.json` ajoute le filtre de journal.
     }
 }
 ```
+
+Pour plus d’informations sur les niveaux de journalisation, consultez [Configurer des niveaux de journalisation](configure-monitoring.md#configure-log-levels).
 
 ## <a name="function-app-provided-services"></a>Services fournis par Function App
 

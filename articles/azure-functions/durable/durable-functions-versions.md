@@ -3,18 +3,18 @@ title: Vue d’ensemble des versions de Durable Functions - Azure Functions
 description: En savoir plus sur les versions de Durable Functions.
 author: cgillum
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 12/23/2020
 ms.author: azfuncdf
-ms.openlocfilehash: d6662259494bba5747e01c4574186e9030112247
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4d10bab06428295bbc8c5319bd47787d7b1fb34
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88719408"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97763368"
 ---
 # <a name="durable-functions-versions-overview"></a>Vue d’ensemble des versions de Durable Functions
 
-*Fonctions durables* est une extension d[’Azure Functions](../functions-overview.md) et d[’Azure WebJobs](../../app-service/webjobs-create.md) qui vous permet d’écrire des fonctions avec état dans un environnement sans serveur. L’extension gère l’état, les points de contrôle et les redémarrages à votre place. Si vous n’êtes pas encore familiarisé avec Durable Functions, consultez la [documentation générale](durable-functions-overview.md).
+*Fonctions durables* est une extension d [’Azure Functions](../functions-overview.md) et d [’Azure WebJobs](../../app-service/webjobs-create.md) qui vous permet d’écrire des fonctions avec état dans un environnement sans serveur. L’extension gère l’état, les points de contrôle et les redémarrages à votre place. Si vous n’êtes pas encore familiarisé avec Durable Functions, consultez la [documentation générale](durable-functions-overview.md).
 
 ## <a name="new-features-in-2x"></a>Nouvelles fonctionnalités de la version 2.x
 
@@ -50,6 +50,8 @@ Installez la dernière version 2.x de l’extension de liaisons Durable Function
 
 Durable Functions 2.x est disponible dans la version 2.x du [pack d’extension Azure Functions](../functions-bindings-register.md#extension-bundles).
 
+La prise en charge de Python dans Durable Functions nécessite Durable Functions 2.x.
+
 Pour mettre à jour la version du pack d’extension dans votre projet, ouvrez host.json et mettez à jour la section `extensionBundle` pour utiliser la version 2.x (`[2.*, 3.0.0)`).
 
 ```json
@@ -61,6 +63,9 @@ Pour mettre à jour la version du pack d’extension dans votre projet, ouvrez h
     }
 }
 ```
+
+> [!NOTE]
+> Si Visual Studio Code n’affiche pas les modèles appropriés une fois que vous avez changé la version du bundle d’extensions, rechargez la fenêtre en exécutant la commande *Développeur : Recharger la fenêtre* (<kbd>Ctrl+R</kbd> sur Windows et Linux, <kbd>Commande+R</kbd> sur macOS).
 
 #### <a name="net"></a>.NET
 

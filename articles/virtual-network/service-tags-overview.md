@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: d01136ea4377bd7d35a2e11b4bcf654bcf677fbe
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: e357667e650e9feeb8dceeffe71c287cde9fe8a0
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97401557"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631599"
 ---
 # <a name="virtual-network-service-tags"></a>Balises de service du réseau virtuel
 <a name="network-service-tags"></a>
@@ -53,6 +53,7 @@ Par défaut, les balises de service reflètent les plages pour l’ensemble du C
 | **AzureActiveDirectory** | Azure Active Directory | Règle de trafic sortant | Non | Oui |
 | **AzureActiveDirectoryDomainServices** | Trafic de gestion pour les déploiements dédiés vers Azure Active Directory Domain Services. | Les deux | Non | Oui |
 | **AzureAdvancedThreatProtection** | Azure Advanced Threat Protection. | Règle de trafic sortant | Non | Non |
+| **AzureArcInfrastructure** | Serveurs Azure Arc, Kubernetes Azure Arc et trafic Guest Configuration.<br/><br/>*Remarque :* Cette balise a une dépendance vis-à-vis des balises **AzureActiveDirectory**, **AzureTrafficManager** et **AzureResourceManager**. *Cette balise n’est actuellement pas configurable sur le portail Azure*.| Règle de trafic sortant | Non | Oui |
 | **AzureBackup** |Sauvegarde Azure.<br/><br/>*Remarque :* Cette balise est dotée d’une dépendance par rapport aux balises **Storage** and **AzureActiveDirectory**. | Règle de trafic sortant | Non | Oui |
 | **AzureBotService** | Service Azure Bot. | Règle de trafic sortant | Non | Non |
 | **AzureCloud** | Toutes les [adresses IP publiques du centre de données](https://www.microsoft.com/download/details.aspx?id=56519). | Règle de trafic sortant | Oui | Oui |

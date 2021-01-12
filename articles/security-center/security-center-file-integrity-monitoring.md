@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 1773e1345e9410f54a0364b586c3afca5b648b4c
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: ab173f47ed09dbe77c12cad844d8a1f3654f4a9b
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341530"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734757"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Supervision d’intégrité de fichier dans Azure Security Center
 Découvrez comment configurer la fonctionnalité Monitoring d’intégrité de fichier (FIM) dans Azure Security Center à l’aide de cette procédure pas à pas.
@@ -31,7 +31,7 @@ Découvrez comment configurer la fonctionnalité Monitoring d’intégrité de f
 |État de sortie :|Disponibilité générale (GA)|
 |Prix :|Nécessite [Azure Defender pour les serveurs](defender-for-servers-introduction.md).<br>La fonctionnalité FIM charge des données dans l’espace de travail Log Analytics. Des frais de données seront appliqués en fonction de la quantité de données que vous téléchargez. Pour en savoir plus, consultez l’article [Tarification - Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).|
 |Rôles et autorisations obligatoires :|Le **propriétaire de l’espace de travail** peut activer/désactiver FIM (pour plus d’informations, consultez [Rôles Azure pour Log Analytics](/services-hub/health/azure-roles#azure-roles)).<br>Le **lecteur** peut visualiser les résultats.|
-|Clouds :|![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Oui](./media/icons/yes-icon.png) US Gov<br>![Non](./media/icons/no-icon.png) Cloud du secteur public de la Chine / Autres clouds du secteur public<br>Pris en charge uniquement dans les régions où la solution de suivi des modifications d’Azure Automation est disponible.<br>Consultez [Régions prises en charge pour l’espace de travail Log Analytics lié](../automation/how-to/region-mappings.md).<br>[En savoir plus sur le suivi des modifications](../automation/change-tracking/overview.md).|
+|Clouds :|![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Oui](./media/icons/yes-icon.png) National/souverain (US Gov, Chine Gov, autres Gov)<br>Pris en charge uniquement dans les régions où la solution de suivi des modifications d’Azure Automation est disponible.<br>Consultez [Régions prises en charge pour l’espace de travail Log Analytics lié](../automation/how-to/region-mappings.md).<br>[En savoir plus sur le suivi des modifications](../automation/change-tracking/overview.md).|
 |||
 
 ## <a name="what-is-fim-in-security-center"></a>En quoi consiste la fonctionnalité FIM dans Security Center ?
@@ -124,7 +124,7 @@ FIM est disponible uniquement à partir des pages du Centre de sécurité dans l
 
     - ![Icône Activer][3] Activez FIM sur tous les ordinateurs de l’espace de travail et configurez les options FIM. Cette icône indique que la fonctionnalité FIM n’est pas activée pour l’espace de travail.
 
-        :::image type="content" source="./media/security-center-file-integrity-monitoring/workspace-list-fim.png" alt-text="Lancement FIM":::
+        :::image type="content" source="./media/security-center-file-integrity-monitoring/workspace-list-fim.png" alt-text="Activation de FIM pour un espace de travail spécifique":::
 
 
     > [!TIP]
@@ -133,7 +133,7 @@ FIM est disponible uniquement à partir des pages du Centre de sécurité dans l
 
 1. Sélectionnez **ACTIVER**. Les détails de l’espace de travail, notamment le nombre d’ordinateurs Windows et Linux sous l’espace de travail, s’affichent.
 
-    :::image type="content" source="./media/security-center-file-integrity-monitoring/workspace-fim-status.png" alt-text="Lancement FIM":::
+    :::image type="content" source="./media/security-center-file-integrity-monitoring/workspace-fim-status.png" alt-text="Page Détails de l’espace de travail FIM":::
 
    Les paramètres recommandés pour Windows et Linux sont également affichés.  Développez les champs **Fichiers Windows**, **Registre** et **fichiers Linux** pour afficher la liste complète des éléments recommandés.
 
@@ -150,7 +150,7 @@ FIM est disponible uniquement à partir des pages du Centre de sécurité dans l
 
 Le tableau de bord **Monitoring d’intégrité de fichier** affiche les espaces de travail sur lesquels la fonctionnalité FIM est activée. Le tableau de bord FIM s’ouvre lorsque vous avez activé la fonctionnalité FIM dans un espace de travail ou que vous sélectionnez un espace de travail dans la fenêtre **monitoring d’intégrité de fichier** pour lequel la fonctionnalité est activée.
 
-:::image type="content" source="./media/security-center-file-integrity-monitoring/fim-dashboard.png" alt-text="Lancement FIM":::
+:::image type="content" source="./media/security-center-file-integrity-monitoring/fim-dashboard.png" alt-text="Tableau de bord FIM et ses différents panneaux d’information":::
 
 Le tableau de bord FIM d’un espace de travail affiche les détails suivants :
 
@@ -161,7 +161,7 @@ Le tableau de bord FIM d’un espace de travail affiche les détails suivants :
 
 Sélectionnez **Filtrer** en haut du tableau de bord pour modifier la période pendant laquelle les modifications sont affichées.
 
-:::image type="content" source="./media/security-center-file-integrity-monitoring/dashboard-filter.png" alt-text="Lancement FIM":::
+:::image type="content" source="./media/security-center-file-integrity-monitoring/dashboard-filter.png" alt-text="Filtre période pour le tableau de bord FIM":::
 
 L’onglet **Serveurs** répertorie les ordinateurs qui sont en rapport avec cet espace de travail. Pour chaque ordinateur, le tableau de bord affiche :
 

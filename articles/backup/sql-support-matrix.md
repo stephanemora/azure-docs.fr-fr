@@ -4,12 +4,12 @@ description: Propose un résumé des limitations et des paramètres de prise en 
 ms.topic: conceptual
 ms.date: 03/05/2020
 ms.custom: references_regions
-ms.openlocfilehash: b189eceb6b5a7f2e508387c0b91b238ff5fcb088
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 78436981c515b95ccda763d8ac916738b4364953
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92174061"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734791"
 ---
 # <a name="support-matrix-for-sql-server-backup-in-azure-vms"></a>Tableau de prise en charge de la sauvegarde de SQL Server dans les machines virtuelles Azure
 
@@ -39,7 +39,7 @@ Vous pouvez utiliser le service Sauvegarde Azure pour sauvegarder des bases de d
 * La sauvegarde SQL Server peut être configurée dans le portail Azure ou **PowerShell**. CLI n’est pas pris en charge.
 * La solution est prise en charge pour les deux types de [déploiements](../azure-resource-manager/management/deployment-models.md) : machines virtuelles Azure Resource Manager et machines virtuelles classiques.
 * Tous les types de sauvegarde (complète/différentielle/journal) et les modes de récupération (simple/complet/journalisé en bloc) sont pris en charge.
-* Les types de sauvegarde Complète et Copie complète sont pris en charge pour les bases de données **en lecture seule**.
+* Pour les bases de données **en lecture seule** : les sauvegardes complètes et complètes de copie uniquement sont les seuls types de sauvegarde pris en charge.
 * La compression native SQL est prise en charge si elle est explicitement activée par l’utilisateur dans la stratégie de sauvegarde. Sauvegarde Azure remplace les valeurs par défaut au niveau de l’instance par la clause COMPRESSION / NO_COMPRESSION en fonction de la valeur de ce contrôle, tel que défini par l’utilisateur.
 * La sauvegarde des base de données compatibles avec TDE est prise en charge. Pour restaurer une base de données chiffrée avec TDE sur un autre serveur SQL Server, vous devez d’abord [restaurer le certificat sur le serveur de destination](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server). La compression de sauvegarde pour les bases de données compatibles TDE pour SQL Server 2016 et les versions plus récentes est disponible, mais à une taille de transfert inférieure, comme expliqué [ici](https://techcommunity.microsoft.com/t5/sql-server/backup-compression-for-tde-enabled-databases-important-fixes-in/ba-p/385593).
 * Les opérations de sauvegarde et de restauration des bases de données miroirs et des instantanés de base de données ne sont pas prises en charge.

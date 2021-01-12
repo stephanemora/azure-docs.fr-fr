@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: ee3d1335de1b2bb3096e88c4d04cd03daaa665f5
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 4f4cd8189c9166ee08c1e4ccd800a1202d3b5893
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "96014098"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724814"
 ---
 # <a name="smb-multichannel-performance"></a>Performances de SMB Multichannel
 
@@ -63,7 +63,7 @@ Dans la plupart des scénarios, en particulier les charges de travail multithrea
 1. Ouvrez PowerShell en tant qu’administrateur et utilisez la commande suivante : `Get-SmbMultichannelConnection |fl`
 1. Recherchez des propriétés de **MaxChannels** et **CurrentChannels**
 
-:::image type="content" source="media/storage-files-smb-multichannel-performance/files-smb-multi-channel-connection.PNG" alt-text="Capture d’écran des résultats get-smbmultichannelconnection results." lightbox="media/storage-files-smb-multichannel-performance/files-smb-multi-channel-connection.PNG":::
+:::image type="content" source="media/storage-files-smb-multichannel-performance/files-smb-multi-channel-connection.PNG" alt-text="Capture d’écran des résultats Get-SMBMultichannelConnection." lightbox="media/storage-files-smb-multichannel-performance/files-smb-multi-channel-connection.PNG":::
 
 ## <a name="performance-comparison"></a>Comparaison entre les performances
 
@@ -81,7 +81,7 @@ Pour les graphiques de cet article, la configuration suivante a été utilisée�
 |---|---|---|---|---|---|---|---|---|
 | [Standard_D32s_v3](../../virtual-machines/dv3-dsv3-series.md) | 32 | 128 | 256 | 32 | 64 000/512 (800)    | 51 200/768  | 8|16000 |
 
-:::image type="content" source="media/storage-files-smb-multichannel-performance/files-smb-multi-channel-nic-settings-all-nics.PNG" alt-text="Capture d’écran des résultats get-smbmultichannelconnection results." lightbox="media/storage-files-smb-multichannel-performance/files-smb-multi-channel-nic-settings-all-nics.PNG":::
+:::image type="content" source="media/storage-files-smb-multichannel-performance/files-smb-multi-channel-nic-settings-all-nics.PNG" alt-text="Capture d’écran de la configuration des tests de performances." lightbox="media/storage-files-smb-multichannel-performance/files-smb-multi-channel-nic-settings-all-nics.PNG":::
 
 ### <a name="mutli-threadedmultiple-files-with-smb-multichannel"></a>Multithreads/plusieurs fichiers avec SMB Multichannel
 
@@ -119,7 +119,7 @@ Les conseils suivants peuvent vous aider à optimiser vos performances :
 - Assurez-vous que votre compte de stockage et votre client sont colocalisés dans la même région Azure pour réduire la latence du réseau.
 - Utilisez des applications multithread et répartissez la charge sur plusieurs fichiers.
 - Les avantages en matière de performances de SMB Multichannel augmentent avec le nombre de fichiers distribuant la charge.
-- Les performances du partage Premium sont liées à la taille du partage approvisionné (IOPS/sortie/entrée) et les limites de fichiers uniques. Pour plus d’informations, consultez [Comprendre le provisionnement des partages de fichiers Premium](storage-files-planning.md#understanding-provisioning-for-premium-file-shares).
+- Les performances du partage Premium sont liées à la taille du partage approvisionné (IOPS/sortie/entrée) et les limites de fichiers uniques. Pour plus d’informations, consultez [Comprendre le provisionnement des partages de fichiers Premium](understanding-billing.md#provisioned-billing).
 - Les performances maximales d’un seul client de machine virtuelle sont toujours liées aux limites des machines virtuelles. Par exemple, [Standard_D32s_v3](../../virtual-machines/dv3-dsv3-series.md) peut prendre en charge une bande passante maximale de 16 000 Mbits/s (ou 2 Gbits/s), les sorties de la machine virtuelle (écritures vers le stockage) sont limitées, contrairement aux entrées (lectures depuis le stockage). Les performances des partages de fichiers sont soumises aux limites du réseau des machines, aux UC, à la bande passante réseau disponible du stockage interne, aux tailles d’e/s, au parallélisme, ainsi qu’à de nombreux autres facteurs.
 - Le test initial est généralement un préchauffage, ignore ses résultats et répète le test.
 - Si les performances sont limitées par un seul client et que la charge de travail est toujours inférieure aux limites de partage approvisionnées, les performances peuvent être améliorées en répartissant la charge sur plusieurs clients.

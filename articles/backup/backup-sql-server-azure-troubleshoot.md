@@ -3,12 +3,12 @@ title: Résoudre les problèmes de sauvegarde de base de données SQL Server
 description: Informations de résolution des problèmes de sauvegarde de bases de données SQL Server exécutées sur des machines virtuelles Azure avec Sauvegarde Azure.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: f215b848bedae333979f0fed8eb7f216fb6e25f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d702959be70716f0c2bc85920bdb7aa3e061aff1
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91332778"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97733919"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Résoudre les problèmes de sauvegarde des bases de données SQL Server avec Sauvegarde Azure
 
@@ -56,13 +56,47 @@ Dans certains cas, des échecs aléatoires peuvent se produire lors d’opérati
 
 1. SQL fournit également des instructions sur l’utilisation de programmes antivirus. Pour plus d’informations, consultez [cet article](https://support.microsoft.com/help/309422/choosing-antivirus-software-for-computers-that-run-sql-server).
 
+## <a name="faulty-instance-in-a-vm-with-multiple-sql-server-instances"></a>Instance défectueuse dans une machine virtuelle comportant plusieurs instances de SQL Server
+
+Vous pouvez effectuer une restauration sur une machine virtuelle SQL uniquement si toutes les instances SQL en cours d’exécution dans la machine virtuelle sont signalées comme étant saines. Si une ou plusieurs instances sont « défectueuses », la machine virtuelle n’apparaît pas en tant que cible de restauration. Il s’agit donc d’une des raisons pour lesquelles une machine virtuelle multi-instance n’apparaît pas dans la liste déroulante « serveur » durant l’opération de restauration.
+
+Vous pouvez valider la « préparation à la sauvegarde » de toutes les instances SQL de la machine virtuelle sous **Configurer la sauvegarde** :
+
+![Valider la préparation à la sauvegarde](./media/backup-sql-server-azure-troubleshoot/backup-readiness.png)
+
+Pour déclencher une restauration sur les instances SQL saines, effectuez les étapes suivantes :
+
+1. Connectez-vous à la machine virtuelle SQL, puis accédez à `C:\Program Files\Azure Workload Backup\bin`.
+1. Créez un fichier JSON nommé `ExtensionSettingsOverrides.json` (s’il n’est pas déjà présent). Si ce fichier est déjà présent sur la machine virtuelle, continuez à l’utiliser.
+1. Ajoutez le contenu suivant au fichier JSON, puis enregistrez ce dernier :
+
+    ```json
+    {
+                  "<ExistingKey1>":"<ExistingValue1>",
+                    …………………………………………………… ,
+              "whitelistedInstancesForInquiry": "FaultyInstance_1,FaultyInstance_2"
+            }
+            
+            Sample content:        
+            { 
+              "whitelistedInstancesForInquiry": "CRPPA,CRPPB "
+            }
+
+    ```
+
+1. Déclenchez l’opération de **redécouverte des bases de données** sur le serveur impacté à partir du portail Azure (l’emplacement où la préparation à la sauvegarde est visible). La machine virtuelle apparaît en tant que cible des opérations de restauration.
+
+    ![Redécouvrir les bases de données](./media/backup-sql-server-azure-troubleshoot/rediscover-dbs.png)
+
+1. Supprimez l’entrée *whitelistedInstancesForInquiry* du fichier ExtensionSettingsOverrides.json, une fois l’opération de restauration effectuée.
+
 ## <a name="error-messages"></a>Messages d’erreur
 
 ### <a name="backup-type-unsupported"></a>Type de sauvegarde non pris en charge
 
 | severity | Description | Causes possibles | Action recommandée |
 |---|---|---|---|
-| Avertissement | Les paramètres actuels de cette base de données ne prennent pas en charge certains types de sauvegarde présents dans la stratégie associée. | <li>Seule une opération de sauvegarde complète de base de données peut être effectuée sur la base de données master. Ni une sauvegarde différentielle ni une sauvegarde du journal des transactions ne sont possibles. </li> <li>Aucune base de données en mode de récupération simple n’autorise la sauvegarde des journaux des transactions.</li> | Modifiez les paramètres de la base de données de manière à ce que tous les types de sauvegarde de la stratégie soient pris en charge. Vous pouvez aussi changer la stratégie actuelle pour y inclure seulement les types de sauvegarde pris en charge. Sinon, les types de sauvegarde non pris en charge sont ignorés lors de la sauvegarde planifiée ou le travail de sauvegarde échoue pour une sauvegarde à la demande.
+| Avertissement | Les paramètres actuels de cette base de données ne prennent pas en charge certains types de sauvegarde présents dans la stratégie associée. | <li>Seule une opération de sauvegarde complète de base de données peut être effectuée sur la base de données master. Ni une sauvegarde différentielle ni une sauvegarde du journal des transactions ne sont possibles. </li> <li>Aucune base de données en mode de récupération simple n’autorise la sauvegarde des journaux des transactions.</li> | Modifiez les paramètres de la base de données pour que tous les types de sauvegarde de la stratégie soient pris en charge. Vous pouvez aussi changer la stratégie actuelle pour y inclure seulement les types de sauvegarde pris en charge. Sinon, les types de sauvegarde non pris en charge sont ignorés lors de la sauvegarde planifiée ou le travail de sauvegarde échoue pour une sauvegarde à la demande.
 
 ### <a name="usererrorsqlpodoesnotsupportbackuptype"></a>UserErrorSQLPODoesNotSupportBackupType
 

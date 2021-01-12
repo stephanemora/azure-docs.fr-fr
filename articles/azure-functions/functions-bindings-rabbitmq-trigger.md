@@ -4,20 +4,20 @@ description: Apprenez à exécuter une fonction Azure quand un message RabbitMQ 
 author: cachai2
 ms.assetid: ''
 ms.topic: reference
-ms.date: 12/13/2020
+ms.date: 12/17/2020
 ms.author: cachai
 ms.custom: ''
-ms.openlocfilehash: e7095c08c385457bddf6d70d345c4f47073b4adb
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 4ba19fdf700790d89fe04867985fb803c3b0a2fc
+ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505660"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97760399"
 ---
 # <a name="rabbitmq-trigger-for-azure-functions-overview"></a>Présentation du déclencheur RabbitMQ pour Azure Functions
 
 > [!NOTE]
-> Les liaisons RabbitMQ ne sont entièrement prises en charge que sur des plans **Windows Premium**. Les plans Consommation et Linux ne sont actuellement pas pris en charge.
+> Les liaisons RabbitMQ sont uniquement prises en charge de manière complète dans les plans **Premium et Dedicated**. La consommation n’est pas prise en charge.
 
 Utilisez le déclencheur RabbitMQ pour répondre aux messages d’une file d’attente RabbitMQ.
 
@@ -32,7 +32,7 @@ L’exemple suivant montre une [fonction C#](functions-dotnet-class-library.md) 
 ```cs
 [FunctionName("RabbitMQTriggerCSharp")]
 public static void RabbitMQTrigger_BasicDeliverEventArgs(
-    [RabbitMQTrigger("queue", ConnectionStringSetting = "rabbitMQConnection")] BasicDeliverEventArgs args,
+    [RabbitMQTrigger("queue", ConnectionStringSetting = "rabbitMQConnectionAppSetting")] BasicDeliverEventArgs args,
     ILogger logger
     )
 {
@@ -43,18 +43,23 @@ public static void RabbitMQTrigger_BasicDeliverEventArgs(
 L’exemple suivant montre comment lire le message sous la forme d’un objet CLR traditionnel.
 
 ```cs
-public class TestClass
+namespace Company.Function
 {
-    public string x { get; set; }
-}
+    public class TestClass
+    {
+        public string x { get; set; }
+    }
 
-[FunctionName("RabbitMQTriggerCSharp")]
-public static void RabbitMQTrigger_BasicDeliverEventArgs(
-    [RabbitMQTrigger("queue", ConnectionStringSetting = "rabbitMQConnection")] TestClass pocObj,
-    ILogger logger
-    )
-{
-    logger.LogInformation($"C# RabbitMQ queue trigger function processed message: {Encoding.UTF8.GetString(pocObj)}");
+    public class RabbitMQTriggerCSharp{
+        [FunctionName("RabbitMQTriggerCSharp")]
+        public static void RabbitMQTrigger_BasicDeliverEventArgs(
+            [RabbitMQTrigger("queue", ConnectionStringSetting = "rabbitMQConnectionAppSetting")] TestClass pocObj,
+            ILogger logger
+            )
+        {
+            logger.LogInformation($"C# RabbitMQ queue trigger function processed message: {pocObj}");
+        }
+    }
 }
 ```
 
@@ -74,7 +79,7 @@ Voici les données de liaison dans le fichier *function.json* :
             "type": "rabbitMQTrigger",
             "direction": "in",
             "queueName": "queue",
-            "connectionStringSetting": "rabbitMQConnection"
+            "connectionStringSetting": "rabbitMQConnectionAppSetting"
         }
     ]
 }
@@ -82,7 +87,7 @@ Voici les données de liaison dans le fichier *function.json* :
 
 Voici le code Script C# :
 
-```csx
+```C#
 using System;
 
 public static void Run(string myQueueItem, ILogger log)
@@ -105,7 +110,7 @@ Voici les données de liaison dans le fichier *function.json* :
             "type": "rabbitMQTrigger",
             "direction": "in",
             "queueName": "queue",
-            "connectionStringSetting": "rabbitMQConnection"
+            "connectionStringSetting": "rabbitMQConnectionAppSetting"
         }
     ]
 }
@@ -133,14 +138,12 @@ Une liaison RabbitMQ est définie dans *function.json*, où le *type* est défin
             "name": "myQueueItem",
             "type": "rabbitMQTrigger",
             "direction": "in",
-            "queueName": "",
-            "connectionStringSetting": ""
+            "queueName": "queue",
+            "connectionStringSetting": "rabbitMQConnectionAppSetting"
         }
     ]
 }
 ```
-
-Le code dans *_\_init_\_.py* déclare un paramètre `func.RabbitMQMessage`, ce qui vous permet de lire le message dans votre fonction.
 
 ```python
 import logging
@@ -157,7 +160,7 @@ La fonction Java suivante utilise l’annotation `@RabbitMQTrigger` des [types R
 ```java
 @FunctionName("RabbitMQTriggerExample")
 public void run(
-    @RabbitMQTrigger(connectionStringSetting = "rabbitMQConnection", queueName = "queue") String input,
+    @RabbitMQTrigger(connectionStringSetting = "rabbitMQConnectionAppSetting", queueName = "queue") String input,
     final ExecutionContext context)
 {
     context.getLogger().info("Java HTTP trigger processed a request." + input);
@@ -182,7 +185,7 @@ public static void RabbitMQTest([RabbitMQTrigger("queue")] string message, ILogg
 }
 ```
 
-Vous trouverez un exemple complet sur la page Exemple C#.
+Vous trouverez un exemple complet sur la page [Exemple C#](#example).
 
 # <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
@@ -214,11 +217,11 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 |**direction** | n/a | Doit être défini sur « in ».|
 |**name** | n/a | Nom de la variable qui représente la file d’attente dans le code de la fonction. |
 |**queueName**|**QueueName**| Nom de la file d’attente à partir de laquelle les messages sont envoyés. |
-|**hostName**|**HostName**|(facultatif si vous utilisez ConnectStringSetting) <br>Nom d’hôte de la file d’attente (par exemple : 10.26.45.210)|
-|**userNameSetting**|**UserNameSetting**|(facultatif si vous utilisez ConnectionStringSetting) <br>Nom pour accéder à la file d’attente |
-|**passwordSetting**|**PasswordSetting**|(facultatif si vous utilisez ConnectionStringSetting) <br>Mot de passe pour accéder à la file d’attente|
+|**hostName**|**HostName**|(ignorée si vous utilisez ConnectStringSetting) <br>Nom d’hôte de la file d’attente (par exemple : 10.26.45.210)|
+|**userNameSetting**|**UserNameSetting**|(ignorée si vous utilisez ConnectionStringSetting) <br>Nom du paramètre d’application qui contient le nom d’utilisateur permettant d’accéder à la file d’attente. Exemple : UserNameSetting: "%< UserNameFromSettings >%"|
+|**passwordSetting**|**PasswordSetting**|(ignorée si vous utilisez ConnectionStringSetting) <br>Nom du paramètre d’application qui contient le mot de passe permettant d’accéder à la file d’attente. Exemple : PasswordSetting: "%< PasswordFromSettings >%"|
 |**connectionStringSetting**|**ConnectionStringSetting**|Nom du paramètre d’application qui contient la chaîne de connexion de la file d’attente de messages RabbitMQ. Notez que si vous spécifiez la chaîne de connexion directement et non par le biais d’un paramètre d’application dans local.settings.json, le déclencheur ne fonctionnera pas. (exemple : dans *function.json* : connectionStringSetting: "rabbitMQConnection" <br> Dans *local.settings.json* : "rabbitMQConnection" : "< ActualConnectionstring >")|
-|**port**|**Port**|Obtient ou définit les ports utilisés. La valeur par défaut est 0.|
+|**port**|**Port**|(ignorée si vous utilisez ConnectionStringSetting) Obtient ou définit le port utilisé. La valeur par défaut est 0. Elle pointe vers le paramètre de port par défaut du client rabbitmq : 5672.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -226,31 +229,29 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-Les types de paramètres suivants sont disponibles pour le message :
+Le type de message par défaut est [Événement RabbitMQ](https://www.rabbitmq.com/releases/rabbitmq-dotnet-client/v3.2.2/rabbitmq-dotnet-client-3.2.2-client-htmldoc/html/type-RabbitMQ.Client.Events.BasicDeliverEventArgs.html). La propriété `Body` de l’événement RabbitMQ peut correspondre à l’un des types listés ci-dessous :
 
-* [Événement RabbitMQ](https://www.rabbitmq.com/releases/rabbitmq-dotnet-client/v3.2.2/rabbitmq-dotnet-client-3.2.2-client-htmldoc/html/type-RabbitMQ.Client.Events.BasicDeliverEventArgs.html) : format par défaut des messages RabbitMQ.
-  * `byte[]` : via la propriété « Body » de l’événement RabbitMQ.
-* `string` : le message est au format texte.
 * `An object serializable as JSON` : le message est remis sous la forme d’une chaîne JSON valide.
+* `string`
+* `byte[]`
 * `POCO` : le message est mis en forme en tant qu’objet C#. Vous trouverez un exemple complet sur la page [Exemple C#](#example).
 
 # <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
-Les types de paramètres suivants sont disponibles pour le message :
+Le type de message par défaut est [Événement RabbitMQ](https://www.rabbitmq.com/releases/rabbitmq-dotnet-client/v3.2.2/rabbitmq-dotnet-client-3.2.2-client-htmldoc/html/type-RabbitMQ.Client.Events.BasicDeliverEventArgs.html). La propriété `Body` de l’événement RabbitMQ peut correspondre à l’un des types listés ci-dessous :
 
-* [Événement RabbitMQ](https://www.rabbitmq.com/releases/rabbitmq-dotnet-client/v3.2.2/rabbitmq-dotnet-client-3.2.2-client-htmldoc/html/type-RabbitMQ.Client.Events.BasicDeliverEventArgs.html) : format par défaut des messages RabbitMQ.
-  * `byte[]` : via la propriété « Body » de l’événement RabbitMQ.
-* `string` : le message est au format texte.
 * `An object serializable as JSON` : le message est remis sous la forme d’une chaîne JSON valide.
-* `POCO` : le message est mis en forme en tant qu’objet C#.
+* `string`
+* `byte[]`
+* `POCO` : le message est mis en forme en tant qu’objet C#. Pour obtenir un exemple complet, consultez l’[exemple](#example) de script C#.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Le message RabbitMQ est transmis à la fonction en tant que chaîne ou en tant qu’objet JSON.
+Le message en file d’attente est disponible via context.bindings.<NAME> où <NAME> correspond au nom défini dans function.json. Si la charge utile est JSON, la valeur est désérialisée en objet.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Le message RabbitMQ est transmis à la fonction en tant que chaîne ou en tant qu’objet JSON.
+Consultez l’[exemple](#example) en Python.
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -282,16 +283,16 @@ Cette section décrit les paramètres de configuration globaux disponibles pour 
 |Propriété  |Default | Description |
 |---------|---------|---------|
 |prefetchCount|30|Obtient ou définit le nombre de messages que le destinataire des messages peut demander simultanément et est mis en cache.|
-|queueName|n/a| Nom de la file d’attente à partir de laquelle les messages sont envoyés. |
-|connectionString|n/a|Nom du paramètre d’application qui contient la chaîne de connexion de la file d’attente de messages RabbitMQ. Notez que si vous spécifiez la chaîne de connexion directement et non par le biais d’un paramètre d’application dans local.settings.json, le déclencheur ne fonctionnera pas.|
-|port|0|Nombre maximal de sessions qui peuvent être traitées simultanément par instance mise à l’échelle.|
+|queueName|n/a| Nom de la file d’attente à partir de laquelle les messages sont envoyés.|
+|connectionString|n/a|Chaîne de connexion de la file d’attente de messages RabbitMQ. Notez que la chaîne de connexion est directement spécifiée ici et non via un paramètre d’application.|
+|port|0|(ignorée si vous utilisez connectionString) Obtient ou définit le port utilisé. La valeur par défaut est 0. Elle pointe vers le paramètre de port par défaut du client rabbitmq : 5672.|
 
 ## <a name="local-testing"></a>Test local
 
 > [!NOTE]
 > ConnectionString est prioritaire sur « hostName », « userName » et « password ». S’ils sont tous définis, connectionString remplace les deux autres.
 
-Si vous testez localement sans chaîne de connexion, vous devez définir le paramètre « hostName » et « username » et « password », le cas échéant, dans la section « rabbitMQ » de *host.json* :
+Si vous effectuez des tests localement sans chaîne de connexion, vous devez définir le paramètre « hostName » ainsi que « userName » et « password », le cas échéant, dans la section « rabbitMQ » de *host.json* :
 
 ```json
 {
@@ -300,8 +301,8 @@ Si vous testez localement sans chaîne de connexion, vous devez définir le para
         "rabbitMQ": {
             ...
             "hostName": "localhost",
-            "username": "<your username>",
-            "password": "<your password>"
+            "username": "userNameSetting",
+            "password": "passwordSetting"
         }
     }
 }
@@ -309,9 +310,24 @@ Si vous testez localement sans chaîne de connexion, vous devez définir le para
 
 |Propriété  |Default | Description |
 |---------|---------|---------|
-|hostName|n/a|(facultatif si vous utilisez ConnectStringSetting) <br>Nom d’hôte de la file d’attente (par exemple : 10.26.45.210)|
-|userName|n/a|(facultatif si vous utilisez ConnectionStringSetting) <br>Nom pour accéder à la file d’attente |
-|mot de passe|n/a|(facultatif si vous utilisez ConnectionStringSetting) <br>Mot de passe pour accéder à la file d’attente|
+|hostName|n/a|(ignorée si vous utilisez connectionString) <br>Nom d’hôte de la file d’attente (par exemple : 10.26.45.210)|
+|userName|n/a|(ignorée si vous utilisez connectionString) <br>Nom pour accéder à la file d’attente |
+|mot de passe|n/a|(ignorée si vous utilisez connectionString) <br>Mot de passe pour accéder à la file d’attente|
+
+
+## <a name="enable-runtime-scaling"></a>Activer la mise à l’échelle du runtime
+
+Pour permettre un scale-out du déclencheur RabbitMQ sur plusieurs instances, le paramètre de **supervision de la mise à l’échelle du runtime** doit être activé. 
+
+Dans le portail, ce paramètre se trouve sous **Configuration** > **Paramètres d’exécution de la fonction** pour votre application de fonction.
+
+:::image type="content" source="media/functions-networking-options/virtual-network-trigger-toggle.png" alt-text="VNETToggle":::
+
+Dans l’interface CLI, vous pouvez activer la **supervision de la mise à l’échelle du runtime** à l’aide de la commande suivante :
+
+```azurecli-interactive
+az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.functionsRuntimeScaleMonitoringEnabled=1 --resource-type Microsoft.Web/sites
+```
 
 ## <a name="monitoring-rabbitmq-endpoint"></a>Surveillance du point de terminaison RabbitMQ
 Pour surveiller vos files d’attente et échanges pour un certain point de terminaison RabbitMQ :

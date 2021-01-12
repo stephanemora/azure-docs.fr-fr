@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 06/08/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 99fc29071086a5c9271b8b2dec00976833a36352
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 2d37de4a1861cb78b4a76c8ca7bc8c3643245b32
+ms.sourcegitcommit: 0830e02635d2f240aae2667b947487db01f5fdef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489776"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97706964"
 ---
 # <a name="restart-azure-database-for-postgresql-server-using-powershell"></a>Redémarrer un serveur Azure Database pour PostgreSQL à l’aide de PowerShell
 
@@ -20,7 +20,8 @@ Cette rubrique explique comment redémarrer un serveur Azure Database pour Postg
 
 Le redémarrage du serveur est bloqué si le service est occupé. Par exemple, le service peut traiter une opération précédemment demandée, telle que la mise à l’échelle de vCores.
 
-Le temps nécessaire à un redémarrage varie selon le processus de récupération de PostgreSQL. Pour réduire le délai de redémarrage, nous vous recommandons de diminuer la quantité d’activités se produisant sur le serveur avant le redémarrage.
+> [!NOTE] 
+> Le temps nécessaire à un redémarrage varie selon le processus de récupération de PostgreSQL. Pour réduire le délai de redémarrage, nous vous recommandons de diminuer la quantité d’activités se produisant sur le serveur avant le redémarrage. Vous pouvez également augmenter la fréquence des points de contrôle. Vous pouvez également régler les valeurs des paramètres liés aux points de contrôle, y compris `max_wal_size`. Il est également recommandé d’exécuter la commande `CHECKPOINT` avant de redémarrer le serveur.
 
 ## <a name="prerequisites"></a>Prérequis
 

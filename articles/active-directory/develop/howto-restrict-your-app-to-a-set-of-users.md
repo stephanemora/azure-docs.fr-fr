@@ -13,12 +13,12 @@ ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: a9b0090fa13a6d2f7a837a4f5ffee37d70893318
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f5a5242cb9448b3d11e0921b2272cf00bef8f6c1
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88116901"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97722264"
 ---
 # <a name="how-to-restrict-your-azure-ad-app-to-a-set-of-users-in-an-azure-ad-tenant"></a>Procédure : Limiter votre application Azure AD à un ensemble d’utilisateurs dans un locataire Azure AD
 
@@ -82,7 +82,7 @@ Il existe deux façons de créer une application avec l’affectation d’utilis
 
 Une fois que vous avez configuré votre application pour activer l’affectation d’utilisateurs, vous pouvez poursuivre et affecter des utilisateurs et des groupes à l’application.
 
-1. Sélectionnez le volet **Utilisateurs et groupes** dans le menu de navigation de gauche de l’application.
+1. Sélectionnez le volet **Utilisateurs et groupes** dans le menu de navigation gauche de l’application d’entreprise.
 1. En haut de la liste **Utilisateurs et groupes**, sélectionnez le bouton **Ajouter un utilisateur** en haut de la liste pour ouvrir le volet **Ajouter une attribution**.
 1. Sélectionnez le sélecteur **Utilisateurs** à partir du volet **Ajouter une attribution**. 
 

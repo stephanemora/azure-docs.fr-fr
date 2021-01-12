@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/10/2020
-ms.openlocfilehash: cf64deb17bea508637debb5612231d355d523fbb
-ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
+ms.openlocfilehash: 57b350c7772d42e5dbd89c1d03c89f905a26398b
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95315581"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895527"
 ---
 # <a name="azure-monitor-agent-overview-preview"></a>Vue d’ensemble de l’agent Azure Monitor (préversion)
 L’agent Azure Monitor (AMA) collecte des données de supervision à partir du système d’exploitation invité des machines virtuelles et les remet à Azure Monitor. Cet article fournit une vue d’ensemble de l’agent Azure Monitor, notamment son installation et la configuration de la collecte de données.
@@ -54,7 +54,7 @@ Les limitations suivantes s’appliquent pendant la préversion publique de l’
 
 - L’agent Azure Monitor ne prend pas en charge les solutions et les insights telles qu’Azure Monitor pour machines virtuelles et Azure Security Center. Le seul scénario actuellement pris en charge consiste à collecter des données à l’aide des règles de collecte de données que vous configurez. 
 - Les règles de collecte de données doivent être créées dans la même région que n’importe quel espace de travail Log Analytics utilisé comme destination.
-- Les machines virtuelles Azure et les serveurs Azure Arc sont actuellement pris en charge. Les groupes de machines virtuelles identiques, Azure Kubernetes Service et d’autres types de ressources de calcul ne sont pas pris en charge actuellement.
+- Les machines virtuelles Azure, les groupes de machines virtuelles identiques et les serveurs Azure Arc activés sont actuellement pris en charge. Azure Kubernetes Service et d’autres types de ressources de calcul ne sont pas pris en charge actuellement.
 - La machine virtuelle doit avoir accès aux points de terminaison HTTPS suivants :
   - *.ods.opinsights.azure.com
   - *.ingest.monitor.azure.com

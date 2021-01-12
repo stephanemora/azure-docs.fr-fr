@@ -3,12 +3,12 @@ title: Développement distribué et collaboratif de ressources Azure DevTest Lab
 description: Présente les meilleures pratiques à adopter pour configurer un environnement de développement distribué et collaboratif afin de développer des ressources DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: c18bbbfd3ad727811cc28c424381e5caf32b1cfc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ef6d7aa7d3cfd4fcc64eaa45259684dfcb9ccee
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85483803"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97592362"
 ---
 # <a name="best-practices-for-distributed-and-collaborative-development-of-azure-devtest-labs-resources"></a>Meilleures pratiques pour le développement distribué et collaboratif de ressources Azure DevTest Labs
 Un développement distribué et collaboratif permet à différentes équipes ou personnes de développer et de gérer une base de code. Pour aboutir, le processus de développement repose sur la possibilité de créer, de partager et d'intégrer des informations. Ce principe de développement clé peut être utilisé dans Azure DevTest Labs. Plusieurs types de ressources sont couramment distribués entre différents laboratoires au sein d’une entreprise. Les différents types de ressources portent sur les deux zones suivantes :
@@ -39,13 +39,13 @@ En matière de contrôle de code source, la configuration la plus courante consi
 - Ressources d'unité commerciale/de division.
 - Ressources spécifiques à l'équipe.
 
-Chacun de ces niveaux est lié à un référentiel distinct au sein duquel la branche principale doit être de qualité production. Les [branches](/azure/devops/repos/git/git-branching-guidance?view=azure-devops) de chaque référentiel servent au développement de ces ressources spécifiques (artefacts ou modèles). Cette structure est parfaitement adaptée à DevTest Labs, car vous pouvez facilement connecter simultanément plusieurs référentiels et branches aux laboratoires de l’entreprise. Le nom du référentiel est inclus dans l'interface utilisateur pour éviter toute confusion en présence de noms, descriptions et éditeurs identiques.
+Chacun de ces niveaux est lié à un dépôt distinct au sein duquel la branche primaire doit être de qualité production. Les [branches](/azure/devops/repos/git/git-branching-guidance?view=azure-devops) de chaque référentiel servent au développement de ces ressources spécifiques (artefacts ou modèles). Cette structure est parfaitement adaptée à DevTest Labs, car vous pouvez facilement connecter simultanément plusieurs référentiels et branches aux laboratoires de l’entreprise. Le nom du référentiel est inclus dans l'interface utilisateur pour éviter toute confusion en présence de noms, descriptions et éditeurs identiques.
      
 Le diagramme suivant illustre deux référentiels : un référentiel d'entreprise géré par la division informatique et un autre géré par la division R&D.
 
 ![Exemple d'environnement de développement distribué et collaboratif](./media/best-practices-distributive-collaborative-dev-env/distributive-collaborative-dev-env.png)
    
-Cette structure multiniveau permet un développement tout en maintenant une qualité élevée au niveau de la branche principale et en disposant de plusieurs référentiels connectés à un laboratoire pour une plus grande flexibilité.
+Cette structure multiniveau permet un développement tout en maintenant une qualité élevée au niveau de la branche primaire et en disposant de plusieurs dépôts connectés à un laboratoire pour une plus grande flexibilité.
 
 ## <a name="next-steps"></a>Étapes suivantes    
 Voir les articles suivants :

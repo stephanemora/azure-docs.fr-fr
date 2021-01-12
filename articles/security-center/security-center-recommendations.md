@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2020
+ms.date: 12/25/2020
 ms.author: memildin
-ms.openlocfilehash: c0952e0f267f9c2511a2e80fa7106958d8dd0ee5
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 115d89783a849a9c4c7adb2fceceaf8d1575c785
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791883"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97795980"
 ---
 # <a name="security-recommendations-in-azure-security-center"></a>Recommandations de sécurité dans le Centre de sécurité Azure 
 Cette rubrique explique comment visualiser et comprendre les recommandations d’Azure Security Center pour vous aider à protéger vos ressources Azure.
@@ -42,7 +42,11 @@ Azure Security Center analyse l’état de sécurité de vos ressources pour id
 
 1. Dans le menu de Security Center, ouvrez la page **Recommendations** pour voir les recommandations applicables à votre environnement. Les recommandations sont regroupées en contrôles de sécurité.
 
-      ![Recommandations regroupées par contrôle de sécurité](./media/security-center-recommendations/view-recommendations.png)
+    :::image type="content" source="./media/security-center-recommendations/view-recommendations.png" alt-text="Recommandations regroupées par contrôle de sécurité" lightbox="./media/security-center-recommendations/view-recommendations.png":::
+
+1. Pour rechercher des recommandations propres au type de ressource, à la gravité, à l’environnement ou à d’autres critères qui sont importants pour vous, utilisez les filtres facultatifs au-dessus de la liste des recommandations.
+
+    :::image type="content" source="media/security-center-recommendations/recommendation-list-filters.png" alt-text="Filtres permettant d’affiner la liste des recommandations d’Azure Security Center":::
 
 1. Développez un contrôle et sélectionnez une recommandation spécifique pour afficher la page de recommandation détaillée.
 
@@ -53,12 +57,12 @@ Azure Security Center analyse l’état de sécurité de vos ressources pour id
     1. Les boutons **Appliquer** et **Refuser** sur les recommandations prises en charge (voir [Empêcher des configurations incorrectes à l’aide des recommandations Appliquer/Refuser](prevent-misconfigurations.md))
     1. **Indicateur de gravité**
     1. **Intervalle d’actualisation** (le cas échéant) 
-    1. **Description**  : courte description du problème.
-    1. **Étapes de correction**  : description des étapes manuelles nécessaires pour corriger le problème de sécurité sur les ressources concernées. Pour obtenir des recommandations avec un « correctif rapide », vous pouvez sélectionner **Afficher la logique de correction** avant d’appliquer la correction suggérée à vos ressources. 
-    1. **Ressources concernées**  : vos ressources sont regroupées dans des onglets :
-        - **Ressources saines**  : ressources pertinentes qui ne sont pas touchées ou sur lesquelles vous avez déjà corrigé le problème.
-        - **Ressources non saines**  : ressources qui sont encore concernées par le problème identifié.
-        - **Ressources non applicables**  : ressources pour lesquelles la recommandation ne peut pas donner de réponse définitive. L’onglet Non applicables comprend également les raisons pour chaque ressource. 
+    1. **Description** : courte description du problème.
+    1. **Étapes de correction** : description des étapes manuelles nécessaires pour corriger le problème de sécurité sur les ressources concernées. Pour obtenir des recommandations avec un « correctif rapide », vous pouvez sélectionner **Afficher la logique de correction** avant d’appliquer la correction suggérée à vos ressources. 
+    1. **Ressources concernées** : vos ressources sont regroupées dans des onglets :
+        - **Ressources saines** : ressources pertinentes qui ne sont pas touchées ou sur lesquelles vous avez déjà corrigé le problème.
+        - **Ressources non saines** : ressources qui sont encore concernées par le problème identifié.
+        - **Ressources non applicables** : ressources pour lesquelles la recommandation ne peut pas donner de réponse définitive. L’onglet Non applicables comprend également les raisons pour chaque ressource. 
 
             :::image type="content" source="./media/security-center-recommendations/recommendations-not-applicable-reasons.png" alt-text="Ressources non applicables avec leurs raisons.":::
     1. Boutons d’action pour corriger la recommandation ou déclencher une application logique.
