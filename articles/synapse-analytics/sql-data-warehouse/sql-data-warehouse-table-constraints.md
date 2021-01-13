@@ -11,12 +11,12 @@ ms.date: 09/05/2019
 ms.author: emtehran
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: bdb27c5c9f5ec8a7be433ab6e421ecabf5c8c254
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 88b63ce30000340a70811e9f623e4273ccbb272a
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505577"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98117280"
 ---
 # <a name="primary-key-foreign-key-and-unique-key-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Clé primaire, clé étrangère et clé unique avec un pool SQL dédié dans Azure Synapse Analytics
 
@@ -28,7 +28,7 @@ Le pool SQL dédié prend en charge les contraintes de table suivantes :
 - La contrainte PRIMARY KEY est prise en charge seulement si NONCLUSTERED et NOT ENFORCED sont tous les deux utilisés.    
 - La contrainte UNIQUE est prise en charge seulement si NOT ENFORCED est utilisé.
 
-Pour la syntaxe, cochez [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql) et [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse). 
+Pour la syntaxe, cochez [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql) et [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse). 
 
 La contrainte FOREIGN KEY n’est pas prise en charge dans le pool SQL dédié.  
 

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/08/2020
+ms.date: 01/11/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4592742b99d7c3e915c31ca5a202355d32e76d68
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 15b4b61fd250dfb7d68c563f9f42c7d288a0019c
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97356121"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98070862"
 ---
 # <a name="azure-active-directory-b2c-isv-partners"></a>Partenaires ISV pour Azure Active Directory B2C
 
@@ -54,7 +54,7 @@ Microsoft travaille en partenariat avec les fournisseurs de logiciels indépenda
 | ![Capture d’écran d’un logo Nevis](./media/partner-gallery/nevis-logo.png) | [Nevis](./partner-nevis.md) permet une authentification sans mot de passe et offre une expérience utilisateur final axée sur l’interface mobile, entièrement personnalisée avec l’application Nevis Access pour une authentification forte du client et pour garantir le respect des obligations relatives aux transactions de la directive 2 sur les services de paiement (PSD2). |
 | ![Capture d’écran d’un logo Trusona](./media/partner-gallery/trusona-logo.png) | L’intégration avec [Trusona](./partner-trusona.md) vous aide à sécuriser vos connexions, et permet l’authentification sans mot de passe, l’authentification multifacteur et l’analyse de licence numérique. |
 | ![Capture d’écran d’un logo Twilio](./media/partner-gallery/twilio-logo.png) | [Twilio Verify App](./partner-twilio.md) fournit plusieurs solutions qui permettent l’authentification multifacteur (MFA) par l’envoi par SMS d’un mot de passe à usage unique (OTP), d’un mot de passe à usage unique et durée définie (TOTP) ou de notifications Push, et aident à se conformer aux exigences en matière d’authentification sécurisée des clients de la directive 2 sur les services de paiement (PSD2). |
-| ![Capture d’écran d’un logo typingDNA](./media/partner-gallery/typingdna-logo.png) | [TypingDNA](./partner-twilio.md) permet une authentification forte du client en analysant le modèle de saisie d’un utilisateur. Il permet aux entreprises d’activer une authentification multifacteur sans assistance et de se conformer aux exigences en matière d’authentification sécurisée des clients de la directive 2 sur les services de paiement (PSD2). |
+| ![Capture d’écran d’un logo typingDNA](./media/partner-gallery/typingdna-logo.png) | [TypingDNA](./partner-typingdna.md) permet une authentification forte du client en analysant le modèle de saisie d’un utilisateur. Il permet aux entreprises d’activer une authentification multifacteur sans assistance et de se conformer aux exigences en matière d’authentification sécurisée des clients de la directive 2 sur les services de paiement (PSD2). |
 | ![Capture d’écran d’un logo WhoIAM](./media/partner-gallery/whoiam-logo.png) | [WhoIAM](./partner-whoiam.md) est une application BRIMS (Branded Identity Management System) qui permet aux organisations de vérifier leur base d’utilisateurs par la voix, les SMS et les e-mails. |
 
 ## <a name="role-based-access-control"></a>Contrôle d’accès en fonction du rôle 

@@ -11,12 +11,12 @@ ms.date: 2/19/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: e3daf89b80daf47049150b05ca392eede360bd3e
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: d778844fee8cad9359532ffa23e177bf7b13c4b8
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673414"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98117688"
 ---
 # <a name="capacity-limits-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Limites de capacité du pool SQL dédié dans Azure Synapse Analytics
 
@@ -43,7 +43,7 @@ Valeurs maximales autorisées pour les différents composants d’un pool SQL d�
 | Table de charge de travail |Tables par base de données | 100 000 |
 | Table de charge de travail |Colonnes par table |1 024 colonnes |
 | Table de charge de travail |Octets par colonne |Dépend de la colonne [type de données](sql-data-warehouse-tables-data-types.md). La limite est de 8 000 pour les types de données Char, de 4 000 pour nvarchar ou 2 Go pour les types de données MAX. |
-| Table de charge de travail |Octets par ligne, taille définie |8060 octets<br/><br/>Le nombre d’octets par ligne est calculé de la même manière que pour SQL Server avec la compression de page. Comme SQL Server, le stockage de dépassement de ligne est pris en charge, permettant d’envoyer les **colonnes de longueur variable** hors ligne. Lorsque des lignes de longueur variable sont envoyées hors ligne, seule une racine de 24 octets est stockée dans l’enregistrement principal. Pour plus d’informations, consultez [Données de dépassement de ligne de plus de 8 ko](https://msdn.microsoft.com/library/ms186981.aspx). |
+| Table de charge de travail |Octets par ligne, taille définie |8060 octets<br/><br/>Le nombre d’octets par ligne est calculé de la même manière que pour SQL Server avec la compression de page. Comme SQL Server, le stockage de dépassement de ligne est pris en charge, permettant d’envoyer les **colonnes de longueur variable** hors ligne. Lorsque des lignes de longueur variable sont envoyées hors ligne, seule une racine de 24 octets est stockée dans l’enregistrement principal. Pour plus d’informations, consultez [Données de dépassement de ligne de plus de 8 ko](/previous-versions/sql/sql-server-2008-r2/ms186981(v=sql.105)). |
 | Table de charge de travail |Partitions par table |15,000<br/><br/>Pour des performances élevées, nous vous recommandons de réduire au minimum le nombre de partitions nécessaires tout en prenant quand même en charge les besoins de votre entreprise. À mesure que le nombre de partitions augmente, la charge pour les opérations Langage de définition de données (DDL) et Langage de manipulation de données (DML) augmente et ralentit les performances. |
 | Table de charge de travail |Caractères par valeur limite de partition. |4000 |
 | Index |Index non-cluster par table. |50<br/><br/>Applicable uniquement aux tables de stockage de lignes. |

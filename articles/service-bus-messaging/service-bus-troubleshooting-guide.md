@@ -3,12 +3,12 @@ title: Guide de dépannage pour Azure Service Bus | Microsoft Docs
 description: Découvrez des conseils et recommandations pour résoudre certains problèmes que vous pourriez rencontrer lors de l’utilisation d’Azure Service Bus.
 ms.topic: article
 ms.date: 09/16/2020
-ms.openlocfilehash: aab7fa53b4af309c68cd91fdb1d25c5771f89828
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8c31d252d75a2ba75528cd12d3a94bad5bd9f677
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91261122"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98126867"
 ---
 # <a name="troubleshooting-guide-for-azure-service-bus"></a>Guide de dépannage pour Azure Service Bus
 Cet article fournit des conseils et des recommandations pour résoudre certains problèmes que vous pourriez rencontrer lors de l’utilisation d’Azure Service Bus. 
@@ -26,7 +26,7 @@ Aidez-vous des étapes suivantes pour résoudre les problèmes de connectivité,
     
     Voici un exemple de message d’échec :
 
-    ```json
+    ```xml
     <Error>
         <Code>400</Code>
         <Detail>

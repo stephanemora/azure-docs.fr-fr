@@ -8,16 +8,16 @@ ms.subservice: security
 ms.date: 12/1/2020
 ms.author: billgib
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7972f34bf0d2b93828899903e013c2e35bc997c0
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: 2d9f3bfe6a273bfb0f3d314d1a4664806bd45ae2
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96523273"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98118810"
 ---
 # <a name="what-is-synapse-role-based-access-control-rbac"></a>Présentation du contrôle d’accès en fonction du rôle (RBAC) Synapse
 
-RBAC Synapse étend les fonctionnalités de [RBAC Azure](https://docs.microsoft.com/azure/role-based-access-control/overview) pour les espaces de travail Synapse et leur contenu. 
+RBAC Synapse étend les fonctionnalités de [RBAC Azure](../../role-based-access-control/overview.md) pour les espaces de travail Synapse et leur contenu. 
 
 RBAC Azure est utilisé pour gérer les utilisateurs autorisés à créer, mettre à jour ou supprimer l’espace de travail Synapse et ses pools SQL, pools Apache Spark et runtimes d’intégration.
 

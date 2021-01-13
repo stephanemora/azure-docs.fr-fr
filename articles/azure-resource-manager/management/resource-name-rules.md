@@ -3,12 +3,12 @@ title: Restrictions concernant le nommage des ressources
 description: Affiche les règles et restrictions concernant le nommage des ressources Azure.
 ms.topic: conceptual
 ms.date: 12/29/2020
-ms.openlocfilehash: edcf3f09b57ed7628611c482effddb210ef8e456
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 59babd9298fdca96b450b2dc67832c86c043c49c
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814378"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132747"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Règles de nommage et restrictions pour les ressources Azure
 
@@ -83,7 +83,7 @@ Dans les tableaux suivants, le terme « alphanumérique » fait référence au
 > | Entité | Étendue | Longueur | Caractères valides |
 > | --- | --- | --- | --- |
 > | locks | étendue de l’affectation | 1-90 | Caractères alphanumériques, points, traits de soulignement, traits d’union et parenthèses.<br><br>Ne peut pas se terminer par un point. |
-> | policyAssignments | étendue de l’affectation | 1-128 (nom d’affichage)<br><br>1-64 (nom de la ressource) | Le nom d’affichage peut contenir n’importe quel caractère.<br><br>Le nom de la ressource ne peut pas contenir `%` et ne peut pas se terminer par un point ou un espace. |
+> | policyAssignments | étendue de l’affectation | 1-128 (nom d’affichage)<br><br>1-64 (nom de la ressource)<br><br>1-24 (nom de la ressource dans l’étendue du groupe d’administration) | Le nom d’affichage peut contenir n’importe quel caractère.<br><br>Le nom de la ressource ne peut pas contenir `%` et ne peut pas se terminer par un point ou un espace. |
 > | policyDefinitions | étendue de la définition | 1-128 (nom d’affichage)<br><br>1-64 (nom de la ressource) | Le nom d’affichage peut contenir n’importe quel caractère.<br><br>Le nom de la ressource ne peut pas contenir `%` et ne peut pas se terminer par un point ou un espace. |
 > | policySetDefinitions | étendue de la définition | 1-128 (nom d’affichage)<br><br>1-64 (nom de la ressource)<br><br>1-24 (nom de la ressource dans l’étendue du groupe d’administration) | Le nom d’affichage peut contenir n’importe quel caractère.<br><br>Le nom de la ressource ne peut pas contenir `%` et ne peut pas se terminer par un point ou un espace.  |
 

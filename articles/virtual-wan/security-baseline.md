@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/24/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 994cb250aff2079e32eeef6a0d22466a284481f5
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 0f124c0b4af69338ad10f7247a4260b4a348beb5
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602425"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131200"
 ---
 # <a name="azure-security-baseline-for-virtual-wan"></a>Ligne de base de sécurité Azure Virtual WAN
 
@@ -66,7 +66,7 @@ Choisissez la protection DDoS fournie par Azure pour protéger vos ressources co
 
 - [Gérer la norme Azure DDoS Protection à l’aide du portail Azure](/azure/virtual-network/manage-ddos-protection) 
 
-- [Recommandations relatives à Azure Security Center](../security-center/recommendations-reference.md#recs-network)
+- [Recommandations relatives à Azure Security Center](../security-center/recommendations-reference.md#recs-networking)
 
 **Supervision d’Azure Security Center** : Oui
 

@@ -8,12 +8,12 @@ ms.date: 12/08/2020
 ms.author: normesta
 ms.subservice: common
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 6232b315abf8840d6fd77d02e3e928c0004746a0
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: ab3cb403a8757f424a141206f99f9c29bf3e0b49
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97029326"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108146"
 ---
 # <a name="get-started-with-azcopy"></a>Bien démarrer avec AzCopy
 
@@ -105,7 +105,7 @@ Pour obtenir des exemples de commandes, consultez l’un de ces articles.
 
 | Service | Article |
 |--------|-----------|
-|Stockage Blob Azure |[Charger des fichiers dans Stockage Blob Azure](storage-use-azcopy-blobs-upload.md)<br><br>[Télécharger des blobs depuis Stockage Blob Azure](storage-use-azcopy-blobs-download.md)<br><br>[Copier des blobs entre des comptes de stockage Azure](storage-use-azcopy-blobs-download.md)<br><br>[Synchroniser avec Stockage Blob Azure](storage-use-azcopy-blobs-download.md)|
+|Stockage Blob Azure |[Charger des fichiers dans Stockage Blob Azure](storage-use-azcopy-blobs-upload.md)<br><br>[Télécharger des blobs depuis Stockage Blob Azure](storage-use-azcopy-blobs-download.md)<br><br>[Copier des blobs entre des comptes de stockage Azure](storage-use-azcopy-blobs-copy.md)<br><br>[Synchroniser avec Stockage Blob Azure](storage-use-azcopy-blobs-synchronize.md)|
 |Azure Files |[Transférer des données avec AzCopy et le stockage de fichiers](storage-use-azcopy-files.md)|
 |Amazon S3|[Transférer des données avec AzCopy et des compartiments Amazon S3](storage-use-azcopy-s3.md)|
 |Stockage Azure Stack|[Transfert de données avec AzCopy et le stockage Azure Stack](/azure-stack/user/azure-stack-storage-transfer#azcopy)|

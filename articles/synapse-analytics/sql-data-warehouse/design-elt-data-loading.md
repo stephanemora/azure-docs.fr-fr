@@ -11,12 +11,12 @@ ms.date: 11/20/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 64ba24eb0eab581310122908fc05d1d671ac1d40
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 1a988dba52b36b1d27407316200bfa6897de7cf5
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96531571"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120153"
 ---
 # <a name="data-loading-strategies-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Stratégies de chargement de données pour un pool SQL dédié dans Azure Synapse Analytics
 
@@ -42,7 +42,7 @@ Les étapes de base pour implémenter ELT sont les suivantes :
 5. Transformez les données.
 6. Insérez les données dans des tables de production.
 
-Pour suivre un tutoriel sur le chargement, consultez [Chargement de données à partir du Stockage Blob Azure](load-data-from-azure-blob-storage-using-polybase.md).
+Pour suivre un tutoriel sur le chargement, consultez [Chargement de données à partir du Stockage Blob Azure](./load-data-from-azure-blob-storage-using-copy.md).
 
 ## <a name="1-extract-the-source-data-into-text-files"></a>1. Extraire les données sources dans des fichiers texte
 
@@ -123,7 +123,7 @@ Utilisez le mappage de type de données SQL suivant lors du chargement des fichi
 >- Vous pouvez rencontrer l’erreur suivante si les types ne correspondent pas entre Parquet et SQL ou si vous avez des types de données Parquet non pris en charge : **« HdfsBridge::recordReaderFillBuffer - Unexpected error encountered filling record reader buffer: ClassCastException: ... »**
 >- Le chargement d’une valeur en dehors de la plage 0-127 dans une colonne tinyint pour le format de fichier ORC et Parquet n’est pas pris en charge.
 
-Pour un exemple de création d’objets externes, consultez[Créer des tables externes](https://docs.microsoft.com/azure/synapse-analytics/sql/develop-tables-external-tables?tabs=sql-pool).
+Pour un exemple de création d’objets externes, consultez[Créer des tables externes](../sql/develop-tables-external-tables.md?tabs=sql-pool).
 
 ### <a name="format-text-files"></a>Formater les fichiers texte
 
@@ -142,11 +142,11 @@ Il est recommandé de charger des données dans une table de mise en lots. Les t
 
 Pour charger des données, vous pouvez utiliser l’une des options de chargement suivantes :
 
-- L’[instruction COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) est l’utilitaire de chargement recommandé, car il vous permet de charger des données de manière fluide et flexible. L’instruction dispose de nombreuses fonctionnalités de chargement supplémentaires non fournies par PolyBase. 
-- [Polybase avec T-SQL](load-data-from-azure-blob-storage-using-polybase.md) vous oblige à définir des objets de données externes.
+- L’[instruction COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) est l’utilitaire de chargement recommandé, car il vous permet de charger des données de manière fluide et flexible. L’instruction dispose de nombreuses fonctionnalités de chargement supplémentaires non fournies par PolyBase. 
+- [Polybase avec T-SQL](./load-data-from-azure-blob-storage-using-copy.md) vous oblige à définir des objets de données externes.
 - [PolyBase et l’instruction COPY avec Azure Data Factory (ADF)](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) est un autre outil d’orchestration.  Il définit un pipeline et planifie les travaux.
 - [Polybase avec SSIS](/sql/integration-services/load-data-to-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) fonctionne bien lorsque vos données sources se trouvent dans SQL Server. SSIS définit le mappage de la table « source vers destination » et orchestre aussi le chargement. Si vous disposez déjà de packages SSIS, vous pouvez modifier les packages pour travailler avec le nouvel entrepôt de données de destination.
-- [PolyBase avec Azure Databricks](../../azure-databricks/databricks-extract-load-sql-data-warehouse.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) transfère les données d’une table vers une trame de données Databricks et/ou écrit des données d’une trame de données Databricks dans une table à l’aide de la technologie PolyBase.
+- [PolyBase avec Azure Databricks](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json) transfère les données d’une table vers une trame de données Databricks et/ou écrit des données d’une trame de données Databricks dans une table à l’aide de la technologie PolyBase.
 
 ### <a name="other-loading-options"></a>Autres options de chargement
 

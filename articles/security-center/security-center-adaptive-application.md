@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: 95c3ad6f689893195e0e5c17c59ab31143cf238d
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 473353c3f61d1096beb11c521c08ac723d54b780
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93346517"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98071598"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Utiliser des contrôles d’application adaptatifs pour réduire les surfaces d’attaque de vos machines
 
@@ -71,18 +71,18 @@ Sélectionnez la recommandation ou ouvrez la page des contrôles d’application
 
     La page **Contrôles d’application adaptatifs** s’ouvre avec vos machines virtuelles regroupées dans les onglets suivants :
 
-    - **Configurés**  : groupes d’ordinateurs qui disposent déjà d’une liste verte d’applications définie. Pour chaque groupe, l’onglet Configurés affiche :
+    - **Configurés** : groupes d’ordinateurs qui disposent déjà d’une liste verte d’applications définie. Pour chaque groupe, l’onglet Configurés affiche :
         - le nombre de machines dans le groupe ;
         - les alertes récentes.
 
-    - **Recommandés**  : groupes d’ordinateurs qui exécutent régulièrement les mêmes applications et qui n’ont pas de liste verte configurée. Nous vous recommandons d’activer les contrôles d’application adaptatifs pour ces groupes.
+    - **Recommandés** : groupes d’ordinateurs qui exécutent régulièrement les mêmes applications et qui n’ont pas de liste verte configurée. Nous vous recommandons d’activer les contrôles d’application adaptatifs pour ces groupes.
     
       > [!TIP]
       > Si vous voyez un nom de groupe avec le préfixe « REVIEWGROUP », il contient des ordinateurs avec une liste d’applications partiellement cohérente. Security Center ne voit pas de modèle, mais recommande d’examiner ce groupe pour voir si _vous_ pouvez définir manuellement certaines règles de contrôles d’application adaptatifs, comme décrit dans [Modification de la règle de contrôle d’application adaptative d’un groupe](#edit-a-groups-adaptive-application-controls-rule).
       >
       > Vous pouvez également déplacer des machines de ce groupe vers d’autres groupes, comme décrit dans [Déplacer une machine d’un groupe vers un autre](#move-a-machine-from-one-group-to-another).
 
-    - **Aucune recommandation**  : les machines sans liste verte d’applications définie et qui ne prennent pas en charge la fonctionnalité. Votre machine peut se trouver dans cet onglet pour les raisons suivantes :
+    - **Aucune recommandation** : les machines sans liste verte d’applications définie et qui ne prennent pas en charge la fonctionnalité. Votre machine peut se trouver dans cet onglet pour les raisons suivantes :
       - Il manque un agent Log Analytics
       - L’agent Log Analytics n’envoie pas d’événements
       - Il s’agit d’un ordinateur Windows avec une stratégie [AppLocker](/windows/security/threat-protection/windows-defender-application-control/applocker/applocker-overview) préexistante activée par un GPO ou une stratégie de sécurité locale
@@ -101,11 +101,11 @@ Sélectionnez la recommandation ou ouvrez la page des contrôles d’application
 
    ![Configurer une nouvelle règle](./media/security-center-adaptive-application/adaptive-application-create-rule.png)
 
-   1. **Sélectionner les machines**  : par défaut, toutes les machines du groupe identifié sont sélectionnées. Désélectionnez tout pour les supprimer de cette règle.
+   1. **Sélectionner les machines** : par défaut, toutes les machines du groupe identifié sont sélectionnées. Désélectionnez tout pour les supprimer de cette règle.
    
-   1. **Applications recommandées**  : passez en revue cette liste d’applications qui sont communes aux ordinateurs au sein de ce groupe et dont l’autorisation d’exécution est recommandée.
+   1. **Applications recommandées** : passez en revue cette liste d’applications qui sont communes aux ordinateurs au sein de ce groupe et dont l’autorisation d’exécution est recommandée.
    
-   1. **Plus d’applications**  : passez en revue cette liste d’applications qui sont vues moins fréquemment sur les ordinateurs de ce groupe ou qui sont susceptibles d’être exploitées. Une icône d’avertissement indique qu’une application spécifique peut être utilisée par un attaquant pour ignorer une liste verte d’applications. Nous vous recommandons de passer attentivement en revue ces applications.
+   1. **Plus d’applications** : passez en revue cette liste d’applications qui sont vues moins fréquemment sur les ordinateurs de ce groupe ou qui sont susceptibles d’être exploitées. Une icône d’avertissement indique qu’une application spécifique peut être utilisée par un attaquant pour ignorer une liste verte d’applications. Nous vous recommandons de passer attentivement en revue ces applications.
 
       > [!TIP]
       > Les deux listes d’applications incluent l’option permettant de limiter une application spécifique à certains utilisateurs. Adoptez le principe du moindre privilège dans la mesure du possible.
@@ -125,9 +125,9 @@ Pour modifier les règles d’un groupe d’ordinateurs :
 
 1. Ouvrez le tableau de bord Azure Defender et, dans la zone de protection avancée, sélectionnez **Contrôles d’application adaptatifs**.
 
-1. Dans l’onglet **Configurés** , sélectionnez le groupe dont vous souhaitez modifier la règle.
+1. Dans l’onglet **Configurés**, sélectionnez le groupe dont vous souhaitez modifier la règle.
 
-1. Passez en revue les différentes sections de la page **Configurer les règles de contrôle d’applications** , comme décrit dans [Activer les contrôles d’application adaptatifs sur un groupe d’ordinateurs](#enable-application-controls-on-a-group-of-machines).
+1. Passez en revue les différentes sections de la page **Configurer les règles de contrôle d’applications**, comme décrit dans [Activer les contrôles d’application adaptatifs sur un groupe d’ordinateurs](#enable-application-controls-on-a-group-of-machines).
 
 1. Si vous le souhaitez, ajoutez une ou plusieurs règles personnalisées :
 
@@ -158,11 +158,6 @@ Pour modifier les règles d’un groupe d’ordinateurs :
 
     :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-group-settings.png" alt-text="Page des paramètres de groupe pour les commandes d’applications adaptatives" lightbox="./media/security-center-adaptive-application/adaptive-application-group-settings.png":::
 
-    > [!IMPORTANT]
-    > L’option **Appliquer** , dans les paramètres du mode de protection du type de fichier, est grisée dans **tous** les scénarios. Aucune option de mise en application n’est disponible pour l’instant. 
-    >
-    > :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-modes.png" alt-text="Le mode d’application de la protection des fichiers est définitivement grisé. Aucune option de mise en application n’est disponible.":::
-
 1. Si vous le souhaitez, modifiez le nom du groupe ou les modes de protection du type de fichier.
 
 1. Sélectionnez **Appliquer** et **Enregistrer**.
@@ -179,7 +174,7 @@ Pour corriger les problèmes :
 
 1. Sélectionnez le groupe dont vous souhaitez modifier la règle.
 
-1. Passez en revue les différentes sections de la page **Configurer les règles de contrôle d’applications** , comme décrit dans [Activer les contrôles d’application adaptatifs sur un groupe d’ordinateurs](#enable-application-controls-on-a-group-of-machines).
+1. Passez en revue les différentes sections de la page **Configurer les règles de contrôle d’applications**, comme décrit dans [Activer les contrôles d’application adaptatifs sur un groupe d’ordinateurs](#enable-application-controls-on-a-group-of-machines).
 
 1. Pour appliquer les modifications, sélectionnez **Audit**.
 
@@ -206,7 +201,7 @@ Lorsque vous déplacez une machine d’un groupe à un autre, la stratégie de c
 
 1. Ouvrez le tableau de bord Azure Defender et, dans la zone de protection avancée, sélectionnez **Contrôles d’application adaptatifs**.
 
-1. Sur la page **Contrôles d’application adaptatifs** , sous l’onglet **Configurés** , sélectionnez le groupe contenant l’ordinateur à déplacer.
+1. Sur la page **Contrôles d’application adaptatifs**, sous l’onglet **Configurés**, sélectionnez le groupe contenant l’ordinateur à déplacer.
 
 1. Ouvrez la liste des **Machines configurées**.
 

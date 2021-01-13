@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4e4e6a1607fa42f4be07451f9aa0d8ff923d85d6
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: fc90ad8104cff7ead501470a883b56b67a86cf7c
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317324"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121258"
 ---
 # <a name="system-views-supported-in-synapse-sql"></a>Vues système prises en charge dans SQL Synapse
 
@@ -72,7 +72,7 @@ Liens vers la documentation relative aux instructions T-SQL prises en charge dan
 
 ## <a name="sql-server-dmvs-applicable-to-dedicated-sql-pool"></a>Vues de gestion dynamique (DMV) de SQL Server applicables au pool SQL dédié
 
-Les vues de gestion dynamique (DMV) suivantes s’appliquent au pool SQL dédié, mais doivent être exécutées à l’aide d’une connexion à la base de données **MASTER**.
+Les vues de gestion dynamique suivantes s’appliquent au pool SQL dédié, mais doivent être exécutées en se connectant à la base de données **MASTER**.
 
 * [sys.database_service_objectives](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
@@ -223,9 +223,9 @@ Le pool SQL et l’entrepôt PDW (Parallel Data Warehouse) d’Analytics Platfor
 | sys.dm_pdw_nodes_tran_session_transactions |[sys.dm_tran_session_transactions](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-session-transactions-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) |
 | sys.dm_pdw_nodes_tran_top_version_generators |[sys.dm_tran_top_version_generators](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-top-version-generators-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) |
 
-## <a name="sql-server-2016-polybase-dmvs-available-in-dedicated-sql-pool"></a>Vues de gestion dynamique de PolyBase SQL Server 2016 disponibles dans le pool SQL dédié
+## <a name="sql-server-2016-polybase-dmvs-available-in-dedicated-sql-pool"></a>Vues de gestion dynamique PolyBase SQL Server 2016 disponibles dans le pool SQL dédié
 
-Les vues de gestion dynamique (DMV) suivantes s’appliquent au pool SQL dédié, mais doivent être exécutées à l’aide d’une connexion à la base de données **MASTER**.
+Les vues de gestion dynamique suivantes s’appliquent au pool SQL dédié, mais doivent être exécutées en se connectant à la base de données **MASTER**.
 
 * [sys.dm_exec_compute_node_errors](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-compute-node-errors-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [sys.dm_exec_compute_node_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-compute-node-status-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
@@ -252,6 +252,5 @@ Les vues de gestion dynamique (DMV) suivantes s’appliquent au pool SQL dédié
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations de référence, consultez [Instructions T-SQL dans SQL Synapse](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-reference-tsql-language-elements) et [Éléments de langage T-SQL dans SQL Synapse](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-reference-tsql-statements).
+Pour plus d’informations de référence, consultez [Instructions T-SQL dans SQL Synapse](../sql-data-warehouse/sql-data-warehouse-reference-tsql-language-elements.md) et [Éléments de langage T-SQL dans SQL Synapse](../sql-data-warehouse/sql-data-warehouse-reference-tsql-statements.md).
 
- 

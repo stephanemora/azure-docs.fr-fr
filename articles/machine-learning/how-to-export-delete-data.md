@@ -5,22 +5,19 @@ description: Apprenez à exporter ou supprimer votre espace de travail avec Azur
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.reviewer: jmartens
 author: lobrien
 ms.author: laobri
 ms.date: 04/24/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 82e128ffdc215a084110a68170ac12accd8fca0e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c4f48acc2d6e57dea0a8db2a149d7ca2871c9f39
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93308129"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98072001"
 ---
 # <a name="export-or-delete-your-machine-learning-service-workspace-data"></a>Exporter ou supprimer vos données d’espace de travail Machine Learning
-
-
 
 Dans Azure Machine Learning, vous pouvez exporter ou supprimer les données de votre espace de travail à l’aide du kit SDK Python ou de l’interface graphique du portail. Cet article décrit ces deux options.
 
@@ -58,7 +55,7 @@ Azure Machine Learning Studio fournit une vue unifiée de vos ressources Machine
 
 Les jeux de données peuvent être désinscrits et les expériences peuvent être archivées, mais ces opérations ne suppriment pas les données. Pour supprimer entièrement les données, les jeux de données et les données d’exécution doivent être supprimés au niveau du stockage. La suppression au niveau du stockage s’effectue à l’aide du portail, comme décrit précédemment.
 
-Vous pouvez télécharger des artefacts d’entraînement à partir d’exécutions expérimentales à l’aide de Studio. Choisissez l’ **expérience** et l’ **exécution** qui vous intéressent. Choisissez **Sortie + journaux** et accédez aux artefacts spécifiques que vous souhaitez télécharger. Choisissez **...** et **Télécharger**.
+Vous pouvez télécharger des artefacts d’entraînement à partir d’exécutions expérimentales à l’aide de Studio. Choisissez l’**expérience** et l’**exécution** qui vous intéressent. Choisissez **Sortie + journaux** et accédez aux artefacts spécifiques que vous souhaitez télécharger. Choisissez **...** et **Télécharger**.
 
 Vous pouvez télécharger un modèle inscrit en accédant au **modèle** souhaité et en choisissant **Télécharger**. 
 

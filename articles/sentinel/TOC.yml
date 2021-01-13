@@ -56,6 +56,8 @@
               href: connect-azure-active-directory.md
             - name: "Office\_365 (maintenant avec Teams\_!)"
               href: connect-office-365.md
+            - name: "Dynamics\_365 (nouveau\_!)"
+              href: connect-dynamics-365.md
             - name: Cloud App Security
               href: connect-cloud-app-security.md
             - name: Journaux d’activité
@@ -72,16 +74,18 @@
               href: connect-azure-atp.md
             - name: "Microsoft Defender pour Office\_365 (anciennement Office\_365 ATP)"
               href: connect-office-365-advanced-threat-protection.md
-            - name: Protection DDoS dans Azure
-              href: connect-azure-ddos-protection.md
-            - name: Pare-feu Azure
-              href: connect-azure-firewall.md
             - name: Alertes Azure Defender issues d’ASC
               href: connect-azure-security-center.md
             - name: Azure Defender (anciennement ASC) pour IoT
               href: connect-asc-iot.md
+            - name: Protection DDoS dans Azure
+              href: connect-azure-ddos-protection.md
+            - name: Pare-feu Azure
+              href: connect-azure-firewall.md
             - name: Pare-feu d’applications web (WAF) Azure
               href: connect-azure-waf.md
+            - name: Journaux de base de données Azure SQL
+              href: connect-azure-sql-logs.md
             - name: Serveur de noms de domaine
               href: connect-dns.md
             - name: Pare-feu Windows

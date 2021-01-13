@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 2afc274bf7c040eca6a83abbab24c41767f16482
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 3e55ef054d5c305937f88d6ec5b2b4453cac6792
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96453665"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98117756"
 ---
 # <a name="integrate-other-services-with-a-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Intégrez d’autres services à un pool SQL dédié (anciennement SQL DW) dans Azure Synapse Analytics.
 
@@ -36,7 +36,7 @@ L’intégration de Power BI vous permet de combiner la puissance de calcul d�
 * **Connexion directe** : Connexion plus avancée avec un menu déroulant logique sur un entrepôt de données provisionné à l’aide d’un pool SQL dédié (anciennement SQL DW). Avec le pushdown, les analyses sont plus rapides à une plus grande échelle.
 * **Ouvrir dans Power BI** : ce bouton transmet les informations d’instance à Power BI, permettant ainsi une connexion plus simple.
 
-Pour plus d’informations, consultez [Intégrer à Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md) ou la [documentation Power BI](https://powerbi.microsoft.com/blog/exploring-azure-sql-data-warehouse-with-power-bi/).
+Pour plus d’informations, consultez [Intégrer à Power BI](/power-bi/connect-data/service-azure-sql-data-warehouse-with-direct-connect) ou la [documentation Power BI](https://powerbi.microsoft.com/blog/exploring-azure-sql-data-warehouse-with-power-bi/).
 
 ## <a name="azure-data-factory"></a>Azure Data Factory
 

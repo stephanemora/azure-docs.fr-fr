@@ -3,12 +3,12 @@ title: Présentation de la sécurité
 description: Informations relatives à la sécurité des serveurs Azure Arc.
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: be79be3030af76425b54fd683784d0e216ac2cf5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: aa8653b783e7eb3e211b7514831604dd5642cfbe
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91329038"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98117025"
 ---
 # <a name="azure-arc-for-servers-security-overview"></a>Vue d’ensemble de la sécurité Azure Arc pour serveurs
 
@@ -16,7 +16,7 @@ Cet article décrit la configuration et les considérations relatives à la séc
 
 ## <a name="identity-and-access-control"></a>Contrôle des accès et des identités
 
-Chaque serveur Azure Arc dispose d’une identité managée, en tant qu’élément d’un groupe de ressources dans un abonnement Azure ; cette identité représente le serveur s’exécutant localement ou sur un autre environnement cloud. L’accès à cette ressource est contrôlé par le [contrôle d’accès en fonction du rôle Azure](../../role-based-access-control/overview.md) standard. À partir de la page [**Contrôle d’accès (IAM)** ](../../role-based-access-control/role-assignments-portal.md#access-control-iam) du portail Azure, vous pouvez vérifier qui a accès à votre serveur Azure Arc.
+Chaque serveur Azure Arc dispose d’une identité managée, en tant qu’élément d’un groupe de ressources dans un abonnement Azure ; cette identité représente le serveur s’exécutant localement ou sur un autre environnement cloud. L’accès à cette ressource est contrôlé par le [contrôle d’accès en fonction du rôle Azure](../../role-based-access-control/overview.md) standard. À partir de la page [**Contrôle d’accès (IAM)**](../../role-based-access-control/role-assignments-portal.md) du portail Azure, vous pouvez vérifier qui a accès à votre serveur Azure Arc.
 
 :::image type="content" source="./media/security-overview/access-control-page.png" alt-text="Contrôle d’accès au serveur Azure Arc" border="false" lightbox="./media/security-overview/access-control-page.png":::
 

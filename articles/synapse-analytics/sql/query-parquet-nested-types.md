@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 91f612ba7f19deb739dbb6004e275ea044a5a3d3
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 45e1ae5b8a1084334b7596f62c272e16294c4c14
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462566"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98118759"
 ---
 # <a name="query-nested-types-in-parquet-and-json-files-by-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Interroger des types imbriqués dans des fichiers Parquet et JSON à l’aide d’un pool SQL serverless dans Azure Synapse Analytics
 
@@ -24,7 +24,7 @@ Les types imbriqués sont des structures complexes qui représentent des objets 
 - [Fichiers JSON](query-json-files.md) hiérarchiques où vous pouvez lire un document JSON complexe en tant que colonne unique.
 - Collections Azure Cosmos DB (actuellement en préversion publique contrôlée) où chaque document peut contenir des propriétés imbriquées complexes.
 
-Le pool SQL serverless met en forme tous les types imbriqués en tant qu’objets et tableaux JSON. Vous pouvez [extraire ou modifier des objets complexes à l’aide de fonctions JSON](https://docs.microsoft.com/sql/relational-databases/json/validate-query-and-change-json-data-with-built-in-functions-sql-server) ou [analyser des données JSON à l’aide de la fonction OPENJSON](https://docs.microsoft.com/sql/relational-databases/json/convert-json-data-to-rows-and-columns-with-openjson-sql-server). 
+Le pool SQL serverless met en forme tous les types imbriqués en tant qu’objets et tableaux JSON. Vous pouvez [extraire ou modifier des objets complexes à l’aide de fonctions JSON](/sql/relational-databases/json/validate-query-and-change-json-data-with-built-in-functions-sql-server) ou [analyser des données JSON à l’aide de la fonction OPENJSON](/sql/relational-databases/json/convert-json-data-to-rows-and-columns-with-openjson-sql-server). 
 
 Voici un exemple de requête qui extrait des valeurs scalaires et d’objets du fichier de jeu de données JSON [COVID-19 Open Research Dataset](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/) qui contient des objets imbriqués : 
 
@@ -121,7 +121,7 @@ Le résultat est présenté dans le tableau suivant :
 | --- | --- | --- | --- |
 | Informations supplémentaires Un éco-épidémiolo... | Julien   | - Figure S1 : Phylogénie de... | `{    "paper_id": "000b7d1517ceebb34e1e3e817695b6de03e2fa78",    "metadata": {        "title": "Supplementary Information An eco-epidemiological study of Morbilli-related paramyxovirus infection in Madagascar bats reveals host-switching as the dominant macro-evolutionary mechanism",        "authors": [            {                "first": "Julien"` |
 
-Contrairement aux fichiers JSON, qui, dans la plupart des cas, retournent une seule colonne contenant un objet JSON complexe, les fichiers Parquet peuvent avoir plusieurs colonnes complexes. Vous pouvez lire les propriétés de la colonne imbriquée à l’aide de la fonction `JSON_VALUE` sur chaque colonne. `OPENROWSET` vous permet de spécifier directement les chemins d’accès des propriétés imbriquées dans une clause `WITH`. Vous pouvez définir les chemins en tant que nom d’une colonne, ou vous pouvez ajouter une [expression JSON](https://docs.microsoft.com/sql/relational-databases/json/json-path-expressions-sql-server) après le type de colonne.
+Contrairement aux fichiers JSON, qui, dans la plupart des cas, retournent une seule colonne contenant un objet JSON complexe, les fichiers Parquet peuvent avoir plusieurs colonnes complexes. Vous pouvez lire les propriétés de la colonne imbriquée à l’aide de la fonction `JSON_VALUE` sur chaque colonne. `OPENROWSET` vous permet de spécifier directement les chemins d’accès des propriétés imbriquées dans une clause `WITH`. Vous pouvez définir les chemins en tant que nom d’une colonne, ou vous pouvez ajouter une [expression JSON](/sql/relational-databases/json/json-path-expressions-sql-server) après le type de colonne.
 
 La requête suivante lit le fichier structExample.parquet et montre comment exposer les éléments d’une colonne imbriquée. Il y a deux façons de référencer une valeur imbriquée :
 - En spécifiant l’expression de chemin de valeur imbriquée après la spécification de type.

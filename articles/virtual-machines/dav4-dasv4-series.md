@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 6ab532e3d824aa857a35bf2898aea2efba28df71
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: 2876339d1c11802bf47e5f1bd660fe5d07568410
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91653024"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065369"
 ---
 # <a name="dav4-and-dasv4-series"></a>Séries Dav4 et Dasv4
 
@@ -32,14 +32,14 @@ Les tailles de la série Dav4 sont basées sur le processeur AMD EPYC<sup>TM</s
 
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire max. : IOPS / MBps en lecture / MBps en écriture | Nombre max de cartes réseau | Bande passante réseau attendue (Mbit/s) |
 |-----|-----|-----|-----|-----|-----|-----|-----|
-| Standard_D2a_v4 |  2  | 8  | 50  | 4  | 3000 / 46 / 23   | 2 | 1 000 |
-| Standard_D4a_v4 |  4  | 16 | 100 | 8  | 6000 / 93 / 46   | 2 | 2000 |
-| Standard_D8a_v4 |  8  | 32 | 200 | 16 | 12000 / 187 / 93 | 4 | 4000 |
-| Standard_D16a_v4|  16 | 64 | 400 |32  | 24000 / 375 / 187 |8 | 8000 |
-| Standard_D32a_v4|  32 | 128| 800 | 32 | 48000 / 750 / 375 |8 | 16000 |
-| Standard_D48a_v4| 48 | 192| 1200 | 32 | 96000 / 1000 / 500 | 8 | 24 000 |
-| Standard_D64a_v4| 64 | 256 | 1 600 | 32 | 96000 / 1000 / 500 | 8 | 30000 |
-| Standard_D96a_v4| 96 | 384 | 2 400 | 32 | 96000 / 1000 / 500 | 8 | 30000 |
+| Standard_D2a_v4 |  2  | 8  | 50  | 4  | 3000 / 46 / 23   | 2 | 800 |
+| Standard_D4a_v4 |  4  | 16 | 100 | 8  | 6000 / 93 / 46   | 2 | 1 600 |
+| Standard_D8a_v4 |  8  | 32 | 200 | 16 | 12000 / 187 / 93 | 4 | 3200 |
+| Standard_D16a_v4|  16 | 64 | 400 |32  | 24000 / 375 / 187 |8 | 6 400 |
+| Standard_D32a_v4|  32 | 128| 800 | 32 | 48000 / 750 / 375 |8 | 12800 |
+| Standard_D48a_v4| 48 | 192| 1200 | 32 | 96000 / 1000 / 500 | 8 | 19 200 |
+| Standard_D64a_v4| 64 | 256 | 1 600 | 32 | 96000 / 1000 / 500 | 8 | 25600 |
+| Standard_D96a_v4| 96 | 384 | 2 400 | 32 | 96000 / 1000 / 500 | 8 | 32000 |
 
 ## <a name="dasv4-series"></a>Série Dasv4
 
@@ -55,14 +55,14 @@ Les tailles de la série Dasv4 sont basées sur le processeur AMD EPYC<sup>TM</
 
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS / MBps (taille du cache en Gio) | Débit du disque non mis en cache max. : IOPS / MBps | Nombre max de cartes réseau | Bande passante réseau attendue (Mbit/s) |
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|
-| Standard_D2as_v4|2|8|16|4|4000 / 32 (50)|3200 / 48|2 | 1 000 |
-| Standard_D4as_v4|4|16|32|8|8000 / 64 (100)|6400 / 96|2 | 2000 |
-| Standard_D8as_v4|8|32|64|16|16000 / 128 (200)|12800 / 192|4 | 4000 |
-| Standard_D16as_v4|16|64|128|32|32 000 / 255 (400)|25600 / 384|8 | 8000 |
-| Standard_D32as_v4|32|128|256|32|64 000 / 510 (800)|51200 / 768|8 | 16000 |
-| Standard_D48as_v4|48|192|384|32|96000 / 1020 (1200)|76800 / 1148|8 | 24 000 |
-| Standard_D64as_v4|64|256|512|32|128000 / 1020 (1600)|80000 / 1200|8 | 30000 | 
-| Standard_D96as_v4|96|384|768|32|192000 / 1020 (2400)|80000 / 1200|8 | 30000 |
+| Standard_D2as_v4|2|8|16|4|4000 / 32 (50)|3200 / 48|2 | 800 |
+| Standard_D4as_v4|4|16|32|8|8000 / 64 (100)|6400 / 96|2 | 1 600 |
+| Standard_D8as_v4|8|32|64|16|16000 / 128 (200)|12800 / 192|4 | 3200 |
+| Standard_D16as_v4|16|64|128|32|32 000 / 255 (400)|25600 / 384|8 | 6 400 |
+| Standard_D32as_v4|32|128|256|32|64 000 / 510 (800)|51200 / 768|8 | 12800 |
+| Standard_D48as_v4|48|192|384|32|96000 / 1020 (1200)|76800 / 1148|8 | 19 200 |
+| Standard_D64as_v4|64|256|512|32|128000 / 1020 (1600)|80000 / 1200|8 | 25600 | 
+| Standard_D96as_v4|96|384|768|32|192000 / 1020 (2400)|80000 / 1200|8 | 32000 |
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

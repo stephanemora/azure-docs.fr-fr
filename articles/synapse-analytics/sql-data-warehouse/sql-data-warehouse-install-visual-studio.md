@@ -12,12 +12,12 @@ ms.subservice: sql-dw
 ms.date: 05/11/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 456d7eb0cabd7ebede6415e3ce92d7403ecef7ef
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 56a2cbf88cec47417e992990c16a76ec84c6433d
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368752"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98117807"
 ---
 # <a name="getting-started-with-visual-studio-2019"></a>Prise en main de Visual Studio 2019
 
@@ -43,7 +43,7 @@ Certaines mises en production de fonctionnalités Synapse SQL peuvent ne pas pr
 - [Sécurité au niveau des lignes](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (y compris les fonctions table)
   - Envoyez un [ticket de support ou votez](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/39040057-ssdt-row-level-security) pour obtenir la fonctionnalité prise en charge.
   - Envoyez un [ticket de support ou votez](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/39040048-ssdt-support-dynamic-data-masking) pour obtenir la fonctionnalité prise en charge.
-- Tables avec une [colonne d’identité](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql-identity-property?view=sql-server-ver15)
+- Tables avec une [colonne d’identité](/sql/t-sql/statements/create-table-transact-sql-identity-property?view=sql-server-ver15)
 - Certaines fonctionnalités T-SQL, telles que :
    - La clause *WITHIN GROUP* de la fonction de chaîne [STRING_AGG](/sql/t-sql/functions/string-agg-transact-sql).
 

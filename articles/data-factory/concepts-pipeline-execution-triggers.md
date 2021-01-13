@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/05/2018
-ms.openlocfilehash: c72538de8aba60ce7ed880561b55773c22737f97
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: e46b08e31725765d700bf41649d997d7b20e5f95
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498623"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065488"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Exécution et déclencheurs du pipeline dans Azure Data Factory
 
@@ -381,7 +381,7 @@ Le tableau suivant présente une comparaison du déclencheur de fenêtre bascule
 | **Fiabilité** | Fiabilité de 100 %. Les exécutions de pipeline peuvent être planifiées pour toutes les fenêtres à partir d’une date de début spécifiée sans espaces. | Moins fiable. |
 | **Fonctionnalité de nouvelle tentative** | Pris en charge. Les exécutions de pipeline ayant échoué ont une stratégie de nouvelle tentative par défaut d’une valeur de 0, ou une stratégie spécifiée par l’utilisateur dans le cadre de la définition du déclencheur. Effectue automatiquement une nouvelle tentative lorsque les exécutions du pipeline échouent en raison de limites de simultanéité, de serveur ou autres (autrement dit, en cas de codes d'état 400 : Erreur de l’utilisateur, 429 : Trop de demandes et 500 : Erreur interne du serveur). | Non pris en charge. |
 | **Concurrency** | Pris en charge. Les utilisateurs peuvent définir explicitement les limites de concurrence pour le déclencheur. Permet entre 1 et 50 exécutions du pipeline déclenchées en simultané. | Non pris en charge. |
-| **Variables système** | En plus de @trigger().scheduledTime et @trigger().startTime, l’utilisation des variables système **WindowStart** et **WindowEnd** est également prise en charge. Les utilisateurs peuvent accéder à `triggerOutputs().windowStartTime` et `triggerOutputs().windowEndTime` comme variables système de déclencheur dans la définition du déclencheur. Les valeurs sont utilisées en tant qu’heure de début de fenêtre et heure de fin de fenêtre, respectivement. Par exemple, pour un déclencheur de fenêtre bascule qui s’exécute toutes les heures, pour la fenêtre de 1h00 à 2h00, la définition est `triggerOutputs().WindowStartTime = 2017-09-01T01:00:00Z` et `triggerOutputs().WindowEndTime = 2017-09-01T02:00:00Z`. | Prend uniquement en charge les variables par défaut @trigger().scheduledTime et @trigger().startTime. |
+| **Variables système** | En plus de @trigger().scheduledTime et @trigger().startTime, l’utilisation des variables système **WindowStart** et **WindowEnd** est également prise en charge. Les utilisateurs peuvent accéder à `trigger().outputs.windowStartTime` et `trigger().outputs.windowEndTime` comme variables système de déclencheur dans la définition du déclencheur. Les valeurs sont utilisées en tant qu’heure de début de fenêtre et heure de fin de fenêtre, respectivement. Par exemple, pour un déclencheur de fenêtre bascule qui s’exécute toutes les heures, pour la fenêtre de 1h00 à 2h00, la définition est `trigger().outputs.windowStartTime = 2017-09-01T01:00:00Z` et `trigger().outputs.windowEndTime = 2017-09-01T02:00:00Z`. | Prend uniquement en charge les variables par défaut @trigger().scheduledTime et @trigger().startTime. |
 | **Relation du pipeline et du déclencheur** | Prend en charge une relation un à un. Un seul pipeline peut être déclenché. | Prend en charge les relations plusieurs à plusieurs. Plusieurs déclencheurs peuvent exécuter le même pipeline. Un seul déclencheur peut déclencher plusieurs pipelines. |
 
 ## <a name="next-steps"></a>Étapes suivantes

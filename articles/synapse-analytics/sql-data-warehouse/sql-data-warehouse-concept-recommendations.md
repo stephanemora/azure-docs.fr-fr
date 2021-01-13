@@ -11,12 +11,12 @@ ms.date: 06/26/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 667629b7f613b11f40528b039c7525339b7a62d0
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: bd32b9690f8a9aef92eb1f2fbcc4ec926a65584e
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462864"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121190"
 ---
 # <a name="azure-advisor-recommendations-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Recommandations de pool SQL dédié pour Azure Advisor dans Azure Synapse Analytics
 
@@ -65,12 +65,12 @@ Actuellement, Advisor affiche au maximum quatre tables candidates répliquées �
 
 
 ## <a name="adaptive-gen2-cache-utilization"></a>Utilisation du cache adaptatif (Gen2)
-Lorsque vous disposez d’une plage de travail volumineuse, vous pouvez constater un faible pourcentage de correspondance dans le cache et une utilisation élevée du cache. Pour ce scénario, vous devez effectuer un scale-up pour augmenter la capacité du cache et réexécuter votre charge de travail. Pour plus d’informations, consultez la [documentation](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-how-to-monitor-cache) suivante. 
+Lorsque vous disposez d’une plage de travail volumineuse, vous pouvez constater un faible pourcentage de correspondance dans le cache et une utilisation élevée du cache. Pour ce scénario, vous devez effectuer un scale-up pour augmenter la capacité du cache et réexécuter votre charge de travail. Pour plus d’informations, consultez la [documentation](./sql-data-warehouse-how-to-monitor-cache.md) suivante. 
 
 ## <a name="tempdb-contention"></a>Contention sur Tempdb
 
-Les performances des requêtes peuvent se dégrader en cas de forte contention sur tempdb.  La contention sur tempdb peut se produire via des tables temporaires définies par l’utilisateur ou en cas de déplacement d’un grand volume de données. Pour ce scénario, vous pouvez effectuer une mise à l’échelle pour accroître l’allocation tempdb et [configurer les classes de ressources et la gestion des charges de travail](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-management) pour fournir plus de mémoire à vos requêtes. 
+Les performances des requêtes peuvent se dégrader en cas de forte contention sur tempdb.  La contention sur tempdb peut se produire via des tables temporaires définies par l’utilisateur ou en cas de déplacement d’un grand volume de données. Pour ce scénario, vous pouvez effectuer une mise à l’échelle pour accroître l’allocation tempdb et [configurer les classes de ressources et la gestion des charges de travail](./sql-data-warehouse-workload-management.md) pour fournir plus de mémoire à vos requêtes. 
 
 ## <a name="data-loading-misconfiguration"></a>Échec de la configuration du chargement des données
 
-Pour réduire la latence, vous devez toujours charger les données à partir d’un compte de stockage situé dans la même région que votre pool SQL dédié. Utilisez l’[instruction COPY pour l’ingestion de données à débit élevé](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) et fractionnez vos fichiers intermédiaires dans votre compte de stockage pour optimiser le débit. Si vous ne pouvez pas utiliser l’instruction COPY, vous pouvez utiliser l’API SqlBulkCopy ou BCP avec une taille de lot élevée pour obtenir un meilleur débit. Pour obtenir de l’aide sur le chargement de données supplémentaires, consultez la [documentation](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/guidance-for-loading-data) suivante. 
+Pour réduire la latence, vous devez toujours charger les données à partir d’un compte de stockage situé dans la même région que votre pool SQL dédié. Utilisez l’[instruction COPY pour l’ingestion de données à débit élevé](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) et fractionnez vos fichiers intermédiaires dans votre compte de stockage pour optimiser le débit. Si vous ne pouvez pas utiliser l’instruction COPY, vous pouvez utiliser l’API SqlBulkCopy ou BCP avec une taille de lot élevée pour obtenir un meilleur débit. Pour obtenir de l’aide sur le chargement de données supplémentaires, consultez la [documentation](./guidance-for-loading-data.md) suivante.

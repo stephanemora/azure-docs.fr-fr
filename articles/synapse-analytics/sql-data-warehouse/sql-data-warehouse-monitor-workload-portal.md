@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 53c68f44273b14658bd4d95ce7cf3cf847c077d0
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: f780d5404d99435a61c4e3f9e90b1acbd9539af9
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93025950"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98118436"
 ---
 # <a name="monitor-workload---azure-portal"></a>Superviser une charge de travail dans le portail Azure
 
@@ -24,7 +24,7 @@ Cet article explique comment utiliser le portail Azure pour superviser votre cha
 ## <a name="prerequisites"></a>Prérequis
 
 - Abonnement Azure : Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
-- Pool SQL : Nous collecterons les journaux pour un pool SQL. Si vous n’avez pas de pool SQL provisionné, consultez les instructions fournies dans [Créer un pool SQL](load-data-from-azure-blob-storage-using-polybase.md).
+- Pool SQL : Nous collecterons les journaux pour un pool SQL. Si vous n’avez pas de pool SQL provisionné, consultez les instructions fournies dans [Créer un pool SQL](./load-data-from-azure-blob-storage-using-copy.md).
 
 ## <a name="create-a-log-analytics-workspace"></a>Créer un espace de travail Log Analytics
 
@@ -63,7 +63,7 @@ Accédez à votre espace de travail Log Analytics pour effectuer les étapes sui
 - Créer des alertes de journal
 - Épingler des résultats de requête sur un tableau de bord
 
-Pour plus d’informations sur les fonctionnalités des requêtes de journal, consultez cette [documentation](../../azure-monitor/log-query/query-language.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+Pour plus d’informations sur les fonctionnalités des requêtes de journal, consultez cette [documentation](/azure/data-explorer/kusto/query/?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json).
 
 ![Éditeur d’espace de travail Log Analytics](./media/sql-data-warehouse-monitor-workload-portal/log_analytics_workspace_editor.png)
 

@@ -280,7 +280,7 @@
               href: scenario-mobile-call-api.md
             - name: Passer en production
               href: scenario-mobile-production.md
-    - name: Utiliser Microsoft Authentication Library
+    - name: Travailler avec la Bibliothèque d’authentification Microsoft
       displayName: MSAL
       items:
         - name: Toutes les plateformes
@@ -644,34 +644,6 @@
       href: identity-videos.md
     - name: Blog développeur sur la plateforme d’identités Microsoft
       href: 'https://developer.microsoft.com/en-us/identity/blogs/'
-    - name: Articles d’aide sur le portail Azure
-      items:
-        - name: Valeurs par défaut de la durée de vie des jetons pour une application personnalisée
-          href: registration-config-change-token-lifetime-how-to.md
-        - name: Découvrir des points de terminaison
-          href: registration-config-how-to.md
-        - name: Sélectionner les autorisations pour une API donnée
-          href: perms-for-given-api.md
-        - name: Protocoles d’authentification
-          href: active-directory-authentication-protocols.md
-        - name: Différences entre les autorisations déléguées et d’application
-          href: delegated-and-app-perms.md
-        - name: Fonctionnement du consentement d’application
-          href: consent-framework-links.md
-        - name: Rechercher une API spécifique requise pour une application personnalisée
-          href: api-find-an-api-how-to.md
-        - name: Informations de référence sur l’inscription des applications
-          href: active-directory-v2-registration-portal.md
-        - name: Champs d’inscription du portail Azure pour les applications personnalisées
-          href: registration-config-specific-application-property-how-to.md
-        - name: Configurer une nouvelle application multilocataire
-          href: setup-multi-tenant-app.md
-        - name: Ajouter une application mutualisée dans la galerie d’applications Azure AD
-          href: registration-config-multi-tenant-application-add-to-gallery-how-to.md
-        - name: "Intégration avec Azure\_Active\_Directory"
-          href: active-directory-how-to-integrate.md
-        - name: Configurer l’authentification unique pour une application
-          href: registration-config-sso-how-to.md
     - name: Blog Azure AD
       href: 'https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory'
     - name: Feuille de route Azure

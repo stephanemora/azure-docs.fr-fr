@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a3e2dd1ac58c89060fc3e09e97617cb2a68d8ac
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 2dac4b461d4506015f0ef374eae37f67c445791d
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97094571"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98107869"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Authentification unique transparente Azure Active Directory : Forum aux questions
 
@@ -85,6 +85,7 @@ Procédez comme suit sur le serveur local où vous exécutez Azure AD Connect :
 
    > [!NOTE]
    >Pour les étapes ci-dessous, vous aurez besoin des informations d’identification de l’administrateur de domaine et de l’administrateur général.
+   >Si vous n’êtes pas un administrateur de domaine et que vous avez reçu des autorisations par l’administrateur de domaine, vous devez appeler `Update-AzureADSSOForest -OnPremCredentials $creds -PreserveCustomPermissionsOnDesktopSsoAccount`
 
    **Étape 1. Obtenir la liste des forêts AD dans lesquelles l’authentification unique transparente a été activée**
 
@@ -105,9 +106,6 @@ Procédez comme suit sur le serveur local où vous exécutez Azure AD Connect :
    >Le compte administrateur de domaine utilisé ne doit pas être membre du groupe Utilisateurs protégés. Sinon, l’opération échoue.
 
    2. Appelez `Update-AzureADSSOForest -OnPremCredentials $creds`. Cette commande met à jour la clé de déchiffrement de Kerberos pour le `AZUREADSSO` compte de l’ordinateur et la forêt AD spécifique et dans Azure AD.
-   
-   >[!NOTE]
-   >Si vous n’êtes pas un administrateur de domaine et que vous avez reçu des autorisations par l’administrateur de domaine, vous devez appeler `Update-AzureADSSOForest -OnPremCredentials $creds -PreserveCustomPermissionsOnDesktopSsoAccount`
    
    3. Répétez les étapes précédentes pour chaque forêt AD dans laquelle vous avez configuré la fonctionnalité.
    

@@ -3,18 +3,18 @@ title: Sécurité réseau pour Azure Relay
 description: Cet article explique comment utiliser des règles de pare-feu IP et des points de terminaison privés avec Azure Relay.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 3aa3ffd119f65ec5181b0c382472cc4ef3c8bac4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 608224f42fac8cd2d8ff06ab84989b1f675d418c
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91263723"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98134464"
 ---
 # <a name="network-security-for-azure-relay"></a>Sécurité réseau pour Azure Relay 
 Cet article explique comment utiliser les fonctionnalités de sécurité suivantes avec Azure Relay : 
 
 - Règles de pare-feu IP (préversion)
-- Points de terminaison privés (préversion)
+- Instances Private Endpoint 
 
 > [!NOTE]
 > Azure Relay ne prend pas en charge les points de terminaison de service réseau. 
@@ -29,14 +29,14 @@ Les règles de pare-feu IP sont appliquées au niveau de l’espace de noms Rel
 
 Pour plus d’informations, consultez [Guide pratique pour configurer un pare-feu IP pour un espace de noms Relay](ip-firewall-virtual-networks.md)
 
-## <a name="private-endpoints"></a>Instances Private Endpoint
-
-Le service **Azure Private Link** vous permet d’accéder aux services Azure (par exemple,Azure Relay, Azure Service Bus, Azure Event Hubs, Stockage Azure et Azure Cosmos DB) ainsi qu’aux services de partenaires/clients hébergés par Azure sur un point de terminaison privé de votre réseau virtuel. Pour plus d’informations, consultez [Qu’est-ce qu’Azure Private Link (préversion) ?](../private-link/private-link-overview.md)
-
-Un **point de terminaison privé** est une interface réseau qui permet à vos charges de travail exécutées dans un réseau virtuel de se connecter en privé et en toute sécurité à un service qui dispose d’une **ressource de liaison privée** (par exemple, un espace de noms Azure Relay). Le point de terminaison privé utilise une adresse IP privée de votre réseau virtuel, plaçant de fait le service dans votre réseau virtuel. Sachant que l’ensemble du trafic à destination du service peut être routé via le point de terminaison privé, il n’y a aucun besoin de passerelles, d’appareils NAT, de connexions ExpressRoute ou VPN ni d’IP publiques. Le trafic entre votre réseau virtuel et le service transite par le réseau principal de Microsoft, éliminant ainsi toute exposition à l’Internet public. Vous pouvez fournir un niveau de granularité dans le contrôle d’accès en autorisant des connexions à des espaces de noms Azure Relay spécifiques.
-
 > [!NOTE]
 > Cette fonctionnalité est actuellement en **préversion**. 
+
+## <a name="private-endpoints"></a>Instances Private Endpoint
+
+Le service **Azure Private Link** vous permet d’accéder aux services Azure (par exemple,Azure Relay, Azure Service Bus, Azure Event Hubs, Stockage Azure et Azure Cosmos DB) ainsi qu’aux services de partenaires/clients hébergés par Azure sur un point de terminaison privé de votre réseau virtuel. Pour plus d’informations, consultez [Qu’est-ce qu’Azure Private Link ?](../private-link/private-link-overview.md)
+
+Un **point de terminaison privé** est une interface réseau qui permet à vos charges de travail exécutées dans un réseau virtuel de se connecter en privé et en toute sécurité à un service qui dispose d’une **ressource de liaison privée** (par exemple, un espace de noms Azure Relay). Le point de terminaison privé utilise une adresse IP privée de votre réseau virtuel, plaçant de fait le service dans votre réseau virtuel. Sachant que l’ensemble du trafic à destination du service peut être routé via le point de terminaison privé, il n’y a aucun besoin de passerelles, d’appareils NAT, de connexions ExpressRoute ou VPN ni d’IP publiques. Le trafic entre votre réseau virtuel et le service transite par le réseau principal de Microsoft, éliminant ainsi toute exposition à l’Internet public. Vous pouvez fournir un niveau de granularité dans le contrôle d’accès en autorisant des connexions à des espaces de noms Azure Relay spécifiques.
 
 Pour plus d’informations, consultez [Comment configurer les points de terminaison privés](private-link-service.md)
 

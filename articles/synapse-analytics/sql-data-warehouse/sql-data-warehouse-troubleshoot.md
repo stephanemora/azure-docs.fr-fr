@@ -11,12 +11,12 @@ ms.date: 11/13/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: c69df88828a179cf1dce7bd35ac19c518b07903d
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 8db1825e7abfaaeca4650cbd03dd05eec4777c21
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96530712"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121275"
 ---
 # <a name="troubleshooting-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Résoudre les problèmes de pool SQL dédié (anciennement SQL DW) dans Azure Synapse Analytics
 
@@ -85,6 +85,6 @@ Pour obtenir une aide supplémentaire lors de la recherche d’une solution à v
 * [Demandes de fonctionnalités](https://feedback.azure.com/forums/307516-sql-data-warehouse)
 * [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 * [Création d’un ticket de support](sql-data-warehouse-get-started-create-support-ticket.md)
-* [Page de questions Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html)
+* [Page de questions Microsoft Q&A](/answers/topics/azure-synapse-analytics.html)
 * [Forum Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw)
 * [Twitter](https://twitter.com/hashtag/SQLDW)

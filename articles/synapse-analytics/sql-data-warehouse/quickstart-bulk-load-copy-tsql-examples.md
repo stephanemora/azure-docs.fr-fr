@@ -9,16 +9,16 @@ ms.subservice: sql-dw
 ms.date: 07/10/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: de446209104c113b10346645f79b461239c3efab
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 25c692ea9a2dce4723472f6812ac46d82b2b318d
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96901270"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120986"
 ---
 # <a name="securely-load-data-using-synapse-sql"></a>Charger des données de façon sécurisée à l’aide de SQL Synapse
 
-Cet article met en évidence et fournit des exemples sur les mécanismes d’authentification sécurisée pour l’instruction [COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest). L’instruction COPY est la manière la plus flexible et sécurisée de charger des données en bloc dans SQL Synapse.
+Cet article met en évidence et fournit des exemples sur les mécanismes d’authentification sécurisée pour l’instruction [COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest). L’instruction COPY est la manière la plus flexible et sécurisée de charger des données en bloc dans SQL Synapse.
 ## <a name="supported-authentication-mechanisms"></a>Mécanismes d’authentification pris en charge
 
 La matrice suivante décrit les méthodes d’authentification prises en charge pour chaque type de fichier et compte de stockage. Elle s’applique à l’emplacement de stockage source et à l’emplacement du fichier d’erreur.
@@ -136,7 +136,7 @@ L’authentification de l’identité managée est requise lorsque votre compte 
 
     ![Octroi d’une autorisation Azure RBAC pour le chargement](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
 
-2. Configurez l’authentification Azure AD en parcourant la [documentation](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure?tabs=azure-powershell#create-an-azure-ad-administrator-for-azure-sql-server) suivante. 
+2. Configurez l’authentification Azure AD en parcourant la [documentation](../../azure-sql/database/authentication-aad-configure.md?tabs=azure-powershell) suivante. 
 
 3. Connectez-vous à votre pool SQL à l’aide d’Active Directory. Vous pouvez maintenant exécuter l’instruction COPY sans spécifier d’informations d’identification :
 
@@ -152,11 +152,11 @@ L’authentification de l’identité managée est requise lorsque votre compte 
 ## <a name="e-service-principal-authentication"></a>E. Authentification d’un principal de service
 #### <a name="steps"></a>Étapes
 
-1. [Créez une application Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application).
-2. [Obtenir l’ID de l’application](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)
-3. [Obtenir la clé d'authentification](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-a-new-application-secret)
-4. [Obtenir le point de terminaison de jeton OAuth 2.0 V1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#step-4-get-the-oauth-20-token-endpoint-only-for-java-based-applications)
-5. [Affecter des autorisations de lecture, d’écriture et d’exécution à votre application Azure AD](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#step-3-assign-the-azure-ad-application-to-the-azure-data-lake-storage-gen1-account-file-or-folder) sur votre compte de stockage
+1. [Créez une application Azure Active Directory](../..//active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal).
+2. [Obtenir l’ID de l’application](../..//active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)
+3. [Obtenir la clé d'authentification](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options)
+4. [Obtenir le point de terminaison de jeton OAuth 2.0 V1](../../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json#step-4-get-the-oauth-20-token-endpoint-only-for-java-based-applications)
+5. [Affecter des autorisations de lecture, d’écriture et d’exécution à votre application Azure AD](../../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json#step-3-assign-the-azure-ad-application-to-the-azure-data-lake-storage-gen1-account-file-or-folder) sur votre compte de stockage
 6. Vous pouvez maintenant exécuter l’instruction COPY :
 
     ```sql
@@ -176,5 +176,5 @@ L’authentification de l’identité managée est requise lorsque votre compte 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Consulter l’article sur [l’instruction COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest#syntax) pour connaître la syntaxe détaillée
-- Consulter l’article sur la [vue d’ensemble du chargement des données](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/design-elt-data-loading#what-is-elt) pour connaître les bonnes pratiques de chargement
+- Consulter l’article sur [l’instruction COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest#syntax) pour connaître la syntaxe détaillée
+- Consulter l’article sur la [vue d’ensemble du chargement des données](./design-elt-data-loading.md#what-is-elt) pour connaître les bonnes pratiques de chargement

@@ -11,16 +11,16 @@ ms.date: 11/23/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: bd5c56ef74fbe0c60a9d395a7b8a0fbc496e773c
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: ec577e2a70e2b354b8d2013fe259aa9ea622c50e
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95534838"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120136"
 ---
 # <a name="tutorial-load-the-new-york-taxicab-dataset"></a>Tutoriel : Charger le jeu de données de New York Taxicab
 
-Ce tutoriel utilise l’[instruction COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) pour charger le jeu de données New York Taxicab à partir d’un objet compte de stockage d’objets blob Azure. Ce didacticiel utilise le [portail Azure](https://portal.azure.com) et [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS) pour :
+Ce tutoriel utilise l’[instruction COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) pour charger le jeu de données New York Taxicab à partir d’un objet compte de stockage d’objets blob Azure. Ce didacticiel utilise le [portail Azure](https://portal.azure.com) et [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS) pour :
 
 > [!div class="checklist"]
 >
@@ -35,7 +35,7 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 Avant de commencer ce didacticiel, téléchargez et installez la dernière version de [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS).  
 
-Ce tutoriel présuppose que vous avez déjà créé un pool dédié SQL à partir de [ce tutoriel](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/create-data-warehouse-portal#connect-to-the-server-as-server-admin).
+Ce tutoriel présuppose que vous avez déjà créé un pool dédié SQL à partir de [ce tutoriel](./create-data-warehouse-portal.md#connect-to-the-server-as-server-admin).
 
 ## <a name="create-a-user-for-loading-data"></a>Créer un utilisateur pour le chargement des données
 
@@ -251,7 +251,7 @@ Exécutez les scripts SQL suivants en spécifiant les informations sur les donn�
 
 ## <a name="load-the-data-into-your-data-warehouse"></a>Charger les données dans votre entrepôt de données
 
-Cette section utilise l’[instruction COPY pour charger](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) les exemples de données à partir d’Azure Storage Blob.  
+Cette section utilise l’[instruction COPY pour charger](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) les exemples de données à partir d’Azure Storage Blob.  
 
 > [!NOTE]
 > Ce didacticiel charge directement les données dans la table finale. En général, vous les chargez dans une table de mise en lots pour vos charges de travail de production. Lorsque les données se trouvent dans la table de mise en lots, vous pouvez effectuer toutes les transformations nécessaires. 
@@ -393,7 +393,7 @@ Suivez ces étapes pour nettoyer les ressources selon vos besoins.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à créer un entrepôt de données et un utilisateur pour le chargement des données. Vous avez utilisé l’[instruction COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest#examples) pour charger des données dans votre entrepôt de données.
+Dans ce didacticiel, vous avez appris à créer un entrepôt de données et un utilisateur pour le chargement des données. Vous avez utilisé l’[instruction COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest#examples) pour charger des données dans votre entrepôt de données.
 
 Voici les étapes que vous avez effectuées :
 > [!div class="checklist"]
@@ -413,6 +413,6 @@ Passez à la vue d’ensemble du développement pour savoir comment migrer une b
 
 Pour obtenir plus d’exemples et de références sur le chargement, consultez la documentation suivante :
 
-- [Documentation de référence sur l’instruction COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest#syntax)
-- [Exemples COPY pour chaque méthode d’authentification](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql-examples)
-- [Démarrage rapide : Instruction COPY pour une table unique](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql)
+- [Documentation de référence sur l’instruction COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest#syntax)
+- [Exemples COPY pour chaque méthode d’authentification](./quickstart-bulk-load-copy-tsql-examples.md)
+- [Démarrage rapide : Instruction COPY pour une table unique](./quickstart-bulk-load-copy-tsql.md)

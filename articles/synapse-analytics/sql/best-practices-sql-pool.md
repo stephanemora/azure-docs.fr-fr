@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 03a536e16a6ba12611ed704b404c1bd411f0c4c8
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 242e5d042aa14e3b7bd92ebb37ae1be61b1b2c8f
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322698"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120969"
 ---
 # <a name="best-practices-for-dedicated-sql-pools-in-azure-synapse-analytics"></a>Meilleures pratiques pour les pools SQL dédiés dans Azure Synapse Analytics
 
@@ -61,7 +61,7 @@ Pour maximiser le débit lors de l’utilisation de fichiers texte Gzip, divisez
 
 - [Chargement des données](../sql-data-warehouse/design-elt-data-loading.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - [Guide d’utilisation de PolyBase](data-loading-best-practices.md)
-- [Modèles et stratégies de chargement de pools SQL Azure](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-loading-patterns-and-strategies/)
+- [Modèles et stratégies de chargement de pools SQL Azure](/archive/blogs/sqlcat/azure-sql-data-warehouse-loading-patterns-and-strategies)
 - [Téléchargement de données avec Azure Data Factory](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - [Déplacer les données avec Azure Data Factory](../../data-factory/transform-data-using-machine-learning.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
@@ -88,7 +88,7 @@ Les liens d’articles ci-dessous vous permettent d’accéder à des informatio
 
 - [Vue d’ensemble des tables](develop-tables-overview.md)
 - [Distribution de table](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-- [Sélection d’une distribution de tables](https://blogs.msdn.microsoft.com/sqlcat/20../../choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service/)
+- [Sélection d’une distribution de tables](/archive/blogs/sqlcat/choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service)
 - [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 - [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 
@@ -153,7 +153,7 @@ En général, les tables columnstore n’envoient pas de données dans un segmen
 > [!TIP]
 > Pour les tables contenant moins de 60 millions lignes, il se peut qu’un index columnstore ne soit pas la solution optimale.  
 
-Si vous partitionnez vos données, chaque partition doit compter 1 million de lignes pour qu’un index columnstore en cluster soit avantageux.  Si une table comprend 100 partitions, elle devra compter au moins 6 milliards de lignes pour tirer avantage d’un index columnstore en cluster (60 distributions  *100 partitions*  1 million de lignes).  
+Si vous partitionnez vos données, chaque partition doit compter 1 million de lignes pour qu’un index columnstore en cluster soit avantageux.  Si une table comprend 100 partitions, elle devra compter au moins 6 milliards de lignes pour tirer avantage d’un index columnstore en cluster (60 distributions *100 partitions* 1 million de lignes).  
 
 Si votre table ne contient pas 6 milliards lignes, vous avez deux options principales. Réduire le nombre de partitions ou envisager d’utiliser une table de segments de mémoire à la place.  Il peut également être intéressant d’expérimenter pour voir si de meilleures performances peuvent être obtenues en utilisant une table de segments de mémoire avec des index secondaires plutôt qu’avec une table columnstore.
 
@@ -193,7 +193,7 @@ Les pools SQL disposent de plusieurs vues de gestion dynamique qui peuvent être
 
 Consultez également notre article [Dépannage](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) concernant les problèmes courants et leurs solutions.
 
-Si vous avez besoin d’informations non fournies dans cet article, la [page de questions Microsoft Q&A sur Azure Synapse](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html) vous permet de poser des questions à d’autres utilisateurs et au groupe du produit pool SQL.  
+Si vous avez besoin d’informations non fournies dans cet article, la [page de questions Microsoft Q&A sur Azure Synapse](/answers/topics/azure-synapse-analytics.html) vous permet de poser des questions à d’autres utilisateurs et au groupe du produit pool SQL.  
 
 Nous suivons activement ce forum pour vous assurer que vos questions sont traitées par un autre utilisateur ou un membre de notre équipe.  Si vous préférez poser vos questions sur Stack Overflow, nous avons également un [Forum Stack Overflow Azure Synapse Stack](https://stackoverflow.com/questions/tagged/azure-sqldw).
 

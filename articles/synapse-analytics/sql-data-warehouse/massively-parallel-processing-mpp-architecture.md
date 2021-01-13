@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 45c7f89f773095a102429c07f7441223de3c2dec
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: c537d3109f770c1ce77be6495bdacd24270dad5f
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96448256"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98119592"
 ---
 # <a name="dedicated-sql-pool-formerly-sql-dw-architecture-in-azure-synapse-analytics"></a>Architecture de pool SQL dédié (anciennement SQL DW) dans Azure Synapse Analytics
 
@@ -107,13 +107,13 @@ Le diagramme ci-dessous présente une table répliquée qui est mise en cache su
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous en savez un peu plus sur Azure Synapse, apprenez à [créer rapidement un pool SQL dédié (anciennement SQL DW)](create-data-warehouse-portal.md) et à [charger des exemples de données](load-data-from-azure-blob-storage-using-polybase.md). Si vous n’êtes pas encore familiarisé avec Azure, vous pouvez vous appuyer sur le [Glossaire Azure](../../azure-glossary-cloud-terminology.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) lorsque vous rencontrez de nouveaux termes. Ou bien, consultez ces autres ressources d’Azure Synapse.  
+Maintenant que vous en savez un peu plus sur Azure Synapse, apprenez à [créer rapidement un pool SQL dédié (anciennement SQL DW)](create-data-warehouse-portal.md) et à [charger des exemples de données](./load-data-from-azure-blob-storage-using-copy.md). Si vous n’êtes pas encore familiarisé avec Azure, vous pouvez vous appuyer sur le [Glossaire Azure](../../azure-glossary-cloud-terminology.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) lorsque vous rencontrez de nouveaux termes. Ou bien, consultez ces autres ressources d’Azure Synapse.  
 
 - [Témoignages de clients](https://azure.microsoft.com/case-studies/?service=sql-data-warehouse)
 - [Blogs](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)
 - [Demandes de fonctionnalités](https://feedback.azure.com/forums/307516-sql-data-warehouse)
 - [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 - [Création d’un ticket de support](sql-data-warehouse-get-started-create-support-ticket.md)
-- [Page de questions Microsoft Q&R](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html)
+- [Page de questions Microsoft Q&R](/answers/topics/azure-synapse-analytics.html)
 - [Forum Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw)
 - [Twitter](https://twitter.com/hashtag/SQLDW)

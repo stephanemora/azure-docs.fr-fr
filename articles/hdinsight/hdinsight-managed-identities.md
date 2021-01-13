@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/15/2020
-ms.openlocfilehash: 4d9a5900990ea41788ced5f25690619fbde68d33
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87bc2338ecc48f1115a406c276ef221cb185a4c5
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91854985"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98118623"
 ---
 # <a name="managed-identities-in-azure-hdinsight"></a>Identités managées dans Azure HDInsight
 
@@ -55,6 +55,7 @@ Si vous avez déjà créé un cluster durable avec plusieurs identités managée
  * Dans les clusters ESP, le certificat LDAPS AAD-DS n’est pas mis à jour automatiquement lorsqu’il est modifié. Par conséquent, la synchronisation LDAP et les scale-up commencent à présenter des échecs.
  * L’accès MSI à ADLS Gen2 commence à présenter des échecs.
  * Les clés de chiffrement ne peuvent pas être renouvelées dans le scénario CMK.
+
 Vous devez alors attribuer les rôles et autorisations nécessaires aux scénarios ci-dessus à toutes les identités managées utilisées dans le cluster. Par exemple, si vous avez employé des identités managées différentes pour des clusters ADLS Gen2 et ESP, les rôles « Propriétaire des données d’objet blob de stockage » et « Contributeur des services de domaine HDInsight » doivent leur être affectés pour éviter ces problèmes.
 
 ## <a name="faq"></a>Questions fréquentes (FAQ)

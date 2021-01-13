@@ -11,12 +11,12 @@ ms.date: 03/26/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seoapril2019, azure-synapse
-ms.openlocfilehash: 3d9a842af5e1d3fac73515d96644bef250d7d0c4
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 95158193a978702392106c8aa3347de211fd1a3e
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93334567"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98115444"
 ---
 # <a name="create-table-as-select-ctas"></a>CREATE TABLE AS SELECT (CTAS)
 
@@ -208,7 +208,7 @@ DROP TABLE CTAS_acs;
 
 ## <a name="ansi-join-replacement-for-merge"></a>Remplacement ANSI JOIN pour MERGE 
 
-Dans Azure Synapse Analytics, [MERGE](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=sql-server-ver15) (préversion) avec NOT MATCHED BY TARGET impose que la cible soit une table distribuée HASH.  Les utilisateurs ont la possibilité d’avoir recours à ANSI JOIN avec [UPDATE](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql?view=sql-server-ver15) ou [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql?view=sql-server-ver15). Cette solution de contournement permet de modifier les données de la table cible en fonction du résultat de la jointure avec une autre table.  Voici un exemple.
+Dans Azure Synapse Analytics, [MERGE](/sql/t-sql/statements/merge-transact-sql?view=sql-server-ver15) (préversion) avec NOT MATCHED BY TARGET impose que la cible soit une table distribuée HASH.  Les utilisateurs ont la possibilité d’avoir recours à ANSI JOIN avec [UPDATE](/sql/t-sql/queries/update-transact-sql?view=sql-server-ver15) ou [DELETE](/sql/t-sql/statements/delete-transact-sql?view=sql-server-ver15). Cette solution de contournement permet de modifier les données de la table cible en fonction du résultat de la jointure avec une autre table.  Voici un exemple.
 
 ```sql
 CREATE TABLE dbo.Table1   

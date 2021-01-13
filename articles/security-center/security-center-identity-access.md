@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2020
 ms.author: memildin
-ms.openlocfilehash: b36f52fd97a9f7ff294f14ec394ff9a9f607b5b0
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 3c0dd2b4e7e48eeb76d82c26eb52b89b61e9f668
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187151"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98134107"
 ---
 # <a name="monitor-identity-and-access"></a>Surveiller l’identité et l’accès
 
@@ -44,7 +44,7 @@ Voici des exemples de recommandations que vous pouvez voir dans ces deux contrô
 - Vous devez supprimer les comptes dépréciés de votre abonnement. (Un compte déprécié est un compte qui n’est plus nécessaire et qui n’est pas autorisé à se connecter par Azure Active Directory.)
 
 > [!TIP]
-> Pour plus d’informations sur ces recommandations et sur les autres que vous pouvez voir dans ces contrôles, consultez [Recommandations relatives à l’identité et à l’accès](recommendations-reference.md#recs-identity).
+> Pour plus d’informations sur ces recommandations et sur les autres que vous pouvez voir dans ces contrôles, consultez [Recommandations relatives à l’identité et à l’accès](recommendations-reference.md#recs-identityandaccess).
 
 ### <a name="limitations"></a>Limites
 

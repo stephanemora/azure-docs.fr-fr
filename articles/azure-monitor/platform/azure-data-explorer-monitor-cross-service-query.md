@@ -1,25 +1,23 @@
 ---
 title: Vue d’ensemble d’une requête interservice entre Azure Monitor et Azure Data Explorer (préversion)
 description: Interroger des données Azure Data Explorer via des outils Azure Log Analytics, et inversement, pour joindre et analyser toutes vos données au même endroit.
-author: orens
+author: osalzberg
 ms.author: bwren
 ms.reviewer: bwren
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 06/12/2020
-ms.openlocfilehash: 0af9111223bb16f1c5843223e7fe1661ce99c623
-ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
+ms.openlocfilehash: e60f77495cdb822a0c50be936c2b0d3ac31348f3
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96749227"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98116707"
 ---
 # <a name="cross-service-query---azure-monitor-and-azure-data-explorer-preview"></a>Requête interservice – Azure Monitor et Azure Data Explorer (préversion)
 Créez des requêtes interservices entre [Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/), [Application Insights](/azure/azure-monitor/app/app-insights-overview) et [Log Analytics](/azure/azure-monitor/platform/data-platform-logs).
 ## <a name="azure-monitor-and-azure-data-explorer-cross-service-querying"></a>Interrogation interservice Azure Monitor et Azure Data Explorer
 Cette expérience vous permet de [créer des requêtes interservices entre Azure Data Explorer et Azure Monitor](https://docs.microsoft.com/azure/data-explorer/query-monitor-data) et de [créer des requêtes interservices entre Azure Monitor et Azure Data Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/azure-monitor-data-explorer-proxy).
-
-:::image type="content" source="media\azure-data-explorer-monitor-proxy\azure-data-explorer-monitor-flow.png" alt-text="Flux de proxy Azure Data Explorer.":::
 
 Par exemple, (interrogation d’Azure Data Explorer à partir de Log Analytics) :
 ```kusto

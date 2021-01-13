@@ -7,21 +7,18 @@ ms.author: viviali
 ms.date: 11/05/2020
 ms.topic: how-to
 ms.service: iot-central
-ms.custom: contperf-fy21q1
-ms.openlocfilehash: b84f1efd77ca757fd2ceaa8bb5605e3fc78297d0
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.custom: contperf-fy21q1, contperf-fy21q3
+ms.openlocfilehash: 3079b8384a24642322d6f6eb86e2ca7f0927db15
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032369"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065386"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export"></a>Exporter des données IoT vers des destinations cloud à l'aide des fonctionnalités d'exportation de données
 
 > [!Note]
-> Cet article décrit les fonctionnalités d'exportation de données d'IoT Central.
->
-> - Pour plus d'informations sur la fonctionnalité d'exportation de données héritée, consultez la section [Exporter des données IoT vers des destinations cloud à l'aide de la fonctionnalité d'exportation de données (héritée)](./howto-export-data-legacy.md).
-> - Pour en savoir plus sur les différences entre la fonctionnalité d'exportation de données et la fonctionnalité d'exportation de données héritée, consultez le [tableau de comparaison](#comparison-of-legacy-data-export-and-data-export) ci-dessous.
+> Cet article décrit les fonctionnalités d'exportation de données d'IoT Central. Pour plus d'informations sur la fonctionnalité d'exportation de données héritée, consultez la section [Exporter des données IoT vers des destinations cloud à l'aide de la fonctionnalité d'exportation de données (héritée)](./howto-export-data-legacy.md).
 
 Cet article explique comment utiliser la nouvelle fonctionnalité d'exportation de données d'Azure IoT Central. Utilisez cette fonctionnalité pour une exportation continue des données IoT filtrées et enrichies à partir de votre application IoT Central. La fonctionnalité d'exportation de données envoie (push) les modifications en quasi-temps réel vers d'autres parties de votre solution cloud pour vous fournir des insights, des analyses et un stockage à chaud.
 
@@ -97,9 +94,9 @@ En l’absence de compte de stockage Azure vers lequel exporter, suivez ces éta
 
     |Niveau de performances|Type de compte|
     |-|-|
-    |standard|Usage général v2|
-    |standard|Usage général v1|
-    |standard|Stockage d'objets blob|
+    |Standard|Usage général v2|
+    |Standard|Usage général v1|
+    |Standard|Stockage d'objets blob|
     |Premium|Stockage d’objets blob de blocs|
 
 1. Pour créer un conteneur sur votre compte de stockage, accédez à celui-ci. Sous **Service blob**, sélectionnez **Parcourir les objets blob**. Sélectionnez **+ Conteneur**, en haut, pour créer un conteneur.

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 01/05/2020
+ms.date: 01/12/2020
 ms.author: b-juche
-ms.openlocfilehash: d296f80d85bb5081c466b27e6a8624e8b3f2c924
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: c914ab007f482e4d2b560b1cb461e27d4f4442ec
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97914985"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98133155"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Créer un volume double protocole (NFSv3 et SMB) pour Azure NetApp Files
 
@@ -39,7 +39,6 @@ Azure NetApp Files prend en charge la création de volumes en utilisant NFS (NFS
 * Créez une zone de recherche inversée sur le serveur DNS, puis ajoutez un enregistrement pointeur (PTR) de l’ordinateur hôte AD dans cette zone de recherche inversée. Sinon, la création du volume à deux protocoles échoue.
 * Vérifiez que le client NFS est à jour et qu’il exécute les mises à jour les plus récentes du système d’exploitation.
 * Assurez-vous que le serveur LDAP Active Directory (AD) est en cours d’exécution sur AD. Vous pouvez le faire en installant et en configurant le rôle [Active Directory Lightweight Directory Services (AD LDS)](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)) sur l’ordinateur AD.
-* Assurez-vous qu’une autorité de certification est créée pour l’ordinateur AD à l’aide du rôle [Active Directory Certificate Services (AD CS)](/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority) pour générer et exporter le certificat d’autorité de certification racine autosigné.   
 * Pour le moment, les volumes à deux protocoles ne prennent pas en charge Azure Active Directory Domain Services (AADDS).  
 * La version de NFS utilisée par un volume à deux protocoles est NFSv3. Par conséquent, les considérations suivantes s'appliquent :
     * Le double protocole ne prend pas en charge les attributs étendus des ACL Windows `set/get` provenant des clients NFS.
@@ -105,9 +104,6 @@ Azure NetApp Files prend en charge la création de volumes en utilisant NFS (NFS
 3. Cliquez sur **Protocole**, puis effectuez les actions suivantes :  
     * Sélectionnez le type de protocole **double protocole (NFSv3 et SMB)** pour le volume.   
 
-    * Sélectionnez la connexion **Active Directory** dans la liste déroulante.  
-    Le répertoire Active Directory que vous utilisez doit avoir un certificat d’autorité de certification racine de serveur. 
-
     * Spécifiez le **Chemin d’accès du volume** pour le volume.   
     Ce chemin d'accès de volume est le nom du volume partagé. Le nom doit commencer par un caractère alphabétique et doit être unique dans chaque abonnement et chaque région.  
 
@@ -122,32 +118,6 @@ Azure NetApp Files prend en charge la création de volumes en utilisant NFS (NFS
     Le volume créé s’affiche dans la page Volumes. 
  
     Un volume hérite de l’abonnement, du groupe de ressources et des attributs d’emplacement de son pool de capacité. Vous pouvez suivre l’état du déploiement du volume dans le volet des notifications.
-
-## <a name="upload-active-directory-certificate-authority-public-root-certificate"></a>Charger le certificat racine public de l’autorité de certification Active Directory  
-
-1.  Suivez [Installer l’autorité de certification](/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority) pour installer et configurer l’autorité de certification AD DS. 
-
-2.  Suivez [Afficher les certificats avec le composant logiciel enfichable MMC](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in) pour utiliser le composant logiciel enfichable MMC et l’outil Gestionnaire de certificats.  
-    Utilisez le composant logiciel enfichable Gestionnaire de certificats pour localiser le certificat racine ou d’émission pour l’appareil local. Vous devez exécuter les commandes du composant logiciel enfichable Gestion des certificats à partir de l’un des paramètres suivants :  
-    * Un client Windows joint au domaine et sur lequel le certificat racine est installé 
-    * un autre ordinateur du domaine contenant le certificat racine.  
-
-3. Exportez le certificat d’autorité de certification racine.  
-    Les certificats d’autorité de certification racine peuvent être exportés à partir du répertoire Personnel ou Autorités de certification racines de confiance, comme indiqué dans les exemples suivants :   
-    ![capture d’écran montrant les certificats personnels](../media/azure-netapp-files/personal-certificates.png)   
-    ![capture d’écran montrant les autorités de certification racines de confiance](../media/azure-netapp-files/trusted-root-certification-authorities.png)    
-
-    Assurez-vous que le certificat est exporté au format X.509 encodé en base 64 (.CER) : 
-
-    ![Assistant Exportation de certificat](../media/azure-netapp-files/certificate-export-wizard.png)
-
-4. Accédez au compte NetApp du volume double protocole, cliquez sur **Connexions Active Directory**, puis chargez le certificat d’autorité de certification racine en utilisant la fenêtre **Joindre Active Directory** :  
-
-    ![Certificat d’autorité de certification racine de serveur](../media/azure-netapp-files/server-root-ca-certificate.png)
-
-    Assurez-vous que le nom de l’autorité de certification peut être résolu par DNS. Ce nom figure dans le champ « Délivré par » ou « Émetteur » sur le certificat :  
-
-    ![Informations sur le certificat](../media/azure-netapp-files/certificate-information.png)
 
 ## <a name="manage-ldap-posix-attributes"></a>Gérer les attributs LDAP POSIX
 

@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 466af29a3f073f73d4a0fc62d74709cd59f82425
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: bd36434bbfe435a53567c46728610627f99f987f
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183785"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127785"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Mettre à niveau une instance du service Gestion des API Azure et la mettre à l’échelle  
 
@@ -88,4 +88,5 @@ Si vos exigences de sécurité incluent l’[isolation de calcul](../azure-gover
 
 - [Comment déployer une instance de service Gestion des API Azure dans plusieurs régions Azure](api-management-howto-deploy-multi-region.md)
 - [Mettre à l’échelle automatiquement une instance du service Gestion des API Azure](api-management-howto-autoscale.md)
-- [Optimiser et réduire vos coûts de cloud](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+- [Planifier et gérer les coûts pour la gestion des API](plan-manage-costs.md)
+- [Limites Gestion des API](../azure-resource-manager/management/azure-subscription-service-limits.md#api-management-limits)

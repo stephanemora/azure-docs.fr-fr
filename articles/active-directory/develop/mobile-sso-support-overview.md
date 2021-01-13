@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/14/2020
 ms.author: nichola
-ms.openlocfilehash: 59924c1f876d08aa504f19c5d6c86dca32fbd1e2
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 9c53ea5bad88eb79940274c409218045c06d7981
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173462"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98064966"
 ---
 # <a name="support-single-sign-on-and-app-protection-policies-in-mobile-apps-you-develop"></a>Prise en charge des stratégies de protection des applications et de l’authentification unique dans les applications mobiles que vous développez
 
@@ -36,7 +36,7 @@ En outre, l’activation de l’authentification unique dans votre application d
 
 Nous vous recommandons d’utiliser ce qui suit pour permettre à votre application de tirer parti de l’authentification unique.
 
-### <a name="use-microsoft-authentication-library-msal"></a>Utiliser la bibliothèque d’authentification Microsoft (MSAL)
+### <a name="use-the-microsoft-authentication-library-msal"></a>Utiliser la bibliothèque d’authentification Microsoft (MSAL)
 
 Le meilleur choix pour l’implémentation de l’authentification unique dans votre application consiste à utiliser [la bibliothèque d’authentification Microsoft (MSAL)](msal-overview.md). En utilisant MSAL, vous pouvez ajouter l’authentification à votre application avec un minimum de code et d’appels d’API, obtenir les fonctionnalités complètes de la [Microsoft Identity Platform](./index.yml)et laisser Microsoft gérer la maintenance d’une solution d’authentification sécurisée. Par défaut, MSAL ajoute la prise en charge de l’authentification unique pour votre application. En outre, l’utilisation de MSAL est une exigence si vous envisagez également d’implémenter des politiques de protection des applications.
 

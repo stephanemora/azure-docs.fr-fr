@@ -6,12 +6,12 @@ ms.date: 03/14/2019
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 6b578cd03daa6e996a69c03afd327097d6123045
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 3144633f76d1c4738f2323f1e047d6f32329909f
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97607896"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98133240"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java-sdk"></a>Guide de dépannage et questions-réponses concernant Application Insights pour le Kit de développement logiciel (SDK) Java
 
@@ -23,7 +23,7 @@ Vous avez des questions concernant [Azure Application Insights dans Java][java]
 ## <a name="build-errors"></a>Erreurs de build
 **Dans Eclipse ou Intellij Idea, quand j’ajoute le kit de développement logiciel (SDK) Application Insights via Maven ou Gradle, j’obtiens des erreurs de validation de build ou de somme de contrôle.**
 
-* Si l’élément de dépendance `<version>` utilise un modèle avec des caractères génériques (par exemple, (Maven) `<version>[2.0,)</version>` ou (Gradle) `version:'2.0.+'`), essayez de spécifier une version spécifique, comme par exemple `2.0.1`. Consultez les [notes de publication](https://github.com/Microsoft/ApplicationInsights-Java/releases) relatives à la version la plus récente.
+* Si l’élément de dépendance `<version>` utilise un modèle avec des caractères génériques (par exemple, (Maven) `<version>[2.0,)</version>` ou (Gradle) `version:'2.+'`), essayez de spécifier une version spécifique, comme par exemple `2.6.2`.
 
 ## <a name="no-data"></a>Pas de données
 **J’ai ajouté Application Insights sans problème et exécuté mon application, mais je ne vois aucune donnée dans le portail.**
@@ -36,7 +36,7 @@ Vous avez des questions concernant [Azure Application Insights dans Java][java]
 * [Activez la journalisation](#debug-data-from-the-sdk) en ajoutant un élément `<SDKLogger />` sous le nœud racine dans le fichier ApplicationInsights.xml (situé dans le dossier de ressources de votre projet), puis vérifiez les entrées précédées de AI : INFO/WARN/ERROR pour tout journal d’activité suspect. 
 * Assurez-vous que le fichier ApplicationInsights.xml approprié a été correctement chargé par le Kit de développement logiciel (SDK) Java, en vérifiant que le message de sortie de la console « Le fichier de configuration a été trouvé » s’affiche.
 * Si le fichier de configuration est introuvable, vérifiez les messages de sortie pour voir où cette recherche a été effectuée et vous assurer que le fichier ApplicationInsights.xml se trouve dans l’un des emplacements de recherche. En règle générale, vous pouvez placer le fichier de configuration près du JAR du Kit de développement logiciel (SDK) Application Insights. Par exemple, il s’agit du dossier WEB-INF/classes dans Tomcat. Au cours du développement, vous pouvez placer le fichier ApplicationInsights.xml dans le dossier des ressources de votre projet web.
-* Consultez également la [page des incidents GitHub](https://github.com/Microsoft/ApplicationInsights-Java/issues) pour en savoir plus sur les problèmes connus avec le kit de développement logiciel (SDK).
+* Consultez également la [page des incidents GitHub](https://github.com/microsoft/ApplicationInsights-Java/issues) pour en savoir plus sur les problèmes connus avec le kit de développement logiciel (SDK).
 * Assurez-vous d’utiliser la même version des appenders principaux, web, d’agent et de journalisation Application Insights afin d’éviter tout problème lié à des conflits entre les versions.
 
 #### <a name="i-used-to-see-data-but-it-has-stopped"></a>Je pouvais voir les données, mais plus maintenant
@@ -194,7 +194,7 @@ Application Insights utilise `org.apache.http`. Cet élément a été déplacé 
 
 ## <a name="get-help"></a>Obtenir de l’aide
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
-* [Signaler un problème sur GitHub](https://github.com/Microsoft/ApplicationInsights-Java/issues)
+* [Signaler un problème sur GitHub](https://github.com/microsoft/ApplicationInsights-Java/issues)
 
 <!--Link references-->
 

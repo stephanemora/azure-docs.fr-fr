@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 12/12/2019
 ms.author: cynthn
-ms.openlocfilehash: 94db8ce46fc240a6c48c0919b6d2c2cd148522ac
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 6e3333ac780cfca02a6ce4f28d2b0e312016f713
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976048"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131506"
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>Charger un disque dur virtuel généralisé et l’utiliser pour créer des machines virtuelles dans Azure
 
@@ -38,13 +38,15 @@ Vérifiez que les rôles serveur exécutés sur la machine sont pris en charge p
 > 
 
 1. Connectez-vous à la machine virtuelle Windows
-2. Ouvrez la fenêtre d’invite de commandes en tant qu’administrateur. Remplacez le répertoire par %windir%\system32\sysprep, puis exécutez `sysprep.exe`.
-3. Dans la boîte de dialogue **Outil de préparation du système**, sélectionnez **Entrer en mode OOBE (Out-of-Box Experience)** et vérifiez que la case **Généraliser** est cochée.
-4. Dans **Options d’arrêt**, sélectionnez **Arrêter**.
-5. Sélectionnez **OK**.
+1. Ouvrez la fenêtre d’invite de commandes en tant qu’administrateur. 
+1. Supprimez le répertoire Panther (C:\Windows\Panther).
+1. Remplacez le répertoire par %windir%\system32\sysprep, puis exécutez `sysprep.exe`.
+1. Dans la boîte de dialogue **Outil de préparation du système**, sélectionnez **Entrer en mode OOBE (Out-of-Box Experience)** et vérifiez que la case **Généraliser** est cochée.
+1. Dans **Options d’arrêt**, sélectionnez **Arrêter**.
+1. Sélectionnez **OK**.
    
     ![Démarrer Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
-6. Une fois l’opération Sysprep terminée, elle arrête la machine virtuelle. Ne redémarrez pas la machine virtuelle.
+1. Une fois l’opération Sysprep terminée, elle arrête la machine virtuelle. Ne redémarrez pas la machine virtuelle.
 
 
 ## <a name="upload-the-vhd"></a>Charger le disque dur virtuel 
