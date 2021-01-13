@@ -1,18 +1,17 @@
 ---
 title: Utiliser les API REST afin d’effectuer des opérations de CI/CD pour Azure Stream Analytics sur IoT Edge
 description: Découvrez comment implémenter un pipeline d’intégration et de déploiement continus pour Azure Stream Analytics à l’aide d’API REST.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: su-jie
+ms.author: sujie
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/04/2018
-ms.openlocfilehash: a7e56758a1a76933d6bb18883aa15ce33ce2e89e
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 3c3f776ad0996fa0b7422f0fca2d899a35e853d1
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130916"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98016131"
 ---
 # <a name="implement-cicd-for-stream-analytics-on-iot-edge-using-apis"></a>Implémenter CI/CD pour Stream Analytics sur IoT Edge à l’aide d’API
 
@@ -59,7 +58,7 @@ Pour créer une tâche Stream Analytics, appelez la méthode PUT à l’aide de 
 |------|-----------|
 |PUT|`https://management.azure.com/subscriptions/{\**subscription-id**}/resourcegroups/{**resource-group-name**}/providers/Microsoft.StreamAnalytics/streamingjobs/{**job-name**}?api-version=2017-04-01-preview`|
  
-Exemple d’utilisation de la commande **curl**  :
+Exemple d’utilisation de la commande **curl** :
 
 ```curl
 curl -u { <username:password> } -H "Content-Type: application/json" -X { <method> } -d "{ <request body> }" https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/Microsoft.StreamAnalytics/streamingjobs/{jobname}?api-version=2017-04-01-preview  
@@ -148,7 +147,7 @@ Pour publier une tâche Stream Analytics sur IoT Edge, appelez la méthode POST 
 
 Cette opération asynchrone retourne l’état 202 tant que la tâche n’est pas publiée. L’en-tête de réponse d’emplacement contient l’URI utilisé pour obtenir l’état du processus. Pendant que le processus est en cours d’exécution, un appel à l’URI dans l’en-tête d’emplacement retourne l’état 202. Une fois le processus terminé, l’URI dans l’en-tête d’emplacement retourne l’état 200. 
 
-Exemple d’appel de publication de package Edge à l’aide de **curl**  : 
+Exemple d’appel de publication de package Edge à l’aide de **curl** : 
 
 ```bash
 curl -d -X POST https://management.azure.com/subscriptions/{subscriptionid}/resourceGroups/{resourcegroupname}/providers/Microsoft.StreamAnalytics/streamingjobs/{jobname}/publishedgepackage?api-version=2017-04-01-preview
@@ -163,7 +162,7 @@ https://management.azure.com/subscriptions/{**subscriptionid**}/resourcegroups/{
 ```
 Patientez une ou deux minutes avant d’exécuter la commande suivante pour effectuer un appel d’API avec l’URL que vous avez trouvée dans la tête de la réponse. Réessayez d’exécuter la commande si vous n’obtenez pas une réponse HTTP 200.
  
-Exemple d’appel d’API avec l’URL retournée avec **curl**  :
+Exemple d’appel d’API avec l’URL retournée avec **curl** :
 
 ```bash
 curl -d –X GET https://management.azure.com/subscriptions/{subscriptionid}/resourceGroups/{resourcegroupname}/providers/Microsoft.StreamAnalytics/streamingjobs/{resourcename}/publishedgepackage?api-version=2017-04-01-preview 

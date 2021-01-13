@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 575903654a165bef0d09ac6abf0793af3f6784e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5fa0b6ca41349d20614a64006536e78d8ee71844
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90930745"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955363"
 ---
 # <a name="offline-deployment-overview"></a>Vue d’ensemble du déploiement hors connexion
 
@@ -22,7 +22,7 @@ En général, les images conteneur utilisées lors de la création du contrôleu
 
 Étant donné que les mises à jour mensuelles sont fournies pour les services de données Azure Arc et qu’il existe un grand nombre d’images conteneur, il est préférable d’utiliser un script pour effectuer ces processus d’extraction, d’étiquetage et d’envoi (push) des images conteneur vers un registre de conteneurs privé.  Le script peut être automatisé ou exécuté manuellement.
 
-Un [exemple de script](https://raw.githubusercontent.com/microsoft/azure_arc/master/arc_data_services/deploy/scripts/pull-and-push-arc-data-services-images-to-private-registry.py) se trouve dans le dépôt GitHub Azure Arc.
+Un [exemple de script](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/scripts/pull-and-push-arc-data-services-images-to-private-registry.py) se trouve dans le dépôt GitHub Azure Arc.
 
 > [!NOTE]
 > Ce script nécessite l’installation de Python et de l’interface [Docker CLI](https://docs.docker.com/install/).

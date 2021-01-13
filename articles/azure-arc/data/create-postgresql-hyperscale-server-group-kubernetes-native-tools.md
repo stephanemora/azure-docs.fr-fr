@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: f447c6028b1750aa96e531a97e7b0861f66a5749
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30852b6b3f9a4b490c4b58fe07f34ee49c60fa9f
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761666"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955244"
 ---
 # <a name="create-a-postgresql-hyperscale-server-group-using-kubernetes-tools"></a>Créer un groupe de serveurs PostgreSQL Hyperscale à l’aide des outils Kubernetes
 
@@ -34,7 +34,7 @@ Pour créer un groupe de serveurs PostgreSQL Hyperscale, vous devez créer un se
 
 ## <a name="create-a-yaml-file"></a>Créer un fichier YAML
 
-Vous pouvez utiliser le [modèle de fichier yaml](https://raw.githubusercontent.com/microsoft/azure_arc/master/arc_data_services/deploy/yaml/postsgresql.yaml) comme point de départ pour créer votre propre fichier yaml de groupe de serveurs PostgreSQL Hyperscale personnalisé.  Téléchargez ce fichier sur votre ordinateur local et ouvrez-le dans un éditeur de texte.  Il est utile d’utiliser un éditeur de texte tel que [VS Code](https://code.visualstudio.com/download) qui prend en charge la mise en surbrillance de la syntaxe et le linting pour les fichiers YAML.
+Vous pouvez utiliser le [modèle de fichier yaml](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/postgresql.yaml) comme point de départ pour créer votre propre fichier yaml de groupe de serveurs PostgreSQL Hyperscale personnalisé.  Téléchargez ce fichier sur votre ordinateur local et ouvrez-le dans un éditeur de texte.  Il est utile d’utiliser un éditeur de texte tel que [VS Code](https://code.visualstudio.com/download) qui prend en charge la mise en surbrillance de la syntaxe et le linting pour les fichiers YAML.
 
 Voici un exemple de fichier YAML :
 
@@ -162,7 +162,7 @@ kubectl get postgresql-12/postgres1 --namespace arc
 kubectl get pods --namespace arc
 ```
 
-Vous pouvez également vérifier l’état de la création de n’importe quel pod en exécutant une commande comme celle qui figure ci-dessous.  C’est particulièrement utile pour résoudre les problèmes.
+Vous pouvez également vérifier l’état de la création de n’importe quel pod en exécutant une commande comme celle qui figure ci-dessous.  C’est particulièrement pratique pour résoudre les éventuels problèmes.
 
 ```console
 kubectl describe po/<pod name> --namespace arc

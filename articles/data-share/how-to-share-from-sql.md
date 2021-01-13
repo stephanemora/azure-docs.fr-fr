@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 11/12/2020
-ms.openlocfilehash: 87d6ca8ee69ca49cf52b61e6beddb56721658afa
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: bdbbf3e808e1dda0970aaf87d154ee79bea4dcb1
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94593737"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964165"
 ---
 # <a name="share-and-receive-data-from-azure-sql-database-and-azure-synapse-analytics"></a>Partager et recevoir des données d’Azure SQL Database et d’Azure Synapse Analytics
 
@@ -341,7 +341,7 @@ Les performances des instantanés SQL sont affectées par un certain nombre de f
 * Emplacement des magasins de données sources et cibles. 
 
 ## <a name="troubleshoot-sql-snapshot-failure"></a>Résoudre les échecs d’instantanés SQL
-La cause la plus courante de l’échec d’un instantané est que le partage de données n’a pas d’autorisation sur le magasin de données source ou cible. Afin d’accorder l’autorisation de partage de données à la source ou à la cible Azure SQL Database ou Azure Synapse Analytics (anciennement Azure SQL DW), vous devez exécuter le script SQL fourni lors de la connexion à la base de données SQL à l’aide de l’authentification Azure Active Directory. Pour résoudre les autres échecs d’instantanés SQL, reportez-vous à [Résoudre les problèmes d’instantanés](data-share-troubleshoot.md#snapshot-failed).
+La cause la plus courante de l’échec d’un instantané est que le partage de données n’a pas d’autorisation sur le magasin de données source ou cible. Afin d’accorder l’autorisation de partage de données à la source ou à la cible Azure SQL Database ou Azure Synapse Analytics (anciennement Azure SQL DW), vous devez exécuter le script SQL fourni lors de la connexion à la base de données SQL à l’aide de l’authentification Azure Active Directory. Pour résoudre les autres échecs d’instantanés SQL, reportez-vous à [Résoudre les problèmes d’instantanés](data-share-troubleshoot.md#snapshots).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Vous avez appris à partager et recevoir des données à partir de sources SQL à l’aide du service Azure Data Share. Pour en savoir plus sur le partage à partir d’autres sources de données, passez à [Magasins de données pris en charge](supported-data-stores.md).

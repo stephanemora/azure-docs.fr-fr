@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.author: jehollan
-ms.openlocfilehash: bed76a6f3a17332f9a1e411ff1d4efb52703f3e1
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f4d7611f285535680469f3a334ab889b0b644bfe
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020986"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936859"
 ---
 # <a name="azure-functions-networking-options"></a>Options de mise en réseau d’Azure Functions
 
@@ -21,9 +21,9 @@ Les modèles d’hébergement offrent différents niveaux d’isolement réseau.
 Vous pouvez héberger des applications de fonction de deux façons :
 
 * Vous avez le choix entre des plans qui s’exécutent sur une infrastructure mutualisée, avec divers niveaux de connectivité au réseau virtuel et diverses options de mise à l’échelle :
-    * Le [plan Consommation](functions-scale.md#consumption-plan), qui s’adapte de façon dynamique en réponse à la charge et offre des options d’isolement réseau minimal.
-    * Le [plan Premium](functions-scale.md#premium-plan), qui s’adapte de façon dynamique tout en offrant un isolement réseau plus complet.
-    * Le plan [Azure App Service](functions-scale.md#app-service-plan) opère à une échelle fixe et offre un offre isolement réseau similaire au plan Premium.
+    * Le [plan Consommation](consumption-plan.md), qui s’adapte de façon dynamique en réponse à la charge et offre des options d’isolement réseau minimal.
+    * Le [plan Premium](functions-premium-plan.md), qui s’adapte de façon dynamique tout en offrant un isolement réseau plus complet.
+    * Le plan [Azure App Service](dedicated-plan.md) opère à une échelle fixe et offre un offre isolement réseau similaire au plan Premium.
 * Vous pouvez exécuter des fonctions dans un [Azure App Service Environment](../app-service/environment/intro.md). Cette méthode déploie votre fonction dans votre réseau virtuel et offre un contrôle et un isolement réseau complets.
 
 ## <a name="matrix-of-networking-features"></a>Matrice de fonctionnalités de mise en réseau
@@ -34,7 +34,7 @@ Vous pouvez héberger des applications de fonction de deux façons :
 
 Vous pouvez utiliser des restrictions d’accès pour définir la liste des adresses IP classées par ordre de priorité qui sont autorisées ou non à accéder à votre application. La liste peut inclure des adresses IPv4 et IPv6 ou des sous-réseaux spécifiques de réseau virtuel utilisant des [points de terminaison de service](#use-service-endpoints). Lorsqu’il y a une ou plusieurs entrées, une règle implicite « Tout refuser » se trouve à la fin de la liste. Les restrictions d’adresse IP fonctionnent avec toutes les options d’hébergement de fonction.
 
-Les restrictions d’accès sont disponibles dans les niveaux [Premium](functions-premium-plan.md), [Consommation](functions-scale.md#consumption-plan) et [App service](functions-scale.md#app-service-plan).
+Les restrictions d’accès sont disponibles dans les niveaux [Premium](functions-premium-plan.md), [Consommation](consumption-plan.md) et [App service](dedicated-plan.md).
 
 > [!NOTE]
 > Une fois les restrictions réseau en place, vous pouvez uniquement déployer à partir de votre réseau virtuel ou après avoir ajouté l’adresse IP de la machine que vous utilisez pour accéder au portail Azure sur la liste des destinataires approuvés. Toutefois, vous pouvez toujours gérer la fonction à l’aide du portail.

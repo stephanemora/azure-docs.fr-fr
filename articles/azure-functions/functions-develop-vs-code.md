@@ -4,12 +4,12 @@ description: Découvrez comment développer et tester Azure Functions à l’aid
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/21/2019
-ms.openlocfilehash: 573177615ff898326eb29649a7f766b5df34b587
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 33adcb853099778c4b06a9cd428f480f6138ee8b
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96168427"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936972"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Développer Azure Functions avec Visual Studio Code
 
@@ -255,7 +255,7 @@ Les étapes suivantes permettent de publier votre projet dans une nouvelle appli
     | ------ | ----- | ----------- |
     | Sélectionnez une application de fonction dans Azure | Créer une application de fonction dans Azure | À l’invite suivante, tapez un nom global unique identifiant votre nouvelle application de fonction et sélectionnez Entrée. Les caractères valides pour un nom d’application de fonction sont `a-z`, `0-9` et `-`. |
     | Sélectionner un système d’exploitation | Windows | L’application de fonction s’exécute sur Windows. |
-    | Sélectionner un plan d’hébergement | Plan de consommation | [L’hébergement dans un plan de consommation](functions-scale.md#consumption-plan) serverless est utilisé. |
+    | Sélectionner un plan d’hébergement | Plan de consommation | [L’hébergement dans un plan de consommation](consumption-plan.md) serverless est utilisé. |
     | Sélectionner un runtime pour votre nouvelle application | Langage de votre projet | Le runtime doit correspondre au projet que vous publiez. |
     | Sélectionner un groupe de ressources pour les nouvelles ressources | Créer un groupe de ressources | À l’invite suivante, tapez un nom de groupe de ressources, comme `myResourceGroup`, et sélectionnez Entrée. Vous pouvez également sélectionner un groupe de ressources existant. |
     | Sélectionner un compte de stockage | Créer un nouveau compte de stockage | À l’invite suivante, tapez le nom global unique du nouveau compte de stockage utilisé par votre application de fonction et sélectionnez Entrée. Les noms des comptes de stockage doivent comporter entre 3 et 24 caractères, et contenir uniquement des lettres minuscules et des chiffres. Vous pouvez également sélectionner un compte existant. |

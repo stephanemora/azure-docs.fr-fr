@@ -5,12 +5,12 @@ ms.devlang: ruby
 ms.topic: tutorial
 ms.date: 06/18/2020
 ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli
-ms.openlocfilehash: f565fcef60b2cb4726b180eb67e6ac1fcaefc24b
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: f501fb6b5bca5b19e15eb03d9639d08b848ad02f
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347844"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97968600"
 ---
 # <a name="build-a-ruby-and-postgres-app-in-azure-app-service-on-linux"></a>Générer une application Ruby et Postgres dans Azure App Service sur Linux
 
@@ -37,7 +37,8 @@ Pour suivre ce tutoriel :
 - [Installez Git](https://git-scm.com/)
 - [Installez Ruby 2.6](https://www.ruby-lang.org/en/documentation/installation/)
 - [Installez Ruby on Rails 5.1](https://guides.rubyonrails.org/v5.1/getting_started.html)
-- [Installez et exécutez PostgreSQL](https://www.postgresql.org/download/)
+- [Téléchargez et exécutez PostgreSQL](https://www.postgresql.org/download/)
+
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="prepare-local-postgres"></a>Préparation du Postgres local
@@ -291,7 +292,7 @@ git remote add azure <paste-copied-url-here>
 Effectuez une transmission de type push vers le référentiel distant Azure pour déployer l’application Ruby on Rails. Le mot de passe que vous avez fourni précédemment dans le cadre de la création de l’utilisateur du déploiement vous est demandé.
 
 ```bash
-git push azure master
+git push azure main
 ```
 
 Au cours du déploiement, Azure App Service communique sa progression avec Git.
@@ -302,7 +303,7 @@ Delta compression using up to 8 threads.
 Compressing objects: 100% (3/3), done.
 Writing objects: 100% (3/3), 291 bytes | 0 bytes/s, done.
 Total 3 (delta 2), reused 0 (delta 0)
-remote: Updating branch 'master'.
+remote: Updating branch 'main'.
 remote: Updating submodules.
 remote: Preparing deployment for commit id 'a5e076db9c'.
 remote: Running custom deployment command...
@@ -421,7 +422,7 @@ Validez toutes les modifications dans Git, puis envoyez les modifications de cod
 ```bash
 git add .
 git commit -m "added complete checkbox"
-git push azure master
+git push azure main
 ```
 
 Une fois le `git push` terminé, accédez à l’application Azure et testez la nouvelle fonctionnalité.

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/12/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 9cc19548f0b969421974afe3e274fc5334590cb0
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: b487dcad83ccbc31adf2d7ec2dd77c490db2c68e
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97805635"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935192"
 ---
 Azure Functions permet de créer des tâches de réplication destinées uniquement à la configuration qui s’appuient sur un point d’entrée prédéfini. Les [exemples de réplication basée sur la configuration pour Azure Functions](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config) illustrent comment tirer parti de l’[assistance prégénérée](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/src/Azure.Messaging.Replication) dans votre propre code ou comment éviter de manipuler du code et utiliser simplement la configuration.
 
@@ -166,7 +166,7 @@ Si vous souhaitez transférer des événements vers une file d’attente Service
             "direction": "out",
             "type": "serviceBus",
             "connection": "functionname-target-connection",
-            "eventHubName": "queue-b",
+            "queueName": "queue-b",
             "name": "output" 
         }
     ...
@@ -190,7 +190,7 @@ Si vous souhaitez transférer des événements vers une rubrique Service Bus, aj
             "direction": "out",
             "type": "serviceBus",
             "connection": "functionname-target-connection",
-            "eventHubName": "queue-b",
+            "topicName": "topic-b",
             "name": "output" 
         }
     ...

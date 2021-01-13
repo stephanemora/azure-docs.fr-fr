@@ -4,12 +4,12 @@ description: Découvrez comment développer sur Azure Functions à l’aide de C
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 07/24/2020
-ms.openlocfilehash: 9e11d013b6e7473f290ba1ccb54857034491d116
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 77ae736c787666df5e78358bc78e06eee9b7d4f9
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97672663"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936921"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Informations de référence pour les développeurs C# sur Azure Functions
 
@@ -138,7 +138,7 @@ public static class BindingExpressionsExample
 
 Le processus de build crée un fichier *function.json* dans un dossier de fonction du dossier de build. Comme indiqué précédemment, ce fichier n’est pas destiné à être modifié directement. Vous ne pouvez pas modifier la configuration des liaisons ni désactiver la fonction en modifiant ce fichier. 
 
-L’objectif de ce fichier est de fournir au contrôleur de mise à l’échelle les informations à utiliser pour les [ décisions de mise à l’échelle affectant le plan Consommation](functions-scale.md#how-the-consumption-and-premium-plans-work). C’est pourquoi le fichier ne contient pas de liaisons d’entrée ou de sortie, mais uniquement des informations de déclencheur.
+L’objectif de ce fichier est de fournir au contrôleur de mise à l’échelle les informations à utiliser pour les [ décisions de mise à l’échelle affectant le plan Consommation](event-driven-scaling.md). C’est pourquoi le fichier ne contient pas de liaisons d’entrée ou de sortie, mais uniquement des informations de déclencheur.
 
 Le fichier *function.json* généré inclut une propriété `configurationSource` qui indique au runtime d’utiliser les attributs .NET pour les liaisons, au lieu de la configuration *function.json*. Voici un exemple :
 
@@ -208,7 +208,7 @@ L’installation des outils Core Tools à l’aide de npm n’affecte pas la ver
 
 ## <a name="readytorun"></a>ReadyToRun
 
-Vous pouvez compiler votre application de fonction en tant que [binaires ReadyToRun](/dotnet/core/whats-new/dotnet-core-3-0#readytorun-images). ReadyToRun est une forme de compilation à l’avance qui peut améliorer les performances de démarrage pour réduire l’impact de [ démarrage à froid](functions-scale.md#cold-start) lors de l’exécution dans un [plan de consommation.](functions-scale.md#consumption-plan)
+Vous pouvez compiler votre application de fonction en tant que [binaires ReadyToRun](/dotnet/core/whats-new/dotnet-core-3-0#readytorun-images). ReadyToRun est une forme de compilation à l’avance qui peut améliorer les performances de démarrage pour réduire l’impact de [ démarrage à froid](event-driven-scaling.md#cold-start) lors de l’exécution dans un [plan de consommation.](consumption-plan.md)
 
 ReadyToRun est disponible dans .NET 3.0 et requiert la[version 3.0 d’Azure Functions Runtime](functions-versions.md).
 

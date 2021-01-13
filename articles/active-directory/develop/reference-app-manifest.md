@@ -13,12 +13,12 @@ ms.date: 04/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: 1f4e1def81fc79ec159ce6be825793a9bd8d0ce7
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: b29d8007ba7c6fb41209ad4f792069667416616b
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286960"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98011541"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Manifeste d’application Azure Active Directory
 
@@ -33,7 +33,7 @@ Vous pouvez configurer les attributs d’une application via le portail Azure ou
 
 Pour configurer le manifeste de l’application :
 
-1. Accédez au [portail Azure](https://portal.azure.com). Recherchez et sélectionnez le service **Azure Active Directory**.
+1. Accédez au <a href="https://portal.azure.com/" target="_blank">portail Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>. Recherchez et sélectionnez le service **Azure Active Directory**.
 1. Sélectionnez **Inscriptions d’applications**.
 1. Sélectionnez l’application à configurer.
 1. sélectionner la section **Manifeste** sur la **page de présentation** de l’application. Un éditeur de manifeste web s’ouvre, vous permettant de modifier le manifeste depuis le portail. Si vous le souhaitez, vous pouvez sélectionner **Télécharger** pour modifier localement le manifeste, puis utiliser **Charger** afin de l’appliquer de nouveau à votre application.

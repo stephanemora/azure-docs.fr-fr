@@ -1,25 +1,24 @@
 ---
 title: Concepts de point de contrôle et de récupération par réexécution dans Azure Stream Analytics
 description: Cet article décrit les concepts de point de contrôle et de relecture pour la récupération de travail dans Azure Stream Analytics.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: sidramadoss
+ms.author: sidram
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 10d9053e082a995085fa255cc0d9f63a2b4e2b17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: df31f8538bb9eabeca37fe4c52c4443fd447e415
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84020606"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015316"
 ---
 # <a name="checkpoint-and-replay-concepts-in-azure-stream-analytics-jobs"></a>Concepts de point de contrôle et de relecture dans les travaux Azure Stream Analytics
 Cet article décrit les concepts de point de contrôle et de relecture internes dans Azure Stream Analytics ainsi que leur impact sur la récupération de travail. Chaque fois qu’un travail Stream Analytics s’exécute, les informations d’état sont gérées en interne. Ces informations d’état sont régulièrement enregistrées dans un point de contrôle. Dans certains scénarios, les informations de point de contrôle sont utilisées pour la récupération du travail en cas d’échec ou de mise à niveau. Dans d’autres circonstances, le point de contrôle ne peut pas être utilisé pour la récupération et une relecture est nécessaire.
 
-## <a name="stateful-query-logicin-temporal-elements"></a>Logique de requête avec état dans les éléments temporels
-L’une des caractéristiques propres à un travail Azure Stream Analytics consiste à effectuer un traitement avec état, comme des agrégations fenêtrées, jointures temporelles et fonctions d’analyse temporelle. Chacun de ces opérateurs conserve des informations d’état pendant l’exécution du travail. La taille maximale de la fenêtre pour ces éléments de requête est de sept jours. 
+## <a name="stateful-query-logic-in-temporal-elements"></a>Logique de requête avec état dans les éléments temporels
+L’une des caractéristiques propres à un travail Azure Stream Analytics consiste à effectuer un traitement avec état, comme des agrégations fenêtrées, jointures temporelles et fonctions d’analyse temporelle. Chacun de ces opérateurs conserve des informations d’état pendant l’exécution du travail.  La taille maximale de la fenêtre pour ces éléments de requête est de sept jours. 
 
 Le concept de fenêtre temporelle apparaît dans plusieurs éléments de requête Stream Analytics :
 1. Agrégats fenêtrés (GROUP BY de fenêtres de Bascule, Récurrente et Glissante)

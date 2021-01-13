@@ -3,12 +3,12 @@ title: Adresses IP dans Azure Functions
 description: Découvrez comment trouver les adresses IP entrantes et sortantes des applications de fonction, et ce qui les fait changer.
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.openlocfilehash: 1d2cf34ee4712705eaa1c0da5ad63712f9e649fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 291a1cda7b8a2acc5426ea255519e1c2e58a2d7c
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91652463"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936717"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Adresses IP dans Azure Functions
 
@@ -51,7 +51,7 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 ```
 
 > [!NOTE]
-> Lorsqu’une application de fonction qui s’exécute sur le [plan de consommation](functions-scale.md#consumption-plan) ou le [plan Premium](functions-scale.md#premium-plan) est mise à l’échelle, une nouvelle plage d’adresses IP sortantes peut être attribuée. En cas d’exécution sur l’un de ces plans, il se peut que vous ayez besoin d’ajouter l’ensemble du centre de données à une liste verte.
+> Lorsqu’une application de fonction qui s’exécute sur le [plan de consommation](consumption-plan.md) ou le [plan Premium](functions-premium-plan.md) est mise à l’échelle, une nouvelle plage d’adresses IP sortantes peut être attribuée. En cas d’exécution sur l’un de ces plans, il se peut que vous ayez besoin d’ajouter l’ensemble du centre de données à une liste verte.
 
 ## <a name="data-center-outbound-ip-addresses"></a>Adresses IP sortantes du centre de données
 
@@ -89,7 +89,7 @@ L’adresse IP entrante **peut** changer dans les cas suivants :
 - vous supprimez la dernière application de fonction dans une combinaison de groupe de ressources et de région, puis la recréez ;
 - vous supprimez une liaison TLS, par exemple, pendant le [renouvellement des certificats](../app-service/configure-ssl-certificate.md#renew-certificate).
 
-Lorsque votre application de fonction s’exécute dans un [plan de consommation](functions-scale.md#consumption-plan) ou un [plan Premium](functions-scale.md#premium-plan), l’adresse IP entrante peut également changer, même quand vous n’avez effectué aucune des actions [répertoriées ci-dessus](#inbound-ip-address-changes).
+Lorsque votre application de fonction s’exécute dans un [plan de consommation](consumption-plan.md) ou un [plan Premium](functions-premium-plan.md), l’adresse IP entrante peut également changer, même quand vous n’avez effectué aucune des actions [répertoriées ci-dessus](#inbound-ip-address-changes).
 
 ## <a name="outbound-ip-address-changes"></a>Changement d’adresse IP sortante
 
@@ -98,7 +98,7 @@ L’ensemble d’adresses IP sortantes disponibles pour une application de fonct
 * vous effectuez une action susceptible de modifier l’adresse IP entrante ;
 * vous modifiez le niveau tarifaire de votre plan App Service. La liste de toutes les adresses IP sortantes utilisables par votre application, pour tous les niveaux tarifaires, est donnée dans la propriété `possibleOutboundIPAddresses`. Consultez [Trouver des adresses IP sortantes](#find-outbound-ip-addresses).
 
-Lorsque votre application de fonction s’exécute dans un [plan de consommation](functions-scale.md#consumption-plan) ou un [plan Premium](functions-scale.md#premium-plan), l’adresse IP sortante peut également changer, même quand vous n’avez effectué aucune des actions [répertoriées ci-dessus](#inbound-ip-address-changes).
+Lorsque votre application de fonction s’exécute dans un [plan de consommation](consumption-plan.md) ou un [plan Premium](functions-premium-plan.md), l’adresse IP sortante peut également changer, même quand vous n’avez effectué aucune des actions [répertoriées ci-dessus](#inbound-ip-address-changes).
 
 Pour forcer délibérément un changement d’adresse IP sortante :
 

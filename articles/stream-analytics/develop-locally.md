@@ -1,17 +1,17 @@
 ---
 title: Développer et déboguer des travaux Azure Stream Analytics localement
 description: Découvrez comment développer et tester des travaux Azure Stream Analytics sur votre ordinateur local avant de les exécuter dans le portail Azure.
-ms.author: mamccrea
-author: mamccrea
+ms.author: sujie
+author: su-jie
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.service: stream-analytics
-ms.openlocfilehash: 797577ce976f71f41ece0d103bd0145775d48b56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18df480dab90d9ab127bb96971fc19cdc5a361ce
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90885587"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98016471"
 ---
 # <a name="develop-and-debug-azure-stream-analytics-jobs-locally"></a>Développer et déboguer des travaux Azure Stream Analytics localement
 

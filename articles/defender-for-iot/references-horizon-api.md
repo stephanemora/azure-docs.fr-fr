@@ -4,15 +4,15 @@ description: Ce guide décrit les méthodes Horizon couramment utilisées.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 11/19/2020
+ms.date: 1/7/2020
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 3266517b9ddc8fc7ac7b06a137286c05ea9a28fa
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 6d2e3fccd6a61fe129050faa29cb7bb77674ccfe
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97835519"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976898"
 ---
 # <a name="horizon-api"></a>API Horizon 
 
@@ -24,7 +24,7 @@ Pour plus d’informations sur l’utilisation d’Horizon et de la plateforme C
 
 - Pour le kit de développement logiciel (SDK) Horizon Open Development Environment (ODE), contactez votre représentant CyberX.
 - Pour obtenir des informations de support et de dépannage, contactez <support@cyberx-labs.com>.
-- Pour accéder au Guide de l’utilisateur CyberX à partir de la console CyberX, sélectionnez :::image type="icon" source="media/references-horizon-api//image3.png":::, puis **Télécharger le Guide de l’utilisateur**.
+- Pour accéder au Guide de l’utilisateur CyberX à partir de la console CyberX, sélectionnez :::image type="icon" source="media/references-horizon-api/profile-icon.png":::, puis **Télécharger le Guide de l’utilisateur**.
 
 ## `horizon::protocol::BaseParser`
 

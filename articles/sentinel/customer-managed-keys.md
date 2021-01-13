@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/12/2020
 ms.author: yelevin
-ms.openlocfilehash: bd85936c86656a8ae59a04ccdf53a62bd852368f
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: b346a23ccde6abd0f76982a4d19e00e28e8511a7
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94655270"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97930869"
 ---
 # <a name="set-up-azure-sentinel-customer-managed-key"></a>Configurer une clé gérée par le client Azure Sentinel
 
@@ -63,7 +63,7 @@ Pour provisionner CMK, effectuez les étapes suivantes :
     > [!NOTE]
     >  Azure Key Vault doit être configuré comme récupérable pour protéger votre clé et l’accès.
 
-1.  [Activez les options de récupération :](../key-vault/general/best-practices.md#turn-on-recovery-options)
+1.  [Activez les options de récupération :](../key-vault/general/key-vault-recovery.md)
 
     -   Vérifiez que la [suppression réversible](../key-vault/general/soft-delete-overview.md) est activée.
 

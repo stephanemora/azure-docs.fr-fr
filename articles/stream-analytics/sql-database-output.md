@@ -1,18 +1,17 @@
 ---
 title: Sortie dans Azure SQL Database d’Azure Stream Analytics
 description: Cet article décrit le Azure SQL Database en tant que sortie pour Azure Stream Analytics.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: fc333994deaa03ec04405ea032b2ab1956705fe3
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 631fdba451f69e44a675d396a42e1cddaea50a3b
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740315"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98013955"
 ---
 # <a name="azure-sql-database-output-from-azure-stream-analytics"></a>Sortie dans Azure SQL Database d’Azure Stream Analytics
 

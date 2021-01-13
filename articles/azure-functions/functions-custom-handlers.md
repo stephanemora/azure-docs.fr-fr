@@ -5,12 +5,12 @@ author: anthonychu
 ms.author: antchu
 ms.date: 12/1/2020
 ms.topic: article
-ms.openlocfilehash: 099f90ba8c5d9dabb6c4c505e50d8c077e3eaf0f
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: f527b387afc01eb60bd582adc13a4ad3d516055b
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746027"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936989"
 ---
 # <a name="azure-functions-custom-handlers"></a>Gestionnaires personnalisés Azure Functions
 
@@ -407,7 +407,7 @@ En définissant la sortie `message` comme étant égale aux données de commande
 Pour les fonctions déclenchées par HTTP sans aucune liaison ou sortie supplémentaire, vous souhaiterez peut-être que votre gestionnaire utilise directement la requête et la réponse HTTP au lieu des charges utiles de [demande](#request-payload) et de [réponse](#response-payload) du gestionnaire personnalisé. Ce comportement peut être configuré dans *host.json* à l’aide du paramètre `enableForwardingHttpRequest`.
 
 > [!IMPORTANT]
-> La fonctionnalité de gestionnaire personnalisé vise essentiellement à activer les langages et les runtimes qui ne disposent pas actuellement d’une prise en charge de première classe dans Azure Functions. Bien qu’il soit possible d’exécuter les applications web en utilisant des gestionnaires personnalisés, Azure Functions n’est pas un proxy inverse standard. Certaines fonctionnalités, comme le streaming des réponses, HTTP/2 et les WebSockets, ne sont pas disponibles. Certains composants de la requête HTTP, notamment certains en-têtes et certaines routes, peuvent être restreints. Votre application peut aussi faire l’objet d’un [démarrage à froid](functions-scale.md#cold-start) excessif.
+> La fonctionnalité de gestionnaire personnalisé vise essentiellement à activer les langages et les runtimes qui ne disposent pas actuellement d’une prise en charge de première classe dans Azure Functions. Bien qu’il soit possible d’exécuter les applications web en utilisant des gestionnaires personnalisés, Azure Functions n’est pas un proxy inverse standard. Certaines fonctionnalités, comme le streaming des réponses, HTTP/2 et les WebSockets, ne sont pas disponibles. Certains composants de la requête HTTP, notamment certains en-têtes et certaines routes, peuvent être restreints. Votre application peut aussi faire l’objet d’un [démarrage à froid](event-driven-scaling.md#cold-start) excessif.
 >
 > Pour faire face à ces situations, envisagez d’exécuter vos applications web dans [Azure App Service](../app-service/overview.md).
 

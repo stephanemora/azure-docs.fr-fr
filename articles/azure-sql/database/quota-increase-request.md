@@ -9,12 +9,12 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: sstein
 ms.date: 06/04/2020
-ms.openlocfilehash: cfcdd143a26d36ed3c4646122fce7c19c41976d0
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 44a37a912c5c7a882d21631b8ce2da2c7ba9c05e
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91448830"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97967699"
 ---
 # <a name="request-quota-increases-for-azure-sql-database-and-sql-managed-instance"></a>Demander des augmentations de quota pour Azure SQL Database et SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -109,16 +109,18 @@ Si votre abonnement a besoin d’un accès dans une région particulière, séle
 
    ![Demander l’accès à une région](./media/quota-increase-request/quota-request.png)
 
-### <a name="enable-m-series-access-to-a-region"></a><a id="mseries"></a> Activer l’accès à une région de la série M
+<!--
+### <a id="mseries"></a> Enable M-series access to a region
 
-Pour activer le matériel de série M sur un abonnement et une région, il est nécessaire d’ouvrir une demande de support.
+To enable M-series hardware for a subscription and region, a support request must be opened.
 
-1. Sélectionnez le type de quota **Accès à la région de série M**.
+1. Select the **M-series region access** quota type.
 
-1. Dans la liste **Sélectionner un emplacement**, sélectionnez la région Azure à utiliser. Le quota s’entend par abonnement dans chaque région.
+1. In the **Select a location** list, select the Azure region to use. The quota is per subscription in each region.
 
 
-   ![Demande d’accès à la région de série M](./media/quota-increase-request/quota-m-series.png)
+   ![Request M-series region access](./media/quota-increase-request/quota-m-series.png)
+-->
 
 ## <a name="sql-managed-instance-quota-type"></a><a id="sqlmiquota"></a> Type de quota SQL Managed Instance
 

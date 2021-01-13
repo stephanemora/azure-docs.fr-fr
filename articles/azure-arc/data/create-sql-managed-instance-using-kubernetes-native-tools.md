@@ -9,12 +9,12 @@ ms.author: vinsonyu
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 2902274cfff11ac256459abd4fe0378146ee067b
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: dde2794e459e9375a231b7792bc1bd5ab21561bf
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280178"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955227"
 ---
 # <a name="create-azure-sql-managed-instance-using-kubernetes-tools"></a>Créer une instance gérée Azure SQL à l’aide des outils Kubernetes
 
@@ -34,7 +34,7 @@ Pour créer une instance gérée SQL, vous devez créer un secret Kubernetes pou
 
 ## <a name="create-a-yaml-file"></a>Créer un fichier YAML
 
-Vous pouvez utiliser le [modèle de fichier YAML](https://raw.githubusercontent.com/microsoft/azure_arc/master/arc_data_services/deploy/yaml/sqlmi.yaml) comme point de départ pour créer votre propre fichier YAML d’instance gérée SQL personnalisée.  Téléchargez ce fichier sur votre ordinateur local et ouvrez-le dans un éditeur de texte.  Il est utile d’utiliser un éditeur de texte tel que [VS Code](https://code.visualstudio.com/download) qui prend en charge la mise en surbrillance de la syntaxe et le linting pour les fichiers YAML.
+Vous pouvez utiliser le [modèle de fichier YAML](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/sqlmi.yaml) comme point de départ pour créer votre propre fichier YAML d’instance gérée SQL personnalisée.  Téléchargez ce fichier sur votre ordinateur local et ouvrez-le dans un éditeur de texte.  Il est utile d’utiliser un éditeur de texte tel que [VS Code](https://code.visualstudio.com/download) qui prend en charge la mise en surbrillance de la syntaxe et le linting pour les fichiers YAML.
 
 Voici un exemple de fichier YAML :
 
@@ -160,7 +160,7 @@ kubectl get sqlmi/sql1 --namespace arc
 kubectl get pods --namespace arc
 ```
 
-Vous pouvez également vérifier l’état de la création de n’importe quel pod en exécutant une commande comme celle qui figure ci-dessous.  C’est particulièrement utile pour résoudre les problèmes.
+Vous pouvez également vérifier l’état de la création de n’importe quel pod en exécutant une commande comme celle qui figure ci-dessous.  C’est particulièrement pratique pour résoudre les éventuels problèmes.
 
 ```console
 kubectl describe po/<pod name> --namespace arc

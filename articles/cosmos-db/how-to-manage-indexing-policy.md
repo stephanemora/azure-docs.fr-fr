@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/02/2020
 ms.author: tisande
 ms.custom: devx-track-python, devx-track-js, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: cd51210a64223fab5d2d48a91bd3d0a6521a9627
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 8d52f8c59e83a4aae8724100770965f756a439fb
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341312"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015689"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Gérer les stratégies d’indexation dans Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -27,7 +27,7 @@ Dans Azure Cosmos DB, les données sont indexées suivant les [stratégies d’
 
 Voici quelques exemples de stratégies d’indexation au [format JSON](index-policy.md#include-exclude-paths), comme elles apparaissent sur le Portail Azure. Les mêmes paramètres peuvent être définis par le biais de l’interface Azure CLI ou de n’importe quel SDK.
 
-### <a name="opt-out-policy-to-selectively-exclude-some-property-paths"></a>Stratégie de refus pour exclure de façon sélective certains chemins de propriété
+### <a name="opt-out-policy-to-selectively-exclude-some-property-paths"></a><a id="range-index"></a>Stratégie de refus pour exclure de façon sélective certains chemins de propriété
 
 ```json
     {
@@ -146,7 +146,7 @@ Cette stratégie d’indexation est équivalente à celle ci-dessous, qui permet
 > [!NOTE]
 > Il est généralement recommandé d’utiliser une stratégie d’indexation de **refus** pour permettre à Azure Cosmos DB d’indexer de manière proactive toute nouvelle propriété qui peut être ajoutée à votre modèle de données.
 
-### <a name="using-a-spatial-index-on-a-specific-property-path-only"></a>Utilisation d’un index spatial uniquement sur un chemin de propriété spécifique
+### <a name="using-a-spatial-index-on-a-specific-property-path-only"></a><a id="spatial-index"></a>Utilisation d’un index spatial uniquement sur un chemin de propriété spécifique
 
 ```json
 {
@@ -176,7 +176,7 @@ Cette stratégie d’indexation est équivalente à celle ci-dessous, qui permet
 }
 ```
 
-## <a name="composite-indexing-policy-examples"></a>Exemples de stratégies d’indexation composite
+## <a name="composite-indexing-policy-examples"></a><a id="composite-index"></a>Exemples de stratégies d’indexation composite
 
 En plus d’inclure ou d’exclure des chemins pour les propriétés individuelles, vous pouvez également spécifier un index composite. Si vous souhaitez effectuer une requête qui a une `ORDER BY` clause pour plusieurs propriétés, un [index composite](index-policy.md#composite-indexes) sur ces propriétés est requis. De plus, les index composites présentent un avantage en matière de performances pour les requêtes qui ont des filtres multiples ou un filtre et une clause ORDER BY à la fois.
 
@@ -359,7 +359,7 @@ Les conteneurs Azure Cosmos stockent leur stratégie d’indexation sous la form
 
 1. Créez un compte Azure Cosmos ou sélectionnez un compte existant.
 
-1. Ouvrez le volet **Explorateur de données** , puis sélectionnez le conteneur avec lequel vous voulez travailler.
+1. Ouvrez le volet **Explorateur de données**, puis sélectionnez le conteneur avec lequel vous voulez travailler.
 
 1. Cliquez sur **Mise à l’échelle et paramètres**.
 

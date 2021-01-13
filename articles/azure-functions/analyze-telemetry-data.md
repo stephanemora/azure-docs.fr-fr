@@ -4,12 +4,12 @@ description: Découvrez comment afficher et interroger les données de télémé
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 1d8d9cc9a7a4111e98b1d9141957769d6f157d45
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 14b6ed3964900e3395ca335c301dfd0285da46e7
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027728"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937295"
 ---
 # <a name="analyze-azure-functions-telemetry-in-application-insights"></a>Analyser la télémétrie d’Azure Functions dans Application Insights 
 
@@ -108,7 +108,7 @@ Le runtime fournit les champs `customDimensions.LogLevel` et `customDimensions.C
 
 ## <a name="consumption-plan-specific-metrics"></a>Mesures spécifiques au plan Consommation
 
-Dans le cadre d’un [plan Consommation](functions-scale.md#consumption-plan), le *coût* d’exécution d’une fonction unique se mesure en *Go-secondes*. Le coût d’exécution est calculé en combinant l’utilisation de sa mémoire et sa durée d’exécution. Pour en savoir plus, consultez [Estimation des coûts d’un plan Consommation](functions-consumption-costs.md).
+Dans le cadre d’un [plan Consommation](consumption-plan.md), le *coût* d’exécution d’une fonction unique se mesure en *Go-secondes*. Le coût d’exécution est calculé en combinant l’utilisation de sa mémoire et sa durée d’exécution. Pour en savoir plus, consultez [Estimation des coûts d’un plan Consommation](functions-consumption-costs.md).
 
 Les requêtes de télémétrie suivantes sont spécifiques aux métriques qui ont un impact sur le coût d’exécution des fonctions dans le plan Consommation.
 

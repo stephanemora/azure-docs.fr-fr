@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: maquaran
 ms.custom: devx-track-dotnet, contperf-fy21q2
-ms.openlocfilehash: c30e97a4bff8fa845f6eb3c3092a00ee541e59f4
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: cf985999bac0cf45eec5d8f0f5f9e921b6f4591c
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032794"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934949"
 ---
 # <a name="azure-cosmos-db-sql-sdk-connectivity-modes"></a>Modes de connectivité du SDK SQL Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -28,7 +28,7 @@ Les deux modes de connexion disponibles sont les suivants :
       
     Le mode de passerelle est pris en charge sur toutes les plateformes SDK. Si votre application s’exécute dans un réseau d’entreprise avec des restrictions de pare-feu strictes, le mode passerelle est la meilleure option, car il utilise le port HTTPS standard et un seul point de terminaison DNS. Toutefois, il existe un compromis en termes de performances : le mode passerelle implique un tronçon réseau supplémentaire chaque fois que les données sont lues ou écrites dans Azure Cosmos DB. Nous vous recommandons le mode de connexion de passerelle quand vous exécutez des applications dans des environnements présentant un nombre limité de connexions de socket.
 
-    Quand vous utilisez le Kit de développement logiciel (SDK) dans Azure Functions, en particulier dans le [plan Consommation](../azure-functions/functions-scale.md#consumption-plan), prenez en compte les [limites de connexions](../azure-functions/manage-connections.md) actuelles.
+    Quand vous utilisez le Kit de développement logiciel (SDK) dans Azure Functions, en particulier dans le [plan Consommation](../azure-functions/consumption-plan.md), prenez en compte les [limites de connexions](../azure-functions/manage-connections.md) actuelles.
 
   * Mode direct
 

@@ -3,12 +3,12 @@ title: Estimation des coûts d’un plan Consommation dans Azure Functions
 description: Apprenez à mieux estimer les coûts induits par l’exécution de votre application de fonction dans un plan Consommation dans Azure.
 ms.date: 9/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 58082e03c1416848e9aa1e97308bed1ceaa67295
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 430804d478df718f51ae1da9adb6693f597157a9
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168107"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934881"
 ---
 # <a name="estimating-consumption-plan-costs"></a>Estimation des coûts d’un plan Consommation
 
@@ -16,9 +16,9 @@ Il existe actuellement trois types de plans d’hébergement pour une applicatio
 
 | Plan | Description |
 | ---- | ----------- |
-| [**Consommation**](functions-scale.md#consumption-plan) | Vous êtes facturé uniquement pour la durée d’exécution de votre application de fonction. Ce plan comprend un [forfait gratuit][page des tarifs] par abonnement.|
-| [**Premium**](functions-scale.md#premium-plan) | Fournit les mêmes fonctionnalités et le même mécanisme de mise à l’échelle que le plan Consommation, mais avec des performances améliorées et un accès au réseau virtuel. Le coût se base sur le niveau tarifaire choisi. Pour plus d’informations, consultez [Plan Premium Azure Functions](functions-premium-plan.md). |
-| [**Dédié (App Service)**](functions-scale.md#app-service-plan) <br/>(niveau de base ou supérieur) | Si vous avez besoin d’exécuter sur des machines virtuelles dédiées ou en isolation, d’utiliser des images personnalisées ou si vous voulez utiliser votre capacité de plan App Service en excès. Utilise la [facturation du plan App Service standard](https://azure.microsoft.com/pricing/details/app-service/). Le coût se base sur le niveau tarifaire choisi.|
+| [**Consommation**](consumption-plan.md) | Vous êtes facturé uniquement pour la durée d’exécution de votre application de fonction. Ce plan comprend un [forfait gratuit][page des tarifs] par abonnement.|
+| [**Premium**](functions-premium-plan.md) | Fournit les mêmes fonctionnalités et le même mécanisme de mise à l’échelle que le plan Consommation, mais avec des performances améliorées et un accès au réseau virtuel. Le coût se base sur le niveau tarifaire choisi. Pour plus d’informations, consultez [Plan Premium Azure Functions](functions-premium-plan.md). |
+| [**Dédié (App Service)**](dedicated-plan.md) <br/>(niveau de base ou supérieur) | Si vous avez besoin d’exécuter sur des machines virtuelles dédiées ou en isolation, d’utiliser des images personnalisées ou si vous voulez utiliser votre capacité de plan App Service en excès. Utilise la [facturation du plan App Service standard](https://azure.microsoft.com/pricing/details/app-service/). Le coût se base sur le niveau tarifaire choisi.|
 
 Vous avez choisi le plan qui répond le mieux à vos besoins de performance et à votre budget. Pour en savoir plus, voir [Mise à l’échelle et hébergement d’Azure Functions](functions-scale.md).
 

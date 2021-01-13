@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/27/2020
 ms.author: mbaldwin
-ms.openlocfilehash: fb28b4b678b37f69331b2ecff6272fd7aa64d191
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 4cf0393cdb0aae1b352b81df4893f874f34970cc
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93287616"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934529"
 ---
 # <a name="assign-a-key-vault-access-policy-using-azure-powershell"></a>Attribuer une stratégie d’accès Key Vault à l’aide d’Azure PowerShell
 
@@ -51,7 +51,7 @@ Déterminez l’ID d’objet de l’application, du groupe ou de l’utilisateur
     Get-AzADServicePrincipal -SearchString <search-string>
     ```
 
-- Groupes : utilisez la cmdlet [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup?view=azps-2.7.0) avec le paramètre `-SearchString` pour filtrer les résultats sur le nom du groupe souhaité :
+- Groupes : utilisez la cmdlet [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup) avec le paramètre `-SearchString` pour filtrer les résultats sur le nom du groupe souhaité :
 
     ```azurepowershell-interactive
     Get-AzADGroup -SearchString <search-string>
@@ -79,7 +79,6 @@ Vous avez uniquement besoin d’inclure `-PermissionsToSecrets`, `-PermissionsTo
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Sécurité d’Azure Key Vault : Gestion des identités et des accès](overview-security.md#identity-and-access-management)
+- [Sécurité d’Azure Key Vault : Gestion des identités et des accès](security-overview.md#identity-management)
 - [Sécuriser votre coffre de clés](secure-your-key-vault.md)
 - [Guide du développeur Azure Key Vault](developers-guide.md)
-- [Bonnes pratiques relatives à Azure Key Vault](best-practices.md)

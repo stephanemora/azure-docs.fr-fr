@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
 ms.date: 12/07/2020
-ms.openlocfilehash: 0c4d0416c107c9ceb4cd0dbdf80761ab9b52d56c
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 7c15b3a854b533d93bc05f7e5302671711da75c2
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96923993"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936122"
 ---
 # <a name="overview-azure-logic-apps-preview"></a>Présentation : Préversion Azure Logic Apps
 
@@ -148,7 +148,7 @@ Azure Logic Apps (préversion) comprend de nombreuses capacités actuelles et su
 
 Quand vous créez le nouveau type d’application logique dans le portail Azure ou que vous le déployez à partir de Visual Studio Code, vous devez choisir un plan d’hébergement, [App Service ou Premium](../azure-functions/functions-scale.md), pour votre application logique. Ce plan détermine le modèle de tarification qui s’applique à l’exécution de votre application logique. Si vous sélectionnez le plan App Service, vous devez également choisir un [niveau tarifaire](../app-service/overview-hosting-plans.md).
 
-Les workflows *avec état* utilisant un [stockage externe](../azure-functions/functions-scale.md#storage-account-requirements), la [tarification de Stockage Azure](https://azure.microsoft.com/pricing/details/storage/) s’applique aux transactions de stockage que le runtime d’Azure Logic Apps (préversion) exécute. Par exemple, des files d’attente sont utilisées pour la planification, tandis que des tables et blobs sont utilisés pour stocker les états de flux de travail.
+Les workflows *avec état* utilisant un [stockage externe](../azure-functions/storage-considerations.md#storage-account-requirements), la [tarification de Stockage Azure](https://azure.microsoft.com/pricing/details/storage/) s’applique aux transactions de stockage que le runtime d’Azure Logic Apps (préversion) exécute. Par exemple, des files d’attente sont utilisées pour la planification, tandis que des tables et blobs sont utilisés pour stocker les états de flux de travail.
 
 > [!NOTE]
 > Pendant la préversion publique, l’exécution d’applications logiques sur App Service n’occasionne pas de frais *supplémentaires* en plus du coût du plan sélectionné.

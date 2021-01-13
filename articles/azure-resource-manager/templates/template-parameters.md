@@ -3,12 +3,12 @@ title: Paramètres dans les modèles
 description: Explique comment définir des paramètres dans un modèle Azure Resource Manager (ARM).
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: 4ac1aeb579040b35b2a9b4cb90fb5687f91ebd3b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 929d871bc0087d4fda585773b349dee4e0945c7c
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353508"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934711"
 ---
 # <a name="parameters-in-arm-templates"></a>Paramètres dans les modèles ARM
 
@@ -20,7 +20,7 @@ Chaque paramètre doit être défini sur l’un des [types de données](template
 
 ## <a name="define-parameter"></a>Définir un paramètre
 
-L’exemple suivant illustre une définition de paramètre simple. Il définit un paramètre nommé **storageSKU**. Le paramètre est une valeur de chaîne et accepte uniquement des valeurs qui sont valides pour l’utilisation pour laquelle il est prévu. Il utilise une valeur par défaut quand aucune valeur n’est fournie au cours du déploiement.
+L’exemple suivant illustre une définition de paramètre simple. Il définit un paramètre nommé `storageSKU`. Le paramètre est une valeur de chaîne et accepte uniquement des valeurs qui sont valides pour l’utilisation pour laquelle il est prévu. Il utilise une valeur par défaut quand aucune valeur n’est fournie au cours du déploiement.
 
 ```json
 "parameters": {

@@ -7,11 +7,11 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/13/2020
-ms.openlocfilehash: 26efa840bacd3ee542816cf861cf2ef586b0582f
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 88fb9c823df6ae5df345911ccce1c579009fba02
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 01/07/2021
 ms.locfileid: "96780210"
 ---
 # <a name="supported-data-stores"></a>Magasins de données pris en charge
@@ -31,7 +31,6 @@ Purview prend en charge les banques de données suivantes. Cliquez sur chaque ba
 ||[Azure SQL Database Managed Instance](register-scan-azure-sql-database-managed-instance.md)|Oui| Oui| Non| Oui| Oui| Oui|
 ||[Azure Synapse Analytics (anciennement SQL DW)](register-scan-azure-synapse-analytics.md)|Oui| Oui| Non| Oui| Oui| Oui|
 |Base de données|[SQL Server](register-scan-on-premises-sql-server.md)|Oui| Oui| Non| Oui| Oui| Oui|
-||[Teradata (préversion)](register-scan-teradata-source.md)|Oui| Oui| Non| Non| Non| Oui|
 |Power BI|[Power BI](register-scan-power-bi-tenant.md)|Oui| Oui| Non| Non| Non| Oui|
 
 ## <a name="next-steps"></a>Étapes suivantes

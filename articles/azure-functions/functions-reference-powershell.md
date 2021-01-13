@@ -5,12 +5,12 @@ author: eamonoreilly
 ms.topic: conceptual
 ms.custom: devx-track-dotnet, devx-track-azurepowershell
 ms.date: 04/22/2019
-ms.openlocfilehash: af9490433c344c712da55e9b29bf9df364380736
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 61ed3ed274505101c65e251260bd759fe78f7b31
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422533"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936785"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guide des développeurs PowerShell sur Azure Functions
 
@@ -649,11 +649,11 @@ Lorsque vous utilisez des fonctions PowerShell, tenez compte des considérations
 
 ### <a name="cold-start"></a>Démarrage à froid
 
-Lorsque vous développez Azure Functions dans le [modèle d’hébergement serverless](functions-scale.md#consumption-plan), les démarrages à froid sont une réalité. Le *démarrage à froid* fait référence à la période nécessaire à votre Function App pour commencer à traiter une requête. Le démarrage à froid se produit plus fréquemment dans le plan de consommation, car votre Function App s’arrête pendant les périodes d’inactivité.
+Lorsque vous développez Azure Functions dans le [modèle d’hébergement serverless](consumption-plan.md), les démarrages à froid sont une réalité. Le *démarrage à froid* fait référence à la période nécessaire à votre Function App pour commencer à traiter une requête. Le démarrage à froid se produit plus fréquemment dans le plan de consommation, car votre Function App s’arrête pendant les périodes d’inactivité.
 
 ### <a name="bundle-modules-instead-of-using-install-module"></a>Regrouper des modules au lieu d’utiliser `Install-Module`
 
-Votre script est exécuté à chaque appel. Évitez d’utiliser `Install-Module` dans votre script. Utilisez plutôt `Save-Module` avant la publication pour que votre fonction ne perde pas de temps à télécharger le module. Si les démarrages à froid affectent vos fonctions, envisagez de déployer votre Function App sur un [plan App Service](functions-scale.md#app-service-plan) défini sur *always on* ou sur un [plan Premium](functions-scale.md#premium-plan).
+Votre script est exécuté à chaque appel. Évitez d’utiliser `Install-Module` dans votre script. Utilisez plutôt `Save-Module` avant la publication pour que votre fonction ne perde pas de temps à télécharger le module. Si les démarrages à froid affectent vos fonctions, envisagez de déployer votre Function App sur un [plan App Service](dedicated-plan.md) défini sur *always on* ou sur un [plan Premium](functions-premium-plan.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

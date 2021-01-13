@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f34ca47d5ff6c809eef40f89ee0049285cfd7d42
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: aa6726bb5c60dceab0a58632da99c04361183246
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97355391"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97932688"
 ---
 # <a name="add-an-api-connector-to-a-user-flow"></a>Ajouter un connecteur d’API à un workflow d’utilisateur
 
@@ -319,7 +319,7 @@ Assurez-vous que :
 * L’**URL du point de terminaison** du connecteur d’API pointe vers le point de terminaison d’API approprié.
 * Votre API recherche explicitement les valeurs null des revendications reçues.
 * Votre API répond aussi rapidement que possible pour garantir une expérience utilisateur fluide.
-    * Si vous utilisez une fonction serverless ou un service web scalable, utilisez un plan d’hébergement qui conserve l’API dans un état « de veille » ou « dynamique ». Pour Azure Functions, il est recommandé d’utiliser le [plan Premium](../../azure-functions/functions-scale.md#premium-plan). 
+    * Si vous utilisez une fonction serverless ou un service web scalable, utilisez un plan d’hébergement qui conserve l’API dans un état « de veille » ou « dynamique ». Pour Azure Functions, il est recommandé d’utiliser le [plan Premium](../../azure-functions/functions-premium-plan.md). 
 
 
 ### <a name="use-logging"></a>Utiliser la journalisation

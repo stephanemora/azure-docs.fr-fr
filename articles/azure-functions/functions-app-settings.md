@@ -3,12 +3,12 @@ title: Informations de référence sur les paramètres d’application d’Azure
 description: Documentation de référence pour les paramètres d’application ou les variables d’environnement d’Azure Functions.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 3d7292999fc4b53fed06822461857185127dc793
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 72b42e392f350a8693ca8a052bdec1d5fd337234
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97898723"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937108"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Informations de référence sur les paramètres d’application d’Azure Functions
 
@@ -256,7 +256,7 @@ Pour les plans Consommation et Premium uniquement. Chemin d’accès au fichier 
 Nombre maximal d’instances possibles vers lequel l’application de fonction peut effectuer un scale-out. Par défaut, il n’y pas de limite.
 
 > [!IMPORTANT]
-> Ce paramètre est en préversion.  Une [propriété d’application pour un scale-out maximal](./functions-scale.md#limit-scale-out) a été ajoutée et constitue la méthode recommandée pour limiter le scale-out.
+> Ce paramètre est en préversion.  Une [propriété d’application pour un scale-out maximal](./event-driven-scaling.md#limit-scale-out) a été ajoutée et constitue la méthode recommandée pour limiter le scale-out.
 
 |Clé|Exemple de valeur|
 |---|------------|

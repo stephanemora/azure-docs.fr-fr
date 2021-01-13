@@ -3,16 +3,15 @@ title: Copier ou sauvegarder des travaux Azure Stream Analytics
 description: Cet article explique comment copier ou sauvegarder un travail Azure Stream Analytics.
 author: su-jie
 ms.author: sujie
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/11/2019
-ms.openlocfilehash: 67e28e8c5092f2b52a3a34053f81d8a00afb24ed
-ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+ms.openlocfilehash: 864c5ffc9ed88f438a5be5a1fcb55d0b78df5e07
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97683224"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98016609"
 ---
 # <a name="copy-or-back-up-azure-stream-analytics-jobs"></a>Copier ou sauvegarder des travaux Azure Stream Analytics
 

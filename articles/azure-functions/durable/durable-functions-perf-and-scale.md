@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: b9fc465b5e5f132264fd36e004fa3ee7623b87a5
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: c94218248f1122cdb60ab8124bc9d9365fe8947b
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96854986"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97931736"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Performances et mise à l’échelle dans Fonctions durables (Azure Functions)
 
@@ -51,7 +51,7 @@ L’extension Tâche durable implémente un algorithme d’interruption exponent
 Le délai maximal d’interrogation est configurable via la propriété `maxQueuePollingInterval` dans le [fichier host.json](../functions-host-json.md#durabletask). Une valeur plus élevée de cette propriété peut entraîner une plus grande latence lors du traitement des messages. Les latences plus élevées ne devraient survenir qu'après des périodes d'inactivité. Une valeur plus faible de cette propriété peut entraîner une augmentation des coûts de stockage en raison d’un nombre plus important de transactions de stockage.
 
 > [!NOTE]
-> Lorsqu’il est exécuté dans les plans Consommation et Premium d’Azure Functions, le [contrôleur de mise à l'échelle Azure Functions](../functions-scale.md#how-the-consumption-and-premium-plans-work) interrogera chaque contrôle et chaque file d'attente des éléments de travail toutes les 10 secondes. Cette interrogation supplémentaire est nécessaire pour déterminer quand activer les instances d'application de fonction et pour prendre des décisions de mise à l'échelle. Au moment d’écrire ces lignes, cet intervalle de 10 secondes est constant et ne peut pas être configuré.
+> Lorsqu’il est exécuté dans les plans Consommation et Premium d’Azure Functions, le [contrôleur de mise à l'échelle Azure Functions](../event-driven-scaling.md) interrogera chaque contrôle et chaque file d'attente des éléments de travail toutes les 10 secondes. Cette interrogation supplémentaire est nécessaire pour déterminer quand activer les instances d'application de fonction et pour prendre des décisions de mise à l'échelle. Au moment d’écrire ces lignes, cet intervalle de 10 secondes est constant et ne peut pas être configuré.
 
 ### <a name="orchestration-start-delays"></a>Retards de début de l’orchestration
 Les instances d’orchestration sont démarrées en plaçant un message `ExecutionStarted` dans l’une des files d’attente de contrôle du hub de tâches. Dans certaines conditions, vous pouvez observer des délais de plusieurs secondes entre le moment où l’exécution d’une orchestration est planifiée et le moment où elle commence à s’exécuter. Pendant ce laps de temps, l’instance d’orchestration reste dans l’état `Pending`. Il existe deux causes possibles pour ce retard :
@@ -138,7 +138,7 @@ En règle générale, les fonctions d’orchestrateur sont conçues pour être l
 
 ## <a name="auto-scale"></a>Mise à l’échelle automatique
 
-Comme avec toutes les Azure Functions exécutées dans les plans Consommation et Élastique Premium, Durable Functions prend en charge la mise à l’échelle automatique par le biais du [contrôleur de mise à l’échelle Azure Functions](../functions-scale.md#runtime-scaling). Le contrôleur de mise à l’échelle surveille la latence de toutes les files d’attente en émettant régulièrement des commandes _peek_. Selon la latence des messages parcourus, le contrôleur de mise à l’échelle décide d’ajouter ou de supprimer des machines virtuelles.
+Comme avec toutes les Azure Functions exécutées dans les plans Consommation et Élastique Premium, Durable Functions prend en charge la mise à l’échelle automatique par le biais du [contrôleur de mise à l’échelle Azure Functions](../event-driven-scaling.md#runtime-scaling). Le contrôleur de mise à l’échelle surveille la latence de toutes les files d’attente en émettant régulièrement des commandes _peek_. Selon la latence des messages parcourus, le contrôleur de mise à l’échelle décide d’ajouter ou de supprimer des machines virtuelles.
 
 Si le contrôleur de mise à l’échelle détermine que la latence des messages de file d’attente de contrôle est trop élevée, il ajoute des instances de machine virtuelle jusqu’à ce que la latence des messages diminue à un niveau acceptable ou qu’il atteigne le nombre de partitions de file d’attente de contrôle. De même, le contrôleur de mise à l’échelle ajoute continuellement des instances de machine virtuelle si le temps de latence de file d’attente des éléments de travail est élevé, quel que soit le nombre de partitions.
 

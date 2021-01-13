@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/24/2020
 ms.author: jehollan, glenga
 ms.custom: include file
-ms.openlocfilehash: 4dc85988d904fdec72e1e6d92f03582a2a8f1427
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4eaea46044f0da4766fda051655d57caee9d98b6
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85121361"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937011"
 ---
 1. Dans le menu du portail Azure ou dans la page **Accueil**, sélectionnez **Créer une ressource**.
 
@@ -36,7 +36,7 @@ ms.locfileid: "85121361"
 
     | Paramètre      | Valeur suggérée  | Description |
     | ------------ | ---------------- | ----------- |
-    | **[Compte de stockage](../articles/storage/common/storage-account-create.md)** |  Nom globalement unique |  Créez un compte de stockage utilisé par votre application de fonction. Les noms des comptes de stockage doivent comporter entre 3 et 24 caractères, uniquement des lettres minuscules et des chiffres. Vous pouvez également utiliser un compte existant qui doit répondre aux [exigences relatives aux comptes de stockage](../articles/azure-functions/functions-scale.md#storage-account-requirements). |
+    | **[Compte de stockage](../articles/storage/common/storage-account-create.md)** |  Nom globalement unique |  Créez un compte de stockage utilisé par votre application de fonction. Les noms des comptes de stockage doivent comporter entre 3 et 24 caractères, uniquement des lettres minuscules et des chiffres. Vous pouvez également utiliser un compte existant qui doit répondre aux [exigences relatives aux comptes de stockage](../articles/azure-functions/storage-considerations.md#storage-account-requirements). |
     |**Système d’exploitation**| Système d’exploitation préféré | Un système d’exploitation est présélectionné pour vous en fonction de la sélection de votre pile d’exécution, mais vous pouvez modifier le paramètre si nécessaire. Python est pris en charge sur Linux uniquement. |
     | **[Plan](../articles/azure-functions/functions-scale.md)** | Premium | Plan d’hébergement qui définit la façon dont les ressources sont allouées à votre Function App. Sélectionnez **Premium**. Par défaut, un plan App Service est créé. **Référence et taille** est défini avec la valeur par défaut **EP1**, où EP signifie _élastique premium_. Pour plus d’informations, consultez la [liste des références SKU Premium](../articles/azure-functions/functions-premium-plan.md#available-instance-skus).<br/>Lorsque vous exécutez des fonctions JavaScript dans un plan Premium, vous devez choisir une instance qui comporte moins de processeurs virtuels. Pour plus d’informations, consultez [Choisir des plans Premium à un cœur](../articles/azure-functions/functions-reference-node.md#considerations-for-javascript-functions).  |
 

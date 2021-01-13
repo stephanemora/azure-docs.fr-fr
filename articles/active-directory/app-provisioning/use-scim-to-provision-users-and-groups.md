@@ -12,12 +12,12 @@ ms.date: 09/15/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: a0abbacc55cff2f561323a22dd83311c87b1511d
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 90debef39b3e657bf96221dfaf5fa762d332a364
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97584491"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976518"
 ---
 # <a name="tutorial---build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Tutoriel – Créer un point de terminaison SCIM et configurer l’approvisionnement d’utilisateurs avec Azure AD
 
@@ -1217,7 +1217,7 @@ Meilleures pratiques (recommandées, mais pas obligatoires) :
 > [!NOTE]
 > Bien qu’il ne soit pas actuellement possible de configurer OAuth sur l’application ne figurant pas dans la galerie, vous pouvez générer manuellement un jeton d’accès à partir de votre serveur d’autorisation et l’entrer dans le champ de jeton secret de l’application ne figurant pas dans la galerie. Cela vous permet de vérifier la compatibilité de votre serveur SCIM avec le client SCIM d’Azure AD avant de l’intégrer à la galerie d’applications qui prend en charge l’octroi de code OAuth.  
 
-**Jetons de porteur OAuth à longue durée :** Si votre application ne prend pas en charge le flux d'octroi du code OAuth, vous pouvez générer un jeton de porteur OAuth à longue durée utilisable par un administrateur pour configurer l’intégration de l’approvisionnement. Le jeton doit être perpétuel, à défaut de quoi le travail d’approvisionnement sera [mis en quarantaine](application-provisioning-quarantine-status.md) à expiration du jeton. La taille de ce jeton doit être inférieure à 1 Ko.  
+**Jetons de porteur OAuth à longue durée :** Si votre application ne prend pas en charge le flux d'octroi du code OAuth, vous pouvez générer un jeton de porteur OAuth à longue durée utilisable par un administrateur pour configurer l’intégration de l’approvisionnement. Le jeton doit être perpétuel, à défaut de quoi le travail d’approvisionnement sera [mis en quarantaine](application-provisioning-quarantine-status.md) à expiration du jeton.
 
 Si vous souhaitez davantage de méthodes d’authentification et d’autorisation, faites-le nous savoir sur [UserVoice](https://aka.ms/appprovisioningfeaturerequest).
 

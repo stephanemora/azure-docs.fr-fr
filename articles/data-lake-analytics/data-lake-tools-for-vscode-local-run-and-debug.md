@@ -5,12 +5,12 @@ ms.service: data-lake-analytics
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 07/14/2017
-ms.openlocfilehash: ef32372cbaa70f7bca609c2ed1db118f33237e2b
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 194fe3494915be9f6784e1596e647885634817ad
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "92216196"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97969008"
 ---
 # <a name="run-u-sql-and-debug-locally-in-visual-studio-code"></a>Exécuter U-SQL et déboguer localement dans Visual Studio Code
 Cet article montre comment exécuter des travaux U-SQL sur un ordinateur de développement local pour accélérer les premières phases de codage ou pour déboguer le code localement dans Visual Studio Code. Pour obtenir des instructions concernant Azure Data Lake Tools pour Visual Studio Code, consultez [Utilisation d’Azure Data Lake Tools pour Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md).
@@ -68,7 +68,7 @@ S’il s’agit de votre première utilisation :
   ![rappel d’installation Dotnet](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/remind-install-dotnet.png)
 3. Installez C# pour Visual Studio Code comme suggéré dans la boîte de message, s’il n’est pas encore installé.  Cliquez sur **Installer** pour continuer, puis redémarrez VSCode.
 
-    ![Rappel concernant l’installation de C#](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/install-csharp.png)
+![Rappel concernant l’installation de C#](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/install-csharp.png)
 
 Suivez les étapes ci-dessous pour effectuer le débogage local :
   

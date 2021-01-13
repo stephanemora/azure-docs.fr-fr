@@ -2,17 +2,17 @@
 title: Analyse de données JSON et d’AVRO dans Stream Analytics
 description: Cet article explique comment utiliser des types de données complexes tels que des tableaux, et des données au format JSON ou CSV.
 ms.service: stream-analytics
-author: mamccrea
-ms.author: mamccrea
+author: sidramadoss
+ms.author: sidram
 ms.topic: conceptual
 ms.date: 01/29/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 6c2eb4225cb014b3251d12470e4e9827150a5cf2
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: f6cb131fb3ff3cab4122aac5e1c6960dee4f8421
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123351"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98012238"
 ---
 # <a name="parse-json-and-avro-data-in-azure-stream-analytics"></a>Analyser des données JSON et Avro dans Azure Stream Analytics
 
@@ -121,7 +121,7 @@ WHERE
     GetRecordPropertyValue(input.SensorReadings, thresholds.SensorName) > thresholds.Value
 ```
 
-**GetRecordPropertyValue** sélectionne la propriété dans *SensorReadings* , et dont le nom correspond au nom de propriété provenant des données de référence. La valeur associée de *SensorReadings* est ensuite extraite.
+**GetRecordPropertyValue** sélectionne la propriété dans *SensorReadings*, et dont le nom correspond au nom de propriété provenant des données de référence. La valeur associée de *SensorReadings* est ensuite extraite.
 
 Le résultat est le suivant :
 
@@ -207,7 +207,7 @@ Vous pouvez ensuite créer une étape dans votre requête Stream Analytics comme
 
 Les données de type tableau sont des collections ordonnées de valeurs. Certaines opérations courantes sur des valeurs de tableau sont décrites ci-dessous. Ces exemples utilisent les fonctions [GetArrayElement](/stream-analytics-query/getarrayelement-azure-stream-analytics), [GetArrayElements](/stream-analytics-query/getarrayelements-azure-stream-analytics) et [GetArrayLength](/stream-analytics-query/getarraylength-azure-stream-analytics), ainsi que l’opérateur [APPLY](/stream-analytics-query/apply-azure-stream-analytics).
 
-Voici un exemple d’événement unique. `CustomSensor03` et `SensorMetadata` correspondent à un tableau  **de type**  :
+Voici un exemple d’événement unique. `CustomSensor03` et `SensorMetadata` correspondent à un tableau  **de type** :
 
 ```json
 {

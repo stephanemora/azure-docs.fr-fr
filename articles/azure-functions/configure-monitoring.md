@@ -4,12 +4,12 @@ description: Découvrez comment connecter votre application de fonction à Appli
 ms.date: 8/31/2020
 ms.topic: how-to
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 77cc87e44990f471ef38871c0225835660779a3c
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: 24350eb07481db66907d199cd96f84a02cc98c9e
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825750"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937278"
 ---
 # <a name="how-to-configure-monitoring-for-azure-functions"></a>Comment configurer l’analyse pour Azure Functions
 
@@ -197,7 +197,7 @@ Pour plus d’informations, consultez [Échantillonnage dans Application Insight
 
 _Cette fonctionnalité est en préversion._ 
 
-Vous pouvez faire en sorte que le [contrôleur d’échelle Azure Functions](./functions-scale.md#runtime-scaling) émette des journaux vers Application Insights ou vers le stockage Blob pour mieux comprendre les décisions prises par ce contrôleur pour votre application de fonction.
+Vous pouvez faire en sorte que le [contrôleur d’échelle Azure Functions](./event-driven-scaling.md#runtime-scaling) émette des journaux vers Application Insights ou vers le stockage Blob pour mieux comprendre les décisions prises par ce contrôleur pour votre application de fonction.
 
 Pour activer cette fonctionnalité, vous ajoutez un paramètre d’application nommé `SCALE_CONTROLLER_LOGGING_ENABLED` à vos paramètres d’application de fonction. La valeur de ce paramètre doit être au format `<DESTINATION>:<VERBOSITY>`, en fonction des éléments suivants :
 

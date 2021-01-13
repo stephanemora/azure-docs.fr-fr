@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 12/29/2020
-ms.openlocfilehash: 34a5dfb44ee78245b56c1774701f48b3b8a494df
-ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
+ms.date: 12/30/2020
+ms.openlocfilehash: ee6c116d02a7be1682d9e8379037ef1b8c92bce8
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97827476"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97967036"
 ---
 # <a name="create-an-integration-service-environment-ise-by-using-the-logic-apps-rest-api"></a>Créer un environnement de service d'intégration (ISE) à l'aide de l'API REST Logic Apps
 
@@ -121,7 +121,7 @@ Voici la syntaxe du corps de la requête, qui décrit les propriétés à utilis
             }
          ]
       },
-      // Include `certificates` object to enable self-signed certiificate and certificate issued by Enterprise Certificate Authority
+      // Include `certificates` object to enable self-signed certificate and the certificate issued by Enterprise Certificate Authority
       "certificates": {
          "testCertificate": {
             "publicCertificate": "{base64-encoded-certificate}",
@@ -185,6 +185,7 @@ Cet exemple de corps de requête montre les exemples de valeurs :
    }
 }
 ```
+
 ## <a name="add-custom-root-certificates"></a>Ajouter des certificats racines personnalisés
 
 Vous utilisez souvent ISE pour vous connecter à des services personnalisés sur votre réseau virtuel ou localement. Ces services personnalisés sont souvent protégés par un certificat émis par une autorité de certification racine personnalisée, telle qu’une autorité de certification d’entreprise ou un certificat auto-signé. Pour plus d’informations sur l’utilisation de certificats auto-signés, consultez [Sécuriser l’accès et les données – Accès pour les appels sortants à d’autres services et systèmes](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests). Pour que votre environnement ISE se connecte correctement à ces services via le protocole TLS (Transport Layer Security), votre ISE doit accéder à ces certificats racines. Pour mettre à jour votre ISE avec un certificat racine approuvé personnalisé, effectuez cette demande `PATCH` HTTPS :

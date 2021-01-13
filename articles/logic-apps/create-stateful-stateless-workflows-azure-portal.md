@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
 ms.date: 12/07/2020
-ms.openlocfilehash: d10689937a037469399863395e0190e399334bd3
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: a7e19894a4688fe270422e93f7081f98e0b699a3
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96924008"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936530"
 ---
 # <a name="create-stateful-and-stateless-workflows-in-the-azure-portal-with-azure-logic-apps-preview"></a>Créer des workflows avec état et sans état dans le portail Azure à l’aide d’Azure Logic Apps (préversion)
 
@@ -90,7 +90,7 @@ Cet article explique comment créer votre application logique et votre workflow 
    | Propriété | Obligatoire | Valeur | Description |
    |----------|----------|-------|-------------|
    | **Compte de stockage** | Oui | <*Azure-storage-account-name*> | [Compte de stockage Azure](../storage/common/storage-account-overview.md) à utiliser pour les transactions de stockage. Ce nom de ressource doit être unique d’une région à l’autre et comporter entre 3 et 24 caractères avec uniquement des chiffres et des lettres minuscules. Sélectionnez un compte existant ou créez un nouveau compte. <p><p>Cet exemple crée un compte de stockage nommé `fabrikamstorageacct`. |
-   | **Type de plan** | Oui | <*Azure-hosting-plan*> | [Plan d’hébergement](../app-service/overview-hosting-plans.md) à utiliser pour déployer votre application logique, qui est un [**plan Premium**](../azure-functions/functions-scale.md#premium-plan) ou [**App Service**](../azure-functions/functions-scale.md#app-service-plan). Votre choix a une incidence sur les niveaux tarifaires que vous pouvez choisir ultérieurement. <p><p>Cet exemple utilise le **plan App Service**. <p><p>**Remarque** : Comme Azure Functions, le type de ressource **Application logique (préversion)** requiert un plan d’hébergement et un niveau tarifaire. Les plans d’hébergement dits de consommation ne sont pas pris en charge ni disponibles pour ce type de ressource. Pour plus d’informations, consultez les rubriques suivantes : <p><p>- [Échelle et hébergement dans Azure Functions](../azure-functions/functions-scale.md) <br>- [Détails de tarification d’App Service](https://azure.microsoft.com/pricing/details/app-service/) <p><p> |
+   | **Type de plan** | Oui | <*Azure-hosting-plan*> | [Plan d’hébergement](../app-service/overview-hosting-plans.md) à utiliser pour déployer votre application logique, qui est un [**plan Premium**](../azure-functions/functions-premium-plan.md) ou [**App Service**](../azure-functions/dedicated-plan.md). Votre choix a une incidence sur les niveaux tarifaires que vous pouvez choisir ultérieurement. <p><p>Cet exemple utilise le **plan App Service**. <p><p>**Remarque** : Comme Azure Functions, le type de ressource **Application logique (préversion)** requiert un plan d’hébergement et un niveau tarifaire. Les plans d’hébergement dits de consommation ne sont pas pris en charge ni disponibles pour ce type de ressource. Pour plus d’informations, consultez les rubriques suivantes : <p><p>- [Échelle et hébergement dans Azure Functions](../azure-functions/functions-scale.md) <br>- [Détails de tarification d’App Service](https://azure.microsoft.com/pricing/details/app-service/) <p><p> |
    | **Plan Windows** | Oui | <*plan-name*> | Nom du plan à utiliser. Sélectionnez un plan existant ou fournissez le nom d’un nouveau plan. <p><p>L’exemple suivant utilise le nom `Fabrikam-Service-Plan`. |
    | **SKU et taille** | Oui | <*pricing-tier*> | [Niveau tarifaire](../app-service/overview-hosting-plans.md) à utiliser pour héberger votre application logique. Vos choix sont influencés par le type de plan que vous avez choisi précédemment. Pour modifier le niveau par défaut, sélectionnez **Modifier la taille**. Vous pouvez ensuite sélectionner d’autres niveaux tarifaires en fonction de la charge de travail dont vous avez besoin. <p><p>Cet exemple utilise le **niveau tarifaire F1** gratuit pour des charges de travail **Dev/Test**. Pour en savoir plus, consultez les [détails de tarification d’App Service](https://azure.microsoft.com/pricing/details/app-service/). |
    |||||

@@ -1,19 +1,18 @@
 ---
 title: Créer une solution IoT à l’aide d’Azure Stream Analytics
 description: Prise en main du didacticiel pour la solution IoT Stream Analytics d’un scénario de station de péage
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 87ec59d19fb442293fb7f14d110cf513015ec9f7
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: ddec53b18cd6f374a5665298b43b46122bcfa143
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130797"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98016148"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Créer une solution IoT à l’aide de Stream Analytics
 
@@ -178,7 +177,7 @@ Suivez ces étapes pour démarrer la tâche de diffusion en continu :
 
 1. Sur la page **Vue d’ensemble** de la tâche, sélectionnez **Démarrer**.
 
-2. Sur le volet **Démarrer la tâche** , sélectionnez **Maintenant**.
+2. Sur le volet **Démarrer la tâche**, sélectionnez **Maintenant**.
 
 3. Après quelques instants, une fois la tâche en cours d’exécution, sur la page **Vue d’ensemble** de la tâche de diffusion en continu, affichez le graphique **Analyse**. Le graphique doit afficher plusieurs milliers d’événements d’entrée et des dizaines d’événements de sortie.
 
@@ -226,7 +225,7 @@ AND DATEDIFF (minute, EntryStream, ExitStream ) BETWEEN 0 AND 15
 
 6. Sur la page **Vue d’ensemble** de la tâche, sélectionnez **Démarrer**.
 
-7. Sur le volet **Démarrer la tâche** , sélectionnez **Maintenant**.
+7. Sur le volet **Démarrer la tâche**, sélectionnez **Maintenant**.
 
 ### <a name="review-the-total-time-in-the-output"></a>Passer en revue la durée totale de la sortie
 Répétez les étapes décrites dans la section précédente pour passer en revue les données de sortie CosmosDB à partir de la tâche de diffusion en continu. Passez en revue les derniers documents JSON.

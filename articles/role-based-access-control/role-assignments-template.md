@@ -13,16 +13,16 @@ ms.workload: identity
 ms.date: 11/13/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 1e05ecd162ccb333c6ab29b0185f6ffcb04a6213
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: dc8a704fd864fbb0e11da6cd062e0c5325679d8b
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97591359"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964222"
 ---
 # <a name="add-azure-role-assignments-using-azure-resource-manager-templates"></a>Ajouter des attributions de rôle Azure à l’aide de modèles Azure Resource Manager
 
-[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] En plus d’utiliser Azure PowerShell ou l’interface Azure CLI, vous pouvez attribuer des rôles à l’aide des [modèles Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md). Les modèles peuvent être utiles si vous devez déployer les ressources de manière cohérente et répétée. Cet article explique comment attribuer des rôles à l’aide de modèles.
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control/definition-grant.md)] En plus d’utiliser Azure PowerShell ou l’interface Azure CLI, vous pouvez attribuer des rôles à l’aide des [modèles Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md). Les modèles peuvent être utiles si vous devez déployer les ressources de manière cohérente et répétée. Cet article explique comment attribuer des rôles à l’aide de modèles.
 
 ## <a name="get-object-ids"></a>Récupérer des ID d’objet
 

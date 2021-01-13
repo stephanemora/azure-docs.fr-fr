@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/06/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to learn the options available to monitor the health of my vaults
-ms.openlocfilehash: 7ff3daded48612fd308396420dca65cd81d9fafc
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 5946a5d6d1adb5f609f497b4c2194582f624fe24
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724695"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934592"
 ---
 # <a name="monitoring-and-alerting-for-azure-key-vault"></a>Surveillance et alertes Azure Key Vault
 
@@ -25,8 +25,8 @@ ms.locfileid: "97724695"
 Lorsque vous commencez à utiliser un coffre de clés pour stocker vos secrets de production, vous devez impérativement surveiller son intégrité pour veiller au bon fonctionnement de votre service. Dès que vous entamerez la mise à l'échelle votre service, le nombre de requêtes envoyées à votre coffre de clés augmentera. Cela risque d'augmenter la latence de vos requêtes et, dans les cas les plus extrêmes, de les limiter, ce qui aura un impact sur les performances de votre service. Vous devez également être alerté si votre coffre de clés envoie un nombre inhabituel de codes d'erreur afin d'être rapidement informé de tout problème de stratégie d'accès ou de configuration du pare-feu. Ce document couvre les sujets suivants :
 
 + Métriques Key Vault de base à surveiller
-+ Configurer les métriques et créer un tableau de bord 
-+ Créer des alertes lorsque les seuils spécifiés sont atteints 
++ Configurer les métriques et créer un tableau de bord
++ Créer des alertes lorsque les seuils spécifiés sont atteints
 
 ## <a name="basic-key-vault-metrics-to-monitor"></a>Métriques Key Vault de base à surveiller
 

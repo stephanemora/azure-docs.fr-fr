@@ -4,12 +4,12 @@ description: Découvrez comment éviter les problèmes de performances dans Azur
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 02/25/2018
-ms.openlocfilehash: 53848e6273cf59439d44b431652981b18bdd5ba6
-ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
+ms.openlocfilehash: ec16ce3e7f9793be2a012a029bcca31c9a7ea4cf
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97755954"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936700"
 ---
 # <a name="manage-connections-in-azure-functions"></a>Gérer les connexions dans Azure Functions
 
@@ -19,7 +19,7 @@ Functions dans une application de fonction partage des ressources. Parmi ces res
 
 Le nombre de connexions disponibles est limité en partie, car une application de fonction s’exécute dans l’[environnement de bac à sable](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox). L’une des restrictions imposées par le bac à sable sur votre code est une limite du nombre de connexions sortantes, qui s’élève actuellement à 600 connexions actives (1 200 au total) par instance. Quand vous atteignez cette limite, le runtime des fonctions écrit le message suivant dans les journaux : `Host thresholds exceeded: Connections`. Pour plus d’informations, voir [Functions service limits (Limites de service Functions)](functions-scale.md#service-limits).
 
-Cette limite s’effectue par instance. Quand le [contrôleur de mise à l’échelle ajoute des instances d’application de fonction](functions-scale.md#how-the-consumption-and-premium-plans-work) pour gérer plus de requêtes, chaque instance dispose d’une limite de connexion indépendante. Cela signifie qu’il n’existe aucune limite globale de connexion et que vous pouvez avoir beaucoup plus de 600 connexions actives sur toutes les instances actives.
+Cette limite s’effectue par instance. Quand le [contrôleur de mise à l’échelle ajoute des instances d’application de fonction](event-driven-scaling.md) pour gérer plus de requêtes, chaque instance dispose d’une limite de connexion indépendante. Cela signifie qu’il n’existe aucune limite globale de connexion et que vous pouvez avoir beaucoup plus de 600 connexions actives sur toutes les instances actives.
 
 Lors du dépannage, assurez-vous que vous avez activé Application Insights pour votre application de fonction. Application Insights vous permet d’afficher les métriques pour vos applications de fonction comme les exécutions. Pour plus d’informations, consultez l’article [Afficher les données de télémétrie dans Application Insights](analyze-telemetry-data.md#view-telemetry-in-application-insights).  
 

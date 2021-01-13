@@ -5,12 +5,12 @@ ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 10/14/2020
 ms.custom: devx-track-csharp, fasttrack-edit, contperf-fy21q2, devx-track-js
-ms.openlocfilehash: 7dbaa8712e09de9084e2bcb66d43f2181af292a0
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 6dc3c582466fe0646b0350213947ff2173368bde
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033032"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936836"
 ---
 # <a name="monitor-azure-functions"></a>Surveiller l’exécution des fonctions Azure
 
@@ -113,7 +113,7 @@ Application Insights vous permet d’exporter des données de télémétrie vers
 
 _Cette fonctionnalité est en préversion._ 
 
-Le [contrôleur de mise à l’échelle Azure Functions](./functions-scale.md#runtime-scaling) surveille les instances de l’hôte Azure Functions sur lequel votre application s’exécute. Ce contrôleur prend des décisions concernant l’ajout ou la suppression d’instances en fonction des performances actuelles. Vous pouvez faire en sorte que le contrôleur de mise à l’échelle émette des journaux vers Application Insights pour mieux comprendre les décisions prises par ce contrôleur pour votre application de fonction. Vous pouvez également stocker les journaux générés dans le stockage d’objets blob à des fins d’analyse par un autre service. 
+Le [contrôleur de mise à l’échelle Azure Functions](./event-driven-scaling.md#runtime-scaling) surveille les instances de l’hôte Azure Functions sur lequel votre application s’exécute. Ce contrôleur prend des décisions concernant l’ajout ou la suppression d’instances en fonction des performances actuelles. Vous pouvez faire en sorte que le contrôleur de mise à l’échelle émette des journaux vers Application Insights pour mieux comprendre les décisions prises par ce contrôleur pour votre application de fonction. Vous pouvez également stocker les journaux générés dans le stockage d’objets blob à des fins d’analyse par un autre service. 
 
 Pour activer cette fonctionnalité, vous ajoutez un paramètre d’application nommé `SCALE_CONTROLLER_LOGGING_ENABLED` à vos paramètres d’application de fonction. Pour en savoir plus, consultez [Configurer les journaux de contrôleur de mise à l’échelle](configure-monitoring.md#configure-scale-controller-logs).
 

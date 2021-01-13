@@ -3,12 +3,12 @@ title: Intégrer Azure Functions à un réseau virtuel Azure
 description: Tutoriel pas à pas qui vous montre comment connecter une fonction à un réseau virtuel Azure
 ms.topic: article
 ms.date: 4/23/2020
-ms.openlocfilehash: f50c923104fdfcf26f400f20f0de66a82eb3d245
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: efc936111d162d73b1cc5465ae6b677c9006ab32
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87387521"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937012"
 ---
 # <a name="tutorial-integrate-functions-with-an-azure-virtual-network"></a>Tutoriel : Intégrer Azure Functions à un réseau virtuel Azure
 
@@ -105,7 +105,7 @@ Avec un site WordPress en cours d’exécution sur une machine virtuelle dans un
 
 1. Dans la page **Intégration au réseau virtuel**, sélectionnez **Ajouter un réseau virtuel**.
 
-    :::image type="content" source="./media/functions-create-vnet/networking-2.png" alt-text="Choisir la mise en réseau dans l’application de fonction":::
+    :::image type="content" source="./media/functions-create-vnet/networking-2.png" alt-text="Ajouter l’intégration de réseau virtuel - préversion":::
 
 1. Dans **État de la fonctionnalité réseau**, utilisez les paramètres figurant dans le tableau sous l’image :
 
@@ -129,7 +129,7 @@ Avec l’intégration de réseau virtuel activée, vous pouvez créer un proxy d
 
 1. Dans votre application de fonction, sélectionnez **Proxies** dans le menu de gauche, puis **Ajouter**. Utilisez les paramètres de proxy indiqués dans le tableau sous l’image ci-après :
 
-    :::image type="content" source="./media/functions-create-vnet/create-proxy.png" alt-text="Choisir la mise en réseau dans l’application de fonction":::
+    :::image type="content" source="./media/functions-create-vnet/create-proxy.png" alt-text="Définir les paramètres du proxy":::
 
     | Paramètre  | Valeur suggérée  | Description      |
     | -------- | ---------------- | ---------------- |
@@ -160,4 +160,4 @@ Les fonctions exécutées dans un plan Premium partagent la même infrastructure
 > [!div class="nextstepaction"]
 > [En savoir plus sur les options de mise en réseau dans Functions](./functions-networking-options.md)
 
-[Plan Premium]: functions-scale.md#premium-plan
+[Plan Premium]: functions-premium-plan.md

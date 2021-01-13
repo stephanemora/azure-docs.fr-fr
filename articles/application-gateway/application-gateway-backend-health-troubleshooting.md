@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/09/2020
 ms.author: surmb
-ms.openlocfilehash: b8acf1b025a5943773821c8ab78de6288eb6bec2
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 05df2144b892aed764f9606fb19bd6a3242b97f3
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397896"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934898"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Résoudre les problèmes d’intégrité des back-ends dans Application Gateway
 ==================================================
@@ -21,6 +21,9 @@ ms.locfileid: "93397896"
 --------
 
 Par défaut, Azure Application Gateway sonde les serveurs back-end afin de vérifier leur état d’intégrité et leur disponibilité pour traiter les requêtes. Les utilisateurs peuvent également créer des sondes personnalisées pour indiquer le nom d’hôte, le chemin à sonder et les codes d’état à considérer comme sains. Dans les deux cas, si le serveur back-end ne répond pas, Application Gateway marque le serveur comme Non sain et arrête la transmission des requêtes au serveur. Quand le serveur répond de nouveau, Application Gateway reprend la transmission des requêtes.
+
+> [!NOTE]
+> Cet article contient des références au terme *liste verte*, un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.
 
 ### <a name="how-to-check-backend-health"></a>Comment vérifier l’intégrité des back-ends
 
@@ -97,7 +100,7 @@ Pour augmenter la valeur du délai, effectuez les étapes suivantes :
 
 1.  Accédez directement au serveur back-end et regardez le temps que le serveur a pris pour répondre sur cette page. Vous pouvez pour cela utiliser n’importe quel outil, y compris les outils de développement d’un navigateur.
 
-1.  Après avoir déterminé le temps de réponse de l’application, sélectionnez l’onglet **Sondes d’intégrité** , puis sélectionnez la sonde associée à vos paramètres HTTP.
+1.  Après avoir déterminé le temps de réponse de l’application, sélectionnez l’onglet **Sondes d’intégrité**, puis sélectionnez la sonde associée à vos paramètres HTTP.
 
 1.  Entrez une valeur de délai supérieure au délai de réponse de l’application, en secondes.
 
@@ -191,7 +194,7 @@ Pour créer une sonde personnalisée, effectuez les étapes décrites [ici](./ap
 
 **Message :** Le corps de la réponse HTTP du back-end ne correspond pas au paramètre de la sonde. Le corps de la réponse reçue ne contient pas l’élément {string}.
 
-**Cause :** Quand vous créez une sonde personnalisée, vous pouvez marquer un serveur back-end comme Sain en mettant en correspondance une chaîne du corps de la réponse. Par exemple, configurez Application Gateway pour accepter la mise en correspondance de la chaîne « non autorisé ». Si la réponse du serveur back-end à la demande de sondage contient la chaîne **non autorisé** , le serveur est marqué comme Sain. Sinon, il est marqué comme Non sain, avec ce message.
+**Cause :** Quand vous créez une sonde personnalisée, vous pouvez marquer un serveur back-end comme Sain en mettant en correspondance une chaîne du corps de la réponse. Par exemple, configurez Application Gateway pour accepter la mise en correspondance de la chaîne « non autorisé ». Si la réponse du serveur back-end à la demande de sondage contient la chaîne **non autorisé**, le serveur est marqué comme Sain. Sinon, il est marqué comme Non sain, avec ce message.
 
 **Solution :** Pour résoudre ce problème, effectuez les étapes suivantes :
 
@@ -218,7 +221,7 @@ Pour qu’un certificat TLS/SSL soit approuvé, ce certificat utilisé par le se
 
 1.  Connectez-vous à la machine qui héberge votre application.
 
-1.  Appuyez sur les touches Win+R ou cliquez avec le bouton droit sur le bouton **Démarrer** , puis sélectionnez **Exécuter**.
+1.  Appuyez sur les touches Win+R ou cliquez avec le bouton droit sur le bouton **Démarrer**, puis sélectionnez **Exécuter**.
 
 1.  Entrez `certmgr.msc`, puis appuyez sur Entrée. Vous pouvez également ouvrir le gestionnaire de certificats à partir du menu **Démarrer**.
 
@@ -228,7 +231,7 @@ Pour qu’un certificat TLS/SSL soit approuvé, ce certificat utilisé par le se
 
 1.  Dans les propriétés du certificat, sélectionnez l’onglet **Détails**.
 
-1.  Dans l’onglet **Détails** , sélectionnez l’option **Copier dans un fichier** , puis enregistrez le fichier au format X.509 encodé en base 64 (.CER).
+1.  Dans l’onglet **Détails**, sélectionnez l’option **Copier dans un fichier**, puis enregistrez le fichier au format X.509 encodé en base 64 (.CER).
 
 1.  Ouvrez la page des **paramètres** HTTP d’Application Gateway dans le portail Azure.
 
@@ -302,13 +305,13 @@ Pour Windows :
 
 1.  Connectez-vous à la machine qui héberge votre application.
 
-1.  Appuyez sur les touches Win+R ou cliquez avec le bouton droit sur le bouton **Démarrer** , puis sélectionnez **Exécuter**.
+1.  Appuyez sur les touches Win+R ou cliquez avec le bouton droit sur le bouton **Démarrer**, puis sélectionnez **Exécuter**.
 
 1.  Entrez **certmgr.msc** et appuyez sur Entrée. Vous pouvez également ouvrir le gestionnaire de certificats à partir du menu **Démarrer**.
 
 1.  Localisez le certificat (généralement sous `\Certificates - Current User\\Personal\\Certificates`), et ouvrez-le.
 
-1.  Dans l’onglet **Détails** , vérifiez l’objet du certificat sous **Objet**.
+1.  Dans l’onglet **Détails**, vérifiez l’objet du certificat sous **Objet**.
 
 1.  Vérifiez le nom commun du certificat indiqué dans les détails et entrez le même nom dans le champ du nom d’hôte de la sonde personnalisée ou des paramètres HTTP (quand l’option **Choisir le nom d’hôte dans les paramètres HTTP de back-end** est activée). Si ce n’est pas le nom d’hôte souhaité pour votre site web, vous devez obtenir un certificat pour ce domaine ou entrer le nom d’hôte correct dans la configuration de la sonde personnalisée ou des paramètres HTTP.
 
@@ -359,9 +362,9 @@ Ce comportement peut être dû à différentes raisons :
 
 **Solution :**
 
-1.  Vérifiez si votre NSG bloque l’accès aux ports 65503-65534 (SKU v1) ou 65200-65535 (SKU v2) à partir d’ **Internet**  :
+1.  Vérifiez si votre NSG bloque l’accès aux ports 65503-65534 (SKU v1) ou 65200-65535 (SKU v2) à partir d’**Internet** :
 
-    a.  Dans Application Gateway, sous l’onglet **Vue d’ensemble** , sélectionnez le lien **Réseau/sous-réseau virtuel**.
+    a.  Dans Application Gateway, sous l’onglet **Vue d’ensemble**, sélectionnez le lien **Réseau/sous-réseau virtuel**.
 
     b.  Dans l’onglet **Sous-réseaux** de votre réseau virtuel, sélectionnez le sous-réseau où Application Gateway a été déployé.
 
@@ -369,19 +372,19 @@ Ce comportement peut être dû à différentes raisons :
 
     d.  Si un NSG est configuré, recherchez cette ressource NSG dans l’onglet **Recherche** ou sous **Toutes les ressources**.
 
-    e.  Dans la section **Règles de trafic entrant** , ajoutez une règle de trafic entrant pour autoriser la plage de ports de destination 65503-65534 pour la référence SKU v1 ou 65200-65535 pour la référence SKU v2, avec le paramètre **Source** défini sur **N’importe laquelle** ou **Internet**.
+    e.  Dans la section **Règles de trafic entrant**, ajoutez une règle de trafic entrant pour autoriser la plage de ports de destination 65503-65534 pour la référence SKU v1 ou 65200-65535 pour la référence SKU v2, avec le paramètre **Source** défini sur **N’importe laquelle** ou **Internet**.
 
     f.  Sélectionnez **Enregistrer** et vérifiez que le back-end apparaît comme Sain. Vous pouvez également faire cette vérification à l’aide de [PowerShell/CLI](../virtual-network/manage-network-security-group.md).
 
-1.  Vérifiez si votre UDR a une route par défaut (0.0.0.0/0) avec le tronçon suivant non défini comme **Internet**  :
+1.  Vérifiez si votre UDR a une route par défaut (0.0.0.0/0) avec le tronçon suivant non défini comme **Internet** :
     
     a.  Effectuez les étapes 1a et 1b pour identifier votre sous-réseau.
 
     b.  Vérifiez si des UDR sont configurés. Si c’est le cas, recherchez la ressource dans la barre de recherche ou sous **Toutes les ressources**.
 
-    c.  Vérifiez la présence de routes par défaut (0.0.0.0/0) avec le tronçon suivant non défini comme **Internet**. Si le paramètre est **Appliance virtuelle** ou **Passerelle de réseau virtuel** , assurez-vous que l’appliance virtuelle ou l’appareil local est en mesure de rediriger correctement le paquet vers la destination Internet sans le modifier.
+    c.  Vérifiez la présence de routes par défaut (0.0.0.0/0) avec le tronçon suivant non défini comme **Internet**. Si le paramètre est **Appliance virtuelle** ou **Passerelle de réseau virtuel**, assurez-vous que l’appliance virtuelle ou l’appareil local est en mesure de rediriger correctement le paquet vers la destination Internet sans le modifier.
 
-    d.  Si ce n’est pas le cas, définissez le tronçon suivant sur **Internet** , sélectionnez **Enregistrer** , puis vérifiez l’intégrité du serveur back-end.
+    d.  Si ce n’est pas le cas, définissez le tronçon suivant sur **Internet**, sélectionnez **Enregistrer**, puis vérifiez l’intégrité du serveur back-end.
 
 1.  Une route par défaut annoncée par la connexion ExpressRoute/VPN au réseau virtuel avec le protocole BGP :
 
@@ -393,7 +396,7 @@ Ce comportement peut être dû à différentes raisons :
 
 1.  Si un serveur DNS personnalisé est configuré sur le réseau virtuel, vérifiez que le ou les serveurs peuvent résoudre les domaines publics. La résolution des noms de domaines publics peut être nécessaire dans les scénarios où Application Gateway doit accéder à des domaines externes tels que des serveurs OCSP ou pour vérifier l’état de révocation du certificat.
 
-1.  Pour vérifier si Application Gateway est sain et en cours d’exécution, accédez à l’option **Intégrité des ressources** dans le portail et vérifiez que l’état est **Sain**. Si l’état est **Non sain** ou **Dégradé** , [contactez le support](https://azure.microsoft.com/support/options/).
+1.  Pour vérifier si Application Gateway est sain et en cours d’exécution, accédez à l’option **Intégrité des ressources** dans le portail et vérifiez que l’état est **Sain**. Si l’état est **Non sain** ou **Dégradé**, [contactez le support](https://azure.microsoft.com/support/options/).
 
 <a name="next-steps"></a>Étapes suivantes
 ----------

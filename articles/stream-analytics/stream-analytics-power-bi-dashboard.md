@@ -3,16 +3,15 @@ title: Intégration de tableau de bord Power BI à Azure Stream Analytics
 description: Cet article décrit comment utiliser un tableau de bord Power BI en temps réel pour visualiser les données d’une tâche Azure Stream Analytics.
 author: jseb225
 ms.author: jeanb
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 11/16/2020
-ms.openlocfilehash: 4e3f31442c5fa645e27a640d8facf86aed20aa75
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 3bd35df91e836245de52d8959dff0671582ebc3f
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96006693"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98012442"
 ---
 # <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics et Power BI : Tableau de bord d’analytique en temps réel des données de streaming
 

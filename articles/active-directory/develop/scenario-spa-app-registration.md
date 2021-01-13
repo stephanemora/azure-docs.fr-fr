@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/19/2020
 ms.author: hahamil
 ms.custom: aaddev
-ms.openlocfilehash: e42b6b7ffa39110ce356094de690bb353a3fb10f
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 0050eb61aac53b69c74306b9aaab797d8adfa915
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97107785"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98016998"
 ---
 # <a name="single-page-application-app-registration"></a>Application monopage : Inscription d'application
 
@@ -27,7 +27,7 @@ Pour inscrire une application monopage dans la plateforme d’identité Microsof
 
 Pour les applications basées sur MSAL.js 1.0 et 2.0, commencez par suivre les étapes suivantes pour créer l’inscription d’application initiale.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 1. Si vous avez accès à plusieurs locataires, utilisez le filtre **Répertoire + abonnement** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: dans le menu du haut pour sélectionner le locataire dans lequel vous voulez inscrire une application.
 1. Recherchez et sélectionnez **Azure Active Directory**.
 1. Sous **Gérer**, sélectionnez **Inscriptions d’applications** > **Nouvelle inscription**.
