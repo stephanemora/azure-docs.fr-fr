@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 59784b6e618e875a6eedc947ce75afdf3bd1df74
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 0d4945ee97a46c78aac3c4ac508c5f89f5942296
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327387"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937159"
 ---
 # <a name="tutorial-configure-zscaler-beta-for-automatic-user-provisioning"></a>Tutoriel : Configurer Zscaler Beta pour le provisionnement automatique d’utilisateurs
 
@@ -80,6 +80,9 @@ Cette section vous guide tout au long des étapes de configuration du service de
 
 > [!TIP]
 > Vous pouvez également choisir d’activer l’authentification unique basée sur SAML pour Zscaler Beta en suivant les instructions fournies dans le [didacticiel sur l’authentification unique Zscaler Beta](zscaler-beta-tutorial.md). L’authentification unique peut être configurée indépendamment de l’attribution automatique d’utilisateurs, bien que ces deux fonctionnalités se complètent.
+
+> [!NOTE]
+> Quand des utilisateurs et des groupes sont provisionnés ou déprovisionnés, nous vous recommandons de relancer régulièrement le provisionnement pour vous assurer que les appartenances aux groupes sont correctement mises à jour. Ce redémarrage va forcer notre service à réévaluer tous les groupes et à mettre à jour les appartenances.  
 
 ### <a name="to-configure-automatic-user-provisioning-for-zscaler-beta-in-azure-ad"></a>Pour configurer le provisionnement automatique d’utilisateurs pour Zscaler Beta dans Azure AD :
 

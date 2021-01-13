@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 2c7f4aebc70ff831459fe111bcc30f5385088028
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 9f368a4aebc4d5de38ebbab800241366650633e6
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357672"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936581"
 ---
 # <a name="tutorial-configure-zscaler-for-automatic-user-provisioning"></a>Tutoriel : Configurer Zscaler pour le provisionnement automatique d’utilisateurs
 
@@ -47,7 +47,7 @@ Avant de configurer Zscaler pour le provisionnement automatique d’utilisateurs
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
-2. Accédez à **Applications d’entreprise** , puis sélectionnez l’option **Toutes les applications**.
+2. Accédez à **Applications d’entreprise**, puis sélectionnez l’option **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -55,7 +55,7 @@ Avant de configurer Zscaler pour le provisionnement automatique d’utilisateurs
 
     ![Bouton Nouvelle application](common/add-new-app.png)
 
-4. Dans la zone de recherche, tapez **Zscaler** , sélectionnez **Zscaler** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+4. Dans la zone de recherche, tapez **Zscaler**, sélectionnez **Zscaler** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
     ![Zscaler dans la liste des résultats](common/search-new-app.png)
 
@@ -80,9 +80,12 @@ Cette section vous guide tout au long des étapes de configuration du service de
 > [!TIP]
 > Vous pouvez également choisir d’activer l’authentification unique basée sur SAML pour Zscaler en suivant les instructions fournies dans le [didacticiel sur l’authentification unique Zscaler](zscaler-tutorial.md). L’authentification unique peut être configurée indépendamment de l’attribution automatique d’utilisateurs, bien que ces deux fonctionnalités se complètent.
 
+> [!NOTE]
+> Quand des utilisateurs et des groupes sont provisionnés ou déprovisionnés, nous vous recommandons de relancer régulièrement le provisionnement pour vous assurer que les appartenances aux groupes sont correctement mises à jour. Ce redémarrage va forcer notre service à réévaluer tous les groupes et à mettre à jour les appartenances. 
+
 ### <a name="to-configure-automatic-user-provisioning-for-zscaler-in-azure-ad"></a>Pour configurer le provisionnement automatique d’utilisateurs pour Zscaler dans Azure AD :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) et sélectionnez **Applications d’entreprise** , **Toutes les applications** , puis **Zscaler**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com) et sélectionnez **Applications d’entreprise**, **Toutes les applications**, puis **Zscaler**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -114,25 +117,25 @@ Cette section vous guide tout au long des étapes de configuration du service de
 
     ![Capture d’écran de la section Informations d’identification de l’administrateur avec l’option Tester la connexion en évidence.](./media/zscaler-provisioning-tutorial/test-connection.png)
 
-8. Dans le champ **E-mail de notification** , entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
+8. Dans le champ **E-mail de notification**, entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
 
     ![Capture d’écran de la zone de texte E-mail de notification.](./media/zscaler-provisioning-tutorial/notification.png)
 
 9. Cliquez sur **Enregistrer**.
 
-10. Dans la section **Mappages** , sélectionnez **Synchronize Azure Active Directory Users to Zscaler** (Synchroniser les utilisateurs Azure Active Directory avec Zscaler).
+10. Dans la section **Mappages**, sélectionnez **Synchronize Azure Active Directory Users to Zscaler** (Synchroniser les utilisateurs Azure Active Directory avec Zscaler).
 
     ![Capture d’écran de la section Mappages avec l’option Synchroniser les utilisateurs Azure Active Directory avec Zscaler mise en évidence.](./media/zscaler-provisioning-tutorial/user-mappings.png)
 
-11. Dans la section **Mappages des attributs** , passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et Zscaler. Les attributs sélectionnés comme propriétés de **Correspondance** sont utilisés pour la mise en correspondre des comptes d’utilisateur dans Zscaler dans le cadre des opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+11. Dans la section **Mappages des attributs**, passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et Zscaler. Les attributs sélectionnés comme propriétés de **Correspondance** sont utilisés pour la mise en correspondre des comptes d’utilisateur dans Zscaler dans le cadre des opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
     ![Capture d’écran de la section Mappages des attributs avec sept mappages affichés.](./media/zscaler-provisioning-tutorial/user-attribute-mappings.png)
 
-12. Dans la section **Mappages** , sélectionnez **Synchronize Azure Active Directory Groups to Zscaler** (Synchroniser les groupes Azure Active Directory avec Zscaler).
+12. Dans la section **Mappages**, sélectionnez **Synchronize Azure Active Directory Groups to Zscaler** (Synchroniser les groupes Azure Active Directory avec Zscaler).
 
     ![Capture d’écran de la section Mappages avec l’option Synchroniser les groupes Azure Active Directory avec Zscaler mise en évidence.](./media/zscaler-provisioning-tutorial/group-mappings.png)
 
-13. Dans la section **Mappages des attributs** , passez en revue les attributs groupe qui sont synchronisés entre Azure AD et Zscaler. Les attributs sélectionnés comme propriétés de **Correspondance** sont utilisés pour la mise en correspondre des groupes dans Zscaler dans le cadre des opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+13. Dans la section **Mappages des attributs**, passez en revue les attributs groupe qui sont synchronisés entre Azure AD et Zscaler. Les attributs sélectionnés comme propriétés de **Correspondance** sont utilisés pour la mise en correspondre des groupes dans Zscaler dans le cadre des opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
     ![Capture d’écran de la section Mappages des attributs avec trois mappages affichés.](./media/zscaler-provisioning-tutorial/group-attribute-mappings.png)
 

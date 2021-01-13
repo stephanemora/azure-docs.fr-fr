@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
-ms.openlocfilehash: bbea6a0aa31034cd1c04145fb50b72432c9f8520
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 9e5d12bcea1bd7a587568c30b49c8c4ee95f8362
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319012"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937380"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-akamai"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Akamai
 
@@ -53,7 +53,7 @@ Le partenariat entre Microsoft et Akamai EAA offre la flexibilité nécessaire p
 
 #### <a name="integration-scenario-1"></a>Scénario d’intégration 1
 
-Akamai EAA est configuré en tant qu’application unique sur Azure AD. L’administrateur peut configurer la stratégie d’autorité de certification sur l’application, et une fois les conditions remplies les utilisateurs peuvent accéder au portail Akamai EAA.
+Akamai EAA est configuré en tant qu’application unique sur Azure AD. L’administrateur peut configurer la stratégie d’accès conditionnel sur l’application, et une fois les conditions remplies les utilisateurs peuvent accéder au portail Akamai EAA.
 
 **Avantages** :
 
@@ -63,13 +63,13 @@ Akamai EAA est configuré en tant qu’application unique sur Azure AD. L’admi
 
 * Les utilisateurs se retrouvent avec deux portails d’applications
 
-* Couverture de la stratégie d’autorité de certification commune unique pour toutes les applications.
+* Couverture unique de la stratégie d’accès conditionnel commune pour toutes les applications.
 
 ![Scénario d’intégration 1](./media/header-akamai-tutorial/scenario1.png)
 
 #### <a name="integration-scenario-2"></a>Scénario d’intégration 2
 
-L’application Akamai EAA est configurée individuellement dans le portail Azure AD. L’administrateur peut configurer une stratégie d’autorité de certification individuelle sur les applications, et une fois les conditions remplies, les utilisateurs peuvent être redirigés directement vers l’application spécifique.
+L’application Akamai EAA est configurée individuellement dans le portail Azure AD. L’administrateur peut configurer une stratégie d’accès conditionnel individuelle sur les applications, et une fois les conditions remplies, les utilisateurs peuvent être redirigés directement vers l’application spécifique.
 
 **Avantages** :
 

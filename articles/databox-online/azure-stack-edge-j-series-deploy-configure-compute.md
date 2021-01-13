@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 08/28/2020
+ms.date: 01/05/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 75428b28095b0e425a1670caffcf960aa6ae58f6
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 28b5c107fb35c7bda9b1680050b92004436b98ff
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185502"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935460"
 ---
 # <a name="tutorial-transform-data-with-azure-stack-edge-pro"></a>Tutoriel : Transformer des données avec Azure Stack Edge Pro
 
@@ -37,7 +37,6 @@ Dans ce tutoriel, vous allez apprendre à :
 ## <a name="prerequisites"></a>Prérequis
 
 Avant de configurer un rôle de calcul sur votre appareil Azure Stack Edge Pro, vérifiez que :
-
 - Vous avez activé votre appareil Azure Stack Edge Pro, comme décrit dans [Activer votre appareil Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-activate.md).
 
 
@@ -45,36 +44,36 @@ Avant de configurer un rôle de calcul sur votre appareil Azure Stack Edge Pro, 
 
 Pour configurer le calcul sur votre appareil Azure Stack Edge Pro, vous allez créer une ressource IoT Hub.
 
-1. Dans le portail Azure de votre ressource Azure Stack Edge, accédez à **Vue d’ensemble**. Dans le volet droit, sur la vignette **Calculer**, sélectionnez **Bien démarrer**.
+1. Dans le portail Azure de votre ressource Azure Stack Edge, accédez à **Vue d’ensemble**, puis sélectionnez **IoT Edge**.
 
-    ![Bien démarrer avec le calcul](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-1.png)
+   ![Bien démarrer avec le calcul](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-1.png)
 
-2. Sur la vignette **Configurer le computing en périphérie**, sélectionnez **Configurer le calcul**.
+2. Dans **Activer le service IoT Edge**, sélectionnez **Ajouter**.
 
-    ![Configurer le calcul](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-2.png)
+   ![Configurer le calcul](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-2.png)
 
-3. Sur le panneau **Configurer le computing en périphérie**, entrez ce qui suit :
+3. Dans **Créer un service IoT Edge**, entrez les paramètres de votre ressource IoT Hub :
 
-   
-    |Champ  |Valeur  |
-    |---------|---------|
-    |IoT Hub     | Choisissez **Nouveau** ou **Existant**. <br> Par défaut, un niveau Standard (S1) est utilisé pour créer une ressource IoT. Pour utiliser une ressource IoT de niveau gratuit, créez-en une, puis sélectionnez-la. <br> Dans chaque cas, la ressource IoT Hub utilise les mêmes abonnement et groupe de ressources que la ressource Azure Stack Edge.     |
-    |Nom     |Entrez un nom pour votre ressource IoT Hub.         |
+   |Champ   |Valeur    |
+   |--------|---------|
+   |Abonnement      | Abonnement utilisé par la ressource Azure Stack Edge. |
+   |Resource group    | Groupe de ressources utilisé par la ressource Azure Stack Edge. |
+   |IoT Hub           | Choisissez entre **Créer un nouveau** ou **Utiliser un existant**. <br> Par défaut, un niveau Standard (S1) est utilisé pour créer une ressource IoT. Pour utiliser une ressource IoT de niveau gratuit, créez-en une, puis sélectionnez-la. <br> Dans chaque cas, la ressource IoT Hub utilise les mêmes abonnement et groupe de ressources que la ressource Azure Stack Edge.     |
+   |Nom              | Si vous ne voulez pas utiliser le nom par défaut fourni pour une nouvelle ressource IoT Hub, entrez un autre nom. |
 
     ![Bien démarrer avec le calcul 2](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-3.png)
 
-4. Sélectionnez **Create** (Créer). La création de ressources IoT Hub prend plusieurs minutes. Une fois la ressource IoT Hub créée, la vignette **Configurer le calcul** est mise à jour pour afficher la configuration du calcul. 
+4. Lorsque vous avez terminé de configurer les paramètres, sélectionnez **Vérifier + créer**. Vérifiez les paramètres de votre ressource IoT Hub, puis sélectionnez **Créer**.
+
+   La création d’une ressource IoT Hub prend plusieurs minutes. Une fois la ressource créée, la **Vue d’ensemble**  indique que le service IoT Edge est en cours d’exécution.
 
     ![Bien démarrer avec le calcul 3](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-4.png)
 
-5. Pour vérifier que le rôle de computing en périphérie a été configuré, sélectionnez **Voir le computing** sur la vignette **Configurer le calcul**.
-    
-    ![Bien démarrer avec le calcul 4](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-5.png)
+5. Pour vérifier que le rôle de calcul Edge a été configuré, sélectionnez **Propriétés**.
 
-    > [!NOTE]
-    > Si la boîte de dialogue **Configurer le calcul** est fermée avant que l'instance d'IoT Hub soit associée à l'appareil Azure Stack Edge Pro, l'instance d'IoT Hub est créée mais elle n'apparaît pas dans la configuration du calcul. 
-    
-    Quand le rôle de calcul Edge est configuré sur l’appareil Edge, il crée deux appareils : un appareil IoT et un appareil IoT Edge. Ces deux appareils peuvent être visualisés dans la ressource IoT Hub. Un runtime IoT Edge est également exécuté sur cet appareil IoT Edge. À ce stade, seule la plateforme Linux est disponible pour votre appareil IoT Edge.
+   ![Bien démarrer avec le calcul 4](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-5.png)
+
+   Quand le rôle de calcul Edge est configuré sur l’appareil Edge, il crée deux appareils : un appareil IoT et un appareil IoT Edge. Ces deux appareils peuvent être visualisés dans la ressource IoT Hub. Un runtime IoT Edge est également exécuté sur cet appareil IoT Edge. À ce stade, seule la plateforme Linux est disponible pour votre appareil IoT Edge.
 
 
 ## <a name="add-shares"></a>Ajouter des partages
@@ -94,11 +93,11 @@ Pour le déploiement simple dans ce tutoriel, vous aurez besoin de deux partages
 
         ![Ajouter un partage Edge](./media/azure-stack-edge-j-series-deploy-configure-compute/add-edge-share-1.png) 
 
-    Si vous avez créé un partage NFS local, utilisez l’option de commande rsync (synchronisation à distance) suivante pour copier les fichiers sur le partage :
+    Si vous avez créé un partage NFS local, utilisez l’option de commande de synchronisation à distance (`rsync`) suivante pour copier les fichiers sur le partage :
 
     `rsync <source file path> < destination file path>`
 
-    Pour plus d’informations sur la commande `rsync`, consultez la [documentation de Rsync](https://www.computerhope.com/unix/rsync.htm).
+    Pour plus d’informations sur la commande `rsync`, consultez la [documentation de `Rsync`](https://www.computerhope.com/unix/rsync.htm).
 
     > [!NOTE]
     > Pour monter le partage NFS pour le calcul, le réseau de calcul doit être configuré sur le même sous-réseau que l’adresse IP virtuelle NFS. Pour plus d'informations sur la configuration du réseau de calcul, consultez [Activer le réseau de calcul sur Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
@@ -119,7 +118,7 @@ Pour le déploiement simple dans ce tutoriel, vous aurez besoin de deux partages
 
 Vous pouvez ajouter un module prédéfini ou personnalisé. Il n’existe aucun module personnalisé sur cet appareil Edge. Pour savoir comment créer un module personnalisé, accédez à [Développer un module C# pour votre appareil Azure Stack Edge Pro](azure-stack-edge-j-series-create-iot-edge-module.md).
 
-Dans cette section, vous allez ajouter un module personnalisé à l'appareil IoT Edge que vous avez créé dans [Développer un module C# pour votre appareil Azure Stack Edge Pro](azure-stack-edge-j-series-create-iot-edge-module.md). Ce module personnalisé place des fichiers d’un partage local Edge sur l’appareil de périphérie, puis les déplace vers un partage Edge (cloud) sur l’appareil. Le partage cloud envoie ensuite les fichiers vers le compte de stockage Azure associé au partage cloud.
+Dans cette section, vous ajoutez un module personnalisé à l’appareil IoT Edge que vous avez créé dans [Développer un module C# pour votre appareil Azure Stack Edge Pro](azure-stack-edge-j-series-create-iot-edge-module.md). Ce module personnalisé place des fichiers d’un partage local Edge sur l’appareil de périphérie, puis les déplace vers un partage Edge (cloud) sur l’appareil. Le partage cloud envoie ensuite les fichiers vers le compte de stockage Azure associé au partage cloud.
 
 1. Accédez à **Computing en périphérie > Bien démarrer**. Sur la vignette **Ajouter des modules**, sélectionnez le type de scénario **Simple**. Sélectionnez **Ajouter**.
 2. Dans le panneau **Configurer et ajouter un module**, entrez les valeurs suivantes :
@@ -154,15 +153,15 @@ Pour vérifier que le module est en cours d’exécution, effectuez les étapes 
  
 1. Dans l’Explorateur de fichiers, connectez-vous aux partages local Edge et Edge que vous avez créés.
 
-    ![Vérifier la transformation des données](./media/azure-stack-edge-j-series-deploy-configure-compute/verify-data-2.png) 
+    ![Vérifier la transformation des données - 1](./media/azure-stack-edge-j-series-deploy-configure-compute/verify-data-2.png) 
  
 1. Ajoutez des données au partage local.
 
-    ![Vérifier la transformation des données](./media/azure-stack-edge-j-series-deploy-configure-compute/verify-data-3.png) 
+    ![Vérifier la transformation des données - 2](./media/azure-stack-edge-j-series-deploy-configure-compute/verify-data-3.png) 
  
    Les données sont déplacées vers le partage cloud.
 
-    ![Vérifier la transformation des données](./media/azure-stack-edge-j-series-deploy-configure-compute/verify-data-4.png)  
+    ![Vérifier la transformation des données - 3](./media/azure-stack-edge-j-series-deploy-configure-compute/verify-data-4.png)  
 
    Les données sont ensuite envoyées du partage cloud vers le compte de stockage. Pour afficher les données, vous pouvez utiliser l’Explorateur Stockage.
 

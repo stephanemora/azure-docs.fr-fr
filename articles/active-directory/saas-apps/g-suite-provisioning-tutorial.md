@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/06/2020
 ms.author: Zhchia
-ms.openlocfilehash: 4851dfb4a96ab2ca19ba6ea67139772f9c091a69
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: c3f61c3fe688a0b7533902fb0caa19b67f883482
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763642"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901587"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Tutoriel : Configurer G Suite pour l’attribution automatique d’utilisateurs
 
@@ -24,13 +24,6 @@ Ce tutoriel décrit les étapes à suivre dans G Suite et Azure Active Directory
 
 > [!NOTE]
 > Ce didacticiel décrit un connecteur reposant sur le service d’attribution d’utilisateurs Azure AD. Pour découvrir les informations importantes sur ce que fait ce service, comment il fonctionne et consulter le forum aux questions, reportez-vous à l’article [Automatiser l’attribution et l’annulation de l’attribution des utilisateurs dans les applications SaaS avec Azure Active Directory](../app-provisioning/user-provisioning.md).
-
-> [!NOTE]
-> Le connecteur G Suite a été récemment mis à jour en octobre 2019. Les modifications apportées au connecteur G Suite sont les suivantes :
->
-> * Ajout de la prise en charge d’autres attributs d’utilisateur et de groupe G Suite.
-> * Les noms d’attributs cibles G Suite mis à jour correspondent à ce qui est défini [ici](https://developers.google.com/admin-sdk/directory).
-> * Mappages d’attributs par défaut mis à jour.
 
 > [!NOTE]
 > Cet article contient des références au terme *liste verte*, un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.
@@ -63,15 +56,15 @@ Avant de configurer G Suite pour l’approvisionnement automatique d’utilisate
 
 1. Connectez-vous à la [Console d’administration de G Suite](https://admin.google.com/) avec votre compte d’administrateur, puis sélectionnez **Sécurité**. Si le lien ne s’affiche pas, il est peut-être masqué par le menu **Autres contrôles** situé en bas de l’écran.
 
-    ![G Suite – Sécurité](./media/google-apps-provisioning-tutorial/gapps-security.png)
+    ![G Suite – Sécurité](./media/g-suite-provisioning-tutorial/gapps-security.png)
 
 2. Dans la page **Sécurité**, sélectionnez **Informations de référence sur l’API**.
 
-    ![G Suite – API](./media/google-apps-provisioning-tutorial/gapps-api.png)
+    ![G Suite – API](./media/g-suite-provisioning-tutorial/gapps-api.png)
 
 3. Sélectionnez **Activer l'accès à l'API**.
 
-    ![G Suite – API activée](./media/google-apps-provisioning-tutorial/gapps-api-enabled.png)
+    ![G Suite – API activée](./media/g-suite-provisioning-tutorial/gapps-api-enabled.png)
 
     > [!IMPORTANT]
    > Le nom d’utilisateur dans Azure AD de chaque utilisateur que vous souhaitez approvisionner dans G Suite **doit** être associé à un domaine personnalisé. Par exemple, les noms d’utilisateur qui ressemblent à bob@contoso.onmicrosoft.com ne sont pas acceptés par G Suite. En revanche, bob@contoso.com est accepté. Vous pouvez modifier le domaine d’un utilisateur existant en suivant les instructions [ici](../fundamentals/add-custom-domain.md).
@@ -80,15 +73,15 @@ Avant de configurer G Suite pour l’approvisionnement automatique d’utilisate
 
     a. Dans la [Console d’administration de G Suite](https://admin.google.com/), sélectionnez **Domaines**.
 
-    ![G Suite – Domaines](./media/google-apps-provisioning-tutorial/gapps-domains.png)
+    ![G Suite – Domaines](./media/g-suite-provisioning-tutorial/gapps-domains.png)
 
     b. Sélectionnez **Ajouter un domaine ou un alias de domaine**.
 
-    ![G Suite – Ajouter un domaine](./media/google-apps-provisioning-tutorial/gapps-add-domain.png)
+    ![G Suite – Ajouter un domaine](./media/g-suite-provisioning-tutorial/gapps-add-domain.png)
 
     c. Sélectionnez **Ajouter un autre domaine**, puis tapez le nom du domaine que vous souhaitez ajouter.
 
-    ![G Suite – Ajouter un autre domaine](./media/google-apps-provisioning-tutorial/gapps-add-another.png)
+    ![G Suite – Ajouter un autre domaine](./media/g-suite-provisioning-tutorial/gapps-add-another.png)
 
     d. Sélectionnez **Continuer et vérifier la propriété du domaine**. Puis suivez les étapes pour vérifier que vous possédez le nom de domaine. Pour obtenir des instructions complètes sur la vérification de votre domaine avec Google, consultez [Vérification de votre propriété de site](https://support.google.com/webmasters/answer/35179).
 
@@ -96,11 +89,11 @@ Avant de configurer G Suite pour l’approvisionnement automatique d’utilisate
 
 5. Déterminez ensuite le compte d’administrateur à utiliser pour gérer l’approvisionnement des utilisateurs dans G Suite. Accédez à **Rôles d’administrateur** .
 
-    ![G Suite – Administration](./media/google-apps-provisioning-tutorial/gapps-admin.png)
+    ![G Suite – Administration](./media/g-suite-provisioning-tutorial/gapps-admin.png)
 
 6. Pour le **Rôle d’administrateur** de ce compte, modifiez les **Privilèges** pour ce rôle. Veillez à activer tous les **Privilèges d’administrateur d’API** pour que ce compte puisse être utilisé pour l’approvisionnement.
 
-    ![G Suite – Privilèges Administrateur](./media/google-apps-provisioning-tutorial/gapps-admin-privileges.png)
+    ![G Suite – Privilèges Administrateur](./media/g-suite-provisioning-tutorial/gapps-admin-privileges.png)
 
 ## <a name="step-3-add-g-suite-from-the-azure-ad-application-gallery"></a>Étape 3. Ajouter G Suite à partir de la galerie d’applications Azure AD
 
@@ -126,9 +119,9 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise**, puis **Toutes les applications**. Les utilisateurs devront se connecter à portal.azure.com et ne pourront pas utiliser aad.portal.azure.com
 
-    ![Panneau Applications d’entreprise](./media/google-apps-provisioning-tutorial/enterprise-applications.png)
+    ![Panneau Applications d’entreprise](./media/g-suite-provisioning-tutorial/enterprise-applications.png)
 
-    ![Panneau Toutes les applications](./media/google-apps-provisioning-tutorial/all-applications.png)
+    ![Panneau Toutes les applications](./media/g-suite-provisioning-tutorial/all-applications.png)
 
 2. Dans la liste des applications, sélectionnez **G Suite**.
 
@@ -138,7 +131,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
     ![Capture d’écran des options Gérer avec l’option Provisionnement en évidence.](common/provisioning.png)
 
-      ![Panneau Prise en main](./media/google-apps-provisioning-tutorial/get-started.png)
+      ![Panneau Prise en main](./media/g-suite-provisioning-tutorial/get-started.png)
 
 4. Définissez le **Mode d’approvisionnement** sur **Automatique**.
 
@@ -146,11 +139,11 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 5. Sous la section **Informations d’identification de l’administrateur**, cliquez sur **Autoriser**. Une boîte de dialogue d’autorisation Google s’ouvre dans une nouvelle fenêtre du navigateur.
 
-      ![G Suite – Autoriser](./media/google-apps-provisioning-tutorial/authorize-1.png)
+      ![G Suite – Autoriser](./media/g-suite-provisioning-tutorial/authorize-1.png)
 
 6. Confirmez que vous souhaitez autoriser Azure AD à apporter des modifications à votre abonné G Suite. Sélectionnez **Accepter**.
 
-     ![G Suite – Authentification du locataire](./media/google-apps-provisioning-tutorial/gapps-auth.png)
+     ![G Suite – Authentification du locataire](./media/g-suite-provisioning-tutorial/gapps-auth.png)
 
 7. Sur le Portail Azure, cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à G Suite. Si la connexion échoue, vérifiez que votre compte G Suite dispose des autorisations d’administrateur et réessayez. Ensuite, réessayez d’effectuer l’étape **Autoriser**.
 
@@ -276,7 +269,13 @@ Une fois que vous avez configuré l’approvisionnement, utilisez les ressources
 
 1. Utilisez les [journaux d’approvisionnement](../reports-monitoring/concept-provisioning-logs.md) pour déterminer quels utilisateurs ont été configurés avec succès ou échoué.
 2. Consultez la [barre de progression](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) pour afficher l’état du cycle d’approvisionnement et quand il se termine
-3. Si la configuration de l’approvisionnement semble se trouver dans un état non sain, l’application passe en quarantaine. Pour en savoir plus sur les états de quarantaine, cliquez [ici](../app-provisioning/application-provisioning-quarantine-status.md).
+3. Si la configuration de l’approvisionnement semble se trouver dans un état non sain, l’application passe en quarantaine. Pour en savoir plus sur les états de quarantaine, cliquez [ici](../app-provisioning/application-provisioning-quarantine-status.md).  
+
+## <a name="change-log"></a>Journal des modifications
+
+* 17/10/2020 : ajout de la prise en charge d’autres attributs d’utilisateur et de groupe G Suite.
+* 17/10/2020 : les noms d’attributs cibles G Suite mis à jour correspondent à ce qui est défini [ici](https://developers.google.com/admin-sdk/directory).
+* 17/10/2020 : mappages d’attributs par défaut mis à jour.
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 03/21/2019
+ms.date: 01/04/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 64fe65019a66013323b1c6d27055051badb47cee
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: afedbe739e955499f94d00a8ced940e7a4e9c27c
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350311"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97898659"
 ---
 # <a name="tutorial-transfer-data-with-azure-stack-edge-pro"></a>Tutoriel : Transférer des données avec Azure Stack Edge Pro
 
@@ -42,7 +42,7 @@ Avant d'ajouter des partages à Azure Stack Edge Pro, vérifiez que :
 
 Pour créer un partage, procédez comme suit :
 
-1. Sur le [portail Azure](https://portal.azure.com/), sélectionnez votre ressource Azure Stack Edge, puis accédez à la **Vue d’ensemble**. Votre appareil doit être en ligne.
+1. Sur le [portail Azure](https://portal.azure.com/), sélectionnez votre ressource Azure Stack Edge, puis accédez à la **Vue d’ensemble**. Votre appareil doit être en ligne. Sélectionnez **Passerelle de stockage cloud**.
 
    ![Appareil en ligne](./media/azure-stack-edge-deploy-add-shares/device-online-1.png)
 
@@ -92,7 +92,7 @@ Vous pouvez maintenant vous connecter à un ou plusieurs partages que vous avez 
 
 ### <a name="connect-to-an-smb-share"></a>Se connecter à un partage SMB
 
-Sur le client Windows Server connecté à votre appareil Azure Stack Edge Pro, connectez-vous à un partage SMB en entrant les commandes suivantes :
+Sur votre client Windows Server connecté à votre appareil Azure Stack Edge Pro, connectez-vous à un partage SMB en entrant les commandes :
 
 
 1. Dans la fenêtre de commande, tapez :
@@ -125,7 +125,7 @@ Sur le client Windows Server connecté à votre appareil Azure Stack Edge Pro, c
 
 ### <a name="connect-to-an-nfs-share"></a>Se connecter à un partage NFS
 
-Sur le client Linux connecté à votre appareil Azure Stack Edge Pro, procédez comme suit :
+Sur votre client Linux connecté à votre appareil Azure Stack Edge Pro, appliquez la procédure suivante :
 
 1. Vérifiez que le client NFSv4 est installé sur le client. Pour installer le client NFS, utilisez la commande suivante :
 
@@ -141,7 +141,7 @@ Sur le client Linux connecté à votre appareil Azure Stack Edge Pro, procédez 
     > L’utilisation de l’option `sync` lors du montage de partages améliore les taux de transfert des fichiers volumineux.
     > Avant de monter le partage, assurez-vous que les répertoires qui serviront de points de montage sur votre ordinateur local sont déjà créés. Ces répertoires ne doivent contenir aucun fichier ou sous-dossier.
 
-    L'exemple suivant montre comment se connecter à un partage sur l'appareil Azure Stack Edge Pro via NFS. L’adresse IP de l’appareil est `10.10.10.60`. Le partage `mylinuxshare2` est monté sur la machine virtuelle ubuntuVM. Le point de montage du partage est `/home/databoxubuntuhost/edge`.
+    L’exemple suivant montre comment se connecter à un partage sur l’appareil Azure Stack Edge Pro via NFS. L’adresse IP de l’appareil est `10.10.10.60`. Le partage `mylinuxshare2` est monté sur la machine virtuelle ubuntuVM. Le point de montage du partage est `/home/databoxubuntuhost/edge`.
 
     `sudo mount -t nfs -o sec=sys,resvport 10.10.10.60:/mylinuxshare2 /home/databoxubuntuhost/Edge`
 
@@ -152,13 +152,13 @@ Sur le client Linux connecté à votre appareil Azure Stack Edge Pro, procédez 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez approfondi vos connaissances sur Azure Stack Edge Pro et avez appris à :
+Dans ce tutoriel, vous avez approfondi les connaissances suivantes sur Azure Stack Edge Pro :
 
 > [!div class="checklist"]
 > * Ajouter un partage
 > * Vous connecter à un partage
 
-Pour savoir comment transformer vos données à l'aide d'Azure Stack Edge Pro, passez au tutoriel suivant :
+Pour savoir comment transformer vos données en utilisant Azure Stack Edge Pro, passez au tutoriel suivant :
 
 > [!div class="nextstepaction"]
 > [Transformer des données avec Azure Stack Edge Pro](./azure-stack-edge-deploy-configure-compute.md)

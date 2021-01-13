@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 12/16/2020
+ms.date: 01/04/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro R so I can use it to transfer data to Azure.
-ms.openlocfilehash: 7ca9b21838d35b54b4ed84d5aaf3aa797b02d9e0
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: dd0b6833c4c51c218497cea4fec04390200edff4
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97630766"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935350"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro-r"></a>Tutoriel : Préparer le déploiement d’Azure Stack Edge Pro R
 
@@ -37,7 +37,7 @@ Pour déployer Azure Stack Edge Pro R, consultez les tutoriels suivants dans l�
 | --- | --- |
 | **Préparation** |Ces étapes doivent être effectuées en préparation du déploiement à venir. |
 | **[Liste de contrôle de la configuration du déploiement](#deployment-configuration-checklist)** |Utilisez cette liste de contrôle pour rassembler et enregistrer des informations avant et pendant le déploiement. |
-| **[Conditions préalables au déploiement](#prerequisites)** |Celles-ci valident que l'environnement est prêt pour le déploiement. |
+| **[Conditions préalables au déploiement](#prerequisites)** |Ces prérequis attestent que l’environnement est prêt pour le déploiement. |
 |  | |
 |**Didacticiels de déploiement** |Ces tutoriels sont nécessaires pour déployer votre appareil Azure Stack Edge Pro R en production. |
 |**[1. Préparer le portail Azure pour l’appareil](azure-stack-edge-pro-r-deploy-prep.md)** |Créez et configurez votre ressource Azure Stack Edge avant d’installer un appareil physique Azure Stack Edge. |
@@ -47,7 +47,7 @@ Pour déployer Azure Stack Edge Pro R, consultez les tutoriels suivants dans l�
 |**[5. Configurer les paramètres de l’appareil](azure-stack-edge-pro-r-deploy-set-up-device-update-time.md)** |Attribuez un nom d’appareil et un domaine DNS, configurez le serveur de mise à jour et l’heure de l’appareil. |
 |**[6. Configurer les paramètres de sécurité](azure-stack-edge-pro-r-deploy-configure-certificates-vpn-encryption.md)** |Configurez les certificats, le VPN, le chiffrement au repos pour votre appareil. Utilisez des certificats générés par l’appareil ou apportez vos propres certificats.   |
 |**[7. Activer l’appareil](azure-stack-edge-pro-r-deploy-activate.md)** |Utilisez la clé d’activation du service pour activer l’appareil. L’appareil est prêt à configurer des partages SMB ou NFS ou à se connecter via REST. |
-|**[8. Configurer le calcul](azure-stack-edge-gpu-deploy-configure-compute.md)** |Configurez le rôle de calcul sur votre appareil. Cela créera également un cluster Kubernetes. |
+|**[8. Configurer le calcul](azure-stack-edge-gpu-deploy-configure-compute.md)** |Configurez le rôle de calcul sur votre appareil. Un cluster Kubernetes est également créé. |
 
 Vous pouvez maintenant commencer à configurer le portail Azure.
 
@@ -109,7 +109,7 @@ Pour créer une ressource Azure Stack Edge, suivez ces étapes dans le portail A
     
     |Paramètre  |Valeur  |
     |---------|---------|
-    |Abonnement    |Ce champ est automatiquement renseigné en fonction de la sélection antérieure. L’abonnement est lié à votre compte de facturation. |
+    |Abonnement    |L’abonnement est automatiquement renseigné en fonction de la sélection antérieure. L’abonnement est lié à votre compte de facturation. |
     |Resource group  |Sélectionnez un groupe existant ou créez-en un.<br>Obtenez plus d’informations sur les [groupes de ressources Azure](../azure-resource-manager/management/overview.md).     |
 
 7. Entrez ou sélectionnez les **détails de l’instance** suivants.
@@ -150,7 +150,7 @@ Un message vous informe que la ressource a été créée et déployée. Sélecti
 
 Une fois la commande passée, Microsoft l’examine et vous communique (par e-mail) les détails de l’expédition.
 
-<!--![Notification for review of the Azure Stack Edge Pro order](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-2.png)-->
+<!--![Notification for review of the Azure Stack Edge Pro order](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-2.png) - If this is restored, it must go above "After the resource is successfully created." The azure-stack-edge-resource-1.png would seem superfluous in that case.--> 
 
 Si vous rencontrez des problèmes pendant le processus de commande, consultez [Résoudre les problèmes de commande](azure-stack-edge-troubleshoot-ordering.md).
 
@@ -158,20 +158,17 @@ Si vous rencontrez des problèmes pendant le processus de commande, consultez [R
 
 Une fois que la ressource Azure Stack Edge est active et en cours d’exécution, vous devez obtenir la clé d’activation. Cette clé sert à activer votre appareil Azure Stack Edge Pro et à le connecter à la ressource. Vous pouvez obtenir cette clé maintenant, lorsque vous vous trouvez dans le Portail Azure.
 
-1. Sélectionnez la ressource que vous avez créée. Sélectionnez **Vue d’ensemble**, puis **Configuration de l’appareil**.
+1. Sélectionnez la ressource que vous avez créée, puis **Vue d’ensemble**.
 
-    ![Sélectionner Configuration de l’appareil](media/azure-stack-edge-pro-r-deploy-prep/azure-stack-edge-resource-2.png)
+2. Dans le volet droit, fournissez un nom pour le coffre de clés Azure ou acceptez le nom par défaut. Le nom du coffre de clés peut contenir entre 3 et 24 caractères.
 
-2. Sur la vignette **Activer**, attribuez un nom au coffre de clés Azure Key Vault ou acceptez le nom par défaut. Le nom du coffre de clés peut contenir entre 3 et 24 caractères. 
+   Un coffre de clés est créé pour chaque ressource Azure Stack Edge activée avec votre appareil. Le coffre de clés vous permet de stocker des secrets et d’y accéder. Par exemple, la clé d’intégrité de canal (CIK) du service est stockée dans le coffre de clés.
 
-    Un coffre de clés est créé pour chaque ressource Azure Stack Edge activée avec votre appareil. Le coffre de clés vous permet de stocker des secrets et d’y accéder. Par exemple, la clé d’intégrité de canal (CIK) du service est stockée dans le coffre de clés. 
+   Une fois que vous avez spécifié un nom de coffre de clés, sélectionnez **Générer la clé d’activation** pour créer une clé d’activation.
 
-    Une fois que vous avez spécifié un nom de coffre de clés, sélectionnez **Générer la clé** pour créer une clé d’activation. 
+   ![Obtenir une clé d’activation](media/azure-stack-edge-pro-r-deploy-prep/azure-stack-edge-resource-3.png)
 
-    ![Obtenir une clé d’activation](media/azure-stack-edge-pro-r-deploy-prep/azure-stack-edge-resource-3.png)
-
-    Attendez quelques minutes le temps que le coffre de clés et la clé d’activation soient créés. Sélectionnez l’icône de copie pour copier la clé et l’enregistrer pour une utilisation ultérieure.
-
+   Attendez quelques minutes le temps que le coffre de clés et la clé d’activation soient créés. Sélectionnez l’icône de copie pour copier la clé et l’enregistrer pour une utilisation ultérieure.<!--Verify that the new screen has a copy icon.-->
 
 > [!IMPORTANT]
 > - La clé d’activation expire 3 jours après sa création.

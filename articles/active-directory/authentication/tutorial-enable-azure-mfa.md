@@ -10,18 +10,18 @@ ms.author: justinha
 author: justinha
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32228e90e3cfc064cd5be9cd0655f321ab3e2809
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: f2e8bf2ccbf7a53563013c7ba653a6f6e8905337
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741148"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881308"
 ---
 # <a name="tutorial-secure-user-sign-in-events-with-azure-ad-multi-factor-authentication"></a>Tutoriel : Événements de connexion utilisateur sécurisée avec Azure AD Multi-Factor Authentication
 
 L’authentification MFA (Azure Multi-Factor Authentication) est un processus dans lequel un utilisateur est invité, au cours d’un événement de connexion, à utiliser des formes d’identification supplémentaires. Il peut s’agir en ce qui le concerne d’entrer un code sur son téléphone portable ou de scanner son empreinte digitale. Quand vous exigez une deuxième forme d’authentification, la sécurité est accrue, car ce facteur supplémentaire n’est pas un élément facile à obtenir ou à dupliquer par un attaquant.
 
-Azure AD Multi-Factor Authentication et les stratégies d’accès conditionnel offrent la flexibilité nécessaire qui permet l’authentification MFA des utilisateurs pendant des événements de connexion spécifiques.
+Azure AD Multi-Factor Authentication et les stratégies d’accès conditionnel offrent la flexibilité nécessaire qui permet l’authentification MFA des utilisateurs pendant des événements de connexion spécifiques. Voici une [vidéo sur la manière de configurer et appliquer une authentification multifacteur dans votre locataire](https://www.youtube.com/watch?v=qNndxl7gqVM) (**Recommandé**)
 
 > [!IMPORTANT]
 > Ce tutoriel montre aux administrateurs comment activer Azure AD Multi-Factor Authentication.

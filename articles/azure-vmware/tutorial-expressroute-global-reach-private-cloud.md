@@ -2,13 +2,13 @@
 title: 'Tutoriel : Appairer des environnements locaux avec un cloud privé'
 description: Découvrez comment créer un appairage ExpressRoute Global Reach avec un cloud privé dans une solution Azure VMware Solution.
 ms.topic: tutorial
-ms.date: 09/21/2020
-ms.openlocfilehash: 4d10972a693f7c4c3ae25a5bc986f6c15e978294
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.date: 1/5/2021
+ms.openlocfilehash: 613aece6ed548f70840349e017de4416883d6cf3
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92912495"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97913156"
 ---
 # <a name="tutorial-peer-on-premises-environments-to-a-private-cloud"></a>Tutoriel : Appairer des environnements locaux avec un cloud privé
 
@@ -19,8 +19,8 @@ Le circuit ExpressRoute que vous utilisez au moment de [configurer un réseau d�
 Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
-> * Créer une seconde clé d’autorisation pour le circuit ExpressRoute de cloud privé ( _circuit 2_ )
-> * Utiliser le [portail Azure](#azure-portal-method) ou l’ [interface Azure CLI dans une méthode Cloud Shell](#azure-cli-in-a-cloud-shell-method) dans l’abonnement du _circuit 1_ pour activer l’appairage ExpressRoute Global Reach entre circuit local et circuit de cloud privé
+> * Créer une seconde clé d’autorisation pour le circuit ExpressRoute de cloud privé (_circuit 2_)
+> * Utiliser le [portail Azure](#azure-portal-method) ou l’[interface Azure CLI dans une méthode Cloud Shell](#azure-cli-in-a-cloud-shell-method) dans l’abonnement du _circuit 1_ pour activer l’appairage ExpressRoute Global Reach entre circuit local et circuit de cloud privé
 
 
 ## <a name="before-you-begin"></a>Avant de commencer
@@ -33,6 +33,7 @@ Avant d’activer la connectivité entre deux circuits ExpressRoute à l’aide 
 - Connectivité établie vers et depuis un cloud privé Azure VMware Solution avec son circuit ExpressRoute appairé avec une passerelle ExpressRoute dans un réseau virtuel Azure, c’est-à-dire le _circuit 2_ dans le contexte des procédures d’appairage.  
 - Un circuit ExpressRoute fonctionnel distinct utilisé pour connecter des environnements locaux à Azure, c’est-à-dire le _circuit 1_ dans le contexte des procédures d’appairage.
 - Un [bloc d’adresses réseau](../expressroute/expressroute-routing.md#ip-addresses-used-for-peerings) /29 sans chevauchement pour l’appairage ExpressRoute Global Reach
+- Vérifiez que tous les routeurs, y compris le service du fournisseur ExpressRoute, prennent en charge un numéro de système autonome (ASN) à 4 octets. Azure VMware Solution utilise des ASN publics à 4 octets pour publier des routes.
 
 > [!TIP]
 > Dans le cadre de ces prérequis, votre circuit ExpressRoute local est le _circuit 1_. Quant à votre circuit ExpressRoute de cloud privé, il se trouve dans un abonnement différent et est nommé _circuit 2_. 

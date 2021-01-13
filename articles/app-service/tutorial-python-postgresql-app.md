@@ -3,7 +3,7 @@ title: 'Tutoriel : Déployer une application Python Django avec Postgres'
 description: Créez une application web Python avec une base de données PostgreSQL, puis déployez-la sur Azure. Le tutoriel utilise l’infrastructure Django, et l’application est hébergée dans Azure App Service sur Linux.
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 11/02/2020
+ms.date: 01/04/2021
 ms.custom:
 - mvc
 - seodec18
@@ -11,12 +11,12 @@ ms.custom:
 - cli-validate
 - devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: b106b403022f3407a3838b7f65222baf41cbfff5
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: ffde74a0567661d6b9f77e45a80bfd585e5c7212
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96852963"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97898587"
 ---
 # <a name="tutorial-deploy-a-django-web-app-with-postgresql-in-azure-app-service"></a>Tutoriel : Déployer une application web Django avec PostgreSQL dans Azure App Service
 
@@ -236,14 +236,11 @@ Les migrations de base de données Django garantissent que le schéma de la base
 1. Dans la session SSH, exécutez les commandes suivantes (vous pouvez coller des commandes en utilisant la combinaison de touches **Ctrl**+**Maj**+**V**) :
 
     ```bash
-    # Change to the folder where the app code is deployed
-    cd site/wwwroot
+    # Change to the app folder
+    cd $APP_PATH
     
-    # Activate default virtual environment in App Service container
+    # Activate the venv (requirements.txt is installed automatically)
     source /antenv/bin/activate
-
-    # Install packages
-    pip install -r requirements.txt
 
     # Run database migrations
     python manage.py migrate
@@ -251,6 +248,8 @@ Les migrations de base de données Django garantissent que le schéma de la base
     # Create the super user (follow prompts)
     python manage.py createsuperuser
     ```
+
+    Si vous rencontrez des erreurs liées à la connexion à la base de données, vérifiez les valeurs des paramètres d’application créés dans la section précédente.
 
 1. La commande `createsuperuser` vous invite à entrer vos informations d’identification de superutilisateur. Pour les besoins de ce tutoriel, utilisez le nom d’utilisateur par défaut `root`, appuyez sur **Entrée** pour l’adresse a-mail afin de laisser le champ vide, puis entrez `Pollsdb1` en tant que mot de passe.
 
@@ -260,13 +259,13 @@ Vous rencontrez des problèmes ? Consultez d’abord le [Guide de résolution d
     
 ### <a name="44-create-a-poll-question-in-the-app"></a>4.4 Créer une question de sondage dans l’application
 
-1. Dans un navigateur, ouvrez l’URL `http://<app-name>.azurewebsites.net`. L’application doit afficher le message « No polls are available » (Aucun sondage n’est disponible), car il n’existe pas encore de sondages spécifiques dans la base de données.
+1. Dans un navigateur, ouvrez l’URL `http://<app-name>.azurewebsites.net`. L’application doit afficher le message « Polls app » (Application de sondage) et « No polls are available » (Aucun sondage n’est disponible), car il n’existe pas encore de sondages spécifiques dans la base de données.
 
     Si le message « Erreur d’application » s’affiche, vous n’avez probablement pas créé les paramètres nécessaires lors de l’étape précédente, [Configurer des variables d’environnement pour connecter la base de données](#42-configure-environment-variables-to-connect-the-database), ou que ces valeurs contiennent des erreurs. Exécutez la commande `az webapp config appsettings list` pour vérifier les paramètres. Vous pouvez également [consulter les journaux de diagnostic](#6-stream-diagnostic-logs) pour examiner les erreurs particulières survenues au démarrage de l’application. Par exemple, si vous n’avez pas créé les paramètres, les journaux affichent l’erreur `KeyError: 'DBNAME'`.
 
     Après avoir mis à jour les paramètres pour corriger les erreurs, donnez à l’application une minute pour redémarrer, puis actualisez le navigateur.
 
-1. Accédez à `http://<app-name>.azurewebsites.net/admin`. Connectez-vous à l’aide des informations d’identification de superutilisateur de la section précédente (`root` et `Pollsdb1`). Sous **Sondages**, sélectionnez **Ajouter** en regard de **Questions**, puis créez une question de sondage avec quelques options.
+1. Accédez à `http://<app-name>.azurewebsites.net/admin`. Connectez-vous à l’aide des informations d’identification de superutilisateur Django de la section précédente (`root` et `Pollsdb1`). Sous **Sondages**, sélectionnez **Ajouter** en regard de **Questions**, puis créez une question de sondage avec quelques options.
 
 1. Accédez de nouveau à `http://<app-name>.azurewebsites.net` pour vérifier que les questions sont maintenant présentées à l’utilisateur. Répondez aux questions en fonction de la manière dont vous voulez générer des données dans la base de données.
 
@@ -292,7 +291,7 @@ Exécutez les commandes suivantes dans une fenêtre de terminal. Veillez à suiv
 python3 -m venv venv
 source venv/bin/activate
 
-# Install packages
+# Install dependencies
 pip install -r requirements.txt
 # Run Django migrations
 python manage.py migrate
@@ -310,7 +309,7 @@ py -3 -m venv venv
 Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned -Force
 venv\scripts\activate
 
-# Install packages
+# Install dependencies
 pip install -r requirements.txt
 # Run Django migrations
 python manage.py migrate
@@ -327,7 +326,7 @@ python manage.py runserver
 py -3 -m venv venv
 venv\scripts\activate
 
-:: Install packages
+:: Install dependencies
 pip install -r requirements.txt
 :: Run Django migrations
 python manage.py migrate
@@ -397,11 +396,8 @@ Vous rencontrez des problèmes ? Consultez d’abord le [Guide de résolution d
 Ouvrez une nouvelle session SSH dans le navigateur en accédant à `https://<app-name>.scm.azurewebsites.net/webssh/host`. Exécutez ensuite les commande suivantes :
 
 ```
-cd site/wwwroot
-
-# Activate default virtual environment in App Service container
+cd $APP_PATH
 source /antenv/bin/activate
-# Run database migrations
 python manage.py migrate
 ```
 

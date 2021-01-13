@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 161348f7566ff64858d563f34ad8f3f4c7511adf
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 16fff00f04c4cd57ad46759cceb50134e58d5e01
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96009158"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97933096"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à F5
 
@@ -195,7 +195,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 1. Cliquez sur **Accès conditionnel**.
 1. Cliquez sur **Nouvelle stratégie**.
-1. Votre application F5 apparaît désormais comme une ressource de la stratégie d’autorité de certification et vous pouvez appliquer n’importe quel accès conditionnel, notamment l’authentification multifacteur, le contrôle d’accès basé sur les appareils ou la stratégie de protection des identités.
+1. Votre application F5 apparaît désormais comme une ressource de la stratégie d’accès conditionnel et vous pouvez appliquer n’importe quel accès conditionnel, notamment l’authentification multifacteur, le contrôle d’accès basé sur les appareils ou la stratégie de protection des identités.
 
 ## <a name="configure-f5-sso"></a>Configurer l’authentification unique F5
 

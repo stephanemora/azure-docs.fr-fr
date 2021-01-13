@@ -11,12 +11,12 @@ author: sdgilley
 ms.reviewer: ranku
 ms.date: 04/09/2020
 ms.custom: data4ml
-ms.openlocfilehash: 5aec3d6bb2afeadda64ac19563f8334a6aef3b77
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 238801171d19191bcac505f0c95395320f96d75c
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347504"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882464"
 ---
 # <a name="tutorial-create-a-labeling-project-for-multi-class-image-classification"></a>Tutoriel : Créer un projet d’étiquetage pour la classification d’images multiclasse 
 
@@ -104,7 +104,8 @@ Maintenant que vous disposez de l’accès aux données à étiqueter, créez vo
 1. Utilisez l’entrée suivante pour le formulaire **Créer un jeu de données à partir d’un magasin de données** :
 
     1. Dans le formulaire **Informations de base**, ajoutez un nom ; ici, nous allons utiliser **images-for-tutorial**.  Ajoutez la description de votre choix.  Sélectionnez ensuite **Suivant**.
-    1. Dans le formulaire **Sélection d’un magasin de données**, utilisez la liste déroulante pour sélectionner votre **Magasin de données créé précédemment**, par exemple **tutorial_images (Stockage Blob Azure)**
+    1. Dans le formulaire de **sélection du magasin de données**, sélectionnez **Magasin de données précédemment créé**, cliquez sur son nom, puis sélectionnez **Sélectionner le magasin de données**.
+    1. Dans la page suivante, vérifiez que le magasin de données actuellement sélectionné est correcte. Si ce n’est pas le cas, sélectionnez **Magasin de données précédemment créé**, puis répétez l’étape précédente.
     1. Ensuite, toujours dans le formulaire **Sélection d’un magasin de données**, sélectionnez **Parcourir**, puis **MultiClass - DogsCats**.  Sélectionnez **Enregistrer** pour utiliser **/MultiClass - DogsCats** comme chemin.
     1. Sélectionnez **Suivant** pour confirmer les détails, puis **Créer** pour créer le jeu de données.
     1. Sélectionnez le cercle en regard du nom du jeu de données dans la liste, par exemple **images-for-tutorial**.

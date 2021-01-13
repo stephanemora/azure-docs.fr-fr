@@ -8,18 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: 09e922ffddcce732d9213eb91026561528c0728a
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: ce854c8f2d1d317c3660aaab9c0a6569aae0bb36
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96169135"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895969"
 ---
 # <a name="tutorial-sign-in-users-and-call-a-protected-api-from-a-blazor-webassembly-app"></a>Tutoriel : Connecter des utilisateurs et appeler une API protégée à partir d’une application Blazor WebAssembly
 
-Dans ce tutoriel, vous créez une application Blazor WebAssembly qui connecte les utilisateurs et récupère les données depuis Microsoft Graph, par l’intermédiaire de la plateforme d’identités Microsoft et en inscrivant votre application dans Azure Active Directory (Azure AD).
-
-Nous disposons également d’un [tutoriel pour Blazor Server](tutorial-blazor-server.md). 
+Dans ce tutoriel, vous créez une application Blazor WebAssembly qui connecte les utilisateurs et récupère les données depuis Microsoft Graph, par l’intermédiaire de la plateforme d’identités Microsoft et en inscrivant votre application dans Azure Active Directory (Azure AD). 
 
 Dans ce tutoriel :
 
@@ -27,6 +25,10 @@ Dans ce tutoriel :
 >
 > * Créer une application Blazor WebAssembly configurée qui permet d’utiliser Azure Active Directory (Azure AD) pour l’[authentification et l’autorisation](authentication-vs-authorization.md) à l’aide de la plateforme d’identités Microsoft
 > * Récupérer des données à partir d’une API web protégée, ici [Microsoft Graph](/graph/overview)
+
+Ce tutoriel utilise .NET Core 3.1. La documentation .NET contient des instructions sur la [manière de sécuriser une application Blazor WebAssembly](https://docs.microsoft.com/aspnet/core/blazor/security/webassembly/graph-api) en utilisant ASP.NET Core 5.0. 
+
+Nous disposons également d’un [tutoriel pour Blazor Server](tutorial-blazor-server.md). 
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -74,9 +76,11 @@ Dans votre navigateur, accédez à `https://localhost:5001` et connectez-vous av
 
 Les composants de ce modèle qui activent les connexions avec Azure AD en utilisant la plateforme d’identités Microsoft sont expliqués dans le [document ASP.NET de cette rubrique](/aspnet/core/blazor/security/webassembly/standalone-with-azure-active-directory#authentication-package).
 
-## <a name="retrieving-data-from-microsoft-graph"></a>Récupération de données à partir de Microsoft Graph
+## <a name="retrieving-data-from-a-protected-api-microsoft-graph"></a>Récupération de données à partir d’une API protégée (Microsoft Graph)
 
-[Microsoft Graph](/graph/overview) propose un éventail d’API qui permettent d’accéder aux données Microsoft 365 des utilisateurs de votre locataire. En utilisant la plateforme d’identité Microsoft comme fournisseur d’identité pour votre application, vous avez plus facilement accès à ces informations puisque Microsoft Graph prend directement en charge les jetons émis par la plateforme d’identité Microsoft. Dans cette section, vous ajoutez du code qui peut afficher les e-mails de l’utilisateur connecté sur la page « Extraire les données » de l’application.
+[Microsoft Graph](/graph/overview) contient des API qui permettent d’accéder à des données Microsoft 365 pour vos utilisateurs, et prend en charge les jetons émis par la plateforme d’identités Microsoft, ce qui en fait une bonne API protégée à utiliser comme exemple. Dans cette section, vous ajoutez du code pour appeler Microsoft Graph et afficher les e-mails de l’utilisateur dans la page « Extraire les données » de l’application.
+
+Cette section est écrite selon une approche courante de l’appel d’une API protégée à l’aide d’un client nommé. La même méthode peut être utilisée pour d’autres API protégées à appeler. Toutefois, si vous envisagez d’appeler Microsoft Graph à partir de votre application, vous pouvez utiliser le SDK Graph pour réduire la réutilisabilité. La documentation .NET contient des instructions sur la [manière d’utiliser le SDK Graph](https://docs.microsoft.com/aspnet/core/blazor/security/webassembly/graph-api?view=aspnetcore-5.0).
 
 Avant de commencer, déconnectez-vous de votre application, car vous allez apporter des modifications aux autorisations requises et votre jeton actuel ne fonctionnera pas. Si vous ne l’avez pas encore fait, exécutez à nouveau votre application et sélectionnez **Se déconnecter** avant de mettre à jour le code ci-dessous.
 

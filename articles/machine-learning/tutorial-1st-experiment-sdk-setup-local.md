@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 62a1f43fb73f0eda77ebb8f62f64c95ff4ad37a1
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.openlocfilehash: 5df8b478c550522d4602398afd208c1e001c96a2
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97734196"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883297"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-your-development-environment-part-1-of-4"></a>Tutoriel : Bien démarrer avec Azure Machine Learning dans votre environnement de développement (partie 1 sur 4)
 
@@ -67,8 +67,10 @@ tutorial
 - `.azureml` : Sous-répertoire masqué pour le stockage des fichiers de configuration Azure Machine Learning.
 
 > [!TIP]
-> Si vous utilisez un Mac, dans une fenêtre de recherche, tapez **Commande + Maj + .** pour activer ou désactiver la fonctionnalité permettant d’afficher et de créer des répertoires dont le nom commence par un point.  Sinon, vous pouvez également utiliser le terminal de commande pour créer le répertoire.
-
+> Vous pouvez créer le sous-répertoire .azureml masqué dans une fenêtre de terminal.  Ou utilisez ceci :
+> * Dans une fenêtre Finder Mac, utilisez **Commande+Maj+.** pour activer ou désactiver la fonctionnalité permettant d’afficher et de créer des répertoires dont le nom commence par un point.  
+> * Sur Windows 10, consultez le [guide pratique pour afficher les fichiers et dossiers masqués](https://support.microsoft.com/en-us/windows/view-hidden-files-and-folders-in-windows-10-97fbc472-c603-9d90-91d0-1166d1d9f4b5). 
+> * Dans l’interface graphique Linux, utilisez **Ctrl+H** ou le menu **Afficher**, puis cochez la case **Afficher les fichiers masqués**.
 
 > [!div class="nextstepaction"]
 > [J’ai créé un répertoire](?success=create-dir#workspace) [J’ai rencontré un problème](https://www.research.net/r/7C8Z3DN?issue=create-dir)

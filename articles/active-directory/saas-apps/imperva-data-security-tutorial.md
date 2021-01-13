@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/17/2020
 ms.author: jeedes
-ms.openlocfilehash: 0ea08f8ec98ff8ddd4a9f15f12a0224db440b7b0
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 710164fa3712058d64e5d23006b986eb3dc3eaba
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97675650"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882753"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-imperva-data-security"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory avec Imperva Data Security
 
@@ -37,7 +37,7 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* Imperva Data Security prend en charge l’authentification unique lancée par le **fournisseur d’identité**
+* Imperva Data Security prend en charge l’authentification unique lancée par le **fournisseur de services**
 
 ## <a name="adding-imperva-data-security-from-the-gallery"></a>Ajout de Imperva Data Security à partir de la galerie
 
@@ -76,9 +76,13 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, entrez les valeurs pour les champs suivants :
 
-    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<IMPERVA_DNS_NAME>:8443`
+    a. Dans la zone de texte **Identificateur**, tapez un identificateur au format suivant : `application-name`
 
     b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<IMPERVA_DNS_NAME>:8443`
+    
+    c. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<IMPERVA_DNS_NAME>:8443`
+    
+    d. Dans la zone de texte **URL de déconnexion**, tapez une URL au format suivant : `https://<IMPERVA_DNS_NAME>:8443`    
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur et l’URL de réponse réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique d’Imperva Data Security](mailto:support@jsonar.imperva.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.

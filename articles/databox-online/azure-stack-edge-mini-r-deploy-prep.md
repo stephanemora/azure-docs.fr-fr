@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 12/16/2020
+ms.date: 01/05/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Mini R device so I can use it to transfer data to Azure.
-ms.openlocfilehash: 6d41c186a5d239ad7228c37902f5691085e43dbf
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 4535368b7d8d044469a4b0effee914176aca78e4
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97631242"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935401"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-mini-r"></a>Tutoriel : Préparer le déploiement d’Azure Stack Edge Mini R
 
@@ -36,7 +36,7 @@ Pour déployer Azure Stack Edge Mini R, consultez les tutoriels suivants dans l
 | --- | --- |
 | **Préparation** |Ces étapes doivent être effectuées en préparation du déploiement à venir. |
 | **[Liste de contrôle de la configuration du déploiement](#deployment-configuration-checklist)** |Utilisez cette liste de contrôle pour rassembler et enregistrer des informations avant et pendant le déploiement. |
-| **[Conditions préalables au déploiement](#prerequisites)** |Celles-ci valident que l'environnement est prêt pour le déploiement. |
+| **[Conditions préalables au déploiement](#prerequisites)** |Ces prérequis attestent que l’environnement est prêt pour le déploiement. |
 |  | |
 |**Didacticiels de déploiement** |Ces tutoriels sont nécessaires pour déployer votre appareil Azure Stack Edge Mini R en production. |
 |**[1. Préparer le portail Azure pour l’appareil](azure-stack-edge-mini-r-deploy-prep.md)** |Créez et configurez votre ressource Azure Stack Edge avant d’installer l’appareil physique. |
@@ -46,7 +46,7 @@ Pour déployer Azure Stack Edge Mini R, consultez les tutoriels suivants dans l
 |**[5. Configurer les paramètres de l’appareil](azure-stack-edge-mini-r-deploy-set-up-device-update-time.md)** |Attribuez un nom d’appareil et un domaine DNS, configurez le serveur de mise à jour et l’heure de l’appareil. |
 |**[6. Configurer les paramètres de sécurité](azure-stack-edge-mini-r-deploy-configure-certificates-vpn-encryption.md)** |Configurez des certificats en utilisant les vôtres, configurez un VPN et configurez un chiffrement au repos pour votre appareil.   |
 |**[7. Activer l’appareil](azure-stack-edge-mini-r-deploy-activate.md)** |Utilisez la clé d’activation du service pour activer l’appareil. L’appareil est prêt à configurer des partages SMB ou NFS ou à se connecter via REST. |
-|**[8. Configurer le calcul](azure-stack-edge-gpu-deploy-configure-compute.md)** |Configurez le rôle de calcul sur votre appareil. Cela créera également un cluster Kubernetes. |
+|**[8. Configurer le calcul](azure-stack-edge-gpu-deploy-configure-compute.md)** |Configurez le rôle de calcul sur votre appareil. Un cluster Kubernetes est également créé. |
 
 Vous pouvez maintenant commencer à configurer le portail Azure.
 
@@ -101,43 +101,43 @@ Pour créer une ressource Azure Stack Edge, suivez ces étapes dans le portail A
     [![Créer une ressource 2](media/azure-stack-edge-mini-r-deploy-prep/create-resource-2.png)](media/azure-stack-edge-mini-r-deploy-prep/create-resource-2.png#lightbox)
 
 
-6. Sous l’onglet **Bases**, entrez ou sélectionnez les **détails du projet** suivants.
+5. Sous l’onglet **Bases**, entrez ou sélectionnez les **détails du projet** suivants.
     
     |Paramètre  |Valeur  |
     |---------|---------|
-    |Abonnement    |Ce champ est automatiquement renseigné en fonction de la sélection antérieure. L’abonnement est lié à votre compte de facturation. |
+    |Abonnement    |L’abonnement est automatiquement renseigné en fonction de la sélection antérieure. L’abonnement est lié à votre compte de facturation. |
     |Resource group  |Sélectionnez un groupe existant ou créez-en un.<br>Obtenez plus d’informations sur les [groupes de ressources Azure](../azure-resource-manager/management/overview.md).     |
 
 
-7. Entrez ou sélectionnez les **détails de l’instance** suivants.
+6. Entrez ou sélectionnez les **détails de l’instance** suivants.
 
     |Paramètre  |Valeur  |
     |---------|---------|
-    |Nom   | Entrez un nom reconnaissable pour identifier la ressource.<br>Le nom doit être compris entre 2 et 50 caractères, et se composer uniquement de lettres, de chiffres et de traits d’union.<br> Le nom doit commencer et se terminer par une lettre ou un chiffre.        |
+    |Nom   | Entrez un nom reconnaissable pour identifier la ressource.<br>Le nom peut comporter entre 2 et 50 caractères, dont des lettres, des chiffres et des traits d’union.<br> Le nom doit commencer et se terminer par une lettre ou un chiffre.        |
     |Région     |Pour obtenir la liste complète des régions où la ressource Azure Stack Edge est disponible, consultez [Disponibilité des produits Azure par région](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Si vous utilisez Azure Government, toutes les régions administratives sont disponibles, comme indiqué dans [Régions Azure](https://azure.microsoft.com/global-infrastructure/regions/).<br> Choisissez l’emplacement le plus proche de la région géographique dans laquelle vous souhaitez déployer votre appareil.|
 
     ![Créer une ressource 4](media/azure-stack-edge-mini-r-deploy-prep/create-resource-4.png)
 
 
-8. Sélectionnez **Suivant : Adresse de livraison**.
+7. Sélectionnez **Suivant : Adresse de livraison**.
 
-    - Si vous avez déjà un appareil, sélectionnez **J’ai un appareil Azure Stack Edge Pro R** dans la zone de liste modifiable.
+    - Si vous disposez déjà d’un appareil, cochez la case **J’ai déjà un appareil**.
 
-        ![Créer une ressource 5](media/azure-stack-edge-mini-r-deploy-prep/create-resource-5.png)
+     ![Créer une ressource 5](media/azure-stack-edge-mini-r-deploy-prep/create-resource-5.png)
 
     - Si vous commandez un nouvel appareil, entrez le nom du contact, la société, l’adresse de livraison de l’appareil et les informations de contact.
 
-        ![Créer une ressource 6](media/azure-stack-edge-mini-r-deploy-prep/create-resource-6.png)
+     ![Créer une ressource 6](media/azure-stack-edge-mini-r-deploy-prep/create-resource-6.png)
 
-9. Sélectionnez **Suivant : Balises**. Si vous le souhaitez, vous pouvez fournir des balises pour catégoriser les ressources et centraliser la facturation. Sélectionnez **Suivant : Vérifier + créer**.
+8. Sélectionnez **Suivant : Balises**. Si vous le souhaitez, vous pouvez fournir des balises pour catégoriser les ressources et centraliser la facturation. Sélectionnez **Suivant : Vérifier + créer**.
 
-10. Sous l’onglet **Vérifier + créer**, passez en revue les **Détails de la tarification**, les **Conditions d’utilisation** et les détails de votre ressource. Cochez la case **J’ai pris connaissance des conditions de confidentialité**.
+9. Sous l’onglet **Vérifier + créer**, passez en revue les **Détails de la tarification**, les **Conditions d’utilisation** et les détails de votre ressource. Cochez la case **J’ai pris connaissance des conditions de confidentialité**.
 
-    ![Créer une ressource 7](media/azure-stack-edge-mini-r-deploy-prep/create-resource-7.png) 
+    ![Créer une ressource 7](media/azure-stack-edge-mini-r-deploy-prep/create-resource-7.png)
 
     Vous êtes également informé qu’une identité MSI (Managed Service Identity) est activée pendant la création de la ressource qui vous permet de vous authentifier auprès des services cloud. Cette identité existe aussi longtemps que la ressource existe.
 
-8. Sélectionnez **Create** (Créer).
+10. Sélectionnez **Create** (Créer).
 
     La création de la ressource prend quelques minutes. Une identité MSI est également créée pour permettre à l’appareil Azure Stack Edge de communiquer avec le fournisseur de ressources dans Azure.
     
@@ -153,15 +153,15 @@ Pour créer une ressource Azure Stack Edge, suivez ces étapes dans le portail A
 
 Une fois que la ressource Azure Stack Edge est active et en cours d’exécution, vous devez obtenir la clé d’activation. Cette clé sert à activer votre appareil Azure Stack Edge Mini R et à le connecter à la ressource. Vous pouvez obtenir cette clé maintenant, lorsque vous vous trouvez dans le Portail Azure.
 
-1. Sélectionnez la ressource que vous avez créée. Sélectionnez **Vue d’ensemble**, puis **Configuration de l’appareil**.
+1. Sélectionnez la ressource que vous avez créée, puis **Vue d’ensemble**.
 
-    ![Sélectionner Configuration de l’appareil](media/azure-stack-edge-mini-r-deploy-prep/azure-stack-edge-resource-2.png)
+   ![Sélectionner Configuration de l’appareil](media/azure-stack-edge-mini-r-deploy-prep/azure-stack-edge-resource-2.png)
 
-2. Sur la vignette **Activer**, attribuez un nom au coffre de clés Azure Key Vault ou acceptez le nom par défaut. Le nom du coffre de clés peut contenir entre 3 et 24 caractères. 
+2. Sur la vignette **Activer**, attribuez un nom au coffre de clés Azure ou acceptez le nom par défaut. Le nom du coffre de clés peut contenir entre 3 et 24 caractères. 
 
-    Un coffre de clés est créé pour chaque ressource Azure Stack Edge activée avec votre appareil. Le coffre de clés vous permet de stocker des secrets et d’y accéder. Par exemple, la clé d’intégrité de canal (CIK) du service est stockée dans le coffre de clés. 
+    Un coffre de clés est créé pour chaque ressource Azure Stack Edge activée avec votre appareil. Le coffre de clés vous permet de stocker des secrets et d’y accéder. Par exemple, la clé d’intégrité de canal (CIK) pour le service est stockée dans le coffre de clés.
 
-    Une fois que vous avez spécifié un nom de coffre de clés, sélectionnez **Générer la clé** pour créer une clé d’activation. 
+    Une fois que vous avez spécifié un nom de coffre de clés, sélectionnez **Générer la clé d’activation** pour créer une clé d’activation.
 
     [![Obtenir une clé d’activation](media/azure-stack-edge-mini-r-deploy-prep/azure-stack-edge-resource-3.png)](media/azure-stack-edge-mini-r-deploy-prep/azure-stack-edge-resource-3.png#lightbox)
 

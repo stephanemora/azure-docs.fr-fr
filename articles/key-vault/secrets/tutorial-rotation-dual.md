@@ -10,12 +10,12 @@ ms.subservice: secrets
 ms.topic: tutorial
 ms.date: 06/22/2020
 ms.author: jalichwa
-ms.openlocfilehash: c2496959f851b55f8cc66c0e793b641cdafb003a
-ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
+ms.openlocfilehash: 39081bc7bec7cfd76ccfc9107d5c2286affb7df0
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97808332"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97913768"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-that-have-two-sets-of-authentication-credentials"></a>Automatiser la permutation d’un secret pour des ressources qui ont deux jeux d’informations d’authentification
 
@@ -222,8 +222,15 @@ Notez que la `value` de la clé est identique au secret du coffre de clés :
 
 ## <a name="key-vault-rotation-functions-for-two-sets-of-credentials"></a>Fonctions de permutation Key Vault pour deux jeux d’informations d’identification
 
-- [Compte de stockage](https://github.com/jlichwa/KeyVault-Rotation-StorageAccountKey-PowerShell)
-- [Cache Redis](https://github.com/jlichwa/KeyVault-Rotation-RedisCacheKey-PowerShell)
+Modèle de fonctions de rotation pour deux ensembles d’informations d’identification et plusieurs fonctions prêtes à l’emploi :
+
+- [Modèle de projet](https://serverlesslibrary.net/sample/bc72c6c3-bd8f-4b08-89fb-c5720c1f997f)
+- [Cache Redis](https://serverlesslibrary.net/sample/0d42ac45-3db2-4383-86d7-3b92d09bc978)
+- [Compte de stockage](https://serverlesslibrary.net/sample/0e4e6618-a96e-4026-9e3a-74b8412213a4)
+- [Cosmos DB](https://serverlesslibrary.net/sample/bcfaee79-4ced-4a5c-969b-0cc3997f47cc)
+
+> [!NOTE]
+> Les fonctions de rotation ci-dessus sont créées par un membre de la communauté et non par Microsoft. Les fonctions Azure fournies par la communauté ne sont pas prises en charge par les programmes ou services d’assistance technique Microsoft. Elles sont proposées EN L’ÉTAT sans garantie d’aucune sorte.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

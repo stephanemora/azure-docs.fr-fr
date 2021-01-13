@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: ac6981d998f25b8df7cea553fe152d68cd43fee5
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: cc88712dd686983baed858de47e11dfa44e85350
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181422"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955516"
 ---
 # <a name="tutorial-configure-snowflake-for-automatic-user-provisioning"></a>Tutoriel : Configurer Snowflake pour l’approvisionnement automatique d’utilisateurs
 
@@ -159,6 +159,12 @@ Une fois que vous avez configuré l’approvisionnement, utilisez les ressources
 ## <a name="connector-limitations"></a>Limitations du connecteur
 
 * Les jetons SCIM générés par Snowflake expirent dans 6 mois. N’oubliez pas que ces derniers doivent être actualisés avant leur expiration pour permettre aux synchronisations de provisionnement de continuer de fonctionner. 
+
+## <a name="troubleshooting-tips"></a>Conseils de dépannage
+
+* **Plages d’adresses IP** 
+
+   Le service de provisionnement Azure AD fonctionne actuellement sous une plage d’adresses IP particulière. Vous pouvez donc, au besoin, restreindre d’autres plages d’adresses IP et ajouter ces plages d’adresses IP particulières à la liste verte de votre application pour autoriser le flux de trafic depuis le service de provisionnement Azure vers votre application. Reportez-vous à la documentation sur les [plages d’adresses IP](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#ip-ranges).
 
 ## <a name="change-log"></a>Journal des modifications
 

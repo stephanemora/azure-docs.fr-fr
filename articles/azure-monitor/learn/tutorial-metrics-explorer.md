@@ -6,12 +6,12 @@ ms.author: bwren
 ms.subservice: metrics
 ms.topic: tutorial
 ms.date: 03/09/2020
-ms.openlocfilehash: 6ce9183fad50c43ea7070f5fa09e0d445caf89df
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 5dcb86ff4af2a68ecf0bb361e6da4f788ea32b62
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96451247"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881291"
 ---
 # <a name="tutorial-create-a-metrics-chart-in-azure-monitor"></a>Tutoriel : Créer un graphique de métriques dans Azure Monitor
 Metrics Explorer est une fonctionnalité d’Azure Monitor dans le portail Azure qui vous permet de créer des graphiques à partir de valeurs de métriques, de corréler visuellement des tendances et d’examiner des pics et des creux dans des valeurs de métriques. Utilisez Metrics Explorer pour examiner l’intégrité et l’utilisation de vos ressources Azure ou pour tracer des graphiques à partir de métriques personnalisées. 
@@ -40,7 +40,7 @@ Vous pouvez ouvrir Metrics Explorer à partir du menu Azure Monitor ou du menu d
 
 1. Sélectionnez **Métriques** dans le menu **Azure Monitor** ou dans la section **Supervision** du menu d’une ressource.
 
-1. Sélectionnez l’**Étendue**, autrement dit la ressource pour laquelle vous souhaitez afficher les métriques. L’étendue est déjà remplie si vous avez ouvert Metrics Explorer à partir du menu d’une ressource.
+1. Sélectionnez l’**Étendue**, autrement dit la ressource pour laquelle vous souhaitez afficher les métriques. L’étendue est déjà remplie si vous avez ouvert Metrics Explorer à partir du menu d’une ressource. Pour en savoir plus sur les différentes fonctionnalités du sélecteur d’étendue des ressources, consultez [cet article](../platform/metrics-charts.md#resource-scope-picker).
 
     ![Sélectionner une étendue](media/tutorial-metrics-explorer/scope-picker.png)
 

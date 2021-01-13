@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 5c21efc9cb082d915fd87e9ae01606fce18016bc
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 71f4cfa9e7b69e51bafa5364f857f8ab689f2ad0
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97897277"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955465"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning"></a>Tutoriel : Configurer ServiceNow pour l'approvisionnement automatique d'utilisateurs
 
@@ -152,6 +152,11 @@ Une fois que vous avez configuré l’approvisionnement, utilisez les ressources
    ![Autorisation des demandes SOAP](media/servicenow-provisioning-tutorial/servicenow-webservice.png)
 
    Si cela résout vos problèmes, contactez le support technique de ServiceNow et demandez-leur d’activer le débogage SOAP pour faciliter le dépannage. 
+
+* **Plages d’adresses IP** 
+
+   Le service de provisionnement Azure AD fonctionne actuellement sous une plage d’adresses IP particulière. Vous pouvez donc, au besoin, restreindre d’autres plages d’adresses IP et ajouter ces plages d’adresses IP particulières à la liste verte de votre application pour autoriser le flux de trafic depuis le service de provisionnement Azure vers votre application. Reportez-vous à la documentation sur les [plages d’adresses IP](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#ip-ranges).
+
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Gestion de l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise](../app-provisioning/configure-automatic-user-provisioning-portal.md)

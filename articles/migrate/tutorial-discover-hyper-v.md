@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: e7b4a1b2e1d737dad0054cbdf08443436ac2c181
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 90532a88e145507b09de9d36f704bc5c88899e95
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97705555"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861907"
 ---
 # <a name="tutorial-discover-hyper-v-vms-with-server-assessment"></a>Tutoriel : Découvrir les machines virtuelles Hyper-V avec Server Assessment
 
@@ -42,7 +42,7 @@ Avant de commencer ce tutoriel, vérifiez les prérequis.
 **Prérequis** | **Détails**
 --- | ---
 **Hôte Hyper-V** | Les hôtes Hyper-V sur lesquels les machines virtuelles sont situées peuvent être autonomes ou appartenir à un cluster.<br/><br/> L’hôte doit exécuter Windows Server 2019, Windows Server 2016 ou Windows Server 2012 R2.<br/><br/> Vérifiez que les connexions entrantes sont autorisées sur le port 5985 WinRM (HTTP), afin de permettre à l’appliance de se connecter en vue de tirer (pull) les données de performances et les métadonnées de machines virtuelles à l’aide d’une session CIM (Common Information Model).
-**Étapes de déploiement d’appliance** | L’hôte Hyper-v doit allouer des ressources à une machine virtuelle pour l’appliance :<br/><br/> - Windows Server 2016<br/><br/> \- 16 Go de RAM<br/><br/> - 8 processeurs virtuels<br/><br/> - Environ 80 Go de stockage sur disque<br/><br/> - Un commutateur virtuel externe<br/><br/> - Un accès à Internet pour la machine virtuelle, directement ou via un proxy
+**Étapes de déploiement d’appliance** | L’hôte Hyper-V doit allouer des ressources à une machine virtuelle pour l’appliance :<br/><br/> - Windows Server 2016<br/><br/> \- 16 Go de RAM<br/><br/> - 8 processeurs virtuels<br/><br/> - Environ 80 Go de stockage sur disque<br/><br/> - Un commutateur virtuel externe<br/><br/> - Un accès à Internet pour la machine virtuelle, directement ou via un proxy
 **Machines virtuelles** | Les machines virtuelles peuvent exécuter le système d’exploitation Windows ou Linux. 
 
 Avant de commencer, vous pouvez [examiner les données](migrate-appliance.md#collected-data---hyper-v) que l’appliance collecte pendant la découverte.
