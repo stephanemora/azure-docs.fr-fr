@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 12/21/2020
 ms.author: alkohli
-ms.openlocfilehash: 6fa8705221e1f1f9a9143f274a53db21b657988f
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: 0a7f54d991d31594a6ab522dbf9e73958cde3023
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763668"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900142"
 ---
 # <a name="gpu-vms-for-your-azure-stack-edge-pro-device"></a>Machines virtuelles GPU sur votre appareil Azure Stack Edge Pro
 
@@ -206,7 +206,7 @@ $RGName = "<Name of your resource group>"
 New-AzureRmResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile $templateFile -TemplateParameterFile $templateParameterFile -Name "<Name for your deployment>"
 ```
 > [!NOTE]
-> Le déploiement de l’extension est une opération longue qui prend environ 10 minutes.
+> Le déploiement de l’extension est une opération durable qui prend environ 10 minutes.
 
 Voici un exemple de sortie :
 
@@ -338,7 +338,7 @@ Pour plus d’informations, consultez [Extension du pilote GPU Nvidia pour Windo
 
 ### <a name="gpu-extension-for-linux"></a>Extension GPU pour Linux
 
-Pour déployer des pilotes GPU Nvidia pour une machine virtuelle existante, modifiez le fichier de paramètres `addGPUExtLinuxVM.parameters.json`, puis déployez le modèle `addGPUextensiontoVM.json`.
+Pour déployer des pilotes GPU Nvidia pour une machine virtuelle existante, modifiez le fichier de paramètres, puis déployez le modèle `addGPUextensiontoVM.json`. Il existe des fichiers de paramètres spécifiques pour Ubuntu et Red Hat Enterprise Linux (RHEL), comme indiqué dans les sections suivantes.
 
 #### <a name="edit-parameters-file"></a>Modification du fichier de paramètres
 
@@ -371,8 +371,7 @@ Si vous utilisez Ubuntu, le fichier `addGPUExtLinuxVM.parameters.json` prend les
     }
     }
 ```
-Si vous utilisez Red Hat Enterprise Linux (RHEL), le fichier prend les paramètres suivants :
-
+Si vous utilisez Red Hat Enterprise Linux (RHEL), le fichier `addGPUExtensionRHELVM.parameters.json` prend les paramètres suivants :
 
 ```powershell
 {
@@ -457,7 +456,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile $tem
 ``` 
 
 > [!NOTE]
-> Le déploiement de l’extension est une opération longue qui prend environ 10 minutes.
+> Le déploiement de l’extension est une opération durable qui prend environ 10 minutes.
 
 Voici un exemple de sortie :
 
@@ -499,7 +498,7 @@ PS C:\WINDOWS\system32>
 
 #### <a name="track-deployment-status"></a>Suivre l’état du déploiement    
     
-Le déploiement de modèle est une opération longue. Pour suivre l’état du déploiement des extensions pour une machine virtuelle donnée, ouvrez une autre session PowerShell (exécuter en tant qu’administrateur). Exécutez la commande suivante : 
+Le déploiement de modèle est une opération durable. Pour suivre l’état du déploiement des extensions pour une machine virtuelle donnée, ouvrez une autre session PowerShell (exécuter en tant qu’administrateur). Exécutez la commande suivante : 
 
 ```powershell
 Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName <VM Name> -Name <Extension Name>

@@ -14,15 +14,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 12/21/2020
+ms.date: 01/05/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9e842e4d2a4dbd118840498587696df085b07700
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: f74e6435af9084b0c8f222c33dc922fe678bc4c7
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97722893"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97914517"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Utiliser Azure pour héberger et exécuter des scénarios de charge de travail SAP
 
@@ -83,6 +83,9 @@ Cette section contient des documents concernant l’intégration de Microsoft Po
 
 ## <a name="change-log"></a>Journal des modifications
 
+- 05/01/2021 : Modifications apportées à [Scale-out SAP HANA avec le nœud de secours sur des machines virtuelles Azure à l’aide d’ANF sur SLES](./sap-hana-scale-out-standby-netapp-files-suse.md) et à [Scale-out SAP HANA avec le nœud de secours sur des machines virtuelles Azure à l’aide d’ANF sur RHEL](./sap-hana-scale-out-standby-netapp-files-rhel.md), en modifiant la configuration recommandée pour autoriser l’agent hôte SAP à gérer la plage de ports locaux  
+- 04/01/2021 : Ajout de nouvelles régions Azure prises en charge par HLI dans [Qu’est-ce que SAP HANA sur Azure (grandes instances) ?](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
+- 29/12/2020 : Ajout de recommandations d’architecture pour des régions Azure spécifiques dans [Configurations de la charge de travail SAP avec des zones de disponibilité Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ha-availability-zones)
 - 21/12/2020 : Ajout de nouvelles certifications aux références SKU des grandes instances HANA dans [Références SKU disponibles pour HLI](./hana-available-skus.md)
 - 12/12/2020 : ajout d’un pointeur vers une note de SAP clarifiant certains détails sur la prise en charge d’Oracle Enterprise Linux par SAP pour [les logiciels SAP pris en charge pour les déploiements Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure#oracle-dbms-support)
 - 26/11/2020 : Adaptez les [configurations de stockage des machines virtuelles Azure SAP HANA](./hana-vm-operations-storage.md) et les [types de stockage Azure pour la charge de travail SAP](./planning-guide-storage.md) aux [contrats SLA des machines virtuelles](https://azure.microsoft.com/support/legal/sla/virtual-machines) uniques modifiés

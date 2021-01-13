@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/10/2020
+ms.date: 01/05/2021
 ms.author: memildin
-ms.openlocfilehash: 283dbf152778b5ef58e298444058f619356ef241
-ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
+ms.openlocfilehash: 1e6b66fce6b22dfd12c162d469ce44137c94ab87
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97756107"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916369"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Degré de sécurisation dans Azure Security Center
 
@@ -72,7 +72,7 @@ Pour récapituler, votre niveau de sécurité apparaît aux emplacements suivant
 
 ### <a name="get-your-secure-score-from-the-rest-api"></a>Obtenir votre score de sécurité à partir de l’API REST
 
-Vous pouvez accéder à votre degré de sécurisation par le biais de l’API Degré de sécurisation (actuellement en préversion). Les méthodes de l’API offrent la flexibilité nécessaire pour interroger les données et créer votre propre mécanisme de création de rapports sur vos degrés de sécurisation au fil du temps. Par exemple, vous pouvez utiliser l’API [Degré de sécurisation](/rest/api/securitycenter/securescores) pour obtenir le degré de sécurisation d’un abonnement spécifique. En outre, vous pouvez utiliser l’API [Contrôles du degré de sécurisation](/rest/api/securitycenter/securescorecontrols) pour répertorier les contrôles de sécurité et le degré de sécurisation actuel de vos abonnements.
+Vous pouvez accéder à votre degré de sécurisation par le biais de l’API Degré de sécurisation. Les méthodes de l’API offrent la flexibilité nécessaire pour interroger les données et créer votre propre mécanisme de création de rapports sur vos degrés de sécurisation au fil du temps. Par exemple, vous pouvez utiliser l’API [Degré de sécurisation](/rest/api/securitycenter/securescores) pour obtenir le degré de sécurisation d’un abonnement spécifique. En outre, vous pouvez utiliser l’API [Contrôles du degré de sécurisation](/rest/api/securitycenter/securescorecontrols) pour répertorier les contrôles de sécurité et le degré de sécurisation actuel de vos abonnements.
 
 ![Récupération d’un score sécurisé unique via l’API](media/secure-score-security-controls/single-secure-score-via-api.png)
 

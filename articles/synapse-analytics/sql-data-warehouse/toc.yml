@@ -87,37 +87,37 @@
         - name: Advanced Data Security
           items:
             - name: Vue d’ensemble
-              href: /azure/sql-database/sql-database-advanced-data-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
+              href: ../../azure-sql/database/azure-defender-for-sql.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json
             - name: Découverte et classification des données
-              href: /azure/sql-database/sql-database-data-discovery-and-classification?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
+              href: ../../azure-sql/database/data-discovery-and-classification-overview.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json
             - name: Évaluation des vulnérabilités
-              href: /azure/sql-database/sql-vulnerability-assessment?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
+              href: ../../azure-sql/database/sql-vulnerability-assessment.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json
             - name: Protection avancée contre les menaces
-              href: /azure/sql-database/sql-database-threat-detection-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
+              href: ../../azure-sql/database/threat-detection-overview.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json
         - name: Audit
-          href: /azure/sql-database/sql-database-auditing?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
+          href: ../../azure-sql/database/auditing-overview.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json
         - name: Sécurité du réseau
           items:
             - name: Règles de pare-feu
-              href: /azure/sql-database/sql-database-firewall-configure?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
+              href: ../../azure-sql/database/firewall-configure.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json
             - name: Private Link
-              href: /azure/sql-database/sql-database-private-endpoint-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
+              href: ../../azure-sql/database/private-endpoint-overview.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json
             - name: Points de terminaison de service de réseau virtuel
-              href: /azure/sql-database/sql-database-vnet-service-endpoint-rule-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
+              href: ../../azure-sql/database/vnet-service-endpoint-rule-overview.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json
         - name: Authentification
           items:
-            - name: Vue d’ensemble
+            - name: Vue d'ensemble
               href: sql-data-warehouse-authentication.md
             - name: Azure Active Directory
-              href: /azure/sql-database/sql-database-aad-authentication?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
+              href: ../../azure-sql/database/authentication-aad-overview.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json
             - name: Connexions et utilisateurs
-              href: /azure/sql-database/sql-database-manage-logins?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
+              href: ../../azure-sql/database/logins-create-manage.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json
             - name: Authentification multifacteur
-              href: /azure/sql-database/sql-database-ssms-mfa-authentication?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
+              href: ../../azure-sql/database/authentication-mfa-ssms-overview.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json
         - name: Contrôle d’accès
           items:
             - name: Vue d’ensemble
-              href: /azure/sql-database/sql-database-manage-logins?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
+              href: ../../azure-sql/database/logins-create-manage.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json
             - name: Sécurité au niveau des colonnes
               href: column-level-security.md
             - name: Sécurité au niveau des lignes
@@ -125,11 +125,11 @@
         - name: Protection de données
           items:
             - name: Masquage dynamique des données
-              href: /azure/sql-database/sql-database-dynamic-data-masking-get-started?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
+              href: ../../azure-sql/database/dynamic-data-masking-overview.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json
             - name: Vue d’ensemble de Transparent Data Encryption (TDE)
-              href: /azure/sql-database/transparent-data-encryption-azure-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
+              href: ../../azure-sql/database/transparent-data-encryption-tde-overview.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json
             - name: TDE avec Service Bring Your Own Key (BYOK)
-              href: /azure/sql-database/transparent-data-encryption-byok-azure-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
+              href: ../../azure-sql/database/transparent-data-encryption-byok-overview.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json
     - name: Ingestion et préparation des données
       items:
         - name: Vue d’ensemble
@@ -140,7 +140,7 @@
           href: sql-data-warehouse-memory-optimizations-for-columnstore-compression.md
     - name: Développement
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           href: sql-data-warehouse-overview-develop.md
         - name: Meilleures pratiques
           href: sql-data-warehouse-best-practices-development.md
@@ -285,11 +285,11 @@
     - name: Sécuriser
       items:
         - name: "Configurer l’authentification Azure\_AD"
-          href: /azure/sql-database/sql-database-aad-authentication-configure?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
+          href: ../../azure-sql/database/authentication-aad-configure.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json
         - name: Accès conditionnel
-          href: /azure/sql-database/sql-database-conditional-access?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
+          href: ../../azure-sql/database/conditional-access-configure.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json
         - name: Règles de réseau virtuel par PowerShell
-          href: /azure/sql-database/sql-database-vnet-service-endpoint-rule-powershell?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
+          href: ../../azure-sql/database/scripts/vnet-service-endpoint-rule-powershell-create.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json
         - name: Activer le chiffrement - portail
           href: sql-data-warehouse-encryption-tde.md
         - name: Activer le chiffrement - T-SQL
@@ -299,9 +299,9 @@
         - name: Depuis Azure Data Lake Storage
           href: sql-data-warehouse-load-from-azure-data-lake-store.md
         - name: Utilisation d’Azure Databricks
-          href: /azure/azure-databricks/databricks-extract-load-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
+          href: /azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json
         - name: Utilisation de Data Factory
-          href: /azure/data-factory/load-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
+          href: ../../data-factory/load-azure-sql-data-warehouse.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json
         - name: Utilisation de SQL Server Integration Services (SSIS)
           href: /sql/integration-services/load-data-to-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
         - name: Exemples
@@ -412,7 +412,7 @@
     - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/?category=databases'
     - name: Page de questions Microsoft Q&A
-      href: 'https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html'
+      href: /answers/topics/azure-synapse-analytics.html
     - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/sql-data-warehouse/'
     - name: Calculatrice de prix

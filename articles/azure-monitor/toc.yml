@@ -129,7 +129,7 @@
           href: app/data-retention-privacy.md
     - name: Alertes
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           href: platform/alerts-overview.md
         - name: Alertes de métrique
           href: platform/alerts-metric-overview.md
@@ -226,8 +226,6 @@
               href: platform/service-providers.md
             - name: Clusters dédiés
               href: log-query/logs-dedicated-clusters.md
-            - name: Journaux d’activité de résolution des problèmes
-              href: platform/azure-monitor-troubleshooting-logs.md
         - name: Log Analytics
           items:
             - name: Vue d'ensemble
@@ -351,7 +349,7 @@
               href: app/automate-with-logic-apps.md
     - name: Agents
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           href: platform/agents-overview.md
         - name: Questions fréquentes (FAQ)
           href: faq.md#agents
@@ -368,7 +366,7 @@
               href: platform/data-collection-rule-azure-monitor-agent.md
         - name: Agent Log Analytics
           items:
-            - name: Vue d’ensemble
+            - name: Vue d'ensemble
               href: platform/log-analytics-agent.md
             - name: Agents Windows
               href: platform/agent-windows.md
@@ -422,7 +420,7 @@
             - name: Linux
               displayname: diagnostics extension
               items:
-                - name: Vue d’ensemble
+                - name: Vue d'ensemble
                   href: ../virtual-machines/extensions/diagnostics-linux.md?toc=/azure/azure-monitor/toc.json
                 - name: Collecter des métriques avec Telegraf
                   href: platform/collect-custom-metrics-linux-telegraf.md
@@ -644,7 +642,7 @@
               href: app/nodejs.md
             - name: Python
               items:
-                - name: Vue d’ensemble
+                - name: Vue d'ensemble
                   displayname: 'python, Python, OpenCenus, OpenTelemetry, py'
                   href: app/opencensus-python.md
                 - name: Les dépendances
@@ -701,7 +699,11 @@
                     - name: Options de configuration
                       href: app/java-standalone-config.md
                     - name: Processeurs de télémétrie
-                      href: app/java-standalone-telemetry-processors.md
+                      items:
+                        - name: Vue d'ensemble
+                          href: app/java-standalone-telemetry-processors.md
+                        - name: Exemples
+                          href: app/java-standalone-telemetry-processors-examples.md
                     - name: Configuration d’arguments JVM
                       href: app/java-standalone-arguments.md
                     - name: "Mise à niveau à partir du SDK\_2.x"
@@ -809,7 +811,7 @@
               href: app/profiler-troubleshooting.md
         - name: Débogueur de capture instantanée
           items:
-            - name: Vue d’ensemble
+            - name: Vue d'ensemble
               displayname: 'snapshot, debug, debugger, snapshot debugger, snapshotdebugger'
               href: app/snapshot-debugger.md
             - name: Activer le débogueur de capture instantanée pour App Service
@@ -968,7 +970,7 @@
           href: insights/vminsights-configure-workspace.md
         - name: Installer des agents
           items:
-            - name: Vue d’ensemble
+            - name: Vue d'ensemble
               href: insights/vminsights-enable-overview.md
             - name: Portail Azure
               href: insights/vminsights-enable-portal.md
@@ -1012,7 +1014,7 @@
           href: insights/vminsights-optout.md
     - name: Azure Monitor pour des conteneurs
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           href: insights/container-insights-overview.md
         - name: Questions fréquentes (FAQ)
           href: faq.md#azure-monitor-for-containers
@@ -1162,7 +1164,7 @@
                   href: platform/alert-management-solution.md
     - name: Workbooks
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           displayname: Workbooks
           href: platform/workbooks-overview.md
         - name: Visualisations
@@ -1217,6 +1219,10 @@
               href: platform/workbooks-move-region.md
             - name: Déplacer des modèles de classeur vers une autre région
               href: platform/workbook-templates-move-region.md
+        - name: Liens
+          items:
+            - name: Actions du lien
+              href: platform/workbooks-link-actions.md
         - name: Convertir des vues en classeurs
           items:
             - name: Vue d’ensemble d’une conversion

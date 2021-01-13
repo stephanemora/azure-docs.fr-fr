@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/7/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: bf7b829d70af27850affe619d47ed4a4f5ec1bea
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 2502fdd14acae206b8440fe602639aa49be55f4e
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93279911"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98045918"
 ---
 # <a name="write-client-app-authentication-code"></a>Écrire le code d’authentification de l’application cliente
 
@@ -53,10 +53,7 @@ Tout d’abord, incluez le package du kit de développement logiciel (SDK) `Azur
 
 Vous devez également ajouter les instructions using suivantes au code de votre projet :
 
-```csharp
-using Azure.Identity;
-using Azure.DigitalTwins.Core;
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/authentication.cs" id="Azure_Digital_Twins_dependencies":::
 
 Ajoutez ensuite du code pour obtenir des informations d’identification à l’aide de l’une des méthodes dans `Azure.Identity`.
 
@@ -68,23 +65,7 @@ Pour utiliser les informations d’identification Azure par défaut, vous avez b
 
 Voici un exemple de code pour ajouter un `DefaultAzureCredential` à votre projet :
 
-```csharp
-// The URL of your instance, starting with the protocol (https://)
-private static string adtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-URL>";
-
-//...
-
-DigitalTwinsClient client;
-try
-{
-    var credential = new DefaultAzureCredential();
-    client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credential);
-} catch(Exception e)
-{
-    Console.WriteLine($"Authentication or client creation error: {e.Message}");
-    Environment.Exit(0);
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/authentication.cs" id="DefaultAzureCredential_full":::
 
 #### <a name="set-up-local-azure-credentials"></a>Configurer les informations d’identification Azure locales
 
@@ -100,45 +81,20 @@ Pour utiliser les informations d’identification Azure par défaut, vous avez b
 
 Dans une fonction Azure, vous pouvez utiliser les informations d’identification de l’identité managée comme suit :
 
-```csharp
-ManagedIdentityCredential cred = new ManagedIdentityCredential(adtAppId);
-DigitalTwinsClientOptions opts = 
-    new DigitalTwinsClientOptions { Transport = new HttpClientTransport(httpClient) });
-client = new DigitalTwinsClient(new Uri(adtInstanceUrl), cred, opts);
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/authentication.cs" id="ManagedIdentityCredential":::
 
 ### <a name="interactivebrowsercredential-method"></a>Méthode InteractiveBrowserCredential
 
 La méthode [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?preserve-view=true&view=azure-dotnet) est destinée aux applications interactives et affiche un navigateur web pour l’authentification. Vous pouvez l’utiliser à la place de `DefaultAzureCredential` lorsque vous avez besoin d’une authentification interactive.
 
 Pour utiliser les informations d’identification du navigateur interactif, vous avez besoin d’une **inscription d’application** disposant d’autorisations sur les API Azure Digital Twins. Pour plus d’informations sur la configuration de cette inscription d’application, consultez [*Guide pratique : Créer une inscription d’application*](how-to-create-app-registration.md). Une fois l’inscription d’application configurée, vous avez besoin de...
-* l’ *ID (client) d’application* de l’inscription d’application ( [instructions pour le trouver](how-to-create-app-registration.md#collect-client-id-and-tenant-id))
-* l’ *ID (locataire) de répertoire* de l’inscription d’application ( [instructions pour le trouver](how-to-create-app-registration.md#collect-client-id-and-tenant-id))
+* l’*ID (client) d’application* de l’inscription d’application ([instructions pour le trouver](how-to-create-app-registration.md#collect-client-id-and-tenant-id))
+* l’*ID (locataire) de répertoire* de l’inscription d’application ([instructions pour le trouver](how-to-create-app-registration.md#collect-client-id-and-tenant-id))
 * l’URL de l’instance Azure Digital Twins ([instructions pour la trouver](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
 
 Voici un exemple de code permettant de créer un client du kit de développement logiciel (SDK) authentifié à l’aide de `InteractiveBrowserCredential`.
 
-```csharp
-// Your client / app registration ID
-private static string clientId = "<your-client-ID>"; 
-// Your tenant / directory ID
-private static string tenantId = "<your-tenant-ID>";
-// The URL of your instance, starting with the protocol (https://)
-private static string adtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-URL>";
-
-//...
-
-DigitalTwinsClient client;
-try
-{
-    var credential = new InteractiveBrowserCredential(tenantId, clientId);
-    client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credential);
-} catch(Exception e)
-{
-    Console.WriteLine($"Authentication or client creation error: {e.Message}");
-    Environment.Exit(0);
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/authentication.cs" id="InteractiveBrowserCredential":::
 
 >[!NOTE]
 > Bien que vous puissiez placer l’ID client, l’ID de locataire et l’URL de l’instance directement dans le code comme indiqué ci-dessus, il peut être judicieux de faire en sorte que votre code récupère ces valeurs à partir d’un fichier de configuration ou d’une variable d’environnement.

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 6559de2b94879ac8643f4945fd5adcf4fc7e1045
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: aa3466456b99664b1b39bd415680a6a291f85acd
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350821"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98049284"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Acheminer des événements à l’intérieur et à l’extérieur d’Azure Digital Twins
 
@@ -75,11 +75,7 @@ Pour créer une route d’événement, vous pouvez utiliser les [**API de plan d
 
 Voici un exemple de création d’une route d’événement dans une application cliente à l’aide de l’appel `CreateOrReplaceEventRouteAsync`du [Kit de développement logiciel (SDK) .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) : 
 
-```csharp
-string eventFilter = "$eventType = 'DigitalTwinTelemetryMessages' or $eventType = 'DigitalTwinLifecycleNotification'";
-var er = new DigitalTwinsEventRoute("endpointName", eventFilter);
-await client.CreateOrReplaceEventRouteAsync("routeName", er);
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/eventRoute_operations.cs" id="CreateEventRoute":::
 
 1. Tout d’abord, un objet `DigitalTwinsEventRoute` est créé, et le constructeur prend le nom d’un point de terminaison. Le champs `endpointName` identifie un point de terminaison, comme Event Hub, Event Grid ou Service Bus. Ces points de terminaison doivent être créés dans votre abonnement et attachés à Azure Digital Twins à l’aide des API de plan de contrôle avant d’effectuer cet appel d’inscription.
 

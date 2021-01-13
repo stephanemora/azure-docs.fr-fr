@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: d42a32e236eb73f2aa9f2f61d9708314783564dd
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: f6bd6b13ab4a2e654bdabc86355f2c3388abed31
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187293"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98050525"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Démarrage rapide - Explorer un exemple de scénario Azure Digital Twins avec ADT Explorer
 
@@ -251,9 +251,7 @@ Dans cette section, vous allez exécuter une requête pour déterminer le nombre
 
 Pour voir la réponse, exécutez la requête suivante dans la section **Explorateur de requêtes**.
 
-```SQL
-SELECT * FROM DigitalTwins T WHERE T.Temperature > 75
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="TemperatureQuery":::
 
 Comme nous l’avons vu, Room0 a une température de 70 et Room1 une température de 80. Ainsi, seul Room1 s’affiche dans les résultats.
     
@@ -284,9 +282,7 @@ Les propriétés de cette liste sont modifiables. Sélectionnez la valeur de tem
 
 Pour vérifier que le graphe a bien enregistré votre modification de la température pour Room0, réexécutez la requête de tout à l’heure pour obtenir tous les jumeaux de l’environnement dont la température est supérieure à 75.
 
-```SQL
-SELECT * FROM DigitalTwins T WHERE T.Temperature > 75
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="TemperatureQuery":::
 
 Maintenant que la température de Room0 est passée de 70 à 76, les deux jumeaux doivent figurer dans les résultats.
 

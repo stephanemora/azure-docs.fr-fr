@@ -7,12 +7,12 @@ ms.author: aymarqui
 ms.date: 09/02/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 3a11cd9f3208c97748ab16c636aedd9a443c5b9f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: d84acc5501b3d40f6db85d0ee6ee369aec5a6aa4
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93093161"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98051103"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-signalr-service"></a>Intégrer Azure Digital Twins avec le service Azure SignalR
 
@@ -68,68 +68,10 @@ Ensuite, démarrez Visual Studio (ou un autre éditeur de code de votre choix), 
 1. Créez une nouvelle C# appelée **SignalRFunctions.cs** dans le projet *SampleFunctionsApp*.
 
 1. Remplacez le contenu du fichier de classe par le code suivant :
+    
+    :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/signalRFunction.cs":::
 
-    ```C#
-    using System;
-    using System.Threading.Tasks;
-    using Microsoft.AspNetCore.Http;
-    using Microsoft.Azure.EventGrid.Models;
-    using Microsoft.Azure.WebJobs;
-    using Microsoft.Azure.WebJobs.Extensions.Http;
-    using Microsoft.Azure.WebJobs.Extensions.EventGrid;
-    using Microsoft.Azure.WebJobs.Extensions.SignalRService;
-    using Microsoft.Extensions.Logging;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-    using System.Collections.Generic;
-    
-    namespace SampleFunctionsApp
-    {
-        public static class SignalRFunctions
-        {
-            public static double temperature;
-    
-            [FunctionName("negotiate")]
-            public static SignalRConnectionInfo GetSignalRInfo(
-                [HttpTrigger(AuthorizationLevel.Anonymous, "post")] HttpRequest req,
-                [SignalRConnectionInfo(HubName = "dttelemetry")] SignalRConnectionInfo connectionInfo)
-            {
-                return connectionInfo;
-            }
-    
-            [FunctionName("broadcast")]
-            public static Task SendMessage(
-                [EventGridTrigger] EventGridEvent eventGridEvent,
-                [SignalR(HubName = "dttelemetry")] IAsyncCollector<SignalRMessage> signalRMessages,
-                ILogger log)
-            {
-                JObject eventGridData = (JObject)JsonConvert.DeserializeObject(eventGridEvent.Data.ToString());
-    
-                log.LogInformation($"Event grid message: {eventGridData}");
-    
-                var patch = (JObject)eventGridData["data"]["patch"][0];
-                if (patch["path"].ToString().Contains("/Temperature"))
-                {
-                    temperature = Math.Round(patch["value"].ToObject<double>(), 2);
-                }
-    
-                var message = new Dictionary<object, object>
-                {
-                    { "temperatureInFahrenheit", temperature},
-                };
-        
-                return signalRMessages.AddAsync(
-                    new SignalRMessage
-                    {
-                        Target = "newMessage",
-                        Arguments = new[] { message }
-                    });
-            }
-        }
-    }
-    ```
-
-1. Dans la fenêtre *Console du gestionnaire de package* de Visual Studio ou toute fenêtre de commande sur votre machine, dans le dossier *Azure_Digital_Twins_end_to_end_samples\AdtSampleApp\SampleFunctionsApp* , exécutez la commande suivante pour installer le package NuGet `SignalRService` dans le projet :
+1. Dans la fenêtre *Console du gestionnaire de package* de Visual Studio ou toute fenêtre de commande sur votre machine, dans le dossier *Azure_Digital_Twins_end_to_end_samples\AdtSampleApp\SampleFunctionsApp*, exécutez la commande suivante pour installer le package NuGet `SignalRService` dans le projet :
     ```cmd
     dotnet add package Microsoft.Azure.WebJobs.Extensions.SignalRService --version 1.2.0
     ```
@@ -137,7 +79,7 @@ Ensuite, démarrez Visual Studio (ou un autre éditeur de code de votre choix), 
     Cela devrait résoudre tous les problèmes de dépendance dans la classe.
 
 Ensuite, publiez votre fonction dans Azure, en suivant les étapes décrites dans la [section *Publier l’application*](tutorial-end-to-end.md#publish-the-app) du tutoriel *Connecter une solution de bout en bout*. Vous pouvez la publier dans la même application de fonction/App Service que celle utilisée dans le tutoriel de bout en bout prérequis ou en créer une nouvelle, mais vous préférerez peut-être utiliser le même pour réduire la duplication. Par ailleurs, terminez la publication de l’application en procédant comme suit :
-1. Collectez l’ **URL de point de terminaison HTTP** de la fonction *negotiate*. Pour ce faire, accédez à la page [Function Apps](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Web%2Fsites/kind/functionapp) du Portail Azure et sélectionnez votre application de fonction dans la liste. Dans le menu de l’application, sélectionnez *Fonctions* et choisissez la fonction *negotiate*.
+1. Collectez l’**URL de point de terminaison HTTP** de la fonction *negotiate*. Pour ce faire, accédez à la page [Function Apps](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Web%2Fsites/kind/functionapp) du Portail Azure et sélectionnez votre application de fonction dans la liste. Dans le menu de l’application, sélectionnez *Fonctions* et choisissez la fonction *negotiate*.
 
     :::image type="content" source="media/how-to-integrate-azure-signalr/functions-negotiate.png" alt-text="Vue du Portail Azure de l’application de fonction, avec « Fonctions » mis en surbrillance dans le menu. La liste des fonctions s’affiche sur la page et la fonction « negotiate » est également mise en surbrillance.":::
 
@@ -165,20 +107,20 @@ Dans le [portail Azure](https://portal.azure.com/), accédez à votre rubrique E
 
 :::image type="content" source="media/how-to-integrate-azure-signalr/event-subscription-1b.png" alt-text="Portail Azure : abonnement aux événements Event Grid":::
 
-Dans la page *Créer un abonnement aux événements* , renseignez les champs comme suit (les champs remplis par défaut ne sont pas mentionnés) :
-* *DÉTAILS DE L’ABONNEMENT AUX ÉVÉNEMENTS* > **Nom**  : Donnez un nom à votre abonnement aux événements.
-* *DÉTAILS DU POINT DE TERMINAISON* > **Type de point de terminaison**  : Sélectionnez *Fonction Azure* dans les options de menu.
-* *DÉTAILS DU POINT DE TERMINAISON* > **Point de terminaison**  : Cliquez sur le lien *Sélectionner un point de terminaison*. Une fenêtre *Sélectionner une fonction Azure* s’ouvre :
-    - Renseignez vos **Abonnement** , **Groupe de ressources** , **Application de fonction** et **Fonction** ( *broadcast* ). Il est possible que certaines de ces informations soient automatiquement renseignées une fois que vous avez sélectionné l’abonnement.
+Dans la page *Créer un abonnement aux événements*, renseignez les champs comme suit (les champs remplis par défaut ne sont pas mentionnés) :
+* *DÉTAILS DE L’ABONNEMENT AUX ÉVÉNEMENTS* > **Nom** : Donnez un nom à votre abonnement aux événements.
+* *DÉTAILS DU POINT DE TERMINAISON* > **Type de point de terminaison** : Sélectionnez *Fonction Azure* dans les options de menu.
+* *DÉTAILS DU POINT DE TERMINAISON* > **Point de terminaison** : Cliquez sur le lien *Sélectionner un point de terminaison*. Une fenêtre *Sélectionner une fonction Azure* s’ouvre :
+    - Renseignez vos **Abonnement**, **Groupe de ressources**, **Application de fonction** et **Fonction** (*broadcast*). Il est possible que certaines de ces informations soient automatiquement renseignées une fois que vous avez sélectionné l’abonnement.
     - Cliquez sur **Confirmer la sélection**.
 
 :::image type="content" source="media/how-to-integrate-azure-signalr/create-event-subscription.png" alt-text="Vue du Portail Azure de la création d’un abonnement aux événements. Les champs ci-dessus sont renseignés et les boutons « Confirmer la sélection » et « Créer » sont mis en surbrillance.":::
 
-Dans la page *Créer un abonnement aux événements* , cliquez sur **Créer**.
+Dans la page *Créer un abonnement aux événements*, cliquez sur **Créer**.
 
 ## <a name="configure-and-run-the-web-app"></a>Configurer et exécuter l’application web
 
-Dans cette section, vous verrez le résultat en action. Tout d’abord, vous allez démarrer l’ **exemple d’application d’appareil simulé** qui envoie des données de télémétrie via votre instance Azure Digital Twins. Ensuite, vous allez configurer l’ **exemple d’application web cliente** pour vous connecter au flux Azure SignalR que vous avez configuré. Après cela, vous devriez être en mesure de voir les données mettant à jour l’exemple d’application web en temps réel.
+Dans cette section, vous verrez le résultat en action. Tout d’abord, vous allez démarrer l’**exemple d’application d’appareil simulé** qui envoie des données de télémétrie via votre instance Azure Digital Twins. Ensuite, vous allez configurer l’**exemple d’application web cliente** pour vous connecter au flux Azure SignalR que vous avez configuré. Après cela, vous devriez être en mesure de voir les données mettant à jour l’exemple d’application web en temps réel.
 
 ### <a name="run-the-device-simulator"></a>Exécuter le simulateur d’appareil
 
@@ -204,7 +146,7 @@ Ensuite, configurez **l’exemple d’application web d’intégration SignalR**
             .withUrl('<URL>')
             .build();
     ```
-1. Dans l’ *invite de commandes développeur* de Visual Studio ou dans toute fenêtre de commande sur votre ordinateur, accédez au dossier *Azure_Digital_Twins_SignalR_integration_web_app_sample\src*. Exécutez la commande suivante pour installer les packages des nœuds dépendants :
+1. Dans l’*invite de commandes développeur* de Visual Studio ou dans toute fenêtre de commande sur votre ordinateur, accédez au dossier *Azure_Digital_Twins_SignalR_integration_web_app_sample\src*. Exécutez la commande suivante pour installer les packages des nœuds dépendants :
 
     ```cmd
     npm install
@@ -218,7 +160,7 @@ Ensuite, définissez les autorisations dans votre application de fonction dans l
 
 ### <a name="see-the-results"></a>Afficher les résultats
 
-Pour voir les résultats en action, démarrez l’ **exemple d’application web d’intégration SignalR**. Vous pouvez effectuer cette opération à partir de n’importe quelle fenêtre de console située à l’emplacement *Azure_Digital_Twins_SignalR_integration_web_app_sample\src* en exécutant la commande suivante :
+Pour voir les résultats en action, démarrez l’**exemple d’application web d’intégration SignalR**. Vous pouvez effectuer cette opération à partir de n’importe quelle fenêtre de console située à l’emplacement *Azure_Digital_Twins_SignalR_integration_web_app_sample\src* en exécutant la commande suivante :
 
 ```cmd
 npm start
@@ -246,7 +188,7 @@ Dans Azure Cloud Shell ou Azure CLI en local, vous pouvez supprimer toutes les r
 az group delete --name <your-resource-group>
 ```
 
-Enfin, supprimez les dossiers d’exemples de projets que vous avez téléchargés sur votre ordinateur local ( *Azure_Digital_Twins_end_to_end_samples.zip* et *Azure_Digital_Twins_SignalR_integration_web_app_sample.zip* ).
+Enfin, supprimez les dossiers d’exemples de projets que vous avez téléchargés sur votre ordinateur local (*Azure_Digital_Twins_end_to_end_samples.zip* et *Azure_Digital_Twins_SignalR_integration_web_app_sample.zip*).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -9,12 +9,12 @@ ms.subservice: text-analytics
 ms.topic: include
 ms.date: 10/02/2020
 ms.author: aahi
-ms.openlocfilehash: 308b2a9cb00f44f0e330d4fef5592d8855ee3394
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 00c1c8ddab9214bf7698c21b05c24afa36ec20d9
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94553181"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98147543"
 ---
 ## <a name="text-analytics-for-health-categories-entities-and-attributes"></a>Analyse de texte pour la santé - Catégories, entités et attributs
 
@@ -23,15 +23,15 @@ ms.locfileid: "94553181"
 
 | Category  | Description  |
 |---------|---------|
-| ANATOMY | concepts qui capturent des informations sur le corps et les systèmes anatomiques, les sites, les emplacements ou les régions. |
- | DEMOGRAPHICS | concepts qui capturent des informations sur le sexe et l’âge. |
- | EXAMINATION | concepts qui capturent des informations sur les procédures de diagnostic et les tests. |
- | GENOMICS | concepts qui capturent des informations sur les gènes et les variantes. |
- | HEALTHCARE | concepts qui capturent des informations sur les événements administratifs, les environnements de soins et les professions de santé. |
- | MEDICAL CONDITION | concepts qui capturent des informations sur les diagnostics, les symptômes ou les signes. |
- | MEDICATION | concepts qui capturent des informations sur les médicaments, y compris les noms des médicaments, les classes, la posologie et la voie d’administration. |
- | SOCIAL | concepts qui capturent des informations sur les aspects sociaux pertinents d’un point de vue médical, comme la famille. |
- | TREATMENT | concepts qui capturent des informations sur les procédures thérapeutiques. |
+| [ANATOMY](#anatomy) | concepts qui capturent des informations sur le corps et les systèmes anatomiques, les sites, les emplacements ou les régions. |
+ | [DEMOGRAPHICS](#demographics) | concepts qui capturent des informations sur le sexe et l’âge. |
+ | [EXAMINATION](#examinations) | concepts qui capturent des informations sur les procédures de diagnostic et les tests. |
+ | [GENOMICS](#genomics) | concepts qui capturent des informations sur les gènes et les variantes. |
+ | [HEALTHCARE](#healthcare) | concepts qui capturent des informations sur les événements administratifs, les environnements de soins et les professions de santé. |
+ | [MEDICAL CONDITION](#medical-condition) | concepts qui capturent des informations sur les diagnostics, les symptômes ou les signes. |
+ | [MEDICATION](#medication) | concepts qui capturent des informations sur les médicaments, y compris les noms des médicaments, les classes, la posologie et la voie d’administration. |
+ | [SOCIAL](#social) | concepts qui capturent des informations sur les aspects sociaux pertinents d’un point de vue médical, comme la famille. |
+ | [TREATMENT](#treatment) | concepts qui capturent des informations sur les procédures thérapeutiques. |
   
 Chaque catégorie peut inclure deux groupes de concepts :
 
@@ -267,7 +267,15 @@ En outre, le service reconnaît les relations entre les différents concepts, y 
 +   **FREQUENCY_OF_MEDICATION**
 +   **ROUTE_OF_MEDICATION**
 +   **TIME_OF_MEDICATION**
-  
+
+## <a name="social"></a>Réseaux sociaux
+
+### <a name="entities"></a>Entités
+
+**FAMILY_RELATION** : mentions relatives à la famille du sujet. Par exemple : father, daughter, siblings, parents (père, fille, frères et sœurs, parents).
+
+:::image type="content" source="../../media/ta-for-health/family-relation.png" alt-text="Cette capture d’écran montre un autre exemple d’attribut de temps de traitement.":::
+
 ## <a name="treatment"></a>Traitement
 
 ### <a name="entities"></a>Entités
@@ -294,17 +302,8 @@ En outre, le service reconnaît les relations entre les différents concepts, y 
 
 :::image type="content" source="../../media/ta-for-health/treatment-time.png" alt-text="Cette capture d’écran montre un exemple d’attribut de temps de traitement.":::
 
-
 ### <a name="supported-relations"></a>Relations prises en charge
 
 + **DIRECTION_OF_TREATMENT**
 +   **TIME_OF_TREATMENT**
 +   **FREQUENCY_OF_TREATMENT**
-
-## <a name="social"></a>Réseaux sociaux
-
-### <a name="entities"></a>Entités
-
-**FAMILY_RELATION** : mentions relatives à la famille du sujet. Par exemple : father, daughter, siblings, parents (père, fille, frères et sœurs, parents).
-
-:::image type="content" source="../../media/ta-for-health/family-relation.png" alt-text="Cette capture d’écran montre un autre exemple d’attribut de temps de traitement.":::

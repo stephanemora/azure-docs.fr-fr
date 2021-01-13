@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 12/29/2020
-ms.openlocfilehash: a6f4b0a503e942b79dff28212863831055892246
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 0834b8f00e4c414b3a36314b80f6c99fb8f2aea2
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/06/2021
-ms.locfileid: "97916556"
+ms.locfileid: "97955210"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>Test par lot avec un ensemble d’exemples d’énoncés
 
@@ -168,7 +168,7 @@ Les deux sections du graphique en vert correspondent à la prédiction attendue.
 
 LUIS vous permet de tester par lots à l’aide du portail LUIS et de l’API REST. Les points de terminaison de l’API REST sont répertoriés ci-dessous. Pour plus d’informations sur les tests par lots à l’aide du portail LUIS, consultez [Tutoriel : jeux de données de test par lot](luis-tutorial-batch-testing.md). Utilisez les URL complètes ci-dessous, en remplaçant les valeurs d’espace réservé par votre propre clé et point de terminaison de prédiction LUIS. 
 
-N’oubliez pas d’ajouter votre clé LUIS à `Apim-Subscription-Id` dans l’en-tête et définissez `Content-Type` sur `application/json`.
+N’oubliez pas d’ajouter votre clé LUIS à `Ocp-Apim-Subscription-Key` dans l’en-tête et définissez `Content-Type` sur `application/json`.
 
 ### <a name="start-a-batch-test"></a>Démarrer un test par lot
 

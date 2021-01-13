@@ -67,7 +67,7 @@
       items:
         - name: Configurer le pare-feu IP (préversion)
           href: ip-firewall-virtual-networks.md
-        - name: Configurer des points de terminaison privés (préversion)
+        - name: Configurer des points de terminaison privés
           href: private-link-service.md
     - name: Gestion et surveillance
       items:

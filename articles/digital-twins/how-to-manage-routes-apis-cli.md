@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 11/18/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 7016abc9d52aa12b497d29f605fe351ee3f6a2dd
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: 33b30f29146e446c5525b1bbcfd76af71c557702
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96519106"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98045312"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Gérer les points de terminaison et les itinéraires dans Azure Digital Twins (API et CLI)
 
@@ -125,17 +125,8 @@ Pour créer un point de terminaison pour lequel la file d’attente de lettres m
 
 1. Ensuite, ajoutez un champ `deadLetterSecret` à l’objet Properties dans le **corps** de la demande. Définissez cette valeur en fonction du modèle ci-dessous, qui génère une URL à partir du nom du compte de stockage, du nom du conteneur et de la valeur du jeton SAP que vous avez collectés dans la [section précédente](#set-up-storage-resources).
       
-    ```json
-    {
-      "properties": {
-        "endpointType": "EventGrid",
-        "TopicEndpoint": "https://contosoGrid.westus2-1.eventgrid.azure.net/api/events",
-        "accessKey1": "xxxxxxxxxxx",
-        "accessKey2": "xxxxxxxxxxx",
-        "deadLetterSecret":"https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>"
-      }
-    }
-    ```
+  :::code language="json" source="~/digital-twins-docs-samples/api-requests/deadLetterEndpoint.json":::
+
 1. Envoyez la demande de création du point de terminaison.
 
 Pour plus d’informations sur la structuration de cette demande, consultez la documentation sur l’API REST Azure Digital Twins : [Points de terminaison : DigitalTwinsEndpoint CreateOrUpdate](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate).
@@ -202,11 +193,7 @@ Un itinéraire doit permettre la sélection de plusieurs notifications et types 
 
 `CreateOrReplaceEventRouteAsync` est l’appel du kit de développement logiciel (SDK) utilisé pour ajouter un itinéraire d’événement. Voici un exemple de son utilisation :
 
-```csharp
-string eventFilter = "$eventType = 'DigitalTwinTelemetryMessages' or $eventType = 'DigitalTwinLifecycleNotification'";
-var er = new DigitalTwinsEventRoute("<your-endpointName>", eventFilter);
-await client.CreateOrReplaceEventRouteAsync("routeName", er);
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/eventRoute_operations.cs" id="CreateEventRoute":::
     
 > [!TIP]
 > Toutes les fonctions du Kit de développement logiciel (SDK) sont disponibles en versions synchrone et asynchrone.
@@ -214,35 +201,8 @@ await client.CreateOrReplaceEventRouteAsync("routeName", er);
 ### <a name="event-route-sample-code"></a>Exemple de code d’itinéraire d’événement
 
 L’exemple de méthode suivant montre comment créer, lister et supprimer une route d’événement :
-```csharp
-private async static Task CreateEventRoute(DigitalTwinsClient client, String routeName, DigitalTwinsEventRoute er)
-{
-  try
-  {
-    Console.WriteLine("Create a route: testRoute1");
-            
-    // Make a filter that passes everything
-    er.Filter = "true";
-    await client.CreateOrReplaceEventRouteAsync(routeName, er);
-    Console.WriteLine("Create route succeeded. Now listing routes:");
-    Pageable<DigitalTwinsEventRoute> result = client.GetEventRoutes();
-    foreach (DigitalTwinsEventRoute r in result)
-    {
-        Console.WriteLine($"Route {r.Id} to endpoint {r.EndpointName} with filter {r.Filter} ");
-    }
-    Console.WriteLine("Deleting routes:");
-    foreach (DigitalTwinsEventRoute r in result)
-    {
-        Console.WriteLine($"Deleting route {r.Id}:");
-        client.DeleteEventRoute(r.Id);
-    }
-  }
-    catch (RequestFailedException e)
-    {
-        Console.WriteLine($"*** Error in event route processing ({e.ErrorCode}):\n${e.Message}");
-    }
-  }
-```
+
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/eventRoute_operations.cs" id="FullEventRouteSample":::
 
 ## <a name="filter-events"></a>Filtrer les événements
 
@@ -255,12 +215,8 @@ Vous pouvez limiter les événements envoyés en ajoutant un **filtre** à un po
 
 Pour ajouter un filtre, vous pouvez envoyer une demande PUT à *https://{Your-azure-digital-twins-hostname}/eventRoutes/{event-route-name}?api-version=2020-10-31* avec le corps suivant :
 
-```json  
-{
-    "endpointName": "<endpoint-name>",
-    "filter": "<filter-text>"
-}
-``` 
+:::code language="json" source="~/digital-twins-docs-samples/api-requests/filter.json":::
+
 Voici les filtres d’itinéraire pris en charge. Utilisez les détails de la colonne *Filtrer le schéma du texte* pour remplacer l’espace réservé `<filter-text>` dans le corps de la requête ci-dessus.
 
 [!INCLUDE [digital-twins-route-filters](../../includes/digital-twins-route-filters.md)]

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/26/2020
+ms.date: 01/07/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: d0cb9dc3c54f409c3bdd71fbb57c823e15abc22d
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: 68a384197409115343a81aea23b0f7d42166d716
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97762960"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976807"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Prise en charge des langues et de la voix pour le service Speech
 
@@ -53,9 +53,9 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Arabe (Émirats arabes unis)      | `ar-AE` | Modèle de langage                                   |
 | Bulgare (Bulgarie)               | `bg-BG` | Modèle de langage                                   |
 | Catalan (Espagne)                    | `ca-ES` | Modèle de langage                                   |
-| Chinois (cantonais, traditionnel)   | `zh-HK` | Modèle de langage                                   |
+| Chinois (cantonais, traditionnel)   | `zh-HK` | Modèle acoustique<br>Modèle de langage                 |
 | Chinois (mandarin, simplifié)     | `zh-CN` | Modèle acoustique<br>Modèle de langage                 |
-| Chinois (mandarin, taïwanais)       | `zh-TW` | Modèle de langage                                   |
+| Chinois (mandarin, taïwanais)       | `zh-TW` | Modèle acoustique<br>Modèle de langage                 |
 | Croate (Croatie)                 | `hr-HR` | Modèle de langage                                   |
 | Tchèque (République tchèque)             | `cs-CZ` | Modèle de langage                                   |
 | Danois (Danemark)                   | `da-DK` | Modèle de langage                                   |
@@ -83,8 +83,8 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Hongrois (Hongrie)                | `hu-HU` | Modèle de langage                                   |
 | Irlandais (Irlande)                     | `ga-IE` | Modèle de langage                                   |
 | Italien (Italie)                    | `it-IT` | Modèle acoustique<br>Modèle de langage<br>Prononcer|
-| Japonais (Japon)                   | `ja-JP` | Modèle de langage                                   |
-| Coréen (Corée)                     | `ko-KR` | Modèle de langage                                   |
+| Japonais (Japon)                   | `ja-JP` | Modèle acoustique<br>Modèle de langage                 |
+| Coréen (Corée)                     | `ko-KR` | Modèle acoustique<br>Modèle de langage                 |
 | Letton (Lettonie)                   | `lv-LV` | Modèle de langage                                   |
 | Lituanien (Lituanie)             | `lt-LT` | Modèle de langage                                   |
 | Maltais (Malte)                     | `mt-MT` | Modèle de langage                                   |

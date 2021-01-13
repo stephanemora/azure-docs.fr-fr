@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 12/15/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6cf887c8f539016bf7b45e206b3a9f6cf04a4c52
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 1826edb31c442fb10b8053433ec01ee5abad0eb2
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560846"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98109348"
 ---
 <a name="HOLTop"></a>
 
@@ -48,10 +48,10 @@ Une fois que vous avez créé un projet, installez la bibliothèque de client en
 
 #### <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/cli)
 
-Dans une fenêtre de console (par exemple cmd, PowerShell ou Bash), utilisez la commande `dotnet new` pour créer une application console avec le nom `computer-vision-quickstart`. Cette commande crée un projet C# « Hello World » simple avec un seul fichier source : *ComputerVisionQuickstart.cs*.
+Dans une fenêtre de console (par exemple cmd, PowerShell ou Bash), utilisez la commande `dotnet new` pour créer une application console avec le nom `computer-vision-quickstart`. Cette commande crée un projet C# « Hello World » simple avec un seul fichier source : *Program.cs*.
 
 ```console
-dotnet new console -n (product-name)-quickstart
+dotnet new console -n computer-vision-quickstart
 ```
 
 Déplacez vos répertoires vers le dossier d’application nouvellement créé. Vous pouvez générer l’application avec :

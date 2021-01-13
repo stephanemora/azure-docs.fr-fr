@@ -3,12 +3,12 @@ title: Créer des stratégies Guest Configuration pour Windows
 description: Découvrez comment créer une stratégie Guest Configuration pour des machines virtuelles Windows.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: d01f4fff28debc3fabcfb32b32b02c5029ce7323
-ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
+ms.openlocfilehash: 85ffda54d58db0544858ca8ab61335b61f18299e
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97755971"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881784"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Créer des stratégies Guest Configuration pour Windows
 
@@ -138,9 +138,32 @@ class ResourceName : OMI_BaseResource
 };
 ```
 
+Si la ressource nécessite certaines propriétés, celles-ci doivent également être retournées par `Get-TargetResource` en parallèle avec la classe `reasons`. Si `reasons` n’est pas inclus, le service inclut un comportement « catch-all » qui compare les valeurs entrées dans `Get-TargetResource` et les valeurs retournées par `Get-TargetResource`, et fournit une comparaison détaillée comme `reasons`.
+
 ### <a name="configuration-requirements"></a>Exigences de configuration
 
 Le nom de la configuration personnalisée doit être cohérent partout. Le nom du fichier .zip du package de contenu, celui de la configuration dans le fichier MOF et celui de l’affectation d’invité dans le modèle Azure Resource Manager (modèle ARM) doivent être identiques.
+
+### <a name="policy-requirements"></a>Exigences de stratégie
+
+La section `metadata` sur la définition d’une stratégie doit inclure deux propriétés pour le service Guest Configuration afin d’automatiser l’approvisionnement et la création de rapports sur les attributions Guest Configuration. La propriété `category` doit être définie sur « Guest Configuration » et une section nommée `Guest Configuration` doit contenir des informations sur l’attribution Guest Configuration. L’applet de commande `New-GuestConfigurationPolicy` crée automatiquement ce texte.
+Suivez les instructions pas à pas de cette page.
+
+L’exemple suivant illustre la section `metadata`.
+
+```json
+    "metadata": {
+      "category": "Guest Configuration",
+      "guestConfiguration": {
+        "name": "test",
+        "version": "1.0.0",
+        "contentType": "Custom",
+        "contentUri": "CUSTOM-URI-HERE",
+        "contentHash": "CUSTOM-HASH-VALUE-HERE",
+        "configurationParameter": {}
+      }
+    },
+```
 
 ### <a name="scaffolding-a-guest-configuration-project"></a>Structuration d’un projet Guest Configuration
 
@@ -496,10 +519,10 @@ Si vous souhaitez publier une mise à jour de la stratégie, effectuez la modifi
 > [!NOTE]
 > La propriété `version` de l’affectation de configuration invité n’a d’influence que sur les packages qui sont hébergés par Microsoft. La meilleure pratique pour le contenu personnalisé du contrôle de version consiste à inclure la version dans le nom de fichier.
 
-Tout d’abord, lors de l’exécution de `New-GuestConfigurationPackage`, spécifiez un nom pour le package qui le rend unique par rapport aux versions précédentes. Vous pouvez inclure un numéro de version dans le nom, par exemple `PackageName_1.0.0`.
-Le numéro dans cet exemple est utilisé uniquement pour rendre le package unique, et non pour spécifier que le package doit être considéré comme plus récent ou plus ancien que les autres packages.
+Tout d’abord, lorsque vous exécutez `New-GuestConfigurationPackage`, spécifiez un nom qui rende le package unique par rapport aux versions précédentes. Vous pouvez inclure un numéro de version dans le nom, par exemple `PackageName_1.0.0`.
+Le numéro dans cet exemple ne sert qu’à rendre le package unique, et non à spécifier que le package doit être considéré comme plus récent ou plus ancien que les autres.
 
-Ensuite, mettez à jour les paramètres utilisés avec l’applet de commande `New-GuestConfigurationPolicy` en suivant chacune des explications ci-dessous.
+Ensuite, mettez à jour les paramètres utilisés avec la cmdlet `New-GuestConfigurationPolicy` en suivant chacune des explications ci-dessous.
 
 - **Version** : Lorsque vous exécutez l’applet de commande `New-GuestConfigurationPolicy`, vous devez spécifier un numéro de version supérieur à celui actuellement publié.
 - **contentUri** : Lorsque vous exécutez la cmdlet `New-GuestConfigurationPolicy`, vous devez spécifier un URI vers l’emplacement du package. L’inclusion d’une version de package dans le nom de fichier garantit que la valeur de cette propriété change dans chaque version.

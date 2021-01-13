@@ -4,14 +4,14 @@ description: Les kits de développement logiciel (SDK), les API REST et l'interf
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 05/19/2020
+ms.date: 01/12/2021
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 8641235fb754080303a9a463d0964e5655234ff2
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 0e8da4d490ef5c9afb2ac363b62f0f1a4fe66f5e
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024549"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98133308"
 ---
 # <a name="sdk-rest-and-cli-developer-resources-for-language-understanding-luis"></a>Ressources de développement SDK, REST et CLI pour implémenter LUIS (Language Understanding)
 
@@ -119,14 +119,10 @@ L'importation et l'exportation de ces formats sont disponibles à partir des API
 Bot Framework est disponible en tant que [kit SDK](https://github.com/Microsoft/botframework) dans différents langages et en tant que service avec [Azure Bot Service](https://dev.botframework.com/).
 
 Bot Framework fournit [plusieurs outils](https://github.com/microsoft/botbuilder-tools) pour vous aider à utiliser Language Understanding, notamment :
-
-* [LUDown](https://github.com/microsoft/botbuilder-tools/blob/master/packages/Ludown) : créez des modèles de compréhension de la langue LUIS à l’aide de fichiers Markdown.
-* [LUIS CLI](https://github.com/microsoft/botbuilder-tools/blob/master/packages/LUIS) : créez et gérez vos applications Luis.ai.
-* [Dispatch](https://github.com/microsoft/botbuilder-tools/blob/master/packages/Dispatch) : gérez des applications parentes et enfants.
-* [LUISGen](https://github.com/microsoft/botbuilder-tools/blob/master/packages/LUISGen) : générez automatiquement des classes C#/Typescript de support pour vos intentions et entités LUIS.
 * [Bot Framework Emulator](https://github.com/Microsoft/BotFramework-Emulator/releases) : application de bureau permettant aux développeurs de bots de tester et de déboguer les bots créés à l'aide du kit SDK Bot Framework.
 * [Bot Framework Composer](https://github.com/microsoft/BotFramework-Composer/blob/stable/README.md) : outil de développement intégré, destiné aux développeurs et aux équipes pluridisciplinaires pour créer des bots et des expériences de conversation avec Microsoft Bot Framework
 * [Exemples Bot Framework](https://github.com/microsoft/botbuilder-samples) en C#, JavaScript, TypeScript et Python
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 * En savoir plus sur les [codes d’erreur HTTP](luis-reference-response-codes.md) courants
