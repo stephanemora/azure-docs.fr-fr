@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 520b2eff91faf2e333ab0a5df7bcc85e6a47c80a
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 4a789574b736eb22bd8d13fcf1a9facec5e241c9
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97585188"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98058665"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Personnaliser l’interface utilisateur dans Azure Active Directory B2C
 
@@ -74,7 +74,7 @@ Lorsque vous utilisez vos propres fichiers HTML et CSS pour personnaliser l’in
 ## <a name="guidelines-for-using-custom-page-content"></a>Instructions pour l’utilisation de contenu de page personnalisé
 
 - Utilisez une URL absolue lorsque vous incluez des ressources externes telles que des fichiers multimédias, CSS et JavaScript dans votre fichier HTML.
-- Avec la [version 1.2.0 de la mise en page](page-layout.md) et les suivantes, vous pouvez ajouter l’attribut `data-preload="true"` dans vos balises HTML pour contrôler l’ordre de chargement des fichiers CSS et JavaScript. Grâce à `data-preload=true`, la page est construite avant d’être affichée à l’utilisateur. Cet attribut permet d’éviter le « scintillement » de la page en préchargeant le fichier CSS, sans que le code HTML non stylisé soit affiché à l’utilisateur. L’extrait de code HTML suivant montre l’utilisation de la balise `data-preload`.
+- Avec la [version 1.2.0 de la mise en page](page-layout.md) et les suivantes, vous pouvez ajouter l’attribut `data-preload="true"` dans vos balises HTML pour contrôler l’ordre de chargement des fichiers CSS et JavaScript. Grâce à `data-preload="true"`, la page est construite avant d’être affichée à l’utilisateur. Cet attribut permet d’éviter le « scintillement » de la page en préchargeant le fichier CSS, sans que le code HTML non stylisé soit affiché à l’utilisateur. L’extrait de code HTML suivant montre l’utilisation de la balise `data-preload`.
   ```HTML
   <link href="https://path-to-your-file/sample.css" rel="stylesheet" type="text/css" data-preload="true"/>
   ```

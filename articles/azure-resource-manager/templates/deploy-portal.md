@@ -3,12 +3,12 @@ title: Gérer les ressources avec le portail Azure
 description: Utilisez le portail Azure et Azure Resource Manager pour déployer vos ressources dans un groupe de ressources de votre abonnement.
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: b87ac48bbaec7f94d5e75939cf5ec17df0ff2d2f
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: d8467bb4e51fc4e6ba89a84f1260a8d2743758d2
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92668771"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028673"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-portal"></a>Déployer des ressources à l’aide de modèles ARM et le portail Azure
 
@@ -35,9 +35,9 @@ Cet article illustre les deux méthodes.
 
 1. Sélectionnez ou entrez les valeurs de propriété suivantes :
 
-    - **Abonnement** : Sélectionnez un abonnement Azure.
-    - **Groupe de ressources**  : Nommez le groupe de ressources.
-    - **Région**  : Spécifiez un emplacement Azure. Il s’agit de l’emplacement où le groupe de ressources stocke les métadonnées relatives aux ressources. Pour des raisons de conformité, vous souhaiterez peut-être indiquer où sont stockées métadonnées. En règle générale, nous vous recommandons de spécifier l’emplacement où se trouvera la plupart de vos ressources. L’utilisation du même emplacement permet de simplifier votre modèle.
+    - **Abonnement**: Sélectionnez un abonnement Azure.
+    - **Groupe de ressources** : Nommez le groupe de ressources.
+    - **Région** : Spécifiez un emplacement Azure. Il s’agit de l’emplacement où le groupe de ressources stocke les métadonnées relatives aux ressources. Pour des raisons de conformité, vous souhaiterez peut-être indiquer où sont stockées métadonnées. En règle générale, nous vous recommandons de spécifier l’emplacement où se trouvera la plupart de vos ressources. L’utilisation du même emplacement permet de simplifier votre modèle.
 
    ![Définir les valeurs d’un groupe](./media/deploy-portal/set-group-properties.png)
 
@@ -80,33 +80,33 @@ Si vous souhaitez effectuer un déploiement sans utiliser l’un des modèles de
 > [!NOTE]
 > L’interface du portail ne prend pas en charge le référencement à un [secret d’un coffre de clés](key-vault-parameter.md). Utilisez plutôt [PowerShell](deploy-powershell.md) ou [Azure CLI](deploy-cli.md) pour déployer votre modèle localement ou à partir d’un URI externe.
 
-1. Pour déployer un modèle personnalisé grâce au portail, sélectionnez **Créer une ressource** , puis recherchez le **modèle**. et sélectionnez **Déploiement de modèle**.
+1. Pour déployer un modèle personnalisé grâce au portail, sélectionnez **Créer une ressource**, puis recherchez le **modèle**. et sélectionnez **Déploiement de modèle**.
 
    ![Rechercher un déploiement de modèle](./media/deploy-portal/search-template.png)
 
 1. Sélectionnez **Create** (Créer).
 1. Vous voyez plusieurs options pour créer un modèle :
 
-    - **Créer votre propre modèle dans l’éditeur**  : Créez votre propre modèle dans l’éditeur de modèle du portail.
+    - **Créer votre propre modèle dans l’éditeur** : Créez votre propre modèle dans l’éditeur de modèle du portail.
     - **Modèles communs** : Sélectionnez parmi les solutions courantes.
-    - **Charger un modèle de démarrage rapide GitHub**  : Sélectionnez parmi les [modèles de démarrage rapide](https://azure.microsoft.com/resources/templates/).
+    - **Charger un modèle de démarrage rapide GitHub** : Sélectionnez parmi les [modèles de démarrage rapide](https://azure.microsoft.com/resources/templates/).
 
    ![Options d’affichage](./media/deploy-portal/see-options.png)
 
     Ce tutoriel fournit les instructions nécessaires au chargement d’un modèle de démarrage rapide.
 
-1. Sous **Charger un modèle de démarrage rapide GitHub** , tapez ou sélectionnez **101-storage-account-create**.
+1. Sous **Charger un modèle de démarrage rapide GitHub**, tapez ou sélectionnez **101-storage-account-create**.
 
     Deux options s'offrent à vous :
 
     - **Sélectionner un modèle** : déployez le modèle.
     - **Modifier le modèle** : modifiez le modèle de démarrage rapide, avant de le déployer.
 
-1. Sélectionnez **Modifier le modèle** pour explorer l’éditeur de modèle du portail. Le modèle est chargé dans l’éditeur. Il y a deux paramètres : **storageAccountType** et **location**.
+1. Sélectionnez **Modifier le modèle** pour explorer l’éditeur de modèle du portail. Le modèle est chargé dans l’éditeur. Il y a deux paramètres : `storageAccountType` et `location`.
 
    ![Créer un modèle](./media/deploy-portal/show-json.png)
 
-1. Effectuez une modification relativement mineure au modèle. Par exemple, mettez à jour la variable **storageAccountName** :
+1. Effectuez une modification relativement mineure au modèle. Par exemple, mettez à jour la variable `storageAccountName` :
 
     ```json
     "storageAccountName": "[concat('azstore', uniquestring(resourceGroup().id))]"
@@ -115,8 +115,8 @@ Si vous souhaitez effectuer un déploiement sans utiliser l’un des modèles de
 1. Sélectionnez **Enregistrer**. Vous voyez maintenant l’interface de déploiement de modèle du portail. Vous voyez les deux paramètres que vous avez définis dans le modèle.
 1. Entrez ou sélectionnez les valeurs de propriété :
 
-    - **Abonnement** : Sélectionnez un abonnement Azure.
-    - **Groupe de ressources**  : Sélectionnez **Créer** et donnez un nom.
+    - **Abonnement**: Sélectionnez un abonnement Azure.
+    - **Groupe de ressources** : Sélectionnez **Créer** et donnez un nom.
     - **Emplacement** : Sélectionnez un emplacement Azure.
     - **Type de compte de stockage** : Utilisez la valeur par défaut.
     - **Emplacement** : Utilisez la valeur par défaut.

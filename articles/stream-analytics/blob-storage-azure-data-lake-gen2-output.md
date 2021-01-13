@@ -1,22 +1,21 @@
 ---
 title: Sortie de stockage d’objets blob et Azure Data Lake Gen2 à partir d’Azure Stream Analytics
 description: Cet article décrit le stockage d’objets blob et Azure Data Lake Gen2 comme sortie pour Azure Stream Analytics.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: ba64f5972d77637ec830fe6b872af66363d6c1bd
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 8f8fa524a69d0431fe98cdcd4d1f12addc576e86
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740043"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019582"
 ---
 # <a name="blob-storage-and-azure-data-lake-gen2-output-from-azure-stream-analytics"></a>Sortie de stockage d’objets blob et Azure Data Lake Gen2 à partir d’Azure Stream Analytics
 
-Data Lake Storage Gen2 fait du stockage Azure la base pour créer des dépôts Data Lake d’entreprise sur Azure. Conçu dès le départ pour traiter plusieurs téraoctets d’informations tout en assurant des centaines de gigaoctets de débit, Data Lake Storage Gen2 vous permet de facilement gérer d’importants volumes de données. Une caractéristique fondamentale de Data Lake Storage Gen2 est l’ajout d’un espace de noms hiérarchique au stockage Blob.
+Data Lake Storage Gen2 fait du stockage Azure la base pour créer des dépôts Data Lake d’entreprise sur Azure. Conçu dès le départ pour traiter plusieurs téraoctets d’informations tout en assurant des centaines de gigaoctets de débit, Data Lake Storage Gen2 vous permet de facilement gérer d'importants volumes de données. Une caractéristique fondamentale de Data Lake Storage Gen2 est l’ajout d’un espace de noms hiérarchique au stockage Blob.
 
 Le stockage d’objets blob Azure offre une solution peu coûteuse et évolutive pour stocker de grandes quantités de données non structurées dans le cloud. Pour une introduction au stockage d’objets blob et à son utilisation, consultez [Démarrage rapide : Charger, télécharger et répertorier des objets blob à l’aide du portail Microsoft Azure](../storage/blobs/storage-quickstart-blobs-portal.md).
 

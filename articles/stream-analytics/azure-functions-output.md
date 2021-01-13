@@ -1,18 +1,17 @@
 ---
 title: Sortie Azure Functions d’Azure Stream Analytics
 description: Cet article décrit les fonctions Azure en tant que sortie pour Azure Stream Analytics.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: ffaf66cbb5d9fa0b294f5749a1923684f16c2979
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: e5ea7a1abbbd6ab4be32955179227fbd539cf641
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94488086"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019616"
 ---
 # <a name="azure-functions-output-from-azure-stream-analytics"></a>Sortie Azure Functions d’Azure Stream Analytics
 

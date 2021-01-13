@@ -1,18 +1,18 @@
 ---
 title: Interroger des données dans Azure Monitor avec Azure Data Explorer (préversion)
 description: Utilisez Azure Data Explorer pour effectuer des requêtes interproduits entre Azure Data Explorer, des espaces de travail Log Analytics et des applications Application Insights classiques dans Azure Monitor.
-author: orens
+author: osalzberg
 ms.author: bwren
 ms.reviewer: bwren
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.openlocfilehash: dd29b18dda46a00966a0e5adea7e06be8f43ad35
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 8942735ed65f8aa0cf6d315568e00412adcb353a
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96444941"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060535"
 ---
 # <a name="query-data-in-azure-monitor-using-azure-data-explorer-preview"></a>Interroger des données dans Azure Monitor avec Azure Data Explorer (préversion)
 

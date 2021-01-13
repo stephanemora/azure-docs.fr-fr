@@ -2,14 +2,14 @@
 title: Configurer Live Data avec Azure Monitor pour conteneurs (préversion) | Microsoft Docs
 description: Cet article décrit la configuration de la vue en temps réel des événements et des journaux de conteneur (stdout/stderr), sans l’utilisation de kubectl, avec Azure Monitor pour conteneurs.
 ms.topic: conceptual
-ms.date: 02/14/2019
+ms.date: 01/08/2020
 ms.custom: references_regions
-ms.openlocfilehash: 62bc7613995296504dfba551cdb631ac3386aa75
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: d5b978e7138e10ed88f5748b84ff62ddd22bebec
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97830783"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98050780"
 ---
 # <a name="how-to-set-up-the-live-data-preview-feature"></a>Guide pratique pour configurer la fonctionnalité Live Data (préversion)
 
@@ -29,8 +29,6 @@ Cet article explique comment configurer l’authentification pour contrôler l�
 - Cluster AKS prenant en charge le contrôle d’accès en fonction du rôle Kubernetes (Kubernetes RBAC)
 - Cluster AKS intégré à Azure Active Directory
 
->[!NOTE]
->Les clusters AKS activés en tant que [clusters privés](https://azure.microsoft.com/updates/aks-private-cluster/) ne sont pas pris en charge par cette fonctionnalité. Cette fonctionnalité repose sur l’accès direct à l’API Kubernetes via un serveur proxy depuis votre navigateur. L’activation de la sécurité réseau pour bloquer l’API Kubernetes depuis ce proxy bloque ce trafic.
 
 ## <a name="authentication-model"></a>Modèle d’authentification
 

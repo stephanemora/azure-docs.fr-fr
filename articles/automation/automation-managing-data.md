@@ -3,14 +3,14 @@ title: Sécurité des données Azure Automation
 description: Cet article vous aide à découvrir comment Azure Automation protège votre confidentialité et sécurise vos données.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 07/20/2020
+ms.date: 01/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: 610c2050150a533e246bc74ed7750ce87f7cf617
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40405607e7f7198f190f621121022537ac3b3171
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87004645"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98046037"
 ---
 # <a name="management-of-azure-automation-data"></a>Gestion des données Azure Automation
 
@@ -26,11 +26,9 @@ Pour garantir la sécurité des données en transit vers Azure Automation, nous 
 
 * Nœuds DSC
 
-Les versions antérieures de TLS/SSL (Secure Sockets Layer) se sont avérées vulnérables et bien qu’elles fonctionnent encore pour assurer la compatibilité descendante, elles sont **déconseillées**. À compter du 2020 septembre, nous commencerons à appliquer le protocole TLS 1.2 et les versions ultérieures du protocole de chiffrement.
+Les versions antérieures de TLS/SSL (Secure Sockets Layer) se sont avérées vulnérables et bien qu’elles fonctionnent encore pour assurer la compatibilité descendante, elles sont **déconseillées**. Nous ne recommandons pas de configurer explicitement votre agent de façon à ce qu’il utilise uniquement TLS 1.2, sauf en cas de nécessité absolue, car cela peut annuler les fonctionnalités de sécurité au niveau de la plateforme qui vous permettent de détecter automatiquement et de tirer parti des protocoles plus sécurisés et plus récents dès qu’ils sont disponibles, tels que TLS 1.3.
 
-Nous ne recommandons pas de configurer explicitement votre agent de façon à ce qu’il utilise uniquement TLS 1.2, sauf en cas de nécessité absolue, car cela peut annuler les fonctionnalités de sécurité au niveau de la plateforme qui vous permettent de détecter automatiquement et de tirer parti des protocoles plus sécurisés et plus récents dès qu’ils sont disponibles, tels que TLS 1.3.
-
-Pour plus d’informations sur la prise en charge du protocole TLS 1.2 avec l’agent Log Analytics pour Windows et Linux, qui est une dépendance pour le rôle Runbook Worker hybride, consultez [Vue d’ensemble de l’agent Log Analytics – TLS 1.2](..//azure-monitor/platform/log-analytics-agent.md#tls-12-protocol). 
+Pour plus d’informations sur la prise en charge du protocole TLS 1.2 avec l’agent Log Analytics pour Windows et Linux, qui est une dépendance pour le rôle Runbook Worker hybride, consultez [Vue d’ensemble de l’agent Log Analytics – TLS 1.2](..//azure-monitor/platform/log-analytics-agent.md#tls-12-protocol).
 
 ### <a name="platform-specific-guidance"></a>Instructions spécifiques à la plateforme
 
@@ -47,11 +45,11 @@ Quand vous supprimez une ressource dans Azure Automation, elle est conservée pe
 
 Le tableau suivant récapitule la stratégie de rétention pour les différentes ressources.
 
-| Données | Policy |
+| Données | Stratégie |
 |:--- |:--- |
 | Comptes |Un compte est définitivement supprimé 30 jours après avoir été supprimé par un utilisateur. |
 | Éléments multimédias |Une ressource est définitivement supprimée 30 jours après avoir été supprimée par un utilisateur ou 30 jours après qu’un utilisateur a supprimé un compte qui contenait la ressource. Les ressources incluent des variables, des planifications, des informations d’identification, des certificats, des packages Python 2 et des connexions. |
-| Nœuds DSC |Un nœud DSC est définitivement supprimé 30 jours après avoir été désinscrit d’un compte Automation via le portail Azure ou l’applet de commande [Unregister-AzAutomationDscNode](/powershell/module/az.automation/unregister-azautomationdscnode?view=azps-3.7.0) dans Windows PowerShell. De même, un nœud peut être supprimé définitivement 30 jours après qu’un utilisateur a supprimé le compte qui contenait le nœud. |
+| Nœuds DSC |Un nœud DSC est définitivement supprimé 30 jours après avoir été désinscrit d’un compte Automation via le portail Azure ou l’applet de commande [Unregister-AzAutomationDscNode](/powershell/module/az.automation/unregister-azautomationdscnode) dans Windows PowerShell. De même, un nœud peut être supprimé définitivement 30 jours après qu’un utilisateur a supprimé le compte qui contenait le nœud. |
 | travaux |Une tâche est supprimée et définitivement retirée 30 jours après avoir été modifiée (par exemple, suite à la fin, à l’arrêt ou à l’interruption de la tâche). |
 | Modules |Un module est définitivement supprimé 30 jours après avoir été supprimé par un utilisateur ou 30 jours après qu’un utilisateur a supprimé le compte qui contenait le module. |
 | Configurations de nœud/fichiers MOF |Une ancienne configuration de nœud est définitivement supprimée 30 jours après la génération d’une nouvelle configuration de nœud. |
@@ -80,7 +78,7 @@ Vous ne pouvez pas récupérer la valeur des variables chiffrées ou des champs 
 
 ### <a name="dsc-configurations"></a>Configurations DSC
 
-Vous pouvez exporter vos configurations DSC dans des fichiers de script en utilisant soit le portail Azure, soit l'applet de commande [Export-AzAutomationDscConfiguration](/powershell/module/az.automation/export-azautomationdscconfiguration?view=azps-3.7.0) dans Windows PowerShell. Vous pouvez importer et utiliser ces configurations dans un autre compte Automation.
+Vous pouvez exporter vos configurations DSC dans des fichiers de script en utilisant soit le portail Azure, soit l'applet de commande [Export-AzAutomationDscConfiguration](/powershell/module/az.automation/export-azautomationdscconfiguration) dans Windows PowerShell. Vous pouvez importer et utiliser ces configurations dans un autre compte Automation.
 
 ## <a name="geo-replication-in-azure-automation"></a>Géo-réplication dans Azure Automation
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 370b84f451e22c20c798018951a7a801e0bba826
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: 9763835142e66bbbce51cd5c863dff87f261c270
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763942"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060158"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Bonnes pratiques et guide de résolution des problèmes pour les applications Node sur Azure App Service
 
@@ -245,9 +245,8 @@ Votre application lève des exceptions non interceptées ; consultez le fichier 
 La lenteur de démarrage de l’application provient souvent d’une trop grande quantité de fichiers dans le dossier node\_modules. L’application tente de charger la plupart de ces fichiers au démarrage. Par défaut, puisque vos fichiers sont stockés sur le partage réseau sur Azure App Service, le chargement d’un grand nombre de fichiers peut prendre du temps.
 Voici quelques solutions qui pourront vous aider à accélérer le processus :
 
-1. Utilisez npm3 pour installer vos modules de manière à avoir une structure de dépendances plate et à éviter toute dépendance en double.
-2. Essayez de charger progressivement votre node\_modules plutôt que de charger tous les modules au démarrage de l’application. Pour charger progressivement les modules, l’appel à require(‘module’) doit être effectué lorsque vous avez réellement besoin du module au sein de la fonction avant la première exécution du code du module.
-3. Azure App Service offre une fonctionnalité dite de « cache local ». Cette fonctionnalité copie le contenu du partage réseau sur le disque local de la machine virtuelle. Étant donné que les fichiers sont en local, le temps de chargement du node\_modules est beaucoup plus rapide.
+1. Essayez de charger progressivement votre node\_modules plutôt que de charger tous les modules au démarrage de l’application. Pour charger progressivement les modules, l’appel à require(‘module’) doit être effectué lorsque vous avez réellement besoin du module au sein de la fonction avant la première exécution du code du module.
+2. Azure App Service offre une fonctionnalité dite de « cache local ». Cette fonctionnalité copie le contenu du partage réseau sur le disque local de la machine virtuelle. Étant donné que les fichiers sont en local, le temps de chargement du node\_modules est beaucoup plus rapide.
 
 ## <a name="iisnode-http-status-and-substatus"></a>État et sous-état http IISNODE
 

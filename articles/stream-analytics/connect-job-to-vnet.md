@@ -1,19 +1,18 @@
 ---
 title: Connecter les tâches Stream Analytics aux ressources d’un réseau virtuel Azure (VNET)
 description: Cet article explique comment connecter une tâche Azure Stream Analytics à des ressources qui se trouvent dans un réseau virtuel.
-author: sidram
+author: sidramadoss
 ms.author: sidram
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/04/2021
 ms.custom: devx-track-js
-ms.openlocfilehash: f140384ee2c78b38982c99dab5912bc451584a42
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 99563760bf37c4046e7dd81e779fedbe415380bc
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97898145"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019480"
 ---
 # <a name="connect-stream-analytics-jobs-to-resources-in-an-azure-virtual-network-vnet"></a>Connecter les tâches Stream Analytics aux ressources d’un réseau virtuel Azure (VNet)
 

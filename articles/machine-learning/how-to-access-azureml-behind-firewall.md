@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 11/18/2020
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 0fa3492555b2870ae7b95abec08bbd3280cdc985
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 8ffbe5debaa980385a2c6dc0078de5f1cc2e9bde
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97705062"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98045510"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>Utiliser l’espace de travail derrière un Pare-feu pour Azure Machine Learning
 
@@ -27,7 +27,7 @@ Dans cet article, découvrez comment configurer Pare-feu Azure pour contrôler l
 
 ## <a name="azure-firewall"></a>Pare-feu Azure
 
-Lorsque vous utilisez le pare-feu Azure, utilisez __DNAT (Destination Network Address Translation )__ afin de créer des règles NAT pour le trafic entrant. Pour le trafic sortant, créez des règles de type __réseau__ et/ou __application__. Ces regroupements de règles sont décrits plus en détail dans [Quels sont les concepts de Pare-feu Azure ?](../firewall/firewall-faq.md#what-are-some-azure-firewall-concepts).
+Lorsque vous utilisez le pare-feu Azure, utilisez __DNAT (Destination Network Address Translation )__ afin de créer des règles NAT pour le trafic entrant. Pour le trafic sortant, créez des règles de type __réseau__ et/ou __application__. Ces regroupements de règles sont décrits plus en détail dans [Quels sont les concepts de Pare-feu Azure ?](../firewall/firewall-faq.yml#what-are-some-azure-firewall-concepts).
 
 ### <a name="inbound-configuration"></a>Configuration entrante
 

@@ -3,21 +3,20 @@ title: Monitorage et gestion d’Azure Stream Analytics avec Visual Studio
 description: Cet article décrit comment utiliser Visual Studio pour surveiller et gérer des tâches Azure Stream Analytics.
 author: su-jie
 ms.author: sujie
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: a151d4ce5a2f9860c3b7919496a2edd25cc58ede
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: e0db101e47a5ec8eb88d3b999058e7c8521f0ff9
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123623"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020279"
 ---
 # <a name="monitor-and-manage-stream-analytics-jobs-with-visual-studio"></a>Surveiller et gérer des tâches Stream Analytics avec Visual Studio
 
-Cet article montre comment surveiller vos tâches Stream Analytics dans Visual Studio. Le service Azure Stream Analytics Tools pour Visual Studio fournit une expérience de surveillance similaire à celle du portail Azure sans qu’il soit nécessaire de quitter l’environnement de développement intégré. Vous pouvez commencer à surveiller une tâche dès que vous l’ **avez envoyée à Azure** à partir de votre **Script.asaql** , ou surveiller des tâches existantes, quelle que soit la façon dont celles-ci ont été créées. 
+Cet article montre comment surveiller vos tâches Stream Analytics dans Visual Studio. Le service Azure Stream Analytics Tools pour Visual Studio fournit une expérience de surveillance similaire à celle du portail Azure sans qu’il soit nécessaire de quitter l’environnement de développement intégré. Vous pouvez commencer à surveiller une tâche dès que vous l’**avez envoyée à Azure** à partir de votre **Script.asaql**, ou surveiller des tâches existantes, quelle que soit la façon dont celles-ci ont été créées. 
 
 ## <a name="job-summary"></a>Résumé de la tâche
 

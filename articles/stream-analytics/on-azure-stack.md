@@ -2,18 +2,17 @@
 title: Exécuter Azure Stream Analytics sur Azure Stack (préversion)
 description: Créez un travail de périphérie Azure Stream Analytics et déployez-le sur Azure Stack Hub par le biais du runtime IoT Edge.
 ms.service: stream-analytics
-author: raan
+author: an-emma
 ms.author: raan
-ms.reviewer: mamccrea
 ms.topic: how-to
 ms.date: 08/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: 21cf432576829b575d70a94227f28df373a4d899
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 3463b3eae96c0a65206023ed0f21efe44294d4eb
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93126156"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020126"
 ---
 # <a name="run-azure-stream-analytics-on-azure-stack-preview"></a>Exécuter Azure Stream Analytics sur Azure Stack (préversion)
 
@@ -92,11 +91,11 @@ Lorsque vous créez un travail Azure Stream Analytics pour s’exécuter sur un 
 Lorsque votre travail Stream Analytics est créé dans le portail Azure, vous pouvez le configurer avec une entrée, une sortie et une requête à exécuter sur les données qui le traverse. Vous pouvez spécifier manuellement des entrées à partir d’un hub IoT ou d’un hub d’événements dans un abonnement Azure Stack Hub.
 
 1. Accédez à votre travail Stream Analytics dans le portail Azure.
-2. Sous **Configurer** , sélectionnez **Paramètres du compte de stockage** , puis choisissez le compte de stockage que vous avez créé à l’étape précédente.
+2. Sous **Configurer**, sélectionnez **Paramètres du compte de stockage**, puis choisissez le compte de stockage que vous avez créé à l’étape précédente.
    > [!div class="mx-imgBorder"]
    > [ ![Paramétrage du compte de stockage de travail](media/on-azure-stack/storage-account-settings.png) ](media/on-azure-stack/storage-account-settings.png#lightbox)
-3. Sous **Topologie de la tâche** , sélectionnez **Entrées** puis **Ajouter une entrée de flux**.
-4. Dans la liste déroulante, choisissez **Hub IoT** , **Hub d’événements** ou **Edge Hub**. 
+3. Sous **Topologie de la tâche**, sélectionnez **Entrées** puis **Ajouter une entrée de flux**.
+4. Dans la liste déroulante, choisissez **Hub IoT**, **Hub d’événements** ou **Edge Hub**. 
 5. Si l’entrée est un hub d’événements ou un hub IoT dans un abonnement Azure Stack Hub, fournissez les informations manuellement, comme indiqué ci-dessous.
 
    #### <a name="event-hub"></a>Event Hub
@@ -104,7 +103,7 @@ Lorsque votre travail Stream Analytics est créé dans le portail Azure, vous po
    | Champ | Valeur |
    | --- | --- |
    | Alias d’entrée | Nom convivial que vous utilisez dans la requête du travail pour faire référence à cette entrée. |
-   | Espace de noms Service Bus | Conteneur pour un ensemble d’entités de messagerie. Lorsque vous créez un concentrateur Event Hub, vous créez également l’espace de noms. (Exemple : *sb://<Event Hub Name>.eventhub.shanghai.azurestack.corp.microsoft.com* ) |
+   | Espace de noms Service Bus | Conteneur pour un ensemble d’entités de messagerie. Lorsque vous créez un concentrateur Event Hub, vous créez également l’espace de noms. (Exemple : *sb://<Event Hub Name>.eventhub.shanghai.azurestack.corp.microsoft.com*) |
    | Nom du hub d’événements | Nom du concentrateur Event Hub à utiliser comme entrée. |
    | Nom de la stratégie du hub d’événements | La stratégie d’accès partagé qui fournit l’accès au concentrateur Event Hub. Chaque stratégie d’accès partagé a un nom, les autorisations que vous définissez ainsi que des clés d’accès. Cette option est automatiquement renseignée, sauf si vous sélectionnez l’option pour indiquer manuellement les paramètres de l’Event Hub. |
    | Clé de stratégie Event Hub | Clé d’accès partagé utilisée pour autoriser l’accès au hub d’événements. Cette option est automatiquement renseignée, sauf si vous sélectionnez l’option pour indiquer manuellement les paramètres du concentrateur Event Hub. Vous pouvez la retrouver dans les paramètres du hub d’événements. |
@@ -119,7 +118,7 @@ Lorsque votre travail Stream Analytics est créé dans le portail Azure, vous po
    | Champ | Valeur |
    | --- | --- |
    | Alias d’entrée | Nom convivial que vous utilisez dans la requête du travail pour faire référence à cette entrée. |
-   | IoT Hub | Le nom du concentrateur IoT Hub à utiliser comme entrée. (Exemple : *<IoT Hub Name>.shanghai.azurestack.corp.microsoft.com* ) |
+   | IoT Hub | Le nom du concentrateur IoT Hub à utiliser comme entrée. (Exemple : *<IoT Hub Name>.shanghai.azurestack.corp.microsoft.com*) |
    | Nom de la stratégie d’accès partagé | La stratégie d’accès partagé qui fournit l’accès au concentrateur IoT Hub. Chaque stratégie d’accès partagé a un nom, les autorisations que vous définissez ainsi que des clés d’accès. |
    | Clé de la stratégie d’accès partagé | La clé d’accès partagé utilisée pour autoriser l’accès au concentrateur IoT Hub. Cette option est automatiquement renseignée, sauf si vous sélectionnez l’option pour indiquer manuellement les paramètres du concentrateur IoT Hub. |
    | Groupe de consommateurs (facultatif) | Il est vivement recommandé d’utiliser un groupe de consommateurs différent pour chaque travail Stream Analytics. Le groupe de consommateurs à utiliser pour ingérer les données du concentrateur IoT Hub. Stream Analytics utilise le groupe de consommateurs $Default, sauf si vous spécifiez autre chose. |
@@ -138,7 +137,7 @@ Lorsque votre travail Stream Analytics est créé dans le portail Azure, vous po
    | Champ | Valeur |
    | --- | --- |
    | Alias de sortie | Nom convivial utilisé dans les requêtes pour diriger la sortie de requête vers cet Event Hub. |
-   | Espace de noms Service Bus | Conteneur pour un ensemble d’entités de messagerie. En créant un hub d’événements, vous avez également créé un espace de noms Service Bus. (Exemple : *sb://<Event Hub Name>.eventhub.shanghai.azurestack.corp.microsoft.com* ) |
+   | Espace de noms Service Bus | Conteneur pour un ensemble d’entités de messagerie. En créant un hub d’événements, vous avez également créé un espace de noms Service Bus. (Exemple : *sb://<Event Hub Name>.eventhub.shanghai.azurestack.corp.microsoft.com*) |
    | Nom du hub d’événements | Nom de votre sortie Event Hub. |
    | Nom de la stratégie du hub d’événements | Stratégie d’accès partagé que vous pouvez créer dans l’onglet Configurer de l’Event Hub. Chaque stratégie d’accès partagé a un nom, les autorisations que vous définissez ainsi que des clés d’accès. |
    | Clé de stratégie Event Hub | Clé d’accès partagé utilisée pour authentifier l’accès à l’espace de noms Event Hub. |
@@ -151,7 +150,7 @@ Lorsque votre travail Stream Analytics est créé dans le portail Azure, vous po
    | Champ | Valeur |
    | --- | --- |
    | Alias de sortie | Nom convivial utilisé dans les requêtes pour diriger la sortie de requête vers ce stockage d’objets blob. |
-   | Compte de stockage | Nom du compte de stockage dans lequel vous envoyez votre sortie. (Exemple : *<Storage Account Name>.blob.shanghai.azurestack.corp.microsoft.com* ) |
+   | Compte de stockage | Nom du compte de stockage dans lequel vous envoyez votre sortie. (Exemple : *<Storage Account Name>.blob.shanghai.azurestack.corp.microsoft.com*) |
    | Clé du compte de stockage | Clé secrète associée au compte de stockage. Cette option est automatiquement renseignée, sauf si vous sélectionnez l’option pour indiquer manuellement les paramètres du stockage d’objets blob. |
 
 > [!NOTE]
@@ -160,7 +159,7 @@ Lorsque votre travail Stream Analytics est créé dans le portail Azure, vous po
 
 ## <a name="deploy-stream-analytics-on-a-vm-or-device-connected-to-azure-stack"></a>Déployer Stream Analytics sur une machine virtuelle ou un appareil connecté à Azure Stack
 
-1. Dans le portail Azure, ouvrez IoT Hub. Accédez à **IoT Edge** , puis cliquez sur l’appareil (machine virtuelle) que vous souhaitez cibler pour ce déploiement.
+1. Dans le portail Azure, ouvrez IoT Hub. Accédez à **IoT Edge**, puis cliquez sur l’appareil (machine virtuelle) que vous souhaitez cibler pour ce déploiement.
 2. Sélectionnez **Définir des modules**. Ensuite, sélectionnez **+ Ajouter** et choisissez **Module Azure Stream Analytics**. 
 3. Sélectionnez l’abonnement et le travail de périphérie Stream Analytics que vous avez créé. Cliquez sur **Enregistrer** et sélectionnez **Suivant : Routes**.
 
@@ -168,7 +167,7 @@ Lorsque votre travail Stream Analytics est créé dans le portail Azure, vous po
    > [ ![Ajouter des modules](media/on-azure-stack/edge-modules.png) ](media/on-azure-stack/edge-modules.png#lightbox)
 
 4. Cliquez sur **Vérifier + créer >** .
-5. À l’étape **Vérifier + créer** , sélectionnez **Créer**. 
+5. À l’étape **Vérifier + créer**, sélectionnez **Créer**. 
    > [!div class="mx-imgBorder"]
    > [ ![Manifeste](media/on-azure-stack/module-content.png) ](media/on-azure-stack/module-content.png#lightbox)
 6. Vérifiez que le module est ajouté à la liste.

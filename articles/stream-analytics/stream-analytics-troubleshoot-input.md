@@ -1,19 +1,18 @@
 ---
 title: Résolution des problèmes d’entrées pour Azure Stream Analytique
 description: Cet article décrit des techniques pour résoudre les problèmes liés aux connexions d’entrée dans les travaux Azure Stream Analytics.
-author: sidram
+author: sidramadoss
 ms.author: sidram
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 05/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 760c98ce9464e4d40f01256a973e07d9084c6dfe
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 2d7171c9ec1e60447fb3342caa72098fb2eb9337
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123283"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019905"
 ---
 # <a name="troubleshoot-input-connections"></a>Résoudre les problèmes liés aux connexions d’entrée
 
@@ -31,7 +30,7 @@ Cet article décrit les problèmes courants liés aux connexions d’entrée Azu
     
     1. Vérifiez les [métriques Event Hubs](../event-hubs/event-hubs-metrics-azure-monitor.md) pour vous assurer que les événements sont envoyés. Les métriques de message doivent être supérieures à zéro si Event Hubs reçoit des messages.
 
-3.  Vérifiez que vous avez sélectionné un intervalle de temps dans la préversion de l’entrée. Sélectionnez **Choisir un intervalle de temps** , puis entrez une durée d’exemple avant de tester votre requête.
+3.  Vérifiez que vous avez sélectionné un intervalle de temps dans la préversion de l’entrée. Sélectionnez **Choisir un intervalle de temps**, puis entrez une durée d’exemple avant de tester votre requête.
 
 ## <a name="malformed-input-events-causes-deserialization-errors"></a>Les événements d’entrée incorrectement formés provoquent des erreurs de désérialisation 
 
@@ -75,11 +74,11 @@ Pour ajouter un nouveau groupe de consommateurs dans votre instance Event Hubs, 
 
 2. Localisez votre Event Hub.
 
-3. Sous le titre **Entités** , sélectionnez **Event Hubs**.
+3. Sous le titre **Entités**, sélectionnez **Event Hubs**.
 
 4. Sélectionnez le nom du Event Hub.
 
-5. Dans la page **Instance Event Hubs** , sous le titre **Entités** , sélectionnez **Groupes de consommateurs**. Un groupe de consommateurs nommé **$Default** est répertorié.
+5. Dans la page **Instance Event Hubs**, sous le titre **Entités**, sélectionnez **Groupes de consommateurs**. Un groupe de consommateurs nommé **$Default** est répertorié.
 
 6. Sélectionnez **+ Groupe de consommateurs** pour ajouter un nouveau groupe de consommateurs. 
 

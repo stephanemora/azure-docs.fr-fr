@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 12/07/2020
 ms.author: tisande
-ms.openlocfilehash: 2d99e0e2b65f7131e564e6ab64e454d2947c58a6
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 00c80fa311837918a78f26e941f00cb17f1dc279
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96903018"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019174"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Stratégies d’indexation dans Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -135,7 +135,7 @@ Azure Cosmos DB, par défaut, ne crée pas d’index spatial. Si vous souhaitez 
 
 ## <a name="composite-indexes"></a>Index composites
 
-Les requêtes qui ont une clause `ORDER BY` avec deux ou plusieurs propriétés nécessitent un index composite. Vous pouvez également définir un index composite pour améliorer les performances de nombreuses requêtes d’égalité et de plage. Par défaut, aucun index composite n’est défini. Vous devez donc [ajouter des index composites](how-to-manage-indexing-policy.md#composite-indexing-policy-examples) en fonction des besoins.
+Les requêtes qui ont une clause `ORDER BY` avec deux ou plusieurs propriétés nécessitent un index composite. Vous pouvez également définir un index composite pour améliorer les performances de nombreuses requêtes d’égalité et de plage. Par défaut, aucun index composite n’est défini. Vous devez donc [ajouter des index composites](how-to-manage-indexing-policy.md#composite-index) en fonction des besoins.
 
 Contrairement aux chemins inclus ou exclus, vous ne pouvez pas créer un chemin avec le caractère générique `/*`. Chaque chemin composite se termine par un `/?` implicite que vous n’avez pas besoin de spécifier. Les chemins composites aboutissent à une valeur scalaire, qui est la seule valeur incluse dans l’index composite.
 

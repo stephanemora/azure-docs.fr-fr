@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 12/11/2020
 ms.author: cherylmc
-ms.openlocfilehash: b0937bbd72460b1d46ce0394af1933e858424966
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: c2efd9ac137c226c1d3a77e2cb6ebe17d75cb496
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97360320"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98051528"
 ---
 # <a name="manage-secure-access-to-resources-in-spoke-vnets-for-user-vpn-clients"></a>Gestion de l’accès sécurisé aux ressources dans les réseaux virtuels en étoile pour les clients VPN d’utilisateur
 
@@ -147,4 +147,4 @@ Vérifiez la configuration de votre hub sécurisé.
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour plus d’informations sur Virtual WAN, consultez la [FAQ sur Virtual WAN](virtual-wan-faq.md).
-* Pour plus d’informations sur le Pare-feu Azure, consultez la [FAQ du Pare-feu Azure](../firewall/firewall-faq.md).
+* Pour plus d’informations sur le Pare-feu Azure, consultez la [FAQ du Pare-feu Azure](../firewall/firewall-faq.yml).

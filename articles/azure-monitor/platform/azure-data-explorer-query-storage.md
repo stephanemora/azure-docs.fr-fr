@@ -2,17 +2,17 @@
 title: Interroger les données exportées dans Azure Monitor avec Azure Data Explorer (préversion)
 description: Utilisez Azure Data Explorer pour interroger les données exportées à partir de votre espace de travail Log Analytics vers un compte de stockage Azure.
 ms.subservice: logs
-author: orens
+author: osalzberg
 ms.author: bwren
 ms.reviewer: bwren
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.openlocfilehash: 2735aec0f95f5e282bb1dffba6e4f42f966cf117
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 25452748e423cbbe819afa2618789b377027346b
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186539"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060467"
 ---
 # <a name="query-exported-data-from-azure-monitor-using-azure-data-explorer-preview"></a>Interroger les données exportées dans Azure Monitor avec Azure Data Explorer (préversion)
 L’exportation de données à partir d’Azure Monitor vers un compte de stockage Azure permet une conservation à faible coût et la réallocation des journaux dans des régions différentes. Utilisez Azure Data Explorer pour interroger les données exportées à partir de vos espaces de travail Log Analytics. Une fois configurées, les tables prises en charge qui sont envoyées à partir de vos espaces de travail vers un compte de stockage Azure seront disponibles en tant que source de données pour Azure Data Explorer.

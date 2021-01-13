@@ -1,15 +1,15 @@
 ---
 title: Définitions de stratégie intégrées pour Azure Kubernetes Service
 description: Liste les définitions de stratégie intégrées d’Azure Policy pour Azure Kubernetes Service. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de vos ressources Azure.
-ms.date: 11/20/2020
+ms.date: 01/08/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 29f5d2a3a6824730a5a1c96f3a6247867bdb43ee
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: c754e394b8f59be750d5cadf7dd358ad455b2ce5
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94989691"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98045435"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-kubernetes-service"></a>Définitions intégrées d’Azure Policy pour Azure Kubernetes Service
 

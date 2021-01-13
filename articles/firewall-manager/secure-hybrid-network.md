@@ -7,12 +7,12 @@ ms.service: firewall-manager
 ms.topic: tutorial
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 3d4d1e65c2200aee178abefb46d3e330acbd3108
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5d662efc927235711c4dd5e8a424d8775279c30b
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023684"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98048043"
 ---
 # <a name="tutorial-secure-your-hub-virtual-network-using-azure-firewall-manager"></a>Tutoriel : Sécuriser votre réseau virtuel hub à l’aide d’Azure Firewall Manager
 
@@ -107,7 +107,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 ## <a name="create-the-firewall-hub-virtual-network"></a>Créer le réseau virtuel du hub de pare-feu
 
 > [!NOTE]
-> La taille du sous-réseau AzureFirewallSubnet est /26. Pour plus d’informations sur la taille du sous-réseau, consultez le [FAQ Pare-feu Azure](../firewall/firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
+> La taille du sous-réseau AzureFirewallSubnet est /26. Pour plus d’informations sur la taille du sous-réseau, consultez le [FAQ Pare-feu Azure](../firewall/firewall-faq.yml#why-does-azure-firewall-need-a--26-subnet-size).
 
 1. Dans la page d’accueil du portail Azure, sélectionnez **Créer une ressource**.
 2. Sous **Mise en réseau**, sélectionnez **Réseau virtuel**.

@@ -4,12 +4,12 @@ description: Découvrez comment déployer un groupe de conteneurs sur un réseau
 ms.topic: article
 ms.date: 07/02/2020
 ms.custom: devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 02cf514e6c19387e3a9e2f1c78b65f346fff764e
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b791d3f37809c2eca53f5a3cd34f7c44dd11ce40
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746894"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028877"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Déployer des instance de conteneur dans un réseau virtuel Azure
 
@@ -20,7 +20,7 @@ Cet article explique comment utiliser la commande [az container create][az-conta
 Pour les scénarios et les limitations de mise en réseau, consultez [Ressources et scénarios relatifs aux réseaux virtuels pour Azure Container Instances](container-instances-virtual-network-concepts.md).
 
 > [!IMPORTANT]
-> Le déploiement d’un groupe de conteneurs sur un réseau virtuel est généralement disponible pour les conteneurs Linux, dans la plupart des régions où Azure Container Instances est disponible. Pour plus d’informations, consultez [Régions et disponibilité des ressources](container-instances-virtual-network-concepts.md#where-to-deploy). 
+> Le déploiement d’un groupe de conteneurs sur un réseau virtuel est généralement disponible pour les conteneurs Linux, dans la plupart des régions où Azure Container Instances est disponible. Pour plus d’informations, consultez [Régions et disponibilité des ressources][container-regions]. 
 
 Les exemples présentés dans cet article sont mis en forme pour l’interpréteur de commandes Bash. Si vous préférez un autre interpréteur de commandes comme PowerShell ou l’invite de commande, modifiez les caractères de continuation de ligne en conséquence.
 
@@ -83,7 +83,7 @@ La sortie affiche l’adresse IP du groupe de conteneurs dans le sous-réseau pr
 10.0.0.4
 ```
 
-Maintenant, attribuez à `CONTAINER_GROUP_IP` l’adresse IP que vous avez récupérée avec la commande `az container show` et exécutez la commande suivante `az container create`. Ce deuxième conteneur, *commchecker* , utilise une image Linux Alpine et exécute `wget` sur l’adresse IP du sous-réseau privé du premier groupe de conteneurs.
+Maintenant, attribuez à `CONTAINER_GROUP_IP` l’adresse IP que vous avez récupérée avec la commande `az container show` et exécutez la commande suivante `az container create`. Ce deuxième conteneur, *commchecker*, utilise une image Linux Alpine et exécute `wget` sur l’adresse IP du sous-réseau privé du premier groupe de conteneurs.
 
 ```azurecli
 CONTAINER_GROUP_IP=<container-group-IP-address>
@@ -139,7 +139,7 @@ Exemple de sortie :
 /subscriptions/<Subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkProfiles/aci-network-profile-aci-vnet-aci-subnet
 ```
 
-Une fois que vous avez l’ID du profil réseau, copiez le fichier YAML suivant dans un nouveau fichier nommé *vnet-deploy-aci.yaml* . Sous `networkProfile`, remplacez la valeur `id` par l’ID que vous venez de récupérer, puis enregistrez le fichier. Ce fichier YAML crée un groupe de conteneurs nommé *appcontaineryaml* dans votre réseau virtuel.
+Une fois que vous avez l’ID du profil réseau, copiez le fichier YAML suivant dans un nouveau fichier nommé *vnet-deploy-aci.yaml*. Sous `networkProfile`, remplacez la valeur `id` par l’ID que vous venez de récupérer, puis enregistrez le fichier. Ce fichier YAML crée un groupe de conteneurs nommé *appcontaineryaml* dans votre réseau virtuel.
 
 ```YAML
 apiVersion: '2019-12-01'
@@ -204,7 +204,7 @@ Cette fonctionnalité nécessite pour le moment plusieurs commandes supplémenta
 Avant d’exécuter le script, attribuez à la variable `RES_GROUP` le nom du groupe de ressources contenant le réseau virtuel et le sous-réseau à supprimer. Mettez à jour le nom du réseau virtuel si vous n’avez pas utilisé le nom `aci-vnet` suggéré précédemment. Le script est mis en forme pour l’interpréteur de commandes Bash. Si vous préférez un autre interpréteur de commandes, PowerShell ou l’invite de commande, vous devrez ajuster les variables et les accesseurs en conséquence.
 
 > [!WARNING]
-> Ce script supprime les ressources ! Le réseau virtuel et tous les sous-réseaux qu’il contient sont supprimés. Assurez-vous de n’avoir plus besoin *des* ressources du réseau virtuel, y compris des sous-réseaux qu’il contient, avant d’exécuter ce script. Une fois supprimées, **ces ressources sont irrécupérables** .
+> Ce script supprime les ressources ! Le réseau virtuel et tous les sous-réseaux qu’il contient sont supprimés. Assurez-vous de n’avoir plus besoin *des* ressources du réseau virtuel, y compris des sous-réseaux qu’il contient, avant d’exécuter ce script. Une fois supprimées, **ces ressources sont irrécupérables**.
 
 ```azurecli
 # Replace <my-resource-group> with the name of your resource group
@@ -238,3 +238,4 @@ Pour déployer un réseau virtuel, un sous-réseau, un profil réseau et un grou
 [az-container-show]: /cli/azure/container#az-container-show
 [az-network-vnet-create]: /cli/azure/network/vnet#az-network-vnet-create
 [az-network-profile-list]: /cli/azure/network/profile#az-network-profile-list
+[container-regions]: container-instances-region-availability.md

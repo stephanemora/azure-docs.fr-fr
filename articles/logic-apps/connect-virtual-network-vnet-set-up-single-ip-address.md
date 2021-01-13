@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/06/2020
-ms.openlocfilehash: 9ee804f7bed01ca0c7f365a04e6108afd9598157
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40f4845ecc21d05ca5e8394dccba080f8a1f8936
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87066394"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98049709"
 ---
 # <a name="set-up-a-single-ip-address-for-one-or-more-integration-service-environments-in-azure-logic-apps"></a>Configurer une adresse IP unique pour un ou plusieurs environnements de service d’intégration dans Azure Logic Apps
 
@@ -76,7 +76,7 @@ Cette rubrique montre comment router le trafic sortant via un Pare-feu Azure, ma
    | Propriété | Valeur | Description |
    |----------|-------|-------------|
    | **Nom** | <*nom_collection_règles_réseau*> | Nom de votre collection de règles de réseau |
-   | **Priorité** | <*niveau_de_priorité*> | Ordre de priorité à utiliser pour l’exécution de la collection de règles. Pour plus d’informations, consultez [Quels sont les concepts de pare-feu Azure ?](../firewall/firewall-faq.md#what-are-some-azure-firewall-concepts) |
+   | **Priorité** | <*niveau_de_priorité*> | Ordre de priorité à utiliser pour l’exécution de la collection de règles. Pour plus d’informations, consultez [Quels sont les concepts de pare-feu Azure ?](../firewall/firewall-faq.yml#what-are-some-azure-firewall-concepts) |
    | **Action** | **Autoriser** | Type d’action à effectuer pour cette règle |
    |||
 
@@ -95,7 +95,7 @@ Cette rubrique montre comment router le trafic sortant via un Pare-feu Azure, ma
 
    * [Configurer une règle de réseau](../firewall/tutorial-firewall-deploy-portal.md#configure-a-network-rule)
    * [Logique de traitement des règles de pare-feu Azure](../firewall/rule-processing.md#network-rules-and-applications-rules)
-   * [Questions fréquentes (FAQ) sur le pare-feu Azure](../firewall/firewall-faq.md)
+   * [Questions fréquentes (FAQ) sur le pare-feu Azure](../firewall/firewall-faq.yml)
    * [Azure PowerShell : New-AzFirewallNetworkRule](/powershell/module/az.network/new-azfirewallnetworkrule)
    * [Azure CLI : az network firewall network-rule](/cli/azure/ext/azure-firewall/network/firewall/network-rule?view=azure-cli-latest#ext-azure-firewall-az-network-firewall-network-rule-create)
 

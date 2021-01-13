@@ -3,16 +3,15 @@ title: Déboguer des requêtes Azure Stream Analytics en local à l’aide du di
 description: Cet article décrit comment déboguer des requêtes localement à l’aide du diagramme de travail dans les extensions Azure Stream Analytics pour Visual Studio Code.
 author: su-jie
 ms.author: sujie
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: 766d3f8d4d4c03fb4fe173dbb12eb85bb09cd71a
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 25ad696ad345fbf672f6bf26eb3f35a13fb03ea5
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124167"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019497"
 ---
 # <a name="debug-azure-stream-analytics-queries-locally-using-job-diagram-in-visual-studio-code"></a>Déboguer des requêtes Azure Stream Analytics en local à l’aide du diagramme de travail dans Visual Studio Code
 

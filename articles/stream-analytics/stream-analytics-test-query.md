@@ -1,19 +1,18 @@
 ---
 title: Tester une tâche Azure Stream Analytics avec des exemples de données
 description: Cet article explique comment utiliser le portail Azure pour tester une tâche Azure Stream Analytics, des exemples d’entrées et charger des exemples de données.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: ajetasin
+ms.author: ajetasi
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 3/6/2020
 ms.custom: seodec18
-ms.openlocfilehash: 8e08c4c34495b58c105560dba9d818be9ebf5e34
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: eff9103f476e6074ab46198ff8cc78588675569f
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490965"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020041"
 ---
 # <a name="test-an-azure-stream-analytics-job-in-the-portal"></a>Tester une tâche Azure Stream Analytics sur le portail
 

@@ -3,12 +3,12 @@ title: Intégration en tant que partenaire Azure Event Grid à l’aide du porta
 description: Utilisez le portail Azure pour intégrer un partenaire Azure Event Grid.
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: 8344fcd822bfcdc67e2c27b200d97fa70dfefdf2
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 44dece4d46a6d702d48fa49983818986fcd59f7b
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96349384"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98050950"
 ---
 # <a name="onboard-as-an-azure-event-grid-partner-using-the-azure-portal"></a>Intégration en tant que partenaire Azure Event Grid à l’aide du portail Azure
 Cet article décrit la façon dont les fournisseurs SaaS tiers, également appelés éditeurs ou partenaires d’événements, sont intégrés à Event Grid pour être en mesure de publier des événements à partir de leurs services et de déterminer la façon dont ces événements sont utilisés par les clients finaux.
@@ -112,7 +112,6 @@ Pour effectuer les étapes restantes, assurez vous de disposer des éléments su
     1. Dans la section **Détails du canal**, procédez comme suit :
         1. Pour **Nom du canal d’événements**, entrez un nom pour le canal d’événements. 
         1. Entrez la **source**. Consultez [Spécifications des événements cloud 1.0](https://github.com/cloudevents/spec/blob/v1.0/spec.md#source-1) pour avoir une idée de la valeur appropriée pour la source. Consultez également [cet exemple de schéma d’événements cloud](cloud-event-schema.md#sample-event-using-cloudevents-schema).
-        1. Entrez la source (DE QUOI S’AGIT-IL ?).
     1. Dans la section **Détails de la destination**, entrez les détails de la rubrique du partenaire de destination qui sera créée pour ce canal d’événements. 
         1. Entrez l’**ID de l’abonnement** dans lequel la rubrique partenaire sera créée. 
         1. Entrez le **nom du groupe de ressources** dans lequel la ressource de la rubrique de partenaire sera créée. 

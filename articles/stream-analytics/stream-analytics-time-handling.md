@@ -1,18 +1,17 @@
 ---
 title: Comprendre la gestion du temps dans Azure Stream Analytics
 description: Découvrez comment choisir la meilleure heure de début et gérer les événements tardifs et précoces, et apprenez-en plus sur les métriques de gestion du temps dans Azure Stream Analytics.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: sidramadoss
+ms.author: sidram
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: c8f40808834c64ad74673f1c5f0c19892607fdcc
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: f9dbdb3907b376df8de988730c6c48ed01bfccd0
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127471"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019939"
 ---
 # <a name="understand-time-handling-in-azure-stream-analytics"></a>Comprendre la gestion du temps dans Azure Stream Analytics
 

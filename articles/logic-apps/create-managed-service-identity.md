@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 10/27/2020
-ms.openlocfilehash: bb146f03000f17d94d3d2ffc93b55c42eea20dac
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 1152c8b72bcb830a7ba4efa053d3ffff667f9dc8
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92736407"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98034167"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>Authentifier l’accès aux ressources Azure avec des identités managées dans Azure Logic Apps
 
@@ -63,7 +63,7 @@ Pour configurer l’identité managée à utiliser, suivez le lien de cette iden
 
 1. Dans le [portail Azure](https://portal.azure.com), ouvrez votre application logique dans le Concepteur d’applications logiques.
 
-1. Dans le menu de l’application logique, sous **Paramètres** , sélectionnez **Identité**. Sélectionnez **Affecté(e) par le système** > **Actif** > **Enregistrer**. Quand Azure vous invite à confirmer l’opération, sélectionnez **Oui**.
+1. Dans le menu de l’application logique, sous **Paramètres**, sélectionnez **Identité**. Sélectionnez **Affecté(e) par le système** > **Actif** > **Enregistrer**. Quand Azure vous invite à confirmer l’opération, sélectionnez **Oui**.
 
    ![Activer l’identité attribuée par le système](./media/create-managed-service-identity/enable-system-assigned-identity.png)
 
@@ -152,11 +152,11 @@ Pour configurer une identité managée affectée par l’utilisateur dans le cad
 
    ![Rechercher et sélectionner « Identités managées »](./media/create-managed-service-identity/find-select-managed-identities.png)
 
-1. Sous **Identités managées** , sélectionnez **Ajouter**.
+1. Sous **Identités managées**, sélectionnez **Ajouter**.
 
    ![Ajouter une nouvelle identité managée](./media/create-managed-service-identity/add-user-assigned-identity.png)
 
-1. Fournissez des informations sur votre identité managée, puis sélectionnez **Vérifier + créer** , par exemple :
+1. Fournissez des informations sur votre identité managée, puis sélectionnez **Vérifier + créer**, par exemple :
 
    ![Créer une identité managée affectée par l’utilisateur](./media/create-managed-service-identity/create-user-assigned-identity.png)
 
@@ -172,11 +172,11 @@ Pour configurer une identité managée affectée par l’utilisateur dans le cad
 
 1. Dans le portail Azure, recherchez et ouvrez votre application logique dans le Concepteur d’application logique.
 
-1. Dans le menu de l’application logique, sous **Paramètres** , sélectionnez **Identité** , puis **Affecté(e) par l’utilisateur** > **Ajouter**.
+1. Dans le menu de l’application logique, sous **Paramètres**, sélectionnez **Identité**, puis **Affecté(e) par l’utilisateur** > **Ajouter**.
 
    ![Ajouter une identité managée affectée par l’utilisateur](./media/create-managed-service-identity/add-user-assigned-identity-logic-app.png)
 
-1. Dans le volet **Ajouter une identité managée affectée par l’utilisateur** , dans la liste **Abonnement** , sélectionnez votre abonnement Azure, si cela n’est pas déjà fait. Dans la liste qui montre *toutes* les identités managées de cet abonnement, recherchez et sélectionnez l’identité affectée par l’utilisateur qui vous intéresse. Pour filtrer la liste, dans la zone de recherche **Identités managées affectées par l’utilisateur** , entrez le nom de l’identité ou du groupe de ressources. Une fois que vous avez terminé, sélectionnez **Ajouter**.
+1. Dans le volet **Ajouter une identité managée affectée par l’utilisateur**, dans la liste **Abonnement**, sélectionnez votre abonnement Azure, si cela n’est pas déjà fait. Dans la liste qui montre *toutes* les identités managées de cet abonnement, recherchez et sélectionnez l’identité affectée par l’utilisateur qui vous intéresse. Pour filtrer la liste, dans la zone de recherche **Identités managées affectées par l’utilisateur**, entrez le nom de l’identité ou du groupe de ressources. Une fois que vous avez terminé, sélectionnez **Ajouter**.
 
    ![Sélectionner l’identité affectée par l’utilisateur à employer](./media/create-managed-service-identity/select-user-assigned-identity.png)
 
@@ -303,7 +303,7 @@ Pour pouvoir vous servir de l’identité managée de votre application logique 
    > [!TIP]
    > Si l’option **Ajouter une attribution de rôle** est désactivée, vous n’avez probablement pas les autorisations appropriées. Pour plus d’informations sur les autorisations permettant de gérer des rôles pour des ressources, voir [Autorisations des rôles d’administrateur dans Azure Active Directory](../active-directory/roles/permissions-reference.md).
 
-1. Sous **Ajouter une attribution de rôle** , sélectionnez un **rôle** qui donne à votre identité l’accès nécessaire à la ressource cible.
+1. Sous **Ajouter une attribution de rôle**, sélectionnez un **rôle** qui donne à votre identité l’accès nécessaire à la ressource cible.
 
    Pour l’exemple de cette rubrique, votre identité a besoin d’un [rôle pouvant accéder au blob dans un conteneur de stockage Azure](../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights). Sélectionnez donc le rôle **Contributeur aux données Blob du stockage** pour l’identité managée.
 
@@ -313,21 +313,21 @@ Pour pouvoir vous servir de l’identité managée de votre application logique 
 
    * **Identité affectée par le système**
 
-     1. Dans la zone **Attribuer l’accès à** , sélectionnez **Application logique**. Quand la propriété **Abonnement** s’affiche, sélectionnez l’abonnement Azure associé à votre identité.
+     1. Dans la zone **Attribuer l’accès à**, sélectionnez **Application logique**. Quand la propriété **Abonnement** s’affiche, sélectionnez l’abonnement Azure associé à votre identité.
 
         ![Sélectionner l’accès pour un identité attribuée par le système](./media/create-managed-service-identity/assign-access-system.png)
 
-     1. Dans la zone **Sélectionner** , sélectionnez votre application logique dans la liste. Si la liste est trop longue, utilisez la zone **Sélectionner** pour filtrer la liste.
+     1. Dans la zone **Sélectionner**, sélectionnez votre application logique dans la liste. Si la liste est trop longue, utilisez la zone **Sélectionner** pour filtrer la liste.
 
         ![Sélectionner une application logique pour l’identité attribuée par le système](./media/create-managed-service-identity/add-permissions-select-logic-app.png)
 
    * **Identité affectée par l’utilisateur**
 
-     1. Dans la zone **Attribuer l’accès à** , sélectionnez **Identité managée affectée par l’utilisateur**. Quand la propriété **Abonnement** s’affiche, sélectionnez l’abonnement Azure associé à votre identité.
+     1. Dans la zone **Attribuer l’accès à**, sélectionnez **Identité managée affectée par l’utilisateur**. Quand la propriété **Abonnement** s’affiche, sélectionnez l’abonnement Azure associé à votre identité.
 
         ![Sélectionner l’accès pour l’identité affectée par l’utilisateur](./media/create-managed-service-identity/assign-access-user.png)
 
-     1. Sous la case **Sélectionner** , sélectionnez votre identité dans la liste. Si la liste est trop longue, utilisez la zone **sélectionner** pour filtrer la liste.
+     1. Sous la case **Sélectionner**, sélectionnez votre identité dans la liste. Si la liste est trop longue, utilisez la zone **sélectionner** pour filtrer la liste.
 
         ![Sélectionner votre identité affectée par l’utilisateur](./media/create-managed-service-identity/add-permissions-select-user-assigned-identity.png)
 
@@ -348,7 +348,7 @@ Pour pouvoir vous servir de l’identité managée de votre application logique 
 Une fois que vous avez [activé l’identité managée pour votre application logique](#azure-portal-system-logic-app) et [accordé à cette identité l’accès à la ressource ou entité cibles](#access-other-resources), vous pouvez utiliser cette identité dans des [déclencheurs et actions prenant en charge les identités managées](logic-apps-securing-a-logic-app.md#managed-identity-authentication).
 
 > [!IMPORTANT]
-> Si vous avez une fonction Azure dans laquelle vous voulez utiliser l’identité attribuée par le système, commencez par [activer l’authentification pour les fonctions Azure](../logic-apps/logic-apps-azure-functions.md#enable-authentication-for-azure-functions).
+> Si vous avez une fonction Azure dans laquelle vous voulez utiliser l’identité attribuée par le système, commencez par [activer l’authentification pour les fonctions Azure](../logic-apps/logic-apps-azure-functions.md#enable-authentication-for-functions).
 
 Ces étapes montrent comment utiliser l’identité managée avec un déclencheur ou une action via le portail Azure. Pour spécifier l’identité managée dans la définition JSON sous-jacente d’un déclencheur ou d’une action, voir [Authentification d’identité managée](../logic-apps/logic-apps-securing-a-logic-app.md#managed-identity-authentication).
 
@@ -386,20 +386,20 @@ Ces étapes montrent comment utiliser l’identité managée avec un déclencheu
 
    ![Ajouter une action HTTP pour accéder à une ressource Azure](./media/create-managed-service-identity/http-action-example.png)
 
-1. Ajoutez à présent la propriété **Authentification** à l’action HTTP. Dans la liste **Ajouter un nouveau paramètre** , sélectionnez **Authentification**.
+1. Ajoutez à présent la propriété **Authentification** à l’action HTTP. Dans la liste **Ajouter un nouveau paramètre**, sélectionnez **Authentification**.
 
    ![Ajouter la propriété « Authentification » à l’action HTTP](./media/create-managed-service-identity/add-authentication-property.png)
 
    > [!NOTE]
    > Tous les déclencheurs et toutes les actions ne vous permettent pas d’ajouter un type d’authentification. Pour plus d’informations, voir [Ajouter l’authentification aux appels sortants](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
-1. Dans la liste **Type d’authentification** , sélectionnez **Identité managée**.
+1. Dans la liste **Type d’authentification**, sélectionnez **Identité managée**.
 
    ![Pour « Authentification », sélectionner « Identité managée »](./media/create-managed-service-identity/select-managed-identity.png)
 
 1. Dans la liste des identités managées, sélectionnez les options disponibles en fonction de votre scénario.
 
-   * Si vous configurez l’identité affectée par le système, sélectionnez **Identité managée affectée par le système** , si cela n’est pas déjà fait.
+   * Si vous configurez l’identité affectée par le système, sélectionnez **Identité managée affectée par le système**, si cela n’est pas déjà fait.
 
      ![Sélectionner « Identité managée affectée par le système »](./media/create-managed-service-identity/select-system-assigned-identity-for-action.png)
 
@@ -409,7 +409,7 @@ Ces étapes montrent comment utiliser l’identité managée avec un déclencheu
 
    Cet exemple se poursuit avec **Identité managée affectée par le système**.
 
-1. Sur certains déclencheurs et actions, la propriété **Audience** apparaît également pour vous permettre de définir l’ID de ressource cible. Affectez à la propriété **Audience** la valeur de l’ [ID de ressource de la ressource ou du service cible](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). Autrement, par défaut, la propriété **Audience** utilise l’ID de ressource `https://management.azure.com/`, qui est l’ID de ressource pour Azure Resource Manager.
+1. Sur certains déclencheurs et actions, la propriété **Audience** apparaît également pour vous permettre de définir l’ID de ressource cible. Affectez à la propriété **Audience** la valeur de l’[ID de ressource de la ressource ou du service cible](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). Autrement, par défaut, la propriété **Audience** utilise l’ID de ressource `https://management.azure.com/`, qui est l’ID de ressource pour Azure Resource Manager.
 
    > [!IMPORTANT]
    > Vérifiez que l’ID de ressource cible *correspond exactement* à la valeur qu’attend Azure Active Directory, y compris les barres obliques de fin obligatoires. Par exemple, l’ID de ressource pour tous les comptes de Stockage Blob Azure requiert une barre oblique finale. Toutefois, l’ID de ressource pour un compte de stockage spécifique ne requiert pas de barre oblique finale. Vérifiez les [ID de ressource des services Azure qui prennent en charge Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
@@ -472,7 +472,7 @@ L’identité managée est maintenant supprimée et n’a plus accès à la ress
 
 1. Dans le [portail Azure](https://portal.azure.com), ouvrez votre application logique dans le Concepteur d’applications logiques.
 
-1. Dans le menu de l’application logique, sous **Paramètres** , sélectionnez **Identité** , puis suivez les étapes correspondant à votre identité :
+1. Dans le menu de l’application logique, sous **Paramètres**, sélectionnez **Identité**, puis suivez les étapes correspondant à votre identité :
 
    * Sélectionnez **Affecté(e) par le système** > **Actif** > **Enregistrer**. Quand Azure vous invite à confirmer l’opération, sélectionnez **Oui**.
 

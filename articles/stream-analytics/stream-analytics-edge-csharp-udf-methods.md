@@ -1,18 +1,18 @@
 ---
 title: Développer des fonctions .NET Standard pour des travaux Azure Stream Analytics (préversion)
 description: Découvrez comment écrire des fonctions C# définies par l’utilisateur pour des travaux Azure Stream Analytics.
-author: mamccrea
-ms.author: mamccrea
+author: sidramadoss
+ms.author: sidram
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/10/2020
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 9cf929a3a6f5b3752b030f449b3b24b2bdc941a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 52fa6f05db5452a2e7b8ec4f93d65525873c8c7e
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907304"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020568"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-jobs-preview"></a>Développer des fonctions .NET Standard définies par l’utilisateur pour des travaux Azure Stream Analytics (préversion)
 
@@ -110,21 +110,21 @@ Les étapes suivantes vous montrent comment ajouter la fonction UDF C# à votre 
 
 1. Cliquez avec le bouton droit sur le dossier **Fonctions** et choisissez **Ajouter un élément**.
 
-   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/visual-studio-code-csharp-udf-add-function.png" alt-text="Projet Azure Stream Analytics dans Visual Studio Code":::
+   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/visual-studio-code-csharp-udf-add-function.png" alt-text="Ajoutez une nouvelle fonction dans le projet Azure Stream Analytics":::
 
 2. Ajoutez une fonction C# **SquareFunction** à votre projet Azure Stream Analytics.
 
-   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/visual-studio-code-csharp-udf-add-function-2.png" alt-text="Projet Azure Stream Analytics dans Visual Studio Code":::
+   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/visual-studio-code-csharp-udf-add-function-2.png" alt-text="Sélectionner la fonction CSharp dans le projet Stream Analytics en VS Code":::
 
-   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/visual-studio-code-csharp-udf-add-function-name.png" alt-text="Projet Azure Stream Analytics dans Visual Studio Code":::
+   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/visual-studio-code-csharp-udf-add-function-name.png" alt-text="Entrez le nom de la fonction CSharp dans VS Code":::
 
 3. Dans la configuration de la fonction C#, sélectionnez **Sélectionner le chemin d’accès au projet de bibliothèque** pour choisir votre projet C# dans la liste déroulante et sélectionnez **Projet build** pour générer votre projet. Choisissez ensuite **Sélectionner une classe** et **Sélectionner la méthode** pour sélectionner le nom de la classe et de la méthode associée dans la liste déroulante. Pour référencer les méthodes, types et fonctions dans la requête Stream Analytics, les classes doivent être définies comme étant *publiques* et les objets comme étant *publics statiques*.
 
-   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/visual-studio-code-csharp-udf-choose-project.png" alt-text="Projet Azure Stream Analytics dans Visual Studio Code":::
+   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/visual-studio-code-csharp-udf-choose-project.png" alt-text="Fonction Stream Analytics CSharp configuration VS Code":::
 
     Si vous souhaitez utiliser C# UDF à partir d’une DLL, sélectionnez **Choisir le chemin d’accès à la DLL de la bibliothèque** pour choisir la DLL. Choisissez ensuite **Sélectionner une classe** et **Sélectionner la méthode** pour sélectionner le nom de la classe et de la méthode associée dans la liste déroulante.
 
-   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/visual-studio-code-csharp-udf-choose-dll.png" alt-text="Projet Azure Stream Analytics dans Visual Studio Code":::
+   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/visual-studio-code-csharp-udf-choose-dll.png" alt-text="Configuration de la fonction C Sharp dans Stream Analytics":::
 
 4. Appelez l’UDF dans votre requête Azure Stream Analytics.
 
@@ -136,7 +136,7 @@ Les étapes suivantes vous montrent comment ajouter la fonction UDF C# à votre 
 
 5. Avant de soumettre la tâche à Azure, configurez le chemin d’accès au package dans le fichier de configuration du travail, `JobConfig.json`, section **CustomCodeStorage**. Utilisez **Sélectionner votre abonnement** dans CodeLens pour choisir votre abonnement et choisissez le compte de stockage et le nom du conteneur dans la liste déroulante. Laissez **Chemin d’accès** par défaut. Cette étape n’est pas nécessaire pour les tests locaux.
 
-   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/visual-studio-code-csharp-udf-configure-storage-account.png" alt-text="Projet Azure Stream Analytics dans Visual Studio Code":::
+   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/visual-studio-code-csharp-udf-configure-storage-account.png" alt-text="Choisir le chemin de la bibliothèque":::
 
 ## <a name="develop-a-udf-in-visual-studio"></a>Développez une UDF dans Visual Studio Code
 
@@ -166,39 +166,39 @@ Pour référencer un projet local dans Visual Studio :
 
 Dans cet exemple, **UDFTest** est un projet de bibliothèque de classes C# et **ASAUDFDemo** est le projet Azure Stream Analytics qui référence **UDFTest**.
 
-:::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-demo.png" alt-text="Projet Azure Stream Analytics dans Visual Studio Code":::
+:::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-demo.png" alt-text="Projet IoT Edge Azure Stream Analytics dans Visual Studio":::
 
 1. Générez votre projet C# pour pouvoir ajouter une référence à votre fonction C# définie par l’utilisateur à partir de la requête Azure Stream Analytics.
 
-   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-build-project.png" alt-text="Projet Azure Stream Analytics dans Visual Studio Code":::
+   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-build-project.png" alt-text="Générer un projet Iot Edge Azure Stream Analytics dans Visual Studio":::
 
 2. Ajoutez la référence au projet C# dans le projet ASA. Cliquez avec le bouton droit sur le nœud Références et choisissez Ajouter une référence.
 
-   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-add-reference.png" alt-text="Projet Azure Stream Analytics dans Visual Studio Code":::
+   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-add-reference.png" alt-text="Ajouter une référence à un projet C# dans Visual Studio":::
 
 3. Choisissez le nom du projet C# dans la liste.
 
-   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-choose-project-name.png" alt-text="Projet Azure Stream Analytics dans Visual Studio Code":::
+   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-choose-project-name.png" alt-text="Choisissez le nom de votre projet C# dans la liste de référence":::
 
 4. Vous devez voir **UDFTest** listé sous **Références** dans **l’Explorateur de solutions**.
 
-   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-added-reference.png" alt-text="Projet Azure Stream Analytics dans Visual Studio Code":::
+   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-added-reference.png" alt-text="Afficher la référence de la fonction définie par l’utilisateur dans l’Explorateur de solutions":::
 
 5. Cliquez avec le bouton droit sur le dossier **Fonctions** et choisissez **Nouvel élément**.
 
-   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-add-csharp-function.png" alt-text="Projet Azure Stream Analytics dans Visual Studio Code":::
+   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-add-csharp-function.png" alt-text="Ajouter un nouvel élément au dossier Fonctions dans la solution de périphérie Azure Stream Analytics":::
 
 6. Ajoutez une fonction C# **SquareFunction.json** à votre projet Azure Stream Analytics.
 
-   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-add-csharp-function-2.png" alt-text="Projet Azure Stream Analytics dans Visual Studio Code":::
+   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-add-csharp-function-2.png" alt-text="Sélectionner la fonction C Sharp parmi les éléments de périphérie Stream Analytics dans Visual Studio":::
 
 7. Double-cliquez sur la fonction dans **l’Explorateur de solutions** pour ouvrir la boîte de dialogue de configuration.
 
-   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-csharp-function-config.png" alt-text="Projet Azure Stream Analytics dans Visual Studio Code":::
+   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-csharp-function-config.png" alt-text="Configuration de la fonction C Sharp dans Visual Studio":::
 
 8. Dans la configuration de fonction C#, choisissez **Charger à partir d’une référence de projet ASA** ainsi que les noms des assemblys, classes et méthodes associés dans la liste déroulante. Pour référencer les méthodes, types et fonctions dans la requête Stream Analytics, les classes doivent être définies comme étant *publiques* et les objets comme étant *publics statiques*.
 
-   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-asa-csharp-function-config.png" alt-text="Projet Azure Stream Analytics dans Visual Studio Code":::
+   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-asa-csharp-function-config.png" alt-text="Fonction Stream Analytics C sharp configuration Visual Studio":::
 
 ## <a name="existing-packages"></a>Packages existants
 
