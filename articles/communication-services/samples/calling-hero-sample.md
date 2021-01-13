@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: c872c2a2799eee3ae9e39653b0046b70ca5d7e8b
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 44f23e4f5b3f65fb4f3c69b2ddc55af8c983aa23
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94887533"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98043725"
 ---
 # <a name="get-started-with-the-group-calling-hero-sample"></a>Bien démarrer avec l’exemple de bannière d’appel de groupe
 
@@ -72,7 +72,7 @@ Lorsque nous souhaitons le déployer localement, nous devons démarrer les deux 
 
 Vous pouvez tester l’exemple localement en ouvrant plusieurs sessions de navigateur avec l’URL de votre appel afin de simuler un appel multi-utilisateur.
 
-## <a name="before-running-the-sample-for-the-first-time"></a>Avant d’exécuter l’exemple pour la première fois
+### <a name="before-running-the-sample-for-the-first-time"></a>Avant d’exécuter l’exemple pour la première fois
 
 1. Ouvrez une instance de PowerShell, de Terminal Windows, une invite de commandes ou équivalent, puis accédez au répertoire dans lequel vous souhaitez cloner l’exemple.
 2. `git clone https://github.com/Azure-Samples/communication-services-web-calling-hero.git`
@@ -98,7 +98,7 @@ Vous pouvez tester l’exemple localement en ouvrant plusieurs sessions de navig
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Si vous voulez nettoyer et supprimer un abonnement Communication Services, vous pouvez supprimer la ressource ou le groupe de ressources. La suppression du groupe de ressources efface également les autres ressources qui y sont associées. Découvrez-en plus sur le [nettoyage des ressources](../quickstarts/create-communication-resource.md#clean-up-resources).
+Si vous voulez nettoyer et supprimer un abonnement Communication Services, vous pouvez supprimer la ressource ou le groupe de ressources. La suppression du groupe de ressources efface également les autres ressources qui y sont associées. Apprenez-en davantage sur le [nettoyage des ressources](../quickstarts/create-communication-resource.md#clean-up-resources).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

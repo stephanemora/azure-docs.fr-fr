@@ -1,18 +1,18 @@
 ---
 title: Démarrage rapide – Créer un travail Stream Analytics avec le portail Azure
 description: Ce guide de démarrage rapide vous explique comment créer un travail Stream Analytics, configurer des entrées et des sorties, et définir une requête.
-author: mamccrea
-ms.author: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.date: 06/21/2019
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-ms.openlocfilehash: 5ad261064adf34945a600983296cb3e0ceaa5247
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c585cedce677599528e036525dead13a85c8b102
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96006659"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98012374"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Démarrage rapide : Créer un travail Stream Analytics à l’aide du portail Azure
 

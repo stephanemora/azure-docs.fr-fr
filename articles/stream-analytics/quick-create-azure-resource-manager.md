@@ -3,19 +3,18 @@ title: Démarrage rapide - Créer une tâche Azure Stream Analytics avec le mod�
 description: Ce guide de démarrage rapide montre comment utiliser le modèle Azure Resource Manager pour créer une tâche Azure Stream Analytics.
 services: stream-analytics
 ms.service: stream-analytics
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: jasonh
+author: sidramadoss
+ms.author: sidram
 ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc, subject-armqs
 ms.date: 05/28/2020
-ms.openlocfilehash: 26ae0f5add40125b5e9c1ce9451583040322314b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2e8e7890adcb6b91d79bbf4e119488e365410d3c
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88641889"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020075"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-by-using-an-arm-template"></a>Démarrage rapide : Créer une tâche Azure Stream Analytics à l’aide d’un modèle Resource Manager
 

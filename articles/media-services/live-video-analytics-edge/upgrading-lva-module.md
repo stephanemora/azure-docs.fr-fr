@@ -5,12 +5,12 @@ author: naiteeks
 ms.topic: how-to
 ms.author: naiteeks
 ms.date: 12/14/2020
-ms.openlocfilehash: 9621f0a933c6102309286505f2c551c5256c5506
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: aa8657550c6475afd9f893acf8985c50cec0f199
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901553"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98119456"
 ---
 # <a name="upgrading-live-video-analytics-on-iot-edge-from-10-to-20"></a>Mise à niveau de Live Video Analytics sur IoT Edge de 1.0 à 2.0
 
@@ -21,7 +21,7 @@ Cet article aborde les différences et les différents aspects à prendre en com
 > [!div class="mx-tdCol4BreakAll"]
 > |Titre|Live Video Analytics 1.0|Live Video Analytics 2.0|Description|
 > |-------------|----------|---------|---------|
-> |Image conteneur|mcr.microsoft.com/media/live-video-analytics:1.0.0|mcr.microsoft.com/media/live-video-analytics:2.0.0|Images Docker publiées par Microsoft pour le service Live Video Analytics sur Azure IoT Edge|
+> |Image conteneur|mcr.microsoft.com/media/live-video-analytics:1|mcr.microsoft.com/media/live-video-analytics:2|Images Docker publiées par Microsoft pour le service Live Video Analytics sur Azure IoT Edge|
 > |**Nœuds MediaGraph** |    |   |   |
 > |Sources|:::image type="icon" source="./././media/upgrading-lva/check.png"::: Source RTSP </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Source de messages IoT Hub |:::image type="icon" source="./././media/upgrading-lva/check.png"::: Source RTSP </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Source de messages IoT Hub | Nœuds MediaGraph qui font office de sources pour l’ingestion de média et les messages.|
 > |Processeurs|:::image type="icon" source="./././media/upgrading-lva/check.png"::: Processeur de détection de mouvement </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Processeur de filtre de fréquence d’images </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Processeur d’extension HTTP </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Processeur d’extension gRPC </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Processeur de porte de signal |:::image type="icon" source="./././media/upgrading-lva/check.png"::: Processeur de détection de mouvement </br>:::image type="icon" source="./././media/upgrading-lva/remove.png"::: **Processeur de filtre de fréquence d’images**</br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Processeur d’extension HTTP </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Processeur d’extension gRPC </br>:::image type="icon" source="./././media/upgrading-lva/check.png"::: Processeur de porte de signal | Nœuds MediaGraph qui vous permettent de formater le média avant son envoi aux serveurs d’inférence d’intelligence artificielle.|

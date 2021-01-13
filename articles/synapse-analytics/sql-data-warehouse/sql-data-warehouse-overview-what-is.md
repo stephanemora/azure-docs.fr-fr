@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 2f9ab6dacde0259905368d8a0cb788dde77bbfb2
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: b8738b46359287ce1d4e410292cdce213ab80999
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96453608"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98115818"
 ---
 # <a name="what-is-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Qu’est-ce qu’un pool SQL dédié (anciennement SQL DW) dans Azure Synapse Analytics ?
 
@@ -51,7 +51,7 @@ Les résultats d’analyse peuvent s’étendre aux applications ou bases de don
 
 - Explorer [l’Architecture d’Azure Synapse](massively-parallel-processing-mpp-architecture.md)
 - [Créer rapidement un pool SQL dédié](create-data-warehouse-portal.md)
-- [Charger des exemples de données](load-data-from-azure-blob-storage-using-polybase.md)
+- [Charger des exemples de données](./load-data-from-azure-blob-storage-using-copy.md)
 - Explorer les [vidéos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 
 Ou bien, consultez ces autres ressources d’Azure Synapse.
@@ -59,5 +59,5 @@ Ou bien, consultez ces autres ressources d’Azure Synapse.
 - Effectuer des recherches dans les [blogs](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)
 - Soumettre une [demande de fonctionnalité](https://feedback.azure.com/forums/307516-sql-data-warehouse)
 - [Création d’un ticket de support](sql-data-warehouse-get-started-create-support-ticket.md)
-- Effectuer des recherches sur la [page de questions Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html)
+- Effectuer des recherches sur la [page de questions Microsoft Q&A](/answers/topics/azure-synapse-analytics.html)
 - Effectuer des recherches dans le [forum Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw)

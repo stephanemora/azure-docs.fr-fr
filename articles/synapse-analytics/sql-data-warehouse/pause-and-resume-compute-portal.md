@@ -11,12 +11,12 @@ ms.date: 11/23/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 7d258243dae06461d21e9b5f0346e419f034eea9
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 567d5ae8b9d480003486362a7aa0ef69f9740d52
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109695"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120289"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-dedicated-sql-pool-via-the-azure-portal"></a>Démarrage rapide : Suspendre et reprendre le calcul dans le pool SQL dédié avec le portail Azure
 
@@ -98,5 +98,4 @@ Suivez ces étapes pour nettoyer les ressources selon vos besoins.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous venez de suspendre et de reprendre le calcul pour votre pool SQL dédié. Passez à l’article suivant pour en savoir plus sur la façon de [Charger des données dans un pool SQL dédié](load-data-from-azure-blob-storage-using-polybase.md). Pour plus d’informations sur la gestion des capacités de calcul, consultez l’article [Vue d’ensemble de la gestion du calcul](sql-data-warehouse-manage-compute-overview.md). 
-
+Vous venez de suspendre et de reprendre le calcul pour votre pool SQL dédié. Passez à l’article suivant pour en savoir plus sur la façon de [Charger des données dans un pool SQL dédié](./load-data-from-azure-blob-storage-using-copy.md). Pour plus d’informations sur la gestion des capacités de calcul, consultez l’article [Vue d’ensemble de la gestion du calcul](sql-data-warehouse-manage-compute-overview.md).

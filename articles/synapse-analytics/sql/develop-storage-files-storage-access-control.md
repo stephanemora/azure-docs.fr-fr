@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: edb1d419900147b586ba1ff257d4307b237be537
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: e693bd15e5255fda135a7a1dc416dd67f24f7f25
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97746726"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120408"
 ---
 # <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Contrôler l’accès au compte de stockage pour le pool SQL serverless dans Azure Synapse Analytics
 
@@ -63,7 +63,7 @@ Avant d’accéder aux données, l’administrateur du stockage Azure doit accor
 
 ### <a name="anonymous-access"></a>[Accès anonyme](#tab/public-access)
 
-Vous pouvez accéder aux fichiers publiquement disponibles placés sur des comptes de stockage Azure qui [autorisent l’accès anonyme](/azure/storage/blobs/storage-manage-access-to-resources).
+Vous pouvez accéder aux fichiers publiquement disponibles placés sur des comptes de stockage Azure qui [autorisent l’accès anonyme](../../storage/blobs/anonymous-read-access-configure.md).
 
 ---
 
@@ -101,7 +101,7 @@ Pour accéder au stockage protégé par le pare-feu via une identité utilisateu
 
 Suivez ces étapes pour configurer le pare-feu de votre compte de stockage et ajouter une exception pour l’espace de travail synapse.
 
-1. Ouvrez PowerShell ou [installez PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-7.1&preserve-view=true )
+1. Ouvrez PowerShell ou [installez PowerShell](/powershell/scripting/install/installing-powershell-core-on-windows?preserve-view=true&view=powershell-7.1)
 2. Installez le module Az. Storage mis à jour : 
     ```powershell
     Install-Module -Name Az.Storage -RequiredVersion 3.0.1-preview -AllowPrerelease

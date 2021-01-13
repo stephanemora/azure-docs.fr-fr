@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 97ee6c17d62a924686e3e4f4717d7bb7f4375988
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 7e7dce7ec4b8d4d55e734487595bb330e97ab18b
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96446683"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120442"
 ---
 # <a name="how-to-use-openrowset-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Comment utiliser OPENROWSET avec le pool SQL serverless dans Azure Synapse Analytics
 
@@ -171,7 +171,7 @@ WITH (
 )
 ```
 
-json_path = [expression de chemin JSON](https://docs.microsoft.com/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-ver15) vers la colonne ou la propriété imbriquée. Le [mode de chemin](https://docs.microsoft.com/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-ver15#PATHMODE) par défaut est lax.
+json_path = [expression de chemin JSON](/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-ver15) vers la colonne ou la propriété imbriquée. Le [mode de chemin](/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-ver15#PATHMODE) par défaut est lax.
 
 > [!NOTE]
 > En mode strict, la requête échoue avec une erreur si le chemin fourni n’existe pas. En mode lax, la requête aboutit et l’expression de chemin JSON prend la valeur NULL.
@@ -371,7 +371,7 @@ WITH (
 
 ### <a name="specify-columns-using-json-paths"></a>Spécifier des colonnes à l’aide de chemins JSON
 
-L’exemple suivant montre comment vous pouvez utiliser des [expressions de chemin JSON](https://docs.microsoft.com/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-ver15) dans la clause WITH, et il illustre la différence entre les modes de chemin strict et lax : 
+L’exemple suivant montre comment vous pouvez utiliser des [expressions de chemin JSON](/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-ver15) dans la clause WITH, et il illustre la différence entre les modes de chemin strict et lax : 
 
 ```sql
 SELECT 

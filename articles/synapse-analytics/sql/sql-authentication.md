@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: efa160eb422658aeeb2eea3ad3c1d305b4b9f8be
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 1217cf74ab36a8fe865e47009616b1ccb240df67
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462401"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98119881"
 ---
 # <a name="sql-authentication"></a>Authentification SQL
 
@@ -111,7 +111,7 @@ Pour créer une base de données, l’utilisateur doit être un utilisateur bas�
    CREATE USER Mary FROM LOGIN Mary;  -- To create a SQL Server user based on a SQL Server authentication login
    ```
 
-4. Ajoutez le nouvel utilisateur au rôle de base de données **dbmanager** dans `master` à l’aide de la procédure [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=azure-sqldw-latest) (notez que l’instruction [ALTER ROLE](/sql/t-sql/statements/alter-role-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) n’est pas prise en charge dans SQL en mode provisionné). Exemples d’instructions :
+4. Ajoutez le nouvel utilisateur au rôle de base de données **dbmanager** dans `master` à l’aide de la procédure [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=azure-sqldw-latest) (notez que l’instruction [ALTER ROLE](/sql/t-sql/statements/alter-role-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) n’est pas prise en charge dans SQL en mode provisionné). Exemples d’instructions :
 
    ```sql
    EXEC sp_addrolemember 'dbmanager', 'Mary'; 
@@ -133,7 +133,7 @@ L’autre rôle d’administration est le rôle loginmanager. Les membres de ce 
 
 ## <a name="non-administrator-users"></a>Utilisateurs non administrateurs
 
-En règle générale, les comptes non-administrateurs n’ont pas besoin d’accéder à la base de données MASTER. Créez des utilisateurs de base de données autonome dans le niveau de base de données à l’aide de l’instruction [CREATE USER (Transact-SQL)](https://msdn.microsoft.com/library/ms173463.aspx). 
+En règle générale, les comptes non-administrateurs n’ont pas besoin d’accéder à la base de données MASTER. Créez des utilisateurs de base de données autonome dans le niveau de base de données à l’aide de l’instruction [CREATE USER (Transact-SQL)](/sql/t-sql/statements/create-user-transact-sql). 
 
 L’utilisateur peut être un utilisateur de base de données autonome de l’authentification Azure Active Directory (si vous avez configuré votre environnement pour l’authentification Azure AD), un utilisateur de base de données autonome de l’authentification SQL Server ou un utilisateur de l’authentification SQL Server basée sur une connexion d’authentification SQL Server (créé à l’étape précédente).  
 
@@ -191,7 +191,7 @@ Les rôles de base de données peuvent être les rôles intégrés, tels que **d
 
 Par exemple, le rôle de base de données fixe **db_datareader** accorde l’accès en lecture à toutes les tables de la base de données, ce qui est généralement plus que le minimum nécessaire. 
 
-Il est préférable d’utiliser l’instruction [CREATE ROLE](https://msdn.microsoft.com/library/ms187936.aspx) pour créer vos propres rôles de base de données définis par l’utilisateur et accorder soigneusement à chaque rôle les autorisations minimales nécessaires aux besoins de l’entreprise. Lorsqu’un utilisateur est membre de plusieurs rôles, toutes les autorisations sont agrégées.
+Il est préférable d’utiliser l’instruction [CREATE ROLE](/sql/t-sql/statements/create-role-transact-sql) pour créer vos propres rôles de base de données définis par l’utilisateur et accorder soigneusement à chaque rôle les autorisations minimales nécessaires aux besoins de l’entreprise. Lorsqu’un utilisateur est membre de plusieurs rôles, toutes les autorisations sont agrégées.
 
 ## <a name="permissions"></a>Autorisations
 
@@ -199,7 +199,7 @@ Il existe plus de 100 autorisations qui peuvent être accordées ou refusées in
 
 En raison de la nature imbriquée et du nombre d’autorisations, la plus grande attention est requise pour concevoir un système d’autorisation approprié capable de protéger correctement votre base de données. 
 
-Démarrez avec la liste des autorisations sous [Autorisations (moteur de base de données)](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine) et passez en revue le [graphique de taille affiche](https://docs.microsoft.com/sql/relational-databases/security/media/database-engine-permissions.png) des autorisations.
+Démarrez avec la liste des autorisations sous [Autorisations (moteur de base de données)](/sql/relational-databases/security/permissions-database-engine) et passez en revue le [graphique de taille affiche](/sql/relational-databases/security/media/database-engine-permissions.png) des autorisations.
 
 ### <a name="considerations-and-restrictions"></a>Considérations et restrictions
 
@@ -236,5 +236,4 @@ Prenez en compte les aspects suivants lors de la gestion des connexions et des u
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations, voir [Utilisateurs de base de données autonome - Rendre votre base de données portable](https://msdn.microsoft.com/library/ff929188.aspx).
- 
+Pour plus d’informations, voir [Utilisateurs de base de données autonome - Rendre votre base de données portable](/sql/relational-databases/security/contained-database-users-making-your-database-portable).

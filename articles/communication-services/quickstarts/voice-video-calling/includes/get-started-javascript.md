@@ -6,12 +6,12 @@ ms.author: nimag
 ms.date: 08/11/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: d35e51d097c2d5e0b66c23efa27ae70c065d547c
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: f3d6023ffd3043bc57727fc39f077dd0ce7eccb8
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96584466"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98024220"
 ---
 Dans ce guide de démarrage rapide, vous allez découvrir comment démarrer un appel à l’aide de la bibliothèque de client Azure Communication Services Calling pour Javascript.
 
@@ -22,50 +22,8 @@ Dans ce guide de démarrage rapide, vous allez découvrir comment démarrer un a
 - Une ressource Communication Services active. [Créez une ressource Communication Services](../../create-communication-resource.md).
 - Un jeton d’accès utilisateur pour instancier le client d’appel. Découvrez comment [créer et gérer des jetons d’accès utilisateur](../../access-tokens.md)
 
-## <a name="setting-up"></a>Configuration
 
-### <a name="create-a-new-nodejs-application"></a>Création d’une application Node.js
-
-Ouvrez votre fenêtre de terminal ou de commande, créez un répertoire pour votre application, puis accédez-y.
-
-```console
-mkdir calling-quickstart && cd calling-quickstart
-```
-
-Exécutez `npm init -y` pour créer un fichier **package.json** avec les paramètres par défaut.
-
-```console
-npm init -y
-```
-
-### <a name="install-the-package"></a>Installer le package
-
-Utilisez la commande `npm install` pour installer la bibliothèque de client Azure Communication Services Calling pour JavaScript.
-
-```console
-npm install @azure/communication-common --save
-npm install @azure/communication-calling --save
-```
-
-Les versions suivantes de webpack sont recommandées pour ce guide de démarrage rapide :
-
-```console
-"webpack": "^4.42.0",
-"webpack-cli": "^3.3.11",
-"webpack-dev-server": "^3.10.3"
-```
-
-L’option `--save` liste la bibliothèque comme dépendance dans votre fichier **package.json**.
-
-### <a name="set-up-the-app-framework"></a>Configurer le framework d’application
-
-Ce guide de démarrage rapide utilise webpack pour regrouper les ressources de l’application. Exécutez la commande suivante pour installer les packages npm webpack, webpack-cli et webpack-dev-server, puis listez-les comme dépendances de développement dans votre fichier **package.json** :
-
-```console
-npm install webpack@4.42.0 webpack-cli@3.3.11 webpack-dev-server@3.10.3 --save-dev
-```
-
-Créez un fichier **index.html** dans le répertoire racine de votre projet. Nous utiliserons ce fichier pour configurer une disposition de base qui permettra à l’utilisateur d’effectuer un appel à un bot Azure Communications.
+[!INCLUDE [Calling with JavaScript](./get-started-javascript-setup.md)]
 
 Voici le code :
 
@@ -117,7 +75,7 @@ Les classes et les interfaces suivantes gèrent certaines des principales foncti
 
 | Nom                             | Description                                                                                                                                 |
 | ---------------------------------| ------------------------------------------------------------------------------------------------------------------------------------------- |
-| CallClient                       | CallClient est le point d’entrée principal de la bibliothèque de client Calling.                                                                       |
+| CallClient                       | CallClient est le point d’entrée principal de la bibliothèque de client Appel.                                                                       |
 | CallAgent                        | CallAgent sert à démarrer et à gérer les appels.                                                                                            |
 | AzureCommunicationUserCredential | La classe AzureCommunicationUserCredential implémente l’interface CommunicationUserCredential qui est utilisée pour instancier CallAgent. |
 
