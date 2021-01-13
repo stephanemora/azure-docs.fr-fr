@@ -851,7 +851,7 @@ La stratégie `set-variable` déclare une variable de [contexte](api-management-
 
 ### <a name="example"></a><a name="set-variableExample"></a> Exemple
 
-L’exemple suivant montre une stratégie set variable dans la section inbound. Cette stratégie de variable définie crée une variable `isMobile` booléenne [définie](api-management-policy-expressions.md#ContextVariables) sur true si l'en-tête de demande `User-Agent` contient le texte `iPad` ou `iPhone`.
+L’exemple suivant montre une stratégie set variable dans la section inbound. Cette stratégie de variable définie crée une variable `isMobile` booléenne [](api-management-policy-expressions.md#ContextVariables) définie sur true si l'en-tête de demande `User-Agent` contient le texte `iPad` ou `iPhone`.
 
 ```xml
 <set-variable name="IsMobile" value="@(context.Request.Headers.GetValueOrDefault("User-Agent","").Contains("iPad") || context.Request.Headers.GetValueOrDefault("User-Agent","").Contains("iPhone"))" />
