@@ -70,8 +70,6 @@
       items:
         - name: Récupérer un tableau de bord supprimé
           href: recover-shared-deleted-dashboard.md
-        - name: Résoudre les problèmes d’abonnement de région ou de référence SKU
-          href: supportability/sku-series-unavailable.md
         - name: Capturer une trace de navigateur pour la résolution des problèmes
           href: capture-browser-trace.md
 - name: Informations de référence

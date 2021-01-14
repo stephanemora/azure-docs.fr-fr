@@ -102,6 +102,8 @@
   items:
     - name: Plans App Service
       href: overview-hosting-plans.md
+    - name: "la gestion des coûts\_;"
+      href: overview-manage-costs.md
     - name: Fonctionnalités du système d’exploitation
       href: operating-system-functionality.md
     - name: Bonnes pratiques de déploiement
