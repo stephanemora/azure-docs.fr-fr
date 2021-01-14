@@ -5,12 +5,12 @@ ms.date: 12/2/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
 zone_pivot_groups: programming-languages-set-functions-full
-ms.openlocfilehash: fb85920b04e3cd457dc36d1ba1fd0f18dcd7abb6
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 1c7a9fd83131ea6282d2ef4860b744fa348153ed
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937057"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98070913"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Créer une fonction sur Linux avec un conteneur personnalisé
 
@@ -356,7 +356,7 @@ Pour déployer votre code de fonction sur Azure, vous devez créer trois ressour
 
 - Un groupe de ressources, qui est un conteneur logique pour les ressources associées.
 - Un compte de stockage Azure, qui conserve l’état et d’autres informations spécifiques à vos projets.
-- Une application Azure Functions, qui fournit l’environnement d’exécution de votre code de fonction. Une application de fonction est mappée à votre projet de fonction local. Elle vous permet de regrouper les fonctions en tant qu’unité logique pour faciliter la gestion, le déploiement et le partage des ressources.
+- Une application de fonction, qui fournit l’environnement d’exécution de votre code de fonction. Une application de fonction est mappée à votre projet de fonction local. Elle vous permet de regrouper les fonctions en tant qu’unité logique pour faciliter la gestion, le déploiement et le partage des ressources.
 
 Vous utilisez les commandes Azure CLI pour créer ces éléments. Chaque commande fournit une sortie JSON une fois l’opération terminée.
 

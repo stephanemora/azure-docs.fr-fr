@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: tutorial
 ms.date: 11/16/2020
-ms.openlocfilehash: 791cab369dcbf9cab8d1256377cfee4a433c21b9
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 53fb256d3a0fba1cc10cafb239ff7f7bb21ac4eb
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96450904"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121071"
 ---
 # <a name="tutorial-create-a-power-bi-report-using-apache-spark-and-azure-synapse-analytics"></a>Tutoriel : Créer un rapport Power BI à l’aide d’Apache Spark et d’Azure Synapse Analytics
 
@@ -22,7 +22,7 @@ Les organisations ont souvent besoin de traiter de grands volumes de données av
 
 ## <a name="before-you-begin"></a>Avant de commencer
 - [Espace de travail Azure Synapse Analytics](../quickstart-create-workspace.md) avec un compte de stockage ADLS Gen2 configuré comme stockage par défaut. 
-- Espace de travail Power BI et Power BI Desktop pour visualiser les données. Pour plus d’informations, consultez [Créer un espace de travail Power BI](https://docs.microsoft.com/power-bi/service-create-the-new-workspaces) et [Installer Power BI Desktop](https://powerbi.microsoft.com/downloads/).
+- Espace de travail Power BI et Power BI Desktop pour visualiser les données. Pour plus d’informations, consultez [Créer un espace de travail Power BI](/power-bi/service-create-the-new-workspaces) et [Installer Power BI Desktop](https://powerbi.microsoft.com/downloads/).
 - Service lié pour connecter vos espaces de travail Azure Synapse Analytics et Power BI. Pour plus d’informations, consultez [Lier à un espace de travail Power BI](../quickstart-power-bi.md).
 - Pool Apache Spark serverless dans votre espace de travail Synapse Analytics. Pour plus d’informations, consultez [Créer un pool Apache Spark serverless](../quickstart-create-apache-spark-pool-studio.md).
   
@@ -89,7 +89,7 @@ Pour interroger votre table Apache Spark à l’aide de votre pool SQL serverles
 Ensuite, nous allons connecter notre pool SQL serverless à notre espace de travail Power BI. Une fois que vous avez connecté votre espace de travail, vous pouvez créer des rapports Power BI directement à partir d’Azure Synapse Analytics et de Power BI Desktop.
 
 >[!Note]
-> Avant de commencer, vous devez configurer un service lié à votre [espace de travail Power BI](../quickstart-power-bi.md) et télécharger [Power BI Desktop](https://docs.microsoft.com/power-bi/service-create-the-new-workspaces).  
+> Avant de commencer, vous devez configurer un service lié à votre [espace de travail Power BI](../quickstart-power-bi.md) et télécharger [Power BI Desktop](/power-bi/service-create-the-new-workspaces).  
 
 Pour connecter notre pool SQL serverless à notre espace de travail Power BI :
 

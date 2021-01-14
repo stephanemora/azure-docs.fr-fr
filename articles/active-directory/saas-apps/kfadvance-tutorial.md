@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/02/2020
 ms.author: jeedes
-ms.openlocfilehash: 43e6495c0231d5b14d27eabc3b9b82ba791d7108
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 241e5abf8377bd2e2207d140e291b18592651ea6
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97364413"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179586"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-kfadvance"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à KFAdvance
 
@@ -76,13 +76,13 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode Initié par le **fournisseur d’identité**, entrez les valeurs pour les champs suivants :
 
-    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://api.kfadvance-<ENVIRONMENT>.com/<PARTNER_ID>`
+    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://api.kfadvance.com/<PARTNER_ID>`
 
-    b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://api.kfadvance-<ENVIRONMENT>.com/vn/account/partnerssocallback?partnerKey=<PARTNER_ID>`
+    b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://api.kfadvance-<ENVIRONMENT>.com/v1/account/partnerssocallback?partnerKey=<PARTNER_ID>`
 
 1. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
-    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://api.kfadvance-<ENVIRONMENT>.com/vn/account/partnerssologin?partnerKey=<PARTNER_ID>`
+    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://api.kfadvance.com/v1/account/partnerssologin?partnerKey=<PARTNER_ID>`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. Pour obtenir ces valeurs, contactez [l’équipe de support technique KFAdvance](mailto:support@kornferry.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
