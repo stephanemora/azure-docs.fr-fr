@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 11/19/2020
 ms.author: aahi
 ms.reviewer: chtufts
-ms.openlocfilehash: c60adb09da05ba945bcf6ccb55e71c395f064211
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 2adca03a820d02731bca252dee99c76debc85e2e
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965100"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028129"
 ---
 # <a name="data-and-rate-limits-for-the-text-analytics-api"></a>Limites de données et de débit pour l’API Analyse de texte
 <a name="data-limits"></a>
@@ -35,7 +35,15 @@ Découvrez dans cet article les limites de taille et de débit auxquelles vous �
 | Taille maximale d’un document (point de terminaison `/analyze`)  | 125 000 caractères, mesurés par [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements). Ne s’applique pas à Analyse de texte pour la santé. |
 | Taille maximale d’une demande | 1 Mo. S’applique également à Analyse de texte pour la santé. |
 
-Le nombre maximal de documents que vous pouvez envoyer dans une même demande dépend de la version et de la fonctionnalité d’API que vous utilisez. Le point de terminaison `/analyze` rejette l’intégralité de la demande si un document dépasse la taille maximale (125 000 caractères)
+
+Si un document dépasse la limite de caractères, l’API se comporte différemment en fonction du point de terminaison que vous utilisez :
+
+* Point de terminaison `/analyze` :
+  * L’API rejette l’intégralité de la demande et retourne une erreur `400 bad request` si un document qu’elle contient dépasse la taille maximale.
+* Tous les autres points de terminaison :  
+  * L’API ne traite pas un document qui dépasse la taille maximale et retourne une erreur de document non valide. Si une demande d’API a plusieurs documents, l’API continue de les traiter s’ils sont dans la limite de caractères.
+
+Le nombre maximal de documents que vous pouvez envoyer dans une même demande dépend de la version et de la fonctionnalité d’API que vous utilisez, qui sont décrites dans le tableau ci-dessous.
 
 #### <a name="version-3"></a>[Version 3](#tab/version-3)
 

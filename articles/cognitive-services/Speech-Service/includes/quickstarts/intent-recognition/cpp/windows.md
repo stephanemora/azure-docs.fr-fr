@@ -6,12 +6,12 @@ ms.date: 04/04/2020
 ms.topic: include
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: d1fab57adfb675e8cc4ea604980e6f04a3f4a89f
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 08679bac77121ee2d276f3d2854e0b119c769582
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94424749"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98109276"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
@@ -46,7 +46,7 @@ Pour pouvoir initialiser un objet `IntentRecognizer`, vous devez au préalable c
 Insérez ce code dans la méthode `recognizeIntent()`. Veillez à mettre à jour ces valeurs :
 
 * Remplacez `"YourLanguageUnderstandingSubscriptionKey"` par votre clé de prédiction LUIS.
-* Remplacez `"YourLanguageUnderstandingServiceRegion"` par votre localisation LUIS.  Utilisez l’ **identificateur Région** de la [région](../../../../regions.md).
+* Remplacez `"YourLanguageUnderstandingServiceRegion"` par votre localisation LUIS.  Utilisez l’**identificateur Région** de la [région](../../../../regions.md).
 
 >[!TIP]
 > Si vous avez besoin d’aide pour trouver ces valeurs, consultez [Créer une application LUIS pour la reconnaissance de l’intention](#create-a-luis-app-for-intent-recognition).
@@ -75,6 +75,13 @@ Insérez ce code en dessous de votre `IntentRecognizer`. Veillez à remplacer `"
 [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=31-33)]
 
 Cet exemple utilise la fonction `AddIntent()` pour ajouter des intentions individuellement. Si vous souhaitez ajouter toutes les intentions d’un modèle, utilisez `AddAllIntents(model)` et transmettez le modèle.
+
+> [!NOTE]
+> Le kit SDK Speech prend en charge les points de terminaison LUIS v2.0 uniquement.
+> Vous devez modifier manuellement l’URL de point de terminaison v3.0 trouvée dans l’exemple de champ de requête pour utiliser un modèle d’URL v2.0.
+> Les points de terminaison LUIS v2.0 suivent toujours l’un de ces deux modèles :
+> * `https://{AzureResourceName}.cognitiveservices.azure.com/luis/v2.0/apps/{app-id}?subscription-key={subkey}&verbose=true&q=`
+> * `https://{Region}.api.cognitive.microsoft.com/luis/v2.0/apps/{app-id}?subscription-key={subkey}&verbose=true&q=`
 
 ## <a name="recognize-an-intent"></a>Reconnaître une intention
 
@@ -106,8 +113,8 @@ Insérez ce code en dessous de `auto result = recognizer->RecognizeOnceAsync().g
 Vous êtes maintenant prêt à créer votre application et à tester la reconnaissance vocale à l’aide du service de reconnaissance vocale.
 
 1. **Compiler le code** : à partir de la barre de menus de Visual Studio, choisissez **Générer** > **Générer la solution**.
-2. **Démarrer votre application**  : dans la barre de menus, choisissez **Déboguer** > **Démarrer le débogage** , ou appuyez sur <kbd>F5</kbd>.
-3. **Démarrer la reconnaissance**  : vous êtes invité à prononcer une phrase. Celle-ci est envoyée au service de reconnaissance vocale, transcrite sous forme de texte, puis affichée sur la console.
+2. **Démarrer votre application** : dans la barre de menus, choisissez **Déboguer** > **Démarrer le débogage**, ou appuyez sur <kbd>F5</kbd>.
+3. **Démarrer la reconnaissance** : vous êtes invité à prononcer une phrase. Celle-ci est envoyée au service de reconnaissance vocale, transcrite sous forme de texte, puis affichée sur la console.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

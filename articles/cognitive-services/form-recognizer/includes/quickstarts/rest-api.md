@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 12/15/2020
 ms.author: pafarley
-ms.openlocfilehash: a677623c030ff26567f14a4526f6d07bc6631a37
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: 31e1a0d912c6623f57d4ea256968102604ce42ff
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97853710"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132337"
 ---
 > [!NOTE]
 > Ce guide utilise cURL pour exécuter des appels d’API REST. Il existe également un [exemple de code sur GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/FormRecognizer/rest) qui illustre comment appeler les API REST avec Python.
@@ -32,7 +32,7 @@ ms.locfileid: "97853710"
 * URL pour une image de facture. Vous pouvez utiliser un [exemple de document](https://raw.githubusercontent.com/Azure/azure-sdk-for-python/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms/forms/Invoice_1.pdf) pour ce guide de démarrage rapide.
 
 
-## <a name="recognize-form-content"></a>Reconnaître le contenu d’un formulaire
+## <a name="analyze-layout"></a>Analyser la disposition
 
 Vous pouvez utiliser Form Recognizer pour reconnaître et extraire les tables, les lignes et les mots dans les documents, sans avoir besoin d’entraîner un modèle. Avant d’exécuter la commande, apportez les modifications suivantes :
 
@@ -319,7 +319,7 @@ Regardez l’image de facture suivante et sa sortie JSON correspondante. La sort
 
 ---
 
-## <a name="recognize-receipts"></a>Reconnaître les tickets de caisse
+## <a name="analyze-receipts"></a>Analyser les reçus
 
 Pour commencer à analyser un reçu, appelez l’API **[Analyze Receipt](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeReceiptAsync)** (Analyser le reçu) en utilisant la commande cURL ci-dessous. Avant d’exécuter la commande, apportez les modifications suivantes :
 
@@ -699,7 +699,7 @@ Le nœud `"readResults"` contient tout le texte reconnu (si vous définissez le 
 }
 ```
 
-## <a name="recognize-business-cards"></a>Reconnaître les cartes de visite
+## <a name="analyze-business-cards"></a>Analyser les cartes de visite
 
 # <a name="v20"></a>[v2.0](#tab/v2-0)  
 
@@ -861,7 +861,7 @@ Le script imprime les réponses dans la console tant que l’opération **Analyz
 
 ---
 
-## <a name="recognize-invoices"></a>Reconnaître les factures
+## <a name="analyze-invoices"></a>Analyser les factures
 
 # <a name="version-20"></a>[version 2.0](#tab/v2-0)
 

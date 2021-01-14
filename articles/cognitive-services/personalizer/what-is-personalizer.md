@@ -7,16 +7,16 @@ ms.topic: overview
 ms.date: 08/27/2020
 ms.custom: cog-serv-seo-aug-2020
 keywords: personalizer, Azure personalizer, machine learning
-ms.openlocfilehash: 28aae130d062eaf57a66a9b90a6602c3874f1494
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 33c1770c5c8722a55d8f1df4aff9b1637d903977
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97094146"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028775"
 ---
 # <a name="what-is-personalizer"></a>Qu’est-ce que Personalizer ?
 
-Azure Personalizer est un service cloud qui permet à vos applications de choisir l’élément de contenu le mieux adapté pour vos utilisateurs. Vous pouvez utiliser le service Personalizer pour déterminer le produit à suggérer aux acheteurs ou pour déterminer la position optimale pour une publicité. Une fois le contenu présenté à l’utilisateur, le système supervise le comportement de l’utilisateur en temps réel et signale un score de récompense au service Personalizer. Cela garantit l’amélioration continue du modèle Machine Learning, et la capacité de Personalizer à sélectionner le meilleur élément de contenu en fonction des informations contextuelles qu’il reçoit.
+Azure Personalizer est un service cloud qui permet à vos applications de choisir l’élément de contenu le mieux adapté pour vos utilisateurs. Vous pouvez utiliser le service Personalizer pour déterminer le produit à suggérer aux acheteurs ou pour déterminer la position optimale pour une publicité. Une fois le contenu présenté à l’utilisateur, votre application surveille la réaction de l’utilisateur et signale un score de récompense au service Personalizer. Cela garantit l’amélioration continue du modèle Machine Learning, et la capacité de Personalizer à sélectionner le meilleur élément de contenu en fonction des informations contextuelles qu’il reçoit.
 
 > [!TIP]
 > Le contenu est toute unité d’information, comme du texte, des images, des URL, des e-mails, etc., ou tout autre élément que vous voulez sélectionner et présenter à vos utilisateurs.
@@ -65,7 +65,7 @@ L’[API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer
 
 Utilisez Personalizer si votre contenu :
 
-* Comprend un ensemble restreint d’éléments (environ 50 max.). Si vous disposez d’une liste plus longue, [utilisez un moteur de recommandations](where-can-you-use-personalizer.md#how-to-use-personalizer-with-a-recommendation-solution) pour réduire la liste à 50 éléments.
+* A un ensemble limité d’actions ou d’éléments (max. ~50) à sélectionner dans chaque événement de personnalisation. Si vous disposez d’une liste plus longue, [utilisez un moteur de recommandations](where-can-you-use-personalizer.md#how-to-use-personalizer-with-a-recommendation-solution) pour réduire la liste à 50 éléments chaque fois que vous appelez Rank sur le service Personalizer.
 * Contient des informations décrivant le contenu que vous souhaitez classer : _actions avec caractéristiques_ et _caractéristiques de contexte_.
 * A besoin d’un minimum de 1 000 événements de contenu par jour pour que Personalizer soit efficace. Si Personalizer ne reçoit pas le trafic minimal nécessaire, le service met plus de temps à déterminer l’élément de contenu le mieux adapté.
 

@@ -63,19 +63,8 @@
         - name: Utiliser Azure Lab Services dans Teams
           items:
             - name: Vue d’ensemble
+              displayName: labs within Teams
               href: lab-services-within-teams-overview.md
-            - name: Créer un labo depuis Teams
-              href: how-to-get-started-create-lab-within-teams.md
-            - name: Gérer les listes d’utilisateurs
-              href: how-to-manage-user-lists-within-teams.md
-            - name: Gérer un pool de machines virtuelles
-              href: how-to-manage-vm-pool-within-teams.md
-            - name: Supprimer des labos
-              href: how-to-delete-lab-within-teams.md
-            - name: Planifications et paramètres
-              href: how-to-create-schedules-within-teams.md
-            - name: Accéder à une machine virtuelle (vue étudiant)
-              href: how-to-access-vm-for-students-within-teams.md
 - name: Guides pratiques
   items:
     - name: Guide de l’administrateur
@@ -164,6 +153,20 @@
           href: how-to-set-virtual-machine-passwords-student.md
         - name: Consulter des informations de support (étudiant)
           href: lab-user-support-information.md
+    - name: Utiliser des labos dans Teams
+      items:
+        - name: Créer un labo depuis Teams
+          href: how-to-get-started-create-lab-within-teams.md
+        - name: Gérer les listes d’utilisateurs
+          href: how-to-manage-user-lists-within-teams.md
+        - name: Gérer un pool de machines virtuelles
+          href: how-to-manage-vm-pool-within-teams.md
+        - name: Supprimer des labos
+          href: how-to-delete-lab-within-teams.md
+        - name: Planifications et paramètres
+          href: how-to-create-schedules-within-teams.md
+        - name: Accéder à une machine virtuelle (vue étudiant)
+          href: how-to-access-vm-for-students-within-teams.md
 - name: Informations de référence
   items:
     - name: API REST

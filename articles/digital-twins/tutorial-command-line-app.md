@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: a9d8c42432d619ab120afd0bd5734f6fa269b514
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: db85bf19c1b040fea1ed2f5d6dcf904288366c7f
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96458098"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98050236"
 ---
 # <a name="tutorial-explore-azure-digital-twins-with-a-sample-client-app"></a>Tutoriel : Explorer Azure Digital Twins avec un exemple d’application cliente
 
@@ -51,27 +51,15 @@ Sélectionnez *Room.json* pour l’ouvrir dans la fenêtre d’édition, puis mo
 1. **Modifiez une propriété**. Remplacez le nom de la propriété `Humidity` par *HumidityLevel* (ou une autre valeur si vous le souhaitez. Si vous utilisez autre chose que *HumidityLevel*, souvenez-vous de ce que vous avez utilisé et continuez à l’utiliser à la place de *HumidityLevel* tout au long du tutoriel).
 1. **Ajoutez une propriété**. Sous la propriété `HumidityLevel` qui se termine à la ligne 15, collez le code suivant pour ajouter une propriété `RoomName` à la pièce :
 
-    ```json
-    ,
-    {
-      "@type": "Property",
-      "name": "RoomName",
-      "schema": "string"
-    }
-    ```
+    :::code language="json" source="~/digital-twins-docs-samples/models/Room.json" range="16-20":::
+
 1. **Ajoutez une relation**. Sous la propriété `RoomName` que vous venez d’ajouter, collez le code suivant pour permettre à ce type de jumeau de former des relations *contains* avec d’autres jumeaux :
 
-    ```json
-    ,
-    {
-      "@type": "Relationship",
-      "name": "contains"
-    }
-    ```
+    :::code language="json" source="~/digital-twins-docs-samples/models/Room.json" range="21-24":::
 
 Quand vous avez terminé, le modèle mis à jour doit ressembler à ceci :
 
-:::image type="content" source="media/tutorial-command-line-app/room-model.png" alt-text="Room.json modifié avec le numéro de version mis à jour, les propriétés HumidityLevel et RoomName et la relation contains" border="false":::
+:::code language="json" source="~/digital-twins-docs-samples/models/Room.json":::
 
 N’oubliez pas d’enregistrer le fichier avant de continuer.
 

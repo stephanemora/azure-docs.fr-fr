@@ -12,12 +12,12 @@ ms.date: 09/30/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: reconnaissance d’image, application de reconnaissance d’image, vision personnalisée
-ms.openlocfilehash: 8274ddd0e492d1a27ebc1579fc6efdcc8cc84955
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: b27864fc1fd1f94f99fccacd90a66120e6d044c4
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97912982"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132577"
 ---
 # <a name="quickstart-build-an-object-detector-with-the-custom-vision-website"></a>Démarrage rapide : Créer un détecteur d’objets avec le site web Custom Vision
 
@@ -107,6 +107,10 @@ Une fois l’entraînement terminé, les performances du modèle sont calculées
 ### <a name="probability-threshold"></a>Seuil de probabilité
 
 [!INCLUDE [probability threshold](includes/probability-threshold.md)]
+
+### <a name="overlap-threshold"></a>Seuil de chevauchement
+
+Le curseur **Seuil de chevauchement** détermine si une prédiction d’objet est assez bonne pour être considérée comme « correcte » pour l’entraînement. Il définit le chevauchement minimal autorisé entre le cadre englobant de l’objet prédit et le cadre englobant réel entré par l’utilisateur. Si les cadres englobants ne se chevauchent pas à ce degré, la prédiction n’est pas considérée comme correcte.
 
 ## <a name="manage-training-iterations"></a>Gérer les itérations d’entraînement
 

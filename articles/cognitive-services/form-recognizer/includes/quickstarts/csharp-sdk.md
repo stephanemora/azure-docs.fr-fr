@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 10/06/2020
 ms.author: pafarley
-ms.openlocfilehash: 4b44a8375bc13709959e2401f9d772fdeab00f52
-ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
+ms.openlocfilehash: 9befe33f70341f218c3339a13dcc1d31dc452d34
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97808604"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132315"
 ---
 > [!IMPORTANT]
 > Le code indiqué dans cet article utilise des méthodes synchrones et un stockage d’informations d’identification non sécurisé pour des raisons de simplicité.
@@ -113,8 +113,8 @@ Avec Form Recognizer, vous pouvez créer deux types de client différents. Le pr
 `FormRecognizerClient` propose des opérations pour :
 
  - Reconnaître les champs et le contenu de formulaires à l’aide de modèles personnalisés entraînés pour reconnaître vos formulaires personnalisés.  Ces valeurs sont retournées dans une collection d’objets `RecognizedForm`. Consultez l’exemple [Analyser les formulaires personnalisés](#analyze-forms-with-a-custom-model).
- - Reconnaître le contenu des formulaires, notamment les tableaux, les lignes et les mots, sans avoir à entraîner un modèle.  Le contenu des formulaires est retourné dans une collection d’objets `FormPage`. Consultez l’exemple [Reconnaître le contenu des formulaires](#recognize-form-content).
- - Reconnaître les champs communs des tickets de caisse émis aux États-Unis, à l’aide d’un modèle de ticket de caisse préentraîné dans le service Form Recognizer. Ces champs et métadonnées sont retournés dans une collection d’objets `RecognizedForm`. Consultez l’exemple [Reconnaître les tickets de caisse](#recognize-receipts).
+ - Reconnaître le contenu des formulaires, notamment les tableaux, les lignes et les mots, sans avoir à entraîner un modèle.  Le contenu des formulaires est retourné dans une collection d’objets `FormPage`. Consultez l’exemple [Analyser la disposition](#analyze-layout).
+ - Reconnaître les champs communs des tickets de caisse émis aux États-Unis, à l’aide d’un modèle de ticket de caisse préentraîné dans le service Form Recognizer. Ces champs et métadonnées sont retournés dans une collection d’objets `RecognizedForm`. Consultez l’exemple [Analyser les reçus](#analyze-receipts).
 
 ### <a name="formtrainingclient"></a>FormTrainingClient
 
@@ -137,8 +137,8 @@ Ces extraits de code montrent comment effectuer les tâches suivantes avec la bi
 #### <a name="version-20"></a>[version 2.0](#tab/ga)
 
 * [Authentifier le client](#authenticate-the-client)
-* [Reconnaître le contenu d’un formulaire](#recognize-form-content)
-* [Reconnaître les tickets de caisse](#recognize-receipts)
+* [Analyser la disposition](#analyze-layout)
+* [Analyser les reçus](#analyze-receipts)
 * [Entraîner un modèle personnalisé](#train-a-custom-model)
 * [Analyser les formulaires avec un modèle personnalisé](#analyze-forms-with-a-custom-model)
 * [Gérer vos modèles personnalisés](#manage-your-custom-models)
@@ -146,10 +146,10 @@ Ces extraits de code montrent comment effectuer les tâches suivantes avec la bi
 #### <a name="version-21-preview"></a>[version 2.1 (préversion)](#tab/preview)
 
 * [Authentifier le client](#authenticate-the-client)
-* [Reconnaître le contenu d’un formulaire](#recognize-form-content)
-* [Reconnaître les tickets de caisse](#recognize-receipts)
-* [Reconnaître les cartes de visite](#recognize-business-cards)
-* [Reconnaître les factures](#recognize-invoices)
+* [Analyser la disposition](#analyze-layout)
+* [Analyser les reçus](#analyze-receipts)
+* [Analyser les cartes de visite](#analyze-business-cards)
+* [Analyser les factures](#analyze-invoices)
 * [Entraîner un modèle personnalisé](#train-a-custom-model)
 * [Analyser les formulaires avec un modèle personnalisé](#analyze-forms-with-a-custom-model)
 * [Gérer vos modèles personnalisés](#manage-your-custom-models)
@@ -189,7 +189,7 @@ Vous devrez aussi ajouter des références aux URL pour vos données d’entraî
 ---
 
 
-## <a name="recognize-form-content"></a>Reconnaître le contenu d’un formulaire
+## <a name="analyze-layout"></a>Analyser la disposition
 
 Vous pouvez utiliser Form Recognizer pour reconnaître les tables, les lignes et les mots dans les documents, sans avoir besoin d’entraîner un modèle. La valeur retournée est une collection d’objets **FormPage** : un pour chaque page du document envoyé. 
 
@@ -239,7 +239,7 @@ Table 0 has 2 rows and 6 columns.
     Cell (1, 5) contains text: 'PT'.
 ```
 
-## <a name="recognize-receipts"></a>Reconnaître les tickets de caisse
+## <a name="analyze-receipts"></a>Analyser les reçus
 
 Cette section montre comment reconnaître et extraire les champs communs de tickets de caisse émis aux États-Unis à l’aide d’un modèle de ticket préentraîné.
 
@@ -298,7 +298,7 @@ Item:
 Total: '1203.39', with confidence '0.774'
 ```
 
-## <a name="recognize-business-cards"></a>Reconnaître les cartes de visite
+## <a name="analyze-business-cards"></a>Analyser les cartes de visite
 
 #### <a name="version-20"></a>[version 2.0](#tab/ga)
 
@@ -323,7 +323,7 @@ La valeur retournée est une collection d’objets `RecognizedForm`, un pour cha
 
 ---
 
-## <a name="recognize-invoices"></a>Reconnaître les factures
+## <a name="analyze-invoices"></a>Analyser les factures
 
 #### <a name="version-20"></a>[version 2.0](#tab/ga)
 

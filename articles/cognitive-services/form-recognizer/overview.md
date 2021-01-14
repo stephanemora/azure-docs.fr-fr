@@ -11,12 +11,12 @@ ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: traitement de données automatisé, traitement de documents, entrée de données automatisée, traitement des formulaires
-ms.openlocfilehash: ed940622f72271ef3e606c5068babcb6366c31b6
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: e1e5a4abf8eab96af62b160e28f98d95cf527eaf
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97845523"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98044762"
 ---
 # <a name="what-is-form-recognizer"></a>Qu’est-ce que Form Recognizer ?
 
@@ -42,11 +42,11 @@ Pour tester le service Form Recognizer, accédez à l’outil d’exemple d’in
 
 # <a name="v20"></a>[v2.0](#tab/v2-0)
 > [!div class="nextstepaction"]
-> [Essayer des modèles prédéfinis](https://fott.azurewebsites.net/)
+> [Essayer Form Recognizer](https://fott.azurewebsites.net/)
 
 # <a name="v21-preview"></a>[v2.1 (préversion)](#tab/v2-1)
 > [!div class="nextstepaction"]
-> [Essayer des modèles prédéfinis](https://fott-preview.azurewebsites.net/)
+> [Essayer Form Recognizer](https://fott-preview.azurewebsites.net/)
 
 ---
 
@@ -152,7 +152,18 @@ Explorez la [documentation de référence sur l’API REST](https://westus2.dev.
 
 ## <a name="deploy-on-premises-using-docker-containers"></a>Déployer localement en utilisant des conteneurs Docker
 
-[Utilisez des conteneurs Form Recognizer(préversion)](form-recognizer-container-howto.md) pour déployer des fonctionnalités d’API localement. Ce conteneur Docker vous donne la possibilité de rapprocher le service plus près de vos données, ce qui peut être souhaitable pour des raisons de conformité, de sécurité ou opérationnelles.
+[Utilisez des conteneurs Form Recognizer(préversion)](form-recognizer-container-howto.md) pour déployer des fonctionnalités d’API localement. Ce conteneur Docker vous donne la possibilité de rapprocher le service plus près de vos données, ce qui peut être souhaitable pour des raisons de conformité, de sécurité ou opérationnelles. 
+
+## <a name="service-availability-and-redundancy"></a>Disponibilité et redondance du service
+
+### <a name="is-form-recognizer-service-zone-resilient"></a>Le service Form Recognizer est-il résilient aux zones ?
+
+Oui. Le service Form Recognizer est résilient aux zones par défaut.
+
+### <a name="how-do-i-configure-the-form-recognizer-service-to-be-zone-resilient"></a>Comment configurer le service Form Recognizer pour le rendre résilient aux zones ?
+
+Aucune configuration client n’est nécessaire pour activer la résilience des zones. La résilience aux zones pour les ressources Form Recognizer est disponible par défaut et gérée par le service lui-même.
+
 
 ## <a name="data-privacy-and-security"></a>Sécurité et confidentialité des données
 

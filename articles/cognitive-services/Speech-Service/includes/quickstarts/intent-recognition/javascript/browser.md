@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 04/03/2020
 ms.author: trbye
 ms.custom: devx-track-js
-ms.openlocfilehash: 4ac8ae4fd4218bbf74bbb6760d8344096c214a76
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: bbd7091eb2139801956d77ec8b3ca821c935ac64
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97820645"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98109277"
 ---
 ## <a name="start-with-some-boilerplate-code"></a>Commencer avec du code réutilisable
 
@@ -187,6 +187,14 @@ Insérez ce code en dessous de votre `IntentRecognizer`. Veillez à remplacer `"
           recognizer.addAllIntents(lm);
         }
 ```
+
+> [!NOTE]
+> Le kit SDK Speech prend en charge les points de terminaison LUIS v2.0 uniquement.
+> Vous devez modifier manuellement l’URL de point de terminaison v3.0 trouvée dans l’exemple de champ de requête pour utiliser un modèle d’URL v2.0.
+> Les points de terminaison LUIS v2.0 suivent toujours l’un de ces deux modèles :
+> * `https://{AzureResourceName}.cognitiveservices.azure.com/luis/v2.0/apps/{app-id}?subscription-key={subkey}&verbose=true&q=`
+> * `https://{Region}.api.cognitive.microsoft.com/luis/v2.0/apps/{app-id}?subscription-key={subkey}&verbose=true&q=`
+
 ## <a name="recognize-an-intent"></a>Reconnaître une intention
 
 À partir de l’objet `IntentRecognizer`, vous devez appeler la méthode `recognizeOnceAsync()`. Cette méthode permet au service Speech de savoir que vous envoyez une seule expression pour reconnaissance, et d’arrêter la reconnaissance une fois que l’expression a été identifiée.
