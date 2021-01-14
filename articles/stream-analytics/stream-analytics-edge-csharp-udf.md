@@ -1,19 +1,18 @@
 ---
 title: Tutoriel - Écrire des fonctions C# définies par l’utilisateur pour des travaux Azure Stream Analytics dans Visual Studio (préversion)
 description: Ce tutoriel montre comment écrire des fonctions C# définies par l’utilisateur pour des travaux Stream Analytics dans Visual Studio.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: sidramadoss
+ms.author: sidram
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 12/06/2018
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: d53f13cb740b3feb39dc64ce012ff320afbb1db5
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 851229e441aa2fbdf7b6eec05390c0ce2b149da2
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130491"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020466"
 ---
 # <a name="tutorial-write-a-c-user-defined-function-for-azure-stream-analytics-job-preview"></a>Tutoriel : Écrire une fonction C# définie par l’utilisateur pour un travail Azure Stream Analytics (préversion)
 
@@ -44,9 +43,9 @@ Le conteneur que vous créez sera utilisé pour stocker le package C# compilé.
 
 2. Sélectionnez **Fichier > Nouveau > Projet**.
 
-3. Dans la liste des modèles sur la gauche, sélectionnez **Stream Analytics** , puis **Application de périphérie Azure Stream Analytics** ou **Application Azure Stream Analytics**.
+3. Dans la liste des modèles sur la gauche, sélectionnez **Stream Analytics**, puis **Application de périphérie Azure Stream Analytics** ou **Application Azure Stream Analytics**.
 
-4.  Entrez les éléments **Nom** , **Emplacement** et **Nom de la solution** de votre projet, puis sélectionnez **OK**.
+4.  Entrez les éléments **Nom**, **Emplacement** et **Nom de la solution** de votre projet, puis sélectionnez **OK**.
 
     ![Créer un projet de périphérie Azure Stream Analytics dans Visual Studio](./media/stream-analytics-edge-csharp-udf/stream-analytics-create-edge-app.png)
 
@@ -71,7 +70,7 @@ Le conteneur que vous créez sera utilisé pour stocker le package C# compilé.
 ## <a name="write-a-c-udf-with-codebehind"></a>Écrire une fonction C# définie par l’utilisateur avec du code-behind
 Un fichier code-behind est un fichier C# associé à un seul script de requête ASA. Visual Studio Tools compresse automatiquement le fichier code-behind et le charge sur votre compte de stockage Azure au moment de l’envoi. Toutes les classes doivent être définies en tant que classes *publiques* et tous les objets doivent être définis en tant qu’objets *publics statiques*.
 
-1. Dans **l’Explorateur de solutions** , développez **Script.asql** pour rechercher le fichier code-behind **Script.asaql.cs**.
+1. Dans **l’Explorateur de solutions**, développez **Script.asql** pour rechercher le fichier code-behind **Script.asaql.cs**.
 
 2. Remplacez le code par l’exemple suivant :
 
@@ -97,7 +96,7 @@ Un fichier code-behind est un fichier C# associé à un seul script de requête
 
 ## <a name="implement-the-udf"></a>Implémenter la fonction définie par l’utilisateur
 
-1. Dans **l’Explorateur de solutions** , ouvrez le fichier **Script.asaql**.
+1. Dans **l’Explorateur de solutions**, ouvrez le fichier **Script.asaql**.
 
 2. Remplacez la requête existante par ce qui suit :
 
@@ -111,7 +110,7 @@ Un fichier code-behind est un fichier C# associé à un seul script de requête
 
 1. Téléchargez l’[exemple de fichier de données du simulateur de température](https://raw.githubusercontent.com/Azure/azure-stream-analytics/master/Sample%20Data/TemperatureSampleData.json).
 
-2. Dans **l’Explorateur de solutions** , développez **Entrées** , cliquez avec le bouton droit sur **Input.json** , puis sélectionnez **Ajouter une entrée locale**.
+2. Dans **l’Explorateur de solutions**, développez **Entrées**, cliquez avec le bouton droit sur **Input.json**, puis sélectionnez **Ajouter une entrée locale**.
 
    ![Ajouter une entrée locale au travail Stream Analytics dans Visual Studio](./media/stream-analytics-edge-csharp-udf/stream-analytics-add-local-input.png)
 

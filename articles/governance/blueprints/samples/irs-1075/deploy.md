@@ -1,14 +1,14 @@
 ---
 title: Déployer un exemple de blueprint IRS 1075
 description: Étapes de déploiement pour l’exemple de blueprint IRS 1075 (Rev.11-2016) et informations détaillées sur les paramètres d’artefact de blueprint.
-ms.date: 08/19/2020
+ms.date: 01/08/2021
 ms.topic: sample
-ms.openlocfilehash: 5f2c58b69519f27f759ddfc79d3333e55ed4eb54
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f4be1b642961b9642ea9d638521653dbc33f0334
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88653730"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98045204"
 ---
 # <a name="deploy-the-irs-1075-blueprint-sample"></a>Déployer l’exemple de blueprint IRS 1075
 
@@ -27,7 +27,7 @@ Commencez par implémenter l’exemple de blueprint. Pour cela, créez un bluepr
 
 1. Sélectionnez **Tous les services** dans le volet gauche. Recherchez et sélectionnez **Blueprints**.
 
-1. Dans la page **Démarrage**à gauche, sélectionnez le bouton **Créer** sous _Créer un blueprint_.
+1. Dans la page **Démarrage** à gauche, sélectionnez le bouton **Créer** sous _Créer un blueprint_.
 
 1. Recherchez l’exemple de blueprint **IRS 1075 (Rev.11-2016)** sous _Autres exemples_, puis sélectionnez **Utiliser cet exemple**.
 

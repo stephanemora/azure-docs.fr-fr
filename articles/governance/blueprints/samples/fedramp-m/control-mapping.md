@@ -1,20 +1,20 @@
 ---
 title: Exemples de contrôles de blueprint FedRAMP Moderate
 description: Mappage des contrôles de l’exemple de blueprint FedRAMP Moderate Chaque contrôle est mis en correspondance avec une ou plusieurs définitions Azure Policy qui simplifient l’évaluation.
-ms.date: 10/26/2020
+ms.date: 01/08/2021
 ms.topic: sample
-ms.openlocfilehash: 3963e8915903ed91f28fc49bab33d6d8eeb4b12d
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 30fd8030150613e6e429501ec27d5cad5cbe2a45
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675890"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98034796"
 ---
 # <a name="control-mapping-of-the-fedramp-moderate-blueprint-sample"></a>Mappage des contrôles de l’exemple de blueprint FedRAMP Moderate
 
 L’article suivant décrit en détail le mappage de l’exemple de blueprint FedRAMP Moderate Azure Blueprints aux contrôles FedRAMP Moderate. Pour plus d’informations sur ces contrôles, consultez [Informations de base sur les contrôles de sécurité FedRAMP](https://www.fedramp.gov/).
 
-Les correspondances suivantes concernent les contrôles **FedRAMP Moderate** . Utilisez le volet de navigation de droite pour accéder directement à la correspondance d’un contrôle spécifique. De nombreux contrôles mappés sont implémentés avec une initiative [Azure Policy](../../../policy/overview.md). Pour examiner l’initiative complète, ouvrez **Stratégie** dans le portail Azure et sélectionnez la page **Définitions** . Ensuite, recherchez et sélectionnez l’initiative de stratégie intégrée **\[Préversion\] : Auditer les contrôles FedRAMP Moderate et déployer des extensions de machine virtuelle spécifiques pour prendre en charge les exigences d’audit** .
+Les correspondances suivantes concernent les contrôles **FedRAMP Moderate**. Utilisez le volet de navigation de droite pour accéder directement à la correspondance d’un contrôle spécifique. De nombreux contrôles mappés sont implémentés avec une initiative [Azure Policy](../../../policy/overview.md). Pour examiner l’initiative complète, ouvrez **Stratégie** dans le portail Azure et sélectionnez la page **Définitions**. Ensuite, recherchez et sélectionnez l’initiative de stratégie intégrée **\[Préversion\] : Auditer les contrôles FedRAMP Moderate et déployer des extensions de machine virtuelle spécifiques pour prendre en charge les exigences d’audit**.
 
 > [!IMPORTANT]
 > Chaque contrôle ci-dessous est associé à une ou plusieurs définitions [Azure Policy](../../../policy/overview.md). Ces stratégies peuvent vous aider à [évaluer la conformité](../../../policy/how-to/get-compliance-data.md) avec le contrôle ; toutefois, il n’existe pas souvent de correspondance un-à-un ou parfaite entre un contrôle et une ou plusieurs stratégies. Ainsi, la **conformité** dans Azure Policy fait uniquement référence aux stratégies elles-mêmes ; cela ne garantit pas que vous êtes entièrement conforme à toutes les exigences d’un contrôle. En outre, la norme de conformité comprend des contrôles qui ne sont traités par aucune définition Azure Policy pour l’instant. Par conséquent, la conformité dans Azure Policy n’est qu’une vue partielle de l’état de conformité global. Les associations entre les contrôles et les définitions Azure Policy pour cet exemple de blueprint de conformité peuvent changer au fil du temps. Pour afficher l’historique des changements, consultez l’[historique des validations GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/fedramp-m/control-mapping.md).

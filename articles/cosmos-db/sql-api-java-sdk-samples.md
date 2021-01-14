@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 09/23/2020
 ms.custom: devx-track-java
 ms.author: anfeldma
-ms.openlocfilehash: 6b732c2af204cba6e93f9207648a5123b75660b1
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 0b0bdd204b2aa322adeb7373911b90e742c71999
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96545534"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018987"
 ---
 # <a name="azure-cosmos-db-sql-api-java-sdk-v4-examples"></a>API SQL Azure Cosmos DB : Exemples du kit SDK Java v4
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -164,7 +164,7 @@ Le fichier [Exemples CRUD de document](https://github.com/Azure/azure-documentdb
 | [Lire le document uniquement s’il a changé](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/documentcrud/sync/DocumentCRUDQuickstart.java#L266-L300) | AccessCondition.setType<br>AccessCondition.setCondition |
 
 ## <a name="indexing-examples"></a>Exemples d'indexation
-Le fichier [Exemples CRUD de collection](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/CollectionCrudSamples.java) montre comment effectuer les tâches suivantes. Pour en savoir plus sur l’indexation dans Azure Cosmos DB avant d’exécuter les exemples suivants, consultez les articles conceptuels sur les [stratégies d’indexation](index-policy.md), les [types d’indexation](index-overview.md#index-kinds) et les [chemins d’indexation](index-policy.md#include-exclude-paths). 
+Le fichier [Exemples CRUD de collection](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/CollectionCrudSamples.java) montre comment effectuer les tâches suivantes. Pour en savoir plus sur l’indexation dans Azure Cosmos DB avant d’exécuter les exemples suivants, consultez les articles conceptuels sur les [stratégies d’indexation](index-policy.md), les [types d’indexation](index-overview.md#index-types) et les [chemins d’indexation](index-policy.md#include-exclude-paths). 
 
 | Tâche | Informations de référence sur l'API |
 | --- | --- |
