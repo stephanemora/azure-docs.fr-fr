@@ -65,7 +65,7 @@
               href: relay-hybrid-connections-node-ws-api-overview.md
     - name: Sécuriser
       items:
-        - name: Configurer le pare-feu IP (préversion)
+        - name: Configurer le pare-feu IP
           href: ip-firewall-virtual-networks.md
         - name: Configurer des points de terminaison privés
           href: private-link-service.md

@@ -11,6 +11,10 @@
       href: quickstart-template.md
     - name: PowerShell
       href: quickstart-powershell.md
+    - name: Portail
+      href: quickstart-portal.md
+    - name: Interface de ligne de commande
+      href: quickstart-azure-cli.md
 - name: Tutoriels
   items:
     - name: Création d’une stratégie d’attestation
