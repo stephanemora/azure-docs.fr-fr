@@ -48,7 +48,7 @@
             - name: Vue d’ensemble
               href: database/security-overview.md
               displayName: 'compliance, fedramp, soc, fact, fisc, hitrust, pci, iso'
-            - name: Meilleures pratiques
+            - name: Bonnes pratiques
               href: database/security-best-practice.md
             - name: Contrôles de sécurité par Azure Policy
               displayName: 'regulatory, compliance, standards, domains'
@@ -179,6 +179,8 @@
               href: database/performance-guidance.md
             - name: Utiliser des DMV pour surveiller les performances
               href: database/monitoring-with-dmvs.md
+            - name: Comprendre et résoudre les blocages
+              href: database/understand-resolve-blocking.md
             - name: Journaliser la télémétrie de diagnostic
               href: database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md
             - name: OLTP en mémoire
@@ -1009,7 +1011,7 @@
                   href: virtual-machines/windows/availability-group-overview.md
                 - name: Instance de cluster de basculement
                   href: virtual-machines/windows/failover-cluster-instance-overview.md
-            - name: Meilleures pratiques
+            - name: Bonnes pratiques
               items:
                 - name: Performances
                   href: virtual-machines/windows/performance-guidelines-best-practices.md

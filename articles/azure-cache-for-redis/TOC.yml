@@ -31,6 +31,8 @@
           href: cache-python-get-started.md
         - name: Application Go
           href: cache-go-get-started.md
+        - name: Application Rust
+          href: cache-rust-get-started.md
 - name: Tutoriels
   items:
     - name: ASP.NET
@@ -57,7 +59,7 @@
       href: cache-high-availability.md
     - name: Basculement et correctif
       href: cache-failover.md
-    - name: Meilleures pratiques
+    - name: Bonnes pratiques
       href: cache-best-practices.md
     - name: Sécurité
       items:
