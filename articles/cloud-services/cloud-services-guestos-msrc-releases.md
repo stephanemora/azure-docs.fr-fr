@@ -366,8 +366,8 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 |  Version 20-06  |  [4561608]  |  Dernière mise à jour cumulative (LCU)  |  [6.20]  |  9 juin 2020  |
 |  Version 20-06  |  [4562030]  |  Mise à jour de la pile de maintenance  |  [2.99]  |  9 juin 2020  |
 |  Version 20-06  |  [4561643]  |  Correctif cumulatif mensuel  |  [2.99]  |  9 juin 2020  |
-|  Version 20-06  |  [4562252]  |  Mise à jour de la pile de maintenance  |  [3,86]  |  9 juin 2020  |
-|  Version 20-06  |  [4561612]  |  Correctif cumulatif mensuel  |  [3,86]  |  9 juin 2020  |
+|  Version 20-06  |  [4562252]  |  Mise à jour de la pile de maintenance  |  [3.86]  |  9 juin 2020  |
+|  Version 20-06  |  [4561612]  |  Correctif cumulatif mensuel  |  [3.86]  |  9 juin 2020  |
 |  Version 20-06  |  [4561600]  |  Clignote  |  [3.86], [4.79], [5.44], [6.20]  |  9 juin 2020  |
 |  Version 20-06  |  [4562253]  |  Mise à jour de la pile de maintenance  |  [4,79]  |  9 juin 2020  |
 |  Version 20-06  |  [4561666]  |  Correctif cumulatif mensuel  |  [4,79]  |  9 juin 2020  |
@@ -389,7 +389,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 [4562561]: https://support.microsoft.com/kb/4562561
 [4562562]: https://support.microsoft.com/kb/4562562
 [2.99]: ./cloud-services-guestos-update-matrix.md#family-2-releases
-[3,86]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[3.86]: ./cloud-services-guestos-update-matrix.md#family-3-releases
 [4,79]: ./cloud-services-guestos-update-matrix.md#family-4-releases
 [5,44]: ./cloud-services-guestos-update-matrix.md#family-5-releases
 [6.20]: ./cloud-services-guestos-update-matrix.md#family-6-releases
