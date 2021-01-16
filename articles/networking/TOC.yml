@@ -11,13 +11,13 @@
         - name: Routage asymétrique avec chemins d’accès réseau multiples
           href: ../expressroute/expressroute-asymmetric-routing.md?toc=%2fazure%2fnetworking%2ftoc.json
         - name: Conceptions de réseau sécurisé
-          href: ../best-practices-network-security.md?toc=%2fazure%2fnetworking%2ftoc.json
+          href: /azure/cloud-adoption-framework/reference/networking-vdc?toc=%2fazure%2fnetworking%2ftoc.json
         - name: Topologie hub-and-spoke
-          href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke'
+          href: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke
         - name: Meilleures pratiques en matière de sécurité réseau
           href: ../security/fundamentals/network-best-practices.md?toc=%2fazure%2fnetworking%2ftoc.json
         - name: Appliances réseau virtuelles hautement disponible
-          href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha'
+          href: /azure/architecture/reference-architectures/dmz/nva-ha
         - name: Combiner des méthodes d’équilibrage de charge
           href: ../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fnetworking%2ftoc.json
         - name: Récupération d’urgence à l’aide d’Azure DNS et Traffic Manager
@@ -79,27 +79,27 @@
     - name: Connectivité Internet
       items:
         - name: Équilibrage de charge réseau des serveurs publics
-          href: ../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
+          href: ../load-balancer/quickstart-load-balancer-standard-public-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
         - name: Équilibrage de charge des applications des serveurs publics
           href: ../application-gateway/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
         - name: Protéger les applications web
-          href: ../application-gateway/application-gateway-web-application-firewall-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
+          href: ../web-application-firewall/ag/application-gateway-web-application-firewall-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
         - name: Répartir le trafic entre les emplacements
           href: ../traffic-manager/traffic-manager-configure-geographic-routing-method.md?toc=%2fazure%2fnetworking%2ftoc.json
     - name: Connectivité interne
       items:
         - name: Équilibrage de charge réseau des serveurs privés
-          href: ../load-balancer/load-balancer-get-started-ilb-arm-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
+          href: ../load-balancer/quickstart-load-balancer-standard-internal-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
         - name: Équilibrage de charge des applications des serveurs privés
           href: ../application-gateway/application-gateway-ilb-arm.md?toc=%2fazure%2fnetworking%2ftoc.json
         - name: Connecter des réseaux virtuels (même emplacement)
-          href: ../virtual-network/virtual-networks-create-vnetpeering-arm-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
+          href: ../virtual-network/tutorial-connect-virtual-networks-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
         - name: Connecter des réseaux virtuels (emplacements différents)
           href: ../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
     - name: Connectivité intersite
       items:
         - name: Créer une connexion VPN S2S (IPsec/IKE)
-          href: ../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
+          href: ../vpn-gateway/tutorial-site-to-site-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
         - name: Créer une connexion VPN P2S (SSTP avec certificats)
           href: ../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
         - name: Créer une connexion privée dédiée (ExpressRoute)
@@ -115,7 +115,7 @@
         - name: Vérifier l’utilisation des ressources par rapport aux limites Azure
           href: check-usage-against-limits.md
         - name: Afficher la topologie du réseau
-          href: ../network-watcher/network-watcher-topology-powershell.md?toc=%2fazure%2fnetworking%2ftoc.json
+          href: ../network-watcher/view-network-topology.md?toc=%2fazure%2fnetworking%2ftoc.json
     - name: Exemples de scripts
       items:
         - name: Azure CLI
@@ -131,22 +131,22 @@
 - name: Informations de référence
   items:
     - name: Azure CLI
-      href: 'https://docs.microsoft.com/cli/azure/network'
+      href: /cli/azure/network
     - name: Azure PowerShell
-      href: 'https://docs.microsoft.com/powershell/module/az.network/'
+      href: /powershell/module/az.network/
     - name: .Net
-      href: 'https://docs.microsoft.com/dotnet/api/microsoft.azure.management.network?view=azuremgmtnetwork-9.1.0-preview'
+      href: /dotnet/api/microsoft.azure.management.network?view=azuremgmtnetwork-9.1.0-preview
     - name: Node.js
       href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
     - name: REST
-      href: 'https://msdn.microsoft.com/library/mt163658.aspx'
+      href: /rest/api/virtual-network/
     - name: Éléments intégrés Azure Policy
       displayName: 'samples, policies, definitions'
       href: ./policy-reference.md
 - name: Ressources
   items:
     - name: Créer des modèles
-      href: /azure/azure-resource-manager/resource-group-authoring-templates?toc=%2fazure%2fnetworking%2ftoc.json
+      href: ../azure-resource-manager/templates/template-syntax.md?toc=%2fazure%2fnetworking%2ftoc.json
     - name: Fournisseurs
       href: networking-partners-msp.md
     - name: Feuille de route Azure
