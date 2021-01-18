@@ -125,7 +125,7 @@ Ces paramètres de sécurité par défaut gratuits permettent l’inscription à
 | Méthode | Paramètres de sécurité par défaut | Accès conditionnel |
 | --- | --- | --- |
 | Notification via une application mobile | X | X |
-| Code de vérification provenant d’une application mobile ou d’un jeton matériel | X** | X |
+| Code de vérification provenant d’une application mobile ou d’un jeton matériel | X* | X |
 | Message texte vers le téléphone |   | X |
 | Appel vers le téléphone |   | X |
 | Mots de passe d'application |   | X**_ |
