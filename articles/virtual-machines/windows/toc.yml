@@ -228,7 +228,7 @@
         - name: Réservations de stockage sur disque
           href: ../../cost-management-billing/reservations/understand-disk-reservations.md
         - name: Performances des disques et des machines virtuelles
-          href: disk-performance-windows.md
+          href: ../disks-performance.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Conception pour de hautes performances
           href: ../premium-storage-performance.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Mode rafale des disques
@@ -814,10 +814,8 @@
           href: snapshot-copy-managed-disk.md
         - name: Réserver du stockage sur disque
           href: ../disks-reserved-capacity.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-        - name: Créer un instantané incrémentiel - PowerShell
-          href: disks-incremental-snapshots.md
-        - name: Créer un instantané incrémentiel - Portail
-          href: disks-incremental-snapshots-portal.md
+        - name: Créer un instantané incrémentiel
+          href: ../disks-incremental-snapshots.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Sauvegarder des disques non managés
           href: incremental-snapshots.md
         - name: Chiffrement
@@ -851,7 +849,7 @@
             - name: Utilisation de disques Ultra
               href: ../disks-enable-ultra-ssd.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Évaluer un disque
-              href: disks-benchmarks.md
+              href: ../disks-benchmarks.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Rechercher les disques non attachés - PowerShell
           href: find-unattached-disks.md
         - name: Rechercher les disques non attachés - Portail

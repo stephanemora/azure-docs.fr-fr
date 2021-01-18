@@ -249,7 +249,7 @@ Une fois que le chargement des données vers Azure est terminé, la Data Box eff
 
 1. Emballez l’appareil à des fins de réexpédition dans sa boîte d’origine.
 2. Enroulez le cordon d’alimentation fourni avec l’appareil, et fixez-le à l’arrière de ce dernier.
-3. Appelez l’assistance téléphonique de **Quantium Solutions** au **+852 2318 1213 (Hong Kong)** pendant les heures de bureau (de 9h00 à 18h00, du lundi au vendredi).  
+3. Appelez l’assistance téléphonique de **Quantium Solutions** au **+852 2318 1213 (Hong Kong, R.A.S.)** pendant les heures de bureau (de 9h00 à 18h00, du lundi au vendredi).  
 4. Indiquez Enlèvement Microsoft Azure, le numéro de référence et le numéro de suivi (code-barres en haut) sur l’étiquette de réexpédition pour organiser l’enlèvement.
 5. Vous recevrez une confirmation verbale de la planification de l’enlèvement. Si le transporteur ne procède pas à l’enlèvement, appelez l’assistance téléphonique de Quantium Solutions pour trouver une autre solution.
 6. Lors de la réservation d’un enlèvement auprès de Quantium Solutions, partagez la confirmation avec [Microsoft Data Box Operations Asia](mailto:adbo@microsoft.com) à l’aide du modèle suivant :
