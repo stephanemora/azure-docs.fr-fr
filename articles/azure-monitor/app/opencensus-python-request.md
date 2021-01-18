@@ -20,7 +20,7 @@ Les données de requêtes entrantes sont collectées à l’aide d’OpenCensus 
 Commencez par instrumenter votre application Python avec le dernier [kit SDK OpenCensus Python](./opencensus-python.md).
 
 > [!NOTE]
-> Cet article contient des références au terme *liste noire*, un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.
+> Cet article contient des références au terme *liste rouge*, un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.
 
 ## <a name="tracking-django-applications"></a>Suivi des applications Django
 
