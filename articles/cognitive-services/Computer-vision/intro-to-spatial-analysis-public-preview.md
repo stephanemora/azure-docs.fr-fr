@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 12/14/2020
-ms.openlocfilehash: e017fac551e3122cc6586b32423ff166462ccad8
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 402ee6d5efdd489914cb7d283c7c46d4f7d175f6
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97513556"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97968056"
 ---
 # <a name="introduction-to-computer-vision-spatial-analysis"></a>Présentation de l’analyse spatiale Vision par ordinateur
 
@@ -23,7 +23,7 @@ L’analyse spatiale de Vision par ordinateur est une nouvelle fonctionnalité d
 
 ## <a name="the-basics-of-spatial-analysis"></a>Concepts de base de l’analyse spatiale
 
-Aujourd’hui, les principales compétences de l’analyse spatiale s’appuient sur un pipeline qui ingère un flux vidéo, détecte des personnes dans celui-ci, suit ces personnes dans leurs déplacements au fil du temps et génère des événements à mesure que les personnes interagissent avec des zones d’intérêt.
+Aujourd’hui, les principales opérations en lien avec l’analyse spatiale s’appuient sur un pipeline qui ingère un flux vidéo, détecte des personnes dans celui-ci, suit ces personnes dans leurs déplacements au fil du temps et génère des événements à mesure que les personnes interagissent avec des zones d’intérêt.
 
 ## <a name="spatial-analysis-terms"></a>Terminologie de l’analyse spatiale
 

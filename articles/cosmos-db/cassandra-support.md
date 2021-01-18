@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 8c51450fb6ce5c381784e6aaf9b1a66c3c4ff153
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 771cf97a5c938fb987c66555c92c23f42b302a10
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96188545"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98134226"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Fonctionnalités Apache Cassandra prises en charge par l’API Cassandra Azure Cosmos DB 
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -84,10 +84,11 @@ L’API Cassandra Azure Cosmos DB prend en charge les fonctions CQL suivantes :
 | Jeton * | Oui |
 | ttl | Oui |
 | writetime | Oui |
-| Caster | Non |
+| cast ** | Oui |
 
-> [!NOTE]
-> L’API Cassandra \* prend en charge le jeton en tant que projection/sélecteur et autorise uniquement token(pk) du côté gauche d’une clause Where. Par exemple, `WHERE token(pk) > 1024` est pris en charge, **contrairement à `WHERE token(pk) > token(100)`** .
+> [!NOTE] 
+> L’API Cassandra \* prend en charge le jeton en tant que projection/sélecteur et autorise uniquement token(pk) du côté gauche d’une clause Where. Par exemple, `WHERE token(pk) > 1024` est pris en charge, **contrairement à `WHERE token(pk) > token(100)`** .  
+> \*\* La fonction `cast()` ne peut pas être imbriquée dans l’API Cassandra. Par exemple, `SELECT cast(count as double) FROM myTable` est pris en charge, **contrairement à `SELECT avg(cast(count as double)) FROM myTable`** .
 
 
 
@@ -183,6 +184,30 @@ Azure Cosmos DB prend en charge les commandes de base de données suivantes sur 
 | UPDATE (transactions légères avec condition IF)| Non |
 | TRUNCATE | Non |
 | USE | Oui |
+
+## <a name="cql-shell-commands"></a>Commandes de l’interpréteur de commandes CQL
+
+Azure Cosmos DB prend en charge les commandes de base de données suivantes sur les comptes de l’API Cassandra.
+
+|Commande  |Prise en charge |
+|---------|---------|
+| CAPTURER | Oui |
+| CLEAR | Oui |
+| CONSISTENCY * | N/A |
+| COPY | Non |
+| DESCRIBE | Oui |
+| cqlshExpand | Non |
+| EXIT | Oui |
+| Connexion | N/A (la fonction CQL `USER` n’étant pas prise en charge, la fonction `LOGIN` est redondante) |
+| PAGING | Oui |
+| SERIAL CONSISTENCY * | N/A |
+| SHOW | Oui |
+| SOURCE | Oui |
+| TRACING | N/A (l’API Cassandra est associée à Azure Cosmos DB ; utilisez la [journalisation de diagnostic](cosmosdb-monitor-resource-logs.md) pour résoudre les problèmes) |
+
+> [!NOTE] 
+> \* Consistency fonctionne différemment dans Azure Cosmos DB. Cliquez [ici](cassandra-consistency.md) pour plus d’informations.  
+
 
 ## <a name="json-support"></a>Prise en charge de JSON
 |Commande  |Pris en charge. |

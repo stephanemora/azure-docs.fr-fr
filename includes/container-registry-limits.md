@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/18/2020
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 3fe1b966b56142fd312850ac5d77839b7d9db434
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 089b1b6f1af2f19c16866858324bde2e151e8bdb
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97706200"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98052726"
 ---
 | Ressource | De base | Standard | Premium |
 |---|---|---|---|
@@ -22,8 +22,8 @@ ms.locfileid: "97706200"
 | Taille maximale du calque d’image (Gio) | 200 | 200 | 200 |
 | ReadOps par minute<sup>2, 3</sup> | 1 000 | 3 000 | 10 000 |
 | WriteOps par minute<sup>2, 4</sup> | 100 | 500 | 2 000 |
-| Bande passante de téléchargement en Mbits/s<sup>2</sup> | 30 | 60 | 100 |
-| Bande passante de chargement en Mbits/s<sup>2</sup> | 10 | 20 | 50 |
+| Bande passante de téléchargement<sup>2</sup> (Mbits/s) | 30 | 60 | 100 |
+| Bande passante de chargement <sup>2</sup> (Mbits/s) | 10 | 20 | 50 |
 | Webhooks | 2 | 10 | 500 |
 | Géoréplication | N/A | N/A | [Pris en charge][geo-replication] |
 | Zones de disponibilité | N/A | N/A | [Préversion][zones] |
@@ -38,7 +38,7 @@ ms.locfileid: "97706200"
 | &bull; Référentiels par mappage d’étendue | N/A | N/A | 500 |
 
 
-<sup>1</sup> Stockage compris dans le tarif journalier pour chaque niveau. Pour un stockage supplémentaire, un tarif journalier supplémentaire par Gio vous sera facturé, jusqu’à la limite de stockage. Pour obtenir des informations sur les tarifs, consultez [Tarification d’Azure Container Registry][pricing].
+<sup>1</sup> Stockage compris dans le tarif journalier pour chaque niveau. Vous pouvez utiliser du stockage supplémentaire (jusqu’à la limite de stockage du registre), auquel un tarif journalier supplémentaire par Gio vous sera facturé. Pour obtenir des informations sur les tarifs, consultez [Tarification d’Azure Container Registry][pricing]. Si vous avez besoin de davantage de stockage, contactez le Support Azure.
 
 <sup>2</sup>Les valeurs *ReadOps*, *WriteOps* et *Bandwidth* sont des estimations minimales. Azure Container Registry s’efforce d’améliorer les performances en fonction de l’utilisation requise.
 

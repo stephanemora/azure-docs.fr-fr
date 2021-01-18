@@ -10,16 +10,16 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 82f6c5989149b50a1ef5e6c6fb5350d474476436
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: 43eae43d11a48ee6c395e4a86b8e8c1353843991
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97845469"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131444"
 ---
-# <a name="receipt-concepts"></a>Concepts relatifs aux reçus
+# <a name="form-recognizer-prebuilt-receipt-model"></a>Modèle de reçu prédéfini dans Form Recognizer
 
-Form Recognizer peut analyser les accusés de réception à l’aide de l’un de ses modèles prédéfinis. L’API Receipt extrait les informations clés des recettes de vente en anglais, telles que le nom du partenaire, la date de transaction, le total de la transaction, les postes, etc. 
+Azure Form Recognizer peut analyser et extraire des informations dans des reçus à l’aide de son modèle de reçu prédéfini. Il combine nos puissantes fonctionnalités de [reconnaissance optique de caractères (OCR)](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text) avec des modèles de Deep Learning qui comprennent les reçus dans le but d’en extraire des informations clés. L’API Receipt extrait les informations clés des recettes de vente en anglais, telles que le nom du partenaire, la date de transaction, le total de la transaction, les postes, etc. 
 
 ## <a name="understanding-receipts"></a>Comprendre les tickets de caisse 
 
@@ -27,32 +27,39 @@ De nombreuses entreprises et personnes continuent de s’appuyer sur l’extract
 
 L’extraction automatique de données à partir de ces tickets de caisse peut être compliquée. Les tickets de caisse peuvent être froissés et difficiles à lire, les parties imprimées ou manuscrites et les images des tickets de caisse sur les smartphones peuvent être de mauvaise qualité. En outre, les champs et les modèles de ticket de caisse peuvent varier considérablement selon le marché, la région et le commerçant. Ces défis, tant au niveau de l’extraction des données que de la détection des champs, font du traitement des tickets de caisse un problème unique.  
 
-Grâce à la reconnaissance optique de caractères (OCR) et à notre modèle de ticket de caisse prédéfini, l’API Receipt permet de traiter ces scénarios et d’extraire des données des tickets de caisse, par exemple le nom du commerçant, le pourboire, le total, les postes, etc. Avec cette API, il n’est pas nécessaire de former un modèle ; il suffit d’envoyer le ticket de caisse à l’API Analyze Receipt, et les données sont extraites.
+Grâce à la reconnaissance optique de caractères (OCR) et à notre modèle de ticket de caisse prédéfini, l’API Receipt permet de traiter ces scénarios et d’extraire des données des tickets de caisse, par exemple le nom du commerçant, le pourboire, le total, les postes, etc. Avec cette API, il n’est pas nécessaire d’entraîner un modèle ; il suffit d’envoyer le reçu à l’API Analyze Receipt afin que les données soient extraites.
 
-![exemple de ticket de caisse](./media/contoso-receipt-small.png)
+![exemple de ticket de caisse](./media/receipts-example.jpg)
 
-## <a name="what-does-the-receipt-api-do"></a>Que fait l’API Receipt ? 
 
-L’API Receipt prédéfinie extrait le contenu des tickets de caisse de vente &mdash; c’est-à-dire le type de ticket de caisse que vous obtiendriez généralement dans un restaurant, un détaillant ou une épicerie.
+## <a name="what-does-the-receipt-service-do"></a>Comment fonctionne le service Receipt ? 
+
+Le service Receipt prédéfini extrait le contenu des reçus, c’est-à-dire le type de reçu que vous recevez généralement dans un restaurant, chez un détaillant ou dans une épicerie.
 
 ### <a name="fields-extracted"></a>Champs extraits
 
-* Nom du commerçant 
-* Adresse du commerçant 
-* Numéro de téléphone du commerçant 
-* Date de la transaction 
-* Temps de transaction 
-* Sous-total 
-* Taxe 
-* Total 
-* Conseil 
-* Extraction de poste (par exemple, quantité d’articles, prix de l’article, nom de l’article)
+|Nom| Type | Description | Texte | Valeur (sortie standardisée) |
+|:-----|:----|:----|:----| :----|
+| ReceiptType | string | Type de reçu | Itemized |  |
+| MerchantName | string | Nom du commerçant émettant le reçu | Contoso |  |
+| MerchantPhoneNumber | phoneNumber | Numéro de téléphone de la liste de commerçants | 987-654-3210 | +19876543210 |
+| MerchantAddress | string | Adresse répertoriée du commerçant | 123 Main St Redmond WA 98052 |  |
+| TransactionDate | Date | Date d’émission du reçu | 06 juin 2019 | 2019-06-26  |
+| TransactionTime | time | Heure d’émission du reçu | 4:49 PM | 16:49:00  |
+| Total | nombre | Total du reçu | $14.34 | 14,34 |
+| Sous-total | nombre | Sous-total du reçu, souvent avant application des taxes | $12.34 | 12.34 |
+| Taxe | nombre | Taxes sur le reçu (taxe ou équivalent) | $2.00 | 2,00 |
+| Conseil | nombre | Pourboire inclus par l’acheteur | $1.00 | 1.00 |
+| Éléments | tableau d’objets | Lignes extraites, avec le nom, la quantité, le prix unitaire et le prix total extraits | |
+| Nom | string | Nom de l’élément | Surface Pro 6 | |
+| Quantité | nombre | Quantité de chaque élément | 1 | |
+| Price | nombre | Prix individuel de chaque unité d’article | $999.00 | 999.00 |
+| Prix total | nombre | Prix total de la ligne de facturation | $999.00 | 999.00 |
 
 ### <a name="additional-features"></a>Fonctionnalités supplémentaires
 
 L’API Receipt renvoie également les informations suivantes :
 
-* Type d’accusé de réception (par exemple, une carte de crédit, etc.)
 * Niveau de confiance de champ (chaque champ retourne une valeur de confiance associée)
 * Texte brut OCR (sortie texte extraite par OCR pour l’intégralité du ticket de caisse)
 * Cadre englobant pour chaque valeur, ligne et mot

@@ -7,14 +7,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: reference
-ms.date: 10/01/2020
+ms.date: 01/12/2020
 ms.author: mbaldwin
-ms.openlocfilehash: dbbde397ab235068ea90280da721e3e3dc38866a
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: ef2c42ae76dc5e1511494635904228a8b574d483
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792359"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132186"
 ---
 # <a name="whats-new-for-azure-key-vault"></a>Nouveautés d’Azure Key Vault
 
@@ -37,7 +37,7 @@ Pour prendre en charge l’[activation par défaut de la suppression réversible
 
 ### <a name="soft-delete-on-by-default"></a>Suppression réversible activée par défaut
 
-D’ici la fin de l’année 2020, la **suppression réversible sera activée par défaut pour tous les coffres de clés** (nouveaux et préexistants). Pour plus d’informations sur ce changement potentiellement cassant et pour connaître les étapes permettant de trouver les coffres de clés affectés et de les mettre à jour au préalable, consultez l’article [La suppression réversible sera activée sur tous les coffres de clés](soft-delete-change.md).
+**La suppression réversible doit être activée pour tous les coffres de clés**, qu’ils soient nouveaux ou préexistants. Dans les prochains mois, la fonctionnalité permettant de refuser la suppression réversible sera dépréciée. Pour plus d’informations sur ce changement potentiellement cassant et pour connaître les étapes permettant de trouver les coffres de clés affectés et de les mettre à jour au préalable, consultez l’article [La suppression réversible sera activée sur tous les coffres de clés](soft-delete-change.md).
 
 ### <a name="azure-tls-certificate-changes"></a>Changements des certificats Azure TLS
 

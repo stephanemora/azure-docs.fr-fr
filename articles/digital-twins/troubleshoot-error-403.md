@@ -6,12 +6,12 @@ author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
 ms.date: 7/20/2020
-ms.openlocfilehash: aeae1f1a99d1fa574df8202efd2405232855628b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 1517c066fe20d478094f57d85d6e27f355a93601
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93091801"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98049811"
 ---
 # <a name="service-request-failed-status-403-forbidden"></a>Échec de la demande de service. État : 403 (Interdit)
 
@@ -44,7 +44,7 @@ La première solution consiste à vérifier que votre utilisateur Azure dispose 
 Notez que ce rôle est différent…
 * L’ancien nom de ce rôle pendant la préversion, *Propriétaire Azure Digital Twins (préversion)* (le rôle est le même, mais le nom a été modifié)
 * du rôle *Propriétaire* sur l’ensemble de l’abonnement Azure. *Propriétaire de données Azure Digital Twins* est un rôle au sein d’Azure Digital Twins qui est étendu à cette instance individuelle d’Azure Digital Twins.
-* du rôle *Propriétaire* dans Azure Digital Twins. Il s’agit de deux rôles de gestion distincts pour Azure Digital Twins, et *Propriétaire de données Azure Digital Twins* est le rôle qui doit être utilisé pour gérer la préversion.
+* du rôle *Propriétaire* dans Azure Digital Twins. Il s’agit de deux rôles de gestion distincts pour Azure Digital Twins et *Propriétaire de données Azure Digital Twins* est le rôle qui doit être utilisé pour la gestion.
 
 #### <a name="check-current-setup"></a>Vérifier la configuration actuelle
 
@@ -52,7 +52,7 @@ Notez que ce rôle est différent…
 
 #### <a name="fix-issues"></a>Corriger les problèmes 
 
-Si vous n’avez pas cette attribution de rôle, une personne disposant d’un rôle Propriétaire dans votre **abonnement Azure** doit exécuter la commande suivante pour permettre à votre utilisateur Azure d’utiliser le rôle *Propriétaire de données Azure Digital Twins* sur l’ **instance Azure Digital Twins**. 
+Si vous n’avez pas cette attribution de rôle, une personne disposant d’un rôle Propriétaire dans votre **abonnement Azure** doit exécuter la commande suivante pour permettre à votre utilisateur Azure d’utiliser le rôle *Propriétaire de données Azure Digital Twins* sur l’**instance Azure Digital Twins**. 
 
 Si vous êtes propriétaire de l’abonnement, vous pouvez exécuter cette commande vous-même. Dans le cas contraire, contactez un propriétaire pour qu’il l’exécute à votre place.
 

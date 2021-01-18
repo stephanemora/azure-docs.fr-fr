@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 08/07/2020
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: bb9efa3fde0ed840589b66db7b28392de67ee8dd
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 0ca1f1222881a2b4ca640fa31192bd1c151ebd9f
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94635583"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028843"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-36-version-supported-features-and-syntax"></a>API Azure Cosmos DB pour MongoDB (version 3.6) : fonctionnalités et syntaxe prises en charge
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -23,11 +23,14 @@ Azure Cosmos DB est le service de base de données multi-modèle de Microsoft di
 
 ## <a name="protocol-support"></a>Prise en charge du protocole
 
-L’API Azure Cosmos DB pour MongoDB est compatible avec la version **3.6** du serveur MongoDB par défaut pour les nouveaux comptes. Les opérateurs pris en charge, ainsi que les limitations ou exceptions sont répertoriés ci-dessous. Les pilotes clients comprenant ces protocoles doivent pouvoir se connecter à l’API Azure Cosmos DB pour MongoDB. Notez que lors de l’utilisation de l’API Azure Cosmos DB pour les comptes MongoDB, le point de terminaison de la version 3.6 des comptes est au format `*.mongo.cosmos.azure.com`, tandis que celui de la version 3.2 des comptes est au format `*.documents.azure.com`.
+L’API Azure Cosmos DB pour MongoDB est compatible avec la version **3.6** du serveur MongoDB par défaut pour les nouveaux comptes. Les opérateurs pris en charge, ainsi que les limitations ou exceptions sont répertoriés ci-dessous. Les pilotes clients comprenant ces protocoles doivent pouvoir se connecter à l’API Azure Cosmos DB pour MongoDB. Notez que, quand vous utilisez l’API d’Azure Cosmos DB pour les comptes MongoDB, le point de terminaison de la version 3.6 du compte est au format `*.mongo.cosmos.azure.com`, tandis que celui de la version 3.2 du compte est au format `*.documents.azure.com`.
 
 ## <a name="query-language-support"></a>Prise en charge du langage de requêtes
 
-L’API Azure Cosmos DB pour MongoDB permet la prise en charge complète des constructions de langage de requête MongoDB. Vous trouverez ci-dessous la liste détaillée des opérations, opérateurs, étapes, commandes et options actuellement pris en charge.
+L’API Azure Cosmos DB pour MongoDB permet la prise en charge complète des constructions de langage de requête MongoDB. Dans les sections suivantes, vous trouverez la liste détaillée des opérations de serveur, des opérateurs, des étapes, des commandes et des options actuellement pris en charge par Azure Cosmos DB.
+
+> [!NOTE]
+> Cet article liste uniquement les commandes de serveur prises en charge et exclut les fonctions wrapper côté client. Les fonctions wrapper côté client telles que `deleteMany()` et `updateMany()` utilisent en interne les commandes de serveur `delete()` et `update()`. Les fonctions utilisant des commandes de serveur prises en charge sont compatibles avec l’API d’Azure Cosmos DB pour MongoDB.
 
 ## <a name="database-commands"></a>Commandes de base de données
 

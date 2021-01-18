@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, devx-track-js
-ms.openlocfilehash: 643305057490cc550a5a8e39a892297b000cbc8e
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: c9aa73767fcb9d57ada11f5830fec00b10eee812
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96169407"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98017338"
 ---
 # <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>Démarrage rapide : Ajouter la connexion à l’aide d’OpenID Connect à une application web Node.js
 
@@ -29,38 +29,29 @@ Dans ce guide de démarrage rapide, vous téléchargez et exécutez un exemple d
 - [Node.js](https://nodejs.org/en/download/).
 
 ## <a name="register-your-application"></a>Inscrivez votre application
-1. Connectez-vous au [portail Azure](https://portal.azure.com/) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
-1. Si votre compte est présent dans plusieurs locataires Azure AD :
-    - Sélectionnez votre profil dans le menu en haut à droite de la page, puis **changez de répertoire**.
-    - Modifiez votre session sur le locataire Azure AD où vous voulez créer votre application.
 
-1. Accédez à [Azure Active Directory > Inscriptions d'applications](https://go.microsoft.com/fwlink/?linkid=2083908) pour inscrire votre application.
-
-1. Sélectionnez **Nouvelle inscription.**
-
-1. Lorsque la page **Inscrire une application** s'affiche, entrez les informations d'inscription de votre application :
-    - Dans la section **Nom**, entrez un nom explicite pour les utilisateurs de l'application. Par exemple : MonAppliWeb
-    - Dans la section **Types de comptes pris en charge**, sélectionnez **Comptes dans un annuaire organisationnel et comptes personnels Microsoft (par exemple, Skype, Xbox, Outlook.com)** .
+1. Connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Si vous avez accès à plusieurs locataires, utilisez le filtre **Répertoire + abonnement** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: dans le menu du haut pour sélectionner le locataire dans lequel vous voulez inscrire une application.
+1. Recherchez et sélectionnez **Azure Active Directory**.
+1. Sous **Gérer**, sélectionnez **Inscriptions d’applications** > **Nouvelle inscription**.
+1. Entrez un **nom** pour votre application (par exemple, `MyWebApp`). Les utilisateurs de votre application peuvent voir ce nom, et vous pouvez le changer ultérieurement.
+1. Dans la section **Types de comptes pris en charge**, sélectionnez **Comptes dans un annuaire organisationnel et comptes personnels Microsoft (par exemple, Skype, Xbox, Outlook.com)** .
 
     S'il existe plusieurs URI de redirection, vous devrez les ajouter à partir de l'onglet **Authentification** une fois l'application créée.
 
 1. Sélectionnez **Inscrire** pour créer l'application.
-
 1. Sur la page **Vue d'ensemble** de l'application, recherchez la valeur de l'**ID d'application (client)** et notez-la. Vous aurez besoin de cette valeur pour configurer l'application plus tard dans ce projet.
+1. Sous **Gérer**, sélectionnez **Authentification**.
+1. Sélectionnez **Ajouter une plateforme** > **Web**. 
+1. Dans la section **URI de redirection**, entrez `http://localhost:3000/auth/openid/return`.
+1. Entrez une **URL de déconnexion** `https://localhost:3000`.
+1. Dans la section Octroi implicite, cochez **Jetons d’ID** dans la mesure où cet exemple exige l’activation du [flux d’octroi implicite](./v2-oauth2-implicit-grant-flow.md) pour permettre la connexion de l’utilisateur.
+1. Sélectionnez **Configurer**.
+1. Sous **Gérer**, sélectionnez **Certificats et secrets** > **Nouveau secret client**.
+1. Entrez une description pour la clé (par exemple, secret de l'application).
+1. Sélectionnez une durée pour la clé : **Dans 1 an, Dans 2 ans** ou **N'expire jamais**.
+1. Sélectionnez **Ajouter**. La valeur de la clé s’affiche. Copiez la valeur de la clé et enregistrez-la dans un endroit sûr en vue d’une utilisation ultérieure.
 
-1. Dans la liste des pages de l’application, sélectionnez **Authentification**.
-    - Dans la section **URI de redirection**, sélectionnez **Web** à partir de la zone de liste modifiable et entrez l'URI de redirection suivant : `http://localhost:3000/auth/openid/return`
-    - Dans la section **Paramètres avancés**, définissez **URL de déconnexion** sur `https://localhost:3000`.
-    - Dans la section **Paramètres avancés > Octroi implicite**, cochez  **Jetons d'ID** car cet exemple exige l'activation du [flux d'octroi implicite](./v2-oauth2-implicit-grant-flow.md) pour permettre la connexion de l'utilisateur.
-
-1. Sélectionnez **Enregistrer**.
-
-1. Sur la page **Certificats et secrets**, accédez à la section **Secrets client** et choisissez **Nouveau secret client**.
-    - Entrez une description pour la clé (par exemple, secret de l'application).
-    - Sélectionnez une durée pour la clé : **Dans 1 an, Dans 2 ans** ou **N'expire jamais**.
-    - Lorsque vous cliquez sur le bouton **Ajouter**, la valeur de la clé s'affiche. Copiez la valeur de la clé et enregistrez-la dans un endroit sûr.
-
-    Vous aurez besoin de cette clé plus tard pour configurer l'application. Cette valeur de clé ne sera plus jamais affichée et aucun autre moyen ne permettra de la récupérer. Par conséquent, enregistrez-la dès qu’elle apparaît sur le portail Azure.
 
 ## <a name="download-the-sample-application-and-modules"></a>Télécharger l'exemple d'application et les modules
 

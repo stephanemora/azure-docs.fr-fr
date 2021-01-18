@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: trbye
-ms.openlocfilehash: 5a912790b4a7a86c44576b98ce7e95f44b810c9e
-ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
+ms.openlocfilehash: 41fdb3d2e69ae39dbe80f21a953fd9fdaa6d1127
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97857373"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97968464"
 ---
 # <a name="train-and-deploy-a-custom-speech-model"></a>Entraîner et déployer un modèle Custom Speech
 
@@ -35,18 +35,23 @@ Si vous rencontrez des problèmes de reconnaissance avec un modèle de base, vou
 
 La première étape pour entraîner un modèle consiste à charger des données d’entraînement. Consultez [Préparer et tester les données](./how-to-custom-speech-test-and-train.md) pour obtenir des instructions pas à pas sur la manière de préparer des transcriptions étiquetées à la main et du texte associé (énoncés et prononciations). Après avoir chargé des données d’apprentissage, suivez les instructions suivantes pour commencer à effectuer l’apprentissage de votre modèle :
 
-1. Connectez-vous au [portail Custom Speech](https://speech.microsoft.com/customspeech).
+1. Connectez-vous au [portail Custom Speech](https://speech.microsoft.com/customspeech). Si vous envisagez d’effectuer l’apprentissage d’un modèle avec des jeux de données de transcription étiquetée à la main + audio, choisissez un abonnement Speech situé dans une [région avec un matériel dédié](custom-speech-overview.md#set-up-your-azure-account) pour l’apprentissage.
 2. Accédez à **Synthèse vocale** > **Custom Speech** >  **[nom du projet]**  > **Formation**.
 3. Sélectionnez **Effectuer l’apprentissage du modèle**.
 4. Attribuez à votre apprentissage un **Nom** et une **Description**.
 5. Dans la liste **Scénario et modèle de référence**, sélectionnez le scénario qui correspond le mieux à votre domaine. Si hésitez sur le choix du scénario, sélectionnez **Général**. Le modèle de référence est le point de départ de votre entraînement. Le modèle le plus récent est généralement le meilleur choix.
-6. Dans la page **Sélectionner les données d’apprentissage**, choisissez un ou plusieurs jeux de données de transcription étiquetée à la main à utiliser pour l’apprentissage.
+6. Dans la page **Sélectionner les données d’entraînement**, choisissez un ou plusieurs jeux de données de transcription étiquetée à la main + audio à utiliser pour l’apprentissage. Lorsque vous entraînez un nouveau modèle, commencez par le texte associé. L’apprentissage avec transcription étiquetée à la main + audio peut prendre plus de temps (jusqu’à [plusieurs jours](how-to-custom-speech-evaluate-data.md#improve-model-recognition)).
 7. Une fois l’apprentissage du modèle terminé, vous pouvez effectuer des tests d’exactitude sur celui-ci. Cette étape est facultative.
 8. Sélectionnez **Create** pour générer votre modèle personnalisé.
 
 La table **Formation** affiche une nouvelle entrée correspondant au nouveau modèle. Elle indique également l’état : **En cours de traitement**, **Réussite** ou **Échec**.
 
 Consultez le [Guide pratique](how-to-custom-speech-evaluate-data.md) sur l’évaluation et l’amélioration de la justesse du modèle Custom Speech. Si vous choisissez de tester l’exactitude, il est important de sélectionner un jeu de données acoustique différent de celui que vous avez utilisé avec votre modèle pour vous faire une idée réaliste des performances du modèle.
+
+> [!NOTE]
+> Les modèles de base et les modèles personnalisés ne peuvent être utilisés que jusqu’à une certaine date (voir [Cycle de vie du modèle](custom-speech-overview.md#model-lifecycle)). Speech Studio affiche cette date dans la colonne **Expiration** de chaque modèle et point de terminaison. Après cette demande, la demande envoyée à un point de terminaison ou à une transcription par lots peut échouer ou revenir au modèle de base.
+>
+> Réentraînez votre modèle à l’aide du modèle de base le plus récent pour tirer parti des améliorations de précision et pour éviter que votre modèle expire.
 
 ## <a name="deploy-a-custom-model"></a>Déployer un modèle personnalisé
 
@@ -63,7 +68,7 @@ Ensuite, sélectionnez **Ajouter un point de terminaison** et entrez un **nom** 
 
 Ensuite, sélectionnez **Créer**. Cette action vous renvoie à la page **Déploiement**. La table inclut désormais une entrée qui correspond à votre point de terminaison personnalisé. L’état du point de terminaison indique son état actuel. L’instanciation d’un nouveau point de terminaison avec vos modèles personnalisés peut prendre jusqu’à 30 minutes. Lorsque l’état du déploiement est **Complete**, le point de terminaison est prêt à être utilisé.
 
-Une fois le point de terminaison déployé, son nom s’affiche sous forme de lien. Sélectionnez ce lien pour afficher les informations spécifiques de votre point de terminaison, telles que sa clé, son URL et un exemple de code.
+Une fois le point de terminaison déployé, son nom s’affiche sous forme de lien. Sélectionnez ce lien pour afficher les informations spécifiques de votre point de terminaison, telles que sa clé, son URL et un exemple de code. Prenez note de la date d’expiration et mettez à jour le modèle du point de terminaison avant cette date pour garantir un service continu.
 
 ## <a name="view-logging-data"></a>Afficher les données de journalisation
 

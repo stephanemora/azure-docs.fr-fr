@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: panosper
-ms.openlocfilehash: a78e18de1f495feb6234fa5bfd97162d8b80de4c
-ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
+ms.openlocfilehash: a6f75a80fd73844c975b332db8a0e8919cde9f0d
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97857322"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98072171"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Forum aux questions sur la reconnaissance vocale
 
@@ -134,9 +134,11 @@ Consultez [Quotas et limites des services Speech](speech-services-quotas-and-lim
 
 **R** : Oui. Vous pouvez les transcrire vous-même ou utiliser un service de transcription professionnel. Certains utilisateurs se tournent vers des transcripteurs professionnels, d’autres optent pour une externalisation participative, et d’autres encore préfèrent transcrire eux-mêmes.
 
-**Q : Combien de temps faut-il pour entraîner les données audio d’un modèle personnalisé ?**
+**Q : Combien de temps faut-il pour entraîner un modèle personnalisé avec les données audio ?**
 
-**R** : L’apprentissage d’un modèle avec des données audio est un processus long. Selon la quantité de données, la création d’un modèle personnalisé peut prendre plusieurs jours. Si elle n’est pas terminée au bout d’une semaine, le service peut abandonner l’opération d’apprentissage et signaler un échec du modèle. Pour obtenir des résultats plus rapides, utilisez l’une des [régions](custom-speech-overview.md#set-up-your-azure-account) dans lesquelles du matériel dédié est disponible pour l’apprentissage. Vous pouvez copier le modèle entièrement entraîné dans une autre région à l’aide de [l’API REST](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription). L’apprentissage sur du simple texte est beaucoup plus rapide : il se termine généralement au bout de quelques minutes.
+**R** : L’apprentissage d’un modèle avec des données audio peut être un processus long. Selon la quantité de données, la création d’un modèle personnalisé peut prendre plusieurs jours. Si elle n’est pas terminée au bout d’une semaine, le service peut abandonner l’opération d’apprentissage et signaler un échec du modèle.
+
+Pour obtenir des résultats plus rapides, utilisez l’une des [régions](custom-speech-overview.md#set-up-your-azure-account) dans lesquelles du matériel dédié est disponible pour l’apprentissage. En général, le service traite environ 10 heures de données audio par jour dans les régions avec ce type de matériel. Il peut uniquement traiter environ 1 heure de données audio par jour dans d’autres régions. Vous pouvez copier le modèle entièrement entraîné dans une autre région à l’aide de [l’API REST](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription). L’apprentissage sur du simple texte est beaucoup plus rapide : il se termine généralement au bout de quelques minutes.
 
 Certains modèles de base ne sont pas personnalisables avec des données audio. Dans ce cas, le service utilise simplement le texte de la transcription pour l’apprentissage et ignore les données audio. L’apprentissage se révèlera alors beaucoup plus rapide. Les résultats seront les mêmes que pour l’apprentissage sur du simple texte.
 

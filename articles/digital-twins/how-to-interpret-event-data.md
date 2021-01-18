@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 22bedcf7921e3c8d4f2566a70515eef3e3b136b6
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: a0f2b971eae5d37e8fb0771e213075289af6c519
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461020"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98045255"
 ---
 # <a name="understand-event-data"></a>Comprendre les données d’événements
 
-Dans Azure Digital Twins, plusieurs événements peuvent produire des **notifications** . Celles-ci permettent au back-end de la solution de savoir quand des actions se produisent. Elles sont ensuite [routées](concepts-route-events.md) vers différents emplacements, à l’intérieur et à l’extérieur d’Azure Digital Twins, qui peuvent utiliser ces informations pour prendre des mesures.
+Dans Azure Digital Twins, plusieurs événements peuvent produire des **notifications**. Celles-ci permettent au back-end de la solution de savoir quand des actions se produisent. Elles sont ensuite [routées](concepts-route-events.md) vers différents emplacements, à l’intérieur et à l’extérieur d’Azure Digital Twins, qui peuvent utiliser ces informations pour prendre des mesures.
 
 Plusieurs types de notifications peuvent être générés. En outre, les messages de notification peuvent être différents selon le type d’événement qui les a générés. Cet article donne des détails sur les différents types de messages, ainsi que sur leur aspect.
 
@@ -93,7 +93,7 @@ Cette section décrit en détail les différents types de notifications émises 
 
 ### <a name="digital-twin-life-cycle-notifications"></a>Notifications de cycle de vie pour les jumeaux numériques
 
-Tous les [jumeaux numériques](concepts-twins-graph.md) émettent des notifications, qu’ils représentent ou non des [appareils IoT Hub dans Azure Digital Twins](how-to-ingest-iot-hub-data.md). Ceci est dû aux **notifications de cycle de vie** , qui concernent uniquement le jumeau numérique.
+Tous les [jumeaux numériques](concepts-twins-graph.md) émettent des notifications, qu’ils représentent ou non des [appareils IoT Hub dans Azure Digital Twins](how-to-ingest-iot-hub-data.md). Ceci est dû aux **notifications de cycle de vie**, qui concernent uniquement le jumeau numérique.
 
 Les notifications de cycle de vie sont déclenchées dans les cas suivants :
 * La création d’un jumeau numérique
@@ -116,7 +116,7 @@ Voici les champs compris dans le corps d’une notification de cycle de vie.
 
 #### <a name="body-details"></a>Détails du corps
 
-Le corps correspond au jumeau numérique affecté, représenté au format JSON. Le schéma est le suivant : *Digital Twins Resource 7.1* .
+Le corps correspond au jumeau numérique affecté, représenté au format JSON. Le schéma est le suivant : *Digital Twins Resource 7.1*.
 
 Pour les événements de création, la charge utile reflète l’état du jumeau après la création de la ressource. Par conséquent, elle doit inclure tous les éléments générés par le système, tout comme un appel `GET`.
 
@@ -260,22 +260,9 @@ Voici les champs compris dans le corps d’une notification de modification d’
 
 Le corps de la notification `Twin.Update` est un document de correctif JSON contenant la mise à jour du jumeau numérique.
 
-Par exemple, imaginons qu’un jumeau numérique ait été mis à jour à l’aide du correctif suivant.
+Par exemple, imaginons qu’un jumeau numérique a été mis à jour à l’aide du correctif suivant.
 
-```json
-[
-    {
-        "op": "replace",
-        "value": 40,
-        "path": "/Temperature"
-    },
-    {
-        "op": "add",
-        "value": 30,
-        "path": "/comp1/prop1"
-    }
-]
-```
+:::code language="json" source="~/digital-twins-docs-samples/models/patch-component-2.json":::
 
 La notification correspondante (si elle est exécutée de façon synchrone par le service, comme lorsqu’Azure Digital Twins met à jour un jumeau numérique) aurait un corps comme le suivant :
 

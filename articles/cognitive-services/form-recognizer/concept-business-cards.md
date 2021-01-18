@@ -10,39 +10,43 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: ed57c496443c9d1541bfa9933e7718213da116d7
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: 1fd4279cd35e54e2e04f88973c4a825218a75142
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97845610"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131121"
 ---
-# <a name="business-card-concepts"></a>Concepts relatifs aux cartes de visite
+# <a name="form-recognizer-prebuilt-business-cards-model"></a>Modèle de cartes de visite prédéfini Form Recognizer 
 
-Azure Form Recognizer peut analyser et extraire des informations de contact à partir de cartes de visite à l’aide de l’un de ses modèles prédéfinis. L’API Carte de visite associe de puissantes fonctionnalités de reconnaissance optique de caractères (OCR) à notre modèle de compréhension de carte de visite pour extraire des informations clés à partir de cartes de visite en anglais. Elle extrait les informations de contact personnel, le nom de la société, la fonction et plus encore. L’API Carte de visite prédéfinie est en disponibilité publique dans la préversion de Form Recognizer v2.1. 
+Azure Form Recognizer peut analyser et extraire des informations de contact à partir de cartes de visite à l’aide de l’un de ses modèles de carte de visite prédéfinis. Il associe de puissantes fonctionnalités de reconnaissance optique de caractères (OCR) à notre modèle de compréhension de carte de visite pour extraire des informations clés à partir de cartes de visite en anglais. Elle extrait les informations de contact personnel, le nom de la société, la fonction et plus encore. L’API Carte de visite prédéfinie est en disponibilité publique dans la préversion de Form Recognizer v2.1. 
 
-## <a name="what-does-the-business-card-api-do"></a>Quelle est la fonction de l’API Carte de visite ?
+## <a name="what-does-the-business-card-service-do"></a>Quelle est la fonction du service Carte de visite ?
 
-L’API Carte de visite extrait les champs clés des cartes de visite et les retourne dans une réponse JSON organisée.
+L’API Carte de visite prédéfinie extrait les champs clés des cartes de visite et les retourne dans une réponse JSON organisée.
 
-![Image détaillée de Contoso à partir de la sortie JSON + FOTT](./media/business-card-english.jpg)
+![Image détaillée de Contoso à partir de la sortie JSON + FOTT](./media/business-card-example.jpg)
+
+
 
 ### <a name="fields-extracted"></a>Champs extraits :
 
-* Noms des contacts 
-  * Prénoms
-  * Noms de famille
-* Noms de société 
-* Departments 
-* Fonctions 
-* E-mails 
-* Sites web 
-* Adresses 
-* Numéros de téléphone 
-  * Téléphones mobiles 
-  * Télécopies 
-  * Téléphones professionnels 
-  * Autres téléphones 
+|Nom| Type | Description | Texte | 
+|:-----|:----|:----|:----|
+| ContactNames | tableau d’objets | Nom de contact extrait de la carte de visite | [{ "FirstName": "John", "LastName": "Doe" }] |
+| FirstName | string | Prénom du contact | "John" | 
+| LastName | string | Nom du contact |   "Doe" | 
+| CompanyNames | tableau de chaînes | Nom de société extrait de la carte de visite | ["Contoso"] | 
+| Departments | tableau de chaînes | Service ou organisation de contact | ["R&D"] | 
+| JobTitles | tableau de chaînes | Poste indiqué du contact | ["Software Engineer"] | 
+| E-mails | tableau de chaînes | E-mail de contact extrait de la carte de visite | ["johndoe@contoso.com"] | 
+| Sites web | tableau de chaînes | Site web extrait de la carte de visite | ["https://www.contoso.com"] | 
+| Adresses | tableau de chaînes | Adresse extraite de la carte de visite | ["123 Main Street, Redmond, WA 98052"] | 
+| MobilePhones | tableau de numéros de téléphone | Numéro de téléphone mobile extrait de la carte de visite | ["+19876543210"] |
+| Télécopies | tableau de numéros de téléphone | Numéro de télécopie extrait de la carte de visite | ["+19876543211"] |
+| WorkPhones | tableau de numéros de téléphone | Numéro de téléphone professionnel extrait de la carte de visite | ["+19876543231"] |
+| OtherPhones    | tableau de numéros de téléphone | Autre numéro de téléphone extrait de la carte de visite | ["+19876543233"] |
+
 
 L’API Carte de visite peut également retourner tout le texte reconnu de la carte de visite. Cette sortie OCR est incluse dans la réponse JSON.  
 

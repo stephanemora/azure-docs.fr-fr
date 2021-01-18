@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 26302fa67394e6c3122b159866c3814fb5677ba6
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 8e82f8974b53224b3e471d1628a1ca5819ce2955
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494968"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98044473"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-cli"></a>Configurer une instance Azure Digital Twins et l’authentification (interface CLI)
 
 [!INCLUDE [digital-twins-setup-selector.md](../../includes/digital-twins-setup-selector.md)]
 
-Cet article explique comment **configurer une nouvelle instance Azure Digital Twins** , notamment la création de l’instance et la configuration de l’authentification. À l’issue de cet article, vous aurez une instance Azure Digital Twins prête pour la programmation.
+Cet article explique comment **configurer une nouvelle instance Azure Digital Twins**, notamment la création de l’instance et la configuration de l’authentification. À l’issue de cet article, vous aurez une instance Azure Digital Twins prête pour la programmation.
 
 Cette version de cet article suit ces étapes manuellement, une par une, à l’aide de l’interface CLI.
 * Pour suivre ces étapes manuellement à l’aide du portail Azure, consultez la version de cet article relative au portail : [*Guide pratique : Configurer une instance et l’authentification (portail)*](how-to-set-up-instance-portal.md).
@@ -35,12 +35,12 @@ Cette version de cet article suit ces étapes manuellement, une par une, à l’
 ## <a name="create-the-azure-digital-twins-instance"></a>Créer l’instance Azure Digital Twins
 
 Dans cette section, vous allez **créer une nouvelle instance d’Azure Digital Twins** à l’aide de la commande Cloud Shell. Vous devrez fournir les éléments suivants :
-* Un groupe de ressources dans lequel la déployer. Si vous n’avez pas encore choisi un groupe de ressources existant, vous pouvez en créer un maintenant avec cette commande :
+* Un groupe de ressources où l’instance sera déployée. Si vous n’avez pas encore choisi un groupe de ressources existant, vous pouvez en créer un maintenant avec cette commande :
     ```azurecli-interactive
     az group create --location <region> --name <name-for-your-resource-group>
     ```
 * Une région pour le déploiement. Pour connaître les régions qui prennent en charge Azure Digital Twins, consultez [*Produits Azure disponibles par région*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
-* Un nom pour votre instance. Le nom de la nouvelle instance doit être unique dans la région pour votre abonnement (ce qui signifie que si votre abonnement a une autre instance Azure Digital Twins dans cette région, qui utilise déjà le nom que vous choisissez, vous devrez choisir un autre nom).
+* Un nom pour votre instance. Si votre abonnement a une autre instance Azure Digital Twins dans la région qui utilise déjà le nom spécifié, vous êtes invité à choisir un autre nom.
 
 Utilisez ces valeurs dans la commande suivante pour créer l’instance :
 
@@ -54,7 +54,7 @@ Si l’instance a été créée avec succès, le résultat dans Cloud Shell ress
 
 :::image type="content" source="media/how-to-set-up-instance/cloud-shell/create-instance.png" alt-text="Fenêtre Commande montrant la création réussie d’un groupe de ressources et d’une instance Azure Digital Twins":::
 
-Notez les valeurs *hostName* , *name* et *resourceGroup* de l’instance Azure Digital Twins fournies dans la sortie. Il s’agit de toutes les valeurs importantes dont vous pouvez avoir besoin quand vous continuez à travailler avec votre instance Azure Digital Twins pour configurer l’authentification et les ressources Azure associées. Si d’autres utilisateurs doivent programmer pour l’instance, vous devez partager ces valeurs avec eux.
+Notez les valeurs **hostName**, **name** et **resourceGroup** de l’instance Azure Digital Twins fournies dans la sortie. Il s’agit de toutes les valeurs importantes dont vous pouvez avoir besoin quand vous continuez à travailler avec votre instance Azure Digital Twins pour configurer l’authentification et les ressources Azure associées. Si d’autres utilisateurs doivent programmer pour l’instance, vous devez partager ces valeurs avec eux.
 
 > [!TIP]
 > Vous pouvez afficher ces propriétés, ainsi que toutes les propriétés de votre instance, à tout moment en exécutant `az dt show --dt-name <your-Azure-Digital-Twins-instance>`.
@@ -74,15 +74,15 @@ az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --ass
 Les résultats de cette commande décrivent l’attribution de rôle que vous avez créée.
 
 > [!NOTE]
-> Si cette commande renvoie une erreur indiquant que l’interface CLI **ne trouve pas l’utilisateur ou le principal du service dans la base de données de graphes**  :
+> Si cette commande renvoie une erreur indiquant que l’interface CLI **ne trouve pas l’utilisateur ou le principal du service dans la base de données de graphes** :
 >
-> Attribuez le rôle en utilisant à la place l’ *ID d’objet* de l’utilisateur. Cela peut se produire pour les utilisateurs disposant de [comptes Microsoft (MSA)](https://account.microsoft.com/account) personnels. 
+> Attribuez le rôle en utilisant à la place l’*ID d’objet* de l’utilisateur. Cela peut se produire pour les utilisateurs disposant de [comptes Microsoft (MSA)](https://account.microsoft.com/account) personnels. 
 >
 > Utilisez la [page du portail Azure des utilisateurs Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) pour sélectionner le compte d’utilisateur et afficher ses détails. Copiez la valeur *ObjectID* de l’utilisateur :
 >
-> :::image type="content" source="media/includes/user-id.png" alt-text="Fenêtre Commande montrant la création réussie d’un groupe de ressources et d’une instance Azure Digital Twins" lightbox="media/includes/user-id.png":::
+> :::image type="content" source="media/includes/user-id.png" alt-text="Vue de la page utilisateur dans le portail Azure mettant en surbrillance le GUID dans le champ 'ID d’objet'" lightbox="media/includes/user-id.png":::
 >
-> Ensuite, répétez la commande 'role assignment list' en utilisant l’ *ID d’objet* de l’utilisateur pour le paramètre `assignee` ci-dessus.
+> Ensuite, répétez la commande 'role assignment list' en utilisant l’*ID d’objet* de l’utilisateur pour le paramètre `assignee` ci-dessus.
 
 ### <a name="verify-success"></a>Vérifier la réussite de l’exécution
 
@@ -96,5 +96,5 @@ Testez les appels d’API REST individuels sur votre instance à l’aide des co
 * [az dt reference](/cli/azure/ext/azure-iot/dt?preserve-view=true&view=azure-cli-latest)
 * [*Guide pratique : Utiliser l’interface CLI d’Azure Digital Twins*](how-to-use-cli.md)
 
-Vous pouvez également découvrir comment connecter une application cliente à votre instance avec un code d’authentification :
+Vous pouvez également découvrir comment connecter une application cliente à votre instance avec un code d’authentification :
 * [*Guide pratique : Écrire le code d’authentification de l’application*](how-to-authenticate-client.md)

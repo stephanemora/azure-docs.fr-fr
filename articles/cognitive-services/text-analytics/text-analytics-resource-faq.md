@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 01/05/2021
 ms.author: aahi
-ms.openlocfilehash: ffa70afa0edf29181bc622cbef6ff8716134b1f7
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 9a4e179767cc38169cd794f4cd629604bdcdaab0
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94364936"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955040"
 ---
-# <a name="frequently-asked-questions-faq-about-the-text-analytics-cognitive-service"></a>Questions fréquentes (FAQ) sur l’API Analyse de texte de Cognitive Service
+# <a name="frequently-asked-questions-faq-about-the-text-analytics-api"></a>Questions fréquentes (FAQ) sur l’API Analyse de texte
 
- Trouvez les réponses aux questions fréquemment posées sur les concepts, codes et scénarios relatifs à l’API Analyse de texte pour Microsoft Cognitive Services sur Azure.
+ Trouvez les réponses aux questions courantes sur les concepts, le code et les scénarios relatifs à l’API Analyse de texte pour Azure Cognitive Services.
 
 ## <a name="can-text-analytics-identify-sarcasm"></a>L’analyse de texte permet-elle de repérer le sarcasme ?
 
@@ -47,11 +47,21 @@ En règle générale, la sortie se compose des noms et des objets de la phrase. 
 
 Les améliorations apportées aux modèles et aux algorithmes sont annoncées lorsque la modification est importante ou si elle est intégrée en mode silencieux dans le service lorsque la mise à jour est mineure. Au fil du temps, vous pourrez constater que les mêmes entrées de texte engendrent un autre score de sentiment ou une sortie d’expressions clés différente. Il s’agit d’une conséquence normale et intentionnelle de l’utilisation des ressources de Machine Learning dans le cloud.
 
+## <a name="service-availability-and-redundancy"></a>Disponibilité et redondance du service
+
+### <a name="is-text-analytics-service-zone-resilient"></a>Le service Analyse de texte est-il résilient aux zones ?
+
+Oui. Le service Analyse de texte est résilient aux zones par défaut.
+
+### <a name="how-do-i-configure-the-text-analytics-service-to-be-zone-resilient"></a>Comment configurer le service Analyse de texte pour le rendre résilient aux zones ?
+
+Aucune configuration client n’est nécessaire pour activer la résilience des zones. La résilience aux zones pour les ressources Analyse de texte est disponible par défaut et gérée par le service lui-même.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Votre question concerne-t-elle une fonctionnalité manquante ? Demandez-la ou votez pour elle sur notre [site web UserVoice](https://cognitive.uservoice.com/forums/555922-text-analytics).
 
 ## <a name="see-also"></a>Voir aussi
 
- [StackOverflow : API Analyse de texte](https://stackoverflow.com/questions/tagged/text-analytics-api)   
- [StackOverflow : Cognitive Services](https://stackoverflow.com/questions/tagged/microsoft-cognitive)
+ * [StackOverflow : API Analyse de texte](https://stackoverflow.com/questions/tagged/text-analytics-api)   
+ * [StackOverflow : Cognitive Services](https://stackoverflow.com/questions/tagged/microsoft-cognitive)

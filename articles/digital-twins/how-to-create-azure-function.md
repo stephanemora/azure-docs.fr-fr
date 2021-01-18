@@ -1,42 +1,42 @@
 ---
-title: Configurer une fonction Azure pour le traitement des données
+title: Configurer une fonction dans Azure pour le traitement des données
 titleSuffix: Azure Digital Twins
-description: Découvrez comment créer une fonction Azure qui peut accéder à des jumeaux numériques et être déclenchée par ceux-ci.
+description: Découvrez comment créer une fonction dans Azure qui peut accéder à des jumeaux numériques et être déclenchée par ceux-ci.
 author: baanders
 ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5352a95b865851be937af7b9f19268afd23148db
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 6c4f23406c97d647002fbb3ab4a3544866303cf4
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280031"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98051341"
 ---
-# <a name="connect-azure-functions-apps-for-processing-data"></a>Connecter des applications Azure Functions pour le traitement des données
+# <a name="connect-function-apps-in-azure-for-processing-data"></a>Connecter des applications de fonction dans Azure pour le traitement des données
 
-La mise à jour des jumeaux numériques en fonction des données s’effectue à l’aide de [**routes d’événements**](concepts-route-events.md), par le biais de ressources de calcul telles qu’ [Azure Functions](../azure-functions/functions-overview.md). Une fonction Azure peut être utilisée pour mettre à jour un jumeau numérique en réponse à :
+La mise à jour des jumeaux numériques en fonction des données s’effectue à l’aide de [**routes d’événements**](concepts-route-events.md), par le biais de ressources de calcul, par exemple une fonction qui est écrite à l’aide d’[Azure Functions](../azure-functions/functions-overview.md). Les fonctions Azure peuvent être utilisées pour mettre à jour un jumeau numérique en réponse à :
 * Des données de télémétrie d’appareil provenant d’IoT Hub
 * La modification d’une propriété ou autres données provenant d’un autre jumeau numérique au sein du graphe jumeau
 
-Cet article explique comment créer une fonction Azure en vue de l’utiliser avec Azure Digital Twins. 
+Cet article explique comment créer une fonction dans Azure en vue de l’utiliser avec Azure Digital Twins. 
 
 Voici un aperçu des étapes qui sont présentées :
 
-1. Créer une application Azure Functions dans Visual Studio
-2. Écrire une fonction Azure avec un déclencheur [Event Grid](../event-grid/overview.md)
+1. Créer un projet Azure Functions dans Visual Studio
+2. Écrire une fonction avec un déclencheur [Event Grid](../event-grid/overview.md)
 3. Ajouter du code d’authentification à la fonction (pour pouvoir accéder à Azure Digital Twins)
 4. Publier l’application de fonction dans Azure
-5. Configurer l’accès de [sécurité](concepts-security.md) pour l’application de fonction Azure
+5. Configurer l’accès de [sécurité](concepts-security.md) pour l’application de fonction
 
 ## <a name="prerequisite-set-up-azure-digital-twins-instance"></a>Condition préalable : Configurer l’instance Azure Digital Twins
 
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
 
-## <a name="create-an-azure-functions-app-in-visual-studio"></a>Créer une application Azure Functions dans Visual Studio
+## <a name="create-a-function-app-in-visual-studio"></a>Créer une application de fonction dans Visual Studio
 
-Dans Visual Studio 2019, sélectionnez _Fichier > Nouveau > Projet_. Recherchez et sélectionnez le modèle _Azure Functions_ , puis sélectionnez _Suivant_.
+Dans Visual Studio 2019, sélectionnez _Fichier > Nouveau > Projet_. Recherchez et sélectionnez le modèle _Azure Functions_, puis sélectionnez _Suivant_.
 
 :::image type="content" source="media/how-to-create-azure-function/create-azure-function-project.png" alt-text="Visual Studio : boîte de dialogue Nouveau projet":::
 
@@ -46,15 +46,15 @@ Spécifiez un nom pour l’application de fonction, puis sélectionnez _Créer_.
 
 Sélectionnez le type d’application de fonction *Déclencheur Event Grid* et sélectionnez _Créer_.
 
-:::image type="content" source="media/how-to-create-azure-function/eventgridtrigger-function.png" alt-text="Visual Studio : boîte de dialogue montrant le déclencheur de projet Azure Functions":::
+:::image type="content" source="media/how-to-create-azure-function/eventgridtrigger-function.png" alt-text="Visual Studio : Boîte de dialogue montrant le déclencheur de projet Azure Functions":::
 
-Une fois l’application de fonction créée, Visual Studio dispose d’un exemple de code rempli automatiquement dans le fichier **function.cs** qui se trouve dans le dossier de votre projet. Cette courte fonction Azure est utilisée pour consigner les événements.
+Une fois l’application de fonction créée, Visual Studio dispose d’un exemple de code rempli automatiquement dans le fichier **function.cs** qui se trouve dans le dossier de votre projet. Cette courte fonction est utilisée pour journaliser des événements.
 
 :::image type="content" source="media/how-to-create-azure-function/visual-studio-sample-code.png" alt-text="Visual Studio : fenêtre du projet avec l’exemple de code":::
 
-## <a name="write-an-azure-function-with-an-event-grid-trigger"></a>Écrire une fonction Azure avec un déclencheur Event Grid
+## <a name="write-a-function-with-an-event-grid-trigger"></a>Écrire une fonction avec un déclencheur Event Grid
 
-Vous pouvez écrire une fonction Azure en ajoutant le kit SDK à votre application de fonction. L’application de fonction interagit avec Azure Digital Twins à l’aide du [Kit de développement logiciel (SDK) Azure Digital Twins pour .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true). 
+Vous pouvez écrire une fonction en ajoutant le SDK à votre application de fonction. L’application de fonction interagit avec Azure Digital Twins à l’aide du [Kit de développement logiciel (SDK) Azure Digital Twins pour .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true). 
 
 Pour utiliser le kit SDK, vous devez inclure les packages suivants dans votre projet. Vous pouvez installer les packages à l’aide du gestionnaire de package NuGet de Visual Studio, ou ajouter les packages avec l’outil en ligne de commande `dotnet`. Choisissez une de ces méthodes : 
 
@@ -72,103 +72,56 @@ Pour que la configuration du pipeline du kit SDK Azure soit correctement effectu
 
 **Option 2. Ajouter des packages à l’aide de `dotnet`l’outil en ligne de commande :**
 
+Vous pouvez également utiliser les commandes `dotnet add` suivantes dans un outil en ligne de commande :
 ```cmd/sh
-dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.3
-dotnet add package Azure.identity --version 1.2.2
 dotnet add package System.Net.Http
 dotnet add package Azure.Core.Pipeline
 ```
-Ensuite, dans votre Explorateur de solutions Visual Studio, ouvrez le fichier _function.cs_ , dans lequel se trouve l’exemple de code, et ajoutez les instructions _using_ suivantes à votre fonction Azure. 
 
-```csharp
-using Azure.DigitalTwins.Core;
-using Azure.Identity;
-using System.Net.Http;
-using Azure.Core.Pipeline;
-```
-## <a name="add-authentication-code-to-the-azure-function"></a>Ajouter du code d’authentification à la fonction Azure
+Ensuite, ajoutez deux autres dépendances à votre projet. Celles-ci seront nécessaires pour travailler avec Azure Digital Twins. Vous pouvez utiliser les liens ci-dessous pour accéder aux packages sur NuGet ; vous y trouverez les commandes de console (y compris pour l’interface CLI .NET) qui permettent d’ajouter à votre projet la dernière version de chaque package.
+ * [**Azure.DigitalTwins.Core**](https://www.nuget.org/packages/Azure.DigitalTwins.Core). Il s’agit du package pour le [SDK Azure Digital Twins pour .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true).
+ * [**Azure.Identity**](https://www.nuget.org/packages/Azure.Identity). Cette bibliothèque fournit des outils pour faciliter l’authentification auprès d’Azure.
 
-Vous allez à présent déclarer les variables au niveau de la classe, et ajoutez le code d’authentification qui permettra à la fonction d’accéder à Azure Digital Twins. Vous allez ajouter ce qui suit à votre fonction Azure dans le fichier {nom de votre fonction}.cs.
+Ensuite, dans votre Explorateur de solutions Visual Studio, ouvrez le fichier _function.cs_, dans lequel se trouve l’exemple de code, et ajoutez les instructions _using_ suivantes à votre fonction. 
+
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="Function_dependencies":::
+
+## <a name="add-authentication-code-to-the-function"></a>Ajouter du code d’authentification à la fonction
+
+Vous allez à présent déclarer les variables au niveau de la classe, et ajoutez le code d’authentification qui permettra à la fonction d’accéder à Azure Digital Twins. Vous allez ajouter ce qui suit à votre fonction dans le fichier {nom de votre fonction}.cs.
 
 * Lisez l’URL du service ADT en tant que variable d’environnement. Il est recommandé de lire l’URL du service à partir d’une variable d’environnement, plutôt que de la coder en dur dans la fonction.
-```csharp     
-private static readonly string adtInstanceUrl = Environment.GetEnvironmentVariable("ADT_SERVICE_URL");
-```
+
+    :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="ADT_service_URL":::
+
 * Une variable statique destinée à contenir une instance HttpClient. HttpClient est relativement coûteux à créer. Nous voulons donc éviter d’avoir à le faire pour chaque appel de fonction.
-```csharp
-private static readonly HttpClient httpClient = new HttpClient();
-```
-* Vous pouvez utiliser les informations d’identification de l’identité managée dans la fonction Azure.
-```csharp
-ManagedIdentityCredential cred = new ManagedIdentityCredential("https://digitaltwins.azure.net");
-```
+
+    :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="HTTP_client":::
+
+* Vous pouvez utiliser les informations d’identification de l’identité managée dans Azure Functions.
+    :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="ManagedIdentityCredential":::
+
 * Ajoutez une variable locale _DigitalTwinsClient_ à l’intérieur de votre fonction afin de stocker votre instance du client Azure Digital Twins dans le projet de fonction. Vous *ne devez pas* rendre cette variable statique dans votre classe.
-```csharp
-DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), cred, new DigitalTwinsClientOptions { Transport = new HttpClientTransport(httpClient) });
-```
+    :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="DigitalTwinsClient":::
+
 * Ajoutez un contrôle de valeur Null pour _adtInstanceUrl_ et incluez dans un wrapper la logique de votre fonction dans un bloc try catch pour intercepter toutes les exceptions.
 
 Une fois ces modifications effectuées, le code de votre fonction doit ressembler à ce qui suit :
 
-```csharp
-// Default URL for triggering event grid function in the local environment.
-// http://localhost:7071/runtime/webhooks/EventGrid?functionName={functionname}
-using System;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Host;
-using Microsoft.Azure.EventGrid.Models;
-using Microsoft.Azure.WebJobs.Extensions.EventGrid;
-using Microsoft.Extensions.Logging;
-using Azure.DigitalTwins.Core;
-using Azure.Identity;
-using System.Net.Http;
-using Azure.Core.Pipeline;
-
-namespace adtIngestFunctionSample
-{
-    public class Function1
-    {
-        //Your Digital Twin URL is stored in an application setting in Azure Functions
-        private static readonly string adtInstanceUrl = Environment.GetEnvironmentVariable("ADT_SERVICE_URL");
-        private static readonly HttpClient httpClient = new HttpClient();
-
-        [FunctionName("TwinsFunction")]
-        public void Run([EventGridTrigger] EventGridEvent eventGridEvent, ILogger log)
-        {
-            log.LogInformation(eventGridEvent.Data.ToString());
-            if (adtInstanceUrl == null) log.LogError("Application setting \"ADT_SERVICE_URL\" not set");
-            try
-            {
-                //Authenticate with Digital Twins
-                ManagedIdentityCredential cred = new ManagedIdentityCredential("https://digitaltwins.azure.net");
-                DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), cred, new DigitalTwinsClientOptions { Transport = new HttpClientTransport(httpClient) });
-                log.LogInformation($"ADT service client connection created.");
-                /*
-                * Add your business logic here
-                */
-            }
-            catch (Exception e)
-            {
-                log.LogError(e.Message);
-            }
-
-        }
-    }
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs":::
 
 ## <a name="publish-the-function-app-to-azure"></a>Publier l’application de fonction dans Azure
 
-Pour publier l’application de fonction dans Azure, cliquez avec le bouton droit sur le projet de fonction (et non sur la solution) dans l’Explorateur de solutions, puis sélectionnez **Publier**.
+Pour publier le projet sur une application de fonction dans Azure, cliquez avec le bouton droit sur le projet de fonction (et non sur la solution) dans l’Explorateur de solutions, puis sélectionnez **Publier**.
 
 > [!IMPORTANT] 
-> La publication d’une fonction Azure entraîne des frais supplémentaires dans votre abonnement, indépendamment d’Azure Digital Twins.
+> La publication d’une application de fonction dans Azure entraîne des frais supplémentaires dans votre abonnement, indépendamment d’Azure Digital Twins.
 
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function.png" alt-text="Visual Studio : publication de la fonction Azure":::
+:::image type="content" source="media/how-to-create-azure-function/publish-azure-function.png" alt-text="Visual Studio : boîte de dialogue de publication":::
 
 Sélectionnez **Azure** comme cible de publication, puis sélectionnez **Suivant**.
 
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-1.png" alt-text="Visual Studio : boîte de dialogue de publication de la fonction Azure, sélection de Azure":::
+:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-1.png" alt-text="Visual Studio : boîte de dialogue de publication Azure Functions, sélection de Azure":::
 
 :::image type="content" source="media/how-to-create-azure-function/publish-azure-function-2.png" alt-text="Visual Studio : boîte de dialogue de publication de la fonction, sélection de Application de fonction Azure (Windows) ou (Linux) en fonction de votre machine":::
 
@@ -179,16 +132,16 @@ Sélectionnez **Azure** comme cible de publication, puis sélectionnez **Suivant
 :::image type="content" source="media/how-to-create-azure-function/publish-azure-function-5.png" alt-text="Visual Studio : boîte de dialogue de publication de la fonction – Sélection de votre application de fonction dans la liste, puis de Terminer":::
 
 Dans la page suivante, entrez le nom souhaité pour la nouvelle application de fonction, un groupe de ressources, ainsi que d’autres informations.
-Pour que votre application Functions puisse accéder à Azure Digital Twins, elle doit disposer d’une identité managée par le système et disposer des autorisations nécessaires pour accéder à votre instance Azure Digital Twins.
+Pour que votre application de fonction puisse accéder à Azure Digital Twins, elle doit disposer d’une identité managée par le système et disposer des autorisations nécessaires pour accéder à votre instance Azure Digital Twins.
 
 Ensuite, vous pouvez configurer l’accès de sécurité pour la fonction à l’aide de l’interface CLI ou du portail Azure. Choisissez une de ces méthodes :
 
-## <a name="set-up-security-access-for-the-azure-function-app"></a>Configurer l’accès de sécurité pour l’application de fonction Azure
-Vous pouvez configurer l’accès de sécurité pour l’application de fonction Azure en utilisant l’une des options suivantes :
+## <a name="set-up-security-access-for-the-function-app"></a>Configurer l’accès de sécurité pour l’application de fonction
+Vous pouvez configurer l’accès de sécurité pour l’application de fonction en utilisant l’une des options suivantes :
 
-### <a name="option-1-set-up-security-access-for-the-azure-function-app-using-cli"></a>Option 1 : Configurer l’accès de sécurité pour l’application de fonction Azure avec l’interface CLI
+### <a name="option-1-set-up-security-access-for-the-function-app-using-cli"></a>Option 1 : Configurer l’accès de sécurité pour l’application de fonction avec l’interface CLI
 
-Le squelette de fonction Azure des exemples précédents nécessite qu’un jeton de porteur lui soit transmis, afin de pouvoir s’authentifier auprès d’Azure Digital Twins. Pour garantir que ce jeton du porteur sera transmis, vous devez configurer [Managed Service Identity (MSI)](../active-directory/managed-identities-azure-resources/overview.md) pour l’application de fonction. Cette opération ne doit être effectuée qu’une seule fois pour chaque application de fonction.
+Le squelette de fonction des exemples précédents nécessite qu’un jeton de porteur lui soit transmis, afin de pouvoir s’authentifier auprès d’Azure Digital Twins. Pour garantir que ce jeton du porteur sera transmis, vous devez configurer [Managed Service Identity (MSI)](../active-directory/managed-identities-azure-resources/overview.md) pour l’application de fonction. Cette opération ne doit être effectuée qu’une seule fois pour chaque application de fonction.
 
 Vous pouvez créer une identité managée par le système et attribuer l’identité de l’application de fonction au rôle _**Propriétaire des données Azure Digital Twins**_ pour votre instance Azure Digital Twins. L'instance sera ainsi autorisée à effectuer des activités de plan de données. Ensuite, rendez l’URL de l’instance Azure Digital Twins accessible à votre fonction en définissant une variable d’environnement.
 
@@ -214,16 +167,16 @@ Enfin, vous pouvez rendre l’URL de votre instance Azure Digital Twins accessib
 ```azurecli-interactive 
 az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-hostname>"
 ```
-### <a name="option-2-set-up-security-access-for-the-azure-function-app-using-azure-portal"></a>Option n°2 : Configurer l’accès de sécurité pour l’application de fonction Azure avec le portail Azure
+### <a name="option-2-set-up-security-access-for-the-function-app-using-azure-portal"></a>Option n°2 : Configurer l’accès de sécurité pour l’application de fonction avec le portail Azure
 
 Une identité managée affectée par le système permet aux ressources Azure de s’identifier auprès des services cloud (comme Azure Key Vault, par exemple), sans stocker les informations d’identification dans le code. Une fois activées, toutes les autorisations nécessaires peuvent être accordées via le contrôle d’accès en fonction du rôle Azure. Le cycle de vie de ce type d’identité managée est lié au cycle de vie de cette ressource. De plus, chaque ressource (Machines virtuelles, par exemple) peut n’avoir qu’une identité managée affectée par le système.
 
-Dans le [portail Azure](https://portal.azure.com/), recherchez _Application de fonction_ dans la barre de recherche, avec le nom de l’application de fonction que vous avez créée précédemment. Sélectionnez l’ *application de fonction* dans la liste. 
+Dans le [portail Azure](https://portal.azure.com/), recherchez _Application de fonction_ dans la barre de recherche, avec le nom de l’application de fonction que vous avez créée précédemment. Sélectionnez l’*application de fonction* dans la liste. 
 
 :::image type="content" source="media/how-to-create-azure-function/portal-search-for-functionapp.png" alt-text="Portail Azure : recherche de l’application de fonction":::
 
 Dans la fenêtre de l’application de fonction, sélectionnez _Identité_ dans la barre de navigation sur la gauche pour activer l’identité managée.
-Sous l’onglet _Affectée par le système_ , basculez l’ _État_ sur Activé et _Enregistrez_. Une fenêtre contextuelle s’affiche pour _Activer l’identité managée affectée par le système_.
+Sous l’onglet _Affectée par le système_, basculez l’_État_ sur Activé et _Enregistrez_. Une fenêtre contextuelle s’affiche pour _Activer l’identité managée affectée par le système_.
 Sélectionnez le bouton _Oui_. 
 
 :::image type="content" source="media/how-to-create-azure-function/enable-system-managed-identity.png" alt-text="Portail Azure : activation de l’identité managée affectée par le système":::
@@ -232,7 +185,7 @@ Dans les notifications, vous pouvez vérifier que votre fonction est correctemen
 
 :::image type="content" source="media/how-to-create-azure-function/notifications-enable-managed-identity.png" alt-text="Portail Azure : notifications":::
 
-Notez également l’ **ID d’objet** qui figure dans la page _Identité_ , car vous en aurez besoin à la section suivante.
+Notez également l’**ID d’objet** qui figure dans la page _Identité_, car vous en aurez besoin à la section suivante.
 
 :::image type="content" source="media/how-to-create-azure-function/object-id.png" alt-text="Copier l’ID d’objet à utiliser à l’avenir":::
 
@@ -244,10 +197,10 @@ Sélectionnez le bouton _Attributions de rôles Azure_ qui ouvre la page *Attrib
 
 Dans la page _Ajouter une attribution de rôle (préversion)_ qui s’ouvre, renseignez les champs suivants :
 
-* _Portée_  : groupe de ressources
-* _Abonnement_  : sélectionnez votre abonnement Azure
-* _Groupe de ressources_  : sélectionnez votre groupe de ressources dans la liste déroulante
-* _Rôle_  : sélectionnez _Propriétaire des données Azure Digital Twins_ dans la liste déroulante
+* _Portée_ : groupe de ressources
+* _Abonnement_ : sélectionnez votre abonnement Azure
+* _Groupe de ressources_ : sélectionnez votre groupe de ressources dans la liste déroulante
+* _Rôle_ : sélectionnez _Propriétaire des données Azure Digital Twins_ dans la liste déroulante
 
 Ensuite, enregistrez vos informations en cliquant sur le bouton _Enregistrer_.
 
@@ -265,17 +218,17 @@ Vous pouvez obtenir l’URL_INSTANCE_ADT en ajoutant **_https://_** au nom d’h
 
 Vous pouvez désormais créer un paramètre d’application en suivant les étapes ci-dessous :
 
-* Recherchez votre fonction Azure à l’aide de son nom dans la barre de recherche, puis sélectionnez la fonction dans la liste
+* Recherchez votre application à l’aide de son nom dans la barre de recherche, puis sélectionnez l’application de fonction dans la liste
 * Sélectionnez _Configuration_ dans la barre de navigation à gauche pour créer un paramètre d’application
-* Sous l’onglet _Paramètres d’application_ , sélectionnez _+ Nouveau paramètre d’application_
+* Sous l’onglet _Paramètres d’application_, sélectionnez _+ Nouveau paramètre d’application_
 
-:::image type="content" source="media/how-to-create-azure-function/search-for-azure-function.png" alt-text="Portail Azure : recherche d’une fonction Azure existante":::
+:::image type="content" source="media/how-to-create-azure-function/search-for-azure-function.png" alt-text="Portail Azure : Rechercher une application de fonction existante":::
 
 :::image type="content" source="media/how-to-create-azure-function/application-setting.png" alt-text="Portail Azure : configuration des paramètres de l’application":::
 
 Dans la fenêtre qui s’ouvre, utilisez la valeur copiée ci-dessus pour créer un paramètre d’application. \
-_Nom_  : URL_SERVICE_ADT \
-_Valeur_  : https://{votre-nom-d’hôte-azure-digital-twins}
+_Nom_ : URL_SERVICE_ADT \
+_Valeur_ : https://{votre-nom-d’hôte-azure-digital-twins}
 
 Sélectionnez _OK_ pour créer un paramètre d’application.
 
@@ -295,10 +248,10 @@ Vous pouvez constater que les paramètres de l’application sont mis à jour en
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez vu les étapes permettant de configurer une fonction Azure en vue d’une utilisation avec Azure Digital Twins. Ensuite, vous pouvez vous abonner à votre fonction Azure pour Event Grid afin d’écouter un point de terminaison. Ce point de terminaison peut être :
+Dans cet article, vous avez vu les étapes permettant de configurer une application de fonction dans Azure en vue d’une utilisation avec Azure Digital Twins. Ensuite, vous pouvez abonner votre fonction à Event Grid afin d’écouter un point de terminaison. Ce point de terminaison peut être :
 * Un point de terminaison Event Grid attaché à Azure Digital Twins pour traiter les messages provenant d’Azure Digital Twins (tels que les messages de changement de propriété, les messages de données de télémétrie générés par les [jumeaux numériques](concepts-twins-graph.md) dans le graphique jumeau ou les messages concernant le cycle de vie)
 * Des rubriques du système IoT utilisées par IoT Hub pour envoyer des données de télémétrie et d’autres événements d’appareil
 * Un point de terminaison Event Grid qui reçoit des messages d’autres services
 
-Dans la suite, vous allez voir comment créer une fonction Azure de base pour ingérer des données IoT Hub dans Azure Digital Twins :
+Dans la suite, vous allez voir comment créer une fonction de base pour ingérer des données IoT Hub dans Azure Digital Twins :
 * [*Guide pratique : Ingérer la télémétrie depuis IoT Hub*](how-to-ingest-iot-hub-data.md)

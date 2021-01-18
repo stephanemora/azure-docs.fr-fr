@@ -3,17 +3,17 @@ title: Gérer les coûts Azure avec l’automatisation
 description: Cet article explique comment gérer les coûts Azure avec l’automatisation.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/19/2020
+ms.date: 01/06/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
-ms.openlocfilehash: 47d9c2838c5c806214e3be2f9ba7ce335bc0af67
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 02215bace693ac5ac36f9fc29758215d45b23eb1
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94956090"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98051783"
 ---
 # <a name="manage-costs-with-automation"></a>Gérer les coûts avec l’automatisation
 
@@ -56,6 +56,22 @@ Nous vous recommandons d’envoyer _une seule demande par jour_ à l’API Déta
 **Cibler des étendues de niveau supérieur sans filtrage**
 
 Utilisez l’API pour récupérer toutes les données dont vous avez besoin à l’étendue ayant le niveau le plus élevé disponible. Attendez que toutes les données nécessaires soient ingérées avant de procéder à un filtrage, un regroupement ou une analyse agrégée. L’API est spécifiquement optimisée pour fournir de grandes quantités de données de coût brutes et non agrégées. Pour en savoir plus sur les étendues disponibles dans Cost Management, consultez [Comprendre et utiliser des étendues](./understand-work-scopes.md). Une fois que vous avez téléchargé les données nécessaires pour une étendue, utilisez Excel pour analyser les données plus en détail avec les filtres et les tableaux croisés dynamiques.
+
+### <a name="notes-about-pricing"></a>Remarques concernant les prix
+
+Si vous souhaitez rapprocher l’utilisation et les frais avec votre grille tarifaire ou votre facture, notez les informations suivantes.
+
+Comportement des prix de la grille tarifaire : les prix indiqués dans la grille tarifaire sont ceux que vous recevez d’Azure. Ils sont ajustés selon une unité de mesure spécifique. Malheureusement, cette unité de mesure ne reflète pas toujours celle utilisée pour émettre l’utilisation réelle et les frais réels des ressources.
+
+Comportement des prix des détails d’utilisation : les fichiers d’utilisation présentent des informations ajustées qui peuvent ne pas correspondre à celles de la grille tarifaire. Plus précisément :
+
+- Prix unitaire : le prix est ajusté pour refléter l’unité de mesure dans laquelle les frais sont réellement émis par les ressources Azure. En cas d’ajustement, le prix ne correspond pas au prix indiqué dans la grille tarifaire.
+- Unité de mesure : représente l’unité de mesure dans laquelle les frais sont réellement émis par les ressources Azure.
+- Prix effectif/taux de ressources : le prix correspond au montant réel que vous payez par unité, une fois les remises prises en compte. Il s’agit du prix que vous devez utilisé avec Quantité dans les calculs Prix * Quantité pour rapprocher les frais. Le prix prend en compte les scénarios suivants et le prix unitaire ajusté qui est également présent dans les fichiers. Il peut donc être différent du prix unitaire ajusté.
+  - Prix échelonnés : par exemple, 10 US$ pour les 100 premières unités et 8 US$ pour les 100 unités suivantes.
+  - Quantité incluse : par exemple, 100 premières unités gratuites, puis 10 US$ par unité.
+  - Réservations
+  - Arrondi effectué pendant le calcul : l’arrondi prend en compte la quantité consommée, les prix échelonnés et la quantité incluse, ainsi que le prix unitaire ajusté.
 
 ## <a name="example-usage-details-api-requests"></a>Exemples de demandes envoyées à l’API Détails d’utilisation
 
@@ -325,7 +341,7 @@ Vous pouvez configurer des budgets pour démarrer des actions automatisées à l
 
 ## <a name="data-latency-and-rate-limits"></a>Latence des données et limites du taux de transfert
 
-Nous vous recommandons d’appeler les API au maximum une fois par jour. Les données Cost Management sont actualisées toutes les quatre heures au fur et à mesure que de nouvelles données d’utilisation sont reçues de la part des fournisseurs de ressources Azure. Un appel plus fréquent ne fournit pas de données supplémentaires. Au lieu de cela, cela crée une charge accrue. Pour en savoir plus sur la fréquence de modification des données et sur la façon dont la latence des données est gérée, consultez [Présentation des données de gestion des coûts](understand-cost-mgt-data.md).
+Nous vous recommandons d’appeler les API au maximum une fois par jour. Les données Cost Management sont actualisées toutes les quatre heures au fur et à mesure que de nouvelles données d’utilisation sont reçues de la part des fournisseurs de ressources Azure. Des appels plus fréquents ne produisent pas de données supplémentaires. Au lieu de cela, la charge augmente. Pour en savoir plus sur la fréquence de modification des données et sur la façon dont la latence des données est gérée, consultez [Présentation des données de gestion des coûts](understand-cost-mgt-data.md).
 
 ### <a name="error-code-429---call-count-has-exceeded-rate-limits"></a>Code d’erreur 429 - Le nombre d’appels a dépassé les limites de débit
 

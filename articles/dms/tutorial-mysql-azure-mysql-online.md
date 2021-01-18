@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/08/2020
-ms.openlocfilehash: 41c0bd23bbd2d69506a979c5a36ac40f73258f2c
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: ab03e0bdf7761e45a134ec90685955403fbc433b
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97605511"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060382"
 ---
 # <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>Tutoriel : Migration de MySQL vers Azure Database pour MySQL en ligne à l’aide de DMS
 
@@ -237,7 +237,7 @@ Une fois le service créé, recherchez-le dans le portail Azure, ouvrez-le, puis
 
     ![Mapper aux bases de données cibles](media/tutorial-mysql-to-azure-mysql-online/dms-map-target-details.png)
    > [!NOTE] 
-   > Bien que vous puissiez sélectionner plusieurs bases de données au cours de cette étape, chaque instance d’Azure Database Migration Service prend en charge jusqu’à quatre bases de données pour la migration simultanée. De plus, il existe une limite de deux instances d’Azure Database Migration Service par région dans un abonnement. Par exemple, si vous avez 40 bases de données à migrer, vous pouvez seulement migrer huit d’entre elles simultanément, et uniquement si vous avez créé deux instances d’Azure Database Migration Service.
+   > Bien que vous puissiez sélectionner plusieurs bases de données au cours de cette étape, chaque instance d’Azure Database Migration Service prend en charge jusqu’à 4  bases de données pour la migration simultanée. De plus, il existe une limite de 10 instances d’Azure Database Migration Service par abonnement et par région. Par exemple, si vous prévoyez la migration de 80 bases de données, vous ne pourrez déplacer que 40 d’entre elles simultanément au sein d’une même région, et uniquement si vous avez créé 10 instances d’Azure Database Migration Service.
 
 3. Sélectionnez **Enregistrer**, dans l’écran **Récapitulatif de la migration** pour la zone de texte **Nom de l’activité**, spécifiez un nom pour l’activité de migration, puis examinez le récapitulatif pour vous assurer que les détails de la source et de la cible correspondent à ceux que vous avez spécifiés précédemment.
 

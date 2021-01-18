@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: af5ed0296ce99a4450fffec6b047285307ed0ff2
-ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
+ms.openlocfilehash: d24565522a75427be04cacfdc20347056a515847
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97709297"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98070760"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Préparer des données pour Custom Speech
 
@@ -50,7 +50,7 @@ Ce tableau liste les types de données acceptés, les cas d’utilisation pour c
 | [Transcriptions audio + étiquetées à la main](#audio--human-labeled-transcript-data-for-testingtraining) | Oui<br>Utilisé pour évaluer la précision | 0,5 - 5 heures d’audio | Oui | 1 à 20 heures d’audio |
 | [Texte associé](#related-text-data-for-training) | Non | n/a | Oui | 1 – 200 Mo de texte associé |
 
-Lorsque vous effectuez l’apprentissage d’un nouveau modèle, commencez par [le texte associé](#related-text-data-for-training). Ces données permettront déjà d’améliorer la reconnaissance des expressions et termes spéciaux.
+Lorsque vous effectuez l’apprentissage d’un nouveau modèle, commencez par [le texte associé](#related-text-data-for-training). Ces données permettront déjà d’améliorer la reconnaissance des expressions et termes spéciaux. L’apprentissage avec du texte est beaucoup plus rapide que l’apprentissage avec audio (quelques minutes au lieu de quelques jours).
 
 Les fichiers doivent être regroupées par type dans un jeu de données et chargés sous forme de fichier .zip. Chaque jeu de données ne peut contenir qu’un seul type de données.
 
@@ -138,7 +138,9 @@ Une fois que vous avez collecté vos fichiers audio et les transcriptions corres
 > [!div class="mx-imgBorder"]
 > ![Sélectionner du contenu audio à partir du portail Speech](./media/custom-speech/custom-speech-audio-transcript-pairs.png)
 
-Consultez [Configurer votre compte Azure](custom-speech-overview.md#set-up-your-azure-account) pour obtenir la liste des régions recommandées pour vos abonnements au service Speech. La configuration des abonnements Speech dans une de ces régions permet de réduire le temps nécessaire à la formation du modèle.
+Consultez [Configurer votre compte Azure](custom-speech-overview.md#set-up-your-azure-account) pour obtenir la liste des régions recommandées pour vos abonnements au service Speech. La configuration des abonnements Speech dans une de ces régions permet de réduire le temps nécessaire à la formation du modèle. Dans ces régions, l’apprentissage peut traiter environ 10 heures d’audio par jour, contre 1 heure par jour dans d’autres régions. Si l’apprentissage du modèle ne peut pas être effectué en une semaine, le modèle est marqué comme ayant échoué.
+
+Tous les modèles de base ne prennent pas en charge les données audio. Si le modèle de base ne les prend pas en charge, le service ignore l’audio et effectue simplement un apprentissage avec le texte des transcriptions. Dans ce cas, l’apprentissage est le même que celui avec du texte associé.
 
 ## <a name="related-text-data-for-training"></a>Données texte associées pour l’entraînement
 
@@ -150,6 +152,8 @@ Les noms de produits ou les fonctionnalités uniques doivent inclure des donnée
 | Prononciations | Améliorent la prononciation des termes peu courants, des acronymes ou d’autres mots dont la prononciation n’est pas définie. |
 
 Les phrases peuvent être fournies dans un ou plusieurs fichiers texte. Pour améliorer la précision, utilisez des données texte plus proches des énoncés prononcés attendus. Les prononciations doivent être fournies sous forme de fichier texte unique. L’ensemble peut être packagé en un seul fichier zip et chargé sur le <a href="https://speech.microsoft.com/customspeech" target="_blank">portail Custom Speech <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+
+L’apprentissage avec du texte associé se termine généralement en quelques minutes.
 
 ### <a name="guidelines-to-create-a-sentences-file"></a>Recommandations pour créer un fichier de phrases
 

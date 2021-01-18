@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: trbye
-ms.openlocfilehash: b3e9c1e8ad23ea0ebf540eddbd6d4a03b8a72fe2
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 1a002b6efbe2603ae254c19f9e3cc7377198cea2
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97835072"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935816"
 ---
 # <a name="develop-custom-commands-applications"></a>Développer des applications de commandes personnalisées
 
@@ -178,7 +178,7 @@ Commencez par modifier la commande `TurnOn` existante pour activer et désactive
    1. Sélectionnez **Update**.
 
        > [!div class="mx-imgBorder"]
-       > ![Capture d'écran montrant où créer une réponse pour un paramètre obligatoire.](media/custom-commands/add-required-on-off-parameter-response.png)
+       > ![Capture d’écran qui montre la section « Ajouter une réponse pour un paramètre requis » avec l’onglet « Éditeur simple » sélectionné.](media/custom-commands/add-required-on-off-parameter-response.png)
    
    1. Configurez les propriétés du paramètre à l’aide du tableau suivant. Pour plus d’informations sur toutes les propriétés de configuration d’une commande, consultez [Concepts et définitions de commandes personnalisées](./custom-commands-references.md).
       

@@ -3,18 +3,18 @@ title: Présentation des données d’Azure Cost Management
 description: Cet article vous aide à mieux comprendre les données incluses dans Azure Cost Management et la fréquence à laquelle elles sont traitées, collectées, affichées et fermées.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/26/2020
+ms.date: 01/06/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 97ae2ba26818bbc306da71af814d9b4f95858b6a
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: e6096c259ec1870a711a515bf02d5d00b4f75345
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032573"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964148"
 ---
 # <a name="understand-cost-management-data"></a>Comprendre les données Cost Management
 
@@ -101,7 +101,7 @@ Les tableaux suivants indiquent les données qui sont comprises ou non dans Cost
 
 _<sup>**5**</sup> L’utilisation des services Azure est basée sur la réservation et des prix négociés._
 
-_<sup>**6**</sup> Les achats de la Place de marché ne sont pas disponibles pour les offres MSDN et Visual Studio à l’heure actuelle._
+_<sup>**6**</sup> À l’heure actuelle, les achats de la Place de marché ne sont pas disponibles pour les offres MSDN et Visual Studio._
 
 _<sup>**7**</sup> Les achats de réservation sont uniquement disponibles pour les comptes Contrat Entreprise et Contrat client Microsoft à l’heure actuelle._
 
@@ -112,17 +112,17 @@ Azure Cost Management reçoit des étiquettes dans le cadre de chaque enregistre
 - Les étiquettes doivent être appliquées directement aux ressources et ne sont pas héritées implicitement du groupe de ressources parent.
 - Les étiquettes de ressource sont prises en charge seulement pour les ressources déployées sur des groupes de ressources.
 - Certaines ressources déployées peuvent ne pas prendre en charge les étiquettes ou ne pas inclure d’étiquettes dans les données d’utilisation.
-- Les étiquettes de ressource sont incluses seulement dans les données d’utilisation quand l’étiquette est appliquée : les étiquettes ne sont pas appliquées aux données d’historique.
+- Les étiquettes de ressource sont incluses seulement dans les données d’utilisation quand l’étiquette est appliquée : les étiquettes ne sont pas appliquées aux données historiques.
 - Les étiquettes de ressource sont disponibles dans Cost Management seulement une fois que les données sont actualisées.
-- Les étiquettes de ressource sont disponibles dans Cost Management seulement quand la ressource est active/en cours d’exécution et produit des enregistrements d’utilisation (par exemple pas quand une machine virtuelle est désallouée).
+- Les étiquettes de ressource ne sont disponibles dans Cost Management que si la ressource est active/en cours d’exécution et produit des enregistrements d’utilisation (par exemple, quand une machine virtuelle est désallouée).
 - La gestion des étiquettes nécessite un accès Contributeur à chaque ressource.
 - La gestion des stratégies d’étiquettes nécessite l’accès Propriétaire ou Contributeur de stratégie à un groupe d’administration, un abonnement ou un groupe de ressources.
     
-Si vous ne voyez pas une étiquette spécifique dans Cost Management, prenez en considération les éléments suivants :
+Si vous ne voyez pas une étiquette spécifique dans Cost Management, posez-vous les questions suivantes :
 
 - L’étiquette a-t-elle été appliquée directement à la ressource ?
 - L’étiquette a-t-elle été appliquée il y a plus de 24 heures ?
-- Le type de ressource prend-il en charge les étiquettes ? Les types de ressources suivants ne prennent pas en charge les étiquettes dans les données d’utilisation à la date du 1er décembre 2019. Pour obtenir la liste complète de ce qui est pris en charge, consultez [Prise en charge des étiquettes pour les ressources Azure](../../azure-resource-manager/management/tag-support.md).
+- Le type de ressource prend-il en charge les étiquettes ? À compter du 1er décembre 2019, les types de ressources suivants ne prennent pas en charge les étiquettes dans les données d’utilisation. Pour obtenir la liste complète de ce qui est pris en charge, consultez [Prise en charge des étiquettes pour les ressources Azure](../../azure-resource-manager/management/tag-support.md).
     - Annuaires Azure Active Directory B2C
     - Azure Bastion
     - Pare-feux Azure
@@ -137,10 +137,9 @@ Si vous ne voyez pas une étiquette spécifique dans Cost Management, prenez en 
     
 Voici quelques conseils pour l’utilisation des étiquettes :
 
-- Planifiez en amont et définissez une stratégie d’étiquetage qui vous permet de ventiler les coûts par organisation, application, environnement, etc.
+- Anticipez et définissez une stratégie d’étiquetage vous permettant de ventiler les coûts par organisation, application, environnement, etc.
 - Utilisez Azure Policy pour copier les étiquettes des groupes de ressources vers des ressources individuelles et pour appliquer votre stratégie d’étiquetage.
-- Utilisez l’API Tags conjointement avec Query ou UsageDetails pour obtenir tous les coûts en fonction des étiquettes actuelles.
-
+- Utilisez l’API Tags avec Query ou UsageDetails pour obtenir tous les coûts en fonction des étiquettes actuelles.
 
 ## <a name="cost-and-usage-data-updates-and-retention"></a>Mises à jour et rétention des données de coût et d’utilisation
 
@@ -151,13 +150,14 @@ Les données de coût et d’utilisation sont généralement disponibles dans Ge
 - Les frais estimés pour la période de facturation en cours peuvent changer au fur et à mesure que votre utilisation augmente.
 - Chaque mise à jour est cumulative et inclut tous les éléments de ligne et les informations de la mise à jour précédente.
 - Azure finalise ou _ferme_ la période de facturation en cours jusqu’à 72 heures (trois jours calendaires) après la fin de la période de facturation.
+- Pendant la période du mois ouvert (non facturé), les données de gestion des coûts ne doivent servir qu’à titre indicatif. Dans certains cas, les frais peuvent être latents, d’où leur arrivée dans le système une fois l’utilisation réellement effectuée.
 
 Les exemples suivants illustrent la façon dont les périodes de facturation peuvent se terminer :
 
 * Abonnements Contrat Entreprise (EA). Si le mois de facturation se termine le 31 mars, les frais estimés sont mis à jour jusqu’à 72 heures plus tard. Dans cet exemple, à minuit (UTC) le 4 avril.
 * Abonnements avec paiement à l’utilisation. Si le mois de facturation se termine le 15 mai, les frais estimés peuvent être mis à jour jusqu’à 72 heures plus tard. Dans cet exemple, à minuit (UTC) le 19 mai.
 
-Une fois les données de coût et d’utilisation disponibles dans Cost Management + facturation, elles sont conservées pendant au moins 7 ans.
+Une fois les données de coût et d’utilisation disponibles dans Cost Management + Billing, elles sont conservées pendant au moins sept ans.
 
 ### <a name="rerated-data"></a>Données réestimées
 
@@ -184,6 +184,6 @@ Les données historiques des offres basées sur le crédit et avec règlement à
 - MSDN (MS-AZR-0062P)
 - Visual Studio (MS-AZR-0029P, MS-AZR-0059P, MS-AZR-0060P, MS-AZR-0063P, MS-AZR-0064P)
 
-## <a name="see-also"></a>Voir aussi
+## <a name="next-steps"></a>Étapes suivantes
 
 - Si vous n’avez pas encore effectué le premier guide de démarrage rapide relatif à Cost Management, lisez-le à partir de [Démarrer l’analyse des coûts](./quick-acm-cost-analysis.md).
