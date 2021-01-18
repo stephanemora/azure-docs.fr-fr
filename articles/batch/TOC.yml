@@ -223,14 +223,12 @@
           items:
             - name: Rendu à l’aide d’Azure
               href: batch-rendering-service.md
-            - name: Rendu des images de machines virtuelles
+            - name: Rendu par lots d’images VM
               href: batch-rendering-applications.md
             - name: Fonctionnalités de rendu Azure Batch
               href: batch-rendering-functionality.md
             - name: Utilisation du rendu Batch Rendering
               href: batch-rendering-using.md
-            - name: Utilisation des gestionnaires de rendu
-              href: batch-rendering-render-managers.md
             - name: Référence de l’application de rendu
               href: batch-rendering-application-reference.md
             - name: Stockage et déplacement des données

@@ -188,16 +188,6 @@
               href: manage/pay-by-invoice.md
             - name: Créer des abonnements supplémentaires
               href: manage/create-subscription.md
-            - name: Créer des abonnements EA programmatiquement
-              href: manage/programmatically-create-subscription-enterprise-agreement.md
-            - name: Créer des abonnements MCA programmatiquement
-              href: manage/programmatically-create-subscription-microsoft-customer-agreement.md
-            - name: Créer des abonnements MPA programmatiquement
-              href: manage/programmatically-create-subscription-microsoft-partner-agreement.md
-            - name: "Créer des abonnements - Modèle\_ARM"
-              href: manage/create-subscription-template.md
-            - name: Créer des abonnements programmatiquement - préversion
-              href: manage/programmatically-create-subscription-preview.md
             - name: Accorder l’accès pour créer des abonnements EA
               href: manage/grant-access-to-create-subscription.md
             - name: Exporter les informations d’abonnement
@@ -214,6 +204,20 @@
               href: manage/transfer-subscriptions-subscribers-csp.md
             - name: Annuler l’abonnement
               href: manage/cancel-azure-subscription.md
+        - name: Créer des abonnements par programmation
+          items:
+            - name: Créer des abonnements par programmation
+              href: manage/programmatically-create-subscription.md
+            - name: Créer des abonnements EA programmatiquement
+              href: manage/programmatically-create-subscription-enterprise-agreement.md
+            - name: Créer des abonnements MCA programmatiquement
+              href: manage/programmatically-create-subscription-microsoft-customer-agreement.md
+            - name: Créer des abonnements MPA programmatiquement
+              href: manage/programmatically-create-subscription-microsoft-partner-agreement.md
+            - name: "Créer des abonnements - Modèle\_ARM"
+              href: manage/create-subscription-template.md
+            - name: Créer des abonnements programmatiquement - API en préversion
+              href: manage/programmatically-create-subscription-preview.md
         - name: Gérer les abonnements Contrat Entreprise
           items:
             - name: Rôles EA dans Azure

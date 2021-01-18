@@ -443,9 +443,9 @@
                     - name: ST_ISVALIDDETAILED
                       displayName: 'ST_ISVALIDDETAILED, st isvaliddetailed, is valid detailed, built-in functions'
                       href: sql-query-st-isvaliddetailed.md
-                - name: Fonctions de chaînes
+                - name: Fonctions de chaîne
                   items:
-                    - name: Fonctions de chaînes
+                    - name: Fonctions de chaîne
                       displayName: 'string functions, string, system functions, built-in functions'
                       href: sql-query-string-functions.md
                     - name: CONCAT
@@ -1122,6 +1122,10 @@
           href: find-request-unit-charge-mongodb.md
         - name: Dépannage de la performance des requêtes
           href: mongodb-troubleshoot-query.md
+        - name: Résolution des problèmes courants
+          href: mongodb-troubleshoot.md
+        - name: Empêcher les erreurs de limitation du débit
+          href: prevent-rate-limiting-errors.md
         - name: Stocker et gérer Spring Data
           href: /azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db?context=%2fazure%2fcosmos-db%2fcontext%2fcontext
         - name: Commandes d’extension MongoDB
@@ -1134,8 +1138,6 @@
           href: powershell-samples-mongodb.md
         - name: Gérer à l’aide d’Azure CLI
           href: cli-samples-mongodb.md
-        - name: Résolution des problèmes courants
-          href: mongodb-troubleshoot.md
     - name: Informations de référence
       items:
         - name: Fournisseur de ressources REST

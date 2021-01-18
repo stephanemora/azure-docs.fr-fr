@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f39380e253d3fa9e86bfea3a8c436862738ff8e3
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 213b973bfc93cb2237473b6bc4c7f1e138457409
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359929"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131897"
 ---
 # <a name="always-on-availability-group-on-sql-server-on-azure-vms"></a>Groupes de disponibilité Always On sur SQL Server sur les machines virtuelles Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -62,7 +62,7 @@ Pour commencer, consultez [Configurer un équilibreur de charge](availability-gr
 
 ### <a name="dnn-listener"></a>Écouteur de DNN
 
-SQL Server 2019 CU8 introduit la prise en charge de l’écouteur de nom de réseau distribué (DNN, Distributed Network Name). L’écouteur DNN remplace l’écouteur de groupe de disponibilité traditionnel, annulant ainsi complètement la nécessité d’un équilibreur de charge Azure Load Balancer pour router le trafic sur le réseau Azure. 
+SQL Server 2019 CU8 introduit la prise en charge de l’écouteur de nom de réseau distribué (DNN, Distributed Network Name). L’écouteur DNN remplace l’écouteur de groupe de disponibilité traditionnel, annulant ainsi complètement la nécessité d’un équilibreur de charge Azure Load Balancer pour router le trafic sur le réseau Azure. 
 
 L’écouteur DNN est la solution de connectivité HADR recommandée dans Azure, car elle simplifie le déploiement, réduit la maintenance et les coûts, et diminue le temps de basculement en cas de défaillance. 
 

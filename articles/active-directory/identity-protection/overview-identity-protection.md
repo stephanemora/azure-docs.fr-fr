@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: overview
-ms.date: 08/24/2020
+ms.date: 01/05/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.custom: contperf-fy21q1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 242e0e4614994c30d0a14b8fe3d7a5c2b217bb5a
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 6e274d35fde6a3d55c05bcb5a9f22e75a37aa3c6
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033338"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955397"
 ---
 # <a name="what-is-identity-protection"></a>Qu’est-ce qu’Identity Protection ?
 
@@ -49,13 +49,16 @@ Identity Protection identifie les risques selon les classifications suivantes :
 
 | Type de détection des risques | Description |
 | --- | --- |
-| Voyage inhabituel | Connexion à partir d’un emplacement inhabituel par rapport aux dernières connexions de l’utilisateur. |
 | Adresse IP anonyme | Connexion à partir d'une adresse IP anonyme (par exemple : navigateur Tor, VPN anonymes). |
-| Propriétés de connexion inhabituelles | Connexion avec des propriétés inhabituelles pour l’utilisateur concerné. |
+| Voyage inhabituel | Connexion à partir d’un emplacement inhabituel par rapport aux dernières connexions de l’utilisateur. |
 | Adresse IP liée à un programme malveillant | Connexion à partir d’une adresse IP liée à un programme malveillant. |
+| Propriétés de connexion inhabituelles | Connexion avec des propriétés inhabituelles pour l’utilisateur concerné. |
 | Informations d'identification divulguées | Indique que les informations d’identification valides de l’utilisateur ont été divulguées. |
 | Pulvérisation de mots de passe | Indique que plusieurs noms d’utilisateurs font l’objet d’une attaque par force brute unifiée avec des mots de passe courants. |
 | Azure AD Threat Intelligence | Les sources de renseignements sur les menaces internes et externes de Microsoft ont identifié un modèle d’attaque connu. |
+| Nouveau pays | Cette détection est découverte par [Microsoft Cloud App Security (MCAS)](/cloud-app-security/anomaly-detection-policy#activity-from-infrequent-country). |
+| Activité depuis une adresse IP anonyme | Cette détection est découverte par [Microsoft Cloud App Security (MCAS)](/cloud-app-security/anomaly-detection-policy#activity-from-anonymous-ip-addresses). |
+| Transfert de boîte de réception suspect | Cette détection est découverte par [Microsoft Cloud App Security (MCAS)](/cloud-app-security/anomaly-detection-policy#suspicious-inbox-forwarding). |
 
 Pour plus de détails sur ces risques et sur la façon dont ils sont calculés, consultez l'article [Qu'est-ce qu'un risque ?](concept-identity-protection-risks.md).
 

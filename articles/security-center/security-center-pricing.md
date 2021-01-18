@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/13/2020
 ms.author: memildin
-ms.openlocfilehash: 0b6a9d081d2b81124b0cae15e81e4b233f7824bb
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: ce95106c56e919fa0fcc7d7553a3f0cc0dc77f98
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97629338"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121292"
 ---
 # <a name="pricing-of-azure-security-center"></a>Niveaux tarifaires d’Azure Security Center
 Azure Security Center fournit une gestion unifiée de la sécurité et une protection avancée contre les menaces pour les charges de travail s’exécutant dans Azure, en local et dans d’autres clouds. Il fournit une visibilité et un contrôle sur les charges de travail cloud hybrides, des défenses actives qui réduisent votre exposition aux menaces et une détection intelligente pour vous aider à suivre le rythme des cyber-risques en rapide évolution.
@@ -72,6 +72,7 @@ Vous trouverez ci-dessous la page de tarification d’un exemple d’abonnement.
 - [Quels sont les plans proposés par Security Center ?](#what-are-the-plans-offered-by-security-center)
 - [Comment activer Azure Defender pour mon abonnement ?](#how-do-i-enable-azure-defender-for-my-subscription)
 - [Puis-je activer Azure Defender pour des serveurs sur un sous-ensemble de serveurs dans mon abonnement ?](#can-i-enable-azure-defender-for-servers-on-a-subset-of-servers-in-my-subscription)
+- [Si j’ai déjà une licence Microsoft Defender for Endpoint, puis-je bénéficier d’une remise pour Azure Defender ?](#if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-azure-defender)
 - [Azure Defender pour les serveurs est activé pour Mon abonnement, dois-je payer pour les serveurs qui ne sont pas en cours d’exécution ?](#my-subscription-has-azure-defender-for-servers-enabled-do-i-pay-for-not-running-servers)
 - [Les machines sur lesquelles l’agent Log Analytics n’est pas installé seront-elles facturées ?](#will-i-be-charged-for-machines-without-the-log-analytics-agent-installed)
 - [Si un agent Log Analytics émet un rapport dans plusieurs espaces de travail, est-il facturé deux fois ?](#if-a-log-analytics-agent-reports-to-multiple-workspaces-will-i-be-charged-twice)
@@ -111,6 +112,10 @@ Non. Lorsque vous activez [Azure Defender pour les serveurs](defender-for-server
 
 Une alternative consiste à activer Azure Defender pour les serveurs au niveau de l’espace de travail Log Analytics. Dans ce cas, seuls les serveurs qui rapportent à cet espace de travail seront protégés et facturés. Toutefois, plusieurs fonctionnalités ne seront pas disponibles. Cela inclut l’accès juste-à-temps aux machines virtuelles, les détections réseau, la conformité réglementaire, le renforcement réseau adaptatif, le contrôle d’application adaptatif, etc. 
 
+### <a name="if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-azure-defender"></a>Si j’ai déjà une licence Microsoft Defender for Endpoint, puis-je bénéficier d’une remise pour Azure Defender ?
+Si vous disposez déjà d’une licence pour Microsoft Defender for Endpoint, vous n’aurez pas à payer pour cette partie de votre licence Azure Defender.
+
+Pour valider votre remise, contactez l’équipe du support technique Security Center, et fournissez l’ID d’espace de travail, la région et les informations de licence nécessaires pour chaque licence concernée.
 
 ### <a name="my-subscription-has-azure-defender-for-servers-enabled-do-i-pay-for-not-running-servers"></a>Azure Defender pour les serveurs est activé pour Mon abonnement, dois-je payer pour les serveurs qui ne sont pas en cours d’exécution ? 
 Non. Lorsque vous activez [Azure Defender pour les serveurs](defender-for-servers-introduction.md) sur un abonnement, seuls les serveurs en cours d’exécution vous sont facturés à l’heure. Vous n’êtes pas facturé pour les serveurs désactivés, pour les périodes où ils sont désactivés. 

@@ -5,14 +5,14 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: overview
-ms.date: 11/25/2020
+ms.date: 01/08/2021
 ms.author: sngun
-ms.openlocfilehash: 98b1db18b72aad0c68f2faee031cc040a2a1f369
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 1cf3bf30b37a09b5dfe94bf1e754a7f8e9dcd82c
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181235"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98045663"
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Présentation d’Azure Cosmos DB : API de table
 [!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
@@ -20,7 +20,7 @@ ms.locfileid: "96181235"
 [Azure Cosmos DB](introduction.md) fournit l’API de table aux applications qui sont écrites pour le stockage de table Azure et qui ont besoin de fonctionnalités Premium comme :
 
 * [Une distribution mondiale clé en main](distribute-data-globally.md).
-* [Un débit dédié](partitioning-overview.md) partout dans le monde.
+* Un [débit dédié](partitioning-overview.md) dans le monde entier (lors de l’utilisation du débit provisionné).
 * Des latences de quelques millisecondes au 99e centile.
 * Une haute disponibilité garantie.
 * Une indexation secondaire automatique.
@@ -44,7 +44,7 @@ Si vous utilisez actuellement le stockage de table Azure, vous bénéficiez des 
 | Indexation | Index primaire uniquement sur PartitionKey et RowKey. Pas d’index secondaire. | Indexation automatique et complète de toutes les propriétés par défaut, sans gestion d’index. |
 | Requête | L’exécution des requêtes utilise un index de clé primaire, et effectue une recherche dans le cas contraire. | Les requêtes peuvent tirer parti de l’indexation automatique de propriétés pour des temps de requête rapides. |
 | Cohérence | Forte au sein de la région primaire. Éventuelle au sein de la région secondaire. | [Cinq niveaux de cohérence bien définis](consistency-levels.md) pour compenser la disponibilité, la latence, le débit ou la cohérence en fonction des besoins de votre application. |
-| Tarifs | Optimisation pour le stockage. | Optimisation pour le débit. |
+| Tarifs | Basés sur la consommation. | Disponibles à la fois en mode [Basé sur la consommation](serverless.md) et en mode [Capacité provisionnée](set-throughput.md). |
 | Contrats SLA | Disponibilité de 99,9% à 99,99%, en fonction de la stratégie de réplication. | Disponibilité de 99,999% en lecture, de 99,99% en écriture sur un compte dans une seule région, et de 99,999% en écriture sur les comptes dans plusieurs régions. [Contrats SLA complets](https://azure.microsoft.com/support/legal/sla/cosmos-db/) couvrant la disponibilité, la latence, le débit et la cohérence. |
 
 ## <a name="get-started"></a>Bien démarrer

@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 04/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: af90166b688dee104e7bda18a88a2fe7c98f657b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7a3c4bc2a0445a2821e212986b495993695652a6
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "82996231"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165924"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint"></a>Démarrage rapide : Créer un profil et un point de terminaison Azure CDN
 
@@ -68,7 +68,7 @@ Une fois que vous avez créé un profil CDN, vous l’utilisez pour créer un po
     
    ![Point de terminaison CDN](./media/cdn-create-new-endpoint/cdn-endpoint-success.png)
     
-   Le temps nécessaire à la propagation du point de terminaison dépend du niveau tarifaire sélectionné lors de la création du profil. **Akamai standard** standard se termine généralement dans un délai d’une minute, **Microsoft standard** en 10 minutes et **Verizon standard** et **Verizon Premium** dans un délai allant jusqu’à 90 minutes.
+   Le temps nécessaire à la propagation du point de terminaison dépend du niveau tarifaire sélectionné lors de la création du profil. **Akamai standard** se termine généralement dans un délai d’une minute, **Microsoft standard** en 10 minutes et **Verizon standard** et **Verizon Premium** dans un délai allant jusqu’à 30 minutes.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

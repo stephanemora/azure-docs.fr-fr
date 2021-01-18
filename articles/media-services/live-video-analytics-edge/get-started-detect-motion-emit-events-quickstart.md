@@ -3,12 +3,12 @@ title: Bien démarrer avec Live Video Analytics sur IoT Edge - Azure
 description: Ce guide de démarrage rapide montre comment commencer avec Live Video Analytics sur IoT Edge. Découvrez comment détecter tout mouvement dans un flux vidéo en direct.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: db48183e918fcb1096734f912f02c091ddac1d74
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 276c2ceaa9e0bef254c70f91541a3a3db7c02d47
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97511873"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060399"
 ---
 # <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>Démarrage rapide : Bien démarrer - Live Video Analytics sur IoT Edge
 
@@ -21,7 +21,7 @@ Une fois la procédure de configuration terminée, vous pourrez exécuter un flu
 
 Vous pouvez consulter la vidéo suivante qui contient les étapes détaillées pour commencer à utiliser Live Video Analytics sur IoT Edge :
 
-<iframe src="https://www.microsoft.com/en-us/videoplayer/embed/RE4Hcax" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4Hcax]
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -43,7 +43,7 @@ Ce tutoriel nécessite les ressources Azure suivantes :
 
 Pour ce guide de démarrage rapide, nous vous recommandons d’utiliser le [script d’installation des ressources Live Video Analytics](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) pour déployer les ressources nécessaires dans votre abonnement Azure. Pour ce faire, procédez comme suit :
 
-1. Accédez à [ Azure Cloud Shell](https://shell.azure.com).
+1. Accédez au [portail Azure](https://portal.azure.com) et sélectionnez l’icône Cloud Shell.
 1. Si vous utilisez Cloud Shell pour la première fois, vous serez invité à sélectionner un abonnement pour créer un compte de stockage et un partage Microsoft Azure Files. Sélectionnez **Créer un stockage** pour créer un compte de stockage pour vos informations de session Cloud Shell. Ce compte de stockage est distinct du compte que le script créera pour être utilisé avec votre compte Azure Media Services.
 1. Dans le menu déroulant situé sur le côté gauche de la fenêtre Cloud Shell, sélectionnez **Bash** comme environnement.
 
@@ -55,9 +55,13 @@ Pour ce guide de démarrage rapide, nous vous recommandons d’utiliser le [scri
     bash -c "$(curl -sL https://aka.ms/lva-edge/setup-resources-for-samples)"
     ```
     
-Si le script se termine correctement, vous devez voir toutes les ressources nécessaires dans votre abonnement. Dans la sortie du script, un tableau de ressources indique le nom du hub IoT. Recherchez le type de ressource `Microsoft.Devices/IotHubs`, puis notez le nom. Vous en aurez besoin à la prochaine étape. 
+Si le script se termine correctement, toutes les ressources nécessaires doivent apparaître dans votre abonnement. Dans la sortie du script, un tableau de ressources indique le nom du hub IoT. Recherchez le type de ressource **`Microsoft.Devices/IotHubs`** , puis notez le nom. Vous en aurez besoin à la prochaine étape.  
 
-Le script génère également quelques fichiers de configuration dans le répertoire *~/clouddrive/lva-sample/* . Vous en aurez besoin ultérieurement dans le guide de démarrage rapide.
+> [!NOTE]
+> Le script génère également quelques fichiers de configuration dans le répertoire **_~/clouddrive/lva-sample/_* _. Vous en aurez besoin ultérieurement dans le guide de démarrage rapide.
+
+> [!TIP]
+> En cas de problèmes avec les ressources Azure créées, consultez notre *[guide de dépannage](troubleshoot-how-to.md#common-error-resolutions)* qui couvre les problèmes couramment rencontrés.
 
 ## <a name="deploy-modules-on-your-edge-device"></a>Déployer des modules sur votre périphérique
 
@@ -417,8 +421,8 @@ Invoquez la méthode directe `GraphInstanceSet` à l’aide de la charge utile s
 Notez que cette charge utile :
 
 * Spécifie le nom de la topologie (`MotionDetection`) pour laquelle l’instance doit être créée.
-* Contient une valeur de paramètre pour `rtspUrl`, qui n’avait pas de valeur par défaut dans la charge utile de la topologie de graphe.
-
+* Contient une valeur de paramètre pour `rtspUrl`, qui n’avait pas de valeur par défaut dans la charge utile de la topologie de graphe. Cette valeur est un lien vers l’exemple de vidéo ci-dessous :
+    > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4LTY4]
 Au bout de quelques secondes, la réponse suivante s’affiche dans la fenêtre **SORTIE** :
 
 ```

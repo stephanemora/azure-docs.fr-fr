@@ -4,16 +4,16 @@ description: Découvrez Azure Analysis Services, une plateforme complètement ma
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 12/01/2020
+ms.date: 01/07/2021
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: e70d02c02ba9a3f14d1659851919fbccf71776d1
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: c4a14ab1e5b52eb36a532c6d69713d588864d288
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96487352"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019072"
 ---
 # <a name="what-is-azure-analysis-services"></a>Qu’est-ce qu’Azure Analysis Services ?
 
@@ -91,6 +91,7 @@ Azure Analysis Services est pris en charge dans les régions du monde entier. Le
 |USA Centre     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |USA Centre     |    S8v2, S9v2     |    1     |
 |États-Unis - partie centrale méridionale     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
+|États-Unis - partie centrale méridionale     |    S8v2, S9v2     |    1     |
 |Centre-USA Ouest   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
 |USA Ouest     |    B1, B2, S0, S1, S2, S4, D1    |    7   |
 |USA Ouest     |    S8v2, S9v2   |    2  |
@@ -115,6 +116,7 @@ Azure Analysis Services est pris en charge dans les régions du monde entier. Le
 |Australie Est     |    S8v2, S9v2    |    1     |
 |Sud-Australie Est     | B1, B2, S0, S1, S2, S4, D1       |    1     |
 |Japon Est     |   B1, B2, S0, S1, S2, S4, D1       |    1     |
+|Japon Est     |    S8v2, S9v2    |    1     |
 |Asie Sud-Est     |     B1, B2, S0, S1, S2, S4, D1     |   1      |
 |Asie Sud-Est     |     S8v2, S9v2     |   1      |
 |Inde Ouest     |    B1, B2, S0, S1, S2, S4, D1     |    1     |

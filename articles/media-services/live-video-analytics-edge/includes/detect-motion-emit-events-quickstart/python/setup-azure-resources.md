@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 5fa8377b3cdddb2818c04c5a75e347ff73dc07d8
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 40d2f957ce115b43a1dcc138b86e05ec9cc47384
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96509204"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060607"
 ---
 Ce tutoriel nécessite les ressources Azure suivantes :
 
@@ -26,12 +26,15 @@ Pour ce guide de démarrage rapide, nous vous recommandons d’utiliser le [scri
     bash -c "$(curl -sL https://aka.ms/lva-edge/setup-resources-for-samples)"
     ```
     
-    Si le script se termine correctement, vous devez voir toutes les ressources nécessaires dans votre abonnement.
+    Si le script se termine correctement, toutes les ressources nécessaires doivent apparaître dans votre abonnement.
 1. Une fois le script terminé, sélectionnez les accolades pour exposer la structure des dossiers. Quelques fichiers s’affichent dans le répertoire *~/clouddrive/lva-sample*. L’intérêt de ce guide de démarrage rapide est le suivant :
 
      * * **~/clouddrive/lva-sample/edge-deployment/.env** _ : ce fichier contient des propriétés que Visual Studio Code utilise pour déployer des modules sur un appareil de périphérie.
-     _ ***~/clouddrive/lva-sample/appsetting.json*** : Visual Studio Code utilise ce fichier pour exécuter l’exemple de code.
+     _ * **~/clouddrive/lva-sample/appsetting.json** : Visual Studio Code utilise ce fichier pour exécuter l’exemple de code.
      
     Vous aurez besoin de ces fichiers quand vous configurerez votre environnement de développement dans Visual Studio Code dans la prochaine section. Vous pouvez les copier dans un fichier local pour l’instant.
     
     ![Paramètres de l’application](../../../media/quickstarts/clouddrive.png)
+
+> [!TIP]
+> En cas de problèmes avec les ressources Azure créées, consultez notre _ *[guide de dépannage](../../../troubleshoot-how-to.md#common-error-resolutions)* * qui couvre les problèmes couramment rencontrés.

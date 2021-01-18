@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: a236cf99d3131e83619cfab06e8ec028938a87ba
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: cc54ae66cda6bf8ecde07d1830448ec39a15cc29
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96454617"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120221"
 ---
 # <a name="cheat-sheet-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytic"></a>Aide-mémoire pour pool SQL dédié (anciennement SQL DW) dans Azure Synapse Analytics
 
@@ -37,7 +37,7 @@ Le fait de bien déterminer le type des opérations à l’avance vous aide à o
 
 ## <a name="data-migration"></a>Migration des données
 
-Commencez par charger vos données dans [Azure Data Lake Storage](../../data-factory/connector-azure-data-lake-store.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) ou le stockage Blob Azure. Ensuite, utilisez l’[instruction COPY](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (préversion) pour charger vos données dans des tables de mise en lots. Utilisez la configuration suivante :
+Commencez par charger vos données dans [Azure Data Lake Storage](../../data-factory/connector-azure-data-lake-store.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) ou le stockage Blob Azure. Ensuite, utilisez l’[instruction COPY](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) pour charger vos données dans des tables de mise en lots. Utilisez la configuration suivante :
 
 | Conception | Recommandation |
 |:--- |:--- |
@@ -46,7 +46,7 @@ Commencez par charger vos données dans [Azure Data Lake Storage](../../data-fac
 | Partitionnement | None |
 | Classe de ressource | largerc ou xlargerc |
 
-En savoir plus sur la [migration des données](https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-data-to-azure-sql-data-warehouse-in-practice/), le [chargement des données](design-elt-data-loading.md) et le [processus ELT (extraire, charger et transformer)](design-elt-data-loading.md).
+En savoir plus sur la [migration des données](/archive/blogs/sqlcat/migrating-data-to-azure-sql-data-warehouse-in-practice), le [chargement des données](design-elt-data-loading.md) et le [processus ELT (extraire, charger et transformer)](design-elt-data-loading.md).
 
 ## <a name="distributed-or-replicated-tables"></a>Tables répliquées ou distribuées
 
@@ -137,7 +137,7 @@ Vous pouvez maintenant effectuer une mise à l’échelle automatique à tout mo
 
 Nous vous recommandons d’envisager SQL Database et Azure Analysis Services dans une architecture hub-and-spoke. Cette solution peut fournir l’isolation de la charge de travail entre les différents groupes d’utilisateurs, tout en rendant possible l’utilisation de certaines fonctionnalités de sécurité avancées offertes par SQL Database et Azure Analysis Services. C’est également un moyen de fournir une concurrence illimitée à vos utilisateurs.
 
-En savoir plus sur les [architectures typiques qui tirent parti du pool SQL dédié (anciennement SQL DW) dans Azure Synapse Analytics](https://blogs.msdn.microsoft.com/sqlcat/20../../common-isv-application-patterns-using-azure-sql-data-warehouse/).
+En savoir plus sur les [architectures typiques qui tirent parti du pool SQL dédié (anciennement SQL DW) dans Azure Synapse Analytics](/archive/blogs/sqlcat/common-isv-application-patterns-using-azure-sql-data-warehouse).
 
 Déployez en un seul clic vos rayons dans les bases de données SQL à partir du pool SQL dédié (anciennement SQL DW) :
 
