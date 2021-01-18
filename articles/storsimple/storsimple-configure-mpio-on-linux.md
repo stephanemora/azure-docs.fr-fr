@@ -23,7 +23,7 @@ Cette procédure s’applique à tous les modèles d’appareils StorSimple sér
 > Cette procédure ne peut pas être utilisée pour un StorSimple Cloud Appliance. Pour plus d’informations, consultez Configuration des serveurs hôtes de votre appliance cloud.
 
 > [!NOTE]
-> Cet article contient des références au terme *liste noire*, un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.
+> Cet article contient des références au terme *liste rouge*, un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.
 
 
 ## <a name="about-multipathing"></a>À propos de la gestion multivoie

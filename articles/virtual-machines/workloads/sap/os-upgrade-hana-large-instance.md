@@ -28,7 +28,7 @@ Ce document décrit en détail les mises à niveau du système d’exploitation 
 >La mise à niveau du système d’exploitation relève de la responsabilité du client. Le support des opérations Microsoft peut vous indiquer les éléments clés à surveiller pendant la mise à niveau. Consultez également le fournisseur de votre système d’exploitation avant de planifier une mise à niveau.
 
 > [!NOTE]
-> Cet article contient des références au terme *liste noire*, un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.
+> Cet article contient des références au terme *liste rouge*, un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.
 
 Pendant le provisionnement de l’unité HLI, l’équipe des opérations Microsoft installe le système d’exploitation.
 Au fil du temps, il vous appartient d’effectuer la maintenance du système d’exploitation sur l’unité HLI : mise à jour corrective, réglage, mise à niveau, etc.

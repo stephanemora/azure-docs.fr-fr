@@ -20,7 +20,7 @@ ms.locfileid: "96608603"
 Le pare-feu d’applications web Application Gateway protège les applications web contre les vulnérabilités et failles de sécurité. Cette protection s’effectue par le biais de règles définies à partir des ensembles de règles de base OWASP 3.1, 3.0 ou 2.2.9. Ces règles peuvent être désactivées une par une. Cet article contient les règles et ensembles de règles actuellement proposées.
 
 > [!NOTE]
-> Cet article contient des références au terme *liste noire*, un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.
+> Cet article contient des références au terme *liste rouge*, un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.
 
 ## <a name="core-rule-sets"></a>Ensembles de règles de base
 
