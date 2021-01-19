@@ -7,19 +7,19 @@ author: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.date: 06/17/2020
+ms.date: 01/12/2021
 ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: 5be3652d7fca62a0740888ad458f8564f555169e
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: 55c4fa00cfd20a83e65a3d57c6020991734f9d9f
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96518904"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132475"
 ---
 # <a name="security-recommendations-for-blob-storage"></a>Recommandations de sécurité pour Stockage Blob
 
-Cet article contient des recommandations de sécurité pour Stockage Blob. Mettez en œuvre ces recommandations pour répondre à vos obligations de sécurité comme décrit dans notre modèle de responsabilité partagée. Pour plus d’informations sur les mesures prises par Microsoft pour répondre à ses responsabilités de fournisseur de services, lisez [Responsabilités partagées pour le cloud computing](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/225366/1/Shared%20Responsibility%20for%20Cloud%20Computing-2019-10-25.pdf).
+Cet article contient des recommandations de sécurité pour Stockage Blob. Mettez en œuvre ces recommandations pour répondre à vos obligations de sécurité comme décrit dans notre modèle de responsabilité partagée. Pour plus d’informations sur la manière dont Microsoft répond à ses responsabilités de fournisseur de services, consultez [Responsabilités partagées pour le cloud computing](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/225366/1/Shared%20Responsibility%20for%20Cloud%20Computing-2019-10-25.pdf).
 
 Certaines recommandations contenues dans cet article peuvent être supervisées automatiquement par Azure Security Center. Azure Security Center est la première ligne de défense dans la protection de vos ressources Azure. Pour plus d’informations sur Azure Security Center, consultez [Présentation d’Azure Security Center](../../security-center/security-center-introduction.md).
 
@@ -31,9 +31,11 @@ Azure Security Center analyse périodiquement l’état de sécurité de vos res
 |-|----|--|
 | Utiliser le Modèle de déploiement Azure Resource Manager | Créez des comptes de stockage en utilisant le modèle de déploiement Azure Resource Manager pour les améliorations de sécurité importantes, notamment les fonctionnalités de contrôle d’accès en fonction du rôle Azure (Azure RBAC) et d’audit de premier plan, le déploiement et la gouvernance basés sur Resource Manager, l’accès aux identités managées, l’accès pour Azure Key Vault pour les secrets, et l’authentification et l’autorisation basées sur Azure AD pour l’accès aux données et aux ressources de Stockage Azure. Si possible, migrez les comptes de stockage existants qui utilisent le Modèle de déploiement classique pour qu’ils utilisent Azure Resource Manager. Pour plus d’informations sur Azure Resource Manager, consultez [Vue d’ensemble d’Azure Resource Manager](../../azure-resource-manager/management/overview.md). | - |
 | Activer Azure Defender pour tous vos comptes de stockage | Azure Defender pour le stockage Azure offre une couche supplémentaire de veille de sécurité qui détecte les tentatives d’accès ou d’exploitation inhabituelles et potentiellement dangereuses des comptes de stockage. Les alertes de sécurité sont déclenchées dans Azure Security Center quand des anomalies se produisent dans des activités ; elles sont également envoyées par e-mail aux administrateurs d’abonnement, avec les détails des activités suspectes et des recommandations sur la façon d’examiner et de remédier aux menaces. Pour plus d’informations, consultez [Configurer Azure Defender pour le stockage Azure](../common/azure-defender-storage-configure.md). | [Oui](../../security-center/security-center-sql-service-recommendations.md) |
-| Activer la suppression réversible pour les données d’objet blob | La suppression réversible vous permet de récupérer des données d’objet blob après qu’elles ont été supprimées. Pour plus d’informations sur la suppression réversible, consultez [Suppression réversible pour les objets blob de Stockage Azure](./soft-delete-blob-overview.md). | - |
-| Verrouiller le compte de stockage pour empêcher toute suppression accidentelle | Vous pouvez verrouiller un abonnement, un groupe de ressources ou une ressource afin d’empêcher d’autres utilisateurs de votre organisation de supprimer ou modifier accidentellement ces informations. Pour plus d’informations, consultez [Verrouiller les ressources pour empêcher les modifications inattendues](../../azure-resource-manager/management/lock-resources.md).
+| Activer la suppression réversible des objets blob | La suppression réversible des objets blob vous permet de récupérer des données d’objet blob après qu’elles ont été supprimées. Pour plus d’informations sur la suppression réversible des objets blob, consultez [Suppression réversible des objets blob Stockage Azure](./soft-delete-blob-overview.md). | - |
+| Activer la suppression réversible des conteneurs | La suppression réversible des conteneurs vous permet de récupérer un conteneur après qu’il a été supprimé. Pour plus d’informations sur la suppression réversible des conteneurs, consultez [Suppression réversible des conteneurs (préversion)](./soft-delete-container-overview.md). | - |
+| Verrouiller le compte de stockage pour empêcher toute suppression de compte accidentelle | Vous pouvez verrouiller une ressource Azure Resource Manager, telle qu’un abonnement, un groupe de ressources ou un compte de stockage, pour empêcher d’autres utilisateurs de votre organisation de la supprimer ou la modifier accidentellement. Le verrouillage d’un compte de stockage n’empêche pas la suppression des données contenues dans ce compte. Il empêche uniquement la suppression du compte à proprement parler. Pour plus d’informations, consultez [Verrouiller les ressources pour empêcher les modifications inattendues](../../azure-resource-manager/management/lock-resources.md).
 | Stocker les données critiques pour l’entreprise dans des objets blob immuables | Configurez des stratégies de conservation légales et basées sur la durée pour stocker des données d’objets blob dans un état WORM (Write Once, Read Many). Les objets blob stockés de façon immuable peuvent être lus, mais ils ne peuvent pas être modifiés ou supprimés pendant la durée de l’intervalle de conservation. Pour plus d’informations, consultez [Stocker des données blob critiques pour l’entreprise avec un stockage immuable](storage-blob-immutable-storage.md). | - |
+| Exiger un transfert sécurisé (HTTPS) vers le compte de stockage | ??? | - |
 | Limiter les jetons de signature d’accès partagé (SAS) aux seules connexions HTTPS | Le fait d’exiger HTTPS quand un client utilise un jeton SAS pour accéder à des données d’objet blob permet de réduire le risque d’écoute. Pour plus d’informations, consultez [Accorder un accès limité aux ressources du Stockage Azure à l’aide des signatures d’accès partagé (SAS)](../common/storage-sas-overview.md). | - |
 
 ## <a name="identity-and-access-management"></a>Gestion de l’identité et de l’accès

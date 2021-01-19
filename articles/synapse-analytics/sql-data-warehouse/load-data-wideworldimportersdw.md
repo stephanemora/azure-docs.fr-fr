@@ -7,16 +7,16 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 07/17/2019
+ms.date: 01/12/2021
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, synapse-analytics
-ms.openlocfilehash: 6f089a67262c78f31092780bb8b4d7d803d47e0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c492ec930cea000e45f7b6f09cc5e9c7a6a0db22
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91369091"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98134498"
 ---
 # <a name="tutorial-load-data-to--azure-synapse-analytics-sql-pool"></a>Tutoriel : Charger des données sur un pool SQL Azure Synapse Analytics
 
@@ -24,9 +24,6 @@ Ce tutoriel utilise PolyBase pour charger l’entrepôt de données WideWorldImp
 
 > [!div class="checklist"]
 >
-> * Créer un entrepôt de données à l’aide d’un pool SQL dans le portail Azure
-> * Configurer une règle de pare-feu au niveau du serveur dans le portail Azure
-> * Se connecter au pool SQL avec SSMS
 > * Créer un utilisateur désigné pour le chargement des données
 > * Créer des tables externes qui utilisent Azure Blob comme source de données
 > * Utiliser l’instruction T-SQL CTAS pour charger les données dans votre entrepôt de données
@@ -40,110 +37,10 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 Avant de commencer ce didacticiel, téléchargez et installez la dernière version de [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS).
 
-## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
-
-Connectez-vous au [portail Azure](https://portal.azure.com/).
-
-## <a name="create-a-blank-data-warehouse-in-sql-pool"></a>Créer un entrepôt de données vide dans le pool SQL
-
-Un pool SQL est créé avec un ensemble défini de [ressources de calcul](memory-concurrency-limits.md). Le pool SQL est créé dans un [groupe de ressources Azure](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) et dans un [serveur SQL logique](../../azure-sql/database/logical-servers.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
-
-Pour créer un pool SQL vide, suivez la procédure suivante.
-
-1. Sélectionnez **Créer une ressource** dans le portail Azure.
-
-1. Sélectionnez **Bases de données** dans la page **Nouveau** et sélectionnez **Azure Synapse Analytics** sous **Sélection** dans la page **Nouveau**.
-
-    ![Créer un pool SQL](./media/load-data-wideworldimportersdw/create-empty-data-warehouse.png)
-
-1. Remplissez la section **Détails du projet** avec les informations suivantes :
-
-   | Paramètre | Exemple | Description |
-   | ------- | --------------- | ----------- |
-   | **Abonnement** | Votre abonnement  | Pour plus d’informations sur vos abonnements, consultez [Abonnements](https://account.windowsazure.com/Subscriptions). |
-   | **Groupe de ressources** | myResourceGroup | Pour les noms de groupe de ressources valides, consultez [Naming conventions](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (Conventions d’affectation de nom). |
-
-1. Sous **Détails du pool SQL**, indiquez un nom pour votre pool SQL. Ensuite, sélectionnez un serveur existant dans la liste déroulante ou sélectionnez **Créer** sous les paramètres **Serveur** pour créer un serveur. Renseignez le formulaire avec les informations suivantes :
-
-    | Paramètre | Valeur suggérée | Description |
-    | ------- | --------------- | ----------- |
-    |**Nom du pool SQL**|SampleDW| Pour les noms de base de données valides, consultez [Database Identifiers](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (Identificateurs de base de données). |
-    | **Nom du serveur** | Nom globalement unique | Pour les noms de serveur valides, consultez [Naming conventions](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (Conventions d’affectation de nom). |
-    | **Connexion d’administrateur du serveur** | Nom valide | Pour les noms de connexion valides, consultez [Database Identifiers](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (Identificateurs de base de données).|
-    | **Mot de passe** | Mot de passe valide | Votre mot de passe doit comporter au moins 8 caractères et contenir des caractères appartenant à trois des catégories suivantes : majuscules, minuscules, chiffres et caractères non alphanumériques. |
-    | **Lieu** | Emplacement valide | Pour plus d’informations sur les régions, consultez [Régions Azure](https://azure.microsoft.com/regions/). |
-
-    ![Créer un serveur](./media/load-data-wideworldimportersdw/create-database-server.png)
-
-1. **Sélectionner le niveau de performance**. Par défaut, le curseur est défini sur **DW1000c**. Déplacez le curseur vers le haut et vers le bas pour choisir l’échelle de performances souhaitée.
-
-    ![Créer un serveur 2](./media/load-data-wideworldimportersdw/create-data-warehouse.png)
-
-1. Dans la page **Paramètres supplémentaires**, définissez **Utiliser des données existantes** sur Aucun, et laissez le **Classement** sur la valeur par défaut *SQL_Latin1_General_CP1_CI_AS*.
-
-1. Sélectionnez **Vérifier + créer** pour passer en revue vos paramètres, puis sélectionnez **Créer** pour créer votre entrepôt de données. Vous pouvez superviser votre progression en ouvrant la page **Déploiement en cours** à partir du menu **Notifications**.
-
-     ![Capture d’écran affichant les notifications avec le déploiement en cours.](./media/load-data-wideworldimportersdw/notification.png)
-
-## <a name="create-a-server-level-firewall-rule"></a>Créer une règle de pare-feu au niveau du serveur
-
-Le service Azure Synapse Analytics crée un pare-feu au niveau du serveur qui empêche les applications et outils externes de se connecter au serveur ou à toute base de données sur le serveur. Pour activer la connectivité, vous pouvez ajouter des règles de pare-feu qui activent la connectivité pour des adresses IP spécifiques.  Suivez ces étapes pour créer une [règle de pare-feu au niveau du serveur](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) pour l’adresse IP de votre client.
+Ce tutoriel présuppose que vous avez déjà créé un pool dédié SQL à partir de [ce tutoriel](./create-data-warehouse-portal.md#connect-to-the-server-as-server-admin). 
 
 > [!NOTE]
-> Le pool SQL Azure Synapse Analytics communique sur le port 1433. Si vous essayez de vous connecter à partir d’un réseau d’entreprise, le trafic sortant sur le port 1433 peut être bloqué par le pare-feu de votre réseau. Dans ce cas, vous ne pouvez pas vous connecter à votre serveur, sauf si votre service informatique ouvre le port 1433.
->
-
-1. Une fois le déploiement terminé, recherchez le nom de votre pool dans la zone de recherche du menu de navigation, puis sélectionnez la ressource de pool SQL. Sélectionnez le nom du serveur.
-
-    ![Accéder à votre ressource](./media/load-data-wideworldimportersdw/search-for-sql-pool.png)
-
-1. Sélectionnez le nom du serveur.
-    ![nom du serveur](././media/load-data-wideworldimportersdw/find-server-name.png)
-
-1. Sélectionnez **Afficher les paramètres de pare-feu**. La page **Paramètres de pare-feu** du serveur s'ouvre.
-
-    ![paramètres du serveur](./media/load-data-wideworldimportersdw/server-settings.png)
-
-1. Dans la page **Pare-feux et réseaux virtuels**, sélectionnez **Ajouter une adresse IP de client** pour ajouter votre adresse IP actuelle à une nouvelle règle de pare-feu. Une règle de pare-feu peut ouvrir le port 1433 pour une seule adresse IP ou une plage d’adresses IP.
-
-    ![règle de pare-feu de serveur](./media/load-data-wideworldimportersdw/server-firewall-rule.png)
-
-1. Sélectionnez **Enregistrer**. Une règle de pare-feu au niveau du serveur est créée pour votre adresse IP actuelle, ce qui ouvre le port 1433 sur le serveur.
-
-Vous pouvez maintenant vous connecter au serveur à l'aide de l'adresse IP de votre client. La connexion fonctionne à partir de SQL Server Management Studio ou d’un autre outil de votre choix. Quand vous vous connectez, utilisez le compte serveradmin que vous avez créé précédemment.  
-
-> [!IMPORTANT]
-> Par défaut, l’accès via le pare-feu SQL Database est activé pour tous les services Azure. Cliquez sur **OFF** dans cette page, puis sur **Enregistrer** pour désactiver le pare-feu pour tous les services Azure.
-
-## <a name="get-the-fully-qualified-server-name"></a>Obtenir le nom complet du serveur
-
-Le nom de serveur complet est celui utilisé pour se connecter au serveur. Accédez à votre ressource de pool SQL dans le portail Azure et affichez le nom complet sous **Nom du serveur**.
-
-![nom du serveur](././media/load-data-wideworldimportersdw/find-server-name.png)
-
-## <a name="connect-to-the-server-as-server-admin"></a>Se connecter au serveur comme administrateur du serveur
-
-Cette section utilise [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS) pour établir une connexion avec votre serveur.
-
-1. Ouvrez SQL Server Management Studio.
-
-2. Dans la fenêtre **Se connecter au serveur**, entrez les valeurs suivantes :
-
-    | Paramètre      | Valeur suggérée | Description |
-    | ------------ | --------------- | ----------- |
-    | Type de serveur | Moteur de base de données | Cette valeur est obligatoire |
-    | Nom du serveur | Nom complet du serveur | Par exemple, **sqlpoolservername.database.windows.net** est un nom complet du serveur. |
-    | Authentification | l’authentification SQL Server | L’authentification SQL est le seul type d’authentification configuré dans ce didacticiel. |
-    | Connexion | Compte d’administrateur de serveur | Il s’agit du compte que vous avez spécifié lorsque vous avez créé le serveur. |
-    | Mot de passe | Mot de passe de votre compte d’administrateur de serveur | Il s’agit du mot de passe que vous avez spécifié lorsque vous avez créé le serveur. |
-
-    ![connect to server](./media/load-data-wideworldimportersdw/connect-to-server.png)
-
-3. Cliquez sur **Connecter**. La fenêtre Explorateur d’objets s’ouvre dans SSMS.
-
-4. Dans l’Explorateur d’objets, développez **Bases de données**. Ensuite, développez **Bases de données système** et **master** pour afficher les objets de la base de données master.  Développez **SampleDW** pour afficher les objets dans votre nouvelle base de données.
-
-    ![objets de base de données](./media/load-data-wideworldimportersdw/connected.png)
+> Nous vous recommandons d’utiliser au minimum un Dw1000c pour ce tutoriel. 
 
 ## <a name="create-a-user-for-loading-data"></a>Créer un utilisateur pour le chargement des données
 

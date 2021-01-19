@@ -12,12 +12,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
-ms.openlocfilehash: 28e70a5d5a6ac4cd51f5ed3fc85afd47a5af68d8
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: fa6cdeaa47c7fdf9e90cdab96397473d8498afa0
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033270"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108702"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Créer des jeux de données Azure Machine Learning
 
@@ -176,6 +176,39 @@ titanic_ds.take(3).to_pandas_dataframe()
 2|3|True|3|Heikkinen, Miss. Laina|female|26,0|0|0|STON/O2. 3101282|7.9250||S
 
 Pour réutiliser et partager des jeux de données dans des expériences de votre espace de travail, [inscrivez votre jeu de données](#register-datasets).
+
+
+## <a name="explore-data"></a>Explorer des données
+
+Une fois que vous avez créé et [inscrit](#register-datasets) votre jeu de données, vous pouvez le charger dans votre notebook pour l’exploration des données avant d’effectuer l’apprentissage du modèle. Si vous n’avez pas besoin d’effectuer une exploration des données, découvrez comment utiliser des jeux de données dans vos scripts d’apprentissage pour soumettre des expériences ML dans [Apprentissage avec des jeux de données](how-to-train-with-datasets.md).
+
+Pour les FileDataset, vous pouvez **monter** ou **télécharger** votre jeu de données, et appliquer les bibliothèques Python que vous utiliseriez normalement pour l’exploration des données. [En savoir plus sur le montage et le téléchargement](how-to-train-with-datasets.md#mount-vs-download).
+
+```python
+# download the dataset 
+dataset.download(target_path='.', overwrite=False) 
+
+# mount dataset to the temp directory at `mounted_path`
+
+import tempfile
+mounted_path = tempfile.mkdtemp()
+mount_context = dataset.mount(mounted_path)
+
+mount_context.start()
+```
+
+Pour les TabularDataset, utilisez la méthode [`to_pandas_dataframe()`](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py#to-pandas-dataframe-on-error--null---out-of-range-datetime--null--) pour afficher vos données dans un dataframe. 
+
+```python
+# preview the first 3 rows of titanic_ds
+titanic_ds.take(3).to_pandas_dataframe()
+```
+
+|(Index)|PassengerId|Survived|Pclass|Nom|Sex|Age|SibSp|Parch|Ticket|Fare|Cabin|Embarked
+-|-----------|--------|------|----|---|---|-----|-----|------|----|-----|--------|
+0|1|False|3|Braund, Mr. Owen Harris|male|22.0|1|0|A/5 21171|7.2500||S
+1|2|True|1|Cumings, Mrs. John Bradley (Florence Briggs Th...|female|38.0|1|0|PC 17599|71.2833|C85|C
+2|3|True|3|Heikkinen, Miss. Laina|female|26,0|0|0|STON/O2. 3101282|7.9250||S
 
 ## <a name="create-a-dataset-from-pandas-dataframe"></a>Créer un jeu de données à partir d’une tramedonnées pandas
 

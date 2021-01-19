@@ -4,12 +4,12 @@ description: Dans cet article, découvrez la sauvegarde et la restauration séle
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: references_regions , devx-track-azurecli
-ms.openlocfilehash: 95104f231e7b4d4d2135ac3c5dde27512d465775
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 1f4d27563cf292632c6b14c82e36542b86c5d356
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746988"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127717"
 ---
 # <a name="selective-disk-backup-and-restore-for-azure-virtual-machines"></a>Sauvegarde et restauration sélectives de disques pour les machines virtuelles Azure
 
@@ -22,7 +22,7 @@ Cette solution s’avère particulièrement utile dans les scénarios suivants 
 1. Si vous avez des données critiques à sauvegarder sur un seul disque ou sur un sous-ensemble de disques et que vous ne voulez pas sauvegarder les autres disques attachés à une machine virtuelle pour limiter les coûts de stockage de sauvegarde.
 2. Si vous disposez d’autres solutions de sauvegarde pour une partie de votre machine virtuelle ou de vos données. Par exemple, vous sauvegardez vos bases de données ou vos données avec une autre solution de sauvegarde de charge de travail et vous souhaitez utiliser la sauvegarde au niveau de la machine virtuelle Azure pour le reste des données ou des disques afin de générer un système efficace et robuste utilisant les meilleures fonctionnalités disponibles.
 
-En utilisant PowerShell ou Azure CLI, vous pouvez configurer la sauvegarde sélective de disques de la machine virtuelle Azure.  En utilisant un script, vous pouvez inclure ou exclure des disques de données à partir de leur numéro d’unité logique (LUN).  Pour l’heure, la possibilité de configurer la sauvegarde sélective de disques via le portail Azure se limite à l’option **Sauvegarder le disque du système d’exploitation uniquement** . Vous pouvez donc configurer la sauvegarde de votre machine virtuelle Azure avec le disque du système d’exploitation et exclure tous les disques de données qui y sont attachés.
+En utilisant PowerShell ou Azure CLI, vous pouvez configurer la sauvegarde sélective de disques de la machine virtuelle Azure.  En utilisant un script, vous pouvez inclure ou exclure des disques de données à partir de leur numéro d’unité logique (LUN).  Pour l’heure, la possibilité de configurer la sauvegarde sélective de disques via le portail Azure se limite à l’option **Sauvegarder le disque du système d’exploitation uniquement**. Vous pouvez donc configurer la sauvegarde de votre machine virtuelle Azure avec le disque du système d’exploitation et exclure tous les disques de données qui y sont attachés.
 
 >[!NOTE]
 > Le disque du système d’exploitation est ajouté par défaut à la sauvegarde de la machine virtuelle et ne peut pas être exclu.
@@ -46,7 +46,7 @@ az account set -s {subscriptionID}
 
 ### <a name="configure-backup-with-azure-cli"></a>Configurer la sauvegarde avec Azure CLI
 
-Pendant l’opération de configuration de la protection, vous devez spécifier le paramètre de liste de disques avec un paramètre d’ **inclusion** / **exclusion** , en indiquant les numéros LUN des disques à inclure ou à exclure dans la sauvegarde.
+Pendant l’opération de configuration de la protection, vous devez spécifier le paramètre de liste de disques avec un paramètre d’**inclusion** / **exclusion**, en indiquant les numéros LUN des disques à inclure ou à exclure dans la sauvegarde.
 
 ```azurecli
 az backup protection enable-for-vm --resource-group {resourcegroup} --vault-name {vaultname} --vm {vmname} --policy-name {policyname} --disk-list-setting include --diskslist {LUN number(s) separated by space}
@@ -189,14 +189,25 @@ Quand vous exécutez ces commandes, vous voyez `"diskExclusionProperties": null`
 
 Veillez à utiliser Azure PowerShell version 3.7.0 ou supérieure.
 
+Pendant l’opération de configuration de la protection, vous devez spécifier le paramètre de liste de disques avec un paramètre d’inclusion/exclusion, en indiquant les numéros LUN des disques à inclure ou à exclure dans la sauvegarde.
+
 ### <a name="enable-backup-with-powershell"></a>Activer la sauvegarde avec PowerShell
 
+Par exemple :
+
 ```azurepowershell
-Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"  -InclusionDisksList[Strings] -VaultId $targetVault.ID
+$disks = ("0","1")
+$targetVault = Get-AzRecoveryServicesVault -ResourceGroupName "rg-p-recovery_vaults" -Name "rsv-p-servers"
+Get-AzRecoveryServicesBackupProtectionPolicy
+$pol = Get-AzRecoveryServicesBackupProtectionPolicy -Name "P-Servers"
 ```
 
 ```azurepowershell
-Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"  -ExclusionDisksList[Strings] -VaultId $targetVault.ID
+Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"  -InclusionDisksList $disks -VaultId $targetVault.ID
+```
+
+```azurepowershell
+Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"  -ExclusionDisksList $disks -VaultId $targetVault.ID
 ```
 
 ### <a name="backup-only-os-disk-during-configure-backup-with-powershell"></a>Sauvegarder uniquement le disque du système d’exploitation pendant la configuration de la sauvegarde avec PowerShell
@@ -265,14 +276,14 @@ Ici, vous pouvez afficher les disques sauvegardés pendant la restauration, quan
 
 ![Afficher les disques sauvegardés pendant la restauration](./media/selective-disk-backup-restore/during-restore.png)
 
-La configuration de l’expérience de sauvegarde sélective de disques pour une machine virtuelle via le portail Azure se limite à l’option **Sauvegarder le disque du système d’exploitation uniquement** . Pour utiliser la sauvegarde sélective de disques sur une machine virtuelle déjà sauvegardée ou pour inclure ou exclure de manière avancée certains disques de données d’une machine virtuelle, utilisez PowerShell ou Azure CLI.
+La configuration de l’expérience de sauvegarde sélective de disques pour une machine virtuelle via le portail Azure se limite à l’option **Sauvegarder le disque du système d’exploitation uniquement**. Pour utiliser la sauvegarde sélective de disques sur une machine virtuelle déjà sauvegardée ou pour inclure ou exclure de manière avancée certains disques de données d’une machine virtuelle, utilisez PowerShell ou Azure CLI.
 
 >[!NOTE]
 >Si les données occupent plusieurs disques, veillez à inclure tous les disques dépendants dans la sauvegarde. Si vous ne sauvegardez pas tous les disques dépendants dans un volume, pendant la restauration, le volume constitué de disques non sauvegardés ne sera pas créé.
 
 ### <a name="backup-os-disk-only-in-the-azure-portal"></a>Sauvegarder uniquement le disque du système d’exploitation sur le portail Azure
 
-Quand vous activez la sauvegarde à partir du portail Azure, vous pouvez choisir l’option **Sauvegarder le disque du système d’exploitation uniquement** . Vous pouvez donc configurer la sauvegarde de votre machine virtuelle Azure avec le disque du système d’exploitation et exclure tous les disques de données qui y sont attachés.
+Quand vous activez la sauvegarde à partir du portail Azure, vous pouvez choisir l’option **Sauvegarder le disque du système d’exploitation uniquement**. Vous pouvez donc configurer la sauvegarde de votre machine virtuelle Azure avec le disque du système d’exploitation et exclure tous les disques de données qui y sont attachés.
 
 ![Configurer la sauvegarde pour le disque du système d’exploitation uniquement](./media/selective-disk-backup-restore/configure-backup-operating-system-disk.png)
 
@@ -286,7 +297,7 @@ La restauration sélective de disques est une fonctionnalité ajoutée dont vous
 
 - Le disque du système d’exploitation est inclus par défaut dans la sauvegarde et la restauration de machine virtuelle et ne peut pas être exclu.
 - La restauration sélective de disques est prise en charge uniquement pour les points de récupération créés après l’activation de la fonctionnalité d’exclusion de disques.
-- Les sauvegardes pour lesquelles le paramètre d’exclusion de disque est défini sur **ON** prennent en charge uniquement l’option **Restauration de disque** . Les options de restauration **Restauration de machine virtuelle** ou **Remplacer l’existant** ne sont pas prises en charge dans ce cas.
+- Les sauvegardes pour lesquelles le paramètre d’exclusion de disque est défini sur **ON** prennent en charge uniquement l’option **Restauration de disque**. Les options de restauration **Restauration de machine virtuelle** ou **Remplacer l’existant** ne sont pas prises en charge dans ce cas.
 
 ![Les options de restauration de machine virtuelle et de remplacement de l’existant ne sont pas disponibles pendant l’opération de restauration](./media/selective-disk-backup-restore/options-not-available.png)
 
@@ -302,7 +313,7 @@ Actuellement, la sauvegarde de machine virtuelle Azure ne prend pas en charge le
 
 La sauvegarde de machine virtuelle Azure suit le modèle tarifaire existant, qui est expliqué en détail [ici](https://azure.microsoft.com/pricing/details/backup/).
 
-Le **coût de l’instance protégée** est calculé pour le disque du système d’exploitation uniquement si vous optez pour une sauvegarde avec l’option **Disque du système d’exploitation uniquement** .  Si vous configurez la sauvegarde et sélectionnez au moins un disque de données, le coût de l’instance protégée est calculé pour tous les disques attachés à la machine virtuelle. Le **coût du stockage de sauvegarde** est calculé en fonction des disques inclus, ce qui vous permet de réaliser des économies sur le coût du stockage. Le **coût de capture instantanée** est toujours calculé pour tous les disques de la machine virtuelle (disques inclus et exclus).
+Le **coût de l’instance protégée** est calculé pour le disque du système d’exploitation uniquement si vous optez pour une sauvegarde avec l’option **Disque du système d’exploitation uniquement**.  Si vous configurez la sauvegarde et sélectionnez au moins un disque de données, le coût de l’instance protégée est calculé pour tous les disques attachés à la machine virtuelle. Le **coût du stockage de sauvegarde** est calculé en fonction des disques inclus, ce qui vous permet de réaliser des économies sur le coût du stockage. Le **coût de capture instantanée** est toujours calculé pour tous les disques de la machine virtuelle (disques inclus et exclus).
 
 Si vous avez choisi la fonctionnalité de restauration interrégion, la [tarification de la restauration interrégion](https://azure.microsoft.com/pricing/details/backup/) s’applique sur le coût du stockage de sauvegarde après l’exclusion du disque.
 

@@ -5,14 +5,14 @@ services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: article
-ms.date: 6/15/2019
+ms.date: 01/11/2021
 ms.author: rohink
-ms.openlocfilehash: 2f7e4eadc25028db4668db8d245803c7ddba8688
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: c468b1216670ce7e6b5d252a7f7fee807199d20c
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968245"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131489"
 ---
 # <a name="azure-dns-faq"></a>FAQ Azure DNS
 
@@ -194,6 +194,10 @@ Oui. Les serveurs de noms DNS Azure sont à double pile. Cela signifie qu’ils 
 Les noms de domaines internationaux (IDN) encodent chaque nom DNS à l’aide de [punycode](https://en.wikipedia.org/wiki/Punycode). Les requêtes DNS sont effectuées à l’aide de ces noms codés en punycode.
 
 Pour configurer des noms de domaines internationaux (IDN) dans Azure DNS, convertissez le nom de zone ou de jeu d’enregistrements en punycode. Azure DNS ne prend actuellement pas en charge la conversion intégrée vers le format punycode ou à partir de celui-ci.
+
+### <a name="does-azure-dns-private-zones-store-any-customer-content"></a>Azure DNS Private Zones stocke-t-il du contenu client ?
+
+Non, Azure DNS Private Zones ne stocke pas de contenu client.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 09/12/2020
 ms.author: memildin
-ms.openlocfilehash: 08bcb74fd50be0eeb7a73c0743db2c4f3a57be32
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: dfa562be4561e8aaec66d4bff51aadeba77cf35f
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030847"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131336"
 ---
 # <a name="protect-your-kubernetes-workloads"></a>Protéger vos charges de travail Kubernetes
 
@@ -27,7 +27,7 @@ Security Center offre davantage de fonctionnalités de sécurité de conteneur s
 - Recevez des alertes de détection des menaces en temps réel pour vos clusters K8s avec [Azure Defender pour Kubernetes](defender-for-kubernetes-introduction.md)
 
 > [!TIP]
-> Pour obtenir la liste de *toutes* les recommandations de sécurité qui peuvent s’afficher pour les clusters et nœuds Kubernetes, consultez la [section Conteneur](recommendations-reference.md#recs-containers) de la table de référence de recommandations.
+> Pour obtenir la liste de *toutes* les recommandations de sécurité qui peuvent s’afficher pour les clusters et nœuds Kubernetes, consultez la [section relative au calcul](recommendations-reference.md#recs-compute) de la table de référence de recommandations.
 
 
 
@@ -251,6 +251,6 @@ Dans cet article, vous avez appris à configurer la protection d’une charge de
 
 Pour d’autres informations connexes, consultez les pages suivantes : 
 
-- [Recommandations de Security Center pour les conteneurs](recommendations-reference.md#recs-containers)
+- [Recommandations de Security Center pour le calcul](recommendations-reference.md#recs-compute)
 - [Alertes pour le niveau du cluster AKS](alerts-reference.md#alerts-akscluster)
 - [Alertes pour niveau de l’hôte du conteneur](alerts-reference.md#alerts-containerhost)

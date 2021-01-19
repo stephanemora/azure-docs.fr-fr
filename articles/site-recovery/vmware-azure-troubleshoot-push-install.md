@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
 ms.date: 04/03/2020
-ms.openlocfilehash: 8ee6449f357a578b30809bb03723ac1556e4f459
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 62c8240a4d2e50aa3b584f322baf7d2ee217c6d3
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88816166"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127870"
 ---
 # <a name="troubleshoot-mobility-service-push-installation"></a>Résoudre les problèmes d’installation Push du service Mobility
 
@@ -106,7 +106,22 @@ Le serveur de configuration/serveur de traitement avec Scale-out tente de se con
 
 Pour résoudre l’erreur :
 
+* Vérifiez si le compte d’utilisateur a un accès administratif sur l’ordinateur source, que ce soit avec un comte local ou de domaine. Si vous n’utilisez pas un compte de domaine, vous devez désactiver le contrôle d’accès des utilisateurs distants sur l’ordinateur local.
+  * Pour ajouter manuellement une clé de Registre qui désactive le contrôle d’accès des utilisateurs distants :
+    * `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System`
+    * Ajoutez un nouveau `DWORD` : `LocalAccountTokenFilterPolicy`
+    * Définissez la valeur sur `1`
+  * Pour ajouter la clé de Registre, à partir d’une invite de commandes, exécutez la commande suivante :
+
+    `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`
+
 * Vérifiez que vous pouvez effectuer un test ping sur votre machine source à partir du serveur de configuration. Si vous avez choisi le serveur de traitement avec Scale-out lors de l’activation de la réplication, assurez-vous de pouvoir effectuer un test ping sur votre machine source à partir du serveur de traitement.
+
+* Vérifiez si le service de partage de fichiers et d’imprimantes est activé sur votre machine virtuelle. Reportez-vous à cette [procédure](vmware-azure-troubleshoot-push-install.md#file-and-printer-sharing-services-check-errorid-95105--95106).
+
+* Assurez-vous que le service WMI est activé sur votre machine virtuelle. Reportez-vous à cette [procédure](vmware-azure-troubleshoot-push-install.md#windows-management-instrumentation-wmi-configuration-check-error-code-95103).
+
+* Vérifiez si les dossiers partagés sur la machine source sont accessibles à partir du serveur de processus. Reportez-vous à cette [procédure](vmware-azure-troubleshoot-push-install.md#check-access-for-network-shared-folders-on-source-machine-errorid-9510595523).
 
 * À partir de la ligne de commande de l’ordinateur du serveur source, utilisez `Telnet` pour effectuer un test ping sur le serveur de configuration ou sur le serveur de traitement avec Scale-out sur le port HTTPS 135, comme indiqué dans la commande suivante. Cette commande vérifie s’il existe des problèmes de connectivité réseau ou des problèmes bloquant les ports du pare-feu.
 

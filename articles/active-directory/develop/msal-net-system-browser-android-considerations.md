@@ -1,7 +1,7 @@
 ---
 title: Considérations sur les navigateurs système Xamarin Android (MSAL.NET) | Azure
 titleSuffix: Microsoft identity platform
-description: Découvrez les considérations à prendre en compte lors de l’utilisation de navigateurs système sur Xamarin Android avec la bibliothèque d’authentification Microsoft pour .NET (MSAL.NET).
+description: Découvrez les considérations à prendre en compte pour utiliser des navigateurs système sur Xamarin Android avec la Bibliothèque d’authentification Microsoft pour .NET (MSAL.NET).
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -13,16 +13,16 @@ ms.date: 10/30/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 8f755b42249a88a2d37117003d561f79aea6b170
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4230a194fb18587a209c100a39b0924e6170502d
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88165989"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063465"
 ---
 #  <a name="xamarin-android-system-browser-considerations-for-using-msalnet"></a>Considérations sur les navigateurs système Xamarin Android pour l’utilisation de MSAL.NET
 
-Cet article traite de ce que vous devez prendre en compte lorsque vous utilisez le navigateur système sur Xamarin Android avec la bibliothèque d’authentification Microsoft pour .NET (MSAL.NET).
+Cet article aborde les points à prendre en compte pour utiliser le navigateur système sur Xamarin Android avec la Bibliothèque d’authentification Microsoft pour .NET (MSAL.NET).
 
 À compter de MSAL.NET 2.4.0 (préversion), MSAL.NET prend en charge des navigateurs autres que Chrome. Il n’est plus nécessaire d’installer Chrome sur l’appareil Android pour l’authentification.
 

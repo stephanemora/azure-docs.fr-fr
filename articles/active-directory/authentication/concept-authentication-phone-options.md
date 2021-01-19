@@ -10,12 +10,12 @@ ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9d3a00491bc0628244a5a7907f0dee03a5f8d3c
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: fdff7e62753e75a14d6711b77dd451603353dae5
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96744191"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98012833"
 ---
 # <a name="authentication-methods-in-azure-active-directory---phone-options"></a>Méthodes d’authentification dans Azure Active Directory - Options téléphoniques
 
@@ -58,6 +58,8 @@ Si vous rencontrez des problèmes avec l’authentification par téléphone pour
 
 * Message d'erreur « Vous avez atteint notre limite pour les appels de vérification » ou « Vous avez atteint notre limite pour les codes de vérification par SMS » lors de la connexion
    * Microsoft peut limiter les tentatives d'authentification répétées effectuées par le même utilisateur sur une courte période. Cette limitation ne s'applique pas à Microsoft Authenticator ou au code de vérification. Si vous avez atteint ces limites, vous pouvez utiliser l'application Authenticator, le code de vérification ou essayer de vous reconnecter quelques minutes plus tard.
+* Message d’erreur « Sorry, we're having trouble verifying your account » (Nous sommes désolés, nous avons rencontré un problème lors de la vérification de votre compte) lors de la connexion
+   * Microsoft peut limiter ou bloquer les tentatives d’authentification par la voix ou par SMS effectuées par le même utilisateur, le même numéro de téléphone ou la même organisation en raison d’un nombre élevé de tentatives d’authentification par la voix ou par SMS ayant échoué. Si vous rencontrez cette erreur, vous pouvez essayer une autre méthode, comme l’application Authenticator ou un code de vérification, ou contactez votre administrateur pour obtenir de l’aide.
 * ID de l’appelant bloqué sur un seul appareil.
    * Examinez les numéros bloqués configurés sur l’appareil.
 * Numéro de téléphone erroné ou code de pays/région incorrect, ou confusion entre le numéro de téléphone personnel et le numéro de téléphone professionnel.

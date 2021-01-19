@@ -7,12 +7,12 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: 408ba76c44d1161a4b91ccc037721796c7b94661
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 3ae300ca2746ab9e3478d3fe14fd6fc49c95a93d
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500748"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98071729"
 ---
 # <a name="azure-boot-diagnostics"></a>Diagnostics de démarrage Azure
 
@@ -21,10 +21,14 @@ Les diagnostics de démarrage sont une fonctionnalité de débogage pour les mac
 ## <a name="boot-diagnostics-storage-account"></a>Compte de stockage des diagnostics de démarrage
 Lorsque vous créez une machine virtuelle dans le portail Azure, les diagnostics de démarrage sont activés par défaut. Avec les diagnostics de démarrage, il est recommandé d’utiliser un compte de stockage managé, qui se révèle plus performant dans le temps pour créer une machine virtuelle Azure. Cela est dû au fait qu’un compte de stockage Azure managé est utilisé, ce qui évite de perdre du temps à créer un compte de stockage d’utilisateur pour stocker les données de diagnostics de démarrage.
 
-Avec les diagnostics de démarrage, il est également possible d’utiliser un compte de stockage managé par l’utilisateur. Un utilisateur peut soit créer un autre compte de stockage, soit en utiliser un existant. 
-
 > [!IMPORTANT]
 > Les objets bloc de données de diagnostics de démarrage (journaux et images d’instantané) sont stockés dans un compte de stockage managé. Seuls les Gio utilisés par les objets blob seront facturés aux clients et pas la taille de disque configurée. Les compteurs d’instantané seront utilisés pour la facturation du compte de stockage managé. Les comptes managés étant créés sur des LRS ou des ZRS standard, les clients se verront facturés 0,05 USD/Go par mois pour la taille de leurs objets blob de données de diagnostic uniquement. Pour plus d’informations sur cette tarification, consultez [Tarification des disques managés](https://azure.microsoft.com/pricing/details/managed-disks/). Les clients verront ces frais liés à l’URI de ressource de leur machine virtuelle. 
+
+Avec les diagnostics de démarrage, il est également possible d’utiliser un compte de stockage géré par l’utilisateur. Un utilisateur peut soit créer un autre compte de stockage, soit en utiliser un existant.
+> [!NOTE]
+> Les comptes de stockage gérés par l’utilisateur associés aux diagnostics de démarrage impliquent que le compte de stockage et les machines virtuelles associées résident dans le même abonnement. 
+
+
 
 ## <a name="boot-diagnostics-view"></a>Affichage des diagnostics de démarrage
 Située dans le panneau de la machine virtuelle, l’option Diagnostics de démarrage se trouve sous la section *Support et résolution des problèmes* du portail Azure. Sélectionnez Diagnostics de démarrage pour afficher une capture d’écran et des informations de journal série. Le journal série contient la messagerie du noyau, et la capture d’écran est un instantané de l’état actuel de vos machines virtuelles. Le fait que la machine virtuelle fonctionne sous Windows ou Linux détermine à quoi ressemblera la capture d’écran attendue. Pour Windows, les utilisateurs voient un arrière-plan du bureau et, pour Linux, une invite de connexion.

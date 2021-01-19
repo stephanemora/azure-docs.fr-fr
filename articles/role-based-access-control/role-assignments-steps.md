@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 09/30/2020
 ms.author: rolyon
-ms.openlocfilehash: 56b6638462acaf43b6353787495e5b7993acb413
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: e746c7d09bb568d457ab1037b56c7c2973b29ad7
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94648274"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98117246"
 ---
 # <a name="steps-to-add-a-role-assignment"></a>Étapes pour ajouter une attribution de rôle
 
-[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] Cet article décrit les étapes principales visant à ajouter une attribution de rôle à l’aide du [portail Azure](role-assignments-portal.md), d’[Azure PowerShell](role-assignments-powershell.md), d’[Azure CLI](role-assignments-cli.md) ou de l’[API REST](role-assignments-rest.md).
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control/definition-grant.md)] Cet article décrit les étapes principales visant à ajouter une attribution de rôle à l’aide du [portail Azure](role-assignments-portal.md), d’[Azure PowerShell](role-assignments-powershell.md), d’[Azure CLI](role-assignments-cli.md) ou de l’[API REST](role-assignments-rest.md).
 
 ## <a name="step-1-determine-who-needs-access"></a>Étape 1 : Déterminer qui a besoin d’un accès
 
@@ -31,7 +31,7 @@ Vous devez d’abord déterminer qui a besoin d’un accès. Vous pouvez attribu
 - Principal de service : identité de sécurité utilisée par des applications ou des services permettant d’accéder aux ressources Azure spécifiques. Vous pouvez la considérer comme une *identité utilisateur* (nom d’utilisateur, mot de passe ou certificat) pour une application.
 - Identité managée : identité dans Azure Active Directory qui est managée automatiquement par Azure. Vous utilisez généralement des [identités managées](../active-directory/managed-identities-azure-resources/overview.md) lors du développement d’applications cloud afin de gérer les informations d’identification pour l’authentification auprès des services Azure.
 
-## <a name="step-2-find-the-appropriate-role"></a>Étape 2 : Rechercher le rôle approprié
+## <a name="step-2-select-the-appropriate-role"></a>Étape 2 : Sélectionner le rôle approprié
 
 Les autorisations sont regroupées en *définition de rôle*. Elle est généralement simplement appelée *rôle*. Vous pouvez opérer une sélection dans une liste de plusieurs rôles intégrés. Si les rôles intégrés ne répondent pas aux besoins spécifiques de votre organisation, vous pouvez créer vos propres rôles personnalisés.
 

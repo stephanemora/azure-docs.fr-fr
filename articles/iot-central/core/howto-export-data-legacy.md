@@ -7,19 +7,19 @@ ms.author: viviali
 ms.date: 06/25/2020
 ms.topic: how-to
 ms.service: iot-central
-ms.openlocfilehash: 9e5f4fd14f56f0a2dff45dd2650ea552b07fecd7
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: d4c099d29a843b4c354ffb218887dc7ffab51771
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94987352"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065437"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export-legacy"></a>Exporter des données IoT vers des destinations cloud à l'aide de la fonctionnalité d'exportation de données (héritée)
 
 > [!Note]
 > Cet article décrit la fonctionnalité d'exportation de données héritée d'IoT Central.
 >
-> - Pour plus d'informations sur la nouvelle fonctionnalité d'exportation de données, consultez la section [Exporter des données IoT vers des destinations cloud à l'aide de la fonctionnalité d'exportation de données](./howto-export-data.md).
+> - Pour obtenir des informations sur les nouvelles fonctionnalités d’exportation de données, consultez [Exporter des données IoT vers des destinations cloud à l’aide de la fonctionnalité d’exportation de données](./howto-export-data.md).
 > - Pour en savoir plus sur les différences entre la fonctionnalité d'exportation de données disponible en préversion et la fonctionnalité d'exportation de données héritée, consultez le [tableau de comparaison](./howto-export-data.md#comparison-of-legacy-data-export-and-data-export).
 
 Cet article explique comment utiliser la fonctionnalité d’exportation de données dans Azure IoT Central. Cette fonctionnalité vous permet d’exporter vos données en continu vers des instances **Azure Event Hubs**, **Azure Service Bus** ou **Stockage Blob Azure**. L’exportation des données utilise le format JSON et peut inclure des informations de télémétrie, ainsi que des informations sur les appareils et les modèles d’appareil. Utilisez les données exportées pour :

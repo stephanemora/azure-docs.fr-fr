@@ -4,12 +4,12 @@ description: Dans cet article,découvrez les scénarios pris en charge et les li
 ms.topic: conceptual
 ms.date: 11/7/2019
 ms.custom: references_regions
-ms.openlocfilehash: cb7f31986b9ebd91c631d2b896600039c93084de
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: 7f287206c40e4556db2ee4b38bb46ef8e5352102
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96607090"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98072188"
 ---
 # <a name="support-matrix-for-backup-of-sap-hana-databases-on-azure-vms"></a>Matrice de prise en charge pour la sauvegarde des bases de données SAP HANA sur des machines virtuelles Azure
 
@@ -27,7 +27,7 @@ Le service Sauvegarde Azure prend en charge la sauvegarde des bases de données 
 | **Versions du système d’exploitation**            | SLES 12 avec SP2, SP3, SP4 et SP5 ; SLES 15 avec SP0, SP1 et SP2 <br><br>  Depuis le 1er août 2020, la sauvegarde SAP HANA pour RHEL (7.4, 7.6, 7.7 et 8.1) est en disponibilité générale.                |                                             |
 | **Versions HANA**          | SDC sur HANA 1.x, MDC sur HANA 2.x <= SPS04 Rev 48, SPS05 (en attente de validation pour les scénarios de chiffrement activés)      |                                                            |
 | **Déploiements HANA**       | SAP HANA sur une machine virtuelle Azure unique - Scale-up uniquement. <br><br> Pour les déploiements à haute disponibilité, les deux nœuds présents sur les deux ordinateurs sont traités individuellement avec des chaînes de données distinctes.               | Montée en charge <br><br> Dans les déploiements à haute disponibilité, la sauvegarde ne bascule pas automatiquement vers le nœud secondaire. La configuration de la sauvegarde doit être effectuée séparément pour chaque nœud.                                           |
-| **Instances HANA**         | Une seule SAP HANA instance sur une seule machine virtuelle Azure - montée en puissance uniquement | Plusieurs instances de SAP HANA sur une seule machine virtuelle                  |
+| **Instances HANA**         | Une seule SAP HANA instance sur une seule machine virtuelle Azure - montée en puissance uniquement | Plusieurs instances de SAP HANA sur une seule machine virtuelle. Vous ne pouvez protéger qu’une seule de ces instances à la fois.                  |
 | **Types de bases de données HANA**    | Conteneur de base de données unique (SDC) sur 1.x, conteneur de bases de données multiples (MDC) sur 2.x | MDC dans HANA 1. x                                              |
 | **Taille de la base de données HANA**     | Bases de données HANA de taille <= 2 To (il ne s’agit pas de la taille de la mémoire du système HANA)               |                                                              |
 | **Types de sauvegarde**           | Sauvegardes complètes, différentielles, incrémentielles (préversion) et de fichier journal                          |  Instantanés                                       |

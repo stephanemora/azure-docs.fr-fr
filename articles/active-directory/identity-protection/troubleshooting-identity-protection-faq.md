@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: troubleshooting
-ms.date: 10/07/2020
+ms.date: 01/07/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6eb63a4a0b7b7fdefd636d3460b182f8d907dd36
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: 0d80b8f41e11f2fffa86dc7597fdf44dd27825fc
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96558927"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028894"
 ---
 # <a name="frequently-asked-questions-identity-protection-in-azure-active-directory"></a>Forum aux questions sur Identity Protection dans Azure Active Directory
 
@@ -35,7 +35,7 @@ Un problème connu occasionne actuellement des latences dans le flux de rejet de
 
 Si vous êtes un client Azure AD Identity Protection, accédez à la vue [Utilisateurs à risque](howto-identity-protection-investigate-risk.md#risky-users), puis cliquez sur un utilisateur à risque. Dans le tiroir en bas, l’onglet « Historique des risques » affiche tous les événements qui ont entraîné un changement de risque de l’utilisateur. Pour afficher toutes les connexions à risque pour l’utilisateur, cliquez sur « Connexions risquées de l’utilisateur ». Pour afficher toutes les détections de risque pour cet utilisateur, cliquez sur « Détection des risques de l’utilisateur ».
 
-## <a name="why-was-my-sign-in-blocked-but-identity-protection-didnt-generate-a-risk-detection"></a>Pourquoi ma connexion est-elle bloquée, mais Identity Protection n’a-t-il pas généré de détection des risques ?
+### <a name="why-was-my-sign-in-blocked-but-identity-protection-didnt-generate-a-risk-detection"></a>Pourquoi ma connexion est-elle bloquée, mais Identity Protection n’a-t-il pas généré de détection des risques ?
 Les connexions peuvent être bloquées pour plusieurs raisons. Il est important de noter qu’Identity Protection ne génère des détections de risque que lorsque des informations d’identification correctes sont utilisées dans la demande d’authentification. Si un utilisateur entre des informations d’identification incorrectes, il n’est pas marqué par Identity Protection, car il n’y a aucun risque de compromission des informations d’identification, sauf si une personne inappropriée utilise les informations d’identification correctes. Il est possible qu’Identity Protection ne génère pas de détection pour un utilisateur dont la signature a été bloquée pour certaines raisons, notamment :
 * L’**adresse IP peut être bloquée** en raison d’une activité malveillante à partir de l’adresse IP. Le message bloqué par l’adresse IP n’est pas différent si les informations d’identification sont correctes ou non. Si l’adresse IP est bloquée et que des informations d’identification incorrectes sont utilisées, Identity Protection ne génère pas de détection
 * Le **[verrouillage intelligent](../authentication/howto-password-smart-lockout.md)** peut empêcher la connexion du compte après plusieurs tentatives ayant échoué
@@ -96,3 +96,7 @@ Toutes les détections de risques sont documentées dans l’article [Qu’est-c
 ### <a name="why-does-a-sign-in-have-a-sign-in-risk-aggregate-score-of-high-when-the-detections-associated-with-it-are-of-low-or-medium-risk"></a>Pourquoi une connexion a-t-elle un indice de « risque de connexion (agrégat) » élevé lorsque les détections qui lui sont associées ont un risque faible ou moyen ?
 
 L’indice de risque d’agrégat élevé peut être basé sur d’autres fonctionnalités de la connexion, ou sur le fait que plusieurs détections ont été déclenchées pour cette connexion. À l’inverse, une connexion peut avoir un risque de connexion (agrégat) moyen même si les détections associées à la connexion sont de risque élevé.
+
+### <a name="what-is-the-difference-between-the-activity-from-anonymous-ip-address-and-anonymous-ip-address-detections"></a>Quelle est la différence entre les détections « Activité depuis une adresse IP anonyme » et « Adresse IP anonyme » ?
+
+La source de la détection « Adresse IP anonyme » est Azure AD Identity Protection, tandis que la détection « Activité depuis une adresse IP anonyme » est intégrée à partir de MCAS (Microsoft Cloud App Security). Bien que leurs noms soient similaires et qu’il est possible de voir un chevauchement de ces signaux, leurs détections back-end sont différentes.

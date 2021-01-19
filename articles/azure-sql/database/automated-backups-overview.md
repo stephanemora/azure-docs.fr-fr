@@ -11,12 +11,12 @@ author: shkale-msft
 ms.author: shkale
 ms.reviewer: mathoma, stevestein, danil
 ms.date: 11/18/2020
-ms.openlocfilehash: c6754e6f0e3f0d6208bd34c96c8bc473429c943c
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: e4917d03e3c0fb8109f9ad9bdcea9e7c1cdcd5df
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917900"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108056"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Sauvegardes automatisées - Azure SQL Database et SQL Managed Instance
 
@@ -122,7 +122,7 @@ La consommation du stockage de sauvegarde jusqu’à la taille maximale des donn
 
 ## <a name="backup-retention"></a>Rétention des sauvegardes
 
-Pour toutes les bases de données nouvelles, restaurées et copiées, Azure SQL Database et Azure SQL Managed Instance conservent des sauvegardes suffisantes pour autoriser la récupération jusqu’à une date et heure (PITR) au cours des 7 derniers jours par défaut. À l’exception des bases de données Hyperscale, vous pouvez [modifier la période de conservation des données des sauvegardes](#change-the-pitr-backup-retention-period) par base de données dans la plage de 1-35 jours. Comme décrit dans [Consommation du stockage de sauvegarde](#backup-storage-consumption), les sauvegardes stockées pour activer la récupération jusqu’à une date et heure (PITR) peuvent être antérieures à la période de rétention. Pour Azure SQL Managed Instance uniquement, il est possible de définir le taux de rétention des sauvegardes PITR une fois qu’une base de données a été supprimée dans la plage de 0-35 jours. 
+Pour toutes les bases de données nouvelles, restaurées et copiées, Azure SQL Database et Azure SQL Managed Instance conservent des sauvegardes suffisantes pour autoriser la récupération jusqu’à une date et heure (PITR) au cours des 7 derniers jours par défaut. À l’exception des bases de données des niveaux Hyperscale et De base, vous pouvez [modifier la période de conservation de la sauvegarde](#change-the-pitr-backup-retention-period) selon une plage comprise entre 1 et 35 jours pour chaque base de données active. Comme décrit dans [Consommation du stockage de sauvegarde](#backup-storage-consumption), les sauvegardes stockées pour activer la récupération jusqu’à une date et heure (PITR) peuvent être antérieures à la période de rétention. Pour Azure SQL Managed Instance uniquement, il est possible de définir le taux de rétention des sauvegardes PITR une fois qu’une base de données a été supprimée dans la plage de 0-35 jours. 
 
 Si vous supprimez une base de données, le système conserve les sauvegardes de la même façon que pour une base de données en ligne avec sa période de rétention spécifique. Vous ne pouvez pas modifier la période de rétention de sauvegarde pour une base de données supprimée.
 

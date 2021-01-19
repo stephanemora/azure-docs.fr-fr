@@ -13,12 +13,12 @@ ms.date: 07/16/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: c71c55adbf79af780169380269b5081322f94baf
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 6451368baf9c047f0318eb74d53ffac075d4a184
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93083437"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063448"
 ---
 # <a name="considerations-for-using-universal-windows-platform-with-msalnet"></a>Considérations relatives à l’utilisation de la plateforme Windows universelle avec MSAL.NET
 Les développeurs d’applications qui utilisent la plateforme Windows universelle (UWP) avec MSAL.NET doivent prendre en compte les concepts présentés dans cet article.

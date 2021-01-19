@@ -7,18 +7,17 @@ author: vladvino
 manager: erikre
 editor: ''
 ms.service: api-management
-ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/10/2020
 ms.author: apimpm
 ms.custom: references_regions
-ms.openlocfilehash: e36f7c6085908630d5e7aa2593fe4d57202d6ee7
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: d0d5434de747b48464df1c07f8c7b6a7e785c858
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97107649"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98070932"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Utilisation de la gestion des API Azure avec des réseaux virtuels
 Les réseaux virtuels Azure vous permettent de placer vos ressources Azure dans un réseau routable non-Internet dont vous contrôlez l’accès. Ces réseaux peuvent ensuite être connectés à vos réseaux locaux à l’aide de différentes technologies VPN. Pour en savoir plus sur les réseaux virtuels Azure, commencez par consulter la page [Présentation du réseau virtuel Azure](../virtual-network/virtual-networks-overview.md).
@@ -147,6 +146,9 @@ Voici une liste des problèmes courants de configuration incorrecte qui peuvent 
   > La modification des clusters ci-dessus avec la zone DNS **.nsatc.net** en **.microsoftmetrics.com** est essentiellement une modification de DNS. L’adresse IP du cluster ne change pas.
 
 + **Balises de service régional** : les règles NSG autorisant une connectivité sortante aux balises de service Storage, SQL et Event Hubs peuvent utiliser les versions régionales de ces balises correspondant à la région contenant l’instance Gestion des API (par exemple, Storage.WestUS pour une instance Gestion des API dans la région USA Ouest). Dans les déploiements dans plusieurs régions, le groupe de sécurité réseau de chaque région doit autoriser le trafic vers les balises de service pour cette région ainsi que pour la région primaire.
+
+    > [!IMPORTANT]
+    > Pour activer la publication du [portail des développeurs](api-management-howto-developer-portal.md) pour une instance Gestion des API dans un réseau virtuel, veillez à autoriser également la connectivité sortante vers le Stockage Blob dans la région USA Ouest. Par exemple, utilisez la balise de service **Storage.WestUS** dans une règle NSG. La connectivité au Stockage Blob dans la région USA Ouest est actuellement requise pour publier le portail des développeurs pour toutes les instances Gestion des API.
 
 + **Relais SMTP** : connectivité réseau sortante pour le relais SMTP, qui se résout sur l’hôte `smtpi-co1.msn.com`, `smtpi-ch1.msn.com`, `smtpi-db3.msn.com`, `smtpi-sin.msn.com` et `ies.global.microsoft.com`
 

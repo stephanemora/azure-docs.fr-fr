@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d40e460c150fa616144180d4f677fe0211143e5
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: b6da9f27e25fa5543f949716824f54af2b9f1ad1
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97862427"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132543"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Nouveautés d’Azure Active Directory
 
@@ -107,8 +107,6 @@ Vous pouvez désormais automatiser la création, la mise à jour et la suppressi
 Pour découvrir comment sécuriser plus efficacement votre organisation à l’aide de l’approvisionnement automatique de comptes utilisateur, voir [Automatisation de l’approvisionnement des utilisateurs pour les applications SaaS avec Azure AD](../app-provisioning/user-provisioning.md).
  
 ---
- 
-[1233182](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1233182&triage=true&fullScreen=false&_a=edit)
 
 ### <a name="new-federated-apps-available-in-azure-ad-application-gallery---december-2020"></a>Nouvelles applications fédérées disponibles dans la galerie d’applications Azure AD - Décembre 2020
 
@@ -123,6 +121,29 @@ En décembre 2020, nous avons ajouté les 18 applications suivantes à notre g
 La documentation de toutes ces applications est disponible ici https://aka.ms/AppsTutorial
 
 Pour lister votre application dans la galerie d’applications Azure AD, veuillez lire les informations détaillées ici : https://aka.ms/AzureADAppRequest
+
+---
+
+### <a name="navigate-to-teams-directly-from-my-access-portal"></a>Accéder à Teams directement à partir du portail Mon Accès
+
+**Type :** Fonctionnalité modifiée  
+**Catégorie de service :** Gestion de l’accès utilisateur **Fonctionnalité produit :** Gestion des droits d’utilisation
+
+Vous pouvez désormais lancer Teams directement à partir du portail Mon Accès. Pour ce faire, connectez-vous à [Mon Accès](https://myaccess.microsoft.com/), accédez à **Packages d’accès**, puis à l’onglet **Actif** pour voir tous les packages d’accès auxquels vous avez déjà accès. Lorsque vous développez le package d’accès et que vous pointez sur Teams, vous pouvez le lancer en cliquant sur le bouton **Ouvrir**. 
+
+Pour en savoir plus sur l’utilisation du portail Mon Accès, accédez à [Demander l’accès à un package d’accès dans la gestion des droits d’utilisation Azure AD](../governance/entitlement-management-request-access.md#sign-in-to-the-my-access-portal).
+
+---
+
+### <a name="public-preview---second-level-manager-can-be-set-as-alternate-approver"></a>Préversion publique - Le gestionnaire de second niveau peut être défini en tant qu’approbateur de remplacement
+
+**Type :** Fonctionnalité modifiée  
+**Catégorie de service :** Gestion de l’accès utilisateur  
+**Fonctionnalité de produit :** Gestion des droits d’utilisation
+
+Une option supplémentaire est désormais disponible dans le processus d’approbation de la Gestion des droits d’utilisation. Si vous sélectionnez Gestionnaire en tant qu’approbateur pour le premier approbateur, vous disposez d’une option supplémentaire, Gestionnaire de second niveau en tant qu’approbateur de substitution, sélectionnable dans le champ d’approbateur de substitution. Si vous sélectionnez cette option, vous devez ajouter un approbateur de secours auquel transférer la demande au cas où le système ne peut pas trouver le gestionnaire de second niveau.
+
+Pour plus d’informations, consultez [Modifier les paramètres d’approbation d’un package d’accès dans la gestion des droits d’utilisation Azure AD](../governance/entitlement-management-access-package-approval-policy.md#alternate-approvers).
 
 --- 
 
@@ -188,7 +209,7 @@ Voici quelques scénarios de délégation courants :
 
 ---
 
-### <a name="azure-ad-application-proxy-natively-supports-single-sign-on-access-to-applications-that-use-headers-for-authentication"></a>Le Proxy d’application Azure AD prend en charge en mode natif l’accès en authentification unique aux applications qui utilisent des en-têtes pour l’authentification
+### <a name="public-preview---azure-ad-application-proxy-natively-supports-single-sign-on-access-to-applications-that-use-headers-for-authentication"></a>Préversion publique - Le Proxy d’application Azure AD prend en charge en mode natif l’accès avec l’authentification unique aux applications qui utilisent des en-têtes pour l’authentification
 
 **Type :** Nouvelle fonctionnalité  
 **Catégorie de service :** Proxy d’application  

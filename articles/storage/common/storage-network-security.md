@@ -9,12 +9,12 @@ ms.date: 12/08/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: c2074402225c8134329e00003e4fbdfd95b5dba6
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 13d1ad0b1b5e32ea2ca86e7556dd910c542bcbe2
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938407"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98070556"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurer des pare-feux et des réseaux virtuels dans Stockage Azure
 
@@ -33,13 +33,13 @@ Une application qui accède à un compte de stockage alors que des règles de r�
 
 ## <a name="scenarios"></a>Scénarios
 
-Pour sécuriser votre compte de stockage, vous devez commencer par configurer une règle pour refuser l’accès au trafic de tous les réseaux (y compris le trafic Internet) sur le point de terminaison public, par défaut. Ensuite, vous devez configurer des règles qui autorisent l’accès au trafic en provenance de réseaux virtuels spécifiques. Vous pouvez également configurer des règles pour accorder l’accès au trafic en provenance de plages d’adresses IP Internet publiques, en autorisant des connexions à partir de clients Internet ou locaux spécifiques. Cette configuration vous permet de créer une limite de réseau sécurisée pour vos applications.
+Pour sécuriser votre compte de stockage, vous devez commencer par configurer une règle pour refuser l’accès au trafic de tous les réseaux (y compris le trafic Internet) sur le point de terminaison public, par défaut. Ensuite, vous devez configurer des règles qui autorisent l’accès au trafic en provenance de réseaux virtuels spécifiques. Vous pouvez également configurer des règles pour accorder l’accès au trafic en provenance de plages d’adresses IP Internet publiques sélectionnées, en autorisant des connexions à partir de clients Internet ou locaux spécifiques. Cette configuration vous permet de créer une limite de réseau sécurisée pour vos applications.
 
 Vous pouvez combiner des règles de pare-feu qui autorisent l’accès à partir de réseaux virtuels spécifiques et de plages d’adresses IP publiques sur le même compte de stockage. Les règles de pare-feu de stockage peuvent être appliquées aux comptes de stockage existants ou à la création de comptes de stockage.
 
 Les règles de pare-feu de stockage s’appliquent au point de terminaison public d’un compte de stockage. Vous n’avez pas besoin de règles d’accès de pare-feu pour autoriser le trafic via les points de terminaison privés d’un compte de stockage. Le processus d’approbation de la création d’un point de terminaison privé accorde un accès implicite au trafic à partir du sous-réseau qui héberge le point de terminaison privé.
 
-Les règles de réseau sont appliquées sur tous les protocoles réseau vers le stockage Azure, notamment REST et SMB. Pour accéder aux données avec des outils tels que le portail Azure, l’Explorateur de stockage et AZCopy, vous devez configurer des règles de réseau explicites.
+Les règles de réseau sont appliquées sur tous les protocoles réseau pour le stockage Azure, notamment REST et SMB. Pour accéder aux données avec des outils tels que le portail Azure, l’Explorateur de stockage et AZCopy, vous devez configurer des règles de réseau explicites.
 
 Une fois appliquées, les règles de réseau concernent toutes les demandes. Les jetons SAS qui accordent l’accès à une adresse IP spécifique servent à limiter l’accès du détenteur du jeton, mais n’accordent pas d’accès au-delà des règles de réseau configurées.
 

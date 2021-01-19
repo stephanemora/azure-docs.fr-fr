@@ -13,12 +13,12 @@ ms.date: 9/18/2019
 ms.author: brianmel
 ms.reviewer: rapong
 ms.custom: aaddev
-ms.openlocfilehash: 1c4f47fd771cfb92b3896963c96b39d9eb7d97b8
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: a8c7ae8de41a01cb07a4bbbcd5943fb6290eced8
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96344876"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131642"
 ---
 # <a name="use-msal-for-android-with-b2c"></a>Utiliser MSAL pour Android avec B2C
 
@@ -36,11 +36,14 @@ Dans MSAL pour Android, les stratégies B2C (parcours utilisateur) sont configur
 
 Le fichier de configuration de l’application va déclarer deux `authorities`. Une pour chaque stratégie. La propriété `type` de chaque autorité est `B2C`.
 
+>Remarque : `account_mode` doit être défini sur **MULTIPLE** pour les applications B2C. Reportez-vous à la documentation pour plus d’informations sur les [applications clientes publiques multicomptes](https://docs.microsoft.com/azure/active-directory/develop/single-multi-account#multiple-account-public-client-application).
+
 ### `app/src/main/res/raw/msal_config.json`
 ```json
 {
     "client_id": "<your_client_id_here>",
     "redirect_uri": "<your_redirect_uri_here>",
+    "account_mode" : "MULTIPLE",
     "authorities": [{
             "type": "B2C",
             "authority_url": "https://contoso.b2clogin.com/tfp/contoso.onmicrosoft.com/B2C_1_SISOPolicy/",

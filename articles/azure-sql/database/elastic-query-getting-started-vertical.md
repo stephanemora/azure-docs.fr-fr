@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: dd8a30c60c81ef2761d5dc051d2dfeb300e1bac4
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 90f89e72193c26b71859076b99c448a6e2d4c4c6
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792121"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060082"
 ---
 # <a name="get-started-with-cross-database-queries-vertical-partitioning-preview"></a>Prise en main des requêtes de bases de données croisées (partitionnement vertical) (version préliminaire)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -33,7 +33,7 @@ L’autorisation ALTER ANY EXTERNAL DATA SOURCE est requise. Cette autorisation 
 
 ## <a name="create-the-sample-databases"></a>Créer les exemples de bases de données
 
-Pour commencer, créez deux bases de données, **Customers** et **Orders** , sur le même serveur ou sur des serveurs différents.
+Pour commencer, créez deux bases de données, **Customers** et **Orders**, sur le même serveur ou sur des serveurs différents.
 
 Exécutez les requêtes suivantes sur la base de données **Orders** pour créer la table **OrderInformation** et ajouter les exemples de données.
 
@@ -77,6 +77,7 @@ INSERT INTO [dbo].[CustomerInformation] ([CustomerID], [CustomerName], [Company]
     SECRET = '<password>';  
     ```
 
+    La valeur « master_key_password » est un mot de passe fort de votre choix utilisé pour chiffrer les informations d’identification de connexion. 
     Les valeurs « username » et « password » doivent être le nom d’utilisateur et le mot de passe de connexion à la base de données Customers.
     L’authentification à l’aide d’Azure Active Directory avec des requêtes élastiques n’est pas prise en charge actuellement.
 

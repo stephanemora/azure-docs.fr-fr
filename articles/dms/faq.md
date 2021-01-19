@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: bf6e61ef3dfb1c50166cf17168b4deeb21e958d7
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 460380d9435528dcd8cbb3f877c8034fdc34f50c
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94962907"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98134145"
 ---
 # <a name="faq-about-using-azure-database-migration-service"></a>Questions fréquentes (FAQ) sur l’utilisation d’Azure Database Migration Service
 
@@ -50,6 +50,9 @@ Azure Database Migration Service est la méthode recommandée pour la migration 
 
 **Q. Comment Azure Database Migration Service se distingue du produit Azure Migrate ?**
 Azure Migrate facilite la migration de machines virtuelles locales vers Azure IaaS. Le service évalue la pertinence de la migration et le dimensionnement en fonction des performances, et fournit des estimations de coût pour l’exécution de vos machines locales dans Azure. Azure Migrate est particulièrement utile pour les migrations de type lift-and-shift des charges de travail basées sur des machines virtuelles locales vers des machines virtuelles IaaS Azure. Cependant, contrairement à Azure Database Migration Service, Azure Migrate n'est pas un service de migration de bases de données spécialisé pour les plateformes de base de données relationnelle PaaS Azure, comme Azure SQL Database ou Azure SQL Managed Instance.
+
+**Q. Database Migration Service stocke-t-il les données client ?**
+Non. Database Migration Service ne stocke pas les données client.
 
 ## <a name="setup"></a>Programme d’installation
 
@@ -106,7 +109,7 @@ Lors d’une migration de base de données classique et simple, vous effectuez l
 ## <a name="troubleshooting-and-optimization"></a>Résolution des problèmes et optimisation
 
 **Q. Je configure un projet de migration dans DMS et je rencontre des difficultés pour me connecter à ma base de données source. Que dois-je faire ?**
-Si vous avez des difficultés à vous connecter à votre système de base de données source quand vous travaillez sur la migration, créez une machine virtuelle dans le réseau virtuel, avec laquelle vous configurez votre instance DMS. Dans la machine virtuelle, vous devez être en mesure d’effectuer un test de connexion, par exemple en utilisant un fichier UDL pour tester une connexion à SQL Server ou en téléchargeant Robo 3T pour tester les connexions MongoDB. Si le test de connexion réussit, vous ne devriez pas avoir de problème de connexion à votre base de données source. Si le test de connexion échoue, contactez votre administrateur réseau.
+Si vous avez des difficultés à vous connecter à votre système de base de données source quand vous travaillez sur la migration, créez une machine virtuelle dans le même sous-réseau de réseau virtuel que celui avec lequel vous avez configuré votre instance DMS. Dans la machine virtuelle, vous devez être en mesure d’effectuer un test de connexion, par exemple en utilisant un fichier UDL pour tester une connexion à SQL Server ou en téléchargeant Robo 3T pour tester les connexions MongoDB. Si le test de connexion réussit, vous ne devriez pas avoir de problème de connexion à votre base de données source. Si le test de connexion échoue, contactez votre administrateur réseau.
 
 **Q. Pourquoi Azure Database Migration Service est arrêté ou indisponible ?**
 Si l’utilisateur arrête de manière explicite Azure Database Migration Service (DMS) ou si le service est inactif pendant une période de 24 heures, le service est dans un état arrêté ou de pause automatique. Dans tous les cas, le service est indisponible et dans un état arrêté.  Pour reprendre les migrations actives, redémarrez le service.

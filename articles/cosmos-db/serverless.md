@@ -5,19 +5,16 @@ author: ThomasWeiss
 ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/23/2020
-ms.openlocfilehash: c5086eee805ffbcdf0741eae4db405b1bcbe8692
-ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
+ms.date: 01/08/2021
+ms.openlocfilehash: 0c75f9938b3bc4fa8a2e650f77a3708e91180fea
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97760357"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98059218"
 ---
 # <a name="azure-cosmos-db-serverless-preview"></a>Azure Cosmos DB serverless (préversion)
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
-
-> [!IMPORTANT]
-> Azure Cosmos DB serverless est actuellement en préversion. Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Azure Cosmos DB serverless vous permet d’utiliser votre compte Azure Cosmos sur la base de la consommation ; dans ce cas, vous êtes facturé uniquement pour les unités de requête consommées par vos opérations de base de données et le stockage consommé par vos données. Les conteneurs serverless peuvent traiter des milliers de demandes par seconde sans aucun frais minimum et aucune planification de capacité requise.
 
@@ -31,16 +28,13 @@ Lors de l’utilisation d’Azure Cosmos DB, chaque opération de base de donné
 
 ## <a name="use-cases"></a>Cas d’usage
 
-Azure Cosmos DB serverless est adapté aux scénarios où vous vous attendez à :
-
-- **Trafic faible, intermittent et imprévisible** : Car l’approvisionnement de capacité dans de telles situations n’est pas obligatoire et peut être un coût prohibitif
-- **Des performances modérées** : Car les conteneurs serverless ont des [caractéristiques de performances spécifiques](#performance)
-
-Pour ces raisons, Azure Cosmos DB serverless doit être pris en compte dans les situations suivantes :
+Azure Cosmos DB serverless est mieux adapté aux scénarios dans lesquels vous attendez **un trafic intermittent et imprévisible** avec des temps d’inactivité longs. Étant donné que la capacité de provisionnement dans de telles situations n’est pas obligatoire et peut avoir un coût prohibitif, Azure Cosmos DB serverless doit être envisagé dans les cas d’utilisation suivants :
 
 - Démarrage avec Azure Cosmos DB
-- Développement, test et prototypage de nouvelles applications
-- Exécution d’applications de petite à moyenne taille avec un trafic intermittent difficile à prévoir
+- Exécution d’applications avec
+    - du trafic en rafale, intermittent, difficile à prévoir ou
+    - un taux de trafic de moyen à élevé faible (< 10 %)
+- Développement, test, prototypage et exécution en production de nouvelles applications où le modèle de trafic est inconnu
 - Intégration à des services de calcul serverless comme [Azure Functions](../azure-functions/functions-overview.md)
 
 Pour plus d’informations sur la façon de choisir l’offre qui correspond le mieux à votre cas d’utilisation, reportez-vous à l’article [Choisir entre le débit provisionné et le serverless](throughput-serverless.md).
@@ -74,14 +68,7 @@ Vous pouvez trouver le même graphique lorsque vous utilisez Azure Monitor, comm
 
 ## <a name="performance"></a><a id="performance"></a>Niveau de performance
 
-Les ressources serverless offrent des caractéristiques de performances spécifiques qui diffèrent de celles fournies par les ressources de débit approvisionné :
-
-- **Disponibilité** : Une fois l’offre serverless mise à la disposition générale, la disponibilité des conteneurs serverless est couverte par un Contrat de niveau de service (SLA) de 99,9 % lorsque les zones de disponibilité (redondance de zone) ne sont pas utilisées. Le contrat SLA est de 99,99 % lors de l’utilisation de zones de disponibilité.
-- **Latence** : Une fois que l’offre serverless sera en disponibilité générale, la latence des conteneurs serverless est couverte par un objectif de niveau de service (SLO) de 10 millisecondes ou moins pour les lectures de point et de 30 millisecondes ou moins pour les écritures. Une opération de lecture de point consiste à extraire un seul élément par son ID et sa valeur de clé de partition.
-- **Prise en charge de l’augmentation du trafic** : Une fois que l’offre serverless sera en disponibilité générale, la charge des conteneurs serverless est couverte par un objectif de niveau de service (SLO) de 95 %. Cela signifie que la charge maximale peut être atteinte au moins 95 % du temps.
-
-> [!NOTE]
-> Comme n’importe quelle préversion d’Azure, Azure Cosmos DB serverless est exclu des contrats de niveau de service (SLA). Les caractéristiques de performances mentionnées ci-dessus sont fournies en tant qu’aperçu de ce que cette offre offrira lors de sa disponibilité générale.
+Les ressources serverless offrent des caractéristiques de performances spécifiques qui diffèrent de celles fournies par les ressources de débit provisionné. Une fois que l’offre serverless sera en disponibilité générale, la latence des conteneurs serverless est couverte par un objectif de niveau de service (SLO) de 10 millisecondes ou moins pour les lectures de point et de 30 millisecondes ou moins pour les écritures. Une opération de lecture de point consiste à extraire un seul élément par son ID et sa valeur de clé de partition.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

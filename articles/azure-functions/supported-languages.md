@@ -3,12 +3,12 @@ title: Langages pris en charge dans Azure Functions
 description: Découvrez les langues prises en charge (GA) et celles qui sont en préversion, ainsi que les méthodes d’extension du développement des fonctions dans d’autres langages.
 ms.topic: conceptual
 ms.date: 11/27/2019
-ms.openlocfilehash: 91a6ea886c3828678771b24d69bb7987af1fb105
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da3100521faae61e9803aaa82dbf91045a7ecbc9
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83994899"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108549"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Langages pris en charge dans Azure Functions
 
@@ -27,9 +27,9 @@ Il y a deux niveaux de prise en charge :
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
 
-## <a name="custom-handlers-preview"></a>Gestionnaires personnalisés (préversion) 
+## <a name="custom-handlers"></a>Gestionnaires personnalisés
 
-Les gestionnaires personnalisés sont des serveurs web légers qui reçoivent des événements de l’hôte Azure Functions. Tout langage qui prend en charge les primitives HTTP peut implémenter un gestionnaire personnalisé. Cela signifie que les gestionnaires personnalisés peuvent être utilisés pour créer des fonctions dans des langages qui ne sont pas officiellement prises en charge. Pour en savoir plus, consultez [Gestionnaires personnalisés Azure Functions (préversion)](functions-custom-handlers.md).
+Les gestionnaires personnalisés sont des serveurs web légers qui reçoivent des événements de l’hôte Azure Functions. Tout langage qui prend en charge les primitives HTTP peut implémenter un gestionnaire personnalisé. Cela signifie que les gestionnaires personnalisés peuvent être utilisés pour créer des fonctions dans des langages qui ne sont pas officiellement prises en charge. Pour en savoir plus, consultez [Gestionnaires personnalisés Azure Functions](functions-custom-handlers.md).
 
 ## <a name="language-extensibility"></a>Extensibilité de langage
 

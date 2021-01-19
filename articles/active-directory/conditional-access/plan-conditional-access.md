@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 20b51cc747d3a24b1437eda988397a2e999f6ab3
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 13756be041f88883d84f9558308c7fe5c9be2d0e
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94837479"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98116005"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>Planifier un déploiement d’accès conditionnel
 
@@ -71,7 +71,7 @@ Les ressources suivantes peuvent être utiles lorsque vous vous familiarisez ave
 
 * [Qu’est-ce que l’accès conditionnel ?](https://youtu.be/ffMAw2IVO7A)
 * [Comment déployer l’accès conditionnel](https://youtu.be/c_izIRNJNuk)
-* [Comment déployer des stratégies d’accès conditionnel pour les utilisateurs finaux](https://youtu.be/0_Fze7Zpyvc)
+* [Comment déployer des stratégies d’accès conditionnel pour les utilisateurs finaux ?](https://youtu.be/0_Fze7Zpyvc)
 * [L’accès conditionnel et les contrôles d’appareil](https://youtu.be/NcONUf-jeS4)
 * [Accès conditionnel avec Azure AD MFA](https://youtu.be/Tbc-SU97G-w)
 * [Conditional Access in Enterprise Mobility + Security](https://youtu.be/A7IrxAH87wc) (Accès conditionnel dans Enterprise Mobility + Security)
@@ -102,13 +102,13 @@ Lorsque de nouvelles stratégies sont prêtes pour votre environnement, déploye
 > [!NOTE]
 > Pour déployer de nouvelles stratégies qui ne sont pas spécifiques aux administrateurs, excluez tous les administrateurs. De cette façon, vous garantissez toujours l’accès des administrateurs à la stratégie, à laquelle ils apportent des modifications s’ils ne la révoquent pas en cas d’impact significatif. Validez toujours la stratégie avec des groupes d’utilisateurs plus petits avant de l’appliquer à tous les utilisateurs.
 
-## <a name="understand-ca-policy-components"></a>Comprendre les composants de la stratégie d’accès conditionnel
-Les stratégies d’accès conditionnel sont des instructions de type si-alors : si une affectation est remplie, alors appliquer ces contrôles d’accès.
+## <a name="understand-conditional-access-policy-components"></a>Comprendre les composants des stratégies d’accès conditionnel
+Les stratégies d’accès conditionnel sont des instructions if-then : si une affectation est remplie, alors appliquer ces contrôles d’accès.
 
 Lors de la configuration de stratégies d’accès conditionnel, les conditions s’appellent des *affectations*. Les stratégies d’accès conditionnel vous permettent d’appliquer des contrôles d’accès aux applications de votre organisation, en fonction de certaines affectations.
 
 
-Pour plus d’informations, consultez [Création d’une stratégie d’accès conditionnel](concept-conditional-access-policies.md).
+Pour plus d’informations, consultez [Configuration de stratégies d’accès conditionnel personnalisées](concept-conditional-access-policies.md).
 
 ![écran de création d’une stratégie](media/plan-conditional-access/create-policy.png)
 
@@ -207,14 +207,14 @@ Si un utilisateur qui n’est pas dans le groupe 1 tente d’accéder à l’ap
 
 L’infrastructure d’accès conditionnel vous offre une souplesse de configuration exceptionnelle. Toutefois, une grande flexibilité implique également que vous examiniez soigneusement chaque stratégie de configuration avant de la mettre en œuvre, afin d’éviter des résultats indésirables.
 
-### <a name="apply-ca-policies-to-every-app"></a>Appliquer des stratégies d’accès conditionnel à chaque application
+### <a name="apply-conditional-access-policies-to-every-app"></a>Appliquer des stratégies d’accès conditionnel à chaque application
 
 Les jetons d’accès sont émis par défaut si une condition de stratégie d’accès conditionnel ne déclenche pas de contrôle d’accès. Assurez-vous que chaque application compte au moins une stratégie d’accès conditionnel appliquée
 
 > [!IMPORTANT]
 > Soyez très prudent lors de l’utilisation des éléments Bloquer et Toutes les applications dans une stratégie unique. Les administrateurs du portail d’administration Azure peuvent se retrouver bloqués à l’extérieur du portail, et les exclusions ne pas être configurées pour des points de terminaison importants, tels que Microsoft Graph.
 
-### <a name="minimize-the-number-of-ca-policies"></a>Réduire le nombre de stratégies d’accès conditionnel
+### <a name="minimize-the-number-of-conditional-access-policies"></a>Réduire le nombre de stratégies d’accès conditionnel
 
 Créer une stratégie pour chaque application n’est pas avantageux et débouche sur une administration compliqué. L’accès conditionnel n’appliquera que les 195 premières stratégies par utilisateur. Nous vous recommandons d’analyser vos applications et de les regrouper par applications partageant les mêmes exigences en ressources pour les mêmes utilisateurs. Par exemple, si toutes les applications Microsoft 365 ou de RH présentent les mêmes exigences pour les mêmes utilisateurs, créez une stratégie unique et incluez toutes les applications auxquelles elle s’applique. 
 
@@ -223,14 +223,6 @@ Créer une stratégie pour chaque application n’est pas avantageux et débouch
 Si votre stratégie est mal configurée, elle peut verrouiller les organisations à l’extérieur du portail Azure. Vous pouvez pallier l’impact du verrouillage accidentel d’administrateurs en créant quelques [comptes d’accès d’urgence](../roles/security-emergency-access.md) dans votre organisation.
 
 * Créez un compte d’utilisateur dédié à l’administration de stratégies, et qui est exclu de toutes vos stratégies.
-
-* Scénario de secours des environnements hybrides :
-
-  * Créez un groupe de sécurité local et synchronisez-le à Azure AD. Le groupe de sécurité doit contenir votre compte dédié à l’administration de stratégies. 
-
-   * Faites EXEMPTER ce groupe de sécurité de toutes les stratégies d’accès conditionnel.
-
-   * En cas de panne d’un service, ajoutez vos autres administrateurs au groupe local en fonction des besoins, et forcez une synchronisation. Leur exemption est ainsi animée sur les stratégies d’accès conditionnel.
 
 ### <a name="set-up-report-only-mode"></a>Configurer le mode Rapport seul
 
@@ -242,7 +234,7 @@ Il peut ne pas être aisé de prévoir le nombre et les noms des utilisateurs co
 
 [Le mode rapport seul](concept-conditional-access-report-only.md) permet aux administrateurs d’évaluer l’impact des stratégies d’accès conditionnel avant de les activer dans leur environnement.
 
-Apprenez à [Configurer le mode rapport seul sur une stratégie d’accès conditionnel](howto-conditional-access-insights-reporting.md).
+Découvrez comment [configurer le mode rapport seul sur une stratégie d’accès conditionnel](howto-conditional-access-insights-reporting.md).
 
 ### <a name="plan-for-disruption"></a>Planifier une interruption
 
@@ -319,7 +311,7 @@ Les cas d’utilisation courants pour lesquels exiger l’accès MFA :
 
 ### <a name="respond-to-potentially-compromised-accounts"></a>Répondre aux comptes potentiellement compromis
 
-Avec des stratégies d’accès conditionnel, vous pouvez implémenter des réponses automatiques aux connexions par identités potentiellement compromises. La probabilité qu’un compte soit compromis est exprimée sous forme de niveaux de risque. Il existe deux niveaux de risque calculés par Identity Protection : la connexion à risque et l’utilisateur à risque. Les trois stratégies par défaut suivantes peuvent être activées.
+Avec des stratégies d’accès conditionnel, vous pouvez implémenter des réponses automatiques aux connexions d’identités potentiellement compromises. La probabilité qu’un compte soit compromis est exprimée sous forme de niveaux de risque. Il existe deux niveaux de risque calculés par Identity Protection : la connexion à risque et l’utilisateur à risque. Les trois stratégies par défaut suivantes peuvent être activées.
 
 * [Demander à tous les utilisateurs de s’inscrire pour l’authentification multifacteur](howto-conditional-access-policy-risk.md)
 
@@ -415,7 +407,7 @@ Vous pouvez afficher l’impact agrégé de vos stratégies d’accès condition
 Une autre façon de valider votre stratégie d’accès conditionnel consiste à utiliser l’[outil de simulation](troubleshoot-conditional-access-what-if.md) qui reproduit les stratégies pouvant s’appliquer à un utilisateur se connectant dans une situation hypothétique. Sélectionnez les attributs de connexion que vous souhaitez tester (par exemple, utilisateur, application, plateforme d’appareil et emplacement) et voyez quelles stratégies pourraient s’appliquer.
 
 > [!NOTE] 
-> Bien qu’une exécution simulée vous donne une bonne idée de l’impact d’une stratégie d’accès conditionnel, elle ne remplace pas une série de tests réels.
+> Bien que l’exécution simulée vous donne une idée de l’impact d’une stratégie d’accès conditionnel, elle ne remplace pas une série de tests réelle.
 
 ### <a name="test-your-policy"></a>Tester votre stratégie
 
@@ -493,4 +485,4 @@ Dès que vous avez collecté les informations, consultez les ressources suivante
 
 [En savoir plus sur Identity Protection](../identity-protection/overview-identity-protection.md)
 
-[Gérer des stratégies d’accès conditionnel avec API Graph de Microsoft](/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta.md)
+[Gérer les stratégies d’accès conditionnel avec l’API Microsoft Graph](https://docs.microsoft.com/graph/api/resources/conditionalaccesspolicy)

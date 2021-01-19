@@ -1,5 +1,5 @@
 ---
-title: Sécurisation de l’accès externe aux ressources dans Azure Active Directory
+title: Sécurisation de la collaboration externe dans Azure Active Directory
 description: Guide destiné aux architectes et aux administrateurs informatiques sur la sécurisation de l’accès externe aux ressources internes
 services: active-directory
 author: BarbaraSelden
@@ -13,14 +13,14 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39300c887245a99dce2913661f6492c85a1e6722
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 7f09d2050617cbda539eee9fcda1ecfb204a015a
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97743683"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98059277"
 ---
-# <a name="securing-external-access-to-resources"></a>Sécurisation de l’accès externe aux ressources
+# <a name="securing-external-collaboration-in-azure-active-directory-and-microsoft-365"></a>Sécurisation de la collaboration externe dans Azure Active Directory et Microsoft 365
 
 La collaboration sécurisée avec des partenaires externes garantit que les partenaires externes appropriés disposent d’un accès approprié aux ressources internes pour une durée appropriée. Grâce à une approche de gouvernance holistique, vous pouvez réduire les risques de sécurité, respecter les objectifs de conformité et savoir quelles sont les personnes ayant accès.
 
@@ -43,7 +43,7 @@ Cet ensemble de documents est conçu pour vous permettre de passer d’une colla
 Consultez les articles suivants sur la sécurisation de l’accès externe aux ressources. Nous vous recommandons d’effectuer les actions dans l’ordre indiqué.
 
 
-1. [Déterminer votre posture de sécurité souhaitée pour l’accès externe](1-secure-access-posture.md)
+1. [Déterminer votre posture de sécurité pour l’accès externe](1-secure-access-posture.md)
 
 2. [Découvrir votre état actuel](2-secure-access-current-state.md)
 

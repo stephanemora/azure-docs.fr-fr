@@ -3,12 +3,12 @@ title: Géorécupération d’urgence - Azure Event Hubs | Microsoft Docs
 description: Découvrez comment utiliser les régions géographiques pour le basculement et la récupération d’urgence dans Azure Event Hubs.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: e10ac5847a38190c8feaae5e51f9b55bee4c4fbc
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 8824334e762237c3f18cb763d5b39fa55d6415a3
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861476"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108464"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs - Géorécupération d’urgence 
 
@@ -70,7 +70,29 @@ La section suivante présente une vue d’ensemble du processus de basculement e
 
 ### <a name="setup"></a>Programme d’installation
 
-Tout d’abord, vous créez ou utilisez un espace de noms principal existant et un espace de noms secondaire, avant d’associer les deux. Cette association crée un alias qui vous servira à vous connecter. Étant donné que vous utilisez un alias, vous n’avez pas besoin de modifier les chaînes de connexion existantes. Vous pouvez uniquement ajouter de nouveaux espaces de noms à votre association de basculement. Enfin, vous devez ajouter un système de surveillance afin de détecter si un basculement est nécessaire. Dans la plupart des cas, le service fait partie d’un écosystème de grande taille. C’est pourquoi des basculements automatiques sont rarement possibles, dans la mesure où, souvent, les basculements doivent être synchronisés avec le reste de l’infrastructure ou du sous-système.
+Tout d’abord, vous créez ou utilisez un espace de noms principal existant et un espace de noms secondaire, avant d’associer les deux. Cette association crée un alias qui vous servira à vous connecter. Étant donné que vous utilisez un alias, vous n’avez pas besoin de modifier les chaînes de connexion existantes. Vous pouvez uniquement ajouter de nouveaux espaces de noms à votre association de basculement. 
+
+1. Créez l’espace de noms principal.
+1. Créez l’espace de noms secondaire. Cette étape est facultative. Vous pouvez créer l’espace de noms secondaire lors de la création du jumelage à l’étape suivante. 
+1. Dans le portail Azure, accédez à votre espace de noms principal.
+1. Sélectionnez **Géo-récupération** dans le menu de gauche, puis **Lancer le jumelage** dans la barre d’outils. 
+
+    :::image type="content" source="./media/event-hubs-geo-dr/primary-namspace-initiate-pairing-button.png" alt-text="Lancer le jumelage à partir de l’espace de noms principal":::    
+1. Dans la page **Lancer le jumelage**, sélectionnez un espace de noms secondaire existant ou créez-en un, puis sélectionnez **Créer**. Dans l’exemple suivant, un espace de noms secondaire existant est sélectionné. 
+
+    :::image type="content" source="./media/event-hubs-geo-dr/initiate-pairing-page.png" alt-text="Sélectionner l’espace de noms secondaire":::        
+1. Désormais, lorsque vous sélectionnez **Géo-récupération** pour l’espace de noms principal, la page **Alias de géo-récupération après sinistre** doit s’afficher et ressembler à l’image suivante :
+
+    :::image type="content" source="./media/event-hubs-geo-dr/geo-dr-alias-page.png" alt-text="Page d’alias de géo-récupération après sinistre":::    
+1. Dans cette page **Vue d’ensemble**, vous pouvez effectuer les actions suivantes : 
+    1. Arrêter le jumelage entre les espaces de noms principal et secondaire. Sélectionnez **Arrêter le jumelage** dans la barre d’outils. 
+    1. Basculer manuellement vers l’espace de noms secondaire. Sélectionnez **Basculement** dans la barre d’outils. 
+    
+        > [!WARNING]
+        > Le basculement active l’espace de noms secondaire et supprime l’espace de noms principal du jumelage de géo-reprise d’activité après sinistre. Créer un autre espace de noms pour avoir une nouvelle paire de géo-reprise d’activité après sinistre. 
+1. Dans la page **Alias de géo-récupération après sinistre**, sélectionnez **Stratégies d’accès partagé** pour accéder à la chaîne de connexion principale de l’alias. Utilisez cette chaîne de connexion au lieu d’utiliser la chaîne de connexion directe à l’espace de noms principal/secondaire. 
+
+Enfin, vous devez ajouter un système de surveillance afin de détecter si un basculement est nécessaire. Dans la plupart des cas, le service fait partie d’un écosystème de grande taille. C’est pourquoi des basculements automatiques sont rarement possibles, dans la mesure où, souvent, les basculements doivent être synchronisés avec le reste de l’infrastructure ou du sous-système.
 
 ### <a name="example"></a>Exemple
 

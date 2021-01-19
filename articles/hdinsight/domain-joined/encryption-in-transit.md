@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/24/2020
-ms.openlocfilehash: ba1542d1bb10933edb34b697f1c81cc5e3e7f1c9
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 88a7a0240a4711bebad0ea9007caf6590436e371
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97705368"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98049777"
 ---
 # <a name="ipsec-encryption-in-transit-for-azure-hdinsight"></a>Chiffrement IPSec en transit pour Azure HDInsight
 
@@ -24,7 +24,7 @@ Azure HDInsight offre un large éventail de fonctionnalités de sécurité pour 
 
 Le chiffrement au repos est couvert par le chiffrement côté serveur sur les comptes de stockage Azure, ainsi que par le chiffrement de disque sur les machines virtuelles Azure qui font partie de votre cluster HDInsight.
 
-Le chiffrement des données en transit sur HDInsight est obtenu avec le protocole [TLS (Transport Layer Security)](../transport-layer-security.md) pour accéder aux passerelles de cluster et le protocole [IPSec (Internet Protocol Security)](https://wikipedia.org/wiki/IPsec) entre les nœuds de cluster. Le protocole IPSec peut éventuellement être activé entre tous les nœuds principaux, nœuds Worker, nœuds de périphérie et nœuds Zookeeper. Il n’est pas activé pour le trafic entre les nœuds de passerelle ou de [broker d’ID](./identity-broker.md), qui sont des machines virtuelles Windows et d’autres nœuds Linux dans le cluster.
+Le chiffrement des données en transit sur HDInsight est obtenu avec le protocole [TLS (Transport Layer Security)](../transport-layer-security.md) pour accéder aux passerelles de cluster et le protocole [IPSec (Internet Protocol Security)](https://wikipedia.org/wiki/IPsec) entre les nœuds de cluster. Le protocole IPSec peut éventuellement être activé entre tous les nœuds principaux, nœuds Worker, nœuds de périphérie, nœuds Zookeeper, ainsi que les nœuds de passerelle et [broker d’ID](./identity-broker.md).
 
 ## <a name="enable-encryption-in-transit"></a>Activer le chiffrement en transit
 

@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: eca2009ee0470dec9c9ce60d8754f8f7a71619d3
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: d9dd07e3a35d83ff6bd9c7c493768d1197667c39
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740536"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108787"
 ---
 # <a name="diagnose-and-troubleshoot-an-azure-time-series-insights-gen2-environment"></a>Diagnostiquer et résoudre les problèmes d’un environnement Gen2 Azure Time Series Insights.
 
@@ -71,7 +71,7 @@ Il se peut que vous envoyiez des données sans l’ID de série chronologique.
 - Ce problème peut survenir parce que votre environnement est limité.
 
     > [!NOTE]
-    > À l’heure actuelle, Time Series Insights prend en charge un taux d’ingestion maximal de 6 Mbit/s.
+    > À l’heure actuelle, Time Series Insights prend en charge un taux d’ingestion maximal de 1 Mbit/s.
 
 ## <a name="problem-data-was-showing-but-now-ingestion-has-stopped"></a>Problème : Des données étaient affichées, mais la réception s’est arrêtée
 

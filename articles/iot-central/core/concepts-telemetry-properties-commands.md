@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: c29af68433f29d7bdd363bedfa6d36316b952f4c
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: 5a9f6fa79da59425e4972dddd21ffdea15af73e7
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97795341"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127904"
 ---
 # <a name="telemetry-property-and-command-payloads"></a>Charges utiles de télémétrie, de propriétés et de commandes
 
@@ -187,6 +187,9 @@ L’extrait de code suivant d’un modèle d’appareil illustre la définition 
   "schema": "geopoint"
 }
 ```
+
+> [!NOTE]
+> Le type de schéma **geopoint** ne fait pas partie de la [spécification Digital Twins Definition Language](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). Actuellement, IoT Central prend en charge le type de schéma **geopoint** et le type sémantique **location** à des fins de compatibilité descendante.
 
 Un client d’appareil doit envoyer la télémétrie au format JSON comme dans l’exemple suivant. IoT Central affiche la valeur sous la forme d’une épingle sur une carte :
 
@@ -576,6 +579,9 @@ L’extrait de code suivant d’un modèle d’appareil illustre la définition 
 }
 ```
 
+> [!NOTE]
+> Le type de schéma **geopoint** ne fait pas partie de la [spécification Digital Twins Definition Language](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). Actuellement, IoT Central prend en charge le type de schéma **geopoint** et le type sémantique **location** à des fins de compatibilité descendante.
+
 Un client d’appareil doit envoyer une charge utile JSON ressemblant à l’exemple suivant en tant que propriété signalée dans le jumeau d'appareil :
 
 ```json
@@ -721,7 +727,7 @@ IoT Central attend une réponse de l’appareil pour les mises à jour des propr
 | ----- | ----- | ----------- |
 | `'ac': 200` | Completed | L’opération de modification de la propriété a été effectuée. |
 | `'ac': 202` ou `'ac': 201` | Pending | L’opération de modification de la propriété est en attente ou en cours |
-| `'ac': 4xx` | Error | La modification de la propriété demandée n’est pas valide ou a rencontré une erreur |
+| `'ac': 4xx` | Error | La modification de la propriété demandée n’est pas valide ou a rencontré une erreur. |
 | `'ac': 5xx` | Error | L’appareil a rencontré une erreur inattendue lors du traitement de la modification demandée. |
 
 `av` est le numéro de version envoyé à l’appareil.
@@ -828,9 +834,6 @@ L’appareil doit envoyer la charge utile JSON suivante à IoT Central une fois 
 ```
 
 ## <a name="commands"></a>Commandes
-
-> [!NOTE]
-> Dans l’interface utilisateur web IoT Central, vous pouvez sélectionner l’option **Mettre en file d'attente si hors connexion** pour une commande. Ce paramètre n’est pas inclus si vous exportez un modèle ou une interface à partir du modèle d’appareil.
 
 L’extrait de code suivant d’un modèle d’appareil illustre la définition d’une commande qui n’a pas de paramètres et n’attend pas que l’appareil retourne quoi que ce soit :
 
@@ -999,6 +1002,91 @@ Une fois que l’appareil a fini de traiter la requête, il doit envoyer à IoT 
   }
 }
 ```
+
+### <a name="offline-commands"></a>Commandes hors connexion
+
+Dans l’interface utilisateur web IoT Central, vous pouvez sélectionner l’option **Mettre en file d'attente si hors connexion** pour une commande. Les commandes hors connexion représentent des notifications unidirectionnelles de votre solution vers l’appareil remises dès qu’un appareil se connecte. Les commandes hors connexion peuvent avoir des paramètres de requête, mais elles ne renvoient pas de réponse.
+
+Le paramètre **Mettre en file d’attente si hors connexion** n’est pas inclus si vous exportez un modèle ou une interface à partir du modèle d’appareil. En observant un modèle exporté ou une interface JSON, vous ne pouvez pas déterminer qu’une commande est hors connexion.
+
+Les commandes hors connexion utilisent des [message cloud-à-appareil IoT Hub](../../iot-hub/iot-hub-devguide-messages-c2d.md) pour envoyer la commande et la charge utile à l’appareil.
+
+L’extrait de code suivant d’un modèle d’appareil illustre la définition d’une commande. La commande possède un paramètre d’objet avec un champ d’horodatage et une énumération :
+
+```json
+{
+  "@type": "Command",
+  "displayName": {
+    "en": "Generate Diagnostics"
+  },
+  "name": "GenerateDiagnostics",
+  "request": {
+    "@type": "CommandPayload",
+    "displayName": {
+      "en": "Payload"
+    },
+    "name": "Payload",
+    "schema": {
+      "@type": "Object",
+      "displayName": {
+        "en": "Object"
+      },
+      "fields": [
+        {
+          "displayName": {
+            "en": "StartTime"
+          },
+          "name": "StartTime",
+          "schema": "dateTime"
+        },
+        {
+          "displayName": {
+            "en": "Bank"
+          },
+          "name": "Bank",
+          "schema": {
+            "@type": "Enum",
+            "displayName": {
+              "en": "Enum"
+            },
+            "enumValues": [
+              {
+                "displayName": {
+                  "en": "Bank 1"
+                },
+                "enumValue": 1,
+                "name": "Bank1"
+              },
+              {
+                "displayName": {
+                  "en": "Bank2"
+                },
+                "enumValue": 2,
+                "name": "Bank2"
+              },
+              {
+                "displayName": {
+                  "en": "Bank3"
+                },
+                "enumValue": 2,
+                "name": "Bank3"
+              }
+            ],
+            "valueSchema": "integer"
+          }
+        }
+      ]
+    }
+  }
+}
+```
+
+Si vous activez l’option **Mettre en file d’attente si hors connexion** dans l’interface utilisateur du modèle d’appareil pour la commande de l’extrait de code précédent, le message reçu par l’appareil comprend les propriétés suivantes :
+
+| Nom de la propriété | Valeur d'exemple |
+| ---------- | ----- |
+| `custom_properties` | `{'method-name': 'GenerateDiagnostics'}` |
+| `data` | `{"StartTime":"2021-01-05T08:00:00.000Z","Bank":2}` |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

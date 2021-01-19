@@ -3,12 +3,12 @@ title: Configuration de l’authentification et de l’autorisation Service Bus
 description: Authentifiez des applications dans Service Bus avec l’authentification Signature d’accès partagé (SAS).
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: a71cef6aad973f3c39ef61a8dbab313ebfca44ef
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 7b287b209fbcd5bc2782505095aeae4390107803
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517278"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060212"
 ---
 # <a name="service-bus-authentication-and-authorization"></a>Authentification et de autorisation Service Bus
 Il existe deux façons d’authentifier et d’autoriser l’accès aux ressources Azure Service Bus : Azure Active Directory (Azure AD) et les signatures d’accès partagé (SAP). Cet article vous explique l’utilisation de ces deux types de mécanismes de sécurité. 
@@ -37,7 +37,7 @@ Pour utiliser SAS, vous pouvez configurer un objet [SharedAccessAuthorizationRul
 * *KeyName* : identifie la règle.
 * *PrimaryKey* : clé de chiffrement utilisée pour signer/valider les jetons SAS.
 * *SecondaryKey* : clé de chiffrement utilisée pour signer/valider les jetons SAS.
-* *Rights* : représente la collection des droits **Listen** , **Send** ou **Manage** accordés.
+* *Rights* : représente la collection des droits **Listen**, **Send** ou **Manage** accordés.
 
 Les règles d’autorisation configurées au niveau de l’espace de noms peuvent accorder l’accès à toutes les entités dans un espace de noms pour les clients avec des jetons signés à l’aide de la clé correspondante. Vous pouvez configurer jusqu’à 12 règles d’autorisation de ce type sur un espace de noms, une file d’attente ou une rubrique Service Bus. Par défaut, un élément [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) avec tous les droits est configuré pour chaque espace de noms dès sa mise en service initiale.
 

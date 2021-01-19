@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/17/2020
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 739e59ea8e5737abbc6f0f0799129be5f59fb9b0
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 3bf3ecefb17f4c9fda6405da7fb2bdc2650f5324
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97674495"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131472"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notes de publication de l’agent Azure File Sync
 Azure File Sync vous permet de centraliser les partages de fichiers de votre organisation dans Azure Files sans perdre la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Il transforme vos installations Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement (notamment SMB, NFS et FTPS). Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -236,14 +236,14 @@ Les notes de publication suivantes concernent la version 9.0.0.0 de l’agent A
 ### <a name="improvements-and-issues-that-are-fixed"></a>Améliorations et problèmes résolus
 
 - Prise en charge de la restauration libre-service
-    - Les utilisateurs peuvent désormais restaurer leurs fichiers à l’aide de la fonctionnalité « version précédente ». Avant la version v9, la fonctionnalité « version précédente » n’était pas prise en charge sur les volumes pour lesquels la hiérarchisation cloud était activée. Cette fonctionnalité doit être activée séparément pour chaque volume sur lequel existe un point de terminaison pour lequel la hiérarchisation cloud est activée. Pour plus d'informations, consultez les rubriques suivantes :  
+    - Désormais, les utilisateurs peuvent également restaurer des fichiers hiérarchisés (ainsi que des fichiers sur disque) à l’aide de la fonctionnalité de version précédente, à partir des instantanés VSS créés après activation de la fonctionnalité de restauration libre-service sur le volume. Avant la version v9, la fonctionnalité de version précédente n’était pas prise en charge pour les fichiers hiérarchisés. Cette fonctionnalité doit être activée séparément pour chaque volume sur lequel existe un point de terminaison pour lequel la hiérarchisation cloud est activée. Pour plus d'informations, consultez les rubriques suivantes :  
 [Restauration libre-service via Versions précédentes et VSS (Volume Shadow Copy Service)](./storage-sync-files-deployment-guide.md#self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service). 
  
 - Prise en charge de tailles de partage de fichiers plus importantes 
     - Azure File Sync prend désormais en charge jusqu’à 64 Tio et 100 millions de fichiers dans un seul espace de noms qui se synchronise.  
  
 - Prise en charge de la déduplication des données sur Server 2019 
-    - La déduplication des données est désormais prise en charge avec la hiérarchisation cloud activée sur Windows Server 2019. Pour que la déduplication des données soit prise en charge sur les volumes pour lesquels la hiérarchisation cloud est activée, Windows Update [KB4520062](https://support.microsoft.com/help/4520062) doit être installé. 
+    - La déduplication des données est maintenant prise en charge (que la hiérarchisation cloud soit activée ou désactivée sur un ou plusieurs points de terminaison de serveur du volume) sur Windows Server 2016 et Windows Server 2019. Pour que la déduplication des données soit prise en charge sur les volumes pour lesquels la hiérarchisation cloud est activée sur Server 2019, Windows Update [KB4520062](https://support.microsoft.com/help/4520062) doit être installé. 
  
 - Amélioration de la taille minimale d’un fichier à hiérarchiser 
     - La taille minimale d’un fichier à hiérarchiser est désormais basée sur le double de la taille de cluster du système de fichiers. Par exemple, par défaut, la taille de cluster du système de fichiers NTFS est de 4 Ko ; ainsi, la taille de fichier minimale pour un fichier à hiérarchiser est de 8 Ko. 

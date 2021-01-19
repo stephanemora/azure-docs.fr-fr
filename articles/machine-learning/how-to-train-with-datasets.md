@@ -12,19 +12,21 @@ ms.reviewer: nibaccam
 ms.date: 07/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: 8b95c5a45992c895713e0be056856172b14b830d
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 52b52c4c19b22fb1afd76d1e8dfa4163326c0244
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740672"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108588"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>Entraîner avec des jeux de données dans Azure Machine Learning
 
 
-Cet article va vous permettre d’apprendre à utiliser des jeux de données [Azure Machine Learning](/python/api/azureml-core/azureml.core.dataset%28class%29?preserve-view=true&view=azure-ml-py) dans vos expériences de formation.  Vous pouvez utiliser des jeux de données dans votre cible de calcul locale ou distante sans vous soucier des chaînes de connexion ou des chemins de données.
+Cet article explique comment utiliser des [jeux de données Azure Machine Learning](/python/api/azureml-core/azureml.core.dataset%28class%29?preserve-view=true&view=azure-ml-py) pour entraîner des modèles Machine Learning.  Vous pouvez utiliser des jeux de données dans votre cible de calcul locale ou distante sans vous soucier des chaînes de connexion ou des chemins de données. 
 
 Les jeux de données Azure Machine Learning fournissent une intégration transparente avec les fonctionnalités de formation d’Azure Machine Learning telles que [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py), [HyperDrive](/python/api/azureml-train-core/azureml.train.hyperdrive?preserve-view=true&view=azure-ml-py) et les [pipelines Azure Machine Learning](how-to-create-your-first-pipeline.md).
+
+Si vous ne voulez pas encore rendre vos données disponibles pour l’apprentissage du modèle, mais que vous souhaitez charger vos données dans votre notebook pour l’exploration des données, consultez [Guide pratique pour explorer les données d’un jeu de données](how-to-create-register-datasets.md#explore-data). 
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -34,7 +36,7 @@ Pour créer des jeux de données et effectuer un entraînement avec eux, vous av
 
 * Un [espace de travail Azure Machine Learning](how-to-manage-workspace.md).
 
-* Le [Kit de développement logiciel (SDK) Azure Machine Learning pour Python installé](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) (1.13.0 ou version ultérieure), qui inclut le package azureml-datasets.
+* Le [kit de développement logiciel (SDK) Azure Machine Learning pour Python](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) (version 1.13.0 ou ultérieure), qui inclut le package `azureml-datasets`.
 
 > [!Note]
 > Certaines classes de jeu de données ont des dépendances avec le package [azureml-dataprep](/python/api/azureml-dataprep/?preserve-view=true&view=azure-ml-py). Pour les utilisateurs Linux, ces classes sont uniquement prises en charge dans les distributions suivantes :  Red Hat Enterprise Linux, Ubuntu, Fedora et CentOS.
@@ -65,7 +67,7 @@ Le code suivant configure un argument de script `--input-data` que vous spécifi
 > [!Note]
 > Si votre source de données originale contient NaN, des chaînes vides ou des valeurs vides, lorsque vous utilisez `to_pandas_dataframe()`, ces valeurs sont remplacées par une valeur *Null*.
 
-Si vous avez besoin de charger les données préparées dans un nouveau jeu de données à partir d’un dataframe pandas en mémoire, écrivez les données dans un fichier local (par exemple un fichier Parquet), puis créez un jeu de données à partir de ce fichier. Vous pouvez également créer des jeux de données à partir de chemins ou de fichiers locaux dans des magasins de données. Pour en savoir plus sur la création des jeux de données, consultez [cette page](how-to-create-register-datasets.md).
+Si vous avez besoin de charger les données préparées dans un nouveau jeu de données à partir d’un dataframe pandas en mémoire, écrivez les données dans un fichier local (par exemple un fichier Parquet), puis créez un jeu de données à partir de ce fichier. Pour en savoir plus sur la création des jeux de données, consultez [cette page](how-to-create-register-datasets.md).
 
 ```Python
 %%writefile $script_folder/train_titanic.py

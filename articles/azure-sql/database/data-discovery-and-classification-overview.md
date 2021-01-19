@@ -13,12 +13,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 12/01/2020
 tags: azure-synapse
-ms.openlocfilehash: c3f1209c2c903399617bd60258cc152a6ce90b80
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: ece76f0017a72484f5c4e66b2ab8c7e71d32f1a7
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462124"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132033"
 ---
 # <a name="data-discovery--classification"></a>Découverte et classification des données
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -28,7 +28,7 @@ L’option Découverte et classification des données est conçue pour Azure SQL
 Vos données les plus sensibles peuvent inclure des informations commerciales, financières, médicales ou personnelles. La découverte et la classification de ces données peuvent jouer un rôle pivot dans l’approche de protection des informations de votre organisation. Elles peuvent servir d’infrastructure pour :
 
 - Contribuer à respecter les normes en matière de confidentialité des données et d’exigences pour la conformité réglementaire.
-- Divers scénarios de sécurité, comme la surveillance (audit) et la génération d’alertes en cas d’accès anormaux aux données sensibles.
+- Différents scénarios de sécurité, comme la supervision (audit) de l’accès à des données sensibles
 - Contrôler l’accès et renforcer la sécurité des bases de données contenant des données sensibles.
 
 > [!NOTE]

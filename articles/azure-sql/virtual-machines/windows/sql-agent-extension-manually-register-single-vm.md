@@ -15,12 +15,12 @@ ms.date: 11/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, contperf-fy21q2
-ms.openlocfilehash: e7a8f54abbadb63c870c4d92843699c67f59752c
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 393d0c69201f87ad7c96bd2f9a1f9f57df512e31
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505628"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964522"
 ---
 # <a name="register-sql-server-vm-with-sql-iaas-agent-extension"></a>Inscrire une machine virtuelle SQL Server auprès de l’extension SQL IaaS Agent
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -188,6 +188,9 @@ $sqlvm.SqlManagementType
 ## <a name="upgrade-to-full"></a>Mettre à niveau vers le mode complet  
 
 Les machines virtuelles SQL Server qui ont inscrit l’extension en mode *léger* peuvent effectuer une mise à niveau vers le mode _complet_ à l’aide du portail Azure, de l’interface de ligne de commande Azure ou d’Azure PowerShell. Les machines virtuelles SQL Server en mode _sans agent_ peuvent passer en mode _complet_ une fois que le système d’exploitation est mis à niveau vers Windows 2008 R2 et versions ultérieures. Il est impossible de passer à une version inférieure. Pour ce faire, vous devez [désinscrire](#unregister-from-extension) la machine virtuelle SQL Server de l’extension SQL IaaS Agent. Cette opération supprime la _ressource_ de **machine virtuelle SQL**, mais ne supprime pas la machine virtuelle elle-même. 
+
+> [!NOTE]
+> Lorsque vous mettez à niveau le mode de gestion de l’extension IaaS SQL vers le mode complet (Full), le service SQL Server est redémarré. Dans certains cas, le redémarrage peut entraîner la modification des noms de principal du service (SPN) associés au service SQL Server en un compte d’utilisateur incorrect. Si vous rencontrez des problèmes de connectivité après la mise à niveau du mode de gestion vers le mode complet, [désinscrivez puis réinscrivez vos SPN](/sql/database-engine/configure-windows/register-a-service-principal-name-for-kerberos-connections).
 
 
 ### <a name="azure-portal"></a>Portail Azure

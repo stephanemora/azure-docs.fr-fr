@@ -4,14 +4,14 @@ description: Alerte à l’échelle à l’aide d’une règle d’alerte unique
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 11/12/2020
+ms.date: 01/11/2021
 ms.subservice: alerts
-ms.openlocfilehash: 66987a28acc8a2c9ae71d89ff5760fa508e32963
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 47a2fb9240f6826ed862f7a857264c09b79de9bc
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566501"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98071083"
 ---
 # <a name="monitor-multiple-time-series-in-a-single-metric-alert-rule"></a>Surveiller plusieurs séries chronologiques dans une seule règle d’alerte de métrique
 
@@ -162,7 +162,7 @@ Pour cette règle d’alerte, six séries chronologiques de métriques sont surv
 
 1.  **Sélection de toutes les dimensions actuelles et futures** : vous pouvez choisir de surveiller toutes les valeurs possibles d’une dimension, y compris les valeurs futures. Une telle règle d’alerte est automatiquement mise à l’échelle pour analyser toutes les valeurs de la dimension sans que vous ayez besoin de modifier la règle d’alerte chaque fois qu’une valeur de dimension est ajoutée ou supprimée.
 2.  **Exclusion de dimensions** : la sélection de l’opérateur « ≠ » (exclure) pour une valeur de dimension équivaut à sélectionner toutes les autres valeurs de cette dimension, y compris les valeurs futures.
-3.  **Dimensions nouvelles et personnalisées** : les valeurs de dimension affichées dans le portail Azure sont basées sur les données de mesure collectées au cours des trois derniers jours. Si la valeur de dimension que vous recherchez n’est pas encore émise, vous pouvez ajouter une valeur de dimension personnalisée.
+3.  **Dimensions nouvelles et personnalisées** : les valeurs de dimension affichées sur le Portail Azure se basent sur les données de métriques collectées au cours du dernier jour. Si la valeur de dimension que vous recherchez n’est pas encore émise, vous pouvez ajouter une valeur de dimension personnalisée.
 4. **Correspondance des dimensions avec un préfixe** : vous pouvez choisir de surveiller toutes les valeurs de dimension qui commencent par un modèle spécifique, en sélectionnant l’opérateur « Commence par » et en entrant un préfixe personnalisé.
 
 ![Fonctionnalités avancées pour plusieurs dimensions](media/alerts-metric-multiple-time-series-single-rule/advanced-features.png)

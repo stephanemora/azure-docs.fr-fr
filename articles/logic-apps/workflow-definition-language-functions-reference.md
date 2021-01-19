@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
 ms.date: 09/04/2020
-ms.openlocfilehash: b15849fb8fbfed5d55b9c224f51634047b7c75b2
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 222f6ebacb6139ca26a6f1cdd0f896270c9b2fc2
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97914482"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98034293"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guide de référence sur l’utilisation des fonctions dans les expressions pour Azure Logic Apps et Power Automate
 
@@ -1701,7 +1701,7 @@ div(<dividend>, <divisor>)
 
 | Valeur retournée | Type | Description |
 | ------------ | ---- | ----------- |
-| <*quotient-result*> | Entier ou flottant | Résultat de la division du premier nombre par le second. Si le dividende ou le diviseur est de type flottant, le résultat est de type flottant. <p><p>**Remarque** : Pour convertir le résultat de type flottant en entier, essayez de [créer et appeler une fonction Azure](../logic-apps/logic-apps-azure-functions.md) à partir de votre application logique. |
+| <*quotient-result*> | Entier ou flottant | Résultat de la division du premier nombre par le second. Si le dividende ou le diviseur est de type flottant, le résultat est de type flottant. <p><p>**Remarque** : Pour convertir le résultat de type flottant en entier, essayez de [créer et appeler une fonction dans Azure](../logic-apps/logic-apps-azure-functions.md) à partir de votre application logique. |
 ||||
 
 *Exemple 1*

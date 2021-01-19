@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/27/2020
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 1a51cd242eb26709464aa502938cd04807aea721
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 28c92004fe67de35e5776cd7dc24cf534ec6f8f3
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97805666"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98061159"
 ---
 ## <a name="common-scenarios"></a>Scénarios courants
 Le mode rafale peut être très avantageux pour les scénarios suivants :
@@ -28,7 +28,7 @@ Le système de crédit de rafales s’applique de la même manière au niveau de
 
 ![Diagramme de compartiment de rafale](media/managed-disks-bursting/bucket-diagram.jpg)
 
-C’est à vous de décider comment vous voulez utiliser les 30 minutes de rafale. Vous pouvez l’utiliser pendant 30 minutes consécutivement ou de manière sporadique tout au long de la journée. Lorsque le produit est déployé, il est prêt à recevoir des crédits complets et, lorsqu’il épuise les crédits, il faut moins d’une journée pour obtenir de nouveau des crédits entièrement mis à profit. Vous pouvez accumuler et dépenser leurs crédits de rafale à votre discrétion et il n’est pas nécessaire que le compartiment de 30 minutes soit à nouveau complet pour la rafale. À propos de l’accumulation de crédits de rafale, il faut noter qu’il diffère pour chaque ressource, car il est basé sur les IOPS et les Mo/s inutilisés sous les volumes de performances attribués. Cela signifie que des produits offrant des performances de base plus élevées peuvent accumuler des crédits de rafales plus rapidement que des produits offrant des performances de base inférieures. Par exemple, un disque P1 inactif accumule 120 IOPS, tandis qu’un disque P20 en accumule 2 300 quand il est inactif.
+C’est à vous de décider comment vous voulez utiliser les 30 minutes de bursting. Vous pouvez l’utiliser pendant 30 minutes consécutivement ou de manière sporadique tout au long de la journée. Lorsque le produit est déployé, il est prêt à recevoir des crédits complets et, lorsqu’il épuise les crédits, il faut moins d’une journée pour obtenir de nouveau des crédits entièrement mis à profit. Vous pouvez accumuler et dépenser leurs crédits de rafale à votre discrétion et il n’est pas nécessaire que le compartiment de 30 minutes soit à nouveau complet pour la rafale. À propos de l’accumulation de crédits de rafale, il faut noter qu’il diffère pour chaque ressource, car il est basé sur les IOPS et les Mo/s inutilisés sous les volumes de performances attribués. Cela signifie que des produits offrant des performances de base plus élevées peuvent accumuler des crédits de rafales plus rapidement que des produits offrant des performances de base inférieures. Par exemple, un disque P1 inactif accumule 120 IOPS, tandis qu’un disque P20 en accumule 2 300 quand il est inactif.
 
 ## <a name="bursting-states"></a>États de rafale
 Lorsque le mode rafale est activé, votre ressource peut être dans trois états :

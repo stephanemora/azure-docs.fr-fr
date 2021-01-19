@@ -6,15 +6,15 @@ ms.service: virtual-machines
 ms.subservice: networking
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 11/03/2020
+ms.date: 1/12/2020
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 08d5e20bf0755a71e70a0e446cf96d33bb42ad59
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: aadf4000da4ab88a3c3b4dee37d2179eb49d39d7
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93351837"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132062"
 ---
 # <a name="create-a-fully-qualified-domain-name-in-the-azure-portal-for-a-linux-vm"></a>Créer un nom de domaine complet dans le portail Azure pour une machine virtuelle Linux
 
@@ -24,16 +24,14 @@ Lorsque vous créez une machine virtuelle dans le [portail Azure](https://portal
 Cet article suppose que vous avez déjà créé une machine virtuelle. Si nécessaire, vous pouvez créer une machine virtuelle [Linux](./linux/quick-create-portal.md) ou [Windows](./windows/quick-create-portal.md) dans le portail. Une fois que votre machine virtuelle est en cours d’exécution, procédez comme suit :
 
 
-1. Sélectionnez votre machine virtuelle dans le portail. Sous **Nom DNS** , sélectionnez **Configurer**.
-2. Entrez le nom DNS, puis sélectionnez **Enregistrer** en haut de la page.
-3. Pour revenir au panneau Vue d’ensemble de la machine virtuelle, fermez le panneau **Configuration** en sélectionnant le **X** dans l’angle supérieur droit. 
-4. Vérifiez que le *Nom DNS* s’affiche correctement.
-   
-
-
+1. Sélectionnez votre machine virtuelle dans le portail. 
+1. Dans le menu de gauche, sélectionnez **Configuration**
+1. Sous **Étiquette du nom DNS**, entrez le préfixe à utiliser.
+1. En haut de la page, sélectionnez **Enregistrer**.
+1. Revenez au panneau de la vue d’ensemble de la machine virtuelle en sélectionnant **Vue d’ensemble** dans le menu de gauche. 
+1. Vérifiez que le *nom DNS* s’affiche correctement. 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Maintenant que votre machine virtuelle a un nom DNS et une adresse IP publique, vous pouvez déployer des infrastructures d’applications courantes ou des services, tels que nginx, MongoDB et Docker.
 
-Vous pouvez également lire un autre article sur [l’utilisation de Resource Manager](../azure-resource-manager/management/overview.md) pour obtenir des conseils sur la création de vos déploiements Azure.
+Vous pouvez aussi gérer DNS avec des [zones DNS Azure](../dns/dns-getstarted-portal.md).
 

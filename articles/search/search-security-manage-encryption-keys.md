@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/02/2020
 ms.custom: references_regions
-ms.openlocfilehash: 8295e619cfda0d4b83a7356d5fd21d4b80f83849
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 6b1079797f1a753fa8362d6e920f3394087d7e9f
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96530882"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98119286"
 ---
 # <a name="configure-customer-managed-keys-for-data-encryption-in-azure-cognitive-search"></a>Configurer des clés gérées par le client pour le chiffrement des données dans le service Recherche cognitive Azure
 
@@ -52,7 +52,7 @@ Les outils et services suivants sont utilisés dans ce scénario.
 Vous devez disposer d’une application de recherche capable de créer l’objet chiffré. Dans ce code, vous allez référencer une clé de coffre de clés et des informations d’inscription auprès d’Active Directory. Ce code peut être une application fonctionnelle ou un code prototype tel que l’[exemple de code C# DotNetHowToEncryptionUsingCMK](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToEncryptionUsingCMK).
 
 > [!TIP]
-> Vous pouvez utiliser [Postman ou Visual Studio Code](search-get-started-rest.md), ou encore [Azure PowerShell](./search-get-started-powershell.md), pour appeler les API REST qui créent des index et des mappages de synonymes incluant un paramètre de clé de chiffrement. Il n’existe actuellement pas de prise en charge du portail pour l’ajout de clé aux index ou aux mappages de synonymes.
+> Vous pouvez utiliser [Postman](search-get-started-rest.md), [Visual Studio Code](search-get-started-vs-code.md) ou [Azure PowerShell](./search-get-started-powershell.md) pour appeler les API REST qui créent des index et des mappages de synonymes incluant un paramètre de clé de chiffrement. Il n’existe actuellement pas de prise en charge du portail pour l’ajout de clé aux index ou aux mappages de synonymes.
 
 ## <a name="1---enable-key-recovery"></a>1 - Activer la récupération de clé
 

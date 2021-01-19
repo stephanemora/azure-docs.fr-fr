@@ -1,7 +1,7 @@
 ---
 title: Utiliser des répartiteurs avec Xamarin iOS et Android | Azure
 titleSuffix: Microsoft identity platform
-description: Découvrez comment configurer des applications Xamarin iOS capables d’utiliser Microsoft Authenticator et Microsoft Authentication Library pour .NET (MSAL.NET). Découvrez aussi comment migrer d’Azure AD Authentication Library pour .NET (ADAL.NET) vers Microsoft Authentication Library pour .NET (MSAL.NET).
+description: Découvrez comment configurer des applications Xamarin iOS capables d’utiliser Microsoft Authenticator et la Bibliothèque d’authentification Microsoft pour .NET (MSAL.NET). Apprenez aussi à migrer de la Bibliothèque d’authentification Azure AD pour .NET (ADAL.NET) vers la Bibliothèque d’authentification Microsoft pour .NET (MSAL.NET).
 author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
@@ -12,12 +12,12 @@ ms.date: 09/08/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 7fa13a328a55b0e9eaa546e70bf0711f4f011cf1
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 73fbda9a3356e2877617391430a7f2b555b1a0e5
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173428"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063482"
 ---
 # <a name="use-microsoft-authenticator-or-intune-company-portal-on-xamarin-applications"></a>Utiliser Microsoft Authenticator ou le Portail d’entreprise Intune sur des applications Xamarin
 
@@ -183,7 +183,7 @@ Ajoutez l’URI de redirection à l’inscription de l’application dans le [po
 
 **Pour générer l’URI de redirection :**
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 1. Sélectionnez **Azure Active Directory** > **Inscriptions d’applications** > votre application inscrite.
 1. Sélectionnez **Authentification** > **Ajouter une plateforme** > **iOS / macOS**.
 1. Entrez votre ID d’offre groupée, puis sélectionnez **Configurer**.

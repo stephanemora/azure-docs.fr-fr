@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 11/16/2020
+ms.date: 01/11/2021
 ms.author: victorh
-ms.openlocfilehash: c5613dda7adbbc47f989bc2a772777e716620b3c
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 0df91680dadbc4ac19299a4df48a585a11f044e8
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97348031"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98072239"
 ---
 # <a name="azure-firewall-snat-private-ip-address-ranges"></a>Pare-feu Azure traduit l’adresse réseau source des plages d’adresses IP privées
 
@@ -25,6 +25,9 @@ Si votre organisation utilise une plage d’adresses IP publiques pour les rése
 - Pour configurer le Pare-feu Azure afin de ne **jamais** utiliser la traduction d’adresses réseau sources (SNAT), quelle que soit l’adresse IP de destination, utilisez **0.0.0.0/0** comme plage d’adresses IP privées. Avec cette configuration, le Pare-feu Azure ne peut jamais acheminer le trafic directement vers Internet. 
 
 - Pour configurer le pare-feu afin qu’il utilise **toujours** la traduction SNAT, quelle que soit l’adresse de destination, utilisez **255.255.255.255/32** comme plage d’adresses IP privées.
+
+> [!IMPORTANT]
+> La plage d’adresses privées que vous spécifiez s’applique uniquement aux règles de réseau. Actuellement, les règles d’application sont toujours SNAT.
 
 > [!IMPORTANT]
 > Si vous souhaitez spécifier vos propres plages d’adresses IP privées et conserver les plages d’adresses IANA RFC 1918 par défaut, assurez-vous que votre liste personnalisée comprend toujours la plage IANA RFC 1918. 

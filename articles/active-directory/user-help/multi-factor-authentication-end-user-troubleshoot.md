@@ -13,12 +13,12 @@ ms.date: 09/01/2020
 ms.author: curtand
 ms.reviewer: kexia
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: caa2c66d66cce09f5b5b0fe0948ab924389d756e
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 0cb5e3463eda5d77bbbdefe223954105fd125c71
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033780"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98033980"
 ---
 # <a name="common-problems-with-two-factor-verification-and-your-work-or-school-account"></a>Problèmes courants avec la vérification en deux étapes et votre compte professionnel ou scolaire
 
@@ -74,7 +74,7 @@ Le fait de ne pas recevoir votre code de vérification est un problème courant.
 
 Procédure | Conseils
 --------- | ------------
-Utiliser l'application Microsoft Authenticator ou des codes de vérification | Vous recevez le message d'erreur « Vous avez atteint notre limite pour les appels de vérification » ou « Vous avez atteint notre limite pour les codes de vérification par SMS » lors de la connexion. <br/><br/>Microsoft peut limiter les tentatives d'authentification répétées effectuées par le même utilisateur sur une courte période. Cette limitation ne s'applique pas à Microsoft Authenticator ou au code de vérification. Si vous avez atteint ces limites, vous pouvez utiliser l'application Authenticator, le code de vérification ou essayer de vous reconnecter quelques minutes plus tard.
+Utiliser l'application Microsoft Authenticator ou des codes de vérification | Vous recevez le message d'erreur « Vous avez atteint notre limite pour les appels de vérification » ou « Vous avez atteint notre limite pour les codes de vérification par SMS » lors de la connexion. <br/><br/>Microsoft peut limiter les tentatives d'authentification répétées effectuées par le même utilisateur sur une courte période. Cette limitation ne s'applique pas à Microsoft Authenticator ou au code de vérification. Si vous avez atteint ces limites, vous pouvez utiliser l'application Authenticator, le code de vérification ou essayer de vous reconnecter quelques minutes plus tard. <br/><br/> Vous obtenez le message d’erreur « Sorry, we're having trouble verifying your account » (Nous sommes désolés, nous avons rencontré un problème lors de la vérification de votre compte) lors de la connexion. <br/><br/> Microsoft peut limiter ou bloquer les tentatives d’authentification par la voix ou par SMS effectuées par le même utilisateur, le même numéro de téléphone ou la même organisation en raison d’un nombre élevé de tentatives d’authentification par la voix ou par SMS ayant échoué. Si vous rencontrez cette erreur, vous pouvez essayer une autre méthode, comme l’application Authenticator ou un code de vérification, ou contactez votre administrateur pour obtenir de l’aide.
 Redémarrer votre appareil mobile | Parfois, votre appareil a simplement besoin d’une actualisation. Lorsque vous redémarrez votre appareil, tous les services et processus en arrière-plan sont terminés. Le redémarrage arrête également les composants principaux de votre appareil. Tout service ou composant est actualisé lorsque vous redémarrez votre appareil.
 Vérifier que vos informations de sécurité sont correctes | Vérifiez que les informations relatives à votre méthode de vérification de sécurité sont exactes, en particulier vos numéros de téléphone. Si vous avez entré un numéro de téléphone incorrect, toutes vos alertes seront dirigées vers ce numéro incorrect. Heureusement, cet utilisateur ne pourra rien faire avec les alertes, mais cela ne vous aidera pas non plus à vous connecter à votre compte. Pour vérifier que vos informations sont correctes, consultez les instructions fournies dans l’article [Gérer les paramètres de la vérification à deux facteurs](multi-factor-authentication-end-user-manage-settings.md).
 Vérifier que les notifications sont activées | Vérifiez que les notifications sont activées sur votre appareil mobile. Assurez-vous que les modes de notification suivants sont autorisés : <br/><br/> &bull; Appels téléphoniques <br/> &bull; Votre application d’authentification <br/> &bull; Votre application de messagerie texte <br/><br/> Assurez-vous que ces modes créent une alerte qui est _visible_ sur votre appareil.

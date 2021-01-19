@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
-ms.date: 11/18/2020
-ms.openlocfilehash: 6037b372f73bcf3554120e305f4b3031b26e97d4
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.date: 01/10/2021
+ms.openlocfilehash: 6c1f323828eb48b61b38370bc2fe56d4c93bf036
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97831650"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127207"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Clé gérée par le client dans Azure Monitor 
 
@@ -25,7 +25,7 @@ Le [chiffrement au repos](../../security/fundamentals/encryption-atrest.md) est 
 
 Azure Monitor veille à ce que toutes les données et requêtes enregistrées soient chiffrées au repos à l’aide de clés gérées par Microsoft (MMK). Azure Monitor fournit également une option de chiffrement à l’aide de votre propre clé qui est stockée dans votre coffre [Azure Key Vault](../../key-vault/general/overview.md), ce qui vous permet de révoquer à tout moment l’accès à vos données. L’utilisation du chiffrement par Azure Monitor est identique à celle du [chiffrement par Stockage Azure](../../storage/common/storage-service-encryption.md#about-azure-storage-encryption).
 
-La clé gérée par le client est fournie sur des [clusters dédiés](../log-query/logs-dedicated-clusters.md) offrant un niveau de protection et un contrôle plus élevés. Les données ingérées dans les clusters dédiés sont chiffrées deux fois : une fois au niveau du service à l’aide de clés gérées par Microsoft ou de clés gérées par le client, et une fois au niveau de l’infrastructure à l’aide de deux algorithmes de chiffrement différents et de deux clés différentes. Le [double chiffrement](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) permet d’éviter un scénario impliquant une possible compromission d’un algorithme ou d’une clé de chiffrement. Dans ce cas, la couche de chiffrement supplémentaire continue de protéger vos données. Le cluster dédié vous permet également de protéger vos données à l’aide du contrôle [Lockbox](#customer-lockbox-preview).
+La clé gérée par le client est fournie sur des [clusters dédiés](../log-query/logs-dedicated-clusters.md) offrant un niveau de protection et un contrôle plus élevés. Les données ingérées dans les clusters dédiés sont chiffrées deux fois : une fois au niveau du service à l’aide de clés gérées par Microsoft ou de clés gérées par le client, et une fois au niveau de l’infrastructure à l’aide de deux algorithmes de chiffrement et de deux clés différents. Le [double chiffrement](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) permet d’éviter un scénario impliquant une possible compromission d’un algorithme ou d’une clé de chiffrement. Dans ce cas, la couche de chiffrement supplémentaire continue de protéger vos données. Le cluster dédié vous permet également de protéger vos données à l’aide du contrôle [Lockbox](#customer-lockbox-preview).
 
 Les données ingérées au cours des 14 derniers jours sont également conservées dans le cache à chaud (SSD) afin d’optimiser l’utilisation du moteur de requête. Ces données restent chiffrées avec des clés Microsoft, quelle que soit la configuration de clé gérée par le client, mais votre contrôle sur les données SSD est sujet à une [révocation de clé](#key-revocation). Nous travaillons au chiffrement des données SSD avec une clé gérée par le client pour le premier semestre 2021.
 
@@ -36,7 +36,7 @@ Les clusters dédiés Log Analytics utilisent un [modèle de tarification](../lo
 
 ## <a name="how-customer-managed-key-works-in-azure-monitor"></a>Fonctionnement de la clé gérée par le client dans Azure Monitor
 
-Azure Monitor utilise l’identité managée attribuée par le système pour accorder l’accès à votre Azure Key Vault. L’identité du cluster Log Analytics est prise en charge au niveau du cluster et permet de prendre en charge la capacité de clé gérée par le client sur plusieurs espaces de travail, une nouvelle ressource *cluster* Log Analytics s’exécute en tant que connexion d’identité intermédiaire entre votre coffre de clés et vos espaces de travail Log Analytics. Le stockage en cluster Log Analytics utilise l’identité gérée associée à la ressource *cluster* pour s’authentifier auprès de votre Azure Key Vault via Azure Active Directory. 
+Azure Monitor utilise l’identité pour accorder l’accès à votre Azure Key Vault. L’identité du cluster Log Analytics est prise en charge au niveau du cluster. Pour permettre la protection de clé gérée par le client sur plusieurs espaces de travail, une nouvelle ressource *cluster* Log Analytics s’exécute en tant que connexion d’identité intermédiaire entre votre coffre de clés et vos espaces de travail Log Analytics. Le stockage du cluster utilise l’identité managée associée\' à la ressource *cluster* pour s’authentifier auprès de votre Azure Key Vault via Azure Active Directory. 
 
 Après la configuration d’une clé gérée par le client, toutes les nouvelles données ingérées dans les espaces de travail liés à votre cluster dédié sont chiffrées à l’aide de votre clé. Vous pouvez dissocier les espaces de travail du cluster à tout moment. Les nouvelles données sont ensuite ingérées dans un stockage Log Analytics et chiffrées avec une clé Microsoft. Vous pourrez interroger vos données, nouvelles et anciennes, sans la moindre difficulté.
 
@@ -125,6 +125,12 @@ Ces paramètres peuvent être mis à jour dans Key Vault par le biais de l’int
 
 ## <a name="create-cluster"></a>Créer un cluster
 
+> [!NOTE]
+> Les clusters prennent en charge deux [types d’identités managées](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) : attribuées par le système et attribuées par l’utilisateur en fonction de votre scénario. Plus simple, l’identité managée attribuée par le système est automatiquement créée lors de la création du cluster si l’identité `type` est définie sur « *SystemAssigned* ». Cette identité peut être utilisée ultérieurement pour permettre au cluster d’accéder à votre coffre de clés. Si vous souhaitez créer un cluster alors que la clé gérée par le client est définie au moment de la création du cluster, vous devez avoir préalablement défini une clé et accordé une identité attribuée par l’utilisateur dans votre coffre de clés. Créez ensuite le cluster avec les paramètres suivants : identité `type` comme « *UserAssigned* », `UserAssignedIdentities` avec l’ID de ressource de l’identité et `keyVaultProperties` avec les détails clés
+
+> [!IMPORTANT]
+> Actuellement, vous ne pouvez pas définir de clé gérée par le client avec une identité managée attribuée par l’utilisateur si votre coffre de clés se trouve dans Private Link (réseau virtuel), et vous pouvez utiliser l’identité managée attribuée par le système.
+
 Suivez la procédure illustrée dans l’article sur les [Clusters dédiés](../log-query/logs-dedicated-clusters.md#creating-a-cluster). 
 
 ## <a name="grant-key-vault-permissions"></a>Octroi d’autorisations d’accès au coffre de clés
@@ -132,7 +138,7 @@ Suivez la procédure illustrée dans l’article sur les [Clusters dédiés](../
 Créez une stratégie d’accès dans Key Vault pour accorder des autorisations à votre cluster. Ces autorisations sont utilisées par le stockage Azure Monitor sous-jacent. Ouvrez votre coffre de clés dans le portail Azure, puis cliquez sur *Stratégies d’accès*, puis sur *+ Ajouter une stratégie d’accès* pour créer une stratégie avec les paramètres ci-après :
 
 - Autorisations de clé : sélectionnez *Obtenir*, *Inclure la clé* et *Ne pas inclure la clé*.
-- Sélectionnez principal : entrez le nom du cluster ou l’ID du principal.
+- Sélectionner le principal : selon le type d’identité utilisé dans le cluster (identité managée par le système ou par l’utilisateur), entrez soit le nom du cluster, soit l’ID du principal du cluster pour l’identité managée attribuée par le système ou le nom de l’identité managée attribuée par l’utilisateur.
 
 ![Octroi d’autorisations d’accès au coffre de clés](media/customer-managed-keys/grant-key-vault-permissions-8bit.png)
 
@@ -237,11 +243,15 @@ Suivez la procédure illustrée dans l’article sur les [Clusters dédiés](../
 
 ## <a name="key-revocation"></a>Révocation de la clé
 
-Vous pouvez révoquer l’accès aux données en désactivant votre clé ou en supprimant la stratégie d’accès du cluster dans votre Key Vault. Le stockage de cluster Log Analytics respecte toujours les modifications des autorisations de clé en maximum une heure. Il devient alors indisponible. Toutes les nouvelles données ingérées dans les espaces de travail liés à votre cluster sont définitivement supprimées. Les données sont donc inaccessibles et les requêtes adressées à ces espaces de travail échouent. Les données précédemment ingérées restent dans le stockage tant que votre cluster et vos espaces de travail ne sont pas supprimés. Les données inaccessibles sont régies par la stratégie de conservation des données et sont vidées à la fin de la durée de conservation. 
+Vous pouvez révoquer l’accès aux données en désactivant votre clé ou en supprimant la stratégie d’accès du cluster dans votre Key Vault. 
 
-Les données ingérées au cours des 14 derniers jours sont également conservées dans le cache à chaud (SSD) pour optimiser l’utilisation du moteur de requête. Elles sont supprimées lors d’une opération de révocation de clé et devient également inaccessibles.
+> [!IMPORTANT]
+> - Si votre cluster est défini avec une identité managée attribuée par l’utilisateur, la définition de `UserAssignedIdentities` avec `None` interrompt le cluster et empêche l’accès à vos données, mais vous ne pouvez pas annuler la révocation et activer le cluster sans ouvrir la demande de support. Cette limitation ne s’applique pas à l’identité managée attribuée par le système.
+> - L’action de révocation de clé recommandée consiste à désactiver votre clé dans votre coffre de clés.
 
-Le stockage sonde régulièrement votre Key Vault pour tenter de désencapsuler la clé de chiffrement et, une fois qu’il y a accès, l’ingestion et l’interrogation des données reprennent dans un délai de 30 minutes.
+Le stockage de cluster respecte toujours les modifications des autorisations de clé en maximum une heure. Il devient alors indisponible. Toutes les nouvelles données ingérées dans les espaces de travail liés à votre cluster sont définitivement supprimées. Les données deviennent donc inaccessibles et les requêtes adressées à ces espaces de travail échouent. Les données précédemment ingérées restent dans le stockage tant que votre cluster et vos espaces de travail ne sont pas supprimés. Les données inaccessibles sont régies par la stratégie de conservation des données et sont vidées à la fin de la durée de conservation. Les données ingérées au cours des 14 derniers jours sont également conservées dans le cache à chaud (SSD) pour optimiser l’utilisation du moteur de requête. Elles sont supprimées lors d’une opération de révocation de clé et devient également inaccessibles.
+
+Le stockage du cluster sonde régulièrement votre coffre de clés pour tenter de désencapsuler la clé de chiffrement et, une fois qu’il y a accès, l’ingestion et l’interrogation des données reprennent dans un délai de 30 minutes.
 
 ## <a name="key-rotation"></a>Rotation des clés
 
@@ -404,6 +414,37 @@ Une clé gérée par le client est fournie sur un cluster dédié et ces opérat
   - Si vous créez un cluster et recevez une erreur « <region-name> ne prend pas en charge le double chiffrement pour les clusters. », vous pouvez toujours créer le cluster sans le double chiffrement. Ajoutez la propriété `"properties": {"isDoubleEncryptionEnabled": false}` au corps de la requête REST.
   - Le paramètre de double chiffrement ne peut pas être modifié une fois le cluster créé.
 
+  - Si votre cluster est défini avec une identité managée attribuée par l’utilisateur, la définition de `UserAssignedIdentities` avec `None` interrompt le cluster et empêche l’accès à vos données, mais vous ne pouvez pas annuler la révocation et activer le cluster sans ouvrir la demande de support. Cette limitation ne s’applique pas à l’identité managée attribuée par le système.
+
+  - Actuellement, vous ne pouvez pas définir de clé gérée par le client avec une identité managée attribuée par l’utilisateur si votre coffre de clés se trouve dans Private Link (réseau virtuel), et vous pouvez utiliser l’identité managée attribuée par le système.
+
+## <a name="troubleshooting"></a>Dépannage
+
+- Comportement avec disponibilité du Key Vault
+  - En temps normal, le Stockage met en cache la clé AEK pendant de courtes périodes et revient régulièrement dans Key Vault pour la désencapsulation.
+    
+  - Erreurs de connexion temporaires : le Stockage gère les erreurs temporaires (délais d’attente, échecs de connexion, problèmes DNS) en autorisant les clés à rester en cache pendant un peu plus de temps, compensant toute courte période d’indisponibilité. Les fonctionnalités de requête et d’ingestion se poursuivent sans interruption.
+    
+  - Une indisponibilité du site actif d’environ 30 minutes entraîne l’indisponibilité du compte de stockage. La fonctionnalité de requête est indisponible et les données ingérées sont mises en cache pendant plusieurs heures à l’aide de la clé Microsoft pour éviter la perte de données. Une fois l’accès à Key Vault restauré, la requête est disponible et les données en cache temporaires sont ingérées dans le magasin de données et chiffrées avec une clé gérée par le client.
+
+  - Taux d’accès au Key Vault : la fréquence à laquelle le stockage Azure Monitor accède au Key Vault pour les opérations d’encapsulation (wrap) et de désencapsulation (unwrap) est comprise entre 6 et 60 secondes.
+
+- Si vous créez un cluster et spécifiez la propriété KeyVaultProperties immédiatement, l’opération peut échouer, car la stratégie d’accès ne peut pas être définie tant que l’identité système n’a pas été attribuée au cluster.
+
+- Si vous mettez à jour le cluster existant avec KeyVaultProperties et que la stratégie d’accès de clé « Obtenir » est manquante dans Key Vault, l’opération échoue.
+
+- Si vous recevez une erreur de conflit lors de la création d’un cluster, il est possible que vous ayez supprimé votre cluster au cours des derniers 14 jours et qu’il se trouve dans une période de suppression réversible. Le nom du cluster reste réservé pendant la période de suppression réversible et vous ne pouvez pas l’utiliser pour un autre cluster. Le nom est libéré après la période de suppression réversible, lorsque le cluster est définitivement supprimé.
+
+- Si vous mettez à jour votre cluster alors qu’une opération est en cours, l’opération échoue.
+
+- Si vous ne parvenez pas à déployer votre cluster, vérifiez que votre Azure Key Vault, le cluster et les espaces de travail Log Analytics liés se trouvent dans la même région. Ils peuvent être liés à des abonnements différents.
+
+- Si vous mettez à jour votre version de clé dans Key Vault et ne mettez pas à jour les détails de l’identificateur de clé dans le cluster, le cluster Log Analytics continue d’utiliser votre clé précédente et vos données deviennent inaccessibles. Mettez à jour les nouveaux détails de l’identificateur de clé dans le cluster pour reprendre l’ingestion des données et avoir la possibilité d’interroger les données.
+
+- Certaines opérations sont longues et peuvent prendre du temps. Il s’agit des opérations de création du cluster, de mise à jour de la clé du cluster et de la suppression du cluster. Vous pouvez vérifier l’état de l’opération de deux manières :
+  1. Lorsque vous utilisez REST, copiez la valeur de l’URL Azure-AsyncOperation à partir de la réponse et suivez les instructions de[vérification de l’état des opérations asynchrones](#asynchronous-operations-and-status-check).
+  2. Envoyez une requête GET au cluster ou à l’espace de travail du cluster et observez la réponse. Par exemple, l’espace de travail dissocié n’a pas de *clusterResourceId* sous *features*.
+
 - Messages d’erreur
   
   **Création de cluster**
@@ -441,34 +482,6 @@ Une clé gérée par le client est fournie sur un cluster dédié et ces opérat
   **Dissociation d’un espace de travail**
   -  404 -- Espace de travail introuvable. L’espace de travail que vous avez spécifié n’existe pas ou a été supprimé.
   -  409 -- Opération de liaison ou de dissociation d’espace de travail en cours.
-
-## <a name="troubleshooting"></a>Dépannage
-
-- Comportement avec disponibilité du Key Vault
-  - En temps normal, le Stockage met en cache la clé AEK pendant de courtes périodes et revient régulièrement dans Key Vault pour la désencapsulation.
-    
-  - Erreurs de connexion temporaires : le Stockage gère les erreurs temporaires (délais d’attente, échecs de connexion, problèmes DNS) en autorisant les clés à rester en cache pendant un peu plus de temps, compensant toute courte période d’indisponibilité. Les fonctionnalités de requête et d’ingestion se poursuivent sans interruption.
-    
-  - Une indisponibilité du site actif d’environ 30 minutes entraîne l’indisponibilité du compte de stockage. La fonctionnalité de requête est indisponible et les données ingérées sont mises en cache pendant plusieurs heures à l’aide de la clé Microsoft pour éviter la perte de données. Une fois l’accès à Key Vault restauré, la requête est disponible et les données en cache temporaires sont ingérées dans le magasin de données et chiffrées avec une clé gérée par le client.
-
-  - Taux d’accès au Key Vault : la fréquence à laquelle le stockage Azure Monitor accède au Key Vault pour les opérations d’encapsulation (wrap) et de désencapsulation (unwrap) est comprise entre 6 et 60 secondes.
-
-- Si vous créez un cluster et spécifiez la propriété KeyVaultProperties immédiatement, l’opération peut échouer, car la stratégie d’accès ne peut pas être définie tant que l’identité système n’a pas été attribuée au cluster.
-
-- Si vous mettez à jour le cluster existant avec KeyVaultProperties et que la stratégie d’accès de clé « Obtenir » est manquante dans Key Vault, l’opération échoue.
-
-- Si vous recevez une erreur de conflit lors de la création d’un cluster, il est possible que vous ayez supprimé votre cluster au cours des derniers 14 jours et qu’il se trouve dans une période de suppression réversible. Le nom du cluster reste réservé pendant la période de suppression réversible et vous ne pouvez pas l’utiliser pour un autre cluster. Le nom est libéré après la période de suppression réversible, lorsque le cluster est définitivement supprimé.
-
-- Si vous mettez à jour votre cluster alors qu’une opération est en cours, l’opération échoue.
-
-- Si vous ne parvenez pas à déployer votre cluster, vérifiez que votre Azure Key Vault, le cluster et les espaces de travail Log Analytics liés se trouvent dans la même région. Ils peuvent être liés à des abonnements différents.
-
-- Si vous mettez à jour votre version de clé dans Key Vault et ne mettez pas à jour les détails de l’identificateur de clé dans le cluster, le cluster Log Analytics continue d’utiliser votre clé précédente et vos données deviennent inaccessibles. Mettez à jour les nouveaux détails de l’identificateur de clé dans le cluster pour reprendre l’ingestion des données et avoir la possibilité d’interroger les données.
-
-- Certaines opérations sont longues et peuvent prendre du temps. Il s’agit des opérations de création du cluster, de mise à jour de la clé du cluster et de la suppression du cluster. Vous pouvez vérifier l’état de l’opération de deux manières :
-  1. Lorsque vous utilisez REST, copiez la valeur de l’URL Azure-AsyncOperation à partir de la réponse et suivez les instructions de[vérification de l’état des opérations asynchrones](#asynchronous-operations-and-status-check).
-  2. Envoyez une requête GET au cluster ou à l’espace de travail du cluster et observez la réponse. Par exemple, l’espace de travail dissocié n’a pas de *clusterResourceId* sous *features*.
-
 ## <a name="next-steps"></a>Étapes suivantes
 
 - En savoir plus sur la [facturation des clusters dédiés Log Analytics](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters)

@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 5e0007f3b0dad8a68e9d81cebbe9fe24b5a7db3c
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 0e1ce841f6da8f15bd977437bca6b835a7b0d745
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285655"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108736"
 ---
 # <a name="how-to-enable-key-vault-logging"></a>Guide pratique pour activer la journalisation de Key Vault
 
@@ -25,20 +25,10 @@ Une fois que vous avez créé un ou plusieurs coffres de clés, vous voulez prob
 Pour suivre ce tutoriel, vous devez disposer des éléments suivants :
 
 * Un coffre de clés existant que vous utilisez déjà.  
-* Azure CLI ou Azure PowerShell.
+* [Azure Cloud Shell](https://shell.azure.com) – Environnement Bash
 * Espace de stockage suffisant sur Azure pour vos journaux d’activité de coffre de clés.
 
-Si vous choisissez d’installer et d’utiliser l’interface CLI localement, vous aurez besoin de la version Azure CLI 2.0.4 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli). Pour vous connecter à Azure à l’aide de l’interface CLI, vous pouvez taper la commande suivante :
-
-```azurecli-interactive
-az login
-```
-
-Si vous choisissez d’installer et d’utiliser PowerShell localement, vous aurez besoin du module Azure PowerShell version 1.0.0 ou ultérieure. Tapez `$PSVersionTable.PSVersion` pour connaître la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzAccount` pour créer une connexion avec Azure.
-
-```powershell-interactive
-Connect-AzAccount
-```
+Les commandes de ce guide sont mises en forme pour [Cloud Shell](https://shell.azure.com) avec l’environnement Bash.
 
 ## <a name="connect-to-your-key-vault-subscription"></a>Se connecter à l’abonnement Key Vault
 
@@ -162,7 +152,7 @@ az storage blob list --account-name "<your-unique-storage-account-name>" --conta
 Avec Azure PowerShell, utilisez l’applet de commande [Get-AzStorageBlob](/powershell/module/az.storage/get-azstorageblob?view=azps-4.7.0) pour lister tous les objets blob de ce conteneur :
 
 ```powershell
-Get-AzStorageBlob -Container $container -Context $sa.Context
+Get-AzStorageBlob -Container "insights-logs-auditevent" -Context $sa.Context
 ```
 
 Comme vous le verrez dans la sortie de la commande Azure CLI ou de l’applet de commande Azure PowerShell, le nom des objets blob a le format `resourceId=<ARM resource ID>/y=<year>/m=<month>/d=<day of month>/h=<hour>/m=<minute>/filename.json`. Les valeurs de date et d’heure utilisent UTC.
@@ -178,7 +168,7 @@ az storage blob download --container-name "insights-logs-auditevent" --file <pat
 Avec Azure PowerShell, utilisez l’applet de commande [Gt-AzStorageBlobs](/powershell/module/az.storage/get-azstorageblob?view=azps-4.7.0), pour obtenir la liste des objets blob, associée à l’applet de commande [Get-AzStorageBlobContent](/powershell/module/az.storage/get-azstorageblobcontent?view=azps-4.7.0), pour télécharger les journaux vers le chemin de votre choix.
 
 ```powershell-interactive
-$blobs = Get-AzStorageBlob -Container $container -Context $sa.Context | Get-AzStorageBlobContent -Destination "<path-to-file>"
+$blobs = Get-AzStorageBlob -Container "insights-logs-auditevent" -Context $sa.Context | Get-AzStorageBlobContent -Destination "<path-to-file>"
 ```
 
 Quand vous exécutez cette seconde applet de commande dans PowerShell, le délimiteur **/** présent dans les noms d’objet blob crée une structure de dossiers complète sous le dossier de destination. Vous allez utiliser cette structure pour télécharger et stocker les objets blob sous forme de fichiers.
@@ -188,19 +178,19 @@ Pour télécharger les objets blob de façon sélective, utilisez des caractère
 * Si vous disposez de plusieurs coffres de clés et souhaitez télécharger les journaux d’activité d’un seul d’entre eux nommé CONTOSOKEYVAULT3 :
 
   ```powershell
-  Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/VAULTS/CONTOSOKEYVAULT3
+  Get-AzStorageBlob -Container "insights-logs-auditevent" -Context $sa.Context -Blob '*/VAULTS/CONTOSOKEYVAULT3
   ```
 
 * Si vous disposez de plusieurs groupes de ressources et souhaitez télécharger les journaux d’activité d’un seul d’entre eux, utilisez `-Blob '*/RESOURCEGROUPS/<resource group name>/*'`:
 
   ```powershell
-  Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
+  Get-AzStorageBlob -Container "insights-logs-auditevent" -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
   ```
 
 * Si vous souhaitez télécharger tous les journaux du mois de janvier 2019, utilisez `-Blob '*/year=2019/m=01/*'` :
 
   ```powershell
-  Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/year=2016/m=01/*'
+  Get-AzStorageBlob -Container "insights-logs-auditevent" -Context $sa.Context -Blob '*/year=2016/m=01/*'
   ```
 
 Vous êtes maintenant prêt à commencer les recherches dans le contenu des journaux d’activité. Mais avant de procéder à cette opération, vous devez connaître deux autres commandes :

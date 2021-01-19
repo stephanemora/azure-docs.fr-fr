@@ -3,12 +3,12 @@ title: Ajouter dynamiquement des partitions à un Event Hub dans Azure Event Hub
 description: Cet article vous montre comment ajouter dynamiquement des partitions à un Event Hub dans Azure Event Hubs.
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: 4a729147eaa11497c66f82a9764dfee9492786b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ebe4491338c24a331812041f4d3e6d37b934117
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87002537"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132169"
 ---
 # <a name="dynamically-add-partitions-to-an-event-hub-apache-kafka-topic-in-azure-event-hubs"></a>Ajouter dynamiquement des partitions à un Event Hub (rubrique Apache Kafka) dans Azure Event Hubs
 Azure Event Hubs diffuse des messages via un modèle de consommateur partitionné, dans lequel chaque consommateur lit uniquement un sous-ensemble spécifique, ou partition, du flux de messages. Ce modèle permet la mise à l’échelle horizontale pour le traitement des événements et fournit d’autres fonctionnalités de flux qui ne sont pas disponibles dans les rubriques et les files d’attente. Une partition est une séquence ordonnée d’événements qui est conservée dans un concentrateur d’événements. Les événements les plus récents sont ajoutés à la fin de cette séquence. Pour plus d’informations sur les partitions en général, consultez [Partitions](event-hubs-scalability.md#partitions).
@@ -59,7 +59,7 @@ Mettez à jour la valeur de la propriété `partitionCount` dans le modèle Reso
 ```
 
 ### <a name="apache-kafka"></a>Apache Kafka
-Utilisez l’API `AlterTopics` (par exemple, via l’outil CLI**kafka-topics**) pour augmenter le nombre de partitions. Pour plus d’informations, consultez [la modification des rubriques Kafka](http://kafka.apache.org/documentation/#basic_ops_modify_topic). 
+Utilisez l’API `AlterTopics` (par exemple, via l’outil CLI **kafka-topics**) pour augmenter le nombre de partitions. Pour plus d’informations, consultez [la modification des rubriques Kafka](http://kafka.apache.org/documentation/#basic_ops_modify_topic). 
 
 ## <a name="event-hubs-clients"></a>Clients Event Hubs
 Voyons comment des clients Event Hubs se comportent lorsque le nombre de partitions est mis à jour sur un Event Hub. 
@@ -71,7 +71,7 @@ Event Hubs fournit trois options d’expéditeur :
 
 - **Expéditeur de partition** : dans ce scénario, les clients envoient des événements directement à une partition. Bien que les partitions soient identifiables et que les événements puissent leur être envoyés directement, nous ne recommandons pas ce modèle. L’ajout de partitions n’a pas d’impact sur ce scénario. Nous vous recommandons de redémarrer les applications afin qu’elles puissent détecter les partitions nouvellement ajoutées. 
 - **Expéditeur de clé de partition** : dans ce scénario, les clients envoient les événements avec une clé afin que tous les événements appartenant à cette clé finissent dans la même partition. Dans ce cas, le service hache la clé et les itinéraires vers la partition correspondante. La mise à jour du nombre de partitions peut entraîner des problèmes de désordre dus à un changement de hachage. Ainsi, si vous vous souciez de l’ordre, assurez-vous que votre application consomme tous les événements des partitions existantes avant d’augmenter le nombre de partitions.
-- **Expéditeur par tourniquet (par défaut)**  : dans ce scénario, le service Event Hubs envoie par tourniquet (round robin) les événements sur les partitions. Le service Event Hubs prend en charge les modifications du nombre de partitions et envoie les événements aux nouvelles partitions dans les secondes qui suivent la modification du nombre de partitions.
+- **Expéditeur par tourniquet (par défaut)**  : dans ce scénario, le service Event Hubs envoie par tourniquet (round robin) les événements sur les partitions et utilise un algorithme d’équilibrage de charge. Le service Event Hubs prend en charge les modifications du nombre de partitions et envoie les événements aux nouvelles partitions dans les secondes qui suivent la modification du nombre de partitions.
 
 ### <a name="receiverconsumer-clients"></a>Clients récepteur/consommateur
 Event Hubs fournit des récepteurs directs et une bibliothèque de consommateur simple appelée [hôte du processeur d’événements (ancien SDK)](event-hubs-event-processor-host.md) ou [processeur d’événements (nouveau SDK)](event-processor-balance-partition-load.md).
@@ -99,7 +99,7 @@ Lorsqu’un membre du groupe de consommateurs effectue une actualisation des mé
     > [!IMPORTANT]
     > Tandis que les données existantes préservent le classement, le hachage de partition est interrompu pour les messages hachés après que le nombre de partitions a été modifié en raison de l’ajout de partitions.
 - L’ajout d’une partition à une rubrique existante ou à une instance Event Hub est recommandé dans les cas suivants :
-    - Quand vous utilisez la méthode du tourniquet (round robin) [par défaut] pour envoyer des événements
+    - Quand vous utilisez la méthode par défaut pour envoyer des événements
      - Stratégies de partitionnement par défaut Kafka, par exemple : stratégie Sticky Assignor
 
 

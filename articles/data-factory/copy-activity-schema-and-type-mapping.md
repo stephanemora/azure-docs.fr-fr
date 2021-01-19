@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: jingwang
-ms.openlocfilehash: 2b54ee29b1b03bab5af8410a3fae06438180299d
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: ce7c0cba4a231fbdb33679f8cdac7d57c79845f5
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97507521"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97968872"
 ---
 # <a name="schema-and-data-type-mapping-in-copy-activity"></a>Mappage de schéma et de type de données dans l’activité de copie
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -66,7 +66,7 @@ Les propriétés suivantes sont prises en charge sous `translator` en plus de `m
 
 Par exemple, pour copier des données de Salesforce vers Azure SQL Database et mapper explicitement trois colonnes :
 
-1. Sur activité de copie -> onglet de mappage, cliquez sur le bouton **Importer le schéma** pour importer les schémas source et récepteur.
+1. Dans activité de copie -> onglet de mappage, cliquez sur le bouton **Importer les schémas** pour importer les schémas source et récepteur.
 
 2. Mappez les champs nécessaires et excluez/supprimez le reste.
 
@@ -180,7 +180,7 @@ Et que vous souhaitez copier ce fichier dans un fichier texte au format suivant 
 
 Vous pouvez définir un mappage de ce type sur l’interface utilisateur de création Data Factory :
 
-1. Sur activité de copie -> onglet de mappage, cliquez sur le bouton **Importer le schéma** pour importer les schémas source et récepteur. Comme Data Factory échantillonne les quelques objets les plus importants lors de l’importation d’un schéma, si un champ n’apparaît pas, vous pouvez l’ajouter à la couche appropriée de la hiérarchie : pointez sur un nom de champ existant et choisissez d’ajouter un nœud, un objet ou un tableau.
+1. Dans activité de copie -> onglet de mappage, cliquez sur le bouton **Importer les schémas** pour importer les schémas source et récepteur. Comme Data Factory échantillonne les quelques objets les plus importants lors de l’importation d’un schéma, si un champ n’apparaît pas, vous pouvez l’ajouter à la couche appropriée de la hiérarchie : pointez sur un nom de champ existant et choisissez d’ajouter un nœud, un objet ou un tableau.
 
 2. Sélectionnez le tableau à partir duquel vous souhaitez effectuer une itération et extraire des données. Il sera automatiquement renseigné en tant que **Référence de collection**. Notez qu’un seul un tableau est pris en charge pour une telle opération.
 

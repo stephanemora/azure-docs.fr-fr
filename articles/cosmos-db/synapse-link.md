@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/30/2020
 ms.reviewer: sngun
-ms.openlocfilehash: d083bc0b7726a284dcfd03e49d47c2a342db023c
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: ed909cf3feb17930b045dee1031ed5a6209b63d2
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461802"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98029013"
 ---
 # <a name="what-is-azure-synapse-link-for-azure-cosmos-db"></a>Qu’est-ce qu’Azure Synapse Link pour Azure Cosmos DB ?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -117,13 +117,15 @@ L’utilisation de Synapse Link est déconseillée si vos exigences en matière 
 
 ## <a name="limitations"></a>Limites
 
-* Aujourd’hui, Azure Synapse Link pour Azure Cosmos DB est pris en charge pour l’API SQL et l’API Azure Cosmos DB pour MongoDB. Il n’est pas pris en charge pour l’API Table et l’API Gremlin. La prise en charge de l’API Cassandra est en préversion privée. Pour plus d’informations, contactez [l’équipe Azure Synapse Link](mailto:cosmosdbsynapselink@microsoft.com).  
+* Azure Synapse Link pour Azure Cosmos DB est pris en charge pour l’API SQL et l’API Azure Cosmos DB pour MongoDB. Il n’est pas pris en charge pour l’API Table, l’API Cassandra et l’API Gremlin. 
 
-* Actuellement, le magasin analytique ne peut être activé que pour les nouveaux conteneurs. Pour utiliser le magasin analytique pour les conteneurs existants, migrez les conteneurs existants vers de nouveaux conteneurs à l’aide des [outils de migration Azure Cosmos DB](cosmosdb-migrationchoices.md). Vous pouvez activer Synapse Link sur les comptes Azure Cosmos DB, nouveaux comme existants.
+* Le magasin analytique ne peut être activé que pour les nouveaux conteneurs. Pour utiliser le magasin analytique pour les conteneurs existants, migrez les conteneurs existants vers de nouveaux conteneurs à l’aide des [outils de migration Azure Cosmos DB](cosmosdb-migrationchoices.md). Vous pouvez activer Synapse Link sur les comptes Azure Cosmos DB, nouveaux comme existants.
 
 * Pour les conteneurs avec le magasin analytique activé, la sauvegarde et la restauration automatiques de vos données dans le magasin analytique ne sont pas prises en charge pour l’instant. Lorsque Synapse Link est activé sur un compte de base de données, Azure Cosmos DB continue automatiquement [d’effectuer des sauvegardes](./online-backup-and-restore.md) de vos données dans le magasin transactionnel (uniquement) des conteneurs selon l’intervalle de sauvegarde planifié, comme toujours. Il est important de noter que lorsqu’un conteneur avec le magasin analytique activé est restauré vers un nouveau compte, le conteneur est restauré avec uniquement le magasin transactionnel et aucun magasin analytique activé. 
 
 * L’accès au magasin Azure Cosmos DB Analytics avec Synapse SQL approvisionné n’est pas disponible actuellement.
+
+* L’isolement réseau pour le magasin analytique Azure Cosmso DB, avec des points de terminaison privés managés dans Azure Synapse Analytics, n’est actuellement pas pris en charge.
 
 ## <a name="pricing"></a>Tarifs
 

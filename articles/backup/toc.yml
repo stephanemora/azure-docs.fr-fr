@@ -66,7 +66,9 @@
           href: sap-hana-backup-support-matrix.md
         - name: Matrice de prise en charge de sauvegarde de partage de fichiers Azure
           href: azure-file-share-support-matrix.md
-        - name: "contrôleurs de domaine Active\_Directory\_;"
+        - name: Matrice de prise en charge de sauvegarde de disques Azure
+          href: disk-backup-support-matrix.md
+        - name: "Contrôleurs de domaine Active\_Directory"
           href: active-directory-backup-restore.md
         - name: Références SKU Machines virtuelles prises en charge pour Azure Policy
           href: backup-azure-policy-supported-skus.md
@@ -82,6 +84,8 @@
           href: backup-azure-file-folder-backup-faq.md
         - name: FAQ sur la sauvegarde des fichiers Azure
           href: backup-azure-files-faq.md
+        - name: FAQ sur la sauvegarde des disques Azure
+          href: disk-backup-faq.md
         - name: FAQ sur la sauvegarde des bases de données SQL Server sur des machines virtuelles Azure
           href: faq-backup-sql-server.md
         - name: FAQ sur la sauvegarde des bases de données SAP HANA sur des machines virtuelles Azure
@@ -210,6 +214,14 @@
               href: backup-azure-restore-system-state.md
         - name: Gérer
           href: backup-azure-manage-mars.md
+    - name: Sauvegarde des disques Azure
+      items:
+        - name: Vue d’ensemble
+          href: disk-backup-overview.md
+        - name: Sauvegarde
+          href: backup-managed-disks.md
+        - name: Restaurer
+          href: restore-managed-disks.md
     - name: Sauvegarde des partages de fichiers Azure
       items:
         - name: Vue d’ensemble
@@ -441,6 +453,8 @@
           href: backup-azure-scdpm-troubleshooting.md
         - name: Partage de fichiers Azure
           href: troubleshoot-azure-files.md
+        - name: Sauvegarde des disques Azure
+          href: disk-backup-troubleshoot.md
         - name: SQL Server
           href: backup-sql-server-azure-troubleshoot.md
         - name: Sauvegarde SAP HANA sur des machines virtuelles Azure

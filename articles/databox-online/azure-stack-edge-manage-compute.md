@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 05/20/2019
+ms.date: 01/06/2021
 ms.author: alkohli
-ms.openlocfilehash: 0d93edbefb61cb8ded09f6402ca1e1661429efe1
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: ebf967fe02ab6424b9952bb0315b70fadb547fe3
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91952146"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97967828"
 ---
 # <a name="manage-compute-on-your-azure-stack-edge-pro"></a>Gérer le calcul sur votre ressource Azure Stack Edge Pro
 
@@ -38,7 +38,7 @@ Les événements sont des faits qui se produisent au sein de votre environnement
 
 Pour créer un déclencher, procédez comme suit sur le portail Azure.
 
-1. Sur le portail Azure, accédez à votre ressource Azure Stack Edge, puis à **Computing en périphérie > Déclencheur**. Sélectionnez **+ Ajouter un déclencheur** dans la barre de commandes.
+1. Dans le portail Azure, accédez à votre ressource Azure Stack Edge, puis à **IoT Edge > Déclencheurs**. Sélectionnez **+ Ajouter un déclencheur** dans la barre de commandes.
 
     ![Sélectionner Ajouter un déclencheur](media/azure-stack-edge-manage-compute/add-trigger-1.png)
 
@@ -68,15 +68,15 @@ Pour supprimer un déclencheur, procédez comme suit sur le portail Azure.
 
 1. Dans la liste des déclencheurs, sélectionnez le déclencheur à supprimer.
 
-    ![Sélectionner le déclencheur](media/azure-stack-edge-manage-compute/add-trigger-1.png)
+    ![Sélectionner le déclencheur](media/azure-stack-edge-manage-compute/delete-trigger-1.png)
 
 2. Cliquez avec le bouton droit, puis sélectionnez **Supprimer**.
 
-    ![Sélectionner Supprimer](media/azure-stack-edge-manage-compute/add-trigger-1.png)
+    ![Sélectionner Supprimer](media/azure-stack-edge-manage-compute/delete-trigger-2.png)
 
-3. Cliquez sur **Oui**lorsque vous êtes invité à confirmer l’opération.
+3. Cliquez sur **Oui** lorsque vous êtes invité à confirmer l’opération.
 
-    ![Confirmation de suppression](media/azure-stack-edge-manage-compute/add-trigger-1.png)
+    ![Confirmation de suppression](media/azure-stack-edge-manage-compute/delete-trigger-3.png)
 
 La liste des déclencheurs est actualisée afin de refléter la suppression.
 
@@ -88,11 +88,11 @@ Utilisez le portail Azure pour afficher la configuration de calcul, supprimer un
 
 Pour afficher la configuration de calcul de votre appareil, procédez comme suit sur le portail Azure.
 
-1. Sur le portail Azure, accédez à votre ressource Azure Stack Edge, puis à **Computing en périphérie > Modules**. Sélectionnez **Voir le computing** dans la barre de commandes.
+1. Dans le portail Azure, accédez à votre ressource Azure Stack Edge, puis à **IoT Edge > Vue d’ensemble**. 
 
     ![Sélectionner Voir le computing](media/azure-stack-edge-manage-compute/view-compute-1.png)
 
-2. Prenez note de la configuration de calcul sur votre appareil. Lorsque vous avez configuré le calcul, vous avez créé une ressource IoT Hub. Sous cette ressource IoT Hub, un appareil IoT et un appareil IoT Edge sont configurés. Seuls les modules Linux sont pris en charge pour s’exécuter sur l’appareil IoT Edge.
+2. Accédez à la page **Propriétés**. Prenez note de la configuration de calcul sur votre appareil. Lorsque vous avez configuré le calcul, vous avez créé une ressource IoT Hub. Sous cette ressource IoT Hub, un appareil IoT et un appareil IoT Edge sont configurés. Seuls les modules Linux sont pris en charge pour s’exécuter sur l’appareil IoT Edge.
 
     ![Afficher la configuration](media/azure-stack-edge-manage-compute/view-compute-2.png)
 
@@ -101,7 +101,7 @@ Pour afficher la configuration de calcul de votre appareil, procédez comme suit
 
 Pour supprimer la configuration de computing en périphérie de votre appareil, procédez comme suit sur le portail Azure.
 
-1. Sur le portail Azure, accédez à votre ressource Azure Stack Edge, puis à **Computing en périphérie > Prise en main**. Sélectionnez **Supprimer le computing** dans la barre de commandes.
+1. Dans le portail Azure, accédez à votre ressource Azure Stack Edge, puis à **IoT Edge > Vue d’ensemble**. Sélectionnez **Supprimer** dans la barre de commandes.
 
     ![Sélectionner Supprimer le computing](media/azure-stack-edge-manage-compute/remove-compute-1.png)
 
@@ -119,7 +119,7 @@ Si une rotation des clés de vos appareils IoT et IoT Edge a eu lieu, vous devez
 
 Pour synchroniser les clés d’accès pour votre appareil, procédez comme suit sur le portail Azure.
 
-1. Sur le portail Azure, accédez à votre ressource Azure Stack Edge, puis à **Computing en périphérie > Prise en main**. Sélectionnez **Actualiser la configuration** dans la barre de commandes.
+1. Dans le portail Azure, accédez à votre ressource Azure Stack Edge, puis à **IoT Edge > Vue d’ensemble**. Sélectionnez **Actualiser la configuration** dans la barre de commandes.
 
     ![Sélectionner Actualiser la configuration](media/azure-stack-edge-manage-compute/refresh-configuration-1.png)
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 10/20/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 1bbc3b3cd755aabd348a238ad65cda132b9a7547
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: c32f90221a73d04fd6c54c8332826232d0e6a6f3
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97746607"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97968532"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Utilisez les outils Spark et Hive pour Visual Studio Code
 
@@ -269,7 +269,7 @@ L’outil prend également en charge la requête **Spark SQL** :
 
 > [!NOTE]
 >
-> L’erreur [« La version MS-python >= 2020.5.78807 n’est pas prise en charge sur cette extension »](#issues-changed) a été résolue. La dernière version de ms-python peut être utilisée pour l’instant.
+> L’erreur [« La version MS-python >= 2020.5.78807 n’est pas prise en charge sur cette extension »](#issues-changed) a été résolue. Mettez à jour **ms-python** vers la **dernière version** maintenant.
 
 ## <a name="submit-pyspark-batch-job"></a>Envoyer le travail de traitement par lots PySpark
 
@@ -491,7 +491,7 @@ Envoyez un travail à un cluster HDInsight à l’aide de Data Lake Storage Gen2
 
 ## <a name="issues-changed"></a>Problèmes modifiés
 
-Le problème « La version MS-python >= 2020.5.78807 n’est pas pris en charge sur cette extension » a été résolu. La **version de ms-python la plus récente** peut être utilisée pour l’instant.
+L’erreur « La version ms-python >=2020.5.78807 n’est pas prise en charge sur cette extension » a été résolu. Mettez à jour **ms-python** vers la **dernière version** maintenant.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

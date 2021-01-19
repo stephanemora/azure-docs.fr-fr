@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.subservice: alerts
-ms.openlocfilehash: a8dbadd3af9dc21ced54af151e4de705f854e011
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 950482a96604165a8f1ff20cab9e3eafe1224c90
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97696057"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028996"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Créer, afficher et gérer des alertes de journal à l’aide d’Azure Monitor
 
@@ -33,7 +33,7 @@ Vous pouvez également créer des règles d’alerte de journal à l’aide de m
 
 Pour commencer à écrire des requêtes pour les alertes, procédez comme suit :
 
-1. Accédez à la ressource pour laquelle vous souhaitez créer une alerte.
+1. Accédez à la ressource pour laquelle vous souhaitez créer une alerte. Vous pouvez définir des règles d’alerte sur plusieurs ressources en sélectionnant un abonnement ou une étendue de groupe de ressources, lorsque cela est possible. La génération d’alertes sur plusieurs ressources réduit les coûts et la nécessité de gérer plusieurs règles d’alerte.
 1. Sous **Surveiller**, sélectionnez **Journaux**.
 1. Interrogez les données de journal qui peuvent indiquer le problème. Pour savoir ce que vous pouvez découvrir ou [commencer à écrire votre propre requête](../log-query/log-analytics-tutorial.md), vous pouvez utiliser la [rubrique d’exemples de requêtes d’alerte](../log-query/example-queries.md). En outre, [découvrez comment créer des requêtes d’alerte optimisées](alerts-log-query.md).
 1. Appuyez sur le bouton « + Nouvelle règle d’alerte » pour démarrer le flux de création d’alerte.

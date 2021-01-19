@@ -10,12 +10,12 @@ ms.custom: troubleshooting
 author: likebupt
 ms.author: keli19
 ms.date: 11/25/2020
-ms.openlocfilehash: 846c5519dced06ed16f5a0d12b0bb25443961f93
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: b917e3fc93c59de85c5236c18e31d7bbc9d891f0
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753907"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065471"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer"></a>Exceptions et codes d’erreur pour le concepteur
 
@@ -1532,3 +1532,8 @@ Pour obtenir plus d’aide, nous vous recommandons de publier le message détail
 |Exception de la bibliothèque.|
 |Exception de bibliothèque : {exception}.|
 |Exception de bibliothèque inconnue : {exception}. {customer_support_guidance}.|
+
+
+## <a name="execute-python-script-module"></a>Module Exécuter le script Python
+
+Recherchez **in azureml_main** dans **70_driver_logs** du **Module Exécuter le script Python** pour trouver la ligne où l’erreur s’est produite. Par exemple, "File "/tmp/tmp01_ID/user_script.py", line 17, in azureml_main" indique que l’erreur s’est produite dans la ligne 17 de votre script Python.

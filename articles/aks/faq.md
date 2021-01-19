@@ -3,12 +3,12 @@ title: Forum aux questions sur Azure Kubernetes Service (AKS)
 description: Recherchez des réponses à certaines des questions les plus fréquemment posées sur Azure Kubernetes Service (AKS).
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: 94cbaf417413b3e11071fb8c7237cbb3ac7b9a37
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 7fc348ae7b3edb79e75aa1acd08941fec447da6f
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780346"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127632"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Forum aux questions sur Azure Kubernetes Service (AKS)
 
@@ -146,7 +146,7 @@ Le déplacement de votre cluster AKS entre locataires n’est actuellement pas p
 
 Désolé... Le déplacement des clusters entre des abonnements n’est pas pris en charge pour le moment.
 
-## <a name="can-i-move-my-aks-clusters-from-the-current-azure-subscription-to-another"></a>Puis-je déplacer mes clusters AKS de l’abonnement Azure actuel vers un autre abonnement ? 
+## <a name="can-i-move-my-aks-clusters-from-the-current-azure-subscription-to-another"></a>Puis-je déplacer mes clusters AKS de l’abonnement Azure actuel vers un autre abonnement ?
 
 Le déplacement de votre cluster AKS et des ressources associées entre des abonnements Azure n’est pas pris en charge.
 
@@ -154,7 +154,7 @@ Le déplacement de votre cluster AKS et des ressources associées entre des abon
 
 Le déplacement ou le changement de nom de votre cluster AKS et des ressources associées ne sont pas pris en charge.
 
-## <a name="why-is-my-cluster-delete-taking-so-long"></a>Pourquoi la suppression de mon cluster est-elle si longue ? 
+## <a name="why-is-my-cluster-delete-taking-so-long"></a>Pourquoi la suppression de mon cluster est-elle si longue ?
 
 La plupart des clusters sont supprimés à la demande de l'utilisateur ; dans certains cas, notamment lorsque des clients apportent leur propre groupe de ressources ou effectuent des suppressions de tâches entre des groupes de ressources, l’opération peut prendre plus de temps ou échouer. Si vous rencontrez un problème avec les suppressions, vérifiez que le groupe de ressources ne contient aucun verrou, que toutes les ressources en dehors du groupe sont dissociées, et ainsi de suite.
 
@@ -166,7 +166,7 @@ Vous pouvez, mais AKS ne le recommande pas. Les mises à niveau devraient être 
 
 Non, supprimez tout nœud en état d’échec ou ayant été supprimé du cluster avant la mise à niveau.
 
-## <a name="i-ran-a-cluster-delete-but-see-the-error-errno-11001-getaddrinfo-failed"></a>J'ai lancé une suppression de cluster, mais l'erreur `[Errno 11001] getaddrinfo failed` s’affiche 
+## <a name="i-ran-a-cluster-delete-but-see-the-error-errno-11001-getaddrinfo-failed"></a>J'ai lancé une suppression de cluster, mais l'erreur `[Errno 11001] getaddrinfo failed` s’affiche
 
 Le plus souvent, cela est dû au fait qu'un ou plusieurs groupes de sécurité réseau (NSG) sont encore utilisés et associés au cluster.  Supprimez-les, puis réessayez la suppression.
 
@@ -174,7 +174,7 @@ Le plus souvent, cela est dû au fait qu'un ou plusieurs groupes de sécurité r
 
 Vérifiez que votre principal de service n’a pas expiré.  Consultez l'article : [Principal du service AKS](./kubernetes-service-principal.md) et [Informations d'identification pour la mise à jour d’AKS](./update-credentials.md).
 
-## <a name="my-cluster-was-working-but-suddenly-cant-provision-loadbalancers-mount-pvcs-etc"></a>Mon cluster fonctionnait, mais, tout à coup, il ne peut plus approvisionner LoadBalancers, monter des revendications de volume persistant (PVC), etc. 
+## <a name="my-cluster-was-working-but-suddenly-cant-provision-loadbalancers-mount-pvcs-etc"></a>Mon cluster fonctionnait, mais, tout à coup, il ne peut plus approvisionner LoadBalancers, monter des revendications de volume persistant (PVC), etc.
 
 Vérifiez que votre principal de service n’a pas expiré.  Consultez l'article : [Principal du service AKS](./kubernetes-service-principal.md) et [Informations d'identification pour la mise à jour d’AKS](./update-credentials.md).
 
@@ -254,6 +254,25 @@ Vous trouverez ci-dessous un exemple de configuration d’itinéraire IP du mod
 - L’un des corner case en mode pont est qu’Azure CNI ne peut pas continuer à mettre à jour les listes de serveurs DNS personnalisés que les utilisateurs ajoutent à un réseau virtuel ou à une carte réseau. Cela a pour conséquence que CNI ne prend en compte que la première instance de la liste de serveurs DNS. Résolu en mode transparent, car CNI ne modifie pas les propriétés eth0. [En savoir plus](https://github.com/Azure/azure-container-networking/issues/713).
 - Permet de mieux gérer le trafic UDP et d’atténuer les tempêtes par saturation UDP lorsque le délai d’attente du protocole ARP expire. En mode pont, lorsque le pont ne connaît pas l’adresse MAC du pod de destination dans la communication pod à pod interne à la machine virtuelle, il en résulte, de par sa conception, une tempête de paquets envoyés vers tous les ports. Résolu en mode transparent, car il n’y a pas d’appareils L2 sous le chemin d’accès. [En savoir plus](https://github.com/Azure/azure-container-networking/issues/704).
 - Le mode transparent est plus performant dans la communication pod à pod interne à une machine virtuelle en matière de débit et de latence par rapport au mode pont.
+
+## <a name="how-to-avoid-permission-ownership-setting-slow-issues-when-the-volume-has-a-lot-of-files"></a>Comment éviter que le paramètre de propriété d’autorisation ralentisse les problèmes lorsque le volume contient un grand nombre de fichiers ?
+
+En règle générale, si votre pod s’exécute en tant qu’utilisateur non racine (ce qui est normalement le cas), vous devez spécifier un `fsGroup` dans le contexte de sécurité du pod pour permettre au pod d’accéder au volume en lecture et en écriture. Cette exigence est détaillée [ici](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/).
+
+Mais lorsque `fsGroup` est défini, chaque fois qu’un volume est monté, Kubernetes doit `chown()` et `chmod()` de manière récursive tous les fichiers et répertoires à l’intérieur du volume, aux exceptions indiquées ci-dessous près. Cela intervient même si la propriété de groupe du volume correspond déjà à la `fsGroup`demandée, et peut s’avérer très coûteux pour les volumes plus importants comprenant un grand nombre de petits fichiers, ce qui entraîne un démarrage lent du pod. Ce scénario relevait d’un problème connu avant la version v1.20 et la solution de contournement consiste à définir l’exécution du pod en tant que racine :
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: security-context-demo
+spec:
+  securityContext:
+    runAsUser: 0
+    fsGroup: 0
+```
+
+Le problème a été résolu par Kubernetes v1.20. Pour plus d’informations, consultez [Kubernetes 1.20 : Contrôle granulaire des modifications d’autorisation de volume](https://kubernetes.io/blog/2020/12/14/kubernetes-release-1.20-fsgroupchangepolicy-fsgrouppolicy/).
 
 
 <!-- LINKS - internal -->

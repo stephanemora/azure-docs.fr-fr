@@ -1,7 +1,7 @@
 ---
-title: Migrer vers la bibliothèque d’authentification Microsoft (MSAL)
+title: Migration vers la Bibliothèque d’authentification Microsoft (MSAL)
 titleSuffix: Microsoft identity platform
-description: Découvrez les différences entre la bibliothèque d’authentification Microsoft (MSAL) et la bibliothèque d’authentification Azure AD (ADAL), et apprenez à effectuer une migration vers MSAL.
+description: Découvrez les différences entre la Bibliothèque d’authentification Microsoft (MSAL) et la Bibliothèque d’authentification Azure AD (ADAL), et apprenez à effectuer une migration vers MSAL.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -13,14 +13,14 @@ ms.date: 08/07/2020
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: ac9264ea8d6cc71d19d2c9bbd23b2123bdf1f924
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a1428f05d1a5f7563b2715a9142cf73dc5063a9
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88224354"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063652"
 ---
-# <a name="migrate-applications-to-microsoft-authentication-library-msal"></a>Migrer des applications vers la bibliothèque d’authentification Microsoft (MSAL)
+# <a name="migrate-applications-to-the-microsoft-authentication-library-msal"></a>Migration d’applications vers la Bibliothèque d’authentification Microsoft (MSAL)
 
 De nombreux développeurs ont créé et déployé des applications à l’aide de la Bibliothèque d'authentification Azure Active Directory (ADAL). Nous vous recommandons maintenant d’utiliser la Bibliothèque d’authentification Microsoft (MSAL) pour l’authentification et l’autorisation des entités Azure AD.
 

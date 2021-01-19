@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: b8e5c6b6b755134772cc8eaea3dab3af7f5346c9
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e1666b7e74ceefd7e7e4fe6e499667b09efa0ac7
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963361"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97963791"
 ---
 # <a name="use-spot-vms-in-azure"></a>Utiliser des machines virtuelles Spot dans Azure
 
@@ -75,13 +75,13 @@ En raison de la variabilité des tarifs, vous avez la possibilité de définir u
 
 Vous pouvez voir l’historique des tarifs et des taux d’éviction par taille dans une région du portail. Sélectionnez **Voir l'historique des prix et comparer les prix dans les régions proches** pour afficher une table ou un graphique de tarification pour une taille spécifique.  Les tarifs et les taux d’éviction des images suivantes sont uniquement des exemples. 
 
-**Graphique **:
+**Graphique**:
 
 :::image type="content" source="./media/spot-chart.png" alt-text="Capture d’écran des options de région avec la différence de tarification et les taux d’éviction sous forme de graphique.":::
 
 **Table**:
 
-:::image type="content" source="./media/spot-table.png" alt-text="Capture d’écran des options de région avec la différence de tarification et les taux d’éviction sous forme de graphique.":::
+:::image type="content" source="./media/spot-table.png" alt-text="Capture d’écran des options de région avec la différence de tarification et les taux d’éviction sous forme de table.":::
 
 
 
@@ -110,6 +110,11 @@ Vous pouvez voir l’historique des tarifs et des taux d’éviction par taille 
 **Q :** Où puis-je poster des questions ?
 
 **R :** Vous pouvez poster et étiqueter vos questions avec `azure-spot` sur [Questions et réponses](/answers/topics/azure-spot.html). 
+
+
+**Q :** Comment puis-je modifier le prix maximal d’une machine virtuelle spot ?
+
+**R :** Vous devez libérer la machine virtuelle pour modifier le prix maximal. Vous pouvez ensuite modifier le prix maximal dans le portail, dans la section **Configuration** pour la machine virtuelle. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Utilisez l’[interface CLI](./linux/spot-cli.md), le [portail](spot-portal.md), le [modèle Resource Manager](./linux/spot-template.md) ou [PowerShell](./windows/spot-powershell.md) pour déployer des machines virtuelles Spot.

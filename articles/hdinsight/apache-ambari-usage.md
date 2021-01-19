@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/05/2020
-ms.openlocfilehash: cfb83c4ec9972fda3813d414583bc73edeef3229
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.date: 01/12/2021
+ms.openlocfilehash: ff83e559919a836208faae4eae4a5f992534b6cb
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285969"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98134154"
 ---
 # <a name="apache-ambari-usage-in-azure-hdinsight"></a>Utilisation d’Apache Ambari dans Azure HDInsight
 
@@ -65,6 +65,15 @@ Pour tout cluster avec un nombre de nœuds Worker supérieur à 16 lors de la cr
 Ne jamais démarrer/arrêter manuellement les services ambari-server ou ambari-agent, sauf si vous essayez de redémarrer le service pour contourner un problème. Pour forcer un basculement, vous pouvez redémarrer le nœud principal actif.
 
 Ne jamais modifier manuellement les fichiers de configuration sur un nœud de cluster. Laissez plutôt l’interface utilisateur d’Ambari le faire pour vous.
+
+## <a name="property-values-in-esp-clusters"></a>Valeurs de propriétés des clusters ESP
+
+Dans les clusters HDInsight 4.0 Pack Sécurité Entreprise, utilisez des canaux `|` plutôt que des virgules comme séparateurs variables. Voici un exemple :
+
+```
+Property Key: hive.security.authorization.sqlstd.confwhitelist.append
+Property Value: environment|env|dl_data_dt
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

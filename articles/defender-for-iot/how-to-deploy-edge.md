@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/30/2020
 ms.author: mlottner
-ms.openlocfilehash: c2b440413599ce07112231af17daa0bc14817b76
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 9ac283721526488f587fcabc68348dafac1835db
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97832775"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98033351"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Déployer un module de sécurité sur votre appareil IoT Edge
 
@@ -51,13 +51,13 @@ Procédez comme suit pour déployer un module de sécurité Defender pour IoT su
 
 1. À partir du portail Microsoft Azure, ouvrez la **Place de marché**.
 
-1. Sélectionnez **Internet des objets**, puis recherchez **Defender pour IoT** et sélectionnez-le.
+1. Sélectionnez **Internet des objets**, puis recherchez **Azure Security Center pour IoT** et sélectionnez-le.
 
    :::image type="content" source="media/howto/edge-onboarding-8.png" alt-text="Sélectionnez Defender pour IoT.":::
 
-1. Cliquez sur **Créer** pour configurer le déploiement.
+1. Sélectionnez **Créer** pour configurer le déploiement.
 
-1. Choisissez l’**abonnement** Azure de votre instance d’IoT Hub, puis sélectionnez votre instance d’**IoT Hub**.<br>Sélectionnez **Déployer sur un appareil** pour cibler un appareil unique ou **Déployer à l’échelle** pour cibler plusieurs appareils, puis cliquez sur **Créer**. Pour plus d’informations sur le déploiement à l’échelle, consultez [Comment déployer](../iot-edge/how-to-deploy-at-scale.md).
+1. Choisissez l’**abonnement** Azure de votre instance d’IoT Hub, puis sélectionnez votre instance d’**IoT Hub**.<br>Sélectionnez **Déployer sur un appareil** pour cibler un appareil unique ou **Déployer à l’échelle** pour cibler plusieurs appareils, puis sélectionnez **Créer**. Pour plus d’informations sur le déploiement à l’échelle, consultez [Comment déployer](../iot-edge/how-to-deploy-at-scale.md).
 
     >[!Note]
     >Si vous avez sélectionné **Déployer à l’échelle**, ajoutez le nom de l’appareil et d’autres informations avant d’accéder à l’onglet **Ajouter des modules** dans les instructions suivantes.
@@ -68,7 +68,7 @@ Suivez les différentes étapes pour procéder au déploiement IoT Edge de Defen
 
 1. Sélectionnez le module **AzureSecurityCenterforIoT**.
 1. Sous l’onglet **Paramètres du module**, remplacez le **nom** par **azureiotsecurity**.
-1. Sous l’onglet **Variables d’environnement**, ajoutez une variable si nécessaire (par exemple niveau de débogage).
+1. Dans l’onglet **Variables d’environnement**, ajoutez une variable si nécessaire (vous pouvez, par exemple, ajouter le *niveau de débogage* et le définir sur l’une des valeurs suivantes : « Fatal », « Error » (Erreur), « Warning » (Avertissement) ou « Information »).
 1. Sous l’onglet **Options de création de conteneur**, ajoutez la configuration suivante :
 
     ``` json
@@ -112,8 +112,12 @@ Suivez les différentes étapes pour procéder au déploiement IoT Edge de Defen
 #### <a name="step-2-runtime-settings"></a>Étape 2 : Paramètres du runtime
 
 1. Sélectionnez **Paramètres du runtime**.
-1. Sous **Edge Hub**, remplacez **Image** par **mcr.microsoft.com/azureiotedge-hub:1.0.8.3**.
-1. Vérifiez que **Options de création** est défini sur la configuration suivante :
+2. Sous **Edge Hub**, remplacez **Image** par **mcr.microsoft.com/azureiotedge-hub:1.0.8.3**.
+
+    >[!Note]
+    > Actuellement, la version 1.0.8.3 ou des versions antérieures sont prises en charge.
+
+3. Vérifiez que **Options de création** est défini sur la configuration suivante :
 
     ``` json
     {
@@ -139,9 +143,9 @@ Suivez les différentes étapes pour procéder au déploiement IoT Edge de Defen
     }
     ```
 
-1. Sélectionnez **Enregistrer**.
+4. Sélectionnez **Enregistrer**.
 
-1. Sélectionnez **Suivant**.
+5. Sélectionnez **Suivant**.
 
 #### <a name="step-3-specify-routes"></a>Étape 3 : Spécifier des routes
 

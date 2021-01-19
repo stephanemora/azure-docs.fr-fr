@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 86e84c60aec99246f58b5dc9d67584b23a3969f3
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: dddaad3e171c757b353deb81ffcb77cfbe706340
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394921"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108260"
 ---
 # <a name="track-data-changes-in-azure-sql-edge"></a>Suivre les modifications de données dans Azure SQL Edge
 
@@ -36,6 +36,9 @@ Pour administrer et superviser cette fonctionnalité, consultez [Administrer et 
 
 Pour savoir comment interroger et utiliser les données modifiées, consultez [Utiliser des données modifiées](/sql/relational-databases/track-changes/work-with-change-data-sql-server).
 
+> [!NOTE]
+> Les fonctions de capture des changements de données qui dépendent de CLR ne sont pas prises en charge sur Azure SQL Edge.
+
 ## <a name="change-tracking"></a>Suivi des modifications
 
 Pour comprendre le fonctionnement de cette fonctionnalité, consultez [À propos du suivi des modifications](/sql/relational-databases/track-changes/about-change-tracking-sql-server).
@@ -48,13 +51,13 @@ Pour savoir comment interroger et utiliser les données modifiées, consultez [U
 
 ## <a name="temporal-tables"></a>Tables temporelles
 
-Azure SQL Edge prend également en charge la fonctionnalité des tables temporelles de SQL Server. Cette fonctionnalité (également appelée *tables temporelles versionnées par le système* ) offre une prise en charge intégrée de la remise d’informations sur les données stockées dans la table à tout moment. La fonctionnalité ne fournit pas simplement des informations sur les seules données qui sont actuellement correctes.
+Azure SQL Edge prend également en charge la fonctionnalité des tables temporelles de SQL Server. Cette fonctionnalité (également appelée *tables temporelles versionnées par le système*) offre une prise en charge intégrée de la remise d’informations sur les données stockées dans la table à tout moment. La fonctionnalité ne fournit pas simplement des informations sur les seules données qui sont actuellement correctes.
 
 Une table temporelle versionnée par le système est un type de table utilisateur conçu pour conserver un historique complet des modifications apportées aux données et pour permettre l’analyse à un point dans le temps. Ce type de table temporelle est appelée table temporelle versionnée par le système, car la période de validité de chaque ligne est gérée par le système (à avoir, le moteur de base de données).
 
 Chaque table temporelle contient deux colonnes définies explicitement, chacune d’elles contenant un type de données `datetime2`. Ces colonnes sont appelées colonnes de *période*. Le système utilise ces colonnes de période de manière exclusive pour enregistrer la période de validité de chaque ligne quand une ligne est modifiée.
 
-En plus de ces colonnes de période, une table temporelle contient également une référence à une autre table avec un schéma en miroir. Le système utilise cette table pour stocker automatiquement la version précédente de la ligne chaque fois qu’une ligne de la table temporelle est mise à jour ou supprimée. Cette table supplémentaire est appelée table d’ *historique*. La table principale qui stocke les versions de ligne actuelles (réelles) est appelée table *actuelle* ou simplement table temporelle. Lors de la création d’une table temporelle, les utilisateurs peuvent spécifier une table d’historique existante (qui doit être compatible avec le schéma) ou laisser le système créer la table d’historique par défaut.
+En plus de ces colonnes de période, une table temporelle contient également une référence à une autre table avec un schéma en miroir. Le système utilise cette table pour stocker automatiquement la version précédente de la ligne chaque fois qu’une ligne de la table temporelle est mise à jour ou supprimée. Cette table supplémentaire est appelée table d’*historique*. La table principale qui stocke les versions de ligne actuelles (réelles) est appelée table *actuelle* ou simplement table temporelle. Lors de la création d’une table temporelle, les utilisateurs peuvent spécifier une table d’historique existante (qui doit être compatible avec le schéma) ou laisser le système créer la table d’historique par défaut.
 
 Pour plus d’informations, voir [Tables temporelles](/sql/relational-databases/tables/temporal-tables).
 

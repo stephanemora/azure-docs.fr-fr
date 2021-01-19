@@ -1,25 +1,25 @@
 ---
 title: Requêtes JOIN SQL pour Azure Cosmos DB
 description: Découvrez comment joindre (JOIN) plusieurs tables dans Azure Cosmos DB pour interroger les données
-author: markjbrown
+author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 05/17/2019
-ms.author: mjbrown
-ms.openlocfilehash: c3fad0c7eed2b42a9ac340a091f17b90e22b000a
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.date: 01/07/2021
+ms.author: tisande
+ms.openlocfilehash: cb7b2e62a9fabeeca675edb8e6aa356213e0999e
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93333832"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98011386"
 ---
 # <a name="joins-in-azure-cosmos-db"></a>Jointures dans Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Dans une base de données relationnelle, les jointures entre les tables sont la conséquence logique de la conception de schémas normalisés. À l’opposé, l’API SQL utilise le modèle de données dénormalisée des éléments sans schéma, ce qui est l’équivalent logique d’une *jointure réflexive*.
 
-Les jointures internes aboutissent à un produit croisé complet des ensembles participants à la jointure. Le résultat d’une jointure à N voies est un jeu de tuples à N éléments, où chaque valeur dans le tuple est associée à l’alias défini participant à la jointure et est accessible en référençant cet alias dans d’autres clauses.
+Les jointures aboutissent à un produit croisé complet des ensembles participants à la jointure. Le résultat d’une jointure à N voies est un jeu de tuples à N éléments, où chaque valeur dans le tuple est associée à l’alias défini participant à la jointure et est accessible en référençant cet alias dans d’autres clauses.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -253,6 +253,8 @@ Les résultats sont :
       }
     ]
 ```
+
+Si votre requête comporte une jointure et des filtres, vous pouvez réécrire une partie de la requête en tant que [sous-requête](sql-query-subquery.md#optimize-join-expressions) pour améliorer les performances.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

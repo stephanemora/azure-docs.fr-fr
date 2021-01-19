@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/29/2016
 ms.author: kundanap
-ms.openlocfilehash: bca826cda8dfe47c341886faaf4a0d66f09d37d2
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: b8b7a03d5176f5dbd8500b5ff9044c2f22ecbfc0
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966341"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127139"
 ---
 # <a name="troubleshooting-azure-windows-vm-extension-failures"></a>Dépannage des échecs d’extension de machine virtuelle Windows dans Azure
 [!INCLUDE [virtual-machines-common-extensions-troubleshoot](../../../includes/virtual-machines-common-extensions-troubleshoot.md)]
@@ -78,26 +78,30 @@ Une fois que l'extension a été supprimée, le modèle peut être réexécuté 
 
 ### <a name="trigger-a-new-goalstate-to-the-vm"></a>Déclencher un nouveau GoalState sur la machine virtuelle
 Vous pouvez remarquer qu’une extension n’a pas été exécutée ou ne peut pas s’exécuter en raison d’un « générateur de certificats CRP Windows Azure » manquant (ce certificat est utilisé pour sécuriser le transport des paramètres protégés de l’extension).
-Ce certificat sera automatiquement régénéré en redémarrant l’agent invité Windows à partir de la machine virtuelle :
+Ce certificat est automatiquement régénéré lors du redémarrage de l’agent invité Windows à partir de la machine virtuelle :
 - Ouvrir le Gestionnaire des tâches
 - Accéder à l’onglet Détails
 - Rechercher le processus WindowsAzureGuestAgent.exe
 - Cliquez avec le bouton droit, puis sélectionnez « Terminer la tâche ». Le processus sera redémarré automatiquement.
 
 
-Vous pouvez également déclencher un nouveau GoalState sur la machine virtuelle, en exécutant une « mise à jour vide » :
+Vous pouvez également déclencher un nouveau GoalState sur la machine virtuelle, en exécutant « VM Reapply ». L’API VM [Reapply](https://docs.microsoft.com/rest/api/compute/virtualmachines/reapply), introduite en 2020, permet de réappliquer l’état d’une machine virtuelle. Nous vous recommandons de le faire à un moment où vous pouvez tolérer un court temps d’arrêt des machines virtuelles. Reapply ne provoque pas en elle-même le redémarrage d’une machine virtuelle, qui la plupart du temps ne se produit pas. Cependant, il est très peu probable qu’une autre mise à jour en attente du modèle de machine virtuelle soit appliquée lorsque Reapply déclenche un nouveau GoalState et qu’une autre modification exige un redémarrage. 
 
-Azure PowerShell :
+Portail Azure :
+
+Sur le portail, sélectionnez la machine virtuelle. Dans le volet gauche, sous **Support + dépannage**, sélectionnez **Redéployer + réappliquer**, puis **Reapply**.
+
+
+Azure PowerShell *(remplacez « RG Name » et « VM Name » par le nom de votre groupe de ressources et celui de votre machine virtuelle)* :
 
 ```azurepowershell
-$vm = Get-AzureRMVM -ResourceGroupName <RGName> -Name <VMName>  
-Update-AzureRmVM -ResourceGroupName <RGName> -VM $vm  
+Set-AzVM -ResourceGroupName <RG Name> -Name <VM Name> -Reapply
 ```
 
-Azure CLI :
+Azure CLI *(remplacez « RG Name » et « VM Name » par le nom de votre groupe de ressources et celui de votre machine virtuelle)* :
 
 ```azurecli
-az vm update -g <rgname> -n <vmname>
+az vm reapply -g <RG Name> -n <VM Name>
 ```
 
-Si une « mise à jour vide » n’a pas fonctionné, vous pouvez ajouter un nouveau disque de données vide à la machine virtuelle à partir du portail de gestion Azure, puis le supprimer une fois le certificat rajouté.
+Si « VM Reapply » n’a pas fonctionné, vous pouvez ajouter un nouveau disque de données vide à la machine virtuelle sur le Portail de gestion Azure, puis le supprimer une fois le certificat rajouté.

@@ -13,12 +13,12 @@ ms.date: 09/09/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 70ab4a151fe73b59663fd8fa16170b2e507c2511
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 62eb4ab9eb6e4b0e7be0f7aadae1173950d21615
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91258057"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98064485"
 ---
 # <a name="considerations-for-using-xamarin-ios-with-msalnet"></a>Considérations relatives à l’utilisation de Xamarin iOS avec MSAL.NET
 

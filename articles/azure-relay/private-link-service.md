@@ -3,15 +3,15 @@ title: Intégrer Azure Relay au service Azure Private Link
 description: Découvrir comment intégrer Azure Relay au service Azure Private Link
 ms.date: 09/24/2020
 ms.topic: article
-ms.openlocfilehash: 10d82fe8e272ed18dcc339830dfef0f71d4b2ddb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13644082160704ba9918e6bd6257fa314bb463a6
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91263846"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98134379"
 ---
-# <a name="integrate-azure-relay-with-azure-private-link-preview"></a>Intégrer Azure Relay à Azure Private Link (préversion)
-Le service **Azure Private Link** vous permet d’accéder aux services Azure (par exemple, Azure Relay, Azure Service Bus, Azure Event Hubs, Stockage Azure et Azure Cosmos DB) ainsi qu’aux services de partenaires/clients hébergés par Azure sur un point de terminaison privé de votre réseau virtuel. Pour plus d’informations, consultez [Qu’est-ce qu’Azure Private Link (préversion) ?](../private-link/private-link-overview.md)
+# <a name="integrate-azure-relay-with-azure-private-link"></a>Intégrer Azure Relay à Azure Private Link 
+Le service **Azure Private Link** vous permet d’accéder aux services Azure (par exemple,Azure Relay, Azure Service Bus, Azure Event Hubs, Stockage Azure et Azure Cosmos DB) ainsi qu’aux services de partenaires/clients hébergés par Azure sur un point de terminaison privé de votre réseau virtuel. Pour plus d’informations, consultez [Qu’est-ce qu’Azure Private Link ?](../private-link/private-link-overview.md)
 
 Un **point de terminaison privé** est une interface réseau qui permet à vos charges de travail exécutées dans un réseau virtuel de se connecter en privé et en toute sécurité à un service qui dispose d’une **ressource de liaison privée** (par exemple, un espace de noms Azure Relay). Le point de terminaison privé utilise une adresse IP privée de votre réseau virtuel, plaçant de fait le service dans votre réseau virtuel. Sachant que l’ensemble du trafic à destination du service peut être routé via le point de terminaison privé, il n’y a aucun besoin de passerelles, d’appareils NAT, de connexions ExpressRoute ou VPN ni d’IP publiques. Le trafic entre votre réseau virtuel et le service transite par le réseau principal de Microsoft, éliminant ainsi toute exposition à l’Internet public. Vous pouvez fournir un niveau de granularité dans le contrôle d’accès en autorisant des connexions à des espaces de noms Azure Relay spécifiques. 
 
@@ -19,7 +19,7 @@ Un **point de terminaison privé** est une interface réseau qui permet à vos c
 ## <a name="add-a-private-endpoint-using-azure-portal"></a>Ajouter un point de terminaison privé avec le portail Azure
 
 ### <a name="prerequisites"></a>Prérequis
-Pour intégrer un espace de noms Azure Relay à Azure Private Link (préversion), vous avez besoin des entités ou autorisations suivantes :
+Pour intégrer un espace de noms Azure Relay à Azure Private Link, vous avez besoin des entités ou autorisations suivantes :
 
 - Un espace de noms Azure Relay.
 - Un réseau virtuel Azure.
@@ -37,7 +37,7 @@ Pour obtenir des instructions pas à pas sur la création d’un espace de noms 
 2. Dans la barre de recherche, saisissez **Relay**.
 3. Dans la liste, sélectionnez l’**espace de noms** auquel vous voulez ajouter un point de terminaison privé.
 4. Sélectionnez l’onglet **Réseau** situé sous **Paramètres**.
-5. Sélectionnez l’onglet **Connexions de point de terminaison privé (préversion)** en haut de la page.
+5. Sélectionnez l’onglet **Connexions des points de terminaison privés** en haut de la page.
 6. Sélectionnez le bouton **+ Point de terminaison privé** en haut de la page.
 
     ![Bouton Ajouter un point de terminaison privé](./media/private-link-service/add-private-endpoint-button.png)
@@ -81,7 +81,7 @@ Pour obtenir des instructions pas à pas sur la création d’un espace de noms 
 12. Sur la page **Point de terminaison privé**, vous pouvez voir l’état de la connexion de point de terminaison privé. Si vous êtes le propriétaire de l’espace de noms Azure Relay ou si vous en avez la gestion et que vous avez sélectionné l’option **Se connecter à une ressource Azure dans mon répertoire** pour la **méthode de connexion**, la connexion au point de terminaison doit être **approuvée automatiquement**. Si elle est à l’état **En attente**, consultez la section [Gérer des points de terminaison privés avec le Portail Azure](#manage-private-endpoints-using-azure-portal).
 
     ![Page Point de terminaison privé](./media/private-link-service/private-endpoint-page.png)
-13. Revenez à la page **Mise en réseau** de l’**espace de noms** et basculez sur l’onglet **Connexions de points de terminaison privés (préversion)** . Vous devez voir le point de terminaison privé que vous avez créé. 
+13. Revenez à la page **Mise en réseau** de l’**espace de noms** et basculez sur l’onglet **Connexions de points de terminaison privés**. Vous devez voir le point de terminaison privé que vous avez créé. 
 
     ![Point de terminaison privé créé](./media/private-link-service/private-endpoint-created.png)
 
@@ -230,8 +230,7 @@ Aliases:  <namespace-name>.servicebus.windows.net
 ## <a name="limitations-and-design-considerations"></a>Limitations et remarques sur la conception
 
 ### <a name="design-considerations"></a>Remarques relatives à la conception
-- Le point de terminaison privé pour Azure Relay est en **préversion publique**. 
-- Pour obtenir des informations sur les prix, consultez [Tarifs Azure Private Link (préversion)](https://azure.microsoft.com/pricing/details/private-link/).
+- Pour plus d’informations sur les prix, consultez [Prix d’Azure Private Link](https://azure.microsoft.com/pricing/details/private-link/).
 
 ### <a name="limitations"></a>Limites 
 - Nombre maximal de points de terminaison privés par espace de noms Azure Relay : 64.
@@ -240,5 +239,5 @@ Aliases:  <namespace-name>.servicebus.windows.net
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrir plus en détail [Azure Private Link (préversion)](../private-link/private-link-service-overview.md)
+- En savoir plus sur [Azure Private Link](../private-link/private-link-service-overview.md)
 - En savoir plus sur [Azure Relay](relay-what-is-it.md)

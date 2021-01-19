@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: 10fa47a8f613218b1331259040be77df867ade95
-ms.sourcegitcommit: c538b6e4cf27b992500c079ad9c914c05d55eb7f
+ms.openlocfilehash: 553151aebeadf4ad4764e747b1bf6dcd8c552721
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2021
-ms.locfileid: "97854840"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98126850"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Protéger vos points de terminaison avec la solution EDR intégrée de Security Center : Microsoft Defender for Endpoint
 
@@ -71,7 +71,7 @@ En intégrant Defender for Endpoint à Security Center, vous bénéficierez des 
 
 Quand vous utilisez Azure Security Center pour superviser vos serveurs, un locataire Microsoft Defender for Endpoint est créé automatiquement. Les données collectées par Defender for Endpoint sont stockées dans la zone géographique du locataire tel qu’il est identifié lors de l’approvisionnement. Les données des clients, sous forme pseudonymisée, peuvent également être stockées dans des systèmes de stockage et de traitement centralisés aux États-Unis. 
 
-Une fois que vous avez configuré l’emplacement, vous ne pouvez plus le modifier. Si vous avez besoin de déplacer des données vers un autre emplacement, contactez le Support Microsoft pour réinitialiser le locataire.
+Une fois que vous avez configuré l’emplacement, vous ne pouvez plus le modifier. Si vous disposez de votre propre licence Microsoft Defender for Endpoint et qu’il vous faut déplacer vos données vers un autre emplacement, contactez le support Microsoft pour réinitialiser le locataire.
 
 
 ## <a name="enabling-the-microsoft-defender-for-endpoint-integration"></a>Activation de l’intégration de Microsoft Defender for Endpoint
@@ -121,13 +121,19 @@ Pour générer une alerte de test Microsoft Defender for Endpoint inoffensive :
 
 ## <a name="faq-for-security-centers-integrated-microsoft-defender-for-endpoint"></a>FAQ relative à la solution Microsoft Defender for Endpoint intégrée de Security Center
 
-### <a name="what-are-the-licensing-requirements-for-microsoft-defender-for-endpoint"></a>Quelles sont les conditions de licence pour Microsoft Defender for Endpoint ?
+- [Quelles sont les conditions de licence pour Microsoft Defender for Endpoint ?](#what-are-the-licensing-requirements-for-microsoft-defender-for-endpoint)
+- [Si j’ai déjà une licence Microsoft Defender for Endpoint, puis-je bénéficier d’une remise pour Azure Defender ?](#if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-azure-defender)
+- [Comment basculer dessus à partir d’un outil EDR tiers ?](#how-do-i-switch-from-a-third-party-edr-tool)
 
+### <a name="what-are-the-licensing-requirements-for-microsoft-defender-for-endpoint"></a>Quelles sont les conditions de licence pour Microsoft Defender for Endpoint ?
 Defender for Endpoint est inclus sans coût supplémentaire avec **Azure Defender pour les serveurs**. Vous pouvez également l’acheter séparément pour 50 machines ou plus.
 
+### <a name="if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-azure-defender"></a>Si j’ai déjà une licence Microsoft Defender for Endpoint, puis-je bénéficier d’une remise pour Azure Defender ?
+Si vous disposez déjà d’une licence pour Microsoft Defender for Endpoint, vous n’aurez pas à payer pour cette partie de votre licence Azure Defender.
+
+Pour valider votre remise, contactez l’équipe du support technique Security Center, et fournissez l’ID d’espace de travail, la région et les informations de licence nécessaires pour chaque licence concernée.
 
 ### <a name="how-do-i-switch-from-a-third-party-edr-tool"></a>Comment basculer dessus à partir d’un outil EDR tiers ?
-
 Pour plus d’informations sur le basculement à partir d’une solution de point de terminaison non Microsoft, accédez à la documentation Microsoft Defender for Endpoint : [Vue d’ensemble de la migration](/windows/security/threat-protection/microsoft-defender-atp/switch-to-microsoft-defender-migration).
   
 

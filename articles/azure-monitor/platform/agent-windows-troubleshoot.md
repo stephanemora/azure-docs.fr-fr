@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: 3d99293ea83c883f8d0870d78dfbec58f74c9bd1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e2531d511193586ef4605cc3732968b6db28d9f
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87927315"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98050559"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-windows"></a>Guide pratique pour résoudre les problèmes liés à l’agent Log Analytics pour Windows 
 
@@ -21,6 +21,40 @@ Si aucune de ces étapes ne fonctionne, les canaux de support suivants sont éga
 * Les clients bénéficiant d’un support Premier peuvent ouvrir une demande de support auprès du [Support Premier](https://premier.microsoft.com/).
 * Les clients titulaires d’un contrat de support Azure peuvent ouvrir une demande de support [sur le portail Azure](https://manage.windowsazure.com/?getsupport=true).
 * Visitez la page de commentaires de Log Analytics pour consulter les idées et bogues soumis sur [https://aka.ms/opinsightsfeedback](https://aka.ms/opinsightsfeedback) ou en partager de nouveaux. 
+
+## <a name="log-analytics-troubleshooting-tool"></a>Outil de résolution des problèmes Log Analytics
+
+L’Outil de résolution des problèmes Windows de l’agent Log Analytics est un ensemble de scripts PowerShell conçus pour faciliter la recherche et le diagnostic des problèmes liés à l’agent Log Analytics. Il est automatiquement inclus avec l’agent lors de l’installation. L’exécution de l’outil doit être la première étape du diagnostic d’un problème.
+
+### <a name="how-to-use"></a>Procédure d'utilisation
+1. Ouvrez l’invite PowerShell en tant qu’administrateur sur l’ordinateur sur lequel l’agent Log Analytics est installé.
+1. Accédez au répertoire dans lequel se trouve l’outil.
+   * `cd "C:\Program Files\Microsoft Monitoring Agent\Agent\Troubleshooter"`
+1. Exécutez le script principal à l’aide de la commande suivante :
+   * `.\GetAgentInfo.ps1`
+1. Sélectionnez un scénario de résolution des problèmes.
+1. Suivez les instructions qui s’affichent dans la console. (Remarque : Une intervention manuelle est requise pour arrêter la collecte des journaux dans les étapes des journaux de suivi. En fonction de la reproductibilité du problème, attendez le temps nécessaire et appuyez sur « s » pour arrêter la collecte des journaux et passer à l’étape suivante.)
+
+   L’emplacement du fichier de résultats est consigné à la fin et mis en évidence dans la nouvelle fenêtre d’explorateur qui s’ouvre.
+
+### <a name="installation"></a>Installation
+L’Outil de résolution des problèmes est inclus automatiquement lors de l’installation de l’agent Log Analytics, avec la build 10.20.18053.0 et les versions ultérieures.
+
+### <a name="scenarios-covered"></a>Scénarios couverts
+Voici une liste de scénarios vérifiés par l’outil de résolution des problèmes :
+
+- Absence de données signalées par l’agent ou données de pulsation manquantes
+- Échec du déploiement de l’extension d’agent
+- Incident de l’agent
+- Consommation élevée de processeur/mémoire par l’agent
+- Échecs d’installation/désinstallation
+- Problème lié aux journaux personnalisés
+- Problème lié à la passerelle OMS
+- Problème lié aux compteurs de performances
+- Collecte de tous les journaux
+
+>[!NOTE]
+>Si vous rencontrez un problème, exécutez l’Outil de résolution des problèmes. En cas d’ouverture d’un ticket, notre équipe de support pourra résoudre plus rapidement votre problème si elle dispose dès le départ des journaux.
 
 ## <a name="important-troubleshooting-sources"></a>Sources importantes de résolution des problèmes
 

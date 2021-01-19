@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: akjosh
-ms.openlocfilehash: 389842901a4c508015d527c0fd8fd87af57dcd9b
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 22cc9bf1bdfdb8a3026bb09f44e007ab3438325a
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967922"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98046819"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-windows"></a>Extension de machine virtuelle Log Analytics pour Windows
 
@@ -37,6 +37,7 @@ Le tableau ci-après mappe la version de l’extension de machine virtuelle Log 
 
 | Version du bundle de l’agent Log Analytics pour Windows | Version d’extension de machine virtuelle Windows Log Analytics | Date de sortie | Notes de publication |
 |--------------------------------|--------------------------|--------------------------|--------------------------|
+| 10.20.18053| 1.0.18053.0 | Octobre 2020   | <ul><li>Nouvel utilitaire de résolution des problèmes de l’agent</li><li>Mises à jour de la façon dont l’agent gère les modifications apportées aux certificats dans les services Azure</li></ul> |
 | 10.20.18040 | 1.0.18040.2 | Août 2020   | <ul><li>Résout un problème sur Azure Arc</li></ul> |
 | 10.20.18038 | 1.0.18038 | Avril 2020   | <ul><li>Active la connectivité sur un lien privé à l’aide d’étendues Azure Monitor Private Link</li><li>Ajoute la limitation de l’ingestion afin d’éviter un afflux accidentel soudain en ingestion dans un espace de travail</li><li>Ajoute la prise en charge de régions Azure Government supplémentaires</li><li>Résout un bogue dans lequel intégrité.exe s’est bloqué</li></ul> |
 | 10.20.18029 | 1.0.18029 | Mars 2020   | <ul><li>Ajoute la prise en du code de signature SHA-2</li><li>Améliore l’installation et la gestion des extensions de machine virtuelle</li><li>Résout un bogue dans Azure Arc pour l’intégration de serveurs</li><li>Ajoute un outil de dépannage intégré pour le service clientèle</li><li>Ajoute la prise en charge de régions Azure Government supplémentaires</li> |

@@ -11,18 +11,31 @@ author: nabhishek
 manager: anansub
 ms.custom: seo-lt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: 8734247a913bdf6a44a9156f6f87705b618f7228
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 3f0cf3de4c2cffca6540fcd727872372103ac98f
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92632887"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98118232"
 ---
 # <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Créer un runtime d’intégration auto-hébergé partagé dans Azure Data Factory
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Ce guide explique comment créer un runtime d’intégration auto-hébergé partagé dans Azure Data Factory. Vous pouvez ensuite utiliser le runtime d’intégration auto-hébergé partagé dans une autre fabrique de données.
+
+## <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Créer un runtime d’intégration auto-hébergé partagé dans Azure Data Factory
+
+Vous pouvez réutiliser une infrastructure existante de runtime d’intégration auto-hébergé que vous avez déjà configurée dans une fabrique de données. Cette réutilisation vous permet de créer un runtime d’intégration auto-hébergé lié dans une fabrique de données différente en référençant un runtime d’intégration auto-hébergé partagé existant.
+
+Pour découvrir une présentation de dix minutes et la démonstration de cette fonctionnalité, regardez la vidéo de 12 minutes suivante :
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Hybrid-data-movement-across-multiple-Azure-Data-Factories/player]
+
+### <a name="terminology"></a>Terminologie
+
+- **Runtime d’intégration partagé** : un runtime d’intégration auto-hébergé d’origine s'exécutant sur une infrastructure physique.  
+- **Runtime d’intégration lié** : un runtime d’intégration faisant référence à un autre runtime d’intégration partagé. Le runtime d'intégration lié correspond à un runtime d’intégration logique et utilise l’infrastructure d’un autre runtime d’intégration auto-hébergé partagé.
 
 ## <a name="create-a-shared-self-hosted-ir-using-azure-data-factory-ui"></a>Créer un runtime d’intégration auto-hébergé partagé à l’aide de l’IU Azure Data Factory
 
@@ -55,9 +68,9 @@ Pour créer un runtime d’intégration auto-hébergé partagé à l’aide d’
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-- **Abonnement Azure** . Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer. 
+- **Abonnement Azure**. Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer. 
 
-- **Azure PowerShell** . Suivez les instructions de l'article [Installer Azure PowerShell sur Windows avec PowerShellGet](/powershell/azure/install-az-ps). Vous utilisez PowerShell pour exécuter un script et créer un runtime d’intégration auto-hébergé pouvant être partagé avec d’autres fabriques de données. 
+- **Azure PowerShell**. Suivez les instructions de l'article [Installer Azure PowerShell sur Windows avec PowerShellGet](/powershell/azure/install-az-ps). Vous utilisez PowerShell pour exécuter un script et créer un runtime d’intégration auto-hébergé pouvant être partagé avec d’autres fabriques de données. 
 
 > [!NOTE]  
 > Pour obtenir la liste des régions Azure dans lesquelles Data Factory est actuellement disponible, sélectionnez les régions qui vous intéressent sur la page [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory).
@@ -66,7 +79,7 @@ Pour créer un runtime d’intégration auto-hébergé partagé à l’aide d’
 
 1. Lancez l’environnement d’écriture de scripts intégré de Windows PowerShell (ISE).
 
-1. Créez des variables. Copiez et collez le script suivant. Remplacez les variables, telles que **SubscriptionName** et **ResourceGroupName** , par des valeurs réelles : 
+1. Créez des variables. Copiez et collez le script suivant. Remplacez les variables, telles que **SubscriptionName** et **ResourceGroupName**, par des valeurs réelles : 
 
     ```powershell
     # If input contains a PSH special character, e.g. "$", precede it with the escape character "`" like "`$". 
@@ -213,6 +226,37 @@ Remove-AzDataFactoryV2IntegrationRuntime `
     -Links `
     -LinkedDataFactoryName $LinkedDataFactoryName
 ```
+
+### <a name="monitoring"></a>Surveillance
+
+#### <a name="shared-ir"></a>Runtime d’intégration partagé
+
+![Sélections pour rechercher un runtime d’intégration partagé](media/create-self-hosted-integration-runtime/Contoso-shared-IR.png)
+
+![Surveiller un runtime d'intégration partagé](media/create-self-hosted-integration-runtime/contoso-shared-ir-monitoring.png)
+
+#### <a name="linked-ir"></a>Runtime d’intégration lié
+
+![Sélections pour rechercher un runtime d’intégration lié](media/create-self-hosted-integration-runtime/Contoso-linked-ir.png)
+
+![Surveiller un runtime d'intégration lié](media/create-self-hosted-integration-runtime/Contoso-linked-ir-monitoring.png)
+
+
+### <a name="known-limitations-of-self-hosted-ir-sharing"></a>Limitations connues du partage de runtime d’intégration autohébergé
+
+* La fabrique de données dans laquelle un runtime d’intégration lié est créé doit avoir une [identité gérée](../active-directory/managed-identities-azure-resources/overview.md). Par défaut, les fabriques de données créées dans le portail Azure ou les cmdlets PowerShell disposent d’une identité gérée créée implicitement. Cela étant, lorsqu'une fabrique de données est créée à l’aide d’un modèle Azure Resource Manager ou d'un kit de développement logiciel (SDK), vous devez explicitement définir la propriété **Identité**. Ce paramètre permet de s’assurer que Resource Manager crée une fabrique de données contenant une identité gérée.
+
+* Le kit de développement logiciel (SDK) Data Factory .NET version 1.1.0 ou ultérieure prend en charge cette fonctionnalité.
+
+* Pour accorder l’autorisation, vous devez disposer du rôle Propriétaire ou du rôle Propriétaire hérité au sein de la fabrique de données dans laquelle se trouve le runtime d’intégration partagé.
+
+* La fonctionnalité de partage fonctionne uniquement pour les fabriques de données relevant du même locataire Azure AD.
+
+* Pour les [utilisateurs invités](../active-directory/governance/manage-guest-access-with-access-reviews.md) Azure AD, la fonctionnalité de recherche de l'interface utilisateur, qui répertorie toutes les fabriques de données à l’aide d’un mot-clé de recherche, ne fonctionne pas. Cependant, tant que l’utilisateur invité correspond au propriétaire de la fabrique de données, vous pouvez partager le runtime d’intégration sans la fonctionnalité de recherche. Pour l’identité gérée de la fabrique de données qui doit partager le runtime d’intégration, entrez ce cette identité gérée dans la boîte de dialogue **Attribuer une autorisation**, puis sélectionnez **Ajouter** dans l’interface utilisateur de Data Factory.
+
+  > [!NOTE]
+  > Cette fonctionnalité est uniquement disponible dans Data Factory V2.
+
 
 ### <a name="next-steps"></a>Étapes suivantes
 

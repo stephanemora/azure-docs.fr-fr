@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 09/24/2020
 ms.author: justinha
-ms.openlocfilehash: 1fcd46870a4f85d1b88d22d77de5c201404c3a09
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 694ed5304e838057141b7df043565d58188fc870
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96619366"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98013037"
 ---
 # <a name="migrate-azure-active-directory-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>Migrer Azure Active Directory Domain Services depuis le modèle de réseau virtuel classique vers Resource Manager
 
@@ -155,8 +155,8 @@ La migration vers le réseau virtuel et le modèle de déploiement Resource Mana
 |---------|--------------------|-----------------|-----------|-------------------|
 | [Étape 1 - Mettre à jour et localiser le nouveau réseau virtuel](#update-and-verify-virtual-network-settings) | Portail Azure | 15 minutes | Aucun temps d’arrêt nécessaire | N/A |
 | [Étape 2 - Préparer le domaine managé pour la migration](#prepare-the-managed-domain-for-migration) | PowerShell | 15 à 30 minutes en moyenne | Le temps d’arrêt d’Azure AD DS débute à l’issue de cette commande. | Annulation et restauration disponibles. |
-| [Étape 3 - Déplacer le domaine managé vers un réseau virtuel existant](#migrate-the-managed-domain) | PowerShell | 1 à 3 heures en moyenne | Un contrôleur de domaine est disponible à l’issue de cette commande, le temps d’arrêt s’achève. | En cas d’échec, l’annulation (libre-service) et la restauration sont disponibles. |
-| [Étape 4 - Tester et attendre le contrôleur de domaine réplica](#test-and-verify-connectivity-after-the-migration)| PowerShell et portail Azure | 1 heure ou plus, en fonction du nombre de tests | Les deux contrôleurs de domaine sont disponibles et doivent fonctionner normalement. | N/A. Lorsque la migration de la première machine virtuelle s’est correctement déroulée, il n’est plus possible d’annuler ou de restaurer. |
+| [Étape 3 - Déplacer le domaine managé vers un réseau virtuel existant](#migrate-the-managed-domain) | PowerShell | 1 à 3 heures en moyenne | Un contrôleur de domaine est disponible à l’issue de cette commande. | En cas d’échec, l’annulation (libre-service) et la restauration sont disponibles. |
+| [Étape 4 - Tester et attendre le contrôleur de domaine réplica](#test-and-verify-connectivity-after-the-migration)| PowerShell et portail Azure | 1 heure ou plus, en fonction du nombre de tests | Les deux contrôleurs de domaine sont disponibles et doivent fonctionner normalement, le temps d’arrêt se termine. | N/A. Lorsque la migration de la première machine virtuelle s’est correctement déroulée, il n’est plus possible d’annuler ou de restaurer. |
 | [Étape 5 - Étapes de configuration facultatives](#optional-post-migration-configuration-steps) | Portail Azure et machines virtuelles | N/A | Aucun temps d’arrêt nécessaire | N/A |
 
 > [!IMPORTANT]
@@ -262,16 +262,14 @@ Si vous le souhaitez, à ce stade vous pouvez déplacer d’autres ressources ex
 
 ## <a name="test-and-verify-connectivity-after-the-migration"></a>Tester et vérifier la connectivité après la migration
 
-Le déploiement du deuxième contrôleur de domaine et sa disponibilité opérationnelle dans le domaine managé peut prendre un certain temps.
+Le déploiement du deuxième contrôleur de domaine et sa disponibilité opérationnelle dans le domaine managé peut prendre un certain temps. Le deuxième contrôleur de domaine doit normalement être disponible 1 à 2 heures après l’exécution de l’applet de commande de migration. Avec le modèle de déploiement Resource Manager, les ressources réseau du domaine managé sont affichées dans le portail Azure ou dans Azure PowerShell. Pour vérifier si le second contrôleur de domaine est disponible, consultez la page **Propriétés** du domaine managé dans le portail Azure. Si deux adresses IP sont affichées, le deuxième contrôleur de domaine est prêt.
 
-Avec le modèle de déploiement Resource Manager, les ressources réseau du domaine managé sont affichées dans le portail Azure ou dans Azure PowerShell. Pour en savoir plus sur les ressources réseau et leur fonction, consultez [Ressources réseau utilisées par Azure AD DS][network-resources].
-
-Lorsqu’au moins un contrôleur de domaine est disponible, procédez aux étapes de configuration suivantes pour établir la connectivité réseau avec les machines virtuelles :
+Lorsque le deuxième contrôleur de domaine est disponible, procédez aux étapes de configuration suivantes pour établir la connectivité réseau avec les machines virtuelles :
 
 * **Mettre à jour les paramètres de serveur DNS** - Pour permettre à d’autres ressources sur le réseau virtuel Resource Manager de résoudre et d’utiliser le domaine managé, mettez à jour les paramètres DNS avec les adresses IP des nouveaux contrôleurs de domaine. La portail Azure peut configurer automatiquement ces paramètres pour vous.
 
     Pour en savoir plus sur la configuration du réseau virtuel Resource Manager, consultez [Mettre à jour les paramètres DNS pour le réseau virtuel Azure][update-dns].
-* **Redémarrer les machines virtuelles jointes à un domaine** - Comme les adresses IP de serveur DNS pour les contrôleurs de domaine Azure AD DS changent, redémarrez toutes les machines virtuelles jointes au domaine afin qu’elles utilisent ensuite les nouveaux paramètres de serveur DNS. Si des applications ou des machines virtuelles disposent de paramètres DNS configurés manuellement, mettez-les à jour manuellement en utilisant les nouvelles adresses IP de serveur DNS des contrôleurs de domaine, qui sont affichées dans le portail Azure.
+* **Redémarrer les machines virtuelles jointes à un domaine (facultatif)**  : comme les adresses IP de serveur DNS pour les contrôleurs de domaine Azure AD DS changent, vous pouvez redémarrer toutes les machines virtuelles jointes à un domaine afin qu’elles utilisent ensuite les nouveaux paramètres de serveur DNS. Si des applications ou des machines virtuelles disposent de paramètres DNS configurés manuellement, mettez-les à jour manuellement en utilisant les nouvelles adresses IP de serveur DNS des contrôleurs de domaine, qui sont affichées dans le portail Azure. Le redémarrage des machines virtuelles jointes à un domaine empêche les problèmes de connectivité dus à des adresses IP qui ne sont pas actualisées.
 
 À présent, testez la connexion réseau virtuel et la résolution de noms. Sur une machine virtuelle connectée au réseau virtuel Resource Manager, ou appairée à celui-ci, essayez les tests de communication réseau suivants :
 
@@ -280,7 +278,7 @@ Lorsqu’au moins un contrôleur de domaine est disponible, procédez aux étape
 1. Vérifiez la résolution de noms du domaine managé, par exemple `nslookup aaddscontoso.com`.
     * Spécifiez le nom DNS de votre propre domaine managé pour vérifier que les paramètres DNS sont corrects et résolus.
 
-Le deuxième contrôleur de domaine doit normalement être disponible 1 à 2 heures après l’exécution de l’applet de commande de migration. Pour vérifier si le second contrôleur de domaine est disponible, consultez la page **Propriétés** du domaine managé dans le portail Azure. Si deux adresses IP sont affichées, le deuxième contrôleur de domaine est prêt.
+Pour en savoir plus sur les autres ressources réseau, consultez [Ressources réseau utilisées par Azure AD DS][network-resources].
 
 ## <a name="optional-post-migration-configuration-steps"></a>Étapes facultatives de la configuration postérieure à la migration
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/15/2020
-ms.openlocfilehash: aa7c06c3bad59bad11fa288631042cca86109706
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 3d5663177bb087e936a49dd7289659b684d85860
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701131"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98116192"
 ---
 # <a name="create-a-basic-search-index-in-azure-cognitive-search"></a>Créer un index de recherche de base dans Recherche cognitive Azure
 
@@ -70,7 +70,7 @@ L’élaboration d’un index final est un processus itératif. Il est courant d
 Pendant le développement, prévoyez des régénérations fréquentes. Comme les structures physiques sont créées dans le service, il est nécessaire de [supprimer et de recréer les index](search-howto-reindex.md) pour la plupart des modifications apportées à une définition de champ existante. Vous pouvez envisager de travailler sur une partie de vos données pour regénérer plus rapidement. 
 
 > [!Tip]
-> Il est préférable d’utiliser du code plutôt que le portail pour travailler simultanément sur la conception de l’index et l’importation des données. Sinon, les outils tels que [Postman et Visual Studio Code](search-get-started-rest.md) s’avèrent utiles pour tester la preuve de concept aux phases initiales d’un projet de développement. Vous pouvez apporter des modifications incrémentielles à une définition d’index dans un corps de demande, puis envoyer la demande à votre service pour recréer un index en utilisant un schéma mis à jour.
+> Il est préférable d’utiliser du code plutôt que le portail pour travailler simultanément sur la conception de l’index et l’importation des données. Sinon, des outils tels que [Postman](search-get-started-rest.md) ou [Visual Studio Code](search-get-started-vs-code.md) s’avèrent utiles pour tester la preuve de concept aux phases initiales d’un projet de développement. Vous pouvez apporter des modifications incrémentielles à une définition d’index dans un corps de demande, puis envoyer la demande à votre service pour recréer un index en utilisant un schéma mis à jour.
 
 ## <a name="index-schema"></a>Schéma d’index
 

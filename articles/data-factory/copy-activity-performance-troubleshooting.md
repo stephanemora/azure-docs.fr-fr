@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/09/2020
-ms.openlocfilehash: d22d040b0001ee30e29c551e686a7cb6bc47c2af
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.date: 01/07/2021
+ms.openlocfilehash: ee6105376f5e8dc884f13e04db51126c039328e9
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96921931"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97968889"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>Résoudre les problèmes de performances de l’activité de copie
 
@@ -172,6 +172,60 @@ Si les performances de copie ne répondent pas à vos attentes et si vous voyez 
 
   - Réglez progressivement les [copies parallèles](copy-activity-performance-features.md). Notez qu’un trop grand nombre de copies parallèles peut également nuire aux performances.
 
+
+## <a name="connector-and-ir-performance"></a>Performances du connecteur et du runtime d’intégration (IR)
+
+Cette section explore certains guides de résolution des problèmes en matière de performances pour un type de connecteur spécifique ou pour le runtime d’intégration.
+
+### <a name="activity-execution-time-varies-using-azure-ir-vs-azure-vnet-ir"></a>La durée d’exécution de l’activité varie selon que vous utilisez le runtime d’intégration Azure ou le runtime d’intégration VNet Azure
+
+La durée d’exécution de l’activité varie quand le jeu de données est basé sur différents runtime d’intégration.
+
+- **Symptômes** : L’activation/désactivation de la liste déroulante Service lié dans le jeu de données effectue les mêmes activités de pipeline, mais avec des délais d’exécution radicalement différents. Lorsque le jeu de données est basé sur le runtime d'intégration de réseau virtuel géré, il faut plus de 2 minutes en moyenne pour terminer l’exécution, mais environ 20 secondes en fonction du runtime d'intégration par défaut.
+
+- **Cause** : Dans les détails des exécutions du pipeline, vous pouvez constater que le pipeline lent s’exécute sur le runtime d’intégration du réseau virtuel géré, alors que le pipeline normal s’exécute sur le runtime d'intégration Azure. De par sa conception, le runtime d'intégration du réseau virtuel géré prend plus de temps que le runtime d'intégration Azure car nous ne réservons aucun nœud de calcul par fabrique de données. Par conséquent, le démarrage de chaque activité de copie prend environ 2 minutes, ce qui se produit principalement à la jonction du réseau virtuel plutôt que dans le runtime d'intégration Azure.
+
+    
+### <a name="low-performance-when-loading-data-into-azure-sql-database"></a>Faible niveau de performance pendant le chargement de données dans Azure SQL Database
+
+- **Symptômes** : La copie de données dans Azure SQL Database devient lente.
+
+- **Cause** : La cause racine du problème est principalement provoquée par le goulot d’étranglement du côté d’Azure SQL Database. Voici quelques causes possibles :
+
+    - Le niveau Azure SQL Database n’est pas assez élevé.
+
+    - L’utilisation des DTU d’Azure SQL Database est proche de 100 %. Vous pouvez [superviser le niveau de performance](https://docs.microsoft.com/azure/azure-sql/database/monitor-tune-overview) et envisager une mise à niveau d’Azure SQL Database.
+
+    - Les index ne sont pas bien définis. Supprimez tous les index avant le chargement des données, puis recréez-les une fois le chargement terminé.
+
+    - La valeur de WriteBatchSize n’est pas suffisante pour la taille de ligne de schéma. Essayez d’attribuer une valeur supérieure à la propriété pour résoudre le problème.
+
+    - Une procédure stockée est utilisée à la place de l’insertion en bloc, ce qui est censé amoindrir le niveau de performance. 
+
+- **Résolution** : Consultez [Résoudre les problèmes de performances de l’activité de copie](https://docs.microsoft.com/azure/data-factory/copy-activity-performance-troubleshooting).
+
+### <a name="timeout-or-slow-performance-when-parsing-large-excel-file"></a>Expiration du délai ou baisse du niveau de performance lors de l’analyse d’un fichier Excel volumineux
+
+- **Symptômes** :
+
+    - Lorsque vous créez un jeu de données Excel et importez un schéma à partir de feuilles de calcul de connexion/du magasin, d’aperçu de données, de liste ou d’actualisation, le délai d’attente peut expirer si la taille du fichier Excel est importante.
+
+    - Lorsque vous utilisez l’activité de copie pour copier des données à partir d’un fichier Excel volumineux (> = 100 Mo) dans un autre magasin de données, vous pouvez rencontrer une baisse du niveau de performance ou une erreur de type OOM (mémoire insuffisante).
+
+- **Cause** : 
+
+    - Pour les opérations comme l’importation de feuilles de calcul de schéma, d’aperçu de données et de liste dans un jeu de données Excel, le délai d’expiration est statique et fixé à 100 secondes. Pour un fichier Excel volumineux, ces opérations peuvent ne pas se terminer dans ce délai.
+
+    - L’activité de copie ADF lit l’intégralité du fichier Excel en mémoire, puis localise la feuille de calcul et les cellules spécifiées pour lire les données. Ce comportement est dû à l’utilisation du Kit de développement logiciel (SDK) sous-jacent.
+
+- **Résolution** : 
+
+    - Pour importer un schéma, vous pouvez générer un exemple de fichier plus petit représentant un sous-ensemble du fichier d’origine, puis choisir « import schema from sample file » (importer le schéma à partir d’un exemple de fichier) au lieu de « import schema from connection/store » (importer le schéma à partir d’une connexion/d’un magasin).
+
+    - Pour lister une feuille de calcul, dans la liste déroulante de la feuille de calcul, vous pouvez cliquer sur « Modifier » et entrer à la place le nom/index de la feuille.
+
+    - Pour copier un fichier Excel volumineux (> 100 Mo) dans un autre magasin, vous pouvez utiliser le flux de données source Excel qui prend en charge diffusion en continu et offre de meilleures performances.
+    
 ## <a name="other-references"></a>Autres références
 
 Voici des références relatives au monitoring et au réglage des performances pour quelques magasins de données pris en charge :

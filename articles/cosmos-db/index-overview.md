@@ -1,18 +1,18 @@
 ---
 title: Indexation dans Azure Cosmos DB
-description: Comprendre le fonctionnement de l’indexation dans Azure Cosmos DB et différents types d’index, tels que Range, Spatial et les index composites pris en charge.
+description: Comprendre le fonctionnement de l’indexation dans Azure Cosmos DB et différents types d’index, tels que plage, spatial et les index composites pris en charge.
 author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: tisande
-ms.openlocfilehash: 4211f13324b9fda0b0823b2d035eb03863cb686d
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: b7349a08b93810dcc3befd6058302d6c4573ab8d
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339751"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019208"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Vue d’ensemble de l’indexation dans Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -64,13 +64,13 @@ Voici les chemins d’accès de chaque propriété de l’élément exemple déc
 
 Lorsqu’un élément est écrit, Azure Cosmos DB indexe efficacement le chemin d’accès de chaque propriété et sa valeur correspondante.
 
-## <a name="index-kinds"></a>Types d’index
+## <a name="types-of-indexes"></a><a id="index-types"></a>Types d’index
 
-Azure Cosmos DB prend actuellement en charge trois types d’index.
+Azure Cosmos DB prend actuellement en charge trois types d’index. Vous pouvez configurer ces types d’index lors de la définition de la stratégie d’indexation.
 
 ### <a name="range-index"></a>Index de plage
 
-L’index de **plage** est basé sur une structure de type arborescence ordonnée. Le type d’index de plage est utilisé pour les types de requête suivants :
+L’index de **plage** est basé sur une structure de type arborescence ordonnée. Le type d’index plage est utilisé pour les types de requête suivants :
 
 - Requêtes d’égalité :
 
@@ -122,7 +122,7 @@ L’index de **plage** est basé sur une structure de type arborescence ordonné
    SELECT child FROM container c JOIN child IN c.properties WHERE child = 'value'
    ```
 
-Les index plage sont utilisables sur des valeurs scalaires (chaîne ou nombre).
+Les index plage sont utilisables sur des valeurs scalaires (chaîne ou nombre). La stratégie d’indexation par défaut pour les conteneurs nouvellement créés applique des index de plage pour les chaînes ou les nombres. Pour savoir comment configurer des index plage, consultez les [exemples de stratégie d’indexation de plage](how-to-manage-indexing-policy.md#range-index)
 
 ### <a name="spatial-index"></a>Index spatial
 
@@ -146,7 +146,7 @@ Les index **spatiaux** permettent d’exécuter des requêtes efficaces sur des 
    SELECT * FROM c WHERE ST_INTERSECTS(c.property, { 'type':'Polygon', 'coordinates': [[ [31.8, -5], [32, -5], [31.8, -5] ]]  })  
    ```
 
-Les index spatiaux sont utilisables sur des objets [GeoJSON](./sql-query-geospatial-intro.md) correctement formatés . Les points, les LineStrings, les polygones et les multipolygones sont actuellement pris en charge.
+Les index spatiaux sont utilisables sur des objets [GeoJSON](./sql-query-geospatial-intro.md) correctement formatés . Les points, les LineStrings, les polygones et les multipolygones sont actuellement pris en charge. Pour utiliser ce type d’index, définissez la propriété `"kind": "Range"` lors de la configuration de la stratégie d’indexation. Pour savoir comment configurer des index spatiaux, consultez les [exemples de stratégie d’indexation spatiale](how-to-manage-indexing-policy.md#spatial-index)
 
 ### <a name="composite-indexes"></a>Index composites
 
@@ -175,6 +175,8 @@ Tant qu’un prédicat de filtre utilise un type d’index, le moteur de requêt
 * La requête ci-dessus filtre d’abord les entrées où firstName = « Andrew » à l’aide de l’index. Elle transmet ensuite toutes les entrées firstName = « Andrew » via un pipeline pour évaluer le prédicat de filtre CONTAINS.
 
 * Vous pouvez accélérer les requêtes et éviter les analyses de conteneur complètes lorsque vous utilisez des fonctions qui n’utilisent pas l’index (par exemple, CONTAINS) en ajoutant des prédicats de filtre supplémentaires qui utilisent l’index. L’ordre des clauses de filtre n’est pas important. Le moteur de requête détermine les prédicats les plus sélectifs et exécute la requête en conséquence.
+
+Pour savoir comment configurer des index composites, consultez les [exemples de stratégie d’indexation composite](how-to-manage-indexing-policy.md#composite-index)
 
 ## <a name="querying-with-indexes"></a>Interrogation avec des index
 

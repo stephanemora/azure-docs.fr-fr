@@ -3,15 +3,15 @@ title: Planification de tâches et de workflows récurrents dans Azure Logic App
 description: Vue d'ensemble de la planification de tâches, processus et workflows automatisés récurrents avec Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: deli, jonfan, logicappspm
+ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
-ms.date: 03/25/2020
-ms.openlocfilehash: 27763536b859b7bc3e9aa0a7c490cb510c0fda41
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.date: 01/07/2021
+ms.openlocfilehash: fd0a779ec5ac5537dd3e3ed6a82cf818b42cff15
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97588452"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018790"
 ---
 # <a name="schedule-and-run-recurring-automated-tasks-processes-and-workflows-with-azure-logic-apps"></a>Créer et exécuter des tâches et des workflows récurrents avec Azure Logic Apps
 
@@ -48,13 +48,28 @@ Cet article décrit les capacités des déclencheurs et actions intégrés de ty
 
 ## <a name="schedule-triggers"></a>Planifier des déclencheurs
 
-Vous pouvez démarrer votre workflow d'application logique en utilisant le déclencheur Périodicité ou le déclencheur Fenêtre glissante, qui n'est associé à aucun service ou système spécifique. Ces déclencheurs démarrent et exécutent votre workflow en fonction de la périodicité que vous avez spécifiée lors de la sélection de l’intervalle et de la fréquence, par exemple le nombre de secondes, de minutes, d'heures, de jours, de semaines ou de mois. Vous pouvez également définir la date et l'heure de début ainsi que le fuseau horaire. Chaque fois qu’un déclencheur est activé, Logic Apps crée et exécute une instance de workflow pour votre application logique.
+Vous pouvez démarrer votre workflow d'application logique en utilisant le déclencheur Périodicité ou le déclencheur Fenêtre glissante, qui n'est associé à aucun service ou système spécifique. Ces déclencheurs démarrent et exécutent votre workflow en fonction de la périodicité que vous avez spécifiée lors de la sélection de l’intervalle et de la fréquence, par exemple le nombre de secondes, de minutes, d'heures, de jours, de semaines ou de mois. Vous pouvez également définir la date et l’heure de début, ainsi que le fuseau horaire. Chaque fois qu’un déclencheur est activé, Logic Apps crée et exécute une instance de workflow pour votre application logique.
 
 Voici les différences entre ces types déclencheurs :
 
-* **Périodicité** : Exécute votre workflow à intervalles réguliers selon la périodicité que vous avez spécifiée. Si des périodicités sont manquées, par exemple en raison d’interruptions ou de désactivation de workflows, le déclencheur Périodicité ne les traite pas, mais redémarre les périodicités selon l’intervalle planifié suivant. Vous pouvez spécifier la date et l'heure de début ainsi que le fuseau horaire. Si vous sélectionnez « Jour », vous pouvez spécifier les heures du jour et les minutes, par exemple, tous les jours à 14h30. Si vous sélectionnez « Semaine », vous pouvez également sélectionner les jours de la semaine, par exemple le mercredi et le samedi. Pour plus d'informations, voir [Créer, planifier et exécuter des tâches et des workflows récurrents avec le déclencheur Périodicité](../connectors/connectors-native-recurrence.md).
+* **Périodicité** : Exécute votre workflow à intervalles réguliers selon la périodicité que vous avez spécifiée. Si des périodicités sont manquées par le déclencheur, par exemple en raison d’interruptions ou de désactivation de workflows, le déclencheur Périodicité ne les traite pas, mais redémarre les périodicités selon l’intervalle planifié suivant.
 
-* **Fenêtre glissante** : Exécute votre workflow à des intervalles réguliers qui traitent les données en continu. Si des récurrences sont manquées pour une raison quelconque, par exemple suite à des interruptions ou à des flux de travail désactivés, le déclencheur Fenêtre glissante revient en arrière et traite ces récurrences manquées. Vous pouvez spécifier une date et une heure de début, un fuseau horaire et une durée pour retarder chaque périodicité de votre workflow. Ce déclencheur ne permet pas les planifications avancées, par exemple, les heures spécifiques du jour, les minutes de l'heure et les jours de la semaine. Pour plus d'informations, voir [Créer, planifier et exécuter des tâches et des workflows récurrents avec le déclencheur Fenêtre glissante](../connectors/connectors-native-sliding-window.md).
+  Si vous sélectionnez la fréquence **Jour**, vous pouvez spécifier les heures du jour et les minutes, par exemple, tous les jours à 14h30. Si vous sélectionnez la fréquence **Semaine**, vous pouvez également sélectionner les jours de la semaine, par exemple le mercredi et le samedi. Vous pouvez également spécifier une date et une heure de début, ainsi qu’un fuseau horaire pour votre planification de périodicité.
+
+  > [!TIP]
+  > Si une périodicité ne spécifie pas [une date et une heure de début](#start-time), la première périodicité s’exécute immédiatement lorsque vous enregistrez ou déployez l’application logique, en dépit de la configuration de la périodicité de votre déclencheur. Pour éviter ce comportement, indiquez la date et l’heure de début de l’exécution de la première périodicité.
+  >
+  > Si une périodicité ne spécifie pas d’autres options de planification avancées, telles que des heures spécifiques pour exécuter des périodicités futures, celles-ci sont basées sur l’heure de la dernière exécution. Par conséquent, les heures de début de ces périodicités peuvent dériver en raison de facteurs tels que la latence lors des appels de stockage. Pour vous assurer que votre application logique ne manque pas une périodicité, en particulier quand la fréquence est définie en jours ou sur une valeur plus longue, essayez l’une des options suivantes :
+  >
+  > * Indiquez une date et une heure de début pour la périodicité, ainsi que les heures spécifiques d’exécution des périodicités suivantes à l’aide des propriétés nommées **Aux heures indiquées** et **Aux minutes indiquées**, qui sont disponibles uniquement pour les fréquences **Jour** et **Semaine**.
+  >
+  > * Utilisez le [déclencheur de fenêtre glissante](../connectors/connectors-native-sliding-window.md) plutôt que le déclencheur de récurrence.
+
+  Pour plus d'informations, voir [Créer, planifier et exécuter des tâches et des workflows récurrents avec le déclencheur Périodicité](../connectors/connectors-native-recurrence.md).
+
+* **Fenêtre glissante** : Exécute votre workflow à des intervalles réguliers qui traitent les données en continu. Si des périodicités sont manquées par le déclencheur pour une raison quelconque, par exemple suite à des interruptions ou à des workflows désactivés, le déclencheur Fenêtre glissante revient en arrière et traite ces périodicités manquées.
+
+  Vous pouvez spécifier une date et une heure de début, un fuseau horaire et une durée pour retarder chaque périodicité de votre workflow. Ce déclencheur ne permet pas les planifications avancées, par exemple, les heures spécifiques du jour, les minutes de l'heure et les jours de la semaine. Pour plus d'informations, voir [Créer, planifier et exécuter des tâches et des workflows récurrents avec le déclencheur Fenêtre glissante](../connectors/connectors-native-sliding-window.md).
 
 <a name="schedule-actions"></a>
 
@@ -66,28 +81,18 @@ Après chaque action dans votre workflow d’application logique, vous pouvez ut
 
 * **Retarder jusqu’à** : Attendre la date et l'heure spécifiées avant d’exécuter l'action suivante. Pour plus d'informations, voir [ Retarder la prochaine action dans les workflows](../connectors/connectors-native-delay.md).
 
-## <a name="patterns-for-start-date-and-time"></a>Modèles pour la date et l’heure de début
-
 <a name="start-time"></a>
+
+## <a name="patterns-for-start-date-and-time"></a>Modèles pour la date et l’heure de début
 
 Voici quelques modèles qui montrent comment vous pouvez contrôler la périodicité avec la date et l’heure de début, et comment le service Logic Apps exécute ces périodicités :
 
 | Heure de début | Périodicité sans planification | Périodicité avec planification (déclencheur Périodicité uniquement) |
 |------------|-----------------------------|----------------------------------------------------|
 | {aucune} | Exécute la première charge de travail instantanément. <p>Exécute les charges de travail suivantes en fonction de la dernière heure d’exécution. | Exécute la première charge de travail instantanément. <p>Exécute les charges de travail suivantes en fonction de la planification spécifiée. |
-| Heure de début dans le passé | Déclencheur de **périodicité** : Calcule le temps d’exécution en fonction de l’heure de début spécifiée et ignore les heures d’exécution passées. Exécute la première charge de travail à la prochaine heure d’exécution. <p>Exécute les charges de travail suivantes selon des calculs basés sur la dernière heure d’exécution. <p><p>Déclencheur **Fenêtre glissante** : Calcule le temps d’exécution en fonction de l’heure de début spécifiée et respecte les heures d’exécution passées. <p>Exécute les charges de travail suivantes selon des calculs basés sur l’heure de début spécifiée. <p><p>Pour une explication plus détaillée, consultez l’exemple fourni après ce tableau. | Exécute la première charge de travail *exactement* à l’heure de début, en fonction de la planification calculée à partir de l’heure de début. <p>Exécute les charges de travail suivantes en fonction de la planification spécifiée. <p>**Remarque :** Si vous spécifiez une récurrence avec une planification, mais sans spécifier d’heures ni de minutes, les exécutions suivantes sont calculées avec les heures ou les minutes (respectivement) depuis le moment de la première d’exécution. |
-| Heure de début actuelle ou future | Exécute la première charge de travail à l’heure de début spécifiée. <p>Exécute les charges de travail suivantes selon des calculs basés sur la dernière heure d’exécution. | Exécute la première charge de travail *exactement* à l’heure de début, en fonction de la planification calculée à partir de l’heure de début. <p>Exécute les charges de travail suivantes en fonction de la planification spécifiée. <p>**Remarque :** Si vous spécifiez une récurrence avec une planification, mais sans spécifier d’heures ni de minutes, les exécutions suivantes sont calculées avec les heures ou les minutes (respectivement) depuis le moment de la première d’exécution. |
+| Heure de début dans le passé | Déclencheur de **périodicité** : Calcule le temps d’exécution en fonction de l’heure de début spécifiée et ignore les heures d’exécution passées. Exécute la première charge de travail à la prochaine heure d’exécution. <p>Exécute les charges de travail suivantes selon des calculs basés sur la dernière heure d’exécution. <p><p>Déclencheur **Fenêtre glissante** : Calcule le temps d’exécution en fonction de l’heure de début spécifiée et respecte les heures d’exécution passées. <p>Exécute les charges de travail suivantes selon des calculs basés sur l’heure de début spécifiée. <p><p>Pour une explication plus détaillée, consultez l’exemple fourni après ce tableau. | Exécute la première charge de travail *exactement* à l’heure de début, en fonction de la planification calculée à partir de l’heure de début. <p>Exécute les charges de travail suivantes en fonction de la planification spécifiée. <p>**Remarque :** Si vous spécifiez une périodicité avec une planification, sans spécifier d’heures ni de minutes, Logic Apps calcule les heures d’exécution suivantes en utilisant les heures ou les minutes (respectivement) de la première exécution. |
+| Heure de début actuelle ou future | Exécute la première charge de travail à l’heure de début spécifiée. <p>Exécute les charges de travail suivantes selon des calculs basés sur la dernière heure d’exécution. | Exécute la première charge de travail *exactement* à l’heure de début, en fonction de la planification calculée à partir de l’heure de début. <p>Exécute les charges de travail suivantes en fonction de la planification spécifiée. <p>**Remarque :** Si vous spécifiez une périodicité avec une planification, sans spécifier d’heures ni de minutes, Logic Apps calcule les heures d’exécution suivantes en utilisant les heures ou les minutes (respectivement) de la première exécution. |
 ||||
-
-> [!IMPORTANT]
-> Lorsque les récurrences ne spécifient pas d’options de planification avancées, les récurrences ultérieures sont basées sur l’heure de la dernière exécution.
-> Les heures de début de ces récurrences peuvent dériver en raison de facteurs tels que la latence lors des appels de stockage. Pour vous assurer que votre application logique ne manque pas de récurrence, en particulier quand la fréquence est en jours ou plus, utilisez l’une des options suivantes :
-> 
-> * Indiquez une heure de début pour la récurrence.
-> 
-> * Spécifiez les heures et les minutes d’exécution de la récurrence à l’aide des propriétés **À ces heures** et **À ces minutes**.
-> 
-> * Utilisez le [déclencheur de fenêtre glissante](../connectors/connectors-native-sliding-window.md) plutôt que le déclencheur de récurrence.
 
 *Exemple d’heure de début passée et de périodicité, mais sans planification*
 
@@ -120,6 +125,81 @@ Voici à quoi ressemble cette périodicité :
 
 Par conséquent, peu importe si l’heure de début spécifiée remonte à loin ou pas (par exemple, **05**/09/2017 à 14h00 ou **01**/09/2017 à 14h00), votre première exécution utilise toujours l’heure de début spécifiée.
 
+<a name="daylight-saving-standard-time"></a>
+
+## <a name="recurrence-for-daylight-saving-time-and-standard-time"></a>Périodicité pour l’heure d’été et l’heure d’hiver
+
+Les déclencheurs intégrés récurrents respectent la planification que vous définissez, y compris le fuseau horaire que vous spécifiez. Si vous ne sélectionnez pas de fuseau horaire, l’heure d’été (DST) risque d’affecter le moment d’exécution des déclencheurs, par exemple en décalant l’heure de début d’une heure lorsque l’heure d’été commence et en la reculant d’une heure lorsque l’heure d’été se termine. Lors de la planification de travaux, Logic Apps met le message à traiter dans la file d’attente et spécifie le moment où ce message devient disponible, en fonction de l’heure UTC de l’exécution du dernier travail et de l’heure UTC à laquelle l’exécution du travail suivant est planifiée.
+
+Pour éviter ce décalage afin que votre application logique s’exécute à l’heure de début spécifiée, veillez à sélectionner un fuseau horaire. De cette façon, l’heure UTC de votre application logique est également décalée pour prendre en compte le changement d’heure saisonnier.
+
+<a name="dst-window"></a>
+
+> [!NOTE]
+> Les déclencheurs qui commencent entre 2h00 et 3h00 peuvent rencontrer des problèmes, car le passage à l’heure d’été a lieu à 2h00, ce qui peut causer une heure de début non valide ou ambiguë. Si vous avez plusieurs applications logiques dans le même intervalle ambigu, elles risquent de se chevaucher. Pour cette raison, vous souhaiterez peut-être éviter des heures de démarrage entre 2h00 et 3h00.
+
+Supposons, par exemple, que vous disposez de deux applications logiques qui s’exécutent quotidiennement. Une application logique s’exécute à 1h30 heure locale, tandis que l’autre est exécutée une heure plus tard à 2h30 heure locale. Qu’advient-il des heures de début de ces applications lorsque l’heure d’été commence et prend fin ?
+
+* Les déclencheurs s’exécutent-ils lorsque l’heure avance d’une heure ?
+
+* Les déclencheurs s’exécutent-ils deux fois lorsque l’heure recule d’une heure ?
+
+Si ces applications logiques utilisent la zone UTC-6:00 Centre (États-Unis et Canada), cette simulation montre comment les heures UTC se sont décalées en 2019 pour contrer le passage à l’heure d’été, avançant ou reculant d’une heure selon les besoins afin que les applications continuent de s’exécuter aux heures locales attendues sans être ignorées ou exécutées deux fois.
+
+* **10/03/2019 : L’heure d’été commence à 2h00, ce qui avance l’heure d’une heure**
+
+  Pour compenser après le passage à l’heure d’été, l’heure UTC recule d’une heure afin que votre application logique continue de s’exécuter à la même heure locale :
+
+  * Application logique 1
+
+    | Date | Heure (locale) | Heure (UTC) | Notes |
+    |------|--------------|------------|-------|
+    | 09/03/2019 | 1h30 | 7h30 | Heure UTC avant la date à laquelle l’heure d’été entre en vigueur. |
+    | 10/03/2019 | 1h30 | 7h30 | L’heure UTC est la même, car l’heure d’été n’est pas entrée en vigueur. |
+    | 11/03/2019 | 1h30 | 6:30:00 AM | L’heure UTC a reculé d’une heure après l’entrée en vigueur de l’heure d’été. |
+    |||||
+
+  * Application logique 2
+
+    | Date | Heure (locale) | Heure (UTC) | Notes |
+    |------|--------------|------------|-------|
+    | 09/03/2019 | 2h30 | 8h30 | Heure UTC avant la date à laquelle l’heure d’été entre en vigueur. |
+    | 10/03/2019 | 3h30* | 8h30 | L’heure d’été est déjà en vigueur. L’heure locale a donc avancé d’une heure, car le fuseau horaire UTC-6:00 devient UTC-5:00. Pour plus d’informations, consultez [Déclencheurs qui commencent entre 2h00 et 3h00](#dst-window). |
+    | 11/03/2019 | 2h30 | 7h30 | L’heure UTC a reculé d’une heure après l’entrée en vigueur de l’heure d’été. |
+    |||||
+
+* **03/11/2019 : L’heure d’été se termine à 2h00 et recule l’heure d’une heure**
+
+  Pour compenser, l’heure UTC avance d’une heure afin que votre application logique continue de s’exécuter à la même heure locale :
+
+  * Application logique 1
+
+    | Date | Heure (locale) | Heure (UTC) | Notes |
+    |------|--------------|------------|-------|
+    | 02/11/2019 | 1h30 | 6:30:00 AM ||
+    | 03/11/2019 | 1h30 | 6:30:00 AM ||
+    | 04/11/2019 | 1h30 | 7h30 ||
+    |||||
+
+  * Application logique 2
+
+    | Date | Heure (locale) | Heure (UTC) | Notes |
+    |------|--------------|------------|-------|
+    | 02/11/2019 | 2h30 | 7h30 ||
+    | 03/11/2019 | 2h30 | 8h30 ||
+    | 04/11/2019 | 2h30 | 8h30 ||
+    |||||
+
+<a name="run-once"></a>
+
+## <a name="run-one-time-only"></a>Une seule exécution
+
+Si vous voulez exécuter votre application logique une seule fois dans le futur, vous pouvez utiliser le modèle **Scheduler : Exécuter des tâches une fois**. Après avoir créé une application logique, mais avant d’ouvrir le Doncepteur Logic Apps, sous la section **Modèles**, dans la liste **Catégorie**, sélectionnez **Planifier**, puis sélectionnez ce modèle :
+
+![Sélectionner le modèle « Planificateur : Exécuter des tâches une fois »](./media/concepts-schedule-automated-recurring-tasks-workflows/choose-run-once-template.png)
+
+Ou, si vous pouvez démarrer votre application logique avec le déclencheur **Lors de la réception d’une demande HTTP - Demande**, passez l'heure de début comme paramètre du déclencheur. Pour la première action, utiliser l’action **Retarder jusqu’à - Planifier** et indiquez l’heure de début d’exécution de l’action suivante.
+
 <a name="example-recurrences"></a>
 
 ## <a name="example-recurrences"></a>Exemples de périodicité
@@ -130,10 +210,10 @@ Voici divers exemples de périodicité que vous pouvez configurer pour les décl
 |---------|------------|----------|-----------|------------|---------------|----------------|------------------|------|
 | Périodicité, <br>Fenêtre glissante | Exécution toutes les 15 minutes (sans date ni heure de début) | 15 | Minute | {aucune} | {non disponible} | {aucune} | {aucune} | Cette planification démarre immédiatement, puis calcule les périodicités suivantes en fonction de la dernière heure d’exécution. |
 | Périodicité, <br>Fenêtre glissante | Exécution toutes les 15 minutes (avec date et heure de début) | 15 | Minute | *startDate* T *startTime* Z | {non disponible} | {aucune} | {aucune} | Cette planification ne démarre *pas avant* la date et l’heure de début spécifiées. Les périodicités suivantes sont ensuite calculées en fonction de la dernière heure d’exécution. |
-| Périodicité, <br>Fenêtre glissante | Exécution toutes les heures, à l’heure spécifiée (avec date et heure de début) | 1 | Heure | *startDate* Thh:00:00Z | {non disponible} | {aucune} | {aucune} | Cette planification ne démarre *pas avant* la date et l’heure de début spécifiées. Les prochaines périodicités interviennent toutes les heures à la minute « 00 », valeur calculée à partir de l'heure de début. <p>Si la fréquence est « Semaine » ou « Mois », cette planification s’exécute respectivement un seul jour par semaine ou un seul jour par mois. |
+| Périodicité, <br>Fenêtre glissante | Exécution toutes les heures, à l’heure spécifiée (avec date et heure de début) | 1 | Heure | *startDate* Thh:00:00Z | {non disponible} | {aucune} | {aucune} | Cette planification ne démarre *pas avant* la date et l’heure de début spécifiées. Les prochaines périodicités se produisent à la marque de « 00 » minute, valeur calculée par Logic Apps à partir de l’heure de début. <p>Si la fréquence est « Semaine » ou « Mois », cette planification s’exécute respectivement un seul jour par semaine ou un seul jour par mois. |
 | Périodicité, <br>Fenêtre glissante | Exécution toutes les heures, tous les jours (sans date ni heure de début) | 1 | Heure | {aucune} | {non disponible} | {aucune} | {aucune} | Cette planification démarre immédiatement et calcule les périodicités suivantes en fonction de la dernière heure d’exécution. <p>Si la fréquence est « Semaine » ou « Mois », cette planification s’exécute respectivement un seul jour par semaine ou un seul jour par mois. |
 | Périodicité, <br>Fenêtre glissante | Exécution toutes les heures, tous les jours (avec date et heure de début) | 1 | Heure | *startDate* T *startTime* Z | {non disponible} | {aucune} | {aucune} | Cette planification ne démarre *pas avant* la date et l’heure de début spécifiées. Les périodicités suivantes sont ensuite calculées en fonction de la dernière heure d’exécution. <p>Si la fréquence est « Semaine » ou « Mois », cette planification s’exécute respectivement un seul jour par semaine ou un seul jour par mois. |
-| Périodicité, <br>Fenêtre glissante | Exécution 15 minutes après l’heure, toutes les heures (avec date et heure de début) | 1 | Heure | *startDate* T00:15:00Z | {non disponible} | {aucune} | {aucune} | Cette planification ne démarre *pas avant* la date et l’heure de début spécifiées. Les prochaines périodicités se produisent à la marque des « 15 » minutes, valeur calculée à partir de l'heure de début, soit à 00:15, 1:15, 2:15, et ainsi de suite. |
+| Périodicité, <br>Fenêtre glissante | Exécution 15 minutes après l’heure, toutes les heures (avec date et heure de début) | 1 | Heure | *startDate* T00:15:00Z | {non disponible} | {aucune} | {aucune} | Cette planification ne démarre *pas avant* la date et l’heure de début spécifiées. Les prochaines périodicités se produisent à la marque des « 15 » minutes, valeur calculée par Logic Apps à partir de l’heure de début, soit à 00h15, 1h15, 2h15, et ainsi de suite. |
 | Périodicité | Exécution 15 minutes après l’heure, toutes les heures (sans date ni heure de début) | 1 | jour | {aucune} | {non disponible} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 15 | Cette planification s’exécute à 00h15, 1h15, 2h15, etc. Cette planification est en outre l’équivalent d’une fréquence de type « Heure » et d’une heure de début avec « 15 » minutes. |
 | Périodicité | Exécution toutes les 15 minutes à la marque de minutes spécifiée (sans date ni heure de début). | 1 | jour | {aucune} | {non disponible} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 0, 15, 30, 45 | Cette planification ne démarre pas avant la marque de 15 minutes spécifiée suivante. |
 | Périodicité | Exécution quotidienne à 8h00 *plus* la marque de minutes à partir du moment où vous enregistrez votre application logique | 1 | jour | {aucune} | {non disponible} | 8 | {aucune} | Sans date et heure de début, cette planification s’exécute en fonction de l’heure à laquelle vous enregistrez l’application logique (opération PUT). |
@@ -150,16 +230,6 @@ Voici divers exemples de périodicité que vous pouvez configurer pour les décl
 | Périodicité | Exécution tous les mois | 1 | Month | *startDate* T *startTime* Z | {non disponible} | {non disponible} | {non disponible} | Cette planification ne démarre *pas avant* la date et l’heure de début spécifiées, puis calcule les prochaines périodicités selon la date et à l’heure de début. Si vous ne spécifiez pas de date et heure de début, cette planification utilise la date et heure de création. |
 | Périodicité | Exécution toutes les heures un jour par mois | 1 | Month | {voir remarque} | {non disponible} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | {voir remarque} | Si vous ne spécifiez pas de date et heure de début, cette planification utilise la date et heure de création. Pour contrôler les minutes pour la planification de la périodicité, spécifiez les minutes de l’heure, une heure de début ou utilisez l’heure de création. Par exemple, si l’heure de début ou l’heure de création est 8h25, cette planification s’exécute à 8h25, 9h25, 10h25, etc. |
 |||||||||
-
-<a name="run-once"></a>
-
-## <a name="run-one-time-only"></a>Une seule exécution
-
-Si vous voulez exécuter votre application logique une seule fois dans le futur, vous pouvez utiliser le modèle **Scheduler : Exécuter des tâches une fois**. Après avoir créé une application logique, mais avant d’ouvrir le Doncepteur Logic Apps, sous la section **Modèles**, dans la liste **Catégorie**, sélectionnez **Planifier**, puis sélectionnez ce modèle :
-
-![Sélectionner le modèle « Planificateur : Exécuter des tâches une fois »](./media/concepts-schedule-automated-recurring-tasks-workflows/choose-run-once-template.png)
-
-Ou, si vous pouvez démarrer votre application logique avec le déclencheur **Lors de la réception d’une demande HTTP - Demande**, passez l'heure de début comme paramètre du déclencheur. Pour la première action, utiliser l’action **Retarder jusqu’à - Planifier** et indiquez l’heure de début d’exécution de l’action suivante.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

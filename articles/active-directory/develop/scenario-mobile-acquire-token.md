@@ -13,16 +13,16 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 85d1880479a514ffb002e4894066734690480457
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 946908bf28a50bc8b523c4efd853e8720b115c7b
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443124"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063074"
 ---
 # <a name="get-a-token-for-a-mobile-app-that-calls-web-apis"></a>Obtenir un jeton pour une application mobile qui appelle des API web
 
-Pour pouvoir appeler des API web protégées, votre application doit disposer d'un jeton d'accès. Cet article décrit la procédure à suivre pour obtenir un jeton à l'aide de la bibliothèque MSAL (Microsoft Authentication Library).
+Pour pouvoir appeler des API web protégées, votre application doit disposer d'un jeton d'accès. Cet article décrit la procédure à suivre pour obtenir un jeton à l’aide de la bibliothèque d’authentification Microsoft (MSAL).
 
 ## <a name="define-a-scope"></a>Définir une étendue
 
@@ -255,7 +255,7 @@ var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
 
 ##### <a name="other-optional-parameters"></a>Autres paramètres facultatifs
 
-Pour en savoir plus sur les autres paramètres facultatifs de `AcquireTokenInteractive`, consultez la [documentation de référence relative à AcquireTokenInteractiveParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokeninteractiveparameterbuilder?view=azure-dotnet-preview#methods).
+Pour en savoir plus sur les autres paramètres facultatifs de `AcquireTokenInteractive`, consultez la [documentation de référence relative à AcquireTokenInteractiveParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokeninteractiveparameterbuilder#methods).
 
 ### <a name="acquire-tokens-via-the-protocol"></a>Acquérir des jetons via le protocole
 

@@ -4,12 +4,12 @@ description: Résume la prise en charge de la récupération d’urgence des mac
 ms.topic: article
 ms.date: 11/29/2020
 ms.author: raynew
-ms.openlocfilehash: a6a5d78385cc61838a606a3f3d2a7277f6b66a4d
-ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
+ms.openlocfilehash: 9670178a9c9d772d8966413371f998aa1f0cf5f3
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97858533"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97968291"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Prendre en charge la matrice de la récupération d’urgence de machines virtuelles Azure entre les régions Azure
 
@@ -198,6 +198,7 @@ Machines virtuelles migrées à l’aide de Site Recovery | Prise en charge | Si
 Stratégies Azure RBAC | Non pris en charge | Les stratégies de contrôle d’accès en fonction du rôle Azure (Azure RBAC) sur les machines virtuelles ne sont pas répliquées sur la machine virtuelle de basculement dans la région cible.
 Extensions | Non pris en charge | Les extensions ne sont pas répliquées sur la machine virtuelle de basculement dans la région cible. Elles doivent être installées manuellement après le basculement.
 Groupes de placement de proximité | Prise en charge | Les machines virtuelles situées à l’intérieur d’un groupe de placement de proximité peuvent être protégées avec Site Recovery.
+Étiquettes  | Prise en charge | Les étiquettes générées par l’utilisateur appliquées aux machines virtuelles sources sont reportées sur les machines virtuelles cibles après le basculement de test ou le basculement.
 
 
 ## <a name="replicated-machines---disk-actions"></a>Machines répliquées - Actions de disque
@@ -256,6 +257,7 @@ Disques NVMe | Non pris en charge
 Disques partagés Azure | Non pris en charge
 Option de transfert sécurisé | Prise en charge
 Disques avec accélérateur d’écriture | Non pris en charge
+Étiquettes  | Les étiquettes générées par l’utilisateur sont répliquées toutes les 24 heures.
 
 >[!IMPORTANT]
 > Pour éviter les problèmes de performances, assurez-vous de vous respecter les valeurs d'évolutivité et de performances des disques VM pour les machines virtuelles [Linux](../virtual-machines/linux/disk-scalability-targets.md) ou [Windows](../virtual-machines/windows/disk-scalability-targets.md). Si vous utilisez les paramètres par défaut, Site Recovery crée les disques et comptes de stockage requis en fonction de la configuration de la source. Si vous personnalisez et sélectionnez vos propres paramètres, suivez les cibles de scalabilité et de performances de disque de vos machines virtuelles sources.
@@ -302,6 +304,7 @@ Mise en réseau accélérée | Prise en charge | L’accélération réseau doit
 Appliance Palo Alto Network | Non pris en charge | Concernant les appliances tierces, il existe souvent des restrictions imposées par le fournisseur à l’intérieur de la machine virtuelle. Azure Site Recovery nécessite une connectivité sortante, d’agent et d’extensions pour être disponible. Toutefois, l’appliance ne permet pas de configurer une activité sortante à l’intérieur de la machine virtuelle.
 IPv6  | Non pris en charge | Les configurations mixtes qui incluent à la fois IPv4 et IPv6 ne sont pas non plus prises en charge. Libérez le sous-réseau de la plage IPv6 avant toute opération de Site Recovery.
 Lien privé d’accès au service Site Recovery | Prise en charge | [En savoir plus](azure-to-azure-how-to-enable-replication-private-endpoints.md)
+Étiquettes  | Prise en charge | Les étiquettes générées par l’utilisateur sur les cartes réseau sont répliquées toutes les 24 heures.
 
 
 

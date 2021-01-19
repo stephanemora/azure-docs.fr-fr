@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 14195ad4638c724cf0c8dd46945a0da79ec0e4ec
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 08b08e3e799ff7b579889a62ecec70677a3cbce9
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509698"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98059056"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique autodéclaré dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -208,7 +208,7 @@ Vous pouvez également appeler un profil technique d’API REST avec votre logiq
 | setting.showCancelButton | Non | Affiche le bouton Annuler. Les valeurs possibles sont `true` (par défaut) ou `false` |
 | setting.showContinueButton | Non | Affiche le bouton Continuer. Les valeurs possibles sont `true` (par défaut) ou `false` |
 | setting.showSignupLink <sup>2</sup>| Non | Affiche le bouton d’inscription. Les valeurs possibles sont `true` (par défaut) ou `false` |
-| setting.forgotPasswordLinkLocation <sup>2</sup>| Non| Affiche le lien du mot de passe oublié. Valeurs possibles : `AfterInput` (par défaut) où le lien est affiché en bas de la page ou `None` supprime le lien du mot de passe oublié.|
+| setting.forgotPasswordLinkLocation <sup>2</sup>| Non| Affiche le lien du mot de passe oublié. Valeurs possibles : `AfterLabel` (par défaut) affiche le lien directement après l’étiquette ou après le champ d’entrée de mot de passe lorsqu’il n’y a aucune étiquette, `AfterInput` affiche le lien après le champ d’entrée de mot de passe, `AfterButtons` affiche le lien en bas du formulaire après les boutons, ou `None` supprime le lien du mot de passe oublié.|
 | setting.enableRememberMe <sup>2</sup>| Non| Affiche la case à cocher [Rester connecté](session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi). Valeurs possibles : `true` ou `false` (par défaut). |
 | setting.inputVerificationDelayTimeInMilliseconds <sup>3</sup>| Non| Améliore l’expérience utilisateur en attendant que l’utilisateur arrête sa saisie puis en validant la valeur. La valeur par défaut est de 2000 millisecondes. |
 | IncludeClaimResolvingInClaimsHandling  | Non | Pour les revendications d’entrée et de sortie, spécifie si la [résolution des revendications](claim-resolver-overview.md) est incluse dans le profil technique. Valeurs possibles : `true` ou `false` (par défaut). Si vous souhaitez utiliser un programme de résolution des revendications dans le profil technique, définissez cette valeur sur `true`. |

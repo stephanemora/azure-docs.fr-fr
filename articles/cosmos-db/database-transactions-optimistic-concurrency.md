@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 12/04/2019
 ms.reviewer: sngun
-ms.openlocfilehash: bdfbe5106f220a9fe4a3568709187b9071bc7917
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 96652b2a1eb35668bd8a810b309ab31cec5afdb7
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93334274"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97967257"
 ---
 # <a name="transactions-and-optimistic-concurrency-control"></a>Transactions et contrôle d’accès concurrentiel optimiste
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -53,7 +53,9 @@ La possibilité d’exécuter JavaScript directement dans le moteur de base de d
 
 Le contrôle d’accès concurrentiel optimiste vous permet d’empêcher les suppressions et mises à jour perdues. Les opérations simultanées en conflit sont soumises au verrouillage pessimiste standard du moteur de base de données hébergé par la partition logique qui détient l’élément. Quand deux opérations simultanées tentent de mettre à jour la dernière version d’un élément dans une partition logique, l’une d’elles réussit et l’autre échoue. Toutefois, si l’une ou les deux opérations qui tentent de mettre à jour simultanément le même élément ont déjà lu une ancienne valeur de l’élément, la base de données ne sait pas si la valeur précédemment lue par l’une des opérations en conflit (ou les deux) était effectivement la valeur la plus récente de l’élément. Heureusement, cette situation peut être détectée avec le **contrôle d’accès concurrentiel optimiste** avant de laisser les deux opérations entrer dans la limite de transaction à l’intérieur du moteur de base de données. Le contrôle d’accès concurrentiel optimiste protège vos données contre tout remplacement involontaire de modifications apportées par d’autres utilisateurs. Il empêche également d’autres personnes d’écraser accidentellement vos propres modifications.
 
-Les mises à jour simultanées d’un élément sont soumises au contrôle d’accès concurrentiel optimiste par la couche de protocole de communication d’Azure Cosmos DB. La base de données Azure Cosmos garantit que la version côté client de l’élément que vous mettez à jour (ou supprimez) est identique à la version de l’élément dans le conteneur Azure Cosmos. Cela garantit que vos écritures sont protégées contre tout remplacement involontaire par les écritures d’autres utilisateurs, et inversement. Dans un environnement multi-utilisateur, le contrôle d’accès concurrentiel optimiste vous empêche de supprimer ou de mettre à jour accidentellement la version incorrecte d’un élément. Par conséquent, les éléments sont protégés contre les problèmes notoires de perte de mise à jour ou de suppression.
+Les mises à jour simultanées d’un élément sont soumises au contrôle d’accès concurrentiel optimiste par la couche de protocole de communication d’Azure Cosmos DB. Pour les comptes Azure Cosmos configurés pour des **écritures dans une seule région**, Azure Cosmos DB garantit que la version côté client de l’élément que vous mettez à jour (ou supprimez) est identique à la version de l’élément dans le conteneur Azure Cosmos. Cela garantit que vos écritures sont protégées contre tout remplacement involontaire par les écritures d’autres utilisateurs, et inversement. Dans un environnement multi-utilisateur, le contrôle d’accès concurrentiel optimiste vous empêche de supprimer ou de mettre à jour accidentellement la version incorrecte d’un élément. Par conséquent, les éléments sont protégés contre les problèmes notoires de perte de mise à jour ou de suppression.
+
+Dans un compte Azure Cosmos configuré pour des **écritures multirégions**, les données peuvent être validées indépendamment dans les régions secondaires si `_etag` correspond à celui des données dans la région locale. Une fois les nouvelles données validées localement dans une région secondaire, elles sont fusionnées dans le hub ou la région principale. Si la stratégie de résolution des conflits fusionne les nouvelles données dans la région du hub, ces données sont ensuite répliquées globalement avec la nouvelle valeur `_etag`. Si la stratégie de résolution des conflits rejette les nouvelles données, la région secondaire est restaurée avec les données d’origine et `_etag`.
 
 Chaque élément stocké dans un conteneur Azure Cosmos dispose d’une propriété `_etag` définie par le système. La valeur de `_etag` est automatiquement générée et mise à jour par le serveur chaque fois que l’élément est mis à jour. La propriété `_etag` peut être utilisée avec l’en-tête de requête `if-match` fourni par le client pour permettre au serveur de déterminer si un élément peut être mis à jour de manière conditionnelle. Si la valeur de l’en-tête `if-match` correspond à la valeur de `_etag` au niveau du serveur, l’élément est alors mis à jour. Si la valeur de l’en-tête de requête `if-match` n’est plus actuelle, le serveur rejette l’opération avec un message de réponse de type « HTTP 412 Échec de la condition préalable ». Le client peut alors réextraire l’élément pour acquérir sa version actuelle sur le serveur ou remplacer la version de l’élément sur le serveur par sa propre valeur `_etag` pour l’élément. De plus, la propriété `_etag` peut être utilisée avec l’en-tête `if-none-match` pour déterminer si la nouvelle extraction d’une ressource est nécessaire.
 

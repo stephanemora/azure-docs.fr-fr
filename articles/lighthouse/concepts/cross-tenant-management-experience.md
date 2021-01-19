@@ -1,14 +1,14 @@
 ---
 title: Expériences de la gestion multilocataire
 description: La gestion des ressources déléguées Azure offre une expérience de gestion inter-locataires.
-ms.date: 12/16/2020
+ms.date: 01/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: 111e5310f1dac01053eebc6592d7b56105358c41
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: a550655b8076a1e3946ff015239715ddf0712236
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97630086"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131761"
 ---
 # <a name="cross-tenant-management-experiences"></a>Expériences de la gestion multilocataire
 
@@ -97,7 +97,7 @@ La plupart des tâches et des services peuvent être exécutés sur des ressourc
 
 - Afficher les alertes pour les abonnements délégués, avec la possibilité d’afficher et d’actualiser des alertes à travers tous les abonnements
 - Afficher les détails du journal d’activité pour des abonnements délégués
-- Log Analytics : Interroger des données à partir d’espaces de travail distants dans plusieurs locataires
+- Log Analytics : Interroger des données à partir d’espaces de travail distants dans plusieurs locataires (notez que les comptes Automation utilisés pour accéder aux données à partir d’espaces de travail de locataires clients doivent être créés dans le même locataire)
 - Créer des alertes dans les locataires du client qui déclenchent une automatisation, par exemple des runbooks Azure Automation ou des fonctions Azure Functions, dans le locataire gérant par le biais de webhooks
 - Créer des [paramètres de diagnostic](../..//azure-monitor/platform/diagnostic-settings.md) dans les locataires clients pour envoyer les journaux de ressources à des espaces de travail dans le locataire responsable
 - Pour les charges de travail SAP, [surveiller les métriques des solutions SAP avec une vue agrégée sur les locataires clients](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/using-azure-lighthouse-and-azure-monitor-for-sap-solutions-to/ba-p/1537293)

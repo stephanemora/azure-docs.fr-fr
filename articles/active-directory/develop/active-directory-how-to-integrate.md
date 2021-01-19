@@ -13,12 +13,13 @@ ms.date: 10/01/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, seoapril2019
-ms.openlocfilehash: e9724bb2e5377f84904dc77c33375c39f3077dd4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: deb923a52e5d6cd5384dbf94d2249572b25b1a61
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91631407"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063839"
 ---
 # <a name="integrating-with-microsoft-identity-platform"></a>Intégration à Plateforme d’identités Microsoft
 
@@ -82,7 +83,7 @@ L’intégration à Plateforme d’identités Microsoft s’accompagne d’avant
 
 **Protocoles standard de l’industrie.**  Microsoft s'engage à prendre en charge les normes industrielles. La plateforme d’identité Microsoft prend en charge les protocoles standard tels qu’OAuth 2.0 et OpenID Connect 1.0. Découvrez en plus sur les [protocoles d’authentification de plateforme d’identité Microsoft](active-directory-v2-protocols.md).
 
-**Bibliothèques open source.**  Microsoft fournit les bibliothèques open source entièrement prises en charge pour les langages et plateformes courants afin d’accélérer le développement. Le code source est acquis sous licence sous Apache 2.0 et vous êtes libre de répliquer et de contribuer aux projets. En savoir plus sur [Microsoft Authentication Library (MSAL)](reference-v2-libraries.md).
+**Bibliothèques open source.**  Microsoft fournit les bibliothèques open source entièrement prises en charge pour les langages et plateformes courants afin d’accélérer le développement. Le code source est acquis sous licence sous Apache 2.0 et vous êtes libre de répliquer et de contribuer aux projets. En savoir plus sur la [Bibliothèque d’authentification Microsoft (MSAL)](reference-v2-libraries.md).
 
 ### <a name="worldwide-presence-and-high-availability"></a>Présence dans le monde entier et haute disponibilité
 

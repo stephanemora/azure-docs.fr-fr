@@ -1,31 +1,31 @@
 ---
-title: Fonction Azure en tant que gestionnaire d’événements pour des événements Azure Event Grid
-description: Décrit comment utiliser des fonctions Azure en tant que gestionnaires d’événements pour des événements Event Grid.
+title: Utiliser une fonction dans Azure en tant que gestionnaire d’événements pour des événements Azure Event Grid
+description: Décrit comment utiliser des fonctions crées et hébergées par Azure Functions en tant que gestionnaires d’événements pour des événements Event Grid.
 ms.topic: conceptual
 ms.date: 09/18/2020
-ms.openlocfilehash: 9e04fd3e04dab7a50940c2a4a799a56d447fbb6e
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 5a1ec575b58829a422e4d263ae0324e0343d5ad3
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145757"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98034966"
 ---
-# <a name="azure-function-as-an-event-handler-for-event-grid-events"></a>Fonction Azure en tant que gestionnaire d’événements pour des événements Event Grid
+# <a name="use-a-function-as-an-event-handler-for-event-grid-events"></a>Utiliser une fonction en tant que gestionnaire d’événements pour des événements Event Grid
 
 Un gestionnaire d’événements désigne l’endroit où l’événement est envoyé. Le gestionnaire effectue une action pour traiter l’événement. Plusieurs services Azure sont automatiquement configurés pour gérer des événements, et **Azure Functions** est l’un d’eux. 
 
 
-Pour utiliser une fonction Azure comme gestionnaire d’événements, suivez l’une des approches suivantes : 
+Dans Azure, pour utiliser une fonction en tant que gestionnaire d’événements, suivez l’une des approches suivantes : 
 
--   Utilisez un [déclencheur Event Grid](../azure-functions/functions-bindings-event-grid-trigger.md).  Spécifiez **Fonction Azure** pour le **type de point de terminaison**. Ensuite, spécifiez l’application Azure Functions et la fonction qui gérera les événements. 
--   Utilisez un [déclencheur HTTP](../azure-functions/functions-bindings-http-webhook.md).  Spécifiez **Webhook** comme **Type de point de terminaison**. Ensuite, spécifiez l’URL de la fonction Azure qui gérera les événements. 
+-   Utilisez un [déclencheur Event Grid](../azure-functions/functions-bindings-event-grid-trigger.md).  Spécifiez **Fonction Azure** pour le **type de point de terminaison**. Ensuite, spécifiez l’application de fonction et la fonction qui gérera les événements. 
+-   Utilisez un [déclencheur HTTP](../azure-functions/functions-bindings-http-webhook.md).  Spécifiez **Webhook** comme **Type de point de terminaison**. Ensuite, spécifiez l’URL de la fonction qui gérera les événements. 
 
 Nous vous recommandons d’utiliser la première approche (déclencheur Event Grid), car elle présente les avantages suivants par rapport à la deuxième approche :
 -   Event Grid valide automatiquement les déclencheurs Event Grid. Dans le cas des déclencheurs HTTP génériques, vous devez implémenter vous-même la [réponse de validation](webhook-event-delivery.md).
 -   Event Grid ajuste automatiquement la vitesse à laquelle les événements sont transmis à une fonction déclenchée par un événement Event Grid en fonction de la vitesse perçue à laquelle la fonction peut traiter les événements. Cette fonctionnalité de correspondance de vitesse permet d’éviter les erreurs de remise qui résultent de l’incapacité d’une fonction à traiter les événements, car la vitesse de traitement des événements de la fonction peut varier dans le temps. Pour améliorer l’efficacité à un débit élevé, activez le traitement par lot sur l’abonnement aux événements. Pour plus d’informations, consultez [Activer le traitement par lot](#enable-batching).
 
     > [!NOTE]
-    > Actuellement, vous ne pouvez pas utiliser un déclencheur Event Grid pour une application Azure Functions quand l’événement est remis dans le schéma **CloudEvents**. Utilisez à la place un déclencheur HTTP.
+    > Actuellement, vous ne pouvez pas utiliser un déclencheur Event Grid pour une application de fonction lorsque l’événement est remis dans le schéma **CloudEvents**. Utilisez à la place un déclencheur HTTP.
 
 ## <a name="tutorials"></a>Tutoriels
 
@@ -69,7 +69,7 @@ Lors de la création d’un abonnement dans l’interface utilisateur, sur la pa
 
 Vous pouvez mettre à jour ces valeurs pour un abonnement existant sous l’onglet **Fonctionnalités** de la page **Rubrique Event Grid**. 
 
-:::image type="content" source="./media/custom-event-to-function/features-batch-settings.png" alt-text="Activer le traitement par lot au moment de la création d’un abonnement":::
+:::image type="content" source="./media/custom-event-to-function/features-batch-settings.png" alt-text="Activer le traitement par lot après la création":::
 
 ### <a name="azure-resource-manager-template"></a>Modèle Azure Resource Manager
 Vous pouvez définir **maxEventsPerBatch** et **preferredBatchSizeInKilobytes** dans un modèle Resource Manager. Pour plus d’informations, consultez [Référence sur le modèle Microsoft.EventGrid eventSubscriptions](/azure/templates/microsoft.eventgrid/eventsubscriptions).

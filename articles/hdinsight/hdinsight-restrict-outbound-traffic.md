@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/17/2020
-ms.openlocfilehash: dc6412a85beba67551e7683c8127a65730f9218f
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 4c703fc1ddac4af2e3cf8716764a21da7e870b19
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92535465"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98048672"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>Configurer le trafic réseau sortant pour les clusters Azure HDInsight à l’aide du pare-feu
 
@@ -45,7 +45,7 @@ Créez un sous-réseau nommé **AzureFirewallSubnet** dans le réseau virtuel o�
 
 ### <a name="create-a-new-firewall-for-your-cluster"></a>Créer un pare-feu pour votre cluster
 
-Créez un pare-feu nommé **Test-FW01** à l’aide des étapes décrites dans **Déployer le pare-feu** , dans [Tutoriel : Déployer et configurer un pare-feu Azure à l’aide du portail Azure](../firewall/tutorial-firewall-deploy-portal.md#deploy-the-firewall)
+Créez un pare-feu nommé **Test-FW01** à l’aide des étapes décrites dans **Déployer le pare-feu**, dans [Tutoriel : Déployer et configurer un pare-feu Azure à l’aide du portail Azure](../firewall/tutorial-firewall-deploy-portal.md#deploy-the-firewall)
 
 ### <a name="configure-the-firewall-with-application-rules"></a>Configurer le pare-feu avec des règles d’application
 
@@ -53,11 +53,11 @@ Créez un regroupement de règles d’application permettant au cluster d’envo
 
 1. Sélectionnez le nouveau pare-feu **Test-FW01** dans le Portail Azure.
 
-1. Accédez à **Paramètres** > **Règles** > **Collection de règles d’application** > **Ajouter une collection de règles d’application** .
+1. Accédez à **Paramètres** > **Règles** > **Collection de règles d’application** > **Ajouter une collection de règles d’application**.
 
     ![Titre : Ajouter une collection de règles d’application](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection.png)
 
-1. Dans l’écran **Ajouter une collection de règles d’application** , fournissez les informations suivantes :
+1. Dans l’écran **Ajouter une collection de règles d’application**, fournissez les informations suivantes :
 
     **Section supérieure**
 
@@ -83,15 +83,15 @@ Créez un regroupement de règles d’application permettant au cluster d’envo
 
    ![Titre : Entrer les détails de la collection de règles d’application](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
 
-1. Sélectionnez **Ajouter** .
+1. Sélectionnez **Ajouter**.
 
 ### <a name="configure-the-firewall-with-network-rules"></a>Configurer le pare-feu avec des règles de réseau
 
 Créez les règles de réseau pour configurer correctement votre cluster HDInsight.
 
-1. Après l’étape précédente, accédez à **Collection de règles de réseau** >  **+ Ajouter une collection de règles de réseau** .
+1. Après l’étape précédente, accédez à **Collection de règles de réseau** >  **+ Ajouter une collection de règles de réseau**.
 
-1. Dans l’écran **Ajouter une collection de règles de réseau** , fournissez les informations suivantes :
+1. Dans l’écran **Ajouter une collection de règles de réseau**, fournissez les informations suivantes :
 
     **Section supérieure**
 
@@ -110,23 +110,23 @@ Créez les règles de réseau pour configurer correctement votre cluster HDInsig
     
    ![Titre : Entrer une collection de règles d’application](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png)
 
-1. Sélectionnez **Ajouter** .
+1. Sélectionnez **Ajouter**.
 
 ### <a name="create-and-configure-a-route-table"></a>Créer et configurer une table de routage
 
 Créez une table de routage avec les entrées suivantes :
 
-* Toutes les adresses IP de [Services de gestion et d’intégrité](../hdinsight/hdinsight-management-ip-addresses.md#health-and-management-services-all-regions) avec le type de tronçon suivant **Internet** . Elle doit inclure 4 adresses IP des régions génériques et 2 adresses IP pour votre région spécifique. Cette règle est requise uniquement si ResourceProviderConnection est défini sur *Entrant* . Si ResourceProviderConnection est défini sur *Sortant* , ces adresses IP ne sont pas nécessaires dans l’UDR. 
+* Toutes les adresses IP de [Services de gestion et d’intégrité](../hdinsight/hdinsight-management-ip-addresses.md#health-and-management-services-all-regions) avec le type de tronçon suivant **Internet**. Elle doit inclure 4 adresses IP des régions génériques et 2 adresses IP pour votre région spécifique. Cette règle est requise uniquement si ResourceProviderConnection est défini sur *Entrant*. Si ResourceProviderConnection est défini sur *Sortant*, ces adresses IP ne sont pas nécessaires dans l’UDR. 
 
 * Une route d’appliance virtuelle pour l’adresse IP 0.0.0.0/0 avec comme tronçon suivant l’adresse IP privée de votre pare-feu Azure.
 
 Par exemple, pour configurer la table de routage d’un cluster créé dans la région des États-Unis « USA Est », procédez comme suit :
 
-1. Sélectionnez votre pare-feu Azure **Test-FW01** . Copiez l’ **adresse IP privée** figurant dans la page **Vue d’ensemble** . Pour cet exemple, nous utiliserons un **exemple d’adresse 10.0.2.4** .
+1. Sélectionnez votre pare-feu Azure **Test-FW01**. Copiez l’**adresse IP privée** figurant dans la page **Vue d’ensemble**. Pour cet exemple, nous utiliserons un **exemple d’adresse 10.0.2.4**.
 
-1. Accédez ensuite à **Tous les services** > **Mise en réseau** > **Tables de routage** et **Créer une table de routage** .
+1. Accédez ensuite à **Tous les services** > **Mise en réseau** > **Tables de routage** et **Créer une table de routage**.
 
-1. À partir de votre nouvelle route, accédez à **Paramètres** > **Routes** >  **+ Ajouter** . Ajoutez les routes suivantes :
+1. À partir de votre nouvelle route, accédez à **Paramètres** > **Routes** >  **+ Ajouter**. Ajoutez les routes suivantes :
 
 | Nom de l’itinéraire | Préfixe de l’adresse | Type de tronçon suivant | adresse de tronçon suivant |
 |---|---|---|---|
@@ -140,13 +140,13 @@ Par exemple, pour configurer la table de routage d’un cluster créé dans la r
 
 Terminez la configuration de la table de routage :
 
-1. Affectez la table de routage que vous avez créée à votre sous-réseau HDInsight en sélectionnant **Sous-réseaux** sous **Paramètres** .
+1. Affectez la table de routage que vous avez créée à votre sous-réseau HDInsight en sélectionnant **Sous-réseaux** sous **Paramètres**.
 
-1. Sélectionnez **+ Associer** .
+1. Sélectionnez **+ Associer**.
 
-1. Dans l’écran **Associer un sous-réseau** , sélectionnez le réseau virtuel dans lequel votre cluster a été créé et le **sous-réseau** que vous avez utilisé pour votre cluster HDInsight.
+1. Dans l’écran **Associer un sous-réseau**, sélectionnez le réseau virtuel dans lequel votre cluster a été créé et le **sous-réseau** que vous avez utilisé pour votre cluster HDInsight.
 
-1. Sélectionnez **OK** .
+1. Sélectionnez **OK**.
 
 ## <a name="edge-node-or-custom-application-traffic"></a>Nœud de périphérie ou trafic d’application personnalisée
 
@@ -170,7 +170,7 @@ AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 
 L’intégration de Pare-feu Azure aux journaux d’activité d’Azure Monitor est utile lors de la première utilisation d’une application, en particulier lorsque vous ne connaissez pas toutes les dépendances de l’application. Pour en savoir plus sur les journaux d’activité Azure Monitor, consultez [Analyser les données de journal d’activité dans Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
 
-Pour en savoir plus sur les limites de mise à l’échelle du Pare-feu Azure et demander une augmentation, consultez [ce document](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits) ou reportez-vous au [FAQ](../firewall/firewall-faq.md).
+Pour en savoir plus sur les limites de mise à l’échelle du Pare-feu Azure et demander une augmentation, consultez [ce document](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits) ou reportez-vous au [FAQ](../firewall/firewall-faq.yml).
 
 ## <a name="access-to-the-cluster"></a>Accès au cluster
 

@@ -4,14 +4,14 @@ description: Problèmes couramment rencontrés avec les alertes de métrique Azu
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 01/03/2021
+ms.date: 01/11/2021
 ms.subservice: alerts
-ms.openlocfilehash: 9a05fe509e032681a0bf5ed989595a25f66d33c6
-ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
+ms.openlocfilehash: e4e876b58c82605df0c005b225dcf2cdbcda1b34
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97857339"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98070727"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Résolution des problèmes liés aux alertes de métrique dans Azure Monitor 
 
@@ -91,9 +91,9 @@ Si vous envisagez de déclencher une alerte sur une métrique spécifique, mais 
 Si vous souhaitez déclencher des alertes liées aux [valeurs de dimension spécifiques d’une métrique](./alerts-metric-overview.md#using-dimensions), mais que vous ne trouvez pas ces valeurs, notez ce qui suit :
 
 1. L’affichage des valeurs de dimension sous la liste **Valeurs de dimension** peut prendre quelques minutes.
-1. Les valeurs de dimension affichées sont basées sur les données de métriques collectées au cours des trois derniers jours
-1. Si la valeur de dimension n'est pas encore émise, cliquez sur le signe « + » pour ajouter une valeur personnalisée
-1. Si vous souhaitez déclencher une alerte sur l'ensemble des valeurs possibles d'une dimension (y compris les valeurs futures), cochez la case « Sélectionner * »
+1. Les valeurs de dimension affichées se basent sur les données de métriques collectées au cours du dernier jour.
+1. Si la valeur de dimension n’est pas encore émise ou n’est pas affichée, vous pouvez utiliser l’option « Ajouter une valeur personnalisée » pour ajouter une valeur de dimension personnalisée.
+1. Si vous souhaitez déclencher une alerte sur l'ensemble des valeurs possibles d'une dimension (y compris les valeurs futures), choisissez l’option « Sélectionner toutes les valeurs actuelles et futures ».
 
 ## <a name="metric-alert-rules-still-defined-on-a-deleted-resource"></a>Règles d'alerte de métrique toujours définies sur une ressource supprimée 
 

@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
-ms.date: 05/04/2020
-ms.openlocfilehash: 2d6d18cc73c02d3139074555fdd22a40c797ce40
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.date: 01/12/2021
+ms.openlocfilehash: 429f0b2ffe486279a1c429fc7a153e6528642f54
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825145"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131659"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Planifier un réseau virtuel pour Azure HDInsight
 
@@ -51,7 +51,8 @@ Les questions auxquelles vous devez répondre lors de la planification de l’in
 Suivez les étapes de cette section pour découvrir comment ajouter un nouveau cluster HDInsight à un réseau virtuel Azure existant.
 
 > [!NOTE]  
-> Vous ne pouvez pas ajouter un cluster HDInsight existant à un réseau virtuel.
+> - Vous ne pouvez pas ajouter un cluster HDInsight existant à un réseau virtuel.
+> - Le réseau virtuel et le cluster en cours de création doivent se trouver dans le même abonnement.
 
 1. Utilisez-vous un modèle de déploiement classique ou Resource Manager pour le réseau virtuel ?
 

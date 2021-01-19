@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperf-fy21q1
-ms.openlocfilehash: dd24c4f20fa3a56d25ef142947268b2d2b75474a
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 664264f2cd810f232b967f5af78ba3d522f0a41f
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97029598"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060008"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Vue d’ensemble de l’isolement et de la confidentialité des réseaux virtuels
 
@@ -152,7 +152,8 @@ Si votre stockage se trouve dans un réseau virtuel, vous devez d’abord effect
 Pour activer toute la fonctionnalité studio dans un réseau virtuel, consultez [Utiliser le studio Azure Machine Learning dans un réseau virtuel](how-to-enable-studio-virtual-network.md#configure-data-access-in-the-studio). Le studio prend en charge les comptes de stockage à l’aide de points de terminaison de service ou de points de terminaison privés.
 
 ### <a name="limitations"></a>Limites
-- [L’étiquetage des données assisté par ML](how-to-create-labeling-projects.md#use-ml-assisted-labeling) ne prend pas en charge les comptes de stockage par défaut sécurisés derrière un réseau virtuel. Vous devez utiliser un compte de stockage autre que celui par défaut pour l’étiquetage des données assisté par ML. Notez que le compte de stockage autre que celui par défaut peut être sécurisé derrière le réseau virtuel. 
+
+[L’étiquetage des données assisté par ML](how-to-create-labeling-projects.md#use-ml-assisted-data-labeling) ne prend pas en charge les comptes de stockage par défaut sécurisés derrière un réseau virtuel. Vous devez utiliser un compte de stockage autre que celui par défaut pour l’étiquetage des données assisté par ML. Notez que le compte de stockage autre que celui par défaut peut être sécurisé derrière le réseau virtuel. 
 
 ## <a name="configure-firewall-settings"></a>Configurer les paramètres de pare-feu
 

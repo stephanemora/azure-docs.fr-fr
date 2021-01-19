@@ -2,13 +2,13 @@
 title: Configurations recommandées pour les clients Apache Kafka – Azure Event Hubs
 description: Cet article fournit des configurations Apache Kafka recommandées pour les clients qui interagissent avec Azure Event Hubs pour Apache Kafka.
 ms.topic: reference
-ms.date: 07/20/2020
-ms.openlocfilehash: f9a03d1d3433461a575b32cd69893408a8b0ef97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/07/2021
+ms.openlocfilehash: 713900a3cc7e2b9f6f176edb21455faa577098d6
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87094086"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028826"
 ---
 # <a name="recommended-configurations-for-apache-kafka-clients"></a>Configurations recommandées pour les clients Apache Kafka
 Voici les configurations recommandées pour l’utilisation d’Azure Event Hubs à partir d’applications clientes Apache Kafka. 
@@ -79,7 +79,7 @@ Consultez le tableau suivant des scénarios d’erreur courantes liées à la co
 
 Symptômes | Problème | Solution
 ----|---|-----
-Échecs de validation de décalage en raison du rééquilibrage | Votre consommateur attend trop longtemps entre les appels à poll(), et le service éjecte le consommateur du groupe. | Vous disposez de plusieurs options : <ul><li>augmenter le délai d’expiration de session</li><li>réduire la taille du lot de messages pour accélérer le traitement</li><li>améliorez la parallélisation du traitement pour éviter le blocage de consumer.poll()</li></ul> L’application d’une combinaison des trois est probablement le choix le plus judicieux.
+Échecs de validation de décalage en raison du rééquilibrage | Votre consommateur attend trop longtemps entre les appels à poll(), et le service éjecte le consommateur du groupe. | Vous disposez de plusieurs options : <ul><li>Augmenter le délai d’expiration du traitement des interrogations (`max.poll.interval.ms`)</li><li>Réduire la taille du lot de messages pour accélérer le traitement</li><li>Améliorer la parallélisation du traitement pour éviter le blocage de consumer.poll()</li></ul> L’application d’une combinaison des trois est probablement le choix le plus judicieux.
 Exceptions réseau à un débit de production élevé | Utilisez-vous le client Java + valeur de max.request.size par défaut ?  Vos demandes sont peut-être trop volumineuses. | Consultez les configurations Java ci-dessus.
 
 ## <a name="next-steps"></a>Étapes suivantes

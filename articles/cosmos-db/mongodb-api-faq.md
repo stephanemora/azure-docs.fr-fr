@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.author: sngun
-ms.openlocfilehash: 4c93aea5a37fb286b49dabfb97522bf40c8f5429
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 08899018d03209dab09f61d4dd74feceee03b246
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93333169"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019008"
 ---
 # <a name="frequently-asked-questions-about-the-azure-cosmos-dbs-api-for-mongodb"></a>Forum aux questions sur l’API d’Azure Cosmos DB pour MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -29,12 +29,7 @@ Pour plus d’informations, consultez [Se connecter à une base de données Cosm
 
 ## <a name="error-codes-while-using-azure-cosmos-dbs-api-for-mongodb"></a>Vous rencontrez des codes d’erreur lors de l’utilisation de l’API d’Azure Cosmos DB pour MongoDB ?
 
-Parallèlement aux codes d’erreur MongoDB habituels, l’API Azure Cosmos DB pour MongoDB présente ses propres codes d’erreur :
-
-| Error               | Code  | Description  | Solution  |
-|---------------------|-------|--------------|-----------|
-| TooManyRequests     | 16500 | Le nombre total d’unités de requête consommées est supérieur au taux d’unités de requête provisionné pour le conteneur et a été limité. | Adaptez le débit assigné à un conteneur ou à un ensemble de conteneurs à partir du portail Azure ou renouvelez l’opération. |
-| ExceededMemoryLimit | 16501 | En tant que service multi-locataire, l’opération a dépassé l’allocation de mémoire du client. | Réduisez l’étendue de l’opération en fixant un critère de requête plus restrictif, ou contactez le support technique via le [portail Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br> Exemple : `db.getCollection('users').aggregate([{$match: {name: "Andy"}}, {$sort: {age: -1}}]))` |
+Parallèlement aux codes d’erreur MongoDB habituels, l’API Azure Cosmos DB pour MongoDB présente ses propres codes d’erreur. Ceux-ci se trouvent dans le [Guide de résolution des problèmes](mongodb-troubleshoot.md).
 
 ## <a name="supported-drivers"></a>Pilotes pris en charge
 

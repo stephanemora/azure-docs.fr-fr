@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/15/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: bb90c5776e67c1ba8fecdbf394a8098e96ca0652
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: a2c26c3e41f64a1593a2d3386c76427c0b9682e9
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96022375"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127479"
 ---
 # <a name="soft-delete-for-blobs"></a>Suppression réversible pour les objets blob
 
@@ -79,7 +79,7 @@ Lors de l’appel de la commande **Delete Blob** sur un objet blob de base (tout
 > [!NOTE]  
 > Quand un objet blob supprimé de manière réversible est remplacé, un instantané d’objet blob supprimé de manière réversible reflétant l’état de l’objet blob avant l’opération d’écriture est généré automatiquement. Le nouvel objet blob hérite le niveau de l’objet blob remplacé.
 
-La fonctionnalité de suppression réversible n’enregistre pas vos données en cas de suppression de conteneur ou de compte, ou en cas de remplacement de métadonnées et propriétés d’objet blob. Pour protéger un compte de stockage contre une suppression malencontreuse, vous pouvez configurer un verrou à l’aide d’Azure Resource Manager. Pour plus d’informations, voir l’article sur Azure Resource Manager intitulé [Verrouiller les ressources pour empêcher les modifications inattendues](../../azure-resource-manager/management/lock-resources.md).
+La fonctionnalité de suppression réversible n’enregistre pas vos données en cas de suppression de conteneur ou de compte, ou en cas de remplacement des métadonnées et des propriétés d’objet blob. Pour protéger un compte de stockage contre la suppression, vous pouvez configurer un verrou à l’aide d’Azure Resource Manager. Pour plus d’informations, consultez l’article sur Azure Resource Manager intitulé [Verrouiller les ressources pour empêcher les modifications inattendues](../../azure-resource-manager/management/lock-resources.md).
 
 Le tableau suivant indique le comportement attendu quand la suppression réversible est activée :
 
@@ -171,7 +171,7 @@ Non, ils ne le sont pas.
 
 ### <a name="if-i-delete-an-entire-account-or-container-with-soft-delete-turned-on-will-all-associated-blobs-be-saved"></a>Si je supprime un compte ou un conteneur entier alors que la suppression réversible est activée, les objets blob associés sont-ils tous enregistrés ?
 
-Non, si vous supprimez un compte ou un conteneur entiers, tous les objets blob associés sont supprimés définitivement. Pour plus d’informations sur la protection d’un compte de stockage contre les suppressions accidentelles, consultez [Verrouiller les ressources pour empêcher les modifications inattendues](../../azure-resource-manager/management/lock-resources.md).
+Non, si vous supprimez un compte ou un conteneur entiers, tous les objets blob associés sont supprimés définitivement. Pour plus d’informations sur la protection d’un compte de stockage contre la suppression accidentelle, consultez [Verrouiller les ressources pour empêcher les modifications inattendues](../../azure-resource-manager/management/lock-resources.md).
 
 ### <a name="can-i-view-capacity-metrics-for-deleted-data"></a>Puis-je afficher les métriques de capacité de données supprimées ?
 

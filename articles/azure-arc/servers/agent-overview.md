@@ -1,14 +1,14 @@
 ---
 title: Présentation de l’agent Connected Machine Windows
 description: Cet article fournit une présentation détaillée de l’agent des serveurs avec Azure Arc disponible, qui prend en charge la surveillance de machines virtuelles hébergées dans des environnements hybrides.
-ms.date: 12/21/2020
+ms.date: 01/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: bff76cbaa678ed82538eb6d75633aa94cdce30bf
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 86d524665b70725108324b1d88521a4c3cb8ff05
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97723267"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98033963"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Présentation de l’agent des serveurs activés par Azure Arc
 
@@ -68,6 +68,8 @@ Les versions suivantes des systèmes d’exploitation Windows et Linux sont offi
 ### <a name="azure-subscription-and-service-limits"></a>Limites du service et de l’abonnement Azure
 
 Avant de configurer vos machines à l’aide de serveurs activés par Azure Arc, examinez les [limites de l’abonnement](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits) et les [limites des groupes de ressources](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits) d’Azure Resource Manager pour planifier le nombre de machines à connecter.
+
+Les serveurs compatibles avec Azure Arc prennent en charge jusqu’à 5 000 instances de machine dans un groupe de ressources.
 
 ### <a name="transport-layer-security-12-protocol"></a>Protocole Transport Layer Security 1.2
 

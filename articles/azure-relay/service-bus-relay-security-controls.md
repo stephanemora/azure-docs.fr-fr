@@ -3,12 +3,12 @@ title: Contrôles de sécurité pour Azure Relay
 description: Cet article fournit une liste de contrôle des contrôles de sécurité intégrés pour l’évaluation de Azure Relay.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 64abee031bb20e2bdb10bf1cc3cd77e135713550
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d55026bfb6e3d6fe955a540b7596a85707398d6
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85316623"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98133342"
 ---
 # <a name="security-controls-for-azure-relay"></a>Contrôles de sécurité pour Azure Relay
 
@@ -20,7 +20,7 @@ Cet article décrit les contrôles de sécurité intégrés à Azure Relay.
 
 | Contrôle de sécurité | Oui/Non | Notes | Documentation |
 |---|---|--|--|
-| Prise en charge du point de terminaison de service| Non |  |   |
+| Prise en charge d'un point de terminaison privé| Non |  |   |
 | Prise en charge de l’isolement réseau et de l’installation de pare-feu| Non |  |   |
 | Prise en charge du tunneling forcé| N/A | Le relais est le tunnel TLS  |   |
 

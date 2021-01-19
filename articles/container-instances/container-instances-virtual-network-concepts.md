@@ -3,12 +3,12 @@ title: Scénarios d’utilisation d’un réseau virtuel
 description: Scénarios, ressources et limitations relatifs au déploiement de groupes de conteneurs sur un réseau virtuel Azure.
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: 2fb468a6a860bcc076043c30606922f43fbdb1ad
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 65d7fa46ebbb9b072b50731bff68b9b88809075d
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97882430"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98033827"
 ---
 # <a name="virtual-network-scenarios-and-resources"></a>Ressources et scénarios relatifs aux réseaux virtuels
 
@@ -33,6 +33,7 @@ Les groupes de conteneurs déployés dans un réseau virtuel Azure autorisent le
 * **Azure Load Balancer** - Le placement d’un équilibreur de charge Azure devant des instances de conteneurs dans un groupe de conteneurs en réseau n’est pas pris en charge.
 * **Peering mondial de réseaux virtuels** - Le peering mondial (connexion de réseaux virtuels entre des régions Azure) n’est pas pris en charge
 * **Étiquette DNS ou adresse IP publique** - Les groupes de conteneurs déployés sur un réseau virtuel ne prennent actuellement pas en charge l’exposition de conteneurs directement sur Internet avec une adresse IP publique ou un nom de domaine complet.
+* **NAT de réseau virtuel** - Les groupes de conteneurs déployés sur un réseau virtuel ne prennent actuellement pas en charge l’utilisation d’une ressource de passerelle NAT pour la connectivité Internet sortante.
 
 ## <a name="other-limitations"></a>Autres limitations
 

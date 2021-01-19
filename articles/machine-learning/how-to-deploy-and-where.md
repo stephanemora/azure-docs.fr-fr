@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 12/11/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
-ms.openlocfilehash: dd7a336df5ff187b874876db32abb45915e00f3b
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 195f1c527185fbd55450b6151f26525074db75f7
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97739380"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98070420"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Déployer des modèles avec Azure Machine Learning
 
@@ -322,6 +322,8 @@ Le tableau ci-après décrit les différents états de service :
 | Échec | Le déploiement du service a échoué en raison d’une erreur ou d’un plantage. | Oui |
 | Healthy | Le service est sain et le point de terminaison est disponible. | Oui |
 
+> [!TIP]
+> Lors du déploiement, les images Docker pour les cibles de calcul sont créées et chargées à partir d’Azure Container Registry (ACR). Par défaut, Azure Machine Learning crée un registre ACR du niveau de service *De base*. Un passage au niveau Standard ou Premium du registre ACR de l’espace de travail est susceptible de réduire le temps nécessaire à la génération et au déploiement des images dans les cibles de calcul. Pour plus d’informations, consultez [Niveaux de service pour Azure Container Registry](../container-registry/container-registry-skus.md).
 
 ### <a name="batch-inference"></a><a id="azuremlcompute"></a> Inférence par lots
 Les cibles de calcul Azure Machine Learning sont créées et managées par Azure Machine Learning. Elles peuvent être utilisées pour la prédiction par lots à partir de pipelines Azure Machine Learning.

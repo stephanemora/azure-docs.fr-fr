@@ -1,7 +1,7 @@
 ---
 title: Durées de vie des jetons configurables
 titleSuffix: Microsoft identity platform
-description: Découvrez comment définir des durées de vie pour des jetons émis par la Plateforme d’identité Microsoft.
+description: Découvrez comment définir des durées de vie pour des jetons d’accès, SAML et d’ID émis par la Plateforme d’identité Microsoft.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -9,65 +9,20 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/14/2020
+ms.date: 01/04/2021
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1, contperf-fy21q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: f73186612fe79af88e84956bb4d0f0b374f4c986
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 0b3c2f74edff661326e97da7b06860914468c43b
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97507793"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98059345"
 ---
 # <a name="configurable-token-lifetimes-in-microsoft-identity-platform-preview"></a>Durées de vie des jetons configurables dans la plateforme d’identité Microsoft (préversion)
 
-> [!IMPORTANT]
-> Après mai 2020, les locataires ne seront plus en mesure de configurer la durée de vie des jetons d’actualisation et de session.  Azure Active Directory cessera d’honorer la configuration actuelle des jetons d’actualisation et de session dans les stratégies après le 30 janvier 2021. Vous pourrez toujours configurer la durée de vie des jetons d'accès après la dépréciation.
->
-> Si vous devez continuer à définir la période de temps avant qu’un utilisateur soit invité à se connecter à nouveau, configurez la fréquence de connexion dans Accès conditionnel. Pour en savoir plus sur l’accès conditionnel, consultez [Configurer la gestion de session d’authentification avec l’accès conditionnel](/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime).
->
-> Pour les locataires qui ne souhaitent pas utiliser l’accès conditionnel après la date de mise hors service, ils peuvent s’attendre à ce qu’Azure AD honore la configuration par défaut décrite dans la section suivante.
-
-## <a name="configurable-token-lifetime-properties-after-the-retirement"></a>Propriétés des durées de vie des jetons configurables après la mise hors service
-La configuration des jetons d’actualisation et de session est affectée par les propriétés suivantes et leurs valeurs définies respectives. Après la mise hors service de la configuration des jetons d’actualisation et de session, Azure AD honorera uniquement la valeur par défaut décrite ci-dessous, que les stratégies aient des valeurs personnalisées configurées ou non. Vous pourrez toujours configurer la durée de vie des jetons d’accès après la mise hors service. 
-
-|Propriété   |Chaîne de propriété de stratégie    |Éléments affectés |Default |
-|----------|-----------|------------|------------|
-|Délai d’inactivité maximale de jeton d’actualisation |MaxInactiveTime  |Jetons d’actualisation |90 jours  |
-|Âge maximal de jeton d’actualisation à facteur unique  |MaxAgeSingleFactor  |Jetons d’actualisation (pour tous les utilisateurs)  |Jusqu’à révocation  |
-|Âge maximal de jeton d’actualisation multifacteur  |MaxAgeMultiFactor  |Jetons d’actualisation (pour tous les utilisateurs) |180 jours  |
-|Âge maximal de jeton de session à facteur unique  |MaxAgeSessionSingleFactor |Jetons de session (persistants et non persistants)  |Jusqu’à révocation |
-|Âge maximal de jeton de session multifacteur  |MaxAgeSessionMultiFactor  |Jetons de session (persistants et non persistants)  |180 jours |
-
-## <a name="identify-configuration-in-scope-of-retirement"></a>Identifier la configuration dans le cadre de la mise hors service
-
-Pour commencer, suivez les étapes ci-dessous :
-
-1. Téléchargez la dernière [version préliminaire publique du module Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureADPreview).
-1. Exécutez la commande `Connect` pour vous connecter à votre compte Administrateur Azure AD. Exécutez cette commande chaque fois que vous démarrez une nouvelle session.
-
-    ```powershell
-    Connect-AzureAD -Confirm
-    ```
-
-1. Pour afficher toutes les stratégies qui ont été créées dans votre organisation, exécutez la cmdlet [Get-AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true).  Tout résultat ayant une valeur de propriété définie qui diffère des valeurs par défaut indiquées ci-dessus relève du champ d’application de la mise hors service.
-
-    ```powershell
-    Get-AzureADPolicy -All
-    ```
-
-1. Pour déterminer les applications et les principaux de service liés à une stratégie spécifique, vous avez identifié la cmdlet [Get-AzureADPolicyAppliedObject](/powershell/module/azuread/get-azureadpolicyappliedobject?view=azureadps-2.0-preview&preserve-view=true) en remplaçant **1a37dad8-5da7-4cc8-87c7-efbc0326cf20** par l’un de vos ID de stratégie. Vous pouvez ensuite décider s’il faut configurer la fréquence de connexion de l’accès conditionnel ou conserver les valeurs Azure AD par défaut.
-
-    ```powershell
-    Get-AzureADPolicyAppliedObject -id 1a37dad8-5da7-4cc8-87c7-efbc0326cf20
-    ```
-
-Si votre locataire a des stratégies qui définissent des valeurs personnalisées pour les propriétés de configuration des jetons d’actualisation et de session, Microsoft vous recommande de mettre à jour ces stratégies avec des valeurs qui reflètent les valeurs par défaut décrites ci-dessus. Si aucune modification n’est apportée, Azure AD honorera automatiquement les valeurs par défaut.  
-
-## <a name="overview"></a>Vue d'ensemble
-
-Vous pouvez spécifier la durée de vie d’un jeton émis par la Plateforme d’identité Microsoft. Vous pouvez définir les durées de vie des jetons pour toutes les applications de votre organisation, pour une application mutualisée (plusieurs organisations) ou pour un principal de service spécifique de votre organisation. Cependant, nous ne prenons pas en charge actuellement la configuration des durées de vie des jetons pour les [principaux de service d’identité managée](../managed-identities-azure-resources/overview.md).
+Vous pouvez spécifier la durée de vie d’un jeton d’accès, d’ID ou SAML émis par la Plateforme d’identité Microsoft. Vous pouvez définir les durées de vie des jetons pour toutes les applications de votre organisation, pour une application mutualisée (plusieurs organisations) ou pour un principal de service spécifique de votre organisation. Cependant, nous ne prenons pas en charge actuellement la configuration des durées de vie des jetons pour les [principaux de service d’identité managée](../managed-identities-azure-resources/overview.md).
 
 Dans Azure AD, un objet de stratégie représente un ensemble de règles appliquées sur des applications individuelles ou sur toutes les applications d’une organisation. Chaque type de stratégie comporte une structure unique avec un ensemble de propriétés qui sont ensuite appliquées aux objets auxquels elles sont affectées.
 
@@ -79,13 +34,19 @@ Pour obtenir des exemples, consultez des [exemples de configuration des durées 
 > La stratégie de durée de vie des jetons configurable s’applique seulement aux clients mobiles et de poste de travail qui accèdent aux ressources SharePoint Online et OneDrive Entreprise ; elle ne s’applique pas aux sessions de navigateur web.
 > Pour gérer la durée de vie des sessions de navigateur web pour SharePoint Online et OneDrive Entreprise, utilisez la fonctionnalité [Durée de vie de la session d’accès conditionnel](../conditional-access/howto-conditional-access-session-lifetime.md). Reportez-vous au [blog SharePoint Online](https://techcommunity.microsoft.com/t5/SharePoint-Blog/Introducing-Idle-Session-Timeout-in-SharePoint-and-OneDrive/ba-p/119208) pour en savoir plus sur la configuration des délais d’expiration des sessions inactives.
 
-## <a name="token-types"></a>Types de jetons
+## <a name="license-requirements"></a>Conditions de licence :
 
-Vous pouvez définir les stratégies de durée de vie des jetons pour les jetons d’actualisation, les jetons d’accès, les jetons SAML, les jetons de session et les jetons d’ID.
+L'utilisation de cette fonctionnalité nécessite une licence Azure AD Premium P1. Pour trouver la licence appropriée à vos besoins, consultez [Comparaison des fonctionnalités mises à la disposition générale des éditions Gratuite et Premium](https://azure.microsoft.com/pricing/details/active-directory/).
+
+Les clients avec [des licences Microsoft 365 Business](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) ont également accès aux fonctionnalités d’accès conditionnel.
+
+## <a name="token-lifetime-policies-for-access-saml-and-id-tokens"></a>Stratégies de durée de vie des jetons d’accès, SAML et d’ID
+
+Vous pouvez définir les stratégies de durée de vie des jetons d’accès, SAML et d’ID. 
 
 ### <a name="access-tokens"></a>Jetons d’accès
 
-Les clients utilisent des jetons d’accès pour accéder à une ressource protégée. Un jeton d’accès peut uniquement être utilisé pour une combinaison spécifique d’utilisateur, de client et de ressource. Les jetons d’accès ne peuvent pas être révoqués et sont valides jusqu’à leur expiration. Un acteur malveillant qui a obtenu un jeton d’accès peut l’utiliser pour prolonger sa durée de vie. L’ajustement de la durée de vie des jetons d’accès représente un compromis entre l’amélioration des performances du système et l’augmentation de la durée pendant laquelle le client conserve un accès une fois son compte désactivé. Les performances du système sont améliorées en réduisant le nombre de fois où un client doit acquérir un nouveau jeton d’accès.  La valeur par défaut est 1 heure. Après 1 heure, le client doit utiliser le jeton d’actualisation pour acquérir (généralement en mode silencieux) un nouveau jeton d’actualisation et un jeton d’accès. 
+Les clients utilisent des jetons d’accès pour accéder à une ressource protégée. Un jeton d’accès peut uniquement être utilisé pour une combinaison spécifique d’utilisateur, de client et de ressource. Les jetons d’accès ne peuvent pas être révoqués et sont valides jusqu’à leur expiration. Un acteur malveillant qui a obtenu un jeton d’accès peut l’utiliser pour prolonger sa durée de vie. L’ajustement de la durée de vie des jetons d’accès représente un compromis entre l’amélioration des performances du système et l’augmentation de la durée pendant laquelle le client conserve un accès une fois son compte désactivé. Les performances du système sont améliorées en réduisant le nombre de fois où un client doit acquérir un nouveau jeton d’accès.  La valeur par défaut est 1 heure. Après 1 heure, le client doit utiliser le jeton d’actualisation pour acquérir (généralement en mode silencieux) un nouveau jeton d’actualisation et un jeton d’accès.
 
 ### <a name="saml-tokens"></a>Jetons SAML
 
@@ -94,6 +55,38 @@ Les jetons SAML sont utilisés par de nombreuses applications SAAS basées sur l
 La valeur de NotOnOrAfter peut être modifiée à l’aide du paramètre `AccessTokenLifetime` dans un élément `TokenLifetimePolicy`. Elle sera définie sur la durée de vie configurée dans la stratégie si elle existe, à laquelle sera ajouté un facteur de décalage de l’horloge de cinq minutes.
 
 La valeur NotOnOrAfter de la confirmation d’objet spécifiée dans l’élément `<SubjectConfirmationData>` n’est pas affectée par la configuration de la durée de vie du jeton. 
+
+### <a name="id-tokens"></a>Jetons d’ID
+
+Les jetons d’ID sont transmis aux sites web et clients natifs. Les jetons d’ID contiennent des informations de profil sur un utilisateur. Un jeton d’ID est lié à une combinaison spécifique d’utilisateur et de client. Les jetons d’ID sont considérés comme valides jusqu’à leur expiration. En règle générale, une application web fait correspondre la durée de vie de session d’un utilisateur de l’application à la durée de vie du jeton d’ID émis pour l’utilisateur. Vous pouvez ajuster la durée de vie des jetons d’ID pour contrôler la fréquence à laquelle l’application web arrête la session de l’application et demande à l’utilisateur de s’authentifier à nouveau auprès de la Plateforme d’identité Microsoft (en mode silencieux ou interactif).
+
+### <a name="token-lifetime-policy-properties"></a>Propriétés des stratégies de durée de vie des jetons
+
+Une stratégie de durée de vie des jetons est un type d’objet de stratégie qui contient des règles de durée de vie des jetons. Cette stratégie détermine la durée pendant laquelle les jetons d’accès, SAML et d’ID sont considérés comme valides. Si aucune stratégie n’est définie, le système applique la valeur de durée de vie par défaut. 
+
+Réduire la propriété Durée de vie de jeton d’accès atténue le risque qu’un jeton d’accès ou jeton d’ID soit utilisé par un acteur malveillant pour une période prolongée. (Ces jetons ne peuvent pas être révoqués.) L’inconvénient est que les performances sont affectées, car les jetons sont remplacés plus souvent.
+
+Pour obtenir un exemple, consultez [Créer une stratégie de connexion Web](configure-token-lifetimes.md#create-a-policy-for-web-sign-in).
+
+| Propriété | Chaîne de propriété de stratégie | Éléments affectés | Default | Minimum | Maximale |
+| --- | --- | --- | --- | --- | --- |
+| Durée de vie de jeton d’accès |AccessTokenLifetime |Jetons d’accès, jetons d’ID, jetons SAML2 |1 heure |10 minutes |1 jour |
+
+> [!NOTE]
+> Pour s’assurer que le client web Microsoft Teams fonctionne, il est recommandé de conserver AccessTokenLifetime sur une durée supérieure à 15 minutes pour Microsoft Teams.
+
+## <a name="token-lifetime-policies-for-refresh-tokens-and-session-tokens"></a>Stratégies de durée de vie des jetons d’actualisation et de session
+
+Vous pouvez définir les stratégies de durée de vie des jetons d’actualisation et de session.
+
+> [!IMPORTANT]
+> À partir de mai 2020, les nouveaux locataires ne peuvent pas configurer les durées de vie des jetons d’actualisation et de session.  Les locataires avec une configuration existante peuvent modifier les stratégies des jetons d’actualisation et de session jusqu’au 30 janvier 2021.   Azure Active Directory cessera d’honorer la configuration actuelle des jetons d’actualisation et de session dans les stratégies après le 30 janvier 2021. Vous pourrez toujours configurer la durée de vie des jetons d’accès, SAML et d’ID après la mise hors service.
+>
+> Si vous devez continuer à définir la période de temps avant qu’un utilisateur soit invité à se connecter à nouveau, configurez la fréquence de connexion dans Accès conditionnel. Pour en savoir plus sur l’accès conditionnel, lisez l’article [Configurer la gestion de session d’authentification avec l’accès conditionnel](/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime).
+>
+> Si vous ne souhaitez pas utiliser l’accès conditionnel après la date de mise hors service, vos jetons d’actualisation et de session seront définis sur la [configuration par défaut](#configurable-token-lifetime-properties-after-the-retirement) à cette date, et vous ne pourrez plus modifier leur durée de vie.
+
+:::image type="content" source="./media/active-directory-configurable-token-lifetimes/roadmap.svg" alt-text="Informations sur la mise hors service":::
 
 ### <a name="refresh-tokens"></a>Jetons d’actualisation
 
@@ -111,9 +104,6 @@ Les clients publics ne peuvent pas stocker en toute sécurité un mot de passe c
 > [!NOTE]
 > La propriété Âge maximal représente la durée pendant laquelle un seul jeton peut être utilisé. 
 
-### <a name="id-tokens"></a>Jetons d’ID
-Les jetons d’ID sont transmis aux sites web et clients natifs. Les jetons d’ID contiennent des informations de profil sur un utilisateur. Un jeton d’ID est lié à une combinaison spécifique d’utilisateur et de client. Les jetons d’ID sont considérés comme valides jusqu’à leur expiration. En règle générale, une application web fait correspondre la durée de vie de session d’un utilisateur de l’application à la durée de vie du jeton d’ID émis pour l’utilisateur. Vous pouvez ajuster la durée de vie des jetons d’ID pour contrôler la fréquence à laquelle l’application web arrête la session de l’application et demande à l’utilisateur de s’authentifier à nouveau auprès de la Plateforme d’identité Microsoft (en mode silencieux ou interactif).
-
 ### <a name="single-sign-on-session-tokens"></a>Jetons de session d’authentification unique
 Quand utilisateur s’authentifie auprès de la Plateforme d’identité Microsoft, une session d’authentification unique (SSO) est établie avec le navigateur de l’utilisateur et la Plateforme d’identité Microsoft. Le jeton SSO représente cette session sous la forme d’un cookie. Le jeton de session SSO n’est pas lié à une application cliente/ressource spécifique. Les jetons de session SSO peuvent être révoqués, et leur validité est vérifiée à chaque fois qu’ils sont utilisés.
 
@@ -123,23 +113,21 @@ Les jetons de session non persistants ont une durée de vie de 24 heures. Les je
 
 Vous pouvez utiliser une stratégie pour définir la durée après laquelle le premier jeton de session a été émis au-delà de celle pour laquelle le jeton de session n’est plus accepté. (Pour ce faire, utilisez la propriété Âge maximal de jeton de session). Vous pouvez ajuster la durée de vie des jetons de session pour contrôler le moment et la fréquence auxquels l’utilisateur doit entrer de nouveau les informations d’identification au lieu d’être authentifié de nouveau en mode silencieux lorsqu’il utilise une application web.
 
-### <a name="token-lifetime-policy-properties"></a>Propriétés des stratégies de durée de vie des jetons
+### <a name="refresh-and-session-token-lifetime-policy-properties"></a>Propriétés des stratégies de durée de vie des jetons d’actualisation et de session
 Une stratégie de durée de vie des jetons est un type d’objet de stratégie qui contient des règles de durée de vie des jetons. Utilisez les propriétés de la stratégie pour contrôler les durées de vie des jetons spécifiés. Si aucune stratégie n’est définie, le système applique la valeur de durée de vie par défaut.
 
-### <a name="configurable-token-lifetime-properties"></a>Propriétés des durées de vie des jetons configurables
+#### <a name="configurable-token-lifetime-properties"></a>Propriétés des durées de vie des jetons configurables
 | Propriété | Chaîne de propriété de stratégie | Éléments affectés | Default | Minimum | Maximale |
 | --- | --- | --- | --- | --- | --- |
-| Durée de vie de jeton d’accès |AccessTokenLifetime<sup>2</sup> |Jetons d’accès, jetons d’ID, jetons SAML2 |1 heure |10 minutes |1 jour |
 | Délai d’inactivité maximale de jeton d’actualisation |MaxInactiveTime |Jetons d’actualisation |90 jours |10 minutes |90 jours |
 | Âge maximal de jeton d’actualisation à facteur unique |MaxAgeSingleFactor |Jetons d’actualisation (pour tous les utilisateurs) |Jusqu’à révocation |10 minutes |Jusqu’à révocation<sup>1</sup> |
-| Âge maximal de jeton d’actualisation multifacteur |MaxAgeMultiFactor |Jetons d’actualisation (pour tous les utilisateurs) | 180 jours |10 minutes |180 jours<sup>1</sup> |
+| Âge maximal de jeton d’actualisation multifacteur |MaxAgeMultiFactor |Jetons d’actualisation (pour tous les utilisateurs) | Jusqu’à révocation |10 minutes |180 jours<sup>1</sup> |
 | Âge maximal de jeton de session à facteur unique |MaxAgeSessionSingleFactor |Jetons de session (persistants et non persistants) |Jusqu’à révocation |10 minutes |Jusqu’à révocation<sup>1</sup> |
-| Âge maximal de jeton de session multifacteur |MaxAgeSessionMultiFactor |Jetons de session (persistants et non persistants) | 180 jours |10 minutes | 180 jours<sup>1</sup> |
+| Âge maximal de jeton de session multifacteur |MaxAgeSessionMultiFactor |Jetons de session (persistants et non persistants) | Jusqu’à révocation |10 minutes | 180 jours<sup>1</sup> |
 
 * <sup>1</sup>Une durée explicite maximale de 365 jours peut être définie pour ces attributs.
-* <sup>2</sup>Pour s’assurer que le client web Microsoft Teams fonctionne, il est recommandé de conserver AccessTokenLifetime sur une durée supérieure à 15 minutes pour Microsoft Teams.
 
-### <a name="exceptions"></a>Exceptions
+#### <a name="exceptions"></a>Exceptions
 | Propriété | Éléments affectés | Default |
 | --- | --- | --- |
 | Âge maximal de jeton d’actualisation (émis pour les utilisateurs fédérés disposant d’informations de révocation insuffisantes<sup>1</sup>) |Jetons d’actualisation (émis pour les utilisateurs fédérés disposant d’informations de révocation insuffisantes<sup>1</sup>) |12 heures |
@@ -148,52 +136,9 @@ Une stratégie de durée de vie des jetons est un type d’objet de stratégie q
 
 * <sup>1</sup> Les utilisateurs fédérés qui disposent d’informations de révocation insuffisantes incluent tous les utilisateurs qui n’ont pas l’attribut « LastPasswordChangeTimestamp » synchronisé. Cette valeur Âge maximal courte est affectée à ces utilisateurs car Azure Active Directory est incapable de vérifier quand révoquer les jetons qui sont liés à d’anciennes informations d’identification (par exemple un mot de passe qui a été changé) et doit vérifier plus fréquemment pour s’assurer que les jetons associés sont toujours conformes. Pour améliorer cette expérience, les administrateurs de locataires doivent s’assurer qu’ils synchronisent l’attribut « LastPasswordChangeTimestamp » (cela peut être défini sur l’objet utilisateur à l’aide de PowerShell ou d’AADSync).
 
-### <a name="policy-evaluation-and-prioritization"></a>Définition des priorités et évaluation de la stratégie
-Vous pouvez créer, puis affecter une stratégie de durée de vie à une application spécifique, à votre organisation et à vos principaux de service. Plusieurs stratégies peuvent s’appliquer à une application spécifique. La stratégie de durée de vie du jeton appliquée suit les règles ci-dessous :
+### <a name="configurable-policy-property-details"></a>Présentation des propriétés de stratégie configurables
 
-* Si une stratégie est explicitement affectée au principal de service, elle est appliquée.
-* Si aucune stratégie n’est explicitement affectée au principal de service, une stratégie explicitement affectée à l’organisation parente du principal de service est appliquée.
-* Si aucune stratégie n’est explicitement affectée au principal de service ou à l’organisation, la stratégie affectée à l’application est appliquée.
-* Si aucune stratégie n’a été affectée au principal du service, à l’organisation ou à l’objet d’application, les valeurs par défaut sont appliquées. (Consultez le tableau dans la section [Propriétés des durées de vie des jetons configurables](#configurable-token-lifetime-properties).)
-
-Pour plus d’informations sur la relation existant entre les objets de principal de service et d’application, consultez [Objets application et principal du service dans Azure Active Directory](app-objects-and-service-principals.md).
-
-La validité d’un jeton est évaluée lors de son utilisation. C’est la stratégie pourvue de la priorité la plus élevée sur l’application ouverte qui est appliquée.
-
-Tous les intervalles de temps utilisés ici sont mis en forme selon C# [TimeSpan](/dotnet/api/system.timespan) object - D.HH:MM:SS.  Par conséquent, 80 jours et 30 minutes s’affichent sous la forme `80.00:30:00`.  La première valeur D peut être supprimée si elle est égale à zéro ; 90 minutes deviennent alors `00:90:00`.  
-
-> [!NOTE]
-> Voici un scénario d’exemple.
->
-> Un utilisateur souhaite accéder à deux applications web : l’application web A et l’application web B.
-> 
-> Facteurs :
-> * Les deux applications web résident dans la même organisation parente.
-> * La stratégie 1 de durée de vie des jetons pourvue d’une propriété Âge maximal de jeton de session de 8 heures est définie comme valeur par défaut de l’organisation parente.
-> * L’application web A est une application web d’utilisation régulière, qui n’est liée à aucune stratégie.
-> * L’application web B est utilisée pour les processus très sensibles. Son principal de service est lié à la stratégie 2 de durée de vie des jetons pourvue d’une propriété Âge maximal de jeton de session de 30 minutes.
->
-> À 12 h 00, l’utilisateur démarre une nouvelle session de navigateur et tente d’accéder à l’application web A. Il est redirigé vers la Plateforme d’identité Microsoft et invité à se connecter. Cette action crée un cookie avec un jeton de session dans le navigateur. L’utilisateur est redirigé vers l’application web A avec un jeton d’ID qui lui permet d’accéder à l’application.
->
-> À 12 h 15, l’utilisateur tente d’accéder à l’application web B. Le navigateur le redirige vers la Plateforme d’identité Microsoft qui détecte le cookie de session. Le principal de service de l’application web B est lié à la stratégie 2 de durée de vie des jetons, mais fait également partie de l’organisation parente avec la stratégie 1 de durée de vie des jetons par défaut. La stratégie 2 de durée de vie des jetons est appliquée puisque les stratégies liées aux principaux de service ont une priorité supérieure à celle des stratégies par défaut de l’organisation. Comme le jeton de session a été initialement émis au cours des 30 dernières minutes, il est considéré comme valide. L’utilisateur est redirigé vers l’application web B avec un jeton d’ID qui lui octroie un accès.
->
-> À 13 h 00, l’utilisateur tente d’accéder à l’application web A. Il est redirigé vers la Plateforme d’identité Microsoft. L’application web A n’est liée à aucune stratégie, mais comme elle réside dans une organisation avec la stratégie 1 de durée de vie des jetons par défaut, cette stratégie est appliquée. Le cookie de session qui a initialement été émis au cours des huit dernières heures est détecté. L’utilisateur est redirigé en mode silencieux vers l’application web A avec un nouveau jeton d’ID. Aucune authentification de l’utilisateur n’est nécessaire.
->
-> Immédiatement après, l’utilisateur tente d’accéder à l’application web B. Il est redirigé vers la Plateforme d’identité Microsoft. Comme avant, la stratégie 2 de durée de vie des jetons est appliquée. Étant donné que le jeton a été émis il y a plus de 30 minutes, l’utilisateur est invité à entrer de nouveau ses informations d’identification. Un nouveau jeton de session et un jeton d’ID sont émis. L’utilisateur peut alors accéder à l’application web B.
->
->
-
-## <a name="configurable-policy-property-details"></a>Présentation des propriétés de stratégie configurables
-### <a name="access-token-lifetime"></a>Durée de vie de jeton d’accès
-**Chaîne :** AccessTokenLifetime
-
-**Éléments affectés :** Jetons d’accès, jetons d’ID, jetons SAML
-
-**Résumé :** cette stratégie détermine la durée pendant laquelle les jetons d’accès et d’ID sont considérés comme valides. Réduire la propriété Durée de vie de jeton d’accès atténue le risque qu’un jeton d’accès ou jeton d’ID soit utilisé par un acteur malveillant pour une période prolongée. (Ces jetons ne peuvent pas être révoqués.) L’inconvénient est que les performances sont affectées, car les jetons sont remplacés plus souvent.
-
-Pour obtenir un exemple, consultez [Créer une stratégie de connexion Web](configure-token-lifetimes.md#create-a-policy-for-web-sign-in).
-
-### <a name="refresh-token-max-inactive-time"></a>Délai d’inactivité maximale de jeton d’actualisation
+#### <a name="refresh-token-max-inactive-time"></a>Délai d’inactivité maximale de jeton d’actualisation
 **Chaîne :** MaxInactiveTime
 
 **Éléments affectés :** Jetons d’actualisation
@@ -206,7 +151,7 @@ La propriété Délai d’inactivité maximale de jeton d’actualisation doit �
 
 Pour obtenir un exemple, consultez [Créer une stratégie pour une application native qui appelle une API Web](configure-token-lifetimes.md#create-a-policy-for-a-native-app-that-calls-a-web-api).
 
-### <a name="single-factor-refresh-token-max-age"></a>Âge maximal de jeton d’actualisation à facteur unique
+#### <a name="single-factor-refresh-token-max-age"></a>Âge maximal de jeton d’actualisation à facteur unique
 **Chaîne :** MaxAgeSingleFactor
 
 **Éléments affectés :** Jetons d’actualisation
@@ -217,7 +162,7 @@ En réduisant l’âge maximal, vous obligez les utilisateurs à s’authentifie
 
 Pour obtenir un exemple, consultez [Créer une stratégie pour une application native qui appelle une API Web](configure-token-lifetimes.md#create-a-policy-for-a-native-app-that-calls-a-web-api).
 
-### <a name="multi-factor-refresh-token-max-age"></a>Âge maximal de jeton d’actualisation multifacteur
+#### <a name="multi-factor-refresh-token-max-age"></a>Âge maximal de jeton d’actualisation multifacteur
 **Chaîne :** MaxAgeMultiFactor
 
 **Éléments affectés :** Jetons d’actualisation
@@ -228,7 +173,7 @@ En réduisant l’âge maximal, vous obligez les utilisateurs à s’authentifie
 
 Pour obtenir un exemple, consultez [Créer une stratégie pour une application native qui appelle une API Web](configure-token-lifetimes.md#create-a-policy-for-a-native-app-that-calls-a-web-api).
 
-### <a name="single-factor-session-token-max-age"></a>Âge maximal de jeton de session à facteur unique
+#### <a name="single-factor-session-token-max-age"></a>Âge maximal de jeton de session à facteur unique
 **Chaîne :** MaxAgeSessionSingleFactor
 
 **Éléments affectés :** Jetons de session (persistants et non persistants)
@@ -239,7 +184,7 @@ En réduisant l’âge maximal, vous obligez les utilisateurs à s’authentifie
 
 Pour obtenir un exemple, consultez [Créer une stratégie de connexion Web](configure-token-lifetimes.md#create-a-policy-for-web-sign-in).
 
-### <a name="multi-factor-session-token-max-age"></a>Âge maximal de jeton de session multifacteur
+#### <a name="multi-factor-session-token-max-age"></a>Âge maximal de jeton de session multifacteur
 **Chaîne :** MaxAgeSessionMultiFactor
 
 **Éléments affectés :** Jetons de session (persistants et non persistants)
@@ -247,6 +192,52 @@ Pour obtenir un exemple, consultez [Créer une stratégie de connexion Web](conf
 **Résumé :** cette stratégie détermine la durée pendant laquelle un utilisateur peut utiliser des jetons de session pour obtenir un nouvel ID et un nouveau jeton de session après sa dernière authentification réussie avec plusieurs facteurs. Une fois que l’utilisateur est authentifié et qu’il reçoit un nouveau jeton de session, il peut utiliser le flux de jeton de session pour la période spécifiée. (Cela est vrai tant que le jeton de session actuel n’est pas révoqué et qu’il n’a pas expiré.) Après la période de temps spécifié, l’utilisateur est forcé à s’authentifier de nouveau pour recevoir un nouveau jeton de session.
 
 En réduisant l’âge maximal, vous obligez les utilisateurs à s’authentifier plus souvent. Comme l’authentification à facteur unique est considérée comme moins sécurisée qu’une authentification multifacteur, nous vous recommandons de définir cette propriété sur une valeur supérieure ou égale à celle de la propriété Âge maximal de jeton de session à facteur unique.
+
+## <a name="configurable-token-lifetime-properties-after-the-retirement"></a>Propriétés des durées de vie des jetons configurables après la mise hors service
+La configuration des jetons d’actualisation et de session est affectée par les propriétés suivantes et leurs valeurs définies respectives. Après la mise hors service de la configuration des jetons d’actualisation et de session le 30 janvier 2021, Azure AD honorera uniquement les valeurs par défaut décrites ci-dessous. Si vous décidez de ne pas utiliser l’accès conditionnel pour gérer la fréquence de connexion, vos jetons d’actualisation et de session seront définis sur la configuration par défaut à cette date, et vous ne pourrez plus modifier leur durée de vie.  
+
+|Propriété   |Chaîne de propriété de stratégie    |Éléments affectés |Default |
+|----------|-----------|------------|------------|
+|Durée de vie de jeton d’accès |AccessTokenLifetime |Jetons d’accès, jetons d’ID, jetons SAML2 |1 heure |
+|Délai d’inactivité maximale de jeton d’actualisation |MaxInactiveTime  |Jetons d’actualisation |90 jours  |
+|Âge maximal de jeton d’actualisation à facteur unique  |MaxAgeSingleFactor  |Jetons d’actualisation (pour tous les utilisateurs)  |Jusqu’à révocation  |
+|Âge maximal de jeton d’actualisation multifacteur  |MaxAgeMultiFactor  |Jetons d’actualisation (pour tous les utilisateurs) |Jusqu’à révocation  |
+|Âge maximal de jeton de session à facteur unique  |MaxAgeSessionSingleFactor |Jetons de session (persistants et non persistants)  |Jusqu’à révocation |
+|Âge maximal de jeton de session multifacteur  |MaxAgeSessionMultiFactor  |Jetons de session (persistants et non persistants)  |Jusqu’à révocation |
+
+Vous pouvez utiliser PowerShell pour rechercher les stratégies qui seront affectées par la mise hors service.  Utilisez les [applets de commande PowerShell](configure-token-lifetimes.md#get-started) pour voir toutes les stratégies créées dans votre organisation, ou pour rechercher les applications et les principaux de service liés à une stratégie spécifique.
+
+## <a name="policy-evaluation-and-prioritization"></a>Définition des priorités et évaluation de la stratégie
+Vous pouvez créer, puis affecter une stratégie de durée de vie à une application spécifique, à votre organisation et à vos principaux de service. Plusieurs stratégies peuvent s’appliquer à une application spécifique. La stratégie de durée de vie du jeton appliquée suit les règles ci-dessous :
+
+* Si une stratégie est explicitement affectée au principal de service, elle est appliquée.
+* Si aucune stratégie n’est explicitement affectée au principal de service, une stratégie explicitement affectée à l’organisation parente du principal de service est appliquée.
+* Si aucune stratégie n’est explicitement affectée au principal de service ou à l’organisation, la stratégie affectée à l’application est appliquée.
+* Si aucune stratégie n’a été affectée au principal du service, à l’organisation ou à l’objet d’application, les valeurs par défaut sont appliquées. (Consultez le tableau dans la section [Propriétés des durées de vie des jetons configurables](#configurable-token-lifetime-properties-after-the-retirement).)
+
+Pour plus d’informations sur la relation existant entre les objets de principal de service et d’application, consultez [Objets application et principal du service dans Azure Active Directory](app-objects-and-service-principals.md).
+
+La validité d’un jeton est évaluée lors de son utilisation. C’est la stratégie pourvue de la priorité la plus élevée sur l’application ouverte qui est appliquée.
+
+Tous les intervalles de temps utilisés ici sont mis en forme selon C# [TimeSpan](/dotnet/api/system.timespan) object - D.HH:MM:SS.  Par conséquent, 80 jours et 30 minutes s’affichent sous la forme `80.00:30:00`.  La première valeur D peut être supprimée si elle est égale à zéro ; 90 minutes deviennent alors `00:90:00`.  
+
+### <a name="example-scenario"></a>Exemple de scénario
+
+Un utilisateur souhaite accéder à deux applications web : l’application web A et l’application web B.
+
+Facteurs :
+* Les deux applications web résident dans la même organisation parente.
+* La stratégie 1 de durée de vie des jetons pourvue d’une propriété Âge maximal de jeton de session de 8 heures est définie comme valeur par défaut de l’organisation parente.
+* L’application web A est une application web d’utilisation régulière, qui n’est liée à aucune stratégie.
+* L’application web B est utilisée pour les processus très sensibles. Son principal de service est lié à la stratégie 2 de durée de vie des jetons pourvue d’une propriété Âge maximal de jeton de session de 30 minutes.
+
+À 12 h 00, l’utilisateur démarre une nouvelle session de navigateur et tente d’accéder à l’application web A. Il est redirigé vers la Plateforme d’identité Microsoft et invité à se connecter. Cette action crée un cookie avec un jeton de session dans le navigateur. L’utilisateur est redirigé vers l’application web A avec un jeton d’ID qui lui permet d’accéder à l’application.
+
+À 12 h 15, l’utilisateur tente d’accéder à l’application web B. Le navigateur le redirige vers la Plateforme d’identité Microsoft qui détecte le cookie de session. Le principal de service de l’application web B est lié à la stratégie 2 de durée de vie des jetons, mais fait également partie de l’organisation parente avec la stratégie 1 de durée de vie des jetons par défaut. La stratégie 2 de durée de vie des jetons est appliquée puisque les stratégies liées aux principaux de service ont une priorité supérieure à celle des stratégies par défaut de l’organisation. Comme le jeton de session a été initialement émis au cours des 30 dernières minutes, il est considéré comme valide. L’utilisateur est redirigé vers l’application web B avec un jeton d’ID qui lui octroie un accès.
+
+À 13 h 00, l’utilisateur tente d’accéder à l’application web A. Il est redirigé vers la Plateforme d’identité Microsoft. L’application web A n’est liée à aucune stratégie, mais comme elle réside dans une organisation avec la stratégie 1 de durée de vie des jetons par défaut, cette stratégie est appliquée. Le cookie de session qui a initialement été émis au cours des huit dernières heures est détecté. L’utilisateur est redirigé en mode silencieux vers l’application web A avec un nouveau jeton d’ID. Aucune authentification de l’utilisateur n’est nécessaire.
+
+Immédiatement après, l’utilisateur tente d’accéder à l’application web B. Il est redirigé vers la Plateforme d’identité Microsoft. Comme avant, la stratégie 2 de durée de vie des jetons est appliquée. Étant donné que le jeton a été émis il y a plus de 30 minutes, l’utilisateur est invité à entrer de nouveau ses informations d’identification. Un nouveau jeton de session et un jeton d’ID sont émis. L’utilisateur peut alors accéder à l’application web B.
 
 ## <a name="cmdlet-reference"></a>Référence des applets de commande
 
@@ -281,12 +272,6 @@ Vous pouvez utiliser les applets de commande suivantes pour les stratégies de p
 | [Add-AzureADServicePrincipalPolicy](/powershell/module/azuread/add-azureadserviceprincipalpolicy?view=azureadps-2.0-preview&preserve-view=true) | Lie la stratégie spécifiée à un principal de service. |
 | [Get-AzureADServicePrincipalPolicy](/powershell/module/azuread/get-azureadserviceprincipalpolicy?view=azureadps-2.0-preview&preserve-view=true) | Permet d’obtenir une stratégie liée au principal de service spécifié.|
 | [Remove-AzureADServicePrincipalPolicy](/powershell/module/azuread/remove-azureadserviceprincipalpolicy?view=azureadps-2.0-preview&preserve-view=true) | Supprime la stratégie du principal de service spécifié.|
-
-## <a name="license-requirements"></a>Conditions de licence :
-
-L'utilisation de cette fonctionnalité nécessite une licence Azure AD Premium P1. Pour trouver la licence appropriée à vos besoins, consultez [Comparaison des fonctionnalités mises à la disposition générale des éditions Gratuite et Premium](https://azure.microsoft.com/pricing/details/active-directory/).
-
-Les clients avec [des licences Microsoft 365 Business](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) ont également accès aux fonctionnalités d’accès conditionnel.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

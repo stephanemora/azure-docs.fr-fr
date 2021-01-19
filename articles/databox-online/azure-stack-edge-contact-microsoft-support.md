@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 12/17/2020
+ms.date: 01/07/2021
 ms.author: alkohli
-ms.openlocfilehash: a457c2816d4075190a2174339f7e52a2ea41730a
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 5bbd02f9e15a4ee29e244b2a0307accd151ba487
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97696026"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98033946"
 ---
 # <a name="open-a-support-ticket-for-azure-stack-edge-pro-and-azure-data-box-gateway"></a>Ouvrir un ticket de support pour Azure Stack Edge Pro et Azure Data Box Gateway
 
@@ -78,7 +78,7 @@ Ces informations ne s'appliquent qu'à l’appareil Azure Stack. Le processus de
     * Une unité de remplacement de champ (FRU) pour la pièce défectueuse est envoyée. Actuellement, les blocs d’alimentation et les disques durs SSD sont les seules unités remplaçables sur site (FRU) prises en charge.
     * Seules les unités remplaçables sur site sont remplacées le jour ouvrable suivant, tout le reste nécessite le remplacement complet du système (FSR).
 
-3. Si un ticket de support est envoyé avant 16h30, heure locale (du lundi au vendredi), un technicien est dépêché sur place le jour ouvrable pour procéder à un remplacement de la FRU. Un remplacement complet du système prend généralement plus de temps, car les pièces sont expédiées à partir de notre usine et peuvent faire l’objet de retards de transport et de douane.
+3. S’il est déterminé qu’un remplacement FRU est requis avant 13h, heure locale, (du lundi au vendredi), un technicien est dépêché sur place le jour ouvré suivant pour procéder à un remplacement FRU. Un remplacement complet du système prend généralement plus de temps, car les pièces sont expédiées à partir de notre usine et peuvent faire l’objet de retards de transport et de douane.
 
 ## <a name="manage-a-support-request"></a>Gérer une demande de support
 

@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
-ms.date: 11/16/2020
-ms.openlocfilehash: aaf0374bcafdb91f316b7133de1c2d019b12b285
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.date: 12/18/2020
+ms.openlocfilehash: 091af70383eb3cab32a0453d7f7542d8a4395d0b
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302862"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98107393"
 ---
 # <a name="introduction-to-listing-options"></a>Présentation des options de référencement
 
@@ -26,21 +26,23 @@ Lorsque vous créez un type d’offre, vous choisissez une ou plusieurs options 
 
 Ce tableau présente les options de référencement disponibles pour chaque type d’offre.
 
-| Type d’offre | Version d’évaluation gratuite | Version d’évaluation | Me contacter | Obtenir maintenant (pouvant faire l’objet d’une transaction) |
+| Type d’offre | Version d’évaluation gratuite | Version d’évaluation | Me contacter | Obtenir maintenant `*` |
 | ------------ | ------------- | ------------- | ------------- | ------------- |
 | Azure Application (application gérée) |   | &#10004; |   | &#10004; |
-| Azure Application (modèle de solution) |  |  |  |  |
+| Azure Application (modèle de solution) |  |  |  | &#10004; |
 | Service de conseil |  |  | &#10004; |  |
-| Conteneur Azure |  |  |  |  |
-| Dynamics 365 Business Central | &#10004; | &#10004; | &#10004; |  |
-| Dynamics 365 Customer Engagement et PowerApps | &#10004; | &#10004; | &#10004; |  |
-| Dynamics 365 for Operations | &#10004; | &#10004; | &#10004; |  |
-| Module IoT Edge |  |  |  |  |
-| Service managé |  |  |  |  |
-| Application Power BI |  |  |  |  |
+| Conteneur Azure |  |  |  | &#10004; |
+| Dynamics 365 Business Central | &#10004; | &#10004; | &#10004; | &#10004; |
+| Dynamics 365 Customer Engagement et PowerApps | &#10004; | &#10004; | &#10004; | &#10004; |
+| Dynamics 365 for Operations | &#10004; | &#10004; | &#10004; | &#10004; |
+| Module IoT Edge |  |  |  | &#10004; |
+| Service managé |  |  |  | &#10004; |
+| Application Power BI |  |  |  | &#10004; |
 | Machine virtuelle Azure | &#10004; | &#10004; |  | &#10004; |
 | Software as a Service | &#10004; | &#10004; | &#10004; | &#10004; |
 ||||||
+
+`*` L’option de référencement Obtenir maintenant inclut Obtenir maintenant (gratuit), BYOL (apportez votre propre licence), Abonnement et Tarification basée sur l’utilisation. Pour plus d’informations, consultez [Obtenir maintenant](#get-it-now).
 
 ### <a name="free-trial"></a>Version d’évaluation gratuite
 

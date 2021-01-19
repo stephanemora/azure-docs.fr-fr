@@ -5,18 +5,17 @@ description: Obtenez plus d’informations relatives aux quotas et aux limites s
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.reviewer: jmartens
 author: nishankgu
 ms.author: nigup
 ms.date: 12/1/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperf-fy20q4, contperf-fy21q2
-ms.openlocfilehash: 58dacc9e65da6502d083446cb7202c222cb7e795
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 3f08f401f24d95431bcd3bba48976641cebb28e9
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97034035"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98072205"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-machine-learning"></a>Gérer et augmenter les quotas pour les ressources avec Azure Machine Learning
 
@@ -29,7 +28,7 @@ Azure utilise des limites et des quotas pour empêcher les dépassements de budg
 > + Demande d’augmentations de quota.
 > + Point de terminaison privé et quotas DNS.
 
-En plus de la gestion des quotas, vous pouvez également apprendre à [planifier et gérer les coûts pour Azure Machine Learning](concept-plan-manage-cost.md).
+En plus de la gestion des quotas, vous pouvez également apprendre à [planifier et gérer les coûts pour Azure Machine Learning](concept-plan-manage-cost.md) ou découvrir les [limites de service dans Azure Machine Learning](resource-limits-quotas-capacity.md).
 
 ## <a name="special-considerations"></a>Considérations spéciales
 
@@ -53,7 +52,9 @@ Cette section porte sur les limites de quota par défaut et maximale pour les re
 + Stockage Azure
 
 > [!IMPORTANT]
-> Les limites sont susceptibles d’être modifiées. Pour obtenir les informations les plus récentes, consultez [Abonnement Azure et limites, quotas et contraintes de service](../azure-resource-manager/management/azure-subscription-service-limits.md) pour tous les services Azure.
+> Les limites sont susceptibles d’être modifiées. Pour obtenir les informations les plus récentes, consultez [Limites de service dans Azure Machine Learning](resource-limits-quotas-capacity.md).
+
+
 
 ### <a name="azure-machine-learning-assets"></a>Ressources Azure Machine Learning
 Les limites suivantes s’appliquent aux ressources pour chaque espace de travail. 
@@ -210,3 +211,4 @@ Pour demander une allocation pour ces scénarios, procédez comme suit :
 ## <a name="next-steps"></a>Étapes suivantes
 
 + [Planifier et gérer les coûts d’Azure Machine Learning](concept-plan-manage-cost.md)
++ [Limites de service dans Azure Machine Learning](resource-limits-quotas-capacity.md)

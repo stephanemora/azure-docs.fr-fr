@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: troubleshooting
 ms.date: 10/16/2019
 ms.author: charwen
-ms.openlocfilehash: d4f5d4b7fed8f14f048794616ee272342d1e8343
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 23b7a66afcc91cf1cf4a5dd9f720aad24ad40071
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97915553"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98133988"
 ---
 # <a name="troubleshoot-azure-bastion"></a>Dépanner Azure Bastion
 
@@ -22,11 +22,7 @@ Cet article explique comment résoudre les problèmes liés à Azure Bastion.
 
 **Q :** Lorsque j’essaie de créer un groupe de sécurité réseau sur le sous-réseau Azure Bastion, j’obtiens l’erreur suivante : *Le groupe de sécurité réseau <NSG name> ne dispose pas des règles nécessaires pour le sous-réseau Azure Bastion AzureBastionSubnet*.
 
-**R :** Si vous créez un groupe de sécurité réseau et l’appliquez à *AzureBastionSubnet*, vérifiez que vous avez ajouté les règles suivantes à votre groupe de sécurité réseau. Si vous n’ajoutez pas ces règles, la création/mise à jour du groupe de sécurité réseau échouera.
-
-1. Connectivité du plan de contrôle : entrée sur 443 à partir de GatewayManager
-2. Journalisation des diagnostics et autres : sortie sur 443 vers AzureCloud (Les étiquettes régionales incluses dans cette étiquette de service ne sont pas encore prises en charge.)
-3. Machine virtuelle cible - Accès sortant sur les ports 3389 et 22 vers VirtualNetwork
+**R :** Si vous créez un groupe de sécurité réseau et l’appliquez à *AzureBastionSubnet*, vérifiez que vous avez ajouté les règles requises au groupe de sécurité réseau. Pour obtenir la liste des règles requises, consultez [Utiliser l’accès au groupe de sécurité réseau et Azure Bastion](./bastion-nsg.md). Si vous n’ajoutez pas ces règles, la création/mise à jour du groupe de sécurité réseau échouera.
 
 Un exemple de règles de groupe de sécurité réseau est disponible à des fins de référence dans le [modèle de démarrage rapide](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azure-bastion-nsg).
 Pour plus d’informations, consultez [Guide pour les groupes de sécurité réseau pour Azure Bastion](bastion-nsg.md).
