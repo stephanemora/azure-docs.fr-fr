@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: victorh
-ms.openlocfilehash: 9d2fba48762e11a92f6f3925c969b01aebbe3630
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: e18267d5a810826e41e05eb3dde3cd82a8eb9197
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347589"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065318"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Intégrité du serveur principal et journaux de diagnostic pour la passerelle Application Gateway
 
@@ -222,7 +222,7 @@ Le journal d’accès n’est généré que si vous l’avez activé sur chaque 
 |serverRouted| Serveur back-end vers lequel la passerelle d’application route les demandes.|
 |serverStatus| Code d’état HTTP du serveur back-end.|
 |serverResponseLatency| Latence de la réponse du serveur back-end.|
-|host| Adresse figurant dans l’en-tête d’hôte de la demande. En cas de réécriture, ce champ contient le nom d’hôte mis à jour.|
+|host| Adresse figurant dans l’en-tête d’hôte de la demande. Si elle est réécrite en utilisant la réécriture d’en-tête, ce champ contient le nom d’hôte mis à jour.|
 |originalRequestUriWithArgs| Ce champ contient l’URL de la requête HTTP d’origine. |
 |requestUri| Ce champ contient l’URL après l’opération de réécriture sur Application Gateway. |
 |originalHost| Ce champ contient le nom d’hôte de la requête HTTP d’origine.

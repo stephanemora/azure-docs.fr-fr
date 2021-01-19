@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/08/2020
 ms.author: kenwith
 ms.reviewer: paulgarn
-ms.openlocfilehash: 5841af4225f88b36fe727b60a597af208ac830f5
-ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
+ms.openlocfilehash: 92d0dad86b3f048eb96dd7b17ed09f6e20d7cde2
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97827170"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063295"
 ---
 # <a name="microsoft-identity-platform-token-exchange-scenarios-with-saml-and-oidcoauth"></a>Scénarios d’échange de jeton de plateforme d’identités Microsoft avec SAML et OIDC/OAuth
 
@@ -30,7 +30,7 @@ De nombreuses applications sont implémentées avec SAML. Toutefois, l’API Gra
 La stratégie générale consiste à ajouter la pile OIDC/OAuth à l’application. Dès que celle-ci implémente les deux standards, vous pouvez vous servir d’un cookie de session. Vous n’échangez pas explicitement de jeton. Vous ouvrez une session utilisateur avec SAML, qui génère un cookie de session. Lorsque l’API Graph appelle un flux OAuth, vous utilisez ce cookie de session pour vous authentifier. Cette stratégie suppose que les contrôles d’accès conditionnel sont réussis et que l’utilisateur est autorisé.
 
 > [!NOTE]
-> La Bibliothèque d’authentification Microsoft (MSAL) est la bibliothèque recommandée pour ajouter le comportement OIDC/OAuth. Pour plus d’informations sur MSAL, consultez [Vue d’ensemble de la Bibliothèque d’authentification Microsoft (MSAL)](msal-overview.md). La bibliothèque précédente, appelée Bibliothèque d’authentification Active Directory (ADAL), n’est pas recommandée, car MSAL la remplace.
+> La Bibliothèque d’authentification Microsoft (MSAL) est la bibliothèque recommandée pour ajouter le comportement OIDC/OAuth. Pour plus d’informations sur MSAL, consultez [Vue d’ensemble de la bibliothèque d’authentification Microsoft (MSAL)](msal-overview.md). La bibliothèque précédente, appelée Bibliothèque d’authentification Active Directory (ADAL), n’est pas recommandée, car MSAL la remplace.
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Flux d’authentification et scénarios d’applications](authentication-flows-app-scenarios.md)

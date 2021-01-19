@@ -4,12 +4,12 @@ description: Découvrez comment utiliser Azure Custom Vision pour créer un mod�
 ms.topic: tutorial
 ms.date: 09/08/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
-ms.openlocfilehash: 614c4e401579eda68d8030dc2d2a42b2c4736031
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: de788c337ce8030b73538565e4f374ffc7db55b8
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97401693"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060496"
 ---
 # <a name="tutorial-analyze-live-video-with-live-video-analytics-on-iot-edge-and-azure-custom-vision"></a>Tutoriel : Analyser des vidéos en direct avec Live Video Analytics sur IoT Edge et Azure Custom Vision
 
@@ -61,8 +61,11 @@ Lisez les articles suivants avant de commencer :
 ::: zone-end
 ## <a name="review-the-sample-video"></a>Réviser l’exemple de vidéo
 
+Ce tutoriel utilise un fichier de [vidéo d’inférence du jouet](https://lvamedia.blob.core.windows.net/public/t2.mkv) pour simuler un stream en direct. Vous pouvez regarder la vidéo grâce à une application telle que [VLC Media Player](https://www.videolan.org/vlc/). Sélectionnez **Ctrl+N**, puis collez un lien vers la [vidéo d’inférence du jouet](https://lvamedia.blob.core.windows.net/public/t2.mkv) pour démarrer la lecture. Lorsque vous regarderez la vidéo, vous verrez qu’un camion jouet apparaît au bout de 36 secondes. Le modèle personnalisé a été entraîné à détecter ce jouet spécifique. 
 
-Ce tutoriel utilise un fichier de [vidéo d’inférence du jouet](https://lvamedia.blob.core.windows.net/public/t2.mkv) pour simuler un stream en direct. Vous pouvez regarder la vidéo grâce à une application telle que [VLC Media Player](https://www.videolan.org/vlc/). Sélectionnez **Ctrl+N**, puis collez un lien vers la [vidéo d’inférence du jouet](https://lvamedia.blob.core.windows.net/public/t2.mkv) pour démarrer la lecture. Lorsque vous regarderez la vidéo, vous verrez qu’un camion jouet apparaît au bout de 36 secondes. Le modèle personnalisé a été entraîné à détecter ce jouet spécifique. Dans ce tutoriel, vous allez utiliser Live Video Analytics sur IoT Edge afin de détecter ce type de jouets et de publier des événements d’inférence associés sur le hub IoT Edge.
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4LPwK]
+
+Dans ce tutoriel, vous allez utiliser Live Video Analytics sur IoT Edge afin de détecter ce type de jouets et de publier des événements d’inférence associés sur le hub IoT Edge.
 
 ## <a name="overview"></a>Vue d’ensemble
 
@@ -127,7 +130,6 @@ Une fois que vous avez terminé, vous pouvez exporter le modèle vers un contene
 
 ## <a name="examine-the-sample-files"></a>Examiner les exemples de fichiers
 
-
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [examine-sample-files](includes/custom-vision-tutorial/csharp/examine-sample-files.md)]
 ::: zone-end
@@ -140,7 +142,7 @@ Une fois que vous avez terminé, vous pouvez exporter le modèle vers un contene
 
 1. Dans Visual Studio Code, accédez à src/cloud-to-device-console-app/operations.json.
 
-1. Sous `GraphTopologySet`, vérifiez que ce qui suit est vrai :<br/>`"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/httpExtension/topology.json"`
+1. Sous `GraphTopologySet`, vérifiez que ce qui suit est vrai :<br/>`"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/httpExtension/2.0/topology.json"`
 1. Sous `GraphInstanceSet`, vérifiez que ce qui suit est vrai :
     1. `"topologyName" : "InferencingWithHttpExtension"`
     1. Ajoutez ce qui suit en haut du tableau des paramètres : `{"name": "inferencingUrl","value": "http://cv:80/image"},`
@@ -261,7 +263,7 @@ Dans les messages suivants, le module Live Video Analytics définit les proprié
 
 ### <a name="mediasessionestablished-event"></a>Événement MediaSessionEstablished
 
-Quand un graphe multimédia est instancié, le nœud source RTSP tente de se connecter au serveur RTSP qui s’exécute sur le conteneur rtspsim-live555. Si la connexion réussit, l’événement suivant est affiché. Le type de l’événement est `Microsoft.Media.MediaGraph.Diagnostics.MediaSessionEstablished`.
+Quand un graphe multimédia est instancié, le nœud source RTSP tente de se connecter au serveur RTSP qui s’exécute sur le conteneur rtspsim-live555. Si la connexion réussit, l’événement suivant est affiché. Le type d’événement est **Microsoft.Media.MediaGraph.Diagnostics.MediaSessionEstablished**.
 
 ```
 {

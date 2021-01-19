@@ -3,7 +3,7 @@ title: Azure AD Connect Health - Diagnostiquer des erreurs de synchronisation d�
 description: Ce document décrit le processus de diagnostic des erreurs de synchronisation d’attribut en double et un correctif potentiel des scénarios d’objets orphelins directement à partir du portail Azure.
 services: active-directory
 documentationcenter: ''
-author: zhiweiwangmsft
+author: billmath
 manager: maheshu
 editor: billmath
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 05/11/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2bd2e72b05cc01b1a351880d565323662635364
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5942d208fa3859d0a4a80de5f072f2e798fe040f
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89278681"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028928"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Diagnostiquer et corriger les erreurs de synchronisation d’attribut en double
 
@@ -34,7 +34,7 @@ Pour plus d’informations sur Azure AD, consultez [Synchronisation des identit�
 
 ## <a name="problems"></a>Problèmes
 ### <a name="a-common-scenario"></a>Un scénario courant
-Quand des erreurs de synchronisation de **QuarantinedAttributeValueMustBeUnique** et de **AttributeValueMustBeUnique** se produisent, il est courant de voir un conflit de**UserPrincipalName** ou de **Proxy Addresses** dans Azure AD. Vous pouvez résoudre les erreurs de synchronisation en mettant à jour l’objet source en conflit à partir du côté local. L’erreur de synchronisation sera résolue après la synchronisation suivante. Par exemple, cette image indique que deux utilisateurs rencontrent un conflit de leur nom d’utilisateur principal (**UserPrincipalName**). Tous deux possèdent le nom **Joe.J\@contoso.com**. Les objets en conflit sont mis en quarantaine dans Azure AD.
+Quand des erreurs de synchronisation de **QuarantinedAttributeValueMustBeUnique** et de **AttributeValueMustBeUnique** se produisent, il est courant de voir un conflit de **UserPrincipalName** ou de **Proxy Addresses** dans Azure AD. Vous pouvez résoudre les erreurs de synchronisation en mettant à jour l’objet source en conflit à partir du côté local. L’erreur de synchronisation sera résolue après la synchronisation suivante. Par exemple, cette image indique que deux utilisateurs rencontrent un conflit de leur nom d’utilisateur principal (**UserPrincipalName**). Tous deux possèdent le nom **Joe.J\@contoso.com**. Les objets en conflit sont mis en quarantaine dans Azure AD.
 
 ![Scénario courant de diagnostic d’erreur de synchronisation](./media/how-to-connect-health-diagnose-sync-errors/IIdFixCommonCase.png)
 
@@ -137,6 +137,9 @@ Un utilisateur avec un attribut en conflit dans Azure AD doit être effacé avan
 
 **La mise à jour de l'ancre source vers un utilisateur basé sur le cloud n'est pas prise en charge dans votre client.**  
 Un utilisateur basé sur le cloud dans Azure AD ne doit pas avoir d’ancre source. Dans ce cas, la mise à jour de l’ancre source n’est pas prise en charge. Une correction manuelle doit être effectuée localement. 
+
+**Le processus de correction n’a pas pu mettre à jour les valeurs.**
+Les paramètres spécifiques tels que [UserWriteback dans Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-preview#user-writeback) ne sont pas pris en charge. Désactivez-les dans les paramètres. 
 
 ## <a name="faq"></a>Questions fréquentes (FAQ)
 **Q.** Que se passe-t-il en cas d’échec de l’**application du correctif** ?  

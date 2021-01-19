@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 05/20/2019
+ms.date: 01/06/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro for advanced deployment flow so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: bcad165f5d0ba2cf652cff35091e05b4414193c8
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 8946dfca9a416009effb45cad1e81348dd900f98
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951789"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97968185"
 ---
 # <a name="tutorial-transform-data-with-azure-stack-edge-pro-for-advanced-deployment-flow"></a>Tutoriel : Transformer des données avec Azure Stack Edge Pro pour un flux de déploiement avancé
 
@@ -52,32 +52,34 @@ Avant de configurer un rôle de calcul sur votre appareil Azure Stack Edge Pro, 
 
 Pour configurer le calcul sur votre appareil Azure Stack Edge Pro, vous allez créer une ressource IoT Hub.
 
-1. Dans le portail Azure de votre ressource Azure Stack Edge, accédez à **Vue d’ensemble**. Dans le volet droit, sur la vignette **Calculer**, sélectionnez **Bien démarrer**.
+1. Dans le portail Azure de votre ressource Azure Stack Edge, accédez à **Vue d’ensemble**. Dans le volet droit, sélectionnez la vignette **IoT Edge**.
 
     ![Bien démarrer avec le calcul](./media/azure-stack-edge-deploy-configure-compute-advanced/configure-compute-1.png)
 
-2. Sur la vignette **Configurer le computing en périphérie**, sélectionnez **Configurer le calcul**.
+2. Sur la vignette **Activer le service IoT Edge**, sélectionnez **Ajouter**. Cette action active le service IoT Edge qui vous permet de déployer des modules IoT Edge localement sur votre appareil.
 
     ![Bien démarrer avec le calcul 2](./media/azure-stack-edge-deploy-configure-compute-advanced/configure-compute-2.png)
 
-3. Sur le panneau **Configurer le computing en périphérie**, entrez ce qui suit :
+3. Dans **Create IoT Edge service** (Créer le service IoT Edge), entrez les informations suivantes :
 
    
     |Champ  |Valeur  |
     |---------|---------|
-    |IoT Hub     | Choisissez **Nouveau** ou **Existant**. <br> Par défaut, un niveau Standard (S1) est utilisé pour créer une ressource IoT. Pour utiliser une ressource IoT de niveau gratuit, créez-en une, puis sélectionnez-la. <br> Dans chaque cas, la ressource IoT Hub utilise les mêmes abonnement et groupe de ressources que la ressource Azure Stack Edge.     |
-    |Nom     |Entrez un nom pour votre ressource IoT Hub.         |
+    |Abonnement     |Sélectionnez un abonnement pour votre ressource IoT Hub. Vous pouvez choisir le même abonnement que celui utilisé par la ressource Azure Stack Edge.        |
+    |Resource group     |Entrez un nom pour le groupe de ressources de votre ressource IoT Hub. Vous pouvez choisir le même groupe de ressources que celui utilisé par la ressource Azure Stack Edge.         |
+    |IoT Hub     | Choisissez **Nouveau** ou **Existant**. <br> Par défaut, un niveau Standard (S1) est utilisé pour créer une ressource IoT. Pour utiliser une ressource IoT de niveau gratuit, créez-en une, puis sélectionnez-la.      |
+    |Name     |Acceptez le nom par défaut ou entrez un autre nom pour votre ressource IoT Hub.         |
 
     ![Bien démarrer avec le calcul 3](./media/azure-stack-edge-deploy-configure-compute-advanced/configure-compute-3.png)
 
-4. Sélectionnez **Create** (Créer). La création de ressources IoT Hub prend quelques minutes. Une fois la ressource IoT Hub créée, la vignette **Configurer le computing en périphérie** est mise à jour pour afficher la configuration du calcul. Pour vérifier que le rôle de computing en périphérie a été configuré, sélectionnez **Configuration de la vue** sur la vignette **Configurer le calcul**.
-    
+4. Sélectionnez **Vérifier + créer**. La création de ressources IoT Hub prend quelques minutes. Une fois la ressource IoT Hub créée, la page **Vue d’ensemble**  est mise à jour pour avertir que le service IoT Edge est en cours d’exécution. 
+
+    Quand le service IoT Edge est configuré sur l’appareil Edge, il crée deux appareils : un appareil IoT et un appareil IoT Edge. Ces deux appareils peuvent être visualisés dans la ressource IoT Hub. Un runtime IoT Edge est également exécuté sur cet appareil IoT Edge. À ce stade, seule la plateforme Linux est disponible pour votre appareil IoT Edge.
+
+    Pour vérifier que le rôle de calcul Edge a été configuré, sélectionnez **Service IoT Edge > Propriétés**, et examinez l’appareil IoT et l’appareil IoT Edge. 
+
     ![Bien démarrer avec le calcul 4](./media/azure-stack-edge-deploy-configure-compute-advanced/configure-compute-4.png)
-
-    Quand le rôle de calcul Edge est configuré sur l’appareil Edge, il crée deux appareils : un appareil IoT et un appareil IoT Edge. Ces deux appareils peuvent être visualisés dans la ressource IoT Hub. Un runtime IoT Edge est également exécuté sur cet appareil IoT Edge.
-
-    À ce stade, seule la plateforme Linux est disponible pour votre appareil IoT Edge.
-
+    
 
 ## <a name="add-shares"></a>Ajouter des partages
 
@@ -85,19 +87,13 @@ Pour le déploiement avancé dans ce tutoriel, vous aurez besoin de deux partage
 
 1. Ajouter un partage Edge sur l’appareil en effectuant les étapes suivantes :
 
-    1. Dans votre ressource Azure Stack Edge, accédez à **Computing en périphérie > Bien démarrer**.
-    2. Sur la vignette **Ajouter un ou plusieurs partages**, sélectionnez **Ajouter**.
+    1. Dans votre ressource Azure Stack Edge, accédez à **IoT Edge > Partages**.
+    2. Dans la page **Partages**, dans la barre de commandes, sélectionnez **+ Ajouter un partage**.
     3. Sur le panneau **Ajouter un partage**, fournissez le nom du partage et sélectionnez le type de partage.
     4. Pour monter le partage Edge, cochez la case **Utiliser le partage avec le computing en périphérie**.
     5. Sélectionnez le **Compte de stockage**, le **Service de stockage**, un utilisateur existant, puis sélectionnez **Créer**.
 
         ![Ajouter un partage Edge](./media/azure-stack-edge-deploy-configure-compute-advanced/add-edge-share-1.png)
-
-    <!--If you created a local NFS share, use the following remote sync (rsync) command option to copy files onto the share:
-
-    `rsync <source file path> < destination file path>`
-
-    For more information about the rsync command, go to [Rsync documentation](https://www.computerhope.com/unix/rsync.htm).-->
 
     Une fois le partage Edge créé, vous recevrez une notification de création réussie. La liste de partage est mise à jour pour refléter le nouveau partage.
 
@@ -124,7 +120,7 @@ Pour le déploiement avancé dans ce tutoriel, vous aurez besoin de deux partage
 
 ## <a name="add-a-trigger"></a>Ajouter un déclencheur
 
-1. Accédez à **Computing en périphérie > Déclencheurs**. Sélectionnez **+ Ajouter un déclencheur**.
+1. Accédez à votre ressource Azure Stack Edge, puis accédez à **IoT Edge > Déclencheurs**. Sélectionnez **+ Ajouter un déclencheur**.
 
     ![Ajouter un déclencheur](./media/azure-stack-edge-deploy-configure-compute-advanced/add-trigger-1.png)
 
@@ -154,7 +150,7 @@ Il n’existe aucun module personnalisé sur cet appareil Edge. Vous pouvez ajou
 
 Dans cette section, vous ajoutez un module personnalisé à l’appareil IoT Edge que vous avez créé dans [Développer un module C# pour votre appareil Azure Stack Edge Pro](azure-stack-edge-create-iot-edge-module.md). Ce module personnalisé place des fichiers d’un partage local Edge sur l’appareil de périphérie, puis les déplace vers un partage Edge (cloud) sur l’appareil. Le partage cloud envoie ensuite les fichiers vers le compte de stockage Azure associé au partage cloud.
 
-1. Accédez à **Computing en périphérie > Bien démarrer**. Sur la vignette **Ajouter des modules**, sélectionnez le type de scénario **Avancé**. Sélectionnez **Accéder à IoT Hub**.
+1. Accédez à votre ressource Azure Stack Edge, puis à **IoT Edge > Vue d’ensemble**. Sur la vignette **Modules**, sélectionnez **Accéder à Azure IoT Hub**.
 
     ![Sélectionner le déploiement avancé](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-1.png)
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 12c9fd43933f9f54e013752c5fe482ce31650536
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 52a43874060748479beebc994bf0a9b663cde9dc
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95238392"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020177"
 ---
 # <a name="create-an-app-service-environment"></a>Créer un environnement App Service Environment
 
@@ -20,10 +20,9 @@ ms.locfileid: "95238392"
 > Cet article traite d’App Service Environment v3 (préversion)
 > 
 
-L’environnement [ASE (App Service Environment)][Intro] est un déploiement monolocataire d’App Service, qui s’injecte dans votre réseau virtuel Azure.  ASEv3 prend uniquement en charge l’exposition des applications sur une adresse privée dans votre réseau virtuel. Lorsqu’un environnement ASEv3 est créé dans la préversion, trois ressources sont ajoutées à votre abonnement.
+L’environnement [ASE (App Service Environment)][Intro] est un déploiement monolocataire d’App Service, qui s’injecte dans votre réseau virtuel Azure.  ASEv3 prend uniquement en charge l’exposition des applications sur une adresse privée dans votre réseau virtuel. Lorsqu’un environnement ASEv3 est créé dans la préversion, ces ressources sont ajoutées à votre abonnement.
 
 - Environnement App Service
-- Zone privée Azure DNS
 - Point de terminaison privé
 
 Le déploiement d’un environnement ASE requiert l’utilisation de deux sous-réseaux.  Un sous-réseau contient le point de terminaison privé.  Ce sous-réseau peut être utilisé pour d’autres éléments, comme des machines virtuelles.  L’autre sous-réseau est utilisé pour les appels sortants effectués à partir de l’environnement ASE.  Ce sous-réseau ne peut pas être utilisé à d’autres fins que pour l’environnement ASE. 

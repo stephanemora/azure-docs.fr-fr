@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.custom: devx-track-csharp, mvc, cli-validate, devx-track-azurecli
-ms.openlocfilehash: 1f6757a9f78e3c400d92fd65a0795ceae7570c99
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: f043f7ed63353dcb9cf9fd26690da97b902f32a6
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347572"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108617"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Tutoriel : Sécuriser la connexion Azure SQL Database à partir d’App Service à l’aide d’une identité managée
 
@@ -229,6 +229,9 @@ Tapez `EXIT` pour revenir à l’invite Cloud Shell.
 > [!NOTE]
 > Les services back-end des identités managées [gèrent également un cache de jetons](overview-managed-identity.md#obtain-tokens-for-azure-resources) qui met à jour le jeton d’une ressource cible uniquement lorsque celle-ci expire. Si vous faites une erreur lors de la configuration de vos autorisations SQL Database puis essayez de modifier les autorisations *après* avoir essayé d’obtenir un jeton avec votre application, vous n’obtiendrez pas un nouveau jeton avec les autorisations mises à jour tant que le jeton mis en cache n’a pas expiré.
 
+> [!NOTE]
+> AAD n’est pas pris en charge pour SQL Server local, et cela comprend les MSI. 
+
 ### <a name="modify-connection-string"></a>Modifier la chaîne de connexion
 
 Rappelez-vous que les modifications apportées dans *Web.config* ou *appsettings.json* fonctionnent avec l’identité managée. Par conséquent, la seule chose à faire consiste à supprimer la chaîne de connexion existante d’App Service, que Visual Studio a créée lors du premier déploiement de votre application. Utilisez la commande suivante en remplaçant *\<app-name>* par le nom de votre application.
@@ -251,7 +254,7 @@ Dans la page de publication, cliquez sur **Publier**.
 
 ```bash
 git commit -am "configure managed identity"
-git push azure master
+git push azure main
 ```
 
 Lorsque la nouvelle page web affiche votre liste des tâches, votre application se connecte à la base de données à l’aide de l’identité managée.

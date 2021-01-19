@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: df511e79b73256833ec54c5906bb6acbc852bc46
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: b1fa4d3e6c017232922e500352558e34726b90cc
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97739618"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183079"
 ---
 # <a name="tutorial-train-your-first-machine-learning-model-part-3-of-4"></a>Tutoriel : Entraîner votre premier modèle Machine Learning (partie 3 sur 4)
 
@@ -40,10 +40,8 @@ Dans ce tutoriel, vous allez :
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Avoir effectué la [partie 2](tutorial-1st-experiment-hello-world.md) de la série.
-* Avoir des connaissances préliminaires du langage Python et des workflows Machine Learning.
-* Environnement de développement local, comme Visual Studio Code, Jupyter et PyCharm.
-* Python (version 3.5 à 3.7).
+- [Anaconda](https://www.anaconda.com/download/) ou [Miniconda](https://www.anaconda.com/download/) pour gérer les environnements virtuels Python et installer les packages.
+- Avoir effectué la [partie 1](tutorial-1st-experiment-sdk-setup-local.md) et la [partie 2](tutorial-1st-experiment-hello-world.md) de la série.
 
 ## <a name="create-training-scripts"></a>Créer des scripts de formation
 
@@ -77,9 +75,7 @@ tutorial
 > [!div class="nextstepaction"]
 > [J’ai créé les scripts d’entraînement](?success=create-scripts#environment) [J’ai rencontré un problème](https://www.research.net/r/7CTJQQN?issue=create-scripts)
 
-## <a name="create-a-python-environment"></a><a name="environment"></a> Créer un environnement Python
-
-À des fins de démonstration, nous allons utiliser un environnement Conda. (Les étapes pour un environnement virtuel pip sont pratiquement identiques.)
+## <a name="create-a-new-python-environment"></a><a name="environment"></a> Créer un environnement Python
 
 Créez un fichier nommé `pytorch-env.yml` dans le répertoire masqué `.azureml` :
 
@@ -92,18 +88,19 @@ Cet environnement comporte toutes les dépendances requises par votre modèle et
 
 ## <a name="test-locally"></a><a name="test-local"></a> Tester localement
 
-Utilisez le code suivant pour tester les exécutions de votre script localement dans cet environnement :
+Dans un terminal ou une fenêtre d’invite Anaconda, utilisez le code suivant pour tester votre script localement dans le nouvel environnement.  
 
 ```bash
-conda env create -f .azureml/pytorch-env.yml    # create conda environment
-conda activate pytorch-env                      # activate conda environment
+conda deactivate                                # If you are still using the tutorial environment, exit it
+conda env create -f .azureml/pytorch-env.yml    # create the new Conda environment
+conda activate pytorch-env                      # activate new Conda environment
 python src/train.py                             # train model
 ```
 
 Après l’exécution de ce script, vous voyez toutes les données téléchargées dans un répertoire nommé `tutorial/data`.
 
 > [!div class="nextstepaction"]
-> [J’ai créé le fichier d’environnement](?success=test-local#create-local) [J’ai rencontré un problème](https://www.research.net/r/7CTJQQN?issue=test-local)
+> [J’ai exécuté le code localement](?success=test-local#create-local) [J’ai rencontré un problème](https://www.research.net/r/7CTJQQN?issue=test-local)
 
 ## <a name="create-the-control-script"></a><a name="create-local"></a> Créer le script de contrôle
 
@@ -163,11 +160,11 @@ if __name__ == "__main__":
 
 ## <a name="submit-the-run-to-azure-machine-learning"></a><a name="submit"></a> Soumettre l’exécution à Azure Machine Learning
 
-Si vous êtes passé à des environnements locaux, veillez à revenir à un environnement où le SDK Azure Machine Learning pour Python est installé.
-
-Ensuite, exécutez :
+Revenez à l’environnement du *tutoriel* sur lequel est installé le SDK Azure Machine Learning pour Python. Étant donné que le code d’entraînement ne s’exécute pas sur votre ordinateur, vous n’avez pas besoin d’installer PyTorch.  Mais vous avez besoin du `azureml-sdk`, qui se trouve dans l’environnement du *tutoriel*.
 
 ```bash
+conda deactivate
+conda activate tutorial
 python 04-run-pytorch.py
 ```
 

@@ -11,12 +11,12 @@ ms.devlang: na
 ms.date: 12/16/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 7eda805a5fdf24a7a55b9296a0f0a1c9a5bfc576
-ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+ms.openlocfilehash: 36fb54b4b6521d87c7461936c84a644bf22f7e31
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97683500"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97963961"
 ---
 # <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate"></a>Tutoriel : Utiliser des scripts de déploiement pour créer un certificat auto-signé
 
@@ -329,13 +329,13 @@ Le script de déploiement ajoute un certificat au coffre de clés. Configurez le
 
     ![Ressources de script de déploiement du modèle Resource Manager](./media/template-tutorial-deployment-script/resource-manager-template-deployment-script-resources.png)
 
-    Les deux fichiers portent le suffixe **azscripts**. L’un est un compte de stockage et l’autre est une instance de conteneur.
+    Les deux fichiers portent le suffixe _azscripts_. L’un est un compte de stockage et l’autre est une instance de conteneur.
 
     Sélectionnez **Afficher les types masqués** pour lister la ressource `deploymentScripts`.
 
-1. Sélectionnez le compte de stockage portant le suffixe **azscripts**.
-1. Sélectionnez la vignette **Partages de fichiers**. Vous devez voir un dossier **azscripts**. Ce dossier contient les fichiers d’exécution du script de déploiement.
-1. Sélectionnez **azscripts**. Vous devez voir deux dossiers : **azscriptinput** et **azscriptoutput**. Le dossier input contient un fichier de script PowerShell système et les fichiers de script de déploiement utilisateur. Le dossier output contient un fichier _executionresult.json_ et le fichier de sortie du script. Vous pouvez voir le message d’erreur dans _executionresult.json_. Le fichier de sortie n’est pas là en raison de l’échec de l’exécution.
+1. Sélectionnez le compte de stockage portant le suffixe _azscripts_.
+1. Sélectionnez la vignette **Partages de fichiers**. Vous voyez un dossier _azscripts_ qui contient les fichiers d’exécution du script de déploiement.
+1. Sélectionnez _azscripts_. Vous devez voir deux dossiers : _azscriptinput_ et _azscriptoutput_. Le dossier input contient un fichier de script PowerShell système et les fichiers de script de déploiement utilisateur. Le dossier output contient un fichier _executionresult.json_ et le fichier de sortie du script. Vous pouvez voir le message d’erreur dans _executionresult.json_. Le fichier de sortie n’est pas là en raison de l’échec de l’exécution.
 
 Supprimez la ligne `Write-Output1` et redéployez le modèle.
 

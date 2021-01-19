@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/04/2020
+ms.date: 01/13/2021
 ms.author: jeedes
-ms.openlocfilehash: bd62855aef59439ed476a13770f79ce6d3cf68f8
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: d4f8e71a0afbb1b00313d5e100ba8b3fd2b4e2ce
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96180793"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185748"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-marketo"></a>Didacticiel : Intégration d’Azure Active Directory à Marketo
 
@@ -40,6 +40,9 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 * Marketo prend en charge l’authentification unique initiée par le **fournisseur d’identité**
 
+> [!NOTE]
+> L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
+
 ## <a name="adding-marketo-from-the-gallery"></a>Ajout de Marketo depuis la galerie
 
 Pour configurer l’intégration de Marketo à Azure AD, vous devez ajouter Marketo, depuis la galerie, à votre liste d’applications SaaS gérées.
@@ -51,7 +54,7 @@ Pour configurer l’intégration de Marketo à Azure AD, vous devez ajouter Mark
 1. Dans la section **Ajouter à partir de la galerie**, tapez **Marketo** dans la zone de recherche.
 1. Sélectionnez **Marketo** dans le volet des résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-## <a name="configure-and-test-azure-ad-sso"></a>Configurer et tester l’authentification unique Azure AD
+## <a name="configure-and-test-azure-ad-sso-for-marketo"></a>Configurer et tester l’authentification unique Azure AD pour Marketo
 
 Dans cette section, vous allez configurer et tester l’authentification unique Azure AD auprès de Marketo, à l’aide d’un utilisateur de test nommé **Britta Simon**.
 Pour que l’authentification unique fonctionne, une relation entre l’utilisateur Azure AD et l’utilisateur Marketo associé doit être établie.
@@ -59,10 +62,10 @@ Pour que l’authentification unique fonctionne, une relation entre l’utilisat
 Pour configurer et tester l’authentification unique Azure AD auprès de Marketo, effectuez les étapes suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-    * **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique (SSO) Azure AD avec Britta Simon.
-    * **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique (SSO) Azure AD.
+    1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique (SSO) Azure AD avec Britta Simon.
+    1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique (SSO) Azure AD.
 2. **[Configurer l’authentification unique Marketo](#configure-marketo-sso)** pour configurer les paramètres d’authentification unique côté application.
-    * **[Créer l’utilisateur de test Marketo](#create-marketo-test-user)** pour avoir dans Marketo un équivalent de Britta Simon lié à la représentation Azure AD associée.
+    1. **[Créer l’utilisateur de test Marketo](#create-marketo-test-user)** pour avoir dans Marketo un équivalent de Britta Simon lié à la représentation Azure AD associée.
 3. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
@@ -71,20 +74,20 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans le portail Azure, accédez à la page d’intégration de l’application **Marketo**, recherchez la section **Gérer**, puis sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon de **Configuration SAML de base** afin de modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
 1. Dans la section **Configuration SAML de base**, entrez les valeurs pour les champs suivants :
 
-    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://saml.marketo.com/sp`
+    a. Dans la zone de texte **Identificateur**, tapez une l’URL : `https://saml.marketo.com/sp`
 
     b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://login.marketo.com/saml/assertion/\<munchkinid\>`
 
     c. Dans la zone de texte **État de relais**, entrez une URL en utilisant le modèle suivant : `https://<munchkinid>.marketo.com/`
 
     > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’état du relais exacts. Pour obtenir ces valeurs, contactez [l’équipe du support technique de Marketo](https://investors.marketo.com/contactus.cfm). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de réponse et l’état de relais réels. Pour obtenir ces valeurs, contactez [l’équipe du support technique de Marketo](https://investors.marketo.com/contactus.cfm). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 5. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le **Certificat (Base64)** en fonction des options définies par rapport à vos besoins, puis enregistrez-le sur votre ordinateur.
 
@@ -120,7 +123,17 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 ## <a name="configure-marketo-sso"></a>Configurer l’authentification unique Marketo
 
-1. Pour obtenir l’ID Munchkin de votre application, connectez-vous à Marketo à l’aide des informations d’identification d’administrateur, puis effectuez les actions suivantes :
+1. Pour automatiser la configuration dans Marketo, vous devez installer l’**extension de navigateur My Apps Secure Sign-in** en cliquant sur **Installer l’extension**.
+
+    ![Extension My apps](common/install-myappssecure-extension.png)
+
+2. Après l’ajout de l’extension au navigateur, cliquez sur **Configurer Marketo** pour être dirigé vers l’application Marketo. À partir de là, indiquez les informations d’identification de l’administrateur pour vous connecter à Marketo. Cette extension de navigateur configure automatiquement l’application et automatise les étapes 3 à 6.
+
+    ![Configuration](common/setup-sso.png)
+
+3. Si vous souhaitez configurer Marketo manuellement, dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise Marketo en tant qu’administrateur.
+
+1. Pour obtenir l’ID Munchkin de votre application, procédez comme suit :
    
     a. Connectez-vous à l’application Marketo à l’aide des informations d’identification de l’administrateur.
    
@@ -233,13 +246,13 @@ Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans M
 
 8. L’utilisateur recevra une notification par e-mail. Pour activer le compte, il devra cliquer sur le lien et modifier le mot de passe. 
 
-### <a name="test-sso"></a>Tester l’authentification unique (SSO) 
+### <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes.
 
-1. Cliquez sur Tester cette application dans le portail Azure. Vous êtes alors automatiquement connecté à l’instance de Marketo pour laquelle vous avez configuré l’authentification unique.
+* Cliquez sur Tester cette application dans le portail Azure. Vous êtes alors automatiquement connecté à l’instance de Marketo pour laquelle vous avez configuré l’authentification unique.
 
-1. Vous pouvez utiliser le volet d’accès Microsoft. Le fait de cliquer sur la vignette Marketo dans le volet d’accès doit vous connecter automatiquement à l’instance de Marketo pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette Marketo dans Mes applications doit vous connecter automatiquement à l’instance de Marketo pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

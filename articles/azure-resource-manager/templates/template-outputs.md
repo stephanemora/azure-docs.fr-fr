@@ -3,16 +3,16 @@ title: Sorties dans des modèles
 description: Explique comment définir des valeurs de sortie dans un modèle Azure Resource Manager (ARM).
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: 6a375dfbc767bcbbfd8ec6b7f8cb9e942e275582
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: f8f13b6caf063cea79dc71775fb936f406a3ee6c
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353525"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964012"
 ---
 # <a name="outputs-in-arm-templates"></a>Sorties dans les modèles ARM
 
-Cet article explique comment définir des valeurs de sortie dans un modèle Azure Resource Manager (ARM). Vous utilisez des sorties quand vous devez retourner des valeurs à partir des ressources déployées.
+Cet article explique comment définir des valeurs de sortie dans un modèle Azure Resource Manager (ARM). Vous utilisez `outputs` quand vous devez renvoyer des valeurs à partir des ressources déployées.
 
 Le format de chaque valeur de sortie doit correspondre à l’un des [types de données](template-syntax.md#data-types).
 
@@ -31,7 +31,7 @@ L’exemple suivant montre comment retourner l’ID de ressource d’une adresse
 
 ## <a name="conditional-output"></a>Sortie conditionnelle
 
-Dans la section outputs, vous pouvez retourner une valeur de manière conditionnelle. En général, vous utilisez une condition dans les sorties quand vous avez [déployé de manière conditionnelle](conditional-resource-deployment.md) une ressource. L’exemple suivant montre comment retourner de façon conditionnelle l’ID de ressource pour une adresse IP publique si une nouvelle a été déployée :
+Dans la section `outputs`, vous pouvez renvoyer une valeur de manière conditionnelle. En général, vous utilisez `condition` dans `outputs` quand vous avez [déployé de manière conditionnelle](conditional-resource-deployment.md) une ressource. L’exemple suivant montre comment retourner de façon conditionnelle l’ID de ressource pour une adresse IP publique si une nouvelle a été déployée :
 
 ```json
 "outputs": {
@@ -47,7 +47,7 @@ Pour obtenir un exemple simple de sortie conditionnelle, consultez [Modèle de s
 
 ## <a name="dynamic-number-of-outputs"></a>Nombre dynamique de sorties
 
-Dans certains scénarios, vous ne connaissez pas le nombre d’instances d’une valeur que vous devez retourner lors de la création du modèle. Vous pouvez retourner un nombre variable de valeurs à l’aide de l’élément **copy**.
+Dans certains scénarios, vous ne connaissez pas le nombre d’instances d’une valeur que vous devez retourner lors de la création du modèle. Vous pouvez retourner un nombre variable de valeurs à l’aide de l’élément `copy`.
 
 ```json
 "outputs": {
@@ -61,7 +61,7 @@ Dans certains scénarios, vous ne connaissez pas le nombre d’instances d’une
 }
 ```
 
-Pour plus d’informations, consultez [Itération de sorties dans des modèles Azure Resource Manager](copy-outputs.md).
+Pour plus d’informations, voir [Itération de sorties dans des modèles ARM](copy-outputs.md).
 
 ## <a name="linked-templates"></a>Modèles liés
 

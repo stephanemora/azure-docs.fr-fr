@@ -3,12 +3,12 @@ title: Enregistrement vidéo en continu et lecture vidéo dans le cloud - Azure
 description: Ce tutoriel va vous apprendre à utiliser Azure Live Video Analytics sur Azure IoT Edge pour enregistrer des vidéos en continu dans le cloud et diffuser toute partie de ces vidéos avec Azure Media Services.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: c38ab1f32d1ef4e54cd8568ff17d325fabdefc31
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 8fa2b65416499e58235fa312ffdcd2d71c3cfb39
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498368"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060144"
 ---
 # <a name="tutorial-continuous-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Tutoriel : Enregistrement vidéo en continu et lecture vidéo dans le cloud
 
@@ -51,6 +51,9 @@ Les prérequis pour ce tutoriel sont les suivants :
 * Compte Azure Media Services
 * Machine virtuelle Linux dans Azure, avec le [runtime IoT Edge](../../iot-edge/how-to-install-iot-edge.md) installé
 
+> [!TIP]
+> En cas de problèmes avec les ressources Azure créées, consultez notre **[guide de dépannage](troubleshoot-how-to.md#common-error-resolutions)** qui couvre les problèmes couramment rencontrés.
+
 ## <a name="concepts"></a>Concepts
 
 Comme expliqué dans l’article [Concept de graphe multimédia](media-graph-concept.md), un graphe multimédia vous permet de définir ce qui suit :
@@ -64,7 +67,9 @@ Comme expliqué dans l’article [Concept de graphe multimédia](media-graph-con
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/continuous-video-recording-tutorial/continuous-video-recording-overview.svg" alt-text="Graphe multimédia":::
 
-Dans ce tutoriel, vous allez utiliser un module de périphérie créé avec le [serveur multimédia Live555](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) pour simuler une caméra RTSP. Dans le graphe multimédia, vous allez utiliser un nœud [source RTSP](media-graph-concept.md#rtsp-source) pour obtenir le flux en direct, puis envoyer cette vidéo au [nœud récepteur d’actifs multimédias](media-graph-concept.md#asset-sink) qui enregistrera la vidéo sur un élément multimédia.
+Dans ce tutoriel, vous allez utiliser un module de périphérie créé avec le [serveur multimédia Live555](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) pour simuler une caméra RTSP. Dans le graphe multimédia, vous allez utiliser un nœud [source RTSP](media-graph-concept.md#rtsp-source) pour obtenir le flux en direct, puis envoyer cette vidéo au [nœud récepteur d’actifs multimédias](media-graph-concept.md#asset-sink) qui enregistrera la vidéo sur un élément multimédia. La vidéo utilisée dans ce tutoriel est un [exemple de vidéo d’intersection d’autoroute](https://lvamedia.blob.core.windows.net/public/camera-300s.mkv).
+<iframe src="https://www.microsoft.com/en-us/videoplayer/embed/RE4LTY4" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4LTY4]
 
 ## <a name="set-up-your-development-environment"></a>Configurer l''environnement de développement
 
@@ -169,14 +174,14 @@ Lorsque vous utilisez le module Live Video Analytics sur IoT Edge pour enregistr
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Afficher le message détaillé":::
-1. <!--In Visual Studio Code, go-->Accédez à src/cloud-to-device-console-app/operations.json.
+1. Accédez à src/cloud-to-device-console-app/operations.json.
 1. Sous le nœud **GraphTopologySet**, modifiez les points suivants :
 
     `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/cvr-asset/topology.json" `
 1. Ensuite, sous les nœuds **GraphInstanceSet** et **GraphTopologyDelete**, vérifiez que la valeur de **topologyName** correspond à celle de la propriété **name** dans la topologie de graphe précédente :
 
     `"topologyName" : "CVRToAMSAsset"`  
-1. Ouvrez la [topologie](https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/cvr-asset/topology.json) dans un navigateur et observez assetNamePattern. Pour vérifier que votre ressource porte un nom unique, vous pouvez modifier le nom de l’instance de graphe dans le fichier operations.json (la valeur par défaut est Sample-Graph-1).
+1. Ouvrez la [topologie](https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/cvr-asset/2.0/topology.json) dans un navigateur et observez assetNamePattern. Pour vérifier que votre ressource porte un nom unique, vous pouvez modifier le nom de l’instance de graphe dans le fichier operations.json (la valeur par défaut est Sample-Graph-1).
 
     `"assetNamePattern": "sampleAsset-${System.GraphTopologyName}-${System.GraphInstanceName}"`    
 1. Démarrez une session de débogage en appuyant sur F5. Quelques messages s’affichent dans la fenêtre **TERMINAL**.
@@ -187,7 +192,7 @@ Lorsque vous utilisez le module Live Video Analytics sur IoT Edge pour enregistr
     Executing operation GraphTopologyList
     -----------------------  Request: GraphTopologyList  --------------------------------------------------
     {
-      "@apiVersion": "1.0"
+      "@apiVersion": "2.0"
     }
     ---------------  Response: GraphTopologyList - Status: 200  ---------------
     {
@@ -204,7 +209,7 @@ Lorsque vous utilisez le module Live Video Analytics sur IoT Edge pour enregistr
      
      ```
      {
-       "@apiVersion": "1.0",
+       "@apiVersion": "2.0",
        "name": "Sample-Graph-1",
        "properties": {
          "topologyName": "CVRToAMSAsset",
@@ -277,7 +282,7 @@ Lorsque l’instance de graphe est activée, le nœud source RTSP tente de se co
 
 ### <a name="recordingstarted-event"></a>Événement RecordingStarted
 
-Lorsque le nœud récepteur d’actifs multimédias commence à enregistrer une vidéo, il émet cet événement de type Microsoft.Media.Graph.Operational.RecordingStarted :
+Lorsque le nœud récepteur d’actifs multimédias commence à enregistrer une vidéo, il émet cet événement de type **Microsoft.Media.Graph.Operational.RecordingStarted** :
 
 ```
 [IoTHubMonitor] [9:42:38 AM] Message received from [lva-sample-device/lvaEdge]:
@@ -302,7 +307,7 @@ La section body contient des informations sur l’emplacement de sortie. Dans ce
 
 ### <a name="recordingavailable-event"></a>Événement RecordingAvailable
 
-Comme son nom l’indique, l’événement RecordingStarted est envoyé lorsque l’enregistrement a démarré. Il est cependant possible que les données vidéo ne soient pas encore chargées sur l’élément multimédia. Lorsque le nœud récepteur d’actifs multimédias a chargé des données vidéo sur l’élément multimédia, il émet cet événement de type Microsoft.Media.Graph.Operational.RecordingAvailable :
+Comme son nom l’indique, l’événement RecordingStarted est envoyé lorsque l’enregistrement a démarré. Il est cependant possible que les données vidéo ne soient pas encore chargées sur l’élément multimédia. Lorsque le nœud récepteur d’actifs multimédias a chargé des données vidéo sur l’élément multimédia, il émet cet événement de type **Microsoft.Media.Graph.Operational.RecordingAvailable** :
 
 ```
 [IoTHubMonitor] [[9:43:38 AM] Message received from [lva-sample-device/lvaEdge]:
@@ -329,7 +334,7 @@ La section body contient des informations sur l’emplacement de sortie. Dans ce
 
 ### <a name="recordingstopped-event"></a>Événement RecordingStopped
 
-Quand vous désactivez l’instance de graphe, le nœud récepteur d’actifs multimédias arrête l’enregistrement vidéo sur l’actif multimédia. Il émet cet événement de type Microsoft.Media.Graph.Operational.RecordingStopped :
+Quand vous désactivez l’instance de graphe, le nœud récepteur d’actifs multimédias arrête l’enregistrement vidéo sur l’actif multimédia. Il émet cet événement de type **Microsoft.Media.Graph.Operational.RecordingStopped** :
 
 ```
 [IoTHubMonitor] [11:33:31 PM] Message received from [lva-sample-device/lvaEdge]:

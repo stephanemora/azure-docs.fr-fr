@@ -3,14 +3,14 @@ title: Azure Kubernetes Service (AKS) avec contrat SLA de durée de fonctionneme
 description: Découvrez l’offre de Contrat SLA de durée de fonctionnement facultative pour le serveur d’API Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: conceptual
-ms.date: 06/24/2020
+ms.date: 01/08/2021
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: d9d22b54ef2534cf0adb205175fdc3f1c57205fb
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 95728ca14b96adf7396ca13888107477d953b2a9
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97607337"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98033334"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>Contrat SLA de durée de fonctionnement Azure Kubernetes Service (AKS)
 
@@ -26,7 +26,7 @@ Les clients peuvent toujours créer un nombre illimité de clusters gratuits ave
 ## <a name="region-availability"></a>Disponibilité des régions
 
 * Le contrat SLA de durée de fonctionnement est disponible dans les régions publiques et dans les régions Azure Government où [AKS est pris en charge](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
-* Le contrat SLA de durée de fonctionnement est disponible pour les [clusters AKS privés][private-clusters] dans toutes les régions où AKS est pris en charge.
+* Le contrat SLA de durée de fonctionnement est disponible pour les [clusters AKS privés][private-clusters] dans toutes les régions publiques où AKS est pris en charge.
 
 ## <a name="sla-terms-and-conditions"></a>Conditions générales des contrats SLA
 

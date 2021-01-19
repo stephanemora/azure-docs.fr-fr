@@ -1,6 +1,6 @@
 ---
 title: Création et fusion d’une demande de signature de certificat dans Azure Key Vault
-description: Création et fusion d’une demande de signature de certificat dans Azure Key Vault
+description: Apprenez à créer et fusionner une demande de signature de certificat dans Azure Key Vault.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -10,131 +10,143 @@ ms.subservice: certificates
 ms.topic: tutorial
 ms.date: 06/17/2020
 ms.author: sebansal
-ms.openlocfilehash: 42f649f9dd206b34f0fac8513ba742febed2dbcb
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: bbc232ed0bc9e9715f481fef8b7b3a1f8eeebe78
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724627"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98059651"
 ---
-# <a name="creating-and-merging-csr-in-key-vault"></a>Création et fusion d’une demande de signature de certificat dans Key Vault
+# <a name="create-and-merge-a-csr-in-key-vault"></a>Créer et fusionner une demande de signature de certificat dans Key Vault
 
-Azure Key Vault prend en charge le stockage d’un certificat numérique émis par toute autorité de certification de votre choix dans votre coffre de clés. Il prend en charge la création de la demande de signature de certificat avec une paire de clés publique/privée pouvant être signée par toute autorité de certification de votre choix. Il peut s’agir d’une autorité de certification interne de l’entreprise ou d’une autorité de certification publique externe. Une demande de signature de certificat (également appelée CSR ou demande de certification) est un message envoyé par l’utilisateur à une autorité de certification afin de demander l’émission d’un certificat numérique.
+Azure Key Vault prend en charge le stockage de certificats numériques émis par une autorité de certification. La solution prend en charge la création d’une demande de signature de certificat avec une paire de clés privée/publique. Cette demande peut être signée par une autorité de certification (interne d’entreprise ou publique externe). Une demande de signature de certificat est un message que vous envoyez à une autorité de certification afin de demander un certificat numérique.
 
 Pour plus d’informations générales sur les certificats, consultez [Certificats Azure Key Vault](./about-certificates.md).
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="adding-certificate-in-key-vault-issued-by-partnered-ca"></a>Ajout d’un certificat dans Key Vault émis par une autorité de certification associée
-Partenaires Key Vault avec les deux autorités de certification suivantes pour simplifier la création de certificats. 
+## <a name="add-certificates-in-key-vault-issued-by-partnered-cas"></a>Ajouter des certificats dans Key Vault émis par des autorités de certification partenaires
+
+Key Vault s’associe aux autorités de certification suivantes pour simplifier la création de certificats.
 
 |Fournisseur|Type de certificat|Configuration  
 |--------------|----------------------|------------------|  
 |DigiCert|Key Vault propose des certificats SSL OV ou EV avec DigiCert| [Guide d’intégration](./how-to-integrate-certificate-authority.md)
 |GlobalSign|Key Vault propose des certificats SSL OV ou EV avec GlobalSign| [Guide d’intégration](https://support.globalsign.com/digital-certificates/digital-certificate-installation/generating-and-importing-certificate-microsoft-azure-key-vault)
 
-## <a name="adding-certificate-in-key-vault-issued-by-non-partnered-ca"></a>Ajout d’un certificat dans Key Vault émis par une autorité de certification non associée
+## <a name="add-certificates-in-key-vault-issued-by-non-partnered-cas"></a>Ajouter des certificats dans Key Vault émis par des autorités de certification non partenaires
 
-Les étapes suivantes vous aideront à créer un certificat à partir d’autorités de certification qui ne sont pas partenaires de Key Vault (par exemple, GoDaddy n’est pas une autorité de certification de coffre de clés approuvée). 
-
-
+Effectuez ces étapes pour ajouter un certificat issu d’autorités de certification qui ne sont pas associées à Key Vault. (Par exemple, GoDaddy n’est pas une autorité de certification Key Vault approuvée.)
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
 
-1.  Pour générer la CSR pour l’autorité de certification de votre choix, accédez au coffre de clés auquel vous voulez ajouter le certificat.
-2.  Dans les pages des propriétés Key Vault, sélectionnez **Certificats**.
-3.  Sélectionnez l’onglet **Générer/Importer**.
-4.  Dans l’écran **Créer un certificat**, choisissez les valeurs suivantes :
-    - **Méthode de création de certificat :** Générer.
-    - **Nom du certificat :** ContosoManualCSRCertificate.
-    - **Type d’autorité de certification :** Certificat délivré par une autorité de certification non intégrée
-    - **Objet :** `"CN=www.contosoHRApp.com"`
-    - Sélectionnez les autres valeurs si besoin. Cliquez sur **Créer**.
+1. Accédez au coffre de clés auquel vous voulez ajouter le certificat.
+1. Dans la page Propriétés, sélectionnez **Certificats**.
+1. Sélectionnez l’onglet **Générer/Importer**.
+1. Dans l’écran **Créer un certificat**, choisissez les valeurs suivantes :
+    - **Méthode de création de certificat** : Générer.
+    - **Nom du certificat** : ContosoManualCSRCertificate.
+    - **Type d’autorité de certification** : Certificat émis par une autorité de certification non intégrée.
+    - **Objet** : `"CN=www.contosoHRApp.com"`.
+     > [!NOTE]
+     > Si vous utilisez un nom unique relatif qui comporte une virgule (,) dans la valeur, mettez la valeur qui contient le caractère spécial entre guillemets doubles. 
+     >
+     > Exemple d’entrée pour **Objet** : `DC=Contoso,OU="Docs,Contoso",CN=www.contosoHRApp.com`
+     >
+     > Dans cet exemple, le nom unique relatif `OU` contient une valeur qui comporte une virgule dans son nom. La sortie obtenue pour `OU` est **Docs, Contoso**.
+1. Sélectionnez les autres valeurs selon vos besoins, puis sélectionnez **Créer** pour ajouter le certificat à la liste **Certificats**.
 
-    ![Propriétés du certificat](../media/certificates/create-csr-merge-csr/create-certificate.png)  
+    ![Capture d’écran des propriétés du certificat](../media/certificates/create-csr-merge-csr/create-certificate.png)  
 
-
-6.  Vous verrez que le certificat est maintenant ajouté à la liste des certificats. Sélectionnez ce nouveau certificat que vous venez de créer. L’état actuel du certificat est « désactivé », car il n’a pas encore été émis par l’autorité de certification.
-7. Cliquez sur l’onglet **Opération de certificat** et sélectionnez **Télécharger CSR**.
+1. Dans la liste **Certificats**, sélectionnez le nouveau certificat. L’état actuel du certificat est **désactivé**, car il n’a pas encore été émis par l’autorité de certification.
+1. Cliquez sur l’onglet **Opération de certificat** et sélectionnez **Télécharger CSR**.
 
    ![Capture d’écran mettant en évidence le bouton Télécharger CSR.](../media/certificates/create-csr-merge-csr/download-csr.png)
- 
-8.  Présentez le fichier .csr à l’autorité de certification pour faire signer la demande.
-9.  Une fois que la demande est signée par l’autorité de certification, reprenez le fichier de certificat pour **fusionner la demande signée** dans le même écran d’opération de certificat.
+
+1. Demandez à l’autorité de certification de signer la demande de signature de certificat (.csr).
+1. Une fois la demande signée, sélectionnez **Fusionner la demande signée** sous l’onglet **Opération de certificat** pour ajouter le certificat signé à Key Vault.
 
 La demande de certificat est maintenant correctement fusionnée.
 
-
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
+1. Créez une stratégie de certificat. Étant donné que l’autorité de certification choisie dans ce scénario n’est pas partenaire, **IssuerName** a la valeur **Unknown** et Key Vault n’inscrit pas ou ne renouvelle pas le certificat.
 
-
-1. Tout d’abord, **créez la stratégie de certificat**. Key Vault n’inscrit pas ni ne renouvelle le certificat issu par l’émetteur au nom de l’utilisateur, puisque l’autorité de certification choisie dans ce scénario n’est pas prise en charge et, donc, IssuerName a la valeur Inconnu.
-
-   ```azurepowershell
+   ```azure-powershell
    $policy = New-AzKeyVaultCertificatePolicy -SubjectName "CN=www.contosoHRApp.com" -ValidityInMonths 1  -IssuerName Unknown
    ```
-    
-   > [!NOTE]
-   > Si vous utilisez un nom unique relatif qui comporte une virgule (,) dans la valeur, utilisez des guillemets simples et placez la valeur qui contient le caractère spécial entre guillemets doubles. Exemple : `$policy = New-AzKeyVaultCertificatePolicy -SubjectName 'OU="Docs,Contoso",DC=Contoso,CN=www.contosoHRApp.com' -ValidityInMonths 1  -IssuerName Unknown`. Dans cet exemple, la valeur `OU` est **Docs, Contoso**. Ce format fonctionne pour toutes les valeurs qui contiennent une virgule.
+     > [!NOTE]
+     > Si vous utilisez un nom unique relatif qui comporte une virgule (,) dans la valeur, utilisez des guillemets simples pour la valeur complète ou l’ensemble de valeurs et placez la valeur qui contient le caractère spécial entre guillemets doubles. 
+     >
+     >Exemple d’entrée pour **SubjectName** : `$policy = New-AzKeyVaultCertificatePolicy -SubjectName 'OU="Docs,Contoso",DC=Contoso,CN=www.contosoHRApp.com' -ValidityInMonths 1  -IssuerName Unknown`. Dans cet exemple, la valeur `OU` est **Docs, Contoso**. Ce format fonctionne pour toutes les valeurs qui contiennent une virgule.
+     > 
+     > Dans cet exemple, le nom unique relatif `OU` contient une valeur qui comporte une virgule dans son nom. La sortie obtenue pour `OU` est **Docs, Contoso**.
 
-2. Créez une **demande de signature de certificat**.
+1. Créez la demande de signature de certificat.
 
-   ```azurepowershell
+   ```azure-powershell
    $csr = Add-AzKeyVaultCertificate -VaultName ContosoKV -Name ContosoManualCSRCertificate -CertificatePolicy $policy
    $csr.CertificateSigningRequest
    ```
 
-3. Obtenez la **demande CSR signée par l’autorité de certification**. `$csr.CertificateSigningRequest` correspond à la demande de signature de certificat codée en base4. Vous pouvez prendre cet objet blob et le vider dans le site web de la demande de certificat de l’émetteur. Cette étape varie d’une autorité de certification à l’autre. Le meilleur moyen consiste à rechercher les instructions de votre autorité de certification quant à l’exécution de cette étape. Vous pouvez également utiliser des outils comme certreq ou openssl pour faire signer la demande de certificat et terminer le processus de génération d’un certificat.
+1. Demandez à l’autorité de certification de signer la demande de signature de certificat. `$csr.CertificateSigningRequest` correspond à la demande de signature de certificat encodée en base pour le certificat. Vous pouvez vider ce blob sur le site web de la demande de certificat de l’émetteur. Cette étape varie d’une autorité de certification à l’autre. Recherchez les instructions de votre autorité de certification pour effectuer cette étape. Vous pouvez également utiliser des outils comme certreq ou openssl pour faire signer la demande de signature de certificat et terminer le processus de génération d’un certificat.
 
+1. Fusionnez la demande signée dans Key Vault. Une fois la demande de certificat signée, vous pouvez la fusionner avec la paire de clés privée/publique initiale créée dans Azure Key Vault.
 
-4. **Fusionnez la demande signée** dans Key Vault. Une fois que la demande de certificat a été signée par l’émetteur, vous pouvez reprendre le certificat signé pour le fusionner avec la paire de clés publique/privée initiale créée dans Azure Key Vault.
-
-    ```azurepowershell-interactive
+    ```azure-powershell-interactive
     Import-AzKeyVaultCertificate -VaultName ContosoKV -Name ContosoManualCSRCertificate -FilePath C:\test\OutputCertificateFile.cer
     ```
 
-    La demande de certificat est maintenant correctement fusionnée.
+La demande de certificat est maintenant correctement fusionnée.
+
 ---
 
-> [!NOTE]
-> Si vos valeurs de nom unique relatif comportent des virgules, vous pouvez également les ajouter au champ **Objet** en les mettant entre guillemets doubles, comme indiqué à l’étape 4.
-> Exemple d’entrée pour « Objet » : `DC=Contoso,OU="Docs,Contoso",CN=www.contosoHRApp.com` Dans cet exemple, le nom unique relatif `OU` contient une valeur qui comporte une virgule dans son nom. La sortie obtenue pour `OU` est **Docs, Contoso**.
+## <a name="add-more-information-to-the-csr"></a>Ajouter d’autres informations à la demande de signature de certificat
 
-## <a name="adding-more-information-to-csr"></a>Ajout d’informations supplémentaires à la CSR
-
-Si vous voulez ajouter des informations supplémentaires lors de la création de la CSR, par exemple : 
-    - Pays :
-    - Ville / Localité :
-    - Département / Province :
-    - Organisation :
-    - Unité d’organisation : Vous pouvez ajouter toutes ces informations lors de la création d’une CSR en les définissant dans subjectName.
+Si vous voulez ajouter des informations supplémentaires lors de la création de la demande de signature de certificat, définissez-les dans **SubjectName**. Vous pouvez éventuellement des informations comme celles-ci :
+- Pays ou région
+- Ville/Localité
+- État/Province
+- Organisation
+- Unité d'organisation
 
 Exemple
-    ```SubjectName="CN = docs.microsoft.com, OU = Microsoft Corporation, O = Microsoft Corporation, L = Redmond, S = WA, C = US"
-    ```
+
+   ```azure-powershell
+   SubjectName="CN = docs.microsoft.com, OU = Microsoft Corporation, O = Microsoft Corporation, L = Redmond, S = WA, C = US"
+   ```
 
 > [!NOTE]
-> Si vous demandez un certificat DV avec tous ces détails dans la CSR, l’autorité de certification peut rejeter la demande, car elle peut ne pas être en mesure de valider toutes les informations dans la demande. Si vous demandez un certificat OV, il est plus approprié d’ajouter toutes ces informations dans la CSR.
+> Si vous demandez un certificat de validation de domaine (DV) avec des informations supplémentaires, l’autorité de certification peut rejeter la demande si elle ne parvient pas à valider toutes les informations contenues dans la demande. Les informations supplémentaires sont peut-être plus appropriées si vous demandez un certificat de validation d’organisation (OV).
 
+## <a name="faqs"></a>Foire aux questions
 
-## <a name="troubleshoot"></a>Dépanner
+- Comment surveiller ou gérer ma demande de signature de certificat ?
 
-- Pour savoir comment superviser ou gérer la réponse à une demande de certificat, [cliquez ici](https://docs.microsoft.com/azure/key-vault/certificates/create-certificate-scenarios)
+     Consultez [Surveiller et gérer la création de certificats](https://docs.microsoft.com/azure/key-vault/certificates/create-certificate-scenarios).
 
-- **Type d’erreur « La clé publique du certificat d’entité finale dans le contenu du certificat X.509 spécifié ne correspond pas à la partie publique de la clé privée spécifiée. Vérifiez que le certificat est valide. »** Cette erreur peut se produire si vous ne fusionnez pas la demande de signature de certificat avec celle qui a été lancée. Chaque fois qu’une demande de signature de certificat est créée, elle crée une clé privée qui doit être mise en correspondance lors de la fusion de la demande signée.
-    
-- Quand la CSR est fusionnée, est-ce que la chaîne entière est fusionnée ?
-    Oui, l’ensemble de la chaîne sera fusionné, à condition que l’utilisateur ait remis le fichier p7b à fusionner.
+- Que se passe-t-il si je vois **Type d’erreur « La clé publique du certificat d’entité finale dans le contenu du certificat X.509 spécifié ne correspond pas à la partie publique de la clé privée spécifiée. Vérifiez que le certificat est valide. »**  ?
 
-- Si le certificat émis est à l’état « désactivé » dans le portail Azure, examinez le message d’erreur pour ce certificat dans **Opération de certificat**.
+     Cette erreur se produit si vous ne fusionnez pas la demande de signature de certificat signée avec la même demande de signature de certificat que celle que vous avez lancée. Chaque nouvelle demande de signature de certificat que vous créez a une clé privée, qui doit correspondre quand vous fusionnez la demande signée.
 
-Pour plus d’informations, voir [Informations de référence sur les opérations liées aux certificats dans l’API REST Key Vault](/rest/api/keyvault). Pour plus d’informations sur l’établissement d’autorisations, consultez [Coffres : créer ou mettre à jour](/rest/api/keyvault/vaults/createorupdate) et [Coffres : mettre à jour la stratégie d’accès](/rest/api/keyvault/vaults/updateaccesspolicy).
+- Quand une demande de signature de certificat est fusionnée, est-ce que la chaîne entière est fusionnée ?
 
-- **Type d’erreur « Le nom d’objet fourni n’est pas un nom X500 valide. »** Cette erreur peut se produire si vous avez inclus des « caractères spéciaux » dans les valeurs de SubjectName. Consultez les notes dans les instructions du portail Azure et de PowerShell, respectivement. 
+     Oui, l’ensemble de la chaîne est fusionné, à condition que l’utilisateur ait remis un fichier .p7b à fusionner.
+
+- Que se passe-t-il si le certificat émis présente l’état désactivé dans le portail Azure ?
+
+     Affichez l’onglet **Opération de certificat** pour consulter le message d’erreur de ce certificat.
+
+- Que se passe-t-il si je vois **Type d’erreur « Le nom d’objet fourni n’est pas un nom X500 valide »** ?
+
+     Cette erreur peut se produire si **SubjectName** contient des caractères spéciaux. Consultez les remarques dans les instructions du portail Azure et PowerShell.
 
 ---
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Authentification, requêtes et réponses](../general/authentication-requests-and-responses.md)
 - [Guide du développeur Key Vault](../general/developers-guide.md)
+- [Informations de référence sur l’API REST Azure Key Vault](/rest/api/keyvault)
+- [Coffres - Créer ou mettre à jour](/rest/api/keyvault/vaults/createorupdate)
+- [Coffres - Mettre à jour une stratégie d’accès](/rest/api/keyvault/vaults/updateaccesspolicy)

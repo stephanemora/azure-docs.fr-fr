@@ -2,16 +2,25 @@
 title: Intégrer à Apache Kafka Connect - Azure Event Hubs | Microsoft Docs
 description: Cet article fournit des informations sur l’utilisation de Kafka Connect avec Azure Event Hubs pour Kafka.
 ms.topic: how-to
-ms.date: 06/23/2020
-ms.openlocfilehash: d37d2465d9389a0bcfaabdec32bad0c86846cfb2
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.date: 01/06/2021
+ms.openlocfilehash: f82dcdafa7921f4a994361371536b2f1ace7cbc5
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369537"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935153"
 ---
-# <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview"></a>Intégrer la prise en charge Apache Kafka Connect à Azure Event Hubs (préversion)
-Si l’ingestion des besoins métier augmente, les exigences augmentent également pour ingérer différents récepteurs et sources externes. [Apache Kafka Connect](https://kafka.apache.org/documentation/#connect) fournit cette infrastructure pour se connecter et importer/exporter des données depuis/vers n’importe quel système externe, tel que MySQL, HDFS, et système de fichiers via un cluster Kafka. Ce tutoriel vous montre comment utiliser l’infrastructure Kafka Connect avec des Event Hubs.
+# <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs"></a>Intégrer la prise en charge Apache Kafka Connect à Azure Event Hubs
+[Apache Kafka Connect](https://kafka.apache.org/documentation/#connect) est une infrastructure permettant de connecter et d’importer/exporter des données depuis/vers n’importe quel système externe (p. ex. : MySQL), HDFS, et système de fichiers via un cluster Kafka. Ce tutoriel vous montre comment utiliser l’infrastructure Kafka Connect avec des Event Hubs.
+
+> [!WARNING]
+> L’utilisation de l’infrastructure Apache Kafka Connect et de ses connecteurs **n’est pas admissible au support produit par le biais de Microsoft Azure**.
+>
+> Apache Kafka Connect suppose que sa configuration dynamique est conservée dans des rubriques compactées, avec une rétention illimitée. Azure Event Hubs [n’implémente pas le compactage comme fonctionnalité de répartiteur](event-hubs-federation-overview.md#log-projections) et impose toujours une limite de rétention temporelle sur les événements conservés, partant du principe qu’Azure Event Hubs est un moteur de diffusion d’événements en temps réel et non un magasin de configuration ou de données à long terme.
+>
+> Bien que le projet Apache Kafka puisse accepter la combinaison de ces rôles, Azure considère que ces informations sont mieux gérées dans une base de données ou un magasin de configuration approprié.
+>
+> De nombreux scénarios Apache Kafka Connect seront fonctionnels, mais ces différences conceptuelles entre les modèles de rétention d’Apache Kafka et d’Azure Event Hubs peuvent empêcher certaines configurations de fonctionner comme prévu. 
 
 Ce tutoriel vous guide tout au long de l’intégration de Kafka Connect avec un hub d’événements et du déploiement des connecteurs FileStreamSource et FileStreamSink de base. Actuellement, cette fonctionnalité est uniquement disponible en tant que version préliminaire. Bien que ces connecteurs ne soient pas destinés à une utilisation en production, ils présentent un scénario Kafka Connect de bout en bout où Azure Event Hubs agit comme un répartiteur Kafka.
 
@@ -156,7 +165,7 @@ Kafka Connect crée des rubriques Event Hub pour stocker les configurations, les
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d'informations sur Event Hubs pour Kafka, consultez les articles suivants :  
+Pour plus d’informations sur Event Hubs pour Kafka, consultez les articles suivants :  
 
 - [Mettre en miroir un broker Kafka dans un hub d’événements](event-hubs-kafka-mirror-maker-tutorial.md)
 - [Connecter Apache Spark à un hub d’événements](event-hubs-kafka-spark-tutorial.md)

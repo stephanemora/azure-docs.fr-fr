@@ -8,22 +8,22 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/03/2021
-ms.openlocfilehash: 36d40215f759190cc9e6c6e3f4918dcbc384f94f
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 73af7e2a1920e6cfdad9245d965908255ef95a1f
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97893240"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964590"
 ---
 # <a name="apache-hbase-advisories-in-azure-hdinsight"></a>Conseils Apache HBase dans Azure HDInsight
 
-Cet article décrit plusieurs conseils qui vous aident à optimiser les performances d’Apache HBase dans Azure HDInsight. 
+Cet article décrit plusieurs conseils pour vous aider à optimiser les performances d’Apache HBase dans Azure HDInsight. 
 
 ## <a name="optimize-hbase-to-read-most-recently-written-data"></a>Optimiser HBase pour lire les données récemment écrites
 
-Quand vous utilisez Apache HBase dans Azure HDInsight, vous pouvez optimiser la configuration de HBase pour le scénario dans lequel votre application lit les données récemment écrites. Pour des performances élevées, il est préférable que les lectures HBase soient servies à partir de memstore, au lieu du stockage à distance.
+Si votre cas d’usage implique la lecture des données les plus récentes de HBase, ce conseil peut vous aider. Pour des performances élevées, il est préférable que les lectures HBase soient servies à partir de memstore, au lieu du stockage à distance.
 
-Le conseil en termes de requête indique qu’une famille de colonnes donnée dans une table doit avoir > 75 % des lectures servies à partir de memstore. Cet indicateur suggère que même si un vidage se produit sur memstore, le fichier récent doit être accessible et se situer dans le cache. Les données sont d’abord écrites dans memstore où le système accède aux données récentes. Il est possible que les threads internes de vidage HBase détectent qu’une région donnée a atteint la taille de 128M (valeur par défaut) et peuvent déclencher un vidage. Ce scénario se produit même pour les données les plus récentes écrites lorsque la taille de memstore était d’environ 128M. Par conséquent, une lecture ultérieure de ces enregistrements récents peut nécessiter une lecture de fichier plutôt qu’une lecture à partir de memstore. Il est donc préférable d’optimiser pour que même les données récentes récemment vidées puissent résider dans le cache.
+Le conseil en termes de requête indique que pour une famille de colonnes donnée dans une table, plus de 75 % des lectures sont servies à partir de memstore. Cet indicateur suggère que même si un vidage se produit sur memstore, le fichier récent doit être accessible et se situer dans le cache. Les données sont d’abord écrites dans memstore où le système accède aux données récentes. Il est possible que les threads internes de vidage HBase détectent qu’une région donnée a atteint la taille de 128M (valeur par défaut) et peuvent déclencher un vidage. Ce scénario se produit même pour les données les plus récentes écrites lorsque la taille de memstore était d’environ 128M. Par conséquent, une lecture ultérieure de ces enregistrements récents peut nécessiter une lecture de fichier plutôt qu’une lecture à partir de memstore. Il est donc préférable d’optimiser pour que même les données récentes récemment vidées puissent résider dans le cache.
 
 Pour optimiser les données récentes dans le cache, prenez en compte les paramètres de configuration suivants :
 
@@ -35,7 +35,7 @@ Pour optimiser les données récentes dans le cache, prenez en compte les param�
 
 4. Si vous êtes certain de devoir lire uniquement les données récentes, définissez la configuration `hbase.rs.cachecompactedblocksonwrite` sur **ON**. Cette configuration indique au système que, même si le compactage se produit, les données restent dans le cache. Les configurations peuvent aussi être définies au niveau de la famille. 
 
-   Dans HBase Shell, exécutez la commande suivante :
+   Dans l’interpréteur de commandes HBase, exécutez la commande suivante pour définir la configuration `hbase.rs.cachecompactedblocksonwrite` :
    
    ```
    alter '<TableName>', {NAME => '<FamilyName>', CONFIGURATION => {'hbase.hstore.blockingStoreFiles' => '300'}}
@@ -43,15 +43,15 @@ Pour optimiser les données récentes dans le cache, prenez en compte les param�
 
 5. Le cache de blocs peut être désactivé pour une famille donnée dans une table. Assurez-vous qu’il est activé (**ON**) pour les familles qui ont les lectures de données les plus récentes. Par défaut, le cache de blocs est activé pour toutes les familles d’une table. Si vous avez désactivé le cache de blocs pour une famille et que vous devez l’activer, utilisez la commande alter à partir de HBase Shell.
 
-   Ces configurations permettent de s’assurer que les données sont dans le cache et que les données récentes ne subissent pas de compactage. S’il est possible d’utiliser une durée de vie dans votre scénario, envisagez d’utiliser un compactage en fonction de la date. Pour plus d’informations, consultez [Guide de référence Apache HBase : Compactage en fonction de la date](https://hbase.apache.org/book.html#ops.date.tiered)  
+   Ces configurations permettent de s’assurer que les données sont disponibles dans le cache et que les données récentes ne subissent pas de compactage. S’il est possible d’utiliser une durée de vie dans votre scénario, envisagez d’utiliser un compactage en fonction de la date. Pour plus d’informations, consultez [Guide de référence Apache HBase : Compactage en fonction de la date](https://hbase.apache.org/book.html#ops.date.tiered)  
 
 ## <a name="optimize-the-flush-queue"></a>Optimiser la file d’attente de vidage
 
-Le conseil d’optimisation de la file d’attente de vidage indique que les vidages de HBase peuvent nécessiter un réglage. Les gestionnaires de vidage peuvent ne pas être suffisamment élevés par rapport à la configuration.
+Ce conseil indique que les vidages de HBase peuvent nécessiter un réglage. La configuration actuelle des gestionnaires de vidages peut ne pas être suffisamment élevée pour gérer le trafic d’écriture, ce qui peut entraîner un ralentissement des vidages.
 
 Dans l’interface utilisateur du serveur de la région, notez si la file d’attente de vidage dépasse 100. Ce seuil indique que les vidages sont lents et vous devrez peut-être régler la configuration de `hbase.hstore.flusher.count`. Par défaut, la valeur est 2. Assurez-vous que les threads de vidage maximum n’augmentent pas au-delà de 6.
 
-En outre, vérifiez si vous avez une recommandation pour le paramétrage du nombre de régions. Si c’est le cas, essayez d’abord de paramétrer la région pour voir si cela permet d’accélérer les vidages. Le paramétrage des threads de vidage peut vous aider de plusieurs façons, par exemple 
+En outre, vérifiez si vous avez une recommandation pour le paramétrage du nombre de régions. Si c’est le cas, nous vous suggérons d’essayer le réglage de la région pour voir si cela permet d’accélérer les vidages. Dans le cas contraire, le réglage des threads de vidage peut vous aider.
 
 ## <a name="region-count-tuning"></a>Paramétrage du nombre de régions
 

@@ -13,22 +13,22 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27c34135a59521eca361c59a1c82854469626616
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 8dd570a31813ef12ee8a007c84facb8aa5e7aca4
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97743684"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97933130"
 ---
 # <a name="manage-external-access-with-conditional-access-policies"></a>Gérer l’accès externe avec les stratégies d’accès conditionnel 
 
-L’[accès conditionnel](../conditional-access/overview.md) est l’outil qu’Azure AD utilise pour rassembler des signaux, appliquer des stratégies et déterminer si un utilisateur doit être autorisé à accéder à des ressources. Pour obtenir des informations détaillées sur la façon de créer et d’utiliser des stratégies d’accès conditionnel (stratégies d’autorité de certification), consultez [Planifier un déploiement d’accès conditionnel](../conditional-access/plan-conditional-access.md). 
+L’[accès conditionnel](../conditional-access/overview.md) est l’outil qu’Azure AD utilise pour rassembler des signaux, appliquer des stratégies et déterminer si un utilisateur doit être autorisé à accéder à des ressources. Pour obtenir des informations détaillées sur la façon de créer et d’utiliser des stratégies d’accès conditionnel, consultez [Planifier un déploiement d’accès conditionnel](../conditional-access/plan-conditional-access.md). 
 
 ![Diagramme des signaux et des décisions d’accès conditionnel](media/secure-external-access//7-conditional-access-signals.png)
 
 
 
-Cet article explique comment appliquer des stratégies d’autorité de certification à des utilisateurs externes et il suppose que vous n’avez pas accès aux fonctionnalités de [gestion des droits d’utilisation](../governance/entitlement-management-overview.md). Des stratégies d’autorité de certification peuvent être utilisées avec la gestion des droits d’utilisation.
+Cet article explique comment appliquer des stratégies d’accès conditionnel à des utilisateurs externes et il suppose que vous n’avez pas accès aux fonctionnalités de [gestion des droits d’utilisation](../governance/entitlement-management-overview.md). Des stratégies d’accès conditionnel peuvent être utilisées avec la gestion des droits d’utilisation.
 
 Précédemment, dans cette série de documents, vous avez [créé un plan de sécurité](3-secure-access-plan.md) qui indiquait :
 
@@ -36,27 +36,27 @@ Précédemment, dans cette série de documents, vous avez [créé un plan de sé
 
 * Les exigences de connexion pour les utilisateurs externes.
 
-Vous allez utiliser ce plan pour créer vos stratégies d’autorité de certification pour l’accès externe. 
+Vous allez utiliser ce plan pour créer vos stratégies d’accès conditionnel pour l’accès externe. 
 
 > [!IMPORTANT]
 > Créez quelques comptes de test d’utilisateur externe afin de pouvoir tester les stratégies que vous créez avant de les appliquer à tous les utilisateurs externes.
 
 ## <a name="conditional-access-policies-for-external-access"></a>Stratégies d’accès conditionnel pour l’accès externe
 
-Les bonnes pratiques liées à l’administration de l’accès externe avec des stratégies d’autorité de certification sont présentées ci-dessous.
+Les meilleures pratiques liées à l’administration de l’accès externe avec des stratégies d’accès conditionnel sont présentées ci-dessous.
 
-* Si vous ne pouvez pas utiliser les organisations connectées dans la gestion des droits d’utilisation, créez un groupe de sécurité Azure AD ou un groupe Microsoft 365 pour chaque organisation partenaire avec laquelle vous travaillez. Affectez tous les utilisateurs de ce partenaire à ce groupe. Vous pouvez alors utiliser ces groupes dans des stratégies d’autorité de certification.
+* Si vous ne pouvez pas utiliser les organisations connectées dans la gestion des droits d’utilisation, créez un groupe de sécurité Azure AD ou un groupe Microsoft 365 pour chaque organisation partenaire avec laquelle vous travaillez. Affectez tous les utilisateurs de ce partenaire à ce groupe. Vous pouvez alors utiliser ces groupes dans des stratégies d’accès conditionnel.
 
-* Créez le moins de stratégies d’autorité de certification possible. Pour les applications qui ont les mêmes besoins d’accès, ajoutez-les toutes à la même stratégie.  
+* Créez autant de stratégies d’accès conditionnel que possible. Pour les applications qui ont les mêmes besoins d’accès, ajoutez-les toutes à la même stratégie.  
 ‎ 
    > [!NOTE]
-   > Une stratégie d’autorité de certification peut s’appliquer à un maximum de 250 applications. Si plus de 250 applications ont les mêmes besoins d’accès, créez des stratégies dupliquées. La stratégie A s’appliquera aux applications 1-250, la stratégie B aux applications 251-500, etc.
+   > Une stratégie d’accès conditionnel peut s’appliquer à un maximum de 250 applications. Si plus de 250 applications ont les mêmes besoins d’accès, créez des stratégies dupliquées. La stratégie A s’appliquera aux applications 1-250, la stratégie B aux applications 251-500, etc.
 
 * Nommez clairement les stratégies spécifiques à l’accès externe à l’aide d’une convention d’affectation de noms. Une convention d’affectation de noms est ‎*ExternalAccess_actiontaken_AppGroup*. Par exemple, ExternalAccess_Block_FinanceApps.
 
 ## <a name="block-all-external-users-from-resources"></a>Bloquer l’accès aux ressources à tous les utilisateurs externes
 
-Vous pouvez empêcher les utilisateurs externes d’accéder à des ensembles spécifiques de ressources avec des stratégies d’autorité de certification. Une fois que vous avez déterminé l’ensemble des ressources dont vous souhaitez bloquer l’accès, créez une stratégie.
+Vous pouvez empêcher les utilisateurs externes d’accéder à des ensembles spécifiques de ressources grâce à des stratégies d’accès conditionnel. Une fois que vous avez déterminé l’ensemble des ressources dont vous souhaitez bloquer l’accès, créez une stratégie.
 
 Pour créer une stratégie qui bloque l’accès des utilisateurs externes à un ensemble d’applications :
 

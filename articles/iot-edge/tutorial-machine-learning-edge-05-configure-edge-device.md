@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: amqp, devx-track-azurecli
-ms.openlocfilehash: bc62590b9517b2c6d16fdf2637990b845248d2ec
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 74d77d8c81455116cec861bf6704c6cb96526561
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96932351"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121088"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>Tutoriel : Configurer un appareil IoT Edge
 
@@ -81,7 +81,7 @@ Dans cette section, nous créons les certificats auto-signés à l’aide d’un
 
 ## <a name="upload-certificates-to-azure-key-vault"></a>Charger des certificats dans Azure Key Vault
 
-Pour stocker nos certificats de manière sécurisée et les rendre accessibles sur plusieurs appareils, nous les chargeons dans Azure Key Vault. Comme vous pouvez le voir dans la liste ci-dessus, nous avons deux types de fichiers de certificat : PFX et PEM. Les fichiers PFX correspondent aux certificats de coffre de clés à charger dans Key Vault. Les fichiers PEM sont en texte intégral et correspondent aux secrets de coffre de clés. Nous utilisons le coffre de clés associé à l’espace de travail Azure Machine Learning que nous avons créé en exécutant les [notebooks Azure](tutorial-machine-learning-edge-04-train-model.md#run-azure-notebooks).
+Pour stocker nos certificats de manière sécurisée et les rendre accessibles sur plusieurs appareils, nous les chargeons dans Azure Key Vault. Comme vous pouvez le voir dans la liste ci-dessus, nous avons deux types de fichiers de certificat : PFX et PEM. Les fichiers PFX correspondent aux certificats de coffre de clés à charger dans Key Vault. Les fichiers PEM sont en texte intégral et correspondent aux secrets de coffre de clés. Nous utilisons le coffre de clés associé à l’espace de travail Azure Machine Learning que nous avons créé en exécutant les [notebooks Jupyter](tutorial-machine-learning-edge-04-train-model.md#run-jupyter-notebooks).
 
 1. Dans le [portail Azure](https://portal.azure.com), accédez à votre espace de travail Azure Machine Learning.
 

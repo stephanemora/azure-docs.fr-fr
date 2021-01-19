@@ -1,7 +1,7 @@
 ---
-title: 'Tutoriel : Créer un modèle prédictif à l’aide d’un notebook (partie 1 sur 2)'
+title: 'Tutoriel : Créer le modèle prédictif avec un notebook (partie 1 sur 2)'
 titleSuffix: Azure Machine Learning
-description: Découvrez comment créer et déployer un modèle Machine Learning à l’aide du code d’un notebook Jupyter. Vous pouvez utiliser ce modèle pour prédire des résultats dans Microsoft Power BI.
+description: Découvrez comment créer et déployer un modèle Machine Learning à l’aide du code d’un notebook Jupyter. Créez également un script de scoring qui définit l’entrée et la sortie pour une intégration facile dans Microsoft Power BI.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ ms.author: samkemp
 author: samuel100
 ms.reviewer: sdgilley
 ms.date: 12/11/2020
-ms.openlocfilehash: 1dfee56f90011d3c532767e136b383e4eb95c234
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 29b340448f3ce3e18a649065bdcd0b335bab8b73
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814769"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108243"
 ---
-# <a name="tutorial-power-bi-integration---create-the-predictive-model-by-using-a-jupyter-notebook-part-1-of-2"></a>Tutoriel : Intégration Power BI – Créer un modèle prédictif à l’aide d’un notebook Jupyter (partie 1 sur 2)
+# <a name="tutorial-power-bi-integration---create-the-predictive-model-with-a-jupyter-notebook-part-1-of-2"></a>Tutoriel : Intégration Power BI – Créer le modèle prédictif avec un notebook Jupyter (partie 1 sur 2)
 
-Dans la partie 1 de ce tutoriel, vous allez entraîner et déployer un modèle Machine Learning prédictif en utilisant le code d’un notebook Jupyter. Dans la partie 2, vous utiliserez le modèle pour prédire des résultats dans Microsoft Power BI.
+Dans la partie 1 de ce tutoriel, vous allez entraîner et déployer un modèle Machine Learning prédictif en utilisant le code d’un notebook Jupyter. Vous allez aussi créer un script de scoring pour définir le schéma d’entrée et de sortie du modèle pour l’intégration dans Power BI.  Dans la partie 2, vous utiliserez le modèle pour prédire des résultats dans Microsoft Power BI.
 
 Dans ce tutoriel, vous allez :
 
@@ -27,6 +27,7 @@ Dans ce tutoriel, vous allez :
 > * Créer un notebook Jupyter.
 > * Créer une instance de calcul Azure Machine Learning
 > * Entraîner un modèle de régression à l’aide de scikit-learn
+> * Écrivez un script de scoring qui définit l’entrée et la sortie pour une intégration facile dans Microsoft Power BI.
 > * Déployer le modèle sur un point de terminaison de scoring en temps réel
 
 Il existe trois façons de créer et de déployer le modèle que vous utiliserez dans Power BI.  Cet article concerne l’« Option A : Entraîner et déployer des modèles à l’aide de notebooks ».  Cette option permet une expérience de création Code First. Elle utilise des notebooks Jupyter qui sont hébergés dans Azure Machine Learning Studio. 
@@ -157,7 +158,7 @@ Vous pouvez également afficher le modèle dans Azure Machine Learning Studio. D
 
 :::image type="content" source="media/tutorial-power-bi/model.png" alt-text="Capture d’écran montrant comment afficher un modèle.":::
 
-### <a name="define-the-scoring-script"></a>Définir le script de scoring
+## <a name="define-the-scoring-script"></a>Définir le script de scoring
 
 Lorsque vous déployez un modèle à intégrer dans Power BI, vous devez définir un *script de scoring* Python et un environnement personnalisé. Le script de scoring contient deux fonctions :
 
@@ -165,7 +166,7 @@ Lorsque vous déployez un modèle à intégrer dans Power BI, vous devez défin
 - La fonction `run(data)` s’exécute lorsqu’un appel au service comprend des données d’entrée qui doivent être évaluées. 
 
 >[!NOTE]
-> Cet article utilise des éléments décoratifs Python pour définir le schéma des données d’entrée et de sortie. Cette configuration est importante pour l’intégration à Power BI.
+> Les décorateurs Python dans le code ci-dessous définissent le schéma des données d’entrée et de sortie, ce qui est important pour l’intégration dans Power BI.
 
 Copiez-collez le code ci-dessous dans une nouvelle *cellule de code* de votre notebook. L’extrait de code suivant contient un magic de cellule qui écrit le code dans un fichier nommé *score.py*.
 

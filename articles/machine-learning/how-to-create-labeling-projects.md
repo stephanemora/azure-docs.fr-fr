@@ -1,7 +1,7 @@
 ---
 title: Créer un projet d’étiquetage des données
 titleSuffix: Azure Machine Learning
-description: Découvrez comment créer et exécuter des projets d’étiquetage de façon à marquer des données pour le machine learning.  Pour faciliter cette tâche, utilisez l’étiquetage assisté par ML ou l’étiquetage par opérateur humain dans la boucle.
+description: Découvrez comment créer et exécuter des projets d’étiquetage de façon à marquer des données pour le machine learning. Pour faciliter cette tâche, utilisez l’étiquetage assisté par ML ou l’étiquetage par opérateur humain dans la boucle.
 author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
@@ -9,36 +9,28 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
 ms.custom: data4ml
-ms.openlocfilehash: cd35cea28e23e88ba97bb7a27dc252d6bebd65e4
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 854504347409efb4f0eafff0d776db23ca9fda07
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97739652"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98059838"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Créer un projet d’étiquetage des données et exporter des étiquettes 
 
+Découvrez comment créer et exécuter des projets d’étiquetage des données de façon à marquer des données dans Azure Machine Learning.  Utilisez l’étiquetage des données assisté par Machine Learning ou l’étiquetage humain dans la boucle, pour faciliter la tâche.
 
 
-L’étiquetage de grandes quantités de données est souvent un casse-tête dans les projets de Machine Learning. Les projets qui ont un composant de vision par ordinateur, par exemple la classification d’images ou la détection d’objet, nécessitent généralement des étiquettes pour des milliers d’images.
- 
-L’étiquetage des données [Azure Machine Learning](https://ml.azure.com/) vous fournit un emplacement central pour créer, gérer et superviser les projets d’étiquetage. Il vous permet de coordonner les données, les étiquettes et les membres de l’équipe pour gérer efficacement les tâches d’étiquetage. Machine Learning prend en charge la classification d’images (multiétiquette ou multiclasse) ainsi que l’identification d’objets avec des cadres englobants.
-
-L’étiquetage des données effectue un suivi de la progression et gère la file d’attente des tâches d’étiquetage incomplètes.
-
-Vous pouvez démarrer et arrêter le projet, ainsi que contrôler la progression de l’étiquetage. Vous pouvez passer en revue les données étiquetées et les exporter au format COCO ou en tant que jeu de données Azure Machine Learning.
+## <a name="data-labeling-capabilities"></a>Fonctionnalités d’étiquetage des données
 
 > [!Important]
 > Seuls les projets d’étiquetage de classification des images et d’identification des objets sont actuellement pris en charge. De plus, les images de données doivent être disponibles dans un magasin de données blob Azure. (Si vous ne disposez pas d’un magasin de données, vous pouvez charger des images pendant la création du projet.)
 
-Dans cet article, vous allez apprendre à :
-
-> [!div class="checklist"]
-> * Création d’un projet
-> * Spécifier les données et la structure du projet
-> * Exécuter et surveiller le projet
-> * Exporter les étiquettes
-
+L’étiquetage des données Azure Machine Learning est un emplacement central pour créer, gérer et superviser les projets d’étiquetage :
+ - Coordonnez les données, les étiquettes et les membres de l’équipe pour gérer efficacement les tâches d’étiquetage. 
+ - Suivez la progression et gérez la file d’attente des tâches d’étiquetage incomplètes.
+ - Démarrez et arrêtez le projet pour contrôler la progression de l’étiquetage.
+ - Passez en revue les données étiquetées et exportez-les au format COCO ou en tant que jeu de données Azure Machine Learning.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -48,13 +40,13 @@ Dans cet article, vous allez apprendre à :
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://aka.ms/AMLFree) avant de commencer.
 * Un espace de travail Machine Learning. Consultez [Créer un espace de travail Microsoft Azure Machine Learning](how-to-manage-workspace.md).
 
-## <a name="create-a-labeling-project"></a>Créer un projet d’étiquetage
+## <a name="create-a-data-labeling-project"></a>Créer un projet d’étiquetage des données
 
 Les projets d’étiquetage sont administrés à partir d’Azure Machine Learning. La page **Projets d’étiquetage** permet de gérer les projets.
 
 Si vos données se trouvent déjà dans le Stockage Blob Azure, vous devez les rendre disponibles sous la forme d’un magasin de données avant de créer le projet d’étiquetage. Pour obtenir un exemple d’utilisation d’un magasin de données, consultez [Tutoriel : Créer votre premier projet d’étiquetage de classification d’images](tutorial-labeling.md).
 
-Pour créer un projet, sélectionnez **Ajouter un projet**. Donnez-lui un nom approprié, puis sélectionnez **Type de tâche d’étiquetage**.
+Pour créer un projet, sélectionnez **Ajouter un projet**. Donnez-lui un nom approprié, puis sélectionnez **Type de tâche d’étiquetage**. Le nom du projet ne peut pas être réutilisé, même si le projet est supprimé ultérieurement.
 
 :::image type="content" source="media/how-to-create-labeling-projects/labeling-creation-wizard.png" alt-text="Assistant Création de projet d’étiquetage":::
 
@@ -119,11 +111,11 @@ Vous trouverez l’horodatage de la dernière actualisation dans la section **Ac
 
 ## <a name="specify-label-classes"></a>Spécifier des classes d’étiquettes
 
-Dans la page **Classes d’étiquettes**, spécifiez l’ensemble des classes permettant de catégoriser vos données. Faites-le avec précaution, car la justesse et la rapidité de vos étiqueteurs sont affectées par leur capacité à opérer des choix corrects parmi les classes. Par exemple, au lieu d’indiquer le genre et l’espèce complets de plantes ou d’animaux, utilisez un code de champ ou abrégez le genre.
+Dans la page **Classes d’étiquettes**, spécifiez l’ensemble des classes permettant de catégoriser vos données. La précision et la vitesse de vos étiqueteurs dépendent de leur capacité à choisir parmi les classes. Par exemple, au lieu d’indiquer le genre et l’espèce complets de plantes ou d’animaux, utilisez un code de champ ou abrégez le genre.
 
 Entrez une étiquette par ligne. Utilisez le bouton **+** pour ajouter une nouvelle ligne. Si vous avez plus de 3 ou 4 étiquettes mais moins de 10, vous pouvez ajouter des chiffres devant les noms (« 1 : », « 2 : »), ce qui permet aux étiqueteurs d’utiliser les touches numériques pour accélérer le travail.
 
-## <a name="describe-the-labeling-task"></a>Décrire la tâche d’étiquetage
+## <a name="describe-the-data-labeling-task"></a>Décrire la tâche d’étiquetage des données
 
 Il est important d’expliquer clairement la tâche d’étiquetage. Dans la page **Instructions d’étiquetage**, vous pouvez soit ajouter un lien vers un site externe où trouver des instructions relatives à l’étiquetage, soit fournir des instructions dans la zone d’édition de la page. Veillez à ce que les instructions soient axées sur la tâche et appropriées pour le public. Prenez en compte les questions suivantes :
 
@@ -145,9 +137,9 @@ Pour les cadres englobants, les questions importantes sont les suivantes :
 >[!NOTE]
 > Notez bien que les étiqueteurs peuvent sélectionner les 9 premières étiquettes à l’aide des touches numériques allant de 1 à 9.
 
-## <a name="use-ml-assisted-labeling"></a>Utiliser l’étiquetage assisté par ML
+## <a name="use-ml-assisted-data-labeling"></a>Utiliser l’étiquetage des données assisté par ML
 
-La page **ML assisted labeling** (Étiquetage assisté par ML) vous permet de déclencher des modèles Machine Learning automatiques pour accélérer la tâche d’étiquetage. Au début de votre projet d’étiquetage, les images sont mélangées dans un ordre aléatoire pour réduire le biais potentiel. Cependant, le biais éventuellement présent dans le jeu de données se reflète dans le modèle entraîné. Par exemple, si 80 % de vos images appartiennent à une même classe, environ 80 % des données utilisées pour l’entraînement du modèle feront partie de cette classe. Cet entraînement n’inclut pas l’apprentissage actif.
+La page **Étiquetage assisté par ML** vous permet de déclencher des modèles Machine Learning automatiques pour accélérer la tâche d’étiquetage. Au début de votre projet d’étiquetage, les images sont mélangées dans un ordre aléatoire pour réduire le biais potentiel. Cependant, le biais éventuellement présent dans le jeu de données se reflète dans le modèle entraîné. Par exemple, si 80 % de vos images appartiennent à une même classe, environ 80 % des données utilisées pour l’entraînement du modèle feront partie de cette classe. Cet entraînement n’inclut pas l’apprentissage actif.
 
 Sélectionnez *Enable ML assisted labeling* (Activer l’étiquetage assisté par ML) et spécifiez un GPU pour activer l’étiquetage assisté, qui se compose de deux phases :
 * Clustering
@@ -174,7 +166,7 @@ Une fois qu’un nombre suffisant d’étiquettes d’images a été envoyé, un
 
 Une fois qu’un modèle Machine Learning a été entraîné sur vos données étiquetées manuellement, le modèle est évalué sur un ensemble d’images de test étiquetées manuellement pour déterminer sa précision à plusieurs seuils de confiance. Ce processus d’évaluation sert à déterminer le seuil de confiance au-dessus duquel le modèle est suffisamment précis pour afficher des préétiquettes. Le modèle est ensuite évalué par rapport aux données non étiquetées. Les images dont les prédictions ont un niveau de confiance supérieur à ce seuil sont utilisées pour le préétiquetage.
 
-## <a name="initialize-the-labeling-project"></a>Initialiser le projet d’étiquetage
+## <a name="initialize-the-data-labeling-project"></a>Initialiser le projet d’étiquetage des données
 
 Une fois le projet d’étiquetage initialisé, certains de ses aspects sont non modifiables. Vous ne pouvez pas changer le type de tâche ou le jeu de données. Vous *pouvez* modifier les étiquettes et l’URL de la description de la tâche. Passez en revue attentivement les paramètres avant de créer le projet. Une fois le projet envoyé, vous êtes redirigé vers la page d’accueil **Étiquetage des données**, qui indique **Initialisation** comme état du projet.
 
@@ -229,11 +221,11 @@ Affichez les détails de votre projet.  Dans cet onglet, vous pouvez :
 
 ### <a name="access-for-labelers"></a>Accès pour les étiqueteurs
 
-Toute personne ayant accès à votre espace de travail peut étiqueter les données de votre projet.  Vous pouvez également personnaliser les autorisations associées à vos étiquettes afin que l’utilisateur puisse accéder aux étiquettes, mais pas à d’autres parties de l’espace de travail ou à votre projet d’étiquetage.  Pour plus d’informations, consultez [Gérer l’accès à un espace de travail Azure Machine Learning](how-to-assign-roles.md) et découvrez comment créer le [rôle personnalisé Étiqueteur](how-to-assign-roles.md#labeler).
+Toute personne ayant accès à votre espace de travail peut étiqueter les données de votre projet.  Vous pouvez également personnaliser les autorisations associées à vos étiqueteurs afin qu’ils puissent accéder à l’étiquetage, mais pas à d’autres parties de l’espace de travail ni à votre projet d’étiquetage.  Pour plus d’informations, consultez [Gérer l’accès à un espace de travail Azure Machine Learning](how-to-assign-roles.md) et découvrez comment créer le [rôle personnalisé Étiqueteur](how-to-assign-roles.md#labeler).
 
 ## <a name="add-new-label-class-to-a-project"></a>Ajouter une nouvelle classe d’étiquette à un projet
 
-Durant le processus d’étiquetage, vous pouvez constater que des étiquettes supplémentaires sont nécessaires pour classifier vos images.  Par exemple, vous pouvez ajouter une étiquette « inconnu » ou « autre » pour indiquer des images pouvant prêter à confusion.
+Durant le processus d’étiquetage des données, vous pouvez constater que des étiquettes supplémentaires sont nécessaires pour classifier vos images.  Par exemple, vous pouvez ajouter une étiquette « inconnu » ou « autre » pour indiquer des images pouvant prêter à confusion.
 
 Pour ajouter une ou plusieurs étiquettes à un projet, effectuez les étapes suivantes :
 
@@ -267,6 +259,7 @@ Si vous rencontrez l’un de ces problèmes, suivez les conseils ci-dessous.
 |Une fois la création effectuée, le projet affiche le message « Initialisation » pendant une longue période.     | Actualisez la page manuellement. L’initialisation doit se faire à environ 20 points de données par seconde. L’absence d’actualisation automatique est un problème connu.         |
 |Au moment du passage en revue des images, les images récemment étiquetées ne sont pas affichées.     |   Pour charger toutes les images étiquetées, choisissez le bouton **Premier**. Le bouton **Premier** vous ramène au début de la liste, mais charge toutes les données étiquetées.      |
 |Appuyer sur la touche Échap lors de l’étiquetage pour la détection d’objet crée une étiquette de taille zéro dans l’angle supérieur gauche. L’envoi d’étiquettes dans cet état échoue.     |   Pour supprimer l’étiquette, cliquez sur la croix en regard de celle-ci.  |
+|Impossible d’affecter un ensemble de tâches à un étiqueteur spécifique.     |   Il s’agit d’une limitation connue de la version actuelle.  |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

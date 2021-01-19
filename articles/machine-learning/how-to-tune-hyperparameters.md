@@ -1,7 +1,7 @@
 ---
-title: Optimiser les hyperparamètres pour votre modèle
+title: Hyperparamètre optimisant un modèle
 titleSuffix: Azure Machine Learning
-description: Ajustez avec efficacité les hyperparamètres de vos modèles Deep Learning et Machine Learning avec Azure Machine Learning.
+description: Automatisez l’optimisation des hyperparamètres de vos modèles Deep Learning et Machine Learning avec Azure Machine Learning.
 ms.author: swatig
 author: swatig007
 ms.reviewer: sgilley
@@ -11,14 +11,14 @@ ms.subservice: core
 ms.date: 03/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: a1a0b89dee5a6d57e6f317c5f6c8b61ffeda3c33
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: e9f9f73a8e0dbc851efdba07bf1e103f58ae9e75
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97029071"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98133850"
 ---
-# <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning"></a>Optimiser les hyperparamètres de votre modèle avec Azure Machine Learning
+# <a name="hyperparameter-tuning-a-model-with-azure-machine-learning"></a>Hyperparamètre optimisant un modèle avec Azure Machine Learning
 
 
 Automatisez une optimisation efficace des hyperparamètres à l’aide du [package HyperDrive](/python/api/azureml-train-core/azureml.train.hyperdrive?preserve-view=true&view=azure-ml-py) Azure Machine Learning. Découvrez comment effectuer les étapes nécessaires pour régler les hyperparamètres à l’aide du SDK [Azure Machine Learning](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py) :
@@ -31,7 +31,7 @@ Automatisez une optimisation efficace des hyperparamètres à l’aide du [packa
 1. Visualiser les exécutions d’entraînement
 1. Sélectionner la meilleure configuration pour votre modèle
 
-## <a name="what-are-hyperparameters"></a>Présentation des hyperparamètres
+## <a name="what-is-hyperparameter-tuning"></a>Qu’est-ce que l’optimisation des hyperparamètres ?
 
 Les **hyperparamètres** sont des paramètres réglables qui vous permettent de contrôler le processus d’entraînement du modèle. Par exemple, avec des réseaux neuronaux, vous déterminez le nombre de couches masquées et le nombre de nœuds dans chaque couche. Les performances du modèle dépendent fortement des hyperparamètres.
 
@@ -46,7 +46,7 @@ Optimisez les hyperparamètres en explorant la plage de valeurs définie pour ch
 
 Les hyperparamètres peuvent être discrets ou continus et ont une distribution des valeurs décrite par une [expression de paramètre](/python/api/azureml-train-core/azureml.train.hyperdrive.parameter_expressions?preserve-view=true&view=azure-ml-py).
 
-### <a name="discrete-hyperparameters"></a>Hyperparamètres discrets 
+### <a name="discrete-hyperparameters"></a>Hyperparamètres discrets
 
 Les hyperparamètres discrets sont spécifiés en tant que `choice` parmi des valeurs discrètes. Voici à quoi `choice` peut correspondre :
 
@@ -296,7 +296,7 @@ max_concurrent_runs=4
 
 Ce code configure l’expérience d’optimisation des hyperparamètres pour utiliser un maximum de 20 exécutions au total, en exécutant 4 configurations à la fois.
 
-## <a name="configure-experiment"></a>Configurer une expérience
+## <a name="configure-hyperparameter-tuning-experiment"></a>Configurer l’expérience d’optimisation des hyperparamètres
 
 Pour [configurer votre optimisation des hyperparamètres](/python/api/azureml-train-core/azureml.train.hyperdrive.hyperdriverunconfig?preserve-view=true&view=azure-ml-py), fournissez les informations suivantes :
 * Espace de recherche des hyperparamètres défini
@@ -323,7 +323,7 @@ hd_config = HyperDriveConfig(run_config=src,
                              max_concurrent_runs=4)
 ```
 
-## <a name="submit-experiment"></a>Soumettre l’expérience
+## <a name="submit-hyperparameter-tuning-experiment"></a>Soumettre une expérience d’optimisation des hyperparamètres
 
 Une fois que vous avez défini votre configuration d’optimisation des hyperparamètres, [soumettez une expérience](/python/api/azureml-core/azureml.core.experiment%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truesubmit-config--tags-none----kwargs-) :
 
@@ -333,7 +333,7 @@ experiment = Experiment(workspace, experiment_name)
 hyperdrive_run = experiment.submit(hd_config)
 ```
 
-## <a name="warm-start-your-hyperparameter-tuning-experiment-optional"></a>Démarrage à chaud de votre expérience de paramétrage d’hyperparamètres (facultatif)
+## <a name="warm-start-hyperparameter-tuning-optional"></a>Optimisation des hyperparamètres - Démarrage à chaud (facultatif)
 
 La recherche des meilleures valeurs d’hyperparamètres pour votre modèle peut être un processus itératif. Vous pouvez réutiliser les connaissances des cinq précédentes exécutions pour accélérer l’optimisation des hyperparamètres.
 
@@ -380,7 +380,7 @@ hd_config = HyperDriveConfig(run_config=src,
                              max_concurrent_runs=4)
 ```
 
-## <a name="visualize-experiment"></a>Visualiser l’expérience
+## <a name="visualize-hyperparameter-tuning-runs"></a>Visualiser les exécutions d’optimisation des hyperparamètres
 
 Utilisez le [widget Notebook](/python/api/azureml-widgets/azureml.widgets.rundetails?preserve-view=true&view=azure-ml-py) pour visualiser la progression de vos exécutions d’entraînement. L’extrait de code suivant vous permet de visualiser toutes vos exécutions d’optimisation des hyperparamètres dans un notebook Jupyter :
 
@@ -391,15 +391,15 @@ RunDetails(hyperdrive_run).show()
 
 Ce code présente un tableau avec des détails sur les exécutions d’entraînement pour chacune des configurations d’hyperparamètres.
 
-![Tableau des optimisations des hyperparamètres](./media/how-to-tune-hyperparameters/HyperparameterTuningTable.png)
+![Tableau des optimisations des hyperparamètres](./media/how-to-tune-hyperparameters/hyperparameter-tuning-table.png)
 
 Vous pouvez également visualiser les performances de chacune des exécutions au fil de l’entraînement. 
 
-![Tracé de l’optimisation des hyperparamètres](./media/how-to-tune-hyperparameters/HyperparameterTuningPlot.png)
+![Tracé de l’optimisation des hyperparamètres](./media/how-to-tune-hyperparameters/hyperparameter-tuning-plot.png)
 
 Vous pouvez identifier visuellement la corrélation entre les performances et les valeurs des hyperparamètres individuels avec un tracé de coordonnées parallèles. 
 
-[![Coordonnées parallèles de l'optimisation des hyperparamètres](./media/how-to-tune-hyperparameters/HyperparameterTuningParallelCoordinates.png)](media/how-to-tune-hyperparameters/hyperparameter-tuning-parallel-coordinates-expanded.png)
+[![Coordonnées parallèles de l'optimisation des hyperparamètres](./media/how-to-tune-hyperparameters/hyperparameter-tuning-parallel-coordinates.png)](media/how-to-tune-hyperparameters/hyperparameter-tuning-parallel-coordinates-expanded.png)
 
 Vous pouvez aussi visualiser toutes vos exécutions d’optimisation des hyperparamètres dans le portail web Azure. Pour plus d’informations sur la visualisation d’une expérience sur le portail, consultez le [guide pratique pour suivre les expériences](how-to-monitor-view-training-logs.md#view-the-experiment-in-the-web-portal).
 
@@ -420,6 +420,7 @@ print('\n batch size:',parameter_values[7])
 ```
 
 ## <a name="sample-notebook"></a>Exemple de notebook
+
 Reportez-vous aux notebooks train-hyperparameter-* dans ce dossier :
 * [how-to-use-azureml/ml-frameworks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks)
 

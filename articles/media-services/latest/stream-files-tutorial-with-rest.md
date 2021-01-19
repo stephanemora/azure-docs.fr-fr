@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 10/12/2020
 ms.author: inhenkel
-ms.openlocfilehash: 023c4d685804b2c6c201f44ab672139d56338cdb
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c1798ca74493ba22d29cd9ce819d469c29cd5ec3
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91979102"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98059566"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Tutoriel : Encoder un fichier distant basé sur une URL et streamer la vidéo - REST
 
@@ -170,10 +170,17 @@ La [ressource](/rest/api/media/assets) de sortie stocke le résultat de votre tr
         {
         "properties": {
             "description": "My Asset",
-            "alternateId" : "some GUID"
+            "alternateId" : "some GUID",
+            "storageAccountName": "<replace from environment file>",
+            "container": "<supply any valid container name of your choosing>"
          }
         }
         ```
+
+> [!NOTE]
+> Veillez à remplacer les noms de compte de stockage et de conteneur par ceux du fichier d’environnement ou fournissez les vôtres.
+>
+> Pour effectuer les étapes décrites dans le reste de cet article, vérifiez que vous fournissez des paramètres valides dans les corps des demandes.
 
 ### <a name="create-a-transform"></a>Créer une transformation
 
@@ -355,8 +362,9 @@ Dans cette section, nous allons créer une URL de diffusion HLS. Les URL se comp
     Pour obtenir le nom d’hôte, vous pouvez utiliser l’opération GET suivante :
     
     ```
-    https://management.azure.com/subscriptions/00000000-0000-0000-0000-0000000000000/resourceGroups/amsResourceGroup/providers/Microsoft.Media/mediaservices/amsaccount/streamingEndpoints/default?api-version={{api-version}}
+    https://management.azure.com/subscriptions/00000000-0000-0000-0000-0000000000000/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaservices/:accountName/streamingEndpoints/default?api-version={{api-version}}
     ```
+    Et veillez à définir les paramètres `resourceGroupName` et `accountName` pour qu’ils correspondent au fichier d’environnement. 
     
 3. Un chemin d’accès que vous avez obtenu dans la section précédente (Répertorier les chemins d’accès).  
 
@@ -375,7 +383,7 @@ https://amsaccount-usw22.streaming.media.azure.net/cdb80234-1d94-42a9-b056-0eefa
 Pour tester la diffusion en continu, cet article utilise le lecteur multimédia Azure. 
 
 1. Ouvrez un navigateur web et accédez à [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/).
-2. Dans la zone **URL :** , collez l’URL que vous avez créée. 
+2. Dans la zone **URL :**, collez l’URL que vous avez créée. 
 3. Appuyez sur **Mise à jour du Lecteur Windows Media**.
 
 Le lecteur multimédia Azure peut être utilisé pour effectuer des tests, mais ne doit pas être utilisé dans un environnement de production. 

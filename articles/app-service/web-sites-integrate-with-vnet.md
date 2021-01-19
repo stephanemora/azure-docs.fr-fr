@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/05/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: cbae833c1b207669e35b467707f946e9bafe31d2
-ms.sourcegitcommit: c538b6e4cf27b992500c079ad9c914c05d55eb7f
+ms.openlocfilehash: 077d200dcaf957f636acecebb441ff99a68eb96f
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2021
-ms.locfileid: "97854942"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97963585"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Intégrer votre application à un réseau virtuel Azure
 
@@ -130,6 +130,12 @@ L’interface utilisateur de l’intégration du réseau virtuel du plan App Ser
 
 * **Synchroniser le réseau** : L’opération de synchronisation du réseau s’adresse uniquement à la fonctionnalité d’intégration au réseau virtuel dépendante de la passerelle. L’exécution d’une opération de synchronisation du réseau est l’assurance que vos certificats et informations réseau sont synchronisés. Si vous ajoutez ou changez le DNS de votre réseau virtuel, effectuez une opération de synchronisation du réseau. Cette opération redémarre toutes les applications qui utilisent ce réseau virtuel. Cette opération ne fonctionnera pas si l’application et le réseau virtuel utilisés appartiennent à différents abonnements.
 * **Ajouter des routes** : L’ajout de routes achemine le trafic sortant vers votre réseau virtuel.
+
+L’adresse IP privée assignée à l’instance est exposée via la variable d’environnement **WEBSITE_PRIVATE_IP**. L’interface utilisateur de la console Kudu affiche également la liste des variables d’environnement disponibles pour l’application web. Cette adresse IP est attribuée à partir de la plage d’adresses du sous-réseau intégré. Pour l’intégration au réseau virtuel régional, la valeur de WEBSITE_PRIVATE_IP est une adresse IP de la plage d’adresses du sous-réseau délégué et, pour l’intégration au réseau virtuel avec passerelle obligatoire, la valeur est une adresse IP de la plage d’adresses du pool d’adresses de point à site configuré sur la passerelle de réseau virtuel. Il s’agit de l’adresse IP qui sera utilisée par l’application web pour se connecter aux ressources via le réseau virtuel. 
+
+> [!NOTE]
+> La valeur de WEBSITE_PRIVATE_IP est appelée à changer. Toutefois, il s’agit d’une adresse IP de la plage d’adresses du sous-réseau d’intégration ou de la plage d’adresses de point à site. De ce fait, vous devrez autoriser l’accès depuis toutes les adresses de la plage.
+>
 
 ### <a name="gateway-required-vnet-integration-routing"></a>Routage dans une intégration au réseau virtuel avec passerelle obligatoire
 Les routes définies dans votre réseau virtuel sont utilisées pour diriger le trafic dans votre réseau virtuel à partir de votre application. Pour envoyer du trafic sortant supplémentaire dans le réseau virtuel, ajoutez ces blocs d’adresses ici. Cette fonctionnalité n’opère qu’avec l’intégration au réseau virtuel avec passerelle obligatoire. Les tables de route n’ont pas d’incidence sur le trafic de votre application lors de l’utilisation de l’intégration au réseau virtuel avec passerelle obligatoire, comme c’est le cas pour l’intégration au réseau virtuel régional.
