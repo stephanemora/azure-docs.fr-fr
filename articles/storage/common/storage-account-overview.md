@@ -1,20 +1,20 @@
 ---
 title: Vue d’ensemble du compte de stockage
 titleSuffix: Azure Storage
-description: Lisez une vue d’ensemble des comptes de stockage dans Stockage Azure. Passez en revue les noms des comptes, les niveaux de performance, les niveaux d’accès, la redondance, le chiffrement, les points de terminaison, etc.
+description: En savoir plus sur les différents types de comptes de stockage dans Stockage Azure. Passez en revue les noms des comptes, les niveaux de performance, les niveaux d’accès, la redondance, le chiffrement, les points de terminaison, etc.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/11/2020
+ms.date: 01/08/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 2c9c4cd643e2e4b89f9a7d8f44a6569d0dde2b37
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 5cf43310c68c8446b9465a39d85f84c8273a68d8
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97357379"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98051222"
 ---
 # <a name="storage-account-overview"></a>Vue d’ensemble du compte de stockage
 
@@ -24,7 +24,40 @@ Pour plus d’informations sur la création d’un compte de stockage Azure, con
 
 ## <a name="types-of-storage-accounts"></a>Types de compte de stockage
 
-[!INCLUDE [storage-account-types-include](../../../includes/storage-account-types-include.md)]
+Le stockage Azure offre plusieurs types de comptes de stockage. Chaque type prend en charge différentes fonctionnalités et a son propre modèle tarifaire. Avant de créer un compte de stockage, tenez compte de ces différences pour déterminer l’option qui convient le mieux à vos applications. Les types de comptes de stockage proposés sont les suivants :
+
+- **Comptes de stockage à usage général v2** : Type de compte de stockage de base pour les objets blob, les fichiers, les files d’attente et les tables. Recommandé pour la plupart des scénarios utilisant Stockage Azure.
+- **Comptes v1 universels** : Type de compte de stockage hérité pour les objets blob, les fichiers, les files d’attente et les tables. Utilisez ce type de compte à la place des comptes v2 universels lorsque cela est possible.
+- **Comptes BlockBlobStorage** : comptes de stockage dotés de caractéristiques de performances Premium pour les objets blob de bloc et les objets blob d'ajout. Recommandé pour les scénarios aux taux élevés de transactions, ceux utilisant des objets plus petits ou nécessitant une latence de stockage faible.
+- **Comptes FileStorage** : comptes de stockage de fichiers uniquement ayant des caractéristiques de performances Premium. Recommandé pour l’entreprise ou des applications de mise à l’échelle hautes performances.
+- **Comptes BlobStorage** : anciens comptes de stockage Blob uniquement. Utilisez ce type de compte à la place des comptes v2 universels lorsque cela est possible.
+
+Le tableau suivant décrit les types de comptes de stockage, les services qu’ils prennent en charge et les modèles de déploiement pris en charge pour chaque type de compte :
+
+| Type de compte de stockage | Services pris en charge | Options de redondance | Modèle de déploiement<sup>1</sup> |
+|--|--|--|--|
+| Universel v2 | Blob, fichier, file d’attente, table, disque et lac de données de 2e génération<sup>2</sup> | LRS, GRS, RA-GRS, ZRS, GZRS, RA-GZRS<sup>3</sup> | Gestionnaire de ressources |
+| Universel v1 | Objets blob, fichiers, files d’attente, tables et disques | LRS, GRS, RA-GRS | Resource Manager, Classic |
+| BlockBlobStorage | Objets blob (objets blob de blocs et objets blob d’ajout uniquement) | LRS, ZRS<sup>3</sup> | Gestionnaire de ressources |
+| FileStorage | Fichier uniquement | LRS, ZRS<sup>3</sup> | Gestionnaire de ressources |
+| BlobStorage | Objets blob (objets blob de blocs et objets blob d’ajout uniquement) | LRS, GRS, RA-GRS | Gestionnaire de ressources |
+
+<sup>1</sup>L’utilisation du modèle de déploiement Azure Resource Manager est recommandée. Les comptes de stockage qui utilisent le modèle de déploiement classique peuvent toujours être créés à certains emplacements, et les comptes classiques existants continuent d’être pris en charge. Pour plus d’informations, consultez [Déploiement Azure Resource Manager et déploiement classique : comprendre les modèles de déploiement et l’état de vos ressources](../../azure-resource-manager/management/deployment-models.md).
+
+<sup>2</sup>Azure Data Lake Storage Gen2 est un ensemble de capacités dédiées à l’analytique du Big Data et basées sur Stockage Blob Azure. Data Lake Storage Gen2 est pris en charge uniquement sur les comptes de stockage v2 universels avec un espace de noms hiérarchique activé. Pour plus d’informations sur Data Lake Storage Gen2, consultez [Présentation d’Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md).
+
+<sup>3</sup>Le stockage redondant interzone (ZRS) et le stockage géoredondant interzone (GZRS/RA-GZRS) sont disponibles uniquement pour les comptes v2 universels, BlockBlobStorage et FileStorage standard dans certaines régions. Pour plus d’informations sur les options de redondance de Stockage Azure, consultez [Redondance du stockage Azure](storage-redundancy.md).
+
+### <a name="storage-account-redundancy"></a>Redondance du compte de stockage
+
+Les options de redondance pour un compte de stockage comprennent :
+
+- **Stockage localement redondant (LRS)**  : Une stratégie de redondance simple et économique. Les données sont copiées de façon synchrone trois fois au sein d’un même emplacement physique dans la région primaire.
+- **Stockage redondant interzone (ZRS)**  : Redondance pour les scénarios nécessitant une haute disponibilité. Les données sont copiées de façon synchrone sur trois zones de disponibilité Azure dans la région primaire.
+- **Stockage géo-redondant (GRS)**  : Redondance entre les régions pour vous protéger en cas d’interruption régionale. Les données sont copiées de manière synchrone trois fois dans la région primaire, puis copiées de façon asynchrone dans la région secondaire. Pour un accès en lecture aux données dans la région secondaire, activez le stockage géoredondant avec accès en lecture (RA-GRS).
+- **Stockage géoredondant interzone (GZRS)**  : Redondance pour les scénarios nécessitant à la fois une haute disponibilité et une durabilité maximale. Les données sont copiées de manière synchrone dans trois zones de disponibilité Azure dans la région primaire, puis copiées de façon asynchrone dans la région secondaire. Pour un accès en lecture aux données dans la région secondaire, activez le stockage géoredondant interzone avec accès en lecture (RA-GZRS).
+
+Pour plus d’informations sur les options de redondance dans Stockage Azure, consultez [Redondance de Stockage Azure](storage-redundancy.md).
 
 ### <a name="general-purpose-v2-accounts"></a>Les comptes de stockage à usage général v2
 
@@ -83,7 +116,17 @@ Gardez les règles suivantes à l’esprit lorsque vous nommez votre compte de s
 
 ## <a name="performance-tiers"></a>Niveaux de performances
 
-Selon le type de compte de stockage que vous créez, vous pouvez choisir entre les niveaux de performance standard et Premium.
+Selon le type de compte de stockage que vous créez, vous pouvez choisir entre les niveaux de performance standard et Premium. Le tableau suivant récapitule les niveaux de performances disponibles pour chaque type de compte de stockage.
+
+| Type de compte de stockage | Niveaux de performances pris en charge |
+|--|--|
+| Universel v2 | Standard, Premium<sup>1</sup> |
+| Universel v1 | Standard, Premium<sup>1</sup> |
+| BlockBlobStorage | Premium |
+| FileStorage | Premium |
+| BlobStorage | Standard |
+
+<sup>1</sup>Les performances Premium pour les comptes v1 et v2 universels sont disponibles uniquement pour les objets blob de page et les disques. Les performances Premium pour les objets blob de blocs ou d’ajout sont uniquement disponibles sur les comptes BlockBlobStorage. Les performances Premium pour les fichiers ne sont disponibles que sur les comptes FileStorage.
 
 ### <a name="general-purpose-storage-accounts"></a>Comptes de stockage à usage général
 
@@ -112,12 +155,20 @@ Les niveaux d’accès disponibles sont les suivants :
 
 En cas de changement de votre modèle d’utilisation des données, vous pouvez basculer d’un niveau d’accès à l’autre à tout moment. Pour plus d’informations sur les niveaux d’accès, consultez [Stockage d’objets blob Azure : niveaux d’accès chaud, froid et archive](../blobs/storage-blob-storage-tiers.md).
 
+Le tableau suivant répertorie les niveaux d’accès disponibles pour les blobs dans chaque type de compte de stockage.
+
+| Type de compte de stockage | Niveaux d’accès pris en charge |
+|--|--|
+| Universel v2 | Chaud, froid, archive<sup>1</sup> |
+| Universel v1 | N/A |
+| BlockBlobStorage | N/A |
+| FileStorage | N/A |
+| BlobStorage | Chaud, froid, archive<sup>1</sup> |
+
+<sup>1</sup> Le stockage archive et la hiérarchisation au niveau de l’objet blob prennent en charge uniquement les objets blob de blocs. L’archivage est disponible uniquement au niveau de chaque objet blob, pas au niveau du compte de stockage. Pour plus d’informations, consultez [Niveaux d’accès pour Stockage Blob Azure : chaud, froid et archive](../blobs/storage-blob-storage-tiers.md).
+
 > [!IMPORTANT]
-> Le changement du niveau d’accès pour un compte de stockage ou un objet blob existant peut entraîner des frais supplémentaires. Pour plus d’informations, consultez la section [Facturation du compte de stockage](#storage-account-billing).
-
-## <a name="redundancy"></a>Redondance
-
-[!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
+> Le changement du niveau d’accès pour un compte de stockage ou un objet blob existant peut entraîner des frais supplémentaires. Pour plus d’informations, consultez [Facturation des comptes de stockage](#storage-account-billing).
 
 ## <a name="encryption"></a>Chiffrement
 
@@ -127,13 +178,15 @@ Toutes les données de votre compte de stockage sont chiffrées côté service. 
 
 Un compte de stockage fournit un espace de noms unique dans Azure pour vos données. Chaque objet que vous stockez dans le stockage Azure a une adresse qui comprend votre nom de compte unique. La combinaison du nom du compte et du point de terminaison de service du stockage Azure forme les points de terminaison de votre compte de stockage.
 
-Par exemple, si le nom de votre compte de stockage universel est *mystorageaccount*, les points de terminaison par défaut de votre compte sont les suivants :
+Le tableau suivant répertorie les points de terminaison de chacun des services de Stockage Azure.
 
-- Stockage d’objets Blob : `https://*mystorageaccount*.blob.core.windows.net`
-- Stockage Table : `https://*mystorageaccount*.table.core.windows.net`
-- Stockage File d’attente : `https://*mystorageaccount*.queue.core.windows.net`
-- Azure Files : `https://*mystorageaccount*.file.core.windows.net`
-- Azure Data Lake Storage Gen2 : `https://*mystorageaccount*.dfs.core.windows.net` (utilise le [pilote ABFS optimisé pour le Big Data](../blobs/data-lake-storage-introduction.md#key-features-of-data-lake-storage-gen2))
+| Service de stockage | Point de terminaison |
+|--|--|
+| Stockage Blob | `https://<storage-account>.blob.core.windows.net` |
+| Azure Data Lake Storage Gen2 | `https://<storage-account>.dfs.core.windows.net` |
+| Azure Files | `https://<storage-account>.file.core.windows.net` |
+| Stockage de files d'attente | `https://<storage-account>.queue.core.windows.net` |
+| Stockage de tables | `https://<storage-account>.table.core.windows.net` |
 
 > [!NOTE]
 > Les comptes d’objets blob de blocs et de stockage d’objets blob exposent uniquement le point de terminaison de service BLOB.
@@ -184,7 +237,17 @@ Pour plus d’informations sur l’API REST du stockage Azure, consultez [Réfé
 
 ## <a name="storage-account-billing"></a>Facturation du compte de stockage
 
-[!INCLUDE [storage-account-billing-include](../../../includes/storage-account-billing-include.md)]
+Le service Stockage Azure vous est facturé en fonction de l’utilisation de votre compte de stockage. Tous les objets d’un compte de stockage sont facturés ensemble en tant que groupe. Les coûts de stockage sont calculés en fonction des facteurs suivants :
+
+- **Région** fait référence à la région géographique dans laquelle votre compte est basé.
+- **Type de compte** fait référence au type de compte de stockage que vous utilisez.
+- **Niveau d’accès** fait référence au modèle d’utilisation des données que vous avez spécifié pour votre compte de stockage v2 universel ou blob.
+- La **capacité** fait référence à la quantité d’unités de compte de stockage que vous utilisez pour stocker des données.
+- La **réplication** détermine le nombre de copies de vos données qui sont conservées simultanément et où.
+- Les **transactions** font référence à toutes les opérations de lecture et d’écriture sur Stockage Azure.
+- **Sortie de données** fait référence aux données transférées hors d’une région Azure. Lorsque les données de votre compte de stockage sont utilisées par une application qui n’est pas exécutée dans la même région, vous êtes facturé pour la sortie des données. Pour plus d’informations sur l’utilisation de groupes de ressources pour regrouper vos données et vos services dans la même région afin de limiter les coûts liés aux sorties de données, consultez [Qu’est-ce qu’un groupe de ressources Azure ?](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management#what-is-an-azure-resource-group).
+
+La page [Prix appliqués à Azure Storage](https://azure.microsoft.com/pricing/details/storage/) fournit des informations de tarification détaillées basées sur le type de compte, la capacité de stockage, la réplication et les transactions. La page [Détails de la tarification – Transferts de données](https://azure.microsoft.com/pricing/details/data-transfers/) fournit des informations de tarification détaillées pour les acheminements de données. Vous pouvez utiliser le [Calcul des coûts Azure Storage](https://azure.microsoft.com/pricing/calculator/?scenario=data-management) pour faciliter l'estimation des coûts.
 
 [!INCLUDE [cost-management-horizontal](../../../includes/cost-management-horizontal.md)]
 

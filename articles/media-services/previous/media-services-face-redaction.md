@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/17/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1a7bd36a6e3f3cc5b785745fc51f0aede3b47b74
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 2029ec2d0b0f27d7078f381880cf7ca177d24ca0
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803304"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020200"
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>Éditer les visages avec Azure Media Analytique
 
@@ -36,6 +36,9 @@ Cet article apporte des précisions sur **Azure Media Redactor** et illustre son
 La rédaction de face fonctionne en détectant les visages dans chaque image de la vidéo et en suivant l’objet de visage à la fois vers l’avant et l’arrière dans le temps, afin que la même personne puisse être floutée à partir d’autres angles également. Le processus d’édition automatisée est complexe et ne produit pas toujours le résultat souhaité à 100 %, c’est la raison pour laquelle Media Analytics vous fournit deux méthodes pour modifier le résultat final.
 
 En plus d’un mode entièrement automatique, il existe un flux de travail en deux passes qui permet la sélection/désélection des visages trouvés par le biais d’une liste d’ID. En outre, pour rendre arbitraires les réglages par image, le processeur multimédia utilise un fichier de métadonnées au format JSON. Ce flux de travail est divisé en modes **Analyser** et **Rédiger**. Vous pouvez combiner les deux modes en une seule passe qui exécute les deux tâches dans un travail ; ce mode est appelé **Combiné**.
+
+   > [!NOTE]
+   > Le processeur multimédia de détection des visages est déconseillé depuis juin 2020 ([composants hérités d’Azure Media Services](./legacy-components.md)). Envisagez d’utiliser l’API Azure Media Services v3.
 
 ### <a name="combined-mode"></a>Mode Combiné
 

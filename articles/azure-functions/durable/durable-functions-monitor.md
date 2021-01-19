@@ -4,12 +4,12 @@ description: Découvrez comment implémenter un moniteur d’état à l’aide d
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: ed92156df9d8e1e07b56cea4b1e64edee11d68d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e70c50098ece516312e1e92984185624c276301b
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77562120"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028418"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Scénario de surveillance dans l’extension Fonctions durables - Exemple d’observateur météo
 
@@ -72,6 +72,9 @@ Voici le code qui implémente la fonction :
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_Monitor/index.js)]
 
+# <a name="python"></a>[Python](#tab/python)
+Nous avons un autre tutoriel pour le modèle de supervision sur Python, accessible [ici](durable-functions-monitor-python.md).
+
 ---
 
 Cette fonction d’orchestrateur effectue les actions suivantes :
@@ -83,8 +86,7 @@ Cette fonction d’orchestrateur effectue les actions suivantes :
 5. Crée un minuteur durable pour reprendre l’orchestration à l’intervalle d’interrogation suivant. Par souci de concision, l’exemple utilise une valeur codée en dur.
 6. Continue de s’exécuter jusqu’à ce que l'heure UTC actuelle passe l’heure d’expiration du moniteur, ou une alerte SMS est envoyée.
 
-Plusieurs instances d’orchestrateur peuvent s’exécuter simultanément en appelant la fonction d’orchestrateur plusieurs fois. Le lieu à surveiller et le numéro de téléphone auquel envoyer une alerte SMS peuvent être spécifiés.
-
+Plusieurs instances d’orchestrateur peuvent s’exécuter simultanément en appelant la fonction d’orchestrateur plusieurs fois. Le lieu à surveiller et le numéro de téléphone auquel envoyer une alerte SMS peuvent être spécifiés. Enfin, notez que la fonction d’orchestrateur n’est *pas* en cours d’exécution en attendant le retardateur. Vous ne serez donc pas facturé.
 ### <a name="e3_getisclear-activity-function"></a>Fonction d'activité E3_GetIsClear
 
 Comme avec d’autres exemples, les fonctions d’activité d’assistance sont des fonctions régulières qui utilisent la liaison de déclencheur `activityTrigger`. La fonction **E3_GetIsClear** obtient les conditions météorologiques actuelles à l’aide de l’API Weather Underground et détermine si le ciel est clair.
@@ -102,6 +104,9 @@ Le fichier *function.json* est défini comme suit :
 Et voici l’implémentation.
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_GetIsClear/index.js)]
+
+# <a name="python"></a>[Python](#tab/python)
+Nous avons un autre tutoriel pour le modèle de supervision sur Python, accessible [ici](durable-functions-monitor-python.md).
 
 ---
 
@@ -125,6 +130,9 @@ Son fichier *function.json* est simple :
 Et voici le code qui envoie le SMS :
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_SendGoodWeatherAlert/index.js)]
+
+# <a name="python"></a>[Python](#tab/python)
+Nous avons un autre tutoriel pour le modèle de supervision sur Python, accessible [ici](durable-functions-monitor-python.md).
 
 ---
 
@@ -169,7 +177,7 @@ Vous pouvez voir l’activité de l’orchestration en examinant les journaux d�
 2018-03-01T01:14:54.030 Function completed (Success, Id=561d0c78-ee6e-46cb-b6db-39ef639c9a2c, Duration=62ms)
 ```
 
-L’orchestration [s’arrête](durable-functions-instance-management.md) une fois que son délai d’attente est atteint ou qu’un ciel clair est détecté. Vous pouvez également utiliser `TerminateAsync` (.NET) ou `terminate` (JavaScript) à l’intérieur d’une autre fonction, ou appeler le Webhook HTTP POST **terminatePostUri** référencé dans la réponse 202 ci-dessus, en remplaçant `{text}` par le motif de l’arrêt :
+L’orchestration se termine une fois que son délai d’expiration est atteint ou qu’un ciel clair est détecté. Vous pouvez également utiliser l’API `terminate` à l’intérieur d’une autre fonction, ou appeler le Webhook HTTP POST **terminatePostUri** référencé dans la réponse 202 ci-dessus. Pour utiliser le webhook, remplacez `{text}` par la raison de l’arrêt anticipé. L’URL HTTP POST ressemble à peu près à ce qui suit :
 
 ```
 POST https://{host}/runtime/webhooks/durabletask/instances/f6893f25acf64df2ab53a35c09d52635/terminate?reason=Because&taskHub=SampleHubVS&connection=Storage&code={systemKey}

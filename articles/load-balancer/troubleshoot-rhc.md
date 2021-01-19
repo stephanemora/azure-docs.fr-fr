@@ -11,16 +11,28 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2020
 ms.author: errobin
-ms.openlocfilehash: dcfce06bb158888b56483a73ededd354c229a99b
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 3acaaba86c9a546a0bd45b5386287908168d50d0
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94696317"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955618"
 ---
-# <a name="troubleshoot-resource-health-frontend-and-backend-availability-issues"></a>Résoudre les problèmes d’intégrité des ressources, de disponibilité de front-end et de back-end 
+# <a name="troubleshoot-resource-health-and-inbound-availability-issues"></a>Résoudre les problèmes d’intégrité des ressources et de disponibilité entrante 
 
 Cet article est destiné à vous guider dans l’investigation des problèmes impactant la disponibilité de l’adresse IP du front-end et des ressources back-end de votre équilibreur de charge. 
+
+La vérification Resource Health (RHC) pour Load Balancer est utilisée pour déterminer l’intégrité de votre équilibreur de charge. Elle analyse la métrique Disponibilité du chemin des données sur un intervalle de **deux minutes** pour déterminer si les points de terminaison d’équilibrage de charge, l’adresse IP du front-end et les combinaisons de ports frontaux avec règles d’équilibrage de charge sont disponibles.
+
+Le tableau ci-dessous décrit la logique RHC utilisée pour déterminer l’état d’intégrité de votre équilibreur de charge.
+
+| État d’intégrité des ressources | Description |
+| --- | --- |
+| Disponible | Votre ressource d’équilibreur de charge standard est intègre et disponible. |
+| Détérioré | Votre équilibreur de charge standard présente des événements lancés par la plateforme ou l’utilisateur qui nuisent aux performances. La métrique Disponibilité du chemin de données a fait état d’une intégrité inférieure à 90 %, mais supérieure à 25 % pendant au moins deux minutes. L’impact sur les performances que vous allez subir sera de niveau modéré à grave. 
+| Non disponible | Votre ressource d’équilibreur de charge standard n’est pas intègre. La métrique Disponibilité du chemin des données a fait état d’une intégrité inférieure à 25 % pendant au moins deux minutes. Vous allez subir un impact sur les performances significatif ou un défaut de disponibilité pour la connectivité entrante. Des événements utilisateur ou plateforme peuvent être à l’origine de l’indisponibilité. |
+| Unknown | L’état d’intégrité de votre ressource d’équilibrage de charge standard n’a pas encore été mis à jour ou n’a pas encore reçu d’informations de disponibilité du chemin de données au cours des 10 dernières minutes. Cet état devrait être transitoire et passer à un état correct dès que des données seront reçues. |
+
 
 ## <a name="about-the-metrics-well-use"></a>À propos des métriques que nous utilisons
 Les deux métriques à utiliser sont *Disponibilité du chemin des données* et *État de la sonde d’intégrité* , et il est important d’en comprendre la signification pour obtenir des insights justes. 

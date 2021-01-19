@@ -3,12 +3,12 @@ title: Considérations relatives au stockage pour Azure Functions
 description: En savoir plus sur les exigences de stockage d’Azure Functions et sur le chiffrement des données stockées.
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.openlocfilehash: 67ff822208f065041e479fc484173d9f06a773ba
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 66bfded384be47224e86ee8e0a2999fe3d4ed5d9
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97107241"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936156"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Considérations relatives au stockage pour Azure Functions
 
@@ -18,7 +18,7 @@ Azure Functions nécessite un compte Stockage Azure lorsque vous créez une inst
 |Service de stockage  | Utilisation de Functions  |
 |---------|---------|
 | [stockage d’objets blob Azure](../storage/blobs/storage-blobs-introduction.md)     | Conserve l’état des liaisons et les touches de fonction.  <br/>Également utilisé par [des hubs de tâches dans Durable Functions](durable/durable-functions-task-hubs.md). |
-| [Azure Files](../storage/files/storage-files-introduction.md)  | Partage de fichiers utilisé pour stocker et exécuter le code de votre application de fonction dans un [plan de consommation](functions-scale.md#consumption-plan) et un [plan Premium](functions-scale.md#premium-plan). |
+| [Azure Files](../storage/files/storage-files-introduction.md)  | Partage de fichiers utilisé pour stocker et exécuter le code de votre application de fonction dans un [plan de consommation](consumption-plan.md) et un [plan Premium](functions-premium-plan.md). |
 | [Stockage File d’attente Azure](../storage/queues/storage-queues-introduction.md)     | Utilisé par [des hubs de tâches dans Durable Functions](durable/durable-functions-task-hubs.md).   |
 | [Stockage Table Azure](../storage/tables/table-storage-overview.md)  |  Utilisé par [des hubs de tâches dans Durable Functions](durable/durable-functions-task-hubs.md).       |
 
@@ -32,6 +32,8 @@ Quand vous créez une application de fonction, vous devez créer un compte de st
 Pour en savoir plus sur les types de compte de stockage, consultez [Présentation des services Stockage Azure](../storage/common/storage-introduction.md#core-storage-services). 
 
 Bien que vous puissiez utiliser un compte de stockage existant avec votre application de fonction, vous devez vous assurer qu’il répond à ces exigences. Les comptes de stockage créés dans le cadre du flux de création de l’application de fonction dans le portail Azure sont assurés de répondre à ces exigences en matière de comptes de stockage. Dans le portail, les comptes non pris en charge sont filtrés lorsque vous choisissez un compte de stockage existant pendant la création d’une application de fonction. Dans ce flux, vous êtes uniquement autorisé à choisir des comptes de stockage existants dans la même région que l’application de fonction que vous créez. Pour plus d’informations, consultez [Emplacement du compte de stockage](#storage-account-location).
+
+<!-- JH: Does using a Premium Storage account improve perf? -->
 
 ## <a name="storage-account-guidance"></a>Guide du compte de stockage
 
@@ -59,7 +61,15 @@ Plusieurs applications de fonction peuvent partager le même compte de stockage 
 
 [!INCLUDE [functions-storage-encryption](../../includes/functions-storage-encryption.md)]
 
-## <a name="mount-file-shares-linux"></a>Monter des partages de fichiers (Linux)
+### <a name="in-region-data-residency"></a>Résidence des données dans la région
+
+Lorsque toutes les données client doivent rester dans une seule région, le compte de stockage associé à l’application de fonction doit être un compte avec une [redondance dans la région](../storage/common/storage-redundancy.md). Un compte de stockage redondant dans la région doit également être utilisé avec [Azure Durable Functions](./durable/durable-functions-perf-and-scale.md#storage-account-selection).
+
+Les autres données client gérées par la plateforme ne sont stockées au sein de la région que si elles sont hébergées dans un environnement App Service Environment (ASE) avec équilibrage de charge interne. Pour plus d’informations, consultez [Redondance de zone ASE](../app-service/environment/zone-redundancy.md#in-region-data-residency).
+
+## <a name="mount-file-shares"></a>Monter des partages de fichiers
+
+_Cette fonctionnalité est actuellement disponible uniquement sous Linux._ 
 
 Vous pouvez monter des partages Azure Files existants dans vos applications de fonction Linux. Monter un partage vers votre application de fonction Linux vous permet d’accéder à des modèles Machine Learning existants ou à d’autres données dans vos fonctions. Vous pouvez utiliser la commande [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account#az-webapp-config-storage-account-add) pour monter un partage existant dans votre application de fonction Linux. 
 

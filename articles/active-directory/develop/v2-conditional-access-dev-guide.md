@@ -14,12 +14,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.topic: conceptual
 ms.workload: identity
-ms.openlocfilehash: b1bfefb3b72c151e7a61068b3c0ad9f3e2bc4a6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8935cb3208aadc2822af1f57067877f9cedcb931
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88120624"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98064366"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Guide du développeur pour l’accès conditionnel à Azure Active Directory
 
@@ -43,7 +43,7 @@ Il suppose une connaissance des [applications uniques](quickstart-register-app.m
 
 ### <a name="app-types-impacted"></a>Incidence sur les types d’application
 
-Dans les scénarios les plus courants, l’accès conditionnel ne modifie pas le comportement d’une application ou nécessite des modifications de la part du développeur. Uniquement dans certains cas, lorsqu’une application en mode silencieux ou indirectement demande un jeton pour un service, une application requiert des modifications du code pour gérer des « défis » d’accès conditionnel. Cela peut être aussi simple que l’exécution d’une demande de connexion interactive.
+Dans les scénarios les plus courants, l’accès conditionnel ne modifie pas le comportement d’une application ou nécessite des modifications de la part du développeur.  Uniquement dans certains cas, lorsqu’une application en mode silencieux ou indirectement demande un jeton pour un service, une application requiert des modifications du code pour gérer des « défis » d’accès conditionnel.  Cela peut être aussi simple que l’exécution d’une demande de connexion interactive.
 
 Plus précisément, les scénarios suivants requièrent un code pour gérer des « défis » d’accès conditionnel :
 
@@ -182,6 +182,6 @@ Pour tester ce scénario, consultez notre [exemple de code Pour le compte de SPA
 
 * Vous pouvez en savoir plus sur les fonctionnalités, consultez [Accès conditionnel dans Azure Active Directory](../conditional-access/overview.md).
 * Pour obtenir plus d’exemples de code Azure AD, consultez ces [exemples](sample-v2-code.md).
-* Pour plus d’informations sur les kits SDK MSAL et l’accès à la documentation de référence, consultez [Vue d’ensemble de Microsoft Authentication Library (MSAL)](msal-overview.md).
+* Pour plus d’informations sur les Kits de développement logiciel (SDK) MSAL et l’accès à la documentation de référence, consultez [Vue d’ensemble de la bibliothèque d’authentification Microsoft (MSAL)](msal-overview.md).
 * Pour en savoir plus sur les scénarios multi-locataire, consultez [comment connecter les utilisateurs à l’aide du modèle multi-locataire](howto-convert-app-to-be-multi-tenant.md).
 * Découvrez l’[accès conditionnel et la sécurisation de l’accès aux applications IoT](/azure/architecture/example-scenario/iot-aad/iot-aad).

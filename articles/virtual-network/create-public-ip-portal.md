@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: blehr
-ms.openlocfilehash: add763b713b93604e089d7aec586876fecd2887c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: bd35d3288591a01c14e306960601eef6dea7e761
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95895636"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97954139"
 ---
 # <a name="quickstart-create-a-public-ip-address-using-the-azure-portal"></a>Démarrage rapide : Créer une adresse IP publique à l’aide du portail Azure
 
@@ -36,6 +36,7 @@ Effectuez les étapes suivantes pour créer une adresse IP publique redondante i
     | ---                     | ---                         |
     | Version de l’adresse IP              | Sélectionnez IPv4                 |    
     | SKU                     | sélectionnez **Standard**.         |
+    | Niveau (si affiché*)                  | Sélectionnez **Régional**         |
     | Nom                    | Entrez *myStandardZRPublicIP*          |
     | Affectation d’adresses IP   | Notez que cette valeur est verrouillée sur « Statique »                                        |
     | Délai d’inactivité (minutes)  | Conservez la valeur 4        |
@@ -46,6 +47,8 @@ Effectuez les étapes suivantes pour créer une adresse IP publique redondante i
     | Zone de disponibilité       | Sélectionnez **Redondant interzone** ou choisissez une zone spécifique (voir la remarque ci-dessous) |
 
 Notez que ces sélections sont valides uniquement dans des régions avec des [zones de disponibilité](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones).  (Vous pouvez également sélectionner une zone spécifique dans ces régions, mais elle ne sera pas résiliente aux échecs de zone.)
+
+\* = Le niveau se rapporte à la fonctionnalité [Équilibreur de charge interrégion](https://docs.microsoft.com/azure/load-balancer/cross-region-overview), actuellement en préversion.
 
 # <a name="basic-sku"></a>[**Référence De base**](#tab/option-create-public-ip-basic)
 

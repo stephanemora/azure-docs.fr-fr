@@ -3,15 +3,15 @@ title: Gérer un serveur – Azure CLI – Azure Database pour PostgreSQL
 description: Découvrez comment gérer un serveur Azure Database pour PostgreSQL à partir d’Azure CLI.
 author: ajlam
 ms.author: andrela
-ms.service: mysql
+ms.service: postgresql
 ms.topic: how-to
 ms.date: 9/22/2020
-ms.openlocfilehash: d99634388b9c4db99c996cfccb9bb5f12682f217
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 2ea07e2bc12e6fc0d62abd462b8537c6a93689f9
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490116"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935799"
 ---
 # <a name="manage-an-azure-database-for-postgresql-single-server-using-the-azure-cli"></a>Gérer un serveur unique Azure Database pour PostgreSQL à l’aide d’Azure CLI
 
@@ -21,13 +21,13 @@ Cet article vous explique comment gérer vos serveurs uniques déployés sur Azu
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer. Cet article nécessite que vous exécutiez localement Azure CLI version 2.0 ou ultérieure. Pour afficher la version installée, exécutez la commande `az --version`. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI](/cli/azure/install-azure-cli).
 
-Vous devrez vous connecter à votre compte à l’aide de la commande [az login](/cli/azure/reference-index#az-login). Notez la propriété **id** , qui fait référence à l’ **ID d’abonnement** pour votre compte Azure.
+Vous devrez vous connecter à votre compte à l’aide de la commande [az login](/cli/azure/reference-index#az-login). Notez la propriété **id**, qui fait référence à l’**ID d’abonnement** pour votre compte Azure.
 
 ```azurecli-interactive
 az login
 ```
 
-Sélectionnez l’abonnement spécifique sous votre compte à l’aide de la commande [az account set](/cli/azure/account). Notez la valeur **id** issue de la commande **az login**  ; vous devez vous en servir comme valeur de l’argument **subscription** dans la commande. Si vous avez plusieurs abonnements, sélectionnez l’abonnement approprié dans lequel la ressource doit être facturée. Pour accéder à l’ensemble de votre abonnement, utilisez [az account list](/cli/azure/account#az-account-list).
+Sélectionnez l’abonnement spécifique sous votre compte à l’aide de la commande [az account set](/cli/azure/account). Notez la valeur **id** issue de la commande **az login** ; vous devez vous en servir comme valeur de l’argument **subscription** dans la commande. Si vous avez plusieurs abonnements, sélectionnez l’abonnement approprié dans lequel la ressource doit être facturée. Pour accéder à l’ensemble de votre abonnement, utilisez [az account list](/cli/azure/account#az-account-list).
 
 ```azurecli
 az account set --subscription <subscription id>
@@ -39,7 +39,7 @@ Si vous n’avez pas encore créé de serveur, reportez-vous à ce [démarrage r
 
 ## <a name="scale-compute-and-storage"></a>Mettre à l’échelle le calcul et le stockage
 
-Vous pouvez facilement faire évoluer votre niveau tarifaire, votre calcul et votre stockage à l’aide de la commande suivante. Vous pouvez voir toutes les opérations de serveur que vous pouvez effectuer [az postgres server overview](/cli/azure/mysql/server)
+Vous pouvez facilement effectuer un scale-up de votre niveau tarifaire, de votre calcul et de votre stockage à l’aide de la commande suivante. Vous pouvez voir toutes les opérations de serveur que vous pouvez effectuer [az postgres server overview](/cli/azure/mysql/server)
 
 ```azurecli-interactive
 az postgres server update --resource-group myresourcegroup --name mydemoserver --sku-name GP_Gen5_4 --storage-size 6144
@@ -60,7 +60,7 @@ storage-size | 6144 | Capacité de stockage du serveur (en mégaoctets). 5120 mi
 
 
 ## <a name="manage-postgresql-databases-on-a-server"></a>Gérer des bases de données PostgreSQL sur un serveur.
-Vous pouvez utiliser l’une de ces commandes pour créer, supprimer, répertorier et afficher les propriétés d’une base de données sur votre serveur
+Vous pouvez utiliser l’une de ces commandes pour créer, supprimer, répertorier et afficher les propriétés d’une base de données sur votre serveur.
 
 | Applet de commande | Usage| Description |
 | --- | ---| --- |

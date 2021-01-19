@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/08/2020
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95f70005f2c7f53833163dcd5f0d2ee89b3db37c
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: d7e4d0c41990fcc23dd19b5682997f6381bfdb20
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861287"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937091"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Créer une stratégie de gestion du contrôle d'accès résiliente avec Azure Active Directory
 
@@ -38,8 +38,8 @@ Ce document fournit des conseils sur les stratégies à adopter par une organisa
 Les quatre points à retenir dans ce document sont les suivants :
 
 * Éviter le verrouillage de l'administrateur en utilisant des comptes d'accès d'urgence
-* Implémenter une authentification multifacteur basée sur l’accès conditionnel plutôt qu’une authentification multifacteur par utilisateur.
-* Atténuer le verrouillage des utilisateurs en utilisant plusieurs types de contrôle d’accès conditionnel.
+* Implémenter une authentification multifacteur basée sur l’accès conditionnel plutôt qu’une authentification multifacteur par utilisateur
+* Atténuer le verrouillage des utilisateurs en utilisant plusieurs contrôles de l’accès conditionnel
 * Atténuer le verrouillage des utilisateurs en fournissant plusieurs méthodes d'authentification ou des méthodes équivalentes pour chaque utilisateur
 
 ## <a name="before-a-disruption"></a>Avant une interruption
@@ -138,9 +138,9 @@ Ce standard de nommage pour les stratégies d’urgence doit se présenter de ce
 EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions]
 ```
 
-L’exemple suivant : **Exemple A - Stratégie d'accès conditionnel d'urgence pour restaurer l'accès aux applications de collaboration stratégiques** constitue une urgence d'entreprise typique. Dans ce scénario, l’organisation exige généralement l’authentification MFA pour tout accès à Exchange Online et SharePoint Online, et dans ce cas, l’interruption est due à une panne du fournisseur d’authentification MFA du client (il peut s’agir de l’authentification Azure AD MFA, d’un fournisseur d’authentification MFA local ou d’une authentification MFA tierce). Cette stratégie atténue cette panne en permettant aux utilisateurs ciblés d'accéder à ces applications à partir d'appareils Windows approuvés et de leur réseau d'entreprise approuvé. Elle exclut également les comptes d'urgence et les administrateurs principaux de ces restrictions. Les utilisateurs ciblés accéderont alors à Exchange Online et SharePoint Online, tandis que les autres utilisateurs n’auront toujours pas accès aux applications en raison de la panne. Cet exemple nécessite un emplacement réseau **CorpNetwork** et un groupe de sécurité **ContingencyAccess** pour les utilisateurs cibles, un groupe **CoreAdmins** pour les administrateurs principaux et un groupe **EmergencyAccess** pour les comptes d'accès d'urgence. Le plan d'urgence requiert quatre stratégies pour fournir l'accès souhaité. 
+L’exemple suivant : **Exemple A : Stratégie d’accès conditionnel d’urgence pour restaurer l’accès aux applications de collaboration stratégiques** constitue une urgence d’entreprise typique. Dans ce scénario, l’organisation exige généralement l’authentification MFA pour tout accès à Exchange Online et SharePoint Online, et dans ce cas, l’interruption est due à une panne du fournisseur d’authentification MFA du client (il peut s’agir de l’authentification Azure AD MFA, d’un fournisseur d’authentification MFA local ou d’une authentification MFA tierce). Cette stratégie atténue cette panne en permettant aux utilisateurs ciblés d'accéder à ces applications à partir d'appareils Windows approuvés et de leur réseau d'entreprise approuvé. Elle exclut également les comptes d'urgence et les administrateurs principaux de ces restrictions. Les utilisateurs ciblés accéderont alors à Exchange Online et SharePoint Online, tandis que les autres utilisateurs n’auront toujours pas accès aux applications en raison de la panne. Cet exemple nécessite un emplacement réseau **CorpNetwork** et un groupe de sécurité **ContingencyAccess** pour les utilisateurs cibles, un groupe **CoreAdmins** pour les administrateurs principaux et un groupe **EmergencyAccess** pour les comptes d'accès d'urgence. Le plan d'urgence requiert quatre stratégies pour fournir l'accès souhaité. 
 
-**Exemple A - Stratégies d'accès conditionnel d'urgence pour restaurer l'accès aux applications de collaboration stratégiques :**
+**Exemple A : Stratégies d’accès conditionnel d’urgence pour restaurer l’accès aux applications de collaboration stratégiques :**
 
 * Stratégie 1 : exiger des appareils joints au domaine pour Exchange et SharePoint
   * Nom : EM001 - ACTIVER EN CAS D’URGENCE : Interruption MFA [1/4] - Exchange SharePoint - Exiger la jonction Azure AD Hybride
@@ -180,9 +180,9 @@ Ordre d'activation :
 5. Activer la stratégie 4 : vérifier qu'aucun utilisateur n'a accès à Exchange Online à partir des applications de messagerie natives sur les appareils mobiles.
 6. Désactiver la stratégie d'authentification multifacteur existante pour SharePoint Online et Exchange Online.
 
-Dans l'exemple suivant, **Exemple B - Stratégies d'accès conditionnel d'urgence pour autoriser l'accès mobile à Salesforce**, l'accès d'une application métier est restauré. Dans ce scénario, le client a généralement besoin que ses commerciaux accèdent à Salesforce (configuré pour l'authentification unique auprès d'Azure AD) à partir d'appareils mobiles conformes uniquement. Dans ce cas, l'interruption est liée à un problème d'évaluation de la conformité des appareils et au fait que la panne survient à un moment délicat où l'équipe commerciale doit avoir accès à Salesforce pour conclure des contrats. Ces stratégies d'urgence accorderont aux utilisateurs critiques l'accès à Salesforce à partir d'un appareil mobile afin qu'ils puissent continuer à conclure des contrats et ne pas perturber l'activité. Dans cet exemple, **SalesforceContingency** contient tous les commerciaux qui doivent conserver leur accès tandis que **SalesAdmins** contient les administrateurs nécessaires à Salesforce.
+Dans l’exemple suivant, **Exemple B : Stratégies d’accès conditionnel d’urgence pour autoriser l’accès mobile à Salesforce**, l’accès d’une application métier est restauré. Dans ce scénario, le client a généralement besoin que ses commerciaux accèdent à Salesforce (configuré pour l'authentification unique auprès d'Azure AD) à partir d'appareils mobiles conformes uniquement. Dans ce cas, l'interruption est liée à un problème d'évaluation de la conformité des appareils et au fait que la panne survient à un moment délicat où l'équipe commerciale doit avoir accès à Salesforce pour conclure des contrats. Ces stratégies d'urgence accorderont aux utilisateurs critiques l'accès à Salesforce à partir d'un appareil mobile afin qu'ils puissent continuer à conclure des contrats et ne pas perturber l'activité. Dans cet exemple, **SalesforceContingency** contient tous les commerciaux qui doivent conserver leur accès tandis que **SalesAdmins** contient les administrateurs nécessaires à Salesforce.
 
-**Exemple B - Stratégies d'accès conditionnel d'urgence :**
+**Exemple B : Stratégies d’accès conditionnel d’urgence :**
 
 * Stratégie 1 : bloquer tous les utilisateurs extérieurs à l'équipe SalesContingency
   * Nom : EM001 - ACTIVER EN CAS D’URGENCE : Interruption pour conformité d’appareil [1/2] - Salesforce - Bloquer tous les utilisateurs à l’exception de SalesforceContingency

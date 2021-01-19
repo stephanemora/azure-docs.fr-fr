@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 2157a1cb96475209762e829c549d628f2c35fd91
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 49a350b77958901aae5e54e82d856e4f3772702e
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97417421"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97930784"
 ---
 # <a name="set-up-a-file-share-for-msix-app-attach-preview"></a>Configurer un partage de fichiers pour l’attachement d’application MSIX (préversion)
 
@@ -64,6 +64,12 @@ Voici d’autres recommandations pour optimiser les performances de l’attachem
 Le processus de configuration pour le partage de fichiers d’attachement d’application MSIX est en grande partie identique au [processus de configuration pour les partages de fichiers de profil FSLogix](create-host-pools-user-profile.md). Toutefois, vous devez affecter des autorisations différentes aux utilisateurs. L’attachement d’application MSIX nécessite des autorisations en lecture seule pour accéder au partage de fichiers.
 
 Si vous stockez vos applications MSIX dans Azure Files, pour vos hôtes de session, vous devez affecter à toutes les machines virtuelles hôtes de session non seulement le contrôle d’accès en fonction du rôle (RBAC) du compte de stockage, mais également les autorisations NTFS sur le partage de fichiers.
+
+| Objet Azure                      | Rôle requis                                     | Fonction du rôle                                  |
+|-----------------------------------|--------------------------------------------------|-----------------------------------------------|
+| Hôte de la session (objets ordinateur de machine virtuelle)| Collaborateur de partage SMB des données du fichier de stockage          | Lecture et exécution, Lecture, Répertorier le contenu du dossier  |
+| Administrateurs sur le partage de fichiers              | Contributeur élevé de partage SMB de données de fichier de stockage | Contrôle total                                  |
+| Utilisateurs sur le partage de fichiers               | Collaborateur de partage SMB des données du fichier de stockage          | Lecture et exécution, Lecture, Répertorier le contenu du dossier  |
 
 Pour affecter des autorisations de machines virtuelles hôtes de session pour le compte de stockage et le partage de fichiers :
 

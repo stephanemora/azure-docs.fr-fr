@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 09/03/2020
+ms.date: 01/11/2021
 ms.author: victorh
-ms.openlocfilehash: 43755b312a64c429b38a07c8c4fad8c85b08342a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 51af9ff4972f5edef02426a6e81e8582123c9a7a
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89437851"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98107852"
 ---
 # <a name="use-azure-firewall-to-protect-azure-kubernetes-service-aks-deployments"></a>Utiliser le Pare-feu Azure pour protéger des déploiements d’Azure Kubernetes Service (AKS)
 
@@ -47,7 +47,7 @@ Le Pare-feu Azure fournit une balise de nom de domaine complet AKS pour simplifi
    - Le port TCP [*IPAddrOfYourAPIServer*]:443 est requis si vous avez une application qui doit communiquer avec le serveur d’API. Cette modification peut être définie après la création du cluster.
    - Port TCP 9000 et port UDP 1194 pour que le pod frontal du tunnel communique avec la fin du tunnel sur le serveur d’API.
 
-      Pour plus de précisions, consultez * *.hcp.<location>.azmk8s.io* et les adresses dans le tableau suivant :
+      Pour plus de précisions, consultez les adresses dans le tableau suivant :
 
    | Point de terminaison de destination                                                             | Protocol | Port    | Utilisation  |
    |----------------------------------------------------------------------------------|----------|---------|------|

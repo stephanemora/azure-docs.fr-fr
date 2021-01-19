@@ -1,14 +1,14 @@
 ---
 title: Règles d’accès du pare-feu
-description: Configurez des règles pour accéder à un registre de conteneurs Azure derrière un pare-feu, en autorisant l’accès à des noms de domaine d’API REST et de point de terminaison de données, ou à des plages d’adresses IP spécifiques du service (« mise en liste verte »).
+description: Configurez des règles pour accéder à un registre de conteneurs Azure derrière un pare-feu en autorisant l’accès à des noms de domaine d’API REST et de point de terminaison de données ou à des plages d’adresses IP spécifiques au service.
 ms.topic: article
 ms.date: 05/18/2020
-ms.openlocfilehash: b9ecd5f802176cdc6881294f5dedefd3dd467244
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 548d64632c1d726111770dfb49f705d31f5ca714
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148511"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935986"
 ---
 # <a name="configure-rules-to-access-an-azure-container-registry-behind-a-firewall"></a>Configurer des règles pour accéder à un registre de conteneurs Azure derrière un pare-feu
 

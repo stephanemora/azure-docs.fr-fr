@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 015aadb791172f5033bf0198caad567c9bc03221
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0c4299bc41a656fd678c14d63ae1d4987dba327b
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95974661"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060637"
 ---
 # <a name="understand-metrics-for-azure-spring-cloud"></a>Comprendre les indicateurs de performance pour Azure Spring Cloud
 
@@ -114,7 +114,7 @@ Les tableaux suivants affichent les indicateurs de performance disponibles et le
 >[!div class="mx-tdCol2BreakAll"]
 >| Nom | Nom de l’indicateur de performance Spring Actuator | Unité | Détails |
 >|------|-----------------------------|------|---------|
->| Utilisation de l’UC       | cpu-usage      | Millisecondes | Temps d’utilisation du processeur par le processus. |
+>| Utilisation de l’UC       | cpu-usage      | Pourcentage      | Pourcentage d’utilisation de l’UC du processus par rapport à toutes les ressources d’UC du système (0 à 100). |
 >| Plage de travail     | working-set    | Mo    | Quantité de plage de travail utilisée par le processus. |
 >| Taille des segments de mémoire du récupérateur de mémoire    | gc-heap-size   | Mo    | Taille totale des segments de mémoire rapportée par le récupérateur de mémoire. |
 >| Nombre de nettoyages de mémoire Gén 0  | gen-0-gc-count | Count        | Nombre de nettoyages de mémoire de Génération 0 par seconde. |

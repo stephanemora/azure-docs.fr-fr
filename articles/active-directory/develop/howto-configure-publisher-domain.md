@@ -13,12 +13,12 @@ ms.date: 07/23/2020
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
-ms.openlocfilehash: d62328534157a1e2d9e53830be9d6b87e08c9e40
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d793ed912af1c6fdd6e0da417b8709cad8bf08b9
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87129268"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98013632"
 ---
 # <a name="how-to-configure-an-applications-publisher-domain"></a>Procédure : Configurer un domaine d’éditeur d’application
 
@@ -48,7 +48,7 @@ Si votre application a été inscrite avant le 21 mai 2019, l’invite de consen
 
 Pour définir le domaine d’éditeur de votre application, procédez comme suit.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
+1. Connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a> avec un compte professionnel ou scolaire ou avec un compte Microsoft personnel.
 
 1. Si votre compte est présent dans plusieurs locataires Azure AD :
    1. Sélectionnez votre profil dans le menu en haut à droite de la page, puis **changez de répertoire**.

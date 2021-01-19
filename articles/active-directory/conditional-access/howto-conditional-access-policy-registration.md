@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81f4407ee7721332a4143952d1720151bb70d8c9
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 61f655d459592022a2e34b87adc50e3d49b03dc9
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94837536"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935765"
 ---
 # <a name="conditional-access-securing-security-info-registration"></a>Accès conditionnel : Sécurisation de l’inscription des informations de sécurité
 
@@ -61,7 +61,7 @@ Certains peuvent choisir d’utiliser l’état de l’appareil au lieu de l’e
 
 > [!WARNING]
 > Si vous utilisez l’état de l’appareil comme condition dans votre stratégie, cela peut avoir un impact sur les utilisateurs invités dans l’annuaire. Le [Mode Rapport uniquement](concept-conditional-access-report-only.md) permet de déterminer l’impact des décisions stratégiques.
-> Notez que le mode Rapport uniquement n’est pas applicable pour les stratégies d’autorité de certification avec l’étendue « Actions de l’utilisateur ».
+> Notez que le mode Rapport seul n’est pas applicable pour les stratégies d’accès conditionnel avec l’étendue « Actions de l’utilisateur ».
 
 ## <a name="next-steps"></a>Étapes suivantes
 

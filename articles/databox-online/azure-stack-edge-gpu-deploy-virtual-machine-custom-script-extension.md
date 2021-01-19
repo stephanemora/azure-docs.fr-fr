@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 12/21/2020
+ms.date: 01/05/2021
 ms.author: alkohli
-ms.openlocfilehash: f622d6e752b658172bce115cde4f30d555e2ed3a
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: d601c6191da9d555e54c1d58c122420510d288fc
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763657"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955550"
 ---
 # <a name="deploy-custom-script-extension-on-vms-running-on-your-azure-stack-edge-pro-device"></a>Déployer des extensions de script personnalisé sur des machines virtuelles s’exécutant sur votre appareil Azure Stack Edge Pro
 
@@ -45,7 +45,7 @@ L’extension de script personnalisé pour Linux s’exécute sur les systèmes 
 | Distribution | Version |
 |---|---|
 | Linux : Ubuntu | 18.04 LTS |
-| Linux : Red Hat Enterprise Linux | 7.4 |
+| Linux : Red Hat Enterprise Linux | 7.4, 7.5, 7.7 |
 
 <!--### Script location
 

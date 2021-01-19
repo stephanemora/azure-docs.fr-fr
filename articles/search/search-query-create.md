@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/14/2020
-ms.openlocfilehash: db36a77d93735b151ad893b7e25ba86f104e7b90
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 9bee391ddb0fa6c270c6d833fb7e81d5f4880497
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510462"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98118640"
 ---
 # <a name="create-a-query-in-azure-cognitive-search"></a>Créer une requête dans la Recherche cognitive Azure
 
@@ -26,7 +26,7 @@ Vous aurez besoin d’un outil ou d’une API pour créer une requête. Les sugg
 | Méthodologie | Description |
 |-------------|-------------|
 | Portail| Le [Navigateur de recherche (portail)](search-explorer.md) est une interface de requête dans le portail Azure qui exécute des requêtes dans des index sur le service de recherche sous-jacent. Le portail effectue les appels de l’API REST en arrière-plan jusqu’à l’opération [Recherche dans des documents](/rest/api/searchservice/search-documents), mais ne peut pas appeler la saisie semi-automatique, les suggestions ni la recherche de documents.<br/><br/> Vous pouvez sélectionner n’importe quel index et version de l’API REST, y compris la version préliminaire. Une chaîne de requête peut utiliser une syntaxe simple ou complète, avec prise en charge de tous les paramètres de requête (Filter, Select, searchFields, etc.). Dans le portail, lorsque vous ouvrez un index, vous pouvez utiliser le Navigateur de recherche en même temps que la définition JSON de l’index dans les onglets côte à côte pour faciliter l’accès aux attributs du champ. Vérifiez les champs pouvant faire l’objet d’une recherche, d’un tri, de filtrage et de facettes lors du test des requêtes. <br/>Recommandé pour les investigations précoces, le test et la validation. [En savoir plus.](search-explorer.md) |
-| Outils de test web| [Postman ou Visual Studio Code](search-get-started-rest.md) sont des choix forts pour la formulation d’une demande [Recherche dans des documents](/rest/api/searchservice/search-documents) et de toute autre demande dans REST. Les API REST prennent en charge toutes les opérations de programmation possibles dans Recherche cognitive Azure et, lorsque vous utilisez un outil, tel que Postman ou Visual Studio Code, vous pouvez émettre des demandes de manière interactive pour comprendre le fonctionnement de la fonctionnalité avant d’investir dans du code. Un outil de test web constitue un bon choix si vous n’avez pas de droits d’administration ou de contributeur dans le portail Azure. Tant que vous avez une URL de recherche et une clé API de requête, vous pouvez utiliser les outils pour exécuter des requêtes sur un index existant. |
+| Outils de test web| [Postman](search-get-started-rest.md) ou [Visual Studio Code](search-get-started-vs-code.md) sont des choix judicieux pour la formulation d’une demande [Recherche dans des documents](/rest/api/searchservice/search-documents) et de toute autre demande dans REST. Les API REST prennent en charge toutes les opérations de programmation possibles dans Recherche cognitive Azure et, lorsque vous utilisez un outil, tel que Postman ou Visual Studio Code, vous pouvez émettre des demandes de manière interactive pour comprendre le fonctionnement de la fonctionnalité avant d’investir dans du code. Un outil de test web constitue un bon choix si vous n’avez pas de droits d’administration ou de contributeur dans le portail Azure. Tant que vous avez une URL de recherche et une clé API de requête, vous pouvez utiliser les outils pour exécuter des requêtes sur un index existant. |
 | Azure SDK | Lorsque vous êtes prêt à écrire du code, vous pouvez utiliser les bibliothèques clientes Azure.Search.Document des Kits de développement logiciel (SDK) Azure pour .NET, Python, JavaScript ou Java. Chaque Kit de développement logiciel (SDK) dispose de son propre calendrier de publication, mais vous pouvez créer et interroger des index dans chacun d’eux. <br/><br/>[SearchClient (.NET)](/dotnet/api/azure.search.documents.searchclient) peut être utilisé pour interroger un index de recherche dans C#.  [En savoir plus.](search-howto-dotnet-sdk.md)<br/><br/>[SearchClient (Python)](/dotnet/api/azure.search.documents.searchclient) peut être utilisé pour interroger un index de recherche dans Python. [En savoir plus.](search-get-started-python.md)<br/><br/>[SearchClient (JavaScript)](/dotnet/api/azure.search.documents.searchclient) peut être utilisé pour interroger un index de recherche dans JavaScript. [En savoir plus.](search-get-started-javascript.md) |
 
 ## <a name="set-up-a-search-client"></a>Configurer un client de recherche

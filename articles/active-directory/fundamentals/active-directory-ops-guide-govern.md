@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: d4df373f78a9c74584d0e4046f7532a2190f3a3f
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: ba3ca140abe36a31ffa03422420ea537bbe4f39a
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370965"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935748"
 ---
 # <a name="azure-active-directory-governance-operations-reference-guide"></a>Guide de référence des opérations de gouvernance Azure Active Directory
 
@@ -59,7 +59,7 @@ Le test de certaines modifications appelle des considérations spéciales, qui v
 | Scénario| Recommandation |
 |-|-|
 |Modification du type d’authentification, de l’authentification fédérée en PHS/PTA, ou vice versa| Utilisez un [déploiement échelonné](../hybrid/how-to-connect-staged-rollout.md) pour tester l’impact de la modification du type d’authentification.|
-|Déploiement d’une nouvelle stratégie d’accès conditionnel ou d’une stratégie de protection des identités|Créez une stratégie d’autorité de certification et affectez-la à des utilisateurs de test.|
+|Déploiement d’une nouvelle stratégie d’accès conditionnel ou d’une stratégie de protection des identités|Créez une stratégie d’accès conditionnel et attribuez-la à des utilisateurs de test.|
 |Intégration d’un environnement de test d’une application|Ajoutez l’application à un environnement de production, masquez-la dans le panneau MyApps et affectez-la à utilisateurs de test pendant la phase d’assurance qualité.|
 |Modification des règles de synchronisation|Effectuez les modifications dans un annuaire Azure AD Connect de test avec la même configuration que celle qui est actuellement en production (ceci est connu sous le nom de « mode de préproduction ») et analysez les résultats de CSExport. Si vous êtes satisfait, passez en production quand vous êtes prêt.|
 |Modification de la personnalisation de la marque|Testez dans un locataire de test distinct.|

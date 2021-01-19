@@ -8,15 +8,15 @@ ms.author: keli19
 ms.reviewer: peterlu
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 11/25/2020
+ms.date: 01/11/2021
 ms.topic: conceptual
 ms.custom: designer
-ms.openlocfilehash: 29d83f4acddfce6294457f87519d62e35f52bf15
-ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
+ms.openlocfilehash: b940f5c9bd14bcec404827daaef666da802d969b
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97709416"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065250"
 ---
 # <a name="enable-logging-in-azure-machine-learning-designer-pipelines"></a>Activer la journalisation dans les pipelines du concepteur Azure Machine Learning
 
@@ -27,7 +27,7 @@ Pour plus d’informations sur la journalisation des métriques à l’aide de l
 
 ## <a name="enable-logging-with-execute-python-script"></a>Activer la journalisation avec Exécuter un script Python
 
-Utilisez le module __Exécuter un script Python__ pour activer la journalisation dans les pipelines du concepteur. Bien que vous puissiez journaliser toute valeur avec ce flux de travail, il est particulièrement utile de journaliser des métriques à partir du module __Évaluer le modèle__ pour suivre les performances du modèle dans les différentes exécutions.
+Utilisez le module [Exécuter un script Python](./algorithm-module-reference/execute-python-script.md) pour activer la journalisation dans les pipelines du concepteur. Bien que vous puissiez journaliser toute valeur avec ce flux de travail, il est particulièrement utile de journaliser des métriques à partir du module __Évaluer le modèle__ pour suivre les performances du modèle dans les différentes exécutions.
 
 L’exemple suivant montre comment enregistrer l’erreur carrée moyenne de deux modèles formés à l’aide des modules Évaluer le modèle et Exécuter un script Python.
 
@@ -53,7 +53,7 @@ L’exemple suivant montre comment enregistrer l’erreur carrée moyenne de deu
         
         # Log left output port result of Evaluate Model. This also works when evaluate only 1 model.
         parent_run.log(name='Mean_Absolute_Error (left port)', value=dataframe1['Mean_Absolute_Error'][0])
-        # Log right output port result of Evaluate Model.
+        # Log right output port result of Evaluate Model. The following line should be deleted if you only connect one Score Module to the` left port of Evaluate Model module.
         parent_run.log(name='Mean_Absolute_Error (right port)', value=dataframe1['Mean_Absolute_Error'][1])
 
         return dataframe1,
@@ -81,3 +81,4 @@ Dans cet article, vous avez appris à utiliser des journaux dans le concepteur. 
 
 * Découvrez comment dépanner des pipelines de concepteur en consultant [Déboguer et dépanner des pipelines ML](how-to-debug-pipelines.md#azure-machine-learning-designer).
 * Découvrez comment utiliser le Kit de développement logiciel (SDK) Python pour journaliser des métriques dans l’expérience de création du Kit de développement logiciel (SDK). pour plus d’informations en consultant [Activer la journalisation dans les exécutions de formation Azure Machine Learning](how-to-track-experiments.md).
+* Découvrez comment utiliser le module [Exécuter un script Python](./algorithm-module-reference/execute-python-script.md) dans le concepteur.

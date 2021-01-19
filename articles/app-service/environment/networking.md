@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 61059c3e0f9737df6ace338f4252a338ea1f200c
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 680b1f3b6af186eba27a4dd926016a04cd863760
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94663269"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98013484"
 ---
 # <a name="app-service-environment-networking"></a>Mise en réseau d’App Service Environment
 
@@ -34,7 +34,11 @@ Lors de sa création, l’environnement ASE a les adresses suivantes :
 | Adresse sortante Windows | Les applications Windows de cet environnement ASE utilisent cette adresse, par défaut, lors de l’établissement d’appels sortants vers Internet. |
 | Adresse sortante Linux | Les applications Linux de cet environnement ASE utilisent cette adresse, par défaut, lors de l’établissement d’appels sortants vers Internet. |
 
-Si vous supprimez le point de terminaison privé utilisé par l’environnement ASE, vous ne pouvez pas atteindre les applications de votre environnement ASE. Ne supprimez pas la zone privée Azure DNS associée à votre environnement ASE.  
+ASEv3 contient des détails sur les adresses utilisées par l’environnement ASE dans la partie **Adresses IP** du portail ASE.
+
+![Interface utilisateur des adresses ASE](./media/networking/networking-ip-addresses.png)
+
+Si vous supprimez le point de terminaison privé utilisé par l’environnement ASE, vous ne pouvez pas atteindre les applications de votre environnement ASE.  
 
 L’environnement ASE utilise des adresses dans le sous-réseau sortant pour prendre en charge l’infrastructure utilisée par l’environnement ASE. À mesure que vous mettez à l’échelle vos plans App Service dans votre environnement ASE, vous utiliserez davantage d’adresses. Les applications de l’environnement ASE n’ont pas d’adresses dédiées dans le sous-réseau sortant. Les adresses utilisées par une application dans le sous-réseau sortant par une application changent au fil du temps.
 
@@ -48,7 +52,7 @@ Contrairement à ASEv2, ASEv3 vous permet de définir des groupes de sécurité 
 
 ## <a name="dns"></a>DNS
 
-Les applications de votre environnement ASE utilisent le DNS avec lequel votre réseau virtuel est configuré. Si vous souhaitez que certaines applications utilisent un autre serveur DNS, vous pouvez définir celui-ci manuellement pour chaque application avec les paramètres de l’application WEBSITE_DNS_SERVER et WEBSITE_DNS_ALT_SERVER. Le paramètre d’application WEBSITE_DNS_ALT_SERVER configure le serveur DNS secondaire. Le serveur DNS secondaire est utilisé uniquement en l’absence de réponse du serveur DNS principal. 
+Les applications de votre environnement ASE utilisent le DNS avec lequel votre réseau virtuel est configuré. Suivez les instructions de l’article [Utilisation d’un environnement App Service Environment](https://docs.microsoft.com/azure/app-service/environment/using#dns-configuration) pour configurer votre serveur DNS de façon à ce qu’il pointe vers votre environnement ASE. Si vous souhaitez que certaines applications utilisent un serveur DNS différent de celui avec lequel votre réseau virtuel est configuré, vous pouvez définir celui-ci manuellement pour chaque application avec les paramètres d’application WEBSITE_DNS_SERVER et WEBSITE_DNS_ALT_SERVER. Le paramètre d’application WEBSITE_DNS_ALT_SERVER configure le serveur DNS secondaire. Le serveur DNS secondaire est utilisé uniquement en l’absence de réponse du serveur DNS principal. 
 
 ## <a name="preview-limitation"></a>Limite de la préversion
 

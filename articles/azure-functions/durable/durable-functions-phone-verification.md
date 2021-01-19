@@ -4,12 +4,12 @@ description: Découvrez comment gérer des interactions humaines et les délais 
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 4e0f71369bc02fdce5625d9c74e1d52264ed86be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cba3cd0fd5d8727c4ffa4d1b42d7cd9250f21032
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80335758"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028301"
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Interaction humaine dans l’extension Fonctions durables : exemple de vérification par téléphone
 
@@ -45,7 +45,7 @@ Cet article détaille les fonctions suivantes de l’exemple d’application :
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/PhoneVerification.cs?range=17-70)]
 
 > [!NOTE]
-> Cela peut ne pas sembler évident, mais cette fonction d’orchestrateur est entièrement déterministe. En effet, la propriété `CurrentUtcDateTime` est utilisée pour calculer le délai d’expiration du minuteur et renvoie la même valeur à chaque réexécution à ce niveau du code d’orchestrateur. Ce comportement est important pour vérifier que le même paramètre `winner` provient de chaque appel répété à `Task.WhenAny`.
+> Ce n’est peut-être pas évident dans un premier temps, mais cet orchestrateur ne viole pas la [contrainte d’orchestration déterministe](durable-functions-code-constraints.md). En effet, la propriété `CurrentUtcDateTime` est utilisée pour calculer le délai d’expiration du minuteur et renvoie la même valeur à chaque réexécution à ce niveau du code d’orchestrateur. Ce comportement est important pour vérifier que le même paramètre `winner` provient de chaque appel répété à `Task.WhenAny`.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -58,7 +58,20 @@ Voici le code qui implémente la fonction :
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SmsPhoneVerification/index.js)]
 
 > [!NOTE]
-> Cela peut ne pas sembler évident, mais cette fonction d’orchestrateur est entièrement déterministe. En effet, la propriété `currentUtcDateTime` est utilisée pour calculer le délai d’expiration du minuteur et renvoie la même valeur à chaque réexécution à ce niveau du code d’orchestrateur. Ce comportement est important pour vérifier que le même paramètre `winner` provient de chaque appel répété à `context.df.Task.any`.
+> Ce n’est peut-être pas évident dans un premier temps, mais cet orchestrateur ne viole pas la [contrainte d’orchestration déterministe](durable-functions-code-constraints.md). En effet, la propriété `currentUtcDateTime` est utilisée pour calculer le délai d’expiration du minuteur et renvoie la même valeur à chaque réexécution à ce niveau du code d’orchestrateur. Ce comportement est important pour vérifier que le même paramètre `winner` provient de chaque appel répété à `context.df.Task.any`.
+
+# <a name="python"></a>[Python](#tab/python)
+
+La fonction **E4_SmsPhoneVerification** utilise le fichier *function.json* standard pour les fonctions d’orchestrateur.
+
+[!code-json[Main](~/samples-durable-functions-python/samples/human_interaction/E4_SmsPhoneVerification/function.json)]
+
+Voici le code qui implémente la fonction :
+
+[!code-python[Main](~/samples-durable-functions-python/samples/human_interaction/E4_SmsPhoneVerification/\_\_init\_\_.py)]
+
+> [!NOTE]
+> Ce n’est peut-être pas évident dans un premier temps, mais cet orchestrateur ne viole pas la [contrainte d’orchestration déterministe](durable-functions-code-constraints.md). En effet, la propriété `currentUtcDateTime` est utilisée pour calculer le délai d’expiration du minuteur et renvoie la même valeur à chaque réexécution à ce niveau du code d’orchestrateur. Ce comportement est important pour vérifier que le même paramètre `winner` provient de chaque appel répété à `context.df.Task.any`.
 
 ---
 
@@ -94,6 +107,16 @@ Le fichier *function.json* est défini comme suit :
 Voici le code qui génère le code de demande d’accès à quatre chiffres, et envoie le SMS :
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SendSmsChallenge/index.js)]
+
+# <a name="python"></a>[Python](#tab/python)
+
+Le fichier *function.json* est défini comme suit :
+
+[!code-json[Main](~/samples-durable-functions-python/samples/human_interaction/SendSMSChallenge/function.json)]
+
+Voici le code qui génère le code de demande d’accès à quatre chiffres, et envoie le SMS :
+
+[!code-python[Main](~/samples-durable-functions-python/samples/human_interaction/SendSMSChallenge/\_\_init\_\_.py)]
 
 ---
 

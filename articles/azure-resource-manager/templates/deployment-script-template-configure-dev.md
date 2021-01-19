@@ -1,26 +1,26 @@
 ---
 title: Configurer l’environnement de développement pour les scripts de déploiement dans les modèles | Microsoft Docs
-description: Configurez l’environnement de développement pour les scripts de déploiement dans les modèles Azure Resource Manager.
+description: Configurez l’environnement de développement pour les scripts de déploiement dans des modèles Azure Resource Manager (modèles ARM).
 services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 12/14/2020
 ms.author: jgao
-ms.openlocfilehash: d12ec5e3fef45429741fff1665f435d68e6c83f6
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.openlocfilehash: 13dc072e31f0d27768de8d9a62ea942d55460713
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97734179"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936394"
 ---
-# <a name="configure-development-environment-for-deployment-scripts-in-templates"></a>Configurer l’environnement de développement pour les scripts de déploiement dans les modèles
+# <a name="configure-development-environment-for-deployment-scripts-in-arm-templates"></a>Configurer l’environnement de développement pour les scripts de déploiement dans des modèles ARM
 
 Découvrez comment créer un environnement de développement pour développer et tester des scripts de déploiement avec une image de script de déploiement. Vous pouvez soit créer une [instance de conteneur Azure](../../container-instances/container-instances-overview.md), soit utiliser [Docker](https://docs.docker.com/get-docker/). Les deux solutions sont traitées dans cet article.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Si vous n’avez pas de script de déploiement, vous pouvez créer un fichier **hello.ps1** avec le contenu suivant :
+Si vous n’avez pas de script de déploiement, vous pouvez créer un fichier _hello.ps1_ avec le contenu suivant :
 
 ```powershell
 param([string] $name)
@@ -39,11 +39,11 @@ Pour créer vos scripts sur votre ordinateur, vous devez créer un compte de sto
 
 ### <a name="create-an-azure-container-instance"></a>Créer une instance de conteneur Azure
 
-Le modèle ARM suivant crée une instance de conteneur et un partage de fichiers, puis monte ce dernier dans l’image de conteneur.
+Le modèle Azure Resource Manager (modèle ARM) suivant crée une instance de conteneur et un partage de fichiers, puis monte ce dernier sur l’image conteneur.
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "projectName": {
@@ -153,9 +153,10 @@ Le modèle ARM suivant crée une instance de conteneur et un partage de fichiers
   ]
 }
 ```
-La valeur par défaut du chemin de montage est **deploymentScript**.  Il s’agit du chemin dans l’instance de conteneur où il est monté dans le partage de fichiers.
 
-L’image de conteneur par défaut spécifiée dans le modèle est **mcr.microsoft.com/azuredeploymentscripts-powershell:az4.3"** .   Consultez la liste des versions de [Azure PowerShell prises en charge](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list). Consultez la liste des versions de [Azure CLI prises en charge](https://mcr.microsoft.com/v2/azure-cli/tags/list).
+La valeur par défaut du chemin de montage est `deploymentScript`. Il s’agit du chemin dans l’instance de conteneur où il est monté dans le partage de fichiers.
+
+L’image de conteneur par défaut spécifiée dans le modèle est `mcr.microsoft.com/azuredeploymentscripts-powershell:az4.3` . Consultez la liste des versions de [Azure PowerShell prises en charge](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list). Consultez la liste des versions de [Azure CLI prises en charge](https://mcr.microsoft.com/v2/azure-cli/tags/list).
 
   >[!IMPORTANT]
   > Le script de déploiement utilise les images CLI disponibles à partir de Microsoft Container Registry (MCR). Il faut environ un mois pour certifier une image CLI pour le script de déploiement. N’utilisez pas les versions de l’interface CLI qui ont été publiées il y a moins de 30 jours. Pour trouver les dates de publication des images, consultez les [Notes de publication d’Azure CLI](/cli/azure/release-notes-azure-cli?view=azure-cli-latest&preserve-view=true). Si une version non prise en charge est utilisée, le message d’erreur répertorie les versions prises en charge.
@@ -196,7 +197,7 @@ Vous pouvez aussi charger le fichier à partir du portail Azure et d’Azure CLI
 
 1. À partir du portail Azure, ouvrez le groupe de ressources dans lequel vous avez déployé l’instance de conteneur et le compte de stockage.
 1. Ouvrez le groupe de conteneurs. Le nom du groupe de conteneurs par défaut est le nom du projet avec **cg** ajouté. L’instance de conteneur doit se trouver à l’état **En cours d’exécution**.
-1. Sélectionnez **Conteneurs** dans le menu de gauche. Vous devez voir une instance de conteneur.  Le nom de l’instance de conteneur est le nom du projet avec **container** ajouté.
+1. Sélectionnez **Conteneurs** dans le menu de gauche. Vous devez voir une instance de conteneur. Le nom de l’instance de conteneur est le nom du projet avec **container** ajouté.
 
     ![script de déploiement connecter instance de conteneur](./media/deployment-script-template-configure-dev/deployment-script-container-instance-connect.png)
 
@@ -248,7 +249,7 @@ Vous devez aussi configurer le partage de fichiers pour monter le répertoire, q
     docker run -v <host drive letter>:/<host directory name>:/data -it mcr.microsoft.com/azuredeploymentscripts-powershell:az4.3
     ```
 
-    Remplacez **&lt;host driver letter>** (lettre de lecteur hôte) et **&lt;host directory name>** (nom de répertoire hôte) par un dossier existant sur le lecteur partagé.  Le dossier est alors mappé au dossier **/data** dans le conteneur. Par exemple, pour mapper D:\docker :
+    Remplacez **&lt;host driver letter>** (lettre de lecteur hôte) et **&lt;host directory name>** (nom de répertoire hôte) par un dossier existant sur le lecteur partagé. Le dossier est alors mappé au dossier _/data_ dans le conteneur. Par exemple, pour mapper _D:\docker_ :
 
     ```command
     docker run -v d:/docker:/data -it mcr.microsoft.com/azuredeploymentscripts-powershell:az4.3
@@ -262,7 +263,7 @@ Vous devez aussi configurer le partage de fichiers pour monter le répertoire, q
     docker run -v d:/docker:/data -it mcr.microsoft.com/azure-cli:2.0.80
     ```
 
-1. La capture d’écran suivante illustre comment exécuter un script PowerShell, étant donné que vous avez un fichier helloworld.ps1 dans le dossier partagé.
+1. La capture d’écran suivante illustre comment exécuter un script PowerShell, étant donné que vous avez un fichier _helloworld.ps1_ dans le dossier partagé.
 
     ![Commande Docker pour un script de déploiement de modèle Resource Manager](./media/deployment-script-template/resource-manager-deployment-script-docker-cmd.png)
 
@@ -273,4 +274,4 @@ Dès lors que le script a été testé avec succès, vous pouvez l’utiliser en
 Dans cet article, vous avez appris à utiliser des scripts de déploiement. Pour suivre un tutoriel sur les scripts de déploiement :
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Utiliser des scripts de déploiement dans des modèles Azure Resource Manager](./template-tutorial-deployment-script.md)
+> [Tutoriel : Utiliser des scripts de déploiement dans des modèles ARM](./template-tutorial-deployment-script.md)

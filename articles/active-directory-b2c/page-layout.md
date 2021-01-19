@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 08/24/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: beb38be985457ea36b2cea9a6dc337ba305d503f
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 4237aba81a01423a3356a30879fbd27450c876bd
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97108499"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976501"
 ---
 # <a name="page-layout-versions"></a>Versions des mises en page
 
@@ -51,7 +51,7 @@ Les packages de mise en page sont régulièrement mis à jour afin d’ajouter d
 - Le focus est désormais placé dans le champ du mot de passe une fois l’e-mail vérifié.
 - Suppression de `autofocus` du contrôle de case à cocher. 
 - Ajout de la prise en charge d’un contrôle d’affichage pour la vérification du numéro de téléphone.
-- Vous pouvez maintenant ajouter l’attribut `data-preload="true"` [dans vos balises HTML] (customize-ui-with-html.md#guidelines-for
+- Vous pouvez maintenant ajouter l’attribut `data-preload="true"` [dans vos balises HTML](customize-ui-with-html.md#guidelines-for-using-custom-page-content).
   - Chargez les fichiers CSS liés en même temps que votre modèle HTML, de sorte qu’il n’y ait pas de « scintillement » entre le chargement des fichiers.
   - Contrôlez l’ordre dans lequel vos balises `script` sont récupérées et exécutées avant le chargement de la page.
 - Le champ d’e-mail est désormais `type=email`, et les claviers mobiles fournissent les suggestions appropriées.

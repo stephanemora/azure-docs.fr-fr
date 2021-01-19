@@ -1,28 +1,28 @@
 ---
-title: Ajouter et appeler Azure Functions à partir d’Azure Logic Apps
-description: Appelez et exécutez du code personnalisé dans Azure Functions à partir de tâches et de flux de travail automatisés dans Azure Logic Apps.
+title: Ajouter et appeler des fonctions à partir d’Azure Logic Apps
+description: Appelez et exécutez du code personnalisé dans des fonctions créées dans Azure à partir de tâches et de workflows automatisés dans Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/01/2019
 ms.custom: devx-track-js
-ms.openlocfilehash: 75693c57a8d120aad53a15d03ae4054bac8262af
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fd04e5a7f084de7a95f20b54b99a9e4590f10cd7
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023055"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98034762"
 ---
-# <a name="call-azure-functions-from-azure-logic-apps"></a>Appeler des fonctions Azure à partir d’Azure Logic Apps
+# <a name="call-functions-from-azure-logic-apps"></a>Appeler des fonctions à partir d’Azure Logic Apps
 
-Quand vous voulez exécuter du code qui effectue une tâche spécifique dans vos applications logiques, vous pouvez créer votre propre fonction à l’aide d’[Azure Functions](../azure-functions/functions-overview.md). Ce service vous permet de créer des fonctions Node.js, C# et F# pour ne pas avoir à générer une application ou une infrastructure complète en vue d’exécuter votre code. Vous pouvez également [appeler des applications logiques à l’intérieur de fonctions Azure](#call-logic-app). Azure Functions fournit une informatique sans serveur dans le cloud et est utile pour effectuer des tâches telles que les suivantes :
+Quand vous voulez exécuter du code qui effectue une tâche spécifique dans vos applications logiques, vous pouvez créer votre propre fonction à l’aide d’[Azure Functions](../azure-functions/functions-overview.md). Ce service vous permet de créer des fonctions Node.js, C# et F# pour ne pas avoir à générer une application ou une infrastructure complète en vue d’exécuter votre code. Vous pouvez également [appeler des applications logiques à l’intérieur de fonctions](#call-logic-app). Azure Functions fournit une informatique sans serveur dans le cloud et est utile pour effectuer des tâches telles que les suivantes :
 
 * Étendre le comportement de votre application logique avec des fonctions dans Node.js ou C#
 * Effectuer des calculs dans le workflow de votre application logique
 * Appliquer une mise en forme avancée ou calculer des champs dans vos applications logiques
 
-Pour exécuter des extraits de code sans créer de fonctions Azure, découvrez comment [ajouter et exécuter du code inline](../logic-apps/logic-apps-add-run-inline-code.md).
+Pour exécuter des extraits de code sans utiliser Azure Functions, découvrez comment [ajouter et exécuter du code inlined](../logic-apps/logic-apps-add-run-inline-code.md).
 
 > [!NOTE]
 > L’intégration entre Logic Apps et Azure Functions ne fonctionne actuellement pas avec l’option Emplacements activée.
@@ -31,7 +31,7 @@ Pour exécuter des extraits de code sans créer de fonctions Azure, découvrez c
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/).
 
-* Une application de fonction Azure, qui est un conteneur pour les fonctions Azure, ainsi que votre fonction Azure. Si vous n’avez pas d’application de fonction, [créez-la en premier lieu](../azure-functions/functions-create-first-azure-function.md). Vous pouvez ensuite créer votre fonction soit à l’extérieur de votre application logique dans le portail Azure, soit [à partir de votre application logique](#create-function-designer) dans le Concepteur d’application logique.
+* Une application de fonction, qui est un conteneur pour une fonction créée dans Azure Functions, ainsi que la fonction que vous créez. Si vous n’avez pas d’application de fonction, [créez-la en premier lieu](../azure-functions/functions-create-first-azure-function.md). Vous pouvez ensuite créer votre fonction soit à l’extérieur de votre application logique dans le portail Azure, soit [à partir de votre application logique](#create-function-designer) dans le Concepteur d’application logique.
 
 * Quand vous travaillez avec des applications logiques, les mêmes exigences s’appliquent aux applications de fonctions et aux fonctions, qu’elles soient nouvelles ou pas :
 
@@ -41,7 +41,7 @@ Pour exécuter des extraits de code sans créer de fonctions Azure, découvrez c
 
   * Votre fonction utilise le modèle **Déclencheur HTTP**.
 
-    Le modèle de déclencheur HTTP peut accepter du contenu ayant le type `application/json` à partir de votre application logique. Quand vous ajoutez une fonction Azure à votre application logique, le Concepteur d’application logique affiche des fonctions personnalisées qui sont créées à partir de ce modèle dans votre abonnement Azure.
+    Le modèle de déclencheur HTTP peut accepter du contenu ayant le type `application/json` à partir de votre application logique. Quand vous ajoutez une fonction à votre application logique, le Concepteur d’application logique affiche des fonctions personnalisées qui sont créées à partir de ce modèle dans votre abonnement Azure.
 
   * Votre fonction n’utilise pas de routes personnalisées, sauf si vous avez défini une [définition OpenAPI](../azure-functions/functions-openapi-definition.md) (anciennement appelée [fichier Swagger](https://swagger.io/)).
 
@@ -96,15 +96,15 @@ Voici ce qui se passe à l’intérieur de cette fonction :
    body: data.date.ToDateString();
    ```
 
-Maintenant que vous avez créé votre fonction Azure, suivez les étapes pour découvrir comment [ajouter des fonctions à des applications logiques](#add-function-logic-app).
+Maintenant que vous avez créé votre fonction dans Azure, suivez les étapes pour [ajouter des fonctions à des applications logiques](#add-function-logic-app).
 
 <a name="create-function-designer"></a>
 
 ## <a name="create-functions-inside-logic-apps"></a>Créer des fonctions au sein d’applications logiques
 
-Vous pouvez créer des fonctions Azure directement depuis le flux de travail de votre application logique à l’aide de l’action intégrée Azure Functions dans le Concepteur d’application logique, mais cette méthode est réservée aux fonctions Azure écrites en JavaScript. Pour les autres langages, vous pouvez créer des fonctions Azure via l’expérience Azure Functions du portail Azure. Pour plus d'informations, consultez [Créer votre première fonction à l’aide du portail Azure](../azure-functions/functions-create-first-azure-function.md).
+Vous pouvez créer des fonctions directement depuis le workflow de votre application logique à l’aide de l’action intégrée Azure Functions dans le Concepteur d’application logique, mais cette méthode est réservée aux fonctions écrites en JavaScript. Pour les autres langages, vous pouvez créer des fonctions via l’expérience Azure Functions du portail Azure. Pour plus d'informations, consultez [Créer votre première fonction à l’aide du portail Azure](../azure-functions/functions-create-first-azure-function.md).
 
-Cela étant, avant de pouvoir créer une fonction Azure, vous devez déjà disposer d’une application de fonction Azure, à savoir d'un conteneur pour vos fonctions. Si vous n’avez pas d’application de fonction, créez-la en premier lieu. Voir [Créer votre première fonction à l’aide du portail Azure](../azure-functions/functions-create-first-azure-function.md).
+Cela étant, avant de pouvoir créer votre fonction dans Azure, vous devez déjà disposer d’une application de fonction, à savoir d’un conteneur pour vos fonctions. Si vous n’avez pas d’application de fonction, créez-la en premier lieu. Voir [Créer votre première fonction à l’aide du portail Azure](../azure-functions/functions-create-first-azure-function.md).
 
 1. Dans le [portail Azure](https://portal.azure.com), ouvrez votre application logique dans le Concepteur d’applications logiques.
 
@@ -116,9 +116,9 @@ Cela étant, avant de pouvoir créer une fonction Azure, vous devez déjà dispo
 
 1. Dans la zone de recherche, entrez le filtre « azure functions ». Dans la liste d’actions, sélectionnez l’action **Choisir une fonction Azure**, par exemple :
 
-   ![Recherchez « Azure Functions »](./media/logic-apps-azure-functions/find-azure-functions-action.png)
+   ![Rechercher des fonctions dans le portail Azure.](./media/logic-apps-azure-functions/find-azure-functions-action.png)
 
-1. Dans la liste d’applications de fonction, sélectionnez la vôtre. Une fois la liste des actions ouverte, sélectionnez cette action : **Créer une fonction**
+1. Dans la liste d’applications de fonction, sélectionnez la vôtre. Une fois la liste des actions ouverte, sélectionnez cette action : **Créer une fonction**.
 
    ![Sélectionnez votre application de fonction](./media/logic-apps-azure-functions/select-function-app-create-function.png)
 
@@ -155,13 +155,13 @@ Cela étant, avant de pouvoir créer une fonction Azure, vous devez déjà dispo
 
    ![Caster un objet en tant que chaîne](./media/logic-apps-azure-functions/function-request-body-string-cast-example.png)
 
-1. Pour spécifier d’autres détails comme la méthode à utiliser, les en-têtes de demande, les paramètres de requête ou l’authentification, ouvrez la liste **Ajouter un nouveau paramètre**, puis sélectionnez les options souhaitées. Pour l’authentification, vos options varient selon la fonction sélectionnée. Consultez [Activer l’authentification pour les fonctions Azure](#enable-authentication-functions).
+1. Pour spécifier d’autres détails comme la méthode à utiliser, les en-têtes de demande, les paramètres de requête ou l’authentification, ouvrez la liste **Ajouter un nouveau paramètre**, puis sélectionnez les options souhaitées. Pour l’authentification, vos options varient selon la fonction sélectionnée. Consultez [Activer l’authentification pour les fonctions](#enable-authentication-functions).
 
 <a name="add-function-logic-app"></a>
 
 ## <a name="add-existing-functions-to-logic-apps"></a>Ajouter des fonctions existantes à des applications logiques
 
-Pour appeler des fonctions Azure existantes à partir de vos applications logiques, vous pouvez ajouter des fonctions Azure comme toute autre action dans le Concepteur d’applications logiques.
+Pour appeler des fonctions existantes à partir de vos applications logiques, vous pouvez ajouter des fonctions comme toute autre action dans le Concepteur d’applications logiques.
 
 1. Dans le [portail Azure](https://portal.azure.com), ouvrez votre application logique dans le Concepteur d’applications logiques.
 
@@ -169,15 +169,15 @@ Pour appeler des fonctions Azure existantes à partir de vos applications logiqu
 
 1. Sous **Choisir une action**, dans la zone de recherche, entrez « fonctions azure » en guise de filtre. Dans la liste d’actions, sélectionnez l’action **Choisir une fonction Azure**.
 
-   ![Recherchez « Azure Functions »](./media/logic-apps-azure-functions/find-azure-functions-action.png)
+   ![Rechercher une fonction dans Azure.](./media/logic-apps-azure-functions/find-azure-functions-action.png)
 
 1. Dans la liste d’applications de fonction, sélectionnez la vôtre. Une fois la liste de fonctions affichée, sélectionnez votre fonction.
 
-   ![Sélectionnez votre application de fonction et votre fonction Azure](./media/logic-apps-azure-functions/select-function-app-existing-function.png)
+   ![Sélectionner votre application de fonction et votre fonction](./media/logic-apps-azure-functions/select-function-app-existing-function.png)
 
    Pour les fonctions qui ont des définitions d’API (description Swagger) et qui sont [configurées pour que votre application logique puisse rechercher ces fonctions et y accéder](#function-swagger), vous pouvez sélectionner **Actions Swagger**.
 
-   ![Sélectionnez votre application de fonction, « Actions Swagger » et votre fonction Azure](./media/logic-apps-azure-functions/select-function-app-existing-function-swagger.png)
+   ![Sélectionner votre application de fonction, « Actions Swagger » et votre fonction](./media/logic-apps-azure-functions/select-function-app-existing-function-swagger.png)
 
 1. Dans la zone **Corps de la demande**, spécifiez l’entrée de votre fonction, qui doit être au format JSON (JavaScript Objet Notation).
 
@@ -189,27 +189,27 @@ Pour appeler des fonctions Azure existantes à partir de vos applications logiqu
 
    ![Caster un objet en tant que chaîne](./media/logic-apps-azure-functions/function-request-body-string-cast-example.png)
 
-1. Pour spécifier d’autres détails comme la méthode à utiliser, les en-têtes de demande, les paramètres de requête ou l’authentification, ouvrez la liste **Ajouter un nouveau paramètre**, puis sélectionnez les options souhaitées. Pour l’authentification, vos options varient selon la fonction sélectionnée. Consultez [Activer l’authentification dans les fonctions Azure](#enable-authentication-functions).
+1. Pour spécifier d’autres détails comme la méthode à utiliser, les en-têtes de demande, les paramètres de requête ou l’authentification, ouvrez la liste **Ajouter un nouveau paramètre**, puis sélectionnez les options souhaitées. Pour l’authentification, vos options varient selon la fonction sélectionnée. Consultez [Activer l’authentification pour les fonctions](#enable-authentication-functions).
 
 <a name="call-logic-app"></a>
 
-## <a name="call-logic-apps-from-azure-functions"></a>Appeler des applications logiques à partir de fonctions Azure
+## <a name="call-logic-apps-from-functions"></a>Appeler des applications logiques à partir de fonctions
 
-Pour déclencher une application logique à partir d’une fonction Azure, l’application logique doit démarrer avec un déclencheur fournissant un point de terminaison pouvant être appelé. Par exemple, vous pouvez démarrer l’application logique avec le déclencheur **HTTP**, **Requête**, **Files d’attente Azure** ou **Event Grid**. À partir de l’intérieur de votre fonction, envoyez une requête HTTP POST à l’URL du déclencheur et incluez la charge utile que cette application logique doit traiter. Pour plus d’informations, consultez [Appeler, déclencher ou imbriquer des applications logiques](../logic-apps/logic-apps-http-endpoint.md).
+Pour déclencher une application logique à partir d’une fonction, l’application logique doit démarrer avec un déclencheur fournissant un point de terminaison pouvant être appelé. Par exemple, vous pouvez démarrer l’application logique avec le déclencheur **HTTP**, **Requête**, **Files d’attente Azure** ou **Event Grid**. À partir de l’intérieur de votre fonction, envoyez une requête HTTP POST à l’URL du déclencheur et incluez la charge utile que cette application logique doit traiter. Pour plus d’informations, consultez [Appeler, déclencher ou imbriquer des applications logiques](../logic-apps/logic-apps-http-endpoint.md).
 
 <a name="enable-authentication-functions"></a>
 
-## <a name="enable-authentication-for-azure-functions"></a>Activer l’authentification pour les fonctions Azure
+## <a name="enable-authentication-for-functions"></a>Activer l’authentification pour les fonctions
 
 Pour authentifier facilement l’accès à d’autres ressources qui sont protégées par Azure Active Directory (Azure AD) sans avoir à vous connecter ni à fournir des informations d’identification ou des secrets, votre application logique peut utiliser une [identité managée](../active-directory/managed-identities-azure-resources/overview.md) (anciennement appelée MSI ou Managed Service Identity). Azure gère cette identité pour vous et vous aide à sécuriser vos informations d’identification, car vous n’êtes pas obligé de fournir ni de faire pivoter des secrets. En savoir plus sur les [services Azure qui prennent en charge les identités managées pour l’authentification Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
-Si vous configurez votre application logique pour utiliser l’identité affectée par le système ou une identité affectée par l’utilisateur créée manuellement, les fonctions Azure de votre application logique peuvent également utiliser cette même identité pour l’authentification. Pour en savoir plus sur la prise en charge de l’authentification pour les fonctions Azure dans les applications logiques, consultez [Ajouter l’authentification aux appels sortants](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
+Si vous configurez votre application logique pour utiliser l’identité affectée par le système ou une identité affectée par l’utilisateur créée manuellement, la fonction de votre application logique peut également utiliser cette même identité pour l’authentification. Pour en savoir plus sur la prise en charge de l’authentification pour les fonctions dans les applications logiques, consultez [Ajouter l’authentification aux appels sortants](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
 Pour configurer et utiliser l’identité managée avec votre fonction, effectuez les étapes suivantes :
 
 1. Activez l’identité managée sur votre application logique, puis configurez l’accès de cette identité à la ressource cible. Consultez [Authentifier l’accès aux ressources Azure avec des identités managées dans Azure Logic Apps](../logic-apps/create-managed-service-identity.md).
 
-1. Pour activer l’authentification dans votre fonction Azure et votre application de fonction, procédez comme suit :
+1. Pour activer l’authentification dans votre fonction et votre application de fonction, procédez comme suit :
 
    * [Configurer l’authentification anonyme dans votre fonction](#set-authentication-function-app)
    * [Configurer l’authentification Azure AD dans votre application de fonction](#set-azure-ad-authentication)
@@ -218,7 +218,7 @@ Pour configurer et utiliser l’identité managée avec votre fonction, effectue
 
 ### <a name="set-up-anonymous-authentication-in-your-function"></a>Configurer l’authentification anonyme dans votre fonction
 
-Pour utiliser l’identité managée de votre application logique dans votre fonction Azure, vous devez définir le niveau d’authentification de votre fonction à anonyme. Dans le cas contraire, votre application logique génère une erreur « BadRequest ».
+Pour utiliser l’identité managée de votre application logique dans votre fonction, vous devez définir le niveau d’authentification de votre fonction sur anonyme. Dans le cas contraire, votre application logique génère une erreur « BadRequest ».
 
 1. Dans le [portail Azure](https://portal.azure.com), recherchez et sélectionnez votre application de fonction. Ces étapes utilisent « FabrikamFunctionApp » comme exemple d’application de fonction.
 

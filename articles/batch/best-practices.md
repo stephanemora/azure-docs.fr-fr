@@ -3,12 +3,12 @@ title: Meilleures pratiques
 description: Découvrez les bonnes pratiques et des conseils utiles pour le développement de vos solutions Azure Batch.
 ms.date: 12/18/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5c3521a3b5fe0dd9c2d1534f6e2a6864647f5da3
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 7e2a49c8307af89fb3898f5f2513fb493d0f5d90
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97694181"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934286"
 ---
 # <a name="azure-batch-best-practices"></a>Meilleures pratiques relatives à Azure Batch
 
@@ -24,6 +24,9 @@ Les [pools](nodes-and-pools.md#pools) sont les ressources de calcul pour l’ex�
 ### <a name="pool-configuration-and-naming"></a>Configuration et dénomination de pools
 
 - **Mode d’allocation de pool** Lorsque vous créez un compte Batch, vous pouvez choisir entre deux modes d’allocation de pool : **service Batch** ou **abonnement utilisateur**. Dans la plupart des cas, vous devez utiliser le mode de service Batch par défaut. Les pools sont alloués en arrière-plan dans des abonnements managés par Azure Batch. Dans l’autre mode d’abonnement utilisateur, les machines virtuelles Batch et les autres ressources sont créées directement dans l’abonnement lors de la création d’un pool. Les comptes d’abonnement utilisateur sont principalement utilisés pour permettre un petit sous-ensemble important de scénarios. Pour plus d’informations sur le mode d’abonnement utilisateur, consultez [Configuration supplémentaire pour le mode d’abonnement utilisateur](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode).
+
+- **« cloudServiceConfiguration » ou « virtualMachineConfiguration ».**
+    « virtualMachineConfiguration » doit être utilisé. Toutes les fonctionnalités Batch sont prises en charge par les pools « virtualMachineConfiguration ». Toutes les fonctionnalités ne sont pas prises en charge pour les pools « cloudServiceConfiguration », et aucune nouvelle fonctionnalité n’est prévue.
 
 - **Tenez compte du temps d’exécution des travaux et des tâches lors de la détermination du mappage du travail au pool.**
     Si vous avez des travaux constitués principalement de tâches de courte durée et que le nombre total de tâches attendu est faible, de sorte que le temps d’exécution global prévu du travail n’est pas long, n’allouez pas de nouveau pool pour chaque travail. Le temps de répartition des nœuds diminuera le temps d’exécution du travail.

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/31/2020
 ms.author: robreed
-ms.openlocfilehash: aa95d6792f2f5754a237c7bf5e90a11e2e011ede
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: b0502fb05043a54d81d768a7809d19b108cc6248
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861775"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976841"
 ---
 # <a name="custom-script-extension-for-windows"></a>Extension de script personnalisé pour Windows
 
@@ -50,6 +50,8 @@ L’extension vous permet d’utiliser vos informations d’identification de St
 ### <a name="internet-connectivity"></a>Connectivité Internet
 
 Si vous devez télécharger un script en externe, par exemple à partir de GitHub ou du Stockage Azure, vous devez ouvrir des ports de pare-feu et de groupe de sécurité réseau supplémentaires. Par exemple, si votre script se trouve dans le Stockage Azure, vous pouvez en autoriser l’accès à l’aide de balises de service du groupe de sécurité réseau Azure pour le [Stockage](../../virtual-network/network-security-groups-overview.md#service-tags).
+
+Notez que l’extension CustomScript n’a aucun moyen de contourner la validation du certificat. Ainsi, si vous téléchargez à partir d’un emplacement sécurisé avec, par exemple, un certificat auto-signé, vous risquez de vous retrouver avec des erreurs du type *« Le certificat distant n’est pas valide selon la procédure de validation »* . Assurez-vous que le certificat est correctement installé dans le magasin *« Autorités de certification racines de confiance »* sur la machine virtuelle.
 
 Si votre script se trouve sur un serveur local, vous devrez peut-être encore ouvrir des ports de pare-feu et de groupe de sécurité réseau supplémentaires.
 

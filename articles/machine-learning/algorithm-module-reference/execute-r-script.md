@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 12/17/2020
-ms.openlocfilehash: 5d291ad745122d929c4b664e9da5e4649e463529
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: bdd7fd8e19bf2de6d0b3c6b2edd4515771fae237
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97679112"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98119007"
 ---
 # <a name="execute-r-script-module"></a>Module Exécuter un script R
 
@@ -49,10 +49,12 @@ azureml_main <- function(dataframe1, dataframe2){
 Pour installer des packages R supplémentaires, utilisez la méthode `install.packages()`. Les packages sont installés pour chaque module Exécuter un script R. Elles ne sont pas partagées entre les autres modules Exécuter un script R.
 
 > [!NOTE]
+> Il n’est **PAS** recommandé d’installer le package R à partir du groupe de scripts. Il est recommandé d’installer les packages directement dans l’éditeur de script.
 > Spécifiez le référentiel CRAN lors de l’installation de packages, par exemple : `install.packages("zoo",repos = "http://cran.us.r-project.org")`.
 
 > [!WARNING]
 > Le module d’exécution de script R ne prend pas en charge l’installation de packages pour lesquels une compilation native est nécessaire (par exemple le package `qdap` qui exige Java et le package `drc` qui exige C++). En effet, il est exécuté dans un environnement préinstallé avec une autorisation non administrateur.
+> N’installez pas de packages prédéfinis sous/pour Windows, car les modules du concepteur s’exécutent sous Ubuntu. Pour vérifier si un package est préconfiguré sous Windows, vous pouvez accéder à [CRAN](https://cran.r-project.org/) et rechercher votre package, télécharger un fichier binaire en fonction de votre système d’exploitation et vérifier la partie **Conception :** dans le fichier **DESCRIPTION**. Vous trouverez ci-dessous un exemple : :::image type="content" source="media/module/r-package-description.png" alt-text="Description du package R" lightbox="media/module/r-package-page.png":::
 
 Cet exemple montre comment installer Zoo :
 ```R

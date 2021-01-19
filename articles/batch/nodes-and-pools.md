@@ -3,12 +3,12 @@ title: Nœuds et pools dans Azure Batch
 description: En savoir plus sur les nœuds de calcul et les pools et leur utilisation dans un flux de travail Azure Batch du point de vue du développeur.
 ms.topic: conceptual
 ms.date: 11/20/2020
-ms.openlocfilehash: 880a956a2d839483c59578afad1b62146799578a
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: c229381ba1019a5a40a4ca6b7db88f534f57de29
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95243067"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934643"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Nœuds et pools dans Azure Batch
 
@@ -64,6 +64,9 @@ Lorsque vous créez un pool Batch, vous pouvez spécifier la configuration de ma
 
 Deux types de configurations de pool sont disponibles dans Batch.
 
+> [!IMPORTANT]
+> Les pools doivent être configurés à l’aide de la « configuration de la machine virtuelle » et non de la « configuration des services cloud ». Toutes les fonctionnalités Batch sont prises en charge par les pools « Configuration de la machine virtuelle », et de nouvelles fonctionnalités sont en cours d’ajout. Les pools « Configuration des services cloud » ne prennent pas en charge toutes les fonctionnalités, et aucune nouvelle capacité n’est prévue.
+
 ### <a name="virtual-machine-configuration"></a>Configuration de la machine virtuelle
 
 La **configuration de machines virtuelles** indique que le pool est composé de machines virtuelles Azure. Ces machines virtuelles peuvent être créées à partir d’images Linux ou Windows.
@@ -101,7 +104,7 @@ Lorsque vous créez un pool, vous pouvez spécifier les types de nœuds de calcu
 - **Nœuds dédiés.** Les nœuds de calcul dédiés sont réservés à vos charges de travail. Ils sont plus chers que les nœuds à faible priorité, mais sont assurés de ne jamais être reportés.
 - **Nœuds à faible priorité.** Les nœuds à faible priorité tirent profit de la capacité excédentaire dans Azure pour exécuter vos charges de travail par lots. Le coût horaire des nœuds à faible priorité est moins élevé que celui des nœuds dédiés. Par ailleurs, ces nœuds activent des charges de travail nécessitant une importante puissance de calcul. Pour plus d’informations, consultez [Utiliser des machines virtuelles à faible priorité avec Batch](batch-low-pri-vms.md).
 
-Les nœuds à faible priorité peuvent être reportés lorsque Microsoft Azure n’a pas suffisamment de capacité excédentaire. Si un nœud est reporté lors de l’exécution de tâches, celles-ci sont remises dans la file d’attente et exécutées à nouveau dès qu’un nœud de calcul redevient disponible. Les nœuds à faible priorité sont intéressants pour les charges de travail pour lesquelles l’heure d’achèvement est flexible et le travail est réparti entre plusieurs nœuds. Avant de décider d’utiliser des nœuds à faible priorité pour votre scénario, vérifiez que le nombre de tâches risquant d’être perdues en raison de la préemption sera peu élevé, et que ces tâches seront faciles à recréer, le cas échéant.
+Les nœuds à faible priorité peuvent être reportés lorsque Microsoft Azure n’a pas suffisamment de capacité excédentaire. Si un nœud est reporté lors de l’exécution de tâches, celles-ci sont remises dans la file d’attente et exécutées à nouveau dès qu’un nœud de calcul redevient disponible. Les nœuds à faible priorité sont intéressants pour les charges de travail pour lesquelles l’heure d’achèvement est flexible et le travail est réparti entre plusieurs nœuds. Avant de décider d’utiliser des nœuds à faible priorité pour votre scénario, assurez-vous que le nombre de tâches risquant d’être perdues sera peu élevé, et que ces tâches seront faciles à recréer, le cas échéant.
 
 Un même pool peut contenir des nœuds de calcul dédiés et à faible priorité. Chaque type de nœud a son propre paramètre de cible, pour lequel vous pouvez spécifier le nombre de nœuds souhaité.
 

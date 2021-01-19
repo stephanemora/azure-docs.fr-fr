@@ -13,12 +13,12 @@ ms.date: 12/09/2020
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 1c88b9f77513021609b99c81ea572c2b5b3d365b
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 9fb5e229882532fed076f2e0d800f32acfcdbf4c
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96936792"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98013785"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Procédure : personnaliser des revendications émises dans le jeton SAML pour les applications d’entreprise
 
@@ -81,7 +81,7 @@ Pour plus d’informations, consultez [Tableau 3 : Validez les valeurs d’ID 
 
 Vous pouvez également attribuer une valeur constante (statique) quelconque à toute revendication que vous définissez dans Azure AD. Suivez les étapes ci-dessous pour attribuer une valeur constante :
 
-1. Dans le [Portail Azure](https://portal.azure.com/), dans la section **Attributs et revendications de l’utilisateur**, cliquez sur l’icône **Modifier** pour modifier les revendications.
+1. Dans le <a href="https://portal.azure.com/" target="_blank">portail Azure <span class="docon docon-navigate-external x-hidden-focus"></span></a>, dans la section **Attributs et revendications de l’utilisateur**, cliquez sur l’icône **Modifier** pour modifier les revendications.
 
 1. Cliquez sur la revendication requise que vous souhaitez modifier.
 
@@ -135,7 +135,7 @@ Vous pouvez utiliser les fonctions suivantes pour transformer des revendications
 | **StartWith()** | Génère un attribut ou une constante si l’entrée commence par la valeur spécifiée. Sinon, vous pouvez spécifier une autre sortie s’il n’existe aucune correspondance.<br/>Par exemple, vous pouvez émettre une revendication dont la valeur est l’ID d’employé de l’utilisateur, si la valeur de Pays/région commence par « US ». Dans ce cas, nous vous recommandons d’obtenir un attribut d’extension en sortie. Pour ce faire, configurez les valeurs suivantes :<br/>*Paramètre 1 (entrée)*  : user.country<br/>*Valeur* : "US"<br/>Paramètre 2 (sortie) : user.employeeid<br/>Paramètre 3 (sortie, s’il n’existe aucune correspondance) : user.extensionattribute1 |
 | **Extract() - After matching** | Retourne la sous-chaîne après qu’elle ait atteint la valeur spécifiée.<br/>Par exemple, si la valeur de l’entrée est « Finance_BSimon », la valeur correspondante est « Finance_ » et la sortie de la revendication est « BSimon ». |
 | **Extract() - Before matching** | Retourne la sous-chaîne jusqu’à ce qu’elle corresponde à la valeur spécifiée.<br/>Par exemple, si la valeur de l’entrée est « BSimon_US », la valeur correspondante est « _US » et la sortie de la revendication est « BSimon ». |
-| **Extract() - Between matching** | Retourne la sous-chaîne jusqu’à ce qu’elle corresponde à la valeur spécifiée.<br/>Par exemple, si la valeur de l’entrée est « Finance_BSimon_US », la première valeur correspondante est « Finance_ », la seconde « _US » et la sortie de la revendication est « BSimon ». |
+| **Extract() - Between matching** | Retourne la sous-chaîne jusqu’à ce qu’elle corresponde à la valeur spécifiée.<br/>Par exemple, si la valeur de l’entrée est « Finance_BSimon_US », la première valeur correspondante est « Finance\_ », la seconde « \_US » et la sortie de la revendication est « BSimon ». |
 | **ExtractAlpha() - Prefix** | Retourne la partie alphabétique du préfixe de la chaîne.<br/>Par exemple, si la valeur de l’entrée est « BSimon_123 », elle retourne « BSimon ». |
 | **ExtractAlpha() - Suffix** | Retourne la partie alphabétique du suffixe de la chaîne.<br/>Par exemple, si la valeur de l’entrée est « 123_Simon », elle retourne « Simon ». |
 | **ExtractNumeric() - Prefix** | Retourne la partie numérique du préfixe de la chaîne.<br/>Par exemple, si la valeur de l’entrée est « 123_BSimon », elle retourne « 123 ». |

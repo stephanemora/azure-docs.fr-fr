@@ -8,27 +8,25 @@ ms.topic: include
 ms.date: 09/16/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6fc70d92d08432de2fed99783d774d73463408ce
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: ba62bf6b926ded5f3d976f096cee44c7341b4e50
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97531787"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98052740"
 ---
 SMB Multichannel pour les partages de fichiers Azure est actuellement disponible uniquement dans les régions suivantes :
 
-- Australie Est
-- Brésil Sud
-- Centre du Canada
-- Est du Canada
-- Inde centrale
-- France Centre
-- Allemagne Centre-Ouest
-- Japon Est
-- Centre-Nord des États-Unis
-- États-Unis - partie centrale méridionale
-- Émirats arabes unis Nord
-- Sud du Royaume-Uni
-- Ouest du Royaume-Uni
-- Centre-USA Ouest
-- Inde Ouest
+| Zone géographique | Région Azure |
+|-------------|-------------------|
+| Australie | Australie Est |
+| Brésil | Brésil Sud |
+| Canada | Canada Centre, Canada Est |
+| France | France Centre |
+| Allemagne | Allemagne Centre-Ouest |
+| Inde | Inde Centre, Inde Ouest |
+| Japon | Japon Est, Japon Ouest |
+| Corée du Sud | Corée Centre, Corée Ouest |
+| Émirats Arabes Unis | Émirats arabes unis Nord |
+| Royaume-Uni | Royaume-Uni Sud, Royaume-Uni Ouest |
+| États-Unis | USA Centre Nord, USA Centre Sud, USA Centre-Ouest |

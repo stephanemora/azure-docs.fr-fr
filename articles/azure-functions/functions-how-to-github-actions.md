@@ -6,16 +6,16 @@ ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python, github-actions-azure
-ms.openlocfilehash: 0018b7bafa8ff2ecd328a150df752082c85484e2
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: bc80a4f5c6c2919f0cb3faa15958fb75eed70270
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97608508"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98035221"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>Livraison continue à l’aide de GitHub Actions
 
-Utilisez [GitHub Actions](https://github.com/features/actions) pour définir un workflow permettant de générer et de déployer automatiquement du code sur votre application de fonction Azure. 
+Utilisez [GitHub Actions](https://github.com/features/actions) pour définir un workflow permettant de générer et de déployer automatiquement du code sur votre application de fonction dans Azure Functions. 
 
 Dans GitHub Actions, un [workflow](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions) est un processus automatisé que vous définissez dans votre dépôt GitHub. Ce processus indique à GitHub comment générer et déployer votre projet d’application de fonction sur GitHub. 
 
@@ -187,6 +187,7 @@ L’exemple suivant illustre la partie du workflow qui génère l’application 
 ---
 
 ## <a name="deploy-the-function-app"></a>Déployer l’application de fonction
+
 Utilisez l’action `Azure/functions-action` pour déployer votre code dans une application de fonction. Cette action comporte trois paramètres :
 
 |Paramètre |Explication  |
@@ -202,7 +203,7 @@ L’exemple suivant utilise la version 1 de `functions-action` et un `publish pr
 Configurez un workflow .NET Linux qui utilise un profil de publication.
 
 ```yaml
-name: Deploy DotNet project to Azure function app with a Linux environment
+name: Deploy DotNet project to function app with a Linux environment
 
 on:
   [push]
@@ -241,7 +242,7 @@ jobs:
 Configurez un workflow .NET Windows qui utilise un profil de publication.
 
 ```yaml
-name: Deploy DotNet project to Azure function app with a Windows environment
+name: Deploy DotNet project to function app with a Windows environment
 
 on:
   [push]
@@ -283,7 +284,7 @@ jobs:
 Configurez un workflow Java Linux qui utilise un profil de publication.
 
 ```yaml
-name: Deploy Java project to Azure Function App
+name: Deploy Java project to function app
 
 on:
   [push]
@@ -325,7 +326,7 @@ jobs:
 Configurez un workflow Java Windows qui utilise un profil de publication.
 
 ```yaml
-name: Deploy Java project to Azure Function App
+name: Deploy Java project to function app
 
 on:
   [push]
@@ -369,7 +370,7 @@ jobs:
 Configurez un workflow Node.js Linux qui utilise un profil de publication.
 
 ```yaml
-name: Deploy Node.js project to Azure Function App
+name: Deploy Node.js project to function app
 
 on:
   [push]
@@ -411,7 +412,7 @@ jobs:
 Configurez un workflow Node.js Windows qui utilise un profil de publication.
 
 ```yaml
-name: Deploy Node.js project to Azure Function App
+name: Deploy Node.js project to function app
 
 on:
   [push]
@@ -455,7 +456,7 @@ jobs:
 Configurez un workflow Python Linux qui utilise un profil de publication.
 
 ```yaml
-name: Deploy Python project to Azure Function App
+name: Deploy Python project to function app
 
 on:
   [push]

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: c13b6ed991403e65c4c4d71c964f1f7f4d1ffe7b
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 9416005c708cafe5adbad2b09ce70c41fae66fd7
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443311"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936020"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>Application démon conçue pour appeler des API web - acquisition d'un jeton
 
@@ -91,6 +91,10 @@ catch (MsalServiceException ex) when (ex.Message.Contains("AADSTS70011"))
     // Mitigation: Change the scope to be as expected.
 }
 ```
+
+### <a name="acquiretokenforclient-uses-the-application-token-cache"></a>AcquireTokenForClient utilise le cache de jetons d’application
+
+Dans MSAL.NET, `AcquireTokenForClient` utilise le cache de jetons de l’application (toutes les autres méthodes AcquireToken *XX* utilisent le cache de jetons de l’utilisateur). N’appelez pas `AcquireTokenSilent` avant d’appeler `AcquireTokenForClient`, car `AcquireTokenSilent` utilise le cache de jetons de l’*utilisateur*. `AcquireTokenForClient` vérifie le cache de jetons d'*application* et le met à jour.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -200,10 +204,6 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 
 Pour plus d'informations, consultez la documentation du protocole : [Plateforme d’identités Microsoft et flux d’informations d’identification du client OAuth 2.0](v2-oauth2-client-creds-grant-flow.md).
 
-## <a name="application-token-cache"></a>Cache de jetons d'application
-
-Dans MSAL.NET, `AcquireTokenForClient` utilise le cache de jetons de l’application (toutes les autres méthodes AcquireToken *XX* utilisent le cache de jetons de l’utilisateur). N’appelez pas `AcquireTokenSilent` avant d’appeler `AcquireTokenForClient`, car `AcquireTokenSilent` utilise le cache de jetons de l’*utilisateur*. `AcquireTokenForClient` vérifie le cache de jetons d'*application* et le met à jour.
-
 ## <a name="troubleshooting"></a>Dépannage
 
 ### <a name="did-you-use-the-resourcedefault-scope"></a>Avez-vous utilisé l'étendue resource/.default ?
@@ -228,6 +228,12 @@ Content: {
   }
 }
 ```
+
+### <a name="are-you-calling-your-own-api"></a>Appelez-vous votre propre API ?
+
+Si vous appelez votre propre API web et que vous ne pouvez pas ajouter d’autorisation d’application à l’inscription de votre application démon, avez-vous exposé un rôle d’application dans votre API web ?
+
+Pour plus d’informations, consultez [Exposition des autorisations d’application (rôles d’application)](scenario-protected-web-api-app-registration.md#exposing-application-permissions-app-roles) et, en particulier, [S’assurer qu’Azure AD émet des jetons pour votre API web uniquement aux clients autorisés](scenario-protected-web-api-app-registration.md#ensuring-that-azure-ad-issues-tokens-for-your-web-api-to-only-allowed-clients).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

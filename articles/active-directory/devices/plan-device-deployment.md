@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf30570f10f176c47aed0f99127e03a027eff775
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: fc631e4329c1df2cdcbfe57c2b43ccccf14afa85
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093087"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936445"
 ---
 # <a name="plan-your-azure-active-directory-device-deployment"></a>Planifier le déploiement de votre appareil Azure Active Directory
 
@@ -129,7 +129,7 @@ Accès conditionnel <br>(Appareils joints Azure AD Hybride requis)| | | ![Coche 
 
 Les appareils inscrits sont souvent managés avec [Microsoft Intune](/mem/intune/enrollment/device-enrollment). Les appareils sont inscrits dans Intune de plusieurs façons, selon le système d’exploitation. 
 
-Les appareils inscrits à Azure AD offrent une prise en charge pour l’authentification unique (SSO) des appareils BYOD et des appareils d’entreprise sur les ressources cloud. L’accès aux ressources est basé sur les [stratégies d’accès conditionnel](../conditional-access/require-managed-devices.md) Azure AD appliquées à l’appareil et à l’utilisateur.
+Les appareils inscrits à Azure AD offrent une prise en charge pour l’authentification unique (SSO) des appareils BYOD et des appareils d’entreprise sur les ressources cloud. L’accès aux ressources est basé sur les [stratégies d’accès conditionnel](../conditional-access/require-managed-devices.md) d’Azure AD appliquées à l’appareil et à l’utilisateur.
 
 ### <a name="registering-devices"></a>Inscription des appareils
 

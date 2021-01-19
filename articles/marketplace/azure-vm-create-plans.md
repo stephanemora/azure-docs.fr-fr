@@ -7,12 +7,12 @@ ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 10/19/2020
-ms.openlocfilehash: 023dc877158c7074f46945893d40291e94ab2f09
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: e5fb425afdd4b212a0b28ce91418eb0ee9e3632f
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629554"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964425"
 ---
 # <a name="how-to-create-plans-for-a-virtual-machine-offer"></a>Comment créer des plans pour une offre de machine virtuelle
 
@@ -191,7 +191,7 @@ La génération d’une machine virtuelle définit le matériel virtuel qu’ell
 
 1. Lors de la création d’une offre, sélectionnez un **type de génération** et entrez les informations demandées :
 
-    :::image type="content" source="./media/create-vm/azure-vm-generations-image-details-1.png" alt-text="Vue du menu déroulant Génération.":::
+    :::image type="content" source="./media/create-vm/azure-vm-generations-image-details-1.png" alt-text="Vue de la section Détails de génération dans Espace partenaires.":::
 
 2. Pour ajouter une autre génération à un plan, sélectionnez **Ajouter une génération**…
 
@@ -203,9 +203,7 @@ La génération d’une machine virtuelle définit le matériel virtuel qu’ell
 
 <!--    The **Generation ID** you choose will be visible to customers in places such as product URLs and ARM templates (if applicable). Use only lowercase, alphanumeric characters, dashes, or underscores; it cannot be modified once published.
 -->
-3. Pour mettre à jour une machine virtuelle existante pour laquelle une machine de 1re génération a déjà été publiée, modifiez les détails sur cette page **Configuration technique** :
-
-    :::image type="content" source="./media/create-vm/azure-vm-generations-updating.png" alt-text="Vue de la page Configuration technique du plan.":::
+3. Pour mettre à jour une machine virtuelle existante pour laquelle une machine de 1re génération a déjà été publiée, modifiez les détails sur la page **Configuration technique**.
 
 Pour en savoir plus sur les différences entre les capacités de la 1re génération et de la 2e génération, consultez [Prise en charge des machines virtuelles de génération 2 dans Azure](../virtual-machines/generation-2.md).
 

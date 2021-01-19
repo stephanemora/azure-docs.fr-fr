@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/23/2019
-ms.openlocfilehash: c45445415f3eaa7cb0f9069dd5f64b57c19e5836
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: b24ea79737c9e1f64abb7f62807352dbd9573695
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96437148"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018069"
 ---
 # <a name="migrate-hundreds-of-terabytes-of-data-into-azure-cosmos-db"></a>Migrer des centaines de téraoctets de données dans Azure Cosmos DB 
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -43,7 +43,7 @@ Les défis décrits à la section précédente peuvent être résolus à l'aide 
 
 L'outil personnalisé utilise la bibliothèque d'Exécuteurs en bloc. En outre, il assure la montée en charge sur plusieurs clients et le suivi des erreurs pendant le processus d'ingestion. Pour utiliser cet outil, les données sources doivent être partitionnées en fichiers distincts dans Azure Data Lake Storage (ADLS) afin que différents agents de migration puissent récupérer chaque fichier et les ingérer dans Azure Cosmos DB. L'outil personnalisé utilise une collection distincte, qui stocke les métadonnées relatives à l'avancement de la migration de chaque fichier source dans ADLS et assure le suivi des erreurs associées.  
 
-L'illustration suivante décrit le processus de migration à l'aide de cet outil personnalisé. L'outil s'exécute sur un ensemble de machines virtuelles, et chaque machine virtuelle interroge la collection de suivi d'Azure Cosmos DB pour acquérir un bail sur l'une des partitions de données source. Au terme de cette opération, la partition de données source est lue par l'outil et ingérée dans Azure Cosmos DB à l'aide de la bibliothèque d'Exécuteurs en bloc. La collection de suivi est ensuite mise à jour pour enregistrer l'avancement de l'ingestion des données et les éventuelles erreurs rencontrées. Après le traitement d'une partition de données, l'outil tente de rechercher la partition source disponible suivante. Il poursuit le traitement de la partition source suivante jusqu'à ce que toutes les données soient migrées. Le code source de l'outil est disponible [ici](https://github.com/Azure-Samples/azure-cosmosdb-bulkingestion).  
+L'illustration suivante décrit le processus de migration à l'aide de cet outil personnalisé. L'outil s'exécute sur un ensemble de machines virtuelles, et chaque machine virtuelle interroge la collection de suivi d'Azure Cosmos DB pour acquérir un bail sur l'une des partitions de données source. Au terme de cette opération, la partition de données source est lue par l'outil et ingérée dans Azure Cosmos DB à l'aide de la bibliothèque d'Exécuteurs en bloc. La collection de suivi est ensuite mise à jour pour enregistrer l'avancement de l'ingestion des données et les éventuelles erreurs rencontrées. Après le traitement d'une partition de données, l'outil tente de rechercher la partition source disponible suivante. Il poursuit le traitement de la partition source suivante jusqu'à ce que toutes les données soient migrées. Le code source de l’outil est disponible au niveau du référentiel [Ingestion en bloc Azure Cosmos DB](https://github.com/Azure-Samples/azure-cosmosdb-bulkingestion).  
 
  
 :::image type="content" source="./media/migrate-cosmosdb-data/migrationsetup.png" alt-text="Configuration de l’outil de migration" border="false":::

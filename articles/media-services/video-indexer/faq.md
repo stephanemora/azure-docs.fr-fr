@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/12/2020
 ms.author: juliako
-ms.openlocfilehash: 721af069a76497576b92c4203a93656d19c283aa
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 0fc28a1f808eeb2977b1dcca5046ed29933b8aa8
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217726"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028792"
 ---
 # <a name="video-indexer-frequently-asked-questions"></a>Forum Aux Questions sur Video Indexer
 
@@ -197,7 +197,7 @@ Les jetons d’accès expirent toutes les heures. Vous devez donc générer un n
 
 ### <a name="what-are-the-login-options-to-video-indexer-developer-portal"></a>Quelles sont les options de connexion au portail des développeurs Video Indexer ?
 
-Vous pouvez vous connecter à l’aide d’Azure AD, d’un compte Microsoft, d’un compte Google ou d’un compte Facebook. 
+Consultez la note de publication concernant les [informations de connexion](release-notes.md#october-2020).
 
 Une fois que vous avez inscrit votre compte de courrier à l’aide d’un fournisseur d’identité, vous ne pouvez pas utiliser ce compte de courrier avec un autre fournisseur d’identité.
 

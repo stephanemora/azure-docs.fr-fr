@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/19/2020
 ms.author: maquaran
-ms.openlocfilehash: c47d18726d9581b1b03aa2e676a71d6ca1bc1b7d
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: f753010eb994c9f3c286ad6eca6392ca7b643075
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93086463"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97932909"
 ---
 # <a name="how-to-configure-logging-and-connectivity-with-the-azure-functions-trigger-for-cosmos-db"></a>Comment configurer la journalisation et la connectivité avec le déclencheur Azure Functions pour Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -82,7 +82,7 @@ Si votre projet Azure Functions utilise le runtime Azure Functions V1, la confi
 ```
 
 > [!NOTE]
-> Quand vous utilisez le plan d’hébergement d’un plan de consommation Azure Functions, chaque instance comporte une limite du nombre de connexions de socket qu’elle peut gérer. Quand vous utilisez le mode direct/TCP, à dessein, un nombre plus élevé de connexions est créé et peut atteindre la [limite du plan de consommation](../azure-functions/manage-connections.md#connection-limit), auquel cas vous pouvez utiliser le mode passerelle ou exécuter vos fonctions Azure en [mode App Service](../azure-functions/functions-scale.md#app-service-plan).
+> Lorsque vous hébergez votre application de fonction dans un plan Consommation, chaque instance comporte une limite du nombre de connexions de socket qu’elle peut gérer. Quand vous utilisez le mode direct/TCP, à dessein, un nombre plus élevé de connexions est créé et peut atteindre la [limite du plan Consommation](../azure-functions/manage-connections.md#connection-limit), auquel cas vous pouvez utiliser le mode passerelle ou héberger votre application de fonction dans un [plan Premium](../azure-functions/functions-premium-plan.md) ou un [plan Dedicated (App Service)](../azure-functions/dedicated-plan.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

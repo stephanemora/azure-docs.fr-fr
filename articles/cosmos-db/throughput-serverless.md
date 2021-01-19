@@ -5,13 +5,13 @@ author: ThomasWeiss
 ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/23/2020
-ms.openlocfilehash: a6f8b79ecc8dcac71dc8f5d1be2bb58a0288a307
-ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
+ms.date: 01/08/2021
+ms.openlocfilehash: 3f5c3400f319a3f9d5f1544457b009f90d479634
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97760246"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98049828"
 ---
 # <a name="how-to-choose-between-provisioned-throughput-and-serverless"></a>Comment choisir entre le mode débit approvisionné et le mode serverless
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -25,11 +25,11 @@ Azure Cosmos DB est disponible en deux modes de capacité différents : [débit
 | Critères | Débit approvisionné | Sans serveur |
 | --- | --- | --- |
 | Statut | Mise à la disposition générale | En préversion |
-| Idéale pour | Charges de travail stratégiques nécessitant des performances prévisibles | Charges de travail de taille petite à moyenne avec un trafic léger et intermittent difficile à prévoir |
+| Idéale pour | Charges de travail avec un trafic soutenu nécessitant des performances prévisibles | Charges de travail avec un trafic intermittent ou imprévisible et un faible ratio de trafic moyen à pic |
 | Fonctionnement | Pour chacun de vos conteneurs, vous approvisionnez un débit exprimé en [unités de requête](request-units.md) par seconde. Chaque seconde, cette quantité d’unités de requête est disponible pour vos opérations de base de données. Le débit approvisionné peut être mis à jour manuellement ou ajusté automatiquement avec une [mise à l’échelle automatique](provision-throughput-autoscale.md). | Vous exécutez vos opérations de base de données sur vos conteneurs sans avoir à approvisionner de capacité. |
 | Géo-distribution | Disponible (nombre illimité de régions Azure) | Non disponible (les comptes serverless ne peuvent s’exécuter que dans 1 région Azure) |
 | Volume de stockage maximal par conteneur | Illimité | 50 Go |
-| Performances | Disponibilité de 99,99 % à 99,999 % couvertes par contrat SLA<br>Latence inférieure à 10 ms pour les lectures et écritures ponctuelles couverte par contrat SLA<br>Débit garanti de 99,99 % couvert par contrat SLA | Disponibilité de 99,9 % à 99,99 % couverte par contrat SLA<br>Latence inférieure à 10 ms pour les lectures ponctuelles et à 30 ms pour les écritures couvertes par SLO<br>Extensibilité en rafale de 95 % couverte par SLO |
+| Performances | Latence inférieure à 10 ms pour les lectures et écritures ponctuelles couverte par contrat SLA | Latence inférieure à 10 ms pour les lectures ponctuelles et à 30 ms pour les écritures couvertes par SLO |
 | Modèle de facturation | La facturation s’effectue à l’heure pour les RU/s approvisionnés, quel que soit le nombre d’unités de requêtes consommées. | La facturation est effectuée sur une base horaire pour la quantité de RU consommées par vos opérations de base de données. |
 
 > [!IMPORTANT]

@@ -3,12 +3,12 @@ title: Variables dans les modèles
 description: Explique comment définir des variables dans un modèle Azure Resource Manager (ARM).
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: 5d9b58d63e96656c45d3494d24099bbeadc46b11
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 7f782f9c7d3107472a74fcab73290c4cebf73693
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353457"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934660"
 ---
 # <a name="variables-in-arm-template"></a>Variables dans un modèle ARM
 
@@ -28,7 +28,7 @@ L’exemple suivant montre une définition de variable. Il crée une valeur de c
 },
 ```
 
-Vous ne pouvez pas utiliser la fonction [reference](template-functions-resource.md#reference) ni aucune des fonctions [list](template-functions-resource.md#list) dans la section variables. Ces fonctions obtiennent l’état d’exécution d’une ressource et ne peuvent pas être exécutées avant le déploiement quand des variables sont résolues.
+Vous ne pouvez pas utiliser la fonction [reference](template-functions-resource.md#reference) ni aucune des fonctions [list](template-functions-resource.md#list) dans la section `variables`. Ces fonctions obtiennent l’état d’exécution d’une ressource et ne peuvent pas être exécutées avant le déploiement quand des variables sont résolues.
 
 ## <a name="use-variable"></a>Utiliser une variable
 
@@ -63,7 +63,7 @@ Vous pouvez définir des variables qui contiennent des valeurs associées pour l
 },
 ```
 
-Dans Paramètres, créez une valeur qui indique les valeurs de configuration à utiliser.
+Dans `parameters`, vous créez une valeur qui indique les valeurs de configuration à utiliser.
 
 ```json
 "parameters": {

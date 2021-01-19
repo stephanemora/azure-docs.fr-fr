@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: troubleshooting
 ms.date: 08/17/2020
-ms.openlocfilehash: e19c5064dd69538dfc025b0d244baf4fa74706b2
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 33e2bf641b75a5dd360498478f1ea70c7614fb38
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753533"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98071372"
 ---
 # <a name="troubleshooting-replication-issues-in-agentless-vmware-vm-migration"></a>Résolution des problèmes de réplication dans la migration de machines virtuelles VMware sans agent
 
@@ -297,6 +297,24 @@ Il s’agit d’un problème VMware connu dans lequel la taille du disque indiqu
 ### <a name="error-message-an-internal-error-occurred-memory-allocation-failed-out-of-memory"></a>Message d’erreur : Une erreur interne s’est produite. [L’allocation de mémoire a échoué. Mémoire insuffisante.]
 
 Cela se produit lorsque la mémoire tampon de l’hôte NFC est insuffisante. Pour résoudre ce problème, vous devez déplacer la machine virtuelle (compute vMotion) vers un autre hôte, dont les ressources sont disponibles.
+
+## <a name="replication-cycle-failed"></a>Échec du cycle de réplication
+
+**ID d’erreur :** 181008
+
+**Message d’erreur :** MV : « VMName ». Erreur : Aucun disksnapshot n’a été trouvé pour la réplication de capture instantanée avec l’ID d’instantané : « SnapshotID ».
+
+**Causes possibles :**
+
+Les raisons possibles sont :
+1. Le chemin d’accès d’un ou de plusieurs disques inclus a changé en raison de Storage vMotion.
+2. Un ou plusieurs disques inclus ne sont plus rattachés à la machine virtuelle.
+      
+**Recommandation :**
+
+Les recommandations suivantes sont fournies :
+1. Restaurez les disques inclus sous le chemin d’accès d’origine à l’aide de Storage vMotion, puis désactivez Storage vMotion.
+2. Désactivez Storage vMotion s’il est activé, arrêtez la réplication sur la machine virtuelle et réessayez de répliquer la machine virtuelle. Si le problème persiste, contactez le support.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

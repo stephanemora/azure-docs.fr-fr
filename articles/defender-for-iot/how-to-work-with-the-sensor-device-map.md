@@ -4,15 +4,15 @@ description: La carte des appareils fournit une représentation graphique des p�
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/07/2020
+ms.date: 1/7/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: dd0f28411dccab1a1dd36fbd01d2d1acbcc689e0
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: fd1721060bdc4b18f324a94f7c367bacde6ed4e8
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97835936"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976756"
 ---
 # <a name="investigate-sensor-detections-in-the-device-map"></a>Examiner les détections de capteur dans la carte des appareils
 
@@ -59,7 +59,7 @@ Chaque sous-réseau est présenté sous la forme d’une entité unique sur la c
 
 La figure ci-dessous illustre un sous-réseau informatique réduit avec 27 éléments de réseau informatique.
 
-:::image type="content" source="media/how-to-work-with-maps/shrunk-it-subnet.png" alt-text="Sous-réseau informatique réduit avec 27 éléments de réseau informatique":::
+:::image type="content" source="media/how-to-work-with-maps/shrunk-it-subnet-v2.png" alt-text="Sous-réseau informatique réduit avec 27 éléments de réseau informatique":::
 
 Pour activer la fonctionnalité de réduction des réseaux informatiques :
 
@@ -226,7 +226,7 @@ L’icône de type d’appareil s’affiche avec les appareils connectés.
 
 La vue détaillée présente les appareils et les étiquettes et indicateurs d’appareil avec les informations suivantes :
 
-:::image type="content" source="media/how-to-work-with-maps/device-map.png" alt-text="Vue détaillée":::
+:::image type="content" source="media/how-to-work-with-maps/device-map-v2.png" alt-text="Vue détaillée":::
 
 ### <a name="control-the-zoom-view"></a>Contrôler la vue avec zoom
 
@@ -236,7 +236,7 @@ La vue cartographique affichée dépend du niveau de zoom de la carte. Le bascul
 
 ### <a name="enable-simplified-zoom-views"></a>Activer les vues avec zoom simplifiées
 
-Les administrateurs qui souhaitent que les analystes de la sécurité et les utilisateurs puissent accéder aux vues aérienne et par type de connexion doivent activer l’option de vue simplifiée.
+Les administrateurs qui souhaitent que les analystes de la sécurité et les utilisateurs en lecture seule puissent accéder aux vues aérienne, par appareil et par type de connexion doivent activer l’option de vue simplifiée.
 
 Pour activer les vues cartographiques simplifiées :
 

@@ -1,18 +1,18 @@
 ---
 title: Déployer des modèles avec le service Cloud Shell
-description: Utilisez Azure Resource Manager et le service Cloud Shell pour déployer des ressources sur Azure. Les ressources sont définies dans un modèle Azure Resource Manager.
+description: Utilisez Azure Resource Manager et Azure Cloud Shell pour déployer des ressources sur Azure. Les ressources sont définies dans un modèle Azure Resource Manager (modèle ARM).
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: d0b519955cb877f5fb9640cc0cf95a898e1743ef
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: c67251a33b6197603be27086bcc6cd047e0c414b
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92681260"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028605"
 ---
-# <a name="deploy-arm-templates-from-cloud-shell"></a>Déployer des modèles Azure Resource Manager à partir du service Cloud Shell
+# <a name="deploy-arm-templates-from-azure-cloud-shell"></a>Déployer des modèles ARM à partir d’Azure Cloud Shell
 
-Vous pouvez utiliser le service [Cloud Shell](../../cloud-shell/overview.md) pour déployer un modèle Azure Resource Manager (modèle ARM). Vous pouvez déployer un modèle ARM stocké à distance ou sur le compte de stockage local pour le service Cloud Shell.
+Vous pouvez utiliser [Azure Cloud Shell](../../cloud-shell/overview.md) pour déployer un modèle Azure Resource Manager (modèle ARM). Vous pouvez déployer un modèle ARM stocké à distance ou sur le compte de stockage local pour le service Cloud Shell.
 
 Vous pouvez effectuer le déploiement sur n’importe quelle étendue. Cet article présente un déploiement sur un groupe de ressources.
 

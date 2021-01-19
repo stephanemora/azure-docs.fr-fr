@@ -1,20 +1,29 @@
 ---
-title: Intégrer Apache Kafka Connect sur Azure Event Hubs (version préliminaire) avec Debezium pour la capture des changements de données
+title: Intégrer Apache Kafka Connect sur Azure Event Hubs avec Debezium pour la capture des changements de données
 description: Cet article fournit des informations sur l’utilisation de Debezium avec Azure Event Hubs pour Kafka.
 ms.topic: how-to
 author: abhirockzz
 ms.author: abhishgu
-ms.date: 08/11/2020
-ms.openlocfilehash: ae3ef2e1f35be432558769c512845543867ef27a
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.date: 01/06/2021
+ms.openlocfilehash: 0ad1df23e71e652f7d380ffbabb542b81954e038
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505407"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935170"
 ---
-# <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview-with-debezium-for-change-data-capture"></a>Intégrer la prise en charge d’Apache Kafka Connect sur Azure Event Hubs (version préliminaire) avec Debezium pour la capture des changements de données
+# <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-with-debezium-for-change-data-capture"></a>Intégrer la prise en charge d’Apache Kafka Connect sur Azure Event Hubs avec Debezium pour la capture des changements de données
 
 **La capture des changements de données (CDC)** est une technique utilisée pour effectuer le suivi des modifications au niveau des lignes dans les tables de base de données en réponse à des opérations de création, de mise à jour et de suppression. [Debezium](https://debezium.io/) est une plateforme distribuée qui s’appuie sur les fonctionnalités de capture des changements de données disponibles dans différentes bases de données (par exemple, le [décodage logique dans PostgreSQL](https://www.postgresql.org/docs/current/static/logicaldecoding-explanation.html)). Il fournit un ensemble de [connecteurs Kafka Connect](https://debezium.io/documentation/reference/1.2/connectors/index.html) qui utilisent les modifications au niveau des lignes dans la ou les tables de base de données et les convertissent en flux d’événements qui sont ensuite envoyés à [Apache Kafka](https://kafka.apache.org/).
+
+> [!WARNING]
+> L’utilisation de l’infrastructure Apache Kafka Connect, de la plateforme Debezium et de ses connecteurs **n’est pas admissible au support produit par le biais de Microsoft Azure**.
+>
+> Apache Kafka Connect suppose que sa configuration dynamique est conservée dans des rubriques compactées, avec une rétention illimitée. Azure Event Hubs [n’implémente pas le compactage comme fonctionnalité de répartiteur](event-hubs-federation-overview.md#log-projections) et impose toujours une limite de rétention temporelle sur les événements conservés, partant du principe qu’Azure Event Hubs est un moteur de diffusion d’événements en temps réel et non un magasin de configuration ou de données à long terme.
+>
+> Bien que le projet Apache Kafka puisse accepter la combinaison de ces rôles, Azure considère que ces informations sont mieux gérées dans une base de données ou un magasin de configuration approprié.
+>
+> De nombreux scénarios Apache Kafka Connect seront fonctionnels, mais ces différences conceptuelles entre les modèles de rétention d’Apache Kafka et d’Azure Event Hubs peuvent empêcher certaines configurations de fonctionner comme prévu. 
 
 Ce didacticiel vous guide tout au long de la configuration d’un système basé sur la capture des changements de données sur Azure à l’aide d' [Azure Event Hubs](./event-hubs-about.md?WT.mc_id=devto-blog-abhishgu) (pour Kafka), d’[Azure DB pour PostgreSQL](../postgresql/overview.md) et de Debezium. Il utilise le [connecteur Debezium PostgreSQL](https://debezium.io/documentation/reference/1.2/connectors/postgresql.html) pour diffuser en continu les modifications de base de données de PostgreSQL vers les rubriques Kafka dans Azure Event Hubs
 
@@ -103,7 +112,7 @@ plugin.path={KAFKA.DIRECTORY}/libs # path to the libs directory within the Kafka
 ```
 
 > [!IMPORTANT]
-> Remplacez `{YOUR.EVENTHUBS.CONNECTION.STRING}` par la chaîne de connexion de votre espace de noms Event Hubs. Pour savoir comment obtenir la chaîne de connexion, consultez [Obtenir une chaîne de connexion Event Hubs](event-hubs-get-connection-string.md). Voici un exemple de configuration : `sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://mynamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXX";`.
+> Remplacez `{YOUR.EVENTHUBS.CONNECTION.STRING}` par la chaîne de connexion de votre espace de noms Event Hubs. Pour savoir comment obtenir la chaîne de connexion, consultez [Obtenir une chaîne de connexion Event Hubs](event-hubs-get-connection-string.md). Voici un exemple de configuration : `sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://mynamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXX";`
 
 
 ### <a name="run-kafka-connect"></a>Exécuter Kafka Connect
@@ -284,7 +293,7 @@ Kafka Connect crée des rubriques Event Hub pour stocker les configurations, les
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d'informations sur Event Hubs pour Kafka, consultez les articles suivants :  
+Pour plus d’informations sur Event Hubs pour Kafka, consultez les articles suivants :  
 
 - [Mettre en miroir un broker Kafka dans un hub d’événements](event-hubs-kafka-mirror-maker-tutorial.md)
 - [Connecter Apache Spark à un hub d’événements](event-hubs-kafka-spark-tutorial.md)

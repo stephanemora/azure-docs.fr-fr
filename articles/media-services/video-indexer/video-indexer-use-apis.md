@@ -8,15 +8,15 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 11/10/2020
+ms.date: 01/07/2021
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cdba4ce36322f9c3fb0f898cb7eb1d1185ed1dc6
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: fcd194e2503610db314f6a975a4afb1d27962f8c
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636943"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028215"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Tutoriel : Utiliser l’API Video Indexer
 
@@ -29,8 +29,10 @@ Cet article explique comment les développeurs peuvent tirer parti de l’[API V
 ## <a name="subscribe-to-the-api"></a>S’abonner à l’API
 
 1. Connectez-vous au [Portail des développeurs Video Indexer](https://api-portal.videoindexer.ai/).
+
+    Consultez la note de publication concernant les [informations de connexion](release-notes.md#october-2020).
     
-    ![Se connecter au Portail des développeurs Video Indexer](./media/video-indexer-use-apis/video-indexer-api01.png)
+     ![Se connecter au Portail des développeurs Video Indexer](./media/video-indexer-use-apis/sign-in.png)
 
    > [!Important]
    > * Vous devez utiliser le même fournisseur que lorsque vous vous êtes inscrit à Video Indexer.
@@ -40,14 +42,14 @@ Cet article explique comment les développeurs peuvent tirer parti de l’[API V
 
     Sélectionnez l’onglet [Produits](https://api-portal.videoindexer.ai/products). Ensuite, sélectionnez Autorisation et abonnez-vous.
     
-    ![Onglet Produits dans le Portail des développeurs Video Indexer](./media/video-indexer-use-apis/video-indexer-api02.png)
+    ![Onglet Produits dans le Portail des développeurs Video Indexer](./media/video-indexer-use-apis/authorization.png)
 
     > [!NOTE]
     > Les nouveaux utilisateurs sont automatiquement abonnés à l’API Autorisation.
     
     Après vous être abonné, vous pouvez trouver votre abonnement sous **Produits** -> **Autorisation**. Dans la page d’abonnement, vous trouverez les clés primaires et secondaires. Les clés doivent être protégées. Les clés doivent uniquement être utilisées par votre code serveur. Elles ne doivent pas être disponibles côté client (.js, .html, etc.).
 
-    ![Abonnement et clés dans le Portail des développeurs Video Indexer](./media/video-indexer-use-apis/video-indexer-api03.png)
+    ![Abonnement et clés dans le Portail des développeurs Video Indexer](./media/video-indexer-use-apis/subscriptions.png)
 
 > [!TIP]
 > L’utilisateur de Video Indexer peut utiliser une clé d’abonnement unique pour se connecter à plusieurs comptes Video Indexer. Vous pouvez ensuite lier ces comptes Video Indexer à différents comptes Media Services.

@@ -5,16 +5,16 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/29/2019
 ms.author: azfuncdf
-ms.openlocfilehash: b117fca23b26919f3c404dd32ba64c0c89d66ae7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8223b1273c2a487e15e3c10d7c6852a119e4cdc
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87033562"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028248"
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Chaînage de fonctions dans Fonctions durables - Exemple de séquence Hello
 
-Un chaînage de fonctions fait référence au modèle d’exécution d’une séquence de fonctions dans un ordre particulier. La sortie d’une fonction doit souvent être appliquée à l’entrée d’une autre fonction. Cet article décrit la séquence de chaînage que vous créez quand vous suivez le guide de démarrage rapide de Durable Functions ([C#](durable-functions-create-first-csharp.md) ou [JavaScript](quickstart-js-vscode.md)). Pour plus d’informations sur Durable Functions, consultez [Vue d’ensemble de Durable Functions](durable-functions-overview.md).
+Un chaînage de fonctions fait référence au modèle d’exécution d’une séquence de fonctions dans un ordre particulier. La sortie d’une fonction doit souvent être appliquée à l’entrée d’une autre fonction. Cet article décrit la séquence de chaînage que vous créez lorsque vous suivez le démarrage rapide de Durable Functions ([C#](durable-functions-create-first-csharp.md), [JavaScript](quickstart-js-vscode.md) ou [Python](quickstart-python-vscode.md)). Pour plus d’informations sur Durable Functions, consultez [Vue d’ensemble de Durable Functions](durable-functions-overview.md).
 
 [!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
 
@@ -24,7 +24,7 @@ Cet article explique les fonctions suivantes dans l’exemple d’application :
 
 * `E1_HelloSequence`: Une [fonction d’orchestrateur](durable-functions-bindings.md#orchestration-trigger) qui appelle `E1_SayHello` plusieurs fois dans une séquence. Il stocke les sorties à partir des appels de `E1_SayHello` et enregistre les résultats.
 * `E1_SayHello`: Une [fonction d’activité](durable-functions-bindings.md#activity-trigger) qui fait précéder une chaîne de « Hello ».
-* `HttpStart`: Une fonction déclenchée par HTTP qui démarre une instance de l’orchestrateur.
+* `HttpStart` : Une fonction [client durable](durable-functions-bindings.md#orchestration-client) déclenchée par HTTP qui démarre une instance de l’orchestrateur.
 
 ### <a name="e1_hellosequence-orchestrator-function"></a>Fonction d’orchestrateur E1_HelloSequence
 
@@ -39,7 +39,7 @@ Le code appelle trois fois `E1_SayHello` en séquence avec des valeurs de param�
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 > [!NOTE]
-> Les fonctions JavaScript Durable Functions sont disponibles uniquement pour le runtime de Functions 2.0.x.
+> Les fonctions Durable Functions JavaScript sont disponibles uniquement pour le runtime de Functions 3.0.
 
 #### <a name="functionjson"></a>function.json
 
@@ -54,17 +54,47 @@ Le point essentiel est le type de liaison `orchestrationTrigger`. Toutes les fon
 
 #### <a name="indexjs"></a>index.js
 
-Voici la fonction :
+Voici la fonction d’orchestrateur :
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_HelloSequence/index.js)]
 
-Toutes les fonctions d’orchestration JavaScript doivent inclure le module [`durable-functions`](https://www.npmjs.com/package/durable-functions). Il s’agit d’une bibliothèque qui vous permet d’écrire des fonctions Durable Functions en JavaScript. Il existe trois différences importantes entre une fonction d’orchestration et les autres fonctions JavaScript :
+Toutes les fonctions d’orchestration JavaScript doivent inclure le module [`durable-functions`](https://www.npmjs.com/package/durable-functions). Il s’agit d’une bibliothèque qui vous permet d’écrire des fonctions Durable Functions en JavaScript. Il existe trois différences importantes entre une fonction d’orchestrateur et les autres fonctions JavaScript :
 
-1. La fonction est une [fonction de générateur](/scripting/javascript/advanced/iterators-and-generators-javascript).
+1. La fonction d’orchestrateur est une [fonction de générateur](/scripting/javascript/advanced/iterators-and-generators-javascript).
 2. La fonction est encapsulée dans un appel à la méthode `orchestrator` du module `durable-functions` (ici `df`).
 3. La fonction doit être synchrone. Étant donné que la méthode « orchestrator » gère l’appel à « context.done », la fonction doit simplement retourner (« return ») un résultat.
 
 L’objet `context` contient un objet de contexte d’orchestration durable `df` qui vous permet d’appeler d’autres fonctions d’*activité* et de passer des paramètres d’entrée à l’aide de sa méthode `callActivity`. Le code appelle `E1_SayHello` trois fois à la suite avec différentes valeurs de paramètre, en se servant de `yield` pour indiquer que l’exécution doit attendre les appels de fonction d’activité asynchrones à renvoyer. La valeur renvoyée de chaque appel est ajoutée au tableau `outputs` qui est retourné à la fin de l’exécution de la fonction.
+
+# <a name="python"></a>[Python](#tab/python)
+
+> [!NOTE]
+> Les fonctions Durable Functions Python sont disponibles uniquement pour le runtime de Functions 3.0.
+
+
+#### <a name="functionjson"></a>function.json
+
+Si vous utilisez Visual Studio Code ou le portail Azure pour le développement, voici le contenu du fichier *function.json* pour la fonction d’orchestrateur. La plupart des fichiers *function.json* d’orchestrateur ressemblent presque exactement à cela.
+
+[!code-json[Main](~/samples-durable-functions-python/samples/function_chaining/E1_HelloSequence/function.json)]
+
+Le point essentiel est le type de liaison `orchestrationTrigger`. Toutes les fonctions d’orchestrateur doivent utiliser ce type de déclencheur.
+
+> [!WARNING]
+> Pour respecter la règle « Aucune E/S » des fonctions d’orchestrateur, n’utilisez aucune liaison d’entrée ou de sortie lors de l’utilisation de la liaison de déclenchement `orchestrationTrigger`.  Si d’autres liaisons d’entrée ou de sortie sont nécessaires, elles doivent plutôt être utilisées dans le contexte des fonctions `activityTrigger`, qui sont appelées par l’orchestrateur. Pour plus d’informations, consultez l’article [Contraintes du code des fonctions d’orchestrateur](durable-functions-code-constraints.md).
+
+#### <a name="__init__py"></a>\_\_init\_\_.py
+
+Voici la fonction d’orchestrateur :
+
+[!code-python[Main](~/samples-durable-functions-python/samples/function_chaining/E1_HelloSequence/\_\_init\_\_.py)]
+
+Toutes les fonctions d’orchestration Python doivent inclure le [package `durable-functions`](https://pypi.org/project/azure-functions-durable). Il s’agit d’une bibliothèque qui vous permet d’écrire des fonctions Durable Functions en Python. Il existe deux différences importantes entre une fonction d’orchestrateur et les autres fonctions Python :
+
+1. La fonction d’orchestrateur est une [fonction de générateur](https://wiki.python.org/moin/Generators).
+2. Le _fichier_ doit enregistrer la fonction d’orchestrateur en tant qu’orchestrateur en indiquant `main = df.Orchestrator.create(<orchestrator function name>)` à la fin du fichier. Cela permet de le distinguer des autres fonctions d’aide déclarées dans le fichier.
+
+Cet objet `context` vous permet d’appeler d’autres fonctions *d’activité* et de transmettre les paramètres d’entrée à l’aide de sa méthode `call_activity`. Le code appelle `E1_SayHello` trois fois à la suite avec différentes valeurs de paramètre, en se servant de `yield` pour indiquer que l’exécution doit attendre les appels de fonction d’activité asynchrones à renvoyer. La valeur renvoyée de chaque appel est retournée à la fin de la fonction.
 
 ---
 
@@ -91,7 +121,7 @@ Le fichier *function.json* pour la fonction de l’activité `E1_SayHello` est s
 [!code-json[Main](~/samples-durable-functions/samples/javascript/E1_SayHello/function.json)]
 
 > [!NOTE]
-> N’importe quelle fonction appelée par une fonction d’orchestration doit utiliser la liaison `activityTrigger`.
+> Toutes les fonctions d’activité appelées par une fonction d’orchestration doivent utiliser la liaison `activityTrigger`.
 
 L’implémentation de `E1_SayHello` est une opération de mise en forme de chaîne relativement simple.
 
@@ -99,7 +129,26 @@ L’implémentation de `E1_SayHello` est une opération de mise en forme de cha�
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_SayHello/index.js)]
 
-Contrairement à une fonction d’orchestration JavaScript, une fonction d’activité ne nécessite aucune configuration particulière. L’entrée transmise par la fonction d’orchestrateur se trouve sur l’objet `context.bindings` sous le nom de la liaison `activityTrigger`, ici `context.bindings.name`. Le nom de la liaison peut être défini en tant que paramètre de la fonction exportée et accessible directement, ce que fait l’exemple de code.
+Contrairement à la fonction d’orchestration, une fonction d’activité ne nécessite aucune configuration particulière. L’entrée transmise par la fonction d’orchestrateur se trouve sur l’objet `context.bindings` sous le nom de la liaison `activityTrigger`, ici `context.bindings.name`. Le nom de la liaison peut être défini en tant que paramètre de la fonction exportée et accessible directement, ce que fait l’exemple de code.
+
+# <a name="python"></a>[Python](#tab/python)
+
+#### <a name="e1_sayhellofunctionjson"></a>E1_SayHello/function.json
+
+Le fichier *function.json* pour la fonction de l’activité `E1_SayHello` est similaire à celle de `E1_HelloSequence` sauf qu’elle utilise un type de liaison `activityTrigger` à la place d’un type de liaison `orchestrationTrigger`.
+
+[!code-json[Main](~/samples-durable-functions-python/samples/function_chaining/E1_SayHello/function.json)]
+
+> [!NOTE]
+> Toutes les fonctions d’activité appelées par une fonction d’orchestration doivent utiliser la liaison `activityTrigger`.
+
+L’implémentation de `E1_SayHello` est une opération de mise en forme de chaîne relativement simple.
+
+#### <a name="e1_sayhello__init__py"></a>E1_SayHello/\_\_init\_\_.py
+
+[!code-python[Main](~/samples-durable-functions-python/samples/function_chaining/E1_SayHello/\_\_init\_\_.py)]
+
+Contrairement à la fonction d’orchestrateur, une fonction d’activité ne nécessite aucune configuration particulière. L’entrée qui lui est transmise par la fonction d’orchestrateur est directement accessible en tant que paramètre de la fonction.
 
 ---
 
@@ -126,6 +175,20 @@ Pour interagir avec des orchestrateurs, la fonction doit inclure une liaison d�
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpStart/index.js)]
 
 Utilisez `df.getClient` pour obtenir un objet `DurableOrchestrationClient`. Vous utilisez le client pour démarrer une orchestration. Il peut également vous aider à retourner une réponse HTTP contenant des URL pour vérifier l’état de la nouvelle orchestration.
+
+# <a name="python"></a>[Python](#tab/python)
+
+#### <a name="httpstartfunctionjson"></a>HttpStart/function.json
+
+[!code-json[Main](~/samples-durable-functions-python/samples/function_chaining/HttpStart/function.json)]
+
+Pour interagir avec des orchestrateurs, la fonction doit inclure une liaison d’entrée `durableClient`.
+
+#### <a name="httpstart__init__py"></a>HttpStart/\_\_init\_\_.py
+
+[!code-python[Main](~/samples-durable-functions-python/samples/function_chaining/HttpStart/\_\_init\_\_.py)]
+
+Utilisez le `DurableOrchestrationClient` pour obtenir un client Durable Functions. Vous utilisez le client pour démarrer une orchestration. Il peut également vous aider à retourner une réponse HTTP contenant des URL pour vérifier l’état de la nouvelle orchestration.
 
 ---
 

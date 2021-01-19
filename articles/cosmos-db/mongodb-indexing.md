@@ -5,16 +5,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
-ms.date: 11/06/2020
+ms.date: 01/08/2020
 author: timsander1
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: e920af85c511387e66bcafcb6a140844d25f204c
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 34caca47746814046a894494ec43d9b5c977389a
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369288"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060074"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Gérer l’indexation dans l’API pour MongoDB d’Azure Cosmos DB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -29,6 +29,16 @@ Pour indexer des champs supplémentaires, appliquez les commandes de gestion d�
 
 Pour appliquer un tri sur une requête, vous devez créer un index sur les champs utilisés dans l’opération de tri.
 
+### <a name="editing-indexing-policy"></a>Modification de la stratégie d’indexation
+
+Nous vous recommandons de modifier votre stratégie d’indexation dans Explorateur de données au sein du portail Azure.
+. Vous pouvez ajouter des index à champ unique et génériques à partir de l’éditeur de stratégie d’indexation dans Explorateur de données :
+
+:::image type="content" source="./media/mongodb-indexing/indexing-policy-editor.png" alt-text="Éditeur de stratégie d’indexation":::
+
+> [!NOTE]
+> Vous ne pouvez pas créer d’index composés à l’aide de l’éditeur de stratégie d’indexation dans Explorateur de données.
+
 ## <a name="index-types"></a>Types d’index
 
 ### <a name="single-field"></a>Champ unique
@@ -36,6 +46,10 @@ Pour appliquer un tri sur une requête, vous devez créer un index sur les champ
 Vous pouvez créer des index sur n’importe quel champ unique. L’ordre de tri d’un index monochamp n’a pas d’importance. La commande suivante crée un index sur le champ `name` :
 
 `db.coll.createIndex({name:1})`
+
+Vous pouvez créer le même index à champ unique sur `name` dans le portail Azure :
+
+:::image type="content" source="./media/mongodb-indexing/add-index.png" alt-text="Ajouter un index de nom dans l’éditeur de stratégie d’indexation":::
 
 Une requête utilise plusieurs index monochamps, le cas échéant. Vous pouvez créer jusqu’à 500 index monochamp par conteneur.
 
@@ -134,6 +148,10 @@ Vous pouvez créer les types d’index suivants à l’aide de la syntaxe des ca
 Voici comment vous pouvez créer un index de caractères génériques sur tous les champs :
 
 `db.coll.createIndex( { "$**" : 1 } )`
+
+Vous pouvez également créer des index génériques à l’aide d’Explorateur de données dans le portail Azure :
+
+:::image type="content" source="./media/mongodb-indexing/add-wildcard-index.png" alt-text="Ajouter un index générique dans l’éditeur de stratégie d’indexation":::
 
 > [!NOTE]
 > Si vous commencez à développer, nous vous recommandons **fortement** de commencer avec un index générique sur tous les champs. Cela peut simplifier le développement et faciliter l’optimisation des requêtes.

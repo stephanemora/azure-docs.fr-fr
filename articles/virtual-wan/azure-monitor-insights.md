@@ -7,21 +7,21 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: 052fd0ea7619d566e78806580ee7b39e49cc85d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d14ae86d41caec3c1bd897c2c81bee748dcc312c
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448621"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98050882"
 ---
-# <a name="azure-monitor-insights-for-virtual-wan-preview"></a>Azure Monitor Insights pour Virtual WAN (préversion)
+# <a name="azure-monitor-insights-for-virtual-wan"></a>Azure Monitor Insights pour Virtual WAN
 
 [Azure Monitor Insights](../azure-monitor/insights/network-insights-overview.md) pour Azure Virtual WAN offre aux utilisateurs et aux opérateurs la possibilité d'afficher l'état et le statut d'un WAN virtuel, présenté via une carte topologique autodécouverte. Les superpositions de l'état et du statut des ressources sur la carte vous fournissent une vue instantanée de l'intégrité globale du WAN virtuel. Sur la carte, vous pouvez parcourir les ressources via un accès en un clic aux pages de configuration des ressources du portail Virtual WAN.
 
 Les métriques disponibles au niveau des ressources Virtual WAN sont collectées et présentées via un classeur de métriques Virtual WAN pré-empaqueté. Le classeur présente les métriques disponibles aux niveaux du WAN virtuel, du hub, de la passerelle et de la connexion. Cet article vous guide tout au long des étapes à suivre pour utiliser Azure Monitor Insights pour Virtual WAN afin d’afficher la topologie et les métriques de votre WAN virtuel dans un seul emplacement.
 
 > [!NOTE]
-> L'option de menu **Insights** du portail Virtual WAN est en cours de déploiement. Pendant le déploiement de ce menu, vous pouvez accéder au Classeur de métriques et à la Topologie Virtual WAN à l'aide d'Azure Monitor pour réseaux. Pour plus d'informations, consultez [Azure Monitor pour réseaux](../azure-monitor/insights/network-insights-overview.md). 
+> L’option de menu **Insights** se trouve dans le portail Virtual WAN sous **Supervision**. Vous pouvez également accéder au Classeur de métriques et à la Topologie Virtual WAN à l’aide d’Azure Monitor pour réseaux. Pour plus d'informations, consultez [Azure Monitor pour réseaux](../azure-monitor/insights/network-insights-overview.md). 
 >
 
 ## <a name="before-you-begin"></a>Avant de commencer
@@ -45,7 +45,7 @@ L’état de la ressource et le statutsont codés par couleur et superposés aux
 
 **Figure 2 : vue Insights**
 
-:::image type="content" source="./media/azure-monitor-insights/insights-view.png" alt-text="Capture d'écran représentant la vue Insights (préversion)." lightbox="./media/azure-monitor-insights/insights-view.png":::
+:::image type="content" source="./media/azure-monitor-insights/insights-view.png" alt-text="Capture d'écran représentant la vue Insights." lightbox="./media/azure-monitor-insights/insights-view.png":::
 
 ## <a name="dependency-view"></a><a name="dependency"></a>Affichage des dépendances
 
@@ -53,7 +53,7 @@ La vue **Dépendances** de Virtual WAN vous permet de visualiser la vue intercon
 
 **Figure 3 : affichage Dépendances du WAN virtuel**
 
-:::image type="content" source="./media/azure-monitor-insights/dependency-map.png" alt-text="Capture d'écran représentant la vue Insights (préversion)." lightbox="./media/azure-monitor-insights/dependency-map.png":::
+:::image type="content" source="./media/azure-monitor-insights/dependency-map.png" alt-text="Capture d'écran représentant la vue Dépendances." lightbox="./media/azure-monitor-insights/dependency-map.png":::
 
 La carte de la vue **Dépendances** affiche les ressources suivantes sous forme de graphique connexe :
 
@@ -69,13 +69,13 @@ La carte des dépendances facilite la navigation vers les paramètres de configu
 
 **Figure 4 : accéder aux informations spécifiques à la ressource**
 
-:::image type="content" source="./media/azure-monitor-insights/resource-information.png" alt-text="Capture d'écran représentant la vue Insights (préversion).":::
+:::image type="content" source="./media/azure-monitor-insights/resource-information.png" alt-text="Capture d'écran montrant comment accéder aux informations spécifiques aux ressources.":::
 
 La barre de recherche et de filtre de la vue **Dépendances** permet d'effectuer facilement des recherches dans le graphique. Différents filtres permettent de restreindre votre recherche à un chemin et à un état spécifiques.
 
 **Figure 5 : recherche et filtrage**
 
-:::image type="content" source="./media/azure-monitor-insights/search-filter.png" alt-text="Capture d'écran représentant la vue Insights (préversion)." lightbox="./media/azure-monitor-insights/search-filter.png":::
+:::image type="content" source="./media/azure-monitor-insights/search-filter.png" alt-text="Capture d'écran représentant la barre de recherche et de filtre." lightbox="./media/azure-monitor-insights/search-filter.png":::
 
 ## <a name="detailed-metrics"></a><a name="detailed"></a>Métriques détaillées
 
@@ -83,7 +83,7 @@ Vous pouvez sélectionner **Afficher les métriques détaillées** pour accéder
 
 **Figure 6 : tableau de bord Métriques détaillé**
 
-:::image type="content" source="./media/azure-monitor-insights/detailed-metrics.png" alt-text="Capture d'écran représentant la vue Insights (préversion)." lightbox="./media/azure-monitor-insights/detailed-metrics.png":::
+:::image type="content" source="./media/azure-monitor-insights/detailed-metrics.png" alt-text="Capture d'écran représentant le tableau de bord des métriques détaillées." lightbox="./media/azure-monitor-insights/detailed-metrics.png":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

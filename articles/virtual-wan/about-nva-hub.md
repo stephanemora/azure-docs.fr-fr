@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: scottnap
 Customer intent: As someone with a networking background, I want to learn about Network Virtual Appliances in the Virtual WAN hub.
-ms.openlocfilehash: 1e4b8a2d801d7d7eccfaf558c3926ead1ab0a953
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 365ed60e73be9bb2098022fa767f4ae54b93c37c
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91313771"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028078"
 ---
 # <a name="about-network-virtual-appliance-in-an-azure-virtual-wan-hub-preview"></a>À propos de l’appliance virtuelle réseau dans un hub Azure Virtual WAN (préversion)
 
 Azure Virtual WAN a travaillé avec des partenaires de mise en réseau pour mettre en place une automatisation qui permet de connecter facilement les équipements locaux des clients (CPE) à une passerelle VPN Azure dans le hub virtuel. Azure travaille avec certains partenaires de mise en réseau pour permettre aux clients de déployer une appliance virtuelle réseau (NVA) tierce directement dans le hub virtuel. Cela permet aux clients qui souhaitent connecter les CPE de leur filiale à une NVA de la même marque dans le hub virtuel de tirer parti des capacités SD-WAN propriétaires de bout en bout.
 
-Barracuda Networks est le premier partenaire à fournir une offre NVA qui peut être déployée directement sur le hub Virtual WAN à l’aide de son produit [Barracuda CloudGen WAN](https://www.barracuda.com/products/cloudgenwan). Azure travaille avec un plus grand nombre de partenaires, alors attendez-vous à ce que d’autres offres suivent.
+Barracuda Networks et Cisco Systems sont les premiers partenaires à fournir des NVA qui peuvent être déployées directement sur le hub Virtual WAN.  Pour obtenir la documentation de leur produit respectif, consultez [Barracuda CloudGen WAN](https://www.barracuda.com/products/cloudgenwan) et [Cisco Cloud OnRamp for Multi-Cloud](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/cloudonramp/ios-xe-17/cloud-onramp-book-xe/cloud-onramp-multi-cloud.html#Cisco_Concept.dita_c61e0e7a-fff8-4080-afee-47b81e8df701). Azure travaille avec un plus grand nombre de partenaires, alors attendez-vous à ce que d’autres offres suivent.
 
 > [!NOTE]
 > Seules les offres NVA disponibles au déploiement dans le hub Virtual WAN peuvent être déployées dans ce dernier. Elles ne peuvent pas être déployées dans un réseau virtuel arbitraire dans Azure.
@@ -50,7 +50,7 @@ Les partenaires NVA peuvent créer des ressources différentes en fonction du d
 * **Groupe de ressources du client** : contient un espace réservé pour l’application managée. Les partenaires peuvent l’utiliser pour exposer les propriétés du client qu’ils choisissent ici.
 * **Groupe de ressources managé** : les clients ne peuvent pas configurer ni modifier directement les ressources de ce groupe de ressources, car celui-ci est contrôlé par l’éditeur de l’application managée. Ce groupe de ressources contient la ressource **NetworkVirtualAppliances**.
 
-:::image type="content" source="./media/about-nva-hub/managed-app.png" alt-text="Vue d’ensemble du processus":::
+:::image type="content" source="./media/about-nva-hub/managed-app.png" alt-text="Groupes de ressources Applications managées":::
 
 ### <a name="nva-infrastructure-units"></a><a name="units"></a>Unités d’infrastructure NVA
 
@@ -93,11 +93,11 @@ Malheureusement, nous n’avons pas la capacité d’accepter les offres de nouv
 
 ### <a name="can-i-deploy-any-nva-from-azure-marketplace-into-the-virtual-wan-hub"></a>Puis-je déployer n’importe quelle NVA à partir de Place de marché Azure dans le hub Virtual WAN ?
 
-Non. À ce stade, seul [Barracuda CloudGen WAN](https://aka.ms/BarracudaMarketPlaceOffer) est disponible au déploiement dans le hub Virtual WAN.
+À ce stade, seuls [Barracuda CloudGen WAN](https://aka.ms/BarracudaMarketPlaceOffer) et [l’application Cisco Cloud vWAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cisco.cisco_cloud_vwan_app?tab=Overview) sont disponibles au déploiement dans le hub Virtual WAN.
 
 ### <a name="what-is-the-cost-of-the-nva"></a>Quel est le coût de la NVA ?
 
-Vous devez acheter une licence pour votre NVA Barracuda CloudGen WAN auprès de Barracuda. Pour plus d’informations sur les licences, consultez la [page CloudGen WAN de Barracuda](https://www.barracuda.com/products/cloudgenwan). En outre, des frais vous seront facturés par Microsoft pour les unités d’infrastructure NVA que vous consommez, ainsi que pour toute autre ressource que vous utilisez. Pour plus d’informations, voir les [concepts de tarification](pricing-concepts.md).
+Vous devez acheter une licence pour la NVA auprès du fournisseur NVA.  Pour votre NVA Barracuda CloudGen WAN sous licence Barracuda, consultez la [page CloudGen WAN de Barracuda](https://www.barracuda.com/products/cloudgenwan). Actuellement, Cisco offre uniquement un modèle de licence BYOL (apportez votre propre licence) qui doit être achetée directement auprès de Cisco. En outre, des frais vous seront facturés par Microsoft pour les unités d’infrastructure NVA que vous consommez, ainsi que pour toute autre ressource que vous utilisez. Pour plus d’informations, voir les [concepts de tarification](pricing-concepts.md).
 
 ### <a name="can-i-deploy-an-nva-to-a-basic-hub"></a>Puis-je déployer une NVA sur un hub De base ?
 
@@ -109,7 +109,7 @@ Oui. Barracuda CloudGen WAN peut être déployé dans un hub à l’aide de Pare
 
 ### <a name="can-i-connect-any-cpe-device-in-my-branch-office-to-barracuda-cloudgen-wan-nva-in-the-hub"></a>Puis-je connecter un appareil CPE dans ma filiale à une NVA Barracuda CloudGen WAN dans le hub ?
 
-Non. Barracuda CloudGen WAN est uniquement compatible avec des appareils CPE Barracuda. Pour en savoir plus sur les exigences de CloudGen WAN, consultez la [page CloudGen WAN de Barracuda](https://www.barracuda.com/products/cloudgenwan).
+Non. Barracuda CloudGen WAN est uniquement compatible avec des appareils CPE Barracuda. Pour en savoir plus sur les exigences de CloudGen WAN, consultez la [page CloudGen WAN de Barracuda](https://www.barracuda.com/products/cloudgenwan). Pour Cisco, il existe plusieurs appareils CPE SD-WAN qui sont compatibles. Consultez la documentation [Cisco Cloud OnRamp for Multi-Cloud](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/cloudonramp/ios-xe-17/cloud-onramp-book-xe/cloud-onramp-multi-cloud.html#Cisco_Concept.dita_c61e0e7a-fff8-4080-afee-47b81e8df701) pour connaître les CPE compatibles.
 
 ### <a name="what-routing-scenarios-are-supported-with-nva-in-the-hub"></a>Quels sont les scénarios de routage pris en charge avec une NVA dans le hub ?
 

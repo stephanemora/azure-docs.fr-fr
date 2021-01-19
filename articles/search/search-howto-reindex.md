@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/18/2020
-ms.openlocfilehash: ae8fd7f405beb20d516835ccb80b86e769fd0393
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 47e9b80bb25b7ff14695cc67682265fe338ff76f
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94697082"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98119099"
 ---
 # <a name="how-to-rebuild-an-index-in-azure-cognitive-search"></a>Guide pratique pour regénérer un index dans la Recherche cognitive Azure
 
@@ -91,7 +91,7 @@ Quand vous chargez l’index, l’index inversé de chaque champ est rempli avec
 
 Vous pouvez commencer à interroger un index dès que le premier document est chargé. Si vous connaissez l’ID d’un document, l’[API REST de recherche de document](/rest/api/searchservice/lookup-document) retourne le document spécifique. Pour un test plus large, attendez que l’index soit entièrement chargé, puis utilisez des requêtes pour vérifier le contexte que vous vous attendez à voir.
 
-Vous pouvez utiliser l’[Explorateur de recherche](search-explorer.md) ou un outil de test web comme [Postman ou Visual Studio Code](search-get-started-rest.md) pour rechercher du contenu mis à jour.
+Vous pouvez utiliser le [navigateur de recherche](search-explorer.md) ou un outil de test web comme [Postman](search-get-started-rest.md) ou [Visual Studio Code](search-get-started-vs-code.md) pour rechercher du contenu mis à jour.
 
 Si vous avez ajouté ou renommé un champ, utilisez [$select](search-query-odata-select.md) pour retourner ce champ : `search=*&$select=document-id,my-new-field,some-old-field&$count=true`.
 

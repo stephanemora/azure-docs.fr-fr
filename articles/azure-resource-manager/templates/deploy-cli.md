@@ -3,12 +3,12 @@ title: Déployer des ressources avec Azure CLI et un modèle
 description: Utilisez Azure Resource Manager et Azure CLI pour déployer des ressources sur Azure. Les ressources sont définies dans un modèle Resource Manager.
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: 7b1639f31b696f300177d05107a98effc3f3ae23
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: a2caea70a51a737bfa433a089c03b43f252b5d6e
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676193"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028146"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>Déployer des ressources à l’aide de modèles ARM et l’interface CLI Azure
 
@@ -18,19 +18,19 @@ Les commandes de déploiement ont changé dans la version 2.2.0 d’Azure CLI. 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-Si Azure CLI n’est pas installé, vous pouvez utiliser le Cloud Shell. Pour plus d’informations, consultez [Déployer des modèles Azure Resource Manager à partir de Cloud Shell](deploy-cloud-shell.md).
+Si Azure CLI n’est pas installé, vous pouvez utiliser Azure Cloud Shell. Pour plus d’informations, consultez [Déployer des modèles Azure Resource Manager à partir d’Azure Cloud Shell](deploy-cloud-shell.md).
 
 ## <a name="deployment-scope"></a>Étendue du déploiement
 
 Vous pouvez cibler votre déploiement au niveau d’un groupe de ressources, d’un abonnement, d’un groupe d’administration ou d’un locataire. Les commandes à utiliser diffèrent en fonction de l’étendue du déploiement.
 
-* Pour un déploiement dans un **groupe de ressources** , utilisez [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create) :
+* Pour un déploiement dans un **groupe de ressources**, utilisez [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create) :
 
   ```azurecli-interactive
   az deployment group create --resource-group <resource-group-name> --template-file <path-to-template>
   ```
 
-* Pour un déploiement dans un **abonnement** , utilisez [az deployment sub create](/cli/azure/deployment/sub#az-deployment-sub-create) :
+* Pour un déploiement dans un **abonnement**, utilisez [az deployment sub create](/cli/azure/deployment/sub#az-deployment-sub-create) :
 
   ```azurecli-interactive
   az deployment sub create --location <location> --template-file <path-to-template>
@@ -38,7 +38,7 @@ Vous pouvez cibler votre déploiement au niveau d’un groupe de ressources, d�
 
   Pour plus d’informations sur les déploiements au niveau de l’abonnement, consultez [Créer des groupes de ressources et des ressources au niveau de l’abonnement](deploy-to-subscription.md).
 
-* Pour un déploiement dans un **groupe de d’administration** , utilisez [az deployment mg create](/cli/azure/deployment/mg#az-deployment-mg-create) :
+* Pour un déploiement dans un **groupe de d’administration**, utilisez [az deployment mg create](/cli/azure/deployment/mg#az-deployment-mg-create) :
 
   ```azurecli-interactive
   az deployment mg create --location <location> --template-file <path-to-template>
@@ -46,7 +46,7 @@ Vous pouvez cibler votre déploiement au niveau d’un groupe de ressources, d�
 
   Pour plus d’informations sur les déploiements au niveau du groupe d’administration, consultez [Créer des ressources au niveau du groupe d’administration](deploy-to-management-group.md).
 
-* Pour un déploiement dans un **locataire** , utilisez [az deployment tenant create](/cli/azure/deployment/tenant#az-deployment-tenant-create) :
+* Pour un déploiement dans un **locataire**, utilisez [az deployment tenant create](/cli/azure/deployment/tenant#az-deployment-tenant-create) :
 
   ```azurecli-interactive
   az deployment tenant create --location <location> --template-file <path-to-template>
@@ -169,7 +169,7 @@ Pour passer les valeurs de paramètre, vous pouvez utiliser des paramètres inli
 
 ### <a name="inline-parameters"></a>Paramètres inline
 
-Pour passer des paramètres inline, indiquez les valeurs dans `parameters`. Par exemple, pour passer une chaîne et un tableau à un modèle dans un interpréteur de commandes Bash, utilisez :
+Pour passer des paramètres inline, indiquez les valeurs dans `parameters`. Par exemple, pour transmettre une chaîne et un tableau à un modèle dans un interpréteur de commandes Bash, utilisez :
 
 ```azurecli-interactive
 az deployment group create \
@@ -191,7 +191,7 @@ az deployment group create \
 
 Obtenir une valeur de paramètre à partir d’un fichier est utile lorsque vous devez fournir des valeurs de configuration. Par exemple, vous pouvez fournir des [valeurs cloud-init pour une machine virtuelle Linux](../../virtual-machines/linux/using-cloud-init.md).
 
-Le format arrayContent.json est :
+Le format _arrayContent.json_ est :
 
 ```json
 [
@@ -228,7 +228,7 @@ Au lieu de passer des paramètres en tant que valeurs inline dans votre script, 
 
 Pour plus d’informations sur le fichier de paramètres, consultez [Créer un fichier de paramètres Resource Manager](parameter-files.md).
 
-Pour transmettre un fichier de paramètres local, utilisez `@` pour spécifier un fichier local nommé storage.parameters.json.
+Pour transmettre un fichier de paramètres local, utilisez `@` pour spécifier un fichier local nommé _storage.parameters.json_.
 
 ```azurecli-interactive
 az deployment group create \

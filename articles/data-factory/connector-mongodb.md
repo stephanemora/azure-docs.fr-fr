@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 09/28/2020
-ms.openlocfilehash: bb9768c2a4d3be9ac0e06844c5ac0835707cf455
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.date: 01/08/2021
+ms.openlocfilehash: 71096334f46531bba26f0ead66169340107627cf
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945853"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028690"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Déplacer des données de MongoDB à l’aide d’Azure Data Factory
 
@@ -28,21 +28,25 @@ Cet article décrit comment utiliser l’activité de copie dans Azure Data Fa
 >[!IMPORTANT]
 >Cette nouvelle version du connecteur MongoDB dans ADF fournit une meilleure prise en charge native de MongoDB. Si vous utilisez le connecteur MongoDB précédent, qui est pris en charge tel quel à des fins de compatibilité descendante, dans votre solution, consultez l’article [Connecteur MongoDB (hérité)](connector-mongodb-legacy.md).
 
+
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
 Vous pouvez copier des données d’une base de données MongoDB vers toute banque de données réceptrice prise en charge. Pour obtenir la liste des banques de données prises en charge en tant que sources ou récepteurs par l’activité de copie, consultez le tableau [Banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).
 
-Plus précisément, ce connecteur MongoDB prend en charge les **versions jusqu’à 3.4**.
+Plus précisément, ce connecteur MongoDB prend en charge les **versions jusqu’à 4.2**.
+
 
 ## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+
 
 ## <a name="getting-started"></a>Prise en main
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Les sections suivantes fournissent des informations sur les propriétés utilisées pour définir les entités Data Factory spécifiques du connecteur MongoDB.
+
 
 ## <a name="linked-service-properties"></a>Propriétés du service lié
 
@@ -101,6 +105,7 @@ Pour obtenir la liste complète des sections et propriétés disponibles pour la
     }
 }
 ```
+
 
 ## <a name="copy-activity-properties"></a>Propriétés de l’activité de copie
 
@@ -161,13 +166,16 @@ Les propriétés prises en charge dans la section **source** de l’activité de
 ]
 ```
 
+
 ## <a name="export-json-documents-as-is"></a>exporter des documents JSON tels quels
 
 Vous pouvez utiliser ce connecteur MongoDB pour exporter des documents JSON tels quels à partir d’une collection MongoDB vers différentes banques basées sur fichiers ou vers Azure Cosmos DB. Pour obtenir une telle copie indépendante du schéma, ignorez la section « structure » (également appelée *schéma*) dans le mappage de schéma et de jeu de données dans l’activité de copie.
 
+
 ## <a name="schema-mapping"></a>Mappage de schéma
 
 Pour copier des données de MongoDB vers un récepteur tabulaire, consultez [Mappage de schéma](copy-activity-schema-and-type-mapping.md#schema-mapping).
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).

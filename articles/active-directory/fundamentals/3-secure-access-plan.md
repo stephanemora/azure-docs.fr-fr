@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a08a4f4a31893fc93789d019ea87dff390552f6a
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: fd04d24e0e46b053381858be037a009b1987f8e9
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97743701"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97932518"
 ---
 # <a name="3-create-a-security-plan-for-external-access"></a>3. Créer un plan de sécurité pour l’accès externe 
 
@@ -175,7 +175,7 @@ Azure AD P2 et Microsoft 365 E5 disposent de la suite complète d’outils de s�
 | Gestion des droits d’utilisation| **Ajouter un utilisateur par le biais d’une attribution ou d’un accès libre-service**| **Packages d’accès**| **Packages d’accès**|  |
 | Groupe Office 365| | Accès aux sites (et au contenu associé) inclus dans le groupe| Accès aux équipes (et au contenu associé) incluses dans le groupe|  |
 | Étiquette de confidentialité| | **Classer et restreindre les accès manuellement et automatiquement**| **Classer et restreindre les accès manuellement et automatiquement**| **Classer et restreindre les accès manuellement et automatiquement** |
-| Groupes de sécurité Azure AD| **Stratégies d’autorité de certification pour l’accès non incluses dans les packages d’accès**| | |  |
+| Groupes de sécurité Azure AD| **Stratégies d’accès conditionnel pour l’accès non incluses dans les packages d’accès**| | |  |
 
 
 ### <a name="entitlement-management"></a>Gestion des droits d’utilisation 
@@ -195,7 +195,7 @@ Vous pouvez accomplir une gouvernance robuste avec Azure AD P1 et Microsoft 365 
 | Azure AD B2B Collaboration| **Inviter par e-mail, OTP, libre-service**| Fédération B2B directe| **Révision périodique par partenaire**| Supprimer un compte<br>Restreindre la connexion |
 | Groupes Microsoft ou Office 365| | | | Expiration ou suppression du groupe.<br>Retrait du groupe. |
 | Groupes de sécurité| | **Ajouter des utilisateurs externes à des groupes de sécurité (organisation, équipe, projet, etc.)**| |  |
-| Stratégies d’accès conditionnel| | **Stratégies d’autorité de certification de connexion pour les utilisateurs externes**| |  |
+| Stratégies d’accès conditionnel| | **Stratégies d’accès conditionnel à la connexion pour les utilisateurs externes**| |  |
 
 
  ### <a name="access-to-resources"></a>Accès aux ressources.
@@ -204,7 +204,7 @@ Vous pouvez accomplir une gouvernance robuste avec Azure AD P1 et Microsoft 365 
 | - |-|-|-|-|
 | Groupes Microsoft ou Office 365| | **Accès aux sites inclus avec le groupe (et au contenu associé)**|**Accès aux équipes incluses avec le groupe Microsoft 365 (et au contenu associé)**|  |
 | Étiquette de confidentialité| | Classer et limiter manuellement l’accès| Classez et limitez manuellement l’accès.| Classer manuellement pour limiter et chiffrer |
-| Stratégies d’accès conditionnel| Stratégies d’autorité de certification pour le contrôle d’accès| | |  |
+| Stratégies d’accès conditionnel| Stratégies d’accès conditionnel pour le contrôle d’accès| | |  |
 | Autres méthodes| | Limitez l’accès au site SharePoint de façon granulaire avec les groupes de sécurité.<br>Interdisez le partage direct.| **Limiter les invitations externes au sein des équipes**|  |
 
 

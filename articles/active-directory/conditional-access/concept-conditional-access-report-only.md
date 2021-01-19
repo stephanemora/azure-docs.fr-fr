@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df25278d37e518e99bc315a315e017b98c7f4e58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: deced953089fcbb2640cbf3e402db24cb511e769
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89049381"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935884"
 ---
 # <a name="what-is-conditional-access-report-only-mode"></a>Qu’est-ce que le mode rapport seul de l’accès conditionnel ?
 
@@ -30,7 +30,7 @@ Le mode rapport seul est un nouvel état de la stratégie d’accès conditionne
 - Les clients disposant d’un abonnement Azure Monitor peuvent surveiller l’impact de leurs stratégies d’accès conditionnel dans le classeur Insights sur l’accès conditionnel.
 
 > [!WARNING]
-> Les stratégies en mode rapport seul qui exigent des appareils conformes peuvent inviter les utilisateurs Mac, iOS et Android à sélectionner un certificat d’appareil lors de l’évaluation de la stratégie, même si la conformité des appareils n’est pas appliquée. Ces invites sont susceptibles de se répéter jusqu’à ce que l’appareil ait été rendu conforme. Pour éviter aux utilisateurs finaux de recevoir des invites lors de la connexion, excluez les plateformes d’appareils Mac, iOS et Android des stratégies rapport seul qui effectuent des vérifications de conformité des appareils. Notez que le mode Rapport uniquement n’est pas applicable pour les stratégies d’autorité de certification avec l’étendue « Actions de l’utilisateur ».
+> Les stratégies en mode rapport seul qui exigent des appareils conformes peuvent inviter les utilisateurs Mac, iOS et Android à sélectionner un certificat d’appareil lors de l’évaluation de la stratégie, même si la conformité des appareils n’est pas appliquée. Ces invites sont susceptibles de se répéter jusqu’à ce que l’appareil ait été rendu conforme. Pour éviter aux utilisateurs finaux de recevoir des invites lors de la connexion, excluez les plateformes d’appareils Mac, iOS et Android des stratégies rapport seul qui effectuent des vérifications de conformité des appareils. Notez que le mode Rapport seul n’est pas applicable pour les stratégies d’accès conditionnel avec l’étendue « Actions de l’utilisateur ».
 
 ![Onglet Rapport seul dans le journal de connexion Azure AD](./media/concept-conditional-access-report-only/report-only-detail-in-sign-in-log.png)
 

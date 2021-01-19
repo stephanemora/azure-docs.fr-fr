@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2020
 ms.author: terrylan
-ms.openlocfilehash: af61b6ee1e69d175f47170df30f75832033d61d5
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 84229ce3562f9cdcc4b55704eaa4f3b891a43d75
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96489715"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97968940"
 ---
 # <a name="penetration-testing"></a>Test d’intrusion
 
@@ -46,7 +46,7 @@ Vous avez la possibilité d’effectuer plusieurs tests :
 En revanche, vous ne pouvez effectuer aucune forme d'[attaque par déni de service (DoS)](https://en.wikipedia.org/wiki/Denial-of-service_attack) en guise de test d'intrusion. Cela signifie que vous ne pouvez ni initier une attaque par déni de service proprement dite, ni effectuer les tests associés permettant de déterminer, de démontrer ou de simuler un type d'attaque par déni de service.
 
 >[!Note]
->Microsoft travaille en collaboration avec BreakingPoint Cloud pour créer une interface à l’aide de laquelle vous pouvez générer du trafic sur les adresses IP publiques dotées de DDoS Protection à des fins de simulation. Pour en savoir plus sur la simulation BreakPoint Cloud, consultez [Valider la détection d'une attaque DDoS](../../ddos-protection/manage-ddos-protection.md#validate-and-test).
+>Microsoft travaille en collaboration avec BreakingPoint Cloud pour créer une interface à l’aide de laquelle vous pouvez générer du trafic sur les adresses IP publiques dotées de DDoS Protection à des fins de simulation. Pour en savoir plus sur la simulation de BreakingPoint Cloud, consultez [les tests par simulations](../../ddos-protection/test-through-simulations.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

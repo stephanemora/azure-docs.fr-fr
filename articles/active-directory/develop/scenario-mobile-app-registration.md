@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 2af79efa2bd1685d0e7bd621e2ddb8930425dee1
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: cdd32185d1ffddb4c6bc3d62b91690f68dec17ca
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97614895"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98014720"
 ---
 # <a name="register-mobile-apps-that-call-web-apis"></a>Inscrire des applications mobiles appelant des API web
 
@@ -83,7 +83,7 @@ Si votre application utilise exclusivement l'authentification par nom d'utilisat
 
 Toutefois, vous devez identifier votre application en tant qu'application cliente publique. Pour ce faire :
 
-1. Toujours dans le [portail Azure](https://portal.azure.com), sélectionnez votre application dans **Inscriptions d’applications**, puis sélectionnez **Authentification**.
+1. Toujours dans le <a href="https://portal.azure.com/" target="_blank">portail Azure <span class="docon docon-navigate-external x-hidden-focus"></span></a>, sélectionnez votre application dans **Inscriptions d’applications**, puis sélectionnez **Authentification**.
 1. Dans **Paramètres avancés** > **Autoriser les flux de clients publics** > **Activer les flux mobiles et de bureau suivants**, sélectionnez **Oui**.
 
    :::image type="content" source="media/scenarios/default-client-type.png" alt-text="Activer le paramètre client public dans le volet Authentification du portail Azure":::

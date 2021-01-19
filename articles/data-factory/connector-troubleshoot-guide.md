@@ -5,16 +5,16 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 12/30/2020
+ms.date: 01/07/2021
 ms.author: jingwang
 ms.reviewer: craigg
 ms.custom: has-adal-ref
-ms.openlocfilehash: e6591762ed6a7e2b462a209730276f3198d86ae8
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: 68547b8fb673cd54b7c21963ede122553bbbc390
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97821466"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97967121"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>Résoudre les problèmes liés aux connecteurs dans Azure Data Factory
 
@@ -458,34 +458,15 @@ Cet article présente des méthodes couramment employées pour résoudre les pro
 - **Cause** : Azure Synapse Analytics a rencontré un problème en interrogeant la table externe dans Stockage Azure.
 
 - **Résolution** : Exécutez la même requête dans SSMS et vérifiez si vous voyez le même résultat. Si c’est le cas, ouvrez un ticket de support pour Azure Synapse Analytics et indiquez le nom de votre base de données et de votre serveur Azure Synapse Analytics à des fins de dépannage.
-            
-
-### <a name="low-performance-when-load-data-into-azure-sql"></a>Faible niveau de performance pendant le chargement de données dans Azure SQL
-
-- **Symptômes** : La copie de données dans Azure SQL devient lente.
-
-- **Cause** : La cause racine du problème est principalement provoquée par le goulot d’étranglement du côté d’Azure SQL. Voici quelques causes possibles :
-
-    - Le niveau Azure DB n’est pas suffisamment élevé.
-
-    - L’utilisation de DTU Azure DB est proche de 100 %. Vous pouvez [superviser le niveau de performance](https://docs.microsoft.com/azure/azure-sql/database/monitor-tune-overview) et envisager une mise à niveau pour le niveau de base de données.
-
-    - Les index ne sont pas bien définis. Supprimez tous les index avant le chargement des données, puis recréez-les une fois le chargement terminé.
-
-    - La valeur de WriteBatchSize n’est pas suffisante pour la taille de ligne de schéma. Essayez d’attribuer une valeur supérieure à la propriété pour résoudre le problème.
-
-    - Une procédure stockée est utilisée à la place de l’insertion en bloc, ce qui est censé amoindrir le niveau de performance. 
-
-- **Résolution** : Reportez-vous au guide de résolution des problèmes (TSG) relatif aux [performances de l’activité de copie](https://docs.microsoft.com/azure/data-factory/copy-activity-performance-troubleshooting)
 
 
 ### <a name="performance-tier-is-low-and-leads-to-copy-failure"></a>Le niveau de performance est faible et entraîne un échec de la copie
 
-- **Symptômes** : Le message d’erreur ci-dessous s’est affiché pendant la copie des données dans Azure SQL : `Database operation failed. Error message from database execution : ExecuteNonQuery requires an open and available Connection. The connection's current state is closed.`
+- **Symptômes** : Le message d’erreur ci-dessous s’est affiché pendant la copie des données dans Azure SQL Database : `Database operation failed. Error message from database execution : ExecuteNonQuery requires an open and available Connection. The connection's current state is closed.`
 
-- **Cause** : Azure SQL s1 étant utilisé, les limites d’E/S sont atteintes en pareil cas.
+- **Cause** : Azure SQL Database s1 étant utilisé, les limites d’E/S sont atteintes en pareil cas.
 
-- **Résolution** : Mettez à niveau le niveau de performance d’Azure SQL pour corriger le problème. 
+- **Résolution** : Mettez à niveau le niveau de performance d’Azure SQL Database pour corriger le problème. 
 
 
 ### <a name="sql-table-cannot-be-found"></a>Table SQL introuvable 
@@ -619,31 +600,6 @@ Cet article présente des méthodes couramment employées pour résoudre les pro
 - **Cause** : Le serveur Dynamics est instable ou inaccessible ou le réseau rencontre des problèmes.
 
 - **Recommandation** :  Vérifiez la connectivité réseau ou consultez le journal du serveur Dynamics pour plus de détails. Pour obtenir de l’aide, contactez le support Dynamics.
-
-
-## <a name="excel-format"></a>Format Excel
-
-### <a name="timeout-or-slow-performance-when-parsing-large-excel-file"></a>Expiration du délai ou baisse du niveau de performance lors de l’analyse d’un fichier Excel volumineux
-
-- **Symptômes** :
-
-    - Lorsque vous créez un jeu de données Excel et importez un schéma à partir de feuilles de calcul de connexion/du magasin, d’aperçu de données, de liste ou d’actualisation, le délai d’attente peut expirer si la taille du fichier Excel est importante.
-
-    - Lorsque vous utilisez l’activité de copie pour copier des données à partir d’un fichier Excel volumineux (> = 100 Mo) dans un autre magasin de données, vous pouvez rencontrer une baisse du niveau de performance ou une erreur de type OOM (mémoire insuffisante).
-
-- **Cause** : 
-
-    - Pour les opérations comme l’importation de feuilles de calcul de schéma, d’aperçu de données et de liste dans un jeu de données Excel, le délai d’expiration est statique et fixé à 100 secondes. Pour un fichier Excel volumineux, ces opérations peuvent ne pas se terminer dans ce délai.
-
-    - L’activité de copie ADF lit l’intégralité du fichier Excel en mémoire, puis localise la feuille de calcul et les cellules spécifiées pour lire les données. Ce comportement est dû à l’utilisation du Kit de développement logiciel (SDK) sous-jacent.
-
-- **Résolution** : 
-
-    - Pour importer un schéma, vous pouvez générer un exemple de fichier plus petit représentant un sous-ensemble du fichier d’origine, puis choisir « import schema from sample file » (importer le schéma à partir d’un exemple de fichier) au lieu de « import schema from connection/store » (importer le schéma à partir d’une connexion/d’un magasin).
-
-    - Pour lister une feuille de calcul, dans la liste déroulante de la feuille de calcul, vous pouvez cliquer sur « Modifier » et entrer à la place le nom/index de la feuille.
-
-    - Pour copier un fichier Excel volumineux (> 100 Mo) dans un autre magasin, vous pouvez utiliser le flux de données source Excel qui prend en charge diffusion en continu et offre de meilleures performances.
     
 
 ## <a name="ftp"></a>FTP

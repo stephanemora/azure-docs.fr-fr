@@ -4,19 +4,19 @@ description: Découvrez comment développer des applications Azure Functions en 
 ms.topic: article
 ms.date: 10/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 3383ec322903d15c6090630890d14ce6d90bc96f
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: baa362f029678f266f154df912a9178a6626667d
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97899381"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935867"
 ---
 # <a name="improve-throughput-performance-of-python-apps-in-azure-functions"></a>Améliorer les performances de débit des applications Python dans Azure Functions
 
 Lors du développement d’applications de fonction à l’aide de Python, vous devez comprendre le fonctionnement des fonctions et la façon dont les performances ont un impact sur la mise à l’échelle de l’application de fonction. Cela est d’autant plus important lors de la conception d’applications hautement performantes. Les principaux facteurs à prendre en compte lors de la conception, de l’écriture et de la configuration de vos applications de fonction sont les configurations de la mise à l’échelle horizontale et des performances de débit.
 
 ## <a name="horizontal-scaling"></a>Mise à l’échelle horizontale
-Par défaut, Azure Functions surveille automatiquement la charge sur votre application et crée des instances d’hôte supplémentaires pour Python, si nécessaire. Azure Functions utilise des seuils intégrés pour différents types de déclencheurs afin de décider quand ajouter des instances, comme l’ancienneté des messages et la taille de la file d’attente pour QueueTrigger. Ces seuils ne sont pas configurables par l'utilisateur. Pour plus d’informations, consultez [Fonctionnement des plans Consommation et Premium](functions-scale.md#how-the-consumption-and-premium-plans-work).
+Par défaut, Azure Functions surveille automatiquement la charge sur votre application et crée des instances d’hôte supplémentaires pour Python, si nécessaire. Azure Functions utilise des seuils intégrés pour différents types de déclencheurs afin de décider quand ajouter des instances, comme l’ancienneté des messages et la taille de la file d’attente pour QueueTrigger. Ces seuils ne sont pas configurables par l'utilisateur. Pour plus d’informations, consultez [Mise à l’échelle basée sur les événements dans Azure Functions](event-driven-scaling.md).
 
 ## <a name="improving-throughput-performance"></a>Améliorer les performances de débit
 

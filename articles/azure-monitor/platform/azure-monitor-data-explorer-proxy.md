@@ -1,18 +1,18 @@
 ---
 title: Requête inter-ressources Azure Data Explorer à l’aide d’Azure Monitor
 description: Utilisez Azure Monitor pour effectuer des requêtes inter-produits entre Azure Data Explorer, des espaces de travail Log Analytics et des applications Application Insights classiques dans Azure Monitor.
-author: orens
+author: osalzberg
 ms.author: bwren
 ms.reviewer: bwren
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 12/02/2020
-ms.openlocfilehash: cb586d15e762f88620fe0c91152af41b3f607d74
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 1a35b80ceec12b378a01555f42b7a0500b8f6229
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97674427"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060450"
 ---
 # <a name="cross-resource-query-azure-data-explorer-by-using-azure-monitor"></a>Requête inter-ressources Azure Data Explorer à l’aide d’Azure Monitor
 Azure Monitor prend en charge les requêtes inter-services entre Azure Data Explorer, [Application Insights](/azure/azure-monitor/app/app-insights-overview) et [Log Analytics](/azure/azure-monitor/platform/data-platform-logs). Vous pouvez ensuite interroger votre cluster Azure Data Explorer à l'aide des outils Log Analytics/Application Insights et y faire référence dans une requête inter-services. L’article montre comment effectuer une requête inter-services.
@@ -22,7 +22,7 @@ Le diagramme suivant illustre le flux inter-services Azure Monitor :
 :::image type="content" source="media\azure-data-explorer-monitor-proxy\azure-monitor-data-explorer-flow.png" alt-text="Diagramme qui montre le flux des requêtes entre un utilisateur, Azure Monitor, un proxy et Azure Data Explorer.":::
 
 >[!NOTE]
-> La requête inter-services d’Azure Monitor est en préversion privée. Une liste d'autorisation est obligatoire. Pour toute question, contactez [l’équipe du service](mailto:ADXProxy@microsoft.com).
+> La requête inter-services d’Azure Monitor est disponible en préversion publique. Pour toute question, contactez [l’équipe du service](mailto:ADXProxy@microsoft.com).
 
 ## <a name="cross-query-your-log-analytics-or-application-insights-resources-and-azure-data-explorer"></a>Interrogation croisée de vos ressources Log Analytics ou Application Insights et d’Azure Data Explorer
 

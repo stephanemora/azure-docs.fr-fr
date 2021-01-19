@@ -3,12 +3,12 @@ title: Notes de publication pour Live Video Analytics sur IoT Edge – Azure
 description: Cette rubrique fournit des notes de publication sur les versions, les améliorations, les correctifs de bogues et les problèmes connus de Live Video Analytics sur IoT Edge.
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: 2800d41340e45867ea4126733cdb5968cf8b91c5
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 7f8957d1ec93259cf6defe7980f19298f782ea5e
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400843"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121241"
 ---
 # <a name="live-video-analytics-on-iot-edge-release-notes"></a>Notes de publication pour Live Video Analytics sur IoT Edge
 
@@ -23,6 +23,23 @@ Cet article vous fournit des informations sur :
 
 <hr width=100%>
 
+## <a name="january-12-2021"></a>12 janvier 2021
+
+La balise de version correspondant à l’actualisation de janvier 2021 du module est la suivante :
+
+```
+mcr.microsoft.com/media/live-video-analytics:2.0.1
+```
+
+> [!NOTE]
+> Dans les démarrages rapides et les tutoriels, les manifestes de déploiement utilisent une balise 2 (live-video-analytics:2). Par conséquent, le simple redéploiement de tels manifestes doit mettre à jour le module sur votre application Edge > Appareils.
+### <a name="bug-fixes"></a>Résolution des bogues 
+
+* Les champs `ActivationSignalOffset`, `MinimumActivationTime` et `MaximumActivationTime` dans les processeurs de la porte de signal n’ont pas été correctement définis comme propriétés requises. Ils correspondent désormais à des propriétés **facultatives**.
+* Correction d’un bogue d’utilisation qui entraîne l’arrêt du module Live Video Analytics sur IoT Edge lors de son déploiement dans certaines régions.
+
+<hr width=100%>
+
 ## <a name="december-14-2020"></a>14 décembre 2020
 Cette version est la préversion publique d’actualisation de Live Video Analytics sur IoT Edge. La balise de version est
 
@@ -33,7 +50,7 @@ Cette version est la préversion publique d’actualisation de Live Video Analyt
 * Ajout de la prise en charge de plusieurs processeurs d’extension HTTP et gRPC par topologie de graphe.
 * Ajout de la prise en charge de la gestion de l’espace disque pour les nœuds récepteurs.
 * Ajout de la prise en charge par le nœud `MediaGraphGrpcExtension` de la propriété [extensionConfiguration](grpc-extension-protocol.md) permettant d’utiliser plusieurs modèles IA au sein d’un même serveur gRPC.
-* Ajout de la prise en charge de la collecte des métriques du module Live Video Analytics au [format Prometheus](https://prometheus.io/docs/practices/naming/) 
+* Ajout de la prise en charge de la collecte des métriques du module Live Video Analytics au [format Prometheus](https://prometheus.io/docs/practices/naming/). En savoir plus sur la [collecte des métriques et de l’affichage dans Azure Monitor](monitoring-logging.md#azure-monitor-collection-via-telegraf). 
 * Processeur de filtre de fréquence d’images **déconseillé**.  
     * Gestion de la fréquence d’images désormais disponible dans les nœuds du processeur d’extension de graphe.
 

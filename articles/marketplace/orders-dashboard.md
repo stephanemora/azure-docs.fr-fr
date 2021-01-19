@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 943f1361a2a9d6bf8d891f8b4f2137b8738f0836
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 31216db98cc02724ac3625eb1a8fa18b0f75c6ee
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96450755"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955023"
 ---
 # <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Tableau de bord Commandes dans l’analytique de la place de marché commerciale
 
@@ -109,14 +109,13 @@ Le tableau Détails des commandes présente la liste numérotée des 1 000 pre
 - Les données peuvent être extraites dans un fichier .CSV ou .TSV si le nombre d’enregistrements est inférieur à 1 000.
 - En présence d'un nombre d'enregistrements supérieur à 1 000, les données exportées sont placées, de manière asynchrone, dans une page de téléchargements pour une durée de 30 jours.
 - Appliquez des filtres au tableau **Détails des commandes** pour afficher uniquement les données qui vous intéressent. Filtrez les données par pays/région, type de licence Azure, type de licence de Place de marché commerciale, type d’offre, état de la commande, évaluations gratuites, ID d’abonnement de Place de marché commerciale, ID de client et nom de société.
-- Étant donné que les offres SaaS achetées par le biais de la Place de marché Azure ou de Microsoft AppSource ne nécessitent pas d’abonnement Azure, l’ID d’abonnement de la Place de marché s’affiche sous la forme 00000000-0000-0000-0000-000000000000 dans la section **Données de commandes détaillées**.
 - Lorsqu’une offre est achetée par un client protégé, les informations contenues dans **Données détaillées des commandes** sont masquées (************).
 
 **_Tableau 1 : Dictionnaire des termes relatifs aux données_* _
 
 | Nom de la colonne | Nom de l’attribut | Définition |
 | ------------ | ------------- | ------------- |
-| ID d’abonnement de la Place de marché | ID d’abonnement de la Place de marché | Identificateur unique associé à l’abonnement Azure que le client a utilisé pour acheter votre offre de la Place de marché commerciale. Anciennement, GUID d’abonnement Azure. |
+| ID d’abonnement de la Place de marché | ID d’abonnement de la Place de marché | Identificateur unique associé à l’abonnement Azure que le client a utilisé pour acheter votre offre de la Place de marché commerciale. Pour les offres d’infrastructure, il s’agit du GUID de l’abonnement Azure du client. Pour les offres SaaS, il est représenté par des zéros, car les achats SaaS ne nécessitent pas d’abonnement Azure. |
 | MonthStartDate | Date de début du mois | Date de début du mois représente le mois d’achat. |
 | Type d’offre | Type d’offre | Type de l’offre de la place de marché commerciale. |
 | Type de licence Azure | Type de licence Azure | Type de contrat de licence utilisé par les clients pour acheter Azure. Également appelé canal. Les valeurs possibles sont les suivantes :<ul><li>Fournisseur de solutions cloud</li><li>Enterprise</li><li>entreprise, via un revendeur</li><li>paiement à l’utilisation</li></ul> |

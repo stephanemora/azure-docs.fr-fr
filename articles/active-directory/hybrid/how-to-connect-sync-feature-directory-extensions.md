@@ -16,12 +16,12 @@ ms.date: 11/12/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74bc659c11c4f43ab3cf85cdc53f704cd07a1cde
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 25d4152783129fa1c5950d6cf6287332bf90d32a
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96172365"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976875"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect Sync : extensions d’annuaire
 Vous pouvez utiliser les extensions d’annuaire pour étendre le schéma dans Azure Active Directory (Azure AD) avec vos propres attributs à partir d’un annuaire Active Directory local. Cette fonctionnalité vous permet de générer des applications métiers en consommant les attributs que vous continuez à gérer en local. Ces attributs peuvent être utilisés via des [extensions](/graph/extensibility-overview
@@ -46,7 +46,7 @@ L’installation affiche les attributs suivants, qui sont des candidats valides 
 
 
 >[!NOTE]
-> Même si Azure AD Connect prend en charge la synchronisation d’attributs Active Directory à valeurs multiples dans Azure AD en tant qu’extensions d’annuaire à valeurs multiples, il n’existe actuellement aucun moyen de récupérer/consommer les données chargées dans les attributs d’extensions d’annuaire à valeurs multiples.
+> Une fois qu’Azure AD Connect a synchronisé l’attribut Active Directory à valeurs multiples à Azure AD en tant qu’extension d’attribut à valeurs multiples, il est possible d’inclure l’attribut à la revendication SAML. Toutefois, il n’est pas possible d’utiliser ces données par le biais d’un appel d’API.
 
 La liste des attributs est lue à partir du cache du schéma qui est créé pendant l’installation d’Azure AD Connect. Si vous avez étendu le schéma Active Directory avec des attributs supplémentaires, vous devez [actualiser le schéma](how-to-connect-installation-wizard.md#refresh-directory-schema) pour que ces nouveaux attributs soient visibles.
 

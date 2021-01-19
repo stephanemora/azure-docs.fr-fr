@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: thfalgou
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b53c0002af3680567aabf0955f6bb4e0d99c2ab1
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 3ff8406a3634fa946ab8ce7aca694bbc57d556a5
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97093432"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976399"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Bonnes pratiques pour la continuité d’activité et la reprise d’activité dans AKS (Azure Kubernetes Services)
 
@@ -119,10 +119,7 @@ La stratégie classique consiste à fournir un point de stockage commun où les 
 
 ![Réplication asynchrone basée sur l’infrastructure](media/operator-best-practices-bc-dr/aks-infra-based-async-repl.png)
 
-Si vous utilisez Azure Managed Disks, vous pouvez choisir des solutions de réplication et de récupération d’urgence comme :
-
-* [Velero sur Azure](https://github.com/vmware-tanzu/velero-plugin-for-microsoft-azure/blob/master/README.md)
-* [Azure Backup](../backup/backup-overview.md)
+Si vous utilisez Disques managés Azure, il existe quelques options que vous pouvez utiliser pour gérer la réplication et la récupération d’urgence. [Velero sur Azure][velero] et [Kasten][kasten] sont des solutions de sauvegarde natives de Kubernetes, mais qui ne sont pas prises en charge.
 
 ### <a name="application-based-asynchronous-replication"></a>Réplication asynchrone basée sur l’application
 
@@ -140,3 +137,6 @@ Cet article porte essentiellement sur les considérations relatives à la contin
 <!-- INTERNAL LINKS -->
 [aks-best-practices-scheduler]: operator-best-practices-scheduler.md
 [aks-best-practices-cluster-isolation]: operator-best-practices-cluster-isolation.md
+
+[velero]: https://github.com/vmware-tanzu/velero-plugin-for-microsoft-azure/blob/master/README.md
+[kasten]: https://www.kasten.io/

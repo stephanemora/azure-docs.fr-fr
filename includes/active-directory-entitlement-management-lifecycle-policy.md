@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/15/2019
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: e971af5d415ea788f97ab11b58541e629c7eb0ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: db13884e3deed8e990d21d82e215a1e837371275
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76694615"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98052825"
 ---
 ## <a name="lifecycle"></a>Cycle de vie
 
@@ -33,7 +33,7 @@ Dans l’onglet **Cycle de vie**, vous spécifiez l’expiration de l’attribut
 
 1. Pour autoriser un utilisateur à étendre son attribution, définissez **Autoriser un utilisateur à étendre son accès** sur **Oui**.
 
-    Si les extensions sont autorisées dans la stratégie, l’utilisateur recevra un e-mail 14 jours ainsi qu’un jour avant l’expiration de son attribution l’invitant à étendre l’attribution. Si l’utilisateur envoie une demande d’extension de l’accès, la date de l’extension doit être au plus tard la date d’expiration des affectations définie dans la stratégie utilisée pour accorder à l’utilisateur l’accès au package d’accès. Par exemple, si la stratégie indique que les affectations sont configurées pour expirer le 30 juin, l’extension maximale qu’un utilisateur peut demander est le 30 juin.
+    Si les extensions sont autorisées dans la stratégie, l’utilisateur recevra un e-mail 14 jours ainsi qu’un jour avant l’expiration de son attribution l’invitant à étendre l’attribution. L’utilisateur doit toujours se trouver dans l’étendue de la stratégie au moment où il demande une prolongation. En outre, si la stratégie a une date de fin explicite pour les attributions et qu’un utilisateur envoie une demande de prolongation de l’accès, la date de prolongation de la demande doit être au plus tard la date d’expiration des attributions, comme défini dans la stratégie utilisée pour accorder à l’utilisateur l’accès au package d’accès. Par exemple, si la stratégie indique que les affectations sont configurées pour expirer le 30 juin, l’extension maximale qu’un utilisateur peut demander est le 30 juin.
 
     Si l’accès d’un utilisateur est étendu, il ne pourra pas demander le package d’accès après la date d’extension spécifiée (date définie dans le fuseau horaire de l’utilisateur qui a créé la stratégie).
 

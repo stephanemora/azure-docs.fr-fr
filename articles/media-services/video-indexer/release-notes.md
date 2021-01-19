@@ -10,14 +10,14 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 10/30/2020
+ms.date: 01/06/2021
 ms.author: juliako
-ms.openlocfilehash: 81e52d4a6827492931179055d040b541d51228eb
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: b6e18e077b717da65ca8d70b9bda6a133dba1f5c
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97916658"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120085"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Notes de publication d’Azure Media Services Video Indexer
 
@@ -44,12 +44,15 @@ Video Indexer prend en charge la détection, le regroupement et la reconnaissanc
 
 ### <a name="planned-video-indexer-website-authenticatication-changes"></a>Changements planifiés relatifs à l’authentification sur le site web Video Indexer
 
-À partir du 1er janvier 2021, vous ne pourrez plus vous inscrire ni vous connecter au site web [Video Indexer](https://www.videoindexer.ai/) (offre d’essai) par l’intermédiaire de Facebook ou de LinkedIn.
+À partir du 1er mars 2021, vous ne pourrez plus vous inscrire ni vous connecter au [portail des développeurs](video-indexer-use-apis.md) du [site web de Video Indexer](https://www.videoindexer.ai/) par l’intermédiaire de Facebook ou de LinkedIn.
 
 Votre inscription et votre connexion s’effectueront au moyen de l’un de ces fournisseurs : Azure AD, Microsoft et Google.
 
 > [!NOTE]
-> Nous vous conseillons d’exporter votre contenu avant le 1er janvier 2021, car les comptes connectés à LinkedIn et à Facebook seront supprimés, et le contenu ne sera plus accessible.
+> Les comptes Video Indexer connectés à LinkedIn et Facebook ne seront plus accessibles après le 1er mars 2021. 
+> 
+> Vous devez [inviter](invite-users.md) une adresse e-mail Azure AD, Microsoft ou Google dont vous êtes propriétaire au compte Video Indexer afin d’y avoir toujours accès.<br/>
+> Vous pouvez également créer un compte payant et migrer les données.
 
 ## <a name="august-2020"></a>Août 2020
 

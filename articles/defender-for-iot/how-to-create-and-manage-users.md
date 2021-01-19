@@ -4,15 +4,15 @@ description: Créer et gérer des utilisateurs de capteurs et de la console de g
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/21/2020
+ms.date: 1/3/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: c3a9e1c7e96d0392e1f94b71549f612738622dea
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: c33b3e5fee19edc5d4ac85284e507b53e96234a0
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97835835"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97977011"
 ---
 # <a name="about-defender-for-iot-console-users"></a>À propos des utilisateurs de la console Defender pour IoT
 
@@ -20,7 +20,7 @@ Cet article présente comment créer et gérer des utilisateurs de capteurs et d
 
 Certaines fonctionnalités sont également disponibles pour suivre les activités des utilisateurs et activer la connexion Active Directory.
 
-Par défaut, chaque capteur et chaque console de gestion locale comporte un utilisateur *CyberX et support*. Ces utilisateurs ont accès aux outils avancés pour la résolution des problèmes et la configuration. Les utilisateurs administrateurs doivent se connecter avec ces informations d’identification, créer un utilisateur administrateur, puis créer d’autres utilisateurs pour les analystes de sécurité et les utilisateurs en lecture seule.
+Par défaut, chaque capteur et chaque console de gestion locale comporte un utilisateur *CyberX et support*. Ces utilisateurs ont accès aux outils avancés pour la résolution des problèmes et la configuration. Les utilisateurs administrateurs doivent se connecter avec ces informations d’identification, créer un utilisateur administrateur, puis créer des utilisateurs supplémentaires pour les analystes de sécurité et les utilisateurs en lecture seule.
 
 ## <a name="role-based-permissions"></a>Autorisations basées sur les rôles
 Les rôles utilisateur suivants sont disponibles :
@@ -89,8 +89,8 @@ Cette section décrit comment définir des utilisateurs. Les utilisateurs CyberX
 Pour définir un utilisateur :
 
 1. Dans le volet gauche du capteur ou sur la console de gestion locale, sélectionnez **Utilisateurs**.
-2. Dans la fenêtre **Utilisateurs**, sélectionnez **Créer un utilisateur**.
-3. Dans le volet **Créer un utilisateur**, définissez les paramètres suivants :
+1. Dans la fenêtre **Utilisateurs**, sélectionnez **Créer un utilisateur**.
+1. Dans le volet **Créer un utilisateur**, définissez les paramètres suivants :
 
    - **Nom d’utilisateur** : Entrez un nom d’utilisateur.
    - **E-mail** : Saisissez l’adresse de messagerie de l’utilisateur.
@@ -122,7 +122,7 @@ Pour accéder à la commande :
 
 1. Connectez-vous à l’interface de ligne de commande du capteur ou de la console de gestion locale en utilisant Defender pour IoT avec les informations d’identification d’administrateur.
 
-2. Entrez `sudo nano /var/cyberx/properties/authentication`.
+1. Entrez `sudo nano /var/cyberx/properties/authentication`.
 
 ```azurecli-interactive
     infinity_session_expiration = true
@@ -138,7 +138,6 @@ Pour accéder à la commande :
 Pour désactiver la fonctionnalité, remplacez `infinity_session_expiration = true` par `infinity_session_expiration = false`.
 
 Pour mettre à jour les périodes de déconnexion, réglez la valeur de `= <number>` selon la durée requise.
-
 
 ## <a name="track-user-activity"></a>Suivre les activités des utilisateurs 
 
@@ -171,11 +170,11 @@ Pour configurer Active Directory :
 
     :::image type="content" source="media/how-to-setup-active-directory/ad-system-settings-v2.png" alt-text="Consulter les paramètres de votre Active Directory":::.
 
-2. Dans le volet **Paramètres système**, sélectionnez **Active Directory**.
+1. Dans le volet **Paramètres système**, sélectionnez **Active Directory**.
 
     :::image type="content" source="media/how-to-setup-active-directory/ad-configurations-v2.png" alt-text="Modifiez vos configurations Active Directory.":::
 
-3. Dans la boîte de dialogue **Modifier la configuration Active Directory**, sélectionnez **Active Directory intégration activée** > **Enregistrer**. La boîte de dialogue **Modifier la configuration Active Directory** se développe et vous pouvez maintenant entrer les paramètres pour configurer Active Directory.
+1. Dans la boîte de dialogue **Modifier la configuration Active Directory**, sélectionnez **Active Directory intégration activée** > **Enregistrer**. La boîte de dialogue **Modifier la configuration Active Directory** se développe et vous pouvez maintenant entrer les paramètres pour configurer Active Directory.
 
     :::image type="content" source="media/how-to-setup-active-directory/ad-integration-enabled-v2.png" alt-text="Entrer les paramètres pour configurer Active Directory.":::
 
@@ -184,7 +183,7 @@ Pour configurer Active Directory :
     > - Pour tous les paramètres d’Active Directory, utilisez uniquement des minuscules. Utilisez des minuscules même lorsque les configurations d’Active Directory utilisent des majuscules.
     > - Vous ne pouvez pas configurer à la fois LDAP et LDAP sécurisé pour le même domaine. Toutefois, vous pouvez utiliser les deux pour des domaines différents en même temps.
 
-4. Définissez les paramètres du serveur Active Directory comme suit :
+1. Définissez les paramètres du serveur Active Directory comme suit :
 
    | Paramètre serveur | Description |
    |--|--|
@@ -194,9 +193,77 @@ Pour configurer Active Directory :
    | Groupes Active Directory | Entrez les noms des groupes qui sont définis dans la configuration de votre Active Directory sur le serveur LDAP. |
    | Domaines approuvés | Pour ajouter un domaine approuvé, ajoutez le nom du domaine et le type de connexion d’un domaine approuvé. <br />Vous ne pouvez configurer des domaines approuvés que pour les utilisateurs qui ont été définis dans les utilisateurs. |
 
-5. Sélectionnez **Enregistrer**.
+1. Sélectionnez **Enregistrer**.
 
-6. Pour ajouter un serveur approuvé, sélectionnez **Ajouter un serveur** et configurez un autre serveur.
+1. Pour ajouter un serveur approuvé, sélectionnez **Ajouter un serveur** et configurez un autre serveur.
+
+## <a name="resetting-a-users-password-for-the-sensor-or-on-premises-management-console"></a>Réinitialisation du mot de passe d’un utilisateur pour le capteur ou la console de gestion locale
+
+### <a name="cyberx-or-support-user"></a>Utilisateur CyberX ou Support
+
+Seuls les utilisateurs **CyberX** et **Support** ont accès à la fonctionnalité **Récupération du mot de passe**. Si l’utilisateur **CyberX** ou **Support** a oublié son mot de passe, il peut le réinitialiser par le biais de l’option **Récupération du mot de passe** sur la page de connexion de Defender pour IoT.
+
+Pour réinitialiser le mot de passe d’un utilisateur CyberX ou Support :
+
+1. Sur l’écran de connexion Defender pour IoT, sélectionnez **Récupération du mot de passe**. L’écran **Récupération du mot de passe** s’ouvre.
+
+1. Sélectionnez **CyberX** ou **Support**, puis copiez l’identificateur unique.
+
+1. Accédez au portail Azure et sélectionnez **Sites et capteurs**.  
+
+1. Sélectionnez l’icône **Filtre d’abonnement** :::image type="icon" source="media/password-recovery-images/subscription-icon.png" border="false"::: dans la barre d’outils supérieure, puis sélectionnez l’abonnement auquel votre capteur est connecté.
+
+1. Sélectionnez l’onglet **Récupérer le mot de passe de la console de gestion locale**.
+
+   :::image type="content" source="media/password-recovery-images/recover-button.png" alt-text="Sélectionnez le bouton Récupérer le mot de passe de la console de gestion locale pour télécharger le fichier de récupération.":::
+
+1. Entrez l’identificateur unique que vous avez reçu sur l’écran **Récupération du mot de passe**, puis sélectionnez **Récupérer**. Le fichier `password_recovery.zip` est téléchargé.
+
+    > [!NOTE]
+    > Ne modifiez pas le fichier de récupération du mot de passe. Il s’agit d’un fichier signé qui ne fonctionnera pas si vous le falsifiez.
+
+1. Sur l’écran **Récupération du mot de passe**, sélectionnez **Charger**. La fenêtre **Charger le fichier de récupération du mot de passe** s’ouvre.
+
+1. Sélectionnez **Parcourir** pour localiser votre fichier `password_recovery.zip` ou faites glisser `password_recovery.zip` sur la fenêtre.
+
+    > [!NOTE]
+    > Un message d’erreur peut s’afficher, indiquant que le fichier n’est pas valide. Pour corriger ce message d’erreur, assurez-vous d’avoir sélectionné l’abonnement approprié avant de télécharger le fichier `password_recovery.zip` et téléchargez-le à nouveau.  
+
+1. Sélectionnez **Suivant**, et votre utilisateur et le mot de passe généré par le système pour votre console de gestion s’affichent alors.
+
+### <a name="administrator-security-analyst-and-read-only-user"></a>Utilisateur Administrateur, Analyste de la sécurité et Lecture seule
+
+Les utilisateurs Lecture seule et Analystes de la sécurité ne peuvent pas réinitialiser leur propre mot de passe et doivent contacter un utilisateur ayant le rôle Administrateur, Support ou CyberX afin de réinitialiser leur mot de passe. Un utilisateur Administrateur doit contacter l’utilisateur **CyberX** ou **Support** pour réinitialiser son mot de passe.
+
+Pour réinitialiser le mot de passe d’un utilisateur sur le capteur :
+
+1. Un utilisateur du rôle Administrateur, Support ou CyberX doit se connecter au capteur.
+
+1. Sélectionnez **Utilisateurs** dans le panneau de gauche.
+
+   :::image type="content" source="media/password-recovery-images/sensor-page.png" alt-text="Sélectionnez l’option Utilisateurs dans le volet gauche.":::
+
+1. Localisez l’utilisateur et sélectionnez **Modifier** dans le menu déroulant **Actions**.
+
+   :::image type="content" source="media/password-recovery-images/edit.png" alt-text="Sélectionnez Modifier dans le menu déroulant Actions.":::
+
+1. Entrez le nouveau mot de passe dans les champs **Nouveau mot de passe** et **Confirmer le mot de passe**.
+
+1. Sélectionnez **Update**.
+
+Pour réinitialiser le mot de passe d’un utilisateur sur la console de gestion locale :
+
+1. Un utilisateur du rôle Administrateur, Support ou CyberX doit se connecter au capteur.
+
+1. Sélectionnez **Utilisateurs** dans le panneau de gauche.
+
+   :::image type="content" source="media/password-recovery-images/console-page.png" alt-text="Dans le volet gauche, sélectionnez l’option Utilisateurs.":::
+
+1. Localisez votre utilisateur et sélectionnez l’icône de modification :::image type="icon" source="media/password-recovery-images/edit-icon.png" border="false":::.
+
+1. Entrez le nouveau mot de passe dans les champs **Nouveau mot de passe** et **Confirmer le mot de passe**.
+
+1. Sélectionnez **Update**.
 
 ## <a name="see-also"></a>Voir aussi
 

@@ -16,12 +16,12 @@ ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2e670525840b801df874e3f8dcbdbadc0955a12
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: 4122e645b76751e8944704a6405cf5dee09129f1
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97746301"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97932433"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Planification d’un déploiement de révision d’accès Azure Active Directory
 
@@ -333,7 +333,7 @@ Les groupes qui sont synchronisés à partir du service Active Directory local n
 > [!NOTE]
 > Nous vous recommandons de définir des stratégies d’entreprise qui définissent la façon dont les groupes sont créés afin de garantir la propriété et la responsabilité claires du groupe pour une révision régulière de ses membres. 
 
-### <a name="review-membership-of-exclusion-groups-in-ca-policies"></a>Examiner l’appartenance des groupes d’exclusion dans les stratégies d’accès conditionnel 
+### <a name="review-membership-of-exclusion-groups-in-conditional-access-policies"></a>Examiner l’appartenance des groupes d’exclusion dans les stratégies d’accès conditionnel 
 
 Il peut arriver que les stratégies d’accès conditionnel conçues pour sécuriser votre réseau ne s’appliquent pas à tous les utilisateurs. Par exemple, une stratégie d’accès conditionnel qui autorise uniquement les utilisateurs à se connecter à partir du réseau de l’entreprise ne peut pas s’appliquer à l’équipe de vente, qui voyage beaucoup. Dans ce cas, les membres de l’équipe de vente seraient placés dans un groupe, et ce groupe serait exclu de la stratégie d’accès conditionnel. 
 

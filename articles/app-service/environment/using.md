@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 3679bf9d55ddccefddb4bf3b2a96ec1b427315af
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: c0ceae8727681c045c3bbf3e6626937633b38997
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94663219"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98013530"
 ---
 # <a name="using-an-app-service-environment"></a>Utilisation d’un environnement App Service
 
@@ -78,13 +78,20 @@ L’URL du Gestionnaire de contrôle des services est utilisée pour accéder à
 
 ### <a name="dns-configuration"></a>Configuration DNS 
 
-L’ASE utilise des points de terminaison privés pour le trafic entrant, et est configuré automatiquement avec des zones privées Azure DNS. Si vous souhaitez utiliser votre propre serveur DNS, vous devez ajouter les enregistrements suivants :
+L’environnement ASE utilise des points de terminaison privés pour le trafic entrant. Il n’est pas automatiquement configuré avec des zones privées Azure DNS. Si vous souhaitez utiliser votre propre serveur DNS, vous devez ajouter les enregistrements suivants :
 
 1. créez une zone pour &lt;nom ASE&gt;.appserviceenvironment.net
 1. Créez un enregistrement A dans cette zone qui pointe * vers l’adresse IP entrante qu’utilise le point de terminaison privé de votre ASE.
 1. Créez un enregistrement A dans cette zone qui pointe @ vers l’adresse IP entrante qu’utilise le point de terminaison privé de votre ASE.
 1. créez une zone dans le scm nommé &lt;nom ASE&gt;.appserviceenvironment.net
 1. Créez un enregistrement A dans la zone scm qui pointe * vers l’adresse IP qu’utilise le point de terminaison privé de votre ASE.
+
+Pour configurer DNS dans les zones privées Azure DNS :
+
+1. créez une zone privée Azure DNS nommée <ASE name>.appserviceenvironment.net
+1. créez un enregistrement A dans cette zone qui pointe * vers l’adresse IP ILB
+1. créez un enregistrement A dans cette zone qui pointe @ vers l’adresse IP ILB
+1. créez un enregistrement A dans cette zone qui pointe *.scm vers l’adresse IP ILB
 
 Les paramètres DNS du suffixe de domaine par défaut de votre ASE ne limitent pas vos applications à être accessibles uniquement par ces noms. Vous pouvez définir un nom de domaine personnalisé sans validation sur vos applications dans un ASE. Si vous souhaitez ensuite créer une zone nommée *contoso.net*, vous pouvez le faire et la pointer vers l’adresse IP entrante. Le nom de domaine personnalisé fonctionne pour les demandes d’application, mais pas pour le site GCL. Le site GCL est disponible uniquement pour *&lt;appname&gt;.scm.&lt;asename&gt;.appserviceenvironment.net*. 
 

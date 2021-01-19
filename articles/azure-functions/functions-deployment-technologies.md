@@ -4,12 +4,12 @@ description: Découvrez les différentes façons de déployer du code sur Azure 
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: 7a75408008a90a2c40553b1f6c5c196775a48e61
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 04d96a09d41ace64bed5667bb9f0fa6e4beed244
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96168098"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936955"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Technologies de déploiement dans Azure Functions
 
@@ -25,7 +25,7 @@ Le tableau suivant décrit les méthodes de déploiement disponibles pour votre 
 | -- | -- | -- |
 | Outils | &bull;&nbsp;[Publication&nbsp;Visual&nbsp;Studio&nbsp;Code](functions-develop-vs-code.md#publish-to-azure)<br/>&bull;&nbsp;[Publication Visual Studio](functions-develop-vs.md#publish-to-azure)<br/>&bull;&nbsp;[Publication Core Tools](functions-run-local.md#publish) | Déploiements pendant le développement et autres déploiements ponctuels. Les déploiements sont gérés localement par les outils. | 
 | Géré par App Service| &bull;&nbsp;[Centre de&nbsp;déploiement&nbsp;(CI/CD)](functions-continuous-deployment.md)<br/>&bull;&nbsp;[Déploiements&nbsp;de conteneur](functions-create-function-linux-custom-image.md#enable-continuous-deployment-to-azure) |  Déploiement continu (CI/CD) à partir du contrôle de code source ou d’un registre de conteneurs. Les déploiements sont gérés par la plateforme App Service (Kudu).|
-| Pipelines externes|&bull;&nbsp;[Pipelines DevOps](functions-how-to-azure-devops.md)<br/>&bull;&nbsp;[Actions GitHub](functions-how-to-github-actions.md) | Les pipelines de production et DevOps qui incluent une validation, des tests et d’autres actions supplémentaires sont exécutés dans le cadre d’un déploiement automatisé. Les déploiements sont gérés par le pipeline. |
+| Pipelines externes|&bull;&nbsp;[Azure Pipelines](functions-how-to-azure-devops.md)<br/>&bull;&nbsp;[Actions GitHub](functions-how-to-github-actions.md) | Les pipelines de production et DevOps qui incluent une validation, des tests et d’autres actions supplémentaires sont exécutés dans le cadre d’un déploiement automatisé. Les déploiements sont gérés par le pipeline. |
 
 Bien que des déploiements Azure Functions spécifiques utilisent la meilleure technologie en fonction de leur contexte, la plupart des méthodes de déploiement sont basées sur le [déploiement zip](#zip-deploy).
 
@@ -33,9 +33,9 @@ Bien que des déploiements Azure Functions spécifiques utilisent la meilleure t
 
 Azure Functions prend en charge le développement local multiplateforme ainsi que l’hébergement sur Windows et Linux. Trois plans d’hébergement sont actuellement disponibles :
 
-+ [Consommation](functions-scale.md#consumption-plan)
-+ [Premium](functions-scale.md#premium-plan)
-+ [Dédié (App Service)](functions-scale.md#app-service-plan)
++ [Consommation](consumption-plan.md)
++ [Premium](functions-premium-plan.md)
++ [Dédié (App Service)](dedicated-plan.md)
 
 Chaque plan a des comportements différents. Les technologies de déploiement ne sont pas toutes disponibles pour chaque environnement d’exécution d’Azure Functions. Le graphique suivant indique les technologies de déploiement prises en charge pour chaque combinaison de système d'exploitation et de plan d'hébergement :
 
@@ -96,7 +96,7 @@ Les applications de fonction Linux qui s’exécutent dans le plan Consommation 
 
 ##### <a name="dedicated-and-premium-plans"></a>Plans dédiés et Premium
 
-Les applications de fonction qui s’exécutent sur Linux dans le [plan dédié (App service)](functions-scale.md#app-service-plan) et le [plan Premium](functions-scale.md#premium-plan) disposent également d’un site SCM/Kudu limité.
+Les applications de fonction qui s’exécutent sur Linux dans le [plan dédié (App service)](dedicated-plan.md) et le [plan Premium](functions-premium-plan.md) disposent également d’un site SCM/Kudu limité.
 
 ## <a name="deployment-technology-details"></a>Description des technologies de déploiement
 

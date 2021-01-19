@@ -3,12 +3,12 @@ title: Déployer et mettre à niveau avec Azure Resource Manager
 description: Découvrez comment déployer des applications et services sur un cluster Service Fabric à l’aide d’un modèle Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 12/06/2017
-ms.openlocfilehash: bb866eb24fb1b286f496bad9845d1ee557baa221
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: ed6bc7d96cb3ea0934929e6543c5e637a9f42c1f
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94681667"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97930835"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Gérer des applications et services en tant que ressources Azure Resource Manager
 
@@ -50,13 +50,12 @@ L’extrait de code suivant montre les différents types de ressources qui peuve
 }
 ```
 
-
 ## <a name="add-a-new-application-to-your-resource-manager-template"></a>Ajouter une nouvelle application à votre modèle Resource Manager
 
 1. Préparez le modèle Resource Manager de votre cluster en vue du déploiement. Pour plus d’informations à ce sujet, consultez [Créer un cluster Service Fabric à l’aide d’Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
 2. Pensez à certaines des applications que vous prévoyez de déployer sur le cluster. En existe-t-il exécutées en permanence sur lesquelles d’autres applications prendront des dépendances ? Envisagez-vous de déployer des applications de configuration ou de gouvernance de cluster ? Ces types d’applications sont mieux gérés par le biais d’un modèle Resource Manager, comme expliqué plus haut. 
-3. Une fois que vous avez déterminé quelles applications déployer de cette manière, vous devez les empaqueter, les compresser, puis les placer sur un partage de fichiers. Le partage doit être accessible par le biais d’un point de terminaison REST utilisable par Azure Resource Manager pendant le déploiement.
-4. Dans votre modèle Resource Manager, sous votre déclaration de cluster, décrivez les propriétés de chaque application. Ces propriétés incluent le nombre de réplicas ou d’instance et toutes les chaînes de dépendances entre les ressources (autres applications ou services). Pour obtenir la liste complète des propriétés, consultez les [Spécifications Swagger de l’API REST](https://aka.ms/sfrpswaggerspec). Notez que cela ne remplace pas les manifestes Application ou Service, mais décrit plutôt certaines de leurs composantes dans le cadre du modèle Resource Manager du cluster. Voici un exemple de modèle qui inclut le déploiement d’un service sans état *Service1* et d’un service avec état *Service2* dans le cadre *d’Application1* :
+3. Une fois que vous avez déterminé quelles applications déployer de cette manière, vous devez les empaqueter, les compresser, puis les placer sur un partage de stockage. Le partage doit être accessible par le biais d’un point de terminaison REST utilisable par Azure Resource Manager pendant le déploiement. Pour plus d’informations, consultez [Créer un compte de stockage](service-fabric-concept-resource-model.md#create-a-storage-account).
+4. Dans votre modèle Resource Manager, sous votre déclaration de cluster, décrivez les propriétés de chaque application. Ces propriétés incluent le nombre de réplicas ou d’instance et toutes les chaînes de dépendances entre les ressources (autres applications ou services). Notez que cela ne remplace pas les manifestes Application ou Service, mais décrit plutôt certaines de leurs composantes dans le cadre du modèle Resource Manager du cluster. Voici un exemple de modèle qui inclut le déploiement d’un service sans état *Service1* et d’un service avec état *Service2* dans le cadre *d’Application1* :
 
    ```json
    {
@@ -244,7 +243,7 @@ L’extrait de code suivant montre les différents types de ressources qui peuve
    ```
 
    > [!NOTE] 
-   > *apiVersion* doit avoir la valeur `"2019-03-01"`. Vous pouvez également déployer ce modèle indépendamment du cluster, à condition que celui-ci ait déjà été déployé.
+   > Reportez-vous à la [documentation de référence Azure Resource Manager](/azure/templates/microsoft.servicefabric/clusters/applicationtypes) de Service Fabric pour connaître l’utilisation et les détails des propriétés de chaque modèle.
 
 5. Déployez ! 
 

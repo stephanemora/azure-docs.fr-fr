@@ -5,23 +5,23 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 10/17/2018
+ms.date: 01/07/2021
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 2dcb8489d94b9afc3ae4df829b37dd9785383d85
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: cfcc515787cee2bc90a2100e84337a3c96219d8a
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "92208241"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98017270"
 ---
 # <a name="configure-ipsec-transport-mode-for-expressroute-private-peering"></a>Configurer le mode de transport IPsec pour le peering privé ExpressRoute
 
-Cet article explique comment créer des tunnels IPsec en mode Transport via un peering privé ExpressRoute entre des machines virtuelles Azure exécutant Windows et des hôtes Windows locaux. Les étapes décrites dans cet article utilisent des objets de stratégie de groupe pour créer cette configuration. Même s’il est possible de créer une telle configuration sans utiliser d’unités d’organisation ou d’objets de stratégie de groupe, le fait d’associer ces deux types d’objets permet de simplifier le contrôle de vos stratégies de sécurité et d’effectuer rapidement un scale-up. Les étapes de cet article supposent que vous disposez déjà d’une configuration Active Directory et que vous êtes familiarisé avec l’utilisation des unités d’organisation et des objets de stratégie de groupe.
+Cet article vous aide à créer des tunnels IPsec en mode de transport via le Peering privé ExpressRoute. Le tunnel est créé entre des machines virtuelles Azure sous Windows et des hôtes Windows locaux. Les étapes décrites dans cet article utilisent des objets de stratégie de groupe pour cette configuration. Bien qu’il soit possible de créer cette configuration sans utiliser d’unités d’organisation (UO) ni d’objets de stratégie de groupe (GPO), la combinaison d’UO et de GPO vous aide à simplifier le contrôle de vos stratégies de sécurité et vous permet d’effectuer un scale-up rapidement. Les étapes de cet article supposent que vous disposez déjà d’une configuration Active Directory et que vous êtes familiarisé avec l’utilisation des UO et des GPO.
 
 ## <a name="about-this-configuration"></a>À propos de cette configuration
 
-Dans les étapes suivantes, la configuration utilise un réseau virtuel Azure avec un peering privé ExpressRoute. Toutefois, cette configuration peut s’étendre sur plusieurs réseaux virtuels Azure et réseaux locaux. Cet article vous montre comment définir une stratégie de chiffrement IPsec et comment l’appliquer à un groupe de machines virtuelles Azure et d’hôtes locaux faisant partie d’une même unité d’organisation. Vous ne devez configurer le chiffrement entre les machines virtuelles Azure (vm1 et vm2) et l’hôte local host1 que pour le trafic HTTP avec le port de destination 8080. Différents types de stratégies IPsec peuvent être créés selon vos besoins.
+Dans les étapes suivantes, la configuration utilise un réseau virtuel (VNet) Azure avec un Peering privé ExpressRoute. Toutefois, cette configuration peut s’étendre sur d’autres VNet Azure et réseaux locaux. Cet article vous aidera à définir une stratégie de chiffrement IPsec que vous pouvez appliquer à un groupe de machines virtuelles Azure ou d’hôtes locaux. Ces machines virtuelles Azure ou hôtes locaux font partie de la même UO. Vous ne devez configurer le chiffrement entre les machines virtuelles Azure (vm1 et vm2) et l’hôte local host1 que pour le trafic HTTP avec le port de destination 8080. Différents types de stratégies IPsec peuvent être créés selon vos besoins.
 
 ### <a name="working-with-ous"></a>Utilisation des unités d’organisation 
 
@@ -49,7 +49,7 @@ Lorsque vous configurez une stratégie IPsec, il est important de comprendre sa 
 
 * **Stratégie IPsec :** collection de règles. Vous ne pouvez activer (« attribuer ») qu’une seule stratégie à la fois. Cependant, chaque stratégie peut avoir une ou plusieurs règles, qui peuvent être actives simultanément. Vous ne pouvez attribuer qu’une seule stratégie IPsec à la fois à un ordinateur. Toutefois, dans cette stratégie IPsec, vous pouvez définir plusieurs actions à exécuter selon la situation. Chaque ensemble de règles IPsec est associé à une liste de filtres qui affecte le type de trafic réseau auquel la règle s’applique.
 
-* **Listes de filtres :** les listes de filtres comprennent un ou plusieurs filtres. Une même liste peut contenir plusieurs filtres. Un filtre définit si la communication est autorisée, sécurisée ou bloquée, selon les plages d’adresses IP, les protocoles ou même certains ports de protocole. Chaque filtre correspond à un ensemble de conditions, par exemple, des paquets envoyés à partir d’un sous-réseau donné vers un ordinateur donné via un port de destination donné. Lorsque les conditions réseau correspondent à un ou plusieurs de ces filtres, la liste de filtres est activée. Chaque filtre est défini au sein d’une liste de filtres. Les filtres ne peuvent pas être partagés par plusieurs listes. Cependant, une liste de filtres donnée peut être intégrée à plusieurs stratégies IPsec. 
+* **Listes de filtres :** les listes de filtres comprennent un ou plusieurs filtres. Une même liste peut contenir plusieurs filtres. Un filtre définit si la communication est bloquée, autorisée ou sécurisée en fonction des critères suivants : des plages d’adresses IP, des protocoles ou même des ports spécifiques. Chaque filtre correspond à un ensemble de conditions, par exemple, des paquets envoyés à partir d’un sous-réseau donné vers un ordinateur donné via un port de destination donné. Lorsque les conditions réseau correspondent à un ou plusieurs de ces filtres, la liste de filtres est activée. Chaque filtre est défini au sein d’une liste de filtres. Les filtres ne peuvent pas être partagés par plusieurs listes. Cependant, une liste de filtres donnée peut être intégrée à plusieurs stratégies IPsec. 
 
 * **Actions de filtrage :** une méthode de sécurité définit un ensemble regroupant des algorithmes de sécurité, des protocoles et une clé que l’ordinateur propose pendant les négociations IKE. Les actions de filtrage sont des listes de méthodes de sécurité, classées par ordre de préférence.  Lorsqu’un ordinateur négocie une session IPsec, il accepte ou envoie des propositions en fonction du paramètre de sécurité qui est stocké dans la liste des actions de filtrage.
 
@@ -79,7 +79,7 @@ Assurez-vous de satisfaire les prérequis suivants :
 
 * Vérifiez qu’une connexion a été établie entre les hôtes locaux et les machines virtuelles Azure.
 
-* Vérifiez que les machines virtuelles Azure exécutant Windows et les hôtes locaux sont en mesure d’utiliser le DNS pour résoudre les noms correctement.
+* Vérifiez que les machines virtuelles Azure sous Windows et les hôtes locaux peuvent utiliser le DNS pour résoudre les noms correctement.
 
 ### <a name="workflow"></a>Workflow
 
@@ -101,13 +101,13 @@ Assurez-vous de satisfaire les prérequis suivants :
 
 ## <a name="1-create-a-gpo"></a><a name="creategpo"></a>1. Créer un objet de stratégie de groupe
 
-1. Pour créer un objet de stratégie de groupe lié à une unité d’organisation, ouvrez le composant logiciel enfichable Gestion des stratégies de groupe, puis recherchez l’unité d’organisation à laquelle l’objet de stratégie de groupe est lié. Dans l’exemple, l’unité d’organisation se nomme **IPSecOU**. 
+1. Créez un nouveau GPO lié à une UO en ouvrant le composant logiciel enfichable Gestion des stratégies de groupe. Localisez ensuite l’UO à laquelle le GPO sera lié. Dans l’exemple, l’unité d’organisation se nomme **IPSecOU**. 
 
    [![9]][9]
-2. Dans le composant logiciel enfichable Gestion des stratégies de groupe, sélectionnez l’unité d’organisation, puis cliquez dessus avec le bouton droit. Dans la liste déroulante, cliquez sur **Créer un objet GPO dans ce domaine, et le lier ici...** .
+2. Dans le composant logiciel enfichable Gestion des stratégies de groupe, sélectionnez l’unité d’organisation, puis cliquez dessus avec le bouton droit. Dans la liste déroulante, sélectionnez « **Créer un GPO dans ce domaine, et le lier ici…**  ».
 
    [![10]][10]
-3. Attribuez un nom explicite à l’objet de stratégie de groupe de manière à pouvoir le localiser facilement quand vous en aurez besoin. Cliquez sur **OK** pour créer et lier l’objet de stratégie de groupe.
+3. Attribuez un nom explicite à l’objet de stratégie de groupe de manière à pouvoir le localiser facilement quand vous en aurez besoin. Sélectionnez **OK** pour créer et lier le GPO.
 
    [![11]][11]
 
@@ -122,32 +122,32 @@ Pour appliquer l’objet de stratégie de groupe à l’unité d’organisation,
 
 ## <a name="3-define-the-ip-filter-action"></a><a name="filteraction"></a>3. Définir l’action de filtrage IP
 
-1. Dans la liste déroulante, cliquez avec le bouton droit sur **Stratégies de sécurité IP sur Active Directory**, puis cliquez sur **Gérer les listes de filtres IP et les actions de filtrage**.
+1. Dans la liste déroulante, cliquez avec le bouton droit sur **Stratégies de sécurité IP sur Active Directory**, puis sélectionnez **Gérer les listes de filtres IP et les actions de filtrage…** .
 
    [![15]][15]
-2. Sous l’onglet **Gérer les actions de filtrage**, cliquez sur **Ajouter**.
+2. Sous l’onglet « **Gérer les actions de filtrage** », sélectionnez **Ajouter**.
 
    [![16]][16]
 
-3. Dans **l’Assistant Action de filtrage de sécurité IP**, cliquez sur **Suivant**.
+3. Dans **l’Assistant Action de filtrage de sécurité IP**, sélectionnez **Suivant**.
 
    [![17]][17]
-4. Attribuez un nom explicite à l’action de filtrage de manière à pouvoir la localiser facilement quand vous en aurez besoin. Dans cet exemple, l’action de filtrage se nomme **myEncryption**. Vous pouvez également ajouter une description. Cliquez ensuite sur **Suivant**.
+4. Attribuez un nom explicite à l’action de filtrage de manière à pouvoir la localiser facilement quand vous en aurez besoin. Dans cet exemple, l’action de filtrage se nomme **myEncryption**. Vous pouvez également ajouter une description. Ensuite, sélectionnez **Suivant**.
 
    [![18]][18]
-5. L’option **Négocier la sécurité** vous permet de définir le comportement si la connexion IPsec ne peut pas être établie avec un autre ordinateur. Sélectionnez **Négocier la sécurité**, puis cliquez sur **Suivant**.
+5. L’option **Négocier la sécurité** vous permet de définir le comportement si la connexion IPsec ne peut pas être établie avec un autre ordinateur. Sélectionnez **Négocier la sécurité**, puis **Suivant**.
 
    [![19]][19]
-6. Dans la page **Communiquer avec des ordinateurs qui ne prennent pas en charge IPSec**, sélectionnez **Ne pas autoriser les communications non sécurisées**, puis cliquez sur **Suivant**.
+6. Dans la page **Communiquer avec des ordinateurs qui ne prennent pas en charge IPSec**, sélectionnez **Ne pas autoriser les communications non sécurisées**, puis sélectionnez **Suivant**.
 
    [![20]][20]
-7. Dans la page **Trafic IP et sécurité**, sélectionnez **Personnalisé**, puis cliquez sur **Paramètres...** .
+7. Dans la page **Trafic IP et sécurité**, sélectionnez **Personnalisé**, puis **Paramètres…** .
 
    [![21]][21]
-8. Dans la page **Paramètres personnalisés de la méthode de sécurité**, sélectionnez **Chiffrement et intégrité des données (ESP) : SHA1, 3DES**. Cliquez ensuite sur **OK**.
+8. Dans la page **Paramètres personnalisés de la méthode de sécurité**, sélectionnez **Chiffrement et intégrité des données (ESP) : SHA1, 3DES**. Ensuite, sélectionnez **OK**.
 
    [![22]][22]
-9. Dans la page **Gérer les actions de filtrage**, vous pouvez voir que le filtre **myEncryption** a bien été ajouté. Cliquez sur **Fermer**.
+9. Dans la page **Gérer les actions de filtrage**, vous pouvez voir que le filtre **myEncryption** a bien été ajouté. Sélectionnez **Fermer**.
 
    [![23]][23]
 
@@ -155,28 +155,28 @@ Pour appliquer l’objet de stratégie de groupe à l’unité d’organisation,
 
 Créez une liste de filtres qui spécifie le trafic HTTP chiffré avec le port de destination 8080.
 
-1. Pour qualifier les types de trafic qui doivent être chiffrés, utilisez une **liste de filtres IP**. Sous l’onglet **Gestion de listes de filtres IP**, cliquez sur **Ajouter** pour ajouter une liste de filtres IP.
+1. Pour qualifier les types de trafic qui doivent être chiffrés, utilisez une **liste de filtres IP**. Sous l’onglet **Gestion de listes de filtres IP**, sélectionnez **Ajouter** pour ajouter une liste de filtres IP.
 
    [![24]][24]
-2. Dans le champ **Nom**, tapez un nom pour votre liste de filtres IP. Par exemple, **azure-onpremises-HTTP8080**. Cliquez ensuite sur **Ajouter**.
+2. Dans le champ **Nom**, tapez un nom pour votre liste de filtres IP. Par exemple, **azure-onpremises-HTTP8080**. Sélectionnez ensuite **Ajouter**.
 
    [![25]][25]
-3. Dans la page **Description du filtre IP et propriété mise en miroir**, sélectionnez **En miroir**. Le paramètre En miroir recherche les paquets entrants et sortants, ce qui permet une communication bidirectionnelle. Cliquez ensuite sur **Suivant**.
+3. Dans la page **Description du filtre IP et propriété mise en miroir**, sélectionnez **En miroir**. Le paramètre En miroir recherche les paquets entrants et sortants, ce qui permet une communication bidirectionnelle. Sélectionnez ensuite **Suivant**.
 
    [![26]][26]
 4. Dans la page **Source du trafic IP**, dans la liste déroulante **Adresse source**, choisissez **Une adresse IP ou un sous-réseau spécifique**. 
 
    [![27]][27]
-5. Spécifiez l’adresse source du trafic IP dans **Adresse IP ou sous-réseau**, puis cliquez sur **Suivant**.
+5. Spécifiez l’adresse source du trafic IP dans **Adresse IP ou sous-réseau**, puis sélectionnez **Suivant**.
 
    [![28]][28]
-6. Spécifiez l’**adresse de destination :** adresse IP ou sous-réseau. Cliquez ensuite sur **Suivant**.
+6. Spécifiez l’**adresse de destination :** adresse IP ou sous-réseau. Ensuite, sélectionnez **Suivant**.
 
    [![29]][29]
-7. Dans la page **Type de protocole IP**, sélectionnez **TCP**. Cliquez ensuite sur **Suivant**.
+7. Dans la page **Type de protocole IP**, sélectionnez **TCP**. Ensuite, sélectionnez **Suivant**.
 
    [![30]][30]
-8. Dans la page **Type de protocole IP**, sélectionnez **Depuis n’importe quel port** et **Vers ce port**. Tapez **8080** dans la zone de texte. Ces paramètres spécifient que seul le trafic HTTP passant par le port de destination 8080 est chiffré. Cliquez ensuite sur **Suivant**.
+8. Dans la page **Type de protocole IP**, sélectionnez **Depuis n’importe quel port** et **Vers ce port**. Tapez **8080** dans la zone de texte. Ces paramètres spécifient que seul le trafic HTTP passant par le port de destination 8080 est chiffré. Ensuite, sélectionnez **Suivant**.
 
    [![31]][31]
 9. Affichez la liste de filtres IP.  La configuration de la liste de filtres IP **azure-onpremises-HTTP8080** déclenche le chiffrement pour tout le trafic qui répond aux critères suivants :
@@ -190,12 +190,12 @@ Créez une liste de filtres qui spécifie le trafic HTTP chiffré avec le port d
 
 ## <a name="5-edit-the-ip-filter-list"></a><a name="filterlist2"></a>5. Modifier la liste de filtres IP
 
-Pour chiffrer le même type de trafic dans la direction opposée (de l’hôte local vers la machine virtuelle Azure), vous avez besoin d’un deuxième filtre IP. Le processus de la configuration du nouveau filtre est le même que celui que vous avez utilisé pour définir le premier filtre IP. Les seules différences se situent au niveau des sous-réseaux source et de destination.
+Pour chiffrer le même type de trafic de l’hôte local vers la machine virtuelle Azure, vous avez besoin d’un deuxième filtre IP. Suivez les mêmes étapes que celles que vous avez utilisées pour configurer le premier filtre IP et créer un nouveau filtre IP. Les seules différences se situent au niveau des sous-réseaux source et de destination.
 
 1. Pour ajouter un nouveau filtre IP à la liste de filtres IP, sélectionnez **Modifier**.
 
    [![33]][33]
-2. Dans la page **Liste de filtres IP**, cliquez sur **Ajouter**.
+2. Dans la page **Liste de filtres IP**, sélectionnez **Ajouter**.
 
    [![34]][34]
 3. Créez un deuxième filtre IP en utilisant les paramètres de l’exemple suivant :
@@ -205,7 +205,7 @@ Pour chiffrer le même type de trafic dans la direction opposée (de l’hôte l
 
    [![36]][36]
 
-Si le chiffrement est exigé entre un emplacement local et un sous-réseau Azure pour protéger une application, au lieu de modifier la liste de filtres IP existante, vous pouvez ajouter une nouvelle liste de filtres IP. Le fait d’associer deux listes de filtres IP à la même stratégie IPsec fournit une plus grande flexibilité, car cela permet de modifier ou de supprimer une liste de filtres IP à tout moment sans impacter les autres listes de filtres IP.
+Si le chiffrement est requis entre un emplacement local et un sous-réseau Azure pour protéger une application, au lieu de modifier la liste de filtres IP existante, vous pouvez ajouter une nouvelle liste de filtres IP. L’association de plusieurs listes de filtres IP à la même stratégie IPsec offrira une plus grande flexibilité. Vous pouvez modifier ou supprimer une liste de filtres IP sans répercussion sur les autres listes de filtres IP.
 
 ## <a name="6-create-an-ipsec-security-policy"></a><a name="ipsecpolicy"></a>6. Créer une stratégie de sécurité IPsec 
 
@@ -214,13 +214,13 @@ Créez une stratégie IPsec avec des règles de sécurité.
 1. Sélectionnez les **Stratégies de sécurité IP sur Active Directory** qui sont associées à l’unité d’organisation. Cliquez dessus avec le bouton droit, puis sélectionnez **Créer une stratégie de sécurité IP**.
 
    [![37]][37]
-2. Nommez la stratégie de sécurité. Par exemple, **policy-azure-onpremises**. Cliquez ensuite sur **Suivant**.
+2. Nommez la stratégie de sécurité. Par exemple, **policy-azure-onpremises**. Ensuite, sélectionnez **Suivant**.
 
    [![38]][38]
-3. Cliquez sur **Suivant** sans cocher la case.
+3. Sélectionnez **Suivant** sans cocher la case.
 
    [![39]][39]
-4. Vérifiez que la case **Modifier les propriétés** est sélectionnée, puis cliquez sur **Terminer**.
+4. Vérifiez que la case **Modifier les propriétés** est cochée, puis sélectionnez **Terminer**.
 
    [![40]][40]
 
@@ -228,10 +228,10 @@ Créez une stratégie IPsec avec des règles de sécurité.
 
 Ajoutez à la stratégie IPsec la **liste de filtres IP** et **l’action de filtrage** que vous avez configurées précédemment.
 
-1. Sous l’onglet **Règles** des propriétés de la stratégie HTTP, cliquez sur **Ajouter**.
+1. Sous l’onglet **Règles** des propriétés de la stratégie HTTP, sélectionnez **Ajouter**.
 
    [![41]][41]
-2. Sur la page d'accueil, cliquez sur **Suivant**.
+2. Sur la page d’accueil, sélectionnez **Suivant**.
 
    [![42]][42]
 3. Une règle offre la possibilité de définir le mode IPsec : le mode Tunnel ou le mode Transport.
@@ -240,26 +240,26 @@ Ajoutez à la stratégie IPsec la **liste de filtres IP** et **l’action de fil
 
    * Le mode Transport chiffre uniquement la charge utile et le code de fin ESP. L’en-tête IP du paquet d’origine n’est pas chiffré. En mode Transport, la source et la destination des adresses IP des paquets restent inchangées.
 
-   Sélectionnez **Cette règle ne spécifie aucun tunnel**, puis cliquez sur **Suivant**.
+   Sélectionnez **Cette règle ne spécifie aucun tunnel**, puis **Suivant**.
 
    [![43]][43]
-4. L’option **Type de réseau** permet de choisir la connexion réseau à associer à la stratégie de sécurité. Sélectionnez **Toutes les connexions réseau**, puis cliquez sur **Suivant**.
+4. L’option **Type de réseau** permet de choisir la connexion réseau à associer à la stratégie de sécurité. Sélectionnez **Toutes les connexions réseau**, puis **Suivant**.
 
    [![44]][44]
-5. Sélectionnez la liste de filtres IP que vous avez créée précédemment (**azure-onpremises-HTTP8080**), puis cliquez sur **Suivant**.
+5. Sélectionnez la liste de filtres IP que vous avez créée précédemment (**azure-onpremises-HTTP8080**), puis sélectionnez **Suivant**.
 
    [![45]][45]
 6. Sélectionnez l’action de filtrage que vous avez créée précédemment (**myEncryption**).
 
    [![46]][46]
-7. Windows prend en charge quatre types d’authentification distincts : Kerberos, certificats, NTLMv2 et clé prépartagée. Étant donné que nous utilisons des ordinateurs hôtes joints à un domaine, sélectionnez **Authentification Active Directory par défaut (protocole Kerberos v.5)** , puis cliquez sur **Suivant**.
+7. Windows prend en charge quatre types d’authentification distincts : Kerberos, certificats, NTLMv2 et clé prépartagée. Étant donné que nous utilisons des hôtes joints à un domaine, sélectionnez **Authentification Active Directory par défaut (protocole Kerberos v5)** , puis sélectionnez **Suivant**.
 
    [![47]][47]
-8. La nouvelle stratégie crée la règle de sécurité **azure-onpremises-HTTP8080**. Cliquez sur **OK**.
+8. La nouvelle stratégie crée la règle de sécurité **azure-onpremises-HTTP8080**. Sélectionnez **OK**.
 
    [![48]][48]
 
-La stratégie IPsec nécessite que toutes les connexions HTTP passant par le port de destination 8080 utilisent le mode de transport IPsec. Étant donné que le protocole HTTP est non chiffré, le fait d’activer la stratégie de sécurité garantit le chiffrement des données lors de leur transfert via le peering privé ExpressRoute. La stratégie de sécurité IP pour Active Directory est plus complexe à configurer que le Pare-feu Windows avec fonctions avancées de sécurité. Toutefois, elle permet de personnaliser davantage la connexion IPsec.
+La stratégie IPsec nécessite que toutes les connexions HTTP passant par le port de destination 8080 utilisent le mode de transport IPsec. Étant donné que le protocole HTTP est non chiffré, le fait d’activer la stratégie de sécurité garantit le chiffrement des données lors de leur transfert via le Peering privé ExpressRoute. La stratégie IPsec pour Active Directory est plus complexe à configurer que Pare-feu Windows avec fonctions avancées de sécurité. Toutefois, elle permet une plus grande personnalisation de la connexion IPsec.
 
 ## <a name="8-assign-the-ipsec-gpo-to-the-ou"></a><a name="assigngpo"></a>8. Attribuer l’objet de stratégie de groupe IPsec à l’unité d’organisation
 
@@ -275,7 +275,7 @@ La stratégie IPsec nécessite que toutes les connexions HTTP passant par le por
 
 Pour tester l’objet de stratégie de groupe qui est appliqué à l’unité d’organisation de chiffrement, installez IIS sur toutes les machines virtuelles Azure et sur l’hôte host1. Chaque IIS est personnalisé pour répondre aux requêtes HTTP sur le port 8080.
 Pour vérifier le chiffrement, vous pouvez installer un renifleur de réseau (comme Wireshark) sur tous les ordinateurs de l’unité d’organisation.
-Un script PowerShell agit comme un client HTTP afin de générer des requêtes HTTP sur le port 8080 :
+Un script PowerShell agit comme un client HTTP afin de générer des requêtes HTTP sur le port 8080 :
 
 ```powershell
 $url = "http://10.0.1.20:8080"
@@ -310,7 +310,7 @@ La capture réseau suivante montre les résultats de l’hôte local host1, avec
 
 [![51]][51]
 
-Si vous exécutez le script PowerShell localement (sur un client HTTP), la capture réseau de la machine virtuelle Azure montrera une trace similaire.
+Si vous exécutez le script PowerShell localement (sur un client HTTP), la capture réseau de la machine virtuelle Azure montrera une trace similaire.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 04/12/2020
-ms.openlocfilehash: 01e492072bd75af9f80656b71d2cc1c473d64263
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: cea4503c4e3b9dd58cc475aaec355a2bb2e0bd29
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803797"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065183"
 ---
 # <a name="troubleshooting-problems-in-itsm-connector"></a>Résolution des problèmes liés au connecteur ITSM
 
@@ -23,13 +23,38 @@ ITSM vous donne la possibilité d’envoyer les alertes à un système de ticket
 
 ## <a name="visualize-and-analyze-the-incident-and-change-request-data"></a>Visualiser et analyser les données d’incident et de demande de modification
 
-En fonction de la configuration choisie lors de l’établissement d’une connexion, ITSMC peut synchroniser jusqu’à 120 jours de données d’incidents et de demande de changement. Le schéma d’enregistrement de journal pour ces données est fourni dans la [section d’informations supplémentaires](./itsmc-overview.md) de cet article.
+En fonction de la configuration choisie lors de l’établissement d’une connexion, ITSMC peut synchroniser jusqu’à 120 jours de données d’incidents et de demande de changement. Le schéma d’enregistrement de journal pour ces données est fourni dans la [section d’informations supplémentaires](./itsmc-synced-data.md) de cet article.
 
 Vous pouvez visualiser les données d’incident et de demande de changement à l’aide du tableau de bord ITSMC :
 
 ![Capture d’écran montrant le tableau de bord ITSMC.](media/itsmc-overview/itsmc-overview-sample-log-analytics.png)
 
 Le tableau de bord fournit également des informations sur l’état du connecteur. Vous pouvez les utiliser comme point de départ pour analyser les problèmes liés aux connexions.
+
+### <a name="error-investigation-using-the-dashboard"></a>Recherche d’erreurs à l’aide du tableau de bord
+
+Pour afficher les erreurs dans le tableau de bord, vous devez suivre les étapes suivantes :
+
+1. Dans **Toutes les ressources**, recherchez **ServiceDesk(*nom_de_votre_espace_de_travail*)**  :
+
+   ![Capture d’écran montrant les ressources récentes dans le portail Azure.](media/itsmc-definition/create-new-connection-from-resource.png)
+
+2. Sous **Sources de données de l’espace de travail** dans le volet gauche, sélectionnez **Connexions ITSM** :
+
+   ![Capture d’écran montrant l’élément de menu Connexion ITSM.](media/itsmc-overview/add-new-itsm-connection.png)
+
+3. Sous **Résumé** dans la zone de gauche **Connecteur de gestion des services informatiques**, sélectionnez **Afficher le résumé** :
+
+    ![Capture d’écran montrant la vue Résumé.](media/itsmc-resync-servicenow/dashboard-view-summary.png)
+
+4. Sous **Résumé** dans la zone de gauche **Connecteur de gestion des services informatiques**, cliquez sur le graphique :
+
+    ![Capture d’écran montrant le clic sur le graphique.](media/itsmc-resync-servicenow/dashboard-graph-click.png)
+
+5. À l’aide de ce tableau de bord, vous serez en mesure de vérifier l’état et les erreurs de votre connecteur.
+    ![Capture d’écran montrant l’état du connecteur.](media/itsmc-resync-servicenow/connector-dashboard.png)
+
+### <a name="service-map"></a>Carte de service
 
 Vous pouvez également visualiser les incidents synchronisés avec les ordinateurs concernés dans Service Map.
 

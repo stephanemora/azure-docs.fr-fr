@@ -6,16 +6,16 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 23961a03d1da1137d92ecd3b8003241120b11d80
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: c2a6a88e9f730e17c929cf7949352448903435f6
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96493781"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98118453"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>Chiffrement des données d'Azure Database pour PostgreSQL Serveur unique à l'aide d'une clé gérée par le client
 
-Le chiffrement des données avec des clés gérées par le client pour un seul serveur Azure Database pour PostgreSQL permet le scénario BYOK (Bring Your Own Key) pour la protection des données au repos. Il permet également aux organisations d'implémenter la séparation des tâches dans la gestion des clés et des données. Avec le chiffrement géré par le client, vous êtes responsable du cycle de vie des clés, des autorisations d'utilisation des clés et de l'audit des opérations sur les clés, et contrôlez totalement le processus.
+Azure PostgreSQL exploite [le chiffrement de Stockage Azure](../storage/common/storage-service-encryption.md) pour chiffrer par défaut les données au repos à l’aide de clés gérées par Microsoft. Pour les utilisateurs d’Azure PostgreSQL, il est très similaire au chiffrement TDE (Transparent Data Encryption) dans d’autres bases de données telles que SQL Server. De nombreuses organisations exigent un contrôle total de l’accès aux données à l’aide d’une clé gérée par le client. Le chiffrement des données avec des clés gérées par le client pour un seul serveur Azure Database pour PostgreSQL permet le scénario BYOK (Bring Your Own Key) pour la protection des données au repos. Il permet également aux organisations d'implémenter la séparation des tâches dans la gestion des clés et des données. Avec le chiffrement géré par le client, vous êtes responsable du cycle de vie des clés, des autorisations d'utilisation des clés et de l'audit des opérations sur les clés, et contrôlez totalement le processus.
 
 Le chiffrement des données d'Azure Database pour PostgreSQL Serveur unique à l'aide d'une clé gérée par le client est défini au niveau du serveur. Pour un serveur donné, une clé gérée par le client, appelée clé de chiffrement de clé (KEK), sert à chiffrer la clé de chiffrement de données (DEK) utilisée par le service. La KEK est une clé asymétrique stockée dans une instance d'[Azure Key Vault](../key-vault/general/secure-your-key-vault.md) détenue et gérée par le client. La clé de chiffrement de clé (KEK) et la clé de chiffrement de données (DEK) sont décrites plus en détail plus loin dans cet article.
 
@@ -60,7 +60,9 @@ Lorsque le serveur est configuré pour utiliser la clé gérée par le client st
 Les exigences suivantes s'appliquent à la configuration de Key Vault :
 
 * Key Vault et Azure Database pour PostgreSQL Serveur unique doivent appartenir au même locataire Azure Active Directory (Azure AD). Les interactions entre un serveur et une instance inter-locataires de Key Vault ne sont pas prises en charge. Pour déplacer des ressources Key Vault par la suite, vous devez reconfigurer le chiffrement des données.
-* Activez la fonctionnalité de suppression réversible sur le coffre de clés pour vous protéger de la perte de données en cas de suppression accidentelle d'une clé (ou d'un coffre de clés). Les ressources supprimées de manière réversible sont conservées pendant 90 jours, sauf si l'utilisateur les récupère ou les purge dans l'intervalle. Les actions de récupération et de vidage ont leurs propres autorisations associées dans une stratégie d’accès Key Vault. Par défaut, la fonctionnalité de suppression réversible est désactivée, mais vous pouvez l'activer via PowerShell ou Azure CLI (notez que vous ne pouvez pas l'activer via le portail Azure).
+* Le coffre de clés doit être configuré avec un délai de 90 jours pour la durée de conservation des coffres supprimés. Si le coffre de clés existant a été configuré avec un nombre inférieur, vous devrez en créer un autre, car un coffre de clés ne peut pas être modifié après sa création.
+* Activez la fonctionnalité de suppression réversible sur le coffre de clés pour vous protéger de la perte de données en cas de suppression accidentelle d'une clé (ou d'un coffre de clés). Les ressources supprimées de manière réversible sont conservées pendant 90 jours, sauf si l'utilisateur les récupère ou les purge dans l'intervalle. Les actions de récupération et de vidage ont leurs propres autorisations associées dans une stratégie d’accès Key Vault. Par défaut, la fonctionnalité de suppression réversible est désactivée, mais vous pouvez l'activer via PowerShell ou Azure CLI (notez que vous ne pouvez pas l'activer via le portail Azure). 
+* Activer la protection contre la suppression définitive pour appliquer une période de rétention obligatoire pour les coffres et les objets de coffre supprimés
 * Accordez l'accès au coffre de clés à Azure Database pour PostgreSQL Serveur unique avec les autorisations get, wrapKey, unwrapKey en utilisant son identité managée unique. Sur le portail Azure, l’identité « Service » unique est automatiquement créée lorsque le chiffrement des données est activé sur PostgreSQL Serveur unique. Consultez [Chiffrement des données pour Azure Database pour PostgreSQL Serveur unique à l'aide du portail Azure](howto-data-encryption-portal.md) pour obtenir des instructions détaillées sur l'utilisation du portail Azure.
 
 Les exigences suivantes s'appliquent à la configuration de la clé gérée par le client :

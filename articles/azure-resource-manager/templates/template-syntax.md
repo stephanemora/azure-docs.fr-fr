@@ -3,12 +3,12 @@ title: Structure et syntaxe des modèles
 description: Décrit la structure et les propriétés des modèles Azure Resource Manager (modèles ARM) à l’aide de la syntaxe JSON déclarative.
 ms.topic: conceptual
 ms.date: 12/17/2020
-ms.openlocfilehash: 698309c5aa0817c4b758ec81133d4c98061aa355
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 4c08612325d2776f8f1a7fe4486e6f592ca474a0
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653127"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934694"
 ---
 # <a name="understand-the-structure-and-syntax-of-arm-templates"></a>Comprendre la structure et la syntaxe des modèles ARM
 
@@ -35,7 +35,7 @@ Dans sa structure la plus simple, un modèle a les éléments suivants :
 
 | Nom de l'élément | Obligatoire | Description |
 |:--- |:--- |:--- |
-| $schema |Oui |Emplacement du fichier de schéma JSON qui décrit la version du langage du modèle. Le numéro de version que vous utilisez dépend de l’étendue du déploiement et de votre éditeur JSON.<br><br>Si vous utilisez [VS Code avec l’extension des outils Azure Resource Manager](quickstart-create-templates-use-visual-studio-code.md), utilisez la version la plus récente pour les déploiements de groupes de ressources :<br>`https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#`<br><br>Il se peut que d’autres éditeurs (dont Visual Studio) ne puissent pas traiter ce schéma. Pour ces éditeurs, utilisez :<br>`https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>Pour les déploiements d’abonnements, utilisez :<br>`https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#`<br><br>Pour les déploiements de groupes d’administration, utilisez :<br>`https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#`<br><br>Pour les déploiements de locataires, utilisez :<br>`https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#` |
+| $schema |Oui |Emplacement du fichier de schéma JavaScript Object Notation (JSON) qui décrit la version du langage du modèle. Le numéro de version que vous utilisez dépend de l’étendue du déploiement et de votre éditeur JSON.<br><br>Si vous utilisez [Visual Studio Code avec l’extension des outils Azure Resource Manager](quickstart-create-templates-use-visual-studio-code.md), utilisez la version la plus récente pour les déploiements de groupes de ressources :<br>`https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#`<br><br>Il se peut que d’autres éditeurs (dont Visual Studio) ne puissent pas traiter ce schéma. Pour ces éditeurs, utilisez :<br>`https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>Pour les déploiements d’abonnements, utilisez :<br>`https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#`<br><br>Pour les déploiements de groupes d’administration, utilisez :<br>`https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#`<br><br>Pour les déploiements de locataires, utilisez :<br>`https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#` |
 | contentVersion |Oui |Version du modèle (par exemple, 1.0.0.0). Vous pouvez fournir n’importe quelle valeur pour cet élément. Utilisez cette valeur pour documenter les modifications importantes dans votre modèle. Quand vous déployez des ressources à l'aide du modèle, cette valeur permet de vous assurer que le bon modèle est utilisé. |
 | apiProfile |Non | Une version d’API qui sert de collection de versions d’API pour les types de ressources. Utilisez cette valeur pour éviter d’avoir à spécifier les versions d’API pour chaque ressource dans le modèle. Lorsque vous spécifiez une version de profil d’API et que vous ne spécifiez pas une version d’API pour le type de ressource, Resource Manager utilise la version d’API pour ce type de ressource qui est définie dans le profil.<br><br>La propriété de profil d’API est particulièrement utile lorsque vous déployez un modèle dans différents environnements, comme Azure Stack et Azure global. Utilisez la version de profil d’API pour vous assurer que votre modèle utilise automatiquement des versions prises en charge dans les deux environnements. Pour une liste des versions de profil d’API actuelles et les versions d’API définies dans le profil de ressources, consultez [Profil d’API](https://github.com/Azure/azure-rest-api-specs/tree/master/profile).<br><br>Pour plus d’informations, consultez [Suivre les versions à l’aide de profils d’API](templates-cloud-consistency.md#track-versions-using-api-profiles). |
 | [parameters](#parameters) |Non |Valeurs fournies lors de l'exécution du déploiement pour personnaliser le déploiement des ressources. |
@@ -98,13 +98,13 @@ La chaîne sécurisée utilise le même format que la chaîne, et l’objet séc
 
 Pour les entiers passés comme paramètres inclus, la plage de valeurs peut être limitée par le SDK ou l’outil en ligne de commande que vous utilisez pour le déploiement. Par exemple, si vous utilisez PowerShell pour déployer un modèle, les types d’entiers peuvent être compris entre -2147483648 et 2147483647. Pour éviter cette limite, spécifiez des valeurs entières élevées dans un [fichier de paramètres](parameter-files.md). Les types de ressources appliquent leurs propres limites aux propriétés d’entiers.
 
-Quand vous spécifiez des valeurs booléennes et des valeurs entières dans votre modèle, ne les placez pas entre guillemets. Placez les valeurs de chaîne entre guillemets doubles.
+Quand vous spécifiez des valeurs booléennes et des valeurs entières dans votre modèle, ne les placez pas entre guillemets. Placez les valeurs de chaîne entre guillemets doubles (`"string value"`).
 
-Les objets commencent par une accolade ouvrante et se terminent par une accolade fermante. Les tableaux commencent par un crochet ouvrant et se terminent par un crochet fermant.
+Les objets commencent par une accolade ouvrante (`{`) et se terminent par une accolade fermante (`}`). Les tableaux commencent par un crochet ouvrant (`[`) et se terminent par un crochet fermant (`]`).
 
 ## <a name="parameters"></a>Paramètres
 
-C’est dans la section des paramètres du modèle que vous pouvez spécifier les valeurs que vous pouvez saisir lors du déploiement des ressources. Vous êtes limité à 256 paramètres dans un modèle. Vous pouvez réduire le nombre de paramètres en utilisant des objets contenant plusieurs propriétés.
+Dans la section `parameters` du modèle, vous spécifiez les valeurs que vous pouvez saisir lors du déploiement des ressources. Vous êtes limité à 256 paramètres dans un modèle. Vous pouvez réduire le nombre de paramètres en utilisant des objets contenant plusieurs propriétés.
 
 Les propriétés disponibles pour un paramètre sont :
 
@@ -141,7 +141,7 @@ Pour obtenir des exemples d’utilisation des paramètres, consultez [Paramètre
 
 ## <a name="variables"></a>Variables
 
-Dans la section des variables, vous définissez des valeurs pouvant être utilisées dans votre modèle. Vous n’êtes pas obligé de définir des variables, mais elles simplifient souvent votre modèle en réduisant les expressions complexes. Le format de chaque variable correspond à l’un des [types de données](#data-types).
+Dans la section `variables`, vous définissez les valeurs qui peuvent être utilisées dans votre modèle. Vous n’êtes pas obligé de définir des variables, mais elles simplifient souvent votre modèle en réduisant les expressions complexes. Le format de chaque variable correspond à l’un des [types de données](#data-types).
 
 L’exemple suivant montre les options disponibles pour la définition d’une variable :
 
@@ -211,7 +211,7 @@ La définition d’une fonction utilisateur est soumise à certaines restriction
 | Nom de l'élément | Obligatoire | Description |
 |:--- |:--- |:--- |
 | espace de noms |Oui |Espace de noms pour les fonctions personnalisées. Utilisez pour éviter les conflits de noms avec les fonctions de modèle. |
-| function-name |Oui |Nom de la fonction personnalisée. Lors de l’appel de la fonction, associez le nom de la fonction à l’espace de noms. Par exemple, pour appeler une fonction nommée uniqueName dans l’espace de noms contoso, utilisez `"[contoso.uniqueName()]"`. |
+| function-name |Oui |Nom de la fonction personnalisée. Lors de l’appel de la fonction, associez le nom de la fonction à l’espace de noms. Par exemple, pour appeler une fonction nommée `uniqueName` dans l’espace de noms contoso, utilisez `"[contoso.uniqueName()]"`. |
 | parameter-name |Non |Nom du paramètre à utiliser dans la fonction personnalisée. |
 | parameter-value |Non |Type de la valeur du paramètre. Les types et valeurs autorisés sont : **string**, **secureString**, **int**, **bool**, **object**, **secureObject** et **array**. |
 | output-type |Oui |Type de la valeur de sortie. Les valeurs de sortie prennent en charge les mêmes types que les paramètres d'entrée de la fonction. |
@@ -221,7 +221,7 @@ Pour obtenir des exemples d’utilisation des fonctions personnalisées, consult
 
 ## <a name="resources"></a>Ressources
 
-Dans la section des ressources, vous définissez les ressources déployées ou mises à jour.
+Dans la section `resources`, vous définissez les ressources déployées ou mises à jour.
 
 Vous définissez des ressources avec la structure suivante :
 
@@ -282,7 +282,7 @@ Vous définissez des ressources avec la structure suivante :
 | Nom de l'élément | Obligatoire | Description |
 |:--- |:--- |:--- |
 | condition | Non | Valeur booléenne qui indique si la ressource sera provisionnée pendant ce déploiement. Quand la valeur est `true`, la ressource est créée pendant le déploiement. Quand la valeur est `false`, la ressource est ignorée pour ce déploiement. Voir [condition](conditional-resource-deployment.md). |
-| type |Oui |Type de la ressource. Cette valeur est une combinaison de l’espace de noms du fournisseur de ressources et du type de ressource (comme **Microsoft.Storage/storageAccounts**). Pour déterminer les valeurs disponibles, consultez [référence de modèle](/azure/templates/). Pour une ressource enfant, le format du type dépend de si elle est imbriquée dans la ressource parente ou définie en dehors de la ressource parente. Consultez [Définition du nom et du type des ressources enfants](child-resource-name-type.md). |
+| type |Oui |Type de la ressource. Cette valeur est une combinaison de l’espace de noms du fournisseur de ressources et du type de ressource (comme `Microsoft.Storage/storageAccounts`). Pour déterminer les valeurs disponibles, consultez [référence de modèle](/azure/templates/). Pour une ressource enfant, le format du type dépend de si elle est imbriquée dans la ressource parente ou définie en dehors de la ressource parente. Consultez [Définition du nom et du type des ressources enfants](child-resource-name-type.md). |
 | apiVersion |Oui |La version de l'API REST à utiliser pour la création de la ressource. Lorsque vous créez un nouveau modèle, définissez cette valeur sur la dernière version de la ressource que vous déployez. Tant que le modèle fonctionne en fonction des besoins, continuez à utiliser la même version d’API. En continuant à utiliser la même version d’API, vous réduisez le risque qu’une nouvelle version d’API modifie le fonctionnement de votre modèle. Envisagez de mettre à jour la version de l’API uniquement lorsque vous souhaitez utiliser une nouvelle fonctionnalité introduite dans une version ultérieure. Pour déterminer les valeurs disponibles, consultez [référence de modèle](/azure/templates/). |
 | name |Oui |Nom de la ressource. Le nom doit respecter les restrictions de composant d'URI définies dans le document RFC3986. Les services Azure qui exposent le nom de la ressource à des parties externes valident le nom pour vérifier qu’il ne s’agit pas d’une tentative d’usurpation d’identité. Pour une ressource enfant, le format du nom dépend de si elle est imbriquée dans la ressource parente ou définie en dehors de la ressource parente. Consultez [Définition du nom et du type des ressources enfants](child-resource-name-type.md). |
 | comments |Non |Vos commentaires pour documenter les ressources dans votre modèle. Pour plus d’informations, consultez [Commentaires dans les modèles](template-syntax.md#comments). |
@@ -298,7 +298,7 @@ Vous définissez des ressources avec la structure suivante :
 
 ## <a name="outputs"></a>Sorties
 
-Dans la section des sorties, vous spécifiez des valeurs retournées à partir du déploiement. En règle générale, vous retournez des valeurs de ressources qui ont été déployées.
+Dans la section `outputs`, vous spécifiez les valeurs qui sont retournées par le déploiement. En règle générale, vous retournez des valeurs de ressources qui ont été déployées.
 
 L'exemple suivant illustre la structure de la définition d'une sortie :
 
@@ -351,7 +351,7 @@ Pour les commentaires inclus, vous pouvez utiliser `//` ou `/* ... */`, mais cet
   ],
 ```
 
-Dans Visual Studio Code, l’[extension Azure Resource Manager Tools](quickstart-create-templates-use-visual-studio-code.md) peut détecter automatiquement un modèle ARM et modifier le mode de langage. Si **Modèle Azure Resource Manager** s’affiche dans l’angle inférieur droit de VS Code, vous pouvez utiliser les commentaires inclus. Les commentaires inclus ne sont plus signalés comme étant non valides.
+Dans Visual Studio Code, l’[extension Azure Resource Manager Tools](quickstart-create-templates-use-visual-studio-code.md) peut détecter automatiquement un modèle ARM et modifier le mode de langage. Si **Modèle Azure Resource Manager** s’affiche dans l’angle inférieur droit de Visual Studio Code, vous pouvez utiliser les commentaires inclus. Les commentaires inclus ne sont plus signalés comme étant non valides.
 
 ![Mode de modèle Azure Resource Manager Visual Studio Code](./media/template-syntax/resource-manager-template-editor-mode.png)
 
@@ -369,7 +369,7 @@ Vous pouvez ajouter un objet `metadata` presque n’importe où dans votre modè
   },
 ```
 
-Pour **parameters**, ajoutez un objet `metadata` avec une propriété `description`.
+Pour `parameters`, ajoutez un objet `metadata` avec une propriété `description`.
 
 ```json
 "parameters": {
@@ -385,7 +385,7 @@ Lorsque vous déployez le modèle par le biais du portail, le texte que vous fou
 
 ![Afficher le paramètre conseillé](./media/template-syntax/show-parameter-tip.png)
 
-Pour **resources**, ajoutez un élément `comments` ou un objet de métadonnées. L’exemple suivant montre à la fois un élément de commentaires et un objet de métadonnées.
+Pour `resources`, ajoutez un élément `comments` ou un objet `metadata`. L’exemple suivant montre à la fois un élément `comments` et un objet `metadata`.
 
 ```json
 "resources": [
@@ -411,7 +411,7 @@ Pour **resources**, ajoutez un élément `comments` ou un objet de métadonnées
 ]
 ```
 
-Pour **outputs**, ajoutez un objet de métadonnées à la valeur de sortie.
+Pour `outputs`, ajoutez un objet `metadata` à la valeur de sortie.
 
 ```json
 "outputs": {
@@ -424,11 +424,11 @@ Pour **outputs**, ajoutez un objet de métadonnées à la valeur de sortie.
   },
 ```
 
-Vous ne pouvez pas ajouter un objet de métadonnées aux fonctions définies par l’utilisateur.
+Vous ne pouvez pas ajouter d’objet `metadata` aux fonctions définies par l’utilisateur.
 
 ## <a name="multi-line-strings"></a>Chaînes à lignes multiples
 
-Vous pouvez scinder une chaîne en plusieurs lignes. Par exemple, voir la propriété location et l’un des commentaires dans l’exemple JSON suivant.
+Vous pouvez scinder une chaîne en plusieurs lignes. Par exemple, voir la propriété `location` et l’un des commentaires dans l’exemple JSON suivant.
 
 ```json
 {
@@ -448,7 +448,8 @@ Vous pouvez scinder une chaîne en plusieurs lignes. Par exemple, voir la propri
   ],
 ```
 
-Pour déployer des modèles à plusieurs chaînes de ligne à l’aide d’Azure CLI (version 2.3.0 ou antérieure), vous devez utiliser le commutateur `--handle-extended-json-format`.
+> [!NOTE]
+> Pour déployer des modèles à plusieurs chaînes de ligne à l’aide d’Azure CLI (version 2.3.0 ou antérieure), vous devez utiliser le commutateur `--handle-extended-json-format`.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

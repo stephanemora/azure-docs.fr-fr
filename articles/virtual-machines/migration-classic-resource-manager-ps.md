@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 02/06/2020
 ms.author: tagore
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 07b511182950095c356887d72ffde75ac098674d
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 82eaa597796bf3772faa90a9dbc4151da935c46a
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94904625"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98027721"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-powershell"></a>Migration de ressources IaaS d’un environnement classique vers Azure Resource Manager à l’aide de PowerShell
 
@@ -265,7 +265,7 @@ Si la configuration préparée semble correcte, vous pouvez continuer et valider
 Après avoir terminé la migration des machines virtuelles, effectuez les vérifications prérequises suivantes avant de migrer les comptes de stockage.
 
 > [!NOTE]
-> Si votre compte de stockage ne dispose d’aucun disque ou de données de machine virtuelle associés, vous pouvez passer directement à la section « Valider un compte de stockage et démarrer la migration ».
+> Si votre compte de stockage ne dispose d’aucun disque ou de données de machine virtuelle associés, vous pouvez passer directement à la section « Valider un compte de stockage et démarrer la migration ». Notez également que la suppression des disques classiques, des images de machine virtuelle ou des images de système d’exploitation ne supprime pas les fichiers VHD sources du compte de stockage. Toutefois, cela rompt le bail de ces fichiers VHD afin qu’ils puissent être réutilisés pour créer des disques ou des images ARM après la migration.
 
 * Vérifications prérequises en cas de migration de machines virtuelles ou si votre compte de stockage dispose de ressources de disque :
     * Migrez des machines virtuelles dont les disques sont stockés dans le compte de stockage.

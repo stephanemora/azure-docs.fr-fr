@@ -3,12 +3,12 @@ title: Glossaire du service Sauvegarde Azure
 description: Cet article définit des termes qui peuvent être utiles lors de l’utilisation du service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 12/21/2020
-ms.openlocfilehash: 8baa47667e86b99ebbbf273610809814e768c077
-ms.sourcegitcommit: a89a517622a3886b3a44ed42839d41a301c786e0
+ms.openlocfilehash: 1e28f0c2ad5d14ea2a8dc6ce8d5fa2b21c7e65ac
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97733215"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935068"
 ---
 # <a name="azure-backup-glossary"></a>Glossaire du service Sauvegarde Azure
 
@@ -172,7 +172,7 @@ Les sauvegardes incrémentielles stockent uniquement les blocs qui ont changé d
 
 ## <a name="instant-restore"></a>Restauration instantanée
 
-La restauration instantanée implique la restauration d’une machine directement à partir de son instantané de sauvegarde plutôt qu’à partir de la copie de l’instantané dans le coffre. Les restaurations instantanées sont plus rapides que les restaurations à partir d’un coffre. Le nombre de points de restauration instantanée disponibles dépend de la durée de conservation configurée pour les captures instantanées.
+(Terme propre aux charges de travail) La restauration instantanée implique la restauration d’une machine directement à partir de son instantané de sauvegarde plutôt qu’à partir de la copie de l’instantané dans le coffre. Les restaurations instantanées sont plus rapides que les restaurations à partir d’un coffre. Le nombre de points de restauration instantanée disponibles dépend de la durée de conservation configurée pour les captures instantanées. Actuellement applicable à la sauvegarde de machine virtuelle Azure uniquement.
 
 ## <a name="iops"></a>E/S par seconde
 
@@ -226,23 +226,19 @@ Récupération opérée à partir du point de restauration vers l’emplacement 
 
 Une phrase secrète est utilisée pour chiffrer et déchiffrer les données lors de la sauvegarde ou de la restauration de votre ordinateur local à l’aide de l’agent MARS sur ou à partir d’Azure.
 
-## <a name="point-in-time-restore"></a>Restauration dans le temps
-
-Restauration d’un élément à son état à un point précis dans le temps.
-
 ## <a name="private-endpoint"></a>Point de terminaison privé
 
 Reportez-vous à la [documentation sur les points de terminaison privé](https://docs.microsoft.com/azure/private-link/private-endpoint-overview).
 
 ## <a name="protected-instance"></a>Instance protégée
 
-Une instance protégée fait référence à l’ordinateur ou au serveur physique ou virtuel que vous utilisez pour configurer la sauvegarde sur Azure.  Du **point de vue de la facturation**, le nombre d’instances protégées pour une machine dépend de sa taille front-end. [Plus d’informations](https://azure.microsoft.com/pricing/details/backup/)
+Une instance protégée fait référence à l’ordinateur ou au serveur physique ou virtuel que vous utilisez pour configurer la sauvegarde sur Azure.  Du **point de vue de la facturation**, le nombre d’instances protégées pour une machine dépend de sa taille front-end. Ainsi, une seule instance de sauvegarde (telle qu’une machine virtuelle sauvegardée dans Azure) peut correspondre à plusieurs instances protégées, en fonction de sa taille front-end. [Plus d’informations](https://azure.microsoft.com/pricing/details/backup/)
 
 ## <a name="rbac-role-based-access-control"></a>RBAC (Contrôle d’accès en fonction du rôle)
 
 Reportez-vous à la [documentation sur le contrôle d’accès en fonction du rôle](https://docs.microsoft.com/azure/role-based-access-control/overview).
 
-## <a name="recovery-point-restore-point-retention-point"></a>Point de récupération / Point de restauration / Point de conservation
+## <a name="recovery-point-restore-point-retention-point--point-in-time-pit"></a>Point de récupération / Point de restauration / Point de rétention / Instant dans le passé
 
 Copie des données d’origine en cours de sauvegarde. Un point de conservation étant associé à un horodatage, vous pouvez l’utiliser pour restaurer un élément à un point spécifique dans le temps.
 
@@ -264,11 +260,11 @@ Règle définie par l’utilisateur qui spécifie la durée pendant laquelle les
 
 ## <a name="rpo-recovery-point-objective"></a>RPO (objectif de point de récupération)
 
-Le RPO indique la perte de données maximale acceptable dans un scénario de perte de données. Il est déterminé par la fréquence de sauvegarde.
+Le RPO indique la perte de données maximale possible dans un scénario de perte de données. Il est déterminé par la fréquence de sauvegarde.
 
 ## <a name="rto-recovery-time-objective"></a>RTO (objectif de délai de récupération)
 
-Le RTO indique le délai acceptable maximal dans lequel les données peuvent être restaurées sur le dernier point dans le temps disponible après un scénario de perte de données.
+Le RTO indique le délai possible maximal pendant lequel les données peuvent être restaurées au dernier instant dans le passé disponible après un scénario de perte de données.
 
 ## <a name="scheduled-backup"></a>Sauvegarde planifiée
 
@@ -284,7 +280,7 @@ La suppression réversible est une fonctionnalité qui contribue à vous protég
 
 ## <a name="snapshot"></a>Instantané
 
-Une capture instantanée est une copie complète en lecture seule d’un disque dur virtuel (VHD). [Plus d’informations](https://docs.microsoft.com/azure/virtual-machines/windows/snapshot-copy-managed-disk)
+Une capture instantanée est une copie complète en lecture seule d’un disque dur virtuel (VHD) ou d’un partage de fichiers Azure. En savoir plus sur les [captures instantanées de disque](https://docs.microsoft.com/azure/virtual-machines/windows/snapshot-copy-managed-disk) et les [captures instantanées de fichiers](https://docs.microsoft.com/azure/storage/files/storage-snapshots-files).
 
 ## <a name="storage-account"></a>Compte de stockage
 
@@ -314,7 +310,7 @@ Entité de stockage dans Azure qui héberge des données de sauvegarde. Il s’a
 
 ## <a name="vault-credentials"></a>Informations d’identification du coffre
 
-Le fichier d’informations d’identification de coffre est un certificat qui est généré par le portail pour chaque coffre. Il est utilisé lors de l’inscription d’un serveur dans le coffre. [Plus d’informations](backup-azure-dpm-introduction.md)
+Le fichier d’informations d’identification de coffre est un certificat qui est généré par le portail pour chaque coffre. Il est utilisé lors de l’inscription d’un serveur local dans le coffre. [Plus d’informations](backup-azure-dpm-introduction.md)
 
 ## <a name="vnet-virtual-network"></a>VNet (Réseau virtuel)
 

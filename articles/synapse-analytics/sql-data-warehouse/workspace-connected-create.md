@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/25/2020
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: a1fbc6eede6c82020b765185602c672c1162fdf8
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 769ca4cf0ecbdba5fd80d977eb69c8a4f58df55f
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548186"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98071185"
 ---
 # <a name="enabling-synapse-workspace-features-for-a-dedicated-sql-pool-formerly-sql-dw"></a>Activation des fonctionnalités de l’espace de travail Synapse pour un pool SQL dédié (anciennement SQL DW)
 
@@ -57,6 +57,9 @@ Les étapes suivantes doivent être effectuées pour s’assurer que vos instanc
 4. Sélectionnez l’une des instances de pools SQL dédiés (anciennement SQL DW) hébergées sur le serveur logique. Dans la page de présentation, sélectionnez **Lancer Synapse Studio** ou accédez à [Se connecter à Synapse Studio](https://web.azuresynapse.net) et connectez-vous à votre espace de travail.
 
 5. Ouvrez le **Hub Données** et développez le pool SQL dédié dans l’Explorateur d’objets pour vous assurer que vous avez accès à votre entrepôt de données et que vous pouvez l’interroger.
+
+    > [!NOTE] 
+    > Un espace de travail connecté peut être supprimé à tout moment. La suppression de l’espace de travail ne supprimera pas le pool SQL dédié connecté (anciennement SQL DW). Vous pouvez réactiver la fonctionnalité d’espace de travail sur le pool SQL dédié (anciennement SQL DW) une fois l’opération de suppression terminée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Prise en main de l’[Espace de travail Synapse et de Studio](../get-started.md).

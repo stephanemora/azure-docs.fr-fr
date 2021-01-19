@@ -3,23 +3,23 @@ title: Bouton Déployer dans Azure
 description: Utilisez le bouton pour déployer des modèles Azure Resource Manager à partir d’un référentiel GitHub.
 ms.topic: conceptual
 ms.date: 11/10/2020
-ms.openlocfilehash: 65891cace1cb17614abbfe091e1592d6f13feff4
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: abe59f377474540e9209691df8b1d1a7b806c26d
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185723"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028741"
 ---
 # <a name="use-a-deployment-button-to-deploy-templates-from-github-repository"></a>Utiliser un bouton de déploiement pour déployer des modèles à partir du référentiel GitHub
 
-Cet article explique comment utiliser le bouton **Déployer sur Azure** pour déployer des modèles à partir d’un référentiel GitHub. Vous pouvez ajouter le bouton directement au fichier README.md dans votre dépôt GitHub. Vous pouvez également ajouter le bouton à une page web faisant référence au dépôt.
+Cet article explique comment utiliser le bouton **Déployer sur Azure** pour déployer des modèles à partir d’un référentiel GitHub. Vous pouvez ajouter le bouton directement au fichier _README.md_ dans votre référentiel GitHub. Vous pouvez également ajouter le bouton à une page web faisant référence au dépôt.
 
 L’étendue du déploiement est déterminée par le schéma du modèle. Pour plus d'informations, consultez les pages suivantes :
 
-* [resource groups](deploy-to-resource-group.md)
-* [subscriptions](deploy-to-subscription.md)
-* [groupes d’administration](deploy-to-management-group.md)
-* [tenants](deploy-to-tenant.md)
+- [resource groups](deploy-to-resource-group.md)
+- [subscriptions](deploy-to-subscription.md)
+- [groupes d’administration](deploy-to-management-group.md)
+- [tenants](deploy-to-tenant.md)
 
 ## <a name="use-common-image"></a>Utiliser une image courante
 
@@ -78,7 +78,7 @@ Vous avez votre URL complète pour le lien.
 
 En général, vous hébergez le modèle dans un dépôt public. Si vous utilisez un référentiel privé, vous devez inclure un jeton pour accéder au contenu brut du modèle. Le jeton généré par GitHub n’est valide que pendant une brève période. Vous devez mettre à jour le lien souvent.
 
-Si vous utilisez [Git avec Azure Repos](/azure/devops/repos/git/) au lieu d’un référentiel GitHub, vous pouvez toujours utiliser le bouton Déployer dans Azure. Assurez-vous que votre référentiel est public. Utilisez l’[opération Items](/rest/api/azure/devops/git/items/get) pour récupérer le modèle. Votre requête doit respecter le format suivant :
+Si vous utilisez [Git avec Azure Repos](/azure/devops/repos/git/) au lieu d’un référentiel GitHub, vous pouvez toujours utiliser le bouton **Déployer dans Azure**. Assurez-vous que votre référentiel est public. Utilisez l’[opération Items](/rest/api/azure/devops/git/items/get) pour récupérer le modèle. Votre requête doit respecter le format suivant :
 
 ```http
 https://dev.azure.com/{organization-name}/{project-name}/_apis/git/repositories/{repository-name}/items?scopePath={url-encoded-path}&api-version=6.0
@@ -90,7 +90,7 @@ Encodez cette URL de demande.
 
 Enfin, mettez le lien et l’image ensemble.
 
-Pour ajouter le bouton dans le fichier README.md de votre référentiel GitHub ou d’une page web en utilisant Markdown, utilisez :
+Pour ajouter le bouton dans le fichier _README.md_ de votre référentiel GitHub ou d’une page web en utilisant Markdown, utilisez :
 
 ```markdown
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-storage-account-create%2Fazuredeploy.json)
@@ -122,4 +122,4 @@ Le portail affiche un volet qui vous permet de fournir facilement des valeurs de
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour apprendre à créer des modèles, consultez [Comprendre la structure et la syntaxe des modèles Azure Resource Manager](template-syntax.md).
+- Pour en savoir plus sur les modèles, voir [Comprendre la structure et la syntaxe des modèles ARM](template-syntax.md).

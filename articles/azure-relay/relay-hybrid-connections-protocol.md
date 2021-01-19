@@ -3,18 +3,18 @@ title: Guide du protocole de connexions hybrides Azure Relay | Microsoft Docs
 description: Cet article décrit les interactions côté client avec le relais Connexions hybrides pour la connexion de clients ayant le rôle d’expéditeur ou d’écouteur.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 8a812aa401077b81934d89ada99cf1dc312d8dbc
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 36321f88de173a37c9aa6615c4c0f2b29aec9f20
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96862324"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976960"
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Protocole de connexions hybrides Azure Relay
 
 Azure Relay est l’une des fonctionnalités clés de la plateforme Azure Service Bus. La nouvelle fonctionnalité _Connexions hybrides_ de Relay est une évolution sécurisée, à protocole ouvert, sur HTTP et WebSocket. Elle remplace l’ancienne fonctionnalité, nommée _BizTalk Services_, conçue sur un protocole propriétaire. L’intégration des connexions hybrides dans Azure App Services continue de fonctionner telle quelle.
 
-La fonctionnalité Connexions hybrides permet d’établir une communication de flux binaire bidirectionnel et un flux de datagrammes simple entre deux applications en réseau. L’une de ces applications ou les deux peuvent se trouver derrière un NAT ou un pare-feu.
+La fonctionnalité Connexions hybrides permet d’établir une communication bidirectionnelle de requête-réponse et de flux binaire et un flux de datagrammes simple entre deux applications en réseau. L’une de ces applications ou les deux peuvent se trouver derrière des NAT ou des pare-feu.
 
 Cet article décrit les interactions côté client avec le relais Connexions hybrides pour la connexion de clients ayant le rôle d’expéditeur ou d’écouteur. Cet article décrit également la façon dont les écouteurs acceptent de nouvelles connexions et requêtes.
 
@@ -49,7 +49,7 @@ Dans le cas des connexions hybrides, s’il existe plusieurs écouteurs actifs, 
 Quand un expéditeur ouvre une nouvelle connexion sur le service, celui-ci choisit et informe l’un des écouteurs actifs sur la connexion hybride. Cette notification est envoyée à l’écouteur sur le canal de contrôle ouvert sous la forme d’un message JSON. Ce message contient l’URL du point de terminaison du WebSocket auquel doit se connecter l’écouteur pour accepter la connexion.
 
 L’URL peut et doit être utilisée directement par l’écouteur sans aucun travail supplémentaire.
-Les informations encodées sont valides uniquement pendant une courte durée, correspondant pour l’essentiel au temps que l’expéditeur est disposé à attendre que la connexion soit établie de bout en bout, mais sans dépasser 30 secondes. L’URL ne peut être utilisée que pour une seule tentative de connexion réussie. Dès que la connexion du WebSocket à l’URL de rencontre est établie, toutes les activités supplémentaires sur ce WebSocket sont relayées à partir et en direction de l’expéditeur. Cette opération s’effectue sans aucune intervention ni interprétation par le service.
+Les informations encodées sont valides uniquement pendant une courte durée, correspondant pour l’essentiel au temps que l’expéditeur est disposé à attendre que la connexion soit établie de bout en bout, mais sans dépasser 30 secondes. L’URL ne peut être utilisée que pour une seule tentative de connexion réussie. Dès que la connexion du WebSocket à l’URL de rencontre est établie, toutes les activités supplémentaires sur ce WebSocket sont relayées à partir et en direction de l’expéditeur. Ce comportement se produit sans aucune intervention ni interprétation par le service.
 
 ### <a name="request-message"></a>Message de requête
 
@@ -65,7 +65,7 @@ Le flux de requêtes/réponses utilise le canal de contrôle par défaut, mais p
 
 Sur le canal de contrôle, la taille du corps des requêtes et des réponses ne doit pas dépasser 64 Ko. Quant aux métadonnées d’en-tête HTTP, elles sont limitées à une taille totale de 32 Ko. Si la requête ou la réponse dépassent ce seuil, l’écouteur DOIT effectuer une mise à niveau vers un WebSocket de rencontre à l’aide d’une opération équivalente au traitement du message [d’acceptation](#accept-message).
 
-Pour les requêtes, le service décide d’acheminer ou non les requêtes sur le canal de contrôle. Ceci inclut notamment les cas dans lesquels la taille d’une requête dépasse sensiblement 64 Ko (en-têtes + corps), ou lorsque la requête est envoyée avec un [encodage de transfert en bloc](https://tools.ietf.org/html/rfc7230#section-4.1) et que le service a des raisons de s’attendre à ce que la requête dépasse 64 Ko ou à ce que la lecture de la requête ne soit pas instantanée. Si le service choisit de distribuer la requête par le biais du point de rencontre, il transmet uniquement l’adresse de ce dernier à l’écouteur.
+Pour les requêtes, le service décide d’acheminer ou non les requêtes sur le canal de contrôle. Ceci inclut notamment les cas dans lesquels la taille d’une requête dépasse sensiblement 64 ko (en-têtes + corps), ou lorsque la requête est envoyée avec un [encodage de transfert en bloc](https://tools.ietf.org/html/rfc7230#section-4.1) et que le service a des raisons de s’attendre à ce que la requête dépasse 64 ko ou à ce que la lecture de la requête ne soit pas instantanée. Si le service choisit de distribuer la requête par le biais du point de rencontre, il transmet uniquement l’adresse de ce dernier à l’écouteur.
 L’écouteur DOIT alors établir le WebSocket de rencontre, après quoi le service distribue rapidement la requête complète, y compris le corps, sur ce WebSocket. La réponse DOIT également utiliser le WebSocket de rencontre.
 
 Dans le cas des requêtes qui arrivent sur le canal de contrôle, l’écouteur décide de répondre ou non sur le canal de contrôle ou par le biais du socket de rencontre. Le service DOIT inclure une adresse de rencontre avec chaque requête acheminée sur le canal de contrôle. Cette adresse est uniquement valide pour la mise à niveau à partir de la requête actuelle.
@@ -202,7 +202,7 @@ L’URL doit être utilisée telle quelle pour établir le socket d’acceptatio
 `{path}` est le chemin de l’espace de noms encodé au format URL de la connexion hybride préconfigurée sur laquelle cet écouteur doit être inscrit. Cette expression est ajoutée à la partie fixe `$hc/` du chemin.
 
 L’expression `path` peut être étendue par un suffixe et une expression de chaîne de requête qui suit le nom inscrit après une barre oblique de séparation.
-Cela permet au client expéditeur de transmettre des arguments à l’écouteur quand il n’est pas possible d’inclure des en-têtes HTTP. L’objectif est que le framework de l’écouteur analyse la partie fixe du chemin et le nom inscrit dans le chemin, et rende le reste (éventuellement sans argument de chaîne de requête préfixé par `sb-`), accessible à l’application pour que celle-ci puisse décider d’accepter ou non la connexion.
+Ce paramètre permet au client expéditeur de transmettre des arguments à l’écouteur quand il n’est pas possible d’inclure des en-têtes HTTP. L’objectif est que le framework de l’écouteur analyse la partie fixe du chemin et le nom inscrit dans le chemin, et rende le reste (éventuellement sans argument de chaîne de requête préfixé par `sb-`), accessible à l’application pour que celle-ci puisse décider d’accepter ou non la connexion.
 
 Pour plus d’informations, consultez la section suivante, « Protocole de l’expéditeur ».
 
@@ -249,7 +249,7 @@ En cas de réussite, cette liaison échoue intentionnellement avec un code d’e
 Le message `request` est envoyé par le service à l’écouteur sur le canal de contrôle. Le même message est également envoyé par le biais du WebSocket de rencontre, une fois ce dernier établi.
 
 Le message `request` comporte deux parties : un en-tête et une ou plusieurs trames de corps binaires.
-S’il n’existe aucun corps, les trames de corps sont omises. L’indicateur qui détermine si un corps est ou non présent correspond à la propriété `body` booléenne dans le message de requête.
+S’il n’existe aucun corps, les trames de corps sont omises. La propriété booléenne `body` indique si un corps est présent dans le message de requête.
 
 Dans le cas d’une requête avec un corps, la structure peut ressembler à ceci :
 
@@ -303,7 +303,7 @@ Le contenu JSON pour `request` est le suivant :
   * `Upgrade` (RFC7230, section 6.7)
   * `Close` (RFC7230, section 8.1)
 
-* **requestTarget** : chaîne. Cette propriété contient la [« cible de requête » (RFC7230, section 5.3)](https://tools.ietf.org/html/rfc7230#section-5.3) de la requête. Ceci inclut la partie chaîne de la requête, qui est supprimée de TOUS les paramètres présentant le préfixe `sb-hc-`.
+* **requestTarget** : chaîne. Cette propriété contient la [« cible de requête » (RFC7230, section 5.3)](https://tools.ietf.org/html/rfc7230#section-5.3) de la requête. Elle inclut la partie chaîne de la requête, qui est supprimée de TOUS les paramètres présentant le préfixe `sb-hc-`.
 * **method** : chaîne. Il s’agit de la méthode de la requête, conformément à [RFC7231, section 4](https://tools.ietf.org/html/rfc7231#section-4). La méthode `CONNECT` NE DOIT PAS être utilisée.
 * **body** : valeur booléenne. Indique si une ou plusieurs trames de corps binaires suivent ou non.
 
@@ -453,7 +453,7 @@ Si la connexion du WebSocket est intentionnellement arrêtée par le service apr
 | --------- | ------------------------------------------------------------------------------- 
 | 1 000      | L’écouteur a fermé le socket.
 | 1001      | Le chemin d’accès de la connexion hybride a été supprimé ou désactivé.
-| 1008      | Le jeton de sécurité a expiré et, par conséquent, la stratégie d’autorisation n’est pas respectée.
+| 1008      | Le jeton de sécurité ayant expiré, la stratégie d’autorisation n’est pas respectée.
 | 1010      | Un problème est survenu dans le service.
 
 ### <a name="http-request-protocol"></a>Protocole de requête HTTP
@@ -467,7 +467,7 @@ https://{namespace-address}/{path}?sb-hc-token=...
 
 _namespace-address_ est le nom de domaine complet de l’espace de noms Azure Relay qui héberge la connexion hybride, généralement de la forme `{myname}.servicebus.windows.net`.
 
-La demande peut contenir des en-têtes HTTP arbitraires supplémentaires, notamment ceux définis par l’application. Tous les en-têtes fournis, à l’exception de ceux directement définis dans RFC7230 (voir la section relative au [message de requête](#request-message)) sont transmis à l’écouteur et se trouvent sur l’objet `requestHeader` du message de **requête**.
+La demande peut contenir des en-têtes HTTP arbitraires supplémentaires, notamment ceux définis par l’application. Tous les en-têtes fournis, à l’exception de ceux directement définis dans RFC7230 (voir [Message de requête](#request-message)) sont transmis à l’écouteur et se trouvent sur l’objet `requestHeader` du message de **requête**.
 
 Voici les options de paramètres des chaînes de requête :
 
@@ -494,7 +494,7 @@ En cas d’erreur, le service peut répondre comme suit. Il est possible de dét
 | 403  | Interdit       | Le jeton de sécurité n’est pas valide pour ce chemin et pour cette action.
 | 500  | Erreur interne  | Un problème est survenu dans le service.
 | 503  | Passerelle incorrecte     | La requête n’a pas pu être acheminée vers un écouteur.
-| 504  | Dépassement du délai de la passerelle | La requête a été acheminée vers un écouteur, mais ce dernier n’a pas accusé réception dans le délai requis.
+| 504  | Dépassement du délai de la passerelle | La requête a été acheminée vers un écouteur, mais ce dernier n’a pas accusé réception dans le délai imparti.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

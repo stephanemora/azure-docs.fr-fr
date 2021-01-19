@@ -1,24 +1,24 @@
 ---
 title: Définir l’ordre de déploiement des ressources
-description: Décrit la procédure permettant de définir une ressource comme dépendante d’une autre ressource au cours du déploiement. Les dépendances garantissent que le déploiement des ressources s’effectue dans l’ordre adéquat.
+description: Décrit la procédure permettant de définir une ressource Azure comme dépendante d’une autre ressource au cours du déploiement. Les dépendances garantissent que le déploiement des ressources s’effectue dans l’ordre adéquat.
 ms.topic: conceptual
 ms.date: 12/21/2020
-ms.openlocfilehash: a96dca0ab30d0baee2688427d78867ea128e673a
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: f6b63b066da06a17c3a2e51ab0f3ab9bf521a144
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97722009"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934745"
 ---
 # <a name="define-the-order-for-deploying-resources-in-arm-templates"></a>Définir l’ordre de déploiement des ressources dans les modèles ARM
 
-Quand vous déployez des ressources, vous devez éventuellement vous assurer que certaines ressources existent au préalable avant d’autres ressources. Par exemple, vous avez besoin d’un serveur SQL logique avant de déployer une base de données. Vous établissez cette relation en marquant une seule ressource comme dépendante de l’autre ressource. Utilisez l’élément **dependsOn** pour définir une dépendance explicite. Utilisez les fonctions **reference** ou **list** pour définir une dépendance implicite.
+Quand vous déployez des ressources, vous devez éventuellement vous assurer que certaines ressources existent au préalable avant d’autres ressources. Par exemple, vous avez besoin d’un serveur SQL logique avant de déployer une base de données. Vous établissez cette relation en marquant une seule ressource comme dépendante de l’autre ressource. Utilisez l’élément `dependsOn` pour définir une dépendance explicite. Utilisez les fonctions **reference** ou **list** pour définir une dépendance implicite.
 
-Resource Manager évalue les dépendances entre les ressources et les déploie dans leur ordre dépendant. Quand les ressources ne dépendent pas les unes des autres, Resource Manager les déploie en parallèle. Vous devez uniquement définir des dépendances pour les ressources qui sont déployées dans le même modèle.
+Azure Resource Manager évalue les dépendances entre les ressources et les déploie dans leur ordre dépendant. Quand les ressources ne dépendent pas les unes des autres, Resource Manager les déploie en parallèle. Vous devez uniquement définir des dépendances pour les ressources qui sont déployées dans le même modèle.
 
 ## <a name="dependson"></a>dependsOn
 
-Dans votre modèle, l’élément dependsOn vous permet de définir une ressource comme une dépendance sur une ou plusieurs ressources. Sa valeur est un tableau JSON de chaînes, chacune d’elles représentant un nom de ressource ou un ID. Le tableau peut inclure des ressources [déployées de manière conditionnelle](conditional-resource-deployment.md). Quand une ressource conditionnelle n’est pas déployée, Azure Resource Manager la supprime automatiquement des dépendances nécessaires.
+Dans votre modèle Azure Resource Manager (modèle ARM), l’élément `dependsOn` vous permet de définir une ressource comme dépendante d’une ou de plusieurs ressources. Sa valeur est un tableau JavaScript Object Notation (JSON) de chaînes, chacune d’elles représentant un nom ou un ID de ressource. Le tableau peut inclure des ressources [déployées de manière conditionnelle](conditional-resource-deployment.md). Quand une ressource conditionnelle n’est pas déployée, Azure Resource Manager la supprime automatiquement des dépendances nécessaires.
 
 L’exemple suivant montre une interface réseau qui dépend d’un réseau virtuel, d’un groupe de sécurité réseau et d’une adresse IP publique. Pour obtenir le modèle complet, consultez le [modèle de démarrage rapide pour une machine virtuelle Linux](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-simple-linux/azuredeploy.json).
 
@@ -37,11 +37,11 @@ L’exemple suivant montre une interface réseau qui dépend d’un réseau virt
 }
 ```
 
-Vous pouvez être tenté d’utiliser dependsOn pour mapper les relations entre vos ressources. Il est toutefois important de comprendre pourquoi vous le faites. Par exemple, pour documenter la manière dont les ressources sont liées entre elles, dependsOn n’est pas la bonne approche. Vous ne pouvez pas lancer de requête pour savoir quelles ressources ont été définies dans l’élément dependsOn après le déploiement. La définition de dépendances inutiles ralentit le temps de déploiement, Resource Manager ne pouvant pas déployer ces ressources en parallèle.
+Vous pouvez être tenté d’utiliser `dependsOn` pour mapper les relations entre vos ressources. Il est toutefois important de comprendre pourquoi vous le faites. Par exemple, pour documenter la manière dont les ressources sont liées entre elles, `dependsOn` n’est pas la bonne approche. Vous ne pouvez pas lancer de requête pour savoir quelles ressources ont été définies dans l’élément `dependsOn` après le déploiement. La définition de dépendances inutiles ralentit le temps de déploiement, Resource Manager ne pouvant pas déployer ces ressources en parallèle.
 
 ## <a name="child-resources"></a>Ressources enfants
 
-Aucune dépendance de déploiement implicite n’est créée automatiquement entre une [ressource enfant](child-resource-name-type.md) et la ressource parent. Si vous devez déployer la ressource enfant après la ressource parent, définissez la propriété dependsOn.
+Aucune dépendance de déploiement implicite n’est créée automatiquement entre une [ressource enfant](child-resource-name-type.md) et la ressource parent. Si vous devez déployer la ressource enfant après la ressource parent, définissez la propriété `dependsOn`.
 
 L’exemple suivant montre un serveur SQL et une base de données. Notez qu’une dépendance explicite est définie entre la base de données et le serveur, même si la base de données est un enfant du serveur.
 
@@ -85,13 +85,13 @@ Les expressions de référence et de liste déclarent implicitement qu’une res
 
 Pour appliquer une dépendance implicite, reportez-vous à la ressource par son nom, et non par son ID de ressource. Si vous transmettez l’ID de ressource dans les fonctions reference ou list, une référence implicite n’est pas créée.
 
-Le format général de la fonction reference est :
+Le format général de la fonction `reference` est :
 
 ```json
 reference('resourceName').propertyPath
 ```
 
-Le format général de la fonction listKeys est :
+Le format général de la fonction `listKeys` est :
 
 ```json
 listKeys('resourceName', 'yyyy-mm-dd')
@@ -165,7 +165,7 @@ L’exemple suivant montre comment déployer plusieurs machines virtuelles. Le m
 }
 ```
 
-L’exemple suivant montre comment déployer trois comptes de stockage avant de déployer la machine virtuelle. Notez que le nom de l’élément copy a la valeur `storagecopy` et que l’élément dependsOn pour la machine virtuelle est également défini sur `storagecopy`.
+L’exemple suivant montre comment déployer trois comptes de stockage avant de déployer la machine virtuelle. Notez que le nom de l’élément `copy` a `name` défini sur `storagecopy` et que l’élément `dependsOn` de la machine virtuelle est également défini sur `storagecopy`.
 
 ```json
 {
@@ -213,10 +213,9 @@ Pour plus d’informations sur l’évaluation de l’ordre de déploiement et l
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour un didacticiel, consultez [Didacticiel : créer des modèles Azure Resource Manager avec des ressources dépendantes](template-tutorial-create-templates-with-dependent-resources.md).
+* Pour suivre un tutoriel, consultez [Tutoriel : Créer des modèles ARM avec des ressources dépendantes](template-tutorial-create-templates-with-dependent-resources.md).
 * Pour lire un module Microsoft Learn qui aborde les dépendances de ressources, consultez [Gérer des déploiements cloud complexes à l’aide des fonctionnalités avancées de modèle ARM](/learn/modules/manage-deployments-advanced-arm-template-features/).
-* Pour obtenir des recommandations lors de la définition des dépendances, consultez [Bonnes pratiques relatives aux modèles Azure Resource Manager](template-best-practices.md).
+* Pour obtenir des recommandations lors de la définition des dépendances, consultez [Meilleures pratiques relatives aux modèles ARM](template-best-practices.md).
 * Pour en savoir plus sur la résolution des problèmes liés aux dépendances lors du déploiement, consultez [Résolution des erreurs courantes dans des déploiements Azure avec Azure Resource Manager](common-deployment-errors.md).
-* Pour en savoir plus sur la création de modèles Azure Resource Manager, consultez [Création de modèles](template-syntax.md).
-* Pour obtenir la liste des fonctions disponibles dans un modèle, consultez [Fonctions de modèle](template-functions.md).
-
+* Pour apprendre à créer des modèles Azure Resource Manager, consultez [Comprendre la structure et la syntaxe des modèles ARM](template-syntax.md).
+* Pour obtenir la liste des fonctions disponibles dans un modèle, consultez [Fonctions de modèle ARM](template-functions.md).

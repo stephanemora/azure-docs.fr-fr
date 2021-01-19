@@ -3,12 +3,12 @@ title: Qu’est-ce qu’Azure Relay ? | Microsoft Docs
 description: Cet article fournit une vue d’ensemble du service Azure Relay, qui vous permet de développer des applications cloud qui utilisent des services locaux exécutés dans votre réseau d’entreprise sans ouvrir de connexion de pare-feu ni apporter de modifications intrusives à votre infrastructure réseau.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 0c9a67bcad47ad2e7284bcf6e70914d2ffb06a8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fbf1b2134a4c2dce7a3e6a62668d0852dc08c18a
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85322647"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955380"
 ---
 # <a name="what-is-azure-relay"></a>Qu’est-ce qu’Azure Relay ?
 Le service Azure Relay vous permet d’exposer en toute sécurité les services exécutés dans votre réseau d’entreprise sur le cloud public. Vous pouvez le faire sans ouvrir de port sur votre pare-feu ni apporter de changements intrusifs à votre infrastructure réseau d’entreprise. 
@@ -17,7 +17,7 @@ Le service de relais prend en charge les scénarios suivants entre les services 
 
 - Communication unidirectionnelle standard, de requête/réponse et d’homologue à homologue 
 - Répartition des événements sur Internet pour activer des scénarios de publication/d’abonnement 
-- Communication par socket bidirectionnelle et non mise en mémoire tampon au-delà des limites du réseau.
+- Communication par socket bidirectionnelle et non mise en mémoire tampon au-delà des limites du réseau
 
 Azure Relay est différent des technologies d’intégration au niveau du réseau telles que VPN. Un relais Azure peut être limité à un point de terminaison à une application sur une seule machine. La technologie VPN est beaucoup plus intrusive, car elle repose sur la modification de l’environnement réseau. 
 
@@ -56,7 +56,7 @@ Connexions hybrides et WCF Relay permettent une connexion sécurisée aux actifs
 | **WCF** |x | |
 | **.NET Core** | |x |
 | **.NET Framework** |x |x |
-| **Script Java/Node.JS** | |x |
+| **JavaScript/Node.js** | |x |
 | **Protocole Open basé sur des normes** | |x |
 | **Modèles de programmation RPC** | |x |
 

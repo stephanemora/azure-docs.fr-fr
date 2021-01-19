@@ -3,17 +3,17 @@ title: Conditions du package de dessin dans Microsoft Azure Maps Creator (préve
 description: Découvrez les exigences du package de dessin pour convertir les fichiers de conception de votre bâtiment en données cartographiques.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 12/07/2020
+ms.date: 1/08/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: 26b6273b4dd2371790025515e35b71d1fc863ebe
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: bed5373cbb9967bd1d86bb80bb3a449430c3b6ae
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96903460"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98044779"
 ---
 # <a name="drawing-package-requirements"></a>Exigences du package de dessin
 
@@ -41,7 +41,7 @@ Voici quelques termes et définitions importants pour faciliter la lecture de ce
 | Couche | Calque DWG AutoCAD.|
 | Level | Zone d’un immeuble à une élévation définie. Par exemple, l’étage d’un immeuble. |
 | Xref  |Fichier au format DWG AutoCAD (.dwg) attaché au dessin principal en tant que référence externe.  |
-| Fonctionnalité | Objet combinant une géométrie avec des informations de métadonnées supplémentaires. |
+| Fonctionnalité | Objet combinant une géométrie avec davantage d’informations de métadonnées. |
 | Classes de caractéristiques | Blueprint commun pour les caractéristiques. Par exemple, une *unité* est une classe de caractéristiques et un *bureau* est une caractéristique. |
 
 ## <a name="drawing-package-structure"></a>Structure de package de dessin
@@ -49,9 +49,9 @@ Voici quelques termes et définitions importants pour faciliter la lecture de ce
 Un package de dessin est une archive. zip contenant les fichiers suivants :
 
 * Fichiers DWG au format de fichier DWG AutoCAD.
-* Fichier _manifest.json_ pour un seul bâtiment.
+* Fichier _manifest.json_ qui décrit les fichiers DWG dans le package de dessin.
 
-Vous pouvez organiser les fichiers DWG à votre guise dans le dossier, mais le fichier manifeste doit se trouver dans le répertoire racine du dossier. Vous devez compresser le dossier dans un fichier d’archive unique, avec une extension. zip. Les sections suivantes détaillent les exigences relatives aux fichiers DWG, au fichier manifeste et au contenu de ces fichiers.  
+Le package de dessin doit être compressé dans un fichier d’archive unique, avec l’extension .zip. Les fichiers DWG peuvent être organisés d’une façon quelconque dans le package, mais le fichier manifeste doit se trouver dans le répertoire racine du package compressé. Les sections suivantes détaillent les exigences relatives aux fichiers DWG, au fichier manifeste et au contenu de ces fichiers.
 
 ## <a name="dwg-files-requirements"></a>Exigences relatives aux fichiers DWG
 
@@ -60,6 +60,7 @@ Un fichier DWG unique est requis pour chaque niveau du bâtiment. Les données d
 * Doit définir les calques _Extérieur_ et _Unité_. Il peut éventuellement définir les calques facultatifs suivants : _Mur_, _Porte_, _UnitLabel_, _Zone_ et _ZoneLabel_.
 * Ne doit pas contenir de caractéristiques de plusieurs niveaux.
 * Ne doit pas contenir de caractéristiques de plusieurs bâtiments.
+* Doit faire référence au même système de mesure et à la même unité de mesure que les autres fichiers DWG dans le package de dessin.
 
 Le [service de conversion d’Azure Maps](/rest/api/maps/conversion) peut extraire d’un fichier DWG les classes de caractéristiques suivantes :
 
@@ -78,19 +79,19 @@ Les calques DWG doivent également respecter les critères suivants :
 
 * Les origines des dessins de tous les fichiers DWG doivent s’aligner sur les mêmes latitude et longitude.
 * Chaque niveau doit être dans la même orientation que les autres niveaux.
-* Les polygones avec auto-intersection sont automatiquement réparés, et le [service de conversion d’Azure Maps](/rest/api/maps/conversion) génère un avertissement. Vous devez inspecter manuellement les résultats réparés, car ils peuvent ne pas correspondre aux résultats attendus.
+* Les polygones avec auto-intersection sont automatiquement réparés, et le [service de conversion d’Azure Maps](/rest/api/maps/conversion) génère un avertissement. Il est recommandé d’inspecter manuellement les résultats réparés, car ils peuvent ne pas correspondre aux résultats attendus.
 
-Toutes les entités de calque doivent être de l’un des types suivants : Ligne, Polyligne, Polygone, Arc circulaire, Cercle ou Texte (ligne unique). Tous les autres types d’entités sont ignorés.
+Toutes les entités de calque doivent être de l’un des types suivants : Ligne, Polyligne, Polygone, Arc circulaire, Cercle, Ellipse (fermée) ou Texte (ligne unique). Tous les autres types d’entités sont ignorés.
 
-Le tableau suivant présente les types d’entités et les caractéristiques pris en charge pour chaque calque. Si un calque contient des types d’entités non pris en charge, le [service de conversion d’Azure Maps](/rest/api/maps/conversion) ignore ces entités.  
+Le tableau ci-dessous présente les types d’entités pris en charge et les caractéristiques cartographiques converties pour chaque couche. Si un calque contient des types d’entités non pris en charge, le [service de conversion d’Azure Maps](/rest/api/maps/conversion) ignore ces entités.  
 
-| Couche | Types d’entités | Fonctionnalités |
+| Couche | Types d’entités | Caractéristiques converties |
 | :----- | :-------------------| :-------
-| [Extérieur](#exterior-layer) | Polygone, Polyligne (fermée), Cercle | Niveaux
-| [Unité](#unit-layer) |  Polygone, Polyligne (fermée), Cercle | Pénétrations verticales, Unités
-| [Mur](#wall-layer)  | Polygone, Polyligne (fermée), Cercle | Non applicable. Pour plus d’informations, consultez [Calque Mur](#wall-layer).
+| [Extérieur](#exterior-layer) | Polygone, Polyligne (fermée), Cercle, Ellipse (fermée) | Niveaux
+| [Unité](#unit-layer) |  Polygone, Polyligne (fermée), Cercle, Ellipse (fermée) | Pénétrations verticales, Unité
+| [Mur](#wall-layer)  | Polygone, Polyligne (fermée), Cercle, Ellipse (fermée) | Non applicable. Pour plus d’informations, consultez [Calque Mur](#wall-layer).
 | [Porte](#door-layer) | Polygone, Polyligne, Ligne, Arc circulaire, Cercle | Ouvertures
-| [Zone](#zone-layer) | Polygone, Polyligne (fermée), Cercle | Zone
+| [Zone](#zone-layer) | Polygone, Polyligne (fermée), Cercle, Ellipse (fermée) | Zone
 | [UnitLabel](#unitlabel-layer) | Texte (ligne unique) | Non applicable. Ce calque ne peut ajouter des propriétés aux caractéristiques de l’unité qu’à partir du calque Unités. Pour plus d’informations, consultez [Calque UnitLabel](#unitlabel-layer).
 | [ZoneLabel](#zonelabel-layer) | Texte (ligne unique) | Non applicable. Ce calque ne peut ajouter des propriétés aux caractéristiques de la zone qu’à partir du calque ZonesLayer. Pour plus d’informations, consultez [Calque ZoneLabel](#zonelabel-layer).
 
@@ -102,8 +103,10 @@ Le fichier DWG pour chaque niveau doit contenir un calque pour définir le péri
 
 Quel que soit le nombre de dessins d’entité dans le calque Extérieur, le [jeu de données du bâtiment obtenu](tutorial-creator-indoor-maps.md#create-a-feature-stateset) ne contient qu’une seule caractéristique de niveau pour chaque fichier DWG. De plus :
 
-* Les calques extérieurs doivent être dessinés en tant que Polygone, Polyligne (fermée) ou Cercle.
+* Les calques extérieurs doivent être dessinés en tant que Polygone, Polyligne (fermée), Cercle ou Ellipse (fermée).
 * Les calques extérieurs peuvent se chevaucher, mais sont fusionnés dans une seule géométrie.
+* La caractéristique Niveau obtenue doit être d’au moins 4 mètres carrés.
+* La caractéristique Niveau obtenue ne doit pas être supérieure à 400 mètres carrés.
 
 Si le calque contient plusieurs polylignes qui se chevauchent, celles-ci sont fusionnées en une seule caractéristique Niveau. Par ailleurs, si le calque contient plusieurs polylignes ne se chevauchant pas, la caractéristique Niveau obtenue a une représentation multi-polygonale.
 
@@ -111,9 +114,11 @@ Vous pouvez consulter un exemple de calque Extérieur en tant que calque contour
 
 ### <a name="unit-layer"></a>Calque Unité
 
-Le fichier DWG pour chaque niveau doit définir un calque contenant des unités. Les unités sont des espaces navigables dans le bâtiment, tels que des bureaux, des couloirs, des escaliers et des ascenseurs. Le calque Unités doit respecter les exigences suivantes :
+Le fichier DWG pour chaque niveau doit définir un calque contenant des unités. Les unités sont des espaces navigables dans le bâtiment, tels que des bureaux, des couloirs, des escaliers et des ascenseurs. Si la propriété `VerticalPenetrationCategory` est définie, les unités navigables qui s’étendent sur plusieurs niveaux, telles que les ascenseurs et les escaliers, sont converties en caractéristiques Pénétration verticale. Une valeur `setid` est attribuée aux caractéristiques de pénétration verticale qui se chevauchent.
 
-* Les unités doivent être dessinées en tant que Polygone, Polyligne (fermée) ou Cercle.
+Le calque Unités doit respecter les exigences suivantes :
+
+* Les unités doivent être dessinées en tant que Polygone, Polyligne (fermée), Cercle ou Ellipse (fermée).
 * Les unités doivent se trouver à l’intérieur des limites du périmètre extérieur du bâtiment.
 * Les unités ne doivent pas se chevaucher partiellement.
 * Les unités ne doivent pas contenir de géométrie avec auto-intersection.
@@ -126,7 +131,7 @@ Vous pouvez consulter un exemple de calque Unités dans l’[exemple de package 
 
 Le fichier DWG pour chaque niveau peut contenir un calque qui définit les étendues physiques de murs, de colonnes et d’autres structures de bâtiment.
 
-* Les murs doivent être dessinés en tant que Polygone, Polyligne (fermée) ou Cercle.
+* Les murs doivent être dessinés en tant que Polygone, Polyligne (fermée), Cercle ou Ellipse (fermée).
 * Les calques Mur doivent contenir uniquement une géométrie interprétée comme une structure de bâtiment.
 
 Vous pouvez consulter un exemple de calque Murs dans l’[exemple de package de dessin](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
@@ -141,9 +146,9 @@ Les ouvertures de portes d’un jeu de données Azure Maps sont représentées s
 
 ### <a name="zone-layer"></a>Calque Zones
 
-Le fichier DWG pour chaque niveau peut contenir un calque Zones qui définit les étendues physiques de zones. Une zone peut être un espace vide ou une cour.
+Le fichier DWG pour chaque niveau peut contenir un calque Zones qui définit les étendues physiques de zones. Une zone est un espace non navigable qui peut être nommé et rendu. Les zones peuvent s’étendre sur plusieurs niveaux et sont regroupées à l’aide de la propriété zoneSetId.
 
-* Les zones doivent être dessinées en tant que Polygone, Polyligne (fermée) ou Cercle.
+* Les zones doivent être dessinées en tant que Polygone, Polyligne (fermée) ou Ellipse (fermée).
 * Les zones peuvent se chevaucher.
 * Les zones peuvent se trouver à l’intérieur ou à l’extérieur du périmètre extérieur du bâtiment.
 
@@ -153,7 +158,7 @@ Vous pouvez consulter un exemple de calque Zone dans l’[exemple de package de 
 
 ### <a name="unitlabel-layer"></a>Claque UnitLabel
 
-Le fichier DWG pour chaque niveau peut contenir un calque UnitLabel. Le calque UnitLabel ajoute une propriété de nom aux unités extraites du calque Unité. Les unités ayant une propriété de nom peuvent avoir des détails supplémentaires spécifiés dans le fichier manifeste.
+Le fichier DWG pour chaque niveau peut contenir un calque UnitLabel. Le calque UnitLabel ajoute une propriété de nom aux unités extraites du calque Unité. Les unités ayant une propriété de nom peuvent avoir plus de détails spécifiés dans le fichier manifeste.
 
 * Les étiquettes d’unité doivent être des entités texte d’une seule ligne.
 * Les étiquettes d’unité doivent se trouver dans les limites de leur unité.
@@ -163,7 +168,7 @@ Vous pouvez consulter un exemple de calque UnitLabel dans l’[exemple de packag
 
 ### <a name="zonelabel-layer"></a>Calque ZoneLabel
 
-Le fichier DWG pour chaque niveau peut contenir un calque ZoneLabel. Ce calque ajoute une propriété de nom aux zones extraites du claque Zones. Les zones ayant une propriété de nom peuvent avoir des détails supplémentaires spécifiés dans le fichier manifeste.
+Le fichier DWG pour chaque niveau peut contenir un calque ZoneLabel. Ce calque ajoute une propriété de nom aux zones extraites du claque Zones. Les zones ayant une propriété de nom peuvent avoir plus de détails spécifiés dans le fichier manifeste.
 
 * Les étiquettes de zone doivent être des entités texte d’une seule ligne.
 * Les étiquettes de zone doivent se trouver dans les limites de leur zone.
@@ -186,8 +191,8 @@ Bien que des exigences s’appliquent à l’utilisation des objets de manifeste
 | `buildingLevels` | true | Spécifie les niveaux des bâtiments et les fichiers contenant la conception des niveaux. |
 | `georeference` | true | Contient des informations géographiques numériques pour le dessin du bâtiment. |
 | `dwgLayers` | true | Répertorie les noms des calques, et chaque calque répertorie les noms de ses propres caractéristiques. |
-| `unitProperties` | false | Peut être utilisée pour insérer des métadonnées supplémentaires pour les caractéristiques d’unité. |
-| `zoneProperties` | false | Peut être utilisée pour insérer des métadonnées supplémentaires pour les caractéristiques de zone. |
+| `unitProperties` | false | Peut être utilisé pour insérer plus de métadonnées pour les caractéristiques d’unité. |
+| `zoneProperties` | false | Peut être utilisé pour insérer plus de métadonnées pour les caractéristiques de zone. |
 
 Les sections suivantes détaillent les exigences pour chaque objet.
 
@@ -260,7 +265,7 @@ L’objet `unitProperties` contient un tableau JSON de propriétés d’unité.
 |`verticalPenetrationDirection`|    string|    false    |Si la valeur `verticalPenetrationCategory` est définie, définissez éventuellement la direction de déplacement valide. Les valeurs autorisées sont `lowToHigh`, `highToLow`, `both` et `closed`. La valeur par défaut est `both`.|
 | `nonPublic` | bool | false | Indique si l’unité est ouverte au public. |
 | `isRoutable` | bool | false | Lorsque cette propriété est définie sur `false`, vous ne pouvez pas accéder ou traverser l’unité. La valeur par défaut est `true`. |
-| `isOpenArea` | bool | false | Permet à l’agent de navigation d’entrer dans l’unité sans qu’il soit nécessaire d’attacher une ouverture à celle-ci. Par défaut, cette valeur est définie sur `true` pour les unités sans ouvertures, et sur `false` pour les unités avec ouvertures. Le fait d’attribuer manuellement à `isOpenArea` la valeur `false` sur une unité sans ouverture donne lieu à un avertissement. Cela est dû au fait que l’unité qui en découle n’est pas accessible à un agent de navigation.|
+| `isOpenArea` | bool | false | Permet à l’agent de navigation d’entrer dans l’unité sans qu’il soit nécessaire d’attacher une ouverture à celle-ci. Par défaut, cette valeur est définie sur `true` pour les unités sans ouvertures, et sur `false` pour les unités avec ouvertures. La définition manuelle de `isOpenArea` sur `false` sur une unité sans ouvertures entraîne un avertissement, car l’unité résultante n’est pas accessible par un agent de navigation.|
 
 ### `zoneProperties`
 
@@ -276,7 +281,7 @@ L’objet `zoneProperties` contient un tableau JSON de propriétés de zone.
 
 ### <a name="sample-drawing-package-manifest"></a>Exemple de manifeste du package de dessin
 
-Vous trouverez ci-dessous un exemple de fichier manifeste pour l’exemple du package de dessin. Pour télécharger l’intégralité du package, consultez l’[exemple de package de dessin](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+Voici le fichier manifeste pour l’exemple de package de dessin. Pour télécharger l’intégralité du package, consultez l’[exemple de package de dessin](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 
 #### <a name="manifest-file"></a>Fichier manifeste
 

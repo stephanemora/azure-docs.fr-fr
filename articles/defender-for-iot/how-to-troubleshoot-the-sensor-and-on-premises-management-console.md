@@ -4,15 +4,15 @@ description: Dépannez votre capteur et la console de gestion locale pour élimi
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/12/2020
+ms.date: 1/3/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: a57db4f88de4a3b32b4fb315fb331500f955d501
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: b91827fc0a6fb8380c9f8aa87a3def3bc1819523
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97835768"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955431"
 ---
 # <a name="troubleshoot-the-sensor-and-on-premises-management-console"></a>Résoudre les problèmes du capteur et de la console de gestion locale
 
@@ -28,22 +28,33 @@ Cet article décrit les outils de dépannage de base pour le capteur et la conso
 
 ### <a name="investigate-password-failure-at-initial-sign-in"></a>Examiner l’échec du mot de passe lors de la connexion initiale
 
-Lorsque vous vous connectez pour la première fois à un capteur Arrow préconfiguré, vous devez récupérer le mot de passe comme suit :
+Lorsque vous vous connectez pour la première fois à un capteur Arrow préconfiguré, vous devez récupérer le mot de passe.
 
-1. Sur l’écran de connexion Defender pour IoT, sélectionnez l’option **Récupération du mot de passe**. 
+Pour récupérer votre mot de passe :
 
-   L’écran **Récupération du mot de passe** s’ouvre. À partir de là, vous êtes invité à sélectionner l’utilisateur et l’abonnement et vous recevez un identificateur unique.
+1. Sur l’écran de connexion Defender pour IoT, sélectionnez **Récupération du mot de passe**. L’écran **Récupération du mot de passe** s’ouvre.
 
-1. Accédez à la page **Sites et capteurs** de Defender pour IoT et sélectionnez l’onglet **Récupérer mon mot de passe**.
+1. Sélectionnez **CyberX** ou **Support**, puis copiez l’identificateur unique.
+
+1. Accédez au portail Azure et sélectionnez **Sites et capteurs**.  
+
+1. Sélectionnez l’onglet **Récupérer le mot de passe de la console de gestion locale**.
+
+   :::image type="content" source="media/password-recovery-images/recover-button.png" alt-text="Sélectionnez le bouton Récupérer le mot de passe de la console de gestion locale pour télécharger le fichier de récupération.":::
 
 1. Entrez l’identificateur unique que vous avez reçu sur l’écran **Récupération du mot de passe**, puis sélectionnez **Récupérer**. Le fichier `password_recovery.zip` est téléchargé.
 
-   > [!NOTE]
-   > Ne modifiez pas le fichier d’activation. Il s’agit d’un fichier signé qui ne fonctionnera pas si vous le falsifiez.
+    > [!NOTE]
+    > Ne modifiez pas le fichier de récupération du mot de passe. Il s’agit d’un fichier signé qui ne fonctionnera pas si vous le falsifiez.
 
-1. Sur l’écran **Récupération du mot de passe**, chargez le fichier `password_recovery.zip` et sélectionnez **Suivant**.
+1. Sur l’écran **Récupération du mot de passe**, sélectionnez **Charger**. La fenêtre **Charger le fichier de récupération du mot de passe** s’ouvre.
 
-Vous recevez ensuite le mot de passe généré par le système pour votre console de gestion. 
+1. Sélectionnez **Parcourir** pour localiser votre fichier `password_recovery.zip` ou faites glisser `password_recovery.zip` sur la fenêtre.
+
+1. Sélectionnez **Suivant**, et votre utilisateur et le mot de passe généré par le système pour votre console de gestion s’affichent alors.
+
+    > [!NOTE]
+    > Lorsque vous vous connectez pour la première fois à un capteur ou à une console de gestion locale, il sera lié à l’abonnement avec lequel vous vous êtes connecté. Si vous devez réinitialiser le mot de passe pour l’utilisateur CyberX ou Support, vous devez sélectionner cet abonnement. Pour plus d’informations sur la récupération d’un mot de passe d’utilisateur CyberX ou Support, consultez [Réinitialisation du mot de passe d’un utilisateur pour le capteur ou la console de gestion locale](how-to-create-and-manage-users.md#resetting-a-users-password-for-the-sensor-or-on-premises-management-console).
 
 ### <a name="investigate-a-lack-of-traffic"></a>Examiner un manque de trafic
 
@@ -65,35 +76,35 @@ Pour vérifier les performances du système :
 
    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/dashboard-view-v2.png" alt-text="Capture d’écran d’un exemple de tableau de bord."::: 
 
-2. Dans le menu latéral, sélectionnez **Appareils**.
+1. Dans le menu latéral, sélectionnez **Appareils**.
 
-3. Dans la fenêtre **Appareils**, vérifiez que les appareils sont bien détectés.
+1. Dans la fenêtre **Appareils**, vérifiez que les appareils sont bien détectés.
 
     :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/discovered-devices.png" alt-text="Vérifiez que les appareils sont détectés.":::
 
-4. Dans le menu latéral, sélectionnez **Exploration de données**.
+1. Dans le menu latéral, sélectionnez **Exploration de données**.
 
-5. Dans la fenêtre **Exploration de données**, sélectionnez **TOUT** et générez un rapport.
+1. Dans la fenêtre **Exploration de données**, sélectionnez **TOUT** et générez un rapport.
 
     :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/new-report-generated.png" alt-text="Générez un nouveau rapport à l’aide de l’exploration de données.":::
 
-6. Assurez-vous que le rapport contient des données.
+1. Assurez-vous que le rapport contient des données.
 
     :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/new-report-generated.png" alt-text="Assurez-vous que le rapport contient des données.":::
 
-7. Dans le menu latéral, sélectionnez **Tendances et statistiques**.
+1. Dans le menu latéral, sélectionnez **Tendances et statistiques**.
 
-8. Dans la fenêtre **Tendances et statistiques**, sélectionnez **Ajouter un widget**.
+1. Dans la fenêtre **Tendances et statistiques**, sélectionnez **Ajouter un widget**.
 
     :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/add-widget.png" alt-text="Ajoutez un widget en le sélectionnant.":::
 
-9. Ajoutez un widget et assurez-vous qu’il affiche des données.
+1. Ajoutez un widget et assurez-vous qu’il affiche des données.
 
     :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/widget-data.png" alt-text="Vérifiez que le widget présente des données.":::
 
-10. Dans le menu latéral, sélectionnez **Alertes**. La fenêtre **Alertes** apparaît.
+1. Dans le menu latéral, sélectionnez **Alertes**. La fenêtre **Alertes** apparaît.
 
-11. Vérifiez que les alertes ont été créées.
+1. Vérifiez que les alertes ont été créées.
 
     :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/alerts-created.png" alt-text="Vérifiez que les alertes ont été créées.":::
 
@@ -154,9 +165,9 @@ Pour corriger la configuration :
 
 1. Cliquez avec le bouton droit sur l’icône du cloud sur la carte des appareils, puis sélectionnez **Exporter des adresses IP**. Copiez les plages publiques qui sont privées et ajoutez-les à la liste des sous-réseaux. Pour plus d’informations, consultez [Configurer des sous-réseaux](how-to-control-what-traffic-is-monitored.md#configure-subnets).
 
-2. Générez un nouveau rapport d’exploration de données pour les connexions Internet.
+1. Générez un nouveau rapport d’exploration de données pour les connexions Internet.
 
-3. Dans le rapport d’exploration de données, sélectionnez :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/administrator-mode.png" border="false"::: pour passer en mode administrateur et supprimer les adresses IP de vos périphériques ICS.
+1. Dans le rapport d’exploration de données, sélectionnez :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/administrator-mode.png" border="false"::: pour passer en mode administrateur et supprimer les adresses IP de vos périphériques ICS.
 
 ### <a name="tweak-the-sensors-quality-of-service"></a>Ajuster la qualité de service du capteur
 
@@ -179,7 +190,7 @@ Pour affiner la qualité de service :
    > [!NOTE]
    > Pour une appliance physique, utilisez l’interface em1.
 
-2. Pour désactiver la limitation de l’interface, entrez `sudo cyberx-xsense-limit-interface -i eth0 -l 1mbps -c`.
+1. Pour désactiver la limitation de l’interface, entrez `sudo cyberx-xsense-limit-interface -i eth0 -l 1mbps -c`.
 
 ## <a name="on-premises-management-console-troubleshooting-tools"></a>Outils de dépannage de la console de gestion locale
 
@@ -203,7 +214,7 @@ Pour affiner la qualité de service :
 
 1. Connectez-vous en tant qu’utilisateur Defender pour IoT. 
 
-2. Vérifiez les valeurs par défaut :
+1. Vérifiez les valeurs par défaut :
 
    ```bash
    grep \"notifications\" /var/cyberx/properties/management.properties
@@ -216,20 +227,20 @@ Pour affiner la qualité de service :
    notifications.max_time_to_report=10 (seconds)
    ```
 
-3. Modifiez les paramètres par défaut :
+1. Modifiez les paramètres par défaut :
 
    ```bash
    sudo nano /var/cyberx/properties/management.properties
    ```
 
-4. Modifiez les paramètres des lignes suivantes :
+1. Modifiez les paramètres des lignes suivantes :
 
    ```bash
    notifications.max_number_to_report=50
    notifications.max_time_to_report=10 (seconds)
    ```
 
-5. Enregistrez les modifications. Aucun redémarrage n'est requis.
+1. Enregistrez les modifications. Aucun redémarrage n'est requis.
 
 ## <a name="export-information-for-troubleshooting"></a>Exporter des informations pour résoudre les problèmes
 
@@ -239,13 +250,13 @@ Pour exporter des journaux :
 
 1. Dans le volet gauche, sélectionnez **Paramètres du système**.
 
-2. Sélectionnez **Exporter les journaux d’activité**.
+1. Sélectionnez **Exporter les journaux d’activité**.
 
     :::image type="content" source="media/how-to-export-information-for-troubleshooting/export-a-log.png" alt-text="Exportez un journal vers le support du système.":::
 
-3. Dans la zone **Nom de fichier**, entrez le nom du fichier que vous souhaitez utiliser pour l’exportation des journaux. La valeur par défaut est la date actuelle.
+1. Dans la zone **Nom de fichier**, entrez le nom du fichier que vous souhaitez utiliser pour l’exportation des journaux. La valeur par défaut est la date actuelle.
 
-4. Pour définir les données que vous souhaitez exporter, sélectionnez les catégories de données :  
+1. Pour définir les données que vous souhaitez exporter, sélectionnez les catégories de données :  
 
     | Catégorie d’exportation | Description |
     |--|--|
@@ -264,9 +275,9 @@ Pour exporter des journaux :
     | **Journaux de base de données** | Sélectionnez cette option pour exporter les journaux de la base de données système. L’examen des journaux système facilite l’identification des problèmes sur le système. |
     | **Configuration** | Sélectionnez cette option pour exporter des informations sur tous les paramètres configurables afin de vérifier que tout a été correctement configuré. |
 
-5. Pour sélectionner toutes les options, sélectionnez **Sélectionner tout** à côté de **Choisir des catégories**.
+1. Pour sélectionner toutes les options, sélectionnez **Sélectionner tout** à côté de **Choisir des catégories**.
 
-6. Sélectionnez **Exporter les journaux d’activité**.
+1. Sélectionnez **Exporter les journaux d’activité**.
 
 Les journaux exportés sont ajoutés à la liste **Journaux archivés**. Envoyez le mot de passe à usage unique à l’équipe du support technique dans un message et sur un support distincts des journaux exportés. L’équipe du support technique ne pourra extraire les journaux exportés qu’en utilisant le mot de passe unique utilisé pour chiffrer les journaux.
 

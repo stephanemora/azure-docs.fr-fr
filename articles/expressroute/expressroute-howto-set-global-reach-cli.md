@@ -5,15 +5,15 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 12/12/2018
+ms.date: 01/07/2021
 ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 16a86982813b667ed5c761da27c8e9e5a43ab6cc
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 27f16ac7d7d799c5467b11fd93352dc5fdef666c
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322493"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028061"
 ---
 # <a name="configure-expressroute-global-reach-by-using-the-azure-cli"></a>Configurer ExpressRoute Global Reach à l’aide d’Azure CLI
 
@@ -48,7 +48,7 @@ az account set --subscription <your subscription ID>
 
 ### <a name="identify-your-expressroute-circuits-for-configuration"></a>Identifiez les circuits ExpressRoute à configurer
 
-Vous pouvez activer ExpressRoute Global Reach entre deux circuits ExpressRoute, à condition qu’ils se situent dans les pays/régions pris en charge et qu’ils aient été créés dans des emplacements de peering différents. Si votre abonnement comprend les deux circuits, vous pouvez choisir celui de votre choix pour exécuter la configuration comme cela est expliqué dans cet article. Si les deux circuits se trouvent dans des abonnements Azure différents, vous devez avoir l’autorisation d’un abonnement Azure et transférer sa clé d’autorisation quand vous exécutez la commande de configuration dans l’autre abonnement Azure.
+Vous pouvez activer Global Reach ExpressRoute entre deux circuits ExpressRoute quelconques. Les circuits doivent se trouver dans des pays/régions pris en charge et avoir été créés à différents emplacements de Peering. Si votre abonnement possède les deux circuits, vous pouvez sélectionner le circuits de votre choix pour exécuter la configuration. Toutefois, si les deux circuits se trouvent dans des abonnements Azure différents, vous devez créer une clé d’autorisation à partir de l’un des circuits. À l’aide de la clé d’autorisation générée par le premier circuit, vous pouvez activer Global Reach sur le second circuit.
 
 ## <a name="enable-connectivity-between-your-on-premises-networks"></a>Autoriser la connexion entre vos réseaux locaux
 
@@ -58,7 +58,7 @@ Quand vous exécutez la commande pour activer la connectivité, tenez compte des
 
   > /subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}
 
-* *address-prefix* doit correspondre à un sous-réseau IPv4 « /29 » (par exemple, « 10.0.0.0/29 »). Nous utilisons les adresses IP de ce sous-réseau pour établir la connexion entre les deux circuits ExpressRoute. Vous ne devez pas les utiliser dans vos réseaux virtuels Azure ou vos réseaux locaux.
+* *address-prefix* doit correspondre à un sous-réseau IPv4 « /29 » (par exemple, « 10.0.0.0/29 »). Nous utilisons les adresses IP de ce sous-réseau pour établir la connexion entre les deux circuits ExpressRoute. Vous ne pouvez pas les utiliser dans vos réseaux virtuels Azure ou vos réseaux locaux.
 
 Exécutez la commande CLI suivante pour connecter deux circuits ExpressRoute :
 
@@ -94,7 +94,7 @@ Une fois cette opération terminée, la connexion entre vos réseaux locaux est 
 
 ## <a name="enable-connectivity-between-expressroute-circuits-in-different-azure-subscriptions"></a>Activer la connectivité entre des circuits ExpressRoute dans des abonnements Azure différents
 
-Si les deux circuits ne se trouvent pas dans le même abonnement Azure, vous avez besoin d’une autorisation. Dans la configuration suivante, vous générez l’autorisation dans l’abonnement du circuit 2 et vous passez la clé d’autorisation au circuit 1.
+Si les deux circuits ne se trouvent pas dans le même abonnement Azure, vous avez besoin d’une autorisation. Dans la configuration suivante, vous générez une autorisation dans l’abonnement du circuit 2. Transmettez ensuite la clé d’autorisation au circuit 1.
 
 1. Générez une clé d’autorisation :
 

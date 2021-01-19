@@ -5,13 +5,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 author: kanshiG
 ms.author: govindk
-ms.date: 06/25/2020
-ms.openlocfilehash: dc47f2f7a0f1586b197d14015fe2167293c806c6
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.date: 01/07/2021
+ms.openlocfilehash: ec82532b54e7834b62fcc03d3ee7de1345a0f546
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099332"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98027774"
 ---
 # <a name="how-to-monitor-normalized-rus-for-an-azure-cosmos-container-or-an-account"></a>Comment surveiller des unités de requête normalisée par seconde pour un conteneur ou un compte Azure Cosmos
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -26,13 +26,11 @@ Lorsque la consommation normalisée de RU/s atteint 100 % pour une plage de cl�
 
 Les métriques Azure Monitor vous permettent de rechercher des opérations selon leur code d’état de l’API SQL via la métrique **Total Requests** (Nombre total de requêtes). Plus tard, vous pouvez filtrer ces requêtes par selon le code d’état 429 et les diviser selon le critère **Operation Type** (Type d’opération).  
 
-Pour rechercher les requêtes à débit limité, la méthode recommandée consiste à obtenir ces informations par le biais des journaux de diagnostic.
+Pour rechercher les requêtes, dont le nombre est limité, la méthode recommandée consiste à obtenir ces informations par le biais des journaux de diagnostic.
 
-S’il existe un pic continu de 100 % de consommation de RU/s normalisé ou proche de 100 % parmi plusieurs plages de clés de partition, il est recommandé d’augmenter le débit. Vous pouvez déterminer quelles opérations sont lourdes, ainsi que leurs pics d’utilisation en utilisant les métriques et les journaux de diagnostic d’analyse d’Azure.
+S’il existe un pic continu de consommation de 100 % de RU/s normalisées ou proche de 100 % sur plusieurs plages de clés de partition, il est recommandé d’augmenter le débit. Vous pouvez déterminer quelles opérations sont lourdes, ainsi que leurs pics d’utilisation en utilisant les métriques et les journaux de diagnostic d’analyse d’Azure.
 
-En résumé, la mesure **Consommation d’unités de requête normalisée** permet de déterminer la plage de clés de partition qui est plus chaude en termes d’utilisation. Ainsi, vous obtenez l’inclinaison du débit vers une plage de clés de partition. Vous pouvez ensuite suivre le journal **PartitionKeyRUConsumption** dans Azure Monitor pour obtenir des informations sur les clés de partition logique qui sont très utilisées. Cela pointera vers la modification dans le choix de la clé de partition ou la modification de la logique d’application. Pour résoudre la limitation du débit, distribuez la charge de données entre plusieurs partitions ou augmentez simplement le débit, car cela est véritablement nécessaire. 
-
-
+En résumé, la mesure **Consommation d’unités de requête normalisée** permet de déterminer la plage de clés de partition qui est plus chaude en termes d’utilisation. Ainsi, vous obtenez l’inclinaison du débit vers une plage de clés de partition. Vous pouvez ensuite suivre le journal **PartitionKeyRUConsumption** dans Azure Monitor pour obtenir des informations sur les clés de partition logique qui sont très utilisées. Cela pointera vers la modification dans le choix de la clé de partition ou la modification de la logique d’application. Pour résoudre la limitation du débit, distribuez la charge de données entre plusieurs partitions ou augmentez simplement le débit selon les besoins. 
 
 ## <a name="view-the-normalized-request-unit-consumption-metric"></a>Afficher la métrique de consommation d’unités de requête normalisée
 
@@ -42,23 +40,23 @@ En résumé, la mesure **Consommation d’unités de requête normalisée** perm
 
    :::image type="content" source="./media/monitor-normalized-request-units/monitor-metrics-blade.png" alt-text="Volet Métriques dans Azure Monitor":::
 
-3. À partir du volet **Métriques** > **Sélectionner une ressource** > choisissez l’ **abonnement** exigé, puis **Groupe de ressources**. Pour le **type de ressource** , sélectionnez **Comptes Azure Cosmos DB** , choisissez une de vos comptes Azure Cosmos existants, puis sélectionnez **Appliquer**.
+3. À partir du volet **Métriques** > **Sélectionner une ressource** > choisissez l’**abonnement** exigé, puis **Groupe de ressources**. Pour le **type de ressource**, sélectionnez **Comptes Azure Cosmos DB**, choisissez une de vos comptes Azure Cosmos existants, puis sélectionnez **Appliquer**.
 
    :::image type="content" source="./media/monitor-normalized-request-units/select-cosmos-db-account.png" alt-text="Choisir un compte Azure Cosmos pour afficher les métriques":::
 
 4. Ensuite, vous pouvez sélectionner une métrique dans la liste des métriques disponibles. Vous pouvez sélectionner des métriques propres aux unités de requête, au stockage, à la latence, à la disponibilité, à Cassandra, etc. Pour découvrir de plus près toutes les métriques disponibles dans cette liste, consultez l’article [Métriques par catégorie](monitor-cosmos-db-reference.md). Dans cet exemple, nous allons sélectionner la métrique **Normalized RU Consumption** (Consommation d’unités de requête normalisée) et la valeur d’agrégation **Max**.
 
-   En plus de ces détails, vous pouvez également sélectionner l’ **intervalle de temps** et la **granularité temporelle** des métriques. Au maximum, vous pouvez voir les métriques des 30 derniers jours.  Une fois que vous avez appliqué le filtre, un graphique s’affiche.
+   En plus de ces détails, vous pouvez également sélectionner l’**intervalle de temps** et la **granularité temporelle** des métriques. Au maximum, vous pouvez voir les métriques des 30 derniers jours.  Une fois que vous avez appliqué le filtre, un graphique s’affiche.
 
    :::image type="content" source="./media/monitor-normalized-request-units/normalized-request-unit-usage-metric.png" alt-text="Choisir une métrique à partir du portail Azure":::
 
 ### <a name="filters-for-normalized-request-unit-consumption"></a>Filtres pour la consommation d’unités de requête normalisée
 
-Vous pouvez également filtrer les métriques et le graphique affiché par une valeur **CollectionName** , **DatabaseName** , **PartitionKeyRangeID** , et **Region** spécifique. Pour filtrer les métriques, sélectionnez **Add filter** (Ajouter un filtre), puis choisissez la propriété requise, par exemple **CollectionName** , ainsi que la valeur correspondante qui vous intéresse. Le graphique affiche ensuite les unités de consommation d’unités de requête normalisée consommées pour le conteneur pour la période sélectionnée.  
+Vous pouvez également filtrer les métriques et le graphique affiché par une valeur **CollectionName**, **DatabaseName**, **PartitionKeyRangeID**, et **Region** spécifique. Pour filtrer les métriques, sélectionnez **Add filter** (Ajouter un filtre), puis choisissez la propriété requise, par exemple **CollectionName**, ainsi que la valeur correspondante qui vous intéresse. Le graphique affiche ensuite les unités de consommation d’unités de requête normalisée consommées pour le conteneur pour la période sélectionnée.  
 
-Vous pouvez regrouper des métriques à l’aide de l’option **Appliquer la division**.  
+Vous pouvez regrouper des métriques à l’aide de l’option **Appliquer la division**. Pour les bases de données à débit partagé, la métrique des RU normalisées indique uniquement les données à la granularité de la base de données, elle n’affiche aucune donnée par collection. Par conséquent, pour la base de données à débit partagé, vous ne verrez aucune donnée lorsque vous appliquerez le fractionnement par nom de collection.
 
-La métrique de consommation de l’unité de requête normalisée pour chaque conteneur s’affiche comme indiqué dans l’image suivante :
+La métrique de consommation des unités de requête normalisées pour chaque conteneur s’affiche comme indiqué dans l’image suivante :
 
 :::image type="content" source="./media/monitor-normalized-request-units/normalized-request-unit-usage-filters.png" alt-text="Appliquer des filtres à la métrique de consommation d’unités de requête normalisée":::
 

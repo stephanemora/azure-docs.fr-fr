@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: 05258e201c65138e53e861f0631eb33e08c9c199
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 2c03e6940d392e3e2c03bf6508de41a7a19aef3b
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92673590"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063771"
 ---
 # <a name="migrate-a-javascript-single-page-app-from-implicit-grant-to-auth-code-flow"></a>Migrer une application monopage JavaScript de l’octroi implicite vers le flux de code d’autorisation
 
-La bibliothèque d’authentification Microsoft pour JavaScript (MSAL.js) v2.0 offre une prise en charge du flux de code d’autorisation avec PKCE et CORS pour les applications monopages sur la plateforme des identités Microsoft. Effectuez les étapes décrites dans les sections ci-dessous pour migrer votre application MSAL.js 1.x utilisant l’octroi implicite vers MSAL.js 2.0+ (nommé *2.x* dans la suite de cet article) et le flux de code d’authentification.
+La bibliothèque d’authentification Microsoft pour JavaScript (MSAL.js) v2.0 offre une prise en charge du flux de code d’autorisation avec PKCE et CORS pour les applications monopages sur la plateforme d’identités Microsoft. Effectuez les étapes décrites dans les sections ci-dessous pour migrer votre application MSAL.js 1.x utilisant l’octroi implicite vers MSAL.js 2.0+ (nommé *2.x* dans la suite de cet article) et le flux de code d’authentification.
 
 MSAL.js 2.x offre une amélioration par rapport à MSAL.js 1.x en prenant en charge le flux de code d’autorisation dans le navigateur au lieu du flux d’octroi implicite. MSAL.js 2.x ne prend **PAS** en charge le flux implicite.
 
@@ -29,8 +29,8 @@ MSAL.js 2.x offre une amélioration par rapport à MSAL.js 1.x en prenant en c
 
 Pour mettre à jour votre application vers MSAL.js 2.x et le flux de code d’authentification, trois étapes principales sont nécessaires :
 
-1. Basculer vos URI de redirection d’ [inscription d’application](#switch-redirect-uris-to-spa-platform) de la plateforme **web** vers la plateforme **Application monopage**
-1. Mettre à jour votre [code](#switch-redirect-uris-to-spa-platform) de MSAL.js 1.x vers la version  **2.x**
+1. Basculer vos URI de redirection d’[inscription d’application](#switch-redirect-uris-to-spa-platform) de la plateforme **web** vers la plateforme **Application monopage**
+1. Mettre à jour votre [code](#switch-redirect-uris-to-spa-platform) de MSAL.js 1.x vers la version **2.x**
 1. Désactiver l’[octroi implicite](#disable-implicit-grant-settings) dans votre inscription d’application quand toutes les applications qui partagent l’inscription ont été mises à jour vers MSAL.js 2.x et le flux de code d’authentification
 
 Les sections suivantes décrivent en détail chaque étape.
@@ -39,20 +39,20 @@ Les sections suivantes décrivent en détail chaque étape.
 
 Si vous souhaitez continuer à utiliser votre inscription d’application existante pour vos applications, utilisez le portail Azure pour mettre à jour les URI de redirection de l’inscription vers la plateforme d’application monopage (SPA). Cela active le flux de code d’autorisation avec prise en charge de PKCE et CORS pour les applications qui utilisent l’inscription (vous devez quand même mettre à jour le code de votre application vers MSAL.js v2.x).
 
-Effectuez ces étapes pour les inscriptions d’applications qui sont actuellement configurées avec des URI de redirection de plateforme **web**  :
+Effectuez ces étapes pour les inscriptions d’applications qui sont actuellement configurées avec des URI de redirection de plateforme **web** :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) et sélectionnez votre locataire **Azure Active Directory** .
-1. Dans **Inscriptions d’applications** , sélectionnez votre application, puis **Authentification** .
-1. Dans la vignette de plateforme **web** sous **URI de redirection** , sélectionnez la bannière d’avertissement indiquant que vous devez migrer vos URI.
+1. Connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure <span class="docon docon-navigate-external x-hidden-focus"></span></a> et sélectionnez votre locataire **Azure Active Directory**.
+1. Dans **Inscriptions d’applications**, sélectionnez votre application, puis **Authentification**.
+1. Dans la vignette de plateforme **web** sous **URI de redirection**, sélectionnez la bannière d’avertissement indiquant que vous devez migrer vos URI.
 
     :::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-01-implicit-warning-banner.png" alt-text="Bannière d’avertissement de flux implicite sur la vignette d’application web dans le portail Azure":::
-1. Sélectionnez *uniquement* les URI de redirection dont les applications utiliseront MSAL.js 2.x, puis sélectionnez **Configurer** .
+1. Sélectionnez *uniquement* les URI de redirection dont les applications utiliseront MSAL.js 2.x, puis sélectionnez **Configurer**.
 
-    :::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-02-select-redirect-uri.png" alt-text="Bannière d’avertissement de flux implicite sur la vignette d’application web dans le portail Azure":::
+    :::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-02-select-redirect-uri.png" alt-text="Sélectionnez le volet URI de redirection dans le volet SPA du portail Azure":::
 
-Ces URI de redirection doivent maintenant apparaître dans la vignette de plateforme **Application monopage** , indiquant que la prise en charge de CORS avec le flux de code d’autorisation et PKCE est activée pour ces URI.
+Ces URI de redirection doivent maintenant apparaître dans la vignette de plateforme **Application monopage**, indiquant que la prise en charge de CORS avec le flux de code d’autorisation et PKCE est activée pour ces URI.
 
-:::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-03-spa-redirect-uri-tile.png" alt-text="Bannière d’avertissement de flux implicite sur la vignette d’application web dans le portail Azure":::
+:::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-03-spa-redirect-uri-tile.png" alt-text="Vignette d’application monopage dans l’inscription d’application dans le portail Azure":::
 
 Vous pouvez également [créer une inscription d’application](scenario-spa-app-registration.md) au lieu de mettre à jour les URI de redirection dans votre inscription existante.
 
