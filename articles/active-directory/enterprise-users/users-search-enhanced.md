@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/03/2020
+ms.date: 01/11/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 296679135063e2c7e1b7f0e3ffd193c8f18c3acf
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 5038bde01a6b183a25a47f3b4e206c1ce80e6b6d
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576262"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127836"
 ---
 # <a name="user-management-enhancements-preview-in-azure-active-directory"></a>Améliorations de la gestion des utilisateurs (préversion) dans Azure Active Directory
 
@@ -60,6 +60,9 @@ Voici la liste des propriétés utilisateur affichées dans la page **Tous les u
 - Nom : Nom complet de l'utilisateur.
 - Nom d’utilisateur principal : Nom d’utilisateur principal (UPN) de l’utilisateur.
 - Type d’utilisateur : Membre, invité, aucun.
+- Date/heure de création : date et heure de création de l'utilisateur.
+- Poste : poste occupé par l'utilisateur.
+- Service : service dans lequel l'utilisateur travaille.
 - Annuaire synchronisé : indique si l’utilisateur est synchronisé à partir d’un annuaire local.
 - Émetteur d’identité : émetteurs de l’identité utilisée pour se connecter à un compte d’utilisateur.
 - ID d’objet : ID d’objet de l’utilisateur.
@@ -76,7 +79,8 @@ Voici la liste des propriétés utilisateur affichées dans la page **Tous les u
 La page **Utilisateurs supprimés** comprend toutes les colonnes qui sont disponibles dans la page **Tous les utilisateurs**, ainsi que quelques colonnes supplémentaires, à savoir :
 
 - Date de suppression : date à laquelle l’utilisateur a été supprimé pour la première fois de l’organisation (l’utilisateur peut être restauré).
-- Date de suppression permanente : Date à partir de laquelle le processus de suppression définitive de l’utilisateur de l’organisation commence automatiquement. 
+- Date de suppression permanente : Date à partir de laquelle le processus de suppression définitive de l’utilisateur de l’organisation commence automatiquement.
+- Nom d'utilisateur principal d'origine : nom d'utilisateur principal (UPN) d'origine de l'utilisateur avant que son ID d'objet ne soit ajouté comme préfixe à l'UPN supprimé.
 
 > [!NOTE]
 > Les dates de suppression sont affichées en temps universel coordonné (UTC).
@@ -105,6 +109,10 @@ Voici la liste des propriétés filtrables dans la page **Tous les utilisateurs*
 - Type d’utilisateur : Membre, invité, aucun
 - État de synchronisation d’annuaire : Oui, non
 - Type de création : Invitation, E-mail vérifié, Compte local
+- Date/heure de création : il y a 7, 14, 30, 90, 360 jours ou plus
+- Poste : entrez un poste
+- Service : entrez un nom de service
+- Groupe : recherchez un groupe
 - État de l’invitation : Acceptation en attente, Acceptée
 - Nom de domaine : entrez un nom de domaine
 - Nom de l’entreprise : entrez un nom de société
@@ -117,6 +125,9 @@ La page **Utilisateurs supprimés** contient des filtres supplémentaires qui ne
 - Type d’utilisateur : Membre, invité, aucun
 - État de synchronisation d’annuaire : Oui, non
 - Type de création : Invitation, E-mail vérifié, Compte local
+- Date/heure de création : il y a 7, 14, 30, 90, 360 jours ou plus
+- Poste : entrez un poste
+- Service : entrez un nom de service
 - État de l’invitation : En attente d’acceptation, Acceptée
 - Date de suppression : 7, 14 ou 30 derniers jours
 - Nom de domaine : entrez un nom de domaine

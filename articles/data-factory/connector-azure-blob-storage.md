@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/08/2020
-ms.openlocfilehash: 327ab63a048e08328cd5b1334b0a697a61ced6c8
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 85600bbee15dadcce7315300ffde481cbfc2e255
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97346328"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98034711"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Copier et transformer des données dans un stockage Azure Blob à l’aide d’Azure Data Factory
 
@@ -433,6 +433,9 @@ Les propriétés suivantes sont prises en charge pour le stockage d’objets blo
     }
 ]
 ```
+
+> [!NOTE]
+> Le conteneur `$logs`, qui est automatiquement créé au moment de l'activation de Storage Analytics pour un compte de stockage, n'apparaît pas lorsqu'une opération d'énumération des conteneurs est effectuée via l'interface utilisateur de Data Factory. Le chemin d'accès au fichier doit être fourni directement pour permettre à Data Factory de consommer les fichiers à partir du conteneur `$logs`.
 
 ### <a name="blob-storage-as-a-sink-type"></a>Stockage Blob en tant que type de récepteur
 

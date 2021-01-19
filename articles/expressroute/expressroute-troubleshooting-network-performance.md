@@ -5,21 +5,21 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: troubleshooting
-ms.date: 12/20/2017
+ms.date: 01/07/2021
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: a021d658711e77c3e3be0df722223cefe506abba
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 35e080e0fe45c18ad6a6d5392e0c78b116853c3e
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92204586"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98027466"
 ---
 # <a name="troubleshooting-network-performance"></a>Résolution des problèmes de performances réseau
 ## <a name="overview"></a>Vue d’ensemble
-Azure met à votre disposition des moyens stables et rapides pour vous connecter à Azure à partir de votre réseau local. Les méthodes telles que le VPN de site à site et ExpressRoute sont couramment utilisées par les clients de grande et petite tailles pour exécuter leurs activités dans Azure. Mais que se passe-t-il quand les performances ne sont pas à la hauteur de vos attentes ou expériences passées ? Ce document peut vous aider à standardiser la façon de tester et de planifier votre environnement.
+Azure met à votre disposition un moyen stable et rapide de vous connecter à Azure à partir de votre réseau local. Les méthodes telles que le VPN de site à site et ExpressRoute sont couramment utilisées par les clients de grande et petite tailles pour exécuter leurs activités dans Azure. Mais que se passe-t-il quand les performances ne sont pas à la hauteur de vos attentes ou expériences passées ? Cet article peut vous aider à standardiser la façon dont vous testez et planifiez votre environnement.
 
-Ce document vous montre comment tester la latence réseau et la bande passante entre deux hôtes de façon aisée et cohérente. Il fournit également des conseils sur la façon d’examiner le réseau Azure et d’isoler les points problématiques. Le script PowerShell et les outils présentés nécessitent deux hôtes sur le réseau (à chaque extrémité de la liaison testée). L’un des hôtes doit être doté de Windows Server ou Windows Desktop, l’autre peut être doté de Windows ou de Linux. 
+Vous apprendrez à tester la latence réseau et la bande passante entre deux hôtes de façon aisée et cohérente. Vous bénéficierez également de conseils pour examiner le réseau Azure afin d'isoler les points problématiques. Le script PowerShell et les outils présentés nécessitent deux hôtes sur le réseau (à chaque extrémité de la liaison testée). L’un des hôtes doit être doté de Windows Server ou Windows Desktop, l’autre peut être doté de Windows ou de Linux. 
 
 >[!NOTE]
 >L’approche de résolution des problèmes, les outils et les méthodes utilisés sont des préférences personnelles. Ce document décrit les outils et l’approche dont je me sers souvent. Il est probable que votre approche soit différente ; il est en effet normal d’envisager des approches différentes pour résoudre des problèmes. Toutefois, si vous n’avez pas d’approche établie, ce document peut vous initier à l’élaboration de vos propres méthodes, outils et préférences en vue de résoudre les problèmes liés au réseau.
@@ -37,26 +37,28 @@ Sur le plan général, je décris trois domaines de routage réseau principaux :
 - Le réseau d’entreprise (cloud pêche à gauche)
 
 Observons brièvement chaque composant du diagramme, de droite à gauche :
- - **Machine virtuelle** : le serveur peut avoir plusieurs cartes réseau ; assurez-vous que les itinéraires statiques, les itinéraires par défaut et les paramètres de système d’exploitation envoient et reçoivent le trafic comme prévu. En outre, chaque référence de machine virtuelle a une restriction de bande passante. Si vous utilisez une référence de machine virtuelle plus petite, le trafic est limité par la bande passante disponible pour la carte réseau. En général, j’utilise un DS5v2 à des fins de test (que je supprime une fois les tests effectués pour économiser de l’argent) pour garantir une bande passante suffisante à la machine virtuelle.
+ - **Machine virtuelle** : le serveur peut comporter plusieurs cartes réseau. Vérifiez que les itinéraires statiques, les itinéraires par défaut et les paramètres du système d'exploitation envoient et reçoivent le trafic comme prévu. En outre, chaque référence de machine virtuelle a une restriction de bande passante. Si vous utilisez une référence de machine virtuelle plus petite, le trafic est limité par la bande passante disponible pour la carte réseau. En général, j’utilise un DS5v2 à des fins de test (que je supprime une fois les tests effectués pour économiser de l’argent) pour garantir une bande passante suffisante à la machine virtuelle.
  - **Carte réseau** : vérifiez que vous connaissez l’adresse IP privée qui est assignée à la carte réseau en question.
  - **Groupe de sécurité réseau (NSG) de la carte réseau** : plusieurs NSG spécifiques peuvent être appliqués au niveau de la carte réseau ; vérifiez que l’ensemble de règles NSG est approprié pour le trafic à faire passer. Par exemple, assurez-vous que les ports 5201 pour iPerf, 3389 pour RDP ou 22 pour SSH sont ouverts afin de permettre le passage du trafic test.
  - **Sous-réseau de réseau virtuel** : la carte réseau est assignée à un sous-réseau spécifique ; vérifiez que vous le connaissez, ainsi que les règles qui lui sont associées.
- - **Groupe de sécurité réseau de sous-réseau** : tout comme la carte réseau, des groupes de sécurité réseau peuvent être appliqués à ce sous-réseau. Assurez-vous que l’ensemble de règles NSG est approprié pour le trafic à faire passer. (Pour le trafic qui entre dans la carte réseau, le NSG du sous-réseau s’applique en premier, puis le NSG de la carte réseau ; à l’inverse, pour le trafic qui sort de la machine virtuelle, le NSG de la carte réseau s’applique en premier, puis le NSG du sous-réseau entre en jeu).
- - **UDR de sous-réseau**  : les routages définis par l’utilisateur peuvent diriger le trafic vers un tronçon intermédiaire (par exemple, un pare-feu ou un équilibreur de charge). Vérifiez s’il existe un UDR pour votre trafic et, si tel est le cas, déterminez sa position et la façon dont le tronçon suivant doit traiter le trafic. (Par exemple, un pare-feu peut laisser passer un trafic et en refuser un autre entre deux mêmes hôtes.)
+ - **Groupe de sécurité réseau de sous-réseau** : tout comme la carte réseau, des groupes de sécurité réseau peuvent être appliqués à ce sous-réseau. Assurez-vous que l’ensemble de règles NSG est approprié pour le trafic à faire passer. (Pour le trafic entrant sur la carte réseau, le groupe de sécurité réseau du sous-réseau s'applique en premier, suivi de celui de la carte réseau. Pour le trafic sortant de la machine virtuelle, le groupe de sécurité réseau s'applique en premier, suivi de celui du sous-réseau).
+ - **UDR de sous-réseau** : les itinéraires définis par l'utilisateur (UDR) peuvent diriger le trafic vers un tronçon intermédiaire (comme un pare-feu ou un équilibreur de charge). Déterminez si un UDR est en place pour votre trafic. Si tel est le cas, renseignez-vous sur sa direction et sur le rôle que jouera le tronçon suivant sur votre trafic. Par exemple, un pare-feu pourrait laisser passer une partie du trafic et en refuser une autre entre les mêmes hôtes.
  - **Sous-réseau de passerelle / groupe de sécurité réseau / UDR** : tout comme le sous-réseau de la machine virtuelle, le sous-réseau de passerelle peut avoir des groupes de sécurité réseau et des UDR. Vérifiez leur présence éventuelle et leur impact sur le trafic.
- - **Passerelle de réseau virtuel (ExpressRoute)** : une fois le peering (ExpressRoute) ou le VPN activé, peu de paramètres peuvent affecter le routage du trafic ou l’existence de ce routage. Si vous avez plusieurs circuits ExpressRoute ou tunnels VPN connectés à la même passerelle de réseau virtuel, vous devez connaître le paramétrage du poids de la connexion, car il affecte les préférences de connexion et le chemin emprunté par le trafic.
- - **Filtre de routage** (non affiché) : un filtre de routage s’applique seulement au peering Microsoft sur ExpressRoute, mais il est essentiel de vérifier si vous ne voyez pas les itinéraires attendus sur le peering Microsoft. 
+ - **Passerelle de réseau virtuel (ExpressRoute)** : une fois le peering (ExpressRoute) ou le VPN activé, peu de paramètres peuvent affecter le routage du trafic ou l’existence de ce routage. Si vous disposez d'une passerelle de réseau virtuel connectée à plusieurs circuits ExpressRoute ou tunnels VPN, vous devez connaître les paramètres de pondération de la connexion. La pondération de la connexion affecte les préférences de connexion et détermine le chemin emprunté par votre trafic.
+ - **Filtre d'itinéraire** (non affiché) : un filtre d'itinéraire est nécessaire lors de l'utilisation du Peering Microsoft via ExpressRoute. Si vous ne recevez aucun itinéraire, vérifiez que le filtre d'itinéraire est correctement configuré et appliqué au circuit.
 
-À ce stade, vous êtes sur la partie WAN de la liaison. Ce domaine de routage peut être votre fournisseur de services, votre réseau étendu d’entreprise ou Internet. Le nombre élevé de tronçons, de technologies et de sociétés concernés par ces liens peut rendre difficile la résolution des problèmes. Souvent, vous vous attachez d’abord à écarter Azure et vos réseaux d’entreprise avant de vous pencher sur cette multitude de sociétés et de tronçons.
+À ce stade, vous êtes sur la partie WAN de la liaison. Ce domaine de routage peut être votre fournisseur de services, votre réseau étendu d’entreprise ou Internet. De nombreux tronçons, appareils et entreprises sont concernés par ces liaisons, ce qui peut compliquer la résolution des problèmes. Vous devez d'abord écarter Azure et vos réseaux d'entreprise avant de pouvoir examiner les tronçons situés entre les deux.
 
 Dans le diagramme précédent, à l’extrême gauche se trouve votre réseau d’entreprise. Selon la taille de votre entreprise, ce domaine de routage peut regrouper quelques périphériques réseau entre vous et le réseau étendu ou plusieurs couches de périphériques sur un réseau de campus ou d’entreprise.
 
-Étant donné la complexité de ces trois environnements réseau généraux différents, il est souvent optimal de démarrer à la périphérie et d’essayer de déterminer où les performances sont bonnes et où elles se dégradent. Cette approche peut vous aider à identifier lequel des trois domaines de routage est problématique, puis à concentrer la résolution des problèmes sur cet environnement.
+Compte tenu de la complexité de ces trois environnements réseau de haut niveau, il est souvent préférable de commencer par les bords, et d'essayer d'indiquer où les performances sont satisfaisantes et où elles sont dégradées. Cette approche peut permettre d'identifier le domaine de routage problématique des trois. Vous pouvez ensuite concentrer votre résolution sur cet environnement spécifique.
 
 ## <a name="tools"></a>Outils
-La plupart des problèmes réseau peuvent être analysés et isolés à l’aide d’outils de base tels que ping et traceroute. Il est rare que vous deviez pousser jusqu’à effectuer une analyse de paquets à l’aide d’un outil tel que Wireshark. Pour vous aider à résoudre les problèmes, la boîte à outils de connectivité Azure (AzureCT) a été développée pour placer une partie de ces outils dans un package simple. Pour le test de performance, je préfère utiliser iPerf et PSPing. iPerf est un outil couramment utilisé et s’exécute sur la plupart des systèmes d’exploitation. iPerf convient pour les tests de performances de base et est relativement facile à utiliser. PSPing est un outil de test Ping développé par SysInternals. PSPing est un moyen simple pour effectuer des tests Ping ICMP et TCP au moyen d’une seule commande également facile à utiliser. Ces deux outils sont légers et vous pouvez les « installer » simplement en copiant les fichiers dans un répertoire sur l’hôte.
+La plupart des problèmes réseau peuvent être analysés et isolés à l’aide d’outils de base tels que ping et traceroute. Il est rare qu'il soit nécessaire d'effectuer une analyse de paquets à l'aide d'outils tels que Wireshark. 
 
-J’ai placé tous ces outils et méthodes dans un module PowerShell (AzureCT) que vous pouvez installer et utiliser.
+Pour vous aider à résoudre les problèmes, la boîte à outils de connectivité Azure (AzureCT) a été développée pour placer une partie de ces outils dans un package simple. Pour les tests de performances, des outils tels qu'iPerf et PSPing peuvent vous fournir des informations sur votre réseau. Relativement facile à utiliser, iPerf est un outil couramment utilisé pour les tests de performances de base. PSPing est un outil de test Ping développé par SysInternals. PSPing permet d'effectuer des tests ping ICMP et TCP pour atteindre un hôte distant. Ces deux outils sont légers et vous pouvez les « installer » simplement en copiant les fichiers dans un répertoire sur l’hôte.
+
+Ces outils et méthodes sont disponibles dans un module PowerShell (AzureCT) que vous pouvez installer et utiliser.
 
 ### <a name="azurect---the-azure-connectivity-toolkit"></a>AzureCT : la boîte à outils de connectivité Azure
 Le module PowerShell AzureCT comporte deux composants : [test de la disponibilité][Availability Doc] et [test de performance][Performance Doc]. Ce document ne concernant que le test de performance, concentrons-nous sur les deux commandes de test de la performance de la liaison incluses dans ce module PowerShell.
@@ -80,7 +82,7 @@ L’utilisation de cette boîte à outils pour tester les performances comprend 
 
 3. Exécuter le test de performance
 
-    Sur l’hôte distant, vous devez d’abord installer et exécuter iPerf en mode serveur. Vérifiez également que l’hôte distant est à l’écoute sur le port 3389 (RDP pour Windows) ou 22 (SSH pour Linux), et qu’il autorise le trafic sur le port 5201 pour iPerf. Si l’hôte distant est doté de Windows, installez la boîte à outils AzureCT et exécutez la commande Install-LinkPerformance pour configurer iPerf et les règles de pare-feu nécessaires pour démarrer iPerf en mode serveur correctement. 
+    Sur l’hôte distant, vous devez d’abord installer et exécuter iPerf en mode serveur. Vérifiez également que l’hôte distant est à l’écoute sur le port 3389 (RDP pour Windows) ou 22 (SSH pour Linux), et qu’il autorise le trafic sur le port 5201 pour iPerf. Si l'hôte distant est Windows, installez AzureCT et exécutez la commande Install-LinkPerformance. La commande configure alors iPerf et les règles de pare-feu nécessaires pour démarrer iPerf en mode serveur. 
     
     Une fois que l’ordinateur distant est prêt, ouvrez PowerShell sur l’ordinateur local et démarrez le test :
     ```powershell
@@ -98,25 +100,25 @@ L’utilisation de cette boîte à outils pour tester les performances comprend 
     Les résultats détaillés de tous les tests PSPing et iPerf se trouvent dans des fichiers texte individuels dans le répertoire des outils AzureCT à l’emplacement « C:\ACTTools ».
 
 ## <a name="troubleshooting"></a>Dépannage
-Si le test de performance ne fournit pas les résultats attendus, une approche étape par étape progressive peut s’avérer pertinente. Étant donné le nombre de composants jalonnant le chemin, une approche systématique permet généralement de résoudre les problèmes plus rapidement qu’une approche empirique au cours de laquelle un même test risque d’être inutilement effectué plusieurs fois.
+Si le test de performances ne fournit pas les résultats escomptés, une approche progressive, étape par étape, peut s'avérer pertinente. Étant donné le nombre d'éléments en jeu, une approche systématique permettra d'obtenir une résolution plus rapide. Une résolution systématique vous évitera d'avoir à effectuer plusieurs fois des tests inutiles.
 
 >[!NOTE]
 >Dans notre scénario, nous devons résoudre un problème de performance, pas un problème de connectivité. La procédure serait différente si le trafic était complètement bloqué.
 >
 >
 
-Tout d’abord, reconsidérez vos hypothèses. Vos attentes sont-elles raisonnables ? Par exemple, si vous avez un circuit ExpressRoute de 1 Gbit/s et une latence de 100 ms, il n’est pas raisonnable d’espérer le trafic maximal de 1 Gbit/s étant donné les caractéristiques des performances du protocole TCP sur les liaisons à latence élevée. Consultez la [section Références](#references) pour plus d’informations sur les hypothèses de performance.
+Tout d’abord, reconsidérez vos hypothèses. Vos attentes sont-elles raisonnables ? Par exemple, si vous avez un circuit ExpressRoute de 1 Gbit/s et une latence de 100 ms, vous ne pouvez pas vous attendre à bénéficier de 1 Gbits/s sur la totalité du trafic compte tenu des caractéristiques de performances de TCP sur les liaisons à latence élevée. Consultez la [section Références](#references) pour plus d’informations sur les hypothèses de performance.
 
-Ensuite, je vous recommande de commencer à la périphérie des domaines de routage et d’essayer d’isoler le problème sur un seul domaine de routage principal : le réseau d’entreprise, le réseau étendu ou le réseau Azure. Il est courant de blâmer la « boîte noire » sur le chemin, mais cette approche facile risque de retarder considérablement la résolution, en particulier si le problème se trouve effectivement dans une zone où vous pouvez apporter des modifications. Veillez à procéder aux vérifications nécessaires avant de contacter votre fournisseur de services ou fournisseur de services Internet.
+Je vous recommande ensuite de commencer à la périphérie des domaines de routage et d'essayer d'isoler le problème sur un seul domaine de routage principal. Vous pouvez commencer par le réseau d'entreprise, le WAN ou le réseau Azure. Les gens accusent souvent la « boîte noire » qui se trouve sur leur chemin. Bien que cette accusation soit un peu facile, la boîte noire peut néanmoins considérablement retarder la résolution, en particulier si le problème se trouve dans une zone où vous pouvez apporter des modifications pour résoudre le problème. Veillez à procéder aux vérifications nécessaires avant de contacter votre fournisseur de services ou fournisseur de services Internet.
 
-Une fois que vous avez identifié le domaine de routage principal qui contient le problème, vous devez créer un diagramme de la zone en question. Que ce soit sur un tableau blanc, dans un bloc-notes ou dans Visio, un diagramme fournit un « plan de bataille » concret pour isoler le problème de façon méthodique. Vous pouvez planifier des points de tests et mettre à jour le plan à mesure que vous écartez des zones ou approfondir des analyses à mesure que le test progresse.
+Une fois que vous avez identifié le domaine de routage principal qui contient le problème, vous devez créer un diagramme de la zone en question. En traçant un diagramme sur un tableau blanc, dans un bloc-notes ou dans Visio, vous pouvez travailler de façon méthodique et isoler le problème. Vous pouvez planifier des points de tests et mettre à jour le plan à mesure que vous écartez des zones ou approfondir des analyses à mesure que le test progresse.
 
 Une fois votre diagramme prêt, commencez par diviser le réseau en segments afin de cerner le problème petit à petit. Déterminez où il fonctionne et où il ne fonctionne pas. Continuez à déplacer vos points de tests pour isoler le composant responsable.
 
 En outre, n’oubliez pas d’examiner d’autres couches du modèle OSI. Il est facile de se concentrer sur le réseau et les couches 1 à 3 (couches Physique, Liaison de données et Réseau), mais les problèmes peuvent également se situer au niveau de la couche 7 (Application). Conservez une certaine ouverture d’esprit et vérifiez les hypothèses.
 
 ## <a name="advanced-expressroute-troubleshooting"></a>Résolution avancée des problèmes quand ExpressRoute est utilisé
-Si vous ignorez le périmètre réel du cloud, l’isolation des composants Azure peut être difficile. Quand ExpressRoute est utilisé, le périmètre est un composant réseau appelé MSEE (Microsoft Enterprise Edge). **Quand vous utilisez ExpressRoute**, MSEE est le premier point de contact dans le réseau de Microsoft et le dernier tronçon en sortie de ce dernier. Quand vous créez un objet de connexion entre votre passerelle de réseau virtuel et le circuit ExpressRoute, vous établissez en fait une connexion à MSEE. Reconnaître MSEE comme premier ou dernier tronçon (en fonction de la direction dans laquelle vous allez) est crucial pour isoler un problème de réseau Azure afin d’établir qu’il se trouve dans Azure ou plus en aval dans le réseau étendu ou le réseau d’entreprise. 
+Si vous ignorez le périmètre réel du cloud, l’isolation des composants Azure peut être difficile. Quand ExpressRoute est utilisé, le périmètre est un composant réseau appelé MSEE (Microsoft Enterprise Edge). **Lorsque vous utilisez ExpressRoute**, MSEE est le premier point de contact au sein du réseau de Microsoft, et le dernier tronçon à la sortie de ce dernier. Quand vous créez un objet de connexion entre votre passerelle de réseau virtuel et le circuit ExpressRoute, vous établissez en fait une connexion à MSEE. Identifier MSEE comme le premier ou le dernier tronçon en fonction de la direction du trafic est essentiel pour isoler un problème de réseau Azure. Le fait de connaître la direction permettra de déterminer si le problème se situe dans Azure, ou plus en aval au niveau du WAN ou du réseau d'entreprise. 
 
 ![2][2]
 
@@ -125,12 +127,12 @@ Si vous ignorez le périmètre réel du cloud, l’isolation des composants Azur
 >
 >
 
-Si deux réseaux virtuels (réseaux virtuels A et B dans le diagramme) sont connectés au **même** circuit ExpressRoute, vous pouvez effectuer une série de tests pour isoler le problème dans Azure (ou établir qu’il n’est pas dans Azure).
+Si deux réseaux virtuels sont connectés au **même** circuit ExpressRoute, vous pouvez procéder à une série de tests pour isoler le problème dans Azure.
  
 ### <a name="test-plan"></a>Plan de test
 1. Exécutez le test Get-LinkPerformance entre VM1 et VM2. Ce test indique si le problème est local ou non. Si ce test génère des résultats acceptables concernant la latence et la bande passante, vous pouvez marquer le réseau virtuel local comme étant correct.
 2. En supposant que le trafic du réseau virtuel local est correct, exécutez le test Get-LinkPerformance entre VM1 et VM3. Ce test teste la connexion via le réseau Microsoft jusqu’au MSEE, puis jusqu’à Azure. Si ce test génère des résultats acceptables concernant la latence et la bande passante, vous pouvez marquer le réseau Azure comme étant correct.
-3. Si Azure est écarté, vous pouvez effectuer une séquence similaire de tests sur votre réseau d’entreprise. Si ces tests sont également concluants, il est temps de collaborer avec votre fournisseur de services ou fournisseur de services Internet pour diagnostiquer votre connexion WAN. Exemple : Exécuter ce test entre deux succursales, ou entre votre bureau et un serveur de centre de données. Selon ce que vous testez, recherchez des points de terminaison (serveurs, PC, etc.) qui peuvent constituer ce chemin.
+3. Si Azure est écarté, vous pouvez procéder à une série de tests similaire sur votre réseau d'entreprise. Si ces tests sont également concluants, il est temps de collaborer avec votre fournisseur de services ou fournisseur de services Internet pour diagnostiquer votre connexion WAN. Exemple : Exécuter ce test entre deux succursales, ou entre votre bureau et un serveur de centre de données. En fonction de ce que vous testez, recherchez les points de terminaison tels que les serveurs et les PC clients qui peuvent utiliser ce chemin.
 
 >[!IMPORTANT]
 > Il est essentiel que pour chaque test vous notiez l’heure du jour à laquelle vous l’exécutez et que vous centralisiez l’enregistrement des résultats (j’ai un faible pour OneNote ou Excel). Chaque série de tests doit avoir une sortie identique afin que vous puissiez comparer les données résultantes entre les séries de tests et que vous n’ayez pas de « trous » dans les données. L’importance de la cohérence entre les différents tests est la raison principale qui m’amène à utiliser la boîte à outils AzureCT pour la résolution des problèmes. Ce ne sont pas les scénarios de charge exacts que j’exécute qui importent, mais le fait que j’obtiens une *sortie de données* et *de test cohérente* à l’issue de chaque test. Le fait d’enregistrer l’heure et d’avoir systématiquement des données cohérentes s’avère particulièrement utile si vous êtes amené à constater que le problème est sporadique. Faites preuve de diligence avec la collecte de données en amont ; vous devriez ainsi éviter de passer des heures à tester les mêmes scénarios plusieurs fois (je l’ai appris à mes dépens il y a de nombreuses années).
@@ -138,11 +140,11 @@ Si deux réseaux virtuels (réseaux virtuels A et B dans le diagramme) sont conn
 >
 
 ## <a name="the-problem-is-isolated-now-what"></a>Le problème étant isolé, que devons-nous faire ?
-Plus vous pouvez isoler le problème, plus il est facile à résoudre ; cependant, arrive souvent un moment où vous ne pouvez plus approfondir ou étendre la résolution des problèmes. Exemple : Vous constatez que la liaison via votre fournisseur de services emprunte des tronçons en Europe, alors que la totalité du chemin est censée se trouver en Asie. Dans ce cas de figure, nous vous conseillons de demander de l’aide. La personne à laquelle vous vous adressez dépend du domaine de routage dans lequel vous avez isolé le problème, ou mieux encore, du composant que vous pouvez éventuellement identifier comme étant affecté.
+Plus vous isolez le problème, plus la solution est rapide. Parfois, vous atteignez une limite dans votre processus de résolution. Par exemple, vous constatez que la liaison via votre fournisseur de services emprunte des tronçons en Europe, alors que la totalité du chemin est censée se trouver en Asie. À ce stade, vous devez vous faire aider. La personne à qui vous vous adressez dépend du domaine de routage sur lequel vous isolez le problème. Si vous pouvez le réduire à un composant spécifique, c'est encore mieux.
 
-Pour les problèmes de réseau d’entreprise, votre service informatique interne ou votre fournisseur de services assurant la prise en charge de votre réseau (qui peut être le fabricant du matériel) peut être en mesure de vous aider à configurer les appareils ou à réparer le matériel.
+Pour les problèmes de réseau d'entreprise, votre service informatique interne ou votre fournisseur de services peut vous aider à configurer l'appareil ou à réparer le matériel.
 
-Dans le cas du réseau étendu, partager vos résultats de tests avec votre fournisseur de services ou fournisseur de services Internet peut les aider à prendre les choses en main et leur éviter d’effectuer de nouveau une partie des tests déjà réalisés par vos soins. Toutefois, ne soyez pas contrarié s’ils souhaitent vérifier vos résultats eux-mêmes. « Faire confiance, mais vérifier » est une bonne devise quand il s’agit de résoudre des problèmes à partir des résultats fournis par d’autres personnes.
+Pour le WAN, le partage des résultats de vos tests avec votre fournisseur de services ou votre ISP lui sera utile. Cela lui permettra également d'éviter de refaire le travail que vous avez déjà effectué. Mais ne vous vexez pas s'il souhaite vérifier vos résultats. « Faire confiance, mais vérifier » est une bonne devise quand il s’agit de résoudre des problèmes à partir des résultats fournis par d’autres personnes.
 
 Avec Azure, une fois que vous avez isolé le problème aussi précisément que possible, vous pouvez examiner la [documentation sur le réseau Azure][Network Docs] et, si nécessaire, [ouvrir un ticket de support][Ticket Link].
 
@@ -160,7 +162,7 @@ Configuration des tests :
  - Un circuit ExpressRoute Premium 10 Gbits/s à l’emplacement identifié avec le peering privé activé.
  - Un réseau virtuel Azure doté d’une passerelle UltraPerformance dans la région spécifiée.
  - Une machine virtuelle DS5v2 exécutant Windows Server 2016 sur le réseau virtuel. La machine virtuelle n’a pas été jointe à un domaine et a été générée à partir de l’image Azure par défaut (sans optimisation ou personnalisation) à l’aide de la boîte à outils AzureCT installée.
- - Tous les tests ont été effectués à l’aide de la commande Get-LinkPerformance de la boîte à outils AzureCT, à raison d’un test de charge de 5 minutes pour chacune des six séries de tests. Par exemple :
+ - Tous les tests utilisent la commande Get-LinkPerformance de la boîte à outils AzureCT, à raison d'un test de charge de 5 minutes pour chacune des six séries de tests. Par exemple :
 
     ```powershell
     Get-LinkPerformance -RemoteHost 10.0.0.1 -TestSeconds 300
@@ -194,7 +196,7 @@ Configuration des tests :
 | Seattle | Brésil Sud *   | 10.930 km | 189 ms |   8,2 Mbits/s |   699 Mbits/s |
 | Seattle | Inde Sud      | 12.918 km | 202 ms |   7,7 Mbits/s |   634 Mbits/s |
 
-\* La latence au Brésil est un bon exemple où la distance à vol d’oiseau diffère considérablement de la distance en fibre optique. Alors que la latence devrait normalement se situer aux alentours de 160 ms, elle s’élève à 189 ms. Cette différence par rapport à mes attentes pourrait indiquer un problème réseau quelque part, mais très probablement que la fibre optique en direction du Brésil n’emprunte pas une ligne droite, ce qui se traduit par un supplément de 1 000 km environ sur l’itinéraire entre Seattle et le Brésil.
+\* La latence au Brésil est un bon exemple où la distance à vol d’oiseau diffère considérablement de la distance en fibre optique. Alors que la latence devrait normalement se situer autour de 160 ms, elle s'élève à 189 ms. La différence de latence semble indiquer un problème réseau quelque part. Mais en réalité, la fibre optique ne rejoint pas le Brésil en ligne droite. Il faut donc s'attendre à environ 1 000 km de trajet en plus pour rejoindre le Brésil depuis Seattle.
 
 ## <a name="next-steps"></a>Étapes suivantes
 1. Télécharger la boîte à outils de connectivité Azure à partir de GitHub à l’adresse [https://aka.ms/AzCT][ACT]

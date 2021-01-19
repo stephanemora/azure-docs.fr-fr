@@ -3,15 +3,15 @@ title: Connecteurs pour Azure Logic Apps
 description: Automatiser les workflows avec des connecteurs pour Azure Logic Apps, tels que les connecteurs intégrés, managés et locaux, ou les connecteurs de compte d’intégration, ISE et d’entreprise
 services: logic-apps
 ms.suite: integration
-ms.reviewer: jonfan, logicappspm
+ms.reviewer: estfan, logicappspm, azla
 ms.topic: article
-ms.date: 06/11/2020
-ms.openlocfilehash: 8bf91a3b7843d3212b62ced5b6a7c6fa54892ec9
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.date: 01/07/2021
+ms.openlocfilehash: c2b89450c0e474f5030f8812e888890f1fedde7e
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359746"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019633"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Connecteurs pour Azure Logic Apps
 
@@ -28,7 +28,7 @@ Les connecteurs sont disponibles sous forme de déclencheurs et d’actions int�
 
 <a name="built-in"></a>
 
-* [**Intégrés**](#built-ins) : les déclencheurs et les actions intégrés sont « natifs » dans Azure Logic Apps. Ils vous aident à effectuer les tâches suivantes pour vos applications logiques :
+* [**Intégrés**](#built-ins) : Les déclencheurs et les actions intégrés sont exécutés dans Azure Logic Apps en mode natif pour vous éviter d'avoir à établir une connexion avant de les utiliser et vous aider à accomplir les tâches suivantes pour vos applications logiques :
 
   * Exécuter les applications selon des planifications personnalisées et avancées
 
@@ -390,6 +390,54 @@ Les déclencheurs et actions de chaque connecteur disposent de leurs propres pro
 Dans le cas des connecteurs qui utilisent l’authentification OAuth Azure AD (Azure Active Directory), créer une connexion signifie se connecter au service (tel qu’Office 365, Salesforce ou GitHub), où votre jeton d’accès est [chiffré](../security/fundamentals/encryption-overview.md) et stocké de manière sécurisée dans un magasin de secrets Azure. D’autres connecteurs, comme FTP et SQL, nécessitent une connexion comprenant des détails de configuration, tels que l’adresse du serveur, le nom d’utilisateur et le mot de passe. Ces informations de configuration de connexion sont également chiffrées et stockées de manière sécurisée. Apprenez-en davantage sur le [chiffrement dans Azure](../security/fundamentals/encryption-overview.md).
 
 Les connexions peuvent accéder au service ou système cible aussi longtemps que ce dernier l’autorise. Pour les services qui utilisent des connexions OAuth Azure AD, tels qu’Office 365 et Dynamics, Azure Logic Apps actualise les jetons d’accès indéfiniment. D’autres services peuvent imposer des limites concernant la durée pendant laquelle Azure Logic Apps peut utiliser un jeton sans actualisation. En règle générale, certaines actions, telles que la modification de votre mot de passe, invalident tous les jetons d’accès.
+
+<a name="recurrence-behavior"></a>
+
+## <a name="recurrence-behavior"></a>Comportement lié à la périodicité
+
+Le comportement des déclencheurs intégrés récurrents exécutés en mode natif dans Azure Logic Apps, tels que le [déclencheur de périodicité](../connectors/connectors-native-recurrence.md), diffère du comportement des déclencheurs récurrents basés sur la connexion pour lesquels vous devez d'abord établir une connexion (ex : déclencheur du connecteur SQL).
+
+Cela dit, quel que soit le type de déclencheur, si aucune date/heure de début n'est spécifiée pour une périodicité, la première occurrence s'exécute dès l'enregistrement ou le déploiement de l'application logique, quelle que soit la configuration de périodicité de votre déclencheur. Pour éviter ce comportement, indiquez la date et l'heure de début de l'exécution de la première occurrence.
+
+<a name="recurrence-built-in"></a>
+
+### <a name="recurrence-for-built-in-triggers"></a>Périodicité des déclencheurs intégrés
+
+Les déclencheurs intégrés récurrents respectent le calendrier que vous fixez, fuseaux horaires compris. Cela dit, si aucune autre option de planification avancée n'est spécifiée pour une périodicité, comme des heures précises pour l'exécution de futures occurrences, celles-ci sont basées sur la dernière exécution du déclencheur. Par conséquent, l'heure de début de ces occurrences peut dériver en raison de facteurs tels que la latence lors des appels de stockage. En outre, si vous ne sélectionnez pas de fuseau horaire, l'heure d'été (DST) peut avoir une incidence sur l'heure d'exécution des déclencheurs, par exemple en l'avançant d'une heure lors du passage à l'heure d'été et en la reculant d'une heure lors du passage à l'heure d'hiver.
+
+Pour que votre application logique s'exécute à l'heure de début spécifiée et ne manque aucune occurrence, en particulier lorsque la fréquence est définie en jours ou sur une valeur plus longue, essayez l'une des solutions suivantes :
+
+* Sélectionnez un fuseau horaire pour que votre application logique s'exécute à l'heure de début spécifiée, faute de quoi l'heure d'été peut avoir une incidence sur l'heure d'exécution des déclencheurs, par exemple en l'avançant d'une heure lors du passage à l'heure d'été et en la reculant d'une heure lors du passage à l'heure d'hiver.
+
+  Lors de la planification des travaux, Logic Apps place le message à traiter dans la file d'attente et spécifie le moment où ce message devient disponible, en fonction de l'heure UTC de l'exécution du dernier travail et de l'heure UTC programmée pour l'exécution du travail suivant. En spécifiant un fuseau horaire, l'heure UTC de votre application logique est également décalée pour prendre en compte le changement d'heure saisonnier. Certaines fenêtres temporelles peuvent toutefois poser des problèmes lorsque l'heure change. Pour plus d'informations et pour obtenir des exemples, consultez [Périodicité pour l'heure d'été et l'heure d'hiver](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#daylight-saving-standard-time).
+
+* Utilisez le déclencheur de périodicité et indiquez la date et l'heure de début de l'occurrence, ainsi que les heures spécifiques d'exécution des occurrences suivantes en utilisant les propriétés **Aux heures indiquées** et **Aux minutes indiquées**, qui ne sont disponibles que pour les fréquences **Jour** et **Semaine**.
+
+* Utilisez le [déclencheur de fenêtre glissante](../connectors/connectors-native-sliding-window.md) plutôt que le déclencheur de récurrence.
+
+<a name="recurrence-connection-based"></a>
+
+### <a name="recurrence-for-connection-based-triggers"></a>Périodicité des déclencheurs basés sur la connexion
+
+Dans les déclencheurs récurrents basés sur la connexion, tels que SQL ou SFTP-SSH, le calendrier n'est pas le seul pilote à contrôler l'exécution, et le fuseau horaire détermine uniquement l'heure de début initiale. Les exécutions suivantes dépendent de la planification de la périodicité, de la dernière exécution du déclencheur *et* d'autres facteurs qui peuvent décaler les heures d'exécution ou produire un comportement inattendu, par exemple :
+
+* Accès ou non par le déclencheur à un serveur contenant d'autres données, que le déclencheur tente immédiatement d'extraire
+
+* Échecs ou nouvelles tentatives induites par le déclencheur
+
+* Latence lors des appels de stockage
+
+* Non-respect du calendrier fixé lors des passages à l'heure d'été et à l'heure d'hiver
+
+* Autres facteurs susceptibles d'avoir une incidence sur l'heure de l'exécution suivante
+
+Pour résoudre ou contourner ces problèmes, essayez les solutions suivantes :
+
+* Pour que l'heure fixée pour la périodicité ne change pas au moment du passage à l'heure d'été, ajustez la périodicité manuellement afin que votre application logique continue de s'exécuter à l'heure prévue. Sinon, l'heure de début est avancée d'une heure lors du passage à l'heure d'été et reculée d'une heure lors du passage à l'heure d'hiver.
+
+* Utilisez le déclencheur de périodicité afin de pouvoir spécifier un fuseau horaire, une date et une heure de début *ainsi que* les heures spécifiques d'exécution des occurrences suivantes en utilisant les propriétés **Aux heures indiquées** et **Aux minutes indiquées**, qui ne sont disponibles que pour les fréquences **Jour** et **Semaine**. Certaines fenêtres temporelles peuvent néanmoins poser des problèmes lorsque l'heure change. Pour plus d'informations et pour obtenir des exemples, consultez [Périodicité pour l'heure d'été et l'heure d'hiver](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#daylight-saving-standard-time).
+
+* Pour ne manquer aucune occurrence, utilisez le [déclencheur de fenêtre glissante](../connectors/connectors-native-sliding-window.md) plutôt que le déclencheur de périodicité.
 
 <a name="custom"></a>
 

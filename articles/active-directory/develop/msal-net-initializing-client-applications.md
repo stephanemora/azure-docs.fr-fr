@@ -13,15 +13,15 @@ ms.date: 09/18/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 5ec419be5c7549553788d009f09fa3e0fb8655e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd836afd6b8574be71ad22d26d67f49971834a88
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91258283"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98064723"
 ---
 # <a name="initialize-client-applications-using-msalnet"></a>Initialiser des applications clientes avec MSAL.NET
-Cet article décrit l’initialisation d’applications clientes publiques et confidentielles à l’aide de la bibliothèque d’authentification Microsoft pour .NET (MSAL.NET).  Pour en savoir plus sur les types d’applications clientes et les options de configuration d’application, consultez la [vue d’ensemble](msal-client-applications.md).
+Cet article décrit l'initialisation d'applications clientes publiques et confidentielles à l'aide de la bibliothèque d'authentification Microsoft pour .NET (MSAL.NET).  Pour en savoir plus sur les types d’applications clientes et les options de configuration d’application, consultez la [vue d’ensemble](msal-client-applications.md).
 
 Avec MSAL.NET 3.x, la méthode recommandée pour instancier une application consiste à utiliser les générateurs d’applications : `PublicClientApplicationBuilder` et `ConfidentialClientApplicationBuilder`. Ils offrent un mécanisme puissant permettant de configurer l’application à partir du code, ou d’un fichier de configuration ou même en combinant ces deux approches.
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2019
 ms.author: allensu
-ms.openlocfilehash: 9c322620e1d66182937be41bb02d48fd1469f459
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 386e0051a64f73b18c1ff76ed33af5f9eebe8aa0
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94697558"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121411"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>Diagnostics Azure Standard Load Balancer avec les métriques, les alertes et l’intégrité des ressources
 
@@ -39,15 +39,18 @@ Les différentes configurations de Load Balancer Standard fournissent les métri
 | --- | --- | --- | --- |
 | Disponibilité du chemin d’accès aux données | Équilibreur de charge interne et public | Load Balancer Standard teste en continu le chemin de données d’une région vers le serveur frontal de l’équilibreur de charge, jusqu’à la pile SDN qui prend en charge votre machine virtuelle. Tant que les instances saines restent, la mesure suit le même chemin que le trafic à charge équilibrée de vos applications. Le chemin de données utilisé par vos clients est également validé. La mesure est invisible pour votre application et n’interfère pas avec les autres opérations.| Average |
 | État de la sonde d’intégrité | Équilibreur de charge interne et public | Load Balancer Standard utilise un service de détection d’intégrité distribué qui surveille l’intégrité du point de terminaison de votre application en fonction de vos paramètres de configuration. Cette métrique fournit un agrégat ou une vue filtrée par point de terminaison de chaque point de terminaison d’instance dans le pool de l’équilibreur de charge. Vous pouvez observer comment Load Balancer voit l’intégrité de votre application comme indiqué par votre configuration de sonde d’intégrité. |  Average |
-| Paquets SYN (synchroniser) | Équilibreur de charge interne et public | Load Balancer Standard ne termine pas les connexions Transmission Control Protocol (TCP) et n’interagit pas avec les flux de paquets UDP ou TCP. Les flux et leurs établissements de liaisons sont toujours entre la source et l’instance de machine virtuelle. Pour mieux résoudre les problèmes posés par vos scénarios de protocole TCP, vous pouvez utiliser les compteurs de paquets SYN pour comprendre le nombre de tentatives de connexion TCP effectuées. La métrique indique le nombre de paquets SYN TCP reçus.| Average |
-| Connexions SNAT | Équilibreur de charge public |Load Balancer Standard indique le nombre de flux sortants usurpés sur le serveur frontal d’adresse IP public. Les ports de traduction d'adresses réseau source (SNAT) constituent une ressource épuisable. Cette métrique peut donner une idée de l’importance du rôle joué par SNAT dans votre application pour les flux sortants. Les compteurs relatifs aux flux SNAT sortants réussis et mis en échec sont indiqués et peuvent être utilisés pour comprendre l’intégrité de vos flux sortants et résoudre les problèmes associés.| Average |
+| Nombre de SYN (synchroniser) | Équilibreur de charge interne et public | Load Balancer Standard ne termine pas les connexions Transmission Control Protocol (TCP) et n’interagit pas avec les flux de paquets UDP ou TCP. Les flux et leurs établissements de liaisons sont toujours entre la source et l’instance de machine virtuelle. Pour mieux résoudre les problèmes posés par vos scénarios de protocole TCP, vous pouvez utiliser les compteurs de paquets SYN pour comprendre le nombre de tentatives de connexion TCP effectuées. La métrique indique le nombre de paquets SYN TCP reçus.| SUM |
+| Nombre de connexions SNAT | Équilibreur de charge public |Load Balancer Standard indique le nombre de flux sortants usurpés sur le serveur frontal d’adresse IP public. Les ports de traduction d'adresses réseau source (SNAT) constituent une ressource épuisable. Cette métrique peut donner une idée de l’importance du rôle joué par SNAT dans votre application pour les flux sortants. Les compteurs relatifs aux flux SNAT sortants réussis et mis en échec sont indiqués et peuvent être utilisés pour comprendre l’intégrité de vos flux sortants et résoudre les problèmes associés.| SUM |
 | Ports SNAT alloués | Équilibreur de charge public | Standard Load Balancer indique le nombre de ports SNAT alloués par instance de back-end | Moyenne. |
 | Ports SNAT utilisés | Équilibreur de charge public | Standard Load Balancer indique le nombre de ports SNAT utilisés par instance de back-end. | Average | 
-| Compteurs d’octets |  Équilibreur de charge interne et public | Load Balancer Standard indique les données traitées par serveur frontal. Vous pouvez remarquer que les octets ne sont pas répartis de manière égale entre les instances du serveur principal. Cela est normal, car l’algorithme d’Azure Load Balance est basé sur les flux | Average |
-| Compteurs de paquets |  Équilibreur de charge interne et public | Load Balancer Standard indique les paquets traités par serveur frontal.| Average |
+| Nombre d’octets |  Équilibreur de charge interne et public | Load Balancer Standard indique les données traitées par serveur frontal. Vous pouvez remarquer que les octets ne sont pas répartis de manière égale entre les instances du serveur principal. Cela est normal, car l’algorithme d’Azure Load Balance est basé sur les flux | SUM |
+| Nombre de paquets |  Équilibreur de charge interne et public | Load Balancer Standard indique les paquets traités par serveur frontal.| SUM |
 
   >[!NOTE]
-  >Lorsque vous utilisez la distribution du trafic à partir d’un équilibreur de charge interne via un appliance virtuelle réseau ou un pare-feu, les métriques de paquet Syn, de compteur d’octets et de compteur de paquets ne sont pas disponibles et affichent zéro. 
+  >Lorsque vous utilisez la distribution du trafic à partir d'un équilibreur de charge interne via une appliance virtuelle réseau ou un pare-feu, les métriques Paquet Syn, Nombre d'octets et Nombre de paquets ne sont pas disponibles et affichent zéro. 
+  
+  >[!NOTE]
+  >Les agrégations max et min ne sont pas disponibles pour les métriques Nombre de SYN, Nombre de paquets, Nombre de connexions SNAT et Nombre d'octets. 
   
 ### <a name="view-your-load-balancer-metrics-in-the-azure-portal"></a>Afficher vos métriques d’équilibreur de charge dans le portail Azure
 
@@ -231,7 +234,14 @@ Le graphique permet aux clients de dépanner eux-mêmes le déploiement sans dev
 
 ## <a name="resource-health-status"></a><a name = "ResourceHealth"></a>État d’intégrité des ressources
 
-L’état d’intégrité des ressources de niveau Standard de Load Balancer est indiqué dans la page **Intégrité des ressources** existante sous **Monitor > État du service**.
+L’état d’intégrité des ressources de niveau Standard de Load Balancer est indiqué dans la page **Intégrité des ressources** existante sous **Monitor > État du service**. Il est évalué toutes les **deux minutes** en mesurant la disponibilité du chemin d'accès aux données, qui détermine si vos points de terminaison d'équilibrage de charge frontend sont disponibles.
+
+| État d’intégrité des ressources | Description |
+| --- | --- |
+| Disponible | Votre ressource d’équilibreur de charge standard est intègre et disponible. |
+| Détérioré | Votre équilibreur de charge standard présente des événements lancés par la plateforme ou l’utilisateur qui nuisent aux performances. La métrique Disponibilité du chemin de données a fait état d’une intégrité inférieure à 90 %, mais supérieure à 25 % pendant au moins deux minutes. L’impact sur les performances que vous allez subir sera de niveau modéré à grave. [Suivez le guide de résolution des problèmes RHC](https://docs.microsoft.com/azure/load-balancer/troubleshoot-rhc) pour déterminer si des événements déclenchés par l'utilisateur ont un impact sur votre disponibilité.
+| Non disponible | Votre ressource d’équilibreur de charge standard n’est pas intègre. La métrique Disponibilité du chemin des données a fait état d’une intégrité inférieure à 25 % pendant au moins deux minutes. Vous allez subir un impact sur les performances significatif ou un défaut de disponibilité pour la connectivité entrante. Des événements utilisateur ou plateforme peuvent être à l’origine de l’indisponibilité. [Suivez le guide de résolution des problèmes RHC](https://docs.microsoft.com/azure/load-balancer/troubleshoot-rhc) pour déterminer si des événements déclenchés par l'utilisateur ont un impact sur votre disponibilité. |
+| Unknown | L’état d’intégrité de votre ressource d’équilibrage de charge standard n’a pas encore été mis à jour ou n’a pas encore reçu d’informations de disponibilité du chemin de données au cours des 10 dernières minutes. Cet état devrait être transitoire et passer à un état correct dès que des données seront reçues. |
 
 Pour afficher l’intégrité de vos ressources Load Balancer Standard public :
 1. Sélectionnez **Monitor** > **État du service**.
@@ -254,12 +264,6 @@ Pour afficher l’intégrité de vos ressources Load Balancer Standard public :
  
 La description de l’état d’intégrité de ressource générique est disponible dans la [documentation RHC](../service-health/resource-health-overview.md). Les états spécifiques d’Azure Load Balancer sont listés dans le tableau ci-dessous : 
 
-| État d’intégrité des ressources | Description |
-| --- | --- |
-| Disponible | Votre ressource d’équilibreur de charge standard est intègre et disponible. |
-| Détérioré | Votre équilibreur de charge standard présente des événements lancés par la plateforme ou l’utilisateur qui nuisent aux performances. La métrique Disponibilité du chemin de données a fait état d’une intégrité inférieure à 90 %, mais supérieure à 25 % pendant au moins deux minutes. L’impact sur les performances que vous allez subir sera de niveau modéré à grave. [Suivez le guide de résolution des problèmes de disponibilité du chemin de données] pour déterminer si les événements ayant un impact sur votre disponibilité sont lancés par l’utilisateur.
-| Non disponible | Votre ressource d’équilibreur de charge standard n’est pas intègre. La métrique Disponibilité du chemin des données a fait état d’une intégrité inférieure à 25 % pendant au moins deux minutes. Vous allez subir un impact sur les performances significatif ou un défaut de disponibilité pour la connectivité entrante. Des événements utilisateur ou plateforme peuvent être à l’origine de l’indisponibilité. [Suivez le guide de résolution des problèmes de disponibilité du chemin de données] pour déterminer si les événements ayant un impact sur votre disponibilité sont lancés par l’utilisateur. |
-| Unknown | L’état d’intégrité de votre ressource d’équilibrage de charge standard n’a pas encore été mis à jour ou n’a pas encore reçu d’informations de disponibilité du chemin de données au cours des 10 dernières minutes. Cet état devrait être transitoire et passer à un état correct dès que des données seront reçues. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

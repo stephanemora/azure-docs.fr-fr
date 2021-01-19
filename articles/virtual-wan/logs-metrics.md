@@ -8,18 +8,24 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: 53b8d74d6eb35347d6ac5b27d12fa5b5eaed2582
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 62979a2cbe2a5912476ca65327a06eef9c36c1cb
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566365"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127887"
 ---
 # <a name="azure-virtual-wan-logs-and-metrics"></a>Journaux et métriques Azure Virtual WAN
 
-Vous pouvez surveiller Azure Virtual WAN à l’aide d’Azure Monitor. Virtual WAN est un service de mise en réseau qui combine un grand nombre de fonctionnalités de mise en réseau, de sécurité et de routage pour fournir une interface opérationnelle unique. Les passerelles VPN Virtual WAN, les passerelles ExpressRoute et Pare-feu Azure disposent de journaux et de métriques disponibles via Azure Monitor. Pour plus d’informations sur Pare-feu Azure, consultez [Journaux et métriques du pare-feu Azure](../firewall/logs-and-metrics.md).
+Vous pouvez surveiller Azure Virtual WAN à l’aide d’Azure Monitor. Virtual WAN est un service de mise en réseau qui combine un grand nombre de fonctionnalités de mise en réseau, de sécurité et de routage pour fournir une interface opérationnelle unique. Les passerelles VPN Virtual WAN, les passerelles ExpressRoute et Pare-feu Azure disposent de journaux et de métriques disponibles via Azure Monitor.
 
 Cet article présente les métriques et les diagnostics disponibles via le portail. Les métriques sont légères et peuvent prendre en charge des scénarios en quasi-temps réel, ce qui les rend utiles pour les alertes et la détection rapide de problèmes.
+
+## <a name="monitoring-secured-hub-azure-firewall"></a>Surveillance du hub sécurisé (Pare-feu Azure) 
+
+Vous pouvez surveiller le hub sécurisé à l'aide des journaux du Pare-feu Azure. Vous pouvez également utiliser les journaux d’activité pour auditer les opérations sur les ressources de Pare-feu Azure.
+
+Si vous avez choisi de sécuriser votre hub virtuel à l'aide du Pare-feu Azure, les journaux et métriques pertinents sont disponibles ici : [Journaux et métriques du Pare-feu Azure](../firewall/logs-and-metrics.md).
 
 ## <a name="metrics"></a>Mesures
 

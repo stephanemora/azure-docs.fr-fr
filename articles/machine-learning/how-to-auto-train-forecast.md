@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q1, automl
 ms.date: 08/20/2020
-ms.openlocfilehash: 47cc67b408ff7fa50a244fffa8d41e640df0ecf3
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: 2b24b6480e4331f3a9470dcbb49e7ad221809187
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97796429"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132080"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Entraîner automatiquement un modèle de prévision de série chronologique
 
@@ -224,6 +224,9 @@ Les personnalisations prises en charge pour des tâches `forecasting` sont les s
 |**Suppression de colonnes** |Indique les colonnes à supprimer de la caractérisation.|
 
 Pour personnaliser les caractérisations avec le kit de développement logiciel (SDK), spécifiez `"featurization": FeaturizationConfig` dans votre objet `AutoMLConfig`. En savoir plus sur les [caractérisations personnalisées](how-to-configure-auto-features.md#customize-featurization).
+
+>[!NOTE]
+> La fonctionnalité de **suppression de colonnes** est déconseillée depuis la version 1.19 du kit de développement logiciel (SDK). Supprimez des colonnes de votre jeu de données dans le cadre du nettoyage des données, avant de les consommer dans votre expérience de ML automatisé. 
 
 ```python
 featurization_config = FeaturizationConfig()

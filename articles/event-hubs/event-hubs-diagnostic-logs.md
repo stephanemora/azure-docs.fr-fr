@@ -3,12 +3,12 @@ title: Configurer des journaux de diagnostic - Azure Event Hubs | Microsoft Docs
 description: Découvrez comment configurer les journaux d’activité et de diagnostic pour Event Hubs dans Azure.
 ms.topic: article
 ms.date: 10/27/2020
-ms.openlocfilehash: a7230746dc4225b04b0507c872416368aa14442b
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 015814b9a56ec963f5209f971f096ac6c173d7e1
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92912597"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131982"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Configurer les journaux de diagnostic pour un Event Hub Azure.
 
@@ -28,8 +28,8 @@ Les journaux de diagnostic sont désactivés par défaut. Pour activer les journ
 2. Sélectionnez **Paramètres de diagnostic** sous **Supervision** dans le volet gauche, puis sélectionnez **+ Ajouter un paramètre de diagnostic**. 
 
     ![Page Paramètres de diagnostic, ajouter un paramètre de diagnostic](./media/event-hubs-diagnostic-logs/diagnostic-settings-page.png)
-4. Dans la section **Détails de la catégorie** , sélectionnez les **types de journaux de diagnostic** que vous souhaitez activer. Vous trouverez plus d’informations sur ces catégories plus loin dans cet article. 
-5. Dans la section **Détails de la destination** , définissez la cible d’archivage (destination) de votre choix, par exemple, un compte de stockage, un hub d’événements ou un espace de travail Log Analytics.
+4. Dans la section **Détails de la catégorie**, sélectionnez les **types de journaux de diagnostic** que vous souhaitez activer. Vous trouverez plus d’informations sur ces catégories plus loin dans cet article. 
+5. Dans la section **Détails de la destination**, définissez la cible d’archivage (destination) de votre choix, par exemple, un compte de stockage, un hub d’événements ou un espace de travail Log Analytics.
 
     ![Page Ajouter des paramètres de diagnostic](./media/event-hubs-diagnostic-logs/aDD-diagnostic-settings-page.png)
 6.  Sélectionnez **Enregistrer** dans la barre d’outils pour enregistrer les paramètres de diagnostic.
@@ -45,7 +45,7 @@ Event Hubs capture les journaux de diagnostic pour les catégories suivantes :
 | Category | Description | 
 | -------- | ----------- | 
 | Journaux d’activité d’archivage | Capture des informations sur les opérations [Event Hubs Capture](event-hubs-capture-overview.md), en particulier les journaux relatifs aux erreurs de capture. |
-| Journaux d’activité des opérations | Capturent toutes les opérations de gestion qui sont effectuées sur l’espace de noms Azure Event Hubs. Les opérations de données ne sont pas capturées en raison du volume élevé d’opérations de données effectuées sur Azure Event Hubs. |
+| Journaux d’activité des opérations | Capturent toutes les opérations de gestion qui sont effectuées sur l’espace de noms Azure Event Hubs. Les opérations de données ne sont pas capturées en raison du volume élevé d'opérations de données effectuées sur Azure Event Hubs. |
 | Journaux de mise à l’échelle automatique | Capture les opérations d’augmentation automatique effectuées sur un espace de noms Event Hubs. |
 | Journaux du coordinateur Kafka | Capture les opérations du coordinateur Kafka relatives à Event Hubs. |
 | Journaux des erreurs d’utilisateur Kafka | Capture des informations sur les API Kafka appelées sur Event Hubs. |
@@ -100,12 +100,12 @@ Les chaînes JSON du journal des opérations incluent les éléments répertori�
 Nom | Description
 ------- | -------
 `ActivityId` | ID interne, utilisé à des fins de suivi |
-`EventName` | Nom de l’opération |
+`EventName` | Nom d’opération. Pour obtenir la liste des valeurs de cet élément, consultez [Noms des événements](#event-names) |
 `resourceId` | ID de ressource Azure Resource Manager |
 `SubscriptionId` | Identifiant d’abonnement |
 `EventTimeString` | Durée de l’opération |
-`EventProperties` | Propriétés de l’opération |
-`Status` | État de l’opération |
+`EventProperties` |Propriétés de l'opération. Cet élément fournit des informations complémentaires sur l'événement, comme illustré dans l'exemple suivant. |
+`Status` | État de l’opération. La valeur peut être **Opération réussie** ou **Échec**.  |
 `Caller` | Appelant de l’opération (portail Azure ou client de gestion) |
 `Category` | OperationalLogs |
 
@@ -125,6 +125,13 @@ Example:
    "category": "OperationalLogs"
 }
 ```
+
+### <a name="event-names"></a>Noms des événements
+Le nom de l'événement est renseigné sous la forme « type d'opération + type de ressource » à partir des énumérations suivantes. Par exemple, `Create Queue`, `Retrieve Event Hu` ou `Delete Rule`. 
+
+| Type d'opération | Type de ressource | 
+| -------------- | ------------- | 
+| <ul><li>Créer</li><li>Update</li><li>Supprimer</li><li>Récupération</li><li>Unknown</li></ul> | <ul><li>Espace de noms</li><li>File d'attente</li><li>Rubrique</li><li>Abonnement</li><li>Event Hub</li><li>EventHubSubscription</li><li>NotificationHub</li><li>NotificationHubTier</li><li>SharedAccessPolicy</li><li>UsageCredit</li><li>NamespacePnsCredentials</li>Règle</li>ConsumerGroup</li> |
 
 ## <a name="autoscale-logs-schema"></a>Schéma des journaux de mise à l’échelle automatique
 Le code JSON des journaux de mise à l’échelle automatique inclut les éléments listés dans le tableau suivant :
@@ -158,7 +165,7 @@ Le code JSON des journaux du coordinateur Kafka inclut les éléments listés da
 | `SubscriptionId` | ID d’abonnement Azure |
 | `Message` | Message d’information ou d’avertissement, qui fournit des détails sur les actions effectuées pendant la coordination du groupe |
 
-### <a name="example"></a>Exemple
+### <a name="example"></a> Exemple
 
 ```json
 {
@@ -200,7 +207,7 @@ Le code JSON de l’événement de connexion de réseau virtuel Event Hubs compr
 | `Count` | Nombre d’occurrences de l’action donnée |
 | `ResourceId` | ID de ressource Azure Resource Manager. |
 
-Les journaux de réseau virtuel ne sont générés que si l’espace de noms autorise l’accès provenant des **réseaux sélectionnés** ou **d’adresses IP spécifiques** (règles de filtre d’adresse IP). Si vous souhaitez obtenir des journaux de réseau virtuel pour suivre l’adresse IP des clients qui se connectent à l’espace de noms Event Hubs sans pour autant restreindre l’accès à votre espace de noms à l’aide de ces fonctionnalités, vous pouvez appliquer la solution de contournement suivante : activez le filtrage d’adresse IP et ajoutez la plage IPv4 adressable totale (1.0.0.0/1-255.0.0.0/1). Event Hubs ne prend pas en charge les plages IPv6. 
+Les journaux de réseau virtuel ne sont générés que si l’espace de noms autorise l’accès provenant des **réseaux sélectionnés** ou **d’adresses IP spécifiques** (règles de filtre d’adresse IP). Si vous souhaitez obtenir des journaux de réseau virtuel pour suivre l'adresse IP des clients qui se connectent à l'espace de noms Event Hubs sans pour autant restreindre l'accès à votre espace de noms à l'aide de ces fonctionnalités, vous pouvez appliquer la solution de contournement suivante : activez le filtrage d’adresse IP et ajoutez la plage IPv4 adressable totale (1.0.0.0/1-255.0.0.0/1). Event Hubs ne prend pas en charge les plages IPv6. 
 
 ### <a name="example"></a>Exemple
 

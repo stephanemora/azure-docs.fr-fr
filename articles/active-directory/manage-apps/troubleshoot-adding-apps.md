@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 09/11/2018
 ms.author: kenwith
-ms.openlocfilehash: 714cbb06506cc3e0dffe74007712d9cbad072284
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: f873608d07785e6b99bd8e0fcdadf64a8899d490
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94655066"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108413"
 ---
 # <a name="troubleshoot-common-problem-adding-or-removing-an-application-to-azure-active-directory"></a>Résoudre les problèmes courants liés à l’ajout ou à la suppression d’une application dans Azure Active Directory
 Cet article vous aide à comprendre les problèmes courants auxquels les utilisateurs sont confrontés lors de l’ajout ou de la suppression d’une application dans Azure Active Directory.
@@ -43,7 +43,7 @@ Le bouton Supprimer est désactivé dans les scénarios suivants :
 
 - Pour les applications Microsoft, vous ne pourrez pas les supprimer de l’interface utilisateur, quel que soit votre rôle.
 
-- Pour servicePrincipals qui correspond à une identité managée. Les principaux du service d’identités managées ne peuvent pas être supprimés dans le panneau Applications d’entreprise. Vous devez accéder à la ressource Azure pour la gérer. En savoir plus sur l’[identité managée](../managed-identities-azure-resources/overview.md)
+- Pour servicePrincipals qui correspond à une identité managée. Les principaux du service d’identités managées ne peuvent pas être supprimés dans le panneau Applications d’entreprise. Vous devez accéder à la ressource Azure pour la gérer. En savoir plus sur l'[identité managée](../managed-identities-azure-resources/overview.md)
 
 ## <a name="how-to-see-the-details-of-a-portal-notification"></a>Comment afficher les détails d’une notification du portail
 Vous pouvez afficher les détails d’une notification provenant du portail en suivant les étapes ci-dessous :

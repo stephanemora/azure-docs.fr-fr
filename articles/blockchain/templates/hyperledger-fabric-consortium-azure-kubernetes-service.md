@@ -1,15 +1,15 @@
 ---
 title: Déployer Consortium Hyperledger Fabric sur Azure Kubernetes Service
 description: Guide pratique pour déployer un réseau de consortium Hyperledger Fabric sur Azure Kubernetes Service
-ms.date: 08/06/2020
+ms.date: 01/08/2021
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: 081c7a10ee091f573e8f999c94588ef85c784f74
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ab5b9fadfbb0f1c9c1cdf25ee319c7775a593ed
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89651564"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060314"
 ---
 # <a name="deploy-hyperledger-fabric-consortium-on-azure-kubernetes-service"></a>Déployer Consortium Hyperledger Fabric sur Azure Kubernetes Service
 
@@ -106,7 +106,7 @@ Pour bien démarrer avec le déploiement des composants du réseau Hyperledger F
     - **Préfixe DNS** : Entrez un préfixe de nom DNS (Domain Name System) pour le cluster AKS. Vous utiliserez le DNS pour vous connecter à l’API Kubernetes lors de la gestion des conteneurs après la création du cluster.
     - **Taille du nœud** : Pour la taille du nœud Kubernetes, vous pouvez choisir dans la liste des références SKU de machine virtuelle disponibles sur Azure. Pour des performances optimales, nous vous recommandons le Standard DS3 v2.
     - **Nombre de nœuds** : Entrez le nombre de nœuds Kubernetes à déployer dans le cluster. Nous vous recommandons de maintenir ce nombre de nœuds supérieur ou égal au nombre de nœuds Hyperledger Fabric spécifié sous l’onglet **Paramètres Fabric**.
-    - **ID de client du principal du service** : Entrez l’ID client d’un principal du service existant ou créez-en un. Un principal du service est obligatoire pour l’authentification AKS. Consultez les [étapes pour créer un principal du service](/powershell/azure/create-azure-service-principal-azureps?view=azps-3.2.0#create-a-service-principal).
+    - **ID de client du principal du service** : Entrez l’ID client d’un principal du service existant ou créez-en un. Un principal du service est obligatoire pour l’authentification AKS. Consultez les [étapes pour créer un principal du service](/powershell/azure/create-azure-service-principal-azureps#create-a-service-principal).
     - **Clé secrète client du principal de service** : Entrez la clé secrète client du principal du service fourni dans l’ID client du principal du service.
     - **Confirmer la clé secrète client** : Confirmez la clé secrète client du principal du service.
     - **Activer la supervision de conteneurs** : Choisissez d’activer la supervision AKS, qui permet aux journaux AKS d’envoyer (push) à l’espace de travail Log Analytics spécifié.
@@ -393,23 +393,35 @@ Transmettez le nom de la fonction de requête et la liste des arguments séparé
 
 ## <a name="troubleshoot"></a>Dépanner
 
-Exécutez les commandes suivantes pour rechercher la version de votre déploiement de modèle.
+### <a name="find-deployed-version"></a>Rechercher la version déployée
 
-Définissez des variables d’environnement selon le groupe de ressources où le modèle a été déployé.
-
-```bash
-
-SWITCH_TO_AKS_CLUSTER() { az aks get-credentials --resource-group $1 --name $2 --subscription $3; }
-AKS_CLUSTER_SUBSCRIPTION=<AKSClusterSubscriptionID>
-AKS_CLUSTER_RESOURCE_GROUP=<AKSClusterResourceGroup>
-AKS_CLUSTER_NAME=<AKSClusterName>
-```
-Exécutez la commande suivante pour imprimer la version du modèle.
+Exécutez les commandes suivantes pour rechercher la version de votre déploiement de modèle. Définissez des variables d’environnement selon le groupe de ressources où le modèle a été déployé.
 
 ```bash
 SWITCH_TO_AKS_CLUSTER $AKS_CLUSTER_RESOURCE_GROUP $AKS_CLUSTER_NAME $AKS_CLUSTER_SUBSCRIPTION
 kubectl describe pod fabric-tools -n tools | grep "Image:" | cut -d ":" -f 3
+```
 
+### <a name="patch-previous-version"></a>Appliquer un correctif à une version antérieure
+
+Si vous rencontrez des problèmes pour exécuter un code chaîné lors du déploiement d'un modèle antérieur à la version v3.0.0, procédez comme suit pour appliquer un correctif à vos nœuds homologues.
+
+Téléchargez le script de déploiement de l'homologue.
+
+```bash
+curl https://raw.githubusercontent.com/Azure/Hyperledger-Fabric-on-Azure-Kubernetes-Service/master/scripts/patchPeerDeployment.sh -o patchPeerDeployment.sh; chmod 777 patchPeerDeployment.sh
+```
+
+Exécutez le script à l'aide de la commande suivante en remplaçant les paramètres de votre homologue.
+
+```bash
+source patchPeerDeployment.sh <peerOrgSubscription> <peerOrgResourceGroup> <peerOrgAKSClusterName>
+```
+
+Attendez que tous les nœuds homologues soient corrigés. Vous pouvez toujours vérifier l'état de vos nœuds homologues, dans une instance différente de l'interpréteur de commandes, à l'aide de la commande suivante.
+
+```bash
+kubectl get pods -n hlf
 ```
 
 ## <a name="support-and-feedback"></a>Support et commentaires
