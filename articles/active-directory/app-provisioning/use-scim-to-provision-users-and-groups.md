@@ -12,12 +12,12 @@ ms.date: 01/12/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 2cdd02ef6ff67f14dbf99e40a254f2c214e23afb
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: 646c47920d87fe1d11bc991838ba767b8569a6c9
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165414"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246755"
 ---
 # <a name="tutorial---build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Tutoriel – Créer un point de terminaison SCIM et configurer l’approvisionnement d’utilisateurs avec Azure AD
 
@@ -790,6 +790,7 @@ Le service SCIM doit avoir une adresse HTTP et un certificat d’authentificat
 * Go Daddy
 * VeriSign
 * WoSign
+* DST Root CA X3
 
 Le kit SDK .NET Core comprend un certificat de développement HTTPS qui peut être utilisé lors du développement, et le certificat est installé dans le cadre de la première exécution. Selon la façon dont vous exécutez l’application web ASP.NET Core, elle écoute un autre port :
 
