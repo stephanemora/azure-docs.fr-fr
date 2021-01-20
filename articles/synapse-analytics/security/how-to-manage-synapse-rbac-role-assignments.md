@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/1/2020
 ms.author: billgib
 ms.reviewer: jrasnick
-ms.openlocfilehash: f26b54a18ff137575cac208d70e4693c0b9914a8
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: c88371eb450d5b0e2e8b821cdec0e87190e291f8
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96572284"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98218193"
 ---
 # <a name="how-to-manage-synapse-rbac-role-assignments-in-synapse-studio"></a>Gestion des attributions de rôles RBAC Synapse dans Synapse Studio
 
@@ -65,7 +65,7 @@ Pour attribuer un rôle à une étendue plus fine, sélectionnez **Élément d�
 
 ![Ajouter une attribution de rôle d’élément d’espace de travail - sélectionner un type d’élément](./media/how-to-manage-synapse-rbac-role-assignments/access-control-add-workspace-item-assignment-select-item-type.png) 
 
-Sélectionnez l’**élément** spécifique à utiliser comme étendue, puis sélectionnez le **rôle** à attribuer dans la liste déroulante.  La liste déroulante répertorie uniquement les rôles qui sont valides pour le type d’élément sélectionné. [Plus d’informations](https://go.microsoft.com/fwlink/?linkid=2148306)  
+Sélectionnez l’**élément** spécifique à utiliser comme étendue, puis sélectionnez le **rôle** à attribuer dans la liste déroulante.  La liste déroulante répertorie uniquement les rôles qui sont valides pour le type d’élément sélectionné. [Plus d’informations](./synapse-workspace-synapse-rbac.md)  
 
 ![Ajouter une attribution de rôle d’élément d’espace de travail - sélectionner un rôle](./media/how-to-manage-synapse-rbac-role-assignments/access-control-add-workspace-item-assignment-select-role.png) 
  
@@ -81,4 +81,4 @@ N’oubliez pas que les modifications apportées aux attributions de rôles sont
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Comprendre les rôles RBAC Synapse requis pour effectuer des tâches courantes](./synapse-workspace-understand-what-role-you-need.md) 
+[Comprendre les rôles RBAC Synapse requis pour effectuer des tâches courantes](./synapse-workspace-understand-what-role-you-need.md)

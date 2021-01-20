@@ -9,12 +9,12 @@ ms.subservice: security
 ms.date: 12/03/2020
 ms.author: billgib
 ms.reviewer: jrasnick
-ms.openlocfilehash: 62c30356017b5ea5d93351e6f22b8b7b0c22718c
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 7dbbe3afb2a5eb19b5c4893bd73eddbf11e788d4
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109264"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98218074"
 ---
 # <a name="how-to-set-up-access-control-for-your-synapse-workspace"></a>Guide pratique pour configurer le contrôle d’accès pour votre espace de travail Synapse 
 
@@ -73,8 +73,8 @@ Vous utiliserez le groupe `workspace1_SQLAdmins` lorsque vous configurerez des a
 Pour une configuration de base, ces cinq groupes suffisent. Plus tard, vous pourrez ajouter des groupes de sécurité pour gérer les utilisateurs qui ont besoin d’un accès plus spécialisé ou pour accorder aux utilisateurs un accès uniquement à des ressources spécifiques.
 
 > [!NOTE]
->- Découvrez comment créer un groupe de sécurité réseau en consultant [cet article](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal).
->- Découvrez comment ajouter un groupe de sécurité à partir d’un autre groupe de sécurité en consultant [cet article](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-membership-azure-portal).
+>- Découvrez comment créer un groupe de sécurité réseau en consultant [cet article](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+>- Découvrez comment ajouter un groupe de sécurité à partir d’un autre groupe de sécurité en consultant [cet article](../../active-directory/fundamentals/active-directory-groups-membership-azure-portal.md).
 
 >[!Tip]
 >Les utilisateurs Synapse peuvent utiliser Azure Active Directory dans le portail Azure pour consulter leurs appartenances aux groupes afin de déterminer les rôles qui leur ont été accordés.

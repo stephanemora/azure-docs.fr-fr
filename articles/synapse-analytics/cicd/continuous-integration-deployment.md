@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: d38c57a8c8504e1e03406f7cd8a0b61725cb0511
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 7a665bf05167a6bdf20c7325c66a5d0e439aa7f1
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97008081"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223684"
 ---
 # <a name="continuous-integration-and-delivery-for-azure-synapse-workspace"></a>Intégration et livraison continues pour l’espace de travail Azure Synapse
 
@@ -21,7 +21,7 @@ ms.locfileid: "97008081"
 
 L’intégration continue (CI) est le processus d’automatisation de création et de test du code chaque fois qu’un membre de l’équipe valide les modifications apportées au contrôle de version. Le déploiement continu (CD) est le processus de création, de test, de configuration et de déploiement de plusieurs environnements de test ou intermédiaires dans un environnement de production.
 
-Pour l’espace de travail Azure Synapse, l’intégration et la livraison continues (CI/CD) déplacent toutes les entités d’un environnement (développement, test, production) à un autre. La promotion de votre espace de travail vers un autre espace de travail se compose de deux parties : utiliser des [modèles Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview) pour créer ou mettre à jour des ressources d’espace de travail (pools et espace de travail), et migrer les artefacts (scripts SQL, bloc-notes, définition de travail Spark, pipelines, jeux de données, flux de données, etc.) avec des outils CI/CD Synapse dans Azure DevOps. 
+Pour l’espace de travail Azure Synapse, l’intégration et la livraison continues (CI/CD) déplacent toutes les entités d’un environnement (développement, test, production) à un autre. La promotion de votre espace de travail vers un autre espace de travail se compose de deux parties : utiliser des [modèles Azure Resource Manager](../../azure-resource-manager/templates/overview.md) pour créer ou mettre à jour des ressources d’espace de travail (pools et espace de travail), et migrer les artefacts (scripts SQL, bloc-notes, définition de travail Spark, pipelines, jeux de données, flux de données, etc.) avec des outils CI/CD Synapse dans Azure DevOps. 
 
 Cet article décrit l’utilisation d’un pipeline de mise en production Azure pour automatiser le déploiement d’un espace de travail Synapse dans plusieurs environnements.
 
@@ -46,7 +46,7 @@ Cet article décrit l’utilisation d’un pipeline de mise en production Azure 
 
 1.  Dans la zone **Nom de la phase**, entrez le nom de votre environnement.
 
-1.  Sélectionnez **Ajouter un artefact**, puis choisissez le dépôt Git configuré avec votre instance Synapse Studio de développement. Sélectionnez le référentiel Git que vous avez utilisé pour gérer le modèle ARM de pools et l’espace de travail. Si vous utilisez GitHub en tant que source, vous devez créer une connexion de service pour votre compte GitHub et les référentiels d’extraction. Pour plus d’informations sur la [connexion de service](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints) 
+1.  Sélectionnez **Ajouter un artefact**, puis choisissez le dépôt Git configuré avec votre instance Synapse Studio de développement. Sélectionnez le référentiel Git que vous avez utilisé pour gérer le modèle ARM de pools et l’espace de travail. Si vous utilisez GitHub en tant que source, vous devez créer une connexion de service pour votre compte GitHub et les référentiels d’extraction. Pour plus d’informations sur la [connexion de service](/azure/devops/pipelines/library/service-endpoints) 
 
     ![Ajouter une branche de publication](media/release-creation-github.png)
 
@@ -87,7 +87,7 @@ Ajoutez une tâche de déploiement Azure Resource Manager pour créer ou mettre 
     ![accorder l’autorisation](media/release-creation-grant-permission.png)
 
  > [!WARNING]
-> En mode de déploiement complet, les ressources présentes dans le groupe de ressources mais pas spécifiées dans le modèle Resource Manager sont **supprimées**. Pour plus d’informations, consultez [Modes de déploiement Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/templates/deployment-modes).
+> En mode de déploiement complet, les ressources présentes dans le groupe de ressources mais pas spécifiées dans le modèle Resource Manager sont **supprimées**. Pour plus d’informations, consultez [Modes de déploiement Azure Resource Manager](../../azure-resource-manager/templates/deployment-modes.md).
 
 ## <a name="set-up-a-stage-task-for-artifacts-deployment"></a>Configurer une tâche intermédiaire pour le déploiement d’artefacts 
 
@@ -122,7 +122,7 @@ Utilisez l’extension de [déploiement d’espace de travail Synapse](https://m
 
 ## <a name="create-release-for-deployment"></a>Créer une mise en production pour le déploiement 
 
-Après avoir enregistré toutes les modifications, vous pouvez sélectionner **Créer une version** pour créer manuellement une mise en production. Pour automatiser la création des mises en production, consultez les [déclencheurs de mise en production Azure DevOps](https://docs.microsoft.com/azure/devops/pipelines/release/triggers).
+Après avoir enregistré toutes les modifications, vous pouvez sélectionner **Créer une version** pour créer manuellement une mise en production. Pour automatiser la création des mises en production, consultez les [déclencheurs de mise en production Azure DevOps](/azure/devops/pipelines/release/triggers).
 
    ![Sélectionner Créer une mise en production](media/release-creation-manually.png)
 
@@ -133,6 +133,4 @@ Si vous utilisez une intégration Git avec votre espace de travail Synapse, et d
 -   **Intégration Git**. Configurez uniquement votre espace de travail Synapse de développement avec l’intégration Git. Les modifications au niveau des espaces de travail de test et de production sont déployées via CI/CD et ne nécessitent pas d’intégration Git.
 -   **Préparez les pools avant la migration des artefacts**. Si vous disposez d’un script SQL ou d’un notebook attaché à des pools dans l’espace de travail de développement, le même nom de pools dans différents environnements est attendu. 
 -   **Infrastructure en tant que code (IaC)** . La gestion de l'infrastructure (réseaux, machines virtuelles, équilibreurs de charge et topologie de connexion) dans un modèle descriptif utilise le même contrôle de version que celui utilisé par l'équipe DevOps pour le code source. 
--   **Autres**. Consultez les [meilleures pratiques pour les artefacts ADF](/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd)
-
-
+-   **Autres**. Consultez les [meilleures pratiques pour les artefacts ADF](../../data-factory/continuous-integration-deployment.md#best-practices-for-cicd)

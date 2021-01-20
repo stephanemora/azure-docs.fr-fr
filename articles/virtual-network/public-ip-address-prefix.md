@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/29/2020
 ms.author: allensu
-ms.openlocfilehash: 53dd6d2dda762b3cbf53f4aaec6cd3692a9656e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d98107075c215c0a00bc2035325a6ad8bf5bfc5
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87432575"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222426"
 ---
 # <a name="public-ip-address-prefix"></a>Préfixe d’adresse IP publique
 
 Un préfixe d’IP publique est une plage réservée d’adresses IP dans Azure. Azure alloue une plage contiguë d’adresses à votre abonnement en fonction du nombre que vous spécifiez. 
 
-Si vous n’êtes pas familiarisé avec les adresses IP publique, consultez [Adresses IP publiques](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).
+Si vous n’êtes pas familiarisé avec les adresses IP publique, consultez [Adresses IP publiques](./public-ip-addresses.md#public-ip-addresses).
 
 Les adresses IP publiques sont attribuées à partir d’un pool d’adresses dans chaque région Azure. Vous pouvez [télécharger](https://www.microsoft.com/download/details.aspx?id=56519) la liste des plages qu’Azure utilise pour chaque région. Par exemple, 40.121.0.0/16 est une plage parmi plus de 100 plages qu’Azure utilise dans la région USA Est. La plage inclut les adresses utilisables comprises entre 40.121.0.1 et 40.121.255.254.
 
@@ -68,9 +68,9 @@ Vous pouvez associer les ressources suivantes à une adresse IP publique statiq
 ## <a name="constraints"></a>Contraintes
 
 - Vous ne pouvez pas spécifier les adresses IP pour le préfixe. Azure alloue les adresses IP pour le préfixe, en fonction de la taille que vous spécifiez.
-- Vous pouvez créer un préfixe pouvant inclure jusqu’à 16 adresses IP ou un /28 par défaut. Pour plus d’informations, consultez [Demandes d’augmentation de limites réseau](https://docs.microsoft.com/azure/azure-portal/supportability/networking-quota-requests) et [Limites d’Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+- Vous pouvez créer un préfixe pouvant inclure jusqu’à 16 adresses IP ou un /28 par défaut. Pour plus d’informations, consultez [Demandes d’augmentation de limites réseau](../azure-portal/supportability/networking-quota-requests.md) et [Limites d’Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 - Vous ne pouvez pas changer la plage une fois que vous avez créé le préfixe.
-- Seules les adresses IP publiques créées avec la référence (SKU) standard peuvent être attribuées à partir de la plage du préfixe. Pour en savoir plus sur les références (SKU) d’adresses IP publiques, consultez [Adresse IP publique](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).
+- Seules les adresses IP publiques créées avec la référence (SKU) standard peuvent être attribuées à partir de la plage du préfixe. Pour en savoir plus sur les références (SKU) d’adresses IP publiques, consultez [Adresse IP publique](./public-ip-addresses.md#public-ip-addresses).
 - Les adresses de la plage ne peuvent être attribuées qu’à des ressources Azure Resource Manager. Il n’est pas possible d’attribuer des adresses aux ressources du modèle de déploiement classique.
 - Toutes les IP publiques créées à partir du préfixe doivent exister dans la même région et le même abonnement Azure que le préfixe. Les adresses doivent être attribuées à des ressources de la même région et du même abonnement.
 - Vous ne pouvez pas supprimer un préfixe si des adresses qu’il contient sont attribuées à des ressources d’adresse P publique associées à une ressource. Dissociez d’abord toutes les ressources d’adresse IP publique qui sont des adresses IP attribuées du préfixe.

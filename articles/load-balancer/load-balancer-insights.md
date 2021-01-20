@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/27/2020
 ms.author: errobin
-ms.openlocfilehash: 63b91194c9ffb10fd8f4c5f1341eaf74bc81f5e1
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 88c287c4aa87b4df41bfe6bbc1992262b21d07aa
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94694879"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232758"
 ---
 # <a name="using-insights-to-monitor-and-configure-your-azure-load-balancer"></a>Utilisation des Insights pour surveiller et configurer votre Azure Load Balancer
 
@@ -68,7 +68,7 @@ L’onglet Débit de données vous permet de passer en revue le débit entrant e
 ### <a name="flow-distribution"></a>Distribution des flux
 L’onglet Distribution des flux vous permet de visualiser et de gérer le nombre de flux que vos instances de serveur principal reçoivent et produisent. Il présente le Taux de création de flux et le Nombre de flux pour le trafic entrant et sortant ainsi que le Trafic réseau que reçoit chaque machine virtuelle et chaque instance de groupe de machines virtuelles identiques. 
 
-Ces vues peuvent vous indiquer que la configuration de votre équilibreur de charge ou vos modèles de trafic entraînent un déséquilibre du trafic. Par exemple, si une affinité de session est configurée et qu’un seul client effectue un nombre disproportionné de demandes. Il vous informe également si vous approchez de la [limite de flux par machine virtuelle](../virtual-network/virtual-machine-network-throughput.md#flow-limits-and-recommendations) pour votre taille de machine.
+Ces vues peuvent vous indiquer que la configuration de votre équilibreur de charge ou vos modèles de trafic entraînent un déséquilibre du trafic. Par exemple, si une affinité de session est configurée et qu’un seul client effectue un nombre disproportionné de demandes. Il vous informe également si vous approchez de la [limite de flux par machine virtuelle](../virtual-network/virtual-machine-network-throughput.md#flow-limits-and-active-connections-recommendations) pour votre taille de machine.
 
 ### <a name="connection-monitors"></a>Moniteurs de connexion
 L’onglet Moniteurs de connexion vous montre la latence aller-retour sur une carte pour tous les [moniteurs de connexion](../network-watcher/connection-monitor.md) configurés. Ces représentations visuelles fournissent des informations utiles aux services avec des exigences strictes en matière de latence. Pour répondre à vos besoins, vous devrez peut-être ajouter des déploiements régionaux supplémentaires ou utiliser un modèle d’[équilibrage de charge inter-région](./cross-region-overview.md)

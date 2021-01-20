@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: blehr
-ms.openlocfilehash: bd35d3288591a01c14e306960601eef6dea7e761
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: 02a6e934b517cdd118b6175d9cfef73bee4c996d
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97954139"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223004"
 ---
 # <a name="quickstart-create-a-public-ip-address-using-the-azure-portal"></a>Démarrage rapide : Créer une adresse IP publique à l’aide du portail Azure
 
-Cet article explique comment créer une ressource d’adresse IP publique à l’aide du portail Azure. Pour savoir quelles ressources peuvent être associées, connaître la différence entre les références SKU De base et Standard et obtenir d’autres informations connexes, consultez [Adresses IP publiques](https://docs.microsoft.com/azure/virtual-network/public-ip-addresses).  Cet exemple traite seulement des adresses IPv4. Pour plus d’informations sur les adresses IPv6, consultez [IPv6 pour les réseaux virtuels Azure](https://docs.microsoft.com/azure/virtual-network/ipv6-overview).
+Cet article explique comment créer une ressource d’adresse IP publique à l’aide du portail Azure. Pour savoir quelles ressources peuvent être associées, connaître la différence entre les références SKU De base et Standard et obtenir d’autres informations connexes, consultez [Adresses IP publiques](./public-ip-addresses.md).  Cet exemple traite seulement des adresses IPv4. Pour plus d’informations sur les adresses IPv6, consultez [IPv6 pour les réseaux virtuels Azure](./ipv6-overview.md).
 
 # <a name="standard-sku---using-zones"></a>[**Référence SKU Standard - Avec des zones**](#tab/option-create-public-ip-standard-zones)
 
@@ -46,9 +46,9 @@ Effectuez les étapes suivantes pour créer une adresse IP publique redondante i
     | Emplacement                | Sélectionnez **USA Est 2**      |
     | Zone de disponibilité       | Sélectionnez **Redondant interzone** ou choisissez une zone spécifique (voir la remarque ci-dessous) |
 
-Notez que ces sélections sont valides uniquement dans des régions avec des [zones de disponibilité](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones).  (Vous pouvez également sélectionner une zone spécifique dans ces régions, mais elle ne sera pas résiliente aux échecs de zone.)
+Notez que ces sélections sont valides uniquement dans des régions avec des [zones de disponibilité](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).  (Vous pouvez également sélectionner une zone spécifique dans ces régions, mais elle ne sera pas résiliente aux échecs de zone.)
 
-\* = Le niveau se rapporte à la fonctionnalité [Équilibreur de charge interrégion](https://docs.microsoft.com/azure/load-balancer/cross-region-overview), actuellement en préversion.
+\* = Le niveau se rapporte à la fonctionnalité [Équilibreur de charge interrégion](../load-balancer/cross-region-overview.md), actuellement en préversion.
 
 # <a name="basic-sku"></a>[**Référence De base**](#tab/option-create-public-ip-basic)
 
@@ -78,9 +78,9 @@ S’il est acceptable que l’adresse IP change au fil du temps, l’attribution
 
 ## <a name="additional-information"></a>Informations supplémentaires 
 
-Pour plus d’informations sur chacun des champs listés ci-dessus, consultez [Gérer les adresses IP publiques](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address#create-a-public-ip-address).
+Pour plus d’informations sur chacun des champs listés ci-dessus, consultez [Gérer les adresses IP publiques](./virtual-network-public-ip-address.md#create-a-public-ip-address).
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Associer une [adresse IP publique à une machine virtuelle](https://docs.microsoft.com/azure/virtual-network/associate-public-ip-address-vm#azure-portal)
-- En savoir plus sur les [adresses IP publiques](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) dans Azure.
+- Associer une [adresse IP publique à une machine virtuelle](./associate-public-ip-address-vm.md#azure-portal)
+- En savoir plus sur les [adresses IP publiques](./public-ip-addresses.md#public-ip-addresses) dans Azure.
 - En savoir plus sur tous les [paramètres d’adresse IP publique](virtual-network-public-ip-address.md#create-a-public-ip-address).

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/12/2021
-ms.openlocfilehash: ba08b5a2563af8f6fde6690bb33e51174683302a
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: d1350248e3819863a30ecf21ff68bb7b9488b6ef
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127581"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232928"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Vue d’ensemble des agents Azure Monitor
 
@@ -152,7 +152,7 @@ Les tableaux suivants listent les systèmes d’exploitation pris en charge par 
 
 ### <a name="linux"></a>Linux
 
-| Système d’exploitation | Agent Azure Monitor | Agent Log Analytics | Agent de dépendances | Extension Diagnostics | 
+| Système d'exploitation | Agent Azure Monitor | Agent Log Analytics | Agent de dépendances | Extension Diagnostics | 
 |:---|:---:|:---:|:---:|:---:
 | Amazon Linux 2017.09                                     |   | X |   |   |
 | CentOS Linux 8                                           |   | X | X |   |
@@ -160,7 +160,7 @@ Les tableaux suivants listent les systèmes d’exploitation pris en charge par 
 | CentOS Linux 6                                           |   | X |   |   |
 | CentOS Linux 6.5+                                        |   | X | X | X |
 | Debian 9                                                 | X | X | x | X |
-| Debian 8                                                 |   | X | X | X |
+| Debian 8                                                 |   | X | X |   |
 | Debian 7                                                 |   |   |   | X |
 | OpenSUSE 13.1+                                           |   |   |   | X |
 | Oracle Linux 8                                           |   | X |   |   |

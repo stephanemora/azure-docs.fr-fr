@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 06/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 43e4027c9d88b209ed0606e045dd5b4d47d3ff6e
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: a35cdebe5ff4db562b19dc4ceed069a831af4305
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92088514"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219995"
 ---
 # <a name="analyze-complex-data-types-in-azure-synapse-analytics"></a>Analyser des types de données complexes dans Azure Synapse Analytics
 
@@ -28,7 +28,7 @@ Les ingénieurs Données doivent comprendre comment traiter efficacement des typ
 
 ## <a name="what-are-arrays-and-nested-structures"></a>Que sont les tableaux et les structures imbriquées ?
 
-L’objet suivant provient d’[Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview). Cet objet contient des structures imbriquées et des tableaux incluant d’autres structures imbriquées.
+L’objet suivant provient d’[Application Insights](../azure-monitor/app/app-insights-overview.md). Cet objet contient des structures imbriquées et des tableaux incluant d’autres structures imbriquées.
 
 ```json
 {
@@ -221,4 +221,4 @@ Il existe deux types d’opérations :
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Découvrez comment interroger Synapse Link pour Azure Cosmos DB à l’aide de Spark](./synapse-link/how-to-query-analytical-store-spark.md)
-* [Interroger des types imbriqués Parquet](./sql/query-parquet-nested-types.md) 
+* [Interroger des types imbriqués Parquet](./sql/query-parquet-nested-types.md)

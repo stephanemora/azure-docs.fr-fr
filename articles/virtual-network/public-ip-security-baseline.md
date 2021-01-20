@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 788c52490a97bb5d5aee0656bbdd09731d767d85
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: d625cb8e0d0fa0f2fff55fbd41818057b7e9cb89
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842598"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98217649"
 ---
 # <a name="azure-security-baseline-for-azure-public-ip"></a>Base de référence de sécurité Azure pour les adresses IP publiques Azure
 
@@ -30,7 +30,7 @@ Pour voir comment les adresses IP publiques Azure sont entièrement mappées à
 
 Vous pouvez utiliser Azure PowerShell ou Azure CLI pour rechercher des ressources ou effectuer des actions sur des ressources en fonction de leurs étiquettes. 
 
-- [Guide pratique pour créer et utiliser des étiquettes](/azure/azure-resource-manager/resource-group-using-tags) 
+- [Guide pratique pour créer et utiliser des étiquettes](../azure-resource-manager/management/tag-resources.md) 
 
 - [Comment créer un réseau virtuel Azure](quick-create-portal.md) 
 
@@ -64,7 +64,7 @@ Une adresse IP publique fournit des outils permettant de surveiller, de diagnost
 
 **Aide** : Utilisez le journal d’activité Azure pour surveiller les configurations et détecter les changements apportés à vos instances d’adresses IP publiques. À part le plan de contrôle (par exemple, le portail Azure), une adresse IP publique ne génère pas elle-même de journaux d’audit. Une adresse IP publique fournit des outils permettant de surveiller, de diagnostiquer et d’afficher des métriques, ainsi que d’activer et de désactiver les journaux des ressources se trouvant dans un réseau virtuel Azure.
 
-- [Guide pratique pour consulter et récupérer les événements du journal d’activité Azure](/azure/azure-monitor/platform/activity-log-view)
+- [Guide pratique pour consulter et récupérer les événements du journal d’activité Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 **Supervision Azure Security Center** : Oui
 
@@ -88,7 +88,7 @@ Utilisez le journal d’activité Azure pour surveiller les configurations et d�
 
 Une adresse IP publique ne génère pas elle-même de journaux liés au trafic réseau, autres qu’au niveau du plan de contrôle (par exemple, le portail Azure).
 
-- [Guide pratique pour consulter et récupérer les événements du journal d’activité Azure](/azure/azure-monitor/platform/activity-log-view)
+- [Guide pratique pour consulter et récupérer les événements du journal d’activité Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 **Supervision Azure Security Center** : Non applicable
 
@@ -114,9 +114,9 @@ Une adresse IP publique ne génère pas elle-même de journaux liés au trafic 
 
 Des rôles intégrés Azure prédéfinis, inventoriés ou interrogés, existent pour certaines ressources par le biais d’outils tels qu’Azure CLI, Azure PowerShell ou le portail Azure.
 
-- [Guide pratique pour obtenir un rôle d’annuaire dans Azure AD avec PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [Guide pratique pour obtenir un rôle d’annuaire dans Azure AD avec PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
-- [Guide pratique pour obtenir les membres d’un rôle d’annuaire dans Azure AD avec PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [Guide pratique pour obtenir les membres d’un rôle d’annuaire dans Azure AD avec PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
 **Supervision Azure Security Center** : Oui
 
@@ -128,7 +128,7 @@ Des rôles intégrés Azure prédéfinis, inventoriés ou interrogés, existent 
 
 Accès juste-à-temps activé à l’aide d’Azure Active Directory (Azure AD) Privileged Identity Management (PIM) et d’Azure Resource Manager. 
 
-- [En savoir plus sur Privileged Identity Management](/azure/active-directory/privileged-identity-management)
+- [En savoir plus sur Privileged Identity Management](../active-directory/privileged-identity-management/index.yml)
 
 **Supervision d’Azure Security Center** : Oui
 
@@ -148,9 +148,9 @@ Accès juste-à-temps activé à l’aide d’Azure Active Directory (Azure AD) 
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6 : Utiliser des ordinateurs dédiés (stations de travail avec accès privilégié) pour toutes les tâches administratives
 
-**Conseils** : Utilisez une station de travail à accès privilégié sur laquelle Azure AD Multi-Factor Authentication (MFA) est activé pour vous connecter à vos ressources liées à Azure Sentinel et les configurer.
+**Conseils** : Utilisez une station de travail disposant d’un accès privilégié avec le service Azure AD Multi-Factor Authentication (MFA) activé pour vous connecter à vos ressources compatibles avec Azure Sentinel et les configurer.
 
-- [Stations de travail d’accès privilégié](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+- [Stations de travail d’accès privilégié](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 - [Planifier un déploiement informatique d'Azure AD Multi-Factor Authentication](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -164,9 +164,9 @@ Accès juste-à-temps activé à l’aide d’Azure Active Directory (Azure AD) 
 
 Utilisez et passez en revue les détections de risque Azure AD pour bénéficier d’alertes et de rapports sur les comportements à risque des utilisateurs.
 
-- [Déploiement de Privileged Identity Management (PIM)](/azure/active-directory/privileged-identity-management/pim-deployment-plan)
+- [Déploiement de Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-- [Présentation des détections de risques Azure AD](/azure/active-directory/reports-monitoring/concept-risk-events)
+- [Présentation des détections de risques Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
 **Supervision Azure Security Center** : Oui
 
@@ -198,7 +198,7 @@ Utilisez et passez en revue les détections de risque Azure AD pour bénéficie
 
 Utilisez les révisions d’accès des identités Azure pour gérer efficacement les appartenances aux groupes, les accès aux applications d’entreprise et les attributions de rôles. L’accès utilisateur peut être vérifié régulièrement pour garantir que les utilisateurs bénéficient d’un accès approuvé et continu.
 
-- [Présentation des rapports Azure AD](/azure/active-directory/reports-monitoring/)
+- [Présentation des rapports Azure AD](../active-directory/reports-monitoring/index.yml)
 
 - [Comment utiliser les révisions d’accès des identités Azure](../active-directory/governance/access-reviews-overview.md)
 
@@ -211,7 +211,7 @@ Utilisez les révisions d’accès des identités Azure pour gérer efficacement
 **Aide** : Implémentez l’intégration avec un outil SIEM/de supervision quelconque basé sur votre accès aux activités de connexion Azure Active Directory (Azure AD) et aux sources des journaux d’événements à risque et d’audit.
 Simplifiez ce processus en créant des paramètres de diagnostic pour les comptes d’utilisateur Azure AD et en envoyant les journaux d’audit et les journaux de connexion à un espace de travail Log Analytics. Configurez les alertes souhaitées dans un espace de travail Log Analytics. 
 
-- [Guide pratique pour intégrer des journaux d’activité Azure dans Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Guide pratique pour intégrer des journaux d’activité Azure dans Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -220,7 +220,7 @@ Simplifiez ce processus en créant des paramètres de diagnostic pour les compte
 ### <a name="312-alert-on-account-login-behavior-deviation"></a>3.12 : Alerte en cas d’écart de comportement de connexion à un compte
 
 **Aide** : Utilisez les fonctionnalités d’Azure Active Directory (Azure AD) Identity Protection pour configurer des réponses automatisées aux actions suspectes détectées, liées aux identités d’utilisateur. Ingérez les données dans Azure Sentinel pour approfondir vos investigations comme vous le souhaitez et en fonction des besoins de l’entreprise.
-- [Guide pratique pour afficher les connexions risquées Azure AD](/azure/active-directory/reports-monitoring/concept-risky-sign-ins) 
+- [Guide pratique pour afficher les connexions risquées Azure AD](../active-directory/identity-protection/overview-identity-protection.md) 
 
 - [Guide pratique pour configurer et activer des stratégies de risque Identity Protection](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md) 
 
@@ -242,7 +242,7 @@ Bien que les ressources Azure classiques puissent être découvertes via Resourc
 
 - [Guide pratique pour créer des requêtes avec Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-- [Guide pratique pour afficher ses abonnements Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [Guide pratique pour afficher ses abonnements Azure](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
 - [Présentation d’Azure RBAC](../role-based-access-control/overview.md)
 
@@ -254,7 +254,7 @@ Bien que les ressources Azure classiques puissent être découvertes via Resourc
 
 **Conseils** : Appliquez des balises aux ressources Azure en fournissant des métadonnées pour les organiser de façon logique par catégories.
 
-- [Guide pratique pour créer et utiliser des étiquettes](/azure/azure-resource-manager/resource-group-using-tags)
+- [Guide pratique pour créer et utiliser des étiquettes](../azure-resource-manager/management/tag-resources.md)
 
 **Supervision Azure Security Center** : Non applicable
 
@@ -269,11 +269,11 @@ En outre, utilisez Azure Policy pour appliquer des restrictions quant au type de
 - Types de ressources non autorisés
 - Types de ressources autorisés
 
-- [Guide pratique pour créer des abonnements Azure supplémentaires](/azure/billing/billing-create-subscription)
+- [Guide pratique pour créer des abonnements Azure supplémentaires](../cost-management-billing/manage/create-subscription.md)
 
-- [Guide pratique pour créer des groupes d’administration](/azure/governance/management-groups/create)
+- [Guide pratique pour créer des groupes d’administration](../governance/management-groups/create-management-group-portal.md)
 
-- [Guide pratique pour créer et utiliser des étiquettes](/azure/azure-resource-manager/resource-group-using-tags)
+- [Guide pratique pour créer et utiliser des étiquettes](../azure-resource-manager/management/tag-resources.md)
 
 **Supervision Azure Security Center** : Non applicable
 
@@ -302,7 +302,7 @@ Utilisez Azure Resource Graph pour interroger et découvrir des ressources dans 
 
 - [Guide pratique pour configurer et gérer Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Guide pratique pour refuser un type de ressource spécifique avec Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
+- [Guide pratique pour refuser un type de ressource spécifique avec Azure Policy](../governance/policy/samples/index.md)
 
 **Supervision Azure Security Center** : Non applicable
 
@@ -350,9 +350,9 @@ Utilisez Azure Resource Graph pour interroger et découvrir des ressources dans 
 
 **Aide** : Si vous utilisez des définitions Azure Policy personnalisées, utilisez Azure DevOps ou Azure Repos pour stocker et gérer votre code en toute sécurité.
 
-- [Stocker du code dans Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Stocker du code dans Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-- [Documentation Azure Repos](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+- [Documentation Azure Repos](/azure/devops/repos/index?view=azure-devops)
 
 **Supervision Azure Security Center** : Non applicable
 
@@ -408,7 +408,7 @@ En outre, marquez clairement les abonnements (par ex. production, non production
 
 - [Alertes de sécurité dans le Centre de sécurité Azure](../security-center/security-center-alerts-overview.md) 
 
-- [Organisation des ressources Azure à l’aide de catégories](/azure/azure-resource-manager/resource-group-using-tags)
+- [Organisation des ressources Azure à l’aide de catégories](../azure-resource-manager/management/tag-resources.md)
 
 **Supervision Azure Security Center** : Oui
 
@@ -474,5 +474,5 @@ En outre, marquez clairement les abonnements (par ex. production, non production
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Consulter le [benchmark de sécurité Azure](/azure/security/benchmarks/overview)
-- En savoir plus sur les [bases de référence de la sécurité Azure](/azure/security/benchmarks/security-baselines-overview)
+- Consulter le [benchmark de sécurité Azure](../security/benchmarks/overview.md)
+- En savoir plus sur les [bases de référence de la sécurité Azure](../security/benchmarks/security-baselines-overview.md)

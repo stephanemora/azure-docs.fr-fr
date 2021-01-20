@@ -13,17 +13,17 @@ ms.workload: infrastructure-services
 ms.date: 08/24/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: e60cdfb00d0dc9d446bd52a72e9fd15676acd285
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5cf0345ccffe95286b95607c6c7322752df6342b
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89458193"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223276"
 ---
 # <a name="how-network-security-groups-filter-network-traffic"></a>Façon dont les groupes de sécurité réseau filtrent le trafic
 <a name="network-security-groups"></a>
 
-Vous pouvez utiliser un groupe de sécurité réseau Azure pour filtrer le trafic réseau à destination et en provenance des ressources Azure dans un réseau virtuel Azure. Un groupe de sécurité réseau contient des [règles de sécurité](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) qui autorisent ou rejettent le trafic réseau entrant et sortant vers différents types de ressources Azure. Pour chaque règle, vous pouvez spécifier la source et la destination, le port et le protocole.
+Vous pouvez utiliser un groupe de sécurité réseau Azure pour filtrer le trafic réseau à destination et en provenance des ressources Azure dans un réseau virtuel Azure. Un groupe de sécurité réseau contient des [règles de sécurité](./network-security-groups-overview.md#security-rules) qui autorisent ou rejettent le trafic réseau entrant et sortant vers différents types de ressources Azure. Pour chaque règle, vous pouvez spécifier la source et la destination, le port et le protocole.
 
 Vous pouvez déployer des ressources à partir de plusieurs services Azure dans un réseau virtuel Azure. Pour une liste complète, consultez [Services pouvant être déployés dans un réseau virtuel](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network). Vous pouvez associer zéro ou un groupe de sécurité réseau à chaque [sous-réseau](virtual-network-manage-subnet.md#change-subnet-settings) de réseau virtuel et [interface réseau](virtual-network-network-interface.md#associate-or-dissociate-a-network-security-group) dans une machine virtuelle. Vous pouvez associer le même groupe de sécurité réseau à autant d’interfaces réseau individuelles et autant de sous-réseaux que vous le souhaitez.
 
@@ -37,7 +37,7 @@ Référez-vous à l’image précédente ainsi qu’au texte suivant pour compre
 
 Pour le trafic entrant, Azure traite d’abord les règles dans un groupe de sécurité réseau associées à un sous-réseau, si elles existent, puis les règles dans un groupe de sécurité réseau associées à l’interface réseau, si elles existent.
 
-- **VM1** : Les règles de la sécurité dans *NSG1* sont traitées dans la mesure où elles sont associées à *Subnet1* et *VM1* est dans *Subnet1*. Sauf si vous avez créé une règle autorisant le trafic entrant par le port 80, le trafic est refusé par la règle de sécurité par défaut [DenyAllInbound](https://docs.microsoft.com/azure/virtual-network/security-overview#denyallinbound) et n’est jamais évalué par *NSG2*, étant donné que *NSG2* est associé à l’interface réseau. Si *NSG1* dispose d’une règle de sécurité qui autorise le trafic entrant par le port 80, le trafic est ensuite traité par *NSG2*. Pour autoriser le port 80 vers la machine virtuelle, *NSG1* et *NSG2* doivent disposer tous deux d’une règle autorisant l’accès au port 80 à partir d’Internet.
+- **VM1** : Les règles de la sécurité dans *NSG1* sont traitées dans la mesure où elles sont associées à *Subnet1* et *VM1* est dans *Subnet1*. Sauf si vous avez créé une règle autorisant le trafic entrant par le port 80, le trafic est refusé par la règle de sécurité par défaut [DenyAllInbound](./network-security-groups-overview.md#denyallinbound) et n’est jamais évalué par *NSG2*, étant donné que *NSG2* est associé à l’interface réseau. Si *NSG1* dispose d’une règle de sécurité qui autorise le trafic entrant par le port 80, le trafic est ensuite traité par *NSG2*. Pour autoriser le port 80 vers la machine virtuelle, *NSG1* et *NSG2* doivent disposer tous deux d’une règle autorisant l’accès au port 80 à partir d’Internet.
 - **VM2** : Les règles dans *NSG1* sont traitées étant donné que *VM2* se trouve également dans *Subnet1*. Dans la mesure où *VM2* ne dispose pas d’un groupe de sécurité réseau associé à son interface réseau, elle reçoit tout le trafic autorisé via *NSG1* ou se voit refuser tout le trafic refusé par *NSG1*. Le trafic est soit autorisé, soit refusé à toutes les ressources dans le même sous-réseau lorsqu’un groupe de sécurité réseau est associé à un sous-réseau.
 - **VM3** : Dans la mesure où il n’existe aucun groupe de sécurité réseau associé à *Subnet2*, le trafic est autorisé dans le sous-réseau et traité par *NSG2*, car *NSG2* est associé à l’interface réseau attachée à *VM3*.
 - **VM4** : Le trafic est autorisé vers *VM4*, car aucun groupe de sécurité réseau n’est associé à *Subnet3* ou à l’interface réseau dans la machine virtuelle. L’intégralité du trafic réseau est autorisée via une interface réseau et un sous-réseau si aucun groupe de sécurité réseau leur est associé.
@@ -46,7 +46,7 @@ Pour le trafic entrant, Azure traite d’abord les règles dans un groupe de sé
 
 Pour le trafic sortant, Azure traite d’abord les règles dans un groupe de sécurité réseau associées à une interface réseau, si elles existent, puis les règles dans un groupe de sécurité réseau associées au sous-réseau, si elles existent.
 
-- **VM1** : Les règles de sécurité dans *NSG2* sont traitées. Sauf si vous créez une règle de sécurité qui refuse le trafic sortant vers internet au niveau du port 80, le trafic est autorisé par la règle de sécurité par défaut [AllowInternetOutbound](https://docs.microsoft.com/azure/virtual-network/security-overview#allowinternetoutbound) à la fois dans *NSG1* et *NSG2*. Si *NSG2* présente une règle de sécurité qui refuse le trafic par le port 80, le trafic est refusé et n’est jamais évalué par *NSG1*. Pour refuser le port 80 à partir de la machine virtuelle, l’un au moins des groupes de sécurité réseau doit disposer d’une règle qui refuse l’accès à Internet par le port 80.
+- **VM1** : Les règles de sécurité dans *NSG2* sont traitées. Sauf si vous créez une règle de sécurité qui refuse le trafic sortant vers internet au niveau du port 80, le trafic est autorisé par la règle de sécurité par défaut [AllowInternetOutbound](./network-security-groups-overview.md#allowinternetoutbound) à la fois dans *NSG1* et *NSG2*. Si *NSG2* présente une règle de sécurité qui refuse le trafic par le port 80, le trafic est refusé et n’est jamais évalué par *NSG1*. Pour refuser le port 80 à partir de la machine virtuelle, l’un au moins des groupes de sécurité réseau doit disposer d’une règle qui refuse l’accès à Internet par le port 80.
 - **VM2** : L’ensemble du trafic est envoyé au sous-réseau via l’interface réseau puisque l’interface réseau attachée à *VM2* ne dispose pas d’un groupe de sécurité réseau associé. Les règles dans *NSG1* sont traitées.
 - **VM3** : Si *NSG2* présente une règle de sécurité qui refuse le trafic par le port 80, le trafic est refusé. Si *NSG2* a une règle de sécurité qui autorise le trafic par le port 80, le port 80 autorise le trafic sortant vers internet, étant donné qu’un groupe de sécurité réseau n’est pas associé à *Subnet2*.
 - **VM4** : L’ensemble du trafic réseau est autorisé depuis *VM4*, car aucun groupe de sécurité réseau n’est associé à *Subnet3* ou à l’interface réseau associée à la machine virtuelle.

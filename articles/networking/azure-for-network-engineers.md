@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 06/25/2020
 ms.author: osamaz
-ms.openlocfilehash: e13dc868512dba15c5b335c1774aaa540eef8157
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 9a22e58e4407897fb9418cae0ba9f32408cda8e1
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861402"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234203"
 ---
 # <a name="azure-for-network-engineers"></a>Azure pour les ingénieurs réseau
 En tant qu’ingénieur réseau classique, vous avez eu affaire à des biens matériels tels que des routeurs, des commutateurs, des câbles et des pare-feu pour créer une infrastructure. Dans une couche logique, vous avez configuré le réseau local virtuel (VLAN), le protocole STP (Spanning Tree Protocol) et des protocoles de routage (RIP, OSPF, BGP). Vous avez géré votre réseau à l’aide d’outils de gestion et de l’interface CLI. La mise en réseau dans le cloud est différente lorsque les points de terminaison réseau sont logiques et que l’utilisation de protocoles de routage est minimale. Vous utiliserez l’API Azure Resource Manager, Azure CLI et PowerShell pour configurer et gérer des ressources dans Azure. Vous allez commencer votre parcours réseau dans le cloud en comprenant les tenants fondamentaux du réseau Azure. 
@@ -88,7 +88,6 @@ En savoir plus sur [le routage de réseau virtuel][vnet-routing].
 En savoir plus sur [les groupes de sécurité réseau][network-security].
 
 <!--Link References-->
-[VNet]: https://docs.microsoft.com/azure/virtual-network/tutorial-connect-virtual-networks-portal
-[vnet-routing]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview
-[network-security]: https://docs.microsoft.com/azure/virtual-network/security-overview
-
+[VNet]: ../virtual-network/tutorial-connect-virtual-networks-portal.md
+[vnet-routing]: ../virtual-network/virtual-networks-udr-overview.md
+[network-security]: ../virtual-network/network-security-groups-overview.md

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2020
 ms.author: rdhillon
-ms.openlocfilehash: 13535a82f8aca741a1e25755e5a2d971ce45514e
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 9766379807e6d2708fd6935dd2ffbd7660f9988f
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97739295"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98216646"
 ---
 # <a name="virtual-network-service-endpoint-policies-for-azure-storage"></a>Stratégies de points de terminaison de service de réseau virtuel pour le stockage Azure
 
@@ -32,7 +32,7 @@ Les stratégies de point de terminaison de service de réseau virtuel offrent le
 
 - __Sécurité renforcée pour votre trafic de réseau virtuel vers Stockage Azure__
 
-  Les [étiquettes de service Azure pour les groupes de sécurité réseau](https://aka.ms/servicetags) vous permettent de restreindre le trafic sortant du réseau virtuel vers des régions de stockage Azure spécifiques. Toutefois, cela autorise le trafic vers n’importe quel compte au sein de la région de stockage Azure sélectionnée.
+  Les [étiquettes de service Azure pour les groupes de sécurité réseau](./network-security-groups-overview.md) vous permettent de restreindre le trafic sortant du réseau virtuel vers des régions de stockage Azure spécifiques. Toutefois, cela autorise le trafic vers n’importe quel compte au sein de la région de stockage Azure sélectionnée.
   
   Les stratégies de points de terminaison vous permettent de spécifier les comptes de stockage Azure qui bénéficient d’un accès sortant du réseau virtuel et limitent l’accès à tous les autres comptes de stockage. Cela apporte un contrôle de sécurité beaucoup plus précis pour la protection de l’exfiltration de données à partir de votre réseau virtuel.
 

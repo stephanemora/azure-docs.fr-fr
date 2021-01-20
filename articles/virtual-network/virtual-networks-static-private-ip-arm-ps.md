@@ -17,18 +17,18 @@ ms.workload: infrastructure-services
 ms.date: 02/07/2019
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: ced76b73a8a08e6886cf0cef04c74a82d05c75dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2825d8d9f8be7c56d7beea767a1afb7a290eafa2
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84708125"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222596"
 ---
 # <a name="create-a-virtual-machine-with-a-static-private-ip-address-using-powershell"></a>Créer une machine virtuelle avec une adresse IP privée statique à l’aide de PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Vous pouvez créer une machine virtuelle avec une adresse IP privée statique. Attribuez une adresse IP privée statique, plutôt qu’une adresse dynamique, si vous souhaitez sélectionner quelle adresse d’un sous-réseau attribuer à une machine virtuelle. Découvrez plus en détail les [adresses IP privées statiques](virtual-network-ip-addresses-overview-arm.md#allocation-method). Pour modifier le type de l’adresse IP privée attribuée à une machine virtuelle existante (de dynamique à statique), ou pour utiliser des adresses IP publiques, consultez [Add, change, or remove IP addresses for an Azure network interface](virtual-network-network-interface-addresses.md) (Ajouter, modifier ou supprimer des adresses IP pour une interface réseau Azure).
+Vous pouvez créer une machine virtuelle avec une adresse IP privée statique. Attribuez une adresse IP privée statique, plutôt qu’une adresse dynamique, si vous souhaitez sélectionner quelle adresse d’un sous-réseau attribuer à une machine virtuelle. Découvrez plus en détail les [adresses IP privées statiques](./public-ip-addresses.md#allocation-method). Pour modifier le type de l’adresse IP privée attribuée à une machine virtuelle existante (de dynamique à statique), ou pour utiliser des adresses IP publiques, consultez [Add, change, or remove IP addresses for an Azure network interface](virtual-network-network-interface-addresses.md) (Ajouter, modifier ou supprimer des adresses IP pour une interface réseau Azure).
 
 ## <a name="create-a-virtual-machine"></a>Création d'une machine virtuelle
 
@@ -109,5 +109,5 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur les [adresses IP privées](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) et l’affectation d’une [adresse IP privée statique](virtual-network-network-interface-addresses.md#add-ip-addresses) à une machine virtuelle Azure.
+- En savoir plus sur les [adresses IP privées](./private-ip-addresses.md) et l’affectation d’une [adresse IP privée statique](virtual-network-network-interface-addresses.md#add-ip-addresses) à une machine virtuelle Azure.
 - En savoir plus sur la création de machines virtuelles [Linux](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) et [Windows](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json).

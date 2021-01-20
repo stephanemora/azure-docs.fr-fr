@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
-ms.openlocfilehash: 7d937542201792c0d1c0be69df9bd1c2b34edea3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 93feaef01b234eeb7ac363c18d8e9d8f52b009de
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004940"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98216527"
 ---
 # <a name="virtual-network-service-endpoints"></a>Points de terminaison de service de réseau virtuel
 
@@ -33,14 +33,14 @@ Cette fonctionnalité est disponible pour les services et régions Azure suivant
 - **[Azure Synapse Analytics](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft.Sql*) : mis à la disposition générale dans toutes les régions Azure.
 - **[Serveur Azure Database pour PostgreSQL](../postgresql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft.Sql*) : mis à la disposition générale dans les régions Azure où le service de base de données est disponible.
 - **[Serveur Azure Database pour MySQL](../mysql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft.Sql*) : mis à la disposition générale dans les régions Azure où le service de base de données est disponible.
-- **[Azure Database for MariaDB](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet)** (*Microsoft.Sql*) : mis à la disposition générale dans les régions Azure où le service de base de données est disponible.
-- **[Azure Cosmos DB](../cosmos-db/vnet-service-endpoint.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft.AzureCosmosDB*) : mis à la disposition générale dans toutes les régions Azure.
+- **[Azure Database for MariaDB](../mariadb/concepts-data-access-security-vnet.md)** (*Microsoft.Sql*) : mis à la disposition générale dans les régions Azure où le service de base de données est disponible.
+- **[Azure Cosmos DB](../cosmos-db/how-to-configure-vnet-service-endpoint.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft.AzureCosmosDB*) : mis à la disposition générale dans toutes les régions Azure.
 - **[Azure Key Vault](../key-vault/general/overview-vnet-service-endpoints.md)** (*Microsoft.KeyVault*) : mis à la disposition générale dans toutes les régions Azure.
 - **[Azure Service Bus](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft.ServiceBus*) : mis à la disposition générale dans toutes les régions Azure.
 - **[Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft.EventHub*) : mis à la disposition générale dans toutes les régions Azure.
 - **[Azure Data Lake Store Gen 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft.AzureActiveDirectory*) : Disponibilité générale dans toutes les régions Azure où ADLS Gen1 est disponible.
-- **[Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)** (*Microsoft.Web*) : En disponibilité générale dans toutes les régions Azure où App Service est disponible.
-- **[Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal)** (*Microsoft.CognitiveServices*) : En disponibilité générale dans toutes les régions Azure où Cognitive Services est disponible.
+- **[Azure App Service](../app-service/app-service-ip-restrictions.md)** (*Microsoft.Web*) : En disponibilité générale dans toutes les régions Azure où App Service est disponible.
+- **[Azure Cognitive Services](../cognitive-services/cognitive-services-virtual-networks.md?tabs=portal)** (*Microsoft.CognitiveServices*) : En disponibilité générale dans toutes les régions Azure où Cognitive Services est disponible.
 
 **Préversion publique**
 
@@ -98,7 +98,7 @@ Les points de terminaison de service fournissent les avantages suivants :
 
 - Groupes de sécurité réseau (NSG) avec points de terminaison de service :
   - Par défaut, les groupes de sécurité réseau autorisent le trafic Internet sortant, ainsi que le trafic de votre réseau virtuel vers les services Azure. Ce trafic continue de fonctionner avec les points de terminaison de service tels quels. 
-  - Si vous souhaitez refuser tout trafic Internet sortant et autoriser le trafic uniquement vers des services Azure spécifiques, vous pouvez le faire à l’aide de [balises de service](security-overview.md#service-tags) dans vos groupes de sécurité réseau. Vous pouvez spécifier les services Azure pris en charge en tant que destination dans vos règles de groupe de sécurité réseau, et Azure fournit également la maintenance des adresses IP sous-tendant chaque balise. Pour plus d’informations, voir [Balises de Service Azure pour les groupes de sécurité réseau.](security-overview.md#service-tags) 
+  - Si vous souhaitez refuser tout trafic Internet sortant et autoriser le trafic uniquement vers des services Azure spécifiques, vous pouvez le faire à l’aide de [balises de service](./network-security-groups-overview.md#service-tags) dans vos groupes de sécurité réseau. Vous pouvez spécifier les services Azure pris en charge en tant que destination dans vos règles de groupe de sécurité réseau, et Azure fournit également la maintenance des adresses IP sous-tendant chaque balise. Pour plus d’informations, voir [Balises de Service Azure pour les groupes de sécurité réseau.](./network-security-groups-overview.md#service-tags) 
 
 ### <a name="scenarios"></a>Scénarios
 
@@ -138,11 +138,11 @@ Certains services Azure, comme Comptes Stockage Azure, peuvent appliquer des lim
 
 ## <a name="vnet-service-endpoint-policies"></a>Stratégies de points de terminaison de service de réseau virtuel 
 
-Les stratégies de point de terminaison de service de réseau virtuel vous permettent de filtrer le trafic de réseau virtuel vers les services Azure. Ce filtre autorise uniquement des ressources de service Azure spécifiques sur les points de terminaison de service. Les stratégies de points de terminaison de service fournissent un contrôle d’accès granulaire pour le trafic de réseau virtuel vers les services Azure. Pour plus d’informations, consultez [Stratégies de points de terminaison de service de réseau virtuel](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview).
+Les stratégies de point de terminaison de service de réseau virtuel vous permettent de filtrer le trafic de réseau virtuel vers les services Azure. Ce filtre autorise uniquement des ressources de service Azure spécifiques sur les points de terminaison de service. Les stratégies de points de terminaison de service fournissent un contrôle d’accès granulaire pour le trafic de réseau virtuel vers les services Azure. Pour plus d’informations, consultez [Stratégies de points de terminaison de service de réseau virtuel](./virtual-network-service-endpoint-policies-overview.md).
 
 ## <a name="faqs"></a>FAQ
 
-Pour consulter les Forums aux questions, consultez les [FAQ sur les points de terminaison de service de réseau virtuel](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#virtual-network-service-endpoints).
+Pour consulter les Forums aux questions, consultez les [FAQ sur les points de terminaison de service de réseau virtuel](./virtual-networks-faq.md#virtual-network-service-endpoints).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -151,5 +151,5 @@ Pour consulter les Forums aux questions, consultez les [FAQ sur les points de te
 - [Sécuriser une base de données Azure SQL Database pour un réseau virtuel](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Sécuriser une instance Azure Synapse Analytics dans un réseau virtuel](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
 - [Intégration des services Azure aux réseaux virtuels](virtual-network-for-azure-services.md)
-- [Stratégies de points de terminaison de service de réseau virtuel](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
+- [Stratégies de points de terminaison de service de réseau virtuel](./virtual-network-service-endpoint-policies-overview.md)
 - [Modèle Azure Resource Manager](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration)

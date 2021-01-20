@@ -3,15 +3,15 @@ title: Surveiller Key Vault avec Azure Monitor pour Key Vault | Microsoft Doc
 description: Cet article décrit la solution Azure Monitor pour coffres de clés.
 services: azure-monitor
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
+author: lgayhardt
+ms.author: lagayhar
 ms.date: 09/10/2020
-ms.openlocfilehash: d28138b251cf159b7cbc5cc6942bb287e57a95d7
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 41b058cf41aa1a8fb1def68851457385c8187823
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93088095"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209880"
 ---
 # <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault"></a>Analyse de votre service de coffre de clés avec Azure Monitor pour Key Vault
 Azure Monitor pour Key Vault offre une analyse complète de vos coffres de clés en fournissant une vue unifiée des requêtes, des performances, des échecs et de la latence de Key Vault.
@@ -126,9 +126,9 @@ Les personnalisations sont enregistrées dans un classeur personnalisé pour év
 Vous pouvez configurer les classeurs Vue d’ensemble et Échecs des coffres de clés et des abonnements multiples pour les étendre à un ou plusieurs abonnements ou coffres de clés à chaque exécution. Pour cela, procédez comme suit :
 
 1. Sélectionnez **Analyse** à partir du portail, puis sélectionnez **Coffres de clés** dans le volet gauche.
-2. Dans le classeur **Vue d’ensemble** , dans la barre de commandes, sélectionnez **Modifier**.
-3. Dans la liste déroulante **Abonnements** , sélectionnez un ou plusieurs abonnements à utiliser par défaut. N’oubliez pas que le classeur prend en charge la sélection de jusqu’à 10 abonnements au total.
-4. Dans la liste déroulante **Coffres de clés** , sélectionnez un ou plusieurs comptes à utiliser par défaut. N’oubliez pas que le classeur prend en charge la sélection d’un total de jusqu’à 200 comptes de stockage.
+2. Dans le classeur **Vue d’ensemble**, dans la barre de commandes, sélectionnez **Modifier**.
+3. Dans la liste déroulante **Abonnements**, sélectionnez un ou plusieurs abonnements à utiliser par défaut. N’oubliez pas que le classeur prend en charge la sélection de jusqu’à 10 abonnements au total.
+4. Dans la liste déroulante **Coffres de clés**, sélectionnez un ou plusieurs comptes à utiliser par défaut. N’oubliez pas que le classeur prend en charge la sélection d’un total de jusqu’à 200 comptes de stockage.
 5. Sélectionnez **Enregistrer sous** dans la barre de commandes pour enregistrer une copie du classeur avec vos personnalisations, puis cliquez sur **Modifications terminées** pour revenir au mode lecture.
 
 ## <a name="troubleshooting"></a>Dépannage

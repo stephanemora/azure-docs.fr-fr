@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2019
 ms.author: kumud
-ms.openlocfilehash: 61617777efa8241c93b2b5ffe42fc1d914b6ebcf
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: feea2d54edd8a93e6e0effbef03389ef895d5ffb
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004974"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98216748"
 ---
 # <a name="virtual-network-peering"></a>Peering de réseau virtuel
 
@@ -48,7 +48,7 @@ La latence du réseau entre des machines virtuelles de réseaux virtuels homolog
 Le trafic entre les machines virtuelles dans des réseaux virtuels homologués est acheminé directement via l’infrastructure principale de Microsoft et non via une passerelle ou une connexion Internet publique.
 
 Vous pouvez appliquer des groupes de sécurité réseau dans l’un ou l’autre des réseaux virtuels pour bloquer l’accès à d’autres réseaux virtuels ou sous-réseaux.
-Lors de la configuration de l’appairage de réseaux virtuels, vous pouvez ouvrir ou fermer les règles du groupe de sécurité réseau entre les réseaux virtuels. Si vous ouvrez totalement la connectivité entre les réseaux virtuels appairés, vous pouvez appliquer des groupes de sécurité réseau pour bloquer ou refuser certains accès. La connectivité entièrement ouverte est l’option par défaut. Pour en savoir plus sur les groupes de sécurité réseau, voir [Groupes de sécurité](security-overview.md).
+Lors de la configuration de l’appairage de réseaux virtuels, vous pouvez ouvrir ou fermer les règles du groupe de sécurité réseau entre les réseaux virtuels. Si vous ouvrez totalement la connectivité entre les réseaux virtuels appairés, vous pouvez appliquer des groupes de sécurité réseau pour bloquer ou refuser certains accès. La connectivité entièrement ouverte est l’option par défaut. Pour en savoir plus sur les groupes de sécurité réseau, voir [Groupes de sécurité](./network-security-groups-overview.md).
 
 ## <a name="service-chaining"></a>Chaînage de services
 

@@ -13,12 +13,12 @@ ms.date: 04/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: b29d8007ba7c6fb41209ad4f792069667416616b
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: d855e124c84dee8554073d05fa04fe078b92ddaa
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98011541"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208887"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Manifeste d’application Azure Active Directory
 
@@ -115,17 +115,6 @@ Exemple :
     "allowPublicClient": false,
 ```
 
-### <a name="availabletoothertenants-attribute"></a>attribut availableToOtherTenants
-
-| Clé | Type de valeur |
-| :--- | :--- |
-| availableToOtherTenants | Boolean |
-
-Définissez la valeur True si l’application est partagée avec d’autres locataires ; sinon, la valeur false.
-
-> [!NOTE]
-> Cet attribut est disponible uniquement dans l’expérience **Inscriptions d’applications (hérité)** . Remplacé par `signInAudience` dans l’expérience [Inscriptions d’applications](https://go.microsoft.com/fwlink/?linkid=2083908).
-
 ### <a name="appid-attribute"></a>attribut appId
 
 | Clé | Type de valeur |
@@ -165,17 +154,6 @@ Exemple :
     ],
 ```
 
-### <a name="displayname-attribute"></a>attribut displayName
-
-| Clé | Type de valeur |
-| :--- | :--- |
-| displayName | String |
-
-Nom d’affichage de l’application.
-
-> [!NOTE]
-> Cet attribut est disponible uniquement dans l’expérience **Inscriptions d’applications (hérité)** . Remplacé par `name` dans l’expérience [Inscriptions d’applications](https://go.microsoft.com/fwlink/?linkid=2083908).
-
 ### <a name="errorurl-attribute"></a>attribut errorUrl
 
 | Clé | Type de valeur |
@@ -203,33 +181,6 @@ Exemple :
     "groupMembershipClaims": "SecurityGroup",
 ```
 
-### <a name="homepage-attribute"></a>attribut homepage
-
-| Clé | Type de valeur |
-| :--- | :--- |
-| page d’accueil |String |
-
-URL vers la page d’accueil de l’application.
-
-> [!NOTE]
-> Cet attribut est disponible uniquement dans l’expérience **Inscriptions d’applications (hérité)** . Remplacé par `signInUrl` dans l’expérience [Inscriptions d’applications](https://go.microsoft.com/fwlink/?linkid=2083908).
-
-### <a name="objectid-attribute"></a>attribut objectId
-
-| Clé | Type de valeur |
-| :--- | :--- |
-|objectId | String |
-
-Identificateur unique de l’application dans le répertoire.
-
-Disponible uniquement dans l’expérience **Inscriptions d’applications (hérité)** . Remplacé par `id` dans l’expérience [Inscriptions d’applications](https://go.microsoft.com/fwlink/?linkid=2083908).
-
-Exemple :
-
-```json
-    "objectId": "f7f9acfc-ae0c-4d6c-b489-0a81dc1652dd",
-```
-
 ### <a name="optionalclaims-attribute"></a>attribut optionalClaims
 
 | Clé | Type de valeur |
@@ -245,7 +196,6 @@ Exemple :
 ```json
     "optionalClaims": null,
 ```
-
 
 
 ### <a name="identifieruris-attribute"></a>attribut identifierUris
@@ -489,16 +439,6 @@ Exemple :
     ],
 ```
 
-### <a name="publicclient-attribute"></a>attribut publicClient
-
-| Clé | Type de valeur |
-| :--- | :--- |
-| publicClient | Boolean|
-
-Spécifie si cette application est un client public (comme une application installée s’exécutant sur un appareil mobile).
-
-Cette propriété est disponible uniquement dans l’expérience **Inscriptions d’applications (hérité)** . Remplacé par `allowPublicClient` dans l’expérience [Inscriptions d’applications](https://go.microsoft.com/fwlink/?linkid=2083908).
-
 ### <a name="publisherdomain-attribute"></a>attribut publisherDomain
 
 | Clé | Type de valeur |
@@ -511,17 +451,7 @@ Exemple :
 
 ```json
     "publisherDomain": "https://www.contoso.com",
-````
-
-### <a name="replyurls-attribute"></a>attribut replyUrls
-
-| Clé | Type de valeur |
-| :--- | :--- |
-| replyUrls | Tableau de chaînes |
-
-Cette propriété à valeurs multiples contient la liste des valeurs de redirect_uri inscrites que Azure AD acceptera comme destinations lors du renvoi des jetons.
-
-Cette propriété est disponible uniquement dans l’expérience **Inscriptions d’applications (hérité)** . Remplacé par `replyUrlsWithType` dans l’expérience [Inscriptions d’applications](https://go.microsoft.com/fwlink/?linkid=2083908).
+```
 
 ### <a name="replyurlswithtype-attribute"></a>attribut replyUrlsWithType
 

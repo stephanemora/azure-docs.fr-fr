@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
-ms.openlocfilehash: 13688b73c0cd73e13e407f1b75beb8dda61a754f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36db885cab734c037b0032c714de28b905595ef0
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84172254"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223259"
 ---
 # <a name="private-ip-addresses"></a>Adresses IP privées
 Les adresses IP privées permettent à des ressources de communiquer dans Azure. 
@@ -82,8 +82,8 @@ Les machines virtuelles configurées avec un DNS géré par Azure résolvent les
 
 Vous pouvez affecter une adresse IP privée à la configuration **front-end** des éléments suivants :
 
-* [Équilibreur de charge interne Azure](../load-balancer/load-balancer-internal-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-* [Application Gateway Azure](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 
+* [Équilibreur de charge interne Azure](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+* [Application Gateway Azure](../application-gateway/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 
 
 Cette adresse IP privée sert de point de terminaison interne. Le point de terminaison interne est accessible uniquement aux ressources de son réseau virtuel et aux réseaux distants connectés à ce dernier. Une adresse IP dynamique ou statique peut être attribuée.
 

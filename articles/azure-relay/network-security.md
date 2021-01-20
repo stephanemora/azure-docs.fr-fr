@@ -3,17 +3,17 @@ title: Sécurité réseau pour Azure Relay
 description: Cet article explique comment utiliser des règles de pare-feu IP et des points de terminaison privés avec Azure Relay.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 608224f42fac8cd2d8ff06ab84989b1f675d418c
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 735a0b7dc303ad63cb301151e3e14e4488c856b1
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98134464"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98217241"
 ---
 # <a name="network-security-for-azure-relay"></a>Sécurité réseau pour Azure Relay 
 Cet article explique comment utiliser les fonctionnalités de sécurité suivantes avec Azure Relay : 
 
-- Règles de pare-feu IP (préversion)
+- Règles de pare-feu IP
 - Instances Private Endpoint 
 
 > [!NOTE]
@@ -28,9 +28,6 @@ Cette fonctionnalité est utile dans les scénarios où Azure Relay ne doit êtr
 Les règles de pare-feu IP sont appliquées au niveau de l’espace de noms Relay. Par conséquent, les règles s’appliquent à toutes les connexions de clients utilisant un protocole pris en charge. Toute tentative de connexion à partir d’une adresse IP qui ne correspond pas à une règle IP autorisée dans l’espace de noms Relay est rejetée comme étant non autorisée. La réponse ne mentionne pas la règle IP. Les règles de filtre IP sont appliquées dans l’ordre et la première règle qui correspond à l’adresse IP détermine l’action d’acceptation ou de rejet.
 
 Pour plus d’informations, consultez [Guide pratique pour configurer un pare-feu IP pour un espace de noms Relay](ip-firewall-virtual-networks.md)
-
-> [!NOTE]
-> Cette fonctionnalité est actuellement en **préversion**. 
 
 ## <a name="private-endpoints"></a>Instances Private Endpoint
 

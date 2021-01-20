@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/08/2018
 ms.author: kumud
-ms.openlocfilehash: 6eab1803bf5adab42be87b5f8567682c6d75947e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8cb1a490ac8edf2630253b45d99c3394bbe721b8
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74483525"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234152"
 ---
 # <a name="disaster-recovery-using-azure-dns-and-traffic-manager"></a>Récupération d’urgence à l’aide d’Azure DNS et Traffic Manager
 
@@ -45,7 +45,7 @@ La plupart des clients d’entreprise choisissent une architecture sur plusieurs
     
     *Figure : Mode actif/passif avec configuration de récupération d’urgence Secours semi-automatique*
     
-Pour plus d’informations sur le basculement et la haute disponibilité, consultez [Récupération d’urgence pour les applications Azure](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications).
+Pour plus d’informations sur le basculement et la haute disponibilité, consultez [Récupération d’urgence pour les applications Azure](/azure/architecture/resiliency/disaster-recovery-azure-applications).
 
 
 ## <a name="planning-your-disaster-recovery-architecture"></a>Planification de votre architecture de récupération d’urgence
@@ -54,7 +54,7 @@ Deux aspects techniques sont à prendre en considération lors de la configurati
 -  Utiliser un mécanisme de déploiement pour répliquer les instances, les données et les configurations entre les environnements primaire et de secours. Ce type de récupération d’urgence est possible en mode natif dans Azure Site-Recovery via les dispositifs/services de partenaires de Microsoft Azure comme Veritas ou NetApp. 
 - Développer une solution afin de transférer le trafic réseau/web du site principal vers le site de secours. Ce type de récupération d’urgence peut être mis en œuvre via Azure DNS, Azure Trafic Manager (DNS) ou des équilibreurs de charge globale tiers.
 
-Cet article concerne seulement les approches via la redirection du trafic réseau et web. Pour connaître les instructions relatives à la configuration d’Azure Site Recovery, consultez la [Documentation d’Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/).
+Cet article concerne seulement les approches via la redirection du trafic réseau et web. Pour connaître les instructions relatives à la configuration d’Azure Site Recovery, consultez la [Documentation d’Azure Site Recovery](../site-recovery/index.yml).
 DNS est l’un des mécanismes les plus efficaces pour rediriger le trafic réseau, car il est généralement mondial et externe au centre de données, et ainsi isolé des défaillances au niveau de la région ou de la zone de disponibilité. On peut utiliser un mécanisme de basculement basé sur DNS et, dans Azure, deux services DNS peuvent accomplir la même chose d’une certaine manière : Azure DNS (DNS faisant autorité) et Azure Traffic Manager (routage du trafic intelligent basé sur DNS). 
 
 Il est important de comprendre certains concepts DNS largement utilisés pour parler des solutions décrites dans cet article :
@@ -170,12 +170,3 @@ Lors d’un incident, le point de terminaison principal est interrogé et l’é
 ## <a name="next-steps"></a>Étapes suivantes
 - En savoir plus sur [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md).
 - En savoir plus sur [Azure DNS](../dns/dns-overview.md)
-
-
-
-
-
-
-
-
-

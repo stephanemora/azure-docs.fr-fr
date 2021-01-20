@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 12/01/2020
 ms.author: kumud
-ms.openlocfilehash: a25d6d0d1990682287b5962a7bd93a0c525db133
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: a29454f09268406511730c63dcc3bc3063b909c6
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97882362"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98218652"
 ---
 # <a name="integrate-azure-services-with-virtual-networks-for-network-isolation"></a>Intégrer des services Azure à des réseaux virtuels pour l’isolement réseau
 
@@ -66,7 +66,7 @@ Pour plus d’informations, consultez [Points de terminaison de service de rése
 
 ## <a name="service-tags"></a>Balises de service
 
-Une balise de service représente un groupe de préfixes d’adresses IP d’un service Azure donné. À l’aide d’étiquettes de service, vous pouvez définir des contrôles d’accès réseau sur des [groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) ou sur [Pare-feu Azure](https://docs.microsoft.com/azure/firewall/service-tags). En spécifiant le nom de l’étiquette de service (par exemple, AzureEventGrid) dans le champ Source ou Destination approprié d’une règle, vous pouvez autoriser ou refuser le trafic pour le service correspondant.
+Une balise de service représente un groupe de préfixes d’adresses IP d’un service Azure donné. À l’aide d’étiquettes de service, vous pouvez définir des contrôles d’accès réseau sur des [groupes de sécurité réseau](./network-security-groups-overview.md#security-rules) ou sur [Pare-feu Azure](../firewall/service-tags.md). En spécifiant le nom de l’étiquette de service (par exemple, AzureEventGrid) dans le champ Source ou Destination approprié d’une règle, vous pouvez autoriser ou refuser le trafic pour le service correspondant.
 
 ![Autoriser ou refuser le trafic à l’aide d’étiquettes de service](./media/network-isolation/service-tags.png)
 
@@ -78,4 +78,4 @@ Pour plus d’informations sur les étiquettes de service et les services Azure 
 
 - Découvrez comment [intégrer votre application à un réseau Azure](../app-service/web-sites-integrate-with-vnet.md).
 - Découvrez comment [restreindre l’accès aux ressources à l’aide d’étiquettes de service](tutorial-restrict-network-access-to-resources.md).
-- Découvrez comment [vous connecter en privé à un compte Azure Cosmos à l’aide d’Azure Private Link](../private-link/create-private-endpoint-cosmosdb-portal.md).
+- Découvrez comment [vous connecter en privé à un compte Azure Cosmos à l’aide d’Azure Private Link](../private-link/tutorial-private-endpoint-cosmosdb-portal.md).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
-ms.openlocfilehash: 805ab0e78f0679ce483af3a73203b41132be2a59
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: df2d74701e21c3773d96564f1b06d80ddb9fce9d
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96022953"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209217"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-volume-groups"></a>Utiliser le Gestionnaire d’instantanés StorSimple pour créer et gérer des groupes de volumes
 ## <a name="overview"></a>Vue d’ensemble
@@ -107,7 +107,7 @@ Exécutez la procédure suivante pour modifier un groupe de volumes.
 #### <a name="to-edit-a-volume-group"></a>Pour modifier un groupe de volumes
 1. Cliquez sur l’icône de bureau pour démarrer le Gestionnaire d’instantanés StorSimple.
 2. Dans le volet **Étendue**, développez le nœud **Groupes de volumes**, cliquez avec le bouton droit sur un nom de groupe de volumes, puis cliquez sur **Modifier**.
-3. La boîte de dialogue Créer un groupe de volumes apparaît. Vous pouvez modifier les entrées **Nom**, **Applications** et **Volumes**.
+3. La boîte de dialogue **Créer un groupe de volumes** s'affiche. Vous pouvez modifier les entrées **Nom**, **Applications** et **Volumes**.
 4. Cliquez sur **OK** pour enregistrer vos modifications.
 
 ## <a name="delete-a-volume-group"></a>Supprimer un groupe de volumes

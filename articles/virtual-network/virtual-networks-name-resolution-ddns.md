@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2017
 ms.author: subsarma
-ms.openlocfilehash: 9f5b535a341956e5675ba96ba9570bd3f2ff3443
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad91eb94aedcdd0e4e715162e3ae064a1d2fb1ea
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84710947"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220420"
 ---
 # <a name="use-dynamic-dns-to-register-hostnames-in-your-own-dns-server"></a>Utiliser un DNS dynamique pour inscrire les noms d’hôte sur votre propre serveur DNS
 
@@ -28,7 +28,7 @@ ms.locfileid: "84710947"
 Quand vos serveurs DNS personnalisés sont hébergés en tant que machines virtuelles Azure, vous pouvez transférer les requêtes de nom d’hôte (pour le même réseau virtuel) vers Azure pour résoudre les noms d’hôte. Si vous ne souhaitez pas utiliser cette option, vous pouvez inscrire les noms d’hôte de vos machines virtuelles sur votre serveur DNS à l’aide du DNS dynamique (DDNS, Dynamic DNS). Comme Azure ne dispose pas des informations d’identification permettant de créer directement des enregistrements sur vos serveurs DNS, d’autres mécanismes sont souvent nécessaires. Nous présentons ci-après quelques scénarios courants avec des solutions alternatives :
 
 ## <a name="windows-clients"></a>Clients Windows
-Les clients Windows non joints à un domaine tentent des mises à jour DDNS non sécurisées pendant le démarrage ou la modification de leurs adresses IP. Le nom DNS se compose du nom d’hôte et du suffixe DNS principal. Azure laisse le suffixe DNS principal vide, mais vous pouvez définir le suffixe dans la machine virtuelle, par le biais de [l’interface utilisateur](https://technet.microsoft.com/library/cc794784.aspx) ou de [PowerShell](/powershell/module/dnsclient/set-dnsclient).
+Les clients Windows non joints à un domaine tentent des mises à jour DDNS non sécurisées pendant le démarrage ou la modification de leurs adresses IP. Le nom DNS se compose du nom d’hôte et du suffixe DNS principal. Azure laisse le suffixe DNS principal vide, mais vous pouvez définir le suffixe dans la machine virtuelle, par le biais de [l’interface utilisateur](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc794784(v=ws.10)) ou de [PowerShell](/powershell/module/dnsclient/set-dnsclient).
 
 Les clients Windows joints à un domaine inscrivent leurs adresses IP auprès du contrôleur de domaine à l’aide de la mise à jour DDNS sécurisée. Le processus de jonction de domaine définit le suffixe DNS principal sur le client, puis crée et gère la relation d’approbation.
 

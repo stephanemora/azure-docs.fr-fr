@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/06/2020
 ms.author: steveesp
-ms.openlocfilehash: 0b009b7c44084e76194c1447fefdb2ff59f8086a
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.openlocfilehash: 7a2f6750a4d0a48c6971f60241976fb55410b65c
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91812282"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98221440"
 ---
 # <a name="bandwidththroughput-testing-ntttcp"></a>Test de bande passante/débit (NTTTCP)
 
@@ -26,7 +26,7 @@ Lorsque vous testez les performances du débit réseau dans Azure, il est préf�
 Copiez l’outil sur deux machines virtuelles Azure de la même taille. Une machine virtuelle fonctionne comme expéditeur et l’autre comme récepteur.
 
 #### <a name="deploying-vms-for-testing"></a>Déploiement de machines virtuelles pour le test
-Dans le cadre de ce test, les deux machines virtuelles doivent être dans le même [groupe de placement de proximité](../virtual-machines/windows/co-location.md)ou le même groupe à haute disponibilité afin de pouvoir utiliser leurs adresses IP internes et exclure les équilibrages de charge du test. Il est possible de tester avec l’adresse IP virtuelle, mais ce type de test n’est pas couvert par ce document.
+Dans le cadre de ce test, les deux machines virtuelles doivent être dans le même [groupe de placement de proximité](../virtual-machines/co-location.md)ou le même groupe à haute disponibilité afin de pouvoir utiliser leurs adresses IP internes et exclure les équilibrages de charge du test. Il est possible de tester avec l’adresse IP virtuelle, mais ce type de test n’est pas couvert par ce document.
 
 Prenez note de l’adresse IP du récepteur. Appelons cette IP « a.b.c.r »
 
@@ -65,7 +65,7 @@ Autorisez ntttcp via le pare-feu Windows en utilisant ce qui suit :
 
 netsh advfirewall firewall add rule program=\<PATH\>\\ntttcp.exe name="ntttcp" protocol=any dir=in action=allow enable=yes profile=ANY
 
-Par exemple, si vous avez copié ntttcp.exe dans le dossier « c:\\tools », voici la commande : 
+Par exemple, si vous avez copié ntttcp.exe dans le dossier « c:\\tools », voici la commande : 
 
 netsh advfirewall firewall add rule program=c:\\tools\\ntttcp.exe name="ntttcp" protocol=any dir=in action=allow enable=yes profile=ANY
 
@@ -82,7 +82,7 @@ ntttcp -r –m 8,\*,10.0.0.4 -t 300
 
 Pour démarrer NTTTCP sur l’EXPÉDITEUR (**exécuter à partir de CMD** et non à partir de PowerShell) :
 
-ntttcp -s –m 8,\*,10.0.0.4 -t 300 
+ntttcp -s –m 8,\*,10.0.0.4 -t 300 
 
 Attendez les résultats.
 
@@ -91,23 +91,23 @@ Attendez les résultats.
 
 Utilisez nttcp-for-linux. Cette commande est disponible à partir des versions <https://github.com/Microsoft/ntttcp-for-linux>
 
-Sur les machines virtuelles Linux (EXPÉDITEUR et RÉCEPTEUR), exécutez les commandes suivantes pour préparer ntttcp-for-linux sur vos machines virtuelles :
+Sur les machines virtuelles Linux (EXPÉDITEUR et RÉCEPTEUR), exécutez les commandes suivantes pour préparer ntttcp-for-linux sur vos machines virtuelles :
 
 CentOS - Installer Git :
 ``` bash
-  yum install gcc -y  
-  yum install git -y
+  yum install gcc -y  
+  yum install git -y
 ```
 Ubuntu - Installer Git :
 ``` bash
- apt-get -y install build-essential  
- apt-get -y install git
+ apt-get -y install build-essential  
+ apt-get -y install git
 ```
-Compilez et installez sur les deux :
+Compilez et installez sur les deux :
 ``` bash
- git clone https://github.com/Microsoft/ntttcp-for-linux
- cd ntttcp-for-linux/src
- make && make install
+ git clone https://github.com/Microsoft/ntttcp-for-linux
+ cd ntttcp-for-linux/src
+ make && make install
 ```
 
 Comme dans l’exemple pour Windows, nous partons du principe que l’IP du récepteur Linux est 10.0.0.4
@@ -123,7 +123,7 @@ Et sur l’EXPÉDITEUR, exécutez :
 ``` bash
 ntttcp -s10.0.0.4 -t 300
 ```
- 
+ 
 La longueur de test par défaut est de 60 secondes si aucun paramètre de temps n’est défini
 
 ## <a name="testing-between-vms-running-windows-and-linux"></a>Test entre les machines virtuelles exécutant Windows et LINUX :

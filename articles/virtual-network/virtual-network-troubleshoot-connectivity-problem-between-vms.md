@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: eb94b67b026ed108f31f6cd802010577665ec0d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ece3e639e0ef3516696e2a0bad7deeb833433a6
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87286085"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219196"
 ---
 # <a name="troubleshooting-connectivity-problems-between-azure-vms"></a>Résolution des problèmes de connectivité entre machines virtuelles Azure
 
@@ -49,7 +49,7 @@ Suivez ces étapes pour résoudre le problème. Après chaque étape, vérifiez 
 
 ### <a name="step-1-check-whether-nic-is-misconfigured"></a>Étape 1 : Vérifier si la carte réseau est mal configurée
 
-Suivez les étapes de [Comment réinitialiser l’interface réseau pour une machine virtuelle Windows Azure](../virtual-machines/windows/reset-network-interface.md). 
+Suivez les étapes de [Comment réinitialiser l’interface réseau pour une machine virtuelle Windows Azure](../virtual-machines/troubleshooting/reset-network-interface.md). 
 
 Si le problème se produit après la modification de l’interface réseau (NIC), procédez comme suit :
 
@@ -62,8 +62,8 @@ Pour plus d’informations, consultez [Ajouter ou supprimer des cartes réseau d
 
 **Machine virtuelle à carte réseau unique** 
 
-- [Redéployez la machine virtuelle Windows.](../virtual-machines/windows/redeploy-to-new-node.md)
-- [Redéployer la machine virtuelle Linux.](../virtual-machines/linux/redeploy-to-new-node.md)
+- [Redéployez la machine virtuelle Windows.](../virtual-machines/troubleshooting/redeploy-to-new-node-windows.md)
+- [Redéployer la machine virtuelle Linux.](../virtual-machines/troubleshooting/redeploy-to-new-node-linux.md)
 
 ### <a name="step-2-check-whether-network-traffic-is-blocked-by-nsg-or-udr"></a>Étape 2 : Vérifiez si le trafic réseau est bloqué par un groupe de sécurité réseau ou un itinéraire défini par l’utilisateur
 
@@ -103,7 +103,7 @@ Une liste ACL permet d’autoriser ou refuser le trafic de manière sélective p
 
 ### <a name="step-7-check-whether-the-endpoint-is-created-for-the-classic-vm"></a>Étape 7 : Vérifiez si le point de terminaison est créé pour la machine virtuelle classique
 
-Toutes les machines virtuelles créées dans Azure à l’aide du modèle de déploiement classique peuvent automatiquement communiquer sur un canal réseau privé avec d’autres machines virtuelles dans le même service cloud ou réseau virtuel. Toutefois, les ordinateurs sur d'autres réseaux virtuels requièrent des points de terminaison pour diriger le trafic réseau entrant vers une machine virtuelle. Pour plus d’informations, consultez [Configuration de points de terminaison](../virtual-machines/windows/classic/setup-endpoints.md).
+Toutes les machines virtuelles créées dans Azure à l’aide du modèle de déploiement classique peuvent automatiquement communiquer sur un canal réseau privé avec d’autres machines virtuelles dans le même service cloud ou réseau virtuel. Toutefois, les ordinateurs sur d'autres réseaux virtuels requièrent des points de terminaison pour diriger le trafic réseau entrant vers une machine virtuelle. Pour plus d’informations, consultez [Configuration de points de terminaison](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints).
 
 ### <a name="step-8-try-to-connect-to-a-vm-network-share"></a>Étape 8 : Essayez de vous connecter à un partage réseau de machine virtuelle
 

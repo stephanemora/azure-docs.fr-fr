@@ -6,18 +6,18 @@ ms.service: virtual-network
 ms.topic: how-to
 ms.date: 08/26/2019
 ms.author: allensu
-ms.openlocfilehash: ed3da649ba65484a79b42ba5bb45431839e123d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a80c731e4245b1a295364e5b8c87f90290f7f74
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84711440"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223306"
 ---
 # <a name="move-an-azure-virtual-network-to-another-region-by-using-the-azure-portal"></a>Déplacer un réseau virtuel Azure vers une autre région en utilisant le portail Azure
 
 Il existe différents scénarios pour déplacer un réseau virtuel Azure existant d’une région à une autre. Par exemple, vous voulez créer un réseau virtuel avec la même configuration pour des tests et la même disponibilité que votre réseau virtuel existant. Vous pourriez aussi déplacer un réseau virtuel de production vers une autre région dans le cadre de la planification de la reprise d’activité.
 
-Vous pouvez utiliser un modèle Azure Resource Manager pour terminer la migration du réseau virtuel vers une autre région. Pour ce faire, exportez le réseau virtuel vers un modèle, modifiez les paramètres pour qu’ils correspondent à la région de destination, puis déployez le modèle dans la nouvelle région. Pour plus d’informations sur les modèles Resource Manager, consultez [Démarrage rapide : Créer et déployer des modèles Azure Resource Manager à l’aide du portail Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
+Vous pouvez utiliser un modèle Azure Resource Manager pour terminer la migration du réseau virtuel vers une autre région. Pour ce faire, exportez le réseau virtuel vers un modèle, modifiez les paramètres pour qu’ils correspondent à la région de destination, puis déployez le modèle dans la nouvelle région. Pour plus d’informations sur les modèles Resource Manager, consultez [Démarrage rapide : Créer et déployer des modèles Azure Resource Manager à l’aide du portail Azure](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
 
 ## <a name="prerequisites"></a>Prérequis
@@ -32,7 +32,7 @@ Vous pouvez utiliser un modèle Azure Resource Manager pour terminer la migratio
 
 - Vérifiez que votre abonnement Azure vous permet de créer des réseaux virtuels dans la région cible. Pour activer le quota nécessaire, contactez le support technique.
 
-- Vérifiez que votre abonnement dispose de suffisamment de ressources pour prendre en charge l’ajout de réseaux virtuels pour ce processus. Pour plus d’informations, consultez [Abonnement Azure et limites, quotas et contraintes de service](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
+- Vérifiez que votre abonnement dispose de suffisamment de ressources pour prendre en charge l’ajout de réseaux virtuels pour ce processus. Pour plus d’informations, consultez [Abonnement Azure et limites, quotas et contraintes de service](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
 
 
 ## <a name="prepare-for-the-move"></a>Préparer le déplacement
@@ -209,5 +209,5 @@ Pour valider les modifications et effectuer le déplacement du réseau virtuel, 
 Dans ce tutoriel, vous avez déplacé un réseau virtuel Azure d’une région à une autre en utilisant le portail Azure, puis vous avez nettoyé les ressources sources non nécessaires. Pour plus d’informations sur le déplacement de ressources entre régions et la reprise d’activité dans Azure, consultez :
 
 
-- [Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
-- [Déplacer des machines virtuelles Azure vers une autre région](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)
+- [Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement](../azure-resource-manager/management/move-resource-group-and-subscription.md)
+- [Déplacer des machines virtuelles Azure vers une autre région](../site-recovery/azure-to-azure-tutorial-migrate.md)

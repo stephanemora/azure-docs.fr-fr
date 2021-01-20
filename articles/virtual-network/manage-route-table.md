@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: kumud
-ms.openlocfilehash: 664e3851370be812cd7a0e58cf9beb1fddb5d991
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8c38f4e84a6a653c3a4d887c82340409fc363af
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87291000"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220590"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Créer, modifier ou supprimer une table de routage
 
@@ -348,4 +348,4 @@ Pour que vous puissiez exécuter des tâches sur des tables de routes et des rou
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Créer une table de routes avec les exemples de scripts [PowerShell](powershell-samples.md) ou [Azure CLI](cli-samples.md), ou les [modèles Azure Resource Manager](template-samples.md)
-- Créer et attribuer des [définitions Azure Policy](policy-samples.md) pour les réseaux virtuels
+- Créer et attribuer des [définitions Azure Policy](./policy-reference.md) pour les réseaux virtuels

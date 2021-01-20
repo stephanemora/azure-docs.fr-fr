@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/02/2020
 ms.author: mnayak
-ms.openlocfilehash: ef1e33a2e43f26dcaf794b2ed81f27d39639b52d
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 2c6295db96f951abd1fd069535b98639e723d93a
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96533976"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98217564"
 ---
 # <a name="configure-routing-preference-for-a-public-ip-address-using-the-azure-portal"></a>Configurer une préférence de routage pour une adresse IP publique à l’aide du portail Azure
 
-Cet article montre comment configurer une [préférence de routage](https://docs.microsoft.com/azure/virtual-network/routing-preference-overview) via un réseau de fournisseur de services Internet (option **Internet**) pour une adresse IP publique à l’aide du portail Azure. Une fois l’adresse IP publique créée, vous pouvez l’associer aux ressources Azure suivantes pour les trafics entrant et sortant via Internet :
+Cet article montre comment configurer une [préférence de routage](./routing-preference-overview.md) via un réseau de fournisseur de services Internet (option **Internet**) pour une adresse IP publique à l’aide du portail Azure. Une fois l’adresse IP publique créée, vous pouvez l’associer aux ressources Azure suivantes pour les trafics entrant et sortant via Internet :
 
 * Machine virtuelle
 * Jeu de mise à l’échelle de machine virtuelle
@@ -56,5 +56,5 @@ Vous pouvez associer l’adresse IP publique créée ci-dessus à une machine vi
 - En savoir plus sur l’[adresse IP publique avec préférence de routage](routing-preference-overview.md).
 - [Configurer la préférence de routage pour une machine virtuelle](tutorial-routing-preference-virtual-machine-portal.md).
 - [Configurer une préférence de routage pour une adresse IP publique à l’aide de PowerShell](routing-preference-powershell.md).
-- En savoir plus sur les [adresses IP publiques](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) dans Azure.
+- En savoir plus sur les [adresses IP publiques](./public-ip-addresses.md#public-ip-addresses) dans Azure.
 - En savoir plus sur tous les [paramètres d’adresse IP publique](virtual-network-public-ip-address.md#create-a-public-ip-address).

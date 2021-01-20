@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: kumud
-ms.openlocfilehash: 5581a4c43f0b78dc8c14c44bfb1ded371a925fd0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61ca4dc8cd7048df69c827e7ca657b9882900819
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88706028"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98218907"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Créer, modifier ou supprimer un réseau virtuel
 
@@ -56,7 +56,7 @@ Avant de suivre les étapes décrites dans les sections de cet article, accompli
      - **Nom du sous-réseau** : Le nom du sous-réseau doit être unique au sein du réseau virtuel. Vous ne pouvez pas modifier le nom du sous-réseau une fois celui-ci créé. Lorsque vous créez un réseau virtuel, le portail exige que vous définissiez un sous-réseau, même si un réseau virtuel ne doit pas obligatoirement comprendre des sous-réseaux. Dans le portail, vous ne pouvez définir qu’un seul sous-réseau lorsque vous créez un réseau virtuel. Vous pouvez ajouter des sous-réseaux au réseau virtuel une fois celui-ci créé. Pour ajouter un sous-réseau à un réseau virtuel, consultez [Gérer des sous-réseaux](virtual-network-manage-subnet.md). Vous pouvez créer un réseau virtuel comprenant plusieurs sous-réseaux en utilisant PowerShell ou Azure CLI.
 
        >[!TIP]
-       >Les administrateurs créent parfois des sous-réseaux distincts pour filtrer ou contrôler le routage du trafic entre ceux-ci. Avant de définir des sous-réseaux, réfléchissez à la manière dont vous pourriez vouloir filtrer et router le trafic entre ceux-ci. Pour en savoir plus sur le filtrage du trafic entre des sous-réseaux, voir [Filtrer le trafic réseau avec les groupes de sécurité réseau](security-overview.md). Azure route automatiquement le trafic entre sous-réseaux, mais vous pouvez remplacer les itinéraires par défaut d’Azure. Pour en savoir plus sur le routage du trafic de sous-réseau par défaut Azure, consultez [Vue d’ensemble du routage](virtual-networks-udr-overview.md).
+       >Les administrateurs créent parfois des sous-réseaux distincts pour filtrer ou contrôler le routage du trafic entre ceux-ci. Avant de définir des sous-réseaux, réfléchissez à la manière dont vous pourriez vouloir filtrer et router le trafic entre ceux-ci. Pour en savoir plus sur le filtrage du trafic entre des sous-réseaux, voir [Filtrer le trafic réseau avec les groupes de sécurité réseau](./network-security-groups-overview.md). Azure route automatiquement le trafic entre sous-réseaux, mais vous pouvez remplacer les itinéraires par défaut d’Azure. Pour en savoir plus sur le routage du trafic de sous-réseau par défaut Azure, consultez [Vue d’ensemble du routage](virtual-networks-udr-overview.md).
        >
 
      - **Plage d’adresses de sous-réseau** : la plage d’adresses doit s’inscrire dans l’espace d’adressage que vous avez entré pour le réseau virtuel. La plus petite plage que vous puissiez spécifier est /29. Celle-ci fournit huit adresses IP pour le sous-réseau. Azure réserve la première et la dernière adresses dans chaque sous-réseau pour la conformité du protocole. Trois adresses supplémentaires sont réservées à l’usage du service Azure. Par conséquent, un réseau virtuel dont la plage d’adresses de sous-réseau est /29 ne comprend que trois adresses IP utilisables. Si vous envisagez de connecter un réseau virtuel à une passerelle VPN, vous devez créer un sous-réseau de passerelle. Pour en savoir plus, voir [Sous-réseau de passerelle](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub). Vous pouvez modifier la plage d’adresses après la création du sous-réseau sous certaines conditions. Pour savoir comment modifier une plage d’adresses de sous-réseau, consultez [Gérer des sous-réseaux](virtual-network-manage-subnet.md).
@@ -135,7 +135,7 @@ Toutes les machines virtuelles connectées au réseau virtuel s’inscrivent aup
 
 1. Dans la zone de recherche située en haut du portail, entrez *réseaux virtuels*. Quand la mention **Réseaux virtuels** apparaît dans les résultats de recherche, sélectionnez-la.
 2. Dans la liste des réseaux virtuels, sélectionnez le réseau dont vous souhaitez modifier les serveurs DNS.
-3. Sous**PARAMÈTRES**, sélectionnez **Serveurs DNS**.
+3. Sous **PARAMÈTRES**, sélectionnez **Serveurs DNS**.
 4. Sélectionnez l’une des options suivantes :
    - **Par défaut (fournie par Azure)**  : les noms de ressources et adresses IP privées sont tous inscrits automatiquement sur les serveurs Azure DNS. Vous pouvez résoudre les noms parmi toutes les ressources connectées à un même réseau virtuel. Vous ne pouvez pas utiliser cette option pour résoudre les noms dans plusieurs réseaux virtuels. Pour résoudre les noms dans plusieurs réseaux virtuels, vous devez utiliser un serveur DNS personnalisé.
    - **Personnalisé** : vous pouvez ajouter un ou plusieurs serveurs, jusqu’à la limite autorisée par Azure pour un réseau virtuel. Pour en savoir plus sur les limites du serveur DNS, voir [Limites d’Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-networking-limits-classic). Vous disposez des options suivantes :
@@ -179,4 +179,4 @@ Pour effectuer des tâches sur des réseaux virtuels, votre compte doit posséde
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Créez un réseau virtuel avec les exemples de scripts [PowerShell](powershell-samples.md) ou [Azure CLI](cli-samples.md), ou à l’aide des[modèles Azure Resource Manager](template-samples.md)
-- Créez et attribuez des [définitions Azure Policy](policy-samples.md) pour les réseaux virtuels
+- Créez et attribuez des [définitions Azure Policy](./policy-reference.md) pour les réseaux virtuels

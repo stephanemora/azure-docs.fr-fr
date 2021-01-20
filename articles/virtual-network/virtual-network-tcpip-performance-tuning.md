@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/02/2019
 ms.author: rimayber
 ms.reviewer: dgoddard, stegag, steveesp, minale, btalb, prachank
-ms.openlocfilehash: 67b635f09cb9407279e89b5f7b8526dab3c08946
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 1f6abbf68d4f648aeee6c025800f24140c9459e9
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96017608"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219315"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>Optimisation des performances TCP/IP pour les machines virtuelles Azure
 
@@ -89,7 +89,7 @@ Nous déconseillons aux clients d’augmenter les MTU des machines virtuelles. C
 
 #### <a name="large-send-offload"></a>Déchargement d’envoi important
 
-Le déchargement d’envoi important (Large Send Offload ou LSO) peut améliorer les performances du réseau en déchargeant la segmentation des paquets sur l'adaptateur Ethernet. Lorsque LSO est activé, la pile TCP/IP crée un grand paquet TCP et l'envoie à l'adaptateur Ethernet pour segmentation avant de le transférer. L'avantage de LSO est qu'il évite au processeur d’effectuer la segmentation des paquets en tailles conformes à la MTU et décharge ce traitement sur l'interface Ethernet où il est effectué dans le matériel. Pour en savoir plus sur les avantages de LSO, consultez la rubrique [Prise en charge du déchargement d'envoi important](https://docs.microsoft.com/windows-hardware/drivers/network/performance-in-network-adapters#supporting-large-send-offload-lso).
+Le déchargement d’envoi important (Large Send Offload ou LSO) peut améliorer les performances du réseau en déchargeant la segmentation des paquets sur l'adaptateur Ethernet. Lorsque LSO est activé, la pile TCP/IP crée un grand paquet TCP et l'envoie à l'adaptateur Ethernet pour segmentation avant de le transférer. L'avantage de LSO est qu'il évite au processeur d’effectuer la segmentation des paquets en tailles conformes à la MTU et décharge ce traitement sur l'interface Ethernet où il est effectué dans le matériel. Pour en savoir plus sur les avantages de LSO, consultez la rubrique [Prise en charge du déchargement d'envoi important](/windows-hardware/drivers/network/performance-in-network-adapters#supporting-large-send-offload-lso).
 
 Lorsque LSO est activé, les clients Azure peuvent voir de grandes tailles de trames lorsqu'ils effectuent des captures de paquets. Ces grandes tailles de trames peuvent amener certains clients à penser à tort qu’une fragmentation se produit ou qu'une grande MTU est utilisée. Avec LSO, l'adaptateur Ethernet peut annoncer une taille de segment maximale (MSS) plus grande à la pile TCP/IP afin de créer un paquet TCP plus grand. Toute cette trame non segmentée est ensuite transmise à l'adaptateur Ethernet et apparaît dans une capture de paquets effectuée sur la machine virtuelle. Mais le paquet sera décomposé en de nombreuses trames plus petites par l'adaptateur Ethernet, selon la MTU de l'adaptateur Ethernet.
 
@@ -117,7 +117,7 @@ Le processus PMTUD est inefficace et affecte les performances du réseau. Lorsqu
 
 Si vous utilisez des machines virtuelles qui effectuent une encapsulation (comme les VPN IPsec), vous devez tenir compte de quelques exigences supplémentaires concernant la taille des paquets et la MTU. Les VPN ajoutent d’autres en-têtes aux paquets, ce qui augmente la taille des paquets et nécessite une MSS inférieure.
 
-Pour Azure, nous vous recommandons de définir la MSS TCP sur 1 350 octets et la MTU de l’interface tunnel sur 1 400 octets. Pour plus d'informations, voir la [page Appareils VPN et paramètres IPSec/IKE](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices).
+Pour Azure, nous vous recommandons de définir la MSS TCP sur 1 350 octets et la MTU de l’interface tunnel sur 1 400 octets. Pour plus d'informations, voir la [page Appareils VPN et paramètres IPSec/IKE](../vpn-gateway/vpn-gateway-about-vpn-devices.md).
 
 ### <a name="latency-round-trip-time-and-tcp-window-scaling"></a>Latence, durée des boucles et mise à l'échelle de la fenêtre TCP
 
@@ -210,7 +210,7 @@ Vous pouvez utiliser la commande PowerShell `Get-NetTCPSetting` pour afficher le
 Get-NetTCPSetting
 ```
 
-Vous pouvez définir la taille initiale de la fenêtre TCP et le facteur d'échelle TCP dans Windows en utilisant la commande PowerShell `Set-NetTCPSetting`. Pour plus d’informations, voir [Set-NetTCPSetting](https://docs.microsoft.com/powershell/module/nettcpip/set-nettcpsetting?view=win10-ps).
+Vous pouvez définir la taille initiale de la fenêtre TCP et le facteur d'échelle TCP dans Windows en utilisant la commande PowerShell `Set-NetTCPSetting`. Pour plus d’informations, voir [Set-NetTCPSetting](/powershell/module/nettcpip/set-nettcpsetting?view=win10-ps).
 
 ```powershell
 Set-NetTCPSetting
@@ -253,13 +253,13 @@ La mise en réseau accélérée améliore les performances en permettant à la m
 
 - **Utilisation réduite du processeur** : en contournant le commutateur virtuel de l'hôte, le processeur utilise moins de ressources pour traiter le trafic réseau.
 
-Pour utiliser la mise en réseau accélérée, vous devez l'activer explicitement sur chaque machine virtuelle applicable. Consultez [Créer une machine virtuelle Linux avec la mise en réseau accélérée](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) pour obtenir des instructions.
+Pour utiliser la mise en réseau accélérée, vous devez l'activer explicitement sur chaque machine virtuelle applicable. Consultez [Créer une machine virtuelle Linux avec la mise en réseau accélérée](./create-vm-accelerated-networking-cli.md) pour obtenir des instructions.
 
 #### <a name="receive-side-scaling"></a>Mise à l'échelle côté réception
 
-La mise à l'échelle côté réception (Receive Side Scaling ou RSS) est une technologie de pilote réseau qui distribue plus efficacement la réception du trafic réseau en répartissant le traitement de réception entre plusieurs processeurs dans un système multiprocesseur. Pour simplifier, RSS permet à un système de traiter plus de trafic reçu en utilisant tous les processeurs disponibles au lieu d'un seul. Pour obtenir des informations plus techniques sur RSS, consultez [Introduction à la mise à l'échelle côté réception](https://docs.microsoft.com/windows-hardware/drivers/network/introduction-to-receive-side-scaling).
+La mise à l'échelle côté réception (Receive Side Scaling ou RSS) est une technologie de pilote réseau qui distribue plus efficacement la réception du trafic réseau en répartissant le traitement de réception entre plusieurs processeurs dans un système multiprocesseur. Pour simplifier, RSS permet à un système de traiter plus de trafic reçu en utilisant tous les processeurs disponibles au lieu d'un seul. Pour obtenir des informations plus techniques sur RSS, consultez [Introduction à la mise à l'échelle côté réception](/windows-hardware/drivers/network/introduction-to-receive-side-scaling).
 
-Pour obtenir les meilleures performances lorsque la mise en réseau accélérée est activée sur une machine virtuelle, vous devez activer RSS. RSS peut également offrir des avantages sur les machines virtuelles qui n'utilisent pas la mise en réseau accélérée. Pour un aperçu sur la façon de vérifier si RSS est activé et comment le faire le cas échéant, voir [Optimiser le débit du réseau des machines virtuelles Azure](https://aka.ms/FastVM).
+Pour obtenir les meilleures performances lorsque la mise en réseau accélérée est activée sur une machine virtuelle, vous devez activer RSS. RSS peut également offrir des avantages sur les machines virtuelles qui n'utilisent pas la mise en réseau accélérée. Pour un aperçu sur la façon de vérifier si RSS est activé et comment le faire le cas échéant, voir [Optimiser le débit du réseau des machines virtuelles Azure](./virtual-network-optimize-network-bandwidth.md).
 
 ### <a name="tcp-time_wait-and-time_wait-assassination"></a>Assassinat TCP TIME_WAIT et TIME_WAIT
 
@@ -271,7 +271,7 @@ La valeur de la plage de ports pour les sockets sortants est généralement conf
 
 Vous pouvez utiliser l'assassinat TIME_WAIT pour résoudre ce problème de mise à l'échelle. L'assassinat TIME_WAIT permet de réutiliser un socket dans certaines situations, comme lorsque le numéro de séquence dans le paquet IP de la nouvelle connexion dépasse le numéro de séquence du dernier paquet de la connexion précédente. Dans ce cas, le système d'exploitation permettra d'établir la nouvelle connexion (il acceptera le nouvelle valeur SYN/ACK) et forcera la fermeture de la connexion précédente qui était dans un état TIME_WAIT. Cette capacité est prise en charge sur les machines virtuelles Windows dans Azure. Pour en savoir plus sur la prise en charge dans d'autres machines virtuelles, contactez l’éditeur du système d'exploitation.
 
-Pour en savoir plus sur la configuration des paramètres TCP TIME_WAIT et la plage de ports source, voir [Paramètres pouvant être modifiés pour améliorer les performances du réseau](https://docs.microsoft.com/biztalk/technical-guides/settings-that-can-be-modified-to-improve-network-performance).
+Pour en savoir plus sur la configuration des paramètres TCP TIME_WAIT et la plage de ports source, voir [Paramètres pouvant être modifiés pour améliorer les performances du réseau](/biztalk/technical-guides/settings-that-can-be-modified-to-improve-network-performance).
 
 ## <a name="virtual-network-factors-that-can-affect-performance"></a>Facteurs du réseau virtuel pouvant affecter les performances
 
@@ -287,7 +287,7 @@ La mise en réseau accélérée est conçue pour améliorer les performances du 
 
 Les machines virtuelles Azure doivent toujours être associées à au moins une interface réseau. Il peut y en avoir plusieurs. La bande passante allouée à une machine virtuelle représente l’intégralité du trafic sortant sur l’ensemble des interfaces réseau associées à la machine. En d’autres termes, la bande passante est allouée machine virtuelle par machine virtuelle, quel que soit le nombre d’interfaces réseau associées à cette machine.
 
-Le débit sortant attendu et le nombre d’interfaces réseau prises en charge par chaque taille de machine virtuelle sont détaillés dans la section [Tailles des machines virtuelles Windows dans Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json). Pour afficher le débit maximal, sélectionnez un type, par exemple **Usage général**, puis recherchez la section consacrée aux séries de tailles sur la page résultante (par exemple, « Série Dv2 »). Pour chaque série, un tableau fournit les spécifications réseau dans la dernière colonne, sous le titre « Nombre max de cartes réseau / Bande passante réseau attendue (Mbit/s) ».
+Le débit sortant attendu et le nombre d’interfaces réseau prises en charge par chaque taille de machine virtuelle sont détaillés dans la section [Tailles des machines virtuelles Windows dans Azure](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Pour afficher le débit maximal, sélectionnez un type, par exemple **Usage général**, puis recherchez la section consacrée aux séries de tailles sur la page résultante (par exemple, « Série Dv2 »). Pour chaque série, un tableau fournit les spécifications réseau dans la dernière colonne, sous le titre « Nombre max de cartes réseau / Bande passante réseau attendue (Mbit/s) ».
 
 Cette limite de débit s’applique à la machine virtuelle. Le débit n'est pas affecté par ces facteurs :
 
@@ -299,7 +299,7 @@ Cette limite de débit s’applique à la machine virtuelle. Le débit n'est pas
 
 - **Protocole** : L’intégralité du trafic sortant, sur l’ensemble des protocoles, s’inscrit dans la limite.
 
-Pour plus d’informations, consultez [Bande passante réseau des machines virtuelles](https://aka.ms/AzureBandwidth).
+Pour plus d’informations, consultez [Bande passante réseau des machines virtuelles](./virtual-machine-network-throughput.md).
 
 ### <a name="internet-performance-considerations"></a>Considérations relatives aux performances Internet
 
@@ -333,7 +333,7 @@ Un déploiement dans Azure peut communiquer avec des points de terminaison en de
 
 Pour chaque connexion sortante, Azure Load Balancer doit maintenir ce mappage pendant un certain temps. Étant donné la nature multilocataire d'Azure, le maintien de ce mappage pour chaque flux sortant de chaque machine virtuelle peut consommer beaucoup de ressources. Il existe donc des limites fixées et basées sur la configuration du réseau virtuel Azure. Ou, pour simplifier, une machine virtuelle Azure ne peut uniquement établir un certain nombre de connexions sortantes à un moment donné. Lorsque ces limites sont atteintes, la machine virtuelle ne pourra plus établir de connexions sortantes.
 
-Mais ce comportement est configurable. Pour plus d'informations sur SNAT et l'épuisement de port SNAT, consultez [cet article](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections).
+Mais ce comportement est configurable. Pour plus d'informations sur SNAT et l'épuisement de port SNAT, consultez [cet article](../load-balancer/load-balancer-outbound-connections.md).
 
 ## <a name="measure-network-performance-on-azure"></a>Mesurer les performances du réseau sur Azure
 
@@ -341,13 +341,13 @@ Un certain nombre des performances maximales de cet article sont liées à la la
 
 ### <a name="measure-round-trip-time-and-packet-loss"></a>Mesurer la durée des bouches (RTT) et la perte de paquets
 
-Les performances TCP dépendent fortement de RTT et de la perte de paquets. L'utilitaire PING disponible sur Windows et Linux fournit le moyen le plus simple de mesurer la durée RTT et la perte de paquets. Le résultat affiché par PING indiquera la latence minimale/maximale/moyenne entre une source et une destination. Il précisera également la perte de paquets. PING utilise le protocole ICMP par défaut. Vous pouvez utiliser PsPing pour tester TCP RTT. Pour plus d'informations, consultez [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping).
+Les performances TCP dépendent fortement de RTT et de la perte de paquets. L'utilitaire PING disponible sur Windows et Linux fournit le moyen le plus simple de mesurer la durée RTT et la perte de paquets. Le résultat affiché par PING indiquera la latence minimale/maximale/moyenne entre une source et une destination. Il précisera également la perte de paquets. PING utilise le protocole ICMP par défaut. Vous pouvez utiliser PsPing pour tester TCP RTT. Pour plus d'informations, consultez [PsPing](/sysinternals/downloads/psping).
 
 ### <a name="measure-actual-throughput-of-a-tcp-connection"></a>Mesurer le débit réel d'une connexion TCP
 
 NTttcp est un outil permettant de tester les performances TCP d'une machine virtuelle Linux ou Windows. Vous pouvez modifier divers paramètres TCP et tester leurs performances en utilisant NTttcp. Pour plus d’informations, consultez ces ressources :
 
-- [Test de bande passante/débit (NTttcp)](https://aka.ms/TestNetworkThroughput)
+- [Test de bande passante/débit (NTttcp)](./virtual-network-bandwidth-testing.md)
 
 - [Utilitaire NTttcp](https://gallery.technet.microsoft.com/NTttcp-Version-528-Now-f8b12769)
 
@@ -357,9 +357,9 @@ Vous pouvez tester les performances de différents types de machines virtuelles,
 
 Pour plus d’informations, voir les articles suivants :
 
-- [Résolution des problèmes de performances réseau ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-troubleshooting-network-performance)
+- [Résolution des problèmes de performances réseau ExpressRoute](../expressroute/expressroute-troubleshooting-network-performance.md)
 
-- [Comment valider un débit VPN sur un réseau virtuel](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-validate-throughput-to-vnet)
+- [Comment valider un débit VPN sur un réseau virtuel](../vpn-gateway/vpn-gateway-validate-throughput-to-vnet.md)
 
 ### <a name="detect-inefficient-tcp-behaviors"></a>Détecter les comportements TCP inefficaces
 
@@ -371,4 +371,4 @@ Néanmoins, ces types de paquets sont des indications que le débit TCP n'attein
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous en savez plus sur l'optimisation des performances TCP/IP pour les machines virtuelles Azure, vous pouvez examiner d'autres considérations sur [la planification des réseaux virtuels](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm) ou [en savoir plus sur la connexion et la configuration des réseaux virtuels](https://docs.microsoft.com/azure/virtual-network/).
+Maintenant que vous en savez plus sur l'optimisation des performances TCP/IP pour les machines virtuelles Azure, vous pouvez examiner d'autres considérations sur [la planification des réseaux virtuels](./virtual-network-vnet-plan-design-arm.md) ou [en savoir plus sur la connexion et la configuration des réseaux virtuels](./index.yml).

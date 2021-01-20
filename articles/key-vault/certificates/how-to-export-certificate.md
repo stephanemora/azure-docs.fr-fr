@@ -10,16 +10,16 @@ ms.topic: how-to
 ms.custom: mvc
 ms.date: 08/11/2020
 ms.author: sebansal
-ms.openlocfilehash: 0925b51ed960b8007d2df86115ea7e5cf627fe7e
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: b3c917c9652954783fcddd92b9a7370c358ab3cc
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97826136"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233642"
 ---
 # <a name="export-certificates-from-azure-key-vault"></a>Exporter des certificats depuis Azure Key Vault
 
-Découvrez comment exporter des certificats depuis Azure Key Vault. Vous pouvez exporter des certificats en utilisant Azure CLI, Azure PowerShell ou le portail Azure. Vous pouvez également utiliser le portail Azure pour exporter des certificats Azure App Service.
+Découvrez comment exporter des certificats depuis Azure Key Vault. Vous pouvez exporter des certificats en utilisant Azure CLI, Azure PowerShell ou le portail Azure. 
 
 ## <a name="about-azure-key-vault-certificates"></a>À propos des certificats Azure Key Vault
 
@@ -114,7 +114,7 @@ Pour télécharger le certificat, sélectionnez **Télécharger au format CER** 
 
 **Exporter des certificats Azure App Service**
 
-Les certificats Azure App Service sont un moyen pratique d’acheter des certificats SSL. Vous pouvez les affecter à des applications Azure à partir du portail. Vous pouvez également exporter ces certificats à partir du portail en tant que fichiers PFX à utiliser ailleurs. Une fois importés, les certificats App Service se trouvent sous des **secrets**.
+Les certificats Azure App Service sont un moyen pratique d’acheter des certificats SSL. Vous pouvez les affecter à des applications Azure à partir du portail. Une fois importés, les certificats App Service se trouvent sous des **secrets**.
 
 Pour plus d’informations, consultez les étapes pour [exporter des certificats Azure App Service](https://social.technet.microsoft.com/wiki/contents/articles/37431.exporting-azure-app-service-certificates.aspx).
 

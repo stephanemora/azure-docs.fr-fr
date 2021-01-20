@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/16/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: a18a36b8583f8534b2a2e643e5c155dc7a2d65e2
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: e2c632de3d602fe2d3e5bfa74f78e90f48412067
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444059"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208911"
 ---
 # <a name="configure-a-mobile-app-that-calls-web-apis"></a>Configurer une application mobile qui appelle des API web
 
@@ -249,8 +249,8 @@ Pour inscrire le schéma d’URL de votre application, procédez comme suit :
 
    Ici, `BundleId` identifie de façon unique votre appareil. Par exemple, si `BundleId` est `yourcompany.xforms`, votre schéma d’URL est `msauth.com.yourcompany.xforms`.
 
-   > [!NOTE]
-   > Ce schéma d’URL fera partie de l’URI de redirection qui identifie de façon unique votre application lorsqu’il reçoit la réponse du répartiteur.
+  
+      Ce schéma d’URL fera partie de l’URI de redirection qui identifie de façon unique votre application lorsqu’il reçoit la réponse du répartiteur.
 
    ```XML
     <key>CFBundleURLTypes</key>
@@ -310,10 +310,9 @@ Quand MSAL pour iOS et macOS appelle le répartiteur, celui-ci rappelle votre ap
     }
 ```
 
-> [!NOTE]
-> Si vous avez adopté `UISceneDelegate` sur iOS 13 ou une version ultérieure, placez le rappel MSAL dans le `scene:openURLContexts:` de `UISceneDelegate` à la place. MSAL `handleMSALResponse:sourceApplication:` ne doit être appelé qu’une seule fois pour chaque URL.
->
-> Pour plus d’informations, consultez la [documentation d’Apple](https://developer.apple.com/documentation/uikit/uiscenedelegate/3238059-scene?language=objc).
+Si vous avez adopté `UISceneDelegate` sur iOS 13 ou une version ultérieure, placez le rappel MSAL dans le `scene:openURLContexts:` de `UISceneDelegate` à la place. MSAL `handleMSALResponse:sourceApplication:` ne doit être appelé qu’une seule fois pour chaque URL.
+
+Pour plus d’informations, consultez la [documentation d’Apple](https://developer.apple.com/documentation/uikit/uiscenedelegate/3238059-scene?language=objc).
 
 #### <a name="step-2-register-a-url-scheme"></a>Étape 2 : Inscrire un schéma d’URL
 
@@ -329,8 +328,7 @@ Pour inscrire un schéma pour votre application :
 
    Ici, `BundleId` identifie de façon unique votre appareil. Par exemple, si `BundleId` est `yourcompany.xforms`, votre schéma d’URL est `msauth.com.yourcompany.xforms`.
 
-   > [!NOTE]
-   > Ce schéma d’URL fera partie de l’URI de redirection qui identifie de façon unique votre application lorsqu’il reçoit la réponse du répartiteur. Assurez-vous que l’URI de redirection au format `msauth.(BundleId)://auth` est inscrit pour votre application dans le [Portail Azure](https://portal.azure.com).
+    Ce schéma d’URL fera partie de l’URI de redirection qui identifie de façon unique votre application lorsqu’il reçoit la réponse du répartiteur. Assurez-vous que l’URI de redirection au format `msauth.(BundleId)://auth` est inscrit pour votre application dans le [Portail Azure](https://portal.azure.com).
 
    ```XML
    <key>CFBundleURLTypes</key>

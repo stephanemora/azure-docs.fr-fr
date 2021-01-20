@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/06/2019
 ms.author: kumud
-ms.openlocfilehash: 4e4f002d038820edf128e3fefb229a0918a8ac55
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: bc43dc7afb234d410eb17d20beb13cd5cb44bb18
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96433517"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222511"
 ---
 # <a name="add-or-remove-a-subnet-delegation"></a>Ajouter ou supprimer une délégation de sous-réseau
 
@@ -79,7 +79,7 @@ Préparez votre environnement pour l’interface Azure CLI.
 - Cet article nécessite la version 2.0.28 ou ultérieure d’Azure CLI. Si vous utilisez Azure Cloud Shell, la version la plus récente est déjà installée.
 
 ### <a name="create-a-resource-group"></a>Créer un groupe de ressources
-Créez un groupe de ressources avec la commande [az group create](https://docs.microsoft.com/cli/azure/group). Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées.
+Créez un groupe de ressources avec la commande [az group create](/cli/azure/group). Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées.
 
 L’exemple suivant crée un groupe de ressources nommé **myResourceGroup** à l’emplacement **eastus** :
 
@@ -92,7 +92,7 @@ L’exemple suivant crée un groupe de ressources nommé **myResourceGroup** à 
 ```
 
 ### <a name="create-a-virtual-network"></a>Créez un réseau virtuel
-Créez un réseau virtuel nommé **myVnet** avec un sous-réseau nommé **mySubnet** dans **myResourceGroup** à l’aide de la commande [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet).
+Créez un réseau virtuel nommé **myVnet** avec un sous-réseau nommé **mySubnet** dans **myResourceGroup** à l’aide de la commande [az network vnet create](/cli/azure/network/vnet).
 
 ```azurecli-interactive
   az network vnet create \
@@ -113,7 +113,7 @@ Le rôle intégré [Contributeur réseau](../role-based-access-control/built-in-
 
 Dans le cadre de cette section, vous allez déléguer le sous-réseau que vous avez créé à la section précédente à un service Azure. 
 
-Utilisez [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update) pour mettre à jour le sous-réseau nommé **mySubnet** avec une délégation à un service Azure.  Dans cet exemple **Microsoft.DBforPostgreSQL/serversv2** est utilisé pour l’exemple de délégation :
+Utilisez [az network vnet subnet update](/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update) pour mettre à jour le sous-réseau nommé **mySubnet** avec une délégation à un service Azure.  Dans cet exemple **Microsoft.DBforPostgreSQL/serversv2** est utilisé pour l’exemple de délégation :
 
 ```azurecli-interactive
   az network vnet subnet update \
@@ -123,7 +123,7 @@ Utilisez [az network vnet subnet update](https://docs.microsoft.com/cli/azure/ne
   --delegations Microsoft.DBforPostgreSQL/serversv2
 ```
 
-Pour vérifier que la délégation a été appliquée, utilisez [az network vnet subnet show](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-show). Vérifiez que le service est délégué au sous-réseau sous la propriété **serviceName** :
+Pour vérifier que la délégation a été appliquée, utilisez [az network vnet subnet show](/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-show). Vérifiez que le service est délégué au sous-réseau sous la propriété **serviceName** :
 
 ```azurecli-interactive
   az network vnet subnet show \
@@ -152,7 +152,7 @@ Pour vérifier que la délégation a été appliquée, utilisez [az network vnet
 
 ### <a name="remove-subnet-delegation-from-an-azure-service"></a>Supprimer une délégation de sous-réseau d’un service Azure
 
-Utilisez [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update) pour supprimer la délégation du sous-réseau nommé **mySubnet** :
+Utilisez [az network vnet subnet update](/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update) pour supprimer la délégation du sous-réseau nommé **mySubnet** :
 
 ```azurecli-interactive
   az network vnet subnet update \
@@ -161,7 +161,7 @@ Utilisez [az network vnet subnet update](https://docs.microsoft.com/cli/azure/ne
   --vnet-name myVnet \
   --remove delegations
 ```
-Pour vérifier que la délégation a été retirée, utilisez [az network vnet subnet show](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-show). Vérifiez que le service est retiré du sous-réseau sous la propriété **serviceName** :
+Pour vérifier que la délégation a été retirée, utilisez [az network vnet subnet show](/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-show). Vérifiez que le service est retiré du sous-réseau sous la propriété **serviceName** :
 
 ```azurecli-interactive
   az network vnet subnet show \
@@ -186,7 +186,7 @@ La sortie de la commande est un crochet NULL :
 ```
 
 ### <a name="create-a-resource-group"></a>Créer un groupe de ressources
-Créez un groupe de ressources avec [New-AzResourceGroup](https://docs.microsoft.com/cli/azure/group). Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées.
+Créez un groupe de ressources avec [New-AzResourceGroup](/cli/azure/group). Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées.
 
 L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *eastus* :
 
@@ -195,7 +195,7 @@ L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l�
 ```
 ### <a name="create-virtual-network"></a>Création d’un réseau virtuel
 
-Créez un réseau virtuel nommé **myVnet** avec un sous-réseau nommé **mySubnet** à l’aide de [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig?view=latest) dans **myResourceGroup** à l’aide de [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork?view=latest). L’espace d’adressage IP pour le réseau virtuel est **10.0.0.0/16**. Un sous-réseau au sein du réseau virtuel est **10.0.0.0/24**.  
+Créez un réseau virtuel nommé **myVnet** avec un sous-réseau nommé **mySubnet** à l’aide de [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig?view=latest) dans **myResourceGroup** à l’aide de [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork?view=latest). L’espace d’adressage IP pour le réseau virtuel est **10.0.0.0/16**. Un sous-réseau au sein du réseau virtuel est **10.0.0.0/24**.  
 
 ```azurepowershell-interactive
   $subnet = New-AzVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix "10.0.0.0/24"
@@ -212,7 +212,7 @@ Le rôle intégré [Contributeur réseau](../role-based-access-control/built-in-
 
 Dans le cadre de cette section, vous allez déléguer le sous-réseau que vous avez créé à la section précédente à un service Azure. 
 
-Utilisez [Add-AzDelegation](https://docs.microsoft.com/powershell/module/az.network/add-azdelegation?view=latest) pour mettre à jour le sous-réseau nommé **mySubnet** avec une délégation nommée **myDelegation** à un service Azure.  Dans cet exemple **Microsoft.DBforPostgreSQL/serversv2** est utilisé pour l’exemple de délégation :
+Utilisez [Add-AzDelegation](/powershell/module/az.network/add-azdelegation?view=latest) pour mettre à jour le sous-réseau nommé **mySubnet** avec une délégation nommée **myDelegation** à un service Azure.  Dans cet exemple **Microsoft.DBforPostgreSQL/serversv2** est utilisé pour l’exemple de délégation :
 
 ```azurepowershell-interactive
   $vnet = Get-AzVirtualNetwork -Name "myVNet" -ResourceGroupName "myResourceGroup"
@@ -220,7 +220,7 @@ Utilisez [Add-AzDelegation](https://docs.microsoft.com/powershell/module/az.netw
   $subnet = Add-AzDelegation -Name "myDelegation" -ServiceName "Microsoft.DBforPostgreSQL/serversv2" -Subnet $subnet
   Set-AzVirtualNetwork -VirtualNetwork $vnet
 ```
-Utilisez [Get-AzDelegation](https://docs.microsoft.com/powershell/module/az.network/get-azdelegation?view=latest) pour vérifier la délégation :
+Utilisez [Get-AzDelegation](/powershell/module/az.network/get-azdelegation?view=latest) pour vérifier la délégation :
 
 ```azurepowershell-interactive
   $subnet = Get-AzVirtualNetwork -Name "myVnet" -ResourceGroupName "myResourceGroup" | Get-AzVirtualNetworkSubnetConfig -Name "mySubnet"
@@ -236,7 +236,7 @@ Utilisez [Get-AzDelegation](https://docs.microsoft.com/powershell/module/az.netw
 ```
 ### <a name="remove-subnet-delegation-from-an-azure-service"></a>Supprimer une délégation de sous-réseau d’un service Azure
 
-Utilisez [Remove-AzDelegation](https://docs.microsoft.com/powershell/module/az.network/remove-azdelegation?view=latest) pour supprimer la délégation du sous-réseau nommé **mySubnet** :
+Utilisez [Remove-AzDelegation](/powershell/module/az.network/remove-azdelegation?view=latest) pour supprimer la délégation du sous-réseau nommé **mySubnet** :
 
 ```azurepowershell-interactive
   $vnet = Get-AzVirtualNetwork -Name "myVnet" -ResourceGroupName "myResourceGroup"
@@ -244,7 +244,7 @@ Utilisez [Remove-AzDelegation](https://docs.microsoft.com/powershell/module/az.n
   $subnet = Remove-AzDelegation -Name "myDelegation" -Subnet $subnet
   Set-AzVirtualNetwork -VirtualNetwork $vnet
 ```
-Utilisez [Get-AzDelegation](https://docs.microsoft.com/powershell/module/az.network/get-azdelegation?view=latest) pour vérifier que la délégation a été supprimée :
+Utilisez [Get-AzDelegation](/powershell/module/az.network/get-azdelegation?view=latest) pour vérifier que la délégation a été supprimée :
 
 ```azurepowershell-interactive
   $subnet = Get-AzVirtualNetwork -Name "myVnet" -ResourceGroupName "myResourceGroup" | Get-AzVirtualNetworkSubnetConfig -Name "mySubnet"

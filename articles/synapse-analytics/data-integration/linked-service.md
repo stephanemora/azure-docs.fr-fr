@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: fb3c7dd7b3d7e8e42e230eedcd0d1b43af104327
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: af6afa2b0285fe741241183ed99712a132953a30
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452521"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220114"
 ---
 # <a name="secure-a-linked-service-with-private-links"></a>Sécuriser un service lié à l’aide de Liaisons privées (Private Links)
 
@@ -23,7 +23,7 @@ Dans cet article, vous allez découvrir comment sécuriser un service lié dans 
 ## <a name="prerequisites"></a>Prérequis
 
 * **Abonnement Azure** : Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
-* **Compte Stockage Azure** : Vous utilisez Azure Data Lake Gen 2 comme magasin de données *source*. Si vous ne possédez pas de compte de stockage, consultez l’article [Créer un compte Stockage Azure](../../storage/blobs/data-lake-storage-quickstart-create-account.md) pour découvrir comment en créer un. Assurez-vous que le compte de stockage dispose du filtre IP Synapse Studio pour y accéder et que vous n’autorisez que les **réseaux sélectionnés** à accéder au compte de stockage. Le paramètre sous le panneau **Pare-feux et réseaux virtuels** doit ressembler à l’image ci-dessous.
+* **Compte Stockage Azure** : Vous utilisez Azure Data Lake Gen 2 comme magasin de données *source*. Si vous ne possédez pas de compte de stockage, consultez l’article [Créer un compte Stockage Azure](../../storage/common/storage-account-create.md) pour découvrir comment en créer un. Assurez-vous que le compte de stockage dispose du filtre IP Synapse Studio pour y accéder et que vous n’autorisez que les **réseaux sélectionnés** à accéder au compte de stockage. Le paramètre sous le panneau **Pare-feux et réseaux virtuels** doit ressembler à l’image ci-dessous.
 
 ![Compte de stockage sécurisé](./media/secure-storage-account.png)
 

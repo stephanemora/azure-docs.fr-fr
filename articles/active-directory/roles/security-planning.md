@@ -14,12 +14,12 @@ ms.subservice: roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a7304ffbb7718205ead48e27989d4a169375997
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: c981bde4e0699c4da33ada7e287b16e54b899a58
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861984"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98198915"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Sécurisation de l’accès privilégié pour les déploiements hybrides et cloud dans Azure AD
 
@@ -255,7 +255,7 @@ Des attaquants peuvent tenter de cibler des comptes privilégiés et perturber l
 * attaques par emprunt d’identité ;
 * attaques visant à dérober des informations d’identification, par exemple en enregistrant les frappes, et autres attaques de type « pass-The-Hash » et « pass-the-ticket ».
 
-En déployant des stations de travail dédiées à un accès privilégié, vous pouvez réduire le risque que des administrateurs saisissent leurs informations d’identification dans un environnement de bureau dont la sécurité n’a pas été renforcée. Pour plus d’informations, consultez [Stations de travail d’accès privilégié](/windows-server/identity/securing-privileged-access/privileged-access-workstations).
+En déployant des stations de travail dédiées à un accès privilégié, vous pouvez réduire le risque que des administrateurs saisissent leurs informations d’identification dans un environnement de bureau dont la sécurité n’a pas été renforcée. Pour plus d’informations, consultez [Stations de travail d’accès privilégié](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/).
 
 #### <a name="review-national-institute-of-standards-and-technology-recommendations-for-handling-incidents"></a>Passer en revue les recommandations relatives à la gestion des incidents du National Institute of Standards and Technology
 

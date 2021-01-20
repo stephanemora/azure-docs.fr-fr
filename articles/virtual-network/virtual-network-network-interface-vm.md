@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2020
 ms.author: kumud
-ms.openlocfilehash: f7253be2844f40ca52df2f9b3bc9cbba552fea2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b45bd2e2b9ad971891cbcb944286f40b4f66883
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85480131"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98216952"
 ---
 # <a name="add-network-interfaces-to-or-remove-network-interfaces-from-virtual-machines"></a>Ajouter ou supprimer des interfaces réseau pour des machines virtuelles
 
@@ -61,7 +61,7 @@ Pour ajouter une interface réseau à votre machine virtuelle
 
 1. Accédez au [portail Azure](https://portal.azure.com) pour trouver une machine virtuelle existante. Recherchez et sélectionnez **Machines virtuelles**.
 
-2. Sélectionnez le nom de votre machine virtuelle. La machine virtuelle doit prendre en charge le nombre d’interfaces réseau que vous souhaitez ajouter. Pour connaître le nombre d’interfaces réseau prises en charge par chaque taille de machine virtuelle, consultez les tailles dans Azure pour les [machines virtuelles Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou les [machines virtuelles Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+2. Sélectionnez le nom de votre machine virtuelle. La machine virtuelle doit prendre en charge le nombre d’interfaces réseau que vous souhaitez ajouter. Pour connaître le nombre d’interfaces réseau prises en charge par chaque taille de machine virtuelle, consultez les tailles dans Azure pour les [machines virtuelles Linux](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou les [machines virtuelles Windows](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 3. Dans la barre de commandes de la machine virtuelle, sélectionnez **Arrêter**, puis **OK** dans la boîte de dialogue de confirmation. Ensuite, attendez que la zone **État** de la machine virtuelle passe à **Arrêté (désalloué)** .
 
@@ -133,7 +133,7 @@ Pour plus d’informations sur les paramètres d’interface réseau et leur mod
 
 - Une machine virtuelle doit avoir au moins une interface réseau attachée.
 
-- Le nombre d’interfaces réseau d’une machine virtuelle est limité par ce que la taille de machine virtuelle prend en charge. Pour en savoir plus sur le nombre d’interfaces réseau prises en charge par chaque taille de machine virtuelle, consultez les tailles dans Azure pour les [machines virtuelles Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou les [machines virtuelles Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Toutes les tailles prennent en charge au moins deux interfaces réseau.
+- Le nombre d’interfaces réseau d’une machine virtuelle est limité par ce que la taille de machine virtuelle prend en charge. Pour en savoir plus sur le nombre d’interfaces réseau prises en charge par chaque taille de machine virtuelle, consultez les tailles dans Azure pour les [machines virtuelles Linux](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou les [machines virtuelles Windows](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Toutes les tailles prennent en charge au moins deux interfaces réseau.
 
 - Actuellement, les interfaces réseau que vous ajoutez à une machine virtuelle ne peuvent pas être attachées à une autre machine virtuelle. Pour plus d’informations sur la création d’une interface réseau, consultez [Créer une interface réseau](virtual-network-network-interface.md#create-a-network-interface).
 
@@ -143,7 +143,7 @@ Pour plus d’informations sur les paramètres d’interface réseau et leur mod
 
 - Vous pouvez contrôler l’interface réseau vers laquelle vous envoyez le trafic sortant. Toutefois, par défaut une machine virtuelle envoie tout le trafic sortant à l’adresse IP affectée à la configuration IP principale de l’interface réseau principale.
 
-- Auparavant, toutes les machines virtuelles du même groupe à haute disponibilité étaient requises pour une seule ou plusieurs interfaces réseau. Des machines virtuelles comportant un nombre quelconque d’interfaces réseau peuvent désormais exister dans le même groupe à haute disponibilité, pour autant que ce nombre soit pris en charge par la taille de la machine virtuelle. Vous ne pouvez ajouter une machine virtuelle à un groupe à haute disponibilité qu’au moment de la création de celui-ci. Pour en savoir plus sur les groupes à haute disponibilité, consultez [Gérer la disponibilité des machines virtuelles dans Azure](../virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy).
+- Auparavant, toutes les machines virtuelles du même groupe à haute disponibilité étaient requises pour une seule ou plusieurs interfaces réseau. Des machines virtuelles comportant un nombre quelconque d’interfaces réseau peuvent désormais exister dans le même groupe à haute disponibilité, pour autant que ce nombre soit pris en charge par la taille de la machine virtuelle. Vous ne pouvez ajouter une machine virtuelle à un groupe à haute disponibilité qu’au moment de la création de celui-ci. Pour en savoir plus sur les groupes à haute disponibilité, consultez [Gérer la disponibilité des machines virtuelles dans Azure](../virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy).
 
 - Vous pouvez connecter des interfaces réseau dans la même machine virtuelle à différents sous-réseaux au sein d’un réseau virtuel. Toutefois, les interfaces réseau doivent toutes être connectées au même réseau virtuel.
 

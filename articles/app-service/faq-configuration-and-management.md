@@ -8,12 +8,12 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: fb193637525722bf227241a614cd977fbf70c9ac
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: df4bd0ae0884feae8bd21e33f4d27b6ceb207337
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93074180"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233999"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>FAQ sur la configuration et la gestion de Web Apps dans Azure
 
@@ -60,7 +60,7 @@ La rubrique [Limitations d’App Service](../azure-resource-manager/management/m
 Pour définir le fuseau horaire du serveur pour votre application web :
 
 1. Dans le portail Azure, dans votre abonnement App Service, accédez au menu **Paramètres de l’application**.
-2. Sous **Paramètres de l’application** , ajoutez le paramètre suivant :
+2. Sous **Paramètres de l’application**, ajoutez le paramètre suivant :
     * Key = WEBSITE_TIME_ZONE
     * Value = *Fuseau horaire de votre choix*
 3. Sélectionnez **Enregistrer**.
@@ -71,7 +71,7 @@ Pour les services d’application qui s’exécutent sur Linux, définissez une 
 
 ## <a name="why-do-my-continuous-webjobs-sometimes-fail"></a>Pourquoi mes tâches web continues échouent-elles parfois ?
 
-Par défaut, les applications web sont déchargées si elles restent inactives pendant un laps de temps défini. Cela permet au système d’économiser des ressources. Dans les offres De base et Standard, vous pouvez activer le paramètre **Toujours actif** afin que l’application web reste chargée en permanence. Si votre application web exécute des tâches web en continu, vous devez activer l’option **Toujours actif** , sans quoi les tâches pourraient ne pas s’exécuter de manière fiable. Pour plus d’informations, voir [Création d’une tâche web exécutée en continu](webjobs-create.md#CreateContinuous).
+Par défaut, les applications web sont déchargées si elles restent inactives pendant un laps de temps défini. Cela permet au système d’économiser des ressources. Dans les offres De base et Standard, vous pouvez activer le paramètre **Toujours actif** afin que l’application web reste chargée en permanence. Si votre application web exécute des tâches web en continu, vous devez activer l’option **Toujours actif**, sans quoi les tâches pourraient ne pas s’exécuter de manière fiable. Pour plus d’informations, voir [Création d’une tâche web exécutée en continu](webjobs-create.md#CreateContinuous).
 
 ## <a name="how-do-i-get-the-outbound-ip-address-for-my-web-app"></a>Comment obtenir l’adresse IP sortante pour mon application web ?
 
@@ -180,12 +180,12 @@ Pour capturer une trace F12, vous disposez de deux options :
 3. Vérifiez que l’onglet **Réseau** est activé, puis sélectionnez le bouton vert **Lecture**.
 4. Effectuez les étapes reproduisant le problème.
 5. Sélectionnez le bouton rouge **Arrêt**.
-6. Sélectionnez le bouton **Enregistrer** (icône de disque), puis, dans Internet Explorer ou Microsoft Edge, enregistrez le fichier HAR *ou* , dans Chrome, cliquez avec le bouton droit sur celui-ci, puis sélectionnez **Save as HAR with content** (Sauvegarder le contenu au format HAR).
+6. Sélectionnez le bouton **Enregistrer** (icône de disque), puis, dans Internet Explorer ou Microsoft Edge, enregistrez le fichier HAR *ou*, dans Chrome, cliquez avec le bouton droit sur celui-ci, puis sélectionnez **Save as HAR with content** (Sauvegarder le contenu au format HAR).
 
 ### <a name="f12-console-output"></a>Sortie de la console F12
 
 1. Sélectionnez l’onglet **Console**.
-2. Pour chaque onglet contenant au moins un élément, sélectionnez l’onglet ( **Erreur** , **Avertissement** ou **Informations** ). Si l’onglet n’est pas sélectionné, l’icône d’onglet s’affiche en gris ou noir lorsque vous écartez le curseur de celle-ci.
+2. Pour chaque onglet contenant au moins un élément, sélectionnez l’onglet (**Erreur**, **Avertissement** ou **Informations**). Si l’onglet n’est pas sélectionné, l’icône d’onglet s’affiche en gris ou noir lorsque vous écartez le curseur de celle-ci.
 3. Cliquez avec le bouton droit dans la zone de message du volet, puis sélectionnez **Copier tout**.
 4. Collez le texte copié dans un fichier, puis enregistrez celui-ci.
 
@@ -317,3 +317,8 @@ Vous pouvez également spécifier les types MIME dynamiques et statiques spécif
 ## <a name="how-do-i-migrate-from-an-on-premises-environment-to-app-service"></a>Comment migrer à partir d’un environnement local vers App Service ?
 
 Pour migrer des sites à partir de serveurs web Windows et Linux vers App Service, vous pouvez utiliser l’Assistant Migration d’Azure App Service. L’outil de migration crée les applications et bases de données web dans Azure en fonction des besoins, puis publie le contenu. Pour plus d’informations, voir [Assistant Migration d’Azure App Service](https://appmigration.microsoft.com/).
+
+## <a name="why-is-my-certificate-issued-for-11-months-and-not-for-a-full-year"></a>Pourquoi mon certificat est-il émis pour une durée de 11 mois, et non une année complète ?
+
+Pour tous les certificats émis après le 01/09/2020, la durée maximale est désormais de 397 jours. Les certificats émis avant le 01/09/2020 ont une validité maximale de 825 jours jusqu’à ce qu’ils soient renouvelés, qu’une nouvelle clé soit créée, etc. Tout certificat renouvelé après le 01/09/2020 sera affecté par ce changement, et les utilisateurs pourront observer une validité plus courte sur leurs certificats renouvelés.
+GoDaddy a implémenté un service d’abonnement qui respecte les nouvelles exigences tout en honorant les certificats clients existants. Trente jours avant l’expiration du certificat nouvellement émis, le service émet automatiquement un deuxième certificat qui prolonge la durée jusqu’à la date d’expiration d’origine. App Service collabore avec GoDaddy afin de gérer correctement ce changement et de garantir que nos clients jouissent de la durée totale de leur certificat.

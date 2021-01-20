@@ -5,12 +5,12 @@ description: Découvrez comment mettre à jour des nœuds AKS à l’aide de Git
 services: container-service
 ms.topic: article
 ms.date: 11/27/2020
-ms.openlocfilehash: 504c99a7305a5010f8dbe56a30b53d6fc3a13c5b
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: 6876cf1e5044246492e249d8a61060cbeac46f96
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96607838"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98217955"
 ---
 # <a name="apply-security-updates-to-azure-kubernetes-service-aks-nodes-automatically-using-github-actions"></a>Appliquer automatiquement des correctifs de sécurité aux nœuds Azure Kubernetes service (AKS) à l’aide de GitHub Actions
 
@@ -157,7 +157,7 @@ Pour créer les étapes nécessaires à l’exécution des commandes Azure CLI 
           - name: Upgrade node images
             uses: Azure/cli@v1.0.0
             with:
-              inlineScript: az aks upgrade -g {resourceGroupName} -n {aksClusterName} --node-image-only
+              inlineScript: az aks upgrade -g {resourceGroupName} -n {aksClusterName} --node-image-only --yes
     ```
 
     > [!TIP]

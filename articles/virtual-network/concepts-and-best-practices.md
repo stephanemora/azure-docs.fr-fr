@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/03/2020
 ms.author: kumud
-ms.openlocfilehash: d279516c1c9c08512c850a0f70eb84c0c1f63166
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 0a9945a58aa6ec49ad58f3a0a0d03ea75e30f6d8
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97110944"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223616"
 ---
 # <a name="azure-virtual-network-concepts-and-best-practices"></a>Concepts et meilleures pratiques relatifs au Réseau virtuel Azure
 
@@ -25,7 +25,7 @@ Cet article décrit les concepts et meilleures pratiques clés relatifs au Rése
 ## <a name="vnet-concepts"></a>Concepts de réseau virtuel
 
 - **Espace d’adressage :** Lors de la création d’un réseau virtuel, vous devez spécifier un espace d’adressage IP privé personnalisé à l’aide d’adresses (RFC 1918) publiques et privées. Azure attribue aux ressources d’un réseau virtuel une adresse IP privée à partir de l’espace d’adressage que vous attribuez. Par exemple, si vous déployez une machine virtuelle dans un réseau virtuel avec l’espace d’adressage 10.0.0.0/16, la machine virtuelle reçoit une adresse IP privée telle que 10.0.0.4.
-- **Sous-réseaux :** Les sous-réseaux vous permettent de segmenter le réseau virtuel en sous-réseaux, et d’allouer une partie de l’espace d’adressage du réseau virtuel à chaque sous-réseau. Vous pouvez ensuite déployer des ressources Azure dans un sous-réseau spécifique. Comme dans un réseau traditionnel, les sous-réseaux vous permettent de segmenter votre espace d’adressage de réseau virtuel en segments appropriées pour le réseau interne de l’organisation. Cela améliore également l’efficacité l’allocation d’adresse. Vous pouvez sécuriser des ressources au sein de sous-réseaux à l’aide de Groupes de sécurité réseau. Pour plus d’informations, consultez [Groupes de sécurité réseau](security-overview.md).
+- **Sous-réseaux :** Les sous-réseaux vous permettent de segmenter le réseau virtuel en sous-réseaux, et d’allouer une partie de l’espace d’adressage du réseau virtuel à chaque sous-réseau. Vous pouvez ensuite déployer des ressources Azure dans un sous-réseau spécifique. Comme dans un réseau traditionnel, les sous-réseaux vous permettent de segmenter votre espace d’adressage de réseau virtuel en segments appropriées pour le réseau interne de l’organisation. Cela améliore également l’efficacité l’allocation d’adresse. Vous pouvez sécuriser des ressources au sein de sous-réseaux à l’aide de Groupes de sécurité réseau. Pour plus d’informations, consultez [Groupes de sécurité réseau](./network-security-groups-overview.md).
 - **Régions** : Un réseau virtuel s’étend à une seule région/zone. Toutefois, plusieurs réseaux virtuels de différentes régions peuvent être connectés à l’aide du peering de réseau virtuel.
 - **Abonnement :** Un réseau virtuel est limité à un abonnement. Vous pouvez implémenter plusieurs réseaux virtuels au sein de chaque [abonnement](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) Azure et de chaque [région](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#region) Azure.
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/25/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d8f69f94c53227dc86fbbf9e9936a2fc3c97ec55
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: af248b4ee3ccd079d41317fdb1db3de82ad0f835
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967871"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98199034"
 ---
 # <a name="connecting-azure-vms-to-hana-large-instances"></a>Connexion de machines virtuelles Azure à de grandes instances HANA
 
@@ -41,7 +41,7 @@ En regardant de plus près du côté du réseau virtuel Azure, on s’aperçoit�
 >[!Note]
 >Le réseau virtuel Azure pour grandes instances HANA doit être créé à l’aide du modèle de déploiement Azure Resource Manager. L’ancien modèle de déploiement Azure, communément appelé modèle de déploiement Classic, n’est pas pris en charge par la solution de grande instance HANA.
 
-Pour créer le réseau virtuel, vous pouvez vous servir du portail Azure, de PowerShell, d’un modèle Azure ou d’Azure CLI. (Pour plus d’informations, consultez [Créer un réseau virtuel à l’aide du portail Azure](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network)). Dans l’exemple suivant, le réseau virtuel qui nous intéresse est créé à l’aide du portail Azure.
+Pour créer le réseau virtuel, vous pouvez vous servir du portail Azure, de PowerShell, d’un modèle Azure ou d’Azure CLI. (Pour plus d’informations, consultez [Créer un réseau virtuel à l’aide du portail Azure](../../../virtual-network/manage-virtual-network.md#create-a-virtual-network)). Dans l’exemple suivant, le réseau virtuel qui nous intéresse est créé à l’aide du portail Azure.
 
 La notion d’**espace d’adressage** dont il est question dans cette documentation désigne l’espace d’adressage que le réseau virtuel Azure est autorisé à utiliser. Il s’agit aussi de la plage d’adresses que le réseau virtuel utilise pour la propagation des itinéraires BGP. Cet **espace d’adressage** est illustré ici :
 

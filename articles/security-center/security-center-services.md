@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/24/2020
 ms.author: memildin
-ms.openlocfilehash: f5d6d6255b48192a5943159599531fac18ebeb26
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: f3d1918eafe8d61d9c5a7db3f29b83b5412914c0
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97796990"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179557"
 ---
 # <a name="feature-coverage-for-machines"></a>Couverture des fonctionnalités pour les machines
 
@@ -132,7 +132,7 @@ Pour plus d’informations sur le moment où les recommandations sont générée
 |[Azure Defender pour Resource Manager](defender-for-resource-manager-introduction.md)|-|-|
 |[Azure Defender pour DNS](defender-for-dns-introduction.md)|-|-|
 |[Azure Defender pour Kubernetes](defender-for-kubernetes-introduction.md)|✔|✔|
-|[Azure Defender pour les registres de conteneurs](defender-for-container-registries-introduction.md)|✔ (2)|-|
+|[Azure Defender pour les registres de conteneurs](defender-for-container-registries-introduction.md)|✔ (2)|✔ (2)|
 |||
 
 (1) Nécessite _ *Azure Defender pour les serveurs**

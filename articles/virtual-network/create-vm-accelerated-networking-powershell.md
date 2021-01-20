@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 04/15/2020
 ms.author: gsilva
-ms.openlocfilehash: fd50af98fe0d7f20273c45e2b86c18215a3626f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b3728a2b67529bab0900d42b3e39140d9329bc83
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87289619"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223633"
 ---
 # <a name="create-a-windows-vm-with-accelerated-networking-using-azure-powershell"></a>Créer une machine virtuelle Windows avec mise en réseau accélérée à l’aide d’Azure PowerShell
 
@@ -65,7 +65,7 @@ La mise en réseau accélérée est prise en charge dans la plupart des instance
 
 Dans des instances qui acceptent l’hyperthreading, la mise en réseau accélérée est prise en charge dans des instances de machine virtuelle comptant au minimum quatre processeurs virtuels. Séries prises en charge : D/Dsv3, D/Dsv4, Da/Dasv4, E/Esv3, Ea/Easv4, Fsv2, Lsv2, Ms/Mms, et Ms/Mmsv2.
 
-Pour plus d’informations sur les instances de machine virtuelle, reportez-vous à [Tailles des machines virtuelles Windows dans Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Pour plus d’informations sur les instances de machine virtuelle, reportez-vous à [Tailles des machines virtuelles Windows dans Azure](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ### <a name="custom-images"></a>Images personnalisées
 
@@ -85,7 +85,7 @@ Le déploiement de machines virtuelles (classiques) avec mise en réseau accél�
 
 ## <a name="vm-creation-using-the-portal"></a>Création de machines virtuelles à l’aide du portail
 
-Bien que cet article fournisse des étapes pour créer une machine virtuelle avec mise en réseau accélérée à l’aide d’Azure PowerShell, vous pouvez également [utiliser le Portail Azure pour créer une machine virtuelle](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) avec mise en réseau accélérée. Lorsque vous créez une machine virtuelle dans le portail, sur la page **Créer une machine virtuelle**, choisissez l’onglet **Mise en réseau**. Cet onglet contient une option de **Mise en réseau accélérée**. Si vous avez choisi un [système d’exploitation pris en charge](#supported-operating-systems) et une [taille de machine virtuelle](#supported-vm-instances), cette option est automatiquement définie sur **Activé**. Dans le cas contraire, l’option est définie sur **Désactivé**et Azure affiche la raison pour laquelle elle ne peut pas être activée.
+Bien que cet article fournisse des étapes pour créer une machine virtuelle avec mise en réseau accélérée à l’aide d’Azure PowerShell, vous pouvez également [utiliser le Portail Azure pour créer une machine virtuelle](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) avec mise en réseau accélérée. Lorsque vous créez une machine virtuelle dans le portail, sur la page **Créer une machine virtuelle**, choisissez l’onglet **Mise en réseau**. Cet onglet contient une option de **Mise en réseau accélérée**. Si vous avez choisi un [système d’exploitation pris en charge](#supported-operating-systems) et une [taille de machine virtuelle](#supported-vm-instances), cette option est automatiquement définie sur **Activé**. Dans le cas contraire, l’option est définie sur **Désactivé** et Azure affiche la raison pour laquelle elle ne peut pas être activée.
 
 > [!NOTE]
 > Seuls les systèmes d’exploitation pris en charge peuvent être activés via le portail. Si vous utilisez une image personnalisée, et que votre image prend en charge la mise en réseau accélérée, créez votre machine virtuelle à l’aide de CLI ou de PowerShell. 
@@ -208,7 +208,7 @@ Dans les exemples suivants, remplacez les exemples de noms de paramètre par vos
     $vmConfig = New-AzVMConfig -VMName "myVm" -VMSize "Standard_DS4_v2"
     ```
 
-    Pour obtenir la liste de toutes les tailles de machine virtuelle et leurs caractéristiques, consultez [Tailles de machines virtuelles Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    Pour obtenir la liste de toutes les tailles de machine virtuelle et leurs caractéristiques, consultez [Tailles de machines virtuelles Windows](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 3. Créez le reste de la configuration de votre machine virtuelle avec les commandes [Set-AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatingsystem) et [Set-AzVMSourceImage](/powershell/module/az.compute/set-azvmsourceimage). La commande suivante crée une machine virtuelle Windows Server 2016 :
 

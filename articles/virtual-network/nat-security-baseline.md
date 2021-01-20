@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 4ab71138f110df19ec84fa8707b480ad1bc6e72c
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 9276ce07c68afa6f229dbc32198bc624d8887ace
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95255064"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98217819"
 ---
 # <a name="azure-security-baseline-for-virtual-network-nat"></a>Base de référence de sécurité Azure pour NAT de réseau virtuel
 
-Cette base de référence de sécurité applique les conseils du [Benchmark de sécurité Azure version 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview-v1) au service NAT de réseau virtuel de Microsoft. Le benchmark de sécurité Azure fournit des recommandations sur la façon dont vous pouvez sécuriser vos solutions cloud sur Azure.
+Cette base de référence de sécurité applique les conseils du [Benchmark de sécurité Azure version 1.0](../security/benchmarks/overview-v1.md) au service NAT de réseau virtuel de Microsoft. Le benchmark de sécurité Azure fournit des recommandations sur la façon dont vous pouvez sécuriser vos solutions cloud sur Azure.
 Le contenu est regroupé selon les **contrôles de sécurité** définis par le benchmark de sécurité Azure et les conseils associés, applicables à NAT de réseau virtuel. Les **Contrôles** non applicables à NAT de réseau virtuel ont été exclus.
 
  
@@ -24,7 +24,7 @@ Pour voir comment le service NAT de réseau virtuel est entièrement mappé au b
 
 ## <a name="network-security"></a>Sécurité réseau
 
-*Pour plus d’informations, consultez [Benchmark de sécurité Azure : sécurité réseau](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
+*Pour plus d’informations, consultez [Benchmark de sécurité Azure : sécurité réseau](../security/benchmarks/security-control-network-security.md).*
 
 ### <a name="12-monitor-and-log-the-configuration-and-traffic-of-virtual-networks-subnets-and-nics"></a>1.2 : Superviser et journaliser la configuration et le trafic des réseaux virtuels, des sous-réseaux et des cartes réseau
 
@@ -34,15 +34,15 @@ Toutefois, les journaux de flux de groupe de sécurité réseau (NSG) peuvent ê
 
 Utilisez Azure Security Center et suivez les recommandations de protection du réseau pour sécuriser vos ressources réseau Azure. Activez les journaux de flux de groupe de sécurité réseau et envoyez ceux-ci à un compte Stockage Azure à des fins d’audit. Vous pouvez aussi envoyer les journaux de flux à un espace de travail Log Analytics, puis utiliser Traffic Analytics pour obtenir des insights sur les modèles de trafic au sein de votre cloud Azure. Parmi les avantages de Traffic Analytics figure la possibilité de visualiser l’activité réseau, d’identifier les zones réactives et des menaces de sécurité, de comprendre les modèles de flux de trafic, ainsi que d’épingler de mauvaises configurations du réseau. 
 
-- [Vue d’ensemble de NAT de réseau virtuel](https://docs.microsoft.com/azure/virtual-network/nat-overview)
+- [Vue d’ensemble de NAT de réseau virtuel](./nat-overview.md)
 
-- [Ressources de passerelle NAT](https://docs.microsoft.com/azure/virtual-network/nat-gateway-resource)
+- [Ressources de passerelle NAT](./nat-gateway-resource.md)
 
-- [Tutoriel : journaliser le trafic réseau à destination et en provenance d’une machine virtuelle à l’aide du portail Azure](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal) 
+- [Tutoriel : journaliser le trafic réseau à destination et en provenance d’une machine virtuelle à l’aide du portail Azure](../network-watcher/network-watcher-nsg-flow-logging-portal.md) 
 
-- [Traffic Analytics](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)
+- [Traffic Analytics](../network-watcher/traffic-analytics.md)
 
-- [Protéger vos ressources réseau](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
+- [Protéger vos ressources réseau](../security-center/security-center-network-recommendations.md)
 
 **Supervision d’Azure Security Center** : actuellement non disponible
 
@@ -52,7 +52,7 @@ Utilisez Azure Security Center et suivez les recommandations de protection du r�
 
 **Conseils** : Activez la capture de paquets Network Watcher pour analyser les activités anormales. 
 
-- [Créer une instance d’Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-create)
+- [Créer une instance d’Azure Network Watcher](../network-watcher/network-watcher-create.md)
 
 **Supervision d’Azure Security Center** : Oui
 
@@ -62,9 +62,9 @@ Utilisez Azure Security Center et suivez les recommandations de protection du r�
 
 **Conseils** : Définissez et implémentez des configurations de sécurité standard pour les sous-réseaux configurés avec des ressources de passerelle NAT, au moyen d’affectations et de définitions Azure Policy personnalisées et intégrées.
 
-- [Guide pratique pour configurer et gérer Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Guide pratique pour configurer et gérer Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Exemples Azure Policy pour le réseau](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#network)
+- [Exemples Azure Policy pour le réseau](../governance/policy/samples/built-in-policies.md#network)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -74,9 +74,9 @@ Utilisez Azure Security Center et suivez les recommandations de protection du r�
 
 **Conseils** : Utilisez le journal d’activité Azure pour superviser les configurations de ressources, et détecter les modifications apportées à vos ressources de passerelle NAT et de réseau virtuel. Créez des alertes dans Azure Monitor pour vous avertir lorsque des ressources critiques sont modifiées.
 
-- [Guide pratique pour consulter et récupérer les événements du journal d’activité Azure](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)
+- [Guide pratique pour consulter et récupérer les événements du journal d’activité Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
-- [Guide pratique pour créer des alertes dans Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+- [Guide pratique pour créer des alertes dans Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -84,7 +84,7 @@ Utilisez Azure Security Center et suivez les recommandations de protection du r�
 
 ## <a name="logging-and-monitoring"></a>Journalisation et supervision
 
-*Pour plus d’informations, consultez [Benchmark de sécurité Azure : journalisation et supervision](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
+*Pour plus d’informations, consultez [Benchmark de sécurité Azure : journalisation et supervision](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### <a name="22-configure-central-security-log-management"></a>2.2 : Configurer la gestion des journaux de sécurité centrale
 
@@ -92,9 +92,9 @@ Utilisez Azure Security Center et suivez les recommandations de protection du r�
 
 Vous pouvez également activer et intégrer ces données dans Azure Sentinel ou une solution SIEM tierce.
 
-- [Guide pratique pour intégrer Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard) 
+- [Guide pratique pour intégrer Azure Sentinel](../sentinel/quickstart-onboard.md) 
 
-- [Guide pratique pour collecter des journaux et des métriques de plateforme avec Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) 
+- [Guide pratique pour collecter des journaux et des métriques de plateforme avec Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
 
 - [Guide pratique pour bien démarrer avec Azure Monitor et l’intégration d’une solution SIEM tierce](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
@@ -106,9 +106,9 @@ Vous pouvez également activer et intégrer ces données dans Azure Sentinel ou 
 
 **Conseils** : Les journaux d’activité, disponibles automatiquement, contiennent toutes les opérations d’écriture (PUT, POST, DELETE) pour vos ressources de passerelle NAT, à l’exception des opérations de lecture (GET). Les journaux d’activité peuvent être utilisés pour rechercher une erreur lors de la résolution de problèmes ou pour surveiller la manière dont un utilisateur de votre organisation a modifié une ressource.
 
-- [Guide pratique pour collecter des journaux et des métriques de plateforme avec Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) 
+- [Guide pratique pour collecter des journaux et des métriques de plateforme avec Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
 
-- [Présentation de la journalisation et des différents types de journaux dans Azure](https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview) 
+- [Présentation de la journalisation et des différents types de journaux dans Azure](../azure-monitor/platform/platform-logs-overview.md) 
 
 Actuellement, NAT de réseau virtuel ne produit pas de journaux de diagnostic supplémentaires configurables par les clients.
 
@@ -120,11 +120,11 @@ Actuellement, NAT de réseau virtuel ne produit pas de journaux de diagnostic su
 
 **Conseil** : utilisez Azure Security Center avec un espace de travail Log Analytics pour superviser les activités anormales détectées dans les journaux de sécurité et les événements et générer des alertes s’y rapportant. Vous pouvez, autrement, activer Azure Sentinel et y intégrer les données.
 
-- [Guide pratique pour intégrer Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard) 
+- [Guide pratique pour intégrer Azure Sentinel](../sentinel/quickstart-onboard.md) 
 
-- [Guide pratique pour gérer les alertes dans Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts) 
+- [Guide pratique pour gérer les alertes dans Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md) 
 
-- [Guide pratique pour générer une alerte sur des données de journal Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response)
+- [Guide pratique pour générer une alerte sur des données de journal Log Analytics](../azure-monitor/learn/tutorial-response.md)
 
 **Supervision d’Azure Security Center** : Oui
 
@@ -132,7 +132,7 @@ Actuellement, NAT de réseau virtuel ne produit pas de journaux de diagnostic su
 
 ## <a name="inventory-and-asset-management"></a>Gestion des stocks et des ressources
 
-*Pour plus d’informations, consultez [Benchmark de sécurité Azure : Gestion des stocks et des ressources](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
+*Pour plus d’informations, consultez [Benchmark de sécurité Azure : Gestion des stocks et des ressources](../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### <a name="61-use-automated-asset-discovery-solution"></a>6.1 : Utiliser la solution de détection automatisée des ressources
 
@@ -142,7 +142,7 @@ Vérifiez les autorisations (lecture) appropriées dans votre locataire et répe
 
 Bien que les ressources Azure classiques puissent être découvertes via Resource Graph, il est vivement recommandé de créer et d’utiliser des ressources s’appuyant sur Azure Resource Manager à l’avenir.
 
-- [Requêtes Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+- [Requêtes Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -160,11 +160,11 @@ Bien que les ressources Azure classiques puissent être découvertes via Resourc
 
 **Conseils** : Appliquez des étiquettes pour la gestion des ressources Azure.
 
-- [Guide pratique pour créer des abonnements Azure supplémentaires](https://docs.microsoft.com/azure/billing/billing-create-subscription) 
+- [Guide pratique pour créer des abonnements Azure supplémentaires](../cost-management-billing/manage/create-subscription.md) 
 
-- [Guide pratique pour créer des groupes d’administration](https://docs.microsoft.com/azure/governance/management-groups/create) 
+- [Guide pratique pour créer des groupes d’administration](../governance/management-groups/create-management-group-portal.md) 
 
-- [Guide pratique pour créer et utiliser des étiquettes](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Guide pratique pour créer et utiliser des étiquettes](../azure-resource-manager/management/tag-resources.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -183,8 +183,8 @@ Bien que les ressources Azure classiques puissent être découvertes via Resourc
 **Aide** : Utilisez Azure Policy pour appliquer des restrictions quant au type de ressources pouvant être créées dans vos abonnements.
 Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leurs abonnements. Vérifiez que toutes les ressources Azure présentes dans l’environnement sont approuvées.
 
-- [Guide pratique pour configurer et gérer Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage) 
-- [Guide pratique pour créer des requêtes avec Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+- [Guide pratique pour configurer et gérer Azure Policy](../governance/policy/tutorials/create-and-manage.md) 
+- [Guide pratique pour créer des requêtes avec Azure Graph](../governance/resource-graph/first-query-portal.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -194,9 +194,9 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 **Aide** : Utilisez Azure Policy pour limiter les services que vous pouvez approvisionner dans votre environnement.
 
-- [Guide pratique pour configurer et gérer Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Guide pratique pour configurer et gérer Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Guide pratique pour refuser un type de ressource spécifique avec Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [Guide pratique pour refuser un type de ressource spécifique avec Azure Policy](../governance/policy/samples/built-in-policies.md#general)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -204,7 +204,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 ## <a name="secure-configuration"></a>Configuration sécurisée
 
-*Pour plus d’informations, consultez [Benchmark de sécurité Azure : Configuration sécurisée](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
+*Pour plus d’informations, consultez [Benchmark de sécurité Azure : Configuration sécurisée](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### <a name="73-maintain-secure-azure-resource-configurations"></a>7.3 : Gérer les configurations de ressources Azure sécurisées
 
@@ -218,9 +218,9 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 **Aide** : Utilisez Azure DevOps pour stocker et gérer de manière sécurisée votre code, comme les définitions de stratégies Azure personnalisées, les modèles Azure Resource Manager et les scripts Desired State Configuration. Pour accéder aux ressources que vous gérez dans Azure DevOps, vous pouvez accorder ou refuser des autorisations à des utilisateurs spécifiques, à des groupes de sécurité intégrés ou à des groupes définis dans Azure Active Directory (Azure AD) s’ils sont intégrés à Azure DevOps, ou à Active Directory s’il est intégré à TFS. 
 
-- [Stocker du code dans Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops) 
+- [Stocker du code dans Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops) 
 
-- [À propos des autorisations et des groupes dans Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/security/about-permissions)
+- [À propos des autorisations et des groupes dans Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -236,7 +236,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 ## <a name="incident-response"></a>Réponse aux incidents
 
-*Pour plus d’informations, consultez [Benchmark de sécurité Azure : réponse aux incidents](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
+*Pour plus d’informations, consultez [Benchmark de sécurité Azure : réponse aux incidents](../security/benchmarks/security-control-incident-response.md).*
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1 : Créer un guide de réponse aux incidents
 
@@ -288,7 +288,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Tests d’intrusion et exercices Red Team
 
-*Pour plus d’informations, consultez [Benchmark de sécurité Azure : tests d’intrusion et exercices Red Team](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*Pour plus d’informations, consultez [Benchmark de sécurité Azure : tests d’intrusion et exercices Red Team](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11.1 : Procéder régulièrement à des tests d’intrusion des ressources Azure et veiller à corriger tous les problèmes de sécurité critiques détectés
 
@@ -304,5 +304,5 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Consultez [Vue d’ensemble d’Azure Security Benchmark V2](/azure/security/benchmarks/overview)
-- En savoir plus sur les [bases de référence de la sécurité Azure](/azure/security/benchmarks/security-baselines-overview)
+- Consultez [Vue d’ensemble d’Azure Security Benchmark V2](../security/benchmarks/overview.md)
+- En savoir plus sur les [bases de référence de la sécurité Azure](../security/benchmarks/security-baselines-overview.md)

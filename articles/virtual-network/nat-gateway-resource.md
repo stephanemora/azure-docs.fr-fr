@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: allensu
-ms.openlocfilehash: 62c1b323899f03a043904f4b10d5fe3bb551e0f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4ef8e6207d53a192b19f8343a60093e82368fa6
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91441760"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223378"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources"></a>Conception de réseaux virtuels avec des ressources de passerelle NAT
 
@@ -60,7 +60,7 @@ Le diagramme suivant montre les références accessibles en écriture entre les 
 
 La traduction d’adresses réseau (NAT) est recommandée pour la plupart des charges de travail, sauf si vous avez une dépendance spécifique vis-à-vis d’une [connectivité sortante Load Balancer basée sur un pool](../load-balancer/load-balancer-outbound-connections.md).  
 
-Vous pouvez migrer à partir de scénarios d’équilibreur de charge standard, [règles de trafic sortant](../load-balancer/load-balancer-outbound-rules-overview.md) comprises, vers une passerelle NAT. Pour migrer, déplacez les ressources d’adresses IP publiques et les ressources de préfixes d’adresses IP publiques des front-ends de l’équilibreur de charge vers la passerelle NAT. Les nouvelles adresses IP de la passerelle NAT ne sont pas nécessaires. Les ressources d’adresses IP publiques et ressources de préfixes d’adresses IP publiques standard peuvent être réutilisées tant que le total ne dépasse pas 16 adresses IP. Planifiez la migration sans oublier l’interruption de service pendant la transition.  Vous pouvez réduire cette interruption au minimum en automatisant le processus. Testez d’abord la migration dans un environnement intermédiaire.  Pendant la transition, les flux entrants ne sont pas affectés.
+Vous pouvez migrer à partir de scénarios d’équilibreur de charge standard, [règles de trafic sortant](../load-balancer/load-balancer-outbound-connections.md#outboundrules) comprises, vers une passerelle NAT. Pour migrer, déplacez les ressources d’adresses IP publiques et les ressources de préfixes d’adresses IP publiques des front-ends de l’équilibreur de charge vers la passerelle NAT. Les nouvelles adresses IP de la passerelle NAT ne sont pas nécessaires. Les ressources d’adresses IP publiques et ressources de préfixes d’adresses IP publiques standard peuvent être réutilisées tant que le total ne dépasse pas 16 adresses IP. Planifiez la migration sans oublier l’interruption de service pendant la transition.  Vous pouvez réduire cette interruption au minimum en automatisant le processus. Testez d’abord la migration dans un environnement intermédiaire.  Pendant la transition, les flux entrants ne sont pas affectés.
 
 
 L’exemple suivant est un extrait de code tiré d’un modèle Azure Resource Manager.  Ce modèle déploie plusieurs ressources, y compris une passerelle NAT.  Dans cet exemple, le modèle a les paramètres suivants :
@@ -230,7 +230,7 @@ Même si le scénario semble fonctionner, son modèle d’intégrité et son mod
 
 Chaque ressource de passerelle NAT peut fournir un débit maximal de 50 Gbits/s. Vous pouvez diviser vos déploiements entre plusieurs sous-réseaux et affecter à chaque sous-réseau ou groupe de sous-réseaux une passerelle NAT pour un scale-out.
 
-Chaque passerelle NAT peut prendre en charge 64 000 flux respectivement pour TCP et UDP par adresse IP sortante attribuée.  Consultez la section suivante sur la traduction d’adresses réseau sources (SNAT, Source Network Address Translation) pour plus de détails, ainsi que l’[article dédié à la résolution des problèmes](https://docs.microsoft.com/azure/virtual-network/troubleshoot-nat) pour obtenir des conseils de résolution des problèmes spécifiques.
+Chaque passerelle NAT peut prendre en charge 64 000 flux respectivement pour TCP et UDP par adresse IP sortante attribuée.  Consultez la section suivante sur la traduction d’adresses réseau sources (SNAT, Source Network Address Translation) pour plus de détails, ainsi que l’[article dédié à la résolution des problèmes](./troubleshoot-nat.md) pour obtenir des conseils de résolution des problèmes spécifiques.
 
 ## <a name="source-network-address-translation"></a>Traduction d’adresses réseau sources
 
@@ -264,7 +264,7 @@ Les passerelles NAT réutilisent de façon opportuniste les ports sources (SNAT)
 |:---:|:---:|:---:|
 | 4 | 192.168.0.16:4285 | 65.52.0.2:80 |
 
-Une passerelle NAT translatera probablement le flux 4 vers un port également utilisable pour d’autres destinations.  Pour plus d’informations sur le dimensionnement correct de l’approvisionnement de votre adresse IP, consultez [Mise à l’échelle](https://docs.microsoft.com/azure/virtual-network/nat-gateway-resource#scaling).
+Une passerelle NAT translatera probablement le flux 4 vers un port également utilisable pour d’autres destinations.  Pour plus d’informations sur le dimensionnement correct de l’approvisionnement de votre adresse IP, consultez [Mise à l’échelle](#scaling).
 
 | Flux | Tuple source | Tuple source après SNAT | Tuple de destination | 
 |:---:|:---:|:---:|:---:|
@@ -307,7 +307,7 @@ Les ressources de passerelle NAT réutilisent de façon opportuniste les ports s
 
 Les ports SNAT vers différentes destinations sont les plus susceptibles d’être réutilisés quand c’est possible. Et lorsque l’épuisement des ports SNAT approche, les flux peuvent échouer.  
 
-Pour un exemple, consultez [Notions de base de SNAT](https://docs.microsoft.com/azure/virtual-network/nat-gateway-resource#source-network-address-translation).
+Pour un exemple, consultez [Notions de base de SNAT](#source-network-address-translation).
 
 
 ### <a name="protocols"></a>Protocoles
@@ -359,10 +359,10 @@ Nous aimerions savoir comment nous pouvons améliorer le service. Il vous manque
   - [Portail](./quickstart-create-nat-gateway-portal.md)
   - [Modèle](./quickstart-create-nat-gateway-template.md)
 * Découvrir l’API de ressource de passerelle NAT
-  - [REST API](https://docs.microsoft.com/rest/api/virtualnetwork/natgateways)
-  - [Azure CLI](https://docs.microsoft.com/cli/azure/network/nat/gateway)
-  - [PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-aznatgateway)
+  - [REST API](/rest/api/virtualnetwork/natgateways)
+  - [Azure CLI](/cli/azure/network/nat/gateway)
+  - [PowerShell](/powershell/module/az.network/new-aznatgateway)
 * Découvrez les [zones de disponibilité](../availability-zones/az-overview.md).
-* Découvrez l’[équilibreur de charge standard](../load-balancer/load-balancer-standard-overview.md).
+* Découvrez l’[équilibreur de charge standard](../load-balancer/load-balancer-overview.md).
 * Découvrez les [zones de disponibilité et l’équilibreur de charge standard](../load-balancer/load-balancer-standard-availability-zones.md).
 * [Utilisez UserVoice pour nous faire part des prochains développements dont vous aimeriez bénéficier concernant le service NAT de réseau virtuel](https://aka.ms/natuservoice).

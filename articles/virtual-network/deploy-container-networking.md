@@ -16,16 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 9/18/2018
 ms.author: aanandr
 ms.custom: ''
-ms.openlocfilehash: 09a0574666441138c143932e843080e8745f1b40
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b95b3cfdf8fea6e31015d945566803569b4ba064
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87289593"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222919"
 ---
 # <a name="deploy-the-azure-virtual-network-container-network-interface-plug-in"></a>Déployer le plug-in CLI Réseau virtuel Azure
 
-Le plug-in CLI Réseau virtuel Azure s’installe sur une machine virtuelle Azure et apporte des fonctionnalités de réseau virtuel au pods Kubernetes et aux conteneurs Docker. Pour en savoir plus sur ce plug-in, consultez [Permettre aux conteneurs d’utiliser les fonctionnalités Réseau virtuel Azure](container-networking-overview.md). Ce plug-in peut de plus être utilisé avec Azure Kubernetes Service (AKS) en choisissant l’option [Réseau avancé](../aks/networking-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), ce qui place automatiquement les conteneurs AKS dans un réseau virtuel.
+Le plug-in CLI Réseau virtuel Azure s’installe sur une machine virtuelle Azure et apporte des fonctionnalités de réseau virtuel au pods Kubernetes et aux conteneurs Docker. Pour en savoir plus sur ce plug-in, consultez [Permettre aux conteneurs d’utiliser les fonctionnalités Réseau virtuel Azure](container-networking-overview.md). Ce plug-in peut de plus être utilisé avec Azure Kubernetes Service (AKS) en choisissant l’option [Réseau avancé](../aks/configure-azure-cni.md?toc=%2fazure%2fvirtual-network%2ftoc.json), ce qui place automatiquement les conteneurs AKS dans un réseau virtuel.
 
 ## <a name="deploy-plug-in-for-acs-engine-kubernetes-cluster"></a>Déployer le plug-in pour le cluster Kubernetes ACS-Engine
 
@@ -95,10 +95,10 @@ Procédez comme suit pour installer le plug-in sur chaque machine virtuelle Azur
 1. [Téléchargez et installez le plug-in](#download-and-install-the-plug-in).
 2. Préallouez un pool d’adresses IP de réseau virtuel sur chaque machine virtuelle à partir duquel des adresses IP seront attribuées aux pods. Chaque machine virtuelle Azure est fournie avec une adresse IP privée de réseau virtuel principale sur chaque interface réseau. Le pool d’adresses IP pour les pods est ajouté en tant qu’adresses secondaires (*ipconfigs*) sur l’interface réseau de machine virtuelle, à l’aide d’une des options suivantes :
 
-   - **CLI** :  [Attribuer plusieurs adresses IP à l’aide d’Azure CLI](virtual-network-multiple-ip-addresses-cli.md)
-   - **PowerShell** :  [Attribuer plusieurs adresses IP à l’aide de PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
-   - **Portail** :  [Attribuer plusieurs adresses IP à l’aide du portail Azure](virtual-network-multiple-ip-addresses-portal.md)
-   - **Modèle Azure Resource Manager** :  [Attribuer plusieurs adresses IP à l’aide de modèles](virtual-network-multiple-ip-addresses-template.md)
+   - **CLI** : [attribuer plusieurs adresses IP à l’aide d’Azure CLI](virtual-network-multiple-ip-addresses-cli.md)
+   - **PowerShell** : [attribuer plusieurs adresses IP à l’aide de PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
+   - **Portail** : [attribuer plusieurs adresses IP à l’aide du portail Azure](virtual-network-multiple-ip-addresses-portal.md)
+   - **Modèle Azure Resource Manager** : [attribuer plusieurs adresses IP à l’aide de modèles](./template-samples.md)
 
    Veillez à ajouter suffisamment d’adresses IP pour tous les pods que vous envisagez d’ajouter à la machine virtuelle.
 
@@ -106,7 +106,7 @@ Procédez comme suit pour installer le plug-in sur chaque machine virtuelle Azur
 4. Si vous souhaitez que vos pods accèdent à internet, ajoutez la règle *iptables* suivante sur vos machines virtuelles Linux afin de traduire les adresses sources du trafic internet. Dans l’exemple suivant, la plage IP spécifiée est 10.0.0.0/8.
 
    ```bash
-   iptables -t nat -A POSTROUTING -m iprange ! --dst-range 168.63.129.16 -m
+   iptables -t nat -A POSTROUTING -m iprange ! --dst-range 168.63.129.16 -m
    addrtype ! --dst-type local ! -d 10.0.0.0/8 -j MASQUERADE
    ```
 
@@ -157,10 +157,10 @@ Le fichier de configuration réseau CNI est décrit au format JSON. Par défaut,
 
 #### <a name="settings-explanation"></a>Explication des paramètres
 
-- **cniVersion** : Les plug-ins CNI Réseau virtuel Azure prennent en charge les versions 0.3.0 et 0.3.1 de la  [spécification CNI](https://github.com/containernetworking/cni/blob/master/SPEC.md).
+- **cniVersion** : les plug-ins CNI Réseau virtuel Azure prennent en charge les versions 0.3.0 et 0.3.1 de la [spécification CNI](https://github.com/containernetworking/cni/blob/master/SPEC.md).
 - **nom** : Nom du réseau. Cette propriété peut être définie sur une valeur unique.
 - **type** : Nom du plug-in réseau. Définissez-le sur *azure-vnet*.
-- **mode** : Mode de fonctionnement. Ce champ est facultatif. Le seul mode pris en charge est « bridge ». Pour plus d’informations, consultez  [Modes de fonctionnement](https://github.com/Azure/azure-container-networking/blob/master/docs/network.md).
+- **mode** : Mode de fonctionnement. Ce champ est facultatif. Le seul mode pris en charge est « bridge ». Pour plus d’informations, consultez [Modes de fonctionnement](https://github.com/Azure/azure-container-networking/blob/master/docs/network.md).
 - **bridge** : Nom du pont utilisé pour connecter les conteneurs à un réseau virtuel. Ce champ est facultatif. Si ce paramètres est omis, le plug-in choisit automatiquement un nom unique, en fonction de l’index d’interface principal.
 - **ipam type** : Nom du plug-in IPAM. Définissez-le toujours sur *azure-vnet-ipam*.
 

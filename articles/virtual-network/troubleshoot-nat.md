@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/20/2020
 ms.author: allensu
-ms.openlocfilehash: 690543ebc91e346e77509fbf993493f6978374ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70410e58acb30c7694e6fe4a6dcaff57bee98607
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87836103"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223429"
 ---
 # <a name="troubleshoot-azure-virtual-network-nat-connectivity"></a>Résoudre les problèmes de connectivité du service NAT de réseau virtuel Azure
 
@@ -68,10 +68,10 @@ _**Solution :**_ Utiliser les modèles et bonnes pratiques appropriés
 L’épuisement des ports SNAT peut aussi être amplifié par d’autres anti-modèles dans l’application sous-jacente. Passez en revue ces modèles et bonnes pratiques supplémentaires pour améliorer la mise à l’échelle et la fiabilité de votre service.
 
 - Explorez l’impact de la réduction du [délai d’inactivité TCP](nat-gateway-resource.md#timers) à des valeurs inférieures, notamment le délai d’inactivité par défaut de 4 minutes, pour libérer plus tôt l’inventaire des ports SNAT.
-- Envisagez d’utiliser les [modèles d’interrogation asynchrone](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply) pour les opérations de longue durée afin de libérer des ressources de connexion pour d’autres opérations.
+- Envisagez d’utiliser les [modèles d’interrogation asynchrone](/azure/architecture/patterns/async-request-reply) pour les opérations de longue durée afin de libérer des ressources de connexion pour d’autres opérations.
 - Les flux de longue durée (par exemple, les connexions TCP réutilisées) doivent utiliser des conservations de connexion TCP active ou des conservations de connexion active de la couche Application pour éviter l’expiration des systèmes intermédiaires. L’augmentation du délai d’inactivité est un dernier recours qui peut ne pas résoudre la cause racine. Un long délai d’expiration peut entraîner des échecs lié au bas débit quand le délai d’attente expire, ainsi qu’un retard et des échecs inutiles.
-- Les [modèles de nouvelle tentative](https://docs.microsoft.com/azure/architecture/patterns/retry) sans perte de données doivent être utilisés pour éviter les nouvelles tentatives agressives/rafales en cas de défaillance temporaire ou de reprise d’activité après défaillance.
-La création d’une connexion TCP pour chaque opération HTTP (également appelée « connexions atomiques ») est un anti-modèle.  Les connexions atomiques empêchent votre application d’être correctement mise à l’échelle et gaspillent des ressources.  Canalisez toujours plusieurs opérations dans la même connexion.  Votre application tire parti de la vitesse des transactions et des coûts des ressources.  Quand votre application utilise le chiffrement de la couche de transport (par exemple, TLS), un coût élevé est associé au traitement des nouvelles connexions.  Passez en revue les [Modèles de conception Azure Cloud](https://docs.microsoft.com/azure/architecture/patterns/) pour obtenir des modèles de bonnes pratiques supplémentaires.
+- Les [modèles de nouvelle tentative](/azure/architecture/patterns/retry) sans perte de données doivent être utilisés pour éviter les nouvelles tentatives agressives/rafales en cas de défaillance temporaire ou de reprise d’activité après défaillance.
+La création d’une connexion TCP pour chaque opération HTTP (également appelée « connexions atomiques ») est un anti-modèle.  Les connexions atomiques empêchent votre application d’être correctement mise à l’échelle et gaspillent des ressources.  Canalisez toujours plusieurs opérations dans la même connexion.  Votre application tire parti de la vitesse des transactions et des coûts des ressources.  Quand votre application utilise le chiffrement de la couche de transport (par exemple, TLS), un coût élevé est associé au traitement des nouvelles connexions.  Passez en revue les [Modèles de conception Azure Cloud](/azure/architecture/patterns/) pour obtenir des modèles de bonnes pratiques supplémentaires.
 
 #### <a name="additional-possible-mitigations"></a>Atténuations supplémentaires possibles
 
@@ -96,7 +96,7 @@ Le tableau suivant peut être utilisé comme point de départ pour savoir quels 
 | Système d’exploitation | Test de connexion TCP générique | Test de la couche Application TCP | UDP |
 |---|---|---|---|
 | Linux | nc (test de connexion générique) | curl (test de la couche Application TCP) | spécifique à l’application |
-| Windows | [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) | [Invoke-WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest) de PowerShell | spécifique à l’application |
+| Windows | [PsPing](/sysinternals/downloads/psping) | [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest) de PowerShell | spécifique à l’application |
 
 ### <a name="connectivity-failures"></a>Échecs de connectivité
 
@@ -113,7 +113,7 @@ Utilisez des outils tels que ceux mentionnés ci-après pour la validation de la
 | Système d’exploitation | Test de connexion TCP générique | Test de la couche Application TCP | UDP |
 |---|---|---|---|
 | Linux | nc (test de connexion générique) | curl (test de la couche Application TCP) | spécifique à l’application |
-| Windows | [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) | [Invoke-WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest) de PowerShell | spécifique à l’application |
+| Windows | [PsPing](/sysinternals/downloads/psping) | [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest) de PowerShell | spécifique à l’application |
 
 #### <a name="configuration"></a>Configuration
 
@@ -202,4 +202,3 @@ Si vous rencontrez toujours des problèmes, ouvrez un dossier de support pour le
 * Découvrir la [ressource de passerelle NAT](nat-gateway-resource.md)
 * Découvrez les [métriques et les alertes pour les ressources de passerelle NAT](nat-metrics.md).
 * [Utilisez UserVoice pour nous faire part des prochains développements dont vous aimeriez bénéficier concernant le service NAT de réseau virtuel](https://aka.ms/natuservoice).
-

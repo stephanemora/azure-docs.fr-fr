@@ -8,20 +8,20 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 699a7321646167b0a9fb20a77a40999ec33b14f0
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 9782cce4165487b612c0295dc893d120ed043225
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461333"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98218261"
 ---
 # <a name="connect-to-your-azure-synapse-workspace-using-private-links"></a>Se connecter à un espace de travail Azure Synapse en utilisant des liaisons privées
 
-Cet article vous explique comment créer un point de terminaison privé pour votre espace de travail Azure Synapse. Pour en savoir plus, consultez [Liens privés et points de terminaison privés](https://docs.microsoft.com/azure/private-link/).
+Cet article vous explique comment créer un point de terminaison privé pour votre espace de travail Azure Synapse. Pour en savoir plus, consultez [Liens privés et points de terminaison privés](../../private-link/index.yml).
 
 ## <a name="step-1-register-network-resource-provider"></a>Étape 1 : Inscrire le fournisseur de ressources réseau
 
-Si vous ne l’avez pas encore fait, inscrivez le fournisseur de ressources réseau. L’inscription d’un fournisseur de ressources configure votre abonnement pour travailler avec le fournisseur de ressources. Choisissez *Microsoft.Network* dans la liste des fournisseurs de ressources lors de votre [inscription](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types). Si le fournisseur de ressources réseau est déjà inscrit, passez à l’étape 2.
+Si vous ne l’avez pas encore fait, inscrivez le fournisseur de ressources réseau. L’inscription d’un fournisseur de ressources configure votre abonnement pour travailler avec le fournisseur de ressources. Choisissez *Microsoft.Network* dans la liste des fournisseurs de ressources lors de votre [inscription](../../azure-resource-manager/management/resource-providers-and-types.md). Si le fournisseur de ressources réseau est déjà inscrit, passez à l’étape 2.
 
 ## <a name="step-2-open-your-azure-synapse-workspace-in-azure-portal"></a>Étape 2 : Ouvrir votre espace de travail Azure Synapse dans le portail Azure
 

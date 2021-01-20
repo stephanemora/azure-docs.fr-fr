@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 9/18/2018
 ms.author: aanandr
 ms.custom: ''
-ms.openlocfilehash: bd86b2ec803b2327d3daa2d4274f13328fec8c27
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 727e79cede9319cb7aae701082d5842ad895a61d
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87283212"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223514"
 ---
 # <a name="enable-containers-to-use-azure-virtual-network-capabilities"></a>Permettre aux conteneurs d’utiliser les fonctionnalités du réseau virtuel Azure
 
@@ -59,7 +59,7 @@ Le plug-in prend en charge jusqu’à 250 pods par machine virtuelle, et jusqu�
 
 Le plug-in peut être utilisé de différentes manières, afin de fournir une attache de réseau virtuel de base aux pods ou aux conteneurs Docker :
 
-- **Azure Kubernetes Service** : Le plug-in est intégré à Azure Kubernetes Service (AKS) et peut être utilisé en choisissant l’option *Advanced Networking* (Mise en réseau avancée). Une mise en réseau avancée vous permet de déployer un cluster Kubernetes dans un réseau virtuel existant ou nouveau. Pour en savoir plus sur la mise en réseau avancée et les étapes de sa configuration, consultez [Configuration avancée du réseau dans AKS](../aks/networking-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- **Azure Kubernetes Service** : Le plug-in est intégré à Azure Kubernetes Service (AKS) et peut être utilisé en choisissant l’option *Advanced Networking* (Mise en réseau avancée). Une mise en réseau avancée vous permet de déployer un cluster Kubernetes dans un réseau virtuel existant ou nouveau. Pour en savoir plus sur la mise en réseau avancée et les étapes de sa configuration, consultez [Configuration avancée du réseau dans AKS](../aks/configure-azure-cni.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - **AKS-Engine** : AKS-Engine est un outil qui génère un modèle Azure Resource Manager pour déployer un cluster Kubernetes dans Azure. Pour obtenir des instructions détaillées, consultez [Déployer le plug-in pour les clusters Kubernetes AKS-Engine](deploy-container-networking.md#deploy-the-azure-virtual-network-container-network-interface-plug-in).
 - **Création de votre propre cluster Kubernetes dans Azure** : Le plug-in peut être utilisé pour fournir la mise en réseau de base des pods dans les clusters Kubernetes que vous déployez vous-même, sans appui nécessaire sur AKS, ou sur des outils tels que AKS-Engine. Dans ce cas, le plug-in est installé et activé sur chaque machine virtuelle d’un cluster. Pour obtenir des instructions détaillées, consultez [Déployer le plug-in pour un cluster Kubernetes que vous déployez vous-même](deploy-container-networking.md#deploy-plug-in-for-a-kubernetes-cluster).
 - **Attache de réseau virtuel pour les conteneurs Docker dans Azure** : Le plug-in peut être utilisé dans les cas où vous ne souhaitez pas créer de cluster Kubernetes, mais aimeriez créer des conteneurs Docker avec des attaches de réseau virtuel, sur les machines virtuelles. Pour obtenir des instructions détaillées, consultez [Déployer le plug-in pour Docker](deploy-container-networking.md#deploy-plug-in-for-docker-containers).

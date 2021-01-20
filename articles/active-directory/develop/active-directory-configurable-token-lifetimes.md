@@ -13,12 +13,12 @@ ms.date: 01/04/2021
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1, contperf-fy21q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 0b3c2f74edff661326e97da7b06860914468c43b
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: ec925ce165c1de98fe920381e1b51e3388c1e4ad
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98059345"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232401"
 ---
 # <a name="configurable-token-lifetimes-in-microsoft-identity-platform-preview"></a>Durées de vie des jetons configurables dans la plateforme d’identité Microsoft (préversion)
 
@@ -101,8 +101,7 @@ Les clients confidentiels sont des applications qui peuvent stocker un mot de pa
 
 Les clients publics ne peuvent pas stocker en toute sécurité un mot de passe client (secret). Par exemple, une application iOS/Android ne peut pas masquer un secret au propriétaire de la ressource et est donc considérée comme un client public. Vous pouvez définir des stratégies sur des ressources pour empêcher les jetons d’actualisation des clients publics antérieurs à une période spécifiée d’obtenir une nouvelle paire de jetons d’accès/actualisation. Pour ce faire, utilisez la [propriété Délai d’inactivité maximale de jeton d’actualisation](#refresh-token-max-inactive-time) (`MaxInactiveTime`). Vous pouvez également utiliser des stratégies pour définir un délai au-delà duquel les jetons d’actualisation ne sont plus acceptés. Pour ce faire, utilisez la propriété [Âge maximal de jeton d’actualisation à facteur unique](#single-factor-session-token-max-age) ou la propriété [Âge maximal de jeton de session multifacteur](#multi-factor-refresh-token-max-age). Vous pouvez ajuster la durée de vie des jetons d’actualisation pour contrôler le moment et la fréquence auxquels l’utilisateur doit entrer de nouveau les informations d’identification au lieu d’être authentifié de nouveau en mode silencieux lorsqu’il utilise une application cliente publique.
 
-> [!NOTE]
-> La propriété Âge maximal représente la durée pendant laquelle un seul jeton peut être utilisé. 
+La propriété Âge maximal représente la durée pendant laquelle un seul jeton peut être utilisé. 
 
 ### <a name="single-sign-on-session-tokens"></a>Jetons de session d’authentification unique
 Quand utilisateur s’authentifie auprès de la Plateforme d’identité Microsoft, une session d’authentification unique (SSO) est établie avec le navigateur de l’utilisateur et la Plateforme d’identité Microsoft. Le jeton SSO représente cette session sous la forme d’un cookie. Le jeton de session SSO n’est pas lié à une application cliente/ressource spécifique. Les jetons de session SSO peuvent être révoqués, et leur validité est vérifiée à chaque fois qu’ils sont utilisés.

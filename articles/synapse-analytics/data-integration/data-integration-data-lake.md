@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
-ms.openlocfilehash: 495300d677d6d898bfc916e5115b801c815bd587
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: fbc4f11b450a645002daedc800d4fed74ed37a3d
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461489"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219570"
 ---
 # <a name="ingest-data-into-azure-data-lake-storage-gen2"></a>Ingérer des données dans Azure Data Lake Storage Gen2 
 
@@ -23,7 +23,7 @@ Cet article explique comment ingérer des données d’un emplacement dans un au
 ## <a name="prerequisites"></a>Prérequis
 
 * **Abonnement Azure** : Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
-* **Compte Stockage Azure** : Vous utilisez Azure Data Lake Gen 2 en tant que magasin de données *source*. Si vous ne possédez pas de compte de stockage, procédez de la manière décrite dans l’article [Créer un compte de stockage Azure](../../storage/blobs/data-lake-storage-quickstart-create-account.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) pour en créer un.
+* **Compte Stockage Azure** : Vous utilisez Azure Data Lake Gen 2 en tant que magasin de données *source*. Si vous ne possédez pas de compte de stockage, procédez de la manière décrite dans l’article [Créer un compte de stockage Azure](../../storage/common/storage-account-create.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json) pour en créer un.
 
 ## <a name="create-linked-services"></a>Créez des services liés
 

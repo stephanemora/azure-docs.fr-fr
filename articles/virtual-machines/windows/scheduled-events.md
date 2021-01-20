@@ -9,12 +9,12 @@ ms.date: 06/01/2020
 ms.author: ericrad
 ms.reviwer: mimckitt
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8a0dd7f020c9a8e720aacf34b1719ee2094fa223
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: e4b5248ecb47c9456836aa9c4d7ebb2ad122c1dd
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92788806"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231869"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Service de métadonnées Azure : Événements planifiés pour les machines virtuelles Windows
 
@@ -55,6 +55,7 @@ Les événements planifiés sont remis à :
 - Machines virtuelles autonomes.
 - Toutes les machines virtuelles d’un service cloud
 - Toutes les machines virtuelles d’un groupe à haute disponibilité
+- Toutes les machines virtuelles d’une zone à haute disponibilité.
 - Toutes les machines virtuelles d’un groupe de placement de groupe identique 
 
 > [!NOTE]

@@ -2,16 +2,16 @@
 title: Résolution des problèmes liés aux insights basés sur des classeurs Azure Monitor
 description: Fournit des conseils de résolution de problèmes liés aux insights basés sur des classeurs Azure Monitor pour les services que sont notamment Azure Key Vault, Azure CosmosDB, Stockage Azure et Azure Cache pour Redis.
 services: azure-monitor
-ms.author: mbullwin
-author: mrbullwinkle
+ms.author: lagayhar
+author: lgayhardt
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 90743a213092aacfa10139c12f47bc11faf0d86d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a2765e9dcf3b0e7bf28191e6ecbb069f26c42f5
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86498710"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208520"
 ---
 # <a name="troubleshooting-workbook-based-insights"></a>Résolution des problèmes liés aux insights basés sur des classeurs
 

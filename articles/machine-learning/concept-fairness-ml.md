@@ -9,12 +9,13 @@ ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
 ms.date: 08/05/2020
-ms.openlocfilehash: 459cb1f7ea6c756b8cf6eba70af5ebabe76cc8b0
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.custom: responsible-ml
+ms.openlocfilehash: 29e29e73aa1094a2941592655af78a24d95c53b5
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94335756"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223089"
 ---
 # <a name="mitigate-fairness-in-machine-learning-models-preview"></a>Atténuer l’impartialité dans les modèles Machine Learning (préversion)
 
@@ -51,7 +52,7 @@ Ensemble, ces composants permettent aux scientifiques des données et aux dirige
 
 ## <a name="assess-fairness-in-machine-learning-models"></a>Évaluer l’impartialité dans les modèles Machine Learning
 
-Dans le package open source Fairlearn, l’impartialité est conceptualisée au travers d’une approche connue sous le nom d’ **impartialité de groupe** , qui demande : sur les groupes de personnes exposés à un éventuel préjudice. Les groupes pertinents, également appelés sous-populations, sont définis par des **caractéristiques sensibles** ou attributs sensibles. Les fonctionnalités sensibles sont transmises à un estimateur dans le package open source Fairlearn sous la forme d’un vecteur ou d’une matrice appelée `sensitive_features`. Cette dénomination suggère que le concepteur du système doit être sensible à ces caractéristiques lors de l’évaluation de l’impartialité du groupe. 
+Dans le package open source Fairlearn, l’impartialité est conceptualisée au travers d’une approche connue sous le nom d’**impartialité de groupe**, qui demande : sur les groupes de personnes exposés à un éventuel préjudice. Les groupes pertinents, également appelés sous-populations, sont définis par des **caractéristiques sensibles** ou attributs sensibles. Les fonctionnalités sensibles sont transmises à un estimateur dans le package open source Fairlearn sous la forme d’un vecteur ou d’une matrice appelée `sensitive_features`. Cette dénomination suggère que le concepteur du système doit être sensible à ces caractéristiques lors de l’évaluation de l’impartialité du groupe. 
 
 Gardez à l’esprit que ces fonctionnalités contiennent des implications en termes de confidentialité en raison de données privées. Le mot « sensible » n’implique cependant pas que ces caractéristiques ne doivent pas être utilisées pour effectuer des prévisions.
 

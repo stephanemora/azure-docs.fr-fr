@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/01/2020
 ms.author: mnayak
-ms.openlocfilehash: 65f5b27ecc7b526c4b3e4f5ed62ac90149df1ce1
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: cdd86984e5594d330f0080ee5f4cf0e9a8374652
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96510605"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223541"
 ---
 # <a name="configure-routing-preference-for-a-vm-using-azure-powershell"></a>Configurer la préférence de routage pour une machine virtuelle à l’aide d’Azure PowerShell
 
@@ -150,5 +150,5 @@ Quand vous n’en avez plus besoin, vous pouvez utiliser la commande [Remove-AzR
 ## <a name="next-steps"></a>Étapes suivantes
 
 * En savoir plus sur la [préférence de routage dans les adresses IP publiques](routing-preference-overview.md).
-* En savoir plus sur les [adresses IP publiques](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) dans Azure.
+* En savoir plus sur les [adresses IP publiques](./public-ip-addresses.md#public-ip-addresses) dans Azure.
 * En savoir plus sur les [paramètres d’adresse IP publique](virtual-network-public-ip-address.md#create-a-public-ip-address).

@@ -4,15 +4,15 @@ description: 'Services Go-To-Market : les ressources Microsoft que les éditeur
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 09/24/2020
+ms.date: 01/13/2021
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: ad86ebe1ca397004745e75dd279ea0a7cfe8348e
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 07535add495484abae06fc6ac8ac435d84bccc52
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94746565"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246245"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Vos avantages sur la place de marché commerciale
 
@@ -26,7 +26,7 @@ Les récompenses de la place de marché sont conçues pour vous aider à votre p
 
 Le programme crée une boucle de rétroaction positive : les avantages à chaque étape de la croissance sont conçus pour vous aider à passer à l’étape suivante, ce qui vous permet de développer votre activité auprès des clients Microsoft, sur le terrain de Microsoft et grâce au réseau de Microsoft en utilisant comme plateforme la place de marché commerciale.
 
-Vos avantages sont différents selon que votre offre est de type [Liste, Version d'évaluation ou Transact](determine-your-listing-type.md#available-listing-options-by-offer-type).
+Vos avantages sont différents selon que votre offre est de type [Liste, Version d'évaluation ou Transact](determine-your-listing-type.md).
 
 Vous serez contacté par un membre de l’équipe de récompenses lorsque votre offre sera active, en fonction de votre éligibilité.
 
@@ -65,7 +65,7 @@ Si vous publiez une version d’évaluation ou une preuve de concept, une implé
 
 Le tableau ci-dessous récapitule les conditions d’éligibilité pour les offres Liste, Version d’essai et Conseil :
 
-![Avantages de la mise sur le marché](./media/marketplace-publishers-guide/gtm-eligibility-requirements.png)
+![Avantages de la mise sur le marché](./media/marketplace-publishers-guide/go-to-market-gtm-eligibility-requirements.png)
 
 Vous trouverez une description détaillée de tous ces avantages dans le [Jeu du programme de récompenses de la place de marché](https://aka.ms/marketplacerewards).
 
@@ -104,16 +104,16 @@ Les éditeurs de type [Liste et Version d'évaluation](determine-your-listing-ty
 
 Microsoft se réserve le droit de révoquer et de mettre fin aux avantages de la place de marché pour les éditeurs qui :
 
-* participent à une activité illégale à l’aide de leur référencement sur la place de marché ;
-* reçoivent un achat connu ou jugé comme étant frauduleux ;
-* sont retirés de la place de marché commerciale ;
-* utilisent leur offre pour afficher du contenu marketing ou autre qui ne respecte pas les lois relatives aux droits d’auteur et aux marques ;
-* enfreignent les politiques du [programme Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/), notamment en utilisant le financement du parrainage Azure pour leurs propres opérations internes ou le minage de Bitcoin.
+- participent à une activité illégale à l’aide de leur référencement sur la place de marché ;
+- reçoivent un achat connu ou jugé comme étant frauduleux ;
+- sont retirés de la place de marché commerciale ;
+- utilisent leur offre pour afficher du contenu marketing ou autre qui ne respecte pas les lois relatives aux droits d’auteur et aux marques ;
+- enfreignent les politiques du [programme Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/), notamment en utilisant le financement du parrainage Azure pour leurs propres opérations internes ou le minage de Bitcoin.
 
 Microsoft se réserve le droit de révoquer et de mettre fin aux avantages de Marketplace Rewards quand :
 
-* Le client ayant effectué l’achat l’a fait par erreur et souhaite annuler son achat.
-* Le client annule son achat avant d’utiliser le produit du partenaire.
+- Le client ayant effectué l’achat l’a fait par erreur et souhaite annuler son achat.
+- Le client annule son achat avant d’utiliser le produit du partenaire.
 
 ### <a name="offer-availability"></a>Disponibilité de l’offre
 
