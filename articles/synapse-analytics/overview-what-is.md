@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 10/28/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: e5b12632a60ad5580325fbcda294e1a600bb2b6b
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 5d2765787a4eb417f4aa86396e07a25f8157b8ce
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121700"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223055"
 ---
 # <a name="what-is-azure-synapse-analytics"></a>Qu’est-ce qu’Azure Synapse Analytics ?
 
@@ -30,7 +30,7 @@ En entreprise, l’analytique doit pouvoir traiter des quantités massives de do
 
 * Synapse SQL offre à la fois des modèles de ressources **serverless** et **dédiés** pour fournir des options de consommation et de facturation adaptées à vos besoins. Pour bénéficier de performances et de coûts prévisibles, créez des pools SQL dédiés afin de réserver de la puissance de traitement aux données stockées dans les tables SQL. Pour des charges de travail non planifiées ou en rafale, utilisez le point de terminaison SQL serverless toujours disponible.
 * Utilisez les fonctionnalités de **streaming** intégrées pour placer des données de sources de données cloud dans des tables SQL.
-* Intégrez l’IA à SQL en utilisant des modèles **Machine Learning** pour effectuer le scoring des données avec la [fonction T-SQL PREDICT](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest).
+* Intégrez l’IA à SQL en utilisant des modèles **Machine Learning** pour effectuer le scoring des données avec la [fonction T-SQL PREDICT](/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest).
 
 ### <a name="industry-standard-apache-spark"></a>Apache Spark standard
 
@@ -76,7 +76,7 @@ Azure Synapse offre aux entreprises une méthode unique pour gérer les ressourc
 ## <a name="engage-with-the-synapse-engineering-team"></a>Collaborer avec l’équipe d’ingénierie de Synapse
 
 - [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-synapse) : posez vos questions sur le développement.
-- [Page de questions Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html) : posez vos questions techniques.
+- [Page de questions Microsoft Q&A](/answers/topics/azure-synapse-analytics.html) : posez vos questions techniques.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

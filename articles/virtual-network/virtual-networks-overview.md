@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/03/2020
 ms.author: kumud
-ms.openlocfilehash: 11651b7a76ea0e61f78f3b2f305e39ed621df391
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: e1efd02d60ba874178f24da2b441fc122e4a1912
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109315"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98218532"
 ---
 # <a name="what-is-azure-virtual-network"></a>Présentation du réseau virtuel Azure
 
@@ -31,7 +31,7 @@ Le réseau virtuel Azure permet aux ressources Azure de communiquer de manière 
 Par défaut, toutes les ressources d’un réseau virtuel peuvent communiquer en sortie vers Internet. Vous pouvez effectuer des communications entrantes vers une ressource en lui assignant une adresse IP publique ou un équilibreur de charge publique. Vous pouvez également utiliser l’adresse IP publique ou l’équilibreur de charge public pour gérer vos connexions sortantes.  Pour en savoir plus sur les connexions sortantes dans Azure, consultez [Connexions sortantes](../load-balancer/load-balancer-outbound-connections.md)., [Adresses IP publiques](virtual-network-public-ip-address.md) et [Équilibreur de charge](../load-balancer/load-balancer-overview.md).
 
 >[!NOTE]
->Lorsque vous utilisez un [équilibreur de charge standard](../load-balancer/load-balancer-standard-overview.md) interne, une connectivité sortante n’est pas disponible jusqu'à ce que vous définissiez le fonctionnement des [connexions sortantes](../load-balancer/load-balancer-outbound-connections.md) pour travailler avec une adresse IP publique au niveau de l’instance ou un équilibreur de charge public.
+>Lorsque vous utilisez un [équilibreur de charge standard](../load-balancer/load-balancer-overview.md) interne, une connectivité sortante n’est pas disponible jusqu'à ce que vous définissiez le fonctionnement des [connexions sortantes](../load-balancer/load-balancer-outbound-connections.md) pour travailler avec une adresse IP publique au niveau de l’instance ou un équilibreur de charge public.
 
 ### <a name="communicate-between-azure-resources"></a>Communiquer entre les ressources Azure
 
@@ -53,7 +53,7 @@ Vous pouvez connecter vos ordinateurs et réseaux locaux à un réseau virtuel �
 
 Vous pouvez filtrer le trafic réseau entre les sous-réseaux à l’aide d’une des deux options suivantes :
 
-- **Groupes de sécurité réseau :** les groupes de sécurité réseau et les groupes de sécurité d'application peuvent contenir plusieurs règles de sécurité entrantes et sortantes qui vous permettent de filtrer le trafic vers et en provenance des ressources par source et adresse IP de destination, port et protocole. Pour en savoir plus, consultez [Groupes de sécurité réseau](security-overview.md#network-security-groups) et [Groupes de sécurité d’application](security-overview.md#application-security-groups).
+- **Groupes de sécurité réseau :** les groupes de sécurité réseau et les groupes de sécurité d'application peuvent contenir plusieurs règles de sécurité entrantes et sortantes qui vous permettent de filtrer le trafic vers et en provenance des ressources par source et adresse IP de destination, port et protocole. Pour en savoir plus, consultez [Groupes de sécurité réseau](./network-security-groups-overview.md#network-security-groups) et [Groupes de sécurité d’application](./network-security-groups-overview.md#application-security-groups).
 - **Appliances virtuelles réseau :** une appliance virtuelle réseau est une machine virtuelle exécutant une fonction réseau, telle qu’un pare-feu, l’optimisation du WAN ou une autre fonction réseau. Pour afficher la liste des appliances virtuelles réseau disponibles que vous pouvez déployer dans un réseau virtuel, consultez [Place de marché Microsoft Azure](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances).
 
 ### <a name="route-network-traffic"></a>Router le trafic

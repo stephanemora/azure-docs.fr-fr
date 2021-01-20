@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 54982189a5da584c7daf66855ffb655e403a455a
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: a2145c217c19e80c2ca70880e0f9b01ae2ba140e
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500510"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202570"
 ---
 # <a name="linux-virtual-machines-in-azure"></a>Machines virtuelles Linux dans Azure
 
@@ -50,7 +50,7 @@ Ce tableau présente quelques moyens d’obtenir la liste des emplacements dispo
 | Portail Azure |Sélectionnez un emplacement dans la liste lorsque vous créez une machine virtuelle. |
 | Azure PowerShell |Utilisez la commande [Get-AzLocation](/powershell/module/az.resources/get-azlocation). |
 | API REST |Utilisez l’opération [Lister les emplacements](/rest/api/resources/subscriptions). |
-| Azure CLI |Utilisez l’opération [az account list-locations](/cli/azure/account?view=azure-cli-latest). |
+| Azure CLI |Utilisez l’opération [az account list-locations](/cli/azure/account). |
 
 ### <a name="singapore-data-residency"></a>Résidence des données à Singapour
 
@@ -60,7 +60,7 @@ Dans Azure, la fonctionnalité permettant le stockage de données client dans un
 Azure a annoncé un contrat de niveau de service de pointe pour machine virtuelle à instance unique de 99,9 % à condition de déployer la machine virtuelle avec le stockage premium pour tous les disques.  Afin que votre déploiement puisse bénéficier du contrat de niveau de service standard de 99,95 % pour les machines virtuelles, vous devez déployer au moins deux machines virtuelles exécutant votre charge de travail à l’intérieur d’un groupe à haute disponibilité. Un groupe à haute disponibilité assure que vos machines virtuelles sont réparties sur plusieurs domaines d’erreur dans les centres de données Azure et déployées sur des hôtes ayant des fenêtres de maintenance distinctes. La version complète du [contrat SLA Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) explique la disponibilité garantie d’Azure dans son ensemble.
 
 ## <a name="vm-size"></a>Taille de la machine virtuelle
-La [taille](../sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) de la machine virtuelle que vous utilisez est déterminée par la charge de travail que vous souhaitez exécuter. La taille que vous choisissez détermine ensuite des facteurs comme la puissance de traitement, la mémoire et la capacité de stockage. Azure propose différentes tailles vous permettant de prendre en charge de nombreux types d'utilisation.
+La [taille](../sizes.md) de la machine virtuelle que vous utilisez est déterminée par la charge de travail que vous souhaitez exécuter. La taille que vous choisissez détermine ensuite des facteurs comme la puissance de traitement, la mémoire et la capacité de stockage. Azure propose différentes tailles vous permettant de prendre en charge de nombreux types d'utilisation.
 
 Azure facture un [prix horaire](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) en fonction de la taille et du système d’exploitation de la machine virtuelle. Pour les heures partielles, Azure facture uniquement les minutes utilisées. Le stockage est facturé séparément.
 

@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.topic: quickstart
 ms.custom: seo-lt-2019
 ms.date: 11/02/2020
-ms.openlocfilehash: 542fde3ac951bf60d999361dc114491515fb9528
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 568c738284a3d1b54ba907a973139fbced11f139
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94735243"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222694"
 ---
 # <a name="quickstart-load-data-into-dedicated-sql-pool-using-the-copy-activity"></a>Démarrage rapide : Charger des données dans un pool SQL dédié en utilisant l’activité de copie
 
@@ -107,7 +107,7 @@ Une fois la configuration de votre pipeline terminée, avant de publier vos arte
    ![Déboguer le pipeline](media/quickstart-copy-activity-load-sql-pool/debugging-result.png)
 
 1. Une fois que le pipeline s’exécute correctement, sélectionnez **Publier tout** dans la barre d’outils supérieure. Cette action publie les entités (jeux de données et pipelines) que vous avez créées dans le service Synapse Analytics.
-1. Patientez jusqu’à voir le message **Publication réussie**. Pour afficher les messages de notification, sélectionnez le bouton avec l’icône de cloche en haut à droite. 
+1. Patientez jusqu’à voir le message **Publication réussie**. Pour voir les messages de notification, sélectionnez le bouton avec l’icône de cloche en haut à droite. 
 
 
 ## <a name="trigger-and-monitor-the-pipeline"></a>Déclencher et surveiller le pipeline
@@ -130,6 +130,6 @@ Dans cette section, vous déclenchez manuellement le pipeline publié à l’ét
 Lisez l’article suivant pour en savoir plus sur la prise en charge d’Azure Synapse Analytics :
 
 > [!div class="nextstepaction"]
-> [Pipeline et activités](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-> [Vue d’ensemble du connecteur](https://docs.microsoft.com/azure/data-factory/connector-overview?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-> [Activité de copie](https://docs.microsoft.com/azure/data-factory/copy-activity-overview?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+> [Pipeline et activités](../data-factory/concepts-pipelines-activities.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json)
+> [Vue d’ensemble du connecteur](../data-factory/connector-overview.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json)
+> [Activité de copie](../data-factory/copy-activity-overview.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json)

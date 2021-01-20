@@ -9,12 +9,12 @@ ms.reviewer: jrasnick, garye
 ms.date: 09/25/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: a5d84b936679cdd5ebd5bec4938d6db7fcb641e7
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 800cbf9b7a7fa415452f29b253347188c8917c52
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96455495"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219451"
 ---
 # <a name="quickstart-create-a-new-azure-machine-learning-linked-service-in-synapse"></a>Démarrage rapide : Créer un nouveau service lié Azure Machine Learning dans Synapse
 
@@ -22,7 +22,7 @@ Dans ce guide de démarrage rapide, vous allez lier un espace de travail Azure S
 
 Par exemple, ce lien vers un espace de travail Azure Machine Learning permet d’effectuer les expériences suivantes :
 
-- Exécuter des pipelines Azure Machine Learning en tant qu’étape dans vos pipelines Synapse. Pour plus d’informations, consultez [Exécuter des pipelines Azure Machine Learning](/azure/data-factory/transform-data-machine-learning-service).
+- Exécuter des pipelines Azure Machine Learning en tant qu’étape dans vos pipelines Synapse. Pour plus d’informations, consultez [Exécuter des pipelines Azure Machine Learning](../../data-factory/transform-data-machine-learning-service.md).
 
 - Enrichissez vos données avec des prédictions en plaçant un modèle Machine Learning à partir du registre de modèle Azure Machine Learning et notez le modèle dans des pools Synapse SQL. Pour plus d’informations, consultez le [Didacticiel : Assistant de notation de modèles Machine Learning pour les pools Synapse SQL](tutorial-sql-pool-model-scoring-wizard.md).
 
@@ -30,7 +30,7 @@ Par exemple, ce lien vers un espace de travail Azure Machine Learning permet d�
 
 - Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/).
 - [Espace de travail Synapse Analytics](../get-started-create-workspace.md) avec un compte de stockage ADLS Gen2 configuré comme stockage par défaut. Vous devez être le **contributeur de données Blob du stockage** du système de fichiers ADLS Gen2 que vous utilisez.
-- [Espace de travail Azure Machine Learning](/azure/machine-learning/how-to-manage-workspace).
+- [Espace de travail Azure Machine Learning](../../machine-learning/how-to-manage-workspace.md).
 - Vous devez disposer d’autorisations (ou demander à une personne disposant d’autorisations) pour créer un principal de service et un secret que vous pouvez utiliser pour créer le service lié. Notez que le rôle contributeur doit être attribué à ce principal du service dans l’espace de travail Azure Machine Learning.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.

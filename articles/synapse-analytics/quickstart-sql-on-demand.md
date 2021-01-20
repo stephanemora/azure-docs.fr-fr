@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: e75bab664bdd0d6a4ac898905226c9956f62b4ff
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: ffa9e7b5685f9a200f6a403045687626f67f66f4
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96450510"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98218295"
 ---
 # <a name="quickstart-use-serverless-sql-pool"></a>Démarrage rapide : Utiliser un pool SQL serverless
 
@@ -26,7 +26,7 @@ Ce démarrage rapide montre comment interroger : Fichiers CSV, Apache Parquet et
 
 Choisissez le client SQL avec lequel vous souhaitez émettre les requêtes :
 
-- [Azure Synapse Studio](quickstart-synapse-studio.md) est un outil web que vous pouvez utiliser pour parcourir les fichiers dans le stockage et créer des requêtes SQL.
+- [Azure Synapse Studio](./get-started-create-workspace.md) est un outil web que vous pouvez utiliser pour parcourir les fichiers dans le stockage et créer des requêtes SQL.
 - [Azure Data Studio](sql/get-started-azure-data-studio.md) est un outil client qui vous permet d’exécuter des requêtes SQL et des notebooks sur votre base de données à la demande.
 - [SQL Server Management Studio](sql/get-started-ssms.md) est un outil client qui vous permet d’exécuter des requêtes SQL sur votre base de données à la demande.
 

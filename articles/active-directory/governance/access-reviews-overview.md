@@ -17,12 +17,12 @@ ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 08399c1b2d930abfdd5832cb102a789844931d61
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 22bfef17f68b2e83e4f7462d8e9af6fb8aacc284
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027694"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246738"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Présentation des révisions d’accès Azure AD
 
@@ -103,7 +103,7 @@ Voici quelques exemples de scénarios de licence pour vous permettre de détermi
 | Un administrateur crée une révision d’accès du groupe B comportant 500 utilisateurs et 3 propriétaires de groupe, et affecte les 3 propriétaires du groupe en tant que réviseurs. | 3 licences pour chaque propriétaire du groupe en tant que réviseurs | 3 |
 | Un administrateur crée une révision d’accès du groupe B comportant 500 utilisateurs. Effectue une révision indépendante. | 500 licences pour chaque utilisateur en tant qu’auto-réviseurs | 500 |
 | Un administrateur crée une révision d’accès du groupe C comportant 50 utilisateurs membres et 25 utilisateurs invités. Effectue une révision indépendante. | 50 licences pour chaque utilisateur en tant qu’auto-réviseurs.* | 50 |
-| Un administrateur crée une révision d’accès du groupe D comportant 6 utilisateurs membres et 108 utilisateurs invités. Effectue une révision indépendante. | 6 licences pour chaque utilisateur en tant qu’auto-réviseurs. Les utilisateurs invités sont facturés par utilisateur actif mensuel (MAU). Aucune licence supplémentaire n’est requise. *  | - |
+| Un administrateur crée une révision d’accès du groupe D comportant 6 utilisateurs membres et 108 utilisateurs invités. Effectue une révision indépendante. | 6 licences pour chaque utilisateur en tant qu’auto-réviseurs. Les utilisateurs invités sont facturés par utilisateur actif mensuel (MAU). Aucune licence supplémentaire n’est requise. *  | 6 |
 
 \* Les tarifs des identités externes Azure AD (utilisateur invité) sont basés sur les utilisateurs actifs mensuels (MAU), c’est-à-dire le nombre d’utilisateurs uniques ayant une activité d’authentification au cours d’un mois civil. Ce modèle remplace le modèle de facturation selon le rapport 1:5, qui autorise jusqu’à cinq utilisateurs invités pour chaque licence de Azure AD Premium disponible dans votre locataire. Lorsque votre locataire est lié à un abonnement et que vous utilisez des fonctionnalités d’identités externes pour collaborer avec des utilisateurs invités, vous êtes automatiquement facturé à l’aide du modèle basé MAU. Pour plus d’informations, consultez Modèle de facturation pour les identités externes Azure AD.
 

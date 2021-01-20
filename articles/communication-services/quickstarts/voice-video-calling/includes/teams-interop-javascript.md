@@ -5,26 +5,18 @@ ms.author: mikben
 ms.date: 10/10/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: c72083f205fae77de366125e666cee479fd46805
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: dbba87be839d7f172d42827698a8e485c2edddd8
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97691969"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98256400"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
 - Une [application d’appel Communication Services](../getting-started-with-calling.md) opérationnelle
 - Un [déploiement de Teams](/deployoffice/teams-install)
 
-## <a name="enable-teams-interoperability"></a>Activer l’interopérabilité de Teams
-
-La fonctionnalité d’interopérabilité de Teams est disponible en préversion privée. Afin d’activer cette fonctionnalité pour votre ressource Communication Services, envoyez un e-mail à [acsfeedback@microsoft.com](mailto:acsfeedback@microsoft.com) avec les éléments suivants :
-
-1. L’ID de l’abonnement Azure qui contient votre ressource Communication Services
-2. Votre ID de locataire Teams Le moyen le plus simple de le récupérer consiste à [obtenir et partager un lien vers l’équipe](https://support.microsoft.com/office/create-a-link-or-a-code-for-joining-a-team-11b0de3b-9288-4cb4-bc49-795e7028296f).
-
-Vous devez être membre de l’organisation propriétaire des deux entités pour pouvoir utiliser cette fonctionnalité.
 
 ## <a name="add-the-teams-ui-controls"></a>Ajouter les contrôles d’interface utilisateur de Teams
 

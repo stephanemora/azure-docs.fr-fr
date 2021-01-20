@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 26905b746efb0bfcc877e0fa8fad797672bb6447
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d0973682a62b17a21557727a8d5eb8fcb7ec7ef1
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96483213"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98203369"
 ---
 # <a name="windows-virtual-machines-in-azure"></a>Machines virtuelles Windows dans Azure
 
@@ -50,7 +50,7 @@ Ce tableau présente quelques moyens d’obtenir la liste des emplacements dispo
 | Portail Azure |Sélectionnez un emplacement dans la liste lorsque vous créez une machine virtuelle. |
 | Azure PowerShell |Utilisez la commande [Get-AzLocation](/powershell/module/az.resources/get-azlocation). |
 | API REST |Utilisez l’opération [Lister les emplacements](/rest/api/resources/subscriptions). |
-| Azure CLI |Utilisez l’opération [az account list-locations](/cli/azure/account?view=azure-cli-latest). |
+| Azure CLI |Utilisez l’opération [az account list-locations](/cli/azure/account). |
 
 ### <a name="singapore-data-residency"></a>Résidence des données à Singapour
 
@@ -61,7 +61,7 @@ Azure a annoncé un contrat de niveau de service de pointe pour machine virtuell
 
 
 ## <a name="vm-size"></a>Taille de la machine virtuelle
-La [taille](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) de la machine virtuelle que vous utilisez est déterminée par la charge de travail que vous souhaitez exécuter. La taille que vous choisissez détermine ensuite des facteurs comme la puissance de traitement, la mémoire et la capacité de stockage. Azure propose différentes tailles vous permettant de prendre en charge de nombreux types d'utilisation.
+La [taille](../sizes.md) de la machine virtuelle que vous utilisez est déterminée par la charge de travail que vous souhaitez exécuter. La taille que vous choisissez détermine ensuite des facteurs comme la puissance de traitement, la mémoire et la capacité de stockage. Azure propose différentes tailles vous permettant de prendre en charge de nombreux types d'utilisation.
 
 Azure facture un [prix horaire](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) en fonction de la taille et du système d’exploitation de la machine virtuelle. Pour les heures partielles, Azure facture uniquement les minutes utilisées. Le stockage est facturé séparément.
 
@@ -69,7 +69,7 @@ Azure facture un [prix horaire](https://azure.microsoft.com/pricing/details/virt
 Votre abonnement comporte des [limites de quota](../../azure-resource-manager/management/azure-subscription-service-limits.md) par défaut qui peuvent avoir un impact négatif sur le déploiement d’un grand nombre de machines virtuelles pour votre projet. La limite est de 20 machines virtuelles par région et par abonnement. Les limites peuvent être augmentées en [soumettant un ticket de support demandant leur hausse](../../azure-portal/supportability/resource-manager-core-quotas-request.md).
 
 ### <a name="operating-system-disks-and-images"></a>Images et disques du système d’exploitation
-Les machines virtuelles utilisent des [disques durs virtuels](../managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) pour stocker leurs données et leur système d’exploitation (SE). Les disques durs virtuels sont également utilisés pour les images à partir desquelles vous pouvez choisir d'installer un système d'exploitation. 
+Les machines virtuelles utilisent des [disques durs virtuels](../managed-disks-overview.md) pour stocker leurs données et leur système d’exploitation (SE). Les disques durs virtuels sont également utilisés pour les images à partir desquelles vous pouvez choisir d'installer un système d'exploitation. 
 
 Azure fournit de nombreuses [images Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?filters=virtual-machine-images%3Bwindows&page=1) à utiliser avec différentes versions et différents types de systèmes d’exploitation Windows Server. Les images Marketplace sont identifiées par l’éditeur d’images, l’offre, la référence (SKU) et la version (la version est généralement spécifiée en dernier). Seuls les systèmes d’exploitation 64 bits sont pris en charge. Pour plus d’informations sur les rôles, fonctionnalités et systèmes d’exploitation invités pris en charge, consultez la rubrique [Prise en charge du logiciel serveur Microsoft pour les machines virtuelles Microsoft Azure](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines).
 
@@ -80,7 +80,7 @@ Ce tableau présente différents moyens de trouver les informations d’une imag
 | Portail Azure |Les valeurs sont spécifiées automatiquement pour vous lorsque vous sélectionnez une image à utiliser. |
 | Azure PowerShell |[Get-AzVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) -Location *location*<BR>[Get-AzVMImageOffer](/powershell/module/az.compute/get-azvmimageoffer) -Location *location* -Publisher *publisherName*<BR>[Get-AzVMImageSku](/powershell/module/az.compute/get-azvmimagesku) -Location *location* -Publisher *publisherName* -Offer *offerName* |
 | API REST |[Lister les éditeurs d’images](/rest/api/compute/platformimages/platformimages-list-publishers)<BR>[Lister les offres d’images](/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[Lister les références d’images](/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
-| Azure CLI |[az vm image list-publishers](/cli/azure/vm/image?view=azure-cli-latest) --emplacement *location*<BR>[az vm image list-offers](/cli/azure/vm/image?view=azure-cli-latest) --emplacement *location* --éditeur *publisherName*<BR>[az vm image list-skus](/cli/azure/vm?view=azure-cli-latest) --emplacement *location* --éditeur *publisherName* --offre *offerName*|
+| Azure CLI |[az vm image list-publishers](/cli/azure/vm/image) --emplacement *location*<BR>[az vm image list-offers](/cli/azure/vm/image) --emplacement *location* --éditeur *publisherName*<BR>[az vm image list-skus](/cli/azure/vm) --emplacement *location* --éditeur *publisherName* --offre *offerName*|
 
 Vous pouvez choisir de [charger et utiliser votre propre image](upload-generalized-managed.md) ; lorsque vous procédez ainsi, le nom de l’éditeur, l’offre et la référence ne sont pas utilisés.
 
@@ -103,7 +103,7 @@ Les ressources de cette table sont utilisées par la machine virtuelle et doiven
 | [Réseau virtuel](../../virtual-network/virtual-networks-overview.md) |Oui |La machine virtuelle doit faire partie d’un réseau virtuel. |
 | [Adresse IP publique](../../virtual-network/public-ip-addresses.md) |Non |La machine virtuelle peut avoir une adresse IP publique pour être accessible à distance. |
 | [Interface réseau](../../virtual-network/virtual-network-network-interface.md) |Oui |La machine virtuelle a besoin de l’interface réseau pour communiquer sur le réseau. |
-| [Disques de données](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |Non |La machine virtuelle peut comprendre des disques de données pour développer ses capacités de stockage. |
+| [Disques de données](attach-managed-disk-portal.md) |Non |La machine virtuelle peut comprendre des disques de données pour développer ses capacités de stockage. |
 
 
 ## <a name="data-residency"></a>Résidence des données

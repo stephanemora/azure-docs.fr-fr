@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: c9e9ea2e59537a1c0c8e372a766fba3aa9a1b9a0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bc0ac1a6e882f4197828bf79c7989c16b2eb16f7
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88122153"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98217666"
 ---
 # <a name="quickstart-create-a-virtual-network---resource-manager-template"></a>Démarrage rapide : Créer un réseau virtuel – Modèle Resource Manager
 
@@ -36,8 +36,8 @@ Le modèle utilisé dans ce guide de démarrage rapide est tiré des [modèles d
 :::code language="json" source="~/quickstart-templates/101-vnet-two-subnets/azuredeploy.json" range="001-96" highlight="56-92":::
 
 Les ressources Azure suivantes ont été définies dans le modèle :
-- [**Microsoft.Network/virtualNetworks**](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks) : permet de créer un réseau virtuel Azure.
--  [**Microsoft.Network/virtualNetworks/subnets**](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks/subnets) : permet de créer un sous-réseau.
+- [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks) : permet de créer un réseau virtuel Azure.
+-  [**Microsoft.Network/virtualNetworks/subnets**](/azure/templates/microsoft.network/virtualnetworks/subnets) : permet de créer un sous-réseau.
 
 ## <a name="deploy-the-template"></a>Déployer le modèle
 
@@ -56,7 +56,7 @@ Déployez le modèle Resource Manager sur Azure :
 
 Explorez les ressources créées avec le réseau virtuel.
 
-Pour découvrir la syntaxe et les propriétés JSON d’un réseau virtuel dans un modèle, consultez [Microsoft.Network/azureFirewalls](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks).
+Pour découvrir la syntaxe et les propriétés JSON d’un réseau virtuel dans un modèle, consultez [Microsoft.Network/azureFirewalls](/azure/templates/microsoft.network/virtualnetworks).
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 11/09/2020
 ms.author: spelluru
 ms.custom: devx-track-js
-ms.openlocfilehash: aac3b6339c318c76e9b0c9abd0bc3778f2563a6f
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: a1afe4207ce3833f3bcb55bc7bc2e8e27f393f63
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498691"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179994"
 ---
 # <a name="quickstart-service-bus-topics-and-subscriptions-with-nodejs-and-the-preview-azureservice-bus-package"></a>Démarrage rapide : Rubriques et abonnements Service Bus avec Node.js et le package azure/service-bus en préversion
 Dans ce tutoriel, vous allez découvrir comment utiliser le package [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) dans un programme JavaScript pour envoyer des messages à une rubrique Service Bus et recevoir des messages à partir d’un abonnement Service Bus à cette rubrique.
@@ -80,7 +80,7 @@ L’exemple de code suivant montre comment envoyer un lot de messages à une rub
                     await sender.sendMessages(batch);
     
                     // then, create a new batch 
-                    batch = await sender.createBatch();
+                    batch = await sender.createMessageBatch();
      
                     // now, add the message failed to be added to the previous batch to this batch
                     if (!batch.tryAddMessage(messages[i])) {

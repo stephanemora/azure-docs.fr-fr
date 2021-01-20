@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 11/04/2020
-ms.openlocfilehash: f71bcc1fd3b92a32a3e6d9fa056bae7131a663bd
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: b8f3a8e06bb27051417205c4dc3141948960bb00
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492605"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567802"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>Démarrage rapide : Création d’un serveur Azure Database pour MySQL à l’aide du portail Azure
 
@@ -45,7 +45,7 @@ Un abonnement Azure est requis. Si vous n’avez pas d’abonnement Azure, cré
    Nom du serveur | **mydemoserver** | Entrez un nom unique. Le nom de serveur ne peut contenir que des lettres minuscules, des chiffres et le caractère de trait d’union (-). Il doit contenir entre 3 et 63 caractères.
    Source de données |**Aucun** | Sélectionnez **Aucun** pour créer un serveur en partant de zéro. Sélectionnez **Sauvegarde** uniquement si vous effectuez une restauration à partir d’une géosauvegarde d’un serveur existant.
    Emplacement |L’emplacement souhaité | Sélectionnez un emplacement dans la liste.
-   Version | La version principale la plus récente| Utilisez la version principale la plus récente. Consultez [toutes les versions prises en charge](../postgresql/concepts-supported-versions.md).
+   Version | La version principale la plus récente| Utilisez la version principale la plus récente. Consultez [toutes les versions prises en charge](concepts-supported-versions.md).
    Calcul + stockage | Utiliser les valeurs par défaut| Le niveau tarifaire par défaut est **Usage général** avec **4 vCores** et **100 Go** de stockage. La conservation des sauvegardes est définie sur **7 jours** avec l’option de sauvegarde **Géographiquement redondant**.<br/>Passez en revue la page des [tarifs](https://azure.microsoft.com/pricing/details/mysql/) et mettez à jour les valeurs par défaut si nécessaire.
    Nom d’utilisateur administrateur | **mydemoadmin** | Entrez le nom d’utilisateur de l’administrateur de serveur. Vous ne pouvez pas utiliser **azure_superuser**, **admin**, **administrator** (administrateur), **root** (racine), **guest** (invité) ou **public** comme nom d’utilisateur administrateur.
    Mot de passe | Un mot de passe | Un nouveau mot de passe pour l’utilisateur administrateur de serveur. Le mot de passe doit comprendre entre 8 et 128 caractères, et contenir une combinaison de lettres majuscules ou minuscules, de chiffres et de caractères non alphanumériques ( !, $, #,%, etc.).

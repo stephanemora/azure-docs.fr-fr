@@ -10,12 +10,12 @@ ms.date: 10/19/2020
 ms.author: alehall
 ms.reviewer: jrasnick
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 005e3a3b717d4b1b8e5eb02b77a1d228908f8707
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 0537d2353d6b372ed19127101c488b872bbc5224
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92210565"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98218856"
 ---
 # <a name="quickstart-create-an-azure-synapse-workspace-with-azure-powershell"></a>Démarrage rapide : Créer un espace de travail Azure Synapse avec Azure PowerShell
 
@@ -30,9 +30,9 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 - [Compte de stockage Azure Data Lake Storage Gen2](../storage/common/storage-account-create.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 
     > [!IMPORTANT]
-    > L’espace de travail Azure Synapse doit pouvoir lire et écrire dans le compte ADLS Gen2 sélectionné. Pour tout compte de stockage que vous liez en tant que compte de stockage principal, vous devez activer l’ **espace de noms hiérarchique** lors de la création du compte de stockage, tel que décrit dans [Créer un compte de stockage](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-powershell#create-a-storage-account).
+    > L’espace de travail Azure Synapse doit pouvoir lire et écrire dans le compte ADLS Gen2 sélectionné. Pour tout compte de stockage que vous liez en tant que compte de stockage principal, vous devez activer l’**espace de noms hiérarchique** lors de la création du compte de stockage, tel que décrit dans [Créer un compte de stockage](../storage/common/storage-account-create.md?tabs=azure-powershell#create-a-storage-account).
 
-Si vous choisissez d’utiliser Cloud Shell, consultez [Vue d’ensemble d’Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) pour plus d’informations.
+Si vous choisissez d’utiliser Cloud Shell, consultez [Vue d’ensemble d’Azure Cloud Shell](../cloud-shell/overview.md) pour plus d’informations.
 
 ### <a name="install-the-azure-powershell-module-locally"></a>Installer localement le module Azure PowerShell
 

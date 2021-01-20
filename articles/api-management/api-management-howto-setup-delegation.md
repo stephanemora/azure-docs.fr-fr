@@ -127,7 +127,7 @@ Assurez-vous ensuite que le point de terminaison de délégation effectue bien l
      > 
    * Comparez le code de hachage calculé plus haut avec la valeur du paramètre de requête **sig**. Si les deux codes de hachage correspondent, passez à l'étape suivante. Sinon, rejetez la demande.
 3. Traitez l’abonnement au produit en fonction du type d’opération demandé dans **operation** (par exemple, facturation, autres questions, etc.).
-4. Après avoir correctement abonné l’utilisateur au produit de votre côté, abonnez l’utilisateur au produit Gestion des API en [appelant l’API REST pour les abonnements].
+4. Après avoir correctement abonné l’utilisateur au produit de votre côté, abonnez l’utilisateur au produit Gestion des API en [appel de l’API REST pour les abonnements].
 
 ## <a name="example-code"></a><a name="delegate-example-code"> </a> Exemple de code
 
@@ -186,7 +186,7 @@ Pour plus d’informations sur la délégation, regardez la vidéo suivante :
 [Delegating product subscription]: #delegate-product-subscription
 [Demandez un jeton d’accès partagé]: /rest/api/apimanagement/2019-12-01/user/getsharedaccesstoken
 [Créez un utilisateur]: /rest/api/apimanagement/2019-12-01/user/createorupdate
-[appelant l’API REST pour les abonnements]: /rest/api/apimanagement/2019-12-01/subscription/createorupdate
+[appel de l’API REST pour les abonnements]: /rest/api/apimanagement/2019-12-01/subscription/createorupdate
 [Next steps]: #next-steps
 [exemple de code ci-dessous]: #delegate-example-code
 

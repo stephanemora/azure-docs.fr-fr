@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/03/2020
 ms.author: allensu
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 3c03a207e91ae969836e208f4e6bf4ea32086c7d
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: b3ca4f11b02f32e65cf80adc65ec12d25e6e7905
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121314"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573171"
 ---
 # <a name="what-is-azure-private-link"></a>Qu’est-ce que Liaison privée Azure ? 
 Azure Private Link vous permet d’accéder aux services Azure PaaS (par exemple Stockage Azure et SQL Database) ainsi qu’aux services de partenaires ou de clients hébergés par Azure sur un [point de terminaison privé](private-endpoint-overview.md) dans votre réseau virtuel.
@@ -66,7 +66,7 @@ Le service Liaison privée Azure offre les avantages suivants :
 |Azure Event Grid| Toutes les régions publiques<br/> Toutes les régions administratives       |  | GA   <br/> [Découvrez comment créer un point de terminaison privé pour Azure Event Grid.](../event-grid/network-security.md) |
 |Azure Web Apps | Toutes les régions publiques      | Pris en charge avec le plan PremiumV2, PremiumV3 ou Function Premium  | GA   <br/> [Découvrez comment créer un point de terminaison privé pour Azure Web Apps.](./tutorial-private-endpoint-webapp-portal.md)   |
 |Azure Machine Learning | Toutes les régions publiques    |  | GA   <br/> [Découvrez comment créer un point de terminaison privé pour Azure Machine Learning.](../machine-learning/how-to-configure-private-link.md)   |
-| Azure Automation  | Toutes les régions publiques |  | PRÉVERSION </br> [Découvrez comment créer un point de terminaison privé pour Azure Automation.](../automation/how-to/private-link-security.md)| |
+| Azure Automation  | Toutes les régions publiques<br/> Toutes les régions administratives |  | PRÉVERSION </br> [Découvrez comment créer un point de terminaison privé pour Azure Automation.](../automation/how-to/private-link-security.md)| |
 | Azure IoT Hub | Toutes les régions publiques    |  | GA   <br/> [Découvrez comment créer un point de terminaison privé pour Azure IoT Hub.](../iot-hub/virtual-network-support.md) |
 | Azure SignalR | USA EST, USA CENTRE SUD,<br/>USA OUEST 2, Toutes les régions de Chine      |  | PRÉVERSION   <br/> [Découvrez comment créer un point de terminaison privé pour Azure SignalR.](../azure-signalr/howto-private-endpoints.md)   |
 | Azure Monitor <br/>(Log Analytics & Application Insights) | Toutes les régions publiques      |  | GA   <br/> [Découvrez comment créer un point de terminaison privé pour Azure Monitor.](../azure-monitor/platform/private-link-security.md)   | 
