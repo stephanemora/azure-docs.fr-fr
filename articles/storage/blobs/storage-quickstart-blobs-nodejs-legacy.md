@@ -3,17 +3,17 @@ title: 'Démarrage rapide : Bibliothèque de client Stockage Blob Azure v10 pou
 description: Créez, chargez et supprimez des objets blob et des conteneurs en Node.js avec la bibliothèque de client Stockage Azure v10 pour JavaScript.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 07/24/2020
+ms.date: 01/19/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: 1f47c35997fe060fd3c318602bcad17de83b530c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2371c789b9e4a9fc70f4207fd8a634e419c97912
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91249618"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599455"
 ---
 # <a name="quickstart-manage-blobs-with-javascript-v10-sdk-in-nodejs"></a>Démarrage rapide : Gérer des objets blob avec le SDK JavaScript v10 en Node.js
 
@@ -139,7 +139,7 @@ const ONE_MEGABYTE = 1024 * 1024;
 const FOUR_MEGABYTES = 4 * ONE_MEGABYTE;
 ```
 
-Les requêtes faites par l’API peuvent être définies pour expirer après un intervalle donné. La classe [Aborter](/javascript/api/%40azure/storage-blob/aborter?view=azure-node-legacy) est chargée de gérer la façon dont les requêtes arrivent à expiration, et la constante suivante permet de définir les délais d’attente utilisés dans cet exemple.
+Les requêtes faites par l’API peuvent être définies pour expirer après un intervalle donné. La classe [Aborter](/javascript/api/%40azure/storage-blob/aborter?view=azure-node-legacy&preserve-view=true) est chargée de gérer la façon dont les requêtes arrivent à expiration, et la constante suivante permet de définir les délais d’attente utilisés dans cet exemple.
 
 ```javascript
 const ONE_MINUTE = 60 * 1000;
@@ -178,13 +178,13 @@ const serviceURL = new ServiceURL(`https://${STORAGE_ACCOUNT_NAME}.blob.core.win
 
 Les classes suivantes sont utilisées dans ce bloc de code :
 
-- La classe [SharedKeyCredential](/javascript/api/%40azure/storage-blob/sharedkeycredential?view=azure-node-legacy) est chargée de l’encapsulation des informations d’identification du compte de stockage pour les fournir à un pipeline de requête.
+- La classe [SharedKeyCredential](/javascript/api/%40azure/storage-blob/sharedkeycredential?view=azure-node-legacy&preserve-view=true) est chargée de l’encapsulation des informations d’identification du compte de stockage pour les fournir à un pipeline de requête.
 
-- La classe [StorageURL](/javascript/api/%40azure/storage-blob/storageurl?view=azure-node-legacy) est chargée de la création d’un pipeline.
+- La classe [StorageURL](/javascript/api/%40azure/storage-blob/storageurl?view=azure-node-legacy&preserve-view=true) est chargée de la création d’un pipeline.
 
-- La classe [ServiceURL](/javascript/api/%40azure/storage-blob/serviceurl?view=azure-node-legacy) modélise une URL utilisée dans l’API REST. Les instances de cette classe permettent d’accomplir des actions, comme l’établissement d’une liste de conteneurs et l’apport d’informations de contexte pour générer des URL de conteneur.
+- La classe [ServiceURL](/javascript/api/%40azure/storage-blob/serviceurl?view=azure-node-legacy&preserve-view=true) modélise une URL utilisée dans l’API REST. Les instances de cette classe permettent d’accomplir des actions, comme l’établissement d’une liste de conteneurs et l’apport d’informations de contexte pour générer des URL de conteneur.
 
-L’instance de *ServiceURL* est utilisée avec les instances [ContainerURL](/javascript/api/%40azure/storage-blob/containerurl?view=azure-node-legacy) et [BlockBlobURL](/javascript/api/%40azure/storage-blob/blockbloburl?view=azure-node-legacy) pour gérer des conteneurs et des objets blob dans votre compte de stockage.
+L’instance de *ServiceURL* est utilisée avec les instances [ContainerURL](/javascript/api/%40azure/storage-blob/containerurl?view=azure-node-legacy&preserve-view=true) et [BlockBlobURL](/javascript/api/%40azure/storage-blob/blockbloburl?view=azure-node-legacy&preserve-view=true) pour gérer des conteneurs et des objets blob dans votre compte de stockage.
 
 ```javascript
 const containerURL = ContainerURL.fromServiceURL(serviceURL, containerName);
