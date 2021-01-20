@@ -1,5 +1,5 @@
 ---
-title: Créer une image à partir d’une machine virtuelle (préversion)
+title: Créer une image depuis une machine virtuelle
 description: Découvrez comment utiliser Azure PowerShell pour créer une image dans une galerie d’images partagées à partir d’une machine virtuelle existante dans Azure.
 author: cynthn
 ms.topic: how-to
@@ -9,14 +9,14 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 3a7ca8236307bbf8a419d2988e1a6dc1e4c40597
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 1a0bfb79b03b778696faef29597cabbcff47e6df
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94964862"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601663"
 ---
-# <a name="preview-create-an-image-from-a-vm"></a>Aperçu : Créer une image à partir d’une machine virtuelle
+# <a name="create-an-image-from-a-vm"></a>Créer une image depuis une machine virtuelle
 
 Si vous souhaitez créer plusieurs machines virtuelles identiques à partir d’une machine virtuelle existante, vous pouvez utiliser cette dernière pour créer une image dans une galerie d’images partagées à l’aide d’Azure PowerShell. Vous pouvez également créer une image à partir d’une machine virtuelle à l’aide d’[Azure CLI](image-version-vm-cli.md).
 

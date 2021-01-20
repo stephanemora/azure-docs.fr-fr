@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 6/25/2020
-ms.openlocfilehash: 4432178d5908d4360cda05a62b62d05687be4235
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 7797ee9d20b33a25c1b51289036651c7ad9f22a1
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541128"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247496"
 ---
 # <a name="server-parameters-in-azure-database-for-mariadb"></a>Paramètres de serveur dans Azure Database pour MariaDB
 
@@ -159,7 +159,7 @@ Le cache des reqêtes est activé par défaut dans MariaDB avec le paramètre `h
 
 Consultez la [documentation MariaDB](https://mariadb.com/kb/en/server-system-variables/#query_cache_size) pour en savoir plus sur ce paramètre.
 
-|**Niveau tarifaire**|**vCore(s)**|**Valeur par défaut (octets)**|**Valeur minimale (octets)**|**Valeur max.**|
+|**Niveau tarifaire**|**vCore(s)**|**Valeur par défaut (octets)**|**Valeur minimale (octets)**|**Valeur maximale (octets)**|
 |---|---|---|---|---|
 |De base|1|Non configurable dans le niveau de base|N/A|N/A|
 |De base|2|Non configurable dans le niveau de base|N/A|N/A|

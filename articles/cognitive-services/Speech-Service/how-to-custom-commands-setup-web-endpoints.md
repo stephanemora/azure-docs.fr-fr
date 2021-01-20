@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: e50d7aba5cc5b3d5d620d844cc9ad169ad8b3bf6
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 6f2dfdbb5833b34441b4abba7359ad70c4717d1d
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025889"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602157"
 ---
 # <a name="set-up-web-endpoints"></a>Configurer des points de terminaison Web
 
@@ -23,7 +23,7 @@ Dans cet article, vous apprendrez à configurer des points de terminaison web da
 
 - Configurer des points de terminaison Web dans une application Commandes personnalisées
 - Appeler des points de terminaison Web dans une application Commandes personnalisées
-- Recevoir la réponse des points de terminaison Web 
+- Recevoir la réponse des points de terminaison Web
 - Intégrer la réponse des points de terminaison Web dans une charge utile JSON personnalisée, l’envoyer, puis la visualiser dans une application cliente du Kit de développement logiciel (SDK) UWP C#
 
 ## <a name="prerequisites"></a>Prérequis
@@ -35,7 +35,7 @@ Dans cet article, vous apprendrez à configurer des points de terminaison web da
 
 ## <a name="setup-web-endpoints"></a>Configurer des points de terminaison Web
 
-1. Ouvrez l'application Commandes personnalisées que vous avez précédemment créée. 
+1. Ouvrez l'application Commandes personnalisées que vous avez précédemment créée.
 1. Accédez à « Points de terminaison Web », puis cliquez sur « Nouveau point de terminaison Web ».
 
    > [!div class="mx-imgBorder"]
@@ -61,7 +61,7 @@ Dans cet article, vous apprendrez à configurer des points de terminaison web da
 1. Accédez à la commande **TurnOnOff**, sélectionnez **ConfirmationResponse** dans la règle d’exécution, puis **Add an action**.
 1. Sous **New Action-Type**, sélectionnez **Call web endpoint**
 1. Dans **Edit Action - Endpoints**, sélectionnez **UpdateDeviceState**, qui correspond au point de terminaison Web que nous avons créé.  
-1. Dans **Configuration**, entrez les valeurs suivantes : 
+1. Dans **Configuration**, entrez les valeurs suivantes :
    > [!div class="mx-imgBorder"]
    > ![Appeler les paramètres d’action des points de terminaison Web](media/custom-commands/setup-web-endpoint-edit-action-parameters.png)
 
@@ -75,16 +75,16 @@ Dans cet article, vous apprendrez à configurer des points de terminaison web da
     > - Les paramètres de la demande suggérés sont uniquement nécessaires pour l’exemple de point de terminaison
 
 1. Dans **On Success - Action to execute**, sélectionnez **Send speech response**.
-    
+
     Dans **Éditeur simple**, entrez `{SubjectDevice} is {OnOff}`.
-   
+
    > [!div class="mx-imgBorder"]
    > ![Capture d’écran montrant l’écran « On Success – Action to execute » (« Réussite – Action à effectuer »).](media/custom-commands/setup-web-endpoint-edit-action-on-success-send-response.png)
 
    | Paramètre | Valeur suggérée | Description |
    | ------- | --------------- | ----------- |
    | Action à exécuter | Envoyer une réponse vocale | Action à exécuter si la demande envoyée au point de terminaison Web a abouti |
-   
+
    > [!NOTE]
    > - Vous pouvez également accéder directement aux champs de la réponse http en utilisant `{YourWebEndpointName.FieldName}`. Par exemple : `{UpdateDeviceState.TV}`
 
@@ -101,7 +101,7 @@ Dans cet article, vous apprendrez à configurer des points de terminaison web da
 
    > [!NOTE]
    > - `{WebEndpointErrorMessage}` est facultatif. Vous êtes libre de supprimer cet élément si vous ne souhaitez pas afficher de message d’erreur.
-   > - Dans notre exemple de point de terminaison, nous renvoyons une réponse HTTP avec des messages d’erreur détaillés pour les erreurs courantes telles que des paramètres d’en-tête manquants. 
+   > - Dans notre exemple de point de terminaison, nous renvoyons une réponse HTTP avec des messages d’erreur détaillés pour les erreurs courantes telles que des paramètres d’en-tête manquants.
 
 ### <a name="try-it-out-in-test-portal"></a>Tester dans le portail test
 - Réponse en cas de succès\
@@ -119,7 +119,7 @@ Dans [Guide pratique : Envoyer l’activité à l’application cliente (préve
 Toutefois, dans la plupart des cas, vous souhaitez uniquement envoyer l’activité à l’application cliente lorsque l’appel au point de terminaison Web réussit. Cet exemple illustre un scénario où l’état de l’appareil est correctement mis à jour.
 
 1. Supprimez l’action **Envoyer l’activité au client** que vous avez ajoutée précédemment.
-1. Modifiez le point de terminaison Web de l’appel : 
+1. Modifiez le point de terminaison Web de l’appel :
     1. Dans **Configuration**, vérifiez que le paramètre **Query Parameters** affiche `item={SubjectDevice}&&value={OnOff}`
     1. Dans **On Success**, définissez **Action to execute** sur **Send activity to client**
     1. Copiez le fichier JSON ci-dessous dans **Contenu de l'activité**
@@ -133,7 +133,6 @@ Toutefois, dans la plupart des cas, vous souhaitez uniquement envoyer l’activi
       }
     }
    ```
-   
 À présent, vous envoyez l’activité au client uniquement lorsque la demande au point de terminaison Web est réussie.
 
 ### <a name="create-visuals-for-syncing-device-state"></a>Créer des éléments visuels pour la synchronisation de l’état de l’appareil
@@ -147,7 +146,7 @@ Ajoutez le code XML suivant à `MainPage.xaml` au-dessus du bloc `"EnableMicroph
         .........../>
 ```
 
-### <a name="sync-device-state"></a>Synchroniser l’état de l’appareil 
+### <a name="sync-device-state"></a>Synchroniser l’état de l’appareil
 
 Dans `MainPage.xaml.cs`, ajoutez la référence `using Windows.Web.Http;`. Ajoutez le code suivant à la classe `MainPage` . Cette méthode enverra une requête GET à l’exemple de point de terminaison, puis extraira l’état actuel de l’appareil pour votre application. Veillez à modifier `<your_app_name>` selon ce que vous avez utilisé dans l’**en-tête** du point de terminaison Web Commande personnalisée
 
@@ -157,7 +156,7 @@ private async void SyncDeviceState_ButtonClicked(object sender, RoutedEventArgs 
     //Create an HTTP client object
     var httpClient = new HttpClient();
 
-    //Add a user-agent header to the GET request. 
+    //Add a user-agent header to the GET request.
     var your_app_name = "<your-app-name>";
 
     Uri endpoint = new Uri("https://webendpointexample.azurewebsites.net/api/DeviceState");
