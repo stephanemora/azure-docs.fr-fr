@@ -20,6 +20,8 @@
       href: ../../search/cognitive-search-custom-skill-form.md
     - name: Utiliser Form Recognizer avec AI Builder
       href: tutorial-ai-builder.md
+    - name: Extraire des données de formulaire en bloc
+      href: tutorial-bulk-processing.md
 - name: Concepts
   items:
     - name: Extraction d’une disposition

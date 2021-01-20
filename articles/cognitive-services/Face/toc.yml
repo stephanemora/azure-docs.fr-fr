@@ -35,6 +35,8 @@
       href: Face-API-How-to-Topics/specify-recognition-model.md
     - name: Spécifier un modèle de détection des visages
       href: Face-API-How-to-Topics/specify-detection-model.md
+    - name: Limiter la latence lors de l’utilisation du service Visage
+      href: Face-API-How-to-Topics/how-to-mitigate-latency.md
     - name: Utilisez la fonctionnalité à grande échelle
       href: Face-API-How-to-Topics/how-to-use-large-scale.md
     - name: Analyser des vidéos en temps réel

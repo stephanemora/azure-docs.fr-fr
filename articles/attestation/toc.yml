@@ -21,6 +21,8 @@
       href: author-sign-policy.md
     - name: Créer un point de terminaison privé - PowerShell
       href: private-endpoint-powershell.md
+    - name: Supervision avec les diagnostics Azure
+      href: azure-diagnostic-monitoring.md
     - name: Exemples de code d’attestation SGX
       href: /samples/browse/?expanded=azure&terms=attestation
 - name: Exemples
