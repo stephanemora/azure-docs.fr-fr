@@ -11,16 +11,18 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/14/2020
 ms.author: nichola
-ms.openlocfilehash: 9c53ea5bad88eb79940274c409218045c06d7981
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 4f0588667df6acb11a43e8c3469c67f65ed3cdd9
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98064966"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165176"
 ---
 # <a name="support-single-sign-on-and-app-protection-policies-in-mobile-apps-you-develop"></a>Prise en charge des stratégies de protection des applications et de l’authentification unique dans les applications mobiles que vous développez
 
 L’authentification unique (SSO, Single Sign-On) est une offre clé de la plateforme d’identités Microsoft et d’Azure Active Directory, fournissant des connexions faciles et sécurisées pour les utilisateurs de votre application. En outre, les stratégies de protection des applications (APP) activent la prise en charge des stratégies de sécurité clés qui assurent la sécurité des données de votre utilisateur. Ensemble, ces fonctionnalités permettent de sécuriser les connexions utilisateur et la gestion des données de votre application.
+
+> [!VIDEO https://www.youtube.com/embed/JpeMeTjQJ04]
 
 Cet article explique pourquoi l’authentification unique et l’application sont importantes et fournit des conseils de haut niveau pour la création d’applications mobiles qui prennent en charge ces fonctionnalités. Cela s’applique à la fois aux applications pour téléphone et tablette. Si vous êtes un administrateur informatique qui souhaite déployer l’authentification unique dans l’abonnement Azure Active Directory de son organisation, consultez notre [guide relatif à la planification d’un déploiement d’authentification unique](../manage-apps/plan-sso-deployment.md)
 

@@ -7,12 +7,12 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: jafreebe
-ms.openlocfilehash: 74bd7bc159f7f5974452adf6b2f51148d869b4ed
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 3b49177eb592906e3bf84d359699b354f8c87c6e
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97589234"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185663"
 ---
 # <a name="deployment-best-practices"></a>Meilleures pratiques de déploiement
 
@@ -113,7 +113,7 @@ jobs:
 
 Les étapes répertoriées ci-dessus s’appliquent à d’autres utilitaires d’automatisation tels que CircleCI ou Travis CI. Toutefois, vous devez utiliser Azure CLI pour mettre à jour les emplacements de déploiement avec de nouvelles balises d’image lors de la dernière étape. Pour utiliser Azure CLI dans votre script d’automatisation, générez un principal de service à l’aide de la commande suivante.
 
-```shell
+```azurecli
 az ad sp create-for-rbac --name "myServicePrincipal" --role contributor \
    --scopes /subscriptions/{subscription}/resourceGroups/{resource-group} \
    --sdk-auth

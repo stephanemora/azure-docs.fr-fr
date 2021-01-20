@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 860bc9440547a4c62336ccc573859ec56b3400b5
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: c3e2245ae47504e058921c532ed40a220e95423d
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96533857"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98197572"
 ---
 # <a name="azure-security-baseline-for-site-recovery"></a>Ligne de base de la sécurité Azure pour Site Recovery
 
@@ -222,7 +222,7 @@ Créez un processus pour effectuer le suivi des identités et du contrôle d’a
 
 **Conseils** : utilisez une station de travail sécurisée et gérée par Azure, également appelée station de travail à accès privilégié (Privileged Access Workstation, PAW) avec une authentification multifacteur Azure pour accomplir des tâches d’administration, ainsi que des actions privilégiées sur des ressources Site Recovery.
 
-- [Stations de travail d’accès privilégié](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+- [Stations de travail d’accès privilégié](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 - [Planifier un déploiement informatique d'Azure AD Multi-Factor Authentication](../active-directory/authentication/howto-mfa-getstarted.md)
 

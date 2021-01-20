@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/27/2020
 ms.author: cynthn
 ms.reviewer: olayemio
-ms.openlocfilehash: 40d3ff736194c4634b949af52ee7b09db20dd06d
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 84ec5ecbfdc2aab2445d050cc51d2b56acb7f3fd
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95026129"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202553"
 ---
 # <a name="create-a-managed-disk-from-an-image-version"></a>Créer un disque géré à partir d’une version d’image
 
@@ -33,7 +33,7 @@ az sig image-version list \
    -o table
 ```
 
-Affectez à la variable `source` l’ID de la version de l’image, puis utilisez [az disk create](/cli/azure/disk?view=azure-cli-latest#az_disk_create) pour créer le disque géré. 
+Affectez à la variable `source` l’ID de la version de l’image, puis utilisez [az disk create](/cli/azure/disk#az_disk_create) pour créer le disque géré. 
 
 Dans cet exemple, nous exportons le disque du système d’exploitation de la version d’image pour créer un disque géré nommé *myManagedOSDisk*, dans la région *EastUS*, dans un groupe de ressources nommé *myResourceGroup*. 
 

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 5d680da7a5f09a55bec5d791642b80fd76c6088e
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: fea8d93121fcb5622f86257febcc7d834b444098
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509612"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178804"
 ---
 # <a name="migrate-users-to-azure-ad-b2c"></a>Migrer des utilisateurs vers Azure AD B2C
 
@@ -97,7 +97,7 @@ Avant de commencer le processus de migration, vous pouvez en profiter pour netto
 
 ### <a name="password-policy"></a>Stratégie de mot de passe
 
-Si les comptes que vous migrez ont un mot de passe moins fort que ce qui est prescrit par les [règles de mot de passe fort](../active-directory/authentication/concept-sspr-policy.md) appliquées par Azure AD B2C, vous pouvez désactiver l’exigence d’un mot de passe fort. Pour plus d’informations, consultez [Propriété de la stratégie de mot de passe](manage-user-accounts-graph-api.md#password-policy-property).
+Si les comptes que vous migrez ont un mot de passe moins fort que ce qui est prescrit par les [règles de mot de passe fort](../active-directory/authentication/concept-sspr-policy.md) appliquées par Azure AD B2C, vous pouvez désactiver l’exigence d’un mot de passe fort. Pour plus d’informations, consultez [Propriété de la stratégie de mot de passe](user-profile-attributes.md#password-policy-attribute).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

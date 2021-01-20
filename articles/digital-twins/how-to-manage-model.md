@@ -7,12 +7,13 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: a8b2fdf99b33df3322748b7e073cc4ab18957c84
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.custom: contperf-fy21q3
+ms.openlocfilehash: 00e6802f37ec60467edbea98038dd23fcba1239a
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98045238"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185493"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Gérer les modèles Azure Digital Twins
 
@@ -52,9 +53,6 @@ En suivant cette méthode, vous pouvez définir des modèles pour l’hôpital e
 ## <a name="upload-models"></a>Charger des modèles
 
 Une fois les modèles créés, vous pouvez les charger vers l’instance Azure Digital Twins.
-
-> [!TIP]
-> Il est recommandé de valider les modèles hors connexion avant de les charger sur une instance Azure Digital Twins. Vous pouvez utiliser la [bibliothèque de l’analyseur côté client DTDL](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/) et [l’exemple de validateur DTDL](/samples/azure-samples/dtdl-validator/dtdl-validator) décrit dans [*Comment : Analyser et valider les modèles*](how-to-parse-models.md) pour vérifier vos modèles avant de les charger vers le service.
 
 Lorsque vous êtes prêt à télécharger un modèle, vous pouvez utiliser l’extrait de code suivant :
 

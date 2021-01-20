@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/02/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 8b18da5e41e235b560918ad26117a0162078862c
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: e8915e1c15972341befd176b412925f4e87c94f6
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91540980"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201448"
 ---
 # <a name="azure-policy-security-baseline-for-azure-security-benchmark"></a>Base de référence de sécurité Azure Policy pour le benchmark de sécurité Azure
 
@@ -59,7 +59,7 @@ Vous pouvez également activer une solution JIT (Juste-à-temps)/JEA (Just-Enoug
 
 **Aide** : Utilisez des stations de travail avec accès privilégié avec l’authentification multifacteur (MFA) configurée pour la connexion aux ressources Azure et leur configuration.
 
-* [En savoir plus sur les stations de travail à accès privilégié](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [En savoir plus sur les stations de travail à accès privilégié](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 * [Guide pratique pour activer l’authentification MFA dans Azure](../../../active-directory/authentication/howto-mfa-getstarted.md)
 

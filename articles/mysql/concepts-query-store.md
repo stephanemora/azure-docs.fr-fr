@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 5/12/2020
-ms.openlocfilehash: 70e1e5d06ef025801322e15e589d26e31f116fc3
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 82482b260233994672e603c16fe8cf919c92337f
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94535076"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201023"
 ---
 # <a name="monitor-azure-database-for-mysql-performance-with-query-store"></a>Surveiller les performances d’Azure Database pour MySQL avec Magasin de données des requêtes
 
@@ -69,7 +69,7 @@ SELECT * FROM mysql.query_store_wait_stats;
 ## <a name="finding-wait-queries"></a>Recherche de requêtes d’attente
 
 > [!NOTE]
-> Les statistiques d’attente ne doivent pas être activées pendant les heures de pic de charges de travail ou être activées indéfiniment pour les charges de travail sensibles. <br>Pour les charges de travail dont l’exécution implique une utilisation élevée du processeur ou qui sont exécutées sur des serveurs configurés avec des vCores inférieurs, activez les statistiques d’attente avec prudence. Elles ne doivent pas être activées indéfiniment. 
+> Les statistiques d’attente ne doivent pas être activées pendant les heures de pic de charges de travail ou être activées indéfiniment pour les charges de travail sensibles. <br>Pour les charges de travail dont l’exécution implique une utilisation élevée du processeur ou qui sont exécutées sur des serveurs configurés avec des vCores inférieurs, activez les statistiques d’attente avec prudence. Elles ne doivent pas être activées indéfiniment.
 
 Les types d’événements d’attente combinent différents événements d’attente dans des compartiments par similarité. Le Magasin des requêtes fournit le type d’événement d’attente, le nom d’événement d’attente spécifique et la requête en question. Pouvoir mettre en corrélation ces informations d’attente avec les statistiques d’exécution de requête vous permet de mieux comprendre ce qui contribue aux caractéristiques de performances des requêtes.
 
@@ -79,7 +79,7 @@ Voici quelques exemples illustrant la façon d’obtenir plus d’insights dans 
 |---|---|
 |Attentes de verrous élevés | Vérifiez les textes de requêtes pour les requêtes affectées et identifiez les entités cibles. Recherchez dans le Magasin des requêtes d’autres requêtes modifiant la même entité, qui est fréquemment exécutée et/ou dont la durée d’exécution est longue. Après avoir identifié ces requêtes, envisagez de changer la logique d’application pour améliorer l’accès concurrentiel, ou utilisez un niveau d’isolation moins restrictif. |
 |Attentes d’E/S de mémoire tampon élevées | Recherchez les requêtes comportant un grand nombre de lectures physiques dans le Magasin des requêtes. Si elles correspondent aux requêtes ayant des attentes d’E/S élevées, envisagez d’introduire un index sur l’entité sous-jacente, afin de faire des recherches plutôt que des analyses. Cela réduit la surcharge d’E/S des requêtes. Consultez les **Recommandations en matière de performances** pour votre serveur dans le portail afin de voir s’il existe des recommandations relatives aux index adaptées à ce serveur qui optimiseraient les requêtes. |
-|Attentes de mémoire élevées | Recherchez les principales requêtes consommatrices de mémoire dans le Magasin des requêtes. Ces requêtes retardent probablement davantage la progression des requêtes affectées. Consultez les **Recommandations en matière de performances** pour votre serveur dans le portail afin de voir s’il existe des recommandations relatives aux index qui optimiseraient ces requêtes.|
+|Attentes de mémoire élevées | Recherchez les principales requêtes consommatrices de mémoire dans le Magasin des requêtes. Ces requêtes retardent probablement davantage la progression des requêtes affectées. Consultez les **Recommandations en matière de performances** pour votre serveur dans le portail afin de voir s’il existe des recommandations relatives aux index qui optimiseraient ces requêtes. |
 
 ## <a name="configuration-options"></a>Options de configuration
 
@@ -108,7 +108,7 @@ Utilisez le [portail Azure](howto-server-parameters.md) ou l’interface [Azure 
 
 ## <a name="views-and-functions"></a>Vues et fonctions
 
-Affichez et gérez le Magasin des requêtes à l’aide des fonctions et vues suivantes. Toute personne du [select privilege public role](howto-create-users.md#to-create-additional-admin-users-in-azure-database-for-mysql) peut utiliser ces vues pour afficher les données du magasin de données des requêtes. Ces vues sont disponibles uniquement dans la base de données **mysql**.
+Affichez et gérez le Magasin des requêtes à l’aide des fonctions et vues suivantes. Toute personne du [select privilege public role](howto-create-users.md#to-create-more-admin-users-in-azure-database-for-mysql) peut utiliser ces vues pour afficher les données du magasin de données des requêtes. Ces vues sont disponibles uniquement dans la base de données **mysql**.
 
 Les requêtes sont normalisées en examinant leur structure après la suppression des littéraux et des constantes. Si deux requêtes sont identiques à l’exception des valeurs littérales, elle ont le même hachage.
 

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: c0fddca70ca09f0a3abb3c84672e20a42551ecd5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 255b34fc683628846d2776d9db7a0fbe8fe32a45
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96014310"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202077"
 ---
 # <a name="create-a-snapshot-using-the-portal-or-powershell"></a>Créer une capture instantanée à l’aide du portail ou de PowerShell
 
@@ -82,4 +82,4 @@ Les étapes suivantes montrent comment copier le disque dur virtuel et créer la
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Créez une machine virtuelle à partir d’une capture instantanée en créant un disque managé à partir d’une capture instantanée, puis en attachant le nouveau disque managé comme disque de système d’exploitation. Pour plus d’informations, consultez l’exemple dans [Créer une machine virtuelle à partir d’une capture instantanée avec PowerShell](./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-snapshot.md?toc=%2fpowershell%2fmodule%2ftoc.json).
+Créez une machine virtuelle à partir d’une capture instantanée en créant un disque managé à partir d’une capture instantanée, puis en attachant le nouveau disque managé comme disque de système d’exploitation. Pour plus d’informations, consultez l’exemple dans [Créer une machine virtuelle à partir d’une capture instantanée avec PowerShell](./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-snapshot.md).

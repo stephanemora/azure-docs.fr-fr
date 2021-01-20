@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: bf593eab54233ab65435585485dd8e3940f5addb
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d2abc357a5a636aa15909a3645e284c978fb903f
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96489817"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98197589"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Meilleures pratiques en matière de sécurité du contrôle d’accès et de la gestion des identités Azure
 
@@ -275,7 +275,7 @@ Exigez Azure AD Multi-Factor Authentication lors de la connexion de tous les uti
 **Détail** : Utilisez une station de travail administrateur. Choisissez un niveau pour la station de travail :
 
 - Des appareils de productivité hautement sécurisé offrent une sécurité avancée pour la navigation et d’autres tâches de productivité.
-- Les [stations de travail d’accès privilégié (PAW)](/windows-server/identity/securing-privileged-access/privileged-access-workstations) fournissent un système d’exploitation dédié qui est protégé contre les attaques Internet et les vecteurs de menaces.
+- Les [stations de travail d’accès privilégié (PAW)](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/) fournissent un système d’exploitation dédié qui est protégé contre les attaques Internet et les vecteurs de menaces.
 
 **Bonne pratique** : Déprovisionnez les comptes administrateur quand un employé quitte votre organisation.
 **Détail** : Mettez en place un processus qui désactive ou supprime les comptes administrateur quand un employé quitte votre organisation.

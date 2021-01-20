@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/09/2020
 ms.author: terrylan
-ms.openlocfilehash: c88a2cf33cf1149a17af4a82dcf2858822f0c6d4
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 3808da24c1baf6dd6e3332d4bd26fd176b761c65
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94696147"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98196076"
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Bonnes pratiques relatives au chiffrement et à la sécurité des données dans Azure
 Cet article décrit les bonnes pratiques relatives au chiffrement et à la sécurité des données.
@@ -74,7 +74,7 @@ Utilisez Azure RBAC pour contrôler le contenu auquel ont accès les utilisateur
 Dans la mesure où la grande majorité des atteintes ciblent l’utilisateur final, le point de terminaison devient l’un des principaux points d’attaque. Si un pirate informatique compromet le point de terminaison, il peut se servir des informations d’identification pour accéder aux données de l’organisation. La plupart des attaques visant le point de terminaison exploitent le fait que les utilisateurs occupent le rôle d’administrateur dans leurs stations de travail locales.
 
 **Bonne pratique** : Utilisez une station de travail de gestion sécurisée pour protéger les comptes, les tâches et les données sensibles.   
-**Détail** : Utilisez une [station de travail avec accès privilégié](/windows-server/identity/securing-privileged-access/privileged-access-workstations) pour réduire la surface d’attaque au sein des stations de travail. Ces stations de travail de gestion sécurisées peuvent vous aider à limiter certaines attaques, afin d’optimiser la sécurité de vos données.
+**Détail** : Utilisez une [station de travail avec accès privilégié](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/) pour réduire la surface d’attaque au sein des stations de travail. Ces stations de travail de gestion sécurisées peuvent vous aider à limiter certaines attaques, afin d’optimiser la sécurité de vos données.
 
 **Bonne pratique** : Appliquez une protection aux points de terminaison.   
 **Détail** : Appliquez des stratégies de sécurité sur l’ensemble des appareils utilisés pour consommer des données, quel que soit l’emplacement de ces dernières (dans le cloud ou en local).

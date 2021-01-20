@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 10/10/2019
 ms.author: cynthn
-ms.openlocfilehash: df2b58e0067932edd9dfa21ee1a6fbb2a5c1fdf7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 941be52f25b08589134f693b9c0fe17a8a87ff28
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87289763"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98196399"
 ---
 # <a name="create-a-linux-vm-from-a-custom-disk-with-the-azure-cli"></a>Créer une machine virtuelle Linux à partir d’un disque personnalisé avec Azure CLI
 
@@ -38,12 +38,12 @@ Pour créer un disque personnalisé, vous disposez de deux méthodes :
 Pour exécuter la procédure ci-après, vous avez besoin des éléments suivants :
 
 - Une machine virtuelle Linux qui a été préparée pour une utilisation dans Azure. La section [Préparation de la machine virtuelle](#prepare-the-vm) de cet article explique où trouver les informations propres à la distribution concernant l’installation de l’agent Linux Azure (waagent), qui vous sont nécessaires pour vous connecter à une machine virtuelle avec SSH.
-- Le fichier VHD d’une [distribution Linux approuvée par Azure](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) existante (ou consultez [les informations relatives aux distributions non approuvées](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)) sur un disque virtuel au format VHD. Plusieurs outils permettent de créer une machine virtuelle et un disque dur virtuel :
+- Le fichier VHD d’une [distribution Linux approuvée par Azure](endorsed-distros.md) existante (ou consultez [les informations relatives aux distributions non approuvées](create-upload-generic.md)) sur un disque virtuel au format VHD. Plusieurs outils permettent de créer une machine virtuelle et un disque dur virtuel :
   - Installez et configurez [QEMU](https://en.wikibooks.org/wiki/QEMU/Installing_QEMU) ou [KVM](https://www.linux-kvm.org/page/RunningKVM), en veillant à utiliser VHD comme format d’image. En cas de besoin, vous pouvez [convertir une image](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) avec `qemu-img convert`.
   - Vous pouvez également utiliser Hyper-V [sur Windows 10](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v) ou [sur Windows Server 2012/2012 R2](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11)).
 
 > [!NOTE]
-> Azure ne prend pas en charge le nouveau format VHDX. Lorsque vous créez une machine virtuelle, spécifiez le format de disque dur virtuel (VHD). Si nécessaire, vous pouvez convertir des disques VHDX en VHD avec la commande [qemu-img convert](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) ou l’applet de commande PowerShell [Convert-VHD](/powershell/module/hyper-v/convert-vhd?view=win10-ps). Azure ne prend pas en charge le chargement de VHD dynamiques. Vous devez donc convertir ces disques en VHD statiques avant le chargement. Vous pouvez utiliser des outils tels que les [utilitaires de disque dur virtuel Azure pour GO](https://github.com/Microsoft/azure-vhd-utils-for-go) pour convertir les disques dynamiques lors de leur chargement dans Azure.
+> Azure ne prend pas en charge le nouveau format VHDX. Lorsque vous créez une machine virtuelle, spécifiez le format de disque dur virtuel (VHD). Si nécessaire, vous pouvez convertir des disques VHDX en VHD avec la commande [qemu-img convert](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) ou l’applet de commande PowerShell [Convert-VHD](/powershell/module/hyper-v/convert-vhd). Azure ne prend pas en charge le chargement de VHD dynamiques. Vous devez donc convertir ces disques en VHD statiques avant le chargement. Vous pouvez utiliser des outils tels que les [utilitaires de disque dur virtuel Azure pour GO](https://github.com/Microsoft/azure-vhd-utils-for-go) pour convertir les disques dynamiques lors de leur chargement dans Azure.
 > 
 > 
 
@@ -56,20 +56,20 @@ Dans les exemples suivants, remplacez les noms de paramètres par vos propres va
 
 ## <a name="prepare-the-vm"></a>Préparation de la machine virtuelle
 
-Azure prend en charge diverses distributions de Linux (voir [Distributions Linux approuvées](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). Les articles ci-après expliquent comment préparer les diverses distributions Linux prises en charge sur Azure :
+Azure prend en charge diverses distributions de Linux (voir [Distributions Linux approuvées](endorsed-distros.md)). Les articles ci-après expliquent comment préparer les diverses distributions Linux prises en charge sur Azure :
 
-* [Distributions CentOS](create-upload-centos.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Debian Linux](debian-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Oracle Linux](oracle-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Red Hat Enterprise Linux](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [SLES et openSUSE](suse-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Ubuntu](create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Autres : Distributions non approuvées](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Distributions CentOS](create-upload-centos.md)
+* [Debian Linux](debian-create-upload-vhd.md)
+* [Oracle Linux](oracle-create-upload-vhd.md)
+* [Red Hat Enterprise Linux](redhat-create-upload-vhd.md)
+* [SLES et openSUSE](suse-create-upload-vhd.md)
+* [Ubuntu](create-upload-ubuntu.md)
+* [Autres : Distributions non approuvées](create-upload-generic.md)
 
 Consultez également les [notes d’installation Linux](create-upload-generic.md#general-linux-installation-notes) pour obtenir d’autres conseils généraux sur la préparation d’images Linux pour Azure.
 
 > [!NOTE]
-> Le [Contrat de niveau de service (SLA) de la plateforme Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) ne s’applique aux machines virtuelles exécutant Linux que lorsque l’une des distributions approuvées est utilisée avec les détails de configuration définis sous la section « Distributions et versions prises en charge » de l’article [Linux sur les distributions approuvées par Azure](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> Le [Contrat de niveau de service (SLA) de la plateforme Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) ne s’applique aux machines virtuelles exécutant Linux que lorsque l’une des distributions approuvées est utilisée avec les détails de configuration définis sous la section « Distributions et versions prises en charge » de l’article [Linux sur les distributions approuvées par Azure](endorsed-distros.md).
 > 
 > 
 
@@ -133,4 +133,4 @@ az vm create \
 Vous devriez pouvoir utiliser SSH pour vous connecter à la machine virtuelle avec les informations d’identification de la machine virtuelle source. 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Après avoir préparé et chargé votre disque virtuel personnalisé, vous pouvez découvrir plus d’informations sur [l’utilisation de Resource Manager et des modèles](../../azure-resource-manager/management/overview.md). Vous pouvez également [ajouter un disque de données](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) à vos nouvelles machines virtuelles. Si vous avez besoin d’accéder à des applications qui s’exécutent sur vos machines virtuelles, veillez à [ouvrir les ports et points de terminaison](nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Après avoir préparé et chargé votre disque virtuel personnalisé, vous pouvez découvrir plus d’informations sur [l’utilisation de Resource Manager et des modèles](../../azure-resource-manager/management/overview.md). Vous pouvez également [ajouter un disque de données](add-disk.md) à vos nouvelles machines virtuelles. Si vous avez besoin d’accéder à des applications qui s’exécutent sur vos machines virtuelles, veillez à [ouvrir les ports et points de terminaison](nsg-quickstart.md).

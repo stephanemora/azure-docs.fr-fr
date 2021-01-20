@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 3fcbc386c60611493912fdfb17226490549cdc53
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 52cc67b1160ae8c9a0120a0a10d0131b167d5776
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89396809"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202672"
 ---
 # <a name="azure-security-baseline-for-azure-container-registry"></a>Ligne de base de sécurité Azure pour Azure Container Registry
 
@@ -91,7 +91,7 @@ Comment activer les journaux de flux NSG : https://docs.microsoft.com/azure/net
 Activer Network Watcher : https://docs.microsoft.com/azure/network-watcher/network-watcher-create
 
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -195,7 +195,7 @@ Journaux d’Azure Container Registry pour l’évaluation et l’audit de diagn
 
 
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -206,7 +206,7 @@ Journaux d’Azure Container Registry pour l’évaluation et l’audit de diagn
 Journaux d’Azure Container Registry pour l’évaluation et l’audit de diagnostics : https://docs.microsoft.com/azure/container-registry/container-registry-diagnostics-audit-logs
 
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -366,7 +366,7 @@ Comment superviser les identités et les accès dans Azure Security Center : ht
 
 **Aide** : Utilisez des stations de travail avec accès privilégié avec l’authentification multifacteur (MFA) configurée pour la connexion aux ressources Azure et leur configuration.
 
-En savoir plus sur les stations de travail avec accès privilégié :  https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations
+En savoir plus sur les stations de travail avec accès privilégié :  https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/
 
 Comment activer l’authentification multifacteur dans Azure : https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
@@ -1038,7 +1038,7 @@ Pré-analysez les fichiers chargés sur des ressources Azure non liées au calcu
 **Aide** : Non applicable. Ce benchmark a trait aux ressources de calcul. Microsoft gère les logiciels anti-programme malveillant pour la plateforme sous-jacente.
 
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -1071,7 +1071,7 @@ Importer des images conteneur dans un registre de conteneurs :  https://docs.mi
 Comment sauvegarder des clés Key Vault dans Azure :  https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0
 
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -1143,12 +1143,12 @@ Reportez-vous à la publication du NIST : Guide to Test, Training, and Exercise 
 
 ### <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>10.4 : Fournir des informations de contact pour les incidents de sécurité et configurer des notifications d’alerte pour les incidents de sécurité
 
-**Aide** : Les informations de contact d’incident de sécurité seront utilisées par Microsoft pour vous contacter si Microsoft Security Response Center (MSRC) découvre que les données du client ont été utilisées par un tiers illégal ou non autorisé.  Examinez les incidents après les faits pour vous assurer que les problèmes sont résolus.
+**Conseils** : Les informations de contact d’incident de sécurité seront utilisées par Microsoft pour vous contacter si Microsoft Security Response Center (MSRC) découvre que les données du client ont été utilisées par un tiers illégal ou non autorisé.  Examinez les incidents après les faits pour vous assurer que les problèmes sont résolus.
 
 Comment définir le contact de sécurité d’Azure Security Center :  https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details
 
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 

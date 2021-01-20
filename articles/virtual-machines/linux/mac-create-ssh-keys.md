@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 12/06/2019
 ms.author: cynthn
-ms.openlocfilehash: 33ba816227db4cf958fd30c9dac1a0745505c504
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7a6971bce2ba4cb3e18455aad34e2d10b73dc066
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87513687"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98203420"
 ---
 # <a name="quick-steps-create-and-use-an-ssh-public-private-key-pair-for-linux-vms-in-azure"></a>Étapes rapides : Créer et utiliser une paire de clés publique et privée SSH pour les machines virtuelles Linux dans Azure
 
@@ -47,9 +47,9 @@ az vm create --name VMname --resource-group RGname --image UbuntuLTS --generate-
 
 Pour créer une machine virtuelle Linux qui utilise des clés SSH pour l’authentification, spécifiez votre clé publique SSH quand vous créez la machine virtuelle à l’aide du portail Azure, d’Azure CLI, de modèles Azure Resource Manager ou d’autres méthodes :
 
-* [Créer une machine virtuelle Linux avec le portail Azure](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Créer une machine virtuelle Linux avec Azure CLI](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Créer une machine virtuelle Linux à l’aide d’un modèle Azure](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Créer une machine virtuelle Linux avec le portail Azure](quick-create-portal.md)
+* [Créer une machine virtuelle Linux avec Azure CLI](quick-create-cli.md)
+* [Créer une machine virtuelle Linux à l’aide d’un modèle Azure](create-ssh-secured-vm-from-template.md)
 
 Si vous n’êtes pas familiarisé avec le format d’une clé publique SSH, vous pouvez afficher votre clé publique à l’aide de la commande `cat` suivante, en remplaçant `~/.ssh/id_rsa.pub` par le chemin et le nom de votre propre fichier de clé publique, si nécessaire :
 

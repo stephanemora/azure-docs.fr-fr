@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 09/10/2019
 ms.author: v-miegge
-ms.openlocfilehash: bfd3b2351a280f423ba0ef0b15318449554b5e3b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d3db1c3cdfc87cedc0ba24fadc0271a8af44a279
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91595931"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201907"
 ---
 # <a name="repair-a-linux-vm-by-using-the-azure-virtual-machine-repair-commands"></a>Réparer une machine virtuelle Linux à l’aide des commandes de réparation de machine virtuelle Azure
 
@@ -59,7 +59,7 @@ Pour obtenir de la documentation et des instructions supplémentaires, consultez
 
    Si vous préférez installer et utiliser l’interface de ligne de commande en local, ce démarrage rapide nécessite au minimum la version 2.0.30 d’Azure CLI. Exécutez ``az --version`` pour trouver la version. Si vous devez installer ou mettre à niveau votre interface Azure CLI, consultez [Installer Azure CLI](/cli/azure/install-azure-cli).
    
-   Si vous devez vous connecter à Cloud Shell avec un compte différent de celui avec lequel vous êtes actuellement connecté au portail Azure, vous pouvez utiliser ``az login`` [az login reference](/cli/azure/reference-index?view=azure-cli-latest#az-login&preserve-view=true).  Pour basculer entre les abonnements associés à votre compte, vous pouvez utiliser ``az account set --subscription`` [az account set reference](/cli/azure/account?view=azure-cli-latest#az-account-set&preserve-view=true).
+   Si vous devez vous connecter à Cloud Shell avec un compte différent de celui avec lequel vous êtes actuellement connecté au portail Azure, vous pouvez utiliser ``az login`` [az login reference](/cli/azure/reference-index#az-login&preserve-view=true).  Pour basculer entre les abonnements associés à votre compte, vous pouvez utiliser ``az account set --subscription`` [az account set reference](/cli/azure/account#az-account-set&preserve-view=true).
 
 2. Si vous utilisez les commandes `az vm repair` pour la première fois, ajoutez l’extension CLI vm-repair.
 

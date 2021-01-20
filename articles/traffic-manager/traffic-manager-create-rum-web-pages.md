@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: duau
 ms.custom: ''
-ms.openlocfilehash: 8606e89a40e9cfd2c0f55df2c65532928c0d11f8
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 2bb104fd9cfc3c4ffddb82e4cf442e94c4650550
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95972587"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98184556"
 ---
 # <a name="how-to-send-real-user-measurements-to-azure-traffic-manager-using-web-pages"></a>Comment envoyer les mesures des utilisateurs réels à Azure Traffic Manager avec des pages web
 
@@ -68,5 +68,4 @@ Une fois que vous avez obtenu la clé de mesures des utilisateurs réels, l’é
 - En savoir plus sur les [mesures des utilisateurs réels](traffic-manager-rum-overview.md).
 - En savoir plus sur le [fonctionnement de Traffic Manager](traffic-manager-overview.md)
 - En savoir plus sur les [méthodes de routage du trafic](traffic-manager-routing-methods.md) prises en charge par Traffic Manager
-- En savoir plus sur la [création d’un profil Traffic Manager](traffic-manager-create-profile.md)
-
+- En savoir plus sur la [création d’un profil Traffic Manager](./quickstart-create-traffic-manager-profile.md)

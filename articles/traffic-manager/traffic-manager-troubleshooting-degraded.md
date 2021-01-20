@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: duau
-ms.openlocfilehash: 83dc432a1f88b443d500bf9a977abfed69211156
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b76eab5771d724e4f0ec56b7d5acd5cf5f91edc0
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96003852"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183453"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Résolution des problèmes liés à l’état détérioré d’Azure Traffic Manager
 
-Cet article décrit comment résoudre les problèmes d’un profil Azure Traffic Manager qui présente un état détérioré. La première étape de la résolution d’un statut de dégradation d’Azure Traffic Manager consiste à activer la journalisation.  Pour plus d’informations, consultez [Activer les journaux de ressources](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-diagnostic-logs). Pour ce scénario, considérez que vous avez configuré un profil Traffic Manager pointant vers certains de vos services hébergés cloudapp.net. Si le statut de l’intégrité de votre Traffic Manager est **Dégradé**, le statut d’un ou plusieurs points de terminaison peut être **Dégradé** :
+Cet article décrit comment résoudre les problèmes d’un profil Azure Traffic Manager qui présente un état détérioré. La première étape de la résolution d’un statut de dégradation d’Azure Traffic Manager consiste à activer la journalisation.  Pour plus d’informations, consultez [Activer les journaux de ressources](./traffic-manager-diagnostic-logs.md). Pour ce scénario, considérez que vous avez configuré un profil Traffic Manager pointant vers certains de vos services hébergés cloudapp.net. Si le statut de l’intégrité de votre Traffic Manager est **Dégradé**, le statut d’un ou plusieurs points de terminaison peut être **Dégradé** :
 
 ![statut du point de terminaison dégradé](./media/traffic-manager-troubleshooting-degraded/traffic-manager-degradedifonedegraded.png)
 
@@ -31,8 +31,8 @@ Si le statut de l’intégrité de votre Traffic Manager est **Inactif**, les de
 
 ## <a name="understanding-traffic-manager-probes"></a>Présentation des sondes de Traffic Manager
 
-* Traffic Manager considère qu’un point de terminaison est EN LIGNE uniquement si la sonde reçoit une réponse HTTP 200 en retour du chemin d’accès de la sonde. Si votre application retourne un autre code de réponse HTTP, vous devez ajouter ce code de réponse aux [Plages de codes d’état attendues](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring#configure-endpoint-monitoring) de votre profil Traffic Manager.
-* Une réponse de redirection 30x est traitée comme un échec, sauf si vous avez spécifié qu’il s'agit d’un code de réponse valide dans les [Plages de codes d’état attendues](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring#configure-endpoint-monitoring) de votre profil Traffic Manager. Traffic Manager n’effectue pas de sondage sur la cible de redirection.
+* Traffic Manager considère qu’un point de terminaison est EN LIGNE uniquement si la sonde reçoit une réponse HTTP 200 en retour du chemin d’accès de la sonde. Si votre application retourne un autre code de réponse HTTP, vous devez ajouter ce code de réponse aux [Plages de codes d’état attendues](./traffic-manager-monitoring.md#configure-endpoint-monitoring) de votre profil Traffic Manager.
+* Une réponse de redirection 30x est traitée comme un échec, sauf si vous avez spécifié qu’il s'agit d’un code de réponse valide dans les [Plages de codes d’état attendues](./traffic-manager-monitoring.md#configure-endpoint-monitoring) de votre profil Traffic Manager. Traffic Manager n’effectue pas de sondage sur la cible de redirection.
 * Pour les sondes HTTPs, les erreurs de certificat sont ignorées.
 * Le contenu réel du chemin d’accès de la sonde n’importe pas, aussi longtemps que la valeur retournée est 200. Le sondage d’une URL pour détecter du contenu statique, tel que « /favicon.ico », est une technique courante. Un contenu dynamique, par exemple, des pages ASP, ne retourne pas toujours 200, même quand l’application est intègre.
 * La meilleure pratique consiste à définir le chemin d’accès de la sonde vers un élément disposant d’une logique suffisante pour déterminer si le site fonctionne ou est à l’arrêt. Dans l’exemple précédent, en définissant le chemin d’accès « /favicon.ico », vous ne faites que tester le fait que w3wp.exe répond. Cette sonde n’indique pas que votre application web est intègre. Une meilleure option consisterait à définir un chemin d’accès vers un élément tel que « /Probe.aspx » disposant de la logique nécessaire pour déterminer l’intégrité du site. Par exemple, vous pourriez utiliser des compteurs de performances pour l’utilisation du processeur, ou mesurer le nombre de demandes ayant échoué. Vous pourriez également tenter d’accéder aux ressources de base de données ou à l’état de la session pour vous assurer que l’application web fonctionne.
@@ -87,12 +87,12 @@ public class TrustAllCertsPolicy : ICertificatePolicy {
 
 [Qu’est-ce que Traffic Manager ?](traffic-manager-overview.md)
 
-[Cloud Services](https://go.microsoft.com/fwlink/?LinkId=314074)
+[Cloud Services](/previous-versions/azure/jj155995(v=azure.100))
 
 [Azure App Service](https://azure.microsoft.com/documentation/services/app-service/web/)
 
-[Opérations sur Traffic Manager (Référence sur l’API REST)](https://go.microsoft.com/fwlink/?LinkId=313584)
+[Opérations sur Traffic Manager (Référence sur l’API REST)](/previous-versions/azure/reference/hh758255(v=azure.100))
 
 [Applets de commande Azure Traffic Manager][1]
 
-[1]: https://docs.microsoft.com/powershell/module/az.trafficmanager
+[1]: /powershell/module/az.trafficmanager

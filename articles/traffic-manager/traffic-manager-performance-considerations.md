@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: duau
-ms.openlocfilehash: f080f5011311101ed8f9faa2ee807c030a048409
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: 5a0de772598877029649f8a985c79e28f5264535
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91653041"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98186173"
 ---
 # <a name="performance-considerations-for-traffic-manager"></a>Considérations sur les performances de Traffic Manager
 
@@ -80,7 +80,6 @@ Les outils sur ces sites mesurent les latences DNS et affichent les adresses IP 
 
 [Tester vos paramètres de Traffic Manager](traffic-manager-testing-settings.md)
 
-[Opérations sur Traffic Manager (Référence sur l’API REST)](https://go.microsoft.com/fwlink/?LinkId=313584)
+[Opérations sur Traffic Manager (Référence sur l’API REST)](/previous-versions/azure/reference/hh758255(v=azure.100))
 
-[Applets de commande Azure Traffic Manager](https://docs.microsoft.com/powershell/module/az.trafficmanager)
-
+[Applets de commande Azure Traffic Manager](/powershell/module/az.trafficmanager)

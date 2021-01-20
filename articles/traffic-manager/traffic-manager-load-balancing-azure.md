@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2016
 ms.author: duau
-ms.openlocfilehash: 431eaff9da95063648d3e80acb54be9cc5c25bc5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: eaf50f3bdacaf5680bc5ecb1379faff20133b5ce
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021688"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98184371"
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Utilisation des services d’équilibrage de charge dans Azure
 
@@ -92,11 +92,11 @@ Le diagramme suivant illustre l’architecture de ce scénario :
 4. Définissez le réseau virtuel, le sous-réseau, l’adresse IP frontale et les configurations d’écouteur pour la passerelle Application Gateway. Dans ce scénario, l’adresse IP frontale est de type **Public**. Elle peut ainsi être ajoutée comme point de terminaison au profil Traffic Manager.
 5. Configurez l’écouteur avec l’une des options suivantes :
     * Si vous utilisez le protocole HTTP, vous n’avez pas besoin de configurer quoi que ce soit. Cliquez sur **OK**.
-    * Une configuration supplémentaire est requise pour l’utilisation du protocole HTTPS. Consultez la section [Créer une passerelle Application Gateway à l’aide du portail](../application-gateway/application-gateway-create-gateway-portal.md), en commençant à l’étape 9. Lorsque vous avez effectué la configuration, cliquez sur **OK**.
+    * Une configuration supplémentaire est requise pour l’utilisation du protocole HTTPS. Consultez la section [Créer une passerelle Application Gateway à l’aide du portail](../application-gateway/quick-create-portal.md), en commençant à l’étape 9. Lorsque vous avez effectué la configuration, cliquez sur **OK**.
 
 #### <a name="configure-url-routing-for-application-gateways"></a>Configurer le routage d’URL pour les passerelles Application Gateway
 
-Au moment de choisir le pool principal, une passerelle Application Gateway configurée avec une règle basée sur le chemin adopte un modèle de chemin de l’URL de la demande en plus du mode de distribution en tourniquet (round robin). Dans ce scénario, nous ajoutons une règle basée sur le chemin pour diriger les URL contenant « /images/\* » vers le pool de serveurs d’images. Pour en savoir plus sur la configuration du routage basé sur le chemin des URL pour une passerelle Application Gateway, voir [Créer une règle basée sur le chemin pour une passerelle Application Gateway](../application-gateway/application-gateway-create-url-route-portal.md).
+Au moment de choisir le pool principal, une passerelle Application Gateway configurée avec une règle basée sur le chemin adopte un modèle de chemin de l’URL de la demande en plus du mode de distribution en tourniquet (round robin). Dans ce scénario, nous ajoutons une règle basée sur le chemin pour diriger les URL contenant « /images/\* » vers le pool de serveurs d’images. Pour en savoir plus sur la configuration du routage basé sur le chemin des URL pour une passerelle Application Gateway, voir [Créer une règle basée sur le chemin pour une passerelle Application Gateway](../application-gateway/create-url-route-portal.md).
 
 ![Diagramme de couche web Application Gateway](./media/traffic-manager-load-balancing-azure/web-tier-diagram.png)
 
@@ -156,7 +156,7 @@ Dans ce scénario, Load Balancer distribue les connexions de niveau web aux ba
 
 Si votre cluster de bases de données à haute disponibilité utilise SQL Server AlwaysOn, voir [Configurer un ou plusieurs écouteurs de groupe de disponibilité AlwaysOn](../azure-sql/virtual-machines/windows/availability-group-listener-powershell-configure.md) pour obtenir des instructions pas à pas.
 
-Pour en savoir plus sur la configuration d’un équilibrage de charge interne, voir [Créer un équilibreur de charge interne dans le portail Azure](../load-balancer/load-balancer-get-started-ilb-arm-portal.md).
+Pour en savoir plus sur la configuration d’un équilibrage de charge interne, voir [Créer un équilibreur de charge interne dans le portail Azure](../load-balancer/quickstart-load-balancer-standard-internal-portal.md).
 
 1. Dans le volet de gauche du portail Azure, cliquez sur **Créer une ressource** > **Mise en réseau** > **Équilibreur de charge**.
 2. Choisissez un nom pour votre équilibreur de charge.
@@ -210,5 +210,5 @@ Nous allons maintenant configurer l’adresse IP et le port frontal de l’équ
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Vue d’ensemble de Traffic Manager](traffic-manager-overview.md)
-* [Vue d’ensemble d’Application Gateway](../application-gateway/application-gateway-introduction.md)
+* [Vue d’ensemble d’Application Gateway](../application-gateway/overview.md)
 * [Vue d’ensemble d’Azure Load Balancer](../load-balancer/load-balancer-overview.md)

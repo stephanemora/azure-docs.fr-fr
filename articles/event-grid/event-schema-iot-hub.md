@@ -2,13 +2,13 @@
 title: Azure IoT Hub en tant que source Event Grid
 description: Cet article fournit les propriétés et les schémas des événements IoT Hub. Il liste les types d’événements disponibles et les propriétés d’événement, et contient un exemple d’événement.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 02ecf8d4df55aa6b4319e40892778f85f94e29a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/13/2021
+ms.openlocfilehash: 7e1c480bd2a662a2ee3418b35dc9c3b50d412a60
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86113647"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185833"
 ---
 # <a name="azure-iot-hub-as-an-event-grid-source"></a>Azure IoT Hub en tant que source Event Grid
 Cet article fournit les propriétés et les schémas des événements IoT Hub. Pour une présentation des schémas d’événements, consultez [Schéma d’événements Azure Event Grid](event-schema.md). 
@@ -26,8 +26,6 @@ IoT Hub émet les types d’événements suivants :
 | Microsoft.Devices.DeviceConnected | Publié quand un appareil est connecté à un hub IoT. |
 | Microsoft.Devices.DeviceDisconnected | Publié quand un appareil est déconnecté d’un hub IoT. | 
 | Microsoft.Devices.DeviceTelemetry | Publié quand un message de télémétrie est envoyé à un hub IoT. |
-
-Tous les événements d’appareil, à l’exception des événements de télémétrie, sont en disponibilité générale dans toutes les régions prises en charge par Event Grid. L’événement de télémétrie d’appareil est disponible en préversion publique dans toutes les régions à l’exception des suivantes : USA Est, USA Ouest, Europe Ouest, [Azure Government](../azure-government/documentation-government-welcome.md), [Azure China 21Vianet](/azure/china/china-welcome) et [Azure Allemagne](https://azure.microsoft.com/global-infrastructure/germany/).
 
 ### <a name="example-event"></a>Exemple d’événement
 

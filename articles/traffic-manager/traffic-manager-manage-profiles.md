@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: duau
-ms.openlocfilehash: 7bb5559f21289a40b6c75a3481680ab5b2c1c269
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a39120b1305022739aaef3407aa6c2621a97e842
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89392882"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98184151"
 ---
 # <a name="manage-an-azure-traffic-manager-profile"></a>Gestion d’un profil Azure Traffic Manager
 
@@ -70,7 +70,7 @@ Vous pouvez désactiver un profil existant afin que Traffic Manager ne renvoie p
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Ajout d’un point de terminaison](traffic-manager-endpoints.md)
+* [Ajout d’un point de terminaison](./traffic-manager-manage-endpoints.md)
 * [Configurer la méthode de routage en fonction de la priorité](traffic-manager-configure-priority-routing-method.md)
 * [Configurer la méthode de routage géographique](traffic-manager-configure-geographic-routing-method.md) 
 * [Configurer la méthode de routage en fonction de la pondération](traffic-manager-configure-weighted-routing-method.md)

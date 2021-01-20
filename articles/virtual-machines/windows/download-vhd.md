@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 01/13/2019
 ms.author: cynthn
-ms.openlocfilehash: 5c57ac0fb0ab377f00770e3c9c03a413dcb345bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e6f7b461d205478d6a3fe3eecbbb933d0533ec9
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87291036"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200513"
 ---
 # <a name="download-a-windows-vhd-from-azure"></a>Télécharger un VHD Windows à partir d’Azure
 
@@ -27,7 +27,7 @@ Si vous souhaitez utiliser le disque dur virtuel (VHD) en tant qu’[image](tuto
 Pour utiliser le VHD en tant qu’image pour créer d’autres machines virtuelles, généralisez la machine virtuelle.
 
 1. Si ce n’est pas déjà fait, connectez-vous au [portail Azure](https://portal.azure.com/).
-2. [Connectez-vous à la machine virtuelle](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+2. [Connectez-vous à la machine virtuelle](connect-logon.md). 
 3. Sur la machine virtuelle, ouvrez la fenêtre d’invite de commandes en tant qu’administrateur.
 4. Remplacez le répertoire par *%windir%\system32\sysprep* et exécutez sysprep.exe.
 5. Dans la boîte de dialogue Outil de préparation du système, sélectionnez **Entrer en mode OOBE (Out-of-Box Experience) du système** et vérifiez que **Généraliser** est sélectionné.
@@ -65,6 +65,6 @@ Pour télécharger le fichier VHD, vous devez générer une URL de [signature d�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez comment [charger un fichier de VHD sur Azure](upload-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
-- [Créez des disques managés à partir de disques non managés dans un compte de stockage](attach-disk-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-- [Gérez des disques Azure avec PowerShell](tutorial-manage-data-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Découvrez comment [charger un fichier de VHD sur Azure](upload-generalized-managed.md). 
+- [Créez des disques managés à partir de disques non managés dans un compte de stockage](attach-disk-ps.md).
+- [Gérez des disques Azure avec PowerShell](tutorial-manage-data-disk.md).

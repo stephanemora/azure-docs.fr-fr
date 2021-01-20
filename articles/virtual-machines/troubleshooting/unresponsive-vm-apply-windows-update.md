@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 76c3f729a8520c7bff7b49a1d2200d7950f8a9f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55dcd65e901a5ce8665ef8d3a2a29d7943581df9
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87074300"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200717"
 ---
 # <a name="vm-is-unresponsive-with-c01a001d-error-when-applying-windows-update"></a>La machine virtuelle ne répond pas avec l’erreur « C01A001D » lors de l’application d’une mise à jour Windows
 
@@ -56,7 +56,7 @@ Impossible de créer un fichier de base dans le système de fichiers. Le systèm
 
 Si le disque n’est pas déjà de 1 To, vous devez le redimensionner. Une fois que la taille du disque est de 1 To, effectuez un nettoyage de disque et une défragmentation du lecteur.
 
-1. Vérifiez si le disque est plein. Si la taille du disque est inférieure à 1 To, [augmentez-la jusqu’à un maximum de 1 To à l’aide de PowerShell](../windows/expand-os-disk.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json).
+1. Vérifiez si le disque est plein. Si la taille du disque est inférieure à 1 To, [augmentez-la jusqu’à un maximum de 1 To à l’aide de PowerShell](../windows/expand-os-disk.md).
 2. Une fois que le disque fait 1 To, effectuez un nettoyage de disque.
     - [Détachez le disque de données de la machine virtuelle corrompue](../windows/detach-disk.md).
     - [Attachez le disque de données à une machine virtuelle opérationnelle](../windows/attach-disk-ps.md#attach-an-existing-data-disk-to-a-vm).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/25/2019
 ms.author: genli
-ms.openlocfilehash: 80bcac36271d86334e11cb3cd161cd96777e6fe5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f242de3bfa6a2bc95dc46b4ca5c10222b755a2f
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87832448"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200921"
 ---
 # <a name="reset-remote-desktop-services-or-its-administrator-password-in-a-windows-vm"></a>Réinitialiser les Services Bureau à distance ou le mot de passe administrateur associé dans une machine virtuelle Windows
 Si vous ne pouvez pas vous connecter à une machine virtuelle Windows, vous pouvez réinitialiser le mot de passe d’administrateur local ou la configuration du service Bureau à distance (pas de prise en charge sur les contrôleurs de domaine Windows). Pour réinitialiser le mot de passe, utilisez le Portail Azure ou l’extension d’accès aux machines virtuelles dans Azure PowerShell. Une fois connecté à la machine virtuelle, réinitialisez le mot de passe de cet administrateur local.  
@@ -86,14 +86,14 @@ Commencez par vérifier que le [dernier module PowerShell est installé et confi
     > [!TIP]
     > En toutes circonstances, une machine virtuelle ne peut avoir qu’un seul agent d’accès de machine virtuelle. Pour définir les propriétés de l’agent d’accès aux machines virtuelles, utilisez l’option `-ForceRerun`. Lorsque vous utilisez `-ForceRerun`, vérifiez que vous utilisez le même nom pour l’agent d’accès à la machine virtuelle que vous avez peut-être utilisé dans une commande précédente.
 
-1. Si vous ne pouvez toujours pas vous connecter à distance à votre machine virtuelle, consultez [Résolution des problèmes de connexion Bureau à distance avec une machine virtuelle Azure exécutant Windows](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Si vous perdez la connexion au contrôleur de domaine Windows, vous devez le restaurer à partir d’une sauvegarde de contrôleur de domaine.
+1. Si vous ne pouvez toujours pas vous connecter à distance à votre machine virtuelle, consultez [Résolution des problèmes de connexion Bureau à distance avec une machine virtuelle Azure exécutant Windows](troubleshoot-rdp-connection.md). Si vous perdez la connexion au contrôleur de domaine Windows, vous devez le restaurer à partir d’une sauvegarde de contrôleur de domaine.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Si l’extension d’accès aux machines virtuelles Azure ne répond pas et que vous ne pouvez pas réinitialiser le mot de passe, vous pouvez [réinitialiser le mot de passe Windows local en mode hors connexion](reset-local-password-without-agent.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Cette méthode est plus avancée et nécessite que vous connectiez le disque dur virtuel de la machine virtuelle problématique à une autre machine virtuelle. Suivez d’abord la procédure décrite dans cet article et n’utilisez la méthode de réinitialisation du mot de passe en mode hors connexion qu’en cas d’échec de cette procédure.
+- Si l’extension d’accès aux machines virtuelles Azure ne répond pas et que vous ne pouvez pas réinitialiser le mot de passe, vous pouvez [réinitialiser le mot de passe Windows local en mode hors connexion](reset-local-password-without-agent.md). Cette méthode est plus avancée et nécessite que vous connectiez le disque dur virtuel de la machine virtuelle problématique à une autre machine virtuelle. Suivez d’abord la procédure décrite dans cet article et n’utilisez la méthode de réinitialisation du mot de passe en mode hors connexion qu’en cas d’échec de cette procédure.
 
-- [En savoir plus sur les extensions et fonctionnalités des machines virtuelles Azure](../extensions/features-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+- [En savoir plus sur les extensions et fonctionnalités des machines virtuelles Azure](../extensions/features-windows.md)
 
 - [Connecter une machine virtuelle Azure avec RDP ou SSH](/previous-versions/azure/dn535788(v=azure.100))
 
-- [Résoudre les problèmes de connexion Bureau à distance à une machine virtuelle Azure exécutant Windows](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+- [Résoudre les problèmes de connexion Bureau à distance à une machine virtuelle Azure exécutant Windows](troubleshoot-rdp-connection.md)

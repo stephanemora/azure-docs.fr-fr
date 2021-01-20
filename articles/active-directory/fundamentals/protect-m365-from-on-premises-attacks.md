@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71d64552520db28b3fe38cc354a30ee5470ee091
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 97893dece068dfdde85159f734095401288231d2
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060669"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201346"
 ---
 # <a name="protecting-microsoft-365-from-on-premises-attacks"></a>Protéger Microsoft 365 des attaques locales
 
@@ -131,7 +131,7 @@ L'approvisionnement fait référence à la création de comptes et de groupes d'
 
    *  Limitez l'accès invité à des groupes de navigation et à d'autres propriétés de l'annuaire. Utilisez les paramètres de collaboration externe pour limiter la capacité des invités à lire des groupes dont ils ne sont pas membres. 
 
-    *   Bloquez l'accès au portail Azure. Vous pouvez raréfier les exceptions nécessaires.  Créez une stratégie d'accès conditionnel qui comprend tous les invités et utilisateurs externes, puis [implémentez une stratégie pour bloquer l'accès](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management.md). 
+    *   Bloquez l'accès au portail Azure. Vous pouvez raréfier les exceptions nécessaires.  Créez une stratégie d'accès conditionnel qui comprend tous les invités et utilisateurs externes, puis [implémentez une stratégie pour bloquer l'accès](/azure/role-based-access-control/conditional-access-azure-management). 
 
 * **Forêts déconnectées :** utilisez l'[approvisionnement cloud Azure AD](../cloud-provisioning/what-is-cloud-provisioning.md). Cela vous permettra de vous connecter à des forêts déconnectées, ce qui vous évitera d'avoir à établir une connectivité ou des approbations entre forêts, lesquelles pourraient étendre l'impact d'une violation locale. * 
  

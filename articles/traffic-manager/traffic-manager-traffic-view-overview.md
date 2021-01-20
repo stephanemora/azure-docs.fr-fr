@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: duau
 ms.custom: ''
-ms.openlocfilehash: f1a3cc5ccb326d6a198895f9f459e661f7805b1e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b20357413c62460aba55a2d354b90995a2aa4815
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96003835"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183691"
 ---
 # <a name="traffic-manager-traffic-view"></a>Traffic View de Traffic Manager
 
@@ -72,29 +72,29 @@ Lorsque vous utilisez Traffic View, vous êtes facturé en fonction du nombre de
 
 ## <a name="faqs"></a>FAQ
 
-* [À quoi sert la fonctionnalité Affichage du trafic ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-does-traffic-view-do)
+* [À quoi sert la fonctionnalité Affichage du trafic ?](./traffic-manager-faqs.md#what-does-traffic-view-do)
 
-* [Quels sont les avantages de la fonctionnalité Affichage du trafic ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-benefit-from-using-traffic-view)
+* [Quels sont les avantages de la fonctionnalité Affichage du trafic ?](./traffic-manager-faqs.md#how-can-i-benefit-from-using-traffic-view)
 
-* [En quoi la fonctionnalité Affichage du trafic diffère-t-elle des métriques Traffic Manager disponibles dans Azure Monitor ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-is-traffic-view-different-from-the-traffic-manager-metrics-available-through-azure-monitor)
+* [En quoi la fonctionnalité Affichage du trafic diffère-t-elle des métriques Traffic Manager disponibles dans Azure Monitor ?](./traffic-manager-faqs.md#how-is-traffic-view-different-from-the-traffic-manager-metrics-available-through-azure-monitor)
 
-* [La fonctionnalité Affichage du trafic utilise-t-elle les informations sur le sous-réseau du client EDNS ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-traffic-view-use-edns-client-subnet-information)
+* [La fonctionnalité Affichage du trafic utilise-t-elle les informations sur le sous-réseau du client EDNS ?](./traffic-manager-faqs.md#does-traffic-view-use-edns-client-subnet-information)
 
-* [Combien de jours de données la fonctionnalité Affichage du trafic utilise-t-elle ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-many-days-of-data-does-traffic-view-use)
+* [Combien de jours de données la fonctionnalité Affichage du trafic utilise-t-elle ?](./traffic-manager-faqs.md#how-many-days-of-data-does-traffic-view-use)
 
-* [Comment la fonctionnalité Affichage du trafic gère-t-elle les points de terminaison externes ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-traffic-view-handle-external-endpoints)
+* [Comment la fonctionnalité Affichage du trafic gère-t-elle les points de terminaison externes ?](./traffic-manager-faqs.md#how-does-traffic-view-handle-external-endpoints)
 
-* [Dois-je activer la fonctionnalité Affichage du trafic pour chaque profil de mon abonnement ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#do-i-need-to-enable-traffic-view-for-each-profile-in-my-subscription)
+* [Dois-je activer la fonctionnalité Affichage du trafic pour chaque profil de mon abonnement ?](./traffic-manager-faqs.md#do-i-need-to-enable-traffic-view-for-each-profile-in-my-subscription)
 
-* [Comment désactiver la fonctionnalité Affichage du trafic ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-turn-off-traffic-view)
+* [Comment désactiver la fonctionnalité Affichage du trafic ?](./traffic-manager-faqs.md#how-can-i-turn-off-traffic-view)
 
-* [Comment la fonctionnalité Affichage du trafic est-elle facturée ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-traffic-view-billing-work)
+* [Comment la fonctionnalité Affichage du trafic est-elle facturée ?](./traffic-manager-faqs.md#how-does-traffic-view-billing-work)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - En savoir plus sur le [fonctionnement de Traffic Manager](traffic-manager-overview.md)
 - En savoir plus sur les [méthodes de routage du trafic](traffic-manager-routing-methods.md) prises en charge par Traffic Manager
-- En savoir plus sur la [création d’un profil Traffic Manager](traffic-manager-create-profile.md)
+- En savoir plus sur la [création d’un profil Traffic Manager](./quickstart-create-traffic-manager-profile.md)
 
 <!--Image references-->
 [1]: ./media/traffic-manager-traffic-view-overview/trafficview.png

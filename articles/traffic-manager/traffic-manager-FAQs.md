@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: duau
-ms.openlocfilehash: 86758c355566fb67ebd8a606068e2044e0b8bd64
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17ccfeb709c530a868a75ecd87052618aaea4846
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89400175"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98184575"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Forum Aux Questions (FAQ) relatif à Traffic Manager
 
@@ -96,7 +96,7 @@ La principale différence entre ces deux méthodes de routage populaires est que
 
 ### <a name="what-are-the-regions-that-are-supported-by-traffic-manager-for-geographic-routing"></a>Quelles sont les régions prises en charge par Traffic Manager pour le routage géographique ?
 
-La hiérarchie de pays/régions utilisée par Traffic Manager se trouve [ici](traffic-manager-geographic-regions.md). Lorsque cette page est maintenue à jour avec les éventuelles modifications apportées, vous pouvez également récupérer par programme les mêmes informations à l’aide de [l’API REST d’Azure Traffic Manager](https://docs.microsoft.com/rest/api/trafficmanager/). 
+La hiérarchie de pays/régions utilisée par Traffic Manager se trouve [ici](traffic-manager-geographic-regions.md). Lorsque cette page est maintenue à jour avec les éventuelles modifications apportées, vous pouvez également récupérer par programme les mêmes informations à l’aide de [l’API REST d’Azure Traffic Manager](/rest/api/trafficmanager/). 
 
 ### <a name="how-does-traffic-manager-determine-where-a-user-is-querying-from"></a>Comment Traffic Manager détermine-t-il l’emplacement à partir duquel un utilisateur exécute une requête ?
 
@@ -116,11 +116,11 @@ Non, l’emplacement du point de terminaison n’impose aucune restriction sur l
 
 ### <a name="can-i-assign-geographic-regions-to-endpoints-in-a-profile-that-is-not-configured-to-do-geographic-routing"></a>Puis-je affecter des régions géographiques aux points de terminaison dans un profil qui n’est pas configuré pour procéder au routage géographique ?
 
-Oui, si la méthode de routage d’un profil n’est pas géographique, vous pouvez utiliser [l’API REST d’Azure Traffic Manager](https://docs.microsoft.com/rest/api/trafficmanager/) pour affecter des régions géographiques aux points de terminaison de ce profil. Cette configuration est ignorée dans le cas des profils de type de routage non géographique. Si vous modifiez ultérieurement un tel profil en type de routage géographique, Traffic Manager peut utiliser ces mappages.
+Oui, si la méthode de routage d’un profil n’est pas géographique, vous pouvez utiliser [l’API REST d’Azure Traffic Manager](/rest/api/trafficmanager/) pour affecter des régions géographiques aux points de terminaison de ce profil. Cette configuration est ignorée dans le cas des profils de type de routage non géographique. Si vous modifiez ultérieurement un tel profil en type de routage géographique, Traffic Manager peut utiliser ces mappages.
 
 ### <a name="why-am-i-getting-an-error-when-i-try-to-change-the-routing-method-of-an-existing-profile-to-geographic"></a>Pourquoi une erreur est-elle générée lorsque j’essaie de modifier la méthode de routage d’un profil existant en méthode de routage géographique ?
 
-Au moins une région doit être mappée à tous les points de terminaison sous un profil doté d’une méthode de routage géographique. Pour convertir un profil existant en type de routage géographique, vous devez tout d’abord associer les régions géographiques à tous ses points de terminaison à l’aide de [l’API REST d’Azure Traffic Manager](https://docs.microsoft.com/rest/api/trafficmanager/). Si vous utilisez le portail, vous devez d’abord supprimer les points de terminaison, remplacer la méthode de routage du profil par la méthode de routage géographique, puis ajouter les points de terminaison ainsi que le mappage de leurs régions géographiques.
+Au moins une région doit être mappée à tous les points de terminaison sous un profil doté d’une méthode de routage géographique. Pour convertir un profil existant en type de routage géographique, vous devez tout d’abord associer les régions géographiques à tous ses points de terminaison à l’aide de [l’API REST d’Azure Traffic Manager](/rest/api/trafficmanager/). Si vous utilisez le portail, vous devez d’abord supprimer les points de terminaison, remplacer la méthode de routage du profil par la méthode de routage géographique, puis ajouter les points de terminaison ainsi que le mappage de leurs régions géographiques.
 
 ### <a name="why-is-it-strongly-recommended-that-customers-create-nested-profiles-instead-of-endpoints-under-a-profile-with-geographic-routing-enabled"></a>Pourquoi est-il vivement recommandé que les clients créent des profils imbriqués à la place de points de terminaison sous un profil avec le routage géographique activé ?
 
@@ -306,7 +306,7 @@ Le prix de la fonctionnalité Affichage du trafic est basé sur le nombre de poi
 
 L’utilisation de points de terminaison à partir de plusieurs abonnements n’est pas possible avec Azure Web Apps. Azure Web Apps requiert que tout nom de domaine personnalisé utilisé avec Web Apps ne soit utilisé que dans un seul abonnement. Il n’est pas possible d’utiliser des applications web à partir de plusieurs abonnements portant le même nom de domaine.
 
-Pour les autres types de point de terminaison, il est possible d’utiliser Traffic Manager avec des points de terminaison provenant de plusieurs abonnements. Dans Resource Manager, vous pouvez ajouter à Traffic Manager des points de terminaison de n’importe quel abonnement tant que la personne qui configure le profil Traffic Manager dispose d’un accès en lecture au point de terminaison. Ces autorisations peuvent être accordées à l’aide du [contrôle d’accès en fonction du rôle d’Azure (Azure RBAC)](../role-based-access-control/role-assignments-portal.md). Les points de terminaison d’autres abonnements peuvent être ajoutés à l’aide d’[Azure PowerShell](https://docs.microsoft.com/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) ou [Azure CLI](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-create).
+Pour les autres types de point de terminaison, il est possible d’utiliser Traffic Manager avec des points de terminaison provenant de plusieurs abonnements. Dans Resource Manager, vous pouvez ajouter à Traffic Manager des points de terminaison de n’importe quel abonnement tant que la personne qui configure le profil Traffic Manager dispose d’un accès en lecture au point de terminaison. Ces autorisations peuvent être accordées à l’aide du [contrôle d’accès en fonction du rôle d’Azure (Azure RBAC)](../role-based-access-control/role-assignments-portal.md). Les points de terminaison d’autres abonnements peuvent être ajoutés à l’aide d’[Azure PowerShell](/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) ou [Azure CLI](/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-create).
 
 ### <a name="can-i-use-traffic-manager-with-cloud-service-staging-slots"></a>Puis-je utiliser Traffic Manager avec les emplacements intermédiaires de services cloud ?
 
@@ -345,9 +345,9 @@ Azure Resource Manager exige que tous les groupes de ressources spécifient un e
 
 ### <a name="how-do-i-determine-the-current-health-of-each-endpoint"></a>Comment déterminer l’état d’intégrité actuel de chaque point de terminaison ?
 
-L’état de surveillance en cours de chaque point de terminaison, en plus du profil global s’affichent dans le portail Azure. Ces informations sont également disponibles via [l’API REST](https://msdn.microsoft.com/library/azure/mt163667.aspx), [les applets de commande PowerShell](https://docs.microsoft.com/powershell/module/az.trafficmanager) et [l’interface de ligne de commande Azure multiplateforme](../cli-install-nodejs.md) de Traffic Monitor.
+L’état de surveillance en cours de chaque point de terminaison, en plus du profil global s’affichent dans le portail Azure. Ces informations sont également disponibles via [l’API REST](/rest/api/trafficmanager/), [les applets de commande PowerShell](/powershell/module/az.trafficmanager) et [l’interface de ligne de commande Azure multiplateforme](/cli/azure/install-classic-cli) de Traffic Monitor.
 
-Vous pouvez également utiliser Azure Monitor pour suivre l’intégrité de vos points de terminaison et en voir une représentation visuelle. Pour plus d’informations sur l’utilisation d’Azure Monitor, consultez la [documentation sur la surveillance Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics).
+Vous pouvez également utiliser Azure Monitor pour suivre l’intégrité de vos points de terminaison et en voir une représentation visuelle. Pour plus d’informations sur l’utilisation d’Azure Monitor, consultez la [documentation sur la surveillance Azure](../azure-monitor/platform/data-platform.md).
 
 ### <a name="can-i-monitor-https-endpoints"></a>Puis-je surveiller les points de terminaison HTTPS ?
 
@@ -458,7 +458,7 @@ Le nombre de contrôles d’intégrité de Traffic Manager qui atteignent votre 
 
 ### <a name="how-can-i-get-notified-if-one-of-my-endpoints-goes-down"></a>Comment être informé si l’un de mes points de terminaison tombe en panne ?
 
-Une des métriques fournies par Traffic Manager est l’état d’intégrité des points de terminaison d’un profil. Vous pouvez voir cela comme un agrégat de tous les points de terminaison à l’intérieur d’un profil (par exemple, 75 % de vos points de terminaison sont sains), ou par niveau de point de terminaison. Les métriques de Traffic Manager sont indiquées par Azure Monitor, dont vous pouvez utiliser les [fonctionnalités d’alerte](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) pour être informé en cas de modification de l’état d’intégrité de votre point de terminaison. Pour plus de détails, voir [Métriques et alertes de Traffic Manager](traffic-manager-metrics-alerts.md).  
+Une des métriques fournies par Traffic Manager est l’état d’intégrité des points de terminaison d’un profil. Vous pouvez voir cela comme un agrégat de tous les points de terminaison à l’intérieur d’un profil (par exemple, 75 % de vos points de terminaison sont sains), ou par niveau de point de terminaison. Les métriques de Traffic Manager sont indiquées par Azure Monitor, dont vous pouvez utiliser les [fonctionnalités d’alerte](../azure-monitor/platform/alerts-metric.md) pour être informé en cas de modification de l’état d’intégrité de votre point de terminaison. Pour plus de détails, voir [Métriques et alertes de Traffic Manager](traffic-manager-metrics-alerts.md).  
 
 ## <a name="traffic-manager-nested-profiles"></a>Profils Traffic Manager imbriqués
 

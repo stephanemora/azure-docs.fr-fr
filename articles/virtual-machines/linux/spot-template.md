@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 03/25/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: 0a56cfe8e282b7fb7e618dcadda5beff7c4e3f43
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 0cf6fc1b37064ef6193f35334711dcc5b8d01088
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91825390"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200785"
 ---
 # <a name="deploy-spot-vms-using-a-resource-manager-template"></a>Déployer des machines virtuelles Spot à l’aide d’un modèle Resource Manager
 
@@ -194,4 +194,4 @@ Vous pouvez également créer une machine virtuelle Spot à l’aide d’[Azure 
 
 Interroger les informations de tarification actuelles à l’aide de l’[API des prix de vente au détail d’Azure](/rest/api/cost-management/retail-prices/azure-retail-prices) pour plus d’informations sur la tarification Spot. Les `meterName` et `skuName` contiennent tous les deux `Spot`.
 
-Si vous rencontrez une erreur, consultez [Codes d’erreur](../error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Si vous rencontrez une erreur, consultez [Codes d’erreur](../error-codes-spot.md).

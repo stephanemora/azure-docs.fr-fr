@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 10/10/2019
 ms.author: cynthn
-ms.openlocfilehash: cddc7f4f453f22b0cb36b1d3a1e9c2fba2dcabaf
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 577b8527d95a6410deca8002cddfaae31be1fc97
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96455098"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98197487"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>Créer une machine virtuelle Windows à partir d’un disque spécialisé à l’aide de PowerShell
 
@@ -54,7 +54,7 @@ Vous pouvez charger le disque dur virtuel à partir d’une machine virtuelle sp
 ### <a name="prepare-the-vm"></a>Préparation de la machine virtuelle
 Utilisez le disque dur virtuel en l’état pour créer une machine virtuelle. 
   
-  * [Préparez un disque dur virtuel Windows à charger sur Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). **Ne généralisez pas** la machine virtuelle à l’aide de Sysprep.
+  * [Préparez un disque dur virtuel Windows à charger sur Azure](prepare-for-upload-vhd-image.md). **Ne généralisez pas** la machine virtuelle à l’aide de Sysprep.
   * Supprimez tous les outils et agents de virtualisation invités qui sont installés sur la machine virtuelle (notamment les outils VMware).
   * Vérifiez que la machine virtuelle est configurée pour obtenir l’adresse IP et les paramètres DNS à partir de DHCP. De cette façon, le serveur obtient une adresse IP dans le réseau virtuel au démarrage. 
 
@@ -193,7 +193,7 @@ $nsg = New-AzNetworkSecurityGroup `
     
 ```
 
-Pour plus d’informations sur les points de terminaison et les règles NSG, consultez [Ouverture de ports sur une machine virtuelle dans Azure avec PowerShell](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Pour plus d’informations sur les points de terminaison et les règles NSG, consultez [Ouverture de ports sur une machine virtuelle dans Azure avec PowerShell](nsg-quickstart-powershell.md).
 
 ### <a name="create-a-public-ip-address-and-nic"></a>Créer une adresse IP publique et une carte réseau
 Pour établir la communication avec la machine virtuelle dans le réseau virtuel, vous avez besoin d’une [adresse IP publique](../../virtual-network/public-ip-addresses.md) et d’une interface réseau.

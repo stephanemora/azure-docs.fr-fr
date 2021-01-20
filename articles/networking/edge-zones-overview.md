@@ -2,17 +2,17 @@
 title: À propos d’Azure Edge Zone (préversion)
 description: 'Découvrez les offres Edge Computing de Microsoft : Azure Edge Zone.'
 services: vnf-manager
-author: ganesr
+author: cherylmc
 ms.service: vnf-manager
 ms.topic: article
-ms.date: 07/07/2020
-ms.author: ganesr
-ms.openlocfilehash: 68aa3342ab09be73a82f4f896ffdff99d15a5350
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 01/13/2021
+ms.author: cherylmc
+ms.openlocfilehash: 04555303d5128db6c183d27a0c5fcb69063fdc28
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91329568"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185408"
 ---
 # <a name="about-azure-edge-zone-preview"></a>À propos d’Azure Edge Zone (préversion)
 
@@ -38,7 +38,7 @@ Il existe trois types de zones périphériques Azure :
 
 ![Zones périphériques Azure](./media/edge-zones-overview/edge-zones.png "Azure Edge Zones")
 
-Les zones périphériques Azure sont des extensions Azure à faible empreinte mémoire qui sont placées dans des centres de population éloignés des régions Azure. Elles prennent en charge les machines virtuelles, les conteneurs et une sélection de services Azure qui permettent d’exécuter des applications sensibles à la latence et gourmandes en débit au plus près des utilisateurs finaux. Elles font partie du réseau Microsoft mondial. Elles fournissent une connectivité sécurisée, fiable et à large bande passante entre les applications qui s’exécutent à la zone périphérique à proximité de l’utilisateur. De plus, elles offrent l’ensemble complet des services Azure s’exécutant dans les régions Azure. Elles sont détenues et gérées par Microsoft. Vous pouvez utiliser le même ensemble d’outils Azure et le même portail pour gérer et déployer des services dans des zones périphériques.
+Les zones périphériques Azure sont des extensions Azure à faible empreinte mémoire qui sont placées dans des centres de population éloignés des régions Azure. Elles prennent en charge les machines virtuelles, les conteneurs et une sélection de services Azure qui permettent d’exécuter des applications sensibles à la latence et gourmandes en débit au plus près des utilisateurs finaux. Elles font partie du réseau Microsoft mondial. Elles fournissent une connectivité sécurisée, fiable et à large bande passante entre les applications qui s’exécutent à la zone périphérique à proximité de l’utilisateur. Elles sont détenues et gérées par Microsoft. Vous pouvez utiliser le même ensemble d’outils Azure et le même portail pour gérer et déployer des services dans des zones périphériques.
 
 Les cas d’utilisation classiques sont les suivants :
 
@@ -61,7 +61,7 @@ Pour plus d’informations, [contactez l’équipe Edge Zone](https://aka.ms/Edg
 
 Les zones périphériques Azure avec opérateur sont des extensions Azure à faible empreinte mémoire qui sont placées dans les centres de donnés des opérateurs de téléphonie mobile situés dans des centres de population. L’infrastructure des zones périphériques Azure avec opérateur est placée à une distance d’un tronçon par rapport au réseau 5G de l’opérateur mobile. Ce placement offre une latence inférieure à 10 millisecondes aux applications des appareils mobiles.
 
-Les zones périphériques Azure avec opérateur sont déployées dans les centres de données des opérateurs de téléphonie mobile et connectées au réseau Microsoft mondial. Elles fournissent une connectivité sécurisée, fiable et à large bande passante entre les applications qui s’exécutent à proximité de l’utilisateur. De plus, elles offrent l’ensemble complet des services Azure s’exécutant dans les régions Azure. Les développeurs peuvent utiliser le même ensemble d’outils habituels pour créer et déployer des services dans les zones périphériques.
+Les zones périphériques Azure avec opérateur sont déployées dans les centres de données des opérateurs de téléphonie mobile et connectées au réseau Microsoft mondial. Elles fournissent une connectivité sécurisée, fiable et à large bande passante entre les applications qui s’exécutent à proximité de l’utilisateur. Les développeurs peuvent utiliser le même ensemble d’outils habituels pour créer et déployer des services dans les zones périphériques.
 
 Les cas d’utilisation classiques sont les suivants :
 

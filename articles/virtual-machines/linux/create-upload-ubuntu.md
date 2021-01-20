@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.date: 06/06/2020
 ms.author: danis
-ms.openlocfilehash: d3bdc3d0705bd8edc70f55b8372818e60859eedd
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: ca1aae3e819d58ea32453f2549d162bbfc9c91ae
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500561"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98203216"
 ---
 # <a name="prepare-an-ubuntu-virtual-machine-for-azure"></a>Préparation d'une machine virtuelle Linux Ubuntu pour Azure
 
@@ -28,7 +28,7 @@ Cet article suppose que vous avez déjà installé un système d'exploitation L
 
 * Consultez également les [Notes générales d’installation sous Linux](create-upload-generic.md#general-linux-installation-notes) pour obtenir d’autres conseils sur la préparation de Linux pour Azure.
 * Azure ne prend pas en charge le format VHDX, seulement le **VHD fixe**.  Vous pouvez convertir le disque au format VHD à l’aide du gestionnaire Hyper-V ou de la cmdlet `Convert-VHD`.
-* Lors de l’installation du système Linux, il est recommandé d’utiliser les partitions standard plutôt que LVM (qui est souvent le choix par défaut pour de nombreuses installations). Ceci permettra d'éviter les conflits de noms avec des machines virtuelles clonées, notamment si un disque de système d'exploitation doit être relié à une autre machine virtuelle pour la dépanner. La technique [LVM](/previous-versions/azure/virtual-machines/linux/configure-lvm?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou [RAID](/previous-versions/azure/virtual-machines/linux/configure-raid?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) peut être utilisée sur les disques de données, le cas échéant.
+* Lors de l’installation du système Linux, il est recommandé d’utiliser les partitions standard plutôt que LVM (qui est souvent le choix par défaut pour de nombreuses installations). Ceci permettra d'éviter les conflits de noms avec des machines virtuelles clonées, notamment si un disque de système d'exploitation doit être relié à une autre machine virtuelle pour la dépanner. La technique [LVM](/previous-versions/azure/virtual-machines/linux/configure-lvm) ou [RAID](/previous-versions/azure/virtual-machines/linux/configure-raid) peut être utilisée sur les disques de données, le cas échéant.
 * Ne configurez pas de partition ou de fichier d’échange sur le disque du système d’exploitation. L’agent de provisionnement cloud-init peut être configuré pour créer un fichier ou une partition d’échange sur le disque de ressources temporaire. Les étapes ci-dessous fournissent plus d’informations à ce sujet.
 * Tous les VDH sur Azure doivent avoir une taille virtuelle alignée à 1 Mo. Lors de la conversion d’un disque brut vers VDH, vous devez vous assurer que la taille du disque brut est un multiple de 1 Mo avant la conversion. Pour plus d’informations, consultez [Notes d’installation sur Linux](create-upload-generic.md#general-linux-installation-notes).
 
@@ -176,7 +176,7 @@ Cet article suppose que vous avez déjà installé un système d'exploitation L
 
 13. Cliquez sur **Action -> Arrêter** dans le Gestionnaire Hyper-V.
 
-14. Azure accepte uniquement les VHD de taille fixe. Si le disque du système d’exploitation de la machine virtuelle n’en est pas un, utilisez la cmdlet PowerShell `Convert-VHD` et spécifiez l’option `-VHDType Fixed`. Consultez les documents relatifs à `Convert-VHD` dans [Convert-VHD](/powershell/module/hyper-v/convert-vhd?view=win10-ps).
+14. Azure accepte uniquement les VHD de taille fixe. Si le disque du système d’exploitation de la machine virtuelle n’en est pas un, utilisez la cmdlet PowerShell `Convert-VHD` et spécifiez l’option `-VHDType Fixed`. Consultez les documents relatifs à `Convert-VHD` dans [Convert-VHD](/powershell/module/hyper-v/convert-vhd).
 
 
 ## <a name="next-steps"></a>Étapes suivantes
