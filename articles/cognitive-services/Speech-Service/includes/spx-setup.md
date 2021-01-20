@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 327dce053c38fdb7b03e7ceb0d7a62ec8b8e7248
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 87af99d5136a8bed93854e9396895cddeb22549a
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96993024"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98540467"
 ---
 ## <a name="download-and-install"></a>Télécharger et installer
 
@@ -59,11 +59,11 @@ Suivez la procédure ci-dessous pour installer l’interface CLI Speech dans un 
 
 1. <a href="https://www.docker.com/get-started" target="_blank">Installez Docker Desktop<span class="docon docon-navigate-external x-hidden-focus"></span></a> pour votre plateforme si celui-ci n’est pas déjà installé.
 2. Dans une nouvelle invite de commandes ou un terminal, entrez cette commande : 
-   ```shell   
+   ```console   
    docker pull msftspeech/spx
    ```
 3. Entrez la commande suivante : Vous devriez voir des informations d’aide sur l’interface CLI Speech : 
-   ```shell 
+   ```console 
    docker run -it --rm msftspeech/spx help
    ```
 
@@ -93,27 +93,27 @@ Lors de l’appel de la commande `spx` dans un conteneur Docker, vous devez mont
 
 Sur Windows, vos commandes commencent comme suit :
 
-```shell
+```console
 docker run -it -v c:\spx-data:/data --rm msftspeech/spx
 ```
 
 Sur Linux ou macOS, vos commandes ressembleront à celles de l’exemple ci-dessous. Remplacez `ABSOLUTE_PATH` par le chemin absolu de votre répertoire monté. Ce chemin a été retourné par la commande `pwd` dans la section précédente. 
 
 Si vous exécutez cette commande avant de définir votre clé et votre région, vous obtiendrez un message d’erreur vous indiquant que vous devez définir votre clé et votre région :
-```shell   
+```console   
 sudo docker run -it -v ABSOLUTE_PATH:/data --rm msftspeech/spx
 ```
 
 Pour utiliser la commande `spx` installée dans un conteneur, entrez toujours la commande complète présentée ci-dessus, suivie des paramètres de votre requête.
 Par exemple, sur Windows, cette commande définit votre clé :
 
-```shell
+```console
 docker run -it -v c:\spx-data:/data --rm msftspeech/spx config @key --set SUBSCRIPTION-KEY
 ```
 
 Pour obtenir une interaction plus étendue avec l’outil en ligne de commande, vous pouvez démarrer un conteneur avec un interpréteur de commandes bash interactif en ajoutant un paramètre EntryPoint.
 Dans Windows, entrez cette commande pour démarrer un conteneur qui expose une interface de ligne de commande interactive dans laquelle vous pouvez entrer plusieurs commandes `spx` :
-```shell
+```console
 docker run -it --entrypoint=/bin/bash -v c:\spx-data:/data --rm msftspeech/spx
 ```
 
@@ -160,7 +160,7 @@ Follow these instructions to create a shortcut:
 Pour pouvoir utiliser l’interface CLI Speech, vous devez entrer votre clé d’abonnement et votre identificateur de région Speech. Pour obtenir ces informations d’identification, suivez les étapes indiquées dans [Essayer le service Speech gratuitement](../overview.md#try-the-speech-service-for-free).
 Une fois que vous avez récupéré votre clé d’abonnement et votre identificateur de la région (par exemple, `eastus`, `westus`), exécutez les commandes suivantes.
 
-```shell
+```console
 spx config @key --set SUBSCRIPTION-KEY
 spx config @region --set REGION
 ```
