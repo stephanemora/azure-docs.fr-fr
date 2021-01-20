@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/04/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 70b7042e4006cc59419d0ea6798fe7626a82c086
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 872a67d8d9f41c0c809df54304352b2a5f58e011
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621074"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251758"
 ---
 # <a name="required-url-list"></a>Liste des URL requises
 
@@ -32,6 +32,7 @@ Les machines virtuelles Azure que vous créez pour Windows Virtual Desktop doive
 |*xt.blob.core.windows.net|443|Trafic de l’agent|AzureCloud|
 |*eh.servicebus.windows.net|443|Trafic de l’agent|AzureCloud|
 |*xt.table.core.windows.net|443|Trafic de l’agent|AzureCloud|
+|*xt.queue.core.windows.net|443|Trafic de l’agent|AzureCloud|
 |catalogartifact.azureedge.net|443|Place de marché Azure|AzureCloud|
 |kms.core.windows.net|1688|Activation de Windows|Internet|
 |mrsglobalsteus2prod.blob.core.windows.net|443|Agent et mises à jour de pile SXS|AzureCloud|
@@ -71,8 +72,8 @@ Le tableau suivant liste les URL facultatives auxquelles vos machines virtuelles
 |*.prod.do.dsp.mp.microsoft.com|443|Windows Update|None|
 |login.windows.net|443|Se connecter à Microsoft Online Services, Microsoft 365|login.microsoftonline.us|
 |*.sfx.ms|443|Mises à jour pour le logiciel client OneDrive|oneclient.sfx.ms|
-|*.digicert.com|443|Vérification de la révocation de certificat|None|
-|*.azure-dns.com|443|Résolution d’Azure DNS|Aucun|
+|*.digicert.com|443|Vérification de la révocation de certificat|Aucun|
+|*.azure-dns.com|443|Résolution d’Azure DNS|None|
 |*.azure-dns.net|443|Résolution d’Azure DNS|None|
 
 >[!NOTE]
