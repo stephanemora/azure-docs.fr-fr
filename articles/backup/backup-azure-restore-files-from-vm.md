@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment récupérer des fichiers et de
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.custom: references_regions
-ms.openlocfilehash: b4bd64fb00c2f341e474ecb96738fab47d717474
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: 9bd66c1e3c89c8974adc3970f8595e5100878088
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97831667"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567131"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Récupérer des fichiers à partir d’une sauvegarde de machine virtuelle Azure
 
@@ -188,7 +188,7 @@ Sous Linux, les volumes de point de récupération sont montés sur le dossier d
 Si le processus de récupération des fichiers est interrompu après l’exécution du script de restauration des fichiers (par exemple, si les disques ne sont jamais montés ou s’ils le sont, mais que les volumes n’apparaissent pas), procédez comme suit :
 
 1. Dans le fichier /etc/iSCSI/iSCSId.conf, modifiez le paramètre à partir de :
-    - `node.conn[0].timeo.noop_out_timeout = 5` à `node.conn[0].timeo.noop_out_timeout = 30`
+    - `node.conn[0].timeo.noop_out_timeout = 5` à `node.conn[0].timeo.noop_out_timeout = 120`
 2. Après avoir apporté les modifications ci-dessus, réexécutez le script. En cas de défaillances temporaires, assurez-vous qu’il y ait un intervalle de 20 à 30 minutes entre les réexécutions afin d’éviter que des rafales successives de requêtes n’aient un impact sur la préparation cible. Cet intervalle entre les réexécutions permet de s’assurer que la cible est prête à être connectée à partir du script.
 3. Après la récupération de fichier, assurez-vous de revenir au portail et sélectionnez **Démonter les disques** pour les points de récupération où vous n’avez pas pu monter des volumes. Pour l’essentiel, cette étape nettoie les processus et les sessions existantes et augmente les chances de récupération.
 

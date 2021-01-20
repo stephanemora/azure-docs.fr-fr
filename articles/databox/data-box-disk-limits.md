@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: alkohli
-ms.openlocfilehash: fb0e56c5eeebb4f3a869feacb996d690ea7dde86
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: e003d0121721838bd5ae038a3a8b4d1b8cd9d1eb
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124167"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573188"
 ---
 # <a name="azure-data-box-disk-limits"></a>Limites d’Azure Data Box Disk
 
@@ -76,7 +76,7 @@ Voici les tailles des objets Azure qui peuvent être écrits. Assurez-vous que t
 | Objet blob de blocs        | ~4.75 Tio                                                 |
 | Objet blob de pages         | 8 Tio <br> Chaque fichier chargé dans le format d’objet blob de pages doit être de 512 octets alignés, sinon le chargement échoue. <br> Les disques VHD et VHDX sont de 512 octets alignés.) |
 |Azure Files        | 1 Tio <br> Bande passante taille de partage est de 5 Tio     |
-| Disques managés     |4 Tio <br> Pour plus d’informations sur la taille et les limites, consultez : <li>[Objectifs de scalabilité pour les disques managés](../virtual-machines/windows/disk-scalability-targets.md#managed-virtual-machine-disks)</li>|
+| Disques managés     |4 Tio <br> Pour plus d’informations sur la taille et les limites, consultez : <li>[Objectifs de scalabilité pour les disques managés](../virtual-machines/disks-scalability-targets.md#managed-virtual-machine-disks)</li>|
 
 
 ## <a name="azure-block-blob-page-blob-and-file-naming-conventions"></a>Conventions de nommage des objets blob de blocs,des objets blob de pages et des fichiers Azure

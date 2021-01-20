@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.openlocfilehash: 35d2073dca21b4a0d48a43bed9933bb7549cf8f3
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d1325ac1afbca8b30cc640f1f22cb598506a5c91
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96497892"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98555710"
 ---
 # <a name="monitor-and-alert-data-factory-by-using-azure-monitor"></a>Déclencher des alertes et surveiller les fabriques de données avec Azure Monitor
 
@@ -583,7 +583,7 @@ Voici les attributs du journal des opérations de démarrage/arrêt/maintenance 
 
 #### <a name="ssis-event-message-context-log-attributes"></a>Attributs du journal de contexte des messages d’événements SSIS
 
-Voici les attributs de journal des conditions liées aux messages d’événement générés par des exécutions de package SSIS sur votre runtime d’intégration de SSIS. Ils transmettent des informations comme [la table ou la vue de contexte de message d’événement du catalogue SSIS (SSISDB)](/sql/integration-services/system-views/catalog-event-message-context?view=sql-server-ver15) qui affiche des valeurs d’exécution de nombreuses propriétés du package SSIS. Ils sont générés lorsque vous sélectionnez le niveau de journalisation `Basic/Verbose` qui est utile pour la vérification de la conformité/du débogage.
+Voici les attributs de journal des conditions liées aux messages d’événement générés par des exécutions de package SSIS sur votre runtime d’intégration de SSIS. Ils transmettent des informations comme [la table ou la vue de contexte de message d’événement du catalogue SSIS (SSISDB)](/sql/integration-services/system-views/catalog-event-message-context) qui affiche des valeurs d’exécution de nombreuses propriétés du package SSIS. Ils sont générés lorsque vous sélectionnez le niveau de journalisation `Basic/Verbose` qui est utile pour la vérification de la conformité/du débogage.
 
 ```json
 {
@@ -620,7 +620,7 @@ Voici les attributs de journal des conditions liées aux messages d’événemen
 | **operationId**            | String | ID unique pour le suivi d’une opération particulière dans SSISDB          | `1` (1 désigne les opérations liées aux packages **non** stockées dans SSISDB/invoquées via T-SQL) |
 | **contextDepth**           | String | Profondeur du contexte de votre message d’événement                              | `0` (0 désigne le contexte avant le démarrage de l’exécution du package, 1 signifie le contexte lorsqu’une erreur se produit et qu’elle augmente à mesure que le contexte est plus éloigné de l’erreur) |
 | **packagePath**            | String | Chemin d’accès de l’objet du package en tant que source de contexte de message d’événement      | `\Package` |
-| **contextType**            | String | Type d’accès de l’objet du package en tant que source de contexte de message d’événement      | `60`(voir [plus de types de contexte](/sql/integration-services/system-views/catalog-event-message-context?view=sql-server-ver15#remarks)) |
+| **contextType**            | String | Type d’accès de l’objet du package en tant que source de contexte de message d’événement      | `60`(voir [plus de types de contexte](/sql/integration-services/system-views/catalog-event-message-context#remarks)) |
 | **contextSourceName**      | String | Nom d’accès de l’objet du package en tant que source de contexte de message d’événement      | `MyPackage` |
 | **contextSourceId**        | String | ID unique d’accès de l’objet du package en tant que source de contexte de message d’événement | `{E2CF27FB-EA48-41E9-AF6F-3FE938B4ADE1}` |
 | **propertyName**           | String | Nom de la propriété de l’objet du package en tant que source de contexte de message d’événement   | `DelayValidation` |
@@ -629,7 +629,7 @@ Voici les attributs de journal des conditions liées aux messages d’événemen
 
 #### <a name="ssis-event-messages-log-attributes"></a>Attributs du journal des messages d’événements SSIS
 
-Voici les attributs de journal des messages d’événement générés par les exécutions de package SSIS sur votre runtime d’intégration SSIS. Ils transmettent des informations comme [la table ou la vue des messages d’événements SSISDB](/sql/integration-services/system-views/catalog-event-messages?view=sql-server-ver15) qui affichent le texte ou les métadonnées détaillés des messages d’événement. Ils sont générés à n’importe quel niveau de journalisation, sauf `None`.
+Voici les attributs de journal des messages d’événement générés par les exécutions de package SSIS sur votre runtime d’intégration SSIS. Ils transmettent des informations comme [la table ou la vue des messages d’événements SSISDB](/sql/integration-services/system-views/catalog-event-messages) qui affichent le texte ou les métadonnées détaillés des messages d’événement. Ils sont générés à n’importe quel niveau de journalisation, sauf `None`.
 
 ```json
 {
@@ -669,8 +669,8 @@ Voici les attributs de journal des messages d’événement générés par les e
 | **level**                  | String | Niveau des journaux de diagnostic                                       | `Informational` |
 | **operationId**            | String | ID unique pour le suivi d’une opération particulière dans SSISDB        | `1` (1 désigne les opérations liées aux packages **non** stockées dans SSISDB/invoquées via T-SQL) |
 | **messageTime**            | String | Heure de création du message d’événement au format UTC          | `2017-06-28T21:00:27.3534352Z` |
-| **messageType**            | String | Type du message d'événement                                     | `70`(voir [plus de types de messages](/sql/integration-services/system-views/catalog-operation-messages-ssisdb-database?view=sql-server-ver15#remarks)) |
-| **messageSourceType**      | String | Type de source du message d'événement                              | `20`(voir [plus de types de sources de messages](/sql/integration-services/system-views/catalog-operation-messages-ssisdb-database?view=sql-server-ver15#remarks)) |
+| **messageType**            | String | Type du message d'événement                                     | `70`(voir [plus de types de messages](/sql/integration-services/system-views/catalog-operation-messages-ssisdb-database#remarks)) |
+| **messageSourceType**      | String | Type de source du message d'événement                              | `20`(voir [plus de types de sources de messages](/sql/integration-services/system-views/catalog-operation-messages-ssisdb-database#remarks)) |
 | **message**                | String | Texte du message d'événement                                     | `MyPackage:Validation has started.` |
 | **packageName**            | String | Nom de votre fichier de package exécuté                             | `MyPackage.dtsx` |
 | **eventName**              | String | Nom de l’événement au moment de l’exécution                                 | `OnPreValidate` |
@@ -683,7 +683,7 @@ Voici les attributs de journal des messages d’événement générés par les e
 
 #### <a name="ssis-executable-statistics-log-attributes"></a>Attributs du journal des statistiques exécutables SSIS
 
-Voici les attributs de journal des statistiques exécutables générées par les exécutions de package SSIS sur votre runtime d’intégration SSIS, où les exécutables sont des conteneurs ou des tâches dans les flux de contrôle des packages. Ils transmettent des informations comme [la table ou la vue des statistiques exécutables SSISDB](/sql/integration-services/system-views/catalog-executable-statistics?view=sql-server-ver15) qui affiche une ligne pour chaque exécutable en cours d’exécution, y compris ses itérations. Ils sont générés à n’importe quel niveau de journalisation, sauf `None` et utiles pour identifier les goulots d’étranglement/défaillances au niveau des tâches.
+Voici les attributs de journal des statistiques exécutables générées par les exécutions de package SSIS sur votre runtime d’intégration SSIS, où les exécutables sont des conteneurs ou des tâches dans les flux de contrôle des packages. Ils transmettent des informations comme [la table ou la vue des statistiques exécutables SSISDB](/sql/integration-services/system-views/catalog-executable-statistics) qui affiche une ligne pour chaque exécutable en cours d’exécution, y compris ses itérations. Ils sont générés à n’importe quel niveau de journalisation, sauf `None` et utiles pour identifier les goulots d’étranglement/défaillances au niveau des tâches.
 
 ```json
 {
@@ -727,7 +727,7 @@ Voici les attributs de journal des statistiques exécutables générées par les
 
 #### <a name="ssis-execution-component-phases-log-attributes"></a>Attributs du journal des phases du composant d’exécution SSIS
 
-Voici les attributs de journal des statistiques de runtime pour les composants de flux de données générés par des exécutions de package SSIS sur votre runtime d’intégration SSIS. Ils transmettent des informations comme [la table ou la vue des phases du composant d’exécution SSISDB](/sql/integration-services/system-views/catalog-execution-component-phases?view=sql-server-ver15) qui montrent le temps passé par les composants de flux de données dans toutes leurs phases d’exécution. Ils sont générés lorsque vous sélectionnez le niveau de journalisation `Performance/Verbose` qui est utile pour la capture des statistiques d’exécution du flux de données.
+Voici les attributs de journal des statistiques de runtime pour les composants de flux de données générés par des exécutions de package SSIS sur votre runtime d’intégration SSIS. Ils transmettent des informations comme [la table ou la vue des phases du composant d’exécution SSISDB](/sql/integration-services/system-views/catalog-execution-component-phases) qui montrent le temps passé par les composants de flux de données dans toutes leurs phases d’exécution. Ils sont générés lorsque vous sélectionnez le niveau de journalisation `Performance/Verbose` qui est utile pour la capture des statistiques d’exécution du flux de données.
 
 ```json
 {
@@ -773,7 +773,7 @@ Voici les attributs de journal des statistiques de runtime pour les composants d
 
 #### <a name="ssis-execution-data-statistics-log-attributes"></a>Attributs du journal des statistiques des données d’exécution SSIS
 
-Voici les attributs de journal des déplacements de données via chaque tronçon de pipelines de flux de données, de l’amont vers les composants en aval, générés par les exécutions de package SSIS sur votre IR SSIS. Ils transmettent des informations comme [la table ou la vue des statistiques de données d’exécution SSISDB](/sql/integration-services/system-views/catalog-execution-data-statistics?view=sql-server-ver15) qui affiche le nombre de lignes de données déplacées via des tâches de flux de données. Ils sont générés lorsque vous sélectionnez le niveau de journalisation `Verbose` qui est utile pour calculer le débit du flux de données.
+Voici les attributs de journal des déplacements de données via chaque tronçon de pipelines de flux de données, de l’amont vers les composants en aval, générés par les exécutions de package SSIS sur votre IR SSIS. Ils transmettent des informations comme [la table ou la vue des statistiques de données d’exécution SSISDB](/sql/integration-services/system-views/catalog-execution-data-statistics) qui affiche le nombre de lignes de données déplacées via des tâches de flux de données. Ils sont générés lorsque vous sélectionnez le niveau de journalisation `Verbose` qui est utile pour calculer le débit du flux de données.
 
 ```json
 {

@@ -6,12 +6,12 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/11/2020
-ms.openlocfilehash: a740ad62dacc9a29cab1cc144f1789e125ec2e89
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 31b96f03a8519b068eaa816443be0a0f374a4a8c
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368577"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247027"
 ---
 # <a name="frequently-asked-questions-about-autoscale-provisioned-throughput-in-azure-cosmos-db"></a>Forum aux questions sur le débit provisionné en mode de mise à l’échelle automatique dans Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -48,7 +48,7 @@ Oui. Lorsque vous achetez une capacité réservée pour des comptes couvrant des
 La capacité de réserve de régions d’écriture fonctionne de la même façon pour la mise à l’échelle automatique et le débit approvisionné standard (manuel). Consultez la rubrique [Capacité de réserve Azure Cosmos DB](cosmos-db-reserved-capacity.md)
 
 ### <a name="does-autoscale-work-with-free-tier"></a>La mise à l’échelle automatique fonctionne-t-elle avec le niveau gratuit ?
-Oui. Dans le niveau gratuit, vous pouvez utiliser le débit de mise à l’échelle automatique sur un conteneur. Le support des bases de données de débit partagé de mise à l’échelle automatique avec une RU/s maximale personnalisée n’est pas encore disponible. Découvrez comment [fonctionne la facturation du niveau gratuit avec la mise à l’échelle automatique](understand-your-bill.md#billing-examples-with-free-tier-accounts).
+Oui. Dans le niveau gratuit, vous pouvez utiliser le débit de mise à l’échelle automatique sur un conteneur. Le support des bases de données de débit partagé de mise à l’échelle automatique avec une RU/s maximale personnalisée n’est pas encore disponible. Découvrez comment [fonctionne la facturation du niveau gratuit avec la mise à l’échelle automatique](understand-your-bill.md#azure-free-tier).
 
 ### <a name="is-autoscale-supported-for-all-apis"></a>La mise à l’échelle automatique est-elle prise en charge pour toutes les API ?
 Oui, la mise à l’échelle automatique est prise en charge pour toutes les API : Core (SQL), Gremlin, Table, Cassandra et API pour MongoDB.

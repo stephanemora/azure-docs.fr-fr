@@ -5,12 +5,12 @@ description: Découvrir comment créer manuellement un volume avec Azure Files p
 services: container-service
 ms.topic: article
 ms.date: 03/01/2019
-ms.openlocfilehash: 89976211763f5d4729718c4e4c6503650f27f7cc
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: a6e28464df2ff9c9dcc7734a127cc00f887e08dd
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93126271"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246959"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-files-share-in-azure-kubernetes-service-aks"></a>Créer manuellement et utiliser un volume avec un partage Azure Files dans Azure Kubernetes Service (AKS)
 
@@ -26,7 +26,7 @@ Azure CLI 2.0.59 (ou une version ultérieure) doit également être installé et
 
 ## <a name="create-an-azure-file-share"></a>Crée un partage de fichiers Azure
 
-Avant d’utiliser Azure Files en tant que volume Kubernetes, vous devez créer un compte de stockage Azure et le partage de fichiers. Les commandes suivantes créent un groupe de ressources nommé *myAKSShare* , un compte de stockage et un partage de fichiers nommé *aksshare* :
+Avant d’utiliser Azure Files en tant que volume Kubernetes, vous devez créer un compte de stockage Azure et le partage de fichiers. Les commandes suivantes créent un groupe de ressources nommé *myAKSShare*, un compte de stockage et un partage de fichiers nommé *aksshare* :
 
 ```azurecli-interactive
 # Change these four parameters as needed for your own environment
@@ -145,7 +145,6 @@ spec:
     storage: 5Gi
   accessModes:
     - ReadWriteMany
-  storageClassName: azurefile
   azureFile:
     secretName: azure-secret
     shareName: aksshare
@@ -173,7 +172,6 @@ spec:
     storage: 5Gi
   accessModes:
     - ReadWriteMany
-  storageClassName: azurefile
   azureFile:
     secretName: azure-secret
     shareName: aksshare
@@ -197,7 +195,7 @@ metadata:
 spec:
   accessModes:
     - ReadWriteMany
-  storageClassName: azurefile
+  storageClassName: ""
   resources:
     requests:
       storage: 5Gi

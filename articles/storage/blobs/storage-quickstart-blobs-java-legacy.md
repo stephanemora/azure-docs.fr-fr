@@ -4,16 +4,16 @@ description: Créez un compte de stockage et un conteneur dans un stockage d’o
 author: mhopkins-msft
 ms.custom: devx-track-java
 ms.author: mhopkins
-ms.date: 07/24/2020
+ms.date: 01/19/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 39b5a812c5f9b8e148b5180569af110c72e2c75b
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: b3bb8736eb7a8e24f47812fc4feecbf96628dfb6
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95544596"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599814"
 ---
 # <a name="quickstart-manage-blobs-with-java-v8-sdk"></a>Démarrage rapide : Gérer les objets blob avec le Kit de développement logiciel (SDK) Java V8
 
@@ -201,5 +201,5 @@ sourceFile.deleteOnExit();
 Dans cet article, vous avez appris à transférer des fichiers entre un disque local et le Stockage Blob Azure avec Java. Pour en savoir plus sur l’utilisation de Java, accédez à notre dépôt de code source GitHub.
 
 > [!div class="nextstepaction"]
-> [Informations de référence sur les API Java](/java/api/overview/azure/storage?view=azure-java-legacy)
+> [Informations de référence sur les API Java](/java/api/overview/azure/storage?view=azure-java-legacy&preserve-view=true)
 > [Exemples de code pour Java](../common/storage-samples-java.md)

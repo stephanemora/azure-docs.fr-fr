@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 09/18/2020
-ms.openlocfilehash: 9003366ec0d64057ca7426d5b6b99986bc21fc9d
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 0d282ee805ac61ba17ceb3ecc6a3d8179ea7b319
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920294"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98555897"
 ---
 # <a name="register-and-scan-an-on-premises-sql-server"></a>Inscrire et analyser un serveur SQL local
 
@@ -34,7 +34,7 @@ La source de données locale du serveur SQL prend en charge :
 
 ### <a name="known-limitations"></a>Limitations connues
 
-Azure Purview ne prend pas en charge l’analyse des [vues](https://docs.microsoft.com/sql/relational-databases/views/views?view=sql-server-ver15) dans SQL Server. 
+Azure Purview ne prend pas en charge l’analyse des [vues](/sql/relational-databases/views/views) dans SQL Server.
 
 ## <a name="prerequisites"></a>Prérequis
 

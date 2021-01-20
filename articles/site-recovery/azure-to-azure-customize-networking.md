@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/21/2019
 ms.author: sideeksh
-ms.openlocfilehash: 599ad76f38833e06cc458fd0687921e6975e190b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f63021275574e294fa372357d6e62724f5efe0f7
+ms.sourcegitcommit: 949c0a2b832d55491e03531f4ced15405a7e92e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89426365"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98541188"
 ---
 # <a name="customize-networking-configurations-of-the-target-azure-vm"></a>Personnaliser les configurations réseau de la machine virtuelle Azure cible
 
@@ -44,7 +44,7 @@ Vous pouvez fournir la configuration des ressources clés suivantes pour la mach
 
      ![Personnaliser les configurations de mise en réseau du basculement](media/azure-to-azure-customize-networking/edit-networking-properties.png)
 
-4. Sélectionnez un réseau virtuel de test de basculement. Vous pouvez choisir de laisser cette zone vide et en sélectionner une au moment du test de basculement.
+4. Sélectionnez un réseau virtuel de test de basculement.
 5. Pour le réseau de basculement, sélectionnez **Modifier** à côté de la carte réseau que vous souhaitez configurer. Dans le panneau suivant qui s’affiche, sélectionnez les ressources précréées correspondantes dans les emplacements de basculement de test et de basculement.
 
     ![Modifiez la configuration de la carte réseau](media/azure-to-azure-customize-networking/nic-drilldown.png) 

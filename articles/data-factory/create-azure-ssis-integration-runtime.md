@@ -11,12 +11,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: 7936699832a09f535729c42b12fec2d5c49a11a0
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 62b1575e2ab379e6b4e61926e00dfad85ffeb6c0
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350940"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98556356"
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Créer un runtime d’intégration Azure-SSIS dans Azure Data Factory
 
@@ -27,7 +27,7 @@ Cet article décrit les différentes étapes d’approvisionnement d’un runtim
 - L’exécution de packages déployés dans le catalogue SSIS (SSISDB) hébergé par un serveur Azure SQL Database/Managed Instance (modèle de déploiement de projet)
 - L’exécution de packages déployés dans le système de fichiers, Azure Files ou une base de données SQL Server (MSDB) hébergée par Azure SQL Managed Instance (modèle de déploiement de package)
 
-Une fois qu’un IR Azure-SSIS est provisionné, vous pouvez utiliser des outils familiers pour déployer et exécuter vos packages dans Azure. Ces outils sont déjà compatibles avec Azure et incluent SQL Server Data Tools (SSDT), SQL Server Management Studio (SSMS) et des utilitaires en ligne de commande comme [dtutil](/sql/integration-services/dtutil-utility?view=sql-server-2017) et [AzureDTExec](./how-to-invoke-ssis-package-azure-enabled-dtexec.md).
+Une fois qu’un IR Azure-SSIS est provisionné, vous pouvez utiliser des outils familiers pour déployer et exécuter vos packages dans Azure. Ces outils sont déjà compatibles avec Azure et incluent SQL Server Data Tools (SSDT), SQL Server Management Studio (SSMS) et des utilitaires en ligne de commande comme [dtutil](/sql/integration-services/dtutil-utility) et [AzureDTExec](./how-to-invoke-ssis-package-azure-enabled-dtexec.md).
 
 Le tutoriel [Provisionner le runtime d’intégration Azure-SSIS dans Azure Data Factory](./tutorial-deploy-ssis-packages-azure.md) montre comment créer un IR Azure-SSIS à l’aide du portail Azure ou de l’application Data Factory. Ce tutoriel montre également comment utiliser, si vous le souhaitez, un serveur Azure SQL Database ou une instance managée pour héberger le catalogue SSISDB. Cet article s’appuie sur le tutoriel et explique comment effectuer les tâches facultatives suivantes :
 
@@ -81,7 +81,7 @@ Le tableau suivant compare certaines fonctionnalités d'un serveur Azure SQL Dat
 
 | Fonctionnalité | SQL Database| SQL Managed Instance |
 |---------|--------------|------------------|
-| **Planification** | L’agent SQL Server n’est pas disponible.<br/><br/>Consultez [Planifier un package dans le cadre d’un pipeline Azure Data Factory](/sql/integration-services/lift-shift/ssis-azure-schedule-packages?view=sql-server-2017#activity).| L’agent Managed Instance est disponible. |
+| **Planification** | L’agent SQL Server n’est pas disponible.<br/><br/>Consultez [Planifier un package dans le cadre d’un pipeline Azure Data Factory](/sql/integration-services/lift-shift/ssis-azure-schedule-packages#activity).| L’agent Managed Instance est disponible. |
 | **Authentification** | Vous pouvez créer une instance SSISDB avec un utilisateur de base de données autonome représentant un groupe Azure AD avec l’identité managée de votre fabrique de données en tant que membre du rôle **db_owner**.<br/><br/>Consultez [Activer l’authentification Azure AD pour créer un SSISDB sur le serveur Azure SQL Database](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database). | Vous pouvez créer une instance SSISDB avec un utilisateur de base de données autonome représentant l’identité managée de votre fabrique de données. <br/><br/>Consultez [Activer l’authentification Azure AD pour créer un SSISDB dans Azure SQL Managed Instance](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-sql-managed-instance). |
 | **Niveau de service** | Quand vous créez un IR Azure-SSIS avec votre serveur Azure SQL Database, vous pouvez sélectionner le niveau de service pour SSISDB. Il existe plusieurs niveaux de service. | Quand vous créez un IR Azure-SSIS avec votre instance managée, vous ne pouvez pas sélectionner le niveau de service pour SSISDB. Toutes les bases de données dans votre instance managée partagent la même ressource allouée à cette instance. |
 | **Réseau virtuel** | Votre Azure-SSIS IR peut joindre un réseau virtuel Azure Resource Manager si vous utilisez un serveur Azure SQL Database avec des règles de pare-feu IP/points de terminaison de service de réseau virtuel. | Votre Azure-SSIS IR peut joindre un réseau virtuel Azure Resource Manager si vous utilisez une instance managée avec un point de terminaison privé. Le réseau virtuel est requis quand vous n’activez pas de point de terminaison public pour votre instance managée.<br/><br/>Si vous joignez votre IR Azure-SSIS au même réseau virtuel que votre instance managée, vérifiez qu’il est sur un sous-réseau différent de celui de votre instance managée. Si vous joignez votre IR Azure-SSIS à un réseau virtuel différent de celui de votre instance managée, nous recommandons un appairage de réseaux virtuels ou une connexion de réseau à réseau. Consultez [Connecter votre application à Azure SQL Database Managed Instance](../azure-sql/managed-instance/connect-application-instance.md). |
@@ -173,7 +173,7 @@ Sélectionnez **Tester la connexion** le cas échéant et, si l’opération ré
 
 Dans la page **Paramètres de déploiement** du volet **Installation du runtime d’intégration**, si vous souhaitez gérer vos packages qui sont déployés dans MSDB, le système de fichiers ou Azure Files (modèle de déploiement de package) avec des magasins de packages Azure-SSIS IR, cochez la case **Créer des magasins de packages pour gérer les packages qui sont déployés dans le système de fichiers/Azure Files/une base de données SQL Server (MSDB) hébergée par Azure SQL Managed Instance**.
    
-Le magasin de packages Azure-SSIS IR vous permet d’importer/d’exporter/de supprimer/d’exécuter des packages et de superviser/d’arrêter l’exécution de packages par le biais de SSMS, à l’image du [magasin de packages SSIS hérités](/sql/integration-services/service/package-management-ssis-service?view=sql-server-2017). Pour plus d’informations, consultez [Gérer les packages SSIS avec des magasins de packages Azure-SSIS IR](./azure-ssis-integration-runtime-package-store.md).
+Le magasin de packages Azure-SSIS IR vous permet d’importer/d’exporter/de supprimer/d’exécuter des packages et de superviser/d’arrêter l’exécution de packages par le biais de SSMS, à l’image du [magasin de packages SSIS hérités](/sql/integration-services/service/package-management-ssis-service). Pour plus d’informations, consultez [Gérer les packages SSIS avec des magasins de packages Azure-SSIS IR](./azure-ssis-integration-runtime-package-store.md).
    
 Si vous cochez cette case, vous pouvez ajouter plusieurs magasins de packages à votre runtime d’intégration Azure-SSIS en sélectionnant **Nouveau**. À l’inverse, un magasin de packages peut être partagé par plusieurs runtimes d’intégration Azure-SSIS.
 
@@ -1004,9 +1004,9 @@ Si vous utilisez le catalogue SSISDB, vous pouvez y déployer vos packages et le
 - Pour une instance managée avec un point de terminaison privé, le format du point de terminaison de serveur est `<server name>.<dns prefix>.database.windows.net`.
 - Pour une instance managée avec un point de terminaison public, le format du point de terminaison de serveur est `<server name>.public.<dns prefix>.database.windows.net,3342`. 
 
-Si vous n’utilisez pas SSISDB, vous pouvez déployer vos packages sur un système de fichiers, Azure Files ou MSDB, dont l’hébergement est assuré par Azure SQL Managed Instance, puis les exécuter sur Azure-SSIS IR à l’aide des utilitaires en ligne de commande [dtutil](/sql/integration-services/dtutil-utility?view=sql-server-2017) et [AzureDTExec](./how-to-invoke-ssis-package-azure-enabled-dtexec.md). 
+Si vous n’utilisez pas SSISDB, vous pouvez déployer vos packages sur un système de fichiers, Azure Files ou MSDB, dont l’hébergement est assuré par Azure SQL Managed Instance, puis les exécuter sur Azure-SSIS IR à l’aide des utilitaires en ligne de commande [dtutil](/sql/integration-services/dtutil-utility) et [AzureDTExec](./how-to-invoke-ssis-package-azure-enabled-dtexec.md). 
 
-Pour plus d’informations, consultez [Déployer des projets ou des packages SSIS](/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages?view=sql-server-ver15).
+Pour plus d’informations, consultez [Déployer des projets ou des packages SSIS](/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages).
 
 Dans les deux cas, vous pouvez également exécuter vos packages déployés sur Azure-SSIS IR à l’aide de l’activité Exécuter le package SSIS dans des pipelines Data Factory. Pour plus d’informations, consultez [Appeler une exécution de package SSIS comme activité Data Factory de première classe](./how-to-invoke-ssis-package-ssis-activity.md).
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/07/2020
 ms.author: rkarlin
-ms.openlocfilehash: 0c303adb4ee7c7551c6b389ec169d92a661a63bc
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 678b50ffb2df2cd16312548109b93f6f1a7f08ff
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97835021"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247463"
 ---
 # <a name="azure-defender-for-iot-frequently-asked-questions"></a>Forum aux questions sur Azure Defender pour IoT
 
@@ -38,7 +38,7 @@ Azure Defender pour IoT offre une prise en charge complète des protocoles. En p
 Cette solution unique pour le développement de protocoles en tant que plug-ins ne requiert pas d’équipes de développeurs dédiées ou de versions de version pour prendre en charge un nouveau protocole. Les développeurs, les partenaires et les clients peuvent développer des protocoles en toute sécurité et partager des Insights et des connaissances en utilisant Horizon. 
 
 ## <a name="do-i-have-to-purchase-hardware-appliances-from-microsoft-partners"></a>Dois-je acheter des appliances matérielles auprès de partenaires Microsoft ?
-Azure Defender pour le capteur IoT s’exécute sur des spécifications matérielles spécifiques, comme décrit dans le [Guide des spécifications matérielles](https://aka.ms/AzureDefenderforIoTBareMetalAppliance), les clients peuvent acheter du matériel certifié auprès de partenaires Microsoft ou utiliser la nomenclature (BOM) fournie et les acheter eux-mêmes. 
+Azure Defender pour le capteur IoT s’exécute sur des spécifications matérielles spécifiques, comme décrit dans le [Guide des spécifications matérielles](./how-to-identify-required-appliances.md), les clients peuvent acheter du matériel certifié auprès de partenaires Microsoft ou utiliser la nomenclature (BOM) fournie et les acheter eux-mêmes. 
 
 Le matériel certifié a été testé dans nos laboratoires pour la stabilité des pilotes, le rejet des paquets et le dimensionnement du réseau.
 

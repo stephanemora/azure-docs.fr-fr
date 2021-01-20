@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 12/28/2020
+ms.date: 1/19/2021
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56818862b6bc4eb38b819185aceb121e6e78488e
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 05a514debcf8036a296bbe66b2dd75c7dacacdc2
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803525"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600752"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Approvisionnement des rapports dans le portail Azure Active Directory (version préliminaire)
 
@@ -215,8 +215,6 @@ L’onglet **résumé** fournit une vue d’ensemble des événements et des ide
 - Le Portail Azure stocke les données de provisionnement rapportées pendant 30 jours si vous disposez d’une édition Premium et pendant 7 jours si vous disposez d’une édition gratuite. Les journaux de provisionnement peuvent être publiés dans [Log Analytics](../app-provisioning/application-provisioning-log-analytics.md) pour être conservés au-delà de 30 jours. 
 
 - Vous pouvez utiliser l’attribut Changer l’ID comme identificateur unique. C’est, par exemple, utile lors de l’interaction avec le support technique.
-
-- Il n’existe actuellement aucune option permettant de télécharger les données de configuration en tant que fichier CSV, mais vous pouvez exporter les données à l’aide de [Microsoft Graph](/graph/api/provisioningobjectsummary-list?tabs=http&view=graph-rest-beta).
 
 - Vous pouvez voir des événements ignorés pour les utilisateurs qui ne sont pas dans l’étendue. Cela est prévu, en particulier lorsque l’étendue de synchronisation est définie sur tous les utilisateurs et groupes. Notre service évalue tous les objets du locataire, y compris ceux qui sont en dehors de l’étendue. 
 

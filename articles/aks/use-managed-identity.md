@@ -4,12 +4,12 @@ description: Découvrez comment utiliser les identités managées dans Azure Kub
 services: container-service
 ms.topic: article
 ms.date: 12/16/2020
-ms.openlocfilehash: 948a189e1c6e03efca046b6d43dddcaf3d141957
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: fe11170b1cdf18aacf832f4c8171bfc082339395
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97607284"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599607"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Utiliser les identités managées dans Azure Kubernetes Service
 
@@ -131,7 +131,7 @@ Mettez à jour l’identité affectée par l’utilisateur :
 az aks update -g <RGName> -n <AKSName> --enable-managed-identity --assign-identity <UserAssignedIdentityResourceID> 
 ```
 > [!NOTE]
-> Une fois les identités affectées par le système ou par l’utilisateur mises à jour avec l’identité managée, effectuez une opération `az nodepool upgrade --node-image-only` sur vos nœuds pour terminer la mise à jour de l’identité managée.
+> Une fois les identités affectées par le système ou par l’utilisateur mises à jour avec l’identité managée, effectuez une opération `az aks nodepool upgrade --node-image-only` sur vos nœuds pour terminer la mise à jour de l’identité managée.
 
 ## <a name="bring-your-own-control-plane-mi"></a>Apporter votre propre instance gérée de plan de contrôle
 Une identité de plan de contrôle personnalisé permet d’accorder l’accès à l’identité existante avant la création du cluster. Cette fonctionnalité permet des scénarios tels que l’utilisation d’un réseau virtuel personnalisé ou du paramètre outboundType d’UDR avec une identité managée pré-créée.

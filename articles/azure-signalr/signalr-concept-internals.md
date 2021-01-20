@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: 3fc6971c66d06ae9f25584f5be28b051075bfa49
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: afb63b76666f47217f9c19376d81aa4ed73991bf
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88921968"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98572559"
 ---
 # <a name="azure-signalr-service-internals"></a>Éléments internes Azure SignalR Service
 
@@ -42,7 +42,7 @@ Une fois le serveur d’applications démarré :
 - Pour ASP.NET Core SignalR, le SDK Azure SignalR Service ouvre 5 connexions WebSocket par hub à SignalR Service. 
 - Pour ASP.NET SignalR, le SDK Azure SignalR Service ouvre 5 connexions WebSocket par hub à SignalR Service et une connexion WebSocket par application.
 
-Le nombre par défaut de connexions WebSocket que vous pouvez changer dans la [configuration](https://github.com/Azure/azure-signalr/blob/dev/docs/use-signalr-service.md#connectioncount) est de 5.
+Le nombre par défaut de connexions WebSocket que vous pouvez changer dans la [configuration](https://github.com/Azure/azure-signalr/blob/dev/docs/run-asp-net-core.md#connectioncount) est de 5.
 
 Les messages en provenance et à destination des clients sont multiplexés dans ces connexions.
 

@@ -5,14 +5,14 @@ services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: article
-ms.date: 10/05/2019
+ms.date: 01/15/2021
 ms.author: rohink
-ms.openlocfilehash: 24f2ca238288854b99160a25c3d4dcedf8ce3368
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 3272f4fea4169fd5e91b1ba2b97ad72dfbb49080
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94952384"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247384"
 ---
 # <a name="azure-private-dns-faq"></a>FAQ sur Azure Private DNS
 
@@ -88,6 +88,10 @@ Si votre zone DNS privée existante a été créée à l’aide de l’API en pr
 ## <a name="how-do-i-migrate-my-existing-private-dns-zones-to-the-new-model"></a>Comment migrer mes zones DNS privées vers le nouveau modèle ?
 
 Nous vous recommandons vivement de migrer vers le nouveau modèle de ressource dès que possible. Le modèle de ressources existant continuera à être pris en charge mais ne sera plus enrichi de nouvelles fonctionnalités. Nous prévoyons de déprécier son utilisation ultérieurement, en faveur d’un nouveau modèle de ressources. Pour plus d’informations sur la migration de vos zones DNS privées existantes vers un nouveau modèle de ressources, reportez-vous au [guide de migration des zones privées Azure DNS](private-dns-migration-guide.md).
+
+### <a name="does-azure-dns-private-zones-store-any-customer-content"></a>Azure DNS Private Zones stocke-t-il du contenu client ?
+
+Non, Azure DNS Private Zones ne stocke pas de contenu client.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

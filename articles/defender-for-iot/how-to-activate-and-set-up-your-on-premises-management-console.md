@@ -4,15 +4,15 @@ description: L’activation et la configuration de la console de gestion garanti
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/24/2020
+ms.date: 1/12/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 56092d61e1eed4e4ebe4f8cb7f97d01e91e8543e
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: d344b3d9ea54243d61cc6a1f3f0982eb5ab1d238
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97835929"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98538578"
 ---
 # <a name="activate-and-set-up-your-on-premises-management-console"></a>Activer et configurer votre console de gestion locale 
 
@@ -51,7 +51,7 @@ Après l’activation initiale, le nombre d’appareils analysés peut dépasser
 
 ## <a name="set-up-a-certificate"></a>Configuration d'un certificat
 
-Après l’installation de la console de gestion, un certificat auto-signé local est généré et utilisé pour accéder à la console. Quand un administrateur se connecte à la console de gestion pour la première fois, il est invité à intégrer un certificat SSL/TLS. Nous vous recommandons d’utiliser un certificat signé par une autorité de certification approuvée et de ne pas utiliser le certificat auto-signé généré localement.
+Après l’installation de la console de gestion, un certificat auto-signé local est généré et utilisé pour accéder à la console. Quand un administrateur se connecte à la console de gestion pour la première fois, il est invité à intégrer un certificat SSL/TLS. 
 
 Deux niveaux de sécurité sont disponibles :
 
@@ -61,7 +61,9 @@ Deux niveaux de sécurité sont disponibles :
 La console prend en charge les types de certificats suivants :
 
 - Infrastructure à clé privée et d’entreprise (PKI privée)
+
 - Infrastructure à clé publique (PKI publique)
+
 - Généré localement sur l’appliance (auto-signé localement) 
 
   > [!IMPORTANT]

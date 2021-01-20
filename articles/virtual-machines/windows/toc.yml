@@ -85,7 +85,7 @@
           href: ../generation-2.md
         - name: Usage général
           items:
-            - name: Vue d’ensemble
+            - name: Vue d'ensemble
               href: ../sizes-general.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: "Série\_Av2"
               href: ../av2-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
@@ -105,7 +105,7 @@
               href: ../dv4-dsv4-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Optimisé pour le calcul
           items:
-            - name: Vue d’ensemble
+            - name: Vue d'ensemble
               href: ../sizes-compute.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Série Fsv2
               href: ../fsv2-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
@@ -234,7 +234,7 @@
         - name: Mode rafale des disques
           href: ../disk-bursting.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Objectifs d’extensibilité pour les disques
-          href: disk-scalability-targets.md
+          href: ../disks-scalability-targets.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Sauvegarde et récupération d’urgence pour les disques
           href: ../backup-and-disaster-recovery-for-azure-iaas-disks.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Disques partagés
@@ -509,7 +509,7 @@
               href: disk-encryption-faq.md
             - name: Chiffrement de disque - version précédente
               items:
-                - name: Vue d’ensemble
+                - name: Vue d'ensemble
                   href: disk-encryption-overview-aad.md
                 - name: Coffre de clés pour Azure Disk Encryption
                   href: disk-encryption-key-vault-aad.md
@@ -594,7 +594,7 @@
       items:
         - name: Notifications de maintenance
           items:
-            - name: Vue d’ensemble
+            - name: Vue d'ensemble
               href: ../maintenance-notifications.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Interface de ligne de commande
               href: ../maintenance-notifications-cli.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
@@ -659,7 +659,7 @@
                       href: ../../azure-monitor/platform/diagnostics-extension-troubleshooting.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Agent Log Analytics
               items:
-                - name: Vue d’ensemble
+                - name: Vue d'ensemble
                   href: ../../azure-monitor/platform/log-analytics-agent.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
                 - name: Agents Windows
                   href: ../../azure-monitor/platform/agent-windows.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
-ms.openlocfilehash: 53fd2332224d903c5a4b33563470cf3569f82b13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec605fd30252b9a0cfb80d0bc3ff145ed3b5a1d4
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86526654"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573307"
 ---
 # <a name="troubleshoot-azure-virtual-machine-performance-on-linux-or-windows"></a>Résoudre les problèmes de performances des machines virtuelles Azure sur Linux ou Windows
 
@@ -208,7 +208,7 @@ Pour déterminer si vous atteignez la limite d’IOPS, accédez aux diagnostics 
 
 Avec les nouvelles offres de disque sous le stockage standard, les limites de débit et IOPS peuvent différer, mais la limite cumulée du compte de stockage standard est de 20 000 IOPS (le stockage Premium a des limites différentes au niveau du compte ou du disque). Apprenez-en plus sur les différentes offres de disque de stockage standard et les limites par disque :
 
-* [Cibles de scalabilité et de performance des disques de machine virtuelle sur Windows](../windows/disk-scalability-targets.md).
+* [Cibles de scalabilité et de performance des disques de machine virtuelle sur Windows](../disks-scalability-targets.md).
 
 #### <a name="references"></a>References
 
@@ -224,7 +224,7 @@ Vérifiez les limites de débit des disques durs virtuels attachés à la machin
 
 Les nouvelles offres de disque sous le stockage standard ont des limites de débit et IOPS différentes (les IOPS ne sont pas exposées par disque dur virtuel). Examinez les données pour voir si vous atteignez les limites du débit combiné (en Mbits/s) du ou des disques durs virtuels au niveau de la machine virtuelle à l’aide des métriques de lecture et écriture sur disque, puis optimisez la configuration du stockage de la machine virtuelle pour porter la capacité au-delà des limites d’un seul disque dur virtuel. Apprenez-en plus sur les différentes offres de disque de stockage standard et les limites par disque :
 
-* [Cibles de scalabilité et de performance des disques de machine virtuelle sur Windows](../windows/disk-scalability-targets.md).
+* [Cibles de scalabilité et de performance des disques de machine virtuelle sur Windows](../disks-scalability-targets.md).
 
 ### <a name="high-disk-utilizationlatency-remediation"></a>Solution en cas d’utilisation/latence élevée du disque
 

@@ -182,7 +182,7 @@
         - name: Disques de système d’exploitation éphémères
           href: ../virtual-machines/ephemeral-os-disks.md
         - name: Objectifs d’extensibilité pour les disques
-          href: ../virtual-machines/windows/disk-scalability-targets.md
+          href: ../virtual-machines/disks-scalability-targets.md
           maintainContext: true
         - name: Sauvegarde et récupération d’urgence pour les disques
           href: ../virtual-machines/backup-and-disaster-recovery-for-azure-iaas-disks.md

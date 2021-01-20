@@ -9,22 +9,26 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: ec7459a356221fb7b599cbbc02f1cb825920b5b3
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: b6fcf39e05c4649503f0b7a80aadaaa16df24674
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92890664"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599553"
 ---
 # <a name="show-traffic-on-the-map"></a>Afficher le trafic sur la carte
 
 Deux types de données de trafic sont disponibles dans Azure Maps :
 
 - Données d’incident : elles se composent de données de type point et ligne pour des éléments tels que les travaux, les fermetures de route et les accidents.
-- Données de circulation : elles fournissent des métriques concernant la circulation sur les routes. Les données de circulation sont souvent utilisées pour colorer les routes. Les couleurs dépendent du volume de circulation qui entraîne un ralentissement par rapport à la limite de vitesse ou à une autre métrique. Les données de circulation dans Azure Maps ont trois métriques différentes de mesure :
-    - `relative` : est relatif à la vitesse de circulation libre de la route.
-    - `absolute` : est la vitesse absolue de tous les véhicules sur la route.
-    - `relative-delay` : affiche les zones qui sont plus lentes que le délai moyen attendu.
+- Données de circulation : elles fournissent des métriques concernant la circulation sur les routes. Les données de circulation sont souvent utilisées pour colorer les routes. Les couleurs dépendent du volume de circulation qui entraîne un ralentissement par rapport à la limite de vitesse ou à une autre métrique. Quatre valeurs peuvent être passées dans l’option TrafficFlow de la carte.
+
+    |Valeur de flux | Description|
+    | :-- | :-- |
+    | `none` | N’affiche pas de données de trafic sur la carte |
+    | `relative` | Affiche des données de trafic relatives à la vitesse dans des conditions de circulation routière fluide |
+    | `relative-delay` | Affiche les zones qui sont plus lentes que le délai moyen attendu |
+    | `absolute` | Affiche la vitesse absolue de tous les véhicules circulant sur la route |
 
 Le code suivant montre comment afficher les données de trafic sur la carte.
 

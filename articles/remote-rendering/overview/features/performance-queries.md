@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 95993b35174b80dae8c878c22554ee60afeb8a14
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 57a9f6f11283e020efc25f55f1df473a6cb2d321
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92206218"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98569995"
 ---
 # <a name="server-side-performance-queries"></a>Requêtes de performances côté serveur
 
@@ -65,9 +65,9 @@ L’objet `FrameStatistics` récupéré contient les membres suivants :
 | Membre | Explication |
 |:-|:-|
 | latencyPoseToReceive | Latence provenant de la pose estimée de la caméra sur l’appareil client, jusqu’à ce qu’une image serveur de cette pose soit entièrement disponible pour l’application cliente. Cette valeur comprend l’aller-retour réseau, le temps de rendu du serveur, le décodage vidéo et la compensation de l’instabilité. Voir **l’intervalle 1 dans l’illustration ci-dessus.**|
-| latencyReceiveToPresent | Latence provenant de la disponibilité d’une image distante reçue jusqu’à ce que l’application cliente appelle PresentFrame sur l’UC. |
-| latencyPresentToDisplay  | Latence provenant de la présentation d’une image sur l’UC jusqu’à ce que l’affichage s’allume. Cette valeur comprend le temps du GPU client, une mise en mémoire tampon d’image effectuée par le système d’exploitation, la reprojection matérielle et la durée de balayage de l’affichage dépendant de l’appareil. Voir **l’intervalle 2 dans l’illustration ci-dessus.**|
-| timeSinceLastPresent | Délai entre les appels ultérieurs à PresentFrame sur le processeur. Les valeurs supérieures à la durée d’affichage (par exemple 16,6 ms sur un appareil client de 60 Hz) indiquent des problèmes provoqués par l’application cliente qui ne termine pas sa charge de travail processeur à temps. Voir **l’intervalle 3 dans l’illustration ci-dessus.**|
+| latencyReceiveToPresent | Latence provenant de la disponibilité d’une image distante reçue jusqu’à ce que l’application cliente appelle PresentFrame sur l’UC. Voir **l’intervalle 2 dans l’illustration ci-dessus.**|
+| latencyPresentToDisplay  | Latence provenant de la présentation d’une image sur l’UC jusqu’à ce que l’affichage s’allume. Cette valeur comprend le temps du GPU client, une mise en mémoire tampon d’image effectuée par le système d’exploitation, la reprojection matérielle et la durée de balayage de l’affichage dépendant de l’appareil. Voir **l’intervalle 3 dans l’illustration ci-dessus.**|
+| timeSinceLastPresent | Délai entre les appels ultérieurs à PresentFrame sur le processeur. Les valeurs supérieures à la durée d’affichage (par exemple 16,6 ms sur un appareil client de 60 Hz) indiquent des problèmes provoqués par l’application cliente qui ne termine pas sa charge de travail processeur à temps.|
 | videoFramesReceived | Nombre d’images reçues du serveur au cours de la dernière seconde. |
 | videoFrameReusedCount | Nombre d’images reçues au cours de la dernière seconde et qui ont été utilisées plusieurs fois sur l’appareil. Les valeurs différentes de zéro indiquent que les images devaient être réutilisées et reprojetées en raison d’une instabilité du réseau ou d’une durée d’affichage du serveur excessive. |
 | videoFramesSkipped | Nombre d’images reçues au cours de la dernière seconde, qui ont été décodées, mais n’ont pas été affichées à l’écran, car une image plus récente est arrivée. Des valeurs différentes de zéro indiquent que l’instabilité du réseau a entraîné le retard de plusieurs images, puis leur arrivée simultanée en rafale sur l’appareil client. |

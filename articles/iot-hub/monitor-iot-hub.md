@@ -6,12 +6,12 @@ ms.author: robinsh
 ms.topic: conceptual
 ms.service: iot-hub
 ms.date: 11/06/2020
-ms.openlocfilehash: 2fabf75f74ccf57f57e7b47720ceda8885420842
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 35134f3ee4946d294ba6c6f71bd3953823d6d138
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460904"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250026"
 ---
 # <a name="monitoring-azure-iot-hub"></a>Surveillance d’Azure IoT Hub
 
@@ -87,7 +87,7 @@ Pour obtenir la liste des métriques de plateforme collectées pour Azure IoT Hu
 
 Pour les métriques de la plateforme IoT Hub qui sont collectées à l’unité, certaines agrégations peuvent ne pas être disponibles ou utilisables. Pour plus d’informations, consultez [Agrégations prises en charge dans les informations de référence des données de surveillance Azure IoT Hub](monitor-iot-hub-reference.md#supported-aggregations).
 
-Certaines mesures IoT Hub, comme les [métriques de routage](monitor-iot-hub-reference.md#routing-metrics), sont multidimensionnelles. Pour ces métriques, vous pouvez appliquer des [filtres](../azure-monitor/platform/metrics-charts.md#apply-filters-to-charts) et un [fractionnement](../azure-monitor/platform/metrics-charts.md#apply-splitting-to-a-chart) sur vos graphiques en fonction d’une dimension.
+Certaines mesures IoT Hub, comme les [métriques de routage](monitor-iot-hub-reference.md#routing-metrics), sont multidimensionnelles. Pour ces métriques, vous pouvez appliquer des [filtres](../azure-monitor/platform/metrics-charts.md#filters) et un [fractionnement](../azure-monitor/platform/metrics-charts.md#apply-splitting) sur vos graphiques en fonction d’une dimension.
 
 ## <a name="analyzing-logs"></a>Analyse des journaux d’activité
 

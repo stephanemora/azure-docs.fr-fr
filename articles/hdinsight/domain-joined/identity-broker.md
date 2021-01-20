@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 11/03/2020
-ms.openlocfilehash: c6bc5ca748a35b17c61d314e96f7284d30e7fc3b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: b8dfe9a23e5c6697323142212156006cb65d2f9b
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96338127"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98556526"
 ---
 # <a name="azure-hdinsight-id-broker-hib"></a>Broker d’ID Azure HDInsight
 
@@ -126,9 +126,9 @@ Pour résoudre les problèmes d’authentification, consultez [ce guide](./domai
 
 Dans la configuration du broker d’ID HDInsight, les applications personnalisées et les clients qui se connectent à la passerelle peuvent être mis à jour pour acquérir, dans un premier temps, le jeton OAuth requis. Suivez les étapes décrites dans [ce document](../../storage/common/storage-auth-aad-app.md) pour obtenir le jeton avec les informations suivantes :
 
-*   URI de ressource OAuth : `https://hib.azurehdinsight.net` 
+*    URI de ressource OAuth : `https://hib.azurehdinsight.net` 
 *   AppId : 7865c1d2-f040-46cc-875f-831a1ef6a28a
-*   Autorisation : (nom : Cluster.ReadWrite, id: 8f89faa0-ffef-4007-974d-4989b39ad77d)
+*    Autorisation : (nom : Cluster.ReadWrite, id: 8f89faa0-ffef-4007-974d-4989b39ad77d)
 
 Après l’acquisition du jeton OAuth, utilisez-le dans l’en-tête d’autorisation de la requête HTTP adressée à la passerelle de cluster (par exemple, https://<clustername>-int.azurehdinsight.net). Un exemple de commande curl pour l’API Apache Livy peut se présenter comme suit :
     
@@ -146,7 +146,7 @@ Pour chaque cluster, une application tierce est inscrite dans AAD avec l’URI d
 Dans AAD, le consentement est requis pour permettre à toutes les applications tierces d’authentifier les utilisateurs ou d’accéder aux données.
 
 ### <a name="can-the-consent-be-approved-programatically"></a>Le consentement peut-il être approuvé par programme ?
-L’API Microsoft Graph vous permet d’automatiser le consentement. Consultez la [documentation de l’API](/graph/api/resources/oauth2permissiongrant?view=graph-rest-1.0). La séquence permettant d’automatiser le consentement est la suivante :
+L’API Microsoft Graph vous permet d’automatiser le consentement. Consultez la [documentation de l’API](/graph/api/resources/oauth2permissiongrant). La séquence permettant d’automatiser le consentement est la suivante :
 
 * Inscrire une application et lui accorder des autorisations Application.ReadWrite.All pour accéder à Microsoft Graph
 * Après la création d’un cluster, interroger l’application de cluster en fonction de l’URI de l’identificateur

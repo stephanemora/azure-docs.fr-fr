@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a531692264a768e4f6cb8e6475807789df049d03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e257ab39257b23c52aaadbe32f0325e8d71a8409
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89049144"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98597977"
 ---
 # <a name="conditional-access-block-access-by-location"></a>Accès conditionnel : Bloquer l’accès par emplacement
 
@@ -43,6 +43,8 @@ Pour plus d’informations sur la condition d’emplacement dans l’accès cond
 1. Donnez un nom à votre stratégie. Nous recommandons aux organisations de créer une norme explicite pour les noms de leurs stratégies.
 1. Sous **Affectations**, sélectionnez **Utilisateurs et groupes**
    1. Sous **Inclure**, sélectionnez **Tous les utilisateurs**.
+   1. Sous **Exclure**, sélectionnez **Utilisateurs et groupes**, puis choisissez les comptes d’accès d’urgence ou de secours de votre organisation. 
+   1. Sélectionnez **Terminé**.
 1. Sous **Applications ou actions cloud** > **Inclure**, sélectionnez **Toutes les applications cloud**.
 1. Sous **Conditions** > **Emplacement**.
    1. Définissez **Configurer** sur **Oui**

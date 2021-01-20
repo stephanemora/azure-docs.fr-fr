@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dd1c7c20441d12600e2101f738904caf6260509e
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 0305094d3883fa6fc3254a682f9aa6f3202c9e48
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96496004"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98555523"
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Créer, surveiller et gérer des fabriques de données Azure à l’aide du Kit de développement logiciel (SDK) Azure Data Factory .NET
 > [!NOTE]
@@ -27,7 +27,7 @@ ms.locfileid: "96496004"
 Vous pouvez créer, surveiller et gérer des fabriques de données Azure par programmation à l'aide du Kit SDK Data Factory .NET. Cet article contient une procédure pas à pas que vous pouvez suivre pour créer un exemple d'application console .NET qui crée et surveille une fabrique de données. 
 
 > [!NOTE]
-> Cet article ne couvre pas toutes les API .NET Data Factory. Consultez [Informations de référence sur l’API .NET Data Factory](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1) pour la documentation complète sur l’API .NET pour Data Factory. 
+> Cet article ne couvre pas toutes les API .NET Data Factory. Consultez [Informations de référence sur l’API .NET Data Factory](/dotnet/api/overview/azure/data-factory) pour la documentation complète sur l’API .NET pour Data Factory. 
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -93,7 +93,7 @@ Créez une application Azure Active Directory, créez un principal de service po
 9. Récupérez l’ID de l’application.
 
     ```powershell
-    $azureAdApplication 
+    $azureAdApplication    
     ```
     Notez l’ID d’application (applicationID) dans la sortie.
 

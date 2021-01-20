@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 01/03/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: b5cb7d0e421657b84c365d8dca536191cafd4e72
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 2053632f24504f896d1045f99d581b9aa6050b55
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861971"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573137"
 ---
 # <a name="about-azure-defender-for-iot-network-setup"></a>À propos de la configuration du réseau d’Azure Defender pour IoT
 
@@ -223,7 +223,7 @@ Dans un réseau en étoile, chaque hôte est connecté à un hub central. Dans s
 
 Voici quelques recommandations pour le déploiement de plusieurs capteurs :
 
-| **Nombre**| **Mètres** | **Dépendance** | **Nombre de capteurs** |
+| **Nombre** | **Mètres** | **Dépendance** | **Nombre de capteurs** |
 |--|--|--|--|
 | Distance maximale entre les commutateurs | 80 mètres | Câble Ethernet préparé | Plus de 1 |
 | Nombre de réseaux OT | Plus de 1 | Aucune connectivité physique | Plus de 1 |

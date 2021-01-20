@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.topic: how-to
 ms.date: 6/10/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a5921026c8f260683f091870850350fcc4619f6b
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 713f99f67706caded0694d88ece220373920e555
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94538612"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250517"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-powershell"></a>Créer et gérer des réplicas en lecture dans Azure Database for MariaDB à l’aide de PowerShell
 
@@ -43,7 +43,7 @@ Si vous choisissez d’utiliser PowerShell en local, connectez-vous à votre com
 ### <a name="create-a-read-replica"></a>Créer un réplica en lecture
 
 > [!IMPORTANT]
-> Lorsque vous créez un réplica pour un serveur source qui n'en a pas, ce dernier commence par redémarrer afin de se préparer à la réplication. Tenez-en compte et effectuez ces opérations en période creuse.
+> Lorsque vous créez un réplica pour un serveur source qui n’en a pas, ce dernier commence par redémarrer afin de se préparer à la réplication. Tenez-en compte et effectuez ces opérations en période creuse.
 
 Un serveur réplica en lecture peut être créé en utilisant la commande suivante :
 

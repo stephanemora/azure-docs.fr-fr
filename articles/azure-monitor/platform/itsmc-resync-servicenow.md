@@ -5,92 +5,20 @@ ms.subservice: alerts
 ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
-ms.date: 04/12/2020
-ms.openlocfilehash: cea4503c4e3b9dd58cc475aaec355a2bb2e0bd29
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.date: 01/17/2021
+ms.openlocfilehash: aede7e3dec886d6a6213c64b386cacd725dd74f5
+ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98065183"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98562792"
 ---
-# <a name="troubleshooting-problems-in-itsm-connector"></a>Résolution des problèmes liés au connecteur ITSM
-
-Cet article décrit des problèmes courants dans le connecteur ITSM et la manière de les résoudre.
-
-Azure Monitor vous avertit de façon proactive lorsque des conditions significatives sont détectées dans vos données de surveillance. Elles permettent d’identifier et de résoudre les problèmes avant que les utilisateurs de votre système ne les remarquent. Pour plus d’informations sur les alertes, consultez Vue d’ensemble des alertes dans Microsoft Azure.
-Le client peut choisir la manière dont il souhaite être informé de l’alerte, que ce soit par e-mail, SMS, webhook, ou d’automatiser une solution. Une autre option de notification consiste à utiliser ITSM.
-ITSM vous donne la possibilité d’envoyer les alertes à un système de tickets externe tel que ServiceNow.
-
-## <a name="visualize-and-analyze-the-incident-and-change-request-data"></a>Visualiser et analyser les données d’incident et de demande de modification
-
-En fonction de la configuration choisie lors de l’établissement d’une connexion, ITSMC peut synchroniser jusqu’à 120 jours de données d’incidents et de demande de changement. Le schéma d’enregistrement de journal pour ces données est fourni dans la [section d’informations supplémentaires](./itsmc-synced-data.md) de cet article.
-
-Vous pouvez visualiser les données d’incident et de demande de changement à l’aide du tableau de bord ITSMC :
-
-![Capture d’écran montrant le tableau de bord ITSMC.](media/itsmc-overview/itsmc-overview-sample-log-analytics.png)
-
-Le tableau de bord fournit également des informations sur l’état du connecteur. Vous pouvez les utiliser comme point de départ pour analyser les problèmes liés aux connexions.
-
-### <a name="error-investigation-using-the-dashboard"></a>Recherche d’erreurs à l’aide du tableau de bord
-
-Pour afficher les erreurs dans le tableau de bord, vous devez suivre les étapes suivantes :
-
-1. Dans **Toutes les ressources**, recherchez **ServiceDesk(*nom_de_votre_espace_de_travail*)**  :
-
-   ![Capture d’écran montrant les ressources récentes dans le portail Azure.](media/itsmc-definition/create-new-connection-from-resource.png)
-
-2. Sous **Sources de données de l’espace de travail** dans le volet gauche, sélectionnez **Connexions ITSM** :
-
-   ![Capture d’écran montrant l’élément de menu Connexion ITSM.](media/itsmc-overview/add-new-itsm-connection.png)
-
-3. Sous **Résumé** dans la zone de gauche **Connecteur de gestion des services informatiques**, sélectionnez **Afficher le résumé** :
-
-    ![Capture d’écran montrant la vue Résumé.](media/itsmc-resync-servicenow/dashboard-view-summary.png)
-
-4. Sous **Résumé** dans la zone de gauche **Connecteur de gestion des services informatiques**, cliquez sur le graphique :
-
-    ![Capture d’écran montrant le clic sur le graphique.](media/itsmc-resync-servicenow/dashboard-graph-click.png)
-
-5. À l’aide de ce tableau de bord, vous serez en mesure de vérifier l’état et les erreurs de votre connecteur.
-    ![Capture d’écran montrant l’état du connecteur.](media/itsmc-resync-servicenow/connector-dashboard.png)
-
-### <a name="service-map"></a>Carte de service
-
-Vous pouvez également visualiser les incidents synchronisés avec les ordinateurs concernés dans Service Map.
-
-La solution Carte de service détecte automatiquement les composants d’application sur les systèmes Windows et Linux et mappe la communication entre les services. Elle vous permet d’afficher les serveurs comme vous vous les représentez, c’est-à-dire comme des systèmes interconnectés qui fournissent des services critiques. Service Map affiche les connexions entre les serveurs, les processus et les ports sur n’importe quelle architecture connectée par TCP. Aucune configuration autre que l’installation d’un agent n’est exigée. Pour plus d’informations, consultez [Utilisation de Service Map](../insights/service-map.md).
-
-Si vous utilisez Service Map, vous pouvez afficher les éléments de service d’assistance créés dans les solutions ITSM, comme indiqué ici :
-
-![Capture d’écran montrant l’écran Log Analytics.](media/itsmc-overview/itsmc-overview-integrated-solutions.png)
-
-## <a name="troubleshoot-itsm-connections"></a>Dépanner les connexions ITSM
-
-- Si une connexion au système ITSM échoue et que le message **Erreur lors de l’enregistrement de la connexion** s’affiche, effectuez les étapes suivantes :
-   - Pour les connexions ServiceNow, Cherwell et Provance :  
-     - Vérifiez que vous avez correctement entré le nom d’utilisateur, le mot de passe, l’ID client et le secret client pour chacune des connexions.  
-     - Veillez à disposer de privilèges suffisants dans le produit ITSM correspondant afin d’établir la connexion.  
-   - Pour les connexions Service Manager :  
-     - Vérifiez que l’application web est correctement déployée et que la connexion hybride est créée. Pour vérifier que la connexion est établie avec l’ordinateur Service Manager local, accédez à l’URL de l’application web, comme décrit dans la documentation concernant l’établissement d’une [connexion hybride](./itsmc-connections-scsm.md#configure-the-hybrid-connection).  
-
-- Si les données de ServiceNow ne sont pas synchronisées dans Log Analytics, vérifiez que l’instance ServiceNow n’est pas en état de veille. Parfois, les instances de développement ServiceNow entrent en veille quand elles restent longtemps inactives. Si ce n’est pas ce qui se passe, signalez le problème.
-- Si des alertes Log Analytics se déclenchent mais qu’aucun élément de travail n’est créé dans le produit ITSM, si aucun élément de configuration n’est créé/lié à des éléments de travail ou pour obtenir d’autres informations, consultez ces ressources :
-   -  ITSMC : la solution montre un récapitulatif des connexions, éléments de travail, ordinateurs, etc. Sélectionnez la vignette qui a l’étiquette **État du connecteur**. Cela vous permet d’accéder à **Recherche dans les journaux** avec la requête appropriée. Pour plus d’informations, examinez les enregistrements de journal dont `LogType_S` a la valeur `ERROR`.
-   - Page **Recherche dans les journaux** : Consultez les erreurs et les informations associées directement à l’aide de la requête `*ServiceDeskLog_CL*`.
-
-### <a name="troubleshoot-service-manager-web-app-deployment"></a>Résoudre les problèmes de déploiement de l’application web Service Manager
-
--   Si vous rencontrez des problèmes lors du déploiement d’application web, vérifiez que vous disposez des autorisations nécessaires pour créer/déployer des ressources dans l’abonnement.
--   Si l’erreur **Référence d’objet non définie sur une instance d’un objet** s’affiche pendant l’exécution du [script](itsmc-service-manager-script.md), vérifiez que vous avez entré des valeurs valides dans la section **Configuration utilisateur**.
--   Si vous ne parvenez pas à créer l’espace de noms de Service Bus Relay, vérifiez que le fournisseur de ressources nécessaire est inscrit dans l’abonnement. S’il n’est pas inscrit, créez manuellement l’espace de noms Service Bus Relay à partir du portail Azure. Vous pouvez également le créer quand vous [créez la connexion hybride](./itsmc-connections-scsm.md#configure-the-hybrid-connection) dans le portail Azure.
-
-### <a name="how-to-manually-fix-sync-problems"></a>Comment corriger manuellement les problèmes de synchronisation
+# <a name="how-to-manually-fix-sync-problems"></a>Comment corriger manuellement les problèmes de synchronisation
 
 Azure Monitor peut se connecter à des fournisseurs de gestion des services informatiques (ITSM) tiers. ServiceNow est un de ces fournisseurs.
 
 Pour des raisons de sécurité, il peut être nécessaire d’actualiser le jeton d’authentification utilisé pour votre connexion à ServiceNow.
 Utilisez le processus de synchronisation suivant pour réactiver la connexion et actualiser le jeton :
-
 
 1. Recherchez la solution dans la bannière de recherche du haut, puis sélectionnez les solutions appropriées.
 

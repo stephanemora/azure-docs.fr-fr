@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 710de93a24037031784ca8d37a8ae0be76bff9e6
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 2bf56379a32bf8035ea2d0d3fe797776ec6ba40d
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97614587"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250398"
 ---
 # <a name="getting-started-with-azure-metrics-explorer"></a>Prise en main d’Azure Metrics Explorer
 
@@ -38,7 +38,7 @@ Pour créer un graphique de métrique, à partir de votre ressource, groupe de r
 
     > ![Sélectionner une métrique](./media/metrics-getting-started/metrics-dropdown.png)
 
-4. Vous pouvez également, si vous le souhaitez, [modifier l’agrégation des métriques](metrics-charts.md#changing-aggregation). Par exemple, vous souhaiterez peut-être que votre graphique représente les valeurs minimale, maximale ou moyenne de la métrique.
+4. Vous pouvez également, si vous le souhaitez, [modifier l’agrégation des métriques](metrics-charts.md#aggregation). Par exemple, vous souhaiterez peut-être que votre graphique représente les valeurs minimale, maximale ou moyenne de la métrique.
 
 > [!TIP]
 > Utilisez le bouton **Ajouter une métrique** et répétez ces étapes si vous souhaitez afficher plusieurs métriques tracées dans le même graphique. Pour plusieurs graphiques dans une même vue, sélectionnez le bouton **Ajouter un graphique** en haut.
@@ -57,7 +57,7 @@ Par défaut, le graphique affiche les dernières 24 heures de données de métri
 
 ## <a name="apply-dimension-filters-and-splitting"></a>Appliquer des filtres de dimension et un fractionnement
 
-Le [filtrage](metrics-charts.md#apply-filters-to-charts) et le [fractionnement](metrics-charts.md#apply-splitting-to-a-chart) sont des outils de diagnostic puissants pour les métriques comportant des dimensions. Ces fonctionnalités montrent comment les différents segments de métriques (« valeurs de dimension ») affectent la valeur globale de la métrique, et vous permettent d’identifier les valeurs hors norme possibles.
+Le [filtrage](metrics-charts.md#filters) et le [fractionnement](metrics-charts.md#apply-splitting) sont des outils de diagnostic puissants pour les métriques comportant des dimensions. Ces fonctionnalités montrent comment les différents segments de métriques (« valeurs de dimension ») affectent la valeur globale de la métrique, et vous permettent d’identifier les valeurs hors norme possibles.
 
 - Le **filtrage** vous permet de choisir les valeurs de dimension à inclure dans le graphique. Par exemple, vous souhaiterez peut-être afficher les requêtes réussies dans la représentation graphique de la métrique du *temps de réponse du serveur*. Vous devrez appliquer le filtre à la dimension de *succès de la requête*. 
 

@@ -1,5 +1,5 @@
 ---
-title: Créer des jeux de données Azure Machine Learning pour accéder aux données
+title: Créer des jeux de données Azure Machine Learning
 titleSuffix: Azure Machine Learning
 description: Découvrez comment créer des jeux de données Azure Machine Learning pour accéder à vos données pour des exécutions d’expérience de machine learning.
 services: machine-learning
@@ -12,16 +12,14 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
-ms.openlocfilehash: fa6cdeaa47c7fdf9e90cdab96397473d8498afa0
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 8dac15f359d8ab6c7a84bbc30dba392322e84bb5
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98108702"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98538186"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Créer des jeux de données Azure Machine Learning
-
-
 
 Dans cet article, vous découvrez comment créer des jeux de données Azure Machine Learning pour accéder aux données de vos expériences locales ou à distance avec le kit de développement logiciel (SDK) Python Azure Machine Learning. Pour comprendre où figurent les jeux de données dans le flux de travail global d’accès aux données d’Azure Machine Learning, consultez l’article [Sécuriser l’accès aux données](concept-data.md#data-workflow).
 
@@ -127,6 +125,7 @@ Pour réutiliser et partager des jeux de données dans des expériences au sein 
 > Chargez des fichiers à partir d’un répertoire local et créez un FileDataset dans une méthode unique avec la méthode de préversion publique [upload_directory()](/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?preserve-view=true&view=azure-ml-py#upload-directory-src-dir--target--pattern-none--overwrite-false--show-progress-true-). Cette méthode est une fonctionnalité d’évaluation [expérimentale](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental) en préversion qui peut évoluer à tout moment. 
 > 
 >  Elle permet de charger des données dans votre stockage sous-jacent, ce qui entraîne la facturation de coûts de stockage. 
+
 ### <a name="create-a-tabulardataset"></a>Créer un TabularDataset
 
 Utilisez la méthode [`from_delimited_files()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory) sur la classe `TabularDatasetFactory` pour lire des fichiers au format .csv ou .tsv, puis créez un TabularDataset non inscrit. Si vous lisez à partir de plusieurs fichiers, les résultats sont agrégés dans une même représentation tabulaire. 
@@ -176,7 +175,6 @@ titanic_ds.take(3).to_pandas_dataframe()
 2|3|True|3|Heikkinen, Miss. Laina|female|26,0|0|0|STON/O2. 3101282|7.9250||S
 
 Pour réutiliser et partager des jeux de données dans des expériences de votre espace de travail, [inscrivez votre jeu de données](#register-datasets).
-
 
 ## <a name="explore-data"></a>Explorer des données
 

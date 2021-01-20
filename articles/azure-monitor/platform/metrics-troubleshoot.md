@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 7c3af0865282475ded0172d18aecad1dfb61721b
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 5219553fe300d607212af1ef6cedf72ce6506762
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814259"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250330"
 ---
 # <a name="troubleshooting-metrics-charts"></a>Résolution des problèmes liés aux graphiques de métriques
 
@@ -48,7 +48,7 @@ Certaines ressources n’émettent pas leurs métriques en permanence. Par exemp
 
 ### <a name="all-metric-values-were-outside-of-the-locked-y-axis-range"></a>Toutes les valeurs de métrique étaient en dehors de la plage verrouillée de l’axe y.
 
-En [verrouillant les limites de l’axe y du graphique](metrics-charts.md#lock-boundaries-of-chart-y-axis), vous pouvez involontairement empêcher l’affichage de la courbe du graphique sur la zone d’affichage. Par exemple, si l’axe y est verrouillé sur une plage comprise entre 0 et 50 % et que la métrique présente une valeur constante de 100 %, la courbe est toujours rendue en dehors de la zone visible. Le graphique affiché est donc vide.
+En [verrouillant les limites de l’axe y du graphique](metrics-charts.md#locking-the-range-of-the-y-axis), vous pouvez involontairement empêcher l’affichage de la courbe du graphique sur la zone d’affichage. Par exemple, si l’axe y est verrouillé sur une plage comprise entre 0 et 50 % et que la métrique présente une valeur constante de 100 %, la courbe est toujours rendue en dehors de la zone visible. Le graphique affiché est donc vide.
 
 **Solution :** Vérifiez que les limites de l’axe y du graphique ne sont pas verrouillées en dehors de la plage des valeurs de métrique. Si les limites de l’axe y sont verrouillées, il peut être utile de les réinitialiser temporairement pour vous assurer que les valeurs de métrique ne sont pas en dehors de la plage du graphique. Il n’est pas recommandé de verrouiller la plage de l’axe y avec une granularité automatique pour les graphiques avec une agrégation de type **Somme**, **Min** et **Max**, car leurs valeurs changent avec la granularité si vous redimensionnez la fenêtre du navigateur ou changez de résolution d’écran. Si vous modifiez la granularité, la zone d’affichage de votre graphique peut être vide.
 

@@ -6,12 +6,12 @@ ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 11/30/2020
-ms.openlocfilehash: 244f8a446e33102e018881b3ec8f32ba9d8cbcc6
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 7d624f2dd2c0c9b4c7e99d5628a1d47e4303da7f
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98014143"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98555591"
 ---
 # <a name="use-managed-identities-to-access-azure-sql-database-or-azure-synapse-analytics-from-an-azure-stream-analytics-job-preview"></a>Utiliser les identités managées pour accéder à Azure SQL Database ou Azure Synapse Analytics à partir d’une tâche Azure Stream Analytics (préversion)
 
@@ -123,7 +123,7 @@ Une fois que vous avez créé un utilisateur de base de données autonome et acc
 
 Une fois que vous avez créé un utilisateur de base de données autonome et accordé un accès aux services Azure du portail, comme décrit dans la section précédente, votre tâche Stream Analytics est autorisée par Managed Identity à **se connecter** (autorisation CONNECT) à votre ressource Azure Synapse via une identité. Nous vous recommandons d’accorder à la tâche Stream Analytics les autorisations SELECT, INSERT et ADMINISTER DATABASE BULK OPERATIONS, car celles-ci seront nécessaires plus tard dans le flux de travail Stream Analytics. L’autorisation **SELECT** permet à la tâche de tester sa connexion à la table dans la base de données Azure Synapse. Les autorisations **INSERT** et **ADMINISTER DATABASE BULK OPERATIONS** permettent de tester des requêtes Stream Analytics de bout en bout une fois que vous avez configuré une entrée et la sortie de la base de données Azure Synapse.
 
-Pour accorder l’autorisation ADMINISTER DATABASE BULK OPERATIONS, vous devez accorder toutes les autorisations étiquetées comme **CONTROL** sous [Impliquée par une autorisation de base de données](/sql/t-sql/statements/grant-database-permissions-transact-sql?view=azure-sqldw-latest#remarks) à la tâche Stream Analytics. Vous avez besoin de cette autorisation car la tâche Stream Analytics exécute l’instruction COPY, qui requiert [ADMINISTER DATABASE BULK OPERATIONS et INSERT](/sql/t-sql/statements/copy-into-transact-sql).
+Pour accorder l’autorisation ADMINISTER DATABASE BULK OPERATIONS, vous devez accorder toutes les autorisations étiquetées comme **CONTROL** sous [Impliquée par une autorisation de base de données](/sql/t-sql/statements/grant-database-permissions-transact-sql?view=azure-sqldw-latest&preserve-view=true#remarks) à la tâche Stream Analytics. Vous avez besoin de cette autorisation car la tâche Stream Analytics exécute l’instruction COPY, qui requiert [ADMINISTER DATABASE BULK OPERATIONS et INSERT](/sql/t-sql/statements/copy-into-transact-sql).
 
 ---
 

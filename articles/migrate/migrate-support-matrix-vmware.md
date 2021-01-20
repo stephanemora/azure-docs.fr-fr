@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 11/10/2020
-ms.openlocfilehash: e6582443ddc56b315c1c666c81a596fa71b1d54f
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 02757477ca4a07f4526df0339291122eda57c9b5
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753975"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567424"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Tableau de prise en charge pour l’évaluation VMware 
 
@@ -23,7 +23,7 @@ Si vous souhaitez migrer des machines virtuelles VMware vers Azure, passez en re
 
 ## <a name="limitations"></a>Limites
 
-**Support** | **Détails**
+**Prérequis** | **Détails**
 --- | ---
 **Limites de projet** | Vous pouvez créer plusieurs projets dans un abonnement Azure.<br/><br/> Vous pouvez découvrir et évaluer jusqu’à 35 000 machines virtuelles VMware dans un même [projet](migrate-support-matrix.md#azure-migrate-projects). Un projet peut également inclure des serveurs physiques et des machines virtuelles Hyper-V, jusqu’aux limites d’évaluation pour chaque catégorie.
 **Découverte** | L’appliance Azure Migrate peut découvrir jusqu’à 10 000 machines virtuelles VMware sur un vCenter Server.
@@ -81,9 +81,9 @@ Outre la découverte des machines, Server Assessment peut découvrir les applica
 
 ## <a name="dependency-analysis-requirements-agentless"></a>Conditions relatives à l’analyse des dépendances (sans agent)
 
-L’[analyse des dépendances](concepts-dependency-visualization.md) vous permet d’identifier les dépendances entre les machines locales que vous souhaitez évaluer et faire migrer vers Azure. Le tableau récapitule les conditions requises pour la configuration de l’analyse des dépendances sans agent.
+L’[analyse des dépendances](concepts-dependency-visualization.md) vous permet d’identifier les dépendances entre les machines locales que vous souhaitez évaluer et faire migrer vers Azure. Le tableau récapitule les conditions requises pour la configuration de l’analyse des dépendances sans agent. 
 
-**Prérequis** | **Détails**
+**Support** | **Détails**
 --- | --- 
 **Machines prises en charge** | Actuellement seules les machines virtuelles VMware sont prises en charge.
 **Machines virtuelles Windows** | Windows Server 2016<br/> Windows Server 2012 R2<br/> Windows Server 2012<br/> Windows Server 2008 R2 (64 bits)<br/>Microsoft Windows Server 2008 (32 bits) 

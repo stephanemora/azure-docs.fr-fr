@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: 5a06a0663601c221dd456b9cf4437cb9f32a18f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99bc49dfe7b3f7b6a9d49c2947d8d8c01ad98dac
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81399851"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98256477"
 ---
 :::row:::
     :::column span="3":::
@@ -30,20 +30,6 @@ Le Kit de développement logiciel (SDK) Speech C++ peut être installé à parti
 ```powershell
 Install-Package Microsoft.CognitiveServices.Speech
 ```
-
-#### <a name="c-binaries-and-header-files"></a>Binaires et fichiers d’en-tête C++
-
-Vous pouvez également installer le Kit de développement logiciel (SDK) Speech à partir de binaires. Téléchargez le SDK sous forme de <a href="https://aka.ms/csspeech/linuxbinary" target="_blank">package .tar <span class="docon docon-navigate-external x-hidden-focus"></span></a> et décompressez les fichiers dans le répertoire de votre choix. Le contenu de ce package (qui inclut les fichiers d’en-tête pour les architectures cible x86 et x64) est structuré comme suit :
-
-  | Path                   | Description                                          |
-  |------------------------|------------------------------------------------------|
-  | `license.md`           | Licence                                              |
-  | `ThirdPartyNotices.md` | Mentions tierces                                  |
-  | `include`              | Les fichiers d’en-tête pour C++                                 |
-  | `lib/x64`              | Bibliothèque x64 native pour la liaison avec votre application |
-  | `lib/x86`              | Bibliothèque x86 native pour la liaison avec votre application |
-
-  Pour créer une application, copiez ou déplacez les fichiers binaires (et les bibliothèques) exigés dans votre environnement de développement. Incluez-les dans votre processus de génération en fonction de vos besoins.
 
 #### <a name="additional-resources"></a>Ressources supplémentaires
 

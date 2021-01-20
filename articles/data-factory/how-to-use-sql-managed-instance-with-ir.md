@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 4/15/2020
-ms.openlocfilehash: 86bff161e29384b10030ed3d524301f6dea6037e
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: fb622bdb1d7aa485c421122cdfbd2493a32cf5db
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92634162"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98555659"
 ---
 # <a name="use-azure-sql-managed-instance-with-sql-server-integration-services-ssis-in-azure-data-factory"></a>Utiliser Azure SQL Managed Instance avec SQL Server Integration Services (SSIS) dans Azure Data Factory
 
@@ -41,7 +41,7 @@ Vous pouvez maintenant déplacer vos projets, packages et charges de travail SQL
     - Sur un point de terminaison privé (recommandé)
 
         1. Choisissez le réseau virtuel à joindre à Azure-SSIS IR :
-            - Dans le même réseau virtuel que l’instance gérée, avec un **sous-réseau différent** .
+            - Dans le même réseau virtuel que l’instance gérée, avec un **sous-réseau différent**.
             - Dans un autre réseau virtuel que l’instance gérée, via l’appairage de réseaux virtuels (qui est limité à la même région en raison de contraintes d’appairage des réseaux virtuels globaux) ou via une connexion de réseau virtuel à réseau virtuel.
 
             Pour plus d'informations sur la connectivité de l'instance gérée SQL, consultez [Connecter votre application à Azure SQL Managed Instance](https://review.docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connect-app).
@@ -54,7 +54,7 @@ Vous pouvez maintenant déplacer vos projets, packages et charges de travail SQL
 
         - Lorsque Azure-SSIS IR n’est pas à l’intérieur d’un réseau virtuel (recommandé)
 
-            **Exigences entrantes de l’instance gérée SQL** , pour autoriser le trafic entrant à partir d’Azure-SSIS IR.
+            **Exigences entrantes de l’instance gérée SQL**, pour autoriser le trafic entrant à partir d’Azure-SSIS IR.
 
             | Protocole de transfert | Source | Source port range (Plage de ports sources) | Destination | Destination port range |
             |---|---|---|---|---|
@@ -64,9 +64,9 @@ Vous pouvez maintenant déplacer vos projets, packages et charges de travail SQL
 
         - Lorsque Azure-SSIS IR est à l’intérieur d’un réseau virtuel
 
-            Il existe un scénario particulier où l’instance gérée SQL se trouve dans une région qu’Azure-SSIS IR ne prend pas en charge. Azure-SSIS IR se trouve à l’intérieur d’un réseau virtuel sans appairage de réseaux virtuels en raison d’une limitation de l’appairage des réseaux virtuels globaux. Dans ce scénario, **Azure-SSIS IR est à l’intérieur d’un réseau virtuel** et se connecte à l’instance gérée SQL **sur un point de terminaison public** . Utilisez les règles de groupe de sécurité réseau (NSG) pour autoriser le trafic entre l’instance gérée SQL et Azure-SSIS IR :
+            Il existe un scénario particulier où l’instance gérée SQL se trouve dans une région qu’Azure-SSIS IR ne prend pas en charge. Azure-SSIS IR se trouve à l’intérieur d’un réseau virtuel sans appairage de réseaux virtuels en raison d’une limitation de l’appairage des réseaux virtuels globaux. Dans ce scénario, **Azure-SSIS IR est à l’intérieur d’un réseau virtuel** et se connecte à l’instance gérée SQL **sur un point de terminaison public**. Utilisez les règles de groupe de sécurité réseau (NSG) pour autoriser le trafic entre l’instance gérée SQL et Azure-SSIS IR :
 
-            1. **Exigences entrantes de l’instance gérée SQL** , pour autoriser le trafic entrant à partir d’Azure-SSIS IR.
+            1. **Exigences entrantes de l’instance gérée SQL**, pour autoriser le trafic entrant à partir d’Azure-SSIS IR.
 
                 | Protocole de transfert | Source | Source port range (Plage de ports sources) | Destination |Destination port range |
                 |---|---|---|---|---|
@@ -80,12 +80,12 @@ Vous pouvez maintenant déplacer vos projets, packages et charges de travail SQL
 
 ### <a name="configure-virtual-network"></a>Configurer un réseau virtuel
 
-1. **Autorisation utilisateur** . L’utilisateur qui crée Azure-SSIS IR doit disposer de l’[attribution de rôle](../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-for-a-user-at-a-scope) au moins sur la ressource Azure Data Factory avec l’une des options ci-dessous :
+1. **Autorisation utilisateur**. L’utilisateur qui crée Azure-SSIS IR doit disposer de l’[attribution de rôle](../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-for-a-user-at-a-scope) au moins sur la ressource Azure Data Factory avec l’une des options ci-dessous :
 
     - Utilisez le rôle Contributeur de réseaux intégré. Ce rôle inclut l’autorisation _Microsoft.Network/\*_ , mais dispose d’une étendue plus large que nécessaire.
     - Créez un rôle personnalisé qui inclut uniquement l’autorisation _Microsoft.Network/virtualNetworks/\*/join/action_ nécessaire. Si vous voulez également apporter vos propres adresses IP publiques pour Azure-SSIS IR tout en le joignant à un réseau virtuel Azure Resource Manager, incluez également l’autorisation _Microsoft.Network/publicIPAddresses/*/join/action_ dans le rôle.
 
-1. **Réseau virtuel** .
+1. **Réseau virtuel**.
 
     1. Vérifiez que le groupe de ressources du réseau virtuel peut créer et supprimer certaines ressources réseau Azure.
 
@@ -103,23 +103,23 @@ Vous pouvez maintenant déplacer vos projets, packages et charges de travail SQL
         - Microsoft.Network/NetworkSecurityGroups
 
     1. Autorisez le trafic sur la règle de groupe de sécurité réseau (NSG) pour autoriser le trafic entre l’instance gérée SQL et Azure-SSIS IR, ainsi que le trafic requis par Azure-SSIS IR.
-        1. **Exigences entrantes de l’instance gérée SQL** , pour autoriser le trafic entrant à partir d’Azure-SSIS IR.
+        1. **Exigences entrantes de l’instance gérée SQL**, pour autoriser le trafic entrant à partir d’Azure-SSIS IR.
 
             | Protocole de transfert | Source | Source port range (Plage de ports sources) | Destination | Destination port range | Commentaires |
             |---|---|---|---|---|---|
-            |TCP|VirtualNetwork|*|VirtualNetwork|1433, 11000-11999|Si votre stratégie de connexion de serveur SQL Database est définie sur **Proxy** au lieu de **Rediriger** , seul le port 1433 est nécessaire.|
+            |TCP|VirtualNetwork|*|VirtualNetwork|1433, 11000-11999|Si votre stratégie de connexion de serveur SQL Database est définie sur **Proxy** au lieu de **Rediriger**, seul le port 1433 est nécessaire.|
 
-        1. **Exigences sortantes d’Azure-SSIS IR** , pour autoriser le trafic sortant vers l’instance gérée SQL, et d’autres types de trafic requis par Azure-SSIS IR.
+        1. **Exigences sortantes d’Azure-SSIS IR**, pour autoriser le trafic sortant vers l’instance gérée SQL, et d’autres types de trafic requis par Azure-SSIS IR.
 
         | Protocole de transfert | Source | Source port range (Plage de ports sources) | Destination | Destination port range | Commentaires |
         |---|---|---|---|---|---|
-        | TCP | VirtualNetwork | * | VirtualNetwork | 1433, 11000-11999 |Autorisez le trafic sortant vers l’instance gérée SQL. Si la stratégie de connexion est définie sur **Proxy** au lieu de **Rediriger** , seul le port 1433 est nécessaire. |
+        | TCP | VirtualNetwork | * | VirtualNetwork | 1433, 11000-11999 |Autorisez le trafic sortant vers l’instance gérée SQL. Si la stratégie de connexion est définie sur **Proxy** au lieu de **Rediriger**, seul le port 1433 est nécessaire. |
         | TCP | VirtualNetwork | * | AzureCloud | 443 | Les nœuds de votre runtime d’intégration Azure SSIS IR sur le réseau virtuel utilisent ce port pour accéder aux services Azure comme Stockage Azure et Azure Event Hubs. |
         | TCP | VirtualNetwork | * | Internet | 80 | (Facultatif) Les nœuds de votre Azure-SSIS IR dans le réseau virtuel utilisent ce port pour télécharger une liste de révocation de certificats à partir d’Internet. Si vous bloquez ce trafic, vous risquez de constater une dégradation des performances lors du démarrage d’IR et de perdre la possibilité de vérifier la liste de révocation de certificats pour l’utilisation des certificats. Si vous souhaitez restreindre la destination à certains noms de domaine complets (FQDN), reportez-vous à [Utiliser Azure ExpressRoute ou un itinéraire défini par l’utilisateur](./join-azure-ssis-integration-runtime-virtual-network.md#route).|
         | TCP | VirtualNetwork | * | Stockage | 445 | (Facultatif) Cette règle n’est obligatoire que quand vous souhaitez exécuter un package SSIS stocké dans Azure Files. |
         |||||||
 
-        1. **Exigence entrante d’Azure-SSIS IR** , pour autoriser le trafic requis par Azure-SSIS IR.
+        1. **Exigence entrante d’Azure-SSIS IR**, pour autoriser le trafic requis par Azure-SSIS IR.
 
         | Protocole de transfert | Source | Source port range (Plage de ports sources) | Destination | Destination port range | Commentaires |
         |---|---|---|---|---|---|
@@ -163,7 +163,7 @@ Pour plus d’informations sur la création d’un Azure-SSIS IR, consultez [Cr�
 
 ## <a name="clean-up-ssisdb-logs"></a>Nettoyer les journaux SSISDB
 
-La stratégie de rétention des journaux SSISDB est définie par les propriétés ci-dessous dans [catalog.catalog_properties](/sql/integration-services/system-views/catalog-catalog-properties-ssisdb-database?view=sql-server-ver15) :
+La stratégie de rétention des journaux SSISDB est définie par les propriétés ci-dessous dans [catalog.catalog_properties](/sql/integration-services/system-views/catalog-catalog-properties-ssisdb-database) :
 
 - OPERATION_CLEANUP_ENABLED
 

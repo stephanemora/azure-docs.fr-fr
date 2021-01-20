@@ -12,12 +12,12 @@ ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 11/19/2020
-ms.openlocfilehash: 82cc58d46061ec7b623d062ab0b0e5a1fdae7ddd
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: bde8bc11a959bea4bd2c05c5ae75db81192aad6a
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352216"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98555863"
 ---
 # <a name="configure-a-self-hosted-ir-as-a-proxy-for-an-azure-ssis-ir-in-azure-data-factory"></a>Configurer un IR auto-hébergé en tant que proxy pour Azure-SSIS IR dans Azure Data Factory
 
@@ -54,7 +54,7 @@ Pour finir, vous téléchargez et installez la dernière version de l’IR auto-
 
 ### <a name="enable-windows-authentication-for-on-premises-staging-tasks"></a>Utiliser l’authentification Windows pour des tâches de préproduction locales
 
-Si vos tâches intermédiaires locales sur votre IR auto-hébergé nécessitent l’authentification Windows, [configurez vos packages SSIS pour qu’ils utilisent la même authentification Windows](/sql/integration-services/lift-shift/ssis-azure-connect-with-windows-auth?view=sql-server-ver15). 
+Si vos tâches intermédiaires locales sur votre IR auto-hébergé nécessitent l’authentification Windows, [configurez vos packages SSIS pour qu’ils utilisent la même authentification Windows](/sql/integration-services/lift-shift/ssis-azure-connect-with-windows-auth). 
 
 Vos tâches intermédiaires locales seront appelées avec le compte de service de l’IR auto-hébergé (*NT SERVICE\DIAHostService* par défaut), et vos magasins de données seront accessibles avec le compte d’authentification Windows. Les deux comptes nécessitent que certaines stratégies de sécurité leur soient attribuées. Sur l’ordinateur IR auto-hébergé, accédez à **Stratégie de sécurité locale** > **Stratégies locales** > **Attribution des droits utilisateur**, puis effectuez les étapes suivantes :
 
@@ -70,7 +70,7 @@ Si ce n’est pas déjà fait, créez un service lié Stockage Blob Azure dans l
 - Pour **Méthode d’authentification**, sélectionnez **Clé de compte**, **URI SAS**, **Principal du service** ou **Identité managée**.  
 
 >[!TIP]
->Si vous sélectionnez la méthode du **Principal de service**, accordez au minimum à votre principal de service le rôle de *Contributeur aux données Blob du stockage*. Pour plus d’informations, consultez [Connecteur Stockage Blob Azure](connector-azure-blob-storage.md#linked-service-properties). Si vous sélectionnez la méthode **Identité managée**, accordez à votre identité managée par ADF des rôles appropriés pour accéder à Stockage Blob Azure. Pour plus d’informations, consultez [Accéder à Stockage Blob Azure en utilisant l’authentification Azure Active Directory avec l’identité managée par ADF](/sql/integration-services/connection-manager/azure-storage-connection-manager?view=sql-server-ver15#managed-identities-for-azure-resources-authentication).
+>Si vous sélectionnez la méthode du **Principal de service**, accordez au minimum à votre principal de service le rôle de *Contributeur aux données Blob du stockage*. Pour plus d’informations, consultez [Connecteur Stockage Blob Azure](connector-azure-blob-storage.md#linked-service-properties). Si vous sélectionnez la méthode **Identité managée**, accordez à votre identité managée par ADF des rôles appropriés pour accéder à Stockage Blob Azure. Pour plus d’informations, consultez [Accéder à Stockage Blob Azure en utilisant l’authentification Azure Active Directory avec l’identité managée par ADF](/sql/integration-services/connection-manager/azure-storage-connection-manager#managed-identities-for-azure-resources-authentication).
 
 ![Préparer le service lié de stockage d’objets blob Azure pour la préproduction](media/self-hosted-integration-runtime-proxy-ssis/shir-azure-blob-storage-linked-service.png)
 
@@ -132,7 +132,7 @@ Start-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
 
 En utilisant la version la plus récente de l’extension SSDT with SSIS Projects pour Visual Studio ou un programme d’installation autonome, vous trouverez une nouvelle propriété `ConnectByProxy` qui a été ajoutée dans les gestionnaires de connexions pour les composants de flux de données pris en charge.
 * [Télécharger l’extension SSIS Projects pour Visual Studio](https://marketplace.visualstudio.com/items?itemName=SSIS.SqlServerIntegrationServicesProjects)
-* [Télécharger le programme d’installation autonome](/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017#ssdt-for-vs-2017-standalone-installer)   
+* [Télécharger le programme d’installation autonome](/sql/ssdt/download-sql-server-data-tools-ssdt#ssdt-for-vs-2017-standalone-installer)   
 
 Lors de la conception de nouveaux packages qui contiennent des tâches de flux de données avec des composants qui accèdent aux données localement, vous pouvez activer cette propriété en lui affectant la valeur *True* dans le volet **Propriétés** des gestionnaires de connexions appropriés.
 

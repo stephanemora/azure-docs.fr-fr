@@ -3,12 +3,12 @@ title: Supervision de Kubernetes avec Azure Monitor pour conteneurs | Microsoft 
 description: Cet article décrit comment voir et analyser les performances d’un cluster Kubernetes avec Azure Monitor pour conteneurs.
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: a1f661089b3a6357abb3eed584401e6a8ae2e2fb
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 68d0ac03ae0f6029e0f984e296a89048536f4eb7
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905704"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251282"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Superviser les performances de votre cluster Kubernetes avec Azure Monitor pour conteneurs
 
@@ -130,7 +130,7 @@ Dans Metrics Explorer, vous pouvez afficher les métriques agrégées d’utilis
 | insights.container/pods | |
 | | PodCount | Nombre de pods fournis par Kubernetes.|
 
-Vous pouvez [fractionner](../platform/metrics-charts.md#apply-splitting-to-a-chart) une métrique pour l’afficher par dimension et comparer différents segments de celui-ci. Pour un nœud, vous pouvez segmenter le graphique par la dimension *hôte*. À partir d’un pod, vous pouvez le segmenter par les dimensions suivantes :
+Vous pouvez [fractionner](../platform/metrics-charts.md#apply-splitting) une métrique pour l’afficher par dimension et comparer différents segments de celui-ci. Pour un nœud, vous pouvez segmenter le graphique par la dimension *hôte*. À partir d’un pod, vous pouvez le segmenter par les dimensions suivantes :
 
 * Contrôleur
 * Espace de noms Kubernetes

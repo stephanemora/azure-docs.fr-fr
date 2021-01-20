@@ -19,7 +19,7 @@
           href: 4me-tutorial.md
         - name: 8X8
           href: 8x8virtualoffice-tutorial.md
-    - name: A
+    - name: Un
       items:
         - name: abintegro
           href: abintegro-tutorial.md
@@ -2076,16 +2076,18 @@
           href: envoy-provisioning-tutorial.md
         - name: Elium
           href: elium-provisioning-tutorial.md
-        - name: Figma
-          href: figma-provisioning-tutorial.md
         - name: Annuaire fédéré
           href: federated-directory-provisioning-tutorial.md
-        - name: Fuze
-          href: fuze-provisioning-tutorial.md
+        - name: Figma
+          href: figma-provisioning-tutorial.md
         - name: Flock
           href: flock-provisioning-tutorial.md
         - name: Foodee
           href: foodee-provisioning-tutorial.md
+        - name: Fortes Change Cloud
+          href: fortes-change-cloud-provisioning-tutorial.md
+        - name: Fuze
+          href: fuze-provisioning-tutorial.md
         - name: G Suite
           href: g-suite-provisioning-tutorial.md
         - name: GitHub

@@ -3,17 +3,17 @@ title: Rechercher un emplacement à l’aide des services Search d’Azure Maps
 description: Apprenez-en plus sur le service Search Azure Maps. Découvrez comment utiliser cet ensemble d’API pour le géocodage, le géocodage inversé, les recherches approximatives et les recherches de rues inverses.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 10/05/2020
+ms.date: 01/19/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 00ddb53276c052d538d658f2c40384e86cf72aee
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: dddf56edf2037d87a28589a59834db32f8d04a4c
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92910982"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98598370"
 ---
 # <a name="search-for-a-location-using-azure-maps-search-services"></a>Rechercher un emplacement à l’aide des services Search d’Azure Maps
 
@@ -53,7 +53,7 @@ Dans cet exemple, nous utilisons l’[API Get Search Address](/rest/api/maps/sea
 
 4. Cliquez sur le bouton bleu **Envoyer**. Le corps de la réponse contient les données d’un emplacement unique.
 
-5. À présent, nous allons rechercher une adresse qui a plusieurs emplacements possibles. Dans la section **Params** , remplacez la clé `query` par `400 Broad, Seattle`. Cliquez sur le bouton bleu **Envoyer**.
+5. À présent, nous allons rechercher une adresse qui a plusieurs emplacements possibles. Dans la section **Params**, remplacez la clé `query` par `400 Broad, Seattle`. Cliquez sur le bouton bleu **Envoyer**.
 
     :::image type="content" source="./media/how-to-search-for-address/search-address.png" alt-text="Rechercher une adresse":::
 
@@ -100,7 +100,7 @@ Dans cet exemple, nous allons utiliser la recherche approximative pour recherche
 
 5. Pour obtenir une recherche encore plus ciblée, vous pouvez effectuer une recherche dans l’étendue d’une paire de coordonnées latitude/longitude. Dans cet exemple, nous allons utiliser la latitude/longitude de la Space Needle de Seattle. Comme nous voulons uniquement retourner les résultats qui se trouvent dans un rayon de 400 mètres, nous allons ajouter le paramètre `radius`. Nous allons également ajouter le paramètre `limit` pour limiter les résultats aux cinq pizzerias les plus proches.
 
-    Dans la section **Params** , ajoutez les paires clé-valeur suivantes :
+    Dans la section **Params**, ajoutez les paires clé-valeur suivantes :
 
      | Clé | Valeur |
     |-----|------------|
@@ -133,7 +133,7 @@ Dans cet exemple, nous allons effectuer des recherches inversées à l’aide de
 
 3. Cliquez sur **Send** (Envoyer), puis examinez le corps de la réponse. Vous devez voir un résultat de requête. La réponse inclut des informations d’adresse clés sur Safeco Field.
   
-4. À présent, nous allons ajouter les paires clé-valeur suivantes à la section **Params**  :
+4. À présent, nous allons ajouter les paires clé-valeur suivantes à la section **Params** :
 
     | Clé | Valeur | Retours
     |-----|------------|------|
@@ -169,7 +169,7 @@ Dans cet exemple, nous allons rechercher une intersection en nous basant sur les
 
     :::image type="content" source="./media/how-to-search-for-address/search-address-cross.png" alt-text="Rechercher une intersection.":::
   
-3. Cliquez sur **Send** (Envoyer), puis examinez le corps de la réponse. Vous remarquerez que la réponse contient une valeur `crossStreet` pour `Occidental Avenue South`.
+3. Cliquez sur **Send** (Envoyer), puis examinez le corps de la réponse. Vous remarquerez que la réponse contient une valeur `crossStreet` pour `South Atlantic Street`.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

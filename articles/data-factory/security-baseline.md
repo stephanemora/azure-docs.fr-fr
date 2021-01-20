@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: e48b1357b8576baca0e8defca94f4c5248c6f74e
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: ff777f079116942eba32e49f359c7f7e0b99f65d
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461286"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98555778"
 ---
 # <a name="azure-security-baseline-for-azure-data-factory"></a>Base de référence de sécurité Azure pour Azure Data Factory
 
@@ -46,7 +46,7 @@ Lorsque le lien privé est disponible, utilisez des points de terminaison privé
 
 * [Présentation d’Azure Private Link](../private-link/private-link-overview.md)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -66,7 +66,7 @@ Vous pouvez aussi envoyer ces journaux vers un espace de travail Log Analytics e
 
 * [Guide pratique pour activer et utiliser Traffic Analytics](../network-watcher/traffic-analytics.md)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -86,7 +86,7 @@ Vous pouvez aussi envoyer ces journaux vers un espace de travail Log Analytics e
 
 * [Présentation de la fonctionnalité Threat Intelligence intégrée à Azure Security Center](../security-center/azure-defender.md)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -102,7 +102,7 @@ Vous pouvez aussi envoyer ces journaux vers un espace de travail Log Analytics e
 
 * [Guide pratique pour activer et utiliser Traffic Analytics](../network-watcher/traffic-analytics.md)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -118,7 +118,7 @@ Vous pouvez aussi envoyer ces journaux vers un espace de travail Log Analytics e
 
 * [Guide pratique pour configurer des alertes avec le Pare-feu Azure](../firewall/threat-intel.md)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -335,13 +335,13 @@ Bien qu’Azure AD soit la méthode recommandée pour administrer l’accès uti
 
 * [Informations sur Privileged Identity Manager](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-* [Guide pratique pour obtenir un rôle d’annuaire dans Azure AD avec PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+* [Guide pratique pour obtenir un rôle d’annuaire dans Azure AD avec PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
-* [Guide pratique pour obtenir les membres d’un rôle d’annuaire dans Azure AD avec PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+* [Guide pratique pour obtenir les membres d’un rôle d’annuaire dans Azure AD avec PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 * [Informations pour les comptes locaux](../active-directory/devices/assign-local-admin.md#manage-the-device-administrator-role)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -400,7 +400,7 @@ Si vous exécutez votre Integration Runtime sur une machine virtuelle Azure, les
 
 * [Guide pratique pour superviser les identités et les accès dans Azure Security Center](../security-center/security-center-identity-access.md)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -408,7 +408,7 @@ Si vous exécutez votre Integration Runtime sur une machine virtuelle Azure, les
 
 **Conseils** : Utilisez des stations de travail disposant d’un accès privilégié avec Multi-Factor Authentication (MFA) configuré pour vous connecter aux ressources Azure et les configurer.
 
-* [En savoir plus sur les stations de travail à accès privilégié](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [En savoir plus sur les stations de travail à accès privilégié](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 * [Guide pratique pour activer l’authentification MFA dans Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -456,7 +456,7 @@ Si vous exécutez votre Integration Runtime sur une machine virtuelle Azure, vou
 
 * [Procédure de configuration et de gestion de l’authentification Azure Active Directory avec Azure SQL Database](../azure-sql/database/authentication-aad-configure.md)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -472,7 +472,7 @@ Si vous exécutez votre Integration Runtime sur une machine virtuelle Azure, vou
 
 * [Comment utiliser les révisions d’accès des identités Azure](../active-directory/governance/access-reviews-overview.md)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -570,7 +570,7 @@ Lorsque Private Link est disponible, utilisez des points de terminaison privés 
 
 * [Présentation de la protection des données client dans Azure](../security/fundamentals/protection-customer-data.md)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -694,7 +694,7 @@ Pour la plateforme sous-jacente qui est gérée par Microsoft, Microsoft traite 
 
 * [Présentation de la protection des données client dans Azure](../security/fundamentals/protection-customer-data.md)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Partagé
 
@@ -738,13 +738,13 @@ Après avoir identifié les vulnérabilités, Security Center présente les rés
 
 ### <a name="61-use-automated-asset-discovery-solution"></a>6.1 : Utiliser la solution de détection automatisée des ressources
 
-**Conseils** : Utilisez Azure Resource Graph pour interroger/découvrir toutes les ressources (telles que calcul, stockage, réseau, ports et protocoles) dans vos abonnements. Vérifiez les autorisations (lecture) appropriées dans votre locataire et répertoriez tous les abonnements Azure, ainsi que les ressources dans vos abonnements.
+**Aide** : Utilisez Azure Resource Graph pour interroger/découvrir toutes les ressources (telles que calcul, stockage, réseau, ports et protocoles) dans vos abonnements. Vérifiez les autorisations (lecture) appropriées dans votre locataire et répertoriez tous les abonnements Azure, ainsi que les ressources dans vos abonnements.
 
 Bien que les ressources Azure classiques puissent être découvertes via Resource Graph, il est vivement recommandé de créer et d’utiliser des ressources Azure Resource Manager à l’avenir.
 
 * [Guide pratique pour créer des requêtes avec Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-* [Guide pratique pour afficher ses abonnements Azure](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+* [Guide pratique pour afficher ses abonnements Azure](/powershell/module/az.accounts/get-azsubscription)
 
 * [Présentation d’Azure RBAC](../role-based-access-control/overview.md)
 
@@ -790,7 +790,7 @@ Appliquez également des restrictions quant au type de ressources pouvant être 
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5 : Analyser les ressources Azure non approuvées
 
-**Conseils** : Utilisez Azure Policy pour appliquer des restrictions quant au type de ressources pouvant être créées dans vos abonnements.
+**Aide** : Utilisez Azure Policy pour appliquer des restrictions quant au type de ressources pouvant être créées dans vos abonnements.
 
 Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leurs abonnements. Vérifiez que toutes les ressources Azure présentes dans l’environnement sont approuvées.
 
@@ -880,7 +880,7 @@ Notez que cela ne s’applique que si votre Integration Runtime s’exécute sur
 
 **Aide** : Si vous exécutez votre Integration Runtime sur une machine virtuelle Azure, selon le type de script, vous pouvez utiliser des configurations de système d’exploitation spécifiques ou des ressources tierces pour limiter la capacité des utilisateurs à exécuter des scripts dans des ressources de calcul Azure. Vous avez également la possibilité d’exploiter les contrôles d’application adaptatifs Azure Security Center pour faire en sorte que seuls les logiciels autorisés s’exécutent et que l’exécution de tous les logiciels non autorisés soit bloquée sur les machines virtuelles Azure.
 
-* [Guide pratique pour contrôler l’exécution des scripts PowerShell dans des environnements Windows](/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
+* [Guide pratique pour contrôler l’exécution des scripts PowerShell dans des environnements Windows](/powershell/module/microsoft.powershell.security/set-executionpolicy)
 
 * [Guide pratique pour utiliser les contrôles d’application adaptatifs Azure Security Center](../security-center/security-center-adaptive-application.md)
 
@@ -918,7 +918,7 @@ Notez que cela ne s’applique que si votre Integration Runtime s’exécute sur
 
 **Aide** : Définissez et implémentez des configurations de sécurité standard pour Azure Data Factory avec Azure Policy. Utilisez des alias Azure Policy dans l’espace de noms « Microsoft.DataFactory » pour créer des stratégies personnalisées d’audit ou d’application de la configuration de vos instances Azure Data Factory.
 
-* [Affichage des alias Azure Policy disponibles](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+* [Affichage des alias Azure Policy disponibles](/powershell/module/az.resources/get-azpolicyalias)
 
 * [Guide pratique pour configurer et gérer Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -964,7 +964,7 @@ Pour la plupart des scénarios, les modèles de machine virtuelle de base de Mic
 
 * [Informations sur la création de modèles Azure Resource Manager](../virtual-machines/windows/ps-template.md)
 
-* [Procédure de chargement d’un disque dur virtuel de machine virtuelle personnalisé dans Azure](/azure-stack/operator/azure-stack-add-vm-image?view=azs-1910)
+* [Procédure de chargement d’un disque dur virtuel de machine virtuelle personnalisé dans Azure](/azure-stack/operator/azure-stack-add-vm-image)
 
 **Supervision d’Azure Security Center** : Oui
 
@@ -974,9 +974,9 @@ Pour la plupart des scénarios, les modèles de machine virtuelle de base de Mic
 
 **Aide** : Si vous utilisez des définitions Azure Policy personnalisées, utilisez Azure DevOps ou Azure Repos pour stocker et gérer votre code en toute sécurité.
 
-* [Stocker du code dans Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
+* [Stocker du code dans Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
-* [Documentation Azure Repos](/azure/devops/repos/index?view=azure-devops)
+* [Documentation Azure Repos](/azure/devops/repos/index)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -1150,7 +1150,7 @@ Pour tous vos magasins de données, reportez-vous à la ligne de base de sécuri
 
 * [Vue d’ensemble de la sauvegarde de machines virtuelles Azure](../backup/backup-azure-vms-introduction.md)
 
-* [Guide pratique pour sauvegarder des clés de coffre de clés dans Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+* [Guide pratique pour sauvegarder des clés de coffre de clés dans Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
 **Supervision d’Azure Security Center** : Oui
 
@@ -1164,7 +1164,7 @@ Pour tous vos magasins de données, reportez-vous à la ligne de base de sécuri
 
 * [Guide pratique pour récupérer des fichiers à partir d’une sauvegarde de machines virtuelles Azure](../backup/backup-azure-restore-files-from-vm.md)
 
-* [Guide pratique pour restaurer des clés de coffre de clés dans Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+* [Guide pratique pour restaurer des clés de coffre de clés dans Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -1178,7 +1178,7 @@ Pour tous vos magasins de données, reportez-vous à la ligne de base de sécuri
 
 * [Vue d’ensemble de la suppression réversible d’Azure Key Vault](../key-vault/general/soft-delete-overview.md)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -1208,13 +1208,13 @@ Pour tous vos magasins de données, reportez-vous à la ligne de base de sécuri
 
 En outre, marquez clairement les abonnements (par ex. production, non production) et créez un système d’attribution de noms pour identifier et classer les ressources Azure de façon claire.
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
 ### <a name="103-test-security-response-procedures"></a>10.3 : Tester les procédures de réponse de sécurité
 
-**Conseils** : Exécutez des exercices pour tester les fonctionnalités de réponse aux incidents de vos systèmes de façon régulière. Identifiez les points faibles et les lacunes, et révisez le plan en fonction des besoins.
+**Aide** : Exécutez des exercices pour tester les fonctionnalités de réponse aux incidents de vos systèmes de façon régulière. Identifiez les points faibles et les lacunes, et révisez le plan en fonction des besoins.
 
 * [Reportez-vous à la publication du NIST : Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities (Guide de test, d’entraînement et d’utilisation des programmes destinés aux plans et fonctionnalités informatiques)](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
 
@@ -1228,7 +1228,7 @@ En outre, marquez clairement les abonnements (par ex. production, non production
 
 * [Comment définir le contact de sécurité d’Azure Security Center](../security-center/security-center-provide-security-contact-details.md)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -1264,7 +1264,7 @@ En outre, marquez clairement les abonnements (par ex. production, non production
 
 * [Suivez les règles d’engagement de Microsoft pour vous assurer que vos tests d’intrusion sont conformes aux stratégies Microsoft](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-* [Vous trouverez ici plus d’informations sur la stratégie de Microsoft, sur l’exécution de Red Teaming et sur les tests d’intrusion de site actif dans l’infrastructure, les services et les applications cloud gérés par Microsoft.](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+* [Vous trouverez ici plus d’informations sur la stratégie de Microsoft, sur l’exécution de Red Teaming et sur les tests d’intrusion de site actif sur l’infrastructure, les services et les applications cloud qui sont managés par Microsoft](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Supervision d’Azure Security Center** : Non applicable
 

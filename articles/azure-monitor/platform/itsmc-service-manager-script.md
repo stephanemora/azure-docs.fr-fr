@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 01/23/2018
-ms.openlocfilehash: d620df0b55b024cd5d7c25ea17d9b09c5c5da8ff
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 3d9360b167a246e257d8c0b2ec4cb88f1ae39dcd
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97722876"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600143"
 ---
 # <a name="create-service-manager-web-app-using-the-automated-script"></a>Créer l’application web Service Manager à l’aide du script automatisé
 
@@ -317,6 +317,11 @@ if(!$err)
 }
 ```
 
+## <a name="troubleshoot-service-manager-web-app-deployment"></a>Résoudre les problèmes de déploiement de l’application web Service Manager
+
+-   Si vous rencontrez des problèmes lors du déploiement d’application web, vérifiez que vous disposez des autorisations nécessaires pour créer/déployer des ressources dans l’abonnement.
+-   Si l’erreur **Référence d’objet non définie sur une instance d’un objet** s’affiche pendant l’exécution du [script](itsmc-service-manager-script.md), vérifiez que vous avez entré des valeurs valides dans la section **Configuration utilisateur**.
+-   Si vous ne parvenez pas à créer l’espace de noms de Service Bus Relay, vérifiez que le fournisseur de ressources nécessaire est inscrit dans l’abonnement. S’il n’est pas inscrit, créez manuellement l’espace de noms Service Bus Relay à partir du portail Azure. Vous pouvez également le créer quand vous [créez la connexion hybride](./itsmc-connections-scsm.md#configure-the-hybrid-connection) dans le portail Azure.
+
 ## <a name="next-steps"></a>Étapes suivantes
 [Configurez la connexion hybride](./itsmc-connections-scsm.md#configure-the-hybrid-connection).
-

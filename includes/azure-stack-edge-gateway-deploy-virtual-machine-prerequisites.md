@@ -2,14 +2,14 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 12/21/2020
+ms.date: 01/15/2021
 ms.author: alkohli
-ms.openlocfilehash: f2443765ecc9116193cefbc729ced25fa5657e59
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: 56fc24966fa60c3a5e91f92b57332ae2f6a525ff
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763424"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98256386"
 ---
 Avant de pouvoir déployer des machines virtuelles sur votre appareil Azure Stack Edge, vous devez configurer votre client pour qu’il se connecte à l’appareil via Azure Resource Manager sur Azure PowerShell. Pour obtenir des instructions détaillées, accédez à [Se connecter à Azure Resource Manager sur votre appareil Azure Stack Edge](../articles/databox-online/azure-stack-edge-j-series-connect-resource-manager.md).
 
@@ -38,11 +38,3 @@ Assurez-vous de pouvoir effectuer les étapes suivantes pour accéder à l’app
     > Si vous créez des machines virtuelles GPU, sélectionnez une interface réseau connectée à Internet. Cela vous permet d’installer l’extension GPU sur votre appareil.
 
 
-1. Activer le rôle de machine virtuelle à partir du portail Azure. Cette étape crée un abonnement unique pour votre appareil et qui est utilisé pour créer des machines virtuelles via les API locales de l’appareil. 
-
-    1. Pour activer le rôle de machine virtuelle, dans le portail Azure, accédez à la ressource Azure Stack Edge de votre appareil Azure Stack Edge. Accédez à **Computing en périphérie > Machines virtuelles**.
-
-        ![Ajouter une image de machine virtuelle 1](../articles/databox-online/media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-1.png)
-
-    1. Sélectionnez **Machines virtuelles** pour accéder à la page **Vue d’ensemble**. **Activez** la gestion cloud des machines virtuelles.
-        ![Ajouter une image de machine virtuelle 2](../articles/databox-online/media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-2.png)
