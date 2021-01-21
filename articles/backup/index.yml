@@ -9,12 +9,12 @@ metadata:
   author: dcurwin
   ms.author: dacurwin
   ms.date: 12/01/2019
-  ms.openlocfilehash: e2afc60f6fa67c1dc0582839e2d3f7480907facc
-  ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+  ms.openlocfilehash: ea54d6e4a08ff5baa2a46051a8ec342128175de3
+  ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 01/18/2021
-  ms.locfileid: "98556492"
+  ms.lasthandoff: 01/21/2021
+  ms.locfileid: "98624921"
 landingContent:
 - title: En savoir plus sur Sauvegarde Azure
   linkLists:
@@ -40,8 +40,6 @@ landingContent:
       url: quick-backup-vm-cli.md
     - text: Sauvegarder une machine virtuelle avec un modèle Resource Manager
       url: quick-backup-vm-template.md
-- title: Essayer ces tutoriels pas à pas
-  linkLists:
   - linkListType: tutorial
     links:
     - text: Sauvegarder des machines virtuelles Azure
@@ -84,6 +82,20 @@ landingContent:
       url: backup-azure-vm-backup-faq.md
     - text: Gérer les sauvegardes de machines virtuelles Azure
       url: backup-azure-manage-vms.md
+- title: Sauvegarder les disques managés Azure (en préversion)
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Vue d’ensemble de la sauvegarde de disques Azure
+      url: disk-backup-overview.md
+    - text: Tableau de prise en charge de la sauvegarde de disques Azure
+      url: disk-backup-support-matrix.md
+    - text: Sauvegarder les disques managés Azure
+      url: backup-managed-disks.md
+    - text: FAQ - Disques managés Azure
+      url: disk-backup-faq.md
+    - text: Résoudre les problèmes de sauvegarde des disques managés Azure
+      url: disk-backup-troubleshoot.md
 - title: Sauvegarder SQL Server sur des machines virtuelles Azure
   linkLists:
   - linkListType: concept
