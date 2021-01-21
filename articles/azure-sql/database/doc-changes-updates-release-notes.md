@@ -115,7 +115,7 @@ Les fonctionnalités suivantes sont activées dans le modèle de déploiement SQ
 |[Il peut être nécessaire de reconfigurer Resource Governor sur le niveau de service Critique pour l’entreprise après le basculement](#resource-governor-on-business-critical-service-tier-might-need-to-be-reconfigured-after-failover)|Septembre 2019|Solution de contournement||
 |[Les boîtes de dialogue Service Broker utilisées entre plusieurs bases de données doivent être réinitialisées après la mise à niveau du niveau de service](#cross-database-service-broker-dialogs-must-be-reinitialized-after-service-tier-upgrade)|août 2019|Solution de contournement||
 |[L’emprunt d’identité des types de connexion Azure AD n’est pas pris en charge](#impersonation-of-azure-ad-login-types-is-not-supported)|Juillet 2019|Aucune solution de contournement||
-|[Le paramètre @query n’est pas pris en charge dans sp_send_db_mail](#-parameter-not-supported-in-sp_send_db_mail)|Avril 2019|Aucune solution de contournement||
+|[@queryLe paramètre n’est pas pris en charge dans sp_send_db_mail](#-parameter-not-supported-in-sp_send_db_mail)|Avril 2019|Aucune solution de contournement||
 |[La réplication transactionnelle doit être reconfigurée après un basculement géographique](#transactional-replication-must-be-reconfigured-after-geo-failover)|mars 2019|Aucune solution de contournement||
 |[Une base de données temporaire est utilisée d’une opération de restauration](#temporary-database-is-used-during-restore-operation)||Solution de contournement||
 |[La structure et le contenu de TEMPDB sont recréés](#tempdb-structure-and-content-is-re-created)||Aucune solution de contournement||
@@ -238,9 +238,9 @@ L’emprunt d’identité à l’aide de `EXECUTE AS USER` ou `EXECUTE AS LOGIN`
 -   Ajoutez des utilisateurs Azure AD. L’erreur suivante est renvoyée dans ce cas : `15517`.
 - Connexions et utilisateurs Azure AD basés sur des applications ou des principaux de service Azure AD. Les erreurs suivantes sont retournées dans ces cas `15517` et `15406`.
 
-### <a name="query-parameter-not-supported-in-sp_send_db_mail"></a>Le paramètre @query n’est pas pris en charge dans sp_send_db_mail
+### <a name="query-parameter-not-supported-in-sp_send_db_mail"></a>@queryLe paramètre n’est pas pris en charge dans sp_send_db_mail
 
-Le paramètre `@query` dans la procédure [sp_send_db_mail](/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql) ne fonctionne pas.
+Le `@query`paramètre dans la procédure [sp_send_db_mail](/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql) ne fonctionne pas.
 
 ### <a name="transactional-replication-must-be-reconfigured-after-geo-failover"></a>La réplication transactionnelle doit être reconfigurée après un basculement géographique
 
