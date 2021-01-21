@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/03/2020
-ms.openlocfilehash: 06f738ea88093ea8de45efebea983fd7fa13216e
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: fcc3e487d949a9450f792a6cc230b64e7dbe950a
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97387817"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202944"
 ---
 # <a name="tutorial-use-the-rest-apis"></a>Tutoriel : Utiliser les API REST
 
@@ -142,7 +142,7 @@ Recherchez et enregistrez les valeurs suivantes :
 
 
 
-1. [Installez Node.js](https://github.com/Azure/autorest/blob/master/docs/installing-autorest.md).
+1. [Installez Node.js](https://github.com/Azure/autorest/blob/v2/docs/installing-autorest.md).
 1. Ouvrez PowerShell et exécutez la commande suivante :
 
    ```powershell
@@ -173,7 +173,7 @@ Recherchez et enregistrez les valeurs suivantes :
 1. Assurez-vous que la version est au moins 2.3.21, puis sélectionnez **Installer**.
 1. Générez et exécutez l’application.
 
-L’exemple de code retourne le nombre de typedefs figurant dans le catalogue et montre comment gérer les attributions de rôles. Pour plus d’informations, consultez `DoRoleAssignmentOperations()` dans l’exemple de code. Pour plus d’informations sur le projet, consultez [Configuration du projet](https://github.com/Azure/autorest/blob/master/docs/client/proj-setup.md).
+L’exemple de code retourne le nombre de typedefs figurant dans le catalogue et montre comment gérer les attributions de rôles. Pour plus d’informations, consultez `DoRoleAssignmentOperations()` dans l’exemple de code. Pour plus d’informations sur le projet, consultez [Configuration du projet](https://github.com/Azure/autorest/blob/v2/docs/client/proj-setup.md).
 
 ### <a name="sample-code-for-the-console-application"></a>Exemple de code pour l’application console
 

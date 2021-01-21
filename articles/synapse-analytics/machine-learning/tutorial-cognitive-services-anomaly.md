@@ -9,16 +9,16 @@ ms.reviewer: jrasnick, garye
 ms.date: 11/20/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: 4052d6a0773aa27e0a378ee04975c7946f1ffbfe
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 5e7b914d459d2452704f93987ce1bf91bfba988c
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96463919"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222205"
 ---
 # <a name="tutorial-anomaly-detection-with-cognitive-services-preview"></a>Tutoriel : Détection d’anomalie avec Cognitive Services (Préversion)
 
-Dans ce tutoriel, vous allez apprendre à enrichir facilement vos données dans Azure Synapse avec [Cognitive Services](https://go.microsoft.com/fwlink/?linkid=2147492). Nous allons utiliser le [Détecteur d’anomalies](https://go.microsoft.com/fwlink/?linkid=2147493) pour détecter des anomalies. Dans Azure Synapse, un utilisateur peut simplement sélectionner une table à enrichir pour la détection d’anomalie.
+Dans ce tutoriel, vous allez apprendre à enrichir facilement vos données dans Azure Synapse avec [Cognitive Services](../../cognitive-services/index.yml). Nous allons utiliser le [Détecteur d’anomalies](../../cognitive-services/anomaly-detector/index.yml) pour détecter des anomalies. Dans Azure Synapse, un utilisateur peut simplement sélectionner une table à enrichir pour la détection d’anomalie.
 
 Ce didacticiel contient les sections suivantes :
 
@@ -94,7 +94,7 @@ Le notebook que vous venez d’ouvrir utilise la [bibliothèque mmlspark](https:
 
 Les détails Azure Key Vault que vous avez fournis vous permettent de référencer vos secrets de manière sécurisée à partir de cette expérience sans les divulguer.
 
-Vous pouvez maintenant exécuter toutes les cellules (**Exécuter tout**) pour effectuer une détection d’anomalie. Découvrez-en plus sur [Cognitive Services - Détecteur d’anomalies](https://go.microsoft.com/fwlink/?linkid=2147493).
+Vous pouvez maintenant exécuter toutes les cellules (**Exécuter tout**) pour effectuer une détection d’anomalie. Découvrez-en plus sur [Cognitive Services - Détecteur d’anomalies](../../cognitive-services/anomaly-detector/index.yml).
 
 ![Exécuter la détection d’anomalie](media/tutorial-cognitive-services/tutorial-cognitive-services-anomaly-00f.png)
 

@@ -3,14 +3,14 @@ title: Créer un point de terminaison RESTful
 description: Ce tutoriel explique comment créer un point de terminaison RESTful pour des fournisseurs personnalisés. Il décrit en détail comment gérer les requêtes et les réponses des méthodes HTTP RESTful prises en charge.
 author: jjbfour
 ms.topic: tutorial
-ms.date: 06/19/2019
+ms.date: 01/13/2021
 ms.author: jobreen
-ms.openlocfilehash: d7f6c51211ce0572797ade659b9316003502da1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 54d0df287865d5d92403bf68227a2d4c5faa8bb4
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75648726"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200207"
 ---
 # <a name="author-a-restful-endpoint-for-custom-providers"></a>Créer un point de terminaison RESTful pour des fournisseurs personnalisés
 
@@ -347,7 +347,7 @@ Après avoir ajouté les méthodes et les classes, vous devez mettre à jour les
 ```csharp
 #r "Newtonsoft.Json"
 #r "Microsoft.WindowsAzure.Storage"
-#r "../bin/Microsoft.Azure.Management.ResourceManager.Fluent.dll"
+#r "../bin/Microsoft.Azure.Management.ResourceManager.Fluent"
 
 using System;
 using System.Net;

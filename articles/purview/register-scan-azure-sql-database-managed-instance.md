@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: 6eb17537fd64b192f64c36b38bab57e11d751328
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 3513ba0cd1a894b55da604d54964affa79b6adf4
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400775"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98555965"
 ---
 # <a name="register-and-scan-an-azure-sql-database-managed-instance"></a>Inscrire et analyser une instance Azure SQL Database Managed Instance
 
@@ -28,19 +28,19 @@ La source de données Azure SQL Database Managed Instance prend en charge les fo
 
 ### <a name="known-limitations"></a>Limitations connues
 
-Azure Purview ne prend pas en charge l’analyse des [vues](https://docs.microsoft.com/sql/relational-databases/views/views?view=sql-server-ver15) dans Azure SQL Managed Instance.
+Azure Purview ne prend pas en charge l’analyse des [vues](/sql/relational-databases/views/views?view=azuresqldb-mi-current&preserve-view=true) dans Azure SQL Managed Instance.
 
 ## <a name="prerequisites"></a>Prérequis
 
 - Créez un compte Purview si vous n’en avez pas déjà un.
 
-- [Configurer un point de terminaison public dans Azure SQL Managed Instance](https://docs.microsoft.com/azure/azure-sql/managed-instance/public-endpoint-configure)
+- [Configurer un point de terminaison public dans Azure SQL Managed Instance](/azure/azure-sql/managed-instance/public-endpoint-configure)
     > [!Note]
     > Votre organisation doit pouvoir autoriser un point de terminaison public car le **point de terminaison privé n’est pas encore pris en charge** par Purview. Si vous utilisez un point de terminaison privé, l’analyse n’aboutira pas.
 
 ### <a name="setting-up-authentication-for-a-scan"></a>Configuration de l’authentification pour une analyse
 
-Authentification pour analyser Azure SQL Database Managed Instance. Si vous avez besoin de créer une nouvelle authentification, vous devez [autoriser l’accès aux bases de données à SQL Database Managed Instance](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage). Il existe actuellement trois méthodes d’authentification prises en charge par Purview :
+Authentification pour analyser Azure SQL Database Managed Instance. Si vous avez besoin de créer une nouvelle authentification, vous devez [autoriser l’accès aux bases de données à SQL Database Managed Instance](/azure/azure-sql/database/logins-create-manage). Il existe actuellement trois méthodes d’authentification prises en charge par Purview :
 
 - Authentification SQL
 - Principal de service
@@ -51,7 +51,7 @@ Authentification pour analyser Azure SQL Database Managed Instance. Si vous avez
 > [!Note]
 > Seule la connexion principale au niveau du serveur (créée par le processus de configuration) ou les membres du rôle de base de données `loginmanager` dans la base de données master peuvent créer des connexions. Cela nécessite environ **15 minutes** une fois l’autorisation accordée. Le compte Purview doit disposer des autorisations appropriées pour pouvoir analyser la ou les ressources.
 
-Vous pouvez suivre les instructions fournies dans [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current&preserve-view=true#examples-1) pour créer une connexion pour Azure SQL Database Managed Instance si vous n’en avez pas. Vous aurez besoin d’un **nom d’utilisateur** et d’un **mot de passe** pour les étapes suivantes.
+Vous pouvez suivre les instructions fournies dans [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current&preserve-view=true#examples-1) pour créer une connexion pour Azure SQL Database Managed Instance si vous n’en avez pas. Vous aurez besoin d’un **nom d’utilisateur** et d’un **mot de passe** pour les étapes suivantes.
 
 1. Accédez à votre coffre de clés dans le portail Azure.
 1. Sélectionnez **Paramètres > Secrets**.
@@ -85,8 +85,8 @@ Vous pouvez utiliser un principal de service existant ou en créer un nouveau.
 ##### <a name="configure-azure-ad-authentication-in-the-database-account"></a>Configurer l’authentification Azure AD dans le compte de base de données
 
 Le principal de service ou l’identité managée doivent avoir l’autorisation d’obtenir des métadonnées pour la base de données, les schémas et les tables. Ils doivent également être en mesure d’interroger les tables à échantillonner pour la classification.
-- [Configurer et gérer l’authentification Azure AD avec Azure SQL](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure)
-- Créez un utilisateur Azure AD dans Azure SQL Database Managed Instance en suivant les conditions préalables et le tutoriel [Créer des utilisateurs à relation contenant-contenu mappés à des identités Azure AD](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure?tabs=azure-powershell#create-contained-users-mapped-to-azure-ad-identities).
+- [Configurer et gérer l’authentification Azure AD avec Azure SQL](/azure/azure-sql/database/authentication-aad-configure)
+- Créez un utilisateur Azure AD dans Azure SQL Database Managed Instance en suivant les conditions préalables et le tutoriel [Créer des utilisateurs à relation contenant-contenu mappés à des identités Azure AD](/azure/azure-sql/database/authentication-aad-configure?tabs=azure-powershell#create-contained-users-mapped-to-azure-ad-identities).
 - Affectez l’autorisation `db_owner` (**recommandée**) à l’identité.
 
 ##### <a name="add-service-principal-to-key-vault-and-purviews-credential"></a>Ajouter le principal de service aux informations d’identification de Purview et du coffre de clés
