@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/14/2020
 ms.topic: quickstart
-ms.openlocfilehash: 3eec935d0a25f9510cd9a2f6e00b7ac22756e697
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a5a44b9d27901fcd00f8813096de6bbae5f2310d
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88796797"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179943"
 ---
 # <a name="quickstart-deploy-unity-sample-to-hololens"></a>Démarrage rapide : Déployer l’exemple Unity sur HoloLens
 
@@ -36,19 +36,19 @@ Vérifiez que vos informations d’identification sont correctement enregistrée
 1. Sélectionnez **Universal Windows Platform** sous *Platform*.
 1. Définissez *Target Device* sur **HoloLens**.
 1. Définissez *Architecture* sur **ARM64**.
-1. Définissez *Build Type* sur **D3D Project**.\
+1. Définissez *Build Type* sur **D3D Project**\.
     ![Paramètres de génération](./media/unity-build-settings.png)
 1. Sélectionnez **Switch to Platform**.
 1. Quand vous sélectionnez **Build** (ou « Build And Run »), vous êtes invité à sélectionner le dossier dans lequel la solution doit être stockée.
 1. Ouvrez le fichier **Quickstart.sln** généré dans Visual Studio.
 1. Changez la configuration en la définissant sur **Version** et **ARM64**.
-1. Basculez le mode du débogueur sur **Ordinateur distant**.\
+1. Basculez le mode du débogueur sur **Ordinateur distant**\.
     ![Configuration de la solution](media/unity-deploy-config.png)
 1. Générez la solution.
 1. Pour le projet « Quickstart », accédez à *Propriétés > Débogage*.
     1. Vérifiez que la configuration *Version* est active.
     1. Définissez l’option *Débogueur à lancer* sur **Ordinateur distant**.
-    1. Remplacez la valeur sous *Nom de l’ordinateur* par l’**adresse IP de votre appareil HoleLens**.
+    1. Remplacez la valeur sous *Nom de l’ordinateur* par l’**adresse IP de votre appareil HoloLens**.
 
 ## <a name="launch-the-sample-project"></a>Lancer l’exemple de projet
 

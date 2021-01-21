@@ -4,19 +4,23 @@ description: Cet article est régulièrement mis à jour avec des informations n
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
-ms.date: 01/05/2021
-ms.openlocfilehash: 4591bc26c848032d1c0f8b96720c4ec66b9b064d
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.date: 01/12/2021
+ms.openlocfilehash: 4bcd25e96aba1ca103737679540cb9ff67674914
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97916352"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179127"
 ---
 # <a name="whats-new-in-language-understanding"></a>Nouveauté du service Language Understanding
 
 Découvrir les nouveautés du service. Ces éléments incluent des notes de publication, des vidéos, des billets de blog et d’autres types d’informations. Marquez cette page pour rester au fait des nouveautés du service.
 
 ## <a name="release-notes"></a>Notes de publication
+
+### <a name="january-2021"></a>Janvier 2021
+
+* L’API de prédiction v3 prend désormais en charge l’[API de vérification orthographique Bing](luis-how-to-publish-app.md#spelling-correction).
 
 ### <a name="december-2020"></a>Décembre 2020
 

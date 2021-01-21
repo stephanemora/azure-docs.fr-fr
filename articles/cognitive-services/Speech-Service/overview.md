@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 11/23/2020
 ms.author: trbye
-ms.openlocfilehash: 3b20773de62f036b507f1612f2b38d613d54ba2f
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d3d9f41876cf1310fe25a275624f609031c05b00
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96485193"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601891"
 ---
 # <a name="what-is-the-speech-service"></a>Qu’est-ce que le service de reconnaissance vocale ?
 
@@ -36,7 +36,7 @@ Les fonctionnalités suivantes font partie du service Speech. Pour en savoir plu
 | [Synthèse vocale](text-to-speech.md) | Synthèse vocale | La synthèse vocale convertit le texte d’entrée en parole synthétisée quasi humaine avec le [langage SSML (Speech Synthesis Markup Language)](speech-synthesis-markup.md). Faites votre choix parmi les voix standard et les voix neuronales (voir [Prise en charge linguistique](language-support.md)). | [Oui](./speech-sdk.md) | [Oui](#reference-docs) |
 | | [Créer des voix personnalisées](#customize-your-speech-experience) | Créez des polices de voix personnalisées propres à vos marques ou produits. | Non | [Oui](#reference-docs) |
 | [Traduction vocale](speech-translation.md) | Traduction vocale | La traduction vocale permet à vos applications, outils et appareils d’effectuer de la traduction multilingue en temps réel de la parole. Utilisez ce service pour la traduction de voix en voix et de voix en texte. | [Oui](./speech-sdk.md) | Non |
-| [Assistants vocaux](voice-assistants.md) | Assistants vocaux | Les assistants vocaux qui utilisent le service Speech permettent aux développeurs de créer des interfaces conversationnelles naturelles pour leurs applications et leurs expériences. Le service d’assistant vocal permet une interaction rapide et fiable entre un appareil et une implémentation d’assistant qui utilise le canal Direct Line Speech de Bot Framework ou le service intégré Custom Commands (préversion) pour réaliser la tâche. | [Oui](voice-assistants.md) | Non |
+| [Assistants vocaux](voice-assistants.md) | Assistants vocaux | Les assistants vocaux qui utilisent le service Speech permettent aux développeurs de créer des interfaces conversationnelles naturelles pour leurs applications et leurs expériences. Le service d’assistant vocal permet une interaction rapide et fiable entre un appareil et une implémentation d’assistant qui utilise le canal Direct Line Speech de Bot Framework ou le service intégré Commandes personnalisées pour réaliser la tâche. | [Oui](voice-assistants.md) | Non |
 | [Reconnaissance de l’orateur](speaker-recognition-overview.md) | Identification et vérification de l’orateur | Le service Reconnaissance de l’orateur fournit des algorithmes qui vérifient et identifient les orateurs d’après leurs caractéristiques vocales uniques. Le service Reconnaissance de l’orateur est utilisé pour répondre à la question « qui parle ? ». | Oui | [Oui](/rest/api/speakerrecognition/) |
 
 

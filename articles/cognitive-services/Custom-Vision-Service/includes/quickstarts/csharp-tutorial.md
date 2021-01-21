@@ -4,12 +4,12 @@ ms.author: pafarley
 ms.service: cognitive-services
 ms.date: 09/15/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1e6884b1eb342c55823414e92f679ddfcbe35f5f
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: a1a32e4ddad3b0dca84bf2dd6016eb5a218cc2f3
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97582723"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98256263"
 ---
 Découvrez comment bien démarrer avec la bibliothèque de client Custom Vision pour .NET. Suivez les étapes ci-après pour installer le package et essayer l’exemple de code afin de créer un modèle de classification d’images. Vous allez créer un projet, ajouter des étiquettes, entraîner le projet et utiliser l’URL de point de terminaison de prédiction du projet pour le tester programmatiquement. Utilisez cet exemple comme modèle pour générer votre propre application de reconnaissance d’image.
 
@@ -148,6 +148,9 @@ Cette méthode définit les étiquettes sur lesquelles vous allez effectuer l’
 
 Tout d’abord, téléchargez les exemples d’images pour ce projet. Enregistrez le contenu du [dossier des exemples d’images](https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/CustomVision/ImageClassification/Images) sur votre appareil local.
 
+> [!NOTE]
+> Trove, un projet Microsoft Garage, vous permet de collecter et d’acheter des ensembles d’images à des fins d’entraînement. Une fois que vous avez collecté vos images, vous pouvez les télécharger, puis les importer dans votre projet Custom Vision de la manière habituelle. Pour en savoir plus, consultez la [page dédiée à Trove](https://www.microsoft.com/en-us/ai/trove?activetab=pivot1:primaryr3).
+
 Définissez ensuite une méthode d’assistance pour charger les images dans ce répertoire. Vous devrez peut-être modifier l’argument **GetFiles** afin qu’il pointe vers l’emplacement où vos images sont enregistrées.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/CustomVision/ImageClassification/Program.cs?name=snippet_loadimages)]
@@ -182,7 +185,7 @@ Cette partie du script charge l’image test, interroge le point de terminaison 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/CustomVision/ImageClassification/Program.cs?name=snippet_test)]
 
 
-## <a name="run-the-application"></a>Exécuter l’application
+## <a name="run-the-application"></a>Exécution de l'application
 
 #### <a name="visual-studio-ide"></a>[IDE Visual Studio](#tab/visual-studio)
 

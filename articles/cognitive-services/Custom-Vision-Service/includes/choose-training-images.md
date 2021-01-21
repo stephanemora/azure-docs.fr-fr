@@ -5,12 +5,12 @@ ms.subservice: custom-vision
 ms.topic: include
 ms.date: 07/17/2019
 ms.author: pafarley
-ms.openlocfilehash: ce67062f83ad10703dfb1f0ee1f3741e698fb450
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d07a5da3b9013700694f6c20102ef2e8c5066087
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96018356"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98256460"
 ---
 Nous vous recommandons d’utiliser au moins 30 images par étiquette dans le jeu d’entraînement initial. Vous allez également collecter quelques images supplémentaires pour tester votre modèle une fois qu’il est entraîné.
 
@@ -27,3 +27,6 @@ En outre, vérifiez que toutes vos images d’entraînement respectent les crit�
 * format .jpg, .png, .bmp ou .gif
 * taille ne dépassant pas 6 Mo (4 Mo pour les images de prédiction)
 * le côté le plus court ne doit pas comporter moins de 256 pixels ; les images d’une dimension inférieure sont automatiquement mises à l’échelle par le service Vision personnalisée
+
+> [!NOTE]
+> Trove, un projet Microsoft Garage, vous permet de collecter et d’acheter des ensembles d’images à des fins d’entraînement. Une fois que vous avez collecté vos images, vous pouvez les télécharger, puis les importer dans votre projet Custom Vision de la manière habituelle. Pour en savoir plus, consultez la [page dédiée à Trove](https://www.microsoft.com/en-us/ai/trove?activetab=pivot1:primaryr3).
