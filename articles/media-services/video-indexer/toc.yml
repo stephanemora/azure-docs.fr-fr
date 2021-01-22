@@ -25,6 +25,8 @@
       href: 'https://github.com/Azure-Samples/media-services-video-indexer'
 - name: Concepts
   items:
+    - name: Vue d’ensemble
+      href: concepts-overview.md
     - name: Comparer les présélections Video Indexer et Media Services
       href: compare-video-indexer-with-media-services-presets.md
     - name: Gérer plusieurs locataires

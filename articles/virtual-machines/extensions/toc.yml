@@ -9,11 +9,11 @@
     - name: Agent de machine virtuelle Windows
       href: agent-windows.md
 - name: Démarrages rapides
-  expanded: true
   items:
     - name: Utiliser l’extension de script personnalisé
       href: ../windows/tutorial-automate-vm-deployment.md
       maintainContext: true
+  expanded: true
 - name: Concepts
   items:
     - name: Linux
@@ -120,13 +120,6 @@
         - name: Symantec
           href: symantec.md
     - name: Extensions déconseillées
-      items:
-        - name: Collecteur de journaux
-          href: log-collector.md
-        - name: Trend Micro Deep Security
-          href: trend.md
-        - name: Linux - version 1 (OSTC)
-          href: custom-script-linuxOstc.md
     - name: Limiter l’installation de l’extension
       items:
         - name: Linux

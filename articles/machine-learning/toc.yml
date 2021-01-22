@@ -70,10 +70,6 @@
         - name: Étiqueter les données d’image
           displayName: 'tag, tagging, images'
           href: tutorial-labeling.md
-    - name: SDK R
-      items:
-        - name: Créer votre première expérience ML (R)
-          href: tutorial-1st-r-experiment.md
     - name: Interface de ligne de commande
       items:
         - name: Entraîner et déployer avec l’interface CLI

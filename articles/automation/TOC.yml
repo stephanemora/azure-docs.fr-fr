@@ -6,6 +6,8 @@
       href: automation-intro.md
     - name: Questions fréquentes (FAQ)
       href: automation-faq.md
+    - name: Nouveautés
+      href: whats-new.md
 - name: Démarrages rapides
   items:
     - name: Créer un compte Automation
@@ -349,5 +351,5 @@
       href: 'https://azure.microsoft.com/updates/?product=automation'
     - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/azure-automation'
-    - name: Videos
+    - name: Vidéos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=automation'
