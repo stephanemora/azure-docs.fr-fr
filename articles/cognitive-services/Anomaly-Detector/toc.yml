@@ -38,7 +38,7 @@
           href: ../containers/index.yml
 - name: Concepts
   items:
-    - name: Bonnes pratiques concernant l’API Détecteur d’anomalies
+    - name: Bonnes pratiques de l’API Détecteur d’anomalies
       href: concepts/anomaly-detection-best-practices.md
 - name: Informations de référence
   items:

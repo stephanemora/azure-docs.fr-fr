@@ -18,38 +18,32 @@
   expanded: true
 - name: Tutoriels
   items:
-    - name: 1 - Créer/gérer une machine virtuelle
+    - name: Créer/gérer une machine virtuelle
       href: tutorial-manage-vm.md
-    - name: 2 - Créer/gérer des disques
+    - name: Créer/gérer des disques
       href: tutorial-manage-data-disk.md
-    - name: 3 - Automatiser la configuration
+    - name: Automatiser la configuration
       href: tutorial-automate-vm-deployment.md
-    - name: 4 - Créer des images de machine virtuelle
+    - name: Créer des images de machine virtuelle
       href: tutorial-custom-images.md
-    - name: 5 - Machines virtuelles hautement disponibles
+    - name: Machines virtuelles hautement disponibles
       href: tutorial-availability-sets.md
-    - name: 6 - Créer un groupe identique
+    - name: Créer un groupe identique
       href: tutorial-create-vmss.md
-    - name: 7 - Équilibrer la charge des machines virtuelles
+    - name: Équilibrer la charge des machines virtuelles
       href: tutorial-load-balancer.md
-    - name: 8 - Gérer la mise en réseau
+    - name: Gérer la mise en réseau
       href: tutorial-virtual-network.md
-    - name: 9 – Sauvegarder les machines virtuelles
-      href: tutorial-backup-vms.md
-    - name: 10 - Activer la reprise d’activité après sinistre
+    - name: Activer la reprise d’activité après sinistre
       href: tutorial-disaster-recovery.md
-    - name: 11 - Gérer les machines virtuelles
+    - name: Gérer les machines virtuelles
       displayName: scope policy Azure RBAC lock tag
       href: tutorial-govern-resources.md
-    - name: 12 - Suivre et mettre à jour les machines virtuelles
+    - name: Suivre et mettre à jour les machines virtuelles
       href: tutorial-config-management.md
-    - name: 13 - Superviser les machines virtuelles
+    - name: Superviser des machines virtuelles
       href: tutorial-monitor.md
-    - name: 14 - Gérer la sécurité des machines virtuelles
-      href: ../tutorial-azure-security.md
-    - name: 15 - Installer une pile SQL\IIS\.NET
-      href: tutorial-iis-sql.md
-    - name: 16 - Sécuriser un serveur web avec SSL
+    - name: Sécuriser un serveur web avec SSL
       href: tutorial-secure-web-server.md
 - name: Concepts
   items:
@@ -85,7 +79,7 @@
           href: ../generation-2.md
         - name: Usage général
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: ../sizes-general.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: "Série\_Av2"
               href: ../av2-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
@@ -105,7 +99,7 @@
               href: ../dv4-dsv4-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Optimisé pour le calcul
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: ../sizes-compute.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Série Fsv2
               href: ../fsv2-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
@@ -509,7 +503,7 @@
               href: disk-encryption-faq.md
             - name: Chiffrement de disque - version précédente
               items:
-                - name: Vue d'ensemble
+                - name: Vue d’ensemble
                   href: disk-encryption-overview-aad.md
                 - name: Coffre de clés pour Azure Disk Encryption
                   href: disk-encryption-key-vault-aad.md
@@ -594,7 +588,7 @@
       items:
         - name: Notifications de maintenance
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: ../maintenance-notifications.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Interface de ligne de commande
               href: ../maintenance-notifications-cli.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
@@ -659,7 +653,7 @@
                       href: ../../azure-monitor/platform/diagnostics-extension-troubleshooting.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Agent Log Analytics
               items:
-                - name: Vue d'ensemble
+                - name: Vue d’ensemble
                   href: ../../azure-monitor/platform/log-analytics-agent.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
                 - name: Agents Windows
                   href: ../../azure-monitor/platform/agent-windows.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
@@ -758,8 +752,6 @@
           href: ../custom-data.md
         - name: Chef
           href: /azure/developer/chef/windows-vm-configure
-        - name: Publier l’application web à partir de Visual Studio
-          href: publish-web-app-from-visual-studio.md
     - name: Exécuter des applications
       items:
         - name: SQL Server
