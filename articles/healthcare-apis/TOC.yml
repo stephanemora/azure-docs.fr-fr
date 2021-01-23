@@ -21,8 +21,13 @@
         - name: Utilisation d’un modèle ARM
           displayName: Resource Manager
           href: fhir-paas-arm-template-quickstart.md
-    - name: Déployer le connecteur Azure IoT pour FHIR (préversion) - Portail
-      href: iot-fhir-portal-quickstart.md
+    - name: Déployer le connecteur Azure IoT pour FHIR (préversion)
+      expanded: false
+      items:
+        - name: Utilisation du portail
+          href: iot-fhir-portal-quickstart.md
+        - name: Utilisation d’un modèle ARM
+          href: iot-fhir-arm-template-quickstart.md
 - name: Tutoriels
   expanded: false
   items:
