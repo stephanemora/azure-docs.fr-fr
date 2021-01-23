@@ -51,8 +51,6 @@
           href: non-gallery-apps.md
         - name: Planifier un déploiement de Mes applications
           href: access-panel-deployment-plan.md
-        - name: Aide pour les développeurs
-          href: developer-guidance-for-integrating-applications.md
     - name: Authentification unique
       items:
         - name: Planifier un déploiement de l’authentification unique
