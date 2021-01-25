@@ -10,7 +10,7 @@
   items:
     - name: Modèles d’achat
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           href: database/purchasing-models.md
         - name: Vue d’ensemble du modèle vCore
           href: database/service-tiers-vcore.md
@@ -20,7 +20,7 @@
           href: database/reserved-capacity-overview.md
     - name: Capacité de calcul et stockage
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           href: database/service-tiers-general-purpose-business-critical.md
           displayName: provisioned compute tier
         - name: Usage général / Standard
@@ -45,10 +45,10 @@
           href: database/elastic-transactions-overview.md
         - name: Sécurité
           items:
-            - name: Vue d’ensemble
+            - name: Vue d'ensemble
               href: database/security-overview.md
               displayName: 'compliance, fedramp, soc, fact, fisc, hitrust, pci, iso'
-            - name: Bonnes pratiques
+            - name: Meilleures pratiques
               href: database/security-best-practice.md
             - name: Contrôles de sécurité par Azure Policy
               displayName: 'regulatory, compliance, standards, domains'
@@ -674,7 +674,7 @@
   items:
     - name: Documentation
       href: managed-instance/index.yml
-    - name: Vue d’ensemble
+    - name: Vue d'ensemble
       items:
         - name: "Qu’est-ce que SQL Managed Instance\_?"
           href: managed-instance/sql-managed-instance-paas-overview.md
@@ -973,6 +973,8 @@
           href: managed-instance/virtual-cluster-delete.md
         - name: Configurer un système DNS personnalisé
           href: managed-instance/custom-dns-configure.md
+        - name: Synchroniser la configuration DNS
+          href: managed-instance/synchronize-vnet-dns-servers-setting-on-virtual-cluster.md
         - name: Synchroniser la configuration du réseau
           href: managed-instance/azure-app-sync-network-configuration.md
         - name: Rechercher l’adresse IP de point de terminaison de gestion
@@ -1003,7 +1005,7 @@
       href: virtual-machines/index.yml
     - name: Windows
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           items:
             - name: "Qu’est-ce qu’une machine virtuelle SQL\_Server\_?"
               href: virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md
@@ -1032,7 +1034,7 @@
                   href: virtual-machines/windows/availability-group-overview.md
                 - name: Instance de cluster de basculement
                   href: virtual-machines/windows/failover-cluster-instance-overview.md
-            - name: Bonnes pratiques
+            - name: Meilleures pratiques
               items:
                 - name: Performances
                   href: virtual-machines/windows/performance-guidelines-best-practices.md

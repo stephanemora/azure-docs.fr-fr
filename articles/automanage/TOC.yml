@@ -19,6 +19,8 @@
       href: virtual-machines-custom-preferences.md
     - name: Activer sur des machines virtuelles par le biais d’Azure Policy
       href: virtual-machines-policy-enable.md
+    - name: Résoudre les problèmes d’erreurs d’intégration
+      href: common-errors.md
     - name: Réparer un compte Automanage endommagé
       href: repair-automanage-account.md
 - name: Ressources

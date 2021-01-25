@@ -4,17 +4,17 @@ description: Réalimentez vos blobs à partir du stockage d’archive pour pouvo
 services: storage
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 04/08/2020
+ms.date: 01/08/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: f74d4ffdd724039354a311234317dac889cd7cfe
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 5a89e5a9eca653a2d15e5b09605b78bc18d76b8f
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95545928"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165669"
 ---
 # <a name="rehydrate-blob-data-from-the-archive-tier"></a>Réalimenter les données d’objets blob à partir du niveau Archive
 
@@ -29,9 +29,13 @@ Lorsqu’un objet blob se trouve dans le niveau d’accès Archive, il est consi
 
 [!INCLUDE [storage-blob-rehydration](../../../includes/storage-blob-rehydrate-include.md)]
 
+## <a name="monitor-rehydration-progress"></a>Surveiller la progression de la réactivation
+
+Lors de la réactivation, utilisez l’opération d’obtention des propriétés d’objet blob afin de vérifier l’attribut **État d’archive** et confirmer la fin du changement de niveau. L’état affiche « réalimentation-vers-chaud » ou « réalimentation-vers-froid » selon le niveau choisi. Une fois le processus terminé, la propriété d’état archive est supprimée, et la propriété **Niveau d’accès** de l’objet blob indique le niveau chaud ou froid.
+
 ## <a name="copy-an-archived-blob-to-an-online-tier"></a>Copier un objet blob archivé dans un niveau en ligne
 
-Si vous ne souhaitez pas réalimenter votre blob d’archive, vous pouvez choisir d’effectuer une opération [Copier le blob](/rest/api/storageservices/copy-blob). Votre blob d’origine reste inchangé dans le niveau archive pendant qu’un nouveau blob est créé dans le niveau chaud ou froid en ligne pour que vous travailliez dessus. Dans l’opération Copier le blob, vous pouvez également définir la propriété facultative *x-ms-réhydrate-priorité* sur Standard ou Haute pour spécifier la priorité à laquelle vous souhaitez créer votre copie de blob.
+Si vous ne souhaitez pas réalimenter votre blob d’archive, vous pouvez choisir d’effectuer une opération [Copier le blob](/rest/api/storageservices/copy-blob). Votre blob d’origine reste inchangé dans le niveau archive pendant qu’un nouveau blob est créé dans le niveau chaud ou froid en ligne pour que vous travailliez dessus. Dans l’opération **Copier le blob**, vous pouvez également définir la propriété facultative *x-ms-réhydrate-priorité* sur Standard ou Haute pour spécifier la priorité à laquelle vous souhaitez créer votre copie de blob.
 
 La copie d’un blob à partir d’une archive peut prendre plusieurs heures, selon la priorité de réalimentation sélectionnée. En arrière-plan, l’opération **Copier le blob** lit votre blob source d’archive pour créer un blob en ligne dans le niveau de destination sélectionné. Le nouveau blob peut être visible lorsque vous répertoriez les blobs, mais les données ne sont pas disponibles tant que la lecture du blob d’archive source n’est pas terminée et que les données ne sont pas écrites dans le nouveau blob de destination en ligne. Le nouveau blob est une copie indépendante et toute modification ou suppression de celui-ci ne se répercute pas sur le blob d’archive source.
 

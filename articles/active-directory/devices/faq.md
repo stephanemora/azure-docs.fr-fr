@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd438a09b929274808984322981f6d21da0bf68f
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 73946eea846b06b28d0a0f017ea1317c8cc7326d
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96860947"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165142"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>FAQ sur la gestion des appareils Azure Active Directory
 
@@ -142,6 +142,12 @@ Pour savoir comment remédier à cela, lisez la section ci-dessous.
 >* s’il est supprimé d’une étendue de synchronisation sur Azure AD Connect, puis rajouté.
 >
 >Dans les deux cas, vous devez réinscrire l’appareil manuellement sur chacun de ces appareils. Pour vérifier si l’appareil a déjà été inscrit, vous pouvez [résoudre les problèmes liés aux appareils à l’aide de la commande dsregcmd](troubleshoot-device-dsregcmd.md).
+
+---
+
+### <a name="q-i-cannot-add-more-than-3-azure-ad-user-accounts-under-the-same-user-session-on-a-windows-10-device-why"></a>Q : Je ne peux pas ajouter plus de 3 comptes d’utilisateur Azure AD sous la même session utilisateur sur un appareil Windows 10, pourquoi ?
+
+**R** : Azure AD a ajouté la prise en charge de plusieurs comptes Azure AD dans la version 1803 de Windows 10. Toutefois, Windows 10 limite le nombre de comptes Azure AD à 3 sur un appareil pour limiter la taille des demandes de jetons et activer l’authentification unique (SSO) fiable. Une fois que 3 comptes ont été ajoutés, les utilisateurs verront une erreur pour les comptes suivants. Les informations supplémentaires sur l’écran d’erreur indiquent la raison dans le message suivant : « L’opération d’ajout de compte est bloquée car la limite de comptes est atteinte ». 
 
 ---
 ## <a name="azure-ad-join-faq"></a>FAQ sur la jonction Azure AD

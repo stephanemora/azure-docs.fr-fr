@@ -10,12 +10,12 @@ ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9ee18edd563d94a85dedf48b7a4d6df394c09707
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: b93addfe659847187dffe61f12f5a2bfac9dca21
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461388"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209625"
 ---
 # <a name="azure-synapse-analytics-shared-metadata-tables"></a>Tables de métadonnées partagées Azure Synapse Analytics
 
@@ -32,7 +32,7 @@ Comme elles sont synchronisées avec le pool SQL serverless de façon asynchrone
 
 Utilisez Spark pour gérer les bases de données créées avec Spark. Par exemple, supprimez-la via un travail de pool Apache Spark serverless et créez-y des tables depuis Spark.
 
-Si vous créez des objets dans une base de données de ce type à partir du pool SQL serverless ou que vous essayez de supprimer la base de données, l’opération va réussir, mais la base de données Spark d’origine ne sera pas modifiée.
+Si vous créez des objets dans une base de données de ce type en utilisant le pool SQL serverless, ou si vous essayez de supprimer la base de données, l’opération échouera. La base de données Spark d’origine ne peut pas être modifiée via un pool SQL serverless.
 
 ## <a name="expose-a-spark-table-in-sql"></a>Exposer une table Spark dans SQL
 

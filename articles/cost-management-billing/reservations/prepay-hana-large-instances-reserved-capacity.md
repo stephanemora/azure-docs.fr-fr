@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: d6d0d0a4c4b3328fa50777b5106bac202c9972ef
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: ea1ee2311d8655ce17017c73309bc69e89f4b5f4
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151510"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599114"
 ---
 # <a name="save-on-sap-hana-large-instances-with-an-azure-reservation"></a>Enregistrer sur de grandes instances SAP HANA avec une réservation Azure
 
@@ -224,7 +224,7 @@ Les informations suivantes expliquent la signification des différents champs de
 
   **Type de ressource réservés** `SapHana`
 
-  **Abonnement** Abonnement utilisé pour payer la réservation. Les coûts de la réservation sont facturés au mode de paiement défini sur l’abonnement. Le type d’abonnement doit être Accord Entreprise (numéros de l’offre : MS-AZR-0017P ou MS-AZR-0148P) ou Contrat client Microsoft. Les frais sont déduits du solde de l’engagement financier, si disponibles, ou facturés comme un dépassement.
+  **Abonnement** Abonnement utilisé pour payer la réservation. Les coûts de la réservation sont facturés au mode de paiement défini sur l’abonnement. Le type d’abonnement doit être Accord Entreprise (numéros de l’offre : MS-AZR-0017P ou MS-AZR-0148P) ou Contrat client Microsoft. Les frais sont déduits du solde du Paiement anticipé Azure (anciennement « Engagement financier »), le cas échéant, ou facturés comme un dépassement.
 
   **Étendue** L’étendue de la réservation doit être à portée unique.
 

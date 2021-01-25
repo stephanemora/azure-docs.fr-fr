@@ -87,10 +87,12 @@
       href: how-to-monitor-migration-activity.md
     - name: Utiliser PowerShell pour la migration
       items:
-        - name: de SQL Server vers SQL Database
+        - name: SQL Server vers SQL Database
           href: howto-sql-server-to-azure-sql-powershell.md
-        - name: de SQL Server vers SQL Managed Instance
-          href: howto-sql-server-to-azure-sql-mi-powershell.md
+        - name: SQL Server vers SQL MI (en ligne)
+          href: howto-sql-server-to-azure-sql-managed-instance-powershell-online.md
+        - name: SQL Server vers SQL MI (hors connexion)
+          href: howto-sql-server-to-azure-sql-managed-instance-powershell-offline.md
     - name: Redéployer le package SSIS vers
       items:
         - name: Azure SQL Database
@@ -137,17 +139,17 @@
               href: known-issues-dms-hybrid-mode.md
         - name: Problèmes de migration connus
           items:
-            - name: vers SQL Database
+            - name: SQL Database
               href: known-issues-azure-sql-online.md
             - name: Instance managée SQL
               href: known-issues-azure-sql-db-managed-instance-online.md
-            - name: vers Azure DB pour MySQL
+            - name: Base de données Azure pour MySQL
               href: known-issues-azure-mysql-online.md
-            - name: de PostgreSQL vers Azure DB pour PostgreSQL
+            - name: "PostgreSQL vers Azure\_DB pour PostgreSQL"
               href: known-issues-azure-postgresql-online.md
-            - name: d’Oracle vers Azure DB pour PostgreSQL
+            - name: "Oracle vers Azure\_DB pour PostgreSQL"
               href: known-issues-oracle-azure-postgresql-online.md
-            - name: de MongoDB vers l’API Azure Cosmos DB pour MongoDB
+            - name: "MongoDB vers l’API Azure Cosmos\_DB pour MongoDB"
               href: known-issues-mongo-cosmos-db.md
     - name: Vidéos
       items:

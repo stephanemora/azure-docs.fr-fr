@@ -298,8 +298,6 @@
       href: template-best-practices.md
     - name: Forum aux questions
       href: frequently-asked-questions.md
-    - name: Specs de modèle
-      href: template-specs.md
     - name: Modèles pour la cohérence du cloud
       href: templates-cloud-consistency.md
     - name: Modes de déploiement
@@ -423,6 +421,12 @@
           href: test-toolkit.md
         - name: Scénarios de test
           href: test-cases.md
+    - name: Spécifications de modèle
+      items:
+        - name: Créer et déployer des spécifications de modèle
+          href: template-specs.md
+        - name: Convertir la Galerie de modèles du portail
+          href: convert-to-template-spec.md
     - name: CI/CD
       items:
         - name: Modèles ARM avec pipelines

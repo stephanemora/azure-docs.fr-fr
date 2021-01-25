@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 05/26/2020
+ms.date: 01/19/2021
 ms.author: chmutali
-ms.openlocfilehash: 5cbfdd57ebd25da013bfb82b761839b1e74ee012
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 8e83841031593d0d1af4499f3ef9a15400ce7794
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97609018"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98569538"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutoriel : Configurer Workday pour l'approvisionnement automatique d'utilisateurs
 
@@ -41,11 +41,11 @@ Le [service d’approvisionnement utilisateur Azure Active Directory](../app-pro
 ### <a name="whats-new"></a>Nouveautés
 Cette section capture les améliorations récentes en matière d’intégration Workday. Pour obtenir la liste des mises à jour, modifications planifiées et archives, consultez la page [Nouveautés d’Azure Active Directory](../fundamentals/whats-new.md). 
 
+* **Octobre 2020 - Activation du provisionnement à la demande pour Workday :** Grâce au [provisionnement à la demande](../app-provisioning/provision-on-demand.md), vous pouvez maintenant tester le provisionnement de bout en bout pour un profil utilisateur spécifique dans Workday afin de vérifier votre mappage d’attributs et votre logique d’expression.   
+
 * **Mai 2020 - Possibilité d’écriture différée des numéros de téléphone vers Workday :** En plus de l’adresse e-mail et du nom d’utilisateur, vous pouvez désormais écrire de manière différée le numéro de téléphone professionnel et le numéro de téléphone mobile d’Azure AD vers Workday. Pour plus d’informations, consultez le [didacticiel de l’application d’écriture différée](workday-writeback-tutorial.md).
 
 * **Avril 2020 - Prise en charge de la dernière version de l’API Workday Web Services (WWS) :** Deux fois par an, en mars et septembre, Workday propose des mises à jour riches en fonctionnalités qui vous aident à répondre aux besoins de votre entreprise et aux demandes de vos employés. Pour suivre les nouvelles fonctionnalités fournies par Workday, vous pouvez désormais spécifier directement la version de l’API WWS que vous souhaitez utiliser dans l’URL de connexion. Pour savoir comment spécifier la version de l’API Workday, reportez-vous à la section sur la [configuration de la connectivité Workday](#part-3-in-the-provisioning-app-configure-connectivity-to-workday-and-active-directory). 
-
-* **Janvier 2020 - Possibilité de définir l’attribut AD accountExpires :** À l’aide de la fonction [NumFromDate](../app-provisioning/functions-for-customizing-application-data.md#numfromdate) vous pouvez désormais mapper des champs de date Workday tels que *EndContractDate* ou *StatusTerminationDate*. 
 
 ### <a name="who-is-this-user-provisioning-solution-best-suited-for"></a>À qui cette solution d’attribution d’utilisateurs convient-elle le mieux ?
 
@@ -151,51 +151,37 @@ Dans cette étape, vous accordez au groupe de sécurité des autorisations de st
 
 **Pour configurer des autorisations de stratégie de sécurité du domaine :**
 
-1. Entrez **Domain Security Configuration** (Configuration de la sécurité du domaine) dans la zone de recherche, puis cliquez sur le lien **Domain Security Configuration Report** (Rapport sur la configuration de la sécurité du domaine).  
+1. Entrez **Security Group Membership and Access** dans la zone de recherche, puis cliquez sur le lien du rapport.
    >[!div class="mx-imgBorder"]
-   >![Capture d'écran dans laquelle le texte « domain security configuration » et le texte « Domain Security Configuration - Report » apparaissent respectivement dans la zone de recherche et dans les résultats.](./media/workday-inbound-tutorial/wd_isu_06.png "Stratégies de sécurité de domaine")  
-2. Dans la zone de texte **Domain** (Domaine), recherchez les domaines suivants et ajoutez-les au filtre un par un.  
+   >![Recherchez Security Group Membership](./media/workday-inbound-tutorial/security-group-membership-access.png)
+
+1. Recherchez et sélectionnez le groupe de sécurité créé à l’étape précédente. 
+   >[!div class="mx-imgBorder"]
+   >![Sélectionner un groupe de sécurité](./media/workday-inbound-tutorial/select-security-group-msft-wdad.png)
+
+1. Cliquez sur les points de suspension (...) en regard du nom du groupe et, dans le menu, sélectionnez **Security Group > Maintain Domain Permissions for Security Group**.
+   >[!div class="mx-imgBorder"]
+   >![Sélectionnez Maintain Domain Permissions](./media/workday-inbound-tutorial/select-maintain-domain-permissions.png)
+
+1. Sous **Integration Permissions**, ajoutez les domaines suivants à la liste **Domain Security Policies permitting Put access**.
    * *External Account Provisioning*
+   * *Worker Data: Public Worker Reports* 
+   * *Person Data: Work Contact Information* (obligatoire si vous envisagez l’écriture différée des données de contact d’Azure AD vers Workday)
+   * *Workday Accounts* (obligatoire si vous envisagez l’écriture différée du nom d’utilisateur/UPN d’Azure AD vers Workday)
+
+1. Sous **Integration Permissions**, ajoutez les domaines suivants à la liste **Domain Security Policies permitting Get access**.
    * *Worker Data: Workers*
-   * *Worker Data: Public Worker Reports*
-   * *Person Data: Work Contact Information*
    * *Worker Data: All Positions*
    * *Worker Data: Current Staffing Information*
    * *Worker Data: Business Title on Worker Profile*
-   * *Comptes Workday*
+   * *Worker Data: Qualified Workers* (Facultatif : ajoutez ceci pour récupérer les données de qualification des employés pour le provisionnement)
+   * *Worker Data: Skills and Experience* (Facultatif : ajoutez ceci pour récupérer les données de compétences des employés pour le provisionnement)
 
-     >[!div class="mx-imgBorder"]
-     >![Capture d'écran représentant le rapport sur la configuration de la sécurité du domaine, dans lequel « External Account » apparaît dans la zone de texte « Domain ».](./media/workday-inbound-tutorial/wd_isu_07.png "Stratégies de sécurité de domaine")  
-
-     >[!div class="mx-imgBorder"]
-     >![Capture d'écran représentant le rapport sur la configuration de la sécurité du domaine, dans lequel une liste de domaines est sélectionnée.](./media/workday-inbound-tutorial/wd_isu_08.png "Stratégies de sécurité de domaine") 
-
-     Cliquez sur **OK**.
-
-3. Dans le rapport qui s’affiche, sélectionnez les points de suspension (...) qui apparaissent en regard de **External Account Provisioning** (Provisionnement de compte externe), puis cliquez sur l’option de menu **Domain -> Edit Security Policy Permissions** (Domaine -> Modifier les autorisations de la stratégie de sécurité)
+1. À l’issue des étapes ci-dessus, l’écran d’autorisations suivant s’affiche :
    >[!div class="mx-imgBorder"]
-   >![Stratégies de sécurité de domaine](./media/workday-inbound-tutorial/wd_isu_09.png "Stratégies de sécurité de domaine")  
+   >![Toutes les autorisations de sécurité de domaine](./media/workday-inbound-tutorial/all-domain-security-permissions.png)
 
-4. Sur la page **Edit Domain Security Policy Permissions** (Modifier les autorisations de la stratégie de sécurité), faites défiler jusqu’à la section **Integration Permissions** (Autorisations de l’intégration). Cliquez sur le signe « + » pour ajouter le groupe du système d’intégration à la liste des groupes de sécurité avec les autorisations d’intégration **Get** (Obtenir) et **Put** (Placer).
-   >[!div class="mx-imgBorder"]
-   >![Capture d'écran dans laquelle la section « Integration Permissions » est en surbrillance.](./media/workday-inbound-tutorial/wd_isu_10.png "Modifier une autorisation")  
-
-5. Cliquez sur le signe « + » pour ajouter le groupe du système d’intégration à la liste des groupes de sécurité avec les autorisations d’intégration **Get** (Obtenir) et **Put** (Placer).
-
-   >[!div class="mx-imgBorder"]
-   >![Modifier une autorisation](./media/workday-inbound-tutorial/wd_isu_11.png "Modifier une autorisation")  
-
-6. Répétez les étapes 3 à 5 ci-dessus pour chacune de ces stratégies de sécurité restantes :
-
-   | Opération | Stratégie de sécurité du domaine |
-   | ---------- | ---------- |
-   | Get et Put | Worker Data: Public Worker Reports |
-   | Get et Put | Person Data: Work Contact Information |
-   | Obtenir | Worker Data: Workers |
-   | Obtenir | Worker Data: All Positions |
-   | Obtenir | Worker Data: Current Staffing Information |
-   | Obtenir | Worker Data: Business Title on Worker Profile |
-   | Get et Put | Comptes Workday |
+1. Cliquez sur **OK** et **Done** sur l’écran suivant pour terminer la configuration. 
 
 ### <a name="configuring-business-process-security-policy-permissions"></a>Configuration des autorisations relatives à la stratégie de sécurité des processus métier
 
@@ -240,35 +226,9 @@ Dans cette étape, vous accordez des autorisations de stratégies de sécurité 
    >[!div class="mx-imgBorder"]
    >![Activer la sécurité en attente](./media/workday-inbound-tutorial/wd_isu_18.png "Activer la sécurité en attente")  
 
-## <a name="configure-active-directory-service-account"></a>Configurer le compte de service Active Directory
+## <a name="provisioning-agent-installation-prerequisites"></a>Prérequis relatifs à l’installation de l’agent de provisionnement
 
-Cette section décrit les autorisations de compte de service Active Directory nécessaires à l’installation et à la configuration de l’agent d’approvisionnement Azure AD Connect.
-
-### <a name="permissions-required-to-run-the-provisioning-agent-installer"></a>Autorisations requises pour exécuter le programme d’installation de l’agent d’approvisionnement
-Après avoir identifié l’instance Windows Server qui hébergera l’agent d’approvisionnement, connectez-vous à l’hôte du serveur à l’aide des informations d’identification de l’administrateur local ou du domaine. Le processus d’installation de l’agent crée des fichiers d’informations d’identification dans un magasin de clés sécurisé et met à jour la configuration du profil de service sur le serveur hôte. Cela nécessite un accès administrateur au serveur qui héberge l’agent. 
-
-### <a name="permissions-required-to-configure-the-provisioning-agent-service"></a>Autorisations requises pour configurer le service de l’agent d’approvisionnement
-Utilisez les étapes ci-dessous pour configurer un compte de service qui peut être utilisé pour les opérations de l’agent d’approvisionnement. 
-1. Sur le contrôleur de domaine AD, ouvrez le composant logiciel enfichable *Utilisateurs et ordinateurs Active Directory*. 
-2. Créer un utilisateur de domaine (exemple: *provAgentAdmin*)  
-3. Cliquez avec le bouton droit sur l’unité d’organisation ou le nom de domaine, puis sélectionnez *Déléguer le contrôle* afin d’ouvrir l’*Assistant Délégation de contrôle*. 
-
-> [!NOTE] 
-> Si vous souhaitez limiter l’agent d’approvisionnement de manière à créer et lire uniquement des utilisateurs d’une unité d’organisation à des fins de test, nous vous recommandons de déléguer le contrôle au niveau de l’unité d’organisation qui convient lors des séries de tests.
-
-4. Dans l'écran de bienvenue, cliquez sur **Suivant**. 
-5. Dans l’écran **Sélectionner des utilisateurs ou des groupes**, ajoutez l’utilisateur de domaine que vous avez créé à l’étape 2. Cliquez sur **Suivant**.
-   >[!div class="mx-imgBorder"]
-   >![Écran Ajouter](./media/workday-inbound-tutorial/delegation-wizard-01.png "Écran Ajouter")
-
-6. Dans l’écran **Tâches à déléguer**, sélectionnez les tâches suivantes : 
-   * Créer, supprimer et gérer des comptes d’utilisateurs
-   * Lire toutes les informations d’utilisateur
-
-   >[!div class="mx-imgBorder"]
-   >![Écran Tâches](./media/workday-inbound-tutorial/delegation-wizard-02.png "Écran Tâches")
-
-7. Cliquez sur **Suivant** et **Enregistrer** pour enregistrer la configuration.
+Passez en revue les [prérequis relatifs à l’installation de l’agent de provisionnement](../cloud-provisioning/how-to-prerequisites.md) avant de passer à la section suivante. 
 
 ## <a name="configuring-user-provisioning-from-workday-to-active-directory"></a>Configuration de l’approvisionnement de l’utilisateur de Workday à Active Directory
 
@@ -305,72 +265,9 @@ Cette section présente les étapes à suivre pour configurer l'approvisionnemen
 
 ### <a name="part-2-install-and-configure-on-premises-provisioning-agents"></a>Deuxième partie : Installer et configurer des agents de provisionnement locaux
 
-Pour tout approvisionnement vers une instance locale d’Active Directory, l’agent d’approvisionnement doit être installé sur un serveur doté de .NET Framework 4.7.1+ et d’un accès réseau aux domaines Active Directory souhaités.
+Pour tout provisionnement vers une instance locale d’Active Directory, l’agent de provisionnement doit être installé sur un serveur joint au domaine ayant un accès réseau aux domaines Active Directory souhaités.
 
-> [!TIP]
-> Vous pouvez vérifier la version du .NET Framework sur votre serveur en suivant les instructions fournies [ici](/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed).
-> Si .NET 4.7.1 ou version ultérieure n'est pas installé sur le serveur, vous pouvez le télécharger [ici](https://support.microsoft.com/help/4033342/the-net-framework-4-7-1-offline-installer-for-windows).  
-
-Transférez le programme d’installation de l’agent téléchargé sur l’hôte du serveur et suivez les étapes indiquées ci-dessous pour terminer la configuration de l’agent.
-
-1. Connectez-vous au serveur Windows Server sur lequel vous souhaitez installer le nouvel agent.
-
-1. Lancez le programme d’installation de l’agent de provisionnement, acceptez les conditions d’utilisation, puis cliquez sur le bouton **Install** (Installer).
-
-   >[!div class="mx-imgBorder"]
-   >![Écran Installation](./media/workday-inbound-tutorial/pa_install_screen_1.png "Écran Installation")
-
-1. Une fois l’installation terminée, l’Assistant démarrer et vous voyez l’écran **Connect Azure AD** (Connecter Azure AD). Cliquez sur le bouton **Authenticate** (S’authentifier) pour vous connecter à votre instance Azure AD.
-
-   >[!div class="mx-imgBorder"]
-   >![Connecter Azure AD](./media/workday-inbound-tutorial/pa_install_screen_2.png "Connecter Azure AD")
-
-1. Authentifiez-vous auprès de votre instance Azure AD avec les informations d’identification de l’administrateur d’identité hybride.
-
-   >[!div class="mx-imgBorder"]
-   >![Authentification de l’administrateur](./media/workday-inbound-tutorial/pa_install_screen_3.png "Authentification de l’administrateur")
-
-   > [!NOTE]
-   > Les informations d'identification de l'administrateur Azure AD sont uniquement utilisées pour la connexion à votre locataire Azure AD. L'agent ne stocke pas les informations d'identification sur le serveur local.
-
-1. Après une authentification réussie auprès d’Azure AD, vous voyez l’écran **Connect Active Directory** (Connecter Active Directory). Entrez alors votre nom de domaine AD, puis cliquez sur le bouton **Ajouter un annuaire**.
-
-   >[!div class="mx-imgBorder"]
-   >![Ajouter un répertoire](./media/workday-inbound-tutorial/pa_install_screen_4.png "Ajouter un répertoire")
-
-1. Vous êtes maintenant invité à entrer les informations d’identification nécessaires pour vous connecter au domaine AD. Sur le même écran, vous pouvez utiliser **Select domain controller priority** (Sélectionner la priorité de contrôleur de domaine) pour spécifier les contrôleurs de domaine que l’agent doit utiliser pour l’envoi des demandes de provisionnement.
-
-   >[!div class="mx-imgBorder"]
-   >![Informations d'identification du domaine](./media/workday-inbound-tutorial/pa_install_screen_5.png)
-
-1. Après avoir configuré le domaine, le programme d’installation affiche une liste des domaines configurés. Dans cet écran, vous pouvez répéter les étapes 5 et 6 pour ajouter d’autres domaines ou cliquer sur **Suivant** pour passer à l’inscription de l’agent.
-
-   >[!div class="mx-imgBorder"]
-   >![Domaines configurés](./media/workday-inbound-tutorial/pa_install_screen_6.png "Domaines configurés")
-
-   > [!NOTE]
-   > Si vous avez plusieurs domaines AD (par exemple na.contoso.com, emea.contoso.com), ajoutez individuellement chaque domaine à la liste.
-   > L'ajout du domaine parent (par exemple, contoso.com) ne suffit pas. Vous devez inscrire chaque domaine enfant auprès de l'agent.
-
-1. Passez en revue les détails de la configuration, puis cliquez sur **Confirm** (Confirmer) pour inscrire l’agent.
-
-   >[!div class="mx-imgBorder"]
-   >![Écran Confirmer](./media/workday-inbound-tutorial/pa_install_screen_7.png "Écran Confirmer")
-
-1. L’Assistant Configuration affiche la progression de l’inscription de l’agent.
-
-   >[!div class="mx-imgBorder"]
-   >![Inscription de l’agent](./media/workday-inbound-tutorial/pa_install_screen_8.png "Inscription de l’agent")
-
-1. Une fois l’inscription de l’agent réussie, vous pouvez cliquer sur **Exit** (Quitter) pour quitter l’Assistant.
-
-   >[!div class="mx-imgBorder"]
-   >![Écran Quitter](./media/workday-inbound-tutorial/pa_install_screen_9.png "Écran Quitter")
-
-1. Vérifiez l’installation de l’agent et assurez-vous qu’il fonctionne en ouvrant le composant logiciel enfichable « Services » et en recherchant le service « Agent d’approvisionnement Microsoft Azure AD Connect ».
-
-   >[!div class="mx-imgBorder"]
-   >![Capture d’écran de l’agent d’approvisionnement Microsoft Azure AD Connect en cours d’exécution dans Services.](./media/workday-inbound-tutorial/services.png)
+Transférez le programme d’installation de l’agent téléchargé sur l’hôte du serveur et suivez les étapes indiquées [dans la section **Installer l’agent**](../cloud-provisioning/how-to-install.md) pour terminer la configuration de l’agent.
 
 ### <a name="part-3-in-the-provisioning-app-configure-connectivity-to-workday-and-active-directory"></a>Troisième partie : Dans l’application d’approvisionnement, configurer la connectivité à Workday et Active Directory
 Lors de cette étape, nous allons établir la connectivité avec Workday et Active Directory dans le Portail Azure. 
@@ -514,24 +411,22 @@ Dans cette section, vous allez configurer le flux des données de l’utilisateu
 | **LocalReference** |  preferredLanguage  |     |  Créer + mettre à jour |                                               
 | **Switch(\[Municipality\], "OU=Default Users,DC=contoso,DC=com", "Dallas", "OU=Dallas,OU=Users,DC=contoso,DC=com", "Austin", "OU=Austin,OU=Users,DC=contoso,DC=com", "Seattle", "OU=Seattle,OU=Users,DC=contoso,DC=com", "London", "OU=London,OU=Users,DC=contoso,DC=com")**  | parentDistinguishedName     |     |  Créer + mettre à jour |
 
-Une fois vos mappages d'attributs configurés, vous pouvez [activer et lancer le service d'approvisionnement d'utilisateurs](#enable-and-launch-user-provisioning).
+Une fois la configuration du mappage des attributs terminée, vous pouvez tester le provisionnement d’un utilisateur unique à l’aide du [provisionnement à la demande](../app-provisioning/provision-on-demand.md), puis [activer et lancer le service de provisionnement d’utilisateurs](#enable-and-launch-user-provisioning).
 
 ## <a name="enable-and-launch-user-provisioning"></a>Activer et lancer l'approvisionnement des utilisateurs
 
-Une fois les configurations d'application d'approvisionnement Workday effectuées, vous pouvez activer le service d'approvisionnement sur le portail Azure.
+Une fois que les configurations d’application de provisionnement Workday ont été effectuées et que vous avez vérifié le provisionnement pour un utilisateur unique avec le [provisionnement à la demande](../app-provisioning/provision-on-demand.md), vous pouvez activer le service de provisionnement dans le portail Azure.
 
 > [!TIP]
-> Par défaut, lorsque vous activez le service d'approvisionnement, il lance les opérations d'approvisionnement pour tous les utilisateurs concernés. En cas d'erreur de mappage ou de problème lié aux données Workday, le travail d'approvisionnement peut échouer et être mis en quarantaine. Pour éviter ce genre de problème, nous vous recommandons de configurer le filtre **Portée de l'objet source** et de tester vos mappages d'attributs sur quelques utilisateurs test avant de lancer la synchronisation complète de tous les utilisateurs. Après avoir vérifié que les mappages fonctionnent et qu'ils vous donnent les résultats souhaités, vous pouvez supprimer le filtre ou l'étendre progressivement pour inclure d'autres utilisateurs.
+> Par défaut, lorsque vous activez le service d'approvisionnement, il lance les opérations d'approvisionnement pour tous les utilisateurs concernés. En cas d'erreur de mappage ou de problème lié aux données Workday, le travail d'approvisionnement peut échouer et être mis en quarantaine. Pour éviter ce genre de problème, nous vous recommandons de configurer le filtre **Portée de l’objet source** et de tester vos mappages d’attributs sur quelques utilisateurs tests à l’aide du [provisionnement à la demande](../app-provisioning/provision-on-demand.md) avant de lancer la synchronisation complète de tous les utilisateurs. Après avoir vérifié que les mappages fonctionnent et qu'ils vous donnent les résultats souhaités, vous pouvez supprimer le filtre ou l'étendre progressivement pour inclure d'autres utilisateurs.
 
-1. Dans l’onglet **Approvisionnement**, définissez **État d’approvisionnement** sur **Activé**.
+1. Accédez au panneau **Provisionnement**, puis cliquez sur **Démarrer le provisionnement**.
 
-2. Cliquez sur **Enregistrer**.
+1. Cette opération permet de lancer la synchronisation initiale, dont la durée dépendra du nombre d'utilisateurs du locataire Workday. Vous pouvez consulter la barre de progression pour suivre la progression du cycle de synchronisation. 
 
-3. Cette opération permet de lancer la synchronisation initiale, dont la durée dépendra du nombre d'utilisateurs du locataire Workday. 
+1. À tout moment, consultez l’onglet **Journaux d’audit** dans le portail Azure pour connaître les actions effectuées par le service d’approvisionnement. Les journaux d’audit répertorient tous les événements de synchronisation individuels effectués par le service d’approvisionnement, tels que les utilisateurs lus dans Workday et par la suite ajoutés ou mis à jour dans Active Directory. Reportez-vous à la section Résolution des problèmes pour savoir comment consulter les journaux d’audit et corriger les erreurs d’approvisionnement.
 
-4. À tout moment, consultez l’onglet **Journaux d’audit** dans le portail Azure pour connaître les actions effectuées par le service d’approvisionnement. Les journaux d’audit répertorient tous les événements de synchronisation individuels effectués par le service d’approvisionnement, tels que les utilisateurs lus dans Workday et par la suite ajoutés ou mis à jour dans Active Directory. Reportez-vous à la section Résolution des problèmes pour savoir comment consulter les journaux d’audit et corriger les erreurs d’approvisionnement.
-
-5. Au terme de la synchronisation initiale, un rapport de synthèse d'audit est créé dans l'onglet **Approvisionnement**, comme illustré ci-dessous.
+1. Au terme de la synchronisation initiale, un rapport de synthèse d'audit est créé dans l'onglet **Approvisionnement**, comme illustré ci-dessous.
    > [!div class="mx-imgBorder"]
    > ![Barre de progression de provisionnement](./media/sap-successfactors-inbound-provisioning/prov-progress-bar-stats.png)
 
@@ -540,12 +435,10 @@ Une fois les configurations d'application d'approvisionnement Workday effectuée
 * **Questions relatives aux fonctionnalités de la solution**
   * [Lors du traitement d'un nouvel employé à partir de Workday, comment la solution définit-elle le mot de passe du nouveau compte d'utilisateur dans Active Directory ?](#when-processing-a-new-hire-from-workday-how-does-the-solution-set-the-password-for-the-new-user-account-in-active-directory)
   * [La solution prend-elle en charge l'envoi de notifications par e-mail au terme des opérations d'approvisionnement ?](#does-the-solution-support-sending-email-notifications-after-provisioning-operations-complete)
-  * [Comment gérer la remise des mots de passe aux nouveaux employés et leur fournir un mécanisme sécurisé pour la réinitialisation de leur mot de passe ?](#how-do-i-manage-delivery-of-passwords-for-new-hires-and-securely-provide-a-mechanism-to-reset-their-password)
   * [La solution met-t-elle les profils utilisateur Workday en cache dans le cloud Azure AD ou au niveau de la couche de l'agent d'approvisionnement ?](#does-the-solution-cache-workday-user-profiles-in-the-azure-ad-cloud-or-at-the-provisioning-agent-layer)
   * [La solution prend-elle en charge l'attribution de groupes AD locaux à l'utilisateur ?](#does-the-solution-support-assigning-on-premises-ad-groups-to-the-user)
   * [Quelles API Workday la solution utilise-t-elle pour interroger et mettre à jour les profils d'employé Workday ?](#which-workday-apis-does-the-solution-use-to-query-and-update-workday-worker-profiles)
   * [Puis-je configurer mon locataire Workday HCM avec deux locataires Azure AD ?](#can-i-configure-my-workday-hcm-tenant-with-two-azure-ad-tenants)
-  * [Pourquoi l'application d'approvisionnement d'utilisateurs « Workday vers Azure AD » n'est-elle pas prise en charge si Azure AD Connect a été déployé ?](#why-workday-to-azure-ad-user-provisioning-app-is-not-supported-if-we-have-deployed-azure-ad-connect)
   * [Comment suggérer des améliorations ou réclamer de nouvelles fonctionnalités en lien avec l'intégration de Workday et Azure AD ?](#how-do-i-suggest-improvements-or-request-new-features-related-to-workday-and-azure-ad-integration)
 
 * **Questions relatives à l'agent d'approvisionnement**
@@ -577,19 +470,13 @@ Lorsque l'agent d'approvisionnement local reçoit une demande de création d'un 
 
 Non, l'envoi de notifications par e-mail au terme des opérations d'approvisionnement n'est pas pris en charge dans la version actuelle.
 
-#### <a name="how-do-i-manage-delivery-of-passwords-for-new-hires-and-securely-provide-a-mechanism-to-reset-their-password"></a>Comment gérer la remise des mots de passe aux nouveaux employés et leur fournir un mécanisme sécurisé pour la réinitialisation de leur mot de passe ?
-
-L’une des dernières étapes du processus d’approvisionnement d’un nouveau compte AD est la remise du mot de passe temporaire attribué au compte AD de l’utilisateur. Beaucoup d’entreprises utilisent encore l’approche traditionnelle qui consiste à remettre le mot de passe temporaire au responsable de l’utilisateur, qui le remet à son tour au nouvel employé ou à l’intérimaire. Mais compte tenu de la faille de sécurité inhérente à ce processus, vous pouvez adopter une approche plus efficace en utilisant les fonctionnalités d'Azure AD.
-
-Dans le cadre du processus de recrutement, les équipes des ressources humaines vérifient généralement les références ainsi que le numéro de téléphone mobile du nouvel employé. Avec l'intégration de l'approvisionnement d'utilisateurs de Workday vers AD, vous pouvez vous appuyer sur cette vérification des RH et déployer une fonctionnalité de réinitialisation de mot de passe en libre-service que l'utilisateur pourra utiliser le jour de sa prise de fonction. Pour ce faire, il convient de propager l’attribut « Numéro de téléphone mobile » du nouvel employé de Workday vers AD, puis d’AD vers Azure AD à l’aide d’Azure AD Connect. Une fois le « Numéro de téléphone mobile » présent dans Azure AD, vous pouvez activer la [Réinitialisation du mot de passe libre-service (SSPR)](../authentication/howto-sspr-authenticationdata.md) sur le compte de l’utilisateur. Ainsi, le jour de sa prise de fonction, le nouvel employé pourra utiliser le numéro enregistré et vérifié pour s’authentifier.
-
 #### <a name="does-the-solution-cache-workday-user-profiles-in-the-azure-ad-cloud-or-at-the-provisioning-agent-layer"></a>La solution met-t-elle les profils utilisateur Workday en cache dans le cloud Azure AD ou au niveau de la couche de l'agent d'approvisionnement ?
 
 Non, la solution ne met pas les profils utilisateur en cache. Le service d'approvisionnement Azure AD assume simplement le rôle de processeur de données, en lisant les données à partir de Workday et en les écrivant sur l'instance cible d'Active Directory ou d'Azure AD. Reportez-vous à la section [Gestion des données personnelles](#managing-personal-data) pour plus d'informations sur la confidentialité des utilisateurs et sur la conservation des données.
 
 #### <a name="does-the-solution-support-assigning-on-premises-ad-groups-to-the-user"></a>La solution prend-elle en charge l'attribution de groupes AD locaux à l'utilisateur ?
 
-Cette fonctionnalité n'est actuellement pas prise en charge. La solution de contournement recommandée consiste à déployer un script PowerShell qui interroge le point de terminaison de l’API Microsoft Graph pour accéder aux [données du journal d’audit](/graph/api/resources/azure-ad-auditlog-overview?view=graph-rest-beta) et utilise celles-ci pour déclencher des scénarios tels que l’attribution de groupes. Ce script PowerShell peut être associé à un planificateur de tâches et déployé sur le boîtier qui exécute l'agent d'approvisionnement.  
+Cette fonctionnalité n'est actuellement pas prise en charge. La solution de contournement recommandée consiste à déployer un script PowerShell qui interroge le point de terminaison de l’API Microsoft Graph pour accéder aux [données du journal d’audit](/graph/api/resources/azure-ad-auditlog-overview) et utilise celles-ci pour déclencher des scénarios tels que l’attribution de groupes. Ce script PowerShell peut être associé à un planificateur de tâches et déployé sur le boîtier qui exécute l'agent d'approvisionnement.  
 
 #### <a name="which-workday-apis-does-the-solution-use-to-query-and-update-workday-worker-profiles"></a>Quelles API Workday la solution utilise-t-elle pour interroger et mettre à jour les profils d'employé Workday ?
 
@@ -611,10 +498,6 @@ Oui, cette configuration est prise en charge. Voici les étapes générales à s
 * Déployez l'agent d'approvisionnement n°2 et enregistrez-le auprès du locataire Azure AD n°2.
 * En fonction des « domaines enfants » gérés par les agents d'approvisionnement, configurez chaque agent avec les domaines qui conviennent. Un agent peut gérer plusieurs domaines.
 * Sur le portail Azure, configurez l'application d'approvisionnement d'utilisateurs de Workday vers AD sur chaque locataire et configurez les domaines respectifs.
-
-#### <a name="why-workday-to-azure-ad-user-provisioning-app-is-not-supported-if-we-have-deployed-azure-ad-connect"></a>Pourquoi l'application d'approvisionnement d'utilisateurs « Workday vers Azure AD » n'est-elle pas prise en charge si Azure AD Connect a été déployé ?
-
-Lorsqu'Azure AD est utilisé en mode hybride (avec un mélange d'utilisateurs cloud et locaux), la « source d'autorité » doit être clairement définie. Généralement, les scénarios hybrides nécessitent le déploiement d'Azure AD Connect. Lorsqu'Azure AD Connect est déployé, l'instance locale d'AD devient la source d'autorité. Si le connecteur Workday vers Azure AD est introduit, les valeurs des attributs Workday risquent d'écraser les valeurs définies par Azure AD Connect. Par conséquent, l'utilisation de l'application d'approvisionnement « Workday vers Azure AD » n'est pas prise en charge lorsqu'Azure AD Connect est activé. Dans ce cas, nous vous recommandons d'utiliser l'application d'approvisionnement « Workday vers AD » pour transférer les utilisateurs vers l'instance locale d'AD avant de les synchroniser avec Azure AD à l'aide d'Azure AD Connect.
 
 #### <a name="how-do-i-suggest-improvements-or-request-new-features-related-to-workday-and-azure-ad-integration"></a>Comment suggérer des améliorations ou réclamer de nouvelles fonctionnalités en lien avec l'intégration de Workday et Azure AD ?
 
@@ -845,35 +728,69 @@ Cette section fournit des conseils spécifiques pour résoudre les problèmes d�
 
 Cette section couvre les aspects suivants de la résolution de problèmes :
 
+* [Configurer l’agent de provisionnement pour émettre des journaux d’Observateur d’événements](#configure-provisioning-agent-to-emit-event-viewer-logs)
 * [Configuration de l'observateur d'événements Windows pour résoudre les problèmes liés à l'agent](#setting-up-windows-event-viewer-for-agent-troubleshooting)
 * [Configuration des journaux d’activité d’audit du portail Azure pour résoudre les problèmes de service](#setting-up-azure-portal-audit-logs-for-service-troubleshooting)
 * [Familiarisation avec les journaux d’activité pour les opérations de création de compte d’utilisateur AD](#understanding-logs-for-ad-user-account-create-operations)
 * [Familiarisation avec les journaux d’activité pour les opérations de mise à jour de l’attribut manager](#understanding-logs-for-manager-update-operations)
 * [Résolution des erreurs les plus fréquentes](#resolving-commonly-encountered-errors)
 
+### <a name="configure-provisioning-agent-to-emit-event-viewer-logs"></a>Configurer l’agent de provisionnement pour émettre des journaux d’Observateur d’événements
+1. Se connecter à l’ordinateur Windows Server sur lequel l’agent de provisionnement est déployé
+1. Arrêtez le service **Agent de provisionnement Microsoft Azure AD Connect**.
+1. Créez une copie du fichier de configuration d’origine : *C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\AADConnectProvisioningAgent.exe.config*.
+1. Remplacez la requête `<system.diagnostics>` existante par ce qui suit. 
+   * La configuration de l’écouteur **etw** émet des messages dans les journaux d’Observateur d’événements.
+   * La configuration de l’écouteur **textWriterListener** envoie des messages de trace au fichier *ProvAgentTrace.log*. Supprimez les marques de commentaire des lignes associées à textWriterListener uniquement pour le dépannage avancé. 
+
+   ```xml
+     <system.diagnostics>
+         <sources>
+         <source name="AAD Connect Provisioning Agent">
+             <listeners>
+             <add name="console"/>
+             <add name="etw"/>
+             <!-- <add name="textWriterListener"/> -->
+             </listeners>
+         </source>
+         </sources>
+         <sharedListeners>
+         <add name="console" type="System.Diagnostics.ConsoleTraceListener" initializeData="false"/>
+         <add name="etw" type="System.Diagnostics.EventLogTraceListener" initializeData="Azure AD Connect Provisioning Agent">
+             <filter type="System.Diagnostics.EventTypeFilter" initializeData="All"/>
+         </add>
+         <!-- <add name="textWriterListener" type="System.Diagnostics.TextWriterTraceListener" initializeData="C:/ProgramData/Microsoft/Azure AD Connect Provisioning Agent/Trace/ProvAgentTrace.log"/> -->
+         </sharedListeners>
+     </system.diagnostics>
+
+   ```
+1. Démarrez le service **Microsoft Azure AD Connect Provisioning Agent**.
+
 ### <a name="setting-up-windows-event-viewer-for-agent-troubleshooting"></a>Configuration de l'observateur d'événements Windows pour résoudre les problèmes liés à l'agent
 
-* Se connecter à l’ordinateur Windows Server sur lequel l’agent d’approvisionnement est déployé
-* Ouvrez l'application de bureau **Observateur d'événements Windows Server**.
-* Sélectionnez **Journaux d’activité Windows &gt; Application**.
-* Utilisez l'option **Filtrer le journal actuel...** pour afficher tous les événements enregistrés sous la source **AAD.Connect.ProvisioningAgent** et exclure les événements dotés de l'ID d'événement « 5 », en spécifiant le filtre « -5 » comme illustré ci-dessous.
+1. Se connecter à l’ordinateur Windows Server sur lequel l’agent d’approvisionnement est déployé
+1. Ouvrez l'application de bureau **Observateur d'événements Windows Server**.
+1. Sélectionnez **Journaux d’activité Windows &gt; Application**.
+1. Utilisez l'option **Filtrer le journal actuel...** pour afficher tous les événements enregistrés sous l’**agent de provisionnement Azure AD Connect** source et exclure les événements ayant l’ID d’événement « 5 », en spécifiant le filtre « -5 » comme illustré ci-dessous.
+   > [!NOTE]
+   > L’ID d’événement 5 capture les messages d’amorçage de l’agent auprès du service cloud Azure AD et, par conséquent, nous le filtrons lors de l’analyse des fichiers journaux. 
 
-  ![Observateur d'événements Windows](media/workday-inbound-tutorial/wd_event_viewer_01.png))
+   ![Observateur d'événements Windows](media/workday-inbound-tutorial/wd_event_viewer_01.png)
 
-* Cliquez sur **OK** et classez la vue des résultats par colonne **Date et heure**.
+1. Cliquez sur **OK** et classez la vue des résultats par colonne **Date et heure**.
 
 ### <a name="setting-up-azure-portal-audit-logs-for-service-troubleshooting"></a>Configuration des journaux d’activité d’audit du portail Azure pour résoudre les problèmes de service
 
-* Lancez le [Portail Azure](https://portal.azure.com) et accédez à la section **Journaux d’audit** de votre application d’approvisionnement Workday.
-* Utilisez le bouton **Colonnes** de la page Journaux d’audit pour n’afficher que les colonnes suivantes (Date, Activité, Statut, Raison du statut). Cette configuration vous permet de vous concentrer uniquement sur les données à prendre en compte pour la résolution des problèmes.
+1. Lancez le [Portail Azure](https://portal.azure.com) et accédez à la section **Journaux d’audit** de votre application d’approvisionnement Workday.
+1. Utilisez le bouton **Colonnes** de la page Journaux d’audit pour n’afficher que les colonnes suivantes (Date, Activité, Statut, Raison du statut). Cette configuration vous permet de vous concentrer uniquement sur les données à prendre en compte pour la résolution des problèmes.
 
-  ![Colonnes du journal d'audit](media/workday-inbound-tutorial/wd_audit_logs_00.png)
+   ![Colonnes du journal d'audit](media/workday-inbound-tutorial/wd_audit_logs_00.png)
 
-* Utilisez les paramètres de requête **Cible** et **Plage de dates** pour filtrer la vue. 
-  * Définissez le paramètre de requête **Cible** sur l'« ID collaborateur » ou l'« ID employé » de l'objet collaborateur de Workday.
-  * Définissez la **Plage de dates** sur une période appropriée à la recherche d'erreurs ou de problèmes liés à l'approvisionnement.
+1. Utilisez les paramètres de requête **Cible** et **Plage de dates** pour filtrer la vue. 
+   * Définissez le paramètre de requête **Cible** sur l'« ID collaborateur » ou l'« ID employé » de l'objet collaborateur de Workday.
+   * Définissez la **Plage de dates** sur une période appropriée à la recherche d'erreurs ou de problèmes liés à l'approvisionnement.
 
-  ![Filtres du journal d'audit](media/workday-inbound-tutorial/wd_audit_logs_01.png)
+   ![Filtres du journal d'audit](media/workday-inbound-tutorial/wd_audit_logs_01.png)
 
 ### <a name="understanding-logs-for-ad-user-account-create-operations"></a>Familiarisation avec les journaux d’activité pour les opérations de création de compte d’utilisateur AD
 

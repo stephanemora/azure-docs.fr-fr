@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/11/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 34af3a7b6c3dd9420c07b6b29ff114b8139fea39
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 293a8d8b8add37f78e5a900b093ec89e95851aec
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98011966"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178634"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Démarrage rapide : Ajouter la connexion avec Microsoft à une application web ASP.NET Core
 
@@ -38,7 +38,7 @@ Consultez [Fonctionnement de l’exemple](#how-the-sample-works) pour obtenir un
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Option 1 : Inscrire et configurer automatiquement votre application, puis télécharger votre exemple de code
 >
-> 1. Accédez au [portail Azure - Inscriptions d’applications](https://aka.ms/aspnetcore2-1-aad-quickstart-v2).
+> 1. Accédez à l’expérience de démarrage rapide <a href="https://aka.ms/aspnetcore2-1-aad-quickstart-v2/" target="_blank">Portail Azure - Inscriptions d’applications<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 > 1. Entrez un nom pour votre application, puis sélectionnez **Inscrire**.
 > 1. Suivez les instructions pour télécharger et configurer automatiquement votre nouvelle application pour vous en un seul clic.
 >
@@ -52,11 +52,11 @@ Consultez [Fonctionnement de l’exemple](#how-the-sample-works) pour obtenir un
 > 1. Recherchez et sélectionnez **Azure Active Directory**.
 > 1. Sous **Gérer**, sélectionnez **Inscriptions d’applications** > **Nouvelle inscription**.
 > 1. Entrez un **nom** pour votre application (par exemple, `AspNetCore-Quickstart`). Les utilisateurs de votre application peuvent voir ce nom, et vous pouvez le changer ultérieurement.
-> 1. Entrez l’**URI de redirection** `https://localhost:44321/`
+> 1. Entrez l’**URI de redirection** `https://localhost:44321/`.
 > 1. Sélectionnez **Inscription**.
 > 1. Sous **Gérer**, sélectionnez **Authentification**.
 > 1. Sous **URI de redirection**, sélectionnez **Ajouter un URI**, puis entrez `https://localhost:44321/signin-oidc`.
-> 1. Entrez l’**URL de déconnexion** `https://localhost:44321/signout-oidc`
+> 1. Entrez l’**URL de déconnexion** `https://localhost:44321/signout-oidc`.
 > 1. Sous **Octroi implicite**, sélectionnez **Jetons d’ID**.
 > 1. Sélectionnez **Enregistrer**.
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 12/19/2020
 ms.author: allensu
 ms.custom: mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 15060a367bba2d50d7054730321f7f20d4c25e46
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: edf893f1f6ba0691da5764420017282d7a8bde84
+ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97916675"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98562809"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli"></a>Démarrage rapide : Créer un équilibreur de charge interne pour équilibrer la charge de machines virtuelles avec Azure CLI
 
@@ -53,6 +53,12 @@ Créez un groupe de ressources avec la commande [az group create](/cli/azure/gro
 
 >[!NOTE]
 >Il est recommandé de disposer d’un équilibreur de charge de référence SKU Standard pour les charges de travail de production. Pour plus d’informations sur les références (SKU), consultez **[Références SKU Azure Load Balancer](skus.md)** .
+
+Dans cette section, vous créez un équilibreur de charge qui équilibre la charge des machines virtuelles. 
+
+Quand vous créez un équilibreur de charge interne, un réseau virtuel est configuré comme réseau pour l’équilibreur de charge. 
+
+Le diagramme suivant illustre les ressources créées dans ce guide de démarrage rapide :
 
 :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal.png" alt-text="Ressources Standard Load Balancer créées pour le guide de démarrage rapide." border="false":::
 
@@ -316,12 +322,9 @@ Créez une règle d’équilibreur de charge avec la commande [az network lb rul
     --frontend-ip-name myFrontEnd \
     --backend-pool-name myBackEndPool \
     --probe-name myHealthProbe \
-    --disable-outbound-snat true \
     --idle-timeout 15 \
     --enable-tcp-reset true
 ```
->[!NOTE]
->Avec cette configuration, les machines virtuelles du pool principal ne disposent pas d’une connectivité Internet sortante. </br> Pour plus d’informations sur la façon de fournir une connectivité sortante, consultez : </br> **[Connexions sortantes dans Azure](load-balancer-outbound-connections.md)**</br> Options pour fournir la connectivité : </br> **[Configuration de l’équilibreur de charge en sortie uniquement](egress-only.md)** </br> **[Qu’est-ce que le service NAT de Réseau virtuel ?](../virtual-network/nat-overview.md)**
 
 ### <a name="add-virtual-machines-to-load-balancer-backend-pool"></a>Ajouter des machines virtuelles au pool de back-ends de l’équilibreur de charge
 
@@ -350,6 +353,12 @@ Ajoutez les machines virtuelles au pool de back-ends avec la commande [az networ
 
 >[!NOTE]
 >Il est recommandé de disposer d’un équilibreur de charge de référence SKU Standard pour les charges de travail de production. Pour plus d’informations sur les références (SKU), consultez **[Références SKU d’Azure Load Balancer](skus.md)** .
+
+Dans cette section, vous créez un équilibreur de charge qui équilibre la charge des machines virtuelles. 
+
+Quand vous créez un équilibreur de charge interne, un réseau virtuel est configuré comme réseau pour l’équilibreur de charge. 
+
+Le diagramme suivant illustre les ressources créées dans ce guide de démarrage rapide :
 
 :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal-basic.png" alt-text="Ressources de l’équilibreur de charge de base créées dans le guide de démarrage rapide." border="false":::
 

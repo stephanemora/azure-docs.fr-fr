@@ -6,21 +6,21 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 08/27/2020
+ms.date: 01/19/2021
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 3f64086ed97594416b5964cf648c857c2f271480
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8073d1e18b08a6deb0175f8eaf18de382e93e299
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91331095"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601843"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway-using-azure-powershell"></a>Démarrage rapide : Diriger le trafic web avec Azure Application Gateway à l’aide d’Azure PowerShell
 
 Dans le cadre de ce guide de démarrage rapide, vous allez utiliser Azure PowerShell pour créer une passerelle d’application. Puis, vous la testerez pour vous assurer qu’elle fonctionne correctement. 
 
-La passerelle d’application dirige le trafic web des applications vers des ressources spécifiques d’un pool de back-ends. Vous attribuez des écouteurs aux ports, créez des règles et ajoutez des ressources à un pool de back-ends. Par souci de simplicité, cet article utilise une configuration simple avec une adresse IP front-end publique, un écouteur de base pour héberger un site unique sur cette passerelle d’application, une règle de routage des requêtes simple et deux machines virtuelles dans le pool de back-ends.
+La passerelle d’application dirige le trafic web des applications vers des ressources spécifiques d’un pool de back-ends. Vous attribuez des écouteurs aux ports, créez des règles et ajoutez des ressources à un pool de back-ends. Pou simplifier, cet article utilise une configuration simple avec une adresse IP front-end publique, un écouteur de base pour héberger un site unique sur cette passerelle d’application, une règle de routage des requêtes simple et deux machines virtuelles dans le pool de back-ends.
 
 Vous pouvez également suivre ce guide de démarrage rapide en utilisant [Azure CLI](quick-create-cli.md) ou le [portail Azure](quick-create-portal.md).
 
@@ -48,7 +48,7 @@ New-AzResourceGroup -Name myResourceGroupAG -Location eastus
 ```
 ## <a name="create-network-resources"></a>Créer des ressources réseau
 
-Azure a besoin d’un réseau virtuel pour communiquer avec les différentes ressources que vous créez.  Le sous-réseau de passerelle d’application peut contenir uniquement des passerelles d’application. Aucune autre ressource n’est autorisée.  Vous pouvez créer un sous-réseau pour Application Gateway ou en utiliser qui existe déjà. Vous créez deux sous-réseaux dans cet exemple : un pour la passerelle d’application et un autre pour les serveurs back-end. Vous pouvez l’adresse IP frontale d’Application Gateway pour qu’elle soit publique ou privée conformément à votre cas d’utilisation. Dans cet exemple, vous allez choisir une adresse IP front-end publique.
+Azure a besoin d’un réseau virtuel pour communiquer avec les différentes ressources que vous créez.  Le sous-réseau de passerelle d’application peut contenir uniquement des passerelles d’application. Aucune autre ressource n’est autorisée.  Vous pouvez créer un sous-réseau pour Application Gateway ou en utiliser qui existe déjà. Vous créez deux sous-réseaux dans cet exemple : un pour la passerelle d’application et un autre pour les serveurs back-end. Vous pouvez configurer l’adresse IP front-end d’Application Gateway pour qu’elle soit publique ou privée conformément à votre cas d’usage. Dans cet exemple, vous allez choisir une adresse IP front-end publique.
 
 1. Créez les configurations de sous-réseau en utilisant `New-AzVirtualNetworkSubnetConfig`.
 2. Créez le réseau virtuel à l’aide des configurations de sous-réseau en utilisant `New-AzVirtualNetwork`. 
@@ -81,7 +81,7 @@ New-AzPublicIpAddress `
 ### <a name="create-the-ip-configurations-and-frontend-port"></a>Créer les configurations IP et le port frontal
 
 1. Utilisez `New-AzApplicationGatewayIPConfiguration` pour créer la configuration qui associe le sous-réseau que vous avez créé à la passerelle d’application. 
-2. Utilisez `New-AzApplicationGatewayFrontendIPConfig` pour créer la configuration qui attribue l’adresse IP publique que vous avez créée précédemment à la passerelle d’application. 
+2. Utilisez `New-AzApplicationGatewayFrontendIPConfig` pour créer la configuration qui attribue l’adresse IP publique que vous avez créée précédemment pour la passerelle d’application. 
 3. Utilisez `New-AzApplicationGatewayFrontendPort` pour configurer le port 80 comme port d’accès à la passerelle d’application.
 
 ```azurepowershell-interactive
@@ -101,7 +101,7 @@ $frontendport = New-AzApplicationGatewayFrontendPort `
 
 ### <a name="create-the-backend-pool"></a>Créer le pool principal
 
-1. Utilisez `New-AzApplicationGatewayBackendAddressPool` pour créer le pool de back-ends pour la passerelle d’application. Le pool de back-ends est vide pour le moment. Quand vous allez créer les cartes réseau du serveur back-end dans la section suivante, vous les ajouterez au pool de back-ends.
+1. Utilisez `New-AzApplicationGatewayBackendAddressPool` pour créer le pool de back-ends pour la passerelle d’application. Le pool de back-ends est vide pour l’instant. Lorsque vous créerez les cartes réseau du serveur back-end dans la section suivante, vous les ajouterez au pool de back-ends.
 2. Configurez les paramètres du pool de back-ends avec `New-AzApplicationGatewayBackendHttpSetting`.
 
 ```azurepowershell-interactive
@@ -164,7 +164,9 @@ New-AzApplicationGateway `
 
 ### <a name="backend-servers"></a>Serveurs principaux
 
-Maintenant que vous avez créé la passerelle d’application, créez les machines virtuelles back-end qui vont héberger les sites web. La partie principale peut se composer de cartes d’interface réseau, de groupes de machines virtuelles identiques, d’adresses IP publiques, d’adresses IP internes, de noms de domaine complets et de serveurs back-end multi-locataires comme Azure App Service. Dans cet exemple, vous créez deux machines virtuelles Azure à utiliser comme serveurs back-end pour la passerelle d’application. Vous installez également IIS sur les machines virtuelles pour vérifier qu’Azure a bien créé la passerelle d’application.
+Maintenant que vous avez créé la passerelle d’application, créez les machines virtuelles back-end qui vont héberger les sites web. Un back-end peut se composer de cartes d’interface réseau, de groupes de machines virtuelles identiques, d’une adresse IP publique, d’une adresse IP interne, de noms de domaine complets (FQDN) et de back-ends multilocataires comme Azure App Service. 
+
+Dans cet exemple, vous allez créer deux machines virtuelles à utiliser comme serveurs back-end pour la passerelle d’application. Vous installez également IIS sur les machines virtuelles pour vérifier qu’Azure a bien créé la passerelle d’application.
 
 #### <a name="create-two-virtual-machines"></a>Créer deux machines virtuelles
 
@@ -173,7 +175,7 @@ Maintenant que vous avez créé la passerelle d’application, créez les machin
 3. Créez une configuration de machine virtuelle avec `New-AzVMConfig`.
 4. Créez la machine virtuelle avec `New-AzVM`.
 
-Quand vous exécutez l’exemple de code suivant pour créer les machines virtuelles, Azure vous invite à entrer les informations d’identification. Entrez *azureuser* pour le nom d’utilisateur et un mot de passe :
+Quand vous exécutez l’exemple de code suivant pour créer les machines virtuelles, Azure vous invite à entrer les informations d’identification. Entrez un nom d’utilisateur et un mot de passe :
     
 ```azurepowershell-interactive
 $appgw = Get-AzApplicationGateway -ResourceGroupName myResourceGroupAG -Name myAppGateway
@@ -224,7 +226,9 @@ for ($i=1; $i -le 2; $i++)
 
 ## <a name="test-the-application-gateway"></a>Tester la passerelle d’application
 
-IIS n’est pas nécessaire pour créer la passerelle d’application, mais vous l’avez installé dans ce guide de démarrage rapide pour vérifier qu’Azure avait bien créé la passerelle d’application. Utilisez IIS pour tester la passerelle d’application :
+IIS n’est pas obligatoire pour créer la passerelle d’application, mais vous l’avez installé dans ce guide de démarrage rapide pour vérifier si Azure avait bien créé la passerelle d’application.
+
+Utilisez IIS pour tester la passerelle d’application :
 
 1. Exécutez `Get-AzPublicIPAddress` pour récupérer l’adresse IP publique de la passerelle d’application. 
 2. Copiez et collez l’adresse IP publique dans la barre d’adresse de votre navigateur. Quand vous actualisez le navigateur, vous devez voir s’afficher le nom de la machine virtuelle. Une réponse valide vérifie que la passerelle d’application a bien été créée avec succès et qu’elle est capable de se connecter au back-end.

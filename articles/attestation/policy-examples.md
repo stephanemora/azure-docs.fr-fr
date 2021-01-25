@@ -7,40 +7,50 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 252026f7c59f73dfb37f69d7708a80be827ce104
-ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
+ms.openlocfilehash: 51e8f01726c732604199ff08323f073d508da66e
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96748788"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602309"
 ---
 # <a name="examples-of-an-attestation-policy"></a>Exemples de stratégie d’attestation
 
 Une stratégie d’attestation est utilisée pour traiter la preuve d’attestation et déterminer si Azure Attestation doit émettre un jeton d’attestation. La génération de jeton d’attestation peut être contrôlée à l’aide de stratégies personnalisées. Voici quelques exemples de stratégie d’attestation.
 
-## <a name="default-policy-for-an-sgx-enclave-with-policyformattext"></a>Stratégie par défaut pour une enclave SGX avec PolicyFormat défini sur Text
+## <a name="default-policy-for-an-sgx-enclave"></a>Stratégie par défaut pour une enclave SGX 
 
 ```
-Version= 1.0;
+version= 1.0;
 authorizationrules
 {
-    c:[type==”$is-debuggable”] => permit();
+    c:[type=="$is-debuggable"] => permit();
 };
+
 issuancerules
 {
-    c:[type==”$is-debuggable”] => issue(type=”is-debuggable”, value=c.value);
-    c:[type==”$sgx-mrsigner”] => issue(type=”sgx-mrsigner”, value=c.value);
-    c:[type==”$sgx-mrenclave”] => issue(type=”sgx-mrenclave”, value=c.value);
-    c:[type==”$product-id”] => issue(type=”product-id”, value=c.value);
-    c:[type==”$svn”] => issue(type=”svn”, value=c.value);
-    c:[type==”$tee”] => issue(type=”tee”, value=c.value);
+    c:[type=="$is-debuggable"] => issue(type="is-debuggable", value=c.value);
+    c:[type=="$sgx-mrsigner"] => issue(type="sgx-mrsigner", value=c.value);
+    c:[type=="$sgx-mrenclave"] => issue(type="sgx-mrenclave", value=c.value);
+    c:[type=="$product-id"] => issue(type="product-id", value=c.value);
+    c:[type=="$svn"] => issue(type="svn", value=c.value);
+    c:[type=="$tee"] => issue(type="tee", value=c.value);
 };
 ```
 
-## <a name="default-policy-for-vbs-enclave"></a>Stratégie par défaut pour l’enclave VBS
+## <a name="sample-custom-policy-for-an-sgx-enclave"></a>Exemple de stratégie personnalisée pour une enclave SGX 
 
-Il n’existe aucune stratégie par défaut pour l’enclave VBS.
-
+```
+version= 1.0;
+authorizationrules
+{
+       [ type=="x-ms-sgx-is-debuggable", value==false ]
+        && [ type=="x-ms-sgx-product-id", value==<product-id> ]
+        && [ type=="x-ms-sgx-svn", value>= 0 ]
+        && [ type=="x-ms-sgx-mrsigner", value=="<mrsigner>"]
+    => permit();
+};
+```
 
 ## <a name="unsigned-policy-for-an-sgx-enclave-with-policyformatjwt"></a>Stratégie non signée pour une enclave SGX avec PolicyFormat défini sur JWT
 

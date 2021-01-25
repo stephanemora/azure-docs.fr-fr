@@ -2,13 +2,13 @@
 title: Déployer des ressources sur un abonnement
 description: Décrit comment créer un groupe de ressources dans un modèle Azure Resource Manager. Est également expliqué le déploiement des ressources sur l’étendue de l’abonnement Azure.
 ms.topic: conceptual
-ms.date: 11/24/2020
-ms.openlocfilehash: 2d4bd0db32a4bf0224b9da3af6e03ca86d7b496e
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.date: 01/13/2021
+ms.openlocfilehash: 1daf95945f619d0e904880d8a8a778810a685d9a
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95807706"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183980"
 ---
 # <a name="subscription-deployments-with-arm-templates"></a>Déploiements d’abonnements avec des modèles ARM
 
@@ -142,7 +142,8 @@ Lors du déploiement dans un abonnement, vous pouvez déployer des ressources ve
 * tout abonnement dans le locataire
 * des groupes de ressources dans le même abonnement ou dans d’autres abonnements
 * le locataire de l’abonnement
-* les [ressources d’extension](scope-extension-resources.md) peuvent être appliquées aux ressources
+
+Une [ressource d’extension](scope-extension-resources.md) peut être étendue à une cible différente de la cible de déploiement.
 
 L’utilisateur qui déploie le modèle doit avoir accès à l’étendue spécifiée.
 
@@ -181,6 +182,8 @@ Vous pouvez utiliser un déploiement imbriqué en définissant `scope` et `locat
 Ou vous pouvez définir l’étendue sur `/` pour certains types de ressources, comme les groupes d’administration.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/subscription-create-mg.json" highlight="12,15":::
+
+Pour plus d’informations, consultez [Groupe d’administration](deploy-to-management-group.md#management-group).
 
 ## <a name="resource-groups"></a>Groupes de ressources
 

@@ -3,14 +3,14 @@ title: Didacticiel Kubernetes sur Azure - Mettre à niveau un cluster
 description: Dans le cadre de ce didacticiel Azure Kubernetes Service (AKS), vous allez apprendre à mettre à niveau un cluster AKS existant vers la dernière version Kubernetes disponible.
 services: container-service
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 01/12/2021
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 517172b919552a24e9cb12bbaad14eb8cb71b3fd
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 8efb381562a5c55fa2c29b8379312dc41ef6a046
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97007532"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251333"
 ---
 # <a name="tutorial-upgrade-kubernetes-in-azure-kubernetes-service-aks"></a>Tutoriel : Mettre à niveau Kubernetes dans Azure Kubernetes Service (AKS)
 
@@ -37,22 +37,22 @@ Avant de mettre à niveau un cluster, utilisez la commande [az aks get-upgrades]
 az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Dans l’exemple suivant, la version actuelle est *1.15.11*, et les versions disponibles s’affichent sous *Mises à niveau*.
+Dans l’exemple suivant, la version actuelle est *1.18.10*, et les versions disponibles s’affichent sous *Mises à niveau*.
 
 ```json
 {
   "agentPoolProfiles": null,
   "controlPlaneProfile": {
-    "kubernetesVersion": "1.15.11",
+    "kubernetesVersion": "1.18.10",
     ...
     "upgrades": [
       {
         "isPreview": null,
-        "kubernetesVersion": "1.16.8"
+        "kubernetesVersion": "1.19.1"
       },
       {
         "isPreview": null,
-        "kubernetesVersion": "1.16.9"
+        "kubernetesVersion": "1.19.3"
       }
     ]
   },
@@ -82,7 +82,7 @@ az aks upgrade \
 > [!NOTE]
 > Vous ne pouvez mettre à niveau qu’une version mineure à la fois. Par exemple, vous pouvez effectuer une mise à niveau de la version *1.14.x* vers la version *1.15.x*, mais pas de la version *1.14.x* directement vers la version *1.16.x*. Pour effectuer une mise à niveau de *1.14.x* vers *1.16.x*, commencez par mettre à niveau la version *1.14.x* vers la version *1.15.x*, puis mettez à niveau la version *1.15.x* vers la version *1.16.x*.
 
-L’exemple de sortie condensée suivant montre le résultat de la mise à niveau vers *1.16.8*. Remarquez *kubernetesVersion* indique à présent *1.16.8* :
+L’exemple de sortie condensée suivant montre le résultat de la mise à niveau vers *1.19.1*. Observez que *kubernetesVersion* indique à présent *1.19.1* :
 
 ```json
 {
@@ -100,7 +100,7 @@ L’exemple de sortie condensée suivant montre le résultat de la mise à nivea
   "enableRbac": false,
   "fqdn": "myaksclust-myresourcegroup-19da35-bd54a4be.hcp.eastus.azmk8s.io",
   "id": "/subscriptions/<Subscription ID>/resourcegroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myAKSCluster",
-  "kubernetesVersion": "1.16.8",
+  "kubernetesVersion": "1.19.1",
   "location": "eastus",
   "name": "myAKSCluster",
   "type": "Microsoft.ContainerService/ManagedClusters"
@@ -115,12 +115,12 @@ Assurez-vous que la mise à niveau a réussi en utilisant la commande [az aks sh
 az aks show --resource-group myResourceGroup --name myAKSCluster --output table
 ```
 
-L’exemple de sortie suivant indique que le cluster AKS exécute *KubernetesVersion 1.16.8* :
+L’exemple de sortie suivant indique que le cluster AKS exécute *KubernetesVersion 1.19.1* :
 
-```
+```output
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn
 ------------  ----------  ---------------  -------------------  -------------------  ----------------------------------------------------------------
-myAKSCluster  eastus      myResourceGroup  1.16.8               Succeeded            myaksclust-myresourcegroup-19da35-bd54a4be.hcp.eastus.azmk8s.io
+myAKSCluster  eastus      myResourceGroup  1.19.1               Succeeded            myaksclust-myresourcegroup-19da35-bd54a4be.hcp.eastus.azmk8s.io
 ```
 
 ## <a name="delete-the-cluster"></a>Supprimer le cluster

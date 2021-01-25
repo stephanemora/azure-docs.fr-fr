@@ -5,15 +5,15 @@ author: RonyMSFT
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: security
-ms.date: 04/15/2020
+ms.date: 01/18/2021
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 949b7e55569cc6fceacc37677ed06a28bb85d7c2
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: f55251932c8aa8f632bd3b498943ac722f006dee
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98116362"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98569903"
 ---
 # <a name="azure-synapse-analytics-managed-virtual-network"></a>Réseau virtuel managé Azure Synapse Analytics
 
@@ -52,8 +52,21 @@ Si vous ne cochez pas cette case, aucun réseau virtuel n’est associé à votr
 
 ![Activer le réseau virtuel d’espace de travail managé](./media/synapse-workspace-managed-vnet/enable-managed-vnet-1.png)
 
+Après avoir choisi d’associer un réseau virtuel d’espace de travail managé à votre espace de travail, vous pouvez vous protéger contre l’exfiltration de données en autorisant la connectivité sortante allant uniquement du réseau virtuel de l’espace de travail managé vers les cibles approuvées, à l’aide de [points de terminaison privés managés](./synapse-workspace-managed-private-endpoints.md). Sélectionnez **Oui** pour limiter le trafic sortant en provenance du réseau virtuel d’espace de travail managé aux cibles uniquement, via des points de terminaison privés. 
 
-Vous pouvez vérifier si votre espace de travail Azure Synapse est associé à un réseau virtuel d’espace de travail managé en sélectionnant **Vue d’ensemble** dans le portail Azure.
+
+>[!IMPORTANT]
+>Le metastore est désactivé dans les espaces de travail Synapse disposant d’un réseau virtuel managé où la protection contre l’exfiltration des données est activée. Vous ne pourrez pas utiliser Spark SQL dans ces espaces de travail.
+
+![Trafic sortant utilisant des points de terminaison privés managés](./media/synapse-workspace-managed-vnet/select-outbound-connectivity.png)
+
+Sélectionnez **Non** pour autoriser le trafic sortant entre l’espace de travail et n’importe quelle cible.
+
+Vous pouvez également contrôler les cibles sur lesquelles les points de terminaison privés managés sont créés à partir de votre espace de travail Azure Synapse. Par défaut, les points de terminaison privés managés des ressources qui se trouvent dans le même locataire AAD que votre abonnement sont autorisés. Si vous souhaitez créer un point de terminaison privé managé sur une ressource située dans un locataire AAD différent de celui auquel votre abonnement appartient, vous pouvez ajouter ce locataire AAD en sélectionnant **+ Ajouter**. Vous pouvez sélectionner le locataire AAD dans la liste déroulante ou entrer manuellement l’ID du locataire AAD.
+
+![Ajouter des locataires AAD](./media/synapse-workspace-managed-vnet/add-additional-azure-active-directory-tenants.png)
+
+Une fois l’espace de travail créé, vous pouvez vérifier si votre espace de travail Azure Synapse est associé à un réseau virtuel d’espace de travail managé en sélectionnant **Vue d’ensemble** dans le portail Azure.
 
 ![Vue d’ensemble d’espace de travail dans le portail Azure](./media/synapse-workspace-managed-vnet/enable-managed-vnet-2.png)
 

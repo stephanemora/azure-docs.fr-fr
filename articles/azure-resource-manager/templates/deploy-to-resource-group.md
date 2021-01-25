@@ -2,13 +2,13 @@
 title: Déployer des ressources sur des groupes de ressources
 description: Explique comment définir des ressources dans un modèle Azure Resource Manager. Montre comment cibler plusieurs groupes de ressources.
 ms.topic: conceptual
-ms.date: 11/24/2020
-ms.openlocfilehash: 9d0bec51fa55ee377eb647a11fb554ec3b81e9eb
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.date: 01/13/2021
+ms.openlocfilehash: 9eb70e5ce69a2c7bc7ac9b8c9a7a558d09ecbef0
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95807724"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98186224"
 ---
 # <a name="resource-group-deployments-with-arm-templates"></a>Déploiements de groupes de ressources avec des modèles Resource Manager
 
@@ -85,7 +85,8 @@ Lors du déploiement dans un groupe de ressources, vous pouvez déployer des res
 * d’autres groupes de ressources dans le même abonnement ou dans d’autres abonnements
 * tout abonnement dans le locataire
 * le locataire pour le groupe de ressources
-* les [ressources d’extension](scope-extension-resources.md) peuvent être appliquées aux ressources
+
+Une [ressource d’extension](scope-extension-resources.md) peut être étendue à une cible différente de la cible de déploiement.
 
 L’utilisateur qui déploie le modèle doit avoir accès à l’étendue spécifiée.
 
@@ -136,6 +137,8 @@ Vous pouvez utiliser un déploiement imbriqué en définissant `scope` et `locat
 Ou vous pouvez définir l’étendue sur `/` pour certains types de ressources, comme les groupes d’administration.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/resource-group-create-mg.json" highlight="12,15":::
+
+Pour plus d’informations, consultez [Groupe d’administration](deploy-to-management-group.md#management-group).
 
 ## <a name="deploy-to-target-resource-group"></a>Déployer dans le groupe de ressources cible
 

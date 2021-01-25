@@ -5,16 +5,16 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 11/17/2020
+ms.date: 01/13/2021
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 0cdd25b2937dd1fb2cc70ef7b1c5a9e9ddaef375
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: bd155ea3c98231cf20fa7c62325e3c2ecfb89920
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780601"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185918"
 ---
 # <a name="programmatically-create-azure-enterprise-agreement-subscriptions-with-the-latest-apis"></a>Créer des abonnements Contrat Entreprise Azure programmatiquement avec les API les plus récentes
 
@@ -31,7 +31,9 @@ Quand vous créez un abonnement Azure par programmation, cet abonnement est rég
 Vous devez avoir un rôle Propriétaire sur un compte d’inscription pour créer un abonnement. Vous pouvez obtenir ce rôle de deux manières :
 
 * L’administrateur d’entreprise de votre inscription peut [vous rendre propriétaire d’un compte](https://ea.azure.com/helpdocs/addNewAccount) (connexion obligatoire), ce qui vous rend propriétaire du compte d’inscription.
-* Un propriétaire existant du compte d’inscription peut [vous accorder l’accès](grant-access-to-create-subscription.md). De la même façon, si vous souhaitez utiliser un principal de service pour créer un abonnement EA, vous devez [autoriser ce principal de service à créer des abonnements](grant-access-to-create-subscription.md).
+* Un propriétaire existant du compte d’inscription peut [vous accorder l’accès](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). De la même façon, si vous souhaitez utiliser un principal de service pour créer un abonnement EA, vous devez [autoriser ce principal de service à créer des abonnements](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). 
+  > [!NOTE]
+  > Veillez à utiliser la bonne version d’API pour accorder des autorisations de propriétaire au compte d’inscription. Pour cet article et pour les API qui y sont documentées, utilisez l’API [2019-10-01-preview](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). Si vous effectuez une migration en vue d’utiliser les nouvelles API, vous devez à nouveau accorder des autorisations de propriétaire à l’aide de [2019-10-01-preview](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). La configuration précédente effectuée avec la [version 2015-07-01](grant-access-to-create-subscription.md) n’est pas automatiquement convertie en vue d’être utilisée avec les nouvelles API.
 
 ## <a name="find-accounts-you-have-access-to"></a>Rechercher les comptes auxquels vous avez accès
 

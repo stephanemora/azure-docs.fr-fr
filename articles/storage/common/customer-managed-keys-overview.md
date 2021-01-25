@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 8eaadc031039b22e209db1023c65da39e1e096b1
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 9afce964652d2bedbe105a8a750a93d2f37eef85
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96483281"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179029"
 ---
 # <a name="customer-managed-keys-for-azure-storage-encryption"></a>Clés gérées par le client pour le chiffrement du service Stockage Azure
 
@@ -78,7 +78,7 @@ Lorsque vous configurez un chiffrement avec des clés gérées par le client, vo
 
     Lorsque la version de la clé est spécifiée explicitement, vous devez mettre à jour manuellement le compte de stockage pour utiliser l’URI de la nouvelle version de la clé lors de la création d’une nouvelle version. Pour savoir comment mettre à jour le compte de stockage afin d’utiliser une nouvelle version de la clé, consultez [Configurer le chiffrement avec des clés gérées par le client stockées dans Azure Key Vault](customer-managed-keys-configure-key-vault.md) ou [Configurer le chiffrement avec des clés gérées par le client stockées dans un module HSM géré par Azure Key Vault Azure (préversion)](customer-managed-keys-configure-key-vault-hsm.md).
 
-La mise à jour de la version d’une clé gérée par le client ne déclenche pas le nouveau chiffrement des données dans le compte de stockage. Aucune autre action n’est requise de la part de l’utilisateur.
+Quand vous mettez à jour la version de la clé, la protection de la clé de chiffrement racine change, mais les données de votre compte de stockage Azure ne sont pas rechiffrées. Aucune autre action n’est requise de la part de l’utilisateur.
 
 > [!NOTE]
 > Pour effectuer une rotation d’une clé, créez une nouvelle version de la clé dans le coffre de clés ou le module HSM managé, en fonction de vos stratégies de conformité. Vous pouvez effectuer une rotation de votre clé manuellement ou créer une fonction pour effectuer la rotation selon une planification.

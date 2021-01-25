@@ -65,10 +65,12 @@
       href: howto-manage-digital-twin.md
     - name: Certifier un appareil
       href: howto-certify-device.md
-    - name: Installer et utiliser le pont IoT Plug-and-Play
+    - name: Guide pratique pour connecter un exemple de pont IoT Plug-and-Play
       href: howto-use-iot-pnp-bridge.md
-    - name: 'Créer, déployer et étendre un pont IoT Plug-and-Play'
+    - name: Créer et déployer un pont IoT Plug-and-Play
       href: howto-build-deploy-extend-pnp-bridge.md
+    - name: Étendre un pont IoT Plug-and-Play
+      href: howto-author-pnp-bridge-adapter.md
 - name: Informations de référence
   items:
     - name: Bibliothèques et kits SDK

@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 12/16/2020
-ms.openlocfilehash: d987d21700e5f19ad8228b08508e8da842cc39eb
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.date: 01/14/2020
+ms.openlocfilehash: 983e037376be48f497118b06cce8b23c430b1501
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97914108"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223072"
 ---
 # <a name="open-source-integration-with-azure-machine-learning-projects"></a>Intégration open source aux projets Azure Machine Learning
 
@@ -42,11 +42,11 @@ Les algorithmes de Machine Learning open source appelés réseaux neuronaux, un 
 
 Les infrastructures de Deep Learning open source et les guides pratiques incluent :
 
- *  [PyTorch](https://github.com/pytorch/pytorch) : [Effectuer l'apprentissage d’un modèle de classification d’images Deep Learning à l’aide de l’apprentissage de transfert dans PyTorch](how-to-train-pytorch.md) 
+ *  [PyTorch](https://github.com/pytorch/pytorch) : [Effectuer l'apprentissage d’un modèle de classification d’images Deep Learning à l’aide de l’apprentissage de transfert](how-to-train-pytorch.md) 
  *  [TensorFlow](https://github.com/tensorflow/tensorflow) : [Reconnaître les chiffres manuscrits à l’aide de TensorFlow](how-to-train-tensorflow.md)
  *  [Keras](https://github.com/keras-team/keras) : [Générer un réseau neuronal pour analyser des images à l’aide de Keras](how-to-train-keras.md)
 
-La formation d’un modèle Deep Learning à partir de zéro nécessite souvent de grandes quantités de temps, de données et de ressources de calcul. L’apprentissage de transfert peut vous permettre de raccourcir le processus de formation. L’apprentissage de transfert est une technique qui applique les connaissances acquises lors de la résolution d’un problème à un problème différent, mais connexe. Cela signifie que vous pouvez utiliser un modèle existant et le réaffecter. Pour en savoir plus sur l’apprentissage de transfert, consultez [l’article Deep Learning](concept-deep-learning-vs-machine-learning.md#transfer-learning).
+La formation d’un modèle Deep Learning à partir de zéro nécessite souvent de grandes quantités de temps, de données et de ressources de calcul. L’apprentissage de transfert peut vous permettre de raccourcir le processus de formation. L’apprentissage de transfert est une technique qui applique les connaissances acquises lors de la résolution d’un problème à un problème différent, mais connexe. Cela signifie que vous pouvez utiliser un modèle existant et le réaffecter. Pour en savoir plus sur l’apprentissage de transfert, consultez l’article [Deep Learning et Machine Learning](concept-deep-learning-vs-machine-learning.md#what-is-transfer-learning).
 
 ### <a name="reinforcement-learning-ray-rllib"></a>Apprentissage par renforcement : Ray RLLib
 

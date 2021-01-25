@@ -1,0 +1,54 @@
+- name: Documentation Azure Import/Export
+  href: ./index.yml
+- name: Vue d'ensemble
+  expanded: true
+  items:
+    - name: "Qu’est-ce qu’Import/Export\_?"
+      href: storage-import-export-service.md
+- name: Concepts
+  items:
+    - name: Examiner les conditions requises
+      href: storage-import-export-requirements.md
+    - name: Questions fréquentes (FAQ)
+      href: storage-import-export-service-faq.md
+- name: Procédures
+  expanded: true
+  items:
+    - name: Déployer
+      items:
+        - name: Importer des données dans des objets BLOB
+          href: storage-import-export-data-to-blobs.md
+        - name: Importer des données dans des fichiers
+          href: storage-import-export-data-to-files.md
+        - name: Importer des données à partir d’objets BLOB
+          href: storage-import-export-data-from-blobs.md
+    - name: Utiliser des clés gérées par le client
+      href: storage-import-export-encryption-key-portal.md
+    - name: Superviser
+      items:
+        - name: Afficher l’état des disques
+          href: storage-import-export-view-drive-status.md
+        - name: Revoir le statut du travail
+          href: storage-import-export-tool-reviewing-job-status-v1.md
+    - name: Dépanner
+      items:
+        - name: Corriger les erreurs courantes
+          href: storage-import-export-tool-troubleshooting-v1.md
+        - name: Réparer un travail d’importation
+          href: storage-import-export-tool-repairing-an-import-job-v1.md
+        - name: Réparer un travail d’exportation
+          href: storage-import-export-tool-repairing-an-export-job-v1.md
+        - name: Contacter le support technique
+          href: storage-import-export-contact-microsoft-support.md
+- name: Informations de référence
+  items:
+    - name: API REST
+      href: /rest/api/storageimportexport/jobs
+    - name: Azure PowerShell
+      href: /powershell/module/Az.ImportExport
+- name: Ressources
+  items:
+    - name: Exporter des données hors connexion
+      href: /learn/modules/export-data-with-azure-import-export
+    - name: Autres options de transfert hors connexion
+      href: ../databox/index.yml

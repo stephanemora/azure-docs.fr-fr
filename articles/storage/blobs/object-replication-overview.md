@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/13/2020
+ms.date: 01/13/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 47a2aae39be93361e1e0e581efb56cc678b444cd
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: ff2408e35d76a6ea0d5221e04c7a41ed6cde7ac9
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96549087"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178974"
 ---
 # <a name="object-replication-for-block-blobs"></a>Réplication d'objets blob de blocs
 
@@ -89,6 +89,16 @@ Quand vous créez une règle de réplication, par défaut, seuls les nouveaux ob
 Vous pouvez aussi spécifier un ou plusieurs filtres dans le cadre d’une règle de réplication pour filtrer les objets blob de blocs par préfixe. Lorsque vous spécifiez un préfixe, seuls les objets blob correspondant à ce préfixe dans le conteneur source sont copiés dans le conteneur de destination.
 
 Les conteneurs source et de destination doivent tous les deux exister pour que vous puissiez les spécifier dans une règle. Une fois que vous avez créé la stratégie de réplication, le conteneur de destination bascule en lecture seule. Toute tentative d’écriture dans le conteneur de destination échoue avec le code d’erreur 409 (Conflit). En revanche, vous pouvez appeler l’opération [Définir le niveau du blob](/rest/api/storageservices/set-blob-tier) sur un objet blob dans le conteneur de destination pour le déplacer vers le niveau d’archive. Pour plus d’informations sur le niveau d’archive, consultez [Stockage Blob Azure : niveaux d’accès chaud, froid et archive](storage-blob-storage-tiers.md#archive-access-tier).
+
+## <a name="replication-status"></a>État de la réplication
+
+Vous pouvez vérifier l’état de réplication d’un objet blob dans le compte source. Pour plus d’informations, consultez [Vérifier l’état de réplication d’un objet blob](object-replication-configure.md#check-the-replication-status-of-a-blob).
+
+Si l’état de réplication d’un blob dans le compte source indique un échec, examinez les causes possibles suivantes :
+
+- Assurez-vous que la stratégie de réplication d’objet est configurée sur le compte de destination.
+- Vérifiez que le conteneur de destination existe toujours.
+- Si le blob source a été chiffré à l’aide d’une clé fournie par le client dans le cadre d’une opération d’écriture, la réplication d’objet échoue. Pour plus d’informations sur les clés fournies par le client, consultez [Fournir une clé de chiffrement lors d’une requête au stockage d’objets blob](encryption-customer-provided-keys.md).
 
 ## <a name="billing"></a>Facturation
 

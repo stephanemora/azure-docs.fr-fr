@@ -5,12 +5,12 @@ author: macolso
 ms.author: macolso
 ms.topic: article
 ms.date: 06/02/2020
-ms.openlocfilehash: e4760463a4d71e4c097b082aa6b93d8b339f94ca
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 5de1188ee018e796f918d7559c0e2c24c77834f4
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92516968"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98186190"
 ---
 # <a name="frequently-asked-questions-about-azure-container-instances"></a>Forum aux questions sur Azure Container Instances
 
@@ -53,7 +53,11 @@ Retrouvez des [conseils détaillés](container-instances-troubleshooting.md#cont
 
 ### <a name="what-net-or-net-core-image-layer-should-i-use-in-my-container"></a>Quels calques d’image .NET ou .NET Core dois-je utiliser dans mon conteneur ? 
 
-Utiliser l’image la plus petite qui répond à vos besoins. Pour Linux, vous pouvez utiliser une image .NET Core *runtime-alpine* , prise en charge depuis la version 2.1 de .NET Core. Pour Windows, si vous utilisez le .NET Framework complet, vous devez utiliser une image Windows Server Core (image runtime, comme *4.7.2-windowsservercore-ltsc2016* ). Les images runtime sont plus petites, mais ne prennent pas en charge les charges de travail qui nécessitent le SDK .NET.
+Utiliser l’image la plus petite qui répond à vos besoins. Pour Linux, vous pouvez utiliser une image .NET Core *runtime-alpine*, prise en charge depuis la version 2.1 de .NET Core. Pour Windows, si vous utilisez le .NET Framework complet, vous devez utiliser une image Windows Server Core (image runtime, comme *4.7.2-windowsservercore-ltsc2016*). Les images runtime sont plus petites, mais ne prennent pas en charge les charges de travail qui nécessitent le SDK .NET.
+
+### <a name="what-types-of-container-registries-are-compatible-with-aci"></a>Quels sont les types de registres de conteneurs compatibles avec ACI ?
+
+ACI prend en charge les tirages (pull) d’image à partir d’ACR ou de registres de conteneurs tiers tels que DockerHub. ACI prend également en charge les tirages (pull) d’image à partir de registres locaux s’ils sont compatibles avec la reconnaissance optique de caractères et disposent d’un point de terminaison exposé publiquement à Internet.
 
 ## <a name="availability-and-quotas"></a>Disponibilité et quotas
 

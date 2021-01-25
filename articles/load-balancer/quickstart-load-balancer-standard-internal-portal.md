@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 14203021846e97a53f59c3bc24a1586774613dec
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: f70116847a8743cf8b3cb56ff35f9d913f13f359
+ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97704331"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98562350"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Démarrage rapide : Créer un équilibreur de charge interne pour équilibrer la charge de machines virtuelles en utilisant le portail Azure
 
@@ -41,11 +41,13 @@ Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.az
 >[!NOTE]
 >Il est recommandé de disposer d’un équilibreur de charge de référence SKU Standard pour les charges de travail de production.  Pour plus d’informations sur les références SKU, consultez **[Références SKU Azure Load Balancer](skus.md)** .
 
-:::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal.png" alt-text="Ressources Standard Load Balancer créées pour le guide de démarrage rapide." border="false":::
-
 Dans cette section, vous créez un équilibreur de charge qui équilibre la charge des machines virtuelles. 
 
 Quand vous créez un équilibreur de charge interne, un réseau virtuel est configuré comme réseau pour l’équilibreur de charge. 
+
+Le diagramme suivant illustre les ressources créées dans ce guide de démarrage rapide :
+
+:::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal.png" alt-text="Ressources Standard Load Balancer créées pour le guide de démarrage rapide." border="false":::
 
 Une adresse IP privée dans le réseau virtuel est configurée comme front-end (nommé **LoadBalancerFrontend** par défaut) pour l’équilibreur de charge. 
 
@@ -199,12 +201,8 @@ Dans cette section, vous allez créer une règle d’équilibreur de charge :
     | Sonde d’intégrité | Sélectionnez **myHealthProbe**. |
     | Délai d’inactivité (minutes) | Déplacez le curseur sur **15 minutes**. |
     | Réinitialisation du protocole TCP | Sélectionnez **Enabled**. |
-    | Traduction d’adresses réseau (SNAT) sources sortante | Sélectionnez **(Recommandé) Utiliser des règles de trafic sortant pour fournir aux membres du pool de back-ends l’accès à Internet**. |
-
+    
 4. Laissez les autres valeurs par défaut, puis sélectionnez **OK**.
-
->[!NOTE]
->Avec cette configuration, les machines virtuelles du pool principal ne disposent pas d’une connectivité Internet sortante. </br> Pour plus d’informations sur la façon de fournir une connectivité sortante, consultez : </br> **[Connexions sortantes dans Azure](load-balancer-outbound-connections.md)**</br> Options pour fournir la connectivité : </br> **[Configuration de l’équilibreur de charge en sortie uniquement](egress-only.md)** </br> **[Qu’est-ce que le service NAT de Réseau virtuel ?](../virtual-network/nat-overview.md)**
 
 ## <a name="create-backend-servers"></a>Créer des serveurs principaux
 
@@ -278,11 +276,13 @@ Ces machines virtuelles sont ajoutées au pool de back-ends de l’équilibreur 
 >[!NOTE]
 >Il est recommandé de disposer d’un équilibreur de charge de référence SKU Standard pour les charges de travail de production.  Pour plus d’informations sur les références SKU, consultez **[Références SKU Azure Load Balancer](skus.md)** .
 
-:::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal-basic.png" alt-text="Ressources de l’équilibreur de charge de base créées dans le guide de démarrage rapide." border="false":::
-
 Dans cette section, vous créez un équilibreur de charge qui équilibre la charge des machines virtuelles. 
 
 Quand vous créez un équilibreur de charge interne, un réseau virtuel est configuré comme réseau pour l’équilibreur de charge. 
+
+Le diagramme suivant illustre les ressources créées dans ce guide de démarrage rapide :
+
+:::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal-basic.png" alt-text="Ressources de l’équilibreur de charge de base créées dans le guide de démarrage rapide." border="false":::
 
 Une adresse IP privée dans le réseau virtuel est configurée comme front-end (nommé **LoadBalancerFrontend** par défaut) pour l’équilibreur de charge. 
 

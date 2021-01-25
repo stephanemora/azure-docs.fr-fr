@@ -12,12 +12,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, contperf-fy21q1, contperf-fy21q2
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: cc0d908f479fe5bdf14abb2ace0e6c046fd6d7d5
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 45280ec41a9fd9423e4184b2e1ce593720ab6488
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98011947"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232350"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Démarrage rapide : Inscrire une application avec la plateforme d’identités Microsoft
 
@@ -97,7 +97,7 @@ Certaines restrictions s’appliquent au format des URI de redirection que vous 
 
 ## <a name="add-credentials"></a>Ajouter les informations d’identification
 
-Les informations d’identification sont utilisées par les applications clientes confidentielles qui accèdent à une API web. Les applications web, les autres API web ou les applications de type service et démon sont des exemples de clients confidentiels. Les informations d’identification permettent à votre application de s’authentifier de façon autonome, sans qu’aucune interaction utilisateur ne soit nécessaire au moment de l’exécution.
+Les informations d’identification sont utilisées par les [applications clientes confidentielles](msal-client-applications.md) qui accèdent à une API web. Les [applications web](scenario-web-app-call-api-overview.md), les autres [API web](scenario-protected-web-api-overview.md) ou les [applications de type service et démon](scenario-daemon-overview.md) sont des exemples de clients confidentiels. Les informations d’identification permettent à votre application de s’authentifier de façon autonome, sans qu’aucune interaction utilisateur ne soit nécessaire au moment de l’exécution. 
 
 Vous pouvez ajouter des certificats et des secrets clients (une chaîne) en tant qu’informations d’identification à votre inscription d’application cliente confidentielle.
 
@@ -105,7 +105,7 @@ Vous pouvez ajouter des certificats et des secrets clients (une chaîne) en tant
 
 ### <a name="add-a-certificate"></a>Ajouter un certificat
 
-Parfois appelés *clé publique*, les certificats sont le type d’informations d’identification recommandé, car ils fournissent un niveau d’assurance plus élevé qu’un secret client.
+Parfois appelés *clé publique*, les certificats sont le type d’informations d’identification recommandé, car ils fournissent un niveau d’assurance plus élevé qu’un secret client. Pour plus d’informations sur l’utilisation du certificat comme méthode d’authentification dans votre application, consultez [Informations d’identification de certificat d’authentification d’application de la Plateforme d’identités Microsoft](active-directory-certificate-credentials.md).
 
 1. Sélectionnez votre application dans les **Inscriptions d’applications** dans le portail Azure.
 1. Sélectionnez **Certificats et secrets** > **Charger le certificat**.
@@ -114,7 +114,7 @@ Parfois appelés *clé publique*, les certificats sont le type d’informations
 
 ### <a name="add-a-client-secret"></a>Ajouter un secret client
 
-Le secret client, également appelé *mot de passe d’application*, est une valeur de chaîne que votre application peut utiliser à la place d’un certificat pour s’identifier. Souvent utilisé pendant le développement, c’est le plus simple à utiliser des deux types d’informations d’identification, mais il est considéré comme moins sécurisé qu’un certificat. Vous devez utiliser des certificats dans vos applications qui s’exécutent en production.
+Le secret client, également appelé *mot de passe d’application*, est une valeur de chaîne que votre application peut utiliser à la place d’un certificat pour s’identifier. Souvent utilisé pendant le développement, c’est le plus simple à utiliser des deux types d’informations d’identification, mais il est considéré comme moins sécurisé qu’un certificat. Vous devez utiliser des certificats dans vos applications qui s’exécutent en production. Pour plus d’informations sur les recommandations en matière de sécurité des applications, consultez [Meilleures pratiques et recommandations relatives à la plateforme d’identité Microsoft](identity-platform-integration-checklist.md#security).
 
 1. Sélectionnez votre application dans les **Inscriptions d’applications** dans le portail Azure.
 1. Sélectionnez **Certificats et secrets** >  **Nouveau secret client**.
@@ -122,6 +122,8 @@ Le secret client, également appelé *mot de passe d’application*, est une val
 1. Sélectionnez une durée.
 1. Sélectionnez **Ajouter**.
 1. **Enregistrez la valeur du secret** pour une utilisation dans le code de votre application cliente. Une fois que vous avez quitté cette page, elle *ne s’affiche plus*.
+
+**Remarque :** L’ID généré avec la valeur du secret est l’ID du secret, qui est différent de l’ID d’application.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

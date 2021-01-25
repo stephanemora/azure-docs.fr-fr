@@ -9,18 +9,18 @@ ms.subservice: enterprise
 ms.topic: tutorial
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: d707051e20b4ce9d1289557aec6f8256c2e6bfba
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 643aac7927cc7b14693387fbb5765bdcd0214dc2
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150069"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98598252"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Comprendre votre facture Contrat Entreprise Azure
 
 Les clients Azure qui ont un Contrat Entreprise reçoivent une facture quand ils dépassent le crédit de l’organisation ou utilisent des services qui ne sont pas couverts par le crédit.
 
-Le crédit de votre organisation comprend votre engagement financier. L’engagement financier correspond au montant que votre organisation a payé à l’avance pour l’utilisation des services Azure. Vous pouvez ajouter des fonds d’engagement financier à votre Contrat Entreprise en contactant votre revendeur ou votre responsable de compte Microsoft.
+Le crédit de votre organisation comprend votre Paiement anticipé Azure (anciennement « Engagement financier »). Le Paiement anticipé Azure correspond au montant que votre organisation a payé à l’avance pour l’utilisation des services Azure. Vous pouvez ajouter des fonds de Paiement anticipé Azure à votre Contrat Entreprise en contactant votre revendeur ou votre responsable de compte Microsoft.
 
 Ce tutoriel s’applique uniquement aux clients Azure disposant d’un Contrat Entreprise Azure.
 
@@ -155,7 +155,7 @@ Voici quelques raisons qui expliquent les différences de tarifs :
 
 ## <a name="request-detailed-usage-information"></a>Demander des informations détaillées sur l’utilisation
 
-Les administrateurs d’entreprise peuvent voir un résumé de leurs données d’utilisation, l’engagement financier consommé et les frais associés à l’utilisation supplémentaire dans le portail Azure Enterprise. Les frais sont présentés au niveau du résumé pour tous les comptes et abonnements.
+Les administrateurs d’entreprise peuvent voir le récapitulatif de leurs données d’utilisation, l’acompte Azure consommé et les frais associés à l’utilisation supplémentaire dans le portail Azure Enterprise. Les frais sont présentés au niveau du résumé pour tous les comptes et abonnements.
 
 Pour voir l’utilisation détaillée de comptes spécifiques, téléchargez le rapport de détails de l’utilisation en accédant à **Rapports** > **Télécharger l’utilisation**.
 
@@ -166,7 +166,7 @@ Pour les inscriptions indirectes, votre partenaire doit activer la fonction de b
 
 ## <a name="reports"></a>Rapports
 
-Les administrateurs d’entreprise peuvent voir un résumé de leurs données d’utilisation, l’engagement financier consommé et les frais associés à l’utilisation supplémentaire dans le portail Azure Enterprise. Les frais sont présentés au niveau du résumé pour tous les comptes et abonnements.
+Les administrateurs d’entreprise peuvent voir le récapitulatif de leurs données d’utilisation, l’acompte Azure consommé et les frais associés à l’utilisation supplémentaire dans le portail Azure Enterprise. Les frais sont présentés au niveau du résumé pour tous les comptes et abonnements.
 
 ### <a name="azure-enterprise-reports"></a>Rapports Azure Enterprise
 

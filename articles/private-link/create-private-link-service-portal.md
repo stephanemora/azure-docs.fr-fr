@@ -3,23 +3,25 @@ title: Démarrage rapide - Créer un service Private Link avec le portail Azure
 titlesuffix: Azure Private Link
 description: Découvrez dans ce guide de démarrage rapide comment créer un service Private Link en utilisant le portail Azure
 services: private-link
-author: malopMSFT
+author: asudbring
 ms.service: private-link
 ms.topic: quickstart
-ms.date: 02/03/2020
+ms.date: 01/18/2021
 ms.author: allensu
-ms.openlocfilehash: 5b7bc8be89068f0d3cf6722c36ae7fd5cc560736
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 3e9ade329d2b26d36763db579b0fcec03e938aad
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96012116"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98555455"
 ---
 # <a name="quickstart-create-a-private-link-service-by-using-the-azure-portal"></a>Démarrage rapide : Créer un service Private Link en utilisant le portail Azure
 
-Un service Azure Private Link fait référence à votre propre service qui est géré par Private Link. Vous pouvez accorder un accès Private Link au service ou à la ressource qui fonctionne derrière Azure Standard Load Balancer. Les consommateurs de votre service peuvent y accéder en privé à partir de leurs propres réseaux virtuels. Dans ce guide de démarrage rapide, vous découvrez comment créer un service Private Link en utilisant le portail Azure.
+Commencez à créer un service Private Link qui fait référence à votre service.  Accordez à Private Link un accès à votre service ou ressource déployé(e) derrière Azure Standard Load Balancer.  Les utilisateurs de votre service ont un accès privé à partir de leur réseau virtuel.
 
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+## <a name="prerequisites"></a>Prérequis
+
+* Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
@@ -27,159 +29,210 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 
 ## <a name="create-an-internal-load-balancer"></a>Créer un équilibrage de charge interne
 
-Créez d’abord un réseau virtuel. Ensuite, créez un équilibreur de charge interne à utiliser avec le service Private Link.
+Dans cette section, vous allez créer un réseau virtuel et un Azure Load Balancer interne.
 
-## <a name="virtual-network-and-parameters"></a>Réseau virtuel et paramètres
+### <a name="virtual-network"></a>Réseau virtuel
 
-Dans cette section, vous créez un réseau virtuel. Vous créez également le sous-réseau pour héberger l’équilibreur de charge qui accède à votre service Private Link.
+Dans cette section, vous allez créer un réseau virtuel et un sous-réseau pour héberger l’équilibreur de charge qui accède à votre service Private Link.
 
-Dans cette section, vous allez devoir remplacer les paramètres suivants dans les étapes par les informations ci-dessous :
+1. En haut à gauche de l’écran, sélectionnez **Créer une ressource > Réseau > Réseau virtuel**, ou recherchez **Réseau virtuel** à partir de la zone de recherche.
 
-| Paramètre                   | Valeur                |
-|-----------------------------|----------------------|
-| **\<resource-group-name>**  | myResourceGroupLB |
-| **\<virtual-network-name>** | myVNet          |
-| **\<region-name>**          | USA Est 2      |
-| **\<IPv4-address-space>**   | 10.3.0.0/16          |
-| **\<subnet-name>**          | myBackendSubnet        |
-| **\<subnet-address-range>** | 10.3.0.0/24          |
+2. Dans **Créer un réseau virtuel**, entrez ou sélectionnez les informations suivantes sous l’onglet **Général** :
 
-[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
+    | **Paramètre**          | **Valeur**                                                           |
+    |------------------|-----------------------------------------------------------------|
+    | **Détails du projet**  |                                                                 |
+    | Abonnement     | Sélectionner votre abonnement Azure                                  |
+    | Groupe de ressources   | Sélectionnez **CreatePrivLinkService-rg** |
+    | **Détails de l’instance** |                                                                 |
+    | Nom             | Entrez **myVNet**                                    |
+    | Région           | Sélectionnez **USA Est 2** |
+
+3. Sélectionnez l’onglet **Adresses IP**, ou sélectionnez le bouton **Suivant : Adresses IP** au bas de la page.
+
+4. Sous l’onglet **Adresses IP**, entrez les informations suivantes :
+
+    | Paramètre            | Valeur                      |
+    |--------------------|----------------------------|
+    | Espace d’adressage IPv4 | Entrez **10.1.0.0/16** |
+
+5. Sous **Nom de sous-réseau**, sélectionnez le mot **par défaut**.
+
+6. Dans **Modifier le sous-réseau**, entrez les informations suivantes :
+
+    | Paramètre            | Valeur                      |
+    |--------------------|----------------------------|
+    | Nom du sous-réseau | Entrez **mySubnet** |
+    | Plage d’adresses de sous-réseau | Entrez **10.1.0.0/24** |
+
+7. Sélectionnez **Enregistrer**.
+
+8. Sélectionnez l’onglet **Vérifier + créer**, ou sélectionnez le bouton **Vérifier + créer**.
+
+9. Sélectionnez **Create** (Créer).
 
 ### <a name="create-a-standard-load-balancer"></a>Créer un équilibreur de charge standard
 
-Utilisez le portail pour créer un équilibreur de charge interne standard. Le nom et l’adresse IP que vous spécifiez sont automatiquement configurés comme front-end de l’équilibreur de charge.
+Utilisez le portail pour créer un équilibreur de charge interne standard. 
 
-1. En haut à gauche du portail, sélectionnez **Créer une ressource** > **Mise en réseau** > **Équilibreur de charge**.
+1. Dans l’angle supérieur gauche de l’écran, cliquez sur **Créer une ressource** > **Mise en réseau** > **Load Balancer**.
 
-1. Sous l’onglet **De base** de la page **Créer un équilibreur de charge**, entrez ou sélectionnez les informations suivantes :
+2. Dans l’onglet **Fonctions de base** de la page **Créer un équilibreur de charge**, entrez ou sélectionnez les informations suivantes : 
 
     | Paramètre                 | Valeur                                              |
     | ---                     | ---                                                |
-    | **Abonnement**               | Sélectionnez votre abonnement.    |
-    | **Groupe de ressources**         | Sélectionnez **myResourceGroupLB** dans la zone.|
-    | **Nom**                   | Entrez **myLoadBalancer**.                                   |
-    | **Région**         | Sélectionnez **USA Est**.                                        |
-    | **Type**          | sélectionnez **Interne**.                                        |
-    | **Référence (SKU)**           | Sélectionnez **Standard**.                          |
-    | **Réseau virtuel**           | Sélectionnez **myVNet**.                          |
-    | **Affectation d’adresses IP**              | Sélectionnez **Statique**.   |
-    | **Adresse IP privée**|Entrez une adresse qui se trouve dans l'espace d'adressage de votre réseau virtuel et de votre sous-réseau. Par exemple : 10.3.0.7.  |
+    | Abonnement               | Sélectionnez votre abonnement.    |    
+    | Resource group         | Sélectionnez **CreatePrivLinkService-rg** créé à l’étape précédente.|
+    | Nom                   | Entrez **myLoadBalancer**                                   |
+    | Région         | Sélectionnez **USA Est**.                                        |
+    | Type          | sélectionnez **Interne**.                                        |
+    | SKU           | sélectionnez **Standard**. |
+    | Réseau virtuel | Sélectionnez **myVNet** créé à l’étape précédente. |
+    | Subnet  | Sélectionnez **mySubnet** créé à l’étape précédente. |
+    | Affectation d’adresses IP | Sélectionnez **Dynamique**. |
+    | Zone de disponibilité | Sélectionnez **Redondant dans une zone**. |
 
-1. Acceptez les valeurs par défaut pour les paramètres restants, puis sélectionnez **Vérifier + créer**.
+3. Acceptez les valeurs par défaut pour les paramètres restants, puis sélectionnez **Vérifier + créer**.
 
-1. Sous l’onglet **Review + create (Vérifier + créer)** , sélectionnez **Créer**.
+4. Sous l’onglet **Review + create (Vérifier + créer)** , sélectionnez **Créer**.   
 
-### <a name="create-standard-load-balancer-resources"></a>Créer des ressources d’équilibreur de charge standard
+## <a name="create-load-balancer-resources"></a>Créer les ressources d’équilibreur de charge
 
-Dans cette section, vous configurez les paramètres de l’équilibreur de charge pour un pool d’adresses principales et une sonde d’intégrité. Vous spécifiez également les règles de l’équilibreur de charge.
+Dans cette section, vous configurez :
 
-#### <a name="create-a-back-end-pool"></a>Créer un pool de back-ends
+* Les paramètres d’équilibreur de charge d’un pool d’adresses de back-ends
+* Une sonde d’intégrité
+* Une règle d’équilibreur de charge
 
-Un pool d’adresses de back-end contient les adresses IP des cartes d’interface réseau virtuelles connectées à l’équilibreur de charge. Ce pool vous permet de distribuer le trafic à vos ressources. Créez le pool d’adresses de back-end appelé **myBackendPool** pour inclure les ressources qui équilibrent la charge du trafic.
+### <a name="create-a-backend-pool"></a>Créer un pool principal
 
-1. Dans le menu le plus à gauche, sélectionnez **Tous les services**.
-1. Sélectionnez **Toutes les ressources**, puis **myLoadBalancer** dans la liste de ressources.
-1. Sous **Paramètres**, sélectionnez **Pools principaux**, puis **Ajouter**.
-1. Dans la page **Ajouter un pool de backends**, entrez **myBackendPool** comme nom de votre pool de back-ends, puis sélectionnez **Ajouter**.
+Un pool d’adresses de back-ends contient les adresses IP des cartes d’interface réseau virtuelles connectées à l’équilibreur de charge. 
 
-#### <a name="create-a-health-probe"></a>Créer une sonde d’intégrité
+Créez le pool d’adresses principal **myBackendPool** afin d’inclure des machines virtuelles pour l’équilibrage de charge du trafic Internet.
 
-Utilisez une sonde d’intégrité pour laisser l’équilibreur de charge superviser l’état des ressources. En fonction des réponses des ressources aux contrôles d’intégrité, la sonde d’intégrité ajoute ou supprime dynamiquement des ressources dans la rotation de l’équilibreur de charge.
+1. Sélectionnez **Tous les services** dans le menu de gauche, **Toutes les ressources**, puis **myLoadBalancer** dans la liste des ressources.
 
-Pour créer une sonde d’intégrité en vue de superviser l’intégrité des ressources :
+2. Sous **Paramètres**, sélectionnez **Pools principaux**, puis **Ajouter**.
 
-1. Sélectionnez **Toutes les ressources** dans le menu le plus à gauche, puis **myLoadBalancer** dans la liste de ressources.
+3. Dans la page **Ajouter un pool de backends**, entrez **myBackendPool** comme nom de votre pool principal, puis sélectionnez **Ajouter**.
 
-1. Sous **Paramètres**, sélectionnez **Health probes** (Sondes d’intégrité), puis **Ajouter**.
+### <a name="create-a-health-probe"></a>Créer une sonde d’intégrité
 
-1. Dans la page **Ajouter une sonde d’intégrité**, entrez ou sélectionnez les valeurs suivantes :
+L’équilibreur de charge supervise l’état de votre application avec une sonde d’intégrité. 
 
-   - **Name** : Entrez **MyHealthProbe**.
-   - **Protocole** : Sélectionnez **TCP**.
-   - **Port** : Entrez **80**.
-   - **Intervalle** : Entrez **15**. Cette valeur est le nombre de secondes entre les tentatives de la sonde.
-   - **Seuil de défaillance sur le plan de l’intégrité** : Entrez **2**. Cette valeur est le nombre d’échecs consécutifs de la sonde qui se produisent avant qu’une machine virtuelle soit considérée comme non saine.
+La sonde d’intégrité ajoute ou supprime des machines virtuelles dans l’équilibreur de charge en fonction de leur réponse aux contrôles d’intégrité. 
 
-1. Sélectionnez **OK**.
+Créez une sonde d’intégrité nommée **myHealthProbe** pour surveiller l’intégrité des machines virtuelles.
 
-#### <a name="create-a-load-balancer-rule"></a>Créer une règle d’équilibreur de charge
+1. Sélectionnez **Tous les services** dans le menu de gauche, **Toutes les ressources**, puis **myLoadBalancer** dans la liste des ressources.
 
-Une règle d’équilibreur de charge définit comment le trafic est distribué aux ressources. La règle définit :
+2. Sous **Paramètres**, sélectionnez **Sondes d’intégrité**, puis **Ajouter**.
+    
+    | Paramètre | Valeur |
+    | ------- | ----- |
+    | Nom | Entrez **MyHealthProbe**. |
+    | Protocol | Sélectionnez **TCP**. |
+    | Port | Entrez **80**.|
+    | Intervalle | Entrez **15** pour **l’intervalle** en secondes entre les tentatives de la sonde. |
+    | Seuil de défaillance sur le plan de l’intégrité | Sélectionnez **2** pour le **Seuil de défaillance sur le plan de l’intégrité**, soit le nombre d’échecs de sonde consécutifs qui peuvent se produire avant qu’une machine virtuelle soit considérée comme non saine.|
+    | | |
 
-- La configuration IP front-end pour le trafic entrant.
-- Le pool d’IP de back-end qui reçoit le trafic.
-- Les ports source et de destination requis.
+3. Laissez les autres valeurs par défaut et sélectionnez **OK**.
 
-La règle d’équilibreur de charge nommée **myLoadBalancerRule** écoute sur le port 80 dans le front-end **LoadBalancerFrontEnd**. La règle envoie le trafic réseau au pool d’adresses de back-end **myBackEndPool** sur le même port 80.
+### <a name="create-a-load-balancer-rule"></a>Créer une règle d’équilibreur de charge
 
-Pour créer une règle d’équilibreur de charge :
+Une règle d’équilibrage de charge est utilisée pour définir la distribution du trafic vers les machines virtuelles. Vous définissez la configuration IP front-end pour le trafic entrant et le pool d’adresses IP de back-ends pour la réception du trafic. Les ports source et de destination sont définis dans la règle. 
 
-1. Sélectionnez **Toutes les ressources** dans le menu le plus à gauche, puis **myLoadBalancer** dans la liste de ressources.
+Dans cette section, vous allez créer une règle d’équilibreur de charge :
 
-1. Sous **Paramètres**, sélectionnez **Règles d’équilibrage de charge**, puis **Ajouter**.
+* A pour nom **myHTTPRule**.
+* Se trouve dans le front-end nommé **LoadBalancerFrontEnd**.
+* Écoute sur le **Port 80**.
+* Dirige le trafic à charge équilibrée vers le back-end nommé **myBackendPool** sur le **Port 80**.
 
-1. Dans la page **Ajouter une règle d’équilibrage de charge**, entrez ou sélectionnez les valeurs suivantes, si elles ne sont pas déjà présentes :
+1. Sélectionnez **Tous les services** dans le menu de gauche, **Toutes les ressources**, puis **myLoadBalancer** dans la liste des ressources.
 
-   - **Name** : Entrez **myLoadBalancerRule**.
-   - **Adresse IP du serveur frontal :** Entrez **LoadBalancerFrontEnd**.
-   - **Protocole** : Sélectionnez **TCP**.
-   - **Port** : Entrez **80**.
-   - **Port principal** : Entrez **80**.
-   - **Pool principal** : Sélectionnez **MyBackendPool**.
-   - **Sonde d’intégrité** : Sélectionnez **myHealthProbe**. 
+2. Sous **Paramètres**, sélectionnez **Règles d’équilibrage de charge**, puis **Ajouter**.
 
-1. Sélectionnez **OK**.
+3. Pour configurer la règle d’équilibrage de charge, utilisez les valeurs suivantes :
+    
+    | Paramètre | Valeur |
+    | ------- | ----- |
+    | Nom | Entrez **MyHTTPRule**. |
+    | Version de l’adresse IP | Sélectionnez **IPv4** |
+    | Adresse IP du serveur frontal | Sélectionnez **LoadBalancerFrontEnd** |
+    | Protocol | Sélectionnez **TCP**. |
+    | Port | Entrez **80**.|
+    | Port principal | Entrez **80**. |
+    | Pool principal | Sélectionnez **MyBackendPool**.|
+    | Sonde d’intégrité | Sélectionnez **myHealthProbe**. |
+    | Délai d’inactivité (minutes) | Déplacez le curseur sur **15 minutes**. |
+    | Réinitialisation du protocole TCP | Sélectionnez **Enabled**. |
+
+4. Laissez les autres valeurs par défaut, puis sélectionnez **OK**.
 
 ## <a name="create-a-private-link-service"></a>Créer un service Liaison privée
 
 Dans cette section, vous allez créer un service Private Link derrière un équilibreur de charge standard.
 
-1. En haut à gauche de la page du portail Azure, sélectionnez **Créer une ressource** > **Mise en réseau** > **Centre de liaisons privées (préversion)** . Vous pouvez également utiliser la zone de recherche du portail pour rechercher une liaison privée.
+1. En haut à gauche de la page dans le portail Azure, sélectionnez **Créer une ressource**.
 
-1. Dans **Centre de liaisons privées - Vue d’ensemble** > **Exposer votre propre service pour permettre à d’autres utilisateurs de se connecter**, sélectionnez **Démarrer**.
+2. Recherchez **Private Link** dans la zone **Rechercher dans la Place de marché**.
 
-1. Sous **Créer un service de liaison privée - De base**, entrez ou sélectionnez les informations suivantes :
+3. Sélectionnez **Create** (Créer).
 
-    | Paramètre           | Valeur                                                                        |
-    |-------------------|------------------------------------------------------------------------------|
-    | Détails du projet :  |                                                                              |
-    | **Abonnement**      | Sélectionnez votre abonnement.                                                     |
-    | **Groupe de ressources**    | Sélectionnez **myResourceGroupLB**.                                                    |
-    | Détails de l’instance : |                                                                              |
-    | **Nom**              | Entrez **myPrivateLinkService**. |
-    | **Région**            | Sélectionnez **USA Est**.                                                        |
+4. Dans **Vue d’ensemble** sous **Centre Private Link**, sélectionnez le bouton bleu **Créer un service de liaison privée**.
 
-1. Sélectionnez **Suivant : Paramètres sortants**.
+5. Sous l’onglet **De base** sous **Créer un service de liaison privée**, entrez ou sélectionnez les informations suivantes :
 
-1. Sous **Créer un service de liaison privée - Paramètres sortants**, entrez ou sélectionnez les informations suivantes :
+    | Paramètre | Valeur |
+    | ------- | ----- |
+    | **Détails du projet** |  |
+    | Abonnement | Sélectionnez votre abonnement. |
+    | Groupe de ressources | Sélectionnez **CreatePrivLinkService-rg**. |
+    | **Détails de l’instance** |  |
+    | Nom | Entrez **myPrivateLinkService**. |
+    | Région | Sélectionnez **USA Est**. |
 
-    | Paramètre                           | Valeur                                                                           |
-    |-----------------------------------|---------------------------------------------------------------------------------|
-    | **Équilibreur de charge**                     | Sélectionnez **myLoadBalancer**.                                                           |
-    | **Adresse IP front-end de l’équilibreur de charge** | Sélectionnez l’adresse IP front-end de **myLoadBalancer**.                                |
-    | **Réseau virtuel NAT source**        | Sélectionnez **myVNet**.                                                                   |
-    | **Sous-réseau NAT source**                 | Sélectionnez **myBackendSubnet**.                                                          |
-    | **Activer le proxy TCP v2**               | Sélectionnez **OUI** ou **NON** selon que votre application attend ou non un en-tête de proxy TCP v2. |
-    | **Paramètres d’adresse IP privée**       | Configurez la méthode d’allocation et l’adresse IP pour chaque adresse IP NAT.                  |
+6. Sélectionnez l’onglet **Paramètres sortants** ou sélectionnez **Suivant : Paramètres sortants** en bas de la page.
 
-1. Sélectionnez **Suivant : Sécurité des accès**.
+7. Sous l’onglet **Paramètres sortants**, entrez ou sélectionnez les informations suivantes :
 
-1. Sous **Créer un service de liaison privée – Sécurité d’accès**, sélectionnez **Visibilité**, puis choisissez **Contrôle d’accès en fonction du rôle (RBAC) uniquement**.
-  
-1. Sélectionnez **Suivant : Étiquettes** > **Vérifier + créer** ou choisissez l’onglet **Vérifier + créer** en haut de la page.
+    | Paramètre | Valeur |
+    | ------- | ----- |
+    | Équilibrage de charge | Sélectionnez **myLoadBalancer**. |
+    | Adresse IP front-end de l’équilibreur de charge | Sélectionnez **LoadBalancerFrontEnd (10.1.0.4)** . |
+    | Sous-réseau NAT source | Sélectionnez **mySubnet (10.1.0.0/24)** . |
+    | Activer le proxy TCP V2 | Conservez la valeur par défaut **Non**. </br> Si votre application attend un en-tête de proxy TCP v2, sélectionnez **Oui**. |
+    | **Paramètres d’adresse IP privée** |  |
+    | Conservez les paramètres par défaut. |  |
 
-1. Passez en revue vos informations, puis sélectionnez **Créer**.
+8. Sélectionnez l’onglet **Sécurité d’accès** ou sélectionnez **Suivant : Sécurité d’accès** en bas de la page.
+
+9. Conservez la valeur par défaut **Contrôle d’accès en fonction du rôle uniquement** sous l’onglet **Sécurité d’accès**.
+
+10. Sélectionnez l’onglet **Étiquettes** ou sélectionnez **Suivant : Étiquettes** au bas de la page.
+
+11. Sélectionnez l’onglet **Vérifier + créer** ou sélectionnez **Suivant : Vérifier + créer** en bas de la page.
+
+12. Sélectionnez **Créer** sous l’onglet **Vérifier + créer**.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Quand vous avez terminé d’utiliser le service Private Link, supprimez le groupe de ressources pour nettoyer les ressources utilisées dans ce démarrage rapide.
+Quand vous avez terminé d’utiliser le service Private Link, supprimez le groupe de ressources pour nettoyer les ressources utilisées dans ce guide de démarrage rapide.
 
-1. Entrez **myResourceGroupLB** dans la zone de recherche en haut du portail, puis sélectionnez **myResourceGroupLB** dans les résultats de la recherche.
+1. Entrez **CreatePrivLinkService-rg** dans la zone de recherche en haut du portail, puis sélectionnez **CreatePrivLinkService-rg** dans les résultats de la recherche.
 1. Sélectionnez **Supprimer le groupe de ressources**.
-1. Dans **TAPEZ LE NOM DU GROUPE DE RESSOURCES**, entrez **myResourceGroup**.
+1. Dans **ENTREZ LE NOM DU GROUPE DE RESSOURCES**, tapez **CreatePrivLinkService-rg**.
 1. Sélectionnez **Supprimer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez créé un équilibreur de charge Azure interne et un service Private Link. Vous pouvez aussi apprendre à [créer un point de terminaison privé en utilisant le portail Azure](./create-private-endpoint-portal.md).
+Dans ce guide de démarrage rapide, vous :
+
+* Avez créé un réseau virtuel et un Azure Load Balancer interne.
+* Avez créé un service de liaison privée.
+
+Pour en savoir plus sur le point de terminaison privé Azure, passez à :
+> [!div class="nextstepaction"]
+> [Démarrage rapide : Créer un point de terminaison privé en utilisant le portail Azure](create-private-endpoint-portal.md)

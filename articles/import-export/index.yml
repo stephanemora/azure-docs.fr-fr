@@ -1,0 +1,71 @@
+### YamlMime:Landing
+title: Documentation Azure Import/Export
+summary: Utilisez Azure Import/Export pour importer de manière sécurisée de grands volumes de données dans Stockage Blob Azure et Azure Files en expédiant des lecteurs de disque vers un centre de données Azure.
+metadata:
+  title: Documentation Azure Import/Export
+  description: Documentation Azure Import/Export pour importer/exporter de façon sécurisée de grands volumes de données vers et à partir de centres de données Azure en expédiant des disques physiques.
+  services: storage
+  ms.service: storage
+  ms.subservice: storage
+  ms.topic: landing-page
+  ms.collection: collection
+  author: v-dalc
+  ms.author: alkohli
+  ms.date: 01/08/201
+  ms.openlocfilehash: fe86eab66b0f03cb23072a7a34c4be161ca4fb38
+  ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 01/23/2021
+  ms.locfileid: "98725735"
+landingContent:
+- title: À propos d’Azure Import/Export
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est-ce qu’Import/Export ?
+      url: storage-import-export-service.md
+  - linkListType: architecture
+    links:
+    - text: Choisir les options de transfert de données
+      url: /azure/storage/common/storage-choose-data-transfer-solution
+    - text: Utiliser le réseau ou un transfert hors connexion
+      url: /azure/storage/common/storage-solution-large-dataset-low-network#offline-transfer-or-network-transfer
+- title: Configuration requise
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Configuration requise
+      url: storage-import-export-requirements.md
+    - text: Questions fréquentes (FAQ)
+      url: storage-import-export-service-faq.md
+- title: Déployer
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Importer des données dans des objets BLOB
+      url: storage-import-export-data-to-blobs.md
+    - text: Importer des données dans des fichiers
+      url: storage-import-export-data-to-files.md
+    - text: Importer des données à partir d’objets BLOB
+      url: storage-import-export-data-from-blobs.md
+  - linkListType: learn
+    links:
+    - text: Exporter des données hors connexion avec Import/Export
+      url: /learn/modules/export-data-with-azure-import-export/
+- title: Superviser
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Afficher l’état des disques
+      url: storage-import-export-view-drive-status.md
+    - text: Revoir le statut du travail
+      url: storage-import-export-tool-reviewing-job-status-v1.md
+- title: Dépanner
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Dépanner
+      url: storage-import-export-contact-microsoft-support.md
+    - text: Contacter le support technique
+      url: storage-import-export-contact-microsoft-support.md

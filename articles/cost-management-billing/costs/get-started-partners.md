@@ -3,18 +3,18 @@ title: Prise en main d’Azure Cost Management pour les partenaires
 description: Cet article explique aux partenaires comment utiliser les fonctionnalités d’Azure Cost Management et comment autoriser l’accès à Cost Management à leurs clients.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/16/2020
+ms.date: 01/19/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: cd3ca4d3ddf73469cd1f1fc065eccb369cf765af
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 8a04cb2c590bc4f0104a93ac7c7c2cf7b71a4662
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905674"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602167"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Prise en main d’Azure Cost Management pour les partenaires
 
@@ -71,9 +71,9 @@ Une fois que vous avez intégré vos clients à un contrat client Microsoft, les
 
 Utilisez l’étendue de compte de facturation afin de voir les coûts avant impôts pour l’ensemble de vos clients et profils de facturation. Les coûts facturés liés aux produits basés sur la consommation sont uniquement affichés pour les clients bénéficiant du contrat client Microsoft. Cependant, les coûts facturés sont indiqués pour les produits basés sur les achats pour les clients bénéficiant du contrat client Microsoft et de l’offre CSP. Actuellement, la devise utilisée par défaut pour l’affichage des coûts dans l’étendue est le dollar américain. Les budgets définis pour l’étendue sont également exprimés en USD.
 
-Quelles que soient les différentes devises de facturation du client, les partenaires utilisent l’étendue du compte de facturation afin de définir les budgets et de gérer les coûts en USD pour les clients, les abonnements, les ressources et les groupes de ressources.
+Quelles que soient les devises de facturation, les partenaires utilisent l’étendue du compte de facturation afin de définir les budgets et de gérer les coûts en USD pour les clients, les abonnements, les ressources et les groupes de ressources.
 
-Les partenaires filtrent également les coûts selon une devise de facturation spécifique pour les clients dans la vue d’analyse des coûts. Sélectionnez la liste **Coût réel** pour voir les coûts dans les devises de facturation client prises en charge.
+Les partenaires filtrent également les coûts selon une devise de facturation spécifique pour les clients dans la vue d’analyse des coûts. Sélectionnez la liste **Coût réel** pour voir les coûts dans les devises de facturation prises en charge.
 
 ![Exemple montrant le choix de devises pour le coût réel](./media/get-started-partners/actual-cost-selector.png)
 
@@ -83,7 +83,7 @@ Utilisez la [vue des coûts amortis](quick-acm-cost-analysis.md#customize-cost-v
 
 Utilisez l’étendue de profil de facturation pour voir les coûts avant impôts dans la devise de facturation pour tous vos clients et pour tous les produits et abonnements inclus dans une facture. Vous pouvez filtrer les coûts dans un profil de facturation pour une facture spécifique à l’aide du filtre **InvoiceID**. Le filtre permet d’afficher les coûts de consommation et d’achat de produits pour une facture spécifique. Vous pouvez également filtrer les coûts pour un client spécifique sur la facture pour voir les coûts avant impôts.
 
-Une fois que vous avez intégré les clients à un contrat client Microsoft, vous recevez une facture incluant tous les frais pour tous les produits (consommation, achats et droits) pour ces clients disposant d’un contrat de client Microsoft. Quand elles sont établies avec la même devise, ces factures incluent également les frais relatifs au droit et aux produits achetés, tels que SaaS, la Place de marché Azure et les réservations pour les clients qui utilisent encore l’offre CSP.
+Une fois que vous avez intégré les clients à un contrat client Microsoft, vous recevez une facture incluant tous les frais pour tous les produits (consommation, achats et droits) pour ces clients disposant d’un contrat de client Microsoft. Quand elles sont établies avec la même devise, ces factures incluent également les frais des droits d’utilisation et des produits achetés, tels que SaaS, la Place de marché Azure et les réservations pour les clients qui utilisent encore l’offre CSP classique en dehors du plan Azure.
 
 Pour simplifier le rapprochement des frais avec la facture client, l’étendue de profil de facturation vous permet de voir tous les coûts s’accumulant sur une facture pour vos clients. À l’instar de la facture, l’étendue indique les coûts pour chaque client bénéficiant du nouveau contrat client Microsoft. L’étendue indique également tous les frais pour les produits de droit client toujours inclus dans l’offre CSP actuelle.
 
@@ -91,7 +91,7 @@ Les étendues de profil et de compte de facturation sont les seules qui indiquen
 
 Les profils de facturation définissent les abonnements inclus dans une facture. Les profils de facturation sont l’équivalent fonctionnel d’une inscription à un contrat Entreprise. Un profil de facturation correspond à l’étendue dans laquelle les factures sont générées.
 
-Actuellement, la devise de facturation du client est la devise utilisée par défaut quand vous consultez les coûts dans l’étendue de profil de facturation. Les budgets définis dans l’étendue de profil de facturation sont exprimés dans la devise de facturation.
+La devise de facturation est la devise utilisée par défaut quand vous consultez les coûts dans l’étendue du profil de facturation. Les budgets définis dans l’étendue de profil de facturation sont exprimés dans la devise de facturation.
 
 Les partenaires peuvent utiliser l’étendue pour effectuer un rapprochement avec les factures. Par ailleurs, ils utilisent l’étendue afin de définir des budgets dans la devise de facturation pour les éléments suivants :
 
@@ -220,7 +220,7 @@ Les champs de données suivants sont disponibles dans les fichiers de détails s
 | Quantité | Quantité mesurée achetée ou consommée. Quantité du compteur utilisée au cours de la période de facturation. | Nombre d’unités. Assurez-vous que cela correspond aux informations de votre système de facturation au cours du rapprochement. |
 | unitOfMeasure | Identifie l’unité dans laquelle le service est facturé. Par exemple, des Go et des heures. | Identifie l’unité dans laquelle le service est facturé. Par exemple, Go, heures et 10 000 s. |
 | pricingCurrency | Devise définissant le prix unitaire. | Devise utilisée dans la liste de prix.|
-| billingCurrency | Devise définissant le coût facturé. | Devise de la région du client. |
+| billingCurrency | Devise définissant le coût facturé. | Devise définie comme devise de facturation sur la facture. |
 | chargeType | Définit le type de frais représenté par le coût dans Azure Cost Management, comme un achat et un remboursement. | Type de frais ou d’ajustement. Non disponible pour l’activité en cours. |
 | costinBillingCurrency | Coût étendu ou combiné avant l’application des taxes, dans la devise facturée. | N/A |
 | CostInPricingCurrency | Coût étendu ou combiné avant l’application des taxes, dans la devise de tarification, à corréler avec les prix. | N/A |

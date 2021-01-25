@@ -3,17 +3,17 @@ title: Contrats et avenants Azure EA
 description: Cet article explique dans quelle mesure les contrats et avenants Azure EA affectent votre utilisation du portail Azure EA.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/03/2020
+ms.date: 01/19/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: 9e6750bd8404b4f9b910dda93859a0ca3fd268d4
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: c2c3636e98d67616826b03cca9657b806c5bd653
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442528"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98598001"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Contrats et avenants Azure EA
 
@@ -21,7 +21,7 @@ L’article décrit dans quelle mesure les contrats et avenants Azure EA peuvent
 
 ## <a name="enrollment-provisioning-status"></a>État du provisionnement de l’inscription
 
-La date de début d’un nouveau Paiement anticipé Azure est définie par la date à laquelle le centre régional des opérations l’a traité. Étant donné que les commandes de Paiement anticipé Azure par le biais du portail Azure EA sont traitées dans le fuseau horaire UTC, vous pouvez constater un certain délai si votre bon de commande de Paiement anticipé Azure a été traité dans une autre région. La date de début de couverture sur le bon de commande indique le début du Paiement anticipé Azure. La date de début de couverture est le moment où le Paiement anticipé Azure apparaît dans le portail Azure EA.
+La date de début d’un nouveau Paiement anticipé Azure (anciennement « Engagement financier ») est définie par la date à laquelle le centre régional des opérations l’a traité. Étant donné que les commandes de Paiement anticipé Azure par le biais du portail Azure EA sont traitées dans le fuseau horaire UTC, vous pouvez constater un certain délai si votre bon de commande de Paiement anticipé Azure a été traité dans une autre région. La date de début de couverture sur le bon de commande indique le début du Paiement anticipé Azure. La date de début de couverture est le moment où le Paiement anticipé Azure apparaît dans le portail Azure EA.
 
 ## <a name="support-for-enterprise-customers"></a>Prise en charge des clients Entreprise
 
@@ -60,7 +60,7 @@ Microsoft n’a pas accès et n’utilise pas la majoration fournie et aux prix 
 
 ### <a name="how-the-calculation-works"></a>Fonctionnement du calcul
 
-Le LSP fournit un seul pourcentage dans le portail EA.  Toutes les informations commerciales sur le portail seront réparties en fonction du pourcentage fourni par le LSP. Exemple :
+Le LSP fournit un seul pourcentage dans le portail EA.    Toutes les informations commerciales sur le portail seront réparties en fonction du pourcentage fourni par le LSP. Exemple :
 
 - Le client signe un contrat entreprise avec un Paiement anticipé Azure de 100 000 USD.
 - Le tarif de compteur pour le service A est de 10 USD/heure.
@@ -101,13 +101,14 @@ Veillez à consulter les informations commerciales, informations sur le solde fi
 Passez en revue le prix de la majoration dans le _Résumé de l’utilisation_ pour la période du Paiement anticipé dans la vue client. Le tarif Microsoft sera toujours disponible dans la vue partenaire. Vous pouvez changer de vue avec le bouton bascule « personnes » de la majoration partenaire en haut à droite.
 
 1. Consultez les prix dans la grille tarifaire.
-1. Des modifications peuvent être apportées avant la publication en sélectionnant **Modifier** dans l’onglet _Afficher le résumé d’utilisation > Vue client_.  
-  Les prix des services et les soldes de Paiement anticipé sont majorés selon les mêmes pourcentages. Si vous avez des pourcentages différents pour le solde financier et les tarifs de compteur, ou des pourcentages différents pour différents services, n’utilisez pas cette fonctionnalité.
+1. Des modifications peuvent être apportées avant la publication en sélectionnant **Modifier** dans l’onglet _Afficher le résumé d’utilisation > Vue client_. 
+   
+Les prix des services et les soldes de Paiement anticipé sont majorés selon les mêmes pourcentages. Si vous avez des pourcentages différents pour le solde financier et les tarifs de compteur, ou des pourcentages différents pour différents services, n’utilisez pas cette fonctionnalité.
 
 **Étape 3 : Publier**
 
 Une fois la tarification vérifiée et validée, cliquez sur **Publier**.
-  
+  
 La tarification avec majoration sera accessible aux administrateurs d’entreprise immédiatement après la sélection de Publier. Des modifications ne peuvent pas être apportées à la majoration. Vous devez désactiver la majoration et recommencer à partir de l’Étape 1.
 
 ### <a name="which-enrollments-have-a-markup-enabled"></a>Quelles sont les inscriptions pour lesquelles une majoration est activée ?

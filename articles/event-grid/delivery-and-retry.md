@@ -3,12 +3,12 @@ title: Distribution et nouvelle tentative de distribution avec Azure Event Grid
 description: Décrit comment Azure Event Grid distribue des événements et gère les messages qui n’ont pas été distribués.
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: 51473cf457a1c713e6694edd23c344be8c4d439e
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 3c4ed6ec2c9eae4dbcf70a831e3e7f70a28a57a0
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96463242"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247367"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Distribution et nouvelle tentative de distribution de messages avec Azure Grid
 
@@ -57,7 +57,7 @@ Pour plus d’informations sur l’utilisation d’Azure CLI avec Event Grid, co
 
 Quand EventGrid reçoit une erreur lors d’une tentative de remise d’événement, EventGrid décide s’il doit retenter la remise ou mettre l’événement dans la file d’attente de lettres mortes ou supprimer l’événement en fonction du type d’erreur. 
 
-Si l’erreur retournée par le point de terminaison abonné est liée à une erreur de configuration qui ne peut pas être corrigée avec des nouvelles tentatives (par exemple, si le point de terminaison est supprimé), EventGrid met l’événement dans la file d’attente de lettres mortes ou supprime l’événement si la file d’attente de lettres mortes n’est pas configurée.
+Si l’erreur retournée par le point de terminaison abonné est liée à la configuration et ne peut pas être corrigée avec des nouvelles tentatives (par exemple, si le point de terminaison est supprimé), Event Grid met l’événement dans la file d’attente de lettres mortes ou supprime l’événement si la file d’attente de lettres mortes n’est pas configurée.
 
 Voici les types de points de terminaison pour lesquels aucune nouvelle tentative ne se produit :
 
@@ -67,7 +67,7 @@ Voici les types de points de terminaison pour lesquels aucune nouvelle tentative
 | webhook | 400 Requête incorrecte, 413 Entité de la requête trop grande, 403 Interdit, 404 Introuvable, 401 Non autorisé |
  
 > [!NOTE]
-> Si la file d’attente de lettres mortes n’est pas configurée pour le point de terminaison, les événements sont supprimés lorsque les erreurs ci-dessus se produisent. Par conséquent, envisagez de configurer la file d’attente de lettres mortes si vous ne souhaitez pas que ces types d’événements soient supprimés.
+> Si la file d’attente de lettres mortes n’est pas configurée pour le point de terminaison, les événements sont supprimés lorsque les erreurs ci-dessus se produisent. Envisagez de configurer la file d’attente de lettres mortes si vous ne souhaitez pas que ces types d’événements soient supprimés.
 
 Si l’erreur retournée par le point de terminaison abonné ne figure pas dans la liste ci-dessus, EventGrid effectue la nouvelle tentative à l’aide des stratégies décrites ci-dessous :
 
@@ -80,7 +80,10 @@ Event Grid attend une réponse pendant 30 secondes après la distribution d’un
 - 10 minutes
 - 30 minutes
 - 1 heure
-- Toutes les heures jusqu’à 24 heures
+- 3 heures
+- 6 heures
+- Toutes les 12 heures jusqu’à 24 heures
+
 
 Si le point de terminaison répond dans les 3 minutes, Event Grid tente de supprimer l’événement de la file d’attente de nouvelle tentative dans la mesure du possible, mais des doublons peuvent toujours être reçus.
 
@@ -104,7 +107,7 @@ Lorsque Event Grid ne peut pas remettre un événement dans un laps de temps don
 
 Si l’une des conditions est remplie, l’événement est abandonné ou mis en file d’attente de lettres mortes.  Par défaut, Event Grid n’active pas cette fonctionnalité. Pour l’activer, vous devez spécifier le compte de stockage dans lequel les événements non remis seront conservés au moment de créer l’abonnement aux événements. Les événements sont extraits de ce compte de stockage pour résoudre les remises.
 
-Event Grid envoie un événement à l’emplacement des lettres mortes lorsqu’il a effectué toutes ses nouvelles tentatives. Si Event Grid reçoit un code de réponse 400 (requête incorrecte) ou 413 (entité de requête trop grande), il envoie immédiatement l’événement au point de terminaison des lettres mortes. Ces codes de réponse indiquent que la diffusion de l’événement va échouer.
+Event Grid envoie un événement à l’emplacement des lettres mortes lorsqu’il a effectué toutes ses nouvelles tentatives. Si Event Grid reçoit un code de réponse 400 (requête incorrecte) ou 413 (entité de requête trop grande), il planifie immédiatement l’événement pour la file d’attente de lettres mortes. Ces codes de réponse indiquent que la diffusion de l’événement va échouer.
 
 L’expiration de la durée de vie est vérifiée uniquement lors de la prochaine tentative de livraison planifiée. Par conséquent, même si la durée de vie expire avant la prochaine tentative de livraison planifiée, l’expiration de l’événement est vérifiée uniquement au moment de la prochaine livraison, puis devient lettre morte par la suite. 
 

@@ -6,15 +6,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 08/27/2020
+ms.date: 01/19/2021
 ms.author: victorh
 ms.custom: mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: d4b6fc296ae41667d271e243e9aca9b594e4a5b6
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 1a691d8ab212dd436b0dc9f7aafbc19a406b12b7
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886700"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601781"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>Démarrage rapide : Diriger le trafic web avec Azure Application Gateway - Azure CLI
 
@@ -28,7 +28,7 @@ Vous pouvez également suivre ce guide de démarrage rapide en utilisant [Azure 
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-- Cet article demande la version 2.0.4 ou ultérieure d’Azure CLI. Si vous utilisez Azure Cloud Shell, la version la plus récente est déjà installée.
+- Cet article nécessite la version 2.0.4 ou ultérieure de l’interface Azure CLI. Si vous utilisez Azure Cloud Shell, la version la plus récente est déjà installée.
 
 ## <a name="create-resource-group"></a>Créer un groupe de ressources
 
@@ -68,7 +68,7 @@ az network public-ip create \
 
 ## <a name="create-the-backend-servers"></a>Créer les serveurs back-end
 
-Un back-end peut être composé de cartes d’interface réseau, de groupes de machines virtuelles identiques, d’adresses IP publiques, d’adresses IP internes, de noms de domaine complets et de serveurs back-end multilocataires comme Azure App Service. Dans cet exemple, vous allez créer deux machines virtuelles à utiliser comme serveurs back-end pour la passerelle d’application. Vous installerez également IIS sur les machines virtuelles pour tester la passerelle d’application.
+Le pool de back-ends peut avoir des cartes d’interface réseau, des groupes de machines virtuelles identiques, des adresses IP publiques, des adresses IP internes, des noms de domaine complets (FQSN) et des back-ends multi-locataires comme Azure App Service. Dans cet exemple, vous allez créer deux machines virtuelles à utiliser comme serveurs back-end pour la passerelle d’application. Vous installerez également IIS sur les machines virtuelles pour tester la passerelle d’application.
 
 #### <a name="create-two-virtual-machines"></a>Créer deux machines virtuelles
 

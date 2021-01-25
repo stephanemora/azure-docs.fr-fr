@@ -5,12 +5,12 @@ services: container-service
 ms.topic: overview
 ms.date: 05/06/2019
 ms.custom: mvc
-ms.openlocfilehash: 75f4602be15ef2487272ed5790d92c4c884c551f
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 4115ab2140cd3bf67135e494e16fb8121c040ff6
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94681548"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246194"
 ---
 # <a name="azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS)
 
@@ -60,13 +60,13 @@ Pour plus d’informations sur les versions du cycle de vie, consultez [Versions
 
 ### <a name="gpu-enabled-nodes"></a>Nœuds avec processeur graphique (GPU)
 
-AKS prend en charge la création de pools de nœuds avec processeur graphique (GPU). Azure fournit actuellement une ou plusieurs machines virtuelles avec processeur graphique (GPU). Les machines virtuelles avec processeur graphique (GPU) sont conçues pour des charges de travail de visualisation, mais également de calcul et d’affichage graphique intensifs.
+AKS prend en charge la création de pools de nœuds avec GPU. Azure fournit actuellement une ou plusieurs machines virtuelles avec GPU. Les machines virtuelles avec GPU sont conçues pour des charges de travail de visualisation qui sont gourmandes en calcul et en graphisme.
 
 Pour plus d’informations, consultez [Utilisation des GPU sur AKS][aks-gpu].
 
 ### <a name="confidential-computing-nodes-public-preview"></a>Nœuds d’informatique confidentielle (préversion publique)
 
-AKS prend en charge la création de pools de nœuds d’informatique confidentielle basés sur Intel SGX (machines virtuelles DCSv2). Les nœuds d’informatique confidentielle permettent aux conteneurs de s’exécuter dans un environnement d’exécution isolé et approuvé basé sur le matériel. L’isolement entre des conteneurs combinés avec l’intégrité du code par le biais d’une attestation peut être utile pour votre stratégie de sécurité de conteneur de défense en profondeur. Les nœuds d’informatique confidentielle prennent en charge à la fois les conteneurs confidentiels (applications Docker existantes) et les conteneurs reconnaissant les enclaves.
+AKS prend en charge la création de pools de nœuds d’informatique confidentielle basés sur Intel SGX (machines virtuelles DCSv2). Les nœuds d’informatique confidentielle permettent aux conteneurs de s’exécuter dans un environnement d’exécution approuvé basé sur le matériel (enclaves). L’isolement entre conteneurs, combiné à l’intégrité du code par le biais de l’attestation, peut être utile pour votre stratégie de sécurité de conteneur de défense en profondeur. Les nœuds d’informatique confidentielle prennent en charge à la fois les conteneurs confidentiels (applications Docker existantes) et les conteneurs prenant en charge les enclaves.
 
 Pour plus d’informations, consultez [Nœuds d’informatique confidentielle sur AKS][conf-com-node].
 
@@ -80,7 +80,7 @@ Démarrez avec les volumes persistants dynamiques en utilisant [Disques Azure][a
 
 ## <a name="virtual-networks-and-ingress"></a>Réseaux virtuels et entrée
 
-Un cluster AKS peut être déployé dans un réseau virtuel existant. Dans cette configuration, chaque pod du cluster se voit affecter une adresse IP dans le réseau virtuel et peut communiquer directement avec les autres pods du cluster et les autres nœuds du réseau virtuel. Les pods peuvent se connecter à d’autres services dans un réseau virtuel appairé, et à d’autres réseaux locaux via des connexions ExpressRoute ou VPN site à site (S2S).
+Un cluster AKS peut être déployé dans un réseau virtuel existant. Dans cette configuration, chaque pod du cluster se voit affecter une adresse IP dans le réseau virtuel et peut communiquer directement avec les autres pods du cluster et les autres nœuds du réseau virtuel. Les pods peuvent également se connecter à d’autres services dans un réseau virtuel associé et à des réseaux locaux via ExpressRoute ou des connexions VPN (S2S) site à site.
 
 Pour plus d’informations, consultez les [Concepts réseau pour les applications dans AKS][aks-networking].
 
@@ -98,9 +98,9 @@ Kubernetes dispose d’un écosystème riche en outils de gestion et de dévelop
 
 De plus, Azure Dev Spaces offre aux équipes une expérience de développement Kubernetes rapide et itérative. Avec une configuration minimale, vous pouvez exécuter et déboguer des conteneurs directement dans AKS. Pour commencer, consultez [Azure Dev Spaces][azure-dev-spaces].
 
-Le projet Azure DevOps fournit une solution simple pour apporter le code et le référentiel Git existant dans Azure. Le projet DevOps crée automatiquement des ressources Azure telles qu’AKS, un pipeline de mise en production dans Azure DevOps Services comprenant un pipeline de build pour CI (intégration continue), configure un pipeline de mise en production pour CD (déploiement continu), puis crée une ressource Azure Application Insights pour la surveillance.
+DevOps Starter fournit une solution simple pour apporter le code et les dépôts Git existants dans Azure. DevOps Starter crée automatiquement des ressources Azure telles qu’AKS, un pipeline de mise en production dans Azure DevOps Services comprenant un pipeline de build pour CI (intégration continue), configure un pipeline de mise en production pour CD (déploiement continu), puis crée une ressource Azure Application Insights pour la supervision.
 
-Pour plus d’informations, consultez [Projet Azure DevOps][azure-devops].
+Pour plus d’informations, consultez [DevOps Starter][azure-devops].
 
 ## <a name="docker-image-support-and-private-container-registry"></a>Prise en charge des images Docker et Registre de conteneurs privé
 

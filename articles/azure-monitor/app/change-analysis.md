@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/04/2020
-ms.openlocfilehash: 50e199d2d56016086bb409f8690e9828f1d19984
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 728fd8f4705d24f719b6dd47ba88d89fb399fd5a
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97881507"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195872"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Utilise l’analyse des changements applicatifs (préversion) dans Azure Monitor
 
@@ -194,6 +194,29 @@ Si vous affichez l’historique des modifications pour la première fois après 
 ### <a name="azure-lighthouse-subscription-is-not-supported"></a>L’abonnement Azure Lighthouse n’est pas pris en charge
 
 - **Échec de l’interrogation du fournisseur de ressources Microsoft.ChangeAnalysis** avec le message *L’abonnement à Azure Lighthouse n’est pas pris en charge, les modifications ne sont disponibles que dans le locataire d’accueil de l’abonnement*. Il existe actuellement une limite pour le fournisseur de ressources Analyse des changements pour s’inscrire par le biais d’un abonnement à Azure Lighthouse pour les utilisateurs qui ne sont pas dans le locataire d’accueil. Nous pensons que cette limite sera résolue dans un avenir proche. Si ce problème vous bloque, il existe une solution de contournement qui implique la création d’un principal de service et l’attribution explicite du rôle pour autoriser l’accès.  Pour en savoir plus, contactez changeanalysishelp@microsoft.com.
+
+### <a name="an-error-occurred-while-getting-changes-please-refresh-this-page-or-come-back-later-to-view-changes"></a>Une erreur s’est produite lors de la récupération des modifications. Actualisez cette page ou revenez plus tard pour afficher les modifications
+
+Il s’agit du message d’erreur général présenté par le service Analyse des changements d’application lorsque les modifications n’ont pas pu être chargées. Voici quelques causes connues :
+- Erreur de connectivité Internet à partir de l’appareil client
+- Service Analyse des changements d’application temporairement indisponible, actualiser la page après quelques minutes corrige généralement ce problème. Si l’erreur persiste, contactez changeanalysishelp@micorosoft.com
+
+### <a name="you-dont-have-enough-permissions-to-view-some-changes-contact-your-azure-subscription-administrator"></a>Vous n’avez pas les autorisations suffisantes pour afficher des modifications. Contactez votre administrateur d’abonnement Azure
+
+Il s’agit du message d’erreur général non autorisé, expliquant que l’utilisateur actuel ne dispose pas des autorisations suffisantes pour afficher les modifications. Au moins un accès lecteur est requis sur la ressource pour afficher les modifications d’infrastructure retournées par Azure Resource Graph et Azure Resource Manager. Pour les modifications de fichier dans l’application web dans l’invité et les modifications de configuration, un rôle de contributeur au moins est nécessaire.
+
+### <a name="failed-to-register-microsoftchangeanalysis-resource-provider"></a>Échec de l’inscription du fournisseur de ressources Microsoft.ChangeAnalysis
+Ce message signifie que l’opération a échoué immédiatement quand l’interface utilisateur a envoyé la demande d’inscription du fournisseur de ressources, et que ce problème n’est pas lié à un problème d’autorisation. Il peut s’agir d’un problème de connectivité à Internet temporaire. Essayez d’actualiser la page et de vérifier votre connexion Internet. Si l’erreur persiste, contactez changeanalysishelp@microsoft.com
+ 
+### <a name="you-dont-have-enough-permissions-to-register-microsoftchangeanalysis-resource-provider-contact-your-azure-subscription-administrator"></a>Vous ne disposez pas d’autorisations suffisantes pour inscrire le fournisseur de ressources Microsoft.ChangeAnalysis. Contactez votre administrateur d’abonnement Azure.
+Ce message d’erreur signifie que votre rôle dans l’abonnement actuel n’est pas associé à l’étendue **Microsoft.Support/register/action**. Cela peut se produire si vous n’êtes pas le propriétaire d’un abonnement et que vous disposez d’autorisations d’accès partagé par le biais d’un collègue. Par exemple, accès en lecture à un groupe de ressources. Pour résoudre ce problème, vous pouvez contacter le propriétaire de votre abonnement pour inscrire le fournisseur de ressources **Microsoft.ChangeAnalysis**. Vous pouvez le faire dans le portail Azure via **Abonnements | Fournisseurs de ressources**, en recherchant ```Microsoft.ChangeAnalysis``` et en l’inscrivant dans l’interface utilisateur ou via Azure PowerShell ou Azure CLI.
+
+Inscrire le fournisseur de ressources par le biais de PowerShell : 
+
+```PowerShell
+# Register resource provider
+Register-AzResourceProvider -ProviderNamespace "Microsoft.ChangeAnalysis"
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

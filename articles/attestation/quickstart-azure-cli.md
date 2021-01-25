@@ -7,16 +7,16 @@ ms.service: attestation
 ms.topic: quickstart
 ms.date: 11/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: fb8b0f12844ce1057bd3cfc4716a32ee64ec5586
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: df1064128d6a4eca8497ebf3ea0c6ae8cd42255c
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96937217"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208435"
 ---
 # <a name="quickstart-set-up-azure-attestation-with-azure-cli"></a>Démarrage rapide : Configurer Azure Attestation avec Azure CLI
 
-Démarrez avec Azure Attestation en utilisant Azure CLI pour configurer une attestation.
+Démarrez avec [Azure Attestation en utilisant Azure CLI](/cli/azure/ext/attestation/attestation?view=azure-cli-latest).
 
 ## <a name="get-started"></a>Bien démarrer
 
@@ -65,7 +65,7 @@ Démarrez avec Azure Attestation en utilisant Azure CLI pour configurer une atte
 
 Voici les commandes que vous pouvez utiliser pour créer et gérer le fournisseur d’attestation :
 
-1. Exécutez la commande [az attestation create](/cli/azure/ext/attestation/attestation?view=azure-cli-latest#ext_attestation_az_attestation_create) pour créer un fournisseur d’attestation :
+1. Exécutez la commande [az attestation create](/cli/azure/ext/attestation/attestation?view=azure-cli-latest#ext_attestation_az_attestation_create) pour créer un fournisseur d’attestation sans exigence de signature de stratégie :
 
    ```azurecli
    az attestation create --name "myattestationprovider" --resource-group "MyResourceGroup" --location westus
@@ -128,7 +128,7 @@ Pour définir la stratégie au format JWT pour un genre donné de type d’attes
 
 ```azurecli
 az attestation policy set --name "myattestationprovider" --resource-group "MyResourceGroup" \
---attestation-type SGX-IntelSDK --new-attestation-policy-file "{file_path}" --policy-format JWT
+--attestation-type SGX-IntelSDK -f "{file_path}" --policy-format JWT
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

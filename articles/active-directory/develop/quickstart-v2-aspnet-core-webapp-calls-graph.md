@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/10/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 349caa9a4fa34d87e0a4d99089a1063be66307f4
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: ae80ddd9efe8274a29a4b8dd91b7a3c391eefc3a
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98017559"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178685"
 ---
 # <a name="quickstart-aspnet-core-web-app-that-signs-in-users-and-calls-microsoft-graph-on-their-behalf"></a>Démarrage rapide : Application web ASP.NET Core qui connecte des utilisateurs et appelle Microsoft Graph en leur nom
 
@@ -38,7 +38,7 @@ Consultez [Fonctionnement de l’exemple](#how-the-sample-works) pour obtenir un
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Option 1 : Inscrire et configurer automatiquement votre application, puis télécharger votre exemple de code
 >
-> 1. Accédez au [portail Azure - Inscriptions d’applications](https://aka.ms/aspnetcore-webapp-calls-graph-quickstart-v2).
+> 1. Accédez à l’expérience de démarrage rapide <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetCoreWebAppQuickstartPage/sourceType/docs" target="_blank">Portail Azure - Inscriptions d’applications<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 > 1. Entrez un nom pour votre application, puis sélectionnez **Inscrire**.
 > 1. Suivez les instructions pour télécharger et configurer automatiquement votre nouvelle application pour vous en un seul clic.
 >
@@ -52,10 +52,10 @@ Consultez [Fonctionnement de l’exemple](#how-the-sample-works) pour obtenir un
 > 1. Recherchez et sélectionnez **Azure Active Directory**.
 > 1. Sous **Gérer**, sélectionnez **Inscriptions d’applications** > **Nouvelle inscription**.
 > 1. Entrez un **nom** pour votre application (par exemple, `AspNetCoreWebAppCallsGraph-Quickstart`). Les utilisateurs de votre application peuvent voir ce nom, et vous pouvez le changer ultérieurement.
-> 1. Entrez l’**URI de redirection** `https://localhost:44321/signin-oidc`
+> 1. Entrez l’**URI de redirection** `https://localhost:44321/signin-oidc`.
 > 1. Sélectionnez **Inscription**.
 > 1. Sous **Gérer**, sélectionnez **Authentification**.
-> 1. Entrez l’**URL de déconnexion** `https://localhost:44321/signout-oidc`
+> 1. Entrez l’**URL de déconnexion** `https://localhost:44321/signout-oidc`.
 > 1. Sélectionnez **Enregistrer**.
 > 1. Sous **Gérer**, sélectionnez **Certificats et secrets** > **Nouveau secret client**.
 > 1. Entrez une **description**, telle que `clientsecret1`.

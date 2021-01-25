@@ -8,19 +8,19 @@ ms.subservice: enterprise
 ms.topic: reference
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: b78b046e2991fa4ebfb575e4f6a1cc900df0d298
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: a1c420eed89b7b45ea6c50345737b8615f39ad8c
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686902"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602090"
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Vue d’ensemble des API de création de rapports pour les clients Enterprise
 
 > [!Note]
 > Microsoft ne met plus à jour les API Création de rapports – Facturation Azure. Utilisez à la place les API [Consommation Azure](/rest/api/consumption).
 
-Les API de création de rapports permettent aux clients Azure Enterprise d’extraire leurs données de consommation et de facturation par programme pour les transférer vers les outils d’analyse de données de leur choix. Les clients Entreprise ont signé un [contrat Entreprise](https://azure.microsoft.com/pricing/enterprise-agreement/) avec Azure pour fixer des prix négociés et bénéficier de tarifs personnalisés pour les ressources Azure.
+Les API de création de rapports permettent aux clients Azure Enterprise d’extraire leurs données de consommation et de facturation par programme pour les transférer vers les outils d’analyse de données de leur choix. Les clients Entreprise ont signé un [contrat Entreprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) avec Azure pour négocier le Paiement anticipé Azure (anciennement « Engagement financier ») et bénéficier de tarifs personnalisés pour les ressources Azure.
 
 Tous les paramètres de date et d’heure nécessaires aux API doivent être représentés sous forme de valeurs UTC (temps universel coordonné) combinées. Les valeurs retournées par les API s’affichent au format UTC.
 

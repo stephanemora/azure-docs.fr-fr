@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff656887081681a804285e9a96352feef15fc675
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 7557985b23991f1a53d45f6f2d2283500c0d73f3
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97743705"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222409"
 ---
 # <a name="discover-the-current-state-of-external-collaboration-in-your-organization"></a>Découvrir l’état actuel de la collaboration externe avec votre organisation 
 
@@ -46,9 +46,9 @@ Les organisations externes peuvent être déterminées par les noms de domaine d
 
 ### <a name="use-allow-or-deny-lists"></a>Utiliser des listes d’autorisation ou de refus
 
-Une autre façon de découvrir avec qui vous collaborez actuellement ou avec qui vous avez bloqué la collaboration, est de voir si vous avez ajouté des organisations à vos [listes d’autorisation ou de refus](../external-identities/allow-deny-list.md).
+Déterminez si votre organisation souhaite autoriser la collaboration avec uniquement des organisations spécifiques. Déterminez également si votre organisation souhaite bloquer la collaboration avec des organisations spécifiques.  Au niveau du locataire, une [liste d’autorisation ou de refus](../external-identities/allow-deny-list.md) permet de contrôler l’ensemble des acceptations et invitations B2B quelle que soit la source (par exemple Teams, SharePoint et Portail Azure).
+Si vous utilisez la gestion des droits d’utilisation, vous pouvez également étendre les packages d’accès à un sous-ensemble de vos partenaires en sélectionnant le paramètre Organisations connectées spécifiques comme indiqué ci-dessous.
 
-Déterminez si votre organisation souhaite autoriser la collaboration avec uniquement des organisations spécifiques. Déterminez également si votre organisation souhaite bloquer la collaboration avec des organisations spécifiques. Ces paramètres peuvent s’appliquer à une acceptation B2B globale ou uniquement à un package d’accès spécifique.
 
 ![Capture d’écran de la liste autorisation/refus dans la création d’un nouveau package d'accès.](media/secure-external-access/2-new-access-package.png)
 

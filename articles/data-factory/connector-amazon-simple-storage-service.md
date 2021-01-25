@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/08/2020
-ms.openlocfilehash: 925a0270c50d20790c093eaf193d66e0acd4cd11
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.date: 01/14/2021
+ms.openlocfilehash: 82871a09916b2b64f74e25088f5e75ac60a40678
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347402"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202502"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Copie de données à partir d’Amazon Simple Storage Service à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -71,6 +71,7 @@ Les propriétés prises en charge pour un service lié Amazon S3 prises en charg
 | secretAccessKey | La clé d’accès secrète elle-même. Marquez ce champ en tant que **SecureString** afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |Oui |
 | sessionToken | S’applique lors de l’utilisation de l’authentification par [informations d’identification de sécurité temporaires](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html). Découvrez comment [demander des informations d’identification de sécurité temporaires](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#api_getsessiontoken) auprès de AWS.<br>Notez que les informations d’identification temporaires AWS expirent entre 15 minutes et 36 heures en fonction des paramètres. Assurez-vous que vos informations d’identification sont valides lorsque l’activité s’exécute, en particulier pour les charges de travail mises en œuvre ; vous pouvez par exemple les actualiser régulièrement et les stocker dans Azure Key Vault.<br>Marquez ce champ en tant que **SecureString** afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |Non |
 | serviceUrl | Spécifiez le point de terminaison S3 personnalisé si vous copiez des données à partir d’un fournisseur de stockage compatible S3 autre que le service Amazon S3 officiel. Par exemple, pour copier des données à partir de Google Cloud Storage, spécifiez `https://storage.googleapis.com`. | Non |
+| forcePathStyle | Indique s’il faut utiliser un [accès de type chemin d’accès](https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html#path-style-access) S3 au lieu de l’accès de type hébergement virtuel. Les valeurs autorisées sont : **false** (par défaut), **true**.<br>Si vous vous connectez à un fournisseur de stockage compatible à S3 autre que le service Amazon S3 officiel et que le magasin de données requiert un accès de type chemin d’accès (par exemple [Oracle Cloud Storage](https://docs.oracle.com/iaas/Content/Object/Tasks/s3compatibleapi.htm)), définissez cette propriété sur true. Consultez la documentation de chaque magasin de données pour vérifier si l’accès de type chemin d’accès est nécessaire ou non. |Non |
 | connectVia | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. Vous pouvez utiliser le runtime d’intégration Azure ou un runtime d’intégration auto-hébergé (si votre banque de données se trouve sur un réseau privé). Si cette propriété n’est pas spécifiée, le service utilise le runtime d’intégration Azure par défaut. |Non |
 
 >[!TIP]
@@ -182,7 +183,7 @@ Les propriétés suivantes sont prises en charge pour les objets Amazon S3 sous 
 | ------------------------ | ------------------------------------------------------------ | ----------------------------------------------------------- |
 | type                     | La propriété **type** sous `storeSettings` doit être définie sur **AmazonS3ReadSettings**. | Oui                                                         |
 | **_Rechercher les fichiers à copier :_* _ |  |  |
-| OPTION 1 : chemin d’accès statique<br> | Copie à partir du compartiment donné ou du chemin d’accès au dossier/fichier spécifié dans le jeu de données. Si vous souhaitez copier tous les fichiers d’un compartiment ou dossier, spécifiez en plus `wildcardFileName` comme `_`. |  |
+| OPTION 1 : chemin d’accès statique<br> | Copie à partir du compartiment donné ou du chemin d’accès au dossier/fichier spécifié dans le jeu de données. Si vous souhaitez copier tous les fichiers d’un compartiment ou dossier, spécifiez en plus `wildcardFileName` comme `_`. |  |
 | OPTION 2 : Préfixe S3<br>- prefix | Préfixe pour le nom de la clé S3 sous le compartiment donné configuré dans un jeu de données pour filtrer les fichiers S3 sources. Les clé S3 dont le nom commence par `bucket_in_dataset/this_prefix` sont sélectionnées. Elles utilisent le filtre côté service de S3, qui offre de meilleures performances qu’un filtre de caractères génériques.<br/><br/>Quand vous utilisez le préfixe et que vous choisissez de copier le récepteur basé sur un fichier avec conservation de la hiérarchie, notez que le sous-chemin après le dernier signe « / » dans le préfixe est conservé. Par exemple, si vous avez la source `bucket/folder/subfolder/file.txt` et que vous configurez le préfixe sous la forme `folder/sub`, le chemin du fichier conservé est `subfolder/file.txt`. | Non |
 | OPTION 3 : caractère générique<br>- wildcardFolderPath | Chemin d’accès du dossier avec des caractères génériques sous le compartiment donné configuré dans le jeu de données pour filtrer les dossiers sources. <br>Les caractères génériques autorisés sont les suivants : `*` (correspond à zéro caractère ou plusieurs) et `?` (correspond à zéro ou un caractère). Utilisez `^` comme caractère d’échappement si le nom de votre dossier contient un caractère générique ou ce caractère d’échappement. <br>Consultez d’autres exemples dans les [exemples de filtre de dossier et de fichier](#folder-and-file-filter-examples). | Non                                            |
 | OPTION 3 : caractère générique<br>- wildcardFileName | Nom de fichier avec caractères génériques sous le compartiment et le chemin d’accès du dossier donnés (ou chemin d’accès du dossier en caractères génériques) pour filtrer les fichiers sources. <br>Les caractères génériques autorisés sont les suivants : `*` (correspond à zéro caractère ou plusieurs) et `?` (correspond à zéro ou un caractère). Utilisez `^` comme caractère d’échappement si le nom de votre fichier contient un caractère générique ou ce caractère d’échappement.  Consultez d’autres exemples dans les [exemples de filtre de dossier et de fichier](#folder-and-file-filter-examples). | Oui |

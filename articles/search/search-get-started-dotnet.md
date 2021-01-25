@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 11/20/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 448f2b3e42e98d78652a005f5d1c11f55acdebb3
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: f0d912d5b14932c43d109f8f955d5f16381cf773
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95021182"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98180096"
 ---
 # <a name="quickstart-create-a-search-index-using-the-azuresearchdocuments-client-library"></a>Démarrage rapide : Créer un index de recherche à l’aide de la bibliothèque de client Azure.Search.Documents
 
@@ -396,9 +396,9 @@ La classe [SearchResults](/dotnet/api/azure.search.documents.models.searchresult
 
         response = srchclient.Search<Hotel>("*", options);
         WriteDocuments(response);
-        ```
+    ```
 
-1. In the second query, search on a term, add a filter that selects documents where Rating is greater than 4, and then sort by Rating in descending order. Filter is a boolean expression that is evaluated over [IsFilterable](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfilterable) fields in an index. Filter queries either include or exclude values. As such, there is no relevance score associated with a filter query. 
+1. Dans la deuxième requête, recherchez un terme, ajoutez un filtre qui sélectionne les documents dont l’évaluation est supérieure à 4, puis triez par évaluation dans l’ordre décroissant. Un filtre est une expression booléenne évaluée sur des champs [IsFilterable](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfilterable) dans un index. Les requêtes de filtre incluent ou excluent des valeurs. Par conséquent, aucune note de pertinence n’est associée à une requête de filtre. 
 
     ```csharp
     Console.WriteLine("Query #2: Search on 'hotels', filter on 'Rating gt 4', sort by Rating in descending order...\n");

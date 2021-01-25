@@ -1,18 +1,18 @@
 ---
-title: Rapports de classifications sur vos données à l’aide de Purview Insights (préversion)
-description: Ce guide pratique explique comment afficher et utiliser les rapports de classifications Purview Insights sur vos données.
+title: Rapports de classifications sur vos données dans Azure Purview à l’aide de Purview Insights
+description: Ce guide pratique explique comment afficher et utiliser les rapports de classifications Purview sur vos données.
 author: batamig
 ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/24/2020
-ms.openlocfilehash: bb3c7cc3f51eae90c5b712d224407e639b232fbc
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: a0eed27636a3f65d68489d1f2249db784ba1d722
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938883"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98196535"
 ---
 # <a name="classification-insights-about-your-data-from-azure-purview"></a>Insights relatifs aux classifications de vos données à partir d’Azure Purview
 
@@ -33,7 +33,9 @@ Avant de commencer à utiliser les insights Purview, assurez-vous d’avoir effe
 
 - Configurez vos ressources Azure et alimentez les comptes appropriés avec des données de test
 
-- Configurez et terminez une analyse sur les données de test dans chaque source de données 
+- Configurez et terminez une analyse sur les données de test dans chaque source de données
+
+- Connecté à Purview avec un compte avec le [rôle de lecteur de données ou conservateur de données](catalog-permissions.md#azure-purviews-pre-defined-data-plane-roles).
 
 Pour plus d’informations, consultez [Gérer des sources de données dans Azure Purview (préversion)](manage-data-sources.md).
 

@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 01/12/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2d2b65261e09d056ec76b25d6fcb6627bc54770b
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: 65794c695fa4b36586b23a308845b1f12a20b7cb
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165720"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98569944"
 ---
 # <a name="synapse-managed-private-endpoints"></a>Points de terminaison privés managés Synapse
 
@@ -23,7 +23,7 @@ Cet article explique ce que sont les points de terminaison privés managés dans
 
 Les points de terminaison privés managés sont des points de terminaison privés créés dans un réseau virtuel managé qui est associé à votre espace de travail Azure Synapse. Les points de terminaison privés managés établissent une liaison privée avec les ressources Azure. Azure Synapse gère ces points de terminaison privés à votre place. Vous pouvez créer des points de terminaison privés managés à partir de votre espace de travail Azure Synapse pour accéder à des services Azure (tels que Stockage Azure ou Azure Cosmos DB) et à des services clients/partenaires hébergés par Azure.
 
-Quand vous disposez de points de terminaison privés managés, le trafic entre votre espace de travail Azure Synapse et les autres ressources Azure transitent entièrement par le réseau principal de Microsoft. Les points de terminaison privés managés offrent une protection contre l’exfiltration de données. Un point de terminaison privé managé utilise l’adresse IP privée de votre réseau virtuel managé pour amener efficacement le service Azure avec lequel votre espace de travail Azure Synapse communique dans votre réseau virtuel. Les points de terminaison privés managés sont mappés à une ressource spécifique dans Azure, et non à l’ensemble du service. Les clients peuvent limiter la connectivité à une ressource spécifique approuvée par leur organisation. 
+Quand vous utilisez des points de terminaison privés managés, le trafic entre votre espace de travail Azure Synapse et les autres ressources Azure transitent entièrement par le réseau principal de Microsoft. Les points de terminaison privés managés offrent une protection contre l’exfiltration de données. Un point de terminaison privé managé utilise l’adresse IP privée de votre réseau virtuel managé pour amener efficacement le service Azure avec lequel votre espace de travail Azure Synapse communique dans votre réseau virtuel. Les points de terminaison privés managés sont mappés à une ressource spécifique dans Azure, et non à l’ensemble du service. Les clients peuvent limiter la connectivité à une ressource spécifique approuvée par leur organisation. 
 
 Apprenez-en davantage sur [les liaisons privées et les points de terminaison privés](../../private-link/index.yml).
 

@@ -10,15 +10,15 @@ ms.service: batch
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
-ms.date: 06/16/2020
+ms.date: 01/13/2021
 ms.author: jenhayes
 ms.custom: include file
-ms.openlocfilehash: e4f17fbfad1e7e550b3a1e95c93e4b061d0f1c3c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 08e7463f4657b2ae5d6da1017c14226e97af7605
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95993418"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165737"
 ---
 ### <a name="general-requirements"></a>Conditions générales
 
@@ -29,6 +29,8 @@ ms.locfileid: "95993418"
 * Le sous-réseau spécifié pour le pool doit avoir suffisamment d’adresses IP non attribuées pour contenir le nombre de machines virtuelles ciblées pour le pool, autrement dit, la somme des propriétés `targetDedicatedNodes` et `targetLowPriorityNodes` du pool. Si le sous-réseau ne dispose pas de suffisamment d’adresses IP non attribuées, le pool alloue partiellement les nœuds de calcul, et une erreur de redimensionnement se produit.
 
 * Votre point de terminaison de Stockage Azure doit être résolu par tous les serveurs DNS personnalisés qui traitent votre réseau virtuel. Plus précisément, les URL sous la forme `<account>.table.core.windows.net`, `<account>.queue.core.windows.net` et `<account>.blob.core.windows.net` doivent être résolvables.
+
+* Vous pouvez créer plusieurs pools dans le même réseau virtuel ou dans le même sous-réseau (à condition qu’il dispose de suffisamment d’espace d’adressage). Un même pool ne peut pas exister dans plusieurs réseaux virtuels ou sous-réseaux.
 
 Les exigences de réseau virtuel supplémentaires diffèrent si le pool Batch est dans la configuration de machine virtuelle ou dans la configuration des services cloud. Pour les nouveaux déploiements de pool dans un réseau virtuel, la configuration de machine virtuelle est recommandée.
 

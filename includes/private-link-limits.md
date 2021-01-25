@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/21/2020
 ms.author: kumud
 ms.custom: include file
-ms.openlocfilehash: 49a9917d925ebc7a36d14ff6679ad4b1737f9627
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: defcce3a00a38c88e1bff944075f0987fbdedd4b
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86515860"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98225529"
 ---
  Les limites suivantes s’appliquent à Liaison privée Azure :
 
@@ -26,4 +26,6 @@ ms.locfileid: "86515860"
 |Nombre de points de terminaison privés sur le même service Liaison privée   |  1 000       |
 |Nombre de points de terminaison privés par coffre de clés | 64 |
 |Nombre de coffres de clés avec points de terminaison privés par abonnement | 400 |
+|Nombre de groupes de zones DNS privés qui peuvent être liés à un point de terminaison privé | 1 |
+|Nombre de zones DNS dans chaque groupe | 5 |
 

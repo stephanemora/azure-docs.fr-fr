@@ -7,12 +7,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 12/15/2020
 ms.author: banders
-ms.openlocfilehash: b0f17149eb646b6108dc6a81922e6e5b00f143d6
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 045ab35a35aa4caefb1e1bcbbf7bf78b726c09f7
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560540"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601455"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Échanges et remboursements en libre-service de réservations Azure
 
@@ -47,7 +47,7 @@ Tout d’abord, Microsoft annule la réservation existante et rembourse le monta
 
 ### <a name="enterprise-agreement-customers"></a>Clients titulaires d’un contrat entreprise
 
-Pour les échanges et les remboursements, l’argent est ajouté à l’engagement financier éventuellement utilisé pour l’achat d’origine. Si la période de l’engagement financier au cours de laquelle la réservation a été achetée n’est plus active, le crédit est ajouté à la période actuelle de l’engagement financier rattaché à votre contrat entreprise. Le crédit est valable 90 jours à compter de la date du remboursement. Tout crédit inutilisé expire au bout de 90 jours.
+Pour les échanges et les remboursements, de l’argent est ajouté au Paiement anticipé Azure (anciennement « Engagement financier ») si l’achat d’origine a été effectué avec celui-ci. Si la période du Paiement anticipé Azure au cours de laquelle la réservation a été achetée n’est plus active, le crédit est ajouté à la période actuelle du Paiement anticipé rattaché à votre contrat entreprise. Le crédit est valable 90 jours à compter de la date du remboursement. Tout crédit inutilisé expire au bout de 90 jours.
 
 Si l’achat d’origine a été effectué en tant que dépassement, la facture d’origine sur laquelle la réservation a été achetée et toutes les factures ultérieures sont rouvertes et réajustées. Microsoft émet une note de crédit pour les remboursements.
 

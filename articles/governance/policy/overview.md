@@ -1,14 +1,14 @@
 ---
 title: Présentation de la stratégie Azure
 description: Azure Policy est un service dans Azure, que vous utilisez pour créer, affecter et gérer les définitions de stratégie dans votre environnement Azure.
-ms.date: 10/05/2020
+ms.date: 01/14/2021
 ms.topic: overview
-ms.openlocfilehash: 96fd29b5e3d24bc3e678461a95005e004a8a3a80
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: df430586af2e701ec2881f6ea760095fd2ca79d0
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803950"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220726"
 ---
 # <a name="what-is-azure-policy"></a>Présentation d’Azure Policy
 
@@ -83,7 +83,7 @@ Si aucun des rôles intégrés ne dispose d’autorisations, créez un [rôle pe
 
 ### <a name="resources-covered-by-azure-policy"></a>Ressources couvertes par Azure Policy
 
-Azure Policy évalue toutes les ressources dans Azure et toutes les ressources Arc. Pour certains fournisseurs de ressources tels que [Guest Configuration](./concepts/guest-configuration.md), [Azure Kubernetes Service](../../aks/intro-kubernetes.md) et [Azure Key Vault](../../key-vault/general/overview.md), il existe une intégration plus poussée pour la gestion des paramètres et des objets. Pour en savoir plus, consultez [Modes Fournisseur de ressources](./concepts/definition-structure.md).
+Azure Policy évalue toutes les ressources Azure au niveau de l’abonnement ou en dessous, notamment les ressources avec Arc. Pour certains fournisseurs de ressources tels que [Guest Configuration](./concepts/guest-configuration.md), [Azure Kubernetes Service](../../aks/intro-kubernetes.md) et [Azure Key Vault](../../key-vault/general/overview.md), il existe une intégration plus poussée pour la gestion des paramètres et des objets. Pour en savoir plus, consultez [Modes Fournisseur de ressources](./concepts/definition-structure.md).
 
 ### <a name="recommendations-for-managing-policies"></a>Recommandations pour la gestion des stratégies
 

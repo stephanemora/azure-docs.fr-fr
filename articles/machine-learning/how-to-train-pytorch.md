@@ -8,21 +8,21 @@ ms.subservice: core
 ms.author: minxia
 author: mx-iao
 ms.reviewer: peterlu
-ms.date: 12/10/2020
+ms.date: 01/14/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: e3bf77406df302c4ba83cb7a8f1a30fba9f6339e
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: 962054943a68aa61ac681de97eeebc10fe3f2b0a
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97795935"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98216629"
 ---
 # <a name="train-pytorch-models-at-scale-with-azure-machine-learning"></a>Entraîner des modèles PyTorch à grande échelle avec Azure Machine Learning
 
 Dans cet article, découvrez comment exécuter vos scripts d’entraînement [PyTorch](https://pytorch.org/) à l’échelle de l’entreprise à l’aide d’Azure Machine Learning.
 
-Les exemples de scripts dans cet article classifient des images de poulets et de dindes pour créer un réseau neuronal de Deep Learning (DNN) basé sur le [tutoriel](https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html) sur l’apprentissage de transfert de PyTorch. L’apprentissage de transfert est une technique qui applique les connaissances acquises lors de la résolution d’un problème à un problème différent, mais connexe. Cela permet de raccourcir le processus de formation en exigeant moins de données, de temps et de ressources de calcul qu’une formation partant de zéro.
+Les exemples de scripts dans cet article classifient des images de poulets et de dindes pour créer un réseau neuronal de Deep Learning (DNN) basé sur le [tutoriel](https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html) sur l’apprentissage de transfert de PyTorch. L’apprentissage de transfert est une technique qui applique les connaissances acquises lors de la résolution d’un problème à un problème différent, mais connexe. Cela permet de raccourcir le processus de formation en exigeant moins de données, de temps et de ressources de calcul qu’une formation partant de zéro. Pour en savoir plus sur l’apprentissage de transfert, consultez l’article [Deep Learning et Machine Learning](./concept-deep-learning-vs-machine-learning.md#what-is-transfer-learning).
 
 Que vous soyez en train de former un modèle PyTorch d’apprentissage profond ou que vous déposez un modèle existant dans le Cloud, vous pouvez utiliser Azure Machine Learning pour effectuer un scale-out des tâches de formation Open source à l’aide des ressources de calcul de Cloud élastique. Vous pouvez créer, déployer, mettre à jour et surveiller des modèles de niveau production avec Azure Machine Learning. 
 

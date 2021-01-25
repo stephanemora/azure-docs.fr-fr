@@ -1,119 +1,85 @@
-### YamlMime:Hub
-title: Documentation Machines virtuelles
-summary: Découvrez comment créer, déployer et gérer des machines virtuelles Windows ou Linux dans Azure.
-brand: azure
+### YamlMime:Landing
+title: Machines virtuelles dans Azure
+summary: Documentation pour la création et la gestion de machines virtuelles dans Azure.
 metadata:
-  title: Machines virtuelles Azure
-  description: Découvrez comment créer, déployer et gérer des machines virtuelles Windows ou Linux dans Azure.
+  title: Machines virtuelles dans Azure
+  description: Documentation pour la création et la gestion de machines virtuelles Linux dans Azure.
   services: virtual-machines
   ms.service: virtual-machines
-  ms.topic: hub-page
+  ms.topic: landing-page
   author: cynthn
   ms.author: cynthn
-  ms.date: 02/14/2020
-  ms.openlocfilehash: c9750ddc5c5fba9808c70ba6dbeac03b03ca5227
-  ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+  ms.date: 11/05/2020
+  ms.openlocfilehash: 2672ad70ad76e12870a2a176331e58579443b952
+  ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
   ms.translationtype: HT
   ms.contentlocale: fr-FR
   ms.lasthandoff: 01/22/2021
-  ms.locfileid: "98675947"
-highlightedContent:
-  items:
-  - title: Créer une machine virtuelle Linux en utilisant Azure CLI
-    itemType: quickstart
-    url: ./linux/quick-create-cli.md
-  - title: Créer une machine virtuelle Windows en utilisant PowerShell
-    itemType: quickstart
-    url: ./windows/quick-create-powershell.md
-  - title: Créer un groupe de machines virtuelles identiques dans le portail
-    itemType: quickstart
-    url: ../virtual-machine-scale-sets/quick-create-portal.md
-  - title: Machines virtuelles Spot - tirez parti de notre capacité inutilisée en réalisant des économies significatives.
-    itemType: concept
-    url: ./spot-vms.md
-  - title: Hôtes dédiés - serveurs physiques pour héberger une ou plusieurs machines virtuelles.
-    itemType: concept
-    url: ./dedicated-hosts.md
-  - title: Groupes de placement de proximité - obtenez des machines virtuelles aussi près que possible pour une latence plus faible.
-    itemType: how-to-guide
-    url: ./linux/proximity-placement-groups.md
-conceptualContent:
-  items:
-  - title: Machines virtuelles Linux
+  ms.locfileid: "98702087"
+landingContent:
+- title: Dernières fonctionnalités
+  linkLists:
+  - linkListType: whats-new
     links:
-    - url: ./linux/endorsed-distros.md
-      itemType: concept
-      text: Distributions approuvées
-    - url: ./linux/tutorial-manage-disks.md
-      itemType: tutorial
-      text: Créer et gérer des disques
-    - url: ./linux/image-builder.md
-      itemType: how-to-guide
-      text: Azure Image Builder
-    - url: ./troubleshooting/linux-index.yml
-      itemType: how-to-guide
-      text: Résoudre les problèmes des machines virtuelles Linux
-    footerLink:
-      url: ./linux/index.yml
-      text: En savoir plus
-  - title: Machines virtuelles Windows
+    - text: Machines virtuelles Spot
+      url: spot-vms.md
+    - text: Hôtes dédiés
+      url: dedicated-hosts.md
+    - text: Groupes de placements de proximité
+      url: co-location.md
+- title: Démarrages rapides Linux
+  linkLists:
+  - linkListType: quickstart
     links:
-    - url: ./windows/quick-create-powershell.md
-      itemType: how-to-guide
-      text: Créer une machine virtuelle avec PowerShell
-    - url: ./windows/tutorial-manage-data-disk.md
-      itemType: tutorial
-      text: Créer et gérer des disques
-    - url: ../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md?context=%2fazure/virtual-machines/windows/context/windows-vm-context
-      itemType: how-to-guide
-      text: Configurer des identités managées
-    - url: ./troubleshooting/index.yml
-      itemType: how-to-guide
-      text: Résoudre les problèmes des machines virtuelles Windows
-    footerLink:
-      url: ./windows/index.yml
-      text: En savoir plus
-  - title: Groupes identiques de machines virtuelles
+    - text: Azure CLI
+      url: ./linux/quick-create-cli.md
+    - text: Portail Azure
+      url: ./linux/quick-create-portal.md
+    - text: Azure PowerShell
+      url: ./linux/quick-create-powershell.md
+- title: Démarrages rapides Windows
+  linkLists:
+  - linkListType: quickstart
     links:
-    - url: ../virtual-machine-scale-sets/quick-create-powershell.md
-      itemType: how-to-guide
-      text: Créer un groupe de machines virtuelles identiques avec PowerShell
-    - url: /previous-versions/azure/virtual-machine-scale-sets/orchestration-modes
-      itemType: concept
-      text: Modes d’orchestration
-    - url: ../virtual-machine-scale-sets/use-spot.md
-      itemType: how-to-guide
-      text: Utiliser des instances Spot
-    footerLink:
-      url: ../virtual-machine-scale-sets/index.yml
-      text: En savoir plus
-tools:
-  title: Outils
-  summary: Outils pour utiliser des machines virtuelles Azure
-  items:
-  - title: Azure CLI
-    imageSrc: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/cli.svg
-    url: /cli/azure/vm?view=azure-cli-latest
-  - title: Azure PowerShell
-    imageSrc: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/logo_powershell.svg
-    url: /powershell/module/az.compute#virtual_machines
-  - title: API REST
-    imageSrc: https://docs.microsoft.com/azure/media/index/azure_dev-6.svg
-    url: /rest/api/compute/virtualmachines
-additionalContent:
-  sections:
-  - title: Autres ressources
-    summary: Autres ressources pour utiliser des machines virtuelles Azure
-    items:
-    - title: Découvrir
-      links:
-      - text: Parcourir les modules d’apprentissage
-        url: /learn/browse/?products=azure-virtual-machines
-    - title: Galerie de modèles
-      links:
-      - text: Parcourir la galerie de modèles de démarrage rapide
-        url: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular
-    - title: Dépanner
-      links:
-      - text: Informations pour résoudre les erreurs
-        url: ./troubleshooting/index.yml
+    - text: Portail Azure
+      url: ./windows/quick-create-portal.md
+    - text: Azure PowerShell
+      url: ./windows/quick-create-powershell.md
+    - text: Azure CLI
+      url: ./windows/quick-create-cli.md
+- title: Entrainement auto-rythmé
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: " Créer une machine virtuelle Linux dans Azure"
+      url: /learn/modules/create-linux-virtual-machine-in-azure/
+    - text: " Créer une machine virtuelle Windows dans Azure"
+      url: /learn/modules/create-windows-virtual-machine-in-azure/
+- title: Résolution des problèmes
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Résoudre les problèmes SSH
+      url: ./troubleshooting/troubleshoot-ssh-connection.md
+    - text: Résoudre les problèmes de connexion RDP
+      url: ./troubleshooting/rdp.md
+    - text: La machine virtuelle Linux ne démarre pas
+      url: ./troubleshooting/boot-error-troubleshoot-linux.md
+    - text: La machine virtuelle Windows ne démarre pas
+      url: /troubleshooting/boot-error-troubleshoot.md
+    - text: Microsoft Q&A
+      url: /answers/topics/azure-virtual-machines.html
+- title: Ressources
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Framework d’adoption du cloud
+      url: /azure/cloud-adoption-framework/get-started/
+    - text: Centre des architectures Azure
+      url: /azure/architecture/
+    - text: Modèles de démarrage rapide Azure
+      url: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular
+    - text: Tarifs
+      url: https://azure.microsoft.com/pricing/details/#Linux
+    - text: Disponibilité régionale
+      url: https://azure.microsoft.com/regions/services/

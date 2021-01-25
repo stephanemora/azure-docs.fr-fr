@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
-ms.openlocfilehash: c59bd7f9bc8c5049572afdf93343222b30c0007b
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: d1546ef92d923b9d72c4aca0ddf61d2b93646656
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131902"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602343"
 ---
 # <a name="use-cost-alerts-to-monitor-usage-and-spending"></a>Utiliser les alertes de coût pour surveiller l’utilisation et les dépenses
 
@@ -29,7 +29,7 @@ Vous pouvez utiliser l’API Budget pour envoyer des alertes par e-mail dans une
 
 ## <a name="credit-alerts"></a>Alertes de crédit
 
-Les alertes de crédit vous avertissent quand vos engagements financiers de crédit Azure sont consommés. Les engagements financiers concernent les organisations qui ont des contrats Entreprise. Les alertes de crédit sont générées automatiquement quand vous atteignez 90 % et 100 % de votre solde de crédit Azure. Chaque alerte générée est affichée dans les alertes de coût et est notifiée par e-mail aux propriétaires des comptes.
+Des alertes de crédit vous informent lorsque votre Paiement anticipé Azure (anciennement « Engagement financier ») est entièrement consommé. Le Paiement anticipé est destiné aux organisations qui disposent de Contrats Entreprise. Des alertes de crédit sont générées automatiquement à 90 % et à 100 % de votre solde de crédit Paiement anticipé Azure. Chaque alerte générée est affichée dans les alertes de coût et est notifiée par e-mail aux propriétaires des comptes.
 
 ## <a name="department-spending-quota-alerts"></a>Alertes de quota de dépenses du service
 

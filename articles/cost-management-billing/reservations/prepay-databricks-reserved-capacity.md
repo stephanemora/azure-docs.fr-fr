@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: b7d7380114046fbeaaf4b6eb2660997d64168715
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 390a8b421a7b34391bde689e4b968fa98cdbaf76
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91368564"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599163"
 ---
 # <a name="optimize-azure-databricks-costs-with-a-pre-purchase"></a>Optimiser les coûts de Azure Databricks avec un pré-achat
 
@@ -48,7 +48,7 @@ Vous pouvez acheter des plans Databricks dans le [portail Azure](https://portal.
 **Pour acheter :**
 
 1. Accédez au [portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22Databricks%22%7D).
-1. Sélectionnez un abonnement. Utilisez la liste **Abonnement** pour choisir l’abonnement à utiliser pour payer la capacité réservée. Les coûts initiaux de la capacité réservée sont facturés conformément au mode de paiement défini sur l’abonnement. Les frais sont déduits du solde de l’engagement financier de l’inscription, ou facturés comme un dépassement.
+1. Sélectionnez un abonnement. Utilisez la liste **Abonnement** pour choisir l’abonnement à utiliser pour payer la capacité réservée. Les coûts initiaux de la capacité réservée sont facturés conformément au mode de paiement défini sur l’abonnement. Les frais sont déduits du solde du Paiement anticipé Azure (anciennement « Engagement financier »), le cas échéant, ou facturés comme un dépassement.
 1. Sélectionnez une étendue. Utilisez la liste **Étendue** pour choisir une étendue d’abonnement :
     - **Étendue de groupe de ressources unique** : applique la remise de réservation aux ressources correspondantes incluses dans le groupe de ressources sélectionné uniquement.
     - **Étendue d’abonnement unique** : applique la remise de réservation aux ressources correspondantes incluses dans l’abonnement sélectionné.

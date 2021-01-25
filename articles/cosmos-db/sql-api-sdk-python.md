@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-python
-ms.openlocfilehash: b69b3a3888b2d6e19b8eaa92ba9b2fedf0e15545
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 27bcb220c67392661cc1b2875823abdca4593bd4
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93091116"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220947"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Kit de développement logiciel Python Azure Cosmos DB pour l’API SQL : Notes de publication et ressources
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -320,34 +320,34 @@ La version 4.0.0b1 est la première préversion de nos efforts visant à créer
 Microsoft envoie une notification au moins **12 mois** avant le retrait d’un Kit de développement logiciel (SDK) pour faciliter la transition vers une version plus récente/prise en charge. Les nouvelles fonctionnalités et fonctions, et les optimisations sont uniquement ajoutées au Kit SDK actuel. Par conséquent, il est recommandé de toujours passer à la dernière version du SDK dès que possible.
 
 > [!WARNING]
-> Après le 31 août 2022, Azure Cosmos DB n’apportera plus de correctifs de bogues, n'ajoutera plus de nouvelles fonctionnalités et ne fournira plus de support aux versions 1.x ou 2.x du Kit de développement logiciel (SDK) Python Azure Cosmos DB pour l’API SQL. Si vous préférez ne pas effectuer la mise à niveau, les requêtes envoyées depuis la version 1.x et 2.x du Kit de développement logiciel (SDK) continueront à être traitées par le service Azure Cosmos DB.
+> Après le 31 août 2022, Azure Cosmos DB n’apportera plus de correctifs de bogues et ne fournira plus de support aux versions 1.x et 2.x du kit de développement logiciel (SDK) Python Azure Cosmos DB pour l’API SQL. Si vous préférez ne pas effectuer la mise à niveau, les requêtes envoyées depuis la version 1.x et 2.x du Kit de développement logiciel (SDK) continueront à être traitées par le service Azure Cosmos DB.
 
 | Version | Date de sortie | Date de suppression |
 | --- | --- | --- |
 | [4.0.0](#400) |20 mai 2020 |--- |
 | [3.0.2](#302) |15 novembre 2018 |--- |
 | [3.0.1](#301) |04 octobre 2018 |--- |
-| [2.3.3](#233) |8 septembre 2018 |30 août 2020 |
-| [2.3.2](#232) |8 mai 2018 |30 août 2020 |
-| [2.3.1](#231) |21 décembre 2017 |30 août 2020 |
-| [2.3.0](#230) |10 novembre 2017 |30 août 2020 |
-| [2.2.1](#221) |29 septembre 2017 |30 août 2020 |
-| [2.2.0](#220) |10 mai 2017 |30 août 2020 |
-| [2.1.0](#210) |1er mai 2017 |30 août 2020 |
-| [2.0.1](#201) |30 octobre 2016 |30 août 2020 |
-| [2.0.0](#200) |29 septembre 2016 |30 août 2020 |
-| [1.9.0](#190) |7 juillet 2016 |30 août 2020 |
-| [1.8.0](#180) |14 juin 2016 |30 août 2020 |
-| [1.7.0](#170) |26 avril 2016 |30 août 2020 |
-| [1.6.1](#161) |8 avril 2016 |30 août 2020 |
-| [1.6.0](#160) |29 mars 2016 |30 août 2020 |
-| [1.5.0](#150) |3 janvier 2016 |30 août 2020 |
-| [1.4.2](#142) |6 octobre 2015 |30 août 2020 |
-| 1.4.1 |6 octobre 2015 |30 août 2020 |
-| [1.2.0](#120) |6 août 2015 |30 août 2020 |
-| [1.1.0](#110) |9 juillet 2015 |30 août 2020 |
-| [1.0.1](#101) |25 mai 2015 |30 août 2020 |
-| 1.0.0 |7 avril 2015 |30 août 2020 |
+| [2.3.3](#233) |8 septembre 2018 |31 août 2022 |
+| [2.3.2](#232) |8 mai 2018 |31 août 2022 |
+| [2.3.1](#231) |21 décembre 2017 |31 août 2022 |
+| [2.3.0](#230) |10 novembre 2017 |31 août 2022 |
+| [2.2.1](#221) |29 septembre 2017 |31 août 2022 |
+| [2.2.0](#220) |10 mai 2017 |31 août 2022 |
+| [2.1.0](#210) |1er mai 2017 |31 août 2022 |
+| [2.0.1](#201) |30 octobre 2016 |31 août 2022 |
+| [2.0.0](#200) |29 septembre 2016 |31 août 2022 |
+| [1.9.0](#190) |7 juillet 2016 |31 août 2022 |
+| [1.8.0](#180) |14 juin 2016 |31 août 2022 |
+| [1.7.0](#170) |26 avril 2016 |31 août 2022 |
+| [1.6.1](#161) |8 avril 2016 |31 août 2022 |
+| [1.6.0](#160) |29 mars 2016 |31 août 2022 |
+| [1.5.0](#150) |3 janvier 2016 |31 août 2022 |
+| [1.4.2](#142) |6 octobre 2015 |31 août 2022 |
+| 1.4.1 |6 octobre 2015 |31 août 2022 |
+| [1.2.0](#120) |6 août 2015 |31 août 2022 |
+| [1.1.0](#110) |9 juillet 2015 |31 août 2022 |
+| [1.0.1](#101) |25 mai 2015 |31 août 2022 |
+| 1.0.0 |7 avril 2015 |31 août 2022 |
 | 0.9.4-prelease |14 janvier 2015 |29 février 2016 |
 | 0.9.3-prelease |9 décembre 2014 |29 février 2016 |
 | 0.9.2-prelease |25 novembre 2014 |29 février 2016 |

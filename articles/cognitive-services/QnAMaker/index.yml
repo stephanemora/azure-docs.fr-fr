@@ -11,12 +11,12 @@ metadata:
   services: cognitive-services
   title: Documentation relative à QnA Maker
   description: QnA Maker est un service d’API cloud qui crée une couche de questions-réponses conversationnelle sur vos données. QnA Maker vous permet de mettre en place un service de questions-réponses à partir de votre contenu semi-structuré, comme des documents de questions fréquentes (FAQ), des URL et des manuels de produit. Le service QnA Maker répond aux questions en langage naturel de vos utilisateurs en les faisant correspondre à la meilleure réponse possible à partir des entités QnA de votre base de connaissances.
-  ms.openlocfilehash: d1236b8a40d43ac5203cd4cac8aa607c925a04d7
-  ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+  ms.openlocfilehash: 6bc5587612a953f2e0bb43765f579adb56fab336
+  ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 12/09/2020
-  ms.locfileid: "96932725"
+  ms.lasthandoff: 01/22/2021
+  ms.locfileid: "98703389"
 landingContent:
 - title: À propos de QnA Maker
   linkLists:
@@ -60,9 +60,7 @@ landingContent:
     links:
     - text: 'Démarrage rapide : Avec Postman ou cURL'
       url: quickstarts/get-answer-from-knowledge-base-using-url-tool.md
-    - text: 'Démarrage rapide : Utilisation de REST et cURL'
-      url: quickstarts/quickstart-rest-curl.md
-    - text: 'Démarrage rapide : Utiliser le kit de développement logiciel (SDK)'
+    - text: 'Démarrage rapide : Utilisation du SDK et de l’API REST'
       url: quickstarts/quickstart-sdk.md
   - linkListType: how-to-guide
     links:
@@ -118,5 +116,5 @@ landingContent:
     links:
     - text: Options d’aide et de support
       url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/qnamaker/context/context
-    - text: Dépannage
+    - text: Résolution des problèmes
       url: troubleshooting.md

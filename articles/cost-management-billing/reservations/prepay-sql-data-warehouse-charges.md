@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: b82f4252754e79813629e0c792ee0ba35e437714
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: bd43b668c318b825c5c5b6f36fc1da1055863bed
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151524"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599090"
 ---
 # <a name="save-costs-for-azure-synapse-analytics-charges-with-reserved-capacity"></a>Réduire les coûts d’Azure Synapse Analytics avec une capacité de réserve
 
@@ -46,7 +46,7 @@ Par exemple, supposons que votre consommation totale d’Azure Synapse Analytics
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Sélectionnez **Tous les services** > **Réservations**.
 3. Sélectionnez un abonnement. Utilisez la liste Abonnement pour choisir l’abonnement à utiliser pour payer la capacité réservée. Les coûts de la capacité réservée sont facturés conformément au mode de paiement défini pour l’abonnement. Le type d’abonnement doit être Accord Entreprise (numéros de l’offre : MS-AZR-0017P ou MS-AZR-0148P) ou Paiement à l’utilisation (numéros de l’offre : MS-AZR-0003P ou MS-AZR-0023P).
-   - Pour un abonnement Entreprise, les frais sont déduits du solde d’engagement monétaire de l’inscription ou facturés comme un dépassement.
+   - Pour un abonnement d’entreprise, les frais sont déduits du solde de Paiement anticipé Azure (anciennement « Engagement financier ») de l’inscription ou facturés comme dépassement.
    - Pour un abonnement Paiement à l’utilisation, les frais sont facturés sur le mode de paiement par carte de crédit ou par facture défini sur l’abonnement.
 4. Sélectionnez une étendue. Utilisez la liste Étendue pour choisir une étendue d’abonnement.
    - **Étendue de groupe de ressources unique** : applique la remise de réservation aux ressources correspondantes incluses dans le groupe de ressources sélectionné uniquement.

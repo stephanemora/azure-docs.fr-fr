@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: 7c8a35e7c8ecd0952f8e02b66c5071253d9b0445
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 072377f98939d996547cb6ee9f9a535b4b32a3dc
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348923"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98597964"
 ---
 # <a name="azure-ea-vm-reserved-instances"></a>Instances réservées de machine virtuelle Azure EA
 
@@ -25,7 +25,7 @@ Vous pouvez échanger une réservation pour une autre réservation du même type
 
 ### <a name="partial-refunds"></a>Remboursements partiels
 
-Nous initions un remboursement partiel lorsque des clients EA retournent des réservations achetées en utilisant un dépassement et non un engagement monétaire.
+Nous initions un remboursement partiel lorsque des clients EA retournent des réservations achetées en utilisant un dépassement et non un Paiement anticipé Azure (anciennement « Engagement financier »).
 
 Le remboursement s’affiche dans le portail EA sous la forme d’un ajustement négatif pour le mois précédent et d’un ajustement positif pour le mois en cours. Il s’affiche de la même manière qu’un échange de réservations. La note de crédit fait référence au numéro de facture d’origine. Par conséquent, pour rapprocher l’achat initial de la note de crédit, reportez-vous au numéro de facture d’origine.
 

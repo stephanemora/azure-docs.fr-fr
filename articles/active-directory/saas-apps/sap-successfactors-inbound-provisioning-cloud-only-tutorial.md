@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 08/05/2020
+ms.date: 01/19/2021
 ms.author: chmutali
-ms.openlocfilehash: a62943c1a808424ded1a5e46ed115cda332bf7d5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6a73ecf18a4bd89567dc603758d9ff8501267a1f
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020753"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98570034"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-azure-ad-user-provisioning"></a>Tutoriel : Configurer l’approvisionnement d’utilisateur SAP SuccessFactors vers Azure AD
 L’objectif de ce tutoriel est de présenter les étapes à effectuer pour provisionner les données utilisateurs de SuccessFactors Employee Central dans Azure Active Directory, avec réécriture facultative de l’adresse e-mail dans SuccessFactors. 
@@ -91,51 +91,61 @@ Collaborez avec votre équipe d’administration SuccessFactors ou votre partena
 
 ### <a name="create-an-api-permissions-role"></a>Créer un rôle d’autorisations d’API
 
-* Connectez-vous à SAP SuccessFactors avec un compte d’utilisateur qui a accès au centre d’administration.
-* Recherchez *Manage Permission Roles* (Gérer les rôles d’autorisations), puis sélectionnez **Manage Permission Roles** dans les résultats de la recherche.
+1. Connectez-vous à SAP SuccessFactors avec un compte d’utilisateur qui a accès au centre d’administration.
+1. Recherchez *Manage Permission Roles* (Gérer les rôles d’autorisations), puis sélectionnez **Manage Permission Roles** dans les résultats de la recherche.
   ![Gérer les rôles d’autorisations](./media/sap-successfactors-inbound-provisioning/manage-permission-roles.png)
-* Dans la liste Permission Role (Rôle d’autorisation), cliquez sur **Create New** (Créer).
-  > [!div class="mx-imgBorder"]
-  > ![Créer un rôle d’autorisation](./media/sap-successfactors-inbound-provisioning/create-new-permission-role-1.png)
-* Ajoutez un **nom de rôle** et une **description** pour le nouveau rôle d’autorisation. Le nom et la description doivent indiquer que le rôle est destiné aux autorisations d’utilisation des API.
-  > [!div class="mx-imgBorder"]
-  > ![Détail du rôle d’autorisation](./media/sap-successfactors-inbound-provisioning/permission-role-detail.png)
-* Sous Permission settings (Paramètres d’autorisation), cliquez sur **Permission...** , faites défiler la liste des autorisations, puis cliquez sur **Manage Integration Tools** (Gérer les outils d’intégration). Cochez la case **Allow Admin to Access to OData API through Basic Authentication** (Autoriser l’administrateur à accéder à l’API OData via l’authentification de base).
-  > [!div class="mx-imgBorder"]
-  > ![Gérer les outils d’intégration](./media/sap-successfactors-inbound-provisioning/manage-integration-tools.png)
-* Faites défiler la liste dans la même zone et sélectionnez **Employee Central API**. Ajoutez des autorisations comme indiqué ci-dessous pour lire à l’aide de l’API ODATA et modifier à l’aide de l’API ODATA. Sélectionnez l’option de modification si vous envisagez d’utiliser le même compte pour le scénario de réécriture vers SuccessFactors. 
-  > [!div class="mx-imgBorder"]
-  > ![Autorisations de lecture-écriture](./media/sap-successfactors-inbound-provisioning/odata-read-write-perm.png)
-* Cliquez sur **Done** (Terminé). Cliquez sur **Enregistrer les modifications**.
+1. Dans la liste Permission Role (Rôle d’autorisation), cliquez sur **Create New** (Créer).
+    > [!div class="mx-imgBorder"]
+    > ![Créer un rôle d’autorisation](./media/sap-successfactors-inbound-provisioning/create-new-permission-role-1.png)
+1. Ajoutez un **nom de rôle** et une **description** pour le nouveau rôle d’autorisation. Le nom et la description doivent indiquer que le rôle est destiné aux autorisations d’utilisation des API.
+    > [!div class="mx-imgBorder"]
+    > ![Détail du rôle d’autorisation](./media/sap-successfactors-inbound-provisioning/permission-role-detail.png)
+1. Sous Permission settings (Paramètres d’autorisation), cliquez sur **Permission...** , faites défiler la liste des autorisations, puis cliquez sur **Manage Integration Tools** (Gérer les outils d’intégration). Cochez la case **Allow Admin to Access to OData API through Basic Authentication** (Autoriser l’administrateur à accéder à l’API OData via l’authentification de base).
+    > [!div class="mx-imgBorder"]
+    > ![Gérer les outils d’intégration](./media/sap-successfactors-inbound-provisioning/manage-integration-tools.png)
+1. Faites défiler la liste dans la même zone et sélectionnez **Employee Central API**. Ajoutez des autorisations comme indiqué ci-dessous pour lire à l’aide de l’API ODATA et modifier à l’aide de l’API ODATA. Sélectionnez l’option de modification si vous envisagez d’utiliser le même compte pour le scénario de réécriture vers SuccessFactors. 
+    > [!div class="mx-imgBorder"]
+    > ![Autorisations de lecture-écriture](./media/sap-successfactors-inbound-provisioning/odata-read-write-perm.png)
+
+1. Dans la même zone d’autorisations, accédez à **User Permissions -> Employee Data** et passez en revue les attributs que le compte de service peut lire à partir du locataire SuccessFactors. Par exemple, pour récupérer l’attribut *Username* à partir de SuccessFactors, vérifiez que l’autorisation « Affichage » est accordée pour cet attribut. Examinez de la même façon chaque attribut pour vérifier si l’autorisation Affichage est accordée. 
+
+    > [!div class="mx-imgBorder"]
+    > ![Autorisations sur les données des employés](./media/sap-successfactors-inbound-provisioning/review-employee-data-permissions.png)
+   
+
+    >[!NOTE]
+    >Pour obtenir la liste complète des attributs récupérés par cette application de provisionnement, consultez [Référence des attributs SuccessFactors](../app-provisioning/sap-successfactors-attribute-reference.md)
+
+1. Cliquez sur **Done** (Terminé). Cliquez sur **Enregistrer les modifications**.
 
 ### <a name="create-a-permission-group-for-the-api-user"></a>Créer un groupe d’autorisations pour l’utilisateur des API
 
-* Dans le centre d’administration SuccessFactors, recherchez *Manage Permission Groups* (Gérer les groupes d’autorisations), puis sélectionnez **Manage Permission Groups** dans les résultats de la recherche.
-  > [!div class="mx-imgBorder"]
-  > ![Gérer les groupes d’autorisations](./media/sap-successfactors-inbound-provisioning/manage-permission-groups.png)
-* Dans la fenêtre Manage Permission Groups, cliquez sur **Create New**.
-  > [!div class="mx-imgBorder"]
-  > ![Ajouter un nouveau groupe](./media/sap-successfactors-inbound-provisioning/create-new-group.png)
-* Ajoutez un nom pour le nouveau groupe. Ce nom doit indiquer que le groupe est destiné aux utilisateurs des API.
-  > [!div class="mx-imgBorder"]
-  > ![Nom du groupe d’autorisations](./media/sap-successfactors-inbound-provisioning/permission-group-name.png)
-* Ajoutez des membres au groupe. Par exemple, vous pouvez sélectionner **Username** dans le menu déroulant People Pool, puis entrer le nom d’utilisateur du compte d’API qui sera utilisé pour l’intégration. 
-  > [!div class="mx-imgBorder"]
-  > ![Add group members](./media/sap-successfactors-inbound-provisioning/add-group-members.png) (Ajouter des membres à un groupe)
-* Cliquez sur **Done** pour terminer la création du groupe d’autorisations.
+1. Dans le centre d’administration SuccessFactors, recherchez *Manage Permission Groups* (Gérer les groupes d’autorisations), puis sélectionnez **Manage Permission Groups** dans les résultats de la recherche.
+    > [!div class="mx-imgBorder"]
+    > ![Gérer les groupes d’autorisations](./media/sap-successfactors-inbound-provisioning/manage-permission-groups.png)
+1. Dans la fenêtre Manage Permission Groups, cliquez sur **Create New**.
+    > [!div class="mx-imgBorder"]
+    > ![Ajouter un nouveau groupe](./media/sap-successfactors-inbound-provisioning/create-new-group.png)
+1. Ajoutez un nom pour le nouveau groupe. Ce nom doit indiquer que le groupe est destiné aux utilisateurs des API.
+    > [!div class="mx-imgBorder"]
+    > ![Nom du groupe d’autorisations](./media/sap-successfactors-inbound-provisioning/permission-group-name.png)
+1. Ajoutez des membres au groupe. Par exemple, vous pouvez sélectionner **Username** dans le menu déroulant People Pool, puis entrer le nom d’utilisateur du compte d’API qui sera utilisé pour l’intégration. 
+    > [!div class="mx-imgBorder"]
+    > ![Add group members](./media/sap-successfactors-inbound-provisioning/add-group-members.png) (Ajouter des membres à un groupe)
+1. Cliquez sur **Done** pour terminer la création du groupe d’autorisations.
 
 ### <a name="grant-permission-role-to-the-permission-group"></a>Accorder le rôle d’autorisation au groupe d’autorisations
 
-* Dans le centre d’administration SuccessFactors, recherchez *Manage Permission Roles*, puis sélectionnez **Manage Permission Roles** dans les résultats de la recherche.
-* Dans la liste **Permission Role List** (Liste des rôles d’autorisations), sélectionnez le rôle que vous avez créé pour les autorisations d’utilisation des API.
-* Sous **Grant this role to...** (Attribuer ce rôle à), cliquez sur le bouton **Add...** (Ajouter).
-* Sélectionnez **Permission Group...** (Groupe d’autorisations) dans le menu déroulant, puis cliquez sur **Select...** (Sélectionner) pour ouvrir la fenêtre Groups afin de rechercher et sélectionner le groupe créé ci-dessus. 
-  > [!div class="mx-imgBorder"]
-  > ![Ajouter un groupe d’autorisations](./media/sap-successfactors-inbound-provisioning/add-permission-group.png)
-* Passez en revue l’octroi de rôle d’autorisation au groupe d’autorisations. 
-  > [!div class="mx-imgBorder"]
-  > ![Détails du rôle et du groupe d’autorisations](./media/sap-successfactors-inbound-provisioning/permission-role-group.png)
-* Cliquez sur **Enregistrer les modifications**.
+1. Dans le centre d’administration SuccessFactors, recherchez *Manage Permission Roles*, puis sélectionnez **Manage Permission Roles** dans les résultats de la recherche.
+1. Dans la liste **Permission Role List** (Liste des rôles d’autorisations), sélectionnez le rôle que vous avez créé pour les autorisations d’utilisation des API.
+1. Sous **Grant this role to...** (Attribuer ce rôle à), cliquez sur le bouton **Add...** (Ajouter).
+1. Sélectionnez **Permission Group...** (Groupe d’autorisations) dans le menu déroulant, puis cliquez sur **Select...** (Sélectionner) pour ouvrir la fenêtre Groups afin de rechercher et sélectionner le groupe créé ci-dessus. 
+    > [!div class="mx-imgBorder"]
+    > ![Ajouter un groupe d’autorisations](./media/sap-successfactors-inbound-provisioning/add-permission-group.png)
+1. Passez en revue l’octroi de rôle d’autorisation au groupe d’autorisations. 
+    > [!div class="mx-imgBorder"]
+    > ![Détails du rôle et du groupe d’autorisations](./media/sap-successfactors-inbound-provisioning/permission-role-group.png)
+1. Cliquez sur **Enregistrer les modifications**.
 
 ## <a name="configuring-user-provisioning-from-successfactors-to-azure-ad"></a>Configuration du provisionnement d’utilisateurs de SuccessFactors vers Azure AD
 

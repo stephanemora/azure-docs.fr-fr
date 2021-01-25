@@ -12,12 +12,12 @@ ms.date: 12/04/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 07acd71eb1a77592c82b80aa574d79b98c48f60e
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: 0067ed618f95e7f83fc041fe214bbc4d715a504f
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608297"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567626"
 ---
 # <a name="azure-ad-connect-sync-v2-endpoint-api"></a>API de point de terminaison V2 pour la synchronisation d’Azure AD Connect 
 Microsoft a déployé un nouveau point de terminaison (API) pour Azure AD Connect qui améliore les performances des opérations des services de synchronisation pour Azure Active Directory. En utilisant le nouveau point de terminaison v2, vous constaterez des gains de performances perceptibles lors de l’exportation et de l’importation vers Azure AD. Ce nouveau point de terminaison prend en charge les éléments suivants :
@@ -28,7 +28,7 @@ Microsoft a déployé un nouveau point de terminaison (API) pour Azure AD Connec
 > [!NOTE]
 > Actuellement, le nouveau point de terminaison n’a pas de limite de taille de groupe configurée pour les groupes Microsoft 365 réécrits. Cela peut avoir un effet sur vos latences Active Directory et du cycle de synchronisation. Il est recommandé d’augmenter la taille des groupes de façon incrémentielle.  
 
-## <a name="pre-requisites"></a>Conditions préalables  
+## <a name="prerequisites"></a>Prérequis  
 Pour utiliser le nouveau point de terminaison v2, vous devez utiliser [version Azure AD Connect 1.5.30.0](https://www.microsoft.com/download/details.aspx?id=47594) ou version ultérieure et suivre les étapes de déploiement fournies ci-dessous pour activer le point de terminaison v2 pour votre serveur Azure AD Connect.   
 
 ## <a name="deployment-guidance"></a>Conseils pour le déploiement 

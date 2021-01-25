@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: overview
 ms.date: 12/15/2020
 ms.author: banders
-ms.openlocfilehash: b79bde204d82b069b3314855a45a680b863c3f69
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 0e45e9741e92bb9e1fe23af79695cae06e64e871
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560489"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602062"
 ---
 # <a name="what-are-azure-reservations"></a>Qu’est-ce qu’une réservation Azure ?
 
@@ -56,7 +56,7 @@ Pour plus d’informations, consultez [Acheter une réservation](prepare-buy-r
 
 ## <a name="how-is-a-reservation-billed"></a>Comment une réservation est-elle facturée ? 
 
-La réservation est facturée selon le mode de paiement associé à l’abonnement. Le coût de la réservation est déduit de votre solde d’engagement financier, le cas échéant. Lorsque ce solde ne couvre pas le coût des réservations, le dépassement vous est facturé. Si vous avez souscrit un abonnement à partir d’un forfait individuel avec paiement à l’utilisation, la carte de crédit associée à votre compte est facturée immédiatement pour les achats en paiement initial. Les paiements mensuels apparaissent sur votre facture et votre carte de crédit est facturée chaque mois. Lorsque vous réglez sur facture, les frais sont portés sur votre prochaine facture. 
+La réservation est facturée selon le mode de paiement associé à l’abonnement. Le coût de la réservation est déduit du solde de votre Paiement anticipé Azure (anciennement « Engagement financier »), si disponible. Lorsque le solde du Paiement anticipé Azure ne couvre pas le coût de la réservation, le dépassement vous est facturé. Si vous avez souscrit un abonnement à partir d’un forfait individuel avec paiement à l’utilisation, la carte de crédit associée à votre compte est facturée immédiatement pour les achats en paiement initial. Les paiements mensuels apparaissent sur votre facture et votre carte de crédit est facturée chaque mois. Lorsque vous réglez sur facture, les frais sont portés sur votre prochaine facture. 
 
 ## <a name="who-can-manage-a-reservation-by-default"></a>Qui peut gérer une réservation par défaut
 

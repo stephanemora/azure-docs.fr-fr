@@ -6,15 +6,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 12/08/2020
+ms.date: 01/19/2021
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 42701fbcee9833fd31fff3ace55d48079015dbcd
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: c1b17d8c624d4bef74278acc24ece37a736a5ca8
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96906401"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98572967"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>Démarrage rapide : Diriger le trafic web avec Azure Application Gateway - Portail Azure
 
@@ -78,7 +78,7 @@ Vous allez créer la passerelle d’application à l’aide des onglets de la pa
    > [!NOTE]
    > Pour la référence SKU Application Gateway v2, il doit y avoir une configuration d’une adresse IP front-end **publique**. Vous pouvez toujours disposer d’une configuration d’adresse IP front-end publique et privée, mais la configuration d’adresse IP front-end uniquement privée (mode ILB uniquement) n’est pas activée pour la référence SKU v2. 
 
-2. Choisissez **Créer nouveau** pour **Adresse IP publique**, puis entrez *myAGPublicIPAddress* comme nom d’adresse IP publique, puis sélectionnez **OK**. 
+2. Sélectionnez **Ajouter nouveau** pour **Adresse IP publique**, entrez *myAGPublicIPAddress* comme nom d’adresse IP publique, puis sélectionnez **OK**. 
 
      ![Créer une passerelle d’application : front-ends](./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png)
 
@@ -86,9 +86,9 @@ Vous allez créer la passerelle d’application à l’aide des onglets de la pa
 
 ### <a name="backends-tab"></a>Onglet Back-ends
 
-Le pool de back-ends est utilisé pour router les demandes vers les serveurs back-end qui les traitent. Les pools back-end peuvent être composés de cartes d’interface réseau, de groupes de machines virtuelles identiques, d’adresses IP publiques, d’adresses IP internes, de noms de domaine complets et de serveurs back-end multi-locataires comme Azure App Service. Dans cet exemple, vous allez créer un pool de back-ends vide avec votre passerelle d’application, puis ajouter des cibles de back-end au pool.
+Le pool de back-ends est utilisé pour router les demandes vers les serveurs back-end qui les traitent. Le pool de back-ends peut se composer de cartes d’interface réseau, de groupes de machines virtuelles identiques, d’adresses IP publiques, d’adresses IP internes, de noms de domaine complets (FQDN) et de back-ends multilocataires comme Azure App Service. Dans cet exemple, vous allez créer un pool de back-ends vide avec votre passerelle d’application, puis ajouter des cibles de back-end au pool.
 
-1. Sous l’onglet **Backends**, sélectionnez **+Ajouter un pool de back-ends**.
+1. Sous l’onglet **Backends**, sélectionnez **Ajouter un pool de back-ends**.
 
 2. Dans la fenêtre **Ajouter un pool de back-ends** qui s’ouvre, entrez les valeurs suivantes pour créer un pool de back-ends vide :
 
@@ -105,7 +105,7 @@ Le pool de back-ends est utilisé pour router les demandes vers les serveurs bac
 
 Sous l’onglet **Configuration**, vous allez connecter le front-end et le pool de back-ends que vous avez créés à l’aide d’une règle de routage.
 
-1. Sélectionnez **Ajouter une règle** dans la colonne **Règles de routage**.
+1. Sélectionnez **Ajouter une règle de routage** dans la colonne **Règles de routage**.
 
 2. Dans la fenêtre **Ajouter une règle de routage** qui s’ouvre, entrez *myRoutingRule* pour **Nom de la règle**.
 
@@ -120,7 +120,7 @@ Sous l’onglet **Configuration**, vous allez connecter le front-end et le pool 
 
 4. Sous l’onglet **Cibles de back-end**, sélectionnez **myBackendPool** pour la **Cible de back-end**.
 
-5. Pour **Paramètre HTTP**, sélectionnez **Créer nouveau** pour créer un nouveau paramètre HTTP. Le paramètre HTTP détermine le comportement de la règle de routage. Dans la fenêtre **Ajouter un paramètre HTTP** qui s’ouvre, entrez *myHTTPSetting* comme **Nom du paramètre HTTP** et *80* comme **Port principal**. Acceptez les valeurs par défaut pour les autres paramètres de la fenêtre **Ajouter un paramètre HTTP**, puis sélectionnez **Ajouter** pour revenir à la fenêtre **Ajouter une règle de routage**. 
+5. Pour **Paramètre HTTP**, sélectionnez **Ajouter nouveau** pour ajouter un nouveau paramètre HTTP. Le paramètre HTTP détermine le comportement de la règle de routage. Dans la fenêtre **Ajouter un paramètre HTTP** qui s’ouvre, entrez *myHTTPSetting* comme **Nom du paramètre HTTP** et *80* comme **Port principal**. Acceptez les valeurs par défaut pour les autres paramètres de la fenêtre **Ajouter un paramètre HTTP**, puis sélectionnez **Ajouter** pour revenir à la fenêtre **Ajouter une règle de routage**. 
 
      ![Créer une passerelle d’application : Paramètre HTTP](./media/application-gateway-create-gateway-portal/application-gateway-create-httpsetting.png)
 
@@ -147,7 +147,7 @@ Pour ce faire, vous allez effectuer les opérations suivantes :
 ### <a name="create-a-virtual-machine"></a>Création d'une machine virtuelle
 
 1. Dans le menu du Portail Azure ou dans la page **Accueil**, sélectionnez **Créer une ressource**. La fenêtre **Nouvelle** apparaît.
-2. Sélectionnez **Windows Server 2016 Datacenter** dans la liste **Populaire**. La page **Créer une machine virtuelle** s’affiche.<br>Application Gateway peut acheminer le trafic vers n’importe quel type de machine virtuelle utilisée dans son pool principal. Dans cet exemple, vous utilisez un serveur Windows Server 2016 Datacenter.
+2. Sélectionnez **Windows Server 2016 Datacenter** dans la liste **Populaire**. La page **Créer une machine virtuelle** s’affiche.<br>Application Gateway peut acheminer le trafic vers n’importe quel type de machine virtuelle utilisée dans son pool principal. Dans cet exemple, vous utilisez une machine virtuelle Windows Server 2016 Datacenter.
 3. Sous l’onglet **De base**, entrez ces valeurs pour les paramètres de machine virtuelle suivants :
 
     - **Groupe de ressources** : sélectionnez **myResourceGroupAG** comme nom de groupe de ressources.
@@ -165,9 +165,11 @@ Pour ce faire, vous allez effectuer les opérations suivantes :
 
 ### <a name="install-iis-for-testing"></a>Installer IIS pour les tests
 
-Dans cet exemple, vous allez installer IIS sur les machines virtuelles uniquement pour vérifier si Azure a bien créé la passerelle d’application.
+Dans cet exemple, vous allez installer IIS sur les machines virtuelles pour vérifier si Azure a bien créé la passerelle d’application.
 
-1. Ouvrez Azure PowerShell. Sélectionnez **Cloud Shell** dans la barre de navigation supérieure du portail Azure, puis sélectionnez **PowerShell** dans la liste déroulante. 
+1. Ouvrez Azure PowerShell.
+
+   Sélectionnez **Cloud Shell** dans la barre de navigation supérieure du portail Azure, puis sélectionnez **PowerShell** dans la liste déroulante. 
 
     ![Installer l’extension personnalisée](./media/application-gateway-create-gateway-portal/application-gateway-extension.png)
 
@@ -208,7 +210,9 @@ Dans cet exemple, vous allez installer IIS sur les machines virtuelles uniquemen
 
 ## <a name="test-the-application-gateway"></a>Tester la passerelle d’application
 
-IIS n’est pas obligatoire pour créer la passerelle d’application, mais vous l’avez installé dans ce guide de démarrage rapide pour vérifier si Azure avait bien créé la passerelle d’application. Utilisez IIS pour tester la passerelle d’application :
+IIS n’est pas obligatoire pour créer la passerelle d’application, mais vous l’avez installé dans ce guide de démarrage rapide pour vérifier si Azure avait bien créé la passerelle d’application. 
+
+Utilisez IIS pour tester la passerelle d’application :
 
 1. Trouvez l’adresse IP publique de la passerelle d’application dans la page **Vue d’ensemble** correspondante. ![Enregistrez l’adresse IP publique de la passerelle d’application](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png) Vous pouvez aussi sélectionner **Toutes les ressources**, entrer *myAGPublicIPAddress* dans la zone de recherche, puis sélectionner l’adresse IP publique dans les résultats de la recherche. Azure affiche l’adresse IP publique dans la page **Vue d’ensemble**.
 2. Copiez l’adresse IP publique, puis collez-la dans la barre d’adresses de votre navigateur pour y accéder.
@@ -227,7 +231,7 @@ Pour supprimer le groupe de ressources :
 1. Dans le menu du portail Azure, sélectionnez **Groupes de ressources** ou recherchez et sélectionnez *Groupes de ressources*.
 2. Dans la page **Groupes de ressources**, recherchez **myResourceGroupAG** dans la liste, puis sélectionnez ce groupe de ressources.
 3. Dans la page **Groupe de ressources**, sélectionnez **Supprimer le groupe de ressources**.
-4. Entrez *myResourceGroupAG* dans **TAPER LE NOM DU GROUPE DE RESSOURCES**, puis sélectionnez **Supprimer**.
+4. Entrez *myResourceGroupAG* sous **TAPER LE NOM DU GROUPE DE RESSOURCES**, puis sélectionnez **Supprimer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

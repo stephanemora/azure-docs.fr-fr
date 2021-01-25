@@ -5,9 +5,9 @@
   items:
     - name: "Qu’est-ce que la Recherche cognitive\_?"
       href: search-what-is-azure-search.md
-    - name: Fonctionnalités de la Recherche cognitive
+    - name: Liste des fonctionnalités
       href: search-features-list.md
-    - name: Nouveautés de la Recherche cognitive
+    - name: Nouveautés de Recherche
       href: whats-new.md
 - name: Démarrages rapides
   items:

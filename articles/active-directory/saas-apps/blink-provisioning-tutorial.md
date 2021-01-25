@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: 886d6ff1d3437a9d45bdabc68b2bf3ab8cdaa3ef
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: d691807f673dcd6c8147c9ff18a95c6ce0c88ae6
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96349971"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247435"
 ---
 # <a name="tutorial-configure-blink-for-automatic-user-provisioning"></a>Tutoriel : Configurer Blink pour le provisionnement automatique d’utilisateurs
 
@@ -50,7 +50,7 @@ Avant de configurer et d’activer l’approvisionnement automatique d’utilisa
 
 ## <a name="setup-blink-for-provisioning"></a>Configurer Blink pour le provisionnement
 
-1. Ouvrez un [dossier de support](https://support.joinblink.com) ou envoyez un e-mail au **Support technique Blink** à l’adresse support@joinblink.com pour demander un jeton SCIM. .
+1. Ouvrez un [dossier de support](https://support.joinblink.com) ou envoyez un e-mail au **Support technique Blink** à l’adresse support@joinblink.com pour demander un jeton SCIM.
 
 2.  Copiez le **jeton d’authentification SCIM**. Vous devez entrer cette valeur dans le champ Jeton secret de l’onglet Provisionnement de votre application Blink dans le portail Azure.
 
@@ -117,7 +117,23 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 9. Dans la section **Mappages des attributs**, passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et Blink. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes d’utilisateur dans Blink pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
-    ![Attributs utilisateur Blink](media/blink-provisioning-tutorial/user-attributes.png)
+   |Attribut|Type|Pris en charge pour le filtrage|
+   |---|---|---|
+   |userName|String|&check;|
+   |active|Boolean|
+   |title|String|
+   |emails[type eq "work"].value|String|
+   |name.givenName|String|
+   |name.familyName|String|
+   |phoneNumbers[type eq "work"].value|String|
+   |phoneNumbers[type eq "mobile"].value|String|
+   |externalId|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Informations de référence|
+   |urn:ietf:params:scim:schemas:extension:blink:2.0:User:company|String|
+   urn:ietf:params:scim:schemas:extension:blink:2.0:User:description|String|
+   urn:ietf:params:scim:schemas:extension:blink:2.0:User:location|String|
 
 10. Pour configurer des filtres d’étendue, reportez-vous aux instructions suivantes fournies dans [Approvisionnement d’applications basé sur les attributs avec filtres d’étendue](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -137,11 +153,23 @@ Cette opération démarre la synchronisation initiale de tous les utilisateurs d
 
 Pour plus d’informations sur la lecture des journaux d’activité d’approvisionnement Azure AD, consultez [Création de rapports sur l’approvisionnement automatique de comptes d’utilisateur](../app-provisioning/check-status-user-account-provisioning.md).
 
+## <a name="step-6-monitor-your-deployment"></a>Étape 6. Surveiller votre déploiement
+Une fois que vous avez configuré l’approvisionnement, utilisez les ressources suivantes pour surveiller votre déploiement :
+
+* Utilisez les [journaux d’approvisionnement](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) pour déterminer quels utilisateurs ont été configurés avec succès ou échoué.
+* Consultez la [barre de progression](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) pour afficher l’état du cycle d’approvisionnement et quand il se termine
+* Si la configuration de l’approvisionnement semble se trouver dans un état non sain, l’application passe en quarantaine. Pour en savoir plus sur les états de quarantaine, cliquez [ici](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
+
+
+## <a name="change-log"></a>Journal des modifications
+
+* 14/01/2021 : les attributs d’extension personnalisés **company**, **description** et **location** ont été ajoutés.
+
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [Gestion de l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Gestion de l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Découvrez comment consulter les journaux d’activité et obtenir des rapports sur l’activité d’approvisionnement](../app-provisioning/check-status-user-account-provisioning.md)
+* [Découvrez comment consulter les journaux d’activité et obtenir des rapports sur l’activité d’approvisionnement](../manage-apps/check-status-user-account-provisioning.md)
