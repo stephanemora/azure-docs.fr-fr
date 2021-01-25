@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 11/06/2020
+ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: 9b9390b498f28fc8f9029f1c11805b970aaca73d
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: de011fb0f827ea90efe33e237bbf1c5100dc76a7
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95014558"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183470"
 ---
 # <a name="how-to-deploy-a-people-counting-web-application"></a>Procédure : Déployer une application web de comptage de personnes
 
@@ -63,12 +63,12 @@ az iot hub device-identity create --hub-name "<IoT Hub Name>" --device-id "<Edge
 
 ### <a name="deploy-the-container-on-azure-iot-edge-on-the-host-computer"></a>Déployer le conteneur sur Azure IoT Edge sur l’ordinateur hôte
 
-Déployez le conteneur d’analyse spatiale comme un module IoT sur l’ordinateur hôte, à l’aide de l’interface de ligne de commande Azure. Le processus de déploiement requiert un fichier manifeste de déploiement qui présente les conteneurs, les variables et les configurations nécessaires pour votre déploiement. Vous pouvez trouver un exemple de [manifeste de déploiement spécifique à Azure Stack Edge](https://github.com/Azure-Samples/cognitive-services-rest-api-samples/), ainsi qu’un [manifeste de déploiement non spécifique à Azure Stack Edge](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) sur GitHub, qui incluent une configuration de déploiement de base pour le conteneur *spatial-analysis*. 
+Déployez le conteneur d’analyse spatiale comme un module IoT sur l’ordinateur hôte, à l’aide de l’interface de ligne de commande Azure. Le processus de déploiement requiert un fichier manifeste de déploiement qui présente les conteneurs, les variables et les configurations nécessaires pour votre déploiement. Vous pouvez trouver un exemple de [manifeste de déploiement spécifique à Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179), un [manifeste de déploiement non spécifique à Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2152189) et un [manifeste de déploiement spécifique à une machine virtuelle avec GPU](https://go.microsoft.com/fwlink/?linkid=2152189) sur GitHub, qui incluent une configuration de déploiement de base pour le conteneur *spatial-analysis*. 
 
 Vous pouvez également utiliser les extensions Azure IoT pour Visual Studio Code afin d’effectuer des opérations avec votre hub IoT. Accédez à [Déployer des modules Azure IoT Edge à partir de Visual Studio Code](../../iot-edge/how-to-deploy-modules-vscode.md) pour plus d’informations.
 
 > [!NOTE] 
-> Les conteneurs *spatial-analysis-telegraf* et *spatial-analysis-diagnostics* sont facultatifs. Vous pouvez choisir de les supprimer du fichier *DeploymentManifest.json*. Pour plus d’informations, consultez l’[article relatif à la télémétrie et au dépannage](./spatial-analysis-logging.md). Vous trouverez deux exemples de fichiers *DeploymentManifest.json* sur GitHub, soit pour des [appareils Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179), soit pour un autre [ordinateur de bureau](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json).
+> Les conteneurs *spatial-analysis-telegraf* et *spatial-analysis-diagnostics* sont facultatifs. Vous pouvez choisir de les supprimer du fichier *DeploymentManifest.json*. Pour plus d’informations, consultez l’[article relatif à la télémétrie et au dépannage](./spatial-analysis-logging.md). Vous trouverez trois exemples de fichiers *DeploymentManifest.json* sur GitHub, pour des [appareils Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179), un [ordinateur de bureau](https://go.microsoft.com/fwlink/?linkid=2152189) ou une [machine virtuelle Azure avec GPU](https://go.microsoft.com/fwlink/?linkid=2152189).
 
 ### <a name="set-environment-variables"></a>Définir des variables d’environnement
 

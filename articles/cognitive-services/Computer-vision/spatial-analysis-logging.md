@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 09/11/2020
+ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: dd1b6d216f6225a13d86aa2435b5b1c807547ec3
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: dda3ece27fd2c687647e0aa289bd1596a87b274f
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95014575"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98186020"
 ---
 # <a name="telemetry-and-troubleshooting"></a>Télémétrie et résolution des problèmes
 
@@ -68,7 +68,7 @@ az iot hub list
 az ad sp create-for-rbac --role="Monitoring Metrics Publisher" --name "<principal name>" --scopes="<resource ID of IoT Hub>"
 ```
 
-Dans le manifeste de déploiement pour votre [appareil Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179) ou un autre [ordinateur de bureau](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json), recherchez le module *telegraf* et remplacez les valeurs suivantes par les informations du principal de service de l’étape précédente, puis redéployez.
+Dans le manifeste de déploiement pour votre [appareil Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179), [ordinateur de bureau](https://go.microsoft.com/fwlink/?linkid=2152270) ou [machine virtuelle avec GPU](https://go.microsoft.com/fwlink/?linkid=2152189), recherchez le module *telegraf* et remplacez les valeurs suivantes par les informations du principal de service de l’étape précédente, puis redéployez.
 
 ```json
 
@@ -129,7 +129,7 @@ Vous pouvez utiliser l’outil en ligne de commande `iotedge` pour vérifier l�
 
 ## <a name="collect-log-files-with-the-diagnostics-container"></a>Collecter les fichiers journaux avec le conteneur de diagnostics
 
-L’analyse spatiale génère des journaux de débogage Docker que vous pouvez utiliser pour diagnostiquer les problèmes d’exécution ou inclure dans les tickets de support. Le module de diagnostics d’analyse spatiale est disponible au téléchargement dans le Registre de conteneurs Microsoft. Dans le fichier de déploiement du manifeste de votre [appareil Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179) ou autre [ordinateur de bureau](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json), recherchez le module *diagnostics*.
+L’analyse spatiale génère des journaux de débogage Docker que vous pouvez utiliser pour diagnostiquer les problèmes d’exécution ou inclure dans les tickets de support. Le module de diagnostics d’analyse spatiale est disponible au téléchargement dans le Registre de conteneurs Microsoft. Dans le fichier de déploiement du manifeste de votre [appareil Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179), [ordinateur de bureau](https://go.microsoft.com/fwlink/?linkid=2152270) ou [machine virtuelle Azure avec GPU](https://go.microsoft.com/fwlink/?linkid=2152189), recherchez le module *diagnostics*.
 
 Dans la section « env », ajoutez la configuration suivante :
 
@@ -188,13 +188,13 @@ Vous pouvez également les définir par le biais du document de jumeau de module
 > Le module `diagnostics` n’affecte pas le contenu de la journalisation. Il sert uniquement pour la collecte, le filtrage et le téléchargement des journaux existants.
 > Vous devez disposer de l’API Docker version 1.40 ou ultérieure pour utiliser ce module.
 
-L’exemple de fichier manifeste de déploiement pour votre [appareil Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179) ou autre [ordinateur de bureau](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) comprend un module nommé `diagnostics` qui collecte et charge les journaux. Ce module est désactivé par défaut et doit être activé via la configuration du module IoT Edge lorsque vous avez besoin d’accéder aux journaux. 
+L’exemple de fichier manifeste de déploiement pour votre [appareil Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179), [ordinateur de bureau](https://go.microsoft.com/fwlink/?linkid=2152270) ou [machine virtuelle Azure avec GPU](https://go.microsoft.com/fwlink/?linkid=2152189) comprend un module nommé `diagnostics` qui collecte et charge les journaux. Ce module est désactivé par défaut et doit être activé via la configuration du module IoT Edge lorsque vous avez besoin d’accéder aux journaux. 
 
 La collecte de `diagnostics` est effectuée à la demande et contrôlée via une méthode directe IoT Edge, et elle peut envoyer des journaux à un stockage d’objets Blob Azure.
 
 ### <a name="configure-diagnostics-upload-targets"></a>Configurer les cibles de chargement des diagnostics
 
-Dans le portail IoT Edge, sélectionnez votre appareil, puis le module **Diagnostics**. Dans l’exemple de fichier manifeste de déploiement pour votre [appareil Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179) ou autre [ordinateur de bureau](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json), recherchez la section **Variables d’environnement** pour diagnostics, nommée `env`, puis ajoutez les informations suivantes :
+Dans le portail IoT Edge, sélectionnez votre appareil, puis le module **Diagnostics**. Dans l’exemple de fichier manifeste de déploiement pour votre [appareil Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179), [ordinateur de bureau](https://go.microsoft.com/fwlink/?linkid=2152270) ou [machine virtuelle Azure avec GPU](https://go.microsoft.com/fwlink/?linkid=2152189), recherchez la section **Variables d’environnement** pour diagnostics, nommée `env`, puis ajoutez les informations suivantes :
 
 **Configurer le chargement vers le stockage d’objets Blob Azure**
 

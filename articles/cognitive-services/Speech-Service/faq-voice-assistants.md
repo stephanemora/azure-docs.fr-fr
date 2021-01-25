@@ -1,7 +1,7 @@
 ---
 title: Questions fréquentes sur les assistants vocaux
 titleSuffix: Azure Cognitive Services
-description: Obtenez des réponses aux questions les plus récurrentes sur les assistants vocaux en utilisant les Commandes personnalisées (préversion) ou le canal Direct Line Speech.
+description: Obtenez des réponses aux questions les plus récurrentes sur les assistants vocaux en utilisant les Commandes personnalisées ou le canal Direct Line Speech.
 services: cognitive-services
 author: trrwilson
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: travisw
-ms.openlocfilehash: b43d446930d1f8c40c12e5d0aeba6eb202ef47ef
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 4b0bbb982ed48dc052b1a15514ad36b1d69b62b5
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353729"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599423"
 ---
 # <a name="voice-assistants-frequently-asked-questions"></a>Questions fréquentes sur les assistants vocaux
 
@@ -25,11 +25,11 @@ Si vous ne trouvez pas de réponses à vos questions dans ce document, consultez
 
 **Q : Qu’est-ce qu’un assistant vocal ?**
 
-**R :** Comme Cortana, un assistant vocal est une solution qui écoute les énoncés prononcés par un utilisateur, analyse le contenu de ces énoncés à la recherche de significations, effectue une ou plusieurs actions en réponse à l’intention de l’énoncé, puis fournit une réponse à l’utilisateur, comprenant souvent un composant parlé. Il s’agit d’une expérience de type « entrée et sortie de voix » permettant d’interagir avec un système. Les auteurs de l’assistant vocal créent une application sur l’appareil à l’aide du `DialogServiceConnector` dans le Kit de développement logiciel (SDK) de reconnaissance vocale pour communiquer avec un assistant créé à l’aide de la solution [Commandes personnalisées (préversion)](custom-commands.md) ou du canal [Direct Line Speech](direct-line-speech.md) du Bot Framework. Ces assistants peuvent utiliser des mots clés, une reconnaissance vocale et une voix personnalisés pour offrir une expérience adaptée à votre marque ou produit.
+**R :** Comme Cortana, un assistant vocal est une solution qui écoute les énoncés prononcés par un utilisateur, analyse le contenu de ces énoncés à la recherche de significations, effectue une ou plusieurs actions en réponse à l’intention de l’énoncé, puis fournit une réponse à l’utilisateur, comprenant souvent un composant parlé. Il s’agit d’une expérience de type « entrée et sortie de voix » permettant d’interagir avec un système. Les concepteurs d’assistants vocaux créent une application sur l’appareil à l’aide du `DialogServiceConnector` dans le SDK Speech pour communiquer avec un assistant créé à l’aide de la solution [Commandes personnalisées](custom-commands.md) ou du canal [Direct Line Speech](direct-line-speech.md) du Bot Framework. Ces assistants peuvent utiliser des mots clés, une reconnaissance vocale et une voix personnalisés pour offrir une expérience adaptée à votre marque ou produit.
 
-**Q : Dois-je utiliser la solution Commandes personnalisées (préversion) ou Direct Line Speech ? Quelle est la différence ?**
+**Q : Dois-je utiliser la solution Commandes personnalisées ou Direct Line Speech ? Quelle est la différence ?**
 
-**R :** [Commandes personnalisées (préversion)](custom-commands.md) est un ensemble d’outils moins complexe permettant de créer et d’héberger facilement un assistant adapté aux scénarios d’achèvement des tâches. [Direct Line Speech](direct-line-speech.md) fournit des fonctionnalités plus riches et plus sophistiquées qui peuvent permettre des scénarios de conversation robustes. Pour plus d’informations, consultez la [comparaison des solutions d’assistant](voice-assistants.md#choosing-an-assistant-solution).
+**R :** La solution [Commandes personnalisées](custom-commands.md) est un ensemble d’outils moins complexe permettant de créer et d’héberger facilement un assistant adapté aux scénarios d’achèvement des tâches. [Direct Line Speech](direct-line-speech.md) fournit des fonctionnalités plus riches et plus sophistiquées qui peuvent permettre des scénarios de conversation robustes. Pour plus d’informations, consultez la [comparaison des solutions d’assistant](voice-assistants.md#choosing-an-assistant-solution).
 
 **Q : Comment faire pour démarrer ?**
 
@@ -61,7 +61,7 @@ Pour obtenir un guide plus détaillé, consultez la [section du tutoriel](tutori
 
 **R :** Cette erreur indique un problème de communication entre votre assistant et le service d’assistant vocal.
 
-- Pour la solution Commandes personnalisées (préversion), assurez-vous que votre application de Commandes personnalisées (préversion) est publiée
+- Pour la solution Commandes personnalisées, assurez-vous que votre application Commandes personnalisées est publiée
 - Pour Direct Line Speech, vérifiez que vous avez [connecté votre bot au canal Direct Line Speech](/azure/bot-service/bot-service-channel-connect-directlinespeech), [ajouté la prise en charge du protocole de streaming](/azure/bot-service/directline-speech-bot) à votre bot (avec la prise en charge WebSocket connexe), puis vérifiez que votre bot répond aux demandes entrantes provenant du canal.
 
 **Q : Ce code ne fonctionne toujours pas et/ou j’obtiens une erreur différente lorsque j’utilise un `DialogServiceConnector`. Que dois-je faire ?**

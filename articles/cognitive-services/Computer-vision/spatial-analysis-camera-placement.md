@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 09/11/2020
+ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: 8e951e6cb18596b19f49bf42179297f656e3fa5f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 849afe54125588cb7664ee221e4f229e83be8f96
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91304290"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185476"
 ---
 # <a name="camera-placement-guide"></a>Guide de positionnement de la caméra
 
@@ -52,7 +52,7 @@ L’illustration suivante montre la vue en hauteur de la direction de marche d�
 
 ## <a name="camera-height"></a>Hauteur de la caméra
 
-En règle générale, les caméras doivent être installées à environ 12-14 pieds (3-4 mètres) du sol. Lorsque vous planifiez l’installation de votre caméra dans cette plage, pensez aux éventuels obstacles (étagères, luminaires, panneaux suspendus et écrans, par exemple) susceptibles d’obstruer la vue de la caméra, puis ajustez la hauteur si nécessaire.
+En règle générale, les caméras doivent être installées à environ 12-14 pieds (3-4 mètres) du sol. Pour la détection de masque, nous recommandons d’installer les caméras à environ 8 à 12 pieds (2,5 à 3,5 mètres) du sol. Lorsque vous planifiez l’installation de votre caméra dans cette plage, pensez aux éventuels obstacles (étagères, luminaires, panneaux suspendus et écrans, par exemple) susceptibles d’obstruer la vue de la caméra, puis ajustez la hauteur si nécessaire.
 
 ## <a name="camera-to-focal-point-distance"></a>Distance entre le point focal et la caméra
 
@@ -68,7 +68,7 @@ Vue de haut, la mesure ressemble à ceci :
 
 ![Méthode pour mesurer la distance entre le point focal et la caméra, vue d’en haut](./media/spatial-analysis/camera-focal-point-above.png)
 
-Utilisez le tableau ci-dessous pour déterminer la distance de la caméra par rapport au point focal en fonction de hauteurs d’installation spécifiques. Ces distances garantissent un positionnement optimal. Notez que le tableau fournit des conseils pour une installation sous la recommandation « 12'-14'», car certains plafonds peuvent limiter la hauteur.
+Utilisez le tableau ci-dessous pour déterminer la distance de la caméra par rapport au point focal en fonction de hauteurs d’installation spécifiques. Ces distances garantissent un positionnement optimal. Notez que le tableau fournit des conseils pour une installation sous la recommandation « 12'-14'», car certains plafonds peuvent limiter la hauteur. Pour la détection de masque, la distance recommandée entre le point focal et la caméra (min/max) est de 4' à 10' (1,2 à 3 m) pour une hauteur de caméra comprise entre 8' et 12' (2,5 à 3,5 m).
 
 | Hauteur de la caméra | Distance entre le point focal et la caméra (min/max) |  
 | ------------- | ---------------------------------------- |  
@@ -91,7 +91,7 @@ Cette section décrit les plages de montage acceptables pour l’angle de camér
 
 ### <a name="line-configuration"></a>Configuration de ligne
 
-Le tableau suivant indique les recommandations pour les caméras configurées en mode **cognitiveservices.vision.spatialanalysis-personcrossingline**. 
+Le tableau suivant indique les recommandations pour les caméras configurées en mode **cognitiveservices.vision.spatialanalysis-personcrossingline**. Pour la détection de masque, +/-30 degrés est l’angle de montage optimal pour une hauteur de caméra comprise entre 8' et 12' (2,5 à 3,5 m).
 
 | Hauteur de la caméra | Distance entre le point focal et la caméra | Angle de montage optimal de la caméra (min/max) |  
 | ------------- | ------------------------------ | ------------------------------------------ |  

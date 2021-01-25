@@ -5,12 +5,12 @@ author: christophermanthei
 ms.author: chmant
 ms.date: 03/07/2020
 ms.topic: article
-ms.openlocfilehash: fc82d046caa3663cffcda585258642813ab3a7d8
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 76bb9d289e984dd8c229bdaaab09e679e11283fe
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207255"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246279"
 ---
 # <a name="camera"></a>Appareil photo
 
@@ -32,7 +32,7 @@ Les propriétés suivantes peuvent être modifiées dans les paramètres de cam�
 
 **Plan rapproché et éloigné :**
 
-Pour empêcher la définition de plages non valides, les propriétés **NearPlane** et **FarPlane** sont en lecture seule et une fonction distincte **SetNearAndFarPlane** permet de modifier la plage. Ces données sont envoyées au serveur à la fin de l’image.
+Pour empêcher la définition de plages non valides, les propriétés **NearPlane** et **FarPlane** sont en lecture seule et une fonction distincte **SetNearAndFarPlane** permet de modifier la plage. Ces données sont envoyées au serveur à la fin de l’image. Lors de la définition de ces valeurs, **NearPlane** doit être plus petite que **FarPlane**. Sinon, une erreur se produit.
 
 > [!IMPORTANT]
 > Dans Unity, cela est gérée automatiquement quand les plans rapproché et éloigné de la caméra principale sont modifiés.
@@ -44,6 +44,21 @@ Il est parfois utile de désactiver l’écriture de la mémoire tampon de profo
 > [!TIP]
 > Dans Unity, le composant de débogage fourni appelé **EnableDepthComponent** permet d’activer ou de désactiver cette fonctionnalité dans l’interface utilisateur de l’éditeur.
 
+**InverseDepth** :
+
+> [!NOTE]
+> Ce paramètre est important uniquement si `EnableDepth` est défini sur `true`. Dans le cas contraire, ce paramètre n’a aucun impact.
+
+Les mémoires tampons de profondeurs enregistrent normalement les valeurs Z dans une plage à virgule flottante de [0;1], 0 indiquant la profondeur du plan proche et 1 la profondeur du plan lointain. Il est également possible d’inverser cette plage et d’enregistrer les valeurs de profondeur dans la plage [1;0] ; autrement dit, la profondeur du plan proche devient 1, tandis que la profondeur du plan lointain devient 0. En règle générale, cette dernière méthode améliore la distribution de la précision à virgule flottante sur la plage Z non linéaire.
+
+> [!WARNING]
+> Une approche courante consiste à inverser les valeurs de plan proche et de plan lointain sur les objets de caméra. Elle échoue pour Azure Remote Rendering avec une erreur si vous l’essayez sur `CameraSettings`.
+
+L’API Azure Remote Rendering doit connaître la convention de mémoire tampon de profondeur de votre convertisseur local pour composer correctement la profondeur à distance dans la mémoire tampon de profondeur locale. Si la plage de mémoire tampon de profondeur est [0;1], laissez cet indicateur défini sur `false`. Si vous utilisez une mémoire tampon de profondeur inversée avec une plage [1;0], affectez à l’indicateur `InverseDepth` la valeur `true`.
+
+> [!NOTE]
+> Pour Unity, le paramètre correct étant déjà appliqué par `RemoteManager`, aucune intervention manuelle n’est nécessaire.
+
 La modification des paramètres de caméra peut être effectuée comme suit :
 
 ```cs
@@ -53,6 +68,7 @@ void ChangeCameraSetting(AzureSession session)
 
     settings.SetNearAndFarPlane(0.1f, 20.0f);
     settings.EnableDepth = false;
+    settings.InverseDepth = false;
 }
 ```
 
@@ -63,6 +79,7 @@ void ChangeStageSpace(ApiHandle<AzureSession> session)
 
     settings->SetNearAndFarPlane(0.1f, 20.0f);
     settings->SetEnableDepth(false);
+    settings->SetInverseDepth(false);
 }
 ```
 

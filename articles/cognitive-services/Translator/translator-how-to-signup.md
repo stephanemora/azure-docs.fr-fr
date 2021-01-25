@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: a9050b85c974a3c04ca717e8fe3d5188c1bf7a40
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6773c6b29ecfd8354c54a6214cfe0b4050edcd38
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88244310"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602647"
 ---
 # <a name="how-to-sign-up-for-translator"></a>Comment s’inscrire pour le Traducteur
 
@@ -41,7 +41,7 @@ Après vous être connecté au portail, vous pouvez créer un abonnement au Trad
 Lorsque vous vous inscrivez pour accéder au Traducteur, vous obtenez une clé d’accès personnalisée unique à votre abonnement. Cette clé est requise pour chaque appel du Traducteur.
 
 1. Récupérez votre clé d’authentification en sélectionnant tout d’abord l’abonnement approprié.
-1. Sélectionnez **Clés** dans la section **Gestion des ressources** des détails de votre abonnement.
+1. Sélectionnez **Clés et point de terminaison** dans la section **Gestion des ressources** des détails de votre abonnement.
 1. Copiez l’une des clés répertoriées pour votre abonnement.
 
 ## <a name="learn-test-and-get-support"></a>Découvrir, tester et obtenir de l’aide

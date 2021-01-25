@@ -3,18 +3,20 @@ title: Publier l'application - LUIS
 titleSuffix: Azure Cognitive Services
 description: Quand vous avez terminé la création et les tests de votre application LUIS active, mettez-la à disposition de votre application cliente en la publiant sur le point de terminaison.
 services: cognitive-services
+author: aahill
 manager: nitinme
+ms.author: aahi
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 05/17/2020
-ms.openlocfilehash: b72f1fd64cca0fa77ebc486670a512c5228e1146
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/12/2021
+ms.openlocfilehash: 8db0f5fa39c7f489db0e30e98ee2684c74eee7e8
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541473"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98180028"
 ---
 # <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>Publier votre application active, formée sur un point de terminaison intermédiaire ou de production
 
@@ -55,7 +57,7 @@ Par exemple, pour une application créée sur [www.luis.ai](https://www.luis.ai)
 Après avoir sélectionné l’emplacement, configurez les paramètres de publication suivants :
 
 * analyse de sentiments
-* [Correction orthographique](luis-tutorial-bing-spellcheck.md) - point de terminaison de prédiction v2 uniquement
+* [Correction orthographique](luis-tutorial-bing-spellcheck.md)
 * Préparation vocale
 
 Après publication, ces paramètres sont accessibles via la page **Paramètres de publication** de la section **Gérer**. Vous pouvez modifier les paramètres pour chaque publication. Si vous annulez une publication, les modifications que vous avez apportées lors de la publication sont également annulées.
@@ -80,7 +82,32 @@ Pour plus d’informations sur la réponse du point de terminaison JSON avec l�
 
 ## <a name="spelling-correction"></a>Correction orthographique
 
-[!INCLUDE [Not supported in V3 API prediction endpoint](./includes/v2-support-only.md)]
+L’API de prédiction v3 prend désormais en charge l’API de vérification orthographique Bing. Vous pouvez ajouter la vérification orthographique à votre application en incluant la clé de votre ressource Recherche Bing dans l’en-tête de vos demandes. Vous pouvez utiliser une ressource Bing existante si vous en possédez déjà une, ou [en créer une](https://portal.azure.com/#create/Microsoft.BingSearch) pour utiliser cette fonctionnalité. 
+
+|Clé d’en-tête|Valeur de l’en-tête|
+|--|--|
+|`mkt-bing-spell-check-key`|Clés disponibles dans le panneau **Clés et point de terminaison** de la ressource|
+
+Exemple de sortie de prédiction pour une requête mal orthographiée :
+
+```json
+{
+  "query": "bouk me a fliht to kayro",
+  "prediction": {
+    "alteredQuery": "book me a flight to cairo",
+    "topIntent": "book a flight",
+    "intents": {
+      "book a flight": {
+        "score": 0.9480589
+      }
+      "None": {
+        "score": 0.0332136229
+      }
+    },
+    "entities": {}
+  }
+}
+```
 
 Les corrections orthographiques sont effectuées avant la prédiction d’énoncé utilisateur LUIS. Vous pouvez voir toutes les modifications apportées à l’énoncé d’origine, y compris en lien avec l’orthographe, dans la réponse.
 

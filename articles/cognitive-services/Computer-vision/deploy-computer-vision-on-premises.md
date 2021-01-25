@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 11/23/2020
 ms.author: aahi
-ms.openlocfilehash: d79c52c05d09eedab2dd964acb544c9cdb405380
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: b3e1bb3f418f21c75e29b5a1cad337c6f3c10145
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562597"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246636"
 ---
 # <a name="use-computer-vision-container-with-kubernetes-and-helm"></a>Utiliser le conteneur Vision par ordinateur avec Kubernetes et Helm
 
@@ -258,6 +258,8 @@ Par défaut, chaque conteneur v3 a un répartiteur et un Worker de reconnaissanc
 
 Le conteneur recevant la demande peut fractionner la tâche en sous-tâches d’une seule page et ajouter celles-ci à la file d’attente universelle. Tout Worker de reconnaissance d’un conteneur moins occupé peut consommer des sous-tâches de page unique de la file d’attente, effectuer la reconnaissance et charger le résultat dans le stockage. Le débit peut être amélioré jusqu’à `n` fois, en fonction du nombre de conteneurs déployés.
 
+Le conteneur v3 expose l’API de probe liveness dans le chemin `/ContainerLiveness`. Utilisez l’exemple de déploiement suivant afin de configurer une probe liveness pour Kubernetes. 
+
 Copiez et collez la configuration YAML suivante dans un fichier nommé `deployment.yaml`. Remplacez les commentaires `# {ENDPOINT_URI}` et `# {API_KEY}` par vos propres valeurs. Remplacez le commentaire `# {AZURE_STORAGE_CONNECTION_STRING}` par votre chaîne de connexion Stockage Azure. Configurez `replicas` sur le nombre de votre choix, qui est défini sur `3` dans l’exemple suivant.
 
 ```yaml
@@ -293,6 +295,13 @@ spec:
           value: # {AZURE_STORAGE_CONNECTION_STRING}
         - name: Queue__Azure__ConnectionString
           value: # {AZURE_STORAGE_CONNECTION_STRING}
+        livenessProbe:
+          httpGet:
+            path: /ContainerLiveness
+            port: 5000
+          initialDelaySeconds: 60
+          periodSeconds: 60
+          timeoutSeconds: 20
 --- 
 apiVersion: v1
 kind: Service

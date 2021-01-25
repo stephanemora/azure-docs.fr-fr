@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: pafarley
-ms.openlocfilehash: 92b19941f34b9bf5656c9beb188a68d2cf01f674
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 68d1e9744d937cf80327c3f41cc69f4af97d3400
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92504127"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600188"
 ---
 # <a name="face-detection-and-attributes"></a>Détection et attributs de visage
 
@@ -39,21 +39,21 @@ Les coordonnées des points sont retournées en unités de pixels.
 
 Les attributs sont un ensemble de fonctionnalités qui peuvent éventuellement être détectées par l’API [Visage - Détecter](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236). Les attributs suivants peuvent être détectés :
 
-* **age** . L’âge estimé en années d’un visage particulier.
-* **blur** . L’aspect flouté du visage dans l’image. Cet attribut retourne une valeur comprise entre 0 et 1, ainsi qu’une évaluation informelle low (faible), medium (moyenne) ou high (élevée).
-* **emotion** . Une liste d’émotions avec leur confiance de détection pour le visage donné. Les scores de confiance sont normalisés et la somme des scores de toutes les émotions est égale à 1. Les émotions détectées sont le bonheur, la tristesse, la neutralité, la colère, le mépris, le dégoût, la surprise et la peur.
-* **exposure** . L’exposition du visage dans l’image. Cet attribut retourne une valeur comprise entre 0 et 1, ainsi qu’une évaluation informelle underExposure (sous-exposition), goodExposure (bonne exposition) ou overExposure (surexposition).
-* **facialHair** . La présence estimée de pilosité faciale et sa longueur pour le visage donné.
-* **gender** . Le sexe estimé de la personne détentrice du visage donné. Les valeurs possibles sont male (homme), female (femme) et genderless (sexe indéterminé).
-* **glasses** . Indique si le visage donné porte des lunettes. Les valeurs possibles sont NoGlasses (pas de lunettes), ReadingGlasses (lunettes de lecture), Sunglasses (lunettes de soleil) et Swimming Goggles (lunettes de natation).
-* **hair** . Type de cheveux du visage. Cet attribut indique si les cheveux sont visibles, si une calvitie est détectée et les couleurs de cheveux détectées.
-* **headPose** . Orientation du visage dans l’espace 3D. Cet attribut est défini par des angles de roulis, de tangage et de lacet, mesurés en degrés Les plages de valeurs vont de -90 degrés à 90 degrés, - 90 degrés à 90 degrés, et -90 degrés à 90 degrés, respectivement. Consultez le diagramme suivant pour les mappages des angles :
+* **age**. L’âge estimé en années d’un visage particulier.
+* **blur**. L’aspect flouté du visage dans l’image. Cet attribut retourne une valeur comprise entre 0 et 1, ainsi qu’une évaluation informelle low (faible), medium (moyenne) ou high (élevée).
+* **emotion**. Une liste d’émotions avec leur confiance de détection pour le visage donné. Les scores de confiance sont normalisés et la somme des scores de toutes les émotions est égale à 1. Les émotions détectées sont le bonheur, la tristesse, la neutralité, la colère, le mépris, le dégoût, la surprise et la peur.
+* **exposure**. L’exposition du visage dans l’image. Cet attribut retourne une valeur comprise entre 0 et 1, ainsi qu’une évaluation informelle underExposure (sous-exposition), goodExposure (bonne exposition) ou overExposure (surexposition).
+* **facialHair**. La présence estimée de pilosité faciale et sa longueur pour le visage donné.
+* **gender**. Le sexe estimé de la personne détentrice du visage donné. Les valeurs possibles sont male (homme), female (femme) et genderless (sexe indéterminé).
+* **glasses**. Indique si le visage donné porte des lunettes. Les valeurs possibles sont NoGlasses (pas de lunettes), ReadingGlasses (lunettes de lecture), Sunglasses (lunettes de soleil) et Swimming Goggles (lunettes de natation).
+* **hair**. Type de cheveux du visage. Cet attribut indique si les cheveux sont visibles, si une calvitie est détectée et les couleurs de cheveux détectées.
+* **headPose**. Orientation du visage dans l’espace 3D. Cet attribut est défini par des angles de roulis, de tangage et de lacet, mesurés en degrés Les plages de valeurs vont de -90 degrés à 90 degrés, - 90 degrés à 90 degrés, et -90 degrés à 90 degrés, respectivement. Consultez le diagramme suivant pour les mappages des angles :
 
     ![Tête avec les axes d’inclinaison longitudinale (pitch), d’inclinaison latérale (roll) et de lacet (yaw) étiquetés](../Images/headpose.1.jpg)
-* **makeup** . Indique si le visage comporte du maquillage. Cet attribut retourne une valeur booléenne pour eyeMakeup (maquillage des yeux) et lipMakeup (maquillage des lèvres).
-* **noise** . Le bruit visuel détecté dans l’image du visage. Cet attribut retourne une valeur comprise entre 0 et 1, ainsi qu’une évaluation informelle low (faible), medium (moyenne) ou high (élevée).
-* **occlusion** . Indique si des objets obstruent des parties du visage. Cet attribut retourne une valeur booléenne pour eyeOccluded (obstruction des yeux), foreheadOccluded (obstruction du front) et mouthOccluded (obstruction de la bouche).
-* **smile** . L’expression de sourire du visage donné. Cette valeur est comprise entre 0 pour aucun sourire et 1 pour un sourire clair.
+* **makeup**. Indique si le visage comporte du maquillage. Cet attribut retourne une valeur booléenne pour eyeMakeup (maquillage des yeux) et lipMakeup (maquillage des lèvres).
+* **noise**. Le bruit visuel détecté dans l’image du visage. Cet attribut retourne une valeur comprise entre 0 et 1, ainsi qu’une évaluation informelle low (faible), medium (moyenne) ou high (élevée).
+* **occlusion**. Indique si des objets obstruent des parties du visage. Cet attribut retourne une valeur booléenne pour eyeOccluded (obstruction des yeux), foreheadOccluded (obstruction du front) et mouthOccluded (obstruction de la bouche).
+* **smile**. L’expression de sourire du visage donné. Cette valeur est comprise entre 0 pour aucun sourire et 1 pour un sourire clair.
 
 > [!IMPORTANT]
 > Les attributs de visage sont prévus via l’utilisation d’algorithmes statistiques. Ils peuvent ne pas toujours être exacts. Soyez prudent lorsque vous prenez des décisions basées sur les données d’attribut.
@@ -64,14 +64,16 @@ Utilisez les conseils suivants pour vous assurer que vos images d’entrée four
 
 * Les formats d’image d’entrée pris en charge incluent JPEG, PNG, GIF pour la première image et BMP.
 * La taille du fichier image ne doit pas dépasser 6 Mo.
-* La plage des tailles de visages détectables s’étend de 36 x 36 à 4096 x 4096 pixels. Les visages en dehors de cette plage ne sont pas détectés.
+* La taille de visage minimale détectable est de 36 x 36 pixels dans une image dont la taille n’est pas supérieure à 1920 x 1080 pixels. Les images dont la taille est supérieure à 1920 x 1080 pixels ont une taille de visage minimale proportionnellement supérieure. La réduction de la taille du visage peut entraîner la non-détection de certains visages, même si leur taille est supérieure à la taille de visage minimale détectable.
+* La taille de visage maximale détectable est de 4096 x 4096 pixels.
+* Les visages dont la taille n’est pas comprise entre 36 x 36 et 4096 x 4096 pixels ne sont pas détectés.
 * Certains visages peuvent ne pas être détectés en raison de défis techniques. Un angle extrême du visage (posture de la tête) ou l’obstruction du visage (des objets tels que des lunettes de soleil ou les mains obstruent une partie du visage) peuvent affecter la détection. Les visages frontaux et quasi-frontaux fournissent les meilleurs résultats.
 
 Si vous détectez les visages à partir d’un flux vidéo, vous pouvez éventuellement améliorer les performances en ajustant certains paramètres de votre caméra vidéo :
 
-* **Lissage**  : De nombreuses caméras vidéo appliquent un effet de lissage. Vous devez désactiver cette option si vous le pouvez, car elle crée un effet de flou entre les images et réduit la clarté.
-* **Vitesse d’obturation**  : Une plus grande vitesse d’obturation réduit l’ampleur des mouvements entre les images et rend chaque image plus claire. Nous vous recommandons une vitesse d’obturation de 1/60 seconde ou plus.
-* **Angle d’obturation**  : Certaines caméras spécifient un angle d’obturation à la place d’une vitesse d’obturation. Vous devez utiliser un angle d’obturation inférieur si possible. Cela génère des images vidéo plus claires.
+* **Lissage** : De nombreuses caméras vidéo appliquent un effet de lissage. Vous devez désactiver cette option si vous le pouvez, car elle crée un effet de flou entre les images et réduit la clarté.
+* **Vitesse d’obturation** : Une plus grande vitesse d’obturation réduit l’ampleur des mouvements entre les images et rend chaque image plus claire. Nous vous recommandons une vitesse d’obturation de 1/60 seconde ou plus.
+* **Angle d’obturation** : Certaines caméras spécifient un angle d’obturation à la place d’une vitesse d’obturation. Vous devez utiliser un angle d’obturation inférieur si possible. Cela génère des images vidéo plus claires.
 
     >[!NOTE]
     > Une caméra avec un angle d’obturation inférieur recevra moins de lumière pour chaque image et l’image sera plus sombre. Vous devrez déterminer le niveau approprié à utiliser.

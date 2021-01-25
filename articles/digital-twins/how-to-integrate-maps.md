@@ -1,19 +1,19 @@
 ---
 title: Intégrer à Azure Maps
 titleSuffix: Azure Digital Twins
-description: Découvrez comment créer une fonction Azure capable d’utiliser le graphique de jumeaux et les notifications Azure Digital Twins pour mettre à jour une carte d’intérieur Azure Maps.
+description: Découvrez comment utiliser Azure Functions pour créer une fonction capable d’utiliser le graphique de jumeaux et les notifications Azure Digital Twins afin de mettre à jour une carte d’intérieur Azure Maps.
 author: alexkarcher-msft
 ms.author: alkarche
-ms.date: 6/3/2020
+ms.date: 1/19/2021
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 7b2039f8b1aebef65112067e4fd9184777192015
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 6a654f74ff6a32ad37646021d504359c84942c12
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98051579"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573035"
 ---
 # <a name="use-azure-digital-twins-to-update-an-azure-maps-indoor-map"></a>Utiliser Azure Digital Twins pour mettre à jour un plan intérieur Azure Maps
 
@@ -22,7 +22,7 @@ Cet article décrit les étapes nécessaires à l’utilisation des données Azu
 Cette procédure couvre les sujets suivants :
 
 1. Configuration de votre instance Azure Digital Twins pour envoyer des événements de mise à jour de jumeaux à une fonction dans [Azure Functions](../azure-functions/functions-overview.md).
-2. Création d’une fonction Azure pour mettre à jour un ensemble d’états des fonctionnalités de plans intérieurs Azure Maps.
+2. Création d’une fonction pour mettre à jour un ensemble d’états des fonctionnalités de plans intérieurs Azure Maps.
 3. Procédure de stockage de vos ID de cartes et d’ensemble d’états des fonctionnalités dans le graphique Azure Digital Twins.
 
 ### <a name="prerequisites"></a>Prérequis
@@ -31,7 +31,7 @@ Cette procédure couvre les sujets suivants :
     * Vous allez étendre ce jumeaux avec un point de terminaison et un itinéraire supplémentaires. Vous allez également ajouter une autre fonction à votre application de fonction à partir de ce didacticiel. 
 * Suivez le [*Didacticiel Azure Maps : Utiliser Azure Maps Creator pour créer des cartes d’intérieur*](../azure-maps/tutorial-creator-indoor-maps.md) afin de créer une carte d’intérieur Azure Maps avec un *ensemble d’états des fonctionnalités*.
     * Les [ensembles d’états des fonctionnalités](../azure-maps/creator-indoor-maps.md#feature-statesets) sont une collections de propriétés dynamiques (états) affectées à des fonctionnalités de jeu de données, telles que des salles ou des équipements. Dans le didacticiel Azure Maps ci-dessus, l’ensemble d’états des fonctionnalités stocke l’état de la salle que vous allez afficher sur une carte.
-    * Vous avez besoin de l’*ID de votre ensemble des états* des fonctionnalités et de l’*ID d’abonnement* Azure Maps.
+    * Vous avez besoin de l’*ID de votre ensemble des états* des fonctionnalités et de la *clé d’abonnement* Azure Maps.
 
 ### <a name="topology"></a>Topologie
 
@@ -41,7 +41,7 @@ L’image ci-dessous illustre où les éléments d’intégration des plans int�
 
 ## <a name="create-a-function-to-update-a-map-when-twins-update"></a>Créer une fonction pour mettre une carte à jour en cas de mise à jour des jumeaux
 
-Tout d’abord, vous allez créer un itinéraire dans Azure Digital Twins pour transférer tous les événements de mise à jour des jumeaux dans une rubrique Event Grid. Ensuite, vous allez utiliser une fonction Azure pour lire ces messages de mise à jour et mettre à jour un ensemble d’états des fonctionnalités dans Azure Maps. 
+Tout d’abord, vous allez créer un itinéraire dans Azure Digital Twins pour transférer tous les événements de mise à jour des jumeaux dans une rubrique Event Grid. Ensuite, vous allez utiliser une fonction pour lire ces messages de mise à jour et mettre à jour un ensemble d’états des fonctionnalités dans Azure Maps. 
 
 ## <a name="create-a-route-and-filter-to-twin-update-notifications"></a>Créer un itinéraire et un filtre pour les notifications de mise à jour des jumeaux
 
@@ -70,9 +70,9 @@ Ce modèle lit directement à partir du jumeau de la pièce, plutôt que de l’
     az dt route create -n <your-Azure-Digital-Twins-instance-name> --endpoint-name <Event-Grid-endpoint-name> --route-name <my_route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
     ```
 
-## <a name="create-an-azure-function-to-update-maps"></a>Créer une fonction Azure pour mettre les cartes à jour
+## <a name="create-a-function-to-update-maps"></a>Créer une fonction pour mettre les cartes à jour
 
-Vous allez créer une fonction déclenchée par Event Grid à l’intérieur de votre application de fonction à partir du didacticiel de bout en bout ([*Didacticiel : Connecter une solution de bout en bout*](./tutorial-end-to-end.md)). Cette fonction va décompresser ces notifications et envoyer des mises à jour à un ensemble d’états des fonctionnalités Azure Maps pour mettre à jour la température d’une pièce. 
+Vous allez créer une **fonction déclenchée par Event Grid** à l’intérieur de votre application de fonction en suivant le tutoriel de bout en bout ([*Tutoriel : Connecter une solution de bout en bout*](./tutorial-end-to-end.md)). Cette fonction va décompresser ces notifications et envoyer des mises à jour à un ensemble d’états des fonctionnalités Azure Maps pour mettre à jour la température d’une pièce.
 
 Consultez le document suivant pour obtenir des informations de référence : [*Déclencheur Azure Event Grid pour Azure Functions*](../azure-functions/functions-bindings-event-grid-trigger.md).
 
@@ -83,8 +83,8 @@ Remplacez le code de fonction par le code suivant. Vous appliquez ainsi un filtr
 Vous allez devoir définir deux variables d’environnement dans votre application de fonction. L’une est votre [clé d’abonnement principal Azure Maps](../azure-maps/quick-demo-map-app.md#get-the-primary-key-for-your-account) et l’autre est votre [ID d’ensemble d’états Azure Maps](../azure-maps/tutorial-creator-indoor-maps.md#create-a-feature-stateset).
 
 ```azurecli-interactive
-az functionapp config appsettings set --settings "subscription-key=<your-Azure-Maps-primary-subscription-key> -g <your-resource-group> -n <your-App-Service-(function-app)-name>"
-az functionapp config appsettings set --settings "statesetID=<your-Azure-Maps-stateset-ID> -g <your-resource-group> -n <your-App-Service-(function-app)-name>
+az functionapp config appsettings set --name <your-App-Service-(function-app)-name> --resource-group <your-resource-group> --settings "subscription-key=<your-Azure-Maps-primary-subscription-key>"
+az functionapp config appsettings set --name <your-App-Service-(function-app)-name>  --resource-group <your-resource-group> --settings "statesetID=<your-Azure-Maps-stateset-ID>"
 ```
 
 ### <a name="view-live-updates-on-your-map"></a>Afficher les mises à jour en direct sur votre carte
@@ -94,7 +94,7 @@ Pour afficher la température mise à jour en direct, procédez comme suit :
 1. Commencez à envoyer des données IoT simulées en exécutant le projet **DeviceSimulator** à partir du [*Didacticiel Azure Digital Twins : Connecter une solution de bout en bout*](tutorial-end-to-end.md). Les instructions correspondantes se trouvent dans la section [*Configurer et exécuter la simulation*](././tutorial-end-to-end.md#configure-and-run-the-simulation).
 2. Le [module **Plans intérieurs Azure**](../azure-maps/how-to-use-indoor-module.md) vous permet d’afficher des plans intérieurs créés dans Azure Maps Creator.
     1. Copiez le code HTML de la section [*Exemple : Utiliser le module Indoor Maps*](../azure-maps/how-to-use-indoor-module.md#example-use-the-indoor-maps-module) du [*Didacticiel : Utiliser le module Indoor Maps d’Azure Maps*](../azure-maps/how-to-use-indoor-module.md) des cartes d’intérieur dans un fichier local.
-    1. Remplacez le *tilesetId* et *statesetID* dans le fichier HTML local par vos valeurs.
+    1. Remplacez la *clé d’abonnement*, *tilesetId* et *statesetID* dans le fichier HTML local par vos valeurs.
     1. Ouvrez ce fichier dans votre navigateur.
 
 Les deux exemples envoient la température dans une plage compatible. Vous devez donc voir la couleur de la mise à jour de la salle 121 sur la carte toutes les 30 secondes environ.

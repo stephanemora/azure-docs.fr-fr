@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/09/2020
-ms.openlocfilehash: b3dca3617e2fb7ccdff870041374e9158498c9d1
-ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
+ms.openlocfilehash: 1e57ae537c271e61f0b2d37f5320cb177b04802b
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97708938"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98164870"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Limites de la base de connaissances QnA Maker
 
@@ -99,6 +99,7 @@ Elles représentent les limites pour chaque action de création d’une base de 
 * Nombre maximal recommandé de questions alternatives par réponse : 300
 * Nombre maximal d’URL : 10
 * Nombre maximal de fichiers : 10
+* Nombre maximal de questions/réponses autorisées par appel : 1 000
 
 ## <a name="update-knowledge-base-call-limits"></a>Limites d’appel de mise à jour de la base de connaissances
 Elles représentent les limites pour chaque action de mise à jour, autrement dit, pour chaque clic sur *Save and train* (Enregistrer et former) ou pour chaque appel de l’API UpdateKnowledgeBase.
@@ -106,6 +107,7 @@ Elles représentent les limites pour chaque action de mise à jour, autrement di
 * Nombre maximal recommandé de questions alternatives ajoutées ou supprimées : 300
 * Nombre maximal de champs de métadonnées ajoutés ou supprimés : 10
 * Nombre maximal d’URL pouvant être actualisées : 5
+* Nombre maximal de questions/réponses autorisées par appel : 1 000
 
 ## <a name="next-steps"></a>Étapes suivantes
 

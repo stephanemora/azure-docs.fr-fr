@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: rbeckers
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e9e5db87f983c5db59715eb8b6a9561acf5fad14
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 9c8016b566db8be1b7f5c5ddb8d92123d6673db5
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97630613"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98569842"
 ---
 # <a name="migrate-code-from-v20-to-v30-of-the-rest-api"></a>Migrer le code de la version v2.0 vers la version 3.0 de l’API REST
 
@@ -24,11 +24,51 @@ Par rapport à la version v2, la version v3 de l’API REST de reconnaissance vo
 
 ## <a name="forward-compatibility"></a>Compatibilité ascendante
 
-Toutes les entités de la version v2 peuvent également se trouver dans l’API V3 sous la même identité. Lorsque le schéma d’un résultat a changé (par exemple, des transcriptions), le résultat d’une commande GET dans la version v3 de l’API utilise le schéma v3. Le résultat d’une commande GET dans la version v2 de l’API utilise le même schéma v2. Les entités nouvellement créées sur la version v3 ne sont **pas** disponibles dans les résultats des API v2.
+Toutes les entités de la version v2 se retrouvent également dans l’API v3 sous la même identité. Lorsque le schéma d’un résultat a changé (par exemple, des transcriptions), le résultat d’une commande GET dans la version v3 de l’API utilise le schéma v3. Le résultat d’une commande GET dans la version v2 de l’API utilise le même schéma v2. Les entités nouvellement créées dans la version v3 ne sont  **pas** proposées dans les réponses des API v2. 
+
+## <a name="migration-steps"></a>Étapes de la migration
+
+La liste ci-après récapitule les points à prendre en compte lorsque vous préparez la migration. Suivez les liens individuels pour avoir plus de détails. Selon votre utilisation actuelle de l’API, il est possible que certaines étapes listées ici ne s’appliquent pas. Seuls quelques changements requièrent des modifications non triviales dans le code appelant. La plupart des changements nécessitent simplement une modification des noms d’élément. 
+
+Changements généraux : 
+
+1. [Changer le nom d’hôte](#host-name-changes)
+
+1. [Renommer la propriété id en self dans votre code client](#identity-of-an-entity) 
+
+1. [Modifier le code pour itérer au sein des collections d’entités](#working-with-collections-of-entities)
+
+1. [Renommer la propriété name en displayName dans votre code client](#name-of-an-entity)
+
+1. [Ajuster la récupération des métadonnées des entités référencées](#accessing-referenced-entities)
+
+1. Si vous utilisez la transcription Batch : 
+
+    * [Ajuster le code pour créer des transcriptions Batch](#creating-transcriptions) 
+
+    * [Adapter le code au nouveau schéma des résultats de transcription](#format-of-v3-transcription-results)
+
+    * [Ajuster le code pour le mode de récupération des résultats](#getting-the-content-of-entities-and-the-results)
+
+1. Si vous utilisez des API d’entraînement/de test des modèles personnalisés : 
+
+    * [Appliquer les modifications à l’entraînement des modèles personnalisés](#customizing-models)
+
+    * [Changer le mode de récupération des modèles de base et personnalisés](#retrieving-base-and-custom-models)
+
+    * [Renommer le segment d’accès accuracytests en evaluations dans votre code client](#accuracy-tests)
+
+1. Si vous utilisez des API de points de terminaison :
+
+    * [Changer le mode de récupération des journaux des points de terminaison](#retrieving-endpoint-logs)
+
+1. Autres changements mineurs : 
+
+    * [Passer toutes les propriétés personnalisées en tant que customProperties au lieu de properties dans vos requêtes POST](#using-custom-properties)
+
+    * [Lire l’emplacement dans l’en-tête de réponse Location au lieu de l’en-tête Operation-Location](#response-headers)
 
 ## <a name="breaking-changes"></a>Changements cassants
-
-La liste des changements cassants a été triée selon l’amplitude des modifications requises pour l’adaptation. Seuls quelques changements requièrent des modifications non triviales dans le code appelant. La plupart des changements nécessitent simplement une modification des noms d’élément.
 
 ### <a name="host-name-changes"></a>Modifications du nom d’hôte
 

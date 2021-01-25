@@ -8,24 +8,24 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 10/14/2019
-ms.openlocfilehash: edd1549ddabef0ae1ba37150ad75a371ac6e6d85
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 55d1b7171201c962278d7c526528b36848c19449
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94365514"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98217887"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Les caractéristiques sont des informations sur les actions et sur le contexte
 
 Le service Personalizer fonctionne en apprenant ce que votre application devrait montrer aux utilisateurs dans un contexte donné.
 
-Personalizer utilise des **caractéristiques** , qui sont des informations sur le **contexte actuel** pour choisir la meilleure **action**. Les caractéristiques représentent toutes les informations dont vous pensez qu’elles peuvent aider la personnalisation à obtenir des récompenses plus élevées. Les caractéristiques peuvent être très génériques ou bien spécifiques à un élément. 
+Personalizer utilise des **caractéristiques**, qui sont des informations sur le **contexte actuel** pour choisir la meilleure **action**. Les caractéristiques représentent toutes les informations dont vous pensez qu’elles peuvent aider la personnalisation à obtenir des récompenses plus élevées. Les caractéristiques peuvent être très génériques ou bien spécifiques à un élément. 
 
 Par exemple, vous pouvez avoir une **caractéristique** sur :
 
-* Le _personnage de l’utilisateur_ , par exemple, `Sports_Shopper`. Il ne doit pas s’agir d’un ID utilisateur. 
-* Le _contenu_ , par exemple si une vidéo est du type `Documentary`, `Movie` ou `TV Series`, ou si un élément en vente est disponible en magasin.
-* La période de temps _actuelle_ , comme le jour de la semaine.
+* Le _personnage de l’utilisateur_, par exemple, `Sports_Shopper`. Il ne doit pas s’agir d’un ID utilisateur. 
+* Le _contenu_, par exemple si une vidéo est du type `Documentary`, `Movie` ou `TV Series`, ou si un élément en vente est disponible en magasin.
+* La période de temps _actuelle_, comme le jour de la semaine.
 
 Personalizer n’impose pas, ne limite pas ou ne corrige pas les caractéristiques que vous pouvez envoyer pour les actions et le contexte :
 
@@ -37,12 +37,12 @@ Personalizer n’impose pas, ne limite pas ou ne corrige pas les caractéristiqu
 
 ## <a name="supported-feature-types"></a>Types de caractéristiques pris en charge
 
-Personalizer prend en charge les caractéristiques de type chaîne, numérique et booléen.
+Personalizer prend en charge les caractéristiques de type chaîne, numérique et booléen. Il est très probable que votre application utilise principalement des caractéristiques de chaîne, à quelques exceptions près.
 
 ### <a name="how-choice-of-feature-type-affects-machine-learning-in-personalizer"></a>Impact du choix du type de fonctionnalité sur Machine Learning dans Personalizer
 
-* **Chaînes** : Pour les types de chaîne, chaque combinaison clé/valeur crée de nouveaux poids dans le modèle Machine Learning de Personalizer. 
-* **Numérique** : Vous devez utiliser des valeurs numériques lorsque le nombre doit affecter proportionnellement le résultat de personnalisation. Cela dépend beaucoup du scénario. Dans un exemple simplifié, par exemple lors de la personnalisation d’une expérience de vente, NumberOfPetsOwned pourrait constituer une fonctionnalité numérique car vous voulez peut-être que des personnes avec 2 ou 3 animaux de compagnie puissent influencer le résultat de personnalisation deux fois ou trois fois plus que pour 1 animal de compagnie. Les fonctionnalités basées sur des unités numériques mais dont le sens n’est pas linéaire (comme l’âge, la température ou taille d’une personne) sont mieux encodées en chaînes, et la qualité d’une fonctionnalité peut généralement être améliorée à l’aide de plages. Par exemple, l’âge peut être encodé de cette façon : « Age » : « 0-5 », « Age » : « 6-10 », etc.
+* **Chaînes** : Pour les types chaîne, chaque combinaison clé/valeur est traitée comme une caractéristique à encodage one-hot (par exemple, genre : « ScienceFiction » et genre : « Documentaire » créeraient deux caractéristiques d’entrée pour le modèle Machine Learning.
+* **Numérique** : Vous devez utiliser des valeurs numériques quand le nombre est une grandeur qui doit affecter proportionnellement le résultat de personnalisation. Cela dépend beaucoup du scénario. Dans un exemple simplifié, par exemple lors de la personnalisation d’une expérience de vente, NumberOfPetsOwned pourrait constituer une fonctionnalité numérique car vous voulez peut-être que des personnes avec 2 ou 3 animaux de compagnie puissent influencer le résultat de personnalisation deux fois ou trois fois plus que pour 1 animal de compagnie. Les caractéristiques basées sur des unités numériques mais dont le sens n’est pas linéaire (comme l’âge, la température ou la taille d’une personne) sont mieux encodées en chaînes. Par exemple, DayOfMonth serait une chaîne avec « 1 », « 2 »... « 31 ». Si vous avez de nombreuses catégories, la qualité d’une caractéristique peut généralement être améliorée à l’aide de plages. Par exemple, l’âge peut être encodé de cette façon : « Age » : « 0-5 », « Age » : « 6-10 », etc.
 * Les valeurs **booléennes** envoyées avec des valeurs « false » agissent comme si elles n’avaient jamais été envoyées.
 
 Les caractéristiques qui ne sont pas présentes doivent être omises de la demande. Évitez d’envoyer des caractéristiques avec une valeur null, car elles seront traitées comme des caractéristiques existantes et avec la valeur « null » lors de l’entraînement du modèle.
@@ -54,7 +54,7 @@ Personalizer accepte des caractéristiques organisées en espaces de noms. Vous 
 Voici quelques exemples d’espaces de noms de caractéristiques utilisés par des applications :
 
 * User_Profile_from_CRM
-* Temps
+* Heure
 * Mobile_Device_Info
 * http_user_agent
 * VideoResolution
@@ -80,12 +80,14 @@ Les objets JSON peuvent inclure des objets JSON imbriqués et de simples valeurs
         { 
             "user": {
                 "profileType":"AnonymousUser",
-                "latlong": [47.6, -122.1]
+                "latlong": ["47.6", "-122.1"]
             }
         },
         {
-            "state": {
-                "timeOfDay": "noon",
+            "environment": {
+                "dayOfMonth": "28",
+                "monthOfYear": "8",
+                "timeOfDay": "13:00",
                 "weather": "sunny"
             }
         },
@@ -93,6 +95,13 @@ Les objets JSON peuvent inclure des objets JSON imbriqués et de simples valeurs
             "device": {
                 "mobile":true,
                 "Windows":true
+            }
+        },
+        {
+            "userActivity" : {
+                "itemsInCart": 3,
+                "cartValue": 250,
+                "appliedCoupon": true
             }
         }
     ]
@@ -112,6 +121,8 @@ La chaîne que vous utilisez pour nommer l’espace de noms doit respecter certa
 Un bon ensemble de caractéristiques aide Personalizer à prédire l’action qui va amener la récompense la plus élevée. 
 
 Envisagez d’envoyer des caractéristiques qui suivent ces recommandations à l’API de classement (Rank) de Personalizer :
+
+* Utilisez des types de catégories et des types de chaînes pour les caractéristiques qui ne sont pas une grandeur. 
 
 * Il existe suffisamment de caractéristiques pour piloter la personnalisation. Plus la précision avec laquelle le contenu doit être ciblé est élevée, plus grand est le nombre de caractéristiques nécessaires.
 
@@ -161,7 +172,7 @@ Vous pouvez utiliser plusieurs autres services [Azure Cognitive Services](https:
 
 Chaque action :
 
-* A un ID d’ _événement_. Si vous disposez déjà d’un ID d’événement, vous devez l’envoyer. Si vous ne disposez pas d’un ID d’événement, il n’est pas nécessaire d’en envoyer un. Personalizer va en créer un pour vous et le retourner dans la réponse de la requête Rank. L’ID est associé à l’événement Rank, et non à l’utilisateur. Si vous devez créer un ID, il est préférable d’utiliser un GUID. 
+* A un ID d’_événement_. Si vous disposez déjà d’un ID d’événement, vous devez l’envoyer. Si vous ne disposez pas d’un ID d’événement, il n’est pas nécessaire d’en envoyer un. Personalizer va en créer un pour vous et le retourner dans la réponse de la requête Rank. L’ID est associé à l’événement Rank, et non à l’utilisateur. Si vous devez créer un ID, il est préférable d’utiliser un GUID. 
 * A une liste de caractéristiques.
 * La liste des caractéristiques peut être grande (plusieurs centaines), mais nous recommandons d’évaluer l’efficacité des caractéristiques de façon à supprimer celles qui ne contribuent pas à l’obtention des récompenses. 
 * Les caractéristiques des **actions** peuvent ou non avoir une corrélation avec les caractéristiques du **contexte** utilisées par Personalizer.

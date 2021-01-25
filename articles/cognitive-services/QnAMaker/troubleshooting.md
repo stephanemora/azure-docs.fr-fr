@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: troubleshooting
 ms.date: 11/09/2020
-ms.openlocfilehash: e8b1d985fcb2852df52382e005ec0f0266e23d9d
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: aea205bee41aed232b8453417dca521d2dfc83ab
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96345642"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233778"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>Résolution des problèmes pour QnA Maker
 
@@ -323,6 +323,29 @@ Si vous avez du contenu dans plusieurs langues, veillez à créer un service dis
 
 1. Démarrez App Service.
 1. Accédez à votre base de connaissances pour vérifier qu’elle fonctionne maintenant.
+
+</details>
+<details>
+<summary><b>Pourquoi Application Insights ne fonctionne pas ?</b></summary>
+
+**Réponse** : Vérifiez les étapes ci-dessous et apportez les mises à jour nécessaires pour corriger le problème :
+
+1. Dans Service d’application -> groupe Paramètres -> section Configuration -> Paramètres de l’application -> Nom, vérifiez que le paramètre « UserAppInsightsKey » est configuré correctement et défini sur le GUID (« clé d’Instrumentation ») sous l’onglet de vue d’ensemble d’Application Insights. 
+
+1. Dans Service d’application -> groupe Paramètres -> section « Application Insights » -> vérifiez qu’Application Insights est activé et connecté à la ressource Application Insights respective.
+
+</details>
+
+<details>
+<summary><b>Application Insights est activé, mais il ne fonctionne pas correctement, pourquoi ?</b></summary>
+
+**Réponse** : Veuillez suivre les étapes ci-dessous : 
+
+1.  Copiez la valeur de « Nom « APPINSIGHTS_INSTRUMENTATIONKEY » » dans le nom « UserAppInsightsKey » en remplaçant la valeur éventuellement présente. 
+
+1.  Si la clé « UserAppInsightsKey » n’existe pas dans les paramètres de l’application, ajoutez une nouvelle clé avec ce nom et copiez la valeur.
+
+1.  Enregistrez-la ; cette opération redémarre automatiquement le service d’application. Cela devrait résoudre le problème. 
 
 </details>
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.author: erhopf
-ms.openlocfilehash: dae7b8e0485c1a2456b85e0910f60b2164d4e41c
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 966b11e2c9a0f7ffc5e6ec9238080b9076d37af6
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95026316"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98572423"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Enregistrer des échantillons vocaux pour créer une voix personnalisée
 
@@ -25,6 +25,14 @@ Mais avant de pouvoir effectuer ces enregistrements, vous avez besoin d’un scr
 
 L’enregistrement d’une voix professionnelle implique de nombreux petits détails très importants. Ce guide est une feuille de route détaillant le processus qui vous aidera à obtenir des résultats homogènes.
 
+> [!NOTE]
+> Si vous souhaitez entraîner une voix neuronale, vous devez spécifier un profil de voix professionnelle avec le fichier de consentement audio fourni par la voix professionnelle qui a accepté que ses données vocales soient utilisées pour entraîner un modèle vocal personnalisé. Quand vous préparez votre script d’enregistrement, veillez à inclure la phrase ci-dessous. 
+
+> « Je, soussigné(e) [indiquez votre nom et votre prénom], avoir compris que les enregistrements de ma voix seront utilisés par [indiquez le nom de la société] pour créer et utiliser une version synthétique de ma voix. »
+Cette phrase servira à vérifier si les données d’entraînement sont enregistrées par la personne qui a donné son consentement. Découvrez ici davantage d’informations sur la [vérification des voix professionnelles](https://aka.ms/CNV-data-privacy).
+
+> La voix neuronale personnalisée est disponible avec un accès limité. Assurez-vous de bien comprendre les [exigences en matière d’IA responsable](https://aka.ms/gating-overview) et [demandez l’accès ici](https://aka.ms/customneural). 
+
 > [!TIP]
 > Pour optimiser au maximum ces résultats, n’hésitez pas à contacter Microsoft, qui vous aidera à développer votre voix personnalisée. Microsoft possède une grande expérience dans la production de voix de haute qualité pour ses propres produits, y compris Cortana et Office.
 
@@ -32,7 +40,7 @@ L’enregistrement d’une voix professionnelle implique de nombreux petits dét
 
 Un projet d’enregistrement d’une voix personnalisée implique quatre rôles de base :
 
-Role|Objectif
+Rôle|Objectif
 -|-
 Voix professionnelle        |La voix de cette personne servira de base à la voix personnalisée.
 Ingénieur du son  |Surveille les aspects techniques de l’enregistrement et commande le matériel d’enregistrement.
@@ -56,7 +64,7 @@ Votre voix professionnelle représente l’autre moitié de l’équation. Le d�
 
 Les enregistrements d’échantillons de voix personnalisées peuvent être plus fatigants que d’autres types d’exercices vocaux. La plupart des voix professionnelles peuvent effectuer des sessions d’enregistrement de deux ou trois heures par jour. Limitez-vous à trois ou quatre sessions par semaine, en accordant si possible un jour de repos entre deux sessions.
 
-Les enregistrements effectués pour un modèle de voix doivent être émotionnellement neutres. Autrement dit, un énoncé triste ne doit pas être lu de manière triste. Un ton particulier peut être ajouté à la synthèse vocale ultérieurement via des contrôles de prosodie. Travaillez avec votre acteur pour créer un « personnage » qui définit le ton global et le niveau d’émotion de la voix personnalisée. Dans ce processus, vous allez identifier les sons « neutres » de ce personnage.
+Travaillez avec votre acteur pour créer un « personnage » qui définit le ton global et le niveau d’émotion de la voix personnalisée. Dans ce processus, vous allez identifier les sons « neutres » de ce personnage. À l’aide de la fonctionnalité de voix neuronale personnalisée, vous pouvez entraîner un modèle vocal capable de refléter des émotions. Définissez les « styles de voix » et demandez à votre voix professionnelle de lire le script d’une manière qui reproduit les styles souhaités.  
 
 Par exemple, un personnage peut avoir une personnalité naturellement chaleureuse. Par conséquent, « sa » voix peut véhiculer une note d’optimisme même quand il parle de façon neutre. Mais un tel trait de caractère doit rester subtil et homogène. Écoutez des énoncés de voix existantes pour avoir une idée de ce que vous recherchez.
 
@@ -211,7 +219,7 @@ Laissez seulement environ 0,2 seconde de silence au début et à la fin de chaq
 
 Convertissez chaque fichier au format 16 bits et à un taux d’échantillonnage de 16 kHz avant l’enregistrement et, si vous avez enregistré les conversations du studio, supprimez le second canal. Enregistrez chaque fichier au format WAV, puis nommez les fichiers à l’aide des numéros d’énoncé de votre script.
 
-Pour finir, créez la *transcription* qui associe chaque fichier WAV à une version texte de l’énoncé correspondant. La [création des polices de la voix personnalisée](./how-to-custom-voice-create-voice.md) fournit des informations sur le format requis. Vous pouvez copier le texte directement à partir de votre script. Créez ensuite un fichier Zip contenant les fichiers WAV et la transcription du texte.
+Pour finir, créez la *transcription* qui associe chaque fichier WAV à une version texte de l’énoncé correspondant. [Création de voix personnalisées](./how-to-custom-voice-create-voice.md) fournit des informations sur le format requis. Vous pouvez copier le texte directement à partir de votre script. Créez ensuite un fichier Zip contenant les fichiers WAV et la transcription du texte.
 
 Archivez les enregistrements originaux dans un endroit sûr afin de pouvoir les réutiliser ultérieurement si nécessaire. Conservez également votre script et vos notes.
 
