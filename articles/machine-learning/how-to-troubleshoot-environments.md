@@ -10,46 +10,48 @@ ms.author: sagopal
 ms.date: 12/3/2020
 ms.topic: troubleshooting
 ms.custom: devx-track-python
-ms.openlocfilehash: b452c24b4b2ed6021910f267b9941f3829acccd8
-ms.sourcegitcommit: a89a517622a3886b3a44ed42839d41a301c786e0
+ms.openlocfilehash: 71061c056b499f79727f70fb855db7a81a65f3bd
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97733204"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98572168"
 ---
 # <a name="troubleshoot-environment-image-builds"></a>Résoudre les problèmes liés à la génération d’images d’environnement
+
 Découvrez comment résoudre les problèmes liés à la génération d’images d’environnement et à l’installation de packages Docker.
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un **abonnement Azure**. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree).
+* Un abonnement Azure. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree).
 * Le [Kit de développement logiciel (SDK) Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
 * [Interface de ligne de commande Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 * [Extension CLI pour Azure Machine Learning](reference-azure-machine-learning-cli.md).
 * Pour déboguer localement, vous devez avoir une installation opérationnelle de Docker sur votre système local.
 
-## <a name="docker-image-build-failures"></a>Échecs de la génération d’images Docker
+## <a name="docker-image-build-failures"></a>Échecs de génération d’images Docker
  
-Pour la majorité des échecs de génération d’image, la cause racine provient du journal de génération d’images.
-Vous pouvez trouver le journal de génération d’images dans le portail Azure Machine Learning (20\_image\_build\_log.txt) ou dans vos journaux d’exécution de tâches ACR.
+Pour la plupart des échecs de génération d’images, vous trouverez la cause racine dans le journal de génération d’images.
+Le journal de génération d’images se trouve sur le portail Azure Machine Learning (20\_image\_build\_log.txt) ou dans vos journaux d’exécution de tâches Azure Container Registry.
  
-Dans la plupart des cas, il est plus facile de reproduire les erreurs localement. Vérifiez le type d’erreur et essayez l’un des `setuptools` suivants :
+Il est généralement plus facile de reproduire les erreurs localement. Vérifiez le type d’erreur et essayez l’un des `setuptools` suivants :
 
-- Installez la dépendance conda localement `conda install suspicious-dependency==X.Y.Z`
-- Installez la dépendance pip localement `pip install suspicious-dependency==X.Y.Z`
-- Essayez de matérialiser l’environnement entier `conda create -f conda-specification.yml`
+- Installez une dépendance conda localement : `conda install suspicious-dependency==X.Y.Z`.
+- Installez une dépendance pip localement : `pip install suspicious-dependency==X.Y.Z`.
+- Essayez de matérialiser l’environnement entier :`conda create -f conda-specification.yml`.
 
 > [!IMPORTANT]
-> Assurez-vous que la plateforme et l’interpréteur sur votre calcul local correspondent à ceux sur le calcul distant. 
+> Assurez-vous que la plateforme et l’interpréteur sur votre cluster de calcul correspondent à ceux sur le cluster de calcul distant. 
 
 ### <a name="timeout"></a>Délai d'expiration 
  
-Des problèmes de délai d’attente peuvent se produire pour différents problèmes réseau :
+Les problèmes de réseau suivants peuvent occasionner des erreurs de délai d’attente :
+
 - Bande passante Internet faible
 - Problèmes de serveur
-- Dépendance de grande taille qui ne peut pas être téléchargée avec les paramètres donnés de délai d’attente conda et pip
+- Dépendances de grande taille qui ne peuvent pas être téléchargée avec les paramètres donnés de délai d’expiration conda et pip
  
-Des messages similaires à ce qui suit indiquent le problème :
+Des messages similaires aux exemples suivants indiquent le problème :
  
 ```
 ('Connection broken: OSError("(104, \'ECONNRESET\')")', OSError("(104, 'ECONNRESET')"))
@@ -58,42 +60,45 @@ Des messages similaires à ce qui suit indiquent le problème :
 ReadTimeoutError("HTTPSConnectionPool(host='****', port=443): Read timed out. (read timeout=15)",)
 ```
 
-Solutions possibles :
+Si vous recevez un message d’erreur, essayez l’une des solutions possibles suivantes :
  
-- Essayez une autre source de dépendance, si possible, telle que des miroirs, le stockage blob ou d’autres flux Python.
-- Mettez à jour conda ou pip. Si un fichier Docker personnalisé est utilisé, mettez à jour les paramètres de délai d’attente.
-- Certaines versions de pip présentent des problèmes connus. Envisagez d’ajouter une version spécifique de pip à des dépendances d’environnement.
+- Essayez une autre source, telle que des miroirs, le Stockage Blob Azure ou d’autres flux Python, pour la dépendance.
+- Mettez à jour conda ou pip. Si vous utilisez un fichier Docker personnalisé, mettez à jour les paramètres de délai d’attente.
+- Certaines versions de pip présentent des problèmes connus. Envisagez d’ajouter une version spécifique de pip aux dépendances d’environnement.
 
 ### <a name="package-not-found"></a>Package introuvable
 
-Il s’agit du cas le plus courant pour les échecs de génération d’image.
+Les erreurs suivantes sont les plus courantes pour les échecs de génération d’images :
 
-- Le package conda est introuvable
-        ```
-        ResolvePackageNotFound: 
-          - not-existing-conda-package
-        ```
+- Le package conda est introuvable :
 
-- La version ou le package pip spécifiés sont introuvables
-        ```
-        ERROR: Could not find a version that satisfies the requirement invalid-pip-package (from versions: none)
-        ERROR: No matching distribution found for invalid-pip-package
-        ```
+   ```
+   ResolvePackageNotFound: 
+   - not-existing-conda-package
+   ```
 
-- Dépendance pip imbriquée incorrecte
-        ```
-        ERROR: No matching distribution found for bad-backage==0.0 (from good-package==1.0)
-        ```
+- La version ou le package pip spécifiés sont introuvables :
 
-Vérifiez si le package existe sur les sources spécifiées. Utilisez [pip search](https://pip.pypa.io/en/stable/reference/pip_search/) pour vérifier les dépendances pip.
+   ```
+   ERROR: Could not find a version that satisfies the requirement invalid-pip-package (from versions: none)
+   ERROR: No matching distribution found for invalid-pip-package
+   ```
 
-`pip search azureml-core`
+- Dépendance pip imbriquée incorrecte :
 
-Pour les dépendances conda, utilisez [conda search](https://docs.conda.io/projects/conda/en/latest/commands/search.html).
+   ```
+   ERROR: No matching distribution found for bad-package==0.0 (from good-package==1.0)
+   ```
 
-`conda search conda-forge::numpy`
+Vérifiez que le package existe sur les sources spécifiées. Utilisez [pip search](https://pip.pypa.io/en/stable/reference/pip_search/) pour vérifier les dépendances pip :
 
-Pour plus d’options :
+- `pip search azureml-core`
+
+Pour les dépendances conda, utilisez [conda search](https://docs.conda.io/projects/conda/en/latest/commands/search.html) :
+
+- `conda search conda-forge::numpy`
+
+Pour voir plus d'options, essayez :
 - `pip search -h`
 - `conda search -h`
 
@@ -101,10 +106,10 @@ Pour plus d’options :
 
 Assurez-vous que la distribution requise existe pour la plateforme spécifiée et la version de l’interpréteur Python.
 
-Pour les dépendances pip, accédez à `https://pypi.org/project/[PROJECT NAME]/[VERSION]/#files` pour voir si la version requise est disponible. Par exemple : https://pypi.org/project/azureml-core/1.11.0/#files
+Pour les dépendances pip, accédez à `https://pypi.org/project/[PROJECT NAME]/[VERSION]/#files` pour voir si la version requise est disponible. Accédez à la page https://pypi.org/project/azureml-core/1.11.0/#files pour voir un exemple.
 
 Pour les dépendances conda, vérifiez le package sur le référentiel du canal.
-Pour les canaux gérés par Anaconda, Inc., vérifiez [ici](https://repo.anaconda.com/pkgs/).
+Pour les canaux gérés par Anaconda, Inc., vérifiez la [page sur les packages Anaconda](https://repo.anaconda.com/pkgs/).
 
 ### <a name="pip-package-update"></a>Mise à jour du package pip
 
@@ -122,60 +127,72 @@ ERROR: Cannot uninstall 'mypackage'. It is a distutils installed project and thu
 
 Certaines versions du programme d’installation présentent des problèmes dans les programmes de résolution de package, qui peuvent entraîner l’échec de la génération.
 
-Si une image de base personnalisée est utilisée, ou le fichier dockerfile, nous vous recommandons d’utiliser conda version 4.5.4 ou supérieure.
+Si vous utilisez une image de base personnalisée ou un Dockerfile, nous vous recommandons d’utiliser conda version 4.5.4 ou supérieure.
 
-Le package pip est requis pour installer les dépendances pip et si aucune version n’est spécifiée dans l’environnement, la version la plus récente est utilisée.
-Nous vous recommandons d’utiliser une version connue de pip pour éviter des problèmes temporaires ou des changements cassants pouvant être provoqués par la dernière version de l’outil.
+Un package pip est requis pour installer les dépendances pip. Si aucune version n’est spécifiée dans l’environnement, la version la plus récente est utilisée.
+Nous vous recommandons d’utiliser une version connue de pip pour éviter des problèmes temporaires ou des changements cassants que la dernière version de l’outil pourrait apporter.
 
-Envisagez d’épingler la version de pip dans votre environnement si vous voyez l’un des messages suivants :
+Envisagez d’épingler la version de pip dans votre environnement si vous voyez le message suivant :
 
-`Warning: you have pip-installed dependencies in your environment file, but you do not list pip itself as one of your conda dependencies. Conda may not use the correct pip to install your packages, and they may end up in the wrong place. Please add an explicit pip dependency. I'm adding one for you, but still nagging you.`
+   ```
+   Warning: you have pip-installed dependencies in your environment file, but you do not list pip itself as one of your conda dependencies. Conda may not use the correct pip to install your packages, and they may end up in the wrong place. Please add an explicit pip dependency. I'm adding one for you, but still nagging you.
+   ```
 
-`Pip subprocess error:
-ERROR: THESE PACKAGES DO NOT MATCH THE HASHES FROM THE REQUIREMENTS FILE. If you have updated the package versions, update the hashes as well. Otherwise, examine the package contents carefully; someone may have tampered with them.`
+Erreur du sous-processus pip :
+   ```
+   ERROR: THESE PACKAGES DO NOT MATCH THE HASHES FROM THE REQUIREMENTS FILE. If you have updated the package versions, update the hashes as well. Otherwise, examine the package contents carefully; someone may have tampered with them.
+   ```
 
-En outre, l’installation de pip peut être bloquée dans une boucle infinie en cas de conflits insolubles dans les dépendances. Si vous travaillez localement, rétrogradez la version de pip à une version antérieure à 20.3. Dans un environnement conda créé à partir d’un fichier YAML, ce problème se produira seulement si conda-forge correspond au canal avec la priorité la plus élevée. Pour atténuer le problème, spécifiez explicitement pip < 20.3 (épingle !=20.3 ou =20.2.4 vers une autre version) en tant que dépendance conda dans le fichier de spécification conda.
+L’installation de pip peut être bloquée dans une boucle infinie en cas de conflits insolubles dans les dépendances. Si vous travaillez localement, rétrogradez la version de pip vers une version antérieure à 20.3. Dans un environnement conda créé à partir d’un fichier YAML, vous rencontrerez ce problème uniquement si conda-forge est le canal avec la priorité la plus élevée. Pour atténuer le problème, spécifiez explicitement pip < 20.3 (épingle !=20.3 ou =20.2.4 vers une autre version) en tant que dépendance conda dans le fichier de spécification conda.
 
 ## <a name="service-side-failures"></a>Échecs côté service
 
-### <a name="unable-to-pull-image-from-mcraddress-could-not-be-resolved-for-container-registry"></a>Impossible d’extraire l’image à partir de MCR/L’adresse du serveur n’a pas pu être résolue pour Container Registry.
+Consultez les scénarios suivants pour résoudre d’éventuels échecs côté service.
+
+### <a name="youre-unable-to-pull-an-image-from-a-container-registry-or-the-address-couldnt-be-resolved-for-a-container-registry"></a>Vous ne parvenez pas à extraire une image d’un registre de conteneurs, ou l’adresse n’a pas pu être résolue pour un registre de conteneurs
+
 Problèmes possibles :
-- Le nom du chemin au registre de conteneurs peut ne pas être résolu correctement. Vérifiez que les noms des images utilisent des doubles barres obliques et que la direction des barres obliques sur les hôtes Linux et Windows est correcte.
-- Si le registre ACR situé derrière un réseau virtuel utilise un point de terminaison privé dans [une région non prise en charge](https://docs.microsoft.com/azure/private-link/private-link-overview#availability), configurez le registre ACR situé derrière un réseau virtuel à l’aide du point de terminaison de service (accès public) à partir du portail et réessayez.
-- Après avoir placé le registre ACR derrière un réseau virtuel, assurez-vous que le [modèle ARM](https://docs.microsoft.com/azure/machine-learning/how-to-enable-virtual-network#azure-container-registry) est exécuté. Cela permet à l’espace de travail de communiquer avec l’instance ACR.
+- Le nom du chemin d'accès au registre de conteneurs n’est peut-être pas résolu correctement. Vérifiez que les noms d’images utilisent des doubles barres obliques et que la direction des barres obliques sur les hôtes Linux et Windows est correcte.
+- Si un registre de conteneurs situé derrière un réseau virtuel utilise un point de terminaison privé dans [une région non prise en charge](https://docs.microsoft.com/azure/private-link/private-link-overview#availability), configurez le registre de conteneurs à l’aide du point de terminaison de service (accès public) du portail et réessayez.
+- Une fois que vous avez placé le registre de conteneurs derrière un réseau virtuel, exécutez le [modèle Azure Resource Manager](https://docs.microsoft.com/azure/machine-learning/how-to-enable-virtual-network#azure-container-registry) pour que l’espace de travail puisse communiquer avec l’instance de registre de conteneurs.
 
-### <a name="401-error-from-workspace-acr"></a>Erreur 401 à partir du registre ACR de l’espace de travail
-Resynchronisez les clés de stockage à l’aide de [ws.sync_keys()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#sync-keys--).
+### <a name="you-get-a-401-error-from-a-workspace-container-registry"></a>Vous recevez une erreur 401 d’un registre de conteneurs d’espace de travail
 
-### <a name="environment-keeps-throwing-waiting-for-other-conda-operations-to-finish-error"></a>L’environnement continue à générer l’erreur « En attente de la fin d’autres opérations Conda… »
-Quand une génération d’image est en cours, conda est verrouillé par le client du kit SDK. Si le processus s’est arrêté ou a été annulé de manière incorrecte par l’utilisateur, conda reste à l’état verrouillé. Pour résoudre cela, supprimez manuellement le fichier de verrouillage. 
+Resynchronisez les clés de stockage à l’aide de la commande [ws.sync_keys()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#sync-keys--).
 
-### <a name="custom-docker-image-not-in-registry"></a>Image Docker personnalisée absente du registre
+### <a name="the-environment-keeps-throwing-a-waiting-for-other-conda-operations-to-finish-error"></a>L’environnement continue à générer l’erreur « En attente de la fin d’autres opérations Conda… »
+
+Quand une génération d’image est en cours, conda est verrouillé par le client du kit SDK. Si le processus s’est arrêté ou a été annulé de manière incorrecte par l’utilisateur, conda reste à l’état verrouillé. Pour résoudre ce problème, supprimez manuellement le fichier de verrouillage. 
+
+### <a name="your-custom-docker-image-isnt-in-the-registry"></a>Votre image Docker personnalisée ne figure pas dans le registre
+
 Vérifiez si l’[étiquette correcte](https://docs.microsoft.com/azure/machine-learning/how-to-use-environments#create-an-environment) est utilisée et que `user_managed_dependencies = True`. `Environment.python.user_managed_dependencies = True` désactive conda et utilise les packages installés de l’utilisateur.
 
-### <a name="common-vnet-issues"></a>Problèmes courants liés au réseau virtuel
+### <a name="you-get-one-of-the-following-common-virtual-network-issues"></a>Vous recevez l’un des problèmes de réseau virtuel courants suivants
 
-1. Vérifiez que le compte de stockage, le cluster de calcul et Azure Container Registry soient tous dans le même sous-réseau du réseau virtuel.
-2. Quand le registre ACR se trouve derrière un réseau virtuel, il ne peut pas être utilisé directement pour générer des images. Le cluster de calcul doit être utilisé pour générer les images.
-3. Le stockage doit éventuellement être placé derrière un réseau virtuel dans les cas suivants :
-    - Utilisation de l’inférence ou de la roue privée
-    - Affichage d’erreurs de service 403 (non autorisé)
-    - Impossibilité d’obtenir les détails d’image à partir du registre ACR/MCR
+- Vérifiez que le compte de stockage, le cluster de calcul et le registre de conteneurs se trouvent tous dans le même sous-réseau du réseau virtuel.
+- Lorsque votre registre de conteneurs se trouve derrière un réseau virtuel, il ne peut pas être utilisé directement pour générer des images. Vous devez utiliser le cluster de calcul pour générer des images.
+- Il peut être nécessaire de placer le stockage derrière un réseau virtuel dans les cas suivants :
+    - Vous utilisez une inférence ou une roue privée.
+    - Vous rencontrez des erreurs de service 403 (non autorisé).
+    - Vous ne pouvez pas accéder aux détails de l’image à partir d’Azure Container Registry.
 
-### <a name="image-build-fails-when-trying-to-access-network-protected-storage"></a>Échec de la génération d’image lors d’une tentative d’accès au stockage protégé du réseau
-- Les tâches ACR ne fonctionnent pas derrière le réseau virtuel. Si l’utilisateur a son registre ACR derrière le réseau virtuel, il doit utiliser le cluster de calcul pour générer une image.
-- Le stockage doit se trouver derrière un réseau virtuel pour pouvoir extraire les dépendances de celui-ci. 
+### <a name="the-image-build-fails-when-youre-trying-to-access-network-protected-storage"></a>La génération d’image échoue quand vous tentez d’accéder au stockage protégé du réseau
 
-### <a name="cannot-run-experiments-when-storage-has-network-security-enabled"></a>Impossible d’exécuter des expériences lorsque la sécurité réseau est activée pour le stockage
-Lorsque vous utilisez les images Docker par défaut et que vous activez les dépendances gérées par l’utilisateur, vous devez utiliser les [étiquettes de service](https://docs.microsoft.com/azure/machine-learning/how-to-enable-virtual-network) MicrosoftContainerRegistry et AzureFrontDoor.FirstParty pour mettre en liste verte le registre MCR et ses dépendances.
+- Les tâches de Container Registry ne fonctionnent pas derrière un réseau virtuel. Si l’utilisateur a son registre de conteneurs derrière un réseau virtuel, il doit utiliser le cluster de calcul pour générer une image.
+- Le stockage doit se trouver derrière un réseau virtuel pour pouvoir en extraire les dépendances.
 
- Pour plus d’informations, consultez [Activation du réseau virtuel](https://docs.microsoft.com/azure/machine-learning/how-to-enable-virtual-network#azure-container-registry).
+### <a name="you-cant-run-experiments-when-storage-has-network-security-enabled"></a>Vous ne pouvez pas exécuter des expériences lorsque la sécurité réseau est activée pour le stockage
 
-### <a name="creating-an-icm"></a>Création d’un ICM
+Si vous utilisez les images Docker par défaut et activez les dépendances gérées par l’utilisateur, utilisez les [étiquettes de service](https://docs.microsoft.com/azure/machine-learning/how-to-enable-virtual-network) MicrosoftContainerRegistry et AzureFrontDoor.FirstParty pour mettre en liste verte Azure Container Registry et ses dépendances.
 
-Lors de la création ou de l’affectation d’un ICM au metastore, incluez le ticket de support CSS pour que nous puissions mieux comprendre le problème.
+ Pour plus d'informations, consultez [Activation de réseaux virtuels](https://docs.microsoft.com/azure/machine-learning/how-to-enable-virtual-network#azure-container-registry).
+
+### <a name="you-need-to-create-an-icm"></a>Vous devez créer un ICM
+
+Quand vous créez un ICM ou en attribuez un au Metastore, incluez le ticket de support CSS pour que nous puissions mieux comprendre le problème.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Entraîner un modèle Machine Learning pour catégoriser les fleurs](how-to-train-scikit-learn.md)
-- [Entraîner un modèle Machine Learning à l’aide d’une image Docker personnalisée](how-to-train-with-custom-image.md)
+- [Effectuer l'apprentissage d’un modèle Machine Learning à l’aide d’une image Docker personnalisée](how-to-train-with-custom-image.md)
