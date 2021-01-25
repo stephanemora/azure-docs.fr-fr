@@ -8,7 +8,7 @@
       href: deploy-prerequisite.md
     - name: Fichiers de configuration et packages
       href: cloud-services-model-and-package.md
-- name: Tutoriels
+- name: Didacticiels
   items:
     - name: Déployer un service cloud - Portail
       href: deploy-portal.md
@@ -31,7 +31,7 @@
       href: ../cloud-services/cloud-services-guestos-retirement-policy.md?toc=/azure/cloud-services-extended-support/toc.json&bc=/azure/cloud-services-extended-support/breadcrumb/toc.json
     - name: Actualités concernant les versions de SE invité
       href: ../cloud-services/cloud-services-guestos-update-matrix.md?toc=/azure/cloud-services-extended-support/toc.json&bc=/azure/cloud-services-extended-support/breadcrumb/toc.json
-    - name: "Schéma\_XML"
+    - name: "schéma\_XML"
       items:
         - name: Schéma XML Csdef
           href: schema-csdef-file.md
@@ -73,6 +73,8 @@
       href: sample-reset-cloud-service.md
 - name: Référence
   items:
+    - name: Exemple de fichiers de déploiement
+      href: 'https://github.com/Azure-Samples/cloud-services-extended-support'
     - name: Module Az.CloudService
       href: 'https://www.powershellgallery.com/packages/Az.CloudService/0.1.0'
     - name: "Applets de commande\_PowerShell"
