@@ -5,12 +5,12 @@ ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.custom: cc996988-fb4f-47, devx-track-azurecli
-ms.openlocfilehash: 2526fd60d6e07ecf43864945f2b05858b41ca567
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 4db6abeb3e6f4a07780268a6455177e0ca237205
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98035204"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98598479"
 ---
 # <a name="manage-your-function-app"></a>Gérer votre application de fonction 
 
@@ -19,11 +19,6 @@ Dans Azure Functions, une Function App fournit le contexte d’exécution de vos
 Les fonctions individuelles dans une application de fonction sont déployées ensemble et sont mises à l’échelle ensemble. Toutes les fonctions de la même application de fonction partagent les ressources, par instance, à mesure que l’application de fonction est mise à l’échelle. 
 
 Les chaînes de connexion, les variables d’environnement et d’autres paramètres d’application sont définis séparément pour chaque application de fonction. Toutes les données qui doivent être partagées entre les applications de fonction doivent être stockées en externe dans un magasin persistant.
-
-Cet article explique comment configurer et gérer vos applications de fonction. 
-
-> [!TIP]  
-> De nombreuses options de configuration peuvent également être gérées à l’aide d’[Azure CLI]. 
 
 ## <a name="get-started-in-the-azure-portal"></a>Bien démarrer dans le portail Azure
 
@@ -37,15 +32,17 @@ Vous pouvez accéder à tout ce dont vous avez besoin pour gérer votre applicat
 
 ## <a name="work-with-application-settings"></a><a name="settings"></a>Utilisation de paramètres d’application
 
-L’onglet **Paramètres de l’application** conserve les paramètres qui sont utilisés par votre application de fonction. Ces paramètres sont chiffrés et stockés, et vous devez sélectionner **Afficher les valeurs** pour afficher les valeurs dans le portail. Vous pouvez également accéder aux paramètres d’application à l’aide d’Azure CLI.
+Vous pouvez gérer les paramètres d’application à partir du [portail Azure](functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings), ainsi qu’à l’aide d’[Azure CLI](functions-how-to-use-azure-function-app-settings.md?tabs=azurecli#settings) et d’[Azure PowerShell](functions-how-to-use-azure-function-app-settings.md?tabs=powershell#settings). Vous pouvez également gérer les paramètres d’application à partir de [Visual Studio Code](functions-develop-vs-code.md#application-settings-in-azure) et de [Visual Studio](functions-develop-vs.md#function-app-settings). 
 
-### <a name="portal"></a>Portail
+Ces paramètres sont stockés sous forme chiffrée. Pour en savoir plus, consultez [Sécurité des paramètres d’application](security-concepts.md#application-settings).
 
-Pour ajouter un paramètre dans le portail, sélectionnez **Nouveau paramètre d’application** et ajoutez la nouvelle paire clé-valeur.
+# <a name="portal"></a>[Portail](#tab/portal)
+
+L’onglet **Paramètres de l’application** conserve les paramètres qui sont utilisés par votre application de fonction. Vous devez sélectionner **Afficher les valeurs** pour voir les valeurs dans le portail. Pour ajouter un paramètre dans le portail, sélectionnez **Nouveau paramètre d’application** et ajoutez la nouvelle paire clé-valeur.
 
 ![Paramètres de l’application de fonction sur le portail Azure.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-settings-tab.png)
 
-### <a name="azure-cli"></a>Azure CLI
+# <a name="azure-cli"></a>[Azure CLI](#tab/azurecli)
 
 La commande [`az functionapp config appsettings list`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-list) retourne les paramètres d’application existants, comme dans l’exemple suivant :
 
@@ -63,6 +60,22 @@ az functionapp config appsettings set --name <FUNCTION_APP_NAME> \
 --settings CUSTOM_FUNCTION_APP_SETTING=12345
 ```
 
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/powershell)
+
+La cmdlet [`Get-AzFunctionAppSetting`](/powershell/module/az.functions/get-azfunctionappsetting) retourne les paramètres d’application existants, comme dans l’exemple suivant : 
+
+```azurepowershell-interactive
+Get-AzFunctionAppSetting -Name <FUNCTION_APP_NAME> -ResourceGroupName <RESOURCE_GROUP_NAME>
+```
+
+La commande [`Update-AzFunctionAppSetting`](/powershell/module/az.functions/update-azfunctionappsetting) ajoute ou met à jour un paramètre d’application. L’exemple suivant crée un paramètre avec une clé nommée `CUSTOM_FUNCTION_APP_SETTING` et la valeur `12345` :
+
+```azurepowershell-interactive
+Update-AzFunctionAppSetting -Name <FUNCTION_APP_NAME> -ResourceGroupName <RESOURCE_GROUP_NAME> -AppSetting @{"CUSTOM_FUNCTION_APP_SETTING" = "12345"}
+```
+
+---
+
 ### <a name="use-application-settings"></a>Utiliser des paramètres d’application
 
 [!INCLUDE [functions-environment-variables](../../includes/functions-environment-variables.md)]
@@ -71,7 +84,7 @@ Quand vous développez une application de fonction localement, vous devez conser
 
 ## <a name="hosting-plan-type"></a>Type de plan d’hébergement
 
-Lorsque vous créez une application de fonction, vous créez également un plan d’hébergement App Service dans lequel elle s’exécute. Un plan peut comporter une ou plusieurs applications de fonction. Les fonctionnalités, la mise à l’échelle et le tarif des fonctions dépendent du type de plan. Pour plus d’informations, consultez la [page de tarifs Azure Functions](https://azure.microsoft.com/pricing/details/functions/).
+Lorsque vous créez une application de fonction, vous créez également un plan d’hébergement dans lequel elle s’exécute. Un plan peut comporter une ou plusieurs applications de fonction. Les fonctionnalités, la mise à l’échelle et le tarif des fonctions dépendent du type de plan. Pour en savoir plus, consultez [Options d’hébergement Azure Functions](functions-scale.md).
 
 Vous pouvez déterminer le type de plan utilisé par votre application de fonction sur le Portail Azure, avec l’API Azure CLI ou avec l’API Azure PowerShell. 
 
@@ -118,6 +131,75 @@ Dans l’exemple précédent, remplacez respectivement `<RESOURCE_GROUP>` et `<F
 
 ---
 
+## <a name="plan-migration"></a>Planifier la migration
+
+Vous pouvez utiliser des commandes d’Azure CLI pour migrer une application de fonction entre un plan Consommation et un plan Premium sur Windows. Les commandes spécifiques dépendent de la direction de la migration. La migration directe vers un plan (App Service) dédié n’est pas prise en charge actuellement.
+
+La migration n'est pas prise en charge sur Linux.
+
+### <a name="consumption-to-premium"></a>De Consommation vers Premium
+
+Procédez comme suit pour opérer la migration d’un plan Consommation vers un plan Premium sur Windows :
+
+1. Exécutez la commande suivante pour créer un plan App Service (Élastique Premium) dans la même région et le même groupe de ressources que votre application de fonction existante.  
+
+    ```azurecli-interactive
+    az functionapp plan create --name <NEW_PREMIUM_PLAN_NAME> --resource-group <MY_RESOURCE_GROUP> --location <REGION> --sku EP1
+    ```
+
+1. Exécutez la commande suivante pour migrer l’application de fonction existante vers le nouveau plan Premium
+
+    ```azurecli-interactive
+    az functionapp update --name <MY_APP_NAME> --resource-group <MY_RESOURCE_GROUP> --plan <NEW_PREMIUM_PLAN>
+    ```
+
+1. Si vous n’avez plus besoin de votre plan d’application de fonction Consommation précédent, supprimez votre plan d’application de fonction d’origine après avoir vérifié que vous avez effectué la migration vers le nouveau plan. Exécutez la commande suivante pour obtenir la liste de tous les plans Consommation dans votre groupe de ressources.
+
+    ```azurecli-interactive
+    az functionapp plan list --resource-group <MY_RESOURCE_GROUP> --query "[?sku.family=='Y'].{PlanName:name,Sites:numberOfSites}" -o table
+    ```
+
+    Vous pouvez supprimer en toute sécurité le plan contenant zéro site, qui est celui à partir duquel vous avez opéré la migration.
+
+1. Exécutez la commande suivante pour supprimer le plan Consommation à partir duquel vous avez opéré la migration.
+
+    ```azurecli-interactive
+    az functionapp plan delete --name <CONSUMPTION_PLAN_NAME> --resource-group <MY_RESOURCE_GROUP>
+    ```
+
+### <a name="premium-to-consumption"></a>De Premium vers Consommation
+
+Utilisez la procédure suivante pour migrer un plan Premium vers un plan Consommation sur Windows :
+
+1. Exécutez la commande suivante pour créer une application de fonction (Consommation) dans la même région et le même groupe de ressources que votre application de fonction existante. Cette commande crée également un plan Consommation dans lequel l’application de fonction s’exécute.
+
+    ```azurecli-interactive
+    az functionapp create --resource-group <MY_RESOURCE_GROUP> --name <NEW_CONSUMPTION_APP_NAME> --consumption-plan-location <REGION> --runtime dotnet --functions-version 3 --storage-account <STORAGE_NAME>
+    ```
+
+1. Exécutez la commande suivante pour migrer l’application de fonction existante vers le nouveau plan Consommation.
+
+    ```azurecli-interactive
+    az functionapp update --name <MY_APP_NAME> --resource-group <MY_RESOURCE_GROUP> --plan <NEW_CONSUMPTION_PLAN>
+    ```
+
+1. Supprimez l’application de fonction que vous avez créée à l’étape 1, car vous n’avez besoin que du plan créé pour exécuter l’application de fonction existante.
+
+    ```azurecli-interactive
+    az functionapp delete --name <NEW_CONSUMPTION_APP_NAME> --resource-group <MY_RESOURCE_GROUP>
+    ```
+
+1. Si vous n’avez plus besoin de votre plan d’application de fonction Premium précédent, supprimez votre plan d’application de fonction d’origine après avoir vérifié que vous avez effectué la migration vers le nouveau plan. Veuillez noter que si le plan n’est pas supprimé, vous serez toujours facturé pour le plan Premium. Exécutez la commande suivante pour obtenir la liste de tous les plans Premium dans votre groupe de ressources.
+
+    ```azurecli-interactive
+    az functionapp plan list --resource-group <MY_RESOURCE_GROUP> --query "[?sku.family=='EP'].{PlanName:name,Sites:numberOfSites}" -o table
+    ```
+
+1. Exécutez la commande suivante pour supprimer le plan Premium à partir duquel vous avez opéré la migration.
+
+    ```azurecli-interactive
+    az functionapp plan delete --name <PREMIUM_PLAN> --resource-group <MY_RESOURCE_GROUP>
+    ```
 
 ## <a name="platform-features"></a>Fonctionnalités de la plate-forme
 

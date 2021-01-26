@@ -1,6 +1,6 @@
 - name: Documentation App Service
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: À propos de Web Apps
       href: overview.md
@@ -259,6 +259,8 @@
           href: troubleshoot-diagnostic-logs.md
         - name: Obtenir des événements de ressource
           href: get-resource-events.md
+        - name: Contrôle d’intégrité
+          href: monitor-instances-health-check.md
         - name: Ouvrir une session SSH sur un conteneur Linux
           href: configure-linux-open-ssh-session.md
     - name: Gérer l’application

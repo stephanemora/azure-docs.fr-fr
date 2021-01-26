@@ -1,6 +1,6 @@
 - name: Documentation Azure Cosmos DB
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: Bienvenue dans Azure Cosmos DB
       href: introduction.md
@@ -142,7 +142,7 @@
               href: create-sql-api-python.md
             - name: Application Xamarin
               href: create-sql-api-xamarin-dotnet.md
-    - name: Tutoriels
+    - name: Didacticiels
       items:
         - name: "1\_- Créer et gérer des données"
           items:
@@ -1043,7 +1043,9 @@
           href: create-mongodb-xamarin.md
         - name: Golang
           href: create-mongodb-go.md
-    - name: Tutoriels
+        - name: Rust
+          href: create-mongodb-rust.md
+    - name: Didacticiels
       items:
         - name: "1\_- Créer et gérer des données"
           items:

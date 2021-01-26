@@ -1,6 +1,6 @@
 - name: Documentation relative au service Azure IoT Hub Device Provisioning
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: "Qu’est-ce qu’IoT Hub Device Provisioning Service\_?"
       href: about-iot-dps.md
@@ -124,8 +124,6 @@
       items:
         - name: Gérer les inscriptions - Portail
           href: how-to-manage-enrollments.md
-        - name: Gérer les inscriptions - Kits de développement logiciel (SDK) du service
-          href: how-to-manage-enrollments-sdks.md
         - name: Configurer des certificats d’autorité de certification vérifiés
           href: how-to-verify-certificates.md
         - name: Déployer des certificats d’appareils
@@ -150,10 +148,6 @@
         - name: Windows
           href: ../iot-edge/how-to-auto-provision-simulated-device-windows.md
           maintainContext: true
-    - name: Utiliser des mécanismes d’attestation avec un Kit de développement logiciel (SDK)
-      href: use-hsm-with-sdk.md
-    - name: Utilisez les outils du Kit de développement logiciel pour le développement
-      href: how-to-use-sdk-tools.md
     - name: Guide pratique pour envoyer des données supplémentaires depuis les appareils
       href: how-to-send-additional-data.md
     - name: Dépannage

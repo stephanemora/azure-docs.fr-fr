@@ -21,10 +21,10 @@
   expanded: true
 - name: Concepts
   items:
+    - name: Extensions
+      href: extensions.md
     - name: Tailles de VM disponibles
       href: available-sizes.md
-    - name: Forum Aux Questions (FAQ)
-      href: faq.md
     - name: Correctifs du SE invité
       href: ../cloud-services/cloud-services-guestos-msrc-releases.md?toc=/azure/cloud-services-extended-support/toc.json&bc=/azure/cloud-services-extended-support/breadcrumb/toc.json
     - name: Suppression du SE invité
@@ -49,10 +49,10 @@
           href: schema-cscfg-role.md
         - name: Schéma NetworkConfiguration
           href: schema-cscfg-networkconfiguration.md
+    - name: Forum Aux Questions (FAQ)
+      href: faq.md
 - name: Procédure
   items:
-    - name: Vue d’ensemble des extensions
-      href: extensions.md
     - name: Appliquer l’extension Bureau à distance
       href: enable-rdp.md
     - name: Appliquer l’extension WAD
@@ -83,6 +83,8 @@
       href: 'https://docs.microsoft.com/azure/templates/microsoft.compute/cloudservices'
     - name: REST
       href: 'https://docs.microsoft.com/rest/api/compute/cloudservices'
+    - name: Kit SDK
+      href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.Compute/43.0.0-preview'
 - name: Ressources
   items:
     - name: Feuille de route Azure
