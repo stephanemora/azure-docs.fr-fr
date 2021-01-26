@@ -1,28 +1,28 @@
 ---
 title: Configuration système requise de Microsoft Azure Data Box | Microsoft Docs
-description: Découvrez la configuration système importante qui est demandée pour votre solution Azure Data Box et pour les clients accédant au Data Box.
+description: Découvrez la configuration système requise pour votre Azure Data Box et pour les clients qui s’y connectent.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 10/02/2020
+ms.date: 12/23/2020
 ms.author: alkohli
-ms.openlocfilehash: 5f1623ef4dde59e816e3afe5a5f5894c49469580
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0190e295c2ab206242ab8a44a09ffb42746d75bd
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91767857"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209546"
 ---
 # <a name="azure-data-box-system-requirements"></a>Conditions requises pour le système Data Box
 
-Cet article décrit les exigences système les plus importantes concernant Microsoft Azure Data Box et les clients qui se connectent à Data Box. Nous vous recommandons de lire attentivement les informations suivantes avant de déployer votre Data Box, puis de vous y référer si nécessaire pendant le déploiement, et une fois qu’il est en cours d’exécution.
+Cet article décrit les exigences système les plus importantes concernant Microsoft Azure Data Box et les clients qui se connectent à Data Box. Nous vous recommandons de lire attentivement les informations avant de déployer votre Data Box, puis de vous y référer si nécessaire pendant le déploiement et l’exploitation.
 
 Les conditions requises sont les suivantes :
 
 * **Exigences logicielles :** Pour les hôtes qui se connectent à Data Box, indique les systèmes d’exploitation pris en charge, les protocoles de transfert de fichiers, les comptes de stockage, les types de stockage, ainsi que les navigateurs pour l’interface utilisateur web locale.
-* **Configuration réseau requise :** Pour Data Box, indique les exigences de connexion réseau et de port pour une utilisation optimale de Data Box.
+* **Configuration réseau requise :** Pour Data Box, décrit les configuration requises pour les connexions réseau et les ports pour un fonctionnement optimal de Data Box.
 
 
 ## <a name="software-requirements"></a>Configuration logicielle requise
@@ -55,11 +55,11 @@ La configuration logicielle requise inclut les systèmes d’exploitation pris e
 
 ## <a name="networking-requirements"></a>Configuration requise du réseau
 
-Votre centre de données doit avoir un réseau haut débit. Nous vous recommandons vivement d’utiliser au minimum une connexion 10 GbE. Si une connexion 10 GbE n’est pas disponible, une liaison de données 1 GbE peut être utilisée pour copier des données. Toutefois, cela aura un impact sur la vitesse de copie.
+Votre centre de données doit avoir un réseau haut débit. Nous vous recommandons vivement de vous doter au minimum d’une connexion 10 GbE. Si vous ne disposez pas d’une connexion 10 GbE, vous pouvez utiliser une liaison de données 1 GbE pour copier les données. Cependant, cela affectera les vitesses de copie.
 
 ### <a name="port-requirements"></a>Exigences de port
 
-Le tableau ci-dessous répertorie les ports qui doivent être ouverts dans votre pare-feu pour autoriser le trafic SMB ou NFS. Dans ce tableau, *Entrée* (ou *entrant*) indique que les requêtes clientes qui accèdent à votre appareil sont des requêtes entrantes. *Sortie* (ou *sortant*) indique que votre appareil Data Box envoie des données vers l’extérieur, hors déploiement, par exemple, vers Internet.
+Le tableau ci-dessous répertorie les ports qui doivent être ouverts dans votre pare-feu pour autoriser le trafic SMB ou NFS. Dans ce tableau, *Entrée* (ou *entrant*) indique que les requêtes clientes qui accèdent à votre appareil sont des requêtes entrantes. *Sortie* (ou *sortant*) indique que votre appareil Data Box envoie des données vers l’extérieur, hors déploiement. Par exemple, les données peuvent être sortantes vers Internet.
 
 [!INCLUDE [data-box-port-requirements](../../includes/data-box-port-requirements.md)]
 

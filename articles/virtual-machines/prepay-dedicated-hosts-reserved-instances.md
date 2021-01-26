@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/28/2020
 ms.author: banders
-ms.openlocfilehash: d7af95b9fe2f6d31faa239985f8e8165fd968372
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: cac7a6dfcd98b9de61fabdb8e43ca1cdfd4023c2
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978592"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98598290"
 ---
 # <a name="save-costs-with-azure-dedicated-host-reservations"></a>Réduisez les coûts avec les réservations Azure Dedicated Host
 
@@ -22,9 +22,9 @@ Lorsque vous validez une instance réservée d’hôtes Azure Dedicated Host, vo
 ## <a name="determine-the-right-dedicated-host-sku-before-you-buy"></a>Déterminer la référence SKU appropriée de l’hôte dédié avant de l’acheter
 
 
-Avant d’acheter une réservation, vous devez déterminer l’hôte dédié dont vous avez besoin. Une référence SKU est définie pour un hôte dédié représentant la série et le type de la machine virtuelle. 
+Avant d’acheter une réservation, vous devez déterminer l’hôte dédié dont vous avez besoin. Une référence SKU est définie pour un hôte dédié représentant la série et le type de la machine virtuelle. 
 
-Commencez par passer en revue les tailles prises en charge pour la [machine virtuelle Windows](./sizes.md) ou [Linux](./sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) afin d’identifier la série de machine virtuelle.
+Commencez par passer en revue les tailles prises en charge pour la [machine virtuelle Windows](./sizes.md) ou [Linux](./sizes.md) afin d’identifier la série de machine virtuelle.
 
 Ensuite, vérifiez qu’elle est prise en charge sur les hôtes Azure Dedicated Host. La page de [tarification des hôtes Azure Dedicated Host](https://aka.ms/ADHPricing) contient la liste complète des références SKU d’hôtes dédiés, les informations de l’UC et diverses options de tarification (y compris les instances réservées).
 
@@ -38,39 +38,39 @@ Les instances réservées sont disponibles pour la plupart des tailles d’hôte
 
 Les remises de réservation ne s’appliquent pas dans les cas suivants :
 
-- **Clouds** : les réservations ne sont pas disponibles à l’achat dans les régions Allemagne et Chine.
+- **Clouds** : les réservations ne sont pas disponibles à l’achat dans les régions Allemagne et Chine.
 
-- **Quota insuffisant** : une réservation qui est limitée à un seul abonnement doit avoir un quota de processeurs virtuels disponible dans l’abonnement pour la nouvelle instance réservée. Par exemple, si l’abonnement cible a une limite de quota de 10 processeurs virtuels pour la série DSv3, vous ne pouvez pas acheter de réservation d’hôtes dédiés prenant en charge cette série. La vérification du quota pour les réservations inclut les machines virtuelles et les hôtes dédiés déjà déployés dans l’abonnement. Pour résoudre ce problème, vous pouvez  [créer une demande d’augmentation de quota](../azure-portal/supportability/resource-manager-core-quotas-request.md). 
+- **Quota insuffisant** : une réservation qui est limitée à un seul abonnement doit avoir un quota de processeurs virtuels disponible dans l’abonnement pour la nouvelle instance réservée. Par exemple, si l’abonnement cible a une limite de quota de 10 processeurs virtuels pour la série DSv3, vous ne pouvez pas acheter de réservation d’hôtes dédiés prenant en charge cette série. La vérification du quota pour les réservations inclut les machines virtuelles et les hôtes dédiés déjà déployés dans l’abonnement. Pour résoudre ce problème, vous pouvez [créer une demande d’augmentation de quota](../azure-portal/supportability/resource-manager-core-quotas-request.md).
 
 - **Restrictions de capacité** : dans de rares cas, Azure limite l’achat de nouvelles réservations pour un sous-ensemble de références SKU d’hôtes dédiés, en raison d’une faible capacité dans une région donnée.
 
 ## <a name="buy-a-reservation"></a>Acheter une réservation
 
-Vous pouvez acheter une instance réservée pour une instance Azure Dedicated Host dans le  [Portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D).
+Vous pouvez acheter une instance réservée pour une instance Azure Dedicated Host dans le [portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D).
 
-Payez la réservation  [comptant ou par paiements mensuels](../cost-management-billing/reservations/prepare-buy-reservation.md). Ces conditions s’appliquent à l’achat d’une instance Azure Dedicated Host réservée :
+Payez la réservation [à l’avance ou par paiements mensuels](../cost-management-billing/reservations/prepare-buy-reservation.md). Ces conditions s’appliquent à l’achat d’une instance Azure Dedicated Host réservée :
 
 - Vous devez avoir le rôle Propriétaire pour au moins un abonnement EA ou un abonnement assorti d’un paiement à l’utilisation.
 
-- Pour les abonnements EA, l’option  **Ajouter des instances réservées** doit être activée dans le  [portail EA](https://ea.azure.com/). Ou, si ce paramètre est désactivé, vous devez être administrateur EA de l’abonnement.
+- Pour les abonnements EA, l’option **Ajouter des instances réservées** doit être activée sur le [portail EA](https://ea.azure.com/). Ou, si ce paramètre est désactivé, vous devez être administrateur EA de l’abonnement.
 
 - Pour le programme CSP (Cloud Solution Provider), seuls les agents administrateurs ou les agents commerciaux peuvent acheter les réservations.
 
 Pour acheter une instance :
 
-1. Connectez-vous au  [portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
-2. Sélectionnez  **Tous les services** \> **Réservations**.
+2. Sélectionnez **Tous les services** \> **Réservations**.
 
-3. Sélectionnez  **Ajouter** pour acheter une nouvelle réservation, puis cliquez sur  **Hôtes dédiés**.
+3. Sélectionnez **Ajouter** pour acheter une nouvelle réservation, puis cliquez sur **Dedicated Host**.
 
 4. Complétez les champs obligatoires. Les instances d’Azure Dedicated Host en cours d’exécution qui correspondent aux attributs que vous avez sélectionnés peuvent bénéficier de la remise de réservation. Le nombre réel de vos instances Dedicated Host qui bénéficient de la remise dépend de l’étendue et de la quantité sélectionnées.
 
-Si vous avez un Accord Entreprise, vous pouvez utiliser l’option  **Ajouter** pour ajouter rapidement des instances supplémentaires. L’option n’est pas disponible pour les autres types d’abonnements.
+Si vous avez un Accord Entreprise, vous pouvez utiliser l’option **Ajouter** pour ajouter rapidement des instances supplémentaires. L’option n’est pas disponible pour les autres types d’abonnements.
 
 | **Champ**           | **Description**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 |---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Abonnement        | Abonnement utilisé pour payer la réservation. Les coûts de la réservation sont facturés au mode de paiement défini sur l’abonnement. Le type d’abonnement doit être Accord Entreprise (numéros de l’offre : MS-AZR-0017P or MS-AZR-0148P) ou Microsoft Customer Agreement (MCA) ou un abonnement individuel avec paiement à l’utilisation (numéros de l’offre : MS-AZR-0003P ou MS-AZR-0023P). Les frais sont déduits du solde de l’engagement financier, si disponibles, ou facturés comme un dépassement. Pour un abonnement payable à l’utilisation, les frais sont facturés sur le mode de paiement par carte de crédit ou facture défini sur l’abonnement. |
+| Abonnement        | Abonnement utilisé pour payer la réservation. Les coûts de la réservation sont facturés au mode de paiement défini sur l’abonnement. Le type d’abonnement doit être Accord Entreprise (numéros de l’offre : MS-AZR-0017P or MS-AZR-0148P) ou Microsoft Customer Agreement (MCA) ou un abonnement individuel avec paiement à l’utilisation (numéros de l’offre : MS-AZR-0003P ou MS-AZR-0023P). Les frais sont déduits du solde du Paiement anticipé Azure (anciennement « Engagement financier »), le cas échéant, ou facturés comme un dépassement. Pour un abonnement payable à l’utilisation, les frais sont facturés sur le mode de paiement par carte de crédit ou facture défini sur l’abonnement. |
 | Étendue               | L’étendue de la réservation peut couvrir un seul abonnement ou plusieurs abonnements (étendue partagée). Si vous sélectionnez :                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | Région              | Région Azure couverte par la réservation.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | Taille d’hôte dédié | Taille des instances Dedicated Host.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
@@ -81,13 +81,13 @@ Si vous avez un Accord Entreprise, vous pouvez utiliser l’option  **Ajouter**
 
 - **Étendue d’abonnement unique** : applique la remise de réservation aux ressources correspondantes incluses dans l’abonnement sélectionné.
 
-- **Étendue partagée** : applique la remise de réservation aux ressources correspondantes des abonnements éligibles inclus dans le contexte de facturation. Pour les clients EA, le contexte de facturation est défini par l’inscription. Pour les abonnements individuels utilisant les tarifs du paiement à l’utilisation, l’étendue de facturation correspond à tous les abonnements éligibles créés par l’administrateur de compte.
+- **Étendue partagée** : applique la remise de réservation aux ressources correspondantes dans les abonnements éligibles inclus dans le contexte de facturation. Pour les clients EA, le contexte de facturation est défini par l’inscription. Pour les abonnements individuels utilisant les tarifs du paiement à l’utilisation, l’étendue de facturation correspond à tous les abonnements éligibles créés par l’administrateur de compte.
 
 ## <a name="usage-data-and-reservation-utilization"></a>Données d’utilisation et utilisation de la réservation
 
 Vos données d’utilisation ont un prix effectif de zéro pour l’utilisation qui bénéficie d’une remise de réservation. Vous pouvez voir l’instance de machine virtuelle qui a reçu la remise de réservation pour chaque réservation.
 
-Pour plus d’informations sur l’affichage des remises de réservation dans les données d’utilisation, consultez  [Comprendre l’utilisation de la réservation Azure pour l’inscription de votre entreprise](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md) si vous êtes un client EA. Si vous avez un abonnement individuel, consultez  [Comprendre l’utilisation d’une réservation Azure pour votre abonnement avec paiement à l’utilisation](../cost-management-billing/reservations/understand-reserved-instance-usage.md).
+Pour plus d’informations sur l’affichage des remises de réservation dans les données d’utilisation, consultez [Comprendre l’utilisation de la réservation Azure pour l’inscription de votre entreprise](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md) si vous êtes un client EA. Si vous avez un abonnement individuel, consultez [Comprendre l’utilisation d’une réservation Azure pour votre abonnement avec paiement à l’utilisation](../cost-management-billing/reservations/understand-reserved-instance-usage.md).
 
 ## <a name="change-a-reservation-after-purchase"></a>Modifier une réservation après achat
 
@@ -111,19 +111,19 @@ Vous ne pouvez apporter directement les modifications suivantes après achat :
 
 - Duration
 
-Toutefois, vous pouvez  *échanger* une réservation si vous souhaitez y apporter des modifications.
+Toutefois, vous pouvez *échanger* une réservation si vous souhaitez y apporter des modifications.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Annuler, échanger ou rembourser des réservations
 
-Vous pouvez annuler, échanger ou rembourser des réservations avec certaines limitations. Pour plus d’informations, consultez  [Échanges et remboursements en libre-service pour les réservations Azure](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
+Vous pouvez annuler, échanger ou rembourser des réservations avec certaines limitations. Pour plus d’informations, consultez [Échanges et remboursements en libre-service pour les réservations Azure](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
 
-Si vous avez des questions ou besoin d’aide,  [créez une demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Si vous avez des questions ou besoin d’aide, [créez une demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour découvrir comment gérer une réservation, consultez  [Gérer les réservations Azure](../cost-management-billing/reservations/manage-reserved-vm-instance.md).
+Pour découvrir comment gérer une réservation, consultez [Gérer les réservations Azure](../cost-management-billing/reservations/manage-reserved-vm-instance.md).
 
 Pour plus d’informations sur les réservations Azure, consultez les articles suivants :
 

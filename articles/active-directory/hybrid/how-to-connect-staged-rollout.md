@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd1c7f5dec57127f92da52be908bd6faa2c90e85
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d348b8c2325c7bc2cdaa28356151647a9430684f
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500221"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247044"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migrer vers l’authentification cloud à l’aide du lancement intermédiaire (préversion)
 
@@ -67,7 +67,7 @@ Les scénarios suivants sont pris en charge pour le lancement intermédiaire. Ce
 
 Les scénarios suivants ne sont pas pris en charge pour le lancement intermédiaire :
 
-- Les applications ou les services cloud utilisent une authentification héritée telle que POP3 et SMTP.
+- L’authentification héritée telle que POP3 et SMTP n’est pas prise en charge.
 
 - Certaines applications envoient le paramètre de requête « domain_hint » à Azure AD pendant l’authentification. Ces flux se poursuivront et les utilisateurs activés pour le lancement intermédiaire continueront d’utiliser la fédération pour l’authentification.
 

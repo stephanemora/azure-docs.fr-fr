@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperf-fy21q1, automl
-ms.openlocfilehash: f2170aad9bc0218d39244d08f5cc838235f8fee9
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 9021d933e3808867ec784ad3c6d0f8810d608ea3
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98134362"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600064"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurer des expériences ML automatisées dans Python
 
@@ -65,7 +65,7 @@ automl_config = AutoMLConfig(task = "classification")
 
 Le machine learning automatisé prend en charge les données qui se trouvent sur votre poste de travail local ou dans le cloud, comme Stockage Blob Azure. Les données peuvent être lues dans un **DataFrame Pandas** ou un **TabularDataset Azure Machine Learning**. [En savoir plus sur les jeux de données](how-to-create-register-datasets.md).
 
-Configuration requise pour les données de formation :
+Configuration requise pour les données d’apprentissage en lien avec le Machine Learning :
 - Les données doivent être sous forme tabulaire.
 - La valeur à prédire, la colonne cible, doit figurer dans les données.
 
@@ -96,9 +96,9 @@ dataset = Dataset.Tabular.from_delimited_files(data)
 
 ## <a name="training-validation-and-test-data"></a>Formation, validation et test des données
 
-Vous pouvez spécifier des **jeux de données distincts pour l’entraînement** et la validation directement dans le constructeur `AutoMLConfig`. En savoir plus sur le [guide pratique pour configurer les fractionnements de données et la validation croisée](how-to-configure-cross-validation-data-splits.md) pour vos expériences AutoML. 
+Vous pouvez spécifier des **jeux de données d’apprentissage et de validation** distincts directement dans le constructeur `AutoMLConfig`. En savoir plus sur le [guide pratique pour configurer les fractionnements de données et la validation croisée](how-to-configure-cross-validation-data-splits.md) pour vos expériences AutoML. 
 
-Si vous ne spécifiez pas explicitement un paramètre `validation_data` ou `n_cross_validation`, AutoML applique les techniques par défaut pour déterminer la façon dont la validation est effectuée. Cette détermination dépend du nombre de lignes dans le jeu de données affecté à votre paramètre `training_data`. 
+Si vous ne spécifiez pas explicitement un paramètre `validation_data` ou `n_cross_validation`, le Machine Learning automatisé applique les techniques par défaut pour déterminer la façon dont la validation est effectuée. Cette détermination dépend du nombre de lignes dans le jeu de données affecté à votre paramètre `training_data`. 
 
 |Formation sur la taille des&nbsp;données&nbsp;| Technique de validation |
 |---|-----|

@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.subservice: workloads
 ms.date: 08/17/2020
 ms.reviewer: cynthn
-ms.openlocfilehash: c3b3848e4e4f7b0445f882265dbe66bb10b48833
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 0bb0a7833e9ee3b499ae013b665ecf137c667005
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968585"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250993"
 ---
 # <a name="deploy-azure-monitor-for-sap-solutions-with-azure-portal"></a>Déployer Azure Monitor pour les solutions SAP avec le portail Azure
 
@@ -59,7 +59,7 @@ Connectez-vous au portail Azure sur https://portal.azure.com
 
 6. Entrez le nom d'utilisateur de la base de données à utiliser. Assurez-vous que les rôles de **surveillance** et de **lecture de catalogue** sont attribués à l’utilisateur de la base de données. 
 
-7. Lorsque vous avez terminé, sélectionnez **Ajouter un fournisseur**. Continuez à ajouter des fournisseurs supplémentaires en fonction des besoins ou sélectionnez **Passer en revue + créer** pour terminer le déploiement.
+7. Lorsque vous avez terminé, sélectionnez **Ajouter un fournisseur**. Continuez à ajouter des fournisseurs supplémentaires en fonction des besoins ou sélectionnez **Vérifier + créer** pour terminer le déploiement.
 
    :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-4.png" alt-text="Image des options de configuration lors de l’ajout d’informations sur le fournisseur." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-4.png":::
 
@@ -74,9 +74,21 @@ Connectez-vous au portail Azure sur https://portal.azure.com
  
 3. Entrez l’ID système (SID), le nom d'hôte et le nom du cluster.
 
-4. Lorsque vous avez terminé, sélectionnez **Ajouter un fournisseur**. Continuez à ajouter des fournisseurs supplémentaires en fonction des besoins ou sélectionnez **Passer en revue + créer** pour terminer le déploiement.
+4. Lorsque vous avez terminé, sélectionnez **Ajouter un fournisseur**. Continuez à ajouter des fournisseurs supplémentaires en fonction des besoins ou sélectionnez **Vérifier + créer** pour terminer le déploiement.
 
    :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-5.png" alt-text="L’image montre les options relatives au fournisseur de stimulateur de cluster à haute disponibilité Pacemaker." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-5.png":::
+
+
+### <a name="os-linux-provider"></a>Fournisseur de système d’exploitation (Linux) 
+
+1. Sélectionnez Système d’exploitation (Linux) dans la liste déroulante. 
+
+> [!IMPORTANT]
+> Pour configurer le fournisseur de système d’exploitation (Linux), assurez-vous que Node_Exporter est installé dans chaque instance BareMetal. Pour plus d’informations,  [Node_Exporter](https://github.com/prometheus/node_exporter).
+
+2. Entrez un nom, qui sera l’identificateur de l’instance BareMetal.
+3. Entrez le point de terminaison Node Exporter sous la forme http://IP:9100/metrics.
+4. Lorsque vous avez terminé, sélectionnez  **Ajouter un fournisseur**. Continuez à ajouter des fournisseurs supplémentaires en fonction des besoins ou sélectionnez  **Vérifier + créer**  pour terminer le déploiement. 
 
 
 ### <a name="microsoft-sql-server-provider"></a>Fournisseur Microsoft SQL Server
@@ -112,7 +124,7 @@ Connectez-vous au portail Azure sur https://portal.azure.com
 
 3. Renseignez les champs à l’aide des informations associées à votre Microsoft SQL Server. 
 
-4. Lorsque vous avez terminé, sélectionnez **Ajouter un fournisseur**. Continuez à ajouter des fournisseurs supplémentaires en fonction des besoins ou sélectionnez **Passer en revue + créer** pour terminer le déploiement.
+4. Lorsque vous avez terminé, sélectionnez **Ajouter un fournisseur**. Continuez à ajouter des fournisseurs supplémentaires en fonction des besoins ou sélectionnez **Vérifier + créer** pour terminer le déploiement.
 
      :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-6.png" alt-text="L’image montre des informations relatives à l’ajout du fournisseur Microsoft SQL Server." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-6.png":::
 

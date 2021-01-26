@@ -13,12 +13,12 @@ ms.date: 11/22/2019
 ms.author: negoe
 ms.reviewer: marsma, nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 22b3ea9eb0e4c3379438b6c3fb58ccfb13b4ed32
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 5a032f45027cc4bffc7f2bc46c6ea1a69a1b83e4
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98064791"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178617"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>Utiliser MSAL dans un environnement de cloud national
 
@@ -70,19 +70,21 @@ Pour activer votre application MSAL.js pour les clouds souverains :
 
 ### <a name="step-1-register-your-application"></a>Étape 1 : Inscrivez votre application
 
-1. Connectez-vous au [portail Azure](https://portal.azure.us/).
+1. Connectez-vous au <a href="https://portal.azure.us/" target="_blank">portail Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
    Pour rechercher des points de terminaison de portail Azure pour d’autres clouds nationaux, consultez [Points de terminaison d’inscription d’application](authentication-national-cloud.md#app-registration-endpoints).
 
-1. Si votre compte vous propose un accès à plusieurs locataires, sélectionnez votre compte en haut à droite et définissez votre session de portail sur le locataire Azure AD souhaité.
-1. Accédez à la page [Inscriptions d’applications](https://aka.ms/ra/ff) de la plateforme d’identité Microsoft pour les développeurs.
-1. Lorsque la page **Inscrire une application** s’affiche, entrez le nom de votre application.
+1. Si vous avez accès à plusieurs locataires, utilisez le filtre **Répertoire + abonnement** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: dans le menu du haut pour sélectionner le locataire dans lequel vous voulez inscrire une application.
+1. Recherchez et sélectionnez **Azure Active Directory**.
+1. Sous **Gérer**, sélectionnez **Inscriptions d’applications** > **Nouvelle inscription**.
+1. Entrez un **nom** pour votre application. Les utilisateurs de votre application peuvent voir ce nom, et vous pouvez le changer ultérieurement.
 1. Sous **Types de comptes pris en charge**, sélectionnez **Comptes dans un annuaire organisationnel**.
 1. Sous la section **URI de redirection**, sélectionnez la plateforme **Web** et définissez la valeur sur l’URL de l’application basée sur votre serveur web. Consultez les prochaines sections pour obtenir des instructions permettant de définir et d’obtenir l’URL de redirection dans Visual Studio et Node.
 1. Sélectionnez **Inscription**.
-1. Sur la page **Vue d’ensemble**, notez la valeur **ID d’application (client)** .
-1. Ce didacticiel vous demande d’activer le [flux d’octroi implicite](v2-oauth2-implicit-grant-flow.md). Dans le volet gauche de l’application inscrite, sélectionnez **Authentification**.
-1. Dans **Paramètres avancés**, sous **Octroi implicite**, cochez les cases **Jetons d’ID** et **Jetons d’accès**. Les jetons d’ID et les jetons d’accès sont nécessaires, car cette application doit connecter des utilisateurs et appeler une API.
+1. Dans la page **Vue d’ensemble**, notez la valeur de **ID d’application (client)** pour une utilisation ultérieure.
+    Ce didacticiel vous demande d’activer le [flux d’octroi implicite](v2-oauth2-implicit-grant-flow.md). 
+1. Sous **Gérer**, sélectionnez **Authentification**.
+1. Dans **Octroi implicite**, sélectionnez **Jetons d’ID** et **Jetons d’accès**. Les jetons d’ID et les jetons d’accès sont nécessaires, car cette application doit connecter des utilisateurs et appeler une API.
 1. Sélectionnez **Enregistrer**.
 
 ### <a name="step-2--set-up-your-web-server-or-project"></a>Étape 2 :  Configurer le serveur web ou projet

@@ -13,12 +13,12 @@ ms.date: 09/18/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: fd836afd6b8574be71ad22d26d67f49971834a88
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 6616b0573019703f287d3be521569f5953aeb032
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98064723"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600281"
 ---
 # <a name="initialize-client-applications-using-msalnet"></a>Initialiser des applications clientes avec MSAL.NET
 Cet article décrit l'initialisation d'applications clientes publiques et confidentielles à l'aide de la bibliothèque d'authentification Microsoft pour .NET (MSAL.NET).  Pour en savoir plus sur les types d’applications clientes et les options de configuration d’application, consultez la [vue d’ensemble](msal-client-applications.md).
@@ -166,3 +166,12 @@ app = PublicClientApplicationBuilder.Create(clientId)
         .WithB2CAuthority("https://fabrikamb2c.b2clogin.com/tfp/{tenant}/{PolicySignInSignUp}")
         .Build();
 ```
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Une fois que vous avez initialisé l’application cliente, la tâche suivante consiste à ajouter la prise en charge de la connexion de l’utilisateur, de l’accès à l’API autorisé ou des deux.
+
+Notre documentation sur le scénario d’application fournit des conseils pour la connexion d’un utilisateur et l’acquisition d’un jeton d’accès pour accéder à une API pour le compte de cet utilisateur :
+
+- [Application web qui connecte les utilisateurs : Se connecter et se déconnecter](scenario-web-app-sign-user-sign-in.md)
+- [Application web qui appelle des API web : Acquérir un jeton](scenario-web-app-call-api-acquire-token.md)

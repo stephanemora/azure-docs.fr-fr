@@ -5,13 +5,13 @@ author: savjani
 ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: bca995f8b2cea33266e032b543abb18ee7140f3f
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.date: 01/15/2021
+ms.openlocfilehash: 164285b1fea3dce18161066e643aa165e47cc496
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541179"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233984"
 ---
 # <a name="monitor-azure-database-for-mariadb-performance-with-query-store"></a>Surveiller les performances de Azure Database for MariaDB avec Magasin de données des requêtes
 
@@ -21,7 +21,7 @@ La fonctionnalité Magasin de données des requêtes dans Azure Database pour Ma
 
 ## <a name="common-scenarios-for-using-query-store"></a>Scénarios courants pour l’utilisation de Magasin de données des requêtes
 
-Le magasin de données des requêtes peut être utilisé dans de nombreux scénarios, dont les suivants :
+Le Magasin des requêtes peut être utilisé dans de nombreux scénarios :
 
 - Détection des requêtes de régression
 - Détermination du nombre de fois où une requête a été exécutée dans une fenêtre de temps donnée
@@ -34,14 +34,14 @@ Le Magasin des requêtes étant une fonctionnalité avec option d’adhésion, e
 ### <a name="enable-query-store-using-the-azure-portal"></a>Activer le Magasin des requêtes à l’aide du portail Azure
 
 1. Connectez-vous au portail Azure, puis sélectionnez votre serveur Azure Database for MariaDB.
-1. Sélectionnez **Paramètres du serveur** dans la section **Paramètres** du menu.
-1. Recherchez le paramètre query_store_capture_mode.
-1. Affectez ALL à la valeur et cliquez sur **Enregistrer**.
+2. Sélectionnez **Paramètres du serveur** dans la section **Paramètres** du menu.
+3. Recherchez le paramètre query_store_capture_mode.
+4. Affectez ALL à la valeur et cliquez sur **Enregistrer**.
 
 Pour activer les statistiques d’attente dans votre magasin des requêtes, procédez comme suit :
 
 1. Recherchez le paramètre query_store_wait_sampling_capture.
-1. Affectez ALL à la valeur et cliquez sur **Enregistrer**.
+2. Affectez ALL à la valeur et cliquez sur **Enregistrer**.
 
 Autoriser jusqu’à 20 minutes de conservation pour le premier lot de données dans la base de données mysql.
 
@@ -108,9 +108,9 @@ Utilisez le [portail Azure](howto-server-parameters.md) pour obtenir ou définir
 
 ## <a name="views-and-functions"></a>Vues et fonctions
 
-Affichez et gérez le Magasin des requêtes à l’aide des fonctions et vues suivantes. Toute personne du [select privilege public role](howto-create-users.md#create-additional-admin-users) peut utiliser ces vues pour afficher les données du magasin de données des requêtes. Ces vues sont disponibles uniquement dans la base de données **mysql**.
+Affichez et gérez le Magasin des requêtes à l’aide des fonctions et vues suivantes. Toute personne du [select privilege public role](howto-create-users.md#create-more-admin-users) peut utiliser ces vues pour afficher les données du magasin de données des requêtes. Ces vues sont disponibles uniquement dans la base de données **mysql**.
 
-Les requêtes sont normalisées en examinant leur structure après la suppression des littéraux et des constantes. Si deux requêtes sont identiques à l’exception des valeurs littérales, elle ont le même hachage.
+Les requêtes sont normalisées en examinant leur structure après la suppression des littéraux et des constantes. Deux requêtes identiques à l’exception des valeurs littérales présentent le même hachage.
 
 ### <a name="mysqlquery_store"></a>mysql.query_store
 
@@ -138,8 +138,8 @@ Cette vue retourne toutes les données du Magasin des requêtes. Il existe une l
 | `sum_select_full_join` | bigint(20)| Non| Nombre de jointures complètes|
 | `sum_select_scan` | bigint(20)| Non| Nombre d’analyses sélectionnées |
 | `sum_sort_rows` | bigint(20)| Non| Nombre de lignes triées|
-| `sum_no_index_used` | bigint(20)| Non| Nombre de fois que la requête n’a pas utilisé tous les index|
-| `sum_no_good_index_used` | bigint(20)| Non| Nombre de fois que le moteur d’exécution de la requête n’a pas utilisé les index appropriés|
+| `sum_no_index_used` | bigint(20)| Non| Nombre de fois où la requête n’a pas utilisé tous les index|
+| `sum_no_good_index_used` | bigint(20)| Non| Nombre de fois où le moteur d’exécution de requêtes n’a pas utilisé d’index appropriés|
 | `sum_created_tmp_tables` | bigint(20)| Non| Nombre total de tables temporaires créées|
 | `sum_created_tmp_disk_tables` | bigint(20)| Non| Nombre total de tables temporaires créées dans le disque (génère des E/S)|
 | `first_seen` | timestamp| Non| La première occurrence (UTC) de la requête au cours de la période d’agrégation|
@@ -171,7 +171,7 @@ Cette vue retourne les données des événements d’attente du Magasin des requ
 
 ## <a name="limitations-and-known-issues"></a>Limitations et problèmes connus
 
-- Si le paramètre `default_transaction_read_only` est activé sur un serveur MariaDB, le magasin de données des requêtes ne peut pas capturer les données.
+- Si le paramètre `default_transaction_read_only` est activé sur un serveur MariaDB, le Magasin des requêtes ne peut pas capturer de données.
 - La fonctionnalité Magasin de données des requêtes peut être interrompue si elle rencontre des requêtes Unicode longues (\>= 6 000 octets).
 - La période de rétention pour les statistiques d’attente est de 24 heures.
 - Les statistiques d’attente utilisent des exemples pour capturer une fraction d’événements. La fréquence peut être modifiée à l’aide du paramètre `query_store_wait_sampling_frequency`.

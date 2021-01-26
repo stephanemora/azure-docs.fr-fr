@@ -3,12 +3,12 @@ title: Prendre en charge la matrice de récupération d’urgence VMware/physiqu
 description: Résume la prise en charge de la récupération d’urgence des machines virtuelles et des serveurs physiques VMware sur Azure en utilisant Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: 6cc67a6af9e11e5667479eadfe277d400c2d4947
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 4bf0227cf11b21d7cde2807d465385bfc2b998b5
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492214"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573052"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matrice de prise en charge de la reprise d’activité des machines virtuelles VMware et serveurs physiques sur Azure
 
@@ -57,6 +57,9 @@ IIS | Assurez-vous d’effectuer les tâches suivantes :<br/><br/> - Vérifier l
 Type de carte réseau | VMXNET3 (en cas de déploiement comme machine virtuelle VMware)
 Type d’adresse IP | statique
 Ports | 443 utilisé pour l’orchestration du canal de contrôle<br/>9443 utilisé pour le transport de données
+
+> [!NOTE]
+Le système d’exploitation doit être installé avec les paramètres régionaux anglais. La conversion de paramètres régionaux après l’installation peut entraîner des problèmes.
 
 ## <a name="replicated-machines"></a>Machines répliquées
 
@@ -231,6 +234,7 @@ Disque invité/serveur avec une taille de secteur logique de 4 K et une taille d
 Volume invité/serveur avec disque à bandes > 4 To | Oui
 Gestion des volumes logiques (LVM)| Allocation statique : oui <br></br> Allocation dynamique : non
 Invité/serveur - Espaces de stockage | Non
+Invité/serveur – Interface NVMe | Non
 Ajout/retrait à chaud de disque d’Invité/de serveur | Non
 Invité/serveur - Exclure le disque | Oui
 Multipath invité/serveur (MPIO) | Non

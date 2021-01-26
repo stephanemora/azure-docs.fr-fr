@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 10/11/2020
 ms.author: raynew
-ms.openlocfilehash: 4da707ab698599c8ea5dd8e1ea8647f543eb2a68
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 00b220e07dc3fa7580100d6d36108c14fe598d40
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95524247"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98572185"
 ---
 # <a name="support-for-moving-azure-vms-between-azure-regions"></a>Matrice de prise en charge pour le déplacement des machines virtuelles Azure entre différentes régions Azure
 
@@ -113,7 +113,7 @@ Extensions | Non pris en charge | Les extensions ne sont pas copiées sur la mac
 
 ## <a name="supported-vm-storage-settings"></a>Paramètres de stockage des machines virtuelles pris en charge
 
-Ce tableau récapitule la prise en charge du disque du système d’exploitation, du disque de données et du disque temporaire de la machine virtuelle Azure. Il est important d’observer les limites des disques de machine virtuelle et les cibles des machines virtuelles [Linux](../virtual-machines/linux/disk-scalability-targets.md) et [Windows](../virtual-machines/windows/disk-scalability-targets.md) pour éviter tout problème de performances.
+Ce tableau récapitule la prise en charge du disque du système d’exploitation, du disque de données et du disque temporaire de la machine virtuelle Azure. Il est important d’observer les limites et les cibles des [disques managés](../virtual-machines/disks-scalability-targets.md) pour éviter tout problème de performances.
 
 > [!NOTE]
 > La taille de la machine virtuelle cible doit être supérieure ou égale à celle de la machine virtuelle source. Les paramètres utilisés pour la validation sont les suivants : Nombre de disques de données, Nombre de cartes réseau, Processeurs disponibles, Mémoire en Go. Si ce n'est pas le cas, une erreur est émise.

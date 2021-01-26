@@ -3,14 +3,14 @@ title: Fonctionnalités de rendu
 description: Les fonctionnalités Standard d’Azure Batch sont utilisées pour exécuter des applications et des charges de travail de rendu. Batch inclut des fonctionnalités spécifiques qui prennent en charge les charges de travail de rendu.
 author: mscurrell
 ms.author: markscu
-ms.date: 08/02/2018
+ms.date: 01/14/2021
 ms.topic: how-to
-ms.openlocfilehash: 77a6ec54495b394c597f6d6b4ddb5f5fe3285550
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: d9d196897800467fd02397bb774af0bbb9ebabf0
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107468"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234271"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Fonctionnalités de rendu Azure Batch
 
@@ -18,7 +18,15 @@ Les fonctionnalités standard d’Azure Batch sont utilisées pour exécuter des
 
 Pour une présentation des concepts Batch, tels que les pools, les travaux et les tâches, consultez [cet article](./batch-service-workflow-features.md).
 
-## <a name="batch-pools"></a>Pools Batch
+## <a name="batch-pools-using-custom-vm-images-and-standard-application-licensing"></a>Pools Batch utilisant des images de machines virtuelles personnalisées et des licences d’application standard
+
+Comme pour les autres charges de travail et types d’application, une image de machine virtuelle personnalisée peut être créée avec les applications de rendu et les plug-ins requis. L’image de machine virtuelle personnalisée est placée dans la [Galerie d’images partagées](../virtual-machines/shared-image-galleries.md) et [peut être utilisée pour créer des pools Batch](batch-sig-images.md).
+
+Les chaînes de ligne de commande de la tâche devront référencer les applications et les chemins d’accès utilisés lors de la création de l’image de machine virtuelle personnalisée.
+
+La plupart des applications de rendu requièrent des licences obtenues auprès d’un serveur de licences. S’il existe déjà un serveur de licences local, le pool et le serveur de licences doivent se trouver sur le même [réseau virtuel](../virtual-network/virtual-networks-overview.md). Il est également possible d’exécuter un serveur de licences sur une machine virtuelle Azure, le pool Batch et la machine virtuelle du serveur de licences figurant sur le même réseau virtuel.
+
+## <a name="batch-pools-using-rendering-vm-images"></a>Pools Batch utilisant des images de machines virtuelles de rendu
 
 ### <a name="rendering-application-installation"></a>Installation de l’application de rendu
 
@@ -71,13 +79,13 @@ Ligne de commande Arnold 2017|kick.exe|ARNOLD_2017_EXEC|
 |Ligne de commande Arnold 2018|kick.exe|ARNOLD_2018_EXEC|
 |Blender|blender.exe|BLENDER_2018_EXEC|
 
-### <a name="azure-vm-families"></a>Familles de machines virtuelles Azure
+## <a name="azure-vm-families"></a>Familles de machines virtuelles Azure
 
 Comme pour les autres charges de travail, les exigences système des applications de rendu varient, et les exigences de performances varient selon les travaux et les projets.  De nombreuses familles de machines virtuelles sont disponibles dans Azure, selon vos besoins : faible coût, meilleur rapport prix/performances, meilleures performances, etc.
 Certaines applications de rendu, telles qu’Arnold, sont basées sur le processeur. D’autres, telles que V-Ray et Blender Cycles, peuvent utiliser des UC et/ou des GPU.
 Pour obtenir la description des familles de machines virtuelles disponibles et de la taille des machines virtuelles, consultez [Types et tailles des machines virtuelles](../virtual-machines/sizes.md).
 
-### <a name="low-priority-vms"></a>Machines virtuelles de faible priorité
+## <a name="low-priority-vms"></a>Machines virtuelles de faible priorité
 
 Comme avec les autres charges de travail, les machines virtuelles de faible priorité peuvent être utilisées dans des pools Batch pour le rendu.  Les machines virtuelles de faible priorité fonctionnent comme des machines virtuelles dédiées normales, à la différence qu’elles utilisent la capacité Azure excédentaire et peuvent faire l’objet d’une remise importante.  La contrepartie à l’utilisation de machines virtuelles de faible priorité est que ces machines virtuelles risquent de ne pas pouvoir être réaffectées ou d’être reportées à tout moment, selon la capacité disponible. Pour cette raison, les machines virtuelles de faible priorité ne sont pas adaptées à tous les travaux de rendu. Par exemple, si des images mettent plusieurs heures à s’afficher, il est évidemment inacceptable d’interrompre et de redémarrer le rendu de ces images en raison de machines virtuelles anticipées.
 

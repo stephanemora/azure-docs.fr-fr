@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 05/27/2020
-ms.openlocfilehash: f8a4f29114f7e0a2ed7868f01e05e25c8a0d0ce1
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 9bdf907ede2c09f7e314df619cd81059956f17dc
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96752224"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567745"
 ---
 # <a name="server-assessment-overview-migrate-to-azure-vms"></a>Vue d’ensemble de l’évaluation du serveur (migrer vers des machines virtuelles Azure)
 
@@ -268,8 +268,14 @@ Ce tableau indique les niveaux de confiance des évaluations, qui dépendent du 
 Voici quelques raisons pour lesquelles une évaluation peut avoir un niveau de confiance faible :
 
 - Vous n’avez pas profilé votre environnement pendant la durée pour laquelle vous créez l’évaluation. Par exemple, si vous créez l’évaluation avec une durée des performances définie sur un jour, vous devez attendre au moins un jour après le démarrage de la découverte pour que tous les points de données soient collectés.
-- Certaines machines virtuelles étaient arrêtées pendant la période de calcul de l’évaluation. Si des machines virtuelles sont désactivées pendant une certaine durée, Server Assessment ne peut pas collecter les données de performances pour cette période.
-- Certaines machines virtuelles ont été créées pendant la période de calcul de l’évaluation. Par exemple, supposons que vous avez créé une évaluation de l’historique des performances du dernier mois, mais que certaines machines virtuelles ont été créées il y a seulement une semaine. L’historique des performances des nouvelles machines virtuelles n’existera pas pour toute la durée.
+- L’évaluation ne parvient pas à collecter les données de performances d’une partie ou de la totalité des machines virtuelles pendant la période d’évaluation. Pour obtenir un niveau de confiance élevé, vérifiez les éléments suivants : 
+    - Les machines virtuelles sont sous tension pendant toute la durée de l’évaluation.
+    - Les connexions sortantes sont autorisées sur le port 443.
+    - Pour les machines virtuelles Hyper-V, la Mémoire dynamique est activée. 
+    
+    « Recalculez » l’évaluation pour qu’elle reflète l’évolution récente de la note de confiance.
+
+- Certaines machines virtuelles ont été créées pendant la période de calcul de l’évaluation. Par exemple, supposons que vous avez créé une évaluation de l’historique des performances du dernier mois, mais que certaines machines virtuelles ont été créées il y a seulement une semaine. Dans ce cas, les données de performances pour les nouvelles machines virtuelles ne seront pas disponibles pour toute la durée et la note de confiance sera faible.
 
 > [!NOTE]
 > Si le niveau de confiance d’une évaluation est inférieur à cinq étoiles, nous vous recommandons d’attendre au moins un jour pour que l’appliance profile l’environnement, puis de recalculer l’évaluation. Dans le cas contraire, le dimensionnement basé sur les performances peut ne pas être fiable. Dans ce cas, nous vous recommandons de faire passer l’évaluation au dimensionnement local.

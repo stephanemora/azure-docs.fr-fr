@@ -7,15 +7,15 @@ author: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.date: 01/12/2021
+ms.date: 01/13/2021
 ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: 55c4fa00cfd20a83e65a3d57c6020991734f9d9f
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: e3cfede444b65ee6990afd006d3b174d65f9cfad
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132475"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179161"
 ---
 # <a name="security-recommendations-for-blob-storage"></a>Recommandations de sécurité pour Stockage Blob
 
@@ -35,7 +35,7 @@ Azure Security Center analyse périodiquement l’état de sécurité de vos res
 | Activer la suppression réversible des conteneurs | La suppression réversible des conteneurs vous permet de récupérer un conteneur après qu’il a été supprimé. Pour plus d’informations sur la suppression réversible des conteneurs, consultez [Suppression réversible des conteneurs (préversion)](./soft-delete-container-overview.md). | - |
 | Verrouiller le compte de stockage pour empêcher toute suppression de compte accidentelle | Vous pouvez verrouiller une ressource Azure Resource Manager, telle qu’un abonnement, un groupe de ressources ou un compte de stockage, pour empêcher d’autres utilisateurs de votre organisation de la supprimer ou la modifier accidentellement. Le verrouillage d’un compte de stockage n’empêche pas la suppression des données contenues dans ce compte. Il empêche uniquement la suppression du compte à proprement parler. Pour plus d’informations, consultez [Verrouiller les ressources pour empêcher les modifications inattendues](../../azure-resource-manager/management/lock-resources.md).
 | Stocker les données critiques pour l’entreprise dans des objets blob immuables | Configurez des stratégies de conservation légales et basées sur la durée pour stocker des données d’objets blob dans un état WORM (Write Once, Read Many). Les objets blob stockés de façon immuable peuvent être lus, mais ils ne peuvent pas être modifiés ou supprimés pendant la durée de l’intervalle de conservation. Pour plus d’informations, consultez [Stocker des données blob critiques pour l’entreprise avec un stockage immuable](storage-blob-immutable-storage.md). | - |
-| Exiger un transfert sécurisé (HTTPS) vers le compte de stockage | ??? | - |
+| Exiger un transfert sécurisé (HTTPS) vers le compte de stockage | Quand vous avez besoin d’un transfert sécurisé pour un compte de stockage, toutes les demandes adressées au compte de stockage doivent être effectuées via le protocole HTTPS. Toutes les demandes effectuées via le protocole HTTP sont rejetées. Microsoft vous recommande de toujours exiger un transfert sécurisé pour tous vos comptes de stockage. Pour plus d’informations, voir [Exiger un transfert sécurisé pour garantir des connexions sécurisées](../common/storage-require-secure-transfer.md). | - |
 | Limiter les jetons de signature d’accès partagé (SAS) aux seules connexions HTTPS | Le fait d’exiger HTTPS quand un client utilise un jeton SAS pour accéder à des données d’objet blob permet de réduire le risque d’écoute. Pour plus d’informations, consultez [Accorder un accès limité aux ressources du Stockage Azure à l’aide des signatures d’accès partagé (SAS)](../common/storage-sas-overview.md). | - |
 
 ## <a name="identity-and-access-management"></a>Gestion de l’identité et de l’accès

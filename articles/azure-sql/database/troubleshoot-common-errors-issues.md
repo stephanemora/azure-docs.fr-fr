@@ -9,13 +9,13 @@ ms.custom: seo-lt-2019, OKR 11/2019, sqldbrb=1
 author: ramakoni1
 ms.author: ramakoni
 ms.reviewer: sstein,vanto
-ms.date: 01/14/2020
-ms.openlocfilehash: bcf11ef9b64a02383aad5175c19c5db58c3c39cf
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 01/14/2021
+ms.openlocfilehash: ec61f2c67576d6e144d8d4bb7e8ecaaa157db0a9
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791339"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233370"
 ---
 # <a name="troubleshooting-connectivity-issues-and-other-errors-with-azure-sql-database-and-azure-sql-managed-instance"></a>Résolution des problèmes de connectivité et autres erreurs avec Azure SQL Database et Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -24,7 +24,7 @@ En cas d’échec de la connexion à Azure SQL Database ou Azure SQL Managed Ins
 
 ## <a name="transient-fault-error-messages-40197-40613-and-others"></a>Messages d’erreur pour les erreurs temporaires (40197, 40613 et autres)
 
-L’infrastructure Azure a la capacité de reconfigurer dynamiquement les serveurs quand des charges de travail importantes sont à traiter dans le service SQL Database.  Ce comportement dynamique peut entraîner la perte par votre programme client de sa connexion à la base de données ou à l’instance. Ce type d’erreur état est connu sous le nom d’ *erreur temporaire* . Les événements de reconfiguration de la base de données sont liés à un événement planifié (par exemple, une mise à niveau logicielle) ou à un événement non planifié (par exemple, un arrêt de processus ou un équilibrage de charge). La plupart des événements de reconfiguration sont généralement de courte durée et se terminent en l’espace de 60 secondes maximum. Cependant, ces événements peuvent parfois prendre plus de temps, par exemple lorsqu’une transaction volumineuse entraîne une récupération de longue durée. Le tableau suivant liste les différentes erreurs temporaires que les applications peuvent recevoir lors de la connexion à SQL Database
+L’infrastructure Azure a la capacité de reconfigurer dynamiquement les serveurs quand des charges de travail importantes sont à traiter dans le service SQL Database.  Ce comportement dynamique peut entraîner la perte par votre programme client de sa connexion à la base de données ou à l’instance. Ce type d’erreur état est connu sous le nom d’ *erreur temporaire*. Les événements de reconfiguration de la base de données sont liés à un événement planifié (par exemple, une mise à niveau logicielle) ou à un événement non planifié (par exemple, un arrêt de processus ou un équilibrage de charge). La plupart des événements de reconfiguration sont généralement de courte durée et se terminent en l’espace de 60 secondes maximum. Cependant, ces événements peuvent parfois prendre plus de temps, par exemple lorsqu’une transaction volumineuse entraîne une récupération de longue durée. Le tableau suivant liste les différentes erreurs temporaires que les applications peuvent recevoir lors de la connexion à SQL Database
 
 ### <a name="list-of-transient-fault-error-codes"></a>Liste de codes d’erreur pour les erreurs temporaires
 
@@ -104,49 +104,46 @@ Pour résoudre ce problème, contactez votre administrateur de service afin d’
 En règle générale, l’administrateur de service peut utiliser les étapes suivantes pour ajouter les informations d’identification de connexion :
 
 1. Connectez-vous au serveur à l’aide de SQL Server Management Studio (SSMS).
-2. Exécutez la requête SQL suivante pour vérifier que le nom de connexion est bien désactivé :
+2. Exécutez la requête SQL suivante pour vérifier que le nom de connexion est bien désactivé dans la base de données master :
 
    ```sql
-   SELECT name, is_disabled FROM sys.sql_logins
+   SELECT name, is_disabled FROM sys.sql_logins;
    ```
 
 3. Si le nom correspondant est désactivé, activez-le à l’aide de l’instruction suivante :
 
    ```sql
-   Alter login <User name> enable
+   ALTER LOGIN <User name> ENABLE;
    ```
 
-4. Si le nom d’utilisateur de connexion SQL n’existe pas, créez-le en procédant comme suit :
-
-   1. Dans SSMS, double-cliquez sur **Sécurité** pour le développer.
-   2. Cliquez avec le bouton droit sur **Connexions** , puis sélectionnez **Nouvelle connexion** .
-   3. Dans le script généré avec des espaces réservés, modifiez et exécutez la requête SQL suivante :
+4. Si le nom d’utilisateur de la connexion SQL n’existe pas, modifiez et exécutez la requête SQL suivante pour créer une connexion SQL :
 
    ```sql
    CREATE LOGIN <SQL_login_name, sysname, login_name>
-   WITH PASSWORD = ‘<password, sysname, Change_Password>’
+   WITH PASSWORD = '<password, sysname, Change_Password>';
    GO
    ```
 
-5. Double-cliquez sur **Base de données** .
+5. Dans l’Explorateur d’objets SSMS, développez **Bases de données**.
 6. Sélectionnez la base de données dont vous souhaitez autoriser l’accès.
-7. Double-cliquez sur **Sécurité** .
-8. Cliquez avec le bouton droit sur **Utilisateurs** , puis sélectionnez **Nouvel utilisateur** .
-9. Dans le script généré avec des espaces réservés, modifiez et exécutez la requête SQL suivante :
+7. Cliquez avec le bouton droit sur **Sécurité**, puis sélectionnez **Nouveau**, **Utilisateur**.
+8. Dans le script généré avec des espaces réservés, modifiez et exécutez la requête SQL suivante :
 
    ```sql
    CREATE USER <user_name, sysname, user_name>
    FOR LOGIN <login_name, sysname, login_name>
-   WITH DEFAULT_SCHEMA = <default_schema, sysname, dbo>
+   WITH DEFAULT_SCHEMA = <default_schema, sysname, dbo>;
    GO
-   -- Add user to the database owner role
 
-   EXEC sp_addrolemember N’db_owner’, N’<user_name, sysname, user_name>’
+   -- Add user to the database owner role
+   EXEC sp_addrolemember N'db_owner', N'<user_name, sysname, user_name>';
    GO
    ```
 
+   Vous pouvez également utiliser `sp_addrolemember` pour mapper des utilisateurs spécifiques à des rôles de base de données spécifiques.
+
    > [!NOTE]
-   > Vous pouvez également utiliser `sp_addrolemember` pour mapper des utilisateurs spécifiques à des rôles de base de données spécifiques.
+   > Dans Azure SQL Database, utilisez la dernière syntaxe [ALTER ROLE](/sql/t-sql/statements/alter-role-transact-sql) pour la gestion de l’appartenance au rôle de base de données.  
 
 Pour en savoir plus, consultez [Gestion des bases de données et des connexions dans Azure SQL Database](./logins-create-manage.md).
 
@@ -183,22 +180,23 @@ Pour contourner ce problème, essayez d’appliquer l’une des méthodes suivan
 - Vérifiez s’il existe des requêtes de longue durée.
 
   > [!NOTE]
-  > Il s’agit d’une approche minimaliste. Elle risque de ne pas suffire pour résoudre le problème.
+  > Il s’agit d’une approche minimaliste. Elle risque de ne pas suffire pour résoudre le problème. Pour obtenir des informations plus complètes sur la résolution des problèmes liés aux requêtes à long terme ou de blocage, consultez [Comprendre et résoudre les problèmes de blocage d’Azure SQL Database](understand-resolve-blocking.md).
 
 1. Exécutez la requête SQL suivante pour vérifier la vue [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql), afin de voir toutes les requêtes bloquantes :
 
    ```sql
-   SELECT * FROM dm_exec_requests
+   SELECT * FROM sys.dm_exec_requests;
    ```
 
-2. Déterminez la **mémoire tampon d’entrée** pour le bloqueur d’en-tête.
-3. Paramétrez la requête du bloqueur d’en-tête.
+1. Déterminez la **mémoire tampon d’entrée** pour le bloqueur d’en-tête à l’aide de la fonction de gestion dynamique [sys.dm_exec_input_buffer](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-input-buffer-transact-sql) et de la valeur session_id de la requête incriminée, par exemple :
 
-   Pour obtenir une procédure de dépannage détaillée, consultez [Is my query running fine in the cloud?](/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud) (Ma requête s’exécute-t-elle correctement dans le cloud ?).
+   ```sql 
+   SELECT * FROM sys.dm_exec_input_buffer (100,0);
+   ```
 
-Si la base de données atteint constamment sa limite malgré la résolution des problèmes liés aux requêtes longues et bloquantes, effectuez une mise à niveau vers une édition disposant de davantage de ressources ([Editions](https://azure.microsoft.com/pricing/details/sql-database/)).
+1. Paramétrez la requête du bloqueur d’en-tête.
 
-Pour plus d’informations sur les vues de gestion dynamique, veuillez consulter la page [Vues de gestion dynamique système](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views).
+Si la base de données atteint constamment sa limite malgré la résolution des problèmes liés aux requêtes longues et bloquantes, effectuez une mise à niveau vers une édition disposant de davantage de ressources [Editions](https://azure.microsoft.com/pricing/details/sql-database/).
 
 Pour plus d’informations sur les limites de base de données, consultez [Limites de ressources SQL Database des serveurs](./resource-limits-logical-server.md).
 
@@ -234,7 +232,7 @@ La procédure suivante peut vous aider à contourner le problème ou vous fourni
    FROM sys.objects o
    JOIN sys.dm_db_partition_stats p on p.object_id = o.object_id
    GROUP BY o.name
-   ORDER BY [Table Size (MB)] DESC
+   ORDER BY [Table Size (MB)] DESC;
    ```
 
 2. Si la taille actuelle ne dépasse pas la taille maximale prise en charge pour votre édition, vous pouvez utiliser ALTER DATABASE pour augmenter le paramètre MAXSIZE.
@@ -253,15 +251,21 @@ Si cette erreur survient à plusieurs reprises, vous pouvez essayer de la résou
 1. Consultez la vue sys.dm_exec_requests pour voir toutes les sessions ouvertes qui ont une valeur élevée pour la colonne total_elapsed_time. Cette vérification s’effectue en exécutant le script SQL suivant :
 
    ```sql
-   SELECT * FROM dm_exec_requests
+   SELECT * FROM sys.dm_exec_requests;
    ```
 
-2. Déterminez la mémoire tampon d’entrée pour la longue requête.
+2. Déterminez la **mémoire tampon d’entrée** pour le bloqueur d’en-tête à l’aide de la fonction de gestion dynamique [sys.dm_exec_input_buffer](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-input-buffer-transact-sql) et de la valeur session_id de la requête incriminée, par exemple :
+
+   ```sql 
+   SELECT * FROM sys.dm_exec_input_buffer (100,0);
+   ```
+
 3. Ajustez la requête.
 
-Vous pouvez également traiter vos requêtes par lot. Pour plus d’informations sur le traitement par lot, consultez [Comment utiliser le traitement par lot pour améliorer les performances des applications de base de données SQL](../performance-improve-use-batching.md).
+    > [!Note]
+    > Pour plus d’informations sur la résolution des problèmes de blocage dans Azure SQL Database, consultez [Comprendre et résoudre les problèmes de blocage d’Azure SQL Database](understand-resolve-blocking.md).
 
-Pour obtenir une procédure de dépannage détaillée, consultez [Is my query running fine in the cloud?](/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud) (Ma requête s’exécute-t-elle correctement dans le cloud ?).
+Vous pouvez également traiter vos requêtes par lot. Pour plus d’informations sur le traitement par lot, consultez [Comment utiliser le traitement par lot pour améliorer les performances des applications de base de données SQL](../performance-improve-use-batching.md).
 
 ### <a name="error-40551-the-session-has-been-terminated-because-of-excessive-tempdb-usage"></a>Erreur 40551 : La session a été arrêtée en raison d’une utilisation excessive de TEMPDB
 
@@ -299,7 +303,7 @@ Pour obtenir une procédure de dépannage détaillée, consultez [Is my query ru
 | Code d'erreur | severity | Description |
 | ---:| ---:|:--- |
 | 10928 |20 |ID de la ressource : %d. %d, la limite %s de la base de données a été atteinte. Pour en savoir plus, consultez [Limites de ressources de SQL Database pour les bases de données uniques et mises en pool](resource-limits-logical-server.md).<br/><br/>L’ID de ressource indique la ressource qui a atteint la limite. Pour les threads de travail, ID de la ressource = 1. Pour les sessions, l’ID de ressource = 2.<br/><br/>Pour en savoir plus sur cette erreur et sa résolution, consultez : <br/>&bull;&nbsp;[Limites de ressources du serveur SQL logique](resource-limits-logical-server.md)<br/>&bull; &nbsp;[Limites de DTU pour les bases de données uniques](service-tiers-dtu.md)<br/>&bull; &nbsp;[Limites de DTU pour les pools élastiques](resource-limits-dtu-elastic-pools.md)<br/>&bull; &nbsp;[Limites de vCores pour les bases de données uniques](resource-limits-vcore-single-databases.md)<br/>&bull; &nbsp;[Limites de vCores pour les pools élastiques](resource-limits-vcore-elastic-pools.md)<br/>&bull;&nbsp;[Limites des ressources d’Azure SQL Managed Instance](../managed-instance/resource-limits.md). |
-| 10929 |20 |ID de la ressource : %d. La garantie minimale de %s est %d ; la limite maximale est de %d et le taux d’utilisation actuel de la base de données est de %d. Toutefois, le serveur est trop occupé pour prendre en charge les requêtes supérieures à %d pour cette base de données. L’ID de ressource indique la ressource qui a atteint la limite. Pour les threads de travail, ID de la ressource = 1. Pour les sessions, l’ID de ressource = 2. Pour plus d'informations, consultez les pages suivantes : <br/>&bull;&nbsp;[Limites de ressources du serveur SQL logique](resource-limits-logical-server.md)<br/>&bull; &nbsp;[Limites de DTU pour les bases de données uniques](service-tiers-dtu.md)<br/>&bull; &nbsp;[Limites de DTU pour les pools élastiques](resource-limits-dtu-elastic-pools.md)<br/>&bull; &nbsp;[Limites de vCores pour les bases de données uniques](resource-limits-vcore-single-databases.md)<br/>&bull; &nbsp;[Limites de vCores pour les pools élastiques](resource-limits-vcore-elastic-pools.md)<br/>&bull;&nbsp;[Limites des ressources d’Azure SQL Managed Instance](../managed-instance/resource-limits.md). <br/>Sinon, veuillez réessayer ultérieurement. |
+| 10929 |20 |ID de la ressource : %d. La garantie minimale de %s est %d ; la limite maximale est de %d et le taux d’utilisation actuel de la base de données est de %d. Toutefois, le serveur est trop occupé pour prendre en charge les requêtes supérieures à %d pour cette base de données. L’ID de ressource indique la ressource qui a atteint la limite. Pour les threads de travail, ID de la ressource = 1. Pour les sessions, l’ID de ressource = 2. Pour plus d'informations, consultez les pages suivantes : <br/>&bull;&nbsp;[Limites de ressources du serveur SQL logique](resource-limits-logical-server.md)<br/>&bull; &nbsp;[Limites de DTU pour les bases de données uniques](service-tiers-dtu.md)<br/>&bull; &nbsp;[Limites de DTU pour les pools élastiques](resource-limits-dtu-elastic-pools.md)<br/>&bull; &nbsp;[Limites de vCores pour les bases de données uniques](resource-limits-vcore-single-databases.md)<br/>&bull; &nbsp;[Limites de vCores pour les pools élastiques](resource-limits-vcore-elastic-pools.md)<br/>&bull;&nbsp;[Limites des ressources d’Azure SQL Managed Instance](../managed-instance/resource-limits.md). <br/>Sinon, réessayez plus tard. |
 | 40544 |20 |La base de données a atteint son quota de taille. Partitionnez ou supprimez des données, supprimez des index ou consultez la documentation pour connaître les résolutions possibles. Pour plus d’informations sur la mise à l’échelle des bases de données, consultez [Mettre à l’échelle des ressources de base de données unique](single-database-scale.md) et [Mettre à l’échelle des ressources de pool élastique](elastic-pool-scale.md).|
 | 40549 |16 |La session a pris fin, car elle contient une transaction à long terme. Essayez de diminuer la durée de la transaction. Pour plus d’informations sur le traitement par lot, consultez [Comment utiliser le traitement par lot pour améliorer les performances des applications de base de données SQL](../performance-improve-use-batching.md).|
 | 40550 |16 |La session a pris fin car elle a acquis trop de verrous. Essayez de lire ou de modifier moins de lignes au cours d'une transaction. Pour plus d’informations sur le traitement par lot, consultez [Comment utiliser le traitement par lot pour améliorer les performances des applications de base de données SQL](../performance-improve-use-batching.md).|
@@ -313,8 +317,8 @@ Les erreurs suivantes sont liées à la création et à l’utilisation de pools
 
 | Code d'erreur | severity | Description | Action corrective |
 |:--- |:--- |:--- |:--- |
-| 1132 | 17 |Le pool élastique a atteint sa limite de stockage. Le taux d’utilisation du stockage pour le pool élastique ne doit pas dépasser (%d) Mo. Tentative d’écriture de données dans une base de données alors que la limite de stockage du pool élastique a été atteinte. Pour plus d’informations sur les limites de ressources, consultez : <br/>&bull; &nbsp;[Limites de DTU pour les pools élastiques](resource-limits-dtu-elastic-pools.md)<br/>&bull; &nbsp;[Limites de vCores pour les pools élastiques](resource-limits-vcore-elastic-pools.md) <br/> |Envisagez si possible d’augmenter le nombre de DTU du pool élastique ou d’ajouter de la capacité de stockage à ce dernier afin d’accroître sa limite de stockage. Vous pouvez aussi réduire l’espace de stockage utilisé par les bases de données individuelles qu’il contient ou supprimer certaines de ses bases de données. Pour plus d’informations sur la mise à l’échelle d’un pool élastique, consultez [Mettre à l’échelle des ressources de pool élastique](elastic-pool-scale.md).|
-| 10929 | 16 |La garantie minimale de %s est %d ; la limite maximale est de %d et le taux d’utilisation actuel de la base de données est de %d. Toutefois, le serveur est trop occupé pour prendre en charge les requêtes supérieures à %d pour cette base de données. Pour plus d’informations sur les limites de ressources, consultez : <br/>&bull; &nbsp;[Limites de DTU pour les pools élastiques](resource-limits-dtu-elastic-pools.md)<br/>&bull; &nbsp;[Limites de vCores pour les pools élastiques](resource-limits-vcore-elastic-pools.md) <br/> Sinon, veuillez réessayer ultérieurement. Nombre minimal de DTU/vCore par base de données ; nombre maximal de DTU/vCore par base de données. Le nombre total d’ouvriers simultanés (demandes) dans toutes les bases de données du pool élastique a failli dépasser la limite du pool. |Envisagez si possible d’augmenter le nombre de DTU ou de vCore du pool élastique afin d’accroître sa limite de rôles de travail, ou supprimez des bases de données du pool élastique. |
+| 1132 | 17 |Le pool élastique a atteint sa limite de stockage. Le taux d’utilisation du stockage pour le pool élastique ne doit pas dépasser (%d) Mo. Tentative d’écriture de données dans une base de données alors que la limite de stockage du pool élastique a été atteinte. Pour plus d’informations sur les limites de ressources, consultez : <br/>&bull; &nbsp;[Limites de DTU pour les pools élastiques](resource-limits-dtu-elastic-pools.md)<br/>&bull; &nbsp;[Limites de vCores pour les pools élastiques](resource-limits-vcore-elastic-pools.md) <br/> |Envisagez si possible d’augmenter le nombre de DTU du pool élastique ou d’ajouter de la capacité de stockage à ce dernier afin d’accroître sa limite de stockage. Vous pouvez aussi réduire l’espace de stockage utilisé par les bases de données individuelles qu’il contient ou supprimer certaines de ses bases de données. Pour plus d’informations sur la mise à l’échelle d’un pool élastique, consultez [Mettre à l’échelle des ressources de pool élastique](elastic-pool-scale.md). Pour plus d’informations sur la suppression de l’espace inutilisé dans les bases de données, consultez [Gérer l'espace de fichier des bases de données dans Azure SQL Database](file-space-manage.md).|
+| 10929 | 16 |La garantie minimale de %s est %d ; la limite maximale est de %d et le taux d’utilisation actuel de la base de données est de %d. Toutefois, le serveur est trop occupé pour prendre en charge les requêtes supérieures à %d pour cette base de données. Pour plus d’informations sur les limites de ressources, consultez : <br/>&bull; &nbsp;[Limites de DTU pour les pools élastiques](resource-limits-dtu-elastic-pools.md)<br/>&bull; &nbsp;[Limites de vCores pour les pools élastiques](resource-limits-vcore-elastic-pools.md) <br/> Sinon, réessayez plus tard. Nombre minimal de DTU/vCore par base de données ; nombre maximal de DTU/vCore par base de données. Le nombre total d’ouvriers simultanés (demandes) dans toutes les bases de données du pool élastique a failli dépasser la limite du pool. |Envisagez si possible d’augmenter le nombre de DTU ou de vCore du pool élastique afin d’accroître sa limite de rôles de travail, ou supprimez des bases de données du pool élastique. |
 | 40844 | 16 |La base de données '%ls' sur le serveur '%ls' est une base de données présentant l’édition '%ls' dans un pool élastique. Elle ne peut pas présenter de relation de copie continue.  |N/A |
 | 40857 | 16 |Pool élastique introuvable pour le serveur : '%ls'. Nom du pool élastique: '%ls'. Le pool élastique spécifié n’existe pas sur le serveur spécifié. | Indiquez un nom de pool élastique valide. |
 | 40858 | 16 |Le pool élastique '%ls' existe déjà sur le serveur : '%ls'. Le pool élastique spécifié existe déjà sur le serveur spécifié. | Saisissez un nouveau nom pour le pool élastique. |
@@ -340,14 +344,14 @@ Ce problème se produit car le compte ne dispose pas de l’autorisation d’acc
 
 Pour résoudre ce problème, effectuez les étapes suivantes :
 
-1. Sur l’écran de connexion de SSMS, sélectionnez **Options** , puis **Propriétés de la connexion** .
-2. Dans le champ **Connexion à une base de données** , entrez le nom de la base de données par défaut de l’utilisateur comme base de données de connexion par défaut, puis sélectionnez **Se connecter** .
+1. Sur l’écran de connexion de SSMS, sélectionnez **Options**, puis **Propriétés de la connexion**.
+2. Dans le champ **Connexion à une base de données**, entrez le nom de la base de données par défaut de l’utilisateur comme base de données de connexion par défaut, puis sélectionnez **Se connecter**.
 
    ![Propriétés de connexion](./media/troubleshoot-common-errors-issues/cannot-open-database-master.png)
 
 ## <a name="confirm-whether-an-error-is-caused-by-a-connectivity-issue"></a>Vérifier si une erreur est due à un problème de connectivité
 
-Pour vérifier si une erreur est due à un problème de connectivité, consultez la trace de la pile pour les frames qui montrent des appels visant à ouvrir une connexion, comme les suivants (notez la référence à la classe **SqlConnection** ) :
+Pour vérifier si une erreur est due à un problème de connectivité, consultez la trace de la pile pour les frames qui montrent des appels visant à ouvrir une connexion, comme les suivants (notez la référence à la classe **SqlConnection**) :
 
 ```
 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
@@ -356,7 +360,7 @@ System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
 ClientConnectionId:<Client connection ID>
 ```
 
-Quand l’exception est déclenchée par des problèmes de requête, vous remarquerez une pile des appels semblable à la suivante (notez la référence à la classe **SqlCommand** ). Dans ce cas, [affinez vos requêtes](/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud).
+Quand l’exception est déclenchée par des problèmes de requête, vous remarquerez une pile des appels semblable à la suivante (notez la référence à la classe **SqlCommand**). Dans ce cas, [affinez vos requêtes](/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud).
 
 ```
   at System.Data.SqlClient.SqlCommand.ExecuteReader()

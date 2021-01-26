@@ -3,12 +3,12 @@ title: Analyse de l’usage avec Azure Application Insights | Microsoft Docs
 description: Comprenez vos utilisateurs et ce qu’ils font avec votre application.
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 4f4954451bfa195b07c580ffa451b8cb333eb32c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 633d35ec16f5eb9de664421c38cd4c824dc240cf
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90532101"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233846"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Analyse de l'utilisation avec Application Insights
 
@@ -65,7 +65,7 @@ Aperçu des modèles intéressants appropriés dans le jeu de données.
 
 ## <a name="retention---how-many-users-come-back"></a>Rétention - Combien d’utilisateurs reviennent ?
 
-La rétention vous permet de comprendre la fréquence à laquelle vos utilisateurs reviennent utiliser leur application, en fonction des cohortes d’utilisateurs qui ont effectué une action pendant une période donnée. 
+La rétention vous permet de comprendre la fréquence à laquelle vos utilisateurs reviennent utiliser leur application, en fonction des cohortes d’utilisateurs qui ont effectué une action pendant une période donnée. 
 
 - Comprendre quelles fonctionnalités spécifiques font revenir les utilisateurs plus que d’autres 
 - Formuler des hypothèses en fonction des données utilisateur réel 
@@ -79,7 +79,9 @@ Les commandes de rétention en haut vous permettent de définir des événements
 
 ## <a name="custom-business-events"></a>Événements personnalisés
 
-Pour bien comprendre ce que font les utilisateurs avec votre application, il est utile d’insérer des lignes de code pour enregistrer des événements personnalisés. Ces événements permettent de suivre toute activité, des actions détaillées des utilisateurs comme un clic sur un bouton, aux événements plus significatifs comme un de faire un achat ou de gagner à un jeu. 
+Pour bien comprendre ce que font les utilisateurs avec votre application, il est utile d’insérer des lignes de code pour enregistrer des événements personnalisés. Ces événements permettent de suivre toute activité, des actions détaillées des utilisateurs comme un clic sur un bouton, aux événements plus significatifs comme un de faire un achat ou de gagner à un jeu.
+
+Vous pouvez également utiliser le [plug-in Collecte automatique de l’analytique de clics](javascript-click-analytics-plugin.md) pour collecter des événements personnalisés.
 
 Bien que les pages consultées puissent représenter des événements utiles, cela n’est en général pas le cas. Un utilisateur peut ouvrir une page produit sans acheter le produit. 
 

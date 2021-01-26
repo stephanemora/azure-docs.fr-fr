@@ -13,16 +13,20 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
-ms.openlocfilehash: 91e5ca10e97e8fc1646367ac6d575d6813f3a291
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 81b7efdd6bca0471719c11d130be95405f4d54e1
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87079857"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98210186"
 ---
 # <a name="support-for-32-bit-operating-systems-in-azure-virtual-machines"></a>Prise en charge pour les systèmes d’exploitation 32 bits sur des machines virtuelles Azure
 
 Désormais, Microsoft Azure permet aux utilisateurs de déployer leurs propres systèmes d’exploitation Windows 32 bits sur Azure. Seuls les disques durs virtuels spécialisés sont pris en charge ; les images généralisées ne fonctionnent pas dans Azure. Le contrat de support est arrivé à expiration pour certains de ces systèmes d’exploitation. Aussi, il se peut que Microsoft n’offre plus de support pour ces systèmes. De même, aucun support n’est proposé pour les systèmes d’exploitation Linux ou BSD (Berkeley Software Distribution) exécutés sur une machine virtuelle Microsoft Azure.
+
+> [!NOTE]
+> La plateforme Azure impose une limite d’espace d’adressage de mémoire aux machines virtuelles exécutant des systèmes d’exploitation 32 bits, où seulement 1 Go de mémoire peut être disponible pour la machine virtuelle (*en particulier sur des références (SKU) de client telles que Win7 ou Win10*), et le reste de la mémoire pour la machine virtuelle apparaît comme étant réservé dans la machine virtuelle invitée. Il s’agit d’un problème connu pour le correctif duquel nous n’avons actuellement pas d’ETA. Nous vous recommandons de passer aux versions 64 bits du système d’exploitation.
+> 
 
 ## <a name="more-information"></a>Informations complémentaires
 

@@ -10,13 +10,13 @@ ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 10/15/2020
-ms.openlocfilehash: 4ffe663c1a1651891af5f6e65ee231cbe3e8d650
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.date: 01/15/2021
+ms.openlocfilehash: db3b168826223e4eb958f7700e65623a115e5779
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97882300"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251469"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Limites de ressources pour des bases de données uniques suivant le modèle d’achat vCore
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -232,6 +232,38 @@ Le [niveau de calcul serverless](serverless-tier-overview.md) est actuellement d
 **Remarque 2** : La latence est de 1 ms ou 2 ms pour les données du disque SSD de réplica
 de calcul local, qui met en cache la plupart des pages de données utilisées. Elle est plus élevée pour les données récupérées à partir des serveurs de pages.
 
+## <a name="hyperscale---provisioned-compute---dc-series"></a>Hyperscale – Calcul approvisionné – Série DC
+
+|Taille de calcul (objectif de service)|HS_DC_2|HS_DC_4|HS_DC_6|HS_DC_8|
+|:--- | --: |--: |--: |--: |---: | 
+|Génération de calcul|Série DC|Série DC|Série DC|Série DC|
+|vCores|2|4|6|8|
+|Mémoire (Go)|9|18|27|36|
+|Taille [RBPEX](service-tier-hyperscale.md#compute)|3X mémoire|3X mémoire|3X mémoire|3X mémoire|
+|Prise en charge de ColumnStore|Oui|Oui|Oui|Oui|
+|Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|
+|Taille maximale des données (To)|100 |100 |100 |100 |
+|Taille maximale du journal (To)|Illimité |Illimité |Illimité |Illimité |
+|Taille maximale des données TempDB (Go)|64|128|192|256|
+|Type de stockage| [Remarque 1](#notes) |[Remarque 1](#notes)|[Remarque 1](#notes) |[Remarque 1](#notes) |
+|Nbre max. d’IOPS de disque SSD local*|8000 |16000 |24 000 |32000 |
+|Taux de journalisation maximal (Mbits/s)|100 |100 |100 |100 |
+|Latence d’E/S (approximative)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|
+|Nombre maximal d’ouvriers simultanés (demandes)|160|320|480|640|
+|Nombre maximal de sessions simultanées|30,000|30,000|30,000|30,000|
+|Réplicas secondaires|0-4|0-4|0-4|0-4|
+|Plusieurs zones de disponibilités|N/A|N/A|N/A|N/A|
+|Lecture du Scale-out|Oui|Oui|Oui|Oui|
+|Conservation du stockage de sauvegarde|7 jours|7 jours|7 jours|7 jours|
+|||
+
+### <a name="notes"></a>Notes
+
+**Remarque 1** : Hyperscale est une architecture à plusieurs niveaux avec des composants de calcul et de stockage distincts : [Architecture de niveau de service Hyperscale](service-tier-hyperscale.md#distributed-functions-architecture)
+
+**Remarque 2** : La latence est de 1 ms ou 2 ms pour les données du disque SSD de réplica
+de calcul local, qui met en cache la plupart des pages de données utilisées. Elle est plus élevée pour les données récupérées à partir des serveurs de pages.
+
 ## <a name="general-purpose---provisioned-compute---gen4"></a>Usage général - calcul provisionné - Gen4
 
 > [!IMPORTANT]
@@ -390,6 +422,32 @@ de calcul local, qui met en cache la plupart des pages de données utilisées. E
 |Plusieurs zones de disponibilités|N/A|N/A|N/A|N/A|N/A|N/A|
 |Lecture du Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|
 |Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
+
+\* La valeur maximale pour les tailles d’E/S est comprise entre 8 Ko et 64 Ko. Les IOPS réelles dépendent de la charge de travail. Pour plus d’informations, consultez [Gouvernance des E/S de données](resource-limits-logical-server.md#resource-governance).
+
+## <a name="general-purpose---provisioned-compute---dc-series"></a>Usage général – Calcul approvisionné – série DC
+
+|Taille de calcul (objectif de service)|GP_DC_2|GP_DC_4|GP_DC_6|GP_DC_8| 
+|:---| ---:|---:|---:|---:|
+|Génération de calcul|Série DC|Série DC|Série DC|Série DC|
+|vCores|2|4|6|8|
+|Mémoire (Go)|9|18|27|36|
+|Prise en charge de ColumnStore|Oui|Oui|Oui|Oui|
+|Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|
+|Taille maximale des données (Go)|1 024|1536|3 072|3 072|
+|Taille maximale du journal (Go)|307|461|922|922|
+|Taille maximale des données TempDB (Go)|64|128|192|256|
+|Type de stockage|SSD distant|SSD distant|SSD distant|SSD distant|
+|Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
+|Nombre maximal d’IOPS de données *|640|1 280|1920|2560|
+|Taux de journalisation maximal (Mbits/s)|9|18|27|36|
+|Nombre maximal d’ouvriers simultanés (demandes)|160|320|480|640|
+|Nombre maximal de sessions simultanées|30,000|30,000|30,000|30,000|
+|Nombre de réplicas|1|1|1|1|
+|Plusieurs zones de disponibilités|N/A|N/A|N/A|N/A|
+|Lecture du Scale-out|N/A|N/A|N/A|N/A|
+|Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
+
 
 \* La valeur maximale pour les tailles d’E/S est comprise entre 8 Ko et 64 Ko. Les IOPS réelles dépendent de la charge de travail. Pour plus d’informations, consultez [Gouvernance des E/S de données](resource-limits-logical-server.md#resource-governance).
 
@@ -564,6 +622,31 @@ de calcul local, qui met en cache la plupart des pages de données utilisées. E
 > [!IMPORTANT]
 > Dans certaines circonstances, vous devrez peut-être réduire une base de données pour récupérer l’espace inutilisé. Pour plus d’informations, consultez [Gérer l’espace des fichiers dans Azure SQL Database](file-space-manage.md).
 
+## <a name="business-critical---provisioned-compute---dc-series"></a>Vital pour l’entreprise – Calcul approvisionné – Série DC
+
+|Taille de calcul (objectif de service)|BC_DC_2|BC_DC_4|BC_DC_6|BC_DC_8|
+|:--- | --: |--: |--: |--: |
+|Génération de calcul|Série DC|Série DC|Série DC|Série DC|
+|vCores|2|4|6|8|
+|Mémoire (Go)|9|18|27|36|
+|Prise en charge de ColumnStore|Oui|Oui|Oui|Oui|
+|Stockage In-Memory OLTP (Go)|1.7|3.7|5.9|8,2|
+|Taille maximale des données (Go)|768|768|768|768|
+|Taille maximale du journal (Go)|230|230|230|230|
+|Taille maximale des données TempDB (Go)|64|128|192|256|
+|Type de stockage|SSD local|SSD local|SSD local|SSD local|
+|Latence d’E/S (approximative)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|
+|Nombre maximal d’IOPS de données *|14000|28000|42000|56 000|
+|Taux de journalisation maximal (Mbits/s)|24|48|72|96|
+|Nombre maximal d’ouvriers simultanés (demandes)|200|400|600|800|
+|Nombre maximal de connexions simultanées|200|400|600|800|
+|Nombre maximal de sessions simultanées|30,000|30,000|30,000|30,000|
+|Nombre de réplicas|4|4|4|4|
+|Plusieurs zones de disponibilités|Non|Non|Non|Non|
+|Lecture du Scale-out|Non|Non|Non|Non|
+|Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
+
+\* La valeur maximale pour les tailles d’E/S est comprise entre 8 Ko et 64 Ko. Les IOPS réelles dépendent de la charge de travail. Pour plus d’informations, consultez [Gouvernance des E/S de données](resource-limits-logical-server.md#resource-governance).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

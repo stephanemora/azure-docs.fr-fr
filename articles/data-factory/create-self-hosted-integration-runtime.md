@@ -11,12 +11,12 @@ ms.author: lle
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 12/25/2020
-ms.openlocfilehash: 76d53458154a7e66589c16f955373975bb04b25b
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: fd56ef74a7641a01eae2354f149f45e84ff56833
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121600"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98217445"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Créer et configurer un runtime d’intégration auto-hébergé
 
@@ -157,21 +157,21 @@ Voici les détails relatifs aux actions et aux arguments de l'application :
 
 |ACTION|args|Description|
 |------|----|-----------|
-|-rn,<br/>-RegisterNewNode|"`<AuthenticationKey>`" ["`<NodeName>`"]|Inscrire un nœud de runtime d’intégration auto-hébergé avec la clé d’authentification et le nom de nœud spécifiés.|
-|-era,<br/>-EnableRemoteAccess|"`<port>`" ["`<thumbprint>`"]|Activer l’accès à distance sur le nœud actuel pour configurer un cluster haute disponibilité. Il est également possible d'activer la définition des informations d’identification directement sur le runtime d’intégration auto-hébergé, sans passer par Azure Data Factory. Pour ce faire, utilisez la cmdlet **New-AzDataFactoryV2LinkedServiceEncryptedCredential** à partir d’une machine distante du même réseau.|
-|-erac,<br/>-EnableRemoteAccessInContainer|"`<port>`" ["`<thumbprint>`"]|Activer l’accès à distance au nœud actif lorsque le nœud s’exécute dans le conteneur.|
-|-dra,<br/>-DisableRemoteAccess||Désactiver l’accès à distance au nœud actif. L’accès à distance est nécessaire pour une configuration à plusieurs nœuds. La cmdlet PowerShell **New-AzDataFactoryV2LinkedServiceEncryptedCredential** fonctionne toujours même lorsque l’accès à distance est désactivé. Ce comportement se vérifie tant que la cmdlet est exécutée sur le même ordinateur que le nœud du runtime d’intégration auto-hébergé.|
-|-k,<br/>-Key|"`<AuthenticationKey>`"|Remplacer ou mettre à jour la clé d’authentification précédente. Utilisez cette action avec précaution. Elle peut entraîner la mise hors connexion de votre nœud du runtime d’intégration auto-hébergé précédent si la clé appartient à un nouveau runtime d’intégration.|
-|-gbf,<br/>-GenerateBackupFile|"`<filePath>`" "`<password>`"|Générer un fichier de sauvegarde pour le nœud actif. Ce fichier inclut la clé du nœud et les informations d’identification du magasin de données.|
-|-ibf,<br/>-ImportBackupFile|"`<filePath>`" "`<password>`"|Restaurer le nœud à partir d’un fichier de sauvegarde.|
-|-r,<br/>-Restart||Redémarrer le service hôte du runtime d'intégration auto-hébergé.|
-|-s,<br/>-Start||Démarrer le service hôte du runtime d'intégration auto-hébergé.|
-|-t,<br/>-Stop||Arrêter le service hôte du runtime d'intégration auto-hébergé.|
-|-sus,<br/>-StartUpgradeService||Démarrer le service hôte du runtime d'intégration auto-hébergé.|
-|-tus,<br/>-StopUpgradeService||Arrêter le service de mise à niveau du runtime d'intégration auto-hébergé.|
-|-tonau,<br/>-TurnOnAutoUpdate||Activer la mise à jour automatique du runtime d'intégration auto-hébergé.|
-|-toffau,<br/>-TurnOffAutoUpdate||Désactiver la mise à jour automatique du runtime d'intégration auto-hébergé.|
-|-ssa,<br/>-SwitchServiceAccount|"`<domain\user>`" ["`<password>`"]|Définir DIAHostService de façon à ce qu’il s’exécute en tant que nouveau compte. Utilisez le mot de passe vide (« ») pour les comptes système et comptes virtuels.|
+|`-rn`,<br/>`-RegisterNewNode`|"`<AuthenticationKey>`" ["`<NodeName>`"]|Inscrire un nœud de runtime d’intégration auto-hébergé avec la clé d’authentification et le nom de nœud spécifiés.|
+|`-era`,<br/>`-EnableRemoteAccess`|"`<port>`" ["`<thumbprint>`"]|Activer l’accès à distance sur le nœud actuel pour configurer un cluster haute disponibilité. Il est également possible d'activer la définition des informations d’identification directement sur le runtime d’intégration auto-hébergé, sans passer par Azure Data Factory. Pour ce faire, utilisez la cmdlet **New-AzDataFactoryV2LinkedServiceEncryptedCredential** à partir d’une machine distante du même réseau.|
+|`-erac`,<br/>`-EnableRemoteAccessInContainer`|"`<port>`" ["`<thumbprint>`"]|Activer l’accès à distance au nœud actif lorsque le nœud s’exécute dans le conteneur.|
+|`-dra`,<br/>`-DisableRemoteAccess`||Désactiver l’accès à distance au nœud actif. L’accès à distance est nécessaire pour une configuration à plusieurs nœuds. La cmdlet PowerShell **New-AzDataFactoryV2LinkedServiceEncryptedCredential** fonctionne toujours même lorsque l’accès à distance est désactivé. Ce comportement se vérifie tant que la cmdlet est exécutée sur le même ordinateur que le nœud du runtime d’intégration auto-hébergé.|
+|`-k`,<br/>`-Key`|"`<AuthenticationKey>`"|Remplacer ou mettre à jour la clé d’authentification précédente. Utilisez cette action avec précaution. Elle peut entraîner la mise hors connexion de votre nœud du runtime d’intégration auto-hébergé précédent si la clé appartient à un nouveau runtime d’intégration.|
+|`-gbf`,<br/>`-GenerateBackupFile`|"`<filePath>`" "`<password>`"|Générer un fichier de sauvegarde pour le nœud actif. Ce fichier inclut la clé du nœud et les informations d’identification du magasin de données.|
+|`-ibf`,<br/>`-ImportBackupFile`|"`<filePath>`" "`<password>`"|Restaurer le nœud à partir d’un fichier de sauvegarde.|
+|`-r`,<br/>`-Restart`||Redémarrer le service hôte du runtime d'intégration auto-hébergé.|
+|`-s`,<br/>`-Start`||Démarrer le service hôte du runtime d'intégration auto-hébergé.|
+|`-t`,<br/>`-Stop`||Arrêter le service hôte du runtime d'intégration auto-hébergé.|
+|`-sus`,<br/>`-StartUpgradeService`||Démarrer le service hôte du runtime d'intégration auto-hébergé.|
+|`-tus`,<br/>`-StopUpgradeService`||Arrêter le service de mise à niveau du runtime d'intégration auto-hébergé.|
+|`-tonau`,<br/>`-TurnOnAutoUpdate`||Activer la mise à jour automatique du runtime d'intégration auto-hébergé.|
+|`-toffau`,<br/>`-TurnOffAutoUpdate`||Désactiver la mise à jour automatique du runtime d'intégration auto-hébergé.|
+|`-ssa`,<br/>`-SwitchServiceAccount`|"`<domain\user>`" ["`<password>`"]|Définir DIAHostService de façon à ce qu’il s’exécute en tant que nouveau compte. Utilisez le mot de passe vide (« ») pour les comptes système et comptes virtuels.|
 
 
 ## <a name="install-and-register-a-self-hosted-ir-from-microsoft-download-center"></a>Installer et inscrire le runtime d’intégration auto-hébergé à partir du Centre de téléchargement Microsoft
@@ -205,9 +205,9 @@ Par défaut, le compte de service utilisé pour la connexion du runtime d'intég
 
 Assurez-vous que le compte dispose de l'autorisation Ouvrir une session en tant que service. À défaut, le démarrage du runtime d'intégration auto-hébergé échouera. Pour vérifier l'autorisation, accédez à **Stratégie de sécurité locale -> Paramètres de sécurité -> Stratégies locales -> Attribution des droits utilisateur -> Ouvrir une session en tant que service**
 
-![Autorisation du compte de service](media/create-self-hosted-integration-runtime/shir-service-account-permission.png)
+![Capture d’écran du menu Stratégie de sécurité locale - Attribution des droits utilisateur](media/create-self-hosted-integration-runtime/shir-service-account-permission.png)
 
-![Autorisation du compte de service](media/create-self-hosted-integration-runtime/shir-service-account-permission-2.png)
+![Capture d’écran de l’attribution de droits utilisateur Ouvrir une session en tant que service](media/create-self-hosted-integration-runtime/shir-service-account-permission-2.png)
 
 
 ## <a name="notification-area-icons-and-notifications"></a>Notifications et icônes de la zone de notification

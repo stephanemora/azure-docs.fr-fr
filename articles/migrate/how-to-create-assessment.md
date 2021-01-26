@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 07/15/2019
-ms.openlocfilehash: cc7101c61db8f0863c3a16b1c17f04188f9bee4e
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 178bdca78c6f011c607de8e1f5d5eabcdbaab7d4
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96754298"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567703"
 ---
 # <a name="create-an-azure-vm-assessment"></a>Créer une évaluation de machine virtuelle Azure
 
@@ -40,29 +40,81 @@ Il existe deux types de critères de dimensionnement que vous pouvez utiliser po
 
 Exécutez une évaluation comme suit :
 
-1. Passez en revue les [meilleures pratiques](best-practices-assessment.md) liées à la création d’évaluations.
-2. Sous l’onglet **Serveurs**, dans la vignette **Azure Migrate : Mosaïque**  d’évaluation de serveur, cliquez sur **Évaluer**.
+1. Dans la page **Serveurs** > **Serveurs Windows et Linux**, cliquez sur **Évaluer et migrer des serveurs**.
 
-    ![Capture d’écran montrant des serveurs Azure Migrate avec l’option Évaluer sélectionnée sous Outils d’évaluation.](./media/how-to-create-assessment/assess.png)
+   ![Emplacement du bouton Évaluer et migrer des serveurs](./media/tutorial-assess-vmware-azure-vm/assess.png)
 
-3. Dans **Évaluer les serveurs**, sélectionnez le type d’évaluation « Machine virtuelle Azure », sélectionnez la source de détection et spécifiez le nom de l’évaluation.
+2. Dans **Azure Migrate : Server Assessment**, cliquez sur **Évaluer**.
 
-    ![Notions de base d’évaluation](./media/how-to-create-assessment/assess-servers-azurevm.png)
+    ![Emplacement du bouton Évaluer](./media/tutorial-assess-vmware-azure-vm/assess-servers.png)
 
-4. Cliquez sur **Tout afficher** pour passer en revue les propriétés de l’évaluation.
+3. Dans **Évaluer les serveurs** > **Type d’évaluation**, sélectionnez **Machine virtuelle Azure**.
+4. Dans **Source de découverte** :
 
-    ![Propriétés de l’évaluation](./media/how-to-create-assessment//view-all.png)
+    - Si vous avez découvert des ordinateurs à l’aide de l’appliance, sélectionnez **Machines découvertes par l’appliance Azure Migrate**.
+    - Si vous avez découvert des ordinateurs à l’aide d’un fichier CSV importé, sélectionnez **Machines importées**. 
+    
+1. Cliquez sur **Modifier** pour examiner les propriétés d’évaluation.
 
-5. Cliquez sur **Suivant** pour **sélectionner les machines à évaluer**. Dans **Sélectionner ou créer un groupe**, sélectionnez **Créer**, puis spécifiez un nom de groupe. Un groupe rassemble une ou plusieurs machines virtuelles à évaluer.
-6. Dans **Ajouter des machines au groupe**, sélectionnez les machines virtuelles à ajouter au groupe.
-7. Cliquez sur **Suivant** pour **vérifier + créer une évaluation** afin de passer en revue les détails de l’évaluation.
-8. Cliquez sur **Créer une évaluation** pour créer le groupe, puis exécutez l’évaluation.
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vm/assessment-name.png" alt-text="Emplacement du bouton Modifier pour examiner les propriétés d’évaluation":::
 
-    ![Créer une évaluation](./media/how-to-create-assessment//assessment-create.png)
+1. Dans **Propriétés d’évaluation** > **Propriétés de la cible** :
+    - Dans **Emplacement cible**, sélectionnez la région Azure vers laquelle vous souhaitez effectuer la migration.
+        - Les recommandations concernant la taille et le coût sont basées sur l’emplacement que vous spécifiez. Une fois que vous avez modifié l’emplacement cible par défaut, vous êtes invité à spécifier des **instances réservées** et une **série de machines virtuelles**.
+        - Dans Azure Government, vous pouvez cibler des évaluations dans [ces régions](migrate-support-matrix.md#supported-geographies-azure-government)
+    - Dans **Type de stockage**,
+        - Si vous souhaitez utiliser des données basées sur les performances dans l’évaluation, sélectionnez **Automatique** pour qu’Azure Migrate recommande un type de stockage, en fonction des IOPS et du débit du disque.
+        - Vous pouvez également sélectionner le type de stockage que vous souhaitez utiliser pour la machine virtuelle lorsque vous effectuer la migration.
+    - Dans **Instances réservées**, indiquez si vous souhaitez utiliser des instances réservées pour la machine virtuelle lors de sa migration.
+        - Si vous choisissez d’utiliser une instance réservée, vous ne pourrez pas spécifier l’option **Remise (%)** ni l’option **Durée de fonctionnement de la machine virtuelle**. 
+        - [Plus d’informations](https://aka.ms/azurereservedinstances)
+ 1. Dans **Taille de la machine virtuelle** :
+     - Dans **Critère de dimensionnement**, choisissez le type d’évaluation que vous souhaitez effectuer : basée sur les données de configuration, basée sur les métadonnées de l’ordinateur ou basée sur les données de performances. Si vous utilisez des données de performances :
+        - Dans **Historique des performances**, indiquez la période de données sur laquelle vous souhaitez baser l’évaluation.
+        - Dans **Utilisation en centile**, spécifiez la valeur de centile que vous souhaitez utiliser pour l’échantillon de performances. 
+    - Dans **Série de machines virtuelles**, spécifiez la série de machines virtuelles Azure que vous souhaitez utiliser.
+        - Si vous utilisez l’évaluation basée sur les performances, Azure Migrate vous suggère une valeur.
+        - Ajustez les paramètres selon vos besoins. Par exemple, si vous ne disposez pas d’un environnement de production nécessitant des machines virtuelles de série A dans Azure, vous pouvez exclure la série A de la liste de séries.
+    - Dans **Facteur de confort**, indiquez la mémoire tampon que vous souhaitez utiliser lors de l’évaluation. Celle-ci prend en compte les problèmes, tels que l’utilisation saisonnière, l’historique des performances de courte durée et l’augmentation probable de l’utilisation. Par exemple, si vous utilisez un facteur de confort de 2 :
+    
+        **Composant** | **Utilisation efficace** | **Ajouter un facteur de confort (2.0)**
+        --- | --- | ---
+        Cœurs | 2  | 4
+        Mémoire | 8 Go | 16 Go
+   
+1. Dans **Tarifs** :
+    - Dans **Offre**, spécifiez l’[offre Azure](https://azure.microsoft.com/support/legal/offer-details/) à laquelle vous êtes inscrit, le cas échéant. Évaluation de serveur estime le coût de cette offre.
+    - Dans **Devise**, sélectionnez la devise de facturation de votre compte.
+    - Dans **Remise (%)** , ajoutez les remises applicables à votre abonnement que vous recevez en plus de l’offre Azure. Le paramètre par défaut est 0 %.
+    - Dans **Durée de fonctionnement de la machine virtuelle**, spécifiez la durée (en jours par mois ou en heures par jour) pendant laquelle les machines virtuelles doivent s’exécuter.
+        - Ce paramètre est utile pour les machines virtuelles Azure qui ne s’exécuteront pas en continu.
+        - Les estimations de coût sont basées sur la durée spécifiée.
+        - La valeur par défaut est de 31 jours par mois ou de 24 heures par jour.
+    - Dans **Abonnement Contrat Entreprise**, indiquez si vous souhaitez prendre en compte une remise sur l’abonnement Contrat Entreprise dans l’estimation des coûts. 
+    - Dans **Azure Hybrid Benefit**, indiquez si vous disposez déjà d’une licence Windows Server. Si c’est le cas et si vous êtes couvert par une assurance Software Assurance active pour abonnements Windows Server, vous pouvez faire une demande pour [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/) au moment d’importer les licences dans Azure.
 
-9. Une fois l’évaluation créée, vous pouvez la voir dans **Serveurs** > **Azure Migrate : Server Assessment** > **Évaluations**.
-10. Cliquez sur **Exporter l’évaluation** pour la télécharger sous la forme d’un fichier Excel.
+1. Si vous avez apporté des modifications, cliquez sur **Enregistrer**.
 
+    ![Propriétés de l’évaluation](./media/tutorial-assess-vmware-azure-vm/assessment-properties.png)
+
+1. Dans **Évaluer les serveurs**, cliquez sur **Suivant**.
+
+1. Dans **Sélectionner les machines à évaluer** > **Nom de l’évaluation**, spécifiez un nom pour l’évaluation. 
+
+1. Dans **Sélectionner ou créer un groupe**, sélectionnez **Créer**, puis spécifiez un nom de groupe. 
+
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vm/assess-group.png" alt-text="Ajouter des machines virtuelles à un groupe":::
+
+1. Sélectionnez l’appliance, puis sélectionnez les machines virtuelles que vous souhaitez ajouter au groupe. Cliquez ensuite sur **Suivant**.
+
+
+1. Dans **Vérifier + créer l’évaluation**, passez en revue les détails de l’évaluation, puis cliquez sur **Créer une évaluation** pour créer le groupe et lancer l’évaluation.
+
+1. Une fois l’évaluation créée, vous pouvez la voir dans **Serveurs** > **Azure Migrate : Server Assessment** > **Évaluations**.
+
+1. Cliquez sur **Exporter l’évaluation** pour la télécharger sous la forme d’un fichier Excel.
+    > [!NOTE]
+    > Pour les évaluations basées sur les performances, nous vous recommandons d’attendre au moins un jour après le démarrage de la découverte pour créer l’évaluation. Cela permet de collecter des données de performances avec un plus haut niveau de confiance. Dans l’idéal, une fois que vous avez démarré la découverte, vous devriez attendre la période de performances que vous avez spécifiée (jour/semaine/mois) afin d’obtenir un haut niveau de confiance.
 
 
 ## <a name="review-an-azure-vm-assessment"></a>Passer en revue une évaluation de machine virtuelle Azure

@@ -1,14 +1,14 @@
 ---
 title: Déployer une stratégie pouvant être corrigée
 description: Pour déployer des stratégies qui utilisent une tâche de correction via Azure Lighthouse, vous devez créer une identité managée dans le locataire client.
-ms.date: 12/17/2020
+ms.date: 01/14/2021
 ms.topic: how-to
-ms.openlocfilehash: eb473fe2f589cf719e3944c887d46e75e9e7fdbf
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 01070133241117596bdf2b8e1e7c3fa101fc656c
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97670489"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233880"
 ---
 # <a name="deploy-a-policy-that-can-be-remediated-within-a-delegated-subscription"></a>Déployer une stratégie pouvant être corrigée dans un abonnement délégué
 
@@ -19,9 +19,9 @@ ms.locfileid: "97670489"
 
 ## <a name="create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant"></a>Créer un utilisateur qui peut attribuer des rôles à une identité managée dans le locataire du client
 
-Quand vous intégrez un client à Azure Lighthouse, vous utilisez un [modèle Azure Resource Manager](onboard-customer.md#create-an-azure-resource-manager-template) avec un fichier de paramètres qui définit les utilisateurs, les groupes d’utilisateurs et les principaux de service de votre locataire gestionnaire qui pourront accéder aux ressources déléguées dans le locataire du client. Dans votre fichier de paramètres, chacun de ces utilisateurs (**principalId**) se voit attribuer un [rôle intégré](../../role-based-access-control/built-in-roles.md) (**roleDefinitionId**) qui définit le niveau d’accès.
+Quand vous intégrez un client à Azure Lighthouse, vous utilisez un [modèle Azure Resource Manager](onboard-customer.md#create-an-azure-resource-manager-template) avec un fichier de paramètres pour définir les autorisations d'accès aux ressources déléguées dans le locataire du client. Chaque autorisation spécifie un paramètre **principalId** qui correspond à un utilisateur Azure AD, un groupe ou un principal du service dans le locataire gestionnaire, ainsi qu’un paramètre **roleDefinitionId** qui correspond au [rôle intégré Azure](../../role-based-access-control/built-in-roles.md) qui sera accordé.
 
-Pour permettre à un **principalId** de créer une identité managée dans le locataire du client, vous devez définir son **roleDefinitionId** sur **Administrateur de l’accès utilisateur**. Bien que ce rôle ne soit généralement pas pris en charge, il peut être utilisé dans ce scénario spécifique, permettant aux utilisateurs disposant de cette autorisation d’affecter un ou plusieurs rôles intégrés spécifiques à des identités managées. Ces rôles sont définis dans la propriété **delegatedRoleDefinitionIds**. Vous pouvez inclure ici n’importe quel rôle intégré, sauf Administrateur de l’accès utilisateur ou Propriétaire.
+Pour permettre à un **principalId** de créer une identité managée dans le locataire du client, vous devez définir son **roleDefinitionId** sur **Administrateur de l’accès utilisateur**. Bien que ce rôle ne soit généralement pas pris en charge, il peut être utilisé dans ce scénario spécifique, permettant à des comptes d’utilisateur disposant de cette autorisation d’affecter un ou plusieurs rôles intégrés spécifiques à des identités managées. Ces rôles sont définis dans la propriété **delegatedRoleDefinitionIds** et peuvent inclure [n’importe quel rôle intégré](../concepts/tenants-users-roles.md#role-support-for-azure-lighthouse), sauf Administrateur de l’accès utilisateur ou Propriétaire.
 
 Une fois le client intégré, le **principalId** créé dans cette autorisation pourra affecter ces rôles intégrés à des identités managées dans le locataire du client. Toutefois, il n’aura aucune autre autorisation normalement associée au rôle Administrateur de l’accès utilisateur.
 

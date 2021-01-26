@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
 ms.date: 12/14/2020
-ms.openlocfilehash: 9ee7440b10bc348d3ba87a4779208791a7b0e9ac
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: b5a30846a6e2aaf85ded2e55641aa5fba9507a29
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97512026"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165771"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-service-tiers"></a>Niveaux de service Azure SQL Database et Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -78,6 +78,7 @@ Les facteurs suivants affectent la quantité de stockage utilisée pour les fich
   - Pour le stockage des niveaux de service premium et critique pour l’entreprise, augmentez ou diminuez la taille par incrément de 250 Go.
 - Dans le niveau de service usage général, `tempdb` utilise un disque SSD attaché et le coût de ce stockage est inclus dans le prix du modèle vCore.
 - Dans le niveau de service Critique pour l’entreprise, `tempdb` partage le disque SSD attaché avec les fichiers MDF et LDF, et le coût du stockage `tempdb` est inclus dans le prix du modèle vCore.
+- Dans le niveau de service Premium DTU, `tempdb` partage le disque SSD attaché avec les fichiers MDF et LDF.
 - La taille de stockage d’une instance managée SQL doit être spécifiée en multiples de 32 Go.
 
 

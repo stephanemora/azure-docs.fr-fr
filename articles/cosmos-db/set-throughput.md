@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/10/2020
-ms.openlocfilehash: 4fea027663b55e87822eae1fd0cdb2d67dbc630b
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.date: 01/19/2021
+ms.openlocfilehash: a03ad1eb893c97671d7ab60cc38708115a73d260
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96170819"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602392"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introduction au débit approvisionné dans Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -109,7 +109,7 @@ La réponse de ces méthodes contient également le [débit minimal approvisionn
 La valeur RU/s minimale réelle peut varier en fonction de la configuration de votre compte. Mais en général, il s’agit de la valeur maximale :
 
 * 400 RU/s 
-* Le stockage actuel en Go * 10 RU/s (sauf si votre conteneur ou base de données contient plus de 1 To de données, consultez notre [programme sur le stockage étendu / débit faible](#high-storage-low-throughput-program))
+* Stockage actuel en Go * 10 RU (cette contrainte peut être assouplie dans certains cas, reportez-vous à notre [Programme de stockage élevé/faible débit](#high-storage-low-throughput-program))
 * Valeur RU/s la plus élevée provisionnée sur la base de données ou le conteneur / 100
 
 ### <a name="changing-the-provisioned-throughput"></a>Modification du débit approvisionné
@@ -139,7 +139,7 @@ Comme décrit dans la section [Débit approvisionné actuel](#current-provisione
 
 Cela peut être un problème dans les situations où vous devez stocker de grandes quantités de données, mais où les exigences en matière de débit sont faibles en comparaison. Pour mieux prendre en charge ces scénarios, Azure Cosmos DB a mis en place un **programme « stockage élevé/faible débit »** qui réduit la contrainte de RU/s par Go sur les comptes éligibles.
 
-Vous devez disposer d’au moins un conteneur ou une base de données à débit partagé contenant plus de 1 To de données dans votre compte pour que ce dernier soit éligible. Pour adhérer à ce programme et évaluer votre pleine admissibilité, il vous suffit de remplir [cette enquête](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRzBPrdEMjvxPuDm8fCLUtXpUREdDU0pCR0lVVFY5T1lRVEhWNUZITUJGMC4u). L’équipe d’Azure Cosmos DB assurera ensuite le suivi et procédera à votre intégration.
+Pour adhérer à ce programme et évaluer votre pleine admissibilité, il vous suffit de remplir [cette enquête](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRzBPrdEMjvxPuDm8fCLUtXpUREdDU0pCR0lVVFY5T1lRVEhWNUZITUJGMC4u). L’équipe d’Azure Cosmos DB assurera ensuite le suivi et procédera à votre intégration.
 
 ## <a name="comparison-of-models"></a>Comparaison des modèles
 Ce tableau présente une comparaison entre l’approvisionnement du débit standard (manuel) sur une base de données et sur un conteneur. 

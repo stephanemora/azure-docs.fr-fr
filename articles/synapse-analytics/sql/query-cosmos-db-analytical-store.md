@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 12/04/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: a0458264b6ea0c741244531fc104a7637108b06e
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 4681039f60154b95eeb7e40196ca33055a192c74
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121343"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222103"
 ---
 # <a name="query-azure-cosmos-db-data-with-a-serverless-sql-pool-in-azure-synapse-link-preview"></a>Interroger des données d’Azure Cosmos DB avec un pool SQL serverless dans Azure Synapse Link (préversion)
 
@@ -205,6 +205,8 @@ Le résultat de cette requête peut ressembler au tableau suivant :
 Pour plus d’informations sur les types SQL à utiliser pour les valeurs Azure Cosmos DB, consultez les [règles pour les mappages de type SQL](#azure-cosmos-db-to-sql-type-mappings) à la fin de l’article.
 
 ## <a name="create-view"></a>Créer une vue
+
+La création d’affichages dans la base de données MASTER et la base de données par défaut n’est ni recommandée ni prise en charge. Vous devez donc créer une base de données utilisateur pour vos affichages.
 
 Une fois que vous avez identifié le schéma, vous pouvez préparer une vue en plus de vos données Azure Cosmos DB. Vous devez placer votre clé de compte Azure Cosmos DB dans des informations d’identification distinctes et référencer ces informations d’identification à partir de la fonction `OPENROWSET`. Ne conservez pas votre clé de compte dans la définition de la vue.
 

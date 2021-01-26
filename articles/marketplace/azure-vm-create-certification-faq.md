@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 10/19/2020
-ms.openlocfilehash: bc1ae4bc2cf64c3e2f996709c086eb23cb8b8385
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.date: 01/18/2021
+ms.openlocfilehash: 80dc19a58d212bb6ab8d608e222cd3a0bd3990d1
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602595"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600981"
 ---
 # <a name="troubleshoot-virtual-machine-certification"></a>Résoudre les problèmes de certification des machines virtuelles
 
@@ -22,20 +22,6 @@ Cet article présente les messages d'erreur les plus couramment rencontrés lors
 
 > [!NOTE]
 > Si vous avez des questions sur cet article ou des suggestions d’amélioration, contactez le [support d’Espace partenaires](https://aka.ms/marketplacepublishersupport).
-
-## <a name="approved-base-image"></a>Image de base approuvée
-
-Lorsque vous envoyez une demande de nouvelle publication de votre image avec des mises à jour, le cas de test de vérification du numéro de référence peut échouer. Votre image ne sera alors pas approuvée.
-
-Cette erreur se produit lorsque vous utilisez une image de base qui appartient à un autre éditeur et que vous avez procédé à une mise à jour de l'image. Dans ce cas, vous n’êtes pas autorisé à publier votre image.
-
-Pour résoudre ce problème, récupérez l'image à partir de la Place de marché Azure et apportez-y des modifications. Pour plus d’informations, consultez les articles suivants :
-
-- [Images Linux](../virtual-machines/linux/endorsed-distros.md?toc=/azure/virtual-machines/linux/toc.json)
-- [Images Windows](azure-vm-create-using-approved-base.md)
-
-> [!Note]
-> Si vous utilisez une image de base Linux qui n’est pas extraite de Place de marché Azure, vous pouvez décaler la première partition de 2048 ko. Cela permet d’utiliser l’espace non formaté pour ajouter de nouvelles informations de facturation et permet à Azure de procéder à la publication de votre machine virtuelle sur Place de marché Azure.  
 
 ## <a name="vm-extension-failure"></a>Échec de l’extension de machine virtuelle
 
@@ -73,18 +59,18 @@ Les problèmes de provisionnement peuvent inclure les scénarios d’échec suiv
 |1|Disque dur virtuel (VHD) non valide|Si la valeur du cookie spécifiée dans le pied de page du disque dur virtuel est incorrecte, le disque dur virtuel sera considéré comme non valide.|Recréez l'image et envoyez la demande.|
 |2|Type d'objet blob non valide|L'approvisionnement de la machine virtuelle a échoué car le bloc utilisé est un type d'objet blob et non un type de page.|Recréez l'image et envoyez la demande.|
 |3|Expiration du délai de provisionnement ou généralisation incorrecte|Il y a un problème avec la généralisation de la machine virtuelle.|Recréez l'image avec la généralisation et envoyez la demande.|
+|
 
 > [!NOTE]
 > Pour plus d'informations sur la généralisation d'une machine virtuelle, consultez :
 > - [Documentation Linux](azure-vm-create-using-approved-base.md#generalize-the-image)
 > - [Documentation Windows](../virtual-machines/windows/capture-image-resource.md#generalize-the-windows-vm-using-sysprep)
 
-
 ## <a name="vhd-specifications"></a>Spécifications du disque dur virtuel (VHD)
 
 ### <a name="conectix-cookie-and-other-vhd-specifications"></a>Cookie Conectix et autres spécifications du disque dur virtuel
 
-La chaîne « conectix » fait partie de la spécification du disque dur virtuel. Elle est définie en tant que cookie de 8 octets dans le pied de page du disque dur virtuel qui identifie le créateur du fichier. Tous les fichiers VHD créés par Microsoft possèdent ce cookie. 
+La chaîne « conectix » fait partie de la spécification du disque dur virtuel. Elle est définie en tant que cookie de 8 octets dans le pied de page du disque dur virtuel qui identifie le créateur du fichier. Tous les fichiers VHD créés par Microsoft possèdent ce cookie.
 
 Un blob au format VHD doit avoir un pied de page de 512 octets au format suivant :
 
@@ -106,7 +92,7 @@ Somme de contrôle|4
 ID unique|16
 État enregistré|1
 Réservé|427
-
+|
 
 ### <a name="vhd-specifications"></a>Spécifications du disque dur virtuel (VHD)
 
@@ -152,6 +138,7 @@ Le tableau suivant répertorie les cas de test Linux que le kit de ressources ex
 |8|Intervalle d’activité du client|Affectez la valeur 180 à ClientAliveInterval. Pour les besoins de l'application, vous pouvez affecter une valeur comprise entre 30 et 235. Si vous activez le protocole SSH pour vos utilisateurs finaux, cette valeur doit être définie comme expliqué.|
 |9|Architecture du système d’exploitation|Seuls les systèmes d’exploitation 64 bits sont pris en charge.|
 |10|Mise à jour automatique|Indique si la mise à jour automatique de l’agent Linux est activée.|
+|
 
 ### <a name="common-test-case-errors"></a>Erreurs courantes de cas de test
 
@@ -163,14 +150,14 @@ Reportez-vous au tableau suivant pour connaître les erreurs courantes que vous 
 | 2 | Cas de test Historique Bash | Une erreur se produit si la taille de l’historique Bash de l’image que vous avez envoyée est supérieure à 1 kilo-octet (ko). La taille est limitée à 1 ko pour garantir que votre fichier d’historique Bash ne contient pas d’informations potentiellement sensibles. | Résolvez l’erreur en montant le disque dur virtuel sur une autre machine virtuelle opérationnelle et apportez des modifications pour réduire la taille à 1 ko ou moins. Par exemple, supprimez les fichiers d’historique `.bash`. |
 | 3 | Cas de test Paramètres de noyau requis | Vous recevez cette erreur quand la valeur de `console` n’est pas `ttyS0`. Vérifiez en exécutant la commande suivante : <br /> `cat /proc/cmdline` | Affectez la valeur `ttyS0` à `console` et renvoyez la demande. |
 | 4 | Cas de test Intervalle d'activité du client | Si le résultat du kit de ressources est un échec pour ce cas de test, cela signifie que la valeur de `ClientAliveInterval` est incorrecte. | Affectez une valeur inférieure ou égale à 235 à `ClientAliveInterval`, puis renvoyez la demande. |
-
+|
 
 ### <a name="windows-test-cases"></a>Cas de test Windows
 
 Le tableau suivant répertorie les cas de test Windows que le kit de ressources exécutera, et fournit une description de la validation du test :
 
 |Scénario |Scénarios de test|Description|
-|---|---|---|---|
+|---|---|---|
 |1|Architecture du système d’exploitation|Azure prend uniquement en charge les systèmes d'exploitation 64 bits.|
 |2|Dépendance de compte d’utilisateur|L'exécution de l'application ne doit pas dépendre du compte d'administrateur.|
 |3|Cluster de basculement|La fonctionnalité de clustering de basculement Windows Server n'est pas encore prise en charge. L’application ne doit pas être dépendante de cette fonctionnalité.|
@@ -188,8 +175,9 @@ Le tableau suivant répertorie les cas de test Windows que le kit de ressources 
 |15|Services SNMP|La fonctionnalité Services SNMP n'est pas encore prise en charge. L’application ne doit pas être dépendante de cette fonctionnalité.|
 |16|Service WINS (Windows Internet Name Service)|Service WINS (Windows Internet Name Service). Cette fonctionnalité de serveur n’est pas encore prise en charge. L’application ne doit pas être dépendante de cette fonctionnalité.|
 |17|Service de réseau local sans fil|Service de réseau local sans fil. Cette fonctionnalité de serveur n’est pas encore prise en charge. L’application ne doit pas être dépendante de cette fonctionnalité.|
+|
 
-Si vous observez des échecs avec les cas de test précédents, consultez la colonne **Description** du tableau pour connaître la solution. Pour plus d’informations, contactez l’équipe du support technique. 
+Si vous observez des échecs avec les cas de test précédents, consultez la colonne **Description** du tableau pour connaître la solution. Pour plus d’informations, contactez l’équipe du support technique.
 
 ## <a name="data-disk-size-verification"></a>Vérification de la taille du disque de données
 
@@ -205,6 +193,7 @@ Pour plus d’informations sur les limitations relatives à la taille du disque 
 |---|---|
 |Linux|1 à 1023 Go|
 |Windows|30 à 250 Go|
+|
 
 Comme les machines virtuelles autorisent l’accès au système d’exploitation sous-jacent, assurez-vous que la taille du disque dur virtuel est suffisamment grande pour le disque dur virtuel. Les disques ne sont pas extensibles sans temps d’arrêt. Utilisez une taille de disque comprise entre 30 Go et 50 Go.
 
@@ -212,6 +201,7 @@ Comme les machines virtuelles autorisent l’accès au système d’exploitation
 |---|---|---|
 |> 500 tébioctets (Tio).|n/a|Contactez l'équipe du support technique pour obtenir une approbation d'exception.|
 |250 à 500 Tio|> 200 gibioctets (Gio) de différence par rapport à la taille de l'objet blob|Contactez l'équipe du support technique pour obtenir une approbation d'exception.|
+|
 
 > [!NOTE]
 > Les disques de plus grande taille génèrent des coûts plus élevés et entraînent un retard pendant le processus d’installation et de réplication. En raison de ce retard et de ce coût, l'équipe du support technique est susceptible de demander la justification de l'approbation d'exception.
@@ -222,7 +212,7 @@ Pour prévenir toute attaque liée au virus WannaCry, veillez à ce que toutes l
 
 Vous pouvez vérifier la version du fichier image à partir de `C:\windows\system32\drivers\srv.sys` ou `srv2.sys`.
 
-Le tableau suivant présente la version corrigée minimale de Windows Server : 
+Le tableau suivant présente la version corrigée minimale de Windows Server :
 
 |Système d''exploitation|Version|
 |---|---|
@@ -231,6 +221,7 @@ Le tableau suivant présente la version corrigée minimale de Windows Server :
 |Windows Server 2012 R2|6.3.9600.18604|
 |Windows Server 2016|10.0.14393.953|
 |Windows Server 2019|N/D|
+|
 
 > [!NOTE]
 > Aucune spécification de version obligatoire ne s'applique à Windows Server 2019.
@@ -243,14 +234,14 @@ Mettez à jour le noyau avec une version approuvée et renvoyez la demande. Vous
 
 Si votre image n'est pas installée avec l'une des versions de noyau suivantes, mettez-la à jour avec les correctifs appropriés. Demandez l'approbation nécessaire à l'équipe du support technique une fois que l'image a été mise à jour avec les correctifs requis suivants :
 
-- CVE-2019-11477 
-- CVE-2019-11478 
+- CVE-2019-11477
+- CVE-2019-11478
 - CVE-2019-11479
 
 |Famille de système d’exploitation|Version|Noyau|
 |---|---|---|
 |Ubuntu|14.04 LTS|4.4.0-151| 
-||14.04 LTS|4.15.0-1049-*-azure|
+||14.04 LTS|4.15.0-1049-\*-azure|
 ||LTS 16.04|4.15.0-1049|
 ||18.04 LTS|4.18.0-1023|
 ||18.04 LTS|5.0.0-1025|
@@ -283,14 +274,15 @@ Si votre image n'est pas installée avec l'une des versions de noyau suivantes, 
 |Oracle|6.10|UEK2 2.6.39-400.312.2<br>UEK3 3.8.13-118.35.2<br>RHCK 2.6.32-754.15.3 
 ||7.0-7.5|UEK3 3.8.13-118.35.2<br>UEK4 4.1.12-124.28.3<br>RHCK suit RHEL ci-dessus|
 ||7.6|RHCK 3.10.0-957.21.3<br>UEK5 4.14.35-1902.2.0|
-|CoreOS Stable 2079.6.0|4.19.43*|
-||Bêta 2135.3.1|4.19.50*|
-||Alpha 2163.2.1|4.19.50*|
+|CoreOS Stable 2079.6.0|4.19.43\*|
+||Bêta 2135.3.1|4.19.50\*|
+||Alpha 2163.2.1|4.19.50\*|
 |Debian|jessie (sécurité)|3.16.68-2|
 ||jessie (rétroportage)|4.9.168-1+deb9u3|
 ||stretch (sécurité)|4.9.168-1+deb9u3|
 ||Debian GNU/Linux 10 (buster)|Debian 6.3.0-18+deb9u1|
 ||buster, sid (rétroportage stretch)|4.19.37-5|
+|
 
 ## <a name="image-size-should-be-in-multiples-of-megabytes"></a>La taille de l’image doit être exprimée en multiples de mégaoctets.
 
@@ -316,26 +308,24 @@ Pour envoyer votre demande avec une image désactivée SSH pour le processus de 
 3. Soumettez à nouveau votre demande de certification.
 
 ## <a name="download-failure"></a>Échec du téléchargement
-    
+
 Reportez-vous au tableau suivant pour tout problème survenant lorsque vous téléchargez l’image de machine virtuelle à l’aide d’une URL de signature d’accès partagé (SAP).
 
-|Scénario|Error|Motif|Solution|
-|---|---|---|---|
-|1|Objet blob introuvable|Le disque dur virtuel a peut-être été supprimé ou déplacé de l'emplacement spécifié.|| 
-|2|Objet blob en cours d'utilisation|Le disque dur virtuel est utilisé par un autre processus interne.|Le disque dur virtuel doit être dans un état Utilisé lorsque vous le téléchargez à l’aide d’une URL de signature d’accès partagé.|
-|3|URL SAS non valide|L'URL de signature d'accès partagé associée au disque dur virtuel est incorrecte.|Récupérez l’URL SAS correcte.|
-|4|Signature incorrecte|L'URL de signature d'accès partagé associée au disque dur virtuel est incorrecte.|Récupérez l’URL SAS correcte.|
-|6|En-tête HTTP conditionnel|L'URL de signature d'accès partagé n'est pas valide.|Récupérez l’URL SAS correcte.|
-|7|Nom de disque dur virtuel non valide|Recherchez la présence de caractères spéciaux, comme un signe de pourcentage `%` ou des guillemets `"` dans le nom du disque dur virtuel.|Renommez le fichier VHD en supprimant les caractères spéciaux.|
+|Error|Motif|Solution|
+|---|---|---|
+|Objet blob introuvable|Le disque dur virtuel a peut-être été supprimé ou déplacé de l'emplacement spécifié.|| 
+|Objet blob en cours d'utilisation|Le disque dur virtuel est utilisé par un autre processus interne.|Le disque dur virtuel doit être dans un état Utilisé lorsque vous le téléchargez à l’aide d’une URL de signature d’accès partagé.|
+|URL SAS non valide|L'URL de signature d'accès partagé associée au disque dur virtuel est incorrecte.|Récupérez l’URL SAS correcte.|
+|Signature incorrecte|L'URL de signature d'accès partagé associée au disque dur virtuel est incorrecte.|Récupérez l’URL SAS correcte.|
+|En-tête HTTP conditionnel|L'URL de signature d'accès partagé n'est pas valide.|Récupérez l’URL SAS correcte.|
+|Nom de disque dur virtuel non valide|Recherchez la présence de caractères spéciaux, comme un signe de pourcentage `%` ou des guillemets `"` dans le nom du disque dur virtuel.|Renommez le fichier VHD en supprimant les caractères spéciaux.|
+|
 
-## <a name="first-mb-2048-kb-partition-linux-only"></a>Première partition en Mo (2048 ko) [Linux uniquement]
+## <a name="first-partition-starts-at-1-mb-2048-sectors"></a>La première partition commence à 1 Mo (2 048 secteurs)
 
-Lors de l’envoi du disque dur virtuel, vérifiez que les 2 048 premiers ko de celui-ci sont vides. Si ce n’est pas le cas, votre demande échouera.
+Si vous [créez votre propre image](azure-vm-create-using-own-image.md), vérifiez que les 2 048 premiers secteurs (1 Mo) du disque de système d’exploitation sont vides. Sinon, votre publication échouera. Cette exigence ne s’applique qu’au disque de système d’exploitation (et non aux disques de données). Si vous générez votre image [à partir d’une base approuvée](azure-vm-create-using-approved-base.md), vous pouvez ignorer cette exigence.
 
->[!NOTE]
->Pour certaines images spéciales, telles que celles basées sur les images de base Windows Azure issues de Place de marché Azure, nous vérifions la présence d’une balise de facturation et ignorons la partition en Mo si la balise de facturation est présente et correspond à nos valeurs internes disponibles.
-
-### <a name="create-a-first-mb-2048-kb-partition-on-an-empty-vhd"></a>Créer une première partition en Mo (2048 ko) sur un disque dur virtuel vide
+### <a name="create-a-1-mb-2048-sectors-each-sector-of-512-bytes-partition-on-an-empty-vhd"></a>Création d’une partition de 1 Mo (2 048 secteurs de 512 octets chacun) sur un disque dur virtuel vide
 
 Ces étapes s’appliquent uniquement à Linux.
 
@@ -386,21 +376,21 @@ Ces étapes s’appliquent uniquement à Linux.
    1. Entrez 2048 comme valeur de _premier secteur_. Vous pouvez conserver _dernier secteur_ comme valeur par défaut.
 
       >[!IMPORTANT]
-      >Toutes les données existantes seront effacées jusqu’à atteindre 2048 ko. Sauvegardez le disque dur virtuel avant de créer une nouvelle partition.
+      >Toutes les données existantes sont effacées jusqu’à 2 048 secteurs (de 512 octets chacun). Sauvegardez le disque dur virtuel avant de créer une nouvelle partition.
 
       ![Capture d’écran de la ligne de commande du client Putty montrant les commandes et la sortie des données effacées.](./media/create-vm/vm-certification-issues-solutions-22.png)
 
-   1. Entrez `w` pour confirmer la création de la partition. 
+   1. Entrez `w` pour confirmer la création de la partition.
 
       ![Capture d’écran de la ligne de commande du client Putty montrant les commandes permettant de créer une partition.](./media/create-vm/vm-certification-issues-solutions-23.png)
 
-   1. Vous pouvez vérifier la table de partition en exécutant la commande `n fdisk /dev/sdb` et en saisissant `p`. Vous verrez que la partition est créée avec une valeur de décalage de 2048. 
+   1. Vous pouvez vérifier la table de partition en exécutant la commande `n fdisk /dev/sdb` et en saisissant `p`. Vous verrez que la partition est créée avec une valeur de décalage de 2048.
 
       ![Capture d’écran de la ligne de commande du client Putty montrant les commandes permettant de créer un décalage de 2048.](./media/create-vm/vm-certification-issues-solutions-24.png)
 
 1. Détachez le disque dur virtuel de la machine virtuelle et supprimez la machine virtuelle.
 
-### <a name="create-a-first-mb-2048-kb-partition-by-moving-existing-data-on-vhd"></a>Créer une première partition en Mo (2048 ko) en déplaçant les données existantes sur le disque dur virtuel
+### <a name="create-a-1-mb-2048-sectors-each-sector-of-512-bytes-partition-by-moving-existing-data-on-vhd"></a>Création d’une partition de 1 Mo (2 048 secteurs de 512 octets chacun) en déplaçant les données existantes sur le disque dur virtuel
 
 Ces étapes s’appliquent uniquement à Linux.
 
@@ -468,11 +458,11 @@ Lorsqu'une image est créée, elle peut être mappée ou attribuée à une étiq
 
 Si toutes les images issues de la Place de marché Azure doivent être réutilisées, le disque dur virtuel du système d'exploitation doit être généralisé.
 
-* Pour **Linux**, le processus suivant généralise une machine virtuelle Linux et la redéploie sous la forme d'une machine virtuelle distincte.
+- Pour **Linux**, le processus suivant généralise une machine virtuelle Linux et la redéploie sous la forme d'une machine virtuelle distincte.
 
   Dans la fenêtre SSH, entrez la commande suivante : `sudo waagent -deprovision+user`.
 
-* Pour **Windows**, vous pouvez généraliser les images Windows à l'aide de `sysreptool`.
+- Pour **Windows**, vous pouvez généraliser les images Windows à l'aide de `sysreptool`.
 
   Pour plus d’informations sur l’outil `sysreptool`, consultez [Présentation de l’outil de préparation système (Sysprep)](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
 
@@ -568,7 +558,7 @@ Pour fournir une image de machine virtuelle corrigée afin de remplacer une imag
 
 #### <a name="provide-a-new-vm-image-to-address-the-security-vulnerability-or-exploit"></a>Fournir une nouvelle image de machine virtuelle pour résoudre la vulnérabilité ou le code malveillant exploitant une faille de sécurité
 
-Pour effectuer ces étapes, préparez les ressources techniques pour l’image de machine virtuelle que vous souhaitez ajouter. Pour plus d’informations, consultez [Créer une machine virtuelle à l’aide d’une base approuvée](azure-vm-create-using-approved-base.md) ou [Créer une machine virtuelle à l’aide de votre propre image](azure-vm-create-using-own-image.md) et [Générer un URI SAP pour votre image de machine virtuelle](azure-vm-get-sas-uri.md).
+Pour effectuer ces étapes, préparez les ressources techniques pour l’image de machine virtuelle que vous souhaitez ajouter. Pour plus d’informations, consultez [Création d’une machine virtuelle avec une base approuvée](azure-vm-create-using-approved-base.md) ou [Création d’une machine virtuelle avec votre propre image](azure-vm-create-using-own-image.md) et [Génération d’un URI SAS pour une image de machine virtuelle](azure-vm-get-sas-uri.md).
 
 1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/home).
 1. Dans le volet gauche, sélectionnez **Marketplace commercial** > **Vue d’ensemble**.

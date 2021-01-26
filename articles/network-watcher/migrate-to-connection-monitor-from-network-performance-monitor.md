@@ -12,21 +12,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: vinigam
-ms.openlocfilehash: 3eb456dad2836bed55c45e7be9e898fdf72ac4d2
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 59e266274d6b65182ad63513ecf9bf3b5ab95490
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98017933"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98164836"
 ---
 # <a name="migrate-to-connection-monitor-from-network-performance-monitor"></a>Migration de Network Performance Monitor vers Moniteur de connexion
 
 En un clic et sans temps d’arrêt, vous pouvez migrer des tests de la solution Network Performance Monitor (NPM) vers la nouvelle fonctionnalité Moniteur de connexion améliorée. Pour en savoir plus sur les avantages, consultez [Moniteur de connexion](./connection-monitor-overview.md).
 
-
->[!NOTE]
-> Seuls des tests de Moniteur de connectivité de service peuvent être migrés vers Moniteur de connexion.
->
 
 ## <a name="key-points-to-note"></a>Points clés à noter
 
@@ -52,7 +48,7 @@ Pour migrer les tests de Network Performance Monitor vers Moniteur de connexion,
 
     :::image type="content" source="./media/connection-monitor-2-preview/migrate-npm-to-cm-preview.png" alt-text="Migrer des tests de Network Performance Monitor vers le Moniteur de connexion" lightbox="./media/connection-monitor-2-preview/migrate-npm-to-cm-preview.png":::
     
-1. Dans les listes déroulantes, sélectionnez votre abonnement et votre espace de travail, puis la fonctionnalité NPM que vous souhaitez migrer. Actuellement, vous pouvez migrer des tests uniquement à partir du Moniteur de connectivité de service.  
+1. Dans les listes déroulantes, sélectionnez votre abonnement et votre espace de travail, puis la fonctionnalité NPM que vous souhaitez migrer. 
 1. Sélectionnez **Importer** pour migrer les tests.
 
 Après le début de la migration, les modifications suivantes ont lieu : 
@@ -74,5 +70,5 @@ Après la migration, veillez à effectuer les opérations suivantes :
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus sur le Moniteur de connexion, consultez :
-* [Migration de moniteur de connexion à moniteur de connexion](./migrate-to-connection-monitor-from-connection-monitor-classic.md)
+* [Migrer vers le Moniteur de connexion à partir du Moniteur de connexion (classique)](./migrate-to-connection-monitor-from-connection-monitor-classic.md)
 * [Créer un Moniteur de connexion à l’aide du portail Azure](./connection-monitor-create-using-portal.md)

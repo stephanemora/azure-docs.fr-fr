@@ -1,21 +1,21 @@
 ---
 title: Créer et gérer des projets Azure Migrate
 description: Rechercher, créer, gérer et supprimer des projets dans Azure Migrate.
-author: ms-psharma
-ms.author: panshar
+author: vineetvikram
+ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 11/23/2020
-ms.openlocfilehash: 445e08b255e5b4dd67dd1c6a47c8df6ce59df5bd
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: de0c48bb775b96052fe16d60aa58049bfd58ca4d
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753822"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567774"
 ---
 # <a name="create-and-manage-azure-migrate-projects"></a>Créer et gérer des projets Azure Migrate
 
-Cet article explique comment créer, gérer et supprimer des projets [Azure Migrate](migrate-services-overview.md).
+Cet article explique comment créer, gérer et supprimer des projets [Azure Migrate](migrate-services-overview.md). Si vous utilisez des projets Azure Migrate classiques, supprimez-les et suivez la procédure pour créer un projet Azure Migrate. Il n’est pas possible de mettre à niveau des projets ni des composants Azure Migrate classiques vers Azure Migrate.
 
 Un projet de Azure Migrate est utilisé pour stocker les métadonnées de découverte, d’évaluation et de migration collectées à partir de l’environnement que vous évaluez ou migrez. Dans un projet, vous pouvez suivre les ressources découvertes, créer des évaluations et orchestrer des migrations vers Azure.  
 

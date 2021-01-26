@@ -13,17 +13,17 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 12/01/2020
 tags: azure-synapse
-ms.openlocfilehash: ece76f0017a72484f5c4e66b2ab8c7e71d32f1a7
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 41ad711de81f075727e4c177c318054677cb0ece
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132033"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185352"
 ---
 # <a name="data-discovery--classification"></a>Découverte et classification des données
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-L’option Découverte et classification des données est conçue pour Azure SQL Database, Azure SQL Managed Instance et Azure Synapse Analytics. Elle offre des fonctionnalités avancées pour la découverte, la classification, l’étiquetage et le signalement des données sensibles dans vos bases de données.
+L’option Découverte et classification des données est conçue pour Azure SQL Database, Azure SQL Managed Instance et Azure Synapse Analytics. Elle offre des fonctionnalités de base pour la découverte, la classification, l’étiquetage et le signalement des données sensibles dans vos bases de données.
 
 Vos données les plus sensibles peuvent inclure des informations commerciales, financières, médicales ou personnelles. La découverte et la classification de ces données peuvent jouer un rôle pivot dans l’approche de protection des informations de votre organisation. Elles peuvent servir d’infrastructure pour :
 
@@ -36,11 +36,11 @@ Vos données les plus sensibles peuvent inclure des informations commerciales, f
 
 ## <a name="what-is-data-discovery--classification"></a><a id="what-is-dc"></a>Présentation de Découverte et classification des données
 
-Découverte et classification de données introduit un ensemble de services avancés et de nouvelles fonctionnalités dans Azure. Elle forme un nouveau paradigme de protection des informations pour SQL Database, SQL Managed Instance et Azure Synapse destiné à protéger les données, et pas seulement la base de données. Le paradigme comprend les éléments suivants :
+Découverte et classification de données introduit un ensemble de services de base et de nouvelles fonctionnalités dans Azure. Elle forme un nouveau paradigme de protection des informations pour SQL Database, SQL Managed Instance et Azure Synapse destiné à protéger les données, et pas seulement la base de données. Le paradigme comprend les éléments suivants :
 
 - **Découverte et recommandations :** Le moteur de classification analyse votre base de données et identifie les colonnes contenant des données potentiellement sensibles. Il vous offre ensuite un moyen simple d’examiner et d’appliquer la classification recommandée via le portail Azure.
 
-- **Étiquetage :** Vous pouvez appliquer des étiquettes de classification de sensibilité de manière permanente aux colonnes à l’aide de nouveaux attributs de métadonnées qui ont été ajoutés au moteur de base de données SQL Server. Vous pouvez ensuite utiliser ces métadonnées pour des scénarios avancés d’audit et de protection basés sur la sensibilité.
+- **Étiquetage :** Vous pouvez appliquer des étiquettes de classification de sensibilité de manière permanente aux colonnes à l’aide de nouveaux attributs de métadonnées qui ont été ajoutés au moteur de base de données SQL Server. Vous pouvez ensuite utiliser ces métadonnées pour des scénarios d’audit et de protection basés sur la sensibilité.
 
 - **Sensibilité du jeu de résultats de requête :** La sensibilité du jeu de résultats de requête est calculée en temps réel à des fins d’audit.
 

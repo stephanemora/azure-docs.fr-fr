@@ -4,12 +4,12 @@ description: Découvrir la sauvegarde Azure Database pour PostgreSQL avec conser
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.custom: references_regions
-ms.openlocfilehash: 32837e5bb871f7db5024569efc27940047aeacd7
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.openlocfilehash: 628f43788c11558185a7b8a735373f0a663fdad1
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97734638"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98569485"
 ---
 # <a name="azure-database-for-postgresql-backup-with-long-term-retention-preview"></a>Sauvegarde Azure Database pour PostgreSQL avec conservation à long terme (préversion)
 
@@ -135,7 +135,7 @@ Les instructions suivantes constituent un guide pas à pas de la configuration d
 
 1. Définissez les paramètres de **Conservation**. Vous pouvez ajouter une ou plusieurs règles de conservation. Chaque règle de conservation nécessite des entrées pour des sauvegardes spécifiques, et le magasin de données et la durée de conservation de ces sauvegardes.
 
-1. Vous pouvez choisir de stocker vos sauvegardes dans un des deux magasins de données (ou niveaux) : **Magasin de données des sauvegardes** (niveau chaud) ou **Magasin de données des archives** (en préversion). Vous pouvez choisir entre **deux options de hiérarchisation** pour définir quand les sauvegardes sont hiérarchisées dans les deux magasins de données :
+1. Vous pouvez choisir de stocker vos sauvegardes dans un des deux magasins de données (ou niveaux) : **Magasin de données des sauvegardes** (niveau standard) ou **Magasin de données des archives** (en préversion). Vous pouvez choisir entre **deux options de hiérarchisation** pour définir quand les sauvegardes sont hiérarchisées dans les deux magasins de données :
 
     - Choisissez de copier **Immédiatement** si vous préférez avoir une copie de sauvegarde simultanément dans le magasin de données des sauvegardes et dans le magasin de données des archivages.
     - Choisissez de déplacer **À l’expiration** si vous préférez déplacer la sauvegarde vers le magasin de données des archivages quand elle expire dans le magasin de données des sauvegardes.

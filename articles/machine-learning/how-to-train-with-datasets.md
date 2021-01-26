@@ -1,7 +1,7 @@
 ---
-title: Entraîner avec azureml-datasets
+title: Effectuer l'apprentissage avec des jeux de données Machine Learning
 titleSuffix: Azure Machine Learning
-description: Découvrez mettre rendre vos données à la disposition de votre calcul local ou distant pour l’entraînement du modèle ML avec des jeux de données Azure Machine Learning.
+description: Découvrez comment mettre vos données à la disposition de votre calcul local ou distant pour l’apprentissage de modèle avec des jeux de données Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,15 +12,14 @@ ms.reviewer: nibaccam
 ms.date: 07/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: 52b52c4c19b22fb1afd76d1e8dfa4163326c0244
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 2d6282c527293abdb8b21e0591548cb51e1339a9
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98108588"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539667"
 ---
-# <a name="train-with-datasets-in-azure-machine-learning"></a>Entraîner avec des jeux de données dans Azure Machine Learning
-
+# <a name="train-models-with-azure-machine-learning-datasets"></a>Effectuer l'apprentissage de modèles avec des jeux de données Azure Machine Learning 
 
 Cet article explique comment utiliser des [jeux de données Azure Machine Learning](/python/api/azureml-core/azureml.core.dataset%28class%29?preserve-view=true&view=azure-ml-py) pour entraîner des modèles Machine Learning.  Vous pouvez utiliser des jeux de données dans votre cible de calcul locale ou distante sans vous soucier des chaînes de connexion ou des chemins de données. 
 
@@ -41,7 +40,7 @@ Pour créer des jeux de données et effectuer un entraînement avec eux, vous av
 > [!Note]
 > Certaines classes de jeu de données ont des dépendances avec le package [azureml-dataprep](/python/api/azureml-dataprep/?preserve-view=true&view=azure-ml-py). Pour les utilisateurs Linux, ces classes sont uniquement prises en charge dans les distributions suivantes :  Red Hat Enterprise Linux, Ubuntu, Fedora et CentOS.
 
-## <a name="use-datasets-directly-in-training-scripts"></a>Utiliser des jeux de données directement dans les script d’entraînement
+## <a name="consume-datasets-in-machine-learning-training-scripts"></a>Utiliser des jeux de données dans des scripts d’apprentissage Machine Learning
 
 Si vous disposez de données structurées qui ne sont pas encore inscrites en tant que jeu de données, créez un TabularDataset et utilisez-le directement dans votre script de formation pour votre expérience locale ou distante.
 
@@ -90,6 +89,7 @@ df = dataset.to_pandas_dataframe()
 ```
 
 ### <a name="configure-the-training-run"></a>Configurer l’exécution de l’apprentissage
+
 Un objet [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrun?preserve-view=true&view=azure-ml-py) est utilisé pour configurer et soumettre l’exécution de la formation.
 
 Ce code crée un objet ScriptRunConfig, `src`, qui spécifie :
@@ -141,6 +141,7 @@ mnist_ds = Dataset.File.from_files(path = web_paths)
 ```
 
 ### <a name="configure-the-training-run"></a>Configurer l’exécution de l’apprentissage
+
 Nous vous recommandons de transmettre le jeu de données comme argument lors du montage via le paramètre `arguments` du constructeur `ScriptRunConfig`. En procédant ainsi, vous obtiendrez le chemin de données (point de montage) dans votre script de formation via des arguments. Ainsi, vous serez en mesure d’utiliser le même script de formation pour le débogage local et la formation à distance sur toute plateforme cloud.
 
 L’exemple suivant crée un ScriptRunConfig qui passe dans le FileDataset via `arguments`. Une fois que vous avez envoyé l’exécution, les fichiers de données référencés par le jeu de données `mnist_ds` sont montés sur la cible de calcul.
@@ -160,7 +161,7 @@ run = experiment.submit(src)
 run.wait_for_completion(show_output=True)
 ```
 
-### <a name="retrieve-the-data-in-your-training-script"></a>Récupérer les données dans votre script d’entraînement
+### <a name="retrieve-data-in-your-training-script"></a>Récupérer les données dans votre script d’apprentissage
 
 Le code suivant montre comment récupérer les données dans votre script.
 
@@ -222,10 +223,9 @@ print(os.listdir(mounted_path))
 print (mounted_path)
 ```
 
+## <a name="get-datasets-in-machine-learning-scripts"></a>Récupérer des jeux de données dans des scripts Machine Learning
 
-## <a name="directly-access-datasets-in-your-script"></a>Accéder directement aux jeux de données dans votre script
-
-Les jeux de données inscrits sont accessibles localement et à distance sur des clusters de calcul comme la capacité de calcul Azure Machine Learning. Pour accéder à votre jeu de données inscrit dans plusieurs expériences, utilisez le code suivant afin d’accéder à votre espace de travail et à votre jeu de données inscrit en utilisant son nom. Par défaut, la méthode [`get_by_name()`](/python/api/azureml-core/azureml.core.dataset.dataset?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-by-name-workspace--name--version--latest--) sur la classe `Dataset` retourne la dernière version du jeu de données inscrit auprès de l’espace de travail.
+Les jeux de données inscrits sont accessibles localement et à distance sur des clusters de calcul comme la capacité de calcul Azure Machine Learning. Pour accéder à votre jeu de données inscrit dans plusieurs expériences, utilisez le code suivant afin d’accéder à votre espace de travail et de récupérer le jeu de données utilisé dans votre exécution précédente. Par défaut, la méthode [`get_by_name()`](/python/api/azureml-core/azureml.core.dataset.dataset?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-by-name-workspace--name--version--latest--) sur la classe `Dataset` retourne la dernière version du jeu de données inscrit auprès de l’espace de travail.
 
 ```Python
 %%writefile $script_folder/train.py
@@ -244,7 +244,7 @@ titanic_ds = Dataset.get_by_name(workspace=workspace, name=dataset_name)
 df = titanic_ds.to_pandas_dataframe()
 ```
 
-## <a name="accessing-source-code-during-training"></a>Accès au code source pendant l’entraînement
+## <a name="access-source-code-during-training"></a>Accéder au code source pendant l’apprentissage
 
 Le stockage Blob Azure offre des vitesses de débit supérieures à celles du partage de fichiers Azure et s’adapte à un grand nombre de travaux démarrés en parallèle. C’est pourquoi nous vous recommandons de configurer vos exécutions pour utiliser le stockage Blob pour le transfert des fichiers de code source.
 

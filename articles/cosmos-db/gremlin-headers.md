@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 09/03/2019
 author: christopheranderson
 ms.author: chrande
-ms.openlocfilehash: 3f5996b281c1985747f754e3796e9fb84f90fdd3
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 0442d21aebe1cf577c50d14a5aeff40bd1f6cd9c
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356958"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600527"
 ---
 # <a name="azure-cosmos-db-gremlin-server-response-headers"></a>En-têtes de réponse du serveur Gremlin d’Azure Cosmos DB
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -36,13 +36,12 @@ Gardez à l’esprit que la dépendance à ces en-têtes limite la portabilité 
 
 ## <a name="status-codes"></a>Codes d’état
 
-Les codes d’état les plus courants retournés par le serveur sont listés ci-dessous.
+Les codes d’état les plus courants que le serveur retourne pour l’attribut d’état `x-ms-status-code` sont répertoriés ci-dessous.
 
 | Statut | Explication |
 | --- | --- |
 | **401** | Le message d’erreur `"Unauthorized: Invalid credentials provided"` est retourné quand le mot de passe d’authentification ne correspond pas à la clé de compte Cosmos DB. Accédez à votre compte Gremlin Cosmos DB dans le portail Azure et vérifiez que la clé est correcte.|
 | **404** | Des opérations simultanées tentent de supprimer et de mettre à jour la même arête ou le même sommet simultanément. Le message d’erreur `"Owner resource does not exist"` indique que la base de données ou collection spécifiée est incorrecte dans les paramètres de connexion au format `/dbs/<database name>/colls/<collection or graph name>`.|
-| **408** | `"Server timeout"` indique que le parcours a pris plus de **30 secondes** et qu’il a été annulé par le serveur. Optimisez vos parcours pour qu’ils s’exécutent rapidement en filtrant les arêtes ou les sommets sur chaque tronçon afin d’affiner l’étendue de recherche.|
 | **409** | `"Conflicting request to resource has been attempted. Retry to avoid conflicts."` Cela se produit généralement lorsque le sommet ou une arête avec identificateur existe déjà dans le graphique.| 
 | **412** | Le code d’état s’accompagne du message d’erreur `"PreconditionFailedException": One of the specified pre-condition is not met`. Il indique une violation du contrôle d’accès concurrentiel optimiste entre la lecture d’une arête ou d’un sommet et sa réécriture dans le magasin après modification. Dans la plupart des cas, cette erreur se produit lors d’une modification de propriété, par exemple `g.V('identifier').property('name','value')`. Le moteur Gremlin lit le sommet, le modifie, puis procède à sa réécriture. Si un autre parcours exécuté en parallèle tente d’écrire le même sommet ou une arête, l’un d’eux recevra cette erreur. L’application doit soumettre de nouveau le parcours au serveur.| 
 | **429** | La demande a été limitée et doit être retentée après la valeur définie dans **x-ms-retry-after-ms**.| 
@@ -53,6 +52,7 @@ Les codes d’état les plus courants retournés par le serveur sont listés ci-
 | **1004** | Ce code d’état indique une requête de graphe incorrectement formée. Une requête peut être incorrectement formée quand la désérialisation échoue, quand un type qui n’est pas une valeur est désérialisé en tant que type valeur ou quand une opération Gremlin non prise en charge est demandée. L’application ne doit pas renouveler la requête, car elle échouera. | 
 | **1007** | Ce code d’état est généralement retourné avec le message d’erreur `"Could not process request. Underlying connection has been closed."`. Cette situation peut se produire si le pilote client tente d’utiliser une connexion fermée par le serveur. L’application doit réessayer le parcours sur une autre connexion.
 | **1008** | Le serveur Gremlin de Cosmos DB peut mettre fin aux connexions pour rééquilibrer le trafic dans le cluster. Les pilotes clients doivent gérer cette situation et utiliser des connexions actives uniquement pour envoyer des requêtes au serveur. Parfois, les pilotes clients ne détectent pas que la connexion était fermée. Quand l’application rencontre l’erreur `"Connection is too busy. Please retry after sometime or open more connections."`, elle doit réessayer le parcours sur une autre connexion.
+| **1009** | L’opération ne s’est pas terminée dans le délai imparti et a été annulée par le serveur. Optimisez vos parcours pour qu’ils s’exécutent rapidement en filtrant les arêtes ou les sommets sur chaque tronçon afin de réduire l’étendue de recherche. Le délai d’expiration par défaut de la demande est de **60 secondes**. |
 
 ## <a name="samples"></a>Exemples
 

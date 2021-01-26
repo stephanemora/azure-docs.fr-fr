@@ -1,6 +1,6 @@
 - name: Documentation ExpressRoute
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: Présentation d’ExpressRoute
       href: expressroute-introduction.md

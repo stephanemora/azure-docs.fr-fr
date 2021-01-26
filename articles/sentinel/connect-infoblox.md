@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: c8af1c32607e5fc7bf548b40069e18923c666303
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28abb9f09e3bca2522b959c6a9b890de5320b17a
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87089649"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567449"
 ---
 # <a name="connect-your-infoblox-nios-to-azure-sentinel"></a>Connexion de votre système d’exploitation des identités réseau Infoblox à Azure Sentinel
 
@@ -34,7 +34,7 @@ Cet article explique comment connecter votre appliance [du système d’exploita
 
 ## <a name="forward-infoblox-logs-to-the-syslog-agent"></a>Transférer des journaux Infoblox à l’agent Syslog  
 
-Configurez Infoblox pour transférer les messages Syslog à votre espace de travail Azure par le biais de l’agent Syslog.
+Configurez Infoblox pour transférer les messages Syslog à votre espace de travail Azure Sentinel par le biais de l’agent Syslog.
 
 1. Dans le portail Azure Sentinel, cliquez sur **Data Connectors** (Connecteurs de données) et sélectionnez le connecteur **Infoblox NIOS**.
 
@@ -48,7 +48,7 @@ Une fois la connexion correctement établie, les données apparaissent dans l’
 
 ## <a name="validate-connectivity"></a>Valider la connectivité
 
-Plus de 20 minutes peuvent être nécessaires avant que vos journaux ne commencent à apparaître dans Log Analytics. 
+Jusqu’à 20 minutes peuvent être nécessaires avant que vos journaux ne commencent à apparaître dans Log Analytics. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

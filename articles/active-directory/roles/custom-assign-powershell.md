@@ -1,6 +1,6 @@
 ---
-title: Assigner des rôles personnalisés à l’aide d’Azure PowerShell - Azure AD | Microsoft Docs
-description: Gérer les membres d’un rôle personnalisé d’administrateur Azure AD avec Azure PowerShell.
+title: Attribuer des rôles personnalisés à l’aide d’Azure AD PowerShell – Azure AD | Microsoft Docs
+description: Gérer les membres d’un rôle personnalisé d’administrateur Azure AD avec Azure AD PowerShell.
 services: active-directory
 author: curtand
 manager: daveba
@@ -13,16 +13,16 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4695d0844ef8b707edce53a05de611c91223a46
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 8b155ccd7f8f0d7f6d63d906d7d0baaa3243512b
+ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861950"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98562775"
 ---
 # <a name="assign-custom-roles-with-resource-scope-using-powershell-in-azure-active-directory"></a>Assigner des rôles personnalisés avec une étendue de ressources à l’aide de PowerShell dans Azure Active Directory
 
-Cet article explique comment créer une attribution de rôle à l’échelle de l’organisation dans Azure Active Directory (Azure AD). L’attribution d’un rôle à l’échelle de l’organisation accorde l’accès à l’ensemble de l’organisation Azure AD. Pour créer une attribution de rôle avec une étendue d’une seule ressource Azure AD, consultez [Comment créer un rôle personnalisé et l’affecter à l’étendue de la ressource](custom-create.md). Cet article utilise le module [Azure Active Directory PowerShell Version 2](/powershell/module/azuread/#directory_roles).
+Cet article explique comment créer une attribution de rôle à l’échelle de l’organisation dans Azure Active Directory (Azure AD). L’attribution d’un rôle à l’échelle de l’organisation accorde l’accès à l’ensemble de l’organisation Azure AD. Pour créer une attribution de rôle avec une étendue d’une seule ressource Azure AD, consultez [Comment créer un rôle personnalisé et l’affecter à l’étendue de la ressource](custom-create.md). Cet article utilise le module [Azure Active Directory PowerShell Version 2](/powershell/module/azuread/#directory_roles).
 
 Pour plus d'informations sur les rôles d'administrateur Azure AD, consultez [Attribuer des rôles d'administrateur dans Azure Active Directory](permissions-reference.md).
 
@@ -32,26 +32,26 @@ Connectez-vous à votre organisation Azure AD à l’aide d’un compte administ
 
 ## <a name="prepare-powershell"></a>Préparer PowerShell
 
-Installez le module Azure AD PowerShell à partir de la [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.17). Importez ensuite le module de préversion Azure AD PowerShell à l’aide de la commande suivante :
+Installez le module Azure AD PowerShell à partir de la [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureADPreview). Importez ensuite le module de préversion Azure AD PowerShell à l’aide de la commande suivante :
 
 ``` PowerShell
-import-module azureadpreview
+Import-Module AzureADPreview
 ```
 
 Pour vérifier que le module est prêt à l’emploi, faites correspondre la version retournée par la commande suivante à celle répertoriée ici :
 
 ``` PowerShell
-get-module azureadpreview
+Get-Module AzureADPreview
   ModuleType Version      Name                         ExportedCommands
   ---------- ---------    ----                         ----------------
   Binary     2.0.0.115    azureadpreview               {Add-AzureADMSAdministrati...}
 ```
 
-Vous pouvez désormais utiliser les applets de commande dans le module. Pour obtenir une description complète des applets de commande du module Azure AD, consultez la documentation de référence en ligne du [module de préversion Azure AD](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.17).
+Vous pouvez désormais utiliser les applets de commande dans le module. Pour obtenir une description complète des applets de commande du module Azure AD, consultez la documentation de référence en ligne du [module de préversion Azure AD](https://www.powershellgallery.com/packages/AzureADPreview).
 
-## <a name="assign-a-role-to-a-user-or-service-principal-with-resource-scope"></a>Affecter un rôle à un utilisateur ou à un principal de service avec une étendue de ressource
+## <a name="assign-a-directory-role-to-a-user-or-service-principal-with-resource-scope"></a>Affecter un rôle d’annuaire à un utilisateur ou à un principal de service avec une étendue de ressource
 
-1. Ouvrez le module de préversion PowerShell Azure AD.
+1. Chargez le modèle Azure AD PowerShell (préversion).
 1. Connectez-vous en exécutant la commande `Connect-AzureAD`.
 1. Créez un nouveau rôle à l’aide du script PowerShell suivant.
 
@@ -69,13 +69,13 @@ $resourceScope = '/' + $appRegistration.objectId
 $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -RoleDefinitionId $roleDefinition.Id -PrincipalId $user.objectId
 ```
 
-Pour affecter le rôle à un principal du service au lieu d’un utilisateur, utilisez l’applet de commande [Get-AzureADMSServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal).
+Pour attribuer le rôle à un principal du service au lieu d’un utilisateur, utilisez la cmdlet [Get-AzureADMSServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal).
 
-## <a name="operations-on-roledefinition"></a>Opérations sur RoleDefinition
+## <a name="role-definitions"></a>Définitions de rôles
 
-Les objets de définition de rôle contiennent la définition du rôle intégré ou personnalisé, ainsi que les autorisations octroyées par cette attribution de rôle. Cette ressource affiche à la fois les définitions de rôle personnalisées et les directoryRoles intégrées (qui sont affichées sous forme équivalente de roleDefinition). Aujourd’hui, une organisation Azure AD peut avoir un maximum de 30 RoleDefinitions personnalisés uniques.
+Les objets de définition de rôle contiennent la définition du rôle intégré ou personnalisé, ainsi que les autorisations octroyées par cette attribution de rôle. Cette ressource affiche à la fois les définitions de rôle personnalisées et les rôles d’annuaire intégrés (qui sont affichés sous une forme équivalente à roleDefinition). Aujourd’hui, une organisation Azure AD peut avoir un maximum de 30 définition de rôles personnalisés uniques.
 
-### <a name="create-operations-on-roledefinition"></a>Créer des opérations sur RoleDefinition
+### <a name="create-a-role-definition"></a>Créer une définition de rôle
 
 ``` PowerShell
 # Basic information
@@ -83,32 +83,32 @@ $description = "Can manage credentials of application registrations"
 $displayName = "Application Registration Credential Administrator"
 $templateId = (New-Guid).Guid
 
-# Set of actions to grant
-$allowedResourceAction =
-@(
-    "microsoft.directory/applications/standard/read",
-    "microsoft.directory/applications/credentials/update"
-)
-$rolePermissions = @{'allowedResourceActions'= $allowedResourceAction}
+# Set of actions to include
+$rolePermissions = @{
+    "allowedResourceActions" = @(
+        "microsoft.directory/applications/standard/read",
+        "microsoft.directory/applications/credentials/update"
+    )
+}
 
-# Create new custom admin role
+# Create new custom directory role
 $customAdmin = New-AzureADMSRoleDefinition -RolePermissions $rolePermissions -DisplayName $displayName -Description $description -TemplateId $templateId -IsEnabled $true
 ```
 
-### <a name="read-operations-on-roledefinition"></a>Lire des opérations sur RoleDefinition
+### <a name="read-and-list-role-definitions"></a>Lire et répertorier les définitions de rôles
 
 ``` PowerShell
 # Get all role definitions
 Get-AzureADMSRoleDefinitions
 
-# Get single role definition by objectId
+# Get single role definition by ID
 Get-AzureADMSRoleDefinition -Id 86593cfc-114b-4a15-9954-97c3494ef49b
 
 # Get single role definition by templateId
 Get-AzureADMSRoleDefinition -Filter "templateId eq 'c4e39bd9-1100-46d3-8c65-fb160da0071f'"
 ```
 
-### <a name="update-operations-on-roledefinition"></a>Mettre à jour des opérations sur RoleDefinition
+### <a name="update-a-role-definition"></a>Mettre à jour une définition de rôle
 
 ``` PowerShell
 # Update role definition
@@ -117,18 +117,18 @@ Get-AzureADMSRoleDefinition -Filter "templateId eq 'c4e39bd9-1100-46d3-8c65-fb16
 Set-AzureADMSRoleDefinition -Id c4e39bd9-1100-46d3-8c65-fb160da0071f -DisplayName "Updated DisplayName"
 ```
 
-### <a name="delete-operations-on-roledefinition"></a>Supprimer des opérations sur RoleDefinition
+### <a name="delete-a-role-definition"></a>Supprimer une définition de rôle
 
 ``` PowerShell
 # Delete role definition
 Remove-AzureADMSRoleDefinitions -Id c4e39bd9-1100-46d3-8c65-fb160da0071f
 ```
 
-## <a name="operations-on-roleassignment"></a>Opérations sur RoleAssignment
+## <a name="role-assignments"></a>Attributions de rôles
 
-Les attributions de rôles contiennent des informations qui lient une entité de sécurité donnée (un principal de service d’utilisateur ou d’application) à une définition de rôle. Si nécessaire, vous pouvez ajouter une étendue d’une ressource de Azure AD unique pour les autorisations affectées.  La restriction de l’étendue des autorisations est prise en charge pour les rôles intégrés et personnalisés.
+Les attributions de rôles contiennent des informations qui lient une entité de sécurité donnée (un principal de service d’utilisateur ou d’application) à une définition de rôle. Si nécessaire, vous pouvez ajouter une étendue d’une ressource de Azure AD unique pour les autorisations affectées.  La restriction de l’étendue d’une attribution de rôle est prise en charge pour les rôles intégrés et personnalisés.
 
-### <a name="create-operations-on-roleassignment"></a>Créer des opérations sur RoleAssignment
+### <a name="create-a-role-assignment"></a>Création d'une affectation de rôle
 
 ``` PowerShell
 # Get the user and role definition you want to link
@@ -143,7 +143,7 @@ $resourceScope = '/' + $appRegistration.objectId
 $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -RoleDefinitionId $roleDefinition.Id -PrincipalId $user.objectId
 ```
 
-### <a name="read-operations-on-roleassignment"></a>Lire des opérations sur RoleAssignment
+### <a name="read-and-list-role-assignments"></a>Lire et répertorier les attributions de rôles.
 
 ``` PowerShell
 # Get role assignments for a given principal
@@ -153,7 +153,7 @@ Get-AzureADMSRoleAssignment -Filter "principalId eq '27c8ca78-ab1c-40ae-bd1b-eae
 Get-AzureADMSRoleAssignment -Filter "roleDefinitionId eq '355aed8a-864b-4e2b-b225-ea95482e7570'"
 ```
 
-### <a name="delete-operations-on-roleassignment"></a>Supprimer des opérations sur RoleAssignment
+### <a name="delete-a-role-assignment"></a>Supprimer une attribution de rôle
 
 ``` PowerShell
 # Delete role assignment

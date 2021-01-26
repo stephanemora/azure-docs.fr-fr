@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: 34524626cc213233c3db2ca438261b238eb18a2a
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: 93b05a5535b80d0e0d1a07c88aa9b19052f1b703
+ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97831769"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98562673"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Clusters dédiés pour les journaux Azure Monitor
 
@@ -58,7 +58,7 @@ Vous trouverez plus d’informations sur la facturation des clusters dédiés Lo
 
 ## <a name="asynchronous-operations-and-status-check"></a>Opérations asynchrones et vérification de l’état
 
-Certaines étapes de configuration s’exécutent de façon asynchrone, car elles ne peuvent pas être effectuées rapidement. L’état de la réponse peut contenir ce qui suit : « InProgress », « Updating », « Deleting », « Succeeded » ou « Failed » dans le code d’erreur. Lors de l’utilisation de REST, la réponse retourne initialement un code d’état HTTP 200 (OK) et un en-tête avec la propriété Azure-AsyncOperation lorsqu’elle est acceptée :
+Certaines étapes de configuration s’exécutent de façon asynchrone, car elles ne peuvent pas être effectuées rapidement. L’état de la réponse peut contenir ce qui suit : « InProgress », « Updating », « Deleting », « Succeeded » ou « Failed » dans le code d’erreur. Lors de l’utilisation de REST, la réponse retourne initialement un code d’état HTTP 202 (Accepté) et un en-tête avec la propriété Azure-AsyncOperation :
 
 ```JSON
 "Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2020-08-01"
@@ -125,7 +125,7 @@ Content-type: application/json
 
 *Réponse*
 
-Doit être 200 OK et un en-tête.
+Doit être 202(Accepté) et un en-tête.
 
 ### <a name="check-cluster-provisioning-status"></a>Vérifier l’état de l’approvisionnement du cluster
 
@@ -229,7 +229,7 @@ Content-type: application/json
 
 *Réponse*
 
-200 OK et en-tête.
+202 (Accepté) et en-tête.
 
 ### <a name="check-workspace-link-status"></a>Vérifier l’état d’association de l’espace de travail
   

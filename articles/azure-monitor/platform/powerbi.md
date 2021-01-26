@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/01/2019
-ms.openlocfilehash: 53277f64c3d1b03572732157756da1fececbcd43
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 69f00416f180f83c761be5ed444e80903e9fcbb6
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184567"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234441"
 ---
 # <a name="import-azure-monitor-log-data-into-power-bi"></a>Importation de données de journal Azure Monitor dans Power BI
 
@@ -27,6 +27,9 @@ Pour importer les données d’un [espace de travail Log Analytics](manage-acces
 
 ## <a name="export-query"></a>Exporter une requête
 Commencez par créer une [requête de journal](../log-query/log-query-overview.md) qui renvoie les données que vous voulez ajouter au jeu de données Power BI.  Vous exportez ensuite cette requête dans le [langage Power Query (M)](/powerquery-m/power-query-m-language-specification) qui peut être utilisé par Power BI Desktop.
+
+> [!WARNING]
+> Veillez à [optimiser votre requête](../log-query/query-optimization.md) afin que son exécution ne prenne pas trop de temps et qu’elle ne dépasse pas le délai d’attente. Notez la valeur **timespan** dans la requête exportée, qui définit la période de données que la requête doit récupérer. Utilisez la valeur timespan plus petite nécessaire pour limiter la quantité de données que la requête retourne.
 
 1. [Créez la requête de journal Log Analytics](../log-query/log-analytics-tutorial.md) pour extraire les informations de votre jeu de données.
 2. Sélectionnez **Exporter** > **Requête Power BI (M)** .  Cela a pour effet d’exporter la requête vers un fichier texte intitulé **PowerBIQuery.txt**. 
@@ -50,7 +53,7 @@ Power BI Desktop est une application de bureau qui vous permet de créer des jeu
 
 
 
-## <a name="publish-to-power-bi"></a>Publier vers Power BI
+## <a name="publish-to-power-bi"></a>Publier sur Power BI
 Lorsque vous publiez sur Power BI, un jeu de données et un rapport sont créés.  Si vous créez un rapport dans Power BI Desktop, celui-ci sera publié avec vos données.  Sinon, un rapport vide sera créé.  Vous pouvez modifier le rapport dans Power BI, ou en créer un basé sur le jeu de données.
 
 1. Créez un rapport basé sur vos données.  Consultez la [documentation Power BI Desktop](/power-bi/desktop-report-view) si vous avez besoin d'aide.  
@@ -62,7 +65,7 @@ Lorsque vous publiez sur Power BI, un jeu de données et un rapport sont créés
 1. Une fois la publication terminée, cliquez sur **Ouvrir dans Power BI** pour ouvrir Power BI avec votre nouveau jeu de données.
 
 
-### <a name="configure-scheduled-refresh"></a>Configuration d'une actualisation planifiée
+### <a name="configure-scheduled-refresh"></a>Configurer une actualisation planifiée
 Le jeu de données créé dans Power BI contiendra les mêmes informations que celles que vous avez déjà consultées dans Power BI Desktop.  Vous devez régulièrement actualiser le jeu de données pour réexécuter la requête et la remplir avec les dernières informations d’Azure Monitor.  
 
 1. Cliquez sur l'espace de travail dans lequel vous avez chargé votre rapport puis sélectionnez le menu **Jeux de données**. 

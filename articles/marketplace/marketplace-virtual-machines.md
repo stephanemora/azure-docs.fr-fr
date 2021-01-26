@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: 433875e52e77a8992197b47fe0424cd0b7e9f50c
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: d9e26b6388223ae252a5e85e6e9fb9783a3b8429
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628286"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600406"
 ---
 # <a name="how-to-plan-a-virtual-machine-offer"></a>Comment planifier une offre de machine virtuelle
 
@@ -73,7 +73,7 @@ Les offres de machines virtuelles nécessitent au moins un plan. Un plan défini
 Les machines virtuelles sont entièrement commercialisables à l’aide des modèles de licence Paiement à l’utilisation ou BYOL (apportez votre propre licence). Microsoft héberge la transaction commerciale et facture votre client pour votre compte. Vous avez ainsi l’avantage utiliser la relation de paiement préférée entre votre client et Microsoft, et notamment un éventuel contrat Entreprise. Pour plus d’informations, consultez [Fonctionnalités de transaction de la Place de marché commerciale](./marketplace-commercial-transaction-capabilities-and-considerations.md).
 
 > [!NOTE]
-> Vous pouvez consacrer les engagement monétaires associés à un Contrat Entreprise à la couverture de l’utilisation par Azure de votre machine virtuelle, mais pas à celle de vos frais de licence logicielle.
+> Vous pouvez consacrer l’Acompte Azure (précédemment appelé engagement monétaire) associé à un Contrat Entreprise à la couverture de l’utilisation par Azure de votre machine virtuelle, mais pas à celle de vos frais de licence logicielle.
 
 ### <a name="licensing-options"></a>Options de licence
 

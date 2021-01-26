@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/9/2020
 ms.author: yitoh
-ms.openlocfilehash: 5e633b5e4b2ff2ce884bfaf99e3730968150cbed
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: 114c723b127a17ffdd9c7ed91c6e777838d68e8e
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97746369"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223344"
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Vue d’ensemble du service Protection DDos Standard Azure
 
@@ -36,7 +36,7 @@ La protection DDoS d’Azure ne stocke pas les données client.
 - **Protection clé en main :** La configuration simplifiée protège immédiatement toutes les ressources situées sur un réseau virtuel dès que DDoS Protection Standard est activé. Aucune définition ou intervention de l’utilisateur n’est nécessaire. 
 - **Surveillance permanente du trafic :** Vos modèles de trafic d’application sont surveillés 24h/24 et 7j/7, à la recherche d’indicateurs d’attaques DDoS. Le service Protection DDoS Standard atténue de façon instantanée et automatique l’attaque une fois que celle-ci est détectée.
 - **Optimisation adaptative :** Le profilage intelligent du trafic étudie le trafic de votre application au fil du temps pour sélectionner et mettre à jour le profil le plus adapté pour votre service. Le profil s’ajuste en fonction des modifications du trafic au fil du temps.
-- **Protection multi-couches :** Fournit une protection DDoS complète par empilement, lorsqu’elle est utilisée avec un pare-feu d’applications web, pour obtenir une protection à la fois au niveau de la couche réseau (couche 3 et 4, proposée par Azure DDoS Protection Standard) et au niveau de la couche application (couche 7, proposée par un pare-feu d’applications web). Les offres WAF incluent [la référence SKU du pare-feu d’applications web Azure Application Gateway](../web-application-firewall/ag/ag-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), ainsi que des offres tierces de pare-feu d’applications web disponibles sur [Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=web%20application%20firewall).
+- **Protection multi-couches :** lorsqu’elle est déployée avec un pare-feu d’applications web (WAF), la Protection DDoS Standard offre une protection à la fois au niveau de la couche réseau (couche 3 et 4, assurée par Azure DDoS Protection Standard) et au niveau de la couche Application (couche 7, assurée par un pare-feu WAF). Les offres WAF incluent [la référence SKU du pare-feu d’applications web Azure Application Gateway](../web-application-firewall/ag/ag-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), ainsi que des offres tierces de pare-feu d’applications web disponibles sur [Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=web%20application%20firewall).
 - **Échelle de prévention étendue :** Plus de 60 types d’attaques différents peuvent être contrées, avec une protection globale contre les attaques DDoS les plus connues.
 - **Analytique des attaques :** Recevez des rapports détaillés toutes les cinq minutes pendant une attaque, et un résumé complet une fois l’attaque terminée. Transmettez en continu les journaux de flux de prévention des attaques à [Azure Sentinel](../sentinel/connect-azure-ddos-protection.md) ou un système hors ligne de gestion des informations et des événements de sécurité (SIEM) pour une supervision en temps quasi-réel pendant une attaque.
 - **Métriques des attaques :** Des métriques récapitulatives de chaque attaque sont accessibles via Azure Monitor.
@@ -45,6 +45,10 @@ La protection DDoS d’Azure ne stocke pas les données client.
 - **Maîtrise des coûts :** Recevez un crédit de service de transfert de données et de mise à l’échelle des applications pour les coûts de ressources résultant d’attaques DDoS documentées.
 
 ## <a name="pricing"></a>Tarifs
+
+Les plans de protection DDoS présentent un coût mensuel fixe de 2 944 $ par mois, qui couvre jusqu’à 100 adresses IP publiques. Peuvent s’y ajouter 30 $ par ressource supplémentaire et par mois.
+
+Sous un locataire, un même plan de protection DDoS peut être utilisé sur plusieurs abonnements. Il n’est donc pas nécessaire de créer plusieurs plans de protection DDoS.
 
 Pour en savoir plus sur la tarification d’Azure DDoS Protection standard, consultez [Tarification d’Azure DDoS Protection Standard](https://azure.microsoft.com/pricing/details/ddos-protection/).
 

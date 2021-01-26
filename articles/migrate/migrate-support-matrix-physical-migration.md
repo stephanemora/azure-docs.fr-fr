@@ -6,16 +6,16 @@ ms.author: rahugup
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/14/2020
-ms.openlocfilehash: a1203133d8749b43a92d89e7251539a1e002bfd8
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: a3e8b19810a58031b4d11cc6e361215afbc85de2
+ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968566"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98562638"
 ---
 # <a name="support-matrix-for-physical-server-migration"></a>Tableau de prise en charge pour la migration de serveurs physiques
 
-Cet article résume les paramètres et les limites de la migration de serveurs physiques avec [Azure Migrate : Migration de serveur](migrate-services-overview.md#azure-migrate-server-migration-tool). Si vous recherchez des informations sur l’évaluation de serveurs physiques VMware pour la migration vers Azure, consultez le [tableau de prise en charge de l’évaluation](migrate-support-matrix-physical.md).
+Cet article résume les paramètres du support et les limites de la migration de serveurs physiques vers Azure avec [Azure Migrate : Migration de serveur](migrate-services-overview.md#azure-migrate-server-migration-tool). Si vous recherchez des informations sur l’évaluation de serveurs physiques VMware pour la migration vers Azure, consultez le [tableau de prise en charge de l’évaluation](migrate-support-matrix-physical.md).
 
 ## <a name="migrating-machines-as-physical"></a>Migration de machines en tant qu’ordinateurs physiques
 
@@ -25,7 +25,7 @@ Vous pouvez migrer des machines locales en tant que serveurs physiques à l’ai
 - Machines virtuelles virtualisées par des plateformes telles que Xen ou KVM.
 - Machines virtuelles Hyper-V ou machines virtuelles VMware si, pour une quelconque raison, vous ne souhaitez pas utiliser les flux [Hyper-V](tutorial-migrate-hyper-v.md) ou [VMware](server-migrate-overview.md).
 - Machines virtuelles exécutées dans des clouds privés.
-- Machines virtuelles exécutées dans des clouds publics tels qu’Amazon Web Services (AWS) ou Google Cloud Platform (GCP).
+- Machines virtuelles exécutées dans des clouds publics, notamment Amazon Web Services (AWS) ou Google Cloud Platform (GCP).
 
 
 ## <a name="migration-limitations"></a>Limitations de la migration
@@ -57,7 +57,6 @@ Le tableau résume la prise en charge de serveurs physiques que vous souhaitez m
 **NFS** | Les volumes NFS montés en tant que volumes sur les machines ne sont pas répliqués.
 **Cibles iSCSI** | Les machines avec des cibles iSCSI ne sont pas prises en charge pour la migration sans agent.
 **Multipath I/O** | Non pris en charge.
-**Storage vMotion** | Prise en charge
 **Cartes réseau associées** | Non pris en charge.
 **IPv6** | Non pris en charge.
 

@@ -7,12 +7,12 @@ ms.date: 01/30/2020
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: e3642a621253b79fdfcdd8cb2b648dee534c6758
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: db6575894904e6ced2d4be48fec5961f5b8b8a54
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968683"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602641"
 ---
 # <a name="reduce-costs-with-azure-disks-reservation"></a>Réduire les coûts avec la réservation de disques Azure
 
@@ -70,7 +70,7 @@ Pour acheter une capacité de réserve, procédez comme suit :
    |Élément  |Description  |
    |---------|---------|
    |**Étendue**   |  Nombre d’abonnements pouvant bénéficier de l’avantage de facturation associé à la réservation. Celle valeur spécifie également la manière dont la réservation est appliquée à des abonnements spécifiques. <br/><br/> Si vous sélectionnez **Partagé**, la remise de réservation est appliquée à la capacité de Stockage Azure de chaque abonnement dans votre contexte de facturation. Le contexte de facturation est basé sur la façon dont vous vous êtes inscrit dans Azure. Pour les clients Entreprise, l'étendue partagée correspond à l'inscription et inclut tous les abonnements compris dans l'inscription. Pour les clients avec paiement à l’utilisation, l’étendue partagée comprend tous les abonnements individuels avec des tarifs de paiement à l’utilisation créés par l’administrateur de compte.  <br/><br/>  Si vous sélectionnez **Abonnement unique**, la remise de réservation est appliquée à la capacité Stockage Azure de l’abonnement sélectionné. <br/><br/> Si vous sélectionnez **Groupe de ressources unique**, la remise de réservation est appliquée à la capacité de Stockage Azure de l’abonnement sélectionné et du groupe de ressources sélectionné dans cet abonnement. <br/><br/> Vous pouvez changer l’étendue de la réservation après l’achat de la réservation.  |
-   |**Abonnement**  | Abonnement que vous utilisez pour payer la réservation de Stockage Azure. Les coûts sont facturés selon le mode de paiement défini sur l’abonnement sélectionné. L’abonnement doit être de l’un des types suivants :<br/><ul><li> Accord Entreprise (numéros d’offre MS-AZR-0017P et MS-AZR-0148P). Pour un abonnement Entreprise, les frais sont déduits du solde de l’engagement financier de l’inscription, ou facturés comme un dépassement.</li><br/><li>Abonnement individuel avec taux de paiement à l’utilisation (numéros d’offre MS-AZR-0003P et MS-AZR-0023P). Pour un abonnement individuel avec tarifs de paiement à l’utilisation, les frais sont facturés sur le mode de paiement par carte de crédit ou par facture, défini sur l’abonnement.</li></ul>    |
+   |**Abonnement**  | Abonnement que vous utilisez pour payer la réservation de Stockage Azure. Les coûts sont facturés selon le mode de paiement défini sur l’abonnement sélectionné. L’abonnement doit être de l’un des types suivants :<br/><ul><li> Accord Entreprise (numéros d’offre MS-AZR-0017P et MS-AZR-0148P). Pour un abonnement Entreprise, les frais sont déduits du Paiement anticipé Azure (précédemment appelé « solde de l’engagement financier ») de l’inscription ou facturés comme dépassement.</li><br/><li>Abonnement individuel avec taux de paiement à l’utilisation (numéros d’offre MS-AZR-0003P et MS-AZR-0023P). Pour un abonnement individuel avec tarifs de paiement à l’utilisation, les frais sont facturés sur le mode de paiement par carte de crédit ou par facture, défini sur l’abonnement.</li></ul>    |
    | **Disques** | Référence (SKU) que vous souhaitez créer. |
    | **Région** | Région dans laquelle la réservation est en vigueur. |
    | **Périodicité de facturation** | Fréquence à laquelle le compte est facturé pour la réservation. Les options sont **Mensuel** ou **Comptant**. |

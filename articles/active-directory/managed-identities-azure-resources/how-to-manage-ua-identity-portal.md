@@ -15,18 +15,18 @@ ms.workload: identity
 ms.date: 08/26/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ad91c916a6134f2507e74df6e87478421a00f43
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fd4cccdfc3a2cf8dd3827776028a7738ae769673
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96003002"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98184828"
 ---
-# <a name="create-list-delete-or-assign-a-role-to-a-user-assigned-managed-identity-using-the-azure-portal"></a>Créer, répertorier, supprimer ou affecter un rôle à une identité managée affectée par l’utilisateur à l’aide du Portail Azure
+# <a name="create-list-delete-or-assign-a-role-to-a-user-assigned-managed-identity-using-the-azure-portal"></a>Création, affichage, suppression ou attribution d’un rôle à une identité managée affectée par l’utilisateur avec le Portail Azure
 
 Les identités managées pour ressources Azure fournissent aux services Azure une identité managée dans Azure Active Directory. Vous pouvez utiliser cette identité pour vous authentifier auprès de services prenant en charge l’authentification Azure AD, sans avoir recours à des informations d’identification dans votre code. 
 
-Dans cet article, vous allez découvrir comment créer, répertorier, supprimer ou attribuer un rôle à une identité managée affectée par l’utilisateur à l’aide du portail Azure.
+Dans cet article, vous allez découvrir comment créer, afficher, supprimer ou attribuer un rôle à une identité managée affectée par l’utilisateur avec le Portail Azure.
 
 ## <a name="prerequisites"></a>Prérequis
 

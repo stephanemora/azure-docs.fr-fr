@@ -3,12 +3,12 @@ title: FAQ sur Azure Relay | Documents Microsoft
 description: Cet article fournit des réponses aux questions fréquemment posées sur le service Azure Relay.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 77d3122942289654c0f651f9f648307123b23546
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 83cbc4b02bb8b63878abd046ed2314728546e87a
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131846"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250047"
 ---
 # <a name="azure-relay-faqs"></a>FAQ sur Azure Relay
 
@@ -70,7 +70,7 @@ Les relais ouverts à l’aide de la liaison WCF **netTCPRelay** traitent les me
 ## <a name="quotas"></a>Quotas
 | Nom du quota | Étendue |  Notes | Valeur |
 | --- | --- | --- | --- |
-| Écouteurs simultanés sur un relais |Entité |Les demandes suivantes de connexions supplémentaires sont rejetées et le code appelant reçoit une exception. |25 |
+| Écouteurs simultanés sur un relais |Entité (connexion hybride ou relais WCF) |Les demandes suivantes de connexions supplémentaires sont rejetées et le code appelant reçoit une exception. |25 |
 | Connexions Relay simultanées pour tous les points de terminaison Relay dans un espace de noms de service |Espace de noms |- |5 000 |
 | Points de terminaison Relay par espace de noms de service |Espace de noms |- |10 000 |
 | Taille de message pour les relais [NetOnewayRelayBinding](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) et [NetEventRelayBinding](/dotnet/api/microsoft.servicebus.neteventrelaybinding) |Espace de noms |Les messages entrants dont la taille dépasse ces quotas sont rejetés et le code appelant reçoit une exception. |64 Ko |

@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 06/17/2020
-ms.openlocfilehash: ce528e268e0ed1e34f53e32196bceef5ad8a2fcb
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: e85c97df29bbbcc5d446d788cc190f3c90f24024
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452494"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602219"
 ---
 # <a name="azure-sql-database-and-azure-synapse-ip-firewall-rules"></a>Règles de pare-feu IP Azure SQL Database et Azure Synapse
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -43,6 +43,9 @@ Vous pouvez configurer des règles de pare-feu IP au niveau du serveur à l’ai
 
 - Pour utiliser le portail ou PowerShell, vous devez être le propriétaire ou un contributeur de l’abonnement.
 - Pour utiliser Transact-SQL, vous devez vous connecter à la base de données *MASTER* avec un compte principal au niveau du serveur ou en tant qu'administrateur Azure Active Directory. (Une règle de pare-feu IP au niveau du serveur doit d’abord être créée par un utilisateur disposant d’autorisations au niveau d’Azure.)
+
+> [!NOTE]
+> Par défaut, lors de la création d’un serveur SQL logique à partir du portail Azure, le paramètre **Autoriser les services et les ressources Azure à accéder à ce serveur** est défini sur **Non**.
 
 ### <a name="database-level-ip-firewall-rules"></a>Règles de pare-feu IP au niveau de la base de données
 
@@ -270,7 +273,7 @@ Tenez compte des points suivants lorsque l'accès à Azure SQL Database est anor
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Vérifiez que votre environnement de réseau d’entreprise autorise les communications entrantes issues des plages d’adresses IP de calcul (y compris les plages SQL) utilisées par les centres de données Azure. Vous devrez peut-être ajouter ces adresses IP à la liste verte. Consultez [Plages IP de centres de données Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653).  
-- Pour accéder à un guide de démarrage rapide sur la création d'une règle de pare-feu IP au niveau du serveur, consultez [Créer une base de données unique dans Azure SQL Database](single-database-create-quickstart.md).
+- Consultez notre démarrage rapide sur la [création d’une seule base de données dans Azure SQL Database](single-database-create-quickstart.md).
 - Pour obtenir de l'aide sur la connexion à une base de données dans Azure SQL Database à partir d'applications open source ou tierces, consultez [Exemples de code de démarrage rapide du client pour Azure SQL Database](connect-query-content-reference-guide.md#libraries).
 - Pour plus d’informations sur les autres ports que vous devrez peut-être ouvrir, consultez la section « SQL Database : exécution externe ou exécution interne de [Ports au-delà de 1433 pour ADO.NET 4.5 et SQL Database](adonet-v12-develop-direct-route-ports.md).
 - Pour obtenir une vue d’ensemble de la sécurité Azure SQL Database, consultez [Sécurisation de votre base de données](security-overview.md).

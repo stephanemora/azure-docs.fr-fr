@@ -1,8 +1,6 @@
 ---
 title: Notification de mise à jour automatique et d’expiration du runtime d’intégration auto-hébergé
 description: En savoir plus sur la notification de mise à jour automatique et d’expiration du runtime d’intégration auto-hébergé
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
@@ -11,12 +9,12 @@ ms.author: lle
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 12/25/2020
-ms.openlocfilehash: 6a6c897d92d469fd6247dd51f2bacb91032ac123
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 8c51839e760dcca32bfc0d150c5e4d10767d95a4
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121770"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222681"
 ---
 # <a name="self-hosted-integration-runtime-auto-update-and-expire-notification"></a>Notification de mise à jour automatique et d’expiration du runtime d’intégration auto-hébergé
 
@@ -33,7 +31,7 @@ La méthode la plus pratique consiste à activer la mise à jour automatique lor
 
 Vous pouvez vérifier la date et l’heure de la dernière mise à jour dans votre client du runtime d’intégration auto-hébergé.
 
-![Activer la mise à jour automatique](media/create-self-hosted-integration-runtime/shir-auto-update-2.png)
+![Capture d’écran de la vérification de l’heure de mise à jour](media/create-self-hosted-integration-runtime/shir-auto-update-2.png)
 
 > [!NOTE]
 > Pour garantir la stabilité du runtime d’intégration auto-hébergé, même si nous publions deux versions, nous ne le mettons à jour qu’une seule fois par mois. Par conséquent, vous constaterez parfois que la version mise à jour automatiquement correspond à la version précédente de la version la plus récente. Si vous souhaitez obtenir la version la plus récente, vous pouvez accéder au [centre de téléchargement](https://www.microsoft.com/download/details.aspx?id=39717).

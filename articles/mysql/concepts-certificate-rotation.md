@@ -5,13 +5,13 @@ author: mksuni
 ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 01/13/2021
-ms.openlocfilehash: a65ac8d52c17a288447193fb8c0fba2c6e6c5554
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.date: 01/18/2021
+ms.openlocfilehash: e9e13f0254cdefd9a6b4887d8ab97dd54ad9810d
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201261"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539653"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mysql"></a>Comprendre les modifications liées au changement d’autorité de certification racine pour Azure Database for MySQL
 
@@ -21,9 +21,7 @@ Azure Database pour MySQL va modifier le certificat racine d’application clien
 > En fonction des commentaires des clients 2020, nous avons étendu la désapprobation du certificat racine pour notre autorité de certification racine Baltimore existante du 26 octobre au 15 février 2021. Nous espérons que cette extension fournira suffisamment de temps pour permettre à nos utilisateurs d’implémenter les modifications du client si elles sont affectées.
 
 > [!NOTE]
-> Communication sans biais
->
-> La diversité et l’inclusion sont au cœur des valeurs de Microsoft. Cet article contient des références aux mots _maître_ et _esclave_. Le [guide de style de Microsoft sur la communication sans stéréotype](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) les reconnaît comme des mots à exclure. Les mots sont utilisés dans cet article par souci de cohérence, car ils apparaissent tels quels dans le logiciel. Une fois que ces mots auront été supprimés du logiciel, cet article sera mis à jour en conséquence.
+> Cet article contient des références au terme _esclave_, un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.
 >
 
 ## <a name="what-update-is-going-to-happen"></a>Quelle mise à jour va se produire ?
@@ -76,13 +74,20 @@ Pour éviter toute interruption de la disponibilité de votre application en rai
 
   * Si vous utilisez .NET (MySQL Connector/NET, MySQLConnector), assurez-vous que **BaltimoreCyberTrustRoot** et **DigiCertGlobalRootG2** existent dans le magasin de certificats Windows et dans les autorités de certification racines de confiance. S’il n’existe aucun certificat, importez le certificat manquant.
 
-        ![Azure Database for MySQL .net cert](media/overview/netconnecter-cert.png)
+    :::image type="content" source="media/overview/netconnecter-cert.png" alt-text="Diagramme de certificat .NET Azure Database pour MySQL":::
 
   * Si vous utilisez .NET sur Linux en utilisant SSL_CERT_DIR, assurez-vous que **BaltimoreCyberTrustRoot** et **DigiCertGlobalRootG2** existent tous deux dans le répertoire indiqué par SSL_CERT_DIR. S’il n’existe aucun certificat, créez le fichier de certificat manquant.
 
-  * Si vous utilisez d’autres solutions (MySQL Client/MySQL Workbench/C/C++/Go/Python/Ruby/PHP/NodeJS/Perl/Swift), vous pouvez fusionner deux fichiers de certificat d’autorité de certification dans le format suivant :</b>
+  * Si vous utilisez d’autres solutions (MySQL Client/MySQL Workbench/C/C++/Go/Python/Ruby/PHP/NodeJS/Perl/Swift), vous pouvez fusionner deux fichiers de certificat d’autorité de certification dans le format suivant :
 
-     </br>-----BEGIN CERTIFICATE-----  </br>(Root CA1: BaltimoreCyberTrustRoot.crt.pem)  </br>-----END CERTIFICATE-----  </br>-----BEGIN CERTIFICATE-----  </br>(Root CA2: DigiCertGlobalRootG2.crt.pem)  </br>-----END CERTIFICATE-----
+      ```
+      -----BEGIN CERTIFICATE-----
+      (Root CA1: BaltimoreCyberTrustRoot.crt.pem)
+      -----END CERTIFICATE-----
+      -----BEGIN CERTIFICATE-----
+      (Root CA2: DigiCertGlobalRootG2.crt.pem)
+      -----END CERTIFICATE-----
+      ```
 
 * Remplacez le fichier .pem d’origine de l’autorité de certification racine par le fichier d’autorité de certification racine combiné et redémarrez votre application/client.
 * Ensuite, après le déploiement du nouveau certificat côté serveur, vous pouvez remplacer votre fichier .pem d’autorité de certification par DigiCertGlobalRootG2.crt.pem.

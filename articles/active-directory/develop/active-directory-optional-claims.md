@@ -12,12 +12,12 @@ ms.date: 1/06/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 1debeab6e420d9021ebba1cecb2d551cf21c9fe2
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: 6b5c328503a28c6eb92c2c20ca54d4d3d80c9a15
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98028469"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232469"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Procédure : Fournir des revendications facultatives à votre application
 
@@ -45,7 +45,7 @@ Si les revendications facultatives sont prises en charge dans les jetons aux for
 L’ensemble de revendications facultatives disponible par défaut pour les applications est répertorié ci-dessous. Pour ajouter des revendications personnalisées facultatives pour votre application, consultez [Extensions d’annuaire](#configuring-directory-extension-optional-claims) ci-dessous. Lors de l’ajout de revendications au **jeton d’accès**, les revendications s’appliquent aux jetons d’accès demandés *pour* l’application (API web), pas les revendications demandées *par* l’application. Quelle que soit la façon dont le client accède à votre API, les données correctes seront sur le jeton d’accès qu’il utilise pour s’authentifier auprès de votre API.
 
 > [!NOTE]
-> La plupart de ces revendications peuvent figurer dans les jetons JWT pour les jetons v1.0 et v2.0, mais pas dans les jetons SAML, sauf indication contraire dans la colonne Type de jeton. Les comptes consommateur prennent en charge un sous-ensemble de ces revendications, indiqué dans la colonne « Type d’utilisateur ».  La plupart des revendications répertoriées ne s’appliquent pas aux utilisateurs consommateurs (comme ils n’ont pas de locataire, `tenant_ctry` n’a pas de valeur).
+>La plupart de ces revendications peuvent figurer dans les jetons JWT pour les jetons v1.0 et v2.0, mais pas dans les jetons SAML, sauf indication contraire dans la colonne Type de jeton. Les comptes consommateur prennent en charge un sous-ensemble de ces revendications, indiqué dans la colonne « Type d’utilisateur ».  La plupart des revendications répertoriées ne s’appliquent pas aux utilisateurs consommateurs (comme ils n’ont pas de locataire, `tenant_ctry` n’a pas de valeur).
 
 **Tableau 2 : ensemble de revendications facultatives v1.0 et v2.0**
 
@@ -148,13 +148,13 @@ Vous pouvez configurer des revendications facultatives pour votre application pa
 [![Configurer des revendications facultatives dans l'interface utilisateur](./media/active-directory-optional-claims/token-configuration.png)](./media/active-directory-optional-claims/token-configuration.png)
 
 1. Dans **Gérer**, sélectionnez **Configuration de jetons**.
+   - Actuellement, le panneau **Configuration du jeton** de l’option d’interface utilisateur n’est pas disponible pour les applications inscrites dans un locataire Azure AD B2C qui peut être configuré en modifiant le manifeste de l’application. Pour plus d’informations, consultez [Ajouter des revendications et personnaliser l’entrée utilisateur avec des stratégies personnalisées dans Azure Active Directory B2C](../../active-directory-b2c/configure-user-input.md)  
+
 1. Sélectionnez **Ajouter une revendication facultative**.
 1. Sélectionnez le type de jeton que vous souhaitez configurer.
 1. Sélectionnez les revendications facultatives à ajouter.
 1. Sélectionnez **Ajouter**.
 
-> [!NOTE]
-> Actuellement, le panneau **Configuration du jeton** de l’option d’interface utilisateur n’est pas disponible pour les applications inscrites dans un locataire Azure AD B2C. Pour les applications inscrites dans un locataire B2C, les revendications facultatives peuvent être configurées en modifiant le manifeste d’application. Pour plus d’informations, consultez [Ajouter des revendications et personnaliser l’entrée utilisateur avec des stratégies personnalisées dans Azure Active Directory B2C](../../active-directory-b2c/configure-user-input.md) 
 
 **Configuration de revendications facultatives par le biais du manifeste de l’application :**
 
@@ -227,8 +227,7 @@ En plus de l’ensemble de revendications facultatives standard, vous pouvez con
 
 Les extensions de schéma et les extensions ouvertes ne sont pas prises en charge par les revendications facultatives, mais uniquement par les extensions d’annuaire de style AAD-Graph. Cette fonctionnalité est utile pour joindre des informations utilisateur supplémentaires utilisables par votre application, par exemple un identificateur supplémentaire ou une option de configuration importante que l’utilisateur a définie. Pour obtenir un exemple, consultez le bas de cette page.
 
-> [!NOTE]
-> Les extensions de schéma d’annuaire sont propres à Azure AD. Par conséquent, si le manifeste de votre application demande une extension personnalisée et qu’un utilisateur MSA se connecte à votre application, ces extensions ne seront pas retournées.
+Les extensions de schéma d’annuaire sont propres à Azure AD. Par conséquent, si le manifeste de votre application demande une extension personnalisée et qu’un utilisateur MSA se connecte à votre application, ces extensions ne seront pas retournées.
 
 ### <a name="directory-extension-formatting"></a>Mise en forme d’extension d’annuaire
 
@@ -290,8 +289,7 @@ Cette section couvre les options de configuration sous les revendications facult
    - accessToken pour le jeton d’accès OAuth
    - Saml2Token pour les jetons SAML.
 
-   > [!NOTE]
-   > Le type de jeton Saml2Token s’applique aux jetons de format SAML1.1 et SAML2.0.
+   Le type de jeton Saml2Token s’applique aux jetons de format SAML1.1 et SAML2.0.
 
    Pour chaque type de jeton pertinent, modifiez la revendication de groupe pour utiliser la section OptionalClaims dans le manifeste. Le schéma d’OptionalClaims est le suivant :
 
@@ -315,8 +313,7 @@ Cette section couvre les options de configuration sous les revendications facult
 
    Certaines applications requièrent des informations de groupe sur l’utilisateur dans la revendication de rôle.  Pour remplacer la revendication de groupe par une revendication de rôle, ajoutez « emit_as_roles » aux propriétés supplémentaires.  Les valeurs de groupe sont émises dans la revendication de rôle.
 
-   > [!NOTE]
-   > Si l’option « emit_as_roles » est utilisée, les rôles d’application configurés auxquels l’utilisateur est affecté n’apparaissent pas dans la revendication de rôle.
+   Si l’option « emit_as_roles » est utilisée, les rôles d’application configurés auxquels l’utilisateur est affecté n’apparaissent pas dans la revendication de rôle.
 
 **Exemples :**
 

@@ -3,12 +3,12 @@ title: Métriques dans Azure Monitor - Azure Event Hubs | Microsoft Docs
 description: Cet article fournit des informations sur l’utilisation d’Azure Monitor pour une surveillance d’Azure Event Hubs.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 5b055c02783c40d844d1c6306bbb71cb23d602f2
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 74830775a4f31e6f8e486b4d6cc434335b4ee723
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98118793"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165890"
 ---
 # <a name="azure-event-hubs-metrics-in-azure-monitor"></a>Métriques Azure Event Hubs dans Azure Monitor
 
@@ -20,7 +20,7 @@ Azure Monitor fournit des interfaces utilisateur unifiées pour la surveillance 
 
 Azure Monitor propose plusieurs méthodes d’accès aux mesures. Vous pouvez accéder aux métriques via le [portail Azure](https://portal.azure.com), ou bien utiliser les API Azure Monitor (REST et .NET) et des solutions d’analyse comme Log Analytics et Event Hubs. Pour plus d’informations, consultez [Supervision des données collectées par Azure Monitor](../azure-monitor/platform/data-platform.md).
 
-Les métriques sont activées par défaut, et vous pouvez accéder aux 30 derniers jours de données. Si vous souhaitez conserver des données sur une période plus longue, vous pouvez archiver les données de mesures dans un compte de stockage Azure. Celui-ci est configuré dans les [paramètres de diagnostic](../azure-monitor/platform/diagnostic-settings.md) dans Azure Monitor.
+Les métriques sont activées par défaut, et vous pouvez accéder aux 30 derniers jours de données. Si vous souhaitez conserver des données plus longtemps, vous pouvez archiver les données métriques sur un compte Stockage Azure. Vous pouvez configurer ce paramètre dans les [paramètres de diagnostic](../azure-monitor/platform/diagnostic-settings.md) dans Azure Monitor.
 
 
 ## <a name="access-metrics-in-the-portal"></a>Accéder aux métriques dans le portail
@@ -29,7 +29,7 @@ Vous pouvez surveiller les mesures au fil du temps dans le [portail Azure](https
 
 ![Affichage des métriques de réussite][1]
 
-Vous pouvez également accéder aux métriques directement via l’espace de noms. Pour ce faire, sélectionnez votre espace de noms, puis cliquez sur **Métriques**. Pour afficher les métriques filtrées à l’étendue du concentrateur d’événements, sélectionnez le concentrateur d’événements, puis cliquez sur **Métriques**.
+Vous pouvez également accéder aux métriques directement via l’espace de noms. Pour ce faire, sélectionnez votre espace de noms, puis **Métriques**. Pour afficher les métriques filtrées à l’étendue de l’Event Hub, sélectionnez le concentrateur d’événements, puis **Métriques**.
 
 Pour les métriques prenant en charge des dimensions, vous devez filtrer avec la valeur de dimension souhaitée, comme dans l’exemple suivant :
 
@@ -37,7 +37,7 @@ Pour les métriques prenant en charge des dimensions, vous devez filtrer avec la
 
 ## <a name="billing"></a>Facturation
 
-L’utilisation de mesures dans Azure Monitor est actuellement gratuite. Toutefois, si vous utilisez des solutions supplémentaires absorbant des données de métriques, vous pouvez être facturé par ces solutions. Par exemple, vous êtes facturé par Stockage Azure si vous archivez des données de mesures pour un compte de stockage Azure. Vous êtes également facturé par Azure si vous diffusez des données de métriques vers des journaux Azure Monitor pour une analyse avancée.
+L’utilisation de mesures dans Azure Monitor est actuellement gratuite. Toutefois, si vous utilisez d’autres solutions qui ingèrent des données de métriques, il se peut que ces solutions vous soient facturées. Par exemple, vous êtes facturé par Stockage Azure si vous archivez des données de mesures pour un compte de stockage Azure. Vous êtes également facturé par Azure si vous diffusez des données de métriques vers des journaux Azure Monitor pour une analyse avancée.
 
 Les métriques suivantes vous donnent une vue d’ensemble de l’intégrité de votre service. 
 
@@ -49,8 +49,11 @@ Toutes les valeurs de métriques sont envoyées à Azure Monitor toutes les minu
 ## <a name="azure-event-hubs-metrics"></a>Métriques Azure Event Hubs
 Pour obtenir la liste des métriques prises en charge par le service, consultez [Azure Event Hubs](../azure-monitor/platform/metrics-supported.md#microsofteventhubnamespaces).
 
+> [!NOTE]
+> Quand une erreur utilisateur se produit, Azure Event Hubs met à jour la métrique **Erreurs d’utilisateur**, mais ne journalise aucune autre information de diagnostic. Par conséquent, vous devez capturer les détails des erreurs d’utilisateur dans vos applications. Vous pouvez également convertir la télémétrie générée lors de l’envoi ou de la réception de messages dans Application Insights. Pour obtenir un exemple, consultez [Suivi avec Application Insights](../service-bus-messaging/service-bus-end-to-end-tracing.md#tracking-with-azure-application-insights).
+
 ## <a name="azure-monitor-integration-with-siem-tools"></a>Intégration d'Azure Monitor aux outils SIEM
-Le routage de vos données de surveillance (journaux d’activité, journaux de diagnostic, etc.) vers un Event Hub avec Azure Monitor vous permet d’intégrer facilement les outils Security Information and Event Management (SIEM). Pour plus d’informations, consultez les articles/billets de blog suivants :
+Le routage de vos données de surveillance (journaux d’activité, journaux de diagnostic, etc.) vers un Event Hub avec Azure Monitor vous permet d’opérer facilement une intégration avec des outils SIEM (Security Information and Event Management). Pour plus d’informations, consultez les articles/billets de blog suivants :
 
 - [Diffuser des données de surveillance Azure vers un hub d’événements pour les utiliser dans un outil externe](../azure-monitor/platform/stream-monitoring-data-event-hubs.md)
 - [Présentation d'Azure Log Integration](/previous-versions/azure/security/fundamentals/azure-log-integration-overview)

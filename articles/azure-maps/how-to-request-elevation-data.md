@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 76232a917e8856a06645fabc0ab4716195c5c0e1
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: a303f5e6177d0dc4205eaec8c3b1911e8e004fe3
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97094197"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602426"
 ---
 # <a name="request-elevation-data-using-the-azure-maps-elevation-service-preview"></a>Demander des données d’élévation à l’aide du service Elevation d’Azure Maps (préversion)
 
@@ -471,7 +471,7 @@ Consultez <a href='https://codepen.io/azuremaps/pen/619c888c70089c3350a3e95d499f
 
 ### <a name="get-elevation-data-by-polyline-path"></a>Obtenir des données d’élévation par tracé polyligne
 
-L’exemple de page web suivant vous montre comment utiliser le contrôle de carte pour afficher les données d’élévation situées le long d’un tracé. L’utilisateur définit le tracé en cliquant sur l’icône `PolyLine` située dans l’angle supérieur gauche, et en dessinant la polyligne sur la carte. Le contrôle de carte restitue ensuite les données d’élévation en respectant les couleurs spécifiées dans la clé qui se trouve en haut à droite.
+L’exemple de page web suivant vous montre comment utiliser le contrôle de carte pour afficher les données d’élévation situées le long d’un tracé. L’utilisateur définit le tracé en cliquant sur l’icône `Polyline` située dans l’angle supérieur gauche, et en dessinant la polyligne sur la carte. Le contrôle de carte restitue ensuite les données d’élévation en respectant les couleurs spécifiées dans la clé qui se trouve en haut à droite.
 
 <br/>
 

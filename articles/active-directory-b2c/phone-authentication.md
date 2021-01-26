@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9d4fa80f669493e4dc47a9ad0f9bfe9390d4ab24
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 8d41f8959d0a1ec0d6e48cf2fa4711a8ef8d8ae5
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94953574"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178940"
 ---
 # <a name="set-up-phone-sign-up-and-sign-in-with-custom-policies-in-azure-ad-b2c"></a>Configurer l’inscription et la connexion par téléphone avec des stratégies personnalisées dans Azure AD B2C
 
@@ -39,7 +39,7 @@ Avec l’inscription et la connexion par téléphone, l’utilisateur peut s’i
 >
 > *&lt;insérer : lien vers votre déclaration de confidentialité&gt;*<br/>*&lt;insérer : lien vers vos conditions d’utilisation du service&gt;*
 
-Pour ajouter vos propres informations relatives au consentement, personnalisez l’exemple suivant et incluez-le dans la propriété LocalizedResources du paramètre ContentDefinition utilisé par la page d’auto-déclaration avec le contrôle d’affichage (le fichier Phone-Email-Base.xml dans le pack de démarrage de d’inscription et de connexion par téléphone) :
+Pour ajouter vos propres informations relatives au consentement, personnalisez l’exemple suivant et incluez-le dans la propriété LocalizedResources du paramètre ContentDefinition utilisé par la page d’auto-déclaration avec le contrôle d’affichage (le fichier *Phone_Email_Base.xml* dans le [pack de démarrage d’inscription et de connexion par téléphone][starter-pack-phone]) :
 
 ```xml
 <LocalizedResources Id="phoneSignUp.en">        

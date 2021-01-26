@@ -8,12 +8,12 @@ author: emuench
 ms.author: mingshen
 ms.date: 10/15/2020
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: d8cb5179583dd23ea2bd4baf5ebe7d84b0ae9cbf
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 748b6c3506127de8fce153a77571664ea531ffa1
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814429"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601354"
 ---
 # <a name="azure-consumption-commitment-benefit"></a>Avantage d’Azure Consumption Commitment
 
@@ -24,7 +24,7 @@ Un ensemble sélectionné d’offres de la Place de marché commerciale Microsof
 
 Nous validons toutes les offres qui participent à ce programme afin de garantir la qualité des solutions.
 
-Pour profiter de cet avantage, il vous suffit d’acheter une offre éligible sur la Place de marché Azure à l’aide d’un abonnement lié à votre contrat Azure. Le prépaiement et les engagements financiers d’Azure ne sont pas éligibles pour cet avantage.
+Pour profiter de cet avantage, il vous suffit d’acheter une offre éligible sur la Place de marché Azure à l’aide d’un abonnement lié à votre contrat Azure. Le prépaiement Azure (auparavant appelé engagement financier) n’est pas éligible à cet avantage.
 
 > [!IMPORTANT]
 > Des exclusions peuvent s’appliquer aux contrats CtC qui ont été signés avant cet avantage de la Place de marché. Si vous avez des questions sur l’éligibilité, contactez le responsable des comptes Microsoft.

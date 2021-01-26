@@ -4,12 +4,12 @@ description: Découvrez comment utiliser le programme de mise à l’échelle au
 services: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.openlocfilehash: e644a931152c83a5232c8233d519f7807ab708af
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 5f0754638be1aa29672b6a59218a6c9d695261a5
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92542639"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223140"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Mise à l’échelle automatique d’un cluster pour répondre aux demandes applicatives d’Azure Kubernetes Service (AKS)
 
@@ -52,7 +52,7 @@ Utilisez la commande [az aks create][az-aks-create] pour créer un cluster AKS. 
 > [!IMPORTANT]
 > L’autoscaler de cluster est un composant Kubernetes. Bien que le cluster AKS utilise un groupe de machines virtuelles identiques défini pour les nœuds, n’activez pas ou n’éditez pas manuellement les paramètres pour la mise à l’échelle automatique du groupe de machines virtuelles identiques dans le portail Azure ou en utilisant l’interface de ligne de commande Azure. Laissez le programme de mise à l’échelle automatique de cluster Kubernetes gérer les paramètres de mise à l’échelle requis. Pour plus d’informations, consultez [Puis-je modifier les ressources AKS dans le groupe de ressources de nœuds ?][aks-faq-node-resource-group]
 
-L’exemple suivant crée un cluster AKS avec un pool de nœuds unique soutenu par un groupe de machines virtuelles identiques. Il active également la mise à l’échelle automatique de cluster sur le pool de nœuds pour le cluster et définit un minimum de *1* et un maximum de *3*  nœuds :
+L’exemple suivant crée un cluster AKS avec un pool de nœuds unique soutenu par un groupe de machines virtuelles identiques. Il active également la mise à l’échelle automatique de cluster sur le pool de nœuds pour le cluster et définit un minimum de *1* et un maximum de *3* nœuds :
 
 ```azurecli-interactive
 # First create a resource group
@@ -79,7 +79,7 @@ Utilisez la commande [az aks update][az-aks-update] pour activer et configurer l
 > [!IMPORTANT]
 > L’autoscaler de cluster est un composant Kubernetes. Bien que le cluster AKS utilise un groupe de machines virtuelles identiques défini pour les nœuds, n’activez pas ou n’éditez pas manuellement les paramètres pour la mise à l’échelle automatique du groupe de machines virtuelles identiques dans le portail Azure ou en utilisant l’interface de ligne de commande Azure. Laissez le programme de mise à l’échelle automatique de cluster Kubernetes gérer les paramètres de mise à l’échelle requis. Pour plus d’informations, consultez [Puis-je modifier les ressources AKS dans le groupe de ressources de nœuds ?][aks-faq-node-resource-group]
 
-L’exemple suivant met à jour un cluster AKS existant pour activer la mise à l’échelle automatique de cluster sur le pool de nœuds pour le cluster et définit un minimum de *1* et un maximum de *3*  nœuds :
+L’exemple suivant met à jour un cluster AKS existant pour activer la mise à l’échelle automatique de cluster sur le pool de nœuds pour le cluster et définit un minimum de *1* et un maximum de *3* nœuds :
 
 ```azurecli-interactive
 az aks update \
@@ -110,7 +110,7 @@ az aks update \
   --max-count 5
 ```
 
-L’exemple ci-dessus met à jour le programme de mise à l’échelle automatique du cluster sur le pool de nœuds dans *myAKSCluster* en définissant un minimum de *1* et un maximum de *5*  nœuds.
+L’exemple ci-dessus met à jour le programme de mise à l’échelle automatique du cluster sur le pool de nœuds dans *myAKSCluster* en définissant un minimum de *1* et un maximum de *5* nœuds.
 
 > [!NOTE]
 > Le programme de mise à l’échelle automatique de cluster prend les décisions de mise à l’échelle en fonction des nombres minimum et maximum définis sur chaque pool de nœuds, mais il ne les applique pas après la mise à jour des nombres minimum ou maximum. Par exemple, définir un nombre minimum de 5 lorsque le nombre actuel de nœuds est 3 n’effectue pas immédiatement un Scale-up du pool sur 5. Si le nombre minimum sur le pool de nœuds a une valeur supérieure au nombre actuel de nœuds, les nouveaux paramètres minimum ou maximum seront respectés lorsqu’il y aura suffisamment de pods non planifiables qui nécessiteraient deux nouveaux nœuds supplémentaires et déclencheraient un événement du programme de mise à l’échelle automatique. Après l’événement de mise à l’échelle, les nouvelles limites de nombre sont respectées.
@@ -130,20 +130,21 @@ Vous pouvez également configurer une plus grande précision dans les détails d
 | scale-down-unneeded-time         | Durée pendant laquelle un nœud doit être inutile avant d’être éligible pour un scale-down                  | 10 minutes    |
 | scale-down-unready-time          | Durée pendant laquelle un nœud non prêt doit être inutile avant d’être éligible pour un scale-down         | 20 minutes    |
 | scale-down-utilization-threshold | Niveau d’utilisation du nœud (défini en tant que somme des ressources demandées, divisée par la capacité) en dessous duquel un nœud peut être pris en compte pour un scale-down | 0.5 |
-| max-graceful-termination-sec     | Nombre maximal de secondes pendant lesquelles la mise à l’échelle automatique de cluster attend l’arrêt d’un pod lors d’une tentative de scale-down d’un nœud. | 600 secondes   |
+| max-graceful-termination-sec     | Nombre maximal de secondes pendant lesquelles la mise à l’échelle automatique de cluster attend l’arrêt d’un pod lors d’une tentative de scale-down d’un nœud | 600 secondes   |
 | balance-similar-node-groups      | Détecte les pools de nœuds similaires et équilibre le nombre de nœuds entre eux                 | false         |
-| expander                         | Type de pool de nœuds [expander](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-expanders) à utiliser dans un scale-up Valeurs possibles : `most-pods`, `random`, `least-waste` | random | 
+| expander                         | Type de pool de nœuds [expander](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-expanders) à utiliser dans un scale-up Valeurs possibles : `most-pods`, `random`, `least-waste`, `priority` | random | 
 | skip-nodes-with-local-storage    | Si le programme de mise à l’échelle automatique de cluster ne supprime jamais les nœuds dotés de pods avec stockage local, par exemple EmptyDir ou HostPath | true |
 | skip-nodes-with-system-pods      | Si le programme de mise à l’échelle automatique de cluster ne supprime jamais les nœuds dotés de pods de kube-system (à l’exception de DaemonSet ou de pods miroir) | true | 
-| max-empty-bulk-delete            | Nombre maximal de nœuds vides pouvant être supprimés en même temps                      | 10 nœuds      |
-| new-pod-scale-up-delay           | Pour les scénarios tels que la mise à l’échelle en rafales ou par lots où vous ne souhaitez pas que l’autorité de certification agisse avant que le planificateur Kubernetes puisse planifier tous les pods, vous pouvez indiquer à l’autorité de certification d’ignorer les pods non planifiés avant qu’ils n’aient atteint une certaine ancienneté                                                                                                                | 10 secondes    |
-| max-total-unready-percentage     | Pourcentage maximal de nœuds non prêts dans le cluster. Une fois ce pourcentage dépassé, l’autorité de certification arrête les opérations | 45 % | 
+| max-empty-bulk-delete            | Nombre maximal de nœuds vides pouvant être supprimés en même temps                       | 10 nœuds      |
+| new-pod-scale-up-delay           | Pour les scénarios de type mise à l’échelle en rafales ou par lots dans lesquels l’autorité de certification ne doit pas agir avant que le planificateur Kubernetes n’ait pu planifier tous les pods, permet d’indiquer à l’autorité de certification d’ignorer les pods non planifiés avant qu’ils n’aient atteint une certaine ancienneté                                                                                                                | 0 seconde    |
+| max-total-unready-percentage     | Pourcentage maximal de nœuds non prêts dans le cluster. Une fois ce pourcentage dépassé, l’autorité de certification arrête les opérations | 45 % |
+| max-node-provision-time          | Durée maximale pendant laquelle la mise à l’échelle automatique attend qu’un nœud soit provisionné                           | 15 minutes    |   
 | ok-total-unready-count           | Nombre de nœuds non prêts autorisés, quelle que soit la valeur de max-total-unready-percentage            | 3 nœuds       |
 
 > [!IMPORTANT]
 > Le profil de mise à l’échelle automatique de cluster modifie tous les pools de nœuds qui utilisent la mise à l’échelle automatique de cluster. Vous ne pouvez pas définir de profil de mise à l’échelle automatique par pool de nœuds.
 >
-> Le profil de mise à l'échelle automatique de cluster requiert la version  *2.11.1* ou ultérieure d'Azure CLI. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][azure-cli-install].
+> Le profil de mise à l'échelle automatique de cluster requiert la version *2.11.1* ou ultérieure d'Azure CLI. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][azure-cli-install].
 
 ### <a name="set-the-cluster-autoscaler-profile-on-an-existing-aks-cluster"></a>Définir le profil de mise à l’échelle automatique de cluster sur un cluster AKS existant
 

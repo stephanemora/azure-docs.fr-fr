@@ -8,12 +8,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/02/2020
-ms.openlocfilehash: 6bc9f69440be772910ea8200b5ccf7d5a5122ae6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9894da7486ec3c0dfb92c94c7c7f4db2247ebeb7
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907801"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98210203"
 ---
 # <a name="train-vowpal-wabbit-model"></a>Entraîner un modèle Vowpal Wabbit
 Cet article explique comment utiliser le module **Train Vowpal Wabbit Model** (Entraîner un modèle Vowpal Wabbit) dans le concepteur Azure Machine Learning pour créer un modèle Machine Learning à l’aide de Vowpal Wabbit.  
@@ -87,7 +87,7 @@ Vowpal Wabbit prend en charge l’entraînement incrémentiel via l’ajout de n
 2. Connectez le modèle entraîné au port d’entrée **Pre-trained Vowpal Wabbit Model** (Modèle Vowpal Wabbit préentraîné) du module.
 3. Connectez les nouvelles données d’entraînement au port d’entrée **Training data** (Données d’entraînement) du module.
 4. Dans le volet de paramètres de **Train Vowpal Wabbit Model**, spécifiez le format des nouvelles données d’entraînement ainsi que le nom du fichier de données d’entraînement si le jeu de données d’entrée est un répertoire.
-5. Sélectionnez les options **Output readable model file ** et **Output inverted hash file** si les fichiers correspondants doivent être enregistrés dans les enregistrements d’exécution.
+5. Sélectionnez les options **Output readable model file** et **Output inverted hash file** si les fichiers correspondants doivent être enregistrés dans les enregistrements d’exécution.
 
 6. Envoyez le pipeline.  
 7. Sélectionnez le module, puis **Register dataset** (Inscrire le jeu de données) sous l’onglet **Outputs+logs** (Sorties+journaux) dans le volet droit, pour conserver le modèle mis à jour dans votre espace de travail Azure Machine Learning.  Si vous ne spécifiez pas de nouveau nom, le modèle mis à jour remplace le modèle enregistré existant.

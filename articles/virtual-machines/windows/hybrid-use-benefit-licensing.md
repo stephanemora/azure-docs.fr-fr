@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing
-ms.openlocfilehash: 43784fe2bb94d5abd012f22ed530e4631a304614
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c13203c076378e1ff8f213971466eb5f63dfc4f4
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91335984"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539178"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Azure Hybrid Benefit pour Windows Server
 Pour les clients avec Software Assurance, Azure Hybrid Benefit pour Windows Server permet d’utiliser les licences Windows Server locales et d’exécuter des machines virtuelles Windows sur Azure à moindre coût. Vous pouvez utiliser Azure Hybrid Benefit pour Windows Server pour déployer de nouvelles machines virtuelles avec le système d’exploitation Windows. Cet article récapitule les étapes du déploiement de nouvelles machines virtuelles avec Azure Hybrid Benefit pour Windows Server. Il explique également comment mettre à jour des machines virtuelles existantes en cours d’exécution. Pour plus d’informations sur les licences et les réductions de coût relatives à Azure Hybrid Benefit pour Windows Server, consultez la [page de gestion des licences Azure Hybrid Benefit pour Windows Server](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
@@ -42,10 +42,9 @@ Il existe plusieurs façons d’utiliser des machines virtuelles Windows avec Az
 Toutes les images basées sur le système d’exploitation Windows Server sont prises en charge pour Azure Hybrid Benefit pour Windows Server. Vous pouvez utiliser des images de prise en charge de plateforme Azure ou charger des images Windows Server personnalisées. 
 
 ### <a name="portal"></a>Portail
-Pour créer une machine virtuelle avec Azure Hybrid pour Windows Server, utilisez le bouton bascule sous la section « Faites des économies ».
+Afin de créer une machine virtuelle avec Azure Hybrid Benefit pour Windows Server, faites défiler l’onglet **De base** au cours du processus de création puis, sous **Licences**, cochez la case pour utiliser une licence Windows Server existante. 
 
 ### <a name="powershell"></a>PowerShell
-
 
 ```powershell
 New-AzVm `

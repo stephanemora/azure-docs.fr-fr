@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 10/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6a9eb99ae7af88e77fa597fa92ff8e6278c307e6
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 42502864cfed177adfe487e9c59247579628fec8
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108947"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539083"
 ---
 # <a name="windows-virtual-desktop-service-connections"></a>Connexions au service Windows Virtual Desktop
 
@@ -49,14 +49,15 @@ Pour résoudre ce problème, il vous suffit de réaffecter les utilisateurs à l
 Cela peut également se produire si un fournisseur de services de chiffrement a créé l’abonnement, puis l’a transféré au client. Pour résoudre ce problème, réinscrivez le fournisseur de ressources.
 
 1. Connectez-vous au portail Azure.
-2. Accédez à **Abonnements** , puis sélectionnez votre abonnement.
-3. Dans le menu sur le côté gauche de la page, sélectionnez **Fournisseur de ressources** .
-4. Recherchez et sélectionnez **Microsoft.DesktopVirtualization** , puis **Réinscrire** .
+2. Accédez à **Abonnements**, puis sélectionnez votre abonnement.
+3. Dans le menu sur le côté gauche de la page, sélectionnez **Fournisseur de ressources**.
+4. Recherchez et sélectionnez **Microsoft.DesktopVirtualization**, puis **Ré-inscrire**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour découvrir une vue d’ensemble de la résolution des problèmes Windows Virtual Desktop et des procédures d’escalade, consultez l’article [Vue d’ensemble du dépannage, commentaires et support](troubleshoot-set-up-overview.md).
 - Pour résoudre des problèmes lors de la création d’un environnement Windows Virtual Desktop et d’un pool d’hôtes dans un environnement Windows Virtual Desktop, consultez [Création d’un environnement et d’un pool d’hôtes](troubleshoot-set-up-issues.md).
 - Pour résoudre les problèmes de configuration d’une machine virtuelle dans Windows Virtual Desktop, consultez [Configuration d’une machine virtuelle hôte de session](troubleshoot-vm-configuration.md).
+- Pour résoudre les problèmes relatifs à l’agent Windows Virtual Desktop ou à la connectivité des sessions, consultez [Résoudre les problèmes courants liés à l’agent Windows Virtual Desktop](troubleshoot-agent.md).
 - Pour résoudre les problèmes d’utilisation de PowerShell avec Windows Virtual Desktop, consultez [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md).
 - Suivez le [Didacticiel : Résoudre les problèmes liés aux déploiements de modèles Resource Manager](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).

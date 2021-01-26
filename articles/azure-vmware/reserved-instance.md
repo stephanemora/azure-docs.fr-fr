@@ -3,12 +3,12 @@ title: Économiser grâce à l’instance réservée de Azure VMware Solution
 description: Découvrez comment acheter une instance réservée pour Azure VMware Solution.
 ms.topic: how-to
 ms.date: 11/12/2020
-ms.openlocfilehash: 80780e9718001893b6960220b5004c1c29b2fec5
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 74344889cd107350e5026c4a0369382fb9c7ef51
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327395"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600861"
 ---
 # <a name="save-costs-with-azure-vmware-solution"></a>Économiser grâce à Azure VMware Solution
 
@@ -54,7 +54,7 @@ Ces conditions s’appliquent à l’achat d’une instance réservée d’hôte
 
    | Champ        |  Description |
    | ------------ | ------------ |
-   | Abonnement | Abonnement utilisé pour payer la réservation. Les coûts de la réservation sont facturés au mode de paiement défini sur l’abonnement. Le type d’abonnement doit être Accord Entreprise (numéros de l’offre : MS-AZR-0017P or MS-AZR-0148P), Contrat client Microsoft ou un abonnement individuel avec paiement à l’utilisation (numéros de l’offre : MS-AZR-0003P ou MS-AZR-0023P). Les frais sont déduits du solde de l’engagement financier, si disponibles, ou facturés comme un dépassement. Pour un abonnement payable à l’utilisation, les frais sont facturés sur la carte de crédit de l’abonnement ou sur un mode de paiement par facture. |
+   | Abonnement | Abonnement utilisé pour payer la réservation. Les coûts de la réservation sont facturés au mode de paiement défini sur l’abonnement. Le type d’abonnement doit être Accord Entreprise (numéros de l’offre : MS-AZR-0017P or MS-AZR-0148P), Contrat client Microsoft ou un abonnement individuel avec paiement à l’utilisation (numéros de l’offre : MS-AZR-0003P ou MS-AZR-0023P). Les frais sont déduits du solde du Paiement anticipé Azure (anciennement « Engagement financier »), le cas échéant, ou facturés comme un dépassement. Pour un abonnement payable à l’utilisation, les frais sont facturés sur la carte de crédit de l’abonnement ou sur un mode de paiement par facture. |
    | Étendue        | L’étendue de la réservation peut couvrir un seul abonnement ou plusieurs abonnements (étendue partagée). Si vous sélectionnez :<br><ul><li><b>Étendue de groupe de ressources unique</b> : applique la remise de réservation aux ressources correspondantes incluses dans le groupe de ressources sélectionné uniquement.</li><li><b>Étendue d’abonnement unique</b> : applique la remise de réservation aux ressources correspondantes incluses dans l’abonnement sélectionné.</li><li><b>Étendue partagée</b> : applique la remise de réservation aux ressources correspondantes des abonnements éligibles inclus dans le contexte de facturation. Pour les clients EA, le contexte de facturation est défini par l’inscription. Pour les abonnements individuels utilisant les tarifs du paiement à l’utilisation, l’étendue de facturation correspond à tous les abonnements éligibles créés par l’administrateur de compte.</li></ul>       |
    | Région       | Région Azure couverte par la réservation.   |
    | Taille de l’hôte    | AV36    |

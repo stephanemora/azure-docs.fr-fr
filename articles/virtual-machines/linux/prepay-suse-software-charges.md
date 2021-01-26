@@ -8,12 +8,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: banders
-ms.openlocfilehash: a527b75d376f05ab6190187b7a03d6da775055ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a4f7de0cacb17087e346123f53dad45ae1de357
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81759288"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602623"
 ---
 # <a name="prepay-for-azure-software-plans"></a>Prépayer les abonnements logiciels Azure
 
@@ -32,7 +32,7 @@ Vous pouvez acheter des abonnements logiciels SUSE et RedHat sur le portail Azur
 Renseignez les champs obligatoires. Toutes les machines virtuelles SUSE Linux ou RedHat qui correspondent aux attributs de ce que vous achetez bénéficient de la remise. Le nombre de déploiements qui peuvent bénéficier de la remise dépend de l’étendue et de la quantité sélectionnées.
 3. Sélectionnez un abonnement. Cela détermine ce que vous payez.
 Les coûts initiaux de la réservation sont facturés sur le mode de paiement de l’abonnement. Le type d’abonnement doit être Accord Entreprise (numéros de l’offre : MS-AZR-0017P ou MS-AZR - 0148p) ou un accord individuel avec paiement à l’utilisation numéros de l’offre : MS-AZR-0003P ou MS-AZR-0023P).
-    - Pour un abonnement Entreprise, les frais sont déduits du solde d’engagement monétaire de l’inscription ou facturés comme un dépassement.
+    - Pour un abonnement d’entreprise, les frais sont déduits du solde de Paiement anticipé Azure (anciennement « Engagement financier ») de l’inscription ou facturés comme dépassement.
     - Pour un abonnement individuel avec paiement à l’utilisation, les frais sont facturés sur le mode de paiement par carte de crédit ou par facture.
 4. Sélectionnez une étendue. L’étendue peut couvrir un ou plusieurs abonnements (étendue partagée).
     - Abonnement unique : la remise sur l’abonnement est appliquée à l’utilisation correspondante de cet abonnement.

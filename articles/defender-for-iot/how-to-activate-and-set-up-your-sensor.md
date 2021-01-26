@@ -4,15 +4,15 @@ description: Cet article explique comment activer une console de capteur et s’
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/26/2020
+ms.date: 1/12/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 9305609b624a96e4d785657dfb63af6639e132c4
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 4ad1562bdd9853b6ff3c537790a54dbeab96b5b8
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97835675"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98538560"
 ---
 # <a name="activate-and-set-up-your-sensor"></a>Activer et configurer votre capteur
 
@@ -65,10 +65,13 @@ Deux niveaux de sécurité sont disponibles :
 La console prend en charge les types de certificats suivants :
 
 - Infrastructure à clé privée et d’entreprise (PKI privée)
+
 - Infrastructure à clé publique (PKI publique)
+
 - Généré localement sur l’appliance (auto-signé localement) 
 
-  > [IMPORTANT] Nous vous recommandons de ne pas utiliser de certificat auto-signé par défaut. Le certificat n’est pas sécurisé et doit être utilisé uniquement pour les environnements de test. Le propriétaire du certificat ne peut pas être validé et la sécurité de votre système ne peut pas être assurée. N’utilisez jamais cette option pour les réseaux de production.
+  > [!IMPORTANT]
+  > Nous vous recommandons de ne pas utiliser de certificat auto-signé par défaut. Le certificat n’est pas sécurisé et doit être utilisé uniquement pour les environnements de test. Le propriétaire du certificat ne peut pas être validé et la sécurité de votre système ne peut pas être assurée. N’utilisez jamais cette option pour les réseaux de production.
 
 ### <a name="sign-in-and-activate-the-sensor"></a>Se connecter et activer le capteur
 

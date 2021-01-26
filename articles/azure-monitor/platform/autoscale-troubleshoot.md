@@ -4,12 +4,12 @@ description: Le suivi des problèmes de mise à l’échelle automatique Azure u
 ms.topic: conceptual
 ms.date: 11/4/2019
 ms.subservice: autoscale
-ms.openlocfilehash: a29b5d11a6ea06af9d5b6a8b5120c6f0caa6601e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c4589acd17e76d1341d5aceada67e565c8f8c37
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90979049"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251265"
 ---
 # <a name="troubleshooting-azure-autoscale"></a>Résolution des problèmes de mise à l’échelle automatique Azure
  
@@ -51,13 +51,13 @@ Passons en revue les métriques du service de mise à l’échelle automatique.
 
 ![Exemple de pourcentage d’UC d’un groupe de machines virtuelles identiques](media/autoscale-troubleshoot/autoscale-vmss-CPU-ex-full-2.png)
 
-***Figure 1a - Métrique Pourcentage de l’UC pour le groupe de machines virtuelles identiques et valeur de métrique observée pour le paramètre de mise à l’échelle automatique***
+**_Figure 1a - Métrique Pourcentage de l’UC pour le groupe de machines virtuelles identiques et valeur de métrique observée pour le paramètre de mise à l’échelle automatique_* _
 
 ![Seuil de métrique et capacité observée](media/autoscale-troubleshoot/autoscale-metric-threshold-capacity-ex-full.png)
 
-***Figure 1b - Seuil de métrique et capacité observée***
+_*_Figure 1b - Seuil de métrique et capacité observée_*_
 
-Dans la figure 1b, le **seuil de métrique** (ligne bleu clair) de la règle de montée en charge est de 70.  La **capacité observée** (ligne bleu foncé) indique le nombre d’instances actives, actuellement 3. 
+Dans la figure 1b, le _ *seuil de métrique** (ligne bleu clair) de la règle de montée en charge parallèle est de 70.  La **capacité observée** (ligne bleu foncé) indique le nombre d’instances actives, actuellement 3. 
 
 > [!NOTE]
 > Vous devez filtrer le **seuil de métrique** par règle de déclenchement de scale-out (augmentation) pour afficher le seuil de scale-out et par règle de scale-in (diminution). 
@@ -76,18 +76,18 @@ Dans ce cas, la valeur de métrique observée du moteur de mise à l’échelle 
 
 ![Exemple de graphiques de métriques de mise à l’échelle automatique d’un groupe de machines virtuelles identiques](media/autoscale-troubleshoot/autoscale-vmss-metric-chart-ex-2.png)
 
-***Figure 2 - Exemple de graphiques de métriques de mise à l’échelle automatique d’un groupe de machines virtuelles identiques***
+**_Figure 2 - Exemple de graphiques de métriques de mise à l’échelle automatique d’un groupe de machines virtuelles identiques_* _
 
 Dans la figure 2, vous pouvez voir deux graphiques de métrique. 
 
-Le graphique en haut affiche la valeur réelle de la métrique **Flux sortants**. La valeur réelle est 6. 
+Le graphique en haut affiche la valeur réelle de la métrique _ *Flux sortants**. La valeur réelle est 6. 
 
 Le graphique en bas affiche plusieurs valeurs. 
  - La **valeur de métrique observée** (bleu clair) est 3, car il y a 2 instances actives, et qu’on divise 6 par 2 pour obtenir 3. 
  - La **capacité observée** (violet) indique le nombre d’instances vu par le moteur de mise à l’échelle automatique. 
  - Le **seuil de métrique** (vert clair) est défini sur 10. 
 
-S’il existe plusieurs règles d’action de mise à l’échelle, vous pouvez utiliser le fractionnement ou l’option **ajouter un filtre** dans le graphique de l’explorateur de métriques pour examiner la métrique sur une source ou règle spécifique. Pour plus d’informations sur le fractionnement d’un graphique de métriques, consultez [Fonctionnalités avancées des graphiques de métrique - Fractionnement](metrics-charts.md#apply-splitting-to-a-chart)
+S’il existe plusieurs règles d’action de mise à l’échelle, vous pouvez utiliser le fractionnement ou l’option **ajouter un filtre** dans le graphique de l’explorateur de métriques pour examiner la métrique sur une source ou règle spécifique. Pour plus d’informations sur le fractionnement d’un graphique de métriques, consultez [Fonctionnalités avancées des graphiques de métrique - Fractionnement](metrics-charts.md#apply-splitting)
 
 ## <a name="example-3---understanding-autoscale-events"></a>Exemple 3 : Comprendre les événements de mise à l’échelle automatique
 

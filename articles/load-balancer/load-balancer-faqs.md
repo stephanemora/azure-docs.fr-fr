@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 04/22/2020
 ms.author: errobin
-ms.openlocfilehash: 2e559d574413b8eb0be2303798e0b16bfffad2cb
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: e9f46b11d9c0b5251ee4d52f64d657926f6f9c5e
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695399"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222987"
 ---
 # <a name="load-balancer-frequently-asked-questions"></a>Questions fréquentes sur Load Balancer
 
@@ -36,7 +36,7 @@ Les règles NAT sont utilisées pour spécifier une ressource backend vers laque
 ## <a name="what-is-ip-1686312916"></a>Qu’est-ce que l’adresse IP 168.63.129.16 ?
 Adresse IP virtuelle de l’hôte marquée en tant qu’infrastructure Azure Load Balancer d’où proviennent les sondes d’intégrité Azure. Lors de la configuration d’instances backend, elles doivent autoriser le trafic à partir de cette adresse IP pour répondre correctement aux sondes d’intégrité. Cette règle n’interagit pas avec l’accès à votre frontend Load Balancer. Vous pouvez remplacer cette règle si vous n’utilisez pas Azure Load Balancer. Apprenez-en davantage sur les balises de service [ici](../virtual-network/service-tags-overview.md#available-service-tags).
 
-## <a name="can-i-use-global-vnet-peering-with-basic-load-balancer"></a>Puis-je utiliser le peering de Global VNET avec la version basique de Load Balancer ?
+## <a name="can-i-use-global-vnet-peering-with-basic-load-balancer"></a>Puis-je utiliser le peering de Global VNet avec la version basique de Load Balancer ?
 Non. La version basique de Load Balancer ne prend pas en charge le peering de Global VNET. Vous pouvez utiliser la version standard de Load Balancer à la place. Pour une mise à niveau transparente, consultez l’article [Mise à niveau de la version basique à la version standard](upgrade-basic-standard.md).
 
 ## <a name="how-can-i-discover-the-public-ip-that-an-azure-vm-uses"></a>Comment puis-je trouver l’adresse IP publique utilisée par une machine virtuelle Azure ?
@@ -45,6 +45,9 @@ Il existe de nombreuses manières de déterminer l’adresse IP source publique 
 La commande nslookup vous permet d’envoyer une requête DNS sur le nom myip.opendns.com au programme de résolution OpenDNS. Le service retourne l’adresse IP source qui a été utilisée pour envoyer la requête. Quand vous exécutez la requête suivante à partir de votre machine virtuelle, la réponse est l’adresse IP publique utilisée pour cette machine virtuelle :
 
  ```nslookup myip.opendns.com resolver1.opendns.com```
+ 
+## <a name="can-i-add-a-vm-from-the-same-availability-set-to-different-backend-pools-of-a-load-balancer"></a>Puis-je ajouter une machine virtuelle du même groupe à haute disponibilité à différents pools principaux d’un équilibreur de charge ?
+Non, cela n’est pas possible.
 
 ## <a name="how-do-connections-to-azure-storage-in-the-same-region-work"></a>Comment fonctionnent les connexions au Stockage Azure dans la même région ?
 Il n’est pas nécessaire de disposer d’une connectivité sortante via les scénarios ci-dessus pour vous connecter au Stockage Azure dans la même région que la machine virtuelle. Si vous n’en souhaitez pas, utilisez les groupes de sécurité réseau (NSG), comme expliqué ci-dessus. Pour la connectivité vers le Stockage Azure dans d’autres régions, une connectivité sortante est requise. Lorsque vous vous connectez au Stockage Azure à partir d’une machine virtuelle dans la même région, l’adresse IP source dans les journaux de diagnostic de stockage est une adresse de fournisseur interne, et non l’adresse IP publique de votre machine virtuelle. Si vous souhaitez restreindre l’accès à votre compte de stockage aux machines virtuelles dans un ou plusieurs sous-réseaux du réseau virtuel dans la même région, utilisez des [points de terminaison de service du réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md) et non votre adresse IP publique lors de la configuration de votre pare-feu de compte de stockage. Une fois les points de terminaison de service configurés, l’adresse IP privée de votre réseau virtuel apparaît dans vos journaux de diagnostic de stockage, mais pas l’adresse interne du fournisseur.

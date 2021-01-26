@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/25/2020
-ms.openlocfilehash: 67d4137a21753b221e17a1effde35bc1b89600d3
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: f52c0296023098c755feb1bf0baba980f2988bd7
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753805"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567710"
 ---
 # <a name="server-assessment-overview-migrate-to-azure-vmware-solution"></a>Vue d’ensemble de l’évaluation du serveur (migrer vers Azure VMware Solution)
 
@@ -207,6 +207,8 @@ Une fois la valeur d’utilisation effective déterminée, le stockage, le rése
 
 Si vous utilisez *en tant que dimensionnement local*, Server Assessment ne prend pas en compte l’historique des performances des machines virtuelles et des disques. Au lieu de cela, il alloue des nœuds AVS en fonction de la taille allouée localement. Le type de stockage par défaut est vSAN dans AVS.
 
+Pour plus d’informations sur la révision d’une évaluation Azure VMware Solution, [cliquez ici](https://docs.microsoft.com/azure/migrate/tutorial-assess-vmware-azure-vmware-solution#review-an-assessment).
+
 ## <a name="confidence-ratings"></a>Niveaux de confiance
 
 Chaque évaluation reposant sur les performances dans Azure Migrate est associée à un niveau de confiance, qui va de 1 étoile (le plus faible) à 5 étoiles (le plus élevé).
@@ -235,9 +237,15 @@ Selon le pourcentage de points de données disponibles, le niveau de confiance d
 
 Voici quelques raisons pour lesquelles une évaluation peut avoir un niveau de confiance faible :
 
-- Vous n’avez pas profilé votre environnement pendant la durée pour laquelle vous créez l’évaluation. Par exemple, si vous créez l’évaluation avec une durée des performances définie sur 1 jour, vous devez attendre au moins un jour après le démarrage de la découverte pour que tous les points de données soient collectés.
-- Certaines machines virtuelles ont été arrêtées pendant la période de calcul de l’évaluation. Si des machines virtuelles sont désactivées pendant une certaine durée, Server Assessment ne peut pas collecter les données de performances pour cette période.
-- Certaines machines virtuelles ont été créées au cours de la période pour laquelle l’évaluation a été calculée. Par exemple, si vous avez créé une évaluation de l’historique des performances du mois précédent, mais que certaines machines virtuelles ont été créées dans l’environnement qu’il y a une semaine, l’historique des performances des nouvelles machines virtuelles n’existera pas pour la durée totale.
+- Vous n’avez pas profilé votre environnement pendant la durée pour laquelle vous créez l’évaluation. Par exemple, si vous créez l’évaluation avec une durée des performances définie sur un jour, vous devez attendre au moins un jour après le démarrage de la découverte pour que tous les points de données soient collectés.
+- L’évaluation ne parvient pas à collecter les données de performances d’une partie ou de la totalité des machines virtuelles pendant la période d’évaluation. Pour obtenir un niveau de confiance élevé, vérifiez les éléments suivants : 
+    - Les machines virtuelles sont sous tension pendant toute la durée de l’évaluation.
+    - Les connexions sortantes sont autorisées sur le port 443.
+    - Pour les machines virtuelles Hyper-V, la Mémoire dynamique est activée. 
+    
+    « Recalculez » l’évaluation pour qu’elle reflète l’évolution récente de la note de confiance.
+
+- Certaines machines virtuelles ont été créées pendant la période de calcul de l’évaluation. Par exemple, supposons que vous avez créé une évaluation de l’historique des performances du dernier mois, mais que certaines machines virtuelles ont été créées il y a seulement une semaine. Dans ce cas, les données de performances pour les nouvelles machines virtuelles ne seront pas disponibles pour toute la durée et la note de confiance sera faible.
 
 > [!NOTE]
 > Si le niveau de confiance d’une évaluation est inférieur à cinq étoiles, nous vous recommandons d’attendre au moins un jour pour que l’appliance profile l’environnement, puis de recalculer l’évaluation. À défaut, il se peut que le dimensionnement basé sur les performances ne soit pas fiable. Dans ce cas, nous vous recommandons de faire passer l’évaluation au dimensionnement local.

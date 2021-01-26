@@ -6,17 +6,17 @@ ms.topic: how-to
 ms.date: 11/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 101b3a05591a7815ba28756bb5b07e855b64e769
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 85026092e513ecc9ec3c23e292a416297774a2e4
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505544"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98217836"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Utiliser Microsoft Teams sur Windows Virtual Desktop
 
 >[!IMPORTANT]
->L’optimisation des médias pour Teams n’est pas prise en charge pour les environnements Microsoft 365 Government (GCC). L’optimisation des médias pour Teams n’est pas prise en charge pour GCC élevé ou DoD.
+>L’optimisation des médias pour Teams n’est pas prise en charge pour les environnements Microsoft 365 Government (GCC) et GCC-High. L’optimisation des médias pour Teams n’est pas prise en charge pour GCC élevé ou DoD.
 
 >[!NOTE]
 >La fonction d’optimisation des médias de Microsoft Teams est uniquement disponible pour le client Windows Desktop sur les machines Windows 10. Elle nécessite la version 1.2.1026.0 ou ultérieure du client Windows Desktop.
@@ -140,7 +140,7 @@ Selon que l’environnement est virtualisé ou non, l’utilisation de Microsoft
 
 ### <a name="calls-and-meetings"></a>Appels et réunions
 
-- Le client de bureau Teams dans les environnements Windows Virtual Desktop ne gère pas les événements en direct. Pour l’instant, nous vous recommandons de rejoindre des événements en direct à partir du [client Web Teams](https://teams.microsoft.com) dans votre session à distance.
+- Le client de bureau Teams dans les environnements Windows Virtual Desktop ne prend pas en charge la création d’événements en direct, mais vous pouvez joindre des événements en direct. Pour l’instant, nous vous recommandons de créer des événements en direct à partir du [client web Teams](https://teams.microsoft.com) dans votre session à distance.
 - Actuellement, les appels et les réunions ne prennent pas en charge le partage d’applications. Par contre, les sessions de bureau prennent en charge le partage de bureau.
 - L’octroi et la prise de contrôle ne sont actuellement pas pris en charge.
 - L’instance Teams sur Windows Virtual Desktop ne prend en charge qu’une seule entrée vidéo à la fois. De ce fait, chaque fois qu’un utilisateur tente de partager son écran, ce dernier s’affiche à la place de l’écran de l’organisateur de la réunion.

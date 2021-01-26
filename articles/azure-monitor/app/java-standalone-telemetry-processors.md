@@ -6,12 +6,12 @@ ms.date: 10/29/2020
 author: kryalama
 ms.custom: devx-track-java
 ms.author: kryalama
-ms.openlocfilehash: ba4e6b8b5e9db494ab4c0c372c2086087a2d58cb
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 39897e490e4653fbaad7a64ecc0b33f161d1264b
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98133172"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165788"
 ---
 # <a name="telemetry-processors-preview---azure-monitor-application-insights-for-java"></a>Processeurs de télémétrie (préversion) – Azure Monitor Application Insights pour Java
 
@@ -23,58 +23,48 @@ L’agent Java 3.0 pour Application Insights offre désormais les fonctionnalit�
 Voici quelques cas d’utilisation des processeurs de télémétrie :
  * Masquer des données sensibles
  * Ajouter de manière conditionnelle des dimensions personnalisées
- * Mettre à jour le nom de télémétrie utilisé pour l’agrégation et l’affichage
- * Supprimer ou filtrer les attributs d’étendue pour contrôler le coût d’ingestion
+ * Mettre à jour le nom utilisé pour l’agrégation et l’affichage dans le portail Azure
+ * Supprimer les attributs d’étendue pour contrôler le coût d’ingestion
 
 ## <a name="terminology"></a>Terminologie
 
-Avant de passer aux processeurs de télémétrie, il est important de comprendre ce que sont les traces et les étendues.
+Avant de passer aux processeurs de télémétrie, il est important de comprendre ce que le terme étendue signifie.
 
-### <a name="traces"></a>Traces
+Une étendue est un terme général désignant l’un de ces trois éléments :
 
-Les traces permettent d’effectuer le suivi de la progression d’une requête unique, appelée `trace`, au fil de sa gestion par les services qui composent une application. La demande peut être lancée par un utilisateur ou une application. Chaque unité de travail d’une `trace` est appelée `span` (étendue) ; une `trace` est une arborescence d’étendues. Une `trace` est composée de l’étendue racine unique et d’une ou plusieurs étendues enfants.
+* Une requête entrante
+* Une dépendance sortante (par exemple, un appel distant à un autre service)
+* Une dépendance « in-process » (par exemple, une tâche effectuée par les sous-composants du service)
 
-### <a name="span"></a>Étendue
+Dans le cadre des processeurs de télémétrie, les composants importants d’une étendue sont :
 
-Les étendues sont des objets qui représentent le travail effectué par différents services ou des composants impliqués dans une demande lorsqu’elle transite par un système. Un `span` contient un `span context`, à savoir un ensemble d’identificateurs globaux uniques qui représentent la requête unique dont chaque étendue fait partie. 
+* Nom
+* Attributs
 
-Les étendues englobent les éléments suivants :
+Le nom de l’étendue est l’affichage principal utilisé pour les demandes et les dépendances dans le portail Azure.
 
-* Nom de l’étendue
-* `SpanContext` immuable qui identifie de façon unique l’étendue
-* Étendue parente sous la forme d’un `Span`, d’un `SpanContext` ou d’une valeur Null
-* `SpanKind`
-* Horodatage de début
-* Horodatage de fin
-* [`Attributes`](#attributes)
-* Liste d’événements horodatés
-* `Status`
+Les attributs d’étendue représentent à la fois les propriétés standard et personnalisées d’une requête ou d’une dépendance donnée.
 
-En règle générale, le cycle de vie d’une étendue se présente ainsi :
+## <a name="telemetry-processor-types"></a>Types de processeurs de télémétrie
 
-* Un service reçoit une demande. Le contexte d’étendue, s’il existe, est extrait des en-têtes de demande.
-* Une nouvelle étendue est créée comme enfant du contexte d’étendue extrait ; s’il n’y en a pas, une nouvelle étendue racine est créée.
-* Le service gère la demande. Des attributs et des événements supplémentaires sont ajoutés à l’étendue. Ils sont utiles pour comprendre le contexte de la demande, par exemple le nom d’hôte de l’ordinateur qui gère la demande et les identificateurs du client.
-* De nouvelles étendues peuvent être créées pour représenter le travail effectué par les sous-composants du service.
-* Lorsque le service effectue un appel distant à un autre service, le contexte d’étendue actuel est sérialisé et transmis au service suivant en injectant le contexte d’étendue dans les en-têtes ou l’enveloppe de message.
-* Le travail effectué par le service se termine avec ou sans erreur. L’état de l’étendue est défini, et l’étendue est marquée comme terminée.
+Il existe actuellement deux types de processeurs de télémétrie.
 
-### <a name="attributes"></a>Attributs
+#### <a name="attribute-processor"></a>Processeur d’attributs
 
-Les `Attributes` (attributs) constituent une liste de zéro, une ou plusieurs paires clé-valeur encapsulées dans un `span`. Un attribut DOIT comporter les propriétés suivantes :
+Un processeur d’attributs permet d’insérer, de mettre à jour, de supprimer ou de hacher des attributs.
+Il peut également extraire (via une expression régulière) un ou plusieurs nouveaux attributs d’un attribut existant.
 
-La clé d’attribut, qui DOIT être une chaîne non Null et non vide
-La valeur de l’attribut, qui peut être :
-* Un type primitif : chaîne, booléen, nombre à virgule flottante double précision (IEEE 754-1985) ou entier signé 64 bits
-* Un tableau de valeurs de type primitif Le tableau DOIT être homogène, c’est-à-dire qu’il NE DOIT PAS contenir des valeurs de types différents. Dans le cas des protocoles qui ne prennent pas en charge les valeurs de tableau de manière native, il est PRÉFÉRABLE de représenter ces valeurs sous forme de chaînes JSON.
+#### <a name="span-processor"></a>Processeur d’étendue
 
-## <a name="supported-processors"></a>Processeurs pris en charge :
- * Processeur d’attribut
- * Processeur d’étendue
+Un processeur d’étendue permet de mettre à jour le nom de la télémétrie.
+Il peut également extraire (via une expression régulière) un ou plusieurs nouveaux attributs du nom de l’étendue.
 
-## <a name="to-get-started"></a>Pour commencer
+> [!NOTE]
+> Notez que les processeurs de télémétrie traitent actuellement uniquement les attributs de type chaîne et non les attributs de type booléen ou numérique.
 
-Créez un fichier de configuration nommé `applicationinsights.json`, puis placez-le dans le même répertoire que `applicationinsights-agent-***.jar`, avec le modèle suivant.
+## <a name="getting-started"></a>Prise en main
+
+Créez un fichier de configuration nommé `applicationinsights.json`, puis placez-le dans le même répertoire que `applicationinsights-agent-*.jar`, avec le modèle suivant.
 
 ```json
 {
@@ -98,9 +88,14 @@ Créez un fichier de configuration nommé `applicationinsights.json`, puis place
 }
 ```
 
-## <a name="includeexclude-spans"></a>Inclusion/exclusion d’étendues
+## <a name="includeexclude-criteria"></a>Inclure/exclure des critères
 
-Le processeur d’attributs et le processeur d’étendues offrent la possibilité d’indiquer un ensemble de propriétés d’une étendue à confronter pour déterminer si celle-ci doit ou non être incluse dans le processeur de télémétrie. Pour configurer cette option, sous `include` et/ou `exclude`, au moins un `matchType` et l’un des `spanNames` ou `attributes` sont requis. Plusieurs conditions peuvent être spécifiées pour la configuration d’inclusion/exclusion. Pour qu’une correspondance soit établie, toutes les conditions spécifiées doivent prendre la valeur true. 
+Les processeurs d’attributs et les processeurs d’étendue prennent en charge les critères facultatifs `include` et `exclude` .
+Un processeur est appliqué uniquement aux étendues qui correspondent à ses critères `include` (si fournis) _et_ qui ne correspondent pas à ses critères `exclude` (si fournis).
+
+Pour configurer cette option, sous `include` et/ou `exclude`, au moins un `matchType` et l’un des `spanNames` ou `attributes` sont requis.
+Plusieurs conditions peuvent être spécifiées pour la configuration d’inclusion/exclusion.
+Pour qu’une correspondance soit établie, toutes les conditions spécifiées doivent prendre la valeur true. 
 
 **Champ obligatoire** : 
 * `matchType` contrôle la façon dont les éléments des tableaux `spanNames` et `attributes` sont interprétés. Les valeurs possibles sont `regexp` ou `strict`. 
@@ -150,7 +145,7 @@ Le processeur d’attributs et le processeur d’étendues offrent la possibilit
 ```
 Pour plus d’informations, consultez la documentation des [exemples de processeurs de télémétrie](./java-standalone-telemetry-processors-examples.md).
 
-## <a name="attribute-processor"></a>Processeur d’attributs 
+## <a name="attribute-processor"></a>Processeur d’attributs
 
 Le processeur d’attributs modifie les attributs d’une étendue. Il prend éventuellement en charge la possibilité d’inclure ou d’exclure des étendues. Il prend une liste d’actions qui sont exécutées dans l’ordre spécifié dans le fichier de configuration. Les actions prises en charge sont les suivantes :
 
@@ -167,7 +162,7 @@ Insère un nouvel attribut dans les étendues où la clé n’existe pas encore.
         "key": "attribute1",
         "value": "value1",
         "action": "insert"
-      },
+      }
     ]
   }
 ]
@@ -190,7 +185,7 @@ met à jour un attribut dans les étendues où la clé existe.
         "key": "attribute1",
         "value": "newValue",
         "action": "update"
-      },
+      }
     ]
   }
 ]
@@ -213,7 +208,7 @@ supprime un attribut d’une étendue.
       {
         "key": "attribute1",
         "action": "delete"
-      },
+      }
     ]
   }
 ]
@@ -234,7 +229,7 @@ hache (SHA1) une valeur d’attribut existante.
       {
         "key": "attribute1",
         "action": "hash"
-      },
+      }
     ]
   }
 ]
@@ -259,7 +254,7 @@ Extrait des valeurs suivant une règle d’expression régulière de la clé d�
         "key": "attribute1",
         "pattern": "<regular pattern with named matchers>",
         "action": "extract"
-      },
+      }
     ]
   }
 ]
@@ -271,7 +266,7 @@ Pour l’action `extract`, les éléments suivants sont obligatoires :
 
 Pour plus d’informations, consultez la documentation des [exemples de processeurs de télémétrie](./java-standalone-telemetry-processors-examples.md).
 
-## <a name="span-processors"></a>Processeurs d’étendue
+## <a name="span-processor"></a>Processeur d’étendue
 
 Le processeur d’étendue modifie le nom ou les attributs d’une étendue en fonction de son nom. Il prend éventuellement en charge la possibilité d’inclure ou d’exclure des étendues.
 

@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f625b7dd68d4b5a5e1af68aeb53dac453ff8cbfd
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 5e45c51735e0b7ab4b263d3f3047b5848c82439d
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400826"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185765"
 ---
 # <a name="create-powershell-scripts-for-msix-app-attach-preview"></a>Créer des scripts PowerShell pour l’attachement de l’application MSIX (préversion)
 
@@ -39,6 +39,17 @@ Si votre application utilise un certificat qui n’est pas approuvé publiquemen
 6. Sélectionnez **Placer tous les certificats dans le magasin suivant**, puis sélectionnez **Parcourir**.
 7. Lorsque la fenêtre Sélectionner un magasin de certificats s’affiche, sélectionnez **Personnes autorisées**, puis sélectionnez **OK**.
 8. Sélectionnez **Suivant** et **Terminer**.
+
+## <a name="enable-microsoft-hyper-v"></a>Activation de Microsoft Hyper-V
+
+Microsoft Hyper-V doit être activé, car la commande `Mount-VHD` est nécessaire pour l’activation et la commande `Dismount-VHD` pour la désactivation.
+
+```powershell
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
+```
+
+>[!NOTE]
+>Cette modification va nécessiter le redémarrage de la machine virtuelle.
 
 ## <a name="prepare-powershell-scripts-for-msix-app-attach"></a>Préparer les scripts PowerShell pour l’attachement de l’application MSIX
 

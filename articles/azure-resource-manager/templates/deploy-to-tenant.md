@@ -2,13 +2,13 @@
 title: Déployer des ressources sur le locataire
 description: Décrit comment déployer des ressources au niveau du locataire dans un modèle Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 11/24/2020
-ms.openlocfilehash: 5733c5d6eb6cbd86207589244c22badc17fe7073
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.date: 01/13/2021
+ms.openlocfilehash: 0b3ddc63e49b272c93349ada91e9a1599ea4be4f
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95807634"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98186207"
 ---
 # <a name="tenant-deployments-with-arm-templates"></a>Déploiements de locataires avec des modèles Resource Manager
 
@@ -145,7 +145,8 @@ Lors du déploiement dans un locataire, vous pouvez déployer des ressources ver
 * des groupes d’administration dans le locataire
 * subscriptions
 * groupes de ressources
-* les [ressources d’extension](scope-extension-resources.md) peuvent être appliquées aux ressources
+
+Une [ressource d’extension](scope-extension-resources.md) peut être étendue à une cible différente de la cible de déploiement.
 
 L’utilisateur qui déploie le modèle doit avoir accès à l’étendue spécifiée.
 
@@ -184,6 +185,8 @@ Pour cibler un groupe de ressources au sein du locataire, utilisez un déploieme
 Le modèle suivant crée un groupe d'administration.
 
 :::code language="json" source="~/quickstart-templates/tenant-deployments/new-mg/azuredeploy.json":::
+
+Même si votre compte n’est pas autorisé à effectuer un déploiement sur le locataire, vous pouvez créer des groupes d’administration en choisissant une autre étendue de déploiement. Pour plus d’informations, consultez [Groupe d’administration](deploy-to-management-group.md#management-group).
 
 ## <a name="assign-role"></a>Affecter le rôle
 

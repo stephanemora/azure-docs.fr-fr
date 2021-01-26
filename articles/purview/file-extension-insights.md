@@ -1,18 +1,18 @@
 ---
-title: Génération de rapports d’extensions de fichier à l’aide de Purview Insights
-description: Ce guide pratique explique comment afficher et utiliser les rapports d’extensions de fichier Purview Insights sur vos données.
+title: Rapports d’extension de fichier sur vos données dans Azure Purview à l’aide de Purview Insights
+description: Ce guide pratique explique comment afficher et utiliser les rapports d’extensions de fichier Purview sur vos données.
 author: batamig
 ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/24/2020
-ms.openlocfilehash: 222106f5838a1eb237987afaa93924f1efe4a1f4
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 246a9dcfa35498d99fd403f10e5c17d7707efe84
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746282"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202621"
 ---
 # <a name="file-extension-insights-about-your-data-from-azure-purview"></a>Insights relatifs aux extensions de fichier de vos données à partir d’Azure Purview 
 
@@ -33,6 +33,9 @@ Avant de commencer à utiliser Purview Insights, assurez-vous d’avoir effectu�
 - Configurez vos ressources Azure et alimentez les comptes appropriés avec des données de test
 
 - Configurez et terminez une analyse sur les données de test dans chaque source de données
+
+- Connecté à Purview avec un compte avec le [rôle de lecteur de données ou conservateur de données](catalog-permissions.md#azure-purviews-pre-defined-data-plane-roles).
+
 
 Pour plus d’informations, consultez [Gérer des sources de données dans Azure Purview (préversion)](manage-data-sources.md).
 

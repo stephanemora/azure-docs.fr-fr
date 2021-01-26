@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
-ms.date: 12/15/2020
+ms.date: 01/14/2020
 ms.custom: contperf-fy21q1,contperfq1
-ms.openlocfilehash: 17c5cc265b4199d745325bf2c9d9fbca24cc6506
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 61305e4f9ba45cb7c13a96bee9d1aab81108bb4d
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97617117"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220692"
 ---
 # <a name="deep-learning-vs-machine-learning-in-azure-machine-learning"></a>Apprentissage profond et apprentissage automatique dans Azure Machine Learning
 
@@ -57,7 +57,7 @@ Le tableau suivant compare les deux techniques de manière plus détaillée :
 |  **Temps d’exécution** | Nécessite relativement peu de temps pour apprendre, de quelques secondes à quelques heures. | Nécessite généralement un temps d’entraînement assez long, car un algorithme de deep learning implique de nombreuses couches. |
 |  **Sortie** | La sortie est généralement une valeur numérique, telle qu’une note ou une classification. | La sortie peut avoir plusieurs formats, comme un texte, un score ou un son. |
 
-## <a name="transfer-learning"></a>Transfer learning
+## <a name="what-is-transfer-learning"></a>Qu’est-ce que l’apprentissage de transfert
 
 La formation de modèles Deep Learning nécessite souvent de grandes quantités de données de formation, des ressources de calcul haut de gamme (GPU, TPU) et un temps de formation plus long. Dans les cas où vous ne disposez pas de ces ressources, vous pouvez raccourcir le processus d’entraînement à l’aide d’une technique appelée *apprentissage de transfert*.
 
@@ -65,7 +65,7 @@ L’apprentissage de transfert est une technique qui applique les connaissances 
 
 En raison de la structure des réseaux neuronaux, le premier ensemble de couches contient généralement des caractéristiques de niveau inférieur, tandis que le dernier ensemble de couches contient des caractéristiques de niveau supérieur qui sont plus proches du domaine en question. En réutilisant les couches finales dans un nouveau domaine ou problème, vous pouvez réduire considérablement le temps, les données et les ressources de calcul nécessaires à la formation du nouveau modèle. Par exemple, si vous avez déjà un modèle qui reconnaît les voitures, vous pouvez réutiliser ce modèle à l’aide de l’apprentissage de transfert pour qu’il reconnaisse également les camions, les motos et d’autres types de véhicules.
 
-Découvrez comment appliquer l’apprentissage de transfert pour la classification d’images à l’aide d’une infrastructure open source dans Azure Machine Learning : [Classifier des images à l’aide d’un modèle Pytorch](./how-to-train-pytorch.md?WT.mc_id=docs-article-lazzeri).
+Découvrez comment appliquer l’apprentissage de transfert pour la classification d’images à l’aide d’une infrastructure open source dans Azure Machine Learning : [Effectuer l'apprentissage d’un modèle PyTorch de Deep Learning à l’aide d’un apprentissage de transfert](./how-to-train-pytorch.md?WT.mc_id=docs-article-lazzeri).
 
 ## <a name="deep-learning-use-cases"></a>Cas d’utilisation du Deep Learning
 

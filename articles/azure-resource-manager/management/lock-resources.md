@@ -4,12 +4,12 @@ description: Empêchez les utilisateurs de mettre à jour ou de supprimer des re
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f1073d8c4a6902ea00a9b4098ef87bc411b3e6c0
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 7efeb8a073a04f78f77046c07c107abf0c7526f4
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555666"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602213"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Verrouiller les ressources pour empêcher les modifications inattendues
 
@@ -28,7 +28,7 @@ Les verrous Resource Manager s'appliquent uniquement aux opérations qui se prod
 
 ## <a name="considerations-before-applying-locks"></a>Considérations avant l’application de verrous
 
-Si vous appliquez des verrous, il se peut que vous obteniez des résultats inattendus, car certaines opérations qui, en apparence, ne modifient pas la ressource nécessitent en réalité des actions qui sont bloquées par ce verrou. Voici quelques exemples courants d’opérations bloquées par un verrou :
+Si vous appliquez des verrous, il se peut que vous obteniez des résultats inattendus, car certaines opérations qui, en apparence, ne modifient pas la ressource nécessitent en réalité des actions qui sont bloquées par ce verrou. Les verrous empêchent toutes les opérations impliquant une demande POST à l’API Azure Resource Manager. Voici quelques exemples courants d’opérations bloquées par un verrou :
 
 * Un verrou en lecture seule appliqué à un **compte de stockage** empêche tous les utilisateurs de répertorier les clés. L’opération de listage de clés est gérée via une demande POST, car les clés retournées sont disponibles pour les opérations d’écriture.
 

@@ -1,15 +1,15 @@
 ---
 title: Comprenez le fonctionnement des alertes de métrique dans Azure Monitor.
 description: Obtenez un aperçu des actions possibles avec les alertes de métriques et de leur fonctionnement dans Azure Monitor.
-ms.date: 01/11/2021
+ms.date: 01/19/2021
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: 424cc9db01f1eb6300c2915795f3e2c37b34449f
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 031768b8a72fbe9498abd3c17e0f79fd157d4f52
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98071049"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98572729"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Comprendre le fonctionnement des alertes de métrique dans Azure Monitor
 
@@ -26,8 +26,8 @@ Supposons que vous avez créé une règle d’alerte de métrique de seuil stati
 - Ressource cible (ressource Azure à surveiller) : myVM
 - Mesure : Percentage CPU
 - Type de condition : statique
-- Agrégation du temps (statistique exécutée sur des valeurs de mesures brutes ; Les [agrégations de temps prises en charge](metrics-charts.md#changing-aggregation) sont Min, Max, Moy, Total, Nombre) : Average
-- Période (fenêtre de vérification des valeurs de métrique) : Au cours des 5 dernières minutes
+- Type d’agrégation (statistique exécutée sur des valeurs de métriques brutes ; [types d’agrégation pris en charge](./metrics-aggregation-explained.md#aggregation-types) : Minimum, Maximum, Moyenne, Total et Nombre) : Average
+- Période (fenêtre de vérification des valeurs de métriques) : Au cours des 5 dernières minutes
 - Fréquence (fréquence à laquelle l’alerte de métrique vérifie si les conditions sont remplies) : 1 minute
 - Opérateur : Supérieur à
 - Seuil : 70
@@ -43,8 +43,8 @@ Supposons que vous avez créé une règle d’alerte de métrique de seuil dynam
 - Ressource cible (ressource Azure à surveiller) : myVM
 - Mesure : Percentage CPU
 - Type de condition : Dynamique
-- Agrégation du temps (statistique exécutée sur des valeurs de mesures brutes ; Les [agrégations de temps prises en charge](metrics-charts.md#changing-aggregation) sont Min, Max, Moy, Total, Nombre) : Average
-- Période (fenêtre de vérification des valeurs de métrique) : Au cours des 5 dernières minutes
+- Type d’agrégation (statistique exécutée sur des valeurs de métriques brutes ; [types d’agrégation pris en charge](./metrics-aggregation-explained.md#aggregation-types) : Minimum, Maximum, Moyenne, Total et Nombre) : Average
+- Période (fenêtre de vérification des valeurs de métriques) : Au cours des 5 dernières minutes
 - Fréquence (fréquence à laquelle l’alerte de métrique vérifie si les conditions sont remplies) : 1 minute
 - Opérateur : Supérieur à
 - Sensibilité : Moyenne
@@ -65,6 +65,10 @@ Au bout d'un moment, l'utilisation de « myVM » revient à la normale (en des
 
 Comme la notification de résolution est envoyée par le biais de webhooks ou d’un e-mail, l’état de l’instance d’alerte (état de l’analyse) dans le portail Azure est également défini comme résolu.
 
+> [!NOTE]
+>
+> Lorsqu’une règle d’alerte surveille plusieurs conditions, une alerte déclenchée est résolue si au moins l’une des conditions n’est plus remplie pendant trois périodes consécutives.
+
 ### <a name="using-dimensions"></a>Utilisation de dimensions
 
 Les alertes de métrique dans Azure Monitor prennent également en charge la surveillance de plusieurs combinaisons de valeurs de dimension avec une seule règle. Essayons de comprendre pourquoi vous pouvez utiliser plusieurs combinaisons de dimension à l’aide d’un exemple.
@@ -76,7 +80,7 @@ Supposons que vous avez un plan App Service pour votre site web. Vous souhaitez 
 - Type de condition : statique
 - Dimensions
   - Instance = InstanceName1, InstanceName2
-- Agrégation de temps : Average
+- Type d’agrégation : Average
 - Période : Au cours des 5 dernières minutes
 - Fréquence : 1 minute
 - Opérateur : GreaterThan
@@ -91,7 +95,7 @@ Admettons que vous avez une application web soumise à une très forte demande e
 - Type de condition : statique
 - Dimensions
   - Instance = *
-- Agrégation de temps : Average
+- Type d’agrégation : Average
 - Période : Au cours des 5 dernières minutes
 - Fréquence : 1 minute
 - Opérateur : GreaterThan
@@ -108,7 +112,7 @@ Supposons que vous ayez une application web avec de nombreuses instances et que 
 - Type de condition : Dynamique
 - Dimensions
   - Instance = *
-- Agrégation de temps : Average
+- Type d’agrégation : Average
 - Période : Au cours des 5 dernières minutes
 - Fréquence : 1 minute
 - Opérateur : GreaterThan
@@ -176,7 +180,7 @@ Vous trouverez la liste complète des types de ressources pris en charge dans ce
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Découvrir comment créer, afficher et gérer des alertes de métrique dans Azure](alerts-metric.md)
-- [Découvrir comment créer des alertes dans Azure Monitor Metrics Explorer](./metrics-charts.md#create-alert-rules)
+- [Découvrir comment créer des alertes dans Azure Monitor Metrics Explorer](./metrics-charts.md#alert-rules)
 - [Découvrir comment déployer des alertes de métrique à l’aide de modèles Azure Resource Manager](./alerts-metric-create-templates.md)
 - [En savoir plus sur les groupes d’actions](action-groups.md)
 - [En savoir plus sur le type de condition des seuils dynamiques](alerts-dynamic-thresholds.md)

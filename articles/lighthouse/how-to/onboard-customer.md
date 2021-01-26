@@ -1,14 +1,14 @@
 ---
 title: Intégrer un client à Azure Lighthouse
 description: Apprenez à intégrer un client à Azure Lighthouse pour permettre l'accès à ses ressources et la gestion de celles-ci via votre propre locataire à l'aide de la gestion des ressources déléguées Azure.
-ms.date: 12/15/2020
+ms.date: 01/14/2021
 ms.topic: how-to
-ms.openlocfilehash: 023b44a77cb38a14df8aa6a885ff137c02942061
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 1a7c8fc85819b2c34b5c64dc83cb908b7bee3c41
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516123"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232673"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Intégrer un client à Azure Lighthouse
 
@@ -62,14 +62,17 @@ az account show
 
 ## <a name="define-roles-and-permissions"></a>Définir des rôles et des autorisations
 
-En tant que fournisseur de services, vous souhaitez peut-être effectuer plusieurs tâches pour un seul client, ce qui requiert un accès différent pour les différentes étendues. Vous pouvez définir autant d'autorisations que nécessaire pour attribuer les [rôles intégrés Azure](../../role-based-access-control/built-in-roles.md) appropriés aux utilisateurs de votre locataire.
+En tant que fournisseur de services, vous souhaitez peut-être effectuer plusieurs tâches pour un seul client, ce qui requiert un accès différent pour les différentes étendues. Vous pouvez définir autant d’autorisations que vous le souhaitez pour attribuer les [rôles intégrés Azure](../../role-based-access-control/built-in-roles.md) nécessaires. Chaque autorisation comprend une **principalId** qui fait référence à un utilisateur, à un groupe ou à un principal de service Azure AD dans le locataire gérant.
 
-Pour faciliter la gestion, nous vous recommandons d’utiliser des groupes d’utilisateurs Azure AD pour chaque rôle. Cela vous donne la possibilité d’ajouter ou de supprimer des utilisateurs individuels dans le groupe qui a accès, afin de ne pas avoir à répéter le processus d’intégration pour apporter des modifications à l’utilisateur. Vous pouvez assigner des rôles à un principal de service, ce qui peut être utile pour les scénarios d’automatisation.
+> [!NOTE]
+> Sauf spécification explicite, les références à un « utilisateur » dans la documentation Azure Lighthouse peuvent s’appliquer à un utilisateur, à un groupe ou à un principal de service Azure AD dans une autorisation.
+
+Pour faciliter la gestion, nous vous recommandons d’utiliser des groupes d’utilisateurs Azure AD pour chaque rôle dans la mesure du possible, plutôt que des utilisateurs individuels. Cela vous donne la possibilité d’ajouter ou de supprimer des utilisateurs individuels dans le groupe qui a accès, afin de ne pas avoir à répéter le processus d’intégration pour apporter des modifications à l’utilisateur. Il est également possible d’attribuer des rôles à un principal de service, ce qui peut être utile dans les scénarios d’automatisation.
 
 > [!IMPORTANT]
 > Pour que vous puissiez ajouter des autorisations pour un groupe Azure AD, le **Type de groupe** doit être défini sur **Sécurité**. Cette option est sélectionnée lors de la création du groupe. Pour plus d’informations, consultez [Créer un groupe de base et ajouter des membres avec Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
-Lorsque vous définissez vos autorisations, veillez à suivre le principe du privilège minimum afin que les utilisateurs disposent uniquement des autorisations nécessaires pour accomplir leur travail. Pour des consignes et des informations sur les rôles pris en charge, consultez [Locataires, utilisateurs et rôles dans les scénarios Azure Lighthouse](../concepts/tenants-users-roles.md).
+Lorsque vous définissez vos autorisations, veillez à suivre le principe du privilège minimum afin que les utilisateurs disposent uniquement des autorisations nécessaires pour accomplir leur travail. Pour plus d’informations sur les rôles pris en charge et les meilleures pratiques, consultez [Locataires, utilisateurs et rôles dans les scénarios Azure Lighthouse](../concepts/tenants-users-roles.md).
 
 Pour définir des autorisations, vous devez connaître les valeurs d’ID pour chaque utilisateur, groupe d’utilisateurs ou principal de service dans le locataire du fournisseur de services auquel vous souhaitez accorder l’accès. Vous aurez également besoin de l’ID de définition de rôle pour chaque rôle intégré que vous souhaitez attribuer. Si vous ne les avez pas déjà, vous pouvez les récupérer en exécutant les commandes ci-dessous à partir du locataire du fournisseur de services.
 
@@ -195,7 +198,7 @@ L’exemple suivant montre un fichier **delegatedResourceManagement.parameters.j
 }
 ```
 
-La dernière autorisation dans l’exemple ci-dessus ajoute un **principalId** avec le rôle Administrateur de l’accès utilisateur (18d7d88d-d35e-4fb5-A5C3-7773c20a72d9). Lorsque vous attribuez ce rôle, vous devez inclure la propriété **delegatedRoleDefinitionIds** et un ou plusieurs rôles intégrés. L’utilisateur créé dans cette autorisation pourra attribuer ces rôles intégrés aux [identités managées](../../active-directory/managed-identities-azure-resources/overview.md) dans le même locataire du client, ce qui est nécessaire au [déploiement des stratégies pouvant être corrigées](deploy-policy-remediation.md).  L’utilisateur peut également créer des incidents de support.  Aucune autre autorisation normalement associée au rôle Administrateur de l’accès utilisateur ne s’appliquera à cet utilisateur.
+La dernière autorisation dans l’exemple ci-dessus ajoute un **principalId** avec le rôle Administrateur de l’accès utilisateur (18d7d88d-d35e-4fb5-A5C3-7773c20a72d9). Lorsque vous attribuez ce rôle, vous devez inclure la propriété **delegatedRoleDefinitionIds** et un ou plusieurs rôles intégrés Azure pris en charge. L’utilisateur créé dans cette autorisation pourra attribuer ces rôles aux [identités managées](../../active-directory/managed-identities-azure-resources/overview.md) dans le même locataire du client, ce qui est nécessaire au [déploiement de stratégies pouvant être corrigées](deploy-policy-remediation.md).  L’utilisateur peut également créer des incidents de support. Aucune autre autorisation normalement associée au rôle Administrateur de l’accès utilisateur ne s’applique à ce **principalId**.
 
 ## <a name="deploy-the-azure-resource-manager-templates"></a>Déployer les modèles Azure Resource Manager
 
@@ -278,7 +281,7 @@ Dans le locataire du client :
 3. Vérifiez que vous pouvez voir les abonnements portant le nom de l’offre que vous avez fourni dans le modèle Resource Manager.
 
 > [!NOTE]
-> Quelques minutes peuvent s’écouler après votre déploiement, avant que les mises à jour apparaissent dans le portail Azure.
+> Il peut s’écouler 15 minutes entre la fin du déploiement et le moment où les mises à jour apparaissent sur le Portail Azure. Il se peut que vous voyiez les mises à jour plus tôt si vous mettez à jour votre jeton Azure Resource Manager en actualisant le navigateur, en vous connectant puis vous déconnectant ou en demandant un nouveau jeton.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -312,6 +315,7 @@ Si vous ne parvenez pas à intégrer votre client ou si vos utilisateurs ont des
 - Le fournisseur de ressources **Microsoft.ManagedServices** doit être inscrit pour l’abonnement délégué. Cela doit se produire automatiquement pendant le déploiement, mais si ce n’est pas le cas, vous pouvez [l’inscrire manuellement](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 - Les autorisations ne doivent pas inclure d’utilisateurs dotés du rôle intégré [Propriétaire](../../role-based-access-control/built-in-roles.md#owner) ni d’aucun rôle intégré avec [DataActions](../../role-based-access-control/role-definitions.md#dataactions).
 - Les groupes doivent être créés avec un [**type de groupe**](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md#group-types) défini sur **Sécurité** et non **Microsoft 365**.
+- Il peut y avoir un délai supplémentaire avant l’activation de l’accès pour les [groupes imbriqués](../..//active-directory/fundamentals/active-directory-groups-membership-azure-portal.md).
 - Les utilisateurs qui ont besoin d’afficher les ressources dans le portail Azure doivent avoir le rôle [Lecteur](../../role-based-access-control/built-in-roles.md#reader) (ou un autre rôle intégré qui inclut l’accès Lecteur).
 
 ## <a name="next-steps"></a>Étapes suivantes

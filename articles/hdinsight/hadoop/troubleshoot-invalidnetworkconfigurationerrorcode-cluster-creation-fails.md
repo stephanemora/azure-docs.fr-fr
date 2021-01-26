@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/12/2021
-ms.openlocfilehash: 2478148f946ddc88e571b76396544b028455ec75
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 82e1c6bdcd508bf1844223b331bf8363efa7b573
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132103"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98555319"
 ---
 # <a name="cluster-creation-fails-with-invalidnetworkconfigurationerrorcode-in-azure-hdinsight"></a>La création du cluster échoue avec InvalidNetworkConfigurationErrorCode in Azure HDInsight
 
@@ -50,7 +50,7 @@ Cette erreur pointe vers un problème de configuration DNS personnalisée. Les s
 
 ### <a name="issue"></a>Problème
 
-La description de l’erreur contient le message « Échec de la connexion au compte de stockage Azure » ou « Échec de la connexion à Azure SQL ».
+La description de l’erreur contient le message « Échec de la connexion au compte de stockage Azure » ou « Échec de la connexion à Azure SQL ».
 
 ### <a name="cause"></a>Cause :
 
@@ -72,7 +72,7 @@ Stockage Azure et SQL n’ont pas d’adresses IP fixes. Nous devons donc autor
 
 ### <a name="issue"></a>Problème
 
-La description de l’erreur est « Échec de l’établissement d’une connexion sortante à partir du cluster pour la communication avec le fournisseur de ressources HDInsight. Vérifiez que la connectivité sortante est autorisée. »
+La description de l’erreur est « Échec de l’établissement d’une connexion sortante à partir du cluster pour la communication avec le fournisseur de ressources HDInsight. Vérifiez que la connectivité sortante est autorisée. »
 
 ### <a name="cause"></a>Cause :
 
@@ -153,7 +153,7 @@ Ce code d'erreur `InvalidNetworkConfigurationErrorCode` peut également être d�
 
 ### <a name="resolution"></a>Résolution
 
-Utilisez les paramètres valides de `Get-AzVirtualNetwork` comme indiqué dans le [SDK AZ PowerShell](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork?view=azps-5.3.0&viewFallbackFrom=azps-4.2.0).
+Utilisez les paramètres valides de `Get-AzVirtualNetwork` comme indiqué dans le [SDK AZ PowerShell](/powershell/module/az.network/get-azvirtualnetwork).
 
 ---
 

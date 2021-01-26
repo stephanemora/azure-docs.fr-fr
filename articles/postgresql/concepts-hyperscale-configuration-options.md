@@ -6,13 +6,13 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 7/1/2020
-ms.openlocfilehash: 8dc70eaeb9e2c2f5d4cdfef37619e4b04217782e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 1/12/2021
+ms.openlocfilehash: 48537483501165d4a978afdbd05560613170d187
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85964513"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165609"
 ---
 # <a name="azure-database-for-postgresql--hyperscale-citus-configuration-options"></a>Azure Database pour PostgreSQL - Options de configuration d’Hyperscale (Citus)
 
@@ -118,6 +118,10 @@ Il est possible d’effectuer un scale-up du stockage sur les nœuds coordinateu
 ### <a name="storage-size"></a>Taille de stockage
 
 Les nœuds coordinateur et Worker prennent en charge jusqu’à 2 Tio de stockage. Pour connaître les tailles de cluster et de nœud, consultez [ci-dessus](#compute-and-storage) les options de stockage disponibles et le calcul des IOPS.
+
+### <a name="database-creation"></a>Création de base de données
+
+Le portail Azure fournit des informations d’identification pour se connecter à une seule base de données par groupe de serveurs Hyperscale (Citus), la base de données `citus`. La création d’une autre base de données n’est actuellement pas autorisée, et la commande CREATE DATABASE échoue avec une erreur.
 
 ## <a name="pricing"></a>Tarifs
 Pour obtenir les dernières informations sur la tarification, veuillez consulter le service [Page de tarification](https://azure.microsoft.com/pricing/details/postgresql/).

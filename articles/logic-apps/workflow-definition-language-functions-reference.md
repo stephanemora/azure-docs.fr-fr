@@ -4,14 +4,14 @@ description: Guide de référence sur les fonctions dans les expressions pour Az
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
-ms.topic: conceptual
-ms.date: 09/04/2020
-ms.openlocfilehash: 222f6ebacb6139ca26a6f1cdd0f896270c9b2fc2
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.topic: reference
+ms.date: 01/13/2021
+ms.openlocfilehash: fe40cbe84e8e3341b03c6c8e11701fe3db6bc3d0
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98034293"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234220"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guide de référence sur l’utilisation des fonctions dans les expressions pour Azure Logic Apps et Power Automate
 
@@ -2532,11 +2532,17 @@ Cet exemple crée une variable de compteur et incrémente cette variable par un 
 
 ### <a name="json"></a>json
 
-Retourne la valeur ou l’objet de type JavaScript Object Notation (JSON) d’une chaîne ou d’un élément XML.
+Retourne la valeur, l’objet ou le tableau d’objets de type JSON (JavaScript Object Notation) d’une chaîne ou d’un élément XML.
 
 ```
 json('<value>')
+json(xml('value'))
 ```
+
+> [!IMPORTANT]
+> Sans schéma XML définissant la structure de la sortie, la fonction est susceptible de retourner des résultats dont la structure est très différente du format attendu, en fonction de l’entrée.
+>  
+> Ce comportement rend cette fonction inadaptée aux scénarios dans lesquels la sortie doit être conforme à un contrat bien défini, par exemple dans des systèmes ou solutions métier critiques.
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
@@ -2545,7 +2551,7 @@ json('<value>')
 
 | Valeur retournée | Type | Description |
 | ------------ | ---- | ----------- |
-| <*JSON-result*> | Objet ou type natif JSON | Objet ou valeur de type natif JSON correspondant à la chaîne ou à l’élément XML spécifiés. Si la chaîne est Null, la fonction retourne un objet vide. |
+| <*JSON-result*> | Type, objet ou tableau natif JSON | Valeur, objet ou tableau d’objets de type JSON de la chaîne ou de l’élément XML d’entrée. <p><p>- Si vous transmettez du code XML dont l’élément racine comporte un seul élément enfant, la fonction retourne un seul objet JSON pour cet élément enfant. <p> - Si vous transmettez du code XML dont l’élément racine comporte plusieurs éléments enfants, la fonction retourne un tableau contenant des objets JSON pour ces éléments enfants. <p>- Si la chaîne est Null, la fonction retourne un objet vide. |
 ||||
 
 *Exemple 1*
@@ -2560,7 +2566,7 @@ Et retourne ce résultat : `[1, 2, 3]`
 
 *Exemple 2*
 
-Cet exemple illustre la conversion de cette chaîne au format JSON :
+Cet exemple illustre la conversion de cette chaîne en JSON :
 
 ```
 json('{"fullName": "Sophia Owen"}')
@@ -2568,7 +2574,7 @@ json('{"fullName": "Sophia Owen"}')
 
 Et retourne ce résultat :
 
-```
+```json
 {
   "fullName": "Sophia Owen"
 }
@@ -2576,23 +2582,53 @@ Et retourne ce résultat :
 
 *Exemple 3*
 
-Cet exemple illustre la conversion de cet élément XML au format JSON :
+Cet exemple utilise les fonctions `json()` et `xml()` pour convertir du code XML dont l’élément racine comporte un seul élément enfant en un objet JSON nommé `person` pour cet élément enfant :
 
-```
-json(xml('<?xml version="1.0"?> <root> <person id='1'> <name>Sophia Owen</name> <occupation>Engineer</occupation> </person> </root>'))
-```
+`json(xml('<?xml version="1.0"?> <root> <person id='1'> <name>Sophia Owen</name> <occupation>Engineer</occupation> </person> </root>'))`
 
 Et retourne ce résultat :
 
 ```json
 {
-   "?xml": { "@version": "1.0" },
+   "?xml": { 
+      "@version": "1.0" 
+   },
    "root": {
-      "person": [ {
+      "person": {
          "@id": "1",
          "name": "Sophia Owen",
          "occupation": "Engineer"
-      } ]
+      }
+   }
+}
+```
+
+*Exemple 4*
+
+Cet exemple utilise les fonctions `json()` et `xml()` pour convertir du code XML dont l’élément racine comporte plusieurs éléments enfants en un tableau nommé `person` contenant des objets JSON pour ces éléments enfants :
+
+`json(xml('<?xml version="1.0"?> <root> <person id='1'> <name>Sophia Owen</name> <occupation>Engineer</occupation> </person> <person id='2'> <name>John Doe</name> <occupation>Engineer</occupation> </person> </root>'))`
+
+Et retourne ce résultat :
+
+```json
+{
+   "?xml": {
+      "@version": "1.0"
+   },
+   "root": {
+      "person": [
+         {
+            "@id": "1",
+            "name": "Sophia Owen",
+            "occupation": "Engineer"
+         },
+         {
+            "@id": "2",
+            "name": "John Doe",
+            "occupation": "Engineer"
+         }
+      ]
    }
 }
 ```

@@ -2,13 +2,13 @@
 title: Déployer des ressources dans un groupe d’administration
 description: Décrit comment déployer des ressources au niveau du groupe d’administration dans un modèle Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 11/24/2020
-ms.openlocfilehash: 79cdb35de40501dfc0794155dcf807cced94bfa7
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.date: 01/13/2021
+ms.openlocfilehash: d6c6b925ad1533fc1f3bf490a9b996280164bd57
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95798586"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98184014"
 ---
 # <a name="management-group-deployments-with-arm-templates"></a>Déploiements de groupes d’administration avec des modèles Resource Manager
 
@@ -44,6 +44,8 @@ Pour les modèles imbriqués qui sont déployés sur des abonnements ou des grou
 Pour gérer vos ressources, utilisez :
 
 * [balises](/azure/templates/microsoft.resources/tags)
+
+Les groupes d’administration sont des ressources de niveau client. Toutefois, vous pouvez créer des groupes d’administration dans un déploiement de groupe d’administration en définissant l’étendue du nouveau groupe d’administration sur le locataire. Consultez [Groupe d’administration](#management-group).
 
 ## <a name="schema"></a>schéma
 
@@ -123,7 +125,8 @@ Lors du déploiement sur un groupe d’administration, vous pouvez déployer des
 * des abonnements dans le groupe d’administration
 * les groupes de ressources dans le groupe d’administration
 * le locataire pour le groupe de ressources
-* les [ressources d’extension](scope-extension-resources.md) peuvent être appliquées aux ressources
+
+Une [ressource d’extension](scope-extension-resources.md) peut être étendue à une cible différente de la cible de déploiement.
 
 L’utilisateur qui déploie le modèle doit avoir accès à l’étendue spécifiée.
 
@@ -167,9 +170,55 @@ Vous pouvez utiliser un déploiement imbriqué en définissant `scope` et `locat
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/management-group-to-tenant.json" highlight="9,10,14":::
 
-Ou vous pouvez définir l’étendue sur `/` pour certains types de ressources, comme les groupes d’administration.
+Ou vous pouvez définir l’étendue sur `/` pour certains types de ressources, comme les groupes d’administration. La création d’un nouveau groupe d’administration est décrite dans la section suivante.
+
+## <a name="management-group"></a>Groupe d’administration
+
+Pour créer un groupe d’administration dans un déploiement de groupe d’administration, vous devez définir l’étendue sur `/` pour le groupe d’administration.
+
+L’exemple suivant crée un groupe d’administration dans le groupe d’administration racine.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/management-group-create-mg.json" highlight="12,15":::
+
+L’exemple d’après crée un nouveau groupe d’administration dans le groupe d’administration spécifié comme parent. Notez que l’étendue est définie sur `/`.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "mgName": {
+            "type": "string",
+            "defaultValue": "[concat('mg-', uniqueString(newGuid()))]"
+        },
+        "parentMG": {
+            "type": "string"
+        }
+    },
+    "resources": [
+        {
+            "name": "[parameters('mgName')]",
+            "type": "Microsoft.Management/managementGroups",
+            "apiVersion": "2020-05-01",
+            "scope": "/",
+            "location": "eastus",
+            "properties": {
+                "details": {
+                    "parent": {
+                        "id": "[tenantResourceId('Microsoft.Management/managementGroups', parameters('parentMG'))]"
+                    }
+                }
+            }
+        }
+    ],
+    "outputs": {
+        "output": {
+            "type": "string",
+            "value": "[parameters('mgName')]"
+        }
+    }
+}
+```
 
 ## <a name="azure-policy"></a>Azure Policy
 

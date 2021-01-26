@@ -11,18 +11,18 @@ ms.topic: how-to
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sstein
-ms.date: 04/19/2020
-ms.openlocfilehash: 480e9f9031481621ac9d568a7bd97b942f47b947
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 1/14/2021
+ms.openlocfilehash: b87d0a2446eb2b65c20ae0bef408320686cb5165
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96493638"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219128"
 ---
 # <a name="monitoring-microsoft-azure-sql-database-and-azure-sql-managed-instance-performance-using-dynamic-management-views"></a>Supervision des performances de Microsoft Azure SQL Database et d’Azure SQL Managed Instance à l’aide de vues de gestion dynamique
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Microsoft Azure SQL Database et Azure SQL Managed Instance activent un sous-ensemble de vues de gestion dynamique permettant de diagnostiquer des problèmes de performances qui peuvent être causés par des requêtes bloquées ou longues, des goulots d’étranglement des ressources, des plans de requête médiocres, etc. Cette rubrique fournit des informations sur la façon de détecter des problèmes de performances courants à l’aide des vues de gestion dynamique.
+Microsoft Azure SQL Database et Azure SQL Managed Instance activent un sous-ensemble de vues de gestion dynamique permettant de diagnostiquer des problèmes de performances qui peuvent être causés par des requêtes bloquées ou longues, des goulots d’étranglement des ressources, des plans de requête médiocres, etc. Cet article fournit des informations sur la façon de détecter des problèmes de performances courants à l’aide d’affichages de gestion dynamique.
 
 Microsoft Azure SQL Database et Azure SQL Managed Instance prennent partiellement en charge trois catégories de vues de gestion dynamique :
 
@@ -259,7 +259,7 @@ Pour une contention tempdb, il est courant de réduire ou réécrire le code d�
 - Tables temporaires
 - Variables de table
 - Paramètres table
-- Utilisation du magasin de version (spécifiquement associé aux transactions longues)
+- Utilisation du magasin de version (associé aux transactions longues)
 - Requêtes comportant des plans de requête qui utilisent des tris, des jointures hachées et des files d’attente
 
 ### <a name="top-queries-that-use-table-variables-and-temporary-tables"></a>Principales requêtes qui utilisent des variables de table et des tables temporaires
@@ -563,14 +563,14 @@ SELECT resource_name, AVG(avg_cpu_percent) AS Average_Compute_Utilization
 FROM sys.server_resource_stats
 WHERE start_time BETWEEN @s AND @e  
 GROUP BY resource_name  
-HAVING AVG(avg_cpu_percent) >= 80
+HAVING AVG(avg_cpu_percent) >= 80;
 ```
 
 ### <a name="sysresource_stats"></a>sys.resource_stats
 
 La vue [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) de la base de données **master** fournit des informations supplémentaires vous permettant de superviser les performances de votre base de données par rapport à son niveau de service et à sa taille de calcul. Les données, qui sont collectées toutes les cinq minutes, sont conservées pendant environ 14 jours. Cette vue est utile pour une analyse historique de plus long terme sur l’utilisation des ressources par votre base de données.
 
-Le graphique suivant illustre l’utilisation des ressources d’UC pour une base de données Premium avec la taille de calcul P2 pour chaque heure de la semaine. Ce graphique spécifique commence un lundi, affiche 5 journées de travail, puis un week-end où l’application connaît une activité réduite.
+Le graphique suivant illustre l’utilisation des ressources d’UC pour une base de données Premium avec la taille de calcul P2 pour chaque heure de la semaine. Ce graphique spécifique commence un lundi, affiche cinq journées de travail, puis un week-end où l’application connaît une activité réduite.
 
 ![Utilisation des ressources de base de données](./media/monitoring-with-dmvs/sql_db_resource_utilization.png)
 
@@ -589,7 +589,7 @@ Cet exemple illustre l’exposition des données dans cette vue :
 SELECT TOP 10 *
 FROM sys.resource_stats
 WHERE database_name = 'resource1'
-ORDER BY start_time DESC
+ORDER BY start_time DESC;
 ```
 
 ![La vue de catalogue sys.resource_stats](./media/monitoring-with-dmvs/sys_resource_stats.png)
@@ -699,7 +699,7 @@ Pour afficher le nombre de sessions simultanément actives, exécutez cette requ
 
 ```sql
 SELECT COUNT(*) AS [Sessions]
-FROM sys.dm_exec_connections
+FROM sys.dm_exec_connections;
 ```
 
 Si vous analysez une charge de travail SQL Server, modifiez la requête pour vous concentrer sur une base de données spécifique. Cette requête vous aide à déterminer les éventuels besoins de votre session pour la base de données si vous envisagez de la déplacer vers Azure.
@@ -709,7 +709,7 @@ SELECT COUNT(*) AS [Sessions]
 FROM sys.dm_exec_connections C
 INNER JOIN sys.dm_exec_sessions S ON (S.session_id = C.session_id)
 INNER JOIN sys.databases D ON (D.database_id = S.database_id)
-WHERE D.name = 'MyDatabase'
+WHERE D.name = 'MyDatabase';
 ```
 
 Là encore, ces requêtes renvoient un nombre à un point dans le temps. Si vous collectez plusieurs échantillons au fur et à mesure, vous bénéficierez d’une meilleure compréhension de l’utilisation de votre session.
@@ -743,7 +743,7 @@ ORDER BY 2 DESC;
 
 ### <a name="monitoring-blocked-queries"></a>Surveillance des requêtes bloquées
 
-Des requêtes lentes ou longues peuvent contribuer à une consommation excessive de ressources et être la conséquence de requêtes bloquées. La cause du blocage peut être une conception médiocre d’application, de mauvais plans de requête, le manque d’index utiles, et ainsi de suite. La vue sys.dm_tran_locks permet d’obtenir des informations sur l’activité de verrouillage actuelle dans votre base de données. Pour obtenir un exemple de code, consultez [sys.dm_tran_locks (Transact-SQL)](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-locks-transact-sql).
+Des requêtes lentes ou longues peuvent contribuer à une consommation excessive de ressources et être la conséquence de requêtes bloquées. La cause du blocage peut être une conception médiocre d’application, de mauvais plans de requête, le manque d’index utiles, et ainsi de suite. La vue sys.dm_tran_locks permet d’obtenir des informations sur l’activité de verrouillage actuelle dans votre base de données. Pour obtenir un exemple de code, consultez [sys.dm_tran_locks (Transact-SQL)](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-locks-transact-sql). Pour plus d’informations la résolution des problèmes bloquants, consultez [Comprendre et résoudre les problèmes bloquants Azure SQL](understand-resolve-blocking.md).
 
 ### <a name="monitoring-query-plans"></a>Analyse des plans de requête
 

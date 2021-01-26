@@ -4,12 +4,12 @@ description: Résume la prise en charge de la récupération d’urgence des mac
 ms.topic: article
 ms.date: 11/29/2020
 ms.author: raynew
-ms.openlocfilehash: 9670178a9c9d772d8966413371f998aa1f0cf5f3
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 2dbd7cd756e386b44c6933697ff50180021ac035
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968291"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98572304"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Prendre en charge la matrice de la récupération d’urgence de machines virtuelles Azure entre les régions Azure
 
@@ -44,13 +44,13 @@ Vous pouvez répliquer et restaurer des machines virtuelles entre deux régions 
 **Cluster géographique** | **Régions Azure**
 -- | --
 America | Canada , Canada Centre, USA Centre Sud, Ouest du USA Centre, USA Est, USA Est 2, USA Ouest, USA Ouest 2, USA Centre, USA Centre Nord
-Europe | Royaume-Uni Ouest, Royaume-Uni Sud, Europe Nord, Europe Ouest, Afrique du Sud Ouest, Afrique du Sud Nord, Norvège Est, Norvège Ouest, France Centre, Suisse Nord
+Europe | Royaume-Uni Ouest, Royaume-Uni Sud, Europe Nord, Europe Ouest, Afrique du Sud Ouest, Afrique du Sud Nord, Norvège Est, France Centre, Suisse Nord, Allemagne Centre-Ouest
 Asia | Inde Sud, Inde Centre, Inde Ouest, Asie Sud-Est, Asie Est, Japon Est, Japon Ouest, Corée Centre, Corée Sud
 Australie    | Australie Est, Australie Sud-Est, Australie Centre, Australie Centre 2
 Azure Government    | US Gov Virginie, US Gov Iowa, US Gov Arizona, US Gov Texas, US DoD Est, US DoD Centre
 Allemagne    | Centre de l’Allemagne, Nord-Est de l’Allemagne
 Chine | Chine Est, Chine Nord, Chine Nord 2, Chine Est 2
-Régions restreintes réservées pour la reprise d’activité après sinistre dans leur pays |Allemagne Nord réservée pour les clients Allemagne Centre-Ouest, Suisse Ouest réservée pour les clients Suisse Nord, France Sud réservée pour les clients France Centre, Émirats arabes unis Centre réservée pour les clients Émirats arabes unis Nord
+Régions restreintes réservées pour la reprise d’activité après sinistre dans leur pays |Suisse Ouest réservée pour les clients Suisse Nord, France Sud réservée pour les clients France Centre, Émirats arabes unis Centre réservée pour les clients Émirats arabes unis Nord, Norvège Ouest réservée pour les clients Norvège Est
 
 >[!NOTE]
 >
@@ -213,7 +213,7 @@ Modifications hors connexion apportées aux disques protégés | La déconnexion
 
 Ce tableau récapitule la prise en charge du disque du système d’exploitation, du disque de données et du disque temporaire de la machine virtuelle Azure.
 
-- Il est important d’observer les limites des disques de machine virtuelle et les cibles des machines virtuelles [Linux](../virtual-machines/linux/disk-scalability-targets.md) et [Windows](../virtual-machines/windows/disk-scalability-targets.md) pour éviter tout problème de performances.
+- Il est important d’observer les limites et les cibles des [disques managés](../virtual-machines/disks-scalability-targets.md) des machine virtuelles pour éviter tout problème de performances.
 - Si vous déployez avec les paramètres par défaut, Site Recovery crée automatiquement les disques et les comptes de stockage en fonction des paramètres de la source.
 - Si vous les personnalisez, veillez à respecter les instructions.
 
@@ -233,6 +233,7 @@ SSD Standard | Prise en charge |
 Redondance | LRS et GRS sont pris en charge.<br/><br/> ZRS n’est pas pris en charge.
 Stockage à froid et à chaud | Non pris en charge | Les disques de machine virtuelle ne sont pas pris en charge sur le stockage à froid et à chaud
 Espaces de stockage | Prise en charge |
+Interface de stockage NVMe | Non pris en charge
 Chiffrement au repos (SSE) | Prise en charge | SSE est le paramètre par défaut sur les comptes de stockage.
 Chiffrement au repos (CMK) | Prise en charge | Les clés HSM et logicielles sont prises en charge pour les disques managés
 Double chiffrement au repos | Prise en charge | En savoir plus sur les régions prises en charge pour [Windows](../virtual-machines/disk-encryption.md) et [Linux](../virtual-machines/disk-encryption.md).
@@ -260,7 +261,7 @@ Disques avec accélérateur d’écriture | Non pris en charge
 Étiquettes  | Les étiquettes générées par l’utilisateur sont répliquées toutes les 24 heures.
 
 >[!IMPORTANT]
-> Pour éviter les problèmes de performances, assurez-vous de vous respecter les valeurs d'évolutivité et de performances des disques VM pour les machines virtuelles [Linux](../virtual-machines/linux/disk-scalability-targets.md) ou [Windows](../virtual-machines/windows/disk-scalability-targets.md). Si vous utilisez les paramètres par défaut, Site Recovery crée les disques et comptes de stockage requis en fonction de la configuration de la source. Si vous personnalisez et sélectionnez vos propres paramètres, suivez les cibles de scalabilité et de performances de disque de vos machines virtuelles sources.
+> Pour éviter des problèmes de performances, veillez à respecter les cibles de scalabilité et de niveau de performance des [disques managés](../virtual-machines/disks-scalability-targets.md) de machines virtuelles. Si vous utilisez les paramètres par défaut, Site Recovery crée les disques et comptes de stockage requis en fonction de la configuration de la source. Si vous personnalisez et sélectionnez vos propres paramètres, suivez les cibles de scalabilité et de performances de disque de vos machines virtuelles sources.
 
 ## <a name="limits-and-data-change-rates"></a>Limites et taux de changement des données
 

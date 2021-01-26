@@ -8,12 +8,12 @@ author: AlexandraKemperMS
 ms.author: alkemper
 ms.topic: conceptual
 ms.date: 3/9/2020
-ms.openlocfilehash: 9a6ae1581b3958495010b032980b0de2e267088b
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 39455c4bc193cce036bd169c702b5c020d53d2f6
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931875"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602243"
 ---
 # <a name="use-feature-filters-to-enable-conditional-feature-flags"></a>Utiliser des filtres de fonctionnalités pour activer les indicateurs de fonctionnalité conditionnels
 
@@ -31,7 +31,7 @@ Vous pouvez également créer un filtre de fonctionnalités qui implémente l'[i
 
 ## <a name="registering-a-feature-filter"></a>Inscrire un filtre de fonctionnalités
 
-Pour inscrire un filtre de fonctionnalités, vous devez appeler la méthode `AddFeatureFilter` en spécifiant le nom du filtre de fonctionnalités. Par exemple, le code suivant inscrit `PercentageFilter` :
+Pour inscrire un filtre de fonctionnalités, vous devez appeler la méthode `AddFeatureFilter` en spécifiant le nom de type du filtre de fonctionnalités souhaité. Par exemple, le code suivant inscrit `PercentageFilter` :
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -56,29 +56,29 @@ Vous pouvez configurer ces paramètres pour les indicateurs de fonctionnalités 
     > [!div class="mx-imgBorder"]
     > ![Modifier l'indicateur de fonctionnalité Beta](./media/edit-beta-feature-flag.png)
 
-1. Sur l'écran **Modifier**, sélectionnez la case d'option **Activé**. Cliquez ensuite sur le bouton **Ajouter un filtre**. (L'étiquette de la case d'option **Activé** est remplacée par **Conditionnel**.)
+1. Dans l’écran **Modifier**, activez la case à cocher **Activer l’indicateur de fonctionnalité** si ce n’est déjà fait. Activez ensuite la case à cocher **Utiliser le filtre de fonctionnalités**, puis sélectionnez **Personnalisé**. 
 
-1. Dans le champ **Clé**, entrez *Microsoft.Percentage*.
+1. Dans le champ **Nom**, sélectionnez *Microsoft.Percentage*.
 
     > [!div class="mx-imgBorder"]
     > ![Ajouter un filtre de fonctionnalités](./media/feature-flag-add-filter.png)
 
-1. Cliquez sur le menu contextuel en regard de la clé de filtre de fonctionnalité. Cliquez sur **Modifier les paramètres**.
+1. Cliquez sur le menu contextuel en regard du nom de filtre de la fonctionnalité. Cliquez sur **Modifier les paramètres de filtrage**.
 
     > [!div class="mx-imgBorder"]
-    > ![Modifier les paramètres du filtre de fonctionnalités](./media/feature-flag-edit-filter-parameters.png)
+    > ![Modifier les paramètres du filtre de fonctionnalités](./media/feature-flags-edit-filter-parameters.png)
 
-1. Passez la souris sous l'en-tête **Nom** afin que les zones de texte apparaissent sur la grille. Entrez un **Nom** de *Valeur* et une **Valeur** de 50. Le champ **Valeur** indique le pourcentage de requêtes pour lesquelles le filtre de fonctionnalités doit être activé.
+1. Entrez un **Nom** de *Valeur* et une **Valeur** de 50. Le champ **Valeur** indique le pourcentage de requêtes pour lesquelles le filtre de fonctionnalités doit être activé.
 
     > [!div class="mx-imgBorder"]
     > ![Définir les paramètres du filtre de fonctionnalités](./media/feature-flag-set-filter-parameters.png)
 
 1. Cliquez sur **Appliquer** pour revenir à l'écran **Modifier l'indicateur de fonctionnalité**. Cliquez de nouveau sur **Appliquer** pour enregistrer les paramètres de l'indicateur de fonctionnalité.
 
-1. L'**État** de l'indicateur de fonctionnalité est désormais *Conditionnel*. Cet état indique que l'indicateur de fonctionnalité sera activé ou désactivé à la demande, en fonction des critères appliqués par le filtre de fonctionnalité.
+1. Dans la page **Gestionnaire de fonctionnalités**, la valeur de **Filtre de fonctionnalités** de l’indicateur de fonctionnalité est à présent *Personnalisé*. 
 
     > [!div class="mx-imgBorder"]
-    > ![Indicateur de fonctionnalité conditionnel](./media/feature-flag-filter-enabled.png)
+    > ![Indicateur de fonctionnalité répertorié avec une valeur de filtre de fonctionnalité « Personnalisé »](./media/feature-flag-filter-custom.png)
 
 ## <a name="feature-filters-in-action"></a>Filtres de fonctionnalités en action
 

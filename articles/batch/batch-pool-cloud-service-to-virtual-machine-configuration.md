@@ -3,12 +3,12 @@ title: Migrer la configuration des pools Batch de Services cloud vers Machines V
 description: Découvrez comment mettre à jour votre configuration de pools selon la configuration recommandée la plus récente.
 ms.topic: how-to
 ms.date: 1/6/2021
-ms.openlocfilehash: b6f4184f7c4f133f74cb3157638b1621dad25fda
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: d987a185efb6593fd541dd14fa74b6c4d3ca41be
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97969025"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234305"
 ---
 # <a name="migrate-batch-pool-configuration-from-cloud-services-to-virtual-machines"></a>Migrer la configuration des pools Batch de Services cloud vers Machines Virtuelles
 
@@ -22,7 +22,7 @@ Cet article explique comment migrer vers « virtualMachineConfiguration ».
 
 Les pools actifs existants ne peuvent pas être mis à jour de « cloudServiceConfiguration » à « virtualMachineConfiguration », de nouveaux pools doivent être créés. La création de pools à l’aide de « virtualMachineConfiguration » est prise en charge par toutes les API Batch, les outils en ligne de commande, le portail Azure et l’interface utilisateur Batch Explorer.
 
-Les tutoriels [.NET](tutorial-parallel-dotnet.md) et [Python](tutorial-parallel-python.md) fournissent des exemples de création de pool à l’aide de « virtualMachineConfiguration ».
+**Les tutoriels [.NET](tutorial-parallel-dotnet.md) et [Python](tutorial-parallel-python.md) fournissent des exemples de création de pool à l’aide de « virtualMachineConfiguration ».**
 
 ## <a name="pool-configuration-differences"></a>Différences de configuration des pools
 

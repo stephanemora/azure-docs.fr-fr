@@ -14,16 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/15/2020
 ms.author: damaerte
-ms.openlocfilehash: 722d935c242a51ddfc01377676f026b71a8951b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 58f6c7a3b5d68d2825cead545ba1b683d1faf1af
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89468536"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222800"
 ---
 # <a name="deploy-cloud-shell-into-an-azure-virtual-network"></a>Déployer Cloud Shell dans un réseau virtuel Azure
-> [!NOTE]
-> Cette fonctionnalité n’existe qu’en préversion publique.
 
 Une session Cloud Shell normale s’exécute dans le conteneur d’un réseau Microsoft distinct de vos ressources. Cela signifie que les commandes qui s’exécutent dans le conteneur ne peuvent pas accéder aux ressources qui sont accessibles uniquement à partir d’un réseau virtuel spécifique. Par exemple, vous ne pouvez pas utiliser SSH pour vous connecter depuis Cloud Shell à une machine virtuelle qui dispose uniquement d’une adresse IP privée ni utiliser kubectl pour vous connecter à un cluster Kubernetes dont l’accès est verrouillé. 
 
@@ -64,7 +62,7 @@ Comme lors de l’utilisation standard de Cloud Shell, un compte de stockage est
 ## <a name="virtual-network-deployment-limitations"></a>Limitations concernant le déploiement de réseau virtuel
 * En raison des ressources réseau supplémentaires impliquées, le démarrage de Cloud Shell dans un réseau virtuel est généralement plus lent qu’une session Cloud Shell standard.
 
-* Pendant la préversion, moins de régions sont prises en charge par Cloud Shell dans un réseau virtuel. Le service est actuellement limité à : USA Ouest et USA Centre-Ouest.
+* Toutes les régions Cloud Shell hors Inde Centre sont actuellement prises en charge. 
 
 * [Azure Relay](../azure-relay/relay-what-is-it.md) n’est pas un service gratuit, veuillez consulter la [grille tarifaire](https://azure.microsoft.com/pricing/details/service-bus/). Dans le scénario de Cloud Shell, une connexion hybride est utilisée par chaque administrateur lorsque celui-ci utilise Cloud Shell. La connexion est automatiquement arrêtée une fois la session Cloud Shell terminée.
 
@@ -89,9 +87,6 @@ Si **RegistrationState** est `Registered`, aucune action n’est requise. S’il
 Si vous disposez déjà d’un réseau virtuel auquel vous souhaitez vous connecter, ignorez cette section.
 
 Dans le portail Azure, ou en utilisant Azure CLI, Azure PowerShell, etc., créez un groupe de ressources et un réseau virtuel dans le nouveau groupe de ressources ; **le groupe de ressources et le réseau virtuel doivent se trouver dans la même région**.
-
-> [!NOTE]
-> En préversion publique, le groupe de ressources et le réseau virtuel doivent se trouver dans les régions USA Centre-Ouest ou USA Ouest.
 
 ### <a name="arm-templates"></a>Modèles ARM
 Utilisez le [modèle de démarrage rapide Azure](https://aka.ms/cloudshell/docs/vnet/template) permettant de créer des ressources Cloud Shell dans un réseau virtuel et le [modèle de démarrage rapide Azure](https://aka.ms/cloudshell/docs/vnet/template/storage) permettant de créer le stockage nécessaire. Prenez note des noms de vos ressources, principalement le nom de votre partage de fichiers.

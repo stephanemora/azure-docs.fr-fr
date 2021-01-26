@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 10/02/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a47126a48ea63efd4e49097428679b85b7a95a61
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ec900f0537030d3ed0d1c875e8125806159bd51
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667161"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251452"
 ---
 # <a name="create-a-windows-virtual-desktop-host-pool-with-powershell"></a>Créer un pool d’hôtes Windows Virtual Desktop avec PowerShell
 
@@ -124,7 +124,7 @@ Pour inscrire les agents Windows Virtual Desktop, procédez comme suit sur chaqu
 
 Vous devrez mettre à jour l’agent si vous vous trouvez dans l’une des situations suivantes :
 
-- Vous souhaitez migrer une session précédemment inscrite vers un nouveau pool d’hôtes.
+- Vous souhaitez migrer un hôte de session précédemment inscrit vers un nouveau pool d’hôtes.
 - L’hôte de la session n’apparaît pas dans votre pool d’hôtes après une mise à jour.
 
 Pour mettre à jour l’agent :

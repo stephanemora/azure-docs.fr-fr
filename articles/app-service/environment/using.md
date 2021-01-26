@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: c0ceae8727681c045c3bbf3e6626937633b38997
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: ba06a0f9d520f445965329203aecd6c576666737
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98013530"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209727"
 ---
 # <a name="using-an-app-service-environment"></a>Utilisation d’un environnement App Service
 
@@ -51,7 +51,7 @@ Pour créer une application dans un ASE :
     > Des applications Linux et Windows ne peuvent pas se trouver dans un même plan App Service, mais le peuvent dans un même App Service Environment.
     >
 
-1. Sélectionnez ** Suivant : Supervision** Si vous souhaitez activer Application Insights avec votre application, vous pouvez le faire ici pendant le flux de création. 
+1. Sélectionnez **Suivant : Supervision** Si vous souhaitez activer Application Insights avec votre application, vous pouvez le faire ici pendant le flux de création. 
 
 1.  Sélectionnez **Suivant : Balises** Ajoutez les balises de votre choix à l’application.  
 

@@ -4,15 +4,15 @@ description: Résolvez les problèmes courants d’un déploiement sur Azure Fil
 author: jeffpatt24
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 6/12/2020
+ms.date: 1/15/2021
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: c7405ada800bd5fb9161e9d96bd4c8b0484be620
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 71de1d17731e086d012da5365fa6671bcb9e6e3b
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005315"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539238"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Résoudre les problèmes de synchronisation de fichiers Azure
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -52,9 +52,11 @@ Pour résoudre ce problème, installez [KB2919355](https://support.microsoft.com
 <a id="server-registration-missing-subscriptions"></a>**L’inscription du serveur ne répertorie pas tous les abonnements Azure**  
 Lors de l’inscription d’un serveur à l’aide de ServerRegistration.exe, des abonnements sont manquants dans la liste déroulante Abonnement Azure.
 
-Ce problème se produit parce que ServerRegistration. exe ne prend pas actuellement en charge les environnements mutualisés. Ce problème sera résolu dans une prochaine mise à jour de l’agent Azure File Sync.
+Ce problème se produit parce que ServerRegistration.exe ne récupère que les abonnements des cinq premiers locataires Azure AD. 
 
-Pour contourner ce problème, utilisez les commandes PowerShell suivantes pour inscrire le serveur :
+Pour augmenter la limite de locataires de ServerRegistration sur le serveur, créez une valeur DWORD appelée ServerRegistrationTenantLimit et supérieure à 5 sous HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync.
+
+Vous pouvez également contourner ce problème en utilisant les commandes PowerShell suivantes pour inscrire le serveur :
 
 ```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
@@ -199,10 +201,27 @@ Sur le serveur qui porte la mention « Apparaît hors connexion » dans le por
 - Si l’événement **GetNextJob s’est terminé avec l’état : 0** est enregistré, le serveur peut communiquer avec le service Azure File Sync. 
     - Ouvrez le gestionnaire des tâches sur le serveur et vérifiez que le processus de surveillance de la synchronisation du stockage (AzureStorageSyncMonitor.exe) est en cours d’exécution. Si le processus ne s’exécute pas, essayez d’abord de redémarrer le serveur. Si le redémarrage du serveur ne résout pas le problème, procédez à une mise à niveau vers la dernière [version de l'agent](./storage-files-release-notes.md) Azure File Sync. 
 
-- Si l’événement **GetNextJob s’est terminé avec l’état : -2134347756** est enregistré, le serveur ne peut pas communiquer avec le service Azure File Sync à cause d’un pare-feu ou d’un proxy. 
+- Si l’événement **GetNextJob s’est terminé avec l’état : −2134347756** est enregistré, le serveur ne peut pas communiquer avec le service Azure File Sync à cause d’un pare-feu, d’un proxy ou de la configuration de l’ordre des suites de chiffrement TLS. 
     - Si le serveur se trouve derrière un pare-feu, vérifiez que le port 443 sortant est autorisé. Si le pare-feu restreint le trafic à des domaines spécifiques, vérifiez que les domaines répertoriés dans la [documentation](./storage-sync-files-firewall-and-proxy.md#firewall) du pare-feu sont accessibles.
     - Si le serveur se trouve derrière un proxy, configurez les paramètres de proxy au niveau de l’ordinateur ou de l’application en suivant la procédure de la [documentation](./storage-sync-files-firewall-and-proxy.md#proxy) du proxy.
     - Utilisez l’applet de commande Test-StorageSyncNetworkConnectivity pour vérifier la connectivité réseau aux points de terminaison de service. Pour plus d’informations, consultez [Tester la connectivité réseau aux points de terminaison de service](./storage-sync-files-firewall-and-proxy.md#test-network-connectivity-to-service-endpoints).
+    - Si l’ordre des suites de chiffrement TLS est configuré sur le serveur, vous pouvez utiliser une stratégie de groupe ou les cmdlets TLS pour ajouter des suites de chiffrement :
+        - Pour utiliser une stratégie de groupe, consultez [Configuration de l’ordre des suites de chiffrement TLS avec une stratégie de groupe](https://docs.microsoft.com/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order-by-using-group-policy).
+        - Pour utiliser les cmdlets TLS, consultez [Configuration de l’ordre des suites de chiffrement TLS avec les cmdlets PowerShell TLS](https://docs.microsoft.com/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order-by-using-tls-powershell-cmdlets).
+    
+        Azure File Sync prend actuellement en charge les suites de chiffrement suivantes pour le protocole TLS 1.2 :  
+        - TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384_P384  
+        - TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256_P256  
+        - TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384_P384  
+        - TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256_P256  
+        - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P256  
+        - TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256  
+        - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P256  
+        - TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P256  
+        - TLS_RSA_WITH_AES_256_GCM_SHA384  
+        - TLS_RSA_WITH_AES_128_GCM_SHA256  
+        - TLS_RSA_WITH_AES_256_CBC_SHA256  
+        - TLS_RSA_WITH_AES_128_CBC_SHA256  
 
 - Si l’événement **GetNextJob s’est terminé avec l’état : -2134347764** est enregistré, le serveur ne peut pas communiquer avec le service Azure File Sync à cause de l’expiration ou de la suppression d’un certificat.  
     - Exécutez la commande PowerShell suivante sur le serveur pour réinitialiser le certificat utilisé pour l’authentification :
@@ -897,6 +916,22 @@ Cette erreur se produit car Azure File Sync ne prend pas en charge la redirectio
 | **Correction requise** | Non |
 
 Cette erreur se produit quand une opération d’ingestion de données dépasse le délai d’attente. Cette erreur peut être ignorée si la synchronisation progresse (AppliedItemCount est supérieur à 0). Voir [Comment surveiller la progression d’une session en cours de synchronisation ?](#how-do-i-monitor-the-progress-of-a-current-sync-session).
+
+<a id="-2134375814"></a>**La synchronisation a échoué, car le chemin du point de terminaison de serveur est introuvable sur le serveur.**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80c8027a |
+| **HRESULT (décimal)** | −2134375814 |
+| **Chaîne d’erreur** | ECS_E_SYNC_ROOT_DIRECTORY_NOT_FOUND |
+| **Correction requise** | Oui |
+
+Cette erreur se produit si le répertoire utilisé comme chemin du point de terminaison de serveur a été renommé ou supprimé. Si le répertoire a été renommé, redonnez-lui son nom d’origine et redémarrez le service Storage Sync Agent (FileSyncSvc).
+
+Si le répertoire a été supprimé, procédez comme suit pour supprimer le point de terminaison de serveur actuel et en créer un nouveau avec un nouveau chemin :
+
+1. Supprimez le point de terminaison de serveur dans le groupe de synchronisation en suivant la procédure décrite dans [Suppression d’un point de terminaison de serveur](./storage-sync-files-server-endpoint.md#remove-a-server-endpoint).
+2. Créez un point de terminaison de serveur dans le groupe de synchronisation en suivant la procédure décrite dans [Ajout d’un point de terminaison de serveur](https://docs.microsoft.com/azure/storage/files/storage-sync-files-server-endpoint#add-a-server-endpoint).
 
 ### <a name="common-troubleshooting-steps"></a>Ouvrir les étapes de résolution des problèmes
 <a id="troubleshoot-storage-account"></a>**Vérifiez l’existence du compte de stockage.**  

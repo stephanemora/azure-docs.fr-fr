@@ -9,12 +9,12 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/01/2020
-ms.openlocfilehash: 4e83cca79a4dc99533ab17cca7e96e1ac802d598
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: ee13b2fbe4abbaf9bddf4975f8e25d746dc78f5e
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95020791"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232180"
 ---
 # <a name="azure-time-series-insights-gen2-event-sources"></a>Sources d’événements Azure Time Series Insights Gen2
 
@@ -45,13 +45,25 @@ Lorsque vous connectez une source d’événements, votre environnement Azure Ti
 
 - N’allez pas au-delà de la [limite du débit](./concepts-streaming-ingress-throughput-limits.md) de votre environnement ou de la limite de partition.
 
-- Configurez une [alerte](./time-series-insights-environment-mitigate-latency.md#monitor-latency-and-throttling-with-alerts) de latence pour être averti si votre environnement rencontre des problèmes de traitement des données.
+- Configurez une [alerte](./time-series-insights-environment-mitigate-latency.md#monitor-latency-and-throttling-with-alerts) de latence pour être averti si votre environnement rencontre des problèmes de traitement des données. Pour connaître les conditions d’alerte suggérées, consultez [Charges de travail de production](./concepts-streaming-ingestion-event-sources.md#production-workloads) ci-dessous. 
 
 - Utilisez l’ingestion de streaming uniquement pour des données récentes et en quasi-temps réel. Les données historiques de streaming ne sont pas prises en charge.
 
 - Vous devez comprendre la manière dont les propriétés sont placées dans une séquence d’échappement et comment les données JSON [aplaties et stockées.](./concepts-json-flattening-escaping-rules.md)
 
 - Suivez le principe des privilèges minimum lorsque vous fournissez des chaînes de connexion à la source d’événements. Pour Event Hubs, configurez une stratégie d’accès partagé avec l’*envoi* de revendication uniquement, et pour IoT Hub utilisez l’autorisation *service Connect* uniquement.
+
+## <a name="production-workloads"></a>Charges de travail de production
+
+En plus des meilleures pratiques ci-dessus, nous vous recommandons d’implémenter les éléments suivants en ce qui concerne les charges de travail critiques pour l’entreprise. 
+
+- Augmentez la durée de conservation de vos données IoT Hub ou Event Hub au maximum (7 jours).
+
+- Créer des alertes d’environnement sur le Portail Azure. Les alertes basées sur des [métriques](https://docs.microsoft.com/azure/time-series-insights/how-to-monitor-tsi-reference#metrics) de plateforme vous permettent de valider le comportement du pipeline de bout en bout. Pour connaître les instructions de création et de gestion des alertes, [cliquez ici](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency#monitor-latency-and-throttling-with-alerts). Voici les conditions d’alerte suggérées :
+
+     - IngressReceivedMessagesTimeLag est supérieur à 5 minutes.
+     - IngressReceivedBytes est égal à 0.
+- Maintenez l’équilibrage de votre charge d’ingestion entre vos partitions IoT Hub et Event Hub.
 
 ### <a name="historical-data-ingestion"></a>Ingestion de données historiques
 

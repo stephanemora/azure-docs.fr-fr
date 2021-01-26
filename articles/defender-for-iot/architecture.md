@@ -11,20 +11,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/02/2020
+ms.date: 1/13/2021
 ms.author: shhazam
-ms.openlocfilehash: 3b5a586b5db4fb15a32090e601bac5610ece1427
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: f3239434a7ba737bc9323bc4f383afd794800db1
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97832569"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201471"
 ---
 # <a name="azure-defender-for-iot-architecture"></a>Architecture de Azure Defender pour IoT
 
-Cet article explique l’architecture système fonctionnelle de la solution Defender pour IoT.
+Cet article explique l’architecture système fonctionnelle de la solution Defender pour IoT. Azure Defender pour IoT offre deux ensembles de fonctionnalités pour répondre aux besoins de votre environnement, une solution sans agent pour les organisations, et une solution basée sur un agent pour les fabricants d’appareils.
 
-## <a name="defender-for-iot-components"></a>Composants de Defender pour IoT
+## <a name="agentless-solution-for-organizations"></a>Solution sans agent pour les organisations
+### <a name="defender-for-iot-components"></a>Composants de Defender pour IoT
 
 Defender pour IoT se connecte tant au cloud Azure qu’aux composants locaux. La solution est conçue pour offrir une scalabilité dans les environnements de grande taille distribués géographiquement avec plusieurs emplacements distants. Cette solution active une architecture distribuée multicouche par pays, région, unité commerciale ou zone. 
 
@@ -79,12 +80,12 @@ La gestion d’Azure Defender pour IoT dans des environnements hybrides s’effe
 - Console de gestion locale
 - Le portail Azure
 
-#### <a name="sensor-console"></a>Console de capteur
+### <a name="sensor-console"></a>Console de capteur
 Les détections de capteur s’affichent dans la console de capteur, où elles peuvent être consultées, examinées et analysées dans un mappage réseau, un inventaire des ressources et un vaste éventail de rapports, tels que des rapports d’évaluation des risques, des requêtes d’exploration de données et des vecteurs d’attaque. Vous pouvez également utiliser la console pour afficher et gérer les menaces détectées par des moteurs de capteur, transmettre des informations à des systèmes partenaires, gérer des utilisateurs, et bien plus encore.
 
 :::image type="content" source="./media/architecture/sensor-console-v2.png" alt-text="Console de capteur Defender pour IoT":::
 
-#### <a name="on-premises-management-console"></a>Console de gestion locale
+### <a name="on-premises-management-console"></a>Console de gestion locale
 La console de gestion locale permet aux opérateurs du centre des opérations de sécurité (security operations center, SOC) de gérer et analyser les alertes agrégées à partir de plusieurs capteurs dans un seul tableau de bord donnant une vue d’ensemble de l’intégrité des réseaux OT.
 
 Cette architecture fournit une vue unifiée complète du réseau au niveau du SOC, une gestion optimisée des alertes et le contrôle de la sécurité réseau opérationnelle, garantissant ainsi que la prise de décision et la gestion des risques restent irréprochables.
@@ -103,20 +104,23 @@ Il est possible de déployer la console de gestion pour une configuration de hau
 
    :::image type="content" source="media/updates/alerts-and-site-management-v2.png" alt-text="Gérez l’ensemble de vos alertes et informations.":::
 
-#### <a name="azure-portal"></a>Portail Azure
+### <a name="azure-portal"></a>Portail Azure
 
 Le portail Defender pour IoT dans Azure est conçu pour vous aider à :
 
 - Acheter des appliances de solution
+
 - Installer et mettre à jour les logiciels
 - Intégrer des capteurs dans Azure
 - Mettre à jour des packages de renseignement sur les menaces
 
-## <a name="embedded-security-agent-built-in-mode"></a>Agent de sécurité incorporé : Mode intégré
+## <a name="agent-based-solution-for-device-builders"></a>Solution basée sur un agent pour les fabricants d’appareils
+
+### <a name="embedded-security-agent-built-in-mode"></a>Agent de sécurité incorporé : Mode intégré
 
 En mode **Intégré**, Defender pour IoT s’active lorsque vous choisissez d’activer l’option **Sécurité** dans votre hub IoT. Grâce à sa supervision, ses suggestions et ses alertes en temps réel, le mode intégré offre une visibilité de l’appareil en une seule étape et une sécurité inégalée. Le mode intégré ne nécessite pas d’installation d’agent sur un appareil, et utilise des analyses avancées d’activités journalisées pour analyser et protéger vos appareil de champ et hub IoT.
 
-## <a name="embedded-security-agent-enhanced-mode"></a>Agent de sécurité incorporé : Mode étendu
+### <a name="embedded-security-agent-enhanced-mode"></a>Agent de sécurité incorporé : Mode étendu
 
 En mode **Étendu**, après l’activation de l’option **Sécurité** dans votre hub IoT et l’installation des agents d’appareils Defender pour IoT sur vos appareils, les agents collectent, agrègent et analysent les événements de sécurité bruts de vos appareils. Les événements de sécurité bruts peuvent inclure des connexions IP, la création de processus, des connexions utilisateur et d’autres informations liées à la sécurité. Les agents d’appareil Defender pour IoT gèrent également l’agrégation d’événements afin d’éviter un débit réseau élevé. Les agents sont hautement personnalisables, vous permettant ainsi de les utiliser pour des tâches spécifiques, comme l’envoi d’informations importantes uniquement sur le contrat SLA le plus rapide, ou l’agrégation du contexte et des informations de sécurité étendues en segments plus volumineux, pour éviter des coûts de service plus élevés.
 
@@ -129,6 +133,8 @@ Le pipeline d’analytique Defender pour IoT reçoit également des flux supplé
 À l’aide du pipeline d’analytique, Defender pour IoT combine tous les flux d’informations pour générer des alertes et des suggestions exploitables. Le pipeline contient des règles personnalisées créées par les chercheurs et les experts en sécurité, ainsi que des modèles Machine Learning recherchant toute différence par rapport à l’analyse des risques et du comportement d’appareil standard.
 
 Les recommandations et les alertes Defender pour IoT (sortie du pipeline d’analytique) sont écrites dans l’espace de travail Log Analytics de chaque client. Le fait d’inclure les événements bruts dans l’espace de travail, ainsi que les alertes et les recommandations permet de mettre en place des enquêtes et des requêtes approfondies à l’aide des informations précises concernant les activités suspectes détectées.
+
+:::image type="content" source="media/architecture/micro-agent-architecture.png" alt-text="Architecture du micro-agent.":::
 
 ## <a name="see-also"></a>Voir aussi
 

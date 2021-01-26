@@ -1,6 +1,6 @@
 - name: Documentation sur Azure IoT Central
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: Qu’est-ce que Azure IoT Central ?
       href: overview-iot-central.md
@@ -157,6 +157,8 @@
               href: howto-use-app-templates.md
             - name: Superviser l’intégrité de l’application
               href: howto-monitor-application-health.md
+            - name: Migrer une application V2 vers V3
+              href: howto-migrate.md
             - name: À propos de votre application
               href: howto-get-app-info.md
             - name: "Déployer des certificats\_X.509"

@@ -12,12 +12,12 @@ ms.date: 10/27/2016
 ms.author: sumuth
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: references_regions
-ms.openlocfilehash: 25cc4dfaabee58a47cc33fe4be8dc7375bc804d2
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d9d4ae746c192e8b4afd1781c1e072fc0dc70422
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96491640"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599787"
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>FAQ sur les bases de données MySQL ClearDB avec Azure App Service
 Ce FAQ répond aux questions courantes sur l’utilisation et l’achat de bases de données MySQL ClearDB pour Azure Web Apps.
@@ -42,7 +42,7 @@ Cela dépend du type d’abonnement que vous utilisez. Voici quelques types d’
 * [Paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0003p/) : nécessite une carte de crédit. Quand vous achetez une base de données MySQL payante, votre carte de crédit est débitée.
 * [Essai gratuit](https://azure.microsoft.com/pricing/free-trial/) : inclut des crédits à utiliser avec les services Microsoft Azure mais ne permet pas d’acheter des ressources tierces. Pour acheter des services tiers ou une base de données MySQL payante, vous devez utiliser un abonnement avec une carte de crédit activée. Pour Web Apps, vous pouvez créer une base de données MySQL ClearDB GRATUITE.
 * [Abonnement MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) et **Dev MSDN/Tester le paiement à l’utilisation** : semblable à l’essai gratuit, un abonnement MSDN nécessite une carte de crédit pour acheter une solution MySQL payante à partir de ClearDB.
-* [Contrat Entreprise](https://azure.microsoft.com/pricing/enterprise-agreement/) : les clients Contrat Entreprise sont facturés conformément à leur contrat, chaque trimestre, à hauteur de tous leurs achats sur la Place de marché Azure (tiers), sur une facture distincte et cumulée. Vous êtes facturé hors engagement monétaire pour tous les achats Marketplace. Notez que, à ce jour, Azure Store n’est pas disponible pour les clients inscrits en Azerbaïdjan, Croatie, Norvège et à Porto Rico. 
+* [Contrat Entreprise](https://azure.microsoft.com/pricing/enterprise-agreement/) : les clients Contrat Entreprise sont facturés conformément à leur contrat, chaque trimestre, à hauteur de tous leurs achats sur la Place de marché Azure (tiers), sur une facture distincte et cumulée. Vous êtes facturé en dehors de l’Acompte Azure (précédemment appelé engagement monétaire) pour les achats effectués sur la Place de marché. Notez que, à ce jour, Azure Store n’est pas disponible pour les clients inscrits en Azerbaïdjan, Croatie, Norvège et à Porto Rico. 
 
 ## <a name="why-was-i-charged-350-for-a-web-app--mysql-from-the-azure-marketplace"></a>Pourquoi ai-je été facturé 3,50 USD pour une application Web + MySQL dans Azure Marketplace ?
 L’option de base de données par défaut est Titan, qui coûte 3,50 USD. Nous n’indiquons pas le coût lors de la création de la base de données et vous pouvez acheter par erreur une base de données que vous ne souhaitiez pas. Nous essayons de trouver un moyen d’améliorer l’expérience, mais en attendant, vous devez vérifier tous vos niveaux tarifaires sélectionnés pour l’application web et la base de données avant de cliquer sur **Créer** et commencer le déploiement des ressources.
@@ -94,10 +94,10 @@ Les bases de données ClearDB existantes utilisent la carte de crédit associée
 * Mettez à jour votre application pour utiliser la nouvelle base de données.
 * Supprimez votre ancienne base de données ClearDB.
 
-Quand vous créez une application web avec MySQL (ClearDB) ou une base de données MySQL (ClearDB), l’abonnement que vous choisissez détermine votre mode de paiement pour le service. Avec un abonnement Contrat Entreprise, nous ne bloquons pas l’achat de services tiers tels que ClearDB dans le portail Azure. Les abonnements Contrat Entreprise sont facturés hors engagement monétaire, tous les trimestres et à terme échu. Les clients Contrat Entreprise doivent configurer un mode de paiement, comme une carte de crédit, pour payer tous les services Marketplace tiers.
+Quand vous créez une application web avec MySQL (ClearDB) ou une base de données MySQL (ClearDB), l’abonnement que vous choisissez détermine votre mode de paiement pour le service. Avec un abonnement Contrat Entreprise, nous ne bloquons pas l’achat de services tiers tels que ClearDB dans le portail Azure. Les abonnements EA sont facturés en dehors de l’Acompte Azure, chaque trimestre, à terme échu. Les clients Contrat Entreprise doivent configurer un mode de paiement, comme une carte de crédit, pour payer tous les services Marketplace tiers.
 
 ## <a name="where-can-i-see-the-charges-for-cleardb-resources-in-an-ea-subscription"></a>Où apparaissent les frais liés aux ressources ClearDB dans un abonnement Contrat Entreprise ?
-Pour les clients titulaires d’un Contrat Entreprise Direct, les frais Azure Marketplace sont visibles sur Enterprise Portal. Notez que tous les achats et consommations Marketplace sont facturés hors engagement monétaire, tous les trimestres et à terme échu. Les clients Contrat Entreprise doivent payer directement les fournisseurs de services tiers. Pour cela, ils peuvent autoriser un mode de paiement, tel qu’une carte de crédit, avec leur compte Contrat Entreprise.
+Pour les clients titulaires d’un Contrat Entreprise Direct, les frais Azure Marketplace sont visibles sur Enterprise Portal. Notez que tous les achats et consommations sur la Place de marché sont facturés hors Acompte Azure, chaque trimestre et à terme échu. Les clients Contrat Entreprise doivent payer directement les fournisseurs de services tiers. Pour cela, ils peuvent autoriser un mode de paiement, tel qu’une carte de crédit, avec leur compte Contrat Entreprise.
 
 Les clients titulaires d’un Contrat Entreprise Indirect peuvent consulter leurs abonnements Azure Marketplace à la page **Gérer les abonnements** d’Enterprise Portal, mais la tarification est masquée. Les clients doivent contacter leur fournisseur de services de concession de licences (LSP) pour obtenir des informations sur les frais Marketplace.
 

@@ -7,18 +7,18 @@ ms.author: shhazam
 ms.date: 12/2/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 5e33a7adc7b529df8c7c821cbfdcb0ad5709803b
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 49a0129ff26d4a12392066aa6304317d71fdb0f1
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97835585"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247588"
 ---
 # <a name="defender-for-iot-installation"></a>Installation de Defender pour IoT
 
 Cet article explique comment installer les éléments suivants d’Azure Defender pour IoT :
 
-- **Capteur** : Les capteurs Defender pour IoT collectent le trafic de partage de connexion Internet (ICS) à l’aide de la surveillance passive (sans agent). Passifs et non intrusifs, les capteurs n’ont aucun impact sur les réseaux et appareils OT et IoT. Le capteur se connecte à un port SPAN ou à un TAP réseau et commence immédiatement à surveiller votre réseau. Les détections s’affichent dans la console du capteur. Dans cette console, vous pouvez les visualiser, les examiner et les analyser dans une carte du réseau, un inventaire des appareils et un large éventail de rapports. Les exemples incluent des rapports d’évaluation des risques, des requêtes d’exploration de données et des vecteurs d’attaque. Pour plus d’informations sur les capacités des capteurs, consultez le [guide de l’utilisateur relatif aux capteurs Defender pour IoT (téléchargement direct)](https://aka.ms/AzureDefenderforIoTUserGuide).
+- **Capteur** : Les capteurs Defender pour IoT collectent le trafic de partage de connexion Internet (ICS) à l’aide de la surveillance passive (sans agent). Passifs et non intrusifs, les capteurs n’ont aucun impact sur les réseaux et appareils OT et IoT. Le capteur se connecte à un port SPAN ou à un TAP réseau et commence immédiatement à surveiller votre réseau. Les détections s’affichent dans la console du capteur. Dans cette console, vous pouvez les visualiser, les examiner et les analyser dans une carte du réseau, un inventaire des appareils et un large éventail de rapports. Les exemples incluent des rapports d’évaluation des risques, des requêtes d’exploration de données et des vecteurs d’attaque. Pour plus d’informations sur les capacités des capteurs, consultez le [guide de l’utilisateur relatif aux capteurs Defender pour IoT (téléchargement direct)](./getting-started.md).
 
 - **Console de gestion locale** : La console de gestion locale vous permet de gérer les périphériques, les risques et les vulnérabilités. Vous pouvez également l’utiliser pour surveiller les menaces et répondre aux incidents dans l’ensemble de votre entreprise. Elle offre une vue unifiée de tous les périphériques réseau, des principaux indicateurs de risque IoT et OT et des alertes détectés dans les installations où les capteurs sont déployés. Utilisez la console de gestion locale pour visualiser et gérer les capteurs dans les réseaux hermétiques.
 
@@ -230,9 +230,9 @@ Cet article explique comment configurer le BIOS à l’aide du fichier config.
 
 4. Les informations d’identification de l’appliance sont :
 
-   - Nom d’utilisateur : **cyberx**
+   - Nom d’utilisateur : **XXX**
 
-   - Mot de passe : **xhxvhttju,@4338**
+   - Mot de passe : **XXX**
 
      L’opération d’importation du profil du serveur est lancée.
 
@@ -274,7 +274,7 @@ Pour configurer manuellement :
 
    - Si l’appareil n’est pas une appliance Defender pour IoT, ouvrez un navigateur et accédez à l’adresse IP qui a été configurée précédemment. Connectez-vous avec les privilèges d’administrateur par défaut de Dell. Utilisez **root** comme nom d’utilisateur et **calvin** comme mot de passe.
 
-   - Si l’appareil est une appliance Defender pour IoT, connectez-vous en utilisant **cyberx** comme nom d’utilisateur et **xhxvhttju,@4338** comme mot de passe.
+   - Si l’appareil est une appliance Defender pour IoT, connectez-vous en utilisant **XXX** comme nom d’utilisateur et **XXX** comme mot de passe.
 
 2. Une fois que vous avez accès au BIOS, accédez à **Paramètres de l’appareil**.
 

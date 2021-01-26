@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: deb1f74902fe28d53a5180e4f341547f339a83ac
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: d0a082149d85736000b5bb6a91e2fc7132205a88
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741982"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220284"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>Planifiez et déployez localement la protection par mot de passe Azure Active Directory
 
@@ -99,7 +99,7 @@ Les principales exigences suivantes s’appliquent :
 
 Les conditions suivantes s’appliquent à l’agent DC de protection de mot de passe Azure AD :
 
-* Tous les ordinateurs sur lesquels le logiciel de l’agent DC de protection par mot de passe Azure AD seront installés doivent exécuter Windows Server 2012 ou une version ultérieure.
+* Tous les ordinateurs sur lesquels le logiciel de l’agent DC de protection par mot de passe Azure AD seront installés doivent exécuter Windows Server 2012 ou une version ultérieure, y compris les éditions Windows Server Core.
     * Le domaine ou la forêt Active Directory n’ont pas besoin d’être au niveau fonctionnel du domaine Windows Server 2012 (DFL) ou au niveau fonctionnel de la forêt (FFL). Comme mentionné dans [Principes de conception](concept-password-ban-bad-on-premises.md#design-principles), aucun niveau fonctionnel de domaine (DFL) ou de forêt (FFL) minimal n’est requis pour le logiciel de l’agent DC ou le logiciel de proxy à exécuter.
 * .NET 4.5 doit être installé sur toutes les machines qui exécutent l’agent DC de protection par mot de passe Azure AD.
 * Les domaines Active Directory qui exécutent le service de l’agent DC de protection par mot de passe Azure AD doivent utiliser la réplication du système de fichiers distribué (DFSR) pour la réplication sysvol.
@@ -116,7 +116,7 @@ Les conditions suivantes s’appliquent à l’agent DC de protection de mot de 
 
 Les conditions suivantes s’appliquent au service proxy de protection par mot de passe Azure AD :
 
-* Tous les ordinateurs sur lesquels le service proxy de protection par mot de passe Azure AD sera installé doivent exécuter Windows Server 2012 R2 ou ultérieur.
+* Tous les ordinateurs sur lesquels le service proxy de protection par mot de passe Azure AD seront installés doivent exécuter Windows Server 2012 R2 ou une version ultérieure, y compris les éditions Windows Server Core.
 
     > [!NOTE]
     > Le déploiement du service proxy de protection par mot de passe Azure AD est une condition préalable obligatoire pour le déploiement de la protection de mot de passe Azure AD, même si le contrôleur de domaine peut avoir une connectivité sortant Internet directe.
