@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 05/15/2020
+ms.date: 01/15/2021
 ms.author: jingwang
-ms.openlocfilehash: 4f5d691ef99ac4647d2031d6588d0b3922edd8cf
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: dfd2ed47c3fd963d7e119d235719771b25bdaf34
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505986"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98249498"
 ---
 # <a name="copy-data-securely-from-azure-blob-storage-to-a-sql-database-by-using-private-endpoints"></a>Copier des données du stockage Blob Azure vers une base de données SQL de manière sécurisée en utilisant des points de terminaison privés
 
@@ -78,22 +78,22 @@ CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
 
 1. Dans le menu de gauche, sélectionnez **Créer une ressource** > **Analytics** > **Data Factory**.
 
-1. Sur la page **Nouvelle fabrique de données** , entrez **ADFTutorialDataFactory** dans le champ **Nom**.
+1. Sur la page **Nouvelle fabrique de données**, entrez **ADFTutorialDataFactory** dans le champ **Nom**.
 
    Le nom de la fabrique de données Azure doit être un nom *global unique*. Si vous recevez un message d’erreur concernant la valeur du nom, entrez un autre nom pour la fabrique de données (par exemple, votrenomADFTutorialDataFactory). Consultez l’article [Azure Data Factory - Règles d’affectation des noms](./naming-rules.md) pour savoir comment nommer les règles Data Factory.
 
-1. Sélectionnez l’ **abonnement** Azure dans lequel vous voulez créer la fabrique de données.
+1. Sélectionnez l’**abonnement** Azure dans lequel vous voulez créer la fabrique de données.
 
-1. Pour **Groupe de ressources** , réalisez l’une des opérations suivantes :
+1. Pour **Groupe de ressources**, réalisez l’une des opérations suivantes :
 
-    - Sélectionnez **Utiliser l’existant** , puis sélectionnez un groupe de ressources existant dans la liste déroulante.
-    - Sélectionnez **Créer** , puis entrez le nom d’un groupe de ressources. 
+    - Sélectionnez **Utiliser l’existant**, puis sélectionnez un groupe de ressources existant dans la liste déroulante.
+    - Sélectionnez **Créer**, puis entrez le nom d’un groupe de ressources. 
      
     Pour plus d’informations sur les groupes de ressources, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/management/overview.md). 
 
-1. Sous **Version** , sélectionnez **V2**.
+1. Sous **Version**, sélectionnez **V2**.
 
-1. Sous **Emplacement** , sélectionnez l’emplacement de la fabrique de données. Seuls les emplacements pris en charge apparaissent dans la liste déroulante. Les magasins de données (comme Stockage Azure et SQL Database) et les services de calcul (comme Azure HDInsight) utilisés par la fabrique de données peuvent se trouver dans d’autres régions.
+1. Sous **Emplacement**, sélectionnez l’emplacement de la fabrique de données. Seuls les emplacements pris en charge apparaissent dans la liste déroulante. Les magasins de données (comme Stockage Azure et SQL Database) et les services de calcul (comme Azure HDInsight) utilisés par la fabrique de données peuvent se trouver dans d’autres régions.
 
 1. Sélectionnez **Create** (Créer).
 
@@ -107,7 +107,8 @@ CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
 1. Sur le portail Data Factory, accédez à **Gérer** et sélectionnez **Créer** pour créer un runtime d’intégration Azure.
 
    ![Capture d’écran montrant la création d’un runtime d’intégration Azure](./media/tutorial-copy-data-portal-private/create-new-azure-ir.png)
-1. Choisissez de créer un runtime d’intégration **Azure**.
+1. Dans la page **Configuration du runtime d’intégration**, choisissez le runtime d’intégration à créer en fonction des fonctionnalités nécessaires. Dans ce tutoriel, sélectionnez **Azure, Auto-hébergé**, puis cliquez sur **Continuer**. 
+1. Sélectionnez **Azure**, puis cliquez sur **Continuer** pour créer un runtime d’intégration Azure.
 
    ![Capture d’écran montrant un nouveau runtime d’intégration Azure](./media/tutorial-copy-data-portal-private/azure-ir.png)
 1. Sous **Configuration de réseau virtuel (préversion)** , sélectionnez **Activer**.
@@ -124,19 +125,19 @@ CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
 
 Dans ce tutoriel, vous allez commencer par créer un pipeline. Puis vous créez des jeux de données et des services liés lorsque vous en avez besoin pour configurer le pipeline.
 
-1. Dans la page **Prise en main** , cliquez sur **Créer un pipeline**.
+1. Dans la page **Prise en main**, cliquez sur **Créer un pipeline**.
 
    ![Capture d’écran montrant la création d’un pipeline](./media/doc-common-process/get-started-page.png)
 1. Dans le volet Propriétés du pipeline, entrez **CopyPipeline** comme nom du pipeline.
 
-1. Dans la boîte à outils **Activités** , développez la catégorie **Déplacer et transformer** , puis faites glisser l’activité **Copier les données** de la boîte à outils vers l’aire du Concepteur de pipeline. Entrez **CopyFromBlobToSql** comme nom.
+1. Dans la boîte à outils **Activités**, développez la catégorie **Déplacer et transformer**, puis faites glisser l’activité **Copier les données** de la boîte à outils vers l’aire du Concepteur de pipeline. Entrez **CopyFromBlobToSql** comme nom.
 
     ![Capture d’écran montrant l’activité de copie](./media/tutorial-copy-data-portal-private/drag-drop-copy-activity.png)
 
 ### <a name="configure-a-source"></a>Configuration d’une source
 
 >[!TIP]
->Dans ce tutoriel, vous allez utiliser le type d’authentification **Clé de compte** pour votre magasin de données source. Vous pouvez également choisir d’autres méthodes d’authentification prises en charge, par exemple **URI SAP** , **Principal de service** et **Identité managée** si nécessaire. Pour plus d’informations, consultez les sections correspondantes dans [Copie et transformation de données dans le Stockage Blob Azure avec Azure Data Factory](./connector-azure-blob-storage.md#linked-service-properties).
+>Dans ce tutoriel, vous allez utiliser le type d’authentification **Clé de compte** pour votre magasin de données source. Vous pouvez également choisir d’autres méthodes d’authentification prises en charge, par exemple **URI SAP**, **Principal de service** et **Identité managée** si nécessaire. Pour plus d’informations, consultez les sections correspondantes dans [Copie et transformation de données dans le Stockage Blob Azure avec Azure Data Factory](./connector-azure-blob-storage.md#linked-service-properties).
 >
 >Pour stocker des secrets des magasins de données de manière sécurisée, nous vous recommandons également d’utiliser Azure Key Vault. Pour plus d’informations et d’illustrations, consultez [Stockage des informations d’identification dans Azure Key Vault](./store-credentials-in-key-vault.md).
 
@@ -144,13 +145,13 @@ Dans ce tutoriel, vous allez commencer par créer un pipeline. Puis vous créez 
 
 1. Accédez à l’onglet **Source**. Sélectionnez **+ Nouveau** pour créer un jeu de données source.
 
-1. Dans la boîte de dialogue **Nouveau jeu de données** , sélectionnez **Stockage Blob Azure** , puis **Continuer**. Sachant que les données sources se trouvent dans un stockage Blob, vous devez sélectionner le **Stockage Blob Azure** pour le jeu de données source.
+1. Dans la boîte de dialogue **Nouveau jeu de données**, sélectionnez **Stockage Blob Azure**, puis **Continuer**. Sachant que les données sources se trouvent dans un stockage Blob, vous devez sélectionner le **Stockage Blob Azure** pour le jeu de données source.
 
-1. Dans la boîte de dialogue **Sélectionner le format** , sélectionnez le type de format de vos données, puis **Continuer**.
+1. Dans la boîte de dialogue **Sélectionner le format**, sélectionnez le type de format de vos données, puis **Continuer**.
 
-1. Dans la boîte de dialogue **Définir les propriétés** , entrez **SourceBlobDataset** comme **Nom**. Cochez la case **Première ligne comme en-tête**. Sous la zone de texte **Service lié** , sélectionnez **+ Nouveau**.
+1. Dans la boîte de dialogue **Définir les propriétés**, entrez **SourceBlobDataset** comme **Nom**. Cochez la case **Première ligne comme en-tête**. Sous la zone de texte **Service lié**, sélectionnez **+ Nouveau**.
 
-1. Dans la boîte de dialogue **Nouveau service lié (Stockage Blob Azure)** , entrez **AzureStorageLinkedService** comme **Nom** , puis sélectionnez votre compte de stockage dans la liste **Nom du compte de stockage**. 
+1. Dans la boîte de dialogue **Nouveau service lié (Stockage Blob Azure)** , entrez **AzureStorageLinkedService** comme **Nom**, puis sélectionnez votre compte de stockage dans la liste **Nom du compte de stockage**. 
 
 1. Veillez à activer **Création interactive**. L’activation peut prendre environ une minute.
 
@@ -164,13 +165,13 @@ Dans ce tutoriel, vous allez commencer par créer un pipeline. Puis vous créez 
 
 1. Suivez les instructions de [cette section](#approval-of-a-private-link-in-a-storage-account) pour approuver la liaison privée.
 
-1. Revenez à la boîte de dialogue. Sélectionnez de nouveau **Tester la connexion** , puis sélectionnez **Créer** pour déployer le service lié.
+1. Revenez à la boîte de dialogue. Sélectionnez de nouveau **Tester la connexion**, puis sélectionnez **Créer** pour déployer le service lié.
 
-1. Après la création du service lié, la page **Définir les propriétés** s’affiche de nouveau. En regard de **Chemin d’accès du fichier** , sélectionnez **Parcourir**.
+1. Après la création du service lié, la page **Définir les propriétés** s’affiche de nouveau. En regard de **Chemin d’accès du fichier**, sélectionnez **Parcourir**.
 
-1. Accédez au dossier **adftutorial/input** et sélectionnez le fichier **emp.txt** , puis **OK**.
+1. Accédez au dossier **adftutorial/input** et sélectionnez le fichier **emp.txt**, puis **OK**.
 
-1. Sélectionnez **OK**. La page du pipeline s’affiche automatiquement. Dans l’onglet **Source** , vérifiez que **SourceBlobDataset** est sélectionné. Pour afficher un aperçu des données dans cette page, sélectionnez **Aperçu des données**.
+1. Sélectionnez **OK**. La page du pipeline s’affiche automatiquement. Dans l’onglet **Source**, vérifiez que **SourceBlobDataset** est sélectionné. Pour afficher un aperçu des données dans cette page, sélectionnez **Aperçu des données**.
 
     ![Capture d’écran montrant le jeu de données source](./media/tutorial-copy-data-portal-private/source-dataset-selected.png)
 
@@ -220,24 +221,24 @@ Si vous n’avez pas sélectionné le lien hypertexte lorsque vous avez testé l
 >Pour stocker des secrets des magasins de données de manière sécurisée, nous vous recommandons également d’utiliser Azure Key Vault. Pour plus d’informations et d’illustrations, consultez [Stockage des informations d’identification dans Azure Key Vault](./store-credentials-in-key-vault.md).
 
 #### <a name="create-a-sink-dataset-and-linked-service"></a>Création d’un jeu de données récepteur et d’un service lié
-1. Accédez à l’onglet **Récepteur** , puis sélectionnez **+ Nouveau** pour créer un jeu de données récepteur.
+1. Accédez à l’onglet **Récepteur**, puis sélectionnez **+ Nouveau** pour créer un jeu de données récepteur.
 
-1. Dans la boîte de dialogue **Nouveau jeu de données** , entrez **SQL** dans la zone de recherche pour filtrer les connecteurs. Sélectionnez **Azure SQL Database** , puis **Continuer**. Dans ce didacticiel, vous copiez des données vers une base de données SQL.
+1. Dans la boîte de dialogue **Nouveau jeu de données**, entrez **SQL** dans la zone de recherche pour filtrer les connecteurs. Sélectionnez **Azure SQL Database**, puis **Continuer**. Dans ce didacticiel, vous copiez des données vers une base de données SQL.
 
-1. Dans la boîte de dialogue **Définir les propriétés** , entrez **OutputSqlDataset** comme **Nom**. Dans la liste déroulante **Service lié** , sélectionnez **+ Créer**. Un jeu de données doit être associé à un service lié. Le service lié comporte la chaîne de connexion utilisée par Data Factory pour établir la connexion à la base de données SQL lors de l’exécution. Le jeu de données spécifie le conteneur, le dossier et le fichier (facultatif) dans lequel les données sont copiées.
+1. Dans la boîte de dialogue **Définir les propriétés**, entrez **OutputSqlDataset** comme **Nom**. Dans la liste déroulante **Service lié**, sélectionnez **+ Créer**. Un jeu de données doit être associé à un service lié. Le service lié comporte la chaîne de connexion utilisée par Data Factory pour établir la connexion à la base de données SQL lors de l’exécution. Le jeu de données spécifie le conteneur, le dossier et le fichier (facultatif) dans lequel les données sont copiées.
 
 1. Dans la boîte de dialogue **Nouveau service lié (Azure SQL Database)** , procédez comme suit :
 
-    1. Sous **Nom** , entrez **AzureSqlDatabaseLinkedService**.
-    1. Sous **Nom du serveur** , sélectionnez votre instance SQL Server.
+    1. Sous **Nom**, entrez **AzureSqlDatabaseLinkedService**.
+    1. Sous **Nom du serveur**, sélectionnez votre instance SQL Server.
     1. Veillez à activer **Création interactive**.
-    1. Sous **Nom de la base de données** , sélectionnez votre base de données SQL.
-    1. Sous **Nom d’utilisateur** , entrez le nom de l’utilisateur.
-    1. Sous **Mot de passe** , entrez le mot de passe de l’utilisateur.
+    1. Sous **Nom de la base de données**, sélectionnez votre base de données SQL.
+    1. Sous **Nom d’utilisateur**, entrez le nom de l’utilisateur.
+    1. Sous **Mot de passe**, entrez le mot de passe de l’utilisateur.
     1. Sélectionnez **Tester la connexion**. Celle-ci doit échouer, car le serveur SQL autorise l’accès provenant des **Réseaux sélectionnés** uniquement et oblige Azure Data Factory à créer un point de terminaison privé vers le compte (le point de terminaison doit être approuvé avant utilisation du compte). Le message d’erreur comporte un lien permettant de créer un point de terminaison privé. Vous pouvez le suivre pour créer un point de terminaison privé managé. Pour créer un point de terminaison privé managé, vous pouvez également accéder directement à l’onglet **Gérer** et appliquer les instructions de la section suivante.
     1. Laissez la boîte de dialogue ouverte, puis accédez au serveur SQL sélectionné.
     1. Suivez les instructions de [cette section](#approval-of-a-private-link-in-sql-server) pour approuver la liaison privée.
-    1. Revenez à la boîte de dialogue. Sélectionnez de nouveau **Tester la connexion** , puis sélectionnez **Créer** pour déployer le service lié.
+    1. Revenez à la boîte de dialogue. Sélectionnez de nouveau **Tester la connexion**, puis sélectionnez **Créer** pour déployer le service lié.
 
 1. La boîte de dialogue **Définir les propriétés** s’affiche automatiquement. Sélectionnez **[dbo].[emp]** dans le champ **Table**. Sélectionnez ensuite **OK**.
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/18/2020
-ms.openlocfilehash: b62621a77f383b5c6413e7c187e7ba3d60beabad
-ms.sourcegitcommit: a89a517622a3886b3a44ed42839d41a301c786e0
+ms.openlocfilehash: 5e608d38ff70d51b569088629a6d80cb08e74ed4
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97732085"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251622"
 ---
 # <a name="synonyms-in-azure-cognitive-search"></a>Synonymes dans Recherche cognitive Azure
 
@@ -21,9 +21,9 @@ Avec les cartes de synonymes, vous pouvez associer des termes équivalents qui �
 
 ## <a name="create-synonyms"></a>Créer des synonymes
 
-Une carte de synonymes est un élément multimédia qui peut être créé une seule fois et utilisé par de nombreux index. Le [niveau de service](search-limits-quotas-capacity.md#synonym-limits) détermine le nombre de cartes de synonymes que vous pouvez créer, allant de 3 cartes de synonymes pour les niveaux gratuit et de base, jusqu’à 20 pour les niveaux standard. 
+Une carte de synonymes est un élément multimédia qui peut être créé une seule fois et utilisé par de nombreux index. Le [niveau de service](search-limits-quotas-capacity.md#synonym-limits) détermine le nombre de cartes de synonymes que vous pouvez créer, allant de trois cartes de synonymes pour les niveaux Gratuit et De base, jusqu’à 20 pour les niveaux Standard. 
 
-Vous pouvez créer plusieurs cartes de synonymes pour différentes langues, telles que les versions en anglais et en français, ou des lexiques si votre contenu comprend une terminologie technique ou complexe. Bien que vous puissiez créer plusieurs cartes de synonymes, actuellement, un champ ne peut en utiliser qu’un seul.
+Vous pouvez créer plusieurs cartes de synonymes pour différentes langues, telles que les versions en anglais et en français, ou des lexiques si votre contenu comprend une terminologie technique ou complexe. Bien que vous puissiez créer plusieurs cartes de synonymes dans votre service de recherche, un champ ne peut en utiliser qu’un seul.
 
 Une carte de synonymes se compose de noms, de formats et de règles qui fonctionnent comme des entrées de carte de synonymes. Le seul format pris en charge est `solr`, et le format de `solr` détermine la construction des règles.
 
@@ -50,7 +50,7 @@ Les règles de mappage respectent la spécification de filtre de synonyme open s
 
 Chaque règle doit être délimitée par le caractère de nouvelle ligne (`\n`). Vous pouvez définir jusqu'à 5 000 règles par carte de synonymes dans un service gratuit et 20 000 règles par carte dans les autres références tierces. Chaque règle peut avoir jusqu'à 20 extensions (ou objets dans une règle). Pour plus d’informations, consultez [Limites des synonymes](search-limits-quotas-capacity.md#synonym-limits).
 
-Les analyseurs de requêtes respectent la casse des termes majuscules ou mixtes, mais si vous souhaitez conserver les caractères spéciaux dans la chaîne, par exemple une virgule ou un tiret, ajoutez les caractères d’échappement appropriés lors de la création de la carte de synonymes. 
+Les analyseurs de requêtes respectent la casse des termes majuscules ou mixtes, mais si vous souhaitez conserver les caractères spéciaux dans la chaîne, par exemple une virgule ou un tiret, ajoutez les caractères d’échappement appropriés lors de la création de la carte de synonymes.
 
 ### <a name="equivalency-rules"></a>Règles d’équivalence
 
@@ -85,7 +85,7 @@ Dans le cas explicite, une requête pour `Washington`, `Wash.` ou `WA` sera ré�
 
 ### <a name="escaping-special-characters"></a>Échappement des caractères spéciaux
 
-Si vous devez définir des synonymes qui contiennent des virgules, ou autres caractères spéciaux, vous pouvez échapper celles-ci à l’aide d’une barre oblique inverse, comme dans l’exemple suivant :
+Les synonymes sont analysés au cours du traitement des requêtes. Si vous devez définir des synonymes qui contiennent des virgules, ou autres caractères spéciaux, vous pouvez échapper celles-ci à l’aide d’une barre oblique inverse, comme dans l’exemple suivant :
 
 ```json
 {
@@ -143,11 +143,15 @@ POST /indexes?api-version=2020-06-30
 
 L’ajout de synonymes n’impose pas de nouvelles exigences sur la construction des requêtes. Vous pouvez émettre des requêtes de terme et d’expression comme vous l’avez fait avant l’ajout de synonymes. La seule différence est que si un terme de requête existe dans la carte de synonymes, le moteur de requête développe ou réécrit le terme ou l’expression, en fonction de la règle.
 
-## <a name="how-synonyms-interact-with-other-features"></a>Interaction des synonymes avec d’autres fonctionnalités
+## <a name="how-synonyms-are-used-during-query-execution"></a>Utilisation des synonymes durant l’exécution de la requête
 
-La fonctionnalité de synonymes réécrit la requête d’origine avec des synonymes utilisant l’opérateur OR. Pour cette raison, la mise en surbrillance des correspondances et les profils de score traitent les synonymes et le terme d’origine comme équivalents.
+Les synonymes sont une technique d’extension de requête qui complète le contenu d’un index avec des termes équivalents, mais uniquement pour des champs ayant une attribution de synonyme. Si une requête sur des champs *exclut* un champ avec synonyme, vous ne verrez pas de correspondances de la carte de synonymes.
 
-Les synonymes s’appliquent uniquement aux requêtes de recherche et ne sont pas pris en charge pour les filtres, les facettes, la saisie semi-automatique ou les suggestions. L’autocomplétion et les suggestions sont basées uniquement sur le terme d’origine : les correspondances de synonymes n’apparaissent pas dans la réponse.
+Pour des champs avec synonymes, les synonymes sont soumis à la même analyse de texte que le champ associé. Par exemple, si un champ est analysé à l’aide de l’analyseur Lucene standard, les termes synonymes sont également soumis à l’analyseur Lucene standard au moment de la requête. Si vous souhaitez conserver les signes de ponctuation, tels que des points ou des tirets, dans le terme synonyme, appliquez un analyseur de préservation du contenu sur le champ.
+
+En interne, la fonctionnalité de synonymes réécrit la requête d’origine avec des synonymes utilisant l’opérateur OR. Pour cette raison, la mise en surbrillance des correspondances et les profils de score traitent les synonymes et le terme d’origine comme équivalents.
+
+Les synonymes s’appliquent uniquement aux requêtes de texte de forme libre et ne sont pas pris en charge pour les filtres, les facettes, la saisie semi-automatique ou les suggestions. L’autocomplétion et les suggestions sont basées uniquement sur le terme d’origine : les correspondances de synonymes n’apparaissent pas dans la réponse.
 
 Les extensions de synonymes ne s’appliquent pas aux termes de recherche génériques : les préfixes, correspondances partielles et les expressions régulières ne sont pas étendus.
 

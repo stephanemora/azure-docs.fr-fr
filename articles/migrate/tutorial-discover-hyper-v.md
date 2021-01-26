@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: 90532a88e145507b09de9d36f704bc5c88899e95
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: eb10001436d3184b89aa064ec82fcd1f56bea931
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861907"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98566929"
 ---
 # <a name="tutorial-discover-hyper-v-vms-with-server-assessment"></a>Tutoriel : Découvrir les machines virtuelles Hyper-V avec Server Assessment
 
@@ -42,16 +42,14 @@ Avant de commencer ce tutoriel, vérifiez les prérequis.
 **Prérequis** | **Détails**
 --- | ---
 **Hôte Hyper-V** | Les hôtes Hyper-V sur lesquels les machines virtuelles sont situées peuvent être autonomes ou appartenir à un cluster.<br/><br/> L’hôte doit exécuter Windows Server 2019, Windows Server 2016 ou Windows Server 2012 R2.<br/><br/> Vérifiez que les connexions entrantes sont autorisées sur le port 5985 WinRM (HTTP), afin de permettre à l’appliance de se connecter en vue de tirer (pull) les données de performances et les métadonnées de machines virtuelles à l’aide d’une session CIM (Common Information Model).
-**Étapes de déploiement d’appliance** | L’hôte Hyper-V doit allouer des ressources à une machine virtuelle pour l’appliance :<br/><br/> - Windows Server 2016<br/><br/> \- 16 Go de RAM<br/><br/> - 8 processeurs virtuels<br/><br/> - Environ 80 Go de stockage sur disque<br/><br/> - Un commutateur virtuel externe<br/><br/> - Un accès à Internet pour la machine virtuelle, directement ou via un proxy
+**Étapes de déploiement d’appliance** | L’hôte Hyper-V doit allouer des ressources à une machine virtuelle pour l’appliance :<br/><br/> - 16 Go de RAM, 8 processeurs virtuels et environ 80 Go de stockage sur disque.<br/><br/> - Un commutateur virtuel externe et un accès à Internet sur la machine virtuelle de l’appliance, directement ou via un proxy.
 **Machines virtuelles** | Les machines virtuelles peuvent exécuter le système d’exploitation Windows ou Linux. 
-
-Avant de commencer, vous pouvez [examiner les données](migrate-appliance.md#collected-data---hyper-v) que l’appliance collecte pendant la découverte.
 
 ## <a name="prepare-an-azure-user-account"></a>Préparer un compte de stockage Azure
 
 Pour créer un projet Azure Migrate et inscrire l’appliance Azure Migrate, vous avez besoin d’un compte avec :
 - Des autorisations de niveau Contributeur ou Propriétaire sur un abonnement Azure
-- Des autorisations permettant d’inscrire des applications Azure Active Directory
+- Des autorisations permettant d’inscrire des applications Azure Active Directory (AAD).
 
 Si vous venez de créer un compte Azure gratuit, vous êtes le propriétaire de votre abonnement. Si vous n’êtes pas le propriétaire de l’abonnement, demandez à celui-ci de vous attribuer les autorisations de la façon suivante :
 
@@ -71,20 +69,51 @@ Si vous venez de créer un compte Azure gratuit, vous êtes le propriétaire de 
 
     ![Ouvre la page Ajouter une attribution de rôle pour attribuer un rôle au compte.](./media/tutorial-discover-hyper-v/assign-role.png)
 
-7. Dans le portail, recherchez des utilisateurs, puis, sous **Services**, sélectionnez **Utilisateurs**.
-8. Dans **Paramètres utilisateur**, vérifiez que les utilisateurs Azure AD peuvent inscrire des applications (défini sur **Oui** par défaut).
+1. Pour inscrire l’appliance, votre compte Azure doit disposer d’**autorisations pour inscrire des applications AAD**.
+1. Dans le portail Azure, accédez à **Azure Active Directory** > **Utilisateurs** > **Paramètres utilisateur**.
+1. Dans **Paramètres utilisateur**, vérifiez que les utilisateurs Azure AD peuvent inscrire des applications (défini sur **Oui** par défaut).
 
     ![Vérifier dans les paramètres utilisateur que les utilisateurs peuvent inscrire des applications Active Directory](./media/tutorial-discover-hyper-v/register-apps.png)
 
-9. L’administrateur général ou le locataire peuvent également attribuer à un compte le rôle **Développeur d’applications** pour permettre l’inscription d’applications AAD. [Plus d’informations](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md)
+9. Si les paramètres « Inscriptions d’applications » ont la valeur « Non », demandez au locataire ou à l’administrateur général d’affecter l’autorisation nécessaire. L’administrateur général/le locataire peuvent également attribuer le rôle **Développeur d’applications** à un compte pour permettre l’inscription d’une application AAD. [Plus d’informations](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md)
 
 ## <a name="prepare-hyper-v-hosts"></a>Préparer les hôtes Hyper-V
 
-Configurez un compte disposant d’un accès Administrateur sur les hôtes Hyper-V. L’appliance utilise ce compte pour la découverte.
+Vous pouvez préparer les hôtes Hyper-V manuellement ou à l’aide d’un script. Les étapes de préparation sont résumées dans le tableau. Le script les prépare automatiquement.
 
-- Option 1 : Préparez un compte disposant d’un accès Administrateur sur l’hôte Hyper-V.
-- Option n°2 : Préparez un compte d’administrateur local ou un compte d’administrateur de domaine, puis ajoutez le compte à ces groupes : Utilisateurs de gestion à distance, Administrateurs Hyper-V et Utilisateurs de l’Analyseur de performances.
+**Étape** | **Script** | **Manuel**
+--- | --- | ---
+Vérifier la configuration requise pour l’hôte | Vérifie que l’hôte exécute une version prise en charge d’Hyper-V et le rôle Hyper-V.<br/><br/>Active le service WinRM et ouvre les ports 5985 (HTTP) et 5986 (HTTPs) sur l’ordinateur hôte (nécessaire pour la collecte de métadonnées). | L’hôte doit exécuter Windows Server 2019, Windows Server 2016 ou Windows Server 2012 R2.<br/><br/> Vérifiez que les connexions entrantes sont autorisées sur le port 5985 WinRM (HTTP), afin de permettre à l’appliance de se connecter en vue de tirer (pull) les données de performances et les métadonnées de machines virtuelles à l’aide d’une session CIM (Common Information Model).
+Vérifier la version de PowerShell | Vérifie que vous exécutez le script sur une version de PowerShell prise en charge. | Vérifiez que vous exécutez PowerShell version 4.0 ou ultérieure sur l’hôte Hyper-V.
+Créer un compte | Vérifie que vous disposez des autorisations appropriées sur l’hôte Hyper-V.<br/><br/> Permet de créer un compte d’utilisateur local avec les autorisations appropriées. | Option 1 : Préparez un compte disposant d’un accès Administrateur sur l’hôte Hyper-V.<br/><br/> Option n°2 : Préparez un compte d’administrateur local ou un compte d’administrateur de domaine, puis ajoutez le compte à ces groupes : Utilisateurs de gestion à distance, Administrateurs Hyper-V et Utilisateurs de l’Analyseur de performances.
+Activer la communication à distance de PowerShell | Active la communication à distance de PowerShell sur l’hôte, ce qui permet à l’appliance Azure Migrate d’exécuter des commandes PowerShell sur l’hôte, par le biais d’une connexion WinRM. | Pour la configurer, sur chaque hôte, ouvrez une console PowerShell en tant qu’administrateur, puis exécutez cette commande : ``` powershell Enable-PSRemoting -force ```
+Configurer Hyper-V Integration Services | Vérifie que les services d’intégration Hyper-V sont activés sur toutes les machines virtuelles gérées par l’hôte. | [Activez Hyper-V Integration Services](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services.md) sur chaque machine virtuelle.<br/><br/> Si vous utilisez Windows Server 2003, [suivez ces instructions](prepare-windows-server-2003-migration.md).
+Déléguer les informations d’identification si les disques de machine virtuelle se trouvent sur des partages SMB distants | Délègue les informations d’identification. | Exécutez cette commande pour permettre à CredSSP de déléguer les informations d’identification sur des hôtes exécutant des machines virtuelles Hyper-V avec des disques sur des partages SMB : ```powershell Enable-WSManCredSSP -Role Server -Force ```<br/><br/> Vous pouvez exécuter cette commande à distance sur tous les hôtes Hyper-V.<br/><br/> Si vous ajoutez de nouveaux nœuds hôtes sur un cluster, ils sont automatiquement ajoutés pour la découverte, mais vous devez activer manuellement CredSSP.<br/><br/> Quand vous configurez l’appliance, vous terminez la configuration de CredSSP en [l’activant sur l’appliance](#delegate-credentials-for-smb-vhds). 
 
+### <a name="run-the-script"></a>Exécuter le script
+
+1. Téléchargez le script à partir du [Centre de téléchargement Microsoft](https://aka.ms/migrate/script/hyperv). Le script est signé par chiffrement par Microsoft.
+2. Validez l’intégrité du script à l’aide de fichiers de hachage MD5 ou SHA256. Les valeurs de code de hachage sont indiquées ci-dessous. Pour générer le hachage pour le script, exécutez la commande suivante :
+
+    ```powershell
+    C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]
+    ```
+    Exemple d’utilisation :
+
+    ```powershell
+    C:\>CertUtil -HashFile C:\Users\Administrators\Desktop\ MicrosoftAzureMigrate-Hyper-V.ps1 SHA256
+    ```
+3. Après avoir validé l’intégrité du script, exécutez-le sur chaque hôte Hyper-V à l’aide de la commande PowerShell suivante :
+
+    ```powershell
+    PS C:\Users\Administrators\Desktop> MicrosoftAzureMigrate-Hyper-V.ps1
+    ```
+Les valeurs de hachage sont les suivantes :
+
+**Code de hachage** |  **Valeur**
+--- | ---
+MD5 | 0ef418f31915d01f896ac42a80dc414e
+SHA256 | 0ad60e7299925eff4d1ae9f1c7db485dc9316ef45b0964148a3c07c80761ade2
 
 ## <a name="set-up-a-project"></a>Configuration d’un projet
 
@@ -99,26 +128,28 @@ Configurez un nouveau projet Azure Migrate.
    ![Zones pour le nom et la région du projet](./media/tutorial-discover-hyper-v/new-project.png)
 
 7. Sélectionnez **Create** (Créer).
-8. Attendez quelques minutes, le temps nécessaire au déploiement du projet Azure Migrate.
-
-L’outil **Azure Migrate Server Assessment** est ajouté par défaut au nouveau projet.
+8. Attendez quelques minutes, le temps nécessaire au déploiement du projet Azure Migrate. L’outil **Azure Migrate : Server Assessment** est ajouté par défaut au nouveau projet.
 
 ![Page montrant l’outil Server Assessment ajouté par défaut](./media/tutorial-discover-hyper-v/added-tool.png)
 
+> [!NOTE]
+> Si vous avez déjà créé un projet, vous pouvez utiliser le même projet pour inscrire des appliances supplémentaires afin de découvrir et d’évaluer un plus grand nombre de machines virtuelles. [En savoir plus](create-manage-projects.md#find-a-project)
 
 ## <a name="set-up-the-appliance"></a>Configurer l’appliance
 
+Azure Migrate : Server Assessment utilise une appliance Azure Migrate légère. Cette appliance effectue la découverte des machines virtuelles et envoie les métadonnées de configuration et de performances des machines virtuelles à Azure Migrate. L’appliance peut être configurée en déployant un fichier VHD pouvant être téléchargé à partir du projet Azure Migrate.
+
+> [!NOTE]
+> Si, pour une raison quelconque, vous ne pouvez pas configurer l’appliance à l’aide du modèle, vous pouvez la configurer à l’aide d’un script PowerShell sur un serveur Windows Server 2016 existant. [En savoir plus](deploy-appliance-script.md#set-up-the-appliance-for-hyper-v)
+
 Ce tutoriel configure l’appliance sur une machine virtuelle Hyper-V, de la façon suivante :
 
-- Fournissez un nom d'appliance et générez une clé de projet Azure Migrate sur le portail.
-- Téléchargez un disque dur virtuel Hyper-V compressé à partir du portail Azure.
-- Créez l’appliance et vérifiez qu’elle peut se connecter à Azure Migrate Server Assessment.
-- Configurez l’appliance pour la première fois, puis inscrivez-la auprès du projet Azure Migrate en utilisant la clé de projet Azure Migrate.
-> [!NOTE]
-> Si, pour une raison quelconque, vous ne pouvez pas configurer l’appliance à l’aide du modèle, vous pouvez la configurer à l’aide d’un script PowerShell. [Plus d’informations](deploy-appliance-script.md#set-up-the-appliance-for-hyper-v)
+1. Fournissez un nom d'appliance et générez une clé de projet Azure Migrate sur le portail.
+1. Téléchargez un disque dur virtuel Hyper-V compressé à partir du portail Azure.
+1. Créez l’appliance et vérifiez qu’elle peut se connecter à Azure Migrate Server Assessment.
+1. Configurez l’appliance pour la première fois, puis inscrivez-la auprès du projet Azure Migrate en utilisant la clé de projet Azure Migrate.
 
-
-### <a name="generate-the-azure-migrate-project-key"></a>Générer la clé de projet Azure Migrate
+### <a name="1-generate-the-azure-migrate-project-key"></a>1. Générer la clé de projet Azure Migrate
 
 1. Dans **Objectifs de migration** > **Serveurs** > **Azure Migrate : Server Assessment**, sélectionnez **Découvrir**.
 2. Dans **Découvrir des machines** > **Vos machines sont-elles virtualisées ?** , sélectionnez **Oui, avec Hyper-V**.
@@ -127,10 +158,9 @@ Ce tutoriel configure l’appliance sur une machine virtuelle Hyper-V, de la fa�
 1. Une fois les ressources Azure créées, une **clé de projet Azure Migrate** est générée.
 1. Copiez la clé car vous en aurez besoin pour terminer l'inscription de l'appliance lors de sa configuration.
 
-### <a name="download-the-vhd"></a>Télécharger le disque dur virtuel
+### <a name="2-download-the-vhd"></a>2. Télécharger le disque dur virtuel
 
-Dans **2 : Télécharger l'appliance Azure Migrate**, sélectionnez le fichier .VHD et cliquez sur **Télécharger**. 
-
+Dans **2 : Télécharger l'appliance Azure Migrate**, sélectionnez le fichier .VHD et cliquez sur **Télécharger**.
 
 ### <a name="verify-security"></a>Vérifier la sécurité
 
@@ -156,7 +186,7 @@ Vérifiez que le fichier compressé est sécurisé avant de le déployer.
         --- | --- | ---
         Hyper-V (85,8 Mo) | [Version la plus récente](https://go.microsoft.com/fwlink/?linkid=2140424) |  cfed44bb52c9ab3024a628dc7a5d0df8c624f156ec1ecc3507116bae330b257f
 
-### <a name="create-the-appliance-vm"></a>Créer la machine virtuelle de l’appliance
+### <a name="3-create-the-appliance-vm"></a>3. Créer la machine virtuelle de l’appliance
 
 Importez le fichier téléchargé, puis créez la machine virtuelle.
 
@@ -177,7 +207,7 @@ Importez le fichier téléchargé, puis créez la machine virtuelle.
 
 Vérifiez que la machine virtuelle de l’appliance peut se connecter aux URL Azure pour les clouds [publics](migrate-appliance.md#public-cloud-urls) et du [secteur public](migrate-appliance.md#government-cloud-urls).
 
-### <a name="configure-the-appliance"></a>Configurer l’appliance
+### <a name="4-configure-the-appliance"></a>4. Configurer l’appliance
 
 Configurez l’appliance pour la première fois.
 
@@ -214,8 +244,6 @@ Configurez l’appliance pour la première fois.
 1. Une fois connecté, revenez à l’onglet précédent, c’est-à-dire, l’onglet Appliance Configuration Manager.
 4. Si le compte d’utilisateur Azure utilisé pour la connexion dispose des autorisations adéquates sur les ressources Azure créées au moment de la génération de la clé, l’inscription de l’appliance est lancée.
 1. Une fois l'appliance inscrite, vous pouvez consulter les détails de l'inscription en cliquant sur **Afficher les détails**.
-
-
 
 ### <a name="delegate-credentials-for-smb-vhds"></a>Déléguer des informations d’identification pour les disques durs virtuels sur SMB
 

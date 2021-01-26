@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 2f33fe4fafbe194238fcfbd4942807ed2fc4d6ff
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 0d099d31db3619e14da4fe66e26b25a0e36ee39c
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98183538"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250687"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-your-development-environment-part-1-of-4"></a>Tutoriel : Bien démarrer avec Azure Machine Learning dans votre environnement de développement (partie 1 sur 4)
 
@@ -37,13 +37,14 @@ Dans la partie 1 de cette série de didacticiels, vous allez :
 ## <a name="prerequisites"></a>Prérequis
 
 - Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez [Azure Machine Learning](https://aka.ms/AMLFree).
-- [Anaconda](https://www.anaconda.com/download/) ou [Miniconda](https://www.anaconda.com/download/) pour gérer les environnements virtuels Python et installer les packages.
+- [Anaconda](https://www.anaconda.com/download/) ou [Miniconda](https://www.anaconda.com/download/) pour gérer les environnements virtuels Python et installer les packages.  
+- Si vous ne connaissez pas bien l’utilisation de conda, consultez [Bien démarrer avec conda](https://conda.io/projects/conda/en/latest/user-guide/getting-started.html).
 
 ## <a name="install-the-azure-machine-learning-sdk"></a>Installer le Kit de développement logiciel (SDK) Azure Machine Learning
 
-Tout au long de ce tutoriel, vous allez utiliser le SDK Azure Machine Learning pour Python. Pour éviter les problèmes de dépendance Python, vous allez créer un environnement isolé. Cette série de tutoriels utilise Conda pour créer cet environnement. Si vous préférez utiliser d’autres solutions, comme `venv`, `virtualenv` ou Docker, veillez à utiliser une version de Python > = 3.5 et < 3.9.
+Tout au long de ce tutoriel, vous allez utiliser le SDK Azure Machine Learning pour Python. Pour éviter les problèmes de dépendance Python, vous allez créer un environnement isolé. Cette série de tutoriels utilise conda pour créer cet environnement. Si vous préférez utiliser d’autres solutions, comme `venv`, `virtualenv` ou Docker, veillez à utiliser une version de Python > = 3.5 et < 3.9.
 
-Vérifiez si Conda est installé sur votre système :
+Vérifiez si conda est installé sur votre système :
     
 ```bash
 conda --version

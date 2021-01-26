@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 07/29/2020
+ms.date: 01/20/2021
 ms.author: tisande
-ms.openlocfilehash: 35232f95bc18432db05775807d95f23ceab66aea
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 09148e65e446d723fbfe7a54602db59ee0739f83
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93333781"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599350"
 ---
 # <a name="keywords-in-azure-cosmos-db"></a>Mots clés dans Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -107,6 +107,73 @@ Les requêtes comprenant une fonction système d’agrégation et une sous-requ�
 ```sql
 SELECT COUNT(1) FROM (SELECT DISTINCT f.lastName FROM f)
 ```
+
+## <a name="like"></a>LIKE
+
+Retourne une valeur booléenne si une chaîne de caractères donnée correspond à un modèle spécifié. Une chaîne peut comprendre des caractères normaux ainsi que des caractères génériques. Vous pouvez écrire des requêtes logiquement équivalentes à l’aide du mot clé `LIKE` ou de la fonction système [RegexMatch](sql-query-regexmatch.md) . Vous observerez la même utilisation de l’index, quel que soit celui que vous choisissez. Par conséquent, vous devez utiliser `LIKE` si vous préférez sa syntaxe aux expressions régulières.
+
+> [!NOTE]
+> Étant donné que `LIKE` pouvez utiliser un index, vous devez [créer un index de plage](indexing-policy.md) pour les propriétés que vous comparez à l’aide de `LIKE`.
+
+Vous pouvez utiliser les caractères génériques suivants avec LIKE :
+
+| Caractère générique | Description                                                  | Exemple                                     |
+| -------------------- | ------------------------------------------------------------ | ------------------------------------------- |
+| %                    | Toute   chaîne de zéro ou plusieurs caractères                      | OÙ   c.description LIKE   “%SO%PS%”      |
+| _   (trait de soulignement)     | Tout   caractère unique                                       | OÙ   c.description LIKE   “%SO_PS%”      |
+| [ ]                  | Tout caractère unique dans la plage ([a-f]) ou l'ensemble ([abcdef]) spécifiés. | OÙ   c.description LIKE   “%SO[t-z]PS%”  |
+| [^]                  | Tout caractère unique en dehors de la plage ([^a-f]) ou de l'ensemble ([^abcdef]) spécifiés. | OÙ   c.description LIKE   “%SO[^abc]PS%” |
+
+
+### <a name="using-like-with-the--wildcard-character"></a>Utilisation de LIKE avec le caractère générique %
+
+Le caractère `%` correspond à toute chaîne de zéro ou plusieurs caractères. Par exemple, en plaçant un signe `%` au début et à la fin du modèle, la requête suivante retourne tous les éléments dont la description contient `fruit` :
+
+```sql
+SELECT *
+FROM c
+WHERE c.description LIKE "%fruit%"
+```
+
+Si vous aviez utilisé seulement un caractère `%` au début du modèle, vous ne retourneriez que des éléments dont la description commence avec `fruit` :
+
+```sql
+SELECT *
+FROM c
+WHERE c.description LIKE "fruit%"
+```
+
+
+### <a name="using-not-like"></a>Utilisation de NOT LIKE
+
+L’exemple ci-dessous retourne tous les éléments dont la description ne contient pas `fruit` :
+
+```sql
+SELECT *
+FROM c
+WHERE c.description NOT LIKE "%fruit%"
+```
+
+### <a name="using-the-escape-clause"></a>Utilisation de la clause ESCAPE
+
+Vous pouvez rechercher des modèles qui incluent un ou plusieurs caractères génériques à l’aide de la clause ESCAPE. Par exemple, si vous souhaitiez rechercher des descriptions contenant la chaîne `20-30%`, vous ne voudriez pas interpréter le signe `%` comme un caractère générique.
+
+```sql
+SELECT *
+FROM c
+WHERE c.description LIKE '%20-30!%%' ESCAPE '!'
+```
+
+### <a name="using-wildcard-characters-as-literals"></a>Utilisation de caractères génériques en tant que caractères littéraux
+
+Vous pouvez placer des caractères génériques entre crochets pour les traiter comme des caractères littéraux. Lorsque vous placez un caractère générique entre crochets, vous supprimez tous les attributs spéciaux. Voici quelques exemples :
+
+| Modèle           | Signification |
+| ----------------- | ------- |
+| LIKE   “20-30[%]” | 20-30%  |
+| LIKE   “[_]n”     | _n      |
+| LIKE   “[ [ ]”    | [       |
+| LIKE   “]”        | ]       |
 
 ## <a name="in"></a>IN
 

@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: 181f645540a267d65b15a0345a61752a8a5f78fa
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 079f176a741fa3423081cb96503691f0f2e2e7b2
+ms.sourcegitcommit: 949c0a2b832d55491e03531f4ced15405a7e92e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97704727"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98541425"
 ---
 # <a name="tutorial-discover-google-cloud-platform-gcp-instances-with-server-assessment"></a>Tutoriel : Découvrir des instances GCP (Google Cloud Platform) avec Server Assessment
 
@@ -40,7 +40,7 @@ Avant de commencer ce tutoriel, vérifiez les prérequis.
 
 **Prérequis** | **Détails**
 --- | ---
-**Appliance** | Vous avez besoin d’une machine virtuelle GCP sur laquelle exécuter l’appliance Azure Migrate. La machine doit disposer des éléments suivants :<br/><br/> - Windows Server 2016, installé L’exécution de l’appliance sur un ordinateur doté de Windows Server 2019 n’est pas prise en charge.<br/><br/> - 16 Go de RAM, 8 processeurs virtuels, environ 80 Go de stockage sur disque et un commutateur virtuel externe.<br/><br/> - Une adresse IP statique ou dynamique, avec un accès à Internet, directement ou via un proxy.
+**Appliance** | Vous avez besoin d’une machine virtuelle GCP sur laquelle exécuter l’appliance Azure Migrate. La machine doit disposer des éléments suivants :<br/><br/> - Windows Server 2016, installé<br/> _L’exécution de l’appliance sur un ordinateur doté de Windows Server 2019 n’est pas prise en charge_.<br/><br/> - 16 Go de RAM, 8 processeurs virtuels, environ 80 Go de stockage sur disque et un commutateur virtuel externe.<br/><br/> - Une adresse IP statique ou dynamique, avec un accès à Internet, directement ou via un proxy.
 **Instances de machines virtuelles Windows** | Autorisez les connexions entrantes sur le port WinRM 5985 (HTTP) pour que l’appliance puisse tirer (pull) les métadonnées de configuration et de performances.
 **Instances de machines virtuelles Linux** | Autorisez les connexions entrantes via le port 22 (TCP).
 
@@ -48,7 +48,7 @@ Avant de commencer ce tutoriel, vérifiez les prérequis.
 
 Pour créer un projet Azure Migrate et inscrire l’appliance Azure Migrate, vous avez besoin d’un compte avec :
 - Des autorisations de niveau Contributeur ou Propriétaire sur un abonnement Azure
-- Des autorisations permettant d’inscrire des applications Azure Active Directory
+- Des autorisations permettant d’inscrire des applications Azure Active Directory (AAD).
 
 Si vous venez de créer un compte Azure gratuit, vous êtes le propriétaire de votre abonnement. Si vous n’êtes pas le propriétaire de l’abonnement, demandez à celui-ci de vous attribuer les autorisations de la façon suivante :
 
@@ -67,22 +67,24 @@ Si vous venez de créer un compte Azure gratuit, vous êtes le propriétaire de 
 
     ![Ouvre la page Ajouter une attribution de rôle pour attribuer un rôle au compte.](./media/tutorial-discover-gcp/assign-role.png)
 
-7. Dans le portail, recherchez des utilisateurs, puis, sous **Services**, sélectionnez **Utilisateurs**.
-8. Dans **Paramètres utilisateur**, vérifiez que les utilisateurs Azure AD peuvent inscrire des applications (défini sur **Oui** par défaut).
+1. Pour inscrire l’appliance, votre compte Azure doit disposer d’**autorisations pour inscrire des applications AAD**.
+1. Dans le portail Azure, accédez à **Azure Active Directory** > **Utilisateurs** > **Paramètres utilisateur**.
+1. Dans **Paramètres utilisateur**, vérifiez que les utilisateurs Azure AD peuvent inscrire des applications (défini sur **Oui** par défaut).
 
     ![Vérifier dans les paramètres utilisateur que les utilisateurs peuvent inscrire des applications Active Directory](./media/tutorial-discover-gcp/register-apps.png)
 
+1. Si les paramètres « Inscriptions d’applications » ont la valeur « Non », demandez au locataire/à l’administrateur général d’affecter l’autorisation nécessaire. L’administrateur général/le locataire peuvent également attribuer le rôle **Développeur d’applications** à un compte pour permettre l’inscription d’une application AAD. [En savoir plus](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md)
 
 ## <a name="prepare-gcp-instances"></a>Préparer des instances GCP
 
 Configurez un compte que l’appliance peut utiliser pour accéder aux instances de machines virtuelles GCP.
 
-- Pour des serveurs Windows
+- Pour les **serveurs Windows** :
     - Configurez un compte d’utilisateur local sur des machines non jointes à un domaine et un compte de domaine sur les machines non jointes à un domaine que vous voulez inclure dans la découverte. Ajoutez le compte d’utilisateur aux groupes suivants : 
         - Utilisateurs de gestion à distance
         - Utilisateurs de l’Analyseur de performances
         - Utilisateurs du journal de performances.
-- Pour les serveurs Linux :
+- Pour les **serveurs Linux** :
     - Vous devez disposer d’un compte racine sur les serveurs Linux que vous souhaitez découvrir. Si vous n’êtes pas en mesure de fournir un compte racine, vous trouverez une solution de remplacement dans les instructions de la [matrice de prise en charge](migrate-support-matrix-physical.md#physical-server-requirements).
     - Azure Migrate utilise l’authentification par mot de passe lors de la découverte des instances AWS. Les instances AWS ne prennent pas en charge l’authentification par mot de passe par défaut. Avant de pouvoir découvrir l’instance, vous devez activer l’authentification par mot de passe.
         1. Connectez-vous à chaque machine Linux.
@@ -108,11 +110,12 @@ Configurez un nouveau projet Azure Migrate.
    ![Zones pour le nom et la région du projet](./media/tutorial-discover-gcp/new-project.png)
 
 7. Sélectionnez **Create** (Créer).
-8. Attendez quelques minutes, le temps nécessaire au déploiement du projet Azure Migrate.
-
-L’outil **Azure Migrate Server Assessment** est ajouté par défaut au nouveau projet.
+8. Attendez quelques minutes, le temps nécessaire au déploiement du projet Azure Migrate. L’outil **Azure Migrate : Server Assessment** est ajouté par défaut au nouveau projet.
 
 ![Page montrant l’outil Server Assessment ajouté par défaut](./media/tutorial-discover-gcp/added-tool.png)
+
+> [!NOTE]
+> Si vous avez déjà créé un projet, vous pouvez utiliser le même projet pour inscrire des appliances supplémentaires afin de découvrir et d’évaluer un plus grand nombre de serveurs.[En savoir plus](create-manage-projects.md#find-a-project)
 
 ## <a name="set-up-the-appliance"></a>Configurer l’appliance
 
@@ -123,29 +126,25 @@ L’appliance Azure Migrate est une appliance légère utilisée par Azure Migra
 
 [En savoir plus](migrate-appliance.md) sur les appliances d’Azure Migrate.
 
-
-## <a name="appliance-deployment-steps"></a>Étapes de déploiement d’appliance
-
 Pour configurer l’appliance, vous devez :
-- Fournir un nom d’appliance et générer une clé de projet Azure Migrate sur le portail.
-- Télécharger un fichier compressé avec le script du programme d’installation Azure Migrate à partir du portail Azure.
-- Extraire le contenu du fichier compressé. Lancer la console PowerShell avec des privilèges administratifs.
-- Exécuter le script PowerShell pour lancer l’application web de l’appliance.
-- Configurer l’appliance pour la première fois, puis l’inscrire auprès du projet Azure Migrate en utilisant la clé de projet Azure Migrate.
+1. Fournir un nom d’appliance et générer une clé de projet Azure Migrate sur le portail.
+1. Télécharger un fichier compressé avec le script du programme d’installation Azure Migrate à partir du portail Azure.
+1. Extraire le contenu du fichier compressé. Lancer la console PowerShell avec des privilèges administratifs.
+1. Exécuter le script PowerShell pour lancer l’application web de l’appliance.
+1. Configurer l’appliance pour la première fois, puis l’inscrire auprès du projet Azure Migrate en utilisant la clé de projet Azure Migrate.
 
-### <a name="generate-the-azure-migrate-project-key"></a>Générer la clé de projet Azure Migrate
+### <a name="1-generate-the-azure-migrate-project-key"></a>1. Générer la clé de projet Azure Migrate
 
 1. Dans **Objectifs de migration** > **Serveurs** > **Azure Migrate : Server Assessment**, sélectionnez **Découvrir**.
 2. Dans **Découvrir des machines** > **Vos machines sont-elles virtualisées ?** , sélectionnez **Physiques ou autres (AWS, GCP, Xen, etc.)** .
 3. Dans **1 : Générer une clé de projet Azure Migrate**, attribuez un nom à l’appliance Azure Migrate que vous allez configurer pour la découverte de vos serveurs virtuels GCP. Le nom doit être alphanumérique et comporter 14 caractères au maximum.
 4. Cliquez sur **Générer une clé** pour lancer la création des ressources Azure nécessaires. Ne fermez pas la page Découvrir des machines pendant la création de ressources.
 5. Une fois les ressources Azure créées, une **clé de projet Azure Migrate** est générée.
-6. Copiez la clé, car vous en aurez besoin pour terminer l’inscription de l’appliance pendant sa configuration.
+6. Copiez la clé car vous en aurez besoin pour terminer l'inscription de l'appliance lors de sa configuration.
 
-### <a name="download-the-installer-script"></a>Télécharger le script du programme d’installation
+### <a name="2-download-the-installer-script"></a>2. Télécharger le script du programme d’installation
 
 Dans **2 : Télécharger l’appliance Azure Migrate**, cliquez sur **Télécharger**.
-
 
 ### <a name="verify-security"></a>Vérifier la sécurité
 
@@ -170,7 +169,7 @@ Vérifiez que le fichier compressé est sécurisé avant de le déployer.
         Physique (85 Mo) | [Version la plus récente](https://go.microsoft.com/fwlink/?linkid=2140338) | ae132ebc574caf231bf41886891040ffa7abbe150c8b50436818b69e58622276
  
 
-### <a name="run-the-azure-migrate-installer-script"></a>Exécuter le script du programme d’installation Azure Migrate
+### <a name="3-run-the-azure-migrate-installer-script"></a>3. Exécuter le script du programme d’installation Azure Migrate
 Le script du programme d’installation effectue les opérations suivantes :
 
 - Installe des agents et une application web pour la découverte et l’évaluation des serveurs GCP.
@@ -199,13 +198,11 @@ Exécutez le script comme suit :
 
 Si vous rencontrez des problèmes, vous pouvez accéder aux journaux de script dans C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>horodatage</em>.log pour les résoudre.
 
-
-
 ### <a name="verify-appliance-access-to-azure"></a>Vérifier l’accès de l’appliance à Azure
 
 Vérifiez que la machine virtuelle de l’appliance peut se connecter aux URL Azure pour les clouds [publics](migrate-appliance.md#public-cloud-urls) et du [secteur public](migrate-appliance.md#government-cloud-urls).
 
-### <a name="configure-the-appliance"></a>Configurer l’appliance
+### <a name="4-configure-the-appliance"></a>4. Configurer l’appliance
 
 Configurez l’appliance pour la première fois.
 
@@ -236,8 +233,7 @@ Configurez l’appliance pour la première fois.
 3. Si vous avez fermé accidentellement l’onglet Connexion avant de vous être connecté, vous devrez actualiser l’onglet Appliance Configuration Manager pour réactiver le bouton de connexion.
 1. Une fois connecté, revenez à l’onglet précédent, c’est-à-dire, l’onglet Appliance Configuration Manager.
 4. Si le compte d’utilisateur Azure utilisé pour la connexion dispose des [autorisations](#prepare-an-azure-user-account) adéquates sur les ressources Azure créées au moment de la génération de la clé, l’inscription de l’appliance est lancée.
-5. Une fois l’inscription de l’appliance terminée, vous pouvez consulter les détails de l’inscription en cliquant sur **Afficher les détails**.
-
+5. Une fois l'appliance inscrite, vous pouvez consulter les détails de l'inscription en cliquant sur **Afficher les détails**.
 
 ## <a name="start-continuous-discovery"></a>Démarrer la découverte en continu
 
@@ -251,7 +247,7 @@ Configurez l’appliance pour la première fois.
     - Azure Migrate prend en charge la clé privée SSH générée par la commande ssh-keygen à l’aide des algorithmes RSA, DSA, ECDSA et ed25519.
     - Actuellement, Azure Migrate ne prend pas en charge la clé SSH basée sur une phrase secrète. Utilisez une clé SSH sans phrase secrète.
     - Actuellement, Azure Migrate ne prend pas en charge le fichier de clé privée SSH généré par PuTTy.
-    - Azure Migrate prend en charge le format OpenSSH du fichier de clé privée SSH, comme indiqué ci-dessous :
+    - Azure Migrate prend en charge le format OpenSSH du fichier de clé privée SSH, comme indiqué ci-dessous :
     
     ![Format de clé privée SSH pris en charge](./media/tutorial-discover-physical/key-format.png)
 

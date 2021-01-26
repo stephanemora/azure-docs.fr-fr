@@ -7,13 +7,13 @@ ms.reviewer: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/19/2019
-ms.openlocfilehash: 9a4b57f3813adfeee53891f733dd4d303dbbef8d
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 01/15/2021
+ms.openlocfilehash: a5c93244862d72f9c8ea2928c41e699302b1752b
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96497127"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98249434"
 ---
 # <a name="transform-data-securely-by-using-mapping-data-flow"></a>Transformation sécurisée des données à l’aide de flux de données de mappage
 
@@ -34,6 +34,7 @@ Dans ce tutoriel, vous effectuez les étapes suivantes :
 > * Superviser une activité de flux de données.
 
 ## <a name="prerequisites"></a>Prérequis
+
 * **Abonnement Azure**. Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
 * **Compte Azure Storage**. Vous utilisez Data Lake Storage comme magasins de données *source* et *récepteur*. Si vous ne possédez pas de compte de stockage, consultez l’article [Créer un compte de stockage Azure](../storage/common/storage-account-create.md?tabs=azure-portal) pour découvrir comment en créer un. *Vérifiez que le compte de stockage autorise l’accès provenant des réseaux sélectionnés uniquement.* 
 
@@ -64,12 +65,14 @@ Au cours de cette étape, vous allez créer une fabrique de données et ouvrir l
 1. Sélectionnez **Créer et surveiller** pour lancer l’interface utilisateur de Data Factory dans un onglet séparé.
 
 ## <a name="create-an-azure-ir-in-data-factory-managed-virtual-network"></a>Créer un runtime d’intégration Azure sur le réseau virtuel managé Data Factory
+
 À cette étape, vous allez créer un runtime d’intégration Azure et activer le réseau virtuel managé Data Factory.
 
 1. Sur le portail Data Factory, accédez à **Gérer** et sélectionnez **Nouveau** pour créer un runtime d’intégration Azure.
 
    ![Capture d’écran montrant la création d’un runtime d’intégration Azure.](./media/tutorial-copy-data-portal-private/create-new-azure-ir.png)
-1. Sélectionnez l’option **Azure IR**.
+1. Dans la page **Configuration du runtime d’intégration**, choisissez le runtime d’intégration à créer en fonction des fonctionnalités nécessaires. Dans ce tutoriel, sélectionnez **Azure, Auto-hébergé** puis cliquez sur **Continuer**. 
+1. Sélectionnez **Azure**, puis cliquez sur **Continuer** pour créer un runtime d’intégration Azure.
 
    ![Capture d’écran montrant un nouveau runtime d’intégration Azure.](./media/tutorial-copy-data-portal-private/azure-ir.png)
 

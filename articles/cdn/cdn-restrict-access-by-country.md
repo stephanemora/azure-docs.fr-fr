@@ -1,37 +1,34 @@
 ---
-title: Limiter l’accès à votre contenu CDN Azure par pays/région | Microsoft Docs
+title: Limiter l’accès à votre contenu CDN Azure par pays/région
 description: Découvrez comment limiter l’accès à votre contenu CDN Azure par pays/région, par le biais de la fonctionnalité de filtrage géographique.
 services: cdn
 documentationcenter: ''
 author: asudbring
-manager: danielgi
-editor: ''
-ms.assetid: 12c17cc5-28ee-4b0b-ba22-2266be2e786a
 ms.service: azure-cdn
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 06/19/2018
+ms.date: 01/16/2021
 ms.author: allensu
-ms.openlocfilehash: ed82adcc1432bde27042d5775c454bfabcdb96ca
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 8901dffb752409acd7fb08a2025bed9a4cc70132
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91358132"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539503"
 ---
 # <a name="restrict-azure-cdn-content-by-countryregion"></a>Limiter l’accès à votre contenu CDN Azure par pays/région
 
 ## <a name="overview"></a>Vue d’ensemble
-Par défaut, lorsqu’un utilisateur demande du contenu, ce dernier est fourni, quel que soit l’emplacement d’où vient la demande. Cependant, dans certains cas, vous souhaiterez limiter l’accès à votre contenu par pays/région. Avec la fonction de *filtrage géographique*, vous pouvez créer des règles sur les chemins d’accès spécifiques de votre point de terminaison CDN pour autoriser ou bloquer le contenu dans certains pays/régions.
+Quand un utilisateur demande votre contenu, celui-ci est fourni dans tous les emplacements. Dans certains cas, vous pouvez limiter l'accès à votre contenu par pays ou région. 
+
+Avec la fonctionnalité de *filtrage géographique*, vous pouvez créer des règles sur les chemins d’accès spécifiques de votre point de terminaison CDN. Vous pouvez définir les règles pour autoriser ou bloquer le contenu dans les pays/régions sélectionnés.
 
 > [!IMPORTANT]
 > Les profils **CDN Azure Standard fourni par Microsoft** ne prennent pas en charge le filtrage géographique basé sur le chemin d’accès.
 > 
 
 ## <a name="standard-profiles"></a>Profils standard
-Les procédures de cette section s’appliquent uniquement au profil **Azure CDN Standard fourni par Akamai** et au profil **Azure CDN Standard fourni par Verizon**. 
+
+Ces instructions s’appliquent au profil **Azure CDN Standard fourni par Akamai** et au profil **Azure CDN Standard fourni par Verizon**.
 
 Pour le profil **Azure CDN Premium de Verizon**, vous devez utiliser le portail **Gérer** pour activer le filtrage géographique. Pour plus d’informations, consultez l’article [Profils Azure CDN Premium de Verizon](#azure-cdn-premium-from-verizon-profiles).
 
@@ -63,6 +60,7 @@ Par exemple, une règle de filtrage géographique pour le blocage du chemin d’
 *http:\//\<endpoint>.azureedge.net/Photos/Strasbourg/Cathedral/1000.jpg*
 
 ### <a name="define-the-countriesregions"></a>Définir les pays/régions
+
 Dans la liste **CODES DE PAYS**, sélectionnez les pays/régions pour lesquels vous souhaitez bloquer ou autoriser le chemin d’accès. 
 
 Une fois que vous avez fini de sélectionner les pays/régions, sélectionnez **Enregistrer** pour activer la nouvelle règle de filtrage géographique. 
@@ -70,31 +68,33 @@ Une fois que vous avez fini de sélectionner les pays/régions, sélectionnez **
 ![Capture d’écran montrant les CODES DE PAYS à utiliser pour bloquer ou autoriser les pays ou les régions.](./media/cdn-filtering/cdn-geo-filtering-rules.png)
 
 ### <a name="clean-up-resources"></a>Nettoyer les ressources
+
 Pour supprimer une règle, sélectionnez-la dans la liste de la page **Filtrage géographique**, puis choisissez **Supprimer**.
 
 ## <a name="azure-cdn-premium-from-verizon-profiles"></a>Profils Azure CDN Premium de Verizon
-Pour les profils **Azure CDN Premium de Verizon**, l’interface utilisateur de création d’une règle de filtrage géographique est différente :
+
+Pour les profils **Azure CDN Premium fournis par Verizon**, l’interface utilisateur de création d’une règle de filtrage géographique est différente :
 
 1. Dans le menu supérieur de votre profil CDN Azure, sélectionnez **Gérer**.
 
 2. À partir du portail Verizon, sélectionnez **HTTP Large**, puis sélectionnez **Filtrage par pays**.
 
-    ![Capture d’écran montrant comment sélectionner l’option Filtrage par pays dans Azure CDN.](./media/cdn-filtering/cdn-geo-filtering-premium.png)
-
+    :::image type="content" source="./media/cdn-filtering/cdn-geo-filtering-premium.png" alt-text="Capture d’écran montrant comment sélectionner le filtrage par pays dans Azure CDN" border="true":::
+  
 3. Sélectionnez **Ajouter un filtre de pays**.
 
-    La page **Étape 1 :** s’affiche.
+4. À l’**♫tape 1**, entrez le chemin d’accès du répertoire. Sélectionnez **Bloquer** ou **Ajouter**, puis **Suivant**.
 
-4. Saisissez le chemin d’accès au répertoire, sélectionnez **Bloquer** ou **Ajouter**, puis **Suivant**.
-
-    La page **Étape 2 :** s’affiche. 
-
-5. Sélectionnez un ou plusieurs pays ou une ou plusieurs régions dans la liste, puis sélectionnez **Terminer** pour activer la règle. 
+    > [!IMPORTANT]
+    > Le nom du point de terminaison doit figurer dans le chemin d'accès.  Exemple : **/myendpoint8675/myfolder**.  Remplacez **myendpoint8675** par le nom de votre point de terminaison.
+    > 
+    
+5. À l’**Étape 2**, sélectionnez un ou plusieurs pays/régions dans la liste. Sélectionnez **Terminer** pour activer la règle. 
     
     La nouvelle règle apparaît dans la table de la page **Filtrage par pays**.
-
-    ![Capture d’écran montrant où la règle s’affiche dans Filtrage par pays.](./media/cdn-filtering/cdn-geo-filtering-premium-rules.png)
-
+    
+    :::image type="content" source="./media/cdn-filtering/cdn-geo-filtering-premium-rules.png" alt-text="Capture d’écran montrant où la règle s’affiche dans le filtrage par pays." border="true":::
+ 
 ### <a name="clean-up-resources"></a>Nettoyer les ressources
 Dans la table de règles de filtrage par pays/région, sélectionnez l’icône de suppression en regard d’une règle pour la supprimer, ou l’icône de modification pour la modifier.
 

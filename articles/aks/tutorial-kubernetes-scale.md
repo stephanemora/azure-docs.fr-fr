@@ -3,14 +3,14 @@ title: Didacticiel Kubernetes sur Azure – Mise à l’échelle d’une applica
 description: Dans ce didacticiel Azure Kubernetes Service (AKS), vous découvrez comment mettre à l’échelle des nœuds et pods dans Kubernetes, et comment implémenter la mise à l’échelle automatique de pod horizontal.
 services: container-service
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 01/12/2021
 ms.custom: mvc
-ms.openlocfilehash: 7f16ba3ffe6b6f96f17df540eb67e9cec0bfea8c
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: dfebb6561e83c51063515ec655153aaaa7a09c0c
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825683"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251367"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Tutoriel : Mettre à l’échelle des applications dans Azure Kubernetes Service (AKS)
 
@@ -21,7 +21,7 @@ Si vous avez suivi les tutoriels, vous disposez d’un cluster Kubernetes opéra
 > * Mettre à l’échelle manuellement des pods Kubernetes qui exécutent votre application
 > * Configurer la mise à l’échelle automatique des pods qui exécutent le serveur frontal d’applications
 
-Dans d’autres tutoriels, une nouvelle version de l’application Azure Vote est installée.
+Dans les tutoriels ultérieurs, l’application Azure Vote est mise à jour vers une nouvelle version.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -39,7 +39,7 @@ kubectl get pods
 
 L’exemple de sortie suivant montre un pod de serveur frontal et un pod de serveur principal :
 
-```
+```output
 NAME                               READY     STATUS    RESTARTS   AGE
 azure-vote-back-2549686872-4d2r5   1/1       Running   0          31m
 azure-vote-front-848767080-tf34m   1/1       Running   0          31m
@@ -51,7 +51,7 @@ Pour changer manuellement le nombre de pods dans le déploiement *azure-vote-fro
 kubectl scale --replicas=5 deployment/azure-vote-front
 ```
 
-Réexécutez la commande [kubectl get pods][kubectl-get] pour vérifier qu’AKS crée les pods supplémentaires. Au bout d’une minute environ, les pods supplémentaires sont disponibles dans votre cluster :
+Réexécutez [kubectl get pods][kubectl-get] pour vérifier qu’AKS crée correctement les pods supplémentaires. Au bout d’une minute environ, les pods sont disponibles dans votre cluster :
 
 ```console
 kubectl get pods
@@ -131,7 +131,7 @@ spec:
 
 Utilisez `kubectl apply` pour appliquer la mise à l’échelle automatique définie dans le fichier manifeste `azure-vote-hpa.yaml`.
 
-```
+```console
 kubectl apply -f azure-vote-hpa.yaml
 ```
 
@@ -158,7 +158,7 @@ az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 3
 
 Quand le cluster a été mis à l’échelle correctement, la sortie ressemble à l’exemple suivant :
 
-```
+```output
 "agentPoolProfiles": [
   {
     "count": 3,

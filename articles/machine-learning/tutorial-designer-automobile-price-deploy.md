@@ -8,14 +8,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 11/25/2020
+ms.date: 01/15/2021
 ms.custom: designer
-ms.openlocfilehash: 14be695f2f58b9738af11a3d2ca3f06592a1cc6e
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 6bba5ad17cbb6f1ed72d06b37c6d6af9ebd26495
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575956"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246466"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer"></a>Tutoriel : Déployer un modèle Machine Learning avec le concepteur
 
@@ -97,11 +97,30 @@ Une fois le provisionnement du service AKS terminé, revenez au pipeline d’inf
 
 1. Sélectionnez le cluster AKS que vous avez créé.
 
-1. Sélectionnez **Déployer**.
-    
     :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png"alt-text="Capture d’écran montrant comment configurer un nouveau point de terminaison en temps réel":::
 
+    Vous pouvez également changer le paramètre **Avancé** pour votre point de terminaison en temps réel.
+    
+    |Paramètre avancé|Description|
+    |---|---|
+    |Activer les diagnostics et la collecte de données Application Insights| Indique s’il faut activer Azure Application Insights pour collecter des données à partir des points de terminaison déployés. </br> Par défaut : false |
+    |Délai d’expiration du scoring| Délai d’expiration en millisecondes à appliquer pour les appels de scoring au service web.</br>Par défaut : 60000|
+    |Mise à l’échelle automatique activée|   Indique s’il faut activer la mise à l’échelle automatique pour le service Web.</br>Par défaut : true|
+    |Nb min. de réplicas| Nombre minimal de conteneurs à utiliser lors de la mise à l’échelle automatique de ce service web.</br>Par défaut : 1|
+    |Nb max. de réplicas| Nombre maximal de conteneurs à utiliser lors de la mise à l’échelle automatique de ce service web.</br> Par défaut : 10|
+    |Utilisation cible|Utilisation cible (en pourcentage sur 100) que la mise à l’échelle automatique doit tenter de gérer pour ce service web.</br> Par défaut : 70|
+    |Période d’actualisation|Fréquence (en secondes) à laquelle la mise à l’échelle automatique tente de mettre à l’échelle ce service web.</br> Par défaut : 1|
+    |Capacité de réserve de processeur|Nombre de cœurs de processeur à allouer pour ce service web.</br> Par défaut : 0.1|
+    |Capacité de réserve de mémoire|Quantité de mémoire (en Go) à allouer à ce service web.</br> Par défaut : 0.5|
+        
+
+1. Sélectionnez **Déployer**. 
+
     Une notification de réussite s’affiche au-dessus du canevas, une fois le déploiement effectué. Cela peut prendre quelques minutes.
+
+> [!TIP]
+> Vous pouvez également effectuer le déploiement sur **Azure Container Instance** (ACI) si vous sélectionnez **Azure Container Instances** comme **Type de calcul** dans la zone des paramètres de point de terminaison en temps réel.
+> Le paramètre Azure Container Instances est utilisé à des fins de test ou de développement. Utilisez ACI pour les charges de travail à faible échelle basées sur le processeur qui nécessitent moins de 48 Go de RAM.
 
 ## <a name="view-the-real-time-endpoint"></a>Afficher le point de terminaison en temps réel
 

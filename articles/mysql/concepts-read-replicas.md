@@ -5,13 +5,14 @@ author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/26/2020
-ms.openlocfilehash: 730b634f23599c5eef8c4c6c988820ae5e4fa9c8
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.date: 01/13/2021
+ms.custom: references_regions
+ms.openlocfilehash: c380a3edb556adb72d067cb2910c8afbf66b99a0
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94535110"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250262"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Réplicas en lecture dans Azure Database pour MySQL
 
@@ -22,34 +23,35 @@ Les réplicas sont de nouveaux serveurs que vous gérez de manière similaire au
 Pour découvrir plus en détail les fonctionnalités de réplication MySQL et les problèmes associés, consultez la [documentation sur la réplication MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html).
 
 > [!NOTE]
-> Communication sans biais
->
-> La diversité et l’inclusion sont au cœur des valeurs de Microsoft. Cet article contient des références au mot _esclave_. Le [guide de style de Microsoft sur la communication sans stéréotype](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) le reconnaît comme un mot à exclure. Le mot est utilisé dans cet article pour des raisons de cohérence, car il s’agit du mot qui figure dans le logiciel. Une fois que le mot aura été supprimé du logiciel, cet article sera mis à jour en conséquence.
+> Cet article contient des références au terme _esclave_, un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.
 >
 
 ## <a name="when-to-use-a-read-replica"></a>Quand utiliser un réplica en lecture
 
-La fonctionnalité de réplica en lecture contribue à améliorer les performances et la scalabilité des charges de travail nécessitant une lecture intensive. Les charges de travail de lecture peuvent être isolées sur les réplicas, tandis que les charges de travail d’écriture peuvent être dirigées vers le serveur maître.
+La fonctionnalité de réplica en lecture contribue à améliorer les performances et la scalabilité des charges de travail nécessitant une lecture intensive. Les charges de travail de lecture peuvent être isolées sur les réplicas, tandis que les charges de travail d’écriture peuvent être dirigées vers la source.
 
 Un scénario courant est d’avoir les charges de travail décisionnelles et analytiques qui utilisent le réplica en lecture comme source de données pour la création de rapports.
 
-Dans la mesure où les réplicas sont en lecture seule, ils ne réduisent pas directement les charges relatives à la capacité d’écriture sur le serveur maître. Cette fonctionnalité ne cible pas les charges de travail nécessitant une écriture intensive.
+Dans la mesure où les réplicas sont en lecture seule, ils ne réduisent pas directement les charges relatives à la capacité d’écriture sur la source. Cette fonctionnalité ne cible pas les charges de travail nécessitant une écriture intensive.
 
-La fonctionnalité de réplica en lecture utilise la réplication asynchrone MySQL. La fonctionnalité n’est pas destinée aux scénarios de réplication synchrone. Il y aura un délai mesurable entre la source et le réplica. Les données du réplica finissent par devenir cohérentes avec les données du serveur maître. Utilisez cette fonctionnalité pour les charges de travail pouvant s’adapter à ce délai.
+La fonctionnalité de réplica en lecture utilise la réplication asynchrone MySQL. La fonctionnalité n’est pas destinée aux scénarios de réplication synchrone. Il y aura un délai mesurable entre la source et le réplica. Les données du réplica finissent par devenir cohérentes avec les données du serveur source. Utilisez cette fonctionnalité pour les charges de travail pouvant s’adapter à ce délai.
 
 ## <a name="cross-region-replication"></a>Réplication entre régions
+
 Vous pouvez créer un réplica en lecture dans une autre région à partir de votre serveur source. La réplication entre régions peut être utile pour des scénarios tels que la planification de la récupération d’urgence ou le rapprochement des données de vos utilisateurs.
 
-Vous pouvez disposer d’un serveur source dans toute [région Azure Database pour MySQL](https://azure.microsoft.com/global-infrastructure/services/?products=mysql).  Un serveur source peut avoir un réplica dans sa région jumelée ou dans les régions de réplica universelles. L’image ci-dessous montre les régions de réplica disponibles en fonction de votre région source.
+Vous pouvez disposer d’un serveur source dans toute [région Azure Database pour MySQL](https://azure.microsoft.com/global-infrastructure/services/?products=mysql).  Un serveur source peut avoir un réplica dans sa région jumelée ou dans les régions de réplica universelles. L’image suivante montre les régions de réplica disponibles en fonction de votre région source.
 
 [ :::image type="content" source="media/concepts-read-replica/read-replica-regions.png" alt-text="Régions des réplicas en lecture":::](media/concepts-read-replica/read-replica-regions.png#lightbox)
 
 ### <a name="universal-replica-regions"></a>Régions de réplica universelles
+
 Vous pouvez créer un réplica en lecture dans les régions suivantes, quel que soit l’emplacement de votre serveur source. Les régions de réplica universelles prises en charge sont les suivantes :
 
 Australie Est, Australie Sud-Est, Brésil Sud, Canada Centre, Canada Est, USA Centre, Asie Est, USA Est, USA Est 2, Japon Est, Japon Ouest, Corée Centre, Corée Sud, USA Centre Nord, Europe Nord, USA Centre Sud, Asie Sud-Est, Royaume-Uni Sud, Royaume-Uni Ouest, Europe Ouest, USA Ouest, USA Ouest 2, USA Centre-Ouest.
 
 ### <a name="paired-regions"></a>Régions jumelées
+
 Outre les régions de réplica universelles, vous pouvez créer un réplica en lecture dans la région Azure jumelée de votre serveur source. Si vous ne connaissez pas la région jumelée de votre région, vous trouverez plus d’informations dans l’[article sur les régions jumelées Azure](../best-practices-availability-paired-regions.md).
 
 Si vous utilisez des réplicas entre régions pour la planification de la récupération d’urgence, nous vous recommandons de créer le réplica dans la région jumelée plutôt que dans une autre région. Les régions jumelées évitent les mises à jour simultanées et hiérarchisent l’isolement physique et la résidence des données.  
@@ -57,8 +59,8 @@ Si vous utilisez des réplicas entre régions pour la planification de la récup
 Il existe toutefois quelques limitations à prendre en compte : 
 
 * Disponibilité régionale : Azure Database pour MySQL est disponible dans les régions France Centre, Émirats arabes unis Nord et Allemagne Centre. Toutefois, leurs régions jumelées ne sont pas disponibles.
-    
-* Paires unidirectionnelles : Certaines régions Azure sont jumelées dans une seule direction. Ces régions incluent Inde Ouest, Brésil Sud et US Gov Virginie. 
+
+* Paires unidirectionnelles : Certaines régions Azure sont jumelées dans une seule direction. Ces régions incluent Inde Ouest, Brésil Sud et US Gov Virginie.
    Cela signifie qu’un serveur source dans la région Inde Ouest peut créer un réplica dans la région Inde Sud. Toutefois, un serveur source dans la région Inde Sud ne peut pas créer de réplica dans la région Inde Ouest. En effet, la région secondaire de la région Inde Ouest est Inde Sud, mais la région secondaire de la région Inde Sud n’est pas Inde Ouest.
 
 ## <a name="create-a-replica"></a>Créer un réplica
@@ -98,7 +100,7 @@ Si vous constatez un décalage de la réplication supérieur, consultez [Résoud
 
 Vous pouvez arrêter la réplication entre un serveur source et un réplica. Une fois la réplication arrêtée entre un serveur source et un réplica en lecture, celui-ci devient un serveur autonome. Les données du serveur autonome sont les données disponibles sur le réplica au lancement de la commande d’arrêt de la réplication. Le serveur autonome ne se met pas au même niveau que le serveur source.
 
-Lorsque vous décidez d’arrêter la réplication pour un réplica, celui-ci perd tous les liens avec son serveur source précédent et d’autres réplicas. Il n’existe aucun basculement automatique entre un serveur source et son réplica.
+Lorsque vous décidez d’arrêter la réplication pour un réplica, celui-ci perd tous les liens avec son serveur source précédent et d’autres réplicas. Il n’existe aucun basculement automatique entre une source et son réplica.
 
 > [!IMPORTANT]
 > Le serveur autonome ne peut pas être retransformé en réplica.
@@ -108,22 +110,22 @@ Découvrez comment [arrêter la réplication sur un réplica](howto-read-replica
 
 ## <a name="failover"></a>Basculement
 
-Il n’existe aucun basculement automatique entre les serveurs source et réplica. 
+Il n’existe aucun basculement automatique entre des serveurs sources et serveurs réplicas.
 
-Étant donné que la réplication est asynchrone, il existe un décalage entre le serveur source et le réplica. Le niveau de décalage dépend d’un certain nombre de facteurs, comme la charge de travail exécutée sur le serveur source et la latence qui existe entre les centres de données. Dans la plupart des cas, le décalage du réplica va de quelques secondes à quelques minutes. Pour connaître le décalage d’un réplica, consultez la métrique *Décalage de la réplication*, qui est disponible pour chaque réplica. Cette métrique indique le temps écoulé depuis la dernière transaction réexécutée. Il est recommandé d’observer votre réplica sur une période donnée afin de déterminer le décalage moyen. Vous pouvez configurer une alerte afin d’être averti lorsque le décalage d’un réplica sort de la plage définie et prendre les mesures nécessaires.
+Étant donné que la réplication est asynchrone, il y a un décalage entre la source et le réplica. Le niveau de décalage dépend de nombreux facteurs, comme la charge de travail exécutée sur le serveur source et la latence qui existe entre les centres de données. Dans la plupart des cas, le décalage du réplica va de quelques secondes à quelques minutes. Pour connaître le décalage d’un réplica, consultez la métrique *Décalage de la réplication*, qui est disponible pour chaque réplica. Cette métrique indique le temps écoulé depuis la dernière transaction réexécutée. Il est recommandé d’observer votre réplica sur une période donnée afin de déterminer le décalage moyen. Vous pouvez configurer une alerte afin d’être averti lorsque le décalage d’un réplica sort de la plage définie et prendre les mesures nécessaires.
 
 > [!Tip]
 > Si vous basculez vers le réplica, le décalage qui existe au moment où vous supprimez la liaison entre le réplica et le serveur source indiquera la quantité de données perdues.
 
-Une fois que vous avez décidé de basculer vers un réplica : 
+Une fois que vous avez décidé de basculer vers un réplica :
 
 1. Arrêtez la réplication vers le réplica<br/>
-   Cette étape est nécessaire pour que le serveur de réplication puisse accepter les écritures. Dans le cadre de ce processus, le serveur de réplication est dissocié du serveur maître. En général, une fois que le processus d’arrêt de la réplication est lancé, le processus back-end prend environ 2 minutes. Pour comprendre les implications d’une telle action, consultez la section [Arrêter la réplication](#stop-replication).
-    
+   Cette étape est nécessaire pour que le serveur de réplication puisse accepter les écritures. Dans le cadre de ce processus, le serveur de réplication est dissocié du serveur source. En général, une fois que le processus d’arrêt de la réplication est lancé, le processus back-end prend environ 2 minutes. Pour comprendre les implications d’une telle action, consultez la section [Arrêter la réplication](#stop-replication).
+
 2. Faites pointer votre application vers l’ancien réplica<br/>
-   Chaque serveur est associé à une chaîne de connexion unique. Mettez à jour votre application pour qu’elle pointe vers l’ancien réplica au lieu du serveur maître.
-    
-Lorsque votre application est en mesure de traiter les lectures et les écritures, le basculement est terminé. Le temps d’arrêt de votre application dépend du moment où vous détectez le problème et où vous effectuez les étapes 1 et 2 ci-dessus.
+   Chaque serveur est associé à une chaîne de connexion unique. Mettez à jour votre application pour qu’elle pointe vers l’ancien réplica plutôt que le serveur source.
+
+Une fois que votre application est en mesure de traiter les lectures et les écritures, le basculement est terminé. Le temps d’arrêt de votre application dépend du moment où vous détectez le problème et où vous effectuez les étapes 1 et 2 décrites précédemment.
 
 ## <a name="global-transaction-identifier-gtid"></a>Identificateur de transaction global (GTID)
 
@@ -143,7 +145,7 @@ Les paramètres serveur suivants sont disponibles pour la configuration du GTID�
 
 Pour activer le GTID et configurer le comportement de cohérence, mettez à jour les paramètres serveur `gtid_mode` et `enforce_gtid_consistency` à l'aide du [portail Azure](howto-server-parameters.md), d'[Azure CLI](howto-configure-server-parameters-using-cli.md) ou de [PowerShell](howto-configure-server-parameters-using-powershell.md).
 
-Si le GTID est activé sur un serveur source (`gtid_mode` = ON), il sera également activé sur les réplicas nouvellement créés, et ceux-ci utiliseront la réplication GTID. Pour assurer la cohérence de la réplication, vous ne pouvez pas mettre à jour `gtid_mode` sur le(s) serveur(s) source ou réplica.
+Si le GTID est activé sur un serveur source (`gtid_mode` = ON), il sera également activé sur les réplicas nouvellement créés, et ceux-ci utiliseront la réplication GTID. Pour assurer la cohérence de la réplication, vous ne pouvez pas mettre à jour `gtid_mode` sur les serveurs sources ou réplicas.
 
 ## <a name="considerations-and-limitations"></a>Observations et limitations
 
@@ -164,10 +166,10 @@ Un réplica en lecture est créé en tant que serveur Azure Database pour MySQL.
 
 ### <a name="replica-configuration"></a>Configuration du réplica
 
-Un réplica est créé à partir de la même configuration que celle du serveur maître. Une fois le réplica créé, vous pouvez changer plusieurs paramètres indépendamment du serveur source : génération de calcul, vCores, stockage et période de conservation de la sauvegarde. Le niveau tarifaire peut également être changé indépendamment, sauf vers ou depuis le niveau De base.
+Un réplica est créé à partir de la même configuration que celle du serveur source. Une fois le réplica créé, vous pouvez changer plusieurs paramètres indépendamment du serveur source : génération de calcul, vCores, stockage et période de conservation de la sauvegarde. Le niveau tarifaire peut également être changé indépendamment, sauf vers ou depuis le niveau De base.
 
 > [!IMPORTANT]
-> Avant de mettre à jour une configuration de serveur source avec de nouvelles valeurs, mettez à jour la configuration du réplica avec des valeurs égales ou supérieures. Ainsi, vous avez la garantie que le réplica peut suivre les changements apportés au maître.
+> Avant de mettre à jour une configuration de serveur source avec de nouvelles valeurs, mettez à jour la configuration du réplica avec des valeurs égales ou supérieures. Ainsi, vous aurez la garantie que le réplica peut suivre les changements apportés au serveur source.
 
 Les règles de pare-feu et les paramètres sont transmis du serveur source au réplica lorsque le réplica est créé. Par la suite, les règles du réplica sont indépendantes.
 
@@ -188,31 +190,33 @@ Les utilisateurs sur le serveur source sont répliqués sur les réplicas en lec
 Pour empêcher les données de se désynchroniser et pour éviter leur perte ou leur endommagement potentiels, certains paramètres de serveur sont verrouillés et ne peuvent pas être mis à jour lors de l’utilisation des réplicas en lecture.
 
 Les paramètres de serveur suivants sont verrouillés sur les serveurs sources et réplicas :
-- [`innodb_file_per_table`](https://dev.mysql.com/doc/refman/8.0/en/innodb-file-per-table-tablespaces.html) 
-- [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators)
 
-Le paramètre [`event_scheduler`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_event_scheduler) est verrouillé sur les serveurs réplicas. 
+* [`innodb_file_per_table`](https://dev.mysql.com/doc/refman/8.0/en/innodb-file-per-table-tablespaces.html) 
+* [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators)
+
+Le paramètre [`event_scheduler`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_event_scheduler) est verrouillé sur les serveurs réplicas.
 
 Pour mettre à jour l’un des paramètres ci-dessus sur le serveur source, supprimez les serveurs réplicas, mettez à jour la valeur du paramètre sur la source, puis recréez les réplicas.
 
 ### <a name="gtid"></a>GTID
 
 Le GTID est pris en charge sur :
-- MySQL versions 5.7 et 8.0 
-- Serveurs prenant en charge un stockage maximum de 16 To. Reportez-vous à l'article [Niveau tarifaire](concepts-pricing-tiers.md#storage) pour obtenir la liste complète des régions qui prennent en charge le stockage de 16 To. 
 
-Le GTID est désactivé par défaut. Une fois le GTID activé, vous ne pouvez pas le désactiver. Si vous avez besoin de désactiver le GTID, contactez le support technique. 
+* MySQL versions 5.7 et 8.0.
+* Serveurs prenant en charge un stockage maximum de 16 To. Reportez-vous à l'article [Niveau tarifaire](concepts-pricing-tiers.md#storage) pour obtenir la liste complète des régions qui prennent en charge le stockage de 16 To.
 
-Si le GTID est activé sur un serveur source, il sera également activé sur les réplicas nouvellement créés, et ceux-ci utiliseront la réplication GTID. Pour assurer la cohérence de la réplication, vous ne pouvez pas mettre à jour `gtid_mode` sur le(s) serveur(s) source ou réplica.
+Le GTID est désactivé par défaut. Une fois le GTID activé, vous ne pouvez pas le désactiver. Si vous avez besoin de désactiver le GTID, contactez le support technique.
 
-### <a name="other"></a>Autres
+Si le GTID est activé sur un serveur source, il sera également activé sur les réplicas nouvellement créés, et ceux-ci utiliseront la réplication GTID. Pour assurer la cohérence de la réplication, vous ne pouvez pas mettre à jour `gtid_mode` sur les serveurs sources ou réplicas.
 
-- La création d’un réplica d’un réplica n’est pas prise en charge.
-- Les tables en mémoire peuvent entraîner la désynchronisation des réplicas. Il s’agit d’une limitation de la technologie de réplication MySQL. Pour plus d’informations, lisez la [documentation de référence MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features-memory.html).
-- Vérifiez que les tables du serveur source possèdent des clés primaires. L’absence de clés primaires peut entraîner une latence de réplication entre la source et les réplicas.
-- Passer en revue la liste complète des limitations relatives à la réplication MySQL dans la [documentation MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html)
+### <a name="other"></a>Autre
+
+* La création d’un réplica de réplica n’est pas prise en charge.
+* Les tables en mémoire peuvent entraîner la désynchronisation des réplicas. Il s’agit d’une limitation de la technologie de réplication MySQL. Pour plus d’informations, lisez la [documentation de référence MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features-memory.html).
+* Vérifiez que les tables du serveur source possèdent des clés primaires. L’absence de clés primaires peut entraîner une latence de réplication entre la source et les réplicas.
+* Passer en revue la liste complète des limitations relatives à la réplication MySQL dans la [documentation MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrir comment [créer et gérer des réplicas en lecture clusters avec le portail Azure](howto-read-replicas-portal.md)
-- Découvrir comment [créer et gérer des réplicas en lecture avec l’interface de ligne de commande Azure et l’API REST](howto-read-replicas-cli.md)
+* Découvrir comment [créer et gérer des réplicas en lecture clusters avec le portail Azure](howto-read-replicas-portal.md)
+* Découvrir comment [créer et gérer des réplicas en lecture avec l’interface de ligne de commande Azure et l’API REST](howto-read-replicas-cli.md)

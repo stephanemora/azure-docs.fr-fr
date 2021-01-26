@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: justinha
-ms.openlocfilehash: 0231689acef3345fb2b0f25170522d59552171ba
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: faa46178262777454d4d67d23bbd0bb013974ab5
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96618329"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208486"
 ---
 # <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services"></a>Tutoriel : Créer une approbation de forêt sortante pour un domaine local dans Azure Active Directory Domain Services
 
@@ -73,7 +73,7 @@ Avant de configurer une approbation de forêt dans Azure AD DS, assurez-vous que
 
 Pour résoudre correctement le domaine managé à partir de l’environnement local, vous serez peut-être amené à ajouter des redirecteurs aux serveurs DNS existants. Si vous n’avez pas configuré l’environnement local de manière à ce qu’il communique avec le domaine managé, effectuez les étapes suivantes à partir d’une station de travail de gestion pour le domaine AD DS local :
 
-1. Sélectionnez **Démarrer | Outils d'administration | DNS**.
+1. Sélectionnez **Démarrer** > **Outils d’administration** > **DNS**.
 1. Cliquez avec le bouton droit sur un serveur DNS comme *myAD01*, puis sélectionnez **Propriétés**.
 1. Sélectionnez **Redirecteurs**, puis **Modifier** pour ajouter des redirecteurs supplémentaires.
 1. Ajoutez les adresses IP du domaine managé, par exemple *10.0.2.4* et *10.0.2.5*.
@@ -84,9 +84,9 @@ Le domaine AD DS local nécessite une approbation de forêt entrante pour le dom
 
 Pour configurer l’approbation entrante sur le domaine AD DS local, procédez comme suit à partir d’une station de travail de gestion pour le domaine AD DS local :
 
-1. Sélectionnez **Démarrer | Outils d'administration | Domaines et approbations Active Directory**
+1. Sélectionnez **Démarrer | Outils d’administration | Domaines et approbations Active Directory**.
 1. Cliquez avec le bouton droit sur un domaine, par exemple *onprem.contoso.com*, puis sélectionnez **Propriétés**.
-1. Sélectionnez l'onglet **Approbations**, puis **Nouvelle approbation**.
+1. Choisissez l’onglet **Approbations**, puis **Nouvelle approbation**.
 1. Entrez le nom du domaine Azure AD DS, comme *aaddscontoso.com*, puis sélectionnez **Suivant**.
 1. Sélectionnez l’option permettant de créer une **approbation de forêt**, puis une approbation **unidirectionnelle : entrante**.
 1. Choisissez de créer l’approbation pour **ce domaine uniquement**. À l’étape suivante, vous allez créer l’approbation dans le portail Azure pour le domaine managé.
@@ -100,15 +100,15 @@ Une fois le domaine AD DS local configuré pour résoudre le domaine managé et
 
 Pour créer l’approbation sortante destinée au domaine managé dans le portail Azure, effectuez les étapes suivantes :
 
-1. Dans le portail Azure, recherchez et sélectionnez **Azure AD Domain Services**, puis sélectionnez votre domaine managé, par exemple *aaddscontoso.com*
+1. Dans le portail Azure, recherchez et sélectionnez **Azure AD Domain Services**, puis sélectionnez votre domaine managé, par exemple *aaddscontoso.com*.
 1. Dans le menu de gauche du domaine managé, sélectionnez **Approbations**, puis **+ Ajouter** une approbation.
 
    > [!NOTE]
    > Si vous ne voyez pas l’option de menu **Approbations**, vérifiez le **Type de forêt** sous *Propriétés*. Seules les forêts de *ressources* peuvent créer des approbations. Si le type de forêt est *Utilisateur*, vous ne pouvez pas créer de relations d’approbation. Il n’existe actuellement aucun moyen de modifier le type de forêt d’un domaine managé. Vous devez supprimer et recréer le domaine géré comme une forêt de ressources.
 
-1. Entrez un nom d’affichage qui identifie votre approbation, puis le nom DNS de la forêt locale approuvée, par exemple *onprem.contoso.com*
+1. Entrez un nom d’affichage qui identifie votre approbation, puis le nom DNS de la forêt locale approuvée, par exemple *onprem.contoso.com*.
 1. Indiquez le même mot de passe d’approbation que celui utilisé à la section précédente lors de la configuration de l’approbation de forêt entrante pour le domaine AD DS local.
-1. Fournissez au moins deux serveurs DNS pour le domaine AD DS local, par exemple *10.1.1.4* et *10.1.1.5*.
+1. Fournissez au moins deux serveurs DNS pour le domaine AD DS local, par exemple *10.1.1.4* et *10.1.1.5*.
 1. Lorsque vous êtes prêt, **enregistrez** l’approbation de forêt sortante.
 
     ![Créer une approbation de forêt sortante dans le portail Azure](./media/tutorial-create-forest-trust/portal-create-outbound-trust.png)
@@ -181,7 +181,7 @@ Vous devez disposer d’une machine virtuelle Windows Server jointe au domaine m
 1. Dans la boîte de dialogue *Autorisations pour CrossForestShare*, sélectionnez **Ajouter**.
 1. Entrez *FileServerAccess* dans **Entrer les noms des objets à sélectionner**, puis sélectionnez **OK**.
 1. Sélectionnez *FileServerAccess* dans la liste **Noms des groupes ou des utilisateurs**. Dans la liste **Autorisations pour FileServerAccess**, sélectionnez *Autoriser* pour les autorisations **Modifier** et **Écrire**, puis **OK**.
-1. Sélectionnez l’onglet **Partage**, puis **Partage avancé…**
+1. Sélectionnez l’onglet **Partage**, puis **Partage avancé**.
 1. Sélectionnez **Partager ce dossier**, puis entrez un nom de partage de fichiers facile à retenir dans **Nom du partage**, par exemple *CrossForestShare*.
 1. Sélectionnez **Autorisations**. Dans la liste **Autorisations pour tous**, sélectionnez **Autoriser** pour l'autorisation **Modifier**.
 1. Sélectionnez **OK** deux fois, puis **Fermer**.

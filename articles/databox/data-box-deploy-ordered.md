@@ -2,24 +2,24 @@
 title: Tutoriel - Commander Azure Data Box | Microsoft Docs
 description: Ce tutoriel présente Azure Data Box, une solution hybride qui vous permet d’importer des données locales dans Azure, et explique comment commander Azure Data Box.
 services: databox
-author: alkohli
+author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 11/19/2020
+ms.date: 01/13/2021
 ms.author: alkohli
-ms.openlocfilehash: aad6a3ef754b5ba2c65a9b93fbdfcfdc26348487
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: fd165795be85c26cdfcaee3c4fd01427274a7316
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/14/2021
-ms.locfileid: "98186156"
+ms.locfileid: "98210339"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Tutoriel : Commander Azure Data Box
 
-Azure Data Box est une solution hybride qui vous permet d’importer vos données locales dans Azure de manière rapide, simple et fiable. Vous transférez vos données vers un périphérique de stockage de 80 To (capacité utilisable) fourni par Microsoft, puis renvoyez l’appareil. Ces données sont ensuite chargées dans Azure.
+Azure Data Box est une solution hybride qui vous permet d’importer vos données locales dans Azure de manière rapide, simple et fiable. Vous transférez vos données vers un dispositif de stockage de 80 To (capacité utilisable) fourni par Microsoft, puis réexpédiez le dispositif. Ces données sont ensuite chargées dans Azure.
 
-Ce tutoriel explique comment commander une Azure Data Box. Ce tutoriel vous fournira des informations sur :
+Ce tutoriel explique comment commander une Azure Data Box. Ce tutoriel vous fournira des informations sur :  
 
 > [!div class="checklist"]
 >
@@ -245,7 +245,7 @@ Effectuez les étapes suivantes dans le portail Azure pour commander un appareil
     |Resource group    | Groupe de ressources que vous avez sélectionné précédemment. |
     |Nom de la commande d’importation | Indiquez un nom convivial pour suivre la commande. <br> Le nom peut comporter entre 3 et 24 caractères qui peuvent être des lettres, des chiffres et des traits d’union. <br> Il doit commencer et se terminer par une lettre ou un chiffre.    |
 
-    ![Assistant Commande d’importation Data Box, écran De base, avec informations correctes renseignées](media/data-box-deploy-ordered/select-data-box-import-06.png)<!--Generic subscription. Cut note. Box command.-->
+    ![Assistant Commande d’importation Data Box, écran De base, avec informations correctes renseignées](media/data-box-deploy-ordered/select-data-box-import-06.png)
 
 7. Dans l’écran **Destination des données**, sélectionnez la **Destination des données** : soit les comptes de stockage, soit les disques managés.
 
@@ -253,7 +253,11 @@ Effectuez les étapes suivantes dans le portail Azure pour commander un appareil
 
     ![Assistant Commande d’importation Data Box, écran Destination des données, avec comptes de stockage sélectionnés](media/data-box-deploy-ordered/select-data-box-import-07.png)
 
-    Selon la région Azure spécifiée, sélectionnez un ou plusieurs comptes de stockage dans la liste filtrée d’un compte de stockage existant. La Data Box peut être liée à 10 comptes de stockage maximum. Vous pouvez également créer un **compte de stockage blob**, **Usage général v1** ou **Usage général v2**.
+    Selon la région Azure spécifiée, sélectionnez un ou plusieurs comptes de stockage dans la liste filtrée des comptes de stockage existants. La Data Box peut être liée à 10 comptes de stockage maximum. Vous pouvez également créer un **compte de stockage blob**, **Usage général v1** ou **Usage général v2**.
+
+   > [!NOTE]
+   > - Si vous sélectionnez des comptes Azure Premium FileStorage, le quota provisionné sur le partage de compte de stockage augmente jusqu’à la taille des données copiées dans les partages de fichiers. Une fois le quota augmenté, il n’est pas ajusté de nouveau, par exemple si, pour une raison ou une autre, la Data Box ne peut pas copier vos données.
+   > - Ce quota est utilisé pour la facturation. Une fois que vos données sont chargées dans le centre de données, vous devez ajuster le quota pour répondre à vos besoins. Pour plus d’informations, consultez [Présentation de la facturation](../../articles/storage/files/understanding-billing.md).
 
     Les comptes de stockage avec des réseaux virtuels sont pris en charge. Pour autoriser le service Data Box à travailler avec des comptes de stockage sécurisés, activez les services approuvés dans les paramètres de pare-feu réseau du compte de stockage. Pour plus d’informations, découvrez comment [Ajouter Azure Data Box en tant que service approuvé](../storage/common/storage-network-security.md#exceptions).
 
@@ -419,7 +423,7 @@ Effectuez les étapes suivantes l’aide d’Azure CLI pour commander un appare
    |sku| Appareil Data Box spécifique que vous commandez. Les valeurs autorisées sont : « DataBox », « DataBoxDisk » et « DataBoxHeavy »| « DataBox » |
    |email-list| Adresses e-mail associées à la commande.| "gusp@contoso.com" |
    |street-address1| Adresse postale de l’endroit où la commande sera expédiée. | « 15700 NE 39th St » |
-   |street-address2| Informations sur l’adresse secondaire, comme le numéro de l’appartement ou le numéro du bâtiment. | « Bld 123 » |
+   |street-address2| Informations sur l’adresse secondaire, comme le numéro de l’appartement ou le numéro du bâtiment. | « Bâtiment 123 » |
    |city| Ville dans laquelle l’appareil sera expédié. | « Redmond » |
    |state-or-province| État dans lequel l’appareil sera expédié.| « WA » |
    |country| Pays dans lequel l’appareil sera expédié. | « États-Unis » |
@@ -538,7 +542,7 @@ Effectuez les étapes suivantes l’aide d’Azure PowerShell pour commander un 
     |DataBoxType [Obligatoire]| Appareil Data Box spécifique que vous commandez. Les valeurs autorisées sont : « DataBox », « DataBoxDisk » et « DataBoxHeavy »| « DataBox » |
     |EmailId [Obligatoire]| Adresses e-mail associées à la commande.| "gusp@contoso.com" |
     |StreetAddress1 [Obligatoire]| Adresse postale de l’endroit où la commande sera expédiée. | « 15700 NE 39th St » |
-    |StreetAddress2| Informations sur l’adresse secondaire, comme le numéro de l’appartement ou le numéro du bâtiment. | « Bld 123 » |
+    |StreetAddress2| Informations sur l’adresse secondaire, comme le numéro de l’appartement ou le numéro du bâtiment. | « Bâtiment 123 » |
     |StreetAddress3| Troisième information d’adresse. | |
     |City [Obligatoire]| Ville dans laquelle l’appareil sera expédié. | « Redmond » |
     |StateOrProvinceCode [Obligatoire]| État dans lequel l’appareil sera expédié.| « WA » |
@@ -601,7 +605,7 @@ Ensuite, Microsoft prépare et achemine l’appareil via un transporteur région
 
 ### <a name="track-a-single-order"></a>Suivre une commande unique
 
-Pour obtenir des informations de suivi sur une commande Azure Data Box unique existante, exécutez [az databox job show](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-show&preserve-view=true). La commande affiche des informations sur la commande, notamment (liste non exhaustive) : nom, groupe de ressources, informations de suivi, ID d’abonnement, informations de contact, type d’expédition et référence SKU de l’appareil.
+Pour obtenir des informations de suivi sur une commande Azure Data Box unique existante, exécutez [`az databox job show`](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-show&preserve-view=true). La commande affiche des informations sur la commande, notamment (liste non exhaustive) : nom, groupe de ressources, informations de suivi, ID d’abonnement, informations de contact, type d’expédition et référence SKU de l’appareil.
 
    ```azurecli
    az databox job show --resource-group <resource-group> --name <order-name>
@@ -642,7 +646,7 @@ Pour obtenir des informations de suivi sur une commande Azure Data Box unique e
 
 ### <a name="list-all-orders"></a>Lister toutes les commandes
 
-Si vous avez commandé plusieurs appareils, vous pouvez exécuter [az databox job list](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-list&preserve-view=true) pour voir toutes vos commandes Azure Data Box. La commande liste toutes les commandes qui appartiennent à un groupe de ressources spécifique. Également affichés dans la sortie : nom de la commande, état de l’expédition, région Azure, type de livraison, état de la commande. Les commandes annulées sont également incluses dans la liste.
+Si vous avez commandé plusieurs dispositifs, vous pouvez exécuter [`az databox job list`](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-list&preserve-view=true) pour voir toutes vos commandes Azure Data Box. La commande liste toutes les commandes qui appartiennent à un groupe de ressources spécifique. Également affichés dans la sortie : nom de la commande, état de l’expédition, région Azure, type de livraison, état de la commande. Les commandes annulées sont également incluses dans la liste.
 La commande affiche également les horodatages de chaque commande.
 
 ```azurecli
@@ -718,7 +722,7 @@ Pour obtenir des informations de suivi sur une commande Azure Data Box unique e
 
 ### <a name="list-all-orders"></a>Lister toutes les commandes
 
-Si vous avez commandé plusieurs appareils, vous pouvez exécuter [Get-AzDataBoxJob](/powershell/module/az.databox/Get-AzDataBoxJob) pour voir toutes vos commandes Azure Data Box. La commande liste toutes les commandes qui appartiennent à un groupe de ressources spécifique. Également affichés dans la sortie : nom de la commande, état de l’expédition, région Azure, type de livraison, état de la commande. Les commandes annulées sont également incluses dans la liste.
+Si vous avez commandé plusieurs dispositifs, vous pouvez exécuter [`Get-AzDataBoxJob`](/powershell/module/az.databox/Get-AzDataBoxJob) pour voir toutes vos commandes Azure Data Box. La commande liste toutes les commandes qui appartiennent à un groupe de ressources spécifique. Également affichés dans la sortie : nom de la commande, état de l’expédition, région Azure, type de livraison, état de la commande. Les commandes annulées sont également incluses dans la liste.
 La commande affiche également les horodatages de chaque commande.
 
 ```azurepowershell
@@ -761,7 +765,7 @@ Pour supprimer une commande annulée, accédez à **Vue d’ensemble**, puis sé
 
 ### <a name="cancel-an-order"></a>Annuler une commande
 
-Pour annuler une commande Azure Data Box, exécutez [az databox job cancel](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-cancel&preserve-view=true). Vous devez spécifier la raison de l’annulation de la commande.
+Pour annuler une commande Azure Data Box, exécutez [`az databox job cancel`](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-cancel&preserve-view=true). Vous devez spécifier la raison de l’annulation de la commande.
 
    ```azurecli
    az databox job cancel --resource-group <resource-group> --name <order-name> --reason <cancel-description>
@@ -798,7 +802,7 @@ Pour annuler une commande Azure Data Box, exécutez [az databox job cancel](/c
 
 ### <a name="delete-an-order"></a>Supprimer une commande
 
-Si vous avez annulé une commande Azure Data Box, vous pouvez exécuter [az databox job delete](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-delete&preserve-view=true) pour la supprimer.
+Si vous avez annulé une commande Azure Data Box, vous pouvez exécuter [`az databox job delete`](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-delete&preserve-view=true) pour la supprimer.
 
    ```azurecli
    az databox job delete --name [-n] <order-name> --resource-group <resource-group> [--yes] [--verbose]
@@ -871,7 +875,7 @@ PS C:\WINDOWS\system32>
 
 ### <a name="delete-an-order"></a>Supprimer une commande
 
-Si vous avez annulé une commande Azure Data Box, vous pouvez exécuter [Remove-AzDataBoxJob](/powershell/module/az.databox/remove-azdataboxjob) pour la supprimer.
+Si vous avez annulé une commande Azure Data Box, vous pouvez exécuter [`Remove-AzDataBoxJob`](/powershell/module/az.databox/remove-azdataboxjob) pour la supprimer.
 
 ```azurepowershell
 Remove-AzDataBoxJob -Name <String> -ResourceGroup <String>

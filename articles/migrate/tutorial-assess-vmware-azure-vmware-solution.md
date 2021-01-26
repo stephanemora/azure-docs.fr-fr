@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: MVC
-ms.openlocfilehash: f6d3c6f77b062939a88e7277cb7f0ab6ecff9fcb
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: e57084dab00210802edbd46e3380313e034eb036
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753074"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98566790"
 ---
 # <a name="tutorial-assess-vmware-vms-for-migration-to-avs"></a>Tutoriel : Évaluer les machines virtuelles VMware pour les migrer vers AVS
 
@@ -58,58 +58,63 @@ Exécutez une évaluation comme suit :
 
    ![Emplacement du bouton Évaluer et migrer des serveurs](./media/tutorial-assess-vmware-azure-vmware-solution/assess.png)
 
-2. Dans **Azure Migrate : Server Assessment**, cliquez sur **Évaluer**.
+1. Dans **Azure Migrate : Server Assessment**, cliquez sur **Évaluer**.
 
-3. Dans **Évaluer les serveurs** > **Type d’évaluation**, sélectionnez **Azure VMware Solution (AVS) (préversion)** .
-4. Dans **Source de découverte** :
+1. Dans **Évaluer les serveurs** > **Type d’évaluation**, sélectionnez **Azure VMware Solution (AVS) (préversion)** .
+
+1. Dans **Source de découverte** :
 
     - Si vous avez découvert des ordinateurs à l’aide de l’appliance, sélectionnez **Machines découvertes par l’appliance Azure Migrate**.
     - Si vous avez découvert des ordinateurs à l’aide d’un fichier CSV importé, sélectionnez **Machines importées**. 
     
-5. Spécifiez un nom pour l’évaluation. 
-6. Cliquez sur **Tout afficher** pour passer en revue les propriétés de l’évaluation.
+1. Cliquez sur **Modifier** pour examiner les propriétés d’évaluation.
 
-    ![Page de sélection des paramètres d’évaluation](./media/tutorial-assess-vmware-azure-vmware-solution/assess-servers.png)
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/assess-servers.png" alt-text="Page de sélection des paramètres d’évaluation":::
+ 
 
-
-7. Dans **Propriétés d’évaluation** > **Propriétés de la cible** :
+1. Dans **Propriétés d’évaluation** > **Propriétés de la cible** :
 
     - Dans **Emplacement cible**, sélectionnez la région Azure vers laquelle vous souhaitez effectuer la migration.
        - Les recommandations concernant la taille et le coût sont basées sur l’emplacement que vous spécifiez.
-       - Vous pouvez effectuer une évaluation pour trois régions (USA Est, USA Ouest, Europe Ouest).
-   - Dans **Type de stockage**, gardez **vSAN**. Il s’agit du type de stockage par défaut pour un cloud privé AVS.
+       - Actuellement, vous pouvez effectuer une évaluation pour quatre régions (Australie Est, USA Est, Europe Ouest, USA Ouest).
+   - Le **type de stockage** est défini par défaut sur **vSAN**. Il s’agit du type de stockage par défaut pour un cloud privé AVS.
    - Les **instances réservées** ne sont pas prises en charge pour les nœuds AVS.
-8. Dans **Taille de la machine virtuelle** :
-    - Dans **Type de nœud**, sélectionnez un type de nœud en fonction des charges de travail qui sont exécutées sur les machines virtuelles locales.
-        - Azure Migrate recommande le type des nœuds nécessaires à la migration des machines virtuelles vers AVS.
-        - Le type de nœud par défaut est AV36.
-    - **Paramètre Échecs à tolérer - Niveau RAID** : sélectionnez une combinaison de valeurs Échecs à tolérer - RAID.  L’option Échecs à tolérer sélectionnée associée à la configuration de disque de machine virtuelle locale détermine le stockage vSAN total nécessaire dans AVS.
+1. Dans **Taille de la machine virtuelle** :
+    - Le **type de nœud** est défini par défaut sur **AV36**. Azure Migrate recommande le type des nœuds nécessaires à la migration des machines virtuelles vers AVS.
+    - Dans **Paramètre FTT, niveau RAID**, sélectionnez une combinaison de valeurs Échecs à tolérer et RAID.  L’option Échecs à tolérer sélectionnée associée à la configuration de disque de machine virtuelle locale détermine le stockage vSAN total nécessaire dans AVS.
     - Dans **Surabonnement pour les processeurs** , spécifiez combien de cœurs virtuels doivent être associés à un même cœur physique dans le nœud AVS. Un surabonnement supérieur à 4:1 peut entraîner une dégradation des performances. Toutefois, il peut être utilisé pour les charges de travail de type serveur web.
 
-9. Dans **Taille du nœud** : 
+1. Dans **Taille du nœud** : 
     - Dans **Critère de dimensionnement**, indiquez si vous souhaitez baser l’évaluation sur les métadonnées statiques ou sur les données de performances. Si vous utilisez des données de performances :
         - Dans **Historique des performances**, indiquez la période de données sur laquelle vous souhaitez baser l’évaluation.
         - Dans **Utilisation en centile**, spécifiez la valeur de centile que vous souhaitez utiliser pour l’échantillon de performances. 
     - Dans **Facteur de confort**, indiquez la mémoire tampon que vous souhaitez utiliser lors de l’évaluation. Celle-ci prend en compte les problèmes, tels que l’utilisation saisonnière, l’historique des performances de courte durée et l’augmentation probable de l’utilisation. Par exemple, si vous utilisez un facteur de confort de 2 :
     
         **Composant** | **Utilisation efficace** | **Ajouter un facteur de confort (2.0)**
-        --- | --- | ---  
-        Cœurs | 2 | 4
-        Mémoire | 8 Go | 16 Go     
+        --- | --- | ---
+        Cœurs | 2  | 4
+        Mémoire | 8 Go | 16 Go  
 
-10. Dans **Tarifs** :
+1. Dans **Tarifs** :
     - Dans **Offre**, l’[offre Azure](https://azure.microsoft.com/support/legal/offer-details/) à laquelle vous êtes abonné affiche les estimations de coûts Server Assessment.
     - Dans **Devise**, sélectionnez la devise de facturation de votre compte.
     - Dans **Remise (%)** , ajoutez les remises applicables à votre abonnement que vous recevez en plus de l’offre Azure. Le paramètre par défaut est 0 %.
 
-11. Si vous avez apporté des modifications, cliquez sur **Enregistrer**.
+1. Si vous avez apporté des modifications, cliquez sur **Enregistrer**.
 
-    ![Propriétés de l’évaluation](./media/tutorial-assess-vmware-azure-vmware-solution/view-all.png)
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/avs-view-all.png" alt-text="Propriétés de l’évaluation":::
 
-12. Dans **Évaluer les serveurs**, cliquez sur **Suivant**.
-13. Dans **Évaluer les serveurs** > **Sélectionner les machines à évaluer**, pour créer un groupe de serveurs à des fins d’évaluation, sélectionnez **Créer**, puis spécifiez un nom de groupe. 
-14. Sélectionnez l’appliance, puis sélectionnez les machines virtuelles que vous souhaitez ajouter au groupe. Cliquez ensuite sur **Suivant**.
-15. Dans **Vérifier + créer l’évaluation**, passez en revue les détails de l’évaluation, puis cliquez sur **Créer une évaluation** pour créer le groupe et lancer l’évaluation.
+1. Dans **Évaluer les serveurs**, cliquez sur **Suivant**.
+
+1. Dans **Sélectionner les machines à évaluer** > **Nom de l’évaluation**, spécifiez un nom pour l’évaluation. 
+ 
+1. Dans **Sélectionner ou créer un groupe**, sélectionnez **Créer**, puis spécifiez un nom de groupe. 
+    
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/assess-group.png" alt-text="Ajouter des machines virtuelles à un groupe":::
+ 
+1. Sélectionnez l’appliance, puis sélectionnez les machines virtuelles que vous souhaitez ajouter au groupe. Cliquez ensuite sur **Suivant**.
+
+1. Dans **Vérifier + créer l’évaluation**, passez en revue les détails de l’évaluation, puis cliquez sur **Créer une évaluation** pour créer le groupe et lancer l’évaluation.
 
     > [!NOTE]
     > Pour les évaluations basées sur les performances, nous vous recommandons d’attendre au moins un jour après le démarrage de la découverte pour créer l’évaluation. Cela permet de collecter des données de performances avec un plus haut niveau de confiance. Dans l’idéal, une fois que vous avez démarré la découverte, vous devriez attendre la période de performances que vous avez spécifiée (jour/semaine/mois) afin d’obtenir un haut niveau de confiance.
@@ -121,6 +126,8 @@ Une évaluation AVS décrit les éléments suivants :
 - Préparation AVS : Si les machines virtuelles locales sont adaptées à la migration vers Azure VMware Solution (AVS).
 - Nombre de nœuds AVS: Estimation du nombre de nœuds AVS requis pour exécuter les machines virtuelles.
 - Utilisation des nœuds AVS: Utilisation estimée du processeur, de la mémoire et du stockage sur tous les nœuds.
+    - L’utilisation comprend la factorisation initiale dans le cadre des opérations de gestion de cluster suivantes, par exemple vCenter Server, NSX Manager (grand), NSX Edge,HCX Manager (si HCX est déployé) et l’appliance IX, qui consomment environ 44 processeurs virtuels (11 processeurs), 75 Go de RAM et 722 Go de stockage avant compression et déduplication. 
+    - La mémoire, la déduplication et la compression sont actuellement définies ainsi : 100 % d’utilisation pour la mémoire, un rapport de déduplication de 1,5 et une compression qui constituera dans les prochaines versions une entrée définie par l’utilisateur. Ce dernier pourra de cette manière ajuster le dimensionnement qu’il souhaite.
 - Estimation des coûts mensuels : Les coûts mensuels estimés pour tous les nœuds Azure VMware Solution (AVS) exécutant les machines virtuelles locales.
 
 ## <a name="view-an-assessment"></a>Voir une évaluation
@@ -128,8 +135,12 @@ Une évaluation AVS décrit les éléments suivants :
 Pour voir une évaluation :
 
 1. Dans **Serveurs** > **Azure Migrate : évaluation de serveur**, cliquez sur le nombre à côté de **Évaluations**.
-2. Dans **Évaluations**, sélectionnez une évaluation pour l’ouvrir. 
-3. Passez en revue le récapitulatif de l’évaluation. Vous pouvez également modifier les propriétés de l’évaluation ou recalculer celle-ci.
+
+1. Dans **Évaluations**, sélectionnez une évaluation pour l’ouvrir. Voici un exemple (estimations et coûts, à titre d’exemple uniquement) : 
+
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/avs-assessment-summary.png" alt-text="Récapitulatif de l’évaluation AVS":::
+
+1. Passez en revue le récapitulatif de l’évaluation. Vous pouvez également modifier les propriétés de l’évaluation ou recalculer celle-ci.
  
 
 ### <a name="review-readiness"></a>Vérifier la préparation nécessaire

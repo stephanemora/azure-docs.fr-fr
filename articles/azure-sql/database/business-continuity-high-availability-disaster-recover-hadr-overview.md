@@ -13,12 +13,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 06/25/2019
-ms.openlocfilehash: eedc3dc1422d4eb6dcce80766077e8056f8509cf
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 7bd991bd709bb4be69325afe967d7e5600a9e1a4
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92678039"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222562"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Vue d’ensemble de la continuité de l’activité avec la base de données Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -48,10 +48,10 @@ SQL Database et SQL Managed Instance fournissent également plusieurs fonctionna
 
 - Les [tables temporelles](../temporal-tables.md) vous permettent de restaurer des versions de ligne à partir de n’importe quel point dans le temps.
 - Les [sauvegardes automatisées intégrées](automated-backups-overview.md) et la [limite de restauration dans le temps](recovery-using-backups.md#point-in-time-restore) vous permettent de restaurer l’ensemble de la base de données selon un moment donné au cours de la période de rétention configurée jusqu’à 35 jours.
-- Vous pouvez [restaurer une base de données supprimée](recovery-using-backups.md#deleted-database-restore) au point où sa suppression s’est produite si le **serveur n’a pas été supprimé** .
+- Vous pouvez [restaurer une base de données supprimée](recovery-using-backups.md#deleted-database-restore) au point où sa suppression s’est produite si le **serveur n’a pas été supprimé**.
 - La [rétention des sauvegardes à long terme](long-term-retention-overview.md) vous permet de conserver les sauvegardes sur une période allant jusqu’à 10 ans. Cette fonctionnalité est en préversion publique limitée pour SQL Managed Instance.
 - La [géoréplication active](active-geo-replication-overview.md) vous permet de créer des réplicas lisibles et d’effectuer un basculement manuel vers n’importe quel réplica en cas de panne de centre de données ou de mise à niveau d’application.
-- Le [groupe de basculement automatique](auto-failover-group-overview.md#terminology-and-capabilities) permet à l’application d’effectuer automatiquement une récupération en cas de panne de centre de données.
+- Le [groupe de basculement automatique](auto-failover-group-overview.md#terminology-and-capabilities) permet à l’application de récupérer automatiquement en cas de panne de centre de données.
 
 ## <a name="recover-a-database-within-the-same-azure-region"></a>Récupérer une base de données dans la même région Azure
 

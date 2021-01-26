@@ -5,7 +5,7 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: daveba
-ms.date: 12/03/2020
+ms.date: 01/14/2020
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: enterprise-users
@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e940c6eb2710ea43e756e4ea7956a39df9e0ce8
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: bf2d0d3335468147575eb53a99940866baa18375
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575548"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222519"
 ---
 # <a name="restrict-guest-access-permissions-preview-in-azure-active-directory"></a>Restriction des autorisations d’accès invité (préversion) dans Azure Active Directory
 
@@ -139,14 +139,15 @@ PS C:\WINDOWS\system32> Set-AzureADMSAuthorizationPolicy -GuestUserRoleId '2af84
 - Teams
 - Outlook (OWA)
 - SharePoint
+- Planificateur dans Teams
+- Application web Planner
 
 ### <a name="services-currently-not-supported"></a>Services non pris en charge actuellement
 
 Le service non pris en charge actuellement risquent de présenter des problèmes de compatibilité avec le nouveau paramètre de restriction invité.
 
 - Formulaires
-- Planificateur dans Teams
-- Application Planificateur
+- Application mobile Planner
 - Project
 - Yammer
 
@@ -158,7 +159,7 @@ Où ces autorisations s’appliquent-elles ? | Ces autorisations au niveau des 
 Comment les autorisations restreintes affectent-elles les groupes que les invités peuvent voir ? | Quelles que soient les autorisations d’invité par défaut ou restreintes, les invités ne peuvent pas énumérer la liste des groupes ni des utilisateurs. Les invités peuvent voir les groupes dont ils sont membres dans le portail Azure et le portail Mes applications en fonction des autorisations :<li>**Autorisations par défaut** : Pour rechercher les groupes dont ils sont membres dans le portail Azure, l’invité doit rechercher son ID d’objet dans la liste **Tous les utilisateurs**, puis sélectionner **Groupes**. Ici, ils peuvent voir la liste des groupes dont ils sont membres, y compris tous les détails des groupes, notamment le nom, l’adresse e-mail, etc. Dans le portail Mes applications, ils peuvent voir la liste des groupes dont ils sont propriétaires et la liste des groupes dont ils sont membres.</li><li>**Autorisations d’invité par défaut** : Dans le portail Azure, ils peuvent encore rechercher la liste des groupes dont ils sont membres en recherchant leur ID d’objet dans la liste Tous les utilisateurs, puis en sélectionnant Groupes. Ils peuvent uniquement voir des détails très limités sur le groupe, notamment l’ID d’objet. Par défaut, les colonnes Nom et Adresse e-mail sont vides et le type de groupe n’est pas reconnu. Dans le portail Mes applications, ils ne peuvent pas accéder à la liste des groupes dont ils sont propriétaires ni à la liste des groupes dont ils sont membres.</li><br>Pour une comparaison plus détaillée des autorisations de répertoire qui proviennent de l’API Graph, consultez [Autorisations utilisateur par défaut](../fundamentals/users-default-permissions.md#member-and-guest-users).
 Quelles sont les parties du portail Mes applications affectées par cette fonctionnalité ? | La fonctionnalité de groupes du portail Mes applications tient compte de ces nouvelles autorisations. Cela comprend tous les chemins pour afficher la liste des groupes et les appartenances aux groupes dans Mes applications. Aucune modification n’a été apportée à la disponibilité des vignettes de groupe. La disponibilité des vignettes de groupe est toujours contrôlée par le paramètre de groupe existant dans le portail Azure.
 Ces autorisations remplacent-elles les paramètres invités SharePoint ou Microsoft Teams ? | Non. Ces paramètres existants contrôlent toujours l’expérience et l’accès dans ces applications. Si, par exemple, vous constatez des problèmes dans SharePoint, vérifiez vos paramètres de partage externe.
-Quels sont les problèmes de compatibilité connus dans le Planificateur et Yammer ? | <li>Si les autorisations sont définies sur « restreint », les invités qui sont connectés à l’application Planificateur ou accèdent au Planificateur dans Microsoft Teams n’ont pas accès à leurs plans ni à aucune tâche.<li>Lorsque les autorisations sont définies sur « restreint », les invités connectés à Yammer ne peuvent pas sortir du groupe.
+Quels sont les problèmes de compatibilité connus dans le Planificateur et Yammer ? | <li>Si les autorisations sont définies sur « restreint », les invités qui sont connectés à l’application mobile Planner n’ont pas accès à leurs plans ni à aucune tâche.<li>Lorsque les autorisations sont définies sur « restreint », les invités connectés à Yammer ne peuvent pas quitter le groupe.
 Mes autorisations invité existantes seront-elles modifiées dans mon locataire ? | Aucune modification n’a été apportée à vos paramètres actuels. Nous maintenons une compatibilité descendante avec vos paramètres existants. Vous décidez quand vous souhaitez apporter des modifications.
 Ces autorisations seront-elles définies par défaut ? | Non. Les autorisations par défaut existantes restent inchangées. Vous pouvez si vous le souhaitez les définir de manière plus restrictive.
 Cette fonctionnalité est-elle soumise à des conditions de licence ? | Non, il n’existe aucune nouvelle exigence de licence associée à cette fonctionnalité.

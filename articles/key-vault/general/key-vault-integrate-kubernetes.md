@@ -7,12 +7,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/25/2020
-ms.openlocfilehash: f0699ed065da4c63bc88945d75a866abcfbb9053
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: f4981036ca92f6efe2d3e23ea1f507a3a1f3c70a
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121360"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234254"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>Tutoriel : Configurer et exécuter le fournisseur Azure Key Vault pour le pilote CSI du magasin des secrets sur Kubernetes
 
@@ -37,6 +37,8 @@ Dans ce tutoriel, vous allez apprendre à :
 * Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 * Avant de commencer ce tutoriel, installez l’[interface de ligne de commande Azure](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
+
+Ce tutoriel suppose que vous exécutez Azure Kubernetes Service sur des nœuds Linux.
 
 ## <a name="use-managed-identities"></a>Utiliser des identités managées
 
@@ -77,6 +79,8 @@ Suivez les instructions des sections « Créer un groupe de ressources », «�
     ![Capture d’écran d’Azure CLI avec les valeurs de principalId et clientId mises en évidence](../media/kubernetes-key-vault-2.png) ![Capture d’écran d’Azure CLI avec les valeurs de subscriptionId et nodeResourceGroup mises en évidence](../media/kubernetes-key-vault-3.png)
     
 ## <a name="install-helm-and-the-secrets-store-csi-driver"></a>Installer Helm et le pilote CSI du magasin des secrets
+> [!NOTE]
+> L’installation ci-dessous fonctionne uniquement sur AKS sur Linux. Pour plus d’informations sur l’installation du pilote CSI du magasin des secrets, consultez [Fournisseur Azure Key Vault pour le pilote CSI du magasin des secrets](https://github.com/Azure/secrets-store-csi-driver-provider-azure). 
 
 Pour installer le pilote CSI du magasin des secrets, vous devez d’abord installer [Helm](https://helm.sh/docs/intro/install/).
 

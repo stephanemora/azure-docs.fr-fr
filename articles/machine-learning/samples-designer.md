@@ -10,12 +10,12 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/14/2020
 ms.custom: designer
-ms.openlocfilehash: a27e18d9b6f6307f1cc8ed48ca897dd4d1f0f1f3
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 4d594115139321c8a4ad2b3aa6b065474bd426fa
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555496"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98556169"
 ---
 # <a name="example-pipelines--datasets-for-azure-machine-learning-designer"></a>Exemples de jeux de données et de pipelines pour le concepteur Azure Machine Learning
 
@@ -72,7 +72,7 @@ Explorez ces exemples de régression intégrés.
 
 ## <a name="classification"></a>classification ;
 
-Explorez ces exemples de classification intégrés. Pour plus d’information sur ces exemples sans passer par les liens de la documentation, ouvrez les exemples et affichez les commentaires des modules.
+Explorez ces exemples de classification intégrés. Vous pouvez en apprendre davantage sur ces exemples en les ouvrant et en consultant les commentaires des modules dans le concepteur.
 
 | Exemple de titre | Description | 
 | --- | --- |
@@ -84,13 +84,15 @@ Explorez ces exemples de classification intégrés. Pour plus d’information su
 
 ## <a name="computer-vision"></a>Vision par ordinateur
 
-Explorez ces exemples de vision par ordinateur intégrée. Pour plus d’information sur ces exemples sans passer par les liens de la documentation, ouvrez les exemples et affichez les commentaires des modules.
+Explorez ces exemples de vision par ordinateur intégrée. Vous pouvez en apprendre davantage sur ces exemples en les ouvrant et en consultant les commentaires des modules dans le concepteur.
 
-| Classification d’images à l’aide de DenseNet | Utilisez les modules de vision par ordinateur pour générer un modèle de classification d’images basé sur PyTorch DenseNet.| 
+| Exemple de titre | Description | 
+| --- | --- |
+| Classification d’images à l’aide de DenseNet | Utilisez les modules Vision par ordinateur pour créer un modèle de classification d’image basé sur PyTorch DenseNet.| 
 
 ## <a name="recommender"></a>Générateur de recommandations
 
-Explorez ces exemples de générateur de recommandations intégrés. Pour plus d’information sur ces exemples sans passer par les liens de la documentation, ouvrez les exemples et affichez les commentaires des modules.
+Explorez ces exemples de générateur de recommandations intégrés. Vous pouvez en apprendre davantage sur ces exemples en les ouvrant et en consultant les commentaires des modules dans le concepteur.
 
 | Exemple de titre | Description | 
 | --- | --- |
@@ -99,7 +101,7 @@ Explorez ces exemples de générateur de recommandations intégrés. Pour plus d
 
 ## <a name="utility"></a>Utilitaire
 
-Découvrez les exemples qui montrent les utilitaires et les caractéristiques de Machine Learning. Pour plus d’information sur ces exemples sans passer par les liens de la documentation, ouvrez les exemples et affichez les commentaires des modules.
+Découvrez les exemples qui montrent les utilitaires et les caractéristiques de Machine Learning. Vous pouvez en apprendre davantage sur ces exemples en les ouvrant et en consultant les commentaires des modules dans le concepteur.
 
 | Exemple de titre | Description | 
 | --- | --- |

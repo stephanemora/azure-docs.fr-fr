@@ -3,12 +3,12 @@ title: Nouveautés de Sauvegarde Azure
 description: En savoir plus sur les nouvelles fonctionnalités de Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 11/11/2020
-ms.openlocfilehash: ba29ddea5d5f096640f2bfc012c44ab06bb3e131
-ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
+ms.openlocfilehash: 62a6146990863c339917777b2624fee76ebe60d8
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96309662"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98569417"
 ---
 # <a name="whats-new-in-azure-backup"></a>Nouveautés de Sauvegarde Azure
 
@@ -18,6 +18,9 @@ Pour en savoir plus sur les nouvelles versions, vous pouvez créer un signet sur
 
 ## <a name="updates-summary"></a>Résumé des mises à jour
 
+- Janvier 2021
+  - [Sauvegarde de disque Azure (en préversion)](disk-backup-overview.md)
+  - [Chiffrement au repos à l’aide de clés gérées par le client désormais généralement disponible](encryption-at-rest-with-cmk.md)
 - Novembre 2020
   - [Modèle Azure Resource Manager pour une sauvegarde de partage de fichiers Azure (AFS)](#azure-resource-manager-template-for-afs-backup)
   - [Sauvegardes incrémentielles pour les bases de données SAP HANA sur des machines virtuelles Azure](#incremental-backups-for-sap-hana-databases)
@@ -31,6 +34,18 @@ Pour en savoir plus sur les nouvelles versions, vous pouvez créer un signet sur
   - [Sauvegarde SAP HANA dans des machines virtuelles RHEL Azure](#backup-sap-hana-in-rhel-azure-virtual-machines)
   - [Stockage redondant interzone (ZRS) pour les données de sauvegarde](#zone-redundant-storage-zrs-for-backup-data)
   - [Suppression réversible pour les charges de travail SQL Server et SAP HANA dans les machines virtuelles Azure](#soft-delete-for-sql-server-and-sap-hana-workloads)
+
+## <a name="azure-disk-backup-in-preview"></a>Sauvegarde de disque Azure (en préversion)
+
+La sauvegarde de disques Azure offre une solution clé en main qui fournit une gestion du cycle de vie des instantanés pour les [disques managés Azure](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview) en automatisant la création périodique d’instantanés et en les conservant pour une durée configurée à l’aide d’une stratégie de sauvegarde. Vous pouvez gérer les instantanés des disques sans aucun coût d’infrastructure et sans avoir recours à aucun script personnalisé ni aucune surcharge de gestion. Il s’agit d’une solution de sauvegarde avec cohérence en cas d’incident qui effectue une sauvegarde ponctuelle d’un disque managé au moyen d’[instantanés incrémentiels](https://docs.microsoft.com/azure/virtual-machines/windows/disks-incremental-snapshots) avec une prise en charge de plusieurs sauvegardes par jour. Il s’agit également d’une solution sans agent qui n’a pas d’impact sur les performances des applications de production. Elle prend en charge la sauvegarde et la restauration des disques du système d’exploitation et des données (y compris des disques partagés), qu’ils soient ou non actuellement attachés à une machine virtuelle Azure en cours d’exécution.
+
+Pour plus d’informations, consultez [Sauvegarde de disque Azure (en préversion)](disk-backup-overview.md).
+
+## <a name="encryption-at-rest-using-customer-managed-keys"></a>Chiffrement au repos à l’aide de clés gérées par le client
+
+La prise en charge du chiffrement au repos à l’aide de clés gérées par le client est désormais généralement disponible. Vous avez ainsi la possibilité de chiffrer les données de sauvegarde dans vos coffres Recovery Services à l’aide de vos propres clés stockées dans des coffres de clés Azure. La clé de chiffrement utilisée pour le chiffrement des sauvegardes dans le coffre Recovery Services peut être différente de celle utilisée pour le chiffrement de la source. Les données sont protégées à l’aide d’une clé de chiffrement des données basée sur l’algorithme AES 256, qui est à son tour protégée à l’aide de vos clés stockées dans le Key Vault. Par rapport au chiffrement à l’aide de clés gérées par la plateforme (qui est disponible par défaut), cela vous offre davantage de contrôle sur vos clés et peut vous aider à mieux répondre à vos besoins en matière de conformité.
+
+Pour plus d’informations, consultez [Chiffrement des données de sauvegarde à l’aide de clés gérées par le client](encryption-at-rest-with-cmk.md).
 
 ## <a name="azure-resource-manager-template-for-afs-backup"></a>Modèle Azure Resource Manager pour une sauvegarde AFS
 

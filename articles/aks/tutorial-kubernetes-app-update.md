@@ -3,14 +3,14 @@ title: Didacticiel Kubernetes sur Azure - Mettre à jour une application
 description: Dans le cadre de ce didacticiel Azure Kubernetes Service (AKS), vous allez apprendre à mettre à jour un déploiement d’application existant vers ACS avec une nouvelle version du code d’application.
 services: container-service
 ms.topic: tutorial
-ms.date: 09/30/2020
-ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: c8401a81a36d86b871df9fc428c393007b97c400
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.date: 01/12/2021
+ms.custom: mvc
+ms.openlocfilehash: b969e3ec1c670c0a12129289c8ff7eb81df51ff9
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94833909"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250653"
 ---
 # <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>Didacticiel : mettre à jour une application dans Azure Kubernetes Service (AKS)
 
@@ -64,7 +64,7 @@ docker-compose up --build -d
 
 Pour vous assurer que l’image conteneur mise à jour intègre vos modifications, ouvrez un navigateur web local et accédez à l’adresse `http://localhost:8080`.
 
-:::image type="content" source="media/container-service-kubernetes-tutorials/vote-app-updated.png" alt-text="Capture d’écran montrant un exemple d’image conteneur mise à jour - Application de vote Azure ouverte avec un navigateur web local et un hôte local.":::
+:::image type="content" source="media/container-service-kubernetes-tutorials/vote-app-updated.png" alt-text="Capture d’écran montrant un exemple de l’image conteneur mise à jour Application de vote Azure ouverte localement dans un navigateur web local":::
 
 Les valeurs mises à jour fournies dans le fichier *config_file.cfg* s’affichent dans votre application en cours d’exécution.
 
@@ -143,9 +143,9 @@ Pour visualiser l’application mise à jour, commencez par obtenir l’adresse 
 kubectl get service azure-vote-front
 ```
 
-À présent, ouvrez un navigateur web local et accédez à l’adresse IP de votre service :
+À présent, ouvrez un navigateur web à l’adresse IP de votre service :
 
-:::image type="content" source="media/container-service-kubernetes-tutorials/vote-app-updated-external.png" alt-text="Capture d’écran montrant un exemple de l’application mise à jour - Application de vote Azure ouverte dans un navigateur web local.":::
+:::image type="content" source="media/container-service-kubernetes-tutorials/vote-app-updated-external.png" alt-text="Capture d’écran montrant un exemple de l’image actualisée Application de vote Azure en cours d’exécution dans un cluster AKS ouvert dans un navigateur web local.":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

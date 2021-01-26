@@ -13,12 +13,12 @@ ms.date: 11/26/2019
 ms.author: hahamil
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 1282c27378e6a088a600a3ab3105f3f548984d03
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 7bdb36566d7c501dc5ca5604f8c6963258aa951c
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063142"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208537"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-application"></a>Tutoriel : Connecter des utilisateurs et appeler l’API Microsoft Graph à partir d’une application Android
 
@@ -57,8 +57,7 @@ Cet exemple utilise la bibliothèque d’authentification Microsoft pour Android
 
 MSAL renouvelle automatiquement les jetons, fournit une authentification unique (SSO) entre les autres applications de l’appareil et gère les comptes.
 
-> [!NOTE]
-> Ce tutoriel présente des exemples simplifiés montrant comment utiliser MSAL pour Android. Par souci de simplicité, il utilise uniquement le mode monocompte. Pour explorer des scénarios plus complexes, consultez cet [exemple de code fonctionnel](https://github.com/Azure-Samples/ms-identity-android-java/) complet sur GitHub.
+Ce tutoriel présente des exemples simplifiés montrant comment utiliser MSAL pour Android. Par souci de simplicité, il utilise uniquement le mode monocompte. Pour explorer des scénarios plus complexes, consultez cet [exemple de code fonctionnel](https://github.com/Azure-Samples/ms-identity-android-java/) complet sur GitHub.
 
 ## <a name="create-a-project"></a>Création d’un projet
 Si vous n’avez pas encore d’application Android, effectuez les étapes suivantes pour configurer un nouveau projet.
@@ -85,8 +84,8 @@ Si vous n’avez pas encore d’application Android, effectuez les étapes suiva
 1. Entrez le nom du package de votre projet. Si vous avez téléchargé le code, cette valeur est `com.azuresamples.msalandroidapp`.
 1. Dans la section **Hachage de signature** de la page **Configurer votre application Android**, sélectionnez **Création d’un hachage de signature de développement**. et copiez la commande KeyTool à utiliser pour votre plateforme.
 
-   > [!Note]
-   > Keytool.exe est installé en même temps que le kit de développement Java (JDK). Vous devez également installer l’outil OpenSSL pour exécuter la commande KeyTool. Pour plus d’informations, reportez-vous à la [documentation Android sur la génération d’une clé](https://developer.android.com/studio/publish/app-signing#generate-key).
+
+     Keytool.exe est installé en même temps que le kit de développement Java (JDK). Vous devez également installer l’outil OpenSSL pour exécuter la commande KeyTool. Pour plus d’informations, reportez-vous à la [documentation Android sur la génération d’une clé](https://developer.android.com/studio/publish/app-signing#generate-key).
 
 1. Entrez le **Hachage de signature** généré par KeyTool.
 1. Sélectionnez **Configurer** et enregistrez la **Configuration MSAL** qui apparaît dans la page **Configuration Android** pour pouvoir l’entrer plus tard quand vous devrez configurer votre application.  
@@ -122,8 +121,7 @@ Si vous n’avez pas encore d’application Android, effectuez les étapes suiva
     }
    ```
 
-   >[!NOTE]
-   >Ce tutoriel montre uniquement comment configurer une application en mode monocompte. Consultez la documentation pour plus d’informations sur le [mode monocompte ou multicompte](./single-multi-account.md) et la [configuration de votre application](./msal-configuration.md).
+     Ce tutoriel montre uniquement comment configurer une application en mode monocompte. Consultez la documentation pour plus d’informations sur le [mode monocompte ou multicompte](./single-multi-account.md) et la [configuration de votre application](./msal-configuration.md).
 
 4. Dans **app** > **src** > **main** > **AndroidManifest.xml**, ajoutez l’activité `BrowserTabActivity` ci-dessous au corps de l’application. Cette entrée permet à Microsoft de rappeler votre application une fois l’authentification terminée :
 
@@ -144,8 +142,11 @@ Si vous n’avez pas encore d’application Android, effectuez les étapes suiva
 
     Remplacez le nom de package que vous avez inscrit dans le portail Azure pour la valeur `android:host=`.
     Remplacez le hachage de clé que vous avez inscrit dans le portail Azure pour la valeur `android:path=`. Le hachage de signature **ne doit pas** être encodé en tant qu’URL. Assurez-vous de la présence d’un caractère `/` de début dans votre hachage de signature.
-    >[!NOTE]
-    >Le « nom du package » avec lequel vous remplacerez la valeur `android:host` doit ressembler à ce qui suit : « com.azuresamples.msalandroidapp ». Le « hachage de signature » avec lequel vous remplacerez votre valeur `android:path` doit ressembler à : « /1wIqXSqBj7w+h11ZifsnqwgyKrY= ». Vous pourrez également trouver ces valeurs dans le panneau Authentification de l’inscription de votre application. Notez que votre URI de redirection ressemblera à : « msauth://com.azuresamples.msalandroidapp/1wIqXSqBj7w%2Bh11ZifsnqwgyKrY%3D ». Le hachage de signature est encodé avec une URL à la fin de cette valeur, mais le hachage de signature **ne doit pas** être encodé avec une URL dans votre valeur `android:path`.
+    
+    Le « nom du package » par lequel vous remplacez la valeur `android:host` doit ressembler à ceci : « com.azuresamples.msalandroidapp ».
+    Le code de « hachage de signature » par lequel vous remplacez votre valeur `android:path` doit ressembler à ce qui suit : « /1wIqXSqBj7w+h11ZifsnqwgyKrY= ».
+    
+    Vous pouvez également trouver ces valeurs dans le panneau Authentification de l’inscription de votre application. Notez que votre URI de redirection ressemblera à : « msauth://com.azuresamples.msalandroidapp/1wIqXSqBj7w%2Bh11ZifsnqwgyKrY%3D ». Le hachage de signature est encodé avec une URL à la fin de cette valeur, mais le hachage de signature **ne doit pas** être encodé avec une URL dans votre valeur `android:path`.
 
 ## <a name="use-msal"></a>Utiliser MSAL
 

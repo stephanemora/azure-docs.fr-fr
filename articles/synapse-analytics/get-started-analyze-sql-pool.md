@@ -9,13 +9,13 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
-ms.date: 11/17/2020
-ms.openlocfilehash: 9014469ca063ca52be0965ecbd4e8b21709d10a0
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.date: 12/31/2020
+ms.openlocfilehash: 683da659dcfa07c0a105382f4cc93d1f4dfb21b5
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96455161"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219531"
 ---
 # <a name="analyze-data-with-dedicated-sql-pools"></a>Analyser des données avec des pools SQL dédiés
 
@@ -23,8 +23,8 @@ Azure Synapse Analytics vous offre la possibilité d’analyser les données ave
 
 ## <a name="load-the-nyc-taxi-data-into-sqlpool1"></a>Charger les données NYC Taxi dans SQLPOOL1
 
-1. Dans Synapse Studio, accédez au hub **Développer**, puis créez un script SQL.
-1. Sélectionnez le pool « SQLPOOL1 » (pool créé à l’[étape 1](https://docs.microsoft.com/azure/synapse-analytics/get-started-create-workspace#create-a-sql-pool) de ce tutoriel) dans la section « Se connecter à » du script.
+1. Dans Synapse Studio, accédez au hub **Développer**, cliquez sur le bouton **+** pour ajouter une nouvelle ressource, puis créez un script SQL.
+1. Sélectionnez le pool « SQLPOOL1 » (pool créé à l’[étape 1](./get-started-create-workspace.md) de ce tutoriel) dans la liste déroulante « Se connecter à » au-dessus du script.
 1. Entrez le code suivant :
     ```
     CREATE TABLE [dbo].[Trip]
@@ -71,12 +71,13 @@ Azure Synapse Analytics vous offre la possibilité d’analyser les données ave
     )
     OPTION (LABEL = 'COPY : Load [dbo].[Trip] - Taxi dataset');
     ```
-1. Ce script se termine dans environ 60 secondes. Il charge 2 millions lignes de données NYC Taxi dans une table appelée **dbo.Trip**.
+1. Cliquez sur le bouton Réexécuter pour exécuter le script.
+1. Ce script met moins de 60 secondes à s’exécuter. Il charge 2 millions lignes de données NYC Taxi dans une table appelée **dbo.Trip**.
 
 ## <a name="explore-the-nyc-taxi-data-in-the-dedicated-sql-pool"></a>Explorer les données NYC Taxi dans le pool SQL dédié
 
 1. Dans Synapse Studio, accédez au hub **Données**.
-1. Accédez à **SQLPOOL1** > **Tables**. Vous voyez plusieurs tables chargées.
+1. Accédez à **SQLPOOL1** > **Tables**. 
 1. Cliquez avec le bouton droit sur la table **dbo.Trip** et sélectionnez **Nouveau script SQL** > **Sélectionner les 100 premières lignes**.
 1. Patientez pendant la création et l’exécution du nouveau script SQL.
 1. Notez que, en haut du script SQL, **Se connecter à** est automatiquement défini sur le pool SQL appelé **SQLPOOL1**.
@@ -89,7 +90,7 @@ Azure Synapse Analytics vous offre la possibilité d’analyser les données ave
     FROM  dbo.Trip
     WHERE TripDistanceMiles > 0 AND PassengerCount > 0
     GROUP BY PassengerCount
-    ORDER BY PassengerCount
+    ORDER BY PassengerCount;
     ```
 
     Cette requête montre de quelle manière les distances totales et la distance moyenne des trajets sont liées au nombre de passagers.
@@ -102,4 +103,3 @@ Azure Synapse Analytics vous offre la possibilité d’analyser les données ave
 
 > [!div class="nextstepaction"]
 > [Analyser avec Spark](get-started-analyze-spark.md)
-

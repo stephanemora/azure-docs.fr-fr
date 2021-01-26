@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: e3a665e3615c9ff3a68cf13eeaef5e8f41632f6a
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 55042c8d1e612598cc5728668c9e87b054fb3afa
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97900358"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98537829"
 ---
 # <a name="test-through-simulations"></a>Tester à l’aide de simulations
 
@@ -42,9 +42,9 @@ Nous travaillons en collaboration avec [BreakingPoint Cloud](https://www.ixiacom
     |---------      |---------                                          |
     |Adresse IP cible           | Entrez l’une de vos adresses IP publiques que vous voulez tester.                     |
     |Numéro de port   | Entrez _443_.                       |
-    |Profil DDoS | Les valeurs possibles incluent **DNS Flood**, **NTPv2 Flood**, **SSDP Flood**, **TCP SYN Flood**, **UDP 64B Flood**, **UDP 128B Flood**, **UDP 256B Flood**, **UDP 512B Flood**, **UDP 1024B Flood**, **UDP 1514B Flood**, **UDP Fragmentation** **UDP Memcached**.|
-    |Taille du test       | Les valeurs possibles incluent **100 000 pps, 50 Mbits/s et 4 adresses IP sources**, **200 000 pps, 100 Mbits/s et 8 adresses IP sources**, **400 000 pps, 200 Mbits/s et 16 adresses IP sources**, **800 000 pps, 400 Mbits/s et 32 adresses IP sources**.                                  |
-    |Durée du test | Les valeurs possibles incluent **10 minutes**, **15 minutes**, **20 minutes**, **25 minutes**, **30 minutes**.|
+    |Profil DDoS | Les valeurs possibles sont `DNS Flood`, `NTPv2 Flood`, `SSDP Flood`, `TCP SYN Flood`, `UDP 64B Flood`, `UDP 128B Flood`, `UDP 256B Flood`, `UDP 512B Flood`, `UDP 1024B Flood`, `UDP 1514B Flood`, `UDP Fragmentation`, `UDP Memcached`.|
+    |Taille du test       | Les valeurs possibles sont `100K pps, 50 Mbps and 4 source IPs`, `200K pps, 100 Mbps and 8 source IPs`, `400K pps, 200Mbps and 16 source IPs`, `800K pps, 400 Mbps and 32 source IPs`.                                  |
+    |Durée du test | Les valeurs possibles sont `10 Minutes`, `15 Minutes`, `20 Minutes`, `25 Minutes`, `30 Minutes`.|
 
 Cela devrait maintenant ressembler à ceci :
 

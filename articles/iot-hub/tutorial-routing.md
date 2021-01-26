@@ -13,12 +13,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
 - devx-track-azurecli
-ms.openlocfilehash: 892dad3963e9da3560acc2c782c3d14db246ea78
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13130a7ea473b260ddc4f0ebca2ef5b496b34c66
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87500587"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202988"
 ---
 # <a name="tutorial-use-the-azure-cli-and-azure-portal-to-configure-iot-hub-message-routing"></a>Tutoriel : Utiliser Azure CLI et le portail Azure pour configurer le routage des messages IoT Hub
 
@@ -140,13 +140,13 @@ Configurez maintenant le routage pour le compte de stockage. Vous accédez au vo
 
 2. Dans la liste des ressources, sélectionnez le hub IoT. Ce didacticiel utilise **ContosoTestHub**.
 
-3. Sélectionnez **Routage des messages**. Dans le volet **Routage des messages**, sélectionnez +**Ajouter**. Dans le volet **Ajouter une route**, cliquez sur +**Ajouter** en regard du champ Point de terminaison pour afficher les points de terminaison pris en charge, comme illustré dans l’image suivante :
+3. Sélectionnez **Routage des messages**. Dans le volet **Routage des messages**, sélectionnez +**Ajouter**. Dans le volet **Ajouter une route**, sélectionnez +**Ajouter un point de terminaison** en regard du champ Point de terminaison pour afficher les points de terminaison pris en charge, comme illustré dans l’image suivante :
 
-   ![Commencer à ajouter un point de terminaison pour une route](./media/tutorial-routing/message-routing-add-a-route-w-storage-ep.png)
+   ![Commencer à ajouter un point de terminaison pour une route](./media/tutorial-routing/message-routing-add-a-route-with-storage-endpoint-ver2.png)
 
-4. Sélectionnez **Stockage d’objets blob**. Vous voyez le volet **Ajouter un point de terminaison de stockage**.
+4. Sélectionnez **Stockage**. Vous voyez le volet **Ajouter un point de terminaison de stockage**.
 
-   ![Ajout d’un point de terminaison](./media/tutorial-routing/message-routing-add-storage-ep.png)
+   ![Ajout d’un point de terminaison](./media/tutorial-routing/message-routing-add-storage-endpoint-ver2.png)
 
 5. Entrez un nom pour le point de terminaison. Ce tutoriel utilise **ContosoStorageEndpoint**.
 

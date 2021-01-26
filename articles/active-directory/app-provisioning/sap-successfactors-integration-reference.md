@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
-ms.date: 07/20/2020
+ms.date: 01/19/2021
 ms.author: chmutali
-ms.openlocfilehash: 805cdc0713afd43502bb224cce60167adbc418ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e97be7fef09287e6c4f8696e217702b97853fa6a
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90969517"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98569451"
 ---
 # <a name="how-azure-active-directory-provisioning-integrates-with-sap-successfactors"></a>Intégration de l’approvisionnement Azure Active Directory avec SAP SuccessFactors 
 
@@ -55,21 +55,22 @@ Pour chaque utilisateur de SuccessFactors, le service d’approvisionnement Azur
 | 6  | Utilisateur                                   | employmentNav/userNav        | Toujours           |
 | 7  | EmpJob                                 | employmentNav/jobInfoNav     | Toujours           |
 | 8  | EmpEmploymentTermination               | activeEmploymentsCount       | Toujours           |
-| 9  | FOCompany                              | employmentNav/jobInfoNav/companyNav | Uniquement si l’attribut `company` ou `companyId` est mappé |
-| 10 | FODepartment                           | employmentNav/jobInfoNav/departmentNav | Uniquement si l’attribut `department` ou `departmentId` est mappé |
-| 11 | FOBusinessUnit                         | employmentNav/jobInfoNav/businessUnitNav | Uniquement si l’attribut `businessUnit` ou `businessUnitId` est mappé |
-| 12 | FOCostCenter                           | employmentNav/jobInfoNav/costCenterNav | Uniquement si l’attribut `costCenter` ou `costCenterId` est mappé |
-| 13 | FODivision                             | employmentNav/jobInfoNav/divisionNav  | Uniquement si l’attribut `division` ou `divisionId` est mappé |
-| 14 | FOJobCode                              | employmentNav/jobInfoNav/jobCodeNav  | Uniquement si l’attribut `jobCode` ou `jobCodeId` est mappé |
-| 15 | FOPayGrade                             | employmentNav/jobInfoNav/payGradeNav  | Uniquement si l’attribut `payGrade` est mappé |
-| 16 | FOLocation                             | employmentNav/jobInfoNav/locationNav  | Uniquement si l’attribut `location` est mappé |
-| 17 | FOCorporateAddressDEFLT                | employmentNav/jobInfoNav/addressNavDEFLT  | Si le mappage contient l’un des attributs suivants : `officeLocationAddress,  officeLocationCity, officeLocationZipCode` |
-| 18 | FOEventReason                          | employmentNav/jobInfoNav/eventReasonNav  | Uniquement si l’attribut `eventReason` est mappé |
-| 19 | EmpGlobalAssignment                    | employmentNav/empGlobalAssignmentNav | Uniquement si `assignmentType` est mappé |
-| 20 | EmploymentType Picklist                | employmentNav/jobInfoNav/employmentTypeNav | Uniquement si `employmentType` est mappé |
-| 21 | EmployeeClass Picklist                 | employmentNav/jobInfoNav/employeeClassNav | Uniquement si `employeeClass` est mappé |
-| 22 | Liste déroulante EmplStatus                    | employmentNav/jobInfoNav/emplStatusNav | Uniquement si `emplStatus` est mappé |
-| 23 | Liste déroulante AssignmentType                | employmentNav/empGlobalAssignmentNav/assignmentTypeNav | Uniquement si `assignmentType` est mappé |
+| 9  | Gestionnaire de l’utilisateur                         | employmentNav/userNav/manager/empInfo | Toujours  |
+| 10 | FOCompany                              | employmentNav/jobInfoNav/companyNav | Uniquement si l’attribut `company` ou `companyId` est mappé |
+| 11 | FODepartment                           | employmentNav/jobInfoNav/departmentNav | Uniquement si l’attribut `department` ou `departmentId` est mappé |
+| 12 | FOBusinessUnit                         | employmentNav/jobInfoNav/businessUnitNav | Uniquement si l’attribut `businessUnit` ou `businessUnitId` est mappé |
+| 13 | FOCostCenter                           | employmentNav/jobInfoNav/costCenterNav | Uniquement si l’attribut `costCenter` ou `costCenterId` est mappé |
+| 14 | FODivision                             | employmentNav/jobInfoNav/divisionNav  | Uniquement si l’attribut `division` ou `divisionId` est mappé |
+| 15 | FOJobCode                              | employmentNav/jobInfoNav/jobCodeNav  | Uniquement si l’attribut `jobCode` ou `jobCodeId` est mappé |
+| 16 | FOPayGrade                             | employmentNav/jobInfoNav/payGradeNav  | Uniquement si l’attribut `payGrade` est mappé |
+| 17 | FOLocation                             | employmentNav/jobInfoNav/locationNav  | Uniquement si l’attribut `location` est mappé |
+| 18 | FOCorporateAddressDEFLT                | employmentNav/jobInfoNav/addressNavDEFLT  | Si le mappage contient l’un des attributs suivants : `officeLocationAddress,  officeLocationCity, officeLocationZipCode` |
+| 19 | FOEventReason                          | employmentNav/jobInfoNav/eventReasonNav  | Uniquement si l’attribut `eventReason` est mappé |
+| 20 | EmpGlobalAssignment                    | employmentNav/empGlobalAssignmentNav | Uniquement si `assignmentType` est mappé |
+| 21 | EmploymentType Picklist                | employmentNav/jobInfoNav/employmentTypeNav | Uniquement si `employmentType` est mappé |
+| 22 | EmployeeClass Picklist                 | employmentNav/jobInfoNav/employeeClassNav | Uniquement si `employeeClass` est mappé |
+| 23 | Liste déroulante EmplStatus                    | employmentNav/jobInfoNav/emplStatusNav | Uniquement si `emplStatus` est mappé |
+| 24 | Liste déroulante AssignmentType                | employmentNav/empGlobalAssignmentNav/assignmentTypeNav | Uniquement si `assignmentType` est mappé |
 
 ## <a name="how-full-sync-works"></a>Fonctionnement de la synchronisation complète
 En fonction du mappage d’attributs, lors de la synchronisation complète du service d’approvisionnement Azure AD envoie la requête d’API OData « GET » suivante pour extraire les données effectives de tous les utilisateurs actifs. 
@@ -162,9 +163,9 @@ La valeur par défaut du  schéma de l’application de configuration Azure AD S
    ```
 
 1. Déterminer l’entité Centre des employés associée à l’attribut
-   * Si l’attribut fait partie de l’entité *EmpEmployment*, recherchez l’attribut sous le nœud*employmentNav*. 
-   * Si l’attribut fait partie de l’entité *Utilisateur*, recherchez l’attribut sous le nœud*employmentNav/userNav*.
-   * Si l’attribut fait partie de l’entité *EmpJob*, recherchez l’attribut sous le nœud*employmentNav/jobInfoNav*. 
+   * Si l’attribut fait partie de l’entité *EmpEmployment*, recherchez l’attribut sous le nœud *employmentNav*. 
+   * Si l’attribut fait partie de l’entité *Utilisateur*, recherchez l’attribut sous le nœud *employmentNav/userNav*.
+   * Si l’attribut fait partie de l’entité *EmpJob*, recherchez l’attribut sous le nœud *employmentNav/jobInfoNav*. 
 1. Construisez le chemin JSON associé à l’attribut et ajoutez ce nouvel attribut à la liste des attributs SuccessFactors. 
    * Exemple 1 : Supposons que vous souhaitez ajouter l’attribut *okToRehire*, qui fait partie de l’entité *employmentNav*, puis utiliser JSONPath  `$.employmentNav.results[0].okToRehire`
    * Exemple 2 : Supposons que vous souhaitez ajouter l’attribut *timeZone*, qui fait partie de l’entité *userNav*, puis utiliser JSONPath `$.employmentNav.results[0].userNav.timeZone`
@@ -179,7 +180,7 @@ Par défaut, les attributs personnalisés suivants sont prédéfinis dans l’ap
 * *customString1-customString15* de l’entité EmpEmployment (employmentNav) appelée *empNavCustomString1-empNavCustomString15*
 * *customString1-customString15* de l’entité EmpEmployment (employmentNav) appelée *empJobNavCustomString1-empNavJobCustomString15*
 
-Supposons que, dans votre instance d’employé centrale, l’*attribut customString35* dans *EmpJobInfo* stocke la description de l’emplacement. Vous souhaitez transmettre cette valeur à l’attribut *physicalDeliveryOfficeName*Active Directory. Pour configurer le mappage d’attributs pour ce scénario, utilisez les étapes indiquées ci-dessous : 
+Supposons que, dans votre instance d’employé centrale, l’*attribut customString35* dans *EmpJobInfo* stocke la description de l’emplacement. Vous souhaitez transmettre cette valeur à l’attribut *physicalDeliveryOfficeName* Active Directory. Pour configurer le mappage d’attributs pour ce scénario, utilisez les étapes indiquées ci-dessous : 
 
 1. Modifiez la liste des attributs SuccessFactors pour ajouter un nouvel attribut appelé *empJobNavCustomString35*.
 1. Définissez l’expression de l’API JSONPath pour cet attribut comme suit : `$.employmentNav.results[0].jobInfoNav.results[0].customString35`
@@ -193,7 +194,7 @@ Extension du scénario :
 
 ### <a name="handling-worker-conversion-scenario"></a>Gestion du scénario de conversion de worker
 
-La conversion de worker est le processus qui consiste à convertir un employé à temps plein existant en un entrepreneur ou un entrepreneur en temps plein. Dans ce scénario, le Centre des employés ajoute une nouvelle entité *EmpEmployment* avec une nouvelle entité *Utilisateur* pour la même entité *Personne*. L’entité *Utilisateur*imbriquée sous l’entité *EmpEmployment* précédente est définie sur null. Pour gérer ce scénario afin que les nouvelles données d’emploi s’affichent lors d’une conversion, vous pouvez mettre à jour le schéma d’application d’approvisionnement en bloc à l’aide des étapes ci-dessous :  
+La conversion de worker est le processus qui consiste à convertir un employé à temps plein existant en un entrepreneur ou un entrepreneur en temps plein. Dans ce scénario, le Centre des employés ajoute une nouvelle entité *EmpEmployment* avec une nouvelle entité *Utilisateur* pour la même entité *Personne*. L’entité *Utilisateur* imbriquée sous l’entité *EmpEmployment* précédente est définie sur null. Pour gérer ce scénario afin que les nouvelles données d’emploi s’affichent lors d’une conversion, vous pouvez mettre à jour le schéma d’application d’approvisionnement en bloc à l’aide des étapes ci-dessous :  
 
 1. Ouvrez le panneau mappage d’attributs de votre application d’approvisionnement de SuccessFactors. 
 1. Faites défiler vers le bas et cliquez sur **Afficher les options avancées .** .

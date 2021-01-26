@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 4/26/2019
 ms.author: steveesp
 ms.reviewer: kumud, mareat
-ms.openlocfilehash: f0bad935c7c3d44f57dd171f714f31856bc2089c
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 280b3cbef8307691b0d50c4a26f6dca18b7fb65b
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91361311"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233863"
 ---
 # <a name="virtual-machine-network-bandwidth"></a>Bande passante réseau des machines virtuelles
 
@@ -32,11 +32,11 @@ Le trafic en entrée n’est pas compté ou limité directement. Toutefois, il e
 
 La mise en réseau accélérée est une fonctionnalité conçue pour améliorer les performances du réseau, notamment la latence, le débit et le taux d’utilisation des processeurs. La mise en réseau accélérée peut améliorer le débit de la machine virtuelle, mais en deçà de la limite de bande passante allouée à la machine virtuelle. Pour en savoir plus sur la mise en réseau accélérée, consultez « Mise en réseau accélérée pour les machines virtuelles [Windows](create-vm-accelerated-networking-powershell.md) ou [Linux](create-vm-accelerated-networking-cli.md) ».
  
-Les machines virtuelles Azure doivent être associées à une interface réseau minimum. La bande passante allouée à une machine virtuelle représente l’intégralité du trafic sortant sur l’ensemble des interfaces réseau associées à une machine virtuelle. En d’autres termes, la bande passante est allouée machine virtuelle par machine virtuelle, quel que soit le nombre d’interfaces réseau associées à cette machine. Pour savoir combien d’interfaces réseau les machines virtuelles Azure de différentes tailles peuvent prendre en charge, consultez les informations sur les tailles de machines virtuelles [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) et [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
+Les machines virtuelles Azure doivent être associées à une interface réseau minimum. La bande passante allouée à une machine virtuelle représente l’intégralité du trafic sortant sur l’ensemble des interfaces réseau associées à une machine virtuelle. En d’autres termes, la bande passante est allouée machine virtuelle par machine virtuelle, quel que soit le nombre d’interfaces réseau associées à cette machine. Pour savoir combien d’interfaces réseau les machines virtuelles Azure de différentes tailles peuvent prendre en charge, consultez les informations sur les tailles de machines virtuelles [Windows](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) et [Linux](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
 
 ## <a name="expected-network-throughput"></a>Débit réseau attendu
 
-Le débit sortant attendu et le nombre d’interfaces réseau prises en charge par chaque taille de machine virtuelle sont détaillés dans les spécifications des tailles de machine virtuelle Azure [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) et [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Sélectionnez un type, comme le type d’usage général, puis choisissez une série de tailles dans la page qui en résulte, par exemple « Dv2-series ». Chaque série comporte une table, dont la dernière colonne, intitulée **Nombre max de cartes réseau/Performance réseau attendue (Mbits/s)** , détaille les spécifications de mise en réseau. 
+Le débit sortant attendu et le nombre d’interfaces réseau prises en charge par chaque taille de machine virtuelle sont détaillés dans les spécifications des tailles de machine virtuelle Azure [Windows](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) et [Linux](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Sélectionnez un type, comme le type d’usage général, puis choisissez une série de tailles dans la page qui en résulte, par exemple « Dv2-series ». Chaque série comporte une table, dont la dernière colonne, intitulée **Nombre max de cartes réseau/Performance réseau attendue (Mbits/s)** , détaille les spécifications de mise en réseau. 
 
 Cette limite de débit s’applique à la machine virtuelle. Le débit n’est pas affecté par les facteurs suivants :
 - **Nombre d’interfaces réseau** : la limite de bande passante inclut l’ensemble du trafic sortant en provenance de la machine virtuelle.
@@ -52,15 +52,13 @@ Le transfert de données entre les points de terminaison nécessite la création
 
 ![Nombre de flux pour la conversation TCP via une appliance de transfert](media/virtual-machine-network-throughput/flow-count-through-network-virtual-appliance.png)
 
-## <a name="flow-limits-and-recommendations"></a>Limites de flux et recommandations
+## <a name="flow-limits-and-active-connections-recommendations"></a>Recommandations relatives aux limites de flux et aux connexions actives
 
-Aujourd'hui, la pile de mise en réseau Azure prend en charge 250 000 flux de réseau au total, avec un bon niveau de performance pour les machines virtuelles ayant plus de 8 cœurs d’UC et 100 000 flux au total, avec un bon niveau de performance pour les machines virtuelles ayant moins de 8 cœurs d’UC. Au-delà de cette limite, le niveau de performance du réseau se dégrade normalement en cas de flux supplémentaires jusqu’à une limite inconditionnelle de 500 000 flux au total, à savoir respectivement 250 000 flux entrants et 250 000 flux sortants, après quoi les flux supplémentaires sont supprimés.
+Aujourd’hui, la pile réseau Azure prend en charge 1 million de flux au total (500 000 entrants et 500 000 sortants) pour une machine virtuelle. Le nombre total de connexions actives pouvant être gérées par une machine virtuelle dans différents scénarios est le suivant.
+- Les machines virtuelles appartenant au réseau virtuel peuvent gérer 500 000 **_connexions actives_* _ pour toutes les tailles de machine virtuelle avec 500 000 _*_flux actifs dans chaque direction_*_.  
+- Les machines virtuelles avec des appliances virtuelles réseau telles qu’une passerelle, un proxy ou un pare-feu peuvent gérer 250 000 _*_connexions actives_*_ avec 500 000 _ *_flux actifs dans chaque direction_** en raison du transfert et de la création de nouveaux flux supplémentaires sur la configuration de la nouvelle connexion jusqu’au tronçon suivant, comme indiqué dans le diagramme ci-dessus. 
 
-| Niveau de performance | Machines virtuelles avec < 8 cœurs d’UC | Machines virtuelles avec plus de 8 cœurs d’UC |
-| ----------------- | --------------------- | --------------------- |
-|<b>Bon niveau de performance</b>|100 000 flux |250 000 flux|
-|<b>Performances dégradées</b>|Plus de 100 000 flux|Plus de 250 000 flux|
-|<b>Limite de flux</b>|500 000 flux|500 000 flux|
+Une fois cette limite atteinte, les connexions supplémentaires sont supprimées. Le taux d’établissement et de fin de connexions peut également affecter le niveau de performance réseau, car l’établissement et la fin des connexions partagent l’UC avec les routines de traitement de paquets. Nous vous recommandons d’évaluer les charges de travail pour les modèles de trafic attendus et d’effectuer un scale-out de manière appropriée en fonction de vos besoins en matière de niveau de performance.
 
 Des métriques permettant de suivre le nombre de flux réseau et le taux de création des flux sur votre machine virtuelle ou sur des instances de VMSS sont disponibles dans [Azure Monitor](../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines).
 

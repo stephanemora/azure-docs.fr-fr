@@ -1,6 +1,6 @@
 ---
 title: Copier de façon incrémentielle une table à l’aide de PowerShell
-description: Dans ce tutoriel, vous allez créer un pipeline de fabrique de données Azure qui copie de façon incrémentielle les données d’une base de données Azure SQL dans un stockage Blob Azure.
+description: Dans ce tutoriel, vous allez créer un pipeline Azure Data Factory pour copier de façon incrémentielle les données d’une base de données Azure SQL dans Stockage Blob Azure.
 services: data-factory
 author: dearandyxu
 ms.author: yexu
@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: 65a2d06acc3461d881ad6f100f3720b217ef7634
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 50608870fa397ad5586c626f1d1fe5c9d893b4ca
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510207"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222817"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-powershell"></a>Charger de façon incrémentielle les données depuis Azure SQL Database dans un stockage Blob Azure à l’aide de PowerShell
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Dans ce tutoriel, vous allez créer une fabrique de données Azure avec un pipeline qui charge les données delta d’une table dans Azure SQL Database vers un stockage Blob Azure.
+Dans ce tutoriel, vous utilisez Azure Data Factory pour créer un pipeline qui charge les données différentielles d’une table dans Azure SQL Database vers un stockage Blob Azure.
 
 Dans ce tutoriel, vous allez effectuer les étapes suivantes :
 

@@ -13,16 +13,16 @@ ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc, devx-track-csharp
-ms.date: 08/01/2019
-ms.author: sethm
+ms.date: 01/12/2021
+ms.author: matthewp
 ms.reviewer: jowargo
 ms.lastreviewed: 08/01/2019
-ms.openlocfilehash: 95e244f956940f9d75df50243714f0fb8f8d0654
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: e7d4206de1e097c30e9f5e96bbd935e94892ce0e
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424171"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98221032"
 ---
 # <a name="tutorial-send-push-notifications-to-xamarinandroid-apps-using-notification-hubs"></a>Tutoriel : Envoyer des notifications Push vers des applications Xamarin.Android à l’aide de Notification Hubs
 
@@ -71,39 +71,39 @@ Votre concentrateur de notification est configuré pour FCM, et vous disposez de
 > [!NOTE]
 > Les étapes décrites dans ce tutoriel sont destinées à Visual Studio 2017. 
 
-1. Dans Visual Studio, ouvrez le menu **Fichier** , sélectionnez **Nouveau** , puis **Projet**. Dans la fenêtre **Nouveau projet** , procédez comme suit :
-    1. Développez **Installé** , **Visual C#** , puis cliquez sur **Android**.
+1. Dans Visual Studio, ouvrez le menu **Fichier**, sélectionnez **Nouveau**, puis **Projet**. Dans la fenêtre **Nouveau projet**, procédez comme suit :
+    1. Développez **Installé**, **Visual C#** , puis cliquez sur **Android**.
     2. Sélectionnez **Application Android (Xamarin)** dans la liste.
     3. Entrez un **nom** pour le projet.
     4. Sélectionnez un **emplacement** pour le projet.
     5. Sélectionnez **OK**.
 
         ![Boîte de dialogue Nouveau projet](./media/partner-xamarin-notification-hubs-android-get-started/new-project-dialog-new.png)
-2. Dans la boîte de dialogue **application Android** , sélectionnez **Application vide** , puis **OK**.
+2. Dans la boîte de dialogue **application Android**, sélectionnez **Application vide**, puis **OK**.
 
     ![Capture d’écran qui met en évidence le modèle Application vide.](./media/partner-xamarin-notification-hubs-android-get-started/new-android-app-dialog.png)
-3. Dans la fenêtre **Explorateur de solutions** , développez **Propriétés** , puis cliquez sur **AndroidManifest.xml**. Mettez à jour le nom du package pour correspondre au nom de package que vous avez saisi lors de l’ajout de Firebase Cloud Messaging à votre projet dans la Google Firebase Console.
+3. Dans la fenêtre **Explorateur de solutions**, développez **Propriétés**, puis cliquez sur **AndroidManifest.xml**. Mettez à jour le nom du package pour correspondre au nom de package que vous avez saisi lors de l’ajout de Firebase Cloud Messaging à votre projet dans la Google Firebase Console.
 
     ![Nom du package dans GCM](./media/partner-xamarin-notification-hubs-android-get-started/package-name-gcm.png)
-4. Définissez la version Android cible du projet sur **Android 9.0 (Pie)** en suivant ces étapes : 
+4. Définissez la version Android cible du projet sur **Android 10.0** en effectuant les étapes suivantes : 
     1. Cliquez avec le bouton droit sur votre projet et sélectionnez **Propriétés**. 
-    1. Pour le champ **Compiler à l’aide de la version d’Android : (framework cible)** , sélectionnez **Android 9.0 (Pie)** . 
+    1. Pour le champ **Compiler à l’aide de la version d’Android : (framework cible)** , sélectionnez **Android 10.0**. 
     1. Sélectionnez **Oui** dans la boîte de message pour poursuivre la modification du framework cible.
 1. Ajoutez au projet les packages NuGet demandés en suivant ces étapes :
     1. Cliquez avec le bouton droit sur votre projet et sélectionnez **Gérer les packages NuGet...** .
-    1. Basculez vers l’onglet **Installé** , sélectionnez **Xamarin.Android.Support.Design** , puis sélectionnez **Mettre à jour** dans le volet droit pour actualiser le package avec la dernière version.
+    1. Basculez vers l’onglet **Installé**, sélectionnez **Xamarin.Android.Support.Design**, puis sélectionnez **Mettre à jour** dans le volet droit pour actualiser le package avec la dernière version.
     1. Basculez vers l’onglet **Parcourir**. Recherchez **Xamarin.GooglePlayServices.Base**. Sélectionnez **Xamarin.GooglePlayServices.Base** dans la liste des résultats. Sélectionnez **Installer**.
 
         ![Package NuGet de Google Play Services](./media/partner-xamarin-notification-hubs-android-get-started/google-play-services-nuget.png)
-    6. Dans la fenêtre **Gestionnaire de packages NuGet** , recherchez **Xamarin.Firebase.Messaging**. Sélectionnez **Xamarin.Firebase.Messaging** dans la liste des résultats. Sélectionnez **Installer**.
+    6. Dans la fenêtre **Gestionnaire de packages NuGet**, recherchez **Xamarin.Firebase.Messaging**. Sélectionnez **Xamarin.Firebase.Messaging** dans la liste des résultats. Sélectionnez **Installer**.
     7. Recherchez maintenant **Xamarin.Azure.NotificationHubs.Android**. Sélectionnez **Xamarin.Azure.NotificationHubs.Android** dans la liste des résultats. Sélectionnez **Installer**.
 
 ### <a name="add-the-google-services-json-file"></a>Ajout du fichier JSON Google Services
 
 1. Copiez dans le dossier du projet le fichier `google-services.json` que vous avez téléchargé à partir de la console Google Firebase.
 2. Ajoutez `google-services.json` au projet.
-3. Sélectionnez `google-services.json` dans la fenêtre de l’ **Explorateur de solutions**.
-4. Dans le volet **Propriétés** , définissez l’action de génération sur **GoogleServicesJson**. Si vous ne voyez pas **GoogleServicesJson** , fermez et redémarrez Visual Studio, rouvrez le projet et réessayez.
+3. Sélectionnez `google-services.json` dans la fenêtre de l’**Explorateur de solutions**.
+4. Dans le volet **Propriétés**, définissez l’action de génération sur **GoogleServicesJson**. Si vous ne voyez pas **GoogleServicesJson**, fermez et redémarrez Visual Studio, rouvrez le projet et réessayez.
 
     ![Action de génération GoogleServicesJson](./media/partner-xamarin-notification-hubs-android-get-started/google-services-json-build-action.png)
 
@@ -111,15 +111,20 @@ Votre concentrateur de notification est configuré pour FCM, et vous disposez de
 
 #### <a name="registering-with-firebase-cloud-messaging"></a>Inscription auprès de Firebase Cloud Messaging
 
-1. Ouvrez le fichier `AndroidManifest.xml` et insérez les éléments `<receiver>` suivants dans l’élément `<application>` :
+1. Si vous effectuez une migration à partir de Google Cloud Messaging vers Firebase, le fichier `AndroidManifest.xml` de votre projet peut contenir une configuration GCM obsolète, ce qui peut entraîner une duplication des notifications. Modifiez le fichier, puis supprimez les lignes suivantes dans la section `<application>`, le cas échéant :
 
     ```xml
-    <receiver android:name="com.google.firebase.iid.FirebaseInstanceIdInternalReceiver" android:exported="false" />
-    <receiver android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:exported="true" android:permission="com.google.android.c2dm.permission.SEND">
+    <receiver
+        android:name="com.google.firebase.iid.FirebaseInstanceIdInternalReceiver"
+        android:exported="false" />
+    <receiver
+        android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+        android:exported="true"
+        android:permission="com.google.android.c2dm.permission.SEND">
         <intent-filter>
-        <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-        <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
-        <category android:name="${applicationId}" />
+            <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+            <category android:name="${applicationId}" />
         </intent-filter>
     </receiver>
     ```
@@ -136,8 +141,8 @@ Votre concentrateur de notification est configuré pour FCM, et vous disposez de
 3. Collectez les informations suivantes pour votre application Android et votre concentrateur de notifications :
 
    * **Listen connection string** (Chaîne de connexion d’écoute) : dans le tableau de bord du [Azure portal], sélectionnez **Afficher les chaînes de connexion**. Copiez la chaîne de connexion `DefaultListenSharedAccessSignature` pour cette valeur.
-   * **Hub name**  : nom de votre hub sur le [Azure portal]. Par exemple, *mynotificationhub2*.
-4. Dans la fenêtre de l’ **Explorateur de solutions** , cliquez avec le bouton droit sur votre **projet** , sélectionnez **Ajouter** , puis **Classe**.
+   * **Hub name** : nom de votre hub sur le [Azure portal]. Par exemple, *mynotificationhub2*.
+4. Dans la fenêtre de l’**Explorateur de solutions**, cliquez avec le bouton droit sur votre **projet**, sélectionnez **Ajouter**, puis **Classe**.
 5. Créez une classe `Constants.cs` pour votre projet Xamarin et définissez les valeurs constantes suivantes dans la classe. Remplacez les espaces réservés par vos valeurs.
 
     ```csharp
@@ -151,127 +156,42 @@ Votre concentrateur de notification est configuré pour FCM, et vous disposez de
 6. Ajoutez les instructions using suivantes à `MainActivity.cs` :
 
     ```csharp
-    using Android.Util;
-    using Android.Gms.Common;
+    using Azure.Messaging.NotificationHubs;
     ```
 
-7. Ajoutez les propriétés suivantes à la classe MainActivity. La variable TAG sera utilisée pour afficher une boîte de dialogue d’alerte lors de l’exécution de l’application :
+7. Ajoutez les propriétés suivantes à la classe MainActivity :
 
     ```csharp
-    public const string TAG = "MainActivity";
     internal static readonly string CHANNEL_ID = "my_notification_channel";
-    ```
 
-8. Ajoutez la méthode suivante à la classe MainActivity. Elle vérifie si les services **Google Play Services** sont disponibles sur l’appareil.
-
-    ```csharp
-    public bool IsPlayServicesAvailable()
-    {
-        int resultCode = GoogleApiAvailability.Instance.IsGooglePlayServicesAvailable(this);
-        if (resultCode != ConnectionResult.Success)
-        {
-            if (GoogleApiAvailability.Instance.IsUserResolvableError(resultCode))
-                Log.Debug(TAG, GoogleApiAvailability.Instance.GetErrorString(resultCode));
-            else
-            {
-                Log.Debug(TAG, "This device is not supported");
-                Finish();
-            }
-            return false;
-        }
-
-        Log.Debug(TAG, "Google Play Services is available.");
-        return true;
-    }
-    ```
-
-9. Ajoutez la méthode suivante à la classe MainActivity qui crée un canal de notification.
+8. In `MainActivity.cs`, add the following code to `OnCreate` after `base.OnCreate(savedInstanceState)`:
 
     ```csharp
-    private void CreateNotificationChannel()
-    {
-        if (Build.VERSION.SdkInt < BuildVersionCodes.O)
-        {
-            // Notification channels are new in API 26 (and not a part of the
-            // support library). There is no need to create a notification
-            // channel on older versions of Android.
-            return;
-        }
+    // Listen for push notifications
+    NotificationHub.SetListener(new AzureListener());
 
-        var channelName = CHANNEL_ID;
-        var channelDescription = string.Empty;
-        var channel = new NotificationChannel(CHANNEL_ID, channelName, NotificationImportance.Default)
-        {
-            Description = channelDescription
-        };
-
-        var notificationManager = (NotificationManager)GetSystemService(NotificationService);
-        notificationManager.CreateNotificationChannel(channel);
-    }
+    // Start the SDK
+    NotificationHub.Start(this.Application, HubName, ConnectionString);
     ```
 
-10. Dans `MainActivity.cs`, ajoutez le code suivant à `OnCreate` après `base.OnCreate(savedInstanceState)` :
+9. Ajoutez à votre projet une classe nommée `AzureListener`.
+10. Ajoutez les instructions using suivantes à `AzureListener.cs`.
 
     ```csharp
-    if (Intent.Extras != null)
-    {
-        foreach (var key in Intent.Extras.KeySet())
-        {
-            if(key!=null)
-            {
-                var value = Intent.Extras.GetString(key);
-                Log.Debug(TAG, "Key: {0} Value: {1}", key, value);
-            }
-        }
-    }
-
-    IsPlayServicesAvailable();
-    CreateNotificationChannel();
+    using Android.Content;
+    using WindowsAzure.Messaging.NotificationHubs;
     ```
 
-15. Ajoutez à votre projet une classe nommée `MyFirebaseMessagingService`. 
-16. Ajoutez les instructions using suivantes à `MyFirebaseMessagingService.cs`.
+11. Ajoutez le code suivant au-dessus de votre déclaration de classe, puis faites en sorte que votre classe hérite de `Java.Lang.Object` et qu’elle implémente `INotificationListener` :
 
     ```csharp
-    using Android.Util;
-    using Firebase.Messaging;
-    using Android.Support.V4.App;    
-    using WindowsAzure.Messaging;
+    public class AzureListener : Java.Lang.Object, INotificationListener
     ```
 
-17. Ajoutez le code suivant au-dessus de votre déclaration de classe, puis faites hériter votre classe de `FirebaseMessagingService` :
+12. Ajoutez le code suivant dans la classe `MyFirebaseMessagingService` pour traiter les messages reçus.
 
     ```csharp
-    [Service]
-    [IntentFilter(new[] { "com.google.firebase.MESSAGING_EVENT" })]
-    [IntentFilter(new[] { "com.google.firebase.INSTANCE_ID_EVENT" })]
-    public class MyFirebaseMessagingService : FirebaseMessagingService
-    ```
-
-18. Ajoutez le code suivant dans la classe `MyFirebaseMessagingService` pour traiter les messages reçus. 
-
-    ```csharp
-        const string TAG = "MyFirebaseMsgService";
-        NotificationHub hub;
-    
-        public override void OnMessageReceived(RemoteMessage message)
-        {
-            Log.Debug(TAG, "From: " + message.From);
-            if (message.GetNotification() != null)
-            {
-                //These is how most messages will be received
-                Log.Debug(TAG, "Notification Message Body: " + message.GetNotification().Body);
-                SendNotification(message.GetNotification().Body);
-            }
-            else
-            {
-                //Only used for debugging payloads sent from the Azure portal
-                SendNotification(message.Data.Values.First());
-    
-            }
-        }
-    
-        void SendNotification(string messageBody)
+        public void OnPushNotificationReceived(Context context, INotificationMessage message)
         {
             var intent = new Intent(this, typeof(MainActivity));
             intent.AddFlags(ActivityFlags.ClearTop);
@@ -279,9 +199,9 @@ Votre concentrateur de notification est configuré pour FCM, et vous disposez de
     
             var notificationBuilder = new NotificationCompat.Builder(this, MainActivity.CHANNEL_ID);
     
-            notificationBuilder.SetContentTitle("FCM Message")
+            notificationBuilder.SetContentTitle(message.Title)
                         .SetSmallIcon(Resource.Drawable.ic_launcher)
-                        .SetContentText(messageBody)
+                        .SetContentText(message.Body)
                         .SetAutoCancel(true)
                         .SetShowWhen(false)
                         .SetContentIntent(pendingIntent);
@@ -292,27 +212,6 @@ Votre concentrateur de notification est configuré pour FCM, et vous disposez de
         }
     ```
 
-19. Ajoutez les méthodes suivantes à la classe MyFirebaseMessagingService (directement sous le code ajouté à l’étape précédente) pour recevoir le jeton d’inscription FCM et l’envoyer à l’instance Notification Hubs (hub). 
-
-    ```csharp
-        public override void OnNewToken(string token)
-        {
-            Log.Debug(TAG, "FCM token: " + token);
-            SendRegistrationToServer(token);
-        }
-
-        void SendRegistrationToServer(string token)
-        {
-            // Register with Notification Hubs
-            hub = new NotificationHub(Constants.NotificationHubName,
-                                        Constants.ListenConnectionString, this);
-
-            var tags = new List<string>() { };
-            var regID = hub.Register(token, tags.ToArray()).RegistrationId;
-
-            Log.Debug(TAG, $"Successful registration of ID {regID}");
-        }
-    ```
 1. **Générez** votre projet.
 1. **Exécuter** votre application sur votre appareil ou un émulateur chargé
 

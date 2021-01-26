@@ -7,14 +7,14 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 12/16/2020
+ms.date: 01/15/2021
 ms.custom: generated
-ms.openlocfilehash: f22b74b16594419b0eff33f0c73d6e9c3a62ac15
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 8f44de679c9b0280652b0020d1e454a70f7114a3
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97655031"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98538532"
 ---
 # <a name="azure-built-in-roles"></a>Rôles intégrés Azure
 
@@ -119,6 +119,9 @@ Le tableau ci-après fournit une brève description et l'ID unique de chaque rô
 > | [Contributeur HDInsight Domain Services](#hdinsight-domain-services-contributor) | Peut lire, créer, modifier et supprimer les opérations Domain Services nécessaires pour le pack Sécurité Entreprise HDInsight | 8d8d5a11-05d3-4bda-a417-a08778121c7c |
 > | [Contributeur Log Analytics](#log-analytics-contributor) | Peut lire toutes les données de surveillance et modifier les paramètres de surveillance. La modification des paramètres de supervision inclut l’ajout de l’extension de machine virtuelle aux machines virtuelles, la lecture des clés de comptes de stockage permettant de configurer la collection de journaux d’activité du stockage Azure, la création et la configuration de comptes Automation, l’ajout de solutions et la configuration de diagnostics Azure sur toutes les ressources Azure. | 92aaf0da-9dab-42b6-94a3-d43ce8d16293 |
 > | [Lecteur Log Analytics](#log-analytics-reader) | Peut afficher et rechercher toutes les données de surveillance, ainsi qu’afficher les paramètres de surveillance, notamment la configuration des diagnostics Azure sur toutes les ressources Azure. | 73c42c96-874c-492b-b04d-ab87d138a893 |
+> | [Curateur de données Purview](#purview-data-curator) | Le curateur de données Microsoft.Purview peut créer, lire, modifier et supprimer des objets de données de catalogue et établir des relations entre les objets. Ce rôle est en préversion et susceptible d’être changé. | 8a3c2885-9b38-4fd2-9d99-91af537c1347 |
+> | [Lecteur de données Purview](#purview-data-reader) | Le lecteur de données Microsoft.Purview peut lire les objets de données de catalogue. Ce rôle est en préversion et susceptible d’être changé. | ff100721-1b9d-43d8-af52-42b69c1272db |
+> | [Administrateur de la source de données Purview](#purview-data-source-administrator) | L’administrateur de la source de données Microsoft.Purview peut gérer les sources de données et les analyses de données. Ce rôle est en préversion et susceptible d’être changé. | 200bba9e-f0c8-430f-892b-6f0794863803 |
 > | [Contributeur du registre de schémas (préversion)](#schema-registry-contributor-preview) | Lire, écrire et supprimer des groupes de registres de schémas et des schémas. | 5dffeca3-4936-4216-b2bc-10343a5abb25 |
 > | [Lecteur du registre de schémas (préversion)](#schema-registry-reader-preview) | Lire et répertorier les groupes de registres de schémas et les schémas. | 2c56ea50-c6b3-40a6-83c0-9d98858bc7d2 |
 > | **Blockchain** |  |  |
@@ -4888,6 +4891,133 @@ Peut afficher et rechercher toutes les données de surveillance, ainsi qu’affi
 }
 ```
 
+### <a name="purview-data-curator"></a>Curateur de données Purview
+
+Le curateur de données Microsoft.Purview peut créer, lire, modifier et supprimer des objets de données de catalogue et établir des relations entre les objets. Ce rôle est en préversion et susceptible d’être changé.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Purview](resource-provider-operations.md#microsoftpurview)/accounts/read | Lire une ressource de compte pour le fournisseur Microsoft Purview. |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | [Microsoft.Purview](resource-provider-operations.md#microsoftpurview)/accounts/data/read | Lire des objets de données. |
+> | [Microsoft.Purview](resource-provider-operations.md#microsoftpurview)/accounts/data/write | Créer, mettre à jour et supprimer des objets de données. |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "The Microsoft.Purview data curator can create, read, modify and delete catalog data objects and establish relationships between objects. This role is in preview and subject to change.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/8a3c2885-9b38-4fd2-9d99-91af537c1347",
+  "name": "8a3c2885-9b38-4fd2-9d99-91af537c1347",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Purview/accounts/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Purview/accounts/data/read",
+        "Microsoft.Purview/accounts/data/write"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Purview Data Curator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="purview-data-reader"></a>Lecteur de données Purview
+
+Le lecteur de données Microsoft.Purview peut lire les objets de données de catalogue. Ce rôle est en préversion et susceptible d’être changé.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Purview](resource-provider-operations.md#microsoftpurview)/accounts/read | Lire une ressource de compte pour le fournisseur Microsoft Purview. |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | [Microsoft.Purview](resource-provider-operations.md#microsoftpurview)/accounts/data/read | Lire des objets de données. |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "The Microsoft.Purview data reader can read catalog data objects. This role is in preview and subject to change.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/ff100721-1b9d-43d8-af52-42b69c1272db",
+  "name": "ff100721-1b9d-43d8-af52-42b69c1272db",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Purview/accounts/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Purview/accounts/data/read"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Purview Data Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="purview-data-source-administrator"></a>Administrateur de la source de données Purview
+
+L’administrateur de la source de données Microsoft.Purview peut gérer les sources de données et les analyses de données. Ce rôle est en préversion et susceptible d’être changé.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Purview](resource-provider-operations.md#microsoftpurview)/accounts/read | Lire une ressource de compte pour le fournisseur Microsoft Purview. |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | [Microsoft.Purview](resource-provider-operations.md#microsoftpurview)/accounts/scan/read | Lire les sources de données et les analyses. |
+> | [Microsoft.Purview](resource-provider-operations.md#microsoftpurview)/accounts/scan/write | Créer, mettre à jour et supprimer des sources de données et gérer les analyses. |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "The Microsoft.Purview data source administrator can manage data sources and data scans. This role is in preview and subject to change.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/200bba9e-f0c8-430f-892b-6f0794863803",
+  "name": "200bba9e-f0c8-430f-892b-6f0794863803",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Purview/accounts/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Purview/accounts/scan/read",
+        "Microsoft.Purview/accounts/scan/write"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Purview Data Source Administrator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ### <a name="schema-registry-contributor-preview"></a>Contributeur du registre de schémas (préversion)
 
 Lire, écrire et supprimer des groupes de registres de schémas et des schémas.
@@ -7015,7 +7145,9 @@ Permet de lire les métadonnées des clés et d’effectuer des opérations visa
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | *Aucune* |  |
+> | [Microsoft.EventGrid](resource-provider-operations.md#microsofteventgrid)/eventSubscriptions/write | Créer ou mettre à jour un abonnement à un événement |
+> | [Microsoft.EventGrid](resource-provider-operations.md#microsofteventgrid)/eventSubscriptions/read | Lit un abonnement à un événement |
+> | [Microsoft.EventGrid](resource-provider-operations.md#microsofteventgrid)/eventSubscriptions/delete | Supprimer un abonnement à un événement |
 > | **NotActions** |  |
 > | *Aucune* |  |
 > | **DataActions** |  |
@@ -7035,7 +7167,11 @@ Permet de lire les métadonnées des clés et d’effectuer des opérations visa
   "name": "e147488a-f6f5-4113-8e2d-b22465e65bf6",
   "permissions": [
     {
-      "actions": [],
+      "actions": [
+        "Microsoft.EventGrid/eventSubscriptions/write",
+        "Microsoft.EventGrid/eventSubscriptions/read",
+        "Microsoft.EventGrid/eventSubscriptions/delete"
+      ],
       "notActions": [],
       "dataActions": [
         "Microsoft.KeyVault/vaults/keys/read",
@@ -7438,6 +7574,9 @@ Autorisations d’affichage pour Security Center. Peut afficher les recommandati
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | [Microsoft.Security](resource-provider-operations.md#microsoftsecurity)/*/read | Lire des stratégies et des composants de sécurité |
 > | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/*/read |  |
+> | [Microsoft.Security](resource-provider-operations.md#microsoftsecurity)/iotDefenderSettings/packageDownloads/action | Obtient des informations sur les packages de Defender pour IoT téléchargeables |
+> | [Microsoft.Security](resource-provider-operations.md#microsoftsecurity)/iotDefenderSettings/downloadManagerActivation/action | Télécharger le fichier d’activation du gestionnaire avec les données de quota d’abonnement |
+> | [Microsoft.Security](resource-provider-operations.md#microsoftsecurity)/iotSensors/downloadResetPassword/action | Les téléchargements réinitialisent le fichier de mot de passe pour les capteurs IoT |
 > | [Microsoft.Management](resource-provider-operations.md#microsoftmanagement)/managementGroups/read | Répertorie les groupes d’administration de l’utilisateur authentifié. |
 > | **NotActions** |  |
 > | *Aucune* |  |
@@ -7464,6 +7603,9 @@ Autorisations d’affichage pour Security Center. Peut afficher les recommandati
         "Microsoft.Resources/subscriptions/resourceGroups/read",
         "Microsoft.Security/*/read",
         "Microsoft.Support/*/read",
+        "Microsoft.Security/iotDefenderSettings/packageDownloads/action",
+        "Microsoft.Security/iotDefenderSettings/downloadManagerActivation/action",
+        "Microsoft.Security/iotSensors/downloadResetPassword/action",
         "Microsoft.Management/managementGroups/read"
       ],
       "notActions": [],
@@ -8611,8 +8753,8 @@ Définition de rôle pour autoriser tout utilisateur/service à créer une resso
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/operationresults/read | Obtenir les résultats de l’opération de l’abonnement. |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/read | Obtient la liste des abonnements. |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
-> | Microsoft.Kubernetes/connectedClusters/Write |  |
-> | Microsoft.Kubernetes/connectedClusters/read |  |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/Write | Écrit la ressource connectedClusters |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/read | Lit la ressource connectedClusters |
 > | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Créer et mettre à jour un ticket de support |
 > | **NotActions** |  |
 > | *Aucune* |  |

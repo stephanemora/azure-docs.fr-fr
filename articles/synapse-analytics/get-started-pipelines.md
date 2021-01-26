@@ -9,13 +9,13 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: pipeline
 ms.topic: tutorial
-ms.date: 10/27/2020
-ms.openlocfilehash: af01d5b5e424dd5ea229115f7aa3570d0b7cd511
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.date: 12/31/2020
+ms.openlocfilehash: 2ea7c3c440fcf95e4512464333efe8461788bceb
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92744921"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219400"
 ---
 # <a name="integrate-with-pipelines"></a>Intégrer avec des pipelines
 
@@ -26,14 +26,19 @@ Dans ce tutoriel, vous allez découvrir comment intégrer des pipelines et des a
 Vous pouvez intégrer un large éventail de tâches dans Azure Synapse.
 
 1. Dans Synapse Studio, accédez au hub **Intégrer**.
-1. Sélectionnez **+**  > **Pipeline** pour créer un pipeline.
-1. Accédez au hub **Développer** , puis sélectionnez l’un des notebooks que vous avez créés précédemment.
-1. Faites glisser ce notebook dans le pipeline. ( **Remarque**  : Ajoutez l’étape d’importation des modules dans le notebook (comme spécifié dans [ce document](https://docs.microsoft.com/azure/synapse-analytics/spark/synapse-spark-sql-pool-import-export#transfer-data-to-or-from-a-sql-pool-attached-with-the-workspace)), car ces modules sont nécessaires pendant l’exécution à partir du pipeline).
+1. Sélectionnez **+**  > **Pipeline** pour créer un pipeline. Cliquez sur le nouvel objet de pipeline pour ouvrir le Concepteur de pipeline.
+1. Sous **Activités**, développez le dossier **Synapse**, puis faites glisser un objet **Notebook** dans le concepteur.
+1. Sélectionnez l’onglet **Paramètres** des propriétés de l’activité Notebook. Utilisez la liste déroulante pour sélectionner un notebook dans votre espace de travail Synapse actuel. 
 1. Dans le pipeline, sélectionnez **Ajouter un déclencheur** > **Nouveau/modifier**.
-1. Dans **Choisir un déclencheur** , sélectionnez **Nouveau** , puis définissez la **Récurrence** sur « Toutes les heures ».
+1. Dans **Choisir un déclencheur**, sélectionnez **Nouveau**, puis définissez la **Récurrence** sur « Toutes les heures ».
 1. Sélectionnez **OK**. 
-1. Sélectionnez **Publier tout**.
-1. Si vous souhaitez que le pipeline s’exécute immédiatement, sans attendre l’heure suivante, sélectionnez **Ajouter un déclencheur** > **Déclencher maintenant**.
+1. Sélectionnez **Publier tout**. 
+
+
+## <a name="monitor-pipeline"></a>Surveillance d’un pipeline
+
+1. Une fois le pipeline publié, pour qu’il s’exécute immédiatement, sans attendre l’heure suivante, sélectionnez **Ajouter un déclencheur** > **Déclencher maintenant**.
+1. Dans Synapse Studio, accédez au hub **Monitor**, puis sélectionnez **Exécutions de pipeline** pour superviser la progression de l’exécution du pipeline.
 
 
 
@@ -41,4 +46,3 @@ Vous pouvez intégrer un large éventail de tâches dans Azure Synapse.
 
 > [!div class="nextstepaction"]
 > [Visualiser des données avec Power BI](get-started-visualize-power-bi.md)
-                                 
