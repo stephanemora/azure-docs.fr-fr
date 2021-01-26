@@ -1,90 +1,93 @@
 ---
-title: Affichage de plusieurs ressources dans Metrics Explorer
-description: Découvrez comment visualiser plusieurs ressources dans Azure Monitor Metrics Explorer
+title: Afficher plusieurs ressources dans Azure Metrics Explorer
+description: Découvrez comment visualiser plusieurs ressources dans Azure Metrics Explorer.
 author: ritaroloff
 services: azure-monitor
 ms.topic: conceptual
 ms.date: 12/14/2020
 ms.author: riroloff
 ms.subservice: metrics
-ms.openlocfilehash: 9d1460a8bebe75a3ee471eb304fcf642d566b5dd
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 4c895b287f72929e2a0571ccc2cae8cc4f673388
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97614640"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250483"
 ---
-# <a name="viewing-multiple-resources-in-metrics-explorer"></a>Affichage de plusieurs ressources dans Metrics Explorer
+# <a name="view-multiple-resources-in-the-azure-metrics-explorer"></a>Afficher plusieurs ressources dans Azure Metrics Explorer
 
-Le sélecteur d’étendue de ressource vous permet d’afficher les mesures sur plusieurs ressources qui se trouvent dans le même abonnement et la même région. Vous trouverez ci-dessous des instructions sur la façon d’afficher plusieurs ressources dans Azure Monitor Metrics Explorer. 
+Le sélecteur d’étendue de ressource vous permet d’afficher les mesures sur plusieurs ressources qui se trouvent dans le même abonnement et la même région. Cet article explique comment afficher plusieurs ressources à l’aide de la fonctionnalité Azure Metrics Explorer d’Azure Monitor. 
 
-## <a name="selecting-a-resource"></a>Sélection d’une ressource 
+## <a name="select-a-resource"></a>Sélectionner une ressource 
 
-Sélectionnez **Métriques** dans le menu **Azure Monitor** ou dans la section **Supervision** du menu d’une ressource. Cliquez sur le bouton « Sélectionner une étendue » pour ouvrir le sélecteur d’étendue de ressource, ce qui vous permettra de sélectionner la ou les ressources dont vous souhaitez afficher les métriques. Le sélecteur doit être déjà rempli si vous avez ouvert Metrics Explorer à partir du menu d’une ressource. 
+Sélectionnez **Métriques** dans le menu **Azure Monitor** ou dans la section **Supervision** du menu d’une ressource. Choisissez ensuite **Sélectionner une étendue** pour ouvrir le sélecteur d’étendue. 
 
-![Capture d’écran du sélecteur d’étendue de ressource mis en évidence dans un cadre rouge](./media/metrics-charts/019.png)
+Utilisez le sélecteur d’étendue pour sélectionner les ressources dont vous souhaitez afficher les métriques. L’étendue doit être remplie si vous avez ouvert Azure Metrics Explorer à partir du menu d’une ressource. 
 
-## <a name="selecting-multiple-resources"></a>Sélection de plusieurs ressources 
+![Capture d’écran montrant comment ouvrir le sélecteur d’étendue des ressources.](./media/metrics-charts/019.png)
 
-Certains types de ressources permettent d’interroger des métriques sur plusieurs ressources, à condition que celles-ci se trouvent dans les mêmes abonnement et localisation. Ces types de ressources se trouvent en haut de la liste déroulante « Types de ressources ». 
+## <a name="select-multiple-resources"></a>Sélectionner plusieurs ressources 
 
-![Capture d’écran montrant une liste déroulante de types de ressources qui sont compatibles avec plusieurs ressources ](./media/metrics-charts/020.png)
+Certains types de ressources peuvent interroger des métriques sur plusieurs ressources. Les métriques doivent se trouver dans le même abonnement et au même emplacement. Recherchez ces types de ressources en haut du menu **Types de ressources**.
+
+![Capture d’écran montrant un menu de ressources compatibles avec plusieurs ressources.](./media/metrics-charts/020.png)
 
 > [!WARNING] 
-> Vous devez disposer de l’autorisation Lecteur d’analyse au niveau de l’abonnement pour visualiser les métriques sur plusieurs ressources, groupes de ressources ou un abonnement. Pour ce faire, suivez les instructions de [ce document](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+> Vous devez disposer de l’autorisation Lecteur d’analyse au niveau de l’abonnement pour visualiser les métriques sur plusieurs ressources ou groupes de ressources, ou sur un abonnement. Pour plus d’informations, consultez [Ajouter ou supprimer des attributions de rôles Azure à l’aide du portail Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 
-Pour visualiser les métriques sur plusieurs ressources, commencez par sélectionner plusieurs ressources dans le sélecteur d’étendue de ressource. 
+Pour visualiser les métriques sur plusieurs ressources, commencez par sélectionner plusieurs ressources dans le sélecteur d’étendue des ressources. 
 
-![Capture d’écran montrant comment sélectionner plusieurs ressources](./media/metrics-charts/021.png)
+![Capture d’écran montrant comment sélectionner plusieurs ressources.](./media/metrics-charts/021.png)
 
 > [!NOTE]
-> Vous pouvez uniquement sélectionner plusieurs ressources dans les mêmes type de ressource, localisation et abonnement. Les ressources ne répondant pas à ce critère ne peuvent pas être sélectionnées. 
+> Les ressources que vous sélectionnez doivent se trouver dans les mêmes type de ressource, emplacement et abonnement. Les ressources qui ne correspondent pas à ces critères ne sont pas sélectionnables. 
 
-Une fois la sélection effectuée, cliquez sur le bouton « Appliquer » pour l’enregistrer. 
+Lorsque vous avez terminé, choisissez **Appliquer** pour enregistrer vos sélections. 
 
-## <a name="selecting-a-resource-group-or-subscription"></a>Sélection d’un groupe de ressources ou d’un abonnement 
+## <a name="select-a-resource-group-or-subscription"></a>Sélectionner un groupe de ressources ou un abonnement 
 
 > [!WARNING]
-> Vous devez disposer de l’autorisation Lecteur d’analyse au niveau de l’abonnement pour visualiser les métriques sur plusieurs ressources, groupes de ressources ou un abonnement. 
+> Vous devez disposer de l’autorisation Lecteur d’analyse au niveau de l’abonnement pour visualiser les métriques sur plusieurs ressources ou groupes de ressources, ou sur un abonnement. 
 
-Pour les types compatibles avec plusieurs ressources, vous pouvez également interroger les métriques sur un abonnement ou plusieurs groupes de ressources. Commencez par sélectionner un abonnement ou un ou plusieurs groupes de ressources : 
+Pour les types qui sont compatibles avec plusieurs ressources, vous pouvez interroger les métriques sur un abonnement ou plusieurs groupes de ressources. Commencez par sélectionner un abonnement ou un ou plusieurs groupes de ressources : 
 
-![Capture d’écran montrant comment effectuer une interrogation portant sur plusieurs groupes de ressources ](./media/metrics-charts/022.png)
+![Capture d’écran montrant comment interroger sur plusieurs groupes de ressources.](./media/metrics-charts/022.png)
 
-Vous devez ensuite sélectionner un type de ressource et une localisation avant de pouvoir appliquer votre nouvelle étendue. 
+Sélectionnez un type de ressource et un emplacement. 
 
-![Capture d’écran montrant les groupes de ressources sélectionnés ](./media/metrics-charts/023.png)
+![Capture d’écran montrant les groupes de ressources sélectionnés.](./media/metrics-charts/023.png)
 
-Vous pouvez également développer les étendues sélectionnées pour vérifier les ressources concernées.
+Vous pouvez développer les étendues sélectionnées pour vérifier les ressources auxquelles vos sélections s’appliquent.
 
-![Capture d’écran montrant les ressources sélectionnées au sein des groupes ](./media/metrics-charts/024.png)
+![Capture d’écran montrant les ressources sélectionnées au sein des groupes.](./media/metrics-charts/024.png)
 
-Une fois que vous avez fini de sélectionner vos étendues, cliquez sur « Appliquer » pour enregistrer vos sélections. 
+Une fois les étendues sélectionnées, choisissez **OK**. 
 
-## <a name="splitting-and-filtering-by-resource-group-or-resources"></a>Division et filtrage par groupe de ressources ou ressource
+## <a name="split-and-filter-by-resource-group-or-resources"></a>Fractionner et filtrer par groupe de ressources ou ressources
 
-Après avoir effectué le traçage de vos ressources, vous pouvez utiliser l’outil de division et de filtrage pour obtenir plus d’insights sur vos données. 
+Après avoir effectué le traçage de vos ressources, vous pouvez utiliser un fractionnement et un filtrage pour obtenir plus d’insights sur vos données. 
 
-La division vous permet de comparer les différents segments de la métrique. Par exemple, quand vous effectuez le traçage d’une métrique pour plusieurs ressources, vous pouvez utiliser l’outil « Appliquer la division » pour diviser par ID de ressource ou groupe de ressources. Vous pouvez ainsi comparer facilement une métrique unique sur plusieurs ressources ou groupes de ressources.  
+La division vous permet de comparer les différents segments de la métrique. Par exemple, quand tracez une métrique pour plusieurs ressources, vous pouvez choisir d’**Appliquer un fractionnement** afin de fractionner par ID de ressource ou groupe de ressources. Le fractionnement vous permet de comparer une métrique unique sur plusieurs ressources ou groupes de ressources.  
 
-Par exemple, voici un graphique du pourcentage d’utilisation du processeur sur 9 machines virtuelles. En effectuant une division par ID de ressource, vous pouvez voir facilement le pourcentage d’utilisation du processeur par machine virtuelle. 
+Par exemple, le graphique suivant montre le pourcentage d’UC sur neuf machines virtuelles. Lorsque vous fractionnez par ID de ressource, vous voyez en quoi le pourcentage d’UC diffère par machine virtuelle. 
 
-![Capture d’écran montrant comment vous pouvez utiliser la division pour voir le pourcentage d’utilisation du processeur par machine virtuelle](./media/metrics-charts/026.png)
+![Capture d’écran montrant comment vous utiliser un fractionnement pour voir le pourcentage d’UC des machines virtuelles.](./media/metrics-charts/026.png)
 
-En plus de la division, vous pouvez utiliser la fonctionnalité de filtrage pour afficher uniquement les groupes de ressources qui vous intéressent.  Par exemple, si vous souhaitez afficher le pourcentage d’utilisation du processeur des machines virtuelles pour un groupe de ressources spécifique, vous pouvez utiliser l’outil « Ajouter un filtre » pour filtrer par groupe de ressources. Dans cet exemple, nous filtrons par TailspinToysDemo, ce qui a pour effet de supprimer les métriques associées aux ressources dans TailspinToys. 
+En plus du fractionnement, vous pouvez utiliser un filtrage pour afficher uniquement les groupes de ressources que vous voulez voir.  Par exemple, pour afficher le pourcentage d’utilisation d’UC des machines virtuelles d’un groupe de ressources spécifique, vous pouvez choisir d’**Ajouter un filtre** pour filtrer par groupe de ressources. 
 
-![Capture d’écran montrant comment filtrer par groupe de ressources](./media/metrics-charts/027.png)
+Dans cet exemple, nous filtrons sur TailspinToysDemo. Ici, le filtre supprime les métriques associées aux ressources dans TailspinToys. 
 
-## <a name="pinning-your-multi-resource-charts"></a>Épinglage de vos graphiques multi-ressources 
+![Capture d’écran montrant comment filtrer par groupe de ressources.](./media/metrics-charts/027.png)
 
-> [!WARNING] 
-> Vous devez disposer de l’autorisation Lecteur d’analyse au niveau de l’abonnement pour visualiser les métriques sur plusieurs ressources, groupes de ressources ou un abonnement. Pour ce faire, suivez les instructions de [ce document](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal). 
+## <a name="pin-multiple-resource-charts"></a>Épingler des graphiques de ressources multiples 
 
-Pour épingler votre graphique multi-ressource, suivez les instructions [ici](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts#pin-charts-to-dashboards). 
+Les graphiques de ressources multiples permettant de visualiser les métriques de plusieurs groupes de ressources et abonnements requièrent que l’utilisateur dispose de l’autorisation *Lecteur de surveillance* au niveau de l’abonnement. Assurez-vous que tous les utilisateurs des tableaux de bord auxquels vous épinglez des graphiques de ressources multiples disposent d’autorisations suffisantes. Pour plus d’informations, consultez [Ajouter ou supprimer des attributions de rôles Azure à l’aide du portail Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+
+Pour épingler votre graphique de ressources multiples à un tableau de bord, consultez [Épinglage à des tableaux de bord](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts#pinning-to-dashboards). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Résolution des problèmes de Metrics Explorer](metrics-troubleshoot.md)
+* [Résoudre des problèmes de Metrics Explorer](metrics-troubleshoot.md)
 * [Consulter la liste des métriques disponibles pour les services Azure](metrics-supported.md)
 * [Consulter des exemples de graphiques configurés](metric-chart-samples.md)
 
