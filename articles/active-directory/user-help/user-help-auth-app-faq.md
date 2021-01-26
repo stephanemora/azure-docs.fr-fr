@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 12/09/2020
+ms.date: 01/15/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: a1307aa19c66e3f6fcb71f677e6c67551d2a01f9
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: f799ed5c18537b862a4971075ae9107b7a722fdd
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928322"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251503"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Forum aux questions (FAQ) sur l’application Microsoft Authenticator
 
@@ -33,13 +33,17 @@ L’application Microsoft Authenticator a remplacé l’application Azure Authen
 
 **R** : L’inscription d’un appareil permet à celui-ci d’accéder aux services de votre organisation, mais ne permet pas à votre organisation d’accéder à l’appareil.
 
-## <a name="too-many-app-permissions"></a>Trop d’autorisations d’application
+### <a name="too-many-app-permissions"></a>Trop d’autorisations d’application
 
 **Q** : Pourquoi l’application demande-t-elle autant d’autorisations ?
 
-**R** : Voici la liste complète des autorisations qui peuvent être demandées ainsi que la façon dont elles sont utilisées par l’application. Les autorisations présentées dépendent du type de téléphone que vous utilisez.
+**R** : Voici la liste complète des autorisations qui peuvent être demandées ainsi que la façon dont elles sont utilisées par l’application. Les autorisations présentées dépendent du type de téléphone que vous utilisez. Parfois, votre organisation souhaite connaître votre **emplacement** avant de vous permettre d’accéder à certaines ressources. L’application demande cette autorisation uniquement si votre organisation a mis en place une stratégie nécessitant un emplacement.
 
-- **Emplacement**. Parfois, votre organisation souhaite connaître votre emplacement avant de vous permettre d’accéder à certaines ressources. L’application demande cette autorisation uniquement si votre organisation a mis en place une stratégie nécessitant un emplacement. 
+### <a name="error-adding-account"></a>Erreur d’ajout de compte
+
+**Q** : Lorsque j’essaie d’ajouter mon compte, j’obtiens un message d’erreur indiquant « Le compte que vous essayez d’ajouter n’est pas valide pour le moment. Contactez votre administrateur pour résoudre ce problème (validation de l’unicité). » Que dois-je faire ?
+
+**R** : Contactez votre administrateur et faites-lui savoir que vous ne pouvez pas ajouter votre compte à Authenticator en raison d’un problème de validation de l’unicité. Vous devez fournir votre nom d’utilisateur de connexion pour que votre administrateur puisse vous rechercher dans votre organisation.
 
 ### <a name="legacy-apns-support-deprecated"></a>Prise en charge héritée d’APNs déconseillée
 

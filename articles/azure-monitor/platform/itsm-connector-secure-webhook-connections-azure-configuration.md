@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 01/03/2021
-ms.openlocfilehash: 5eb58c48acc7974a4379cf1993a73228c99f5e6d
-ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
+ms.openlocfilehash: 03a16bfbcb3a8d46a6cb4faa03aa6b6e96cf3db3
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97857555"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165958"
 ---
 # <a name="configure-azure-to-connect-itsm-tools-using-secure-export"></a>Configurer Azure pour connecter les outils ITSM à l’aide de l’exportation sécurisée
 
@@ -39,9 +39,9 @@ Pour inscrire l’application auprès d’Azure AD, suivez ces étapes :
 
 ## <a name="define-service-principal"></a>Définir le principal du service
 
-Le service Groupe d’actions aura besoin de l’autorisation d’acquérir des jetons d’authentification auprès de votre application AAD pour pouvoir s’authentifier auprès de ServiceNow. Pour accorder ces autorisations, vous devrez créer un principal de service pour le service Groupe d’actions dans votre locataire.
-Vous pouvez utiliser cette [commande PowerShell](./action-groups.md#secure-webhook-powershell-script) à cet effet. (Requiert des privilèges d’administrateur de locataire).
-En guise d’étape facultative, vous pouvez définir le rôle d’application dans le manifeste de l’application créée, ce qui peut vous permettre de restreindre davantage l’accès de manière à ce que seules certaines applications ayant un rôle spécifique puissent envoyer des messages. Ce rôle doit être assigné au principal du service du Groupe d’actions. \
+Le service Groupe d’actions est une application interne. Par conséquent, il a l’autorisation d’acquérir des jetons d’authentification auprès de votre application AAD pour pouvoir s’authentifier auprès de ServiceNow.
+En guise d’étape facultative, vous pouvez définir le rôle d’application dans le manifeste de l’application créée, ce qui peut vous permettre de restreindre davantage l’accès de manière à ce que seules certaines applications ayant un rôle spécifique puissent envoyer des messages. Ce rôle doit être attribué au principal du service du Groupe d’actions (Requiert des privilèges d’administrateur de locataire).
+
 Cette étape peut être effectuée à l’aide de la même [commande PowerShell](./action-groups.md#secure-webhook-powershell-script).
 
 ## <a name="create-a-secure-webhook-action-group"></a>Créer un groupe d’actions Webhook sécurisé

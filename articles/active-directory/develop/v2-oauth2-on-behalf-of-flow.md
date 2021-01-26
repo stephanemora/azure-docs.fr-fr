@@ -13,12 +13,12 @@ ms.date: 08/7/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 018d67b3e4e730cd46eb524a8927b3a6d68d74e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c8167142876dfac0ae0aeff51e85b66c65c607b
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88958658"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208846"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Plateforme d’identités Microsoft et flux On-Behalf-Of OAuth 2.0
 
@@ -27,8 +27,8 @@ Le flux On-Behalf-Of (OBO) OAuth 2.0 répond au cas d’usage dans le cadre duq
 
 Cet article explique comment programmer directement par rapport au protocole dans votre application.  Dans la mesure du possible, nous vous recommandons d’utiliser les bibliothèques d’authentification Microsoft (MSAL) prises en charge au lieu d’[acquérir des jetons et d’appeler des API web sécurisées](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Jetez également un coup d’œil aux [exemples d’applications qui utilisent MSAL](sample-v2-code.md).
 
-> [!NOTE]
-> Depuis mai 2018, il n’est pas possible d’utiliser un jeton `id_token` dérivé du flux implicite pour le flux OBO. Les applications à une seule page doivent passer un jeton d’**accès** à un client confidentiel de niveau intermédiaire pour effectuer des flux OBO à la place. Pour plus d’informations sur les clients pouvant effectuer des appels OBO, consultez [Limitations](#client-limitations).
+
+Depuis mai 2018, il n’est pas possible d’utiliser un jeton `id_token` dérivé du flux implicite pour le flux OBO. Les applications à une seule page doivent passer un jeton d’**accès** à un client confidentiel de niveau intermédiaire pour effectuer des flux OBO à la place. Pour plus d’informations sur les clients pouvant effectuer des appels OBO, consultez [Limitations](#client-limitations).
 
 ## <a name="protocol-diagram"></a>Schéma de protocole
 
@@ -44,8 +44,7 @@ Les étapes qui suivent constituent le flux OBO et sont décrites à l’aide du
 1. Le jeton B est défini par l’API A dans l’en-tête d’autorisation de la requête adressée à l’API B.
 1. Les données de la ressource sécurisée sont retournées par l’API B à l’API A, puis au client.
 
-> [!NOTE]
-> Dans ce scénario, le service de niveau intermédiaire n’a aucune interaction utilisateur pour obtenir le consentement de l’utilisateur pour accéder à l’API en aval. Par conséquent, l’option d’accorder l’accès à l’API en aval est présentée au préalable lors de l’étape de consentement pendant l’authentification. Pour savoir comment effectuer cette configuration pour votre application, consultez [Obtention du consentement pour l’application de niveau intermédiaire](#gaining-consent-for-the-middle-tier-application).
+Dans ce scénario, le service de niveau intermédiaire n’a aucune interaction avec l’utilisateur afin d’obtenir son consentement pour accéder à l’API en aval. Par conséquent, l’option d’accorder l’accès à l’API en aval est présentée au préalable lors de l’étape de consentement pendant l’authentification. Pour savoir comment effectuer cette configuration pour votre application, consultez [Obtention du consentement pour l’application de niveau intermédiaire](#gaining-consent-for-the-middle-tier-application).
 
 ## <a name="middle-tier-access-token-request"></a>Demande de jeton d’accès de niveau intermédiaire
 
@@ -152,10 +151,9 @@ L’exemple suivant illustre une réponse affirmative à une demande de jeton d�
 }
 ```
 
-> [!NOTE]
-> Le jeton d’accès ci-dessus est un jeton au format v1.0 pour Microsoft Graph. En effet, le format dépend de la **ressource** consultée et n’est pas lié aux points de terminaison utilisés pour le demander. Comme Microsoft Graph est configuré pour accepter des jetons v1.0, la plateforme d’identités Microsoft génère des jetons d’accès v1.0 quand un client demande des jetons pour Microsoft Graph. D’autres applications peuvent indiquer qu’elles veulent des jetons au format v2.0, au format v1.0 ou même dans un format propriétaire ou chiffré.  Les points de terminaison v1.0 et v2.0 peuvent émettre des jetons aux deux formats : ainsi, la ressource reçoit toujours le bon format, quels que soient la façon dont le jeton a été demandé par le client et l’endroit. 
->
-> Seules les applications doivent examiner les jetons d’accès. Les clients **ne doivent pas** les inspecter. Si vous inspectez les jetons d’accès pour d’autres applications dans votre code, l’application subira une interruption inattendue lorsqu’elle modifiera le format de ses jetons ou commencera à les chiffrer. 
+Le jeton d’accès ci-dessus est un jeton au format v1.0 pour Microsoft Graph. En effet, le format dépend de la **ressource** consultée et n’est pas lié aux points de terminaison utilisés pour le demander. Comme Microsoft Graph est configuré pour accepter des jetons v1.0, la plateforme d’identités Microsoft génère des jetons d’accès v1.0 quand un client demande des jetons pour Microsoft Graph. D’autres applications peuvent indiquer qu’elles veulent des jetons au format v2.0, au format v1.0 ou même dans un format propriétaire ou chiffré.  Les points de terminaison v1.0 et v2.0 peuvent émettre des jetons aux deux formats : ainsi, la ressource reçoit toujours le bon format, quels que soient la façon dont le jeton a été demandé par le client et l’endroit. 
+
+Seules les applications doivent examiner les jetons d’accès. Les clients **ne doivent pas** les inspecter. Si vous inspectez les jetons d’accès pour d’autres applications dans votre code, l’application subira une interruption inattendue lorsqu’elle modifiera le format de ses jetons ou commencera à les chiffrer. 
 
 ### <a name="error-response-example"></a>Exemple de réponse d’erreur
 
@@ -189,8 +187,7 @@ Authorization: Bearer eyJ0eXAiO ... 0X2tnSQLEANnSPHY0gKcgw
 
 Certains services web basés sur OAuth doivent accéder à d’autres API de service web qui acceptent les instructions d’assertion SAML dans des flux non interactifs. Azure Active Directory peut fournir une instruction d’assertion SAML en réponse à un flux On-Behalf-Of qui utilise un service web basé sur SAML comme ressource cible.
 
->[!NOTE]
->Il s’agit d’une extension non standard pour le flux On-Behalf-Of OAuth 2.0 qui permet à une application OAuth2 d’accéder aux points de terminaison d’API du service web qui consomment des jetons SAML.
+Il s’agit d’une extension non standard pour le flux On-Behalf-Of OAuth 2.0 qui permet à une application OAuth2 d’accéder aux points de terminaison d’API du service web qui consomment des jetons SAML.
 
 > [!TIP]
 > Quand vous appelez un service web protégé par SAML à partir d’une application web front-end, vous pouvez simplement appeler l’API et lancer un flux d’authentification interactif normal avec la session existante de l’utilisateur. Vous devez seulement utiliser un flux OBO quand un appel de service à service nécessite un jeton SAML pour fournir le contexte de l’utilisateur.

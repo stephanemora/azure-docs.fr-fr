@@ -5,19 +5,24 @@ author: vermagit
 ms.service: virtual-machines
 ms.subservice: workloads
 ms.topic: article
-ms.date: 10/19/2020
+ms.date: 1/19/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: f4e93deb40799cbcc9c86aff454e250f1ab71712
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 777c78047ec9bf195c5e0c823aa0edfb287b3998
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94963332"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98598322"
 ---
 # <a name="known-issues-with-h-series-and-n-series-vms"></a>Problèmes connus avec les machines virtuelles des séries H et N
 
 Cet article présente les problèmes les plus courants et les solutions correspondantes lors de l’utilisation de machines virtuelles HPC et GPU des séries [H](../../sizes-hpc.md) et [N](../../sizes-gpu.md).
+
+## <a name="accelerated-networking-on-hb-hc-hbv2-and-ndv2"></a>Mise en réseau accélérée sur HB, HC, HBv2 et NDv2
+
+[Mise en réseau accélérée Azure](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) est désormais disponible sur les tailles des machines virtuelles compatibles RDMA et InfiniBand et avec SR-IOV [HB](../../hb-series.md), [HC](../../hc-series.md), [HBv2](../../hbv2-series.md) et [NDv2](../../ndv2-series.md). Cette capacité permet désormais d’améliorer le débit (jusqu’à 30 Gbits/s) et les latences sur le réseau Ethernet Azure. Bien qu’elle soit distincte des capacités RDMA sur le réseau InfiniBand, certaines modifications de plateforme pour cette capacité peuvent avoir un impact sur le comportement de certaines implémentations MPI lors de l’exécution de travaux sur InfiniBand. Plus précisément, l’interface InfiniBand sur certaines machines virtuelles peut avoir un nom légèrement différent (mlx5_1 par opposition à l’ancien mlx5_0), ce qui peut nécessiter la modification des lignes de commande MPI, en particulier lors de l’utilisation de l’interface UCX (généralement avec OpenMPI et HPC-X).
+Plus de détails à ce sujet sont disponibles sur cet [article de blog](https://techcommunity.microsoft.com/t5/azure-compute/accelerated-networking-on-hb-hc-and-hbv2/ba-p/2067965) avec des instructions sur la façon de traiter les problèmes observés.
 
 ## <a name="infiniband-driver-installation-on-n-series-vms"></a>Installation du pilote InfiniBand sur les machines virtuelles de la série N
 

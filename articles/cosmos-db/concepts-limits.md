@@ -5,13 +5,13 @@ author: abhijitpai
 ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/19/2020
-ms.openlocfilehash: 9d351bc945c08c82e96791059b00dc94eb94b918
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.date: 01/19/2021
+ms.openlocfilehash: 9ace9a319f4cc6bcc1545d6d1becce61b1892765
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368735"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98598676"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quotas du service Azure Cosmos DB
 
@@ -37,7 +37,7 @@ Vous pouvez provisionner le débit au niveau d’un conteneur ou d’une base de
 | Volume de stockage maximal par conteneur | Illimité |
 | Volume de stockage maximal par base de données | Illimité |
 | Taille maximale des pièces jointes par compte (la fonctionnalité de pièce jointe est déconseillée) | 2 Go |
-| Unités de requête minimales/s requises par 1 Go | 10 RU/s<br>**Remarque :** si votre conteneur ou votre base de données contient plus de 1 To de données, votre compte peut être éligible à notre programme [« Stockage étendu/débit faible »](set-throughput.md#high-storage-low-throughput-program) |
+| Unités de requête minimales/s requises par 1 Go | 10 RU/s<br>**Remarque :** Ce minimum peut être abaissé si votre compte est éligible à notre [programme « stockage élevé/faible débit »](set-throughput.md#high-storage-low-throughput-program). |
 
 > [!NOTE]
 > Pour découvrir les meilleures pratiques en matière de gestion des charges de travail qui ont des clés de partition nécessitant des limites plus élevées de stockage ou de débit, voir [Créer une clé de partition synthétique](synthetic-partition-keys.md).
@@ -60,7 +60,7 @@ Pour estimer le débit minimal requis d’un conteneur avec un débit manuel, re
 
 Exemple : Supposons que vous disposiez d’un conteneur approvisionné avec 400 RU/s et un stockage de 0 Go. Vous augmentez le débit à 50 000 RU/s et importez 20 Go de données. La valeur RU/s minimale est maintenant `MAX(400, 20 * 10 RU/s per GB, 50,000 RU/s / 100)` = 500 RU/s. Au fil du temps, le stockage atteint 200 Go. La valeur RU/s minimale est maintenant `MAX(400, 200 * 10 RU/s per GB, 50,000 / 100)` = 2 000 RU/s. 
 
-**Remarque :** Si votre conteneur ou votre base de données contient plus de 1 To de données, votre compte peut être éligible à notre [programme « Stockage étendu/débit faible »](set-throughput.md#high-storage-low-throughput-program).
+**Remarque :** Le débit minimal de 10 RU/s par Go de stockage peut être abaissé si votre compte est éligible à notre [programme « stockage élevé/faible débit »](set-throughput.md#high-storage-low-throughput-program).
 
 #### <a name="minimum-throughput-on-shared-throughput-database"></a>Débit minimal sur une base de données à débit partagé 
 Pour estimer le débit minimal requis d’une base de données à débit partagé avec un débit manuel, recherchez la valeur maximale :
@@ -72,7 +72,7 @@ Pour estimer le débit minimal requis d’une base de données à débit partag�
 
 Exemple : Supposons que vous disposiez d’une base de données configurée avec 400 RU/s, 15 Go de stockage et 10 conteneurs. La valeur RU/s minimale est `MAX(400, 15 * 10 RU/s per GB, 400 / 100, 400 + 0 )` = 400 RU/s. En présence de 30 conteneurs dans la base de données, la valeur RU/s minimale serait `400 + MAX(30 - 25, 0) * 100 RU/s` = 900 RU/s. 
 
-**Remarque :** Si votre conteneur ou votre base de données contient plus de 1 To de données, votre compte peut être éligible à notre [programme « Stockage étendu/débit faible »](set-throughput.md#high-storage-low-throughput-program).
+**Remarque :** Le débit minimal de 10 RU/s par Go de stockage peut être abaissé si votre compte est éligible à notre [programme « stockage élevé/faible débit »](set-throughput.md#high-storage-low-throughput-program).
 
 En résumé, voici les limites minimales de RU provisionnées. 
 
@@ -256,7 +256,8 @@ Le tableau suivant liste les limites liées à l’[essai gratuit d’Azure Cosm
 
 L’essai de Cosmos DB ne prend en charge la distribution mondiale que dans les régions USA Centre, Europe Nord et Asie Sud-Est. Vous ne pouvez pas créer de tickets de support Azure pour les comptes d’essai d’Azure Cosmos DB. Toutefois, un support est fourni pour les abonnés détenant des plans de support.
 
-## <a name="free-tier-account-limits"></a>Limites du compte de niveau gratuit
+## <a name="azure-cosmos-db-free-tier-account-limits"></a>Limites des comptes du niveau Gratuit d’Azure Cosmos DB
+
 Le tableau suivant liste les limites des [comptes du niveau gratuit d’Azure Cosmos DB](optimize-dev-test.md#azure-cosmos-db-free-tier).
 
 | Ressource | Limite par défaut |
@@ -268,7 +269,10 @@ Le tableau suivant liste les limites des [comptes du niveau gratuit d’Azure Co
 | Nombre maximal de bases de données à débit partagé | 5 |
 | Nombre maximal de conteneurs dans une base de données à débit partagé | 25 <br>Dans les comptes du niveau gratuit, le nombre minimal de RU/s pour une base de données à débit partagé comptant jusqu’à 25 conteneurs est de 400 RU/s. |
 
-  En plus de ce qui précède, les [Limites par compte](#per-account-limits) s’appliquent également aux comptes du niveau gratuit.
+En plus de ce qui précède, les [Limites par compte](#per-account-limits) s’appliquent également aux comptes du niveau gratuit.
+
+> [!NOTE]
+> Le niveau Gratuit d’Azure Cosmos DB est différent du compte gratuit Azure. Le compte gratuit Azure offre des crédits et des ressources Azure gratuitement pendant une durée limitée. Lorsque vous utilisez Azure Cosmos DB dans le cadre de ce compte gratuit, vous bénéficiez d’un stockage de 25 G  et de 400 RU/s de débit approvisionné pendant 12 mois.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

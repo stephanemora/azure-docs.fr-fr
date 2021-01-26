@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: damendo
-ms.openlocfilehash: 5342c4505bd300d1287acba246ca59610f2697bd
-ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
+ms.openlocfilehash: 0d0597c2df8731171505a090de6959d8a112c004
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97858635"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98569978"
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introduction à la résolution des problèmes des ressources dans Azure Network Watcher
 
@@ -209,7 +209,9 @@ Elapsed Time            330 sec
 ```
 
 ## <a name="considerations"></a>Considérations 
+* Une seule opération de résolution des problèmes peut être exécutée à la fois par abonnement. Pour exécuter une autre opération de résolution des problèmes, attendez la fin de l’opération précédente. Déclencher d’autres opérations alors qu’une précédente n’est pas terminée entraîne l’échec des opérations suivantes. 
 * Bogue CLI : Si vous utilisez Azure CLI pour exécuter la commande, la passerelle VPN et le compte de stockage doivent se trouver dans le même groupe de ressources. Les clients ayant des ressources dans différents groupes de ressources peuvent utiliser PowerShell ou le portail Azure à la place.  
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

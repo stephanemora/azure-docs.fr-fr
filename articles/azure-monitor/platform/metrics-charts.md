@@ -1,226 +1,235 @@
 ---
 title: Fonctionnalités avancées d’Azure Metrics Explorer
-description: En savoir plus sur les fonctionnalités avancées d’Azure Monitor Metrics Explorer
+description: En savoir plus sur les utilisations avancées d’Azure Metrics Explorer.
 author: vgorbenko
 services: azure-monitor
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: a80eaecc02fa3c8c6618341c02e22241f0dc7faf
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: b4feb177abbdbfb9666be0ea0746c8316acdf5ae
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97845029"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250755"
 ---
-# <a name="advanced-features-of-azure-metrics-explorer"></a>Fonctionnalités avancées d’Azure Metrics Explorer
+# <a name="advanced-features-of-the-azure-metrics-explorer"></a>Fonctionnalités avancées d’Azure Metrics Explorer
 
 > [!NOTE]
-> Cet article part du principe que vous êtes familiarisé avec les fonctionnalités de base de Metrics Explorer. Si vous êtes un nouvel utilisateur et que vous souhaitez apprendre à créer votre premier graphique de métriques, veuillez consulter l’article [Prise en main d’Azure Metrics Explorer](metrics-getting-started.md).
+> Cet article suppose que vous connaissez les caractéristiques de base de la fonctionnalité Azure Metrics Explorer d’Azure Monitor. Si vous êtes un nouvel utilisateur et que vous souhaitez apprendre à créer votre premier graphique de métriques, consultez l’article [Prise en main d’Azure Metrics Explorer](metrics-getting-started.md).
 
-## <a name="metrics-in-azure"></a>Métriques dans Azure
+Dans Azure Monitor, les [métriques](data-platform-metrics.md) sont une série de valeurs mesurées et de comptages qui sont collectés et stockés au fil du temps. Les métriques peuvent être standard (également appelées « plateforme ») ou personnalisées. 
 
-Les [métriques dans Azure Monitor](data-platform-metrics.md) sont les séries de valeurs et de comptes mesurés qui sont collectées et stockées au fil du temps. Il existe des métriques standard (ou de « plateforme ») et des métriques personnalisées. Les métriques standards vous sont fournies par la plateforme Azure elle-même. Les métriques standards reflètent les statistiques d’intégrité et d’utilisation de vos ressources Azure. Tandis que vos applications envoient les mesures personnalisées à Azure à l’aide de l’[API Application Insights pour les événements et mesures personnalisés](../app/api-custom-events-metrics.md), [Extension Windows Azure Diagnostics (WAD)](./diagnostics-extension-overview.md), ou par l’[API REST Azure Monitor](./metrics-store-custom-rest-api.md).
+Les métriques standard sont fournies par la plateforme Azure. Elles reflètent les statistiques d’intégrité et d’utilisation de vos ressources Azure. 
 
 ## <a name="resource-scope-picker"></a>Sélecteur d’étendue des ressources
-Le sélecteur d’étendue des ressources vous permet d’afficher les métriques sur une ou plusieurs ressources. Vous trouverez ci-dessous des instructions sur l’utilisation du sélecteur d’étendue des ressources. 
+Le sélecteur d’étendue des ressources vous permet d’afficher les métriques d’une ou de plusieurs ressources. Les sections suivantes expliquent comment utiliser le sélecteur d’étendue des ressources. 
 
-### <a name="selecting-a-single-resource"></a>Sélection d’une seule ressource
-Sélectionnez **Métriques** dans le menu **Azure Monitor** ou dans la section **Supervision** du menu d’une ressource. Cliquez sur le bouton Sélectionner une étendue pour ouvrir le sélecteur d’étendue des ressources, ce qui vous permettra de sélectionner la ou les ressources dont vous souhaitez afficher les métriques. Le sélecteur doit être déjà rempli si vous avez ouvert Metrics Explorer à partir du menu d’une ressource. 
+### <a name="select-a-single-resource"></a>Sélectionner une seule ressource
+Sélectionnez **Métriques** dans le menu **Azure Monitor** ou dans la section **Supervision** du menu d’une ressource. Choisissez ensuite **Sélectionner une étendue** pour ouvrir le sélecteur d’étendue. 
 
-![Capture d’écran du sélecteur d’étendue des ressources](./media/metrics-charts/scope-picker.png)
+Utilisez le sélecteur d’étendue pour sélectionner les ressources dont vous souhaitez afficher les métriques. L’étendue doit être remplie si vous avez ouvert Azure Metrics Explorer à partir du menu d’une ressource. 
 
-Pour certaines ressources, vous ne pouvez afficher que les métriques d’une seule ressource à la fois. Ces ressources se trouvent sous la section Tous les types de ressources dans la liste déroulante des types de ressources.
+![Capture d’écran montrant comment ouvrir le sélecteur d’étendue des ressources.](./media/metrics-charts/scope-picker.png)
 
-![Capture d’écran d’une ressource unique](./media/metrics-charts/single-resource-scope.png)
+Pour certaines ressources, vous pouvez afficher uniquement les métriques d’une seule ressource à la fois. Dans le menu **Types de ressources**, ces ressources se trouvent dans la section **Tous les types de ressources**.
 
-Après avoir cliqué sur la ressource souhaitée, vous verrez tous les abonnements et les groupes de ressources qui contiennent cette ressource.
+![Capture d’écran montrant une seule ressource.](./media/metrics-charts/single-resource-scope.png)
 
-![Capture d’écran des ressources disponibles](./media/metrics-charts/available-single-resource.png)
+Après avoir sélectionné une ressource, vous voyez tous les abonnements et groupes de ressources qui contiennent cette ressource.
+
+![Capture d’écran montrant les ressources disponibles.](./media/metrics-charts/available-single-resource.png)
 
 > [!TIP]
-> Si vous souhaitez voir les métriques de plusieurs ressources en même temps ou les métriques d’un abonnement ou d’un groupe de ressources, cliquez sur le bouton de vote.
+> Si vous souhaitez avoir la possibilité de visualiser les métriques de plusieurs ressources en même temps ou visualiser les métriques d’un abonnement ou d’un groupe de ressources, sélectionnez **Voter**.
 
-Une fois que vous êtes satisfait de votre sélection, cliquez sur Appliquer.
+Lorsque vous êtes satisfait de votre sélection, sélectionnez **Appliquer**.
 
-### <a name="viewing-metrics-across-multiple-resources"></a>Affichage des métriques sur plusieurs ressources
-Certains types de ressources permettent d’interroger des métriques sur plusieurs ressources, à condition que celles-ci se trouvent dans les mêmes abonnement et localisation. Ces types de ressources se trouvent en haut de la liste déroulante « Types de ressources ». Pour plus d’informations sur la façon d’afficher les métriques sur plusieurs ressources, voir [ce document](metrics-dynamic-scope.md#selecting-multiple-resources).
+### <a name="view-metrics-across-multiple-resources"></a>Afficher les métriques de plusieurs ressources
+Certains types de ressources peuvent interroger des métriques sur plusieurs ressources. Les ressources doivent se trouver dans le même abonnement et au même emplacement. Recherchez ces types de ressources en haut du menu **Types de ressources**. 
 
-![Capture d’écran des types de ressources croisées](./media/metrics-charts/multi-resource-scope.png)
+Pour plus d’informations, consultez [Sélectionner plusieurs ressources](metrics-dynamic-scope.md#select-multiple-resources).
 
-Pour les types compatibles avec plusieurs ressources, vous pouvez également interroger les métriques sur un abonnement ou plusieurs groupes de ressources. Pour savoir comment procéder, lisez [cet article](metrics-dynamic-scope.md#selecting-a-resource-group-or-subscription).
+![Capture d’écran montrant les types de ressources croisées.](./media/metrics-charts/multi-resource-scope.png)
 
+Pour les types qui sont compatibles avec plusieurs ressources, vous pouvez interroger les métriques sur un abonnement ou plusieurs groupes de ressources. Pour plus d’informations, consultez [Sélectionner un groupe de ressources ou un abonnement](metrics-dynamic-scope.md#select-a-resource-group-or-subscription).
 
-## <a name="create-views-with-multiple-metrics-and-charts"></a>Créer des vues contenant plusieurs métriques et graphiques
+## <a name="multiple-metric-lines-and-charts"></a>Plusieurs courbes et graphiques de métriques
 
-Vous pouvez créer des graphiques constitués de plusieurs lignes de métriques ou afficher plusieurs graphiques de métriques à la fois. Cette fonctionnalité vous permet de :
+Dans Azure Metrics Explorer, vous pouvez créer des graphiques constitués de plusieurs courbes de métriques ou afficher plusieurs graphiques de métriques à la fois. Cette fonctionnalité vous permet de :
 
-- Mettre en corrélation les mesures associées sur le même graphique pour voir comment une valeur est liée à une autre
-- Afficher les métriques avec différentes unités de mesure à proximité les unes des autres
-- Agréger visuellement et comparer les métriques de plusieurs ressources
+- Mettre en corrélation les métriques associées sur le même graphique pour voir comment une valeur est liée à une autre.
+- Afficher les métriques qui utilisent différentes unités de mesure à proximité les unes des autres.
+- Agréger visuellement et comparer les métriques de plusieurs ressources.
 
-Par exemple, si vous avez 5 comptes de stockage et que vous souhaitez connaître la quantité d’espace total qu’ils consomment, vous pouvez créer un graphique en aires (empilées) qui illustre chaque valeur, individuellement, ainsi que leur somme, à différents moments dans le temps.
+Par exemple, imaginez que vous avez cinq comptes de stockage et que vous souhaitez connaître l’espace qu’ils consomment ensemble. Vous pouvez créer un graphique en aires (empilé) qui affiche les valeurs individuelles et la somme de toutes les valeurs à des moments précis dans le temps.
 
 ### <a name="multiple-metrics-on-the-same-chart"></a>Plusieurs métriques sur le même graphique
 
-D’abord, [créez un graphique](metrics-getting-started.md#create-your-first-metric-chart). Cliquez sur **Ajouter une métrique** et répétez les étapes pour ajouter une autre métrique sur le même graphique.
+Pour afficher plusieurs métriques sur le même graphique, commencez par [créer un graphique](metrics-getting-started.md#create-your-first-metric-chart). Sélectionnez ensuite **Ajouter une métrique**. Répétez cette étape pour ajouter une autre métrique sur le même graphique.
 
-   > [!NOTE]
-   > Vous ne souhaiterez normalement pas avoir des métriques avec des unités de mesure différentes (par exemple, « millisecondes » et « Ko ») ou d’échelles très différentes sur un même graphique. Au lieu de cela, envisagez d’utiliser plusieurs graphiques. Pour créer plusieurs graphiques dans Metrics Explorer, cliquez sur le bouton Ajouter un graphique.
+> [!NOTE]
+> En règle générale, vos graphiques ne doivent pas mélanger les métriques qui utilisent des unités de mesure différentes. Par exemple, évitez de mélanger une mesure qui utilise les millisecondes avec une autre qui utilise les kilo-octets. Évitez également de mélanger les métriques dont les échelles diffèrent de manière significative. 
+>
+> Dans ce cas, envisagez plutôt d’utiliser plusieurs graphiques. Dans Metrics Explorer, sélectionnez **Ajouter un graphique** pour créer un graphique.
 
 ### <a name="multiple-charts"></a>Plusieurs graphiques
 
-Cliquez sur **Ajouter un graphique** et créez un autre graphique avec une autre métrique.
+Pour créer un autre graphique qui utilise une métrique différente, sélectionnez **Ajouter un graphique**.
 
-### <a name="order-or-delete-multiple-charts"></a>Ordonner ou supprimer plusieurs graphiques
+Pour réorganiser ou supprimer plusieurs graphiques, sélectionnez le bouton de sélection ( **…** ) pour ouvrir le menu du graphique. Choisissez ensuite **Déplacer vers le haut**, **Déplacer vers le bas** ou **Supprimer**.
 
-Pour ordonner ou supprimer plusieurs graphiques, cliquez sur le bouton de sélection ( **...** ) pour ouvrir le menu des graphiques, puis choisissez l’élément de menu approprié : **Monter**, **Descendre**, ou **Supprimer**.
+## <a name="aggregation"></a>Agrégation
 
-## <a name="changing-aggregation"></a>Modification de l’agrégation
+Lorsque vous ajoutez une métrique à un graphique, Metrics Explorer applique automatiquement une agrégation par défaut. La valeur par défaut a du sens dans les scénarios de base. Toutefois, vous pouvez utiliser une agrégation différente pour obtenir plus d’informations sur la métrique. 
 
-Lorsque vous ajoutez une métrique à un graphique, Metrics Explorer présélectionne automatiquement son agrégation par défaut. La valeur par défaut est logique dans les scénarios de base, mais vous pouvez utiliser une autre agrégation pour obtenir des informations supplémentaires sur la métrique. Pour afficher différentes agrégations sur un graphique, vous devez comprendre comment Metrics Explorer les gère. 
+Avant d’utiliser différentes agrégations sur un graphique, vous devez comprendre comment Metrics Explorer les gère. Les métriques sont une série de mesures (ou « valeurs métriques ») capturées au cours d’une période donnée. Lorsque vous tracez un graphique, les valeurs de la métrique sélectionnée sont agrégées séparément sur le *fragment de temps*. 
 
-Les métriques sont la série de mesures (ou « valeurs métriques ») capturées au cours d’une période donnée. Lorsque vous tracez un graphique, les valeurs de la métrique sélectionnée sont agrégées séparément sur le *fragment de temps*. Vous sélectionnez la taille du fragment de temps [à l’aide du panneau du sélecteur d’heure Metrics Explorer](metrics-getting-started.md#select-a-time-range). Si vous n’effectuez pas de sélection explicite du fragment de temps, la granularité du temps est automatiquement sélectionnée en fonction de l’intervalle de temps actuellement sélectionné. Une fois que le fragment de temps est déterminé, les valeurs métriques qui ont été capturées pendant chaque intervalle de fragment de temps sont agrégées et placées sur le graphique (un point de données par fragment de temps).
+Vous sélectionnez la taille du fragment de temps à l’aide du [panneau du sélecteur d’heure](metrics-getting-started.md#select-a-time-range) de Metrics Explorer. Si vous ne sélectionnez pas explicitement le fragment de temps, l’intervalle de temps actuellement sélectionné est utilisé par défaut. Une fois que le fragment de temps est déterminé, les valeurs métriques qui ont été capturées pendant chaque fragment de temps sont agrégées sur le graphique, un point de données par fragment de temps.
 
-Par exemple, supposons que le graphique indique la métrique **Temps de réponse du serveur** à l’aide de l’agrégation **Moyenne** au cours de l’intervalle de temps des **dernières 24 heures** :
+Par exemple, supposons qu’un graphique indique la métrique *Temps de réponse du serveur*. Il utilise l’agrégation *Moyenne* sur la période des *dernières 24 heures*. Dans cet exemple :
 
-- Si la granularité du temps est définie sur 30 minutes, le graphique est dessiné à partir de 48 points de données agrégés (par exemple, le graphique linéaire connecte 48 points dans la zone de traçage du graphique). Autrement dit, 24 heures x 2 points de données par heure. Chaque point de données représente la *moyenne* de tous les temps de réponse capturés pour les requêtes au serveur qui se sont produites pendant chacune des périodes de 30 minutes pertinentes.
-- Si vous réglez la granularité du temps à 15 minutes, vous obtenez 96 points de données agrégés.  Autrement dit, 24 heures x 4 points de données par heure.
+- Si la granularité temporelle est définie sur 30 minutes, le graphique est dessiné à partir de 48 points de données agrégés. Autrement dit, le graphique en courbes connecte 48 points dans la zone de traçage du graphique (24 heures x 2 points de données par heure). Chaque point de données représente la *moyenne* de tous les temps de réponse capturés pour les requêtes au serveur qui se sont produites pendant chacune des périodes de 30 minutes pertinentes.
+- Si vous réglez la granularité temporelle à 15 minutes, vous obtenez 96 points de données agrégés.  C’est-à-dire que vous obtenez 24 heures x 4 points de données par heure.
 
-Metrics Explorer propose cinq types d’agrégation de statistiques de base : **Somme**, **Nombre**, **Min**, **Max** et **Moyenne**. L’agrégation **Somme** est parfois appelée l’agrégation **Total**. Pour de nombreuses mesures, Metrics Explorer masque les agrégations qui sont totalement inutiles et ne peuvent pas être utilisées.
+Metrics Explorer propose cinq types d’agrégation statistique de base : somme, nombre, min., max. et moyenne. L’agrégation *Somme* est parfois appelée l’agrégation *Total*. Pour de nombreuses métriques, Metrics Explorer masque les agrégations qui ne sont pas pertinentes et ne peuvent pas être utilisées.
 
-**Somme** : somme de toutes les valeurs capturées sur l’intervalle d’agrégation
+* **Sum** : Somme de toutes les valeurs capturées pendant l’intervalle d’agrégation.
 
-![Capture d’écran de la somme de la requête](./media/metrics-charts/request-sum.png)
+    ![Capture d’écran d’une requête Somme.](./media/metrics-charts/request-sum.png)
 
-**Nombre** : nombre de mesures capturées au cours de l’intervalle d’agrégation. Notez que **Nombre** sera égal à **Somme** dans le cas où la mesure est toujours capturée avec la valeur 1. Cela est courant lorsque la métrique effectue le suivi du nombre d’événements distincts et que chaque mesure représente un événement (autrement dit, le code déclenche un enregistrement de métrique chaque fois qu’une nouvelle requête arrive)
+* **Nombre** : Nombre de mesures capturées pendant l’intervalle d’agrégation. 
+    
+    Lorsque la métrique est toujours capturée avec la valeur 1, l’agrégation Nombre est égale à l’agrégation Somme. Ce scénario est courant lorsque la métrique suit le nombre d’événements distincts et que chaque mesure représente un événement. Le code émet un enregistrement de métrique à chaque fois qu’une nouvelle requête arrive.
 
-![Capture d’écran du nombre de requêtes](./media/metrics-charts/request-count.png)
+    ![Capture d’écran d’une requête Nombre.](./media/metrics-charts/request-count.png)
 
-**Moyenne** : moyenne des valeurs métriques capturées sur l’intervalle d’agrégation
+* **Average** : Moyenne des valeurs métriques capturées pendant l’intervalle d’agrégation.
 
-![Capture d’écran du nombre de requêtes](./media/metrics-charts/request-avg.png)
+    ![Capture d’écran d’une requête Moyenne.](./media/metrics-charts/request-avg.png)
 
-**Min** : la plus petite valeur capturée sur l’intervalle d’agrégation
+* **Min** : Plus petite valeur capturée pendant l’intervalle d’agrégation.
 
-![Capture d’écran de la requête minimale](./media/metrics-charts/request-min.png)
+    ![Capture d’écran d’une requête Min.](./media/metrics-charts/request-min.png)
 
-**Max** : la plus grande valeur capturée sur l’intervalle d’agrégation
+* **Max** : Plus grande valeur capturée pendant l’intervalle d’agrégation.
 
-![Capture d’écran de la requête maximale](./media/metrics-charts/request-max.png)
+    ![Capture d’écran d’une requête Max.](./media/metrics-charts/request-max.png)
 
-## <a name="apply-filters-to-charts"></a>Appliquer des filtres aux graphiques
+## <a name="filters"></a>Filtres
 
-Vous pouvez appliquer des filtres à des graphiques qui montrent des métriques associées à des dimensions. Par exemple, si la métrique « Nombre de transactions » a une dimension « Type de réponse » indiquant si la réponse provient de transactions qui ont réussi ou échoué, un filtrage sur cette dimension trace une courbe de graphique uniquement pour les transactions qui ont réussi ou échoué. 
+Vous pouvez appliquer des filtres aux graphiques dont les métriques ont des dimensions. Par exemple, imaginez une métrique « Nombre de transactions » qui a une dimension « Type de réponse ». Cette dimension indique si la réponse des transactions a réussi ou échoué. Si vous filtrez sur cette dimension, vous verrez une courbe de graphique uniquement pour les transactions ayant réussi (ou uniquement celles ayant échoué). 
 
-### <a name="to-add-a-filter"></a>Pour ajouter un filtre
+### <a name="add-a-filter"></a>Ajouter un filtre
 
-1. Sélectionnez **Ajouter un filtre** au-dessus du graphique
+1. Au-dessus du graphique, sélectionnez **Ajouter un filtre**.
 
-2. Sélectionnez la dimension (propriété) que vous souhaitez filtrer.
+2. Sélectionnez une dimension (propriété) sur laquelle filtrer.
 
    ![Capture d’écran montrant les dimensions (propriétés) que vous pouvez filtrer.](./media/metrics-charts/028.png)
 
-3. Sélectionnez les valeurs de dimension que vous souhaitez inclure lors du traçage du graphique (cet exemple illustre le filtrage des transactions de stockage qui ont réussi) :
+3. Sélectionnez les valeurs de dimension que vous souhaitez inclure lorsque vous tracez le graphique. L’exemple suivant filtre les transactions de stockage réussies :
 
-   ![Capture d’écran montrant le filtrage des transactions de stockage réussies.](./media/metrics-charts/029.png)
+   ![Capture d’écran montrant les transactions de stockage filtrées ayant réussi.](./media/metrics-charts/029.png)
 
-4. Après avoir sélectionné les valeurs de filtre, cliquez à côté du sélecteur de filtre pour fermer celui-ci. Le graphique montre à présent le nombre de transactions de stockage qui ont échoué :
+4. Cliquez à l’extérieur du **sélecteur de filtre** pour le fermer. Le graphique montre à présent le nombre de transactions de stockage qui ont échoué :
 
    ![Capture d’écran montrant le nombre de transactions de stockage ayant échoué.](./media/metrics-charts/030.png)
 
-5. Vous pouvez répéter les étapes 1 à 4 pour appliquer plusieurs filtres aux mêmes graphiques.
+Vous pouvez répéter ces étapes pour appliquer plusieurs filtres aux mêmes graphiques.
 
 
 
-## <a name="apply-splitting-to-a-chart"></a>Appliquer un fractionnement à un graphique
+## <a name="metric-splitting"></a>Fractionnement des métriques
 
-Vous pouvez fractionner une métrique par dimension afin de visualiser la façon dont les différents segments de la métrique se comparent entre eux, et d’identifier des segments éloignés d’une dimension.
+Vous pouvez fractionner une métrique par dimension pour visualiser les différents segments de la comparaison des métriques. Le fractionnement peut également vous aider à identifier les segments périphériques d’une dimension.
 
 ### <a name="apply-splitting"></a>Appliquer la division
 
-1. Cliquez sur **Appliquer un fractionnement** au-dessus du graphique.
+1. Au-dessus du graphique, sélectionnez **Appliquer un fractionnement**.
  
    > [!NOTE]
-   > Le fractionnement ne peut pas être utilisé avec des graphiques qui ont plusieurs métriques. En outre, vous pouvez avoir plusieurs filtres mais une seule dimension de fractionnement appliquée à n’importe quel graphique unique.
+   > Les graphiques qui ont plusieurs métriques ne peuvent pas utiliser la fonctionnalité de fractionnement. De même, bien qu’un graphique puisse avoir plusieurs filtres, il ne peut avoir qu’une seule dimension de fractionnement.
 
-2. Choisissez la dimension sur laquelle vous souhaitez segmenter votre graphique :
+2. Choisissez une dimension sur laquelle segmenter le graphique :
 
-   ![Capture d’écran montrant la dimension sélectionnée sur laquelle vous segmentez votre graphique.](./media/metrics-charts/031.png)
+   ![Capture d’écran montrant la dimension sélectionnée sur laquelle segmenter le graphique.](./media/metrics-charts/031.png)
 
-   Le graphique montre à présent plusieurs lignes, une par segment de la dimension :
+   Le graphique montre à présent plusieurs courbes, une par segment de dimension :
 
-   ![Capture d’écran montrant plusieurs lignes, une pour chaque segment de dimension.](./media/metrics-charts/032.png)
+   ![Capture d’écran montrant des courbes pour chaque segment de dimension.](./media/metrics-charts/032.png)
 
-3. Cliquez à côté du **sélecteur de regroupement** pour fermer celui-ci.
+3. Cliquez à l’extérieur du **sélecteur de regroupement** pour le fermer.
 
    > [!NOTE]
-   > Pour masquer les segments non pertinents pour votre scénario et faciliter la lecture des graphiques, utilisez un Filtrage et un Fractionnement sur la même dimension.
+   > Pour masquer les segments non pertinents pour votre scénario et faciliter la lecture des graphiques, utilisez un filtrage et un fractionnement sur la même dimension.
 
-## <a name="lock-boundaries-of-chart-y-axis"></a>Verrouiller les limites de l’axe y du graphique
+## <a name="locking-the-range-of-the-y-axis"></a>Verrouillage de la plage de l’axe Y
 
-Lorsque le graphique montre des fluctuations plus faibles sur de plus grandes valeurs, il est important de verrouiller la plage de l’axe y. 
+Le verrouillage de la plage de l’axe des valeurs (Y) devient important dans les graphiques qui montrent de petites variations de valeurs élevées. 
 
-Par exemple, imaginons que le volume de requêtes réussies passe de 99,99 % à 99,95 %. Ces chiffres peuvent correspondre à une baisse significative de la qualité de service. Toutefois, avec les paramètres du graphique par défaut, il est très difficile voire impossible de remarquer une faible fluctuation des valeurs numériques. Dans ce cas, vous pouvez verrouiller la limite inférieure du graphique à 99 %. Cette petite baisse apparaît alors plus évidente. 
+Par exemple, une chute du volume de requêtes réussies de 99,99 % à 99,5 % peut correspondre à une baisse significative de la qualité de service. Toutefois, il est très difficile, voire impossible, de remarquer une légère fluctuation de la valeur numérique si vous utilisez les paramètres par défaut du graphique. Dans ce cas, vous pouvez verrouiller la limite inférieure du graphique à 99 %. pour rendre une petite baisse plus évidente. 
 
-Autre exemple avec la fluctuation de la mémoire disponible, pour laquelle la valeur ne peut pas atteindre zéro (techniquement). Si la plage est définie sur une valeur plus élevée, il se peut que les chutes de la mémoire disponible soient plus faciles à repérer. 
+Un autre exemple est une fluctuation de la mémoire disponible. Dans ce scénario, la valeur n’atteint techniquement jamais 0. Si la plage est définie sur une valeur plus élevée, vous pouvez repérer plus facilement les baisses de la mémoire disponible. 
 
-Pour contrôler la plage de l’axe des y, utilisez le menu du graphique « … », puis sélectionnez **Paramètres du graphique** pour accéder aux paramètres avancés du graphique.
+Pour contrôler la plage de l’axe Y, ouvrez le menu du graphique ( **…** ). Sélectionnez ensuite **Paramètres du graphique** pour accéder aux paramètres avancés du graphique.
 
-![Capture d’écran mettant en évidence l’option des paramètres du graphique.](./media/metrics-charts/033.png)
+![Capture d’écran mettant en évidence la sélection des paramètres du graphique.](./media/metrics-charts/033.png)
 
- Modifiez les valeurs de la section de la plage de l’axe y, ou utilisez le bouton **Auto** pour rétablir les valeurs par défaut.
+Modifiez les valeurs de la section de la **plage de l’axe Y**, ou sélectionnez **Auto** pour rétablir les valeurs par défaut.
  
  ![Capture d’écran mettant en évidence la section de la plage de l’axe Y.](./media/metrics-charts/034.png)
 
 > [!WARNING]
-> En général, pour verrouiller les limites de l’axe y pour les graphiques qui effectuent le suivi de nombres ou de sommes différents sur une période (et par conséquent, utilisent les agrégations de compte, somme, minimum ou maximum), vous devez spécifier une granularité temporelle fixe plutôt que de conserver les valeurs définies automatiquement par défaut. En effet, les valeurs des graphiques changent lorsque la granularité temporelle est modifiée automatiquement par l’utilisateur qui redimensionne sa fenêtre de navigation ou qui change de résolution d’écran. La modification de la granularité temporelle qui en découle affecte l’apparence du graphique et invalide la sélection actuelle de la plage de l’axe y.
+> Si vous devez verrouiller les limites de l’axe Y pour les graphiques qui suivent des nombres ou des sommes sur une période donnée (en utilisant les agrégations Nombre, Somme, Min. ou Max.), vous devez généralement spécifier une granularité temporelle fixe. Dans ce cas, vous ne devez pas vous fier aux valeurs par défaut automatiques. 
+>
+> Vous choisissez une granularité temporelle fixe parce que les valeurs du graphique changent lorsque la granularité temporelle est automatiquement modifiée après qu’un utilisateur redimensionne une fenêtre de navigateur ou change la résolution de l’écran. La modification de la granularité temporelle qui en découle influe sur l’apparence du graphique et invalide la sélection actuelle de la plage de l’axe Y.
 
-## <a name="change-colors-of-chart-lines"></a>Modifier les couleurs des lignes des graphiques
+## <a name="line-colors"></a>Couleurs des courbes
 
 Une fois les graphiques configurés, une couleur est automatiquement attribuée à leurs lignes à partir d'une palette par défaut. Vous pouvez modifier ces couleurs.
 
-Pour changer la couleur d'une ligne, cliquez sur la barre de couleur dans la légende qui correspond au graphique. La boîte de dialogue du sélecteur de couleurs s'ouvre. Utilisez le sélecteur de couleurs pour configurer la couleur de la ligne.
+Pour changer la couleur d’une courbe, sélectionnez la barre de couleur dans la légende qui correspond au graphique. La boîte de dialogue du sélecteur de couleurs s’ouvre. Utilisez le sélecteur de couleurs pour configurer la couleur de la courbe.
 
 ![Capture d’écran montrant comment modifier la couleur.](./media/metrics-charts/035.png)
 
-Une fois configurées, les couleurs sont conservées lorsque vous épinglez le graphique sur un tableau de bord. La section suivante explique comment épingler un graphique.
+Vos couleurs personnalisées sont conservées lorsque vous épinglez le graphique à un tableau de bord. La section suivante explique comment épingler un graphique.
 
-## <a name="pin-charts-to-dashboards"></a>Épingler des graphiques à des tableaux de bord
+## <a name="pinning-to-dashboards"></a>Épinglage à des tableaux de bord 
 
-Après avoir configuré les graphiques, vous pouvez les ajouter aux tableaux de bord afin de pouvoir les réafficher, par exemple, dans le contexte d’une autre télémétrie de surveillance ou d’un partage avec votre équipe.
+Après avoir configuré un graphique, vous souhaiterez peut-être l’ajouter à un tableau de bord. En épinglant un graphique à un tableau de bord, vous pouvez le rendre accessible à votre équipe. Vous pouvez également obtenir des informations en le visualisant dans le contexte d’autres données de télémétrie de surveillance.
 
-Pour épingler un graphique configuré à un tableau de bord :
+Pour épingler un graphique configuré à un tableau de bord, dans le coin supérieur droit du graphique, sélectionnez **Épingler au tableau de bord**.
 
-Après avoir configuré votre graphique, cliquez sur **Épingler au tableau de bord** dans l’angle supérieur droit du graphique.
+![Capture d’écran montrant comment épingler un graphique à un tableau de bord.](./media/metrics-charts/036.png)
 
-![Capture d’écran montrant comment épingler un graphique.](./media/metrics-charts/036.png)
+## <a name="alert-rules"></a>Règles d'alerte
 
-## <a name="create-alert-rules"></a>Créer des règles d'alerte
+Vous pouvez utiliser vos critères de visualisation pour créer une règle d’alerte basée sur les métriques. La nouvelle règle d’alerte inclura les dimensions cibles de ressources, de métriques, de fractionnement et de filtres de votre graphique. Vous pouvez modifier ces paramètres à l’aide du volet de création de règles d’alerte.
 
-Vous pouvez utiliser les critères que vous avez définis pour visualiser vos métriques en tant que base d’une règle d’alerte basée sur une métrique. La nouvelle règle d’alerte inclura les dimensions de la ressource, de la métrique, du fractionnement et du filtre cibles de votre graphique. Vous ne pourrez pas modifier ces paramètres ultérieurement dans le volet de création de règles d’alerte.
+Pour commencer, sélectionnez **Nouvelle règle d’alerte**.
 
-### <a name="to-create-a-new-alert-rule-click-new-alert-rule"></a>Pour créer une nouvelle règle d’alerte, cliquez sur **Nouvelle règle d’alerte**
+![Capture d’écran montrant le bouton Nouvelle règle d’alerte encadré en rouge.](./media/metrics-charts/042.png)
 
-![Bouton Nouvelle règle d’alerte surligné en rouge](./media/metrics-charts/042.png)
+Le volet de création de règles d’alerte s’ouvre. Dans le volet, vous voyez les dimensions de métrique du graphique. Les champs du volet sont préremplis pour vous aider à personnaliser la règle.
 
-Vous êtes redirigé vers le volet de la création de règle d’alerte avec les dimensions de métriques sous-jacentes de votre graphique préremplies pour faciliter la génération de règles d’alerte personnalisées.
+![Capture d’écran montrant le volet de création de règles.](./media/metrics-charts/041.png)
 
-![Créer une règle d’alerte](./media/metrics-charts/041.png)
-
-Lisez cet [article](alerts-metric.md) pour en savoir plus sur la configuration d’alertes de métrique.
+Pour plus d’informations, consultez [Créer, afficher et gérer des alertes de métrique](alerts-metric.md).
 
 ## <a name="troubleshooting"></a>Dépannage
 
-*Mon graphique ne contient aucune donnée.*
+Si vous ne voyez aucune donnée sur votre graphique, passez en revue les informations de dépannage suivantes :
 
 * Les filtres s’appliquent à tous les graphiques du volet. Lorsque vous vous concentrez sur un graphique, vérifiez que vous n’avez pas défini un filtre qui exclut toutes les données d’un autre graphique.
 
-* Si vous souhaitez définir des filtres différents sur différents graphiques, créez-les dans des panneaux différents, enregistrez-les sous forme de favoris distincts. Si vous le souhaitez, vous pouvez les épingler au tableau de bord afin de les afficher parallèlement.
+* Pour définir des filtres différents sur différents graphiques, créez les graphiques dans différents panneaux. Enregistrez ensuite les graphiques en tant que favoris distincts. Si vous le souhaitez, vous pouvez épingler les graphiques au tableau de bord pour les voir ensemble.
 
-* Si vous segmentez un graphique en fonction d’une propriété qui n’est pas définie dans la mesure, alors il n’y aura rien à afficher sur le graphique. Essayez d’effacer la segmentation (fractionnement) ou sélectionnez une autre propriété.
+* Si vous segmentez un graphique par une propriété que la métrique ne définit pas, le graphique n’affiche aucun contenu. Essayez d’effacer la segmentation (fractionnement) ou sélectionnez une autre propriété.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-  Pour découvrir les meilleures pratiques en matière de création de tableaux de bord actionnables avec des métriques, Voir [Créer des tableaux de bord d’indicateur de performance clé](../learn/tutorial-app-dashboards.md).
+Pour créer des tableaux de bord exploitables à l’aide des métriques, consultez [Création de tableaux de bord d’indicateurs de performance clés personnalisés](../learn/tutorial-app-dashboards.md).
+
+ 

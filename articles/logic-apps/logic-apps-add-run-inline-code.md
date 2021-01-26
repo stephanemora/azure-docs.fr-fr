@@ -7,12 +7,12 @@ ms.reviewer: deli, logicappspm
 ms.topic: article
 ms.date: 12/07/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 1736a1d22ccfb0f00061534d1c733ab72da4c7b0
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 3f88fa38d62778bc3c4c1e29571d1d0ae4eeb5ff
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922494"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179603"
 ---
 # <a name="add-and-run-code-snippets-by-using-inline-code-in-azure-logic-apps"></a>Ajoutez et exécutez des extraits de code en utilisant du code inclus dans Azure Logic Apps
 
@@ -31,7 +31,7 @@ Lorsque vous souhaitez exécuter un extrait de code au sein de votre application
   > [!NOTE]
   > La fonction `require()` n'est pas prise en charge par l'action Code inclus pour l'exécution de JavaScript.
 
-Cette action exécute l’extrait de code et retourne la sortie de cet extrait de code sous la forme d’un jeton nommé `Result`. Vous pouvez utiliser ce jeton avec les actions suivantes dans le flux de travail de votre application logique. Pour d’autres scénarios visant à créer une fonction pour votre code, essayez plutôt de [créer et d’appeler une fonction Azure](../logic-apps/logic-apps-azure-functions.md) dans votre application logique.
+Cette action exécute l’extrait de code et retourne la sortie de cet extrait de code sous la forme d’un jeton nommé `Result`. Vous pouvez utiliser ce jeton avec les actions suivantes dans le flux de travail de votre application logique. Pour d’autres scénarios visant à créer une fonction pour votre code, essayez plutôt de [créer et d’appeler une fonction par le biais d’Azure Functions](../logic-apps/logic-apps-azure-functions.md) dans votre application logique.
 
 Dans cet article, l’exemple d’application logique se déclenche lorsqu’un nouvel e-mail arrive dans un compte professionnel ou scolaire. L’extrait de code extrait et renvoie toutes les adresses e-mail qui s’affichent dans le corps du message.
 

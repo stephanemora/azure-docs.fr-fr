@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 10/07/2020
+ms.date: 01/19/2021
 ms.author: alkohli
-ms.openlocfilehash: 225cb9a31b73f330d8b4ed5790caacc4fa729477
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d40d26e8fab0832a37a43c353e11189f8f193f14
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839943"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573324"
 ---
 # <a name="technical-specifications-and-compliance-for-azure-stack-edge-pro-with-gpu"></a>Spécifications techniques et conformité pour Azure Stack Edge Pro avec GPU 
 
@@ -26,7 +26,7 @@ L’appareil Azure Stack Edge Pro présente les spécifications suivantes en mat
 | Caractéristique           | Valeur                  |
 |-------------------------|----------------------------|
 | UC                     | 2 UC Intel Xeon Silver 4214 (Cascade Lake)            |
-| Mémoire                  | 128 (8x16 Go) Go de RAM                     |
+| Mémoire                  | 128 (8x16 Go) Go de RAM <br> Compatible Dell 16 Go PC4-23400 DDR4 2933 Mhz 2Rx8 1.2v ECC inscrit RDIMM       |
 
 
 ## <a name="compute-acceleration-specifications"></a>Spécifications de l’accélération de calcul
@@ -56,7 +56,7 @@ Votre appareil Azure Stack Edge Pro dispose de 6 interfaces réseau : PORT1 à
 
 | Caractéristique           | Description                 |
 |-------------------------|----------------------------|
-|  Interfaces réseau    | **2 interfaces 1 GbE** : le port d’interface de gestion 1 est utilisé pour la configuration initiale et est statique par défaut. Une fois l’installation initiale terminée, vous pouvez l’utiliser pour les données avec n’importe quelle adresse IP. Toutefois, après réinitialisation, l’interface revient à l’adresse IP statique. <br>L’autre port d’interface 2 peut être configuré par l’utilisateur, utilisé pour le transfert de données et est défini en mode DHCP par défaut. <br>**4 interfaces 25 GbE** : ces interfaces de données, Ports 3 à 6, peuvent être configurées par l’utilisateur en mode DHCP (par défaut) ou statique. Ils peuvent également opérer en tant qu’interfaces 10 GbE.  | 
+|  Interfaces réseau    | **2 interfaces 1 GbE** : le port d’interface de gestion 1 est utilisé pour la configuration initiale et est statique par défaut. Une fois l’installation initiale terminée, vous pouvez l’utiliser pour les données avec n’importe quelle adresse IP. Toutefois, après réinitialisation, l’interface revient à l’adresse IP statique. <br>L’autre port d’interface 2 peut être configuré par l’utilisateur, utilisé pour le transfert de données et est défini en mode DHCP par défaut. <br>**4 interfaces 25 GbE** : ces interfaces de données, Ports 3 à 6, peuvent être configurées par l’utilisateur en mode DHCP (par défaut) ou statique. Elles peuvent également opérer en tant qu’interfaces 10 GbE.  | 
 
 Votre appareil Azure Stack Edge Pro est équipé des composants matériels réseau suivants :
 
@@ -68,7 +68,7 @@ Voici les détails de la carte Mellanox :
 | Paramètre           | Description                 |
 |-------------------------|----------------------------|
 | Modèle    | Carte d’interface réseau ConnectX®-4 Lx EN                      |
-| Description du modèle               | 25 GbE double port SFP28 ; PCIe 3.0 x8 ; ROHS R6                    |
+| Description du modèle               | 25 GbE double port SFP28 ; PCIe3.0 x8 ; ROHS R6                    |
 | Numéro de référence de l’appareil (R640) | MCX4121A-ACAT  |
 | PSID (R640)           | MT_2420110034                         |
 
@@ -88,11 +88,9 @@ Les appareils Azure Stack Edge Pro ont 5 disques SSD NVMe DC P4610 de 2,5", cha
 |    SSD SATA de démarrage      |    1                  |
 |    Capacité de SSD de démarrage                       |    240 Go             |
 |    Capacité totale                          |    8,0 To             |
-|    Capacité utilisable totale*                  |    ~4,19 To          |
+|    Capacité utilisable totale                   |    ~4,19 To          |
+|    Configuration RAID                      |    Espaces de stockage direct avec une combinaison de mise en miroir et de parité  |
 |    Contrôleur SAP                          |    HBA330 12 Gbits/s     |
-
-
-**Après la résilience de parité et la réservation d’espace pour un usage interne.*
 
 <!--Remove based on feedback from Ravi
 ## Other hardware specifications
@@ -150,7 +148,8 @@ Cette section présente les caractéristiques liées à l’environnement du bo�
 |     Boîtier                           |     Caractéristiques en fonctionnement                                                                                                                                                                                         |
 |-----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |    Ventilation                              |    La ventilation du système s’effectue de l’avant vers l’arrière. Le système doit être utilisé avec une installation basse pression à échappement vers l’arrière. <!--Back pressure created by rack doors and obstacles should not exceed 5 pascals (0.5 mm water gauge).-->    |
-|    Altitude maximale, en fonctionnement        |    3048 mètres (10 000 pieds) avec température maximale de fonctionnement en allègement de régime déterminée par les [Spécifications de température de fonctionnement en allègement de régime](#operating-temperature-de-rating-specifications).                                                                                |
+| Indice de protection (IP)                 |    Ce type d’équipement monté en rack pour une utilisation en intérieur n’est généralement pas testé quant à son indice de protection (protection contre les solides et les liquides pour un boîtier électrique). L’évaluation de la sécurité du fabricant indique IPXO (aucun indice de protection).  |
+|    Altitude maximale, en fonctionnement        |    3048 mètres (10 000 pieds) avec température maximale de fonctionnement en allègement de régime déterminée par les [spécifications de température de fonctionnement en allègement de régime](#operating-temperature-de-rating-specifications).                                                                                |
 |    Altitude maximale, hors fonctionnement    |    12 000 mètres (39 370 pieds)                                                                                                                                                                                         |
 |    Chocs, en fonctionnement                   |    6 G pendant 11 millisecondes dans les six orientations                                                                                                                                                                         |
 |    Chocs, hors fonctionnement               |    71 G pendant deux millisecondes dans les six orientations                                                                                                                                                                           |

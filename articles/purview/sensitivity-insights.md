@@ -1,18 +1,18 @@
 ---
-title: Rapports d’étiquettes de confidentialité sur vos données dans Stockage Blob Azure
-description: Ce guide pratique explique comment afficher et utiliser les rapports Purview « Étiquettes de confidentialité » qui concernent vos données dans Stockage Blob Azure.
+title: Rapports Étiquettes de confidentialité sur vos données dans Azure Purview à l’aide de Purview Insights
+description: Ce guide pratique explique comment afficher et utiliser les rapports Purview « Étiquettes de confidentialité » qui concernent vos données.
 author: batamig
 ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/24/2020
-ms.openlocfilehash: e6a92282d2bcd316a771742048dacd9a7181de4f
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: dffecb48a8faa869cb3df450cc220e86195bbc87
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746180"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98199374"
 ---
 # <a name="sensitivity-label-insights-about-your-data-in-azure-purview"></a>Insights relatifs aux étiquettes de confidentialité de vos données dans Azure Purview
 
@@ -27,15 +27,22 @@ Dans ce guide pratique, vous allez apprendre à effectuer les opérations suivan
 > - Afficher les insights relatifs à l’étiquetage de confidentialité de vos données.
 > - Descendre dans la hiérarchie pour obtenir plus de détails sur l’étiquetage de confidentialité de vos données.
 
+> [!NOTE]
+> Les étiquettes de confidentialité trouvées sur les [ressources Power BI](register-scan-power-bi-tenant.md) qui sont analysées par Purview ne sont pas actuellement affichées dans le rapport d’insights Étiquettes de confidentialité. 
+>
+> Pour afficher les étiquettes de confidentialité sur les ressources Power BI, affichez la ressource dans [Purview Data Catalog](how-to-search-catalog.md).
+> 
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de commencer à utiliser Purview Insights, assurez-vous d’avoir effectué les étapes suivantes :
+Avant de commencer à utiliser les insights Purview, assurez-vous d’avoir effectué les étapes suivantes :
 
 - Configurez vos ressources Azure et alimentez les comptes appropriés avec des données de test
 
 - [Étendez les étiquettes de confidentialité de Microsoft 365 aux ressources dans Azure Purview](create-sensitivity-label.md), et créez ou sélectionnez les étiquettes que vous souhaitez appliquer à vos données.
 
 - Configurez et terminez une analyse sur les données de test dans chaque source de données
+
+- Connecté à Purview avec un compte avec le [rôle de lecteur de données ou conservateur de données](catalog-permissions.md#azure-purviews-pre-defined-data-plane-roles).
 
 Pour plus d’informations, consultez [Gérer des sources de données dans Azure Purview (préversion)](manage-data-sources.md) et [Étiqueter automatiquement vos données dans Azure Purview](create-sensitivity-label.md).
 
@@ -45,9 +52,11 @@ Dans Purview, les classifications sont similaires aux étiquettes d’objet et p
 
 Les étiquettes de confidentialité vous permettent de préciser le niveau de confidentialité de certaines données de votre organisation. Par exemple, un nom de projet spécifique peut être hautement confidentiel au sein de votre organisation, alors que ce même terme n’est pas confidentiel pour d’autres organisations. 
 
-Si les classifications correspondent directement (un numéro de sécurité sociale porte la classification **Numéro de sécurité sociale**), des étiquettes de confidentialité sont appliquées lorsqu’un ou plusieurs scénarios et classifications sont détectés ensemble. 
+Les classifications sont mises en correspondance directement, par exemple un numéro de sécurité sociale, qui a la classification **Numéro de sécurité sociale**. 
 
-Purview utilise les mêmes classifications, également appelées « types d’informations sensibles », que Microsoft 365. Cela vous permet d’étendre vos étiquettes de confidentialité existantes dans vos ressources Azure Purview.
+En revanche, les étiquettes de confidentialité sont appliquées quand une ou plusieurs classifications et conditions sont regroupées. Dans ce contexte, « [conditions](/microsoft-365/compliance/apply-sensitivity-label-automatically) » faire référence à tous les paramètres que vous pouvez définir pour des données non structurées, par exemple, **Proximité d’une autre classification** et **Pourcentage de confiance**. 
+
+Purview utilise les mêmes classifications, également appelées [types d’informations sensibles](/microsoft-365/compliance/sensitive-information-type-entity-definitions), que Microsoft 365. Cela vous permet d’étendre vos étiquettes de confidentialité existantes dans vos ressources Azure Purview.
 
 > [!NOTE]
 > Une fois que vous avez analysé vos types de sources, donnez quelques heures aux insights **Étiquetage de confidentialité** pour qu’ils tiennent compte des nouvelles ressources.

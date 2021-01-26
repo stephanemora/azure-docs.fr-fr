@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 12/03/2020
-ms.openlocfilehash: c824e0abea7320a20441e51caa2a05d534ff61b3
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 003a71f962652b1a1436f5d9875835534090a77a
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97092684"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98196586"
 ---
 # <a name="automatically-label-your-data-in-azure-purview"></a>Étiquetage automatique de données dans Azure Purview
 
@@ -33,12 +33,13 @@ Dans Purview, les classifications sont similaires aux étiquettes d’objet. Ell
 Purview utilise les mêmes classifications, également appelées « types d’informations sensibles », que Microsoft 365.  Les étiquettes de confidentialité MIP sont créées dans le Centre de sécurité et conformité Microsoft 365. Vous pouvez ainsi étendre vos étiquettes de confidentialité existantes à vos différentes ressources Azure Purview.
 
 > [!NOTE]
-> Si les classifications font l’objet d’une correspondance directe (un numéro de sécurité sociale porte la classification **Numéro de sécurité sociale**), les étiquettes de confidentialité sont appliquées lorsqu’un ou plusieurs scénarios et classifications sont détectés ensemble. 
-> 
+> Les classifications sont mises en correspondance directement, par exemple un numéro de sécurité sociale, qui a la classification **Numéro de sécurité sociale**. 
+>
+> En revanche, les étiquettes de confidentialité sont appliquées quand une ou plusieurs classifications et conditions sont regroupées. Dans ce contexte, « [conditions](/microsoft-365/compliance/apply-sensitivity-label-automatically) » faire référence à tous les paramètres que vous pouvez définir pour des données non structurées, par exemple, **Proximité d’une autre classification** et **Pourcentage de confiance**. 
 
 Les étiquettes de confidentialité proposées dans Azure Purview peuvent être appliquées automatiquement aux fichiers et aux colonnes de base de données.
 
-Pour plus d’informations, consultez :
+Pour plus d'informations, consultez les pages suivantes :
 
 - [En savoir plus sur les étiquettes de confidentialité](/microsoft-365/compliance/sensitivity-labels) dans la documentation de Microsoft 365
 - [Présentation des règles d’étiquetage automatique](#what-are-autolabeling-rules)
@@ -68,7 +69,7 @@ Les étiquettes de confidentialité sont prises en charge dans Azure Purview pou
 
 Si vous ne disposez pas encore d’étiquettes de confidentialité, vous devez les créer et les rendre accessibles à Azure Purview. Il est également possible de modifier les étiquettes de confidentialité existantes pour les rendre accessibles à Azure Purview.
 
-Pour plus d’informations, consultez :
+Pour plus d'informations, consultez les pages suivantes :
 
 - [Exigences en termes de licence](#licensing-requirements)
 - [Extension des étiquettes de confidentialité à Azure Purview](#extending-sensitivity-labels-to-azure-purview)
@@ -91,11 +92,6 @@ En étendant les étiquettes de confidentialité de MIP avec Azure Purview, les 
 > Étant donné que Microsoft 365 et Azure Purview sont des services distincts, il est possible qu’ils soient déployés dans des régions différentes. Le nom des étiquettes et celui des types d’informations sensibles personnalisés sont considérés comme des données client. Ils sont conservés dans le même emplacement géographique par défaut pour préserver la confidentialité des données et éviter l’application des lois RGPD.
 >
 > C’est la raison pour laquelle les étiquettes et les types d’informations sensibles personnalisés ne sont pas partagés par défaut avec Azure Purview. Votre consentement est nécessaire pour les utiliser dans Azure Purview.
-
-> [!IMPORTANT]
-> Votre consentement permet à Microsoft de partager le nom de l’étiquette et celui du type d’informations sensibles personnalisé pour Azure Purview *et* Azure Security Center (ASC). Microsoft utilise les informations d’étiquette d’Azure Purview pour enrichir vos recommandations et vos alertes dans ASC. 
->
-> Le consentement donné dans le Centre de conformité Microsoft 365 s’applique au partage de ces données avec les deux services. Il n’existe actuellement aucun choix permettant de partager des informations d’étiquetage avec Azure Purview uniquement.
 
 **Extension des étiquettes de confidentialité à Purview :**
 

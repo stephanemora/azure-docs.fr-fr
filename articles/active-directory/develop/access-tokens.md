@@ -13,12 +13,12 @@ ms.date: 10/27/2020
 ms.author: hirsin
 ms.reviewer: mmacy, hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: ceb5acbee2e572b1859a5577b58dd586fc924b3b
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 4a798443560f62673ef8fcf0bce970a66071d011
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653280"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232384"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Jetons d’accès de la plateforme d’identités Microsoft
 
@@ -292,10 +292,7 @@ Une connexion *non basée sur mot de passe* est une connexion où l’utilisateu
 - Voix
 - PIN
 
-> [!NOTE]
-> Les jetons d’actualisation principaux (PRT) sur Windows 10 sont séparés en fonction des informations d’identification. Par exemple, Windows Hello et le mot de passe ont leur PRT respectif, chacun isolé l’un de l’autre. Lorsqu’un utilisateur se connecte avec une information d’identification Hello (code confidentiel ou biométrie), puis modifie le mot de passe, le PRT basé sur le mot de passe obtenu précédemment est révoqué. La reconnexion avec un mot de passe invalide l’ancien PRT et demande un nouveau mot de passe.
->
-> Les jetons d’actualisation ne sont pas invalidés ou révoqués lorsqu’ils sont utilisés pour récupérer un nouveau jeton d’accès et un jeton d’actualisation.  Toutefois, votre application doit ignorer l’ancien dès qu’il est utilisé et le remplacer par le nouveau, car le nouveau jeton possède une nouvelle heure d’expiration.
+Pour plus d’informations sur les jetons d’actualisation principaux, consultez [Jetons d’actualisation principaux](../devices/concept-primary-refresh-token.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

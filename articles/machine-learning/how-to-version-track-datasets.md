@@ -1,7 +1,7 @@
 ---
 title: Contrôle de version des jeux de données
 titleSuffix: Azure Machine Learning
-description: Découvrez comment optimiser la version de vos jeux de données et comment le contrôle de version fonctionne avec les pipelines Machine Learning.
+description: Découvrez comment versionner des jeux de données et comment le contrôle de version fonctionne avec les pipelines Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,14 +11,14 @@ ms.reviewer: nibaccam
 ms.date: 03/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: 7eb8010853ba370f4502b6bc155c6a098e64965b
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 3290574b26abe544c8c749165e22bef41a83ecf3
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98133444"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98538157"
 ---
-# <a name="version-and-track-datasets-in-experiments"></a>Gérer les versions et suivre des jeux de données dans les expériences
+# <a name="version-and-track-azure-machine-learning-datasets"></a>Versionner et suivre des jeux de données Azure Machine Learning
 
 Dans cet article, vous apprendrez à gérer les versions et à suivre les jeux de données Azure Machine Learning pour la reproductibilité. Un contrôle de version d’un jeu de données est un moyen de marquer l’état de vos données, afin de pouvoir appliquer une version spécifique du jeu de données pour des expérimentations ultérieures.
 

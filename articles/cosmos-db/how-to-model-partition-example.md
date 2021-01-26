@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: c3cdc0a9fb9fa236fae37a52194f446278a42f72
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: d2f35ae7a6110acb2ca89bdaeb487eddabf84923
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616244"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185816"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>Guide pratique pour modéliser et partitionner des données sur Azure Cosmos DB à l’aide d’un exemple concret
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -60,7 +60,7 @@ Voici la liste des demandes que notre plateforme devra exposer :
 
 À ce stade, nous n’avons pas pensé aux détails de ce que contiendra chaque entité (utilisateur, publication, etc.). Cette étape est généralement parmi les premières considérées lors de la conception par rapport à un magasin relationnel, parce que nous devons déterminer comment ces entités se traduiront en termes de tables, de colonnes, de clés étrangères, etc. Cela est moins préoccupant avec une base de données de documents qui n’impose aucun schéma en écriture.
 
-La principale raison pour laquelle il est important d’identifier nos modèles d’accès dès le début tient au fait que cette liste de demandes sera notre suite de tests. Chaque fois que nous itérerons sur notre modèle de données, nous examinerons chaque demande et vérifierons ses performances et l’extensibilité.
+La principale raison pour laquelle il est important d’identifier nos modèles d’accès dès le début tient au fait que cette liste de demandes sera notre suite de tests. Chaque fois que nous itérerons sur notre modèle de données, nous examinerons chaque demande et vérifierons ses performances et l’extensibilité. Nous calculons les unités de requête (RU) consommées dans chaque modèle et les optimisons. Tous ces modèles utilisent la stratégie d’indexation par défaut, et vous pouvez les remplacer en indexant des propriétés spécifiques, ce qui peut améliorer la consommation et la latence des RU.
 
 ## <a name="v1-a-first-version"></a>V1 : Première version
 

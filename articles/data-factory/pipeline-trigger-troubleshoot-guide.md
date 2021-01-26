@@ -7,46 +7,40 @@ ms.date: 12/15/2020
 ms.topic: troubleshooting
 ms.author: susabat
 ms.reviewer: susabat
-ms.openlocfilehash: 0e67a316b012eda61607c84edfd8e10d6aa3318d
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 0ceee3c65e8c4df5d843bb441fb6426a0f4eb696
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97589149"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220250"
 ---
 # <a name="troubleshoot-pipeline-orchestration-and-triggers-in-azure-data-factory"></a>Résoudre les problèmes liés à l’orchestration et aux déclencheurs de pipeline dans Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Une exécution du pipeline dans Azure Data Factory définit une instance d’une exécution du pipeline. Par exemple, vous disposez d’un pipeline qui s’exécute à 8h00, 9h00 et 10h00. Dans ce cas, il y aura trois exécutions distinctes du pipeline. Chaque exécution de pipeline possède un ID d’exécution de pipeline unique. Une ID d’exécution est un GUID (identificateur global unique) qui définit cette exécution de pipeline spécifique.
+Une exécution du pipeline dans Azure Data Factory définit une instance d’une exécution du pipeline. Supposons par exemple que vous disposez d’un pipeline qui s’exécute à 8h00, 9h00 et 10h00. Dans ce cas, il y aura trois exécutions de pipeline distinctes. Chaque exécution de pipeline possède un ID d’exécution de pipeline unique. Un ID d’exécution est un identificateur global unique (GUID) qui définit cette exécution de pipeline spécifique.
 
 Les exécutions de pipeline sont généralement instanciées en transmettant des arguments aux paramètres que vous définissez dans les pipelines. Vous pouvez exécuter un pipeline manuellement ou via un déclencheur. Pour plus de détails, consultez [Exécution et déclencheurs de pipeline dans Azure Data Factory](concepts-pipeline-execution-triggers.md).
 
 ## <a name="common-issues-causes-and-solutions"></a>Problèmes, causes et solutions courants
 
-### <a name="pipeline-with-azure-function-throws-error-with-private-end-point-connectivity"></a>Le pipeline avec Fonction Azure lève une erreur liée à une connexion de point de terminaison privé
+### <a name="an-azure-functions-app-pipeline-throws-an-error-with-private-endpoint-connectivity"></a>Un pipeline de l’application Azure Functions lève une erreur liée à une connexion de point de terminaison privé
  
-#### <a name="issue"></a>Problème
-Dans certains cas, Data Factory et l’Application Azure Function s’exécutent sur un point de terminaison privé. Vous essayez d’obtenir un pipeline qui interagit avec l’Application Azure Function pour fonctionner. Vous avez essayé trois méthodes différentes, mais l’une retourne une erreur `Bad Request`, et les deux autres méthodes retournent `103 Error Forbidden`.
+Data Factory et l’application de fonction Azure s’exécutent sur un point de terminaison privé. Vous essayez d’exécuter un pipeline qui interagit avec l’application de fonction. Vous avez essayé trois méthodes différentes, mais l’une retourne l’erreur « Requête incorrecte » et les deux autres méthodes retournent l’erreur « 103 Erreur Interdit ».
 
-#### <a name="cause"></a>Cause 
-Azure Data Factory ne prend actuellement pas en charge un connecteur de point de terminaison privé pour l’Application Azure Function. C’est la raison pour laquelle l’Application Azure Function rejette les appels, car il est configuré pour autoriser uniquement les connexions à partir d’une liaison privée.
+**Cause** : Data Factory ne prend actuellement pas en charge un connecteur de point de terminaison privé pour les applications de fonction. Azure Functions rejette les appels, car il est configuré pour autoriser uniquement les connexions à partir d’une liaison privée.
 
-#### <a name="resolution"></a>Résolution
-Vous pouvez créer un point de terminaison privé de type **PrivateLinkService** et fournir le DNS de votre application de fonction pour que la connexion fonctionne.
+**Résolution** : Créez un point de terminaison **PrivateLinkService** et fournissez le DNS de votre application de fonction.
 
-### <a name="pipeline-run-is-killed-but-the-monitor-still-shows-progress-status"></a>L’exécution du pipeline est interrompue mais le moniteur continue d’afficher l’état de progression
+### <a name="a-pipeline-run-is-canceled-but-the-monitor-still-shows-progress-status"></a>L’exécution du pipeline est annulée mais le moniteur continue d’afficher l’état de progression
 
-#### <a name="issue"></a>Problème
-Souvent, lorsque vous interrompez l’exécution d’un pipeline, la surveillance de celui-ci continue d’affiche l’état de progression. Cela se produit en raison du problème de cache dans le navigateur et parce que vous n’avez pas de filtre approprié pour la surveillance.
+Quand vous annulez l’exécution d’un pipeline, la surveillance de celui-ci continue souvent d’afficher l’état de progression. Cela est dû à un problème de cache du navigateur. Vous ne disposez peut-être pas des filtres appropriés pour la surveillance.
 
-#### <a name="resolution"></a>Résolution
-Actualisez le navigateur et appliquez les filtres appropriés pour la surveillance.
+**Résolution** : Actualisez le navigateur et appliquez les filtres appropriés pour la surveillance.
  
-### <a name="copy-pipeline-failure--found-more-columns-than-expected-column-count-delimitedtextmorecolumnsthandefined"></a>Échec de pipeline de copie : le nombre de colonnes trouvé est supérieur au nombre attendu (DelimitedTextMoreColumnsThanDefined)
-
-#### <a name="issue"></a>Problème  
-Si un dossier que vous copiez contient des fichiers avec des schémas différents, comme un nombre variable de colonnes, des délimiteurs ou paramètres de guillemets différents, ou des problèmes quelconques liés aux données, le pipeline Azure Data Factory cesse de s’exécuter en levant l’erreur suivante :
+### <a name="you-see-a-delimitedtextmorecolumnsthandefined-error-when-copying-a-pipeline"></a>Une erreur « DelimitedTextMoreColumnsThanDefined » s’affiche lors de la copie d’un pipeline
+ 
+Si un dossier que vous copiez contient des fichiers avec des schémas différents, comme un nombre variable de colonnes, des délimiteurs ou paramètres de guillemets différents, ou des problèmes quelconques liés aux données, le pipeline Azure Data Factory peut lever l’erreur suivante :
 
 `
 Operation on target Copy_sks  failed: Failure happened on 'Sink' side.
@@ -56,51 +50,41 @@ Message=Error found when processing 'Csv/Tsv Format Text' source '0_2020_11_09_1
 Source=Microsoft.DataTransfer.Common,'
 `
 
-#### <a name="resolution"></a>Résolution
-Sélectionnez l’option « Copie binaire » lors de la création de l’activité Copier des données. Ainsi, pour la copie en bloc ou la migration de vos données d’un Data Lake vers un autre, avec l’option **binaire**, Azure Data Factory n’ouvre pas les fichiers pour lire le schéma, mais traite simplement chacun d’eux comme fichier binaire et les copie vers l’autre emplacement.
+**Résolution** : Sélectionnez l’option **Copie binaire** lors de la création de l’activité Copy. De cette façon, pour les copies en bloc ou la migration de vos données d’un lac de données vers un autre, Data Factory n’ouvre pas les fichiers pour lire le schéma. Au lieu de cela, Data Factory traite chaque fichier sous forme binaire et le copie dans l’autre emplacement.
 
-### <a name="pipeline-run-fails-when-capacity-limit-of-integration-runtime-is-reached"></a>L’exécution du pipeline échoue quand la limite de capacité du runtime d’intégration est atteinte
+### <a name="a-pipeline-run-fails-when-you-reach-the-capacity-limit-of-the-integration-runtime"></a>L’exécution du pipeline échoue quand vous atteignez la limite de capacité du runtime d’intégration
 
-#### <a name="issue"></a>Problème
 Message d’erreur :
 
 `
 Type=Microsoft.DataTransfer.Execution.Core.ExecutionException,Message=There are substantial concurrent MappingDataflow executions which is causing failures due to throttling under Integration Runtime 'AutoResolveIntegrationRuntime'.
 `
 
-L’erreur indique la limitation par runtime d’intégration, qui est actuellement de 50. Pour plus d’informations, consultez [Limites](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#version-2).
+**Cause** : Vous avez atteint la limite de capacité du runtime d’intégration. Vous exécutez peut-être une grande quantité de flux de données simultanément à l’aide du même runtime d’intégration. Pour plus d’informations, consultez [Abonnement Azure et limites, quotas et contraintes de service](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#version-2).
 
-Si vous exécutez une grande quantité de flux de données simultanément à l’aide du même runtime d’intégration, cela peut entraîner ce type d’erreur.
+**Résolution** :
+ 
+- Exécutez vos pipelines à différents moments de déclenchement.
+- Créez un nouveau runtime d’intégration et répartissez vos pipelines sur plusieurs runtimes d’intégration.
 
-#### <a name="resolution"></a>Résolution 
-- Séparez ces pipelines en fonction des différents temps de déclenchement pour les exécuter.
-- Créez un nouveau runtime d’intégration et fractionnez ces pipelines en plusieurs runtimes d’intégration.
+### <a name="you-have-activity-level-errors-and-failures-in-pipelines"></a>Il existe des erreurs et échecs au niveau des activités dans les pipelines
 
-### <a name="how-to-monitor-pipeline-failures-on-regular-interval"></a>Comment surveiller les échecs de pipeline à intervalles réguliers
+Une orchestration Azure Data Factory autorise une logique conditionnelle et permet aux utilisateurs d’emprunter différents chemins d’accès en fonction du résultat d’une activité précédente. Elle autorise quatre chemins d’accès conditionnels : **En cas de réussite** (réussite par défaut), **En cas d’échec**, **En cas d’achèvement** et **En cas d’omission**. 
 
-#### <a name="issue"></a>Problème
-Il est souvent nécessaire de surveiller les pipelines Azure Data Factory à intervalles réguliers, par exemple, de 5 minutes. Vous pouvez interroger et filtrer les exécutions du pipeline à partir d’une fabrique de données à l’aide du point de terminaison. 
+Azure Data Factory évalue le résultat de toutes les activités au niveau feuille. Les résultats du pipeline sont réussis uniquement si toutes les feuilles réussissent. Si une activité de feuille a été ignorée, nous évaluons son activité parente à la place. 
 
-#### <a name="recommendation"></a>Recommandation
-1. Configurez une application logique Azure pour interroger tous les pipelines ayant échoué toutes les 5 minutes.
-2. Ensuite, vous pouvez signaler des incidents à notre système de billetterie comme décrit dans [QueryByFactory](https://docs.microsoft.com/rest/api/datafactory/pipelineruns/querybyfactory).
+**Résolution :**
 
-#### <a name="reference"></a>Référence
-- [Envoi à l’extérieur de notifications à partir d’Azure Data Factory](https://www.mssqltips.com/sqlservertip/5962/send-notifications-from-an-azure-data-factory-pipeline--part-2/)
+1. Implémentez les contrôles au niveau de l’activité en procédant de la manière décrite dans [Comment gérer les échecs et erreurs de pipeline](https://techcommunity.microsoft.com/t5/azure-data-factory/understanding-pipeline-failures-and-error-handling/ba-p/1630459).
+1. Utilisez Azure Logic Apps pour surveiller les pipelines à intervalles réguliers en procédant de la manière décrite dans [Query By Factory](https://docs.microsoft.com/rest/api/datafactory/pipelineruns/querybyfactory).
 
-### <a name="how-to-handle-activity-level-errors-and-failures-in-pipelines"></a>Comment gérer les erreurs et échecs au niveau des activités dans les pipelines
+## <a name="monitor-pipeline-failures-in-regular-intervals"></a>Surveiller les échecs de pipeline à intervalles réguliers
 
-#### <a name="issue"></a>Problème
-Une orchestration Azure Data Factory autorise une logique conditionnelle et permet à l’utilisateur d’emprunter différents chemins d’accès en fonction des résultats d’une activité précédente. Elle autorise quatre chemins d’accès conditionnels : « En cas de réussite (réussite par défaut) », « En cas d’échec », « En cas d’achèvement » et « En cas d’omission ». L’utilisation de chemins d’accès différents est autorisée.
+Vous devrez peut-être surveiller les pipelines Data Factory à intervalles réguliers, par exemple, de 5 minutes. Vous pouvez interroger et filtrer les exécutions du pipeline à partir d’une fabrique de données à l’aide du point de terminaison. 
 
-Azure Data Factory définit le succès et l’échec de l’exécution du pipeline comme suit :
+Configurez une application logique Azure pour interroger tous les pipelines ayant échoué toutes les 5 minutes, en procédant de la manière décrite dans [Query By Factory](https://docs.microsoft.com/rest/api/datafactory/pipelineruns/querybyfactory). Ensuite, vous pouvez signaler des incidents à notre système de tickets.
 
-- Évaluez le résultat de toutes les activités au niveau feuille. Si une activité de feuille a été ignorée, nous évaluons son activité parente à la place.
-- Le résultat du pipeline est réussi si et seulement si toutes les feuilles réussissent.
-
-#### <a name="recommendation"></a>Recommandation
-- Implémentez les contrôles de niveau d’activité en procédant de la manière décrite dans [Comment gérer les échecs et erreurs de pipeline](https://techcommunity.microsoft.com/t5/azure-data-factory/understanding-pipeline-failures-and-error-handling/ba-p/1630459).
-- Utilisez une application logique Azure pour surveiller les pipelines à intervalles réguliers en procédant de la manière décrite dans [Interroger par DataFactory]( https://docs.microsoft.com/rest/api/datafactory/pipelineruns/querybyfactory).
+Pour plus d’informations, consultez [Envoi de notifications à partir de Data Factory, partie 2](https://www.mssqltips.com/sqlservertip/5962/send-notifications-from-an-azure-data-factory-pipeline--part-2/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -2,21 +2,24 @@
 title: Étendue sur les types de ressources d’extension
 description: Décrit comment utiliser la propriété scope lors du déploiement de types de ressources d’extension.
 ms.topic: conceptual
-ms.date: 10/22/2020
-ms.openlocfilehash: bd468d31454c38bd314269243702d7df4f279a5e
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 01/13/2021
+ms.openlocfilehash: 75c2c8b8409cc9f8e7a8e71965589ece6660607a
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92681278"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179977"
 ---
 # <a name="setting-scope-for-extension-resources-in-arm-templates"></a>Définition de l’étendue pour les ressources d’extension dans les modèles Resource Manager
 
-Une ressource d’extension est une ressource qui modifie une autre ressource. Par exemple, vous pouvez attribuer un rôle à une ressource pour en limiter l’accès. L’attribution de rôle est un type de ressource d’extension.
+Une ressource d’extension est une ressource qui modifie une autre ressource. Par exemple, vous pouvez attribuer un rôle à une ressource. L’attribution de rôle est un type de ressource d’extension.
 
 Pour obtenir la liste complète des types de ressources d’extension, consultez [Types de ressources qui étendent les fonctionnalités d’autres ressources](../management/extension-resource-types.md).
 
 Cet article explique comment définir l’étendue d’un type de ressource d’extension lors du déploiement avec un modèle Azure Resource Manager. Il décrit la propriété scope qui est disponible pour les ressources d’extension lorsqu’elles s’appliquent à une ressource.
+
+> [!NOTE]
+> La propriété scope est uniquement disponible pour les types de ressources d’extension. Pour spécifier une étendue différente pour un type de ressource qui n’est pas un type d’extension, utilisez un déploiement imbriqué ou lié. Pour plus d’informations, consultez [Déploiements de groupes de ressources](deploy-to-resource-group.md), [Déploiements d’abonnements](deploy-to-subscription.md), [Déploiements de groupes d’administration](deploy-to-management-group.md) et [Déploiements de locataires](deploy-to-tenant.md).
 
 ## <a name="apply-at-deployment-scope"></a>Appliquer au niveau de l’étendue du déploiement
 

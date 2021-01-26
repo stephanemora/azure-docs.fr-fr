@@ -4,15 +4,15 @@ description: Ce guide décrit les méthodes Horizon couramment utilisées.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 1/7/2020
+ms.date: 1/5/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 6d2e3fccd6a61fe129050faa29cb7bb77674ccfe
-ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
+ms.openlocfilehash: 39770fe7aa7b11cae03304fda8901e81e0f1877a
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97976898"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208407"
 ---
 # <a name="horizon-api"></a>API Horizon 
 
@@ -20,17 +20,19 @@ Ce guide décrit les méthodes Horizon couramment utilisées.
 
 ### <a name="getting-more-information"></a>Obtenir des informations complémentaires
 
-Pour plus d’informations sur l’utilisation d’Horizon et de la plateforme CyberX, reportez-vous aux rubriques suivantes :
+Pour plus d’informations sur l’utilisation d’Horizon et de la plateforme Defender pour IoT, consultez les informations suivantes :
 
-- Pour le kit de développement logiciel (SDK) Horizon Open Development Environment (ODE), contactez votre représentant CyberX.
+- Pour le Kit de développement logiciel (SDK) Horizon Open Development Environment (ODE), contactez votre représentant Defender pour IoT.
 - Pour obtenir des informations de support et de dépannage, contactez <support@cyberx-labs.com>.
-- Pour accéder au Guide de l’utilisateur CyberX à partir de la console CyberX, sélectionnez :::image type="icon" source="media/references-horizon-api/profile-icon.png":::, puis **Télécharger le Guide de l’utilisateur**.
+
+- Pour accéder au guide de l’utilisateur Defender pour IoT à partir de la console Defender pour IoT, sélectionnez :::image type="icon" source="media/references-horizon-api/profile.png":::, puis **Télécharger le guide de l’utilisateur**.
+
 
 ## `horizon::protocol::BaseParser`
 
 Résumé pour tous les plug-ins. Cela regroupe deux méthodes :
 
-- Pour le traitement des filtres de plug-in définis au-dessus. De cette manière, Horizon sait comment communiquer avec l’analyseur
+- Pour le traitement des filtres de plug-in définis au-dessus. De cette manière, Horizon sait comment communiquer avec l’analyseur.
 - Pour le traitement des données réelles.
 
 ## `std::shared_ptr<horizon::protocol::BaseParser> create_parser()`
@@ -39,7 +41,7 @@ La première fonction appelée pour votre plug-in crée une instance de l’anal
 
 ### <a name="parameters"></a>Paramètres 
 
-None
+Aucun.
 
 ### <a name="return-value"></a>Valeur renvoyée
 
@@ -49,7 +51,7 @@ shared_ptr à votre instance d’analyseur.
 
 Cette fonction sera appelée pour chaque plug-in inscrit ci-dessus. 
 
-Dans la plupart des cas, ce paramètre sera vide. Levez une exception pour qu’Horizon sache qu’une erreur s’est produite.
+Dans la plupart des cas, elle sera vide. Levez une exception pour qu’Horizon sache qu’une erreur s’est produite.
 
 ### <a name="parameters"></a>Paramètres 
 
@@ -57,7 +59,7 @@ Dans la plupart des cas, ce paramètre sera vide. Levez une exception pour qu’
 
 ### <a name="return-value"></a>Valeur retournée 
 
-Tableau de uint64_t, qui correspond à l’inscription traitée dans un genre de uint64_t. Cela signifie que dans la carte, vous disposez d’une liste de ports dont les valeurs correspondront aux uin64_t.
+Tableau d’uint64_t, qui correspond à l’inscription traitée dans un genre d’uint64_t. Cela signifie que dans la carte, vous disposez d’une liste de ports dont les valeurs correspondront aux uin64_t.
 
 ## `horizon::protocol::ParserResult horizon::protocol::BaseParser::processLayer(horizon::protocol::management::IProcessingUtils &,horizon::general::IDataBuffer &)`
 
@@ -69,12 +71,12 @@ Votre plug-in doit être thread-safe, car cette fonction peut être appelée à 
 
 ### <a name="parameters"></a>Paramètres
 
-- Unité de contrôle du kit de développement logiciel (SDK) responsable du stockage des données et de la création d’objets associés au SDK, tels que ILayer, les champs, etc.
+- Unité de contrôle du Kit de développement logiciel (SDK) responsable du stockage des données et de la création d’objets associés au SDK, notamment ILayer et les champs.
 - Assistance pour la lecture des données du paquet brut. Elle est déjà configurée avec l’ordre d’octet que vous avez défini dans le fichier config.json.
 
 ### <a name="return-value"></a>Valeur retournée 
 
-Résultat du traitement. Le résultat peut être Succès/Malformé/Intégrité.
+Résultat du traitement. Le résultat peut être *Succès*, *Malformé* ou *Intégrité*.
 
 ## `horizon::protocol::SanityFailureResult: public horizon::protocol::ParserResult`
 
@@ -90,7 +92,7 @@ Constructeur
 
 ## `horizon::protocol::MalformedResult: public horizon::protocol::ParserResult`
 
-Résultat malformé, dans la mesure où nous avons déjà reconnu le paquet comme étant notre protocole, mais une erreur de validation s’est produite (les bits réservés sont activés, un champ est manquant, etc.)
+Résultat malformé, dans la mesure où nous avons déjà reconnu le paquet comme étant notre protocole, mais une erreur de validation s’est produite (les bits réservés sont activés ou un champ est manquant).
 
 ## `horizon::protocol::MalformedResult::MalformedResult(uint64_t)`
 
@@ -102,7 +104,7 @@ Constructeur
 
 ## `horizon::protocol::SuccessResult: public horizon::protocol::ParserResult`
 
-Indique à Horizon que le traitement a réussi. En cas de réussite, le paquet a été accepté ; les données nous appartiennent et toutes les données ont été extraites.
+Indique à Horizon que le traitement a réussi. En cas de réussite, le paquet a été accepté, les données nous appartiennent et toutes les données ont été extraites.
 
 ## `horizon::protocol::SuccessResult()`
 
@@ -110,24 +112,24 @@ Constructeur. A créé un résultat de base réussi. Cela signifie que nous ne c
 
 ## `horizon::protocol::SuccessResult(horizon::protocol::ParserResultDirection)`
 
-Constructeur
+Constructeur.
 
 ### <a name="parameters"></a>Paramètres 
 
-- Direction du paquet, si elle a été identifiée. Les valeurs peuvent être REQUEST, RESPONSE
+- Direction du paquet, si elle a été identifiée. Les valeurs peuvent être *REQUEST* ou *RESPONSE*.
 
 ## `horizon::protocol::SuccessResult(horizon::protocol::ParserResultDirection, const std::vector<uint64_t> &)`
 
-Constructeur
+Constructeur.
 
 ### <a name="parameters"></a>Paramètres
 
-- Direction du paquet, si elle a été identifiée, peut être REQUEST, RESPONSE
+- La direction du paquet, si elle a été identifiée, peut être *REQUEST* ou *RESPONSE*.
 - Avertissements. Ces événements ne seront pas en échec, mais Horizon sera averti.
 
 ## `horizon::protocol::SuccessResult(const std::vector<uint64_t> &)`
 
-Constructeur
+Constructeur.
 
 ### <a name="parameters"></a>Paramètres 
 
@@ -135,11 +137,11 @@ Constructeur
 
 ## `HorizonID HORIZON_FIELD(const std::string_view &)`
 
-Convertit une référence basée sur une chaîne à un nom de champ (par exemple, function_code) en HorizonID
+Convertit une référence basée sur une chaîne à un nom de champ (par exemple, function_code) en HorizonID.
 
 ### <a name="parameters"></a>Paramètres 
 
-- Chaîne à convertir
+- Chaîne à convertir.
 
 ### <a name="return-value"></a>Valeur retournée
 
@@ -159,7 +161,7 @@ Obtient l’objet de gestion de champs, qui est chargé de créer des champs sur
 
 ### <a name="return-value"></a>Valeur retournée
 
-Référence au gestionnaire.
+Référence au manager.
 
 ## `void horizon::protocol::management::IFieldManagement::create(horizon::protocol::ILayer &, HorizonID, uint64_t)`
 
@@ -167,9 +169,9 @@ Crée un nouveau champ numérique de 64 bits sur la couche avec l’ID demandé.
 
 ### <a name="parameters"></a>Paramètres 
 
-- Couche que vous avez créée précédemment
-- HorizonID créé par la macro HORIZON_FIELD
-- Valeur brute que vous souhaitez stocker
+- Couche que vous avez créée précédemment.
+- HorizonID créé par la macro **HORIZON_FIELD**.
+- Valeur brute que vous souhaitez stocker.
 
 ## `void horizon::protocol::management::IFieldManagement::create(horizon::protocol::ILayer &, HorizonID, std::string)`
 
@@ -177,9 +179,9 @@ Crée un nouveau champ de chaîne sur la couche avec l’ID demandé. La mémoir
 
 ### <a name="parameters"></a>Paramètres  
 
-- Couche que vous avez créée précédemment
-- HorizonID créé par la macro HORIZON_FIELD
-- Valeur brute que vous souhaitez stocker
+- Couche que vous avez créée précédemment.
+- HorizonID créé par la macro **HORIZON_FIELD**.
+- Valeur brute que vous souhaitez stocker.
 
 ## `void horizon::protocol::management::IFieldManagement::create(horizon::protocol::ILayer &, HorizonID, std::vector<char> &)`
 
@@ -187,9 +189,9 @@ Crée un nouveau champ de valeur brute (tableau d’octets) sur la couche avec l
 
 ### <a name="parameters"></a>Paramètres
 
-- Couche que vous avez créée précédemment
-- HorizonID créé par la macro HORIZON_FIELD
-- Valeur brute que vous souhaitez stocker
+- Couche que vous avez créée précédemment.
+- HorizonID créé par la macro **HORIZON_FIELD**.
+- Valeur brute que vous souhaitez stocker.
 
 ## `horizon::protocol::IFieldValueArray &horizon::protocol::management::IFieldManagement::create(horizon::protocol::ILayer &, HorizonID, horizon::protocol::FieldValueType)`
 
@@ -197,22 +199,22 @@ Crée un champ de valeur de tableau (tableau) sur la couche du type spécifié a
 
 ### <a name="parameters"></a>Paramètres
 
-- Couche que vous avez créée précédemment
-- HorizonID créé par la macro HORIZON_FIELD
-- Type des valeurs qui seront stockées dans le tableau
+- Couche que vous avez créée précédemment.
+- HorizonID créé par la macro **HORIZON_FIELD**.
+- Type des valeurs qui seront stockées dans le tableau.
 
 ### <a name="return-value"></a>Valeur retournée
 
-Référence à un tableau auquel vous devez ajouter les valeurs
+Référence à un tableau auquel vous devez ajouter des valeurs.
 
 ## `void horizon::protocol::management::IFieldManagement::create(horizon::protocol::IFieldValueArray &, uint64_t)`
 
-Ajoute une nouvelle valeur entière au tableau créé précédemment
+Ajoute une nouvelle valeur entière au tableau créé précédemment.
 
 ### <a name="parameters"></a>Paramètres
 
-- Tableau créé précédemment
-- Valeur brute à stocker dans le tableau
+- Tableau créé précédemment.
+- Valeur brute à stocker dans le tableau.
 
 ## `void horizon::protocol::management::IFieldManagement::create(horizon::protocol::IFieldValueArray &, std::string)`
 
@@ -220,8 +222,8 @@ Ajoute une nouvelle valeur de chaîne au tableau créé précédemment. La mémo
 
 ### <a name="parameters"></a>Paramètres
 
-- Tableau créé précédemment
-- Valeur brute à stocker dans le tableau
+- Tableau créé précédemment.
+- Valeur brute à stocker dans le tableau.
 
 ## `void horizon::protocol::management::IFieldManagement::create(horizon::protocol::IFieldValueArray &, std::vector<char> &)`
 
@@ -229,8 +231,8 @@ Ajoute une nouvelle valeur brute au tableau créé précédemment. La mémoire s
 
 ### <a name="parameters"></a>Paramètres
 
-- Tableau créé précédemment
-- Valeur brute à stocker dans le tableau
+- Tableau créé précédemment.
+- Valeur brute à stocker dans le tableau.
 
 ## `bool horizon::general::IDataBuffer::validateRemainingSize(size_t)`
 
@@ -238,15 +240,15 @@ Vérifie que la mémoire tampon contient au moins X octets.
 
 ### <a name="parameters"></a>Paramètres
 
-Nombre d’octets qui doivent exister 
+Nombre d’octets qui doivent exister.
 
 ### <a name="return-value"></a>Valeur retournée
 
-Vrai si la mémoire tampon contient au moins X octets. Sinon, false.
+Vrai si la mémoire tampon contient au moins X octets. Sinon, c’est `False`.
 
 ## `uint8_t horizon::general::IDataBuffer::readUInt8()`
 
-Lit la valeur uint8 (1 octet) à partir de la mémoire tampon, en fonction de l’ordre d’octet.
+Lit la valeur uint8 (1 octet) à partir de la mémoire tampon, en fonction de l’ordre d’octet.
 
 ### <a name="return-value"></a>Valeur retournée
 
@@ -282,12 +284,12 @@ Les lectures dans la mémoire pré-allouée, d’une taille spécifiée, copient
 
 ### <a name="parameters"></a>Paramètres 
 
-- Région de la mémoire dans laquelle copier les données
-- Taille de la région de mémoire ; ce paramètre définit également le nombre d’octets qui seront copiés
+- Région de la mémoire dans laquelle copier les données.
+- Taille de la région de mémoire ; ce paramètre définit également le nombre d’octets qui seront copiés.
 
 ## `std::string_view horizon::general::IDataBuffer::readString(size_t)`
 
-Lit une chaîne à partir de la mémoire tampon
+Lit une chaîne à partir de la mémoire tampon.
 
 ### <a name="parameters"></a>Paramètres 
 

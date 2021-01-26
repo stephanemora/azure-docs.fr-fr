@@ -9,12 +9,12 @@ ms.date: 11/13/2020
 ms.author: normesta
 ms.subservice: common
 ms.custom: subject-cost-optimization
-ms.openlocfilehash: 6942c3ecd631a141f1df741ff827a6889605e536
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 0bad4637f13bbcf02047416499e4f82fdc53eb4f
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498198"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601312"
 ---
 # <a name="plan-and-manage-costs-for-azure-blob-storage"></a>Planifier et gérer les coûts du stockage Blob Azure
 
@@ -41,7 +41,7 @@ Utilisez la [calculatrice de prix Azure](https://azure.microsoft.com/pricing/cal
 4. Modifiez les options restantes pour voir leur impact sur votre estimation.
 
    > [!NOTE]
-   > Vous pouvez payer les frais de Stockage Blob Azure avec votre crédit d’engagement financier du Contrat Entreprise Azure. Vous ne pouvez cependant pas utiliser le crédit d’engagement financier pour payer des frais pour des produits et services tiers, y compris ceux de la Place de marché Azure.
+   > Vous pouvez payer les frais Stockage Blob Azure avec votre crédit Paiement anticipé Azure (anciennement appelé « engagement financier »). Vous ne pouvez cependant pas utiliser le crédit Paiement anticipé Azure pour payer des frais pour des produits et services tiers, notamment ceux de Place de marché Azure.
 
 ## <a name="optimize-costs"></a>Optimiser les coûts
 
@@ -75,16 +75,16 @@ Pour plus d’informations, consultez [Gérer le cycle de vie du service Stockag
 
 ## <a name="create-budgets"></a>Créer des budgets
 
-Vous pouvez créer des [budgets](../../cost-management-billing/costs/tutorial-acm-create-budgets.md) pour gérer les coûts, et des alertes permettant d’avertir automatiquement les parties prenantes en cas d’anomalies de dépenses et de risques de dépenses excessives. Les alertes sont basées sur les dépenses par rapport aux seuils de budget et de coût. Les budgets et les alertes sont créés pour les abonnements et les groupes de ressources Azure : ils sont donc utiles dans le cadre d’une stratégie globale de supervision des coûts. Ils peuvent cependant avoir des fonctionnalités limitées quant à la gestion des coûts de services Azure individuels comme le coût du stockage Azure. En effet, ils sont conçus pour suivre les coûts à un niveau supérieur.
+Vous pouvez créer des [budgets](../../cost-management-billing/costs/tutorial-acm-create-budgets.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) pour gérer les coûts, et des alertes permettant d’avertir automatiquement les parties prenantes en cas d’anomalies de dépenses et de risques de dépenses excessives. Les alertes sont basées sur les dépenses par rapport aux seuils de budget et de coût. Les budgets et les alertes sont créés pour les abonnements et les groupes de ressources Azure : ils sont donc utiles dans le cadre d’une stratégie globale de supervision des coûts. Ils peuvent cependant avoir des fonctionnalités limitées quant à la gestion des coûts de services Azure individuels comme le coût du stockage Azure. En effet, ils sont conçus pour suivre les coûts à un niveau supérieur.
 
 ## <a name="monitor-costs"></a>Superviser les coûts
 
-À mesure que vous utilisez des ressources Azure avec le stockage Azure, vous générez des coûts. Les coûts unitaires d’utilisation des ressources varient selon les intervalles de temps (secondes, minutes, heures et jours) ou selon l’utilisation d’unités (octets, mégaoctets, etc.). Des coûts sont générés dès que vous commencez à utiliser le stockage Azure. Vous pouvez voir les coûts dans le volet [Analyse du coût](../../cost-management-billing/costs/quick-acm-cost-analysis.md) du portail Azure.
+À mesure que vous utilisez des ressources Azure avec le stockage Azure, vous générez des coûts. Les coûts unitaires d’utilisation des ressources varient selon les intervalles de temps (secondes, minutes, heures et jours) ou selon l’utilisation d’unités (octets, mégaoctets, etc.). Des coûts sont générés dès que vous commencez à utiliser le stockage Azure. Vous pouvez voir les coûts dans le volet [Analyse du coût](../../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) du portail Azure.
 
 Quand vous utilisez l’analyse du coût, vous pouvez voir les coûts du stockage Azure dans des graphes et des tableaux pour différents intervalles de temps. Par exemple, par jour, par année ou pour le mois en cours ou le mois précédent. Vous pouvez également voir les coûts par rapport aux budgets et aux coûts prévus. Passez à des vues pour des périodes plus longues pour identifier les tendances des dépenses et déterminer où des dépassements ont pu se produire. Par ailleurs, si vous avez créé des budgets, vous pouvez facilement voir à quel moment ils ont été dépassés.
 
 >[!NOTE]
-> L’analyse des coûts prend en charge différents types de comptes Azure. Pour accéder à la liste complète des types de comptes pris en charge, voir [Comprendre les données de Cost Management](../../cost-management-billing/costs/understand-cost-mgt-data.md). Pour afficher les données de coût, vous avez au minimum besoin d’un accès en lecture pour votre compte Azure. Pour plus d’informations sur l’attribution de l’accès aux données Azure Cost Management, consultez [Assigner l’accès aux données](../../cost-management-billing/costs/assign-access-acm-data.md).
+> L’analyse des coûts prend en charge différents types de comptes Azure. Pour accéder à la liste complète des types de comptes pris en charge, voir [Comprendre les données de Cost Management](../../cost-management-billing/costs/understand-cost-mgt-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn). Pour afficher les données de coût, vous avez au minimum besoin d’un accès en lecture pour votre compte Azure. Pour plus d’informations sur l’attribution de l’accès aux données Azure Cost Management, consultez [Assigner l’accès aux données](../../cost-management-billing/costs/assign-access-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
 Pour voir les coûts du stockage Azure dans l’analyse du coût :
 

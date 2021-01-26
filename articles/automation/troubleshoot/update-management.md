@@ -2,15 +2,15 @@
 title: Résolution des problèmes Azure Automation Update Management
 description: Cet article explique comment dépanner et résoudre les problèmes liés à Azure Automation Update Management.
 services: automation
-ms.date: 12/04/2020
+ms.date: 01/13/2021
 ms.topic: conceptual
 ms.service: automation
-ms.openlocfilehash: c6d0f38eaa25f2fe033a5e2cf48ee6daa51fcbe6
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 55e58c92004f4f4cf4ba6a96620b4f037c80cdb4
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96929274"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246262"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Résoudre les problèmes liés à Update Management
 
@@ -144,13 +144,11 @@ Cela peut provenir de problèmes de configuration locaux ou d’une configuratio
    | summarize by Computer, Solutions
    ```
 
-4. Si votre ordinateur ne figure pas dans les résultats de la requête, c’est qu’il n’a pas été enregistré récemment. Il existe probablement un problème de configuration locale et vous devez [réinstaller l’agent](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows).
+    Si votre ordinateur ne figure pas dans les résultats de la requête, c’est qu’il n’a pas été enregistré récemment. Il existe probablement un problème de configuration locale et vous devez [réinstaller l’agent](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows).
 
-5. Si votre ordinateur figure dans les résultats de la requête, recherchez d’éventuels problèmes de configuration de l’étendue. La [configuration de l’étendue](../update-management/scope-configuration.md) permet de déterminer les ordinateurs qui sont configurés pour Update Management.
+    Si votre ordinateur est répertorié dans les résultats de la requête, vérifiez sous la propriété **Solutions** que les **mises à jour** sont répertoriées. Cela permet de vérifier qu’il est inscrit auprès d’Update Management. Si ce n’est pas le cas, recherchez les problèmes de configuration de l’étendue. La [configuration de l’étendue](../update-management/scope-configuration.md) permet de déterminer les ordinateurs qui sont configurés pour Update Management. Pour paramétrer la configuration de l’étendue pour l’ordinateur cible, consultez [Activer des machines dans l’espace de travail](../update-management/enable-from-automation-account.md#enable-machines-in-the-workspace).
 
-6. Si votre ordinateur figure dans votre espace de travail, mais pas dans Update Management, vous devez définir la configuration de l’étendue de sorte qu’elle cible l’ordinateur. Pour savoir comment procéder, consultez [Activer des machines dans l’espace de travail](../update-management/enable-from-automation-account.md#enable-machines-in-the-workspace).
-
-7. Dans votre espace de travail, exécutez cette requête.
+4. Dans votre espace de travail, exécutez cette requête.
 
    ```kusto
    Operation
@@ -158,9 +156,9 @@ Cela peut provenir de problèmes de configuration locaux ou d’une configuratio
    | sort by TimeGenerated desc
    ```
 
-8. Si vous obtenez un résultat `Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota`, le quota défini dans votre espace de travail a été atteint, ce qui a fait cesser l’enregistrement des données. Dans votre espace de travail, accédez à **Gestion du volume de données** sous **Utilisation et estimation des coûts**, puis changez ou supprimez le quota.
+   Si vous obtenez un résultat `Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota`, le quota défini dans votre espace de travail a été atteint, ce qui a fait cesser l’enregistrement des données. Dans votre espace de travail, accédez à **Gestion du volume de données** sous **Utilisation et estimation des coûts**, puis changez ou supprimez le quota.
 
-9. Si votre problème n’est toujours pas résolu, suivez les étapes dans [Déployer un Runbook Worker hybride Windows](../automation-windows-hrw-install.md) pour réinstaller le Worker hybride pour Windows. Pour Linux, suivez les étapes décrites dans [Déployer un Runbook Worker hybride Linux](../automation-linux-hrw-install.md).
+5. Si votre problème n’est toujours pas résolu, suivez les étapes dans [Déployer un Runbook Worker hybride Windows](../automation-windows-hrw-install.md) pour réinstaller le Worker hybride pour Windows. Pour Linux, suivez les étapes décrites dans [Déployer un Runbook Worker hybride Linux](../automation-linux-hrw-install.md).
 
 ## <a name="scenario-unable-to-register-automation-resource-provider-for-subscriptions"></a><a name="rp-register"></a>Scénario : Impossible d’inscrire le fournisseur de ressources Automation pour les abonnements
 
@@ -425,7 +423,7 @@ Ce problème peut se produire pour l’une des raisons suivantes :
 
 Lorsque c’est possible, utilisez les [groupes dynamiques](../update-management/configure-groups.md) pour vos déploiements de mise à jour. Vous pouvez en outre effectuer les étapes suivantes.
 
-1. Vérifiez que votre ordinateur ou serveur est conforme à la [configuration requise](../update-management/overview.md#client-requirements).
+1. Vérifiez que votre ordinateur ou serveur est conforme à la [configuration requise](../update-management/overview.md#system-requirements).
 2. Vérifiez la connectivité au Runbook Worker hybride à l’aide de l’utilitaire de résolution des problèmes de l’agent Runbook Worker hybride. Pour en savoir plus sur l’utilitaire de résolution des problèmes, consultez [Résoudre les problèmes de l’agent de mise à jour](update-agent-issues.md).
 
 ## <a name="scenario-updates-are-installed-without-a-deployment"></a><a name="updates-nodeployment"></a>Scénario : Les mises à jour sont installées sans déploiement

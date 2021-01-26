@@ -3,14 +3,14 @@ title: Présentation du rendu
 description: Présentation de l’utilisation d’Azure pour le rendu et vue d’ensemble des fonctionnalités de rendu Azure Batch
 author: mscurrell
 ms.author: markscu
-ms.date: 08/02/2018
+ms.date: 01/14/2021
 ms.topic: how-to
-ms.openlocfilehash: 9fac5d3efabc5d9f796c91d688f35e01aeefdca3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1cd07f9322837c03e15aaeabec993820deb3170a
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87092760"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232112"
 ---
 # <a name="rendering-using-azure"></a>Rendu à l’aide d’Azure
 
@@ -18,11 +18,11 @@ Le rendu correspond au processus visant à récupérer des modèles 3D et à les
 
 La charge de travail de rendu est principalement utilisée pour les effets spéciaux (VFX) dans l’industrie du multimédia et du divertissement. Le rendu est également utilisé dans de nombreux autres secteurs comme la publicité, la vente au détail, le pétrole et le gaz et la fabrication.
 
-Le processus de rendu est très gourmand en ressources ; le nombre d’images à produire peut être très important et le rendu de chaque image peut prendre plusieurs heures.  Par conséquent, le rendu est une charge de travail de traitement par lots idéale qui peut utiliser Azure et Azure Batch pour exécuter plusieurs rendus en parallèle.
+Le processus de rendu est très gourmand en ressources ; le nombre d’images à produire peut être très important et le rendu de chaque image peut prendre plusieurs heures.  Par conséquent, le rendu est une charge de travail de traitement par lots idéale qui peut tirer parti d’Azure pour exécuter plusieurs rendus en parallèle et utiliser un large éventail de matériel, y compris les GPU.
 
 ## <a name="why-use-azure-for-rendering"></a>Pourquoi utiliser Azure pour le rendu ?
 
-Pour de nombreuses raisons, le rendu est une charge de travail parfaitement adaptée pour Azure et Azure Batch :
+Pour de nombreuses raisons, le rendu est une charge de travail parfaitement adaptée pour Azure :
 
 * Les travaux de rendu peuvent être fractionnés en plusieurs éléments qui peuvent être exécutés en parallèle à l’aide de plusieurs machines virtuelles :
   * Les animations sont constituées de nombreuses images, et chaque image peut être rendue en parallèle.  Plus le nombre de machines virtuelles disponibles pour traiter que image est important, et plus la production de toutes les images et de l’animation sera rapide.
@@ -36,68 +36,31 @@ Pour de nombreuses raisons, le rendu est une charge de travail parfaitement adap
 * Choisissez parmi un large choix de matériels en fonction de l’application, de la charge de travail et du délai d’exécution :
   * Un large choix de matériels est disponible dans Azure, qui peut être alloué et géré avec Batch.
   * En fonction du projet, la configuration requise peut être le meilleur rapport prix/performances ou les meilleures performances globales.  Différentes applications de scènes et/ou de rendu auront des exigences de mémoire différentes.  Certaines applications de rendu peuvent utiliser des GPU pour des performances optimales ou certaines fonctionnalités. 
-* Les machines virtuelles de faible priorité réduisent les coûts :
-  * Les machines virtuelles de faible priorité sont disponibles à un prix bien moindre que les machines virtuelles à la demande classiques et conviennent pour certains types de travaux.
-  * Les machines virtuelles de faible priorité peuvent être allouées par Azure Batch, Batch offrant la flexibilité sur leur utilisation pour répondre à un large éventail d’exigences.  Les pools batch peuvent comprendre des machines virtuelles dédiées et de faible priorité, permettant ainsi de modifier la combinaison de types de machine virtuelle à tout moment.
+* Les [machines virtuelles spot](https://azure.microsoft.com/pricing/spot/) ou de faible priorité réduisent les coûts :
+  * Les machines virtuelles spot et de faible priorité sont disponibles à un prix bien moindre que les machines virtuelles standard et conviennent pour certains types de travaux.
+  
+## <a name="existing-on-premises-rendering-environment"></a>Environnement de rendu local existant
 
-## <a name="options-for-rendering-on-azure"></a>Options de rendu sur Azure
+Le cas le plus courant est un groupe de rendus local existant géré par une application de gestion des rendus comme PipelineFX Qube, Render, Thinkbox Deadline ou une application personnalisée.  L’exigence consiste à étendre la capacité du groupe de rendus local à l’aide de machines virtuelles Azure.
 
-Toute une gamme de fonctionnalités Azure peut être utilisée pour les charges de travail de rendu.  Les fonctionnalités à utiliser dépendent de l’environnement et des exigences.
+L’infrastructure et les services Azure sont utilisés pour créer un environnement hybride dans lequel Azure est utilisé pour compléter la capacité locale. Par exemple :
 
-### <a name="existing-on-premises-rendering-environment-using-a-render-management-application"></a>Environnement de rendu local existant utilisant une application de gestion du rendu
+* Utilisez un [réseau virtuel](../virtual-network/virtual-networks-overview.md) pour placer les ressources Azure sur le même réseau que le groupe de rendus local.
+* Utilisez [Avere vFXT pour Azure](../avere-vfxt/avere-vfxt-overview.md) ou [Azure HPC Cache](../hpc-cache/hpc-cache-overview.md) pour mettre en cache les fichiers sources dans Azure afin de réduire l’utilisation de la bande passante et la latence, ce qui optimise les performances.
+* Assurez-vous que le serveur de licences existant se trouve sur le réseau virtuel et achetez les licences supplémentaires requises pour satisfaire la capacité supplémentaire d’Azure.
 
-Le cas le plus courant est un groupe de rendus local existant géré par une application de gestion du rendu comme PipelineFX Qube, Royal Rendu ou Thinkbox Deadline.  L’exigence consiste à étendre la capacité du groupe de rendus local à l’aide de machines virtuelles Azure.
+## <a name="no-existing-render-farm"></a>Aucun groupe de rendus existant
 
-Le logiciel de gestion du rendu intègre la prise en charge Azure ou nous mettons à disposition des plug-ins incluant la prise en charge Azure. Pour plus d’informations sur les gestionnaire de rendu pris en charge et la fonctionnalité activée, consultez l’article sur l’[utilisation des gestionnaires de rendu](./batch-rendering-render-managers.md).
+Les stations de travail clientes peuvent effectuer le rendu, mais la charge de rendu augmente et prend trop de temps pour n’utiliser que la capacité de la station de travail.
 
-### <a name="custom-rendering-workflow"></a>Flux de travail de rendu personnalisé
+Deux options principales sont disponibles :
 
-L’exigence porte sur les machines virtuelles afin d’étendre un groupe de rendus existant.  Les pools Azure Batch peuvent allouer de grands nombres de machines virtuelles, autoriser l’utilisation de machines virtuelles de faible priorité et leur mise à l’échelle automatique avec des machines virtuelles à prix intégral, et proposer une licence de paiement à l’utilisation pour les applications de rendu populaires.
+* Déployez un gestionnaire de rendus local, tel que Royal Render, et configurez un environnement hybride pour utiliser Azure quand des capacités ou des performances supplémentaires sont requises. Un gestionnaire de rendus est spécifiquement conçu pour les charges de travail de rendu et inclura des plug-ins pour les applications clientes les plus courantes, permettant de soumettre facilement des travaux de rendu.
 
-### <a name="no-existing-render-farm"></a>Aucun groupe de rendus existant
-
-Les stations de travail clientes peuvent effectuer le rendu, mais la charge de travail de rendu augmente et prend trop de temps pour n’utiliser que la capacité de la station de travail.  Azure Batch peut être utilisé pour allouer le calcul du groupe de rendus à la demande et pour planifier les travaux de rendu au groupe de rendus Azure.
-
-## <a name="azure-batch-rendering-capabilities"></a>Fonctionnalités de rendu Azure Batch
-
-Azure Batch permet d’exécuter des charges de travail parallèles dans Azure.  Il permet de créer et de gérer de grands nombres de machines virtuelles sur lesquelles les applications sont installées et exécutées.  Il fournit également des fonctionnalités de planification des travaux complètes pour exécuter des instances de ces applications, en permettant d’affecter des tâches aux machines virtuelles, de mettre en file d’attente, de contrôler les applications, et bien d’autres encore.
-
-Azure Batch est utilisé pour nombreuses charges de travail, mais les fonctionnalités suivantes sont disponibles pour simplifier et accélérer plus particulièrement l’exécution des charges de travail de rendu.
-
-* Images de machine virtuelle avec des applications graphiques et de rendu préinstallées :
-  * Des images de machine virtuelle de la Place de marché Azure contenant des applications graphiques et de rendu populaires sont disponibles, vous évitant ainsi de les applications vous-même ou de créer vos propres images personnalisées avec les applications installées. 
-* Licence avec paiement à l’utilisation pour les applications de rendu :
-  * Vous pouvez choisir de payer pour les applications à la minute, en plus de payer pour les machines virtuelles de calcul, vous évitant ainsi d’acheter des licences et d’éventuellement configurer un serveur de licences pour les applications.  Le paiement à l’utilisation implique également qu’il est possible de répondre à une charge changeante et inattendue car il n’existe pas un nombre déterminé de licences.
-  * Il est également possible d’utiliser les applications préinstallées avec vos propres licences et de ne pas utiliser la licence avec paiement à l’utilisation. Pour cela, vous installez généralement un serveur de licences local ou dans Azure, et vous utilisez un réseau virtuel Azure pour connecter le pool de rendu au serveur de licences.
-* Plug-ins pour les applications de conception de modélisation clientes :
-  * Les plug-ins permettent aux utilisateurs finaux d’utiliser Azure Batch directement à partir de l’application cliente, telle qu’Autodesk Maya, leur permettant ainsi de créer des pools, de soumettre des travaux et d’utiliser plus de capacité de calcul pour des rendus plus rapides.
-* Intégration du gestionnaire de rendu :
-  * Azure Batch est intégré dans des applications de gestion du rendu ou des plug-ins sont disponibles pour l’intégration d’Azure Batch.
-
-Plusieurs méthodes permettent d’utiliser Azure Batch, toutes s’appliquant également au rendu Azure Batch.
-
-* API :
-  * Écrivez du code à l’aide de l’API [REST](/rest/api/batchservice), [.NET](/dotnet/api/overview/azure/batch), [Python](/python/api/overview/azure/batch), [Java](/java/api/overview/azure/batch) ou d’autres API prises en charge.  Les développeurs peuvent intégrer les fonctionnalités Azure Batch dans leurs applications ou workflows existants, dans le cloud ou en local.  Par exemple, le [plug-in Autodesk Maya](https://github.com/Azure/azure-batch-maya) utilise l’API Python Batch pour appeler Batch, la création et la gestion de pools, l’envoi de travaux et de tâches, et la surveillance de l’état.
-* Outils de ligne de commande :
-  * Vous pouvez utiliser la [ligne de commande Azure](/cli/azure/) ou [Azure PowerShell](/powershell/azure/) pour écrire un script d’utilisation de Batch.
-  * En particulier, la prise en charge des modèles CLI Batch facilite considérablement la création de pools et l’envoi de travaux.
-* Interfaces utilisateur :
-  * [Batch Explorer](https://github.com/Azure/BatchExplorer) est un outil client multiplateforme qui permet également de gérer et de surveiller des comptes Batch, mais qui fournit des fonctionnalités plus riches que l’interface utilisateur du portail Azure.  Un ensemble de modèles de pool et de travail personnalisés pour chaque application prise en charge est fourni et peut être utilisé pour créer facilement des pools et envoyer des travaux.
-  * Le portail Azure peut être utilisé pour gérer et surveiller Azure Batch.
-* Plug-ins d’application cliente :
-  * Les plug-ins disponibles permettent d’utiliser le rendu Batch directement dans les applications clientes de conception et de modélisation. Les plug-ins appellent principalement l’application Batch Explorer avec des informations contextuelles sur le modèle 3D actif.
-  * Les plug-ins suivants sont disponibles :
-    * [Azure Batch pour Maya](https://github.com/Azure/azure-batch-maya)
-    * [3ds Max](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/3ds-max)
-    * [Blender](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/blender)
-
-## <a name="getting-started-with-azure-batch-rendering"></a>Prise en main du rendu Azure Batch
-
-Consultez les didacticiels d’introduction suivants pour essayer le rendu Azure Batch :
-
-* [Utiliser Batch Explorer pour effectuer le rendu d’une scène de Blender](./tutorial-rendering-batchexplorer-blender.md)
-* [Utiliser l’interface de ligne de commande Batch pour effectuer le rendu d’une scène d’Autodesk 3ds Max](./tutorial-rendering-cli.md)
+* Une solution personnalisée utilisant Azure Batch pour allouer et gérer la capacité de calcul ainsi que pour fournir la planification des travaux pour exécuter les travaux de rendu.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Déterminez la liste des applications de rendu et les versions incluses dans les images de machine virtuelle de la Place de marché Azure dans [cet article](./batch-rendering-applications.md).
+ Découvrez comment [utiliser l’infrastructure et les services Azure pour étendre un groupe de rendus local existant](https://azure.microsoft.com/solutions/high-performance-computing/rendering/).
+
+En savoir plus sur les [capacités de rendu d’Azure Batch](batch-rendering-functionality.md).

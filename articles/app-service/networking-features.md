@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/18/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 5d950598e4a0af86ac37b53722e80eb4ef0a71a4
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 53c0d37d4a25c2f2092a9e52bcae8ea494046bb0
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183054"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98210016"
 ---
 # <a name="app-service-networking-features"></a>Fonctionnalités de mise en réseau App Service
 
@@ -110,7 +110,7 @@ Cette fonctionnalité vous permet de créer une liste de règles d’autorisatio
 
 La fonctionnalité des restrictions d’accès basées sur IP est utile quand vous souhaitez limiter les adresses IP qui peuvent être utilisées pour atteindre votre application. IPv4 et IPv6 sont pris en charge. Cas d’usage de cette fonctionnalité :
 * Restreindre l’accès à votre application à partir d’un ensemble d’adresses bien définies. 
-* Restreindre l’accès au trafic provenant d’un service d’équilibrage de charge tel qu’Azure Front Door. Si vous souhaitez verrouiller votre trafic entrant vers Azure Front Door, créez des règles pour autoriser le trafic à partir de 147.243.0.0/16 et 2a01:111:2050::/44. 
+* Restreindre l’accès au trafic en provenance d’un service d’équilibrage de charge externe ou d’autres appliances réseau dont les adresses IP de sortie sont connues. 
 
 Pour découvrir comment activer cette fonctionnalité, voir [Restrictions d’accès dans Azure App Service][iprestrictions].
 
@@ -126,7 +126,20 @@ Cas d’usage de cette fonctionnalité :
 ![Diagramme illustrant l’utilisation de points de terminaison de service avec Application Gateway.](media/networking-features/service-endpoints-appgw.png)
 
 Pour en savoir plus sur la configuration des points de terminaison de service avec votre application, consultez [Restrictions d’accès dans Azure App Service][serviceendpoints].
+#### <a name="access-restriction-rules-based-on-service-tags-preview"></a>Règles de restriction d’accès basées sur des étiquettes de service (préversion)
+Les [étiquettes de service Azure][servicetags] sont des ensembles bien définis d’adresses IP pour les services Azure. Les étiquettes de service regroupent les plages d’adresses IP utilisées dans différents services Azure et sont souvent également étendues à des régions spécifiques. Cela vous permet de filtrer le trafic *entrant* à partir de services Azure spécifiques. 
 
+Pour obtenir la liste complète des étiquettes et d’autres informations, consultez le lien d’étiquette de service ci-dessus. Pour découvrir comment activer cette fonctionnalité, voir [Restrictions d’accès dans Azure App Service][iprestrictions].
+#### <a name="http-header-filtering-for-access-restriction-rules-preview"></a>Filtrage d’en-tête HTTP pour les règles de restriction d’accès (préversion)
+Pour chaque règle de restriction d’accès, vous pouvez ajouter un filtrage d’en-tête HTTP supplémentaire. Cela vous permet d’examiner plus en détail la requête entrante et de filtrer selon des valeurs d’en-tête HTTP spécifiques. Chaque en-tête peut comporter jusqu’à huit valeurs par règle. Les en-têtes HTTP figurant dans la liste suivante sont actuellement pris en charge : 
+* X-Forwarded-For
+* X-Forwarded-Host
+* X-Azure-FDID
+* X-FD-HealthProbe
+
+Voici quelques cas d’usage du filtrage d’en-tête HTTP :
+* Restreindre l’accès au trafic des serveurs proxy qui transfèrent le nom d’hôte
+* Restreindre l’accès à une instance d’Azure Front Door spécifique avec une règle d’étiquette de service et une restriction d’en-tête X-Azure-FDID
 ### <a name="private-endpoint"></a>Point de terminaison privé
 
 Un point de terminaison privé est une interface réseau qui vous permet de vous connecter de façon privée et sécurisée à votre application web via une liaison privée Azure. Un point de terminaison privé utilise une adresse IP privée de votre réseau virtuel, ce qui a pour effet d’introduire l’application web dans votre réseau virtuel. Cette fonctionnalité s’applique uniquement aux flux *entrants* dans votre application web.
@@ -299,3 +312,4 @@ Si vous analysez App Service, vous trouverez plusieurs ports exposés pour les c
 [networkinfo]: ./environment/network-info.md
 [appgwserviceendpoints]: ./networking/app-gateway-with-service-endpoints.md
 [privateendpoints]: ./networking/private-endpoint.md
+[servicetags]: ../virtual-network/service-tags-overview.md

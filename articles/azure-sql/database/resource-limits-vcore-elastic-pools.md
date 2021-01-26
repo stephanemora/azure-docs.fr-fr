@@ -10,13 +10,13 @@ ms.topic: reference
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein
-ms.date: 10/15/2020
-ms.openlocfilehash: e706f64a7caab6873a3eec86505eaee11374ae2c
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.date: 01/15/2021
+ms.openlocfilehash: 2daa07315be85e1fcd543480cd30a57c118d8547
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97882299"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251486"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-purchasing-model"></a>Limites de ressources pour les pools élastiques suivant le modèle d’achat vCore
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -235,6 +235,39 @@ Vous pouvez définir le niveau de service, la taille de calcul (objectif de serv
 
 <sup>3</sup> Pour connaître le nombre maximal de Workers simultanés (requêtes) pour une base de données individuelle, consultez [Limites de ressources des bases de données uniques](resource-limits-vcore-single-databases.md). Par exemple, si le pool élastique utilise Gen5 et que le nombre maximal de vCores par base de données est défini sur 2, le nombre maximal de Workers simultanés est de 200.  Si le nombre maximal de vCores par base de données est défini sur 0,5, le nombre maximal de Workers simultanés est de 50, puisque le nombre maximal de Workers est de 100 sur Gen5. Pour les autres paramètres de nombre maximal de vCores par base de données qui sont inférieurs ou égaux à 1 vCore, le nombre maximum de Workers simultanés est adapté en conséquence.
 
+
+## <a name="general-purpose---provisioned-compute---dc-series"></a>Usage général – calcul approvisionné – série DC
+
+|Taille de calcul (objectif de service)|GP_DC_2|GP_DC_4|GP_DC_6|GP_DC_8|
+|:--- | --: |--: |--: |--: |
+|Génération de calcul|DC|DC|DC|DC|
+|vCores|2|4|6|8|
+|Mémoire (Go)|9|18|27|36|
+|Nombre maximal de bases de données par pool <sup>1</sup>|100|400|400|400|
+|Prise en charge de ColumnStore|Oui|Oui|Oui|Oui|
+|Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|
+|Taille maximale des données (Go)|756|1536|2 048|2 048|
+|Taille maximale du journal (Go)|227|461|614|614|
+|Taille maximale des données TempDB (Go)|64|128|192|256|
+|Type de stockage|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|
+|Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
+|Nombre maximal d’IOPS de données par pool <sup>2</sup>|800|1 600|2 400|3200|
+|Taux maximal de journaux par pool (Mbits/s)|9,4|18,8|28,1|32,8|
+|Nombre maximal de Workers simultanés par pool (requêtes) <sup>3</sup>|168|336|504|672|
+|Nombre maximal de connexions simultanées par pool (requêtes) <sup>3</sup>|168|336|504|672|
+|Nombre maximal de sessions simultanées|30,000|30,000|30,000|30,000|
+|Choix du nombre minimal/maximal de cœurs virtuels de pool élastique par base de données|2|2 à 4|2 à 6|2 à 8|
+|Nombre de réplicas|1|1|1|1|
+|Plusieurs zones de disponibilités|N/A|N/A|N/A|N/A|
+|Lecture du Scale-out|N/A|N/A|N/A|N/A|
+|Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
+
+<sup>1</sup> Consultez [Gestion des ressources dans les pools élastiques denses](elastic-pool-resource-management.md) pour obtenir des informations supplémentaires.
+
+<sup>2</sup> La valeur maximale pour les tailles d’E/S est comprise entre 8 Ko et 64 Ko. Les IOPS réelles dépendent de la charge de travail. Pour plus d’informations, consultez [Gouvernance des E/S de données](resource-limits-logical-server.md#resource-governance).
+
+<sup>3</sup> Pour connaître le nombre maximal de Workers simultanés (requêtes) pour une base de données individuelle, consultez [Limites de ressources des bases de données uniques](resource-limits-vcore-single-databases.md). Par exemple, si le pool élastique utilise Gen5 et que le nombre maximal de vCores par base de données est défini sur 2, le nombre maximal de Workers simultanés est de 200.  Si le nombre maximal de vCores par base de données est défini sur 0,5, le nombre maximal de Workers simultanés est de 50, puisque le nombre maximal de Workers est de 100 sur Gen5. Pour les autres paramètres de nombre maximal de vCores par base de données qui sont inférieurs ou égaux à 1 vCore, le nombre maximum de Workers simultanés est adapté en conséquence.
+
 ## <a name="business-critical---provisioned-compute---gen4"></a>Vital pour l’entreprise - calcul provisionné - Gen4
 
 > [!IMPORTANT]
@@ -280,7 +313,7 @@ Vous pouvez définir le niveau de service, la taille de calcul (objectif de serv
 |vCores|7|8|9|10|16|24|
 |Mémoire (Go)|49|56|63|70|112|159,5|
 |Nombre maximal de bases de données par pool <sup>1</sup>|100|100|100|100|100|100|
-|Prise en charge de ColumnStore|N/A|NON APPLICABLE|NON APPLICABLE|NON APPLICABLE|NON APPLICABLE|N/A|
+|Prise en charge de ColumnStore|N/A|N/A|N/A|N/A|N/A|N/A|
 |Stockage In-Memory OLTP (Go)|7|8|9.5|11|20|36|
 |Type de stockage|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Taille maximale des données (Go)|1 024|1 024|1 024|1 024|1 024|1 024|
@@ -406,8 +439,6 @@ Vous pouvez définir le niveau de service, la taille de calcul (objectif de serv
 
 Si tous les vCore d’un pool élastique sont occupés, chaque base de données du pool reçoit une quantité égale de ressources de calcul pour traiter les requêtes. Azure SQL Database assure un partage équitable des ressources entre les bases de données en garantissant des tranches de temps de calcul égales. Le partage équitable des ressources du pool élastique s’ajoute à n’importe quelle quantité de ressources garantie pour chaque base de données lorsque le nombre minimal de vCore par base de données est défini sur une valeur différente de zéro.
 
-
-
 ### <a name="m-series-compute-generation-part-2"></a>Génération de calcul de série M (partie 2)
 
 |Taille de calcul (objectif de service)|BC_M_20|BC_M_24|BC_M_32|BC_M_64|BC_M_128|
@@ -441,6 +472,37 @@ Si tous les vCore d’un pool élastique sont occupés, chaque base de données 
 
 Si tous les vCore d’un pool élastique sont occupés, chaque base de données du pool reçoit une quantité égale de ressources de calcul pour traiter les requêtes. Azure SQL Database assure un partage équitable des ressources entre les bases de données en garantissant des tranches de temps de calcul égales. Le partage équitable des ressources du pool élastique s’ajoute à n’importe quelle quantité de ressources garantie pour chaque base de données lorsque le nombre minimal de vCore par base de données est défini sur une valeur différente de zéro.
 
+## <a name="business-critical---provisioned-compute---dc-series"></a>Vital pour l’entreprise – calcul approvisionné – série M
+
+|Taille de calcul (objectif de service)|BC_DC_2|BC_DC_4|BC_DC_6|BC_DC_8|
+|:--- | --: |--: |--: |--: |
+|Génération de calcul|DC|DC|DC|DC|
+|vCores|2|4|6|8|
+|Mémoire (Go)|9|18|27|36|
+|Nombre maximal de bases de données par pool <sup>1</sup>|50|100|100|100|
+|Prise en charge de ColumnStore|Oui|Oui|Oui|Oui|
+|Stockage In-Memory OLTP (Go)|1.7|3.7|5.9|8,2|
+|Taille maximale des données (Go)|768|768|768|768|
+|Taille maximale du journal (Go)|230|230|230|230|
+|Taille maximale des données TempDB (Go)|64|128|192|256|
+|Type de stockage|SSD local|SSD local|SSD local|SSD local|
+|Latence d’E/S (approximative)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|
+|Nombre maximal d’IOPS de données par pool <sup>2</sup>|15 750|31 500|47 250|56 000|
+|Taux maximal de journaux par pool (Mbits/s)|20|60|90|120|
+|Nombre maximal de Workers simultanés par pool (requêtes) <sup>3</sup>|168|336|504|672|
+|Nombre maximal de connexions simultanées par pool (requêtes) <sup>3</sup>|168|336|504|672|
+|Nombre maximal de sessions simultanées|30,000|30,000|30,000|30,000|
+|Choix du nombre minimal/maximal de cœurs virtuels de pool élastique par base de données|2|2 à 4|2 à 6|2 à 8|
+|Nombre de réplicas|4|4|4|4|
+|Plusieurs zones de disponibilités|Non|Non|Non|Non|
+|Lecture du Scale-out|Oui|Oui|Oui|Oui|
+|Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
+
+<sup>1</sup> Consultez [Gestion des ressources dans les pools élastiques denses](elastic-pool-resource-management.md) pour obtenir des informations supplémentaires.
+
+<sup>2</sup> La valeur maximale pour les tailles d’E/S est comprise entre 8 Ko et 64 Ko. Les IOPS réelles dépendent de la charge de travail. Pour plus d’informations, consultez [Gouvernance des E/S de données](resource-limits-logical-server.md#resource-governance).
+
+<sup>3</sup> Pour connaître le nombre maximal de Workers simultanés (requêtes) pour une base de données individuelle, consultez [Limites de ressources des bases de données uniques](resource-limits-vcore-single-databases.md). Par exemple, si le pool élastique utilise Gen5 et que le nombre maximal de vCores par base de données est défini sur 2, le nombre maximal de Workers simultanés est de 200.  Si le nombre maximal de vCores par base de données est défini sur 0,5, le nombre maximal de Workers simultanés est de 50, puisque le nombre maximal de Workers est de 100 sur Gen5. Pour les autres paramètres de nombre maximal de vCores par base de données qui sont inférieurs ou égaux à 1 vCore, le nombre maximum de Workers simultanés est adapté en conséquence.
 
 ## <a name="database-properties-for-pooled-databases"></a>Propriétés de base de données pour les bases de données mises en pool
 

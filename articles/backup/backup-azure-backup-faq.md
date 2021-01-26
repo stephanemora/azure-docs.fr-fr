@@ -3,12 +3,12 @@ title: Réponses à des questions fréquentes
 description: 'Réponses aux questions courantes sur : les fonctionnalités de la sauvegarde Azure, y compris les coffres Recovery Services ce qu’il peut sauvegarder, son fonctionnement, son chiffrement, et ses limites. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: d85866e490b2c56abb7de1e94cd0ffaa8f714615
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: bd84ff553b486d200ec4501b89b42335335b223f
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327149"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98572525"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Sauvegarde Azure - Forum Aux Questions
 
@@ -61,6 +61,10 @@ Si vous avez déjà configuré la sauvegarde et que vous devez passer de GRS à 
 ### <a name="how-can-i-move-data-from-the-recovery-services-vault-to-on-premises"></a>Comment déplacer des données du coffre Recovery Services vers un emplacement local ?
 
 L’exportation directe de données du coffre Recovery Services vers un emplacement local à l’aide de Data Box n’est pas prise en charge. Les données doivent être restaurées dans un compte de stockage, puis déplacées vers l’emplacement local via [Data Box](../databox/data-box-overview.md) ou [Import/Export](../storage/common/storage-import-export-service.md).
+
+### <a name="what-is-the-difference-between-a-geo-redundant-storage-grs-vault-with-and-without-the-cross-region-restore-crr-capability-enabled"></a>Quelle est la différence entre un coffre de stockage géoredondant (GRS) avec et sans la capacité de restauration interrégion (CRR) activée ?
+
+Dans le cas d’un coffre [GRS](azure-backup-glossary.md#grs) sans la capacité [CRR](azure-backup-glossary.md#cross-region-restore-crr), les données de la région secondaire ne sont pas accessibles tant qu’Azure n’a pas déclaré de sinistre dans la région primaire. Dans ce type de scénario, la restauration s’effectue à partir de la région secondaire. Lorsque la CRR est activée, vous pouvez déclencher une restauration dans la région secondaire même si la région primaire est opérationnelle.
 
 ## <a name="azure-backup-agent"></a>Agent Azure Backup
 

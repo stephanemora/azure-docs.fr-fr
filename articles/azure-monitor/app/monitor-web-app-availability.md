@@ -4,12 +4,12 @@ description: Configurez des tests web dans Application Insights. Recevez des ale
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 82b433407906c09d38a46c842334153525fb3c17
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 1b51c70dcebbfad5417a8478f4a956fb5d0608b1
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97007923"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98198660"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>Superviser la disponibilité d’un site web
 
@@ -26,6 +26,9 @@ Il existe trois types de tests de disponibilité :
 * [Tests personnalisés de suivi de la disponibilité](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability?view=azure-dotnet) : Si vous décidez de créer une application personnalisée pour exécuter des tests de disponibilité, la méthode `TrackAvailability()` peut être utilisée pour envoyer les résultats à Application Insights.
 
 **Vous pouvez créer jusqu’à 100 tests de disponibilité par ressource Application Insights.**
+
+> [!IMPORTANT]
+> Le [test ping d’URL](#create-a-url-ping-test) et le [test web multiétapes](availability-multistep.md) s’appuient tous deux sur l’infrastructure DNS de l’Internet public pour résoudre les noms de domaine des points de terminaison testés. Cela signifie que si vous utilisez DNS privé, vous devez vous assurer que chaque nom de domaine de votre test peut également être résolu par les serveurs de noms de domaine publics ou, si ce n’est pas possible, vous pouvez utiliser des [tests personnalisés de suivi de la disponibilité](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability?view=azure-dotnet) à la place.
 
 ## <a name="create-an-application-insights-resource"></a>Création d’une ressource Application Insights dans Azure
 

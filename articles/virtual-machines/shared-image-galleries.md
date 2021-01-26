@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/14/2020
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: 4156308fa58ea1f02e6e3f2c5174839dc1cd381c
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 2731a7f263db223c258ddfc434bc84f59632d1f5
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96839671"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223361"
 ---
 # <a name="shared-image-galleries-overview"></a>Vue d’ensemble des galeries d’images partagées
 
@@ -316,6 +316,11 @@ Pour déployer une machine virtuelle ou un groupe de machines virtuelles identiq
 ### <a name="can-i-update-my-virtual-machine-scale-set-created-using-managed-image-to-use-shared-image-gallery-images"></a>Puis-je mettre à jour mon groupe de machines virtuelles identiques créé à l’aide d’images managées pour utiliser des images Shared Image Gallery ?
 
 Oui, vous pouvez mettre à jour la référence d’image de groupe identique à partir d’une image managée vers une image de galerie d’images partagées, à condition que le type de système d’exploitation, la génération Hyper-V et la disposition du disque de données soient cohérents entre les images.
+
+## <a name="troubleshoot-shared-image-gallery-issues"></a>Résoudre les problèmes de Shared Image Gallery
+Si vous rencontrez des problèmes lors de l’exécution d’opérations sur les ressources Shared Image Gallery, consultez la liste des erreurs courantes dans le [guide de résolution des problèmes](troubleshooting-shared-images.md).
+
+En outre, vous pouvez publier et étiqueter vos questions avec `azure-virtual-machines-images` sur [Questions et réponses](/answers/topics/azure-virtual-machines-images.html).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

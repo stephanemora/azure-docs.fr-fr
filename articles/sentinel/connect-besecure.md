@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/25/2020
+ms.date: 01/12/2021
 ms.author: yelevin
-ms.openlocfilehash: f6fd6920fafe4c1080cb5539e4e0222d9d6e18cd
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 313f201aeabd470850b27d979dc5253f80e82a55
+ms.sourcegitcommit: 949c0a2b832d55491e03531f4ced15405a7e92e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93102643"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98541158"
 ---
 # <a name="connect-your-beyond-security-besecure-to-azure-sentinel"></a>Connecter Beyond Security beSECURE à Azure Sentinel
 
 > [!IMPORTANT]
-> Le connecteur de données Beyond Security beSECURE dans Azure Sentinel est en préversion publique. Cette fonctionnalité est fournie sans contrat de niveau de service. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Le connecteur Beyond Security beSECURE est actuellement disponible en **PRÉVERSION**. Consultez l’[Avenant aux conditions d’utilisation pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) pour connaître les conditions juridiques supplémentaires s’appliquant aux fonctionnalités Azure sont en version bêta, en préversion ou non encore en disponibilité générale.
 
-Le connecteur Beyond Security beSECURE vous permet de connecter facilement tous les journaux de votre solution de sécurité beSECURE à Azure Sentinel, de consulter des tableaux de bord, de créer des alertes personnalisées et d’améliorer l’examen. L’intégration entre beSECURE et Azure Sentinel utilise l’API REST.
+Le connecteur Beyond Security beSECURE vous permet de connecter facilement tous les journaux de votre solution de sécurité beSECURE à Azure Sentinel, de consulter des tableaux de bord, de créer des alertes personnalisées et d’améliorer l’investigation. L’intégration entre beSECURE et Azure Sentinel utilise l’API REST.
 
 > [!NOTE]
 > Les données seront stockées dans l’emplacement géographique de l’espace de travail sur lequel vous exécutez Azure Sentinel.
@@ -36,7 +36,9 @@ Le connecteur Beyond Security beSECURE vous permet de connecter facilement tous 
 
 beSECURE peut s’intégrer à Azure Sentinel et y exporter directement des journaux.
 
-1. Dans le portail Azure Sentinel, cliquez sur **Connecteurs de données** et sélectionnez **Beyond Security beSECURE (préversion)** , puis **Ouvrir la page du connecteur**.
+1. Dans le menu de navigation d’Azure Sentinel, sélectionnez **Connecteurs de données**.
+
+1. Dans la galerie **Connecteurs de données**, sélectionnez **Beyond Security beSECURE (préversion)** , puis sélectionnez **Ouvrir la page du connecteur**.
 
 1. Suivez les étapes ci-dessous pour configurer votre solution beSECURE afin d’envoyer des résultats d’analyse, l’état d’analyse et les journaux de piste d’audit à Azure Sentinel.
 
@@ -49,17 +51,20 @@ beSECURE peut s’intégrer à Azure Sentinel et y exporter directement des jour
 
     1. Activer Azure Sentinel
 
-    **Fournissez à beSECURE des paramètres Azure Sentinel.**
-      - Copiez les valeurs *ID de l’espace de travail* et *Clé primaire* de la page du connecteur Azure Sentinel, collez-les dans la configuration beSECURE, puis cliquez sur **Modifier**.
+    **Fournissez à beSECURE des paramètres Azure Sentinel :**
+
+      Copiez les valeurs *ID de l’espace de travail* et *Clé primaire* de la page du connecteur Azure Sentinel, collez-les dans la configuration beSECURE, puis cliquez sur **Modifier**.
+      
+      :::image type="content" source="media/connectors/workspace-id-primary-key.png" alt-text="{ID d’espace de travail et clé primaire}":::
 
 ## <a name="find-your-data"></a>Recherche de données
 
-Après l’établissement d’une connexion réussie, les données s’affichent dans **Journaux** sous la section **CustomLogs** , dans une ou plusieurs des tables suivantes :
+Après l’établissement d’une connexion réussie, les données s’affichent dans **Journaux** sous la section **CustomLogs**, dans une ou plusieurs des tables suivantes :
   - `beSECURE_ScanResults_CL`
   - `beSECURE_ScanEvents_CL`
   - `beSECURE_Audit_CL`
 
-Pour interroger les journaux beSECURE dans Log Analytics, entrez l’un des noms de tables ci-dessus en haut de la fenêtre de requête.
+Pour interroger les journaux beSECURE dans les règles d’analytique, les requêtes de chasse, les investigations ou n’importe où ailleurs dans Azure Sentinel, entrez l’un des noms de tables ci-dessus en haut de la fenêtre de requête.
 
 ## <a name="validate-connectivity"></a>Valider la connectivité
 Jusqu’à 20 minutes peuvent être nécessaires avant que vos journaux ne commencent à apparaître dans Log Analytics.

@@ -1,14 +1,14 @@
 ---
 title: Locataires, utilisateurs et rôles dans les scénarios Azure Lighthouse
 description: Découvrez les concepts d’Azure Active Directory pour les locataires, les utilisateurs et les rôles, ainsi que la façon dont ils peuvent être utilisés dans les scénarios Azure Lighthouse.
-ms.date: 10/29/2020
+ms.date: 01/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: 411b9bae19166e1875011360aa011c05d590b237
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d78828cc739030f8e456c64885d77ddf59dd13fb
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023940"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233914"
 ---
 # <a name="tenants-users-and-roles-in-azure-lighthouse-scenarios"></a>Locataires, utilisateurs et rôles dans les scénarios Azure Lighthouse
 
@@ -18,7 +18,10 @@ Un *locataire* est une instance dédiée et approuvée d’Azure AD. En généra
 
 Pour atteindre cette projection logique, un abonnement (ou un ou plusieurs groupes de ressources au sein d’un abonnement) dans le locataire client doit être *intégré* à Azure Lighthouse. Ce processus d’intégration peut être effectué [par le biais de modèles Azure Resource Manager](../how-to/onboard-customer.md) ou par [la publication d’une offre publique ou privée sur la Place de marché Azure](../how-to/publish-managed-services-offers.md).
 
-Quelle que soit la méthode d’intégration choisie, vous devez définir des *autorisations*. Chaque autorisation spécifie un compte d’utilisateur dans le locataire gérant qui aura accès aux ressources déléguées, et un rôle intégré qui définit les autorisations dont chacun de ces utilisateurs aura besoin pour ces ressources.
+Quelle que soit la méthode d’intégration choisie, vous devez définir des *autorisations*. Chaque autorisation spécifie un **principalId** qui aura accès aux ressources déléguées et un rôle intégré qui définit les autorisations dont chacun de ces utilisateurs aura besoin pour ces ressources. Ce **principalId** définit un utilisateur, un groupe ou un principal de service Azure AD dans le locataire gérant.
+
+> [!NOTE]
+> Sauf spécification explicite, les références à un « utilisateur » dans la documentation Azure Lighthouse peuvent s’appliquer à un utilisateur, à un groupe ou à un principal de service Azure AD dans une autorisation.
 
 ## <a name="best-practices-for-defining-users-and-roles"></a>Meilleures pratiques pour la définition des utilisateurs et des rôles
 

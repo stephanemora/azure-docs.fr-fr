@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: b8b93471b6d7f2555cfd71e524718ed0ea1ee191
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: c752bc6ae49f009056067545fde292dc29027d5d
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96457903"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208129"
 ---
 # <a name="best-practices-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Meilleures pratiques pour un pool SQL serverless dans Azure Synapse Analytics
 
@@ -25,9 +25,9 @@ Cet article présente un ensemble de meilleures pratiques pour l’utilisation d
 
 Un pool SQL serverless vous permet d’interroger des fichiers dans vos comptes de stockage Azure. Il ne dispose pas de capacités de stockage ou d’ingestion locales. Cela qui signifie que tous les fichiers que la requête cible sont externes au pool SQL serverless. Tout ce qui est lié à la lecture de fichiers à partir du stockage peut avoir un impact sur les performances des requêtes.
 
-## <a name="colocate-your-azure-storage-account-and-serverless-sql-pool"></a>Colocaliser votre compte de stockage Azure et le pool SQL serverless
+## <a name="colocate-your-storage-and-serverless-sql-pool"></a>Colocaliser votre stockage et votre pool SQL serverless
 
-Pour réduire la latence, colocalisez votre compte de stockage Azure et le point de terminaison de votre pool SQL serverless. Les comptes de stockage et les points de terminaison approvisionnés lors de la création de l’espace de travail se trouvent dans la même région.
+Pour réduire la latence, colocalisez votre compte de stockage Azure ou votre stockage d’analytique Cosmos DB avec le point de terminaison de votre pool SQL serverless. Les comptes de stockage et les points de terminaison approvisionnés lors de la création de l’espace de travail se trouvent dans la même région.
 
 Pour optimiser les performances, si vous accédez à d’autres comptes de stockage avec le pool SQL serverless, assurez-vous qu’ils se trouvent dans la même région. Autrement, vous obtiendrez une latence accrue pour le transfert réseau des données entre la région distante et la région du point de terminaison.
 
@@ -44,9 +44,9 @@ Quand une limitation est détectée, le pool SQL serverless dispose d’une fonc
 
 Si possible, vous pouvez préparer les fichiers pour améliorer les performances :
 
-- Convertissez les formats CSV et JSON en Parquet. Parquet est un format en colonnes. Comme il est compressé, ses fichiers sont de plus petite taille que des fichiers CSV ou JSON contenant les mêmes données. Le pool SQL serverless a besoin de moins de temps et de demandes de stockage pour le lire.
+- Convertissez les fichiers CSV et JSON volumineux au format Parquet. Parquet est un format en colonnes. Comme il est compressé, ses fichiers sont de plus petite taille que des fichiers CSV ou JSON contenant les mêmes données. Le pool SQL serverless est capable d’ignorer les colonnes et les lignes qui ne sont pas nécessaires dans la requête si vous lisez des fichiers Parquet. Le pool SQL serverless a besoin de moins de temps et de demandes de stockage pour le lire.
 - Si une requête cible un seul fichier volumineux, il est avantageux de fractionner celui-ci en fichiers plus petits.
-- Essayez de conserver une taille de fichier CSV inférieure à 10 Go.
+- Essayez de conserver une taille de fichier CSV entre 100 Mo et 10 Go.
 - Il est préférable d’avoir des fichiers de taille identique pour un chemin d’accès OPENROWSET unique ou un emplacement de table externe.
 - Partitionnez vos données en stockant les partitions dans des dossiers ou sous des noms de fichiers différents. Consultez [Utiliser les fonctions filename et filepath pour cibler des partitions spécifiques](#use-filename-and-filepath-functions-to-target-specific-partitions).
 
@@ -129,7 +129,7 @@ Vous pouvez utiliser l’analyseur à performances optimisées lors de l’inter
 
 ## <a name="manually-create-statistics-for-csv-files"></a>Créer manuellement des statistiques pour les fichiers CSV
 
-Le pool SQL serverless s’appuie sur des statistiques pour générer des plans optimaux d’exécution des requêtes. Les statistiques sont automatiquement créées pour les colonnes de fichiers Parquet si nécessaire. À ce stade, les statistiques ne sont pas automatiquement créées pour les colonnes de fichiers CSV, et vous devez créer des statistiques manuellement pour les colonnes que vous utilisez dans les requêtes, en particulier celles utilisées dans DISTINCT, JOIN, WHERE, ORDER BY et GROUP BY. Pour plus d’informations, consultez [statistiques du pool SQL serverless] (develop-tables-statistics.md#statistics-in-serverless-sql-pool).
+Le pool SQL serverless s’appuie sur des statistiques pour générer des plans optimaux d’exécution des requêtes. Les statistiques sont automatiquement créées pour les colonnes de fichiers Parquet si nécessaire. À ce stade, les statistiques ne sont pas automatiquement créées pour les colonnes de fichiers CSV, et vous devez créer des statistiques manuellement pour les colonnes que vous utilisez dans les requêtes, en particulier celles utilisées dans DISTINCT, JOIN, WHERE, ORDER BY et GROUP BY. Consultez [Statistiques dans un pool SQL serverless](develop-tables-statistics.md#statistics-in-serverless-sql-pool) pour plus d’informations.
 
 ## <a name="use-cetas-to-enhance-query-performance-and-joins"></a>Utiliser CETAS pour améliorer les performances des requêtes et les jointures
 

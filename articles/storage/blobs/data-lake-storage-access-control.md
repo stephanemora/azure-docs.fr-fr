@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 2418a8813e7b9de603b7e7cdc11fc756d73ac2a4
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 2a1455c5956297a19d640146879f93b61d035139
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350753"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185901"
 ---
 # <a name="access-control-lists-acls-in-azure-data-lake-storage-gen2"></a>Listes de contrôle d’accès (ACL) dans Azure Data Lake Storage Gen2
 
@@ -60,7 +60,7 @@ Les ACL d’accès et les ACL par défaut ont la même structure.
 
 ## <a name="levels-of-permission"></a>Niveaux d’autorisation
 
-Les autorisations sur un objet conteneur sont **Lecture**, **Écriture** et **Exécution**. Elles peuvent être utilisées sur les fichiers et les répertoires comme l’indique le tableau ci-dessous :
+Les autorisations sur les répertoires et les fichiers dans un conteneur sont **Lecture**, **Écriture** et **Exécution**. Elles peuvent être utilisées sur les fichiers et les répertoires comme l’indique le tableau ci-dessous :
 
 |            |    Fichier     |   Répertoire |
 |------------|-------------|----------|
@@ -69,7 +69,7 @@ Les autorisations sur un objet conteneur sont **Lecture**, **Écriture** et **Ex
 | **Exécution (X)** | Cela ne signifie rien dans le contexte de Data Lake Storage Gen2 | Requise pour parcourir les éléments enfants d’un répertoire |
 
 > [!NOTE]
-> Si vous accordez des autorisations à l’aide uniquement d’ACL (sans Azure RBAC), pour accorder un accès en lecture ou en écriture sur un fichier à un principal de sécurité, vous devez donner au principal de sécurité les autorisations **Exécuter** sur le conteneur et sur chaque dossier de la hiérarchie de dossiers qui mène au fichier.
+> Si vous accordez des autorisations en utilisant uniquement des ACL (sans Azure RBAC), alors, pour accorder un accès en lecture ou en écriture sur un fichier à un principal de sécurité, vous devez donner au principal de sécurité des autorisations **Exécution** sur le dossier racine du conteneur et sur chaque dossier de la hiérarchie de dossiers qui mène au fichier.
 
 ### <a name="short-forms-for-permissions"></a>Formes abrégées des autorisations
 

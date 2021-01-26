@@ -7,12 +7,12 @@ author: bwren
 ms.author: bwren
 ms.date: 12/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: ce90ab160696e2c38d917a391eecb0d51a31282f
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 655a146ccde9c75629d0a991a6a3aafa91f40764
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740587"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233965"
 ---
 # <a name="enable-azure-monitor-for-vms-overview"></a>Vue d’ensemble de l’activation d’Azure Monitor pour machines virtuelles
 
@@ -52,6 +52,9 @@ Azure Monitor pour machines virtuelles est disponible pour les serveurs Azure Ar
 
 Azure Monitor pour machines virtuelles prend en charge tout système d’exploitation prenant en charge l’agent Log Analytics et l’agent Dependency. Pour une liste complète, consultez [Vue d’ensemble des agents Azure Monitor](../platform/agents-overview.md#supported-operating-systems).
 
+> [!IMPORTANT]
+> La fonctionnalité d’intégrité des invités d’Azure Monitor pour machines virtuelles prend en charge un nombre plus restreint de systèmes d’exploitation lorsqu’elle est en préversion publique. Pour obtenir une liste détaillée, consultez [Activer l’intégrité des invités d’Azure Monitor pour machines virtuelles (préversion)](vminsights-health-enable.md).
+
 Consultez la liste suivante de considérations sur la prise en charge par Linux de l’agent Dependency qui prend en charge Azure Monitor pour machines virtuelles :
 
 - Seules les versions du noyau SMP Linux et par défaut sont prises en charge.
@@ -63,7 +66,7 @@ Consultez la liste suivante de considérations sur la prise en charge par Linux 
 ## <a name="log-analytics-workspace"></a>Espace de travail Log Analytics
 Azure Monitor pour machines virtuelles nécessite un espace de travail Log Analytics. Pour plus d’informations sur la configuration de cet espace de travail, consultez [Configurer l’espace de travail Log Analytics d’Azure Monitor pour machines virtuelles](vminsights-configure-workspace.md).
 ## <a name="agents"></a>Agents
-Azure Monitor pour machines virtuelles nécessite l’installation des deux agents suivants sur chaque machine virtuelle ou groupe de machines virtuelles identiques à surveiller. L’installation de ces agents et leur connexion à l’espace de travail est la seule condition requise pour l’intégration de la ressource.
+Azure Monitor pour machines virtuelles nécessite l’installation des deux agents suivants sur chaque machine virtuelle ou groupe de machines virtuelles identiques à surveiller. Pour intégrer la ressource, installez ces agents et connectez-les à l’espace de travail.  Pour connaître la configuration réseau requise pour ces agents, consultez [Configuration requise pour le réseau](../platform/log-analytics-agent.md#network-requirements).
 
 - [Agent Log Analytics](../platform/log-analytics-agent.md). Collecte les événements et les données de performances de la machine virtuelle ou du groupe de machines virtuelles identiques et les livre à l’espace de travail Log Analytics. Les méthodes de déploiement de l’agent Log Analytics sur les ressources Azure utilisent l’extension de machine virtuelle pour [Windows](../../virtual-machines/extensions/oms-windows.md) et [Linux](../../virtual-machines/extensions/oms-linux.md).
 - Agent de dépendances. Collecte les données découvertes concernant les processus exécutés sur la machine virtuelle et les dépendances de processus externes, qui sont utilisées par la [fonctionnalité de mappage dans Azure Monitor pour machines virtuelles](vminsights-maps.md). Il s’appuie sur l’agent Log Analytics pour remettre ses données à Azure Monitor. Les méthodes de déploiement de l’agent Dependency Agent sur les ressources Azure utilisent l’extension de machine virtuelle pour [Windows](../../virtual-machines/extensions/agent-dependency-windows.md) et [Linux](../../virtual-machines/extensions/agent-dependency-linux.md).

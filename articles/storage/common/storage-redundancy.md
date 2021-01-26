@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/08/2021
+ms.date: 01/19/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 60ae6eb3142f8898f760027d37881ded8261f571
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 83a4a2aa8328a6e3de9eab44bbf19fc76921b128
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98108090"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573351"
 ---
 # <a name="azure-storage-redundancy"></a>Redondance de Stockage Azure
 
@@ -35,11 +35,15 @@ Les données d’un compte de stockage Azure sont toujours répliquées trois fo
 
 ### <a name="locally-redundant-storage"></a>Stockage localement redondant
 
-Le stockage localement redondant (LRS) réplique vos données trois fois au sein d’un même emplacement physique dans la région primaire. Le stockage localement redondant offre une durabilité des objets d’au moins 99,999999999 % (11 « neuf ») sur une année donnée.
+Le stockage localement redondant (LRS) réplique vos données trois fois au sein d’un même centre de données dans la région primaire. Le stockage localement redondant offre une durabilité des objets d’au moins 99,999999999 % (11 « neuf ») sur une année donnée.
 
 Le stockage localement redondant est l’option de redondance la moins coûteuse et offrant la durabilité la plus faible en comparaison des autres options. Il protège vos données contre les défaillances de disque et de rack du serveur. Toutefois, si un sinistre tel qu’un incendie ou une inondation se produit à l’intérieur du centre de données, tous les réplicas d’un compte de stockage utilisant un stockage localement redondant risquent d’être perdus ou irrécupérables. Pour atténuer ce risque, Microsoft recommande d’utiliser le [stockage redondant interzone ](#zone-redundant-storage)(ZRS), le [stockage géoredondant](#geo-redundant-storage) (GRS) ou le [stockage géoredondant interzone ](#geo-zone-redundant-storage)(GZRS).
 
 Une demande d’écriture dans un compte de stockage utilisant une réplication LRS se produit de façon synchrone. L’opération d’écriture ne retourne un indicateur de réussite que lorsque les données ont été écrites sur les trois réplicas.
+
+Le diagramme suivant montre comment vos données sont répliquées dans un centre de données unique à l’aide du LRS :
+
+:::image type="content" source="media/storage-redundancy/locally-redundant-storage.png" alt-text="Diagramme montrant comment les données sont répliquées dans un centre de données unique à l’aide du LRS":::
 
 L’option LRS est un bon choix pour les scénarios suivants :
 
@@ -54,7 +58,11 @@ Avec l’option ZRS, vos données restent accessibles pour des opérations de le
 
 Une demande d’écriture dans un compte de stockage utilisant une réplication ZRS se produit de façon synchrone. L’opération d’écriture ne retourne un indicateur de réussite que lorsque les données ont été écrites sur tous les réplicas dans les trois zones de disponibilité.
 
-Microsoft recommande d’utiliser un stockage redondant interzone dans la région primaire pour les scénarios nécessitant cohérence, durabilité et haute disponibilité. Nous vous recommandons également d’utiliser le stockage redondant interzone si vous souhaitez restreindre une application à la réplication de données uniquement dans un pays ou une région en raison des exigences de gouvernance des données.
+Microsoft recommande d’utiliser un stockage redondant interzone dans la région primaire pour les scénarios nécessitant cohérence, durabilité et haute disponibilité. Le ZRS est également recommandé pour limiter la réplication des données à un pays ou à une région afin de répondre aux exigences de gouvernance des données.
+
+Le diagramme suivant montre comment vos données sont répliquées entre les zones de disponibilité dans la région primaire à l’aide du ZRS :
+
+:::image type="content" source="media/storage-redundancy/zone-redundant-storage.png" alt-text="Diagramme montrant comment les données sont répliquées dans la région primaire à l’aide du ZRS":::
 
 Une réplication ZRS offre d’excellentes performances, une faible latence et une résilience pour vos données en cas d’indisponibilité temporaire de celles-ci. En revanche, il se peut que cette option à elle seule ne puisse pas protéger vos données contre un sinistre régional dans le cadre duquel plusieurs zones sont affectées définitivement. Pour assurer la protection contre des catastrophes régionales, Microsoft recommande l’utilisation d’un [stockage géo-redondant interzone](#geo-zone-redundant-storage) (GZRS), qui utilise une réplication ZRS dans la région primaire et géoréplique vos données dans une région secondaire.
 
@@ -97,11 +105,19 @@ La réplication par stockage géoredondant (GRS) copie vos données de façon sy
 
 Une opération d’écriture est d’abord validée dans la région primaire, puis répliquée en utilisant un stockage localement redondant. Elle est ensuite répliquée de manière asynchrone vers la région secondaire. Lors de l’écriture des données dans l’emplacement secondaire, celles-ci sont également répliquées au sein de cet emplacement avec le stockage localement redondant.
 
+Le diagramme suivant montre comment vos données sont répliquées à l’aide du GRS ou du RA-GRS :
+
+:::image type="content" source="media/storage-redundancy/geo-redundant-storage.png" alt-text="Diagramme montrant comment les données sont répliquées à l’aide du GRS ou du RA-GRS":::
+
 ### <a name="geo-zone-redundant-storage"></a>Stockage géoredondant interzone
 
 Le stockage géo-redondant interzone (GZRS) combine la haute disponibilité fournie par la redondance entre zones de disponibilité avec la protection contre les pannes régionales assurée par la géo-réplication. Les données d’un compte de stockage GZRS sont répliquées dans trois [zones de disponibilité Azure](../../availability-zones/az-overview.md) au sein de la région primaire, ainsi que vers une région géographique secondaire pour offrir une protection contre des catastrophes régionales. Microsoft recommande d’utiliser une réplication GZRS pour les applications ayant des besoins élevés en termes de cohérence, de durabilité, de disponibilité, de performances et de résilience pour la récupération d’urgence.
 
 Avec un compte de stockage GZRS, vous pouvez continuer à lire et écrire des données si une zone de disponibilité devient indisponible ou n’est pas récupérable. De plus, vos données sont également durables en cas de panne régionale totale ou d’une catastrophe naturelle empêchant la récupération de la région primaire. Le stockage GZRS est conçu pour fournir une durabilité des objets d’au moins 99,99999999999999 % (16 chiffres 9) sur une année donnée.
+
+Le diagramme suivant montre comment vos données sont répliquées à l’aide du GZRS ou du RA-GZRS :
+
+:::image type="content" source="media/storage-redundancy/geo-zone-redundant-storage.png" alt-text="Diagramme montrant comment les données sont répliquées à l’aide du GZRS ou du RA-GZRS":::
 
 Seuls les comptes de stockage v2 à usage général prennent en charge GZRS et RA-GZRS. Pour plus d’informations sur les types de comptes de stockage, voir [Vue d’ensemble des comptes de stockage Azure](storage-account-overview.md). Les réplications GZRS et RA-GZRS prennent en charge les objets blob de bloc, les objets blob de page (à l’exception des disques VHD), les fichiers, les tables et les files d’attente.
 
@@ -155,7 +171,7 @@ Le tableau suivant décrit les principaux paramètres pour chaque option de redo
 | Pourcentage de durabilité des objets sur une année donnée | Au moins 99,999999999 % (11 chiffres 9) | Au moins 99,9999999999 % (12 chiffres 9) | Au moins 99,99999999999999 % (16 chiffres 9) | Au moins 99,99999999999999 % (16 chiffres 9) |
 | Disponibilité pour les requêtes de lecture | Au moins 99,9 % (99 % pour le niveau d’accès froid) | Au moins 99,9 % (99 % pour le niveau d’accès froid) | Au moins 99,9 % (99 % pour le niveau d’accès froid) pour GRS<br /><br />Au moins 99,99 % (99,9 % pour le niveau d’accès froid) pour RA-GRS | Au moins 99,9 % (99 % pour le niveau d’accès froid) pour GZRS<br /><br />Au moins 99,99 % (99,9 % pour le niveau d’accès froid) pour RA-GZRS |
 | Disponibilité pour les requêtes d’écriture | Au moins 99,9 % (99 % pour le niveau d’accès froid) | Au moins 99,9 % (99 % pour le niveau d’accès froid) | Au moins 99,9 % (99 % pour le niveau d’accès froid) | Au moins 99,9 % (99 % pour le niveau d’accès froid) |
-| Nombre de copies de données conservées sur des nœuds distincts.                             | 3   | 3   | 6   | 6      |
+| Nombre de copies des données conservées sur des nœuds distincts | Trois copies au sein d’une même région | Trois copies dans des zones de disponibilité distinctes au sein d’une même région | Six copies au total, dont trois dans la région primaire et trois dans la région secondaire | Six copies au total, dont trois dans des zones de disponibilité distinctes dans la région primaire et trois copies redondantes localement dans la région secondaire |
 
 ### <a name="durability-and-availability-by-outage-scenario"></a>Durabilité et disponibilité par scénario de panne
 

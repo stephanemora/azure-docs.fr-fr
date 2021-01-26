@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein
 ms.date: 10/13/2020
-ms.openlocfilehash: b4a8b809fc135a4af26fae10912890f2017153f4
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: cacd43502a01352c24f8fcfd85b12aac781dccbd
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92780918"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602516"
 ---
 # <a name="save-costs-for-resources-with-reserved-capacity---azure-sql-database--sql-managed-instance"></a>Réduire les coûts des ressources grâce à une capacité de réserve – Azure SQL Database et SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)] 
@@ -47,8 +47,8 @@ Par exemple, supposez que vous exécutiez un pool élastique Gen5 à usage gén�
 ## <a name="buy-reserved-capacity"></a>Acheter une capacité réservée
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-2. Sélectionnez **Tous les services** > **Réservations** .
-3. Sélectionnez **Ajouter** , puis, dans le volet **Acheter des réservations** , choisissez **SQL Database** pour acheter une nouvelle réservation de bases de données SQL.
+2. Sélectionnez **Tous les services** > **Réservations**.
+3. Sélectionnez **Ajouter**, puis, dans le volet **Acheter des réservations**, choisissez **SQL Database** pour acheter une nouvelle réservation de bases de données SQL.
 4. Renseignez les champs obligatoires. Les bases de données existantes de SQL Database et SQL Managed Instance qui correspondent aux attributs que vous sélectionnez peuvent prétendre à la remise de capacité de réserve. Le nombre réel de vos bases de données ou instances managées qui obtiennent la remise dépend de l’étendue et de la quantité sélectionnées.
 
     ![Capture d’écran avant de soumettre l’achat de la capacité réservée](./media/reserved-capacity-overview/sql-reserved-vcores-purchase.png)
@@ -57,16 +57,16 @@ Par exemple, supposez que vous exécutiez un pool élastique Gen5 à usage gén�
     
     | Champ      | Description|
     |------------|--------------|
-    |Abonnement|Abonnement utilisé pour payer la réservation de capacité. Les coûts initiaux de la réservation sont facturés au mode de paiement défini sur l’abonnement. Le type d’abonnement doit être un contrat Entreprise (numéro de l’offre MS-AZR-0017P ou MS-AZR-0148P) ou un contrat individuel avec paiement à l’utilisation (numéro de l’offre MS-AZR-0003P ou MS-AZR-0023P). Pour un abonnement Entreprise, les frais sont déduits du solde d’engagement monétaire de l’inscription ou facturés comme un dépassement. Pour un abonnement individuel avec paiement à l’utilisation, les frais sont facturés sur le mode de paiement par carte de crédit ou par facture sur l’abonnement.|
-    |Étendue       |L’étendue de la réservation vCore peut couvrir un seul abonnement ou plusieurs abonnements (étendue partagée). Si vous sélectionnez <br/><br/>**Partagée** , la remise de réservation vCore est appliquée à la base de données ou instance managée en cours d’exécution dans tous les abonnements de votre contexte de facturation. Pour les clients Entreprise, l'étendue partagée correspond à l'inscription et inclut tous les abonnements compris dans l'inscription. Pour les clients Paiement à l’utilisation, l’étendue partagée correspond à tous les abonnements Paiement à l’utilisation créés par l’administrateur de compte.<br/><br/>**Abonnement unique** , la remise de réservation vCore est appliquée à la base de données ou instance managée incluse dans cet abonnement. <br/><br/>**Groupe de ressources unique** , la remise de réservation est appliquée à la base de données ou instance managée incluse dans l’abonnement sélectionné et dans le groupe de ressources sélectionné au sein de cet abonnement.|
+    |Abonnement|Abonnement utilisé pour payer la réservation de capacité. Les coûts initiaux de la réservation sont facturés au mode de paiement défini sur l’abonnement. Le type d’abonnement doit être un contrat Entreprise (numéro de l’offre MS-AZR-0017P ou MS-AZR-0148P) ou un contrat individuel avec paiement à l’utilisation (numéro de l’offre MS-AZR-0003P ou MS-AZR-0023P). Pour un abonnement d’entreprise, les frais sont déduits du Paiement anticipé Azure (précédemment appelé « solde de l’engagement financier ») de l’inscription ou facturés comme dépassement. Pour un abonnement individuel avec paiement à l’utilisation, les frais sont facturés sur le mode de paiement par carte de crédit ou par facture sur l’abonnement.|
+    |Étendue       |L’étendue de la réservation vCore peut couvrir un seul abonnement ou plusieurs abonnements (étendue partagée). Si vous sélectionnez <br/><br/>**Partagée**, la remise de réservation vCore est appliquée à la base de données ou instance managée en cours d’exécution dans tous les abonnements de votre contexte de facturation. Pour les clients Entreprise, l'étendue partagée correspond à l'inscription et inclut tous les abonnements compris dans l'inscription. Pour les clients Paiement à l’utilisation, l’étendue partagée correspond à tous les abonnements Paiement à l’utilisation créés par l’administrateur de compte.<br/><br/>**Abonnement unique**, la remise de réservation vCore est appliquée à la base de données ou instance managée incluse dans cet abonnement. <br/><br/>**Groupe de ressources unique**, la remise de réservation est appliquée à la base de données ou instance managée incluse dans l’abonnement sélectionné et dans le groupe de ressources sélectionné au sein de cet abonnement.|
     |Région      |Région Azure couverte par la réservation de capacité.|
     |Type de déploiement|Type de ressource SQL pour laquelle vous voulez acheter la réservation.|
     |Niveau de performances|Niveau de service pour les bases de données ou instances managées. |
     |Terme        |Une année ou trois ans.|
     |Quantité    |Quantité de ressources de calcul achetées au sein de la réservation de capacité. La quantité correspond au nombre de vCores de la région Azure et du niveau de performance sélectionnés qui est réservé et qui bénéficie de la remise de facturation. Par exemple, si vous exécutez ou envisagez d’exécuter plusieurs bases de données avec la capacité de calcul totale de 16 vCores Gen5 dans la région USA Est, vous devez spécifier une quantité de 16 pour optimiser l’avantage pour toutes les bases de données. |
 
-1. Étudiez de plus près le coût de la réservation de capacité dans la section **Coûts** .
-1. Sélectionnez **Achat** .
+1. Étudiez de plus près le coût de la réservation de capacité dans la section **Coûts**.
+1. Sélectionnez **Achat**.
 1. Sélectionnez **Afficher cette réservation** pour connaître l’état de votre achat.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Annuler, échanger ou rembourser des réservations

@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: 4531d68c2fbd0698c33d70a75bb82ac9c7f52f49
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 944d867ef888e70faa659adcc0e2d4c02f003c97
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96752241"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567405"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Découverte, évaluation et analyse des dépendances - Questions courantes
 
@@ -46,7 +46,8 @@ Vous pouvez découvrir jusqu’à 10 000 machines virtuelles VMware, jusqu’
 Pour l’évaluation « En fonction des performances », le rapport d’évaluation signale « PercentageOfCoresUtilizedMissing » ou « PercentageOfMemoryUtilizedMissing » quand l’appliance Azure Migrate ne peut pas collecter les données de performances pour les machines virtuelles locales. Vérifiez :
 
 - Si les machines virtuelles sont sous tension pendant que vous créez l’évaluation.
-- S’il manque uniquement les compteurs de mémoire et si vous tentez d’évaluer des machines virtuelles Hyper-V, vérifiez si la mémoire dynamique est activée sur ces dernières. Il existe un problème connu qui empêche l’appliance Azure Migrate de collecter les données d’utilisation de la mémoire pour les machines virtuelles de ce type.
+- Si seuls les compteurs de mémoire manquent et que vous essayez d’évaluer des machines virtuelles Hyper-V. Dans ce scénario, activez la mémoire dynamique sur les machines virtuelles et recalculez l’évaluation pour tenir compte des dernières modifications. L’appliance peut collecter des valeurs d’utilisation de la mémoire pour les machines virtuelles Hyper-V uniquement lorsque la mémoire dynamique est activée sur la machine virtuelle.
+
 - Si tous les compteurs de performances sont manquants, assurez-vous que les connexions sortantes sur le port 443 (HTTPS) sont autorisées.
 
 Remarque : Si l’un des compteurs de performances est manquant, Azure Migrate : Server Assessment se base à la place sur les cœurs et la mémoire alloués localement pour recommander une taille de machine virtuelle.
@@ -57,7 +58,12 @@ La note de confiance pour les évaluations « En fonction des performances » 
 
 - Vous n’avez pas profilé votre environnement pour la durée pour laquelle vous créez l’évaluation. Par exemple, si vous créez une évaluation avec une durée des performances définie sur une semaine, vous devez attendre au moins une semaine après le démarrage de la découverte pour que tous les points de données soient recueillis. Si vous ne pouvez pas attendre pendant cette durée, définissez la durée des performances sur une période plus courte et « recalculez » l’évaluation.
  
-- Server Assessment ne peut pas collecter les données de performances pour une partie ou la totalité des machines virtuelles pendant la période d’évaluation. Vérifiez que les machines virtuelles étaient sous tension pendant la durée de l’évaluation et que les connexions sortantes sur les ports 443 sont autorisées. Pour les machines virtuelles Hyper-V, si la mémoire dynamique est activée, des compteurs de mémoire font défaut, aboutissant à une note de confiance faible. « Recalculez » l’évaluation pour qu’elle reflète l’évolution récente de la note de confiance. 
+- Server Assessment ne peut pas collecter les données de performances pour une partie ou la totalité des machines virtuelles pendant la période d’évaluation. Pour obtenir un niveau de confiance élevé, vérifiez les éléments suivants : 
+    - Les machines virtuelles sont sous tension pendant toute la durée de l’évaluation.
+    - Les connexions sortantes sont autorisées sur le port 443.
+    - Pour les machines virtuelles Hyper-V, la mémoire dynamique est activée. 
+
+    « Recalculez » l’évaluation pour qu’elle reflète l’évolution récente de la note de confiance.
 
 - Peu de machines virtuelles ont été créées après que la découverte dans Évaluation de serveur a commencé. Par exemple, si vous créez une évaluation de l’historique des performances du mois dernier, mais si la création de quelques machines virtuelles dans l’environnement ne remonte qu’à une semaine. Dans ce cas, les données de performances pour les nouvelles machines virtuelles ne seront pas disponibles pour toute la durée et la note de confiance sera faible.
 

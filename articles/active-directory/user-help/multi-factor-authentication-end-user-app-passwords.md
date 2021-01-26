@@ -13,16 +13,16 @@ ms.topic: end-user-help
 ms.date: 05/28/2020
 ms.author: curtand
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: c9d8bb85aac87503ca641f6633668a6dc582882f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 07303a0b0b3007ade9adb90af7397855a5014cc0
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90056079"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179420"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>Gérer les mots de passe d’application pour la vérification en deux étapes
 
->[!Important]
+> [!Important]
 >Votre administrateur peut ne pas vous autoriser à utiliser des mots de passe d’application. Si vous ne voyez pas l’option **Mots de passe d’application**, cela signifie qu’elle n’est pas disponible dans votre organisation.
 
 Lorsque vous utilisez des mots de passe d’application, gardez à l’esprit les points suivants :
@@ -64,17 +64,17 @@ Vous pouvez créer et supprimer des mots de passe d’application à partir de l
 
     ![Page Votre mot de passe d’application contenant le mot de passe de l’application spécifiée](media/multi-factor-authentication-end-user-app-passwords/mfa-your-app-password-page.png)
 
-4. Dans la page **Mots de passe d’application**, vérifiez que votre application est listée.
+4. Dans la page **Mots de passe d’application**, vérifiez que votre application est répertoriée.
 
-     ![Page Mots de passe d’application dans laquelle figure la nouvelle application](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page-with-new-password.png)  
+    ![Page Mots de passe d’application dans laquelle figure la nouvelle application](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page-with-new-password.png)  
 
 5. Ouvrez l’application pour laquelle vous avez créé le mot de passe d’application (en l’occurrence, Outlook 2010), puis collez le mot de passe d’application quand vous y êtes invité. Vous devez effectuer cette opération une seule fois par application.
 
 ### <a name="to-delete-an-app-password-using-the-app-passwords-page"></a>Pour supprimer un mot de passe d’application à partir de la page Mots de passe d’application
 
-1. Dans la page **Mots de passe d’application**, sélectionnez **Supprimer** en regard du mot de passe d’application à supprimer.
+1. Dans la page **Mots de passe d’application**, sélectionnez **Supprimer** à côté du mot de passe d’application à supprimer.
 
-   ![Supprimer un mot de passe d’application](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page-delete.png)
+   ![Capture d’écran montrant la suppression d’un mot de passe d’application sur la page Mots de passe d’application](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page-delete.png)
 
 2. Sélectionnez **Oui** pour confirmer la suppression du mot de passe, puis sélectionnez **Fermer**.
 
@@ -86,35 +86,35 @@ Si vous utilisez la vérification en deux étapes avec votre compte professionne
 
 ### <a name="to-create-app-passwords-using-the-office-365-portal"></a>Pour créer des mots de passe d’application à l’aide du Portail Office 365
 
-1. Connectez-vous à votre compte professionnel ou scolaire, accédez à la [page Mon compte](https://portal.office.com), sélectionnez **Sécurité et confidentialité**, puis développez **Vérification de sécurité supplémentaire**.
+1. Connectez-vous à votre compte professionnel ou scolaire, accédez à la page [Mon compte](https://myaccount.microsoft.com) et sélectionnez **Informations de sécurité**.
 
-    ![Portail Office sur lequel la zone Vérification de sécurité supplémentaire est développée](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-o365-my-account-page.png)
+    ![Portail Office présentant l’onglet Informations de sécurité](media/multi-factor-authentication-end-user-app-passwords/mfa-security-info.png)
 
-2. Sélectionnez le texte **Créer et gérer des mots de passe d’application** pour ouvrir la page **Mots de passe d’application**.
+2. Sélectionnez **Ajouter une méthode**, choisissez **Mot de passe d’application** dans la liste déroulante, puis cliquez sur **Ajouter**.
 
-    ![Page Mots de passe d’application, avec l’onglet Mots de passe d’application mis en évidence](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page.png)
+    ![Page Informations de sécurité, avec la liste déroulante Ajouter une méthode](media/multi-factor-authentication-end-user-app-passwords/mfa-add-method.png)
 
-3. Sélectionnez **Créer**, tapez le nom de l’application qui demande le mot de passe d’application, puis sélectionnez **Suivant**.
+3. Entrez un nom pour le mot de passe d’application, puis sélectionnez **Suivant**.
 
-    ![Page Créer un mot de passe d’application où figure le nom de l’application qui nécessite un mot de passe](media/multi-factor-authentication-end-user-app-passwords/mfa-create-app-password-page.png)
+    ![Page Créer des mots de passe d’application, avec le nom du mot de passe d’application](media/multi-factor-authentication-end-user-app-passwords/mfa-enter-app-password-name.png)
 
-4. Copiez le mot de passe à partir de la page **Votre mot de passe d’application**, puis sélectionnez **Fermer**.
+4. Copiez le mot de passe à partir de la page **Mot de passe d’application**, puis sélectionnez **Terminé**.
 
-    ![Page Votre mot de passe d’application contenant le mot de passe de l’application spécifiée](media/multi-factor-authentication-end-user-app-passwords/mfa-your-app-password-page.png)
+    ![Page Mot de passe d’application, avec le nouveau mot de passe d’application que vous avez créé](media/multi-factor-authentication-end-user-app-passwords/mfa-copy-app-password.png)
 
-5. Dans la page **Mots de passe d’application**, vérifiez que votre application est listée.
+5. Dans la page **Informations de sécurité**, vérifiez que votre mot de passe d’application est répertorié.
 
-     ![Page Mots de passe d’application dans laquelle figure la nouvelle application](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page-with-new-password.png)  
+    ![Page Informations de sécurité, avec le nouveau mot de passe d’application affiché dans la liste](media/multi-factor-authentication-end-user-app-passwords/mfa-verify-app-password.png)  
 
-6. Ouvrez l’application pour laquelle vous avez créé le mot de passe d’application (en l’occurrence, Outlook 2010), puis collez le mot de passe d’application quand vous y êtes invité. Vous devez effectuer cette opération une seule fois par application.
+6. Ouvrez l’application pour laquelle vous avez créé le mot de passe d’application (en l’occurrence, Outlook 2016), puis collez le mot de passe d’application quand vous y êtes invité. Vous devez effectuer cette opération une seule fois par application.
 
-### <a name="to-delete-app-passwords-using-the-app-passwords-page"></a>Pour supprimer des mots de passe d’application à partir de la page Mots de passe d’application
+### <a name="to-delete-app-passwords-using-the-security-info-page"></a>Pour supprimer des mots de passe d’application à l’aide de la page Informations de sécurité
 
-1. Dans la page **Mots de passe d’application**, sélectionnez **Supprimer** en regard du mot de passe d’application à supprimer.
+1. Dans la page **Informations de sécurité**, sélectionnez **Supprimer** à côté du mot de passe d’application à supprimer.
 
-   ![Supprimer un mot de passe d’application](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page-delete.png)
+   ![Capture d’écran montrant la suppression d’un mot de passe d’application sur la page Informations de sécurité](media/multi-factor-authentication-end-user-app-passwords/mfa-delete-app-password.png)
 
-2. Sélectionnez **Oui** dans la boîte de dialogue de confirmation, puis sélectionnez **Fermer**.
+2. Sélectionnez **OK** dans la zone de confirmation.
 
     Le mot de passe d’application est supprimé.
 

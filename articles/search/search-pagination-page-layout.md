@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/09/2020
-ms.openlocfilehash: 182ec758a8764a959b39296163e63e800cf5108c
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: a7171d656ec9f839aea4ae73763ec6ebd20c2bb3
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97008482"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209829"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Guide pratique pour utiliser les résultats de recherche dans Recherche cognitive Azure
 
@@ -103,7 +103,7 @@ Les scores de recherche donnent une impression générale de pertinence, reflét
 
 ### <a name="how-to-get-consistent-ordering"></a>Guide pratique pour obtenir un classement cohérent
 
-Si une application nécessite un classement cohérent, vous pouvez définir explicitement une expression [ **`$orderby`** ] (query-odata-filter-orderby-syntax.md) sur un champ. Seuls les champs qui sont indexés en tant que **`sortable`** peuvent être utilisés pour trier les résultats. Les champs couramment utilisés dans **`$orderby`** incluent les champs d’évaluation, de date et d’emplacement si vous spécifiez la valeur du paramètre **`orderby`** pour inclure les noms de champs et les appels à la [**fonction `geo.distance()`** ](query-odata-filter-orderby-syntax.md) pour les valeurs géospatiales.
+Si une application nécessite un classement cohérent, vous pouvez définir explicitement une [expression **`$orderby`** ](query-odata-filter-orderby-syntax.md) sur un champ. Seuls les champs qui sont indexés en tant que **`sortable`** peuvent être utilisés pour trier les résultats. Les champs couramment utilisés dans **`$orderby`** incluent les champs d’évaluation, de date et d’emplacement si vous spécifiez la valeur du paramètre **`orderby`** pour inclure les noms de champs et les appels à la [**fonction `geo.distance()`**](query-odata-filter-orderby-syntax.md) pour les valeurs géospatiales.
 
 Une autre approche qui favorise la cohérence consiste à utiliser un [profil de score personnalisé](index-add-scoring-profiles.md). Les profils de scoring vous permettent de mieux contrôler le classement des éléments dans les résultats de recherche, avec la possibilité d’augmenter le nombre de correspondances trouvées dans des champs spécifiques. La logique de scoring supplémentaire peut aider à surmonter les différences mineures entre les réplicas, car les scores de recherche pour chaque document sont plus éloignés les uns des autres. Nous vous recommandons d’utiliser l’[algorithme de classement](index-ranking-similarity.md) pour cette approche.
 

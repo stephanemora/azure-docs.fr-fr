@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 08/31/2020
 ms.custom: devx-track-python, data4ml
-ms.openlocfilehash: 6d8c04e48a3d0009a152830a4ee332cd706c4b2c
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 8b73676adbb9aa12e6f3b42dd26bed94b22780a8
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360171"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539893"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Sécuriser l’accès aux données dans Azure Machine Learning
 
@@ -42,7 +42,7 @@ Quand vous êtes prêt à utiliser les données dans votre solution de stockage 
 
     1. Le consommer directement dans des solutions Azure Machine Learning, telles que des exécutions d’expériences de machine learning automatisé, des pipelines de Machine Learning ou le [Concepteur Azure Machine Learning](concept-designer.md).
 
-4. Créez des [moniteurs de jeux de données](#data-drift) pour le jeu de données de sortie de votre modèle afin de détecter la dérive de données. 
+4. Créez des [moniteurs de jeux de données](#drift) pour le jeu de données de sortie de votre modèle afin de détecter la dérive de données. 
 
 5. Si une dérive de données est détectée, mettez à jour votre jeu de données d’entrée et renouvelez l’entraînement de votre modèle en conséquence.
 
@@ -50,7 +50,8 @@ Le diagramme suivant fournit une démonstration visuelle de ce workflow recomman
 
 ![Diagramme représentant le service Stockage Azure, avec transmission vers un magasin de données, puis vers un jeu de données. La transmission s'effectue ensuite du jeu de données vers l'apprentissage du modèle, puis vers la dérive des données, avant de revenir au jeu de données.](./media/concept-data/data-concept-diagram.svg)
 
-## <a name="datastores"></a>Magasins de données
+<a name="datastores"></a>
+## <a name="connect-to-storage-with-datastores"></a>Se connecter au stockage avec des magasins de données
 
 Les magasins de données Azure Machine Learning conservent les informations de connexion à votre stockage Azure de manière sécurisée. Vous n’avez donc pas à les coder dans vos scripts. [Inscrivez et créez un magasin de données](how-to-access-data.md) pour vous connecter facilement à votre compte de stockage et accéder aux données de votre service de stockage Azure sous-jacent. 
 
@@ -65,7 +66,8 @@ Services de stockage cloud pris en charge dans Azure qui peuvent être enregistr
 + Système de fichiers Databricks
 + Azure Database pour MySQL
 
-## <a name="datasets"></a>Groupes de données
+<a name="datasets"></a>
+## <a name="reference-data-in-storage-with-datasets"></a>Référencer des données dans le stockage avec des jeux de données
 
 Les jeux de données Azure Machine Learning ne sont pas des copies de vos données. En créant un jeu de données, vous créez une référence aux données dans son service de stockage, ainsi qu'une copie de ses métadonnées. 
 
@@ -105,7 +107,7 @@ Avec les jeux de données, vous pouvez effectuer un certain nombre de tâches de
 
 <a name="label"></a>
 
-## <a name="data-labeling"></a>Étiquetage des données
+## <a name="label-data-with-data-labeling-projects"></a>Étiqueter des données avec des projets d’étiquetage des données
 
 L’étiquetage des grandes quantités de données a souvent été un casse-tête dans les projets de Machine Learning. Ceux avec un composant de vision par ordinateur, tels que la classification d’images ou la détection d’objets, nécessitent généralement des milliers d’images et d’étiquettes correspondantes.
 
@@ -115,7 +117,7 @@ Créez un [projet d’étiquetage des données](how-to-create-labeling-projects.
 
 <a name="drift"></a>
 
-## <a name="data-drift"></a>Dérive de données
+## <a name="monitor-model-performance-with-data-drift"></a>Surveiller les performances du modèle grâce à la dérive des données
 
 Dans le contexte de l’apprentissage automatique, la dérive de données est la modification des données d’entrée du modèle qui entraîne une dégradation des performances du modèle. C’est l’une des principales raisons pour lesquelles la précision du modèle se dégrade au fil du temps, de sorte que la surveillance de la dérive des données permet de détecter les problèmes de performance du modèle.
 

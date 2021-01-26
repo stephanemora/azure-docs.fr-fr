@@ -4,12 +4,12 @@ description: Obtenir les nombres de sessions et d’affichage de page, les donn�
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 6678c662c4646a8181b1617ccddf9b8718c957bf
-ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
+ms.openlocfilehash: 60b3e9229adb93ce32c97c2822a465f7f629d47d
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97858550"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234356"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights pour les pages web
 
@@ -196,7 +196,7 @@ La plupart des champs de configuration sont nommés de façon à pouvoir avoir l
 | correlationHeaderDomains |  | Activer les en-têtes de corrélation pour des domaines spécifiques |
 | disableFlushOnBeforeUnload | false | La valeur par défaut est false. Si la valeur est true, la méthode Flush n’est pas appelée lorsque l’événement onBeforeUnload est déclenché |
 | enableSessionStorageBuffer | true | La valeur par défaut est true. Si la valeur est true, la mémoire tampon contenant toutes les données de télémétrie non envoyées est stockée dans le stockage de session. La mémoire tampon est restaurée lors du chargement de la page |
-| isCookieUseDisabled | false | La valeur par défaut est false. Si la valeur est true, le kit SDK ne stocke pas ou ne lit pas les données des cookies.|
+| isCookieUseDisabled | false | La valeur par défaut est false. Si la valeur est true, le kit SDK ne stocke pas ou ne lit pas les données des cookies. Notez que cela désactive les cookies d’utilisateur et de session et rend les panneaux et les expériences d’utilisation inutiles. |
 | cookieDomain | null | Domaine de cookie personnalisé. Cela est utile si vous souhaitez partager des cookies Application Insights entre les sous-domaines. |
 | isRetryDisabled | false | La valeur par défaut est false. Si la valeur est false, réessayez avec 206 (succès partiel), 408 (délai d’expiration), 429 (trop de requêtes), 500 (erreur de serveur interne), 503 (service non disponible) et 0 (hors connexion, uniquement si détecté) |
 | isStorageUseDisabled | false | Si la valeur est true, le kit SDK ne stocke pas ou ne lit pas les données à partir du stockage local et de session. La valeur par défaut est false. |
@@ -266,7 +266,8 @@ Actuellement, nous proposons un [plug-in React](javascript-react-plugin.md) dist
 |---------------|
 | [React](javascript-react-plugin.md)|
 | [React Native](javascript-react-native-plugin.md)|
-| [Angular](javascript-angular-plugin.md) |
+| [Angular](javascript-angular-plugin.md)|
+| [Click Analytics Auto-collection](javascript-click-analytics-plugin.md)|
 
 ## <a name="explore-browserclient-side-data"></a>Explorer les données côté navigateur/client
 

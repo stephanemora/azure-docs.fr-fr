@@ -2,20 +2,20 @@
 title: Contrôle d’accès Azure Service Bus avec des signatures d’accès partagé
 description: Vue d’ensemble du contrôle d’accès Service Bus avec des signatures d’accès partagé, et informations sur l’autorisation SAP avec Azure Service Bus.
 ms.topic: article
-ms.date: 11/03/2020
+ms.date: 01/19/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f71320613682f7d4b9f3b706845e68f581b3dc10
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 6bdc167c437a79d609db25a2e3c48b71e0a748b2
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339408"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98598832"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Contrôle d’accès Service Bus avec des signatures d’accès partagé
 
-Les *signatures d’accès partagé* (SAP) constituent le mécanisme principal de sécurité de la messagerie Service Bus. Cet article décrit les SAP, leur fonctionnement et comment les utiliser indépendamment de la plateforme.
+Cet article traite des *signatures d’accès partagé* (SAP), de leur fonctionnement et de la façon de les utiliser de manière indépendante de la plateforme.
 
-SAP protège l’accès à Service Bus en fonction de règles d’autorisation. Celles-ci sont configurées sur un espace de noms, ou sur une entité de messagerie (relais, file d’attente ou rubrique). Une règle d’autorisation a un nom, est associée à des droits spécifiques et comporte une paire de clés de chiffrement. Vous utilisez le nom et la clé de la règle via le Kit de développement logiciel (SDK) Service Bus ou dans votre propre code pour générer un jeton SAP. Un client peut ensuite passer le jeton à Service Bus pour prouver l’autorisation pour l’opération demandée.
+SAP protège l’accès à Service Bus en fonction de règles d’autorisation. Celles-ci sont configurées sur un espace de noms ou sur une entité de messagerie (file d’attente ou rubrique). Une règle d’autorisation a un nom, est associée à des droits spécifiques et comporte une paire de clés de chiffrement. Vous utilisez le nom et la clé de la règle via le Kit de développement logiciel (SDK) Service Bus ou dans votre propre code pour générer un jeton SAP. Un client peut ensuite passer le jeton à Service Bus pour prouver l’autorisation pour l’opération demandée.
 
 > [!NOTE]
 > Azure Service Bus prend en charge l’autorisation de l’accès à un espace de noms Service Bus et à ses entités à l’aide d’Azure Active Directory (Azure AD). L’autorisation des utilisateurs ou des applications avec un jeton OAuth 2.0 retourné par Azure AD assure une meilleure sécurité que les signatures d’accès partagé. De plus, elle offre une plus grande simplicité d’utilisation. Azure AD vous évite d’avoir à stocker les jetons dans votre code. Vous êtes ainsi moins exposé au risque de failles de sécurité.
@@ -36,12 +36,12 @@ Le jeton de [signature d’accès partagé](/dotnet/api/microsoft.servicebus.sha
 
 Chaque espace de noms Service Bus et chaque entité Service Bus ont une stratégie d’autorisation d’accès partagé constituée de règles. La stratégie au niveau de l’espace de noms s’applique à toutes les entités à l’intérieur de l’espace de noms, quelle que soit leur configuration de stratégie individuelle.
 
-Pour chaque règle de stratégie d’autorisation, vous choisissez trois éléments d’information : le **nom** , **l’étendue** et les **autorisations**. Le **nom** est un nom unique au sein de cette étendue. L’étendue est l’URI de la ressource en question. Pour un espace de noms Service Bus, l’étendue est le nom de domaine complet (FQDN), tel que `https://<yournamespace>.servicebus.windows.net/`.
+Pour chaque règle de stratégie d’autorisation, vous choisissez trois éléments d’information : le **nom**, **l’étendue** et les **autorisations**. Le **nom** est un nom unique au sein de cette étendue. L’étendue est l’URI de la ressource en question. Pour un espace de noms Service Bus, l’étendue est le nom de domaine complet (FQDN), tel que `https://<yournamespace>.servicebus.windows.net/`.
 
 Les droits qui sont attribués par la règle de stratégie peuvent être une combinaison de :
 
 * « Envoyer » - donne le droit d’envoyer des messages à l’entité.
-* « Écouter » - donne le droit d’écouter (relais) ou de recevoir (file d’attente, abonnements et toutes les opérations de traitement de messages associées).
+* « Écouter » - donne le droit de recevoir (file d’attente, abonnements) et tout le traitement des messages y afférents.
 * « Gérer » - donne le droit de gérer la topologie de l’espace de noms, y compris la création et la suppression des entités.
 
 Le droit « Gérer » inclut les droits « Envoyer » et « Recevoir ».
@@ -55,16 +55,16 @@ Lorsque vous créez un espace de noms Service Bus, une règle de stratégie nomm
 ## <a name="best-practices-when-using-sas"></a>Bonnes pratiques lors de l’utilisation de SAP
 Lorsque vous utilisez des signatures d'accès partagé dans vos applications, vous devez être conscient de deux risques potentiels :
 
-- Si une signature d’accès partagé est divulguée, toute personne qui se la procure peut s’en servir, ce qui peut compromettre vos ressources Event Hubs.
+- Si une signature d’accès partagé est divulguée, toute personne qui se la procure peut s’en servir, ce qui peut compromettre vos ressources Service Bus.
 - Si une signature d’accès partagé fournie à une application cliente expire et que l’application est incapable d’en récupérer une nouvelle à partir de votre service, le fonctionnement de votre application risque d’être entravé.
 
 Les recommandations suivantes relatives à l’utilisation des signatures d’accès partagé peuvent aider à limiter ces risques :
 
-- **Faites en sorte que les clients renouvellent automatiquement la signature d’accès partagé si nécessaire**  : les clients doivent renouveler la signature d’accès partagé bien avant l’heure d’expiration pour laisser suffisamment de temps pour de nouvelles tentatives si le service qui fournit la signature est indisponible. Si votre signature d’accès partagé doit être utilisée pour un petit nombre d’opérations immédiates de courte durée, censées être terminées avant l’heure d’expiration, cela ne sera peut-être pas nécessaire, car il n’est pas prévu que la signature d’accès partagé soit renouvelée. Toutefois, si vous avez un client qui effectue régulièrement des demandes par le biais de signatures d'accès partagé, le risque d'expiration est à prendre en compte. La principale considération consiste à trouver un équilibre entre la nécessité que la signature d’accès partagé ait une durée de vie limitée (comme indiqué plus haut) et la nécessité de veiller à ce que le client demande le renouvellement suffisamment tôt pour éviter une interruption due à une expiration de la signature avant le renouvellement effectif.
-- **Faites attention à la date de début de la signature d’accès partagé**  : si vous définissez la date de début d’une signature d’accès partagé sur **maintenant** , en raison du décalage d’horloge (différences constatées dans l’heure actuelle sur des machines différentes), des défaillances peuvent être observées par intermittence pendant les premières minutes. En règle générale, définissez une heure de début située au moins 15 minutes avant l’heure courante ou ne la définissez pas du tout, et elle sera alors valide immédiatement dans tous les cas. Généralement, le même principe s’applique également à l’heure d’expiration. N’oubliez pas que vous pouvez observer jusqu’à 15 minutes de décalage d’horloge (dans un sens ou dans l’autre) sur une demande. 
-- **Soyez précis quant à la ressource pour laquelle vous voulez configurer l’accès**  : il est recommandé de fournir à l’utilisateur les privilèges minimaux requis, ce qui s’inscrit dans les bonnes pratiques de sécurité. Si un utilisateur a besoin d'un accès en lecture à une seule entité, accordez-lui un accès en lecture à cette seule entité, plutôt qu'un accès en lecture/écriture/suppression à toutes les entités. Cela permet également d’atténuer les dégâts si une signature d’accès partagé est compromise, car son pouvoir est moindre entre les mains d’un attaquant.
-- **N’utilisez pas toujours une signature d’accès partagé**  : parfois, les risques associés à une opération particulière sur vos hubs d’événements l’emportent sur les avantages offerts par la signature d’accès partagé. Pour ces opérations, créez un service de niveau intermédiaire qui écrit dans vos hubs d’événements après avoir effectué la validation des règles métier, l’authentification et un audit.
-- **Utilisez toujours HTTPS**  : utilisez toujours HTTPS pour créer ou distribuer une signature d’accès partagé. Si une signature d’accès partagé est transmise sur HTTP et interceptée, un attaquant qui lance une attaque de type « attaque de l’intercepteur » (man-in-the-middle) peut lire la signature et s’en servir exactement comme l’utilisateur concerné aurait pu le faire, d’où le risque que les données sensibles soient compromises ou que les données soient altérées par l’utilisateur malveillant.
+- **Faites en sorte que les clients renouvellent automatiquement la signature d’accès partagé si nécessaire** : les clients doivent renouveler la signature d’accès partagé bien avant l’heure d’expiration pour laisser suffisamment de temps pour de nouvelles tentatives si le service qui fournit la signature est indisponible. Si votre signature d’accès partagé doit être utilisée pour un petit nombre d’opérations immédiates de courte durée, censées être terminées avant l’heure d’expiration, cela ne sera peut-être pas nécessaire, car il n’est pas prévu que la signature d’accès partagé soit renouvelée. Toutefois, si vous avez un client qui effectue régulièrement des demandes par le biais de signatures d'accès partagé, le risque d'expiration est à prendre en compte. La principale considération consiste à trouver un équilibre entre la nécessité que la signature d’accès partagé ait une durée de vie limitée (comme indiqué plus haut) et la nécessité de veiller à ce que le client demande le renouvellement suffisamment tôt pour éviter une interruption due à une expiration de la signature avant le renouvellement effectif.
+- **Faites attention à la date de début de la signature d’accès partagé** : si vous définissez la date de début d’une signature d’accès partagé sur **maintenant**, en raison du décalage d’horloge (différences constatées dans l’heure actuelle sur des machines différentes), des défaillances peuvent être observées par intermittence pendant les premières minutes. En règle générale, définissez une heure de début située au moins 15 minutes avant l’heure courante ou ne la définissez pas du tout, et elle sera alors valide immédiatement dans tous les cas. Généralement, le même principe s’applique également à l’heure d’expiration. N’oubliez pas que vous pouvez observer jusqu’à 15 minutes de décalage d’horloge (dans un sens ou dans l’autre) sur une demande. 
+- **Soyez précis quant à la ressource pour laquelle vous voulez configurer l’accès** : il est recommandé de fournir à l’utilisateur les privilèges minimaux requis, ce qui s’inscrit dans les bonnes pratiques de sécurité. Si un utilisateur a besoin d'un accès en lecture à une seule entité, accordez-lui un accès en lecture à cette seule entité, plutôt qu'un accès en lecture/écriture/suppression à toutes les entités. Cela permet également d’atténuer les dégâts si une signature d’accès partagé est compromise, car son pouvoir est moindre entre les mains d’un attaquant.
+- **N’utilisez pas toujours une signature d’accès partagé** : parfois, les risques associés à une opération particulière sur vos hubs d’événements l’emportent sur les avantages offerts par la signature d’accès partagé. Pour ces opérations, créez un service de niveau intermédiaire qui écrit dans vos hubs d’événements après avoir effectué la validation des règles métier, l’authentification et un audit.
+- **Utilisez toujours HTTPS** : utilisez toujours HTTPS pour créer ou distribuer une signature d’accès partagé. Si une signature d’accès partagé est transmise sur HTTP et interceptée, un attaquant qui lance une attaque de type « attaque de l’intercepteur » (man-in-the-middle) peut lire la signature et s’en servir exactement comme l’utilisateur concerné aurait pu le faire, d’où le risque que les données sensibles soient compromises ou que les données soient altérées par l’utilisateur malveillant.
 
 ## <a name="configuration-for-shared-access-signature-authentication"></a>Configuration de l’authentification de signature d’accès partagé
 
@@ -72,7 +72,7 @@ Vous pouvez configurer la règle [SharedAccessAuthorizationRule](/dotnet/api/mic
 
 ![SAS](./media/service-bus-sas/service-bus-namespace.png)
 
-Dans cette figure, les règles d’autorisation *manageRuleNS* , *sendRuleNS* et *listenRuleNS* s’appliquent à la file d’attente Q1 et à la rubrique T1, tandis que *listenRuleQ* et *sendRuleQ* s’appliquent uniquement à la file d’attente Q1, et *sendRuleT* uniquement à la rubrique T1.
+Dans cette figure, les règles d’autorisation *manageRuleNS*, *sendRuleNS* et *listenRuleNS* s’appliquent à la file d’attente Q1 et à la rubrique T1, tandis que *listenRuleQ* et *sendRuleQ* s’appliquent uniquement à la file d’attente Q1, et *sendRuleT* uniquement à la rubrique T1.
 
 ## <a name="generate-a-shared-access-signature-token"></a>Générer un jeton de signature d’accès partagé
 
@@ -82,18 +82,34 @@ Les clients qui ont accès au nom d’une règle d’autorisation et à celui de
 SharedAccessSignature sig=<signature-string>&se=<expiry>&skn=<keyName>&sr=<URL-encoded-resourceURI>
 ```
 
-* **`se`** - Délai d’expiration du jeton. Entier reflétant les secondes depuis l’époque `00:00:00 UTC` du 1er janvier 1970 (époque UNIX) lorsque le jeton expire.
-* **`skn`** - Nom de la règle d’autorisation.
-* **`sr`** - URI de la ressource faisant l’objet de l’accès.
-* **`sig`** - Signature.
+- `se` - Délai d’expiration du jeton. Entier reflétant les secondes depuis l’époque `00:00:00 UTC` du 1er janvier 1970 (époque UNIX) lorsque le jeton expire.
+- `skn` - Nom de la règle d’autorisation.
+- `sr` - URI encodé par URL de la ressource faisant l’objet de l’accès.
+- `sig` - Signature HMACSHA256 encodée par URL. Le calcul de hachage est similaire au code de pseudo suivant et retourne base64 de sortie binaire brute.
 
-La `signature-string` est le hachage SHA-256 calculé sur l’URI de ressource ( **étendue** comme décrit dans la section précédente) et la représentation de chaîne du délai d’expiration du jeton, séparée par LF.
+    ```
+    urlencode(base64(hmacsha256(urlencode('https://<yournamespace>.servicebus.windows.net/') + "\n" + '<expiry instant>', '<signing key>')))
+    ```
 
-Le calcul de hachage est similaire au code de pseudo suivant et retourne une valeur de hachage de 256 bits/32 octets.
+Voici un exemple de code en C# pour générer un jeton SAP :
 
+```csharp
+private static string createToken(string resourceUri, string keyName, string key)
+{
+    TimeSpan sinceEpoch = DateTime.UtcNow - new DateTime(1970, 1, 1);
+    var week = 60 * 60 * 24 * 7;
+    var expiry = Convert.ToString((int)sinceEpoch.TotalSeconds + week);
+    string stringToSign = HttpUtility.UrlEncode(resourceUri) + "\n" + expiry;
+    HMACSHA256 hmac = new HMACSHA256(Encoding.UTF8.GetBytes(key));
+    var signature = Convert.ToBase64String(hmac.ComputeHash(Encoding.UTF8.GetBytes(stringToSign)));
+    var sasToken = String.Format(CultureInfo.InvariantCulture, "SharedAccessSignature sr={0}&sig={1}&se={2}&skn={3}", HttpUtility.UrlEncode(resourceUri), HttpUtility.UrlEncode(signature), expiry, keyName);
+    return sasToken;
+}
 ```
-SHA-256('https://<yournamespace>.servicebus.windows.net/'+'\n'+ 1438205742)
-```
+
+> [!IMPORTANT]
+> Pour obtenir des exemples de génération d’un jeton SAS au moyen de différents langages de programmation, consultez [Générer un jeton SAS](/rest/api/eventhub/generate-sas-token). 
+
 
 Le jeton contient les valeurs non hachées afin que le destinataire puisse recalculer le hachage avec les mêmes paramètres, en vérifiant que l’émetteur est en possession d’une clé de signature valide.
 
@@ -105,8 +121,6 @@ La règle de l’autorisation d’accès partagé utilisée pour la signature do
 
 Un jeton SAP est valable pour toutes les ressources avec le préfixe `<resourceURI>` utilisé dans `signature-string`.
 
-> [!NOTE]
-> Pour obtenir des exemples de génération d’un jeton SAS au moyen de différents langages de programmation, consultez [Générer un jeton SAS](/rest/api/eventhub/generate-sas-token). 
 
 ## <a name="regenerating-keys"></a>Régénération des clés
 
@@ -174,7 +188,7 @@ sendClient.Send(helloMessage);
 
 Vous pouvez aussi utiliser le fournisseur de jetons directement pour l’émission de jetons à transmettre à d’autres clients.
 
-Les chaînes de connexion peuvent inclure un nom de règle ( *SharedAccessKeyName* ) et la clé de la règle ( *SharedAccessKey* ) ou un jeton émis précédemment ( *SharedAccessSignature* ). Lorsque ceux-ci sont présents dans la chaîne de connexion transmise à un constructeur ou une méthode de fabrique acceptant une chaîne de connexion, le fournisseur de jetons SAP est automatiquement créé et renseigné.
+Les chaînes de connexion peuvent inclure un nom de règle (*SharedAccessKeyName*) et la clé de la règle (*SharedAccessKey*) ou un jeton émis précédemment (*SharedAccessSignature*). Lorsque ceux-ci sont présents dans la chaîne de connexion transmise à un constructeur ou une méthode de fabrique acceptant une chaîne de connexion, le fournisseur de jetons SAP est automatiquement créé et renseigné.
 
 Pour utiliser une autorisation SAS avec les relais Service Bus, vous pouvez utiliser des clés SAS configurées sur un espace de noms Service Bus. Si vous créez explicitement un relais sur l’espace de noms ([NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) avec un objet [RelayDescription](/dotnet/api/microsoft.servicebus.messaging.relaydescription)), vous pouvez définir les règles SAP pour ce relais. Pour utiliser une autorisation SAS avec des abonnements Service Bus, vous pouvez utiliser des clés SAS configurées sur un espace de noms Service Bus ou sur une rubrique.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 43bf70d66c42bc0ecd5e26e4cc724456bd4bf84e
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: f51b46efcaf9be4f51e96b038b93562d0e3eae0b
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896920"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601157"
 ---
 # <a name="web-sdk-supported-browsers"></a>Navigateurs pris en charge pour le kit SDK web
 
@@ -36,7 +36,7 @@ Le SDK web Azure Maps prend en charge les navigateurs de bureau suivants :
 - Microsoft Edge (versions actuelle et précédentes)
 - Google Chrome (versions actuelle et précédentes)
 - Mozilla Firefox (versions actuelle et précédentes)
-- Apple Safari (Mac OS X) (versions actuelle et précédentes)
+- Apple Safari (macOS X) [versions actuelle et précédentes]
 
 Consultez aussi la section [Navigateurs hérités cibles](#Target-Legacy-Browsers) plus loin dans cet article.
 
@@ -63,7 +63,7 @@ Les modules de SDK web suivants sont également pris en charge dans Node.js :
 
 ## <a name="target-legacy-browsers"></a><a name="Target-Legacy-Browsers"></a>Navigateurs hérités cibles
 
-Vous pouvez cibler des navigateurs plus anciens qui ne prennent pas en charge WebGL ou qui en ont seulement une prise en charge limitée. Dans ces cas-là, nous vous recommandons d’utiliser les services Azure Maps avec un contrôle de carte open source tel que [Leaflet](https://leafletjs.com/). Voici un exemple :
+Vous pouvez cibler des navigateurs plus anciens qui ne prennent pas en charge WebGL ou qui en ont seulement une prise en charge limitée. Dans ces cas-là, nous vous recommandons d’utiliser les services Azure Maps avec un contrôle de carte open source tel que [Leaflet](https://leafletjs.com/). Voici un exemple qui utilise le [plug-in open source Azure Maps Leaflet](https://github.com/azure-samples/azure-maps-leaflet).
 
 <br/>
 
@@ -71,6 +71,7 @@ Vous pouvez cibler des navigateurs plus anciens qui ne prennent pas en charge We
 Consultez la page <a href='https://codepen.io/azuremaps/pen/GeLgyx/'>Azure Maps + Leaflet</a> par Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
+Vous trouverez des exemples de code supplémentaires utilisant Azure Maps dans Leaflet [ici](https://azuremapscodesamples.azurewebsites.net/?search=leaflet).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

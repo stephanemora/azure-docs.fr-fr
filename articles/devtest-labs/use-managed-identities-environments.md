@@ -3,12 +3,12 @@ title: Utiliser des identités managées Azure pour créer des environnements da
 description: Découvrez comment utiliser des identités managées dans Azure pour déployer des environnements dans un labo dans Azure DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: e5bac4210afee6db1c7617dac1cd6d2ff9149439
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f3e4b4d7030eb26c25b291e03caaa430d1979c4
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88718972"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185782"
 ---
 # <a name="use-azure-managed-identities-to-deploy-environments-in-a-lab"></a>Utiliser des identités managées Azure pour déployer des environnements dans un labo 
 
@@ -19,7 +19,7 @@ En tant que propriétaire de labo, vous pouvez utiliser une identité managée p
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
-- [Créer, lister, supprimer ou affecter un rôle à une identité managée attribuée par l’utilisateur à l’aide du portail Azure](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). 
+- [Créez, répertoriez, supprimez ou attribuez un rôle à une identité managée affectée par l’utilisateur à l’aide du portail Azure](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). 
     
     Vérifiez que votre identité managée a été créée dans la même région et le même abonnement que votre labo. L’identité managée ne doit pas nécessairement se trouver dans le même groupe de ressources.
 

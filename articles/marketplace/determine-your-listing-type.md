@@ -6,21 +6,15 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
-ms.date: 12/18/2020
-ms.openlocfilehash: 091af70383eb3cab32a0453d7f7542d8a4395d0b
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.date: 01/14/2021
+ms.openlocfilehash: 89cd9f46474e8e311f003f317b90bdb21eae55fe
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98107393"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247543"
 ---
 # <a name="introduction-to-listing-options"></a>Présentation des options de référencement
-
-Vous pouvez utiliser les _options de référencement_ disponibles dans la Place de marché commerciale pour toucher des clients potentiels de plusieurs façons. Une fois votre offre publiée, les options de référencement que vous avez choisies pour votre offre s’affichent sous la forme d’un bouton dans l’angle supérieur gauche de la page de référencement de l’offre dans les magasins en ligne. Par exemple, la capture d’écran suivante montre une page de référencement d’offre dans le magasin en ligne Microsoft AppSource avec les boutons **Me contacter** et **Version d’évaluation**.
-
-:::image type="content" source="./media/listing-options.png" alt-text="Illustre la page de référencement d’une offre. Les boutons Me contacter et Version d’évaluation sont affichés.":::
-
-## <a name="available-listing-options-by-offer-type"></a>Options de référencement disponibles par type d’offre
 
 Lorsque vous créez un type d’offre, vous choisissez une ou plusieurs options de référencement. Ces options déterminent les boutons que les clients voient sur la page de référencement de l’offre dans les magasins en ligne. Les options de référencement sont _Essai gratuit_, _Version d’évaluation_, _Me contacter_ et _Obtenir maintenant_.
 
@@ -42,7 +36,7 @@ Ce tableau présente les options de référencement disponibles pour chaque type
 | Software as a Service | &#10004; | &#10004; | &#10004; | &#10004; |
 ||||||
 
-`*` L’option de référencement Obtenir maintenant inclut Obtenir maintenant (gratuit), BYOL (apportez votre propre licence), Abonnement et Tarification basée sur l’utilisation. Pour plus d’informations, consultez [Obtenir maintenant](#get-it-now).
+&#42; L’option de référencement Obtenir maintenant inclut Obtenir maintenant (gratuit), BYOL (apportez votre propre licence), Abonnement et Tarification basée sur l’utilisation. Pour plus d’informations, consultez [Obtenir maintenant](#get-it-now).
 
 ### <a name="free-trial"></a>Version d’évaluation gratuite
 
@@ -102,9 +96,15 @@ Ce tableau indique les types d’offres qui prennent en charge les options de ta
 
 Utilisez cette option de référencement pour offrir votre application gratuitement. Les clients utilisent le bouton _Obtenir maintenant_ pour obtenir votre offre gratuite.
 
-#### <a name="byol"></a>BYOL
+> [!NOTE]
+> Les offres Obtenir maintenant (gratuit) ne sont pas éligibles aux avantages Récompenses de la place de marché destinés aux offres payantes. Étant donné qu’il n’y a pas de transaction dans la vitrine, elles sont classées dans la catégorie « Évaluation gratuite ». Voir [Récompenses de la place de marché](#marketplace-rewards) ci-dessous.
 
-Utilisez la Place de marché commerciale pour améliorer la détectabilité, automatiser l’approvisionnement de votre solution et effectuer la transaction financière séparément de la Place de marché. L’option de référencement BYOL (apportez votre propre licence) est idéale pour les migrations vers le cloud. Les clients utilisent le bouton _Obtenir maintenant_ pour acquérir votre offre à l’aide d’une licence qu’il vous ont précédemment achetée.
+#### <a name="bring-your-own-license-byol"></a>BYOL (apportez votre propre licence)
+
+Utilisez cette option pour permettre aux clients de déployer votre offre à l’aide d’une licence achetée en dehors du marketplace commercial. Cette option est idéale pour les migrations local vers cloud. Les clients utilisent le bouton _Obtenir maintenant_ pour acquérir votre offre en utilisant une licence qu’ils vous ont achetée au préalable.
+
+> [!NOTE]
+> Les offres BYOL ne sont pas éligibles aux avantages Récompenses de la place de marché destinés aux offres payantes. Parce qu’elles nécessitent que le client acquière la licence auprès du partenaire et qu’il n’y a pas de transaction par la vitrine du marketplace commercial, elles sont classées dans la catégorie « Liste ». Voir [Récompenses de la place de marché](#marketplace-rewards) ci-dessous.
 
 #### <a name="subscription"></a>Abonnement
 
@@ -117,11 +117,17 @@ Vous pouvez demander un coût forfaitaire pour ces types d’offres :
 
 Les types d’offres suivants prennent en charge la tarification basée sur l’utilisation :
 
-- Les offres Azure Application (application gérée) prennent en charge la facturation à l’usage. Pour plus d’informations, consultez [Facturation des applications managées basée sur des mesures](./partner-center-portal/azure-app-metered-billing.md).
-- Les offres SaaS prennent en charge la facturation à l’usage et la tarification par utilisateur (poste). Pour plus d’informations sur la facturation à l’usage, consultez [Facturation à l’usage pour SaaS à l’aide du service de mesure de la consommation de la Place de marché commerciale](./partner-center-portal/saas-metered-billing.md).
+- Les offres Azure Application (application gérée) prennent en charge la facturation à l’usage. Pour plus d’informations, consultez [Facturation des applications managées basée sur des mesures](partner-center-portal/azure-app-metered-billing.md).
+- Les offres SaaS prennent en charge la facturation à l’usage et la tarification par utilisateur (poste). Pour plus d’informations sur la facturation à l’usage, consultez [Facturation à l’usage pour SaaS à l’aide du service de mesure de la consommation de la Place de marché commerciale](partner-center-portal/saas-metered-billing.md).
 - Les offres de machine virtuelle Azure prennent en charge la tarification Par cœur, Par taille de cœur et Par marché et taille de cœur. Ces options de tarification sont calculées par heure et facturées mensuellement.
 
 Lors de la création d’une offre pouvant faire l’objet d’une transaction, il est important de bien comprendre les modes de tarification, de facturation et le paiement avant de sélectionner un type d’offre et de créer votre offre. Pour plus d’informations, consultez [Magasins en ligne de la Place de marché commerciale](overview.md#commercial-marketplace-online-stores).
+
+## <a name="sample-offer"></a>Exemple d’offre
+
+Une fois votre offre publiée, les options de référencement que vous avez choisies s’affichent sous la forme d’un bouton dans l’angle supérieur gauche de la page de référencement dans les magasins en ligne. Par exemple, l’écran suivant montre une page de référencement d’offre dans le magasin en ligne Microsoft AppSource avec les boutons **Obtenir maintenant** et **Version d’évaluation** :
+
+:::image type="content" source="media/listing-options.png" alt-text="Illustre la page de référencement d’une offre avec les boutons Me contacter et Version d’évaluation.":::
 
 ## <a name="listing-and-pricing-options-by-online-store"></a>Options de référencement et de tarification par magasin en ligne
 
@@ -149,10 +155,14 @@ Le tableau suivant présente les options disponibles pour les différents types 
 
 &#42;&#42; Les compléments Microsoft 365 peuvent être installés gratuitement, ainsi que monétisés à l’aide d’une offre SaaS. Pour plus d’informations, consultez [Monétiser votre complément Office 365 par le biais de la place de marché commerciale de Microsoft](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace).
 
-## <a name="marketplace-rewards"></a>Récompenses de la Place de marché
+## <a name="marketplace-rewards"></a>Récompenses de la place de marché
 
 Vos récompenses de la Place de marché sont différenciées en fonction de l’option de référencement que vous choisissez. Pour en savoir plus, consultez [Vos avantages sur la place de marché commerciale](gtm-your-marketplace-benefits.md).
 
+Si votre offre est payante, vous en tirerez des avantages à mesure que vous augmenterez vos ventes facturées.
+
+Les offres non payantes rapportent des avantages selon qu’elles sont accompagnées ou non d’une évaluation gratuite.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour choisir un type d’offre à créer, consultez [Guide de publication par Type d’offre](./publisher-guide-by-offer-type.md).
+- Pour choisir un type d’offre à créer, consultez [Guide de publication par Type d’offre](publisher-guide-by-offer-type.md).

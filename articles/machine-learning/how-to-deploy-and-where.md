@@ -1,26 +1,26 @@
 ---
-title: Comment et où déployer des modèles ?
+title: Comment déployer des modèles Machine Learning
 titleSuffix: Azure Machine Learning
-description: Découvrez comment et où déployer vos modèles Azure Machine Learning service, notamment Azure Container Instances, Azure Kubernetes Service, Azure IoT Edge et FPGA.
+description: Découvrez comment et où déployer des modèles Machine Learning. Déployez sur Azure Container Instances, Azure Kubernetes Service, Azure IoT Edge et FPGA.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: gopalv
 author: gvashishtha
 ms.reviewer: larryfr
-ms.date: 12/11/2020
+ms.date: 01/13/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
-ms.openlocfilehash: 195f1c527185fbd55450b6151f26525074db75f7
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: e9c691485eb0ec1a0b3c0564f9a8f9a5d2aa255d
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98070420"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185799"
 ---
-# <a name="deploy-models-with-azure-machine-learning"></a>Déployer des modèles avec Azure Machine Learning
+# <a name="deploy-machine-learning-models-to-azure"></a>Déployer des modèles Machine Learning sur Azure
 
-Découvrez comment déployer votre modèle Machine Learning en tant que service web dans le cloud Azure ou sur des appareils Azure IoT Edge.
+Découvrez comment déployer votre modèle Machine Learning ou Deep Learning en tant que service web dans le cloud Azure. Vous pouvez également les déployer sur des appareils Azure IoT Edge.
 
 Le workflow est le même, quel que soit l’endroit où vous déployez votre modèle :
 
@@ -31,7 +31,7 @@ Le workflow est le même, quel que soit l’endroit où vous déployez votre mod
 1. Déployer le modèle sur la cible de calcul.
 1. Tester le service web qui en résulte.
 
-Pour plus d’informations sur les concepts impliqués dans le workflow de déploiement, consultez [Déployer, gérer et superviser des modèles avec Azure Machine Learning](concept-model-management-and-deployment.md).
+Pour plus d’informations sur les concepts impliqués dans le workflow du déploiement Machine Learning, consultez [Déployer, gérer et superviser des modèles avec Azure Machine Learning](concept-model-management-and-deployment.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -197,7 +197,7 @@ Voici une configuration d’inférence minimale possible :
 }
 ```
 
-Elle spécifie que le déploiement utilisera le fichier `score.py` dans le répertoire `./working_dir` pour traiter les demandes entrantes.
+Elle spécifie que le déploiement Machine Learning utilisera le fichier `score.py` dans le répertoire `./working_dir` pour traiter les demandes entrantes.
 
 Pour une discussion plus approfondie sur les configurations d’inférence, [consultez cet article](./reference-azure-machine-learning-cli.md#inference-configuration-schema). 
 
@@ -269,7 +269,7 @@ from azureml.core.webservice import AciWebservice, AksWebservice, LocalWebservic
 
 ---
 
-## <a name="deploy-your-model"></a>Déployer votre modèle
+## <a name="deploy-your-machine-learning-model"></a>Déployer votre modèle Machine Learning
 
 Vous êtes maintenant prêt à déployer votre modèle. 
 

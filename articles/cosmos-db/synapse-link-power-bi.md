@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: acomet
-ms.openlocfilehash: be2657d9606f260fcea06d2535be87fc6976577c
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: f0111228b9b0030cbbceb9fc70d829a7a22fda01
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97915672"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247010"
 ---
 # <a name="use-power-bi-and-serverless-synapse-sql-pool-preview-to-analyze-azure-cosmos-db-data-with-synapse-link"></a>Utiliser Power BI et le pool Synapse SQL serverless (préversion) pour analyser les données Azure Cosmos DB avec Synapse Link 
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -49,7 +49,7 @@ Chaque espace de travail est fourni avec un point de terminaison SQL sans serveu
 
 :::image type="content" source="./media/synapse-link-power-bi/enable-sql-on-demand-endpoint.png" alt-text="Autoriser le script SQL à utiliser le point de terminaison SQL sans serveur dans l’espace de travail":::
 
-Créez une nouvelle base de données nommée **RetailCosmosDB** et un affichage SQL sur les conteneurs pour lesquels Synapse Link est activée. La commande suivante montre comment créer une base de données :
+La création d’affichages dans les bases de données **MASTER** ou **par défaut** n’est pas recommandée ni prise en charge. Créez une nouvelle base de données nommée **RetailCosmosDB** et un affichage SQL sur les conteneurs pour lesquels Synapse Link est activée. La commande suivante montre comment créer une base de données :
 
 ```sql
 -- Create database

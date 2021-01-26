@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: dech
-ms.openlocfilehash: 381aa88326440aba91e02393cfe2bdb1e2c38097
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: b89fcf32ed033f359b4db601e36cc69bb899944d
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340411"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165822"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-python-notebooks-preview"></a>Utiliser les fonctionnalités et commandes de notebook intégrées dans les notebooks Python Azure Cosmos DB (préversion)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -123,6 +123,8 @@ Total time taken : 00:00:38.1228087 hours
 Total RUs consumed : 25022.58
 ```
 Avec les statistiques de sortie, vous pouvez calculer les RU/s effectives utilisées pour charger les éléments. Par exemple, si 25 000 unités de requête ont été consommées sur 38 secondes, les RU/s effectives sont de 25 000 RU/38 secondes, soit 658 RU/s.
+
+Vous pouvez enregistrer des fichiers (tels que des fichiers CSV ou JSON) dans l’espace de travail du notebook local. Nous vous recommandons d’ajouter une cellule dans votre notebook pour enregistrer les fichiers. Vous pouvez consulter ces fichiers à partir du terminal intégré dans l’environnement du notebook. Vous pouvez utiliser la commande « ls » pour afficher les fichiers enregistrés. Toutefois, ces fichiers seront supprimés si vous réinitialisez l’espace de travail. Par conséquent, il est préférable d’utiliser un stockage persistant tel que GitHub ou un compte de stockage plutôt que l’espace de travail local.
 
 ## <a name="run-another-notebook-in-current-notebook"></a>Exécuter un autre notebook dans le notebook actuel 
 Vous pouvez utiliser la commande magique ``%%run`` pour exécuter un autre notebook dans votre espace de travail à partir de votre notebook actuel. Utilisez la syntaxe suivante :

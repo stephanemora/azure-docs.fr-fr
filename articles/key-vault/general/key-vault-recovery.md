@@ -8,12 +8,12 @@ ms.author: mbaldwin
 author: msmbaldwin
 manager: rkarlin
 ms.date: 09/30/2020
-ms.openlocfilehash: a9a783333d8edd40556b7744eb7cf7dfb52953a7
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 4a6b3e4c6354c292d000a307bc25f8532aa9a096
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97933980"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250789"
 ---
 # <a name="azure-key-vault-recovery-management-with-soft-delete-and-purge-protection"></a>Gestion de la récupération d’Azure Key Vault avec suppression réversible et protection contre la suppression définitive
 
@@ -29,6 +29,8 @@ Pour plus d’informations sur Key Vault, consultez
 * [Module PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 * [Azure CLI](/cli/azure/install-azure-cli)
 * Un coffre de clés. Vous pouvez en créer un en utilisant le [portail Azure](../general/quick-create-portal.md), [Azure CLI](../general/quick-create-cli.md) ou [Azure PowerShell](../general/quick-create-powershell.md).
+* L’utilisateur doit disposer des autorisations suivantes (au niveau de l’abonnement) pour effectuer des opérations sur les coffres supprimés de manière réversible : |Microsoft.KeyVault/locations/deletedVaults/read|Afficher les propriétés d’un coffre de clés supprimé de manière réversible| |Microsoft.KeyVault/locations/deletedVaults/purge/action|Supprimer définitivement un coffre de clés supprimé de manière réversible|
+
 
 ## <a name="what-are-soft-delete-and-purge-protection"></a>Définition de la suppression réversible et la protection contre le vidage
 

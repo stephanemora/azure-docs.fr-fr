@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/06/2021
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: d5f5e1098b688fc307bae5ea3538c818cb529b0a
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: e15dce586dc4dd43cf56fd1cbb08b84ebcda1787
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97962395"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232299"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>Application de bureau qui appelle des API web : Acquérir un jeton
 
@@ -420,8 +420,8 @@ Pour connecter un utilisateur de domaine sur une machine jointe à Azure AD ou �
 - L’authentification Windows intégrée n’est utilisable que pour les utilisateurs *fédérés+* , c’est-à-dire les utilisateurs créés dans Active Directory et reposant sur Azure AD. Les utilisateurs créés directement dans Azure AD sans appui Active Directory, appelés utilisateurs *managés*, ne peuvent pas utiliser ce flux d’authentification. Cette restriction ne concerne pas le flux de nom d’utilisateur et de mot de passe.
 - L’authentification Windows intégrée est destinée aux applications écrites pour les plateformes .NET Framework, .NET Core et UWP, la plateforme Windows universelle.
 - L’authentification Windows n’ignore pas l’[authentification multifacteur (MFA)](../authentication/concept-mfa-howitworks.md). Si l’authentification MFA est configurée, IWA peut échouer en cas de demande MFA exigée, car MFA a besoin d’une interaction utilisateur.
-  > [!NOTE]
-  > Voilà qui est délicat. L’authentification IWA est non interactive, mais MFA nécessite l’interactivité avec l’utilisateur. Vous n’avez pas le contrôle lorsque le fournisseur d’identité demande l’exécution de MFA, l’administrateur de locataire, si. D’après ce que nous avons pu observer, l’authentification MFA est demandée lorsque vous vous connectez depuis un autre pays/région alors que vous n’êtes pas connecté à un réseau d’entreprise via un VPN, et parfois même lorsque vous êtes connecté via un VPN. Ne vous attendez pas à un ensemble déterministe de règles. Azure AD utilise l’intelligence artificielle pour apprendre en continu à déterminer si l’authentification MFA est exigée. Ayez recours à une invite utilisateur de secours, comme une authentification interactive ou un flux de code d’appareil, si l’IWA échoue.
+  
+    L’authentification IWA est non interactive, mais MFA nécessite l’interactivité avec l’utilisateur. Vous n’avez pas le contrôle lorsque le fournisseur d’identité demande l’exécution de MFA, l’administrateur de locataire, si. D’après ce que nous avons pu observer, l’authentification MFA est demandée lorsque vous vous connectez depuis un autre pays/région alors que vous n’êtes pas connecté à un réseau d’entreprise via un VPN, et parfois même lorsque vous êtes connecté via un VPN. Ne vous attendez pas à un ensemble déterministe de règles. Azure AD utilise l’intelligence artificielle pour apprendre en continu à déterminer si l’authentification MFA est exigée. Ayez recours à une invite utilisateur de secours, comme une authentification interactive ou un flux de code d’appareil, si l’IWA échoue.
 
 - L’autorité transmise dans `PublicClientApplicationBuilder` doit être :
   - Avec locataire sous le format `https://login.microsoftonline.com/{tenant}/`, dans lequel `tenant` est le GUID qui représente l’ID de locataire ou un domaine associé au locataire.
@@ -602,14 +602,13 @@ Vous pouvez également acquérir un jeton en fournissant le nom d’utilisateur 
 
 ### <a name="this-flow-isnt-recommended"></a>Ce flux n’est pas conseillé.
 
-Ce flux est *déconseillé*, car le fait que votre application demande à un utilisateur son mot de passe n’est pas une pratique sûre. Pour plus d’informations, consultez l’article sur [la solution aux problèmes croissants associés aux mots de passe](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/). Le flux par défaut pour l’acquisition d’un jeton silencieusement sur les machines Windows jointes à un domaine est [l’authentification Windows intégrée](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Integrated-Windows-Authentication). Vous pouvez également utiliser le [flux de code d’appareil](https://aka.ms/msal-net-device-code-flow).
+Le flux de nom d’utilisateur et de mot de passe est *déconseillé*, car le fait que votre application demande à un utilisateur son mot de passe n’est pas une pratique sûre. Pour plus d’informations, consultez l’article sur [la solution aux problèmes croissants associés aux mots de passe](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/). Le flux par défaut pour l’acquisition d’un jeton silencieusement sur les machines Windows jointes à un domaine est [l’authentification Windows intégrée](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Integrated-Windows-Authentication). Vous pouvez également utiliser le [flux de code d’appareil](https://aka.ms/msal-net-device-code-flow).
 
-> [!NOTE]
-> L’utilisation d’un nom d’utilisateur et d’un mot de passe est utile dans certains cas, comme dans les scénarios DevOps. Toutefois, si vous souhaitez utiliser un nom d’utilisateur et un mot de passe dans des scénarios interactifs pour lesquels vous fournissez votre propre interface utilisateur, prenez le temps de réfléchir à un moyen qui vous permettrait de l’éviter. En utilisant un nom d’utilisateur et un mot de passe, vous abandonnez un certain nombre de choses :
->
-> - Les principes fondamentaux de l’identité moderne. Un mot de passe peut être récupéré et relu, car un secret partagé peut être intercepté. C’est incompatible avec l’option sans mot de passe.
-> - Les utilisateurs qui doivent procéder à une authentification MFA ne peuvent pas se connecter, car il n’y a pas d’interaction.
-> - Les utilisateurs ne peuvent pas disposer de l’authentification unique (SSO).
+L’utilisation d’un nom d’utilisateur et d’un mot de passe est utile dans certains cas, comme dans les scénarios DevOps. Toutefois, si vous souhaitez utiliser un nom d’utilisateur et un mot de passe dans des scénarios interactifs pour lesquels vous fournissez votre propre interface utilisateur, prenez le temps de réfléchir à un moyen qui vous permettrait de l’éviter. En utilisant un nom d’utilisateur et un mot de passe, vous abandonnez un certain nombre de choses :
+
+- Les principes fondamentaux de l’identité moderne. Un mot de passe peut être récupéré et relu, car un secret partagé peut être intercepté. C’est incompatible avec l’option sans mot de passe.
+- Les utilisateurs qui doivent procéder à une authentification MFA ne peuvent pas se connecter, car il n’y a pas d’interaction.
+- Les utilisateurs ne peuvent pas disposer de l’authentification unique (SSO).
 
 ### <a name="constraints"></a>Contraintes
 

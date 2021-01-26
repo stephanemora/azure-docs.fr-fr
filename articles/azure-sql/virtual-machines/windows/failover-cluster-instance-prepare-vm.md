@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 52d6bc97245423a4add392ab05634d21bcf83a0d
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 1b8d88167dac6b2d0b1ba2afc90c443fd80b9e46
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97358008"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223157"
 ---
 # <a name="prepare-virtual-machines-for-an-fci-sql-server-on-azure-vms"></a>Préparer des machines virtuelles pour une instance FCI (SQL Server sur des machines virtuelles Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -68,7 +68,7 @@ Sur un cluster de basculement invité de machine virtuelle Azure, nous recommand
 Placez les deux machines virtuelles :
 
 - Dans le même groupe de ressources Azure que celui où se trouve le groupe à haute disponibilité si vous utilisez des groupes à haute disponibilité.
-- Sur le même réseau virtuel que votre contrôleur de domaine.
+- Sur le même réseau virtuel que votre contrôleur de domaine ou sur un réseau virtuel disposant d’une connectivité appropriée à votre contrôleur de domaine.
 - Sur un sous-réseau avec un espace d’adressage IP suffisant pour les deux machines virtuelles et toutes les instances de cluster de basculement que vous pourriez utiliser sur le cluster.
 - Dans le groupe à haute disponibilité ou la zone de disponibilité Azure.
 

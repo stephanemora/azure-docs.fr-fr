@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/08/2020
+ms.date: 01/18/2021
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: bc3640fecbe1138e46fd0d36975691740bc669dd
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: f6ae9ff27e773c36626812387b1284d660cbf39d
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97369257"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602457"
 ---
 # <a name="understand-azure-role-definitions"></a>Comprendre les définitions de rôles Azure
 
@@ -291,11 +291,27 @@ L’autorisation `Actions` spécifie les opérations d’administration que le r
 
 ## <a name="notactions"></a>NotActions
 
-L’autorisation `NotActions` spécifie les opérations de gestion qui sont exclues des `Actions` autorisées. Utilisez l’autorisation `NotActions` si l’ensemble des opérations que vous souhaitez autoriser est plus facile à définir en excluant les opérations restreintes. L’accès accordé par un rôle (autorisations effectives) est calculé en soustrayant les opérations `NotActions` des opérations `Actions`.
+L’autorisation `NotActions` spécifie les opérations de gestion qui sont soustraites ou exclues des `Actions` autorisées ayant un caractère générique (`*`). Utilisez l’autorisation `NotActions` si l’ensemble des opérations que vous souhaitez autoriser est plus facile à définir en soustrayant des `Actions` ayant un caractère générique (`*`). L’accès accordé par un rôle (autorisations effectives) est calculé en soustrayant les opérations `NotActions` des opérations `Actions`.
+
+`Actions - NotActions = Effective management permissions`
+
+Le tableau suivant présente deux exemples d’autorisations effectives pour une opération à caractère générique [Microsoft.CostManagement](resource-provider-operations.md#microsoftcostmanagement) :
+
+> [!div class="mx-tableFixed"]
+> | Actions | NotActions | Autorisations de gestion effectives |
+> | --- | --- | --- |
+> | `Microsoft.CostManagement/exports/*` | *Aucune* | `Microsoft.CostManagement/exports/action`</br>`Microsoft.CostManagement/exports/read`</br>`Microsoft.CostManagement/exports/write`</br>`Microsoft.CostManagement/exports/delete`</br>`Microsoft.CostManagement/exports/run/action` |
+> | `Microsoft.CostManagement/exports/*` | `Microsoft.CostManagement/exports/delete` | `Microsoft.CostManagement/exports/action`</br>`Microsoft.CostManagement/exports/read`</br>`Microsoft.CostManagement/exports/write`</br>`Microsoft.CostManagement/exports/run/action` |
 
 > [!NOTE]
 > Si un utilisateur se voit attribuer un rôle qui exclut une opération dans `NotActions`, et un second rôle qui accorde l’accès à cette même opération, il est autorisé à effectuer celle-ci. `NotActions` n’est pas une règle de refus : il s’agit simplement d’un moyen pratique pour créer un ensemble d’opérations autorisées lorsque des opérations spécifiques doivent être exclues.
 >
+
+### <a name="differences-between-notactions-and-deny-assignments"></a>Différences entre les NotActions et les affectations de refus
+
+Les `NotActions` et les affectations de refus ne sont pas les mêmes et servent des objectifs différents. `NotActions` sont un moyen pratique de soustraire des actions spécifiques d’une opération à caractère générique (`*`).
+
+Les affectations de refus empêchent les utilisateurs d’effectuer des actions particulières, même si une attribution de rôle leur accorde l’accès. Pour plus d’informations, consultez [Comprendre les affectations de refus Azure](deny-assignments.md).
 
 ## <a name="dataactions"></a>DataActions
 
@@ -311,7 +327,17 @@ L’autorisation `DataActions` spécifie les opérations de données que le rôl
 
 ## <a name="notdataactions"></a>NotDataActions
 
-L’autorisation `NotDataActions` spécifie les opérations sur les données qui sont exclues des `DataActions` autorisées. L’accès accordé par un rôle (autorisations effectives) est calculé en soustrayant les opérations `NotDataActions` des opérations `DataActions`. Chaque fournisseur de ressources fournit son propre ensemble d’API pour répondre à des opérations sur les données.
+L’autorisation `NotDataActions` spécifie les opérations de données qui sont soustraites ou exclues des `DataActions` autorisées ayant un caractère générique (`*`). Utilisez l’autorisation `NotDataActions` si l’ensemble des opérations que vous souhaitez autoriser est plus facile à définir en soustrayant des `DataActions` ayant un caractère générique (`*`). L’accès accordé par un rôle (autorisations effectives) est calculé en soustrayant les opérations `NotDataActions` des opérations `DataActions`. Chaque fournisseur de ressources fournit son propre ensemble d’API pour répondre à des opérations sur les données.
+
+`DataActions - NotDataActions = Effective data permissions`
+
+Le tableau suivant présente deux exemples d’autorisations effectives pour une opération à caractère générique [Microsoft.Storage](resource-provider-operations.md#microsoftstorage) :
+
+> [!div class="mx-tableFixed"]
+> | DataActions | NotDataActions | Autorisations de données effectives |
+> | --- | --- | --- |
+> | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/*` | *Aucune* | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/read`</br>`Microsoft.Storage/storageAccounts/queueServices/queues/messages/write`</br>`Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete`</br>`Microsoft.Storage/storageAccounts/queueServices/queues/messages/add/action`</br>`Microsoft.Storage/storageAccounts/queueServices/queues/messages/process/action` |
+> | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/*` | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete`</br> | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/read`</br>`Microsoft.Storage/storageAccounts/queueServices/queues/messages/write`</br>`Microsoft.Storage/storageAccounts/queueServices/queues/messages/add/action`</br>`Microsoft.Storage/storageAccounts/queueServices/queues/messages/process/action` |
 
 > [!NOTE]
 > Si un utilisateur se voit attribuer un rôle qui exclut une opération sur les données dans `NotDataActions`, et un second rôle qui accorde l’accès à cette même opération, il est autorisé à effectuer celle-ci. `NotDataActions` n’est pas une règle de refus : il s’agit simplement d’un moyen pratique pour créer un ensemble d’opérations sur les données autorisées lorsque des opérations sur les données spécifiques doivent être exclues.

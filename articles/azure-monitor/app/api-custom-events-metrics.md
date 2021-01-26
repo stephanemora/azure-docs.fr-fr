@@ -4,12 +4,12 @@ description: Insérez quelques lignes de code dans votre application de périph�
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: ae64888669fb9a3c053802ee4f7ad7db6316265d
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: d553c192d62baedb93c7f8270c56526fbf8edb62
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780499"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233744"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API Application Insights pour les événements et les mesures personnalisés
 
@@ -146,7 +146,9 @@ telemetry.trackEvent({name: "WinGame"});
 
 ### <a name="custom-events-in-analytics"></a>Événements personnalisés dans l’analytique
 
-La télémétrie est disponible dans la table `customEvents` dans [Application Insights - Analytique](../log-query/log-query-overview.md). Chaque ligne représente un appel à `trackEvent(..)` dans votre application.
+La télémétrie est disponible dans la table `customEvents` dans [l’onglet Journaux Application Insights](../log-query/log-query-overview.md) ou [Expérience d’utilisation](usage-overview.md). Les événements peuvent provenir de `trackEvent(..)` ou du [plug-in Click Analytics Auto-collection](javascript-click-analytics-plugin.md).
+
+ 
 
 Si un [échantillonnage](./sampling.md) est en cours, la propriété itemCount affiche une valeur supérieure à 1. Par exemple, itemCount==10 signifie que sur 10 appels à trackEvent(), le processus d’échantillonnage n’en a transmis qu’un seul. Pour obtenir un nombre correct d’événements personnalisés, vous devez donc utiliser un code similaire à `customEvents | summarize sum(itemCount)`.
 
@@ -1122,4 +1124,3 @@ Pour déterminer la durée de conservation des données, consultez [Rétention d
 
 * [Recherche d’événements et de journaux d’activité](./diagnostic-search.md)
 * [Dépannage](../faq.md)
-

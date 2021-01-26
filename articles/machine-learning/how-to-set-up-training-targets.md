@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: ec4917aa378f746eb2caac6a7b4ce99d1c44db90
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: 55e618a7e4e0d21f6d4afab270e257c26fa15634
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127649"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251112"
 ---
 # <a name="configure-and-submit-training-runs"></a>Configurer et soumettre des exécutions d’entraînement
 
@@ -75,6 +75,9 @@ experiment = Experiment(workspace=ws, name=experiment_name)
 Sélectionnez la cible de calcul sur laquelle votre script d’entraînement sera exécuté. Si aucune cible de calcul n’est spécifiée dans l’objet ScriptRunConfig, ou si `compute_target='local'`, Azure ML exécute votre script localement. 
 
 L’exemple de code fourni dans cet article suppose que vous avez déjà créé une cible de calcul `my_compute_target` comme indiqué dans la section « Prérequis ».
+
+>[!Note]
+>Azure Databricks n’est pas pris en charge comme cible de calcul pour la formation des modèles. Vous pouvez utiliser Azure Databricks pour les tâches de préparation des données et de déploiement. 
 
 ## <a name="create-an-environment"></a>Créer un environnement
 Les [environnements](concept-environments.md) Azure Machine Learning sont une encapsulation de l’environnement dans lequel votre formation Machine Learning se produit. Ils spécifient les packages, image Docker, variables d’environnement et paramètres logiciels Python autour de vos scripts d’entraînement et de scoring. Ils spécifient également les temps d’exécution (Python, Spark ou Docker).
