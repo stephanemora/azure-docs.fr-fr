@@ -3,12 +3,12 @@ title: Détails de la structure des définitions de stratégies
 description: Décrit comment les définitions de stratégie permettent d’établir des conventions pour les ressources Azure dans votre organisation.
 ms.date: 10/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 52adaf9522e4690c4c44a72ed47592f5b1d6471e
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 6e04551a2ef2f890844693fec71d2d3232a456f2
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97883246"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220811"
 ---
 # <a name="azure-policy-definition-structure"></a>Structure de définition Azure Policy
 
@@ -261,7 +261,7 @@ Vous pouvez imbriquer des opérateurs logiques. L’exemple suivant illustre une
 
 ### <a name="conditions"></a>Conditions
 
-Une condition évalue si un **champ** ou un accesseur de **valeur** répond à certains critères. Les conditions prises en charge sont les suivantes :
+Une condition évalue si une valeur répond à certains critères. Les conditions prises en charge sont les suivantes :
 
 - `"equals": "stringValue"`
 - `"notEquals": "stringValue"`
@@ -291,12 +291,9 @@ Celle-ci ne doit pas en comporter plus d’un (`*`).
 
 Si vous utilisez les conditions **match** et **notMatch**, entrez `#` pour trouver un chiffre, `?` pour une lettre, `.` pour un caractère et tout autre caractère pour représenter ce caractère réel. **match** et **notMatch** sont sensibles à la casse. Cependant, toutes les autres conditions qui évaluent une _stringValue_ ne sont pas sensibles à la casse. Des alternatives non sensibles à la casse sont disponibles dans **matchInsensitively** et **notMatchInsensitively**.
 
-Dans une valeur de champ de tableau à **alias \[\*\]** , chaque élément du tableau est évalué individuellement avec un opérateur logique **and** entre les éléments. Pour plus d’informations, consultez [Références aux propriétés des ressources de tableau](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
-
 ### <a name="fields"></a>Champs
 
-Les conditions sont formées à partir de champs. Un champ correspond à des propriétés de la charge utile de la demande de ressource et décrit l’état de la ressource.
-
+Conditions vérifiant si les valeurs des propriétés dans la charge utile de la demande de ressource répondent à certains critères peuvent être formées à l’aide d’une expression **Field**.
 Les champs suivants sont pris en charge :
 
 - `name`
@@ -305,6 +302,7 @@ Les champs suivants sont pris en charge :
 - `kind`
 - `type`
 - `location`
+  - Les champs d’emplacement sont normalisés pour prendre en charge différents formats. Par exemple, `East US 2` est considéré comme égal à `eastus2`.
   - Utilisez **global** pour les ressources indépendantes de l’emplacement.
 - `id`
   - Retourne l’ID de la ressource qui est évaluée.
@@ -324,6 +322,10 @@ Les champs suivants sont pris en charge :
 
 > [!NOTE]
 > `tags.<tagName>`, `tags[tagName]` et `tags[tag.with.dots]` sont toujours des manières acceptables de déclarer un champ de balises. Toutefois, les expressions préférées sont celles répertoriées ci-dessus.
+
+> [!NOTE]
+> Dans des expressions **field** faisant référence à un **\[\*\]alias**, chaque élément du groupe est évalué individuellement avec des opérateurs **and** logiques entre les éléments.
+> Pour plus d’informations, consultez [Références aux propriétés des ressources de tableau](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
 
 #### <a name="use-tags-with-parameters"></a>Utiliser des balises avec des paramètres
 
@@ -355,7 +357,7 @@ Dans l’exemple suivant, `concat` est utilisé pour créer une recherche dans l
 
 ### <a name="value"></a>Valeur
 
-Les conditions peuvent également être formées à l’aide de **valeur**. **valeur** vérifie les conditions selon les [paramètres](#parameters), les [fonctions de modèle supportées](#policy-functions) ou des littéraux. **valeur** est associée à n’importe quelle [condition](#conditions) prise en charge.
+Les conditions qui déterminent si une valeur répond à certains critères peuvent être formées à l’aide d’une expression **value**. Les valeurs peuvent être des littéraux, des valeurs de [paramètres](#parameters) ou des valeurs retournées par n’importe quelle [fonction de modèle prise en charge](#policy-functions).
 
 > [!WARNING]
 > Si le résultat d’une _fonction de modèle_ est une erreur, la stratégie d’évaluation échoue. Une évaluation ayant échoué correspond à un **refus** implicite. Pour plus d’informations, consultez [Éviter les défaillances des modèles](#avoiding-template-failures). Définissez la propriété [enforcementMode](./assignment-structure.md#enforcement-mode) sur **DoNotEnforce** pour empêcher l’impact d’une évaluation qui a échoué sur des ressources nouvelles ou mises à jour lors du test et de la validation d’une nouvelle définition de stratégie.
@@ -440,9 +442,11 @@ Avec la règle de stratégie révisée, `if()` vérifie la longueur du **nom** a
 
 ### <a name="count"></a>Count
 
-Les conditions qui comptent le nombre de membres d’un tableau dans la charge utile de la ressource satisfaisant une expression de condition peuvent être formées à l’aide d’une expression **count**. Les scénarios courants vérifient si « au moins un des », « un seul des », « tous les » ou « aucun des » membres du tableau remplissent la condition. **count** évalue chaque membre du tableau [\[\*\] alias](#understanding-the--alias) à la recherche d’une expression de condition, et additionne les résultats _true_, qui sont ensuite comparés à l’opérateur d’expression. Les expressions **count** peuvent être ajoutées jusqu’à 3 fois à une même définition **policyRule**.
+Les conditions qui dénombrent le nombre de membres d’un groupe qui répondent à certains critères peuvent être formées à l’aide d’une expression **count**. Des scénarios courants vérifient si « au moins un des », « un et un seul des », « tous les » ou « aucun des » membres du groupe remplissent la condition. **Count** évalue chaque membre du groupe pour une expression de condition et additionne les résultats _true_, puis compare à l’opérateur d’expression.
 
-La structure de l’expression **count** est :
+#### <a name="field-count"></a>Field count
+
+Dénombre le nombre de membres d’un groupe dans la charge utile de la demande qui satisfont à une expression de condition. La structure des expressions **field count** est la suivante :
 
 ```json
 {
@@ -456,16 +460,62 @@ La structure de l’expression **count** est :
 }
 ```
 
-Les propriétés suivantes sont utilisées avec **count** :
+Les propriétés suivantes sont utilisées avec l’expression **field count** :
 
-- **count.field** (obligatoire) : contient le chemin du tableau et doit être un alias de tableau. Si le tableau est manquant, l’expression est évaluée à _false_ sans tenir compte de l’expression de condition.
-- **count.where** (facultatif) : l’expression de condition pour évaluer individuellement chaque membre du tableau [alias \[\*\]](#understanding-the--alias) de **count.field**. Si cette propriété n’est pas fournie, tous les membres du tableau avec le chemin « field » sont évalués à _true_. Toute [condition](../concepts/definition-structure.md#conditions) peut être utilisée à l’intérieur de cette propriété.
+- **count.field** (obligatoire) : contient le chemin du tableau et doit être un alias de tableau.
+- **count.where** (facultatif) : l’expression de condition à évaluer individuellement pour chaque membre du groupe [\[\*\]alias](#understanding-the--alias) de `count.field`. Si cette propriété n’est pas fournie, tous les membres du tableau avec le chemin « field » sont évalués à _true_. Toute [condition](../concepts/definition-structure.md#conditions) peut être utilisée à l’intérieur de cette propriété.
   Il est possible d’utiliser des [opérateurs logiques](#logical-operators) à l’intérieur de cette propriété pour créer des exigences d’évaluation complexes.
 - **\<condition\>** (obligatoire) : la valeur est comparée au nombre d’éléments qui ont satisfait l’expression de condition **count.where**. Une [condition](../concepts/definition-structure.md#conditions) numérique doit être utilisée.
 
-Pour plus d’informations sur l’utilisation des propriétés de tableau dans Azure Policy, notamment une explication détaillée de l’évaluation de l’expression count, consultez [Références aux propriétés des ressources de tableau](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
+Les expressions **field count** peuvent énumérer le même groupe de champs jusqu’à trois fois dans une seule définition **policyRule**.
 
-#### <a name="count-examples"></a>Exemples de comptage
+Pour plus d’informations sur l’utilisation des propriétés de groupe dans Azure Policy, notamment une explication détaillée de la façon dont l’expression **field count** est évaluée, consultez [Références aux propriétés des ressources de groupe](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
+
+#### <a name="value-count"></a>Value count
+Dénombre le nombre de membres d’un groupe qui satisfont à une condition. Le groupe peut être un groupe littéral ou une [référence à un paramètre de groupe](#using-a-parameter-value). La structure de l’expression **value count** est la suivante :
+
+```json
+{
+    "count": {
+        "value": "<literal array | array parameter reference>",
+        "name": "<index name>",
+        "where": {
+            /* condition expression */
+        }
+    },
+    "<condition>": "<compare the count of true condition expression array members to this value>"
+}
+```
+
+Les propriétés suivantes sont utilisées avec l’expression **value count** :
+
+- **count.value** (obligatoire) : groupe à évaluer.
+- **count.name** (obligatoire) : nom d’index, composé de lettres anglaises et de chiffres. Définit un nom pour la valeur du membre de groupe évalué dans l’itération actuelle. Le nom est utilisé pour référencer la valeur actuelle à l’intérieur de la condition `count.where`. Facultatif lorsque l’expression **count** n’est pas un enfant d’une autre expression **count**. Quand il n’est pas fourni, le nom d’index est implicitement défini sur `"default"`.
+- **count.where** (facultatif) : expression de condition pour évaluer individuellement chaque membre du groupe de `count.value`. Si cette propriété n’est pas fournie, tous les membres du groupe sont évalués à _true_. Toute [condition](../concepts/definition-structure.md#conditions) peut être utilisée à l’intérieur de cette propriété. Il est possible d’utiliser des [opérateurs logiques](#logical-operators) à l’intérieur de cette propriété pour créer des exigences d’évaluation complexes. La valeur du membre de groupe actuellement énuméré est accessible en appelant la fonction [current](#the-current-function).
+- **\<condition\>** (obligatoire) : la valeur est comparée au nombre d’éléments qui ont satisfait l’expression de condition `count.where`. Une [condition](../concepts/definition-structure.md#conditions) numérique doit être utilisée.
+
+Les limites suivantes sont appliquées :
+- Jusqu’à 10 expressions **value count** peuvent être utilisées dans une seule définition **policyRule**.
+- Chaque expression **value count** peut effectuer jusqu’à 100 itérations. Ce nombre inclut le nombre d’itérations effectuées par toute expression **value count** parente.
+
+#### <a name="the-current-function"></a>Fonction current
+
+La fonction `current()` n’est disponible qu’à l’intérieur de la condition `count.where`. Elle retourne la valeur du membre du groupe qui est actuellement énuméré l’évaluation de l’expression **count**.
+
+**Utilisation de value count**
+
+- `current(<index name defined in count.name>)`. Par exemple : `current('arrayMember')`.
+- `current()`. Autorisé uniquement lorsque l’expression **value count** n’est pas un enfant d’un autre expression **count**. Retourne la même valeur que ci-dessus.
+
+Si la valeur retournée par l’appel est un objet, les accesseurs de propriété sont pris en charge. Par exemple : `current('objectArrayMember').property`.
+
+**Field count usage**
+
+- `current(<the array alias defined in count.field>)`. Par exemple : `current('Microsoft.Test/resource/enumeratedArray[*]')`.
+- `current()`. Autorisé uniquement lorsque l’expression **field count** n’est pas un enfant d’un autre expression **count**. Retourne la même valeur que ci-dessus.
+- `current(<alias of a property of the array member>)`. Par exemple : `current('Microsoft.Test/resource/enumeratedArray[*].property')`.
+
+#### <a name="field-count-examples"></a>Exemples d’expression field count
 
 Exemple 1 : Vérifier si un tableau est vide
 
@@ -550,18 +600,162 @@ Exemple 5 : Vérifier qu’au moins un membre du tableau correspond à plusieur
 }
 ```
 
-Exemple 6 : Utilisez la fonction `field()` à l’intérieur des conditions `where` pour accéder à la valeur littérale du membre du tableau évalué. Cette condition permet de vérifier qu’il n’existe aucune règle de sécurité dont la valeur _priority_ soit paire.
+Exemple 6 : Utilisez la fonction `current()` à l’intérieur des conditions `where` pour accéder à la valeur du membre du groupe actuellement énuméré dans un modèle de fonction. Cette condition vérifie si un réseau virtuel contient un préfixe d’adresse qui ne figure pas dans la plage CIDR 10.0.0.0/24.
 
 ```json
 {
     "count": {
-        "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]",
+        "field": "Microsoft.Network/virtualNetworks/addressSpace.addressPrefixes[*]",
         "where": {
-          "value": "[mod(first(field('Microsoft.Network/networkSecurityGroups/securityRules[*].priority')), 2)]",
-          "equals": 0
+          "value": "[ipRangeContains('10.0.0.0/24', current('Microsoft.Network/virtualNetworks/addressSpace.addressPrefixes[*]'))]",
+          "equals": false
         }
     },
     "greater": 0
+}
+```
+
+Exemple 7 : utiliser la fonction `field()` à l’intérieur des conditions `where` pour accéder à la valeur du membre du groupe actuellement énuméré. Cette condition vérifie si un réseau virtuel contient un préfixe d’adresse qui ne figure pas dans la plage CIDR 10.0.0.0/24.
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Network/virtualNetworks/addressSpace.addressPrefixes[*]",
+        "where": {
+          "value": "[ipRangeContains('10.0.0.0/24', first(field(('Microsoft.Network/virtualNetworks/addressSpace.addressPrefixes[*]')))]",
+          "equals": false
+        }
+    },
+    "greater": 0
+}
+```
+
+#### <a name="value-count-examples"></a>Exemples d’expressions value count
+
+Exemple 1 : vérifier si le nom de ressource correspond à l’un des modèles de nom donné.
+
+```json
+{
+    "count": {
+        "value": [ "prefix1_*", "prefix2_*" ],
+        "name": "pattern",
+        "where": {
+            "field": "name",
+            "like": "[current('pattern')]"
+        }
+    },
+    "greater": 0
+}
+```
+
+Exemple 2 : vérifier si le nom de ressource correspond à l’un des modèles de nom donné. La fonction `current()` ne spécifie pas de nom d’index. Le résultat est le même que l’exemple précédent.
+
+```json
+{
+    "count": {
+        "value": [ "prefix1_*", "prefix2_*" ],
+        "where": {
+            "field": "name",
+            "like": "[current()]"
+        }
+    },
+    "greater": 0
+}
+```
+
+Exemple 3 : Vérifie si le nom de ressource correspond à l’un des modèles de nom fournis par un paramètre de groupe.
+
+```json
+{
+    "count": {
+        "value": "[parameters('namePatterns')]",
+        "name": "pattern",
+        "where": {
+            "field": "name",
+            "like": "[current('pattern')]"
+        }
+    },
+    "greater": 0
+}
+```
+
+Exemple 4 : vérifier si l’un des préfixes d’adresse de réseau virtuel ne figure pas dans la liste des préfixes approuvés.
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Network/virtualNetworks/addressSpace.addressPrefixes[*]",
+        "where": {
+            "count": {
+                "value": "[parameters('approvedPrefixes')]",
+                "name": "approvedPrefix",
+                "where": {
+                    "value": "[ipRangeContains(current('approvedPrefix'), current('Microsoft.Network/virtualNetworks/addressSpace.addressPrefixes[*]'))]",
+                    "equals": true
+                },
+            },
+            "equals": 0
+        }
+    },
+    "greater": 0
+}
+```
+
+Exemple 5 : vérifier que toutes les règles de groupe de sécurité réseau réservées sont définies dans un groupe de sécurité réseau. Les propriétés des règles de groupe de sécurité réseau réservées sont définies dans un paramètre de groupe contenant des objets.
+
+Valeur du paramètre :
+
+```json
+[
+    {
+        "priority": 101,
+        "access": "deny",
+        "direction": "inbound",
+        "destinationPortRange": 22
+    },
+    {
+        "priority": 102,
+        "access": "deny",
+        "direction": "inbound",
+        "destinationPortRange": 3389
+    }
+]
+```
+
+Stratégie :
+```json
+{
+    "count": {
+        "value": "[parameters('reservedNsgRules')]",
+        "name": "reservedNsgRule",
+        "where": {
+            "count": {
+                "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]",
+                "where": {
+                    "allOf": [
+                        {
+                            "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].priority",
+                            "equals": "[current('reservedNsgRule').priority]"
+                        },
+                        {
+                            "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].access",
+                            "equals": "[current('reservedNsgRule').access]"
+                        },
+                        {
+                            "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].direction",
+                            "equals": "[current('reservedNsgRule').direction]"
+                        },
+                        {
+                            "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].destinationPortRange",
+                            "equals": "[current('reservedNsgRule').destinationPortRange]"
+                        }
+                    ]
+                }
+            },
+            "equals": 1
+        }
+    },
+    "equals": "[length(parameters('reservedNsgRules'))]"
 }
 ```
 
@@ -627,7 +821,6 @@ Les fonctions suivantes sont disponibles uniquement dans les règles de stratég
   }
   ```
 
-
 - `ipRangeContains(range, targetRange)`
     - **range** : Chaîne [obligatoire] ; chaîne spécifiant une plage d’adresses IP.
     - **targetRange** : Chaîne [obligatoire] ; chaîne spécifiant une plage d’adresses IP.
@@ -639,6 +832,8 @@ Les fonctions suivantes sont disponibles uniquement dans les règles de stratég
     - Plage CIDR (exemples : `10.0.0.0/24`, `2001:0DB8::/110`)
     - Plage définie par les adresses IP de début et de fin (exemples : `192.168.0.1-192.168.0.9`, `2001:0DB8::-2001:0DB8::3:FFFF`)
 
+- `current(indexName)`
+    - Fonction spéciale utilisable uniquement dans les [expressions count](#count).
 
 #### <a name="policy-function-example"></a>Exemple de fonction de stratégie
 
