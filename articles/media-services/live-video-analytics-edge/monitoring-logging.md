@@ -3,12 +3,12 @@ title: Supervision et journalisation - Azure
 description: Cet article fournit une vue d’ensemble de la supervision et de la journalisation dans Live Video Analytics sur IoT Edge.
 ms.topic: reference
 ms.date: 04/27/2020
-ms.openlocfilehash: 6a7251b62421642ad9f5dba4f4c2a15ce74cd5cf
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 6dc0a6d499d06c95bdccbc9e386d7f9288971ee8
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97900873"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878102"
 ---
 # <a name="monitoring-and-logging"></a>Surveillance et journalisation
 
@@ -269,7 +269,7 @@ Pour activer la collecte de métriques à partir du module Live Video Analytics 
 
 1. Utilisez les commandes de l’interface de ligne de commande Docker pour générer le fichier Docker et publier l’image dans votre registre de conteneurs Azure.
     
-   Pour plus d’informations sur l’utilisation de l’interface de ligne de commande Docker pour effectuer un envoi (push) vers un registre de conteneurs, consultez [Envoyer (push) et tirer (pull) des images Docker](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli). Pour plus d’informations sur Azure Container Registry, consultez la [documentation](https://docs.microsoft.com/azure/container-registry/).
+   Pour plus d’informations sur l’utilisation de l’interface de ligne de commande Docker pour effectuer un envoi (push) vers un registre de conteneurs, consultez [Envoyer (push) et tirer (pull) des images Docker](../../container-registry/container-registry-get-started-docker-cli.md). Pour plus d’informations sur Azure Container Registry, consultez la [documentation](../../container-registry/index.yml).
 
 
 1. Une fois l’envoi (push) vers Azure Container Registry terminé, ajoutez le nœud suivant à votre manifeste de déploiement :

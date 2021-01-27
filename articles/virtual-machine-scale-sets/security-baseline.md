@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 68dc7c36159523bcc46e93a4784e9d038037a919
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: b5ce8e3d6482c13a8ba02065f2a97074610c25bb
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201210"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98877712"
 ---
 # <a name="azure-security-baseline-for-virtual-machine-scale-sets"></a>Base de référence de sécurité Azure pour Virtual Machine Scale Sets
 
@@ -848,7 +848,7 @@ Actuellement, les contrôles d’application adaptatifs ne sont pas disponibles 
 
 * [Guide pratique pour configurer et gérer Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Informations sur le téléchargement du modèle de machine virtuelle](../virtual-machines/windows/download-template.md)
+* [Informations sur le téléchargement du modèle de machine virtuelle](/previous-versions/azure/virtual-machines/windows/download-template)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -892,7 +892,7 @@ Actuellement, les contrôles d’application adaptatifs ne sont pas disponibles 
 
 Pour la plupart des scénarios, les modèles de machine virtuelle de base de Microsoft combinés à Azure Automation Desired State Configuration peuvent permettre de satisfaire les exigences de sécurité.
 
-* [Informations sur le téléchargement du modèle de machine virtuelle](../virtual-machines/windows/download-template.md)
+* [Informations sur le téléchargement du modèle de machine virtuelle](/previous-versions/azure/virtual-machines/windows/download-template)
 
 * [Informations sur la création de modèles ARM](../virtual-machines/windows/ps-template.md)
 

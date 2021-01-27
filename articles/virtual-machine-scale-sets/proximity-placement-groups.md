@@ -9,16 +9,16 @@ ms.subservice: availability
 ms.date: 07/01/2019
 ms.reviewer: zivr
 ms.custom: mimckitt
-ms.openlocfilehash: 1525ef7c1e19aa9821df3f111fdce3518d37afd5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3a7b50c82b3deffa7526bfcfe799972c3b02762
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87011054"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98877864"
 ---
 # <a name="preview-creating-and-using-proximity-placement-groups-using-powershell"></a>Aperçu : Création et utilisation de groupes de placements de proximité à l’aide de PowerShell
 
-Pour que les machines virtuelles soient aussi proches que possible, avec la latence la plus faible possible, déployez votre groupe identique dans un [groupe de placements de proximité](co-location.md#preview-proximity-placement-groups).
+Pour que les machines virtuelles soient aussi proches que possible, avec la latence la plus faible possible, déployez votre groupe identique dans un [groupe de placements de proximité](../virtual-machines/co-location.md#proximity-placement-groups).
 
 Le groupe de placements de proximité est un regroupement logique utilisé pour s’assurer que les ressources de calcul Azure se trouvent proches les unes des autres. Les groupes de placements de proximité sont utiles pour les charges de travail où une latence faible est requise.
 

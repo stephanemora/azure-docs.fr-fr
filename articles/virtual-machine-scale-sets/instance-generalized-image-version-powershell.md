@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 22bd1ed88f61689eec9312392f7f58d137f703e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9edade1aa54d6f4f8160a107f84e6da2e6cf316e
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331520"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878017"
 ---
 # <a name="create-a-scale-set-from-a-generalized-image-using-powershell"></a>Créer un groupe identique à partir d’une image généralisée en utilisant PowerShell 
 
-Créez une machine virtuelle à partir d’une version d’image généralisée stockée dans une [galerie d’images partagées](shared-image-galleries.md). Si vous souhaitez créer un groupe identique à l’aide d’une image spécialisée, consultez [Créer des instances de groupe identique à partir d’une image spécialisée](instance-specialized-image-version-powershell.md).
+Créez une machine virtuelle à partir d’une version d’image généralisée stockée dans une [galerie d’images partagées](../virtual-machines/shared-image-galleries.md). Si vous souhaitez créer un groupe identique à l’aide d’une image spécialisée, consultez [Créer des instances de groupe identique à partir d’une image spécialisée](instance-specialized-image-version-powershell.md).
 
 Une fois que vous disposez d’une image généralisée, vous pouvez créer un groupe de machines virtuelles identiques à l’aide de la cmdlet [New-AzVmss](/powershell/module/az.compute/new-azvmss). 
 
@@ -173,7 +173,7 @@ New-AzVmss `
 La création et la configuration des l’ensemble des ressources et des machines virtuelles du groupe identique prennent quelques minutes.
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Générateur d’image Azure (préversion)](../virtual-machines/linux/image-builder-overview.md) permet d’automatiser la création d’une version de l’image. Vous pouvez même l’utiliser pour mettre à jour et [créer une nouvelle version de l’image à partir d’une image existante](../virtual-machines/linux/image-builder-gallery-update-image-version.md). 
+[Générateur d’image Azure (préversion)](../virtual-machines/image-builder-overview.md) permet d’automatiser la création d’une version de l’image. Vous pouvez même l’utiliser pour mettre à jour et [créer une nouvelle version de l’image à partir d’une image existante](../virtual-machines/linux/image-builder-gallery-update-image-version.md). 
 
 Vous pouvez également créer la ressource de galerie d’images partagées à l’aide de modèles. Plusieurs modèles de démarrage rapide Azure sont disponibles : 
 
@@ -181,4 +181,4 @@ Vous pouvez également créer la ressource de galerie d’images partagées à l
 - [Créer une définition d’image dans une galerie d’images partagées](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
 - [Créer une version d’image dans une galerie d’images partagées](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
 
-Pour plus d’informations sur les galeries d’images partagées, consultez la [vue d’ensemble](shared-image-galleries.md). Si vous rencontrez des problèmes, consultez [Résoudre les problèmes des galeries d’images partagées](../virtual-machines/troubleshooting-shared-images.md).
+Pour plus d’informations sur les galeries d’images partagées, consultez la [vue d’ensemble](../virtual-machines/shared-image-galleries.md). Si vous rencontrez des problèmes, consultez [Résoudre les problèmes des galeries d’images partagées](../virtual-machines/troubleshooting-shared-images.md).

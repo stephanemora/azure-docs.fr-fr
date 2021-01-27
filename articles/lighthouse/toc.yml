@@ -1,6 +1,6 @@
 - name: Documentation Azure Lighthouse
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: "Qu’est-ce qu’Azure Lighthouse\_?"
       displayName: 'management at scale, service providers'
@@ -45,6 +45,14 @@
           href: security-baseline.md
 - name: Guides pratiques
   items:
+    - name: Actions des clients
+      items:
+        - name: Voir et gérer les fournisseurs de services
+          displayName: 'customer, update, visibility, control'
+          href: ./how-to/view-manage-service-providers.md
+        - name: Voir l’activité des fournisseurs de services
+          displayName: 'monitor, log, customer, visibility, transparency, control'
+          href: ./how-to/view-service-provider-activity.md
     - name: Intégrer un client à Azure Lighthouse
       displayName: resource management
       href: ./how-to/onboard-customer.md
@@ -87,14 +95,6 @@
           href: ./how-to/deploy-policy-remediation.md
     - name: Intégration Azure Sentinel
       href: ./how-to/manage-sentinel-workspaces.md
-    - name: Actions des clients
-      items:
-        - name: Voir et gérer les fournisseurs de services
-          displayName: 'customer, update'
-          href: ./how-to/view-manage-service-providers.md
-        - name: Voir l’activité des fournisseurs de services
-          displayName: 'monitor, log'
-          href: ./how-to/view-service-provider-activity.md
 - name: Informations de référence
   items:
     - name: Azure CLI
