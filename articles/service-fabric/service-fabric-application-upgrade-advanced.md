@@ -3,20 +3,20 @@ title: Rubriques avancées sur la mise à niveau d’application
 description: Cet article traite de sujets avancés se rapportant à la mise à niveau d’une application Service Fabric.
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: cc2fdc8f99b74078bd8d5274cbe52265ab8455ae
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6604300328f2d243077ba341a9028221438dce9d
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96022987"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98792046"
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>Mise à niveau des applications Service Fabric : Rubriques avancées
 
 ## <a name="add-or-remove-service-types-during-an-application-upgrade"></a>Ajouter ou supprimer des types de services pendant la mise à niveau d’une application
 
-Si un type de service est ajouté à une application publiée dans le cadre d’une mise à niveau, le nouveau type de service est ajouté à l’application déployée. Une telle mise à niveau n’affecte pas les instances de service qui faisaient déjà partie de l’application, mais une instance du type de service qui a été ajoutée doit être créée pour que le nouveau type de service soit actif (voir [New-ServiceFabricService](/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps)).
+Si un type de service est ajouté à une application publiée dans le cadre d’une mise à niveau, le nouveau type de service est ajouté à l’application déployée. Une telle mise à niveau n’affecte pas les instances de service qui faisaient déjà partie de l’application, mais une instance du type de service qui a été ajoutée doit être créée pour que le nouveau type de service soit actif (voir [New-ServiceFabricService](/powershell/module/servicefabric/new-servicefabricservice)).
 
-De même, des types de services peuvent également être supprimés d’une application dans le cadre d’une mise à niveau. Toutefois, toutes les instances de service du type de service à supprimer doivent être supprimées avant de procéder à la mise à niveau (voir [Remove-ServiceFabricService](/powershell/module/servicefabric/remove-servicefabricservice?view=azureservicefabricps)).
+De même, des types de services peuvent également être supprimés d’une application dans le cadre d’une mise à niveau. Toutefois, toutes les instances de service du type de service à supprimer doivent être supprimées avant de procéder à la mise à niveau (voir [Remove-ServiceFabricService](/powershell/module/servicefabric/remove-servicefabricservice)).
 
 ## <a name="avoid-connection-drops-during-stateless-service-planned-downtime"></a>Éviter les abandons de connexion pendant les temps d’arrêt planifiés de service sans état
 
@@ -114,7 +114,7 @@ La durée du délai modifiée s’applique uniquement à l’instance de mise à
 
 En mode *Monitored*, Service Fabric applique des stratégies de contrôle d’intégrité pour s’assurer que l’application est saine au fil de l’avancement de la mise à niveau. En cas de non-respect des stratégies de contrôle d’intégrité, la mise à niveau est interrompue ou restaurée automatiquement en fonction de la valeur *FailureAction* spécifiée.
 
-En mode *UnmonitoredManual*, l’administrateur de l’application possède un contrôle total sur la progression de la mise à niveau. Ce mode est utile lorsque vous appliquez des stratégies d’évaluation de l’intégrité personnalisées ou lorsque vous effectuez des mises à niveau non conventionnelles pour contourner totalement la surveillance de l’intégrité (par exemple, si l’application présente déjà une perte de données). Une mise à niveau en cours d’exécution dans ce mode s’interrompt à la fin de chaque UD et doit être reprise explicitement à l’aide de la commande [Resume-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/resume-servicefabricapplicationupgrade?view=azureservicefabricps). Lorsqu’une mise à niveau est interrompue et prête à être reprise par l’utilisateur, son état de mise à niveau sera *RollforwardPending* (voir [UpgradeState](/dotnet/api/system.fabric.applicationupgradestate?view=azure-dotnet)).
+En mode *UnmonitoredManual*, l’administrateur de l’application possède un contrôle total sur la progression de la mise à niveau. Ce mode est utile lorsque vous appliquez des stratégies d’évaluation de l’intégrité personnalisées ou lorsque vous effectuez des mises à niveau non conventionnelles pour contourner totalement la surveillance de l’intégrité (par exemple, si l’application présente déjà une perte de données). Une mise à niveau en cours d’exécution dans ce mode s’interrompt à la fin de chaque UD et doit être reprise explicitement à l’aide de la commande [Resume-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/resume-servicefabricapplicationupgrade). Lorsqu’une mise à niveau est interrompue et prête à être reprise par l’utilisateur, son état de mise à niveau sera *RollforwardPending* (voir [UpgradeState](/dotnet/api/system.fabric.applicationupgradestate)).
 
 Enfin, le mode *UnmonitoredAuto* est utile pour effectuer des itérations de mise à niveau rapides pendant le test ou le développement du service, car aucune entrée utilisateur n’est requise et aucune stratégie de contrôle d’intégrité d’application n’est évaluée.
 
@@ -180,7 +180,7 @@ HealthState            : Ok
 ApplicationParameters  : { "ImportantParameter" = "1"; "NewParameter" = "testBefore" }
 ```
 
-Mettez à présent à niveau l’application à l’aide de la cmdlet **Start-ServiceFabricApplicationUpgrade**. Cet exemple montre une mise à niveau surveillée, mais une mise à niveau non surveillée est également possible. Pour obtenir une description complète des indicateurs acceptés par cette cmdlet, consultez la [référence du module Azure Service Fabric PowerShell](/powershell/module/servicefabric/start-servicefabricapplicationupgrade?view=azureservicefabricps#parameters)
+Mettez à présent à niveau l’application à l’aide de la cmdlet **Start-ServiceFabricApplicationUpgrade**. Cet exemple montre une mise à niveau surveillée, mais une mise à niveau non surveillée est également possible. Pour obtenir une description complète des indicateurs acceptés par cette cmdlet, consultez la [référence du module Azure Service Fabric PowerShell](/powershell/module/servicefabric/start-servicefabricapplicationupgrade#parameters)
 
 ```PowerShell
 PS C:\> $appParams = @{ "ImportantParameter" = "2"; "NewParameter" = "testAfter"}
@@ -205,11 +205,11 @@ ApplicationParameters  : { "ImportantParameter" = "2"; "NewParameter" = "testAft
 
 ## <a name="roll-back-application-upgrades"></a>Restaurer des mises à niveau d’application
 
-Tandis que les mises à niveau peuvent être restaurées par progression dans un des trois modes (*Monitored*, *UnmonitoredAuto* ou *UnmonitoredManual*), elles peuvent uniquement être restaurées en mode *UnmonitoredAuto* ou *UnmonitoredManual*. La restauration en mode *UnmonitoredAuto* fonctionne de la même façon que la restauration par progression, à la différence que la valeur par défaut de *UpgradeReplicaSetCheckTimeout* change (voir [Paramètres de mise à niveau d’application](service-fabric-application-upgrade-parameters.md)). La restauration en mode *UnmonitoredManual* fonctionne de la même façon que la restauration par progression : la restauration s’interrompt à la fin de chaque UD et doit être reprise explicitement à l’aide de la commande [ Resume-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/resume-servicefabricapplicationupgrade?view=azureservicefabricps).
+Tandis que les mises à niveau peuvent être restaurées par progression dans un des trois modes (*Monitored*, *UnmonitoredAuto* ou *UnmonitoredManual*), elles peuvent uniquement être restaurées en mode *UnmonitoredAuto* ou *UnmonitoredManual*. La restauration en mode *UnmonitoredAuto* fonctionne de la même façon que la restauration par progression, à la différence que la valeur par défaut de *UpgradeReplicaSetCheckTimeout* change (voir [Paramètres de mise à niveau d’application](service-fabric-application-upgrade-parameters.md)). La restauration en mode *UnmonitoredManual* fonctionne de la même façon que la restauration par progression : la restauration s’interrompt à la fin de chaque UD et doit être reprise explicitement à l’aide de la commande [ Resume-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/resume-servicefabricapplicationupgrade).
 
-Les restaurations peuvent être déclenchées automatiquement lorsque les stratégies d’intégrité d’une mise à niveau en mode *Monitored* avec une valeur *FailureAction* définie sur *Rollback* sont enfreintes (voir [Paramètres de mise à niveau d’application](service-fabric-application-upgrade-parameters.md)) ou explicitement à l’aide de la commande [Start-ServiceFabricApplicationRollback](/powershell/module/servicefabric/start-servicefabricapplicationrollback?view=azureservicefabricps).
+Les restaurations peuvent être déclenchées automatiquement lorsque les stratégies d’intégrité d’une mise à niveau en mode *Monitored* avec une valeur *FailureAction* définie sur *Rollback* sont enfreintes (voir [Paramètres de mise à niveau d’application](service-fabric-application-upgrade-parameters.md)) ou explicitement à l’aide de la commande [Start-ServiceFabricApplicationRollback](/powershell/module/servicefabric/start-servicefabricapplicationrollback).
 
-Pendant la restauration, la valeur *UpgradeReplicaSetCheckTimeout* et le mode peuvent être modifiés à tout moment à l’aide de la commande [Update-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/update-servicefabricapplicationupgrade?view=azureservicefabricps).
+Pendant la restauration, la valeur *UpgradeReplicaSetCheckTimeout* et le mode peuvent être modifiés à tout moment à l’aide de la commande [Update-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/update-servicefabricapplicationupgrade).
 
 ## <a name="next-steps"></a>Étapes suivantes
 [mise à niveau de votre application à l’aide de Visual Studio](service-fabric-application-upgrade-tutorial.md) vous guide à travers une mise à niveau de l’application à l’aide de Visual Studio.

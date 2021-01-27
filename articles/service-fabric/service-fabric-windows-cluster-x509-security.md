@@ -3,12 +3,12 @@ title: Sécuriser un cluster sur Windows à l’aide de certificats
 description: Sécuriser les communications au sein d’un cluster local ou autonome Azure Service Fabric, ainsi qu’entre les clients et le cluster.
 ms.topic: conceptual
 ms.date: 10/15/2017
-ms.openlocfilehash: 34ba457ce0f39705393962d5c5ec8fa11668f413
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: d75c644be47ea44f6a8a6ccac91b785af0132833
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686121"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791035"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>Sécuriser un cluster autonome sur Windows à l’aide de certificats X.509
 Cet article vous explique comment sécuriser la communication entre les différents nœuds de votre cluster Windows autonome. Il décrit également comment authentifier les clients qui se connectent à ce cluster à l’aide de certificats X.509. L’authentification garantit que seuls les utilisateurs autorisés peuvent accéder au cluster et aux applications déployées, et effectuer des tâches de gestion. La sécurité par certificat doit être activée sur le cluster lors de sa création.  
@@ -355,7 +355,7 @@ $ConnectArgs = @{  ConnectionEndpoint = '10.7.0.5:19000';  X509Credential = $Tru
 Connect-ServiceFabricCluster $ConnectArgs
 ```
 
-Vous pouvez ensuite exécuter d’autres commandes PowerShell pour travailler avec ce cluster. Par exemple, vous pouvez exécuter [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) pour afficher la liste des nœuds sur ce cluster sécurisé.
+Vous pouvez ensuite exécuter d’autres commandes PowerShell pour travailler avec ce cluster. Par exemple, vous pouvez exécuter [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode) pour afficher la liste des nœuds sur ce cluster sécurisé.
 
 
 Pour supprimer le cluster, connectez-vous au nœud du cluster dans lequel vous avez téléchargé le package Service Fabric, ouvrez une ligne de commande et accédez au dossier du package. Exécutez à présent la commande suivante :

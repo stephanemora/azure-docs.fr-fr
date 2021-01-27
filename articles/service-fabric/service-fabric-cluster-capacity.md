@@ -4,12 +4,12 @@ description: Les types de nœuds, la durabilité, la fiabilité et d’autres é
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: pepogors
-ms.openlocfilehash: 731dcfdf25efc4b2f44669dacd8a400037ed47f4
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 03ec9b411f13f22a74b864a745acfed922e78b12
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576330"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790696"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considérations en matière de planification de la capacité du cluster Service Fabric
 
@@ -146,7 +146,7 @@ Voici la recommandation sur le choix du niveau de fiabilité. Le nombre de nœud
 | 7 ou 8 | Or |
 | 9 et plus | Platinum |
 
-Lorsque vous augmentez ou réduisez la taille de votre cluster (la somme des instances de machine virtuelle dans tous les types de nœuds), pensez à mettre à jour la fiabilité de votre cluster d’un niveau à l’autre. Cette opération déclenche les mises à niveau de cluster nécessaires pour modifier le nombre de jeux de réplicas des services système. Attendez que la mise à niveau en cours se termine avant d’apporter d’autres modifications au cluster, comme l’ajout de nœuds.  Vous pouvez surveiller la progression de la mise à niveau avec Service Fabric Explorer ou en exécutant [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps)
+Lorsque vous augmentez ou réduisez la taille de votre cluster (la somme des instances de machine virtuelle dans tous les types de nœuds), pensez à mettre à jour la fiabilité de votre cluster d’un niveau à l’autre. Cette opération déclenche les mises à niveau de cluster nécessaires pour modifier le nombre de jeux de réplicas des services système. Attendez que la mise à niveau en cours se termine avant d’apporter d’autres modifications au cluster, comme l’ajout de nœuds.  Vous pouvez surveiller la progression de la mise à niveau avec Service Fabric Explorer ou en exécutant [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade)
 
 ### <a name="capacity-planning-for-reliability"></a>Planification des capacités de fiabilité
 

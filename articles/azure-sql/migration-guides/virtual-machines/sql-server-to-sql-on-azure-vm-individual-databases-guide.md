@@ -3,19 +3,19 @@ title: SQL Server vers SQL Server sur les machines virtuelles Azure (Guide de mi
 description: Suivez ce guide pour migrer vos bases de données SQL Server individuelles vers SQL Server sur les machines virtuelles Azure.
 ms.custom: ''
 ms.service: virtual-machines-sql
-ms.subservice: ''
+ms.subservice: migration-guide
 ms.devlang: ''
 ms.topic: how-to
 author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 11/06/2020
-ms.openlocfilehash: 3b0fdccd3eaf6e6bd94b595107022f738bdd8382
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: cc2a641cb017edace24db5df69bc4adf3a607524
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325913"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797889"
 ---
 # <a name="migration-guide-sql-server-to-sql-server-on-azure-vms"></a>Guide de migration : SQL Server vers SQL Server sur les machines virtuelles Azure 
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
@@ -214,17 +214,17 @@ Pour plus d’informations sur ces problèmes et sur les étapes spécifiques à
 - Pour en savoir plus sur Azure SQL, consultez :
    - [Options de déploiement](../../azure-sql-iaas-vs-paas-what-is-overview.md)
    - [SQL Server sur machines virtuelles Azure](../../virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md)
-   - [Outil de calcul du coût total de possession Azure](https://azure.microsoft.com/pricing/tco/calculator/) 
+   - [Calculatrice du coût total de possession Azure](https://azure.microsoft.com/pricing/tco/calculator/) 
 
 
-- Pour en savoir plus sur le framework et le cycle d’adoption des migrations cloud, consultez
+- Pour plus d’informations sur l’infrastructure et le cycle d’adoption pour les migrations cloud, consultez :
    -  [Cloud Adoption Framework pour Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
-   -  [Bonnes pratiques pour l’évaluation des coûts et du dimensionnement des charges de travail migrées vers Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
+   -  [Meilleures pratiques pour l’évaluation des coûts et le dimensionnement des charges de travail migrées vers Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
 
-- Pour plus d’informations sur la gestion des licences, consultez
+- Pour plus d’informations sur la gestion des licences, consultez :
    - [BYOL (apportez votre propre licence) avec Azure Hybrid Benefit](../../virtual-machines/windows/licensing-model-azure-hybrid-benefit-ahb-change.md)
    - [Bénéficier d’un support étendu gratuit pour SQL Server 2008 et SQL Server 2008 R2](../../virtual-machines/windows/sql-server-2008-extend-end-of-support.md)
 
 
-- Pour évaluer la couche d’accès aux applications, consultez [Data Access Migration Toolkit (préversion)](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit)
-- Pour plus d’informations sur l’exécution des tests A/B de la couche d’accès aux données, consultez [Assistant Expérimentation de base de données](/sql/dea/database-experimentation-assistant-overview).
+- Pour évaluer la couche d’accès aux applications, consultez [Data Access Migration Toolkit (préversion)](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit).
+- Pour savoir comment exécuter un test A/B sur la couche d’accès aux données, consultez [Assistant Expérimentation de base de données](/sql/dea/database-experimentation-assistant-overview).

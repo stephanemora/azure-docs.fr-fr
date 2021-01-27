@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: da04e7704274336f7f92237c1d7c30459caa7bc8
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: a7361dafce30b07e76d971bdcda41cf4b3cd9e6e
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936479"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98806169"
 ---
 # <a name="sap-businessobjects-bi-platform-deployment-guide-for-linux-on-azure"></a>Guide de déploiement de la plateforme SAP BusinessObjects BI pour Linux sur Azure
 
@@ -555,7 +555,7 @@ La section suivante décrit comment implémenter une stratégie de sauvegarde et
 
 Dans Azure, la méthode la plus simple pour sauvegarder des serveurs d’applications et tous les disques attachés consiste à utiliser le service [Sauvegarde Azure](../../../backup/backup-overview.md). Il propose des sauvegardes indépendantes et isolées pour éviter une destruction involontaire des données de vos machines virtuelles. Les sauvegardes sont stockées dans un coffre Recovery Services avec gestion intégrée des points de récupération. La configuration et la mise à l’échelle sont simples, les sauvegardes sont optimisées et peuvent être facilement restaurées le cas échéant.
 
-Dans le cadre du processus de sauvegarde, un instantané est créé et les données sont transférées vers le coffre Recovery Services sans impact sur les charges de travail de production. L’instantané offre différents niveaux de cohérence, comme décrit dans l’article [Cohérence des instantanés](../../../backup/backup-azure-vms-introduction.md#snapshot-consistency). Vous pouvez également choisir de sauvegarder un sous-ensemble des disques de données d’une machine virtuelle en utilisant la fonctionnalité de sauvegarde et restauration sélectives de disques. Pour plus d’informations, consultez le document [Sauvegarde de machine virtuelle Azure](../../../backup/backup-azure-vms-introduction.md) et [Forum aux questions – Sauvegarde de machines virtuelles Azure](../../../backup/backup-azure-vm-backup-faq.md).
+Dans le cadre du processus de sauvegarde, un instantané est créé et les données sont transférées vers le coffre Recovery Services sans impact sur les charges de travail de production. L’instantané offre différents niveaux de cohérence, comme décrit dans l’article [Cohérence des instantanés](../../../backup/backup-azure-vms-introduction.md#snapshot-consistency). Vous pouvez également choisir de sauvegarder un sous-ensemble des disques de données d’une machine virtuelle en utilisant la fonctionnalité de sauvegarde et restauration sélectives de disques. Pour plus d’informations, consultez le document [Sauvegarde de machine virtuelle Azure](../../../backup/backup-azure-vms-introduction.md) et [Forum aux questions – Sauvegarde de machines virtuelles Azure](../../../backup/backup-azure-vm-backup-faq.yml).
 
 #### <a name="backup--restore-for-file-repository-server"></a>Sauvegarder et restaurer le serveur de référentiel de fichiers
 

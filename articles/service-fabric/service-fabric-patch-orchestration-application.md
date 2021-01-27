@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: atsenthi
-ms.openlocfilehash: 8f92501bdb8261a67d3dc2b8aefbe1fb1498ef1e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d64c6383b9a83b759dd8368a4e3e0f1847b5ee16
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91445901"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791221"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Corriger le système d’exploitation Windows dans votre cluster Service Fabric
 
@@ -271,17 +271,17 @@ Cette section explique comment déboguer ou diagnostiquer les problèmes liés a
 > [!NOTE]
 > La version 1.4.0 de POA ou une version ultérieure doit être installée pour bénéficier de plusieurs des améliorations d’auto-diagnostic ci-dessous.
 
-Le service Node Agent NTService crée des [tâches de réparation](/dotnet/api/system.fabric.repair.repairtask?view=azure-dotnet) pour installer les mises à jour sur les nœuds. Chaque tâche est ensuite préparée par le Service Coordinateur conformément à la stratégie d’approbation des tâches. Enfin, les tâches préparées sont approuvées par le service Gestionnaire des réparations qui n’approuve aucune tâche si le cluster est dans un état non sain. 
+Le service Node Agent NTService crée des [tâches de réparation](/dotnet/api/system.fabric.repair.repairtask) pour installer les mises à jour sur les nœuds. Chaque tâche est ensuite préparée par le Service Coordinateur conformément à la stratégie d’approbation des tâches. Enfin, les tâches préparées sont approuvées par le service Gestionnaire des réparations qui n’approuve aucune tâche si le cluster est dans un état non sain. 
 
 Découvrons étape par étape comment se déroulent les mises à jour sur un nœud :
 
 1. S’exécutant sur chaque nœud, NodeAgentNTService recherche les mises à jour Windows disponibles à l’heure prévue. Si des mises à jour sont disponibles, il les télécharge sur le nœud.
 
-1. Une fois les mises à jour téléchargées, le service NT Agent du nœud crée une tâche de réparation correspondante pour le nœud sous le nom *POS___\<unique_id>* . Ces tâches de réparation sont visibles à l’aide de la cmdlet [Get-ServiceFabricRepairTask](/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps) ou dans la section des détails du nœud dans SFX. Une fois créée, la tâche de réparation passe rapidement à [l’état *Revendiqué*](/dotnet/api/system.fabric.repair.repairtaskstate?view=azure-dotnet).
+1. Une fois les mises à jour téléchargées, le service NT Agent du nœud crée une tâche de réparation correspondante pour le nœud sous le nom *POS___\<unique_id>* . Ces tâches de réparation sont visibles à l’aide de la cmdlet [Get-ServiceFabricRepairTask](/powershell/module/servicefabric/get-servicefabricrepairtask) ou dans la section des détails du nœud dans SFX. Une fois créée, la tâche de réparation passe rapidement à [l’état *Revendiqué*](/dotnet/api/system.fabric.repair.repairtaskstate).
 
 1. Le Service Coordinateur recherche périodiquement les tâches de réparation à l’état *Revendiqué*, puis les met à jour avec l’état *Préparation* conformément à la TaskApprovalPolicy. Si la TaskApprovalPolicy est configurée pour être NodeWise, une tâche de réparation associée à un nœud n’est préparée que si aucune autre tâche de réparation n’est actuellement à l’état *Préparation*, *Approuvé*, *Exécution* ou *Restauration*. 
 
-   De même, une TaskApprovalPolicy UpgradeWise garantit qu’à tout moment seuls les nœuds appartenant au même domaine de mise à jour exécutent des tâches dans les états susmentionnés. Dès qu’une tâche de réparation passe à l’état *Préparation*, le nœud Service Fabric correspondant est [désactivé](/powershell/module/servicefabric/disable-servicefabricnode?view=azureservicefabricps) avec l’intention de *Redémarrer*.
+   De même, une TaskApprovalPolicy UpgradeWise garantit qu’à tout moment seuls les nœuds appartenant au même domaine de mise à jour exécutent des tâches dans les états susmentionnés. Dès qu’une tâche de réparation passe à l’état *Préparation*, le nœud Service Fabric correspondant est [désactivé](/powershell/module/servicefabric/disable-servicefabricnode) avec l’intention de *Redémarrer*.
 
    Les versions 1.4.0 et ultérieures de POA publient des événements avec la propriété ClusterPatchingStatus sur le Service Coordinateur pour afficher les nœuds qui sont corrigés. Les mises à jour sont installées sur _poanode_0, comme illustré dans l’image suivante :
 
@@ -300,7 +300,7 @@ Découvrons étape par étape comment se déroulent les mises à jour sur un nœ
 
    [![Capture d’écran montrant la fenêtre de console de l’état d’opération Windows Update avec poanode_1 en surbrillance.](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png#lightbox)
 
-   Vous pouvez également vous procurer les détails à l’aide de PowerShell. Pour ce faire, vous vous connectez au cluster et récupérez l’état de la tâche de réparation à l’aide de [Get-ServiceFabricRepairTask](/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps). 
+   Vous pouvez également vous procurer les détails à l’aide de PowerShell. Pour ce faire, vous vous connectez au cluster et récupérez l’état de la tâche de réparation à l’aide de [Get-ServiceFabricRepairTask](/powershell/module/servicefabric/get-servicefabricrepairtask). 
    
    L’exemple ci-dessous montre que la tâche « POS__poanode_2_125f2969-933c-4774-85d1-ebdf85e79f15 » se trouve dans l’état *DownloadComplete*. Cela signifie que les mises à jour ont été téléchargées sur le nœud *poanode_2* et que l’installation sera tentée lorsque la tâche passera à l’état *Exécution*.
 
@@ -334,7 +334,7 @@ Découvrons étape par étape comment se déroulent les mises à jour sur un nœ
 
 Les journaux d’activité de l’application d’orchestration des correctifs sont collectés en même temps que les journaux d’activité du runtime Service Fabric.
 
-Vous pouvez capturer des journaux à l’aide de l’outil de diagnostic ou du pipeline de votre choix. POA utilise les ID de fournisseurs fixes suivants pour consigner les événements via la [source de l’événement](/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1) :
+Vous pouvez capturer des journaux à l’aide de l’outil de diagnostic ou du pipeline de votre choix. POA utilise les ID de fournisseurs fixes suivants pour consigner les événements via la [source de l’événement](/dotnet/api/system.diagnostics.tracing.eventsource) :
 
 - e39b723c-590c-4090-abb0-11e3e6616346
 - fc0028ff-bfdc-499f-80dc-ed922c52c5e9
@@ -379,7 +379,7 @@ A : POA n’installe pas de mises à jour lorsque le cluster est défectueux. E
 
 **Q : Dois-je définir TaskApprovalPolicy en tant que « NodeWise » ou « UpgradeDomainWise » pour mon cluster ?**
 
-A : Le paramètre « UpgradeDomainWise » accélère la réparation globale du cluster en corrigeant en parallèle tous les nœuds qui appartiennent à un domaine de mise à jour. Pendant le processus, les nœuds qui appartiennent à un domaine de mise à jour entier ne sont pas disponibles (état [*Désactivé*](/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabled)).
+A : Le paramètre « UpgradeDomainWise » accélère la réparation globale du cluster en corrigeant en parallèle tous les nœuds qui appartiennent à un domaine de mise à jour. Pendant le processus, les nœuds qui appartiennent à un domaine de mise à jour entier ne sont pas disponibles (état [*Désactivé*](/dotnet/api/system.fabric.query.nodestatus#System_Fabric_Query_NodeStatus_Disabled)).
 
 En revanche, le paramètre « NodeWise » ne corrige qu’un seul nœud à la fois, ce qui implique que la mise à jour corrective globale du cluster peut prendre plus de temps. Toutefois, au maximum un nœud est indisponible (en état *Désactivé*) pendant le processus de mise à jour corrective.
 
@@ -405,9 +405,9 @@ A : Le temps nécessaire pour appliquer un correctif à un cluster entier dépe
     - Pour « NodeWise » : environ 20 heures.
     - Pour « UpgradeDomainWise » : environ 5 heures.
 
-- Charge du cluster. Chaque opération de mise à jour corrective requiert un déplacement de la charge de travail client vers d’autres nœuds disponibles dans le cluster. Pendant ce temps, le nœud auquel est appliqué le correctif est en état de [*désactivation*](/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabling). Si le cluster exécute une charge proche du pic, le processus de désactivation prend plus de temps. Par conséquent, le processus de mise à jour corrective global peut sembler lent dans de telles conditions de sollicitation.
+- Charge du cluster. Chaque opération de mise à jour corrective requiert un déplacement de la charge de travail client vers d’autres nœuds disponibles dans le cluster. Pendant ce temps, le nœud auquel est appliqué le correctif est en état de [*désactivation*](/dotnet/api/system.fabric.query.nodestatus#System_Fabric_Query_NodeStatus_Disabling). Si le cluster exécute une charge proche du pic, le processus de désactivation prend plus de temps. Par conséquent, le processus de mise à jour corrective global peut sembler lent dans de telles conditions de sollicitation.
 
-- Échecs d’intégrité du cluster pendant la mise à jour corrective. Toute [dégradation](/dotnet/api/system.fabric.health.healthstate?view=azure-dotnet#System_Fabric_Health_HealthState_Error) de [l’intégrité du cluster](./service-fabric-health-introduction.md) interrompt le processus de mise à jour corrective. Ce problème s’ajoute au temps global nécessaire pour appliquer le correctif au cluster entier.
+- Échecs d’intégrité du cluster pendant la mise à jour corrective. Toute [dégradation](/dotnet/api/system.fabric.health.healthstate#System_Fabric_Health_HealthState_Error) de [l’intégrité du cluster](./service-fabric-health-introduction.md) interrompt le processus de mise à jour corrective. Ce problème s’ajoute au temps global nécessaire pour appliquer le correctif au cluster entier.
 
 **Q : Pourquoi certaines mises à jour sont-elles affichées dans les résultats Windows Update obtenus via les API REST, et non dans l’historique Windows Update de l’ordinateur ?**
 

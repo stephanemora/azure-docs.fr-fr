@@ -1,17 +1,17 @@
 ---
 title: Définitions de stratégie intégrées pour Applications managées Azure
 description: Liste les définitions de stratégie intégrées d’Azure Policy pour Applications managées Azure. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de vos ressources Azure.
-ms.date: 01/08/2021
+ms.date: 01/25/2021
 ms.topic: reference
 author: tfitzmac
 ms.author: tomfitz
 ms.custom: subject-policy-reference
-ms.openlocfilehash: dae65dda1d708a3382f6a78b9fabb77b0b793aeb
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 13dba9c7842b075eb2fb4bc3d595e158223af7aa
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98046570"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98807932"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-managed-applications"></a>Définitions intégrées d’Azure Policy pour Applications managées Azure
 

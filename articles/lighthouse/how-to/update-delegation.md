@@ -3,12 +3,12 @@ title: Mettre à jour une délégation
 description: Découvrez comment mettre à jour une délégation pour un client précédemment intégré à Azure Lighthouse.
 ms.date: 12/03/2020
 ms.topic: how-to
-ms.openlocfilehash: e204d1f3546e6e978f91c7e808065a388a4af4b3
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: eec5d1f2d34e8e3c9e0ded59cb111624b1981873
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97093415"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791337"
 ---
 # <a name="update-a-delegation"></a>Mettre à jour une délégation
 
@@ -58,9 +58,9 @@ Une fois le déploiement terminé, [confirmez sa réussite](onboard-customer.md#
 
 ## <a name="updating-managed-service-offers"></a>Mise à jour des offres de service géré
 
-Si vous avez intégré votre client via une offre de service géré publiée sur Place de marché Azure et que vous souhaitez mettre à jour les autorisations, vous pouvez mettre à jour la délégation en [publiant une nouvelle version de votre offre](../../marketplace/partner-center-portal/update-existing-offer.md) avec les [autorisations](../../marketplace/partner-center-portal/create-new-managed-service-offer.md#authorization) que vous souhaitez utiliser mises à jour dans le plan de ce client. Le client sera ensuite en mesure de mettre à jour vers la version la plus récente dans le portail Azure.
+Si vous avez intégré votre client via une offre de service géré publiée sur Place de marché Azure et que vous souhaitez mettre à jour les autorisations, vous pouvez mettre à jour la délégation en [publiant une nouvelle version de votre offre](../../marketplace/partner-center-portal/update-existing-offer.md) avec les [autorisations](../../marketplace/plan-managed-service-offer.md) que vous souhaitez utiliser mises à jour dans le plan de ce client. Le client sera ensuite en mesure de mettre à jour vers la version la plus récente dans le portail Azure.
 
-Si vous souhaitez modifier le locataire gestionnaire, vous devez [créer et publier une nouvelle offre de service géré](../../marketplace/partner-center-portal/create-new-managed-service-offer.md) que le client doit accepter.
+Si vous souhaitez modifier le locataire gestionnaire, vous devez [créer et publier une nouvelle offre de service géré](../../marketplace/plan-managed-service-offer.md) que le client doit accepter.
 
 > [!TIP]
 > Comme mentionné précédemment, nous vous recommandons de ne pas utiliser plusieurs offres différentes entre le même client et le même locataire gestionnaire. Si vous publiez une nouvelle offre pour le même client qui utilise le même locataire gestionnaire, assurez-vous que l’offre précédente est supprimée avant que le client accepte la nouvelle offre.

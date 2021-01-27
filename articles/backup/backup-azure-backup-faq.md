@@ -3,12 +3,12 @@ title: Réponses à des questions fréquentes
 description: 'Réponses aux questions courantes sur : les fonctionnalités de la sauvegarde Azure, y compris les coffres Recovery Services ce qu’il peut sauvegarder, son fonctionnement, son chiffrement, et ses limites. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: bd84ff553b486d200ec4501b89b42335335b223f
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: f819440001180a3c446f366e61e3ac0f983fa67f
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98572525"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98806646"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Sauvegarde Azure - Forum Aux Questions
 
@@ -60,7 +60,7 @@ Si vous avez déjà configuré la sauvegarde et que vous devez passer de GRS à 
 
 ### <a name="how-can-i-move-data-from-the-recovery-services-vault-to-on-premises"></a>Comment déplacer des données du coffre Recovery Services vers un emplacement local ?
 
-L’exportation directe de données du coffre Recovery Services vers un emplacement local à l’aide de Data Box n’est pas prise en charge. Les données doivent être restaurées dans un compte de stockage, puis déplacées vers l’emplacement local via [Data Box](../databox/data-box-overview.md) ou [Import/Export](../storage/common/storage-import-export-service.md).
+L’exportation directe de données du coffre Recovery Services vers un emplacement local à l’aide de Data Box n’est pas prise en charge. Les données doivent être restaurées dans un compte de stockage, puis déplacées vers l’emplacement local via [Data Box](../databox/data-box-overview.md) ou [Import/Export](../import-export/storage-import-export-service.md).
 
 ### <a name="what-is-the-difference-between-a-geo-redundant-storage-grs-vault-with-and-without-the-cross-region-restore-crr-capability-enabled"></a>Quelle est la différence entre un coffre de stockage géoredondant (GRS) avec et sans la capacité de restauration interrégion (CRR) activée ?
 
@@ -70,7 +70,7 @@ Dans le cas d’un coffre [GRS](azure-backup-glossary.md#grs) sans la capacité 
 
 ### <a name="where-can-i-find-common-questions-about-the-azure-backup-agent-for-azure-vm-backup"></a>Où puis-je trouver des questions courantes sur l’agent Sauvegarde Azure pour la sauvegarde de machines virtuelles Azure ?
 
-- Pour les agents sur des machines virtuelles Azure, consultez ce [FAQ](backup-azure-vm-backup-faq.md).
+- Pour les agents sur des machines virtuelles Azure, consultez ce [FAQ](backup-azure-vm-backup-faq.yml).
 - Pour les agents permettant de sauvegarde des dossiers de fichiers Azure, lisez ce [FAQ](backup-azure-file-folder-backup-faq.md).
 
 ## <a name="general-backup"></a>Sauvegarde générale
@@ -236,5 +236,5 @@ La clé utilisée pour chiffrer les données de sauvegarde est disponible unique
 
 Lire les autres forums aux questions :
 
-- [Questions courantes](backup-azure-vm-backup-faq.md) sur la sauvegarde des machines virtuelles Azure.
+- [Questions courantes](backup-azure-vm-backup-faq.yml) sur la sauvegarde des machines virtuelles Azure.
 - [Questions courantes](backup-azure-file-folder-backup-faq.md) sur l’agent Sauvegarde Azure.

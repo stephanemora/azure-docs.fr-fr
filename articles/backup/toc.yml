@@ -1,6 +1,6 @@
 - name: Documentation Sauvegarde Azure
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: Vue d’ensemble de Sauvegarde Azure
       href: backup-overview.md
@@ -79,7 +79,7 @@
         - name: Questions fréquentes (FAQ) sur le Centre de sauvegarde
           href: backup-center-faq.yml
         - name: FAQ sur la sauvegarde des machines virtuelles Azure
-          href: backup-azure-vm-backup-faq.md
+          href: backup-azure-vm-backup-faq.yml
         - name: FAQ sur l’agent MARS
           href: backup-azure-file-folder-backup-faq.md
         - name: FAQ sur la sauvegarde des fichiers Azure

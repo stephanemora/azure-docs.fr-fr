@@ -3,18 +3,18 @@ title: Mise à niveau des applications Service Fabric
 description: Cet article fournit une introduction à la mise à niveau d'une application Service Fabric, y compris le choix des modes de mise à niveau et les vérifications d'intégrité exécutées.
 ms.topic: conceptual
 ms.date: 8/5/2020
-ms.openlocfilehash: 8eecd923b009ecbe9f4e607ad57a99b3f20955b9
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: f3fad8d0ede92004706d9a1f4e14353715361b63
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92309848"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98792012"
 ---
 # <a name="service-fabric-application-upgrade"></a>Mise à niveau des applications Service Fabric
 Une application Azure Service Fabric est une collection de services. Pendant une mise à niveau, Service Fabric compare le nouveau [manifeste d'application](service-fabric-application-and-service-manifests.md) à la version précédente et détermine les services qui, dans l'application, nécessitent des mises à jour. Service Fabric compare les numéros des versions dans les manifestes de service avec les numéros des versions dans la version précédente. Si un service n'a pas changé, ce service n'est pas mis à niveau.
 
 > [!NOTE]
-> Les [ApplicationParameter](/dotnet/api/system.fabric.description.applicationdescription.applicationparameters?view=azure-dotnet#System_Fabric_Description_ApplicationDescription_ApplicationParameters) ne sont pas conservés dans une mise à niveau d’application. Pour conserver les paramètres d’application actuels, l’utilisateur doit d’abord récupérer les paramètres et les transmettre à l’appel d’API de mise à niveau, comme ci-dessous :
+> Les [ApplicationParameter](/dotnet/api/system.fabric.description.applicationdescription.applicationparameters#System_Fabric_Description_ApplicationDescription_ApplicationParameters) ne sont pas conservés dans une mise à niveau d’application. Pour conserver les paramètres d’application actuels, l’utilisateur doit d’abord récupérer les paramètres et les transmettre à l’appel d’API de mise à niveau, comme ci-dessous :
 ```powershell
 $myApplication = Get-ServiceFabricApplication -ApplicationName fabric:/myApplication
 $appParamCollection = $myApplication.ApplicationParameters
@@ -52,7 +52,7 @@ Le mode que nous recommandons pour la mise à niveau d’application est le mode
 Le mode manuel non surveillé nécessite une intervention manuelle après chaque mise à niveau sur un domaine de mise à jour pour lancer la mise à niveau sur le domaine de mise à jour suivant. Aucune vérification de l'intégrité de Service Fabric n'est effectuée. L'administrateur effectue les vérifications d'intégrité ou d'état avant de commencer la mise à niveau dans le domaine de mise à jour suivant.
 
 ## <a name="upgrade-default-services"></a>Mettre à niveau les services par défaut
-Certains paramètres de service par défaut définis dans le [manifeste de l’application](service-fabric-application-and-service-manifests.md) peuvent aussi être mis à niveau dans le cadre d’une mise à niveau de l’application. Seuls les paramètres de service qui prennent une modification par le biais de [Update-ServiceFabricService](/powershell/module/servicefabric/update-servicefabricservice?view=azureservicefabricps) peuvent être modifiés dans le cadre d’une mise à niveau. Le comportement de modification des services par défaut au cours de la mise à niveau de l’application est le suivant :
+Certains paramètres de service par défaut définis dans le [manifeste de l’application](service-fabric-application-and-service-manifests.md) peuvent aussi être mis à niveau dans le cadre d’une mise à niveau de l’application. Seuls les paramètres de service qui prennent une modification par le biais de [Update-ServiceFabricService](/powershell/module/servicefabric/update-servicefabricservice) peuvent être modifiés dans le cadre d’une mise à niveau. Le comportement de modification des services par défaut au cours de la mise à niveau de l’application est le suivant :
 
 1. Les services par défaut du nouveau manifeste de l’application qui n’existent pas déjà dans le cluster sont créés.
 2. Les services par défaut qui existent dans les manifestes de l’application précédent et nouveau sont mis à jour. Les paramètres du service par défaut dans le nouveau manifeste de l’application remplacent ceux du service existant. La mise à niveau de l’application est restaurée automatiquement en cas d’échec de la mise à jour d’un service par défaut.
@@ -64,7 +64,7 @@ Quand vous restaurez une mise à niveau de l’application, les paramètres de s
 > Le paramètre de configuration de cluster [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md) doit avoir la valeur *true* pour activer les règles 2) et 3) ci-dessus (mise à jour et suppression de service par défaut). Cette fonctionnalité est prise en charge à partir de Service Fabric version 5.5.
 
 ## <a name="upgrading-multiple-applications-with-https-endpoints"></a>Mise à niveau de plusieurs applications avec des points de terminaison HTTPS
-Vous devez veiller à ne pas utiliser le **même port** pour différentes instances de la même application lors de l’utilisation de HTTP**S**. En effet, Service Fabric ne pourra plus mettre à niveau le certificat pour l’une des instances de l’application. Par exemple, si l’application 1 ou l’application 2 souhaitent mettre à niveau leur certificat 1 vers le certificat 2. Lors de la mise à niveau, Service Fabric peut avoir nettoyé l’inscription de certificat 1 auprès de http.sys même si l’autre application l’utilise toujours. Pour éviter cela, Service Fabric détecte l’existence d’une autre instance d’application inscrite sur le port avec le certificat (en raison de http.sys) et l’opération échoue.
+Vous devez veiller à ne pas utiliser le **même port** pour différentes instances de la même application lors de l’utilisation de HTTP **S**. En effet, Service Fabric ne pourra plus mettre à niveau le certificat pour l’une des instances de l’application. Par exemple, si l’application 1 ou l’application 2 souhaitent mettre à niveau leur certificat 1 vers le certificat 2. Lors de la mise à niveau, Service Fabric peut avoir nettoyé l’inscription de certificat 1 auprès de http.sys même si l’autre application l’utilise toujours. Pour éviter cela, Service Fabric détecte l’existence d’une autre instance d’application inscrite sur le port avec le certificat (en raison de http.sys) et l’opération échoue.
 
 Par conséquent, Service Fabric ne prend pas en charge la mise à niveau de deux services utilisant **le même port** dans des instances d’application différentes. En d’autres termes, vous ne pouvez pas utiliser le même certificat sur les différents services au niveau du même port. Si vous avez besoin d’un certificat partagé sur le même port, vous devez vous assurer que les services sont placés sur des machines différentes avec des contraintes de placement. Vous pouvez aussi envisager d’utiliser le cas échéant les ports dynamiques Service Fabric pour chaque service de chaque instance d’application. 
 

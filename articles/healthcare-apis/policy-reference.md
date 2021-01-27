@@ -1,19 +1,19 @@
 ---
 title: Définitions de stratégie intégrées pour l’API Azure pour FHIR
 description: Liste les définitions de stratégie intégrées Azure Policy pour l’API Azure pour FHIR. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de vos ressources Azure.
-ms.date: 01/08/2021
+ms.date: 01/25/2021
 author: matjazl
 ms.author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: dab9ff889db9665026090a6a470153e72a73768d
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 331d6aaa9776da37568af5edc505140371910a29
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98044020"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98808103"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-api-for-fhir"></a>Définitions intégrées Azure Policy pour l’API Azure pour FHIR
 

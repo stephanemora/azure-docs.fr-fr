@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: harahma
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5f3f6238bb72704d13fef4a7171aeaebee5f9141
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9932c11332a616928d59c213d4f4806feb81cfe2
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708694"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791643"
 ---
 # <a name="azure-service-fabric-hosting-model"></a>Modèle d’hébergement Azure Service Fabric
 Cet article fournit une vue d’ensemble des modèles d’hébergement d’applications fournis par Azure Service Fabric et décrit les différences entre les modèles à **processus partagé** et à **processus exclusif**. Il décrit le fonctionnement d’une application déployée sur un nœud Service Fabric, et présente la relation entre les réplicas (ou instances) du service et le processus hôte du service.
@@ -172,7 +172,7 @@ Dans l’exemple précédent, vous pourriez penser que si « MyCodePackageA » i
 
 ### <a name="reliable-services-and-actor-forking-subprocesses"></a>Sous-processus de duplication Reliable Services et Actor
 
-Service Fabric ne prend pas en charge les sous-processus de duplication de Reliable Services et Reliable Actors. À titre d'exemple sur la raison de cette absence de prise en charge, [CodePackageActivationContext](/dotnet/api/system.fabric.codepackageactivationcontext?view=azure-dotnet) ne peut pas être utilisé pour inscrire un sous-processus non pris en charge et les jetons d’annulation sont uniquement envoyés à des processus enregistrés, ce qui engendre toutes sortes de problèmes, telles que les échecs de mise à niveau, lorsque les sous-processus ne ferment pas une fois le jeton d’annulation reçu par le processus parent.
+Service Fabric ne prend pas en charge les sous-processus de duplication de Reliable Services et Reliable Actors. À titre d'exemple sur la raison de cette absence de prise en charge, [CodePackageActivationContext](/dotnet/api/system.fabric.codepackageactivationcontext) ne peut pas être utilisé pour inscrire un sous-processus non pris en charge et les jetons d’annulation sont uniquement envoyés à des processus enregistrés, ce qui engendre toutes sortes de problèmes, telles que les échecs de mise à niveau, lorsque les sous-processus ne ferment pas une fois le jeton d’annulation reçu par le processus parent.
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Empaquetez une application][a4] et préparez-la pour le déploiement.

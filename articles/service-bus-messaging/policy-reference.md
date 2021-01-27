@@ -1,18 +1,18 @@
 ---
 title: Définitions de stratégie intégrées pour la messagerie Azure Service Bus
 description: Liste les définitions de stratégie intégrées d’Azure Policy pour la messagerie Azure Service Bus. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de vos ressources Azure.
-ms.date: 01/08/2021
+ms.date: 01/25/2021
 ms.topic: reference
 author: spelluru
 ms.author: spelluru
 ms.service: service-bus-messaging
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 62080a81f7437e42a9b7beb68b199d5cc2cf7e68
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 01ea5ae10b7bd5b4f7d01c8aeff1953a749971e5
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98048559"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98804115"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-service-bus-messaging"></a>Définitions intégrées d’Azure Policy pour la messagerie Azure Service Bus
 

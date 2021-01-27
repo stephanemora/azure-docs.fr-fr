@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/29/2020
-ms.openlocfilehash: 1d3a7be429f730dd4dbd71bade1e3e51ea73c10f
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 1ff20ab19390dcdadb9a4aa79822f7ace3d31989
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96188647"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791170"
 ---
 # <a name="what-are-compute-targets-in-azure-machine-learning"></a>Qu’est-ce qu’une cible de calcul dans Azure Machine Learning ?
 
@@ -123,7 +123,7 @@ Même si Azure Machine Learning prend en charge ces séries de machines virtuell
 > [!NOTE]
 > Azure Machine Learning ne prend pas en charge toutes les tailles de machines virtuelles prises en charge par Azure Compute. Pour lister les tailles de machine virtuelle disponibles, utilisez l’une des méthodes suivantes :
 > * [REST API](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2020-08-01/examples/ListVMSizesResult.json)
-> * [Kit de développement logiciel (SDK) Python](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py.md#supported-vmsizes-workspace--location-none-)
+> * [Kit de développement logiciel (SDK) Python](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py.md#supported-vmsizes-workspace--location-none-)
 >
 
 ### <a name="compute-isolation"></a>Isolation du calcul

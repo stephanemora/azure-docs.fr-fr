@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/24/2020
 ms.author: cynthn
-ms.openlocfilehash: 6a14e2bd7385430c3d0fbec06259a876af556e38
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 45d7977dda4870be9a087b3277dd1db828c91178
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010722"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98871432"
 ---
 # <a name="create-a-proximity-placement-group-using-the-portal"></a>Créer un groupe de placements de proximité à l’aide du portail
 
-Pour que les machines virtuelles soient aussi proches que possible, avec la latence la plus faible possible, déployez-les dans un [groupe de placements de proximité](co-location.md#proximity-placement-groups).
+Pour que les machines virtuelles soient aussi proches que possible, avec la latence la plus faible possible, déployez-les dans un [groupe de placements de proximité](../co-location.md#proximity-placement-groups).
 
 Le groupe de placements de proximité est un regroupement logique utilisé pour s’assurer que les ressources de calcul Azure se trouvent proches les unes des autres. Les groupes de placements de proximité sont utiles pour les charges de travail où une latence faible est requise.
 
@@ -77,4 +77,3 @@ Si la machine virtuelle fait partie du groupe à haute disponibilité, vous deve
 ## <a name="next-steps"></a>Étapes suivantes
 
 Vous pouvez également utiliser [Azure PowerShell](proximity-placement-groups.md) pour créer des groupes de placements de proximité.
-

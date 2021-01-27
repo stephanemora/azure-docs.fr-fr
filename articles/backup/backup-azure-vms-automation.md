@@ -3,12 +3,12 @@ title: Sauvegarder et récupérer des machines virtuelles Azure avec PowerShell
 description: Décrit comment sauvegarder et restaurer des machines virtuelles Azure à l’aide de Sauvegarde Azure avec PowerShell
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 610049ec14243abb296aef431eb37533c6169817
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: 90bb6f60712fc59aec05ff2e85364fccf00ff1df
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97797058"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98804790"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Sauvegarder et restaurer des machines virtuelles Azure avec PowerShell
 
@@ -228,7 +228,7 @@ NewPolicy           AzureVM            AzureVM              4/24/2016 1:30:00 AM
 Une fois que vous avez défini la stratégie de protection, vous devez encore activer la stratégie pour un élément. Utilisez [Enable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) pour activer la protection. L’activation de la protection nécessite deux objets : l’élément et la stratégie. Une fois que la stratégie a été associée au coffre, le flux de travail de la sauvegarde est déclenché à l’heure planifiée dans la planification de la stratégie.
 
 > [!IMPORTANT]
-> Si vous utilisez PowerShell pour activer la sauvegarde de plusieurs machines virtuelles en même temps, assurez-vous qu’il n’y a pas plus de 100 machines virtuelles associées à une même stratégie. Il s’agit d’[une meilleure pratique recommandée](./backup-azure-vm-backup-faq.md#is-there-a-limit-on-number-of-vms-that-can-beassociated-with-the-same-backup-policy). Si, pour l’heure, le client PowerShell ne se bloque pas explicitement dans le cas où plus de 100 machines virtuelles sont présentes, cela sera vérifié à l’avenir.
+> Si vous utilisez PowerShell pour activer la sauvegarde de plusieurs machines virtuelles en même temps, assurez-vous qu’il n’y a pas plus de 100 machines virtuelles associées à une même stratégie. Il s’agit d’[une meilleure pratique recommandée](./backup-azure-vm-backup-faq.yml#is-there-a-limit-on-number-of-vms-that-can-be-associated-with-the-same-backup-policy). Si, pour l’heure, le client PowerShell ne se bloque pas explicitement dans le cas où plus de 100 machines virtuelles sont présentes, cela sera vérifié à l’avenir.
 
 Les exemples suivants activent la protection pour l’élément V2VM. Ils utilisent la stratégie NewPolicy. Les exemples diffèrent selon que la machine virtuelle est chiffrée et le type de chiffrement.
 

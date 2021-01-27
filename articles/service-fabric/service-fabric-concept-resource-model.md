@@ -3,12 +3,12 @@ title: Modèle de ressource d’application Azure Service Fabric
 description: Cet article fournit une vue d’ensemble de la gestion d’une application Azure Service Fabric à l’aide d’Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 10/21/2019
-ms.openlocfilehash: f4fbd775ab479437c350dc24b9b5511f7a614c8b
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 0019f154f301d2b688d4c16c9adb36ec386adef2
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576092"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790721"
 ---
 # <a name="service-fabric-application-resource-model"></a>Modèle de ressource d’application Service Fabric
 
@@ -171,13 +171,13 @@ Vous pouvez mettre à niveau une application qui est déjà déployée sur un cl
 
 Pour supprimer une application qui a été déployée à l’aide du modèle de ressources de l’application dans Resource Manager :
 
-1. Utilisez l’applet de commande [Get-AzResource](/powershell/module/az.resources/get-azresource?view=azps-2.5.0) pour obtenir l’ID de ressource de l’application :
+1. Utilisez l’applet de commande [Get-AzResource](/powershell/module/az.resources/get-azresource) pour obtenir l’ID de ressource de l’application :
 
     ```powershell
     Get-AzResource  -Name <String> | f1
     ```
 
-1. Supprimez les ressources d’application à l’aide de l’applet de commande [Remove-AzResource](/powershell/module/az.resources/remove-azresource?view=azps-2.5.0):
+1. Supprimez les ressources d’application à l’aide de l’applet de commande [Remove-AzResource](/powershell/module/az.resources/remove-azresource):
 
     ```powershell
     Remove-AzResource  -ResourceId <String> [-Force] [-ApiVersion <String>]

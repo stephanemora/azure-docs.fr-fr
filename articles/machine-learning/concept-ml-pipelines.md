@@ -10,12 +10,12 @@ ms.author: laobri
 author: lobrien
 ms.date: 01/12/2021
 ms.custom: devx-track-python
-ms.openlocfilehash: a6ee4c08a7ecf9bcfcbc9cf6f630efe126248e9f
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: e3f92f445068b98c12069577ddf61a71568e403b
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185704"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98871551"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>Présentation des pipelines Azure Machine Learning
 
@@ -118,7 +118,7 @@ pipeline_run = experiment.submit(pipeline)
 pipeline_run.wait_for_completion()
 ```
 
-L’extrait de code commence par les objets Azure Machine Learning communs, un `Workspace`, un `Datastore`, un [ComputeTarget](/python/api/azureml-core/azureml.core.computetarget?preserve-view=true&view=azure-ml-py) et un `Experiment`. Ensuite, le code crée les objets pour contenir `input_data` et `output_data`. `input_data` est une instance de [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py&preserve-view=true) tandis que `output_data` est une instance de [OutputFileDatasetConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true). Pour `OutputFileDatasetConfig`, le comportement par défaut consiste à copier la sortie dans le magasin de données `workspaceblobstore`, sous `/dataset/{run-id}/{output-name}`, sachant que `run-id` correspond à l’ID de l’exécution et que la valeur `output-name` est générée automatiquement si elle n’est pas spécifiée par le développeur.
+L’extrait de code commence par les objets Azure Machine Learning communs, un `Workspace`, un `Datastore`, un [ComputeTarget](/python/api/azureml-core/azureml.core.computetarget?preserve-view=true&view=azure-ml-py) et un `Experiment`. Ensuite, le code crée les objets pour contenir `input_data` et `output_data`. `input_data` est une instance de [FileDataset](/python/api/azureml-core/azureml.data.filedataset?preserve-view=true&view=azure-ml-py) tandis que `output_data` est une instance de [OutputFileDatasetConfig](/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py). Pour `OutputFileDatasetConfig`, le comportement par défaut consiste à copier la sortie dans le magasin de données `workspaceblobstore`, sous `/dataset/{run-id}/{output-name}`, sachant que `run-id` correspond à l’ID de l’exécution et que la valeur `output-name` est générée automatiquement si elle n’est pas spécifiée par le développeur.
 
 Le tableau `steps` contient un élément unique, un `PythonScriptStep` qui utilisera les objets de données et s’exécutera sur le `compute_target`. Ensuite, le code instancie l’objet `Pipeline` lui-même, en transmettant l’espace de travail et le tableau d’étapes. L’appel à `experiment.submit(pipeline)` commence l’exécution du pipeline Azure ML. L’appel à `wait_for_completion()` se bloque jusqu’à ce que le pipeline soit terminé. 
 
@@ -149,7 +149,7 @@ Voici les principaux avantages de l’utilisation des pipelines pour des workflo
 
 Les pipelines Azure Machine Learning sont une fonctionnalité puissante qui commence à générer de la valeur dès les premières étapes du développement. La valeur augmente à mesure que l’équipe et le projet s’étendent. Cet article a expliqué comment les pipelines sont spécifiés avec le Kit de développement logiciel (SDK) Azure Machine Learning Python et orchestrés sur Azure. Vous avez vu du code source simple et vous avez bénéficié d’une introduction à quelques-unes des classes `PipelineStep` disponibles. Vous devriez à présent savoir quand utiliser les pipelines Azure Machine Learning et de quelle façon Azure les exécute. 
 
-+ Découvrez comment [créer votre premier pipeline](how-to-create-your-first-pipeline.md).
++ Découvrez comment [créer votre premier pipeline](./how-to-create-machine-learning-pipelines.md).
 
 + Découvrez comment [exécuter des prédictions par lots sur de grandes quantités de données](tutorial-pipeline-batch-scoring-classification.md ).
 

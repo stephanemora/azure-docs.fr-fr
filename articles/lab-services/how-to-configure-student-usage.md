@@ -3,12 +3,12 @@ title: Configuration des paramètres d’utilisation dans les labos d’Azure La
 description: Découvrez comment configurer le nombre d’étudiants d’un labo, les inscrire au labo, contrôler le nombre d’heures pendant lesquelles ils peuvent utiliser la machine virtuelle, et bien plus encore.
 ms.topic: article
 ms.date: 12/01/2020
-ms.openlocfilehash: 3b05246445aea708312891ec631a35da3bc1eb8e
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 380a587eecb276c457b93ca3c3f3ac08b2239275
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602629"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791961"
 ---
 # <a name="add-and-manage-lab-users"></a>Ajouter et gérer des utilisateurs lab
 
@@ -24,7 +24,7 @@ Cet article explique comment ajouter des utilisateurs à un labo.
 
 Vous pouvez désormais synchroniser une liste d’utilisateurs du labo avec un groupe Azure AD (Azure Active Directory) existant, ce qui vous évite d’avoir à ajouter ou supprimer manuellement les utilisateurs. 
 
-Vous pouvez créer un groupe Azure AD dans l’annuaire Azure Active Directory de votre organisation pour gérer l’accès aux ressources organisationnelles et aux applications cloud. Pour plus d’informations, consultez [Groupes Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups). Si votre organisation utilise des services Microsoft Office 365 ou Azure, elle a déjà des administrateurs qui gèrent votre annuaire Azure Active Directory. 
+Vous pouvez créer un groupe Azure AD dans l’annuaire Azure Active Directory de votre organisation pour gérer l’accès aux ressources organisationnelles et aux applications cloud. Pour plus d’informations, consultez [Groupes Azure AD](../active-directory/fundamentals/active-directory-manage-groups.md). Si votre organisation utilise des services Microsoft Office 365 ou Azure, elle a déjà des administrateurs qui gèrent votre annuaire Azure Active Directory. 
 
 ### <a name="sync-users-with-azure-ad-group"></a>Synchroniser des utilisateurs avec un groupe Azure AD
 

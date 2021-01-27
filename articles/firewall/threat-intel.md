@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 05/12/2020
 ms.author: victorh
-ms.openlocfilehash: e51cc8905a7b4a88bb7f7dabaf24bb30159ff86c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77e36d5ab98f1177b5a0b89ee10b3e6bd22560c2
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83655070"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791457"
 ---
 # <a name="azure-firewall-threat-intelligence-based-filtering"></a>Fonctionnalité de filtrage basé sur la Threat Intelligence du Pare-feu Azure
 
@@ -27,7 +27,7 @@ Vous pouvez vous contenter d'enregistrer une alerte lorsqu'une règle est décle
 
 Par défaut, le filtrage basé sur la Threat Intelligence est activé en mode d'alerte. Vous ne pouvez pas désactiver cette fonctionnalité ni changer de mode tant que l'interface du portail n'est pas disponible dans votre région.
 
-:::image type="content" source="media/threat-intel/threat-intel-ui.png" alt-text="Renseignement sur les menaces du pare-feu":::
+:::image type="content" source="media/threat-intel/threat-intel-ui.png" alt-text="Interface du portail de filtrage basé sur le renseignement sur les menaces":::
 
 ## <a name="logs"></a>Journaux d’activité
 
@@ -53,6 +53,6 @@ L'extrait de journal suivant montre une règle déclenchée :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Consultez [Exemples Log Analytics pour le Pare-feu Azure](log-analytics-samples.md)
+- Consultez [Exemples Log Analytics pour le Pare-feu Azure](./firewall-workbook.md)
 - Apprenez à [déployer et configurer un Pare-feu Azure](tutorial-firewall-deploy-portal.md)
 - Consultez le [Rapport des renseignements de sécurité de Microsoft](https://www.microsoft.com/en-us/security/operations/security-intelligence-report)

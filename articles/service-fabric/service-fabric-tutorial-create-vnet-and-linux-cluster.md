@@ -4,12 +4,12 @@ description: Découvrez comment déployer un cluster Service Fabric Linux dans u
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 52eba2e5780b1a66f3884a764631908335372273
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 77cc49c1b79e5c24e78a67a69493aa0b0059d565
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92738963"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791069"
 ---
 # <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Déployer un cluster Service Fabric Linux dans un réseau virtuel Azure
 
@@ -52,7 +52,7 @@ Ce modèle déploie un cluster sécurisé de sept machines virtuelles et trois 
 
 ### <a name="service-fabric-cluster"></a>Cluster Service Fabric
 
-Dans la ressource **Microsoft.ServiceFabric/clusters** , un cluster Linux est déployé avec les caractéristiques suivantes :
+Dans la ressource **Microsoft.ServiceFabric/clusters**, un cluster Linux est déployé avec les caractéristiques suivantes :
 
 * Trois types de nœuds
 * Cinq nœuds dans le type de nœud principal (configurable dans les paramètres du modèle) et un nœud dans chacun des autres types
@@ -66,7 +66,7 @@ Dans la ressource **Microsoft.ServiceFabric/clusters** , un cluster Linux est d�
 
 ### <a name="azure-load-balancer"></a>Équilibrage de charge Azure
 
-Dans la ressource **Microsoft.Network/loadBalancers** , un équilibreur de charge est configuré et des sondes et règles sont configurées pour les ports suivants :
+Dans la ressource **Microsoft.Network/loadBalancers**, un équilibreur de charge est configuré et des sondes et règles sont configurées pour les ports suivants :
 
 * point de terminaison de connexion client : 19000
 * point de terminaison de passerelle HTTP : 19080
@@ -106,7 +106,7 @@ Dans cet article, le modèle déploie un cluster qui utilise l’empreinte numé
 
 ### <a name="create-a-cluster-using-an-existing-certificate"></a>Créer un cluster à l’aide d’un certificat existant
 
-Le script suivant utilise la commande [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest) et le modèle pour déployer un nouveau cluster sécurisé à l’aide d’un certificat existant. La commande crée aussi un coffre de clés dans Azure et charge votre certificat.
+Le script suivant utilise la commande [az sf cluster create](/cli/azure/sf/cluster) et le modèle pour déployer un nouveau cluster sécurisé à l’aide d’un certificat existant. La commande crée aussi un coffre de clés dans Azure et charge votre certificat.
 
 ```azurecli
 ResourceGroupName="sflinuxclustergroup"
@@ -132,7 +132,7 @@ az sf cluster create --resource-group $ResourceGroupName --location $Location \
 
 ### <a name="create-a-cluster-using-a-new-self-signed-certificate"></a>Créer un cluster à l’aide d’un nouveau certificat auto-signé
 
-Le script suivant utilise la commande [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest) et un modèle pour déployer un nouveau cluster dans Azure. La commande crée aussi un coffre de clés dans Azure, ajoute un nouveau certificat autosigné dans le coffre de clés, puis télécharge le fichier de certificat localement.
+Le script suivant utilise la commande [az sf cluster create](/cli/azure/sf/cluster) et un modèle pour déployer un nouveau cluster dans Azure. La commande crée aussi un coffre de clés dans Azure, ajoute un nouveau certificat autosigné dans le coffre de clés, puis télécharge le fichier de certificat localement.
 
 ```azurecli
 ResourceGroupName="sflinuxclustergroup"

@@ -3,12 +3,12 @@ title: Vue d’ensemble des fonctionnalités d’Azure Event Hubs | Microsoft Do
 description: Cet article décrit en détails les fonctionnalités et la terminologie d’Azure Event Hubs.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 60dc964d1b827eec75ee4f65a5776710e57fd6eb
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 8860a8aa83a17b12236dd47d79479a82846fa8a8
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98195787"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791944"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Fonctionnalités et terminologie dans Azure Event Hubs
 
@@ -56,7 +56,7 @@ Les événements publiés sont supprimés d’un Event Hub selon une stratégie 
 >
 > [Event Hubs Capture](event-hubs-capture-overview.md) s’intègre directement à Stockage Blob Azure et Azure Data Lake Storage et, grâce à cette intégration, permet également le [flux des événements directement dans Azure Synapse](store-captured-data-data-warehouse.md).
 >
-> Si vous souhaitez utiliser le modèle [Approvisionnement en événements](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing) pour votre application, vous devez aligner votre stratégie d’instantané sur les limites de rétention d’Event Hubs. N’essayez pas de reconstruire des vues matérialisées à partir d’événements bruts depuis le tout début. Vous en viendriez sûrement à regretter une telle stratégie une fois que votre application sera en production pendant un certain temps et bien utilisée et que votre générateur de projection devra passer par des années d’événements de modification tout en tentant de rattraper les modifications les plus récentes et celles en cours. 
+> Si vous souhaitez utiliser le modèle [Approvisionnement en événements](/azure/architecture/patterns/event-sourcing) pour votre application, vous devez aligner votre stratégie d’instantané sur les limites de rétention d’Event Hubs. N’essayez pas de reconstruire des vues matérialisées à partir d’événements bruts depuis le tout début. Vous en viendriez sûrement à regretter une telle stratégie une fois que votre application sera en production pendant un certain temps et bien utilisée et que votre générateur de projection devra passer par des années d’événements de modification tout en tentant de rattraper les modifications les plus récentes et celles en cours. 
 
 
 ### <a name="publisher-policy"></a>Stratégie de l'éditeur

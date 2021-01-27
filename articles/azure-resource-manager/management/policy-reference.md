@@ -1,15 +1,15 @@
 ---
 title: Définitions de stratégie intégrées pour Azure Resource Manager
 description: Liste les définitions de stratégie intégrées d’Azure Policy pour Azure Resource Manager. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de vos ressources Azure.
-ms.date: 01/08/2021
+ms.date: 01/25/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 4bbd65801cac300a11d4fb1e62503ac1c9e5a574
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: ee66f9641d63af604d592c8b0436675b612e1b56
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98046009"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98808281"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-resource-manager"></a>Définitions intégrées d’Azure Policy pour Azure Resource Manager
 

@@ -7,12 +7,12 @@ ms.date: 9/12/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 04427a1eb2760e44086003a06ed4eb0d5cb473bf
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 76b83a608c7178b42b762d5fd5bb94d14a6ee41b
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673322"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797758"
 ---
 # <a name="introduction-to-azure-defender-for-kubernetes"></a>Présentation d’Azure Defender pour Kubernetes
 
@@ -113,6 +113,6 @@ Dans cet article, vous avez découvert la protection Kubernetes de Security Cent
 
 Pour des informations connexes, consultez les articles suivants : 
 
-- [Activation d’Azure Defender](security-center-pricing.md)
+- [Activation d’Azure Defender](security-center-pricing.md#enable-azure-defender)
 - [Diffuser des alertes vers un système SIEM, SOAR ou une solution de gestion des services informatiques](export-to-siem.md)
 - [Table de référence des alertes](alerts-reference.md)

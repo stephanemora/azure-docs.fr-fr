@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 01/08/2021
+ms.date: 01/25/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 77e693dd57309e9b93fea37a74d5f7292b4806e7
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: cc9be2fadbfd209ebf31d3a8b6c00522a2dcf5bf
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98044864"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98802604"
 ---
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -32,4 +32,3 @@ ms.locfileid: "98044864"
 |[Les machines virtuelles doivent être migrées vers de nouvelles ressources Azure Resource Manager](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1d84d5fb-01f6-4d12-ba4f-4a26081d403d) |Utilisez le nouvel Azure Resource Manager pour renforcer la sécurité de vos machines virtuelles : contrôle d’accès en fonction du rôle (RBAC) renforcé, audit amélioré, déploiement et gouvernance basés sur Azure Resource Manager, accès aux identités managées, accès au coffre de clés pour les secrets, authentification basée sur Azure AD, et prise en charge des étiquettes et des groupes de ressources pour faciliter la gestion de la sécurité. |Audit, Refuser, Désactivé |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/ClassicCompute_Audit.json) |
 |[Les vulnérabilités dans les configurations de la sécurité des conteneurs doivent être corrigées](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe8cbc669-f12d-49eb-93e7-9273119e9933) |Auditer les vulnérabilités dans la configuration de sécurité sur les machines où Docker est installé et afficher en tant que recommandations dans Azure Security Center. |AuditIfNotExists, Désactivé |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_ContainerBenchmark_Audit.json) |
 |[Les vulnérabilités dans la configuration de la sécurité sur vos machines doivent être corrigées](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe1e5fd5d-3e4c-4ce1-8661-7d1873ae6b15) |Les serveurs qui ne respectent pas la base de référence configurée seront supervisés par Azure Security Center en tant que recommandation |AuditIfNotExists, Désactivé |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_OSVulnerabilities_Audit.json) |
-|[Les vulnérabilités doivent être corrigées avec une solution d’évaluation des vulnérabilités](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F760a85ff-6162-42b3-8d70-698e268f648c) |Surveille les vulnérabilités détectées par la solution d’évaluation des vulnérabilités et les machines virtuelles sans solution d’évaluation des vulnérabilités dans Azure Security Center en tant que recommandation. |AuditIfNotExists, Désactivé |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_VMVulnerabilities_Audit.json) |

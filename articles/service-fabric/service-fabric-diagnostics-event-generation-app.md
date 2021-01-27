@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: e1871df962a26def8c12000f8b8bc0cf31bae9a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1df5d033701195f4fe5f6b7174f3883b84393ab
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86247657"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791271"
 ---
 # <a name="application-logging"></a>Journalisation des applications
 
@@ -22,7 +22,7 @@ Pour obtenir des exemples d’utilisation de ces suggestions, consultez [Ajouter
 
 ## <a name="application-insights-sdk"></a>Kit de développement logiciel (SDK) Application Insights
 
-Application Insights bénéficie d’une intégration riche et prête à l’emploi avec Service Fabric. Les utilisateurs peuvent ajouter les packages NuGet AI Service Fabric et ainsi recevoir des données et journaux d’activité créés et collectés tel qu’affichés dans le Portail Azure. En outre, ils sont invités à ajouter leurs propres données de télémétrie pour diagnostiquer et déboguer leurs applications, mais aussi pour effectuer le suivi des services et parties de leur application les plus utilisés. Dans le SDK, la classe [TelemetryClient](/dotnet/api/microsoft.applicationinsights.telemetryclient?view=azure-dotnet) offre de nombreuses façons d’effectuer le suivi des données de télémétrie dans vos applications. Regardez un exemple dans notre didacticiel montrant comment utiliser et ajouter Application Insights à votre application pour [surveiller et diagnostiquer une application .NET](service-fabric-tutorial-monitoring-aspnet.md).
+Application Insights bénéficie d’une intégration riche et prête à l’emploi avec Service Fabric. Les utilisateurs peuvent ajouter les packages NuGet AI Service Fabric et ainsi recevoir des données et journaux d’activité créés et collectés tel qu’affichés dans le Portail Azure. En outre, ils sont invités à ajouter leurs propres données de télémétrie pour diagnostiquer et déboguer leurs applications, mais aussi pour effectuer le suivi des services et parties de leur application les plus utilisés. Dans le SDK, la classe [TelemetryClient](/dotnet/api/microsoft.applicationinsights.telemetryclient) offre de nombreuses façons d’effectuer le suivi des données de télémétrie dans vos applications. Regardez un exemple dans notre didacticiel montrant comment utiliser et ajouter Application Insights à votre application pour [surveiller et diagnostiquer une application .NET](service-fabric-tutorial-monitoring-aspnet.md).
 
 ## <a name="eventsource"></a>EventSource
 

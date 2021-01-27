@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 12/29/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7418e5578450367e9fa37a87adb6e7036619877b
-ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
+ms.openlocfilehash: e098256a43add6df026ab136bcd6a6b549c147e7
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97827446"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98871313"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>Configurations de la charge de travail SAP avec des zones de disponibilité Azure
 En plus du déploiement des différentes couches d’architecture SAP dans les groupes à haute disponibilité Azure, les nouvelles [Zones de disponibilité Azure](../../../availability-zones/az-overview.md) peuvent également être utilisées pour le déploiements des charges de travail SAP. La définition des zones de disponibilité Azure est la suivante : « Emplacements physiques uniques dans une région. Chaque zone de disponibilité est composée d’un ou de plusieurs centres de données équipés d’une alimentation, d’un système de refroidissement et d’un réseau indépendants. » Les zones de disponibilité Azure ne sont pas disponibles dans toutes les régions. Pour les régions Azure qui fournissent des Zones de disponibilité, consultez la [carte des régions Azure](https://azure.microsoft.com/global-infrastructure/geographies/). Cette carte vous montre quelles régions fournissent ou vont prochainement fournir des Zones de disponibilité. 
@@ -56,7 +56,7 @@ Quand vous déployez des machines virtuelles Azure sur des zones de disponibilit
 
 - Vous devez utiliser [Azure Disques managés](https://azure.microsoft.com/services/managed-disks/) pour un déploiement sur des zones de disponibilité Azure. 
 - Le mappage des énumérations de zones aux zones physiques est fixe sur la base d’un abonnement Azure. Si vous utilisez différents abonnements pour déployer vos systèmes SAP, vous devez définir les zones idéales pour chaque abonnement.
-- Vous ne pouvez pas déployer de groupes à haute disponibilité Azure au sein d’une zone de disponibilité Azure, sauf si vous utilisez un [groupe de placements de proximité Azure](../../linux/co-location.md). La façon dont vous pouvez déployer la couche SGBD SAP et les services centraux entre les zones et, en même temps, déployer la couche d’application SAP à l’aide de groupes à haute disponibilité tout en continuant à proposer une proximité des machines virtuelles est décrite dans l’article [Groupes de placements de proximité Azure pour une latence réseau optimale avec les applications SAP](sap-proximity-placement-scenarios.md). Si vous ne tirez pas parti des groupes de placements de proximité Azure, vous devez choisir l’un ou l’autre comme infrastructure de déploiement pour les machines virtuelles.
+- Vous ne pouvez pas déployer de groupes à haute disponibilité Azure au sein d’une zone de disponibilité Azure, sauf si vous utilisez un [groupe de placements de proximité Azure](../../co-location.md). La façon dont vous pouvez déployer la couche SGBD SAP et les services centraux entre les zones et, en même temps, déployer la couche d’application SAP à l’aide de groupes à haute disponibilité tout en continuant à proposer une proximité des machines virtuelles est décrite dans l’article [Groupes de placements de proximité Azure pour une latence réseau optimale avec les applications SAP](sap-proximity-placement-scenarios.md). Si vous ne tirez pas parti des groupes de placements de proximité Azure, vous devez choisir l’un ou l’autre comme infrastructure de déploiement pour les machines virtuelles.
 - Vous ne pouvez pas utiliser un [équilibreur de charge de base Azure](../../../load-balancer/load-balancer-overview.md) pour créer des solutions de cluster de basculement basées sur le clustering de basculement Windows Server ou Linux Pacemaker. Vous devez plutôt utiliser la [référence SKU Standard Load Balancer Azure](../../../load-balancer/load-balancer-standard-availability-zones.md).
 
 
@@ -130,7 +130,7 @@ Voici un schéma simplifié d’un déploiement actif/actif sur deux zones :
 
 Les considérations suivantes s’appliquent pour cette configuration :
 
-- Si vous n’utilisez pas de [groupe de placements de proximité](../../linux/co-location.md), vous traitez les zones de disponibilité Azure comme des domaines d’erreur et de mise à jour pour toutes les machines virtuelles, car les groupes à haute disponibilité ne peuvent pas être déployés dans des zones de disponibilité Azure.
+- Si vous n’utilisez pas de [groupe de placements de proximité](../../co-location.md), vous traitez les zones de disponibilité Azure comme des domaines d’erreur et de mise à jour pour toutes les machines virtuelles, car les groupes à haute disponibilité ne peuvent pas être déployés dans des zones de disponibilité Azure.
 - Si vous souhaitez combiner des déploiements zonaux pour la couche SGBD et les services centraux, mais que vous souhaitez utiliser des groupes à haute disponibilité Azure pour la couche Application, vous devez utiliser des groupes de proximité Azure, comme décrit dans l’article [Groupes de placements de proximité Azure pour une latence réseau optimale avec les applications SAP](sap-proximity-placement-scenarios.md).
 - Pour les équilibreurs de charge des clusters de basculement de SAP Central Services et la couche SGBD, vous devez utiliser le service [Azure Load Balancer de la référence SKU standard](../../../load-balancer/load-balancer-standard-availability-zones.md). L’équilibreur de charge de base ne fonctionne pas entre des zones.
 - Le réseau virtuel Azure que vous avez déployé pour héberger le système SAP, ainsi que ses sous-réseaux, est réparti sur plusieurs zones. Vous n’avez pas besoin de réseaux virtuels distincts pour chaque zone.

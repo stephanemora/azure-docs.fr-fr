@@ -3,12 +3,12 @@ title: Préparation du déploiement d’un cluster autonome
 description: Documentation relative à la préparation de l’environnement et la création de la configuration du cluster, à prendre en considération avant de déployer un cluster conçu pour gérer une charge de travail de production.
 ms.topic: conceptual
 ms.date: 9/11/2018
-ms.openlocfilehash: 277c7e047815b3b4171f7cced203ecbe5b68b155
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 18b8b0ce8c0e877bf9dd274596b19f85b1febe12
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509170"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790950"
 ---
 # <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>Planifier et préparer votre déploiement de cluster Service Fabric autonome
 
@@ -57,7 +57,7 @@ Voici les spécifications recommandées pour les ordinateurs d’un cluster Serv
 * Connectivité à un ou plusieurs réseaux sécurisés pour tous les ordinateurs
 * Système d’exploitation Windows Server installé (versions valides 2012 R2, 2016, 1709 ou 1803). Les versions 6.4.654.9590 et ultérieures de Service Fabric prennent également en charge Windows Server 2019 et 1809.
 * [.NET Framework 4.5.1 ou version ultérieure](https://www.microsoft.com/download/details.aspx?id=40773), installation complète
-* [Windows PowerShell 3.0](/powershell/scripting/windows-powershell/install/installing-windows-powershell?view=powershell-7)
+* [Windows PowerShell 3.0](/powershell/scripting/windows-powershell/install/installing-windows-powershell)
 * Le [service RemoteRegistry](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754820(v=ws.11)) doit être exécuté sur tous les ordinateurs
 * **Le lecteur d’installation de Service Fabric doit être un système de fichiers NTFS.**
 * **Les services Windows *Journaux de performances et alertes* et *Journal des événements Windows* doivent [être activés](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc755249(v=ws.11))** .

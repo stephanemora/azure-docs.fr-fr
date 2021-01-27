@@ -11,12 +11,12 @@ author: jhirono
 ms.date: 11/20/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 8d3145639d2d4fb64bdb374f1dea0a7b70e4151c
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 2215c47fcd250a9ac1d6621f7e4b434bd33b3832
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724712"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98871093"
 ---
 # <a name="how-to-use-your-workspace-with-a-custom-dns-server"></a>Utilisation de votre espace de travail avec un serveur DNS personnalisé
 
@@ -116,4 +116,4 @@ Les informations retournées par toutes les méthodes sont les mêmes : une lis
 
 Pour plus d’informations sur l’utilisation d’Azure Machine Learning avec un réseau virtuel, consultez [Présentation du réseau virtuel](how-to-network-security-overview.md).
 
-Pour plus d’informations sur l’intégration des points de terminaison privés dans votre configuration DNS, consultez [Configuration DNS du point de terminaison privé Azure](https://docs.microsoft.com/azure/private-link/private-endpoint-dns).
+Pour plus d’informations sur l’intégration des points de terminaison privés dans votre configuration DNS, consultez [Configuration DNS du point de terminaison privé Azure](../private-link/private-endpoint-dns.md).

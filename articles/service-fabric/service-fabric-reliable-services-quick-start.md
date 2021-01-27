@@ -4,12 +4,12 @@ description: Introduction à la création d'une application Microsoft Azure Serv
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: sfrev, devx-track-csharp
-ms.openlocfilehash: 1de77f870bce5766ab704249034d6d7b6c8b098e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 45341c98a40cbcabfa8b96f2016f02f1755fe2b3
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89012736"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791525"
 ---
 # <a name="get-started-with-reliable-services"></a>Prise en main de Reliable Services
 
@@ -49,7 +49,7 @@ Votre solution contient maintenant deux projets :
 
 Ouvrez le fichier **HelloWorldStateless.cs** dans le projet de service. Dans Service Fabric, un service peut exécuter n’importe quelle logique métier. L'API de service fournit deux points d'entrée pour votre code :
 
-* Une méthode de point d’entrée de durée indéterminée appelée *RunAsync*avec laquelle vous pouvez commencer l’exécution de toute charge de travail, y compris les charges de travail de calcul de longue durée.
+* Une méthode de point d’entrée de durée indéterminée appelée *RunAsync* avec laquelle vous pouvez commencer l’exécution de toute charge de travail, y compris les charges de travail de calcul de longue durée.
 
 ```csharp
 protected override async Task RunAsync(CancellationToken cancellationToken)
@@ -127,7 +127,7 @@ Votre application doit maintenant contenir deux services : le service sans état
 
 Un service avec état a les mêmes points d'entrée qu'un service sans état. La principale différence est la disponibilité d’un *fournisseur d’état* qui peut stocker l’état de manière fiable. Service Fabric est fourni avec une implémentation de fournisseur d’état appelée [Reliable Collections](service-fabric-reliable-services-reliable-collections.md), qui vous permet de créer des structures de données répliquées via le Gestionnaire d’état fiable. Un Reliable Service avec état utilise ce fournisseur d’état par défaut.
 
-Ouvrez **HelloWorldStateful.cs** dans *HelloWorldStateful*qui contient la méthode RunAsync suivante :
+Ouvrez **HelloWorldStateful.cs** dans *HelloWorldStateful* qui contient la méthode RunAsync suivante :
 
 ```csharp
 protected override async Task RunAsync(CancellationToken cancellationToken)
@@ -169,11 +169,11 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 var myDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, long>>("myDictionary");
 ```
 
-[IReliableDictionary](/dotnet/api/microsoft.servicefabric.data.collections.ireliabledictionary-2?view=azure-dotnet#microsoft_servicefabric_data_collections_ireliabledictionary_2) est une implémentation de dictionnaire qui peut servir à stocker de façon fiable l’état dans le service. Avec Service Fabric et les collections fiables, vous pouvez stocker des données directement dans votre service sans avoir besoin d’un magasin persistant externe. Les Reliable Collections rendent vos données hautement disponibles. Pour ce faire, Service Fabric crée et gère plusieurs *réplicas* de votre service pour vous. Il fournit également une API qui élimine la complexité de la gestion de ces réplicas et leurs transitions d’état.
+[IReliableDictionary](/dotnet/api/microsoft.servicefabric.data.collections.ireliabledictionary-2#microsoft_servicefabric_data_collections_ireliabledictionary_2) est une implémentation de dictionnaire qui peut servir à stocker de façon fiable l’état dans le service. Avec Service Fabric et les collections fiables, vous pouvez stocker des données directement dans votre service sans avoir besoin d’un magasin persistant externe. Les Reliable Collections rendent vos données hautement disponibles. Pour ce faire, Service Fabric crée et gère plusieurs *réplicas* de votre service pour vous. Il fournit également une API qui élimine la complexité de la gestion de ces réplicas et leurs transitions d’état.
 
 Les collections fiables peuvent stocker n’importe quel type .NET, y compris vos types personnalisés, avec quelques inconvénients :
 
-* Service Fabric rend votre état hautement disponible en *répliquant* l’état sur tous les nœuds, et les Reliable Collections stockent vos données sur le disque local de chaque réplica. Cela signifie que tout ce qui est stocké dans les Reliable Collections doit être *sérialisable*. Par défaut, les Reliable Collections utilisent [DataContract](/dotnet/api/system.runtime.serialization.datacontractattribute?view=netcore-3.1) pour la sérialisation. Il est donc important de vérifier que vos types sont [pris en charge par le sérialiseur de contrat de données](/dotnet/framework/wcf/feature-details/types-supported-by-the-data-contract-serializer) quand vous utilisez le sérialiseur par défaut.
+* Service Fabric rend votre état hautement disponible en *répliquant* l’état sur tous les nœuds, et les Reliable Collections stockent vos données sur le disque local de chaque réplica. Cela signifie que tout ce qui est stocké dans les Reliable Collections doit être *sérialisable*. Par défaut, les Reliable Collections utilisent [DataContract](/dotnet/api/system.runtime.serialization.datacontractattribute) pour la sérialisation. Il est donc important de vérifier que vos types sont [pris en charge par le sérialiseur de contrat de données](/dotnet/framework/wcf/feature-details/types-supported-by-the-data-contract-serializer) quand vous utilisez le sérialiseur par défaut.
 * Les objets sont répliqués à des fins de haute disponibilité quand vous envoyez des transactions sur des collections fiables. Les objets stockés dans les collections fiables sont conservés dans la mémoire locale de votre service. Cela signifie que vous avez une référence locale à l’objet.
   
    Il est important de ne pas muter les instances locales de ces objets sans effectuer une opération de mise à jour sur la collection fiable dans une transaction. En effet, les modifications des instances locales d’objets ne sont pas répliquées automatiquement. Vous devez réinsérer l’objet dans le dictionnaire ou utiliser l’une des méthodes de *mise à jour* sur le dictionnaire.

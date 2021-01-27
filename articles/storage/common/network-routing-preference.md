@@ -10,12 +10,13 @@ ms.date: 05/12/2020
 ms.author: santoshc
 ms.reviewer: tamram
 ms.subservice: common
-ms.openlocfilehash: 5b4a1b1f27dff059090d78e24a6a0eca0bbbf01f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: references_regions
+ms.openlocfilehash: 9afe58434d60280f635deab75b763077bc76b93c
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85514203"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797637"
 ---
 # <a name="configure-network-routing-preference-for-azure-storage-preview"></a>Configurer une préférence de routage réseau pour le service Stockage Azure (préversion)
 
@@ -65,9 +66,36 @@ Vous pouvez copier les chaînes de connexion pour les points de terminaison spé
 
 La préférence de routage pour le service Stockage Azure est disponible dans les régions suivantes :
 
-- France Sud
-- Centre-Nord des États-Unis
+- USA Centre 
+- EUAP USA Centre
+- USA Est 
+- USA Est 2
+- USA Est 2 
+- USA Est 2 (EUAP)
+- États-Unis - partie centrale méridionale
 - Centre-USA Ouest
+- USA Ouest 
+- USA Ouest 2 
+- France Centre 
+- France Sud 
+- Allemagne Nord 
+- Allemagne Centre-Ouest 
+- Centre-Nord des États-Unis
+- Europe Nord 
+- Norvège Est 
+- Suisse Nord
+- Suisse Ouest
+- Sud du Royaume-Uni 
+- Ouest du Royaume-Uni 
+- Europe Ouest 
+- Émirats arabes unis Centre
+- Asie Est 
+- Asie Sud-Est 
+- Japon Est 
+- OuJapon Est 
+- Inde Ouest
+- Australie Est 
+- Sud-Australie Est 
 
 Les problèmes connus suivants affectent la préversion de la préférence de routage pour le service Stockage Azure :
 

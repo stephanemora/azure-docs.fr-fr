@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 01/11/2021
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy20q4, devx-track-python, data4ml
-ms.openlocfilehash: 7285ab338e978f0de467f79bbce1d41409683b1e
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 80a995b488f335ac2eb60ae18621acb2b1df58e2
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132951"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98871534"
 ---
 # <a name="moving-data-into-and-between-ml-pipeline-steps-python"></a>Déplacement de données au sein d’un pipeline ML et vers un autre pipeline ML (Python)
 
@@ -53,7 +53,7 @@ Vous devez disposer des éléments suivants :
 
 - Des données préexistantes. Cet article présente brièvement l’utilisation d’un [conteneur d’objets Blob Azure](../storage/blobs/storage-blobs-overview.md).
 
-- Facultatif : Un pipeline de Machine Learning existant, tel que celui décrit dans [Créer et exécuter des pipelines de Machine Learning avec le kit SDK Azure Machine Learning](how-to-create-your-first-pipeline.md).
+- Facultatif : Un pipeline de Machine Learning existant, tel que celui décrit dans [Créer et exécuter des pipelines de Machine Learning avec le kit SDK Azure Machine Learning](./how-to-create-machine-learning-pipelines.md).
 
 ## <a name="use-dataset-objects-for-pre-existing-data"></a>Utiliser des objets `Dataset` pour les données préexistantes 
 
@@ -154,7 +154,7 @@ ds = Dataset.get_by_name(workspace=ws, name='mnist_opendataset')
 
 ## <a name="use-outputfiledatasetconfig-for-intermediate-data"></a>Utiliser `OutputFileDatasetConfig` pour les données intermédiaires
 
-Alors que les objets `Dataset` représentent uniquement des données persistantes, les objets [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true) peuvent être utilisés pour les données temporaires générées à partir d’étapes de pipeline **et** de données de sortie persistantes. `OutputFileDatasetConfig` prend en charge l’écriture de données dans le stockage blob, fileshare, adlsgen1 ou adlsgen2. Il prend en charge le mode montage et le mode chargement. En mode montage, les fichiers écrits dans le répertoire monté sont stockés de manière permanente lorsque le fichier est fermé. En mode chargement, les fichiers écrits dans le répertoire de sortie sont chargés à la fin du travail. Si le travail échoue ou est annulé, le répertoire de sortie n’est pas chargé.
+Alors que les objets `Dataset` représentent uniquement des données persistantes, les objets [`OutputFileDatasetConfig`](/python/api/azureml-core/azureml.data.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py) peuvent être utilisés pour les données temporaires générées à partir d’étapes de pipeline **et** de données de sortie persistantes. `OutputFileDatasetConfig` prend en charge l’écriture de données dans le stockage blob, fileshare, adlsgen1 ou adlsgen2. Il prend en charge le mode montage et le mode chargement. En mode montage, les fichiers écrits dans le répertoire monté sont stockés de manière permanente lorsque le fichier est fermé. En mode chargement, les fichiers écrits dans le répertoire de sortie sont chargés à la fin du travail. Si le travail échoue ou est annulé, le répertoire de sortie n’est pas chargé.
 
  Le comportement par défaut de l’objet `OutputFileDatasetConfig` consiste à écrire dans le magasin de données par défaut de l’espace de travail. Transmettez vos objets `OutputFileDatasetConfig` à votre `PythonScriptStep` avec le paramètre `arguments`.
 
@@ -244,4 +244,4 @@ step1_output_ds = step1_output_data.register_on_complete(name='processed_data',
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Créer un jeu de données Azure Machine Learning](how-to-create-register-datasets.md)
-* [Créer et exécuter des pipelines de machine learning avec le kit SDK Azure Machine Learning](how-to-create-your-first-pipeline.md)
+* [Créer et exécuter des pipelines de machine learning avec le kit SDK Azure Machine Learning](./how-to-create-machine-learning-pipelines.md)

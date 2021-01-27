@@ -3,12 +3,12 @@ title: Créer un cluster Azure Service Fabric
 description: Découvrez comment configurer un cluster Service Fabric sécurisé dans Azure à l’aide d’Azure Resource Manager.  Vous pouvez créer un cluster à l’aide d’un modèle par défaut ou à l’aide de votre propre modèle de cluster.
 ms.topic: conceptual
 ms.date: 08/16/2018
-ms.openlocfilehash: fd2c472d24f305e42f1706e5fc49168ccde2a580
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d4daa75fd9383bc19da1b09104ebddff5712c5b4
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96008665"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791809"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>Créer un cluster Service Fabric à l’aide d’Azure Resource Manager 
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ Dans cet article, utilisez les modules de gestionnaire de ressources Service Fab
 
 Vous trouverez la documentation de référence pour les modules Service Fabric ici :
 * [Az.ServiceFabric](/powershell/module/az.servicefabric)
-* [module CLI AZ SF](/cli/azure/sf?view=azure-cli-latest)
+* [module CLI AZ SF](/cli/azure/sf)
 
 ### <a name="sign-in-to-azure"></a>Connexion à Azure
 
@@ -285,6 +285,6 @@ Pour connaître la syntaxe JSON et les propriétés à utiliser dans un modèle,
 
 <!-- Links -->
 [azure-powershell]:https://docs.microsoft.com/powershell/azure/install-Az-ps
-[azure-CLI]:https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest
+[azure-CLI]:https://docs.microsoft.com/cli/azure/get-started-with-azure-cli
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [customize-your-cluster-template]: service-fabric-cluster-creation-create-template.md

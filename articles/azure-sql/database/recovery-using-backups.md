@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein, danil
 ms.date: 11/13/2020
-ms.openlocfilehash: a70571dcf380fc2186565a40778991ac70a218d6
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: 0c3db3b3f22f9f2639012068924708537f9ada77
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97797211"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98795336"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>Récupération à l’aide de sauvegardes de bases de données automatisées - Azure SQL Database et SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -53,8 +53,8 @@ Pour un seul abonnement, le nombre de requêtes de restauration simultanées est
 
 | **Option de déploiement** | **Nombre maximum de requêtes simultanées traitées** | **Nombre maximum de requêtes simultanées soumises** |
 | :--- | --: | --: |
-|**Base de données unique (par abonnement)**|10|60|
-|**Pool élastique (par pool)**|4|200|
+|**Base de données unique (par abonnement)**|30|100|
+|**Pool élastique (par pool)**|4|2000|
 
 
 Il n’existe aucune méthode intégrée permettant de restaurer l’intégralité du serveur. Pour obtenir un exemple d’exécution de cette tâche, consultez [Azure SQL Database : Full Server Recovery](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666).

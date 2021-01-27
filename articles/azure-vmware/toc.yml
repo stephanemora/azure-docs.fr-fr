@@ -1,6 +1,6 @@
 - name: Azure VMware Solution
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: À propos d’Azure VMware Solution
       href: introduction.md
@@ -14,7 +14,7 @@
       href: azure-vmware-solution-on-premises.md
     - name: 3 - Déployer et configurer VMware HCX
       href: tutorial-deploy-vmware-hcx.md
-- name: Didacticiels
+- name: Tutoriels
   items:
     - name: 1 - Check-list pour la planification réseau
       href: tutorial-network-checklist.md
@@ -85,7 +85,7 @@
         - name: Gestion de cycle de vie des machines virtuelles
           href: lifecycle-management-of-azure-vmware-solution-vms.md
         - name: Azure NetApp Files
-          href: net-app-files-with-azure-vmware-solution.md
+          href: netapp-files-with-azure-vmware-solution.md
         - name: Application Gateway
           href: protect-azure-vmware-solution-with-application-gateway.md
         - name: Traffic Manager

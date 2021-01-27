@@ -4,12 +4,12 @@ description: Découvrez comment utiliser ASP.NET Core dans des applications Azur
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ba5626d477bbd6aa07d89703cc37b157f4cfd4d5
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: a125c6a1972b51f518175a4c69248119f71ada7c
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576789"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791592"
 ---
 # <a name="aspnet-core-in-azure-service-fabric-reliable-services"></a>ASP.NET Core dans le modèle Azure Reliable Services de Service Fabric
 
@@ -190,7 +190,7 @@ Un port dynamique alloué par une configuration `Endpoint` fournit un seul port 
 ## <a name="kestrel-in-reliable-services"></a>Kestrel dans Reliable Services
 Vous pouvez utiliser Kestrel dans un service Reliable Service en important le paquet NuGet **Microsoft.ServiceFabric.AspNetCore.Kestrel**. Ce package contient `KestrelCommunicationListener`, une implémentation de `ICommunicationListener`. `KestrelCommunicationListener` vous permet de créer un WebHost ASP.NET Core dans un service Reliable Services utilisant Kestrel comme serveur web.
 
-Kestrel est un serveur Web multiplateforme pour ASP.NET Core. Contrairement à HTTP.sys, Kestrel n’utilise pas de gestionnaire de points de terminaison centralisé. Et également contrairement à HTTP.sys, Kestrel ne prend pas en charge le partage de port entre plusieurs processus. Chaque instance de Kestrel doit utiliser un port unique. Pour plus d’informations sur Kestrel, consultez les [Informations d’implémentation](/aspnet/core/fundamentals/servers/kestrel?view=aspnetcore-2.2).
+Kestrel est un serveur Web multiplateforme pour ASP.NET Core. Contrairement à HTTP.sys, Kestrel n’utilise pas de gestionnaire de points de terminaison centralisé. Et également contrairement à HTTP.sys, Kestrel ne prend pas en charge le partage de port entre plusieurs processus. Chaque instance de Kestrel doit utiliser un port unique. Pour plus d’informations sur Kestrel, consultez les [Informations d’implémentation](/aspnet/core/fundamentals/servers/kestrel).
 
 ![Diagramme de kestrel][4]
 

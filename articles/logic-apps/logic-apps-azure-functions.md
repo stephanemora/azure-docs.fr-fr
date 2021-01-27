@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/01/2019
 ms.custom: devx-track-js
-ms.openlocfilehash: fd04e5a7f084de7a95f20b54b99a9e4590f10cd7
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 7df9f7d072af7c5f6523fd1be0432ce51954fa10
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98034762"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791877"
 ---
 # <a name="call-functions-from-azure-logic-apps"></a>Appeler des fonctions à partir d’Azure Logic Apps
 
@@ -31,7 +31,7 @@ Pour exécuter des extraits de code sans utiliser Azure Functions, découvrez co
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/).
 
-* Une application de fonction, qui est un conteneur pour une fonction créée dans Azure Functions, ainsi que la fonction que vous créez. Si vous n’avez pas d’application de fonction, [créez-la en premier lieu](../azure-functions/functions-create-first-azure-function.md). Vous pouvez ensuite créer votre fonction soit à l’extérieur de votre application logique dans le portail Azure, soit [à partir de votre application logique](#create-function-designer) dans le Concepteur d’application logique.
+* Une application de fonction, qui est un conteneur pour une fonction créée dans Azure Functions, ainsi que la fonction que vous créez. Si vous n’avez pas d’application de fonction, [créez-la en premier lieu](../azure-functions/functions-get-started.md). Vous pouvez ensuite créer votre fonction soit à l’extérieur de votre application logique dans le portail Azure, soit [à partir de votre application logique](#create-function-designer) dans le Concepteur d’application logique.
 
 * Quand vous travaillez avec des applications logiques, les mêmes exigences s’appliquent aux applications de fonctions et aux fonctions, qu’elles soient nouvelles ou pas :
 
@@ -102,9 +102,9 @@ Maintenant que vous avez créé votre fonction dans Azure, suivez les étapes po
 
 ## <a name="create-functions-inside-logic-apps"></a>Créer des fonctions au sein d’applications logiques
 
-Vous pouvez créer des fonctions directement depuis le workflow de votre application logique à l’aide de l’action intégrée Azure Functions dans le Concepteur d’application logique, mais cette méthode est réservée aux fonctions écrites en JavaScript. Pour les autres langages, vous pouvez créer des fonctions via l’expérience Azure Functions du portail Azure. Pour plus d'informations, consultez [Créer votre première fonction à l’aide du portail Azure](../azure-functions/functions-create-first-azure-function.md).
+Vous pouvez créer des fonctions directement depuis le workflow de votre application logique à l’aide de l’action intégrée Azure Functions dans le Concepteur d’application logique, mais cette méthode est réservée aux fonctions écrites en JavaScript. Pour les autres langages, vous pouvez créer des fonctions via l’expérience Azure Functions du portail Azure. Pour plus d'informations, consultez [Créer votre première fonction à l’aide du portail Azure](../azure-functions/functions-get-started.md).
 
-Cela étant, avant de pouvoir créer votre fonction dans Azure, vous devez déjà disposer d’une application de fonction, à savoir d’un conteneur pour vos fonctions. Si vous n’avez pas d’application de fonction, créez-la en premier lieu. Voir [Créer votre première fonction à l’aide du portail Azure](../azure-functions/functions-create-first-azure-function.md).
+Cela étant, avant de pouvoir créer votre fonction dans Azure, vous devez déjà disposer d’une application de fonction, à savoir d’un conteneur pour vos fonctions. Si vous n’avez pas d’application de fonction, créez-la en premier lieu. Voir [Créer votre première fonction à l’aide du portail Azure](../azure-functions/functions-get-started.md).
 
 1. Dans le [portail Azure](https://portal.azure.com), ouvrez votre application logique dans le Concepteur d’applications logiques.
 

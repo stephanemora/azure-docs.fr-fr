@@ -1,18 +1,18 @@
 ---
 title: Définitions de stratégie intégrées pour Réseau virtuel Azure
 description: Liste les définitions de stratégie intégrées d’Azure Policy pour Azure Virtual Network. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de vos ressources Azure.
-ms.date: 01/08/2021
+ms.date: 01/25/2021
 ms.topic: reference
 author: KumudD
 ms.author: kumud
 ms.service: virtual-network
 ms.custom: subject-policy-reference
-ms.openlocfilehash: c3675728460474c9a0ded2edb75177af28f440e1
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: f17f7aab05110a3126882731b2182a535e93bd77
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98049998"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98808077"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-virtual-network"></a>Définitions intégrées d’Azure Policy pour Réseau virtuel Azure
 

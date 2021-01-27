@@ -3,19 +3,19 @@ title: SQL Server vers SQL Server sur machine virtuelle Azure (Vue d’ensemble 
 description: Découvrez les différentes stratégies de migration qui existent lorsque vous souhaitez migrer de SQL Server vers SQL Server sur des machines virtuelles Azure.
 ms.custom: ''
 ms.service: virtual-machines-sql
-ms.subservice: ''
+ms.subservice: migration-guide
 ms.devlang: ''
 ms.topic: how-to
 author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 11/06/2020
-ms.openlocfilehash: d08cb2761a8d8010c455ff959d6c247e8b64ef20
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: 0eabb48aabcb50557b342385068807eb67a9b165
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97746573"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797844"
 ---
 # <a name="migration-overview-sql-server-to-sql-server-on-azure-vms"></a>Vue d’ensemble de la migration : SQL Server vers SQL Server sur les machines virtuelles Azure
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
@@ -38,7 +38,7 @@ Migrez vers [SQL Server sur les machines virtuelles Azure](../../virtual-machine
 Réalisez des économies en dotant votre propre licence du [modèle de licence Azure Hybrid Benefit](../../virtual-machines/windows/licensing-model-azure-hybrid-benefit-ahb-change.md) ou étendez la prise en charge de SQL Server 2008 et SQL Server 2008 R2 en obtenant des [mises à jour de sécurité gratuites](../../virtual-machines/windows/sql-server-2008-extend-end-of-support.md). 
 
 
-## <a name="choosing-appropriate-target"></a>Choix de la cible appropriée
+## <a name="choose-appropriate-target"></a>Choisir la cible appropriée
 
 Les machines virtuelles Azure s’exécutent dans de nombreuses régions d’Azure et offrent également une variété de [tailles de machine](../../../virtual-machines/sizes.md) et d’[options de stockage](../../../virtual-machines/disks-types.md). Pour déterminer la taille correcte de la machine virtuelle et du stockage pour votre charge de travail SQL Server, consultez [Recommandations de performances pour SQL Server sur les machines virtuelles Azure](../../virtual-machines/windows/performance-guidelines-best-practices.md#vm-size-guidance). Pour déterminer les besoins en matière de stockage et de taille de machine virtuelle pour votre charge de travail, il est recommandé de les dimensionner par le biais d’une [évaluation Azure Migrate](../../../migrate/concepts-assessment-calculation.md#types-of-assessments) basée sur les performances. Si cette option n’est pas disponible, consultez l’article suivant sur la création de votre propre [ligne de base pour les performances](https://azure.microsoft.com/services/virtual-machines/sql-server/).
 

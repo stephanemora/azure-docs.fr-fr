@@ -3,12 +3,12 @@ title: Publier une offre de services gérés sur la place de marché Azure
 description: Découvrez comment publier une offre de service géré qui intègre les clients à Azure Lighthouse.
 ms.date: 12/17/2020
 ms.topic: how-to
-ms.openlocfilehash: a003e671631e9f23654eb524c7c2d937339a9588
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: f6bd504185fab3fc698019a3eb8c530ba93f8abc
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673152"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791371"
 ---
 # <a name="publish-a-managed-service-offer-to-azure-marketplace"></a>Publier une offre de services gérés sur la place de marché Azure
 
@@ -18,7 +18,7 @@ Dans cet article, vous allez découvrir comment publier une offre de service man
 
 Pour créer et publier des offres, vous devez disposer d’un [compte valide dans l’Espace partenaires](../../marketplace/partner-center-portal/create-account.md). Si vous n’avez pas encore de compte, le [processus d’inscription](https://aka.ms/joinmarketplace) vous guide lors des étapes de création de compte dans l’Espace partenaires et d’inscription au programme de la Place de marché commerciale.
 
-Conformément aux [exigences de certification des offres de services managés](/legal/marketplace/certification-policies#7004-business-requirements), vous devez disposer d’un [niveau de compétence de plateforme cloud Silver ou Gold](/partner-center/learn-about-competencies) ou être [Fournisseur de services managés Azure Expert](https://partner.microsoft.com/membership/azure-expert-msp) pour publier une offre de services managés. Vous devez également [entrer une destination de prospect qui créera un enregistrement dans votre système CRM](../../marketplace/partner-center-portal/create-new-managed-service-offer.md#customer-leads) chaque fois qu’un client déploiera votre offre.
+Conformément aux [exigences de certification des offres de services managés](/legal/marketplace/certification-policies#7004-business-requirements), vous devez disposer d’un [niveau de compétence de plateforme cloud Silver ou Gold](/partner-center/learn-about-competencies) ou être [Fournisseur de services managés Azure Expert](https://partner.microsoft.com/membership/azure-expert-msp) pour publier une offre de services managés. Vous devez également [entrer une destination de prospect qui créera un enregistrement dans votre système CRM](../../marketplace/plan-managed-service-offer.md#customer-leads) chaque fois qu’un client déploiera votre offre.
 
 Votre ID Microsoft Partner Network (MPN) est [automatiquement associé](../../cost-management-billing/manage/link-partner-id.md) aux offres que vous publiez pour suivre votre impact sur les engagements client.
 
@@ -38,7 +38,7 @@ Le tableau suivant peut vous aider à déterminer si des clients doivent être i
 
 ## <a name="create-your-offer"></a>Créer votre offre
 
-Pour obtenir des instructions détaillées sur la création de votre offre, y compris l’ensemble des informations et ressources que vous devrez fournir, consultez [Créer une offre de service managé](../../marketplace/partner-center-portal/create-new-managed-service-offer.md).
+Pour obtenir des instructions détaillées sur la création de votre offre, y compris l’ensemble des informations et ressources que vous devrez fournir, consultez [Créer une offre de service managé](../../marketplace/plan-managed-service-offer.md).
 
 Pour en savoir plus sur le processus général de publication, consultez [Guide de l’éditeur Place de marché Microsoft Azure et AppSource](../../marketplace/overview.md). Vous devez également examiner les [stratégies de certification de la Place de marché commerciale](/legal/marketplace/certification-policies), en particulier la section [Managed Services](/legal/marketplace/certification-policies#700-managed-services).
 
@@ -49,7 +49,7 @@ Après avoir ajouté votre offre, un client peut déléguer un ou plusieurs abon
 
 ## <a name="publish-your-offer"></a>Publier votre offre
 
-Lorsque vous avez terminé chacune des sections, l’étape suivante consiste à publier l’offre sur la Place de marché Azure. Sélectionnez le bouton **Publier** pour démarrer le processus de mise en ligne de votre offre. Pour plus d’informations sur ce processus, consultez cette [page](../../marketplace/partner-center-portal/create-new-managed-service-offer.md#publish). 
+Lorsque vous avez terminé chacune des sections, l’étape suivante consiste à publier l’offre sur la Place de marché Azure. Sélectionnez le bouton **Publier** pour démarrer le processus de mise en ligne de votre offre. Pour plus d’informations sur ce processus, consultez cette [page](../../marketplace/plan-managed-service-offer.md). 
 
 Vous pouvez [publier une version mise à jour de votre offre](../..//marketplace/partner-center-portal/update-existing-offer.md) à tout moment. Par exemple, vous pouvez souhaiter ajouter une nouvelle définition de rôle à une offre publiée précédemment. Dans ce cas, les clients qui ont déjà ajouté l’offre voient s’afficher une icône sur la page [**Fournisseurs de services**](view-manage-service-providers.md) du Portail Azure, ce qui leur permet de savoir qu’une mise à jour est disponible. Chaque client pourra [passer en revue les modifications](view-manage-service-providers.md#update-service-provider-offers) et décider s’il souhaite effectuer la mise à jour vers la nouvelle version. 
 

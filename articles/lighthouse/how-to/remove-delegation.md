@@ -3,12 +3,12 @@ title: Supprimer l’accès à une délégation
 description: Découvrez comment supprimer l’accès aux ressources qui ont été déléguées à un fournisseur de services pour Azure Lighthouse.
 ms.date: 12/03/2020
 ms.topic: how-to
-ms.openlocfilehash: d3442bb9fd2f6e7423fd4bf28cace1f7fd91ad80
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: 7218c8829c9b2500e8311fbb3d5e9ff4eb986529
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608450"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791354"
 ---
 # <a name="remove-access-to-a-delegation"></a>Supprimer l’accès à une délégation
 
@@ -41,7 +41,7 @@ L’exemple ci-dessous montre une affectation octroyant le **rôle Supprimer l�
     ] 
 ```
 
-Ce rôle peut également être sélectionné dans une **autorisation** lors de la [création d’une offre de service géré](../../marketplace/partner-center-portal/create-new-managed-service-offer.md#authorization) à publier sur la Place de marché Azure.
+Ce rôle peut également être sélectionné dans une **autorisation** lors de la [création d’une offre de service géré](../../marketplace/plan-managed-service-offer.md) à publier sur la Place de marché Azure.
 
 Un utilisateur disposant de cette autorisation peut supprimer une délégation de l’une des manières suivantes.
 

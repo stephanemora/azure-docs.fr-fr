@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: how-to
 ms.date: 06/18/2020
 ms.author: victorh
-ms.openlocfilehash: 2b1b68b32ccd5a4dda0b71736da4e2d1e2566b6b
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: c65f32cc3ce56ddf3fd235de8c002528e7a3cebd
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97348014"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791440"
 ---
 # <a name="configure-azure-firewall-application-rules-with-sql-fqdns"></a>Configurer des règles d’application de pare-feu Azure avec des noms de domaine complets SQL
 
@@ -96,7 +96,7 @@ Si vous utilisez des ports qui ne sont pas par défaut pour le trafic IaaS SQL, 
 3. Ajouter la règle d’application avec le protocole approprié, le port et le nom de domaine complet SQL, puis sélectionnez **Enregistrer**.
    ![règle d’application avec des noms de domaine complet SQL](media/sql-fqdn-filtering/application-rule-sql.png)
 4. Accédez à SQL à partir d’une machine virtuelle dans un réseau virtuel qui filtre le trafic à l’aide du pare-feu. 
-5. Vérifiez que les [journaux du pare-feu d’Azure](log-analytics-samples.md) sont autorisés à afficher le trafic.
+5. Vérifiez que les [journaux du pare-feu d’Azure](./firewall-workbook.md) sont autorisés à afficher le trafic.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
