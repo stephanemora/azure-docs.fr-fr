@@ -10,16 +10,16 @@ ms.author: jukullam
 ms.date: 10/19/2020
 ms.topic: conceptual
 ms.custom: github-actions-azure
-ms.openlocfilehash: e7f6066cb7ed5c166d3e2bdc3f895073b05b92b9
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: f5abeee3b1e1e44f5ce0423fc7f8170644d74508
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97605023"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880472"
 ---
 # <a name="use-github-actions-with-azure-machine-learning"></a>Utiliser GitHub Actions avec Azure Machine Learning
 
-Prise en main de [GitHub Actions](https://docs.github.com/en/free-pro-team@latest/actions) pour entraîner un modèle sur Azure Machine Learning. 
+Prise en main de [GitHub Actions](https://docs.github.com/en/actions) pour entraîner un modèle sur Azure Machine Learning. 
 
 > [!NOTE]
 > La fonctionnalité GitHub Actions pour Azure Machine Learning est fournie telle quelle et n’est pas entièrement prise en charge par Microsoft. Si vous rencontrez des problèmes avec une action spécifique, ouvrez un problème dans le référentiel pour l’action. Par exemple, si vous rencontrez un problème avec l’action aml-deploy, signalez le problème dans le référentiel [https://github.com/Azure/aml-deploy]( https://github.com/Azure/aml-deploy).
@@ -228,4 +228,4 @@ Lorsque votre groupe de ressource et référentiel ne sont plus nécessaires, ne
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Créer et exécuter des pipelines de machine learning avec le kit SDK Azure Machine Learning](how-to-create-your-first-pipeline.md)
+> [Créer et exécuter des pipelines de machine learning avec le kit SDK Azure Machine Learning](./how-to-create-machine-learning-pipelines.md)

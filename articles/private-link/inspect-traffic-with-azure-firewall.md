@@ -8,12 +8,12 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: allensu
-ms.openlocfilehash: 5cbfd90ca65a1fb75c9cbe5602ac2a69741e378f
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 7812d0f2e42dfed6cdd661244b77969297093a5d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96017234"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879171"
 ---
 # <a name="use-azure-firewall-to-inspect-traffic-destined-to-a-private-endpoint"></a>Utiliser Pare-feu Azure pour inspecter le trafic destiné à un point de terminaison privé
 
@@ -92,7 +92,7 @@ La mise en œuvre présente certaines limites : une migration vers une architec
 Vous pouvez implémenter cette architecture si vous avez configuré la connectivité avec votre réseau local à l’aide de l’une des deux méthodes suivantes : 
 
 * [ExpressRoute](..\expressroute\expressroute-introduction.md)
-* [VPN site à site](..\vpn-gateway\vpn-gateway-howto-site-to-site-resource-manager-portal.md) 
+* [VPN site à site](../vpn-gateway/tutorial-site-to-site-portal.md) 
 
 Si vos besoins en matière de sécurité exigent que le trafic client vers les services exposés via des points de terminaison privés soit acheminé par une appliance de sécurité, déployez ce scénario.
 

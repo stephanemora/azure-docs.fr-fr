@@ -11,12 +11,12 @@ author: lobrien
 ms.date: 8/25/2020
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q1
-ms.openlocfilehash: 9eb07721f9d507d69de10b6de6c8c2a358dab020
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 5dc14873f8863332d37a6ced6ce4013e76640dea
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97034086"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879391"
 ---
 # <a name="publish-and-track-machine-learning-pipelines"></a>Publier et suivre des pipelines Machine Learning
 
@@ -32,7 +32,7 @@ Les pipelines Machine Learning sont des flux de travail réutilisables pour les 
 
 * [Configurer votre environnement de développement](how-to-configure-environment.md) pour installer le SDK Azure Machine Learning ou utilisez une [instance de calcul Azure Machine Learning](concept-compute-instance.md) avec le SDK déjà installé
 
-* Créez et exécutez un pipeline Machine Learning, par exemple en suivant le [Tutoriel : Créer un pipeline Azure Machine Learning pour le scoring par lots](tutorial-pipeline-batch-scoring-classification.md). Pour d’autres options, consultez [Créer et exécuter des pipelines Machine Learning avec le kit SDK Azure Machine Learning](how-to-create-your-first-pipeline.md)
+* Créez et exécutez un pipeline Machine Learning, par exemple en suivant le [Tutoriel : Créer un pipeline Azure Machine Learning pour le scoring par lots](tutorial-pipeline-batch-scoring-classification.md). Pour d’autres options, consultez [Créer et exécuter des pipelines Machine Learning avec le kit SDK Azure Machine Learning](./how-to-create-machine-learning-pipelines.md)
 
 ## <a name="publish-a-pipeline"></a>Publier un pipeline
 

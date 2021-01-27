@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 12/04/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: fb1c6f2b541e537bcb52c55fcfd87bbebe37b8e5
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: c4871c3de8028eec1b6184c1d03ac2180b50f57d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97831939"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881348"
 ---
 # <a name="application-insights-java-in-process-agent-in-azure-spring-cloud-preview"></a>Agent In-process Java d’Application Insights dans Azure Spring Cloud (préversion)
 
@@ -83,7 +83,7 @@ Dans le volet de navigation de gauche, cliquez sur **Application Insights** pour
 
   [ ![IPA 8](media/spring-cloud-application-insights/petclinic-microservices-live-metrics.jpg)](media/spring-cloud-application-insights/petclinic-microservices-live-metrics.jpg)
 
-* Dans le volet de navigation de gauche, cliquez sur **Disponibilité** pour surveiller la disponibilité et la réactivité des applications Web en créant des [tests de disponibilité dans Application Insights](/azure/azure-monitor/app/monitor-web-app-availability).
+* Dans le volet de navigation de gauche, cliquez sur **Disponibilité** pour surveiller la disponibilité et la réactivité des applications Web en créant des [tests de disponibilité dans Application Insights](../azure-monitor/app/monitor-web-app-availability.md).
 
   [ ![IPA 9](media/spring-cloud-application-insights/petclinic-microservices-availability.jpg)](media/spring-cloud-application-insights/petclinic-microservices-availability.jpg)
 

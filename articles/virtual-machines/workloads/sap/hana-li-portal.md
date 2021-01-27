@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/31/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e5adb8edbeafa4d77e24bf865338e111c455cb80
-ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
+ms.openlocfilehash: b03f3f93e8f829c6ab7dec965850117895a8b52d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97827510"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98882482"
 ---
 # <a name="azure-hana-large-instances-control-through-azure-portal"></a>Contrôle des grandes instances Azure HANA à l’aide du portail Azure
 
@@ -94,7 +94,7 @@ Les données supplémentaires sur le côté inférieur droit sont la révision d
 - Révision 4
 
 La révision 4 est la dernière architecture des grandes instances HANA avec des améliorations majeures de la latence du réseau entre les machines virtuelles Azure et les unités de grande instance HANA déployées dans les tampons ou les lignes de révision 4.
-Vous trouverez d’autres informations très importantes dans le coin inférieur droit de la vue d’ensemble avec le nom du groupe de placement de proximité Azure créé automatiquement pour chaque unité de grande instance HANA déployée. Ce groupe de placement de proximité doit être référencé lors du déploiement des machines virtuelles Azure qui hébergent la couche application SAP. En utilisant le [groupe de placement de proximité Azure](../../linux/co-location.md) associé à l’unité de grande instance HANA, vous vous assurez que les machines virtuelles Azure sont déployées à proximité de l’unité de grande instance HANA. La méthode d’utilisation des groupes de placement de proximité pour localiser la couche d’application SAP dans le même centre de données Azure que les unités de grande instance HANA hébergées en version 4 est décrite dans la section [Groupes de placement de proximité Azure pour une latence réseau optimale avec les applications SAP](sap-proximity-placement-scenarios.md).
+Vous trouverez d’autres informations très importantes dans le coin inférieur droit de la vue d’ensemble avec le nom du groupe de placement de proximité Azure créé automatiquement pour chaque unité de grande instance HANA déployée. Ce groupe de placement de proximité doit être référencé lors du déploiement des machines virtuelles Azure qui hébergent la couche application SAP. En utilisant le [groupe de placement de proximité Azure](../../co-location.md) associé à l’unité de grande instance HANA, vous vous assurez que les machines virtuelles Azure sont déployées à proximité de l’unité de grande instance HANA. La méthode d’utilisation des groupes de placement de proximité pour localiser la couche d’application SAP dans le même centre de données Azure que les unités de grande instance HANA hébergées en version 4 est décrite dans la section [Groupes de placement de proximité Azure pour une latence réseau optimale avec les applications SAP](sap-proximity-placement-scenarios.md).
 
 Un champ supplémentaire dans la colonne de droite de l’en-tête indique l’état d’alimentation de l’unité de Grande instance HANA.
 

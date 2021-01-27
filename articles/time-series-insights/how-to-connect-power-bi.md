@@ -8,12 +8,12 @@ services: time-series-insights
 ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 12/14/2020
-ms.openlocfilehash: 07e79dbde142400677901ee02903144f9a42cd6b
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: b4ed5a419df97f98b883a07825184122945e092e
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740713"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879559"
 ---
 # <a name="visualize-data-from-azure-time-series-insights-in-power-bi"></a>Visualiser des données à partir d’Azure Time Series Insights dans Power BI
 
@@ -112,10 +112,10 @@ Maintenant que vous avez importé les données dans Power BI, il est temps de cr
 Une fois que vous avez créé votre rapport, vous pouvez le publier sur Power BI Reporting Services et le partager avec d’autres utilisateurs de votre organisation.
 
 ## <a name="advanced-editing"></a>Modification avancée
-Si vous avez déjà chargé un jeu de données dans Power BI, mais que vous souhaitez modifier la requête (par exemple, la date/heure ou les paramètres d’ID d’environnement), vous pouvez le faire via la fonctionnalité Éditeur avancé de Power BI. Reportez-vous à la [documentation Power BI](https://docs.microsoft.com/power-bi/desktop-query-overview) pour en savoir plus sur la façon d’apporter des changements avec l’**éditeur Power Query**. 
+Si vous avez déjà chargé un jeu de données dans Power BI, mais que vous souhaitez modifier la requête (par exemple, la date/heure ou les paramètres d’ID d’environnement), vous pouvez le faire via la fonctionnalité Éditeur avancé de Power BI. Reportez-vous à la [documentation Power BI](/power-bi/desktop-query-overview) pour en savoir plus sur la façon d’apporter des changements avec l’**éditeur Power Query**. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* En savoir plus sur [Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-query-overview).
+* En savoir plus sur [Power BI Desktop](/power-bi/desktop-query-overview).
 
 * Découvrez l’[interrogation de données](concepts-query-overview.md) dans Azure Time Series Insights Gen2.
