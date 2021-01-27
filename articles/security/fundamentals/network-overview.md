@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 8a82fd6e6dc1bea0804c429f3af46884f004de69
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 17d48b6093d88a926569d5cfe84475fc0c306a0d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96489766"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98874381"
 ---
 # <a name="azure-network-security-overview"></a>Vue d’ensemble de la sécurité du réseau Azure
 
@@ -178,7 +178,7 @@ Pour ce faire, vous pouvez utiliser un [VPN de site à site](https://www.techope
 
 En savoir plus :
 
-* [Créer un réseau virtuel de gestionnaire de ressources avec une connexion VPN de site à site à l’aide du portail Azure](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+* [Créer un réseau virtuel de gestionnaire de ressources avec une connexion VPN de site à site à l’aide du portail Azure](../../vpn-gateway/tutorial-site-to-site-portal.md)
 * [À propos de la passerelle VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md)
 
 ### <a name="connect-your-on-premises-network-to-a-virtual-network-with-a-dedicated-wan-link"></a>Connecter votre réseau local à un réseau virtuel à l’aide d’une liaison réseau étendu dédiée

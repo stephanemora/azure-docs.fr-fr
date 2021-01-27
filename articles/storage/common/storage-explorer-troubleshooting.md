@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: 4e87e99f16a89cab95f9bd07b75b80f1c13d47f1
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 9a20db58846ca48afb4fb256adae58e1fccdff3a
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97900652"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98875734"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guide de résolution des problèmes de l’Explorateur de stockage Azure
 
@@ -70,13 +70,13 @@ Pour les autres types de ressource, nous n’avons actuellement pas de solution 
 ### <a name="recommended-azure-built-in-roles"></a>Rôles intégrés Azure recommandés
 
 Il existe plusieurs rôles Azure intégrés qui peuvent fournir les autorisations nécessaires pour utiliser l’Explorateur Stockage. Certains de ces rôles sont les suivants :
-- [Propriétaire](/azure/role-based-access-control/built-in-roles#owner) : Gérez tout, notamment l’accès aux ressources.
-- [Collaborateur](/azure/role-based-access-control/built-in-roles#contributor) : Gérez tout, à l’exception de l’accès aux ressources.
-- [Lecteur](/azure/role-based-access-control/built-in-roles#reader) : Lisez et listez les ressources.
-- [Contributeur de compte de stockage](/azure/role-based-access-control/built-in-roles#storage-account-contributor) : Gérez en totalité les comptes de stockage.
-- [Propriétaire des données Blob du stockage](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) : Ayez un accès total aux données et conteneurs d’objets blob du Stockage Azure.
-- [Contributeur aux données Blob du stockage](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) : Lire, écrire et supprimer des conteneurs et objets blob du stockage Azure.
-- [Lecteur des données blob du stockage](/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) : Lire et répertorier des conteneurs et objets blob du stockage Azure.
+- [Propriétaire](../../role-based-access-control/built-in-roles.md#owner) : Gérez tout, notamment l’accès aux ressources.
+- [Collaborateur](../../role-based-access-control/built-in-roles.md#contributor) : Gérez tout, à l’exception de l’accès aux ressources.
+- [Lecteur](../../role-based-access-control/built-in-roles.md#reader) : Lisez et listez les ressources.
+- [Contributeur de compte de stockage](../../role-based-access-control/built-in-roles.md#storage-account-contributor) : Gérez en totalité les comptes de stockage.
+- [Propriétaire des données Blob du stockage](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) : Ayez un accès total aux données et conteneurs d’objets blob du Stockage Azure.
+- [Contributeur aux données Blob du stockage](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) : Lire, écrire et supprimer des conteneurs et objets blob du stockage Azure.
+- [Lecteur des données blob du stockage](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader) : Lire et répertorier des conteneurs et objets blob du stockage Azure.
 
 > [!NOTE]
 > Les rôles Propriétaire, Contributeur et Contributeur de compte de stockage donnent accès à la clé de compte.
